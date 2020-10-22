@@ -1,4 +1,4 @@
-import { buttonFocused } from 'plasma-tokens';
+import { buttonFocused } from '@salutejs/plasma-tokens';
 import { css } from 'styled-components';
 
 export const addFocus = () => css`

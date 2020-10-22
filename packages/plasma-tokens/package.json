@@ -1,5 +1,5 @@
 {
-  "name": "plasma-tokens",
+  "name": "@salutejs/plasma-tokens",
   "version": "0.0.2",
   "description": "",
   "main": "lib/index.js",
