@@ -18,7 +18,7 @@
         "precompile": "npm run clean",
         "compile": "tsc",
         "storybook": "start-storybook -s .storybook/public -p ${PORT:-6006} -c .storybook",
-        "build-storybook": "build-storybook"
+        "build:storybook": "build-storybook"
     },
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     
