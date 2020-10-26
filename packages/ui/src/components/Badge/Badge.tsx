@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { colors, typography } from '@salutejs/plasma-tokens';
 
-import { views } from '../Button/Button';
+import { views } from '../../mixins/views';
 
 const fontSize = 12;
 
