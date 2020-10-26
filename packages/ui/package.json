@@ -6,8 +6,8 @@
         "type": "git",
         "url": "ssh://git@github.com:salute-developers/plasma.git"
     },
-    "author": "Salute Frontend Team",
-    "license": "UNLICENSED",
+    "author": "Salute Frontend Team <salute.developers@gmail.com>",
+    
     "dependencies": {
         "@salutejs/plasma-styles": "1.1.1",
         "@salutejs/plasma-tokens": "0.0.2"

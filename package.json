@@ -1,7 +1,8 @@
 {
   "name": "plasma",
   "private": true,
-  "license": "SEE LICENSE IN LICENSE.txt",
+  "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  
   "scripts": {
     "release": "auto shipit"
   },
