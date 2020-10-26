@@ -4,7 +4,7 @@
     "description": "Salute Design System",
     "repository": {
         "type": "git",
-        "url": "ssh://git@***REMOVED***.git"
+        "url": "ssh://git@github.com:salute-developers/plasma.git"
     },
     "author": "Salute Frontend Team",
     "license": "UNLICENSED",
