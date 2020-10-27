@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/ui",
-    "version": "0.6.2",
+    "version": "0.7.0",
     "description": "Salute Design System",
     "repository": {
         "type": "git",
@@ -9,8 +9,8 @@
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     
     "dependencies": {
-        "@salutejs/plasma-styles": "1.1.2",
-        "@salutejs/plasma-tokens": "0.0.3"
+        "@salutejs/plasma-styles": "1.2.0",
+        "@salutejs/plasma-tokens": "0.1.0"
     },
     "peerDependencies": {
         "@salutejs/i18n": "0.1.0",
@@ -64,7 +64,12 @@
         "title": "Salute Design System",
         "url": "https://ui-sb.dev.app.sberdevices.ru/"
     },
-    "files": ["components", "hocs", "theme", "utils"],
+    "files": [
+        "components",
+        "hocs",
+        "theme",
+        "utils"
+    ],
     "contributors": [
         "Vasiliy Loginevskiy",
         "Антонов Игорь Александрович",
