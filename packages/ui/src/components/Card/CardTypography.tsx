@@ -1,3 +1,4 @@
+/* stylelint-disable */ // TODO:
 import styled, { css } from 'styled-components';
 import { Headline1, Headline3 } from '@salutejs/plasma-styles/components/Headline';
 import { Body1 } from '@salutejs/plasma-styles/components/Body';
@@ -9,7 +10,7 @@ import { StyledCard } from './Card';
 const views = {
     primary,
     secondary,
-    tertiary
+    tertiary,
 };
 
 interface ViewProps {
