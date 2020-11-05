@@ -1,3 +1,17 @@
+# v0.15.0 (Thu Nov 05 2020)
+
+#### 🐛 Bug Fix
+
+- fix(ui): исправление storybook под rem-ы [#36](https://github.com/salute-developers/plasma/pull/36) ([@fanisco](https://github.com/fanisco))
+- chore(ui): add missing deps to useCb [#38](https://github.com/salute-developers/plasma/pull/38) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v0.14.0 (Fri Oct 30 2020)
 
 #### 🚀 Enhancement
