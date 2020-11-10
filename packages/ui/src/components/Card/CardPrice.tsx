@@ -1,8 +1,8 @@
 import React from 'react'; // eslint-disable-line
 import styled from 'styled-components';
 import { buttonAccent } from '@salutejs/plasma-tokens';
-import { Body2 } from '@salutejs/plasma-styles/components/Body';
 
+import { Body2 } from '../Typography';
 import { formatCurrency } from '../../helpers/formatCurrency';
 
 export interface CardPriceProps {

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { surfaceLiquid01 } from '@salutejs/plasma-tokens';
-import { addFocus } from '@salutejs/plasma-styles';
-import { Body1 } from '@salutejs/plasma-styles/components/Body';
 
+import { Body1 } from '../Typography';
+import { addFocus } from '../../mixins/addFocus';
 import { PickOptional } from '../../types/PickOptional';
 
 interface StyledRootProps {

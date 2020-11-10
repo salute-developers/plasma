@@ -1,9 +1,8 @@
 /* stylelint-disable */ // TODO:
 import styled, { css } from 'styled-components';
-import { Headline1, Headline3 } from '@salutejs/plasma-styles/components/Headline';
-import { Body1 } from '@salutejs/plasma-styles/components/Body';
-import { Footnote1 } from '@salutejs/plasma-styles/components/Footnote';
 import { primary, secondary, tertiary } from '@salutejs/plasma-tokens';
+
+import { Headline1, Headline3, Body1, Footnote1 } from '../Typography';
 
 import { StyledCard } from './Card';
 
