@@ -24,7 +24,7 @@ route: /
 ```bash
 $ npm install --save react react-dom
 $ npm install --save styled-components
-$ npm install --save @salutejs/ui @salutejs/plasma-tokens
+$ npm install --save @salutejs/ui@rc @salutejs/plasma-tokens@rc
 ```
 
 ### Использование компонент

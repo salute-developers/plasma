@@ -8,8 +8,11 @@
 
 ## Состав:
 
--   `@salutejs/ui`
--   `@salutejs/plasma-tokens`
+- @salutejs/ui
+- @salutejs/plasma-tokens
+
+ [![npm ui](https://img.shields.io/npm/v/@salutejs/ui/rc?label=%40salutejs%2Fui%40rc&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/ui) 
+ [![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-tokens/rc?label=%40salutejs%2Fplasma-tokens%40rc&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-tokens)
 
 ### plasma-tokens
 
@@ -34,7 +37,7 @@
 После создания [основы приложения](https://create-react-app.dev/docs/getting-started#quick-start):
 
 ```sh
-npm i -S styled-components @salutejs/ui @salutejs/plasma-tokens
+npm i -S styled-components @salutejs/ui@rc @salutejs/plasma-tokens@rc
 ```
 
 _Компоненты реализованы с помощью [styled-components](http://styled-components.com/). Поэтому необходимо поставить их в зависимость._
