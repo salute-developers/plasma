@@ -2,6 +2,8 @@
     "name": "@salutejs/ui",
     "version": "0.20.0",
     "description": "Salute Design System",
+    "main": "index.js",
+    "types": "index.d.ts",
     "repository": {
         "type": "git",
         "url": "ssh://git@github.com:salute-developers/plasma.git"
@@ -64,7 +66,7 @@
         "title": "Salute Design System",
         "url": "https://5f96ec813d800900227e3b93-eobodfvrnh.chromatic.com/"
     },
-    "files": ["components", "hocs", "mixins", "types", "utils"],
+    "files": ["components", "hocs", "mixins", "types", "utils", "index.d.ts", "index.js"],
     "contributors": [
         "Vasiliy Loginevskiy",
         "Антонов Игорь Александрович",
