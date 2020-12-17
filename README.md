@@ -8,11 +8,13 @@
 
 ## Состав:
 
-- @salutejs/ui
-- @salutejs/plasma-tokens
+-   @salutejs/ui
+-   @salutejs/plasma-tokens
+-   @salutejs/plasma-icons
 
- [![npm ui](https://img.shields.io/npm/v/@salutejs/ui/rc?label=%40salutejs%2Fui%40rc&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/ui) 
- [![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-tokens/rc?label=%40salutejs%2Fplasma-tokens%40rc&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-tokens)
+[![npm ui](https://img.shields.io/npm/v/@salutejs/ui/rc?label=%40salutejs%2Fui%40rc&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/ui)
+[![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-tokens/rc?label=%40salutejs%2Fplasma-tokens%40rc&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-tokens)
+[![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-icons/rc?label=%40salutejs%2Fplasma-icons%40rc&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-icons)
 
 ### plasma-tokens
 
@@ -21,6 +23,10 @@
 ### ui
 
 Пакет с набором готовых компонентов для создания `Canvas App`. Компоненты реализованы с помощью [React](https://reactjs.org/). Для компонентов доступна [витрина](https://rc--5f96ec813d800900227e3b93.chromatic.com) и [документация](https://plasma-docs.netlify.app).
+
+### plasma-icons
+
+Пакет с набором иконок для совместного использования с пакетом `ui`. Все иконки также доступны к просмотру в [витрине](https://rc--5f96ec813d800900227e3b93.chromatic.com) и [документации](https://plasma-docs.netlify.app).
 
 ## Быстрый старт
 
@@ -37,7 +43,7 @@
 После создания [основы приложения](https://create-react-app.dev/docs/getting-started#quick-start):
 
 ```sh
-npm i -S styled-components @salutejs/ui@rc @salutejs/plasma-tokens@rc
+npm i -S styled-components @salutejs/ui@rc @salutejs/plasma-tokens@rc @salutejs/plasma-icons@rc
 ```
 
 _Компоненты реализованы с помощью [styled-components](http://styled-components.com/). Поэтому необходимо поставить их в зависимость._
