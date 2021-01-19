@@ -19,10 +19,10 @@
 ```bash
 $ npm install --save react react-dom
 $ npm install --save styled-components
-$ npm install --save @salutejs/ui@rc @salutejs/plasma-tokens@rc
+$ npm install --save @salutejs/ui@rc @salutejs/plasma-tokens@rc @salutejs/plasma-icons@rc
 ```
 
-### Использование компонент
+### Использование компонентов
 
 Все компоненты доступны из папки `components` или напрямую из пакета:
 
@@ -35,13 +35,24 @@ export const App = () => {
     return (
         <Container>
             <Button>Hello, Plasma!</Button>
-        <Container>
+        </Container>
     );
 };
 ```
 
+Библиотека предоставляет вспомогательную функциональность - `utils`, `mixins`, `hocs`, доступную в соответствующих директориях.
+Пример импорта:
+
+```jsx
+import { animatedScrollToX } from '@salutejs/ui/utils';
+import { addFocus } from '@salutejs/ui/mixins';
+import { withAutoFocus } from '@salutejs/ui/hocs';
+```
+
+Подробнее можно ознакомиться на страницах документации по [hocs](https://bit.ly/3vC4IZE), [mixins](https://bit.ly/3Lk4ayb) и [utils](https://bit.ly/3w0POwr).
+
 ## Полезные ссылки:
 
-Витрина с компонентами [storybook](https://rc--5f96ec813d800900227e3b93.chromatic.com).
+Витрина с компонентами [Storybook](https://rc--5f96ec813d800900227e3b93.chromatic.com).
 
 [Документация](https://bit.ly/36MIrA0).
