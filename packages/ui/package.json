@@ -11,7 +11,8 @@
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     
     "dependencies": {
-        "@salutejs/plasma-core": "^1.0.0-rc.1"
+        "@salutejs/plasma-core": "^1.0.0-rc.1",
+        "lodash.throttle": "4.1.1"
     },
     "peerDependencies": {
         "@salutejs/plasma-icons": "^0.2.0",
@@ -19,7 +20,6 @@
         "@types/node": "^12.12.30",
         "@types/react": "^16.9.38",
         "@types/react-dom": "^16.9.8",
-        "lodash.throttle": "4.1.1",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "styled-components": "^5.1.1"
@@ -46,7 +46,6 @@
         "react": "16.13.1",
         "react-dom": "16.13.1",
         "react-scripts": "3.4.1",
-        "lodash.throttle": "4.1.1",
         "sb": "6.0.0-rc.13",
         "styled-components": "5.1.1",
         "typescript": "3.9.5"
