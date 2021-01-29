@@ -5,11 +5,6 @@ import { IconMinus, IconPlus } from '@salutejs/plasma-icons';
 
 import { Stepper, StepperRoot, StepperButton, StepperValue } from '.';
 
-export default {
-    title: 'Stepper',
-    component: Stepper,
-};
-
 export const Default = () => {
     const [value, setValue] = useState(number('value', 5));
     return (

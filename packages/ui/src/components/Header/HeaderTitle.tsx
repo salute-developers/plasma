@@ -4,6 +4,9 @@ import { body2 } from '@salutejs/plasma-tokens';
 import { mediaQuery } from '../../utils/mediaQuery';
 import { TextBoxBigTitle } from '../TextBox';
 
+/**
+ * Компонент для размещения заголовка.
+ */
 export const HeaderTitle = styled(TextBoxBigTitle)`
     margin: 0;
 
