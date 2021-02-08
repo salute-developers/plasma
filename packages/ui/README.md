@@ -29,19 +29,25 @@ $ npm install --save @salutejs/ui@rc @salutejs/plasma-tokens@rc
 
 ### Использование компонент
 
-Все компоненты доступны из папки `components`
+Все компоненты доступны из папки `components` или напрямую из пакета:
 Пример:
 
 ```jsx
-import { Button } from '@salutejs/ui/components/Button/Button';
+// App.tsx
+import { Container } from '@salutejs/ui/components/Grid';
+import { Button } from '@salutejs/ui';
 
-const App = () => {
-    return <Button>Hello Plasma</Button>;
+export const App = () => {
+    return (
+        <Container>
+            <Button>Hello, Plasma!</Button>;
+        <Container>
+    );
 };
 ```
 
 ## Полезные ссылки:
 
-Витрина с компонентами [storybook](https://master--5f96ec813d800900227e3b93.chromatic.com)
+Витрина с компонентами [storybook](https://rc--5f96ec813d800900227e3b93.chromatic.com).
 
-Документация о каждом компоненте: https://bit.ly/36MIrA0
+Документация по библиотеке: https://bit.ly/36MIrA0
