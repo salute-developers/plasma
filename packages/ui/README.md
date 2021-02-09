@@ -30,7 +30,6 @@ $ npm install --save @salutejs/ui@rc @salutejs/plasma-tokens@rc
 ### Использование компонент
 
 Все компоненты доступны из папки `components` или напрямую из пакета:
-Пример:
 
 ```jsx
 // App.tsx
@@ -40,7 +39,7 @@ import { Button } from '@salutejs/ui';
 export const App = () => {
     return (
         <Container>
-            <Button>Hello, Plasma!</Button>;
+            <Button>Hello, Plasma!</Button>
         <Container>
     );
 };
@@ -50,4 +49,6 @@ export const App = () => {
 
 Витрина с компонентами [storybook](https://rc--5f96ec813d800900227e3b93.chromatic.com).
 
-Документация по библиотеке: https://bit.ly/36MIrA0
+[Документация](https://rc--5f96ec813d800900227e3b93.chromatic.com/?path=/docs/).
+
+Старая версия документации: https://bit.ly/36MIrA0
