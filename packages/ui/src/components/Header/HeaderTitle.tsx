@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { body2 } from '@salutejs/plasma-tokens';
+import { mediaQuery } from '@salutejs/plasma-core/utils';
 
-import { mediaQuery } from '../../utils/mediaQuery';
 import { TextBoxBigTitle } from '../TextBox';
 
 /**

@@ -1,8 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { scalingPixelBasis } from '@salutejs/plasma-tokens';
-
-import { mediaQuery } from '../../utils/mediaQuery';
+import { mediaQuery } from '@salutejs/plasma-core/utils';
 
 import { StyledHeaderBackButton } from './HeaderBack';
 import { HeaderSubtitle } from './HeaderSubtitle';

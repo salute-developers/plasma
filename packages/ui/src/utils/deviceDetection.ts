@@ -1,9 +1,7 @@
-import { sberPortalScale, sberBoxScale, touchScale } from '@salutejs/plasma-tokens';
-
 export const deviceScales = {
-    sberPortal: sberPortalScale,
-    sberBox: sberBoxScale,
-    touch: touchScale,
+    sberPortal: 2,
+    sberBox: 2,
+    touch: 1,
 };
 
 export type DeviceKind = keyof typeof deviceScales;

@@ -1,3 +1,3 @@
-export { useDebouncedFunction } from './useDebouncedFunction';
-export { useForkRef } from './useForkRef';
+export * from '@salutejs/plasma-core/hooks';
+
 export { useRemoteListener } from './useRemoteListener';

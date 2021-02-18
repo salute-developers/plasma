@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { PickOptional } from '../../types';
+import type { PickOptional } from '@salutejs/plasma-core/types';
 
 import type { CarouselProps } from './Carousel';
 

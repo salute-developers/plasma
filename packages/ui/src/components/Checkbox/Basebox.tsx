@@ -2,9 +2,11 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { body1, accent, secondary, white } from '@salutejs/plasma-tokens';
 import { IconDone } from '@salutejs/plasma-icons';
+import { applyDisabled } from '@salutejs/plasma-core/mixins';
+import type { DisabledProps, FocusProps } from '@salutejs/plasma-core/mixins';
+import type { InputHTMLAttributes } from '@salutejs/plasma-core/types';
 
-import { applyDisabled, DisabledProps, FocusProps, InteractionProps } from '../../mixins';
-import { InputHTMLAttributes } from '../../types';
+import type { InteractionProps } from '../../mixins';
 
 export type Value = string | number;
 export type Item = {

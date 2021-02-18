@@ -1,8 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { scalingPixelBasis } from '@salutejs/plasma-tokens';
-
-import { mediaQuery, gridSizes, gridColumns, gridMargins, gridGutters } from '../../utils';
+import { mediaQuery, gridSizes, gridColumns, gridMargins, gridGutters } from '@salutejs/plasma-core/utils';
 
 interface StyledContainerProps {
     $width: number;

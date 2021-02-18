@@ -1,7 +1,6 @@
 import React from 'react';
 import { IconMinus, IconPlus, IconClose } from '@salutejs/plasma-icons';
-
-import { PickOptional } from '../../types';
+import type { PickOptional } from '@salutejs/plasma-core/types';
 
 import { StepperButton, StepperButtonProps } from './StepperButton';
 import { StepperRoot } from './StepperRoot';

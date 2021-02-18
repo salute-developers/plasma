@@ -1,8 +1,7 @@
 import React from 'react';
 import { text, boolean, select } from '@storybook/addon-knobs';
 import { IconSettings } from '@salutejs/plasma-icons';
-
-import { View, views } from '../../mixins/applyView';
+import { View, views } from '@salutejs/plasma-core/mixins';
 
 import { Badge, badgeSizes, BadgeSize } from './Badge';
 

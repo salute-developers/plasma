@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { css, InterpolationFunction } from 'styled-components';
 import { primary, secondary } from '@salutejs/plasma-tokens';
+import { applyMaxLines, MaxLinesProps } from '@salutejs/plasma-core/mixins';
 
-import { applyMaxLines, MaxLinesProps } from '../../mixins';
 import { Body1, Footnote1 } from '../Typography';
 
 import { Card, CardProps } from './Card';

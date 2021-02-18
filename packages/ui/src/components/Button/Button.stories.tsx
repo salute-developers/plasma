@@ -9,9 +9,9 @@ import {
     buttonCritical,
     buttonChecked,
 } from '@salutejs/plasma-tokens';
+import { View } from '@salutejs/plasma-core/mixins';
 
 import { actionWithPersistedEvent } from '../../helpers';
-import { View } from '../../mixins/applyView';
 import { Body1 } from '../Typography';
 
 import { ButtonSize } from './ButtonBase';

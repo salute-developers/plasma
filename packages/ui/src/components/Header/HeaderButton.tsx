@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import type { PickOptional } from '@salutejs/plasma-core/types';
 
-import { PickOptional } from '../../types';
-import { Button, ButtonProps } from '../Button/Button';
+import { Button, ButtonProps } from '../Button';
 
 const StyledHeaderButton = styled(Button)`
     /**

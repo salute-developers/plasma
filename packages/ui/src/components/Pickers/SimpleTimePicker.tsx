@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import { padZeroNumber as formatter } from '../../utils/formatters';
-import { PickOptional } from '../../types';
+import { padZeroNumber as formatter } from '@salutejs/plasma-core/utils';
+import { PickOptional } from '@salutejs/plasma-core/types';
 
 import { Picker, PickerProps } from './Picker';
 

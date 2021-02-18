@@ -1,8 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { typography, scalingPixelBasis } from '@salutejs/plasma-tokens';
-
-import { applyView, ViewProps } from '../../mixins/applyView';
+import { applyView, ViewProps } from '@salutejs/plasma-core/mixins';
 
 /**
  * Размеры в ремах.
