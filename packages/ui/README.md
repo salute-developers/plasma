@@ -1,8 +1,3 @@
----
-name: Plasma UI
-route: /
----
-
 # Библиотека компонентов `plasma-ui`
 
 Реализация компонент для создания смартаппов.
@@ -49,6 +44,4 @@ export const App = () => {
 
 Витрина с компонентами [storybook](https://rc--5f96ec813d800900227e3b93.chromatic.com).
 
-[Документация](https://rc--5f96ec813d800900227e3b93.chromatic.com/?path=/docs/).
-
-Старая версия документации: https://bit.ly/36MIrA0
+[Документация](https://bit.ly/36MIrA0).
