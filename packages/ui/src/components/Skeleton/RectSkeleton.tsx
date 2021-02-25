@@ -1,6 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { applyRoundness, RoundnessProps, applySkeletonGradient } from '@salutejs/plasma-core/mixins';
+import { applyRoundness, RoundnessProps } from '@salutejs/plasma-core/mixins';
+
+import { applySkeletonGradient } from '../../mixins';
 
 import { DEFAULT_ROUNDNESS } from './Skeleton';
 

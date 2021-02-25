@@ -10,8 +10,10 @@
     },
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     
+    "dependencies": {
+        "@salutejs/plasma-core": "^1.0.0-rc.0"
+    },
     "peerDependencies": {
-        "@salutejs/plasma-core": "^0.0.1",
         "@salutejs/plasma-icons": "^0.2.0",
         "@salutejs/plasma-tokens": "^0.2.0",
         "@types/node": "^12.12.30",
@@ -24,7 +26,6 @@
     },
     "devDependencies": {
         "@mdx-js/mdx": "^1.6.16",
-        "@salutejs/plasma-core": "0.0.1",
         "@salutejs/plasma-icons": "0.2.0",
         "@salutejs/plasma-tokens": "0.4.0",
         "@storybook/addon-actions": "6.0.0-rc.13",
