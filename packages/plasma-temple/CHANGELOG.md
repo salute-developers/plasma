@@ -1,3 +1,18 @@
+# v0.2.0 (Thu Feb 25 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-template): add e2e test attributes [#8](https://github.com/salute-developers/pashka/pull/8) (kv.polyanskiy@gmail.com [@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-template): add e2e attributes for gallery (kv.polyanskiy@gmail.com)
+- feat(plasma-template): add e2e test attributes (kv.polyanskiy@gmail.com)
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- Konstantin Polyanskiy (kv.polyanskiy@gmail.com)
+
+---
+
 # v0.1.0 (Fri Feb 19 2021)
 
 #### 🚀 Enhancement
