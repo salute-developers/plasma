@@ -1,3 +1,20 @@
+# v0.2.1 (Fri Feb 26 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-template): use all header props [#10](https://github.com/salute-developers/pashka/pull/10) (kv.polyanskiy@gmail.com [@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- fix(plasma-template): use all header props (kv.polyanskiy@gmail.com)
+- fix(plasma-temple): add package docs [#6](https://github.com/salute-developers/pashka/pull/6) ([@LamaEats](https://github.com/LamaEats))
+- fix(plasma-temple): add package docs ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 3
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- Konstantin Polyanskiy (kv.polyanskiy@gmail.com)
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # v0.2.0 (Thu Feb 25 2021)
 
 #### 🚀 Enhancement
