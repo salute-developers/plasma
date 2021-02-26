@@ -1,3 +1,17 @@
+# v0.2.2 (Fri Feb 26 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-template): set default focus on gallery card [#9](https://github.com/salute-developers/pashka/pull/9) (kv.polyanskiy@gmail.com [@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- fix(plasma-template): set default focus on gallery card (kv.polyanskiy@gmail.com)
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- Konstantin Polyanskiy (kv.polyanskiy@gmail.com)
+
+---
+
 # v0.2.1 (Fri Feb 26 2021)
 
 #### 🐛 Bug Fix
