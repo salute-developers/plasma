@@ -11,7 +11,7 @@
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     
     "dependencies": {
-        "@salutejs/plasma-core": "^1.0.0-rc.0"
+        "@salutejs/plasma-core": "^1.0.0-rc.1"
     },
     "peerDependencies": {
         "@salutejs/plasma-icons": "^0.2.0",
