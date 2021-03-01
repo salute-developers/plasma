@@ -35,14 +35,9 @@ $ npm install --save @salutejs/plasma-core@rc
 ```jsx
 // App.tsx
 import { Button } from '@salutejs/plasma-core/components/Button';
-import { Button } from '@salutejs/plasma-core';
 
 export const App = () => {
-    return (
-        <Container>
-            <Button>Hello, Plasma!</Button>
-        <Container>
-    );
+    return <Button>Hello, Plasma!</Button>;
 };
 ```
 
