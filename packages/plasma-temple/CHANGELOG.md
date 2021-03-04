@@ -1,3 +1,17 @@
+# v0.3.0 (Thu Mar 04 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-template): support multi gallery [#13](https://github.com/salute-developers/pashka/pull/13) (kv.polyanskiy@gmail.com [@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-template): support multi gallery (kv.polyanskiy@gmail.com)
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- Konstantin Polyanskiy (kv.polyanskiy@gmail.com)
+
+---
+
 # v0.2.2 (Fri Feb 26 2021)
 
 #### 🐛 Bug Fix
