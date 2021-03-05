@@ -27,7 +27,7 @@
     "@salutejs/client": "^2.2.2",
     "@salutejs/plasma-icons": "0.2.0",
     "@salutejs/plasma-tokens": "0.4.0",
-    "@salutejs/ui": "1.0.0-rc.52",
+    "@salutejs/ui": "^1.0.0-rc.69",
     "@storybook/addon-actions": "6.0.0-rc.13",
     "@storybook/addon-backgrounds": "6.0.0-rc.13",
     "@storybook/addon-docs": "6.1.15",
