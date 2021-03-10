@@ -1,3 +1,18 @@
+# v0.4.0 (Wed Mar 10 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-template): set header title for an active gallery [#14](https://github.com/salute-developers/pashka/pull/14) (kv.polyanskiy@gmail.com [@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-template): make id required only for multi gallery (kv.polyanskiy@gmail.com)
+- feat(plasma-template): set header title for an active gallery (kv.polyanskiy@gmail.com)
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- Konstantin Polyanskiy (kv.polyanskiy@gmail.com)
+
+---
+
 # v0.3.1 (Wed Mar 10 2021)
 
 #### 🐛 Bug Fix
