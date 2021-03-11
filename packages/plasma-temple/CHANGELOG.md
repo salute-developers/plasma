@@ -1,3 +1,17 @@
+# v0.5.0 (Thu Mar 11 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-template): Invoke onPopState callback when on popstate event is fired [#18](https://github.com/salute-developers/pashka/pull/18) (kv.polyanskiy@gmail.com [@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-template): Invoke onHistoryPopState callback when on popstate history event (kv.polyanskiy@gmail.com)
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- Konstantin Polyanskiy (kv.polyanskiy@gmail.com)
+
+---
+
 # v0.4.0 (Wed Mar 10 2021)
 
 #### 🚀 Enhancement
