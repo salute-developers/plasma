@@ -1,3 +1,17 @@
+# v0.5.1 (Tue Mar 16 2021)
+
+#### 🐛 Bug Fix
+
+- Apply the voice navigation [#22](https://github.com/salute-developers/pashka/pull/22) (kv.polyanskiy@gmail.com [@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- Apply the voice navigation (kv.polyanskiy@gmail.com)
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- Konstantin Polyanskiy (kv.polyanskiy@gmail.com)
+
+---
+
 # v0.5.0 (Thu Mar 11 2021)
 
 #### 🚀 Enhancement
