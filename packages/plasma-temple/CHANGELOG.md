@@ -1,3 +1,17 @@
+# v0.7.0 (Wed Mar 17 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-template): render custom gallery card [#23](https://github.com/salute-developers/pashka/pull/23) (kv.polyanskiy@gmail.com [@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-template): render custom gallery card (kv.polyanskiy@gmail.com)
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- Konstantin Polyanskiy (kv.polyanskiy@gmail.com)
+
+---
+
 # v0.6.0 (Tue Mar 16 2021)
 
 #### 🚀 Enhancement
