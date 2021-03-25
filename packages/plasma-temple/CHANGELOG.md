@@ -1,3 +1,17 @@
+# v0.8.0 (Thu Mar 25 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-template): entity background is optional [#29](https://github.com/salute-developers/pashka/pull/29) (kv.polyanskiy@gmail.com [@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-template): entity background is optional (kv.polyanskiy@gmail.com)
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- Konstantin Polyanskiy (kv.polyanskiy@gmail.com)
+
+---
+
 # v0.7.0 (Wed Mar 17 2021)
 
 #### 🚀 Enhancement
