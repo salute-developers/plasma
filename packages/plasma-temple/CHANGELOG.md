@@ -1,3 +1,17 @@
+# v0.10.0 (Fri Mar 26 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-templlate): Video page [#28](https://github.com/salute-developers/pashka/pull/28) (kv.polyanskiy@gmail.com [@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-templlate): Video page (kv.polyanskiy@gmail.com)
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- Konstantin Polyanskiy (kv.polyanskiy@gmail.com)
+
+---
+
 # v0.9.0 (Thu Mar 25 2021)
 
 #### 🚀 Enhancement
