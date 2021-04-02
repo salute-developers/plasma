@@ -6,7 +6,7 @@ import {
     TextBoxCaption,
     TextBoxBigTitle,
     TextBoxLabel,
-} from '@salutejs/ui/components/TextBox';
+} from '@salutejs/plasma-ui/components/TextBox';
 
 import { CardShowcase, UIStoryDecorator, InSpacingDecorator } from '../helpers';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import type { TextFieldProps } from '@salutejs/ui/components/TextField';
+import type { TextFieldProps } from '@salutejs/plasma-ui/components/TextField';
 
 import { actionWithPersistedEvent } from './actionWithPersistedEvent';
 import { ShowcaseHead } from './Showcase';

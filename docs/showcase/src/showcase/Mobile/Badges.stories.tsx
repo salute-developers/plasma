@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Badge } from '@salutejs/ui/components/Badge';
+import { Badge } from '@salutejs/plasma-ui/components/Badge';
 
 import {
     ShowcasePanel,

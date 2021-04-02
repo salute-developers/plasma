@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Cell, CellDisclosure, CellIcon } from '@salutejs/ui/components/Cell';
-import { TextBox, TextBoxBiggerTitle, TextBoxSubTitle } from '@salutejs/ui/components/TextBox';
+import { Cell, CellDisclosure, CellIcon } from '@salutejs/plasma-ui/components/Cell';
+import { TextBox, TextBoxBiggerTitle, TextBoxSubTitle } from '@salutejs/plasma-ui/components/TextBox';
 
 import { ShowcasePanel, ShowcaseSectionName, UIStoryDecorator, InContainerDecorator } from '../../helpers';
 

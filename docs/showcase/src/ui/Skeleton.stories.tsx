@@ -2,8 +2,8 @@ import React from 'react';
 import { boolean, select, number } from '@storybook/addon-knobs';
 import { typography } from '@salutejs/plasma-tokens';
 import { radiuses, Roundness } from '@salutejs/plasma-core/mixins';
-import { withSkeleton, WithSkeletonProps } from '@salutejs/ui/hocs';
-import { Button, ButtonProps } from '@salutejs/ui/components/Button';
+import { withSkeleton, WithSkeletonProps } from '@salutejs/plasma-ui/hocs';
+import { Button, ButtonProps } from '@salutejs/plasma-ui/components/Button';
 import {
     Card,
     CardBody,
@@ -12,9 +12,9 @@ import {
     CardHeadline1,
     CardHeadline3,
     CardFootnote1,
-} from '@salutejs/ui/components/Card';
-import { LineSkeleton, TextSkeleton, RectSkeleton } from '@salutejs/ui/components/Skeleton';
-import type { TextSize } from '@salutejs/ui/components/Skeleton/Skeleton';
+} from '@salutejs/plasma-ui/components/Card';
+import { LineSkeleton, TextSkeleton, RectSkeleton } from '@salutejs/plasma-ui/components/Skeleton';
+import type { TextSize } from '@salutejs/plasma-ui/components/Skeleton/Skeleton';
 
 import { CardShowcase, UIStoryDecorator, InSpacingDecorator } from '../helpers';
 

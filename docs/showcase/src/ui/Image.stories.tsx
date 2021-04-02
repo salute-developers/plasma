@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from '@salutejs/ui/components/Image';
+import { Image } from '@salutejs/plasma-ui/components/Image';
 
 import { CardShowcase, UIStoryDecorator, InSpacingDecorator } from '../helpers';
 

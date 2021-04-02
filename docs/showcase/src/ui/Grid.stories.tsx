@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Container, Row, Col } from '@salutejs/ui/components/Grid';
-import { Headline4 } from '@salutejs/ui/components/Typography';
+import { Container, Row, Col } from '@salutejs/plasma-ui/components/Grid';
+import { Headline4 } from '@salutejs/plasma-ui/components/Typography';
 
 import { Filler, UIStoryDecorator } from '../helpers';
 

@@ -7,13 +7,13 @@ import {
     CarouselItemProps,
     CarouselCol,
     useRemoteHandlers,
-} from '@salutejs/ui/components/Carousel';
-import { Card, CardBody, CardMedia, CardContent } from '@salutejs/ui/components/Card';
-import { Container, Row } from '@salutejs/ui/components/Grid';
-import { Headline4 } from '@salutejs/ui/components/Typography';
-import { isSberBox } from '@salutejs/ui/utils/deviceDetection';
-import { TextBox, TextBoxBigTitle, TextBoxSubTitle } from '@salutejs/ui/components/TextBox';
-import type { Ratio } from '@salutejs/ui/components/Image';
+} from '@salutejs/plasma-ui/components/Carousel';
+import { Card, CardBody, CardMedia, CardContent } from '@salutejs/plasma-ui/components/Card';
+import { Container, Row } from '@salutejs/plasma-ui/components/Grid';
+import { Headline4 } from '@salutejs/plasma-ui/components/Typography';
+import { isSberBox } from '@salutejs/plasma-ui/utils/deviceDetection';
+import { TextBox, TextBoxBigTitle, TextBoxSubTitle } from '@salutejs/plasma-ui/components/TextBox';
+import type { Ratio } from '@salutejs/plasma-ui/components/Image';
 
 import { UIStoryDecorator } from '../helpers';
 

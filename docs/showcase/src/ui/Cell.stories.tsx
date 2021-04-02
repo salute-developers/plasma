@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Cell, CellListItem, CellIcon, CellDisclosure } from '@salutejs/ui/components/Cell';
+import { Cell, CellListItem, CellIcon, CellDisclosure } from '@salutejs/plasma-ui/components/Cell';
 import {
     TextBox,
     TextBoxTitle,
     TextBoxSubTitle,
     TextBoxLabel,
     TextBoxCaption,
-} from '@salutejs/ui/components/TextBox';
-import { Body1 } from '@salutejs/ui/components/Typography';
+} from '@salutejs/plasma-ui/components/TextBox';
+import { Body1 } from '@salutejs/plasma-ui/components/Typography';
 import { accent } from '@salutejs/plasma-tokens';
 
 import { CardShowcase, UIStoryDecorator, InSpacingDecorator } from '../helpers';

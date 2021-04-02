@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stepper } from '@salutejs/ui/components/Stepper';
+import { Stepper } from '@salutejs/plasma-ui/components/Stepper';
 
 import { actionWithPersistedEvent, ShowcaseComponentRow, UIStoryDecorator, InSpacingDecorator } from '../helpers';
 

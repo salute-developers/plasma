@@ -5,8 +5,8 @@ import { darkEva, darkJoy, darkSber, lightEva, lightJoy, lightSber } from '@salu
 import { sberPortal, sberBox, mobile } from '@salutejs/plasma-tokens/typo';
 import { light } from '@salutejs/plasma-tokens-web/themes';
 import { web } from '@salutejs/plasma-tokens-web/typo';
-import { DeviceThemeProvider } from '@salutejs/ui/components/Device';
-import { Container } from '@salutejs/ui/components/Grid';
+import { DeviceThemeProvider } from '@salutejs/plasma-ui/components/Device';
+import { Container } from '@salutejs/plasma-ui/components/Grid';
 
 const themes = {
     darkSber: createGlobalStyle(darkSber),

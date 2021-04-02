@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Footnote1 } from '@salutejs/ui';
+import { Footnote1 } from '@salutejs/plasma-ui';
 import { secondary } from '@salutejs/plasma-tokens';
 
 import { Default as CheckboxStory } from '../../ui/Checkbox.stories';

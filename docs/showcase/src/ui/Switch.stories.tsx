@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch } from '@salutejs/ui/components/Switch';
+import { Switch } from '@salutejs/plasma-ui/components/Switch';
 
 import { actionWithPersistedEvent, ShowcaseComponentGrid, UIStoryDecorator, InSpacingDecorator } from '../helpers';
 

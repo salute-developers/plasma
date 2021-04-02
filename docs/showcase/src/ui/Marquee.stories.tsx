@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Cell } from '@salutejs/ui/components/Cell';
-import { Footnote1 } from '@salutejs/ui/components/Typography';
-import { Marquee } from '@salutejs/ui/components/Marquee';
+import { Cell } from '@salutejs/plasma-ui/components/Cell';
+import { Footnote1 } from '@salutejs/plasma-ui/components/Typography';
+import { Marquee } from '@salutejs/plasma-ui/components/Marquee';
 
 import { UIStoryDecorator, InSpacingDecorator } from '../helpers';
 

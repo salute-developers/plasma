@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs, TabItem } from '@salutejs/ui/components/Tabs';
+import { Tabs, TabItem } from '@salutejs/plasma-ui/components/Tabs';
 
 import { TabsShowcase, IconPlaceholder, UIStoryDecorator, InSpacingDecorator } from '../helpers';
 

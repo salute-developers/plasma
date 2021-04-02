@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radiobox } from '@salutejs/ui/components/Radiobox';
+import { Radiobox } from '@salutejs/plasma-ui/components/Radiobox';
 
 import { RadioboxShowcase, UIStoryDecorator, InSpacingDecorator } from '../helpers';
 

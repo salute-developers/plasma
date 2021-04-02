@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@salutejs/ui/components/Button';
+import { Button } from '@salutejs/plasma-ui/components/Button';
 
 import { ButtonShowcase } from '../../helpers';
 

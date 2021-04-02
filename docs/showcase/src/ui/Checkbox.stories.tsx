@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox } from '@salutejs/ui/components/Checkbox';
+import { Checkbox } from '@salutejs/plasma-ui/components/Checkbox';
 
 import { CheckboxShowcase, UIStoryDecorator, InSpacingDecorator } from '../helpers';
 

@@ -1,15 +1,15 @@
 import React from 'react';
-import { Button } from '@salutejs/ui/components/Button';
-import { Card, CardBody, CardMedia, CardContent, CardParagraph1 } from '@salutejs/ui/components/Card';
-import { Cell, CellListItem, CellIcon, CellDisclosure } from '@salutejs/ui/components/Cell';
-import { Body1 } from '@salutejs/ui/components/Typography';
+import { Button } from '@salutejs/plasma-ui/components/Button';
+import { Card, CardBody, CardMedia, CardContent, CardParagraph1 } from '@salutejs/plasma-ui/components/Card';
+import { Cell, CellListItem, CellIcon, CellDisclosure } from '@salutejs/plasma-ui/components/Cell';
+import { Body1 } from '@salutejs/plasma-ui/components/Typography';
 import {
     TextBox,
     TextBoxBigTitle,
     TextBoxBiggerTitle,
     TextBoxTitle,
     TextBoxSubTitle,
-} from '@salutejs/ui/components/TextBox';
+} from '@salutejs/plasma-ui/components/TextBox';
 
 import { CardShowcase, IconPlaceholder, UIStoryDecorator, InSpacingDecorator } from '../helpers';
 

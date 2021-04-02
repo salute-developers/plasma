@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from '@salutejs/ui/components/Button';
-import { Container } from '@salutejs/ui/components/Grid';
-import { Header } from '@salutejs/ui/components/Header';
-import { Tabs, TabItem } from '@salutejs/ui/components/Tabs';
+import { Button } from '@salutejs/plasma-ui/components/Button';
+import { Container } from '@salutejs/plasma-ui/components/Grid';
+import { Header } from '@salutejs/plasma-ui/components/Header';
+import { Tabs, TabItem } from '@salutejs/plasma-ui/components/Tabs';
 
 import {
     actionWithPersistedEvent,

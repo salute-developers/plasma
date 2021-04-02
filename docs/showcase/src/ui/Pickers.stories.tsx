@@ -4,8 +4,8 @@ import { action } from '@storybook/addon-actions';
 import {
     DatePicker as DatePickerComponent,
     TimePicker as TimePickerComponent,
-} from '@salutejs/ui/components/Pickers';
-import { isSberBox } from '@salutejs/ui/utils/deviceDetection';
+} from '@salutejs/plasma-ui/components/Pickers';
+import { isSberBox } from '@salutejs/plasma-ui/utils/deviceDetection';
 
 import { ShowcaseDashedBorder, UIStoryDecorator, InSpacingDecorator } from '../helpers';
 

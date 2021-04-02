@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField, TextFieldProps } from '@salutejs/ui/components/TextField';
+import { TextField, TextFieldProps } from '@salutejs/plasma-ui/components/TextField';
 
 import { TextFieldShowcase, IconPlaceholder, UIStoryDecorator, InSpacingDecorator } from '../helpers';
 

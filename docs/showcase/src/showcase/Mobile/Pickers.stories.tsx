@@ -1,5 +1,5 @@
 import React from 'react';
-import { DatePicker, TimePicker } from '@salutejs/ui/components/Pickers';
+import { DatePicker, TimePicker } from '@salutejs/plasma-ui/components/Pickers';
 
 import { ShowcasePanel, ShowcaseDashedBorder, ShowcaseSectionName } from '../../helpers';
 

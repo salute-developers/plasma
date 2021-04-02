@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spinner } from '@salutejs/ui/components/Spinner';
+import { Spinner } from '@salutejs/plasma-ui/components/Spinner';
 
 import { CommonShowcase, UIStoryDecorator, InSpacingDecorator } from '../helpers';
 

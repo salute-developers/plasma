@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Icon, iconSectionsSet, IconName as IName, IconSize } from '@salutejs/plasma-icons';
-import { Cell } from '@salutejs/ui/components/Cell';
-import { TextBox } from '@salutejs/ui/components/TextBox';
-import { Headline3, Body3 } from '@salutejs/ui/components/Typography';
+import { Cell } from '@salutejs/plasma-ui/components/Cell';
+import { TextBox } from '@salutejs/plasma-ui/components/TextBox';
+import { Headline3, Body3 } from '@salutejs/plasma-ui/components/Typography';
 import { secondary, accent } from '@salutejs/plasma-tokens';
 
 import { UIStoryDecorator, InSpacingDecorator } from '../helpers';

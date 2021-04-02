@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { darkEva, darkJoy, darkSber, lightEva, lightJoy, lightSber } from '@salutejs/plasma-tokens/themes';
 import { light } from '@salutejs/plasma-tokens-web/themes';
-import { Cell, CellIcon } from '@salutejs/ui/components/Cell';
-import { TextBox } from '@salutejs/ui/components/TextBox';
-import { Display3, Headline3, Footnote1, Caption } from '@salutejs/ui/components/Typography';
+import { Cell, CellIcon } from '@salutejs/plasma-ui/components/Cell';
+import { TextBox } from '@salutejs/plasma-ui/components/TextBox';
+import { Display3, Headline3, Footnote1, Caption } from '@salutejs/plasma-ui/components/Typography';
 
 export const themeColorsComments = {
     accent: 'Акцентный цвет призыва к действию',

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SmartPaginationDots, PaginationDots, PaginationDot } from '@salutejs/ui/components/PaginationDots';
-import { Badge } from '@salutejs/ui/components/Badge';
-import { ActionButton } from '@salutejs/ui/components/Button';
+import { SmartPaginationDots, PaginationDots, PaginationDot } from '@salutejs/plasma-ui/components/PaginationDots';
+import { Badge } from '@salutejs/plasma-ui/components/Badge';
+import { ActionButton } from '@salutejs/plasma-ui/components/Button';
 import isChromatic from 'chromatic/isChromatic';
 
 import { ShowcaseComponentRow, ShowcaseDashedBorder, UIStoryDecorator, InSpacingDecorator } from '../helpers';

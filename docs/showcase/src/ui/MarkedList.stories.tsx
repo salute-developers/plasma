@@ -1,6 +1,6 @@
 import React from 'react';
 import { accent, primary, tertiary } from '@salutejs/plasma-tokens';
-import { MarkedList, MarkedItem } from '@salutejs/ui/components/MarkedList';
+import { MarkedList, MarkedItem } from '@salutejs/plasma-ui/components/MarkedList';
 
 import { IconPlaceholder, UIStoryDecorator, InSpacingDecorator } from '../helpers';
 

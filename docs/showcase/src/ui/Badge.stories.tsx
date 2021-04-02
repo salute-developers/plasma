@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge } from '@salutejs/ui/components/Badge';
+import { Badge } from '@salutejs/plasma-ui/components/Badge';
 
 import { CommonShowcase, IconPlaceholder, UIStoryDecorator, InSpacingDecorator } from '../helpers';
 

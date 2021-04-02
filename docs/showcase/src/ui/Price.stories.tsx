@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Price } from '@salutejs/ui/components/Price';
+import { Price } from '@salutejs/plasma-ui/components/Price';
 
 import { ShowcaseDashedBorder, UIStoryDecorator, InSpacingDecorator } from '../helpers';
 
