@@ -9,13 +9,13 @@
 ## Состав:
 
 -   @salutejs/plasma-core
--   @salutejs/ui
+-   @salutejs/plasma-ui
 -   @salutejs/plasma-tokens
 -   @salutejs/plasma-icons
 
-[![npm ui](https://img.shields.io/npm/v/@salutejs/ui/rc?label=%40salutejs%2Fui%40rc&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/ui)
-[![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-tokens/rc?label=%40salutejs%2Fplasma-tokens%40rc&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-tokens)
-[![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-icons/rc?label=%40salutejs%2Fplasma-icons%40rc&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-icons)
+[![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-ui?label=%40salutejs%2Fplasma-ui&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-ui)
+[![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-tokens?label=%40salutejs%2Fplasma-tokens&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-tokens)
+[![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-icons?label=%40salutejs%2Fplasma-icons&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-icons)
 
 ### plasma-tokens
 
@@ -23,11 +23,11 @@
 
 ### ui
 
-Пакет с набором готовых компонентов для создания `Canvas App`. Компоненты реализованы с помощью [React](https://reactjs.org/). Для компонентов доступна [витрина](https://rc--5f96ec813d800900227e3b93.chromatic.com) и [документация](https://bit.ly/36MIrA0).
+Пакет с набором готовых компонентов для создания `Canvas App`. Компоненты реализованы с помощью [React](https://reactjs.org/). Для компонентов доступна [витрина](https://master--5f96ec813d800900227e3b93.chromatic.com) и [документация](https://bit.ly/36MIrA0).
 
 ### plasma-icons
 
-Пакет с набором иконок для совместного использования с пакетом `ui`. Все иконки также доступны к просмотру в [витрине](https://rc--5f96ec813d800900227e3b93.chromatic.com) и [документации](https://bit.ly/36MIrA0current/?path=/docs/content-icon--xs-size).
+Пакет с набором иконок для совместного использования с пакетом `ui`. Все иконки также доступны к просмотру в [витрине](https://master--5f96ec813d800900227e3b93.chromatic.com) и [документации](https://bit.ly/36MIrA0current/?path=/docs/content-icon--xs-size).
 
 ## Быстрый старт
 
@@ -44,7 +44,7 @@
 После создания [основы приложения](https://create-react-app.dev/docs/getting-started#quick-start):
 
 ```sh
-npm i -S styled-components @salutejs/ui@rc @salutejs/plasma-tokens@rc @salutejs/plasma-icons@rc
+npm i -S styled-components @salutejs/plasma-ui @salutejs/plasma-tokens @salutejs/plasma-icons
 ```
 
 _Компоненты реализованы с помощью [styled-components](http://styled-components.com/). Поэтому необходимо поставить их в зависимость._
@@ -61,7 +61,7 @@ npm i -S react react-dom
 // ./src/App.jsx
 import React from 'react';
 
-import { Button } from '@salutejs/ui/components/Button/Button';
+import { Button } from '@salutejs/plasma-ui/components/Button/Button';
 
 function App() {
     return (

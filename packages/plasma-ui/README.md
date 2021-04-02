@@ -19,7 +19,7 @@
 ```bash
 $ npm install --save react react-dom
 $ npm install --save styled-components
-$ npm install --save @salutejs/ui@rc @salutejs/plasma-tokens@rc @salutejs/plasma-icons@rc
+$ npm install --save @salutejs/plasma-ui @salutejs/plasma-tokens @salutejs/plasma-icons
 ```
 
 ### Настройка
@@ -55,7 +55,7 @@ export const GlobalStyle = () => (
 
 ```jsx
 // index.tsx
-import { DeviceThemeProvider } from '@salutejs/ui/components/Device'; // Типографика, имеющая размеры, зависимые от типа устройства
+import { DeviceThemeProvider } from '@salutejs/plasma-ui/components/Device'; // Типографика, имеющая размеры, зависимые от типа устройства
 import { GlobalStyle } from './GlobalStyle'; // Тема оформления (цветовая схема)
 import { App } from './App';
 
@@ -68,7 +68,7 @@ ReactDOM.render(
 );
 ```
 
-> Подробнее о [стилях и типографике](https://github.com/salute-developers/plasma/tree/rc/packages/plasma-tokens).
+> Подробнее о [стилях и типографике](https://github.com/salute-developers/plasma/tree/master/packages/plasma-tokens).
 
 ### Использование компонентов
 
@@ -76,8 +76,8 @@ ReactDOM.render(
 
 ```jsx
 // App.tsx
-import { Container } from '@salutejs/ui/components/Grid';
-import { Button } from '@salutejs/ui';
+import { Container } from '@salutejs/plasma-ui/components/Grid';
+import { Button } from '@salutejs/plasma-ui';
 
 export const App = () => {
     return (
@@ -92,15 +92,15 @@ export const App = () => {
 Пример импорта:
 
 ```jsx
-import { animatedScrollToX } from '@salutejs/ui/utils';
-import { addFocus } from '@salutejs/ui/mixins';
-import { withAutoFocus } from '@salutejs/ui/hocs';
+import { animatedScrollToX } from '@salutejs/plasma-ui/utils';
+import { addFocus } from '@salutejs/plasma-ui/mixins';
+import { withAutoFocus } from '@salutejs/plasma-ui/hocs';
 ```
 
 Подробнее можно ознакомиться на страницах документации по [hocs](https://bit.ly/3vC4IZE), [mixins](https://bit.ly/3Lk4ayb) и [utils](https://bit.ly/3w0POwr).
 
 ## Полезные ссылки:
 
-Витрина с компонентами [Storybook](https://rc--5f96ec813d800900227e3b93.chromatic.com).
+Витрина с компонентами [Storybook](https://master--5f96ec813d800900227e3b93.chromatic.com).
 
 [Документация](https://bit.ly/36MIrA0).

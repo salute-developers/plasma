@@ -11,7 +11,7 @@
 ### Установка пакета
 
 ```sh
-npm i --save @salutejs/plasma-icons@rc
+npm i --save @salutejs/plasma-icons
 ```
 
 ### Использование компонентов
