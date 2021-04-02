@@ -1,18 +1,24 @@
 {
     "name": "@salutejs/plasma-tokens-ios-swift",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "Plasma tokens for ios (swift)",
-    "files": ["tokens"],
+    "files": [
+        "tokens"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/salute-developers/plasma.git"
     },
-    "keywords": ["plasma", "tokens", "ios"],
+    "keywords": [
+        "plasma",
+        "tokens",
+        "ios"
+    ],
     "scripts": {
         "prepare": "mkdir -p tokens && cp -R node_modules/@salutejs/plasma-tokens/build/ios-swift/* tokens"
     },
     "devDependencies": {
-        "@salutejs/plasma-tokens": "0.4.0"
+        "@salutejs/plasma-tokens": "1.0.0"
     },
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     

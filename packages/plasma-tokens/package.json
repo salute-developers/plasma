@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-tokens",
-    "version": "0.4.0",
+    "version": "1.0.0",
     "description": "",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     
@@ -22,7 +22,14 @@
     "publishConfig": {
         "access": "public"
     },
-    "files": ["lib", "typo", "themes", "themesValues", "theme.json", "theme@2x.json"],
+    "files": [
+        "lib",
+        "typo",
+        "themes",
+        "themesValues",
+        "theme.json",
+        "theme@2x.json"
+    ],
     "devDependencies": {
         "@emotion/serialize": "0.11.16",
         "@salutejs/plasma-tokens-utils": "0.2.0",
@@ -39,5 +46,9 @@
         "ts-node": "^9.0.0",
         "typescript": "^4.0.2"
     },
-    "contributors": ["Виноградов Антон Александрович", "Зубаиров Фаниль Асхатович", "Vasiliy Loginevskiy"]
+    "contributors": [
+        "Виноградов Антон Александрович",
+        "Зубаиров Фаниль Асхатович",
+        "Vasiliy Loginevskiy"
+    ]
 }
