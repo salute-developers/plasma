@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { surfaceLiquid03 } from '@salutejs/plasma-tokens';
 import { Caption } from '@salutejs/plasma-ui/components/Typography';
-import { TextBox } from '@salutejs/plasma-ui';
+import { TextBox } from '@salutejs/plasma-ui/components/TextBox';
 
 export const ShowcaseComponentGrid = styled.div<{ cols?: number }>`
     display: grid;
