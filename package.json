@@ -4,7 +4,7 @@
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   
   "scripts": {
-    "release": "npm whoami && tsc -p auto-plugins/tsconfig.json && git diff && auto shipit",
+    "release": "npm whoami && tsc -p auto-plugins/tsconfig.json && git diff && auto shipit -v",
     "chromatic": "lerna run chromatic",
     "build-storybook": "lerna run build-storybook",
     "build-docz": "lerna bootstrap --scope=@salutejs/ui && lerna run docz:build",
