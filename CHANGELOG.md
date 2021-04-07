@@ -1,3 +1,25 @@
+# (Wed Apr 07 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/showcase@0.2.0`, `@salutejs/plasma-ui@1.1.0`
+  - feat(plasma-ui): TimePicker: correct min and max behavior [#269](https://github.com/salute-developers/plasma/pull/269) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-ui@1.1.0`
+  - feat(plasma-ui): Carousel: dynamic options list refresh [#269](https://github.com/salute-developers/plasma/pull/269) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/showcase@0.2.0`, `demo-tokens@0.4.0`
+  - chore: Bump dependencies versions [#269](https://github.com/salute-developers/plasma/pull/269) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/showcase@0.2.0`
+  - docs(showcase): Fix showcase helpers [#269](https://github.com/salute-developers/plasma/pull/269) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Fri Apr 02 2021)
 
 #### 💥 Breaking Change
