@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Row } from '@salutejs/ui/components/Grid';
+import { Row } from '@salutejs/plasma-ui';
 
 import { ItemEntity, ItemEntityProps } from '../ItemEntity/ItemEntity';
 import { Section } from '../Section/Section';

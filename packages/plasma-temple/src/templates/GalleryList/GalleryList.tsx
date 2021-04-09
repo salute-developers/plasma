@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Container } from '@salutejs/ui/components/Grid';
-import { Carousel, CarouselGridWrapper, CarouselItem } from '@salutejs/ui/components/Carousel';
+import { Carousel, CarouselGridWrapper, CarouselItem, Container } from '@salutejs/plasma-ui';
 
 import { Gallery } from './components/Gallery/Gallery';
 import { Header } from '../../components/Header/Header';
@@ -10,7 +9,7 @@ import { PageProps, MultiGalleryViewPayload, Screen, GalleryItemViewPayload, Gal
 import { useAssistantState } from '../../hooks/useAssistantState';
 import { useRemoteHandlers } from '../../hooks/useRemoteHandlers';
 import { setPositionAction, setStepAction } from '../../store/actions';
-import { isSberPortal } from '@salutejs/ui/utils';
+import { isSberPortal } from '@salutejs/plasma-ui/utils';
 import { useVoiceNavigation } from '../../hooks/useVoiceNavigation';
 
 const StyledCarouselGridWrapper = styled(CarouselGridWrapper)`

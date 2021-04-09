@@ -1,5 +1,5 @@
 import { secondary } from '@salutejs/plasma-tokens';
-import { Headline3, Body1 } from '@salutejs/ui';
+import { Headline3, Body1 } from '@salutejs/plasma-ui';
 import React from 'react';
 import styled from 'styled-components';
 

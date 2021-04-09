@@ -1,9 +1,9 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { Headline3, Row } from '@salutejs/ui';
-import { Carousel, CarouselGridWrapper } from '@salutejs/ui/components/Carousel';
-import { isSberPortal } from '@salutejs/ui/utils';
+import { Headline3, Row } from '@salutejs/plasma-ui';
+import { Carousel, CarouselGridWrapper } from '@salutejs/plasma-ui';
+import { isSberPortal } from '@salutejs/plasma-ui/utils';
 
 import { GalleryCard } from '../GalleryCard/GalleryCard';
 import { Header } from '../../../../components/Header/Header';

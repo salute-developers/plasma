@@ -1,4 +1,4 @@
-import { isSberBox } from '@salutejs/ui/utils';
+import { isSberBox } from '@salutejs/plasma-ui/utils';
 import throttle from 'lodash.throttle';
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Axis } from '../types';

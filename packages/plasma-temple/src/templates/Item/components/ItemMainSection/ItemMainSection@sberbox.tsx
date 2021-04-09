@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { secondary } from '@salutejs/plasma-tokens';
-import { Headline1, Body1 } from '@salutejs/ui';
+import { Headline1, Body1 } from '@salutejs/plasma-ui';
 
 import { Section } from '../Section/Section';
 

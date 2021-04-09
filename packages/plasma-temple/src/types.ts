@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { AssistantSmartAppData, createAssistant } from '@salutejs/client';
-import { Ratio } from '@salutejs/ui/components/Image';
+import { Ratio } from '@salutejs/plasma-ui';
 
 import { InitializeParams } from './assistant';
 import { CurrentHistory, SetPositionPayload, SetStatePayload, SetStepPayload, AppStateAction, UIState } from './store/reducer';

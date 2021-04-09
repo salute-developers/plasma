@@ -1,9 +1,9 @@
 import React  from 'react';
 import styled from 'styled-components';
-import { CarouselCol, Card, CardBody, CardMedia, CardBody1, CardBadge, CardContent, Caption } from '@salutejs/ui';
+import { CarouselCol, Card, CardBody, CardMedia, CardBody1, CardBadge, CardContent, Caption } from '@salutejs/plasma-ui';
 import { IconClock } from '@salutejs/plasma-icons';
 import { overlay, primary } from '@salutejs/plasma-tokens';
-import { isSberBox } from '@salutejs/ui/utils';
+import { isSberBox } from '@salutejs/plasma-ui/utils';
 import { GalleryCardProps } from '../../../../types';
 
 const StyledCardIndex = styled(CardBadge)`
@@ -83,7 +83,7 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({ card, activeCardIndex,
                 <CardBody>
                     <CardMedia src={imageSrc} ratio={card.image.ratio ?? '1 / 1'} data-cy="gallery-card-media" >
                         {!!card.position && (
-                            <StyledCardIndex view="index" size="l" circled text={String(card.position)} />
+                            <StyledCardIndex view="secondary" size="l" circled text={String(card.position)} />
                         )}
                         {typeof card.tag === 'string' && (
                             <StyledTag view="secondary" size="s" text={card.tag} />
