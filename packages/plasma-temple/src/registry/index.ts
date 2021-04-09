@@ -1,4 +1,4 @@
-import { isSberPortal } from '@salutejs/ui/utils';
+import { isSberPortal } from '@salutejs/plasma-ui/utils';
 
 import SberBoxRegistry from './registry@sberbox';
 import SberPortalRegistry from './registry@sberportal';

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { IconPlay } from '@salutejs/plasma-icons/Icons/IconPlay';
-import { Cell, TextBox, TextBoxLabel, TextBoxTitle, Button } from '@salutejs/ui';
-import { isSberBox } from "@salutejs/ui/utils";
+import { Cell, TextBox, TextBoxLabel, TextBoxTitle, Button } from '@salutejs/plasma-ui';
+import { isSberBox } from '@salutejs/plasma-ui/utils/deviceDetection';
 
 import { FullScreenBackground } from "../FullScreenBackground/FullScreenBackground";
 import { UnifiedComponentProps } from "../../../../registry/types";

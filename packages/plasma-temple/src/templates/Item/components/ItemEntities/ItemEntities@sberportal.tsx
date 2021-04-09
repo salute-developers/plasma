@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Headline3 } from '@salutejs/ui/components/Typography';
+import { Headline3 } from '@salutejs/plasma-ui';
 
 import { ItemEntities as DefaultItemEntities, ItemEntitiesProps } from './ItemEntities';
 

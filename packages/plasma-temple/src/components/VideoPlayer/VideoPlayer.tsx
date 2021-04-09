@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { Headline3, Spinner } from '@salutejs/ui';
+import { Headline3, Spinner } from '@salutejs/plasma-ui';
 import { isControlVisible, MediaPlayerControls } from '../MediaPlayer/MediaPlayerControls';
 import { MediaPlayerTimeline } from '../MediaPlayer/MediaPlayerTimeline';
 import { ControlType, CustomMediaPlayerControlsProps } from '../MediaPlayer/types';
@@ -10,7 +10,7 @@ import { useMediaPlayer } from '../MediaPlayer/hooks/useMediaPlayer';
 import { useMediaPlayerKeyboard } from '../MediaPlayer/hooks/useMediaPlayerKeyboard';
 import { useTimer } from '../MediaPlayer/hooks/useTimer';
 import { AssistantInsetsCommand } from '@salutejs/client';
-import { gridMargins, gridSizes, mediaQuery } from '@salutejs/ui/utils';
+import { gridMargins, gridSizes, mediaQuery } from '@salutejs/plasma-ui/utils';
 
 type Insets = AssistantInsetsCommand['insets'];
 

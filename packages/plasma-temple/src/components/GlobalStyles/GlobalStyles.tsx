@@ -1,8 +1,8 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { fonts, gradient, text } from '@salutejs/plasma-tokens';
-import { ThemeDarkEva, ThemeDarkJoy, ThemeDarkSber } from '@salutejs/ui/components/Theme';
-import { isSberPortal } from '@salutejs/ui/utils';
+import { darkJoy, darkEva, darkSber } from '@salutejs/plasma-tokens/themes';
+import { isSberPortal } from '@salutejs/plasma-ui/utils';
 import { AssistantCharacterType } from '@salutejs/client';
 import { sberBox, sberPortal } from '@salutejs/plasma-tokens/typo';
 
@@ -39,9 +39,9 @@ const DocumentStyles = createGlobalStyle`
 const TypoStyles = createGlobalStyle(isSberPortal() ? sberPortal : sberBox);
 
 const charactersTheme: Record<AssistantCharacterType, React.ComponentType> = {
-    eva: ThemeDarkEva,
-    joy: ThemeDarkJoy,
-    sber: ThemeDarkSber,
+    eva: createGlobalStyle(darkEva),
+    joy: createGlobalStyle(darkJoy),
+    sber: createGlobalStyle(darkSber),
 };
 
 interface GlogalStylesProps {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { Headline2 } from '@salutejs/ui';
+import { Headline2 } from '@salutejs/plasma-ui';
 
 import { ItemEntities } from './ItemEntities';
 
