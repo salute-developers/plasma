@@ -1,3 +1,16 @@
+# (Tue Apr 13 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/showcase@0.6.0`, `@salutejs/plasma-ui@1.3.0`
+  - feat(ui): Add base to props in Image component [#298](https://github.com/salute-developers/plasma/pull/298) ([@ayymkozb](https://github.com/ayymkozb))
+
+#### Authors: 1
+
+- [@ayymkozb](https://github.com/ayymkozb)
+
+---
+
 # (Mon Apr 12 2021)
 
 #### 🐛 Bug Fix
