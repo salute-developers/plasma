@@ -1,3 +1,16 @@
+# (Wed Apr 14 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/showcase@0.7.0`, `@salutejs/plasma-web@1.2.0`
+  - feat(plasma-web): Added TextArea component [#290](https://github.com/salute-developers/plasma/pull/290) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Tue Apr 13 2021)
 
 #### 🚀 Enhancement
