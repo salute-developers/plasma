@@ -1,3 +1,16 @@
+# (Thu Apr 15 2021)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-icons@1.1.1`, `@salutejs/plasma-ui@1.3.1`, `@salutejs/plasma-web@1.2.1`
+  - fix: bump peerDeps [#307](https://github.com/salute-developers/plasma/pull/307) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Wed Apr 14 2021)
 
 #### 🚀 Enhancement
