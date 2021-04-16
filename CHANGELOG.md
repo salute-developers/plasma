@@ -1,3 +1,28 @@
+# (Fri Apr 16 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/showcase@0.9.0`, `@salutejs/plasma-core@1.3.0`, `@salutejs/plasma-ui@1.5.0`, `@salutejs/plasma-web@1.4.0`
+  - feat(core): made reexport in ui & web, added showcase for web [#308](https://github.com/salute-developers/plasma/pull/308) (prokopyevviktor@yandex.ru)
+- `@salutejs/plasma-core@1.3.0`
+  - feat(core): added component badge in core [#308](https://github.com/salute-developers/plasma/pull/308) (prokopyevviktor@yandex.ru)
+
+#### 🐛 Bug Fix
+
+- Update CONTRIBUTING.md [#311](https://github.com/salute-developers/plasma/pull/311) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/showcase@0.9.0`
+  - docs(core): changed UIStoryDecorator for WebStoryDecorator [#308](https://github.com/salute-developers/plasma/pull/308) (prokopyevviktor@yandex.ru)
+  - docs: Showcase/Mobile/Cards added [#281](https://github.com/salute-developers/plasma/pull/281) ([@OgNellis](https://github.com/OgNellis))
+  - docs: Showcase/Device added [#281](https://github.com/salute-developers/plasma/pull/281) ([@OgNellis](https://github.com/OgNellis))
+
+#### Authors: 3
+
+- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+- Viktor Prokopyev (prokopyevviktor@yandex.ru)
+
+---
+
 # (Thu Apr 15 2021)
 
 #### 🚀 Enhancement
