@@ -1,3 +1,16 @@
+# (Sat Apr 17 2021)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.5.1`
+  - fix(plasma-ui): fix detection Huawei TV [#312](https://github.com/salute-developers/plasma/pull/312) ([@OgNellis](https://github.com/OgNellis))
+
+#### Authors: 1
+
+- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+
+---
+
 # (Fri Apr 16 2021)
 
 #### 🚀 Enhancement
