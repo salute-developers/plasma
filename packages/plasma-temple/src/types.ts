@@ -1,5 +1,6 @@
 import { AssistantNavigationCommand, AssistantSmartAppData, createAssistant } from '@salutejs/client';
 import { Ratio } from '@salutejs/plasma-ui';
+import { detectDevice } from '@salutejs/plasma-ui/utils';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type AnyObject = Record<string, any>;
@@ -10,6 +11,9 @@ export type AspectRatio = Ratio;
 export type Axis = 'x' | 'y';
 
 export type Direction = AssistantNavigationCommand['navigation']['command'];
+
+export type DeviceFamily = ReturnType<typeof detectDevice>;
+
 export interface AssistantAction {
     type: string;
     payload: Record<string, unknown>;
