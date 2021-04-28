@@ -1,3 +1,15 @@
+# v1.8.0 (Wed Apr 28 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): Add new scrollAlign values for Carousel [#317](https://github.com/salute-developers/plasma/pull/317) (nicolai.v.95@gmail.com)
+
+#### Authors: 1
+
+- nsvoevodin (nicolai.v.95@gmail.com)
+
+---
+
 # vnull (Tue Apr 27 2021)
 
 #### 🐛 Bug Fix

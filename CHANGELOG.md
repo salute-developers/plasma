@@ -1,3 +1,22 @@
+# (Wed Apr 28 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.8.0`
+  - feat(plasma-ui): Add new scrollAlign values for Carousel [#317](https://github.com/salute-developers/plasma/pull/317) (nicolai.v.95@gmail.com)
+
+#### 🐛 Bug Fix
+
+- chore: Add author info for package-locks commit [#334](https://github.com/salute-developers/plasma/pull/334) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+- chore: update package-locks commit message [#334](https://github.com/salute-developers/plasma/pull/334) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+
+#### Authors: 2
+
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+- nsvoevodin (nicolai.v.95@gmail.com)
+
+---
+
 # (Tue Apr 27 2021)
 
 #### 🚀 Enhancement
