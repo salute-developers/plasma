@@ -1,13 +1,13 @@
 {
     "name": "@salutejs/plasma-tokens-web",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     
     "main": "index.js",
     "types": "index.d.ts",
     "devDependencies": {
-        "@salutejs/plasma-tokens-utils": "0.2.0",
+        "@salutejs/plasma-tokens-utils": "0.3.0",
         "@types/node": "^14.11.1",
         "jsdom": "16.4.0",
         "jsdom-global": "3.0.2",
