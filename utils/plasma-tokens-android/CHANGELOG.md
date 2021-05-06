@@ -1,3 +1,20 @@
+# v2.2.0 (Thu May 06 2021)
+
+#### 🚀 Enhancement
+
+- feat: add plasma-tokens-utils [#331](https://github.com/salute-developers/plasma/pull/331) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+
+#### 🐛 Bug Fix
+
+- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+
+---
+
 # v2.1.0 (Wed Apr 07 2021)
 
 #### 🐛 Bug Fix
