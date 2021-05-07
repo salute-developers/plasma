@@ -1,3 +1,20 @@
+# v1.8.0 (Fri May 07 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-web): Added Progress component [#340](https://github.com/salute-developers/plasma/pull/340) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.7.0 (Thu May 06 2021)
 
 #### 🐛 Bug Fix

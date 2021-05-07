@@ -1,3 +1,18 @@
+# (Fri May 07 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-core@1.7.0`, `@salutejs/plasma-ui@1.10.0`
+  - feat(plasma-core): Added applyEllipsis mixin [#348](https://github.com/salute-developers/plasma/pull/348) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/showcase@0.14.0`, `@salutejs/plasma-web@1.8.0`
+  - feat(plasma-web): Added Progress component [#340](https://github.com/salute-developers/plasma/pull/340) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Thu May 06 2021)
 
 #### 🚀 Enhancement
