@@ -1,3 +1,29 @@
+# (Mon May 17 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-core@1.9.0`
+  - feat: Support setting color for Spinner [#326](https://github.com/salute-developers/plasma/pull/326) ([@nyet-ty](https://github.com/nyet-ty))
+- `@salutejs/plasma-web@1.12.0`
+  - feat(plasma-web): Added Spinner to web [#326](https://github.com/salute-developers/plasma/pull/326) (prokopyevviktor@yandex.ru)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/showcase@0.18.0`, `@salutejs/plasma-core@1.9.0`
+  - fix(plasma-core): Id for Spinner's gradient [#326](https://github.com/salute-developers/plasma/pull/326) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/showcase@0.18.0`, `@salutejs/plasma-web@1.12.0`
+  - docs(showcase): Added Spinner showcase web [#326](https://github.com/salute-developers/plasma/pull/326) (prokopyevviktor@yandex.ru)
+- `@salutejs/plasma-core@1.9.0`, `@salutejs/plasma-ui@1.14.0`
+  - feat(plasma-core, plasma-ui): Moved Spinner to core [#326](https://github.com/salute-developers/plasma/pull/326) (prokopyevviktor@yandex.ru)
+
+#### Authors: 3
+
+- [@nyet-ty](https://github.com/nyet-ty)
+- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+- Viktor Prokopyev (prokopyevviktor@yandex.ru)
+
+---
+
 # (Fri May 14 2021)
 
 #### 🚀 Enhancement

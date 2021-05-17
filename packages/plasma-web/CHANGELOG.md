@@ -1,3 +1,21 @@
+# v1.12.0 (Mon May 17 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-web): Added Spinner to web [#326](https://github.com/salute-developers/plasma/pull/326) (prokopyevviktor@yandex.ru)
+
+#### 🐛 Bug Fix
+
+- docs(showcase): Added Spinner showcase web [#326](https://github.com/salute-developers/plasma/pull/326) (prokopyevviktor@yandex.ru)
+- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Viktor Prokopyev (prokopyevviktor@yandex.ru)
+
+---
+
 # v1.11.0 (Fri May 14 2021)
 
 #### 🚀 Enhancement

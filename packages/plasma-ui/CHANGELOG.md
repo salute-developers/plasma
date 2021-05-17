@@ -1,3 +1,17 @@
+# v1.14.0 (Mon May 17 2021)
+
+#### 🐛 Bug Fix
+
+- feat(plasma-core, plasma-ui): Moved Spinner to core [#326](https://github.com/salute-developers/plasma/pull/326) (prokopyevviktor@yandex.ru)
+- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Viktor Prokopyev (prokopyevviktor@yandex.ru)
+
+---
+
 # v1.13.0 (Fri May 14 2021)
 
 #### 🐛 Bug Fix
