@@ -14,8 +14,8 @@ import { IconClock } from '@salutejs/plasma-icons';
 import { overlay, primary } from '@salutejs/plasma-tokens';
 import { isSberBox } from '@salutejs/plasma-ui/utils';
 
-import { GalleryCard as GalleryCardType } from '../../types';
-import { AnyObject } from '../../../../types';
+import { GalleryCardParams as GalleryCardType } from '../../pages/GalleryPage/types';
+import { AnyObject } from '../../types';
 
 export interface GalleryCardProps<T extends AnyObject = AnyObject> {
     card: GalleryCardType<T>;
@@ -96,11 +96,12 @@ const GalleryCardComponent = <T extends AnyObject = AnyObject>({
 
     const handleClick = React.useCallback(() => onClick(card), [card, onClick]);
     const handleFocus = React.useCallback(() => onFocus(index), [index, onFocus]);
+    const isFocused = isSberBox() && activeCardIndex === index;
 
     return (
         <CarouselCol sizeXL={3} sizeL={2} sizeM={2}>
             <Card
-                focused={activeCardIndex === index}
+                focused={isFocused}
                 tabIndex={0}
                 onClick={handleClick}
                 onFocus={handleFocus}
