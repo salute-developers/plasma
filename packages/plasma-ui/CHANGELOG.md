@@ -1,3 +1,17 @@
+# v1.14.1 (Mon May 17 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): fix simultaneous src&placeholder display [#390](https://github.com/salute-developers/plasma/pull/390) ([@ayymkozb](https://github.com/ayymkozb))
+- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@ayymkozb](https://github.com/ayymkozb)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.14.0 (Mon May 17 2021)
 
 #### 🐛 Bug Fix
