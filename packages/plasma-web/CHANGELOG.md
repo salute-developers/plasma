@@ -1,3 +1,17 @@
+# v1.12.2 (Tue May 18 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web): Added Badge to index [#397](https://github.com/salute-developers/plasma/pull/397) ([@fanisco](https://github.com/fanisco))
+- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.12.1 (Mon May 17 2021)
 
 #### 🐛 Bug Fix

@@ -1,3 +1,18 @@
+# (Tue May 18 2021)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.12.2`
+  - fix(plasma-web): Added Badge to index [#397](https://github.com/salute-developers/plasma/pull/397) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/showcase@0.18.2`
+  - docs(showcase): Hide description in radio/checkbox [#395](https://github.com/salute-developers/plasma/pull/395) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Mon May 17 2021)
 
 #### 🐛 Bug Fix
