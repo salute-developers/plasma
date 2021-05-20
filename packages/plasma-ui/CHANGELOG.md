@@ -1,3 +1,17 @@
+# v1.15.1 (Thu May 20 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui) Add Huawei TV UA [#403](https://github.com/salute-developers/plasma/pull/403) ([@SemyonMakhaev](https://github.com/SemyonMakhaev))
+- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Махаев Семён ([@SemyonMakhaev](https://github.com/SemyonMakhaev))
+
+---
+
 # v1.15.0 (Thu May 20 2021)
 
 #### 🚀 Enhancement

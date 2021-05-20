@@ -1,5 +1,18 @@
 # (Thu May 20 2021)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.15.1`
+  - fix(plasma-ui) Add Huawei TV UA [#403](https://github.com/salute-developers/plasma/pull/403) ([@SemyonMakhaev](https://github.com/SemyonMakhaev))
+
+#### Authors: 1
+
+- Махаев Семён ([@SemyonMakhaev](https://github.com/SemyonMakhaev))
+
+---
+
+# (Thu May 20 2021)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-ui@1.15.0`
