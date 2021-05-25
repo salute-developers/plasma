@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { primary } from '@salutejs/plasma-core/tokens';
+import { primary } from '@salutejs/plasma-core';
 
 const sizeMap = {
     xs: 1, // 16px
