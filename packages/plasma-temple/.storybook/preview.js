@@ -5,6 +5,13 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { sberBox as sberBoxTypo } from '@salutejs/plasma-tokens/typo';
 import { darkSber } from '@salutejs/plasma-tokens/themes';
 import { Container } from '@salutejs/plasma-ui';
+import { createAssistant } from '@salutejs/client';
+
+import { AssistantContext } from '../src/components/PlasmaApp/AssistantContext';
+
+const mock = createAssistant({
+    getState: () => ({}),
+});
 
 const Typo = createGlobalStyle(sberBoxTypo);
 const Color = createGlobalStyle(darkSber);
@@ -17,8 +24,21 @@ const withGlobalStyles = (storyFn) => (
     </>
 );
 
+const withAssistant = (Story) => (
+    <AssistantContext.Provider
+        value={{
+            getAssistant: () => mock,
+            setAssistantState: () => {},
+        }}
+    >
+        <Story />
+    </AssistantContext.Provider>
+);
+
+
 addDecorator(withGlobalStyles);
 addDecorator(withKnobs);
+addDecorator(withAssistant)
 
 addParameters({
     backgrounds: {
