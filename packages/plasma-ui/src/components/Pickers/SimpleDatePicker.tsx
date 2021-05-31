@@ -1,5 +1,5 @@
 import React from 'react';
-import { monthLongName } from '@salutejs/plasma-core';
+import { monthShortName } from '@salutejs/plasma-core';
 
 import { Picker, PickerProps } from './Picker';
 
@@ -8,7 +8,7 @@ type PickerType = 'day' | 'month' | 'year';
 const labelFormatter = {
     day: (value: number) => `${value}`,
     year: (value: number) => `${value}`,
-    month: monthLongName,
+    month: monthShortName,
 };
 
 export interface SimpleDatePickerProps extends Omit<PickerProps, 'items'> {
