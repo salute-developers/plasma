@@ -1,3 +1,23 @@
+# v1.14.0 (Mon May 31 2021)
+
+#### 🚀 Enhancement
+
+- feat: update plus circle icon [#412](https://github.com/salute-developers/plasma/pull/412) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+- feat: update heart stroke icon [#412](https://github.com/salute-developers/plasma/pull/412) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+- feat: add percent stroke icon [#412](https://github.com/salute-developers/plasma/pull/412) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+- feat: update plis circle icon [#412](https://github.com/salute-developers/plasma/pull/412) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+
+#### 🐛 Bug Fix
+
+- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+
+---
+
 # v1.13.0 (Mon May 31 2021)
 
 #### 🐛 Bug Fix
