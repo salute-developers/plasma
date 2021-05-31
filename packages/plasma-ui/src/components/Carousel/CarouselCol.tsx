@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { applyScrollSnap, ScrollSnapProps } from '@salutejs/plasma-core/mixins';
+import { applyScrollSnap, ScrollSnapProps } from '@salutejs/plasma-core';
 
 import { Col, ColProps } from '../Grid';
 
