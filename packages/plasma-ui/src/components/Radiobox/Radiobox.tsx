@@ -1,7 +1,4 @@
-import {
-    Radiobox as BaseRadiobox,
-    RadioboxProps as BaseRadioboxProps,
-} from '@salutejs/plasma-core/components/Radiobox';
+import { Radiobox as BaseRadiobox, RadioboxProps as BaseRadioboxProps } from '@salutejs/plasma-core';
 import styled from 'styled-components';
 
 import type { InteractionProps } from '../../mixins';

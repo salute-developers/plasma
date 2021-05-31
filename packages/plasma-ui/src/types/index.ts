@@ -1,1 +1,8 @@
-export * from '@salutejs/plasma-core/types';
+export type {
+    AsProps,
+    InputHTMLAttributes,
+    PickOptional,
+    ShiftProps,
+    SnapType,
+    SnapAlign,
+} from '@salutejs/plasma-core';

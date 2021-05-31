@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { Switch as BaseSwitch } from '@salutejs/plasma-core/components/Switch';
+import { Switch as BaseSwitch } from '@salutejs/plasma-core';
 import { accent, surfaceLiquid03, white } from '@salutejs/plasma-tokens';
 
-export type { SwitchProps } from '@salutejs/plasma-core/components/Switch';
+export type { SwitchProps } from '@salutejs/plasma-core';
 
 /**
  * Визуальный переключатель между двумя взаимоисключающими состояниями — вкл. и выкл.

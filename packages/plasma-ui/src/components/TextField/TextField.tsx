@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { caption, accent, surfaceLiquid01, surfaceLiquid02, primary, secondary } from '@salutejs/plasma-tokens';
-import { TextFieldRoot, TextFieldHelper } from '@salutejs/plasma-core/components/TextField';
-import type { TextFieldProps as BaseTextFieldProps } from '@salutejs/plasma-core/components/TextField';
+import { TextFieldRoot, TextFieldHelper } from '@salutejs/plasma-core';
+import type { TextFieldProps as BaseTextFieldProps } from '@salutejs/plasma-core';
 
 export interface TextFieldProps
     extends BaseTextFieldProps,

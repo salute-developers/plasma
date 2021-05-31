@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { mediaQuery } from '@salutejs/plasma-core/utils';
+import { mediaQuery } from '@salutejs/plasma-core';
 
 import { Container, Row, Col } from '../components/Grid';
 

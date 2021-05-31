@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import type { PickOptional } from '@salutejs/plasma-core/types';
+import type { PickOptional } from '@salutejs/plasma-core';
 
 import { Button, ButtonProps } from '../Button';
 

@@ -1,1 +1,1 @@
-export * from '@salutejs/plasma-core/components/Typography/Underline';
+export { Underline } from '@salutejs/plasma-core';

@@ -4,11 +4,10 @@ import {
     TabsProps as BaseTabsProps,
     TabItem as BaseTabItem,
     TabItemProps as BaseTabItemProps,
-} from '@salutejs/plasma-core/components/Tabs';
+    addFocus,
+} from '@salutejs/plasma-core';
 import { button2, surfaceCard, surfaceLiquid01, blackSecondary, transparent } from '@salutejs/plasma-tokens';
-import { addFocus } from '@salutejs/plasma-core/mixins';
-import type { FocusProps, OutlinedProps } from '@salutejs/plasma-core/mixins';
-import type { ShiftProps } from '@salutejs/plasma-core/types';
+import type { FocusProps, OutlinedProps, ShiftProps } from '@salutejs/plasma-core';
 
 import { applyInteraction } from '../../mixins';
 import type { InteractionProps } from '../../mixins';

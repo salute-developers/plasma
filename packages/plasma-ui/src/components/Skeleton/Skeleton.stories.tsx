@@ -1,7 +1,7 @@
 import React from 'react';
 import { boolean, select, number } from '@storybook/addon-knobs';
 import { typography } from '@salutejs/plasma-tokens';
-import { radiuses, Roundness } from '@salutejs/plasma-core/mixins';
+import { radiuses, Roundness } from '@salutejs/plasma-core';
 
 import { withSkeleton, WithSkeletonProps } from '../../hocs';
 import { Button, ButtonProps } from '../Button';

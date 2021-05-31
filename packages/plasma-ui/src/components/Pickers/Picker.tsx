@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { primary } from '@salutejs/plasma-tokens';
 import { IconChevronUp, IconChevronDown } from '@salutejs/plasma-icons';
-import { applyDisabled, DisabledProps } from '@salutejs/plasma-core/mixins';
+import { applyDisabled, DisabledProps } from '@salutejs/plasma-core';
 
 import { useRemoteListener } from '../../hooks';
 import { Button } from '../Button';

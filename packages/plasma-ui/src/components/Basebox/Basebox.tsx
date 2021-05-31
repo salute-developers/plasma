@@ -1,6 +1,6 @@
 import { css, InterpolationFunction } from 'styled-components';
-import { BaseboxTrigger } from '@salutejs/plasma-core/components/Basebox';
-import type { BaseboxProps } from '@salutejs/plasma-core/components/Basebox';
+import { BaseboxTrigger } from '@salutejs/plasma-core';
+import type { BaseboxProps } from '@salutejs/plasma-core';
 import { accent, secondary, white, transparent } from '@salutejs/plasma-tokens';
 
 import type { InteractionProps } from '../../mixins';

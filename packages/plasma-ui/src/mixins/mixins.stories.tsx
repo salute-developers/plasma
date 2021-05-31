@@ -6,7 +6,7 @@ import type {
     DisabledProps,
     RoundnessProps,
     ViewProps,
-} from '@salutejs/plasma-core/mixins';
+} from '@salutejs/plasma-core';
 
 import { InteractionProps } from '.';
 

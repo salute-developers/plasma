@@ -8,7 +8,7 @@ import {
     CarouselTrack as BaseTrack,
     CarouselProps as BaseProps,
 } from '@salutejs/plasma-core';
-import type { AsProps } from '@salutejs/plasma-core/types';
+import type { AsProps } from '@salutejs/plasma-core';
 
 import { useForkRef } from '../../hooks';
 

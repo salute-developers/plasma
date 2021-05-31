@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { Badge as BaseBadge, BadgeProps as BaseProps } from '@salutejs/plasma-core/components/Badge';
-import { views } from '@salutejs/plasma-core/mixins';
+import { Badge as BaseBadge, BadgeProps as BaseProps, views } from '@salutejs/plasma-core';
 
 export const badgeViews = {
     primary: views.primary,

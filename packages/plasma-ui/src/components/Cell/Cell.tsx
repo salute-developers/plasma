@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SelfPosition } from 'csstype';
-import { addFocus, FocusProps, OutlinedProps } from '@salutejs/plasma-core/mixins';
-import type { AsProps } from '@salutejs/plasma-core/types';
+import { addFocus, FocusProps, OutlinedProps } from '@salutejs/plasma-core';
+import type { AsProps } from '@salutejs/plasma-core';
 
 export const CellRoot = styled.div<FocusProps & OutlinedProps>`
     display: flex;

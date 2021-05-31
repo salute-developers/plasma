@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import type { SnapType } from '@salutejs/plasma-core/types';
+import type { SnapType } from '@salutejs/plasma-core';
 
 import { MusicCard } from '../Card/Card.examples';
 import { Row } from '../Grid';

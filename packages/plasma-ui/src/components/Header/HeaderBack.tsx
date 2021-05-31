@@ -2,8 +2,8 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { scalingPixelBasis } from '@salutejs/plasma-tokens';
 import { IconChevronLeft, IconSize } from '@salutejs/plasma-icons';
-import type { PickOptional } from '@salutejs/plasma-core/types';
-import { mediaQuery } from '@salutejs/plasma-core/utils';
+import type { PickOptional } from '@salutejs/plasma-core';
+import { mediaQuery } from '@salutejs/plasma-core';
 
 import { Button, ButtonProps } from '../Button';
 

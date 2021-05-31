@@ -1,5 +1,5 @@
 import React from 'react';
-import type { PickOptional } from '@salutejs/plasma-core/types';
+import type { PickOptional } from '@salutejs/plasma-core';
 
 import { ActionButton, ButtonProps, ActionButtonProps } from '../Button';
 
