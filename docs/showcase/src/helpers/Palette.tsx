@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { darkEva, darkJoy, darkSber, lightEva, lightJoy, lightSber } from '@salutejs/plasma-tokens';
-import { light } from '@salutejs/plasma-tokens-web/themes';
+import { light, dark } from '@salutejs/plasma-tokens-web/themes';
 import { Cell, CellIcon } from '@salutejs/plasma-ui/components/Cell';
 import { TextBox } from '@salutejs/plasma-ui/components/TextBox';
 import { Display3, Headline3, Footnote1, Caption } from '@salutejs/plasma-ui/components/Typography';
@@ -49,6 +49,7 @@ const themes = {
     darkEva,
     darkJoy,
     darkSber,
+    dark,
     lightEva,
     lightJoy,
     lightSber,
