@@ -1,37 +1,30 @@
 import React from 'react';
 import {
     TextFieldRoot,
-    TextFieldInput,
-    TextFieldPlaceholder,
+    TextFieldTextarea,
+    TextFieldContent,
     TextFieldHelper,
-    TextFieldProps as BaseProps,
+    TextAreaProps as BaseProps,
 } from '@salutejs/plasma-core';
 
-import { FieldInput, FieldContent, FieldHelperBlock } from '../Field/Field';
+import { FieldInput } from '../Field/Field';
 
-export interface TextFieldProps extends BaseProps {
-    /**
-     * Слот для вспомогательного блока снизу.
-     */
-    helperBlock?: React.ReactElement;
-}
+export interface TextAreaProps extends BaseProps {}
 
 /**
- * Поле ввода текста.
+ * Поле ввода многострочного текста.
  */
-export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
+export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
     (
         {
-            size = 'm',
             value,
             placeholder,
             label,
             helperText,
-            helperBlock,
             disabled,
-            contentLeft,
             contentRight,
             status,
+            resize,
             onChange,
             onFocus,
             onBlur,
@@ -42,38 +35,32 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
         },
         ref,
     ) => {
-        const placeLabel = label || placeholder;
-
         return (
             <TextFieldRoot
-                $size={size}
+                status={status}
                 $disabled={disabled}
-                $isContentLeft={!!contentLeft}
                 $isContentRight={!!contentRight}
                 $isValue={!!value}
                 $isHelper={!!helperText}
-                status={status}
                 className={className}
                 style={style}
             >
-                {contentLeft && <FieldContent pos="left">{contentLeft}</FieldContent>}
-                {size === 'l' && placeLabel && <TextFieldPlaceholder htmlFor={id}>{placeLabel}</TextFieldPlaceholder>}
                 <FieldInput
+                    as={TextFieldTextarea}
                     ref={ref}
                     id={id}
-                    as={TextFieldInput}
                     value={value}
-                    placeholder={size === 'm' && placeLabel}
+                    placeholder={label || placeholder}
                     disabled={disabled}
                     status={status}
+                    $resize={resize}
                     onChange={onChange}
                     onFocus={onFocus}
                     onBlur={onBlur}
                     {...rest}
                 />
-                {contentRight && <FieldContent pos="right">{contentRight}</FieldContent>}
+                {contentRight && <TextFieldContent pos="right">{contentRight}</TextFieldContent>}
                 {helperText && <TextFieldHelper status={status}>{helperText}</TextFieldHelper>}
-                {helperBlock && <FieldHelperBlock>{helperBlock}</FieldHelperBlock>}
             </TextFieldRoot>
         );
     },
