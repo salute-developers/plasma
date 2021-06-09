@@ -1,3 +1,16 @@
+# (Wed Jun 09 2021)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-core@1.12.1`
+  - fix(plasma-core): pass defaultChecked to Switch and Basebox [#338](https://github.com/salute-developers/plasma/pull/338) ([@tsumo](https://github.com/tsumo))
+
+#### Authors: 1
+
+- [@tsumo](https://github.com/tsumo)
+
+---
+
 # (Mon Jun 07 2021)
 
 #### 🚀 Enhancement
