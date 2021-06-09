@@ -1,5 +1,27 @@
 # (Wed Jun 09 2021)
 
+#### 🚀 Enhancement
+
+- `@salutejs/showcase@0.23.0`, `@salutejs/plasma-tokens-web@1.5.0`, `@salutejs/plasma-web@1.17.0`, `@salutejs/plasma-tokens-utils@0.4.0`
+  - feat(plasma-tokens-web): Using plasma-colors, dark theme [#398](https://github.com/salute-developers/plasma/pull/398) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-tokens@1.6.0`
+  - feat(plasma-tokens): Using plasma-colors [#398](https://github.com/salute-developers/plasma/pull/398) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-colors@0.1.0`, `@salutejs/plasma-web@1.17.0`
+  - feat: Added plasma-colors package [#398](https://github.com/salute-developers/plasma/pull/398) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.17.0`
+  - docs(plasma-web): Added themes story [#398](https://github.com/salute-developers/plasma/pull/398) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
+# (Wed Jun 09 2021)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-core@1.12.1`
