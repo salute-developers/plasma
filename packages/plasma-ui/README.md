@@ -104,3 +104,5 @@ import { withAutoFocus } from '@salutejs/plasma-ui/hocs';
 Витрина с компонентами [Storybook](https://master--5f96ec813d800900227e3b93.chromatic.com).
 
 [Документация](https://bit.ly/36MIrA0).
+
+[Репозиторий](https://github.com/salute-developers/plasma).
