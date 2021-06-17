@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { background } from '@salutejs/plasma-tokens-web';
+import { surfaceCard } from '@salutejs/plasma-tokens-web';
 import { IconClose } from '@salutejs/plasma-icons';
 
 import { Button } from '../Button';
@@ -23,7 +23,7 @@ const StyledBody = styled.div`
     max-width: 100%;
 
     border-radius: 1.25rem;
-    background-color: ${background};
+    background-color: ${surfaceCard};
 `;
 const StyledContent = styled.div`
     padding: 2rem;
