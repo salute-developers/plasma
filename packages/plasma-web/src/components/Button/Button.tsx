@@ -8,7 +8,7 @@ import type {
 } from '@salutejs/plasma-core/components/Button/Button';
 import type { DisabledProps } from '@salutejs/plasma-core/mixins';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core/utils';
-import { black, white } from '@salutejs/plasma-tokens-web';
+import { black, white, buttonSecondaryHover, buttonSecondaryActive } from '@salutejs/plasma-tokens-web';
 
 const viewInteractive = ({ disabled }: DisabledProps) =>
     !disabled &&
@@ -53,13 +53,11 @@ const buttonViews = {
         ${baseViews.secondary}
 
         &:hover {
-            background-color: rgba(8, 8, 8, 0.04);
-            opacity: 0.8;
+            background-color: ${buttonSecondaryHover};
         }
 
         &:active {
-            background-color: rgba(8, 8, 8, 0.08);
-            opacity: 1;
+            background-color: ${buttonSecondaryActive};
         }
     `,
     clear: baseViews.clear,

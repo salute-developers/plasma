@@ -5,7 +5,15 @@ import { syntheticFocus, applyDisabled } from '@salutejs/plasma-core/mixins';
 import type { FocusProps } from '@salutejs/plasma-core/mixins';
 import type { InputHTMLAttributes } from '@salutejs/plasma-core/types';
 import type { TextFieldProps } from '@salutejs/plasma-core/components/TextField';
-import { accent, secondary, surfaceCard, text, tertiary, critical } from '@salutejs/plasma-tokens-web';
+import {
+    accent,
+    secondary,
+    background,
+    text,
+    critical,
+    inputBorder,
+    inputBorderHover,
+} from '@salutejs/plasma-tokens-web';
 import { IconChevronDown } from '@salutejs/plasma-icons';
 
 import { SelectDropdown } from './SelectDropdown';
@@ -55,14 +63,18 @@ const StyledLabelWrapper = styled.div<Pick<SelectViewProps, 'disabled' | 'focuse
     height: 3rem;
 
     /* stylelint-disable-next-line number-max-precision */
-    border: 0.0625rem solid ${tertiary};
+    border: 0.0625rem solid ${inputBorder};
     border-radius: 0.25rem;
 
-    background: ${surfaceCard};
+    background: ${background};
 
     cursor: pointer;
 
     transition: border-color 0.1s ease-in-out;
+
+    &:hover {
+        border-color: ${inputBorderHover};
+    }
 
     ${({ focused }) =>
         syntheticFocus(
