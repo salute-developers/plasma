@@ -1,3 +1,16 @@
+# (Thu Jun 17 2021)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-core@1.12.2`
+  - fix(plasma-core): remove focus on click in button [#437](https://github.com/salute-developers/plasma/pull/437) ([@OgNellis](https://github.com/OgNellis))
+
+#### Authors: 1
+
+- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+
+---
+
 # (Wed Jun 09 2021)
 
 #### 🚀 Enhancement
