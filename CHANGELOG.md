@@ -1,3 +1,25 @@
+# (Fri Jun 18 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/showcase@0.24.0`, `@salutejs/plasma-tokens-web@1.6.0`, `@salutejs/plasma-web@1.18.0`
+  - feat(plasma-web): Added Link component [#441](https://github.com/salute-developers/plasma/pull/441) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.18.0`
+  - fix(plasma-web): Components dark theme fixes [#441](https://github.com/salute-developers/plasma/pull/441) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/showcase@0.24.0`, `@salutejs/plasma-web@1.18.0`, `@salutejs/plasma-sb-utils@0.2.0`
+  - docs: plasma-sb-utils package with a lots useful sb code [#441](https://github.com/salute-developers/plasma/pull/441) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/showcase@0.24.0`, `@salutejs/plasma-web@1.18.0`
+  - docs: Added switcher for plasma-web's dark theme [#441](https://github.com/salute-developers/plasma/pull/441) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Thu Jun 17 2021)
 
 #### 🐛 Bug Fix
