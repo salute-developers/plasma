@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-tokens-web",
-    "version": "1.5.1",
+    "version": "1.6.0",
     "description": "",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     
@@ -42,6 +42,10 @@
         "index.js",
         "theme.json"
     ],
-    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"],
+    "contributors": [
+        "Vasiliy Loginevskiy",
+        "Anton Vinogradov",
+        "Fanil Zubairov"
+    ],
     "sideEffects": false
 }
