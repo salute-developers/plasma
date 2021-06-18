@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from '@salutejs/plasma-web/components/Grid';
 import { Headline4 } from '@salutejs/plasma-ui/components/Typography';
+import { Filler } from '@salutejs/plasma-sb-utils';
 
-import { Filler, WebStoryDecorator } from '../helpers';
+import { WebStoryDecorator } from '../helpers';
 
 export default {
     title: 'Web/Layout/Grid',

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { surfaceLiquid01 } from '@salutejs/plasma-tokens';
+import { surfaceLiquid01 } from '@salutejs/plasma-core';
 
 export const Filler = styled.div`
     display: flex;
