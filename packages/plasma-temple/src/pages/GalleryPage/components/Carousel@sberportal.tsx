@@ -1,5 +1,5 @@
-import { CarouselProps } from '@salutejs/plasma-ui';
 import React from 'react';
+import { CarouselProps } from '@salutejs/plasma-ui';
 
 import { CommonCarousel } from './Carousel';
 
