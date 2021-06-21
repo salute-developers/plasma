@@ -1,4 +1,3 @@
-import React from 'react';
 import { AssistantNavigationCommand, AssistantSmartAppData, createAssistant } from '@salutejs/client';
 import { PriceProps, Ratio } from '@salutejs/plasma-ui';
 import { detectDevice } from '@salutejs/plasma-ui/utils';
@@ -34,8 +33,8 @@ export interface MetaPayload {
 }
 
 export interface Description {
-    title: string | React.ReactElement;
-    content: string | React.ReactElement;
+    title: string;
+    content: string;
 }
 
 export interface MediaObject {
