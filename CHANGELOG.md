@@ -1,3 +1,24 @@
+# (Tue Jun 22 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-core@1.13.0`, `@salutejs/plasma-web@1.19.0`
+  - feat(plasma-core): Spinner sizes [#438](https://github.com/salute-developers/plasma/pull/438) ([@fanisco](https://github.com/fanisco))
+  - feat(plasma-web): Button success [#438](https://github.com/salute-developers/plasma/pull/438) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/showcase@0.25.0`, `@salutejs/plasma-core@1.13.0`
+  - docs: Stories for field [#438](https://github.com/salute-developers/plasma/pull/438) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/showcase@0.25.0`, `@salutejs/plasma-core@1.13.0`, `@salutejs/plasma-ui@1.21.0`, `@salutejs/plasma-web@1.19.0`
+  - feat(plasma-core, plasma-ui, plasma-web): Reassembled Field [#438](https://github.com/salute-developers/plasma/pull/438) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Fri Jun 18 2021)
 
 #### 🚀 Enhancement
