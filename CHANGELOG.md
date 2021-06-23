@@ -1,5 +1,18 @@
 # (Wed Jun 23 2021)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.22.1`
+  - fix(plasma-ui): PickerItem sizes [#458](https://github.com/salute-developers/plasma/pull/458) ([@OgNellis](https://github.com/OgNellis))
+
+#### Authors: 1
+
+- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+
+---
+
+# (Wed Jun 23 2021)
+
 #### 🚀 Enhancement
 
 - `@salutejs/showcase@0.26.0`, `@salutejs/plasma-tokens-web@1.7.0`, `@salutejs/plasma-tokens@1.7.0`, `@salutejs/plasma-ui@1.22.0`, `@salutejs/plasma-web@1.20.0`, `@salutejs/plasma-sb-utils@0.4.0`, `@salutejs/plasma-tokens-utils@0.5.0`
