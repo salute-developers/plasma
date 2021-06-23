@@ -1,3 +1,30 @@
+# (Wed Jun 23 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/showcase@0.26.0`, `@salutejs/plasma-tokens-web@1.7.0`, `@salutejs/plasma-tokens@1.7.0`, `@salutejs/plasma-ui@1.22.0`, `@salutejs/plasma-web@1.20.0`, `@salutejs/plasma-sb-utils@0.4.0`, `@salutejs/plasma-tokens-utils@0.5.0`
+  - feat(plasma-tokens): Updated tokens from plasma-styles [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-tokens-web@1.7.0`
+  - fix(plasma-web): Link visited active color [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-tokens-web@1.7.0`, `@salutejs/plasma-web@1.20.0`, `@salutejs/plasma-tokens-utils@0.5.0`
+  - fix(plasma-web): Components dark theme fixes [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-core@1.14.0`, `@salutejs/plasma-ui@1.22.0`, `@salutejs/plasma-web@1.20.0`
+  - chore: Added favicon for storybooks [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-sb-utils@0.4.0`
+  - docs: Display token name & var in ThemeColors [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/showcase@0.26.0`, `@salutejs/plasma-ui@1.22.0`, `@salutejs/plasma-web@1.20.0`, `@salutejs/plasma-sb-utils@0.4.0`
+  - docs: ThemeColors in both libraries [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
+  - docs(plasma-web): Added Grid docs [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Tue Jun 22 2021)
 
 #### 🚀 Enhancement
