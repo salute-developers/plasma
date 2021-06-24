@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { Button as BaseButton } from '@salutejs/plasma-core';
+import { Button as BaseButton, applyNoSelect } from '@salutejs/plasma-core';
 import type { ButtonProps as BaseProps, SizeProps, ViewProps, ButtonContentProps } from '@salutejs/plasma-core';
-import { applyNoSelect } from '@salutejs/plasma-core';
 
 import { applyInteraction, InteractionProps } from '../../mixins';
 

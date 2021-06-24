@@ -7,9 +7,9 @@ import {
     Carousel as BaseCarousel,
     CarouselTrack as BaseTrack,
     CarouselProps as BaseProps,
+    applyNoSelect,
 } from '@salutejs/plasma-core';
 import type { AsProps } from '@salutejs/plasma-core';
-import { applyNoSelect } from '@salutejs/plasma-core/mixins';
 
 import { useForkRef } from '../../hooks';
 
