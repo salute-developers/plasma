@@ -11,7 +11,6 @@ export type {
 } from '@salutejs/plasma-core';
 
 export { applyInteraction } from './applyInteraction';
-export { applyNoSelect } from './applyNoSelect';
 export type { InteractionProps } from './applyInteraction';
 
 export { applySkeletonGradient } from './applySkeletonGradient';
