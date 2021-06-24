@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { black, white } from '@salutejs/plasma-tokens';
+import { applyNoSelect } from '@salutejs/plasma-core';
 
 import { Footnote1 } from '../Typography';
-import { applyNoSelect } from '../../mixins';
 
 export type ToastProps = {
     text: string;
