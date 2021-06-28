@@ -7,8 +7,12 @@ import {
     CheckboxTrigger as BaseTrigger,
     CheckboxLabel as BaseLabel,
     CheckboxDescription as BaseDescription,
+    accent,
+    buttonSecondary,
+    tertiary,
+    white,
+    transparent,
 } from '@salutejs/plasma-core';
-import { accent, buttonSecondary, tertiary, white, transparent } from '@salutejs/plasma-tokens-web';
 import { useForkRef } from '@salutejs/plasma-core/hooks';
 
 import { Done, Indeterminate } from './Icons';

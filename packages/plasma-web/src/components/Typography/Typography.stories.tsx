@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { secondary, scalingPixelBasis } from '@salutejs/plasma-tokens-web';
+import { secondary } from '@salutejs/plasma-core';
 
 import {
     Headline1,

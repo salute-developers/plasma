@@ -8,7 +8,9 @@ import type {
 } from '@salutejs/plasma-core/components/Button/Button';
 import type { DisabledProps } from '@salutejs/plasma-core/mixins';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core/utils';
-import { black, white, buttonSecondaryHover, buttonSecondaryActive } from '@salutejs/plasma-tokens-web';
+import { black, white } from '@salutejs/plasma-core';
+
+import { buttonSecondaryHover, buttonSecondaryActive } from '../../tokens';
 
 const viewInteractive = ({ disabled }: DisabledProps) =>
     !disabled &&

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { caption, tertiary, surfaceLiquid02 } from '@salutejs/plasma-tokens-web';
+import { caption, tertiary, surfaceLiquid02 } from '@salutejs/plasma-core';
 
 const statuses = {
     success: css`

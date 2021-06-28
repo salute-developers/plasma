@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { accent, secondary, background, text } from '@salutejs/plasma-tokens-web';
+import { accent, secondary, background, text, shadows } from '@salutejs/plasma-core';
 import { IconChevronRight, IconDone } from '@salutejs/plasma-icons';
-import { shadows } from '@salutejs/plasma-core';
 
 import { SelectDropdown } from './SelectDropdown';
 
