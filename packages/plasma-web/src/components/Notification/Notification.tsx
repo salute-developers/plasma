@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { surfaceCard, secondary, warning, critical, footnote1 } from '@salutejs/plasma-tokens-web';
+import { surfaceCard, secondary, warning, critical, footnote1 } from '@salutejs/plasma-core';
 import type { AsProps } from '@salutejs/plasma-core/types';
 
 import { Headline5 } from '../Typography';

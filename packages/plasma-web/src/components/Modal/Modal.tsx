@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled, { css, keyframes } from 'styled-components';
-import { overlay } from '@salutejs/plasma-tokens-web';
+import { overlay } from '@salutejs/plasma-core';
 
 import { ModalsContext } from './ModalsContext';
 import { ModalView, ModalViewProps } from './ModalView';

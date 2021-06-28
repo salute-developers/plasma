@@ -1,4 +1,5 @@
 import styled from 'styled-components';
-import { subtitle } from '@salutejs/plasma-tokens-web';
+
+import { subtitle } from '../../../tokens';
 
 export const Subtitle = styled.div({ overflowWrap: 'break-word', hyphens: 'auto', ...subtitle });

@@ -5,16 +5,10 @@ import { syntheticFocus, applyDisabled } from '@salutejs/plasma-core/mixins';
 import type { FocusProps } from '@salutejs/plasma-core/mixins';
 import type { InputHTMLAttributes } from '@salutejs/plasma-core/types';
 import type { TextFieldProps } from '@salutejs/plasma-core/components/TextField';
-import {
-    accent,
-    secondary,
-    background,
-    text,
-    critical,
-    inputBorder,
-    inputBorderHover,
-} from '@salutejs/plasma-tokens-web';
+import { accent, secondary, background, text, critical } from '@salutejs/plasma-core';
 import { IconChevronDown } from '@salutejs/plasma-icons';
+
+import { inputBorder, inputBorderHover } from '../../tokens';
 
 import { SelectDropdown } from './SelectDropdown';
 import { SelectList, SelectListProps } from './SelectList';

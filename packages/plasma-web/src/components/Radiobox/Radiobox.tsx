@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CheckboxProps as BaseProps, CheckboxInput as Input } from '@salutejs/plasma-core';
-import { white } from '@salutejs/plasma-tokens-web';
+import { CheckboxProps as BaseProps, CheckboxInput as Input, white } from '@salutejs/plasma-core';
 
 import { Root, Trigger, Label, Description } from '../Checkbox/Checkbox';
 

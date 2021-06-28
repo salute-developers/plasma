@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { surfaceCard } from '@salutejs/plasma-tokens-web';
+import { surfaceCard } from '@salutejs/plasma-core';
 import { IconClose } from '@salutejs/plasma-icons';
 
 import { Button } from '../Button';
