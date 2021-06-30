@@ -19,6 +19,7 @@
         "@salutejs/plasma-icons": "1.19.0",
         "@salutejs/plasma-sb-utils": "0.4.0",
         "@salutejs/plasma-tokens": "1.7.0",
+        "@salutejs/plasma-tokens-b2c": "0.1.0",
         "@salutejs/plasma-tokens-web": "1.7.0",
         "@salutejs/plasma-ui": "1.22.1",
         "@salutejs/plasma-web": "1.20.0",
@@ -51,9 +52,5 @@
         "storybook:extract": "sb extract build-sb ./build-sb/stories.json",
         "chromatic": "npx chromatic"
     },
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Anton Vinogradov",
-        "Fanil Zubairov"
-    ]
+    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"]
 }
