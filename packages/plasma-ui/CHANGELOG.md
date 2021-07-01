@@ -1,3 +1,19 @@
+# v1.23.0 (Thu Jul 01 2021)
+
+#### 🐛 Bug Fix
+
+- docs(plasma-ui): repository link added [#447](https://github.com/salute-developers/plasma/pull/447) ([@kayman233](https://github.com/kayman233))
+- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+- ci: setup jest [#466](https://github.com/salute-developers/plasma/pull/466) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 3
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.22.1 (Wed Jun 23 2021)
 
 #### 🐛 Bug Fix
