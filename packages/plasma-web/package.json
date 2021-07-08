@@ -4,10 +4,21 @@
     "description": "Salute Design System / React UI kit for web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     
-    "keywords": ["design-system", "react-components", "ui-kit", "react"],
+    "keywords": [
+        "design-system",
+        "react-components",
+        "ui-kit",
+        "react"
+    ],
     "main": "index.js",
     "types": "index.d.ts",
-    "files": ["components", "tokens", "index.d.ts", "index.js", "es"],
+    "files": [
+        "components",
+        "tokens",
+        "index.d.ts",
+        "index.js",
+        "es"
+    ],
     "repository": {
         "type": "git",
         "url": "ssh://git@github.com:salute-developers/plasma.git",
@@ -78,6 +89,10 @@
         "storybook:build": "build-storybook -s .storybook/public -c .storybook -o build-sb",
         "storybook:build:docs": "DOCS=true build-storybook --quiet -s .storybook/public -c .storybook -o build-sb-docs --docs"
     },
-    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"],
+    "contributors": [
+        "Vasiliy Loginevskiy",
+        "Anton Vinogradov",
+        "Fanil Zubairov"
+    ],
     "sideEffects": false
 }
