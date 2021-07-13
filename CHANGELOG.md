@@ -1,3 +1,20 @@
+# (Tue Jul 13 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-core@1.18.0`, `@salutejs/plasma-icons@1.23.0`, `@salutejs/plasma-ui@1.27.0`, `@salutejs/plasma-web@1.25.0`
+  - feat: react17 and test job added [#496](https://github.com/salute-developers/plasma/pull/496) ([@kayman233](https://github.com/kayman233))
+
+#### 🐛 Bug Fix
+
+- fix(docs): versions in contributing.md added [#496](https://github.com/salute-developers/plasma/pull/496) ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 1
+
+- [@kayman233](https://github.com/kayman233)
+
+---
+
 # (Fri Jul 09 2021)
 
 #### 🚀 Enhancement
