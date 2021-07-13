@@ -1,3 +1,17 @@
+# v1.27.2 (Tue Jul 13 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): Toast fade top placement [#528](https://github.com/salute-developers/plasma/pull/528) ([@fanisco](https://github.com/fanisco))
+- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.27.1 (Tue Jul 13 2021)
 
 #### 🐛 Bug Fix
