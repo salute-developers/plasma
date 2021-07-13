@@ -1,3 +1,17 @@
+# v1.27.1 (Tue Jul 13 2021)
+
+#### 🐛 Bug Fix
+
+- fix: Pickers performance, no unnecessary rerender [#527](https://github.com/salute-developers/plasma/pull/527) ([@fanisco](https://github.com/fanisco))
+- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.27.0 (Tue Jul 13 2021)
 
 #### 🚀 Enhancement
