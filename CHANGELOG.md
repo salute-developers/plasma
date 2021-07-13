@@ -1,5 +1,20 @@
 # (Tue Jul 13 2021)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/demo-canvas-app@0.3.1`, `@salutejs/plasma-core@1.18.1`, `@salutejs/plasma-ui@1.27.1`
+  - fix: Pickers performance, no unnecessary rerender [#527](https://github.com/salute-developers/plasma/pull/527) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/demo-canvas-app@0.3.1`
+  - ci(demo-canvas-app): Fix public url if isnt a PR build [#527](https://github.com/salute-developers/plasma/pull/527) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
+# (Tue Jul 13 2021)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-core@1.18.0`, `@salutejs/plasma-icons@1.23.0`, `@salutejs/plasma-ui@1.27.0`, `@salutejs/plasma-web@1.25.0`
