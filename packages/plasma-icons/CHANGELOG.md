@@ -1,3 +1,20 @@
+# v1.23.0 (Tue Jul 13 2021)
+
+#### 🚀 Enhancement
+
+- feat: react17 and test job added [#496](https://github.com/salute-developers/plasma/pull/496) ([@kayman233](https://github.com/kayman233))
+
+#### 🐛 Bug Fix
+
+- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.21.1 (Wed Jul 07 2021)
 
 #### 🐛 Bug Fix
