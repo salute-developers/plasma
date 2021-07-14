@@ -1,5 +1,23 @@
 # (Wed Jul 14 2021)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-core@1.19.0`
+  - feat(plasma-core): delete storybook [#535](https://github.com/salute-developers/plasma/pull/535) ([@kayman233](https://github.com/kayman233))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/showcase@0.32.0`, `@salutejs/plasma-ui@1.28.0`, `@salutejs/plasma-web@1.26.0`
+  - feat(plasma-ui, plasma-web, showcase): sb-essentials added [#535](https://github.com/salute-developers/plasma/pull/535) ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 1
+
+- [@kayman233](https://github.com/kayman233)
+
+---
+
+# (Wed Jul 14 2021)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-web@1.25.3`
