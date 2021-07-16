@@ -1,3 +1,16 @@
+# (Fri Jul 16 2021)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.30.1`, `@salutejs/plasma-web@1.28.1`
+  - fix(plasma-ui, plasma-web): toolbar buttons return [#547](https://github.com/salute-developers/plasma/pull/547) ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 1
+
+- [@kayman233](https://github.com/kayman233)
+
+---
+
 # (Thu Jul 15 2021)
 
 #### 🚀 Enhancement
