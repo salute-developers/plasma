@@ -6,7 +6,7 @@ import { mediaQuery } from '@salutejs/plasma-core';
 
 import { Button, ButtonProps } from '../Button';
 
-const StyledHeaderBackButton = styled(Button)`
+export const StyledHeaderBackButton = styled(Button)`
     position: absolute;
     top: -0.125rem;
     right: 100%;
