@@ -1,3 +1,16 @@
+# (Mon Jul 19 2021)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/showcase@0.34.2`, `@salutejs/plasma-ui@1.30.2`, `@salutejs/plasma-web@1.28.2`
+  - fix: remove double ampersands [#537](https://github.com/salute-developers/plasma/pull/537) ([@OgNellis](https://github.com/OgNellis))
+
+#### Authors: 1
+
+- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+
+---
+
 # (Fri Jul 16 2021)
 
 #### 🐛 Bug Fix
