@@ -1,3 +1,18 @@
+# (Tue Jul 20 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-web@1.29.0`
+  - feat(plasma-web): Integrate Dropdown into Select [#545](https://github.com/salute-developers/plasma/pull/545) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/showcase@0.35.0`, `@salutejs/plasma-web@1.29.0`
+  - feat(plasma-web): Added Dropdown component [#545](https://github.com/salute-developers/plasma/pull/545) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Mon Jul 19 2021)
 
 #### 🐛 Bug Fix
