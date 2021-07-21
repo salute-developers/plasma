@@ -1,3 +1,16 @@
+# (Wed Jul 21 2021)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.29.1`
+  - fix(plasma-web): form submit trigger inside select [#557](https://github.com/salute-developers/plasma/pull/557) ([@tsumo](https://github.com/tsumo))
+
+#### Authors: 1
+
+- [@tsumo](https://github.com/tsumo)
+
+---
+
 # (Tue Jul 20 2021)
 
 #### 🚀 Enhancement
