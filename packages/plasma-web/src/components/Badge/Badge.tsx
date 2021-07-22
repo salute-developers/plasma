@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import { Badge as BaseBadge, BadgeProps as BaseProps } from '@salutejs/plasma-core/components/Badge';
-import { surfaceLiquid02, text } from '@salutejs/plasma-core';
+import { Badge as BaseBadge, surfaceLiquid02, text } from '@salutejs/plasma-core';
+import type { BadgeProps as BaseProps } from '@salutejs/plasma-core';
 
 export const badgeViews = {
     primary: css`

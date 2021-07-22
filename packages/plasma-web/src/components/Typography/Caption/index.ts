@@ -1,1 +1,1 @@
-export * from '@salutejs/plasma-core/components/Typography/Caption';
+export { Caption } from '@salutejs/plasma-core';

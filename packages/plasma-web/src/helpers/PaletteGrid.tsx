@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { white, whiteSecondary, black } from '@salutejs/plasma-core/tokens';
-import { Body1, Caption } from '@salutejs/plasma-core';
+import { Body1, Caption, white, whiteSecondary, black } from '@salutejs/plasma-core';
 
 const textColors = {
     1000: [white, whiteSecondary],

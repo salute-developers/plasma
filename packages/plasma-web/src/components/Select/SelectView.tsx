@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components';
 import {
     TextFieldRoot,
     TextFieldHelper,
-    TextFieldProps as BaseProps,
     body1,
     accent,
     primary,
@@ -14,6 +13,7 @@ import {
     critical,
     applyEllipsis,
 } from '@salutejs/plasma-core';
+import type { TextFieldProps as BaseProps } from '@salutejs/plasma-core';
 import { IconChevronDown } from '@salutejs/plasma-icons';
 
 import { inputBorder, inputBorderHover } from '../../tokens';

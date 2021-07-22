@@ -1,1 +1,1 @@
-export * from '@salutejs/plasma-core/components/Typography/Body';
+export { Body1, Body2 } from '@salutejs/plasma-core';

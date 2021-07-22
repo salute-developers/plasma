@@ -1,6 +1,11 @@
 import styled, { css } from 'styled-components';
-import { Container as BaseContainer } from '@salutejs/plasma-core/components/Grid';
-import { mediaQuery, gridSizes, gridMargins as baseMargins, gridGutters } from '@salutejs/plasma-core/utils';
+import {
+    Container as BaseContainer,
+    mediaQuery,
+    gridSizes,
+    gridMargins as baseMargins,
+    gridGutters,
+} from '@salutejs/plasma-core';
 
 const gridMargins = {
     ...baseMargins,

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useCarouselItem } from '@salutejs/plasma-core';
-import { applyScrollSnap, ScrollSnapProps } from '@salutejs/plasma-core/mixins';
+import { useCarouselItem, applyScrollSnap } from '@salutejs/plasma-core';
+import type { ScrollSnapProps } from '@salutejs/plasma-core';
 
 export interface CarouselItemProps extends ScrollSnapProps, React.HTMLAttributes<HTMLLIElement> {}
 
