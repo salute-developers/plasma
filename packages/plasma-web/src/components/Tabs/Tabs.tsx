@@ -1,11 +1,6 @@
 import styled, { css } from 'styled-components';
-import {
-    Tabs as BaseTabs,
-    TabsProps as BaseTabsProps,
-    TabItem as BaseTabItem,
-    TabItemProps as BaseTabItemProps,
-} from '@salutejs/plasma-core/components/Tabs';
-import { accent, secondary, footnote2 } from '@salutejs/plasma-core';
+import { Tabs as BaseTabs, TabItem as BaseTabItem, accent, secondary, footnote2 } from '@salutejs/plasma-core';
+import type { TabsProps as BaseTabsProps, TabItemProps as BaseTabItemProps } from '@salutejs/plasma-core';
 
 export interface TabsProps extends BaseTabsProps {}
 

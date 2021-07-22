@@ -1,1 +1,1 @@
-export * from '@salutejs/plasma-core/components/Typography/Button';
+export { Button1, Button2 } from '@salutejs/plasma-core';

@@ -1,10 +1,6 @@
 import React from 'react';
-import {
-    TextFieldRoot,
-    TextFieldTextarea,
-    TextFieldHelper,
-    TextAreaProps as BaseProps,
-} from '@salutejs/plasma-core';
+import { TextFieldRoot, TextFieldTextarea, TextFieldHelper } from '@salutejs/plasma-core';
+import type { TextAreaProps as BaseProps } from '@salutejs/plasma-core';
 
 import { FieldInput, FieldContent, FieldHelperBlock } from '../Field/Field';
 

@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
-import { Col as BaseCol, ColProps as BaseProps } from '@salutejs/plasma-core/components/Grid';
-import { sizes, offsets } from '@salutejs/plasma-core/components/Grid/Col';
-import { mediaQuery, gridSizes, gridColumns } from '@salutejs/plasma-core/utils';
+import { Col as BaseCol, mediaQuery, sizes, offsets, gridSizes, gridColumns } from '@salutejs/plasma-core';
+import type { ColProps as BaseProps } from '@salutejs/plasma-core';
 
 export interface ColProps extends BaseProps {}
 
