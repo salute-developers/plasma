@@ -1,11 +1,11 @@
 import React from 'react';
 import { Header } from '@salutejs/plasma-temple';
+import { Row } from '@salutejs/plasma-ui';
 
 import { Section } from '../../components/Section/Section';
 import { PageComponentProps } from '../../types';
 import { useAssistantState } from '../../hooks/useAssistantState';
 import { ScrollableCol } from '../../components/ScrollableCol/ScrollableCol';
-import { Row } from '@salutejs/plasma-ui';
 
 export const LegalInfo: React.FC<PageComponentProps<'legalInfo'>> = ({ name, header }) => {
     useAssistantState({ screen: name });
