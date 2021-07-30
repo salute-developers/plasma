@@ -1,3 +1,18 @@
+# (Fri Jul 30 2021)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.31.1`
+  - fix(plasma-ui): huawei detection fix [#583](https://github.com/salute-developers/plasma/pull/583) (nicolai.v.95@gmail.com)
+  - docs(plasma-ui): Show provider in stories [#575](https://github.com/salute-developers/plasma/pull/575) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 2
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+- nsvoevodin (nicolai.v.95@gmail.com)
+
+---
+
 # (Tue Jul 27 2021)
 
 #### 🚀 Enhancement

@@ -1,3 +1,19 @@
+# v1.31.1 (Fri Jul 30 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): huawei detection fix [#583](https://github.com/salute-developers/plasma/pull/583) (nicolai.v.95@gmail.com)
+- docs(plasma-ui): Show provider in stories [#575](https://github.com/salute-developers/plasma/pull/575) ([@fanisco](https://github.com/fanisco))
+- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+- nsvoevodin (nicolai.v.95@gmail.com)
+
+---
+
 # v1.31.0 (Tue Jul 27 2021)
 
 #### 🚀 Enhancement
