@@ -1,3 +1,25 @@
+# (Mon Aug 02 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.32.0`
+  - feat(plasma-ui): Added index exports for hooks and etc [#563](https://github.com/salute-developers/plasma/pull/563) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-web@1.31.0`
+  - feat(plasma-web): Index imports for treeshaking [#563](https://github.com/salute-developers/plasma/pull/563) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/demo-canvas-app@0.9.0`
+  - feat(demo-canvas-app): Carousel page [#563](https://github.com/salute-developers/plasma/pull/563) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/demo-canvas-app@0.9.0`, `@salutejs/plasma-core@1.20.0`, `@salutejs/plasma-icons@1.27.0`, `@salutejs/plasma-ui@1.32.0`, `@salutejs/plasma-web@1.31.0`
+  - ci: Build plasma without rollup [#563](https://github.com/salute-developers/plasma/pull/563) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Fri Jul 30 2021)
 
 #### 🐛 Bug Fix
