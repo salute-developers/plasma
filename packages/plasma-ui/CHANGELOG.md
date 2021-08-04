@@ -1,3 +1,20 @@
+# v1.34.0 (Wed Aug 04 2021)
+
+#### 🚀 Enhancement
+
+- feat: Spacing mixin applySpacing [#585](https://github.com/salute-developers/plasma/pull/585) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.33.0 (Mon Aug 02 2021)
 
 #### 🐛 Bug Fix

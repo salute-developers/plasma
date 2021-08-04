@@ -1,3 +1,20 @@
+# (Wed Aug 04 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-core@1.21.0`, `@salutejs/plasma-ui@1.34.0`
+  - feat: Spacing mixin applySpacing [#585](https://github.com/salute-developers/plasma/pull/585) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- chore: Update issue templates [#609](https://github.com/salute-developers/plasma/pull/609) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Mon Aug 02 2021)
 
 #### 🚀 Enhancement
