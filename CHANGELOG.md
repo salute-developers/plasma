@@ -1,5 +1,18 @@
 # (Fri Aug 06 2021)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-core@1.21.1`, `@salutejs/plasma-ui@1.35.1`, `@salutejs/plasma-web@1.34.1`
+  - fix(plasma-core): Image: add role attr [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
+# (Fri Aug 06 2021)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-tokens-b2c@0.3.0`, `@salutejs/plasma-tokens-web@1.9.0`, `@salutejs/plasma-tokens@1.10.0`
