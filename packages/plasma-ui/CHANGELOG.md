@@ -1,3 +1,17 @@
+# v1.36.0 (Fri Aug 06 2021)
+
+#### 🐛 Bug Fix
+
+- fix: Execution layout effect on server [#607](https://github.com/salute-developers/plasma/pull/607) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.35.1 (Fri Aug 06 2021)
 
 #### 🐛 Bug Fix
