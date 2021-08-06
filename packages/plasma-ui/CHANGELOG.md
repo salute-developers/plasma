@@ -1,3 +1,17 @@
+# v1.35.1 (Fri Aug 06 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-core): Image: add role attr [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.35.0 (Fri Aug 06 2021)
 
 #### 🐛 Bug Fix
