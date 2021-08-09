@@ -1,3 +1,5 @@
+export type { TypographyTypes } from '@salutejs/plasma-core';
+
 export * from './Body';
 export * from './Button';
 export * from './Caption';
