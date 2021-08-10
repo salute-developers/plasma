@@ -1,3 +1,21 @@
+# (Tue Aug 10 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.37.0`
+  - feat(plasma-ui): Add mixin reexports from core [#629](https://github.com/salute-developers/plasma/pull/629) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.37.0`
+  - docs(plasma-ui): Mixin import from plasma-ui [#629](https://github.com/salute-developers/plasma/pull/629) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Fri Aug 06 2021)
 
 #### 🚀 Enhancement
