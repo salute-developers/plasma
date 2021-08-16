@@ -1,3 +1,17 @@
+# (Mon Aug 16 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-core@1.23.0`, `@salutejs/plasma-ui@1.38.0`
+  - feat(plasma-ui): tabs api changed [#593](https://github.com/salute-developers/plasma/pull/593) ([@kayman233](https://github.com/kayman233))
+  - feat(plasma-ui): tabs animation added [#593](https://github.com/salute-developers/plasma/pull/593) ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 1
+
+- [@kayman233](https://github.com/kayman233)
+
+---
+
 # (Tue Aug 10 2021)
 
 #### 🚀 Enhancement
