@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@salutejs/plasma-ui@1.38.2`
+  - fix(plasma-ui): fix vertical position of HeaderBack [#634](https://github.com/salute-developers/plasma/pull/634) ([@OgNellis](https://github.com/OgNellis))
+
+#### Authors: 1
+
+- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+
+---
+
+# (Wed Aug 18 2021)
+
+#### 🐛 Bug Fix
+
 - `@salutejs/plasma-ui@1.38.1`
   - fix(plasma-ui): add textAlign prop [#618](https://github.com/salute-developers/plasma/pull/618) ([@ayymkozb](https://github.com/ayymkozb))
   - fix(plasma-ui): calculate props in component [#618](https://github.com/salute-developers/plasma/pull/618) ([@ayymkozb](https://github.com/ayymkozb))
