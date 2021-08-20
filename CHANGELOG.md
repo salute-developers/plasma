@@ -2,6 +2,24 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/showcase@0.46.0`, `@salutejs/plasma-core@1.25.0`, `@salutejs/plasma-tokens-b2c@0.4.0`, `@salutejs/plasma-tokens-web@1.10.0`, `@salutejs/plasma-tokens@1.11.0`, `@salutejs/plasma-ui@1.41.0`, `@salutejs/plasma-web@1.39.0`, `@salutejs/plasma-tokens-utils@0.7.0`
+  - feat: Skeleton in core/ui/web [#628](https://github.com/salute-developers/plasma/pull/628) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-tokens-utils@0.7.0`
+  - fix(plasma-tokens-utils): Escape token value [#628](https://github.com/salute-developers/plasma/pull/628) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
+# (Fri Aug 20 2021)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-core@1.24.0`, `@salutejs/plasma-ui@1.40.0`
   - feat: A11y Switch [#633](https://github.com/salute-developers/plasma/pull/633) ([@fanisco](https://github.com/fanisco))
 

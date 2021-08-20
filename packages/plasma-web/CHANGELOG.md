@@ -1,3 +1,20 @@
+# v1.39.0 (Fri Aug 20 2021)
+
+#### 🚀 Enhancement
+
+- feat: Skeleton in core/ui/web [#628](https://github.com/salute-developers/plasma/pull/628) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.37.2 (Wed Aug 18 2021)
 
 #### 🐛 Bug Fix
