@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-web",
-    "version": "1.40.0",
+    "version": "1.41.0",
     "description": "Salute Design System / React UI kit for web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     
@@ -50,8 +50,8 @@
         "@babel/preset-typescript": "7.13.0",
         "@mdx-js/mdx": "^1.6.16",
         "@salutejs/plasma-colors": "0.1.0",
-        "@salutejs/plasma-icons": "1.36.0",
-        "@salutejs/plasma-sb-utils": "0.20.0",
+        "@salutejs/plasma-icons": "1.37.0",
+        "@salutejs/plasma-sb-utils": "0.21.0",
         "@salutejs/plasma-tokens-b2c": "0.5.0",
         "@salutejs/plasma-tokens-web": "1.11.0",
         "@storybook/addon-essentials": "6.3.4",
