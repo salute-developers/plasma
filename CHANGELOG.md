@@ -1,3 +1,27 @@
+# (Fri Aug 27 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.43.0`, `@salutejs/showcase@0.48.0`
+  - feat(plasma-ui): Add showcase [#660](https://github.com/salute-developers/plasma/pull/660) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- `@salutejs/plasma-ui@1.43.0`
+  - feat(plasma-ui): Add Sheet component [#660](https://github.com/salute-developers/plasma/pull/660) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.43.0`
+  - chore(plasma-ui): Storybook controls for Tabs [#649](https://github.com/salute-developers/plasma/pull/649) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/showcase@0.48.0`
+  - chore: Moved docs/showcase to utils/showcase [#668](https://github.com/salute-developers/plasma/pull/668) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 3
+
+- [@kayman233](https://github.com/kayman233)
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Mon Aug 23 2021)
 
 #### 🚀 Enhancement
