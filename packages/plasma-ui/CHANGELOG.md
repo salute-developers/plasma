@@ -1,3 +1,23 @@
+# v1.43.0 (Fri Aug 27 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): Add showcase [#660](https://github.com/salute-developers/plasma/pull/660) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-ui): Add Sheet component [#660](https://github.com/salute-developers/plasma/pull/660) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- chore(plasma-ui): Storybook controls for Tabs [#649](https://github.com/salute-developers/plasma/pull/649) ([@kayman233](https://github.com/kayman233))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 3
+
+- [@kayman233](https://github.com/kayman233)
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.42.0 (Mon Aug 23 2021)
 
 #### 🐛 Bug Fix
