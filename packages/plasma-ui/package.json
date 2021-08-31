@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-ui",
-    "version": "1.44.0",
+    "version": "1.44.1",
     "description": "Salute Design System",
     "main": "index.js",
     "module": "es/index.js",
@@ -12,7 +12,7 @@
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     
     "dependencies": {
-        "@salutejs/plasma-core": "1.27.0",
+        "@salutejs/plasma-core": "1.27.1",
         "lodash.throttle": "4.1.1",
         "react-draggable": "4.4.3"
     },
@@ -34,8 +34,8 @@
         "@babel/preset-typescript": "7.13.0",
         "@mdx-js/mdx": "1.6.16",
         "@mdx-js/react": "1.6.22",
-        "@salutejs/plasma-icons": "1.38.0",
-        "@salutejs/plasma-sb-utils": "0.22.0",
+        "@salutejs/plasma-icons": "1.38.1",
+        "@salutejs/plasma-sb-utils": "0.22.1",
         "@salutejs/plasma-tokens": "1.12.0",
         "@storybook/addon-essentials": "6.3.4",
         "@storybook/addon-knobs": "6.3.0",
