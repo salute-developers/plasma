@@ -7,8 +7,8 @@ sidebar_position: 1
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Введение в Plasma Web
-Plasma Web (`@salutejs/plasma-web`) – библиотека с открытым исходным кодом,
+# Введение
+Plasma Web – библиотека с открытым исходным кодом,
 в которую входят _компоненты_ дизайн-системы Plasma
 и вспомогательные _утилиты_ для создания веб-приложений на [React](https://reactjs.org/).
 
@@ -16,7 +16,7 @@ Plasma Web (`@salutejs/plasma-web`) – библиотека с открытым
 а компоненты реализованы с применением [styled-components](https://styled-components.com/).
 
 ## Установка
-Plasma Devices поддерживает версии **React 16.8+** и **styled-components 5.1+**.
+Plasma Web поддерживает версии **React 16.8+** и **styled-components 5.1+**.
 Ее можно использовать в существующем проекте.
 
 Установите **React**, **ReactDOM** и **styled-components**:
@@ -38,7 +38,7 @@ npm install @salutejs/plasma-web @salutejs/plasma-tokens-web @salutejs/plasma-ic
 
 ```jsx title="GlobalStyle.tsx"
 import { createGlobalStyle } from 'styled-components';
-import { web } from '@salutejs/plasma-tokens/typo';
+import { web } from '@salutejs/plasma-tokens-web/typo';
 import { light } from '@salutejs/plasma-tokens-web/themes';
 import {
     text, // Цвет текста
@@ -81,7 +81,6 @@ values={[
 <TabItem value="cra">
 
 ```jsx {2,3,7,9,10} title="index.tsx"
-import { DeviceThemeProvider } from '@salutejs/plasma-web';
 import { GlobalStyle } from './GlobalStyle';
 import { App } from './App';
 
@@ -99,7 +98,6 @@ ReactDOM.render(
 
 ```tsx {2,3,7,9,10} title="pages/_app.tsx"
 import type { AppProps } from 'next/app';
-import { DeviceThemeProvider } from '@salutejs/plasma-web';
 import { GlobalStyle } from './GlobalStyle';
 
 function MyApp({ Component, pageProps }: AppProps) {
