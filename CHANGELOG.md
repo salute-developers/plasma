@@ -1,5 +1,43 @@
 # (Wed Sep 08 2021)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-tokens-b2c@0.5.1`
+  - fix(plasma-tokens-b2c): Confusing `paragraph` and `inverse` colors in themes [#709](https://github.com/salute-developers/plasma/pull/709) ([@fanisco](https://github.com/fanisco))
+  - chore(plasma-tokens-b2c): update deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/showcase@0.51.1`
+  - chore(showcase): Test `label` for `Checkbox` and `Radiobox` [#698](https://github.com/salute-developers/plasma/pull/698) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-core@1.27.2`, `@salutejs/plasma-ui@1.46.1`, `@salutejs/plasma-web@1.44.1`
+  - fix: Refactor `Checkbox` & `Radiobox` in order of better understanding [#698](https://github.com/salute-developers/plasma/pull/698) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-web@1.44.1`
+  - chore(plasma-ui): update ts/styled-comps deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+  - chore(plasma-web): update storybook deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+  - chore(plasma-web): update build deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-ui@1.46.1`
+  - chore(plasma-ui): update ts/styled-comps deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+  - chore(plasma-ui): update storybook deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+  - chore(plasma-ui): update test deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+  - chore(plasma-ui): update build deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-tokens-web@1.11.1`
+  - chore(plasma-tokens-web): update deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-icons@1.39.1`
+  - chore(plasma-icons): update deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-core@1.27.2`
+  - chore(plasma-core): update deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-colors@0.1.1`
+  - chore(plasma-colors): update deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-tokens@1.12.1`
+  - chore(plasma-tokens): update deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
+# (Wed Sep 08 2021)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-ui@1.46.0`
