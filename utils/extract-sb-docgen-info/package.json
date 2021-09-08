@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/extract-sb-docgen-info",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "A tool for extraction docgenInfo from Storybook builded stories.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     
