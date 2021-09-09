@@ -1,3 +1,17 @@
+# v1.46.3 (Thu Sep 09 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): Disabled state for `Checkbox` and `Radiobox` [#791](https://github.com/salute-developers/plasma/pull/791) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.46.2 (Thu Sep 09 2021)
 
 #### 🐛 Bug Fix
