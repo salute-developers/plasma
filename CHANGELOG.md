@@ -1,3 +1,29 @@
+# (Thu Sep 09 2021)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-core@1.27.3`
+  - fix: Display `inline-flex` for `Badge` [#784](https://github.com/salute-developers/plasma/pull/784) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-web@1.44.2`
+  - chore(plasma-web): Storybook controls for Button, Carousel, Checkbox, Modal [#651](https://github.com/salute-developers/plasma/pull/651) ([@kayman233](https://github.com/kayman233))
+  - chore(plasma-web): Storybook controls for Notification, PaginationDots, Progress, Radiobox [#652](https://github.com/salute-developers/plasma/pull/652) ([@kayman233](https://github.com/kayman233))
+  - chore(plasma-web): Storybook controls for Tooltip, Badge, Image, Price, Spinner [#662](https://github.com/salute-developers/plasma/pull/662) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-docs@0.1.2`
+  - docs(plasma-ui): Change tag of `Tabs` and `TabItem` [#724](https://github.com/salute-developers/plasma/pull/724) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-core@1.27.3`, `@salutejs/plasma-ui@1.46.2`
+  - feat(plasma-ui, plasma-core): Added `forwardedAs` and `as` props to `Tabs` [#724](https://github.com/salute-developers/plasma/pull/724) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-ui@1.46.2`
+  - chore(plasma-ui): Storybook controls for Card, Carousel, Cell, Header, Pickers [#647](https://github.com/salute-developers/plasma/pull/647) ([@kayman233](https://github.com/kayman233))
+  - fix(plasma-ui): visibleItems for TimePicker fix [#647](https://github.com/salute-developers/plasma/pull/647) ([@kayman233](https://github.com/kayman233))
+  - chore(plasma-ui): fix cell icons [#647](https://github.com/salute-developers/plasma/pull/647) ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Wed Sep 08 2021)
 
 #### 🐛 Bug Fix
