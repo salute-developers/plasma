@@ -1,23 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
-import { accent, primary, tertiary, critical, surfaceLiquid01, SpacingProps } from '@salutejs/plasma-core';
+import { accent, primary, tertiary, critical } from '@salutejs/plasma-tokens';
 import * as Icons from '@salutejs/plasma-icons';
 import * as UI from '@salutejs/plasma-ui';
-
-const Filler = styled.div<SpacingProps>`
-    ${UI.applySpacing}
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    box-sizing: border-box;
-
-    width: 100%;
-    padding: 0.5rem 1rem;
-
-    background-color: ${surfaceLiquid01};
-`;
+import { Filler } from '@salutejs/plasma-docs-ui';
 
 // Add react-live imports you need here
 const ReactLiveScope = {
