@@ -1,3 +1,17 @@
+# v1.44.4 (Tue Sep 14 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web): Collision of `Button` and global custom css [#703](https://github.com/salute-developers/plasma/pull/703) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.44.3 (Thu Sep 09 2021)
 
 #### 🐛 Bug Fix

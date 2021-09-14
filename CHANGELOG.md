@@ -1,3 +1,20 @@
+# (Tue Sep 14 2021)
+
+#### 🐛 Bug Fix
+
+- ci: remove dependabot [#799](https://github.com/salute-developers/plasma/pull/799) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-core@1.27.4`, `@salutejs/plasma-web@1.44.4`
+  - fix(plasma-web): Collision of `Button` and global custom css [#703](https://github.com/salute-developers/plasma/pull/703) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-docs@0.1.4`, `@salutejs/demo-canvas-app@0.23.4`, `demo-tokens@0.6.1`, `@salutejs/plasma-colors@0.1.2`, `@salutejs/plasma-tokens-b2c@0.5.3`, `@salutejs/plasma-tokens-web@1.11.3`, `@salutejs/plasma-tokens@1.12.2`, `@salutejs/extract-sb-docgen-info@0.1.1`, `@salutejs/plasma-sb-utils@0.24.4`, `@salutejs/plasma-tokens-utils@0.7.1`, `@salutejs/showcase@0.51.4`
+  - build: freeze typescript [#799](https://github.com/salute-developers/plasma/pull/799) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Thu Sep 09 2021)
 
 #### 🐛 Bug Fix
