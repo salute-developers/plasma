@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-tokens-b2c",
-    "version": "0.5.2",
+    "version": "0.5.3",
     "description": "",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     
@@ -8,8 +8,8 @@
     "main": "index.js",
     "types": "index.d.ts",
     "devDependencies": {
-        "@salutejs/plasma-colors": "0.1.1",
-        "@salutejs/plasma-tokens-utils": "0.7.0",
+        "@salutejs/plasma-colors": "0.1.2",
+        "@salutejs/plasma-tokens-utils": "0.7.1",
         "@types/node": "16.7.13",
         "jsdom": "17.0.0",
         "jsdom-global": "3.0.2",
