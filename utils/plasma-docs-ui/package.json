@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-docs-ui",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "Plasma Documentation.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     
@@ -28,7 +28,9 @@
     "publishConfig": {
         "access": "restricted"
     },
-    "files": ["lib"],
+    "files": [
+        "lib"
+    ],
     "dependencies": {
         "@salutejs/plasma-core": "1.27.3"
     }
