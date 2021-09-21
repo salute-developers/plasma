@@ -1,3 +1,21 @@
+# v1.48.1 (Tue Sep 21 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): Separate gradient masks for `Picker` [#708](https://github.com/salute-developers/plasma/pull/708) ([@fanisco](https://github.com/fanisco))
+- test(plasma-ui): `PickerItem`'s styling utils [#708](https://github.com/salute-developers/plasma/pull/708) ([@fanisco](https://github.com/fanisco))
+- fix(plasma-ui): `PickerItem` `size="s"` text cut at the bottom [#708](https://github.com/salute-developers/plasma/pull/708) ([@fanisco](https://github.com/fanisco))
+- chore(plasma-ui): E2E test for `DatePicker` and `TimePicker` [#806](https://github.com/salute-developers/plasma/pull/806) ([@fanisco](https://github.com/fanisco))
+- chore: Delete extract-sb-docgen-info [#801](https://github.com/salute-developers/plasma/pull/801) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.48.0 (Mon Sep 20 2021)
 
 #### 🐛 Bug Fix
