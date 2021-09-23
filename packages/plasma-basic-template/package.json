@@ -1,27 +1,22 @@
 {
-  "name": "@salutejs/cra-template-plasma-basic-template",
-  "version": "1.3.0",
-  "description": "",
-  "keywords": [
-    "react",
-    "create-react-app",
-    "template",
-    "typescript"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/salute-developers/pashka.git",
-    "directory": "packages/plasma-basic-template"
-  },
-  
-  "engines": {
-    "node": ">=12"
-  },
-  "bugs": {
-    "url": "https://github.com/salute-developers/pashka/issues"
-  },
-  "files": [
-    "template",
-    "template.json"
-  ]
+    "name": "@salutejs/cra-template-plasma-basic-template",
+    "version": "1.3.0",
+    "description": "",
+    "keywords": ["react", "create-react-app", "template", "typescript"],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/salute-developers/plasma.git",
+        "directory": "packages/plasma-basic-template"
+    },
+    
+    "engines": {
+        "node": ">=12"
+    },
+    "bugs": {
+        "url": "https://github.com/salute-developers/plasma/issues"
+    },
+    "files": ["template", "template.json"],
+    "publishConfig": {
+        "access": "public"
+    }
 }

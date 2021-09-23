@@ -2,15 +2,10 @@
     "name": "@salutejs/cra-template-plasma-shop-template",
     "version": "1.3.0",
     "description": "",
-    "keywords": [
-        "react",
-        "create-react-app",
-        "template",
-        "typescript"
-    ],
+    "keywords": ["react", "create-react-app", "template", "typescript"],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/salute-developers/pashka.git",
+        "url": "git+https://github.com/salute-developers/plasma.git",
         "directory": "packages/plasma-shop-template"
     },
     
@@ -18,12 +13,9 @@
         "node": ">=12"
     },
     "bugs": {
-        "url": "https://github.com/salute-developers/pashka/issues"
+        "url": "https://github.com/salute-developers/plasma/issues"
     },
-    "files": [
-        "template",
-        "template.json"
-    ],
+    "files": ["template", "template.json"],
     "publishConfig": {
         "access": "public"
     }
