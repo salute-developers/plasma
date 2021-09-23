@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Cell, TextBox, TextBoxLabel, TextBoxTitle, Button } from '@salutejs/plasma-ui';
 import { IconPlay } from '@salutejs/plasma-icons/Icons/IconPlay';
 
-import { isSberBoxLike } from '../../../../utils';
+import { isSberBoxLike } from '../../../../utils/deviceFamily';
 import { FullScreenBackground } from '../FullScreenBackground/FullScreenBackground';
 import { useFocusOnMount } from '../../../../hooks/useFocusOnMount';
 import { UnifiedComponentProps } from '../../../../registry/types';
