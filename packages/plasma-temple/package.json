@@ -6,7 +6,7 @@
     "types": "dist/index.d.ts",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/salute-developers/pashka.git"
+        "url": "git+https://github.com/salute-developers/plasma.git"
     },
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     
@@ -70,9 +70,8 @@
         "access": "public"
     },
     "bugs": {
-        "url": "https://github.com/salute-developers/pashka/issues"
+        "url": "https://github.com/salute-developers/plasma/issues"
     },
-    "homepage": "https://github.com/salute-developers/pashka#readme",
     "scripts": {
         "prepare": "npm run build",
         "clean": "rm -rf dist",
