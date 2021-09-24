@@ -1,3 +1,15 @@
+# v2.0.0 (Fri Sep 24 2021)
+
+#### 🐛 Bug Fix
+
+- docs(plasma-templte): fix docs [#811](https://github.com/salute-developers/plasma/pull/811) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 1
+
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # v1.3.0 (Wed Sep 22 2021)
 
 #### 🚀 Enhancement
