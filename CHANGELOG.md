@@ -1,3 +1,39 @@
+# (Fri Sep 24 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-web@1.47.0`
+  - feat(plasma-web): `Dropdown` `onToggle` notification [#805](https://github.com/salute-developers/plasma/pull/805) ([@fanisco](https://github.com/fanisco))
+  - feat(plasma-web): Moved `SingleSelect` and `MultiSelect` functionality to hocs [#805](https://github.com/salute-developers/plasma/pull/805) ([@fanisco](https://github.com/fanisco))
+  - feat(plasma-web): Customize `Dropdown` with CSS Vars [#805](https://github.com/salute-developers/plasma/pull/805) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-b2c@1.2.0`
+  - feat(plasma-b2c): Added group `Select` functionality [#805](https://github.com/salute-developers/plasma/pull/805) ([@fanisco](https://github.com/fanisco))
+  - feat(plasma-b2c): Added `Select` component [#805](https://github.com/salute-developers/plasma/pull/805) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- ci: update cypress container [#573](https://github.com/salute-developers/plasma/pull/573) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.2.0`
+  - fix(plasma-b2c): Flip `Select` arrow [#805](https://github.com/salute-developers/plasma/pull/805) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-web@1.47.0`
+  - fix(plasma-web): Removed `DropdownList` min-width [#805](https://github.com/salute-developers/plasma/pull/805) ([@fanisco](https://github.com/fanisco))
+  - chore: make cypress work again [#573](https://github.com/salute-developers/plasma/pull/573) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-core@1.29.0`, `@salutejs/plasma-ui@1.49.0`, `@salutejs/plasma-web@1.47.0`
+  - chore: resolve cypress and jest conflicts [#573](https://github.com/salute-developers/plasma/pull/573) ([@OgNellis](https://github.com/OgNellis))
+- `@salutejs/plasma-ui@1.49.0`, `@salutejs/plasma-web@1.47.0`
+  - chore: cypress component testing [#573](https://github.com/salute-developers/plasma/pull/573) (dakhetov@outlook.com)
+- `@salutejs/plasma-ui-docs@0.4.0`
+  - docs(plasma-ui-docs): misspel [#809](https://github.com/salute-developers/plasma/pull/809) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 4
+
+- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+- Daniil Akhetov (dakhetov@outlook.com)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Wed Sep 22 2021)
 
 #### 🚀 Enhancement
