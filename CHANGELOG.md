@@ -1,5 +1,18 @@
 # (Tue Sep 28 2021)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-temple@1.1.1`
+  - fix(plasma-temple): fix page types [#820](https://github.com/salute-developers/plasma/pull/820) ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 1
+
+- [@kayman233](https://github.com/kayman233)
+
+---
+
+# (Tue Sep 28 2021)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-temple@1.1.0`
