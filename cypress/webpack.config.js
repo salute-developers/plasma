@@ -17,6 +17,12 @@ module.exports = function getWebpackConfig() {
                 'styled-components': path.resolve(process.env.PACKEGE_DIR, 'node_modules', 'styled-components'),
                 react: path.resolve(process.env.PACKEGE_DIR, 'node_modules', 'react'),
                 'react-dom': path.resolve(process.env.PACKEGE_DIR, 'node_modules', 'react-dom'),
+                '@salutejs/plasma-icons': path.resolve(
+                    process.env.PACKEGE_DIR,
+                    'node_modules',
+                    '@salutejs',
+                    'plasma-icons',
+                ),
             },
         },
         optimization: {
