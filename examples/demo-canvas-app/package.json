@@ -6,7 +6,8 @@
     
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/salute-developers/pashka.git"
+        "url": "git+https://github.com/salute-developers/pashka.git",
+        "directory": "examples/demo-canvas-app"
     },
     "private": true,
     "publishConfig": {
