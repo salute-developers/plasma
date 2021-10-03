@@ -1,3 +1,27 @@
+# (Sun Oct 03 2021)
+
+#### 🐛 Bug Fix
+
+- chore: .eslintignore [#823](https://github.com/salute-developers/plasma/pull/823) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/demo-canvas-app@0.27.2`
+  - fix: dummy-release [#826](https://github.com/salute-developers/plasma/pull/826) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.3.2`, `@salutejs/plasma-cy-utils@0.0.1`
+  - test(plasma-b2c): enable cypress comp tests [#823](https://github.com/salute-developers/plasma/pull/823) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-core@1.29.1`, `@salutejs/plasma-ui@1.50.2`, `@salutejs/plasma-web@1.48.2`, `@salutejs/plasma-cy-utils@0.0.1`
+  - chore: move cypress helpers to utils [#823](https://github.com/salute-developers/plasma/pull/823) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-core@1.29.1`
+  - test(Badge): update screens [#823](https://github.com/salute-developers/plasma/pull/823) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-core@1.29.1`, `@salutejs/plasma-ui@1.50.2`, `@salutejs/plasma-web@1.48.2`
+  - test(plasma-web/plasma-ui): move cy tests to plasma-core [#823](https://github.com/salute-developers/plasma/pull/823) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-web@1.48.2`
+  - test(plasma-web): fix cypress comp-tests [#823](https://github.com/salute-developers/plasma/pull/823) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Tue Sep 28 2021)
 
 #### 🐛 Bug Fix
