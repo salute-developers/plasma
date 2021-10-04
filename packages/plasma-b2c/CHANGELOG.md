@@ -1,3 +1,15 @@
+# v1.5.0 (Mon Oct 04 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): Editable component added [#821](https://github.com/salute-developers/plasma/pull/821) ([@IArny](https://github.com/IArny))
+
+#### Authors: 1
+
+- [@IArny](https://github.com/IArny)
+
+---
+
 # v1.4.1 (Mon Oct 04 2021)
 
 #### 🐛 Bug Fix
