@@ -1,5 +1,18 @@
 # (Mon Oct 04 2021)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.5.0`
+  - feat(plasma-b2c): Editable component added [#821](https://github.com/salute-developers/plasma/pull/821) ([@IArny](https://github.com/IArny))
+
+#### Authors: 1
+
+- [@IArny](https://github.com/IArny)
+
+---
+
+# (Mon Oct 04 2021)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/cra-template-plasma-shop-template@2.1.1`, `@salutejs/plasma-temple@1.1.3`
