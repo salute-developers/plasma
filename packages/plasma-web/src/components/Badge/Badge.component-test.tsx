@@ -1,10 +1,8 @@
 /* eslint-disable */
 import React from 'react';
-import ReactDom from 'react-dom';
-import { mount } from '@cypress/react';
 import { IconEye } from '@salutejs/plasma-icons';
 
-import { CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
 
 const Icon = () => <IconEye color="inherit" size="xs" />;
 
@@ -35,7 +33,6 @@ describe('plasma-web: Badge', () => {
                 <Badge view="critical" contentLeft={<Icon />} />
                 <PadMe />
             </CypressTestDecorator>,
-            { ReactDom },
         );
         cy.matchImageSnapshot();
     });
