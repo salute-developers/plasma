@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { mount } from '@cypress/react';
 import { IconEye } from '@salutejs/plasma-icons';
-
-import { CypressTestDecorator, PadMe, SpaceMe } from '../../helpers';
+import { CypressTestDecorator, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
 
 import { Badge } from '.';
 
