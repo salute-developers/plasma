@@ -4,7 +4,7 @@ import ReactDom from 'react-dom';
 import { mount } from '@cypress/react';
 import { IconEye } from '@salutejs/plasma-icons';
 
-import { CypressTestDecorator, getComponent, PadMe, SpaceMe } from '../../__helpers';
+import { CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
 
 const Icon = () => <IconEye color="inherit" size="xs" />;
 
