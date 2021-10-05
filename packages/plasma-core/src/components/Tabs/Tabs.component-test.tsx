@@ -1,7 +1,5 @@
 import React from 'react';
-import ReactDom from 'react-dom';
-import { mount } from '@cypress/react';
-import { CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
 describe('plasma-core: Tabs', () => {
     const Tabs = getComponent('Tabs');
@@ -16,7 +14,6 @@ describe('plasma-core: Tabs', () => {
                     <TabItem>Eva</TabItem>
                 </Tabs>
             </CypressTestDecorator>,
-            { ReactDom },
         );
 
         cy.matchImageSnapshot();
