@@ -1,3 +1,28 @@
+# (Wed Oct 06 2021)
+
+#### 🐛 Bug Fix
+
+- test(ui): update snapshots [#832](https://github.com/salute-developers/plasma/pull/832) ([@Yeti-or](https://github.com/Yeti-or))
+- test: increase retries up to 3 [#832](https://github.com/salute-developers/plasma/pull/832) ([@Yeti-or](https://github.com/Yeti-or))
+- test(b2c): update snapshots [#832](https://github.com/salute-developers/plasma/pull/832) ([@Yeti-or](https://github.com/Yeti-or))
+- test(web): update snapshots [#832](https://github.com/salute-developers/plasma/pull/832) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-temple@1.1.4`
+  - fix(plasma-temple): Fix HeroSlide styles [#834](https://github.com/salute-developers/plasma/pull/834) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+- `@salutejs/plasma-cy-utils@0.1.1`
+  - test: update snapshots [#832](https://github.com/salute-developers/plasma/pull/832) ([@Yeti-or](https://github.com/Yeti-or))
+  - ci: fix cy-tests build [#830](https://github.com/salute-developers/plasma/pull/830) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.5.1`, `@salutejs/plasma-core@1.30.1`, `@salutejs/plasma-ui@1.51.1`, `@salutejs/plasma-web@1.49.2`, `@salutejs/plasma-cy-utils@0.1.1`
+  - test: add SBSans to cypress [#832](https://github.com/salute-developers/plasma/pull/832) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-core@1.30.1`, `@salutejs/plasma-ui@1.51.1`, `@salutejs/plasma-web@1.49.2`
+  - test(plasma-core/ui/web): fix tests [#830](https://github.com/salute-developers/plasma/pull/830) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Mon Oct 04 2021)
 
 #### 🚀 Enhancement
