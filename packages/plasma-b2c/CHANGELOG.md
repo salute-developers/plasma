@@ -1,3 +1,20 @@
+# v1.6.0 (Wed Oct 06 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2b): Sanitize paste event on Editable [#833](https://github.com/salute-developers/plasma/pull/833) ([@IArny](https://github.com/IArny))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@IArny](https://github.com/IArny)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.5.1 (Wed Oct 06 2021)
 
 #### 🐛 Bug Fix

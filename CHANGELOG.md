@@ -1,5 +1,18 @@
 # (Wed Oct 06 2021)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.6.0`
+  - feat(plasma-b2b): Sanitize paste event on Editable [#833](https://github.com/salute-developers/plasma/pull/833) ([@IArny](https://github.com/IArny))
+
+#### Authors: 1
+
+- [@IArny](https://github.com/IArny)
+
+---
+
+# (Wed Oct 06 2021)
+
 #### 🐛 Bug Fix
 
 - test(ui): update snapshots [#832](https://github.com/salute-developers/plasma/pull/832) ([@Yeti-or](https://github.com/Yeti-or))
