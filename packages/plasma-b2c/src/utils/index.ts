@@ -1,1 +1,1 @@
-export * from '@salutejs/plasma-core/utils';
+export * from '@salutejs/plasma-web/utils';
