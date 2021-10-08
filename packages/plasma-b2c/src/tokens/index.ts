@@ -11,4 +11,4 @@ export {
     inputBorderHover,
 } from '@salutejs/plasma-web/tokens';
 
-export * from './typography';
+export * from '@salutejs/plasma-typo';
