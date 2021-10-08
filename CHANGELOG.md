@@ -1,3 +1,51 @@
+# (Fri Oct 08 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.7.0`
+  - feat(b2c): add Slider [#842](https://github.com/salute-developers/plasma/pull/842) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.7.0`, `@salutejs/plasma-typo@0.1.0`
+  - feat: Standard typography system [#829](https://github.com/salute-developers/plasma/pull/829) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-core@1.31.0`, `@salutejs/plasma-tokens-b2c@0.7.0`, `@salutejs/plasma-tokens-web@1.13.0`, `@salutejs/plasma-tokens@1.14.0`, `@salutejs/plasma-tokens-utils@0.8.0`
+  - feat(plasma-core): Added global `dark0N` colors [#812](https://github.com/salute-developers/plasma/pull/812) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-b2c@1.7.0`, `@salutejs/plasma-core@1.31.0`
+  - feat(plasma-b2c): `Toast` icon [#812](https://github.com/salute-developers/plasma/pull/812) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-b2c@1.7.0`, `@salutejs/plasma-core@1.31.0`, `@salutejs/plasma-ui@1.52.0`, `@salutejs/plasma-web@1.50.0`
+  - feat(plasma-core): Shared `Toast` between libraries [#812](https://github.com/salute-developers/plasma/pull/812) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- test(plasma-b2c): Update snapshots after applying Standard Typography [#829](https://github.com/salute-developers/plasma/pull/829) ([@fanisco](https://github.com/fanisco))
+- test(b2c): Editable snapshot [#837](https://github.com/salute-developers/plasma/pull/837) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.7.0`
+  - docs(plasma-b2c): fix packageName [#841](https://github.com/salute-developers/plasma/pull/841) ([@Yeti-or](https://github.com/Yeti-or))
+  - test(plasma-b2c): add storybook stories [#841](https://github.com/salute-developers/plasma/pull/841) ([@Yeti-or](https://github.com/Yeti-or))
+  - chore(plasma-b2c): Support compatible typography in storybook [#829](https://github.com/salute-developers/plasma/pull/829) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-cy-utils@0.2.0`
+  - build(plasma-cy-utils): fix pck-locks [#829](https://github.com/salute-developers/plasma/pull/829) ([@Yeti-or](https://github.com/Yeti-or))
+  - chore(plasma-cy-utils): Update styled-components version [#829](https://github.com/salute-developers/plasma/pull/829) ([@fanisco](https://github.com/fanisco))
+  - test(plasma-b2c): Added B2C typos for cy component test [#829](https://github.com/salute-developers/plasma/pull/829) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-web@1.50.0`
+  - chore: Skip Notification component test [#829](https://github.com/salute-developers/plasma/pull/829) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/showcase@0.59.0`
+  - chore(showcase): Add Standard typography for B2C in showcase [#829](https://github.com/salute-developers/plasma/pull/829) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-b2c@1.7.0`, `@salutejs/plasma-core@1.31.0`, `@salutejs/plasma-ui@1.52.0`, `@salutejs/plasma-web@1.50.0`, `@salutejs/showcase@0.59.0`
+  - test: Component test for B2C `Toast` [#812](https://github.com/salute-developers/plasma/pull/812) ([@fanisco](https://github.com/fanisco))
+
+#### ⚠️ Pushed to `master`
+
+- `@salutejs/plasma-b2c@1.7.0`, `@salutejs/plasma-core@1.31.0`, `@salutejs/plasma-ui@1.52.0`, `@salutejs/plasma-web@1.50.0`
+  - build(plasma-core/ui/b2c/web): fix storybook build ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.7.0`
+  - chore(plasma-b2c): Bump `plasma-tokens-b2c` version ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 2
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Thu Oct 07 2021)
 
 #### 🐛 Bug Fix
