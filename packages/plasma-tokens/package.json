@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-tokens",
-    "version": "1.13.0",
+    "version": "1.14.0",
     "description": "",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     
@@ -39,7 +39,7 @@
         "theme.json"
     ],
     "devDependencies": {
-        "@salutejs/plasma-tokens-utils": "0.7.1",
+        "@salutejs/plasma-tokens-utils": "0.8.0",
         "@types/node": "16.7.13",
         "@types/param-case": "1.1.2",
         "jsdom": "17.0.0",
