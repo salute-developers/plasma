@@ -1,3 +1,15 @@
+# v0.8.0 (Fri Oct 08 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-core): Added global `dark0N` colors [#812](https://github.com/salute-developers/plasma/pull/812) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v0.7.1 (Tue Sep 14 2021)
 
 #### 🐛 Bug Fix
