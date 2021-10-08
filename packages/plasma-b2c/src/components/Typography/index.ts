@@ -20,3 +20,8 @@ export {
     Subtitle,
     Underline,
 } from '@salutejs/plasma-web';
+
+export * from './Body';
+export * from './Dspl';
+export * from './H';
+export * from './Txt';
