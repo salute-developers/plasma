@@ -2,6 +2,19 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-b2c@1.10.0`, `@salutejs/plasma-typo@0.2.0`
+  - feat(plasma-typo): Typography separation: bold & regular [#845](https://github.com/salute-developers/plasma/pull/845) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
+# (Mon Oct 11 2021)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-b2c@1.9.0`, `@salutejs/plasma-core@1.32.0`, `@salutejs/plasma-web@1.51.0`
   - feat: new grid breakpoint for 16 cols [#825](https://github.com/salute-developers/plasma/pull/825) ([@takovoy](https://github.com/takovoy))
 
