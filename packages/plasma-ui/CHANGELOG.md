@@ -1,3 +1,17 @@
+# v1.53.0 (Mon Oct 11 2021)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore: Remove Chromatic check [#850](https://github.com/salute-developers/plasma/pull/850) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.52.0 (Fri Oct 08 2021)
 
 #### 🚀 Enhancement

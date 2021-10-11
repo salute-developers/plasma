@@ -1,3 +1,23 @@
+# v1.8.0 (Mon Oct 11 2021)
+
+#### 🚀 Enhancement
+
+- feat(b2c): TextArea: new typo [#843](https://github.com/salute-developers/plasma/pull/843) ([@Yeti-or](https://github.com/Yeti-or))
+- feat(plasma-b2c): TextArea for b2c added [#843](https://github.com/salute-developers/plasma/pull/843) ([@kayman233](https://github.com/kayman233))
+
+#### 🐛 Bug Fix
+
+- chore(b2c): rmv TextArea story [#843](https://github.com/salute-developers/plasma/pull/843) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 3
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.7.0 (Fri Oct 08 2021)
 
 #### 🚀 Enhancement
