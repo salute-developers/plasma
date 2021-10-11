@@ -2,6 +2,19 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-b2c@1.9.0`, `@salutejs/plasma-core@1.32.0`, `@salutejs/plasma-web@1.51.0`
+  - feat: new grid breakpoint for 16 cols [#825](https://github.com/salute-developers/plasma/pull/825) ([@takovoy](https://github.com/takovoy))
+
+#### Authors: 1
+
+- Aleksandr Sustavov ([@takovoy](https://github.com/takovoy))
+
+---
+
+# (Mon Oct 11 2021)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-temple@1.2.0`
   - feat(plasma-temple): Configurable StateLayout background image [#836](https://github.com/salute-developers/plasma/pull/836) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
 - `@salutejs/plasma-b2c@1.8.0`
