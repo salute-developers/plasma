@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-temple",
-    "version": "1.1.5",
+    "version": "1.2.0",
     "description": "Salute CanvasApp Templates.",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
