@@ -1,3 +1,23 @@
+# (Wed Oct 13 2021)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-colors@0.2.1`
+  - fix(plasma-colors): Add types to files field [#855](https://github.com/salute-developers/plasma/pull/855) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.11.1`, `@salutejs/plasma-web@1.53.1`, `@salutejs/showcase@0.62.1`, `@salutejs/plasma-ui-docs@0.10.1`, `@salutejs/plasma-web-docs@0.6.1`
+  - chore: Manual publish for web & b2c [#854](https://github.com/salute-developers/plasma/pull/854) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/demo-canvas-app@0.32.1`, `@salutejs/plasma-sb-utils@0.32.1`
+  - chore: Update package-locks [#854](https://github.com/salute-developers/plasma/pull/854) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-b2c@1.11.1`, `@salutejs/plasma-core@1.33.1`, `@salutejs/plasma-icons@1.47.1`, `@salutejs/plasma-ui@1.55.1`, `@salutejs/plasma-web@1.53.1`, `@salutejs/plasma-cy-utils@0.3.1`
+  - fix: Update package-locks [#853](https://github.com/salute-developers/plasma/pull/853) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 2
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Mon Oct 11 2021)
 
 #### 🚀 Enhancement
