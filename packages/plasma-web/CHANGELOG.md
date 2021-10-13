@@ -1,3 +1,18 @@
+# v1.53.1 (Wed Oct 13 2021)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore: Manual publish for web & b2c [#854](https://github.com/salute-developers/plasma/pull/854) ([@fanisco](https://github.com/fanisco))
+- fix: Update package-locks [#853](https://github.com/salute-developers/plasma/pull/853) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.51.0 (Mon Oct 11 2021)
 
 #### 🚀 Enhancement
