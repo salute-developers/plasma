@@ -1,3 +1,17 @@
+# v1.33.2 (Thu Oct 14 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web, plasma-b2c): Fix re-exporting [#864](https://github.com/salute-developers/plasma/pull/864) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.33.1 (Wed Oct 13 2021)
 
 #### 🐛 Bug Fix
