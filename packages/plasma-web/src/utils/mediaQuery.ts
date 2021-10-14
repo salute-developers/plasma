@@ -1,6 +1,5 @@
 import { css } from 'styled-components';
-import { gridBreakpoints, gridColumns, gridGutters, gridMargins } from '@salutejs/plasma-core';
-import { MediaQueryFunction } from '@salutejs/plasma-core/utils/mediaQuery';
+import { gridBreakpoints, gridColumns, gridGutters, gridMargins, MediaQueryFunction } from '@salutejs/plasma-core';
 
 export const breakpoints = {
     XXL: 1200, // Desktop large

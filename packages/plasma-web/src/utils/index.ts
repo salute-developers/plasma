@@ -1,4 +1,18 @@
-export * from '@salutejs/plasma-core/utils';
+export {
+    animatedScrollToX,
+    animatedScrollToY,
+    canUseDOM,
+    convertRoundnessMatrix,
+    padZeroNumber,
+    monthLongName,
+    monthShortName,
+    formatCurrency,
+    setRef,
+    toCssSize,
+    transformStyles,
+} from '@salutejs/plasma-core';
+
+export type { TimingFunction, PinProps, MediaQueryFunction } from '@salutejs/plasma-core';
 
 export {
     mediaQuery,
@@ -8,4 +22,5 @@ export {
     gutters as gridGutters,
     sizes as gridSizes,
 } from './mediaQuery';
+
 export type { Breakpoint } from './mediaQuery';
