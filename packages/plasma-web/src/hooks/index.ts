@@ -1,1 +1,1 @@
-export * from '@salutejs/plasma-core/hooks';
+export { useForkRef, useIsomorphicLayoutEffect, useDebouncedFunction } from '@salutejs/plasma-core';
