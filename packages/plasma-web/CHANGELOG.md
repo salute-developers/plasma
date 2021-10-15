@@ -1,3 +1,17 @@
+# v1.53.3 (Fri Oct 15 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web): Remove underline from Dropdown item [#865](https://github.com/salute-developers/plasma/pull/865) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.53.2 (Thu Oct 14 2021)
 
 #### 🐛 Bug Fix
