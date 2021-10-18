@@ -1,3 +1,20 @@
+# v1.12.0 (Mon Oct 18 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): add ElasticGrid component [#847](https://github.com/salute-developers/plasma/pull/847) ([@IArny](https://github.com/IArny))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@IArny](https://github.com/IArny)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.11.4 (Fri Oct 15 2021)
 
 #### 🐛 Bug Fix
