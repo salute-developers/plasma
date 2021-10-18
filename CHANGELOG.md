@@ -1,3 +1,16 @@
+# (Mon Oct 18 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.12.0`
+  - feat(plasma-b2c): add ElasticGrid component [#847](https://github.com/salute-developers/plasma/pull/847) ([@IArny](https://github.com/IArny))
+
+#### Authors: 1
+
+- [@IArny](https://github.com/IArny)
+
+---
+
 # (Fri Oct 15 2021)
 
 #### 🐛 Bug Fix
