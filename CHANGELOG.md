@@ -1,5 +1,18 @@
 # (Thu Oct 21 2021)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.13.1`, `@salutejs/plasma-web@1.54.1`
+  - fix: grid container max size [#880](https://github.com/salute-developers/plasma/pull/880) ([@takovoy](https://github.com/takovoy))
+
+#### Authors: 1
+
+- Aleksandr Sustavov ([@takovoy](https://github.com/takovoy))
+
+---
+
+# (Thu Oct 21 2021)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-ui@1.58.0`, `@salutejs/plasma-ui-docs@0.13.0`
