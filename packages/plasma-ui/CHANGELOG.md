@@ -1,3 +1,17 @@
+# v1.56.1 (Thu Oct 21 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): `HeaderContent` flex in Chrome 94 [#875](https://github.com/salute-developers/plasma/pull/875) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.55.3 (Fri Oct 15 2021)
 
 #### 🐛 Bug Fix
