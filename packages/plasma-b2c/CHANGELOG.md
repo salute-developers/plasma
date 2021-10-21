@@ -1,3 +1,30 @@
+# v1.13.0 (Thu Oct 21 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): add custom background for editable component [#877](https://github.com/salute-developers/plasma/pull/877) ([@IArny](https://github.com/IArny))
+- feat(plasma-b2c): Added `PreviewGallery` component [#819](https://github.com/salute-developers/plasma/pull/819) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-b2c): Added `UploadViusal` component [#819](https://github.com/salute-developers/plasma/pull/819) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-b2c): Update `Upload` component; Added `UploadAudio` component [#819](https://github.com/salute-developers/plasma/pull/819) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-b2c): Add `AudioPlayer` component [#819](https://github.com/salute-developers/plasma/pull/819) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-b2c): Added `UploadAudio` component [#819](https://github.com/salute-developers/plasma/pull/819) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-icons): Added `Music` icon [#819](https://github.com/salute-developers/plasma/pull/819) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-b2c): Added `Upload` component [#819](https://github.com/salute-developers/plasma/pull/819) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- test(plasma-b2c): Added tests for `Uploads`,`AudioPlayer`,`PreviewGallery` components [#819](https://github.com/salute-developers/plasma/pull/819) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 4
+
+- [@IArny](https://github.com/IArny)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.12.1 (Tue Oct 19 2021)
 
 #### 🐛 Bug Fix

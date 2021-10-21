@@ -1,3 +1,34 @@
+# (Thu Oct 21 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.13.0`
+  - feat(plasma-b2c): add custom background for editable component [#877](https://github.com/salute-developers/plasma/pull/877) ([@IArny](https://github.com/IArny))
+  - feat(plasma-b2c): Added `PreviewGallery` component [#819](https://github.com/salute-developers/plasma/pull/819) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-b2c): Added `UploadViusal` component [#819](https://github.com/salute-developers/plasma/pull/819) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-b2c): Update `Upload` component; Added `UploadAudio` component [#819](https://github.com/salute-developers/plasma/pull/819) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-b2c): Add `AudioPlayer` component [#819](https://github.com/salute-developers/plasma/pull/819) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-b2c): Added `UploadAudio` component [#819](https://github.com/salute-developers/plasma/pull/819) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-b2c): Added `Upload` component [#819](https://github.com/salute-developers/plasma/pull/819) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-icons@1.48.0`
+  - feat(plasma-icons): Added `PictureFilled` icon [#819](https://github.com/salute-developers/plasma/pull/819) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-icons): Added `Drag` icon [#819](https://github.com/salute-developers/plasma/pull/819) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.13.0`, `@salutejs/plasma-icons@1.48.0`
+  - feat(plasma-icons): Added `Music` icon [#819](https://github.com/salute-developers/plasma/pull/819) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.13.0`
+  - test(plasma-b2c): Added tests for `Uploads`,`AudioPlayer`,`PreviewGallery` components [#819](https://github.com/salute-developers/plasma/pull/819) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 3
+
+- [@IArny](https://github.com/IArny)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Tue Oct 19 2021)
 
 #### 🐛 Bug Fix
