@@ -2,6 +2,19 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-ui@1.58.0`, `@salutejs/plasma-ui-docs@0.13.0`
+  - feat(plasma-ui): Added `gradientColor` prop to `Header` [#874](https://github.com/salute-developers/plasma/pull/874) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
+# (Thu Oct 21 2021)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-ui@1.57.0`
   - feat(plasma-ui): `Header`'s back-minimize animation" [#863](https://github.com/salute-developers/plasma/pull/863) ([@fanisco](https://github.com/fanisco))
 - `@salutejs/demo-canvas-app@0.34.0`, `@salutejs/plasma-ui@1.57.0`, `@salutejs/plasma-ui-docs@0.12.0`
