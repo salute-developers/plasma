@@ -2,6 +2,20 @@
 
 #### 🐛 Bug Fix
 
+- `@salutejs/plasma-ui@1.58.1`
+  - fix(plasma-ui): Fix showing values for `TimePicker` component [#887](https://github.com/salute-developers/plasma/pull/887) ([@neretin-trike](https://github.com/neretin-trike))
+  - fix(plasma-ui): Fix showing values for `DataPicker` component [#887](https://github.com/salute-developers/plasma/pull/887) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Fri Oct 22 2021)
+
+#### 🐛 Bug Fix
+
 - ci: Deploy Plasma Website [#851](https://github.com/salute-developers/plasma/pull/851) ([@fanisco](https://github.com/fanisco))
 - `@salutejs/plasma-temple@1.2.1`
   - fix(plasma-temple): make props deprecated [#867](https://github.com/salute-developers/plasma/pull/867) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
