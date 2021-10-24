@@ -1,3 +1,18 @@
+# v1.13.3 (Sun Oct 24 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-b2c): make PreviewGallery item ratio 16 / 9 [#886](https://github.com/salute-developers/plasma/pull/886) ([@IArny](https://github.com/IArny))
+- fix(plasma-b2c): rename PreviewGallery item button action [#886](https://github.com/salute-developers/plasma/pull/886) ([@IArny](https://github.com/IArny))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@IArny](https://github.com/IArny)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.13.1 (Thu Oct 21 2021)
 
 #### 🐛 Bug Fix
