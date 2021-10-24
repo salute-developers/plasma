@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@salutejs/plasma-core@1.33.4`
+  - fix: b2c preview gallery image size [#890](https://github.com/salute-developers/plasma/pull/890) ([@takovoy](https://github.com/takovoy))
+
+#### Authors: 1
+
+- Aleksandr Sustavov ([@takovoy](https://github.com/takovoy))
+
+---
+
+# (Sun Oct 24 2021)
+
+#### 🐛 Bug Fix
+
 - `@salutejs/plasma-b2c@1.13.3`
   - fix(plasma-b2c): make PreviewGallery item ratio 16 / 9 [#886](https://github.com/salute-developers/plasma/pull/886) ([@IArny](https://github.com/IArny))
   - fix(plasma-b2c): rename PreviewGallery item button action [#886](https://github.com/salute-developers/plasma/pull/886) ([@IArny](https://github.com/IArny))
