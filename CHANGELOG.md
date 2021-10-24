@@ -1,3 +1,17 @@
+# (Sun Oct 24 2021)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.13.3`
+  - fix(plasma-b2c): make PreviewGallery item ratio 16 / 9 [#886](https://github.com/salute-developers/plasma/pull/886) ([@IArny](https://github.com/IArny))
+  - fix(plasma-b2c): rename PreviewGallery item button action [#886](https://github.com/salute-developers/plasma/pull/886) ([@IArny](https://github.com/IArny))
+
+#### Authors: 1
+
+- [@IArny](https://github.com/IArny)
+
+---
+
 # (Fri Oct 22 2021)
 
 #### 🐛 Bug Fix
