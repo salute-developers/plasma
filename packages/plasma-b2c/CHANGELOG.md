@@ -1,3 +1,15 @@
+# v1.13.5 (Wed Oct 27 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-b2c): handle children number change in ElasticGrid [#893](https://github.com/salute-developers/plasma/pull/893) ([@IArny](https://github.com/IArny))
+
+#### Authors: 1
+
+- [@IArny](https://github.com/IArny)
+
+---
+
 # v1.13.3 (Sun Oct 24 2021)
 
 #### 🐛 Bug Fix
