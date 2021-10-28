@@ -1,3 +1,22 @@
+# (Thu Oct 28 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-icons@1.49.0`
+  - feat(plasma-icons): Update design for `Hearts` icons [#896](https://github.com/salute-developers/plasma/pull/896) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui-docs@0.14.0`, `@salutejs/plasma-web-docs@0.8.0`
+  - chore: Add CHANGELOG to docs [#868](https://github.com/salute-developers/plasma/pull/868) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 2
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Wed Oct 27 2021)
 
 #### 🐛 Bug Fix
