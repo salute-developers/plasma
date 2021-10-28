@@ -1,3 +1,20 @@
+# v1.15.0 (Thu Oct 28 2021)
+
+#### 🚀 Enhancement
+
+- feat: upload progress label [#899](https://github.com/salute-developers/plasma/pull/899) ([@takovoy](https://github.com/takovoy))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Aleksandr Sustavov ([@takovoy](https://github.com/takovoy))
+
+---
+
 # v1.13.5 (Wed Oct 27 2021)
 
 #### 🐛 Bug Fix
