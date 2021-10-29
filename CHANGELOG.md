@@ -1,5 +1,20 @@
 # (Fri Oct 29 2021)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.56.1`
+  - fix(plasma-web): Prevent click on icons of `DropdownItem` [#883](https://github.com/salute-developers/plasma/pull/883) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-b2c@1.16.1`, `@salutejs/plasma-web@1.56.1`
+  - fix(plasma-web,plasma-b2c): `Select`'s when multiselect prevent autoclose [#883](https://github.com/salute-developers/plasma/pull/883) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
+# (Fri Oct 29 2021)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-core@1.34.0`, `@salutejs/plasma-web@1.56.0`, `@salutejs/plasma-web-docs@0.10.0`

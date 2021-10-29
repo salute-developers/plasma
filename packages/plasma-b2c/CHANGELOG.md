@@ -1,3 +1,17 @@
+# v1.16.1 (Fri Oct 29 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web,plasma-b2c): `Select`'s when multiselect prevent autoclose [#883](https://github.com/salute-developers/plasma/pull/883) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.15.0 (Thu Oct 28 2021)
 
 #### 🚀 Enhancement
