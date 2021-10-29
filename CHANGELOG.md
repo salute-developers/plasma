@@ -1,3 +1,16 @@
+# (Fri Oct 29 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-core@1.34.0`, `@salutejs/plasma-web@1.56.0`, `@salutejs/plasma-web-docs@0.10.0`
+  - feat(plasma-ui): `Dropdown` custom composition [#866](https://github.com/salute-developers/plasma/pull/866) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Thu Oct 28 2021)
 
 #### 🚀 Enhancement
