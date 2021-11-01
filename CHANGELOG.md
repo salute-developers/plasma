@@ -1,5 +1,18 @@
 # (Mon Nov 01 2021)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.16.2`
+  - fix(plasma-b2c): set slider handle box-sizing [#904](https://github.com/salute-developers/plasma/pull/904) ([@IArny](https://github.com/IArny))
+
+#### Authors: 1
+
+- [@IArny](https://github.com/IArny)
+
+---
+
+# (Mon Nov 01 2021)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-website@0.4.0`
