@@ -1,5 +1,24 @@
 # (Mon Nov 01 2021)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-website@0.4.0`
+  - feat(plasma-website): Add Temple Storybook [#881](https://github.com/salute-developers/plasma/pull/881) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-temple@1.3.0`
+  - ci(plasma-temple): Deploy Storybook [#881](https://github.com/salute-developers/plasma/pull/881) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 2
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
+# (Mon Nov 01 2021)
+
 #### 🐛 Bug Fix
 
 - test(plasma-b2c): Add snapshots for `Uploads`, `AudioPlayer`, `PreviewGallery` components [#892](https://github.com/salute-developers/plasma/pull/892) ([@neretin-trike](https://github.com/neretin-trike))
