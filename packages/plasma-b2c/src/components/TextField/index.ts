@@ -1,2 +1,2 @@
-export { TextField } from '@salutejs/plasma-web';
-export type { TextFieldProps } from '@salutejs/plasma-web';
+export { TextField } from './TextField';
+export type { TextFieldProps } from './TextField';
