@@ -1,5 +1,22 @@
 # (Tue Nov 09 2021)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.17.1`
+  - fix(plasma-b2c): Import `Image` directly from core [#909](https://github.com/salute-developers/plasma/pull/909) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-core@1.35.1`, `@salutejs/plasma-ui@1.61.1`
+  - test(plasma-ui): Added for `Image` component [#909](https://github.com/salute-developers/plasma/pull/909) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-core@1.35.1`
+  - fix: Pass `Image`'s width and height through args [#909](https://github.com/salute-developers/plasma/pull/909) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
+# (Tue Nov 09 2021)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-b2c@1.17.0`
