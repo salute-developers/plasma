@@ -1,3 +1,17 @@
+# v1.61.1 (Tue Nov 09 2021)
+
+#### 🐛 Bug Fix
+
+- test(plasma-ui): Added for `Image` component [#909](https://github.com/salute-developers/plasma/pull/909) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.61.0 (Tue Nov 09 2021)
 
 #### 🚀 Enhancement
