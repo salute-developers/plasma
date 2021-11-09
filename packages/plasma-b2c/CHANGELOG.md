@@ -1,3 +1,20 @@
+# v1.17.0 (Tue Nov 09 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): make single slider rail clickable [#913](https://github.com/salute-developers/plasma/pull/913) ([@IArny](https://github.com/IArny))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@IArny](https://github.com/IArny)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.16.2 (Mon Nov 01 2021)
 
 #### 🐛 Bug Fix

@@ -1,3 +1,27 @@
+# (Tue Nov 09 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.17.0`
+  - feat(plasma-b2c): make single slider rail clickable [#913](https://github.com/salute-developers/plasma/pull/913) ([@IArny](https://github.com/IArny))
+- `@salutejs/plasma-core@1.35.0`, `@salutejs/plasma-ui@1.61.0`
+  - feat(plasma-ui): A11y for `Toast` [#710](https://github.com/salute-developers/plasma/pull/710) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.61.0`
+  - test(plasma-ui): `DatePicker` and `TimePicker` ct [#915](https://github.com/salute-developers/plasma/pull/915) ([@fanisco](https://github.com/fanisco))
+  - chore(plasma-ui): Change Storybook's iframe lang [#710](https://github.com/salute-developers/plasma/pull/710) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-core@1.35.0`
+  - test: Improve tests for `TextField` and `TextArea` [#914](https://github.com/salute-developers/plasma/pull/914) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 2
+
+- [@IArny](https://github.com/IArny)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Wed Nov 03 2021)
 
 #### 🐛 Bug Fix
