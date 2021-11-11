@@ -15,7 +15,10 @@ import { PropsTable, Description } from '@site/src/components';
 ### Пример
 
 ```tsx live
-() => {
+import React, { useState } from 'react';
+import { Stepper } from '@salutejs/plasma-ui';
+
+export function App() {
     const [value, setValue] = useState(3);
 
     return (
@@ -58,7 +61,11 @@ import { PropsTable, Description } from '@site/src/components';
 
 ### Пример
 ```tsx live
-() => {
+import React, { useState } from 'react';
+import { StepperRoot, StepperButton, StepperValue } from '@salutejs/plasma-ui';
+import { IconPlus, IconClose, IconMinus } from '@salutejs/plasma-icons';
+
+export function App() {
     const min = 0;
     const max = 5;
     const step = 1;
