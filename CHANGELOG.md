@@ -1,3 +1,22 @@
+# (Mon Nov 15 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.18.0`
+  - feat(plasma-b2c): PreviewGallery features [#924](https://github.com/salute-developers/plasma/pull/924) (51693784+etotsamyi@users.noreply.github.com)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.63.0`
+  - chore(plasma-ui): fix sb card cover control [#921](https://github.com/salute-developers/plasma/pull/921) ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- Ivan Malashchenkov (51693784+etotsamyi@users.noreply.github.com)
+
+---
+
 # (Wed Nov 10 2021)
 
 #### 🚀 Enhancement

@@ -1,3 +1,15 @@
+# v1.18.0 (Mon Nov 15 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): PreviewGallery features [#924](https://github.com/salute-developers/plasma/pull/924) (51693784+etotsamyi@users.noreply.github.com)
+
+#### Authors: 1
+
+- Ivan Malashchenkov (51693784+etotsamyi@users.noreply.github.com)
+
+---
+
 # v1.17.1 (Tue Nov 09 2021)
 
 #### 🐛 Bug Fix
