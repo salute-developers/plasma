@@ -2,6 +2,29 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-website@0.8.0`
+  - feat(plasma-website): Added link to Plasma Temple documentation [#918](https://github.com/salute-developers/plasma/pull/918) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-temple@1.4.0`, `@salutejs/plasma-temple-docs@0.1.0`
+  - feat: Added Plasma Temple documentation app [#918](https://github.com/salute-developers/plasma/pull/918) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-docs-ui@0.2.0`
+  - feat(plasma-docs-ui): Added GlobalStyle component [#918](https://github.com/salute-developers/plasma/pull/918) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- ci: Deploy Plasma Temple docs [#918](https://github.com/salute-developers/plasma/pull/918) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-ui-docs@0.21.0`, `@salutejs/plasma-web-docs@0.13.0`
+  - chore: Add .npmrc to documentation apps [#918](https://github.com/salute-developers/plasma/pull/918) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
+# (Tue Nov 16 2021)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-website@0.7.0`
   - feat(plasma-website): Plasma icons service [#903](https://github.com/salute-developers/plasma/pull/903) ([@fanisco](https://github.com/fanisco))
 
