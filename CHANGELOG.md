@@ -1,3 +1,29 @@
+# (Wed Nov 17 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-temple@1.4.0`
+  - feat(plasma-temple): export useHeaderProps [#902](https://github.com/salute-developers/plasma/pull/902) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+- `@salutejs/plasma-website@0.9.0`
+  - feat(plasma-website): Added link to Plasma Temple documentation [#918](https://github.com/salute-developers/plasma/pull/918) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-temple@1.4.0`, `@salutejs/plasma-temple-docs@0.2.0`
+  - feat: Added Plasma Temple documentation app [#918](https://github.com/salute-developers/plasma/pull/918) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-docs-ui@0.3.0`
+  - feat(plasma-docs-ui): Added GlobalStyle component [#918](https://github.com/salute-developers/plasma/pull/918) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- ci: Deploy Plasma Temple docs [#918](https://github.com/salute-developers/plasma/pull/918) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-ui-docs@0.22.0`, `@salutejs/plasma-web-docs@0.14.0`
+  - chore: Add .npmrc to documentation apps [#918](https://github.com/salute-developers/plasma/pull/918) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 2
+
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Tue Nov 16 2021)
 
 #### 🚀 Enhancement
