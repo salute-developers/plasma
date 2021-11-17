@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@salutejs/plasma-b2c@1.19.2`
+  - fix(plasma-b2c): reduce slider handle z-index [#927](https://github.com/salute-developers/plasma/pull/927) (42856876+IArny@users.noreply.github.com)
+
+#### Authors: 1
+
+- Булах Александр Алексеевич [B] (42856876+IArny@users.noreply.github.com)
+
+---
+
+# (Wed Nov 17 2021)
+
+#### 🐛 Bug Fix
+
 - `@salutejs/plasma-web@1.58.1`
   - fix: plasma-web grid mobile margins [#928](https://github.com/salute-developers/plasma/pull/928) ([@takovoy](https://github.com/takovoy))
 

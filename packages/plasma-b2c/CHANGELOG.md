@@ -1,3 +1,17 @@
+# v1.19.2 (Wed Nov 17 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-b2c): reduce slider handle z-index [#927](https://github.com/salute-developers/plasma/pull/927) (42856876+IArny@users.noreply.github.com)
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Булах Александр Алексеевич [B] (42856876+IArny@users.noreply.github.com)
+
+---
+
 # v1.19.0 (Tue Nov 16 2021)
 
 #### 🐛 Bug Fix
