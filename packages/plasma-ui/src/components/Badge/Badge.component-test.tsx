@@ -1,8 +1,8 @@
 import React from 'react';
 import { IconEye } from '@salutejs/plasma-icons';
-import { mount, CypressTestDecorator, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, PadMe, SpaceMe, getComponent } from '@salutejs/plasma-cy-utils';
 
-import { Badge } from '.';
+const Badge = getComponent('Badge');
 
 const Icon = () => <IconEye color="inherit" size="xs" />;
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { mount, CypressTestDecorator } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
-import { Button } from './Button';
+const Button = getComponent('Button');
 
 describe('Button', () => {
     it('renders Button', () => {
