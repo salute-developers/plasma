@@ -1,5 +1,25 @@
 # (Thu Nov 18 2021)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-temple-docs@0.2.0`
+  - feat(plasma-temple-docs): Add noop docgenPlugin plugin for docusaurus config [#911](https://github.com/salute-developers/plasma/pull/911) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-docs-ui@0.3.0`, `@salutejs/plasma-ui-docs@0.23.0`, `@salutejs/plasma-web-docs@0.15.0`
+  - feat(plasma-docs-ui): Add `CodeSandbox` component [#911](https://github.com/salute-developers/plasma/pull/911) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-docs-ui@0.3.0`, `@salutejs/plasma-ui-docs@0.23.0`, `@salutejs/plasma-web-docs@0.15.0`
+  - docs(plasma-ui-docs,plasma-web-docs): Update snippet examples for mdx files [#911](https://github.com/salute-developers/plasma/pull/911) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Thu Nov 18 2021)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-b2c@1.20.1`, `@salutejs/plasma-web@1.59.1`
