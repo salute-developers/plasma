@@ -1,3 +1,17 @@
+# v1.59.1 (Thu Nov 18 2021)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web): prevent disabled select from opening [#925](https://github.com/salute-developers/plasma/pull/925) (42856876+IArny@users.noreply.github.com)
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Булах Александр Алексеевич [B] (42856876+IArny@users.noreply.github.com)
+
+---
+
 # v1.58.1 (Wed Nov 17 2021)
 
 #### 🐛 Bug Fix
