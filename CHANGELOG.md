@@ -1,5 +1,18 @@
 # (Thu Nov 18 2021)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.20.1`, `@salutejs/plasma-web@1.59.1`
+  - fix(plasma-web): prevent disabled select from opening [#925](https://github.com/salute-developers/plasma/pull/925) (42856876+IArny@users.noreply.github.com)
+
+#### Authors: 1
+
+- Булах Александр Алексеевич [B] (42856876+IArny@users.noreply.github.com)
+
+---
+
+# (Thu Nov 18 2021)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-b2c@1.20.0`, `@salutejs/plasma-core@1.37.0`
