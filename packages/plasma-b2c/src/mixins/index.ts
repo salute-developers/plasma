@@ -16,6 +16,7 @@ export {
     applyScrollSnap,
     shadows,
     applySpacing,
+    spacing,
 } from '@salutejs/plasma-core';
 
 export type {
