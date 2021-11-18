@@ -1,3 +1,23 @@
+# (Thu Nov 18 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.20.0`, `@salutejs/plasma-core@1.37.0`
+  - feat: export spacing [#936](https://github.com/salute-developers/plasma/pull/936) ([@takovoy](https://github.com/takovoy))
+
+#### 🐛 Bug Fix
+
+- chore: cypress a11y checks [#901](https://github.com/salute-developers/plasma/pull/901) ([@dakhetov](https://github.com/dakhetov))
+- `@salutejs/plasma-ui@1.65.0`
+  - chore: b2c, ui, web code coverage [#917](https://github.com/salute-developers/plasma/pull/917) ([@dakhetov](https://github.com/dakhetov))
+
+#### Authors: 2
+
+- [@dakhetov](https://github.com/dakhetov)
+- Aleksandr Sustavov ([@takovoy](https://github.com/takovoy))
+
+---
+
 # (Wed Nov 17 2021)
 
 #### 🐛 Bug Fix
