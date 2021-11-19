@@ -1,137 +1,34 @@
-import styled, { css } from 'styled-components';
-import {
-    Button as BaseButton,
-    buttonViews as baseViews,
-    black,
-    white,
-    convertRoundnessMatrix,
-} from '@salutejs/plasma-core';
+import styled from 'styled-components';
+import { createButton, ButtonRoot } from '@salutejs/plasma-core';
 import type {
     ButtonProps as BaseProps,
     ButtonContentProps,
-    SizeProps,
+    ButtonSizeProps,
     ButtonViewProps,
-    DisabledProps,
 } from '@salutejs/plasma-core';
 
-import { buttonSecondaryHover, buttonSecondaryActive } from '../../tokens';
+import { applySizes } from './Button.mixins';
+import { buttonViews } from './Button.props';
+import type { ButtonView } from './Button.props';
 
-const viewInteractive = ({ disabled }: DisabledProps) =>
-    !disabled &&
-    css`
-        &::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: ${white};
-            border-radius: inherit;
-            opacity: 0;
-            pointer-events: none;
-        }
+export type ButtonProps = BaseProps &
+    Partial<ButtonSizeProps> &
+    Partial<ButtonViewProps<ButtonView>> &
+    ButtonContentProps;
 
-        &:hover::after {
-            opacity: 0.1;
-        }
-
-        &:active::after {
-            opacity: 0.1;
-            background-color: ${black};
-        }
-    `;
-
-const buttonViews = {
-    primary: css`
-        ${baseViews.primary}
-        ${viewInteractive}
-
-        &:hover {
-            color: ${baseViews.primary.color};
-        }
-    `,
-    success: css`
-        ${baseViews.success}
-        ${viewInteractive}
-
-        &:hover {
-            color: ${baseViews.success.color};
-        }
-    `,
-    warning: css`
-        ${baseViews.warning}
-        ${viewInteractive}
-
-        &:hover {
-            color: ${baseViews.warning.color};
-        }
-    `,
-    critical: css`
-        ${baseViews.critical}
-        ${viewInteractive}
-
-        &:hover {
-            color: ${baseViews.critical.color};
-        }
-    `,
-    secondary: css`
-        ${baseViews.secondary}
-
-        &:hover {
-            background-color: ${buttonSecondaryHover};
-            color: ${baseViews.secondary.color};
-        }
-
-        &:active {
-            background-color: ${buttonSecondaryActive};
-        }
-    `,
-    clear: baseViews.clear,
-};
-
-type ButtonView = keyof typeof buttonViews;
-
-const buttonSizes = {
-    l: ({ pin }: BaseProps) => css`
-        border-radius: ${convertRoundnessMatrix(pin, '0.75rem', '1.75rem')};
-
-        &::before {
-            border-radius: ${convertRoundnessMatrix(pin, '0.875rem', '1.875rem')};
-        }
-    `,
-    m: ({ pin }: BaseProps) => css`
-        border-radius: ${convertRoundnessMatrix(pin, '0.5rem', '1.5rem')};
-
-        &::before {
-            border-radius: ${convertRoundnessMatrix(pin, '0.625rem', '1.625rem')};
-        }
-    `,
-    s: ({ pin }: BaseProps) => css`
-        border-radius: ${convertRoundnessMatrix(pin, '0.5rem', '1.25rem')};
-
-        &::before {
-            border-radius: ${convertRoundnessMatrix(pin, '0.625rem', '1.375rem')};
-        }
-    `,
-};
-
-type ButtonSize = keyof typeof buttonSizes;
-
-export type ButtonProps = BaseProps & Partial<ButtonViewProps<ButtonView> & SizeProps<ButtonSize>> & ButtonContentProps;
+const StyledButtonRoot = styled(ButtonRoot)<Partial<ButtonSizeProps> & Partial<ButtonViewProps<ButtonView>>>`
+    ${applySizes}
+    ${({ view }) => buttonViews[view]}
+`;
 
 /**
  * Кнопка.
- * Поддерживает текстовое и контентное наполнение.
+ * Поддерживает несколько режимов отображения (`view`) и размеров (`size`).
  */
-export const Button = styled(BaseButton)<ButtonProps>`
-    ${({ view }) => buttonViews[view as ButtonView]}
-    ${({ size }) => buttonSizes[size as ButtonSize]}
-    transition: background-color 0.1s ease-in-out;
-`;
+export const Button = createButton<HTMLButtonElement, ButtonProps>(StyledButtonRoot);
 
 Button.defaultProps = {
-    ...BaseButton.defaultProps,
-    view: 'secondary',
     size: 'm',
+    view: 'secondary',
+    pin: 'square-square',
 };
