@@ -1,3 +1,26 @@
+# (Fri Nov 19 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-temple-docs@0.3.0`
+  - feat(plasma-temple-docs): Add noop docgenPlugin plugin for docusaurus config [#911](https://github.com/salute-developers/plasma/pull/911) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-docs-ui@0.4.0`, `@salutejs/plasma-ui-docs@0.24.0`, `@salutejs/plasma-web-docs@0.16.0`
+  - feat(plasma-docs-ui): Add `CodeSandbox` component [#911](https://github.com/salute-developers/plasma/pull/911) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui-docs@0.24.0`, `@salutejs/plasma-web-docs@0.16.0`
+  - feat(plasma-ui-docs, plasma-web-docs): Added version indicator at the top [#898](https://github.com/salute-developers/plasma/pull/898) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-docs-ui@0.4.0`, `@salutejs/plasma-ui-docs@0.24.0`, `@salutejs/plasma-web-docs@0.16.0`
+  - docs(plasma-ui-docs,plasma-web-docs): Update snippet examples for mdx files [#911](https://github.com/salute-developers/plasma/pull/911) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 2
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Thu Nov 18 2021)
 
 #### 🚀 Enhancement
