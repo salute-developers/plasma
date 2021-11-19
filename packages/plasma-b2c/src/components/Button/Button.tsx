@@ -1,39 +1,40 @@
 import styled from 'styled-components';
-import { createButton, ButtonRoot, applyNoSelect } from '@salutejs/plasma-core';
+import { createButton, ButtonRoot, getButtonSizesMixin, buttonSizes } from '@salutejs/plasma-core';
 import type {
     ButtonProps as BaseProps,
     ButtonContentProps,
     ButtonSizeProps,
     ButtonViewProps,
 } from '@salutejs/plasma-core';
-
-import { applyInteraction, InteractionProps } from '../../mixins';
-
-import { applySizes, applyViews } from './Button.mixins';
+import { buttonViews, ButtonView } from '@salutejs/plasma-web';
+import { bodySBold } from '@salutejs/plasma-typo';
 
 export type ButtonProps = BaseProps &
     ButtonContentProps &
     Partial<ButtonSizeProps> &
-    Partial<ButtonViewProps> &
-    InteractionProps;
+    Partial<ButtonViewProps<ButtonView>>;
 
-const StyledButtonRoot = styled(ButtonRoot)<InteractionProps>`
+const buttonTypography = {
+    l: bodySBold,
+    m: bodySBold,
+    s: bodySBold,
+};
+
+const applySizes = getButtonSizesMixin(buttonSizes, buttonTypography);
+
+const StyledButtonRoot = styled(ButtonRoot)<Partial<ButtonSizeProps> & Partial<ButtonViewProps<ButtonView>>>`
     ${applySizes}
-    ${applyViews}
-    ${applyInteraction}
-    ${applyNoSelect}
+    ${({ view }) => buttonViews[view]}
 `;
 
 /**
- * Основной компонент для отображения кнопок.
+ * Кнопка.
  * Поддерживает несколько режимов отображения (`view`) и размеров (`size`).
  */
 export const Button = createButton<HTMLButtonElement, ButtonProps>(StyledButtonRoot);
 
 Button.defaultProps = {
-    size: 'l',
+    size: 'm',
     view: 'secondary',
     pin: 'square-square',
-    outlined: true,
-    scaleOnInteraction: true,
 };
