@@ -1,5 +1,18 @@
 # (Fri Nov 19 2021)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.59.2`
+  - fix(plasma-web): Add `Button`'s `warning` view [#933](https://github.com/salute-developers/plasma/pull/933) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
+# (Fri Nov 19 2021)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-temple-docs@0.3.0`
