@@ -1,3 +1,20 @@
+# v1.22.0 (Mon Nov 22 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): Added `TextField` component [#910](https://github.com/salute-developers/plasma/pull/910) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.21.0 (Mon Nov 22 2021)
 
 #### 🐛 Bug Fix
