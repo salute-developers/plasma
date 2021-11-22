@@ -1,3 +1,17 @@
+# v1.67.0 (Mon Nov 22 2021)
+
+#### 🐛 Bug Fix
+
+- feat(plasma-ui, plasma-web): B2C/B2B `Input` and `TextArea` on common platform [#910](https://github.com/salute-developers/plasma/pull/910) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.65.0 (Thu Nov 18 2021)
 
 #### 🐛 Bug Fix
