@@ -1,9 +1,9 @@
-import { AssistantCharacterType } from '@salutejs/client';
+import { CharacterId } from '@salutejs/client';
 import React from 'react';
 
 import { AppStateContext } from '../components/PlasmaApp/AppStateContext';
 
-export function useCharacter(): AssistantCharacterType {
+export function useCharacter(): CharacterId {
     const {
         state: {
             ui: { character },
