@@ -1,5 +1,18 @@
 # (Tue Nov 23 2021)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-temple@1.5.0`
+  - feat(plasma-temple): update assistant-client version [#949](https://github.com/salute-developers/plasma/pull/949) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
+# (Tue Nov 23 2021)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-b2c@1.22.1`, `@salutejs/plasma-web-docs@0.18.1`
