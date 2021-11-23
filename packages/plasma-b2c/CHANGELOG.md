@@ -1,3 +1,17 @@
+# v1.22.1 (Tue Nov 23 2021)
+
+#### 🐛 Bug Fix
+
+- fix: b2c grid doc [#937](https://github.com/salute-developers/plasma/pull/937) ([@takovoy](https://github.com/takovoy))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Aleksandr Sustavov ([@takovoy](https://github.com/takovoy))
+
+---
+
 # v1.22.0 (Mon Nov 22 2021)
 
 #### 🚀 Enhancement
