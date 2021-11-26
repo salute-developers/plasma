@@ -1,3 +1,22 @@
+# v1.6.0 (Fri Nov 26 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): Add cart test attributes [#954](https://github.com/salute-developers/plasma/pull/954) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-temple): update assistant-client version [#949](https://github.com/salute-developers/plasma/pull/949) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.5.0 (Tue Nov 23 2021)
 
 #### 🚀 Enhancement
