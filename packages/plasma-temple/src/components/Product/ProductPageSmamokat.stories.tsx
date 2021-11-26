@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { number, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { Col, Row, Image, Header } from '@salutejs/plasma-ui';
-import { formatCurrency } from '@salutejs/plasma-core/utils';
-import { isSberPortal } from '@salutejs/plasma-ui/utils';
+import { isSberPortal, formatCurrency } from '@salutejs/plasma-ui/utils';
 import { white } from '@salutejs/plasma-tokens';
 
 import { Description } from '../../types';

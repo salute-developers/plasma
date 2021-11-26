@@ -1,6 +1,10 @@
 import { AssistantNavigationCommand, AssistantSmartAppData, createAssistant } from '@salutejs/client';
-import { PriceProps, Ratio } from '@salutejs/plasma-ui';
-import { detectDevice } from '@salutejs/plasma-ui/utils';
+import type { PriceProps, Ratio } from '@salutejs/plasma-ui';
+import { DeviceKind } from '@salutejs/plasma-ui/utils';
+import { StyledComponent } from 'styled-components';
+
+// infer component props from @salutejs/plasma-core
+export type GetStyledComponentProps<T> = T extends StyledComponent<'div', any, infer T1, never> ? T1 : any;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type AnyObject = Record<string, any>;
@@ -14,7 +18,7 @@ export type Axis = 'x' | 'y';
 
 export type Direction = AssistantNavigationCommand['navigation']['command'];
 
-export type DeviceFamily = ReturnType<typeof detectDevice>;
+export type DeviceFamily = DeviceKind;
 
 export type Currency = PriceProps['currency'];
 
