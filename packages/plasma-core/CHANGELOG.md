@@ -1,3 +1,22 @@
+# v1.39.0 (Wed Dec 01 2021)
+
+#### 🚀 Enhancement
+
+- feat: Moved `TabsController` as a creator function [#923](https://github.com/salute-developers/plasma/pull/923) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- fix: Correct role for `Tabs` - tablist [#923](https://github.com/salute-developers/plasma/pull/923) ([@fanisco](https://github.com/fanisco))
+- docs(plasma-ui): Added documentation for `useForkRef` [#923](https://github.com/salute-developers/plasma/pull/923) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.38.0 (Mon Nov 22 2021)
 
 #### 🚀 Enhancement
