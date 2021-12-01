@@ -2,6 +2,25 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-web@1.63.0`
+  - feat(plasma-web): Update behavior for `Tooltip` component [#942](https://github.com/salute-developers/plasma/pull/942) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- test(plasma-web,plasma-b2c): Update snapshots for `Tooltip` and `Select` components [#942](https://github.com/salute-developers/plasma/pull/942) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-web@1.63.0`
+  - test(plasma-web): Add tests for `Tooltip` component [#942](https://github.com/salute-developers/plasma/pull/942) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Wed Dec 01 2021)
+
+#### 🚀 Enhancement
+
 - `@salutejs/demo-canvas-app@0.45.0`
   - feat(demo-canvas-app): Using `TabsController` [#923](https://github.com/salute-developers/plasma/pull/923) ([@fanisco](https://github.com/fanisco))
   - feat(demo-canvas-app): Added spatial-navigation [#923](https://github.com/salute-developers/plasma/pull/923) ([@fanisco](https://github.com/fanisco))
