@@ -1,3 +1,16 @@
+# (Thu Dec 02 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.69.0`
+  - feat(plasma-ui): Add default value in `Slider` component if theme context is undefined [#955](https://github.com/salute-developers/plasma/pull/955) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Wed Dec 01 2021)
 
 #### 🚀 Enhancement
