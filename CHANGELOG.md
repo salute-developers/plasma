@@ -1,5 +1,19 @@
 # (Fri Dec 03 2021)
 
+#### 🐛 Bug Fix
+
+- chore: Update `CODEOWNERS` [#961](https://github.com/salute-developers/plasma/pull/961) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-web@1.64.1`
+  - fix(plama-web): Added possibility to specify a value type in `Select` [#932](https://github.com/salute-developers/plasma/pull/932) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
+# (Fri Dec 03 2021)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-docs-ui@0.4.0`, `@salutejs/plasma-temple-docs@0.3.0`, `@salutejs/plasma-ui-docs@0.30.0`, `@salutejs/plasma-web-docs@0.21.0`
