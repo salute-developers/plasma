@@ -1,3 +1,21 @@
+# (Tue Dec 07 2021)
+
+#### 🚀 Enhancement
+
+- `@salutejs/demo-canvas-app@0.48.0`, `@salutejs/plasma-core@1.41.0`, `@salutejs/plasma-ui@1.71.0`, `@salutejs/plasma-web@1.65.0`, `@salutejs/showcase@0.82.0`, `@salutejs/plasma-ui-docs@0.31.0`, `@salutejs/plasma-web-docs@0.22.0`
+  - feat: add RadioGroup components [#676](https://github.com/salute-developers/plasma/pull/676) ([@OgNellis](https://github.com/OgNellis))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/demo-canvas-app@0.48.0`, `@salutejs/plasma-core@1.41.0`, `@salutejs/plasma-ui@1.71.0`, `@salutejs/plasma-web@1.65.0`, `@salutejs/showcase@0.82.0`, `@salutejs/plasma-ui-docs@0.31.0`, `@salutejs/plasma-web-docs@0.22.0`
+  - fix: accessibility of checkbox and radiobox for nvda and jaws [#676](https://github.com/salute-developers/plasma/pull/676) ([@OgNellis](https://github.com/OgNellis))
+
+#### Authors: 1
+
+- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+
+---
+
 # (Mon Dec 06 2021)
 
 #### 🚀 Enhancement
