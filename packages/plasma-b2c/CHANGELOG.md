@@ -1,3 +1,17 @@
+# v1.27.1 (Wed Dec 08 2021)
+
+#### 🐛 Bug Fix
+
+- fix(palsma-b2c): preview gallery data contracts [#967](https://github.com/salute-developers/plasma/pull/967) ([@takovoy](https://github.com/takovoy))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Aleksandr Sustavov ([@takovoy](https://github.com/takovoy))
+
+---
+
 # v1.26.1 (Fri Dec 03 2021)
 
 #### 🐛 Bug Fix
