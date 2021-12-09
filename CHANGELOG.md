@@ -1,3 +1,22 @@
+# (Thu Dec 09 2021)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-temple@1.10.1`
+  - fix(plasma-temple): Fix time chop in VideoPlayer [#966](https://github.com/salute-developers/plasma/pull/966) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+- `@salutejs/plasma-ui-docs@0.31.1`, `@salutejs/plasma-web-docs@0.22.1`
+  - docs(plasma-web-docs,plasma-ui-docs): Add info about break word for Typography [#962](https://github.com/salute-developers/plasma/pull/962) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.27.2`, `@salutejs/plasma-core@1.41.1`
+  - test(plasma-web,plasma-ui): Add test and update snapshots for `Typography` components [#962](https://github.com/salute-developers/plasma/pull/962) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-b2c,plasma-core): Add breakWord props for `Typography` components [#962](https://github.com/salute-developers/plasma/pull/962) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 2
+
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Wed Dec 08 2021)
 
 #### 🐛 Bug Fix
