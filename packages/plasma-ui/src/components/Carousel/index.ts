@@ -1,10 +1,13 @@
+export { CarouselGridWrapper } from '@salutejs/plasma-core';
+
+export type { CarouselProps } from '@salutejs/plasma-core';
+
+export { CarouselItem } from '@salutejs/plasma-core';
+export type { CarouselItemProps } from '@salutejs/plasma-core';
+
 export { useCarouselItem, useCarouselContext, useRemoteHandlers } from './Carousel.hooks';
 
-export { Carousel, CarouselGridWrapper } from './Carousel';
-export type { CarouselProps } from './Carousel';
+export { Carousel } from './Carousel';
 
 export { CarouselCol } from './CarouselCol';
 export type { CarouselColProps } from './CarouselCol';
-
-export { CarouselItem } from './CarouselItem';
-export type { CarouselItemProps } from './CarouselItem';
