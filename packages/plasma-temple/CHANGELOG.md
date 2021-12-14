@@ -1,3 +1,22 @@
+# v1.13.0 (Tue Dec 14 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): Add spinner while state is not initialized [#971](https://github.com/salute-developers/plasma/pull/971) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-temple): add promocode to cart [#971](https://github.com/salute-developers/plasma/pull/971) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.12.0 (Mon Dec 13 2021)
 
 #### 🚀 Enhancement
