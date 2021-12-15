@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
-
-import { IconTrashFilled } from '../../../../plasma-icons';
+import { IconTrashFilled } from '@salutejs/plasma-icons';
 
 describe('plasma-b2c: PreviewGallery', () => {
     const PreviewGallery = getComponent('PreviewGallery');
