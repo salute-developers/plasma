@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
-
-import { IconPicture } from '../../../../plasma-icons';
+import { IconPicture } from '@salutejs/plasma-icons';
 
 describe('plasma-b2c: Upload', () => {
     const Upload = getComponent('Upload');
