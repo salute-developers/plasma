@@ -1,3 +1,17 @@
+# v1.68.0 (Wed Dec 15 2021)
+
+#### 🐛 Bug Fix
+
+- test(plasma-web): Add Cypress component test for `Carousel` [#968](https://github.com/salute-developers/plasma/pull/968) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.67.0 (Wed Dec 15 2021)
 
 #### 🐛 Bug Fix
