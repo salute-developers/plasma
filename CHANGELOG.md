@@ -1,5 +1,18 @@
 # (Wed Dec 15 2021)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-temple@1.14.1`
+  - fix(plasma-temple): Always show player controls on key press [#989](https://github.com/salute-developers/plasma/pull/989) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+
+#### Authors: 1
+
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+
+---
+
+# (Wed Dec 15 2021)
+
 #### 🚀 Enhancement
 
 - `@salutejs/demo-canvas-app@0.50.0`
