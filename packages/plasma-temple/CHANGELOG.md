@@ -1,3 +1,20 @@
+# v1.16.0 (Fri Dec 24 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): Ability to hide player controls [#1011](https://github.com/salute-developers/plasma/pull/1011) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+
+---
+
 # v1.15.1 (Fri Dec 17 2021)
 
 #### 🐛 Bug Fix
