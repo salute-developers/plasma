@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { action } from '@storybook/addon-actions';
 import { tertiary } from '@salutejs/plasma-tokens';
-import { Footnote1 } from '@salutejs/plasma-ui';
+import { Footnote1, mediaQuery } from '@salutejs/plasma-ui';
 
 import { CartPage } from './CartPage';
 import { CartProvider } from './components/CartProvider/CartProvider';
@@ -75,6 +75,10 @@ const StyledText = styled(Footnote1)`
     margin-top: 1rem;
     color: ${tertiary};
     text-align: center;
+
+    ${mediaQuery('S')`
+        text-align: left;
+    `}
 `;
 
 export const Default = (): React.ReactElement => {
