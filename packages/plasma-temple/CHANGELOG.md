@@ -1,3 +1,22 @@
+# v1.18.0 (Thu Dec 30 2021)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): Controlled video fit on video page [#1023](https://github.com/salute-developers/plasma/pull/1023) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+
+---
+
 # v1.17.1 (Wed Dec 29 2021)
 
 #### 🐛 Bug Fix
