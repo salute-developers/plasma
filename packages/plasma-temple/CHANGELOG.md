@@ -1,3 +1,18 @@
+# v1.19.1 (Tue Jan 11 2022)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore(plasma-temple): infer types for Page methods [#975](https://github.com/salute-developers/plasma/pull/975) ([@LamaEats](https://github.com/LamaEats))
+- test(plasma-temple): setup cypress tests [#975](https://github.com/salute-developers/plasma/pull/975) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # v1.18.0 (Thu Dec 30 2021)
 
 #### 🚀 Enhancement

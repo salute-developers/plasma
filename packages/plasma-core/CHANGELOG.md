@@ -1,3 +1,17 @@
+# v1.46.1 (Tue Jan 11 2022)
+
+#### 🐛 Bug Fix
+
+- refactor: Move `Carousel`'s modules in Core/UI/Web [#973](https://github.com/salute-developers/plasma/pull/973) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.45.0 (Wed Dec 29 2021)
 
 #### 🐛 Bug Fix

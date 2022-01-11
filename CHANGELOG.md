@@ -1,3 +1,29 @@
+# (Tue Jan 11 2022)
+
+#### 🐛 Bug Fix
+
+- test(plasma-ui): Updated screenshots for `DatePicker` & `TimePicker` [#1014](https://github.com/salute-developers/plasma/pull/1014) ([@fanisco](https://github.com/fanisco))
+- ci(plasma-temple): add codecov [#975](https://github.com/salute-developers/plasma/pull/975) ([@LamaEats](https://github.com/LamaEats))
+- `@salutejs/plasma-ui-docs@0.36.1`, `@salutejs/plasma-web-docs@0.27.1`
+  - docs(plasma-ui, plasma-ui): `Carousel` a11y documentation [#973](https://github.com/salute-developers/plasma/pull/973) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/demo-canvas-app@0.53.1`, `@salutejs/plasma-ui@1.76.1`, `@salutejs/plasma-web@1.70.1`
+  - feat(plasma-ui, plasma-web): `Carousel` a11y improvements [#973](https://github.com/salute-developers/plasma/pull/973) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-core@1.46.1`, `@salutejs/plasma-ui@1.76.1`, `@salutejs/plasma-web@1.70.1`
+  - refactor: Move `Carousel`'s modules in Core/UI/Web [#973](https://github.com/salute-developers/plasma/pull/973) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-ui@1.76.1`
+  - fix(plasma-ui): Keep `Picker` focused even if arrows clicked [#1014](https://github.com/salute-developers/plasma/pull/1014) ([@fanisco](https://github.com/fanisco))
+  - fix(plasma-ui): `Picker`s' controls position [#1014](https://github.com/salute-developers/plasma/pull/1014) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-temple@1.19.1`
+  - chore(plasma-temple): infer types for Page methods [#975](https://github.com/salute-developers/plasma/pull/975) ([@LamaEats](https://github.com/LamaEats))
+  - test(plasma-temple): setup cypress tests [#975](https://github.com/salute-developers/plasma/pull/975) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 2
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # (Thu Dec 30 2021)
 
 #### 🚀 Enhancement
