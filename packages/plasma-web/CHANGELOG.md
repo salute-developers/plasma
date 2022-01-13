@@ -1,3 +1,17 @@
+# v1.70.2 (Thu Jan 13 2022)
+
+#### 🐛 Bug Fix
+
+- test(plasma-web): `Notification` close [#1033](https://github.com/salute-developers/plasma/pull/1033) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.70.1 (Tue Jan 11 2022)
 
 #### 🐛 Bug Fix
