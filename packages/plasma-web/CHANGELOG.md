@@ -1,3 +1,17 @@
+# v1.70.3 (Mon Jan 17 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-b2c,plasma-web): Add re-export for `Notification` component [#1029](https://github.com/salute-developers/plasma/pull/1029) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.70.2 (Thu Jan 13 2022)
 
 #### 🐛 Bug Fix
