@@ -1,3 +1,22 @@
+export {
+    BodyL,
+    BodyM,
+    BodyS,
+    BodyXS,
+    BodyXXS,
+    DsplL,
+    DsplM,
+    DsplS,
+    H1,
+    H2,
+    H3,
+    H4,
+    H5,
+    TextL,
+    TextM,
+    TextS,
+    TextXS,
+} from '@salutejs/plasma-typo';
 export type { TypographyTypes } from '@salutejs/plasma-core';
 
 export {
@@ -20,8 +39,3 @@ export {
     Subtitle,
     Underline,
 } from '@salutejs/plasma-web';
-
-export * from './Body';
-export * from './Dspl';
-export * from './H';
-export * from './Text';
