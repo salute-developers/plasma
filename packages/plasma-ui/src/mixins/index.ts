@@ -16,6 +16,7 @@ export {
     applySpacing,
 } from '@salutejs/plasma-core';
 export type {
+    BreakWordProps,
     FocusProps,
     OutlinedProps,
     BlurProps,
@@ -24,6 +25,7 @@ export type {
     RoundnessProps,
     Roundness,
     SkeletonGradientProps,
+    SpacingProps,
     ViewProps,
     View,
 } from '@salutejs/plasma-core';
