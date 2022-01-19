@@ -1,5 +1,18 @@
 # (Wed Jan 19 2022)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-temple@1.21.0`
+  - feat(plasma-temple): Support for findInInitialData [#1043](https://github.com/salute-developers/plasma/pull/1043) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+
+#### Authors: 1
+
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+
+---
+
+# (Wed Jan 19 2022)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-temple@1.20.1`
