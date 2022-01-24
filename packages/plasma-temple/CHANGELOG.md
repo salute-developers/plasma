@@ -1,3 +1,19 @@
+# v1.21.1 (Mon Jan 24 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-temple): Realtime update for currentTime in useMediaPlayer [#1050](https://github.com/salute-developers/plasma/pull/1050) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+- test(plasma-temple): ItemPage Spec [#1032](https://github.com/salute-developers/plasma/pull/1032) ([@LamaEats](https://github.com/LamaEats))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # v1.21.0 (Wed Jan 19 2022)
 
 #### 🚀 Enhancement
