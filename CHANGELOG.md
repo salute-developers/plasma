@@ -1,5 +1,18 @@
 # (Wed Jan 26 2022)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-temple@1.23.0`
+  - feat(plasma-temple): Mobile StateLayout [#1004](https://github.com/salute-developers/plasma/pull/1004) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+
+#### Authors: 1
+
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+
+---
+
+# (Wed Jan 26 2022)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-ui@1.77.1`
