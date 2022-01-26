@@ -1,3 +1,17 @@
+# v1.77.1 (Wed Jan 26 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): `ActionButton`: Made `pin` not required again [#1045](https://github.com/salute-developers/plasma/pull/1045) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.76.2 (Thu Jan 13 2022)
 
 #### 🐛 Bug Fix
