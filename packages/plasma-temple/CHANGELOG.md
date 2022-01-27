@@ -1,3 +1,17 @@
+# v1.24.1 (Thu Jan 27 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-temple): don't stop video on source change [#1036](https://github.com/salute-developers/plasma/pull/1036) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+
+---
+
 # v1.24.0 (Thu Jan 27 2022)
 
 #### 🚀 Enhancement
