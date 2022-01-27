@@ -1,3 +1,21 @@
+# v1.24.2 (Thu Jan 27 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-temple): exports VideoPlayer component [#1042](https://github.com/salute-developers/plasma/pull/1042) ([@LamaEats](https://github.com/LamaEats))
+- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- fix(plasma-temple): don't stop video on source change [#1036](https://github.com/salute-developers/plasma/pull/1036) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # v1.24.1 (Thu Jan 27 2022)
 
 #### 🐛 Bug Fix
