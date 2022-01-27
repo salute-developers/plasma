@@ -1,3 +1,22 @@
+# v1.24.0 (Thu Jan 27 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): Mobile StateLayout [#1004](https://github.com/salute-developers/plasma/pull/1004) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+
+#### 🐛 Bug Fix
+
+- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+
+---
+
 # v1.23.0 (Wed Jan 26 2022)
 
 #### 🚀 Enhancement
