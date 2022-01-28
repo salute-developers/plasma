@@ -28,11 +28,10 @@
     "publishConfig": {
         "access": "restricted"
     },
-    "files": [
-        "lib"
-    ],
+    "files": ["lib"],
     "dependencies": {
         "@salutejs/plasma-core": "1.27.3",
+        "@salutejs/plasma-web": "1.73.1",
         "@types/marked": "3.0.1",
         "codesandbox": "2.2.3",
         "marked": "3.0.7",
