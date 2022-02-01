@@ -1,3 +1,25 @@
+# v1.79.0 (Tue Feb 01 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): `Carousel`: Added possibility to specify list's role [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
+- feat(plasma-ui): `Picker` a11y improvements [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
+- feat(plasma-ui): Extended `Picker` keyboard control [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web, plasma-ui): `Basebox`: Hide input properly; tabIndex={-1} on root [#1057](https://github.com/salute-developers/plasma/pull/1057) ([@fanisco](https://github.com/fanisco))
+- test(plasma-ui): `DatePicker`: test for jumps - 10 up/down, home/end [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
+- fix(plasma-ui): `Picker`: hide virtual items from screen reader [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.78.1 (Fri Jan 28 2022)
 
 #### 🐛 Bug Fix

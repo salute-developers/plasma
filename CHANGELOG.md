@@ -1,3 +1,28 @@
+# (Tue Feb 01 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.79.0`
+  - feat(plasma-ui): `Carousel`: Added possibility to specify list's role [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
+  - feat(plasma-ui): `Picker` a11y improvements [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
+  - feat(plasma-ui): Extended `Picker` keyboard control [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-core@1.49.0`, `@salutejs/plasma-ui@1.79.0`, `@salutejs/plasma-web@1.74.0`
+  - fix(plasma-web, plasma-ui): `Basebox`: Hide input properly; tabIndex={-1} on root [#1057](https://github.com/salute-developers/plasma/pull/1057) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-ui-docs@0.40.0`
+  - docs(plasma-ui): `Picker`: Keyboard accessability description [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-ui@1.79.0`
+  - test(plasma-ui): `DatePicker`: test for jumps - 10 up/down, home/end [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
+  - fix(plasma-ui): `Picker`: hide virtual items from screen reader [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Fri Jan 28 2022)
 
 #### 🐛 Bug Fix
