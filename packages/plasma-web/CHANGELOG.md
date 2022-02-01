@@ -1,3 +1,17 @@
+# v1.74.0 (Tue Feb 01 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web, plasma-ui): `Basebox`: Hide input properly; tabIndex={-1} on root [#1057](https://github.com/salute-developers/plasma/pull/1057) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.73.1 (Fri Jan 28 2022)
 
 #### 🐛 Bug Fix
