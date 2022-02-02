@@ -1,3 +1,20 @@
+# v1.67.0 (Wed Feb 02 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-icons): Add all devices icons [#1051](https://github.com/salute-developers/plasma/pull/1051) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.66.0 (Tue Feb 01 2022)
 
 #### 🐛 Bug Fix
