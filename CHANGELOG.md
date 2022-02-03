@@ -1,5 +1,26 @@
 # (Thu Feb 03 2022)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.81.0`, `@salutejs/plasma-ui-docs@0.42.0`
+  - feat(plasma-ui): `Picker`: Added `xs` size [#1055](https://github.com/salute-developers/plasma/pull/1055) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-temple@1.27.0`
+  - test(plasma-temple): add tests for GalleryPage [#1059](https://github.com/salute-developers/plasma/pull/1059) ([@LamaEats](https://github.com/LamaEats))
+  - chore(plasma-temple): add story for GalleryPage [#1059](https://github.com/salute-developers/plasma/pull/1059) ([@LamaEats](https://github.com/LamaEats))
+  - fix(plasma-temple): carousels height [#1059](https://github.com/salute-developers/plasma/pull/1059) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 2
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
+# (Thu Feb 03 2022)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-b2c@1.39.1`, `@salutejs/plasma-core@1.49.1`, `@salutejs/plasma-icons@1.67.1`, `@salutejs/plasma-temple@1.26.1`, `@salutejs/plasma-typo@0.2.2`, `@salutejs/plasma-ui@1.80.1`, `@salutejs/plasma-web@1.75.1`, `@salutejs/plasma-cy-utils@0.5.2`, `@salutejs/plasma-sb-utils@0.48.1`
