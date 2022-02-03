@@ -1,3 +1,20 @@
+# v1.81.0 (Thu Feb 03 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): `Picker`: Added `xs` size [#1055](https://github.com/salute-developers/plasma/pull/1055) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.80.1 (Thu Feb 03 2022)
 
 #### 🐛 Bug Fix
