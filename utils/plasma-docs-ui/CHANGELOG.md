@@ -1,3 +1,17 @@
+# v0.4.1 (Thu Feb 03 2022)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- feat(plasma-ui-docs, plasma-web-docs): Added Storybook links on doc pages [#1060](https://github.com/salute-developers/plasma/pull/1060) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v0.4.0 (Fri Dec 03 2021)
 
 #### 🚀 Enhancement
