@@ -4,6 +4,7 @@ import { addDecorator, addParameters } from '@storybook/react';
 import { darkSber, darkEva, darkJoy } from '@salutejs/plasma-tokens';
 import { DeviceThemeProvider } from '@salutejs/plasma-ui';
 import { createAssistant } from '@salutejs/client';
+import '@salutejs/spatial-navigation';
 
 import { AssistantContext } from '../src/components/PlasmaApp/AssistantContext';
 import { withAppState } from './decorators/withAppState';
