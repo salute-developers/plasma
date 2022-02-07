@@ -1,3 +1,17 @@
+# v1.27.1 (Mon Feb 07 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-temple): peer deps versions [#1065](https://github.com/salute-developers/plasma/pull/1065) ([@LamaEats](https://github.com/LamaEats))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # v1.27.0 (Thu Feb 03 2022)
 
 #### 🐛 Bug Fix
