@@ -1,8 +1,8 @@
 import React from 'react';
 import { Headline2 } from '@salutejs/plasma-ui';
 
-import { ProductPriceProps } from './ProductPrice';
 import { ProductPriceCommon } from './ProductPrice@common';
+import { ProductPriceProps } from './types';
 
 export const ProductPriceSberBox: React.FC<ProductPriceProps> = (props) => (
     <Headline2>
