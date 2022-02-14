@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
-import { FieldRoot, FieldPlaceholder, FieldContent, FieldHelper, Input } from '@salutejs/plasma-core';
+import { FieldRoot, FieldPlaceholder, FieldContent, Input } from '@salutejs/plasma-core';
 import type { InputProps } from '@salutejs/plasma-core';
 
-import { applyInputStyles } from '../Field';
+import { FieldHelper, applyInputStyles } from '../Field';
 
 export interface TextFieldProps extends InputProps {}
 
