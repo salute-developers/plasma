@@ -1,5 +1,18 @@
 # (Tue Feb 15 2022)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.75.5`
+  - fix(plasma-web, plasma-b2c): `Tooltip`: global dark [#1087](https://github.com/salute-developers/plasma/pull/1087) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
+# (Tue Feb 15 2022)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-temple@1.29.0`
