@@ -1,3 +1,20 @@
+# v1.29.0 (Tue Feb 15 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): Ability to disable autofocus in HeroSlider [#1077](https://github.com/salute-developers/plasma/pull/1077) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+
+---
+
 # v1.28.0 (Mon Feb 14 2022)
 
 #### 🚀 Enhancement
