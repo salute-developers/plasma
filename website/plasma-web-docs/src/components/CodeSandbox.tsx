@@ -17,8 +17,8 @@ const sberdevicesDependencies = Object.entries(packageJson.dependencies)
     }, {});
 
 const styledPreview = `
-import { light } from "@salutejs/plasma-tokens-web/themes";
-import { web } from '@salutejs/plasma-tokens-web/typo';
+import { light } from "@salutejs/plasma-tokens-b2b/themes";
+import { web } from '@salutejs/plasma-tokens-b2b/typo';
 
 const StyledPreview = styled.div\`
     \${light[":root"]};
