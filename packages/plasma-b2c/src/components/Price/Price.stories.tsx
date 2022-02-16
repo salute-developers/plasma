@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Price, PriceProps } from '.';
 
