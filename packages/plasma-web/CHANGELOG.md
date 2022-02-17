@@ -1,3 +1,17 @@
+# v1.75.7 (Thu Feb 17 2022)
+
+#### 🐛 Bug Fix
+
+- feat(plasma-ui, plasma-web, plasma-b2c): `Button`: Added theming [#1063](https://github.com/salute-developers/plasma/pull/1063) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.75.5 (Tue Feb 15 2022)
 
 #### 🐛 Bug Fix
