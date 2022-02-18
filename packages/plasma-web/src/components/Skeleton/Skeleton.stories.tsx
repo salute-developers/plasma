@@ -1,5 +1,5 @@
 import React from 'react';
-import { typography } from '@salutejs/plasma-tokens-web';
+import { typography } from '@salutejs/plasma-tokens-b2b';
 import { radiuses, TypographyTypes } from '@salutejs/plasma-core';
 import { Story, Meta } from '@storybook/react';
 
