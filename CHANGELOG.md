@@ -1,3 +1,25 @@
+# (Fri Feb 18 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.82.0`
+  - feat(plasma-ui): Made overlay optional for Sheet [#1075](https://github.com/salute-developers/plasma/pull/1075) (levkus@gmail.com)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui-docs@0.43.0`
+  - docs(plasma-ui): Described props `as` and `forwardedAs` [#1092](https://github.com/salute-developers/plasma/pull/1092) ([@fanisco](https://github.com/fanisco))
+  - docs(plasma-ui): `Header`: title and arrow components description [#1092](https://github.com/salute-developers/plasma/pull/1092) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-b2c@1.40.0`, `@salutejs/plasma-web@1.76.0`, `@salutejs/plasma-web-docs@0.33.0`
+  - docs(plasma-web, plasma-b2c): `Button`: using as an anchor [#1092](https://github.com/salute-developers/plasma/pull/1092) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 2
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+- Лев Останин (levkus@gmail.com)
+
+---
+
 # (Thu Feb 17 2022)
 
 #### 🐛 Bug Fix
