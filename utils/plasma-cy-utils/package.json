@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-cy-utils",
-    "version": "0.5.4",
+    "version": "0.5.5",
     "description": "Test helpers shared between ui libraries.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     
@@ -39,9 +39,9 @@
         "lib"
     ],
     "dependencies": {
-        "@salutejs/plasma-tokens": "1.15.2",
-        "@salutejs/plasma-tokens-b2c": "0.8.1",
-        "@salutejs/plasma-tokens-web": "1.14.1",
+        "@salutejs/plasma-tokens": "1.15.3",
+        "@salutejs/plasma-tokens-b2c": "0.8.2",
+        "@salutejs/plasma-tokens-web": "1.14.2",
         "@salutejs/plasma-typo": "0.2.3"
     }
 }
