@@ -1,5 +1,20 @@
 # (Fri Feb 18 2022)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.76.1`
+  - fix(plasma-web): `Modal` background set to `backgroundPrimary` (01) token [#1106](https://github.com/salute-developers/plasma/pull/1106) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-core@1.49.5`, `@salutejs/plasma-tokens-b2c@0.8.2`, `@salutejs/plasma-tokens-web@1.14.2`, `@salutejs/plasma-tokens@1.15.3`, `@salutejs/plasma-tokens-utils@0.9.2`
+  - chore: Added fixme comments for background tokens [#1106](https://github.com/salute-developers/plasma/pull/1106) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
+# (Fri Feb 18 2022)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-ui@1.82.0`
