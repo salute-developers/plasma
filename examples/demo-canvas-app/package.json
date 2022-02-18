@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/demo-canvas-app",
-    "version": "0.58.4",
+    "version": "0.59.0",
     "description": "Demo Canvas App",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     
@@ -22,7 +22,7 @@
     "dependencies": {
         "@salutejs/plasma-icons": "1.67.5",
         "@salutejs/plasma-tokens": "1.15.2",
-        "@salutejs/plasma-ui": "1.81.4",
+        "@salutejs/plasma-ui": "1.82.0",
         "@salutejs/spatial-navigation": "1.0.3",
         "next": "11.0.1",
         "react": "17.0.2",
