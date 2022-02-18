@@ -1,3 +1,20 @@
+# v1.82.0 (Fri Feb 18 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): Made overlay optional for Sheet [#1075](https://github.com/salute-developers/plasma/pull/1075) (levkus@gmail.com)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Лев Останин (levkus@gmail.com)
+
+---
+
 # v1.81.4 (Thu Feb 17 2022)
 
 #### 🐛 Bug Fix

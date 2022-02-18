@@ -1,3 +1,17 @@
+# v1.40.0 (Fri Feb 18 2022)
+
+#### 🐛 Bug Fix
+
+- docs(plasma-web, plasma-b2c): `Button`: using as an anchor [#1092](https://github.com/salute-developers/plasma/pull/1092) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.39.7 (Thu Feb 17 2022)
 
 #### 🐛 Bug Fix
