@@ -1,3 +1,20 @@
+# v1.31.0 (Mon Feb 21 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): className for poster on VideoPage [#1103](https://github.com/salute-developers/plasma/pull/1103) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+
+---
+
 # v1.30.1 (Fri Feb 18 2022)
 
 #### 🐛 Bug Fix

@@ -1,3 +1,17 @@
+# v1.41.0 (Mon Feb 21 2022)
+
+#### 🐛 Bug Fix
+
+- chore(plasma-b2c): fix Modal.stories [#1105](https://github.com/salute-developers/plasma/pull/1105) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.40.1 (Fri Feb 18 2022)
 
 #### 🐛 Bug Fix
