@@ -11,15 +11,15 @@ import {
     critical,
     applyEllipsis,
 } from '@salutejs/plasma-core';
-import type { TextFieldProps } from '@salutejs/plasma-core';
 import { IconChevronDown } from '@salutejs/plasma-icons';
 
 import { inputBorder, inputBorderHover } from '../../tokens';
+import type { FieldProps } from '../Field';
 
 export type SelectRefElement = HTMLButtonElement;
 
 export interface SelectButtonProps
-    extends Pick<TextFieldProps, 'disabled' | 'placeholder' | 'status'>,
+    extends Pick<FieldProps, 'status' | 'placeholder' | 'disabled'>,
         Omit<ButtonHTMLAttributes<SelectRefElement>, 'value'> {
     /**
      * Выводимое значение.
