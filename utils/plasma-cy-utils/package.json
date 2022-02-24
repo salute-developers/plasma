@@ -40,6 +40,7 @@
     ],
     "dependencies": {
         "@salutejs/plasma-tokens": "1.16.0",
+        "@salutejs/plasma-tokens-b2b": "1.1.0",
         "@salutejs/plasma-tokens-b2c": "0.10.0",
         "@salutejs/plasma-tokens-web": "1.16.0",
         "@salutejs/plasma-typo": "0.3.0"
