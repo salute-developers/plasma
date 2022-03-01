@@ -1,3 +1,17 @@
+# v1.84.1 (Tue Mar 01 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): correct Tabs disable state [#1116](https://github.com/salute-developers/plasma/pull/1116) ([@LamaEats](https://github.com/LamaEats))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # v1.84.0 (Tue Mar 01 2022)
 
 #### 🐛 Bug Fix
