@@ -1,3 +1,17 @@
+# v1.32.0 (Tue Mar 01 2022)
+
+#### 🐛 Bug Fix
+
+- test(plasma-temple): refactor test specs for platforms test [#1089](https://github.com/salute-developers/plasma/pull/1089) ([@LamaEats](https://github.com/LamaEats))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # v1.31.2 (Thu Feb 24 2022)
 
 #### 🐛 Bug Fix
