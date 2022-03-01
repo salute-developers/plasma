@@ -1,3 +1,20 @@
+# v1.51.0 (Tue Mar 01 2022)
+
+#### 🚀 Enhancement
+
+- feat: `PaginationDots`: made `aria-hidden=true` by default [#1108](https://github.com/salute-developers/plasma/pull/1108) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.50.0 (Tue Mar 01 2022)
 
 #### 🐛 Bug Fix

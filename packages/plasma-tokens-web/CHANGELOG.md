@@ -1,3 +1,20 @@
+# v1.16.0 (Tue Mar 01 2022)
+
+#### 🚀 Enhancement
+
+- feat: update tokens [#1047](https://github.com/salute-developers/plasma/pull/1047) ([@didolf](https://github.com/didolf))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Дмитрий Лекомцев ([@didolf](https://github.com/didolf))
+
+---
+
 # v1.15.0 (Tue Mar 01 2022)
 
 #### 🚀 Enhancement
