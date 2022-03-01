@@ -2,6 +2,26 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-core@1.51.0`
+  - feat: `PaginationDots`: made `aria-hidden=true` by default [#1108](https://github.com/salute-developers/plasma/pull/1108) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-tokens-b2c@0.10.0`, `@salutejs/plasma-tokens-web@1.16.0`
+  - feat: update tokens [#1047](https://github.com/salute-developers/plasma/pull/1047) ([@didolf](https://github.com/didolf))
+
+#### 🐛 Bug Fix
+
+- test: update snaps [#1047](https://github.com/salute-developers/plasma/pull/1047) ([@didolf](https://github.com/didolf))
+
+#### Authors: 2
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+- Дмитрий Лекомцев ([@didolf](https://github.com/didolf))
+
+---
+
+# (Tue Mar 01 2022)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-tokens-utils@0.10.0`
   - feat(plasma-tokens-utils): Added `WebColors` list [#1084](https://github.com/salute-developers/plasma/pull/1084) ([@fanisco](https://github.com/fanisco))
 - `@salutejs/plasma-tokens-b2b@1.1.0`, `@salutejs/plasma-tokens-b2c@0.9.0`, `@salutejs/plasma-tokens-web@1.15.0`, `@salutejs/plasma-web@1.77.0`
