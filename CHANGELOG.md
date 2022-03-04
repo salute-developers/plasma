@@ -2,6 +2,29 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-temple@1.35.0`
+  - feat(plasma-temple): Product component [#1079](https://github.com/salute-developers/plasma/pull/1079) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+  - feat(plasma-temple): New Cart component [#1067](https://github.com/salute-developers/plasma/pull/1067) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+  - feat(plasma-temple): New Cart component [#1066](https://github.com/salute-developers/plasma/pull/1066) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-temple@1.35.0`
+  - test(plasma-temple): multi-platform tests [#1067](https://github.com/salute-developers/plasma/pull/1067) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+  - test(plasma-temple): Cart component tests [#1067](https://github.com/salute-developers/plasma/pull/1067) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- `@salutejs/plasma-temple@1.35.0`, `@salutejs/plasma-temple-docs@0.7.0`
+  - docs(plasma-temple): Cart component doc [#1066](https://github.com/salute-developers/plasma/pull/1066) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
+# (Fri Mar 04 2022)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-temple@1.34.0`
   - feat(plasma-temple): New Cart component [#1080](https://github.com/salute-developers/plasma/pull/1080) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
 - `@salutejs/plasma-core@1.52.0`
