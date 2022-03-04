@@ -1,3 +1,28 @@
+# v1.34.0 (Fri Mar 04 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): New Cart component [#1080](https://github.com/salute-developers/plasma/pull/1080) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- test(plasma-temple): StateLayout component spec [#1041](https://github.com/salute-developers/plasma/pull/1041) ([@LamaEats](https://github.com/LamaEats))
+- test(plasma-temple): OrderSuccessPage spec [#1041](https://github.com/salute-developers/plasma/pull/1041) ([@LamaEats](https://github.com/LamaEats))
+- chore(plasma-temple): prepare OrderSuccessPage for tests [#1041](https://github.com/salute-developers/plasma/pull/1041) ([@LamaEats](https://github.com/LamaEats))
+- test(plasma-temple): ConfirmOrderPage spec [#1041](https://github.com/salute-developers/plasma/pull/1041) ([@LamaEats](https://github.com/LamaEats))
+- chore(plasma-temple): prepare ConfirmOrderPage for tests [#1041](https://github.com/salute-developers/plasma/pull/1041) ([@LamaEats](https://github.com/LamaEats))
+- test(plasma-temple): ErrorPage spec [#1041](https://github.com/salute-developers/plasma/pull/1041) ([@LamaEats](https://github.com/LamaEats))
+- chore(plasma-temple): prepare ErrorPage for tests [#1041](https://github.com/salute-developers/plasma/pull/1041) ([@LamaEats](https://github.com/LamaEats))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 3
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # v1.33.1 (Tue Mar 01 2022)
 
 #### 🐛 Bug Fix
