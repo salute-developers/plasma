@@ -1,3 +1,16 @@
+# (Wed Mar 09 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-temple@1.37.0`
+  - feat(plasma-temple): Exports for custom item page [#1125](https://github.com/salute-developers/plasma/pull/1125) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+
+#### Authors: 1
+
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+
+---
+
 # (Sat Mar 05 2022)
 
 #### 🚀 Enhancement
