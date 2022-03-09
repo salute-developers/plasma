@@ -1,5 +1,18 @@
 # (Wed Mar 09 2022)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.85.1`
+  - fix(plasma-ui): `TimePicker` splitter size [#1120](https://github.com/salute-developers/plasma/pull/1120) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 1
+
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
+# (Wed Mar 09 2022)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-temple@1.37.0`
