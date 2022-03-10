@@ -1,3 +1,16 @@
+# (Thu Mar 10 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web-docs@0.36.1`
+  - fix(plasma-web-docs): Docusaurus docgen plugin's json fail [#1138](https://github.com/salute-developers/plasma/pull/1138) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 1
+
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Wed Mar 09 2022)
 
 #### 🐛 Bug Fix
