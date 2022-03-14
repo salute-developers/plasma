@@ -1,3 +1,17 @@
+# v1.82.0 (Mon Mar 14 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web): Add restrict bounds for value in `Progress` component [#1126](https://github.com/salute-developers/plasma/pull/1126) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.80.0 (Fri Mar 11 2022)
 
 #### 🐛 Bug Fix
