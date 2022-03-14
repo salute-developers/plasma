@@ -1,3 +1,22 @@
+# (Mon Mar 14 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui-docs@0.50.0`
+  - feat(aml): mention AML in plasma ui docs [#1137](https://github.com/salute-developers/plasma/pull/1137) ([@jabzzy](https://github.com/jabzzy))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.82.0`
+  - fix(plasma-web): Add restrict bounds for value in `Progress` component [#1126](https://github.com/salute-developers/plasma/pull/1126) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 2
+
+- Eugene Dashkevich ([@jabzzy](https://github.com/jabzzy))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Fri Mar 11 2022)
 
 #### 🚀 Enhancement
