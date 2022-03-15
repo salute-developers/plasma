@@ -1,3 +1,24 @@
+# (Tue Mar 15 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-web@1.83.0`
+  - feat(plasma-web): `Notification`: added possibility to anounce text when open [#1127](https://github.com/salute-developers/plasma/pull/1127) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-temple@1.40.0`
+  - fix(plasma-temple): GalleryPage header typography [#1122](https://github.com/salute-developers/plasma/pull/1122) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+- `@salutejs/plasma-b2c@1.48.0`, `@salutejs/plasma-ui@1.87.0`, `@salutejs/plasma-web@1.83.0`
+  - chore: `Toast` stories text & role [#1127](https://github.com/salute-developers/plasma/pull/1127) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 2
+
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Mon Mar 14 2022)
 
 #### 🚀 Enhancement

@@ -1,3 +1,17 @@
+# v1.48.0 (Tue Mar 15 2022)
+
+#### 🐛 Bug Fix
+
+- chore: `Toast` stories text & role [#1127](https://github.com/salute-developers/plasma/pull/1127) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.47.0 (Mon Mar 14 2022)
 
 #### 🐛 Bug Fix
