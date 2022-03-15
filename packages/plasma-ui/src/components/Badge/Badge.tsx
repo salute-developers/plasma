@@ -4,6 +4,7 @@ import { Badge as BaseBadge, BadgeProps as BaseProps, views } from '@salutejs/pl
 export const badgeViews = {
     primary: views.primary,
     secondary: views.overlay,
+    warning: views.warning,
 };
 
 export type BadgeView = keyof typeof badgeViews;
