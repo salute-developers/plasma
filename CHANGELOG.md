@@ -2,6 +2,19 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-temple@1.43.0`
+  - feat(plasma-temple): Export for useSpatNavBetweenTargets [#1140](https://github.com/salute-developers/plasma/pull/1140) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+
+#### Authors: 1
+
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+
+---
+
+# (Wed Mar 16 2022)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-b2c@1.50.0`, `@salutejs/plasma-ui@1.89.0`, `@salutejs/plasma-web@1.85.0`
   - feat(plasma-ui): `TextArea`: added `aria-describedby` attr [#1133](https://github.com/salute-developers/plasma/pull/1133) ([@fanisco](https://github.com/fanisco))
 - `@salutejs/plasma-b2c@1.50.0`
