@@ -1,3 +1,20 @@
+# v1.43.0 (Wed Mar 16 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): Export for useSpatNavBetweenTargets [#1140](https://github.com/salute-developers/plasma/pull/1140) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+
+---
+
 # v1.42.0 (Wed Mar 16 2022)
 
 #### 🐛 Bug Fix
