@@ -1,3 +1,23 @@
+# (Thu Mar 17 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-docs-ui@0.6.0`, `@salutejs/plasma-ui-docs@0.54.0`, `@salutejs/plasma-web-docs@0.43.0`
+  - feat(plasma-docs-ui): `CodeSandbox`: index.js management [#1146](https://github.com/salute-developers/plasma/pull/1146) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-docs-ui@0.6.0`
+  - feat(plasma-docs-ui): Using b2b tokens [#1146](https://github.com/salute-developers/plasma/pull/1146) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-web-docs@0.43.0`
+  - feat(plasma-web-docs): Using b2b tokens / switch light/dark [#1146](https://github.com/salute-developers/plasma/pull/1146) ([@fanisco](https://github.com/fanisco))
+- `@salutejs/plasma-temple@1.44.0`
+  - feat(plasma-temple): Export for useSpatNavBetweenTargets [#1140](https://github.com/salute-developers/plasma/pull/1140) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+
+#### Authors: 2
+
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Wed Mar 16 2022)
 
 #### 🚀 Enhancement
