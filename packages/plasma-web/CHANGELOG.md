@@ -1,3 +1,20 @@
+# v1.88.0 (Mon Mar 28 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-web): `Tooltip` a11y & close with esc [#1135](https://github.com/salute-developers/plasma/pull/1135) ([@fanisco](https://github.com/fanisco))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.87.0 (Fri Mar 25 2022)
 
 #### 🚀 Enhancement
