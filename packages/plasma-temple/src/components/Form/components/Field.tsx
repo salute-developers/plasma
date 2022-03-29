@@ -2,9 +2,9 @@ import React, { useMemo } from 'react';
 import styled, { StyledComponent } from 'styled-components';
 import { Body1, Caption, Footnote1 } from '@salutejs/plasma-ui';
 import { secondary, warning } from '@salutejs/plasma-tokens';
-import { GetStyledComponentProps } from 'src';
 
 import { ValidationMessage, ValidityStateKeys } from '../types';
+import { GetStyledComponentProps } from '../../../types';
 
 type Align = 'left' | 'center' | 'right';
 
