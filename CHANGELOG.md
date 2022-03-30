@@ -2,6 +2,21 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-temple@1.48.0`
+  - feat(plasma-temple): tests [#1156](https://github.com/salute-developers/plasma/pull/1156) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- `@salutejs/plasma-temple@1.48.0`, `@salutejs/plasma-temple-docs@0.13.0`
+  - feat(plasma-temple): Grid component [#1156](https://github.com/salute-developers/plasma/pull/1156) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
+# (Wed Mar 30 2022)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-temple@1.47.0`
   - feat(plasma-temple): update tests [#1150](https://github.com/salute-developers/plasma/pull/1150) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
   - feat(plasma-temple): Support onboarding page in StateLayout component [#1150](https://github.com/salute-developers/plasma/pull/1150) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
