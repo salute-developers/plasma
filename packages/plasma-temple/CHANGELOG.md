@@ -1,3 +1,20 @@
+# v1.49.0 (Thu Mar 31 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): Assistant impovements [#1163](https://github.com/salute-developers/plasma/pull/1163) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.48.0 (Wed Mar 30 2022)
 
 #### 🚀 Enhancement
