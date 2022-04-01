@@ -1,3 +1,16 @@
+# (Fri Apr 01 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-temple@1.50.0`
+  - feat(plasma-temple): update build [#1168](https://github.com/salute-developers/plasma/pull/1168) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
 # (Thu Mar 31 2022)
 
 #### 🚀 Enhancement
