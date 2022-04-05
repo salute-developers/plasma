@@ -1,3 +1,19 @@
+# (Tue Apr 05 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-temple@1.51.1`
+  - fix(plasma-teple): make svg imports inline [#1175](https://github.com/salute-developers/plasma/pull/1175) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- `@salutejs/plasma-ui-docs@0.60.1`, `@salutejs/plasma-web-docs@0.47.1`
+  - docs(plasma-web, plasma-ui): `Toast`: added `showToast` arguments description [#1177](https://github.com/salute-developers/plasma/pull/1177) ([@fanisco](https://github.com/fanisco))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # (Fri Apr 01 2022)
 
 #### 🚀 Enhancement
