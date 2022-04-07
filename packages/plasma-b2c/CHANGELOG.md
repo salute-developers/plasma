@@ -1,3 +1,17 @@
+# v1.56.0 (Thu Apr 07 2022)
+
+#### 🐛 Bug Fix
+
+- fix: `Field` and `Input` props interfaces facelifting [#1121](https://github.com/salute-developers/plasma/pull/1121) ([@fanisco](https://github.com/fanisco))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+
+---
+
 # v1.54.0 (Thu Mar 31 2022)
 
 #### 🚀 Enhancement
