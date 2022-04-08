@@ -1,3 +1,20 @@
+# v1.54.0 (Fri Apr 08 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): add device component, StateLayout component by platforms [#1182](https://github.com/salute-developers/plasma/pull/1182) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.53.0 (Fri Apr 08 2022)
 
 #### 🐛 Bug Fix
