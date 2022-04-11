@@ -1,3 +1,25 @@
+# v1.55.0 (Mon Apr 11 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): onStart wait for command [#1176](https://github.com/salute-developers/plasma/pull/1176) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+- feat(plasma-temple): onStart wait for character [#1176](https://github.com/salute-developers/plasma/pull/1176) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+- feat(plasma-temple): add device component, StateLayout component by platforms [#1182](https://github.com/salute-developers/plasma/pull/1182) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 3
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+
+---
+
 # v1.54.0 (Fri Apr 08 2022)
 
 #### 🚀 Enhancement
