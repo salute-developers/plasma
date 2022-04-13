@@ -96,6 +96,7 @@ export interface PickerItemProps extends React.HTMLAttributes<HTMLDivElement>, S
     activeIndex: number;
     noScrollBehavior: boolean;
     onItemClick?: (item: PickerItemType) => void;
+    disabled?: boolean;
     /**
      * Автофокус на компоненте.
      */
@@ -119,6 +120,7 @@ export const PickerItem: React.FC<PickerItemProps> = ({
     noScrollBehavior,
     onItemClick,
     autofocus,
+    disabled,
     ...rest
 }) => {
     const itemRef = useCarouselItem<HTMLDivElement>();
@@ -129,8 +131,12 @@ export const PickerItem: React.FC<PickerItemProps> = ({
     const styles = React.useMemo(() => getStyles(index - activeIndex, size), [index, activeIndex, size]);
 
     const onClick = React.useCallback(() => {
+        if (disabled) {
+            return;
+        }
+
         onItemClick?.(item);
-    }, [item]);
+    }, [item, disabled]);
 
     useEffect(() => {
         if (autofocus && itemRef.current) {

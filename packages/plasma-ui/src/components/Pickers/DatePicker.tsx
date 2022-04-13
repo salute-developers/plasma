@@ -98,6 +98,10 @@ export const DatePicker: React.FC<DatePickerProps> = ({
     const [maxYear, maxMonth, maxDay] = getDateValues(max);
 
     const monthsInterval = React.useMemo(() => {
+        if (minYear === year && maxYear === year) {
+            return [minMonth, maxMonth];
+        }
+
         if (minYear >= year) {
             return [minMonth, 11];
         }
