@@ -2,3 +2,6 @@ export { StateLayoutSberBox as StateLayout } from './StateLayout/StateLayout@sbe
 export * from './Item/index@sberbox';
 export * from './Cart/index@sberbox';
 export * from './Product/index@sberbox';
+export { Grid } from './Grid/Grid';
+export { HeroSliderSberbox as HeroSlider } from './HeroSlider/HeroSlider@sberbox';
+export { Card } from './Card/Card';
