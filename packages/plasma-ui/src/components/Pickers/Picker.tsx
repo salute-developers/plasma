@@ -209,7 +209,11 @@ const getIndex = (index: number, cmd: GetIndexCmd, min: number, max: number, inf
     }
 };
 
-const getItems = (items: PickerItemType[], infiniteScroll: boolean) => {
+const getItems = (items: PickerItemType[], infiniteScroll: boolean, isSingleItem: boolean) => {
+    if (infiniteScroll && isSingleItem) {
+        return items;
+    }
+
     if (infiniteScroll) {
         const virtualItems = items.map((item) => ({ ...item, isVirtual: true }));
         return [...virtualItems, ...items, ...virtualItems];
@@ -281,21 +285,27 @@ export const Picker: FC<PickerProps> = ({
     items,
     controls,
     autofocus,
-    disabled,
     visibleItems = DEFAULT_VISIBLE_ITEMS,
     scrollSnapType,
-    onChange,
     'aria-label': ariaLabel,
+    onChange,
     ...rest
 }) => {
-    const theme = useContext(ThemeContext);
-    // by default 'true' on high perfomance devices
-    const infiniteScroll = rest.infiniteScroll ?? !theme.lowPerformance;
-
-    const virtualItems = useMemo(() => getItems(items, infiniteScroll), [items, infiniteScroll]);
+    const isSingleItem = items.length === 1;
+    const disabled = rest.disabled || isSingleItem;
 
     const min = 0;
     const max = items.length - 1;
+
+    const theme = useContext(ThemeContext);
+    // by default 'true' on high perfomance devices
+    const infiniteScroll = rest.infiniteScroll ?? !theme?.lowPerformance;
+
+    const virtualItems = useMemo(() => getItems(items, infiniteScroll, isSingleItem), [
+        items,
+        infiniteScroll,
+        isSingleItem,
+    ]);
 
     const isFirstRender = useFirstRender();
     const [isFocused, setIsFocused] = useState(false);
@@ -305,12 +315,14 @@ export const Picker: FC<PickerProps> = ({
     const wrapperRef = useRef<HTMLDivElement | null>(null);
     const carouselRef = useRef<HTMLDivElement | null>(null);
     const toPrev = useCallback(() => !disabled && setIndex(getIndex(index, '-', min, max, infiniteScroll)), [
+        disabled,
         index,
         min,
         max,
         infiniteScroll,
     ]);
     const toNext = useCallback(() => !disabled && setIndex(getIndex(index, '+', min, max, infiniteScroll)), [
+        disabled,
         index,
         min,
         max,
@@ -328,14 +340,14 @@ export const Picker: FC<PickerProps> = ({
 
             setIndex(newIndex);
         },
-        [index, max, min, items, virtualItems, infiniteScroll],
+        [disabled, index, max, min, items, virtualItems, infiniteScroll],
     );
 
     const prevValue = usePreviousValue(virtualItems[index]?.value);
 
-    const onFocus = useCallback(() => setIsFocused(true), []);
+    const onFocus = useCallback(() => !disabled && setIsFocused(true), [disabled]);
 
-    const onBlur = useCallback(() => setIsFocused(false), []);
+    const onBlur = useCallback(() => !disabled && setIsFocused(false), [disabled]);
 
     // Изменяет индекс выделенного элемента
     // при обновлении значения value извне
@@ -365,7 +377,7 @@ export const Picker: FC<PickerProps> = ({
     // Навигация с помощью пульта/клавиатуры
     // Не перелистывает, если компонент неактивен
     useRemoteListener((key, event) => {
-        if (!isFocused) {
+        if (!isFocused || disabled) {
             return;
         }
         switch (key) {
@@ -424,7 +436,7 @@ export const Picker: FC<PickerProps> = ({
 
     const onDetectActiveItem = useCallback(
         (i: number) => {
-            if (!infiniteScroll || (!isTopPosition(i) && !isBottomPosition(i, virtualItems.length))) {
+            if (isSingleItem || !infiniteScroll || (!isTopPosition(i) && !isBottomPosition(i, virtualItems.length))) {
                 return;
             }
 
@@ -443,7 +455,7 @@ export const Picker: FC<PickerProps> = ({
                 setIndex(i - (max - min) - 1);
             }
         },
-        [virtualItems, infiniteScroll, max, min, index],
+        [virtualItems, infiniteScroll, max, min, index, isSingleItem],
     );
 
     return (
@@ -486,6 +498,7 @@ export const Picker: FC<PickerProps> = ({
                         tabIndex={index === i ? 0 : -1}
                         size={size}
                         onItemClick={onChange}
+                        disabled={disabled}
                         noScrollBehavior={!hasScrollAnim}
                         autofocus={((isFirstRender && autofocus) || isFocused) && index === i}
                         role="option"
