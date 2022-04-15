@@ -6,40 +6,80 @@ import { prepareStandardBreakpointTypo } from './helpers';
 const typoS = prepareStandardBreakpointTypo({
     'dspl-l': {
         'font-size': '5.5rem',
+        'font-weight': '400',
+        'line-height': '5.75rem',
+    },
+    'dspl-l-bold': {
+        'font-size': '5.5rem',
         'font-weight': '600',
         'line-height': '5.75rem',
     },
     'dspl-m': {
+        'font-size': '3.5rem',
+        'font-weight': '400',
+        'line-height': '3.875rem',
+    },
+    'dspl-m-bold': {
         'font-size': '3.5rem',
         'font-weight': '600',
         'line-height': '3.875rem',
     },
     'dspl-s': {
         'font-size': '2.5rem',
+        'font-weight': '400',
+        'line-height': '2.875rem',
+    },
+    'dspl-s-bold': {
+        'font-size': '2.5rem',
         'font-weight': '600',
         'line-height': '2.875rem',
     },
     h1: {
+        'font-size': '1.75rem',
+        'font-weight': '400',
+        'line-height': '2.125rem',
+    },
+    'h1-bold': {
         'font-size': '1.75rem',
         'font-weight': '600',
         'line-height': '2.125rem',
     },
     h2: {
         'font-size': '1.5rem',
+        'font-weight': '400',
+        'line-height': '1.875rem',
+    },
+    'h2-bold': {
+        'font-size': '1.5rem',
         'font-weight': '600',
         'line-height': '1.875rem',
     },
     h3: {
+        'font-size': '1.25rem',
+        'font-weight': '400',
+        'line-height': '1.625rem',
+    },
+    'h3-bold': {
         'font-size': '1.25rem',
         'font-weight': '600',
         'line-height': '1.625rem',
     },
     h4: {
         'font-size': '1.125rem',
+        'font-weight': '400',
+        'line-height': '1.5rem',
+    },
+    'h4-bold': {
+        'font-size': '1.125rem',
         'font-weight': '600',
         'line-height': '1.5rem',
     },
     h5: {
+        'font-size': '0.875rem',
+        'font-weight': '400',
+        'line-height': '1.375rem',
+    },
+    'h5-bold': {
         'font-size': '0.875rem',
         'font-weight': '600',
         'line-height': '1.375rem',
@@ -138,40 +178,80 @@ const typoS = prepareStandardBreakpointTypo({
 const typoM = prepareStandardBreakpointTypo({
     'dspl-l': {
         'font-size': '7rem',
+        'font-weight': '400',
+        'line-height': '7rem',
+    },
+    'dspl-l-bold': {
+        'font-size': '7rem',
         'font-weight': '600',
         'line-height': '7rem',
     },
     'dspl-m': {
+        'font-size': '4.5rem',
+        'font-weight': '400',
+        'line-height': '4.75rem',
+    },
+    'dspl-m-bold': {
         'font-size': '4.5rem',
         'font-weight': '600',
         'line-height': '4.75rem',
     },
     'dspl-s': {
         'font-size': '3rem',
+        'font-weight': '400',
+        'line-height': '3.375rem',
+    },
+    'dspl-s-bold': {
+        'font-size': '3rem',
         'font-weight': '600',
         'line-height': '3.375rem',
     },
     h1: {
+        'font-size': '2.5rem',
+        'font-weight': '400',
+        'line-height': '2.875rem',
+    },
+    'h1-bold': {
         'font-size': '2.5rem',
         'font-weight': '600',
         'line-height': '2.875rem',
     },
     h2: {
         'font-size': '1.75rem',
+        'font-weight': '400',
+        'line-height': '2.125rem',
+    },
+    'h2-bold': {
+        'font-size': '1.75rem',
         'font-weight': '600',
         'line-height': '2.125rem',
     },
     h3: {
+        'font-size': '1.25rem',
+        'font-weight': '400',
+        'line-height': '1.625rem',
+    },
+    'h3-bold': {
         'font-size': '1.25rem',
         'font-weight': '600',
         'line-height': '1.625rem',
     },
     h4: {
         'font-size': '1.125rem',
+        'font-weight': '400',
+        'line-height': '1.5rem',
+    },
+    'h4-bold': {
+        'font-size': '1.125rem',
         'font-weight': '600',
         'line-height': '1.5rem',
     },
     h5: {
+        'font-size': '1rem',
+        'font-weight': '400',
+        'line-height': '1.375rem',
+    },
+    'h5-bold': {
         'font-size': '1rem',
         'font-weight': '600',
         'line-height': '1.375rem',
@@ -270,40 +350,80 @@ const typoM = prepareStandardBreakpointTypo({
 const typoL = prepareStandardBreakpointTypo({
     'dspl-l': {
         'font-size': '8rem',
+        'font-weight': '400',
+        'line-height': '8rem',
+    },
+    'dspl-l-bold': {
+        'font-size': '8rem',
         'font-weight': '600',
         'line-height': '8rem',
     },
     'dspl-m': {
+        'font-size': '5.5rem',
+        'font-weight': '400',
+        'line-height': '5.75rem',
+    },
+    'dspl-m-bold': {
         'font-size': '5.5rem',
         'font-weight': '600',
         'line-height': '5.75rem',
     },
     'dspl-s': {
         'font-size': '4rem',
+        'font-weight': '400',
+        'line-height': '4.25rem',
+    },
+    'dspl-s-bold': {
+        'font-size': '4rem',
         'font-weight': '600',
         'line-height': '4.25rem',
     },
     h1: {
+        'font-size': '3rem',
+        'font-weight': '400',
+        'line-height': '3.375rem',
+    },
+    'h1-bold': {
         'font-size': '3rem',
         'font-weight': '600',
         'line-height': '3.375rem',
     },
     h2: {
         'font-size': '2rem',
+        'font-weight': '400',
+        'line-height': '2.375rem',
+    },
+    'h2-bold': {
+        'font-size': '2rem',
         'font-weight': '600',
         'line-height': '2.375rem',
     },
     h3: {
+        'font-size': '1.5rem',
+        'font-weight': '400',
+        'line-height': '1.875rem',
+    },
+    'h3-bold': {
         'font-size': '1.5rem',
         'font-weight': '600',
         'line-height': '1.875rem',
     },
     h4: {
         'font-size': '1.25rem',
+        'font-weight': '400',
+        'line-height': '1.625rem',
+    },
+    'h4-bold': {
+        'font-size': '1.25rem',
         'font-weight': '600',
         'line-height': '1.625rem',
     },
     h5: {
+        'font-size': '1.125rem',
+        'font-weight': '400',
+        'line-height': '1.5rem',
+    },
+    'h5-bold': {
         'font-size': '1.125rem',
         'font-weight': '600',
         'line-height': '1.5rem',

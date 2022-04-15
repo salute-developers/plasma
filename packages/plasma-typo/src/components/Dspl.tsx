@@ -2,20 +2,21 @@ import styled from 'styled-components';
 import { applyHyphens, applySpacing } from '@salutejs/plasma-core';
 import type { BreakWordProps, SpacingProps } from '@salutejs/plasma-core';
 
-import { dsplL, dsplM, dsplS } from '../tokens';
+import { dsplL, dsplLBold, dsplM, dsplMBold, dsplS, dsplSBold } from '../tokens';
+import type { BoldProps } from '../types';
 
-export const DsplL = styled.div<SpacingProps & BreakWordProps>`
+export const DsplL = styled.div<SpacingProps & BoldProps & BreakWordProps>`
     ${applyHyphens}
     ${applySpacing}
-    ${dsplL}
+    ${({ bold = true }) => (bold ? dsplLBold : dsplL)}
 `;
-export const DsplM = styled.div<SpacingProps & BreakWordProps>`
+export const DsplM = styled.div<SpacingProps & BoldProps & BreakWordProps>`
     ${applyHyphens}
     ${applySpacing}
-    ${dsplM}
+    ${({ bold = true }) => (bold ? dsplMBold : dsplM)}
 `;
-export const DsplS = styled.div<SpacingProps & BreakWordProps>`
+export const DsplS = styled.div<SpacingProps & BoldProps & BreakWordProps>`
     ${applyHyphens}
     ${applySpacing}
-    ${dsplS}
+    ${({ bold = true }) => (bold ? dsplSBold : dsplS)}
 `;

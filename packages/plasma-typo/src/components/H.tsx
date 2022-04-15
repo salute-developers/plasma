@@ -2,30 +2,31 @@ import styled from 'styled-components';
 import { applyHyphens, applySpacing } from '@salutejs/plasma-core';
 import type { BreakWordProps, SpacingProps } from '@salutejs/plasma-core';
 
-import { h1, h2, h3, h4, h5 } from '../tokens';
+import { h1, h1Bold, h2, h2Bold, h3, h3Bold, h4, h4Bold, h5, h5Bold } from '../tokens';
+import type { BoldProps } from '../types';
 
-export const H1 = styled.div<SpacingProps & BreakWordProps>`
+export const H1 = styled.div<SpacingProps & BoldProps & BreakWordProps>`
     ${applyHyphens}
     ${applySpacing}
-    ${h1}
+    ${({ bold = true }) => (bold ? h1Bold : h1)}
 `;
-export const H2 = styled.div<SpacingProps & BreakWordProps>`
+export const H2 = styled.div<SpacingProps & BoldProps & BreakWordProps>`
     ${applyHyphens}
     ${applySpacing}
-    ${h2}
+    ${({ bold = true }) => (bold ? h2Bold : h2)}
 `;
-export const H3 = styled.div<SpacingProps & BreakWordProps>`
+export const H3 = styled.div<SpacingProps & BoldProps & BreakWordProps>`
     ${applyHyphens}
     ${applySpacing}
-    ${h3}
+    ${({ bold = true }) => (bold ? h3Bold : h3)}
 `;
-export const H4 = styled.div<SpacingProps & BreakWordProps>`
+export const H4 = styled.div<SpacingProps & BoldProps & BreakWordProps>`
     ${applyHyphens}
     ${applySpacing}
-    ${h4}
+    ${({ bold = true }) => (bold ? h4Bold : h4)}
 `;
-export const H5 = styled.div<SpacingProps & BreakWordProps>`
+export const H5 = styled.div<SpacingProps & BoldProps & BreakWordProps>`
     ${applyHyphens}
     ${applySpacing}
-    ${h5}
+    ${({ bold = true }) => (bold ? h5Bold : h5)}
 `;
