@@ -9,6 +9,11 @@ export const dsplL = ({
     lineHeight: 'var(--plasma-typo-dspl-l-line-height)',
 } as unknown) as CSSObject;
 
+export const dsplLBold = ({
+    ...dsplL,
+    fontWeight: 'var(--plasma-typo-dspl-l-bold-font-weight)',
+} as unknown) as CSSObject;
+
 export const dsplM = ({
     fontFamily: 'var(--plasma-typo-dspl-m-font-family)',
     fontSize: 'var(--plasma-typo-dspl-m-font-size)',
@@ -16,6 +21,11 @@ export const dsplM = ({
     fontWeight: 'var(--plasma-typo-dspl-m-font-weight)',
     letterSpacing: 'var(--plasma-typo-dspl-m-letter-spacing)',
     lineHeight: 'var(--plasma-typo-dspl-m-line-height)',
+} as unknown) as CSSObject;
+
+export const dsplMBold = ({
+    ...dsplM,
+    fontWeight: 'var(--plasma-typo-dspl-m-bold-font-weight)',
 } as unknown) as CSSObject;
 
 export const dsplS = ({
@@ -27,6 +37,11 @@ export const dsplS = ({
     lineHeight: 'var(--plasma-typo-dspl-s-line-height)',
 } as unknown) as CSSObject;
 
+export const dsplSBold = ({
+    ...dsplS,
+    fontWeight: 'var(--plasma-typo-dspl-s-bold-font-weight)',
+} as unknown) as CSSObject;
+
 export const h1 = ({
     fontFamily: 'var(--plasma-typo-h1-font-family)',
     fontSize: 'var(--plasma-typo-h1-font-size)',
@@ -34,6 +49,11 @@ export const h1 = ({
     fontWeight: 'var(--plasma-typo-h1-font-weight)',
     letterSpacing: 'var(--plasma-typo-h1-letter-spacing)',
     lineHeight: 'var(--plasma-typo-h1-line-height)',
+} as unknown) as CSSObject;
+
+export const h1Bold = ({
+    ...h1,
+    fontWeight: 'var(--plasma-typo-h1-bold-font-weight)',
 } as unknown) as CSSObject;
 
 export const h2 = ({
@@ -45,6 +65,11 @@ export const h2 = ({
     lineHeight: 'var(--plasma-typo-h2-line-height)',
 } as unknown) as CSSObject;
 
+export const h2Bold = ({
+    ...h2,
+    fontWeight: 'var(--plasma-typo-h2-bold-font-weight)',
+} as unknown) as CSSObject;
+
 export const h3 = ({
     fontFamily: 'var(--plasma-typo-h3-font-family)',
     fontSize: 'var(--plasma-typo-h3-font-size)',
@@ -52,6 +77,11 @@ export const h3 = ({
     fontWeight: 'var(--plasma-typo-h3-font-weight)',
     letterSpacing: 'var(--plasma-typo-h3-letter-spacing)',
     lineHeight: 'var(--plasma-typo-h3-line-height)',
+} as unknown) as CSSObject;
+
+export const h3Bold = ({
+    ...h3,
+    fontWeight: 'var(--plasma-typo-h3-bold-font-weight)',
 } as unknown) as CSSObject;
 
 export const h4 = ({
@@ -63,6 +93,11 @@ export const h4 = ({
     lineHeight: 'var(--plasma-typo-h4-line-height)',
 } as unknown) as CSSObject;
 
+export const h4Bold = ({
+    ...h4,
+    fontWeight: 'var(--plasma-typo-h4-bold-font-weight)',
+} as unknown) as CSSObject;
+
 export const h5 = ({
     fontFamily: 'var(--plasma-typo-h5-font-family)',
     fontSize: 'var(--plasma-typo-h5-font-size)',
@@ -70,6 +105,11 @@ export const h5 = ({
     fontWeight: 'var(--plasma-typo-h5-font-weight)',
     letterSpacing: 'var(--plasma-typo-h5-letter-spacing)',
     lineHeight: 'var(--plasma-typo-h5-line-height)',
+} as unknown) as CSSObject;
+
+export const h5Bold = ({
+    ...h5,
+    fontWeight: 'var(--plasma-typo-h5-bold-font-weight)',
 } as unknown) as CSSObject;
 
 export const bodyL = ({
