@@ -9,14 +9,14 @@ export const closeApp = (): void => {
     }
 };
 
-export const usePopHistoryListener = (historyLength: number, onPopState: () => void): void => {
+export const usePopHistoryListener = (historyLength: number, onPopState: (event: PopStateEvent) => void): void => {
     React.useEffect(() => {
-        const listener = () => {
+        const listener = (event: PopStateEvent) => {
             if (historyLength === 1) {
                 closeApp();
             }
 
-            onPopState();
+            onPopState(event);
         };
 
         window.addEventListener('popstate', listener);

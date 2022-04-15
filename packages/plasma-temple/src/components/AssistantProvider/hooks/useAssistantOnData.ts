@@ -3,20 +3,20 @@ import { AssistantClientCustomizedCommand, AssistantSmartAppData } from '@salute
 
 import { useAssistant } from './useAssistant';
 
-// @deprecated works only with PlasmaApp
 export const useAssistantOnData = <T extends AssistantSmartAppData = AssistantSmartAppData>(
     onData: (command: AssistantClientCustomizedCommand<T>) => void,
 ): void => {
-    const { assistant } = useAssistant();
+    const { getAssistant } = useAssistant();
+    const onDataRef = React.useRef(onData);
+    onDataRef.current = onData;
 
     React.useEffect(() => {
-        const removeListener = assistant.on(
-            'data',
-            onData as (command: AssistantClientCustomizedCommand<AssistantSmartAppData>) => void,
+        const removeListener = getAssistant().on('data', (command) =>
+            onDataRef.current(command as AssistantClientCustomizedCommand<T>),
         );
 
         return () => {
             removeListener();
         };
-    }, [assistant, onData]);
+    }, [getAssistant]);
 };

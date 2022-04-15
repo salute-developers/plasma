@@ -1,15 +1,12 @@
 import React from 'react';
 
-import { AppStateContext } from '../components/PlasmaApp/AppStateContext';
-import { Insets } from '../types';
+import { Insets } from '../../../types';
+import { AssistantContext } from '../AssistantContext';
 
-// @deprecated works only with PlasmaApp
-export function useInsets(): Insets {
+export function useAssistantInsets(): Insets {
     const {
-        state: {
-            ui: { insets },
-        },
-    } = React.useContext(AppStateContext);
+        state: { insets },
+    } = React.useContext(AssistantContext);
 
     return React.useMemo(() => {
         const devicePixelRatio = process.env.NODE_ENV === 'development' ? 1 : window.devicePixelRatio;

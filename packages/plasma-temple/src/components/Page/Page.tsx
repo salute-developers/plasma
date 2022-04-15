@@ -123,7 +123,7 @@ export const Page: PageFunctionComponent = ({
                 <Component
                     name={name}
                     params={window.history.state}
-                    state={last(state.history).data}
+                    state={last(state.history)?.data}
                     assistant={assistant}
                     setAssistantState={setAssistantState}
                     changeState={changeState}

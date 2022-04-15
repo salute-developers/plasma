@@ -1,5 +1,5 @@
 import { useMemo, useCallback, useRef } from 'react';
-import { AssistantClientCustomizedCommand, AssistantSmartAppData } from '@salutejs/client';
+import { AssistantClientCustomizedCommand, AssistantEvents, AssistantSmartAppData } from '@salutejs/client';
 
 import { AssistantInstance } from '../types';
 import { InitializeParams, initializeAssistant } from '../assistant';
@@ -13,7 +13,7 @@ export const useInitializeAssistant = <T extends AssistantSmartAppData>({
 }: {
     assistantParams: Omit<InitializeParams, 'getState'>;
     onStart?: () => void;
-    onData?: (command: AssistantClientCustomizedCommand<AssistantSmartAppData>) => void;
+    onData?: (command: AssistantClientCustomizedCommand<T>) => void;
 }): {
     getAssistant: () => AssistantInstance;
     setAssistantState: (newState: unknown) => void;
@@ -46,7 +46,7 @@ export const useInitializeAssistant = <T extends AssistantSmartAppData>({
         let removeListener = () => {};
 
         if (onData) {
-            removeListener = assistant.on('data', onData);
+            removeListener = assistant.on('data', onData as AssistantEvents<AssistantSmartAppData>['data']);
         }
 
         return () => removeListener();

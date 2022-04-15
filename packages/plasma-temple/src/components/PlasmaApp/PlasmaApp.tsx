@@ -58,8 +58,8 @@ export function App<Name extends string>({
 
     const replacePreviousScreens = React.useCallback(
         (screens: Array<{ name: string; params?: any }>) => {
-            const currentName = activeScreen.name;
-            const currentData = activeScreen.data;
+            const currentName = activeScreen?.name ?? '';
+            const currentData = activeScreen?.data;
             screens.forEach(({ name, params }) => {
                 window.history.pushState(params, name);
             });
@@ -184,4 +184,5 @@ export function App<Name extends string>({
     );
 }
 
+// @deprecated use ScreenProvider
 export const PlasmaApp = React.memo(App);

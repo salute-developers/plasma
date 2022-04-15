@@ -1,0 +1,5 @@
+{
+    "main": "../dist/components/AssistantProvider/index.js",
+    "module": "../dist/es/components/AssistantProvider/index.js",
+    "types": "../dist/components/AssistantProvider/index.d.ts"
+}
