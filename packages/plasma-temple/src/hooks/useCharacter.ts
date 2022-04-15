@@ -3,6 +3,7 @@ import React from 'react';
 
 import { AppStateContext } from '../components/PlasmaApp/AppStateContext';
 
+// @deprecated works only with PlasmaApp
 export function useCharacter(): CharacterId {
     const {
         state: {

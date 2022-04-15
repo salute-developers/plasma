@@ -84,12 +84,7 @@
         "storybook:extract": "sb extract build-sb ./build-sb/stories.json",
         "test": "BABEL_ENV=test jest"
     },
-    "files": [
-        "dist",
-        "mobile",
-        "sberbox",
-        "sberportal"
-    ],
+    "files": ["dist", "mobile", "sberbox", "sberportal", "assistant"],
     "contributors": [
         "Vasiliy Loginevskiy",
         "Виноградов Антон Александрович",

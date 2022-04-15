@@ -81,7 +81,7 @@ export const ShopLandingPage = <T extends AnyObject = AnyObject>({
 
     return (
         <>
-            <Header {...header} />
+            {header && <Header {...header} />}
             <CarouselGridWrapper>
                 <ShopLandingCarousel ref={focusedContainerRef} index={activeIndex}>
                     <NavCol

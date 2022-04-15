@@ -3,6 +3,7 @@ import { AssistantClientCustomizedCommand, AssistantNavigationCommand, Assistant
 
 import { useAssistantOnData } from './useAssistantOnData';
 
+// @deprecated works only with PlasmaApp
 export function useAssistantOnNavigation(callback: (command: AssistantNavigationCommand) => void): void {
     const onDataHandler = React.useCallback(
         (command: AssistantClientCustomizedCommand<AssistantSmartAppData>) => {

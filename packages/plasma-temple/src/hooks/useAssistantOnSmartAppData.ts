@@ -5,6 +5,7 @@ import { isPlasmaAppAction } from '../store/guards';
 
 import { useAssistantOnData } from './useAssistantOnData';
 
+// @deprecated works only with PlasmaApp
 export function useAssistantOnSmartAppData<T extends AssistantSmartAppData = AssistantSmartAppData>(
     callback: (command: T['smart_app_data']) => void,
 ): void {

@@ -19,6 +19,7 @@ interface UseGalleryVoiceNavigationProps {
     main?: boolean;
 }
 
+// @deprecated works only with PlasmaApp
 export const useVoiceNavigation = ({
     index,
     setIndex,
