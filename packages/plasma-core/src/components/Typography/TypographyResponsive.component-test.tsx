@@ -36,18 +36,26 @@ describe('plasma-core: ResponsiveTypography', () => {
     );
     const dspl = (
         <CypressTestDecorator>
-            <DsplL>DsplL</DsplL>
-            <DsplM>DsplL</DsplM>
-            <DsplS>DsplS</DsplS>
+            <DsplL bold={false}>DsplL</DsplL>
+            <DsplL>DsplL Semibold</DsplL>
+            <DsplM bold={false}>DsplM</DsplM>
+            <DsplM>DsplM Semibold</DsplM>
+            <DsplS bold={false}>DsplS</DsplS>
+            <DsplS>DsplS Semibold</DsplS>
         </CypressTestDecorator>
     );
     const headings = (
         <CypressTestDecorator>
-            <H1>H1</H1>
-            <H2>H2</H2>
-            <H3>H3</H3>
-            <H4>H4</H4>
-            <H5>H5</H5>
+            <H1 bold={false}>H1</H1>
+            <H1>H1 Semibold</H1>
+            <H2 bold={false}>H2</H2>
+            <H2>H2 Semibold</H2>
+            <H3 bold={false}>H3</H3>
+            <H3>H3 Semibold</H3>
+            <H4 bold={false}>H4</H4>
+            <H4>H4 Semibold</H4>
+            <H5 bold={false}>H5</H5>
+            <H5>H5 Semibold</H5>
         </CypressTestDecorator>
     );
     const text = (
