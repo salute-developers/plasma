@@ -112,23 +112,20 @@ describe('plasma-ui: TimePicker update value', () => {
     const TimePicker = getComponent('TimePicker');
     const Button = getComponent('Button');
 
-    function Demo({ value }: { value: Date }) {
+    function Demo({ data, type }: { data: Date; type: 'valueChange' | 'minChange' }) {
         const [state, setState] = React.useState(new Date(1980, 8, 1, 0, 28, 25));
 
+        const min = type === 'minChange' ? state : new Date(1975, 1, 1, 0, 15, 29);
+        const value = type === 'valueChange' ? state : new Date(1980, 8, 1, 0, 28, 25);
+        const max = new Date(1985, 10, 30, 12, 30, 30);
+
         const onClick = React.useCallback(() => {
-            setState(value);
-        }, [value]);
+            setState(data);
+        }, [data]);
 
         return (
             <>
-                <TimePicker
-                    scrollSnapType="none"
-                    step={1}
-                    onChange={noop}
-                    value={state}
-                    min={new Date(1975, 1, 1, 0, 15, 29)}
-                    max={new Date(1985, 10, 30, 12, 30, 30)}
-                />
+                <TimePicker scrollSnapType="none" step={1} onChange={noop} value={value} min={min} max={max} />
                 <Button onClick={onClick}>Изменить значение</Button>
             </>
         );
@@ -137,7 +134,7 @@ describe('plasma-ui: TimePicker update value', () => {
     it('change values', () => {
         mount(
             <CypressTestDecorator>
-                <Demo value={new Date(1980, 8, 1, 3, 30, 35)} />
+                <Demo data={new Date(1980, 8, 1, 3, 30, 35)} type="valueChange" />
             </CypressTestDecorator>,
         );
 
@@ -149,7 +146,7 @@ describe('plasma-ui: TimePicker update value', () => {
     it('change values with max', () => {
         mount(
             <CypressTestDecorator>
-                <Demo value={new Date(1980, 8, 1, 12, 30, 25)} />
+                <Demo data={new Date(1980, 8, 1, 12, 30, 25)} type="valueChange" />
             </CypressTestDecorator>,
         );
 
@@ -161,7 +158,19 @@ describe('plasma-ui: TimePicker update value', () => {
     it('change values with min', () => {
         mount(
             <CypressTestDecorator>
-                <Demo value={new Date(1980, 8, 1, 0, 15, 25)} />
+                <Demo data={new Date(1980, 8, 1, 0, 15, 25)} type="valueChange" />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('change min value', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo data={new Date(1980, 8, 1, 0, 28, 50)} type="minChange" />
             </CypressTestDecorator>,
         );
 

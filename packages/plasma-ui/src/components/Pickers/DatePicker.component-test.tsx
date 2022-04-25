@@ -158,3 +158,75 @@ describe('plasma-ui: DatePicker', () => {
         cy.matchImageSnapshot();
     });
 });
+
+describe('plasma-ui: DatePicker update value', () => {
+    const DatePicker = getComponent('DatePicker');
+    const Button = getComponent('Button');
+
+    function Demo({ data, type }: { data: Date; type: 'valueChange' | 'minChange' }) {
+        const [state, setState] = React.useState(new Date(1980, 8, 1, 0, 0, 0));
+
+        const min = type === 'minChange' ? state : new Date(1975, 1, 1, 0, 0, 0);
+        const value = type === 'valueChange' ? state : new Date(1980, 8, 1, 0, 0, 0);
+        const max = new Date(1985, 10, 30, 0, 0, 0);
+
+        const onClick = React.useCallback(() => {
+            setState(data);
+        }, [data]);
+
+        return (
+            <>
+                <DatePicker scrollSnapType="none" onChange={noop} value={value} min={min} max={max} />
+                <Button onClick={onClick}>Изменить значение</Button>
+            </>
+        );
+    }
+
+    it('change values', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo data={new Date(1984, 3, 10, 3, 0, 0)} type="valueChange" />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('change values with max', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo data={new Date(1999, 3, 10, 0, 0, 0)} type="valueChange" />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('change values with min', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo data={new Date(1970, 3, 10, 0, 0, 0)} type="valueChange" />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('change min value', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo data={new Date(1980, 8, 5, 0, 0, 0)} type="minChange" />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').click();
+
+        cy.matchImageSnapshot();
+    });
+});
