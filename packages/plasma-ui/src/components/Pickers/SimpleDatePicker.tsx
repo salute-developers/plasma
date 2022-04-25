@@ -23,22 +23,20 @@ const getFormatterKey = (type: PickerType, monthNameFormat?: MonthNameFormat): k
 };
 
 export interface SimpleDatePickerProps extends Omit<PickerProps, 'items'> {
-    from: number;
-    to: number;
+    range: number[];
     type: PickerType;
     monthNameFormat?: MonthNameFormat;
 }
 
-export const SimpleDatePicker = React.memo<SimpleDatePickerProps>(
-    ({ id, type, from, to, monthNameFormat, ...rest }) => {
-        const formatterKey = getFormatterKey(type, monthNameFormat);
-        const formatter = labelFormatter[formatterKey];
+export const SimpleDatePicker = React.memo<SimpleDatePickerProps>(({ id, type, monthNameFormat, range, ...rest }) => {
+    const formatterKey = getFormatterKey(type, monthNameFormat);
+    const formatter = labelFormatter[formatterKey];
 
-        const items = Array.from({ length: to - from + 1 }, (_, i) => ({
-            label: formatter(from + i),
-            value: from + i,
-        }));
+    const from = range[0];
+    const items = range.map((_, i) => ({
+        label: formatter(from + i),
+        value: from + i,
+    }));
 
-        return <Picker id={id ? `${id}-${type}` : undefined} items={items} {...rest} />;
-    },
-);
+    return <Picker id={id ? `${id}-${type}` : undefined} items={items} {...rest} />;
+});

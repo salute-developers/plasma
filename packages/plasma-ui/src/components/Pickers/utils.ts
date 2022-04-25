@@ -241,6 +241,54 @@ export const getNormalizeValues = (
 };
 
 /**
+ * Сравнит число с массивом чисел и вернет значение массива,
+ * максимальное близкое заданному числу.
+ */
+const getClosestValue = (range: number[], value: number) => {
+    if (value === 0) {
+        return range[0];
+    }
+    const weights = range.map((i) => (value <= i ? value / i : i / value));
+    return range[weights.indexOf(Math.max(...weights))];
+};
+
+/**
+ * Для того, чтобы значение не выпадало из диапозона,
+ * надо выставить в соответствии с последним
+ */
+export const getValuesInRange = (
+    [firstRange, secondRange, thirdRange]: number[][],
+    [first, second, third]: number[],
+    value: Date,
+) => {
+    if (firstRange.indexOf(first) === -1 || secondRange.indexOf(second) === -1 || thirdRange.indexOf(third) === -1) {
+        const newFirst = firstRange.indexOf(first) === -1 ? getClosestValue(firstRange, first) : first;
+        const newSecond = secondRange.indexOf(second) === -1 ? getClosestValue(secondRange, second) : second;
+        const newThird = thirdRange.indexOf(third) === -1 ? getClosestValue(thirdRange, third) : third;
+
+        // eslint-disable-next-line no-restricted-globals
+        if (isNaN(newFirst) || isNaN(newSecond) || isNaN(newThird)) {
+            throw new Error(`Passed value ${value} is out of range`);
+        }
+
+        return [newFirst, newSecond, newThird] as const;
+    }
+
+    return [first, second, third] as const;
+};
+
+/**
+ * Вернет массив чисел от `from` до `to` с интервалом `step`.
+ */
+export const getRange = (from: number, to: number, step = 1) => {
+    const range = [];
+    for (let i = from; i <= to; i += step) {
+        range.push(i);
+    }
+    return range;
+};
+
+/**
  * Хук для сохранения предыдущего значения
  */
 export const usePreviousValue = (value: string | number | Date) => {

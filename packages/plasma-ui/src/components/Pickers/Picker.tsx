@@ -436,7 +436,12 @@ export const Picker: FC<PickerProps> = ({
 
     const onDetectActiveItem = useCallback(
         (i: number) => {
-            if (isSingleItem || !infiniteScroll || (!isTopPosition(i) && !isBottomPosition(i, virtualItems.length))) {
+            if (
+                isSingleItem ||
+                !infiniteScroll ||
+                (!isTopPosition(i) && !isBottomPosition(i, virtualItems.length)) ||
+                !prevValue
+            ) {
                 return;
             }
 

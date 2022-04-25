@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 
 import { SimpleDatePicker, SimpleDatePickerProps } from './SimpleDatePicker';
-import { getDateValues, getNormalizeValues, getTimeValues, isChanged } from './utils';
+import { getDateValues, getNormalizeValues, getRange, getTimeValues, getValuesInRange, isChanged } from './utils';
 import { DateType } from './types';
 
 const defaultOptions = {
@@ -28,7 +28,7 @@ const StyledWrapper = styled.div`
     width: max-content;
 `;
 
-export interface DatePickerProps extends Omit<SimpleDatePickerProps, 'type' | 'from' | 'to' | 'onChange'> {
+export interface DatePickerProps extends Omit<SimpleDatePickerProps, 'type' | 'range' | 'onChange'> {
     /**
      * Обработчик изменения
      */
@@ -89,15 +89,13 @@ export const DatePicker: React.FC<DatePickerProps> = ({
 }) => {
     const normalizeValues = React.useMemo(() => getNormalizeValues(getDateValues, getSeconds)(value, min, max), [
         value,
-        min,
-        max,
     ]);
 
     const [[year, month, day], setState] = React.useState(normalizeValues);
     const [minYear, minMonth, minDay] = getDateValues(min);
     const [maxYear, maxMonth, maxDay] = getDateValues(max);
 
-    const monthsInterval = React.useMemo(() => {
+    const [monthsFrom, monthsTo] = React.useMemo(() => {
         if (minYear === year && maxYear === year) {
             return [minMonth, maxMonth];
         }
@@ -113,7 +111,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
         return [0, 11];
     }, [minMonth, maxMonth, year, minYear, maxYear]);
 
-    const daysInterval = React.useMemo(() => {
+    const [daysFrom, daysTo] = React.useMemo(() => {
         if (year >= maxYear && maxMonth === month) {
             return [1, maxDay];
         }
@@ -126,6 +124,10 @@ export const DatePicker: React.FC<DatePickerProps> = ({
 
         return [1, maxDayInMonth];
     }, [minMonth, maxMonth, minDay, maxDay, year, month, minYear, maxYear]);
+
+    const [yearRange, monthsRange, daysRange] = React.useMemo(() => {
+        return [getRange(minYear, maxYear), getRange(monthsFrom, monthsTo), getRange(daysFrom, daysTo)];
+    }, [minYear, maxYear, monthsFrom, monthsTo, daysFrom, daysTo]);
 
     const getNextMonth = React.useCallback(
         (currentMonth: number, currentYear: number): number => {
@@ -227,6 +229,11 @@ export const DatePicker: React.FC<DatePickerProps> = ({
     const shortMonthNameOption = getOption('shortMonthName');
     const monthNameFormat = shortMonthNameOption ? 'short' : 'long';
 
+    const newTime = getValuesInRange([yearRange, monthsRange, daysRange], [year, month, day], value);
+    if (isChanged([year, month, day], newTime)) {
+        setState(newTime);
+    }
+
     return (
         <StyledWrapper id={id} {...rest}>
             {daysOption && (
@@ -236,8 +243,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
                     size={size}
                     type="day"
                     value={day}
-                    from={daysInterval[0]}
-                    to={daysInterval[1]}
+                    range={daysRange}
                     disabled={disabled}
                     controls={controls}
                     visibleItems={visibleItems}
@@ -255,8 +261,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
                     type="month"
                     monthNameFormat={monthNameFormat}
                     value={month}
-                    from={monthsInterval[0]}
-                    to={monthsInterval[1]}
+                    range={monthsRange}
                     disabled={disabled}
                     controls={controls}
                     visibleItems={visibleItems}
@@ -273,8 +278,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
                     size={size}
                     type="year"
                     value={year}
-                    from={minYear}
-                    to={maxYear}
+                    range={yearRange}
                     disabled={disabled}
                     controls={controls}
                     visibleItems={visibleItems}

@@ -4,7 +4,7 @@ import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 
 import { PickerDots } from './PickerDots';
 import { SimpleTimePicker, SimpleTimePickerProps } from './SimpleTimePicker';
-import { getNormalizeValues, getTimeValues, isChanged } from './utils';
+import { getNormalizeValues, getRange, getTimeValues, getValuesInRange, isChanged } from './utils';
 import type { TimeType } from './types';
 
 const StyledWrapper = styled.div`
@@ -20,57 +20,9 @@ const defaultOptions = {
 };
 
 /**
- * Вернет массив чисел от `from` до `to` с интервалом `step`.
- */
-const getRange = (from: number, to: number, step: number) => {
-    const range = [];
-    for (let i = from; i <= to; i += step) {
-        range.push(i);
-    }
-    return range;
-};
-
-/**
- * Сравнит число с массивом чисел и вернет значение массива,
- * максимальное близкое заданному числу.
- */
-const getClosestValue = (range: number[], value: number) => {
-    if (value === 0) {
-        return range[0];
-    }
-    const weights = range.map((i) => (value <= i ? value / i : i / value));
-    return range[weights.indexOf(Math.max(...weights))];
-};
-
-/**
  * Вернёт секунды
  */
 const getSeconds = ([hours, minutes, seconds]: TimeType) => hours * 60 * 60 + minutes * 60 + seconds;
-
-/**
- * Для того, чтобы значение не выпадало из диапозона,
- * надо выставить в соответствии с последним
- */
-const getValuesInRange = (
-    [hoursRange, minsRange, secsRange]: number[][],
-    [hours, minutes, seconds]: number[],
-    value: Date,
-) => {
-    if (hoursRange.indexOf(hours) === -1 || minsRange.indexOf(minutes) === -1 || secsRange.indexOf(seconds) === -1) {
-        const newHours = hoursRange.indexOf(hours) === -1 ? getClosestValue(hoursRange, hours) : hours;
-        const newMins = minsRange.indexOf(minutes) === -1 ? getClosestValue(minsRange, minutes) : minutes;
-        const newSecs = secsRange.indexOf(seconds) === -1 ? getClosestValue(secsRange, seconds) : seconds;
-
-        // eslint-disable-next-line no-restricted-globals
-        if (isNaN(newHours) || isNaN(newMins) || isNaN(newSecs)) {
-            throw new Error(`Passed value ${value} is out of range`);
-        }
-
-        return [newHours, newMins, newSecs] as const;
-    }
-
-    return [hours, minutes, seconds] as const;
-};
 
 export interface TimePickerProps extends Omit<SimpleTimePickerProps, 'type' | 'range' | 'onChange'> {
     /**
@@ -143,8 +95,6 @@ export const TimePicker: React.FC<TimePickerProps> = ({
 }) => {
     const normalizeValues = React.useMemo(() => getNormalizeValues(getTimeValues, getSeconds)(value, min, max), [
         value,
-        min,
-        max,
     ]);
 
     const [[hours, minutes, seconds], setState] = React.useState(normalizeValues);
@@ -237,7 +187,7 @@ export const TimePicker: React.FC<TimePickerProps> = ({
 
             return [newHours, newMins, newSecs];
         });
-    }, [value, normalizeValues, min, max]);
+    }, [value, normalizeValues]);
 
     const newTime = getValuesInRange([hoursRange, minsRange, secsRange], [hours, minutes, seconds], value);
     if (isChanged([hours, minutes, seconds], newTime)) {
