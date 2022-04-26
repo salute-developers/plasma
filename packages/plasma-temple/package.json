@@ -10,9 +10,9 @@
         "url": "git+https://github.com/salute-developers/plasma.git"
     },
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    
+
     "peerDependencies": {
-        "@salutejs/client": "^4.0.0",
+        "@salutejs/client": "^1.0.0",
         "@salutejs/plasma-icons": "^1.0.0",
         "@salutejs/plasma-tokens": "^1.0.0",
         "@salutejs/plasma-ui": "^1.0.0",
@@ -27,12 +27,12 @@
         "@babel/preset-react": "7.14.5",
         "@babel/preset-typescript": "7.15.0",
         "@mdx-js/mdx": "1.6.16",
-        "@salutejs/client": "4.15.0",
+        "@salutejs/client": "1.0.0",
         "@salutejs/plasma-cy-utils": "0.3.3",
         "@salutejs/plasma-icons": "1.75.0",
         "@salutejs/plasma-tokens": "1.17.0",
         "@salutejs/plasma-ui": "1.95.0",
-        "@salutejs/spatial-navigation": "1.0.4",
+        "@salutejs/spatial-navigation": "1.0.5",
         "@storybook/addon-docs": "6.4.9",
         "@storybook/addon-essentials": "6.4.9",
         "@storybook/addons": "6.4.9",
@@ -85,12 +85,7 @@
         "storybook:extract": "sb extract build-sb ./build-sb/stories.json",
         "test": "BABEL_ENV=test jest"
     },
-    "files": [
-        "dist",
-        "mobile",
-        "sberbox",
-        "sberportal"
-    ],
+    "files": ["dist", "mobile", "sberbox", "sberportal"],
     "contributors": [
         "Vasiliy Loginevskiy",
         "Виноградов Антон Александрович",
