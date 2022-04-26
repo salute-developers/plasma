@@ -2,7 +2,6 @@
   "name": "plasma",
   "private": true,
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
-  
   "scripts": {
     "release": "tsc -p auto-plugins/tsconfig.json && git diff && auto shipit",
     "cy:clean": "rm -rf cypress/{results,reports,screenshots,videos}",
@@ -28,7 +27,6 @@
     "cy:temple:open-ct": "PACKAGE_DIR=packages/plasma-temple node actions/platform-test/lib/index.js --config cypress/config/temple --command open-ct --platform ${TEST_PLATFORM:=sberbox} --env failOnSnapshotDiff=false",
     "cy:report:coverage": "nyc report --reporter=cobertura --reporter=html",
     "build-storybook": "lerna run build-storybook",
-    "build-docz": "lerna bootstrap --scope=@salutejs/ui && lerna run docz:build",
     "extract-docgen-info": "lerna run extract-docgen-info",
     "lint": "eslint --ext .js,.ts,.tsx .",
     "test": "lerna run test",
@@ -120,10 +118,6 @@
     ]
   },
   "dependencies": {
-    "@salutejs/plasma-tokens": "*",
-    "@salutejs/plasma-tokens-b2c": "*",
-    "@salutejs/plasma-tokens-web": "*",
-    "@salutejs/plasma-typo": "*",
     "babel-plugin-annotate-pure-calls": "0.4.0"
   }
 }

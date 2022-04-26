@@ -4,7 +4,6 @@
     "ignoreChanges": ["*.md", "*.component-test.tsx", "package-lock.json"],
     "loglevel": "verbose",
     "exact": true,
-    "ci": true,
     "command": {
         "bootstrap": {
             "npmClientArgs": [
