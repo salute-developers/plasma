@@ -38,6 +38,7 @@
         "build": "tsc",
         "clean": "rm -rf lib"
     },
+    "private": true,
     "publishConfig": {
         "access": "restricted"
     },
