@@ -17,6 +17,11 @@
     },
     "devDependencies": {
         "@cypress/react": "5.10.1",
+        "@salutejs/plasma-tokens": "1.17.0",
+        "@salutejs/plasma-tokens-b2b": "1.2.0",
+        "@salutejs/plasma-tokens-b2c": "0.11.0",
+        "@salutejs/plasma-tokens-web": "1.17.0",
+        "@salutejs/plasma-typo": "0.3.0",
         "@types/react": "16.9.38",
         "@types/react-dom": "16.9.8",
         "@types/styled-components": "5.1.0",
@@ -35,11 +40,5 @@
         "access": "restricted"
     },
     "files": ["lib"],
-    "dependencies": {
-        "@salutejs/plasma-tokens": "1.17.0",
-        "@salutejs/plasma-tokens-b2b": "1.2.0",
-        "@salutejs/plasma-tokens-b2c": "0.11.0",
-        "@salutejs/plasma-tokens-web": "1.17.0",
-        "@salutejs/plasma-typo": "0.3.0"
-    }
+    "dependencies": {}
 }
