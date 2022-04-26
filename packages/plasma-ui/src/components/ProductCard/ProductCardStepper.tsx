@@ -1,6 +1,6 @@
 import React, { FC, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import { black } from '@salutejs/plasma-core';
+import { black, warning } from '@salutejs/plasma-core';
 import { IconMinus, IconPlus } from '@salutejs/plasma-icons';
 import type { DisabledProps } from '@salutejs/plasma-core';
 
@@ -11,13 +11,19 @@ import type { UseStepperProps } from '../Stepper';
 export interface ProductCardStepperProps
     extends UseStepperProps,
         DisabledProps,
-        Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {}
+        Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+    readonly?: boolean;
+}
 
 const StyledStepperRoot = styled(StepperRoot)`
     width: 100%;
 `;
 const StyledStepperValue = styled(StepperValue)<{ $isHidden?: boolean }>`
-    color: ${black};
+    ${({ showWarning }) =>
+        !showWarning &&
+        css`
+            color: ${black};
+        `}
 
     ${({ $isHidden }) =>
         $isHidden &&
@@ -25,9 +31,24 @@ const StyledStepperValue = styled(StepperValue)<{ $isHidden?: boolean }>`
             display: none;
         `}
 `;
-const StyledStepperButton = styled(Button).attrs(() => ({ size: 's', square: true }))<{ $isHidden?: boolean }>`
-    background-color: rgba(8, 8, 8, 0.12);
+
+const StyledInfoButton = styled(Button).attrs(() => ({ size: 's', square: true }))<{ showWarning?: boolean }>`
     color: ${black};
+    background-color: rgba(8, 8, 8, 0.12); /* TODO: Перенести в tokens */
+    margin-left: auto;
+    pointer-events: none;
+
+    ${({ showWarning }) =>
+        showWarning &&
+        css`
+            background-color: rgba(10, 10, 10, 0.05); /* TODO: Перенести в tokens */
+            color: ${warning};
+        `}
+`;
+
+const StyledStepperButton = styled(Button).attrs(() => ({ size: 's', square: true }))<{ $isHidden?: boolean }>`
+    color: ${black};
+    background-color: rgba(8, 8, 8, 0.12); /* TODO: Перенести в tokens */
     align-self: flex-end;
     transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'opacity 0.15s ease-in-out')};
 
@@ -49,6 +70,7 @@ export const ProductCardStepper: FC<ProductCardStepperProps> = ({
     min,
     max,
     disabled,
+    readonly,
     onChange,
     ...rest
 }) => {
@@ -63,13 +85,19 @@ export const ProductCardStepper: FC<ProductCardStepperProps> = ({
 
     return (
         <StyledStepperRoot {...rest}>
-            <StyledStepperButton disabled={disabled} $isHidden={!isValuePositive} onClick={onLessClick}>
-                <IconMinus color="inherit" size="s" />
-            </StyledStepperButton>
-            <StyledStepperValue $isHidden={!isValuePositive} value={value} showWarning={isMax} />
-            <StyledStepperButton disabled={disabled || isMoreDisabled} onClick={onMoreClick}>
-                <IconPlus color="inherit" size="s" />
-            </StyledStepperButton>
+            {readonly ? (
+                <StyledInfoButton tabIndex={-1} showWarning={isMax}>{`×${value}`}</StyledInfoButton>
+            ) : (
+                <>
+                    <StyledStepperButton disabled={disabled} $isHidden={!isValuePositive} onClick={onLessClick}>
+                        <IconMinus color="inherit" size="s" />
+                    </StyledStepperButton>
+                    <StyledStepperValue $isHidden={!isValuePositive} value={value} showWarning={isMax} />
+                    <StyledStepperButton disabled={disabled || isMoreDisabled} onClick={onMoreClick}>
+                        <IconPlus color="inherit" size="s" />
+                    </StyledStepperButton>
+                </>
+            )}
         </StyledStepperRoot>
     );
 };
