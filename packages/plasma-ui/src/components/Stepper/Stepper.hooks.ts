@@ -20,12 +20,12 @@ export interface UseStepperProps {
     /**
      * Обработчик изменения значения счетчика
      */
-    onChange?: (value: number) => void;
+    onChange?: (value: number, event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 
 export const useStepper = ({ value, step = 1, min = 0, max = Infinity, onChange }: UseStepperProps) => {
-    const onLessClick = useCallback(() => onChange?.(value - step), [value, step, onChange]);
-    const onMoreClick = useCallback(() => onChange?.(value + step), [value, step, onChange]);
+    const onLessClick = useCallback((event) => onChange?.(value - step, event), [value, step, onChange]);
+    const onMoreClick = useCallback((event) => onChange?.(value + step, event), [value, step, onChange]);
     const isMin = value <= min;
     const isMax = value >= max;
     const isLessDisabled = isMin || value - step < min;
