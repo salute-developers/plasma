@@ -16,7 +16,7 @@
     "dependencies": {
         "@popperjs/core": "2.9.2",
         "@salutejs/plasma-core": "1.56.0",
-        "@salutejs/plasma-typo": "0.2.3",
+        "@salutejs/plasma-typo": "0.3.0",
         "react-focus-lock": "2.8.1",
         "react-popper": "2.2.5",
         "storeon": "3.1.4"
