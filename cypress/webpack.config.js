@@ -12,6 +12,7 @@ const rootPath = path.resolve(__dirname, '..');
 const packsPath = path.join(rootPath, 'packages');
 const resolveInsidePackage = resolveModule(process.env.PACKAGE_DIR, 'node_modules');
 const resolveFromRoot = resolveModule(rootPath, 'node_modules');
+const resolveInsideCypressUtils = resolveModule(resolveFromRoot('@salutejs', 'plasma-cy-utils'), 'node_modules');
 
 const dummyModule = `
 "use strict";
@@ -34,6 +35,7 @@ module.exports = function getWebpackConfig() {
     if (process.env.PACKAGE_DIR.includes('plasma-temple')) {
         babelOpts.plugins.push('@babel/plugin-transform-regenerator', '@babel/transform-runtime');
     }
+
     return {
         mode: 'development',
         entry: 'src/index.ts',
@@ -48,6 +50,11 @@ module.exports = function getWebpackConfig() {
                 'react-dom': resolveInsidePackage('react-dom'),
                 '@salutejs/plasma-icons': resolveInsidePackage('@salutejs', 'plasma-icons'),
                 '@salutejs/plasma-cy-utils': resolveFromRoot('@salutejs', 'plasma-cy-utils'),
+                '@salutejs/plasma-tokens': resolveInsideCypressUtils('@salutejs', 'plasma-tokens'),
+                '@salutejs/plasma-tokens-b2b': resolveInsideCypressUtils('@salutejs', 'plasma-tokens-b2b'),
+                '@salutejs/plasma-tokens-b2c': resolveInsideCypressUtils('@salutejs', 'plasma-tokens-b2c'),
+                '@salutejs/plasma-tokens-web': resolveInsideCypressUtils('@salutejs', 'plasma-tokens-web'),
+                '@salutejs/plasma-tokens-typo': resolveInsideCypressUtils('@salutejs', 'plasma-tokens-typo'),
             },
         },
         optimization: {
