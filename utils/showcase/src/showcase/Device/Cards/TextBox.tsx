@@ -1,16 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Icon } from '@salutejs/plasma-icons';
-import {
-    Button,
-    Card,
-    CardBody,
-    CardContent,
-    TextBox,
-    TextBoxTitle,
-    TextBoxSubTitle,
-    Cell,
-} from '@salutejs/plasma-ui';
+import { Button, Card, CardBody, CardContent, TextBox, TextBoxTitle, TextBoxSubTitle, Cell } from '@salutejs/plasma-ui';
 
 import { ShowcaseDashedBorder, ShowcaseSectionName, ShowcasePanel, IconPlaceholder } from '../../../helpers';
 

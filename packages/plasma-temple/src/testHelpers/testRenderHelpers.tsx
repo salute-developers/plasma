@@ -1,11 +1,7 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import type { MountReturn } from '@cypress/react';
-import {
-    AssistantClientCustomizedCommand,
-    AssistantSmartAppData,
-    createAssistantHostMock,
-} from '@salutejs/client';
+import { AssistantClientCustomizedCommand, AssistantSmartAppData, createAssistantHostMock } from '@salutejs/client';
 import { mount } from '@salutejs/plasma-cy-utils';
 
 import { OnStartFn, PlasmaApp } from '../components/PlasmaApp/PlasmaApp';

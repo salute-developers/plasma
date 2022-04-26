@@ -1,14 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { accent, success, warning, critical } from '@salutejs/plasma-core';
-import {
-    IconEye,
-    IconMagicWand,
-    IconAccessibility,
-    IconHeart,
-    IconTrash,
-    IconLocation,
-} from '@salutejs/plasma-icons';
+import { IconEye, IconMagicWand, IconAccessibility, IconHeart, IconTrash, IconLocation } from '@salutejs/plasma-icons';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
