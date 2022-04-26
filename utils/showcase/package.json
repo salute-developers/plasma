@@ -1,6 +1,5 @@
 {
     "name": "@salutejs/showcase",
-    "private": true,
     "version": "0.115.0",
     "description": "Salute Design System Showcase",
     "files": [],
@@ -10,6 +9,7 @@
         "directory": "docs/showcase"
     },
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
+    "private": true,
     "publishConfig": {
         "access": "restricted"
     },

@@ -1,7 +1,6 @@
 {
     "name": "@salutejs/plasma-ui-docs",
     "version": "0.64.0",
-    "private": true,
     "description": "Plasma Documentation.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "repository": {
@@ -9,6 +8,7 @@
         "url": "ssh://git@github.com:salute-developers/plasma.git",
         "directory": "website/plasma-ui-docs"
     },
+    "private": true,
     "publishConfig": {
         "access": "restricted"
     },

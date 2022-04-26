@@ -1,7 +1,6 @@
 {
     "name": "@salutejs/versionate-docs",
     "version": "0.3.0",
-    "private": true,
     "description": "Versionate documentation action",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "main": "lib/index.js",
@@ -31,6 +30,7 @@
         "test": "jest",
         "test:watch": "jest --watch"
     },
+    "private": true,
     "publishConfig": {
         "access": "restricted"
     },
