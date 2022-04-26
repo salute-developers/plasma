@@ -1,12 +1,6 @@
 import React, { forwardRef, useState, useMemo, createRef } from 'react';
 import styled from 'styled-components';
-import {
-    FieldRoot,
-    FieldContent,
-    FieldHelper,
-    TextArea as BaseArea,
-    useResizeObserver,
-} from '@salutejs/plasma-core';
+import { FieldRoot, FieldContent, FieldHelper, TextArea as BaseArea, useResizeObserver } from '@salutejs/plasma-core';
 import type { TextAreaProps as BaseProps } from '@salutejs/plasma-core';
 
 import { applyInputStyles } from '../Field';
