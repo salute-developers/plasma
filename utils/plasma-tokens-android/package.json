@@ -2,18 +2,12 @@
     "name": "@salutejs/plasma-tokens-android",
     "version": "2.24.0",
     "description": "Plasma tokens for android",
-    "files": [
-        "tokens"
-    ],
+    "files": ["tokens"],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/salute-developers/plasma.git"
     },
-    "keywords": [
-        "plasma",
-        "tokens",
-        "android"
-    ],
+    "keywords": ["plasma", "tokens", "android"],
     "scripts": {
         "prepare": "mkdir -p tokens && cp -R node_modules/@salutejs/plasma-tokens/build/android/* tokens"
     },
@@ -21,7 +15,6 @@
         "@salutejs/plasma-tokens": "1.17.0"
     },
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    
     "publishConfig": {
         "access": "public"
     },

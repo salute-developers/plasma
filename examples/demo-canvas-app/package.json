@@ -3,7 +3,6 @@
     "version": "0.72.0",
     "description": "Demo Canvas App",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    
     "repository": {
         "type": "git",
         "url": "git+https://github.com/salute-developers/pashka.git",

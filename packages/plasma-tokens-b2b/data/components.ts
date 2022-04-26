@@ -7,8 +7,9 @@ import {
     warning,
     critical,
     background,
-} from '@salutejs/plasma-core/tokens/colors';
-import { bodyM, bodyXS } from '@salutejs/plasma-typo/lib/cjs/tokens';
+    bodyM,
+    bodyXS,
+} from '@salutejs/plasma-tokens-core';
 import type { DataObject } from '@salutejs/plasma-tokens-utils';
 import deepmerge from 'deepmerge';
 

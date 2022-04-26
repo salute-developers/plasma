@@ -11,6 +11,9 @@ packages/plasma-colors/*
 !packages/plasma-colors/general.ts
 !packages/plasma-colors/index.ts
 
+packages/plasma-tokens-core/*
+!packages/plasma-tokens-core/src
+
 packages/plasma-core/*
 !packages/plasma-core/src
 
