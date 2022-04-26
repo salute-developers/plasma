@@ -3,15 +3,15 @@
     "version": "1.2.0",
     "description": "",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    
+
     "module": "es/index.js",
     "main": "index.js",
     "types": "index.d.ts",
     "devDependencies": {
         "@salutejs/plasma-colors": "0.2.1",
-        "@salutejs/plasma-core": "1.49.5",
+        "@salutejs/plasma-core": "1.56.0",
         "@salutejs/plasma-tokens-utils": "0.11.0",
-        "@salutejs/plasma-typo": "0.2.3",
+        "@salutejs/plasma-typo": "0.3.0",
         "@types/node": "16.7.13",
         "deepmerge": "4.2.2",
         "jsdom": "17.0.0",
@@ -52,10 +52,6 @@
         "sizes.js.map",
         "theme.json"
     ],
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Anton Vinogradov",
-        "Fanil Zubairov"
-    ],
+    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"],
     "sideEffects": false
 }
