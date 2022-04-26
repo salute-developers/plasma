@@ -1,7 +1,6 @@
 {
-    "name": "demo-tokens",
+    "name": "@salutejs/demo-tokens",
     "version": "0.6.1",
-    "private": true,
     "dependencies": {
         "@salutejs/plasma-tokens": "1.17.0",
         "@testing-library/jest-dom": "^5.11.5",
@@ -16,6 +15,10 @@
         "react-scripts": "4.0.0",
         "styled-components": "5.2.1",
         "web-vitals": "^0.2.4"
+    },
+    "private": true,
+    "publishConfig": {
+        "access": "restricted"
     },
     "scripts": {
         "start": "react-scripts start",
