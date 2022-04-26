@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-    AssistantClientCustomizedCommand,
-    AssistantNavigationCommand,
-    AssistantSmartAppData,
-} from '@salutejs/client';
+import { AssistantClientCustomizedCommand, AssistantNavigationCommand, AssistantSmartAppData } from '@salutejs/client';
 
 import { useAssistantOnData } from './useAssistantOnData';
 

@@ -1,12 +1,6 @@
 import styled, { css, InterpolationFunction } from 'styled-components';
 import type { FieldProps, ThemeProps } from '@salutejs/plasma-core';
-import {
-    FieldHelper as BaseHelper,
-    primary,
-    secondary,
-    surfaceLiquid01,
-    surfaceLiquid02,
-} from '@salutejs/plasma-core';
+import { FieldHelper as BaseHelper, primary, secondary, surfaceLiquid01, surfaceLiquid02 } from '@salutejs/plasma-core';
 
 export const FieldHelper = styled(BaseHelper)`
     padding-left: 1rem;
