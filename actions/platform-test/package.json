@@ -12,7 +12,9 @@
     },
     "keywords": [],
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    
+    "publishConfig": {
+        "access": "restricted"
+    },
     "devDependencies": {
         "@types/debug": "^4.1.7",
         "@types/invariant": "2.2.35",

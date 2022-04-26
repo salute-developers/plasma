@@ -7,8 +7,8 @@ import {
     warning,
     critical,
     background,
-} from '@salutejs/plasma-core/tokens/colors';
-import { body1, caption } from '@salutejs/plasma-core/tokens/typography';
+} from '@salutejs/plasma-tokens-core';
+import { body1, caption } from '@salutejs/plasma-tokens-core';
 import type { DataObject } from '@salutejs/plasma-tokens-utils';
 import deepmerge from 'deepmerge';
 

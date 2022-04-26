@@ -10,7 +10,6 @@
         "directory": "docs/showcase"
     },
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    
     "publishConfig": {
         "access": "restricted"
     },
@@ -50,9 +49,5 @@
         "storybook:extract": "sb extract build-sb ./build-sb/stories.json",
         "chromatic": "npx chromatic"
     },
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Anton Vinogradov",
-        "Fanil Zubairov"
-    ]
+    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"]
 }

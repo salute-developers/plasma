@@ -1,29 +1,20 @@
 {
     "name": "@salutejs/cra-template-plasma-shop-template",
     "version": "2.1.2",
-    "description": "",
-    "keywords": [
-        "react",
-        "create-react-app",
-        "template",
-        "typescript"
-    ],
+    "description": "Plasma temple E-commerce template",
+    "keywords": ["react", "create-react-app", "template", "typescript"],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/salute-developers/plasma.git",
         "directory": "packages/plasma-shop-template"
     },
-    
     "engines": {
         "node": ">=12"
     },
     "bugs": {
         "url": "https://github.com/salute-developers/plasma/issues"
     },
-    "files": [
-        "template",
-        "template.json"
-    ],
+    "files": ["template", "template.json"],
     "publishConfig": {
         "access": "public"
     }

@@ -3,7 +3,6 @@
     "version": "1.17.0",
     "description": "",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    
     "module": "es/index.js",
     "main": "index.js",
     "types": "index.d.ts",
@@ -52,10 +51,6 @@
         "ts-node": "10.2.1",
         "typescript": "3.9.10"
     },
-    "contributors": [
-        "Виноградов Антон Александрович",
-        "Зубаиров Фаниль Асхатович",
-        "Vasiliy Loginevskiy"
-    ],
+    "contributors": ["Виноградов Антон Александрович", "Зубаиров Фаниль Асхатович", "Vasiliy Loginevskiy"],
     "sideEffects": false
 }

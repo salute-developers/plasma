@@ -3,7 +3,6 @@
     "version": "0.3.0",
     "description": "Plasma Typography System's tokens",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-
     "module": "lib/esm/index.js",
     "main": "lib/cjs/index.js",
     "types": "lib/cjs/index.d.ts",
