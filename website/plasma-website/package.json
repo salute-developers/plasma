@@ -3,7 +3,6 @@
     "version": "0.47.0",
     "description": "Plasma Main App",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    
     "repository": {
         "type": "git",
         "url": "git+https://github.com/salute-developers/plasma.git"

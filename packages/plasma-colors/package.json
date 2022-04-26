@@ -3,7 +3,6 @@
     "version": "0.2.1",
     "description": "All color palettes for Salute Ecosystem",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "publishConfig": {
@@ -23,11 +22,7 @@
         "types.d.ts",
         "types.js"
     ],
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Anton Vinogradov",
-        "Fanil Zubairov"
-    ],
+    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"],
     "devDependencies": {
         "typescript": "^3.9.10"
     }

@@ -8,8 +8,8 @@ import {
     surfaceLiquid01,
     surfaceLiquid02,
     background,
-} from '@salutejs/plasma-core/tokens/colors';
-import { bodySBold, bodyXXSBold, textXSBold } from '@salutejs/plasma-typo/lib/cjs/tokens';
+} from '@salutejs/plasma-tokens-core';
+import { bodySBold, bodyXXSBold, textXSBold } from '@salutejs/plasma-tokens-core';
 import type { DataObject } from '@salutejs/plasma-tokens-utils';
 import deepmerge from 'deepmerge';
 

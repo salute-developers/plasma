@@ -3,7 +3,7 @@
     "version": "0.6.1",
     "private": true,
     "dependencies": {
-        "@salutejs/plasma-tokens": "0.4.0",
+        "@salutejs/plasma-tokens": "1.17.0",
         "@testing-library/jest-dom": "^5.11.5",
         "@testing-library/react": "^11.1.1",
         "@testing-library/user-event": "^12.2.0",
@@ -24,22 +24,11 @@
         "eject": "react-scripts eject"
     },
     "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
-        ]
+        "extends": ["react-app", "react-app/jest"]
     },
     "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
+        "production": [">0.2%", "not dead", "not op_mini all"],
+        "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
     },
     "devDependencies": {
         "@types/styled-components": "5.1.4",
