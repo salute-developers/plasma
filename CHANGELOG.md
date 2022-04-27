@@ -1,3 +1,51 @@
+# (Wed Apr 27 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-core@1.57.0`
+  - feat(plasma-core): Add `useResizeObserver` hook ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-temple@1.60.0`
+  - feat(plasma-temple): Exports by platforms: Grid, HeroSlider, ErrorPage, SuccessPage, VideoPage ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+  - feat(plasma-temple): product - export by platforms ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- `@salutejs/plasma-b2c@1.58.0`
+  - feat(plasma-b2c): Add `Popup` component to plasma-b2c ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- fix: release ([@Yeti-or](https://github.com/Yeti-or))
+- fix: cypress tests [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
+- fix: private pkgs => to real private [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.58.0`
+  - fix: plasma-b2c: storybook [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.58.0`, `@salutejs/plasma-core@1.57.0`, `@salutejs/plasma-temple@1.60.0`, `@salutejs/plasma-ui@1.96.0`, `@salutejs/plasma-web@1.93.0`
+  - fix: linting errs [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-web@1.93.0`
+  - fix: lerna & npm i [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.58.0`, `@salutejs/cra-template-plasma-basic-template@2.2.0`, `@salutejs/plasma-colors@0.3.0`, `@salutejs/plasma-core@1.57.0`, `@salutejs/plasma-icons@1.76.0`, `@salutejs/cra-template-plasma-shop-template@2.2.0`, `@salutejs/plasma-temple@1.60.0`, `@salutejs/plasma-tokens-b2b@1.3.0`, `@salutejs/plasma-tokens-b2c@0.12.0`, `@salutejs/plasma-tokens-web@1.18.0`, `@salutejs/plasma-tokens@1.18.0`, `@salutejs/plasma-typo@0.4.0`, `@salutejs/plasma-ui@1.96.0`, `@salutejs/plasma-web@1.93.0`, `@salutejs/plasma-tokens-android@2.25.0`, `@salutejs/plasma-tokens-ios-swift@2.25.0`
+  - fix: monorepo deps resolved [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-temple@1.60.0`, `@salutejs/plasma-tokens-b2b@1.3.0`, `@salutejs/plasma-tokens-b2c@0.12.0`, `@salutejs/plasma-tokens-web@1.18.0`, `@salutejs/plasma-typo@0.4.0`
+  - build: update deps [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-ui@1.96.0`
+  - fix(plasma-ui): Fix behavior with single item in `Picker` component ([@neretin-trike](https://github.com/neretin-trike))
+
+#### ⚠️ Pushed to `master`
+
+- ci: check release ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-ui@1.96.0`
+  - test(plasma-ui): Add test and snapshots for `Pickers` component ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-core@1.57.0`
+  - test(plasma-web,plasma-b2c,plasma-ui): Update snapshot and test for `TextArea` component ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.58.0`, `@salutejs/plasma-web@1.93.0`
+  - fix(plasma-web,plasma-b2c): Add useResizeObserver and fix behavior with resize ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 3
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Tue Apr 12 2022)
 
 #### 🚀 Enhancement

@@ -1,3 +1,15 @@
+# v1.18.0 (Wed Apr 27 2022)
+
+#### 🐛 Bug Fix
+
+- fix: monorepo deps resolved [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.15.3 (Fri Feb 18 2022)
 
 #### 🐛 Bug Fix

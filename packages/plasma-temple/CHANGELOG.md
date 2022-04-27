@@ -1,3 +1,25 @@
+# v1.60.0 (Wed Apr 27 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): Exports by platforms: Grid, HeroSlider, ErrorPage, SuccessPage, VideoPage ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-temple): product - export by platforms ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- fix: linting errs [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
+- fix: monorepo deps resolved [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
+- build: update deps [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 3
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.58.0 (Tue Apr 12 2022)
 
 #### 🚀 Enhancement
