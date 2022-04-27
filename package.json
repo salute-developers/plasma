@@ -35,9 +35,8 @@
   "devDependencies": {
     "@actions/core": "1.2.7",
     "@actions/github": "4.0.0",
-    "@auto-it/conventional-commits": "9.60.1",
-    "@auto-it/npm": "9.60.1",
-    "@auto-it/slack": "9.60.1",
+    "@auto-it/conventional-commits": "10.36.5",
+    "@auto-it/npm": "10.36.5",
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "11.0.0",
     "@cypress/code-coverage": "3.9.11",
@@ -58,7 +57,7 @@
     "@types/node": "16.11.6",
     "@typescript-eslint/eslint-plugin": "2.29.0",
     "@typescript-eslint/parser": "2.29.0",
-    "auto": "9.60.1",
+    "auto": "10.36.5",
     "axe-core": "4.3.4",
     "babel-eslint": "10.1.0",
     "babel-plugin-inline-svg": "1.2.0",
@@ -113,7 +112,6 @@
         }
       ],
       "conventional-commits",
-      "slack",
       "./auto-plugins/dist/update-deps.js"
     ]
   },

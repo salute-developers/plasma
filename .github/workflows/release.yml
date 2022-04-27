@@ -61,12 +61,7 @@ jobs:
         run: npm whoami && npx auto info || echo 'auto info returned 1'
 
       - name: Create Release
-        if: github.event_name == 'pull_request'
         run: npm run release
-
-      - name: Create Release
-        if: github.event_name != 'pull_request'
-        run: npm run release -- -d
 
       - name: Update package-lock's
         if: github.event_name != 'pull_request'
