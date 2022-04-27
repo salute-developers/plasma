@@ -1,3 +1,25 @@
+# v1.57.0 (Wed Apr 27 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-core): Add `useResizeObserver` hook ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- fix: linting errs [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
+- fix: monorepo deps resolved [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### ⚠️ Pushed to `master`
+
+- test(plasma-web,plasma-b2c,plasma-ui): Update snapshot and test for `TextArea` component ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 2
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.56.0 (Tue Apr 12 2022)
 
 #### 🚀 Enhancement
