@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-ui-docs",
-    "version": "0.64.0",
+    "version": "0.65.0",
     "description": "Plasma Documentation.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "repository": {
@@ -28,13 +28,13 @@
         "@docusaurus/preset-classic": "2.0.0-beta.6",
         "@docusaurus/theme-live-codeblock": "2.0.0-beta.6",
         "@mdx-js/react": "^1.6.21",
-        "@salutejs/plasma-core": "1.56.0",
-        "@salutejs/plasma-docs-ui": "0.7.0",
-        "@salutejs/plasma-icons": "1.75.0",
-        "@salutejs/plasma-tokens": "1.17.0",
-        "@salutejs/plasma-tokens-web": "1.17.0",
-        "@salutejs/plasma-ui": "1.95.0",
-        "@salutejs/plasma-web": "1.92.0",
+        "@salutejs/plasma-core": "1.57.0",
+        "@salutejs/plasma-docs-ui": "0.8.0",
+        "@salutejs/plasma-icons": "1.76.0",
+        "@salutejs/plasma-tokens": "1.18.0",
+        "@salutejs/plasma-tokens-web": "1.18.0",
+        "@salutejs/plasma-ui": "1.96.0",
+        "@salutejs/plasma-web": "1.93.0",
         "@svgr/webpack": "^5.5.0",
         "clsx": "^1.1.1",
         "file-loader": "^6.2.0",
@@ -45,8 +45,16 @@
         "url-loader": "^4.1.1"
     },
     "browserslist": {
-        "production": [">0.5%", "not dead", "not op_mini all"],
-        "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+        "production": [
+            ">0.5%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
     },
     "devDependencies": {
         "@docusaurus/module-type-aliases": "^2.0.0-beta.4",
