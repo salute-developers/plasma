@@ -1,8 +1,13 @@
 {
     "name": "@salutejs/cra-template-plasma-basic-template",
-    "version": "2.1.2",
+    "version": "2.2.0",
     "description": "Plasma Temple Basic Template",
-    "keywords": ["react", "create-react-app", "template", "typescript"],
+    "keywords": [
+        "react",
+        "create-react-app",
+        "template",
+        "typescript"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/salute-developers/plasma.git",
@@ -14,7 +19,10 @@
     "bugs": {
         "url": "https://github.com/salute-developers/plasma/issues"
     },
-    "files": ["template", "template.json"],
+    "files": [
+        "template",
+        "template.json"
+    ],
     "publishConfig": {
         "access": "public"
     }
