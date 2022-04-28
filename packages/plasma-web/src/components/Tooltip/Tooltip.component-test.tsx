@@ -123,4 +123,22 @@ describe('plasma-web: Tooltip', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('long text', () => {
+        mount(
+            <CypressTestDecorator>
+                <Tooltip
+                    placement="bottom-end"
+                    isVisible
+                    arrow
+                    text="It is not very long text for example. It is not very long text for example. It is not very long text for example. It is not very long text for example."
+                    animated={false}
+                >
+                    <Button text="hello" />
+                </Tooltip>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
 });

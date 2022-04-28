@@ -79,7 +79,7 @@ const StyledTooltip = styled.span<Pick<TooltipProps, 'isVisible' | 'animated'>>`
     box-shadow: ${shadows.small};
     color: ${white};
 
-    max-width: 240px;
+    max-width: 15rem;
     width: max-content;
     word-break: break-word;
 
