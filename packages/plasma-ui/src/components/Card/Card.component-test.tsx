@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
-const src = 'https://bit.ly/3xRatFGimages/320_320_0.jpg';
+const src = 'images/320_320_0.jpg';
 const title = 'до 230 000 ₽';
 const subTitle = 'На 18 месяцев, ставка 13,9%';
 const longText = `Канадский актёр, кинопродюсер, и музыкант. Наиболее известен своими ролями в киносериях «Матрица» и
@@ -37,6 +37,7 @@ describe('plasma-ui: Card', () => {
             </CypressTestDecorator>,
         );
 
+        cy.mockImage('img', 'images/320_320_0.jpg');
         cy.matchImageSnapshot();
     });
 
@@ -55,6 +56,7 @@ describe('plasma-ui: Card', () => {
             </CypressTestDecorator>,
         );
 
+        cy.mockImage('img', 'images/320_320_0.jpg');
         cy.matchImageSnapshot();
     });
 
@@ -73,6 +75,7 @@ describe('plasma-ui: Card', () => {
             </CypressTestDecorator>,
         );
 
+        cy.mockImage('img', 'images/320_320_0.jpg');
         cy.matchImageSnapshot();
     });
 
@@ -92,6 +95,7 @@ describe('plasma-ui: Card', () => {
             </CypressTestDecorator>,
         );
 
+        cy.mockImage('img', 'images/320_320_0.jpg');
         cy.matchImageSnapshot();
     });
 
@@ -113,6 +117,7 @@ describe('plasma-ui: Card', () => {
             </CypressTestDecorator>,
         );
 
+        cy.mockImage('img', 'images/320_320_0.jpg');
         cy.matchImageSnapshot();
     });
 
@@ -132,6 +137,7 @@ describe('plasma-ui: Card', () => {
             </CypressTestDecorator>,
         );
 
+        cy.mockImage('img', 'images/320_320_0.jpg');
         cy.matchImageSnapshot();
     });
 });
