@@ -9,7 +9,7 @@ const CellListItem = getComponent('CellListItem');
 const CellDisclosure = getComponent('CellDisclosure');
 const TextBox = getComponent('TextBox');
 
-const src = 'https://bit.ly/3xRatFGimages/avocado.png';
+const src = 'images/avocado.png';
 
 const Icon = ({ size }) => <CellIcon size={size} as="img" alt="avocado" src={src} />;
 
@@ -17,20 +17,13 @@ const title = 'Hello World of Plasma';
 const subTitle = 'Use with wisdom';
 
 describe('plasma-ui: Cell', () => {
-    beforeEach(() => {
-        cy.intercept(src, (req) => {
-            req.reply({
-                fixture: 'images/avocado.png',
-            });
-        });
-    });
-
     it('simple', () => {
         mount(
             <CypressTestDecorator>
                 <Cell content={<TextBox title={title} subTitle={subTitle} />} />
             </CypressTestDecorator>,
         );
+
         cy.matchImageSnapshot();
     });
 
@@ -40,6 +33,8 @@ describe('plasma-ui: Cell', () => {
                 <Cell contentLeft={<Icon />} content={<TextBox title={title} subTitle={subTitle} />} />
             </CypressTestDecorator>,
         );
+
+        cy.mockImage('img', src);
         cy.matchImageSnapshot();
     });
 
@@ -55,6 +50,8 @@ describe('plasma-ui: Cell', () => {
                 ))}
             </CypressTestDecorator>,
         );
+
+        cy.mockImage('img', src);
         cy.matchImageSnapshot();
     });
 
@@ -82,6 +79,8 @@ describe('plasma-ui: Cell', () => {
                 />
             </CypressTestDecorator>,
         );
+
+        cy.mockImage('img', src);
         cy.matchImageSnapshot();
     });
 
@@ -104,6 +103,8 @@ describe('plasma-ui: Cell', () => {
                 ))}
             </CypressTestDecorator>,
         );
+
+        cy.mockImage('img', src);
         cy.matchImageSnapshot();
     });
 
@@ -126,6 +127,8 @@ describe('plasma-ui: Cell', () => {
                 ))}
             </CypressTestDecorator>,
         );
+
+        cy.mockImage('img', src);
         cy.matchImageSnapshot();
     });
 
@@ -156,6 +159,8 @@ describe('plasma-ui: Cell', () => {
                 />
             </CypressTestDecorator>,
         );
+
+        cy.mockImage('img', src);
         cy.matchImageSnapshot();
     });
 });

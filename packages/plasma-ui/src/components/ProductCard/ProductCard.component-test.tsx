@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
-const src = 'https://bit.ly/3xRatFGimages/320_320_0.jpg';
+const src = 'images/320_320_0.jpg';
 
 describe('plasma-ui: ProductCard', () => {
     const Badge = getComponent('Badge');
@@ -22,6 +22,7 @@ describe('plasma-ui: ProductCard', () => {
             </CypressTestDecorator>,
         );
 
+        cy.mockImage('img', 'images/320_320_0.jpg');
         cy.matchImageSnapshot();
     });
 
@@ -40,6 +41,7 @@ describe('plasma-ui: ProductCard', () => {
             </CypressTestDecorator>,
         );
 
+        cy.mockImage('img', 'images/320_320_0.jpg');
         cy.matchImageSnapshot();
     });
 
@@ -59,6 +61,7 @@ describe('plasma-ui: ProductCard', () => {
             </CypressTestDecorator>,
         );
 
+        cy.mockImage('img', 'images/320_320_0.jpg');
         cy.matchImageSnapshot();
     });
 
@@ -77,6 +80,7 @@ describe('plasma-ui: ProductCard', () => {
             </CypressTestDecorator>,
         );
 
+        cy.mockImage('img', 'images/320_320_0.jpg');
         cy.matchImageSnapshot();
     });
 });
