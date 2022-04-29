@@ -30,9 +30,18 @@ import { DsplL, DsplM, DsplS } from '@salutejs/plasma-ui';
 export function App() {
     return (
         <div style={{ display: 'block' }}>
-            <DsplL>DsplL</DsplL>
-            <DsplM>DsplM</DsplM>
-            <DsplS>DsplS</DsplS>
+            <DsplL bold={false}>
+                DsplL
+            </DsplL>
+            <DsplL>DsplL Bold</DsplL>
+            <DsplM bold={false}>
+                DsplM
+            </DsplM>
+            <DsplM>DsplM Bold</DsplM>
+            <DsplS bold={false}>
+                DsplS
+            </DsplS>
+            <DsplS>DsplS Bold</DsplS>
         </div>
     );
 }
@@ -47,11 +56,26 @@ import { H1, H2, H3, H4, H5 } from '@salutejs/plasma-ui';
 export function App() {
     return (
         <div style={{ display: 'block' }}>
-            <H1>H1</H1>
-            <H2>H2</H2>
-            <H3>H3</H3>
-            <H4>H4</H4>
-            <H5>H5</H5>
+            <H1 bold={false}>
+                H1
+            </H1>
+            <H1>H1 Bold</H1>
+            <H2 bold={false}>
+                H2
+            </H2>
+            <H2>H2 Bold</H2>
+            <H3 bold={false}>
+                H3
+            </H3>
+            <H3>H3 Bold</H3>
+            <H4 bold={false}>
+                H4
+            </H4>
+            <H4>H4 Bold</H4>
+            <H5 bold={false}>
+                H5
+            </H5>
+            <H5>H5 Bold</H5>
         </div>
     );
 }
