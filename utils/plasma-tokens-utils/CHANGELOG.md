@@ -1,3 +1,15 @@
+# v0.12.1 (Thu May 05 2022)
+
+#### 🐛 Bug Fix
+
+- fix: packages structure [#17](https://github.com/salute-developers/plasma/pull/17) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v0.11.0 (Thu Apr 07 2022)
 
 #### 🚀 Enhancement

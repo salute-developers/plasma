@@ -1,5 +1,19 @@
 # (Thu May 05 2022)
 
+#### 🐛 Bug Fix
+
+- ci: add pkg structure linter [#17](https://github.com/salute-developers/plasma/pull/17) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/cra-template-plasma-basic-template@2.2.1`, `@salutejs/cra-template-plasma-shop-template@2.2.1`, `@salutejs/plasma-tokens-core@0.1.1`, `@salutejs/plasma-typo@0.4.1`, `@salutejs/plasma-cy-utils@0.10.1`, `@salutejs/plasma-sb-utils@0.56.1`, `@salutejs/plasma-tokens-utils@0.12.1`
+  - fix: packages structure [#17](https://github.com/salute-developers/plasma/pull/17) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
+# (Thu May 05 2022)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-icons@1.81.0`
