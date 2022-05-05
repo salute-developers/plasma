@@ -1,5 +1,25 @@
 # (Thu May 05 2022)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-icons@1.80.0`
+  - feat(plasma-icons): Add icons for `24 dp` from F to M [#14](https://github.com/salute-developers/plasma/pull/14) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-temple@1.64.0`
+  - Revert "feat(plasma-temple): onStart wait for character" [#6](https://github.com/salute-developers/plasma/pull/6) ([@LamaEats](https://github.com/LamaEats))
+  - Revert "feat(plasma-temple): onStart wait for command" [#6](https://github.com/salute-developers/plasma/pull/6) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 2
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
+# (Thu May 05 2022)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-temple@1.63.1`

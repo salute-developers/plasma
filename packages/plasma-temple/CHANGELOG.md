@@ -1,3 +1,15 @@
+# v1.64.0 (Thu May 05 2022)
+
+#### 🐛 Bug Fix
+
+- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 1
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.60.0 (Wed Apr 27 2022)
 
 #### 🚀 Enhancement
