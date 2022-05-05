@@ -2,6 +2,19 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-icons@1.79.0`
+  - feat(plasma-icons): Add icons for `24 dp` from A to E [#15](https://github.com/salute-developers/plasma/pull/15) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Thu May 05 2022)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-icons@1.78.0`
   - feat(plasma-icons): Add other icons for `24 dp` and `16 dp` [#9](https://github.com/salute-developers/plasma/pull/9) ([@neretin-trike](https://github.com/neretin-trike))
 
