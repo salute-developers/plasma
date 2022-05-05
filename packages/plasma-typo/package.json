@@ -34,6 +34,8 @@
     "publishConfig": {
         "access": "public"
     },
-    "files": ["lib"],
+    "files": [
+        "lib"
+    ],
     "sideEffects": false
 }
