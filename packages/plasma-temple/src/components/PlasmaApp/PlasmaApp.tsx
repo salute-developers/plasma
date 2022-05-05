@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import { AssistantClientCustomizedCommand, CharacterId } from '@salutejs/client';
+import { AssistantClientCustomizedCommand } from '@salutejs/client';
 import { HeaderProps } from '@salutejs/plasma-ui/components/Header/Header';
 import { DeviceThemeProvider } from '@salutejs/plasma-ui';
 
@@ -25,19 +25,13 @@ export type OnStartFn<
 > = (params: {
     pushHistory: <T extends keyof PageStateType>(name: T, data: PageStateType[T]) => void;
     pushScreen: PushScreenFn<PageStateType, PageParamsType>;
-    character: CharacterId;
 }) => void;
-
-export interface OnStartWithOptions {
-    callback: OnStartFn;
-    waitForCharacter?: boolean;
-}
 
 export interface PlasmaAppProps<Name extends string = string> {
     children: React.ReactElement<PageProps<Name>> | React.ReactElement<PageProps<Name>>[];
     assistantParams: Omit<InitializeParams, 'getState'>;
     header?: HeaderProps;
-    onStart?: OnStartFn | OnStartWithOptions;
+    onStart?: OnStartFn;
 }
 
 export function App<Name extends string>({
@@ -48,7 +42,6 @@ export function App<Name extends string>({
 }: React.PropsWithChildren<PlasmaAppProps<Name>>): React.ReactElement {
     const [state, dispatch] = useReducer(reducer, initialPlasmaAppState);
     const popScreenDelta = React.useRef(1);
-    const isOnStartNotCalledRef = React.useRef(true);
 
     const { history } = state;
     const activeScreen = last(history);
@@ -116,10 +109,6 @@ export function App<Name extends string>({
                 return;
             case 'character':
                 dispatch(Actions.setCharacter(command.character.id));
-                if (typeof onStart === 'object' && onStart.waitForCharacter && isOnStartNotCalledRef.current) {
-                    isOnStartNotCalledRef.current = false;
-                    onStart.callback({ pushScreen, pushHistory, character: command.character.id });
-                }
                 return;
             case 'smart_app_data': {
                 if (isPlasmaAppAction(command.smart_app_data)) {
@@ -141,13 +130,7 @@ export function App<Name extends string>({
 
     const assistantContextValue = useInitializeAssistant({
         assistantParams,
-        onStart: () => {
-            if (typeof onStart === 'function') {
-                onStart?.({ pushScreen, pushHistory, character });
-            } else if (!onStart?.waitForCharacter) {
-                onStart?.callback({ pushScreen, pushHistory, character });
-            }
-        },
+        onStart: () => onStart?.({ pushScreen, pushHistory }),
         onData: (c) => onData(c as AssistantClientCustomizedCommand<PlasmaAction>),
     });
 
