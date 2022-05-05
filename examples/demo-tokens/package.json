@@ -1,6 +1,7 @@
 {
     "name": "@salutejs/demo-tokens",
     "version": "0.7.0",
+    "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "dependencies": {
         "@salutejs/plasma-tokens": "1.18.0",
         "@testing-library/jest-dom": "^5.11.5",
@@ -27,22 +28,11 @@
         "eject": "react-scripts eject"
     },
     "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
-        ]
+        "extends": ["react-app", "react-app/jest"]
     },
     "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
+        "production": [">0.2%", "not dead", "not op_mini all"],
+        "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
     },
     "devDependencies": {
         "@types/styled-components": "5.1.4",

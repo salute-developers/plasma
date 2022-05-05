@@ -5,20 +5,15 @@
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "private": true,
     "publishConfig": {
-        "access": "restricted"
+        "access": "public"
     },
     "scripts": {
         "prepare": "npm run build",
         "build": "tsc"
     },
-    "files": [
-        "dist"
-    ],
-    "contributors": [
-        "Vasiliy Loginevskiy"
-    ],
+    "files": ["dist"],
+    "contributors": ["Vasiliy Loginevskiy"],
     "devDependencies": {
         "@types/styled-components": "^5.1.0",
         "typescript": "^3.9.10"
