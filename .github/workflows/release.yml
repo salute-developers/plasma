@@ -68,7 +68,7 @@ jobs:
         run: |
           npm i --package-lock-only
           lerna clean -y
-          lerna exec --ignore @salutejs/plasma-ui-docs --ignore @salutejs/plasma-web-docs -- npm i --package-lock-only
+          lerna exec --no-private -- npm i --package-lock-only
           # root deps don't update correctly on first regeneration O_o
           npm i --package-lock-only
 
