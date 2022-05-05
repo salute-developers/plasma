@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import { AssistantClientCustomizedCommand } from '@salutejs/client';
+import { AssistantClientCustomizedCommand, CharacterId } from '@salutejs/client';
 import { HeaderProps } from '@salutejs/plasma-ui/components/Header/Header';
 import { DeviceThemeProvider } from '@salutejs/plasma-ui';
 
@@ -25,11 +25,12 @@ export type OnStartFn<
 > = (params: {
     pushHistory: <T extends keyof PageStateType>(name: T, data: PageStateType[T]) => void;
     pushScreen: PushScreenFn<PageStateType, PageParamsType>;
+    character: CharacterId;
 }) => void;
 
 export interface OnStartWithOptions {
     callback: OnStartFn;
-    waitForCommand?: string;
+    waitForCharacter?: boolean;
 }
 
 export interface PlasmaAppProps<Name extends string = string> {
@@ -47,6 +48,7 @@ export function App<Name extends string>({
 }: React.PropsWithChildren<PlasmaAppProps<Name>>): React.ReactElement {
     const [state, dispatch] = useReducer(reducer, initialPlasmaAppState);
     const popScreenDelta = React.useRef(1);
+    const isOnStartNotCalledRef = React.useRef(true);
 
     const { history } = state;
     const activeScreen = last(history);
@@ -114,6 +116,10 @@ export function App<Name extends string>({
                 return;
             case 'character':
                 dispatch(Actions.setCharacter(command.character.id));
+                if (typeof onStart === 'object' && onStart.waitForCharacter && isOnStartNotCalledRef.current) {
+                    isOnStartNotCalledRef.current = false;
+                    onStart.callback({ pushScreen, pushHistory, character: command.character.id });
+                }
                 return;
             case 'smart_app_data': {
                 if (isPlasmaAppAction(command.smart_app_data)) {
@@ -137,12 +143,11 @@ export function App<Name extends string>({
         assistantParams,
         onStart: () => {
             if (typeof onStart === 'function') {
-                onStart?.({ pushScreen, pushHistory });
-            } else {
-                onStart?.callback({ pushScreen, pushHistory });
+                onStart?.({ pushScreen, pushHistory, character });
+            } else if (!onStart?.waitForCharacter) {
+                onStart?.callback({ pushScreen, pushHistory, character });
             }
         },
-        onStartWaitForCommand: typeof onStart === 'object' ? onStart?.waitForCommand : undefined,
         onData: (c) => onData(c as AssistantClientCustomizedCommand<PlasmaAction>),
     });
 
