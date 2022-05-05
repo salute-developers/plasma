@@ -1,3 +1,15 @@
+# v1.81.0 (Thu May 05 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-icons): Add icons for `24 dp` from N to W [#10](https://github.com/salute-developers/plasma/pull/10) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.80.0 (Thu May 05 2022)
 
 #### 🚀 Enhancement
