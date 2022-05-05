@@ -1,3 +1,23 @@
+# (Thu May 05 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-icons@1.77.0`
+  - feat(plasma-icons): Add icons for `16 dp` [#8](https://github.com/salute-developers/plasma/pull/8) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- test(plasma-ui): update screenshots [#5](https://github.com/salute-developers/plasma/pull/5) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-ui@1.97.0`
+  - test(plasma-ui): fix Card images [#5](https://github.com/salute-developers/plasma/pull/5) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Wed Apr 27 2022)
 
 #### 🚀 Enhancement

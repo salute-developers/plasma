@@ -1,3 +1,15 @@
+# v1.77.0 (Thu May 05 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-icons): Add icons for `16 dp` [#8](https://github.com/salute-developers/plasma/pull/8) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.76.0 (Wed Apr 27 2022)
 
 #### 🐛 Bug Fix

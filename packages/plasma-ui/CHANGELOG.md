@@ -1,3 +1,15 @@
+# v1.97.0 (Thu May 05 2022)
+
+#### 🐛 Bug Fix
+
+- test(plasma-ui): fix Card images [#5](https://github.com/salute-developers/plasma/pull/5) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.96.0 (Wed Apr 27 2022)
 
 #### 🐛 Bug Fix
