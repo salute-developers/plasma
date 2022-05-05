@@ -1,5 +1,19 @@
 # (Thu May 05 2022)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-temple@1.63.1`
+  - Revert "feat(plasma-temple): onStart wait for character" [#6](https://github.com/salute-developers/plasma/pull/6) ([@LamaEats](https://github.com/LamaEats))
+  - Revert "feat(plasma-temple): onStart wait for command" [#6](https://github.com/salute-developers/plasma/pull/6) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 1
+
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
+# (Thu May 05 2022)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-icons@1.79.0`
