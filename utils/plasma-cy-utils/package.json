@@ -36,11 +36,8 @@
         "build": "tsc",
         "clean": "rm -rf lib"
     },
-    "private": true,
     "publishConfig": {
-        "access": "restricted"
+        "access": "public"
     },
-    "files": [
-        "lib"
-    ]
+    "files": ["lib"]
 }

@@ -33,11 +33,8 @@
         "test": "ROBO_COMMENT=\"\" jest",
         "test:watch": "ROBO_COMMENT=\"\" jest --watch"
     },
-    "private": true,
     "publishConfig": {
-        "access": "restricted"
+        "access": "public"
     },
-    "files": [
-        "lib"
-    ]
+    "files": ["lib"]
 }
