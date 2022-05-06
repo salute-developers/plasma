@@ -1,0 +1,44 @@
+---
+id: config
+title: Конфигурация
+sidebar_position: 2
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Конфигурация
+
+## Навигация
+
+### ScreensProvider
+<Description name="ScreensProvider" />
+<PropsTable name="ScreensProvider" />
+
+### Screen
+<Description name="Screen" />
+<PropsTable name="Screen" />
+
+### ScreensContainer
+<Description name="ScreensContainer" />
+<PropsTable name="ScreensContainer" />
+
+```ts
+export const App = () => (
+    <ScreensContainer onStart={onStart} assistantParams={assistantParams} onPopState={onStart}>
+        <Screen name="main" component={<Main />} />
+        <Screen name="product" component={<Product />} />
+    </ScreensContainer>
+);
+```
+
+### useScreens
+Хук предоставляющий доступ к методам навигации между экранами, а также состоянию текущего экрана и истории экранов.
+
+
+
+## Взаимодействие с ассистентом
+Описано в разделе [Взаимодействие со сценарием](./scenario)
+
+## Темизация
+<Description name="ThemeProvider" />
+<PropsTable name="ThemeProvider" />

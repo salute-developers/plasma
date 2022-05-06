@@ -7,6 +7,8 @@ slug: /
 
 # Базовая функциональность
 
+> Описаны устаревшие компоненты `PlasmaApp` и `Page`. Вместо устаревших компонентов рекомендуется использовать следующий набор компонентов `ScreensProvider`, `Screen`, `ScreensContainer`, `AssistantProvider`, `ThemeProvider`
+
 Основная задача базовой функциональности пакета, состоит в том, чтобы максимально быстро перейти к разработке функционала [Canvas App](https://bit.ly/3Mx0UQq) непосредственно относящегося к бизнес требованиям, предъявляемых к разрабатываемому приложению и включает в себя следущую функциональность:
 
 -   настройка взаимодействия с [Assistant Client](https://github.com/salute-developers/salutejs-client)
@@ -33,8 +35,8 @@ slug: /
 | Имя             | Обязательный | Описание                                                                                                                                              |
 | :-------------- | :----------: | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | children        |      Да      | Список экранов приложения созданных на базе компонента [Page](#page)                                                                                  |
-| assistantParams |      Да      | Параметры инициализации [Assistant Client](https://github.com/salute-developers/salutejs-client)                                                           |
-| header          |     Нет      | Пропсы [plasma-ui/Header](https://bit.ly/3xQvdgFcomponents/header)                                                                         |
+| assistantParams |      Да      | Параметры инициализации [Assistant Client](https://github.com/salute-developers/salutejs-client)                                                      |
+| header          |     Нет      | Пропсы [plasma-ui/Header](https://bit.ly/3xQvdgFcomponents/header)                                                                                    |
 | onStart         |     Нет      | Функция, которая вызывается после того как ассистент готов к работе. Например в данном колбэке можно выполнить переход на какой-либо экран приложения |
 
 ### Page
@@ -62,7 +64,7 @@ slug: /
 | name              |      Да      | Соответствует значению пропса компонента [Page](#page)                                                                                                                                                                            |
 | state             |      Да      | Состояние экрана                                                                                                                                                                                                                  |
 | params            |      Да      | Параметры экрана, с которыми он открывается при вызове с помощью метода `pushScreen`                                                                                                                                              |
-| assistant         |      Да      | Ссылка на инстант [Assistant Client](https://github.com/salute-developers/salutejs-client)                                                                                                                                             |
+| assistant         |      Да      | Ссылка на инстант [Assistant Client](https://github.com/salute-developers/salutejs-client)                                                                                                                                        |
 | fallbackComponent |     Нет      | Компонент, отображаемый до момента пока основной контент экрана не готов                                                                                                                                                          |
 | header            |     Нет      | Пропсы заголовка                                                                                                                                                                                                                  |
 | pushHistory       |      Да      | Выполняет переход на новый экран. В качестве параметров принимает имя нового экрана и состояние нового экрана                                                                                                                     |

@@ -4,13 +4,30 @@ title: Взаимодействие со сценарием
 sidebar_position: 6
 ---
 
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
 # Взаимодействие со сценарием
 
+## AssistantProvider
+<Description name="AssistantProvider" />
+<PropsTable name="AssistantProvider" />
+
 Для реакции на команды ассистента (сценарные или навигационные), используйте хуки или подписку на команды в экземпляре ассистента.
+Предварительно обернув дерево компонентов компонентом `AssistantProvider`. Импорт `AssistantProvider` и хуков доступен из `@salutejs/plasma-temple/assistant`.
+> В текущей версии имеются устаревшие хуки использеумые всместе с компонентом `PlasmaApp` и доступные для импорта из `@salutejs/plasma-temple`.
 
 ## Хуки
 
-Хуки можно использовать в любом месте смартапа, как на экранах, так и в компонентах одного или нескольких экранов.
+Хуки можно использовать в любом месте смартапа, обернутого компонентом `AssistantProvider` как на экранах, так и в компонентах одного или нескольких экранов.
+
+### `useAssistant`
+Обеспечивает доступ к экземпляру ассистента. Так же можно получить доступ используя `getAssistantRef`.
+
+### `useAssistantCharacter`
+Возвращает текущй персонаж
+
+### `useAssistantInsets`
+Возвращает текущие отступы, переданные ассистентом
 
 ### `useAssistantOnSmartAppData`
 
@@ -65,7 +82,7 @@ const ScreenComponent = () => {
 }
 ```
 
-### `useAssistantAppState`
+### `useAssistantState`
 
 Хук useAssistantAppState принимает в качестве аргумента объект типа AssistantAppState.
 
@@ -74,7 +91,7 @@ const ScreenComponent = () => {
 ```ts
 const ScreenComponent = ({ name, state }) => {
     ...
-    useAssistantAppState({
+    useAssistantState({
         name,
         item_selector: {
             items: state.gallery,
