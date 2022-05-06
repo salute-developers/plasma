@@ -2,11 +2,14 @@ import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import type { MountReturn } from '@cypress/react';
 import { AssistantClientCustomizedCommand, AssistantSmartAppData, createAssistantHostMock } from '@salutejs/client';
+import { Container } from '@salutejs/plasma-ui';
 import { mount } from '@salutejs/plasma-cy-utils';
 
 import { OnStartFn, PlasmaApp } from '../components/PlasmaApp/PlasmaApp';
+import { ScreensContainer, Screen } from '../components/ScreensProvider';
 import { GetInitialProps, Page } from '../components/Page/Page';
 import { PageComponent } from '../components/Page/types';
+import { OnDataFn } from '../components/ScreensProvider/types';
 
 import image320 from './assets/320_320_0.jpg';
 import imageBg from './assets/parrot.png';
@@ -74,6 +77,15 @@ interface StartApp {
         onStart?: OnStartFn<S, P>,
         commands?: AssistantClientCustomizedCommand<AssistantSmartAppData>[],
     ): Cypress.Chainable<MountReturn>;
+}
+
+interface StartScreensApp {
+    (params: {
+        screens: Array<{ name: string; component: React.ReactNode }>;
+        onStart?: OnStartFn;
+        onData?: OnDataFn;
+        commands?: AssistantClientCustomizedCommand<AssistantSmartAppData>[];
+    }): Cypress.Chainable<MountReturn>;
 }
 
 const defaultCommands: AssistantClientCustomizedCommand<AssistantSmartAppData>[] = [
@@ -165,6 +177,41 @@ export const startApp: StartApp = (pages, onStart, commands = []) => {
                     })}
                 </PlasmaApp>
             </>,
+        );
+    });
+};
+
+export const startScreensApp: StartScreensApp = ({ screens, onStart, onData, commands = [] }) => {
+    return cy.window().then((win) => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore
+        win.appInitialData = defaultCommands.concat(commands);
+        mockAssistant = createAssistantHostMock({ context: win });
+
+        const StyledComp = createGlobalStyle({
+            'input:not([type="hidden"])': {
+                'caret-color': 'transparent',
+            },
+        });
+
+        const onStartHandler: OnStartFn = (api) => {
+            if (onStart) {
+                onStart(api);
+                return;
+            }
+
+            api.pushScreen(screens[0].name);
+        };
+
+        return mount(
+            <Container>
+                <StyledComp />
+                <ScreensContainer {...appProps} onStart={onStartHandler} onData={onData}>
+                    {screens.map((screen) => (
+                        <Screen key={screen.name} name={screen.name} component={screen.component} />
+                    ))}
+                </ScreensContainer>
+            </Container>,
         );
     });
 };
