@@ -1,4 +1,5 @@
 import React from 'react';
+import { CharacterId } from '@salutejs/client';
 
 import { AppStateContext } from '../PlasmaApp/AppStateContext';
 import { AnyObject, AssistantInstance } from '../../types';
@@ -7,7 +8,7 @@ import { last } from '../../utils/last';
 import { INNER_ASSISTANT_ACTION } from '../../constants';
 import { Layout } from '../../components/Layout/Layout';
 import { PageSpinner } from '../PageSpinner/PageSpinner';
-import { useMount } from '../../hooks';
+import { useCharacter, useMount } from '../../hooks';
 import { History } from '../../store/types';
 import { HeaderProps } from '../Header/types';
 
@@ -36,7 +37,7 @@ interface InitialPropsGetter<P, S> {
 interface PageLazyParams<
     C extends PageComp<AnyObject, string>,
     P extends React.ComponentProps<C> = React.ComponentProps<C>,
-    Pp = Pick<P, 'params'>,
+    Pp = Pick<P, 'params'> & { character: CharacterId },
     Ss = P['state']
 > extends InitialPropsGetter<Pp, Ss> {
     default: C & InitialPropsGetter<Pp, Ss>;
@@ -144,18 +145,18 @@ export const Page: PageFunctionComponent = ({
 Page.lazy = (factory) => {
     return React.lazy(async () => {
         const { default: Component, getInitialProps } = await factory();
+        const promiseGetter = Component.getInitialProps ?? getInitialProps;
 
         const Wrapper = (props: React.ComponentProps<typeof Component>) => {
             const { state, changeState, params } = props;
+            const character = useCharacter();
 
             useMount(() => {
-                const promiseGetter = Component.getInitialProps ?? getInitialProps;
-
                 if (!promiseGetter || state) {
                     return;
                 }
 
-                const promise = promiseGetter({ params });
+                const promise = promiseGetter({ params, character });
 
                 if (typeof promise.then === 'function') {
                     promise.then(changeState);
@@ -164,7 +165,7 @@ Page.lazy = (factory) => {
                 }
             });
 
-            if (getInitialProps && !state) {
+            if (promiseGetter && !state) {
                 return <PageSpinner />;
             }
 
