@@ -3,6 +3,7 @@ import { Button } from '@salutejs/plasma-ui';
 
 import { startApp, sendAction } from '../../testHelpers/testRenderHelpers';
 import { Header } from '../Header/Header';
+import { PageComponent } from '../Page/types';
 
 interface State {
     page1: null;
@@ -181,5 +182,131 @@ describe('PlasmaApp', () => {
         });
 
         cy.get('button[data-cy="open-second"]').should('contain.text', 'Open Next Page');
+    });
+});
+
+describe('Page.getInitialProps', () => {
+    const Component: PageComponent<any, any> = ({ state }) => (
+        <>
+            <Header title="Page 1" />
+            <p>{state.text}</p>
+        </>
+    );
+
+    it('sync - as standalone function', () => {
+        startApp(
+            [
+                {
+                    name: 'page1',
+                    component: Component,
+                    getInitialProps: ({ params, character }) => {
+                        expect(character).to.equal('sber');
+                        expect(params).not.be.undefined;
+                        expect(params).have.key('name');
+
+                        return {
+                            text: '`getIntialProps` as standlone fn',
+                        };
+                    },
+                    lazy: true,
+                },
+            ],
+            ({ pushScreen }) => {
+                pushScreen('page1', {
+                    name: 'page1',
+                });
+            },
+        );
+    });
+
+    it('async - as standalone function', () => {
+        startApp(
+            [
+                {
+                    name: 'page1',
+                    component: Component,
+                    getInitialProps: ({ params, character }) => {
+                        expect(character).to.equal('sber');
+                        expect(params).not.be.undefined;
+                        expect(params).have.key('name');
+
+                        return Promise.resolve({
+                            text: '`getIntialProps` as standlone fn',
+                        });
+                    },
+                    lazy: true,
+                },
+            ],
+            ({ pushScreen }) => {
+                pushScreen('page1', {
+                    name: 'page1',
+                });
+            },
+        );
+    });
+
+    it('sync - as component function prop', () => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore чет для этого типов нет, но так работает
+        Component.getInitialProps = ({ params, character }) => {
+            expect(character).to.equal('sber');
+            expect(params).not.be.undefined;
+            expect(params).have.key('name');
+
+            return {
+                text: '`getIntialProps` as component fn prop',
+            };
+        };
+
+        startApp(
+            [
+                {
+                    name: 'page1',
+                    component: Component,
+                    lazy: true,
+                },
+            ],
+            ({ pushScreen }) => {
+                pushScreen('page1', {
+                    name: 'page1',
+                });
+            },
+        );
+    });
+
+    it('async - as component function prop', () => {
+        const Component: PageComponent<any, any> = ({ state }) => (
+            <>
+                <Header title="Page 1" />
+                <p>{state.text}</p>
+            </>
+        );
+
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore чет для этого типов нет, но так работает
+        Component.getInitialProps = ({ params, character }) => {
+            expect(character).to.equal('sber');
+            expect(params).not.be.undefined;
+            expect(params).have.key('name');
+
+            return Promise.resolve({
+                text: '`getIntialProps` as component fn prop',
+            });
+        };
+
+        startApp(
+            [
+                {
+                    name: 'page1',
+                    component: Component,
+                    lazy: true,
+                },
+            ],
+            ({ pushScreen }) => {
+                pushScreen('page1', {
+                    name: 'page1',
+                });
+            },
+        );
     });
 });
