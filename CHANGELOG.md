@@ -2,6 +2,20 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-web@1.101.0`
+  - test(plasma-web, plasma-b2c): Add test and update snapshot for `Tooltip` component [#2](https://github.com/salute-developers/plasma/pull/2) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-web): Add max-width for `Tooltip` component [#2](https://github.com/salute-developers/plasma/pull/2) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Wed May 11 2022)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-icons@1.83.0`, `@salutejs/plasma-sb-utils@0.57.0`
   - feat(plasma-icons): Add icons for `36 dp` from P to W [#13](https://github.com/salute-developers/plasma/pull/13) ([@neretin-trike](https://github.com/neretin-trike))
 - `@salutejs/plasma-icons@1.83.0`

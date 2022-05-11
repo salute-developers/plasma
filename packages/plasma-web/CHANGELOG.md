@@ -1,3 +1,21 @@
+# v1.101.0 (Wed May 11 2022)
+
+#### 🚀 Enhancement
+
+- test(plasma-web, plasma-b2c): Add test and update snapshot for `Tooltip` component [#2](https://github.com/salute-developers/plasma/pull/2) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-web): Add max-width for `Tooltip` component [#2](https://github.com/salute-developers/plasma/pull/2) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.100.0 (Wed May 11 2022)
 
 #### 🐛 Bug Fix
