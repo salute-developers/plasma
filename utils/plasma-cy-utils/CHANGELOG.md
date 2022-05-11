@@ -1,3 +1,15 @@
+# v0.11.0 (Wed May 11 2022)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks [#18](https://github.com/salute-developers/plasma/pull/18) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v0.10.1 (Thu May 05 2022)
 
 #### 🐛 Bug Fix

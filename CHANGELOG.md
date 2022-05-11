@@ -1,3 +1,25 @@
+# (Wed May 11 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-icons@1.82.0`
+  - feat(plasma-icons): Add icons for `36 dp` from A to E [#12](https://github.com/salute-developers/plasma/pull/12) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- ci: update release workflow [#18](https://github.com/salute-developers/plasma/pull/18) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-typo@0.5.0`
+  - chore(plasma-typo): improve peerdep [#18](https://github.com/salute-developers/plasma/pull/18) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.64.0`, `@salutejs/plasma-core@1.58.0`, `@salutejs/plasma-icons@1.82.0`, `@salutejs/plasma-temple@1.66.0`, `@salutejs/plasma-tokens-b2b@1.4.0`, `@salutejs/plasma-tokens-b2c@0.13.0`, `@salutejs/plasma-tokens-web@1.19.0`, `@salutejs/plasma-tokens@1.19.0`, `@salutejs/plasma-typo@0.5.0`, `@salutejs/plasma-ui@1.102.0`, `@salutejs/plasma-web@1.99.0`, `@salutejs/plasma-cy-utils@0.11.0`, `@salutejs/plasma-sb-utils@0.57.0`, `@salutejs/plasma-tokens-android@2.26.0`, `@salutejs/plasma-tokens-ios-swift@2.26.0`
+  - chore: update package-locks [#18](https://github.com/salute-developers/plasma/pull/18) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Thu May 05 2022)
 
 #### 🐛 Bug Fix

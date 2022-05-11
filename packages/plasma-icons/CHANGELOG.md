@@ -1,3 +1,20 @@
+# v1.82.0 (Wed May 11 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-icons): Add icons for `36 dp` from A to E [#12](https://github.com/salute-developers/plasma/pull/12) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks [#18](https://github.com/salute-developers/plasma/pull/18) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.81.0 (Thu May 05 2022)
 
 #### 🚀 Enhancement
