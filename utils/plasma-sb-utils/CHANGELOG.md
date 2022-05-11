@@ -1,3 +1,15 @@
+# v0.57.0 (Wed May 11 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-icons): Add icons for `36 dp` from P to W [#13](https://github.com/salute-developers/plasma/pull/13) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.56.1 (Thu May 05 2022)
 
 #### 🐛 Bug Fix

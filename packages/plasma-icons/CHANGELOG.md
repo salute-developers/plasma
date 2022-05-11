@@ -1,3 +1,21 @@
+# v1.83.0 (Wed May 11 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-icons): Add icons for `36 dp` from P to W [#13](https://github.com/salute-developers/plasma/pull/13) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-icons): Add icons for `36 dp` from G to O [#11](https://github.com/salute-developers/plasma/pull/11) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.82.0 (Wed May 11 2022)
 
 #### 🚀 Enhancement
