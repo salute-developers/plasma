@@ -1,3 +1,16 @@
+# v1.103.1 (Wed May 11 2022)
+
+#### 🐛 Bug Fix
+
+- test(plasma-ui): Add test and snapshost for `TimePicker` and `DatePicker` components [#4](https://github.com/salute-developers/plasma/pull/4) ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-ui): Fix behavior if min or max changes for `Pickers` component [#4](https://github.com/salute-developers/plasma/pull/4) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.103.0 (Wed May 11 2022)
 
 #### 🐛 Bug Fix
