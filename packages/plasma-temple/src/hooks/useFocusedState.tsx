@@ -15,12 +15,12 @@ export const useFocusedState = <T extends HTMLElement>(ref: React.RefObject<T>):
         if (ref.current) {
             const element = ref.current;
 
-            element.addEventListener('focus', onFocus);
-            element.addEventListener('blur', onBlur);
+            element.addEventListener('focusin', onFocus);
+            element.addEventListener('focusout', onBlur);
 
             return () => {
-                element.removeEventListener('focus', onFocus);
-                element.removeEventListener('blur', onBlur);
+                element.removeEventListener('focusin', onFocus);
+                element.removeEventListener('focusout', onBlur);
             };
         }
 
