@@ -8,6 +8,7 @@ import {
     CarouselProps as BaseProps,
     applyNoSelect,
 } from '@salutejs/plasma-core';
+import { CarouselState } from '@salutejs/plasma-core/components/Carousel/CarouselContext';
 
 import { useForkRef } from '../../hooks';
 
@@ -73,8 +74,12 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
     });
     const handleRef = useForkRef(scrollRef, ref);
 
+    const context = React.useMemo<CarouselState>(() => {
+        return { axis, refs };
+    }, [axis, refs]);
+
     return (
-        <CarouselContext.Provider value={{ axis, refs }}>
+        <CarouselContext.Provider value={context}>
             <StyledCarousel
                 ref={handleRef}
                 axis={axis}
