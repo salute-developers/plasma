@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { InterpolationFunction } from 'styled-components';
 import {
     applyView,
     BadgeProps,
@@ -13,26 +13,50 @@ import {
     ViewProps,
 } from '@salutejs/plasma-ui';
 
-import { MediaObject } from '../../types';
+import { AnyObject, MediaObject } from '../../types';
 import { isSberBoxLike } from '../../utils/deviceFamily';
 import { getMediaObjectSrc } from '../../utils/getMediaObjectSrc';
+
+const badgePositions = {
+    topLeft: {
+        top: '0.5rem',
+        left: '0.5rem',
+    },
+    topRight: {
+        top: '0.5rem',
+        right: '0.5rem',
+    },
+    bottomLeft: {
+        bottom: '0.5rem',
+        left: '0.5rem',
+    },
+    bottomRight: {
+        bottom: '0.5rem',
+        right: '0.5rem',
+    },
+};
+type BadgePosition = keyof typeof badgePositions;
+type BasePositionProps = { position: BadgePosition };
+
+const applyPosition: InterpolationFunction<BasePositionProps> = ({ position }) => badgePositions[position];
 
 export interface CardEntityBadge {
     /** Тип бейджа, влияет на цвет фона бейджа */
     type: View;
+    /** Позция бейджа */
+    position?: BadgePosition;
     /** Контент бейджа */
     content?: string;
 }
 
-export interface CardEntity<Id = unknown> {
+export type CardEntity<Id = string, T extends AnyObject = AnyObject> = T & {
     /** Идентификатор */
     id: Id;
     /** Картинка */
     image: MediaObject;
     /** Бейдж */
     badge?: CardEntityBadge;
-    [key: string]: unknown;
-}
+};
 
 export interface CardCoverProps {
     /** Определяет перекрытие контентом изображения карточки */
@@ -56,13 +80,20 @@ export interface CardPositionBadgeProps {
     withPositionBadge?: boolean;
 }
 
-export interface CardProps<Id = unknown> extends CardCoverProps, CardRatioProps, CardPositionBadgeProps {
+export interface CardProps<Id = string, T extends AnyObject = AnyObject>
+    extends CardCoverProps,
+        CardRatioProps,
+        CardPositionBadgeProps {
     /** Сущность карточки */
-    entity: CardEntity<Id>;
+    entity: CardEntity<Id, T>;
     /** Индекс карточки в списке карточек, должен начинаться с 0 */
     index: number;
+    /** Может ли компонент быть сфокусирован с помощью клавиатурной навигации */
+    focusable?: boolean;
+    /** Определяет состояние фокуса */
+    focused?: boolean;
     /** Колбэк, вызываемый при клике по карточке */
-    onClick: (id: CardEntity<Id>) => void;
+    onClick: (id: CardEntity<Id, T>, index: number) => void;
     /** Колбэк, вызываемый при получении фокуса карточкой */
     onFocus?: (index: number) => void;
     className?: string;
@@ -85,17 +116,16 @@ const StyledPositionBadge = styled(CardBadge)`
     right: 0.5rem;
 `;
 
-const StyledBadge = styled(CardBadge)<ViewProps>`
+const StyledBadge = styled(CardBadge)<ViewProps & BasePositionProps>`
     ${applyView}
-    top: 0.5rem;
-    left: 0.5rem;
+    ${applyPosition}
 `;
 
 /**
  * Компонент для отображение карточки какой-либо сущности (товара, фильма, экскурсии  и т.д. )
  * Может использоваться в каруселях, в компоненте `Grid`
  */
-export function Card<Id = unknown>({
+export function Card<Id = string, T extends AnyObject = AnyObject>({
     entity,
     index,
     cover,
@@ -104,22 +134,24 @@ export function Card<Id = unknown>({
     withPositionBadge,
     children,
     className,
+    focusable,
+    focused,
     onClick,
     onFocus,
-}: React.PropsWithChildren<CardProps<Id>>) {
+}: React.PropsWithChildren<CardProps<Id, T>>) {
     const { id, image } = entity;
 
     const handleClick = React.useCallback(() => {
-        onClick(entity);
-    }, [id, onClick]);
+        onClick(entity, index);
+    }, [id, index, onClick]);
 
     const handleKeyDown = React.useCallback(
         (event: React.KeyboardEvent) => {
             if (event.key === 'Enter') {
-                onClick(entity);
+                onClick(entity, index);
             }
         },
-        [id, onClick],
+        [id, index, onClick],
     );
 
     const handleFocus = React.useCallback(() => {
@@ -136,8 +168,9 @@ export function Card<Id = unknown>({
     return (
         <PlasmaCard
             outlined={isSberBoxLike()}
-            tabIndex={0}
-            data-focusable
+            focused={focused}
+            tabIndex={focusable ? 0 : undefined}
+            data-focusable={focusable}
             onClick={handleClick}
             onKeyDown={handleKeyDown}
             onFocus={handleFocus}
@@ -151,15 +184,17 @@ export function Card<Id = unknown>({
                     ratio={imageRatio}
                     customRatio={customRatio}
                     data-cy="Card-image"
-                />
+                >
+                    {entity.badge && (
+                        <StyledBadge
+                            size="s"
+                            text={entity.badge.content}
+                            view={(entity.badge.type as BadgeProps['view']) ?? 'primary'}
+                            position={entity.badge.position ?? 'topLeft'}
+                        />
+                    )}
+                </CardMedia>
                 <CardContent {...contentProps}>{children}</CardContent>
-                {entity.badge && (
-                    <StyledBadge
-                        size="s"
-                        text={entity.badge.content}
-                        view={(entity.badge.type as BadgeProps['view']) ?? 'primary'}
-                    />
-                )}
                 {withPositionBadge && <StyledPositionBadge view="secondary" size="l" text={`${index + 1}`} circled />}
             </CardBody>
         </PlasmaCard>
