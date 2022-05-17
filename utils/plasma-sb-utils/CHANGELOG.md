@@ -1,3 +1,15 @@
+# v0.58.0 (Tue May 17 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): bump plasma-core version [#16](https://github.com/salute-developers/plasma/pull/16) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
 # v0.57.0 (Wed May 11 2022)
 
 #### 🚀 Enhancement

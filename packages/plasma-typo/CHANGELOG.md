@@ -1,3 +1,15 @@
+# v0.6.0 (Tue May 17 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-typo): Add bold type for `Dspl` and 'H' components [#7](https://github.com/salute-developers/plasma/pull/7) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.5.0 (Wed May 11 2022)
 
 #### 🐛 Bug Fix

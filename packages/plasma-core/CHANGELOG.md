@@ -1,3 +1,15 @@
+# v1.59.0 (Tue May 17 2022)
+
+#### 🐛 Bug Fix
+
+- test(plasma-b2c): Add test and snapshots for `Dspl` and `H` components [#7](https://github.com/salute-developers/plasma/pull/7) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.58.0 (Wed May 11 2022)
 
 #### 🐛 Bug Fix

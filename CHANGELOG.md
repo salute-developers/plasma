@@ -1,3 +1,35 @@
+# (Tue May 17 2022)
+
+#### 🚀 Enhancement
+
+- fix(plasma-ui-docs): Fix async content load for docusaurus.config [#7](https://github.com/salute-developers/plasma/pull/7) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-sb-utils@0.58.0`
+  - feat(plasma-temple): bump plasma-core version [#16](https://github.com/salute-developers/plasma/pull/16) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- `@salutejs/plasma-temple@1.68.0`
+  - feat(plasma-temple): tests [#16](https://github.com/salute-developers/plasma/pull/16) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+  - feat(plasma-temple): docs [#16](https://github.com/salute-developers/plasma/pull/16) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+  - feat(plasma-temple): Split PlasmaApp logic [#16](https://github.com/salute-developers/plasma/pull/16) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- `@salutejs/plasma-typo@0.6.0`
+  - feat(plasma-typo): Add bold type for `Dspl` and 'H' components [#7](https://github.com/salute-developers/plasma/pull/7) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- docs(plasma-ui-docs): Add bold example in Typography for `Dspl` and `H` components [#7](https://github.com/salute-developers/plasma/pull/7) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-core@1.59.0`
+  - test(plasma-b2c): Add test and snapshots for `Dspl` and `H` components [#7](https://github.com/salute-developers/plasma/pull/7) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.67.0`, `@salutejs/plasma-ui@1.104.0`
+  - chore(plasma-ui, plasma-b2c): Add bold type for `Dspl` and `H` in stories [#7](https://github.com/salute-developers/plasma/pull/7) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-ui@1.104.0`
+  - test(plasma-ui): Add test and snapshost for `TimePicker` and `DatePicker` components [#4](https://github.com/salute-developers/plasma/pull/4) ([@neretin-trike](https://github.com/neretin-trike))
+  - fix(plasma-ui): Fix behavior if min or max changes for `Pickers` component [#4](https://github.com/salute-developers/plasma/pull/4) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Wed May 11 2022)
 
 #### 🐛 Bug Fix
