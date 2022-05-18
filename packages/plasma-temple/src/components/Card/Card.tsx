@@ -93,7 +93,7 @@ export interface CardProps<Id = string, T extends AnyObject = AnyObject>
     /** Определяет состояние фокуса */
     focused?: boolean;
     /** Колбэк, вызываемый при клике по карточке */
-    onClick: (id: CardEntity<Id, T>, index: number) => void;
+    onClick?: (entity: CardEntity<Id, T>, index: number) => void;
     /** Колбэк, вызываемый при получении фокуса карточкой */
     onFocus?: (index: number) => void;
     className?: string;
@@ -142,13 +142,13 @@ export function Card<Id = string, T extends AnyObject = AnyObject>({
     const { id, image } = entity;
 
     const handleClick = React.useCallback(() => {
-        onClick(entity, index);
+        onClick?.(entity, index);
     }, [id, index, onClick]);
 
     const handleKeyDown = React.useCallback(
         (event: React.KeyboardEvent) => {
             if (event.key === 'Enter') {
-                onClick(entity, index);
+                onClick?.(entity, index);
             }
         },
         [id, index, onClick],
