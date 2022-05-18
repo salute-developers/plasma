@@ -25,6 +25,7 @@ const items = Array.from(
 
 const StyledContainer = styled.div`
     height: 100vh;
+    padding-top: 144px;
 `;
 
 export const SingleGallery = (): React.ReactElement => {
@@ -46,9 +47,9 @@ export const MultiGallery = (): React.ReactElement => {
 
     // React.useEffect(() => {
     //     console.log(galleryRef.current.getGalleryState());
-    //     setTimeout(() => {
-    //         galleryRef.current.setGalleryState({ activeGallery: 0, activeCards: [1, 3, 5] });
-    //     }, 3000);
+    //     // setTimeout(() => {
+    //     //     galleryRef.current.setGalleryState({ activeGallery: 1, activeCards: [1, 11, 5] });
+    //     // }, 3000);
     // }, []);
 
     return (
@@ -57,7 +58,7 @@ export const MultiGallery = (): React.ReactElement => {
                 ref={galleryRef}
                 items={galleries}
                 autoFocus
-                // initialState={{ activeGallery: 0, activeCards: [1, 3, 5] }}
+                initialState={{ activeGallery: 0, activeCards: [1, 3, 5] }}
                 onCardClick={action('onCardClick')}
             />
         </StyledContainer>
