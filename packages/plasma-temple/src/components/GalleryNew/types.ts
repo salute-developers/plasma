@@ -37,3 +37,35 @@ export type OnCardClickFn<Id = string, T extends AnyObject = AnyObject> = (
 
 export type OnChangeGalleryFn = (args: { galleryIndex: number; cardIndex?: number }) => void;
 export type OnChangeCardFn = (args: { galleryIndex: number; cardIndex: number }) => void;
+
+interface GalleryCardProps<Id = string, T extends AnyObject = AnyObject> {
+    entity: GalleryCardEntity<Id, T>;
+    index: number;
+    galleryIndex: number;
+    isActive: boolean;
+}
+
+// TODO: Заменить на GalleryCardProps после удаления старого интерфейса components/GalleryCard/types.ts
+export type { GalleryCardProps as GalleryNewCardProps };
+
+export interface SingleGalleryProps<Id = string, T extends AnyObject = AnyObject> {
+    gallery: SingleGalleryEntity<Id, T>;
+    galleryIndex: number;
+    activeCard: number;
+    isActive: boolean;
+    className?: string;
+    galleryCard?: React.ComponentType<GalleryCardProps<Id, T>>;
+    onChangeGallery: OnChangeGalleryFn;
+    onChangeCard: OnChangeCardFn;
+    onCardClick?: OnCardClickFn<Id, T>;
+}
+
+export interface MultiGalleryProps<Id = string, T extends AnyObject = AnyObject> {
+    items: SingleGalleryEntity<Id, T>[];
+    isActive: boolean;
+    state: GalleryState;
+    galleryCard?: React.ComponentType<GalleryCardProps<Id, T>>;
+    onChangeGallery: OnChangeGalleryFn;
+    onChangeCard: OnChangeCardFn;
+    onCardClick?: OnCardClickFn<Id, T>;
+}
