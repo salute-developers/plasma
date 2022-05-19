@@ -7,6 +7,7 @@ import { SingleGalleryProps } from '../types';
 import { useSingleGallery } from '../hooks/useSingleGallery';
 import { GalleryCard } from '../GalleryCard/GalleryCard';
 import { Carousel } from '../Carousel/Carousel';
+import { getGalleryName } from '../utils';
 
 const StyledContainer = styled.div`
     outline: none;
@@ -61,10 +62,10 @@ export function SingleGallerySberBox({
             tabIndex={0}
             data-focusable
             ref={containerRef}
-            data-name={`gallery-${galleryIndex}`}
+            data-name={getGalleryName(galleryIndex)}
             className={className}
         >
-            <StyledTitle>{gallery.title}</StyledTitle>
+            {gallery.title && <StyledTitle>{gallery.title}</StyledTitle>}
             <CarouselGridWrapper>
                 <Carousel axis="x" index={activeCard} paddingEnd="50%">
                     {gallery.items.map((item, idx) => (

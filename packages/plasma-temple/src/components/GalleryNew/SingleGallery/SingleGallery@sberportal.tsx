@@ -7,6 +7,7 @@ import { SingleGalleryProps } from '../types';
 import { useSingleGallery } from '../hooks/useSingleGallery';
 import { GalleryCard } from '../GalleryCard/GalleryCard';
 import { Carousel } from '../Carousel/Carousel';
+import { getGalleryName } from '../utils';
 
 const StyledContainer = styled.div`
     outline: none;
@@ -43,8 +44,8 @@ export function SingleGallerySberPortal({
     });
 
     return (
-        <StyledContainer className={className}>
-            <StyledTitle>{gallery.title}</StyledTitle>
+        <StyledContainer className={className} data-name={getGalleryName(galleryIndex)}>
+            {gallery.title && <StyledTitle>{gallery.title}</StyledTitle>}
             <CarouselGridWrapper>
                 <Carousel
                     axis="x"
