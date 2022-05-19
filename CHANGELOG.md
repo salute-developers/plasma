@@ -1,3 +1,22 @@
+# (Thu May 19 2022)
+
+#### 🐛 Bug Fix
+
+- docs(plasma-web,plasma-ui): fix old versions url [#23](https://github.com/salute-developers/plasma/pull/23) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-core@1.59.1`
+  - fix(plasma-core): unnecessary Price export [#25](https://github.com/salute-developers/plasma/pull/25) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-icons@1.83.1`
+  - ci(plasma-icons): fix deps [#24](https://github.com/salute-developers/plasma/pull/24) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-ui@1.104.1`, `@salutejs/plasma-web@1.102.1`
+  - fix(plasma-ui, plasma-web): fix carousel context [#20](https://github.com/salute-developers/plasma/pull/20) (Kruglikov.A.D@sberbank.ru)
+
+#### Authors: 2
+
+- Arseny Kruglikov (Kruglikov.A.D@sberbank.ru)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Tue May 17 2022)
 
 #### 🚀 Enhancement
