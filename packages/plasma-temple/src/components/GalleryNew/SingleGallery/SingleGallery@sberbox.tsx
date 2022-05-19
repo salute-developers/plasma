@@ -8,6 +8,7 @@ import { useSingleGallery } from '../hooks/useSingleGallery';
 import { GalleryCard } from '../GalleryCard/GalleryCard';
 import { Carousel } from '../Carousel/Carousel';
 import { getGalleryName } from '../utils';
+import { useThrottledCallback } from '../../../hooks';
 
 const StyledContainer = styled.div`
     outline: none;
@@ -23,65 +24,81 @@ const StyledCarouselItem = styled(CarouselItem)`
     margin-right: 0.75rem;
 `;
 
-export function SingleGallerySberBox({
-    gallery,
-    galleryIndex,
-    activeCard,
-    isActive,
-    className,
-    galleryCard,
-    onCardClick,
-    onChangeGallery,
-    onChangeCard,
-}: SingleGalleryProps) {
-    const containerRef = React.useRef<HTMLDivElement>(null);
-
-    const { cardIndex, handleCardClick } = useSingleGallery({
+export const SingleGallerySberBox = React.memo<SingleGalleryProps>(
+    ({
+        gallery,
         galleryIndex,
         activeCard,
         isActive,
-        galleryLength: gallery.items.length,
-        onChangeCard,
-        onChangeGallery,
+        className,
+        galleryCard,
+        assistant,
+        voiceStepSizeX,
         onCardClick,
-    });
+        onChangeGallery,
+        onChangeCard,
+    }) => {
+        const containerRef = React.useRef<HTMLDivElement>(null);
 
-    const handleFocus = React.useCallback(() => {
-        onChangeGallery({ galleryIndex, cardIndex });
-    }, [galleryIndex, cardIndex, onChangeGallery]);
+        const { handleCardClick } = useSingleGallery({
+            galleryIndex,
+            activeCard,
+            isActive,
+            galleryLength: gallery.items.length,
+            assistant,
+            voiceStepSizeX,
+            onChangeCard,
+            onChangeGallery,
+            onCardClick,
+        });
 
-    React.useEffect(() => {
-        if (isActive && cardIndex === activeCard && document.activeElement !== containerRef.current) {
-            containerRef.current?.focus();
-        }
-    }, [isActive, cardIndex, activeCard]);
+        const handleFocus = React.useCallback(() => {
+            onChangeGallery({ galleryIndex, cardIndex: activeCard });
+        }, [galleryIndex, activeCard, onChangeGallery]);
 
-    return (
-        <StyledContainer
-            onFocus={handleFocus}
-            tabIndex={0}
-            data-focusable
-            ref={containerRef}
-            data-name={getGalleryName(galleryIndex)}
-            className={className}
-        >
-            {gallery.title && <StyledTitle>{gallery.title}</StyledTitle>}
-            <CarouselGridWrapper>
-                <Carousel axis="x" index={activeCard} paddingEnd="50%">
-                    {gallery.items.map((item, idx) => (
-                        <StyledCarouselItem scrollSnapAlign="start" key={String(item.id)}>
-                            <GalleryCard
-                                entity={item}
-                                galleryIndex={galleryIndex}
-                                index={idx}
-                                isActive={activeCard === idx && isActive}
-                                galleryCard={galleryCard}
-                                onClick={handleCardClick}
-                            />
-                        </StyledCarouselItem>
-                    ))}
-                </Carousel>
-            </CarouselGridWrapper>
-        </StyledContainer>
-    );
-}
+        React.useEffect(() => {
+            if (isActive && document.activeElement !== containerRef.current) {
+                containerRef.current?.focus();
+            }
+        }, [isActive, activeCard]);
+
+        const handleKeyDown = useThrottledCallback(
+            (event: React.KeyboardEvent) => {
+                if (event.key === 'Enter') {
+                    onCardClick?.(gallery.items[activeCard], galleryIndex, activeCard);
+                }
+            },
+            [gallery, galleryIndex, activeCard, isActive, onCardClick],
+        );
+
+        return (
+            <StyledContainer
+                onFocus={handleFocus}
+                onKeyDown={handleKeyDown}
+                tabIndex={0}
+                data-focusable
+                ref={containerRef}
+                data-name={getGalleryName(galleryIndex)}
+                className={className}
+            >
+                {gallery.title && <StyledTitle>{gallery.title}</StyledTitle>}
+                <CarouselGridWrapper>
+                    <Carousel axis="x" index={activeCard} paddingEnd="50%">
+                        {gallery.items.map((item, idx) => (
+                            <StyledCarouselItem scrollSnapAlign="start" key={String(item.id)}>
+                                <GalleryCard
+                                    entity={item}
+                                    galleryIndex={galleryIndex}
+                                    index={idx}
+                                    isActive={activeCard === idx && isActive}
+                                    galleryCard={galleryCard}
+                                    onClick={handleCardClick}
+                                />
+                            </StyledCarouselItem>
+                        ))}
+                    </Carousel>
+                </CarouselGridWrapper>
+            </StyledContainer>
+        );
+    },
+);

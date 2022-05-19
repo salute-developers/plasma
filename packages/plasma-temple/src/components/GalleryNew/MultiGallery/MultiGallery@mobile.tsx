@@ -15,6 +15,7 @@ export function MultiGalleryMobile({ items, galleryCard, onCardClick }: MultiGal
         <>
             {items.map((item, index) => (
                 <StyledSingleGallery
+                    key={index}
                     gallery={item}
                     galleryIndex={index}
                     galleryCard={galleryCard}

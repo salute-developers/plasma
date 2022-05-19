@@ -23,54 +23,61 @@ const StyledCarouselItem = styled(CarouselItem)`
     margin-right: 0.75rem;
 `;
 
-export function SingleGallerySberPortal({
-    gallery,
-    galleryIndex,
-    activeCard,
-    className,
-    galleryCard,
-    onCardClick,
-    onChangeGallery,
-    onChangeCard,
-}: SingleGalleryProps) {
-    const { setCardIndex, handleCardClick } = useSingleGallery({
+export const SingleGallerySberPortal = React.memo<SingleGalleryProps>(
+    ({
+        gallery,
         galleryIndex,
         activeCard,
-        isActive: true,
-        galleryLength: gallery.items.length,
-        onChangeCard,
-        onChangeGallery,
+        isActive,
+        className,
+        galleryCard,
+        assistant,
+        voiceStepSizeX,
         onCardClick,
-    });
+        onChangeGallery,
+        onChangeCard,
+    }) => {
+        const { setCardIndex, handleCardClick } = useSingleGallery({
+            galleryIndex,
+            activeCard,
+            isActive,
+            galleryLength: gallery.items.length,
+            assistant,
+            voiceStepSizeX,
+            onChangeCard,
+            onChangeGallery,
+            onCardClick,
+        });
 
-    return (
-        <StyledContainer className={className} data-name={getGalleryName(galleryIndex)}>
-            {gallery.title && <StyledTitle>{gallery.title}</StyledTitle>}
-            <CarouselGridWrapper>
-                <Carousel
-                    axis="x"
-                    index={activeCard}
-                    detectActive
-                    detectThreshold={0.5}
-                    onIndexChange={setCardIndex}
-                    scrollAlign="center"
-                    paddingEnd="30%"
-                    animatedScrollByIndex={false}
-                >
-                    {gallery.items.map((item, idx) => (
-                        <StyledCarouselItem key={String(item.id)}>
-                            <GalleryCard
-                                entity={item}
-                                galleryIndex={galleryIndex}
-                                index={idx}
-                                isActive={activeCard === idx}
-                                galleryCard={galleryCard}
-                                onClick={handleCardClick}
-                            />
-                        </StyledCarouselItem>
-                    ))}
-                </Carousel>
-            </CarouselGridWrapper>
-        </StyledContainer>
-    );
-}
+        return (
+            <StyledContainer className={className} data-name={getGalleryName(galleryIndex)}>
+                {gallery.title && <StyledTitle>{gallery.title}</StyledTitle>}
+                <CarouselGridWrapper>
+                    <Carousel
+                        axis="x"
+                        index={activeCard}
+                        detectActive
+                        detectThreshold={0.5}
+                        onIndexChange={setCardIndex}
+                        scrollAlign="center"
+                        paddingEnd="30%"
+                        animatedScrollByIndex={false}
+                    >
+                        {gallery.items.map((item, idx) => (
+                            <StyledCarouselItem key={String(item.id)}>
+                                <GalleryCard
+                                    entity={item}
+                                    galleryIndex={galleryIndex}
+                                    index={idx}
+                                    isActive={activeCard === idx}
+                                    galleryCard={galleryCard}
+                                    onClick={handleCardClick}
+                                />
+                            </StyledCarouselItem>
+                        ))}
+                    </Carousel>
+                </CarouselGridWrapper>
+            </StyledContainer>
+        );
+    },
+);

@@ -1,9 +1,11 @@
 import React from 'react';
+import styled, { css } from 'styled-components';
 import { action } from '@storybook/addon-actions';
-import styled from 'styled-components';
+import { Button, Header, mediaQuery } from '@salutejs/plasma-ui';
+import { background } from '@salutejs/plasma-tokens';
 
 import { Gallery } from './Gallery';
-import { GalleryCardEntity } from './types';
+import { GalleryCardEntity, GalleryControl } from './types';
 
 export default {
     title: 'Gallery',
@@ -26,6 +28,22 @@ const items = Array.from(
 
 const StyledContainer = styled.div`
     height: 100vh;
+    padding-top: 4.5rem;
+
+    ${mediaQuery(
+        'XL',
+        2,
+    )(css`
+        padding-top: 5rem;
+    `)}
+`;
+
+const StyledHeader = styled(Header)`
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: ${background};
+    z-index: 99;
 `;
 
 export const SingleGallery = (): React.ReactElement => {
@@ -58,6 +76,33 @@ export const MultiGalleryWithInitialState = (): React.ReactElement => {
                 autoFocus
                 initialState={{ activeGallery: 0, activeCards: [10, 3, 5] }}
                 onCardClick={action('onCardClick')}
+            />
+        </StyledContainer>
+    );
+};
+
+export const MultiGalleryWithExternalControls = (): React.ReactElement => {
+    const galleryRef = React.useRef<GalleryControl>(null);
+
+    return (
+        <StyledContainer>
+            <StyledHeader>
+                {galleries.map((_, index) => (
+                    <Button
+                        size="s"
+                        style={{ marginRight: '0.5rem' }}
+                        onClick={() => galleryRef.current.setActiveGallery(index)}
+                    >
+                        {galleries[index].title}
+                    </Button>
+                ))}
+            </StyledHeader>
+            <Gallery
+                ref={galleryRef}
+                items={galleries}
+                autoFocus
+                onCardClick={action('onCardClick')}
+                initialState={{ activeGallery: 0, activeCards: [10, 3, 5] }}
             />
         </StyledContainer>
     );

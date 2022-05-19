@@ -14,6 +14,7 @@ import {
     OnCardClickFn,
     SingleGalleryEntity,
     SingleGalleryProps,
+    VoiceNavigationProps,
 } from './types';
 import { getGallerySelector } from './utils';
 import { useGalleryState } from './hooks/useGalleryState';
@@ -35,7 +36,7 @@ interface SingleProps<Id, T extends AnyObject> {
     initialState?: number;
 }
 
-export type GalleryProps<Id = string, T extends AnyObject = AnyObject> = {
+export type GalleryProps<Id = string, T extends AnyObject = AnyObject> = ({
     /** Автофокус галереи при монтировании компонента */
     autoFocus?: boolean;
     className?: string;
@@ -43,7 +44,8 @@ export type GalleryProps<Id = string, T extends AnyObject = AnyObject> = {
     onCardClick?: OnCardClickFn<Id, T>;
     /** Компонент кастомной карточки галереи */
     galleryCard?: React.ComponentType<GalleryNewCardProps<Id, T>>;
-} & (MultiProps<Id, T> | SingleProps<Id, T>);
+} & (MultiProps<Id, T> | SingleProps<Id, T>)) &
+    VoiceNavigationProps;
 
 export type GalleryComponent = <Id = string, T extends AnyObject = AnyObject>(
     props: GalleryProps<Id, T> & { ref?: React.Ref<GalleryControl> },
@@ -60,14 +62,23 @@ const StyledContainer = styled.div`
 
 export const GalleryCommon = React.forwardRef<GalleryControl, UnifiedComponentProps<GalleryProps, PlatformComponents>>(
     ({ items, initialState, autoFocus, className, platformComponents, ...props }, ref) => {
-        const { state, handleChangeGallery, handleChangeCard } = useGalleryState(items, initialState, ref);
-
         const galleryRef = React.useRef<HTMLDivElement>(null);
         const focused = useFocusedState(galleryRef);
 
+        const focusGallery = (galleryIndex: number) => {
+            (galleryRef.current?.querySelector(getGallerySelector(galleryIndex)) as HTMLElement)?.focus();
+        };
+
+        const { state, handleChangeGallery, handleChangeCard } = useGalleryState({
+            items,
+            focusGallery,
+            initialState,
+            ref,
+        });
+
         useMount(() => {
             if (autoFocus) {
-                (galleryRef.current?.querySelector(getGallerySelector(state.activeGallery)) as HTMLElement)?.focus();
+                focusGallery(state.activeGallery);
             }
         });
 

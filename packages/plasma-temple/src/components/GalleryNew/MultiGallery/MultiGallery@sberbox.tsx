@@ -10,6 +10,7 @@ import { Carousel } from '../Carousel/Carousel';
 const StyledCarouselGridWrapper = styled(CarouselGridWrapper)`
     height: 100%;
 `;
+
 const StyledSingleGallery = styled(SingleGallerySberBox)`
     margin-bottom: 2rem;
 ` as typeof SingleGallerySberBox;
@@ -19,6 +20,9 @@ export function MultiGallerySberBox({
     isActive,
     state: { activeCards, activeGallery },
     galleryCard,
+    assistant,
+    voiceStepSizeX,
+    voiceStepSizeY,
     onCardClick,
     onChangeGallery,
     onChangeCard,
@@ -27,6 +31,8 @@ export function MultiGallerySberBox({
         activeGallery,
         galleryLength: items.length,
         isActive,
+        assistant,
+        voiceStepSizeY,
         onChangeGallery,
     });
 
@@ -41,6 +47,8 @@ export function MultiGallerySberBox({
                             activeCard={activeCards[index]}
                             isActive={index === activeGallery && isActive}
                             galleryCard={galleryCard}
+                            assistant={assistant}
+                            voiceStepSizeX={voiceStepSizeX}
                             onCardClick={onCardClick}
                             onChangeGallery={onChangeGallery}
                             onChangeCard={onChangeCard}
