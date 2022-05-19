@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components';
 import { AddionalItemProps } from './types';
 import { PreviewGalleryItemError } from './PreviewGalleryItemError';
 import { PreviewGalleryItemBase, PreviewGalleryItemProps } from './PreviewGalleryItemBase';
+import { PreviewGalleryItemWithTooltip } from './PreviewGalleryItemWithTooltip';
 
 export const StyledRoot = styled.div<{ isGrabbing: boolean; maxHeight?: number }>`
     display: grid;
@@ -39,6 +40,16 @@ export interface PreviewGalleryListItemsProps {
     maxHeight?: number;
 }
 
+const PreviewGalleryItem = memo(
+    SortableElement(({ status, ...itemRest }: PreviewGalleryItemProps & AddionalItemProps) => {
+        return status === 'error' ? (
+            <PreviewGalleryItemError {...itemRest} />
+        ) : (
+            <PreviewGalleryItemBase {...itemRest} />
+        );
+    }),
+);
+
 /**
  * Компонент со списком превью изображений.
  */
@@ -60,30 +71,22 @@ export const PreviewGalleryListItems = SortableContainer(
         // что данный пропс не будет меняться динамически
         const iconMemo = useMemo(() => actionIcon, []);
 
-        const PreviewGalleryItem = memo(
-            SortableElement(({ status, ...itemRest }: PreviewGalleryItemProps & AddionalItemProps) => {
-                return status === 'error' ? (
-                    <PreviewGalleryItemError {...itemRest} />
-                ) : (
-                    <PreviewGalleryItemBase {...itemRest} />
-                );
-            }),
-        );
-
         return (
             <StyledRoot isGrabbing={isGrabbing} maxHeight={maxHeight} {...rest}>
                 {items.map((item, index) => (
-                    <PreviewGalleryItem
-                        disabled={isDragDisabled}
-                        key={item.id}
-                        actionIcon={iconMemo}
-                        {...item}
-                        index={index}
-                        interactionType={interactionType}
-                        itemSize={itemSize}
-                        onItemAction={onItemAction}
-                        onItemClick={onItemClick}
-                    />
+                    <PreviewGalleryItemWithTooltip tooltip={item.tooltip}>
+                        <PreviewGalleryItem
+                            disabled={isDragDisabled}
+                            key={item.id}
+                            actionIcon={iconMemo}
+                            index={index}
+                            interactionType={interactionType}
+                            itemSize={itemSize}
+                            onItemAction={onItemAction}
+                            onItemClick={onItemClick}
+                            {...item}
+                        />
+                    </PreviewGalleryItemWithTooltip>
                 ))}
             </StyledRoot>
         );
