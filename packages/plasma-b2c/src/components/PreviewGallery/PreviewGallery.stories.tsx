@@ -62,13 +62,30 @@ const StyledWrapper = styled.div`
 interface StoryProps extends PreviewGalleryProps {}
 
 const images: Array<PreviewGalleryItemProps> = [
-    { id: 1 * Math.random(), image: './images/320_320_0.jpg', caption: '3:24' },
+    {
+        id: 1 * Math.random(),
+        image: './images/320_320_0.jpg',
+        caption: '3:24',
+        tooltip: {
+            text: 'Высокое качество воспроизведения',
+            placement: 'top',
+        },
+    },
     { id: 2 * Math.random(), image: './images/320_320_1.jpg', isSelected: true },
     { id: 3 * Math.random(), image: './images/320_320_2.jpg', actionDisabled: true },
     { id: 4 * Math.random(), image: './images/320_320_3.jpg' },
     { id: 5 * Math.random(), image: './images/320_320_4.jpg' },
     { id: 6 * Math.random(), image: './images/320_320_4.jpg', status: 'error' },
-    { id: 7 * Math.random(), component: <AddButton />, customClickHandle: () => {} },
+    {
+        id: 7 * Math.random(),
+        tooltip: {
+            placement: 'bottom',
+            text: 'Не сильно высокое качество воспроизведения',
+            animated: false,
+        },
+        component: <AddButton />,
+        customClickHandle: () => {},
+    },
 ];
 
 export const Selectable: Story<StoryProps> = ({ ...rest }) => {
