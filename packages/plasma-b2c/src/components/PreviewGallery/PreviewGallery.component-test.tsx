@@ -41,7 +41,15 @@ const itemsExamples: PreviewGalleryItemProps[] = [
         id: 5,
         image: `${base64}+P+/4T8ACP0Dftzno5UAAAAASUVORK5CYII=`,
     },
-    { id: 6, image: '', status: 'error' },
+    {
+        id: 6,
+        image: '',
+        status: 'error',
+        tooltip: {
+            text: 'Ошибка, изображение не загрузилось',
+            placement: 'top',
+        },
+    },
 ];
 
 describe('plasma-b2c: PreviewGallery', () => {
@@ -71,6 +79,18 @@ describe('plasma-b2c: PreviewGallery', () => {
                 />
             </CypressTestDecorator>,
         );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('with tooltip', () => {
+        mount(
+            <CypressTestDecorator>
+                <PreviewGallery items={itemsExamples} interactionType="selectable" />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('div > div > div').last().trigger('mouseover', { waitForAnimations: true });
 
         cy.matchImageSnapshot();
     });
@@ -218,6 +238,18 @@ describe('plasma-b2c: PreviewGallery utils', () => {
         cy.matchImageSnapshot();
     });
 
+    it('remove last item', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo itemsExternal={itemsExamples} interactionType="selectable" />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('div + div ~ div').last().find('button').click({ force: true });
+
+        cy.matchImageSnapshot();
+    });
+
     it('select first item', () => {
         mount(
             <CypressTestDecorator>
@@ -226,18 +258,6 @@ describe('plasma-b2c: PreviewGallery utils', () => {
         );
 
         cy.get('div > div > div').first().click();
-
-        cy.matchImageSnapshot();
-    });
-
-    it('remove last item', () => {
-        mount(
-            <CypressTestDecorator>
-                <Demo itemsExternal={itemsExamples} interactionType="selectable" />
-            </CypressTestDecorator>,
-        );
-
-        cy.get('div + div + div').last().find('button').click({ force: true });
 
         cy.matchImageSnapshot();
     });
