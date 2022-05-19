@@ -6,7 +6,7 @@ import { IconDone, IconDrag } from '@salutejs/plasma-icons';
 import { Image } from '../Image';
 import { Footnote2 } from '../Typography';
 
-import { AddionalItemProps, StatusType } from './types';
+import { AddionalItemProps, StatusType, TooltipItem } from './types';
 
 export const buttonMixin = (vPosition: 'left' | 'right', bgColor: string, color: string) => css`
     position: absolute;
@@ -42,7 +42,7 @@ export const StyledTrashButton = styled.button`
 `;
 
 export const StyledIconDrag = styled(IconDrag)`
-    ${buttonMixin('left', 'tranpsarent', whitePrimary)};
+    ${buttonMixin('left', 'transparent', whitePrimary)};
 
     svg {
         opacity: 0.24;
@@ -114,6 +114,10 @@ export interface PreviewGalleryItemProps {
      * Отключает кнопку действия.
      */
     actionDisabled?: boolean;
+    /**
+     * Настройки для отображения тултипа.
+     */
+    tooltip?: TooltipItem;
 }
 
 /**
