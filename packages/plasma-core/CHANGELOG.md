@@ -1,3 +1,17 @@
+# v1.59.1 (Thu May 19 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-core): unnecessary Price export [#25](https://github.com/salute-developers/plasma/pull/25) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.59.0 (Tue May 17 2022)
 
 #### 🐛 Bug Fix

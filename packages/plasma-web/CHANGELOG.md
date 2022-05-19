@@ -1,3 +1,17 @@
+# v1.102.1 (Thu May 19 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui, plasma-web): fix carousel context [#20](https://github.com/salute-developers/plasma/pull/20) (Kruglikov.A.D@sberbank.ru)
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Arseny Kruglikov (Kruglikov.A.D@sberbank.ru)
+
+---
+
 # v1.101.0 (Wed May 11 2022)
 
 #### 🚀 Enhancement

@@ -1,3 +1,15 @@
+# v1.83.1 (Thu May 19 2022)
+
+#### 🐛 Bug Fix
+
+- ci(plasma-icons): fix deps [#24](https://github.com/salute-developers/plasma/pull/24) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.83.0 (Wed May 11 2022)
 
 #### 🚀 Enhancement
