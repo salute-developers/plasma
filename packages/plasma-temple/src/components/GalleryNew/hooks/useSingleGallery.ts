@@ -1,9 +1,11 @@
 import React from 'react';
 
 import { useRemoteHandlers } from '../../../hooks';
-import { GalleryCardEntity, OnCardClickFn, OnChangeCardFn, OnChangeGalleryFn } from '../types';
+import { GalleryCardEntity, OnCardClickFn, OnChangeCardFn, OnChangeGalleryFn, VoiceNavigationProps } from '../types';
 
-interface UseSingleGalleryProps {
+import { useGalleryVoiceNavigation } from './useGalleryVoiceNavigation';
+
+interface UseSingleGalleryProps extends VoiceNavigationProps {
     galleryIndex: number;
     activeCard: number;
     galleryLength: number;
@@ -18,6 +20,8 @@ export function useSingleGallery({
     activeCard,
     galleryLength,
     isActive,
+    assistant,
+    voiceStepSizeX,
     onChangeCard,
     onChangeGallery,
     onCardClick,
@@ -29,6 +33,17 @@ export function useSingleGallery({
         max: galleryLength - 1,
         disable: !isActive,
         repeat: false,
+    });
+
+    useGalleryVoiceNavigation({
+        axis: 'x',
+        main: true,
+        index: cardIndex,
+        maxIndex: galleryLength - 1,
+        disabled: !isActive,
+        setIndex: setCardIndex,
+        assistant,
+        stepSize: voiceStepSizeX,
     });
 
     const handleCardClick = React.useCallback(
@@ -52,7 +67,6 @@ export function useSingleGallery({
     }, [activeCard]);
 
     return {
-        cardIndex,
         setCardIndex,
         handleCardClick,
     };

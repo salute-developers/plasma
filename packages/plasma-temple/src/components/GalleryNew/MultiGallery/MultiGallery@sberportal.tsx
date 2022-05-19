@@ -17,17 +17,21 @@ const StyledSingleGallery = styled(SingleGallerySberPortal)`
 
 export function MultiGallerySberPortal({
     items,
-    isActive,
     state: { activeCards, activeGallery },
     galleryCard,
+    assistant,
+    voiceStepSizeX,
+    voiceStepSizeY,
     onCardClick,
     onChangeGallery,
     onChangeCard,
 }: MultiGalleryProps) {
-    const { setGalleryIndex } = useMultiGallery({
+    const setGalleryIndex = useMultiGallery({
         activeGallery,
         galleryLength: items.length,
-        isActive,
+        isActive: true,
+        assistant,
+        voiceStepSizeY,
         onChangeGallery,
     });
 
@@ -48,8 +52,10 @@ export function MultiGallerySberPortal({
                             gallery={item}
                             galleryIndex={index}
                             activeCard={activeCards[index]}
-                            isActive={index === activeGallery && isActive}
+                            isActive={index === activeGallery}
                             galleryCard={galleryCard}
+                            assistant={assistant}
+                            voiceStepSizeX={voiceStepSizeX}
                             onCardClick={onCardClick}
                             onChangeGallery={onChangeGallery}
                             onChangeCard={onChangeCard}

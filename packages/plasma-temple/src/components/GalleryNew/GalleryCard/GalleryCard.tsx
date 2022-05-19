@@ -6,6 +6,7 @@ import { body1, body2, footnote1, footnote2 } from '@salutejs/plasma-tokens';
 import { Card } from '../../Card';
 import { GalleryCardEntity, GalleryNewCardProps } from '../types';
 import { getGalleryCardName } from '../utils';
+import { useThrottledCallback } from '../../../hooks';
 
 const StyledContainer = styled.div`
     height: 100%;
@@ -109,25 +110,12 @@ function GalleryCardComponent({
     galleryCard: CustomGalleryCard,
     onClick,
 }: GalleryCardProps) {
-    const handleClick = React.useCallback(() => {
+    const handleClick = useThrottledCallback(() => {
         onClick?.(entity, galleryIndex, index);
     }, [entity, galleryIndex, index]);
 
-    const handleKeyDown = React.useCallback(
-        (event: React.KeyboardEvent) => {
-            if (event.key === 'Enter') {
-                onClick?.(entity, galleryIndex, index);
-            }
-        },
-        [entity, galleryIndex, index],
-    );
-
     return (
-        <StyledContainer
-            onClick={handleClick}
-            onKeyDown={handleKeyDown}
-            data-name={getGalleryCardName(galleryIndex, index)}
-        >
+        <StyledContainer onClick={handleClick} data-name={getGalleryCardName(galleryIndex, index)}>
             {CustomGalleryCard ? (
                 <CustomGalleryCard entity={entity} galleryIndex={galleryIndex} index={index} isActive={isActive} />
             ) : (

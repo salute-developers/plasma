@@ -5,6 +5,7 @@ import { Headline3 } from '@salutejs/plasma-ui';
 import { Grid } from '../../Grid';
 import { GalleryCard } from '../GalleryCard/GalleryCard';
 import { GalleryCardEntity, SingleGalleryProps } from '../types';
+import { getGalleryName } from '../utils';
 
 type SingleGalleryMobileProps = Pick<
     SingleGalleryProps,
@@ -30,7 +31,7 @@ export function SingleGalleryMobile({
     );
 
     return (
-        <>
+        <div data-name={getGalleryName(galleryIndex)}>
             {gallery.title && <StyledTitle>{gallery.title}</StyledTitle>}
             <Grid columnS={2} className={className}>
                 {gallery.items.map((item, index) => (
@@ -44,6 +45,6 @@ export function SingleGalleryMobile({
                     />
                 ))}
             </Grid>
-        </>
+        </div>
     );
 }

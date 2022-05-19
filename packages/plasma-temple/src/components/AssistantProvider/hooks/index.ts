@@ -5,3 +5,4 @@ export * from './useAssistantOnNavigation';
 export * from './useAssistantOnSmartAppData';
 export * from './useAssistantState';
 export * from './useAssistantInsets';
+export * from './useVoiceNavigation';
