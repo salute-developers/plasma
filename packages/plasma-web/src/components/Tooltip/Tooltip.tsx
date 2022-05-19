@@ -39,13 +39,9 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const offset = [0, 6];
 
-const StyledRoot = styled.div`
+const StyledWrapper = styled.div`
     position: relative;
     display: inline-flex;
-`;
-
-const StyledWrapper = styled.div`
-    display: inherit;
 `;
 
 const StyledArrow = styled.div`
@@ -85,8 +81,6 @@ const StyledTooltip = styled.span<Pick<TooltipProps, 'isVisible' | 'animated'>>`
 
     pointer-events: none;
 
-    transition: opacity 200ms ease-in-out;
-
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
@@ -106,8 +100,13 @@ const StyledTooltip = styled.span<Pick<TooltipProps, 'isVisible' | 'animated'>>`
         left: -0.25rem;
     }
 
-    ${({ isVisible, animated }) =>
+    ${({ animated }) =>
         animated &&
+        css`
+            transition: opacity 200ms ease-in-out;
+        `}
+
+    ${({ isVisible }) =>
         css`
             opacity: ${Number(isVisible)};
         `}
@@ -131,6 +130,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
     const [tooltipElement, setTooltipElement] = useState<HTMLSpanElement | null>(null);
     const [arrowElement, setArrowElement] = useState<HTMLSpanElement | null>(null);
     const { styles, attributes } = usePopper(wrapperElement, tooltipElement, {
+        strategy: 'fixed',
         placement,
         modifiers: [
             { name: 'offset', options: { offset: [offset[0], offset[1]] } },
@@ -153,8 +153,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
     }, []);
 
     return (
-        <StyledRoot {...rest}>
-            {children && <StyledWrapper ref={setWrapperElement}>{children}</StyledWrapper>}
+        <>
             <StyledTooltip
                 {...attributes.popper}
                 ref={setTooltipElement}
@@ -169,6 +168,11 @@ export const Tooltip: React.FC<TooltipProps> = ({
                 {arrow && <StyledArrow ref={setArrowElement} style={styles.arrow} {...attributes.arrow} />}
                 {text}
             </StyledTooltip>
-        </StyledRoot>
+            {children && (
+                <StyledWrapper ref={setWrapperElement} {...rest}>
+                    {children}
+                </StyledWrapper>
+            )}
+        </>
     );
 };
