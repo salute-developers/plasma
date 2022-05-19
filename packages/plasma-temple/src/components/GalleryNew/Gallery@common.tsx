@@ -12,11 +12,11 @@ import {
     GalleryState,
     MultiGalleryProps,
     OnCardClickFn,
-    OnChangeCardFn,
-    OnChangeGalleryFn,
     SingleGalleryEntity,
     SingleGalleryProps,
 } from './types';
+import { getGallerySelector } from './utils';
+import { useGalleryState } from './hooks/useGalleryState';
 
 interface MultiProps<Id, T extends AnyObject> {
     /** Список элементов галереи */
@@ -28,7 +28,10 @@ interface MultiProps<Id, T extends AnyObject> {
 interface SingleProps<Id, T extends AnyObject> {
     /** Список элементов галереи */
     items: SingleGalleryEntity<Id, T>;
-    /** Начальное состояние галереи */
+    /**
+     * Начальное состояние галереи, для бокса и портала устанавливает активную карточку для каждой галереи,
+     * для мобильной версии делает проскрол только для активной галереи
+     */
     initialState?: number;
 }
 
@@ -55,67 +58,16 @@ const StyledContainer = styled.div`
     height: 100%;
 `;
 
-const getInitialState = <Id, T extends AnyObject>(
-    items: SingleGalleryEntity<Id, T> | SingleGalleryEntity<Id, T>[],
-    initialState?: GalleryState | number,
-) => {
-    if (typeof initialState === 'undefined') {
-        return Array.isArray(items)
-            ? { activeGallery: 0, activeCards: items.map(() => 0) }
-            : { activeGallery: 0, activeCards: [0] };
-    }
-
-    if (typeof initialState === 'number') {
-        return {
-            activeGallery: 0,
-            activeCards: [initialState],
-        };
-    }
-
-    return initialState;
-};
-
 export const GalleryCommon = React.forwardRef<GalleryControl, UnifiedComponentProps<GalleryProps, PlatformComponents>>(
     ({ items, initialState, autoFocus, className, platformComponents, ...props }, ref) => {
-        const [state, setState] = React.useState<GalleryState>(getInitialState(items, initialState));
-
-        const handleChangeGallery = React.useCallback<OnChangeGalleryFn>(({ galleryIndex, cardIndex = -1 }) => {
-            setState(({ activeCards }) => ({
-                activeGallery: galleryIndex,
-                activeCards:
-                    cardIndex > -1
-                        ? [...activeCards.slice(0, galleryIndex), cardIndex, ...activeCards.slice(galleryIndex + 1)]
-                        : activeCards,
-            }));
-        }, []);
-
-        const handleChangeCard = React.useCallback<OnChangeCardFn>(({ galleryIndex, cardIndex }) => {
-            setState((prevState) => ({
-                ...prevState,
-                activeCards: [
-                    ...prevState.activeCards.slice(0, galleryIndex),
-                    cardIndex,
-                    ...prevState.activeCards.slice(galleryIndex + 1),
-                ],
-            }));
-        }, []);
-
-        React.useImperativeHandle(
-            ref,
-            (): GalleryControl => ({
-                getGalleryState: () => state,
-                setGalleryState: (newState) => setState(newState),
-            }),
-        );
+        const { state, handleChangeGallery, handleChangeCard } = useGalleryState(items, initialState, ref);
 
         const galleryRef = React.useRef<HTMLDivElement>(null);
         const focused = useFocusedState(galleryRef);
 
         useMount(() => {
             if (autoFocus) {
-                (galleryRef.current?.querySelector(
-                    `[data-name="gallery-${state.activeGallery}"]`,
-                ) as HTMLElement)?.focus();
+                (galleryRef.current?.querySelector(getGallerySelector(state.activeGallery)) as HTMLElement)?.focus();
             }
         });
 

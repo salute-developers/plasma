@@ -5,9 +5,21 @@ import { body1, body2, footnote1, footnote2 } from '@salutejs/plasma-tokens';
 
 import { Card } from '../../Card';
 import { GalleryCardEntity, GalleryNewCardProps } from '../types';
+import { getGalleryCardName } from '../utils';
+
+const StyledContainer = styled.div`
+    height: 100%;
+`;
 
 const StyledCard = styled(Card)`
-    width: 12.25rem;
+    height: 100%;
+
+    ${mediaQuery(
+        'XL',
+        2,
+    )(css`
+        width: 12.25rem;
+    `)}
 
     ${mediaQuery(
         'M',
@@ -20,9 +32,16 @@ const StyledCard = styled(Card)`
         'S',
         1,
     )(css`
-        width: 10.375rem;
+        width: 100%;
     `)}
 ` as typeof Card;
+
+const StyledContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+`;
 
 const StyledName = styled.div<{ lines: number }>`
     ${body1}
@@ -30,6 +49,13 @@ const StyledName = styled.div<{ lines: number }>`
     ${mediaQuery(
         'M',
         2,
+    )(css`
+        ${footnote1}
+    `)}
+
+    ${mediaQuery(
+        'S',
+        1,
     )(css`
         ${footnote1}
     `)}
@@ -51,6 +77,8 @@ const StyledName = styled.div<{ lines: number }>`
 `;
 
 const StyledCaption = styled.div`
+    margin-top: 0.25rem;
+
     ${body2}
 
     ${mediaQuery(
@@ -58,6 +86,13 @@ const StyledCaption = styled.div`
         2,
     )(css`
         ${footnote2}
+    `)}
+
+    ${mediaQuery(
+        'S',
+        1,
+    )(css`
+        ${footnote1}
     `)}
 `;
 
@@ -88,16 +123,22 @@ function GalleryCardComponent({
     );
 
     return (
-        <div onClick={handleClick} onKeyDown={handleKeyDown}>
+        <StyledContainer
+            onClick={handleClick}
+            onKeyDown={handleKeyDown}
+            data-name={getGalleryCardName(galleryIndex, index)}
+        >
             {CustomGalleryCard ? (
                 <CustomGalleryCard entity={entity} galleryIndex={galleryIndex} index={index} isActive={isActive} />
             ) : (
                 <StyledCard entity={entity} index={index} focused={isActive} onClick={handleClick}>
-                    <StyledName lines={entity.caption ? 2 : 3}>{entity.name}</StyledName>
-                    {entity.caption && <StyledCaption>{entity.caption}</StyledCaption>}
+                    <StyledContent>
+                        <StyledName lines={entity.caption ? 2 : 3}>{entity.name}</StyledName>
+                        {entity.caption && <StyledCaption>{entity.caption}</StyledCaption>}
+                    </StyledContent>
                 </StyledCard>
             )}
-        </div>
+        </StyledContainer>
     );
 }
 

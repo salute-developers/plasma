@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import styled from 'styled-components';
 
 import { Gallery } from './Gallery';
-import { GalleryCardEntity, GalleryControl } from './types';
+import { GalleryCardEntity } from './types';
 
 export default {
     title: 'Gallery',
@@ -17,7 +17,8 @@ const items = Array.from(
     (_, index) =>
         ({
             id: index,
-            name: 'Очень очень длинное длинное название ',
+            name: index % 2 ? 'Очень очень длинное длинное название' : 'Название',
+            caption: index % 3 ? 'доп. инфо' : undefined,
             image: { src: 'images/img.png' },
             badge: { type: 'accent', content: 'Скидка 40%' },
         } as GalleryCardEntity<number>),
@@ -25,7 +26,6 @@ const items = Array.from(
 
 const StyledContainer = styled.div`
     height: 100vh;
-    padding-top: 144px;
 `;
 
 export const SingleGallery = (): React.ReactElement => {
@@ -43,22 +43,20 @@ const galleries = [
 ];
 
 export const MultiGallery = (): React.ReactElement => {
-    const galleryRef = React.useRef<GalleryControl>(null);
+    return (
+        <StyledContainer>
+            <Gallery items={galleries} autoFocus onCardClick={action('onCardClick')} />
+        </StyledContainer>
+    );
+};
 
-    // React.useEffect(() => {
-    //     console.log(galleryRef.current.getGalleryState());
-    //     // setTimeout(() => {
-    //     //     galleryRef.current.setGalleryState({ activeGallery: 1, activeCards: [1, 11, 5] });
-    //     // }, 3000);
-    // }, []);
-
+export const MultiGalleryWithInitialState = (): React.ReactElement => {
     return (
         <StyledContainer>
             <Gallery
-                ref={galleryRef}
                 items={galleries}
                 autoFocus
-                initialState={{ activeGallery: 0, activeCards: [1, 3, 5] }}
+                initialState={{ activeGallery: 0, activeCards: [10, 3, 5] }}
                 onCardClick={action('onCardClick')}
             />
         </StyledContainer>
