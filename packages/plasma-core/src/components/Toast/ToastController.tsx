@@ -108,6 +108,12 @@ export const ToastController: React.FC<ToastInfo> = ({ role, text, contentLeft, 
     }, [timeout, isVisible]);
 
     useEffect(() => {
+        if (timeout === null && hideTimeout.current !== null) {
+            clearTimeout(hideTimeout.current);
+        }
+    }, [timeout]);
+
+    useEffect(() => {
         return () => {
             if (hideTimeout.current !== null) {
                 clearTimeout(hideTimeout.current);

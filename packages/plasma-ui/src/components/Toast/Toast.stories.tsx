@@ -24,11 +24,19 @@ interface LiveDemoProps extends ToastProps {
 }
 
 export const LiveDemo: Story<LiveDemoProps> = ({ role, text, position, timeout, fade, enableContentLeft }) => {
-    const { showToast } = useToast();
+    const { showToast, hideToast } = useToast();
     const contentLeft = enableContentLeft && <IconClose size="xs" color={critical} />;
 
     return (
         <div>
+            <Button
+                style={{ zIndex: 100000000 }}
+                onClick={() => {
+                    hideToast();
+                }}
+            >
+                Hide
+            </Button>
             <Button
                 onClick={() => {
                     showToast(text, position, timeout, fade, contentLeft, role);
