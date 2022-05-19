@@ -2,6 +2,13 @@ import React from 'react';
 
 import { GalleryControl, GalleryState, OnChangeCardFn, OnChangeGalleryFn, SingleGalleryEntity } from '../types';
 
+interface UseGalleryStateProps {
+    items: SingleGalleryEntity | SingleGalleryEntity[];
+    initialState?: GalleryState | number;
+    ref?: React.Ref<GalleryControl>;
+    focusGallery: (galleryIndex: number, cardIndex?: number) => void;
+}
+
 export const getInitialState = (
     items: SingleGalleryEntity | SingleGalleryEntity[],
     initialState?: GalleryState | number,
@@ -22,11 +29,7 @@ export const getInitialState = (
     return initialState;
 };
 
-export function useGalleryState(
-    items: SingleGalleryEntity | SingleGalleryEntity[],
-    initialState?: GalleryState | number,
-    ref?: React.Ref<GalleryControl>,
-) {
+export function useGalleryState({ items, initialState, ref, focusGallery }: UseGalleryStateProps) {
     const [state, setState] = React.useState<GalleryState>(getInitialState(items, initialState));
 
     const handleChangeGallery = React.useCallback<OnChangeGalleryFn>(({ galleryIndex, cardIndex = -1 }) => {
@@ -55,6 +58,10 @@ export function useGalleryState(
         (): GalleryControl => ({
             getGalleryState: () => state,
             setGalleryState: (newState) => setState(newState),
+            setActiveGallery: (galleryIndex, cardIndex) => {
+                handleChangeGallery({ galleryIndex, cardIndex });
+                focusGallery(galleryIndex, cardIndex);
+            },
         }),
     );
 
