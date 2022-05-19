@@ -141,4 +141,43 @@ describe('plasma-web: Tooltip', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('wrapper overflow scroll', () => {
+        const Container = ({ children }) => {
+            return (
+                <div
+                    style={{
+                        background: 'coral',
+                        overflow: 'scroll',
+                    }}
+                >
+                    {children}
+                </div>
+            );
+        };
+
+        mount(
+            <CypressTestDecorator>
+                <Container>
+                    <Tooltip placement="bottom-end" isVisible arrow text="Toggle" animated={false}>
+                        <Button text="hello" />
+                    </Tooltip>
+                </Container>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('isVisible false', () => {
+        mount(
+            <CypressTestDecorator>
+                <Tooltip text="Высокое качество воспроизведения" isVisible={false} animated={false} placement="right">
+                    <Button text="hello" />
+                </Tooltip>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
 });
