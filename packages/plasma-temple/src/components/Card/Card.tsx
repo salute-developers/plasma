@@ -121,6 +121,10 @@ const StyledBadge = styled(CardBadge)<ViewProps & BasePositionProps>`
     ${applyPosition}
 `;
 
+const StyledContent = styled(CardContent)`
+    flex: 1;
+`;
+
 /**
  * Компонент для отображение карточки какой-либо сущности (товара, фильма, экскурсии  и т.д. )
  * Может использоваться в каруселях, в компоненте `Grid`
@@ -194,7 +198,7 @@ export function Card<Id = string, T extends AnyObject = AnyObject>({
                         />
                     )}
                 </CardMedia>
-                <CardContent {...contentProps}>{children}</CardContent>
+                <StyledContent {...contentProps}>{children}</StyledContent>
                 {withPositionBadge && <StyledPositionBadge view="secondary" size="l" text={`${index + 1}`} circled />}
             </CardBody>
         </PlasmaCard>
