@@ -1,3 +1,17 @@
+# v1.68.2 (Fri May 20 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-temple): pass `character` as arg for `getInitialProps` [#19](https://github.com/salute-developers/plasma/pull/19) ([@LamaEats](https://github.com/LamaEats))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # v1.68.1 (Thu May 19 2022)
 
 #### 🐛 Bug Fix
