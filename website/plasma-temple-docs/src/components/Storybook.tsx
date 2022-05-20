@@ -7,6 +7,7 @@ const storyLinks = {
     Grid: 'grid--default',
     Product: 'product-product--default',
     StateLayout: 'statelayout--success',
+    Gallery: 'gallery--multi-gallery',
 };
 
 export const StorybookLink: FC<{ name: keyof typeof storyLinks }> = ({ name }) => {
