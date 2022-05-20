@@ -26,7 +26,7 @@ export const initializeAssistant = <T extends AssistantSmartAppData>({
     token = '',
     ...restProps
 }: InitializeParams): AssistantInstance => {
-    if (process.env.NODE_ENV === 'development' && !window.Cypress) {
+    if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined' && !window.Cypress) {
         assistant = createSmartappDebugger<T>({
             getState: () => {
                 const state = getState();
@@ -38,7 +38,7 @@ export const initializeAssistant = <T extends AssistantSmartAppData>({
         });
 
         assistant.on('data', (action) => logger('Assistant Action', action));
-    } else {
+    } else if (typeof window !== 'undefined') {
         assistant = createAssistant<T>({ getState, getRecoveryState });
     }
 

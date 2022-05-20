@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useMount } from '../../../../hooks';
+import { useMount } from '../../../../hooks/index';
 import { useAssistant, useAssistantCharacter } from '../../../AssistantProvider';
 import { useAssistantTheme } from '../../../AssistantProvider/hooks/useAssistantTheme';
 import { ThemeProvider, ThemeProviderProps } from '../../../ThemeProvider/ThemeProvider';

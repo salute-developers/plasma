@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { AppStateContext } from '../PlasmaApp/AppStateContext';
-import { AssistantContext } from '../PlasmaApp/AssistantContext';
+import { AssistantContext } from '../AssistantProvider/AssistantContext';
 
 import { HeaderProps, NewHeaderProps, OldHeaderProps } from './types';
 
