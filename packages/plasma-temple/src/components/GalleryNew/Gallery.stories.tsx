@@ -97,13 +97,7 @@ export const MultiGalleryWithExternalControls = (): React.ReactElement => {
                     </Button>
                 ))}
             </StyledHeader>
-            <Gallery
-                ref={galleryRef}
-                items={galleries}
-                autoFocus
-                onCardClick={action('onCardClick')}
-                initialState={{ activeGallery: 0, activeCards: [10, 3, 5] }}
-            />
+            <Gallery ref={galleryRef} items={galleries} autoFocus onCardClick={action('onCardClick')} />
         </StyledContainer>
     );
 };

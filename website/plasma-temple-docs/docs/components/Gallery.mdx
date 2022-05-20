@@ -1,0 +1,98 @@
+---
+id: gallery
+title: Gallery
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Gallery
+<Description name="Gallery" />
+<PropsTable name="Gallery" />
+<StorybookLink name="Gallery" />
+
+
+## Управление состоянием галереи
+Все управление состоянием реализовано внутри галереи, можно только указать начальное состояние галереи используя пропс `initialState`.
+Но в каких-то случаях необходимо изменить состояние снаружи, например при клике по кнопке происходит переход к дочерней галереи (в случае)
+галереи галерей. Даное управление реализовано через `ref` доступный интерфейс описан в типе `GalleryControl`:
+
+| Имя               | Тип                                                | Описание|
+| :---------------- | :------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| getGalleryState   | () => GalleryState                                 | Получить текущее состояние галереи|
+| setGalleryState   | (args: GalleryState) => void | Установить новое состояние галереи|
+| setActiveGallery  | (galleryIndex: number, cardIndex?: number) => void | Установить активную галерею, если галерея была не активна (несфокусирована) в случае Сбербокса, то фокус переходит на активную галерею. Если галерея состоит только из одной вложенной галереи, то galleryIndex = 0. Если cardIndex не передан, то активной остается текущая активная карточка галереи|
+
+
+## Примеры
+
+```tsx
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { Button, Header, mediaQuery } from '@salutejs/plasma-ui';
+import { background } from '@salutejs/plasma-tokens';
+import { Gallery } from '@salutejs/plasma-temple';
+
+const StyledContainer = styled.div`
+    height: 100vh;
+    padding-top: 4.5rem;
+
+    ${mediaQuery(
+        'XL',
+        2,
+    )(css`
+        padding-top: 5rem;
+    `)}
+`;
+
+const StyledHeader = styled(Header)`
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: ${background};
+    z-index: 99;
+`;
+
+const items = Array.from(
+    { length: 12 },
+    (_, index) =>
+        ({
+            id: index,
+            name: index % 2 ? 'Очень очень длинное длинное название' : 'Название',
+            caption: index % 3 ? 'доп. инфо' : undefined,
+            image: { src: 'images/img.png' },
+            badge: { type: 'accent', content: 'Скидка 40%' },
+        } as GalleryCardEntity<number>),
+);
+
+const galleries = [
+    { title: 'Галерея 1', items },
+    { title: 'Галерея 2', items },
+    { title: 'Галерея 3', items },
+];
+
+export function App() {
+      const galleryRef = React.useRef<GalleryControl>(null);
+
+    return (
+        <StyledContainer>
+            <StyledHeader>
+                {galleries.map((_, index) => (
+                    <Button
+                        size="s"
+                        style={{ marginRight: '0.5rem' }}
+                        onClick={() => galleryRef.current.setActiveGallery(index)}
+                    >
+                        {galleries[index].title}
+                    </Button>
+                ))}
+            </StyledHeader>
+            <Gallery
+                ref={galleryRef}
+                items={galleries}
+                autoFocus
+                onCardClick={() => {}}
+            />
+        </StyledContainer>
+    );
+}
+```

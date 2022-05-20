@@ -9,7 +9,7 @@ import { GallerySberPortal } from './Gallery@sberportal';
 import { GalleryControl } from './types';
 
 /**
- * Компонент Галереи
+ * Компонент Галереи. С возможностью создать галерею галерей
  */
 export const Gallery = React.forwardRef<GalleryControl, GalleryProps>((props, ref) => (
     <DeviceComponent
