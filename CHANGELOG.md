@@ -1,3 +1,16 @@
+# (Fri May 20 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-temple@1.68.2`, `@salutejs/plasma-sb-utils@0.58.2`
+  - fix(plasma-temple): pass `character` as arg for `getInitialProps` [#19](https://github.com/salute-developers/plasma/pull/19) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 1
+
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # (Thu May 19 2022)
 
 #### 🐛 Bug Fix
