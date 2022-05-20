@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AssistantContext, AssistantContextType } from '../components/PlasmaApp/AssistantContext';
+import { AssistantContext, AssistantContextType } from '../components/AssistantProvider/AssistantContext';
 import { AssistantInstance } from '../types';
 
 // @deprecated works only with PlasmaApp
