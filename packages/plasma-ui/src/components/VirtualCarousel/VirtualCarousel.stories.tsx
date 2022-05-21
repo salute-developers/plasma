@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import type { SnapType, SnapAlign } from '@salutejs/plasma-core';
+import { SnapType, SnapAlign } from '@salutejs/plasma-core';
 
 import { isSberBox } from '../../utils';
 import { ProductCard, MusicCard, GalleryCard } from '../Card/Card.examples';
@@ -8,15 +8,13 @@ import { DeviceThemeProvider } from '../Device';
 import { Row } from '../Grid';
 import { Body3 } from '../Typography/Body';
 
-import { useRemoteHandlers2 } from './VirtualCarousel.hooks';
-
 import {
-    VirtualCarouselGridWrapper,
+    CarouselGridWrapper,
     VirtualCarousel,
     VirtualCarouselItem,
     VirtualCarouselCol,
     VirtualCarouselProps,
-    VirtualCarouselCarouselColProps,
+    VirtualCarouselColProps,
 } from '.';
 
 const items = Array(100)
@@ -40,25 +38,15 @@ export default {
     title: 'Controls/VirtualCarousel2',
 } as Meta;
 
-export const Basic: Story<VirtualCarouselProps & VirtualCarouselCarouselColProps & { displayGrid: boolean }> = ({
+export const Basic: Story<VirtualCarouselProps & VirtualCarouselColProps & { displayGrid: boolean }> = ({
     scrollSnapType,
     scrollSnapAlign,
 }) => {
     const axis = 'x';
-    const delayFrames = isSberbox ? 18 : 2;
-    const longDelayFrames = isSberbox ? 94 : 10;
-    const [index] = useRemoteHandlers2({
-        initialIndex: 0,
-        axis,
-        delayFrames,
-        longDelayFrames,
-        min: 0,
-        max: items.length - 1,
-    });
 
     return (
         <DeviceThemeProvider>
-            <VirtualCarouselGridWrapper>
+            <CarouselGridWrapper>
                 <VirtualCarousel
                     as={Row}
                     index={index}
@@ -94,7 +82,7 @@ export const Basic: Story<VirtualCarouselProps & VirtualCarouselCarouselColProps
                         })
                     }
                 />
-            </VirtualCarouselGridWrapper>
+            </CarouselGridWrapper>
         </DeviceThemeProvider>
     );
 };
@@ -107,7 +95,7 @@ Basic.argTypes = {};
 
 // это пока можно не смотреть
 
-export const Vertical: Story<VirtualCarouselProps & VirtualCarouselCarouselColProps & { displayGrid: boolean }> = ({
+export const Vertical: Story<VirtualCarouselProps & VirtualCarouselColProps & { displayGrid: boolean }> = ({
     scrollAlign,
     scrollSnapType,
     scrollSnapAlign,
@@ -188,7 +176,7 @@ export const MusicPage: Story<MusicPageProps> = ({ scrollSnapType, scrollSnapAli
         <DeviceThemeProvider>
             <section style={{ margin: '1.75rem 0' }}>
                 <Body3 style={{ marginBottom: '1rem' }}>Новые альбомы</Body3>
-                <VirtualCarouselGridWrapper>
+                <CarouselGridWrapper>
                     <VirtualCarousel
                         as={Row}
                         axis="x"
@@ -221,11 +209,11 @@ export const MusicPage: Story<MusicPageProps> = ({ scrollSnapType, scrollSnapAli
                             });
                         }}
                     />
-                </VirtualCarouselGridWrapper>
+                </CarouselGridWrapper>
             </section>
             <section style={{ margin: '1.75rem 0' }}>
                 <Body3 style={{ marginBottom: '1rem' }}>Хиты и чарты</Body3>
-                <VirtualCarouselGridWrapper>
+                <CarouselGridWrapper>
                     <VirtualCarousel
                         as={Row}
                         axis="x"
@@ -255,11 +243,11 @@ export const MusicPage: Story<MusicPageProps> = ({ scrollSnapType, scrollSnapAli
                             });
                         }}
                     />
-                </VirtualCarouselGridWrapper>
+                </CarouselGridWrapper>
             </section>
             <section style={{ margin: '1.75rem 0' }}>
                 <Body3 style={{ marginBottom: '1rem' }}>Жанры и настроения</Body3>
-                <VirtualCarouselGridWrapper>
+                <CarouselGridWrapper>
                     <VirtualCarousel
                         as={Row}
                         axis="x"
@@ -289,7 +277,7 @@ export const MusicPage: Story<MusicPageProps> = ({ scrollSnapType, scrollSnapAli
                             });
                         }}
                     />
-                </VirtualCarouselGridWrapper>
+                </CarouselGridWrapper>
             </section>
         </DeviceThemeProvider>
     );

@@ -1,30 +1,33 @@
+import { useVirtualForPlasma } from '@salutejs/use-virtual';
+import React, { RefObject, useEffect, useRef } from 'react';
 import styled, { css } from 'styled-components';
 
-import type { VirtualCarouselProps } from './types';
+import { useForkRef } from '../../hooks';
+import { applyNoSelect } from '../../mixins';
+import { Carousel, CarouselGridWrapper } from '../Carousel';
 
-/**
- * Компонент применяется, если требуется компенсировать отступы контейнера в сетке.
- * При обертывании вокруг ``Carousel``, добавляет карусели и ее прокрутке дополнительные отступы.
- * Стилизованный компонент, обладающий всеми свойствами ``div``.
- */
-export const VirtualCarouselGridWrapper = styled.div`
-    overflow: hidden;
-    margin-left: calc(var(--plasma-grid-margin) * -1);
-    margin-right: calc(var(--plasma-grid-margin) * -1);
-`;
+import type { VirtualCarouselProps as BaseProps } from './types';
+import { VirtualCarouselContext } from './VirtualCarouselContext';
+
+export type VirtualCarouselProps = BaseProps & {
+    /**
+     * Сменить WAI-ARIA Role списка.
+     */
+    listRole?: string;
+    /**
+     * Сменить WAI-ARIA Label списка.
+     */
+    listAriaLabel?: string;
+    index?: number;
+};
 
 /**
  * Корневой элемент - ограничивающая обертка карусели.
  */
-export const VirtualCarousel = styled.div<Pick<VirtualCarouselProps, 'carouselHeight' | 'axis' | 'scrollSnapType'>>`
-    position: relative;
+export const VirtualCarouselWrapper = styled(Carousel)<VirtualCarouselProps>`
     ${({ carouselHeight, axis }) => css`
         ${axis === 'y' ? 'height' : 'width'}: ${carouselHeight}px;
     `}
-    /* stylelint-disable-next-line selector-max-empty-lines, selector-nested-pattern, selector-type-no-unknown */
-    ::-webkit-scrollbar {
-        display: none;
-    }
 
     ${({ axis }) =>
         axis === 'x'
@@ -36,20 +39,6 @@ export const VirtualCarousel = styled.div<Pick<VirtualCarouselProps, 'carouselHe
                   overflow-x: hidden;
                   overflow-y: auto;
               `}
-
-    ${({ scrollSnapType, axis }) =>
-        scrollSnapType &&
-        scrollSnapType !== 'none' &&
-        css`
-            //scroll-behavior: smooth;
-            //scroll-snap-type: ${axis} ${scrollSnapType};
-        `}
-
-    /* stylelint-disable-next-line */
-    ${VirtualCarouselGridWrapper} & {
-        scroll-padding: 0 var(--plasma-grid-margin);
-        padding-left: var(--plasma-grid-margin);
-    }
 `;
 
 /**
@@ -59,15 +48,14 @@ export const VirtualCarouselTrack = styled.div<
     Pick<VirtualCarouselProps, 'carouselHeight' | 'axis' | 'paddingStart' | 'paddingEnd'>
 >`
     position: relative;
+
     ${({ carouselHeight, axis }) => css`
         ${axis === 'x' ? 'width' : 'height'}: ${carouselHeight}px;
     `}
+
     ${({ axis, paddingStart, paddingEnd }) =>
         axis === 'x'
             ? css`
-                  //display: inline-flex;
-                  //flex-direction: row;
-
                   ${paddingStart &&
                   css`
                       padding-left: ${paddingStart};
@@ -78,16 +66,12 @@ export const VirtualCarouselTrack = styled.div<
                         `
                       : css`
                             /* stylelint-disable-next-line selector-nested-pattern */
-                            ${VirtualCarouselGridWrapper} & {
+                            ${CarouselGridWrapper} & {
                                 padding-right: var(--plasma-grid-margin);
                             }
                         `}
               `
             : css`
-                  display: flex;
-                  flex-direction: column;
-                  width: 100%;
-
                   ${paddingStart &&
                   css`
                       padding-top: ${paddingStart};
@@ -97,4 +81,98 @@ export const VirtualCarouselTrack = styled.div<
                       padding-bottom: ${paddingEnd};
                   `}
               `}
+
+    ${applyNoSelect};
 `;
+
+/**
+ * Компонент для создания списков с прокруткой и виртуализацией.
+ */
+// eslint-disable-next-line prefer-arrow-callback
+export const VirtualCarousel = React.forwardRef<HTMLDivElement, VirtualCarouselProps>(function VirtualCarousel(
+    {
+        axis = 'x',
+        scrollSnapType = 'mandatory',
+        onScroll,
+        onIndexChange,
+        paddingStart,
+        paddingEnd,
+        listRole,
+        listAriaLabel,
+        itemCount,
+        estimateSize,
+        overscan,
+        renderItems,
+        carouselHeight,
+        index,
+        ...rest
+    },
+    ref,
+) {
+    const scrollRef = useRef<HTMLDivElement>(null);
+
+    const handleRef = useForkRef<HTMLDivElement>(scrollRef as RefObject<HTMLDivElement>, ref);
+
+    const scrollToFn = React.useCallback(
+        (offset: number) => {
+            scrollRef.current?.scrollTo({ [axis === 'y' ? 'top' : 'left']: offset, behavior: 'smooth' });
+        },
+        [axis],
+    );
+
+    const { visibleItems, totalSize, currentIndex, scrollToIndex } = useVirtualForPlasma({
+        itemCount,
+        parentRef: scrollRef as RefObject<HTMLDivElement>,
+        horizontal: axis === 'x',
+        paddingStart: (paddingStart ? parseFloat(paddingStart) : paddingStart) as number | undefined,
+        paddingEnd: (paddingEnd ? parseFloat(paddingEnd) : paddingEnd) as number | undefined,
+        estimateSize,
+        overscan,
+        scrollToFn,
+    });
+
+    useEffect(() => {
+        if (typeof index === 'number') {
+            scrollToIndex(index);
+        }
+    }, [index, scrollToIndex]);
+
+    useEffect(() => {
+        if (typeof index !== 'number' || index !== currentIndex) {
+            onIndexChange?.(currentIndex);
+        }
+    }, [onIndexChange, currentIndex]);
+
+    const style = React.useMemo(() => {
+        return { [axis === 'x' ? 'width' : 'height']: `${totalSize}px` };
+    }, [axis, totalSize]);
+
+    const context = React.useMemo(() => {
+        return { axis };
+    }, [axis, totalSize]);
+
+    return (
+        <VirtualCarouselContext.Provider value={context}>
+            <VirtualCarouselWrapper
+                ref={handleRef}
+                axis={axis}
+                scrollSnapType={scrollSnapType}
+                onScroll={onScroll}
+                carouselHeight={carouselHeight}
+                {...rest}
+            >
+                <VirtualCarouselTrack
+                    axis={axis}
+                    paddingStart={paddingStart}
+                    paddingEnd={paddingEnd}
+                    role={listRole}
+                    aria-label={listAriaLabel}
+                    style={style}
+                    carouselHeight={carouselHeight}
+                >
+                    {renderItems(visibleItems, currentIndex)}
+                </VirtualCarouselTrack>
+            </VirtualCarouselWrapper>
+        </VirtualCarouselContext.Provider>
+    );
+});

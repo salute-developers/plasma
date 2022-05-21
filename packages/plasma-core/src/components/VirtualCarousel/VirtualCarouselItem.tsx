@@ -1,28 +1,35 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { applyScrollSnap, ScrollSnapProps } from '../../mixins';
 import type { AsProps } from '../../types';
 
-export interface VirtualCarouselItemProps extends ScrollSnapProps, AsProps, React.HTMLAttributes<HTMLDivElement> {
-    /**
-     * Смещение по оси
-     */
-    start: number;
-    /**
-     * Ось
-     */
-    axis: string;
-}
+import type { ScrollAxis } from './types';
 
-const StyledItem = styled.div<VirtualCarouselItemProps>`
+export type VirtualCarouselItemProps = ScrollSnapProps &
+    AsProps &
+    React.HTMLAttributes<HTMLDivElement> & {
+        /**
+         * Смещение по оси
+         */
+        start: number;
+        /**
+         * Ось
+         */
+        axis: ScrollAxis;
+    };
+
+const StyledItem = styled.div.attrs((props: VirtualCarouselItemProps) => {
+    return {
+        style: {
+            transform: props.axis === 'x' ? `translateX(${props.start}px)` : `translateY(${props.start}px)`,
+        },
+    };
+})<VirtualCarouselItemProps>`
     position: absolute;
     top: 0;
     left: 0;
     ${applyScrollSnap}
-    ${({ start, axis }) => css`
-        transform: ${axis === 'x' ? 'translateX' : 'translateY'} (${start}px);
-    `}
 `;
 
 export const VirtualCarouselItem: React.FC<VirtualCarouselItemProps> = ({

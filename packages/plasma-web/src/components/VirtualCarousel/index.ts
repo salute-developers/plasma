@@ -1,5 +1,2 @@
-export { VirtualCarouselItem } from '@salutejs/plasma-core';
-export type { VirtualCarouselItemProps } from '@salutejs/plasma-core';
-
-export { VirtualCarousel } from './VirtualCarousel';
-export type { VirtualCarouselProps } from './VirtualCarousel';
+export { VirtualCarouselItem, VirtualCarouselCol, VirtualCarousel, CarouselGridWrapper } from '@salutejs/plasma-core';
+export type { VirtualCarouselItemProps, VirtualCarouselProps, VirtualCarouselColProps } from '@salutejs/plasma-core';
