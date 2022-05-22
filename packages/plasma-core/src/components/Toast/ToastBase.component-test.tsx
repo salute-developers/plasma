@@ -133,4 +133,37 @@ describe('plasma-core: Toast', () => {
             cy.matchImageSnapshot();
         });
     });
+
+    it('clearTimeout on hide', () => {
+        const Button = getComponent('Button');
+
+        const Interactive = () => {
+            const { showToast, hideToast } = useToast();
+
+            const content = <Button id="hide" text="hide" onClick={hideToast} />;
+
+            return <Button id="show" text="show" onClick={() => showToast(content, 'top', 600)} />;
+        };
+
+        mount(
+            <CypressTestDecorator>
+                <ToastProvider>
+                    <Interactive />
+                </ToastProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('#show').click();
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(300);
+        cy.get('#hide').click();
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(300);
+        cy.get('#show').click();
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(500);
+
+        // Toast must be visible at this moment
+        cy.matchImageSnapshot();
+    });
 });
