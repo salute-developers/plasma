@@ -1,7 +1,7 @@
 import { AssistantSmartAppData, createAssistant, createSmartappDebugger } from '@salutejs/client';
 
-import { AssistantInstance, PickOptional } from './types';
-import { logger } from './utils/logger';
+import { AssistantInstance, PickOptional } from '../../types';
+import { logger } from '../../utils/logger';
 
 export type AssistantProps = Parameters<typeof createSmartappDebugger>[0];
 

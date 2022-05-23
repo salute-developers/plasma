@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import classnames from 'classnames';
 import { Headline3, Spinner } from '@salutejs/plasma-ui';
 import { gridMargins, gridSizes, mediaQuery } from '@salutejs/plasma-ui/utils';
+import { Insets } from '@salutejs/client';
 
 import { isControlVisible, MediaPlayerControls } from '../MediaPlayer/MediaPlayerControls';
 import { MediaPlayerTimeline } from '../MediaPlayer/MediaPlayerTimeline';
@@ -11,8 +12,8 @@ import { useMediaPlayer } from '../MediaPlayer/hooks/useMediaPlayer';
 import { useMediaPlayerKeyboard } from '../MediaPlayer/hooks/useMediaPlayerKeyboard';
 import { useTimer } from '../MediaPlayer/hooks/useTimer';
 import { MediaPlayer } from '../MediaPlayer/MediaPlayer';
-import { useInsets } from '../../hooks';
-import { Insets, ObjectFit } from '../../types';
+import { ObjectFit } from '../../types';
+import { useAssistantInsets } from '../AssistantProvider';
 
 export interface VideoPlayerProps extends React.VideoHTMLAttributes<HTMLVideoElement> {
     header?: React.ReactNode;
@@ -122,7 +123,7 @@ export const VideoPlayer = React.memo(
         ...restProps
     }: VideoPlayerProps) => {
         // TODO: удалить не работает без PlasmaApp, использовать проп insets
-        const plasmaAppInsets = useInsets();
+        const plasmaAppInsets = useAssistantInsets();
         const playerRef = React.useRef<HTMLVideoElement>(null);
         const { actions, state } = useMediaPlayer(playerRef, {
             start: startTime,

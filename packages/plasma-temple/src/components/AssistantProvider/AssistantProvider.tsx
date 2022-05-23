@@ -1,9 +1,8 @@
 import React from 'react';
 import { AssistantClientCustomizedCommand, AssistantSmartAppData } from '@salutejs/client';
 
-import { InitializeParams } from '../../assistant';
-import { useInitializeAssistant } from '../../hooks/useInitializeAssistant';
-
+import { InitializeParams } from './assistant';
+import { useInitializeAssistant } from './hooks/useInitializeAssistant';
 import * as Actions from './store/actions';
 import { initialAssistantState, reducer } from './store/reducer';
 import { AssistantContext, AssistantContextType } from './AssistantContext';

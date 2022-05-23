@@ -3,14 +3,18 @@ import { CharacterId } from '@salutejs/client';
 
 import { AppStateContext } from '../PlasmaApp/AppStateContext';
 import { AnyObject, AssistantInstance } from '../../types';
-import { useAssistant } from '../../hooks/useAssistant';
 import { last } from '../../utils/last';
 import { INNER_ASSISTANT_ACTION } from '../../constants';
 import { Layout } from '../../components/Layout/Layout';
 import { PageSpinner } from '../PageSpinner/PageSpinner';
-import { useCharacter, useMount } from '../../hooks';
-import { History } from '../../store/types';
+import { useMount } from '../../hooks';
 import { HeaderProps } from '../Header/types';
+import { useAssistant, useAssistantCharacter } from '../AssistantProvider';
+import { useScreens } from '../ScreensProvider';
+import { ScreensProviderContext } from '../ScreensProvider/ScreensProviderContext';
+import { Screen } from '../ScreensProvider/Screen/Screen';
+import { replaceHistory } from '../ScreensProvider/store/actions';
+import { History } from '../ScreensProvider/store/types';
 
 import { PageComponent as PageComp } from './types';
 
@@ -62,17 +66,10 @@ export const Page: PageFunctionComponent = ({
     ignoreInsets,
 }) => {
     const { assistant, setAssistantState } = useAssistant();
+    const { state, history, params, changeState, pushHistory, pushScreen, popScreen, goToScreen } = useScreens();
+    const { dispatch } = React.useContext(ScreensProviderContext);
 
-    const {
-        changeActiveScreenState,
-        state,
-        popScreen,
-        pushHistory,
-        pushScreen,
-        replacePreviousScreens,
-        goToScreen,
-        header: appHeader,
-    } = React.useContext(AppStateContext);
+    const { header: appHeader } = React.useContext(AppStateContext);
 
     const sendData = React.useCallback<AssistantInstance['sendData']>(
         (params) => {
@@ -108,37 +105,54 @@ export const Page: PageFunctionComponent = ({
         [assistant],
     );
 
-    const changeState = React.useCallback(
-        (data: Partial<History>) => {
-            changeActiveScreenState({
-                name,
-                data,
+    const activeScreen = last(history);
+
+    // TODO: выглядит как хак
+    const replacePreviousScreens = React.useCallback(
+        (screens: Array<{ name: string; params?: AnyObject }>) => {
+            if (!activeScreen) {
+                return;
+            }
+
+            screens.forEach((screen) => {
+                window.history.pushState({ params: screen.params, name: screen.name }, '');
             });
+            window.history.pushState({ name: activeScreen.name, params: activeScreen.params }, '');
+
+            const newHistory = (screens.map((screen) => ({
+                name: screen.name,
+                data: null,
+                params: screen.params ?? null,
+            })) as History[]).concat(activeScreen);
+
+            dispatch(replaceHistory(newHistory));
         },
-        [name, changeActiveScreenState],
+        [activeScreen],
     );
 
     return (
-        <Layout ignoreInsets={ignoreInsets}>
-            <React.Suspense fallback={fallbackComponent}>
-                <Component
-                    name={name}
-                    params={window.history.state}
-                    state={last(state.history)?.data}
-                    assistant={assistant}
-                    setAssistantState={setAssistantState}
-                    changeState={changeState}
-                    pushHistory={pushHistory}
-                    pushScreen={pushScreen}
-                    replacePreviousScreens={replacePreviousScreens}
-                    popScreen={popScreen}
-                    goToScreen={goToScreen}
-                    sendData={sendData}
-                    fallbackComponent={fallbackComponent}
-                    header={header ?? appHeader}
-                />
-            </React.Suspense>
-        </Layout>
+        <Screen name={name}>
+            <Layout ignoreInsets={ignoreInsets}>
+                <React.Suspense fallback={fallbackComponent}>
+                    <Component
+                        name={name}
+                        params={params}
+                        state={state}
+                        assistant={assistant}
+                        setAssistantState={setAssistantState}
+                        changeState={changeState}
+                        pushHistory={pushHistory}
+                        pushScreen={pushScreen}
+                        replacePreviousScreens={replacePreviousScreens}
+                        popScreen={popScreen}
+                        goToScreen={goToScreen}
+                        sendData={sendData}
+                        fallbackComponent={fallbackComponent}
+                        header={header ?? appHeader}
+                    />
+                </React.Suspense>
+            </Layout>
+        </Screen>
     );
 };
 
@@ -149,7 +163,7 @@ Page.lazy = (factory) => {
 
         const Wrapper = (props: React.ComponentProps<typeof Component>) => {
             const { state, changeState, params } = props;
-            const character = useCharacter();
+            const character = useAssistantCharacter();
 
             useMount(() => {
                 if (!promiseGetter || state) {

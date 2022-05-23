@@ -3,10 +3,8 @@ import { createGlobalStyle } from 'styled-components';
 import { addDecorator, addParameters } from '@storybook/react';
 import { darkSber, darkEva, darkJoy } from '@salutejs/plasma-tokens';
 import { DeviceThemeProvider } from '@salutejs/plasma-ui';
-import { createAssistant } from '@salutejs/client';
 import '@salutejs/spatial-navigation';
 
-import { AssistantContext } from '../src/components/PlasmaApp/AssistantContext';
 import { withAppState } from './decorators/withAppState';
 import { Layout } from '../src/components/Layout/Layout';
 
@@ -14,10 +12,6 @@ import { Layout } from '../src/components/Layout/Layout';
 if (typeof document !== 'undefined') {
     document.documentElement.setAttribute('lang', 'ru');
 }
-
-const mock = createAssistant({
-    getState: () => ({}),
-});
 
 const themes = {
     darkSber: createGlobalStyle(darkSber),
@@ -39,19 +33,7 @@ const withGlobalStyles = (Story, context) => {
     );
 };
 
-const withAssistant = (Story) => (
-    <AssistantContext.Provider
-        value={{
-            getAssistant: () => mock,
-            setAssistantState: () => {},
-        }}
-    >
-        <Story />
-    </AssistantContext.Provider>
-);
-
 addDecorator(withGlobalStyles);
-addDecorator(withAssistant);
 addDecorator(withAppState);
 
 // TODO: решить проблему с реестром компонент и компонент зависящих от UA браузера

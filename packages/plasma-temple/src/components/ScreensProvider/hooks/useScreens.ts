@@ -29,7 +29,7 @@ export interface UseScreensTypeReturn<
 export const useScreens = <
     PageStateType extends AnyObject,
     Name extends keyof PageStateType = keyof PageStateType,
-    PageParamsType extends Partial<Record<keyof PageStateType, unknown>> = {}
+    PageParamsType extends Partial<Record<keyof PageStateType, any>> = {}
 >(): UseScreensTypeReturn<PageStateType, Name, PageParamsType> => {
     const {
         state: { history },

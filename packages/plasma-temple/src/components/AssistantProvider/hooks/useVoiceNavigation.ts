@@ -52,6 +52,8 @@ export const useVoiceNavigation = (props: UseVoiceNavigationProps): void => {
     useAssistantOnNavigation((command) => navigateByVoice(props, command));
 };
 
+type Direction = 'left' | 'right' | 'up' | 'down';
+
 interface UseVoiceNavigationWithSpatNavProps {
     axis: Axis;
     main?: boolean;
@@ -59,10 +61,18 @@ interface UseVoiceNavigationWithSpatNavProps {
      * Функция вызова пространственной навигации, например:
      * const navigate = (direction) => window.navigate(direction);
      */
-    navigate: (direction: 'left' | 'right' | 'up' | 'down') => void;
+    navigate?: (direction: Direction) => void;
 }
 
-export const useVoiceNavigationWithSpatNav = ({ axis, main, navigate }: UseVoiceNavigationWithSpatNavProps): void => {
+const defaultSpatNavNavigate = (direction: Direction) => {
+    window.navigate(direction);
+};
+
+export const useVoiceNavigationWithSpatNav = ({
+    axis,
+    main,
+    navigate = defaultSpatNavNavigate,
+}: UseVoiceNavigationWithSpatNavProps): void => {
     const onNavigate = useCallback(
         (command: AssistantNavigationCommand) => {
             const direction = command.navigation.command;

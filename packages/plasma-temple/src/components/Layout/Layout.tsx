@@ -1,11 +1,10 @@
 import { Container } from '@salutejs/plasma-ui';
 import React from 'react';
 import styled, { CSSObject } from 'styled-components';
+import { Insets } from '@salutejs/client';
 
-import { useInsets } from '../../hooks';
 import { useWindowInnerHeight } from '../../hooks/useWindowInnerHeight';
-import { AssistantInsets } from '../../store';
-import { Insets } from '../../types';
+import { useAssistantInsets } from '../AssistantProvider';
 
 import { LayoutElementContext } from './LayoutElementContext';
 
@@ -14,14 +13,14 @@ interface LayoutProps {
 }
 
 interface StyledLayoutProps {
-    insets: AssistantInsets;
+    insets: Insets;
     windowInnerHeight: number | null;
 }
 
 const capitalize = (string: string): string => `${string[0].toUpperCase()}${string.slice(1)}`;
 
 const insetsToCSSObject = ({ insets }: StyledLayoutProps): CSSObject =>
-    (Object.keys(insets) as Array<keyof AssistantInsets>).reduce((acc, key) => {
+    (Object.keys(insets) as Array<keyof Insets>).reduce((acc, key) => {
         if (insets[key]) {
             acc[`padding${capitalize(key)}`] = insets[key];
         }
@@ -53,7 +52,7 @@ const defaultInsets: Insets = {
 };
 
 export const Layout: React.FC<LayoutProps> = ({ children, ignoreInsets }) => {
-    const insets = useInsets();
+    const insets = useAssistantInsets();
     const scrollableElementRef = React.useRef<HTMLDivElement>(null);
     const windowInnerHeight = useWindowInnerHeight();
 

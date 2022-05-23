@@ -1,20 +1,21 @@
-import { Insets } from '@salutejs/client';
 import React from 'react';
+import { createAssistant, Insets } from '@salutejs/client';
 
-import { AppStateContext, AppStateContextValue } from '../../src/components/PlasmaApp/AppStateContext';
+import {
+    ScreensProviderContext,
+    ScreensProviderContextValue,
+} from '../../src/components/ScreensProvider/ScreensProviderContext';
+import { AssistantContext } from '../../src/components/AssistantProvider/AssistantContext';
 
 const stub = () => {};
 
-export const defaultValue: AppStateContextValue = {
+const mockAssistant = createAssistant({
+    getState: () => ({}),
+});
+
+export const screensProviderDefaultValue: ScreensProviderContextValue = {
     state: {
         history: [],
-        ui: {
-            character: 'sber',
-            insets: { left: 0, top: 0, right: 0, bottom: 0 },
-        },
-    },
-    header: {
-        title: 'Plasma Temple Storybook',
     },
     dispatch: stub,
     pushHistory: stub,
@@ -31,17 +32,17 @@ const insets: Record<'sberBox' | 'sberPortal' | 'mobile', Insets> = {
 };
 
 export const withAppState = (Story: React.ComponentType, context) => {
-    const state = Object.assign(defaultValue, {
-        state: {
-            history: [],
-            ui: {
-                insets: insets[context.globals.typoSize],
-            },
-        },
-    });
     return (
-        <AppStateContext.Provider value={state}>
-            <Story />
-        </AppStateContext.Provider>
+        <AssistantContext.Provider
+            value={{
+                state: { insets: insets[context.globals.typoSize], character: 'sber', theme: 'dark' },
+                getAssistant: () => mockAssistant,
+                setAssistantState: () => {},
+            }}
+        >
+            <ScreensProviderContext.Provider value={screensProviderDefaultValue}>
+                <Story />
+            </ScreensProviderContext.Provider>
+        </AssistantContext.Provider>
     );
 };

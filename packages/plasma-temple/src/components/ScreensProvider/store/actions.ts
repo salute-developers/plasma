@@ -7,6 +7,7 @@ import {
     ChangeActiveScreenStateAction,
     History,
     ScreensProviderActionType,
+    ReplaceHistoryAction,
 } from './types';
 
 export const pushHistory = <
@@ -24,6 +25,9 @@ export const popHistory = (delta?: number): PopHistoryAction =>
 
 export const changeActiveState = (data: Partial<History['data']>): ChangeActiveScreenStateAction =>
     createAction(ScreensProviderActionType.CHANGE_ACTIVE_SCREEN_STATE, { data });
+
+export const replaceHistory = (history: History[]): ReplaceHistoryAction =>
+    createAction(ScreensProviderActionType.REPLACE_HISTORY, { history });
 
 export const getActionCreators = <
     T extends AnyObject = AnyObject,
