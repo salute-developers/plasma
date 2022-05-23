@@ -1,3 +1,18 @@
+# (Mon May 23 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-core@1.59.2`
+  - test(plasma-ui): Toast: clearTimeout after hiding [#26](https://github.com/salute-developers/plasma/pull/26) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-core@1.59.2`, `@salutejs/plasma-ui@1.104.3`
+  - fix(plasma-ui): Toast: clearTimeout after hiding [#26](https://github.com/salute-developers/plasma/pull/26) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Fri May 20 2022)
 
 #### 🐛 Bug Fix
