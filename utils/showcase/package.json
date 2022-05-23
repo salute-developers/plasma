@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/showcase",
-    "version": "0.125.2",
+    "version": "0.125.3",
     "description": "Salute Design System Showcase",
     "files": [],
     "repository": {
@@ -14,16 +14,16 @@
         "access": "restricted"
     },
     "devDependencies": {
-        "@salutejs/plasma-b2c": "1.67.2",
-        "@salutejs/plasma-core": "1.59.1",
-        "@salutejs/plasma-icons": "1.83.1",
-        "@salutejs/plasma-sb-utils": "0.58.2",
+        "@salutejs/plasma-b2c": "1.67.3",
+        "@salutejs/plasma-core": "1.59.2",
+        "@salutejs/plasma-icons": "1.83.2",
+        "@salutejs/plasma-sb-utils": "0.58.3",
         "@salutejs/plasma-tokens": "1.18.1",
         "@salutejs/plasma-tokens-b2c": "0.12.1",
         "@salutejs/plasma-tokens-web": "1.18.1",
-        "@salutejs/plasma-typo": "0.6.1",
-        "@salutejs/plasma-ui": "1.104.2",
-        "@salutejs/plasma-web": "1.102.2",
+        "@salutejs/plasma-typo": "0.6.2",
+        "@salutejs/plasma-ui": "1.104.3",
+        "@salutejs/plasma-web": "1.102.3",
         "@storybook/addon-essentials": "6.3.4",
         "@storybook/addon-knobs": "6.3.0",
         "@storybook/preset-create-react-app": "^3.2.0",
