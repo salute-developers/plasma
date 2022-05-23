@@ -20,5 +20,5 @@ export function Carousel(props: CarouselProps) {
     */
     const initialized = useDelayedActivation();
 
-    return <StyledCarousel {...props} initialized={initialized} />;
+    return <StyledCarousel {...props} initialized={initialized} data-cy="gallery-carousel" />;
 }
