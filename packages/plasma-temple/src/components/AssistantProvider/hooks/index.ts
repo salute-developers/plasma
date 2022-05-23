@@ -1,8 +1,8 @@
 export * from './useAssistant';
-export * from './useAssistantCharacter';
 export * from './useAssistantOnData';
 export * from './useAssistantOnNavigation';
 export * from './useAssistantOnSmartAppData';
-export * from './useAssistantState';
+export * from './useAssistantAppState';
+export * from './useAssistantCharacter';
 export * from './useAssistantInsets';
-export * from './useVoiceNavigation';
+export { useVoiceNavigation, useVoiceNavigationWithSpatNav } from './useVoiceNavigation';

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { AppStateContext } from '../../../../components/PlasmaApp/AppStateContext';
 import { CartHeaderButton } from '../../../../components/Cart/CartHeaderButton/CartHeaderButton';
 import { useCart } from '../../../../components/Cart/hooks/useCart';
+import { ScreensProviderContext } from '../../../../components/ScreensProvider/ScreensProviderContext';
 
 interface CartButtonProps {
     screen: string;
@@ -12,14 +12,14 @@ interface CartButtonProps {
 }
 
 /**
- * @deprecated instead use CartHeaderButton
+ * @deprecated instead use CartHeaderButton? works only with PlasmaApp
  */
 export const CartButton: React.FC<CartButtonProps> = ({ screen, withPrice, label, hideEmpty }) => {
-    const { pushScreen } = React.useContext(AppStateContext);
+    const { pushScreen } = React.useContext(ScreensProviderContext);
     const { state } = useCart();
     const { quantity, amount, currency } = state;
 
-    const onClick = React.useCallback(() => pushScreen(screen, null), [screen, pushScreen]);
+    const onClick = React.useCallback(() => pushScreen(screen), [screen, pushScreen]);
 
     if (hideEmpty && !state.items.length) {
         return null;

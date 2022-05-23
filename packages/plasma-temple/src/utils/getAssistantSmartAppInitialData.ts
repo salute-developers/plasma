@@ -1,6 +1,6 @@
 import { AssistantClientCustomizedCommand, AssistantSmartAppData } from '@salutejs/client';
 
-import { getAssistant } from '../assistant';
+import { getAssistant } from '../components/AssistantProvider/assistant';
 
 export function getAssistantSmartAppInitialData<
     T extends AssistantSmartAppData = AssistantSmartAppData

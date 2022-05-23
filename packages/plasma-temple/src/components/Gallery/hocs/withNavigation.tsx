@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { useVoiceNavigation, useRemoteHandlers } from '../../../hooks';
+import { useRemoteHandlers } from '../../../hooks';
 import { useFocusedState } from '../../../hooks/useFocusedState';
+import { useVoiceNavigation } from '../../AssistantProvider';
 import { GalleryProps, GalleryWithNavigationProps, WithNavigationProps } from '../types';
 
 export const GalleryIndexContext = React.createContext(0);

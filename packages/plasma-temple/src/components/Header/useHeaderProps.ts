@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { AppStateContext } from '../PlasmaApp/AppStateContext';
-import { AssistantContext } from '../PlasmaApp/AssistantContext';
+import { useAssistant } from '../AssistantProvider';
+import { ScreensProviderContext } from '../ScreensProvider/ScreensProviderContext';
 
 import { HeaderProps, NewHeaderProps, OldHeaderProps } from './types';
 
@@ -20,14 +20,14 @@ const omitProps = <T extends HeaderProps, K extends keyof T>(props: T, keys: K[]
     return copy;
 };
 
+/** Работает только с компонентом PlasmaApp */
 export const useNewHeaderProps = (props: HeaderProps): NewHeaderProps => {
     const {
         state: { history },
         popScreen,
-    } = React.useContext(AppStateContext);
+    } = React.useContext(ScreensProviderContext);
 
-    const assistant = React.useContext(AssistantContext);
-    const instanse = assistant.getAssistant();
+    const { assistant } = useAssistant();
     const historyLen = history.length;
 
     const subtitle = hasOldSubtitleProps(props) ? props.subtitle : props.subTitle;
@@ -56,10 +56,10 @@ export const useNewHeaderProps = (props: HeaderProps): NewHeaderProps => {
             if (historyLen > 1) {
                 popScreen();
             } else {
-                instanse.close();
+                assistant.close();
             }
         },
-        [historyLen, instanse],
+        [historyLen, assistant],
     );
 
     const arrow = React.useMemo(() => {
@@ -96,7 +96,7 @@ export const useHeaderProps = (props: OldHeaderProps): OldHeaderProps => {
     const {
         state: { history },
         popScreen,
-    } = React.useContext(AppStateContext);
+    } = React.useContext(ScreensProviderContext);
 
     if (back !== undefined || minimize !== undefined) {
         return props;

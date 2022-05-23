@@ -1,10 +1,9 @@
 import { useMemo, useCallback, useRef } from 'react';
 import { AssistantClientCustomizedCommand, AssistantEvents, AssistantSmartAppData } from '@salutejs/client';
 
-import { AssistantInstance } from '../types';
+import { AssistantInstance } from '../../../types';
 import { InitializeParams, initializeAssistant } from '../assistant';
-
-import { useMount } from './useMount';
+import { useMount } from '../../../hooks/useMount';
 
 export const useInitializeAssistant = <T extends AssistantSmartAppData>({
     assistantParams,
