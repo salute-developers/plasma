@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, getComponent, PadMe, Portal } from '@salutejs/plasma-cy-utils';
 
 const noop = () => {};
 
@@ -9,11 +9,31 @@ const dragAndDrop = (chainableSelector: Cypress.Chainable, coord: { clientX: num
 
 describe('plasma-ui: Slider', () => {
     const Slider = getComponent('Slider');
+    const Badge = getComponent('Badge');
 
     it('simple', () => {
         mount(
             <CypressTestDecorator>
                 <Slider value={42} min={0} max={100} />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('with portal', () => {
+        const PORTAL_ROOT_ID = 'portal-root';
+
+        mount(
+            <CypressTestDecorator>
+                <>
+                    <div id={PORTAL_ROOT_ID}>
+                        <Badge view="primary" text="Slider in Portal" />
+                    </div>
+                    <Portal id={PORTAL_ROOT_ID}>
+                        <Slider value={30} min={0} max={100} />
+                    </Portal>
+                </>
             </CypressTestDecorator>,
         );
 
