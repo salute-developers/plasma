@@ -5,7 +5,7 @@ import throttle from 'lodash.throttle';
 import { Header } from '../../components/Header/Header';
 import { ComponentPropsWithHeader } from '../../components/Header/types';
 import { useSpatNavBetweenTargets } from '../../hooks/useSpatNav';
-import { useVoiceNavigationWithSpatNav } from '../../hooks/useVoiceNavigation';
+import { useVoiceNavigationWithSpatNav } from '../../components/AssistantProvider';
 import { scroll } from '../../utils/scroll';
 import { LayoutElementContext } from '../../components/Layout/LayoutElementContext';
 import { Grid } from '../../components/Grid/Grid';

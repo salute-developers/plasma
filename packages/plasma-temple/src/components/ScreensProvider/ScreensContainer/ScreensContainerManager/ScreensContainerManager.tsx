@@ -19,20 +19,20 @@ export function ScreensContainerManager({
     onStart,
     onData,
 }: React.PropsWithChildren<ScreensContainerManagerProps>) {
-    const { getAssistant } = useAssistant();
+    const { assistant } = useAssistant();
     const character = useAssistantCharacter();
     const theme = useAssistantTheme();
 
-    const { pushScreen, pushHistory, goToScreen } = useScreens();
+    const { pushScreen, pushHistory, goToScreen, popScreen } = useScreens();
 
     useMount(() => {
-        const disposeStart = getAssistant().on('start', () => {
+        const disposeStart = assistant.on('start', () => {
             onStart?.({ pushScreen, pushHistory });
             disposeStart();
         });
 
-        const disposeData = getAssistant().on('data', (command) => {
-            onData?.({ command, pushScreen, pushHistory, goToScreen });
+        const disposeData = assistant.on('data', (command) => {
+            onData?.({ command, pushScreen, pushHistory, goToScreen, popScreen });
         });
 
         return () => {

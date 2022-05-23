@@ -32,11 +32,17 @@ export const reducer = (state: ScreensProviderState, action: ScreensProviderActi
             if (screen) {
                 return {
                     ...state,
-                    history: [...state.history.slice(0, -1), { ...screen, data: { ...screen.data, ...data } }],
+                    history: [...state.history.slice(0, -1), { ...screen, data: { ...(screen.data ?? {}), ...data } }],
                 };
             }
 
             return state;
+        }
+
+        case ScreensProviderActionType.REPLACE_HISTORY: {
+            const { history } = action.payload;
+
+            return { ...state, history };
         }
 
         default:
