@@ -9,5 +9,9 @@ export declare const PadMe: import("styled-components").StyledComponent<"div", a
 export declare const SpaceMe: import("styled-components").StyledComponent<"span", any, {}, never>;
 export declare const withNoAnimation: <P extends {}>(Comp: React.FC<P>) => React.FC<P>;
 export declare const mount: typeof cyMount;
+interface PortalProps {
+    id: string;
+}
+export declare const Portal: React.FC<PortalProps>;
 export {};
 //# sourceMappingURL=CypressHelpers.d.ts.map
