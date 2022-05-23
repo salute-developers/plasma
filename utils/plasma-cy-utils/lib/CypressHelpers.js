@@ -26,8 +26,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.mount = exports.withNoAnimation = exports.SpaceMe = exports.PadMe = exports.CypressTestDecorator = exports.getComponent = void 0;
+exports.Portal = exports.mount = exports.withNoAnimation = exports.SpaceMe = exports.PadMe = exports.CypressTestDecorator = exports.getComponent = void 0;
 var react_1 = __importDefault(require("react"));
+var react_dom_1 = require("react-dom");
 var styled_components_1 = __importStar(require("styled-components"));
 var react_2 = require("@cypress/react");
 // plasma-web
@@ -151,6 +152,18 @@ exports.mount = function () {
     // @ts-ignore
     cy.waitForResources('SBSansText.0.1.0.css', 'SBSansDisplay.0.1.0.css', { timeout: 1500 });
     return cm;
+};
+exports.Portal = function (_a) {
+    var id = _a.id, children = _a.children;
+    var el = document.createElement('div');
+    react_1.default.useEffect(function () {
+        var portalRoot = document.getElementById(id);
+        portalRoot && portalRoot.appendChild(el);
+        return function () {
+            portalRoot && portalRoot.removeChild(el);
+        };
+    }, [el, id]);
+    return react_dom_1.createPortal(children, el);
 };
 var templateObject_1, templateObject_2, templateObject_3;
 //# sourceMappingURL=CypressHelpers.js.map
