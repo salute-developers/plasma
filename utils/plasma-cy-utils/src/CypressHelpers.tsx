@@ -1,4 +1,5 @@
 import React from 'react';
+import { createPortal } from 'react-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import { mount as cyMount } from '@cypress/react';
 // plasma-web
@@ -178,4 +179,24 @@ export const mount: typeof cyMount = (...args) => {
     cy.waitForResources('SBSansText.0.1.0.css', 'SBSansDisplay.0.1.0.css', { timeout: 1500 });
 
     return cm;
+};
+
+interface PortalProps {
+    id: string;
+}
+
+export const Portal: React.FC<PortalProps> = ({ id, children }) => {
+    const el = document.createElement('div');
+
+    React.useEffect(() => {
+        const portalRoot = document.getElementById(id);
+
+        portalRoot && portalRoot.appendChild(el);
+
+        return () => {
+            portalRoot && portalRoot.removeChild(el);
+        };
+    }, [el, id]);
+
+    return createPortal(children, el);
 };
