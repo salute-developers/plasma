@@ -73,7 +73,7 @@ export const SliderBase: React.FC<SliderProps> = ({
         resizeHandler();
         window.addEventListener('resize', resizeHandler);
         return () => window.removeEventListener('resize', resizeHandler);
-    }, [min, max, setStepSize]);
+    }, [min, max, setStepSize, ref.current]);
 
     return (
         <Slider disabled={disabled} ref={ref}>
