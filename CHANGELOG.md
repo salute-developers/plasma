@@ -1,3 +1,31 @@
+# (Tue May 24 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.68.0`, `@salutejs/plasma-ui@1.105.0`
+  - test(plasma-ui,plasma-b2c): Add test and snapshot for `Slider` component [#30](https://github.com/salute-developers/plasma/pull/30) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-cy-utils@0.13.0`
+  - feat(plasma-cy-utils): Add `Portal` component for cy-utils [#30](https://github.com/salute-developers/plasma/pull/30) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-temple@1.69.0`
+  - feat(plasma-temple): tests [#22](https://github.com/salute-developers/plasma/pull/22) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+  - feat(plasma-temple): docs [#22](https://github.com/salute-developers/plasma/pull/22) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+  - feat(plasma-temple): gallery voice navigation [#22](https://github.com/salute-developers/plasma/pull/22) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+  - feat(plasma-temple): mobile version [#22](https://github.com/salute-developers/plasma/pull/22) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+  - feat(plasma-temple): export by platforms [#22](https://github.com/salute-developers/plasma/pull/22) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+  - feat(plasma-temple): new gallery component [#22](https://github.com/salute-developers/plasma/pull/22) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.68.0`, `@salutejs/plasma-ui@1.105.0`
+  - fix(plasma-b2c,plasma-ui): Add ref.current for useEffect in SliderBase for `Slider` component [#30](https://github.com/salute-developers/plasma/pull/30) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Mon May 23 2022)
 
 #### 🐛 Bug Fix
