@@ -1,7 +1,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 
-import { ShopLandingPage } from '../src/pages/ShopLandingPage/ShopLandingPage';
+import { ShopLandingPage } from './ShopLandingPage';
 
 export default {
     title: 'Pages/ShopLandingPage',

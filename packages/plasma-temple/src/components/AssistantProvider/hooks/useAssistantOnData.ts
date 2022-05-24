@@ -11,12 +11,12 @@ export const useAssistantOnData = <T extends AssistantSmartAppData = AssistantSm
     onDataRef.current = onData;
 
     React.useEffect(() => {
-        const removeListener = assistant.on('data', (command) =>
+        const removeListener = assistant?.on('data', (command) =>
             onDataRef.current(command as AssistantClientCustomizedCommand<T>),
         );
 
         return () => {
-            removeListener();
+            removeListener?.();
         };
     }, [assistant]);
 };

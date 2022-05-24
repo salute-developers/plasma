@@ -9,7 +9,7 @@ import { ItemEntityCommon, ItemEntityProps } from './ItemEntity/ItemEntity@commo
 export type EntitiesView = 'grid' | 'carousel';
 export interface ItemEntitiesProps<Id = unknown> {
     /** Заголовок */
-    title?: string;
+    title?: React.ReactNode;
     /** Список элементов */
     entities: ItemEntityType<Id>[];
     /** Вид. Не используется в мобильной версии */
@@ -61,7 +61,7 @@ export function ItemEntitiesCommon<Id = unknown>({
 
     return (
         <div className={className}>
-            {title && <StyledTitle>{title}</StyledTitle>}
+            {title && (typeof title === 'string' ? <StyledTitle>{title}</StyledTitle> : title)}
             {view === 'grid' ? (
                 <StyledEntitiesGridContainer>
                     {entities.map((entity, index) => (

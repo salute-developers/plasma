@@ -16,9 +16,13 @@ export interface AssistantRef {
     assistant: AssistantInstance | null;
 }
 
-export const getAssistantRef = (): AssistantRef => ({
-    assistant: assistant ?? null,
-});
+const assistantRef = {
+    get assistant() {
+        return assistant ?? null;
+    },
+};
+
+export const getAssistantRef = (): AssistantRef => assistantRef;
 
 export const initializeAssistant = <T extends AssistantSmartAppData>({
     getState,

@@ -47,7 +47,7 @@ const StyledHeader = styled(Header)`
 
 const GalleryPage: React.FC<GalleryProps<number>> = (props) => {
     const galleryRef = React.useRef<GalleryControl>(null);
-    const { getAssistant } = useAssistant();
+    const { assistant } = useAssistant();
 
     return (
         <StyledContainer>
@@ -65,7 +65,7 @@ const GalleryPage: React.FC<GalleryProps<number>> = (props) => {
                         </Button>
                     ))}
             </StyledHeader>
-            <Gallery {...props} ref={galleryRef} assistant={getAssistant()} />
+            <Gallery {...props} ref={galleryRef} assistant={assistant} />
         </StyledContainer>
     );
 };
