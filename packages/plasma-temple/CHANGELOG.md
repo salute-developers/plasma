@@ -1,3 +1,25 @@
+# v1.69.0 (Tue May 24 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): tests [#22](https://github.com/salute-developers/plasma/pull/22) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-temple): docs [#22](https://github.com/salute-developers/plasma/pull/22) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-temple): gallery voice navigation [#22](https://github.com/salute-developers/plasma/pull/22) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-temple): mobile version [#22](https://github.com/salute-developers/plasma/pull/22) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-temple): export by platforms [#22](https://github.com/salute-developers/plasma/pull/22) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-temple): new gallery component [#22](https://github.com/salute-developers/plasma/pull/22) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.68.3 (Mon May 23 2022)
 
 #### 🐛 Bug Fix

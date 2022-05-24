@@ -1,3 +1,20 @@
+# v0.13.0 (Tue May 24 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-cy-utils): Add `Portal` component for cy-utils [#30](https://github.com/salute-developers/plasma/pull/30) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.12.1 (Thu May 19 2022)
 
 #### 🐛 Bug Fix
