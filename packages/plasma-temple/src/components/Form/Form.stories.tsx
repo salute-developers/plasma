@@ -2,7 +2,10 @@ import React from 'react';
 import { object } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
-import { FormField, Form, Input, VoiceField } from '../src';
+import { Form } from './components/Form';
+import { FormField } from './components/FormField';
+import { VoiceField } from './components/VoiceField';
+import { Input } from './components/Input';
 
 interface FormData {
     name: string;

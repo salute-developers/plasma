@@ -36,7 +36,7 @@ export const withAppState = (Story: React.ComponentType, context) => {
         <AssistantContext.Provider
             value={{
                 state: { insets: insets[context.globals.typoSize], character: 'sber', theme: 'dark' },
-                getAssistant: () => mockAssistant,
+                assistant: mockAssistant,
                 setAssistantState: () => {},
             }}
         >
