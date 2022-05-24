@@ -56,7 +56,7 @@ export const useNewHeaderProps = (props: HeaderProps): NewHeaderProps => {
             if (historyLen > 1) {
                 popScreen();
             } else {
-                assistant.close();
+                assistant?.close();
             }
         },
         [historyLen, assistant],

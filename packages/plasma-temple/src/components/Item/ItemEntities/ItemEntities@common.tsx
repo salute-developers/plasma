@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Carousel, CarouselCol, Headline3, mediaQuery, Row } from '@salutejs/plasma-ui';
+import { Carousel, CarouselCol, mediaQuery, Row } from '@salutejs/plasma-ui';
+import { body3, headline3 } from '@salutejs/plasma-tokens';
 
 import { ItemEntityType } from '../types';
 
@@ -21,8 +22,17 @@ export interface ItemEntitiesProps<Id = unknown> {
     className?: string;
 }
 
-const StyledTitle = styled(Headline3)`
+const StyledTitle = styled.div`
+    ${headline3}
     margin-bottom: 1rem;
+
+    ${mediaQuery(
+        'M',
+        2,
+    )(css`
+        ${body3}
+        margin-bottom: 0.75rem;
+    `)}
 `;
 
 const StyledEntitiesGridContainer = styled.div`
