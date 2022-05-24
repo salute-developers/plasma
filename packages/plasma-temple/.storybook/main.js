@@ -1,12 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    stories: [
-        '../src/**/*.stories.tsx',
-        '../src/**/*.examples.tsx',
-        '../examples/**/*.stories.tsx',
-        '../examples/**/*.examples.tsx',
-    ],
+    stories: ['../src/**/*.stories.tsx'],
     addons: ['@storybook/preset-create-react-app', '@storybook/addon-essentials'],
     webpackFinal: async (config) => {
         return {

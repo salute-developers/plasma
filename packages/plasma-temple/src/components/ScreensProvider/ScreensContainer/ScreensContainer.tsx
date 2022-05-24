@@ -1,21 +1,18 @@
 import React from 'react';
 import { AssistantSmartAppData } from '@salutejs/client';
-import { DeviceThemeProps } from '@salutejs/plasma-ui/components/Device/DeviceDetection';
 
-import { AssistantProvider } from '../../AssistantProvider';
-import { AssistantProviderProps } from '../../AssistantProvider/AssistantProvider';
 import { ScreensProvider } from '../ScreensProvider';
-import { OnDataFn, OnStartFn, ScreensProviderProps } from '../types';
+import { ScreensProviderProps } from '../types';
 
-import { ScreensContainerManager } from './ScreensContainerManager/ScreensContainerManager';
+import {
+    ScreensContainerAssistant,
+    ScreensContainerAssistantProps,
+} from './ScreensContainerAssistant/ScreensContainerAssistant';
+import { ScreensContainerTheme, ScreensContainerThemeProps } from './ScreensContainerTheme/ScreensContainerTheme';
 
-interface ScreensContainerProps<A extends AssistantSmartAppData>
-    extends Omit<AssistantProviderProps<A>, 'onStart' | 'onData'>,
-        ScreensProviderProps,
-        DeviceThemeProps {
-    onStart?: OnStartFn;
-    onData?: OnDataFn;
-}
+type ScreensContainerProps<A extends AssistantSmartAppData> = ScreensProviderProps &
+    ScreensContainerAssistantProps<A> &
+    ScreensContainerThemeProps;
 
 /**
  * Компонент - контейнер, ускоряющий старт разработки приложения с использованием пакета `@salutejs/plasma-temple`.
@@ -36,12 +33,15 @@ export function ScreensContainer<A extends AssistantSmartAppData = AssistantSmar
     ...themeProps
 }: React.PropsWithChildren<ScreensContainerProps<A>>) {
     return (
-        <AssistantProvider assistantParams={assistantParams}>
-            <ScreensProvider provider={provider} onPopState={onPopState}>
-                <ScreensContainerManager themeProviderProps={themeProps} onStart={onStart} onData={onData}>
-                    {children}
-                </ScreensContainerManager>
-            </ScreensProvider>
-        </AssistantProvider>
+        <ScreensProvider provider={provider} onPopState={onPopState}>
+            <ScreensContainerAssistant
+                {...themeProps}
+                assistantParams={assistantParams}
+                onStart={onStart}
+                onData={onData}
+            >
+                <ScreensContainerTheme {...themeProps}>{children}</ScreensContainerTheme>
+            </ScreensContainerAssistant>
+        </ScreensProvider>
     );
 }

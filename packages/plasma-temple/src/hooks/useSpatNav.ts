@@ -76,7 +76,7 @@ export const useSpatNavBetweenTargets = <T extends HTMLElement>(
 ): void => {
     const prevTarget = React.useRef(document.documentElement);
 
-    React.useLayoutEffect(() => {
+    React.useEffect(() => {
         const spatNavCb = (event: Event) => {
             if (!isSpatNavEvent(event)) {
                 return;

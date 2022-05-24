@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import React from 'react';
 
-import { HeroSlider } from '../src/components/HeroSlider/HeroSlider';
+import { HeroSlider } from './HeroSlider';
 
 export default {
     title: 'Components/HeroSlider',

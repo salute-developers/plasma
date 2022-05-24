@@ -17,7 +17,7 @@ const DocumentStyles = createGlobalStyle`
     /* stylelint-disable selector-nested-pattern */
     :root {
         ${
-            process.env.NODE_ENV === 'development' || window.Cypress != null
+            process.env.NODE_ENV === 'development' || (typeof window !== 'undefined' && window.Cypress)
                 ? {
                       backgroundImage: gradient,
                       backgroundAttachment: 'fixed',

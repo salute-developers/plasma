@@ -44,7 +44,7 @@ export function MultiGallerySberBox({
                         <StyledSingleGallery
                             gallery={item}
                             galleryIndex={index}
-                            activeCard={activeCards[index]}
+                            activeCard={activeCards[index] ?? 0}
                             isActive={index === activeGallery && isActive}
                             galleryCard={galleryCard}
                             assistant={assistant}

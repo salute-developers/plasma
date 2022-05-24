@@ -7,7 +7,7 @@ import * as Actions from './store/actions';
 import { initialAssistantState, reducer } from './store/reducer';
 import { AssistantContext, AssistantContextType } from './AssistantContext';
 
-export interface AssistantProviderProps<A extends AssistantSmartAppData> {
+export interface AssistantProviderProps<A extends AssistantSmartAppData = AssistantSmartAppData> {
     /** Параметры инициализации ассистента */
     assistantParams: Omit<InitializeParams, 'getState'>;
     /** Колбэк, вызываемый после инициализации ассистента */
@@ -46,13 +46,17 @@ export function AssistantProvider<A extends AssistantSmartAppData = AssistantSma
         [onData],
     );
 
-    const assistant = useInitializeAssistant({
+    const { assistant, setAssistantState } = useInitializeAssistant({
         assistantParams,
         onStart,
         onData: handleData,
     });
 
-    const value: AssistantContextType = React.useMemo(() => ({ ...assistant, state }), [state, assistant]);
+    const value: AssistantContextType = React.useMemo(() => ({ assistant, setAssistantState, state }), [
+        state,
+        assistant,
+        setAssistantState,
+    ]);
 
     return <AssistantContext.Provider value={value}>{children}</AssistantContext.Provider>;
 }

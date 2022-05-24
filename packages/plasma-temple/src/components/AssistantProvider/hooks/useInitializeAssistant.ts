@@ -1,4 +1,4 @@
-import { useMemo, useCallback, useRef } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { AssistantClientCustomizedCommand, AssistantEvents, AssistantSmartAppData } from '@salutejs/client';
 
 import { AssistantInstance } from '../../../types';
@@ -14,48 +14,43 @@ export const useInitializeAssistant = <T extends AssistantSmartAppData>({
     onStart?: () => void;
     onData?: (command: AssistantClientCustomizedCommand<T>) => void;
 }): {
-    getAssistant: () => AssistantInstance;
+    assistant: AssistantInstance | null;
     setAssistantState: (newState: unknown) => void;
 } => {
     // eslint-disable-next-line @typescript-eslint/camelcase
     const assistantStateRef = useRef({ item_selector: { items: [] } });
-    const getAssistantState = useCallback(() => assistantStateRef.current, []);
     const setAssistantState = useCallback((newState) => {
         assistantStateRef.current = newState;
     }, []);
 
-    const assistantRef = useRef<AssistantInstance | null>(null);
-    const getAssistant = useCallback(() => {
-        if (!assistantRef.current) {
-            assistantRef.current = initializeAssistant<T>({ ...assistantParams, getState: getAssistantState });
-        }
-
-        return assistantRef.current;
-    }, [assistantParams, getAssistantState]);
+    const [assistant, setAssistant] = useState<AssistantInstance | null>(null);
 
     useMount(() => {
-        const assistant = getAssistant();
-        const offStartListener = assistant.on('start', () => {
-            if (onStart) {
-                onStart();
-            }
-            offStartListener();
+        const assistantInstance = initializeAssistant<T>({
+            ...assistantParams,
+            getState: () => assistantStateRef.current,
         });
+
+        setAssistant(assistantInstance);
+
+        if (onStart) {
+            const offStartListener = assistantInstance.on('start', () => {
+                onStart();
+                offStartListener();
+            });
+        }
 
         let removeListener = () => {};
 
         if (onData) {
-            removeListener = assistant.on('data', onData as AssistantEvents<AssistantSmartAppData>['data']);
+            removeListener = assistantInstance.on('data', onData as AssistantEvents<AssistantSmartAppData>['data']);
         }
 
         return () => removeListener();
     });
 
-    return useMemo(
-        () => ({
-            getAssistant,
-            setAssistantState,
-        }),
-        [getAssistant, setAssistantState],
-    );
+    return {
+        assistant,
+        setAssistantState,
+    };
 };
