@@ -143,7 +143,17 @@ export const TimePicker: React.FC<TimePickerProps> = ({
             getRange(minMins, maxMins, minsStep),
             getRange(minSecs, maxSecs, secsStep),
         ];
-    }, [minHours, maxHours, minMinutes, maxMinutes, minSeconds, maxSeconds, hours, minutes, step]);
+    }, [
+        minHours,
+        maxHours,
+        minMinutes,
+        maxMinutes,
+        minSeconds,
+        maxSeconds,
+        hours === maxHours || hours === minHours,
+        minutes === minMinutes || minutes === maxMinutes,
+        step,
+    ]);
 
     const onHoursChange = React.useCallback(({ value: h }) => setState(([, m, s]) => [h, m, s]), []);
     const onMinutesChange = React.useCallback(({ value: m }) => setState(([h, , s]) => [h, m, s]), []);
