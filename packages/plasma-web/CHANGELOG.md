@@ -1,3 +1,16 @@
+# v1.104.0 (Wed May 25 2022)
+
+#### 🐛 Bug Fix
+
+- test(plasma-b2c,plasma-web): Add tests and snapshots for `Tooltip` component [#27](https://github.com/salute-developers/plasma/pull/27) ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-web): Fix `Tooltip` behavior with wrapper [#27](https://github.com/salute-developers/plasma/pull/27) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.103.0 (Tue May 24 2022)
 
 #### 🐛 Bug Fix

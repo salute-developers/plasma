@@ -1,3 +1,16 @@
+# v1.69.0 (Wed May 25 2022)
+
+#### 🚀 Enhancement
+
+- test(plasma-b2c): Add test and snapshot for `PreviewGallery` component [#27](https://github.com/salute-developers/plasma/pull/27) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-b2c): Add tooltip in item for `PreviewGallery` component [#27](https://github.com/salute-developers/plasma/pull/27) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.68.0 (Tue May 24 2022)
 
 #### 🚀 Enhancement
