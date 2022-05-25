@@ -1,3 +1,23 @@
+# (Wed May 25 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.69.0`
+  - test(plasma-b2c): Add test and snapshot for `PreviewGallery` component [#27](https://github.com/salute-developers/plasma/pull/27) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-b2c): Add tooltip in item for `PreviewGallery` component [#27](https://github.com/salute-developers/plasma/pull/27) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.104.0`
+  - test(plasma-b2c,plasma-web): Add tests and snapshots for `Tooltip` component [#27](https://github.com/salute-developers/plasma/pull/27) ([@neretin-trike](https://github.com/neretin-trike))
+  - fix(plasma-web): Fix `Tooltip` behavior with wrapper [#27](https://github.com/salute-developers/plasma/pull/27) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Tue May 24 2022)
 
 #### 🚀 Enhancement
