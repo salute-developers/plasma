@@ -4,8 +4,6 @@ import { applyScrollSnap, ScrollSnapProps, CarouselItemProps } from '@salutejs/p
 
 import { Col, ColProps } from '../Grid';
 
-import { useCarouselItem } from './Carousel.hooks';
-
 const StyledCol = styled(Col)<ScrollSnapProps>`
     ${applyScrollSnap};
 `;
@@ -17,10 +15,8 @@ export interface CarouselColProps extends ColProps, CarouselItemProps, React.HTM
  * Используется для каруселей с сеткой.
  */
 export const CarouselCol: React.FC<CarouselColProps> = ({ children, ...rest }) => {
-    const itemRef = useCarouselItem<HTMLDivElement>();
-
     return (
-        <StyledCol ref={itemRef} type="calc" role="group" aria-roledescription="slide" {...rest}>
+        <StyledCol type="calc" role="group" aria-roledescription="slide" {...rest}>
             {children}
         </StyledCol>
     );

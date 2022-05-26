@@ -1,5 +1,3 @@
-import { MutableRefObject } from 'react';
-
 import { animatedScrollToX, animatedScrollToY, TimingFunction } from '../../utils';
 
 import { ScrollAxis, ScrollAlign } from './types';
@@ -55,7 +53,7 @@ export const getCalculatedPos = ({
     scrollAlign,
 }: {
     scrollEl: HTMLElement;
-    items: MutableRefObject<HTMLElement | null>[];
+    items: HTMLCollectionOf<HTMLElement>;
     axis: ScrollAxis;
     index: number;
     offset: number;
@@ -66,25 +64,25 @@ export const getCalculatedPos = ({
     let itemSize;
     let scrollStart;
 
-    if (!items[index]) {
+    if (items.item(index) === null) {
         return position;
     }
 
     for (let i = 0; i < index; i++) {
         if (axis === 'x') {
-            position += items[i].current?.offsetWidth || 0;
+            position += items.item(i)?.offsetWidth ?? 0;
         } else {
-            position += items[i].current?.offsetHeight || 0;
+            position += items.item(i)?.offsetHeight ?? 0;
         }
     }
 
     if (axis === 'x') {
         carouselSize = scrollEl.offsetWidth;
-        itemSize = items[index].current?.offsetWidth || 0;
+        itemSize = items.item(index)?.offsetWidth ?? 0;
         scrollStart = scrollEl.scrollLeft;
     } else {
         carouselSize = scrollEl.offsetHeight;
-        itemSize = items[index].current?.offsetHeight || 0;
+        itemSize = items.item(index)?.offsetHeight ?? 0;
         scrollStart = scrollEl.scrollTop;
     }
 
@@ -188,3 +186,7 @@ export const getItemSlot = (
     }
     return null;
 };
+
+export function getCarouselItems(track: HTMLElement): HTMLCollectionOf<HTMLElement> {
+    return track.children as HTMLCollectionOf<HTMLElement>;
+}

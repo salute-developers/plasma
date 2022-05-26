@@ -9,8 +9,6 @@ const throttlingParamsDefault = {
     trailing: false,
 };
 
-export { useCarouselContext, useCarouselItem } from '@salutejs/plasma-core';
-
 /**
  * Хук для навигации. Слушает нажатие кнопок на пульте/клавиатуре.
  */

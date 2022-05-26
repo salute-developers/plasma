@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import styled, { css, CSSObject } from 'styled-components';
 import { secondary, tertiary, display2, headline1, headline2 } from '@salutejs/plasma-tokens';
 
-import { useCarouselItem } from '../Carousel';
-
 import type { SizeProps, PickerSize, PickerItem as PickerItemType } from './types';
 import { getStyles } from './utils';
 
@@ -123,7 +121,7 @@ export const PickerItem: React.FC<PickerItemProps> = ({
     disabled,
     ...rest
 }) => {
-    const itemRef = useCarouselItem<HTMLDivElement>();
+    const itemRef = React.useRef<HTMLDivElement | null>(null);
     /*
      * Выведем стили еще до того, как отработает коллбек стилей.
      * Тут важно, что для `slot` идут целочисленные значения.
