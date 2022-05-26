@@ -1,3 +1,17 @@
+# v1.105.0 (Thu May 26 2022)
+
+#### 🐛 Bug Fix
+
+- chore(plasma-web): Add SansDisplay typo for storybook [#37](https://github.com/salute-developers/plasma/pull/37) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.104.0 (Wed May 25 2022)
 
 #### 🐛 Bug Fix

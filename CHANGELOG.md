@@ -1,3 +1,22 @@
+# (Thu May 26 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.106.0`
+  - test(plasma-ui): Add test and update snapshots for `ProductCard` component [#3](https://github.com/salute-developers/plasma/pull/3) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-ui): Add new additional field and update design for `ProductCard` component; Add event to callback for `Stepper` [#3](https://github.com/salute-developers/plasma/pull/3) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.105.0`
+  - chore(plasma-web): Add SansDisplay typo for storybook [#37](https://github.com/salute-developers/plasma/pull/37) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Wed May 25 2022)
 
 #### 🚀 Enhancement
