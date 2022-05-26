@@ -125,9 +125,17 @@ export const DatePicker: React.FC<DatePickerProps> = ({
         return [1, maxDayInMonth];
     }, [minMonth, maxMonth, minDay, maxDay, year, month, minYear, maxYear]);
 
-    const [yearRange, monthsRange, daysRange] = React.useMemo(() => {
-        return [getRange(minYear, maxYear), getRange(monthsFrom, monthsTo), getRange(daysFrom, daysTo)];
-    }, [minYear, maxYear, monthsFrom, monthsTo, daysFrom, daysTo]);
+    const [daysRange] = React.useMemo(() => {
+        return [getRange(daysFrom, daysTo)];
+    }, [daysFrom, daysTo]);
+
+    const [monthsRange] = React.useMemo(() => {
+        return [getRange(monthsFrom, monthsTo)];
+    }, [monthsFrom, monthsTo]);
+
+    const [yearRange] = React.useMemo(() => {
+        return [getRange(minYear, maxYear)];
+    }, [minYear, maxYear]);
 
     const getNextMonth = React.useCallback(
         (currentMonth: number, currentYear: number): number => {
