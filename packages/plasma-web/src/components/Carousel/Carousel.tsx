@@ -1,12 +1,6 @@
 import React from 'react';
-import {
-    useCarousel,
-    CarouselContext,
-    Carousel as StyledCarousel,
-    CarouselTrack as StyledCarouselTrack,
-} from '@salutejs/plasma-core';
+import { useCarousel, Carousel as StyledCarousel, CarouselTrack as StyledCarouselTrack } from '@salutejs/plasma-core';
 import type { CarouselProps as BaseProps } from '@salutejs/plasma-core';
-import { CarouselState } from '@salutejs/plasma-core/components/Carousel/CarouselContext';
 
 import { useForkRef } from '../../hooks';
 
@@ -30,7 +24,6 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
         detectThreshold,
         scaleCallback,
         scaleResetCallback,
-        onScroll,
         onIndexChange,
         paddingStart,
         paddingEnd,
@@ -41,7 +34,8 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
     ref,
 ) {
     const axis = 'x';
-    const { scrollRef, trackRef, refs, handleScroll } = useCarousel({
+
+    const { scrollRef, trackRef } = useCarousel({
         index,
         axis,
         scrollAlign,
@@ -49,34 +43,21 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
         detectThreshold,
         scaleCallback,
         scaleResetCallback,
-        onScroll,
         onIndexChange,
     });
     const handleRef = useForkRef(scrollRef, ref);
 
-    const context = React.useMemo<CarouselState>(() => {
-        return { axis, refs };
-    }, [axis, refs]);
-
     return (
-        <CarouselContext.Provider value={context}>
-            <StyledCarousel
-                ref={handleRef}
+        <StyledCarousel ref={handleRef} axis={axis} scrollSnapType={scrollSnapType} {...rest}>
+            <StyledCarouselTrack
+                ref={trackRef as React.MutableRefObject<HTMLDivElement | null>}
                 axis={axis}
-                scrollSnapType={scrollSnapType}
-                onScroll={handleScroll}
-                {...rest}
+                paddingStart={paddingStart}
+                paddingEnd={paddingEnd}
+                aria-live={ariaLive}
             >
-                <StyledCarouselTrack
-                    ref={trackRef as React.MutableRefObject<HTMLDivElement | null>}
-                    axis={axis}
-                    paddingStart={paddingStart}
-                    paddingEnd={paddingEnd}
-                    aria-live={ariaLive}
-                >
-                    {children}
-                </StyledCarouselTrack>
-            </StyledCarousel>
-        </CarouselContext.Provider>
+                {children}
+            </StyledCarouselTrack>
+        </StyledCarousel>
     );
 });
