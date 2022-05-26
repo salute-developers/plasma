@@ -46,10 +46,6 @@ export interface BasicProps extends AsProps, HTMLAttributes<HTMLDivElement> {
      * Debounce внутренних обработчиков события onScroll
      */
     debounceMs?: number;
-    /**
-     * Обработчик события скролла
-     */
-    onScroll?: HTMLAttributes<HTMLDivElement>['onScroll'];
 }
 export interface DetectionProps {
     /**
