@@ -5,7 +5,7 @@ export type { CarouselProps } from '@salutejs/plasma-core';
 export { CarouselItem } from '@salutejs/plasma-core';
 export type { CarouselItemProps } from '@salutejs/plasma-core';
 
-export { useCarouselItem, useCarouselContext, useRemoteHandlers } from './Carousel.hooks';
+export { useRemoteHandlers } from './Carousel.hooks';
 
 export { Carousel } from './Carousel';
 
