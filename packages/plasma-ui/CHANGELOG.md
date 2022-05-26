@@ -1,3 +1,21 @@
+# v1.106.0 (Thu May 26 2022)
+
+#### 🚀 Enhancement
+
+- test(plasma-ui): Add test and update snapshots for `ProductCard` component [#3](https://github.com/salute-developers/plasma/pull/3) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-ui): Add new additional field and update design for `ProductCard` component; Add event to callback for `Stepper` [#3](https://github.com/salute-developers/plasma/pull/3) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.105.0 (Tue May 24 2022)
 
 #### 🚀 Enhancement
