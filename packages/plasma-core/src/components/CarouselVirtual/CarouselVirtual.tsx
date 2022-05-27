@@ -1,39 +1,33 @@
+/* eslint-disable no-continue */
 import React, { RefObject, useEffect, useRef, forwardRef } from 'react';
 import styled from 'styled-components';
 import { useVirtualForPlasma } from '@salutejs/use-virtual';
+import throttle from 'lodash.throttle';
 
 import { useForkRef } from '../../hooks';
 import { applyNoSelect } from '../../mixins/applyNoSelect';
 
-import type { CarouselVirtualProps as BaseProps } from './types';
+import type { CarouselVirtualProps } from './types';
 import { CarouselVirtualBase, CarouselVirtualTrack } from './CarouselVirtualStyled';
-
-export type VirtualCarouselProps = BaseProps & {
-    /**
-     * Сменить WAI-ARIA Role списка.
-     */
-    listRole?: string;
-    /**
-     * Сменить WAI-ARIA Label списка.
-     */
-    listAriaLabel?: string;
-    index?: number;
-};
 
 const StyledVirtualCarouselTrack = styled(CarouselVirtualTrack)`
     ${applyNoSelect};
 `;
 
+const THROTTLE_DEFAULT_MS = 100;
+
 /**
  * Компонент для создания списков с прокруткой.
  */
-export const CarouselVirtual = forwardRef<HTMLDivElement, VirtualCarouselProps>(
+export const CarouselVirtual = forwardRef<HTMLDivElement, CarouselVirtualProps>(
     (
         {
             axis = 'x',
             scrollSnapType = 'mandatory',
             onScroll,
             onIndexChange,
+            detectActive,
+            onDetectActiveItem,
             paddingStart,
             paddingEnd,
             listRole,
@@ -49,7 +43,11 @@ export const CarouselVirtual = forwardRef<HTMLDivElement, VirtualCarouselProps>(
         ref,
     ) => {
         const scrollRef = useRef<HTMLDivElement>(null);
+        const trackRef = useRef<HTMLElement | null>(null);
+        const prevIndex = useRef<number | null>(null);
         const handleRef = useForkRef<HTMLDivElement>(scrollRef as RefObject<HTMLDivElement>, ref);
+        const currentIndexRef = useRef(0);
+
         const { visibleItems, totalSize, currentIndex, scrollToIndex } = useVirtualForPlasma({
             itemCount,
             parentRef: scrollRef as RefObject<HTMLDivElement>,
@@ -60,15 +58,41 @@ export const CarouselVirtual = forwardRef<HTMLDivElement, VirtualCarouselProps>(
             overscan,
             scrollToFn: React.useCallback(
                 (offset: number) => {
-                    scrollRef.current!.scrollTo({ [axis === 'y' ? 'top' : 'left']: offset, behavior: 'smooth' });
+                    scrollRef.current?.scrollTo({ [axis === 'y' ? 'top' : 'left']: offset, behavior: 'smooth' });
                 },
                 [axis],
             ),
         });
 
+        currentIndexRef.current = currentIndex;
+
+        const detectActiveItem = React.useCallback(
+            throttle(() => {
+                if (detectActive === true && typeof onDetectActiveItem === 'function') {
+                    onDetectActiveItem(currentIndexRef.current);
+                }
+            }, THROTTLE_DEFAULT_MS),
+            [],
+        );
+
+        useEffect(() => {
+            const scrollContainer = scrollRef.current;
+
+            if (scrollContainer instanceof HTMLElement) {
+                scrollContainer.addEventListener('scroll', detectActiveItem);
+            }
+
+            return () => {
+                if (scrollContainer instanceof HTMLElement) {
+                    scrollContainer.removeEventListener('scroll', detectActiveItem);
+                }
+            };
+        }, []);
+
         useEffect(() => {
             if (typeof index === 'number') {
                 console.log('>>> index in useEffect:', index);
+                prevIndex.current = index;
                 scrollToIndex(index);
             }
         }, [index, scrollToIndex]);
@@ -89,6 +113,7 @@ export const CarouselVirtual = forwardRef<HTMLDivElement, VirtualCarouselProps>(
                 {...rest}
             >
                 <StyledVirtualCarouselTrack
+                    ref={trackRef as React.MutableRefObject<HTMLDivElement | null>}
                     axis={axis}
                     paddingStart={paddingStart}
                     paddingEnd={paddingEnd}

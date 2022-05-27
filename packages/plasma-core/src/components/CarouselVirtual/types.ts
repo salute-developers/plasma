@@ -1,6 +1,7 @@
 import type { HTMLAttributes } from 'react';
 
 import type { AsProps, SnapType } from '../../types';
+import { DetectionProps } from '../Carousel/types';
 
 export type ScrollAxis = 'x' | 'y';
 export type ScrollAlign = 'start' | 'center' | 'end' | 'activeDirection';
@@ -27,11 +28,6 @@ export interface BasicProps extends AsProps, HTMLAttributes<HTMLDivElement> {
      */
     paddingEnd?: string;
     /**
-     * Обработчик события скролла
-     */
-    onScroll?: HTMLAttributes<HTMLDivElement>['onScroll'];
-
-    /**
      * Количество всех элементов в списке.
      */
     itemCount: number;
@@ -56,17 +52,16 @@ export interface BasicProps extends AsProps, HTMLAttributes<HTMLDivElement> {
      */
     carouselHeight: number;
 }
-export interface DetectionProps {
-    /**
-     * Коллбек изменения индекса
-     */
-    onIndexChange?: (index: number) => void;
-}
-export interface NoDetectionProps {
-    detectActive?: false;
-    detectThreshold?: never;
-    onIndexChange?: never;
-    scaleCallback?: never;
-    scaleResetCallback?: never;
-}
-export type CarouselVirtualProps = BasicProps & (DetectionProps | NoDetectionProps);
+
+export type CarouselVirtualProps = BasicProps &
+    Exclude<DetectionProps, 'scaleCallback' | 'scaleResetCallback' | 'detectThreshold'> & {
+        /**
+         * Сменить WAI-ARIA Role списка.
+         */
+        listRole?: string;
+        /**
+         * Сменить WAI-ARIA Label списка.
+         */
+        listAriaLabel?: string;
+        index?: number;
+    };

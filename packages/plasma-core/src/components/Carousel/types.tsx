@@ -85,4 +85,5 @@ export interface NoDetectionProps {
     scaleCallback?: never;
     scaleResetCallback?: never;
 }
+
 export type CarouselProps = BasicProps & (DetectionProps | NoDetectionProps);

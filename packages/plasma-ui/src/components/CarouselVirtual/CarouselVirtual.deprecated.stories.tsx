@@ -60,6 +60,8 @@ export const Basic: Story<CarouselVirtualProps & CarouselVirtualProps & { displa
                 <CarouselVirtual
                     as={Row}
                     index={index}
+                    detectActive
+                    onDetectActiveItem={console.log}
                     axis={axis}
                     scrollSnapType={scrollSnapType}
                     style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem', height: '165px', width: '100vw' }}
