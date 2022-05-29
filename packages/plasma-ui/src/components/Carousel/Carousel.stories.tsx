@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import type { SnapType, SnapAlign } from '@salutejs/plasma-core';
+import { SnapType, SnapAlign, CarouselVirtual } from '@salutejs/plasma-core';
 
 import { isSberBox } from '../../utils';
 import { ProductCard, MusicCard, GalleryCard } from '../Card/Card.examples';
@@ -40,6 +40,105 @@ const isSberbox = isSberBox();
 export default {
     title: 'Controls/Carousel',
 } as Meta;
+
+export const BasicWrapper: Story<CarouselProps & CarouselColProps & { displayGrid: boolean }> = ({
+    animatedScrollByIndex,
+    scrollAlign,
+    scrollSnapType,
+    scrollSnapAlign,
+    detectActive,
+    detectThreshold,
+}) => {
+    const axis = 'x';
+    const delay = isSberbox ? 300 : 30;
+    const longDelay = isSberbox ? 1500 : 150;
+    const [index, setIndex] = useRemoteHandlers({
+        initialIndex: 0,
+        axis,
+        delay,
+        longDelay,
+        min: 0,
+        max: items.length - 1,
+    });
+
+    const commonProps = {
+        as: Row,
+        axis,
+        index,
+        scrollSnapType,
+        style: { paddingTop: '1.25rem', paddingBottom: '1.25rem' },
+        detectActive,
+    };
+
+    const regularProps = {
+        animatedScrollByIndex,
+        scrollAlign,
+        detectThreshold,
+        onIndexChange: (i) => setIndex(i),
+    };
+
+    const virtualProps = {
+        itemCount: items.length,
+        estimateSize: () => 800,
+        overscan: 6,
+        carouselHeight: 165,
+    };
+
+    const CarouselF = true ? Carousel : CarouselVirtual;
+    const propsF = true ? regularProps : virtualProps;
+    const children = true
+        ? (visibleItems, currentIndex) =>
+              visibleItems.map(({ index, start }) => {
+                  const item = items[index];
+                  const { title, subtitle } = item;
+                  return (
+                      <CarouselVirtualCol
+                          axis={axis}
+                          start={start}
+                          key={index}
+                          size={3}
+                          sizeXL={4}
+                          scrollSnapAlign={scrollSnapAlign}
+                          aria-label={`${index + 1} из ${items.length}`}
+                      >
+                          <ProductCard
+                              title={title}
+                              subtitle={subtitle}
+                              imageSrc={`${process.env.PUBLIC_URL}/images/320_320_${index % 12}.jpg`}
+                              focused={index === currentIndex}
+                          />
+                      </CarouselVirtualCol>
+                  );
+              })
+        : items.map(({ title, subtitle }, i) => (
+              <CarouselCol
+                  key={`item:${i}`}
+                  size={3}
+                  sizeXL={4}
+                  scrollSnapAlign={scrollSnapAlign}
+                  aria-label={`${i + 1} из ${items.length}`}
+              >
+                  <ProductCard
+                      title={title}
+                      subtitle={subtitle}
+                      imageSrc={`${process.env.PUBLIC_URL}/images/320_320_${i % 12}.jpg`}
+                      focused={i === index}
+                  />
+              </CarouselCol>
+          ));
+
+    const props = {
+        ...commonProps,
+        ...propsF,
+    };
+    return (
+        <DeviceThemeProvider>
+            <CarouselGridWrapper>
+                <CarouselF {...props}>{children}</CarouselF>
+            </CarouselGridWrapper>
+        </DeviceThemeProvider>
+    );
+};
 
 export const Basic: Story<CarouselProps & CarouselColProps & { displayGrid: boolean }> = ({
     animatedScrollByIndex,
