@@ -34,6 +34,7 @@
         "@salutejs/plasma-icons": "1.84.0",
         "@salutejs/plasma-sb-utils": "0.59.0",
         "@salutejs/plasma-tokens": "1.18.1",
+        "@salutejs/use-virtual": "0.8.2",
         "@storybook/addon-docs": "6.3.8",
         "@storybook/addon-essentials": "6.3.8",
         "@storybook/addons": "6.3.8",
@@ -90,18 +91,7 @@
             "^styled-components": "<rootDir>/node_modules/styled-components"
         }
     },
-    "files": [
-        "components",
-        "hocs",
-        "hooks",
-        "mixins",
-        "tokens",
-        "types",
-        "utils",
-        "index.d.ts",
-        "index.js",
-        "es"
-    ],
+    "files": ["components", "hocs", "hooks", "mixins", "tokens", "types", "utils", "index.d.ts", "index.js", "es"],
     "contributors": [
         "Vasiliy Loginevskiy",
         "Антонов Игорь Александрович",
