@@ -16,7 +16,7 @@ export const CarouselGridWrapper = styled.div`
 /**
  * Корневой элемент - ограничивающая обертка карусели.
  */
-export const Carousel = styled.div<Pick<CarouselProps, 'axis' | 'scrollSnapType'>>`
+export const Carousel = styled.div<Pick<CarouselProps, 'axis' | 'scrollSnapType' | 'carouselSize' | 'withUseVirtual'>>`
     position: relative;
     margin: 0;
     padding: 0;
@@ -57,7 +57,16 @@ export const Carousel = styled.div<Pick<CarouselProps, 'axis' | 'scrollSnapType'
 /**
  * Списковый (трековый) элемент карусели для непосредственного вложения айтемов в него.
  */
-export const CarouselTrack = styled.div<Pick<CarouselProps, 'axis' | 'paddingStart' | 'paddingEnd'>>`
+export const CarouselTrack = styled.div<
+    Pick<CarouselProps, 'axis' | 'paddingStart' | 'paddingEnd' | 'carouselSize' | 'withUseVirtual'>
+>`
+    ${({ carouselSize, axis, withUseVirtual }) =>
+        withUseVirtual &&
+        css`
+            position: absolute;
+            ${axis === 'x' ? 'width' : 'height'}: ${carouselSize}px;
+        `}
+
     ${({ axis, paddingStart, paddingEnd }) =>
         axis === 'x'
             ? css`

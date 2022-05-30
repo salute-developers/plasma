@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef, RefObject } from 'react';
 import { Story, Meta } from '@storybook/react';
 import type { SnapType, SnapAlign } from '@salutejs/plasma-core';
+import { useVirtual } from '@salutejs/use-virtual';
 
 import { isSberBox } from '../../utils';
 import { ProductCard, MusicCard, GalleryCard } from '../Card/Card.examples';
@@ -109,6 +110,117 @@ Basic.args = {
 };
 
 Basic.argTypes = {
+    scrollAlign: {
+        control: {
+            type: 'select',
+            options: ['center', 'start', 'end', 'activeDirection'],
+        },
+    },
+    scrollSnapType: {
+        control: {
+            type: 'inline-radio',
+            options: snapTypes,
+        },
+    },
+    scrollSnapAlign: {
+        control: {
+            type: 'inline-radio',
+            options: snapAlign,
+        },
+    },
+};
+
+export const BasicVirtual: Story<CarouselProps & CarouselColProps & { displayGrid: boolean }> = ({
+    animatedScrollByIndex,
+    scrollAlign,
+    scrollSnapType,
+    scrollSnapAlign,
+    detectActive,
+    detectThreshold,
+}) => {
+    const axis = 'x';
+    const delay = isSberbox ? 300 : 30;
+    const longDelay = isSberbox ? 1500 : 150;
+    // const [index, setIndex] = useRemoteHandlers({
+    //     initialIndex: 0,
+    //     axis,
+    //     delay,
+    //     longDelay,
+    //     min: 0,
+    //     max: items.length - 1,
+    // });
+    const scrollRef = useRef(null);
+
+    const { visibleItems, totalSize, currentIndex, scrollToIndex } = useVirtual({
+        itemCount: 100,
+        parentRef: scrollRef as RefObject<HTMLDivElement>,
+        horizontal: axis === 'x',
+        paddingStart: 125,
+        paddingEnd: 125,
+        estimateSize: () => 800,
+        overscan: 6,
+        // scrollToFn: React.useCallback(
+        //     (offset: number) => {
+        //         scrollRef.current?.scrollTo({ [axis === 'y' ? 'top' : 'left']: offset, behavior: 'smooth' });
+        //     },
+        //     [axis],
+        // ),
+    });
+
+    return (
+        <DeviceThemeProvider>
+            <CarouselGridWrapper>
+                <Carousel
+                    ref={scrollRef}
+                    as={Row}
+                    axis={axis}
+                    index={currentIndex}
+                    // animatedScrollByIndex={animatedScrollByIndex}
+                    // scrollAlign={scrollAlign}
+                    scrollSnapType="none"
+                    // detectActive={detectActive as true}
+                    // detectThreshold={detectThreshold}
+                    // onIndexChange={(i) => setIndex(i)}
+                    // TODO: кажется можно без height: '165px', width: '100vw'
+                    style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem', height: '165px', width: '100vw' }}
+                    carouselSize={totalSize}
+                    withUseVirtual
+                >
+                    {visibleItems.map(({ index: i, start }) => {
+                        const { title, subtitle } = items[i];
+                        return (
+                            <CarouselItem
+                                key={`item:${i}`}
+                                withUseVirtual
+                                virtualLeft={start}
+                                aria-label={`${i + 1} из ${items.length}`}
+                            >
+                                <ProductCard
+                                    title={title}
+                                    subtitle={subtitle}
+                                    imageSrc={`${process.env.PUBLIC_URL}/images/320_320_${i % 12}.jpg`}
+                                    focused={currentIndex === i}
+                                />
+                            </CarouselItem>
+                        );
+                    })}
+                </Carousel>
+            </CarouselGridWrapper>
+        </DeviceThemeProvider>
+    );
+};
+
+BasicVirtual.args = {
+    displayGrid: true,
+    animatedScrollByIndex: isSberbox,
+    scrollAlign: 'start',
+    scrollSnapType: !isSberbox ? 'mandatory' : undefined,
+    scrollSnapAlign: !isSberbox ? 'start' : undefined,
+    detectActive: true,
+    detectThreshold: 0.5,
+};
+
+BasicVirtual.argTypes = {
     scrollAlign: {
         control: {
             type: 'select',

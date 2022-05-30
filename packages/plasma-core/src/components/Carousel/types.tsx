@@ -46,6 +46,15 @@ export interface BasicProps extends AsProps, HTMLAttributes<HTMLDivElement> {
      * Debounce внутренних обработчиков события onScroll
      */
     debounceMs?: number;
+    /**
+     * Если нужно использовать вместе с хуком useVirtual
+     */
+    withUseVirtual?: boolean;
+    /**
+     * Высота или ширина (px) карусели в зависимости от axis.
+     * Необходимо указать, когда с withUseVirtual
+     */
+    carouselSize?: number;
 }
 export interface DetectionProps {
     /**
@@ -81,4 +90,5 @@ export interface NoDetectionProps {
     scaleCallback?: never;
     scaleResetCallback?: never;
 }
+
 export type CarouselProps = BasicProps & (DetectionProps | NoDetectionProps);

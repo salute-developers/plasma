@@ -28,6 +28,7 @@ export const useCarousel = ({
     animatedScrollByIndex = false,
     throttleMs = THROTTLE_DEFAULT_MS,
     debounceMs = DEBOUNCE_DEFAULT_MS,
+    withUseVirtual = false,
 }: BasicProps & Omit<Partial<DetectionProps>, 'detectActive'> & { detectActive?: boolean }): UseCarouselHookResult => {
     const prevIndex = useRef<number | null>(null);
     const direction = useRef<boolean | null>(null);
@@ -225,6 +226,10 @@ export const useCarousel = ({
      * Создать слушатели событи и т.п.
      */
     useEffect(() => {
+        if (withUseVirtual === true) {
+            return;
+        }
+
         const carouselElement = scrollRef.current;
 
         if (carouselElement) {
@@ -236,36 +241,38 @@ export const useCarousel = ({
                 carouselElement.removeEventListener('scroll', throttledDetectActiveItem);
             }
         };
-    }, [throttledDetectActiveItem]);
+    }, [throttledDetectActiveItem, withUseVirtual]);
 
     /**
      * Нужно вызвать только при первом рендере
      */
     useEffect(() => {
-        requestAnimationFrame(() => {
-            /**
-             * Прокрутка до начального индекса.
-             */
-            toIndex(index);
+        if (withUseVirtual === false) {
+            requestAnimationFrame(() => {
+                /**
+                 * Прокрутка до начального индекса.
+                 */
+                toIndex(index);
 
-            /**
-             * Если на момент запуска карусель уже находится на нужной позиции,
-             * событие скролла не произойдет, не сработает и определение центра,
-             * необходимо вызвать его вручную.
-             */
-            throttledDetectActiveItem();
-        });
+                /**
+                 * Если на момент запуска карусель уже находится на нужной позиции,
+                 * событие скролла не произойдет, не сработает и определение центра,
+                 * необходимо вызвать его вручную.
+                 */
+                throttledDetectActiveItem();
+            });
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [withUseVirtual]);
 
     /**
      * Прокрутка до нужной позиции индекса, если индекс изменился.
      */
     useEffect(() => {
-        if (index !== prevIndex.current) {
+        if (withUseVirtual === false && index !== prevIndex.current) {
             toIndex(index);
         }
-    }, [index, toIndex]);
+    }, [index, toIndex, withUseVirtual]);
 
     return {
         scrollRef,
