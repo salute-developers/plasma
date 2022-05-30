@@ -1,5 +1,6 @@
 export * from './components/Badge';
 export * from './components/Button';
+export * from './components/Calendar';
 export * from './components/Carousel';
 export * from './components/Checkbox';
 export * from './components/Dropdown';
