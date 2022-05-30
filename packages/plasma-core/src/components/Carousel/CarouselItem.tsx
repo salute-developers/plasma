@@ -1,18 +1,52 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { applyScrollSnap, ScrollSnapProps } from '../../mixins';
 import type { AsProps } from '../../types';
 
-export interface CarouselItemProps extends ScrollSnapProps, AsProps, React.HTMLAttributes<HTMLDivElement> {}
+type VirtualizationProps = {
+    withUseVirtual?: boolean;
+    virtualTop?: number;
+    virtualLeft?: number;
+};
 
-const StyledItem = styled.div<CarouselItemProps>`
+type NoVirtualizationProps = {
+    withUseVirtual?: false;
+    virtualTop: never;
+    virtualLeft: never;
+};
+
+export type CarouselItemProps = ScrollSnapProps & AsProps & React.HTMLAttributes<HTMLDivElement>;
+
+type CarouselItemExtendedProps = CarouselItemProps & (VirtualizationProps | NoVirtualizationProps);
+
+const StyledItem = styled.div<CarouselItemExtendedProps>`
+    ${({ withUseVirtual }) =>
+        withUseVirtual &&
+        css`
+            position: absolute;
+        `}
+
     ${applyScrollSnap}
 `;
 
-export const CarouselItem: React.FC<CarouselItemProps> = ({ scrollSnapAlign = 'center', children, ...rest }) => {
+export const CarouselItem: React.FC<CarouselItemExtendedProps> = ({
+    scrollSnapAlign = 'center',
+    virtualTop,
+    virtualLeft,
+    withUseVirtual = false,
+    children,
+    ...rest
+}) => {
     return (
-        <StyledItem scrollSnapAlign={scrollSnapAlign} role="group" aria-roledescription="slide" {...rest}>
+        <StyledItem
+            withUseVirtual={withUseVirtual}
+            style={withUseVirtual ? { transform: `translate(${virtualLeft ?? 0}px, ${virtualTop ?? 0}px)` } : undefined}
+            scrollSnapAlign={scrollSnapAlign}
+            role="group"
+            aria-roledescription="slide"
+            {...rest}
+        >
             {children}
         </StyledItem>
     );
