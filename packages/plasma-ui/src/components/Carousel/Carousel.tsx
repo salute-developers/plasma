@@ -50,6 +50,8 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
         listRole,
         listAriaLabel,
         children,
+        withUseVirtual,
+        carouselSize,
         ...rest
     },
     ref,
@@ -67,6 +69,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
         throttleMs,
         debounceMs,
         animatedScrollByIndex,
+        withUseVirtual,
     });
     const handleRef = useForkRef(scrollRef, ref);
 
@@ -79,6 +82,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
                 paddingEnd={paddingEnd}
                 role={listRole}
                 aria-label={listAriaLabel}
+                withUseVirtual={withUseVirtual}
             >
                 {children}
             </StyledCarouselTrack>
