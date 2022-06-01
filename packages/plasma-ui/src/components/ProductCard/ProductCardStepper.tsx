@@ -46,7 +46,9 @@ const StyledInfoButton = styled(Button).attrs(() => ({ size: 's', square: true }
         `}
 `;
 
-const StyledStepperButton = styled(Button).attrs(() => ({ size: 's', square: true }))<{ $isHidden?: boolean }>`
+const StyledStepperButton = React.memo(styled(Button).attrs(() => ({ size: 's', square: true }))<{
+    $isHidden?: boolean;
+}>`
     color: ${black};
     background-color: rgba(8, 8, 8, 0.12); /* TODO: Перенести в tokens */
     align-self: flex-end;
@@ -59,7 +61,10 @@ const StyledStepperButton = styled(Button).attrs(() => ({ size: 's', square: tru
             opacity: 0;
             visibility: hidden;
         `}
-`;
+`);
+
+const iconMinus = <IconMinus color="inherit" size="s" />;
+const iconPlus = <IconPlus color="inherit" size="s" />;
 
 /**
  * Степпер карточки продукта.
@@ -90,11 +95,11 @@ export const ProductCardStepper: FC<ProductCardStepperProps> = ({
             ) : (
                 <>
                     <StyledStepperButton disabled={disabled} $isHidden={!isValuePositive} onClick={onLessClick}>
-                        <IconMinus color="inherit" size="s" />
+                        {iconMinus}
                     </StyledStepperButton>
                     <StyledStepperValue $isHidden={!isValuePositive} value={value} showWarning={isMax} />
                     <StyledStepperButton disabled={disabled || isMoreDisabled} onClick={onMoreClick}>
-                        <IconPlus color="inherit" size="s" />
+                        {iconPlus}
                     </StyledStepperButton>
                 </>
             )}
