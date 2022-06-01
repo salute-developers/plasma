@@ -85,14 +85,14 @@ const StyledCard = styled(Card)<{ $backgroundColor?: string }>`
     background-color: ${({ $backgroundColor }) => $backgroundColor};
     color: ${blackSecondary};
 `;
-const StyledMediaSlot = styled.div`
+const StyledMediaSlot = React.memo(styled.div`
     height: 100%;
 
     & img {
         display: block;
         height: 100%;
     }
-`;
+`);
 
 const getGradient = (backgroundColor: string) => {
     const color = Color(backgroundColor);
@@ -145,13 +145,13 @@ const StyledCardContent = styled(CardContent)<{ $backgroundColor?: string; $isVa
             margin-top: -3rem;
         `}
 `;
-const StyledBadgeSlot = styled.div`
+const StyledBadgeSlot = React.memo(styled.div`
     position: absolute;
     top: 0.5rem;
     left: 0.5rem;
     z-index: 1;
-`;
-const StyledText = styled(Footnote1)`
+`);
+const StyledText = React.memo(styled(Footnote1)`
     max-height: 3.38rem;
     overflow: hidden;
     display: -webkit-box;
@@ -168,9 +168,9 @@ const StyledText = styled(Footnote1)`
                 ${body1}
             `,
         )}
-`;
+`);
 
-const StyledAdditionalInfo = styled(Footnote1)`
+const StyledAdditionalInfo = React.memo(styled(Footnote1)`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -184,13 +184,13 @@ const StyledAdditionalInfo = styled(Footnote1)`
                 ${body1}
             `,
         )}
-`;
-const StyledBottom = styled.div`
+`);
+const StyledBottom = React.memo(styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-top: 0.25rem;
-`;
+`);
 const StyledPrices = styled.div`
     display: flex;
     flex-direction: column;
@@ -214,7 +214,8 @@ const StyledPrice = styled(Price)<{ $type?: 'new' | 'old' }>`
             opacity: 0.56;
         `}
 `;
-const StyledStepper = styled(ProductCardStepper)<{ $onTop?: boolean }>`
+
+const StyledStepper = React.memo(styled(ProductCardStepper)<{ $onTop?: boolean }>`
     width: 100%;
     transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'all 0.15s ease-in-out')};
 
@@ -226,7 +227,22 @@ const StyledStepper = styled(ProductCardStepper)<{ $onTop?: boolean }>`
             : css`
                   margin-top: 0.5rem;
               `}
-`;
+`);
+
+const Prices = React.memo<{ price: number; oldPrice?: number }>(({ price, oldPrice }) => {
+    return (
+        <StyledPrices>
+            <StyledPrice $type={oldPrice !== undefined ? 'new' : undefined} forwardedAs={Body2}>
+                {price}
+            </StyledPrice>
+            {oldPrice && (
+                <StyledPrice $type="old" stroke forwardedAs={Caption}>
+                    {oldPrice}
+                </StyledPrice>
+            )}
+        </StyledPrices>
+    );
+});
 
 /**
  * Карточка продукта с возможностью указания картинки, текста, цены и выбора количества.
@@ -267,21 +283,7 @@ export const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(function
                         {additionalInfo && <StyledAdditionalInfo>{additionalInfo}</StyledAdditionalInfo>}
                         {(price !== undefined || quantity !== undefined) && (
                             <StyledBottom>
-                                {price !== undefined && (
-                                    <StyledPrices>
-                                        <StyledPrice
-                                            $type={oldPrice !== undefined ? 'new' : undefined}
-                                            forwardedAs={Body2}
-                                        >
-                                            {price}
-                                        </StyledPrice>
-                                        {oldPrice && (
-                                            <StyledPrice $type="old" stroke forwardedAs={Caption}>
-                                                {oldPrice}
-                                            </StyledPrice>
-                                        )}
-                                    </StyledPrices>
-                                )}
+                                {price !== undefined && <Prices price={price} oldPrice={oldPrice} />}
                                 {!disabled && quantity !== undefined && (
                                     <StyledStepper
                                         readonly={readonly}
