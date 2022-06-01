@@ -7,3 +7,4 @@ export type {
     CardRatioProps,
     CardProps,
 } from './Card';
+export * from './CardSkeleton/CardSkeleton';

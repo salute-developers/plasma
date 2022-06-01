@@ -6,3 +6,4 @@ export { Grid } from './Grid/Grid';
 export { HeroSliderSberportal as HeroSlider } from './HeroSlider/HeroSlider@sberportal';
 export { Card } from './Card/Card';
 export { GallerySberPortal as Gallery } from './GalleryNew/Gallery@sberportal';
+export { GallerySkeletonSberPortal as GallerySkeleton } from './GalleryNew/GallerySkeleton/GallerySkeleton@sberportal';
