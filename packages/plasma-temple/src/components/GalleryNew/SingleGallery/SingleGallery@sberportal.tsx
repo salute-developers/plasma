@@ -19,8 +19,7 @@ const StyledTitle = styled.div`
 `;
 
 const StyledCarouselItem = styled(CarouselItem)`
-    padding: 0.25rem;
-    margin-right: 0.75rem;
+    margin-right: 1rem;
 `;
 
 export const SingleGallerySberPortal = React.memo<SingleGalleryProps>(
