@@ -16,12 +16,12 @@ const StyledContainer = styled.div`
 
 const StyledTitle = styled.div`
     ${headline2}
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
 `;
 
 const StyledCarouselItem = styled(CarouselItem)`
-    padding: 0.25rem;
-    margin-right: 0.75rem;
+    padding: 0.25rem 0;
+    margin-right: 1rem;
 `;
 
 export const SingleGallerySberBox = React.memo<SingleGalleryProps>(
