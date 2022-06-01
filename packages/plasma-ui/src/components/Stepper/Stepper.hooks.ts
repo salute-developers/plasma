@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useEffect, useCallback, useRef } from 'react';
 
 export interface UseStepperProps {
     /**
@@ -24,8 +24,15 @@ export interface UseStepperProps {
 }
 
 export const useStepper = ({ value, step = 1, min = 0, max = Infinity, onChange }: UseStepperProps) => {
-    const onLessClick = useCallback((event) => onChange?.(value - step, event), [value, step, onChange]);
-    const onMoreClick = useCallback((event) => onChange?.(value + step, event), [value, step, onChange]);
+    const curValue = useRef(value);
+
+    useEffect(() => {
+        curValue.current = value;
+    }, [value]);
+
+    const onLessClick = useCallback((event) => onChange?.(curValue.current - step, event), [step, onChange]);
+    const onMoreClick = useCallback((event) => onChange?.(curValue.current + step, event), [step, onChange]);
+
     const isMin = value <= min;
     const isMax = value >= max;
     const isLessDisabled = isMin || value - step < min;

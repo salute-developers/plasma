@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconMinus, IconPlus, IconClose } from '@salutejs/plasma-icons';
@@ -75,29 +75,37 @@ interface CustomAssemblyProps {
     showFormat: boolean;
 }
 
+const icoMinus = <IconMinus color="inherit" size="xs" />;
+const icoPlus = <IconPlus color="inherit" size="xs" />;
+const icoClose = <IconClose color="inherit" size="xs" />;
+
 export const CustomAssembly: Story<CustomAssemblyProps> = ({ step, min, max, disabled, showWarning, showFormat }) => {
     const [value, setValue] = useState(5);
     const formatter = (val: number) => `${val}$`;
+
+    const onMinClick = useCallback(() => setValue((value) => Math.max(value - step, min)), [min, step]);
+    const onPlusClick = useCallback(() => setValue((value) => Math.min(value + step, max)), [max, step]);
+
     return (
         <StepperRoot aria-label="Счётчик">
             <StepperButton
                 aria-label="Уменьшить значение"
                 view={value > min ? 'secondary' : 'critical'}
-                icon={value > min ? <IconMinus color="inherit" size="xs" /> : <IconClose color="inherit" size="xs" />}
-                onClick={() => setValue(Math.max(value - step, min))}
+                icon={value > min ? icoMinus : icoClose}
+                onClick={onMinClick}
             />
             <StepperValue
                 value={value}
                 disabled={disabled}
                 showWarning={showWarning}
-                formatter={showFormat && formatter}
+                formatter={showFormat ? formatter : undefined}
             />
             <StepperButton
                 aria-label="Увеличить значение"
                 view="secondary"
-                icon={<IconPlus color="inherit" size="xs" />}
+                icon={icoPlus}
                 disabled={value >= max}
-                onClick={() => setValue(Math.min(value + step, max))}
+                onClick={onPlusClick}
             />
         </StepperRoot>
     );
