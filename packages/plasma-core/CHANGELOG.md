@@ -1,3 +1,15 @@
+# v1.60.1 (Thu Jun 02 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-core, plasma-ui, plasma-web): changes the refs array to html collection [#34](https://github.com/salute-developers/plasma/pull/34) (Kruglikov.A.D@sberbank.ru)
+
+#### Authors: 1
+
+- Arseny Kruglikov (Kruglikov.A.D@sberbank.ru)
+
+---
+
 # v1.60.0 (Tue May 24 2022)
 
 #### 🐛 Bug Fix
