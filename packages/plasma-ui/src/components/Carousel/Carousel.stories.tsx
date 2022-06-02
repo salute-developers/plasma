@@ -155,8 +155,6 @@ export const BasicVirtual: Story<CarouselProps & CarouselColProps & { displayGri
         itemCount: 100,
         parentRef: scrollRef as RefObject<HTMLDivElement>,
         horizontal: axis === 'x',
-        paddingStart: 125,
-        paddingEnd: 125,
         estimateSize: () => 800,
         overscan: 6,
         // scrollToFn: React.useCallback(
@@ -189,8 +187,10 @@ export const BasicVirtual: Story<CarouselProps & CarouselColProps & { displayGri
                     {visibleItems.map(({ index: i, start }) => {
                         const { title, subtitle } = items[i];
                         return (
-                            <CarouselItem
+                            <CarouselCol
                                 key={`item:${i}`}
+                                size={3}
+                                sizeXL={4}
                                 withUseVirtual
                                 virtualLeft={start}
                                 aria-label={`${i + 1} из ${items.length}`}
@@ -201,7 +201,7 @@ export const BasicVirtual: Story<CarouselProps & CarouselColProps & { displayGri
                                     imageSrc={`${process.env.PUBLIC_URL}/images/320_320_${i % 12}.jpg`}
                                     focused={currentIndex === i}
                                 />
-                            </CarouselItem>
+                            </CarouselCol>
                         );
                     })}
                 </Carousel>

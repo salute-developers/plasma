@@ -4,23 +4,23 @@ import styled, { css } from 'styled-components';
 import { applyScrollSnap, ScrollSnapProps } from '../../mixins';
 import type { AsProps } from '../../types';
 
-type VirtualizationProps = {
+type WithVirtualizationProps = {
     withUseVirtual?: boolean;
     virtualTop?: number;
     virtualLeft?: number;
 };
 
-type NoVirtualizationProps = {
+type WithoutVirtualizationProps = {
     withUseVirtual?: false;
     virtualTop: never;
     virtualLeft: never;
 };
 
-export type CarouselItemProps = ScrollSnapProps & AsProps & React.HTMLAttributes<HTMLDivElement>;
+export type VirtualizationProps = WithVirtualizationProps | WithoutVirtualizationProps;
 
-type CarouselItemExtendedProps = CarouselItemProps & (VirtualizationProps | NoVirtualizationProps);
+export type CarouselItemProps = ScrollSnapProps & AsProps & VirtualizationProps & React.HTMLAttributes<HTMLDivElement>;
 
-const StyledItem = styled.div<CarouselItemExtendedProps>`
+const StyledItem = styled.div<CarouselItemProps>`
     ${({ withUseVirtual }) =>
         withUseVirtual &&
         css`
@@ -30,7 +30,7 @@ const StyledItem = styled.div<CarouselItemExtendedProps>`
     ${applyScrollSnap}
 `;
 
-export const CarouselItem: React.FC<CarouselItemExtendedProps> = ({
+export const CarouselItem: React.FC<CarouselItemProps> = ({
     scrollSnapAlign = 'center',
     virtualTop,
     virtualLeft,
