@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Tabs as BaseTabs, surfaceLiquid01, StyledTabs } from '@salutejs/plasma-core';
+import { Tabs as BaseTabs, surfaceLiquid03, StyledTabs } from '@salutejs/plasma-core';
 import type { TabsProps as BaseTabsProps } from '@salutejs/plasma-core';
 
 export interface TabsProps extends BaseTabsProps {
@@ -31,7 +31,7 @@ const sizes = {
 const views = {
     secondary: css`
         --tabs-padding: 0.125rem;
-        --tabs-background-color: ${surfaceLiquid01};
+        --tabs-background-color: ${surfaceLiquid03};
     `,
     clear: css`
         --tabs-padding: 0rem;
@@ -43,21 +43,22 @@ const views = {
  * Контейнер вкладок, основной компонент для пользовательской сборки вкладок.
  */
 export const Tabs = styled(BaseTabs)<TabsProps>`
+    --tabs-border-radius: ${({ pilled }) => (pilled ? '6.25rem' : '0.875rem')};
     --tab-focus-border-size: 0rem;
-    --tabs-margin: 1rem;
+    --tabs-margin: 0;
 
     ${StyledTabs} {
         ${({ view = 'secondary' }) => views[view]}
-        ${({ size = 'l', stretch = false }) => sizes[size](stretch)}
+        ${({ size = 'l', stretch = false }) =>
+            sizes[size](stretch)}
 
-        --tabs-border-radius: ${({ pilled }) => (pilled ? '6.25rem' : '0.875rem')};
         --tab-item-height: calc(var(--tabs-height) - var(--tabs-padding) * 2);
         --tab-item-border-radius: calc(var(--tabs-border-radius) - var(--tabs-padding));
 
-        height: var(--tabs-height);
-        padding: var(--tabs-padding);
-
         background-color: var(--tabs-background-color);
         border-radius: var(--tabs-border-radius);
+
+        height: var(--tabs-height);
+        padding: var(--tabs-padding);
     }
 `;
