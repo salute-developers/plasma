@@ -143,10 +143,24 @@ export const PickerItem: React.FC<PickerItemProps> = ({
     }, [autofocus]);
 
     return (
-        <StyledPickerItem $noScrollBehavior={noScrollBehavior} ref={itemRef} $size={size} onClick={onClick} {...rest}>
-            <StyledTransformable $noScrollBehavior={noScrollBehavior} $size={size} style={styles.wrapper}>
-                <StyledText style={styles.text}>{item.label}</StyledText>
-                <StyledWhiteText style={styles.whiteText} aria-hidden="true">
+        <StyledPickerItem
+            $noScrollBehavior={noScrollBehavior}
+            data-carousel-index={index}
+            ref={itemRef}
+            $size={size}
+            onClick={onClick}
+            {...rest}
+        >
+            <StyledTransformable
+                data-picker-item="transformable"
+                $noScrollBehavior={noScrollBehavior}
+                $size={size}
+                style={styles.wrapper}
+            >
+                <StyledText data-picker-item="grey-text" style={styles.text}>
+                    {item.label}
+                </StyledText>
+                <StyledWhiteText data-picker-item="white-text" style={styles.whiteText} aria-hidden="true">
                     {item.label}
                 </StyledWhiteText>
             </StyledTransformable>

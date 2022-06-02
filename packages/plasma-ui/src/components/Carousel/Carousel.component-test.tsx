@@ -63,7 +63,7 @@ describe('plasma-ui: Carousel', () => {
                     style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem' }}
                 >
                     {items.map(({ title, subtitle, imageSrc }, i) => (
-                        <CarouselCol key={`item:${i}`} size={3} sizeXL={4}>
+                        <CarouselCol key={`item:${i}`} index={i} size={3} sizeXL={4}>
                             <ProductCard title={title} subtitle={subtitle} focused={i === index} imageSrc={imageSrc} />
                         </CarouselCol>
                     ))}
@@ -104,7 +104,7 @@ describe('plasma-ui: Carousel', () => {
                 }}
             >
                 {items.map(({ title, subtitle, imageSrc }, i) => (
-                    <CarouselItem key={`item:${i}`} style={{ padding: '0.75rem 0' }}>
+                    <CarouselItem key={`item:${i}`} index={i} style={{ padding: '0.75rem 0' }}>
                         <GalleryCard
                             title={title}
                             subtitle={subtitle}
@@ -133,7 +133,7 @@ describe('plasma-ui: Carousel', () => {
                         style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem' }}
                     >
                         {items.map(({ title, subtitle, imageSrc }, i) => (
-                            <CarouselCol key={`item:${i}`} size={3} sizeXL={4}>
+                            <CarouselCol key={`item:${i}`} index={i} size={3} sizeXL={4}>
                                 <ProductCard
                                     title={title}
                                     subtitle={subtitle}
@@ -172,7 +172,7 @@ describe('plasma-ui: Carousel', () => {
                     }}
                 >
                     {items.map(({ title, subtitle, imageSrc }, i) => (
-                        <CarouselItem key={`item:${i}`} style={{ padding: '0.75rem 0' }}>
+                        <CarouselItem key={`item:${i}`} index={i} style={{ padding: '0.75rem 0' }}>
                             <GalleryCard
                                 title={title}
                                 subtitle={subtitle}
@@ -198,7 +198,7 @@ describe('plasma-ui: Carousel', () => {
                     <CarouselGridWrapper>
                         <Carousel as={Row} axis="x" index={0} scrollSnapType="none">
                             {items.map((item, i) => (
-                                <CarouselCol key={`item:${i}`} size={2} sizeM={1.5}>
+                                <CarouselCol key={`item:${i}`} index={i} size={2} sizeM={1.5}>
                                     <MusicCard {...item} imageRatio="1 / 1" />
                                 </CarouselCol>
                             ))}
@@ -210,7 +210,7 @@ describe('plasma-ui: Carousel', () => {
                     <CarouselGridWrapper>
                         <Carousel as={Row} axis="x" index={0} scrollSnapType="none">
                             {items.map((item, i) => (
-                                <CarouselCol key={`item:${i}`} size={4} sizeM={3}>
+                                <CarouselCol key={`item:${i}`} index={i} size={4} sizeM={3}>
                                     <MusicCard {...item} imageRatio="16 / 9" />
                                 </CarouselCol>
                             ))}
@@ -222,7 +222,7 @@ describe('plasma-ui: Carousel', () => {
                     <CarouselGridWrapper>
                         <Carousel as={Row} axis="x" index={0} scrollSnapType="none">
                             {items.map((item, i) => (
-                                <CarouselCol key={`item:${i}`} size={3} sizeM={2}>
+                                <CarouselCol key={`item:${i}`} index={i} size={3} sizeM={2}>
                                     <MusicCard {...item} imageRatio="16 / 9" />
                                 </CarouselCol>
                             ))}
@@ -255,7 +255,7 @@ describe('plasma-ui: Carousel', () => {
                         style={{ paddingTop: '7.5rem' }}
                     >
                         {items.map((item, i) => (
-                            <ScalingColCard key={`item:${i}`} isActive={i === index} item={item} />
+                            <ScalingColCard key={`item:${i}`} index={i} isActive={i === index} item={item} />
                         ))}
                     </Carousel>
                 </CarouselGridWrapper>
@@ -295,7 +295,7 @@ describe('plasma-ui: Carousel', () => {
                             style={{ paddingTop: '7.5rem' }}
                         >
                             {items.map((item, i) => (
-                                <ScalingColCard key={`item:${i}`} isActive={i === index} item={item} />
+                                <ScalingColCard key={`item:${i}`} index={i} isActive={i === index} item={item} />
                             ))}
                         </Carousel>
                     </CarouselGridWrapper>

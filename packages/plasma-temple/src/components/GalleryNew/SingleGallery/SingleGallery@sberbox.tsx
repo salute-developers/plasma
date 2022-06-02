@@ -90,7 +90,7 @@ export const SingleGallerySberBox = React.memo<SingleGalleryProps>(
                 <StyledGridWrapper>
                     <Carousel axis="x" index={activeCard} paddingEnd="50%">
                         {gallery.items.map((item, idx) => (
-                            <StyledCarouselItem scrollSnapAlign="start" key={String(item.id)}>
+                            <StyledCarouselItem scrollSnapAlign="start" index={idx} key={String(item.id)}>
                                 <GalleryCard
                                     entity={item}
                                     galleryIndex={galleryIndex}

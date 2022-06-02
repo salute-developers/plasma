@@ -141,11 +141,23 @@ export const scrollToPos = ({
 
 const round = (n: number) => Math.round(n * 100) / 100;
 
+function calculateCenterSlot(itemCenter: number, scrollCenter: number, itemSize: number) {
+    return round((itemCenter - scrollCenter) / itemSize);
+}
+
+function calculateStartSlot(itemEnd: number, itemSize: number, scrollStart: number) {
+    return round((itemEnd - itemSize - scrollStart) / itemSize);
+}
+
+function calculateEndSlot(itemEnd: number, scrollSize: number, scrollStart: number, itemSize: number) {
+    return round((itemEnd - (scrollSize + scrollStart)) / itemSize);
+}
+
 /**
  * Получить позицию (слот) айтема в каруселе.
  * Каждый айтем имеет свой слот относительно вьюпорта карусели.
  */
-export const getItemSlot = (
+export function getItemSlot(
     itemIndex: number,
     itemEnd: number,
     itemSize: number,
@@ -154,7 +166,7 @@ export const getItemSlot = (
     scrollAlign: ScrollAlign,
     prevIndex = 0,
     offset = 0,
-) => {
+): number {
     /**
      * Граница и центр скролла (видимой части).
      * Смещение + размер.
@@ -163,29 +175,35 @@ export const getItemSlot = (
     const scrollCenter = scrollStart + scrollSize / 2;
     const itemCenter = itemEnd - itemSize / 2;
 
-    if (scrollAlign === 'center') {
-        return round((itemCenter - scrollCenter) / itemSize);
-    }
-    if (scrollAlign === 'start') {
-        return round((itemEnd - itemSize - scrollStart) / itemSize);
-    }
-    if (scrollAlign === 'end') {
-        return round((itemEnd - (scrollSize + scrollStart)) / itemSize);
-    }
-    if (scrollAlign === 'activeDirection') {
-        const prevStart = offset + itemSize * prevIndex;
-        const prevEnd = prevStart + itemSize;
-        const prevVisible = prevEnd > scrollStart && prevStart < scrollEnd;
+    switch (scrollAlign) {
+        case 'center': {
+            return calculateCenterSlot(itemCenter, scrollCenter, itemSize);
+        }
+        case 'start': {
+            return calculateStartSlot(itemEnd, itemSize, scrollStart);
+        }
+        case 'end': {
+            return calculateEndSlot(itemEnd, scrollSize, scrollStart, itemSize);
+        }
+        case 'activeDirection': {
+            const prevStart = offset + itemSize * prevIndex;
+            const prevEnd = prevStart + itemSize;
+            const prevVisible = prevEnd > scrollStart && prevStart < scrollEnd;
 
-        if (!prevVisible) {
-            if (prevIndex < itemIndex) {
-                return round((itemEnd - (scrollSize + scrollStart)) / itemSize);
+            if (prevVisible === false) {
+                if (prevIndex < itemIndex) {
+                    return calculateEndSlot(itemEnd, scrollSize, scrollStart, itemSize);
+                }
+                return calculateStartSlot(itemEnd, itemSize, scrollStart);
             }
-            return round((itemEnd - itemSize - scrollStart) / itemSize);
+
+            return calculateCenterSlot(itemCenter, scrollCenter, itemSize);
+        }
+        default: {
+            return calculateCenterSlot(itemCenter, scrollCenter, itemSize);
         }
     }
-    return null;
-};
+}
 
 export function getCarouselItems(track: HTMLElement): HTMLCollectionOf<HTMLElement> {
     return track.children as HTMLCollectionOf<HTMLElement>;

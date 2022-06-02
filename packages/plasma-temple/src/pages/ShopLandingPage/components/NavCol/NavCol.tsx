@@ -77,7 +77,7 @@ export const NavCol: React.FC<UnifiedComponentProps<NavColProps, PlatformCompone
     );
 
     return (
-        <StyledCarouselItem key="main-card" scrollSnapAlign="start">
+        <StyledCarouselItem key="main-card" index={0} scrollSnapAlign="start">
             <CatalogCard onClick={onCatalogOpen} image={catalogImage} focused={focused && activeIndex === 0} />
             <StoreCard onClick={onStoreInfoClick} focused={focused && activeIndex === 1} />
         </StyledCarouselItem>

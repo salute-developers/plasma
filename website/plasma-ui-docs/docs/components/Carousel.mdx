@@ -79,8 +79,8 @@ export const MyGallery = () = (
 import React from 'react';
 import { CarouselItem } from '@salutejs/plasma-ui';
 
-export const MyGalleryItem = ({ children }) => (
-    <CarouselItem scrollSnapAlign="center">{children}</CarouselItem>
+export const MyGalleryItem = ({ index, children }) => (
+    <CarouselItem scrollSnapAlign="center" index={index}>{children}</CarouselItem>
 );
 ```
 
@@ -205,7 +205,7 @@ export function App() {
                     onIndexChange={(i) => setIndex(i)}
                 >
                     {items.map(({ title, subtitle }, i) => (
-                        <CarouselCol key={`item:${i}`} size={3} sizeXL={4} scrollSnapAlign="start">
+                        <CarouselCol key={`item:${i}`} index={i} size={3} sizeXL={4} scrollSnapAlign="start">
                             <CardStyled focused={i === index}>
                                 <CardBody>
                                     <CardContent>
@@ -229,7 +229,7 @@ export function App() {
 
 ```tsx
 <Carousel>
-    {items.map((item, i) => <CarouselItem aria-label={`${i + 1} из ${items.length}`} />)}
+    {items.map((item, i) => <CarouselItem aria-label={`${i + 1} из ${items.length}`} index={i} />)}
 </Carousel>
 ```
 

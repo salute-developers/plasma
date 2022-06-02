@@ -46,8 +46,8 @@ const defaultCarouselItemStyle = { width: '20rem', padding: '0 0.5rem' };
 export const Default = () => {
     return (
         <Carousel index={0} style={defaultCarouselStyle}>
-            {items.map((item) => (
-                <CarouselItem key={item.id} style={defaultCarouselItemStyle}>
+            {items.map((item, i) => (
+                <CarouselItem key={item.id} index={i} style={defaultCarouselItemStyle}>
                     <CarouselCard
                         id={item.id}
                         title={item.title}
@@ -143,7 +143,7 @@ export const AccessabilityDemo = () => {
                 </StyledControls>
                 <StyledCarousel index={index} scrollSnapType="none" ariaLive={ariaLive}>
                     {items.map((item, i) => (
-                        <StyledCarouselItem key={item.id} aria-label={`${i + 1} из ${items.length}`}>
+                        <StyledCarouselItem key={item.id} index={i} aria-label={`${i + 1} из ${items.length}`}>
                             <CarouselCard
                                 id={item.id}
                                 title={item.title}

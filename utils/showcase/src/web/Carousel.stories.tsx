@@ -57,7 +57,12 @@ export const Default = () => {
                 scrollAlign={align}
             >
                 {items.map((item, i) => (
-                    <CarouselItem key={`item:${i}`} style={{ width: 550, padding: '0 0.5rem' }} scrollSnapAlign={align}>
+                    <CarouselItem
+                        key={`item:${i}`}
+                        index={i}
+                        style={{ width: 550, padding: '0 0.5rem' }}
+                        scrollSnapAlign={align}
+                    >
                         <StyledCard>
                             <Image src={item.imageSrc} ratio="16 / 9" base="div" />
                             <StyledCardContent>

@@ -103,7 +103,12 @@ const FocusableGallery: React.FC<FocusableGalleryProps & GalleryProps> = ({
     }, [isActive, isMultiple, title]);
 
     return (
-        <StyledSectionWrapper data-cy={`gallery-${index}`} scrollSnapAlign="start" withSpacing={titleToRender === null}>
+        <StyledSectionWrapper
+            data-cy={`gallery-${index}`}
+            index={index}
+            scrollSnapAlign="start"
+            withSpacing={titleToRender === null}
+        >
             {titleToRender}
             <GalleryWithNavigation {...props} activeIndex={activeCardIndex} ref={ref} />
         </StyledSectionWrapper>

@@ -103,8 +103,13 @@ export const Default: Story<{ align: string }> = ({ align }) => {
                 onIndexChange={setIndex}
                 scrollAlign={align as alignType}
             >
-                {items.map((item) => (
-                    <CarouselItem key={item.id} style={defaultCarouselItemStyle} scrollSnapAlign={align as alignType}>
+                {items.map((item, i) => (
+                    <CarouselItem
+                        key={item.id}
+                        index={i}
+                        style={defaultCarouselItemStyle}
+                        scrollSnapAlign={align as alignType}
+                    >
                         <StyledCard>
                             <Image src={item.imageSrc} ratio="16 / 9" base="div" />
                             <StyledCardContent>

@@ -58,7 +58,7 @@ export const ProductVariationSwitcher = React.memo<ProductVariationSwitcherProps
 
                 <StyledCarousel axis="x" index={carouselIndex} scrollAlign="start" paddingEnd="5rem">
                     {variations.map((variation, index) => (
-                        <StyledCarouselItem scrollSnapAlign="start" key={index}>
+                        <StyledCarouselItem scrollSnapAlign="start" index={index} key={index}>
                             <ProductVariationItem
                                 index={index}
                                 active={index === activeIndex}

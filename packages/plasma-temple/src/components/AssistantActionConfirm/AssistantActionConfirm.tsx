@@ -150,10 +150,6 @@ const StyledItem = styled(CarouselItem)`
     display: inline-flex;
 `;
 
-const SelectItem: React.FC = ({ children, ...props }) => {
-    return <StyledItem {...props}>{children}</StyledItem>;
-};
-
 export function AssistantActionConfirmResults<T>({
     suggests,
     onConfirm,
@@ -186,7 +182,7 @@ export function AssistantActionConfirmResults<T>({
     return (
         <StyledList axis="y" index={selectedIndex}>
             {itemsToRender.map((item, index) => (
-                <SelectItem>
+                <StyledItem key={index} index={index}>
                     <StyledButton
                         key={item.label}
                         wide
@@ -198,7 +194,7 @@ export function AssistantActionConfirmResults<T>({
                     >
                         {item.label}
                     </StyledButton>
-                </SelectItem>
+                </StyledItem>
             ))}
         </StyledList>
     );

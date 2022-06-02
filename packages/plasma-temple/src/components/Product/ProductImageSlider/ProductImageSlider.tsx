@@ -55,6 +55,7 @@ export const ProductImageSlider = React.forwardRef<HTMLDivElement, ImageSliderPr
                         <StyledCarouselItem
                             key={`${image}-${i}`}
                             scrollSnapAlign="start"
+                            index={i}
                             data-name="ProductImageSlider-item"
                         >
                             <ProductImage src={image} defaultSrc={defaultImage} data-cy="ProductImageSlider-image" />

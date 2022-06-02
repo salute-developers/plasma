@@ -62,7 +62,7 @@ export function getOffset(slot: number, size: PickerSize) {
     const absoluteSlot = Math.abs(slot);
     const ceilSlot = Math.ceil(absoluteSlot) || 1; // Ячейка, в которую перемещается элемент
 
-    // Сколько осталось от размера ячкейки, чтобы элемент занял ее полностью (от 1 до 0)
+    // Сколько осталось от размера ячейки, чтобы элемент занял ее полностью (от 1 до 0)
     const progSlot = ceilSlot - absoluteSlot;
 
     const shift = (sizes[size].offset * sizes[size].height) / 2;
@@ -138,27 +138,32 @@ export const getStyles = (slot: number, size: PickerSize) => {
  * Малый размер => большой размер
  * Серый текст => белый текст
  */
-const scaleCallback = (size: PickerSize) => (itemEl: HTMLElement, slot: number) => {
-    const styles = getStyles(slot, size);
+function scaleCallback(size: PickerSize) {
+    return (itemEl: HTMLElement, slot: number) => {
+        const styles = getStyles(slot, size);
 
-    if (itemEl.children[0] instanceof HTMLElement) {
-        const wrapper = itemEl.children[0];
-        wrapper.style.transform = styles.wrapper.transform;
+        const transformable = itemEl.querySelector<HTMLElement>('[data-picker-item="transformable"]');
+        const greyText = itemEl.querySelector<HTMLElement>('[data-picker-item="grey-text"]');
+        const whiteText = itemEl.querySelector<HTMLElement>('[data-picker-item="white-text"]');
+
+        if (transformable) {
+            transformable.style.transform = styles.wrapper.transform;
+        }
 
         /**
          * Серый текст
          */
-        if (wrapper.children[0] instanceof HTMLElement) {
-            wrapper.children[0].style.opacity = styles.text.opacity;
+        if (greyText) {
+            greyText.style.opacity = styles.text.opacity;
         }
         /**
          * Белый текст
          */
-        if (wrapper.children[1] instanceof HTMLElement) {
-            wrapper.children[1].style.opacity = styles.whiteText.opacity;
+        if (whiteText) {
+            whiteText.style.opacity = styles.whiteText.opacity;
         }
-    }
-};
+    };
+}
 
 export const scaleCallbacks = {
     l: scaleCallback('l'),
@@ -170,16 +175,25 @@ export const scaleCallbacks = {
  * Сброс стилей
  */
 export const scaleResetCallback = (itemEl: HTMLElement) => {
-    if (itemEl.children[0] instanceof HTMLElement) {
-        const transformable = itemEl.children[0];
-        transformable.style.transform = '';
+    const transformable = itemEl.querySelector<HTMLElement>('[data-picker-item="transformable"]');
+    const greyText = itemEl.querySelector<HTMLElement>('[data-picker-item="grey-text"]');
+    const whiteText = itemEl.querySelector<HTMLElement>('[data-picker-item="white-text"]');
 
-        if (transformable.children[0] instanceof HTMLElement) {
-            transformable.children[0].style.opacity = '';
-        }
-        if (transformable.children[1] instanceof HTMLElement) {
-            transformable.children[1].style.opacity = '';
-        }
+    if (transformable) {
+        transformable.style.transform = 'scale(0) translate3d(0px, 0px, 0px);';
+    }
+
+    /**
+     * Серый текст
+     */
+    if (greyText) {
+        greyText.style.opacity = String(FULL_OPACITY);
+    }
+    /**
+     * Белый текст
+     */
+    if (whiteText) {
+        whiteText.style.opacity = String(NONE_OPACITY);
     }
 };
 

@@ -61,6 +61,7 @@ export function Gallery<T extends AnyObject>({
                     items.map((card, index) => (
                         <StyledCarouselItem
                             key={card.id ?? index}
+                            index={index}
                             scrollSnapAlign={isSberPortal() ? 'start' : undefined}
                         >
                             <GalleryCardContainer<T>

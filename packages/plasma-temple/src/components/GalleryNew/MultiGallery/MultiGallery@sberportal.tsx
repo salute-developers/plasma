@@ -47,7 +47,7 @@ export function MultiGallerySberPortal({
                 scrollAlign="start"
             >
                 {items.map((item, index) => (
-                    <CarouselItem key={index} scrollSnapAlign="start">
+                    <CarouselItem key={index} index={index} scrollSnapAlign="start">
                         <StyledSingleGallery
                             gallery={item}
                             galleryIndex={index}

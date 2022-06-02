@@ -56,9 +56,6 @@ describe('plasma-ui: DatePicker', () => {
             </CypressTestDecorator>,
         );
 
-        // отключение анимаций на всех div'ах внутри окружения, TODO: перенести в plasma-cy-utils?
-        cy.get('div').invoke('attr', 'style', 'transition: unset; animation: none; scroll-snap-type: none;');
-
         cy.get('div > div:nth-child(1)').contains('5').click({ force: true });
         cy.wait(150);
         cy.get('div > div:nth-child(2)').contains('мая').click({ force: true });
