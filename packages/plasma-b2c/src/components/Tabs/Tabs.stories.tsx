@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { IconClock } from '@salutejs/plasma-icons';
 import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -54,6 +55,7 @@ Default.args = {
     view: 'secondary',
     label: 'Label',
     enableContentLeft: true,
+    outsideScroll: true,
 };
 
 export const Arrows: Story<DeafultStoryProps> = ({
@@ -87,5 +89,63 @@ Arrows.args = {
     disabled: false,
     stretch: true,
     label: 'Label',
-    autoScroll: false,
+    outsideScroll: true,
+};
+
+const StyledMultipleContainer = styled.div`
+    display: flex;
+    column-gap: 1rem;
+`;
+
+interface MultipleStoryProps extends DeafultStoryProps {
+    outsideScrollLeftTab: boolean | { left?: string; right?: string };
+    outsideScrollRightTab: boolean | { left?: string; right?: string };
+}
+
+export const Multiple: Story<MultipleStoryProps> = ({
+    itemsNumber,
+    disabled,
+    stretch,
+    label,
+    enableContentLeft,
+    outsideScrollLeftTab,
+    outsideScrollRightTab,
+}) => {
+    const items = Array(itemsNumber).fill({
+        label,
+        contentLeft: enableContentLeft && <IconClock color="inherit" />,
+    });
+    const [index1, setIndex1] = useState(0);
+    const [index2, setIndex2] = useState(0);
+
+    return (
+        <StyledMultipleContainer>
+            <TabsController
+                items={items}
+                index={index1}
+                onIndexChange={(i) => setIndex1(i)}
+                stretch={stretch}
+                disabled={disabled}
+                outsideScroll={outsideScrollLeftTab}
+            />
+            <TabsController
+                items={items}
+                index={index2}
+                onIndexChange={(i) => setIndex2(i)}
+                stretch={stretch}
+                disabled={disabled}
+                outsideScroll={outsideScrollRightTab}
+            />
+        </StyledMultipleContainer>
+    );
+};
+
+Multiple.args = {
+    itemsNumber: 10,
+    disabled: false,
+    stretch: false,
+    pilled: true,
+    label: 'Label',
+    outsideScrollLeftTab: false,
+    outsideScrollRightTab: { right: '1rem' },
 };

@@ -45,4 +45,20 @@ describe('plasma-b2c: Tabs', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('_outsideScroll', () => {
+        mount(
+            <CypressTestDecorator>
+                <Tabs pilled outsideScroll={{ right: '1rem', left: '2rem' }} forwardedAs="ul">
+                    {items.map((item, i) => (
+                        <TabItem key={i} isActive={i === 1} forwardedAs="li">
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
 });
