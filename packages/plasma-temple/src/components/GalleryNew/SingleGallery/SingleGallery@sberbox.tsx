@@ -16,7 +16,12 @@ const StyledContainer = styled.div`
 
 const StyledTitle = styled.div`
     ${headline2}
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
+`;
+
+const StyledGridWrapper = styled(CarouselGridWrapper)`
+    margin-top: -0.25rem;
+    margin-bottom: -0.25rem;
 `;
 
 const StyledCarouselItem = styled(CarouselItem)`
@@ -82,7 +87,7 @@ export const SingleGallerySberBox = React.memo<SingleGalleryProps>(
                 className={className}
             >
                 {gallery.title && <StyledTitle>{gallery.title}</StyledTitle>}
-                <CarouselGridWrapper>
+                <StyledGridWrapper>
                     <Carousel axis="x" index={activeCard} paddingEnd="50%">
                         {gallery.items.map((item, idx) => (
                             <StyledCarouselItem scrollSnapAlign="start" key={String(item.id)}>
@@ -97,7 +102,7 @@ export const SingleGallerySberBox = React.memo<SingleGalleryProps>(
                             </StyledCarouselItem>
                         ))}
                     </Carousel>
-                </CarouselGridWrapper>
+                </StyledGridWrapper>
             </StyledContainer>
         );
     },
