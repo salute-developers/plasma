@@ -60,7 +60,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
         index,
         axis,
         scrollAlign,
-        detectActive,
+        detectActive: withUseVirtual ? false : detectActive,
         detectThreshold,
         scaleCallback,
         scaleResetCallback,
