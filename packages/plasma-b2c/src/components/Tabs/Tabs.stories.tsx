@@ -3,7 +3,6 @@ import { IconClock } from '@salutejs/plasma-icons';
 import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import styled from 'styled-components';
 
 import { Tabs, TabsProps, TabItem, TabsController } from '.';
 
@@ -55,6 +54,10 @@ Default.args = {
     view: 'secondary',
     label: 'Label',
     enableContentLeft: true,
+    outsideScroll: {
+        left: '1rem',
+        right: '1rem',
+    },
 };
 
 export const Arrows: Story<DeafultStoryProps> = ({ itemsNumber, disabled, stretch, label, enableContentLeft }) => {
@@ -80,74 +83,8 @@ Arrows.args = {
     disabled: false,
     stretch: true,
     label: 'Label',
-};
-
-const StyledTabsContainer = styled.div`
-    display: flex;
-`;
-
-const StyledLeftTabs = styled(Tabs)`
-    display: flex;
-    margin-left: -1rem;
-    padding-left: 1rem;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-`;
-
-const StyledRightTabs = styled(Tabs)`
-    display: flex;
-    margin-right: -1rem;
-    padding-right: 1rem;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-`;
-
-export const InsideFlex: Story<DeafultStoryProps> = ({ itemsNumber, disabled, label, enableContentLeft, ...rest }) => {
-    const items = Array(itemsNumber).fill(0);
-    const [index, setIndex] = useState(0);
-
-    return (
-        <StyledTabsContainer>
-            <StyledLeftTabs disabled={disabled} {...rest}>
-                {items.map((_, i) => (
-                    <TabItem
-                        key={`item:${i}_1`}
-                        isActive={i === index}
-                        tabIndex={!disabled ? i : -1}
-                        contentLeft={enableContentLeft && <IconClock color="inherit" />}
-                        onClick={() => !disabled && setIndex(i)}
-                        onFocus={action(`onFocus item #${i}_1`)}
-                        onBlur={action(`onBlur item #${i}_1`)}
-                    >
-                        {label}
-                    </TabItem>
-                ))}
-            </StyledLeftTabs>
-            <StyledRightTabs disabled={disabled} {...rest}>
-                {items.map((_, i) => (
-                    <TabItem
-                        key={`item:${i}_2`}
-                        isActive={i === index}
-                        tabIndex={!disabled ? i : -1}
-                        contentLeft={enableContentLeft && <IconClock color="inherit" />}
-                        onClick={() => !disabled && setIndex(i)}
-                        onFocus={action(`onFocus item #${i}_2`)}
-                        onBlur={action(`onBlur item #${i}_2`)}
-                    >
-                        {label}
-                    </TabItem>
-                ))}
-            </StyledRightTabs>
-        </StyledTabsContainer>
-    );
-};
-
-InsideFlex.args = {
-    itemsNumber: 5,
-    disabled: false,
-    stretch: false,
-    pilled: true,
-    view: 'secondary',
-    label: 'Label',
-    enableContentLeft: false,
+    outsideScroll: {
+        left: '1rem',
+        right: '1rem',
+    },
 };
