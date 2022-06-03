@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Tabs as BaseTabs, surfaceLiquid03, StyledTabs } from '@salutejs/plasma-core';
+import { Tabs as BaseTabs, surfaceLiquid01, StyledTabs } from '@salutejs/plasma-core';
 import type { TabsProps as BaseTabsProps } from '@salutejs/plasma-core';
 
 export interface TabsProps extends BaseTabsProps {
@@ -15,6 +15,10 @@ export interface TabsProps extends BaseTabsProps {
      * Размер компонента. По умолчанию 'l'
      */
     size?: 'l' | 's';
+    /**
+     * Уберет скругление с выбранной стороны и подвинет контейнер
+     */
+    outsideScroll?: boolean | { left?: string; right?: string };
 }
 
 const sizes = {
@@ -31,7 +35,7 @@ const sizes = {
 const views = {
     secondary: css`
         --tabs-padding: 0.125rem;
-        --tabs-background-color: ${surfaceLiquid03};
+        --tabs-background-color: ${surfaceLiquid01};
     `,
     clear: css`
         --tabs-padding: 0rem;
@@ -49,6 +53,32 @@ export const Tabs = styled(BaseTabs)<TabsProps>`
 
     border-radius: var(--tabs-border-radius);
 
+    ${({ outsideScroll }) =>
+        outsideScroll === true
+            ? css`
+                  margin: 0 -1rem;
+                  padding: 0 1rem;
+                  border-radius: 0;
+              `
+            : outsideScroll &&
+              css`
+                  ${outsideScroll?.left &&
+                  css`
+                      border-top-left-radius: 0;
+                      border-bottom-left-radius: 0;
+                      margin-left: calc(-1 * ${outsideScroll?.left});
+                      padding-left: ${outsideScroll?.left};
+                  `}
+
+                  ${outsideScroll?.right &&
+                  css`
+                      border-top-right-radius: 0;
+                      border-bottom-right-radius: 0;
+                      margin-right: calc(-1 * ${outsideScroll?.right});
+                      padding-right: ${outsideScroll?.right};
+                  `}
+              `}
+
     ${StyledTabs} {
         ${({ view = 'secondary' }) => views[view]}
         ${({ size = 'l', stretch = false }) =>
@@ -57,10 +87,14 @@ export const Tabs = styled(BaseTabs)<TabsProps>`
         --tab-item-height: calc(var(--tabs-height) - var(--tabs-padding) * 2);
         --tab-item-border-radius: calc(var(--tabs-border-radius) - var(--tabs-padding));
 
-        background-color: var(--tabs-background-color);
-        border-radius: var(--tabs-border-radius);
-
         height: var(--tabs-height);
         padding: var(--tabs-padding);
+
+        background-color: var(--tabs-background-color);
+        border-radius: var(--tabs-border-radius);
     }
 `;
+
+Tabs.defaultProps = {
+    outsideScroll: true,
+};
