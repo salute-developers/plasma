@@ -47,6 +47,8 @@ export const Tabs = styled(BaseTabs)<TabsProps>`
     --tab-focus-border-size: 0rem;
     --tabs-margin: 0;
 
+    border-radius: var(--tabs-border-radius);
+
     ${StyledTabs} {
         ${({ view = 'secondary' }) => views[view]}
         ${({ size = 'l', stretch = false }) =>

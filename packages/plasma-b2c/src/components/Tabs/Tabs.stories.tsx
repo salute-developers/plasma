@@ -90,12 +90,16 @@ const StyledLeftTabs = styled(Tabs)`
     display: flex;
     margin-left: -1rem;
     padding-left: 1rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 `;
 
 const StyledRightTabs = styled(Tabs)`
     display: flex;
     margin-right: -1rem;
     padding-right: 1rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 `;
 
 export const InsideFlex: Story<DeafultStoryProps> = ({ itemsNumber, disabled, label, enableContentLeft, ...rest }) => {
