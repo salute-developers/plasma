@@ -44,6 +44,7 @@
     "devDependencies": {
         "@babel/cli": "7.15.4",
         "@babel/core": "7.15.5",
+        "@babel/plugin-transform-react-constant-elements": "7.17.12",
         "@babel/preset-env": "7.15.4",
         "@babel/preset-react": "7.14.5",
         "@babel/preset-typescript": "7.15.0",
@@ -80,23 +81,7 @@
         "ts-node": "10.3.0",
         "typescript": "3.9.10"
     },
-    "keywords": [
-        "design-system",
-        "react-components",
-        "ui-kit",
-        "react"
-    ],
-    "files": [
-        "components",
-        "es",
-        "hocs",
-        "hooks",
-        "mixins",
-        "tokens",
-        "types",
-        "utils",
-        "index.d.ts",
-        "index.js"
-    ],
+    "keywords": ["design-system", "react-components", "ui-kit", "react"],
+    "files": ["components", "es", "hocs", "hooks", "mixins", "tokens", "types", "utils", "index.d.ts", "index.js"],
     "sideEffects": false
 }

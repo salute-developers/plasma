@@ -3,6 +3,7 @@ const namespace = process.env.SC_NAMESPACE;
 const plugins = [
     '@babel/plugin-proposal-class-properties',
     'babel-plugin-annotate-pure-calls',
+    '@babel/plugin-transform-react-constant-elements',
     [
         'babel-plugin-styled-components',
         {
