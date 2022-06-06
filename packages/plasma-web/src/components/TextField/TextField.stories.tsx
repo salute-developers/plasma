@@ -2,7 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { IconPlaceholder, InSpacingDecorator, disableProps } from '../../helpers';
+import { IconPlaceholder, InSpacingDecorator } from '../../helpers';
 
 import { TextField, TextFieldProps } from '.';
 
@@ -22,6 +22,11 @@ export default {
             control: {
                 type: 'select',
                 options: statuses,
+            },
+        },
+        maxLength: {
+            control: {
+                type: 'number',
             },
         },
         size: {
