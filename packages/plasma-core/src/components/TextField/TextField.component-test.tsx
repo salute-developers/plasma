@@ -5,12 +5,41 @@ import { IconSleep, IconEye } from '@salutejs/plasma-icons';
 describe('plasma-core: TextField', () => {
     const TextField = getComponent('TextField');
 
+    function Demo({ maxLength }) {
+        const [value, setValue] = React.useState('');
+
+        return (
+            <TextField
+                size="m"
+                maxLength={maxLength}
+                placeholder="Placeholder"
+                onChange={(e) => {
+                    setValue(e.target.value);
+                }}
+                value={value}
+                helperText="Helper text"
+            />
+        );
+    }
+
     it('default', () => {
         mount(
             <CypressTestDecorator>
                 <TextField value="Value" placeholder="Placeholder" helperText="Helper text" />
             </CypressTestDecorator>,
         );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('_maxLength', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo maxLength={10} />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('input').type('More then ten symbols');
 
         cy.matchImageSnapshot();
     });
