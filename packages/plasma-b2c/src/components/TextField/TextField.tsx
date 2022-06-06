@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useCallback } from 'react';
 import styled from 'styled-components';
 import { FieldRoot, FieldPlaceholder, FieldContent, FieldHelper, Input, primary } from '@salutejs/plasma-core';
 import type { FieldProps, InputProps } from '@salutejs/plasma-core';
@@ -65,11 +65,25 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
         helperText,
         style,
         className,
+        onChange,
         ...rest
     },
     ref,
 ) {
     const placeLabel = (label || placeholder) as string | undefined;
+
+    const handleChange = useCallback(
+        (event) => {
+            const { maxLength, value } = event.target;
+
+            if (!onChange || (maxLength !== -1 && value.length > maxLength)) {
+                return;
+            }
+
+            onChange(event);
+        },
+        [onChange],
+    );
 
     return (
         <FieldRoot
@@ -92,6 +106,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
                     status={status}
                     aria-labelledby={id ? `${id}-label` : undefined}
                     aria-describedby={id ? `${id}-helpertext` : undefined}
+                    onChange={handleChange}
                     {...rest}
                 />
                 {placeLabel && <StyledPlaceholder htmlFor={id}>{placeLabel}</StyledPlaceholder>}

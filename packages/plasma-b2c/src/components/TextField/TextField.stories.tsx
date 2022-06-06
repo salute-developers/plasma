@@ -25,7 +25,6 @@ const propsToDisable = [
     'onChange',
     'value',
     'checked',
-    'maxLength',
     'minLength',
     'required',
 ];
@@ -39,6 +38,11 @@ export default {
             control: {
                 type: 'select',
                 options: statuses,
+            },
+        },
+        maxLength: {
+            control: {
+                type: 'number',
             },
         },
         ...disableProps(propsToDisable),
