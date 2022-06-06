@@ -79,10 +79,8 @@ export const Handle = React.forwardRef<HTMLDivElement, HandleProps>(
 
         const onDrag = React.useCallback(
             (_, data) => {
-                const newHandleXPosition = data.lastX;
-
                 if (onChange) {
-                    const newValue = getValue(newHandleXPosition, stepSize, min, max);
+                    const newValue = getValue(data.x, stepSize, min, max);
                     if (lastOnChangeValue.current !== newValue) {
                         onChange(newValue, data);
                         lastOnChangeValue.current = newValue;
@@ -94,8 +92,7 @@ export const Handle = React.forwardRef<HTMLDivElement, HandleProps>(
 
         const onStop = React.useCallback(
             (_, data) => {
-                const newHandleXPosition = data.lastX;
-                const newValue = getValue(newHandleXPosition, stepSize, min, max);
+                const newValue = getValue(data.x, stepSize, min, max);
                 onChangeCommitted(newValue, data);
             },
             [onChangeCommitted, stepSize, min, max],
