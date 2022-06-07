@@ -9,7 +9,7 @@ export type ToIndex = (i: number) => void;
 export type ToPrev = () => void;
 export type ToNext = () => void;
 
-export interface BasicProps extends AsProps, HTMLAttributes<HTMLDivElement> {
+export type UseCarouselOptions = {
     /**
      * Индекс текущего элемента
      */
@@ -46,6 +46,32 @@ export interface BasicProps extends AsProps, HTMLAttributes<HTMLDivElement> {
      * Debounce внутренних обработчиков события onScroll
      */
     debounceMs?: number;
+} & (DetectionProps | NoDetectionProps);
+
+export interface BasicProps extends AsProps, HTMLAttributes<HTMLDivElement> {
+    /**
+     * Ось прокрутки
+     */
+    axis: ScrollAxis;
+    /**
+     * Тип CSS Scroll Snap
+     */
+    scrollSnapType?: SnapType;
+    /**
+     * Центрирование активного элемента при скролле
+     */
+    scrollAlign?: ScrollAlign;
+    /**
+     * Отступ в начале, используется при центрировании крайних элементов
+     */
+    paddingStart?: string;
+    /**
+     * Отступ в конце, используется при центрировании крайних элементов
+     */
+    paddingEnd?: string;
+}
+
+export type CarouselVirtualExtension = {
     /**
      * Если нужно использовать вместе с хуком useVirtual
      */
@@ -55,8 +81,9 @@ export interface BasicProps extends AsProps, HTMLAttributes<HTMLDivElement> {
      * Необходимо указать, когда с withUseVirtual
      */
     carouselSize?: number;
-}
-export interface DetectionProps {
+};
+
+export type DetectionProps = {
     /**
      * Вычислять активный элемент
      */
@@ -81,14 +108,19 @@ export interface DetectionProps {
      * Обработчик для сброса стилей элементов, находящихся вне вьюпорта
      */
     scaleResetCallback?: (itemEl: HTMLElement) => void;
-}
-export interface NoDetectionProps {
+};
+
+export type NoDetectionProps = {
     detectActive?: false;
     detectThreshold?: never;
     onIndexChange?: never;
     onDetectActiveItem?: never;
     scaleCallback?: never;
     scaleResetCallback?: never;
-}
+};
 
-export type CarouselProps = BasicProps & (DetectionProps | NoDetectionProps);
+export type CarouselProps = BasicProps & UseCarouselOptions;
+
+export type CarouselVirtualProps = BasicProps & CarouselVirtualExtension;
+
+export type CarouselTemplateProps = BasicProps;

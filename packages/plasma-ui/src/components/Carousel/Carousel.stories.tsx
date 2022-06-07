@@ -14,6 +14,7 @@ import { ScalingColCard, scaleCallback, scaleResetCallback, ScalingColCardProps 
 import {
     CarouselGridWrapper,
     Carousel,
+    CarouselVirtual,
     CarouselItem,
     CarouselCol,
     useRemoteHandlers,
@@ -165,14 +166,17 @@ export const BasicVirtual: Story<CarouselProps & CarouselColProps & { displayGri
         // ),
     });
 
+    const trackRef = useRef(null);
+
     return (
         <DeviceThemeProvider>
             <CarouselGridWrapper>
-                <Carousel
+                <CarouselVirtual
                     ref={scrollRef}
                     as={Row}
                     axis={axis}
                     index={currentIndex}
+                    trackRef={trackRef}
                     // animatedScrollByIndex={animatedScrollByIndex}
                     // scrollAlign={scrollAlign}
                     scrollSnapType="none"
@@ -204,7 +208,7 @@ export const BasicVirtual: Story<CarouselProps & CarouselColProps & { displayGri
                             </CarouselCol>
                         );
                     })}
-                </Carousel>
+                </CarouselVirtual>
             </CarouselGridWrapper>
         </DeviceThemeProvider>
     );
