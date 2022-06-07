@@ -1,3 +1,17 @@
+# v1.72.1 (Tue Jun 07 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-b2c, plasma-ui): fix scroll handle position passed to callbacks [#48](https://github.com/salute-developers/plasma/pull/48) ([@Gerpea](https://github.com/Gerpea))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- German Cyganov ([@Gerpea](https://github.com/Gerpea))
+
+---
+
 # v1.72.0 (Tue Jun 07 2022)
 
 #### 🐛 Bug Fix

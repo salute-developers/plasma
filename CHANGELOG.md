@@ -1,5 +1,18 @@
 # (Tue Jun 07 2022)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.72.1`, `@salutejs/plasma-ui@1.108.1`
+  - fix(plasma-b2c, plasma-ui): fix scroll handle position passed to callbacks [#48](https://github.com/salute-developers/plasma/pull/48) ([@Gerpea](https://github.com/Gerpea))
+
+#### Authors: 1
+
+- German Cyganov ([@Gerpea](https://github.com/Gerpea))
+
+---
+
+# (Tue Jun 07 2022)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-temple@1.72.0`
