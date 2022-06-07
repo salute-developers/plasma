@@ -4,7 +4,7 @@ import { useRef, useEffect, useCallback, useMemo } from 'react';
 
 import { useDebouncedFunction } from '../../hooks';
 
-import type { BasicProps, DetectionProps } from './types';
+import type { UseCarouselOptions } from './types';
 import { scrollToPos, getCalculatedPos, getCalculatedOffset, getItemSlot, getCarouselItems } from './utils';
 
 type UseCarouselHookResult = {
@@ -28,8 +28,7 @@ export const useCarousel = ({
     animatedScrollByIndex = false,
     throttleMs = THROTTLE_DEFAULT_MS,
     debounceMs = DEBOUNCE_DEFAULT_MS,
-    withUseVirtual = false,
-}: BasicProps & Omit<Partial<DetectionProps>, 'detectActive'> & { detectActive?: boolean }): UseCarouselHookResult => {
+}: UseCarouselOptions): UseCarouselHookResult => {
     const prevIndex = useRef<number | null>(null);
     const direction = useRef<boolean | null>(null);
     const offset = useRef(0);
@@ -226,10 +225,6 @@ export const useCarousel = ({
      * Создать слушатели событи и т.п.
      */
     useEffect(() => {
-        if (withUseVirtual === true) {
-            return;
-        }
-
         const carouselElement = scrollRef.current;
 
         if (carouselElement) {
@@ -241,38 +236,37 @@ export const useCarousel = ({
                 carouselElement.removeEventListener('scroll', throttledDetectActiveItem);
             }
         };
-    }, [throttledDetectActiveItem, withUseVirtual]);
+    }, [throttledDetectActiveItem]);
 
     /**
      * Нужно вызвать только при первом рендере
      */
     useEffect(() => {
-        if (withUseVirtual === false) {
-            requestAnimationFrame(() => {
-                /**
-                 * Прокрутка до начального индекса.
-                 */
-                toIndex(index);
+        requestAnimationFrame(() => {
+            /**
+             * Прокрутка до начального индекса.
+             */
+            toIndex(index);
 
-                /**
-                 * Если на момент запуска карусель уже находится на нужной позиции,
-                 * событие скролла не произойдет, не сработает и определение центра,
-                 * необходимо вызвать его вручную.
-                 */
-                throttledDetectActiveItem();
-            });
-        }
+            /**
+             * Если на момент запуска карусель уже находится на нужной позиции,
+             * событие скролла не произойдет, не сработает и определение центра,
+             * необходимо вызвать его вручную.
+             */
+            throttledDetectActiveItem();
+        });
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [withUseVirtual]);
+    }, []);
 
     /**
      * Прокрутка до нужной позиции индекса, если индекс изменился.
      */
     useEffect(() => {
-        if (withUseVirtual === false && index !== prevIndex.current) {
+        if (index !== prevIndex.current) {
             toIndex(index);
         }
-    }, [index, toIndex, withUseVirtual]);
+    }, [index, toIndex]);
 
     return {
         scrollRef,
