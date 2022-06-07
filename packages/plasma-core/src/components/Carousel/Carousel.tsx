@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import type { CarouselProps } from './types';
+import type { CarouselProps, CarouselVirtualProps } from './types';
 
 /**
  * Компонент применяется, если требуется компенсировать отступы контейнера в сетке.
@@ -16,7 +16,7 @@ export const CarouselGridWrapper = styled.div`
 /**
  * Корневой элемент - ограничивающая обертка карусели.
  */
-export const Carousel = styled.div<Pick<CarouselProps, 'axis' | 'scrollSnapType' | 'carouselSize' | 'withUseVirtual'>>`
+export const Carousel = styled.div<Pick<CarouselProps, 'axis' | 'scrollSnapType'>>`
     position: relative;
     margin: 0;
     padding: 0;
@@ -58,7 +58,7 @@ export const Carousel = styled.div<Pick<CarouselProps, 'axis' | 'scrollSnapType'
  * Списковый (трековый) элемент карусели для непосредственного вложения айтемов в него.
  */
 export const CarouselTrack = styled.div<
-    Pick<CarouselProps, 'axis' | 'paddingStart' | 'paddingEnd' | 'carouselSize' | 'withUseVirtual'>
+    Pick<CarouselVirtualProps, 'axis' | 'paddingStart' | 'paddingEnd' | 'carouselSize' | 'withUseVirtual'>
 >`
     ${({ carouselSize, axis, withUseVirtual }) =>
         withUseVirtual &&

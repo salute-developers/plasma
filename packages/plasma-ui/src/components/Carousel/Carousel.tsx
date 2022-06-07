@@ -4,27 +4,55 @@ import {
     useCarousel,
     Carousel as BaseCarousel,
     CarouselTrack as BaseTrack,
-    CarouselProps as BaseProps,
+    BasicProps,
+    CarouselProps,
+    CarouselVirtualProps,
     applyNoSelect,
 } from '@salutejs/plasma-core';
 
 import { useForkRef } from '../../hooks';
 
-export type CarouselProps = BaseProps & {
-    /**
-     * Сменить WAI-ARIA Role списка.
-     */
-    listRole?: string;
-    /**
-     * Сменить WAI-ARIA Label списка.
-     */
-    listAriaLabel?: string;
-};
-
 const StyledCarousel = styled(BaseCarousel)``;
 const StyledCarouselTrack = styled(BaseTrack)`
     ${applyNoSelect};
 `;
+
+export const CarouselTemplate = React.forwardRef<
+    HTMLElement,
+    BasicProps & { trackRef: React.MutableRefObject<HTMLElement | null> }
+>(
+    (
+        {
+            axis,
+            scrollSnapType,
+            trackRef,
+            paddingStart,
+            paddingEnd,
+            listRole,
+            listAriaLabel,
+            withUseVirtual,
+            children,
+            ...rest
+        },
+        ref,
+    ) => {
+        return (
+            <StyledCarousel ref={ref} axis={axis} scrollSnapType={scrollSnapType} {...rest}>
+                <StyledCarouselTrack
+                    ref={trackRef as React.MutableRefObject<HTMLDivElement | null>}
+                    axis={axis}
+                    paddingStart={paddingStart}
+                    paddingEnd={paddingEnd}
+                    role={listRole}
+                    aria-label={listAriaLabel}
+                    withUseVirtual={withUseVirtual}
+                >
+                    {children}
+                </StyledCarouselTrack>
+            </StyledCarousel>
+        );
+    },
+);
 
 /**
  * Компонент для создания списков с прокруткой.
@@ -42,16 +70,9 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
         scaleResetCallback,
         onIndexChange,
         onDetectActiveItem,
-        paddingStart,
-        paddingEnd,
         throttleMs,
         debounceMs,
         animatedScrollByIndex,
-        listRole,
-        listAriaLabel,
-        children,
-        withUseVirtual,
-        carouselSize,
         ...rest
     },
     ref,
@@ -60,7 +81,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
         index,
         axis,
         scrollAlign,
-        detectActive: withUseVirtual ? false : detectActive,
+        detectActive,
         detectThreshold,
         scaleCallback,
         scaleResetCallback,
@@ -69,23 +90,22 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
         throttleMs,
         debounceMs,
         animatedScrollByIndex,
-        withUseVirtual,
     });
+
     const handleRef = useForkRef(scrollRef, ref);
 
     return (
-        <StyledCarousel ref={handleRef} axis={axis} scrollSnapType={scrollSnapType} {...rest}>
-            <StyledCarouselTrack
-                ref={trackRef as React.MutableRefObject<HTMLDivElement | null>}
-                axis={axis}
-                paddingStart={paddingStart}
-                paddingEnd={paddingEnd}
-                role={listRole}
-                aria-label={listAriaLabel}
-                withUseVirtual={withUseVirtual}
-            >
-                {children}
-            </StyledCarouselTrack>
-        </StyledCarousel>
+        <CarouselTemplate ref={handleRef} trackRef={trackRef} axis={axis} scrollSnapType={scrollSnapType} {...rest} />
     );
+});
+
+/**
+ * Компонент для создания виртуализированных списков с прокруткой.
+ */
+// eslint-disable-next-line prefer-arrow-callback
+export const CarouselVirtual = React.forwardRef<
+    HTMLDivElement,
+    CarouselVirtualProps & { trackRef: React.MutableRefObject<HTMLElement | null> }
+>(({ scrollSnapType = 'mandatory', trackRef, ...rest }, ref) => {
+    return <CarouselTemplate ref={ref} trackRef={trackRef} withUseVirtual scrollSnapType={scrollSnapType} {...rest} />;
 });

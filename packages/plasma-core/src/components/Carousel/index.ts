@@ -7,4 +7,4 @@ export type { CarouselItemProps, VirtualizationProps } from './CarouselItem';
 
 export { useCarousel } from './hooks';
 
-export type { CarouselProps, ScrollAxis } from './types';
+export type { CarouselProps, ScrollAxis, UseCarouselOptions, BasicProps, CarouselVirtualProps } from './types';
