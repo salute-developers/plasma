@@ -1,3 +1,22 @@
+# v1.72.0 (Tue Jun 07 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): fix gallery offset between title and gallery [#42](https://github.com/salute-developers/plasma/pull/42) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-temple): fix gallery paddings [#42](https://github.com/salute-developers/plasma/pull/42) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-temple): gallery skeleton [#42](https://github.com/salute-developers/plasma/pull/42) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.71.0 (Tue Jun 07 2022)
 
 #### 🚀 Enhancement

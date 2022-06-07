@@ -1,3 +1,17 @@
+# v1.108.0 (Tue Jun 07 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web,plasma-b2c,plasma-ui): Add onChange callback for maxLength check in `TextField` [#47](https://github.com/salute-developers/plasma/pull/47) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.107.0 (Tue Jun 07 2022)
 
 #### 🐛 Bug Fix

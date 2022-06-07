@@ -2,6 +2,29 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-temple@1.72.0`
+  - feat(plasma-temple): fix gallery offset between title and gallery [#42](https://github.com/salute-developers/plasma/pull/42) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+  - feat(plasma-temple): fix gallery paddings [#42](https://github.com/salute-developers/plasma/pull/42) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+  - feat(plasma-temple): gallery skeleton [#42](https://github.com/salute-developers/plasma/pull/42) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-core@1.62.0`, `@salutejs/plasma-web@1.107.0`
+  - test(plasma-b2c,plasma-web,plasma-ui): Add test and snapshot for `TextField` component [#47](https://github.com/salute-developers/plasma/pull/47) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.72.0`, `@salutejs/plasma-ui@1.108.0`, `@salutejs/plasma-web@1.107.0`
+  - fix(plasma-web,plasma-b2c,plasma-ui): Add onChange callback for maxLength check in `TextField` [#47](https://github.com/salute-developers/plasma/pull/47) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Tue Jun 07 2022)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-temple@1.71.0`
   - feat(plasma-temple): fixes [#52](https://github.com/salute-developers/plasma/pull/52) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
   - feat(plasma-temple): Use ScreenProvider and AssistantProvider under the hood of PlasmaApp [#52](https://github.com/salute-developers/plasma/pull/52) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
