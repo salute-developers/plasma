@@ -1,3 +1,21 @@
+# v1.71.0 (Tue Jun 07 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): fixes [#52](https://github.com/salute-developers/plasma/pull/52) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-temple): Use ScreenProvider and AssistantProvider under the hood of PlasmaApp [#52](https://github.com/salute-developers/plasma/pull/52) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.70.1 (Thu Jun 02 2022)
 
 #### 🐛 Bug Fix

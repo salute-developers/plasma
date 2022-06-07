@@ -1,3 +1,17 @@
+# (Tue Jun 07 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-temple@1.71.0`
+  - feat(plasma-temple): fixes [#52](https://github.com/salute-developers/plasma/pull/52) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+  - feat(plasma-temple): Use ScreenProvider and AssistantProvider under the hood of PlasmaApp [#52](https://github.com/salute-developers/plasma/pull/52) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
 # (Thu Jun 02 2022)
 
 #### 🐛 Bug Fix
