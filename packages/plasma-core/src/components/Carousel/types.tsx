@@ -70,10 +70,6 @@ export interface BasicProps extends AsProps, HTMLAttributes<HTMLDivElement> {
      */
     paddingEnd?: string;
     /**
-     * Если нужно использовать вместе с хуком useVirtual
-     */
-    withUseVirtual?: boolean;
-    /**
      * Сменить WAI-ARIA Role списка.
      */
     listRole?: string;
@@ -121,9 +117,9 @@ export type NoDetectionProps = {
 
 export type CarouselProps = BasicProps & UseCarouselOptions & (DetectionProps | NoDetectionProps);
 
-export type CarouselVirtualProps = BasicProps & {
+export type CarouselVirtualProps = Omit<BasicProps, 'scrollAlign' | 'scrollSnapType'> & {
     /**
      * Высота или ширина (px) карусели в зависимости от axis.
      */
-    carouselSize?: number;
+    virtualSize: number;
 };

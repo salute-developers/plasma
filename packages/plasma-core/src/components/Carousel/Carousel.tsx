@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import type { CarouselProps, CarouselVirtualProps } from './types';
+import type { CarouselProps } from './types';
 
 /**
  * Компонент применяется, если требуется компенсировать отступы контейнера в сетке.
@@ -58,13 +58,16 @@ export const Carousel = styled.div<Pick<CarouselProps, 'axis' | 'scrollSnapType'
  * Списковый (трековый) элемент карусели для непосредственного вложения айтемов в него.
  */
 export const CarouselTrack = styled.div<
-    Pick<CarouselVirtualProps, 'axis' | 'paddingStart' | 'paddingEnd' | 'carouselSize' | 'withUseVirtual'>
+    Pick<CarouselProps, 'axis' | 'paddingStart' | 'paddingEnd'> & {
+        virtualSize?: number;
+    }
 >`
-    ${({ carouselSize, axis, withUseVirtual }) =>
-        withUseVirtual &&
+    ${({ virtualSize, axis }) =>
+        // для виртуализированной карусели (useVirtual)
+        virtualSize &&
         css`
             position: absolute;
-            ${axis === 'x' ? 'width' : 'height'}: ${carouselSize}px;
+            ${axis === 'x' ? 'width' : 'height'}: ${virtualSize}px;
         `}
 
     ${({ axis, paddingStart, paddingEnd }) =>

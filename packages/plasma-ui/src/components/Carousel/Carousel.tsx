@@ -19,7 +19,7 @@ const StyledCarouselTrack = styled(BaseTrack)`
 
 export const CarouselTemplate = React.forwardRef<
     HTMLElement,
-    BasicProps & { trackRef?: React.MutableRefObject<HTMLElement | null> }
+    BasicProps & { trackRef?: React.MutableRefObject<HTMLElement | null>; virtualSize?: number }
 >(
     (
         {
@@ -30,8 +30,8 @@ export const CarouselTemplate = React.forwardRef<
             paddingEnd,
             listRole,
             listAriaLabel,
-            withUseVirtual,
             children,
+            virtualSize,
             ...rest
         },
         ref,
@@ -45,7 +45,7 @@ export const CarouselTemplate = React.forwardRef<
                     paddingEnd={paddingEnd}
                     role={listRole}
                     aria-label={listAriaLabel}
-                    withUseVirtual={withUseVirtual}
+                    virtualSize={virtualSize}
                 >
                     {children}
                 </StyledCarouselTrack>
@@ -106,6 +106,6 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
 export const CarouselVirtual = React.forwardRef<
     HTMLDivElement,
     CarouselVirtualProps & { trackRef?: React.MutableRefObject<HTMLElement | null> }
->(({ scrollSnapType = 'mandatory', trackRef, ...rest }, ref) => {
-    return <CarouselTemplate ref={ref} trackRef={trackRef} withUseVirtual scrollSnapType={scrollSnapType} {...rest} />;
+>(({ trackRef, ...rest }, ref) => {
+    return <CarouselTemplate ref={ref} trackRef={trackRef} {...rest} />;
 });
