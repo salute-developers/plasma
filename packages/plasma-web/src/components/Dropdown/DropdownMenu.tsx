@@ -22,7 +22,7 @@ export interface DropdownMenuProps extends HTMLAttributes<HTMLUListElement> {
      * Обработчик выбора айтема.
      */
     onItemSelect?: OnItemSelect;
-    children?: never;
+    children?: React.ReactNode;
 }
 
 /**
