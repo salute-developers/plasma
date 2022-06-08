@@ -166,6 +166,8 @@ import { Ticket } from './Icon.assets/Ticket';
 // Logo
 import { Salute } from './Icon.assets/Salute';
 import { SaluteCircle } from './Icon.assets/SaluteCircle';
+import { Sber } from './Icon.assets/Sber';
+import { SberAlt } from './Icon.assets/SberAlt';
 
 export const iconSectionsSet = {
     navigation: {
@@ -347,6 +349,8 @@ export const iconSectionsSet = {
     logo: {
         salute: Salute,
         saluteCircle: SaluteCircle,
+        sber: Sber,
+        sberAlt: SberAlt,
     },
 };
 
