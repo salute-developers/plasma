@@ -164,6 +164,8 @@ export { IconTicket } from './Icons/IconTicket';
 // Logo
 export { IconSalute } from './Icons/IconSalute';
 export { IconSaluteCircle } from './Icons/IconSaluteCircle';
+export { IconSber } from './Icons/IconSber';
+export { IconSberAlt } from './Icons/IconSberAlt';
 
 export { IconRoot } from './IconRoot';
 export type { IconProps, IconSize } from './IconRoot';
