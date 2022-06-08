@@ -9,7 +9,8 @@ export function useAssistantInsets(): Insets {
     } = React.useContext(AssistantContext);
 
     return React.useMemo(() => {
-        const devicePixelRatio = process.env.NODE_ENV === 'development' ? 1 : window.devicePixelRatio;
+        const devicePixelRatio =
+            process.env.NODE_ENV === 'development' || typeof window === 'undefined' ? 1 : window.devicePixelRatio;
         const { top, bottom, left, right } = insets;
 
         return {
