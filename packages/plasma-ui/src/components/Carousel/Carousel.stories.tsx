@@ -131,42 +131,18 @@ Basic.argTypes = {
     },
 };
 
-export const BasicVirtual: Story<CarouselProps & CarouselColProps & { displayGrid: boolean }> = ({
-    animatedScrollByIndex,
-    scrollAlign,
-    scrollSnapType,
-    scrollSnapAlign,
-    detectActive,
-    detectThreshold,
-}) => {
-    const axis = 'x';
-    const delay = isSberbox ? 300 : 30;
-    const longDelay = isSberbox ? 1500 : 150;
-    // const [index, setIndex] = useRemoteHandlers({
-    //     initialIndex: 0,
-    //     axis,
-    //     delay,
-    //     longDelay,
-    //     min: 0,
-    //     max: items.length - 1,
-    // });
+const estimateSize = () => 300;
+export const BasicVirtual = () => {
     const scrollRef = useRef(null);
+    const axis = 'x';
 
-    const { visibleItems, totalSize, currentIndex, scrollToIndex } = useVirtual({
+    const { visibleItems, totalSize, currentIndex } = useVirtual({
         itemCount: 100,
         parentRef: scrollRef as RefObject<HTMLDivElement>,
         horizontal: axis === 'x',
-        estimateSize: () => 800,
+        estimateSize,
         overscan: 6,
-        // scrollToFn: React.useCallback(
-        //     (offset: number) => {
-        //         scrollRef.current?.scrollTo({ [axis === 'y' ? 'top' : 'left']: offset, behavior: 'smooth' });
-        //     },
-        //     [axis],
-        // ),
     });
-
-    const trackRef = useRef(null);
 
     return (
         <DeviceThemeProvider>
@@ -175,18 +151,17 @@ export const BasicVirtual: Story<CarouselProps & CarouselColProps & { displayGri
                     ref={scrollRef}
                     as={Row}
                     axis={axis}
-                    index={currentIndex}
-                    trackRef={trackRef}
+                    // index={currentIndex}
+                    // trackRef={trackRef}
                     // animatedScrollByIndex={animatedScrollByIndex}
                     // scrollAlign={scrollAlign}
-                    scrollSnapType="none"
+                    // scrollSnapType="none"
                     // detectActive={detectActive as true}
                     // detectThreshold={detectThreshold}
                     // onIndexChange={(i) => setIndex(i)}
                     // TODO: кажется можно без height: '165px', width: '100vw'
                     style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem', height: '165px', width: '100vw' }}
                     carouselSize={totalSize}
-                    withUseVirtual
                 >
                     {visibleItems.map(({ index: i, start }) => {
                         const { title, subtitle } = items[i];
@@ -212,37 +187,6 @@ export const BasicVirtual: Story<CarouselProps & CarouselColProps & { displayGri
             </CarouselGridWrapper>
         </DeviceThemeProvider>
     );
-};
-
-BasicVirtual.args = {
-    displayGrid: true,
-    animatedScrollByIndex: isSberbox,
-    scrollAlign: 'start',
-    scrollSnapType: !isSberbox ? 'mandatory' : undefined,
-    scrollSnapAlign: !isSberbox ? 'start' : undefined,
-    detectActive: true,
-    detectThreshold: 0.5,
-};
-
-BasicVirtual.argTypes = {
-    scrollAlign: {
-        control: {
-            type: 'select',
-            options: ['center', 'start', 'end', 'activeDirection'],
-        },
-    },
-    scrollSnapType: {
-        control: {
-            type: 'inline-radio',
-            options: snapTypes,
-        },
-    },
-    scrollSnapAlign: {
-        control: {
-            type: 'inline-radio',
-            options: snapAlign,
-        },
-    },
 };
 
 export const Vertical: Story<CarouselProps & CarouselColProps & { displayGrid: boolean }> = ({
