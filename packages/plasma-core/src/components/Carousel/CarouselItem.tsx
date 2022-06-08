@@ -5,29 +5,29 @@ import { applyScrollSnap, ScrollSnapProps } from '../../mixins';
 import type { AsProps } from '../../types';
 
 type WithVirtualizationProps = {
-    withUseVirtual?: boolean;
+    withUseVirtual?: boolean; // на самом деле true
     virtualTop?: number;
     virtualLeft?: number;
+    scrollSnapAlign?: never;
 };
 
 type WithoutVirtualizationProps = {
     withUseVirtual?: false;
     virtualTop: never;
     virtualLeft: never;
-};
+} & ScrollSnapProps;
 
 export type VirtualizationProps = WithVirtualizationProps | WithoutVirtualizationProps;
 
-export type CarouselItemProps = ScrollSnapProps & AsProps & VirtualizationProps & React.HTMLAttributes<HTMLDivElement>;
+export type CarouselItemProps = AsProps & VirtualizationProps & React.HTMLAttributes<HTMLDivElement>;
 
 const StyledItem = styled.div<CarouselItemProps>`
     ${({ withUseVirtual }) =>
-        withUseVirtual &&
-        css`
-            position: absolute;
-        `}
-
-    ${applyScrollSnap}
+        withUseVirtual
+            ? css`
+                  position: absolute;
+              `
+            : applyScrollSnap}
 `;
 
 export const CarouselItem: React.FC<CarouselItemProps> = ({

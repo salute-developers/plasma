@@ -1,17 +1,16 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { applyScrollSnap, ScrollSnapProps, CarouselItemProps, VirtualizationProps } from '@salutejs/plasma-core';
+import { applyScrollSnap, CarouselItemProps, VirtualizationProps } from '@salutejs/plasma-core';
 
 import { Col, ColProps } from '../Grid';
 
-const StyledCol = styled(Col)<ScrollSnapProps & VirtualizationProps>`
+const StyledCol = styled(Col)<VirtualizationProps>`
     ${({ withUseVirtual }) =>
-        withUseVirtual &&
-        css`
-            position: absolute;
-        `}
-
-    ${applyScrollSnap};
+        withUseVirtual
+            ? css`
+                  position: absolute;
+              `
+            : applyScrollSnap}
 `;
 
 export type CarouselColProps = ColProps & CarouselItemProps & React.HTMLAttributes<HTMLDivElement>;
