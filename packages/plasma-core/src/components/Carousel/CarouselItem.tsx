@@ -1,53 +1,42 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { applyScrollSnap, ScrollSnapProps } from '../../mixins';
 import type { AsProps } from '../../types';
 
-type WithVirtualizationProps = {
-    withUseVirtual?: boolean;
-    virtualTop?: number;
-    virtualLeft?: number;
-};
+export type CarouselItemProps = ScrollSnapProps & AsProps & React.HTMLAttributes<HTMLDivElement>;
 
-type WithoutVirtualizationProps = {
-    withUseVirtual?: false;
-    virtualTop: never;
-    virtualLeft: never;
-};
-
-export type VirtualizationProps = WithVirtualizationProps | WithoutVirtualizationProps;
-
-export type CarouselItemProps = ScrollSnapProps & AsProps & VirtualizationProps & React.HTMLAttributes<HTMLDivElement>;
+export type CarouselItemVirtualProps = AsProps &
+    React.HTMLAttributes<HTMLDivElement> & {
+        left?: number;
+        top?: number;
+    };
 
 const StyledItem = styled.div<CarouselItemProps>`
-    ${({ withUseVirtual }) =>
-        withUseVirtual &&
-        css`
-            position: absolute;
-        `}
-
     ${applyScrollSnap}
 `;
 
-export const CarouselItem: React.FC<CarouselItemProps> = ({
-    scrollSnapAlign = 'center',
-    virtualTop,
-    virtualLeft,
-    withUseVirtual = false,
-    children,
-    ...rest
-}) => {
+const StyledItemVirtual = styled.div<CarouselItemVirtualProps>`
+    position: absolute;
+`;
+
+export const CarouselItem: React.FC<CarouselItemProps> = ({ scrollSnapAlign = 'center', children, ...rest }) => {
     return (
-        <StyledItem
-            withUseVirtual={withUseVirtual}
-            style={withUseVirtual ? { transform: `translate(${virtualLeft ?? 0}px, ${virtualTop ?? 0}px)` } : undefined}
-            scrollSnapAlign={scrollSnapAlign}
+        <StyledItem scrollSnapAlign={scrollSnapAlign} role="group" aria-roledescription="slide" {...rest}>
+            {children}
+        </StyledItem>
+    );
+};
+
+export const CarouselItemVirtual = ({ left, top, children, ...rest }: CarouselItemVirtualProps) => {
+    return (
+        <StyledItemVirtual
             role="group"
             aria-roledescription="slide"
+            style={{ transform: `translate(${left ?? 0}px, ${top ?? 0}px)` }}
             {...rest}
         >
             {children}
-        </StyledItem>
+        </StyledItemVirtual>
     );
 };

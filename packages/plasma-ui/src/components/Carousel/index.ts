@@ -9,5 +9,5 @@ export { useRemoteHandlers } from './Carousel.hooks';
 
 export { Carousel, CarouselVirtual } from './Carousel';
 
-export { CarouselCol } from './CarouselCol';
+export { CarouselCol, CarouselColVirtual } from './CarouselCol';
 export type { CarouselColProps } from './CarouselCol';

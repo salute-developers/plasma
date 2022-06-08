@@ -20,6 +20,7 @@ import {
     useRemoteHandlers,
     CarouselProps,
     CarouselColProps,
+    CarouselColVirtual,
 } from '.';
 
 const items = Array(100)
@@ -161,17 +162,16 @@ export const BasicVirtual = () => {
                     // onIndexChange={(i) => setIndex(i)}
                     // TODO: кажется можно без height: '165px', width: '100vw'
                     style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem', height: '165px', width: '100vw' }}
-                    carouselSize={totalSize}
+                    virtualSize={totalSize}
                 >
                     {visibleItems.map(({ index: i, start }) => {
                         const { title, subtitle } = items[i];
                         return (
-                            <CarouselCol
+                            <CarouselColVirtual
                                 key={`item:${i}`}
                                 size={3}
                                 sizeXL={4}
-                                withUseVirtual
-                                virtualLeft={start}
+                                left={start}
                                 aria-label={`${i + 1} из ${items.length}`}
                             >
                                 <ProductCard
@@ -180,7 +180,7 @@ export const BasicVirtual = () => {
                                     imageSrc={`${process.env.PUBLIC_URL}/images/320_320_${i % 12}.jpg`}
                                     focused={currentIndex === i}
                                 />
-                            </CarouselCol>
+                            </CarouselColVirtual>
                         );
                     })}
                 </CarouselVirtual>
