@@ -19,7 +19,7 @@ const StyledCarouselTrack = styled(BaseTrack)`
 
 export const CarouselTemplate = React.forwardRef<
     HTMLElement,
-    BasicProps & { trackRef: React.MutableRefObject<HTMLElement | null> }
+    BasicProps & { trackRef?: React.MutableRefObject<HTMLElement | null> }
 >(
     (
         {
@@ -39,7 +39,7 @@ export const CarouselTemplate = React.forwardRef<
         return (
             <StyledCarousel ref={ref} axis={axis} scrollSnapType={scrollSnapType} {...rest}>
                 <StyledCarouselTrack
-                    ref={trackRef as React.MutableRefObject<HTMLDivElement | null>}
+                    ref={(trackRef as React.MutableRefObject<HTMLDivElement | null>) || null}
                     axis={axis}
                     paddingStart={paddingStart}
                     paddingEnd={paddingEnd}
@@ -105,7 +105,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
 // eslint-disable-next-line prefer-arrow-callback
 export const CarouselVirtual = React.forwardRef<
     HTMLDivElement,
-    CarouselVirtualProps & { trackRef: React.MutableRefObject<HTMLElement | null> }
+    CarouselVirtualProps & { trackRef?: React.MutableRefObject<HTMLElement | null> }
 >(({ scrollSnapType = 'mandatory', trackRef, ...rest }, ref) => {
     return <CarouselTemplate ref={ref} trackRef={trackRef} withUseVirtual scrollSnapType={scrollSnapType} {...rest} />;
 });
