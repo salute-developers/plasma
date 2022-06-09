@@ -149,4 +149,77 @@ describe('plasma-web: Calendar', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('event list', () => {
+        const events = [
+            {
+                date: new Date(2021, 5, 6),
+            },
+            {
+                date: new Date(2021, 5, 10),
+                color: 'red',
+            },
+            {
+                date: new Date(2021, 5, 10),
+                color: 'green',
+            },
+            {
+                date: new Date(2021, 5, 10),
+                color: 'blue',
+            },
+        ];
+
+        const eventsRange = [...new Array(10)].map((_, day) => ({
+            date: new Date(2021, 5, 15 + day),
+            color: 'purple',
+        }));
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Calendar
+                    value={new Date(2021, 5, 6)}
+                    eventList={[...events, ...eventsRange]}
+                    type="Days"
+                    onChangeValue={() => {}}
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('disabled days', () => {
+        const disabledDays = [...new Array(5)].map((_, day) => ({
+            date: new Date(2021, 5, 11 + day),
+        }));
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Calendar
+                    value={new Date(2021, 5, 6)}
+                    disabledList={disabledDays}
+                    type="Days"
+                    onChangeValue={() => {}}
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('min and max', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Calendar
+                    value={new Date(2021, 5, 6)}
+                    min={new Date(2021, 5, 4)}
+                    max={new Date(2021, 5, 15)}
+                    type="Days"
+                    onChangeValue={() => {}}
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
 });
