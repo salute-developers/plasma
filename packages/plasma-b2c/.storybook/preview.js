@@ -47,7 +47,7 @@ const withTheme = (Story, context) => {
 
     return (
         <>
-            {context.globals.typoVersion === 'standard' ? (
+            {context.globals.typoVersion === 'responsive' ? (
                 <>
                     <TypoStyle />
                     <CompatibleTypoStyle />
@@ -120,9 +120,9 @@ export const globalTypes = {
     typoVersion: {
         name: 'Typography version',
         description: 'Global typography version for components',
-        defaultValue: 'standard',
+        defaultValue: 'responsive',
         toolbar: {
-            items: ['standard', 'old'],
+            items: ['responsive', 'legacy'],
             showName: true,
         },
     },

@@ -68,7 +68,7 @@ const withTheme = (Story, context) => {
     }
 
     if (theme === LEGACY_LIGHT_THEME || theme === LEGACY_DARK_THEME) {
-        typoSystem = 'leagacy';
+        typoSystem = 'legacy';
     }
 
     const Theme = themes[theme];
@@ -148,6 +148,15 @@ export const globalTypes = {
                 LEGACY_LIGHT_THEME,
                 LEGACY_DARK_THEME,
             ],
+            showName: true,
+        },
+    },
+    typoVersion: {
+        name: 'Typography version',
+        description: 'Global typography version for components',
+        defaultValue: 'standard',
+        toolbar: {
+            items: ['standard', 'legacy'],
             showName: true,
         },
     },
