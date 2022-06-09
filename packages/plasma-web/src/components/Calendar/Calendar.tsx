@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import styled, { css } from 'styled-components';
 import { backgroundPrimary } from '@salutejs/plasma-core';
 
-import type { CalendarStateType, DateObject } from './types';
+import type { CalendarStateType, DateObject, DisabledDay, EventDay } from './types';
 import { CalendarState } from './types';
 import { getDateFromValue, getNextDate, getPrevDate, getStartYear, YEAR_RENDER_COUNT } from './utils';
 import { CalendarDays } from './CalendarDays';
@@ -12,8 +12,12 @@ import { CalendarYears } from './CalendarYears';
 
 export interface CalendarProps extends React.HTMLAttributes<HTMLDivElement> {
     value: Date;
+    min?: Date;
+    max?: Date;
     isInline?: boolean;
     type?: CalendarStateType;
+    eventList?: EventDay[];
+    disabledList?: DisabledDay[];
     onChangeValue: (value: Date) => void;
 }
 
@@ -42,6 +46,10 @@ export const Calendar: React.FC<CalendarProps> = ({
     value,
     isInline = false,
     type = 'Days',
+    eventList,
+    disabledList,
+    min,
+    max,
     onChangeValue,
     ...rest
 }) => {
@@ -134,7 +142,15 @@ export const Calendar: React.FC<CalendarProps> = ({
             />
 
             {calendarState === CalendarState.Days && (
-                <CalendarDays date={date} value={value} onChangeDay={handleOnChangeDay} />
+                <CalendarDays
+                    eventList={eventList}
+                    disabledList={disabledList}
+                    min={min}
+                    max={max}
+                    date={date}
+                    value={value}
+                    onChangeDay={handleOnChangeDay}
+                />
             )}
 
             {calendarState === CalendarState.Months && (

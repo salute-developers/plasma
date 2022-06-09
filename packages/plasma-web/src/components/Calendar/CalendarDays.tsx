@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
 
-import type { DateItem, DateObject } from './types';
+import type { DateItem, DateObject, DisabledDay, EventDay } from './types';
 import { SHORT_DAY_NAMES } from './utils';
 import { useDays } from './hooks';
 import { flexCenter } from './mixins';
@@ -10,6 +10,10 @@ import { CalendarDayItem } from './CalendarDayItem';
 export interface CalendarDaysProps extends React.HTMLAttributes<HTMLDivElement> {
     date: DateObject;
     value: Date;
+    min?: Date;
+    max?: Date;
+    eventList?: EventDay[];
+    disabledList?: DisabledDay[];
     onChangeDay: (date: DateObject) => void;
 }
 
@@ -25,8 +29,16 @@ const StyledCalendarDays = styled.div`
 /**
  * Компонент дней в календаре.
  */
-export const CalendarDays: React.FC<CalendarDaysProps> = ({ date: currentDate, value, onChangeDay }) => {
-    const days = useDays(currentDate, value);
+export const CalendarDays: React.FC<CalendarDaysProps> = ({
+    date: currentDate,
+    value,
+    eventList,
+    disabledList,
+    min,
+    max,
+    onChangeDay,
+}) => {
+    const days = useDays(currentDate, value, eventList, disabledList, min, max);
 
     const handleOnChangeDay = useCallback(
         (event: React.MouseEvent<HTMLDivElement>) => {
@@ -54,8 +66,10 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({ date: currentDate, v
             </StyledFlex>
             {days.map((day: DateItem[], i) => (
                 <StyledFlex key={i}>
-                    {day.map(({ date, isSelected, isCurrent, isDayInCurrentMonth }: DateItem, j) => (
+                    {day.map(({ date, events, disabled, isSelected, isCurrent, isDayInCurrentMonth }: DateItem, j) => (
                         <CalendarDayItem
+                            eventList={events}
+                            disabled={disabled}
                             day={date.day}
                             year={date.year}
                             monthIndex={date.monthIndex}
