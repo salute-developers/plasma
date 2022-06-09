@@ -1,3 +1,17 @@
+# v1.72.2 (Thu Jun 09 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-temple): useSpatNavBetweenTargets - fix ssr render [#59](https://github.com/salute-developers/plasma/pull/59) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.72.1 (Tue Jun 07 2022)
 
 #### 🐛 Bug Fix

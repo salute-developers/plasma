@@ -1,3 +1,16 @@
+# (Thu Jun 09 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-temple@1.72.2`
+  - fix(plasma-temple): useSpatNavBetweenTargets - fix ssr render [#59](https://github.com/salute-developers/plasma/pull/59) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
 # (Tue Jun 07 2022)
 
 #### 🐛 Bug Fix
