@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import type { DateItem, DateObject } from './types';
+import type { DateItem, DateObject, DisabledDay, EventDay } from './types';
 import {
     YEAR_RENDER_COUNT,
     SHORT_MONTH_NAME,
@@ -8,6 +8,7 @@ import {
     getNextDate,
     getOffsetDayInWeek,
     getPrevDate,
+    getDateFromValue,
     isSelectedDay,
     isSelectedMonth,
     IsCurrentDay,
@@ -61,6 +62,42 @@ const getDaysInNextMonth = (date: DateObject, daysInMonth: number, offsetDayInWe
     }));
 };
 
+const getPropsMap = <T extends EventDay | DisabledDay>(props: T[]) =>
+    props.reduce((acc, prop) => {
+        const { year, monthIndex, day } = getDateFromValue(prop.date);
+
+        const key = `${year}-${monthIndex}-${day}`;
+
+        const propList = acc.get(key) || [];
+        propList.push(prop);
+
+        return acc.set(key, propList);
+    }, new Map<string, T[]>());
+
+const getDaysWithModifications = (
+    days: DateItem[],
+    eventList: EventDay[] = [],
+    disabledList: DisabledDay[] = [],
+    min?: Date,
+    max?: Date,
+) => {
+    const eventsMap = getPropsMap(eventList);
+    const disabledsMap = getPropsMap(disabledList);
+
+    return days.map((dayItem) => {
+        const { date } = dayItem;
+        const { year, monthIndex, day } = date;
+
+        const keyDay = `${year}-${monthIndex}-${day}`;
+        const currentDate = new Date(year, monthIndex, day);
+
+        dayItem.events = eventsMap.get(keyDay);
+        dayItem.disabled = disabledsMap.has(keyDay) || (min && min >= currentDate) || (max && max <= currentDate);
+
+        return dayItem;
+    });
+};
+
 const getDaysByWeeks = (items: DateItem[]) => {
     const newItems = [...items];
     const daysInWeek = 7;
@@ -75,17 +112,31 @@ const getDaysByWeeks = (items: DateItem[]) => {
     }, []);
 };
 
-export const useDays = (date: DateObject, value: Date) =>
+export const useDays = (
+    date: DateObject,
+    value: Date,
+    eventList?: EventDay[],
+    disabledList?: DisabledDay[],
+    min?: Date,
+    max?: Date,
+) =>
     useMemo(() => {
         const { monthIndex, year } = date;
         const daysInMonth = getDaysInMonth(monthIndex, year);
         const offsetDayInWeek = getOffsetDayInWeek(monthIndex, year);
 
-        return getDaysByWeeks([
+        const days = [
             ...getDaysInPrevMonth(date, offsetDayInWeek),
             ...getDaysInCurrentMonth(date, daysInMonth, value),
             ...getDaysInNextMonth(date, daysInMonth, offsetDayInWeek),
-        ]);
+        ];
+
+        if (eventList?.length || disabledList?.length || max || min) {
+            const modifiedDays = getDaysWithModifications(days, eventList, disabledList, min, max);
+            return getDaysByWeeks(modifiedDays);
+        }
+
+        return getDaysByWeeks(days);
     }, [date, value]);
 
 export const useMonths = (date: DateObject, value: Date) =>
