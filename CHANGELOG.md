@@ -2,6 +2,22 @@
 
 #### 🐛 Bug Fix
 
+- `@salutejs/plasma-ui@1.108.2`
+  - fix(plasma-ui): Add min-height in StyledMediaSlot for `ProductCard` component [#61](https://github.com/salute-developers/plasma/pull/61) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-web@1.107.1`
+  - fix(plasma-web): Remove children from DropdownProps [#60](https://github.com/salute-developers/plasma/pull/60) ([@andart71](https://github.com/andart71))
+
+#### Authors: 2
+
+- Andrey Loshkarev ([@andart71](https://github.com/andart71))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Thu Jun 09 2022)
+
+#### 🐛 Bug Fix
+
 - `@salutejs/plasma-temple@1.72.2`
   - fix(plasma-temple): useSpatNavBetweenTargets - fix ssr render [#59](https://github.com/salute-developers/plasma/pull/59) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
 

@@ -1,3 +1,15 @@
+# v1.108.2 (Thu Jun 09 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): Add min-height in StyledMediaSlot for `ProductCard` component [#61](https://github.com/salute-developers/plasma/pull/61) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.108.1 (Tue Jun 07 2022)
 
 #### 🐛 Bug Fix
