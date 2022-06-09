@@ -1,5 +1,18 @@
 # (Thu Jun 09 2022)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-icons@1.86.0`
+  - feat(plasma-icons): Add Sber Icons [#63](https://github.com/salute-developers/plasma/pull/63) ([@andart71](https://github.com/andart71))
+
+#### Authors: 1
+
+- Andrey Loshkarev ([@andart71](https://github.com/andart71))
+
+---
+
+# (Thu Jun 09 2022)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-ui@1.108.2`
