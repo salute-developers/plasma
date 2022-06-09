@@ -4,7 +4,7 @@ import {
     useCarousel,
     Carousel as BaseCarousel,
     CarouselTrack as BaseTrack,
-    BasicProps,
+    CarouselTemplateProps,
     CarouselProps,
     CarouselVirtualProps,
     applyNoSelect,
@@ -19,7 +19,7 @@ const StyledCarouselTrack = styled(BaseTrack)`
 
 export const CarouselTemplate = React.forwardRef<
     HTMLElement,
-    BasicProps & { trackRef?: React.MutableRefObject<HTMLElement | null>; virtualSize?: number }
+    CarouselTemplateProps & { trackRef?: React.MutableRefObject<HTMLElement | null>; virtualSize?: number }
 >(
     (
         {
