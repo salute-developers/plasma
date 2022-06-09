@@ -9,7 +9,7 @@ export type ToIndex = (i: number) => void;
 export type ToPrev = () => void;
 export type ToNext = () => void;
 
-export type UseCarouselOptions = {
+export interface BasicProps extends AsProps, HTMLAttributes<HTMLDivElement> {
     /**
      * Индекс текущего элемента
      */
@@ -46,29 +46,6 @@ export type UseCarouselOptions = {
      * Debounce внутренних обработчиков события onScroll
      */
     debounceMs?: number;
-} & DetectionProps;
-
-export interface BasicProps extends AsProps, HTMLAttributes<HTMLDivElement> {
-    /**
-     * Ось прокрутки
-     */
-    axis: ScrollAxis;
-    /**
-     * Тип CSS Scroll Snap
-     */
-    scrollSnapType?: SnapType;
-    /**
-     * Центрирование активного элемента при скролле
-     */
-    scrollAlign?: ScrollAlign;
-    /**
-     * Отступ в начале, используется при центрировании крайних элементов
-     */
-    paddingStart?: string;
-    /**
-     * Отступ в конце, используется при центрировании крайних элементов
-     */
-    paddingEnd?: string;
     /**
      * Сменить WAI-ARIA Role списка.
      */
@@ -77,13 +54,16 @@ export interface BasicProps extends AsProps, HTMLAttributes<HTMLDivElement> {
      * Сменить WAI-ARIA Label списка.
      */
     listAriaLabel?: string;
+    /**
+     * Виртуализация
+     */
+    withUseVirtual?: boolean;
 }
-
-export type DetectionProps = {
+export interface DetectionProps {
     /**
      * Вычислять активный элемент
      */
-    detectActive: boolean;
+    detectActive: true;
     /**
      * Пороговое значение определения центрального элемента (0-1)
      */
@@ -104,20 +84,36 @@ export type DetectionProps = {
      * Обработчик для сброса стилей элементов, находящихся вне вьюпорта
      */
     scaleResetCallback?: (itemEl: HTMLElement) => void;
-};
-
-export type NoDetectionProps = {
+}
+export interface NoDetectionProps {
     detectActive?: false;
     detectThreshold?: never;
     onIndexChange?: never;
     onDetectActiveItem?: never;
     scaleCallback?: never;
     scaleResetCallback?: never;
-};
+}
+export type CarouselProps = BasicProps & (DetectionProps | NoDetectionProps);
 
-export type CarouselProps = BasicProps & UseCarouselOptions & (DetectionProps | NoDetectionProps);
+export type UseCarouselOptions = Pick<
+    CarouselProps,
+    | 'index'
+    | 'axis'
+    | 'detectActive'
+    | 'detectThreshold'
+    | 'scrollAlign'
+    | 'scaleCallback'
+    | 'scaleResetCallback'
+    | 'onIndexChange'
+    | 'onDetectActiveItem'
+    | 'animatedScrollByIndex'
+    | 'throttleMs'
+    | 'debounceMs'
+>;
 
-export type CarouselVirtualProps = Omit<BasicProps, 'scrollAlign' | 'scrollSnapType'> & {
+export type CarouselTemplateProps = Omit<BasicProps, Exclude<keyof UseCarouselOptions, 'axis'>>;
+
+export type CarouselVirtualProps = CarouselTemplateProps & {
     /**
      * Высота или ширина (px) карусели в зависимости от axis.
      */
