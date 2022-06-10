@@ -12,6 +12,7 @@ export interface CalendarDayItemProps extends DayProps, React.HTMLAttributes<HTM
     monthIndex?: number;
     eventList?: EventDay[];
     disabled?: boolean;
+    isDouble?: boolean;
 }
 
 const StyledDay = styled.div`
@@ -35,6 +36,10 @@ const StyledDayRoot = styled.div<DayProps & FocusProps>`
 
     ${({ isDayInCurrentMonth }) => css`
         color: ${isDayInCurrentMonth ? primary : secondary};
+    `}
+
+    ${({ isDayInCurrentMonth, isDouble }) => css`
+        visibility: ${!isDayInCurrentMonth && isDouble ? 'hidden' : 'visible'};
     `}
 
     ${({ dayOfWeek }) =>
@@ -91,6 +96,7 @@ export const CalendarDayItem: React.FC<CalendarDayItemProps> = memo(
         isCurrent,
         isSelected,
         isDayInCurrentMonth,
+        isDouble,
         eventList = [],
         day,
         monthIndex,
@@ -105,6 +111,7 @@ export const CalendarDayItem: React.FC<CalendarDayItemProps> = memo(
                 isCurrent={isCurrent}
                 isSelected={isSelected}
                 isDayInCurrentMonth={isDayInCurrentMonth}
+                isDouble={isDouble}
                 onClick={disabled ? undefined : onClick}
                 data-day={day}
                 data-month-index={monthIndex}

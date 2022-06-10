@@ -16,6 +16,12 @@ export const flexCenter = css`
     align-items: center;
 `;
 
+export const flexSpaceBetween = css`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
 export const syntheticFocus = (ruleset: FlattenSimpleInterpolation, focused?: boolean) => css`
     &.focus-visible:focus,
     &[data-focus-visible-added] {

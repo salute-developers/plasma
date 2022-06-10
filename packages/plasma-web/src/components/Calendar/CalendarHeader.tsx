@@ -6,14 +6,17 @@ import { IconDisclosureLeft, IconDisclosureRight } from '@salutejs/plasma-icons'
 import { CalendarState } from './types';
 import type { CalendarStateType, DateObject } from './types';
 import { MONTH_NAMES, YEAR_RENDER_COUNT } from './utils';
+import { flexCenter, flexSpaceBetween } from './mixins';
 
 export interface CalendarHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-    type: CalendarStateType;
-    startYear: number;
-    date: DateObject;
+    firstDate: DateObject;
+    secondDate?: DateObject;
+    startYear?: number;
+    type?: CalendarStateType;
+    isDouble?: boolean;
     onPrev: () => void;
     onNext: () => void;
-    onCalendarStateChange: React.Dispatch<React.SetStateAction<CalendarStateType>>;
+    onCalendarStateChange?: React.Dispatch<React.SetStateAction<CalendarStateType>>;
 }
 
 const StyledCalendarHeader = styled.div`
@@ -21,27 +24,36 @@ const StyledCalendarHeader = styled.div`
 
     padding: 1rem 1.5rem 0;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    ${flexSpaceBetween};
 `;
 
 const StyledHeader = styled.div`
     cursor: pointer;
     padding: 0.5rem 0;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    ${flexSpaceBetween};
+`;
+
+const StyledHeaderDouble = styled.div`
+    padding: 0.5rem 0;
+    flex: 1;
+
+    ${flexCenter};
+
+    &:first-of-type {
+        margin-right: 3rem;
+    }
+
+    &:last-of-type {
+        margin-left: 3rem;
+    }
 `;
 
 const StyledArrows = styled.div`
     padding: 0.5rem 0;
     width: 5.5rem;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    ${flexSpaceBetween};
 `;
 
 const StyledArrow = styled.button`
@@ -52,56 +64,87 @@ const StyledArrow = styled.button`
     display: flex;
     cursor: pointer;
 `;
+
+const StyledNavigation = styled.div`
+    width: 100%;
+
+    ${flexCenter};
+`;
+
 /**
  * Компонент шапки календаря.
  */
 export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
-    type,
-    startYear,
-    date: currentDate,
+    type = 'Days',
+    startYear = 0,
+    firstDate,
+    secondDate,
+    isDouble,
     onCalendarStateChange,
     onPrev,
     onNext,
 }) => {
     const handleCalendarState = useCallback(() => {
         if (type === CalendarState.Days) {
-            onCalendarStateChange(CalendarState.Months);
+            onCalendarStateChange?.(CalendarState.Months);
         }
 
         if (type === CalendarState.Months) {
-            onCalendarStateChange(CalendarState.Years);
+            onCalendarStateChange?.(CalendarState.Years);
         }
-    }, [type]);
+    }, [type, onCalendarStateChange]);
 
-    const getHeaderContent = useCallback(() => {
-        if (type === CalendarState.Days) {
-            return `${MONTH_NAMES[currentDate.monthIndex]} ${currentDate.year}`;
-        }
+    const getHeaderContent = useCallback(
+        (date?: DateObject) => {
+            if (!date) {
+                return '';
+            }
 
-        if (type === CalendarState.Months) {
-            return `${currentDate.year}`;
-        }
+            if (type === CalendarState.Days) {
+                return `${MONTH_NAMES[date.monthIndex]} ${date.year}`;
+            }
 
-        if (type === CalendarState.Years) {
-            return `${startYear}—${startYear + YEAR_RENDER_COUNT - 1}`;
-        }
+            if (type === CalendarState.Months) {
+                return `${date.year}`;
+            }
 
-        return '';
-    }, [type, currentDate, startYear]);
+            if (type === CalendarState.Years) {
+                return `${startYear}—${startYear + YEAR_RENDER_COUNT - 1}`;
+            }
+
+            return '';
+        },
+        [type, startYear],
+    );
 
     return (
         <StyledCalendarHeader>
-            <StyledHeader onClick={handleCalendarState} tabIndex={0}>
-                {getHeaderContent()}
-            </StyledHeader>
-            <StyledArrows>
-                <StyledArrow tabIndex={0} onClick={onPrev}>
-                    <IconDisclosureLeft />
-                </StyledArrow>
-                <StyledArrow tabIndex={0} onClick={onNext}>
-                    <IconDisclosureRight />
-                </StyledArrow>
-            </StyledArrows>
+            {isDouble ? (
+                <StyledNavigation>
+                    <StyledArrow tabIndex={0} onClick={onPrev}>
+                        <IconDisclosureLeft />
+                    </StyledArrow>
+                    <StyledHeaderDouble>{getHeaderContent(firstDate)}</StyledHeaderDouble>
+                    <StyledHeaderDouble>{getHeaderContent(secondDate)}</StyledHeaderDouble>
+                    <StyledArrow tabIndex={0} onClick={onNext}>
+                        <IconDisclosureRight />
+                    </StyledArrow>
+                </StyledNavigation>
+            ) : (
+                <>
+                    <StyledHeader onClick={handleCalendarState} tabIndex={0}>
+                        {getHeaderContent(firstDate)}
+                    </StyledHeader>
+                    <StyledArrows>
+                        <StyledArrow tabIndex={0} onClick={onPrev}>
+                            <IconDisclosureLeft />
+                        </StyledArrow>
+                        <StyledArrow tabIndex={0} onClick={onNext}>
+                            <IconDisclosureRight />
+                        </StyledArrow>
+                    </StyledArrows>
+                </>
+            )}
         </StyledCalendarHeader>
     );
 };
