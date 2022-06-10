@@ -28,12 +28,12 @@ export const CarouselItem: React.FC<CarouselItemProps> = ({ scrollSnapAlign = 'c
     );
 };
 
-export const CarouselItemVirtual = ({ left, top, children, ...rest }: CarouselItemVirtualProps) => {
+export const CarouselItemVirtual = ({ left, top, children, style, ...rest }: CarouselItemVirtualProps) => {
     return (
         <StyledItemVirtual
             role="group"
             aria-roledescription="slide"
-            style={{ transform: `translate(${left ?? 0}px, ${top ?? 0}px)` }}
+            style={{ transform: `translate(${left ?? 0}px, ${top ?? 0}px)`, ...style }}
             {...rest}
         >
             {children}

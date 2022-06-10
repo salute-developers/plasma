@@ -2,6 +2,7 @@ import React, { useRef, RefObject } from 'react';
 import { Story, Meta } from '@storybook/react';
 import type { SnapType, SnapAlign } from '@salutejs/plasma-core';
 import { useVirtual } from '@salutejs/use-virtual';
+import { CarouselItemVirtual } from '@salutejs/plasma-core/components/Carousel/CarouselItem';
 
 import { isSberBox } from '../../utils';
 import { ProductCard, MusicCard, GalleryCard } from '../Card/Card.examples';
@@ -20,7 +21,6 @@ import {
     useRemoteHandlers,
     CarouselProps,
     CarouselColProps,
-    CarouselColVirtual,
 } from '.';
 
 const items = Array(100)
@@ -132,8 +132,8 @@ Basic.argTypes = {
     },
 };
 
-const estimateSize = () => 300;
-export const BasicVirtual = () => {
+const estimateSize = () => 350;
+export const GalleryVirtual = () => {
     const scrollRef = useRef(null);
     const axis = 'x';
 
@@ -161,32 +161,38 @@ export const BasicVirtual = () => {
                     // detectThreshold={detectThreshold}
                     // onIndexChange={(i) => setIndex(i)}
                     // TODO: кажется можно без height: '165px', width: '100vw'
-                    style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem', height: '165px', width: '100vw' }}
+                    style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem', height: '350px', width: '100vw' }}
                     virtualSize={totalSize}
                 >
                     {visibleItems.map(({ index: i, start }) => {
                         const { title, subtitle } = items[i];
                         return (
-                            <CarouselColVirtual
+                            <CarouselItemVirtual
                                 key={`item:${i}`}
-                                size={3}
-                                sizeXL={4}
                                 left={start}
+                                style={{ width: '312px' }}
                                 aria-label={`${i + 1} из ${items.length}`}
                             >
-                                <ProductCard
+                                <GalleryCard
                                     title={title}
                                     subtitle={subtitle}
+                                    focused={i === currentIndex}
                                     imageSrc={`${process.env.PUBLIC_URL}/images/320_320_${i % 12}.jpg`}
-                                    focused={currentIndex === i}
+                                    imageRatio="1 / 1"
+                                    // scaleOnFocus
+                                    // tabIndex={0}
                                 />
-                            </CarouselColVirtual>
+                            </CarouselItemVirtual>
                         );
                     })}
                 </CarouselVirtual>
             </CarouselGridWrapper>
         </DeviceThemeProvider>
     );
+};
+
+GalleryVirtual.args = {
+    displayGrid: true,
 };
 
 export const Vertical: Story<CarouselProps & CarouselColProps & { displayGrid: boolean }> = ({
