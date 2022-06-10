@@ -70,7 +70,7 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({ date: currentDat
                     tabIndex={0}
                     isCurrent={isCurrent}
                     isSelected={isSelected}
-                    onClick={handleOnChangeMonth}
+                    onClickCapture={handleOnChangeMonth}
                     data-month-index={i}
                     key={`StyledMonth-${i}`}
                 >

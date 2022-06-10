@@ -25,6 +25,7 @@ export interface DateItem extends ItemProps {
 }
 
 export interface DayProps extends Partial<ItemProps> {
+    isDouble?: boolean;
     isDayInCurrentMonth?: boolean;
     disabled?: boolean;
     dayOfWeek?: boolean;
@@ -41,4 +42,13 @@ export interface EventDay {
 
 export interface DisabledDay {
     date: Date;
+}
+
+export interface Calendar extends React.HTMLAttributes<HTMLDivElement> {
+    value: Date;
+    min?: Date;
+    max?: Date;
+    eventList?: EventDay[];
+    disabledList?: DisabledDay[];
+    onChangeValue: (value: Date) => void;
 }

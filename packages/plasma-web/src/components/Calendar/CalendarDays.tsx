@@ -14,6 +14,7 @@ export interface CalendarDaysProps extends React.HTMLAttributes<HTMLDivElement> 
     max?: Date;
     eventList?: EventDay[];
     disabledList?: DisabledDay[];
+    isDouble?: boolean;
     onChangeDay: (date: DateObject) => void;
 }
 
@@ -36,6 +37,7 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
     disabledList,
     min,
     max,
+    isDouble,
     onChangeDay,
 }) => {
     const days = useDays(currentDate, value, eventList, disabledList, min, max);
@@ -76,6 +78,7 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
                             isSelected={isSelected}
                             isCurrent={isCurrent}
                             isDayInCurrentMonth={isDayInCurrentMonth}
+                            isDouble={isDouble}
                             onClick={handleOnChangeDay}
                             key={`StyledDay-${j}`}
                         />
