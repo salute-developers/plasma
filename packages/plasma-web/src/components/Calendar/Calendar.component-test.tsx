@@ -5,11 +5,29 @@ import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plas
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
+const date = new Date(1970, 1, 1);
+
+const events = [
+    {
+        date: new Date(2021, 5, 6),
+    },
+    {
+        date: new Date(2021, 5, 10),
+        color: 'red',
+    },
+    {
+        date: new Date(2021, 5, 10),
+        color: 'green',
+    },
+    {
+        date: new Date(2021, 5, 10),
+        color: 'blue',
+    },
+];
+
 describe('plasma-web: Calendar', () => {
     const Calendar = getComponent('Calendar');
     const Button = getComponent('Button');
-
-    const date = new Date(1970, 1, 1);
 
     // TODO: Перетащить подключение StandardTypoStyle в @salutejs/plasma-cy-utils
     // после переезда на новую типографику для @salutejs/plasma-web - https://github.com/salute-developers/plasma/issues/69
@@ -42,16 +60,6 @@ describe('plasma-web: Calendar', () => {
                 <Calendar value={date} type="Months" onChangeValue={() => {}} />
                 <PadMe />
                 <Calendar value={date} type="Years" onChangeValue={() => {}} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('inline', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Calendar value={date} isInline type="Days" onChangeValue={() => {}} />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -151,24 +159,6 @@ describe('plasma-web: Calendar', () => {
     });
 
     it('event list', () => {
-        const events = [
-            {
-                date: new Date(2021, 5, 6),
-            },
-            {
-                date: new Date(2021, 5, 10),
-                color: 'red',
-            },
-            {
-                date: new Date(2021, 5, 10),
-                color: 'green',
-            },
-            {
-                date: new Date(2021, 5, 10),
-                color: 'blue',
-            },
-        ];
-
         const eventsRange = [...new Array(10)].map((_, day) => ({
             date: new Date(2021, 5, 15 + day),
             color: 'purple',
@@ -215,6 +205,134 @@ describe('plasma-web: Calendar', () => {
                     min={new Date(2021, 5, 4)}
                     max={new Date(2021, 5, 15)}
                     type="Days"
+                    onChangeValue={() => {}}
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+});
+
+describe('plasma-web: CalendarDouble', () => {
+    const Calendar = getComponent('Calendar');
+    const Button = getComponent('Button');
+
+    // TODO: Перетащить подключение StandardTypoStyle в @salutejs/plasma-cy-utils
+    // после переезда на новую типографику для @salutejs/plasma-web
+    const CypressTestDecoratorWithTypo: FC = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
+
+    function Demo() {
+        const [value, setValue] = React.useState(date);
+        const handleOnChange = React.useCallback((newValue: Date) => {
+            setValue(newValue);
+        }, []);
+
+        return (
+            <>
+                <Button onClick={() => setValue(new Date(2005, 5, 5))}>Set date</Button>
+                <Calendar isDouble value={value} onChangeValue={handleOnChange} />
+            </>
+        );
+    }
+
+    beforeEach(() => {
+        cy.viewport(700, 500);
+    });
+
+    it('default', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Calendar isDouble value={date} onChangeValue={() => {}} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('set value', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Demo />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').first().click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prev month', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Calendar isDouble value={date} onChangeValue={() => {}} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').first().click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('next month', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Calendar isDouble value={date} onChangeValue={() => {}} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').last().click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('event list', () => {
+        const eventsRange = [...new Array(20)].map((_, day) => ({
+            date: new Date(2021, 5, 25 + day),
+            color: 'purple',
+        }));
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Calendar
+                    isDouble
+                    value={new Date(2021, 5, 6)}
+                    eventList={[...events, ...eventsRange]}
+                    onChangeValue={() => {}}
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('disabled days', () => {
+        const disabledDays = [...new Array(5)].map((_, day) => ({
+            date: new Date(2021, 5, 11 + day),
+        }));
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Calendar isDouble value={new Date(2021, 5, 6)} disabledList={disabledDays} onChangeValue={() => {}} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('min and max', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Calendar
+                    isDouble
+                    value={new Date(2021, 5, 6)}
+                    min={new Date(2021, 5, 4)}
+                    max={new Date(2021, 5, 15)}
                     onChangeValue={() => {}}
                 />
             </CypressTestDecoratorWithTypo>,
