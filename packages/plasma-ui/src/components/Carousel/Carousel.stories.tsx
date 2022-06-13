@@ -1,4 +1,4 @@
-import React, { useRef, RefObject } from 'react';
+import React, { useRef } from 'react';
 import { Story, Meta } from '@storybook/react';
 import type { SnapType, SnapAlign } from '@salutejs/plasma-core';
 import { useVirtual } from '@salutejs/use-virtual';
@@ -133,23 +133,27 @@ Basic.argTypes = {
 };
 
 const estimateSize = () => 350;
-export const GalleryVirtual = () => {
-    const scrollRef = useRef(null);
+export const CarouselVirtualBasic = () => {
+    const parentRef = useRef(null);
     const axis = 'x';
 
     const { visibleItems, totalSize, currentIndex } = useVirtual({
         itemCount: 100,
-        parentRef: scrollRef as RefObject<HTMLDivElement>,
-        horizontal: axis === 'x',
+        parentRef,
+        axis,
         estimateSize,
         overscan: 6,
     });
 
     return (
-        <DeviceThemeProvider>
+        /**
+         * Если вы используете виртуализацию, скорее всего также следует отключить анимацию
+         * при фокусе на текуший элемент. Что продемонстрировано в данном примере через lowPerformance режим.
+         */
+        <DeviceThemeProvider lowPerformance>
             <CarouselGridWrapper>
                 <CarouselVirtual
-                    ref={scrollRef}
+                    ref={parentRef}
                     as={Row}
                     axis={axis}
                     // index={currentIndex}
@@ -160,8 +164,7 @@ export const GalleryVirtual = () => {
                     // detectActive={detectActive as true}
                     // detectThreshold={detectThreshold}
                     // onIndexChange={(i) => setIndex(i)}
-                    // TODO: кажется можно без height: '165px', width: '100vw'
-                    style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem', height: '350px', width: '100vw' }}
+                    style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem', height: '350px' }}
                     virtualSize={totalSize}
                 >
                     {visibleItems.map(({ index: i, start }) => {
@@ -180,7 +183,7 @@ export const GalleryVirtual = () => {
                                     imageSrc={`${process.env.PUBLIC_URL}/images/320_320_${i % 12}.jpg`}
                                     imageRatio="1 / 1"
                                     // scaleOnFocus
-                                    // tabIndex={0}
+                                    tabIndex={0}
                                 />
                             </CarouselItemVirtual>
                         );
@@ -191,7 +194,7 @@ export const GalleryVirtual = () => {
     );
 };
 
-GalleryVirtual.args = {
+CarouselVirtualBasic.args = {
     displayGrid: true,
 };
 

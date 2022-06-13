@@ -113,7 +113,7 @@ export type UseCarouselOptions = Pick<
 
 export type CarouselTemplateProps = Omit<BasicProps, Exclude<keyof UseCarouselOptions, 'axis'>>;
 
-export type CarouselVirtualProps = CarouselTemplateProps & {
+export type CarouselVirtualProps = Omit<CarouselTemplateProps, 'paddingStart' | 'paddingEnd'> & {
     /**
      * Высота или ширина (px) карусели в зависимости от axis.
      */
