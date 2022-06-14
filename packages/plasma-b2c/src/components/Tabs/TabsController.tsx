@@ -1,7 +1,8 @@
-import { createTabsController, TabsControllerProps as BaseProps } from '@salutejs/plasma-core';
+import { TabsControllerProps as BaseProps } from '@salutejs/plasma-core';
 
 import { Tabs } from './Tabs';
 import { TabItem } from './TabItem';
+import { createTabsController } from './createTabsController';
 
 export interface TabsControllerProps extends BaseProps {}
 
