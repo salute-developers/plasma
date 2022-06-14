@@ -8,7 +8,15 @@ export type CarouselItemProps = ScrollSnapProps & AsProps & React.HTMLAttributes
 
 export type CarouselItemVirtualProps = AsProps &
     React.HTMLAttributes<HTMLDivElement> & {
+        /**
+         * позиция элемента (start из useVirtual)
+         * в случае оси "x"
+         */
         left?: number;
+        /**
+         * позиция элемента (start из useVirtual)
+         * в случае оси "y"
+         */
         top?: number;
     };
 
@@ -28,6 +36,13 @@ export const CarouselItem: React.FC<CarouselItemProps> = ({ scrollSnapAlign = 'c
     );
 };
 
+/**
+ * Компонент для использовани внутри CarouselVirtual для элементов с фиксированным размером.
+ * Адаптирован для использования с хуком useVirtual.
+ * ```
+ * import { useVirtual } from '@salutejs/use-virtual';
+ * ```
+ */
 export const CarouselItemVirtual = ({ left, top, children, style, ...rest }: CarouselItemVirtualProps) => {
     return (
         <StyledItemVirtual

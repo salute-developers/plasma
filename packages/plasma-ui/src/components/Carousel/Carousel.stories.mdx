@@ -4,7 +4,7 @@ import { WithGridLines, InContainer } from '../../helpers/StoryDecorators';
 
 import * as stories from './Carousel.stories';
 
-import { CarouselGridWrapper, Carousel, CarouselItem, CarouselCol } from '.';
+import { CarouselGridWrapper, Carousel, CarouselItem, CarouselCol, CarouselVirtual, CarouselItemVirtual } from '.';
 
 <Meta title="Controls/Carousel" decorators={[InContainer, WithGridLines]} />
 
@@ -15,12 +15,39 @@ import { CarouselGridWrapper, Carousel, CarouselItem, CarouselCol } from '.';
 <Description of={Carousel} />
 <ArgsTable of={Carousel} exclude={["forwardedAs", "as"]} />
 
+## CarouselVirtual
+Рекомендуется использовать вместо с хуком, который возвращает "виртуализированный" список элементов.
+```
+import { useVirtual } from '@salutejs/use-virtual';
+```
+Многие фичи обычной Carousel поддерживаются внутри данного хука:
+* useVirtual возвращает активный элемент ( = detectActive)
+* onIndexChange, onDetectActiveItem легко реализовать по месту использования,
+учитывая доступ к активному элементу из хука
+* scrollAlign надо передавать в useVirtual
+* paddingStart, paddingEnd также передаются в useVirtual (px)
+
+Некоторые фичи обычной Carousel не поддерживаются:
+* animatedScrollByIndex
+* scrollSnapType
+* throttleMs
+* debounceMs
+* scaleCallback
+* scaleResetCallback
+
+<ArgsTable of={CarouselVirtual} exclude={["forwardedAs", "as"]} />
+
 ## CarouselGridWrapper
 <Description of={CarouselGridWrapper} />
 
 ## CarouselItem
 <Description of={CarouselItem} />
 <ArgsTable of={CarouselItem} exclude={["forwardedAs", "as"]} />
+
+## CarouselItemVirtual
+<Description of={CarouselItemVirtual} />
+<ArgsTable of={CarouselItemVirtual} exclude={["forwardedAs", "as"]} />
+
 
 ## CarouselCol
 <Description of={CarouselCol} />
@@ -172,4 +199,16 @@ export const App = () =>  {
 ### Центрирование и увеличение активного элемента
 <Canvas>
     <Story name="CenterItem" story={stories.CenterItem} />
+</Canvas>
+
+### Карусель с "виртуализированным" списком элементов
+
+Если ваша карусель содержит большое количество элементов,
+рекомендуем использовать "виртуализацию".
+Этот подход позволяет рендерить только то количество элементов,
+которое помещается во вьюпорт. Это позволит значительно сократить
+время на первый и последующие рендеры карусели.
+
+<Canvas>
+    <Story name="CarouselVirtualBasic" story={stories.CarouselVirtualBasic} />
 </Canvas>
