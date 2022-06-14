@@ -31,6 +31,7 @@ export interface TabItemProps extends AsProps, React.ButtonHTMLAttributes<HTMLBu
  */
 const StyledTabItemContentLeft = styled.span`
     display: flex;
+    pointer-events: none;
 `;
 
 /**
@@ -39,7 +40,7 @@ const StyledTabItemContentLeft = styled.span`
  */
 const StyledTabItemText = styled.span`
     display: inline;
-
+    pointer-events: none;
     ${applyEllipsis}
 
     /* stylelint-disable-next-line */

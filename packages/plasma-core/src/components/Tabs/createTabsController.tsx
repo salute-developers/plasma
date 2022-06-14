@@ -1,4 +1,6 @@
-import React, { forwardRef, ReactNode, useMemo, useCallback, FunctionComponent } from 'react';
+import React, { forwardRef, ReactNode, useMemo, useCallback, FunctionComponent, useRef } from 'react';
+
+import { useForkRef } from '../../hooks';
 
 import { TabItemRefs, TabsContext } from './TabsContext';
 import { Tabs, TabsProps } from './Tabs';
@@ -9,6 +11,7 @@ export interface TabsControllerProps extends TabsProps {
     index: number;
     onIndexChange: (index: number) => void;
     children?: never;
+    autoscroll?: boolean;
 }
 
 enum Keys {
@@ -27,9 +30,11 @@ export function createTabsController<T extends HTMLDivElement, P extends TabsCon
     ItemComponent: FunctionComponent<TabItemProps> = TabItem,
 ) {
     // eslint-disable-next-line prefer-arrow-callback
-    return forwardRef<T, P>(function TabsController({ items, index, onIndexChange, ...rest }, ref) {
+    return forwardRef<T, P>(function TabsController({ items, index, autoscroll, onIndexChange, ...rest }, outerRef) {
         const { disabled } = rest;
         const refs = useMemo(() => new TabItemRefs(), []);
+        const innerRef = useRef<HTMLDivElement>(null);
+        const ref = useForkRef(outerRef, innerRef);
 
         const onItemFocus = useCallback(
             (event) => {
@@ -38,12 +43,33 @@ export function createTabsController<T extends HTMLDivElement, P extends TabsCon
                 }
 
                 const focusIndex = refs.items.findIndex((itemRef) => itemRef.current === event.target);
+                const focusItem = refs.items[focusIndex];
 
-                if (focusIndex !== index) {
-                    onIndexChange?.(focusIndex);
+                if (focusIndex === index) {
+                    return;
+                }
+
+                onIndexChange?.(focusIndex);
+
+                const parent = innerRef.current?.parentNode as Element;
+                if (autoscroll && parent && focusItem?.current) {
+                    const { x, width } = focusItem.current?.getBoundingClientRect();
+                    const { width: parentWidth } = parent.getBoundingClientRect();
+                    const style = window.getComputedStyle(parent);
+                    const marginLeft = Number.parseInt(style.marginLeft, 10);
+                    const marginRight = Number.parseInt(style.marginRight, 10);
+
+                    if (x < -marginLeft) {
+                        parent.scrollLeft += x + marginLeft;
+                        return;
+                    }
+
+                    if (parentWidth <= x + width - marginRight) {
+                        parent.scrollLeft += x + width - parentWidth - marginRight;
+                    }
                 }
             },
-            [refs, index, onIndexChange, disabled],
+            [refs, innerRef, index, onIndexChange, disabled],
         );
 
         const onKeyDown = useCallback(
@@ -90,7 +116,6 @@ export function createTabsController<T extends HTMLDivElement, P extends TabsCon
                             isActive={i === index}
                             tabIndex={!disabled && i === index ? 0 : -1}
                             contentLeft={contentLeft}
-                            onClick={() => onIndexChange?.(i)}
                             onFocus={onItemFocus}
                             disabled={disabled}
                         >

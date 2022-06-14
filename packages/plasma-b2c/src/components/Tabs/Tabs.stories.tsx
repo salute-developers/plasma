@@ -56,7 +56,14 @@ Default.args = {
     enableContentLeft: true,
 };
 
-export const Arrows: Story<DeafultStoryProps> = ({ itemsNumber, disabled, stretch, label, enableContentLeft }) => {
+export const Arrows: Story<DeafultStoryProps> = ({
+    itemsNumber,
+    disabled,
+    stretch,
+    label,
+    autoScroll,
+    enableContentLeft,
+}) => {
     const items = Array(itemsNumber).fill({
         label,
         contentLeft: enableContentLeft && <IconClock color="inherit" />,
@@ -70,6 +77,7 @@ export const Arrows: Story<DeafultStoryProps> = ({ itemsNumber, disabled, stretc
             onIndexChange={(i) => setIndex(i)}
             stretch={stretch}
             disabled={disabled}
+            autoScroll={autoScroll}
         />
     );
 };
@@ -79,4 +87,5 @@ Arrows.args = {
     disabled: false,
     stretch: true,
     label: 'Label',
+    autoScroll: false,
 };

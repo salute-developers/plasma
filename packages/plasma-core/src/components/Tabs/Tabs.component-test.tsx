@@ -160,4 +160,25 @@ describe('plasma-core: Tabs', () => {
                 expect(onIndexChange).not.called;
             });
     });
+
+    it('autoscroll', () => {
+        const Container = ({ children }) => {
+            return <div style={{ width: '75px' }}>{children}</div>;
+        };
+
+        mount(
+            <CypressTestDecorator>
+                <Container>
+                    <Tabs>
+                        <TabItem>Joy</TabItem>
+                        <TabItem isActive>Sber</TabItem>
+                        <TabItem>Eva</TabItem>
+                    </Tabs>
+                </Container>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('div > button:nth-child(2)').click();
+        cy.matchImageSnapshot();
+    });
 });
