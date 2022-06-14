@@ -1,3 +1,21 @@
+# v1.74.0 (Tue Jun 14 2022)
+
+#### 🚀 Enhancement
+
+- test(plasma-b2c): Add test and snapshot for `Card` component [#67](https://github.com/salute-developers/plasma/pull/67) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-b2c): Add `Card` component [#67](https://github.com/salute-developers/plasma/pull/67) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.73.0 (Thu Jun 09 2022)
 
 #### 🐛 Bug Fix

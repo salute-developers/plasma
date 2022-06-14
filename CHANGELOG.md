@@ -1,3 +1,24 @@
+# (Tue Jun 14 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.74.0`
+  - test(plasma-b2c): Add test and snapshot for `Card` component [#67](https://github.com/salute-developers/plasma/pull/67) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-b2c): Add `Card` component [#67](https://github.com/salute-developers/plasma/pull/67) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-web@1.109.0`
+  - feat(plasma-web): Add `Card` component [#67](https://github.com/salute-developers/plasma/pull/67) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.109.0`
+  - test(plasma-web): Add test and snapshot for `Card` component [#67](https://github.com/salute-developers/plasma/pull/67) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Thu Jun 09 2022)
 
 #### 🚀 Enhancement
