@@ -101,6 +101,10 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
 
 /**
  * Компонент для создания виртуализированных списков с прокруткой.
+ * Адаптирован для использования с хуком useVirtual.
+ * ```
+ * import { useVirtual } from '@salutejs/use-virtual';
+ * ```
  */
 // eslint-disable-next-line prefer-arrow-callback
 export const CarouselVirtual = React.forwardRef<

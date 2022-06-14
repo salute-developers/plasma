@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Story, Meta } from '@storybook/react';
 import type { SnapType, SnapAlign } from '@salutejs/plasma-core';
 import { useVirtual } from '@salutejs/use-virtual';
-import { CarouselItemVirtual } from '@salutejs/plasma-core/components/Carousel/CarouselItem';
+import { CarouselItemVirtual } from '@salutejs/plasma-core';
 
 import { isSberBox } from '../../utils';
 import { ProductCard, MusicCard, GalleryCard } from '../Card/Card.examples';
@@ -156,14 +156,6 @@ export const CarouselVirtualBasic = () => {
                     ref={parentRef}
                     as={Row}
                     axis={axis}
-                    // index={currentIndex}
-                    // trackRef={trackRef}
-                    // animatedScrollByIndex={animatedScrollByIndex}
-                    // scrollAlign={scrollAlign}
-                    // scrollSnapType="none"
-                    // detectActive={detectActive as true}
-                    // detectThreshold={detectThreshold}
-                    // onIndexChange={(i) => setIndex(i)}
                     style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem', height: '350px' }}
                     virtualSize={totalSize}
                 >
@@ -182,7 +174,6 @@ export const CarouselVirtualBasic = () => {
                                     focused={i === currentIndex}
                                     imageSrc={`${process.env.PUBLIC_URL}/images/320_320_${i % 12}.jpg`}
                                     imageRatio="1 / 1"
-                                    // scaleOnFocus
                                     tabIndex={0}
                                 />
                             </CarouselItemVirtual>

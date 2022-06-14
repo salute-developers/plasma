@@ -54,10 +54,6 @@ export interface BasicProps extends AsProps, HTMLAttributes<HTMLDivElement> {
      * Сменить WAI-ARIA Label списка.
      */
     listAriaLabel?: string;
-    /**
-     * Виртуализация
-     */
-    withUseVirtual?: boolean;
 }
 export interface DetectionProps {
     /**
@@ -113,9 +109,9 @@ export type UseCarouselOptions = Pick<
 
 export type CarouselTemplateProps = Omit<BasicProps, Exclude<keyof UseCarouselOptions, 'axis'>>;
 
-export type CarouselVirtualProps = Omit<CarouselTemplateProps, 'paddingStart' | 'paddingEnd'> & {
+export type CarouselVirtualProps = {
     /**
      * Высота или ширина (px) карусели в зависимости от axis.
      */
     virtualSize: number;
-};
+} & Omit<CarouselTemplateProps, 'paddingStart' | 'paddingEnd' | 'scrollSnapType'>;
