@@ -1,3 +1,78 @@
+# v1.73.0 (Thu Jun 09 2022)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 1
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
+# v1.72.2 (Thu Jun 09 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-temple): useSpatNavBetweenTargets - fix ssr render [#59](https://github.com/salute-developers/plasma/pull/59) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
+# v1.72.1 (Tue Jun 07 2022)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 1
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
+# v1.72.0 (Tue Jun 07 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): fix gallery offset between title and gallery [#42](https://github.com/salute-developers/plasma/pull/42) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-temple): fix gallery paddings [#42](https://github.com/salute-developers/plasma/pull/42) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-temple): gallery skeleton [#42](https://github.com/salute-developers/plasma/pull/42) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
+# v1.71.0 (Tue Jun 07 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): fixes [#52](https://github.com/salute-developers/plasma/pull/52) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-temple): Use ScreenProvider and AssistantProvider under the hood of PlasmaApp [#52](https://github.com/salute-developers/plasma/pull/52) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.70.1 (Thu Jun 02 2022)
 
 #### 🐛 Bug Fix

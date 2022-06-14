@@ -74,10 +74,12 @@ export const useSpatNavBetweenTargets = <T extends HTMLElement>(
     axis: 'x' | 'y',
     callback: UseSpatNavCallback<T>,
 ): void => {
-    const prevTarget = React.useRef(document.documentElement);
+    const prevTargetRef = React.useRef<HTMLElement | null>(null);
 
-    React.useLayoutEffect(() => {
+    React.useEffect(() => {
         const spatNavCb = (event: Event) => {
+            const prevTarget = prevTargetRef.current ?? document.documentElement;
+
             if (!isSpatNavEvent(event)) {
                 return;
             }
@@ -91,14 +93,14 @@ export const useSpatNavBetweenTargets = <T extends HTMLElement>(
 
             if (dirByAxis[axis].includes(detail.dir)) {
                 if (
-                    (axis === 'x' && prevTarget.current.offsetLeft !== target.offsetLeft) ||
-                    (axis === 'y' && prevTarget.current.offsetTop !== target.offsetTop)
+                    (axis === 'x' && prevTarget.offsetLeft !== target.offsetLeft) ||
+                    (axis === 'y' && prevTarget.offsetTop !== target.offsetTop)
                 ) {
                     callback(target);
                 }
             }
 
-            prevTarget.current = target;
+            prevTargetRef.current = target;
 
             return false;
         };

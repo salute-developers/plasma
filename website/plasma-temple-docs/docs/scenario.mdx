@@ -13,8 +13,8 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 <PropsTable name="AssistantProvider" />
 
 Для реакции на команды ассистента (сценарные или навигационные), используйте хуки или подписку на команды в экземпляре ассистента.
-Предварительно обернув дерево компонентов компонентом `AssistantProvider`. Импорт `AssistantProvider` и хуков доступен из `@salutejs/plasma-temple/assistant`.
-> В текущей версии имеются устаревшие хуки использеумые всместе с компонентом `PlasmaApp` и доступные для импорта из `@salutejs/plasma-temple`.
+Предварительно обернув дерево компонентов компонентом `AssistantProvider`.
+
 
 ## Хуки
 
@@ -23,10 +23,10 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 ### `useAssistant`
 Обеспечивает доступ к экземпляру ассистента. Так же можно получить доступ используя `getAssistantRef`.
 
-### `useAssistantCharacter`
+### `useAssistantCharacter` (`useCharacter`)
 Возвращает текущй персонаж
 
-### `useAssistantInsets`
+### `useAssistantInsets` (`useInsets`)
 Возвращает текущие отступы, переданные ассистентом
 
 ### `useAssistantOnSmartAppData`

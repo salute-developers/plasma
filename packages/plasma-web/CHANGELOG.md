@@ -1,3 +1,42 @@
+# v1.107.1 (Thu Jun 09 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web): Remove children from DropdownProps [#60](https://github.com/salute-developers/plasma/pull/60) ([@andart71](https://github.com/andart71))
+
+#### Authors: 1
+
+- Andrey Loshkarev ([@andart71](https://github.com/andart71))
+
+---
+
+# v1.107.0 (Tue Jun 07 2022)
+
+#### 🐛 Bug Fix
+
+- test(plasma-b2c,plasma-web,plasma-ui): Add test and snapshot for `TextField` component [#47](https://github.com/salute-developers/plasma/pull/47) ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-web,plasma-b2c,plasma-ui): Add onChange callback for maxLength check in `TextField` [#47](https://github.com/salute-developers/plasma/pull/47) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# v1.106.0 (Tue Jun 07 2022)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 1
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.105.1 (Thu Jun 02 2022)
 
 #### 🐛 Bug Fix

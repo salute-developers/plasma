@@ -8,7 +8,7 @@ import { DropdownPopup, DropdownPopupProps } from './DropdownPopup';
 
 export interface DropdownUncontrolledProps
     extends DisabledProps,
-        Omit<DropdownMenuProps, 'children' | 'onKeyDown' | 'onBlur'>,
+        Omit<DropdownMenuProps, 'onKeyDown' | 'onBlur'>,
         PickOptional<
             DropdownPopupProps,
             'isOpen' | 'placement' | 'trigger' | 'offsetTop' | 'onToggle' | 'onKeyDown' | 'onBlur'

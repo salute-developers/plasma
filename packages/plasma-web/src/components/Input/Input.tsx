@@ -237,15 +237,40 @@ const InputPlaceLabel: FC<Pick<InputProps, 'animatedHint' | 'placeholder' | 'lab
  */
 // eslint-disable-next-line prefer-arrow-callback
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
-    { size = 'l', disabled, status, placeholder, label, animatedHint, hasContentLeft, hasContentRight, ...rest },
+    {
+        size = 'l',
+        disabled,
+        status,
+        placeholder,
+        label,
+        animatedHint,
+        hasContentLeft,
+        hasContentRight,
+        onChange,
+        ...rest
+    },
     ref,
 ) {
+    const handleChange = React.useCallback(
+        (event) => {
+            const { maxLength, value } = event.target;
+
+            if (!onChange || (maxLength !== -1 && value.length > maxLength)) {
+                return;
+            }
+
+            onChange(event);
+        },
+        [onChange],
+    );
+
     return (
         <>
             <StyledInput
                 ref={ref}
                 disabled={disabled}
                 placeholder={placeholder}
+                onChange={handleChange}
                 $size={size}
                 $status={status}
                 $hasHint={animatedHint && Boolean(label || placeholder)}

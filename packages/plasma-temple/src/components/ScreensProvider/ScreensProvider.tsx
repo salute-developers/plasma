@@ -74,7 +74,7 @@ export function ScreensProvider({
 
     const onPopScreen = React.useCallback(
         (event: PopStateEvent) => {
-            const currentHistory = last(history) ?? { name: 'unknown', data: null };
+            const currentHistory = last(history) ?? { name: 'unknown', data: null, params: {} };
             dispatch(Actions.popHistory(popScreenDelta.current));
             onPopState?.({ currentHistory, event, pushScreen, pushHistory, goToScreen });
 

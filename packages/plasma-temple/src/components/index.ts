@@ -19,9 +19,4 @@ export * from './Grid';
 export * from './Item';
 export * from './ScreensProvider';
 export * from './ThemeProvider/ThemeProvider';
-
-/**
- * TODO: раскомментировать после удаления PlasmaApp, сейчас есть конфликты в хуках.
- * В текущей реализации импорт делать из @salutejs/plasma-temple/assistant
- */
-// export * from './AssistantProvider';
+export * from './AssistantProvider';

@@ -1,7 +1,7 @@
 import { AssistantSmartAppData, createAssistant, createSmartappDebugger } from '@salutejs/client';
 
-import { AssistantInstance, PickOptional } from './types';
-import { logger } from './utils/logger';
+import { AssistantInstance, PickOptional } from '../../types';
+import { logger } from '../../utils/logger';
 
 export type AssistantProps = Parameters<typeof createSmartappDebugger>[0];
 
@@ -16,9 +16,13 @@ export interface AssistantRef {
     assistant: AssistantInstance | null;
 }
 
-export const getAssistantRef = (): AssistantRef => ({
-    assistant: assistant ?? null,
-});
+const assistantRef = {
+    get assistant() {
+        return assistant ?? null;
+    },
+};
+
+export const getAssistantRef = (): AssistantRef => assistantRef;
 
 export const initializeAssistant = <T extends AssistantSmartAppData>({
     getState,

@@ -4,8 +4,13 @@ import { AssistantInstance } from '../../../types';
 import { AssistantContext, AssistantContextType } from '../AssistantContext';
 
 export const useAssistant = (): {
-    getAssistant: () => AssistantInstance;
+    assistant: AssistantInstance | null;
     setAssistantState: AssistantContextType['setAssistantState'];
 } => {
-    return React.useContext(AssistantContext);
+    const { assistant, setAssistantState } = React.useContext(AssistantContext);
+
+    return {
+        assistant,
+        setAssistantState,
+    };
 };

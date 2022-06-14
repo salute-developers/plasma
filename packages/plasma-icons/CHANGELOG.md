@@ -1,3 +1,27 @@
+# v1.86.0 (Thu Jun 09 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-icons): Add Sber Icons [#63](https://github.com/salute-developers/plasma/pull/63) ([@andart71](https://github.com/andart71))
+
+#### Authors: 1
+
+- Andrey Loshkarev ([@andart71](https://github.com/andart71))
+
+---
+
+# v1.85.0 (Tue Jun 07 2022)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 1
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.84.0 (Tue May 24 2022)
 
 #### 🐛 Bug Fix

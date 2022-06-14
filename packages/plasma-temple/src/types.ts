@@ -38,6 +38,11 @@ export interface AssistantDataAction extends AssistantSmartAppData {
     action: AssistantAction;
 }
 
+export interface SmartAppDataAction<A extends Record<string, unknown>> extends AssistantSmartAppData {
+    // eslint-disable-next-line camelcase
+    smart_app_data: A;
+}
+
 export type AssistantInstance = ReturnType<typeof createAssistant>;
 
 export interface MetaPayload {

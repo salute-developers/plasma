@@ -4,7 +4,7 @@ import { Header } from '../../components';
 import { ComponentPropsWithHeader } from '../../components/Header/types';
 import { Cart } from '../../components/Cart/Cart';
 import { CartProps } from '../../components/Cart/Cart@common';
-import { useInsets } from '../../hooks';
+import { useAssistantInsets } from '../../components/AssistantProvider';
 import { CartState } from '../../components/Cart/types';
 
 interface CartPageProps<T extends CartState> extends ComponentPropsWithHeader {
@@ -26,7 +26,7 @@ export function CartPage<T extends CartState = CartState>({
     onItemClick,
     children,
 }: React.PropsWithChildren<CartPageProps<T>>): React.ReactElement {
-    const insets = useInsets();
+    const insets = useAssistantInsets();
 
     return (
         <>

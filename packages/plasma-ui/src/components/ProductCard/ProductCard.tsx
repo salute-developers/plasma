@@ -87,6 +87,7 @@ const StyledCard = styled(Card)<{ $backgroundColor?: string }>`
 `;
 const StyledMediaSlot = styled.div`
     height: 100%;
+    min-height: 0;
 
     & img {
         display: block;

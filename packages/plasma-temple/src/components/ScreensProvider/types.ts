@@ -1,8 +1,8 @@
 import { AssistantClientCustomizedCommand, AssistantSmartAppData } from '@salutejs/client';
 
-import { History } from '../../store/types';
 import { AnyObject } from '../../types';
 
+import { History } from './store/types';
 import { PushScreenFn } from './hooks/useScreens';
 
 export interface RouterProvider {
@@ -39,6 +39,7 @@ export type OnDataFn<
     pushHistory: <T extends keyof PageStateType>(name: T, data: PageStateType[T]) => void;
     pushScreen: PushScreenFn<PageStateType, PageParamsType>;
     goToScreen: <T extends keyof PageStateType>(name: T) => void;
+    popScreen: () => void;
 }) => void;
 
 export interface ScreensProviderProps {

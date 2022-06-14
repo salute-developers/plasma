@@ -5,6 +5,7 @@ import { Button, Header, mediaQuery } from '@salutejs/plasma-ui';
 import { background } from '@salutejs/plasma-tokens';
 
 import { Gallery } from './Gallery';
+import { GallerySkeleton } from './GallerySkeleton/GallerySkeleton';
 import { GalleryCardEntity, GalleryControl } from './types';
 
 export default {
@@ -100,4 +101,8 @@ export const MultiGalleryWithExternalControls = (): React.ReactElement => {
             <Gallery ref={galleryRef} items={galleries} autoFocus onCardClick={action('onCardClick')} />
         </StyledContainer>
     );
+};
+
+export const Skeleton = (): React.ReactElement => {
+    return <GallerySkeleton galleries={2} items={4} columnXL={4} columnM={3} columnS={2} />;
 };
