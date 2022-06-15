@@ -341,52 +341,61 @@ describe('plasma-ui: Carousel', () => {
     });
 
     it('virtual', () => {
-        const axis = 'x';
-        const estimateSize = () => 350;
+        function Demo() {
+            const axis = 'x';
+            const estimateSize = () => 350;
 
-        mount(() => {
+            const newItems = [...new Array(7)].reduce((acc) => [...acc, ...items], []);
+
             const parentRef = React.useRef(null);
 
             const { visibleItems, totalSize, currentIndex } = useVirtual({
-                itemCount: 100,
+                itemCount: 49,
                 parentRef,
                 axis,
                 estimateSize,
                 overscan: 6,
             });
+
             return (
-                <CarouselDecorator>
-                    <CarouselVirtual
-                        ref={parentRef}
-                        as={Row}
-                        axis={axis}
-                        style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem', height: '350px' }}
-                        virtualSize={totalSize}
-                    >
-                        {visibleItems.map(({ index: i, start }) => {
-                            const { title, subtitle } = items[i];
-                            return (
-                                <CarouselItemVirtual
-                                    key={`item:${i}`}
-                                    left={start}
-                                    style={{ width: '312px' }}
-                                    aria-label={`${i + 1} из ${items.length}`}
-                                >
-                                    <GalleryCard
-                                        title={title}
-                                        subtitle={subtitle}
-                                        focused={i === currentIndex}
-                                        imageSrc={`${process.env.PUBLIC_URL}/images/320_320_${i % 12}.jpg`}
-                                        imageRatio="1 / 1"
-                                        tabIndex={0}
-                                    />
-                                </CarouselItemVirtual>
-                            );
-                        })}
-                    </CarouselVirtual>
-                </CarouselDecorator>
+                <CarouselVirtual
+                    ref={parentRef}
+                    as={Row}
+                    axis={axis}
+                    style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem', height: '350px' }}
+                    virtualSize={totalSize}
+                >
+                    {visibleItems.map(({ index: i, start }) => {
+                        const { title, subtitle, imageSrc } = newItems[i];
+
+                        return (
+                            <CarouselItemVirtual
+                                key={`item:${i}`}
+                                left={start}
+                                style={{ width: '312px' }}
+                                aria-label={`${i + 1} из ${newItems.length}`}
+                            >
+                                <GalleryCard
+                                    title={`${title} ${i}`}
+                                    subtitle={subtitle}
+                                    focused={i === currentIndex}
+                                    imageSrc={imageSrc}
+                                    imageRatio="1 / 1"
+                                    tabIndex={0}
+                                />
+                            </CarouselItemVirtual>
+                        );
+                    })}
+                </CarouselVirtual>
             );
-        });
+        }
+
+        mount(
+            <CarouselDecorator>
+                <Demo />
+            </CarouselDecorator>,
+        );
+
         cy.wait(100);
         cy.matchImageSnapshot();
     });
