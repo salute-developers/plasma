@@ -341,16 +341,18 @@ describe('plasma-ui: Carousel', () => {
     });
 
     it('virtual', () => {
-        function Demo() {
-            const axis = 'x';
-            const estimateSize = () => 350;
+        const itemCount = 100;
+        const extendedItems = new Array(itemCount).fill(null).map((_, i) => {
+            return { title: `${items[i % items.length].title} - ${i}`, subtitle: 'Each', imageSrc: image };
+        });
+        const axis = 'x';
+        const estimateSize = () => 350;
 
-            const newItems = [...new Array(7)].reduce((acc) => [...acc, ...items], []);
-
+        function CarouselVirtualDemo() {
             const parentRef = React.useRef(null);
 
             const { visibleItems, totalSize, currentIndex } = useVirtual({
-                itemCount: 49,
+                itemCount,
                 parentRef,
                 axis,
                 estimateSize,
@@ -366,14 +368,14 @@ describe('plasma-ui: Carousel', () => {
                     virtualSize={totalSize}
                 >
                     {visibleItems.map(({ index: i, start }) => {
-                        const { title, subtitle, imageSrc } = newItems[i];
+                        const { title, subtitle, imageSrc } = extendedItems[i];
 
                         return (
                             <CarouselItemVirtual
                                 key={`item:${i}`}
                                 left={start}
                                 style={{ width: '312px' }}
-                                aria-label={`${i + 1} из ${newItems.length}`}
+                                aria-label={`${i + 1} из ${extendedItems.length}`}
                             >
                                 <GalleryCard
                                     title={`${title} ${i}`}
@@ -392,7 +394,7 @@ describe('plasma-ui: Carousel', () => {
 
         mount(
             <CarouselDecorator>
-                <Demo />
+                <CarouselVirtualDemo />
             </CarouselDecorator>,
         );
 
