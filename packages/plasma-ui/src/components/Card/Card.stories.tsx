@@ -10,7 +10,8 @@ import { Card, CardProps } from './Card';
 import { CardBody } from './CardBody';
 import { CardContent } from './CardContent';
 import { CardMedia } from './CardMedia';
-import { CardParagraph1 } from './CardTypography';
+
+import { CardParagraph1 } from '.';
 
 const longText = `Канадский актёр, кинопродюсер, и музыкант. Наиболее известен своими ролями в киносериях «Матрица» и
 «Джон Уик», а также в фильмах «На гребне волны», «Мой личный штат Айдахо», «Дракула», «Скорость»,
