@@ -1,0 +1,1 @@
+../../../../plasma-core/src/components/Card/Card.component-test.tsx
