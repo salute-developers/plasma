@@ -1,5 +1,6 @@
 export * from './components/Basebox';
 export * from './components/Button';
+export * from './components/Card';
 export * from './components/Carousel';
 export * from './components/Fade';
 export * from './components/Field';
