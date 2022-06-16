@@ -6,7 +6,9 @@ import { InSpacing } from '../../helpers/StoryDecorators';
 import { Button } from '../Button';
 import { Body1 } from '../Typography';
 
-import { Confirm, ConfirmProps, useAutoFocus } from './Confirm';
+import { useAutoFocus } from './Confirm.hooks';
+
+import { Confirm, ConfirmProps } from '.';
 
 export default {
     title: 'Controls/Confirm',

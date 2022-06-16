@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import styled, { css, createGlobalStyle } from 'styled-components';
 import { overlay, backgroundPrimary } from '@salutejs/plasma-tokens';
 import { ButtonRoot, mediaQuery } from '@salutejs/plasma-core';
@@ -6,6 +6,8 @@ import { ButtonRoot, mediaQuery } from '@salutejs/plasma-core';
 import { Button, ButtonProps } from '../Button';
 import { TextBox } from '../TextBox';
 import { Cell } from '../Cell';
+
+import { useAutoFocus } from './Confirm.hooks';
 
 export interface ConfirmProps {
     /**
@@ -35,7 +37,7 @@ export interface ConfirmProps {
     /**
      * Вид подтверждения
      */
-    view?: Exclude<ButtonProps['view'], 'checked' | 'clear'>;
+    view?: Exclude<ButtonProps['view'], 'checked' | 'clear' | 'overlay'>;
 
     /**
      * Состояние подтверждения
@@ -137,40 +139,18 @@ const BtnWrap = styled.div<{ reverse: boolean }>`
 const StyledCell = styled(Cell)`
     flex: 1;
 
-    ${({ theme }) => mediaQuery('S', theme.deviceScale)(css`
-        margin-bottom: 0.75rem;
-    `)}
+    ${({ theme }) =>
+        mediaQuery(
+            'S',
+            theme.deviceScale,
+        )(css`
+            margin-bottom: 0.75rem;
+        `)}
 
     & > div {
         padding: 0;
     }
 `;
-
-export interface UseFocusParams {
-    preventScroll?: boolean;
-    trigger?: boolean;
-}
-
-// TODO: it should be actual WithAutoFocus
-export function useAutoFocus<T extends HTMLElement>(ref: React.RefObject<T>, params: UseFocusParams = {}) {
-    const { preventScroll, trigger = true } = params;
-
-    const setFocus = React.useCallback(() => {
-        ref.current?.focus({ preventScroll });
-        if (ref.current !== document.activeElement) {
-            document.addEventListener('transitionend', setFocus, { once: true });
-        } else {
-            document.removeEventListener('transitionend', setFocus);
-        }
-    }, [preventScroll]);
-
-    useEffect(() => {
-        trigger && setFocus();
-        return () => document.removeEventListener('transitionend', setFocus);
-    }, [trigger]);
-
-    return setFocus;
-}
 
 /**
  * Сообщение подтверждения действия пользователя.
@@ -186,14 +166,15 @@ export const Confirm: React.FC<ConfirmProps> = (props) => {
         reverseButtons = false,
         onApprove,
         onDismiss,
+        ...rest
     } = props;
 
-    const onApproveClick = () => {
+    const onApproveClick = useCallback(() => {
         onApprove();
-    };
-    const onDismissClick = () => {
+    }, [onApprove]);
+    const onDismissClick = useCallback(() => {
         onDismiss && onDismiss();
-    };
+    }, [onDismiss]);
 
     const btnRef = useRef<HTMLButtonElement>(null);
     useAutoFocus(btnRef, { trigger: visible });
@@ -212,7 +193,7 @@ export const Confirm: React.FC<ConfirmProps> = (props) => {
     );
 
     return (
-        <Wrapper visible={visible}>
+        <Wrapper visible={visible} {...rest}>
             <Overlay onClick={onDismissClick} />
             {visible && <NoScroll />}
             <ConfirmRoot visible={visible}>

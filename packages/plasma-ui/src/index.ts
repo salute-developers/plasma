@@ -4,6 +4,7 @@ export * from './components/Card';
 export * from './components/Carousel';
 export * from './components/Cell';
 export * from './components/Checkbox';
+export * from './components/Confirm';
 export * from './components/Device';
 export * from './components/Grid';
 export * from './components/Header';
