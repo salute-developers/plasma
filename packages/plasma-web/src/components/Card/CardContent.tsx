@@ -1,27 +1,15 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
-import { DisabledProps } from '@salutejs/plasma-core';
+import styled from 'styled-components';
+import { CardContent as BaseCardContent, CardContentProps as BaseCardContentProps } from '@salutejs/plasma-core';
 
-interface OtherProps extends DisabledProps {
-    compact?: boolean;
-}
+export type CardContentProps = Omit<BaseCardContentProps, 'cover' | 'coverGradient' | 'compact'>;
 
-export type CardContentProps = OtherProps & React.HTMLAttributes<HTMLDivElement>;
-
-const StyledRoot = styled.div<OtherProps>`
-    display: flex;
-    flex-direction: column;
-
-    box-sizing: border-box;
-    padding: ${({ compact }) => (compact ? 0.375 : 1)}rem 1rem;
-
-    border-radius: inherit;
-
-    ${({ disabled }) =>
-        disabled &&
-        css`
-            opacity: 0.5;
-        `}
+/**
+ * Компонент для отображения как текстового, так и любого другого контента.
+ */
+export const CardContent = styled<React.FC<CardContentProps>>(BaseCardContent)`
+    padding: 1.25rem;
+    padding-top: 1rem;
 
     position: absolute;
     top: 0;
@@ -31,10 +19,3 @@ const StyledRoot = styled.div<OtherProps>`
 
     justify-content: flex-end;
 `;
-
-/**
- * Компонент для отображения как текстового, так и любого другого контента.
- */
-export const CardContent: React.FC<CardContentProps> = ({ children, ...rest }) => {
-    return <StyledRoot {...rest}>{children}</StyledRoot>;
-};
