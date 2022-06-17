@@ -1,3 +1,22 @@
+# v1.110.0 (Fri Jun 17 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): TimePicker render optimisation [#55](https://github.com/salute-developers/plasma/pull/55) ([@SeanSilke](https://github.com/SeanSilke))
+- docs(plasma-ui): Confirm: simple docs [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
+- feat(plasma-ui): add Confirm [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### 🐛 Bug Fix
+
+- test(plasma-ui): add Confirm tests [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.108.2 (Thu Jun 09 2022)
 
 #### 🐛 Bug Fix
