@@ -1,3 +1,16 @@
+# v1.110.0 (Fri Jun 17 2022)
+
+#### 🚀 Enhancement
+
+- test(plasma-web): Add tests and snapshots for `Calendar` component [#51](https://github.com/salute-developers/plasma/pull/51) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-web): Add `Calendar` component [#51](https://github.com/salute-developers/plasma/pull/51) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.109.0 (Tue Jun 14 2022)
 
 #### 🚀 Enhancement
