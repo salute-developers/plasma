@@ -40,12 +40,21 @@ const items = Array(25)
         imageAlt: `${imageAlt} ${i}`,
     }));
 
+const defaultCarouselStyle = { margin: '0 -0.5rem' };
+const defaultCarouselItemStyle = { width: '20rem', padding: '0 0.5rem' };
+
 export const Default = () => {
     return (
-        <Carousel index={0} style={{ margin: '0 -0.5rem' }}>
-            {items.map((item, i) => (
-                <CarouselItem key={`item:${i}`} style={{ width: '20rem', padding: '0 0.5rem' }}>
-                    <CarouselCard {...item} />
+        <Carousel index={0} style={defaultCarouselStyle}>
+            {items.map((item) => (
+                <CarouselItem key={item.id} style={defaultCarouselItemStyle}>
+                    <CarouselCard
+                        id={item.id}
+                        title={item.title}
+                        subtitle={item.subtitle}
+                        imageSrc={item.imageSrc}
+                        imageAlt={item.imageAlt}
+                    />
                 </CarouselItem>
             ))}
         </Carousel>
@@ -79,31 +88,54 @@ const StyledCarouselItem = styled(CarouselItem)`
     box-sizing: border-box;
 `;
 
+const enabledStateStyle = { display: 'block' };
+const disabledStateStyle = { display: 'none' };
+
+const ChevronLeft: React.FC = React.memo(() => {
+    return <IconChevronLeft size="s" color="#fff" />;
+});
+
+const ChevronRight: React.FC = React.memo(() => {
+    return <IconChevronRight size="s" color="#fff" />;
+});
+
 export const AccessabilityDemo = () => {
     const [index, setIndex] = useState(0);
     const [ariaLive, setAriaLive] = useState<'off' | 'polite'>('off');
+
+    const enableAriaLive = React.useCallback(() => {
+        setAriaLive('polite');
+    }, []);
+
+    const disableAriaLive = React.useCallback(() => {
+        setAriaLive('off');
+    }, []);
+
+    const changeIndex = React.useCallback(() => {
+        setIndex((i) => (i > 0 ? i - 1 : items.length - 1));
+    }, []);
 
     return (
         <StyledWrapper>
             <StyledCarouselWrapper
                 id="carousel-example"
                 aria-label="Пример карусели с доступностью"
-                onFocus={() => setAriaLive('polite')}
-                onBlur={() => setAriaLive('off')}
-                onMouseOver={() => setAriaLive('polite')}
-                onMouseLeave={() => setAriaLive('off')}
+                onFocus={enableAriaLive}
+                onBlur={disableAriaLive}
+                onMouseOver={enableAriaLive}
+                onMouseLeave={disableAriaLive}
             >
                 <StyledControls>
                     <Button
-                        contentLeft={<IconChevronLeft size="s" color="#fff" />}
-                        onClick={() => setIndex((i) => (i > 0 ? i - 1 : items.length - 1))}
+                        contentLeft={ChevronLeft}
+                        onClick={changeIndex}
                         aria-controls="carousel-example"
                         aria-label="Предыдущий слайд"
                         view="clear"
                     />
                     <Button
-                        contentLeft={<IconChevronRight size="s" color="#fff" />}
-                        onClick={() => setIndex((i) => (i < items.length - 1 ? i + 1 : 0))}
+                        contentLeft={ChevronRight}
+                        onClick={changeIndex}
                         aria-controls="carousel-example"
                         aria-label="Следующий слайд"
                         view="clear"
@@ -111,17 +143,21 @@ export const AccessabilityDemo = () => {
                 </StyledControls>
                 <StyledCarousel index={index} scrollSnapType="none" ariaLive={ariaLive}>
                     {items.map((item, i) => (
-                        <StyledCarouselItem key={`item:${i}`} aria-label={`${i + 1} из ${items.length}`}>
+                        <StyledCarouselItem key={item.id} aria-label={`${i + 1} из ${items.length}`}>
                             <CarouselCard
-                                {...item}
+                                id={item.id}
+                                title={item.title}
+                                subtitle={item.subtitle}
+                                imageSrc={item.imageSrc}
+                                imageAlt={item.imageAlt}
                                 href="#"
                                 imageBase="img"
-                                style={{ display: i === index ? 'block' : 'none' }}
+                                style={i === index ? enabledStateStyle : disabledStateStyle}
                             />
                         </StyledCarouselItem>
                     ))}
                 </StyledCarousel>
-                <SmartPaginationDots items={items} index={index} visibleItems={7} onIndexChange={(i) => setIndex(i)} />
+                <SmartPaginationDots items={items} index={index} visibleItems={7} onIndexChange={setIndex} />
             </StyledCarouselWrapper>
         </StyledWrapper>
     );

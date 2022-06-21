@@ -1,10 +1,12 @@
 import React, { useRef, useContext, useCallback } from 'react';
-import { Story, Meta } from '@storybook/react';
+import { Story, Meta, addDecorator } from '@storybook/react';
 import type { SnapType, SnapAlign } from '@salutejs/plasma-core';
 import { CarouselItemVirtual } from '@salutejs/plasma-core';
 import * as tokens from '@salutejs/plasma-tokens';
 import { useVirtual } from '@salutejs/use-virtual';
 import { ThemeContext } from 'styled-components';
+import { withPerformance, InteractionTaskArgs, PublicInteractionTask } from 'storybook-addon-performance';
+import { fireEvent, waitFor } from '@testing-library/dom';
 
 import { isSberBox } from '../../utils';
 import { ProductCard, MusicCard, GalleryCard } from '../Card/Card.examples';
@@ -24,6 +26,34 @@ import {
     CarouselProps,
     CarouselColProps,
 } from '.';
+
+addDecorator(withPerformance);
+
+function isSelected(element: HTMLElement) {
+    return () => {
+        const ariaSelected = element.getAttribute('aria-selected');
+        if (ariaSelected === 'true') {
+            return Promise.resolve();
+        }
+        return Promise.reject();
+    };
+}
+
+const interactionTasksArrowRight: PublicInteractionTask[] = [
+    {
+        name: 'Short ArrowRight press',
+        run: async ({ container }: InteractionTaskArgs): Promise<void> => {
+            const element = container.querySelector('#carousel');
+            const selected = container.querySelector('[aria-selected="true"]');
+            const nextSibling = selected?.nextSibling;
+
+            if (element && selected && nextSibling) {
+                fireEvent.keyDown(element, { key: 'ArrowRight', code: 'ArrowRight', charCode: 39 });
+                await waitFor(isSelected(nextSibling as HTMLElement));
+            }
+        },
+    },
+];
 
 const items = Array(100)
     .fill({
@@ -45,6 +75,8 @@ const isSberbox = isSberBox();
 export default {
     title: 'Controls/Carousel',
 } as Meta;
+
+const basicCarouselStyle = { paddingTop: '1.25rem', paddingBottom: '1.25rem' };
 
 export const Basic: Story<CarouselProps & CarouselColProps & { displayGrid: boolean }> = ({
     animatedScrollByIndex,
@@ -70,6 +102,7 @@ export const Basic: Story<CarouselProps & CarouselColProps & { displayGrid: bool
         <DeviceThemeProvider>
             <CarouselGridWrapper>
                 <Carousel
+                    id="carousel"
                     as={Row}
                     axis={axis}
                     index={index}
@@ -78,8 +111,8 @@ export const Basic: Story<CarouselProps & CarouselColProps & { displayGrid: bool
                     scrollSnapType={scrollSnapType}
                     detectActive={detectActive as true}
                     detectThreshold={detectThreshold}
-                    onIndexChange={(i) => setIndex(i)}
-                    style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem' }}
+                    onIndexChange={setIndex}
+                    style={basicCarouselStyle}
                 >
                     {items.map(({ title, subtitle }, i) => (
                         <CarouselCol
@@ -88,6 +121,7 @@ export const Basic: Story<CarouselProps & CarouselColProps & { displayGrid: bool
                             sizeXL={4}
                             scrollSnapAlign={scrollSnapAlign}
                             aria-label={`${i + 1} из ${items.length}`}
+                            aria-selected={i === index}
                         >
                             <ProductCard
                                 title={title}
@@ -101,6 +135,16 @@ export const Basic: Story<CarouselProps & CarouselColProps & { displayGrid: bool
             </CarouselGridWrapper>
         </DeviceThemeProvider>
     );
+};
+
+Basic.story = {
+    name: 'Basic',
+    parameters: {
+        performance: {
+            interactions: interactionTasksArrowRight,
+            disable: false,
+        },
+    },
 };
 
 Basic.args = {
@@ -201,6 +245,16 @@ export const CarouselVirtualBasic = () => {
 CarouselVirtualBasic.args = {
     displayGrid: true,
 };
+const verticalStyle = {
+    height: '100vh',
+    maxHeight: '40rem',
+    width: '100%',
+    maxWidth: '22.5rem',
+    margin: '0 auto',
+    padding: '0.75rem',
+};
+
+const verticalCarouselItemStyle = { padding: '0.75rem 0' };
 
 export const Vertical: Story<CarouselProps & CarouselColProps & { displayGrid: boolean }> = ({
     animatedScrollByIndex,
@@ -223,6 +277,7 @@ export const Vertical: Story<CarouselProps & CarouselColProps & { displayGrid: b
     return (
         <DeviceThemeProvider>
             <Carousel
+                id="carousel"
                 axis={axis}
                 index={index}
                 animatedScrollByIndex={animatedScrollByIndex}
@@ -230,24 +285,18 @@ export const Vertical: Story<CarouselProps & CarouselColProps & { displayGrid: b
                 scrollSnapType={scrollSnapType}
                 detectActive={detectActive as true}
                 detectThreshold={detectThreshold}
-                onIndexChange={(i) => setIndex(i)}
+                onIndexChange={setIndex}
                 paddingStart="50%"
                 paddingEnd="50%"
-                style={{
-                    height: '100vh',
-                    maxHeight: '40rem',
-                    width: '100%',
-                    maxWidth: '22.5rem',
-                    margin: '0 auto',
-                    padding: '0.75rem',
-                }}
+                style={verticalStyle}
             >
                 {items.map(({ title, subtitle }, i) => (
                     <CarouselItem
                         key={`item:${i}`}
                         scrollSnapAlign={scrollSnapAlign}
-                        style={{ padding: '0.75rem 0' }}
+                        style={verticalCarouselItemStyle}
                         aria-label={`${i + 1} из ${items.length}`}
+                        aria-selected={i === index}
                     >
                         <GalleryCard
                             title={title}
@@ -279,11 +328,14 @@ interface MusicPageProps {
     scrollSnapAlign: SnapAlign;
 }
 
+const musicPageSectionStyle = { margin: '1.75rem 0' };
+const musicPageTitleStyle = { marginBottom: '1rem' };
+
 export const MusicPage: Story<MusicPageProps> = ({ scrollSnapType, scrollSnapAlign }) => {
     return (
         <DeviceThemeProvider>
-            <section style={{ margin: '1.75rem 0' }}>
-                <Body3 style={{ marginBottom: '1rem' }}>Новые альбомы</Body3>
+            <section style={musicPageSectionStyle}>
+                <Body3 style={musicPageTitleStyle}>Новые альбомы</Body3>
                 <CarouselGridWrapper>
                     <Carousel as={Row} axis="x" index={0} scrollSnapType={scrollSnapType}>
                         {items.map((item, i) => (
@@ -294,8 +346,8 @@ export const MusicPage: Story<MusicPageProps> = ({ scrollSnapType, scrollSnapAli
                     </Carousel>
                 </CarouselGridWrapper>
             </section>
-            <section style={{ margin: '1.75rem 0' }}>
-                <Body3 style={{ marginBottom: '1rem' }}>Хиты и чарты</Body3>
+            <section style={musicPageSectionStyle}>
+                <Body3 style={musicPageTitleStyle}>Хиты и чарты</Body3>
                 <CarouselGridWrapper>
                     <Carousel as={Row} axis="x" index={0} scrollSnapType={scrollSnapType}>
                         {items.map((item, i) => (
@@ -306,8 +358,8 @@ export const MusicPage: Story<MusicPageProps> = ({ scrollSnapType, scrollSnapAli
                     </Carousel>
                 </CarouselGridWrapper>
             </section>
-            <section style={{ margin: '1.75rem 0' }}>
-                <Body3 style={{ marginBottom: '1rem' }}>Жанры и настроения</Body3>
+            <section style={musicPageSectionStyle}>
+                <Body3 style={musicPageTitleStyle}>Жанры и настроения</Body3>
                 <CarouselGridWrapper>
                     <Carousel as={Row} axis="x" index={0} scrollSnapType={scrollSnapType}>
                         {items.map((item, i) => (
@@ -332,6 +384,8 @@ MusicPage.argTypes = {
     ...Basic.argTypes,
 };
 
+const centerItemCarouselStyle = { paddingTop: '5rem' };
+
 export const CenterItem: Story<CarouselProps & ScalingColCardProps & { displayGrid: boolean }> = ({
     animatedScrollByIndex,
     scrollSnapType,
@@ -354,6 +408,7 @@ export const CenterItem: Story<CarouselProps & ScalingColCardProps & { displayGr
         <DeviceThemeProvider>
             <CarouselGridWrapper>
                 <Carousel
+                    id="carousel"
                     as={Row}
                     axis="x"
                     index={index}
@@ -363,10 +418,10 @@ export const CenterItem: Story<CarouselProps & ScalingColCardProps & { displayGr
                     detectThreshold={detectThreshold}
                     scaleCallback={scaleCallback}
                     scaleResetCallback={scaleResetCallback}
-                    onIndexChange={(i) => setIndex(i)}
+                    onIndexChange={setIndex}
                     paddingStart="50%"
                     paddingEnd="50%"
-                    style={{ paddingTop: '5rem' }}
+                    style={centerItemCarouselStyle}
                 >
                     {items.map((item, i) => (
                         <ScalingColCard
@@ -376,12 +431,23 @@ export const CenterItem: Story<CarouselProps & ScalingColCardProps & { displayGr
                             item={item}
                             tabIndex={0}
                             aria-label={`${i + 1} из ${items.length}`}
+                            aria-selected={i === index}
                         />
                     ))}
                 </Carousel>
             </CarouselGridWrapper>
         </DeviceThemeProvider>
     );
+};
+
+CenterItem.story = {
+    name: 'CenterItem',
+    parameters: {
+        performance: {
+            interactions: interactionTasksArrowRight,
+            disable: false,
+        },
+    },
 };
 
 CenterItem.args = {
