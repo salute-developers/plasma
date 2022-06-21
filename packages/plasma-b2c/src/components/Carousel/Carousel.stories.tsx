@@ -80,24 +80,31 @@ const StyledCardContent = styled.div`
     color: #fff;
 `;
 
+const defaultCarouselStyle = { margin: '0 -0.5rem' };
+const defaultCarouselItemStyle = { width: 550, padding: '0 0.5rem' };
+
 export const Default: Story<{ align: string }> = ({ align }) => {
     const [index, setIndex] = React.useState(0);
+
+    const changeIndexDown = React.useCallback(() => {
+        setIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : items.length - 1));
+    }, []);
+
+    const changeIndexUp = React.useCallback(() => {
+        setIndex((prevIndex) => (prevIndex < items.length - 1 ? prevIndex + 1 : 0));
+    }, []);
 
     return (
         <StyledWrapper>
             <Carousel
-                style={{ margin: '0 -0.5rem' }}
+                style={defaultCarouselStyle}
                 index={index}
                 detectActive
-                onIndexChange={(i) => setIndex(i)}
+                onIndexChange={setIndex}
                 scrollAlign={align as alignType}
             >
-                {items.map((item, i) => (
-                    <CarouselItem
-                        key={`item:${i}`}
-                        style={{ width: 550, padding: '0 0.5rem' }}
-                        scrollSnapAlign={align as alignType}
-                    >
+                {items.map((item) => (
+                    <CarouselItem key={item.id} style={defaultCarouselItemStyle} scrollSnapAlign={align as alignType}>
                         <StyledCard>
                             <Image src={item.imageSrc} ratio="16 / 9" base="div" />
                             <StyledCardContent>
@@ -108,11 +115,11 @@ export const Default: Story<{ align: string }> = ({ align }) => {
                     </CarouselItem>
                 ))}
             </Carousel>
-            <SmartPaginationDots items={items} index={index} visibleItems={7} onIndexChange={(i) => setIndex(i)} />
+            <SmartPaginationDots items={items} index={index} visibleItems={7} onIndexChange={setIndex} />
             <StyledButtonGroup>
-                <Button text="Prev" onClick={() => setIndex((i) => (i > 0 ? i - 1 : items.length - 1))} />
+                <Button text="Prev" onClick={changeIndexDown} />
                 <Headline4>{index}</Headline4>
-                <Button text="Next" onClick={() => setIndex((i) => (i < items.length - 1 ? i + 1 : 0))} />
+                <Button text="Next" onClick={changeIndexUp} />
             </StyledButtonGroup>
         </StyledWrapper>
     );
