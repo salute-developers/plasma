@@ -58,7 +58,7 @@ describe('plasma-ui: Carousel', () => {
                     detectActive
                     detectThreshold={0.5}
                     animatedScrollByIndex
-                    onIndexChange={(i: number) => setIndex(i)}
+                    onIndexChange={setIndex}
                     scrollSnapType="none"
                     style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem' }}
                 >
@@ -92,7 +92,7 @@ describe('plasma-ui: Carousel', () => {
                 detectActive
                 detectThreshold={0.5}
                 animatedScrollByIndex
-                onIndexChange={(i: number) => setIndex(i)}
+                onIndexChange={setIndex}
                 scrollSnapType="none"
                 style={{
                     height: '100vh',

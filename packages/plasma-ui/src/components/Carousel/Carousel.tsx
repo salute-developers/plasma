@@ -17,7 +17,7 @@ const StyledCarouselTrack = styled(BaseTrack)`
     ${applyNoSelect};
 `;
 
-export const CarouselTemplate = React.forwardRef<
+const CarouselTemplate = React.forwardRef<
     HTMLElement,
     CarouselTemplateProps & { trackRef?: React.MutableRefObject<HTMLElement | null>; virtualSize?: number }
 >(
