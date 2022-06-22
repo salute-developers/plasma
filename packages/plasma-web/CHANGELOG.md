@@ -1,3 +1,19 @@
+# v1.112.0 (Wed Jun 22 2022)
+
+#### 🐛 Bug Fix
+
+- refactor(plasma-b2c,plasma-web): Update `Card` components [#70](https://github.com/salute-developers/plasma/pull/70) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- build(plasma-ui): added @babel/plugin-transform-react-constant-elements [#46](https://github.com/salute-developers/plasma/pull/46) ([@SeanSilke](https://github.com/SeanSilke))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+
+---
+
 # v1.111.0 (Fri Jun 17 2022)
 
 #### 🚀 Enhancement

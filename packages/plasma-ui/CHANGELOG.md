@@ -1,3 +1,32 @@
+# v1.111.0 (Wed Jun 22 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): ProductCard render optimization [#53](https://github.com/salute-developers/plasma/pull/53) ([@SeanSilke](https://github.com/SeanSilke))
+- feat(plasma-ui): DatePicker render optimization [#56](https://github.com/salute-developers/plasma/pull/56) ([@SeanSilke](https://github.com/SeanSilke))
+- feat(plasma-ui): TimePicker render optimisation [#55](https://github.com/salute-developers/plasma/pull/55) ([@SeanSilke](https://github.com/SeanSilke))
+- docs(plasma-ui): Confirm: simple docs [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
+- feat(plasma-ui): add Confirm [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### 🐛 Bug Fix
+
+- test(plasma-ui): Remove ui snapshots and tests; Add linked test [#70](https://github.com/salute-developers/plasma/pull/70) ([@neretin-trike](https://github.com/neretin-trike))
+- refactor(plasma-ui): Replace `Card` components to import from plasma-core [#70](https://github.com/salute-developers/plasma/pull/70) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- build(plasma-ui): added @babel/plugin-transform-react-constant-elements [#46](https://github.com/salute-developers/plasma/pull/46) ([@SeanSilke](https://github.com/SeanSilke))
+- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- test(plasma-ui): add Confirm tests [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 4
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.110.0 (Fri Jun 17 2022)
 
 #### 🚀 Enhancement

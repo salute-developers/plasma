@@ -1,3 +1,15 @@
+# v1.87.0 (Wed Jun 22 2022)
+
+#### 🐛 Bug Fix
+
+- build(plasma-ui): added @babel/plugin-transform-react-constant-elements [#46](https://github.com/salute-developers/plasma/pull/46) ([@SeanSilke](https://github.com/SeanSilke))
+
+#### Authors: 1
+
+- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+
+---
+
 # v1.86.0 (Thu Jun 09 2022)
 
 #### 🚀 Enhancement

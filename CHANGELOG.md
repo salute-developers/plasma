@@ -1,3 +1,39 @@
+# (Wed Jun 22 2022)
+
+#### 🚀 Enhancement
+
+- docs(plasma-web): Add docs for `Card` component [#70](https://github.com/salute-developers/plasma/pull/70) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-ui@1.111.0`
+  - feat(plasma-ui): ProductCard render optimization [#53](https://github.com/salute-developers/plasma/pull/53) ([@SeanSilke](https://github.com/SeanSilke))
+  - feat(plasma-ui): DatePicker render optimization [#56](https://github.com/salute-developers/plasma/pull/56) ([@SeanSilke](https://github.com/SeanSilke))
+  - feat(plasma-ui): TimePicker render optimisation [#55](https://github.com/salute-developers/plasma/pull/55) ([@SeanSilke](https://github.com/SeanSilke))
+  - docs(plasma-ui): Confirm: simple docs [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
+  - feat(plasma-ui): add Confirm [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-core@1.62.0`
+  - feat(plasma-core): Add `Card` component [#70](https://github.com/salute-developers/plasma/pull/70) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- test(plasma-web,plasma-b2c): Update snapshots for `Card` component [#70](https://github.com/salute-developers/plasma/pull/70) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.77.0`, `@salutejs/plasma-web@1.112.0`
+  - refactor(plasma-b2c,plasma-web): Update `Card` components [#70](https://github.com/salute-developers/plasma/pull/70) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-ui@1.111.0`
+  - test(plasma-ui): Remove ui snapshots and tests; Add linked test [#70](https://github.com/salute-developers/plasma/pull/70) ([@neretin-trike](https://github.com/neretin-trike))
+  - refactor(plasma-ui): Replace `Card` components to import from plasma-core [#70](https://github.com/salute-developers/plasma/pull/70) ([@neretin-trike](https://github.com/neretin-trike))
+  - test(plasma-ui): add Confirm tests [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-core@1.62.0`
+  - test(plasma-core): Add snapshots and tests for `Card` component [#70](https://github.com/salute-developers/plasma/pull/70) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.77.0`, `@salutejs/plasma-core@1.62.0`, `@salutejs/plasma-icons@1.87.0`, `@salutejs/plasma-ui@1.111.0`, `@salutejs/plasma-web@1.112.0`
+  - build(plasma-ui): added @babel/plugin-transform-react-constant-elements [#46](https://github.com/salute-developers/plasma/pull/46) ([@SeanSilke](https://github.com/SeanSilke))
+
+#### Authors: 3
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Fri Jun 17 2022)
 
 #### 🚀 Enhancement

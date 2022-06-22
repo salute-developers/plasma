@@ -1,3 +1,23 @@
+# v1.62.0 (Wed Jun 22 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-core): Add `Card` component [#70](https://github.com/salute-developers/plasma/pull/70) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- test(plasma-core): Add snapshots and tests for `Card` component [#70](https://github.com/salute-developers/plasma/pull/70) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- build(plasma-ui): added @babel/plugin-transform-react-constant-elements [#46](https://github.com/salute-developers/plasma/pull/46) ([@SeanSilke](https://github.com/SeanSilke))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+
+---
+
 # v1.61.0 (Tue Jun 07 2022)
 
 #### 🐛 Bug Fix
