@@ -2,7 +2,6 @@ import React, { forwardRef, useMemo } from 'react';
 import type { TabsProps as BaseProps } from '@salutejs/plasma-core';
 
 import { TabsView, TabsViewProps } from './TabsView';
-import { TabItem } from './TabItem';
 import { TabItemRefs, TabsAnimationContext } from './TabsAnimationContext';
 import { TabsSlider } from './TabsSlider';
 
@@ -39,9 +38,9 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs({ childr
 
     const { index, ...rest } = props;
     const childrenArray = React.Children.toArray(children);
-    const animatedChildren = childrenArray.map((child, i) => {
+    const animatedChildren = childrenArray.map((child) => {
         if (React.isValidElement(child)) {
-            return <TabItem animated key={i} {...child.props} disabled={rest.disabled} />;
+            return React.cloneElement(child, { disabled: rest.disabled, animated: true });
         }
         return child;
     });

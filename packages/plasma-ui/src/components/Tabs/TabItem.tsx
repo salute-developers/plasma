@@ -76,6 +76,8 @@ export const StyledTabItem = styled(BaseTabItem)<TabItemProps>`
     }
 `;
 
+export const StyledTabItemMemo = React.memo(StyledTabItem);
+
 /**
  * Элемент списка вкладок, недопустимо использовать вне компонента Tabs.
  */
@@ -88,5 +90,5 @@ export const TabItem: FC<TabItemProps> = (props) => {
         return () => refs?.unregister(ref);
     }, [refs]);
 
-    return <StyledTabItem ref={ref} {...props} />;
+    return <StyledTabItemMemo ref={ref} {...props} />;
 };
