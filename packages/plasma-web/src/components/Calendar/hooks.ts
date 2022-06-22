@@ -15,9 +15,10 @@ import {
     isCurrentMonth,
     isCurrentYear,
     isSelectedYear,
+    isDayInRage,
 } from './utils';
 
-const getDaysInPrevMonth = (date: DateObject, offsetDayInWeek: number) => {
+const getDaysInPrevMonth = (date: DateObject, offsetDayInWeek: number, value: Date | [Date, Date?]) => {
     const [prevYear, prevMonth] = getPrevDate(date.year, date.monthIndex);
     const daysInPrevMonth = getDaysInMonth(prevMonth, prevYear);
 
@@ -25,6 +26,9 @@ const getDaysInPrevMonth = (date: DateObject, offsetDayInWeek: number) => {
         isCurrent: false,
         isSelected: false,
         isDayInCurrentMonth: false,
+        inRange: Array.isArray(value)
+            ? isDayInRage(prevYear, prevMonth, daysInPrevMonth - (offsetDayInWeek - i) + 1, value)
+            : false,
         date: {
             day: daysInPrevMonth - (offsetDayInWeek - i) + 1,
             monthIndex: prevMonth,
@@ -33,20 +37,29 @@ const getDaysInPrevMonth = (date: DateObject, offsetDayInWeek: number) => {
     }));
 };
 
-const getDaysInCurrentMonth = (date: DateObject, daysInMonth: number, value: Date) =>
-    Array.from(Array(daysInMonth), (_, i) => ({
+const getDaysInCurrentMonth = (date: DateObject, daysInMonth: number, value: Date | [Date, Date?]) => {
+    return Array.from(Array(daysInMonth), (_, i) => ({
         isCurrent: IsCurrentDay(date, i + 1),
-        isSelected: isSelectedDay(date, i + 1, value),
+        isSelected: Array.isArray(value)
+            ? Boolean(value.find((v) => isSelectedDay(date, i + 1, v)))
+            : isSelectedDay(date, i + 1, value),
         isDayInCurrentMonth: true,
+        inRange: Array.isArray(value) ? isDayInRage(date.year, date.monthIndex, i + 1, value) : false,
         date: {
             day: i + 1,
             monthIndex: date.monthIndex,
             year: date.year,
         },
     }));
+};
 
-const getDaysInNextMonth = (date: DateObject, daysInMonth: number, offsetDayInWeek: number) => {
-    const [nextYear, nextMonth] = getNextDate(date.year, date.monthIndex);
+const getDaysInNextMonth = (
+    date: DateObject,
+    daysInMonth: number,
+    offsetDayInWeek: number,
+    value: Date | [Date, Date?],
+) => {
+    const [nextYear, nextMonthIndex] = getNextDate(date.year, date.monthIndex);
     const visibleDayCount = 42;
     const restDaysInCalendar = visibleDayCount - (daysInMonth + offsetDayInWeek);
 
@@ -54,9 +67,10 @@ const getDaysInNextMonth = (date: DateObject, daysInMonth: number, offsetDayInWe
         isCurrent: false,
         isSelected: false,
         isDayInCurrentMonth: false,
+        inRange: Array.isArray(value) ? isDayInRage(nextYear, nextMonthIndex, i + 1, value) : false,
         date: {
             day: i + 1,
-            monthIndex: nextMonth,
+            monthIndex: nextMonthIndex,
             year: nextYear,
         },
     }));
@@ -114,21 +128,24 @@ const getDaysByWeeks = (items: DateItem[]) => {
 
 export const useDays = (
     date: DateObject,
-    value: Date,
+    value: Date | [Date, Date?],
     eventList?: EventDay[],
     disabledList?: DisabledDay[],
     min?: Date,
     max?: Date,
-) =>
-    useMemo(() => {
+) => {
+    const [startDeps, endDeps] = Array.isArray(value) ? value : [];
+    const valueDeps = !Array.isArray(value) && value;
+
+    return useMemo(() => {
         const { monthIndex, year } = date;
         const daysInMonth = getDaysInMonth(monthIndex, year);
         const offsetDayInWeek = getOffsetDayInWeek(monthIndex, year);
 
         const days = [
-            ...getDaysInPrevMonth(date, offsetDayInWeek),
+            ...getDaysInPrevMonth(date, offsetDayInWeek, value),
             ...getDaysInCurrentMonth(date, daysInMonth, value),
-            ...getDaysInNextMonth(date, daysInMonth, offsetDayInWeek),
+            ...getDaysInNextMonth(date, daysInMonth, offsetDayInWeek, value),
         ];
 
         if (eventList?.length || disabledList?.length || max || min) {
@@ -137,7 +154,8 @@ export const useDays = (
         }
 
         return getDaysByWeeks(days);
-    }, [date, value]);
+    }, [date, startDeps, endDeps, valueDeps]);
+};
 
 export const useMonths = (date: DateObject, value: Date) =>
     useMemo(

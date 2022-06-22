@@ -35,7 +35,8 @@ const StyledWrapper = styled.div`
  * Компонент двойного календаря.
  */
 export const CalendarDouble: React.FC<CalendarDoubleProps> = ({
-    value,
+    value: externalValue,
+    date: externalDate,
     min,
     max,
     eventList,
@@ -43,18 +44,24 @@ export const CalendarDouble: React.FC<CalendarDoubleProps> = ({
     onChangeValue,
     ...rest
 }) => {
-    const [date, setDate] = useState<DateObject>(getDateFromValue(value));
+    const [value] = useMemo(() => (Array.isArray(externalValue) ? externalValue : [externalValue]), [externalValue]);
+
+    const [date, setDate] = useState<DateObject>(externalDate || getDateFromValue(value));
     const [initialYear, initialMonth] = getNextDate(date.year, date.monthIndex);
     const [doubleDate, setMonths] = useState({
         monthIndex: [date.monthIndex, initialMonth],
         year: [date.year, initialYear],
     });
+    const [hoveredDay, setHoveredDay] = useState<DateObject | undefined>();
+
+    useEffect(() => {
+        const newDate = externalDate || getDateFromValue(value);
+        setDate(newDate);
+    }, [externalDate, eventList, disabledList, min, max]);
 
     useEffect(() => {
         const newDate = getDateFromValue(value);
         const { year, monthIndex } = newDate;
-
-        setDate(newDate);
 
         const {
             monthIndex: [, prevMonthIndex],
@@ -75,8 +82,8 @@ export const CalendarDouble: React.FC<CalendarDoubleProps> = ({
 
     const handleOnChangeDay = useCallback(
         (newDate: DateObject) => {
-            onChangeValue(new Date(newDate.year, newDate.monthIndex, newDate.day));
-            setDate(newDate);
+            const newDay = new Date(newDate.year, newDate.monthIndex, newDate.day);
+            onChangeValue(newDay);
         },
         [onChangeValue],
     );
@@ -137,9 +144,11 @@ export const CalendarDouble: React.FC<CalendarDoubleProps> = ({
                     disabledList={disabledList}
                     min={min}
                     max={max}
+                    value={externalValue}
                     date={firstDate}
-                    value={value}
+                    hoveredDay={hoveredDay}
                     onChangeDay={handleOnChangeDay}
+                    onHoverDay={setHoveredDay}
                 />
                 <StyledSeparator />
                 <CalendarDays
@@ -148,9 +157,11 @@ export const CalendarDouble: React.FC<CalendarDoubleProps> = ({
                     disabledList={disabledList}
                     min={min}
                     max={max}
+                    value={externalValue}
                     date={secondDate}
-                    value={value}
+                    hoveredDay={hoveredDay}
                     onChangeDay={handleOnChangeDay}
+                    onHoverDay={setHoveredDay}
                 />
             </StyledWrapper>
         </StyledCalendar>

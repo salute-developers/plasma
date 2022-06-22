@@ -1,5 +1,5 @@
 import { css, FlattenSimpleInterpolation, StyledComponent } from 'styled-components';
-import { backgroundPrimary, primary, surfaceSolid03, surfaceLiquid02, addFocus } from '@salutejs/plasma-core';
+import { backgroundPrimary, primary, surfaceSolid03, surfaceLiquid02, addFocus, accent } from '@salutejs/plasma-core';
 import { bodySBold } from '@salutejs/plasma-typo';
 
 interface Selected {
@@ -8,6 +8,7 @@ interface Selected {
     minHeight: number;
     isSelected?: boolean;
     isCurrent?: boolean;
+    isHovered?: boolean;
 }
 
 export const flexCenter = css`
@@ -33,7 +34,7 @@ export const syntheticFocus = (ruleset: FlattenSimpleInterpolation, focused?: bo
     ${focused && ruleset};
 `;
 
-export const selected = ({ StyledItem, minWidth, minHeight, isSelected, isCurrent }: Selected) => css`
+export const selected = ({ StyledItem, minWidth, minHeight, isSelected, isCurrent, isHovered }: Selected) => css`
     ${addFocus({
         synthesizeFocus: syntheticFocus,
         outlineRadius: '0.563rem',
@@ -41,22 +42,18 @@ export const selected = ({ StyledItem, minWidth, minHeight, isSelected, isCurren
         outlineOffset: isCurrent ? '0.125rem' : '0.063rem',
     })};
 
+    ${isCurrent &&
+    css`
+        border: 0.063rem solid ${primary};
+    `}
+
     ${isSelected &&
     css`
         ${bodySBold};
 
+        border: 0;
         background-color: ${primary};
         color: ${backgroundPrimary};
-    `}
-
-    ${isCurrent &&
-    css`
-        border: 0.063rem solid ${primary};
-
-        ${StyledItem} {
-            min-width: ${minWidth + 0.125}rem;
-            min-height: ${minHeight + 0.125}rem;
-        }
     `}
 
     &:hover {
@@ -79,6 +76,19 @@ export const selected = ({ StyledItem, minWidth, minHeight, isSelected, isCurren
                 min-width: ${minWidth}rem;
                 min-height: ${minHeight}rem;
             }
+        `}
+    }
+
+    &,
+    &:hover {
+        ${isHovered &&
+        css`
+            ${bodySBold};
+
+            background-color: ${accent};
+            color: ${backgroundPrimary};
+
+            cursor: pointer;
         `}
     }
 
