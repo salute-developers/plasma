@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import styled, { css } from 'styled-components';
-import { FocusProps, accent, tertiary, secondary, primary } from '@salutejs/plasma-core';
+import { FocusProps, accent, tertiary, secondary, primary, surfaceLiquid02 } from '@salutejs/plasma-core';
 import { bodyS } from '@salutejs/plasma-typo';
 
 import { flexCenter, selected } from './mixins';
@@ -10,16 +10,40 @@ export interface CalendarDayItemProps extends DayProps, React.HTMLAttributes<HTM
     day: number | string;
     year?: number;
     monthIndex?: number;
+    sideInRange?: 'left' | 'right';
     eventList?: EventDay[];
-    disabled?: boolean;
-    isDouble?: boolean;
 }
 
-const StyledDay = styled.div`
-    border-radius: 0.438rem;
+const StyledDay = styled.div<{ inRange?: boolean }>`
+    border-radius: 0.375rem;
+    align-items: center;
 
     ${flexCenter};
+
+    ${({ inRange }) =>
+        inRange &&
+        css`
+            &::before {
+                content: '';
+                z-index: -1;
+                position: absolute;
+                width: 2.5rem;
+                height: 1.875rem;
+                background: ${surfaceLiquid02};
+            }
+        `}
 `;
+
+const setSide = (side: 'left' | 'right', isCurrent?: boolean, isSelected?: boolean) => {
+    switch (side) {
+        case 'left':
+            return `left: ${!isSelected && isCurrent ? '-1px' : '0'}`;
+        case 'right':
+            return `right: ${!isSelected && isCurrent ? '-1px' : '0'}`;
+        default:
+            return undefined;
+    }
+};
 
 const StyledDayRoot = styled.div<DayProps & FocusProps>`
     ${bodyS};
@@ -42,13 +66,27 @@ const StyledDayRoot = styled.div<DayProps & FocusProps>`
         visibility: ${!isDayInCurrentMonth && isDouble ? 'hidden' : 'visible'};
     `}
 
+    ${({ sideInRange, isCurrent, isSelected }) =>
+        sideInRange &&
+        css`
+            ${StyledDay}::before {
+                content: '';
+                z-index: -1;
+                position: absolute;
+                width: 0.313rem;
+                height: 1.875rem;
+                background: ${surfaceLiquid02};
+                ${setSide(sideInRange, isCurrent, isSelected)};
+            }
+        `}
+
     ${({ dayOfWeek }) =>
         dayOfWeek &&
         css`
             color: ${tertiary};
         `}
 
-    ${({ isSelected, isCurrent, dayOfWeek, disabled }) =>
+    ${({ isSelected, isCurrent, isHovered, dayOfWeek, disabled }) =>
         !dayOfWeek &&
         !disabled &&
         selected({
@@ -57,6 +95,7 @@ const StyledDayRoot = styled.div<DayProps & FocusProps>`
             minHeight: 1.75,
             isSelected,
             isCurrent,
+            isHovered,
         })};
 
     ${({ disabled }) =>
@@ -97,27 +136,36 @@ export const CalendarDayItem: React.FC<CalendarDayItemProps> = memo(
         isSelected,
         isDayInCurrentMonth,
         isDouble,
+        inRange,
+        isHovered,
+        sideInRange,
         eventList = [],
         day,
         monthIndex,
         year,
         onClick,
+        onMouseOver,
+        onFocus,
     }) => {
         return (
             <StyledDayRoot
-                tabIndex={isCurrent || !disabled ? 0 : -1}
+                tabIndex={isSelected ? 0 : -1}
                 dayOfWeek={dayOfWeek}
                 disabled={disabled}
                 isCurrent={isCurrent}
                 isSelected={isSelected}
                 isDayInCurrentMonth={isDayInCurrentMonth}
                 isDouble={isDouble}
+                isHovered={isHovered}
+                sideInRange={sideInRange}
                 onClick={disabled ? undefined : onClick}
+                onMouseOver={onMouseOver}
+                onFocus={onFocus}
                 data-day={day}
                 data-month-index={monthIndex}
                 data-year={year}
             >
-                <StyledDay>{day}</StyledDay>
+                <StyledDay inRange={inRange}>{day}</StyledDay>
                 <StyledEvents>
                     {[eventList[0], eventList[1], eventList[2]].map((event) => event && <StyledEvent {...event} />)}
                 </StyledEvents>

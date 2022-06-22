@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import styled from 'styled-components';
 
 import type { CalendarStateType, DateObject, Calendar } from './types';
@@ -26,7 +26,8 @@ const StyledCalendar = styled.div`
  * Компонент календаря.
  */
 export const CalendarBase: React.FC<CalendarBaseProps> = ({
-    value,
+    value: externalValue,
+    date: externalDate,
     min,
     max,
     type = 'Days',
@@ -35,14 +36,26 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
     onChangeValue,
     ...rest
 }) => {
+    const [value] = useMemo(() => (Array.isArray(externalValue) ? externalValue : [externalValue]), [externalValue]);
+
     const [calendarState, setCalendarState] = useState(type);
-    const [date, setDate] = useState<DateObject>(getDateFromValue(value));
+    const [date, setDate] = useState<DateObject>(externalDate || getDateFromValue(value));
     const [startYear, setStartYear] = useState(getStartYear(date.year));
+    const [hoveredDay, setHoveredDay] = useState<DateObject | undefined>();
 
     useEffect(() => {
-        setDate(getDateFromValue(value));
+        const newDate = externalDate || getDateFromValue(value);
+        setDate(newDate);
+    }, [externalDate, eventList, disabledList, min, max]);
+
+    useEffect(() => {
+        const newDate = externalDate || getDateFromValue(value);
+        setDate(newDate);
+    }, [value]);
+
+    useEffect(() => {
         setStartYear(getStartYear(value.getFullYear()));
-    }, [value, eventList, disabledList, min, max]);
+    }, [value, externalDate, eventList, disabledList, min, max]);
 
     useEffect(() => {
         setCalendarState(type);
@@ -50,8 +63,8 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
 
     const handleOnChangeDay = useCallback(
         (newDate: DateObject) => {
-            onChangeValue(new Date(newDate.year, newDate.monthIndex, newDate.day));
-            setDate(newDate);
+            const newDay = new Date(newDate.year, newDate.monthIndex, newDate.day);
+            onChangeValue(newDay);
         },
         [onChangeValue],
     );
@@ -129,9 +142,11 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
                     disabledList={disabledList}
                     min={min}
                     max={max}
+                    value={externalValue}
                     date={date}
-                    value={value}
+                    hoveredDay={hoveredDay}
                     onChangeDay={handleOnChangeDay}
+                    onHoverDay={setHoveredDay}
                 />
             )}
 
