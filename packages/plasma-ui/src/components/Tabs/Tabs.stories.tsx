@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Icon, IconClock } from '@salutejs/plasma-icons';
@@ -46,6 +46,13 @@ interface StoryProps {
     text: string;
 }
 
+const Icons = [
+    <Icon icon={icons[0] as 'clock'} size="s" />,
+    <Icon icon={icons[1] as 'clock'} size="s" />,
+    <Icon icon={icons[2] as 'clock'} size="s" />,
+    <Icon icon={icons[3] as 'clock'} size="s" />,
+];
+
 export const Default: Story<StoryProps & TabsProps> = ({
     itemsNumber,
     size,
@@ -60,8 +67,29 @@ export const Default: Story<StoryProps & TabsProps> = ({
     animated,
 }) => {
     const id = 'tabs-example';
-    const items = Array(itemsNumber).fill(0);
     const [index, setIndex] = React.useState(0);
+
+    const items = useMemo(() => {
+        type elem = {
+            label: string;
+            onClick: () => void;
+            onFocus: () => void;
+            onBlur: () => void;
+        };
+
+        const res: Array<elem> = [];
+        for (let i = 0; i < itemsNumber; i++) {
+            res.push({
+                label: `${text} ${i} `,
+                onFocus: action(`onFocus item #${i}`),
+                onBlur: action(`onBlur item #${i}`),
+                onClick: () => {
+                    !disabled && setIndex(i);
+                },
+            });
+        }
+        return res;
+    }, [itemsNumber, text]);
 
     const tabIndex = disabled ? -1 : 0;
 
@@ -79,19 +107,19 @@ export const Default: Story<StoryProps & TabsProps> = ({
             animated={animated}
             forwardedAs="ul"
         >
-            {items.map((_, i) => (
+            {items.map((elem, i) => (
                 <TabItem
                     key={`item:${i}`}
                     forwardedAs="li"
                     isActive={i === index}
                     aria-controls={id}
                     tabIndex={tabIndex}
-                    contentLeft={enableContentLeft && <Icon icon={icons[i % icons.length] as 'clock'} size="s" />}
-                    onClick={() => !disabled && setIndex(i)}
-                    onFocus={action(`onFocus item #${i}`)}
-                    onBlur={action(`onBlur item #${i}`)}
+                    contentLeft={enableContentLeft && Icons[i % icons.length]}
+                    onClick={elem.onClick}
+                    onFocus={elem.onFocus}
+                    onBlur={elem.onBlur}
                 >
-                    {text}
+                    {elem.label}
                 </TabItem>
             ))}
         </Tabs>
