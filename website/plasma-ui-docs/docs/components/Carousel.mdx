@@ -19,12 +19,38 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 <Description name="Carousel" />
 <PropsTable name="Carousel" />
 
+## CarouselVirtual
+Рекомендуется использовать вместе с хуком, который возвращает "виртуализированный" список элементов.
+```
+import { useVirtual } from '@salutejs/use-virtual';
+```
+Многие фичи обычной Carousel поддерживаются внутри данного хука:
+* useVirtual возвращает активный элемент ( = detectActive)
+* onIndexChange, onDetectActiveItem легко реализовать по месту использования,
+учитывая доступ к активному элементу из хука
+* scrollAlign надо передавать в useVirtual
+* paddingStart, paddingEnd также передаются в useVirtual (px)
+
+Некоторые фичи обычной Carousel не поддерживаются:
+* animatedScrollByIndex
+* scrollSnapType
+* throttleMs
+* debounceMs
+* scaleCallback
+* scaleResetCallback
+
+<PropsTable of={CarouselVirtual} />
+
 ### CarouselGridWrapper
 <Description name="CarouselGridWrapper" />
 
 ### CarouselItem
 <Description name="CarouselItem" />
 <PropsTable name="CarouselItem" />
+
+## CarouselItemVirtual
+<Description of={CarouselItemVirtual} />
+<PropsTable of={CarouselItemVirtual} />
 
 ### CarouselCol
 <Description name="CarouselCol" />
@@ -205,4 +231,85 @@ export function App() {
 <Carousel>
     {items.map((item, i) => <CarouselItem aria-label={`${i + 1} из ${items.length}`} />)}
 </Carousel>
+```
+
+### Карусель с "виртуализированным" списком элементов
+
+Если ваша карусель содержит большое количество элементов,
+рекомендуем использовать "виртуализацию".
+Этот подход позволяет рендерить только то количество элементов,
+которое помещается во вьюпорт. Это позволит значительно сократить
+время на первый и последующие рендеры карусели.
+
+```tsx live
+import React, { useRef } from 'react';
+import {
+    DeviceThemeProvider,
+    CarouselGridWrapper,
+    CarouselVirtual,
+    Card,
+    CardBody,
+    CardContent,
+    CarouselItemVirtual,
+    TextBox
+} from '@salutejs/plasma-ui';
+import { useVirtual } from '@salutejs/use-virtual';
+
+const CardStyled = styled(Card)`
+    height: 350px;
+    width: 350px;
+    margin: 16px;
+`;
+
+const estimateSize = () => 350;
+export const CarouselVirtualBasic = () => {
+    const parentRef = useRef(null);
+    const axis = 'x';
+
+    const { visibleItems, totalSize, currentIndex } = useVirtual({
+        itemCount: 100,
+        parentRef,
+        axis,
+        estimateSize,
+        overscan: 6,
+    });
+
+    return (
+        /**
+         * Если вы используете виртуализацию, скорее всего также следует отключить анимацию
+         * при фокусе на текуший элемент. Что продемонстрировано в данном примере через lowPerformance режим.
+         */
+        <DeviceThemeProvider lowPerformance>
+            <CarouselGridWrapper>
+                <CarouselVirtual
+                    ref={parentRef}
+                    as={Row}
+                    axis={axis}
+                    style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem', height: '350px' }}
+                    virtualSize={totalSize}
+                >
+                    {visibleItems.map(({ index: i, start }) => {
+                        return (
+                            <CarouselItemVirtual
+                                key={`item:${i}`}
+                                left={start}
+                                style={{ width: '312px' }}
+                                aria-label={`${i + 1} из ${items.length}`}
+                            >
+                                <CardStyled focused={i === index}>
+                                    <CardBody>
+                                        <CardContent>
+                                            <TextBox title={`Заголовок ${i}`} subTitle={`Ползаголовок ${i}`} />
+                                        </CardContent>
+                                    </CardBody>
+                                </CardStyled>
+                            </CarouselItemVirtual>
+                        );
+                    })}
+                </CarouselVirtual>
+            </CarouselGridWrapper>
+        </DeviceThemeProvider>
+    );
+};
+
 ```
