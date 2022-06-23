@@ -1,3 +1,20 @@
+# v1.112.0 (Thu Jun 23 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): Stepper render optimization [#50](https://github.com/salute-developers/plasma/pull/50) ([@SeanSilke](https://github.com/SeanSilke))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+
+---
+
 # v1.111.0 (Wed Jun 22 2022)
 
 #### 🚀 Enhancement

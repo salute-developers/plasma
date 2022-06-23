@@ -1,3 +1,16 @@
+# (Thu Jun 23 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.112.0`
+  - feat(plasma-ui): Stepper render optimization [#50](https://github.com/salute-developers/plasma/pull/50) ([@SeanSilke](https://github.com/SeanSilke))
+
+#### Authors: 1
+
+- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+
+---
+
 # (Wed Jun 22 2022)
 
 #### 🚀 Enhancement
