@@ -1,3 +1,15 @@
+# v1.113.0 (Thu Jun 23 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): Tabs render optimization [#76](https://github.com/salute-developers/plasma/pull/76) ([@SeanSilke](https://github.com/SeanSilke))
+
+#### Authors: 1
+
+- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+
+---
+
 # v1.112.0 (Thu Jun 23 2022)
 
 #### 🚀 Enhancement

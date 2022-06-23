@@ -2,6 +2,28 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-ui@1.113.0`
+  - feat(plasma-ui): Tabs render optimization [#76](https://github.com/salute-developers/plasma/pull/76) ([@SeanSilke](https://github.com/SeanSilke))
+
+#### 🐛 Bug Fix
+
+- docs(plasma-web-docs): Update typograhy example for `Card` [#78](https://github.com/salute-developers/plasma/pull/78) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-web@1.113.0`
+  - test(plasma-web,plasma-b2c): Add new typography in test and update snapshots for `Card` [#78](https://github.com/salute-developers/plasma/pull/78) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.78.0`, `@salutejs/plasma-web@1.113.0`
+  - feat(plasma-web, plasma-b2c): Add new typography components in stories for `Card` [#78](https://github.com/salute-developers/plasma/pull/78) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 2
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+
+---
+
+# (Thu Jun 23 2022)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-ui@1.112.0`
   - feat(plasma-ui): Stepper render optimization [#50](https://github.com/salute-developers/plasma/pull/50) ([@SeanSilke](https://github.com/SeanSilke))
 

@@ -1,3 +1,16 @@
+# v1.113.0 (Thu Jun 23 2022)
+
+#### 🐛 Bug Fix
+
+- test(plasma-web,plasma-b2c): Add new typography in test and update snapshots for `Card` [#78](https://github.com/salute-developers/plasma/pull/78) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-web, plasma-b2c): Add new typography components in stories for `Card` [#78](https://github.com/salute-developers/plasma/pull/78) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.112.0 (Wed Jun 22 2022)
 
 #### 🐛 Bug Fix
