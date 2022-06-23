@@ -6,7 +6,7 @@ import { IconStarFill } from '@salutejs/plasma-icons';
 import { additional } from '@salutejs/plasma-colors';
 
 import { InSpacingDecorator } from '../../helpers';
-import { Body1, Body2, Headline4 } from '../Typography';
+import { BodyM, H4 } from '../Typography';
 
 import { Card, CardProps } from './Card';
 import { CardBody } from './CardBody';
@@ -53,11 +53,11 @@ const StyledCardBadge = styled(CardBadge)`
     top: 1rem;
 `;
 
-const StyledBody1 = styled(Body1)`
+const StyledBodyM = styled(BodyM)`
     color: ${whiteSecondary};
 `;
 
-const StyledHeadline4 = styled(Headline4)`
+const StyledH4 = styled(H4)`
     margin: 0.25rem 0;
 
     color: ${whitePrimary};
@@ -107,14 +107,14 @@ export const Default: Story<DefaultProps> = ({
                 <CardMedia src="./images/320_320_0.jpg" placeholder="./images/320_320_1.jpg" ratio={ratio} />
                 <StyledCardBadge size="l" text="60 минут" />
                 <CardContent>
-                    <StyledBody1>{label}</StyledBody1>
-                    <StyledHeadline4>{title}</StyledHeadline4>
+                    <StyledBodyM>{label}</StyledBodyM>
+                    <StyledH4>{title}</StyledH4>
                     <StyledDescription>
                         <StyledRating>
                             <StyledIconStarFill />
-                            <Body2>{rating}</Body2>
+                            <BodyM bold>{rating}</BodyM>
                         </StyledRating>
-                        <StyledBody1>{description}</StyledBody1>
+                        <StyledBodyM>{description}</StyledBodyM>
                     </StyledDescription>
                 </CardContent>
             </CardBody>
