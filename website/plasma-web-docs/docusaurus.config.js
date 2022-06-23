@@ -174,13 +174,21 @@ module.exports = {
                     };
                 },
                 async contentLoaded({ content, actions }) {
+                    const names = [];
                     content
                         .filter((module) => {
-                            return (
+                            const result =
+                                !names.includes(module.displayName) &&
                                 /^[A-Z]/.test(module.displayName) &&
                                 (module.props || module.description) &&
-                                module.displayName !== 'Default'
-                            );
+                                module.displayName !== 'Default';
+
+                            if (result) {
+                                names.push(module.displayName);
+                                return true;
+                            }
+
+                            return false;
                         })
                         .forEach(async (component) =>
                             actions.createData(
