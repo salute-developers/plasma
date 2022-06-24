@@ -2,6 +2,8 @@ import React, { useMemo, useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Icon, IconClock } from '@salutejs/plasma-icons';
+import { InteractionTaskArgs, PublicInteractionTask, withPerformance } from 'storybook-addon-performance';
+import { fireEvent, waitFor } from '@testing-library/dom';
 
 import { InContainerDecorator, disableProps } from '../../helpers';
 
@@ -139,6 +141,46 @@ Default.args = {
     enableContentLeft: true,
     text: 'Label',
 };
+
+const interactionTasks: PublicInteractionTask[] = [
+    {
+        name: 'Display Tabs',
+        description: 'Select second tab',
+        run: async ({ container, controls }: InteractionTaskArgs): Promise<void> => {
+            const [firstTab, secondTab] = container.querySelectorAll('[role="tab"]');
+
+            if (firstTab === null || secondTab === null) {
+                throw new Error('');
+            }
+
+            const isSelected = (tab: typeof secondTab) => () => {
+                const ariaSelected = tab.getAttribute('aria-selected');
+                if (ariaSelected === 'true') {
+                    return Promise.resolve();
+                }
+                return Promise.reject();
+            };
+
+            fireEvent.click(firstTab);
+            await waitFor(isSelected(firstTab));
+
+            await controls.time(async () => {
+                fireEvent.click(secondTab);
+                await waitFor(isSelected(secondTab));
+            });
+        },
+    },
+];
+
+Default.parameters = {
+    performance: {
+        interactions: interactionTasks,
+        allowedGroups: ['client'],
+        disable: false,
+    },
+};
+
+Default.decorators = [withPerformance];
 
 export const Arrows: Story<StoryProps & TabsControllerProps> = ({
     itemsNumber,
