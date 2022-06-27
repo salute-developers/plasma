@@ -1,8 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext, useCallback } from 'react';
 import { Story, Meta } from '@storybook/react';
 import type { SnapType, SnapAlign } from '@salutejs/plasma-core';
-import { useVirtual } from '@salutejs/use-virtual';
 import { CarouselItemVirtual } from '@salutejs/plasma-core';
+import * as tokens from '@salutejs/plasma-tokens';
+import { useVirtual } from '@salutejs/use-virtual';
+import { ThemeContext } from 'styled-components';
 
 import { isSberBox } from '../../utils';
 import { ProductCard, MusicCard, GalleryCard } from '../Card/Card.examples';
@@ -132,55 +134,66 @@ Basic.argTypes = {
     },
 };
 
-const estimateSize = () => 350;
-export const CarouselVirtualBasic = () => {
+const CarouselVirtualBasicComponent = () => {
+    // deviceScale = 1 (Mobile), deviceScale = 2 (Sberbox, TV, Portal)
+    const { deviceScale } = useContext(ThemeContext);
     const parentRef = useRef(null);
     const axis = 'x';
+
+    const width = deviceScale === 1 ? 320 : 450;
+    const gap = deviceScale === 1 ? 30 : 40;
 
     const { visibleItems, totalSize, currentIndex } = useVirtual({
         itemCount: 100,
         parentRef,
         axis,
-        estimateSize,
+        // estimateSize должен возвращать значение в px.
+        estimateSize: useCallback(() => width + gap, [width, gap]),
         overscan: 6,
     });
 
     return (
-        /**
-         * Если вы используете виртуализацию, скорее всего также следует отключить анимацию
-         * при фокусе на текуший элемент. Что продемонстрировано в данном примере через lowPerformance режим.
-         */
+        <CarouselGridWrapper>
+            <CarouselVirtual
+                ref={parentRef}
+                as={Row}
+                axis={axis}
+                style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem', height: '22rem' }}
+                virtualSize={totalSize}
+            >
+                {visibleItems.map(({ index: i, start }) => {
+                    const { title, subtitle } = items[i];
+                    return (
+                        <CarouselItemVirtual
+                            key={`item:${i}`}
+                            left={start}
+                            style={{ width: `${width}px` }}
+                            aria-label={`${i + 1} из ${items.length}`}
+                        >
+                            <GalleryCard
+                                title={title}
+                                subtitle={subtitle}
+                                focused={i === currentIndex}
+                                imageSrc={`${process.env.PUBLIC_URL}/images/320_320_${i % 12}.jpg`}
+                                imageRatio="1 / 1"
+                                tabIndex={i === currentIndex ? 0 : -1}
+                            />
+                        </CarouselItemVirtual>
+                    );
+                })}
+            </CarouselVirtual>
+        </CarouselGridWrapper>
+    );
+};
+
+export const CarouselVirtualBasic = () => {
+    /**
+     * Если вы используете виртуализацию, скорее всего также следует отключить анимацию
+     * при фокусе на текуший элемент. Что продемонстрировано в данном примере через lowPerformance режим.
+     */
+    return (
         <DeviceThemeProvider lowPerformance>
-            <CarouselGridWrapper>
-                <CarouselVirtual
-                    ref={parentRef}
-                    as={Row}
-                    axis={axis}
-                    style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem', height: '350px' }}
-                    virtualSize={totalSize}
-                >
-                    {visibleItems.map(({ index: i, start }) => {
-                        const { title, subtitle } = items[i];
-                        return (
-                            <CarouselItemVirtual
-                                key={`item:${i}`}
-                                left={start}
-                                style={{ width: '312px' }}
-                                aria-label={`${i + 1} из ${items.length}`}
-                            >
-                                <GalleryCard
-                                    title={title}
-                                    subtitle={subtitle}
-                                    focused={i === currentIndex}
-                                    imageSrc={`${process.env.PUBLIC_URL}/images/320_320_${i % 12}.jpg`}
-                                    imageRatio="1 / 1"
-                                    tabIndex={0}
-                                />
-                            </CarouselItemVirtual>
-                        );
-                    })}
-                </CarouselVirtual>
-            </CarouselGridWrapper>
+            <CarouselVirtualBasicComponent />
         </DeviceThemeProvider>
     );
 };
