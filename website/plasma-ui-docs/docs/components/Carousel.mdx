@@ -242,7 +242,7 @@ export function App() {
 время на первый и последующие рендеры карусели.
 
 ```tsx live
-import React, { useRef } from 'react';
+import React, { useRef, useCallback } from 'react';
 import {
     DeviceThemeProvider,
     CarouselGridWrapper,
@@ -251,26 +251,23 @@ import {
     CardBody,
     CardContent,
     CarouselItemVirtual,
-    TextBox
+    TextBox,
+    Row
 } from '@salutejs/plasma-ui';
 import { useVirtual } from '@salutejs/use-virtual';
 
-const CardStyled = styled(Card)`
-    height: 350px;
-    width: 350px;
-    margin: 16px;
-`;
-
-const estimateSize = () => 350;
-export const CarouselVirtualBasic = () => {
+export function App() {
     const parentRef = useRef(null);
     const axis = 'x';
-
+    const width = 300;
+    const gap = 10;
+    
     const { visibleItems, totalSize, currentIndex } = useVirtual({
         itemCount: 100,
         parentRef,
         axis,
-        estimateSize,
+        // estimateSize должен возвращать значение в px
+        estimateSize: useCallback(() => width + gap, [width, gap]),
         overscan: 6,
     });
 
@@ -285,24 +282,24 @@ export const CarouselVirtualBasic = () => {
                     ref={parentRef}
                     as={Row}
                     axis={axis}
-                    style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem', height: '350px' }}
+                    style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem', height: '350px', width: '100vw' }}
                     virtualSize={totalSize}
                 >
                     {visibleItems.map(({ index: i, start }) => {
                         return (
                             <CarouselItemVirtual
-                                key={`item:${i}`}
+                                key={i}
                                 left={start}
-                                style={{ width: '312px' }}
-                                aria-label={`${i + 1} из ${items.length}`}
+                                style={{ width: `${width}px` }}
+                                aria-label={`${i + 1} из 100`}
                             >
-                                <CardStyled focused={i === index}>
+                                <Card style={{ height: `${width}px`, width: `${width}px`, margin: `${gap}px` }} focused={i === currentIndex}>
                                     <CardBody>
                                         <CardContent>
                                             <TextBox title={`Заголовок ${i}`} subTitle={`Ползаголовок ${i}`} />
                                         </CardContent>
                                     </CardBody>
-                                </CardStyled>
+                                </Card>
                             </CarouselItemVirtual>
                         );
                     })}
@@ -310,6 +307,6 @@ export const CarouselVirtualBasic = () => {
             </CarouselGridWrapper>
         </DeviceThemeProvider>
     );
-};
+}
 
 ```
