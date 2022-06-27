@@ -1,12 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import { Story, Meta, addDecorator } from '@storybook/react';
+import { withPerformance, PublicInteractionTask, InteractionTaskArgs } from 'storybook-addon-performance';
 import type { SnapType } from '@salutejs/plasma-core';
+import { waitFor } from '@testing-library/dom';
 
 import { isSberBox } from '../../utils';
 import { disableProps } from '../../helpers';
 
 import { DatePicker, TimePicker, DatePickerProps, TimePickerProps } from '.';
+
+addDecorator(withPerformance);
 
 const StyledWrapper = styled.div`
     display: grid;
@@ -27,6 +31,86 @@ const parseDateTime = (dateTime: string) => {
 };
 
 const propsToDisable = ['initialValue', 'minDate', 'maxDate'];
+
+function isSelected(element: HTMLElement) {
+    return () => {
+        const ariaSelected = element.getAttribute('tabindex');
+        if (ariaSelected === '0') {
+            return Promise.resolve();
+        }
+        return Promise.reject();
+    };
+}
+
+const interactionTasksDatePicker: PublicInteractionTask[] = [
+    {
+        name: 'Change value',
+        run: async ({ container }: InteractionTaskArgs): Promise<void> => {
+            const testingElements = container.querySelector('#picker-month');
+
+            if (testingElements === null) {
+                throw new Error('');
+            }
+
+            const selected = testingElements.querySelector('div[tabindex="0"]');
+
+            if (selected === null) {
+                throw new Error('');
+            }
+
+            const { nextSibling, previousSibling } = selected;
+            let testingElement = nextSibling;
+            let button = testingElements.querySelector<HTMLElement>('[data-placement="bottom"]');
+
+            if (nextSibling instanceof HTMLElement && nextSibling.getAttribute('aria-hidden') === 'true') {
+                testingElement = previousSibling;
+                button = testingElements.querySelector<HTMLElement>('[data-placement="top"]');
+            }
+
+            if (button && testingElement) {
+                button.click();
+                await waitFor(isSelected(testingElement as HTMLElement));
+            } else {
+                throw new Error('');
+            }
+        },
+    },
+];
+
+const interactionTasksTimePicker: PublicInteractionTask[] = [
+    {
+        name: 'Change value',
+        run: async ({ container }: InteractionTaskArgs): Promise<void> => {
+            const testingElements = container.querySelector('#picker-minutes');
+
+            if (testingElements === null) {
+                throw new Error('');
+            }
+
+            const selected = testingElements.querySelector('div[tabindex="0"]');
+
+            if (selected === null) {
+                throw new Error('');
+            }
+
+            const { nextSibling, previousSibling } = selected;
+            let testingElement = nextSibling;
+            let button = testingElements.querySelector<HTMLElement>('[data-placement="bottom"]');
+
+            if (nextSibling instanceof HTMLElement && nextSibling.getAttribute('aria-hidden') === 'true') {
+                testingElement = previousSibling;
+                button = testingElements.querySelector<HTMLElement>('[data-placement="top"]');
+            }
+
+            if (button && testingElement) {
+                button.click();
+                await waitFor(isSelected(testingElement as HTMLElement));
+            } else {
+                throw new Error('');
+            }
+        },
+    },
+];
 
 export default {
     title: 'Controls/Pickers',
@@ -57,9 +141,8 @@ interface DefaultStoryProps extends DatePickerProps {
 
 export const Default: Story<DefaultStoryProps> = (args) => {
     const [value, setValue] = React.useState(parseDateTime(args.initialValue));
-    const min = parseDateTime(args.minDate);
-    const max = parseDateTime(args.maxDate);
-    const onChange = React.useCallback((v) => setValue(v), []);
+    const min = React.useMemo(() => parseDateTime(args.minDate), [args.minDate]);
+    const max = React.useMemo(() => parseDateTime(args.maxDate), [args.maxDate]);
     const years = args.optionsYears;
     const months = args.optionsMonths;
     const days = args.optionsDays;
@@ -100,7 +183,7 @@ export const Default: Story<DefaultStoryProps> = (args) => {
                 disabled={args.disabled}
                 controls={args.controls}
                 autofocus={args.autofocus}
-                onChange={onChange}
+                onChange={setValue}
                 enableNativeControl={args.DatePickerNativeControl}
                 daysAriaLabel="день"
                 monthsAriaLabel="месяц"
@@ -119,7 +202,7 @@ export const Default: Story<DefaultStoryProps> = (args) => {
                 options={timeOptions}
                 disabled={args.disabled}
                 controls={args.controls}
-                onChange={onChange}
+                onChange={setValue}
                 enableNativeControl={args.TimePickerNativeControl}
                 secondsAriaLabel="секунды"
                 minutesAriaLabel="минуты"
@@ -208,9 +291,8 @@ export const Date_Picker: Story<DatePickerStoryProps> = ({
     ...rest
 }) => {
     const [value, setValue] = React.useState(parseDateTime(initialValue));
-    const min = parseDateTime(minDate);
-    const max = parseDateTime(maxDate);
-    const onChange = React.useCallback((v) => setValue(v), []);
+    const min = React.useMemo(() => parseDateTime(minDate), [minDate]);
+    const max = React.useMemo(() => parseDateTime(maxDate), [maxDate]);
     const years = optionsYears;
     const months = optionsMonths;
     const days = optionsDays;
@@ -229,18 +311,27 @@ export const Date_Picker: Story<DatePickerStoryProps> = ({
     return (
         <DatePicker
             key={`${rest.size}-${rest.visibleItems}`}
-            id="example"
+            id="picker"
             value={value}
             min={min}
             max={max}
             options={options}
-            onChange={onChange}
+            onChange={setValue}
             daysAriaLabel="день"
             monthsAriaLabel="месяц"
             yearsAriaLabel="год"
             {...rest}
         />
     );
+};
+
+// eslint-disable-next-line @typescript-eslint/camelcase
+Date_Picker.parameters = {
+    performance: {
+        interactions: interactionTasksDatePicker,
+        allowedGroups: ['client'],
+        disable: false,
+    },
 };
 
 // eslint-disable-next-line @typescript-eslint/camelcase
@@ -303,9 +394,8 @@ export const Time_Picker: Story<TimePickerStoryProps> = ({
     ...rest
 }) => {
     const [value, setValue] = React.useState(parseDateTime(initialValue));
-    const min = parseDateTime(minDate);
-    const max = parseDateTime(maxDate);
-    const onChange = React.useCallback((v) => setValue(v), []);
+    const min = React.useMemo(() => parseDateTime(minDate), [minDate]);
+    const max = React.useMemo(() => parseDateTime(maxDate), [maxDate]);
     const hours = optionsHours;
     const minutes = optionsMinutes;
     const seconds = optionsSeconds;
@@ -322,11 +412,12 @@ export const Time_Picker: Story<TimePickerStoryProps> = ({
     return (
         <TimePicker
             key={`${rest.size}-${rest.visibleItems}`}
+            id="picker"
             value={value}
             min={min}
             max={max}
             options={options}
-            onChange={onChange}
+            onChange={setValue}
             secondsAriaLabel="секунды"
             minutesAriaLabel="минуты"
             hoursAriaLabel="часы"
@@ -335,6 +426,14 @@ export const Time_Picker: Story<TimePickerStoryProps> = ({
     );
 };
 
+// eslint-disable-next-line @typescript-eslint/camelcase
+Time_Picker.parameters = {
+    performance: {
+        interactions: interactionTasksTimePicker,
+        allowedGroups: ['client'],
+        disable: false,
+    },
+};
 // eslint-disable-next-line @typescript-eslint/camelcase
 Time_Picker.args = {
     initialValue: '01.09.1980 00:28:59',
