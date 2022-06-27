@@ -4,6 +4,7 @@ import * as Icons from '@salutejs/plasma-icons';
 import * as UI from '@salutejs/plasma-ui';
 import { Filler } from '@salutejs/plasma-docs-ui';
 import styled from 'styled-components';
+import { useVirtual } from '@salutejs/use-virtual';
 
 // Add react-live imports you need here
 const ReactLiveScope = {
@@ -14,6 +15,7 @@ const ReactLiveScope = {
     tertiary,
     critical,
     styled,
+    useVirtual,
     ...Icons,
     ...UI,
     ...React,
