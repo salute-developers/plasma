@@ -1,3 +1,17 @@
+# v1.78.1 (Mon Jun 27 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-b2c): missing react-draggable dep [#82](https://github.com/salute-developers/plasma/pull/82) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.78.0 (Thu Jun 23 2022)
 
 #### 🐛 Bug Fix

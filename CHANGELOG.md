@@ -1,3 +1,16 @@
+# (Mon Jun 27 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.78.1`
+  - fix(plasma-b2c): missing react-draggable dep [#82](https://github.com/salute-developers/plasma/pull/82) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Thu Jun 23 2022)
 
 #### 🚀 Enhancement
