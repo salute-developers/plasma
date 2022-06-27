@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-b2c",
-    "version": "1.78.0",
+    "version": "1.78.1",
     "description": "Salute Design System / React UI kit for business-related web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "main": "index.js",
@@ -82,7 +82,23 @@
         "ts-node": "10.3.0",
         "typescript": "3.9.10"
     },
-    "keywords": ["design-system", "react-components", "ui-kit", "react"],
-    "files": ["components", "es", "hocs", "hooks", "mixins", "tokens", "types", "utils", "index.d.ts", "index.js"],
+    "keywords": [
+        "design-system",
+        "react-components",
+        "ui-kit",
+        "react"
+    ],
+    "files": [
+        "components",
+        "es",
+        "hocs",
+        "hooks",
+        "mixins",
+        "tokens",
+        "types",
+        "utils",
+        "index.d.ts",
+        "index.js"
+    ],
     "sideEffects": false
 }
