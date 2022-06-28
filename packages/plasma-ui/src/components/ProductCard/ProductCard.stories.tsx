@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Story, Meta } from '@storybook/react';
 import styled from 'styled-components';
 import { buttonBlack } from '@salutejs/plasma-tokens';
+import { InteractionTaskArgs, PublicInteractionTask, withPerformance } from 'storybook-addon-performance';
+import { fireEvent, findByText } from '@testing-library/dom';
 
 import { InSpacingDecorator } from '../../helpers';
 import { Badge } from '../Badge';
 import { CardMedia } from '../Card/CardMedia';
 
 import { ProductCard } from '.';
-import type { ProductCardProps } from '.';
+import type { ProductCardProps as ProductCardPropsBasic } from '.';
 
 export default {
     title: 'Content/ProductCard',
@@ -16,7 +18,7 @@ export default {
 } as Meta;
 
 // eslint-disable-next-line @typescript-eslint/camelcase, @typescript-eslint/class-name-casing
-interface Product_CardProps extends ProductCardProps {
+interface ProductCardProps extends ProductCardPropsBasic {
     'media:src'?: string;
     'media:alt'?: string;
     'badge:text'?: string;
@@ -32,7 +34,7 @@ const StyledCardMedia = styled(CardMedia)`
 `;
 
 // eslint-disable-next-line @typescript-eslint/camelcase
-export const Product_Card: Story<Product_CardProps> = ({
+export const Product_Card: Story<ProductCardProps> = ({
     'media:src': imageSrc,
     'media:alt': imageAlt,
     'badge:text': badgeText,
@@ -141,3 +143,52 @@ Product_Card.args = {
     'badge:text': '−20%',
     'example:cardWidth': '12.25rem',
 };
+
+export const ProductCardPerformance: Story<ProductCardProps> = () => {
+    const [quantity, setQuantity] = useState(1);
+
+    const badge = useMemo(() => <Badge text="−20%" size="l" />, []);
+    const media = useMemo(() => <StyledCardMedia src="./images/320_320_1.jpg" width="12.25rem" />, []);
+
+    return (
+        <div
+            style={{
+                width: '12.25rem',
+            }}
+        >
+            <ProductCard
+                badge={badge}
+                media={media}
+                text="Беконайзер с сыром, зеленью, большой котлетой, яйцом и соусом"
+                price={80}
+                oldPrice={100}
+                quantityMax={10}
+                quantity={quantity}
+                onQuantityChange={setQuantity}
+            />
+        </div>
+    );
+};
+
+const interactionTasks: PublicInteractionTask[] = [
+    {
+        name: 'Add product count',
+        description: 'Click on picker to increase number of products',
+        run: async ({ container }: InteractionTaskArgs): Promise<void> => {
+            const [decreaseButton, increaseButton] = container.querySelectorAll('button');
+            fireEvent.click(increaseButton);
+            await findByText(container, '2', undefined, { timeout: 20000 });
+            fireEvent.click(decreaseButton);
+            await findByText(container, '1', undefined, { timeout: 20000 });
+        },
+    },
+];
+
+ProductCardPerformance.parameters = {
+    performance: {
+        interactions: interactionTasks,
+        disable: false,
+    },
+};
+
+ProductCardPerformance.decorators = [withPerformance];
