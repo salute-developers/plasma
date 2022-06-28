@@ -14,7 +14,11 @@ module.exports = {
               '../Tokens.stories.mdx',
               '../environment.stories.mdx',
           ],
-    addons: ['@storybook/preset-create-react-app', '@storybook/addon-essentials'],
+    addons: [
+        '@storybook/preset-create-react-app',
+        '@storybook/addon-essentials',
+        'storybook-addon-performance/register',
+    ],
     webpackFinal: async (config) => {
         return {
             ...config,
