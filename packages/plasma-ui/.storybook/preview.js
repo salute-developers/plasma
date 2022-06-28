@@ -171,4 +171,8 @@ export const parameters = {
             order: ['About', 'Colors', 'Typography', 'Tokens', 'Layout', 'Content', 'Controls', 'Showcase'],
         },
     },
+    performance: {
+        argTypesRegex: '^.*',
+        disable: true
+      },
 };

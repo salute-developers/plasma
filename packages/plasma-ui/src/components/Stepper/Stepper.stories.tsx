@@ -2,6 +2,8 @@ import React, { useState, useCallback } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconMinus, IconPlus, IconClose } from '@salutejs/plasma-icons';
+import { InteractionTaskArgs, PublicInteractionTask, withPerformance } from 'storybook-addon-performance';
+import { fireEvent, findByText } from '@testing-library/dom';
 
 import { actionWithPersistedEvent, ShowcaseComponentRow } from '../../helpers';
 
@@ -111,6 +113,20 @@ export const CustomAssembly: Story<CustomAssemblyProps> = ({ step, min, max, dis
     );
 };
 
+const interactionTasks: PublicInteractionTask[] = [
+    {
+        name: 'Stepper switching',
+        description: 'Click on stepper to change current number',
+        run: async ({ container }: InteractionTaskArgs): Promise<void> => {
+            const [decreaseButton, increaseButton] = container.querySelectorAll('button');
+            fireEvent.click(increaseButton);
+            await findByText(container, '6', undefined, { timeout: 20000 });
+            fireEvent.click(decreaseButton);
+            await findByText(container, '5', undefined, { timeout: 20000 });
+        },
+    },
+];
+
 CustomAssembly.args = {
     step: 1,
     min: 1,
@@ -124,4 +140,10 @@ CustomAssembly.parameters = {
     chromatic: {
         disable: true,
     },
+    performance: {
+        interactions: interactionTasks,
+        disable: false,
+    },
 };
+
+CustomAssembly.decorators = [withPerformance];
