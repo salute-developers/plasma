@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-ui",
-    "version": "1.114.0",
+    "version": "1.115.0",
     "description": "Salute Design System",
     "main": "index.js",
     "module": "es/index.js",
@@ -94,7 +94,18 @@
             "^styled-components": "<rootDir>/node_modules/styled-components"
         }
     },
-    "files": ["components", "hocs", "hooks", "mixins", "tokens", "types", "utils", "index.d.ts", "index.js", "es"],
+    "files": [
+        "components",
+        "hocs",
+        "hooks",
+        "mixins",
+        "tokens",
+        "types",
+        "utils",
+        "index.d.ts",
+        "index.js",
+        "es"
+    ],
     "contributors": [
         "Vasiliy Loginevskiy",
         "Антонов Игорь Александрович",
