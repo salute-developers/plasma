@@ -1,3 +1,20 @@
+# v1.79.0 (Wed Jun 29 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): grid skeleton [#86](https://github.com/salute-developers/plasma/pull/86) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.77.0 (Thu Jun 23 2022)
 
 #### 🐛 Bug Fix

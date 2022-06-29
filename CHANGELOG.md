@@ -2,6 +2,19 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-temple@1.79.0`
+  - feat(plasma-temple): grid skeleton [#86](https://github.com/salute-developers/plasma/pull/86) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
+# (Wed Jun 29 2022)
+
+#### 🚀 Enhancement
+
 - docs(plasma-ui-docs): CarouselVirtualBasic [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
 - `@salutejs/plasma-web@1.114.0`
   - test(plasma-web): Add tests and snapshots for `Calendar` double [#64](https://github.com/salute-developers/plasma/pull/64) ([@neretin-trike](https://github.com/neretin-trike))
