@@ -47,7 +47,7 @@ describe('plasma-web: Calendar', () => {
         return (
             <>
                 <Button onClick={() => setValue(new Date(2005, 5, 5))}>Set date</Button>
-                <Calendar value={value} type="Days" onChangeValue={handleOnChange} />
+                <Calendar value={value} onChangeValue={handleOnChange} />
             </>
         );
     }
@@ -81,7 +81,7 @@ describe('plasma-web: Calendar', () => {
     it('prev month', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Calendar value={date} type="Days" onChangeValue={() => {}} />
+                <Calendar value={date} onChangeValue={() => {}} />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -93,7 +93,7 @@ describe('plasma-web: Calendar', () => {
     it('next month', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Calendar value={date} type="Days" onChangeValue={() => {}} />
+                <Calendar value={date} onChangeValue={() => {}} />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -105,7 +105,7 @@ describe('plasma-web: Calendar', () => {
     it('prev year', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Calendar value={date} type="Days" onChangeValue={() => {}} />
+                <Calendar value={date} onChangeValue={() => {}} />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -118,7 +118,7 @@ describe('plasma-web: Calendar', () => {
     it('next year', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Calendar value={date} type="Days" onChangeValue={() => {}} />
+                <Calendar value={date} onChangeValue={() => {}} />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -131,7 +131,7 @@ describe('plasma-web: Calendar', () => {
     it('prev range years', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Calendar value={date} type="Days" onChangeValue={() => {}} />
+                <Calendar value={date} onChangeValue={() => {}} />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -146,7 +146,7 @@ describe('plasma-web: Calendar', () => {
     it('next range years', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Calendar value={date} type="Days" onChangeValue={() => {}} />
+                <Calendar value={date} onChangeValue={() => {}} />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -169,7 +169,6 @@ describe('plasma-web: Calendar', () => {
                 <Calendar
                     value={new Date(2021, 5, 6)}
                     eventList={[...events, ...eventsRange]}
-                    type="Days"
                     onChangeValue={() => {}}
                 />
             </CypressTestDecoratorWithTypo>,
@@ -185,12 +184,7 @@ describe('plasma-web: Calendar', () => {
 
         mount(
             <CypressTestDecoratorWithTypo>
-                <Calendar
-                    value={new Date(2021, 5, 6)}
-                    disabledList={disabledDays}
-                    type="Days"
-                    onChangeValue={() => {}}
-                />
+                <Calendar value={new Date(2021, 5, 6)} disabledList={disabledDays} onChangeValue={() => {}} />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -204,11 +198,49 @@ describe('plasma-web: Calendar', () => {
                     value={new Date(2021, 5, 6)}
                     min={new Date(2021, 5, 4)}
                     max={new Date(2021, 5, 15)}
-                    type="Days"
                     onChangeValue={() => {}}
                 />
             </CypressTestDecoratorWithTypo>,
         );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('range', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Calendar isRange value={[new Date(2021, 5, 6), new Date(2021, 5, 15)]} onChangeValue={() => {}} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('range in progress', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Calendar isRange value={[new Date(2021, 5, 6)]} onChangeValue={() => {}} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('div:nth-child(5) > div:nth-child(5)').first().trigger('mouseover');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('range in progress with disabled', () => {
+        const disabledDays = [...new Array(5)].map((_, day) => ({
+            date: new Date(2021, 5, 11 + day),
+        }));
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Calendar isRange disabledList={disabledDays} value={[new Date(2021, 5, 6)]} onChangeValue={() => {}} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('div:nth-child(3) > div:nth-child(4)').first().trigger('mouseover');
+        cy.get('div:nth-child(5) > div:nth-child(5)').first().trigger('mouseover');
 
         cy.matchImageSnapshot();
     });
@@ -337,6 +369,56 @@ describe('plasma-web: CalendarDouble', () => {
                 />
             </CypressTestDecoratorWithTypo>,
         );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('range', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Calendar
+                    isRange
+                    isDouble
+                    value={[new Date(2021, 5, 6), new Date(2021, 6, 15)]}
+                    onChangeValue={() => {}}
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('range in progress', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Calendar isDouble isRange value={[new Date(2021, 5, 6)]} onChangeValue={() => {}} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('div:nth-child(3) > div:nth-child(4) > div:nth-child(4)').first().trigger('mouseover');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('range in progress with disabled', () => {
+        const disabledDays = [...new Array(5)].map((_, day) => ({
+            date: new Date(2021, 6, 11 + day),
+        }));
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Calendar
+                    isDouble
+                    isRange
+                    disabledList={disabledDays}
+                    value={[new Date(2021, 5, 6)]}
+                    onChangeValue={() => {}}
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('div:nth-child(3) > div:nth-child(3) > div:nth-child(6)').first().trigger('mouseover');
+        cy.get('div:nth-child(3) > div:nth-child(4) > div:nth-child(4)').first().trigger('mouseover');
 
         cy.matchImageSnapshot();
     });
