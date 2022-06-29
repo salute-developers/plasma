@@ -1,3 +1,16 @@
+# v1.114.0 (Wed Jun 29 2022)
+
+#### 🚀 Enhancement
+
+- test(plasma-web): Add tests and snapshots for `Calendar` double [#64](https://github.com/salute-developers/plasma/pull/64) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-web): Add double mode for `Calendar` component [#64](https://github.com/salute-developers/plasma/pull/64) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.113.0 (Thu Jun 23 2022)
 
 #### 🐛 Bug Fix

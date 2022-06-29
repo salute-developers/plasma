@@ -1,3 +1,45 @@
+# (Wed Jun 29 2022)
+
+#### 🚀 Enhancement
+
+- docs(plasma-ui-docs): CarouselVirtualBasic [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+- `@salutejs/plasma-web@1.114.0`
+  - test(plasma-web): Add tests and snapshots for `Calendar` double [#64](https://github.com/salute-developers/plasma/pull/64) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-web): Add double mode for `Calendar` component [#64](https://github.com/salute-developers/plasma/pull/64) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-core@1.63.0`, `@salutejs/plasma-ui@1.114.0`
+  - feat(plasma-ui): update @salutejs/use-virtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+  - feat(plasma-ui): drop CarouselColVirtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+  - feat(plasma-ui): fix Carousel types [#57](https://github.com/salute-developers/plasma/pull/57) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+  - feat(plasma-ui): CarouselColVirtual, CarouselItemVirtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+  - feat(plasma-ui): CarouselTemplate [#57](https://github.com/salute-developers/plasma/pull/57) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+  - feat(plasma-ui): support of the withUseVirtual in the CarouselCol [#57](https://github.com/salute-developers/plasma/pull/57) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+  - feat(plasma-ui): BasiVirtual wip [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+- `@salutejs/plasma-ui@1.114.0`
+  - feat(plasma-ui): simplify BasicVirtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+  - feat(plasma-ui): disable detectActive for useVirtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui-docs): CarouselVirtual in Carousel.mdx [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+- `@salutejs/plasma-ui@1.114.0`
+  - docs(plasma-ui): CarouselVirtual with deviceScale [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+  - fix(plasma-ui): CarouselVirtual CR 2 [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+  - fix(plasma-ui): CarouselVirtual CR [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+  - test(plasma-ui): refactor `virtual` test [#57](https://github.com/salute-developers/plasma/pull/57) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+  - test(plasma-ui): Fix `virtual` test [#57](https://github.com/salute-developers/plasma/pull/57) ([@neretin-trike](https://github.com/neretin-trike))
+  - test(plasma-ui): attempt to test CarouselVirtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+- `@salutejs/plasma-core@1.63.0`, `@salutejs/plasma-ui@1.114.0`
+  - docs(plasma-ui): CarouselVirtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+  - test(plasma-ui): fix export of CarouselItemVirtual, update contributing.md [#57](https://github.com/salute-developers/plasma/pull/57) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+#### Authors: 3
+
+- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+- Ekaterina Anishkina ([@KateKate](https://github.com/KateKate))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Mon Jun 27 2022)
 
 #### 🐛 Bug Fix
