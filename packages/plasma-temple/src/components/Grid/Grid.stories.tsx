@@ -8,6 +8,7 @@ import { Card, CardEntity } from '../Card/Card';
 import { isSberBoxLike } from '../../utils';
 
 import { Grid } from './Grid';
+import { GridSkeleton } from './GridSkeleton/GridSkeleton';
 
 export default {
     title: 'Grid',
@@ -63,4 +64,8 @@ export const Default = (): React.ReactElement => {
             </Grid>
         </StyledContainer>
     );
+};
+
+export const Skeleton = (): React.ReactElement => {
+    return <GridSkeleton lines={3} columnXL={4} columnM={3} columnS={2} />;
 };
