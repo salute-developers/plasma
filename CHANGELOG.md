@@ -2,6 +2,23 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-web@1.115.0`
+  - test(plasma-web): Add tests and snapshots for `Calendar` range [#77](https://github.com/salute-developers/plasma/pull/77) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-web): Add range mode for `Calendar` component [#77](https://github.com/salute-developers/plasma/pull/77) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-temple@1.80.0`
+  - feat(plasma-temple): grid skeleton [#86](https://github.com/salute-developers/plasma/pull/86) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Wed Jun 29 2022)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-temple@1.79.0`
   - feat(plasma-temple): grid skeleton [#86](https://github.com/salute-developers/plasma/pull/86) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
 
