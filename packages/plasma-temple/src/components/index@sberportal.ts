@@ -3,6 +3,7 @@ export * from './Item/index@sberportal';
 export * from './Cart/index@sberportal';
 export * from './Product/index@sberportal';
 export { Grid } from './Grid/Grid';
+export { GridSkeleton } from './Grid/GridSkeleton/GridSkeleton';
 export { HeroSliderSberportal as HeroSlider } from './HeroSlider/HeroSlider@sberportal';
 export { Card } from './Card/Card';
 export { GallerySberPortal as Gallery } from './GalleryNew/Gallery@sberportal';
