@@ -1,3 +1,15 @@
+# v1.115.0 (Wed Jun 29 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): Performance addon for Stepper [#84](https://github.com/salute-developers/plasma/pull/84) ([@SeanSilke](https://github.com/SeanSilke))
+
+#### Authors: 1
+
+- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+
+---
+
 # v1.114.0 (Wed Jun 29 2022)
 
 #### 🚀 Enhancement

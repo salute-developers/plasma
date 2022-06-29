@@ -2,6 +2,19 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-ui@1.115.0`
+  - feat(plasma-ui): Performance addon for Stepper [#84](https://github.com/salute-developers/plasma/pull/84) ([@SeanSilke](https://github.com/SeanSilke))
+
+#### Authors: 1
+
+- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+
+---
+
+# (Wed Jun 29 2022)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-web@1.115.0`
   - test(plasma-web): Add tests and snapshots for `Calendar` range [#77](https://github.com/salute-developers/plasma/pull/77) ([@neretin-trike](https://github.com/neretin-trike))
   - feat(plasma-web): Add range mode for `Calendar` component [#77](https://github.com/salute-developers/plasma/pull/77) ([@neretin-trike](https://github.com/neretin-trike))
