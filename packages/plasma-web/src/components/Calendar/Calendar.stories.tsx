@@ -64,9 +64,9 @@ const StyledCalendar = styled(Calendar)`
     border-radius: 0.75rem;
 `;
 
-export const Default: Story<CalendarProps> = ({ isRange, ...args }) => {
+export const Default: Story<CalendarProps> = ({ isRange, isDouble, min, max, date }) => {
     const [value, setValue] = React.useState(new Date(2022, 5, 6));
-    const [valueRange, setValueRange] = React.useState([new Date(2022, 5, 6), new Date(2022, 5, 10)]);
+    const [valueRange, setValueRange] = React.useState<[Date, Date?]>([new Date(2022, 5, 6), new Date(2022, 5, 10)]);
 
     const handleOnChange = React.useCallback((newValue: Date) => {
         setValue(newValue);
@@ -87,24 +87,32 @@ export const Default: Story<CalendarProps> = ({ isRange, ...args }) => {
 
     return (
         <Calendar
-            isRange={isRange as any}
-            value={isRange ? valueRange : value}
+            isRange={isRange}
+            isDouble={isDouble}
+            date={date}
+            value={(isRange ? valueRange : value) as Date & [Date, Date?]}
             eventList={[...baseEvents, ...eventsRange]}
             disabledList={disabledDays}
-            onChangeValue={isRange ? handleOnRangeChange : handleOnChange}
-            {...args}
+            min={min}
+            max={max}
+            onChangeValue={(isRange ? handleOnRangeChange : handleOnChange) as (value: Date | [Date, Date?]) => void}
         />
     );
 };
 
 Default.args = {
+    date: {
+        day: 1,
+        monthIndex: 5,
+        year: 2022,
+    },
     min: new Date(2022, 4, 0),
     max: new Date(2022, 6, 15),
     isDouble: false,
     isRange: false,
 };
 
-export const Base: Story<CalendarBaseProps> = (args) => {
+export const Base: Story<CalendarBaseProps> = ({ min, max, type }) => {
     const [value, setValue] = React.useState(new Date(2022, 5, 6));
     const handleOnChange = React.useCallback((newValue: Date) => {
         setValue(newValue);
@@ -125,9 +133,10 @@ export const Base: Story<CalendarBaseProps> = (args) => {
             value={value}
             eventList={[...baseEvents, ...eventsRange]}
             disabledList={disabledDays}
-            type="Days"
+            min={min}
+            max={max}
+            type={type}
             onChangeValue={handleOnChange}
-            {...args}
         />
     );
 };
@@ -147,7 +156,7 @@ Base.args = {
     type: 'Days',
 };
 
-export const Double: Story<CalendarDoubleProps> = (args) => {
+export const Double: Story<CalendarDoubleProps> = ({ min, max }) => {
     const [value, setValue] = React.useState(new Date(2022, 5, 6));
     const handleOnChange = React.useCallback((newValue: Date) => {
         setValue(newValue);
@@ -168,8 +177,9 @@ export const Double: Story<CalendarDoubleProps> = (args) => {
             value={value}
             eventList={[...baseEvents, ...eventsRange]}
             disabledList={disabledDays}
+            min={min}
+            max={max}
             onChangeValue={handleOnChange}
-            {...args}
         />
     );
 };
@@ -179,7 +189,7 @@ Double.args = {
     max: new Date(2022, 6, 15),
 };
 
-export const Range: Story<CalendarRange<CalendarBaseProps>> = (args) => {
+export const Range: Story<CalendarRange<CalendarBaseProps>> = ({ min, max, type }) => {
     const [values, setValue] = React.useState<[Date, Date?]>([new Date(2022, 5, 16), new Date(2022, 5, 25)]);
     const handleOnChange = React.useCallback((newValue: [Date, Date?]) => {
         onChangeValue(newValue);
@@ -200,8 +210,10 @@ export const Range: Story<CalendarRange<CalendarBaseProps>> = (args) => {
             value={values}
             eventList={[...baseEvents, ...eventsRange]}
             disabledList={[{ date: new Date(2022, 5, 4) }, ...disabledDays]}
+            min={min}
+            max={max}
+            type={type}
             onChangeValue={handleOnChange}
-            {...args}
         />
     );
 };
@@ -221,7 +233,7 @@ Range.args = {
     type: 'Days',
 };
 
-export const DoubleRange: Story<CalendarRange<CalendarDoubleProps>> = (args) => {
+export const DoubleRange: Story<CalendarRange<CalendarDoubleProps>> = ({ min, max }) => {
     const [values, setValue] = React.useState<[Date, Date?]>([new Date(2022, 5, 7), new Date(2022, 5, 25)]);
     const handleOnChange = React.useCallback((newValue: [Date, Date?]) => {
         onChangeValue(newValue);
@@ -242,8 +254,9 @@ export const DoubleRange: Story<CalendarRange<CalendarDoubleProps>> = (args) => 
             value={values}
             eventList={[...baseEvents, ...eventsRange]}
             disabledList={[{ date: new Date(2022, 5, 4) }, ...disabledDays]}
+            min={min}
+            max={max}
             onChangeValue={handleOnChange}
-            {...args}
         />
     );
 };
@@ -253,7 +266,7 @@ DoubleRange.args = {
     max: new Date(2022, 7, 15),
 };
 
-export const WithPopup: Story<CalendarProps> = (args) => {
+export const WithPopup: Story<CalendarProps> = ({ min, max, isDouble }) => {
     const [textValue, setTextValue] = React.useState('2022-06-06');
     const [value, setValue] = React.useState(new Date(textValue));
     const [isOpen, setIsOpen] = React.useState(false);
@@ -299,8 +312,10 @@ export const WithPopup: Story<CalendarProps> = (args) => {
                 value={value}
                 eventList={[...baseEvents, ...eventsRange]}
                 disabledList={disabledDays}
+                min={min}
+                max={max}
+                isDouble={isDouble}
                 onChangeValue={handleOnChange}
-                {...args}
             />
         </Popup>
     );

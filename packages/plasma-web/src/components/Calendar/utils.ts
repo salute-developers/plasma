@@ -68,20 +68,14 @@ export const isCurrentMonth = (date: DateObject, monthIndex: number) => {
     return monthIndex === currentMonthIndex && date.year === currentYear;
 };
 
-export const isSelectedMonth = (date: DateObject, monthIndex: number, value: Date) => {
-    const { year } = getDateFromValue(value);
-    return date.monthIndex === monthIndex && date.year === year;
-};
+export const isSelectedMonth = (date: DateObject, monthIndex: number) => date.monthIndex === monthIndex;
 
 export const isCurrentYear = (year: number) => {
     const { year: currentYear } = getDateFromNow();
     return year === currentYear;
 };
 
-export const isSelectedYear = (year: number, value: Date) => {
-    const { year: currentYear } = getDateFromValue(value);
-    return currentYear === year;
-};
+export const isSelectedYear = (date: DateObject, year: number) => date.year === year;
 
 export const getSortedValues = (values: [Date, (Date | undefined)?]) =>
     values.sort((start, end) => {
