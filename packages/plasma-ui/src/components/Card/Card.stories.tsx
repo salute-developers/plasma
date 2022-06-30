@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Story, Meta } from '@storybook/react';
+import { withPerformance } from 'storybook-addon-performance';
 
 import { InSpacingDecorator, IconPlaceholder } from '../../helpers';
 import { Button } from '../Button';
@@ -19,7 +20,12 @@ const longText = `Канадский актёр, кинопродюсер, и м
 
 export default {
     title: 'Content/Card',
-    decorators: [InSpacingDecorator],
+    decorators: [InSpacingDecorator, withPerformance],
+    parameters: {
+        performance: {
+            disable: false,
+        },
+    },
 } as Meta;
 
 interface BasicValueProps extends CardProps {
@@ -29,6 +35,9 @@ interface BasicValueProps extends CardProps {
     title: string;
     description: string;
 }
+
+const basicCardStyle = { width: '22.5rem' };
+const basicButtonStyle = { marginTop: '1em' };
 
 export const BasicValue: Story<BasicValueProps> = ({
     outlined,
@@ -40,7 +49,7 @@ export const BasicValue: Story<BasicValueProps> = ({
     description,
 }) => {
     return (
-        <Card style={{ width: '22.5rem' }} tabIndex={0} outlined={outlined} scaleOnFocus={scaleOnFocus}>
+        <Card style={basicCardStyle} tabIndex={0} outlined={outlined} scaleOnFocus={scaleOnFocus}>
             <CardBody>
                 <CardMedia
                     src="./images/320_320_0.jpg"
@@ -60,7 +69,7 @@ export const BasicValue: Story<BasicValueProps> = ({
                         scaleOnInteraction={false}
                         outlined={false}
                         stretch
-                        style={{ marginTop: '1em' }}
+                        style={basicButtonStyle}
                         tabIndex={-1}
                     />
                 </CardContent>
@@ -87,9 +96,12 @@ interface BasicDefaultProps {
     description: string;
 }
 
+const defaultCardStyle = { width: '20rem' };
+const defaultParagraphStyle = { marginTop: '0.75rem' };
+
 export const BasicDefault: Story<BasicDefaultProps> = ({ cover, title, footer1, footer2, description }) => {
     return (
-        <Card style={{ width: '20rem' }}>
+        <Card style={defaultCardStyle}>
             <CardBody>
                 <CardMedia
                     src="./images/320_320_2.jpg"
@@ -100,7 +112,7 @@ export const BasicDefault: Story<BasicDefaultProps> = ({ cover, title, footer1, 
                     <TextBox>
                         <TextBoxBigTitle>{title}</TextBoxBigTitle>
                         <TextBoxSubTitle>{footer1}</TextBoxSubTitle>
-                        <CardParagraph1 style={{ marginTop: '0.75rem' }} lines={4}>
+                        <CardParagraph1 style={defaultParagraphStyle} lines={4}>
                             {description}
                         </CardParagraph1>
                         <TextBoxSubTitle>{footer2}</TextBoxSubTitle>
@@ -124,26 +136,31 @@ interface ListCardProps {
     subtitle: string;
 }
 
-export const ListCard: Story<ListCardProps> = ({ title, subtitle }) => (
-    <Card style={{ width: '20rem' }}>
-        <CardContent compact>
-            <Cell
-                contentLeft={
-                    <CellIcon>
-                        <IconPlaceholder size={2.25} />
-                    </CellIcon>
-                }
-                content={
-                    <TextBox>
-                        <TextBoxTitle>{title}</TextBoxTitle>
-                        <TextBoxSubTitle>{subtitle}</TextBoxSubTitle>
-                    </TextBox>
-                }
-                contentRight={<CellDisclosure />}
-            />
-        </CardContent>
-    </Card>
-);
+const listCardStyle = { width: '20rem' };
+
+export const ListCard: Story<ListCardProps> = ({ title, subtitle }) => {
+    const [contentLeft, content, contentRight] = useMemo(
+        () => [
+            <CellIcon>
+                <IconPlaceholder size={2.25} />
+            </CellIcon>,
+            <TextBox>
+                <TextBoxTitle>{title}</TextBoxTitle>
+                <TextBoxSubTitle>{subtitle}</TextBoxSubTitle>
+            </TextBox>,
+            <CellDisclosure />,
+        ],
+        [title, subtitle],
+    );
+
+    return (
+        <Card style={listCardStyle}>
+            <CardContent compact>
+                <Cell contentLeft={contentLeft} content={content} contentRight={contentRight} />
+            </CardContent>
+        </Card>
+    );
+};
 
 ListCard.args = {
     title: 'Title',
@@ -158,32 +175,45 @@ interface ListAndHeaderProps {
     subtitle: string;
 }
 
+const listAndHeaderCardStyle = { width: '20rem' };
+
 export const ListAndHeader: Story<ListAndHeaderProps> = ({ listItems, header, details, title, subtitle }) => {
-    const items = Array(listItems).fill(0);
+    const cellList = useMemo(() => {
+        const items = Array(listItems).fill(0);
+        return items.map((_, i) => (
+            <CellListItem
+                key={`item:${i}`}
+                contentLeft={
+                    <CellIcon>
+                        <IconPlaceholder size={2.25} />
+                    </CellIcon>
+                }
+                content={
+                    <TextBox>
+                        <TextBoxTitle>{title}</TextBoxTitle>
+                        <TextBoxSubTitle>{subtitle}</TextBoxSubTitle>
+                    </TextBox>
+                }
+                contentRight={<CellDisclosure />}
+            />
+        ));
+    }, [listItems, title, subtitle]);
+
+    const cell = useMemo(
+        () => (
+            <Cell
+                content={<TextBoxBigTitle>{header}</TextBoxBigTitle>}
+                contentRight={<span style={{ marginTop: 5 }}>{details}</span>}
+            />
+        ),
+        [header, details],
+    );
+
     return (
-        <Card style={{ width: '20rem' }}>
+        <Card style={listAndHeaderCardStyle}>
             <CardContent compact>
-                <Cell
-                    content={<TextBoxBigTitle>{header}</TextBoxBigTitle>}
-                    contentRight={<span style={{ marginTop: 5 }}>{details}</span>}
-                />
-                {items.map((_, i) => (
-                    <CellListItem
-                        key={`item:${i}`}
-                        contentLeft={
-                            <CellIcon>
-                                <IconPlaceholder size={2.25} />
-                            </CellIcon>
-                        }
-                        content={
-                            <TextBox>
-                                <TextBoxTitle>{title}</TextBoxTitle>
-                                <TextBoxSubTitle>{subtitle}</TextBoxSubTitle>
-                            </TextBox>
-                        }
-                        contentRight={<CellDisclosure />}
-                    />
-                ))}
+                {cell}
+                {cellList}
             </CardContent>
         </Card>
     );
@@ -204,31 +234,38 @@ interface FastAnswerProps {
     description: string;
 }
 
-export const FastAnswer: Story<FastAnswerProps> = ({ header, details, value, description }) => (
-    <Card style={{ width: '20rem' }}>
-        <CardContent compact>
-            <Cell
-                content={<TextBoxBigTitle>{header}</TextBoxBigTitle>}
-                contentRight={<span style={{ marginTop: 5 }}>{details}</span>}
-            />
-            <Cell
-                contentLeft={
-                    <CellIcon>
-                        <IconPlaceholder size={2.25} />
-                    </CellIcon>
-                }
-                content={<TextBoxBiggerTitle>{value}</TextBoxBiggerTitle>}
-                contentRight={
-                    <CellIcon>
-                        <IconPlaceholder style={{ marginTop: '0.375rem' }} size={1.5} />
-                    </CellIcon>
-                }
-                alignRight="center"
-            />
-            <TextBoxSubTitle>{description}</TextBoxSubTitle>
-        </CardContent>
-    </Card>
-);
+const fastAnswerCardStyle = { width: '20rem' };
+
+export const FastAnswer: Story<FastAnswerProps> = ({ header, details, value, description }) => {
+    const cardContent = useMemo(
+        () => (
+            <CardContent compact>
+                <Cell
+                    content={<TextBoxBigTitle>{header}</TextBoxBigTitle>}
+                    contentRight={<span style={{ marginTop: 5 }}>{details}</span>}
+                />
+                <Cell
+                    contentLeft={
+                        <CellIcon>
+                            <IconPlaceholder size={2.25} />
+                        </CellIcon>
+                    }
+                    content={<TextBoxBiggerTitle>{value}</TextBoxBiggerTitle>}
+                    contentRight={
+                        <CellIcon>
+                            <IconPlaceholder style={{ marginTop: '0.375rem' }} size={1.5} />
+                        </CellIcon>
+                    }
+                    alignRight="center"
+                />
+                <TextBoxSubTitle>{description}</TextBoxSubTitle>
+            </CardContent>
+        ),
+        [header, details, value, description],
+    );
+
+    return <Card style={fastAnswerCardStyle}>{cardContent}</Card>;
+};
 
 FastAnswer.args = {
     header: 'Название раздела',

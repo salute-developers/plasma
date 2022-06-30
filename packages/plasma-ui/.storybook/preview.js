@@ -173,6 +173,6 @@ export const parameters = {
     },
     performance: {
         argTypesRegex: '^.*',
-        disable: true
-      },
+        disable: true,
+    },
 };
