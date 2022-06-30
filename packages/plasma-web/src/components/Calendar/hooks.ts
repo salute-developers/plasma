@@ -181,27 +181,27 @@ export const useDays = (
 /**
  * Хук для получения списка месяцев.
  */
-export const useMonths = (date: DateObject, value: Date) =>
+export const useMonths = (date: DateObject) =>
     useMemo(
         () =>
             SHORT_MONTH_NAME.map((monthName, monthIndex) => ({
                 monthName,
                 isCurrent: isCurrentMonth(date, monthIndex),
-                isSelected: isSelectedMonth(date, monthIndex, value),
+                isSelected: isSelectedMonth(date, monthIndex),
             })),
-        [date, value],
+        [date],
     );
 
 /**
  * Хук для получения списка годов.
  */
-export const useYears = (startYear: number, value: Date) =>
+export const useYears = (date: DateObject, startYear: number) =>
     useMemo(
         () =>
             Array.from(Array(YEAR_RENDER_COUNT), (_, i) => ({
                 isCurrent: isCurrentYear(startYear + i),
-                isSelected: isSelectedYear(startYear + i, value),
+                isSelected: isSelectedYear(date, startYear + i),
                 year: startYear + i,
             })),
-        [value, startYear],
+        [date, startYear],
     );

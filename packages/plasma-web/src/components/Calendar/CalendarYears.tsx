@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { FocusProps } from '@salutejs/plasma-core';
 import { bodyS } from '@salutejs/plasma-typo';
 
-import type { YearsProps } from './types';
+import type { DateObject, YearsProps } from './types';
 import { useYears } from './hooks';
 import { flexCenter, selected } from './mixins';
 
 export interface CalendarYearsProps extends React.HTMLAttributes<HTMLDivElement> {
-    value: Date;
+    date: DateObject;
     startYear: number;
     onChangeYear: (year: number) => void;
 }
@@ -52,8 +52,8 @@ const StyledYearRoot = styled.div<YearsProps & FocusProps>`
 /**
  * Компонент годов в календаре.
  */
-export const CalendarYears: React.FC<CalendarYearsProps> = ({ startYear, value, onChangeYear }) => {
-    const years = useYears(startYear, value);
+export const CalendarYears: React.FC<CalendarYearsProps> = ({ date: currentDate, startYear, onChangeYear }) => {
+    const years = useYears(currentDate, startYear);
 
     const handleOnChangeYear = useCallback(
         (event: React.MouseEvent<HTMLDivElement>) => {

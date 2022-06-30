@@ -9,7 +9,6 @@ import { flexCenter, selected } from './mixins';
 
 export interface CalendarMonthsProps extends React.HTMLAttributes<HTMLDivElement> {
     date: DateObject;
-    value: Date;
     onChangeMonth: (month: number) => void;
 }
 
@@ -52,8 +51,8 @@ const StyledMonthRoot = styled.div<MonthsProps & FocusProps>`
 /**
  * Компонент месяцев в календаре.
  */
-export const CalendarMonths: React.FC<CalendarMonthsProps> = ({ date: currentDate, value, onChangeMonth }) => {
-    const months = useMonths(currentDate, value);
+export const CalendarMonths: React.FC<CalendarMonthsProps> = ({ date: currentDate, onChangeMonth }) => {
+    const months = useMonths(currentDate);
 
     const handleOnChangeMonth = useCallback(
         (event: React.MouseEvent<HTMLDivElement>) => {
