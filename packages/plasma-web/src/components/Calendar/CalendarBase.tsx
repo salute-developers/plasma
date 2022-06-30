@@ -109,6 +109,7 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
         }
 
         if (calendarState === CalendarState.Months) {
+            setStartYear((prevYear) => prevYear - 1);
             setDate((prevDate) => ({ ...prevDate, year: prevDate.year - 1 }));
             return;
         }
@@ -125,6 +126,7 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
         }
 
         if (calendarState === CalendarState.Months) {
+            setStartYear((prevYear) => prevYear + 1);
             setDate((prevDate) => ({ ...prevDate, year: prevDate.year + 1 }));
             return;
         }
@@ -160,11 +162,11 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
             )}
 
             {calendarState === CalendarState.Months && (
-                <CalendarMonths date={date} value={value} onChangeMonth={handleOnChangeMonth} />
+                <CalendarMonths date={date} onChangeMonth={handleOnChangeMonth} />
             )}
 
             {calendarState === CalendarState.Years && (
-                <CalendarYears startYear={startYear} value={value} onChangeYear={handleOnChangeYear} />
+                <CalendarYears date={date} startYear={startYear} onChangeYear={handleOnChangeYear} />
             )}
         </StyledCalendar>
     );
