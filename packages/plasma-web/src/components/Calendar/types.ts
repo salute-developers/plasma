@@ -49,16 +49,43 @@ export interface DisabledDay {
 }
 
 export interface Calendar extends React.HTMLAttributes<HTMLDivElement> {
+    /**
+     * Выбранное значение.
+     */
     value: Date | [Date, Date?];
+    /**
+     * Состояние календаря, отвечающее за отображение.
+     */
     date?: DateObject;
+    /**
+     * Минимальное значение даты.
+     */
     min?: Date;
+    /**
+     * Максимальное значение даты.
+     */
     max?: Date;
+    /**
+     * Список событий.
+     */
     eventList?: EventDay[];
+    /**
+     * Список отключенных дней.
+     */
     disabledList?: DisabledDay[];
+    /**
+     * Обработчик изменения значения.
+     */
     onChangeValue: (value: Date) => void;
 }
 
 export type CalendarRange<T> = Omit<T, 'value' | 'onChangeValue'> & {
+    /**
+     * Выбранное значение.
+     */
     value: [Date, Date?];
+    /**
+     * Обработчик изменения значения.
+     */
     onChangeValue: (values: [Date, Date?]) => void;
 };

@@ -103,15 +103,21 @@ export const isDayInRage = (year: number, monthIndex: number, currentDay: number
     return startValue <= day && day <= endValue;
 };
 
-export const isSelectProcess = (array: unknown | unknown[]): array is [Date, Date?] =>
-    Array.isArray(array) && !array[1];
-
 export const isSameDay = (firstDate: DateObject, secondDate?: DateObject) =>
     secondDate &&
     firstDate.day === secondDate.day &&
     firstDate.monthIndex === secondDate.monthIndex &&
     firstDate.year === secondDate.year;
 
+/**
+ * Метод проверяет, находится ли календарь в режиме выбора второго значения.
+ */
+export const isSelectProcess = (array: unknown | unknown[]): array is [Date, Date?] =>
+    Array.isArray(array) && !array[1];
+
+/**
+ * Метод возвращает сторону, когда выбор второго значения диапазона завершён.
+ */
 export const getSideForSelected = (date: DateObject, startValue: Date, endValue: Date) => {
     const currentDateTime = new Date(date.year, date.monthIndex, date.day).getTime();
     const startValueTime = startValue.getTime();
@@ -128,6 +134,9 @@ export const getSideForSelected = (date: DateObject, startValue: Date, endValue:
     return undefined;
 };
 
+/**
+ * Метод возвращает сторону, во время выбора второго значения диапазона.
+ */
 export const getSideForHovered = (date: DateObject, hoveredDay: DateObject, startValue: Date, isSelected?: boolean) => {
     const dateHover = new Date(hoveredDay.year, hoveredDay.monthIndex, hoveredDay.day);
     const isHovered = isSameDay(date, hoveredDay);
@@ -143,6 +152,9 @@ export const getSideForHovered = (date: DateObject, hoveredDay: DateObject, star
     return undefined;
 };
 
+/**
+ * Метод возвращает сторону, с которой нужно отрисовать направление полоски диапазона.
+ */
 export const getSideInRange = (
     value: Date | [Date, Date?],
     date: DateObject,
@@ -166,6 +178,9 @@ export const getSideInRange = (
     return undefined;
 };
 
+/**
+ * Метод проверяет, находится ли выбранный день в диапазоне.
+ */
 export const getInRange = (
     value: Date | [Date, Date?],
     date: DateObject,
@@ -190,6 +205,9 @@ export const getInRange = (
     return inRange;
 };
 
+/**
+ * Метод проверяет, можно ли выбрать день.
+ */
 export const canSelectDate = (
     { year, monthIndex, day }: DateObject,
     value: Date | [Date, Date?],

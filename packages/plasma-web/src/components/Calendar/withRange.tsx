@@ -3,6 +3,9 @@ import React, { useMemo, useState, useCallback, useEffect, ReactElement } from '
 import type { Calendar, CalendarRange } from './types';
 import { getDateFromValue, getSortedValues } from './utils';
 
+/**
+ * HOC для календаря, дающий возможность выбора диапазона даты
+ */
 export const withRange = <T extends Calendar>(Component: React.FC<Calendar>) => ({
     value,
     disabledList,

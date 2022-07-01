@@ -9,21 +9,51 @@ import { CalendarRange } from './types';
 
 export type CalendarProps =
     | ({
+          /**
+           * Режим отображения: двойной или одинарный.
+           */
           isDouble?: false;
+          /**
+           * Режим выбора: диапазон или одинарный.
+           */
           isRange?: false;
+          /**
+           * Выбранное значение.
+           */
           value: Date;
       } & CalendarBaseProps)
     | ({
+          /**
+           * Режим отображения: двойной или одинарный.
+           */
           isDouble?: false;
+          /**
+           * Режим выбора: диапазон или одинарный.
+           */
           isRange: true;
       } & CalendarRange<CalendarBaseProps>)
     | ({
+          /**
+           * Режим отображения: двойной или одинарный.
+           */
           isDouble?: true;
+          /**
+           * Режим выбора: диапазон или одинарный.
+           */
           isRange?: false;
+          /**
+           * Выбранное значение.
+           */
           value: Date;
       } & CalendarDoubleProps)
     | ({
+          /**
+           * Режим отображения: двойной или одинарный.
+           */
           isDouble?: true;
+          /**
+           * Режим выбора: диапазон или одинарный.
+           */
           isRange: true;
       } & CalendarRange<CalendarDoubleProps>);
 

@@ -10,6 +10,9 @@ import { CalendarHeader } from './CalendarHeader';
 import { CalendarYears } from './CalendarYears';
 
 export type CalendarBaseProps = Calendar & {
+    /**
+     * Тип отображения календаря: дни, месяца, года.
+     */
     type?: CalendarStateType;
 };
 
