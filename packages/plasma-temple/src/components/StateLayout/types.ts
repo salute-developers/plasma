@@ -5,11 +5,11 @@ import { Insets, MediaObject, ObjectFit } from '../../types';
 
 export interface StateLayoutCommonProps {
     /** Основной текст состояния */
-    title: string;
+    title: React.ReactNode;
     /** @deprecated работает только c PlasmaApp */
     header?: HeaderProps;
     /** Дополнительный текст состояния */
-    text?: string;
+    text?: React.ReactNode;
     /** Дополнительный контент, обычно кнопки для выполнения какого-либо действия */
     button: React.ReactNode;
     /** Ссылка на картинку используемую в качестве фона */
