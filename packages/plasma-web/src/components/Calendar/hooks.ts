@@ -18,6 +18,9 @@ import {
     isDayInRage,
 } from './utils';
 
+/**
+ * Метод возвращающий массив дней в предыдущем месяце.
+ */
 const getDaysInPrevMonth = (date: DateObject, offsetDayInWeek: number, value: Date | [Date, Date?]) => {
     const [prevYear, prevMonth] = getPrevDate(date.year, date.monthIndex);
     const daysInPrevMonth = getDaysInMonth(prevMonth, prevYear);
@@ -37,6 +40,9 @@ const getDaysInPrevMonth = (date: DateObject, offsetDayInWeek: number, value: Da
     }));
 };
 
+/**
+ * Метод возвращающий массив дней в текущем месяце.
+ */
 const getDaysInCurrentMonth = (date: DateObject, daysInMonth: number, value: Date | [Date, Date?]) => {
     return Array.from(Array(daysInMonth), (_, i) => ({
         isCurrent: IsCurrentDay(date, i + 1),
@@ -53,6 +59,9 @@ const getDaysInCurrentMonth = (date: DateObject, daysInMonth: number, value: Dat
     }));
 };
 
+/**
+ * Метод возвращающий массив дней в следующем месяце.
+ */
 const getDaysInNextMonth = (
     date: DateObject,
     daysInMonth: number,
@@ -76,6 +85,9 @@ const getDaysInNextMonth = (
     }));
 };
 
+/**
+ * Метод для получения набора неповторяющихся дат.
+ */
 const getPropsMap = <T extends EventDay | DisabledDay>(props: T[]) =>
     props.reduce((acc, prop) => {
         const { year, monthIndex, day } = getDateFromValue(prop.date);
@@ -88,6 +100,9 @@ const getPropsMap = <T extends EventDay | DisabledDay>(props: T[]) =>
         return acc.set(key, propList);
     }, new Map<string, T[]>());
 
+/**
+ * Метод модифицирующий дни (добавляющий свойства events и disabled).
+ */
 const getDaysWithModifications = (
     days: DateItem[],
     eventList: EventDay[] = [],
@@ -112,6 +127,9 @@ const getDaysWithModifications = (
     });
 };
 
+/**
+ * Метод для получения дней недели по строкам.
+ */
 const getDaysByWeeks = (items: DateItem[]) => {
     const newItems = [...items];
     const daysInWeek = 7;
@@ -126,6 +144,9 @@ const getDaysByWeeks = (items: DateItem[]) => {
     }, []);
 };
 
+/**
+ * Хук для получения списка дней.
+ */
 export const useDays = (
     date: DateObject,
     value: Date | [Date, Date?],
@@ -157,6 +178,9 @@ export const useDays = (
     }, [date, startDeps, endDeps, valueDeps]);
 };
 
+/**
+ * Хук для получения списка месяцев.
+ */
 export const useMonths = (date: DateObject, value: Date) =>
     useMemo(
         () =>
@@ -168,6 +192,9 @@ export const useMonths = (date: DateObject, value: Date) =>
         [date, value],
     );
 
+/**
+ * Хук для получения списка годов.
+ */
 export const useYears = (startYear: number, value: Date) =>
     useMemo(
         () =>
