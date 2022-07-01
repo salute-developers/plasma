@@ -1,3 +1,17 @@
+# v1.81.0 (Fri Jul 01 2022)
+
+#### 🐛 Bug Fix
+
+- chore(plasma-ui): add performance addon to Carousel component [#74](https://github.com/salute-developers/plasma/pull/74) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+---
+
 # v1.80.0 (Wed Jun 29 2022)
 
 #### 🐛 Bug Fix

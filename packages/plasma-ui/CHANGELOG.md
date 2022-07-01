@@ -1,3 +1,26 @@
+# v1.116.0 (Fri Jul 01 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): Performance addon for Card [#85](https://github.com/salute-developers/plasma/pull/85) ([@SeanSilke](https://github.com/SeanSilke))
+- feat(plasma-ui): Performance addon for Stepper [#84](https://github.com/salute-developers/plasma/pull/84) ([@SeanSilke](https://github.com/SeanSilke))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore(plasma-ui): add performance addon to Carousel component [#74](https://github.com/salute-developers/plasma/pull/74) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+- chore(plasma-ui): add performance addon to Picker component [#81](https://github.com/salute-developers/plasma/pull/81) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+
+---
+
 # v1.115.0 (Wed Jun 29 2022)
 
 #### 🚀 Enhancement

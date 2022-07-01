@@ -1,3 +1,28 @@
+# (Fri Jul 01 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-temple@1.81.0`
+  - feat(plasma-temple): enchance statelayout props [#88](https://github.com/salute-developers/plasma/pull/88) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- `@salutejs/plasma-ui@1.116.0`
+  - feat(plasma-ui): Performance addon for Card [#85](https://github.com/salute-developers/plasma/pull/85) ([@SeanSilke](https://github.com/SeanSilke))
+  - feat(plasma-ui): Performance addon for Stepper [#84](https://github.com/salute-developers/plasma/pull/84) ([@SeanSilke](https://github.com/SeanSilke))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.81.0`, `@salutejs/plasma-ui@1.116.0`, `@salutejs/plasma-web@1.116.0`
+  - chore(plasma-ui): add performance addon to Carousel component [#74](https://github.com/salute-developers/plasma/pull/74) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+- `@salutejs/plasma-ui@1.116.0`
+  - chore(plasma-ui): add performance addon to Picker component [#81](https://github.com/salute-developers/plasma/pull/81) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+#### Authors: 3
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+
+---
+
 # (Wed Jun 29 2022)
 
 #### 🚀 Enhancement

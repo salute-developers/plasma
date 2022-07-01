@@ -1,3 +1,15 @@
+# v1.116.0 (Fri Jul 01 2022)
+
+#### 🐛 Bug Fix
+
+- chore(plasma-ui): add performance addon to Carousel component [#74](https://github.com/salute-developers/plasma/pull/74) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+#### Authors: 1
+
+- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+---
+
 # v1.115.0 (Wed Jun 29 2022)
 
 #### 🚀 Enhancement

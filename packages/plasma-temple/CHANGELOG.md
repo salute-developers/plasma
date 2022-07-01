@@ -1,3 +1,21 @@
+# v1.81.0 (Fri Jul 01 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): enchance statelayout props [#88](https://github.com/salute-developers/plasma/pull/88) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.79.0 (Wed Jun 29 2022)
 
 #### 🚀 Enhancement
