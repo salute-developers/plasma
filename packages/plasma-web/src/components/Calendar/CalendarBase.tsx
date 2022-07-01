@@ -3,7 +3,14 @@ import styled from 'styled-components';
 
 import type { CalendarStateType, DateObject, Calendar } from './types';
 import { CalendarState } from './types';
-import { getDateFromValue, getNextDate, getPrevDate, getStartYear, YEAR_RENDER_COUNT } from './utils';
+import {
+    changeEventThread,
+    getDateFromValue,
+    getNextDate,
+    getPrevDate,
+    getStartYear,
+    YEAR_RENDER_COUNT,
+} from './utils';
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
 import { CalendarHeader } from './CalendarHeader';
@@ -74,16 +81,20 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
 
     const handleOnChangeMonth = useCallback(
         (monthIndex: number) => {
-            setCalendarState(CalendarState.Days);
-            setDate({ ...date, monthIndex });
+            changeEventThread(() => {
+                setCalendarState(CalendarState.Days);
+                setDate({ ...date, monthIndex });
+            });
         },
         [type, date],
     );
 
     const handleOnChangeYear = useCallback(
         (year: number) => {
-            setCalendarState(CalendarState.Months);
-            setDate({ ...date, year });
+            changeEventThread(() => {
+                setCalendarState(CalendarState.Months);
+                setDate({ ...date, year });
+            });
         },
         [date, type],
     );
