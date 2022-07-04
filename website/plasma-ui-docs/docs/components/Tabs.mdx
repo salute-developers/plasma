@@ -87,3 +87,22 @@ export function App() {
     );
 }
 ```
+
+## Подскрол табов
+Если нужно чтобы выбранный таб всегда был виден. Используйте свойство autoscroll
+
+```tsx live
+import React, { useState } from 'react';
+import { TabsController } from '@salutejs/plasma-ui';
+
+export function App() {
+    const items = [{ label: 'Item 1' }, { label: 'Item 2' }, { label: 'Item 3' }, { label: 'Item 4' }];
+    const [index, setIndex] = useState(0);
+
+    return (
+        <div style={{zIndex: '0', position: 'relative'}}>
+            <TabsController items={items} index={index} onIndexChange={(i) => setIndex(i)} autoscroll/>
+        </div>
+    );
+}
+```
