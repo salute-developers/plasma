@@ -136,24 +136,8 @@ import {
     CardBody,
     CardContent,
 } from '@salutejs/plasma-ui';
-import styled from 'styled-components';
 
 export function App() {
-    const CardStyled = styled(Card)`
-        height: 150px;
-        width: 350px;
-        margin: 16px;
-    `;
-
-    const Subtitle = styled.div`
-        font-size: 12px;
-        line-height: 20px;
-    `;
-
-    const Titile = styled.div`
-        font-size: 16px;
-    `;
-
     const items = Array(25)
         .fill({
             title: 'Заголовок',
@@ -180,14 +164,14 @@ export function App() {
                 >
                     {items.map(({ title, subtitle }, i) => (
                         <CarouselCol key={`item:${i}`} size={3} sizeXL={4} scrollSnapAlign="start">
-                            <CardStyled focused={i === index}>
+                            <Card style={{ height: '150px', width: '350px', margin: '16px' }} focused={i === index}>
                                 <CardBody>
                                     <CardContent>
-                                        {subtitle && <Subtitle>{subtitle}</Subtitle>}
-                                        <Titile>{title}</Titile>
+                                        {subtitle && <div style={{ fontSize: '12px', lineHeight: '20px' }}>{subtitle}</div>}
+                                        <div style={{ fontSize: '16px' }}>{title}</div>
                                     </CardContent>
                                 </CardBody>
-                            </CardStyled>
+                            </Card>
                         </CarouselCol>
                     ))}
                 </Carousel>
