@@ -1,3 +1,21 @@
+# v1.117.0 (Wed Jul 06 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): Performance addon for ProductCart [#83](https://github.com/salute-developers/plasma/pull/83) ([@SeanSilke](https://github.com/SeanSilke))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- perf(plasma-ui): Performance addon for Tabs [#80](https://github.com/salute-developers/plasma/pull/80) ([@SeanSilke](https://github.com/SeanSilke))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+
+---
+
 # v1.116.0 (Fri Jul 01 2022)
 
 #### 🚀 Enhancement

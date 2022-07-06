@@ -1,3 +1,15 @@
+# v1.82.0 (Wed Jul 06 2022)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 1
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.81.0 (Fri Jul 01 2022)
 
 #### 🚀 Enhancement

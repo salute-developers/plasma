@@ -1,3 +1,29 @@
+# (Wed Jul 06 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-core): add tests for autoscroll tabs on focus [#66](https://github.com/salute-developers/plasma/pull/66) ([@Gerpea](https://github.com/Gerpea))
+- feat(plasma-core): add docs for autoscroll tabs on focus [#66](https://github.com/salute-developers/plasma/pull/66) ([@Gerpea](https://github.com/Gerpea))
+- `@salutejs/plasma-b2c@1.82.0`, `@salutejs/plasma-core@1.64.0`
+  - feat(plasma-core): add autoscroll tabs on focus [#66](https://github.com/salute-developers/plasma/pull/66) ([@Gerpea](https://github.com/Gerpea))
+- `@salutejs/plasma-ui@1.117.0`
+  - feat(plasma-ui): Performance addon for ProductCart [#83](https://github.com/salute-developers/plasma/pull/83) ([@SeanSilke](https://github.com/SeanSilke))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.117.0`
+  - docs(plasma-web,plasma-web-docs): Add comments and documentation for `Calendar` component [#90](https://github.com/salute-developers/plasma/pull/90) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-ui@1.117.0`
+  - perf(plasma-ui): Performance addon for Tabs [#80](https://github.com/salute-developers/plasma/pull/80) ([@SeanSilke](https://github.com/SeanSilke))
+
+#### Authors: 3
+
+- German Cyganov ([@Gerpea](https://github.com/Gerpea))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+
+---
+
 # (Fri Jul 01 2022)
 
 #### 🚀 Enhancement

@@ -1,3 +1,15 @@
+# v1.64.0 (Wed Jul 06 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-core): add autoscroll tabs on focus [#66](https://github.com/salute-developers/plasma/pull/66) ([@Gerpea](https://github.com/Gerpea))
+
+#### Authors: 1
+
+- German Cyganov ([@Gerpea](https://github.com/Gerpea))
+
+---
+
 # v1.63.0 (Wed Jun 29 2022)
 
 #### 🚀 Enhancement

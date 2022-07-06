@@ -1,3 +1,20 @@
+# v1.82.0 (Wed Jul 06 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-core): add autoscroll tabs on focus [#66](https://github.com/salute-developers/plasma/pull/66) ([@Gerpea](https://github.com/Gerpea))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- German Cyganov ([@Gerpea](https://github.com/Gerpea))
+
+---
+
 # v1.81.0 (Fri Jul 01 2022)
 
 #### 🐛 Bug Fix

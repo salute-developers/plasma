@@ -1,3 +1,15 @@
+# v1.117.0 (Wed Jul 06 2022)
+
+#### 🐛 Bug Fix
+
+- docs(plasma-web,plasma-web-docs): Add comments and documentation for `Calendar` component [#90](https://github.com/salute-developers/plasma/pull/90) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.116.0 (Fri Jul 01 2022)
 
 #### 🐛 Bug Fix
