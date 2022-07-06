@@ -11,5 +11,5 @@ const storyLinks = {
 };
 
 export const StorybookLink: FC<{ name: keyof typeof storyLinks }> = ({ name }) => {
-    return <BaseLink link={`https://bit.ly/3MuphOm-storybook/?path=/story/${storyLinks[name]}`} />;
+    return <BaseLink link={`https://plasma.sberdevices.ru/temple-storybook/?path=/story/${storyLinks[name]}`} />;
 };
