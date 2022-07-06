@@ -8,7 +8,7 @@ import { initialAssistantState, reducer } from './store/reducer';
 import { AssistantContext, AssistantContextType } from './AssistantContext';
 
 export interface AssistantProviderProps<A extends AssistantSmartAppData = AssistantSmartAppData> {
-    /** Параметры инициализации ассистента */
+    /** Параметры инициализации ассистента. В production среде используется только `getRecoveryState` */
     assistantParams: Omit<InitializeParams, 'getState'>;
     /** Колбэк, вызываемый после инициализации ассистента */
     onStart?: () => void;
