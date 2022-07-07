@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import styled, { css, InterpolationFunction } from 'styled-components';
 import { primary, secondary } from '@salutejs/plasma-tokens';
 import { applyMaxLines, MaxLinesProps } from '@salutejs/plasma-core';
@@ -68,7 +68,7 @@ const StyledItemTitle = styled(Body1)<MaxLinesProps & TextAlignProps>`
     }
 `;
 
-export const ProductCard: React.FC<CardExampleProps> = ({ title, subtitle, imageSrc, ...rest }) => (
+export const ProductCard: FC<PropsWithChildren<CardExampleProps>> = ({ title, subtitle, imageSrc, ...rest }) => (
     <Card {...rest}>
         <CardBody>
             <CardContent>
@@ -80,7 +80,7 @@ export const ProductCard: React.FC<CardExampleProps> = ({ title, subtitle, image
     </Card>
 );
 
-export const MusicCard: React.FC<CardExampleProps> = ({
+export const MusicCard: FC<PropsWithChildren<CardExampleProps>> = ({
     title,
     subtitle,
     roundness = 12,
@@ -107,7 +107,7 @@ export const MusicCard: React.FC<CardExampleProps> = ({
     </>
 );
 
-export const GalleryCard: React.FC<CardExampleProps> = ({
+export const GalleryCard: React.FC<React.PropsWithChildren<CardExampleProps>> = ({
     title,
     subtitle,
     imageSrc,

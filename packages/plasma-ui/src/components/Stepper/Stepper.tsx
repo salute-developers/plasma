@@ -51,7 +51,7 @@ export type StepperProps = UseStepperProps &
 /**
  * Готовый компонент для создания счетчика, подобного ``input[type="range"]``.
  */
-export const Stepper: React.FC<StepperProps> = ({
+export const Stepper: React.FC<React.PropsWithChildren<StepperProps>> = ({
     value,
     step,
     min,

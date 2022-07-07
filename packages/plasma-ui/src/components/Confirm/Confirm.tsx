@@ -155,7 +155,7 @@ const StyledCell = styled(Cell)`
 /**
  * Сообщение подтверждения действия пользователя.
  */
-export const Confirm: React.FC<ConfirmProps> = (props) => {
+export const Confirm: React.FC<React.PropsWithChildren<ConfirmProps>> = (props) => {
     const {
         title,
         subtitle,

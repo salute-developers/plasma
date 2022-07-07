@@ -59,7 +59,12 @@ export interface ScalingColCardProps extends Omit<CarouselItemProps, 'size' | 's
     };
 }
 
-export const ScalingColCard: React.FC<ScalingColCardProps> = ({ isActive, scrollSnapAlign, item, ...rest }) => (
+export const ScalingColCard: React.FC<React.PropsWithChildren<ScalingColCardProps>> = ({
+    isActive,
+    scrollSnapAlign,
+    item,
+    ...rest
+}) => (
     <CarouselCol size={2} sizeM={1.5} scrollSnapAlign={scrollSnapAlign} {...rest}>
         <StyledColInner>
             <StyledMusicCard

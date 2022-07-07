@@ -19,7 +19,11 @@ export interface HeaderButtonProps
 /**
  * Кнопка без внутренних отступов, границ и цвета фона.
  */
-export const HeaderButton: React.FC<HeaderButtonProps> = ({ size = 'm', children, ...rest }) => {
+export const HeaderButton: React.FC<React.PropsWithChildren<HeaderButtonProps>> = ({
+    size = 'm',
+    children,
+    ...rest
+}) => {
     return (
         <StyledHeaderButton size={size} view="clear" outlined={false} {...rest}>
             {children}

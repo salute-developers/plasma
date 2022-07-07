@@ -81,7 +81,7 @@ export const StyledTabItemMemo = React.memo(StyledTabItem);
 /**
  * Элемент списка вкладок, недопустимо использовать вне компонента Tabs.
  */
-export const TabItem: FC<TabItemProps> = (props) => {
+export const TabItem: FC<React.PropsWithChildren<TabItemProps>> = (props) => {
     const ref = useRef<HTMLElement>(null);
     const { refs } = useTabsAnimationContext();
 

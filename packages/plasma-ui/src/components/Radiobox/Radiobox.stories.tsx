@@ -11,7 +11,7 @@ export default {
     component: Radiobox,
     decorators: [
         InSpacingDecorator,
-        (Story: React.FC) => (
+        (Story: React.FC<React.PropsWithChildren<unknown>>) => (
             <SSRProvider>
                 <Story />
             </SSRProvider>

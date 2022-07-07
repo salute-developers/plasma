@@ -56,7 +56,13 @@ export interface StepperValueProps extends React.HTMLAttributes<HTMLDivElement>,
 /**
  * Компонент для отображения значения степпера.
  */
-export const StepperValue: React.FC<StepperValueProps> = ({ value, disabled, showWarning, formatter, ...rest }) => (
+export const StepperValue: React.FC<React.PropsWithChildren<StepperValueProps>> = ({
+    value,
+    disabled,
+    showWarning,
+    formatter,
+    ...rest
+}) => (
     <StyledValue role="status" aria-live="polite" disabled={disabled} showWarning={showWarning} {...rest}>
         {typeof formatter === 'function' ? formatter(value) : value}
     </StyledValue>

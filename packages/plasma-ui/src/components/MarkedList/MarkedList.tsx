@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { footnote1 } from '@salutejs/plasma-tokens';
 
@@ -32,11 +32,9 @@ export interface MarkedItemProps {
     text?: string;
 }
 
-export const MarkedItem: React.FC<MarkedItemProps & React.LiHTMLAttributes<HTMLLIElement>> = ({
-    text,
-    children,
-    ...props
-}) => (
+export const MarkedItem: React.FC<
+    MarkedItemProps & React.LiHTMLAttributes<HTMLLIElement> & { children?: ReactNode }
+> = ({ text, children, ...props }) => (
     <StyledMarkedItem {...props}>
         {children}
         {text && <StyledItemText>{text}</StyledItemText>}

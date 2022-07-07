@@ -11,7 +11,7 @@ export default {
     component: Checkbox,
     decorators: [
         InSpacingDecorator,
-        (Story: React.FC) => (
+        (Story) => (
             <SSRProvider>
                 <Story />
             </SSRProvider>

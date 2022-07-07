@@ -91,7 +91,12 @@ export interface HeaderRootProps extends React.HTMLAttributes<HTMLDivElement> {
 /**
  * Корневой узел для шапки.
  */
-export const HeaderRoot: React.FC<HeaderRootProps> = ({ children, size, gradientColor, ...rest }) => {
+export const HeaderRoot: React.FC<React.PropsWithChildren<HeaderRootProps>> = ({
+    children,
+    size,
+    gradientColor,
+    ...rest
+}) => {
     return (
         <StyledHeaderRoot {...rest} $size={size} $gradientColor={gradientColor}>
             <StyledInner>{children}</StyledInner>

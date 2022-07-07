@@ -61,7 +61,7 @@ export interface DeviceThemeProps {
  * с помощью пропса `detectDeviceCallback`.
  * При этом стоит помнить, что разрешены только 3 стандартных значения.
  */
-export const DeviceThemeProvider: React.FC<DeviceThemeProps> = ({
+export const DeviceThemeProvider: React.FC<React.PropsWithChildren<DeviceThemeProps>> = ({
     theme,
     children,
     detectDeviceCallback = detectDevice,

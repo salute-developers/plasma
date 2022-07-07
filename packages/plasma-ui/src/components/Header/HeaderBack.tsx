@@ -7,4 +7,6 @@ export interface HeaderBackProps extends Omit<HeaderArrowProps, 'arrow'> {}
 /**
  * Кнопка назад.
  */
-export const HeaderBack: React.FC<HeaderBackProps> = (props) => <HeaderArrow arrow="back" {...props} />;
+export const HeaderBack: React.FC<React.PropsWithChildren<HeaderBackProps>> = (props) => (
+    <HeaderArrow arrow="back" {...props} />
+);

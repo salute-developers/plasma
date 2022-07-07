@@ -6,4 +6,4 @@ export type ImageProps = BaseProps;
 /**
  * Компонент для отображения картинок.
  */
-export const Image: React.FC<ImageProps> = styled(BaseImage)``;
+export const Image: React.FC<React.PropsWithChildren<ImageProps>> = styled(BaseImage)``;

@@ -71,7 +71,7 @@ export interface TimePickerProps extends Omit<SimpleTimePickerProps, 'type' | 'r
 /**
  * Компонент для выбора времени.
  */
-export const TimePicker: React.FC<TimePickerProps> = ({
+export const TimePicker: React.FC<React.PropsWithChildren<TimePickerProps>> = ({
     id,
     options = defaultOptions,
     step,

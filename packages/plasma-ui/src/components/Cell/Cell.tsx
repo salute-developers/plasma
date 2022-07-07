@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, PropsWithChildren, HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { SelfPosition } from 'csstype';
 import { addFocus, FocusProps, OutlinedProps } from '@salutejs/plasma-core';
@@ -123,7 +123,7 @@ export interface CellProps extends FocusProps, OutlinedProps, AsProps {
 /**
  * Базовый компонент для отображения блоков контента в списках и карточках.
  */
-export const Cell: React.FC<CellProps & React.HTMLAttributes<HTMLDivElement>> = (props) => {
+export const Cell: FC<PropsWithChildren<CellProps & HTMLAttributes<HTMLDivElement>>> = (props) => {
     const {
         contentLeft: left,
         content,
