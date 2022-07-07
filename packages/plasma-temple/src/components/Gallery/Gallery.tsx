@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { CarouselGridWrapper, Carousel, CarouselItem } from '@salutejs/plasma-ui';
-import { isSberPortal } from '@salutejs/plasma-ui/utils';
+import { isSberPortal, mediaQuery } from '@salutejs/plasma-ui/utils';
 
 import { GalleryCardContainer } from '../GalleryCard/GalleryCardContainer';
 import { AnyObject } from '../../types';
@@ -28,6 +28,13 @@ const StyledCarousel = styled(Carousel)<{ initialized: boolean }>`
 
 const StyledCarouselItem = styled(CarouselItem)`
     padding-right: 1rem;
+
+    ${mediaQuery(
+        'S',
+        1,
+    )(css`
+        padding-right: 0.5rem;
+    `)};
 
     &:last-child {
         padding-right: 0;
