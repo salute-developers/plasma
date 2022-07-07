@@ -1,3 +1,23 @@
+# (Thu Jul 07 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): add test for tabs margins [#49](https://github.com/salute-developers/plasma/pull/49) ([@Gerpea](https://github.com/Gerpea))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.83.0`
+  - fix(plasma-b2c): fix tabs outer margins [#49](https://github.com/salute-developers/plasma/pull/49) ([@Gerpea](https://github.com/Gerpea))
+- `@salutejs/plasma-temple@1.83.0`
+  - fix(plasma-temple): fix link to storybook from docs, add ThemeProvider component name [#91](https://github.com/salute-developers/plasma/pull/91) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- German Cyganov ([@Gerpea](https://github.com/Gerpea))
+
+---
+
 # (Wed Jul 06 2022)
 
 #### 🚀 Enhancement

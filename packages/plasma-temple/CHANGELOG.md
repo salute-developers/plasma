@@ -1,3 +1,17 @@
+# v1.83.0 (Thu Jul 07 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-temple): fix link to storybook from docs, add ThemeProvider component name [#91](https://github.com/salute-developers/plasma/pull/91) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.82.0 (Wed Jul 06 2022)
 
 #### 🐛 Bug Fix

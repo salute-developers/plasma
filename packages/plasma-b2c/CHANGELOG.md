@@ -1,3 +1,17 @@
+# v1.83.0 (Thu Jul 07 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-b2c): fix tabs outer margins [#49](https://github.com/salute-developers/plasma/pull/49) ([@Gerpea](https://github.com/Gerpea))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- German Cyganov ([@Gerpea](https://github.com/Gerpea))
+
+---
+
 # v1.82.0 (Wed Jul 06 2022)
 
 #### 🚀 Enhancement
