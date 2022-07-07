@@ -27,7 +27,7 @@ const StyledCarousel = styled(Carousel)<{ initialized: boolean }>`
 `;
 
 const StyledCarouselItem = styled(CarouselItem)`
-    padding-right: 32px;
+    padding-right: 1rem;
 
     &:last-child {
         padding-right: 0;
