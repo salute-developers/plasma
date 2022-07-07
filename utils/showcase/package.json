@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/showcase",
-    "version": "0.143.0",
+    "version": "0.144.0",
     "description": "Salute Design System Showcase",
     "files": [],
     "repository": {
@@ -14,7 +14,7 @@
         "access": "restricted"
     },
     "devDependencies": {
-        "@salutejs/plasma-b2c": "1.82.0",
+        "@salutejs/plasma-b2c": "1.83.0",
         "@salutejs/plasma-core": "1.64.0",
         "@salutejs/plasma-icons": "1.89.0",
         "@salutejs/plasma-sb-utils": "0.63.0",
