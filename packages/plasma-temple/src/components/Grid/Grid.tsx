@@ -29,6 +29,13 @@ const StyledContainer = styled.div<Required<GridColumns>>`
     grid-auto-rows: 1fr;
     grid-template-columns: repeat(2, 1fr);
 
+    ${mediaQuery(
+        'S',
+        1,
+    )(css`
+        grid-gap: 0.5rem;
+    `)};
+
     ${({ columnXL, columnM, columnS }) => {
         return [
             mediaQuery('XL')(css`
