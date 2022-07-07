@@ -3,14 +3,7 @@ import styled from 'styled-components';
 
 import type { CalendarStateType, DateObject, Calendar } from './types';
 import { CalendarState } from './types';
-import {
-    changeEventThread,
-    getDateFromValue,
-    getNextDate,
-    getPrevDate,
-    getStartYear,
-    YEAR_RENDER_COUNT,
-} from './utils';
+import { getDateFromValue, getNextDate, getPrevDate, getStartYear, YEAR_RENDER_COUNT } from './utils';
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
 import { CalendarHeader } from './CalendarHeader';
@@ -81,7 +74,8 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
 
     const handleOnChangeMonth = useCallback(
         (monthIndex: number) => {
-            changeEventThread(() => {
+            // TODO: https://github.com/salute-developers/plasma/issues/92
+            setTimeout(() => {
                 setCalendarState(CalendarState.Days);
                 setDate({ ...date, monthIndex });
             });
@@ -91,7 +85,8 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
 
     const handleOnChangeYear = useCallback(
         (year: number) => {
-            changeEventThread(() => {
+            // TODO: https://github.com/salute-developers/plasma/issues/92
+            setTimeout(() => {
                 setCalendarState(CalendarState.Months);
                 setDate({ ...date, year });
             });
