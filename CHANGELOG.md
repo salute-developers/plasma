@@ -1,3 +1,17 @@
+# (Fri Jul 08 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-temple@1.83.1`
+  - fix(plasma-temple): mobile gallery gap between items [#93](https://github.com/salute-developers/plasma/pull/93) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+  - fix(plasma-temple): fix mobile gallery with navigation item right padding [#93](https://github.com/salute-developers/plasma/pull/93) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
 # (Thu Jul 07 2022)
 
 #### 🚀 Enhancement
