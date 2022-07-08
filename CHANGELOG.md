@@ -2,6 +2,21 @@
 
 #### 🐛 Bug Fix
 
+- `@salutejs/plasma-web@1.117.1`
+  - fix(plasma-web): Calendar inside Popup [#89](https://github.com/salute-developers/plasma/pull/89) ([@Yeti-or](https://github.com/Yeti-or))
+  - fix(plasma-web): Add wrappers for click handle in CalendarMonth and CalendarYear [#89](https://github.com/salute-developers/plasma/pull/89) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 2
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
+# (Fri Jul 08 2022)
+
+#### 🐛 Bug Fix
+
 - `@salutejs/plasma-temple@1.83.1`
   - fix(plasma-temple): mobile gallery gap between items [#93](https://github.com/salute-developers/plasma/pull/93) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
   - fix(plasma-temple): fix mobile gallery with navigation item right padding [#93](https://github.com/salute-developers/plasma/pull/93) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
