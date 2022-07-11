@@ -3,13 +3,12 @@ import React from 'react';
 import { PickOptional } from '../../types';
 
 import { HeaderRoot, HeaderRootProps } from './HeaderRoot';
-import { HeaderMinimize } from './HeaderMinimize';
-import { HeaderBack } from './HeaderBack';
 import { HeaderLogo } from './HeaderLogo';
 import { HeaderSubtitle } from './HeaderSubtitle';
 import { HeaderTitle } from './HeaderTitle';
 import { HeaderTitleWrapper } from './HeaderTitleWrapper';
 import { HeaderContent } from './HeaderContent';
+import { HeaderArrow } from './HeaderArrow';
 
 interface MinimizeProps {
     minimize?: true;
@@ -77,8 +76,9 @@ export const Header: React.FC<HeaderProps> = ({ children, ...props }) => {
 
     return (
         <HeaderRoot {...rest}>
-            {minimize && <HeaderMinimize onClick={onMinimizeClick} />}
-            {back && <HeaderBack onClick={onBackClick} />}
+            {(minimize || back) && (
+                <HeaderArrow onClick={back ? onBackClick : onMinimizeClick} arrow={back ? 'back' : 'minimize'} />
+            )}
             {logo && <HeaderLogo src={logo} alt={logoAlt} />}
             {title && (
                 <HeaderTitleWrapper>
