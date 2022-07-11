@@ -7,12 +7,12 @@ import { IconMic, IconPlus, IconTrash } from '@salutejs/plasma-icons';
 import { Button } from '../Button';
 import { Tabs, TabItem } from '../Tabs';
 
+import { HeaderArrow } from './HeaderArrow';
+
 import {
     Header,
     HeaderProps,
     HeaderRoot,
-    HeaderMinimize,
-    HeaderBack,
     HeaderLogo,
     HeaderTitleWrapper,
     HeaderSubtitle,
@@ -102,7 +102,6 @@ export const Default: Story<HeaderProps & { enableLogo: boolean; displayGrid: bo
     logoAlt,
     title,
     subtitle,
-    gradientColor,
     ...rest
 }) => {
     const [isBack, setIsBack] = useState(true);
@@ -129,7 +128,6 @@ export const Default: Story<HeaderProps & { enableLogo: boolean; displayGrid: bo
             logoAlt={enableLogo && logoAlt}
             title={title}
             subtitle={subtitle}
-            gradientColor={gradientColor}
         >
             <Content {...rest} />
         </Header>
@@ -176,23 +174,19 @@ export const CustomAssembly: Story<CustomAssemblyProps & ContentComponentProps> 
 }) => {
     const [isBack, setIsBack] = useState(true);
 
+    const onBackClick = () => {
+        action('onBackClick')();
+        setIsBack(false);
+    };
+
+    const onMinimizeClick = () => {
+        action('onMinimizeClick')();
+        setIsBack(true);
+    };
+
     return (
         <HeaderRoot gradientColor={gradientColor}>
-            {isBack ? (
-                <HeaderBack
-                    onClick={() => {
-                        action('onBackClick')();
-                        setIsBack(false);
-                    }}
-                />
-            ) : (
-                <HeaderMinimize
-                    onClick={() => {
-                        action('onMinimizeClick')();
-                        setIsBack(true);
-                    }}
-                />
-            )}
+            <HeaderArrow onClick={isBack ? onBackClick : onMinimizeClick} arrow={isBack ? 'back' : 'minimize'} />
             <HeaderLogo src="./images/320_320_12.jpg" alt="Logo" />
             <HeaderTitleWrapper>
                 {variant === 'title+subtitle' && (
