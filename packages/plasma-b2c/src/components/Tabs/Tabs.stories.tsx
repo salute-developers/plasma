@@ -22,6 +22,7 @@ interface DeafultStoryProps extends TabsProps {
     itemsNumber: number;
     label: string;
     enableContentLeft: boolean;
+    autoscroll: boolean;
 }
 
 export const Default: Story<DeafultStoryProps> = ({ itemsNumber, disabled, label, enableContentLeft, ...rest }) => {
@@ -63,7 +64,7 @@ export const Arrows: Story<DeafultStoryProps> = ({
     disabled,
     stretch,
     label,
-    autoScroll,
+    autoscroll,
     enableContentLeft,
 }) => {
     const items = Array(itemsNumber).fill({
@@ -79,7 +80,7 @@ export const Arrows: Story<DeafultStoryProps> = ({
             onIndexChange={(i) => setIndex(i)}
             stretch={stretch}
             disabled={disabled}
-            autoScroll={autoScroll}
+            autoscroll={autoscroll}
         />
     );
 };
@@ -90,6 +91,7 @@ Arrows.args = {
     stretch: true,
     label: 'Label',
     outsideScroll: true,
+    autoscroll: false,
 };
 
 const StyledMultipleContainer = styled.div`

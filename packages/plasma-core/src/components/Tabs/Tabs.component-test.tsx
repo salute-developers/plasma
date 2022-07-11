@@ -9,10 +9,10 @@ describe('plasma-core: Tabs', () => {
     const TabItem = getComponent('TabItem');
     const TabsController = getComponent('TabsController');
 
-    const ControlledTabsController = () => {
+    const ControlledTabsController = (props) => {
         const [index, setIndex] = useState(0);
 
-        return <TabsController items={items} index={index} onIndexChange={(i) => setIndex(i)} />;
+        return <TabsController items={items} index={index} onIndexChange={(i) => setIndex(i)} {...props} />;
     };
 
     it('simple', () => {
@@ -169,11 +169,7 @@ describe('plasma-core: Tabs', () => {
         mount(
             <CypressTestDecorator>
                 <Container>
-                    <Tabs>
-                        <TabItem>Joy</TabItem>
-                        <TabItem isActive>Sber</TabItem>
-                        <TabItem>Eva</TabItem>
-                    </Tabs>
+                    <ControlledTabsController autoscroll />
                 </Container>
             </CypressTestDecorator>,
         );

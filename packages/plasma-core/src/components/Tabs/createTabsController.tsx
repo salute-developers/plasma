@@ -54,18 +54,20 @@ export function createTabsController<T extends HTMLDivElement, P extends TabsCon
                 const parent = innerRef.current?.parentNode as Element;
                 if (autoscroll && parent && focusItem?.current) {
                     const { x, width } = focusItem.current?.getBoundingClientRect();
-                    const { width: parentWidth } = parent.getBoundingClientRect();
+                    const { x: parentX, width: parentWidth } = parent.getBoundingClientRect();
+                    const relativeX = x - parentX;
+
                     const style = window.getComputedStyle(parent);
                     const marginLeft = Number.parseInt(style.marginLeft, 10);
                     const marginRight = Number.parseInt(style.marginRight, 10);
 
-                    if (x < -marginLeft) {
-                        parent.scrollLeft += x + marginLeft;
+                    if (relativeX < -marginLeft) {
+                        parent.scrollLeft += relativeX + marginLeft;
                         return;
                     }
 
-                    if (parentWidth <= x + width - marginRight) {
-                        parent.scrollLeft += x + width - parentWidth - marginRight;
+                    if (parentWidth <= relativeX + width - marginRight) {
+                        parent.scrollLeft += relativeX + width - parentWidth - marginRight;
                     }
                 }
             },
