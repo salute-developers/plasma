@@ -8,17 +8,41 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 
 # Конфигурация
 
+:::info рекомендация
+Если разработка канваса планируется на базе [Next.js](https://nextjs.org/), рекомендуется использовать шаблон [canvas-example](https://github.com/salute-developers/canvas-example), который в том числе включает следующий функционал:
+- взаимодействие с ассистентом
+- роутинг (используется стандартный функционал Next.js)
+- кэширование данных с помощью библиотеки [react-query](https://react-query-v3.tanstack.com/).
+
+В данном случае использование компонентов `ScreensProvider`, `Screen`, `ScreensContainer`, `AssistantProvider` не рекомендуется.
+:::
+
 ## Навигация
 
 ### ScreensProvider
+
+:::info рекомендация
+Компонент не рекомендуется использовать с Next.js.
+:::
+
 <Description name="ScreensProvider" />
 <PropsTable name="ScreensProvider" />
 
 ### Screen
+
+:::info рекомендация
+Компонент не рекомендуется использовать с Next.js.
+:::
+
 <Description name="Screen" />
 <PropsTable name="Screen" />
 
 ### ScreensContainer
+
+:::info рекомендация
+Компонент не рекомендуется использовать с Next.js.
+:::
+
 <Description name="ScreensContainer" />
 <PropsTable name="ScreensContainer" />
 
