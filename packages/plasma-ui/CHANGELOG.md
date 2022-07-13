@@ -1,3 +1,15 @@
+# v1.117.1 (Wed Jul 13 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): fix header navigation button animation [#96](https://github.com/salute-developers/plasma/pull/96) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
 # v1.117.0 (Wed Jul 06 2022)
 
 #### 🚀 Enhancement
