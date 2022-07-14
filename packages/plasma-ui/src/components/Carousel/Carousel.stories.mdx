@@ -47,8 +47,8 @@ export const MyGallery = () = (
 import React from 'react';
 import { CarouselItem } from '@salutejs/plasma-ui';
 
-export const MyGalleryItem = ({ children }) => (
-    <CarouselItem scrollSnapAlign="center">{children}</CarouselItem>
+export const MyGalleryItem = ({ index, children }) => (
+    <CarouselItem scrollSnapAlign="center" index={index}>{children}</CarouselItem>
 );
 ```
 
@@ -142,7 +142,7 @@ export const App = () =>  {
                         paddingEnd="50%"
                     >
                         {items.map(({ title }, i) => (
-                            <CarouselCol key={`item:${i}`}>{title}</CarouselCol>
+                            <CarouselCol key={`item:${i}`} index={i}>{title}</CarouselCol>
                         ))}
                     </Carousel>
                 </CarouselGridWrapper>

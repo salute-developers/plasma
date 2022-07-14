@@ -53,8 +53,8 @@ export const MyGallery = () = (
 import React from 'react';
 import { CarouselItem } from '@salutejs/plasma-web';
 
-export const MyGalleryItem = ({ children }) => (
-    <CarouselItem scrollSnapAlign="center">{children}</CarouselItem>
+export const MyGalleryItem = ({ index, children }) => (
+    <CarouselItem scrollSnapAlign="center" index={index}>{children}</CarouselItem>
 );
 ```
 
@@ -153,7 +153,7 @@ export function App() {
             scrollAlign={align}
         >
             {items.map((item, i) => (
-                <CarouselItem key={`item:${i}`} style={{ display: 'flex', alignItems: 'center', padding: '0 0.5rem' }} scrollSnapAlign={align}>
+                <CarouselItem key={`item:${i}`} index={i} style={{ display: 'flex', alignItems: 'center', padding: '0 0.5rem' }} scrollSnapAlign={align}>
                     <StyledCard>
                         {item.title}
                     </StyledCard>
@@ -175,7 +175,7 @@ export function App() {
     <Button text="Prev" aria-controls="carousel-example" />
     <Button text="Next" aria-controls="carousel-example" />
     <Carousel>
-        {items.map((item, i) => <CarouselItem aria-label={`${i + 1} из ${items.length}`} />)}
+        {items.map((item, i) => <CarouselItem aria-label={`${i + 1} из ${items.length}`} index={i} />)}
     </Carousel>
 </section>
 ```

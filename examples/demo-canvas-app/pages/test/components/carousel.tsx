@@ -47,6 +47,7 @@ export default function CarouselPage() {
             <StyledCarousel index={index} axis="x" animatedScrollByIndex={isSberbox}>
                 {items.map((item, i) => (
                     <CarouselCol
+                        index={i}
                         key={i}
                         size={2}
                         sizeXL={4}

@@ -52,6 +52,7 @@ export const scaleCallback = (itemEl: HTMLDivElement, slot: number) => {
 };
 
 export interface ScalingColCardProps extends Omit<CarouselItemProps, 'size' | 'sizeM'> {
+    index: number;
     isActive: boolean;
     item: {
         title: string;
@@ -59,8 +60,8 @@ export interface ScalingColCardProps extends Omit<CarouselItemProps, 'size' | 's
     };
 }
 
-export const ScalingColCard: React.FC<ScalingColCardProps> = ({ isActive, scrollSnapAlign, item, ...rest }) => (
-    <CarouselCol size={2} sizeM={1.5} scrollSnapAlign={scrollSnapAlign} {...rest}>
+export const ScalingColCard: React.FC<ScalingColCardProps> = ({ isActive, scrollSnapAlign, index, item, ...rest }) => (
+    <CarouselCol size={2} index={index} sizeM={1.5} scrollSnapAlign={scrollSnapAlign} {...rest}>
         <StyledColInner>
             <StyledMusicCard
                 title={item.title}

@@ -63,7 +63,7 @@ export const SingleGallerySberPortal = React.memo<SingleGalleryProps>(
                         animatedScrollByIndex={false}
                     >
                         {gallery.items.map((item, idx) => (
-                            <StyledCarouselItem key={String(item.id)}>
+                            <StyledCarouselItem key={String(item.id)} index={idx}>
                                 <GalleryCard
                                     entity={item}
                                     galleryIndex={galleryIndex}

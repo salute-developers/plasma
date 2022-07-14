@@ -78,7 +78,7 @@ export function ItemEntitiesCommon<Id = unknown>({
             ) : (
                 <Carousel as={StyledRow} axis="x" index={carouselIndex} scrollAlign="start" paddingEnd="5rem">
                     {entities.map((entity, index) => (
-                        <CarouselCol scrollSnapAlign="start" sizeXL={3} sizeM={2} key={String(entity.id)}>
+                        <CarouselCol scrollSnapAlign="start" index={index} sizeXL={3} sizeM={2} key={String(entity.id)}>
                             <EntityComponent<Id>
                                 key={String(entity.id)}
                                 entity={entity}

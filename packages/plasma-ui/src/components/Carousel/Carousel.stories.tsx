@@ -117,6 +117,7 @@ export const Basic: Story<CarouselProps & CarouselColProps & { displayGrid: bool
                     {items.map(({ title, subtitle }, i) => (
                         <CarouselCol
                             key={`item:${i}`}
+                            index={i}
                             size={3}
                             sizeXL={4}
                             scrollSnapAlign={scrollSnapAlign}
@@ -293,6 +294,7 @@ export const Vertical: Story<CarouselProps & CarouselColProps & { displayGrid: b
                 {items.map(({ title, subtitle }, i) => (
                     <CarouselItem
                         key={`item:${i}`}
+                        index={i}
                         scrollSnapAlign={scrollSnapAlign}
                         style={verticalCarouselItemStyle}
                         aria-label={`${i + 1} из ${items.length}`}
@@ -339,7 +341,13 @@ export const MusicPage: Story<MusicPageProps> = ({ scrollSnapType, scrollSnapAli
                 <CarouselGridWrapper>
                     <Carousel as={Row} axis="x" index={0} scrollSnapType={scrollSnapType}>
                         {items.map((item, i) => (
-                            <CarouselCol key={`item:${i}`} size={2} sizeM={1.5} scrollSnapAlign={scrollSnapAlign}>
+                            <CarouselCol
+                                key={`item:${i}`}
+                                size={2}
+                                index={i}
+                                sizeM={1.5}
+                                scrollSnapAlign={scrollSnapAlign}
+                            >
                                 <MusicCard {...item} imageRatio="1 / 1" />
                             </CarouselCol>
                         ))}
@@ -351,7 +359,13 @@ export const MusicPage: Story<MusicPageProps> = ({ scrollSnapType, scrollSnapAli
                 <CarouselGridWrapper>
                     <Carousel as={Row} axis="x" index={0} scrollSnapType={scrollSnapType}>
                         {items.map((item, i) => (
-                            <CarouselCol key={`item:${i}`} size={4} sizeM={3} scrollSnapAlign={scrollSnapAlign}>
+                            <CarouselCol
+                                key={`item:${i}`}
+                                index={i}
+                                size={4}
+                                sizeM={3}
+                                scrollSnapAlign={scrollSnapAlign}
+                            >
                                 <MusicCard {...item} imageRatio="16 / 9" />
                             </CarouselCol>
                         ))}
@@ -363,7 +377,13 @@ export const MusicPage: Story<MusicPageProps> = ({ scrollSnapType, scrollSnapAli
                 <CarouselGridWrapper>
                     <Carousel as={Row} axis="x" index={0} scrollSnapType={scrollSnapType}>
                         {items.map((item, i) => (
-                            <CarouselCol key={`item:${i}`} size={3} sizeM={2} scrollSnapAlign={scrollSnapAlign}>
+                            <CarouselCol
+                                key={`item:${i}`}
+                                index={i}
+                                size={3}
+                                sizeM={2}
+                                scrollSnapAlign={scrollSnapAlign}
+                            >
                                 <MusicCard {...item} imageRatio="16 / 9" />
                             </CarouselCol>
                         ))}
@@ -426,6 +446,7 @@ export const CenterItem: Story<CarouselProps & ScalingColCardProps & { displayGr
                     {items.map((item, i) => (
                         <ScalingColCard
                             key={`item:${i}`}
+                            index={i}
                             scrollSnapAlign={scrollSnapAlign}
                             isActive={i === index}
                             item={item}

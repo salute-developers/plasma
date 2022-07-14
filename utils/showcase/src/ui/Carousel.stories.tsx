@@ -128,7 +128,9 @@ const ScalingColCard = ({
     isActive,
     scrollSnapAlign,
     item,
+    index,
 }: {
+    index: number;
     scrollSnapAlign?: CarouselItemProps['scrollSnapAlign'];
     isActive: boolean;
     item: {
@@ -137,7 +139,7 @@ const ScalingColCard = ({
         imageSrc: string;
     };
 }) => (
-    <CarouselCol size={2} sizeM={1.5} scrollSnapAlign={scrollSnapAlign}>
+    <CarouselCol size={2} sizeM={1.5} index={index} scrollSnapAlign={scrollSnapAlign}>
         <StyledColInner>
             <StyledItemCard
                 title={item.title}
@@ -180,7 +182,7 @@ const Basic = () => {
                 paddingEnd="50%"
             >
                 {items.map(({ title, subtitle }, i) => (
-                    <CarouselCol key={`item:${i}`} size={3} sizeXL={4} scrollSnapAlign="start">
+                    <CarouselCol key={`item:${i}`} size={3} index={i} sizeXL={4} scrollSnapAlign="start">
                         <ItemCard
                             title={title}
                             subtitle={subtitle}
@@ -220,7 +222,7 @@ const Vertical = () => {
             paddingEnd="50%"
         >
             {items.map(({ title, subtitle }, i) => (
-                <CarouselItem key={`item:${i}`} scrollSnapAlign="start" style={{ padding: '0.75rem 0' }}>
+                <CarouselItem key={`item:${i}`} index={i} scrollSnapAlign="start" style={{ padding: '0.75rem 0' }}>
                     <ItemCard
                         title={title}
                         subtitle={subtitle}
@@ -266,6 +268,7 @@ const ScaledCentralItem = () => {
                 {items.map((item, i) => (
                     <ScalingColCard
                         key={`item:${i}`}
+                        index={i}
                         scrollSnapAlign="center"
                         isActive={i === index}
                         item={{ ...item, subtitle: '' }}

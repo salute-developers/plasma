@@ -28,7 +28,7 @@ describe('plasma-web: Carousel', () => {
             <CypressTestDecorator>
                 <Carousel index={index} style={{ margin: '0 -0.5rem' }} scrollSnapType="none">
                     {items.map((item, i) => (
-                        <CarouselItem key={`item:${i}`} style={{ width: 320, padding: '0 0.5rem' }}>
+                        <CarouselItem key={`item:${i}`} index={i} style={{ width: 320, padding: '0 0.5rem' }}>
                             <CarouselCard {...item} />
                         </CarouselItem>
                     ))}

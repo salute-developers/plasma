@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { applyScrollSnap, ScrollSnapProps } from '../../mixins';
 import type { AsProps } from '../../types';
 
-export type CarouselItemProps = ScrollSnapProps & AsProps & React.HTMLAttributes<HTMLDivElement>;
+export type CarouselItemProps = ScrollSnapProps & AsProps & React.HTMLAttributes<HTMLDivElement> & { index: number };
 
 export type CarouselItemVirtualProps = AsProps &
     React.HTMLAttributes<HTMLDivElement> & {
@@ -28,9 +28,15 @@ const StyledItemVirtual = styled.div<CarouselItemVirtualProps>`
     position: absolute;
 `;
 
-export const CarouselItem: React.FC<CarouselItemProps> = ({ scrollSnapAlign = 'center', children, ...rest }) => {
+export const CarouselItem: React.FC<CarouselItemProps> = ({ scrollSnapAlign = 'center', index, children, ...rest }) => {
     return (
-        <StyledItem scrollSnapAlign={scrollSnapAlign} role="group" aria-roledescription="slide" {...rest}>
+        <StyledItem
+            scrollSnapAlign={scrollSnapAlign}
+            data-carousel-index={index}
+            role="group"
+            aria-roledescription="slide"
+            {...rest}
+        >
             {children}
         </StyledItem>
     );
