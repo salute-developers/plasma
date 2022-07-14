@@ -1,6 +1,6 @@
 /* eslint-disable no-continue */
 import throttle from 'lodash.throttle';
-import { useRef, useEffect, useCallback, useMemo } from 'react';
+import { useRef, useEffect, useCallback, useMemo, useReducer, useState } from 'react';
 
 import { useDebouncedFunction } from '../../hooks';
 
@@ -37,6 +37,8 @@ export const useCarousel = ({
     const trackRef = useRef<HTMLElement | null>(null);
     const itemsObserver = useRef<IntersectionObserver | null>(null);
     const visibleItems = useRef<Set<HTMLElement>>(new Set());
+    const [isVisibleItemsUpdated, setIsVisibleItemsUpdated] = useReducer((v) => v + 1, 0);
+    const [prevIsVisibleItemsUpdated] = useState(isVisibleItemsUpdated);
 
     const scaleResetCallbackRef = useRef(scaleResetCallback);
 
@@ -62,6 +64,7 @@ export const useCarousel = ({
                                 scaleResetCallbackRef.current?.(entry.target as HTMLElement);
                             });
                         }
+                        setIsVisibleItemsUpdated();
                     }
                 },
                 { root: scrollRef.current },
@@ -186,6 +189,16 @@ export const useCarousel = ({
     ]);
 
     /**
+     * вызываем только на первое изменение visibleItems,
+     * потому что в useEffect не акутальные visibleItems
+     */
+    if (prevIsVisibleItemsUpdated !== isVisibleItemsUpdated) {
+        if (detectActive) {
+            throttledDetectActiveItem();
+        }
+    }
+
+    /**
      * Прокрутка до нужной позиции индекса.
      */
     const toIndex = useCallback(
@@ -257,7 +270,7 @@ export const useCarousel = ({
              * событие скролла не произойдет, не сработает и определение центра,
              * необходимо вызвать его вручную.
              */
-            throttledDetectActiveItem();
+            // throttledDetectActiveItem();
         });
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
