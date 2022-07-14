@@ -4,11 +4,11 @@ import { skeletonGradient, skeletonGradientLighter } from '../tokens';
 
 const loading = keyframes`
     from {
-        background-position: 0vw 0%;
+        transform: translateX(0);
     }
 
     to {
-        background-position: 100vw 0%;
+        transform: translateX(100vw);
     }
 `;
 
@@ -18,8 +18,18 @@ export interface SkeletonGradientProps {
 
 export const applySkeletonGradient: InterpolationFunction<SkeletonGradientProps> = ({ lighter }) =>
     css`
-        background-image: ${lighter ? skeletonGradientLighter : skeletonGradient};
-        background-size: 100vw 100vh;
+        position: relative;
+        overflow: hidden;
+        z-index: 1; /* for safari */
 
-        animation: ${loading} 4s linear infinite;
+        &::before {
+            content: '';
+            position: absolute;
+            animation: ${loading} 4s linear infinite;
+            background-image: ${lighter ? skeletonGradientLighter : skeletonGradient};
+            top: 0;
+            left: -100vw;
+            width: 200vw;
+            height: 100%;
+        }
     `;
