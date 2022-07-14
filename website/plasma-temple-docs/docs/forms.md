@@ -108,7 +108,7 @@ interface VoiceFieldProps<T> {
 
 ## Пример
 
-```ts
+```tsx
 // pages/Form.tsx
 
 ...
