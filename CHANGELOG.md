@@ -1,3 +1,17 @@
+# (Thu Jul 14 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-temple): fix build [#99](https://github.com/salute-developers/plasma/pull/99) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- fix(plasma-temple): fix scenario docs link [#99](https://github.com/salute-developers/plasma/pull/99) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- docs(plasma-temple): notest about using Next.js [#98](https://github.com/salute-developers/plasma/pull/98) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
 # (Wed Jul 13 2022)
 
 #### 🐛 Bug Fix
