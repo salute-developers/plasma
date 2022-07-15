@@ -1,3 +1,18 @@
+# (Fri Jul 15 2022)
+
+#### 🐛 Bug Fix
+
+- docs(plasma-temple): improve forms code example block [#100](https://github.com/salute-developers/plasma/pull/100) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- `@salutejs/plasma-b2c@1.83.2`, `@salutejs/plasma-core@1.64.1`
+  - fix(plasma-core): fix autoscroll with row placement [#95](https://github.com/salute-developers/plasma/pull/95) ([@Gerpea](https://github.com/Gerpea))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- German Cyganov ([@Gerpea](https://github.com/Gerpea))
+
+---
+
 # (Thu Jul 14 2022)
 
 #### 🐛 Bug Fix

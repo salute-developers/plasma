@@ -1,3 +1,15 @@
+# v1.83.2 (Fri Jul 15 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-core): fix autoscroll with row placement [#95](https://github.com/salute-developers/plasma/pull/95) ([@Gerpea](https://github.com/Gerpea))
+
+#### Authors: 1
+
+- German Cyganov ([@Gerpea](https://github.com/Gerpea))
+
+---
+
 # v1.83.0 (Thu Jul 07 2022)
 
 #### 🐛 Bug Fix
