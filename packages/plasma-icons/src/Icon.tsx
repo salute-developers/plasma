@@ -145,6 +145,7 @@ import { Copy } from './Icon.assets/Copy';
 import { Folder } from './Icon.assets/Folder';
 // Map
 import { Location } from './Icon.assets/Location';
+import { LocationFill } from './Icon.assets/LocationFill';
 import { NavigationArrow } from './Icon.assets/NavigationArrow';
 // Player
 import { Next } from './Icon.assets/Next';
@@ -325,6 +326,7 @@ export const iconSectionsSet = {
     },
     map: {
         location: Location,
+        locationFill: LocationFill,
         navigationArrow: NavigationArrow,
     },
     player: {
