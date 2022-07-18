@@ -143,6 +143,7 @@ export { IconCopy } from './Icons/IconCopy';
 export { IconFolder } from './Icons/IconFolder';
 // Map
 export { IconLocation } from './Icons/IconLocation';
+export { IconLocationFill } from './Icons/IconLocationFill';
 export { IconNavigationArrow } from './Icons/IconNavigationArrow';
 // Player
 export { IconNext } from './Icons/IconNext';
