@@ -1,3 +1,21 @@
+# (Tue Jul 19 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-icons@1.90.0`
+  - feat(plasma-icons): Add `LocationFill` icon [#102](https://github.com/salute-developers/plasma/pull/102) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui-docs): drop Components creation [#75](https://github.com/salute-developers/plasma/pull/75) ([@KateKate](https://github.com/KateKate))
+
+#### Authors: 2
+
+- Ekaterina Anishkina ([@KateKate](https://github.com/KateKate))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Fri Jul 15 2022)
 
 #### 🐛 Bug Fix

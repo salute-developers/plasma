@@ -1,3 +1,20 @@
+# v1.90.0 (Tue Jul 19 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-icons): Add `LocationFill` icon [#102](https://github.com/salute-developers/plasma/pull/102) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.87.0 (Wed Jun 22 2022)
 
 #### 🐛 Bug Fix
