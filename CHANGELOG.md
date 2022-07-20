@@ -1,3 +1,16 @@
+# (Wed Jul 20 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.118.1`
+  - fix(plasma-web): Fix border visible for `TextField` and `TextArea` components [#103](https://github.com/salute-developers/plasma/pull/103) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Tue Jul 19 2022)
 
 #### 🚀 Enhancement

@@ -1,3 +1,17 @@
+# v1.118.1 (Wed Jul 20 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web): Fix border visible for `TextField` and `TextArea` components [#103](https://github.com/salute-developers/plasma/pull/103) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.118.0 (Tue Jul 19 2022)
 
 #### 🐛 Bug Fix
