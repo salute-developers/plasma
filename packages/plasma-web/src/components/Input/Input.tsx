@@ -160,6 +160,8 @@ const StyledInput = styled.input<StyledInputProps>`
     ${applySizes}
     ${inputTypo}
 
+    -webkit-appearance: none; /* для отображение рамок на iOS */
+
     box-sizing: border-box;
     width: 100%;
 

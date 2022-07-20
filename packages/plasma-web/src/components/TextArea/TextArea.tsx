@@ -13,6 +13,8 @@ export interface TextAreaProps extends BaseProps {
 }
 
 const StyledTextArea = styled(BaseArea)`
+    -webkit-appearance: none; /* для отображение рамок на iOS */
+
     ${applyInputStyles}
 `;
 
