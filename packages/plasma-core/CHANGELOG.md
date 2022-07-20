@@ -1,3 +1,15 @@
+# v1.64.2 (Wed Jul 20 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-core): fixed skeleton performance issues [#101](https://github.com/salute-developers/plasma/pull/101) (vanxellshing24@gmail.com)
+
+#### Authors: 1
+
+- rpg59 (vanxellshing24@gmail.com)
+
+---
+
 # v1.64.1 (Fri Jul 15 2022)
 
 #### 🐛 Bug Fix

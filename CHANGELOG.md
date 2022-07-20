@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@salutejs/plasma-core@1.64.2`
+  - fix(plasma-core): fixed skeleton performance issues [#101](https://github.com/salute-developers/plasma/pull/101) (vanxellshing24@gmail.com)
+
+#### Authors: 1
+
+- rpg59 (vanxellshing24@gmail.com)
+
+---
+
+# (Wed Jul 20 2022)
+
+#### 🐛 Bug Fix
+
 - `@salutejs/plasma-web@1.118.1`
   - fix(plasma-web): Fix border visible for `TextField` and `TextArea` components [#103](https://github.com/salute-developers/plasma/pull/103) ([@neretin-trike](https://github.com/neretin-trike))
 
