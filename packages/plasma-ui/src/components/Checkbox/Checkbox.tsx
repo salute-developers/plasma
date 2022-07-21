@@ -33,6 +33,7 @@ export const StyledInput = styled(BaseboxInput)`
     appearance: none;
     width: 100%;
     height: 100%;
+    opacity: 0;
 `;
 export const StyledTrigger = styled(BaseboxTrigger)<{
     $focused?: boolean;
