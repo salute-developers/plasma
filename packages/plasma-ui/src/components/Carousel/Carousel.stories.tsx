@@ -4,14 +4,16 @@ import type { SnapType, SnapAlign } from '@salutejs/plasma-core';
 import { CarouselItemVirtual } from '@salutejs/plasma-core';
 import * as tokens from '@salutejs/plasma-tokens';
 import { useVirtual } from '@salutejs/use-virtual';
-import { ThemeContext } from 'styled-components';
+import styled, { ThemeContext } from 'styled-components';
 import { withPerformance, InteractionTaskArgs, PublicInteractionTask } from 'storybook-addon-performance';
 import { fireEvent, waitFor } from '@testing-library/dom';
+import { IconChevronLeft, IconChevronRight } from '@salutejs/plasma-icons';
 
 import { isSberBox } from '../../utils';
 import { ProductCard, MusicCard, GalleryCard } from '../Card/Card.examples';
 import { DeviceThemeProvider } from '../Device';
 import { Row } from '../Grid';
+import { Button } from '../Button';
 import { Body3 } from '../Typography/Body';
 
 import { ScalingColCard, scaleCallback, scaleResetCallback, ScalingColCardProps } from './Carousel.examples';
@@ -26,6 +28,42 @@ import {
     CarouselProps,
     CarouselColProps,
 } from '.';
+
+const StyledWrapper = styled.div`
+    width: 32.5rem;
+    margin-left: auto;
+    margin-right: auto;
+`;
+const StyledCarouselWrapper = styled.section`
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+`;
+const StyledCarousel = styled(Carousel)`
+    & > div {
+        display: block;
+    }
+`;
+const StyledControls = styled.div`
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1;
+`;
+const StyledCarouselItem = styled(CarouselItem)`
+    width: 16.5rem;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+`;
+
+const ChevronLeft: React.FC = React.memo(() => {
+    return <IconChevronLeft size="s" color="#fff" />;
+});
+
+const ChevronRight: React.FC = React.memo(() => {
+    return <IconChevronRight size="s" color="#fff" />;
+});
 
 addDecorator(withPerformance);
 
@@ -62,10 +100,14 @@ const items = Array(100)
         imageSrc: `${process.env.PUBLIC_URL}/images/320_320_n.jpg`,
     })
     .map(({ title, subtitle, imageSrc }, i) => ({
+        id: `slide_${i}`,
         title: `${title} ${i}`,
         subtitle: `${subtitle} ${i}`,
         imageSrc: imageSrc.replace('n', i % 12),
     }));
+
+const enabledStateStyle = { display: 'block' };
+const disabledStateStyle = { display: 'none' };
 
 const snapTypes = ['mandatory', 'proximity'] as SnapType[];
 const snapAlign = ['start', 'center', 'end'] as SnapAlign[];
@@ -456,4 +498,68 @@ CenterItem.args = {
 
 CenterItem.argTypes = {
     ...Basic.argTypes,
+};
+
+export const AccessabilityDemo = () => {
+    const [index, setIndex] = React.useState(0);
+    const [ariaLive, setAriaLive] = React.useState<'off' | 'polite'>('off');
+
+    const enableAriaLive = React.useCallback(() => {
+        setAriaLive('polite');
+    }, []);
+
+    const disableAriaLive = React.useCallback(() => {
+        setAriaLive('off');
+    }, []);
+
+    const changeIndexPrev = React.useCallback(() => {
+        setIndex((i) => (i > 0 ? i - 1 : items.length - 1));
+    }, []);
+
+    const changeIndexNext = React.useCallback(() => {
+        setIndex((i) => (i < items.length - 1 ? i + 1 : 0));
+    }, []);
+
+    return (
+        <StyledWrapper>
+            <StyledCarouselWrapper
+                id="carousel-example"
+                aria-label="Пример карусели с доступностью"
+                onFocus={enableAriaLive}
+                onBlur={disableAriaLive}
+                onMouseOver={enableAriaLive}
+                onMouseLeave={disableAriaLive}
+            >
+                <StyledControls>
+                    <Button
+                        contentLeft={<ChevronLeft />}
+                        onClick={changeIndexPrev}
+                        aria-controls="carousel-example"
+                        aria-label="Предыдущий слайд"
+                        view="clear"
+                    />
+                    <Button
+                        contentLeft={<ChevronRight />}
+                        onClick={changeIndexNext}
+                        aria-controls="carousel-example"
+                        aria-label="Следующий слайд"
+                        view="clear"
+                    />
+                </StyledControls>
+                <StyledCarousel axis="y" index={index} scrollSnapType="none" aria-live={ariaLive}>
+                    {items.map((item, i) => (
+                        <StyledCarouselItem key={item.id} aria-label={`${i + 1} из ${items.length}`}>
+                            <GalleryCard
+                                id={item.id}
+                                title={item.title}
+                                subtitle={item.subtitle}
+                                imageSrc={item.imageSrc}
+                                style={i === index ? enabledStateStyle : disabledStateStyle}
+                            />
+                        </StyledCarouselItem>
+                    ))}
+                </StyledCarousel>
+            </StyledCarouselWrapper>
+        </StyledWrapper>
+    );
 };
