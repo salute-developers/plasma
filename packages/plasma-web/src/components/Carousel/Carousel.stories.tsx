@@ -111,8 +111,12 @@ export const AccessabilityDemo = () => {
         setAriaLive('off');
     }, []);
 
-    const changeIndex = React.useCallback(() => {
+    const changeIndexPrev = React.useCallback(() => {
         setIndex((i) => (i > 0 ? i - 1 : items.length - 1));
+    }, []);
+
+    const changeIndexNext = React.useCallback(() => {
+        setIndex((i) => (i < items.length - 1 ? i + 1 : 0));
     }, []);
 
     return (
@@ -127,15 +131,15 @@ export const AccessabilityDemo = () => {
             >
                 <StyledControls>
                     <Button
-                        contentLeft={ChevronLeft}
-                        onClick={changeIndex}
+                        contentLeft={<ChevronLeft />}
+                        onClick={changeIndexPrev}
                         aria-controls="carousel-example"
                         aria-label="Предыдущий слайд"
                         view="clear"
                     />
                     <Button
-                        contentLeft={ChevronRight}
-                        onClick={changeIndex}
+                        contentLeft={<ChevronRight />}
+                        onClick={changeIndexNext}
                         aria-controls="carousel-example"
                         aria-label="Следующий слайд"
                         view="clear"
