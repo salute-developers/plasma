@@ -1,3 +1,16 @@
+# (Thu Jul 21 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.118.2`
+  - fix(plasma-ui): Fix visible border in Input for `Checkbox` and `RadioBox` [#105](https://github.com/salute-developers/plasma/pull/105) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Wed Jul 20 2022)
 
 #### 🐛 Bug Fix
