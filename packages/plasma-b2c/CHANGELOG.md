@@ -1,3 +1,15 @@
+# v1.85.0 (Fri Jul 22 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): Add contentRight for `TextArea` component [#107](https://github.com/salute-developers/plasma/pull/107) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.84.2 (Wed Jul 20 2022)
 
 #### 🐛 Bug Fix
