@@ -1,5 +1,20 @@
 # (Fri Jul 22 2022)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-core@1.64.3`, `@salutejs/plasma-ui@1.118.3`, `@salutejs/plasma-web@1.118.3`
+  - test(plasma-core,plasma-ui,plasma-web): Update tests for `Tab` component [#106](https://github.com/salute-developers/plasma/pull/106) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-core@1.64.3`
+  - fix(plasma-core): Replace tag to div in `TabItem` for `Tab` component [#106](https://github.com/salute-developers/plasma/pull/106) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Fri Jul 22 2022)
+
 #### 🚀 Enhancement
 
 - test(plasma-b2c): Update snapshots for `TextArea` component [#107](https://github.com/salute-developers/plasma/pull/107) ([@neretin-trike](https://github.com/neretin-trike))

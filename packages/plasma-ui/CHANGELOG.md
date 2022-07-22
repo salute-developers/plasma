@@ -1,3 +1,15 @@
+# v1.118.3 (Fri Jul 22 2022)
+
+#### 🐛 Bug Fix
+
+- test(plasma-core,plasma-ui,plasma-web): Update tests for `Tab` component [#106](https://github.com/salute-developers/plasma/pull/106) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.118.2 (Thu Jul 21 2022)
 
 #### 🐛 Bug Fix
