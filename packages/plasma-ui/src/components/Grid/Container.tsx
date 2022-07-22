@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC, PropsWithChildren, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import {
     Container as BaseContainer,
@@ -40,7 +40,7 @@ const StyledContainer = styled(BaseContainer)<StyledContainerProps>`
  * Блок с полями по бокам для размещения контента по вертикали.
  * Блок нельзя вкладывать сам в себя или дальше по дереву.
  */
-export const Container: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...props }) => {
+export const Container: FC<PropsWithChildren<HTMLAttributes<HTMLDivElement>>> = ({ children, ...props }) => {
     const ref = React.useRef<HTMLDivElement | null>(null);
     const [width, setWidth] = React.useState(0);
 

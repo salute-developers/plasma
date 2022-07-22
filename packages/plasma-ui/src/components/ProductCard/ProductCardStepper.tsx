@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes } from 'react';
+import React, { FC, HTMLAttributes, PropsWithChildren } from 'react';
 import styled, { css } from 'styled-components';
 import { black, warning } from '@salutejs/plasma-core';
 import { IconMinus, IconPlus } from '@salutejs/plasma-icons';
@@ -69,7 +69,7 @@ const iconPlus = <IconPlus color="inherit" size="s" />;
 /**
  * Степпер карточки продукта.
  */
-export const ProductCardStepper: FC<ProductCardStepperProps> = ({
+export const ProductCardStepper: FC<PropsWithChildren<ProductCardStepperProps>> = ({
     value,
     step,
     min,

@@ -11,7 +11,7 @@ const isSingleValueProps = (props: SliderProps): props is SingleSliderProps => t
  * Слайдер позволяет определить числовое значение в пределах указаного промежутка. Можно указать два значения.
  * Только для приложения Салют.
  */
-export const Slider: React.FC<SliderProps> = (props) => {
+export const Slider: React.FC<React.PropsWithChildren<SliderProps>> = (props) => {
     if (isSingleValueProps(props)) {
         return <SliderSingleValue {...props} />;
     }

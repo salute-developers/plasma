@@ -47,7 +47,7 @@ interface MarqueeProps {
 /**
  * Компонент для отображения бегущей строки
  */
-export const Marquee: FC<MarqueeProps> = ({ textAlign, children, ...rest }) => {
+export const Marquee: FC<React.PropsWithChildren<MarqueeProps>> = ({ textAlign, children, ...rest }) => {
     const animationSpeed = 70;
     const textRef = useRef<HTMLDivElement>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);

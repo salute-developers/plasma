@@ -66,7 +66,7 @@ export interface DatePickerProps extends Omit<SimpleDatePickerProps, 'type' | 'r
 /**
  * Компонент для выбора даты.
  */
-export const DatePicker: React.FC<DatePickerProps> = ({
+export const DatePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = ({
     id,
     options = defaultOptions,
     size,

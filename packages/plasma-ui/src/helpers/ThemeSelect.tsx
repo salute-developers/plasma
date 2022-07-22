@@ -37,7 +37,7 @@ const themes = {
     lightJoy: createGlobalStyle(lightJoy),
 };
 
-export const ThemeSelect: React.FC = () => {
+export const ThemeSelect = () => {
     const [currentTheme, setCurrentTheme] = useState('darkSber');
 
     const Theme = themes[currentTheme];
@@ -67,7 +67,7 @@ const typos = {
     mobile: createGlobalStyle(mobile),
 };
 
-export const TypoSelect: React.FC = () => {
+export const TypoSelect: React.FC<React.PropsWithChildren<unknown>> = () => {
     const [currentTypo, setCurrentTypo] = useState('sberBox');
 
     const Typo = typos[currentTypo];

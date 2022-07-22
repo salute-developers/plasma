@@ -11,7 +11,7 @@ const DisclosureBtn = styled(Button)`
 
 export interface DisclosureProps extends Omit<ButtonProps, 'children' | 'text' | 'contentLeft' | 'contentRight'> {}
 
-export const Disclosure: React.FC<DisclosureProps> = (props) => {
+export const Disclosure: React.FC<React.PropsWithChildren<DisclosureProps>> = (props) => {
     return (
         <DisclosureBtn
             {...props}

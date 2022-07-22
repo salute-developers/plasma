@@ -110,7 +110,7 @@ export interface PickerItemProps extends React.HTMLAttributes<HTMLDivElement>, S
     isSnapAlwaysStop?: boolean;
 }
 
-export const PickerItem: React.FC<PickerItemProps> = ({
+export const PickerItem: React.FC<React.PropsWithChildren<PickerItemProps>> = ({
     size = 's',
     item,
     index,

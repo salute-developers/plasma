@@ -1,5 +1,5 @@
 /* eslint-disable cypress/no-unnecessary-waiting */
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 import { useVirtual } from '@salutejs/use-virtual';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
@@ -33,13 +33,13 @@ describe('plasma-ui: Carousel', () => {
     const CarouselItem = getComponent('CarouselItem');
     const Body3 = getComponent('Body3');
 
-    const CarouselDecorator: FC = ({ children }) => (
+    const CarouselDecorator = ({ children }: { children: ReactNode }) => (
         <CypressTestDecorator>
             <Container>{children}</Container>
         </CypressTestDecorator>
     );
 
-    const AnimatedCarouselX: FC = () => {
+    const AnimatedCarouselX = () => {
         const [index, setIndex] = useRemoteHandlers({
             initialIndex: 0,
             axis: 'x',
@@ -72,7 +72,7 @@ describe('plasma-ui: Carousel', () => {
         );
     };
 
-    const AnimatedCarouselY: FC = () => {
+    const AnimatedCarouselY = () => {
         const [index, setIndex] = useRemoteHandlers({
             initialIndex: 0,
             axis: 'y',

@@ -63,7 +63,7 @@ export type NeuHeaderProps = HTMLAttributes<HTMLDivElement> &
  * * Свойство `subtitle` переименовано в `subTitle`.
  * `NeuHeader` заменит собой исходный `Header` в будущих версиях.
  */
-export const NeuHeader: React.FC<NeuHeaderProps> = ({
+export const NeuHeader: React.FC<React.PropsWithChildren<NeuHeaderProps>> = ({
     arrow,
     onArrowClick,
     logo,

@@ -36,7 +36,11 @@ interface ContentComponentProps {
     enableIcons: boolean;
 }
 
-const Content: React.FC<ContentComponentProps> = ({ contentType, contentItemsNumber, enableIcons }) => {
+const Content: React.FC<React.PropsWithChildren<ContentComponentProps>> = ({
+    contentType,
+    contentItemsNumber,
+    enableIcons,
+}) => {
     const [activeTab, setActiveTab] = React.useState(0);
 
     const contentItems = Array(contentItemsNumber).fill(0);

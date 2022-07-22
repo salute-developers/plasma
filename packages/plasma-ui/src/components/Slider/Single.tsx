@@ -30,7 +30,14 @@ export interface SliderProps {
     onChange?(value: number): void;
 }
 
-export const Slider: React.FC<SliderProps> = ({ min, max, value, disabled, onChangeCommitted, onChange }) => {
+export const Slider: React.FC<React.PropsWithChildren<SliderProps>> = ({
+    min,
+    max,
+    value,
+    disabled,
+    onChangeCommitted,
+    onChange,
+}) => {
     const [state, setState] = React.useState({
         xHandle: 0,
         stepSize: 0,

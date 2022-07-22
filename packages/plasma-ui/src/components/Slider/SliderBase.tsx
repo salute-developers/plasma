@@ -49,7 +49,7 @@ const Fill = styled.div`
     width: 0;
 `;
 
-export const SliderBase: React.FC<SliderProps> = ({
+export const SliderBase: React.FC<React.PropsWithChildren<SliderProps>> = ({
     max,
     min,
     setStepSize,

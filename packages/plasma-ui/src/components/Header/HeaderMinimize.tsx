@@ -7,4 +7,6 @@ export interface HeaderBackProps extends Omit<HeaderArrowProps, 'arrow'> {}
 /**
  * Кнопка свернуть.
  */
-export const HeaderMinimize: React.FC<HeaderBackProps> = (props) => <HeaderArrow arrow="minimize" {...props} />;
+export const HeaderMinimize: React.FC<React.PropsWithChildren<HeaderBackProps>> = (props) => (
+    <HeaderArrow arrow="minimize" {...props} />
+);

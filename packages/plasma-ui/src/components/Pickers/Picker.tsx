@@ -278,7 +278,7 @@ export interface PickerProps
  * Компонент для отображения барабана-пикера,
  * позволяющего визуально проскроллить опции вверх-вниз.
  */
-export const Picker: FC<PickerProps> = ({
+export const Picker: FC<React.PropsWithChildren<PickerProps>> = ({
     id,
     size = DEFAULT_PICKER_SIZE,
     value,

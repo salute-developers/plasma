@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLAttributes, FC, PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 const StyledHeaderContent = styled.div`
@@ -12,6 +12,6 @@ const StyledHeaderContent = styled.div`
 /**
  * Контейнер для контента шапки.
  */
-export const HeaderContent: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => (
+export const HeaderContent: FC<PropsWithChildren<HTMLAttributes<HTMLDivElement>>> = ({ children, ...rest }) => (
     <StyledHeaderContent {...rest}>{children}</StyledHeaderContent>
 );

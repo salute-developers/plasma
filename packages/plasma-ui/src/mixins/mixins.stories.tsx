@@ -10,9 +10,9 @@ import type {
 
 import { InteractionProps } from '.';
 
-export const OutlinedComponent: React.FC<FocusProps & OutlinedProps> = () => undefined;
-export const BlurredComponent: React.FC<BlurProps> = () => undefined;
-export const DisabledComponent: React.FC<DisabledProps> = () => undefined;
-export const InteractionComponent: React.FC<InteractionProps> = () => undefined;
-export const RoundnessComponent: React.FC<RoundnessProps> = () => undefined;
-export const ViewComponent: React.FC<ViewProps> = () => undefined;
+export const OutlinedComponent: React.FC<React.PropsWithChildren<FocusProps & OutlinedProps>> = () => undefined;
+export const BlurredComponent: React.FC<React.PropsWithChildren<BlurProps>> = () => undefined;
+export const DisabledComponent: React.FC<React.PropsWithChildren<DisabledProps>> = () => undefined;
+export const InteractionComponent: React.FC<React.PropsWithChildren<InteractionProps>> = () => undefined;
+export const RoundnessComponent: React.FC<React.PropsWithChildren<RoundnessProps>> = () => undefined;
+export const ViewComponent: React.FC<React.PropsWithChildren<ViewProps>> = () => undefined;

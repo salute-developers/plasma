@@ -51,6 +51,6 @@ const StyledRoot = styled.div<Props>`
         `}
 `;
 
-export const ThemeBackground: React.FC<Props> = ({ children, ...rest }) => {
+export const ThemeBackground: React.FC<React.PropsWithChildren<Props>> = ({ children, ...rest }) => {
     return <StyledRoot {...rest}>{children}</StyledRoot>;
 };
