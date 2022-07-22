@@ -124,7 +124,7 @@ describe('plasma-ui: Tabs', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('div > button:nth-child(2)').focus();
+        cy.get('div > div:nth-child(2)').focus();
         cy.matchImageSnapshot();
     });
 
@@ -141,7 +141,7 @@ describe('plasma-ui: Tabs', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('div > button:nth-child(2)').focus();
+        cy.get('div > div:nth-child(2)').focus();
         cy.matchImageSnapshot();
     });
 
@@ -154,7 +154,7 @@ describe('plasma-ui: Tabs', () => {
             return (
                 <Tabs>
                     {items.map((item, i) => (
-                        <StyledTabItem key={i} isActive={i === index} onClick={() => setIndex(i)}>
+                        <StyledTabItem key={i} tabIndex={0} isActive={i === index} onClick={() => setIndex(i)}>
                             {item.label}
                         </StyledTabItem>
                     ))}
@@ -168,8 +168,8 @@ describe('plasma-ui: Tabs', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('div > button:nth-child(2)').focus();
-        cy.get('div > button:nth-child(1)').focus().click({ force: true });
+        cy.get('div > div:nth-child(2)').focus();
+        cy.get('div > div:nth-child(1)').last().focus().click({ force: true });
 
         cy.matchImageSnapshot();
     });
