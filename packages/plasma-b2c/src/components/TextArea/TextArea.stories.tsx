@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { IconPlaceholder, InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { TextArea, TextAreaProps } from '.';
 
@@ -55,12 +55,17 @@ export default {
     },
 } as Meta;
 
-export const Default: Story<TextAreaProps & { enableContentRight: boolean }> = ({ status, ...rest }) => {
+export const Default: Story<TextAreaProps & { enableContentRight: boolean }> = ({
+    status,
+    enableContentRight,
+    ...rest
+}) => {
     const [value, setValue] = React.useState('');
 
     return (
         <TextArea
             value={value}
+            contentRight={enableContentRight && <IconPlaceholder />}
             status={status || undefined}
             onChange={(e) => {
                 setValue(e.target.value);
@@ -78,6 +83,7 @@ Default.args = {
     placeholder: 'Заполните многострочное поле',
     leftHelper: 'Подсказка к полю',
     rightHelper: '125 слов',
+    enableContentRight: true,
     status: '' as 'success',
     resize: 'vertical',
     disabled: false,

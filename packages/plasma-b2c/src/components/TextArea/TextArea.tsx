@@ -8,6 +8,7 @@ import {
     secondary,
     tertiary,
     useResizeObserver,
+    FieldContent,
 } from '@salutejs/plasma-core';
 import type { TextAreaProps as BaseProps } from '@salutejs/plasma-core';
 
@@ -46,6 +47,12 @@ const StyledTextArea = styled(BaseArea)`
 `;
 
 const StyledFieldHelpers = styled(FieldHelpers)<{ width: number }>`
+    width: ${({ width }) => width}px;
+`;
+
+const StyledFieldContentWrapper = styled.div<{ width: number }>`
+    position: absolute;
+
     width: ${({ width }) => width}px;
 `;
 
@@ -95,6 +102,9 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
                 style={style}
             >
                 <FieldWrapper status={status}>
+                    <StyledFieldContentWrapper width={width} id={id ? `${id}-helper` : undefined}>
+                        {contentRight && <FieldContent pos="right">{contentRight}</FieldContent>}
+                    </StyledFieldContentWrapper>
                     <StyledTextArea
                         ref={ref}
                         id={id}
