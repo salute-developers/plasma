@@ -22,7 +22,7 @@ describe('plasma-web: Tabs', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('div > button:nth-child(2)').focus();
+        cy.get('div > div:nth-child(2)').focus();
         cy.matchImageSnapshot();
     });
 });
