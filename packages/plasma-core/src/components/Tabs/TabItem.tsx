@@ -11,6 +11,7 @@ interface StyledTabItemProps {
     isActive?: boolean;
     isChildren?: boolean;
     isContentLeft?: boolean;
+    disabled?: boolean;
 }
 
 export interface TabItemProps extends AsProps, React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -54,7 +55,7 @@ const StyledTabItemText = styled.span`
     }
 `;
 
-export const StyledTabItem = styled.button<StyledTabItemProps>`
+export const StyledTabItem = styled.div<StyledTabItemProps>`
     align-items: center;
     box-sizing: border-box;
     display: flex;
