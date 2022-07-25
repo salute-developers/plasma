@@ -1,3 +1,15 @@
+# v1.118.4 (Mon Jul 25 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): removed FC type [#97](https://github.com/salute-developers/plasma/pull/97) ([@SeanSilke](https://github.com/SeanSilke))
+
+#### Authors: 1
+
+- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+
+---
+
 # v1.118.3 (Fri Jul 22 2022)
 
 #### 🐛 Bug Fix

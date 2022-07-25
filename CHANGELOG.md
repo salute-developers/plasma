@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@salutejs/plasma-core@1.64.4`, `@salutejs/plasma-ui@1.118.4`
+  - fix(plasma-ui): removed FC type [#97](https://github.com/salute-developers/plasma/pull/97) ([@SeanSilke](https://github.com/SeanSilke))
+
+#### Authors: 1
+
+- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+
+---
+
+# (Mon Jul 25 2022)
+
+#### 🐛 Bug Fix
+
 - `@salutejs/cra-template-plasma-basic-template@2.2.2`, `@salutejs/cra-template-plasma-shop-template@2.2.2`
   - fix(plasma-shop-template): update plasma packages [#108](https://github.com/salute-developers/plasma/pull/108) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
 
