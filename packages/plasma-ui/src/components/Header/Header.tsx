@@ -71,7 +71,7 @@ export type HeaderProps = React.HTMLAttributes<HTMLDivElement> &
  * Сборный компонент для отрисовки шапки страницы.
  * Уже включает в себя все составные части шапки.
  */
-export const Header: React.FC<HeaderProps> = ({ children, ...props }) => {
+export const Header = ({ children, ...props }: HeaderProps) => {
     const { minimize, back, logo, logoAlt, title, subtitle, onMinimizeClick, onBackClick, ...rest } = props as AllProps;
 
     return (

@@ -110,7 +110,7 @@ export interface PickerItemProps extends React.HTMLAttributes<HTMLDivElement>, S
     isSnapAlwaysStop?: boolean;
 }
 
-export const PickerItem: React.FC<PickerItemProps> = ({
+export const PickerItem = ({
     size = 's',
     item,
     index,
@@ -120,7 +120,7 @@ export const PickerItem: React.FC<PickerItemProps> = ({
     autofocus,
     disabled,
     ...rest
-}) => {
+}: PickerItemProps) => {
     const itemRef = React.useRef<HTMLDivElement | null>(null);
     /*
      * Выведем стили еще до того, как отработает коллбек стилей.

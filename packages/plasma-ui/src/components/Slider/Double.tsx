@@ -37,7 +37,7 @@ function getXCenterHandle(handle: HTMLDivElement) {
     return handlePosition - containerX;
 }
 
-export const Slider: React.FC<SliderProps> = ({ min, max, value, disabled, onChangeCommitted, onChange }) => {
+export const Slider = ({ min, max, value, disabled, onChangeCommitted, onChange }: SliderProps) => {
     const [state, setState] = React.useState({
         stepSize: 0,
         railFillWidth: 0,

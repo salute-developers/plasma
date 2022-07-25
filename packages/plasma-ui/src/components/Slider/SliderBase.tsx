@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled, { css, ThemeContext } from 'styled-components';
 import { surfaceLiquid03, buttonAccent, scalingPixelBasis, sberPortalScale } from '@salutejs/plasma-tokens';
 
@@ -12,6 +12,7 @@ interface SliderProps {
     min: number;
     max: number;
     railFillWidth: number;
+    children?: ReactNode;
     railFillXPosition?: number;
     disabled?: boolean;
     setStepSize(stepSize: number): void;
@@ -49,7 +50,7 @@ const Fill = styled.div`
     width: 0;
 `;
 
-export const SliderBase: React.FC<SliderProps> = ({
+export const SliderBase = ({
     max,
     min,
     setStepSize,
@@ -57,7 +58,7 @@ export const SliderBase: React.FC<SliderProps> = ({
     children,
     railFillXPosition = 0,
     disabled,
-}) => {
+}: SliderProps) => {
     const ref = React.useRef<HTMLDivElement | null>(null);
     const theme = React.useContext(ThemeContext);
 

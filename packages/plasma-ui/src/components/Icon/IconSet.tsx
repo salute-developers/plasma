@@ -27,7 +27,7 @@ export interface IconSetProps {
     include?: Array<IName>;
 }
 
-export const IconSet: React.FC<IconSetProps> = ({ size, color, exclude, include }) => {
+export const IconSet = ({ size, color, exclude, include }: IconSetProps) => {
     return (
         <StyledRow>
             {Object.entries(iconSectionsSet).map(([sectionName, section]) => {

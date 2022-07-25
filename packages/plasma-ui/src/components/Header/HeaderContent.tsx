@@ -12,6 +12,6 @@ const StyledHeaderContent = styled.div`
 /**
  * Контейнер для контента шапки.
  */
-export const HeaderContent: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => (
+export const HeaderContent = ({ children, ...rest }: React.HTMLAttributes<HTMLDivElement>) => (
     <StyledHeaderContent {...rest}>{children}</StyledHeaderContent>
 );

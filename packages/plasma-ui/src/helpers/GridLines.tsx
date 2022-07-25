@@ -66,7 +66,7 @@ export interface GridLinesProps extends React.HTMLAttributes<HTMLDivElement> {
 /**
  * Вспомогательный компонент для демонстрации в Storybook.
  */
-export const GridLines: React.FC<GridLinesProps> = ({ columns = 12, ...rest }) => {
+export const GridLines = ({ columns = 12, ...rest }: GridLinesProps) => {
     const cols = Array(columns).fill(0);
 
     return (

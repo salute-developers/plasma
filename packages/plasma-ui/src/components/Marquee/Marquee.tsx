@@ -1,4 +1,4 @@
-import React, { FC, useLayoutEffect, useRef, useState } from 'react';
+import React, { ReactNode, useLayoutEffect, useRef, useState } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 
 const marquee = keyframes`
@@ -41,13 +41,14 @@ const StyledText = styled.div`
 `;
 
 interface MarqueeProps {
+    children?: ReactNode;
     textAlign?: 'start' | 'center' | 'end';
 }
 
 /**
  * Компонент для отображения бегущей строки
  */
-export const Marquee: FC<MarqueeProps> = ({ textAlign, children, ...rest }) => {
+export const Marquee = ({ textAlign, children, ...rest }: MarqueeProps) => {
     const animationSpeed = 70;
     const textRef = useRef<HTMLDivElement>(null);
     const wrapperRef = useRef<HTMLDivElement>(null);

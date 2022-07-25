@@ -1,4 +1,4 @@
-import React, { FC, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { TabItem as BaseTabItem, button2, buttonFocused } from '@salutejs/plasma-core';
 import type { TabItemProps as BaseTabItemProps, AsProps } from '@salutejs/plasma-core';
@@ -81,7 +81,7 @@ export const StyledTabItemMemo = React.memo(StyledTabItem);
 /**
  * Элемент списка вкладок, недопустимо использовать вне компонента Tabs.
  */
-export const TabItem: FC<TabItemProps> = (props) => {
+export const TabItem = (props: TabItemProps) => {
     const ref = useRef<HTMLElement>(null);
     const { refs } = useTabsAnimationContext();
 

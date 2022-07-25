@@ -66,7 +66,7 @@ export interface DatePickerProps extends Omit<SimpleDatePickerProps, 'type' | 'r
 /**
  * Компонент для выбора даты.
  */
-export const DatePicker: React.FC<DatePickerProps> = ({
+export const DatePicker = ({
     id,
     options = defaultOptions,
     size,
@@ -86,7 +86,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
     yearsAriaLabel: yearAriaLabel,
     infiniteScroll,
     ...rest
-}) => {
+}: DatePickerProps) => {
     const normalizeValues = React.useMemo(() => getNormalizeValues(getDateValues, getSeconds)(value, min, max), [
         value,
     ]);

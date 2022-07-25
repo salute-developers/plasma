@@ -14,7 +14,7 @@ export interface CarouselColProps extends ColProps, CarouselItemProps, React.HTM
  * Элемент списка. В рамках интерфейса элемент наследуется от ``Col`` и ``CarouselItem``.
  * Используется для каруселей с сеткой.
  */
-export const CarouselCol: React.FC<CarouselColProps> = ({ children, ...rest }) => {
+export const CarouselCol = ({ children, ...rest }: CarouselColProps) => {
     return (
         <StyledCol type="calc" role="group" aria-roledescription="slide" {...rest}>
             {children}

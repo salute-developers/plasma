@@ -10,7 +10,7 @@ export interface SmartPaginationDotsProps extends BaseProps, React.HTMLAttribute
  * Компонент для отображения точек пагинации
  * с возможностью ограничения количества видимых элементов.
  */
-export const SmartPaginationDots: React.FC<SmartPaginationDotsProps> = ({ items, index, visibleItems, ...rest }) => {
+export const SmartPaginationDots = ({ items, index, visibleItems, ...rest }: SmartPaginationDotsProps) => {
     const { sliced, activeId } = usePaginationDots({ items, index, visibleItems });
 
     return (
