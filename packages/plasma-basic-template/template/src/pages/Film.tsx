@@ -10,7 +10,7 @@ const getFilm = (id: string): Promise<FilmType> =>
         name: 'Имя фильма',
         rating: 5,
         genre: 'комедия',
-        poster: 'https://via.placeholder.com/1920x1080',
+        poster: '/1920x1080.png',
     });
 
 export const Film: PageComponent<PageStateType, 'film', PageParamsType> = ({ state, header, params, changeState }) => {

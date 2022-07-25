@@ -1,6 +1,7 @@
 // pages/Gallery/Gallery.tsx
 
 import React from 'react';
+import styled, { css } from 'styled-components';
 import {
     GalleryPage,
     useMount,
@@ -10,7 +11,7 @@ import {
     useAssistantAppState,
     GalleryCardProps,
 } from '@salutejs/plasma-temple';
-import { Card, CardBody, CardMedia, CardContent, CardHeadline1, CardFootnote1 } from '@salutejs/plasma-ui';
+import { Card, CardBody, CardMedia, CardContent, CardHeadline1, CardFootnote1, mediaQuery } from '@salutejs/plasma-ui';
 
 import { ActionType, AssistantDataAction, Film, PageParamsType, PageStateType } from '../types';
 
@@ -27,11 +28,11 @@ const getGallery = (): Promise<GalleryPageState<Film>> => {
                     name: 'Первый фильм',
                     position: 1,
                     image: {
-                        src: 'https://via.placeholder.com/450x800',
+                        src: '/450x800.png',
                     },
                     rating: 4.5,
                     genre: 'comedy',
-                    poster: 'https://via.placeholder.com/450x800',
+                    poster: '/450x800.png',
                 },
                 {
                     id: '2',
@@ -39,11 +40,11 @@ const getGallery = (): Promise<GalleryPageState<Film>> => {
                     name: 'Второй фильм',
                     position: 2,
                     image: {
-                        src: 'https://via.placeholder.com/450x800',
+                        src: '/450x800.png',
                     },
                     rating: 5,
                     genre: 'fantasy',
-                    poster: 'https://via.placeholder.com/450x800',
+                    poster: '/450x800.png',
                 },
             ],
         },
@@ -54,11 +55,24 @@ const getItemSelectorItems = (gallery: GalleryPageState['gallery']) => {
     return Array.isArray(gallery) ? gallery : [gallery];
 };
 
+const StyledCard = styled(Card)`
+    width: 12.25rem;
+
+    ${mediaQuery(
+        'M',
+        2,
+    )(
+        css`
+            width: 10375rem;
+        `,
+    )}
+`;
+
 const CustomCard: React.FC<GalleryCardProps<Film>> = ({ card, focused }) => {
     const src = Array.isArray(card.image.src) ? card.image.src[0] : card.image.src;
 
     return (
-        <Card focused={focused}>
+        <StyledCard focused={focused}>
             <CardBody>
                 <CardMedia src={src} ratio="3 / 4" />
                 <CardContent cover>
@@ -71,7 +85,7 @@ const CustomCard: React.FC<GalleryCardProps<Film>> = ({ card, focused }) => {
                     </CardFootnote1>
                 </CardContent>
             </CardBody>
-        </Card>
+        </StyledCard>
     );
 };
 
