@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useRef, useCallback, useEffect, useContext } from 'react';
-import type { FC, HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 import styled, { css, ThemeContext } from 'styled-components';
 import { primary } from '@salutejs/plasma-tokens';
 import { IconChevronUp, IconChevronDown } from '@salutejs/plasma-icons';
@@ -278,7 +278,7 @@ export interface PickerProps
  * Компонент для отображения барабана-пикера,
  * позволяющего визуально проскроллить опции вверх-вниз.
  */
-export const Picker: FC<PickerProps> = ({
+export const Picker = ({
     id,
     size = DEFAULT_PICKER_SIZE,
     value,
@@ -290,7 +290,7 @@ export const Picker: FC<PickerProps> = ({
     'aria-label': ariaLabel,
     onChange,
     ...rest
-}) => {
+}: PickerProps) => {
     const isSingleItem = items.length === 1;
     const disabled = rest.disabled || isSingleItem;
 

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { ReactNode } from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
 describe('plasma-core: Typography', () => {
@@ -45,7 +45,7 @@ describe('plasma-core: Typography', () => {
         cy.matchImageSnapshot();
     });
 
-    const Container: FC = ({ children }) => <div style={{ width: '50px' }}>{children}</div>;
+    const Container = ({ children }: { children: ReactNode }) => <div style={{ width: '50px' }}>{children}</div>;
 
     it('Typography with breakWord', () => {
         mount(

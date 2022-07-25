@@ -71,7 +71,7 @@ export interface TimePickerProps extends Omit<SimpleTimePickerProps, 'type' | 'r
 /**
  * Компонент для выбора времени.
  */
-export const TimePicker: React.FC<TimePickerProps> = ({
+export const TimePicker = ({
     id,
     options = defaultOptions,
     step,
@@ -92,7 +92,7 @@ export const TimePicker: React.FC<TimePickerProps> = ({
     hoursAriaLabel,
     infiniteScroll,
     ...rest
-}) => {
+}: TimePickerProps) => {
     const normalizeValues = React.useMemo(() => getNormalizeValues(getTimeValues, getSeconds)(value, min, max), [
         value,
     ]);

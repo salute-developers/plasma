@@ -51,7 +51,7 @@ export type StepperProps = UseStepperProps &
 /**
  * Готовый компонент для создания счетчика, подобного ``input[type="range"]``.
  */
-export const Stepper: React.FC<StepperProps> = ({
+export const Stepper = ({
     value,
     step,
     min,
@@ -66,7 +66,7 @@ export const Stepper: React.FC<StepperProps> = ({
     ariaLabelIncrement,
     ariaLabelRemove,
     ...props
-}) => {
+}: StepperProps) => {
     const { onLessClick, onMoreClick, isMin, isMax, isLessDisabled, isMoreDisabled } = useStepper({
         value,
         step,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { overlay, primary, backgroundPrimary } from '@salutejs/plasma-tokens';
 
@@ -20,6 +20,7 @@ export interface SheetProps extends React.HTMLAttributes<HTMLDivElement> {
      * который шторка закрывается.
      */
     withOverlay?: boolean;
+    children?: ReactNode;
 }
 
 const StyledWrapper = styled.div<{ isOpen: boolean }>`
@@ -103,13 +104,7 @@ const StyledSheetHandle = styled.div`
  * Открывает окно-шторку поверх основного экрана.
  * Только для приложения Салют.
  */
-export const Sheet: React.FC<React.PropsWithChildren<SheetProps>> = ({
-    isOpen,
-    children,
-    onClose,
-    withOverlay = true,
-    ...restProps
-}) => {
+export const Sheet = ({ isOpen, children, onClose, withOverlay = true, ...restProps }: SheetProps) => {
     const contentWrapperRef = React.useRef<HTMLDivElement>(null);
     const handleRef = React.useRef<HTMLDivElement>(null);
 

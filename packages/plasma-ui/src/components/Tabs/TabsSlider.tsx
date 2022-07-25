@@ -32,7 +32,7 @@ export const StyledSlider = styled.div<Pick<SliderProps, 'disabled'>>`
 /**
  * Слайдер переключения табов
  */
-export const TabsSlider: React.FC<SliderProps> = ({ index, ...rest }) => {
+export const TabsSlider = ({ index, ...rest }: SliderProps) => {
     const [dimensions, setDimensions] = useState({ left: 0, width: 0, height: 0 });
     const { refs } = useTabsAnimationContext();
 

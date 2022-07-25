@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { text, background, gradient } from '@salutejs/plasma-tokens';
 
@@ -6,6 +6,7 @@ interface Props {
     showcase?: boolean;
     spaced?: boolean;
     vertical?: boolean;
+    children?: ReactNode;
 }
 
 const StyledRoot = styled.div<Props>`
@@ -51,6 +52,6 @@ const StyledRoot = styled.div<Props>`
         `}
 `;
 
-export const ThemeBackground: React.FC<Props> = ({ children, ...rest }) => {
+export const ThemeBackground = ({ children, ...rest }: Props) => {
     return <StyledRoot {...rest}>{children}</StyledRoot>;
 };

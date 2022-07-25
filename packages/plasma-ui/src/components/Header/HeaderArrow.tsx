@@ -51,7 +51,7 @@ const StyledIcon = styled(IconChevronLeft)<Pick<HeaderArrowProps, 'arrow'>>`
 /**
  * Кнопка-стрелка с возможностью отображения в двух типах - "назад" или "свернуть".
  */
-export const HeaderArrow: React.FC<HeaderArrowProps> = ({ arrow, iconSize = 's', ...rest }) => (
+export const HeaderArrow = ({ arrow, iconSize = 's', ...rest }: HeaderArrowProps) => (
     <StyledButton size="s" square view="clear" tabIndex={-1} outlined={false} forwardedAs="div" {...rest}>
         <StyledIcon size={iconSize} arrow={arrow} />
     </StyledButton>

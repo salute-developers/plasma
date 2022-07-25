@@ -88,7 +88,7 @@ export interface PaletteProps {
     heading?: string;
 }
 
-export const Palette: React.FC<PaletteProps> = ({ theme = 'darkSber', title, heading }) => {
+export const Palette = ({ theme = 'darkSber', title, heading }: PaletteProps) => {
     const selectedTheme = themes[theme][':root'];
     const primary = selectedTheme['--plasma-colors-primary'];
     const items = React.useMemo(() => {

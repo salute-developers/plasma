@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { primary, secondary } from '@salutejs/plasma-tokens';
 
@@ -49,22 +49,14 @@ export interface TextPttrnProps {
     title?: string;
     subTitle?: string;
     caption?: string;
-
+    children?: ReactNode;
     size?: 'm' | 'l';
 }
 
 /**
  * Компонент для отображения текста в скомпанованном блоке.
  */
-export const TextBox: React.FC<TextPttrnProps> = ({
-    label,
-    title,
-    subTitle,
-    caption,
-    size = 'm',
-    children,
-    ...rest
-}) => {
+export const TextBox = ({ label, title, subTitle, caption, size = 'm', children, ...rest }: TextPttrnProps) => {
     if (children) {
         return <TextBoxRoot {...rest}>{children}</TextBoxRoot>;
     }

@@ -68,7 +68,7 @@ const StyledItemTitle = styled(Body1)<MaxLinesProps & TextAlignProps>`
     }
 `;
 
-export const ProductCard: React.FC<CardExampleProps> = ({ title, subtitle, imageSrc, ...rest }) => (
+export const ProductCard = ({ title, subtitle, imageSrc, ...rest }: CardExampleProps) => (
     <Card {...rest}>
         <CardBody>
             <CardContent>
@@ -80,7 +80,7 @@ export const ProductCard: React.FC<CardExampleProps> = ({ title, subtitle, image
     </Card>
 );
 
-export const MusicCard: React.FC<CardExampleProps> = ({
+export const MusicCard = ({
     title,
     subtitle,
     roundness = 12,
@@ -89,7 +89,7 @@ export const MusicCard: React.FC<CardExampleProps> = ({
     imageCustomRatio,
     textAlign,
     ...rest
-}) => (
+}: CardExampleProps) => (
     <>
         <Card roundness={roundness} {...rest}>
             <CardBody>
@@ -107,7 +107,7 @@ export const MusicCard: React.FC<CardExampleProps> = ({
     </>
 );
 
-export const GalleryCard: React.FC<CardExampleProps> = ({
+export const GalleryCard = ({
     title,
     subtitle,
     imageSrc,
@@ -115,7 +115,7 @@ export const GalleryCard: React.FC<CardExampleProps> = ({
     imageCustomRatio,
     textAlign,
     ...rest
-}) => (
+}: CardExampleProps) => (
     <>
         <Card {...rest}>
             <CardBody>

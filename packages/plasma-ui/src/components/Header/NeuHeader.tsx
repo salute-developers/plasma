@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, MouseEventHandler } from 'react';
+import React, { HTMLAttributes, MouseEventHandler, ReactNode } from 'react';
 
 import { HeaderRoot, HeaderRootProps } from './HeaderRoot';
 import { HeaderArrow } from './HeaderArrow';
@@ -51,7 +51,7 @@ export type NeuHeaderProps = HTMLAttributes<HTMLDivElement> &
     ArrowProps &
     (LogoProps | NoLogoProps) &
     (TitleProps | NoTitleProps) &
-    Pick<HeaderRootProps, 'gradientColor'>;
+    Pick<HeaderRootProps, 'gradientColor'> & { children?: ReactNode };
 
 /**
  * Сборный компонент для отрисовки шапки страницы.
@@ -63,7 +63,7 @@ export type NeuHeaderProps = HTMLAttributes<HTMLDivElement> &
  * * Свойство `subtitle` переименовано в `subTitle`.
  * `NeuHeader` заменит собой исходный `Header` в будущих версиях.
  */
-export const NeuHeader: React.FC<NeuHeaderProps> = ({
+export const NeuHeader = ({
     arrow,
     onArrowClick,
     logo,
@@ -72,7 +72,7 @@ export const NeuHeader: React.FC<NeuHeaderProps> = ({
     subTitle,
     children,
     ...rest
-}) => {
+}: NeuHeaderProps) => {
     return (
         <HeaderRoot {...rest}>
             <HeaderArrow onClick={onArrowClick} arrow={arrow} />

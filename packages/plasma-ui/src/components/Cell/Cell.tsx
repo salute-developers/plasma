@@ -123,7 +123,7 @@ export interface CellProps extends FocusProps, OutlinedProps, AsProps {
 /**
  * Базовый компонент для отображения блоков контента в списках и карточках.
  */
-export const Cell: React.FC<CellProps & React.HTMLAttributes<HTMLDivElement>> = (props) => {
+export const Cell = (props: CellProps & React.HTMLAttributes<HTMLDivElement>) => {
     const {
         contentLeft: left,
         content,

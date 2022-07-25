@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { sberPortal, sberBox, mobile, sberPortalScale } from '@salutejs/plasma-tokens';
 import { transformStyles } from '@salutejs/plasma-core';
@@ -44,6 +44,7 @@ export interface DeviceThemeProps {
      * Флаг для отключения анимаций и прочих твиков над UI, снижающих производительность.
      */
     lowPerformance?: boolean;
+    children?: ReactNode;
 }
 
 /**
@@ -61,13 +62,13 @@ export interface DeviceThemeProps {
  * с помощью пропса `detectDeviceCallback`.
  * При этом стоит помнить, что разрешены только 3 стандартных значения.
  */
-export const DeviceThemeProvider: React.FC<DeviceThemeProps> = ({
+export const DeviceThemeProvider = ({
     theme,
     children,
     detectDeviceCallback = detectDevice,
     responsiveTypo = false,
     lowPerformance = false,
-}) => {
+}: DeviceThemeProps) => {
     const deviceKind = detectDeviceCallback();
     const deviceScale = deviceScales[deviceKind] || sberPortalScale;
     const Typo = React.useMemo(() => typoSizes[deviceKind], [deviceKind]);

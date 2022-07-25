@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { black, warning } from '@salutejs/plasma-core';
 import { IconMinus, IconPlus } from '@salutejs/plasma-icons';
@@ -69,7 +69,7 @@ const iconPlus = <IconPlus color="inherit" size="s" />;
 /**
  * Степпер карточки продукта.
  */
-export const ProductCardStepper: FC<ProductCardStepperProps> = ({
+export const ProductCardStepper = ({
     value,
     step,
     min,
@@ -78,7 +78,7 @@ export const ProductCardStepper: FC<ProductCardStepperProps> = ({
     readonly,
     onChange,
     ...rest
-}) => {
+}: ProductCardStepperProps) => {
     const { onLessClick, onMoreClick, isMax, isMoreDisabled } = useStepper({
         value,
         step,
