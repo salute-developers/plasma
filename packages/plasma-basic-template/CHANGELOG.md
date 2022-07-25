@@ -1,3 +1,15 @@
+# v2.2.2 (Mon Jul 25 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-shop-template): update plasma packages [#108](https://github.com/salute-developers/plasma/pull/108) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
 # v2.2.1 (Thu May 05 2022)
 
 #### 🐛 Bug Fix
