@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import styled from 'styled-components';
 import { surfaceLiquid02 } from '@salutejs/plasma-core';
 
 import type { DateObject, Calendar } from './types';
-import { getDateFromValue, getNextDate, getPrevDate } from './utils';
+import { getDateFromValue, getNextDate, getPrevDate, isValueUpdate } from './utils';
 import { CalendarDays } from './CalendarDays';
 import { CalendarHeader } from './CalendarHeader';
+import { useKeyNavigation } from './hooks';
 
 export type CalendarDoubleProps = Calendar;
 
@@ -36,7 +37,6 @@ const StyledWrapper = styled.div`
  */
 export const CalendarDouble: React.FC<CalendarDoubleProps> = ({
     value: externalValue,
-    date: externalDate,
     min,
     max,
     eventList,
@@ -44,49 +44,23 @@ export const CalendarDouble: React.FC<CalendarDoubleProps> = ({
     onChangeValue,
     ...rest
 }) => {
-    const [value] = useMemo(() => (Array.isArray(externalValue) ? externalValue : [externalValue]), [externalValue]);
-
-    const [date, setDate] = useState<DateObject>(externalDate || getDateFromValue(value));
-    const [initialYear, initialMonth] = getNextDate(date.year, date.monthIndex);
-    const [doubleDate, setMonths] = useState({
-        monthIndex: [date.monthIndex, initialMonth],
-        year: [date.year, initialYear],
-    });
+    const [firstValue, secondValue] = useMemo(() => (Array.isArray(externalValue) ? externalValue : [externalValue]), [
+        externalValue,
+    ]);
+    const value = secondValue || firstValue;
     const [hoveredDay, setHoveredDay] = useState<DateObject | undefined>();
 
-    useEffect(() => {
-        const newDate = externalDate || getDateFromValue(value);
-        setDate(newDate);
-    }, [externalDate, eventList, disabledList, min, max]);
+    const [date, setDate] = useState<DateObject>(getDateFromValue(value));
+    const [prevValue, setPrevValue] = useState(value);
+    const [doubleDate, setMonths] = useState(() => {
+        const nextDate = getDateFromValue(firstValue);
+        const [initialYear, initialMonth] = getNextDate(nextDate.year, nextDate.monthIndex);
 
-    useEffect(() => {
-        const newDate = getDateFromValue(value);
-        const { year, monthIndex } = newDate;
-
-        const {
-            monthIndex: [, prevMonthIndex],
-            year: [, prevYear],
-        } = doubleDate;
-
-        if (prevMonthIndex === monthIndex && prevYear === year) {
-            return;
-        }
-
-        const [nextYear, nextMonthIndex] = getNextDate(year, monthIndex);
-
-        setMonths({
-            monthIndex: [monthIndex, nextMonthIndex],
-            year: [year, nextYear],
-        });
-    }, [value, eventList, disabledList, min, max]);
-
-    const handleOnChangeDay = useCallback(
-        (newDate: DateObject) => {
-            const newDay = new Date(newDate.year, newDate.monthIndex, newDate.day);
-            onChangeValue(newDay);
-        },
-        [onChangeValue],
-    );
+        return {
+            monthIndex: [nextDate.monthIndex, initialMonth],
+            year: [nextDate.year, initialYear],
+        };
+    });
 
     const handleMonth = useCallback(
         (getDate: (currentYear: number, currentMonth: number) => number[]) => {
@@ -109,6 +83,23 @@ export const CalendarDouble: React.FC<CalendarDoubleProps> = ({
         handleMonth(getNextDate);
     }, [handleMonth]);
 
+    const [selectIndexes, onKeyDown, onSelectIndexes, outerRefs] = useKeyNavigation({
+        isDouble: true,
+        size: [11, 6],
+        onNext: handleNext,
+        onPrev: handlePrev,
+    });
+
+    const handleOnChangeDay = useCallback(
+        (newDate: DateObject, coord: number[]) => {
+            const newDay = new Date(newDate.year, newDate.monthIndex, newDate.day);
+            onChangeValue(newDay);
+
+            onSelectIndexes(coord);
+        },
+        [onChangeValue, onSelectIndexes],
+    );
+
     const firstDate = useMemo(
         () => ({
             day: date.day,
@@ -126,6 +117,30 @@ export const CalendarDouble: React.FC<CalendarDoubleProps> = ({
         }),
         [date, doubleDate],
     );
+
+    if (isValueUpdate(value, prevValue)) {
+        const newDate = getDateFromValue(value);
+
+        const { year, monthIndex } = newDate;
+
+        const {
+            monthIndex: [, prevMonthIndex],
+            year: [, prevYear],
+        } = doubleDate;
+
+        if (prevMonthIndex !== monthIndex || prevYear !== year) {
+            const [nextYear, nextMonthIndex] = getNextDate(year, monthIndex);
+
+            setDate(newDate);
+
+            setMonths({
+                monthIndex: [monthIndex, nextMonthIndex],
+                year: [year, nextYear],
+            });
+        }
+
+        setPrevValue(value);
+    }
 
     return (
         <StyledCalendar {...rest}>
@@ -147,12 +162,17 @@ export const CalendarDouble: React.FC<CalendarDoubleProps> = ({
                     value={externalValue}
                     date={firstDate}
                     hoveredDay={hoveredDay}
+                    selectIndexes={selectIndexes}
                     onChangeDay={handleOnChangeDay}
                     onHoverDay={setHoveredDay}
+                    onSetSelected={onSelectIndexes}
+                    onKeyDown={onKeyDown}
+                    outerRefs={outerRefs}
                 />
                 <StyledSeparator />
                 <CalendarDays
                     isDouble
+                    isSecond
                     eventList={eventList}
                     disabledList={disabledList}
                     min={min}
@@ -160,8 +180,12 @@ export const CalendarDouble: React.FC<CalendarDoubleProps> = ({
                     value={externalValue}
                     date={secondDate}
                     hoveredDay={hoveredDay}
+                    selectIndexes={selectIndexes}
                     onChangeDay={handleOnChangeDay}
                     onHoverDay={setHoveredDay}
+                    onSetSelected={onSelectIndexes}
+                    onKeyDown={onKeyDown}
+                    outerRefs={outerRefs}
                 />
             </StyledWrapper>
         </StyledCalendar>

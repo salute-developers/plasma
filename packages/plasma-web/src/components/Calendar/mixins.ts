@@ -24,7 +24,7 @@ export const flexSpaceBetween = css`
 `;
 
 /**
- * Миксин для установки синтетического фокуса на выбранном дне.
+ * Функция для установки синтетического фокуса на выбранном дне.
  */
 export const syntheticFocus = (ruleset: FlattenSimpleInterpolation, focused?: boolean) => css`
     &.focus-visible:focus,
@@ -38,9 +38,26 @@ export const syntheticFocus = (ruleset: FlattenSimpleInterpolation, focused?: bo
 `;
 
 /**
+ * Миксин для установки синтетического фокуса на выбранной кнопке.
+ */
+export const buttonFocus = css`
+    ${addFocus({
+        outlineRadius: '0.563rem',
+        outlineSize: '0.063rem',
+        outlineOffset: '0.125rem',
+    })};
+
+    border: none;
+    background-color: transparent;
+    padding: 0;
+`;
+
+/**
  * Миксин для изменения стиля выбранного дня.
  */
 export const selected = ({ StyledItem, minWidth, minHeight, isSelected, isCurrent, isHovered }: Selected) => css`
+    outline: none;
+
     ${addFocus({
         synthesizeFocus: syntheticFocus,
         outlineRadius: '0.563rem',

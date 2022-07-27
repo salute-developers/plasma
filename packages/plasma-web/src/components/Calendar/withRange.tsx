@@ -1,7 +1,7 @@
-import React, { useMemo, useState, useCallback, useEffect, ReactElement } from 'react';
+import React, { useMemo, useState, useCallback, ReactElement } from 'react';
 
 import type { Calendar, CalendarRange } from './types';
-import { getDateFromValue, getSortedValues } from './utils';
+import { getSortedValues, isValueUpdate } from './utils';
 
 /**
  * HOC для календаря, дающий возможность выбора диапазона даты
@@ -15,20 +15,15 @@ export const withRange = <T extends Calendar>(Component: React.FC<Calendar>) => 
     onChangeValue,
     ...rest
 }: CalendarRange<T>): ReactElement<T> => {
-    const [startExternalValue, endExternalValue] = useMemo(() => getSortedValues(value), [value]);
+    const [startExternalValue, endExternalValue] = useMemo(() => value, [value]);
     const [[startValue, endValue], setValues] = useState<[Date, Date?]>([startExternalValue, endExternalValue]);
+    const [prevValue, setPrevValue] = useState(value);
 
-    const newDate = useMemo(
-        () =>
-            endValue && endExternalValue && endValue.getTime() === endExternalValue.getTime()
-                ? getDateFromValue(endExternalValue)
-                : getDateFromValue(startExternalValue),
-        [value],
-    );
-
-    useEffect(() => {
+    if (isValueUpdate(value, prevValue)) {
         setValues([startExternalValue, endExternalValue]);
-    }, [value, eventList, disabledList, min, max]);
+
+        setPrevValue(value);
+    }
 
     const handleOnChangeDay = useCallback(
         (newDay: Date) => {
@@ -42,13 +37,12 @@ export const withRange = <T extends Calendar>(Component: React.FC<Calendar>) => 
             const [first, second] = getSortedValues([startValue, newDay]);
             onChangeValue([first, second]);
         },
-        [onChangeValue, value, startValue, endValue],
+        [onChangeValue, startValue, endValue],
     );
 
     return (
         <Component
             value={[startValue, endValue]}
-            date={newDate}
             onChangeValue={handleOnChangeDay}
             disabledList={disabledList}
             eventList={eventList}

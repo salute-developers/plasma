@@ -1,4 +1,6 @@
-import type { DateObject, DisabledDay } from './types';
+import type { DateObject, DisabledDay, ItemProps } from './types';
+
+export const ROW_STEP = 6;
 
 export const YEAR_RENDER_COUNT = 12;
 
@@ -102,6 +104,18 @@ export const isSameDay = (firstDate: DateObject, secondDate?: DateObject) =>
     firstDate.day === secondDate.day &&
     firstDate.monthIndex === secondDate.monthIndex &&
     firstDate.year === secondDate.year;
+
+export const isValueUpdate = (value: Date | [Date, Date?], prevValue: Date | [Date, Date?]) => {
+    if (!Array.isArray(value) && !Array.isArray(prevValue)) {
+        return prevValue.getTime() !== value.getTime();
+    }
+
+    if (Array.isArray(value) && Array.isArray(prevValue)) {
+        return prevValue[0].getTime() !== value[0].getTime() || prevValue[1]?.getTime() !== value[1]?.getTime();
+    }
+
+    return false;
+};
 
 /**
  * Метод проверяет, находится ли календарь в режиме выбора второго значения.
@@ -207,7 +221,7 @@ export const canSelectDate = (
     value: Date | [Date, Date?],
     disabledList?: DisabledDay[],
 ) => {
-    if (!disabledList?.length || !isSelectProcess(value)) {
+    if (!isSelectProcess(value)) {
         return true;
     }
 
@@ -218,9 +232,38 @@ export const canSelectDate = (
         return false;
     }
 
+    if (!disabledList?.length) {
+        return true;
+    }
+
     const offDisabledRange = disabledList.some(
         ({ date }) => (startDate < date && date < hoverDate) || (startDate > date && date > hoverDate),
     );
 
     return !offDisabledRange;
+};
+
+/**
+ * Метод для получения двумерного массива и возвращения выбранного элемента.
+ */
+export const getMatrix = <T extends ItemProps>(items: T[], rowSize = 7): readonly [T[][], number[] | undefined] => {
+    const newItems = [...items];
+
+    let selected: [number, number] | undefined;
+
+    const result = newItems.reduce((acc: T[][], item, index) => {
+        if (index % rowSize === 0) {
+            acc.push([]);
+        }
+
+        acc[acc.length - 1].push(item);
+
+        if (item.isSelected) {
+            selected = [acc.length - 1, index % rowSize];
+        }
+
+        return acc;
+    }, []);
+
+    return [result, selected] as const;
 };
