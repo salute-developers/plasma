@@ -1,22 +1,17 @@
 import { useMemo } from 'react';
 
-import type { DateItem, DateObject, DisabledDay, EventDay } from './types';
+import { DateItem, DateObject, DisabledDay, EventDay } from '../types';
 import {
-    YEAR_RENDER_COUNT,
-    SHORT_MONTH_NAME,
     getDaysInMonth,
     getNextDate,
     getOffsetDayInWeek,
     getPrevDate,
     getDateFromValue,
     isSelectedDay,
-    isSelectedMonth,
     IsCurrentDay,
-    isCurrentMonth,
-    isCurrentYear,
-    isSelectedYear,
     isDayInRage,
-} from './utils';
+    getMatrix,
+} from '../utils';
 
 /**
  * Метод возвращающий массив дней в предыдущем месяце.
@@ -128,23 +123,6 @@ const getDaysWithModifications = (
 };
 
 /**
- * Метод для получения дней недели по строкам.
- */
-const getDaysByWeeks = (items: DateItem[]) => {
-    const newItems = [...items];
-    const daysInWeek = 7;
-
-    return newItems.reduce((acc: DateItem[][], item, index) => {
-        if (index % daysInWeek === 0) {
-            acc.push([]);
-        }
-
-        acc[acc.length - 1].push(item);
-        return acc;
-    }, []);
-};
-
-/**
  * Хук для получения списка дней.
  */
 export const useDays = (
@@ -154,11 +132,8 @@ export const useDays = (
     disabledList?: DisabledDay[],
     min?: Date,
     max?: Date,
-) => {
-    const [startDeps, endDeps] = Array.isArray(value) ? value : [];
-    const valueDeps = !Array.isArray(value) && value;
-
-    return useMemo(() => {
+) =>
+    useMemo(() => {
         const { monthIndex, year } = date;
         const daysInMonth = getDaysInMonth(monthIndex, year);
         const offsetDayInWeek = getOffsetDayInWeek(monthIndex, year);
@@ -171,37 +146,8 @@ export const useDays = (
 
         if (eventList?.length || disabledList?.length || max || min) {
             const modifiedDays = getDaysWithModifications(days, eventList, disabledList, min, max);
-            return getDaysByWeeks(modifiedDays);
+            return getMatrix<DateItem>(modifiedDays);
         }
 
-        return getDaysByWeeks(days);
-    }, [date, startDeps, endDeps, valueDeps]);
-};
-
-/**
- * Хук для получения списка месяцев.
- */
-export const useMonths = (date: DateObject) =>
-    useMemo(
-        () =>
-            SHORT_MONTH_NAME.map((monthName, monthIndex) => ({
-                monthName,
-                isCurrent: isCurrentMonth(date, monthIndex),
-                isSelected: isSelectedMonth(date, monthIndex),
-            })),
-        [date],
-    );
-
-/**
- * Хук для получения списка годов.
- */
-export const useYears = (date: DateObject, startYear: number) =>
-    useMemo(
-        () =>
-            Array.from(Array(YEAR_RENDER_COUNT), (_, i) => ({
-                isCurrent: isCurrentYear(startYear + i),
-                isSelected: isSelectedYear(date, startYear + i),
-                year: startYear + i,
-            })),
-        [date, startYear],
-    );
+        return getMatrix<DateItem>(days);
+    }, [date, value, eventList, disabledList, max, min]);

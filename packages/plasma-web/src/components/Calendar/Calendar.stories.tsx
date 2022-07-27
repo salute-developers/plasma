@@ -101,11 +101,6 @@ export const Default: Story<CalendarProps> = ({ isRange, isDouble, min, max, dat
 };
 
 Default.args = {
-    date: {
-        day: 1,
-        monthIndex: 5,
-        year: 2022,
-    },
     min: new Date(2022, 4, 0),
     max: new Date(2022, 6, 15),
     isDouble: false,
@@ -114,6 +109,7 @@ Default.args = {
 
 export const Base: Story<CalendarBaseProps> = ({ min, max, type }) => {
     const [value, setValue] = React.useState(new Date(2022, 5, 6));
+
     const handleOnChange = React.useCallback((newValue: Date) => {
         setValue(newValue);
         onChangeValue(newValue);
@@ -131,7 +127,7 @@ export const Base: Story<CalendarBaseProps> = ({ min, max, type }) => {
     return (
         <CalendarBase
             value={value}
-            eventList={[...baseEvents, ...eventsRange]}
+            eventList={eventsRange}
             disabledList={disabledDays}
             min={min}
             max={max}
@@ -175,7 +171,7 @@ export const Double: Story<CalendarDoubleProps> = ({ min, max }) => {
     return (
         <CalendarDouble
             value={value}
-            eventList={[...baseEvents, ...eventsRange]}
+            eventList={eventsRange}
             disabledList={disabledDays}
             min={min}
             max={max}
@@ -205,11 +201,14 @@ export const Range: Story<CalendarRange<CalendarBaseProps>> = ({ min, max, type 
         date: new Date(2022, 5, 11 + day),
     }));
 
+    const eventList = React.useMemo(() => [...baseEvents, ...eventsRange], []);
+    const disabledList = React.useMemo(() => [{ date: new Date(2022, 5, 4) }, ...disabledDays], []);
+
     return (
         <CalendarBaseRange
             value={values}
-            eventList={[...baseEvents, ...eventsRange]}
-            disabledList={[{ date: new Date(2022, 5, 4) }, ...disabledDays]}
+            eventList={eventList}
+            disabledList={disabledList}
             min={min}
             max={max}
             type={type}
@@ -234,7 +233,7 @@ Range.args = {
 };
 
 export const DoubleRange: Story<CalendarRange<CalendarDoubleProps>> = ({ min, max }) => {
-    const [values, setValue] = React.useState<[Date, Date?]>([new Date(2022, 5, 7), new Date(2022, 5, 25)]);
+    const [values, setValue] = React.useState<[Date, Date?]>([new Date(2022, 5, 7), new Date(2022, 6, 9)]);
     const handleOnChange = React.useCallback((newValue: [Date, Date?]) => {
         onChangeValue(newValue);
         setValue(newValue);
@@ -249,11 +248,14 @@ export const DoubleRange: Story<CalendarRange<CalendarDoubleProps>> = ({ min, ma
         date: new Date(2022, 6, 10 + day),
     }));
 
+    const eventList = React.useMemo(() => [...baseEvents, ...eventsRange], []);
+    const disabledList = React.useMemo(() => [{ date: new Date(2022, 5, 4) }, ...disabledDays], []);
+
     return (
         <CalendarDoubleRange
             value={values}
-            eventList={[...baseEvents, ...eventsRange]}
-            disabledList={[{ date: new Date(2022, 5, 4) }, ...disabledDays]}
+            eventList={eventList}
+            disabledList={disabledList}
             min={min}
             max={max}
             onChangeValue={handleOnChange}

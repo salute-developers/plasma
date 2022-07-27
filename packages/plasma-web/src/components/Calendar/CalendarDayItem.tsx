@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { forwardRef, memo } from 'react';
 import styled, { css } from 'styled-components';
 import { FocusProps, accent, tertiary, secondary, primary, surfaceLiquid02 } from '@salutejs/plasma-core';
 import { bodyS } from '@salutejs/plasma-typo';
@@ -12,6 +12,7 @@ export interface CalendarDayItemProps extends DayProps, React.HTMLAttributes<HTM
     monthIndex?: number;
     sideInRange?: 'left' | 'right';
     eventList?: EventDay[];
+    isFocused?: boolean;
 }
 
 const StyledDay = styled.div<{ inRange?: boolean }>`
@@ -128,48 +129,57 @@ const StyledEvent = styled.div<{ color?: string }>`
 /**
  * Компонент дня в календаре.
  */
-export const CalendarDayItem: React.FC<CalendarDayItemProps> = memo(
-    ({
-        dayOfWeek,
-        disabled,
-        isCurrent,
-        isSelected,
-        isDayInCurrentMonth,
-        isDouble,
-        inRange,
-        isHovered,
-        sideInRange,
-        eventList = [],
-        day,
-        monthIndex,
-        year,
-        onClick,
-        onMouseOver,
-        onFocus,
-    }) => {
-        return (
-            <StyledDayRoot
-                tabIndex={isSelected ? 0 : -1}
-                dayOfWeek={dayOfWeek}
-                disabled={disabled}
-                isCurrent={isCurrent}
-                isSelected={isSelected}
-                isDayInCurrentMonth={isDayInCurrentMonth}
-                isDouble={isDouble}
-                isHovered={isHovered}
-                sideInRange={sideInRange}
-                onClick={disabled ? undefined : onClick}
-                onMouseOver={onMouseOver}
-                onFocus={onFocus}
-                data-day={day}
-                data-month-index={monthIndex}
-                data-year={year}
-            >
-                <StyledDay inRange={inRange}>{day}</StyledDay>
-                <StyledEvents>
-                    {[eventList[0], eventList[1], eventList[2]].map((event) => event && <StyledEvent {...event} />)}
-                </StyledEvents>
-            </StyledDayRoot>
-        );
-    },
+export const CalendarDayItem = memo(
+    forwardRef<HTMLDivElement, CalendarDayItemProps>(
+        (
+            {
+                isFocused,
+                dayOfWeek,
+                disabled,
+                isCurrent,
+                isSelected,
+                isDayInCurrentMonth,
+                isDouble,
+                inRange,
+                isHovered,
+                sideInRange,
+                eventList = [],
+                day,
+                monthIndex,
+                year,
+                onClick,
+                onMouseOver,
+                onFocus,
+            },
+            outerRef,
+        ) => {
+            return (
+                <StyledDayRoot
+                    ref={outerRef}
+                    tabIndex={isFocused ? 0 : -1}
+                    dayOfWeek={dayOfWeek}
+                    disabled={disabled}
+                    isCurrent={isCurrent}
+                    isSelected={isSelected}
+                    isDayInCurrentMonth={isDayInCurrentMonth}
+                    isDouble={isDouble}
+                    isHovered={isHovered}
+                    sideInRange={sideInRange}
+                    onClick={disabled ? undefined : onClick}
+                    onMouseOver={onMouseOver}
+                    onFocus={onFocus}
+                    data-day={day}
+                    data-month-index={monthIndex}
+                    data-year={year}
+                >
+                    <StyledDay inRange={inRange}>{day}</StyledDay>
+                    <StyledEvents>
+                        {[eventList[0], eventList[1], eventList[2]].map(
+                            (event, i) => event && <StyledEvent key={`${event.date}-${i}`} {...event} />,
+                        )}
+                    </StyledEvents>
+                </StyledDayRoot>
+            );
+        },
+    ),
 );

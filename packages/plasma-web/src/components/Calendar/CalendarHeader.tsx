@@ -6,7 +6,7 @@ import { IconDisclosureLeft, IconDisclosureRight } from '@salutejs/plasma-icons'
 import { CalendarState } from './types';
 import type { CalendarStateType, DateObject } from './types';
 import { MONTH_NAMES, YEAR_RENDER_COUNT } from './utils';
-import { flexCenter, flexSpaceBetween } from './mixins';
+import { buttonFocus, flexCenter, flexSpaceBetween } from './mixins';
 
 export interface CalendarHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
     firstDate: DateObject;
@@ -16,7 +16,7 @@ export interface CalendarHeaderProps extends React.HTMLAttributes<HTMLDivElement
     isDouble?: boolean;
     onPrev: () => void;
     onNext: () => void;
-    onCalendarStateChange?: React.Dispatch<React.SetStateAction<CalendarStateType>>;
+    onUpdateCalendarState?: (newType: CalendarStateType, newSize: [number, number]) => void;
 }
 
 const StyledCalendarHeader = styled.div`
@@ -27,7 +27,11 @@ const StyledCalendarHeader = styled.div`
     ${flexSpaceBetween};
 `;
 
-const StyledHeader = styled.div`
+const StyledHeader = styled.button`
+    ${h4Bold};
+
+    ${buttonFocus};
+
     cursor: pointer;
     padding: 0.5rem 0;
 
@@ -56,10 +60,10 @@ const StyledArrows = styled.div`
     ${flexSpaceBetween};
 `;
 
-const StyledArrow = styled.button`
-    border: none;
-    background-color: transparent;
-    padding: 0;
+const StyledArrow = styled.button.attrs({
+    type: 'button',
+})`
+    ${buttonFocus};
 
     display: flex;
     cursor: pointer;
@@ -80,19 +84,19 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
     firstDate,
     secondDate,
     isDouble,
-    onCalendarStateChange,
     onPrev,
     onNext,
+    onUpdateCalendarState,
 }) => {
     const handleCalendarState = useCallback(() => {
         if (type === CalendarState.Days) {
-            onCalendarStateChange?.(CalendarState.Months);
+            onUpdateCalendarState?.(CalendarState.Months, [3, 2]);
         }
 
         if (type === CalendarState.Months) {
-            onCalendarStateChange?.(CalendarState.Years);
+            onUpdateCalendarState?.(CalendarState.Years, [3, 2]);
         }
-    }, [type, onCalendarStateChange]);
+    }, [type, onUpdateCalendarState]);
 
     const getHeaderContent = useCallback(
         (date?: DateObject) => {

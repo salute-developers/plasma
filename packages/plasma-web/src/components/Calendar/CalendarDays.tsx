@@ -1,8 +1,16 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 import type { DateItem, DateObject, DisabledDay, EventDay } from './types';
-import { canSelectDate, getInRange, getSideInRange, isSameDay, isSelectProcess, SHORT_DAY_NAMES } from './utils';
+import {
+    canSelectDate,
+    getInRange,
+    getSideInRange,
+    isSameDay,
+    isSelectProcess,
+    ROW_STEP,
+    SHORT_DAY_NAMES,
+} from './utils';
 import { useDays } from './hooks';
 import { flexCenter } from './mixins';
 import { CalendarDayItem } from './CalendarDayItem';
@@ -15,9 +23,14 @@ export interface CalendarDaysProps extends React.HTMLAttributes<HTMLDivElement> 
     eventList?: EventDay[];
     disabledList?: DisabledDay[];
     isDouble?: boolean;
+    isSecond?: boolean;
     hoveredDay?: DateObject;
+    selectIndexes?: number[];
+    outerRefs: React.MutableRefObject<HTMLDivElement[][]>;
     onHoverDay?: (date?: DateObject) => void;
-    onChangeDay: (date: DateObject) => void;
+    onChangeDay: (date: DateObject, coord: number[]) => void;
+    onSetSelected?: (selected: number[]) => void;
+    onKeyDown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
 }
 
 const StyledFlex = styled.div`
@@ -25,6 +38,8 @@ const StyledFlex = styled.div`
 `;
 
 const StyledCalendarDays = styled.div`
+    outline: none;
+
     padding: 0.5rem 1rem 1.5rem;
     box-sizing: border-box;
 `;
@@ -39,14 +54,23 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
     disabledList,
     min,
     max,
-    isDouble,
     hoveredDay,
+    selectIndexes,
+    isDouble,
+    isSecond,
+    outerRefs,
     onChangeDay,
     onHoverDay,
+    onSetSelected,
+    onKeyDown,
 }) => {
-    const days = useDays(currentDate, value, eventList, disabledList, min, max);
+    const [days, selected] = useDays(currentDate, value, eventList, disabledList, min, max);
+    const selectedRef = useRef(selected);
+    const onSetSelectedRef = useRef(onSetSelected);
 
-    const getSelecteDate = useCallback(
+    const offset = isSecond ? ROW_STEP : 0;
+
+    const getSelectedDate = useCallback(
         (event: React.MouseEvent<HTMLDivElement>) => {
             const { day, monthIndex, year } = event.currentTarget.dataset;
 
@@ -66,25 +90,25 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
     );
 
     const handleOnChangeDay = useCallback(
-        (event: React.MouseEvent<HTMLDivElement>) => {
-            const selectedDate = getSelecteDate(event);
+        (i: number, j: number) => (event: React.MouseEvent<HTMLDivElement>) => {
+            const selectedDate = getSelectedDate(event);
 
             if (!selectedDate) {
                 return;
             }
 
-            onChangeDay(selectedDate);
+            onChangeDay(selectedDate, [i + offset, j]);
 
             if (isSelectProcess(value)) {
                 onHoverDay?.(undefined);
             }
         },
-        [onChangeDay, getSelecteDate, value],
+        [getSelectedDate, onChangeDay, offset, value, onHoverDay],
     );
 
     const handleOnHoverDay = useCallback(
         (event: React.MouseEvent<HTMLDivElement>) => {
-            const selectedDate = getSelecteDate(event);
+            const selectedDate = getSelectedDate(event);
             const isSelectedDone = Array.isArray(value) && value[0] && value[1];
 
             if (!selectedDate || !Array.isArray(value) || isSelectedDone) {
@@ -93,15 +117,30 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
 
             onHoverDay?.(selectedDate);
         },
-        [onHoverDay, value],
+        [getSelectedDate, onHoverDay, value],
     );
 
     const handleOnFocusDay = useCallback(() => {
         // заглушка будет убрана при реализации доступности
     }, []);
 
+    const getRefs = useCallback(
+        (element: HTMLDivElement, isDayInCurrentMonth: boolean, i: number, j: number) => {
+            if (isDayInCurrentMonth) {
+                outerRefs.current[i + offset][j] = element;
+            }
+        },
+        [offset, outerRefs],
+    );
+
+    useEffect(() => {
+        if (selectedRef.current) {
+            onSetSelectedRef.current?.(selectedRef.current);
+        }
+    }, []);
+
     return (
-        <StyledCalendarDays>
+        <StyledCalendarDays onKeyDown={onKeyDown}>
             <StyledFlex>
                 {SHORT_DAY_NAMES.map((name) => (
                     <CalendarDayItem key={name} dayOfWeek day={name} />
@@ -111,11 +150,13 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
                 <StyledFlex key={i}>
                     {day.map(({ date, events, disabled, isSelected, isCurrent, isDayInCurrentMonth, inRange }, j) => (
                         <CalendarDayItem
+                            ref={(element: HTMLDivElement) => getRefs(element, isDayInCurrentMonth, i, j)}
                             eventList={events}
                             disabled={disabled}
                             day={date.day}
                             year={date.year}
                             monthIndex={date.monthIndex}
+                            isFocused={i + offset === selectIndexes?.[0] && j === selectIndexes?.[1]}
                             isSelected={isSelected}
                             isCurrent={isCurrent}
                             isDayInCurrentMonth={isDayInCurrentMonth}
@@ -123,7 +164,7 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
                             isHovered={isSameDay(date, hoveredDay)}
                             inRange={getInRange(value, date, hoveredDay, inRange)}
                             sideInRange={getSideInRange(value, date, hoveredDay, isSelected)}
-                            onClick={disabled ? undefined : handleOnChangeDay}
+                            onClick={disabled ? undefined : handleOnChangeDay(i, j)}
                             onMouseOver={disabled ? undefined : handleOnHoverDay}
                             onFocus={handleOnFocusDay}
                             key={`StyledDay-${j}`}

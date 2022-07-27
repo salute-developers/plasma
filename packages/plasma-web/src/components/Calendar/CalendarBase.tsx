@@ -1,13 +1,16 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo, useReducer, useState } from 'react';
 import styled from 'styled-components';
 
 import type { CalendarStateType, DateObject, Calendar } from './types';
 import { CalendarState } from './types';
-import { getDateFromValue, getNextDate, getPrevDate, getStartYear, YEAR_RENDER_COUNT } from './utils';
+import { isValueUpdate, YEAR_RENDER_COUNT } from './utils';
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
 import { CalendarHeader } from './CalendarHeader';
 import { CalendarYears } from './CalendarYears';
+import { useKeyNavigation } from './hooks';
+import { getInitialState, reducer } from './store/reducer';
+import { ActionType } from './store/types';
 
 export type CalendarBaseProps = Calendar & {
     /**
@@ -30,7 +33,6 @@ const StyledCalendar = styled.div`
  */
 export const CalendarBase: React.FC<CalendarBaseProps> = ({
     value: externalValue,
-    date: externalDate,
     min,
     max,
     type = 'Days',
@@ -39,102 +41,103 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
     onChangeValue,
     ...rest
 }) => {
-    const [value] = useMemo(() => (Array.isArray(externalValue) ? externalValue : [externalValue]), [externalValue]);
-
-    const [calendarState, setCalendarState] = useState(type);
-    const [date, setDate] = useState<DateObject>(externalDate || getDateFromValue(value));
-    const [startYear, setStartYear] = useState(getStartYear(date.year));
+    const [firstValue, secondValue] = useMemo(() => (Array.isArray(externalValue) ? externalValue : [externalValue]), [
+        externalValue,
+    ]);
+    const value = secondValue || firstValue;
     const [hoveredDay, setHoveredDay] = useState<DateObject | undefined>();
+    const [prevType, setPrevType] = useState(type);
+    const [prevValue, setPrevValue] = useState(value);
+    const [state, dispatch] = useReducer(reducer, getInitialState(value, [5, 6], type));
 
-    useEffect(() => {
-        const newDate = externalDate || getDateFromValue(value);
-        setDate(newDate);
-    }, [externalDate, eventList, disabledList, min, max]);
-
-    useEffect(() => {
-        const newDate = externalDate || getDateFromValue(value);
-        setDate(newDate);
-    }, [value]);
-
-    useEffect(() => {
-        setStartYear(getStartYear(value.getFullYear()));
-    }, [value, externalDate, eventList, disabledList, min, max]);
-
-    useEffect(() => {
-        setCalendarState(type);
-    }, [type]);
-
-    const handleOnChangeDay = useCallback(
-        (newDate: DateObject) => {
-            const newDay = new Date(newDate.year, newDate.monthIndex, newDate.day);
-            onChangeValue(newDay);
-        },
-        [onChangeValue],
-    );
-
-    const handleOnChangeMonth = useCallback(
-        (monthIndex: number) => {
-            // TODO: https://github.com/salute-developers/plasma/issues/92
-            setTimeout(() => {
-                setCalendarState(CalendarState.Days);
-                setDate({ ...date, monthIndex });
-            });
-        },
-        [type, date],
-    );
-
-    const handleOnChangeYear = useCallback(
-        (year: number) => {
-            // TODO: https://github.com/salute-developers/plasma/issues/92
-            setTimeout(() => {
-                setCalendarState(CalendarState.Months);
-                setDate({ ...date, year });
-            });
-        },
-        [date, type],
-    );
-
-    const handleMonth = useCallback(
-        (getDate: (currentYear: number, currentMonth: number) => number[]) => {
-            const [year, monthIndex] = getDate(date.year, date.monthIndex);
-            setDate({ ...date, monthIndex, year });
-        },
-        [date],
-    );
+    const { date, calendarState, startYear, size } = state;
 
     const handlePrev = useCallback(() => {
         if (calendarState === CalendarState.Days) {
-            handleMonth(getPrevDate);
+            dispatch({ type: ActionType.PREVIOUS_MONTH, payload: { monthIndex: date.monthIndex, year: date.year } });
             return;
         }
 
         if (calendarState === CalendarState.Months) {
-            setStartYear((prevYear) => prevYear - 1);
-            setDate((prevDate) => ({ ...prevDate, year: prevDate.year - 1 }));
+            dispatch({ type: ActionType.PREVIOUS_YEAR, payload: { step: 1 } });
             return;
         }
 
         if (calendarState === CalendarState.Years) {
-            setStartYear((prevStartYear) => prevStartYear - YEAR_RENDER_COUNT);
+            dispatch({ type: ActionType.PREVIOUS_START_YEAR, payload: { yearsCount: YEAR_RENDER_COUNT } });
         }
-    }, [handleMonth, calendarState]);
+    }, [date, calendarState]);
 
     const handleNext = useCallback(() => {
         if (calendarState === CalendarState.Days) {
-            handleMonth(getNextDate);
+            dispatch({ type: ActionType.NEXT_MONTH, payload: { monthIndex: date.monthIndex, year: date.year } });
             return;
         }
 
         if (calendarState === CalendarState.Months) {
-            setStartYear((prevYear) => prevYear + 1);
-            setDate((prevDate) => ({ ...prevDate, year: prevDate.year + 1 }));
+            dispatch({ type: ActionType.NEXT_YEAR, payload: { step: 1 } });
             return;
         }
 
         if (calendarState === CalendarState.Years) {
-            setStartYear((prevStartYear) => prevStartYear + YEAR_RENDER_COUNT);
+            dispatch({ type: ActionType.NEXT_START_YEAR, payload: { yearsCount: YEAR_RENDER_COUNT } });
         }
-    }, [handleMonth, calendarState]);
+    }, [date, calendarState]);
+
+    const [selectIndexes, onKeyDown, onSelectIndexes, outerRefs] = useKeyNavigation({
+        size,
+        onNext: handleNext,
+        onPrev: handlePrev,
+    });
+
+    const handleOnChangeDay = useCallback(
+        (newDate: DateObject, coord: number[]) => {
+            const newDay = new Date(newDate.year, newDate.monthIndex, newDate.day);
+            onChangeValue(newDay);
+
+            onSelectIndexes(coord);
+        },
+        [onChangeValue, onSelectIndexes],
+    );
+
+    const handleOnChangeMonth = useCallback((monthIndex: number) => {
+        dispatch({
+            type: ActionType.UPDATE_MONTH,
+            payload: { calendarState: CalendarState.Days, monthIndex, size: [5, 6] },
+        });
+    }, []);
+
+    const handleOnChangeYear = useCallback((year: number) => {
+        dispatch({
+            type: ActionType.UPDATE_YEAR,
+            payload: { calendarState: CalendarState.Months, year },
+        });
+    }, []);
+
+    const handleUpdateCalendarState = useCallback((newCalendarState: CalendarStateType, newSize: [number, number]) => {
+        dispatch({
+            type: ActionType.UPDATE_CALENDAR_STATE,
+            payload: { calendarState: newCalendarState, size: newSize },
+        });
+    }, []);
+
+    if (isValueUpdate(value, prevValue)) {
+        dispatch({
+            type: ActionType.UPDATE_DATE,
+            payload: { value },
+        });
+
+        setPrevValue(value);
+    }
+
+    if (prevType !== type) {
+        dispatch({
+            type: ActionType.UPDATE_CALENDAR_STATE,
+            payload: { calendarState: type },
+        });
+
+        setPrevType(type);
+    }
 
     return (
         <StyledCalendar {...rest}>
@@ -144,9 +147,8 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
                 type={calendarState}
                 onPrev={handlePrev}
                 onNext={handleNext}
-                onCalendarStateChange={setCalendarState}
+                onUpdateCalendarState={handleUpdateCalendarState}
             />
-
             {calendarState === CalendarState.Days && (
                 <CalendarDays
                     eventList={eventList}
@@ -156,17 +158,34 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
                     value={externalValue}
                     date={date}
                     hoveredDay={hoveredDay}
+                    selectIndexes={selectIndexes}
                     onChangeDay={handleOnChangeDay}
                     onHoverDay={setHoveredDay}
+                    onSetSelected={onSelectIndexes}
+                    onKeyDown={onKeyDown}
+                    outerRefs={outerRefs}
                 />
             )}
-
             {calendarState === CalendarState.Months && (
-                <CalendarMonths date={date} onChangeMonth={handleOnChangeMonth} />
+                <CalendarMonths
+                    date={date}
+                    selectIndexes={selectIndexes}
+                    onChangeMonth={handleOnChangeMonth}
+                    onSetSelected={onSelectIndexes}
+                    onKeyDown={onKeyDown}
+                    outerRefs={outerRefs}
+                />
             )}
-
             {calendarState === CalendarState.Years && (
-                <CalendarYears date={date} startYear={startYear} onChangeYear={handleOnChangeYear} />
+                <CalendarYears
+                    date={date}
+                    startYear={startYear}
+                    selectIndexes={selectIndexes}
+                    onChangeYear={handleOnChangeYear}
+                    onSetSelected={onSelectIndexes}
+                    onKeyDown={onKeyDown}
+                    outerRefs={outerRefs}
+                />
             )}
         </StyledCalendar>
     );
