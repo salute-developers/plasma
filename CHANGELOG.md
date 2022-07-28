@@ -1,3 +1,21 @@
+# (Thu Jul 28 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.119.0`
+  - feat(plasma-ui): Add accessability story for `Carousel` component [#104](https://github.com/salute-developers/plasma/pull/104) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.119.0`
+  - fix(plasma-web): Fix accessability story for `Carousel` component [#104](https://github.com/salute-developers/plasma/pull/104) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Mon Jul 25 2022)
 
 #### 🐛 Bug Fix

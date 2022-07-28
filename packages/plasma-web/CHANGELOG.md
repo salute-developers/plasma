@@ -1,3 +1,15 @@
+# v1.119.0 (Thu Jul 28 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web): Fix accessability story for `Carousel` component [#104](https://github.com/salute-developers/plasma/pull/104) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.118.3 (Fri Jul 22 2022)
 
 #### 🐛 Bug Fix
