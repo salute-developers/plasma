@@ -3,7 +3,7 @@ import React, { HTMLAttributes, FC } from 'react';
 import { DropdownSelfControlledPopup } from './DropdownPopup';
 import { DropdownList } from './DropdownList';
 import { DropdownItem } from './DropdownItem';
-import type { DropdownNode, OnItemSelect } from './Dropdown.types';
+import type { DropdownNode, OnHover, OnItemSelect } from './Dropdown.types';
 
 export interface DropdownMenuProps extends HTMLAttributes<HTMLUListElement> {
     /**
@@ -22,6 +22,10 @@ export interface DropdownMenuProps extends HTMLAttributes<HTMLUListElement> {
      * Обработчик выбора айтема.
      */
     onItemSelect?: OnItemSelect;
+    /**
+     * Обработчик наведения на айтем.
+     */
+    onHover?: OnHover;
     children?: React.ReactNode;
 }
 
@@ -34,6 +38,7 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
     hoverIndex,
     itemRole,
     onItemSelect,
+    onHover,
     role = 'menu',
     ...rest
 }) => {
@@ -53,7 +58,9 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
                                 id={id ? `${id}-item-${i}` : id}
                                 role={itemRole}
                                 isHovered={i === hoverIndex}
+                                index={i}
                                 onClick={onItemSelect}
+                                onHover={onHover}
                             />
                         }
                     >
@@ -66,7 +73,9 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
                         id={id ? `${id}-item-${i}` : id}
                         role={itemRole}
                         isHovered={i === hoverIndex}
+                        index={i}
                         onClick={onItemSelect}
+                        onHover={onHover}
                     />
                 ),
             )}

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useCallback, useEffect, useMemo } from 'react';
 import type { FC, ComponentType, ForwardRefExoticComponent } from 'react';
 
 import { DropdownUncontrolled, DropdownUncontrolledProps } from './DropdownUncontrolled';
@@ -51,6 +51,7 @@ export const withAssistiveDropdown = <P extends object>(
     const [isOpen, setIsOpen] = useState(false);
     const [index, setIndex] = useState(INITIAL_INDEX);
     const openingMethod = useRef<string | null>(null);
+    const activeIndex = useMemo(() => items.findIndex((item) => item.isActive), [items]);
 
     const onToggle = useCallback(
         (newIsOpen, event) => {
@@ -88,6 +89,14 @@ export const withAssistiveDropdown = <P extends object>(
         }
     }, []);
 
+    const onHover = useCallback((newIndex: number) => {
+        setIndex(newIndex);
+    }, []);
+
+    const onMouseLeave = useCallback(() => {
+        setIndex(-1);
+    }, []);
+
     const { onKeyDown } = useKeyboardNavigation({
         items,
         isOpen,
@@ -98,10 +107,14 @@ export const withAssistiveDropdown = <P extends object>(
     });
 
     useEffect(() => {
+        setIndex(activeIndex);
+    }, [activeIndex]);
+
+    useEffect(() => {
         if (!isOpen) {
-            onIndexChange?.(INITIAL_INDEX);
+            onIndexChange?.(activeIndex === -1 ? INITIAL_INDEX : activeIndex);
         }
-    }, [isOpen, onIndexChange]);
+    }, [isOpen, onIndexChange, activeIndex]);
 
     return (
         <Dropdown
@@ -119,6 +132,8 @@ export const withAssistiveDropdown = <P extends object>(
             onKeyDown={onKeyDown}
             onToggle={onToggle}
             onItemSelect={onItemSelect}
+            onHover={onHover}
+            onMouseLeave={onMouseLeave}
         >
             <Component
                 {...(rest as P)}
