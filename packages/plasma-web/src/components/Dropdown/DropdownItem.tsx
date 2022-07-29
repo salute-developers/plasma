@@ -12,7 +12,7 @@ import {
 } from '@salutejs/plasma-core';
 import { IconChevronRight, IconDone } from '@salutejs/plasma-icons';
 
-import type { DropdownItem as DropdownItemType, DropdownNode as DropdownNodeType } from './Dropdown.types';
+import type { DropdownItem as DropdownItemType, DropdownNode as DropdownNodeType, OnHover } from './Dropdown.types';
 
 export interface DropdownItemProps
     extends DropdownNodeType,
@@ -33,12 +33,14 @@ export interface DropdownItemProps
      * Программный ховер (нужен для навигации с клавиатуры).
      */
     isHovered?: boolean;
+    index: number;
     onClick?: (item: DropdownItemType, event: SyntheticEvent) => void;
-    onHover?: () => void;
+    onHover?: OnHover;
     onFocus?: () => void;
 }
 
 interface StyledDropdownItemProps {
+    $withAssistive?: boolean;
     $hover?: boolean;
     $disabled?: boolean;
     $color?: string;
@@ -68,12 +70,16 @@ const StyledDropdownItem = styled.li<StyledDropdownItemProps>`
     transition: background-color 0.3s ease-in-out;
     cursor: pointer;
 
-    /* stylelint-disable-next-line selector-nested-pattern */
-    &:hover,
-    &:focus {
-        color: ${({ $color }) => $color || primary};
-        background-color: ${surfaceLiquid02};
-    }
+    ${({ $withAssistive, $color }) =>
+        !$withAssistive &&
+        css`
+            /* stylelint-disable-next-line selector-nested-pattern */
+            &:hover,
+            &:focus {
+                color: ${$color || primary};
+                background-color: ${surfaceLiquid02};
+            }
+        `}
 
     &:focus {
         outline: 0 none;
@@ -82,7 +88,7 @@ const StyledDropdownItem = styled.li<StyledDropdownItemProps>`
     ${({ $hover, $color }) =>
         $hover &&
         css`
-            color: ${() => $color || primary};
+            color: ${$color || primary};
             background-color: ${surfaceLiquid02};
         `}
 
@@ -144,6 +150,7 @@ export const DropdownItem: FC<DropdownItemProps> = ({
     contentLeft,
     items = [],
     role = 'menuitem',
+    index,
     onClick: onClickExternal,
     onHover,
     onFocus,
@@ -183,10 +190,15 @@ export const DropdownItem: FC<DropdownItemProps> = ({
         [value, label, isDisabled, onClickExternal],
     );
 
+    const onMouseOver = useCallback(() => {
+        onHover?.(index);
+    }, [value, label, isDisabled, onClickExternal]);
+
     return (
         <StyledDropdownItem
             {...rest}
             ref={ref}
+            $withAssistive={Boolean(onHover)}
             $hover={isHovered}
             $disabled={isDisabled}
             $color={color}
@@ -194,7 +206,7 @@ export const DropdownItem: FC<DropdownItemProps> = ({
             aria-label={label}
             aria-selected={role === 'option' ? isActiveAsSingleOrNode : undefined}
             onClick={onClick}
-            onMouseOver={onHover}
+            onMouseOver={onMouseOver}
             onFocus={onFocus}
         >
             {contentLeft && <StyledContent>{contentLeft}</StyledContent>}

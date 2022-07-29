@@ -33,6 +33,7 @@ export const DropdownUncontrolled: FC<DropdownUncontrolledProps> = ({
     onKeyDown,
     onToggle: onToggleExternal,
     onItemSelect,
+    onHover,
     ...rest
 }) => {
     const hasItems = Array.isArray(items) && items.length > 0;
@@ -61,7 +62,14 @@ export const DropdownUncontrolled: FC<DropdownUncontrolledProps> = ({
             onKeyDown={onKeyDown}
             onBlur={onBlur}
         >
-            <DropdownMenu {...rest} id={id} items={items} hoverIndex={hoverIndex} onItemSelect={onItemSelect} />
+            <DropdownMenu
+                {...rest}
+                id={id}
+                items={items}
+                hoverIndex={hoverIndex}
+                onHover={onHover}
+                onItemSelect={onItemSelect}
+            />
         </DropdownPopup>
     );
 };
