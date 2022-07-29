@@ -199,21 +199,21 @@ describe('plasma-web: Select a11y - keyboard control', () => {
         cy.root().get('[role="combobox"]').focus().trigger('keydown', { keyCode: Codes.Enter });
         cy.get('[role="combobox"]').should('have.attr', 'aria-expanded', 'true');
 
-        // Navigate to the last item
+        // Navigate to the first item
         cy.root().get('[role="combobox"]').focus().trigger('keydown', { keyCode: Codes.ArrowUp });
-        cy.get('[role="combobox"]').should('have.attr', 'aria-activedescendant', `${id}-dropdown-item-7`);
+        cy.get('[role="combobox"]').should('have.attr', 'aria-activedescendant', `${id}-dropdown-item-0`);
 
         // Select navigated item with "Space"
         cy.root().get('[role="combobox"]').focus().trigger('keydown', { keyCode: Codes.Space });
         cy.get('[role="combobox"]').should(($p) => {
             // select should contain a value
-            expect($p).to.contain('Каждый охотник желает знать, где сидит фазан');
+            expect($p).to.contain('Каждый');
             // select should be closed
             expect($p.attr('aria-expanded')).to.eq('false');
         });
 
         // First item in the list must be selected
-        cy.get(`#${id}-dropdown-item-7`).should('have.attr', 'aria-selected', 'true');
+        cy.get(`#${id}-dropdown-item-0`).should('have.attr', 'aria-selected', 'true');
     });
 
     it('navigate with "PageDown" and "PageUp"', () => {
