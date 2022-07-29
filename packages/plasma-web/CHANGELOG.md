@@ -1,3 +1,16 @@
+# v1.119.1 (Fri Jul 29 2022)
+
+#### 🐛 Bug Fix
+
+- test(plasma-web,plasma-b2c): Update test and snapshots for key navigatation in `Select` component [#110](https://github.com/salute-developers/plasma/pull/110) ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-web): Fix behavior for `Dropdown` component on hover item [#110](https://github.com/salute-developers/plasma/pull/110) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.119.0 (Thu Jul 28 2022)
 
 #### 🐛 Bug Fix
