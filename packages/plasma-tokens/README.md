@@ -377,3 +377,11 @@ export default App;
 Приложение основано на [create-react-app](https://create-react-app.dev) c использованием [typescript](https://www.typescriptlang.org/) и [styled-components](https://styled-components.com/).
 
 Для запуска приложение прочитайте [README](https://github.com/salute-developers/plasma/blob/master/examples/demo-tokens/README.md).
+
+## Создание кастомной темы
+
+```bash
+npm run create:theme
+```
+
+В результате будет создан файл темы в папке 'data/themes'
