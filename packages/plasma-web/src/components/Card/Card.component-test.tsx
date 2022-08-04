@@ -28,11 +28,53 @@ describe('plasma-web: Card', () => {
     it('default', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Card style={{ width: '50%', color: 'white' }} scaleOnFocus>
+                <Card style={{ width: '50%', color: 'black' }} scaleOnFocus>
                     <CardBody>
                         <CardMedia src={src} placeholder={src} ratio="1/1" />
                         <CardBadge style={{ left: '1rem', top: '1rem' }} text="Test in badge" />
                         <CardContent>
+                            <BodyM>Label</BodyM>
+                            <H4>Tittle</H4>
+                            <BodyM>description</BodyM>
+                        </CardContent>
+                    </CardBody>
+                </Card>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.mockImage('img', 'images/320_320_0.jpg');
+        cy.matchImageSnapshot();
+    });
+
+    it('with background', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Card style={{ width: '50%', color: 'black' }} scaleOnFocus background="cadetblue">
+                    <CardBody>
+                        <CardMedia src={src} placeholder={src} ratio="1/1" />
+                        <CardBadge style={{ left: '1rem', top: '1rem' }} text="Test in badge" />
+                        <CardContent>
+                            <BodyM>Label</BodyM>
+                            <H4>Tittle</H4>
+                            <BodyM>description</BodyM>
+                        </CardContent>
+                    </CardBody>
+                </Card>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.mockImage('img', 'images/320_320_0.jpg');
+        cy.matchImageSnapshot();
+    });
+
+    it('with cover', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Card style={{ width: '50%', color: 'white' }} scaleOnFocus>
+                    <CardBody>
+                        <CardMedia src={src} placeholder={src} ratio="1/1" />
+                        <CardBadge style={{ left: '1rem', top: '1rem' }} text="Test in badge" />
+                        <CardContent cover>
                             <BodyM>Label</BodyM>
                             <H4>Tittle</H4>
                             <BodyM>description</BodyM>
