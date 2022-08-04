@@ -1,4 +1,4 @@
-import { black, white } from '../../constants';
+import { baseColors } from '../../constants';
 
 import { TokensByType } from '../../types';
 
@@ -13,37 +13,37 @@ export const getBackgroundPrimaryTokens = () => {
     return {
         dark: {
             default: {
-                value: black,
+                value: baseColors.black.value,
                 comment: comment.default,
             },
             onDark: {
-                value: black,
+                value: baseColors.black.value,
                 comment: comment.onDark,
             },
             onLight: {
-                value: white,
+                value: baseColors.white.value,
                 comment: comment.onLight,
             },
             inverse: {
-                value: white,
+                value: baseColors.white.value,
                 comment: comment.inverse,
             },
         },
         light: {
             default: {
-                value: white,
+                value: baseColors.white.value,
                 comment: comment.default,
             },
             onDark: {
-                value: black,
+                value: baseColors.black.value,
                 comment: comment.onDark,
             },
             onLight: {
-                value: white,
+                value: baseColors.white.value,
                 comment: comment.onLight,
             },
             inverse: {
-                value: black,
+                value: baseColors.black.value,
                 comment: comment.inverse,
             },
         },

@@ -20,6 +20,7 @@ import type { TypoSystem } from '@salutejs/plasma-tokens-utils';
 import { baseColors, colorThemes, typoSystem, typo, sizes } from './data';
 import type { ThemeTokens, TypographyTypes } from './data';
 import * as tokenGroups from './tokenGroups';
+import { generateThemesTokenDataGroups } from './lib/themeBuilder/generateTokens';
 
 const OUT_DIR = 'src';
 const COLORS_DIR = path.join(OUT_DIR, 'colors');
@@ -44,11 +45,14 @@ writeGeneratedToFS(COLORS_DIR, [
     { file: 'values.ts', content: generateTokens(colorThemes.darkSber) },
 ]);
 
+// Генерация токенов для кастомных тем из data/themes
+const customThemesTokenGroups = generateThemesTokenDataGroups();
+
 // Генерация и запись файлов тем для создания глобальных стилей
-writeGeneratedToFS(THEMES_DIR, generateColorThemes(colorThemes));
+writeGeneratedToFS(THEMES_DIR, generateColorThemes({ ...customThemesTokenGroups, ...colorThemes }));
 
 // Отдельные файлы для импорта в компонентах
-writeGeneratedToFS(THEMES_VALUES_DIR, generateColorThemeValues(colorThemes));
+writeGeneratedToFS(THEMES_VALUES_DIR, generateColorThemeValues({ ...customThemesTokenGroups, ...colorThemes }));
 
 /** ========================================== **/
 /** ===== Генерация размеров компонентов ===== **/
@@ -131,14 +135,6 @@ const convertGroupTokens = (tokenNames: Array<keyof typeof FullColorsList>, them
     }, {} as ThemeTokens);
     return tokens;
 };
-
-interface ThemeTokensGroup {
-    textAndIcons: ThemeTokens;
-    buttons: ThemeTokens;
-    backgrounds: ThemeTokens;
-    surfaces: ThemeTokens;
-    speech: ThemeTokens;
-}
 
 const convertGroupedTokenData = (theme: ThemeTokens): ThemeTokens => {
     return {

@@ -1,7 +1,7 @@
 import { general as generalColors } from '@salutejs/plasma-colors';
 import { humanizeColor } from '@salutejs/plasma-tokens-utils';
 
-import { white } from '../../constants';
+import { baseColors } from '../../constants';
 import { ThemeConfig, TokensByType } from '../../types';
 
 const comment: Record<keyof TokensByType, string> = {
@@ -25,17 +25,17 @@ export const getBackgroundTertiaryTokens = (config: ThemeConfig) => {
                 comment: comment.onDark,
             },
             onLight: {
-                value: white,
+                value: baseColors.white.value,
                 comment: comment.onLight,
             },
             inverse: {
-                value: white,
+                value: baseColors.white.value,
                 comment: comment.inverse,
             },
         },
         light: {
             default: {
-                value: white,
+                value: baseColors.white.value,
                 comment: comment.default,
             },
             onDark: {
@@ -43,7 +43,7 @@ export const getBackgroundTertiaryTokens = (config: ThemeConfig) => {
                 comment: comment.onDark,
             },
             onLight: {
-                value: white,
+                value: baseColors.white.value,
                 comment: comment.onLight,
             },
             inverse: {

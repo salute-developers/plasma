@@ -1,4 +1,4 @@
-import { transparent } from '../../constants';
+import { baseColors } from '../../constants';
 import { TokensByType } from '../../types';
 
 const comment: Record<keyof TokensByType, string> = {
@@ -12,37 +12,37 @@ export const getSurfaceClearTokens = () => {
     return {
         dark: {
             default: {
-                value: transparent,
+                value: baseColors.clear.value,
                 comment: comment.default,
             },
             onDark: {
-                value: transparent,
+                value: baseColors.clear.value,
                 comment: comment.onDark,
             },
             onLight: {
-                value: transparent,
+                value: baseColors.clear.value,
                 comment: comment.onLight,
             },
             inverse: {
-                value: transparent,
+                value: baseColors.clear.value,
                 comment: comment.inverse,
             },
         },
         light: {
             default: {
-                value: transparent,
+                value: baseColors.clear.value,
                 comment: comment.default,
             },
             onDark: {
-                value: transparent,
+                value: baseColors.clear.value,
                 comment: comment.onDark,
             },
             onLight: {
-                value: transparent,
+                value: baseColors.clear.value,
                 comment: comment.onLight,
             },
             inverse: {
-                value: transparent,
+                value: baseColors.clear.value,
                 comment: comment.inverse,
             },
         },

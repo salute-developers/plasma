@@ -1,7 +1,7 @@
 import { alphenColor } from '@salutejs/plasma-tokens-utils';
 
-import { black } from '../../constants';
-import { ThemeConfig, TokensByType } from '../../types';
+import { baseColors } from '../../constants';
+import { TokensByType } from '../../types';
 
 const comment: Record<keyof TokensByType, string> = {
     default: 'Цвет фона паранжи светлый',
@@ -10,8 +10,8 @@ const comment: Record<keyof TokensByType, string> = {
     inverse: 'Инвертированный цвет фона паранжи светлый',
 };
 
-export const getOverlaySoftTokens = (config: ThemeConfig) => {
-    const value = alphenColor(black, -0.44);
+export const getOverlaySoftTokens = () => {
+    const value = alphenColor(baseColors.black.value, -0.44);
 
     return {
         dark: {

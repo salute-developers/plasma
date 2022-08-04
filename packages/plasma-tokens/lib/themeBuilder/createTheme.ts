@@ -20,6 +20,7 @@ import {
     TokensByType,
     TokensGetterFn,
 } from './types';
+import { baseColors } from './constants';
 
 const dataFolder = path.join('data', 'themes');
 
@@ -66,6 +67,7 @@ const getThemeModeTokens = <T extends ThemeMode>(config: ThemeConfig, mode: T): 
         controlsSurfaces: getTokensByGroups<ControlsSurfacesName>(controlsSurfacesTokenGetters, config, mode),
         backgrounds: getTokensByGroups<BackgroundName>(backgroundTokenGetters, config, mode),
         overlay: getTokensByGroups<OverlayName>(overlayTokenGetters, config, mode),
+        ...baseColors,
     };
 };
 

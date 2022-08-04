@@ -1,7 +1,7 @@
 import { general as generalColors, PlasmaSaturation } from '@salutejs/plasma-colors';
 import { alphenColor, humanizeColor } from '@salutejs/plasma-tokens-utils';
-import { generalColorsAdditionalSaturation } from './constants';
 
+import { generalColorsAdditionalSaturation } from './constants';
 import { Grayscale } from './types';
 
 interface GetGreyTokenDataParams {

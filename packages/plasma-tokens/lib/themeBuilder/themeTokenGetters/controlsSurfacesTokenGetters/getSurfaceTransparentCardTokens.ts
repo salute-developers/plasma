@@ -1,6 +1,6 @@
 import { alphenColor } from '@salutejs/plasma-tokens-utils';
 
-import { white } from '../../constants';
+import { baseColors } from '../../constants';
 import { ThemeConfig, TokensByType } from '../../types';
 import { getGreyTokenData } from '../../utils';
 
@@ -17,7 +17,7 @@ export const getSurfaceTransparentCardTokens = (config: ThemeConfig) => {
     const opacityLightValue = opacity ? 0.06 : null;
 
     const darkValue = opacity
-        ? alphenColor(white, -0.88)
+        ? alphenColor(baseColors.white.value, -0.88)
         : getGreyTokenData({ saturation: 1000, opacity: opacityDarkValue, grayscale });
     const lightValue = getGreyTokenData({ saturation: opacity ? 1000 : 50, opacity: opacityLightValue, grayscale });
 
