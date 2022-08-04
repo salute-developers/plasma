@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 import { DisabledProps } from '../../mixins';
 
-interface CoverProps {
+export interface CoverProps {
     /**
      * Контент перекрывает собой картинку.
      */
@@ -13,11 +13,11 @@ interface CoverProps {
      */
     coverGradient?: boolean;
 }
-interface NoCoverProps {
+export interface NoCoverProps {
     cover?: false;
     coverGradient?: never;
 }
-interface OtherProps extends DisabledProps {
+export interface OtherProps extends DisabledProps {
     compact?: boolean;
 }
 
