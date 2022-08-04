@@ -1,13 +1,24 @@
-export const white = '#ffffff';
-export const black = '#000000';
-export const transparent = 'rgba(0, 0, 0, 0)';
+export const baseColors = {
+    white: {
+        value: '#FFFFFF',
+        comment: 'Базовый белый цвет',
+    },
+    black: {
+        value: '#000000',
+        comment: 'Базовый черный цвет',
+    },
+    clear: {
+        value: 'rgba(0, 0, 0, 0)',
+        comment: 'Базовый прозрачный цвет',
+    },
+};
 
 // TODO: использовать палитру когда будет добавлена колонка 50
 export const generalColorsAdditionalSaturation = {
     coolGray: {
-        50: '#f7f8fa',
+        50: '#F7F8FA',
     },
     gray: {
-        50: '#f7f7f7',
+        50: '#F7F7F7',
     },
 };

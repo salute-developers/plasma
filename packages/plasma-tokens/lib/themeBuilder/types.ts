@@ -1,4 +1,4 @@
-import { TokenData } from '@salutejs/plasma-tokens-utils';
+import { TokenData, TokenDataGroup } from '@salutejs/plasma-tokens-utils';
 
 export interface ThemeConfig {
     name: string;
@@ -90,3 +90,5 @@ export interface Theme {
         overlay: TokensByType<OverlayName>;
     };
 }
+
+export type ThemeTokenDataGroups = Record<string, TokenDataGroup<string>>;
