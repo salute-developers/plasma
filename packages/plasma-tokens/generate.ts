@@ -20,7 +20,8 @@ import type { TypoSystem } from '@salutejs/plasma-tokens-utils';
 import { baseColors, colorThemes, typoSystem, typo, sizes } from './data';
 import type { ThemeTokens, TypographyTypes } from './data';
 import * as tokenGroups from './tokenGroups';
-import { generateThemesTokenDataGroups } from './lib/themeBuilder/generateTokens';
+import { generateColorThemesTokenDataGroups } from './lib/themeBuilder/generateTokens';
+import { mapDeprecatedColorTokens } from './lib/themeBuilder/mapDeprecatedTokens';
 
 const OUT_DIR = 'src';
 const COLORS_DIR = path.join(OUT_DIR, 'colors');
@@ -46,13 +47,15 @@ writeGeneratedToFS(COLORS_DIR, [
 ]);
 
 // Генерация токенов для кастомных тем из data/themes
-const customThemesTokenGroups = generateThemesTokenDataGroups();
+const themesColorTokenGroups = generateColorThemesTokenDataGroups();
+// Добавляем старые токены для обратной совместимости
+const themesColorTokenGroupsFallback = mapDeprecatedColorTokens(themesColorTokenGroups);
 
 // Генерация и запись файлов тем для создания глобальных стилей
-writeGeneratedToFS(THEMES_DIR, generateColorThemes({ ...customThemesTokenGroups, ...colorThemes }));
+writeGeneratedToFS(THEMES_DIR, generateColorThemes({ ...themesColorTokenGroupsFallback, ...colorThemes }));
 
 // Отдельные файлы для импорта в компонентах
-writeGeneratedToFS(THEMES_VALUES_DIR, generateColorThemeValues({ ...customThemesTokenGroups, ...colorThemes }));
+writeGeneratedToFS(THEMES_VALUES_DIR, generateColorThemeValues({ ...themesColorTokenGroupsFallback, ...colorThemes }));
 
 /** ========================================== **/
 /** ===== Генерация размеров компонентов ===== **/
@@ -146,6 +149,7 @@ const convertGroupedTokenData = (theme: ThemeTokens): ThemeTokens => {
     };
 };
 
+// TODO: Это генерация устаревших цветовых токенов, необходимо удалить после перехода на новые токены
 const generateColors = () => {
     const fixThemes = {} as { [key: string]: ThemeTokens };
 
@@ -161,7 +165,7 @@ fs.writeFileSync(
     path.join(amznDictPropsColorsDir, 'theme.json'),
     JSON.stringify(
         {
-            color: generateColors(),
+            color: { ...generateColors(), ...themesColorTokenGroups },
         },
         null,
         2,

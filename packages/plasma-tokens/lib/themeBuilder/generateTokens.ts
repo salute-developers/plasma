@@ -3,7 +3,6 @@ import path from 'path';
 import { DataObject, TokenData, TokenDataGroup } from '@salutejs/plasma-tokens-utils';
 
 import { Theme, ThemeTokenDataGroups, TokenGroup, TokenType } from './types';
-import { mapDeprecatedTokens } from './mapDeprecatedTokens';
 
 const themesFolder = path.join(__dirname, '../../data/themes');
 
@@ -39,7 +38,7 @@ const dataObject2TokenDataGroup = (dataObject: DataObject, path: string): TokenD
     }, {});
 };
 
-const theme2TokenDataGroups = (theme: Theme): ThemeTokenDataGroups => {
+const theme2ColorTokenDataGroups = (theme: Theme): ThemeTokenDataGroups => {
     const {
         config: { name },
         dark,
@@ -52,7 +51,7 @@ const theme2TokenDataGroups = (theme: Theme): ThemeTokenDataGroups => {
     };
 };
 
-export const generateThemesTokenDataGroups = (): ThemeTokenDataGroups => {
+export const generateColorThemesTokenDataGroups = (): ThemeTokenDataGroups => {
     if (!fs.existsSync(themesFolder)) {
         return {};
     }
@@ -63,12 +62,11 @@ export const generateThemesTokenDataGroups = (): ThemeTokenDataGroups => {
         .reduce((colorSchemas, item) => {
             const fileContent = fs.readFileSync(path.join(themesFolder, item.name), 'utf-8');
 
-            const themeTokens = theme2TokenDataGroups(JSON.parse(fileContent));
-            const tokensWithDeprecated = mapDeprecatedTokens(themeTokens);
+            const themeTokens = theme2ColorTokenDataGroups(JSON.parse(fileContent));
 
             return {
                 ...colorSchemas,
-                ...tokensWithDeprecated,
+                ...themeTokens,
             };
         }, {});
 };

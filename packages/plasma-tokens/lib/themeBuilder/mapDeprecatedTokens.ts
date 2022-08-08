@@ -18,7 +18,7 @@ type ActualTokenNames =
     | 'onDarkSurfaceSolidDefault'
     | 'onDarkSurfaceTransparentSecondary';
 
-export const deprecatedTokenOnActualToken: Record<string, ActualTokenNames> = {
+export const deprecatedColorTokenOnActualToken: Record<string, ActualTokenNames> = {
     whitePrimary: 'onDarkTextPrimary',
     whiteSecondary: 'onDarkTextSecondary',
     whiteTertiary: 'onDarkTextTertiary',
@@ -74,9 +74,9 @@ export const deprecatedTokenOnActualToken: Record<string, ActualTokenNames> = {
     // skeletonGradientLighter = 'Градиент скелетона для ярких компонентов',
 };
 
-export const mapDeprecatedTokens = (themeTokenDataGroups: ThemeTokenDataGroups): ThemeTokenDataGroups => {
+export const mapDeprecatedColorTokens = (themeTokenDataGroups: ThemeTokenDataGroups): ThemeTokenDataGroups => {
     return Object.entries(themeTokenDataGroups).reduce((tokensWithDeprecated, [themeName, tokens]) => {
-        const deprecatedTokens = Object.entries(deprecatedTokenOnActualToken).reduce(
+        const deprecatedTokens = Object.entries(deprecatedColorTokenOnActualToken).reduce(
             (acc, [oldName, actualName]) => ({
                 ...acc,
                 [oldName]: { value: tokens[actualName].value, comment: `@deprecated instead use ${actualName}` },
