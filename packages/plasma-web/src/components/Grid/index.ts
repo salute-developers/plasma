@@ -1,5 +1,7 @@
-export { Row } from '@salutejs/plasma-core';
-
+export { Row } from './Row';
 export { Container } from './Container';
-export { Col, sizes, offsets } from './Col';
-export type { ColProps, ColCount, ColSizeProps, ColOffsetProps } from './Col';
+export { Col } from './Col';
+export { sizes, offsets } from './types';
+
+export type { ColCount, ColSizeProps, ColOffsetProps } from './types';
+export type { ColProps } from './Col';

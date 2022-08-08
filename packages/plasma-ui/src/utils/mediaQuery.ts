@@ -1,28 +1,24 @@
-import { css, FlattenSimpleInterpolation } from 'styled-components';
+import { FlattenSimpleInterpolation, css } from 'styled-components';
 
 export const breakpoints = {
-    XXL: 1200, // Desktop large
     XL: 960, // TV
     L: 769, // Portal 8 cols
     M: 560, // Portal 6 cols
     S: 0, // Mobile
 };
 export const columns = {
-    XXL: 16,
     XL: 12,
     L: 8,
     M: 6,
     S: 4,
 };
 export const margins = {
-    XXL: 4,
     XL: 4,
     L: 3.5,
     M: 3.5,
     S: 1,
 };
 export const gutters = {
-    XXL: 1,
     XL: 1,
     L: 1,
     M: 1,
@@ -37,7 +33,7 @@ export const sizes = Object.keys(breakpoints) as Breakpoint[];
 /**
  * Обертка над css-медиазапросами с заранее определенными брейкпоинтами.
  */
-export const mediaQuery = (breakpoint: Breakpoint, deviceScale = 1): MediaQueryFunction => {
+export const mediaQuery = (breakpoint: Breakpoint, deviceScale = 2): MediaQueryFunction => {
     const index = sizes.indexOf(breakpoint);
     const nextBreakpoint = sizes[index - 1] as Breakpoint;
     const min = breakpoints[breakpoint] > 0 ? breakpoints[breakpoint] * deviceScale : null;

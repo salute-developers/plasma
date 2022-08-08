@@ -2,8 +2,8 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { IconChevronLeft, IconSize } from '@salutejs/plasma-icons';
 import type { PickOptional } from '@salutejs/plasma-core';
-import { mediaQuery } from '@salutejs/plasma-core';
 
+import { mediaQuery } from '../../utils';
 import { Button, ButtonProps } from '../Button';
 
 export interface HeaderArrowProps
