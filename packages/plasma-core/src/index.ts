@@ -4,7 +4,6 @@ export * from './components/Card';
 export * from './components/Carousel';
 export * from './components/Fade';
 export * from './components/Field';
-export * from './components/Grid';
 export * from './components/Image';
 export * from './components/Input';
 export * from './components/PaginationDots';
