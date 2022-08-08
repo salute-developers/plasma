@@ -1,3 +1,5 @@
+import path from 'path';
+
 export const baseColors = {
     white: {
         value: '#FFFFFF',
@@ -22,3 +24,5 @@ export const generalColorsAdditionalSaturation = {
         50: '#F7F7F7',
     },
 };
+
+export const themesFolder = path.join(__dirname, '../../data/themes');

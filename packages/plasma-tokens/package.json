@@ -17,6 +17,7 @@
         "prebuild:ds": "npm ci --prefix='design-language'",
         "build:ds": "npm run build --prefix='./design-language'",
         "create:theme": "npx ts-node ./lib/themeBuilder/createTheme.ts",
+        "generate:theme-html": "npx ts-node -e 'import { generateThemesHtmlView } from \"./lib/themeBuilder/generateThemeHTML\"; generateThemesHtmlView();'",
         "generate": "npx ts-node ./generate.ts",
         "postgenerate": "npx style-dictionary build && node clean.js",
         "figma": "npm run extract --prefix='./design-language'"

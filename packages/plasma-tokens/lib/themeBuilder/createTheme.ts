@@ -20,9 +20,8 @@ import {
     TokensByType,
     TokensGetterFn,
 } from './types';
-import { baseColors } from './constants';
-
-const dataFolder = path.join('data', 'themes');
+import { baseColors, themesFolder } from './constants';
+import { generateThemeHtml } from './generateThemeHtml';
 
 const getTokensByGroups = <T extends string>(
     tokenGetters: Record<string, TokensGetterFn>,
@@ -122,12 +121,14 @@ inquirer.prompt(questions).then((answers: ThemeConfig & { saturation: PlasmaSatu
 
     const fileName = `${name}.json`;
 
-    writeGeneratedToFS(dataFolder, [
+    writeGeneratedToFS(themesFolder, [
         {
             file: fileName,
             content: `${JSON.stringify(theme, null, 4)}\n`,
         },
     ]);
 
-    console.log(`Готово. ${path.join(dataFolder, fileName)}`);
+    generateThemeHtml(name);
+
+    console.log(`Готово. ${path.join(themesFolder, fileName)}`);
 });
