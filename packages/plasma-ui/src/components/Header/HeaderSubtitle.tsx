@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import { mediaQuery } from '@salutejs/plasma-core';
 
+import { mediaQuery } from '../../utils';
 import { TextBoxSubTitle } from '../TextBox';
 
 /**

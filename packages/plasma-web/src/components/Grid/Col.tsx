@@ -1,50 +1,31 @@
 import styled, { css } from 'styled-components';
-import { Col as BaseCol, sizes as baseSizes, offsets as baseOffsets } from '@salutejs/plasma-core';
-import type {
-    ColProps as BaseProps,
-    ColSizeProps as BaseSizeProps,
-    ColOffsetProps as BaseOffsetProps,
-    ColCount as BaseColCount,
-} from '@salutejs/plasma-core';
 
-import { gridColumns, gridSizes, mediaQuery, Breakpoint } from '../../utils';
+import { gridColumns, gridSizes, mediaQuery } from '../../utils';
 
-type ColCountExtInt = 13 | 14 | 15 | 16;
-type ColCountExtFlt = 12.5 | 13.5 | 14.5 | 15.5;
-export type ColCount = BaseColCount | ColCountExtInt | ColCountExtFlt;
-
-export interface ColSizeProps extends BaseSizeProps {
-    /**
-     * Размер ячейки при разрешении XXL
-     */
-    sizeXXL?: ColCount;
-}
-
-export interface ColOffsetProps extends BaseOffsetProps {
-    /**
-     * Отступ ячейки при разрешении XXL
-     */
-    offsetXXL?: ColCount;
-}
-
-export const sizes: Record<Breakpoint, keyof ColSizeProps> = {
-    XXL: 'sizeXXL',
-    ...baseSizes,
-};
-
-export const offsets: Record<Breakpoint, keyof ColOffsetProps> = {
-    XXL: 'offsetXXL',
-    ...baseOffsets,
-};
-
-export interface ColProps extends ColSizeProps, ColOffsetProps, BaseProps {}
+import { ColSizeProps, ColOffsetProps, ColCount, sizes, offsets } from './types';
 
 const deviceScale = 1;
+
+export interface ColProps extends ColSizeProps, ColOffsetProps, React.HTMLAttributes<HTMLDivElement> {
+    /**
+     * Размер ячейки, зависящий от максимального количества столбцов
+     */
+    size?: ColCount;
+    /**
+     * Отступ ячейки, сдвинет ее на n ячеек вправо
+     */
+    offset?: ColCount;
+}
 
 /**
  * Блок для размещения контента или строк (``Row``) внутри себя.
  */
-export const Col = styled(BaseCol)<ColProps>`
+export const Col = styled.div<ColProps>`
+    box-sizing: border-box;
+
+    padding-left: var(--plasma-grid-gutter);
+    padding-right: var(--plasma-grid-gutter);
+
     ${({ size, offset, ...props }) =>
         gridSizes.map((breakpoint) => {
             const bpSize = sizes[breakpoint];

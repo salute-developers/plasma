@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { body2 } from '@salutejs/plasma-tokens';
-import { mediaQuery } from '@salutejs/plasma-core';
 
+import { mediaQuery } from '../../utils';
 import { Headline4 } from '../Typography';
 
 /**

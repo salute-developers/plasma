@@ -1,5 +1,4 @@
-export { Row } from '@salutejs/plasma-core';
-
+export { Row } from './Row';
 export { Container } from './Container';
 export { Col } from './Col';
 export type { ColProps } from './Col';

@@ -1,7 +1,8 @@
 import React, { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
-import { mediaQuery } from '@salutejs/plasma-core';
 import Color from 'color';
+
+import { mediaQuery } from '../../utils';
 
 const sizes = {
     sberBox: css`

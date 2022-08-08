@@ -13,7 +13,7 @@ export {
     transformStyles,
 } from '@salutejs/plasma-core';
 
-export type { TimingFunction, PinProps, MediaQueryFunction } from '@salutejs/plasma-core';
+export type { TimingFunction, PinProps } from '@salutejs/plasma-core';
 
 export {
     mediaQuery,
@@ -23,5 +23,4 @@ export {
     gutters as gridGutters,
     sizes as gridSizes,
 } from './mediaQuery';
-
-export type { Breakpoint } from './mediaQuery';
+export type { MediaQueryFunction, Breakpoint } from './mediaQuery';

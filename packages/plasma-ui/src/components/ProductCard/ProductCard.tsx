@@ -1,9 +1,10 @@
 import React, { forwardRef, ReactNode, memo } from 'react';
 import styled, { css } from 'styled-components';
-import { body1, black, blackSecondary, success, mediaQuery } from '@salutejs/plasma-core';
+import { body1, black, blackSecondary, success } from '@salutejs/plasma-core';
 import type { DisabledProps } from '@salutejs/plasma-core';
 import Color from 'color';
 
+import { mediaQuery } from '../../utils';
 import { Price } from '../Price';
 import { Footnote1, Body2, Caption } from '../Typography';
 import { Card } from '../Card/Card';

@@ -1,8 +1,9 @@
 import React, { useCallback, useRef } from 'react';
 import styled, { css, createGlobalStyle } from 'styled-components';
 import { overlay, backgroundPrimary } from '@salutejs/plasma-tokens';
-import { ButtonRoot, mediaQuery } from '@salutejs/plasma-core';
+import { ButtonRoot } from '@salutejs/plasma-core';
 
+import { mediaQuery } from '../../utils';
 import { Button, ButtonProps } from '../Button';
 import { TextBox } from '../TextBox';
 import { Cell } from '../Cell';

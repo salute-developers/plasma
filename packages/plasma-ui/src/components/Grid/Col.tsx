@@ -1,15 +1,18 @@
 import styled, { css } from 'styled-components';
-import {
-    Col as BaseCol,
-    ColProps as BaseProps,
-    sizes,
-    offsets,
-    mediaQuery,
-    gridSizes,
-    gridColumns,
-} from '@salutejs/plasma-core';
 
-export interface ColProps extends BaseProps {
+import { mediaQuery, gridSizes, gridColumns } from '../../utils';
+
+import { ColSizeProps, ColOffsetProps, ColCount, sizes, offsets } from './types';
+
+export interface ColProps extends ColSizeProps, ColOffsetProps, React.HTMLAttributes<HTMLDivElement> {
+    /**
+     * Размер ячейки, зависящий от максимального количества столбцов
+     */
+    size?: ColCount;
+    /**
+     * Отступ ячейки, сдвинет ее на n ячеек вправо
+     */
+    offset?: ColCount;
     /**
      * Тип ячейки
      */
@@ -26,7 +29,12 @@ export interface ColProps extends BaseProps {
  * Ширина и отступ данного подтипа колонок рассчитываются на основе ширины контейнера и хранятся в ``CSS Variables``.
  * С примером использования можно ознакомиться в документации по [каруселям](/?path=/docs/controls-carousel--basic).
  */
-export const Col = styled(BaseCol)<ColProps>`
+export const Col = styled.div<ColProps>`
+    box-sizing: border-box;
+
+    padding-left: var(--plasma-grid-gutter);
+    padding-right: var(--plasma-grid-gutter);
+
     ${({ type = 'rel', theme, size, offset, ...props }) =>
         gridSizes.map((breakpoint) => {
             const bpSize = sizes[breakpoint];

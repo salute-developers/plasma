@@ -1,15 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import {
-    Container as BaseContainer,
-    mediaQuery,
-    gridSizes,
-    gridColumns,
-    gridMargins,
-    gridGutters,
-    canUseDOM,
-    useIsomorphicLayoutEffect,
-} from '@salutejs/plasma-core';
+import { canUseDOM, useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
+
+import { mediaQuery, gridSizes, gridColumns, gridMargins, gridGutters } from '../../utils';
 
 interface StyledContainerProps {
     $width: number;
@@ -18,7 +11,17 @@ interface StyledContainerProps {
 const sidesCount = 2;
 const htmlFontSizePx = 16;
 
-const StyledContainer = styled(BaseContainer)<StyledContainerProps>`
+const StyledContainer = styled.div<StyledContainerProps>`
+    margin: 0 auto;
+
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+
+    width: 100%;
+    padding-left: var(--plasma-grid-margin);
+    padding-right: var(--plasma-grid-margin);
+
     ${({ $width, theme }) =>
         gridSizes.map((breakpoint) => {
             const containerWidth = $width;

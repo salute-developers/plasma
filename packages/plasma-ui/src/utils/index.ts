@@ -5,18 +5,22 @@ export {
     padZeroNumber,
     monthLongName,
     formatCurrency,
-    mediaQuery,
-    gridBreakpoints,
-    gridColumns,
-    gridMargins,
-    gridGutters,
-    gridSizes,
     setRef,
     toCssSize,
     transformStyles,
 } from '@salutejs/plasma-core';
 
-export type { PinProps, Breakpoint } from '@salutejs/plasma-core';
+export {
+    mediaQuery,
+    breakpoints as gridBreakpoints,
+    columns as gridColumns,
+    margins as gridMargins,
+    gutters as gridGutters,
+    sizes as gridSizes,
+} from './mediaQuery';
+export type { Breakpoint, MediaQueryFunction } from './mediaQuery';
+
+export type { PinProps } from '@salutejs/plasma-core';
 
 export { detectDevice, deviceScales, isSberBox, isSberPortal } from './deviceDetection';
 export type { DeviceKind } from './deviceDetection';
