@@ -3,8 +3,7 @@ import path from 'path';
 import { DataObject, TokenData, TokenDataGroup } from '@salutejs/plasma-tokens-utils';
 
 import { Theme, ThemeTokenDataGroups, TokenGroup, TokenType } from './types';
-
-const themesFolder = path.join(__dirname, '../../data/themes');
+import { themesFolder } from './constants';
 
 const isTokenData = (value: unknown): value is TokenData => {
     return typeof value === 'object' && value !== null && 'value' in value;
@@ -38,7 +37,7 @@ const dataObject2TokenDataGroup = (dataObject: DataObject, path: string): TokenD
     }, {});
 };
 
-const theme2ColorTokenDataGroups = (theme: Theme): ThemeTokenDataGroups => {
+export const theme2ColorTokenDataGroups = (theme: Theme): ThemeTokenDataGroups => {
     const {
         config: { name },
         dark,
