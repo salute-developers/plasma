@@ -12,7 +12,7 @@ const Filler = styled.div`
     background-color: rgba(255, 255, 255, 0.06);
 `;
 
-describe('plasma-core: Grid', () => {
+describe('plasma-web: Grid', () => {
     const Container = getComponent('Container');
     const Row = getComponent('Row');
     const Col = getComponent('Col');
@@ -54,7 +54,7 @@ describe('plasma-core: Grid', () => {
     });
 });
 
-describe('plasma-core: Grid _size', () => {
+describe('plasma-web: Grid _size', () => {
     const Container = getComponent('Container');
     const Row = getComponent('Row');
     const Col = getComponent('Col');
