@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 import { addDecorator, addParameters } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { b2c } from '@salutejs/plasma-tokens-b2c/typo';
-import { link, linkHover, linkActive } from '@salutejs/plasma-tokens-web';
+import { link, linkHover, linkActive, surfaceSolid01 } from '@salutejs/plasma-tokens-web';
 import { light, dark } from '@salutejs/plasma-tokens-b2c/themes';
 import { standard as standardTypo, compatible as compatibleTypo } from '@salutejs/plasma-typo';
 
@@ -18,6 +18,7 @@ if (typeof document !== 'undefined') {
 const DocumentStyle = createGlobalStyle`
     html:root {
         min-height: 100vh;
+        background-color: ${surfaceSolid01};
     }
     a {
         color: ${link};
