@@ -1,0 +1,30 @@
+---
+id: cell
+title: Cell
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Cell
+<Description name="Cell" />
+<PropsTable name="Cell" />
+<StorybookLink name="Cell" />
+
+## Примеры
+
+### Базовое использование
+```tsx live
+import React from 'react';
+import { Cell } from '@salutejs/plasma-web';
+import { IconHelp } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <Cell style={{
+                "--cell-content-margin-left": "1rem"
+            }} content={<IconHelp />} description="Тестовый контент для ячейки" />
+        </div>
+    );
+}
+```
