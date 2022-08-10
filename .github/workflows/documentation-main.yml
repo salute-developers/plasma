@@ -47,42 +47,42 @@ jobs:
       - name: Plasma Website
         run: |
           npm run build --prefix="./website/plasma-website"
-          cp -R ./website/plasma-website/build ../build/next
+          cp -R ./website/plasma-website/build ../build/next-${{ github.sha }}
 
       - name: Plasma UI Docs
         run: |
           npm run build --prefix="./website/plasma-ui-docs"
-          cp -R ./website/plasma-ui-docs/build ../build/next/ui
+          cp -R ./website/plasma-ui-docs/build ../build/next-${{ github.sha }}/ui
 
       - name: Plasma Web Docs
         run: |
           npm run build --prefix="./website/plasma-web-docs"
-          cp -R ./website/plasma-web-docs/build ../build/next/web
+          cp -R ./website/plasma-web-docs/build ../build/next-${{ github.sha }}/web
 
       - name: Plasma Temple Docs
         run: |
           npm run build --prefix="./website/plasma-temple-docs"
-          cp -R ./website/plasma-temple-docs/build ../build/next/temple
+          cp -R ./website/plasma-temple-docs/build ../build/next-${{ github.sha }}/temple
 
       - name: Plasma UI Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-ui"
-          cp -R ./packages/plasma-ui/build-sb ../build/next/ui-storybook
+          cp -R ./packages/plasma-ui/build-sb ../build/next-${{ github.sha }}/ui-storybook
 
       - name: Plasma Web Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-web"
-          cp -R ./packages/plasma-web/build-sb ../build/next/web-storybook
+          cp -R ./packages/plasma-web/build-sb ../build/next-${{ github.sha }}/web-storybook
 
       - name: Plasma B2C Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-b2c"
-          cp -R ./packages/plasma-b2c/build-sb ../build/next/b2c-storybook
+          cp -R ./packages/plasma-b2c/build-sb ../build/next-${{ github.sha }}/b2c-storybook
 
       - name: Plasma Temple Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-temple"
-          cp -R ./packages/plasma-temple/build-sb ../build/next/temple-storybook
+          cp -R ./packages/plasma-temple/build-sb ../build/next-${{ github.sha }}/temple-storybook
 
       - name: Upload documentation build
         uses: garygrossgarten/github-action-scp@release
@@ -95,11 +95,14 @@ jobs:
 
       - name: Update and clean documentation
         uses: appleboy/ssh-action@master
+        env:
+          SHA: ${{ github.sha }
         with:
           host: ${{ secrets.DOCS_HOST }}
           username: ${{ secrets.DOCS_LOGIN }}
           key: ${{ secrets.DOCS_KEY }}
+          envs: SHA
           script: |
             cd ../../var/www/plasma
             rm -rf current/
-            mv next current
+            mv next-${SHA} current
