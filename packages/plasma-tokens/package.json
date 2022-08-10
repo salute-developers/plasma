@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-tokens",
-    "version": "1.18.1",
+    "version": "1.19.0",
     "description": "",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "module": "es/index.js",
@@ -44,7 +44,7 @@
     ],
     "devDependencies": {
         "@salutejs/plasma-colors": "0.3.0",
-        "@salutejs/plasma-tokens-utils": "0.12.1",
+        "@salutejs/plasma-tokens-utils": "0.13.0",
         "@types/inquirer": "8.2.1",
         "@types/node": "16.7.13",
         "@types/param-case": "1.1.2",
@@ -55,6 +55,10 @@
         "ts-node": "10.2.1",
         "typescript": "3.9.10"
     },
-    "contributors": ["Виноградов Антон Александрович", "Зубаиров Фаниль Асхатович", "Vasiliy Loginevskiy"],
+    "contributors": [
+        "Виноградов Антон Александрович",
+        "Зубаиров Фаниль Асхатович",
+        "Vasiliy Loginevskiy"
+    ],
     "sideEffects": false
 }
