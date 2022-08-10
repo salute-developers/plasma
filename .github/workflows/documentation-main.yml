@@ -96,7 +96,7 @@ jobs:
       - name: Update and clean documentation
         uses: appleboy/ssh-action@master
         env:
-          SHA: ${{ github.sha }
+          SHA: ${{ github.sha }}
         with:
           host: ${{ secrets.DOCS_HOST }}
           username: ${{ secrets.DOCS_LOGIN }}
