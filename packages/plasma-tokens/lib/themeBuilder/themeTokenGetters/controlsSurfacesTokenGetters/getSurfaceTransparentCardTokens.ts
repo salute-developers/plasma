@@ -12,14 +12,23 @@ const comment: Record<keyof TokensByType, string> = {
 };
 
 export const getSurfaceTransparentCardTokens = (config: ThemeConfig) => {
-    const { opacity, grayscale } = config;
+    const {
+        opacity: { surfaces: opacity },
+        grayscale,
+    } = config;
+
     const opacityDarkValue = opacity ? 0.12 : null;
     const opacityLightValue = opacity ? 0.06 : null;
 
     const darkValue = opacity
         ? alphenColor(baseColors.white.value, -0.88)
-        : getGreyTokenData({ saturation: 1000, opacity: opacityDarkValue, grayscale });
-    const lightValue = getGreyTokenData({ saturation: opacity ? 1000 : 50, opacity: opacityLightValue, grayscale });
+        : getGreyTokenData({ saturation: 1000, opacity: opacityDarkValue, grayscale: grayscale.dark });
+
+    const lightValue = getGreyTokenData({
+        saturation: opacity ? 1000 : 50,
+        opacity: opacityLightValue,
+        grayscale: grayscale.light,
+    });
 
     return {
         dark: {

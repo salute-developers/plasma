@@ -13,6 +13,7 @@ import {
     ControlsSurfacesName,
     Grayscale,
     OverlayName,
+    SetupAnswers,
     TextIconsTokenName,
     Theme,
     ThemeConfig,
@@ -74,20 +75,9 @@ const questions = [
     {
         type: 'input',
         name: 'name',
-        message: 'Введите имя темы (латинские буквы без пробелов, минимум 3 символа)',
-        validate: (value: string) => RegExp(/^[a-zA-Z]{3,}$/).test(value) || 'Пожалуйста введите корректное имя темы',
-    },
-    {
-        type: 'confirm',
-        name: 'opacity',
-        message: 'С прозрачностью?',
-        default: true,
-    },
-    {
-        type: 'list',
-        name: 'grayscale',
-        message: 'Оттенок серого',
-        choices: Object.keys(Grayscale),
+        message: 'Введите имя темы (латинские буквы и/или цифры без пробелов, минимум 3 символа)',
+        validate: (value: string) =>
+            RegExp(/^[a-zA-Z0-9]{3,}$/).test(value) || 'Пожалуйста введите корректное имя темы',
     },
     {
         type: 'list',
@@ -97,9 +87,39 @@ const questions = [
     },
     {
         type: 'list',
-        name: 'saturation',
-        message: 'Сатурация акцентного цвета',
+        name: 'accentColorSaturationLight',
+        message: 'Светлость акцентного цвета для светлой темы',
         choices: Object.keys(generalColors.amber),
+    },
+    {
+        type: 'list',
+        name: 'accentColorSaturationDark',
+        message: 'Светлость акцентного цвета для темной темы',
+        choices: Object.keys(generalColors.amber),
+    },
+    {
+        type: 'list',
+        name: 'grayscaleLight',
+        message: 'Оттенок серого для светлой темы',
+        choices: Object.keys(Grayscale),
+    },
+    {
+        type: 'list',
+        name: 'grayscaleDark',
+        message: 'Оттенок серого для темной темы',
+        choices: Object.keys(Grayscale),
+    },
+    {
+        type: 'confirm',
+        name: 'opacityTextIcons',
+        message: 'Текст и иконки с прозрачностью?',
+        default: true,
+    },
+    {
+        type: 'confirm',
+        name: 'opacitySurfaces',
+        message: 'Поверхности с прозрачностью?',
+        default: true,
     },
 ];
 
@@ -109,14 +129,32 @@ const createTheme = (config: ThemeConfig): Theme => ({
     light: getThemeModeTokens(config, 'light'),
 });
 
-inquirer.prompt(questions).then((answers: ThemeConfig & { saturation: PlasmaSaturation }) => {
-    const { name, opacity, grayscale, accentColor, saturation } = answers;
+inquirer.prompt(questions).then((answers: SetupAnswers & { saturation: PlasmaSaturation }) => {
+    const {
+        name,
+        accentColor,
+        accentColorSaturationLight,
+        accentColorSaturationDark,
+        grayscaleLight,
+        grayscaleDark,
+        opacityTextIcons,
+        opacitySurfaces,
+    } = answers;
 
     const theme = createTheme({
         name,
-        opacity,
-        grayscale,
-        accentColor: generalColors[accentColor as keyof typeof generalColors][saturation],
+        accentColor: {
+            light: generalColors[accentColor][accentColorSaturationLight],
+            dark: generalColors[accentColor][accentColorSaturationDark],
+        },
+        grayscale: {
+            light: grayscaleLight,
+            dark: grayscaleDark,
+        },
+        opacity: {
+            textIcons: opacityTextIcons,
+            surfaces: opacitySurfaces,
+        },
     });
 
     const fileName = `${name}.json`;

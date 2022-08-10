@@ -12,8 +12,8 @@ const comment: Record<keyof TokensByType, string> = {
 };
 
 export const getSurfaceSolidCardTokens = (config: ThemeConfig) => {
-    const darkValue = humanizeColor(generalColors[config.grayscale][950]);
-    const lightValue = humanizeColor(generalColorsAdditionalSaturation[config.grayscale][50]);
+    const darkValue = humanizeColor(generalColors[config.grayscale.dark][950]);
+    const lightValue = humanizeColor(generalColorsAdditionalSaturation[config.grayscale.light][50]);
 
     return {
         dark: {

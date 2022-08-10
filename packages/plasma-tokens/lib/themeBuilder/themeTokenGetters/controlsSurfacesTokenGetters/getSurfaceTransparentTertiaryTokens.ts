@@ -12,13 +12,20 @@ const comment: Record<keyof TokensByType, string> = {
 };
 
 export const getSurfaceTransparentTertiaryTokens = (config: ThemeConfig) => {
-    const { opacity, grayscale } = config;
+    const {
+        opacity: { surfaces: opacity },
+        grayscale,
+    } = config;
     const opacityLightValue = opacity ? 0.12 : null;
 
     const darkValue = opacity
         ? alphenColor(baseColors.white.value, -0.8)
-        : getGreyTokenData({ saturation: 850, grayscale });
-    const lightValue = getGreyTokenData({ saturation: opacity ? 1000 : 200, grayscale, opacity: opacityLightValue });
+        : getGreyTokenData({ saturation: 850, grayscale: grayscale.dark });
+    const lightValue = getGreyTokenData({
+        saturation: opacity ? 1000 : 200,
+        grayscale: grayscale.light,
+        opacity: opacityLightValue,
+    });
 
     return {
         dark: {

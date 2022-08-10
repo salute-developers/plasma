@@ -4,42 +4,43 @@ import { ThemeConfig, TokensByType } from '../../types';
 
 export const accentTokenCreator = (comment: Record<keyof TokensByType, string>) => {
     return (config: ThemeConfig) => {
-        const accentColor = humanizeColor(config.accentColor);
+        const accentColorDark = humanizeColor(config.accentColor.dark);
+        const accentColorLight = humanizeColor(config.accentColor.light);
 
         return {
             dark: {
                 default: {
-                    value: accentColor,
+                    value: accentColorDark,
                     comment: comment.default,
                 },
                 onDark: {
-                    value: accentColor,
+                    value: accentColorDark,
                     comment: comment.onDark,
                 },
                 onLight: {
-                    value: accentColor,
+                    value: accentColorLight,
                     comment: comment.onLight,
                 },
                 inverse: {
-                    value: accentColor,
+                    value: accentColorLight,
                     comment: comment.inverse,
                 },
             },
             light: {
                 default: {
-                    value: accentColor,
+                    value: accentColorLight,
                     comment: comment.default,
                 },
                 onDark: {
-                    value: accentColor,
+                    value: accentColorDark,
                     comment: comment.onDark,
                 },
                 onLight: {
-                    value: accentColor,
+                    value: accentColorLight,
                     comment: comment.onLight,
                 },
                 inverse: {
-                    value: accentColor,
+                    value: accentColorDark,
                     comment: comment.inverse,
                 },
             },

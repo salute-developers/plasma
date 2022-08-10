@@ -11,8 +11,8 @@ const comment: Record<keyof TokensByType, string> = {
 };
 
 export const getSurfaceSolidTertiaryTokens = (config: ThemeConfig) => {
-    const darkValue = humanizeColor(generalColors[config.grayscale][850]);
-    const lightValue = humanizeColor(generalColors[config.grayscale][200]);
+    const darkValue = humanizeColor(generalColors[config.grayscale.dark][850]);
+    const lightValue = humanizeColor(generalColors[config.grayscale.light][200]);
 
     return {
         dark: {
