@@ -1,3 +1,15 @@
+# v0.13.0 (Wed Aug 10 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): theme creator [#115](https://github.com/salute-developers/plasma/pull/115) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
 # v0.12.1 (Thu May 05 2022)
 
 #### 🐛 Bug Fix

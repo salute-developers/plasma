@@ -1,3 +1,15 @@
+# v1.65.0 (Wed Aug 10 2022)
+
+#### 🐛 Bug Fix
+
+- chore(plasma-core): Remove `Grid` component and `mediaQuery` utils [#120](https://github.com/salute-developers/plasma/pull/120) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.64.3 (Fri Jul 22 2022)
 
 #### 🐛 Bug Fix

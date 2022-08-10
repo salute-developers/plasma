@@ -1,3 +1,16 @@
+# v1.19.0 (Wed Aug 10 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): generate custom theme tokens [#119](https://github.com/salute-developers/plasma/pull/119) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-tokens): theme creator [#115](https://github.com/salute-developers/plasma/pull/115) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
 # v1.18.0 (Wed Apr 27 2022)
 
 #### 🐛 Bug Fix

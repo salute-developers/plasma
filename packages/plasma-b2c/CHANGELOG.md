@@ -1,3 +1,17 @@
+# v1.87.0 (Wed Aug 10 2022)
+
+#### 🐛 Bug Fix
+
+- feat(plasma-web,plasma-ui): Moved `Grid` component from plasma-core [#120](https://github.com/salute-developers/plasma/pull/120) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.86.1 (Fri Jul 29 2022)
 
 #### 🐛 Bug Fix

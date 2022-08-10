@@ -1,3 +1,26 @@
+# (Wed Aug 10 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-tokens@1.19.0`
+  - feat(plasma-tokens): generate custom theme tokens [#119](https://github.com/salute-developers/plasma/pull/119) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- `@salutejs/plasma-tokens@1.19.0`, `@salutejs/plasma-tokens-utils@0.13.0`
+  - feat(plasma-tokens): theme creator [#115](https://github.com/salute-developers/plasma/pull/115) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-core@1.65.0`
+  - chore(plasma-core): Remove `Grid` component and `mediaQuery` utils [#120](https://github.com/salute-developers/plasma/pull/120) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.87.0`, `@salutejs/plasma-ui@1.120.0`, `@salutejs/plasma-web@1.120.0`
+  - feat(plasma-web,plasma-ui): Moved `Grid` component from plasma-core [#120](https://github.com/salute-developers/plasma/pull/120) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Fri Jul 29 2022)
 
 #### 🐛 Bug Fix

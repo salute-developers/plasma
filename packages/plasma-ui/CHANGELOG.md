@@ -1,3 +1,15 @@
+# v1.120.0 (Wed Aug 10 2022)
+
+#### 🐛 Bug Fix
+
+- feat(plasma-web,plasma-ui): Moved `Grid` component from plasma-core [#120](https://github.com/salute-developers/plasma/pull/120) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.119.0 (Thu Jul 28 2022)
 
 #### 🚀 Enhancement
