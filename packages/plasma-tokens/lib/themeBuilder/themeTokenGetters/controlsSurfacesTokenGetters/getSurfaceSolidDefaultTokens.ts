@@ -12,7 +12,7 @@ const comment: Record<keyof TokensByType, string> = {
 
 export const getSurfaceSolidDefaultTokens = (config: ThemeConfig) => {
     const darkValue = baseColors.white.value;
-    const lightValue = humanizeColor(generalColors[config.grayscale][1000]);
+    const lightValue = humanizeColor(generalColors[config.grayscale.light][1000]);
 
     return {
         dark: {

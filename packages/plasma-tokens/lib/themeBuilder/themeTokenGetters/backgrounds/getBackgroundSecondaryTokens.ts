@@ -12,7 +12,7 @@ const comment: Record<keyof TokensByType, string> = {
 };
 
 export const getBackgroundSecondaryTokens = (config: ThemeConfig) => {
-    const darkValue = humanizeColor(generalColors[config.grayscale][1000]);
+    const darkValue = humanizeColor(generalColors[config.grayscale.dark][1000]);
 
     return {
         dark: {

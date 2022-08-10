@@ -1,10 +1,31 @@
 import { TokenData, TokenDataGroup } from '@salutejs/plasma-tokens-utils';
+import { general as generalColors, PlasmaSaturation } from '@salutejs/plasma-colors';
 
 export interface ThemeConfig {
     name: string;
-    opacity: boolean;
-    accentColor: string;
-    grayscale: Grayscale;
+    accentColor: {
+        light: string;
+        dark: string;
+    };
+    grayscale: {
+        light: Grayscale;
+        dark: Grayscale;
+    };
+    opacity: {
+        textIcons: boolean;
+        surfaces: boolean;
+    };
+}
+
+export interface SetupAnswers {
+    name: string;
+    accentColor: keyof typeof generalColors;
+    accentColorSaturationLight: PlasmaSaturation;
+    accentColorSaturationDark: PlasmaSaturation;
+    grayscaleLight: Grayscale;
+    grayscaleDark: Grayscale;
+    opacityTextIcons: boolean;
+    opacitySurfaces: boolean;
 }
 
 export type TextIconsTokenName =
