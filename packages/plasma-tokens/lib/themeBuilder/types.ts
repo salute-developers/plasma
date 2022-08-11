@@ -80,7 +80,7 @@ export enum Grayscale {
     gray = 'gray',
 }
 
-export type TokensByType<T extends string = string> = Record<TokenType, Record<T, TokenData>>;
+export type TokensByType<T extends string = string> = Record<TokenType, Record<T, TokenData<string>>>;
 
 export type ThemeMode = 'dark' | 'light';
 
