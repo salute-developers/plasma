@@ -14,6 +14,8 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
+const sizes = ['m', 's'];
+
 const cDescription = (
     <div>
         A general-purpose, procedural computer programming{' '}
@@ -48,6 +50,8 @@ export const Live = () => {
             checked={value[item.value]}
             description={item.description}
             onChange={(event) => {
+                event.persist();
+
                 setValue(item.value);
                 onChange(event);
             }}
@@ -57,7 +61,7 @@ export const Live = () => {
     ));
 };
 
-export const Default: Story<RadioboxProps> = ({ name, label, description, disabled }) => {
+export const Default: Story<RadioboxProps> = ({ name, label, description, disabled, size }) => {
     const value = 0;
     const [checked, setChecked] = React.useState(true);
 
@@ -69,7 +73,10 @@ export const Default: Story<RadioboxProps> = ({ name, label, description, disabl
             description={description}
             disabled={disabled}
             checked={checked}
+            size={size}
             onChange={(event) => {
+                event.persist();
+
                 setChecked(event.target.checked);
                 onChange(event);
             }}
@@ -84,4 +91,14 @@ Default.args = {
     label: 'Label',
     description: 'Description',
     disabled: false,
+    size: 'm',
+};
+
+Default.argTypes = {
+    size: {
+        control: {
+            type: 'inline-radio',
+            options: sizes,
+        },
+    },
 };
