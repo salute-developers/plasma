@@ -49,6 +49,8 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
+const sizes = ['m', 's'];
+
 const name = 'languages';
 const items = [
     {
@@ -159,6 +161,8 @@ export const Live = () => {
                             disabled={item.disabled}
                             description={item.description}
                             onChange={(event) => {
+                                event.persist();
+
                                 const { checked } = event.target;
 
                                 if (item.parent) {
@@ -195,6 +199,8 @@ export const Default: Story<CheckboxProps> = (args) => {
                 value={value}
                 checked={checked}
                 onChange={(event) => {
+                    event.persist();
+
                     setChecked(event.target.checked);
                     onChange(event);
                 }}
@@ -211,8 +217,15 @@ Default.args = {
     label: 'Label',
     description: 'Description',
     disabled: false,
+    size: 'm',
 };
 
 Default.argTypes = {
     ...disableProps(propsToDisable),
+    size: {
+        control: {
+            type: 'inline-radio',
+            options: sizes,
+        },
+    },
 };

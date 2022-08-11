@@ -1,6 +1,6 @@
 import React, { forwardRef, useMemo } from 'react';
-import styled from 'styled-components';
-import { BaseboxDescription, BaseboxContentWrapper, useUniqId, white } from '@salutejs/plasma-core';
+import styled, { css } from 'styled-components';
+import { BaseboxContentWrapper, useUniqId, white } from '@salutejs/plasma-core';
 import type { BaseboxProps } from '@salutejs/plasma-core';
 
 import { extractTextFrom } from '../../utils';
@@ -8,24 +8,39 @@ import {
     StyledRoot as CheckboxRoot,
     StyledInput as CheckboxInput,
     StyledTrigger as CheckboxTrigger,
-    StyledContent as CheckboxContent,
+    StyledContent,
     StyledLabel as CheckboxLabel,
+    StyledDescription as CheckboxDescription,
 } from '../Checkbox/Checkbox';
 
-export interface RadioboxProps extends BaseboxProps {}
+import { sizes } from './Radiobox.props';
 
-const StyledTrigger = styled(CheckboxTrigger).attrs({
-    outlineRadius: '1.125rem',
-})`
+interface SizeProps {
+    /**
+     * Размер контрола.
+     */
+    size: keyof typeof sizes;
+}
+
+export interface RadioboxProps extends Omit<BaseboxProps, 'size'>, Partial<SizeProps> {}
+
+const StyledTrigger = styled(CheckboxTrigger)`
+    ${({ size }) => css`
+        width: ${sizes[size].width};
+        height: ${sizes[size].height};
+        border-radius: ${sizes[size].outLineRadius};
+    `}
+
     flex-shrink: 0;
-    width: 1.25rem;
-    height: 1.25rem;
-    border-radius: 1.125rem;
 `;
-const StyledLabel = styled(CheckboxLabel)`
-    line-height: 1.625rem;
-`;
-const StyledEllipse = styled.div`
+
+const StyledEllipse = styled.div<SizeProps>`
+    ${({ size }) => css`
+        width: ${sizes[size].ellipseSize};
+        height: ${sizes[size].ellipseSize};
+        border-radius: ${sizes[size].ellipseSize};
+    `}
+
     position: absolute;
     top: 0;
     left: 0;
@@ -33,9 +48,6 @@ const StyledEllipse = styled.div`
     bottom: 0;
 
     margin: auto;
-    width: 0.625rem;
-    height: 0.625rem;
-    border-radius: 0.625rem;
 
     background-color: ${white};
     transition: transform 0.3s ease-in-out;
@@ -47,12 +59,19 @@ const StyledEllipse = styled.div`
     }
 `;
 
+const CheckboxContent = styled(StyledContent)`
+    ${({ size }) => css`
+        margin-top: ${sizes[size].contentTopOffset};
+        margin-left: ${sizes[size].contentLeftOffset};
+    `}
+`;
+
 /**
  * Переключатель, или *радиокнопка*.
  */
 // eslint-disable-next-line prefer-arrow-callback
 export const Radiobox = forwardRef<HTMLInputElement, RadioboxProps>(function Radiobox(
-    { id, label, description, disabled, style, className, 'aria-label': ariaLabelExternal, ...rest },
+    { size = 'm', id, label, description, disabled, style, className, 'aria-label': ariaLabelExternal, ...rest },
     ref,
 ) {
     const uniqId = useUniqId();
@@ -73,21 +92,21 @@ export const Radiobox = forwardRef<HTMLInputElement, RadioboxProps>(function Rad
                 aria-describedby={uniqDescriptionId}
             />
             <BaseboxContentWrapper htmlFor={radioboxId}>
-                <StyledTrigger>
-                    <StyledEllipse />
+                <StyledTrigger size={size} outlineRadius={sizes[size].outLineRadius}>
+                    <StyledEllipse size={size} />
                 </StyledTrigger>
-                {label && (
-                    <CheckboxContent>
-                        <StyledLabel as="span" id={uniqLabelId} aria-hidden={typeof label === 'string'}>
+                <CheckboxContent size={size}>
+                    {label && (
+                        <CheckboxLabel as="span" size={size} id={uniqLabelId} aria-hidden={typeof label === 'string'}>
                             {label}
-                        </StyledLabel>
-                        {description && (
-                            <BaseboxDescription mt={4} id={uniqDescriptionId}>
-                                {description}
-                            </BaseboxDescription>
-                        )}
-                    </CheckboxContent>
-                )}
+                        </CheckboxLabel>
+                    )}
+                    {description && (
+                        <CheckboxDescription size={size} mt={4} id={uniqDescriptionId}>
+                            {description}
+                        </CheckboxDescription>
+                    )}
+                </CheckboxContent>
             </BaseboxContentWrapper>
         </CheckboxRoot>
     );
