@@ -21,6 +21,12 @@ export interface ModalViewProps extends React.HTMLAttributes<HTMLDivElement> {
     closeButtonAriaLabel?: string;
 }
 
+const StyledFocusLock = styled(FocusLock)`
+    display: flex;
+    align-items: center;
+    height: 100%;
+`;
+
 const StyledBody = styled.div`
     position: relative;
 
@@ -29,6 +35,8 @@ const StyledBody = styled.div`
 
     border-radius: 1.25rem;
     background-color: ${backgroundPrimary};
+
+    pointer-events: all;
 `;
 const StyledContent = styled.div`
     padding: 2rem;
@@ -49,7 +57,7 @@ const StyledButtonClose = styled(Button).attrs(() => ({ view: 'clear' }))`
 export const ModalView = React.forwardRef<HTMLDivElement, ModalViewProps>(
     ({ role = 'dialog', closeButtonAriaLabel, children, onClose, ...rest }, ref) => {
         return (
-            <FocusLock returnFocus>
+            <StyledFocusLock returnFocus>
                 <StyledBody {...rest} ref={ref} role={role} aria-modal="true">
                     <StyledContent>{children}</StyledContent>
                     <StyledButtonClose
@@ -58,7 +66,7 @@ export const ModalView = React.forwardRef<HTMLDivElement, ModalViewProps>(
                         contentLeft={<IconClose size="s" color="inherit" />}
                     />
                 </StyledBody>
-            </FocusLock>
+            </StyledFocusLock>
         );
     },
 );
