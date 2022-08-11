@@ -1,3 +1,4 @@
+import { colors as gradientColors } from '../../data/colors';
 import { baseColors } from './constants';
 import { BackgroundName, ControlsSurfacesName, OverlayName, TextIconsTokenName, ThemeTokenDataGroups } from './types';
 
@@ -69,9 +70,6 @@ export const deprecatedColorTokenOnActualToken: Record<string, ActualTokenNames>
     // speechBubbleSent = 'Цвет фона баблов отправленный сообщений',
     // speechBubbleReceived = 'Цвет фона баблов получнных сообщений',
     // voicePhraseGradient = 'Градиент подсказок о голосовых запросах',
-
-    // skeletonGradient = 'Градиент скелетона',
-    // skeletonGradientLighter = 'Градиент скелетона для ярких компонентов',
 };
 
 export const mapDeprecatedColorTokens = (themeTokenDataGroups: ThemeTokenDataGroups): ThemeTokenDataGroups => {
@@ -84,10 +82,20 @@ export const mapDeprecatedColorTokens = (themeTokenDataGroups: ThemeTokenDataGro
             {},
         );
 
+        const { skeletonGradient, skeletonGradientLighter } = gradientColors[
+            themeName.startsWith('dark') ? 'dark' : 'light'
+        ];
+
         return {
             ...tokensWithDeprecated,
             [themeName]: {
                 ...tokens,
+                skeletonGradient: {
+                    value: skeletonGradient,
+                },
+                skeletonGradientLighter: {
+                    value: skeletonGradientLighter,
+                },
                 ...deprecatedTokens,
             },
         };

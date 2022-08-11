@@ -1,10 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-import { getCSSVariableName, TokenDataGroup, writeGeneratedToFS } from '@salutejs/plasma-tokens-utils';
+import { TokenData, writeGeneratedToFS } from '@salutejs/plasma-tokens-utils';
 
 import { themesFolder } from './constants';
-import { theme2ColorTokenDataGroups } from './generateTokens';
-import { ThemeTokenDataGroups } from './types';
+import { Theme, ThemeMode, TokenGroup, TokensByType, TokenType } from './types';
+
+type ThemeGroupTokens = Theme['dark'];
 
 const createHtmlTemplate = (themeName: string, tokens: string) => `
 <!DOCTYPE html>
@@ -18,42 +19,61 @@ const createHtmlTemplate = (themeName: string, tokens: string) => `
         <title>${themeName}</title>
     </head>
 
-    <body>
+    <body style="margin: 0">
         <div id="root">${tokens}</div>
     </body>
 </html>
 `;
 
-const createColorTokenTemplates = (tokens: TokenDataGroup<string>, textColor: string) => {
-    return Object.entries(tokens)
-        .map(
-            ([name, token]) => `
-        <div style="display:flex; align-items: center; margin-bottom: 8px;">
-            <div style="border-radius: 50%; height: 72px; min-width: 72px; margin-right: 8px; background-color: ${
-                token.value
-            }"></div>
-            <div style="display: flex; flex-direction: column; color: ${textColor};">
-                <span>${token.comment}</span>
-                <span>${name}</span>
-                <span>${getCSSVariableName(`colors-${name}`)}</span>
+const createTokenTemplate = (name: string, token: TokenData, primary: string, tertiary: string) => {
+    return `
+        <div style="display: flex; flex-direction: column; font-size: 14px; margin-bottom: 24px; color: ${primary}">
+            <div style="display: flex; align-items: center">
+                <div style="height: 44px; width: 44px; border-radius: 50%; margin-right: 16px; background-color: ${token.value}"></div>
+                <span style="margin-right: 4px; font-weight: 600;">${name}</span>
+                <span style="color: ${tertiary}">${token.value}</span>
             </div>
+            <div style="margin-top: 12px; ">${token.comment}</div>
         </div>
-    `,
-        )
-        .join('');
+    `;
 };
 
-const createColorModeTokenTemplates = (themeDataGroups: ThemeTokenDataGroups) => {
+const mapGroupOnGroupTitle: Record<TokenGroup, string> = {
+    textIcons: 'Text&Icons',
+    controlsSurfaces: 'Controls&Surfaces',
+    backgrounds: 'Backgrounds',
+    overlay: 'Overlay',
+};
+
+const createGroupTemplate = (mode: ThemeMode, group: TokenGroup, theme: Theme) => {
     return `
+        <div style="font-size: 48px; font-weight: 600">${mapGroupOnGroupTitle[group]}</div>
         <div>
-            ${Object.entries(themeDataGroups)
+            ${Object.entries(theme[mode][group] as TokensByType)
                 .map(
-                    ([mode, values]) => `
-                <h2>${mode}</h2>
-                <div style="display: grid; grid-gap: 10px; grid-template-columns: repeat(3, 1fr); padding: 5px; border-radius: 6px; background-color: ${
-                    values.backgroundPrimary.value
-                }">
-                    ${createColorTokenTemplates(values, values.textPrimary.value)}
+                    ([type, tokens]) => `
+                <div style="display: flex; margin-bottom: 60px">
+                    <div style="margin-right: 40px; font-size: 14px; font-weight: 660;">${type}</div>
+                    <div style="display: grid; grid-gap: 10px; grid-template-columns: repeat(3, 1fr); padding: 20px; border-radius: 50px; width: 100%; background-color: ${
+                        (mode === 'light' && type === 'onDark') || (mode === 'dark' && type !== 'onLight')
+                            ? theme.dark.backgrounds.default.backgroundPrimary.value
+                            : theme.light.backgrounds.default.backgroundPrimary.value
+                    };">
+                        ${Object.entries(tokens as Record<string, TokenData>)
+                            .map(
+                                ([name, token]) => `
+                            ${createTokenTemplate(
+                                name,
+                                token,
+                                theme[mode].textIcons[type === 'inverse' ? 'default' : (type as TokenType)].textPrimary
+                                    .value,
+                                theme[mode].textIcons[type === 'inverse' ? 'default' : (type as TokenType)].textTertiary
+                                    .value,
+                            )}
+                        `,
+                            )
+                            .join('')}
+                    </div>
                 </div>
             `,
                 )
@@ -62,14 +82,38 @@ const createColorModeTokenTemplates = (themeDataGroups: ThemeTokenDataGroups) =>
     `;
 };
 
+const createModeTemplate = (mode: ThemeMode, theme: Theme) => {
+    const name = theme.config.name;
+
+    return `
+        <div style="margin-bottom: 50px; padding: 30px; border-radius: 50px; background-color: ${
+            theme[mode].backgrounds.default.backgroundPrimary.value
+        }; color: ${theme[mode].textIcons.default.textPrimary.value}">
+            <div style="font-size: 24px; font-weight: 600;">${
+                mode === 'light' ? `🌝 Light ${name}` : `🌚 Dark ${name}`
+            }</div>
+            ${(Object.keys(theme[mode]) as TokenGroup[])
+                .filter((groupName) => mapGroupOnGroupTitle[groupName])
+                .map((groupName) => createGroupTemplate(mode, groupName, theme))
+                .join('')}
+        </div>
+    `;
+};
+
 export const generateThemeHtml = (themeName: string) => {
     const fileContent = fs.readFileSync(path.join(themesFolder, `${themeName}.json`), 'utf-8');
 
-    const theme = JSON.parse(fileContent);
-    const themeTokens = theme2ColorTokenDataGroups(theme);
+    const theme: Theme = JSON.parse(fileContent);
+    const lightTemplate = createModeTemplate('light', theme);
+    const darkTemplate = createModeTemplate('dark', theme);
 
-    const tokensTemplate = createColorModeTokenTemplates(themeTokens);
-    const html = createHtmlTemplate(theme.config.name, tokensTemplate);
+    const template = `
+        <div style="display: flex; flex-direction: column;">
+            ${lightTemplate}
+            ${darkTemplate}
+        </div>
+    `;
+    const html = createHtmlTemplate(theme.config.name, template);
 
     writeGeneratedToFS(themesFolder, [
         {
