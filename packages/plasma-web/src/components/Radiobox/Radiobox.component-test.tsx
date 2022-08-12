@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
-describe('plasma-web: Checkbox', () => {
-    const Checkbox = getComponent('Checkbox');
+describe('plasma-web: Radiobox', () => {
+    const Radiobox = getComponent('Radiobox');
     const Link = getComponent('Link');
     const List = getComponent('List');
     const ListItem = getComponent('ListItem');
@@ -86,14 +86,14 @@ describe('plasma-web: Checkbox', () => {
                 <List>
                     {items.map((item) => (
                         <ListItem key={item.value} ml={item.parent ? '16x' : undefined} mb="4x">
-                            <Checkbox size="s" {...item} />
+                            <Radiobox size="s" {...item} />
                         </ListItem>
                     ))}
                 </List>
             </CypressTestDecorator>,
         );
 
-        cy.get('input[type="checkbox"]').first().focus();
+        cy.get('input[type="radio"]').first().focus();
         cy.matchImageSnapshot();
     });
 
@@ -103,14 +103,14 @@ describe('plasma-web: Checkbox', () => {
                 <List>
                     {items.map((item) => (
                         <ListItem key={item.value} ml={item.parent ? '16x' : undefined} mb="4x">
-                            <Checkbox size="m" {...item} />
+                            <Radiobox size="m" {...item} />
                         </ListItem>
                     ))}
                 </List>
             </CypressTestDecorator>,
         );
 
-        cy.get('input[type="checkbox"]').first().focus();
+        cy.get('input[type="radio"]').first().focus();
         cy.matchImageSnapshot();
     });
 });
