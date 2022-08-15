@@ -97,6 +97,8 @@ const tvLayout = css`
     align-items: center;
 `;
 
+const StyledButton = styled(Button)``;
+
 const ConfirmRoot = styled.div<{ visible: boolean }>`
     position: absolute;
     left: 0;
@@ -124,7 +126,10 @@ const ConfirmRoot = styled.div<{ visible: boolean }>`
 const BtnWrap = styled.div<{ reverse: boolean }>`
     flex: 1;
     display: flex;
-    gap: 0.75rem;
+
+    ${StyledButton}:not(:last-child) {
+        ${({ reverse }) => (reverse ? { marginLeft: '0.75rem' } : { marginRight: '0.75rem' })}
+    }
 
     ${({ reverse }) =>
         reverse && {
@@ -181,10 +186,18 @@ export const Confirm = (props: ConfirmProps) => {
     useAutoFocus(btnRef, { trigger: visible });
 
     const approve = (
-        <Button size="s" ref={btnRef} tabIndex={0} stretch view={view} text={approveText} onClick={onApproveClick} />
+        <StyledButton
+            size="s"
+            ref={btnRef}
+            tabIndex={0}
+            stretch
+            view={view}
+            text={approveText}
+            onClick={onApproveClick}
+        />
     );
     const dismiss = dismissText ? (
-        <Button size="s" stretch view="secondary" text={dismissText} onClick={onDismissClick} />
+        <StyledButton size="s" stretch view="secondary" text={dismissText} onClick={onDismissClick} />
     ) : null;
     const buttons = (
         <BtnWrap reverse={reverseButtons}>
