@@ -134,6 +134,17 @@ export const Modal: React.FC<ModalProps> = ({ id, isOpen, onClose, ...rest }) =>
         };
     }, []);
 
+    React.useEffect(() => {
+        const modalAmount = portalRef.current?.children.length;
+
+        if (modalAmount) {
+            document.body.style.overflowY = 'hidden';
+            return;
+        }
+
+        document.body.removeAttribute('style');
+    }, [isOpen]);
+
     if (isOpen) {
         controller.register(innerId);
     } else {

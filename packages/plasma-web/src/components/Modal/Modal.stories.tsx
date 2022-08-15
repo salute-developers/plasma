@@ -4,7 +4,6 @@ import { Story, Meta } from '@storybook/react';
 
 import { SSRProvider } from '../SSRProvider';
 import { disableProps } from '../../helpers';
-import { withAutoFocus } from '../../hocs';
 import { Button } from '../Button';
 import { P1, Headline1, Headline3 } from '../Typography';
 
@@ -42,10 +41,12 @@ Default.argTypes = {
     ...disableProps(propsToDisable),
 };
 
-const AutofocusButton = withAutoFocus(Button);
-
 const StyledModalFullHeight = styled(Modal)`
     height: 100%;
+`;
+
+const StyledWrapper = styled.div`
+    height: 1200px;
 `;
 
 export const LiveDemo = () => {
@@ -81,108 +82,110 @@ export const LiveDemo = () => {
 
     return (
         <SSRProvider>
-            <ModalsProvider>
-                <Button text="Открыть окно A" onClick={() => setIsOpenA(true)} />
-                <Button text="Открыть окно A на всю высоту" onClick={() => setIsOpenFullHeightA(true)} />
-
-                <Modal
-                    id="modalA"
-                    isOpen={isOpenA}
-                    onClose={onCloseA}
-                    aria-labelledby="example-modalA-title"
-                    closeButtonAriaLabel="Закрыть (кнока-крестик)"
-                >
-                    <Headline3 id="example-modalA-title" mb="8x">
-                        Модальное окно A
-                    </Headline3>
-                    <Button view="primary" text="Открыть окно B" onClick={() => setIsOpenB(true)} />
-                    <Button text="Закрыть" onClick={onCloseA} />
-                </Modal>
-
-                <Modal
-                    id="modalB"
-                    isOpen={isOpenB}
-                    onClose={onCloseB}
-                    aria-labelledby="example-modalB-title"
-                    closeButtonAriaLabel="Закрыть (кнока-крестик)"
-                >
-                    <Headline3 id="example-modalB-title" mb="8x">
-                        Модальное окно B
-                    </Headline3>
-                    <Button view="primary" text="Открыть окно C" onClick={() => setIsOpenC(true)} />
-                    <Button text="Закрыть" onClick={onCloseB} />
+            <StyledWrapper>
+                <ModalsProvider>
+                    <Button text="Открыть окно A" onClick={() => setIsOpenA(true)} />
+                    <Button text="Открыть окно A на всю высоту" onClick={() => setIsOpenFullHeightA(true)} />
 
                     <Modal
-                        id="modalC"
-                        isOpen={isOpenC}
-                        onClose={onCloseC}
-                        aria-labelledby="example-modalC-title"
+                        id="modalA"
+                        isOpen={isOpenA}
+                        onClose={onCloseA}
+                        aria-labelledby="example-modalA-title"
                         closeButtonAriaLabel="Закрыть (кнока-крестик)"
                     >
-                        <Headline3 id="example-modalC-title" mb="8x">
-                            Модальное окно C (вложенное)
+                        <Headline3 id="example-modalA-title" mb="8x">
+                            Модальное окно A
                         </Headline3>
-                        <P1>
-                            Подмножество, исключая очевидный случай, реально стабилизирует предел последовательности.
-                            Нечетная функция решительно создает коллинеарный интеграл Гамильтона. Доказательство
-                            развивает неопровержимый постулат.
-                        </P1>
+                        <Button view="primary" text="Открыть окно B" onClick={() => setIsOpenB(true)} />
+                        <Button text="Закрыть" onClick={onCloseA} />
                     </Modal>
-                </Modal>
 
-                <StyledModalFullHeight
-                    id="modalFullHeightA"
-                    isOpen={isOpenFullHeightA}
-                    onClose={onCloseFullHeightA}
-                    aria-labelledby="example-modalFullHeightA-title"
-                    closeButtonAriaLabel="Закрыть (кнока-крестик)"
-                >
-                    <Headline3 id="example-modalFullHeightA-title" mb="8x">
-                        Модальное окно на всю высоту
-                    </Headline3>
-                    <Button
-                        view="primary"
-                        text="Открыть окно B на всю высоту"
-                        onClick={() => setIsOpenFullHeightB(true)}
-                    />
-                    <Button text="Закрыть" onClick={onCloseFullHeightA} />
-                </StyledModalFullHeight>
+                    <Modal
+                        id="modalB"
+                        isOpen={isOpenB}
+                        onClose={onCloseB}
+                        aria-labelledby="example-modalB-title"
+                        closeButtonAriaLabel="Закрыть (кнока-крестик)"
+                    >
+                        <Headline3 id="example-modalB-title" mb="8x">
+                            Модальное окно B
+                        </Headline3>
+                        <Button view="primary" text="Открыть окно C" onClick={() => setIsOpenC(true)} />
+                        <Button text="Закрыть" onClick={onCloseB} />
 
-                <StyledModalFullHeight
-                    id="modalFullHeightB"
-                    isOpen={isOpenFullHeightB}
-                    onClose={onCloseFullHeightB}
-                    aria-labelledby="example-modalFullHeightB-title"
-                    closeButtonAriaLabel="Закрыть (кнока-крестик)"
-                >
-                    <Headline3 id="example-modalFullHeightB-title" mb="8x">
-                        Модальное окно B
-                    </Headline3>
-                    <Button
-                        view="primary"
-                        text="Открыть окно C на всю высоту"
-                        onClick={() => setIsOpenFullHeightC(true)}
-                    />
-                    <Button text="Закрыть" onClick={onCloseFullHeightB} />
+                        <Modal
+                            id="modalC"
+                            isOpen={isOpenC}
+                            onClose={onCloseC}
+                            aria-labelledby="example-modalC-title"
+                            closeButtonAriaLabel="Закрыть (кнока-крестик)"
+                        >
+                            <Headline3 id="example-modalC-title" mb="8x">
+                                Модальное окно C (вложенное)
+                            </Headline3>
+                            <P1>
+                                Подмножество, исключая очевидный случай, реально стабилизирует предел
+                                последовательности. Нечетная функция решительно создает коллинеарный интеграл
+                                Гамильтона. Доказательство развивает неопровержимый постулат.
+                            </P1>
+                        </Modal>
+                    </Modal>
 
                     <StyledModalFullHeight
-                        id="modalFullHeightC"
-                        isOpen={isOpenFullHeightC}
-                        onClose={onCloseFullHeightC}
-                        aria-labelledby="example-modalFullHeightC-title"
+                        id="modalFullHeightA"
+                        isOpen={isOpenFullHeightA}
+                        onClose={onCloseFullHeightA}
+                        aria-labelledby="example-modalFullHeightA-title"
                         closeButtonAriaLabel="Закрыть (кнока-крестик)"
                     >
-                        <Headline3 id="example-modalFullHeightC-title" mb="8x">
-                            Модальное окно C на всю высоту (вложенное)
+                        <Headline3 id="example-modalFullHeightA-title" mb="8x">
+                            Модальное окно на всю высоту
                         </Headline3>
-                        <P1>
-                            Подмножество, исключая очевидный случай, реально стабилизирует предел последовательности.
-                            Нечетная функция решительно создает коллинеарный интеграл Гамильтона. Доказательство
-                            развивает неопровержимый постулат.
-                        </P1>
+                        <Button
+                            view="primary"
+                            text="Открыть окно B на всю высоту"
+                            onClick={() => setIsOpenFullHeightB(true)}
+                        />
+                        <Button text="Закрыть" onClick={onCloseFullHeightA} />
                     </StyledModalFullHeight>
-                </StyledModalFullHeight>
-            </ModalsProvider>
+
+                    <StyledModalFullHeight
+                        id="modalFullHeightB"
+                        isOpen={isOpenFullHeightB}
+                        onClose={onCloseFullHeightB}
+                        aria-labelledby="example-modalFullHeightB-title"
+                        closeButtonAriaLabel="Закрыть (кнока-крестик)"
+                    >
+                        <Headline3 id="example-modalFullHeightB-title" mb="8x">
+                            Модальное окно B
+                        </Headline3>
+                        <Button
+                            view="primary"
+                            text="Открыть окно C на всю высоту"
+                            onClick={() => setIsOpenFullHeightC(true)}
+                        />
+                        <Button text="Закрыть" onClick={onCloseFullHeightB} />
+
+                        <StyledModalFullHeight
+                            id="modalFullHeightC"
+                            isOpen={isOpenFullHeightC}
+                            onClose={onCloseFullHeightC}
+                            aria-labelledby="example-modalFullHeightC-title"
+                            closeButtonAriaLabel="Закрыть (кнока-крестик)"
+                        >
+                            <Headline3 id="example-modalFullHeightC-title" mb="8x">
+                                Модальное окно C на всю высоту (вложенное)
+                            </Headline3>
+                            <P1>
+                                Подмножество, исключая очевидный случай, реально стабилизирует предел
+                                последовательности. Нечетная функция решительно создает коллинеарный интеграл
+                                Гамильтона. Доказательство развивает неопровержимый постулат.
+                            </P1>
+                        </StyledModalFullHeight>
+                    </StyledModalFullHeight>
+                </ModalsProvider>
+            </StyledWrapper>
         </SSRProvider>
     );
 };

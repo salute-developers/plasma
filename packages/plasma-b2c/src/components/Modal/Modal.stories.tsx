@@ -10,6 +10,10 @@ export default {
     title: 'Controls/Modal',
 } as Meta;
 
+const StyledWrapper = styled.div`
+    height: 1200px;
+`;
+
 export const LiveDemo = () => {
     const [isOpenA, setIsOpenA] = React.useState(false);
     const [isOpenB, setIsOpenB] = React.useState(false);
@@ -20,25 +24,27 @@ export const LiveDemo = () => {
     const onCloseC = React.useCallback(() => setIsOpenC(false), []);
 
     return (
-        <ModalsProvider>
-            <Button text="Open modal" onClick={() => setIsOpenA(true)} />
+        <StyledWrapper>
+            <ModalsProvider>
+                <Button text="Open modal" onClick={() => setIsOpenA(true)} />
 
-            <Modal id="modalA" isOpen={isOpenA} onClose={onCloseA}>
-                <Headline3>Modal A</Headline3>
-                <Button view="primary" text="Open modal B" onClick={() => setIsOpenB(true)} />
-                <Button text="Close" onClick={onCloseA} />
-            </Modal>
-
-            <Modal id="modalB" isOpen={isOpenB} onClose={onCloseB}>
-                <Headline3>Modal B</Headline3>
-                <Button view="primary" text="Open modal C" onClick={() => setIsOpenC(true)} />
-                <Button text="Close" onClick={onCloseB} />
-
-                <Modal id="modalC" isOpen={isOpenC} onClose={onCloseC}>
-                    <Headline3>Modal C</Headline3>
-                    <Button text="Close" onClick={onCloseC} />
+                <Modal id="modalA" isOpen={isOpenA} onClose={onCloseA}>
+                    <Headline3>Modal A</Headline3>
+                    <Button view="primary" text="Open modal B" onClick={() => setIsOpenB(true)} />
+                    <Button text="Close" onClick={onCloseA} />
                 </Modal>
-            </Modal>
-        </ModalsProvider>
+
+                <Modal id="modalB" isOpen={isOpenB} onClose={onCloseB}>
+                    <Headline3>Modal B</Headline3>
+                    <Button view="primary" text="Open modal C" onClick={() => setIsOpenC(true)} />
+                    <Button text="Close" onClick={onCloseB} />
+
+                    <Modal id="modalC" isOpen={isOpenC} onClose={onCloseC}>
+                        <Headline3>Modal C</Headline3>
+                        <Button text="Close" onClick={onCloseC} />
+                    </Modal>
+                </Modal>
+            </ModalsProvider>
+        </StyledWrapper>
     );
 };
