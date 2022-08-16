@@ -327,7 +327,7 @@ const darkSber: ThemeTokens = {
         comment: FullColorsList.buttonAccent,
     },
     buttonFocused: {
-        value: humanizeColor(ds.theme.dark_focus_sber.color),
+        value: humanizeColor(ds.theme.dark_primary.color),
         comment: FullColorsList.buttonFocused,
     },
     // TODO: export from figma is broken (#135)
@@ -355,7 +355,7 @@ const darkEva: ThemeTokens = {
         comment: FullColorsList.buttonAccent,
     },
     buttonFocused: {
-        value: humanizeColor(ds.theme.dark_focus_eva.color),
+        value: humanizeColor(ds.theme.dark_primary.color),
         comment: FullColorsList.buttonFocused,
     },
     // TODO: export from figma is broken (#135)
@@ -383,7 +383,7 @@ const darkJoy: ThemeTokens = {
         comment: FullColorsList.buttonAccent,
     },
     buttonFocused: {
-        value: humanizeColor(ds.theme.dark_focus_joy.color),
+        value: humanizeColor(ds.theme.dark_primary.color),
         comment: FullColorsList.buttonFocused,
     },
     // TODO: export from figma is broken (#135)
@@ -411,7 +411,7 @@ const darkBrand: ThemeTokens = {
         comment: FullColorsList.buttonAccent,
     },
     buttonFocused: {
-        value: humanizeColor(ds.theme.dark_focus_brand.color),
+        value: humanizeColor(ds.theme.dark_primary.color),
         comment: FullColorsList.buttonFocused,
     },
     // TODO: export from figma is broken (#135)
@@ -439,7 +439,7 @@ const lightSber: ThemeTokens = {
         comment: FullColorsList.buttonAccent,
     },
     buttonFocused: {
-        value: humanizeColor(ds.theme.light_focus_sber.color),
+        value: humanizeColor(ds.theme.light_primary.color),
         comment: FullColorsList.buttonFocused,
     },
     // TODO: export from figma is broken (#135)
@@ -467,7 +467,7 @@ const lightEva: ThemeTokens = {
         comment: FullColorsList.buttonAccent,
     },
     buttonFocused: {
-        value: humanizeColor(ds.theme.light_focus_eva.color),
+        value: humanizeColor(ds.theme.light_primary.color),
         comment: FullColorsList.buttonFocused,
     },
     // TODO: export from figma is broken (#135)
@@ -495,7 +495,7 @@ const lightJoy: ThemeTokens = {
         comment: FullColorsList.buttonAccent,
     },
     buttonFocused: {
-        value: humanizeColor(ds.theme.light_focus_joy.color),
+        value: humanizeColor(ds.theme.light_primary.color),
         comment: FullColorsList.buttonFocused,
     },
     // TODO: export from figma is broken (#135)
@@ -524,7 +524,7 @@ const lightBrand: ThemeTokens = {
         comment: FullColorsList.buttonAccent,
     },
     buttonFocused: {
-        value: humanizeColor(ds.theme.light_focus_brand.color),
+        value: humanizeColor(ds.theme.light_primary.color),
         comment: FullColorsList.buttonFocused,
     },
     // TODO: export from figma is broken (#135)
