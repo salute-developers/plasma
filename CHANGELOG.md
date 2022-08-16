@@ -1,3 +1,32 @@
+# (Tue Aug 16 2022)
+
+#### 🐛 Bug Fix
+
+- docs(plasma-web-docs): Update docs for `Card` component [#118](https://github.com/salute-developers/plasma/pull/118) ([@neretin-trike](https://github.com/neretin-trike))
+- docs(plasma-web-docs): Add docs for `Cell` component [#118](https://github.com/salute-developers/plasma/pull/118) ([@neretin-trike](https://github.com/neretin-trike))
+- ci: fix expression with closed brackers [#124](https://github.com/salute-developers/plasma/pull/124) ([@neretin-trike](https://github.com/neretin-trike))
+- ci: fix release race condition [#123](https://github.com/salute-developers/plasma/pull/123) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.87.1`, `@salutejs/plasma-web@1.120.1`
+  - fix(plasma-web): Add overflow hidden if modal amount not null for `Modal` component [#130](https://github.com/salute-developers/plasma/pull/130) ([@neretin-trike](https://github.com/neretin-trike))
+  - test(plasma-web,plasma-b2c): Add test and snapshot for `Cell` component [#118](https://github.com/salute-developers/plasma/pull/118) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-web,plasma-b2c): Add `Cell` component [#118](https://github.com/salute-developers/plasma/pull/118) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-web@1.120.1`
+  - test(plasma-web,plasma-b2c): Add tests and snapshots for `Card` component [#118](https://github.com/salute-developers/plasma/pull/118) ([@neretin-trike](https://github.com/neretin-trike))
+  - fix(plasma-web): add storybook [#126](https://github.com/salute-developers/plasma/pull/126) ([@Gerpea](https://github.com/Gerpea))
+  - fix(plasma-web): fix modal height on ios safari [#126](https://github.com/salute-developers/plasma/pull/126) ([@Gerpea](https://github.com/Gerpea))
+- `@salutejs/plasma-b2c@1.87.1`, `@salutejs/plasma-core@1.65.1`, `@salutejs/plasma-web@1.120.1`
+  - feat(plasma-web,plasma-b2c): Add cover, background and coverGradient for `Card` component [#118](https://github.com/salute-developers/plasma/pull/118) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.87.1`
+  - ci(plasma-b2c): fix storybook build [#125](https://github.com/salute-developers/plasma/pull/125) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 3
+
+- German Cyganov ([@Gerpea](https://github.com/Gerpea))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Wed Aug 10 2022)
 
 #### 🚀 Enhancement

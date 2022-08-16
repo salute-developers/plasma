@@ -1,3 +1,22 @@
+# v1.87.1 (Tue Aug 16 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web): Add overflow hidden if modal amount not null for `Modal` component [#130](https://github.com/salute-developers/plasma/pull/130) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-web,plasma-b2c): Add cover, background and coverGradient for `Card` component [#118](https://github.com/salute-developers/plasma/pull/118) ([@neretin-trike](https://github.com/neretin-trike))
+- test(plasma-web,plasma-b2c): Add test and snapshot for `Cell` component [#118](https://github.com/salute-developers/plasma/pull/118) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-web,plasma-b2c): Add `Cell` component [#118](https://github.com/salute-developers/plasma/pull/118) ([@neretin-trike](https://github.com/neretin-trike))
+- ci(plasma-b2c): fix storybook build [#125](https://github.com/salute-developers/plasma/pull/125) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.87.0 (Wed Aug 10 2022)
 
 #### 🐛 Bug Fix
