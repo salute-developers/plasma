@@ -1,5 +1,6 @@
-import React, { ReactNode, useLayoutEffect, useRef, useState } from 'react';
+import React, { ReactNode, useRef, useState } from 'react';
 import styled, { css, keyframes } from 'styled-components';
+import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 
 const marquee = keyframes`
     0% { transform: translateX(0%) }
@@ -58,7 +59,7 @@ export const Marquee = ({ textAlign, children, ...rest }: MarqueeProps) => {
         animationDuration: 0,
     });
 
-    useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
         const wrapperWidth = wrapperRef.current?.getBoundingClientRect().width || 0;
         const textWidth = textRef.current?.getBoundingClientRect().width || 0;
         setState({
