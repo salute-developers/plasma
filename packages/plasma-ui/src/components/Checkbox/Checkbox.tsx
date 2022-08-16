@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
 import {
     BaseboxRoot,
     BaseboxInput,
@@ -10,6 +10,7 @@ import {
     BaseboxDescription,
     applyDisabled,
     useUniqId,
+    addFocus,
 } from '@salutejs/plasma-core';
 import type { BaseboxProps, FocusProps, OutlinedProps } from '@salutejs/plasma-core';
 import { accent, white, secondary, transparent } from '@salutejs/plasma-tokens';
@@ -19,6 +20,21 @@ import { InteractionProps } from '../../mixins';
 import { IconDone } from './IconDone';
 
 export interface CheckboxProps extends BaseboxProps, FocusProps, OutlinedProps, InteractionProps {}
+
+export const syntheticFocus = (ruleset: FlattenSimpleInterpolation, focused?: boolean) => css`
+    input[data-focus-visible-added] + label & {
+        box-shadow: none;
+        outline: none;
+        ${ruleset}
+    }
+
+    ${focused &&
+    css`
+        box-shadow: none;
+
+        ${ruleset}
+    `}
+`;
 
 export const StyledRoot = styled(BaseboxRoot)`
     ${applyDisabled};
@@ -68,44 +84,15 @@ export const StyledTrigger = styled(BaseboxTrigger)<{
             }
         `}
 
-    ${({ $focused }) => css`
-        border-radius: var(--plasma-trigger-border-radius);
+    border-radius: var(--plasma-trigger-border-radius);
 
-        input:focus + label & {
-            box-shadow: none;
-
-            &::before {
-                box-shadow: 0 0 0 0.125rem ${accent};
-            }
-        }
-
-        &::before {
-            content: '';
-
-            position: absolute;
-            top: -0.125rem;
-            left: -0.125rem;
-            right: -0.125rem;
-            bottom: -0.125rem;
-
-            display: block;
-
-            border: 0.125rem solid transparent;
-            border-radius: var(--plasma-trigger-outline-radius);
-
-            transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'box-shadow 0.2s ease-in-out')};
-
-            pointer-events: none;
-        }
-
-        ${$focused &&
-        css`
-            box-shadow: none;
-
-            &::before {
-                box-shadow: 0 0 0 0.125rem ${accent};
-            }
-        `}
+    ${({ $focused, theme }) => css`
+        ${addFocus({
+            synthesizeFocus: syntheticFocus,
+            focused: $focused,
+            lowPerformance: theme.lowPerformance,
+            outlineRadius: 'var(--plasma-trigger-outline-radius)',
+        })}
     `}
 `;
 const StyledMark = styled(IconDone)`
