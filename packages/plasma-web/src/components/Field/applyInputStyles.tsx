@@ -1,5 +1,5 @@
 import { css, InterpolationFunction } from 'styled-components';
-import { background, accent, tertiary, fieldStatuses } from '@salutejs/plasma-core';
+import { background, accent, tertiary, primary, fieldStatuses } from '@salutejs/plasma-core';
 import type { FieldProps } from '@salutejs/plasma-core';
 
 import { inputBorder, inputBorderHover } from '../../tokens';
@@ -11,6 +11,7 @@ export const applyInputStyles: InterpolationFunction<Pick<FieldProps, 'status' |
     background-color: ${background};
     box-shadow: inset 0 0 0 1px ${inputBorder};
     border-radius: 0.25rem;
+    color: ${primary};
 
     transition: box-shadow 0.1s ease-in-out;
 
