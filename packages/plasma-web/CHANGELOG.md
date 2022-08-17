@@ -1,3 +1,15 @@
+# v1.120.2 (Wed Aug 17 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web): Add primary color for `Field` component [#133](https://github.com/salute-developers/plasma/pull/133) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.120.1 (Tue Aug 16 2022)
 
 #### 🐛 Bug Fix

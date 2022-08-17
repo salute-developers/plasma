@@ -2,6 +2,20 @@
 
 #### 🐛 Bug Fix
 
+- test(plasma-web): Update snapshots for `TextArea` component [#133](https://github.com/salute-developers/plasma/pull/133) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-web@1.120.2`
+  - fix(plasma-web): Add primary color for `Field` component [#133](https://github.com/salute-developers/plasma/pull/133) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Wed Aug 17 2022)
+
+#### 🐛 Bug Fix
+
 - `@salutejs/plasma-ui@1.120.2`
   - fix(plasma-ui): Add margin for not last button [#131](https://github.com/salute-developers/plasma/pull/131) ([@neretin-trike](https://github.com/neretin-trike))
 
