@@ -29,7 +29,7 @@ export function App() {
 для использования которой необходимо обернуть приложение в `ToastProvider`:
 ```jsx title="App.tsx"
 import React from 'react';
-import { ToastProvider } from '@salutejs/plasma-ui';
+import { ToastProvider } from '@salutejs/plasma-web';
 
 export const App = () => (
     <ToastProvider>
@@ -42,7 +42,7 @@ export const App = () => (
 
 ```jsx title="MyComponent.tsx"
 import React from 'react'
-import { useToast, Button } from '@salutejs/plasma-ui'
+import { useToast, Button } from '@salutejs/plasma-web'
 
 export const MyComponent = () => {
     const { showToast, hideToast } = useToast()
