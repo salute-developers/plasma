@@ -24,7 +24,7 @@
 
 ### plasma-web
 
-Пакет с набором готовых компонентов для создания веб-приложений направленных на B2B-сегмент. [Документация](https://bit.ly/3OtwX5v) и [Storybook](https://bit.ly/3OtwX5v-storybook).
+Пакет с набором готовых компонентов для создания веб-приложений направленных на B2B-сегмент. [Документация](https://bit.ly/3OtwX5v) и [Storybook](https://bit.ly/3EH1x7b).
 
 [![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-web?label=%40salutejs%2Fplasma-web&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-web)
 
@@ -36,7 +36,7 @@
 
 ### plasma-tokens, plasma-tokens-web, plasma-tokens-b2c
 
-Пакеты с набором _дизайн-токенов_. В пакет входят типографические и цветовые константы. Дизайн-токены поставляются в качестве [CSS custom propperties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) и JavaScript переменных. Перед использованием рекомендуется ознакомится с документацией по [токенам](https://bit.ly/3xQvdgFdesign/tokens).
+Пакеты с набором _дизайн-токенов_. В пакет входят типографические и цветовые константы. Дизайн-токены поставляются в качестве [CSS custom propperties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) и JavaScript переменных. Перед использованием рекомендуется ознакомится с документацией по [токенам](https://bit.ly/3CeSBXp).
 
 [![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-tokens?label=%40salutejs%2Fplasma-tokens&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-tokens)
 [![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-tokens-web?label=%40salutejs%2Fplasma-tokens-web&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-tokens-web)
@@ -44,7 +44,7 @@
 
 ### plasma-icons
 
-Пакет с набором иконок, которые доступны к просмотру в [хранилище](https://bit.ly/3xQHf9P), а также в [Storybook](https://bit.ly/3xRatFG?path=/story/content-icon--xs-size) и [документации](https://bit.ly/3xQvdgFcomponents/icon).
+Пакет с набором иконок, которые доступны к просмотру в [хранилище](https://bit.ly/3xQHf9P), а также в [Storybook](https://bit.ly/3LhwBwC) и [документации](https://bit.ly/3K4MSoM).
 
 [![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-icons?label=%40salutejs%2Fplasma-icons&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-icons)
 
