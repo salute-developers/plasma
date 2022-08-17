@@ -32,7 +32,8 @@
     "lint:js": "eslint --ext .js,.ts,.tsx .",
     "lint:packages": "./scripts/lint-packages.js",
     "test": "lerna run test",
-    "typescript-coverage": "lerna run typescript-coverage --no-bail"
+    "typescript-coverage": "lerna run typescript-coverage --no-bail",
+    "generate:theme-html": "lerna run generate:theme-html --scope @salutejs/plasma-tokens"
   },
   "devDependencies": {
     "@actions/core": "1.2.7",
