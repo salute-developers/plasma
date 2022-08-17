@@ -1,3 +1,17 @@
+# v1.120.2 (Wed Aug 17 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): Add margin for not last button [#131](https://github.com/salute-developers/plasma/pull/131) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.120.1 (Tue Aug 16 2022)
 
 #### 🐛 Bug Fix

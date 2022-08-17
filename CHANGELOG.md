@@ -1,3 +1,16 @@
+# (Wed Aug 17 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.120.2`
+  - fix(plasma-ui): Add margin for not last button [#131](https://github.com/salute-developers/plasma/pull/131) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Tue Aug 16 2022)
 
 #### 🐛 Bug Fix
