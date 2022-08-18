@@ -1,5 +1,18 @@
 # (Thu Aug 18 2022)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-tokens@1.20.0`
+  - feat(plasma-tokens): generate android and ios tokens [#121](https://github.com/salute-developers/plasma/pull/121) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
+# (Thu Aug 18 2022)
+
 #### 🐛 Bug Fix
 
 - docs: Readme: fix broken links [#138](https://github.com/salute-developers/plasma/pull/138) ([@Yeti-or](https://github.com/Yeti-or))

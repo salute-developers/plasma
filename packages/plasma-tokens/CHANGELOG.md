@@ -1,3 +1,15 @@
+# v1.20.0 (Thu Aug 18 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): generate android and ios tokens [#121](https://github.com/salute-developers/plasma/pull/121) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
 # v1.19.0 (Wed Aug 10 2022)
 
 #### 🚀 Enhancement
