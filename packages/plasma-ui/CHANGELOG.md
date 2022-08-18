@@ -1,3 +1,15 @@
+# v1.120.3 (Thu Aug 18 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): Replace useLayoutEffect to useIsomorphicLayoutEffect for `Slider` and `Marquee` [#132](https://github.com/salute-developers/plasma/pull/132) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.120.2 (Wed Aug 17 2022)
 
 #### 🐛 Bug Fix

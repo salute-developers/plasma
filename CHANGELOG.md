@@ -1,3 +1,19 @@
+# (Thu Aug 18 2022)
+
+#### 🐛 Bug Fix
+
+- docs: Readme: fix broken links [#138](https://github.com/salute-developers/plasma/pull/138) ([@Yeti-or](https://github.com/Yeti-or))
+- docs(plasma-web-docs): Toast: wrong pkg imports [#137](https://github.com/salute-developers/plasma/pull/137) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-ui@1.120.3`
+  - fix(plasma-ui): Replace useLayoutEffect to useIsomorphicLayoutEffect for `Slider` and `Marquee` [#132](https://github.com/salute-developers/plasma/pull/132) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 2
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Wed Aug 17 2022)
 
 #### 🐛 Bug Fix
