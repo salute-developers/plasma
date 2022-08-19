@@ -40,6 +40,7 @@
     "@actions/github": "4.0.0",
     "@auto-it/conventional-commits": "10.36.5",
     "@auto-it/npm": "10.36.5",
+    "@auto-it/upload-assets": "10.37.4",
     "@commitlint/cli": "11.0.0",
     "@commitlint/config-conventional": "11.0.0",
     "@cypress/code-coverage": "3.9.11",
@@ -112,6 +113,14 @@
       "rc"
     ],
     "plugins": [
+      [
+        "upload-assets",
+        {
+          "assets": [
+            "./packages/plasma-tokens/build/**/*"
+          ]
+        }
+      ],
       [
         "npm",
         {
