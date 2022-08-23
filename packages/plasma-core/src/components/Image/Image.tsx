@@ -99,13 +99,13 @@ const StyledDivImg = styled.div`
 /**
  * Компонент для отображения картинок.
  */
-export const Image: React.FC<ImageProps> = ({ src, base = 'img', alt, width, height, ...props }) => {
+export const Image: React.FC<ImageProps> = ({ src, srcSet, sizes, base = 'img', alt, width, height, ...props }) => {
     const ratio = 'ratio' in props ? props.ratio : undefined;
     const customRatio = 'customRatio' in props ? props.customRatio : undefined;
 
     return (
         <StyledRoot $ratio={ratio} $customRatio={customRatio} $width={width} $height={height} {...props}>
-            {base === 'img' && <StyledImg src={src} alt={alt} ratio={ratio} />}
+            {base === 'img' && <StyledImg src={src} srcSet={srcSet} sizes={sizes} alt={alt} ratio={ratio} />}
             {base === 'div' && <StyledDivImg style={{ backgroundImage: `url(${src})` }} role="img" aria-label={alt} />}
         </StyledRoot>
     );
