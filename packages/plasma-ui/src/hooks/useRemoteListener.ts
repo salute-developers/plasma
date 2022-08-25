@@ -37,9 +37,14 @@ const getRemoteKey = (key: string, isLong: boolean): RemoteKey | undefined => {
  * который вызывает коллбек при нажатии кнопок навигации.
  * @param {Function} cb
  * @param {number} keypressTimeMs
+ * @param {AddEventListenerOptions} eventListenerOptions
  * @return {void}
  */
-export const useRemoteListener = (cb: (key: RemoteKey, event: KeyboardEvent) => void, keypressTimeMs = 150) => {
+export const useRemoteListener = (
+    cb: (key: RemoteKey, event: KeyboardEvent) => void,
+    keypressTimeMs = 150,
+    eventListenerOptions?: AddEventListenerOptions,
+) => {
     const keydown = useRef<number | null>(null);
 
     useEffect(() => {
@@ -61,12 +66,12 @@ export const useRemoteListener = (cb: (key: RemoteKey, event: KeyboardEvent) => 
             keydown.current = null;
         };
 
-        window.addEventListener('keydown', handleKeydown);
-        window.addEventListener('keyup', handleKeyup);
+        window.addEventListener('keydown', handleKeydown, eventListenerOptions);
+        window.addEventListener('keyup', handleKeyup, eventListenerOptions);
 
         return () => {
-            window.removeEventListener('keydown', handleKeydown);
-            window.removeEventListener('keyup', handleKeyup);
+            window.removeEventListener('keydown', handleKeydown, eventListenerOptions);
+            window.removeEventListener('keyup', handleKeyup, eventListenerOptions);
         };
     }, [cb]);
 };
