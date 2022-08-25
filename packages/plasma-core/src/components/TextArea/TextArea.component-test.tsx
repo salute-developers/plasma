@@ -106,4 +106,34 @@ describe('plasma-core: TextArea', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('leftHelper and rightHelper', () => {
+        mount(
+            <CypressTestDecorator>
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    leftHelper="Helper text left"
+                    contentRight={<IconEye color="inherit" size="s" />}
+                />
+                <SpaceMe />
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    rightHelper="Helper text right"
+                    contentRight={<IconEye color="inherit" size="s" />}
+                />
+                <SpaceMe />
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    leftHelper="Helper text left"
+                    rightHelper="Helper text right"
+                    contentRight={<IconEye color="inherit" size="s" />}
+                />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
 });
