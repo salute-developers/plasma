@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef, useRef } from 'react';
 import styled, { css } from 'styled-components';
-import { caption, dark02, shadows, white } from '@salutejs/plasma-core';
+import { caption, dark02, shadows, useForkRef, white } from '@salutejs/plasma-core';
 import { usePopper } from 'react-popper';
 
 /** Направление раскрытия тултипа */
@@ -115,64 +115,60 @@ const StyledTooltip = styled.span<Pick<TooltipProps, 'isVisible' | 'animated'>>`
 /**
  * Компонент для текстовых подсказок. Основное предназначение — подписи к блокам.
  */
-export const Tooltip: React.FC<TooltipProps> = ({
-    id,
-    text,
-    isVisible,
-    arrow = true,
-    animated = true,
-    placement = 'bottom',
-    children,
-    onDismiss,
-    ...rest
-}) => {
-    const [wrapperElement, setWrapperElement] = useState<HTMLDivElement | null>(null);
-    const [tooltipElement, setTooltipElement] = useState<HTMLSpanElement | null>(null);
-    const [arrowElement, setArrowElement] = useState<HTMLSpanElement | null>(null);
-    const { styles, attributes } = usePopper(wrapperElement, tooltipElement, {
-        strategy: 'fixed',
-        placement,
-        modifiers: [
-            { name: 'offset', options: { offset: [offset[0], offset[1]] } },
-            { name: 'arrow', options: { element: arrowElement, padding: 10 } },
-        ],
-    });
+export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
+    (
+        { id, text, isVisible, arrow = true, animated = true, placement = 'bottom', children, onDismiss, ...rest },
+        outerRef,
+    ) => {
+        const tooltipElement = useRef<HTMLSpanElement>(null);
+        const ref = useForkRef(outerRef, tooltipElement);
+        const [wrapperElement, setWrapperElement] = useState<HTMLDivElement | null>(null);
+        const [arrowElement, setArrowElement] = useState<HTMLSpanElement | null>(null);
+        const { styles, attributes } = usePopper(wrapperElement, tooltipElement.current, {
+            strategy: 'fixed',
+            placement,
+            modifiers: [
+                { name: 'offset', options: { offset: [offset[0], offset[1]] } },
+                { name: 'arrow', options: { element: arrowElement, padding: 10 } },
+            ],
+        });
 
-    useEffect(() => {
-        const onKeyDown = (event: KeyboardEvent) => {
-            if (event.keyCode === ESCAPE_KEYCODE) {
-                onDismiss?.();
-            }
-        };
+        useEffect(() => {
+            const onKeyDown = (event: KeyboardEvent) => {
+                if (event.keyCode === ESCAPE_KEYCODE) {
+                    onDismiss?.();
+                }
+            };
 
-        window.addEventListener('keydown', onKeyDown);
+            window.addEventListener('keydown', onKeyDown);
 
-        return () => {
-            window.removeEventListener('keydown', onKeyDown);
-        };
-    }, []);
+            return () => {
+                window.removeEventListener('keydown', onKeyDown);
+            };
+        }, []);
 
-    return (
-        <>
-            <StyledTooltip
-                {...attributes.popper}
-                ref={setTooltipElement}
-                id={id}
-                isVisible={isVisible}
-                animated={animated}
-                style={styles.popper}
-                role="tooltip"
-                aria-live="polite"
-                aria-hidden={!isVisible}
-            >
-                {arrow && <StyledArrow ref={setArrowElement} style={styles.arrow} {...attributes.arrow} />}
-                {text}
-            </StyledTooltip>
-            {children && (
-                <StyledWrapper ref={setWrapperElement} {...rest}>
-                    {children}
-                </StyledWrapper>
-            )}
-        </>
-    );
-};
+        return (
+            <>
+                <StyledTooltip
+                    {...attributes.popper}
+                    ref={ref}
+                    id={id}
+                    isVisible={isVisible}
+                    animated={animated}
+                    style={styles.popper}
+                    role="tooltip"
+                    aria-live="polite"
+                    aria-hidden={!isVisible}
+                >
+                    {arrow && <StyledArrow ref={setArrowElement} style={styles.arrow} {...attributes.arrow} />}
+                    {text}
+                </StyledTooltip>
+                {children && (
+                    <StyledWrapper ref={setWrapperElement} {...rest}>
+                        {children}
+                    </StyledWrapper>
+                )}
+            </>
+        );
+    },
+);
