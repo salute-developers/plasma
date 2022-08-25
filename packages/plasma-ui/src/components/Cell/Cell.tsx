@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import { SelfPosition } from 'csstype';
 import { addFocus, FocusProps, OutlinedProps } from '@salutejs/plasma-core';
@@ -123,7 +123,7 @@ export interface CellProps extends FocusProps, OutlinedProps, AsProps {
 /**
  * Базовый компонент для отображения блоков контента в списках и карточках.
  */
-export const Cell = (props: CellProps & React.HTMLAttributes<HTMLDivElement>) => {
+export const Cell = forwardRef<HTMLDivElement, CellProps & React.HTMLAttributes<HTMLDivElement>>((props, ref) => {
     const {
         contentLeft: left,
         content,
@@ -134,7 +134,7 @@ export const Cell = (props: CellProps & React.HTMLAttributes<HTMLDivElement>) =>
     } = props;
 
     return (
-        <CellRoot {...rest}>
+        <CellRoot ref={ref} {...rest}>
             {left && <CellLeft align={alignLeft}>{left}</CellLeft>}
             <CellContentWrapper>
                 <CellContent>{content}</CellContent>
@@ -142,4 +142,4 @@ export const Cell = (props: CellProps & React.HTMLAttributes<HTMLDivElement>) =>
             </CellContentWrapper>
         </CellRoot>
     );
-};
+});

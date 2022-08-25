@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { PickOptional } from '../../types';
 
@@ -71,11 +71,11 @@ export type HeaderProps = React.HTMLAttributes<HTMLDivElement> &
  * Сборный компонент для отрисовки шапки страницы.
  * Уже включает в себя все составные части шапки.
  */
-export const Header = ({ children, ...props }: HeaderProps) => {
+export const Header = forwardRef<HTMLHeadElement, HeaderProps>(({ children, ...props }, ref) => {
     const { minimize, back, logo, logoAlt, title, subtitle, onMinimizeClick, onBackClick, ...rest } = props as AllProps;
 
     return (
-        <HeaderRoot {...rest}>
+        <HeaderRoot ref={ref} {...rest}>
             {(minimize || back) && (
                 <HeaderArrow onClick={back ? onBackClick : onMinimizeClick} arrow={back ? 'back' : 'minimize'} />
             )}
@@ -89,4 +89,4 @@ export const Header = ({ children, ...props }: HeaderProps) => {
             {children && <HeaderContent>{children}</HeaderContent>}
         </HeaderRoot>
     );
-};
+});
