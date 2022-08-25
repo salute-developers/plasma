@@ -77,9 +77,13 @@ const g = <Header logo="/path/to/fancy-image.jpg" logoAlt="Fancy image." />;
 <Description name="HeaderRoot" />
 <PropsTable name="HeaderRoot" />
 
-### HeaderArrow
-<Description name="HeaderArrow" />
-<PropsTable name="HeaderArrow" />
+### HeaderBack
+<Description name="HeaderBack" />
+<PropsTable name="HeaderBack" />
+
+### HeaderMinimize
+<Description name="HeaderMinimize" />
+<PropsTable name="HeaderMinimize" />
 
 ### HeaderLogo
 <Description name="HeaderLogo" />
@@ -106,6 +110,7 @@ import {
     Header,
     HeaderRoot,
     HeaderBack,
+    HeaderMinimize,
     HeaderLogo,
     HeaderTitleWrapper,
     HeaderSubtitle,
@@ -115,10 +120,20 @@ import {
 } from '@salutejs/plasma-ui';
 
 export function App() {
+    const [isBack, setIsBack] = useState(true);
+
+    const onBackClick = () => {
+        setIsBack(false);
+    };
+
+    const onMinimizeClick = () => {
+        setIsBack(true);
+    };
+
     return (
         <Container>
             <HeaderRoot>
-                <HeaderBack onClick={() => console.log('Back click!')} />
+                {isBack ? <HeaderBack onClick={onBackClick} /> : <HeaderMinimize onClick={onMinimizeClick} />}
                 <HeaderLogo src="/images/320_320_12.jpg" alt="Logo" />
                 <HeaderTitleWrapper>
                     <HeaderSubtitle>Label text</HeaderSubtitle>
@@ -134,8 +149,8 @@ export function App() {
 ```
 
 ## Кнопки назад и свернуть
-В структуре шапки обязательно должен присутствовать один из компонентов-кнопок – `back` (назад) или `minimize` (свернуть).
-Данные кнопки являются взаимоисключающими, т.е. можно указать или `back` или `minimize`.
+В структуре шапки обязательно должен присутствовать один из компонентов-кнопок – `HeaderBack` (назад) или `HeaderMinimize` (свернуть).
+Данные кнопки являются взаимоисключающими, т.е. можно указать или `HeaderBack` или `HeaderMinimize`.
 На SberBox эти кнопки должны быть нефокусируемыми.
 
 ## NeuHeader

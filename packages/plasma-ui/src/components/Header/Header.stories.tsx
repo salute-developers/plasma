@@ -7,8 +7,6 @@ import { IconMic, IconPlus, IconTrash } from '@salutejs/plasma-icons';
 import { Button } from '../Button';
 import { Tabs, TabItem } from '../Tabs';
 
-import { HeaderArrow } from './HeaderArrow';
-
 import {
     Header,
     HeaderProps,
@@ -20,6 +18,8 @@ import {
     HeaderContent,
     NeuHeader,
     NeuHeaderProps,
+    HeaderMinimize,
+    HeaderBack,
 } from '.';
 
 const contentTypes = ['Buttons', 'Tabs', 'MobileButtons', ''];
@@ -186,7 +186,7 @@ export const CustomAssembly: Story<CustomAssemblyProps & ContentComponentProps> 
 
     return (
         <HeaderRoot gradientColor={gradientColor}>
-            <HeaderArrow onClick={isBack ? onBackClick : onMinimizeClick} arrow={isBack ? 'back' : 'minimize'} />
+            {isBack ? <HeaderBack onClick={onBackClick} /> : <HeaderMinimize onClick={onMinimizeClick} />}
             <HeaderLogo src="./images/320_320_12.jpg" alt="Logo" />
             <HeaderTitleWrapper>
                 {variant === 'title+subtitle' && (
