@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 
 import { PickerDots } from './PickerDots';
 import { SimpleTimePicker, SimpleTimePickerProps } from './SimpleTimePicker';
-import { getNormalizeValues, getRange, getTimeValues, getValuesInRange, isChanged } from './utils';
+import { getNewDate, getNormalizeValues, getRange, getTimeValues, getValuesInRange, isChanged } from './utils';
 import type { TimeType } from './types';
 
 const StyledWrapper = styled.div`
@@ -96,7 +95,7 @@ export const TimePicker = ({
     const normalizeValues = React.useMemo(() => getNormalizeValues(getTimeValues, getSeconds)(value, min, max), [
         value,
     ]);
-
+    const [prevValue, setPrevValue] = React.useState(value);
     const [[hours, minutes, seconds], setState] = React.useState(normalizeValues);
     const [minHours, minMinutes, minSeconds] = getTimeValues(min);
     const [maxHours, maxMinutes, maxSeconds] = getTimeValues(max);
@@ -155,53 +154,77 @@ export const TimePicker = ({
         step,
     ]);
 
-    const onHoursChange = React.useCallback(({ value: h }) => setState(([, m, s]) => [h, m, s]), []);
-    const onMinutesChange = React.useCallback(({ value: m }) => setState(([h, , s]) => [h, m, s]), []);
-    const onSecondsChange = React.useCallback(({ value: s }) => setState(([h, m]) => [h, m, s]), []);
+    const onHoursChange = React.useCallback(
+        ({ value: h }) => {
+            setState(([, m, s]) => [h, m, s]);
 
-    // При очередном прогоне, если значения hours, minutes, seconds изменились,
-    // необходимо вызвать событие изменения, создав новый экземпляр Date
-    useIsomorphicLayoutEffect(() => {
-        const oldTime = normalizeValues;
+            if (onChange && h !== hours) {
+                onChange(getNewDate(value, [h, minutes, seconds]));
+            }
+        },
+        [hours, minutes, seconds],
+    );
+    const onMinutesChange = React.useCallback(
+        ({ value: m }) => {
+            setState(([h, , s]) => [h, m, s]);
 
-        if (onChange && isChanged(oldTime, [hours, minutes, seconds])) {
-            const newValue = new Date(value);
-            newValue.setHours(hours);
-            newValue.setMinutes(minutes);
-            newValue.setSeconds(seconds);
+            if (onChange && m !== minutes) {
+                onChange(getNewDate(value, [hours, m, seconds]));
+            }
+        },
+        [hours, minutes, seconds],
+    );
+    const onSecondsChange = React.useCallback(
+        ({ value: s }) => {
+            setState(([h, m]) => [h, m, s]);
 
-            onChange(newValue);
-        }
-    }, [hours, minutes, seconds]);
+            if (onChange && s !== seconds) {
+                onChange(getNewDate(value, [hours, minutes, s]));
+            }
+        },
+        [hours, minutes, seconds],
+    );
 
     /**
-     * Если значение value обновилось извне, необходимо изменить стейт
+     * Если значение (value) обновилось извне, необходимо изменить стейт
      * и вызвать событие изменения, создав новый экземпляр Date
      */
-    useIsomorphicLayoutEffect(() => {
-        setState((prevTime) => {
-            const [newHours, newMins, newSecs] = normalizeValues;
+    if (prevValue.getTime() !== value.getTime()) {
+        setPrevValue(value);
 
-            if (!isChanged(prevTime, [newHours, newMins, newSecs])) {
-                return prevTime;
-            }
+        if (prevValue) {
+            setState((prevTime) => {
+                const [newHours, newMins, newSecs] = getValuesInRange(
+                    [hoursRange, minsRange, secsRange],
+                    normalizeValues,
+                    value,
+                );
 
-            if (onChange) {
-                const newValue = new Date(value);
-                newValue.setHours(newHours);
-                newValue.setMinutes(newMins);
-                newValue.setSeconds(newSecs);
+                if (!isChanged(prevTime, [newHours, newMins, newSecs])) {
+                    return prevTime;
+                }
 
-                onChange(newValue);
-            }
+                if (onChange) {
+                    onChange(getNewDate(value, [newHours, newMins, newSecs]));
+                }
 
-            return [newHours, newMins, newSecs];
-        });
-    }, [value, normalizeValues]);
+                return [newHours, newMins, newSecs];
+            });
+        }
+    }
 
+    /**
+     * Если значение (value) выпадает из диапазона в зависимости от
+     * установленного шага (step), необходимо нормализовать значения,
+     * изменить стейт и вызвать событие изменения, создав новый экземпляр Date
+     */
     const newTime = getValuesInRange([hoursRange, minsRange, secsRange], [hours, minutes, seconds], value);
     if (isChanged([hours, minutes, seconds], newTime)) {
         setState(newTime);
+
+        if (onChange) {
+            onChange(getNewDate(value, [newTime[0], newTime[1], newTime[2]]));
+        }
     }
 
     return (

@@ -184,6 +184,18 @@ export const scaleResetCallback = (itemEl: HTMLElement) => {
 };
 
 /**
+ * Вернет новый объект даты.
+ */
+export const getNewDate = (value: Date, [hour, minutes, seconds]: number[]) => {
+    const newDate = new Date(value);
+    newDate.setHours(hour);
+    newDate.setMinutes(minutes);
+    newDate.setSeconds(seconds);
+
+    return newDate;
+};
+
+/**
  * Вернет массив с временными компонентами переданной даты.
  */
 export const getTimeValues = (date: Date) => [date.getHours(), date.getMinutes(), date.getSeconds()] as const;
@@ -258,7 +270,7 @@ const getClosestValue = (range: number[], value: number) => {
  */
 export const getValuesInRange = (
     [firstRange, secondRange, thirdRange]: number[][],
-    [first, second, third]: number[],
+    [first, second, third]: readonly [number, number, number],
     value: Date,
 ) => {
     if (firstRange.indexOf(first) === -1 || secondRange.indexOf(second) === -1 || thirdRange.indexOf(third) === -1) {
@@ -291,8 +303,8 @@ export const getRange = (from: number, to: number, step = 1) => {
 /**
  * Хук для сохранения предыдущего значения
  */
-export const usePreviousValue = (value: string | number | Date) => {
-    const ref = useRef<string | number | Date>();
+export const usePreviousValue = <T extends string | number | Date>(value: T): T | undefined => {
+    const ref = useRef<T>();
 
     useEffect(() => {
         ref.current = value;
