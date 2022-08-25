@@ -21,12 +21,15 @@ export const applyInteraction: InterpolationFunction<InteractionProps> = ({
     scaleOnHover,
     scaleOnPress,
 }) => css`
-    transition: transform 0.1s ease-in-out;
+    transition: transform 0.1s ease-in;
 
     ${(scaleOnHover || scaleOnInteraction) &&
     css`
-        &:hover {
-            transform: scale(1.04);
+        // Сработает только для устройств, у которых есть мышь или другой манипулятор
+        @media (hover: hover) {
+            &:hover {
+                transform: scale(1.04);
+            }
         }
     `}
 
