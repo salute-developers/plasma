@@ -41,6 +41,23 @@ describe('plasma-ui: TimePicker', () => {
         cy.matchImageSnapshot();
     });
 
+    it('__step', () => {
+        mount(
+            <CypressTestDecorator>
+                <TimePicker
+                    scrollSnapType="none"
+                    step={300}
+                    onChange={noop}
+                    value={new Date(1975, 1, 1, 15, 28, 0)}
+                    min={new Date(1975, 1, 1, 0, 15, 0)}
+                    max={new Date(1975, 1, 1, 22, 30, 0)}
+                />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('without infiniteScroll', () => {
         mount(
             <CypressTestDecorator>
