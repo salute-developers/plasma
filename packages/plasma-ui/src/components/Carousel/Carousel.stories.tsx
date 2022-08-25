@@ -191,7 +191,7 @@ Basic.story = {
 
 Basic.args = {
     displayGrid: true,
-    animatedScrollByIndex: isSberbox,
+    animatedScrollByIndex: true,
     scrollAlign: 'start',
     scrollSnapType: !isSberbox ? 'mandatory' : undefined,
     scrollSnapAlign: !isSberbox ? 'start' : undefined,

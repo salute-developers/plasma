@@ -54,6 +54,7 @@ export interface BasicProps extends AsProps, HTMLAttributes<HTMLDivElement> {
      * Сменить WAI-ARIA Label списка.
      */
     listAriaLabel?: string;
+    cssScroll?: boolean;
 }
 export interface DetectionProps {
     /**
@@ -105,6 +106,7 @@ export type UseCarouselOptions = Pick<
     | 'animatedScrollByIndex'
     | 'throttleMs'
     | 'debounceMs'
+    | 'cssScroll'
 >;
 
 export type CarouselTemplateProps = Omit<BasicProps, Exclude<keyof UseCarouselOptions, 'axis'>>;

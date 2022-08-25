@@ -73,6 +73,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
         throttleMs,
         debounceMs,
         animatedScrollByIndex,
+        cssScroll,
         ...rest
     },
     ref,
@@ -90,6 +91,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
         throttleMs,
         debounceMs,
         animatedScrollByIndex,
+        cssScroll,
     });
 
     const handleRef = useForkRef(scrollRef, ref);
