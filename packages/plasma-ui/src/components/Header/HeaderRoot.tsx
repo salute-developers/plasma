@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import Color from 'color';
 
@@ -93,10 +93,12 @@ export interface HeaderRootProps extends React.HTMLAttributes<HTMLDivElement> {
 /**
  * Корневой узел для шапки.
  */
-export const HeaderRoot = ({ children, size, gradientColor, ...rest }: HeaderRootProps) => {
-    return (
-        <StyledHeaderRoot {...rest} $size={size} $gradientColor={gradientColor}>
-            <StyledInner>{children}</StyledInner>
-        </StyledHeaderRoot>
-    );
-};
+export const HeaderRoot = forwardRef<HTMLHeadElement, HeaderRootProps>(
+    ({ children, size, gradientColor, ...rest }, ref) => {
+        return (
+            <StyledHeaderRoot ref={ref} {...rest} $size={size} $gradientColor={gradientColor}>
+                <StyledInner>{children}</StyledInner>
+            </StyledHeaderRoot>
+        );
+    },
+);

@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, MouseEventHandler, ReactNode } from 'react';
+import React, { HTMLAttributes, MouseEventHandler, ReactNode, forwardRef } from 'react';
 
 import { HeaderRoot, HeaderRootProps } from './HeaderRoot';
 import { HeaderArrow } from './HeaderArrow';
@@ -63,27 +63,20 @@ export type NeuHeaderProps = HTMLAttributes<HTMLDivElement> &
  * * Свойство `subtitle` переименовано в `subTitle`.
  * `NeuHeader` заменит собой исходный `Header` в будущих версиях.
  */
-export const NeuHeader = ({
-    arrow,
-    onArrowClick,
-    logo,
-    logoAlt,
-    title,
-    subTitle,
-    children,
-    ...rest
-}: NeuHeaderProps) => {
-    return (
-        <HeaderRoot {...rest}>
-            <HeaderArrow onClick={onArrowClick} arrow={arrow} />
-            {logo && <HeaderLogo src={logo} alt={logoAlt} />}
-            {title && (
-                <HeaderTitleWrapper>
-                    <HeaderTitle>{title}</HeaderTitle>
-                    {subTitle && <HeaderSubtitle>{subTitle}</HeaderSubtitle>}
-                </HeaderTitleWrapper>
-            )}
-            {children && <HeaderContent>{children}</HeaderContent>}
-        </HeaderRoot>
-    );
-};
+export const NeuHeader = forwardRef<HTMLHeadElement, NeuHeaderProps>(
+    ({ arrow, onArrowClick, logo, logoAlt, title, subTitle, children, ...rest }, ref) => {
+        return (
+            <HeaderRoot ref={ref} {...rest}>
+                <HeaderArrow onClick={onArrowClick} arrow={arrow} />
+                {logo && <HeaderLogo src={logo} alt={logoAlt} />}
+                {title && (
+                    <HeaderTitleWrapper>
+                        <HeaderTitle>{title}</HeaderTitle>
+                        {subTitle && <HeaderSubtitle>{subTitle}</HeaderSubtitle>}
+                    </HeaderTitleWrapper>
+                )}
+                {children && <HeaderContent>{children}</HeaderContent>}
+            </HeaderRoot>
+        );
+    },
+);
