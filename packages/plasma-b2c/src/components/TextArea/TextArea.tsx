@@ -56,6 +56,10 @@ const StyledFieldContentWrapper = styled.div<{ width: number }>`
     width: ${({ width }) => width}px;
 `;
 
+const StyledFieldRightHelper = styled(FieldHelper)`
+    margin-left: auto;
+`;
+
 /**
  * Поле ввода многострочного текста.
  */
@@ -102,7 +106,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
                 style={style}
             >
                 <FieldWrapper status={status}>
-                    <StyledFieldContentWrapper width={width} id={id ? `${id}-helper` : undefined}>
+                    <StyledFieldContentWrapper width={width}>
                         {contentRight && <FieldContent pos="right">{contentRight}</FieldContent>}
                     </StyledFieldContentWrapper>
                     <StyledTextArea
@@ -119,8 +123,8 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
                         {...rest}
                     />
                     <StyledFieldHelpers width={width} id={id ? `${id}-helper` : undefined}>
-                        <FieldHelper as={TextFieldHelper}>{leftHelper}</FieldHelper>
-                        <FieldHelper>{rightHelper}</FieldHelper>
+                        {leftHelper && <FieldHelper as={TextFieldHelper}>{leftHelper}</FieldHelper>}
+                        {rightHelper && <StyledFieldRightHelper>{rightHelper}</StyledFieldRightHelper>}
                     </StyledFieldHelpers>
                 </FieldWrapper>
             </TextFieldRoot>
