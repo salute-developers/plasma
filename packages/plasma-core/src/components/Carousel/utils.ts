@@ -1,4 +1,4 @@
-import { animatedScrollToX, animatedScrollToY, TimingFunction } from '../../utils';
+import { TimingFunction } from '../../utils';
 
 import { ScrollAxis, ScrollAlign, UseCarouselLiteOptions } from './types';
 
@@ -112,9 +112,6 @@ export const scrollToPos = ({
     scrollEl,
     pos,
     axis,
-    animated,
-    duration,
-    timingFunction,
 }: {
     scrollEl: HTMLElement;
     pos: number;
@@ -124,18 +121,10 @@ export const scrollToPos = ({
     timingFunction?: TimingFunction;
 }) => {
     if (axis === 'x' && Math.abs(pos - scrollEl.scrollLeft) > 1) {
-        if (animated) {
-            animatedScrollToX(scrollEl, pos, duration, timingFunction);
-        } else {
-            scrollEl.scrollTo({ left: pos });
-        }
+        scrollEl.scrollTo({ left: pos });
     }
     if (axis === 'y' && Math.abs(pos - scrollEl.scrollTop) > 1) {
-        if (animated) {
-            animatedScrollToY(scrollEl, pos, duration, timingFunction);
-        } else {
-            scrollEl.scrollTo({ top: pos });
-        }
+        scrollEl.scrollTo({ top: pos });
     }
 };
 

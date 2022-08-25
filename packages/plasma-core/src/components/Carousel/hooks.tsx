@@ -5,6 +5,7 @@ import { useRef, useEffect, useCallback, useMemo, useLayoutEffect, useState } fr
 import { useDebouncedFunction } from '../../hooks';
 
 import type { UseCarouselLiteOptions, UseCarouselOptions } from './types';
+import VerySmoothScroll from './VerySmoothScroll';
 import {
     scrollToPos,
     getCalculatedPos,
@@ -41,6 +42,16 @@ export const useCarousel = ({
     const offset = useRef(0);
     const scrollRef = useRef<HTMLElement | null>(null);
     const trackRef = useRef<HTMLElement | null>(null);
+
+    const smoothScroller = useMemo(() => {
+        return new VerySmoothScroll({});
+    }, []);
+
+    useLayoutEffect(() => {
+        if (scrollRef.current) {
+            smoothScroller.setElement(scrollRef.current);
+        }
+    }, [smoothScroller]);
 
     /**
      * Для того, чтобы не спамить изменениями индекса.
@@ -197,24 +208,36 @@ export const useCarousel = ({
             const items = trackRef.current ? getCarouselItems(trackRef.current) : null;
 
             if (scrollEl && items && items.length > 0 && i >= 0) {
-                scrollToPos({
-                    scrollEl,
-                    pos: getCalculatedPos({
+                if (animatedScrollByIndex === true) {
+                    const kek = getCalculatedPos({
                         scrollEl,
                         items,
                         axis,
                         index: i,
                         offset: offset.current,
                         scrollAlign,
-                    }),
-                    axis,
-                    /**
-                     * Без анимации при переходе на другой конец списка
-                     */
-                    animated:
-                        animatedScrollByIndex &&
-                        (prevIndex.current === null || Math.abs(i - prevIndex.current) !== items.length - 1),
-                });
+                    });
+                    smoothScroller.goAbsolute(kek, axis === 'x' ? 'horizontal' : 'vertical');
+                } else {
+                    scrollToPos({
+                        scrollEl,
+                        pos: getCalculatedPos({
+                            scrollEl,
+                            items,
+                            axis,
+                            index: i,
+                            offset: offset.current,
+                            scrollAlign,
+                        }),
+                        axis,
+                        /**
+                         * Без анимации при переходе на другой конец списка
+                         */
+                        animated:
+                            animatedScrollByIndex &&
+                            (prevIndex.current === null || Math.abs(i - prevIndex.current) !== items.length - 1),
+                    });
+                }
                 prevIndex.current = i;
             }
         },
