@@ -1,15 +1,34 @@
 import React, { forwardRef, useState, useMemo, createRef } from 'react';
 import styled from 'styled-components';
-import { FieldRoot, FieldContent, FieldHelper, TextArea as BaseArea, useResizeObserver } from '@salutejs/plasma-core';
+import {
+    FieldRoot,
+    FieldContent,
+    FieldHelper,
+    TextArea as BaseArea,
+    TextFieldHelper,
+    useResizeObserver,
+} from '@salutejs/plasma-core';
 import type { TextAreaProps as BaseProps } from '@salutejs/plasma-core';
 
 import { applyInputStyles } from '../Field';
 
 export interface TextAreaProps extends BaseProps {
     /**
-     * Слот для вспомогательного блока снизу.
+     * @deprecated не используется в компоненте.
      */
     helperBlock?: React.ReactElement;
+    /**
+     * @deprecated свойство устарело, необходимо использовать `leftHelper`.
+     */
+    helperText?: string;
+    /**
+     * Вспомогательный текст снизу слева для поля ввода.
+     */
+    leftHelper?: string;
+    /**
+     * Вспомогательный текст снизу справа для поля ввода.
+     */
+    rightHelper?: string;
 }
 
 const StyledTextArea = styled(BaseArea)`
@@ -18,14 +37,21 @@ const StyledTextArea = styled(BaseArea)`
     ${applyInputStyles}
 `;
 
-const StyledFieldHelperWrapper = styled.div<{ width: number }>`
-    position: absolute;
-    top: 0;
-
+const StyledFieldHelpers = styled.div<{ width: number }>`
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 
     width: ${({ width }) => width}px;
+`;
+
+const StyledFieldContentWrapper = styled.div<{ width: number }>`
+    position: absolute;
+
+    width: ${({ width }) => width}px;
+`;
+
+const StyledFieldRightHelper = styled(FieldHelper)`
+    margin-left: auto;
 `;
 
 /**
@@ -33,7 +59,20 @@ const StyledFieldHelperWrapper = styled.div<{ width: number }>`
  */
 // eslint-disable-next-line prefer-arrow-callback
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea(
-    { id, disabled, status, label, placeholder, contentRight, helperText, style, className, ...rest },
+    {
+        id,
+        disabled,
+        status,
+        label,
+        placeholder,
+        contentRight,
+        helperText,
+        style,
+        className,
+        leftHelper,
+        rightHelper,
+        ...rest
+    },
     outerRef,
 ) {
     const [width, setWidth] = useState(0);
@@ -53,24 +92,29 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function 
         <FieldRoot
             $disabled={disabled}
             $isContentRight={Boolean(contentRight)}
-            $isHelper={Boolean(helperText)}
+            $isHelper={Boolean(leftHelper || helperText)}
             status={status}
             style={style}
             className={className}
         >
+            <StyledFieldContentWrapper width={width}>
+                {contentRight && <FieldContent pos="right">{contentRight}</FieldContent>}
+            </StyledFieldContentWrapper>
             <StyledTextArea
                 ref={ref}
                 id={id}
                 placeholder={placeLabel}
                 disabled={disabled}
                 status={status}
-                aria-describedby={id ? `${id}-helpertext` : undefined}
+                aria-describedby={id ? `${id}-helper` : undefined}
                 {...rest}
             />
-            {helperText && <FieldHelper id={id ? `${id}-helpertext` : undefined}>{helperText}</FieldHelper>}
-            <StyledFieldHelperWrapper width={width}>
-                {contentRight && <FieldContent pos="right">{contentRight}</FieldContent>}
-            </StyledFieldHelperWrapper>
+            <StyledFieldHelpers width={width} id={id ? `${id}-helper` : undefined}>
+                {(leftHelper || helperText) && (
+                    <FieldHelper as={TextFieldHelper}>{leftHelper || helperText}</FieldHelper>
+                )}
+                {rightHelper && <StyledFieldRightHelper>{rightHelper}</StyledFieldRightHelper>}
+            </StyledFieldHelpers>
         </FieldRoot>
     );
 });
