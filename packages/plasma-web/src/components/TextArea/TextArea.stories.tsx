@@ -14,7 +14,6 @@ const statuses = ['', 'success', 'error'];
 const resizes = ['none', 'both', 'horizontal', 'vertical'];
 
 const propsToDisable = [
-    'helperBlock',
     '$isFocused',
     'label',
     'contentRight',
@@ -33,6 +32,8 @@ const propsToDisable = [
     'onChange',
     'onFocus',
     'onBlur',
+    'helperText',
+    'helperBlock',
 ];
 
 export default {
@@ -82,7 +83,8 @@ export const Default: Story<TextAreaProps & { enableContentRight: boolean }> = (
 Default.args = {
     id: 'example-textarea',
     placeholder: 'Заполните многострочное поле',
-    helperText: 'Подсказка к полю',
+    leftHelper: 'Подсказка к полю слева',
+    rightHelper: 'Подсказка к полю справа',
     enableContentRight: true,
     status: '' as 'success',
     resize: 'vertical',
