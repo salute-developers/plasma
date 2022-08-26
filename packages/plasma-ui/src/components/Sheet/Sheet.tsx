@@ -62,14 +62,14 @@ const StyledContentWrapper = styled.div<{ isOpen: boolean }>`
         `}
 `;
 
-const StyledOverlay = styled.div`
+const StyledOverlay = styled.div<{ withOverlay: boolean }>`
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 
-    background-color: ${overlay};
+    background-color: ${({ withOverlay }) => (withOverlay ? overlay : 'transparent')};
 `;
 
 const StyledSheetContent = styled.div`
@@ -116,7 +116,7 @@ export const Sheet = ({ isOpen, children, onClose, withOverlay = true, ...restPr
                 <StyledSheetHandle ref={handleRef} />
                 <StyledSheetContent>{children}</StyledSheetContent>
             </StyledContentWrapper>
-            {withOverlay && <StyledOverlay onClick={onClose} />}
+            <StyledOverlay withOverlay={withOverlay} onClick={onClose} />
         </StyledWrapper>
     );
 };
