@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css, keyframes, createGlobalStyle } from 'styled-components';
 import { overlay, useUniqId } from '@salutejs/plasma-core';
 
 import { ModalsContext, MODALS_PORTAL_ID } from './ModalsContext';
 import { ModalView, ModalViewProps } from './ModalView';
 
 export interface ModalProps extends ModalViewProps {
+    /**
+     * Отображение модального окна.
+     */
     isOpen: boolean;
 }
 interface HidingProps {
@@ -85,6 +88,12 @@ const StyledModal = styled.div<HidingProps>`
     `}
 `;
 
+const NoScroll = createGlobalStyle`
+    body {
+        overflow-y: hidden;
+    }
+`;
+
 /**
  * Модальное окно.
  * Управляет показом/скрытием, подложкой и анимацией визуальной части модального окна.
@@ -96,25 +105,27 @@ export const Modal: React.FC<ModalProps> = ({ id, isOpen, onClose, ...rest }) =>
     const portalRef = React.useRef<HTMLElement | null>(null);
     const controller = React.useContext(ModalsContext);
 
-    React.useEffect(() => {
+    const portalElement = React.useMemo(() => {
         let portal = document.getElementById(MODALS_PORTAL_ID);
 
-        if (!portal) {
-            portal = document.createElement('div');
-            portal.setAttribute('id', MODALS_PORTAL_ID);
-            portal.setAttribute('aria-live', 'off');
-            portal.setAttribute('role', 'presentation');
-            portal.style.position = 'relative';
-            portal.style.zIndex = '9000';
-            document.body.appendChild(portal);
+        if (portal) {
+            return portal;
         }
 
-        portalRef.current = portal;
+        portal = document.createElement('div');
+        portal.setAttribute('id', MODALS_PORTAL_ID);
+        portal.setAttribute('aria-live', 'off');
+        portal.setAttribute('role', 'presentation');
+        portal.style.position = 'relative';
+        portal.style.zIndex = '9000';
+        document.body.appendChild(portal);
 
-        return () => {
-            controller.unregister(innerId);
-        };
+        return portal;
     }, []);
+
+    if (!portalRef.current) {
+        portalRef.current = portalElement;
+    }
 
     React.useEffect(() => {
         const onKeyDown = (event: KeyboardEvent) => {
@@ -134,17 +145,6 @@ export const Modal: React.FC<ModalProps> = ({ id, isOpen, onClose, ...rest }) =>
         };
     }, []);
 
-    React.useEffect(() => {
-        const modalAmount = portalRef.current?.children.length;
-
-        if (modalAmount) {
-            document.body.style.overflowY = 'hidden';
-            return;
-        }
-
-        document.body.removeAttribute('style');
-    }, [isOpen]);
-
     if (isOpen) {
         controller.register(innerId);
     } else {
@@ -153,15 +153,18 @@ export const Modal: React.FC<ModalProps> = ({ id, isOpen, onClose, ...rest }) =>
     }
 
     return (
-        portalRef.current &&
-        ReactDOM.createPortal(
-            <StyledWrapper ref={wrapperRef}>
-                <StyledOverlay transparent={controller.items.indexOf(innerId) !== 0} onClick={onClose} />
-                <StyledModal>
-                    <ModalView onClose={onClose} {...rest} />
-                </StyledModal>
-            </StyledWrapper>,
-            portalRef.current,
-        )
+        <>
+            <NoScroll />
+            {portalRef.current &&
+                ReactDOM.createPortal(
+                    <StyledWrapper ref={wrapperRef}>
+                        <StyledOverlay transparent={controller.items.indexOf(innerId) !== 0} onClick={onClose} />
+                        <StyledModal>
+                            <ModalView onClose={onClose} {...rest} />
+                        </StyledModal>
+                    </StyledWrapper>,
+                    portalRef.current,
+                )}
+        </>
     );
 };
