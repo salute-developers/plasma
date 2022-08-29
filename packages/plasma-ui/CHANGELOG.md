@@ -1,3 +1,17 @@
+# v1.123.1 (Mon Aug 29 2022)
+
+#### 🐛 Bug Fix
+
+- docs(plasma-ui-docs): Update docs and stories for `HeaderMinimize` and `HeaderBack` components [#142](https://github.com/salute-developers/plasma/pull/142) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.123.0 (Mon Aug 29 2022)
 
 #### 🐛 Bug Fix

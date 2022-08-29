@@ -1,5 +1,21 @@
 # (Mon Aug 29 2022)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.123.1`
+  - test(plasma-web,plasma-b2c): Add test and snapshot for `Modal` component [#150](https://github.com/salute-developers/plasma/pull/150) ([@neretin-trike](https://github.com/neretin-trike))
+  - fix(plasma-web): Fix default open state for `Modal` component [#150](https://github.com/salute-developers/plasma/pull/150) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-ui@1.123.1`
+  - docs(plasma-ui-docs): Update docs and stories for `HeaderMinimize` and `HeaderBack` components [#142](https://github.com/salute-developers/plasma/pull/142) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Mon Aug 29 2022)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-core@1.67.0`
