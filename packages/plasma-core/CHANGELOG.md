@@ -1,3 +1,15 @@
+# v1.67.0 (Mon Aug 29 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-core): pass srcset props to img [#139](https://github.com/salute-developers/plasma/pull/139) ([@Gerpea](https://github.com/Gerpea))
+
+#### Authors: 1
+
+- German Cyganov ([@Gerpea](https://github.com/Gerpea))
+
+---
+
 # v1.65.1 (Tue Aug 16 2022)
 
 #### 🐛 Bug Fix

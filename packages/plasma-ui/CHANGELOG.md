@@ -1,3 +1,15 @@
+# v1.123.0 (Mon Aug 29 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): Remove hover effect for touch devices [#147](https://github.com/salute-developers/plasma/pull/147) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.122.0 (Mon Aug 29 2022)
 
 #### 🚀 Enhancement

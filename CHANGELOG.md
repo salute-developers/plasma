@@ -2,6 +2,25 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-core@1.67.0`
+  - feat(plasma-core): pass srcset props to img [#139](https://github.com/salute-developers/plasma/pull/139) ([@Gerpea](https://github.com/Gerpea))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.123.0`
+  - fix(plasma-ui): Remove hover effect for touch devices [#147](https://github.com/salute-developers/plasma/pull/147) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 2
+
+- German Cyganov ([@Gerpea](https://github.com/Gerpea))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Mon Aug 29 2022)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-web@1.122.0`
   - feat(plasma-web): Add forwardRef for `Tooltip` component [#144](https://github.com/salute-developers/plasma/pull/144) ([@neretin-trike](https://github.com/neretin-trike))
 - `@salutejs/plasma-ui@1.122.0`
