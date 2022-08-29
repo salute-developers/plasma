@@ -1,3 +1,20 @@
+# v1.122.0 (Mon Aug 29 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): Add forwardRef for `Header`,`NeuHeader` and `Cell` components [#143](https://github.com/salute-developers/plasma/pull/143) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.120.3 (Thu Aug 18 2022)
 
 #### 🐛 Bug Fix

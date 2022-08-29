@@ -1,3 +1,18 @@
+# (Mon Aug 29 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-web@1.122.0`
+  - feat(plasma-web): Add forwardRef for `Tooltip` component [#144](https://github.com/salute-developers/plasma/pull/144) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-ui@1.122.0`
+  - feat(plasma-ui): Add forwardRef for `Header`,`NeuHeader` and `Cell` components [#143](https://github.com/salute-developers/plasma/pull/143) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Thu Aug 18 2022)
 
 #### 🚀 Enhancement
