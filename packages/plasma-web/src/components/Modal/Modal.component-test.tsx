@@ -20,8 +20,8 @@ describe('plasma-web: Modal', () => {
     const P1 = getComponent('P1');
     const Headline3 = getComponent('Headline1');
 
-    function Demo() {
-        const [isOpen, setIsOpen] = React.useState(false);
+    function Demo({ open = false }: { open?: boolean }) {
+        const [isOpen, setIsOpen] = React.useState(open);
 
         return (
             <>
@@ -68,6 +68,19 @@ describe('plasma-web: Modal', () => {
         );
 
         cy.get('button').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('open', () => {
+        mount(
+            <CypressTestDecorator>
+                <NoAnimationStyle />
+                <ModalsProvider>
+                    <Demo open />
+                </ModalsProvider>
+            </CypressTestDecorator>,
+        );
 
         cy.matchImageSnapshot();
     });
