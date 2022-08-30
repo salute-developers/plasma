@@ -1,3 +1,15 @@
+# v1.124.0 (Tue Aug 30 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): Add options for eventListeners in useRemoteListener hook [#146](https://github.com/salute-developers/plasma/pull/146) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.123.1 (Mon Aug 29 2022)
 
 #### 🐛 Bug Fix
