@@ -1,5 +1,19 @@
 # (Tue Aug 30 2022)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.124.1`
+  - test(plasma-ui): Add test and snapshot for `TimePicker` component [#141](https://github.com/salute-developers/plasma/pull/141) ([@neretin-trike](https://github.com/neretin-trike))
+  - fix(plasma-ui): Fix deps for useIsomorphicLayoutEffect [#141](https://github.com/salute-developers/plasma/pull/141) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Tue Aug 30 2022)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-ui@1.124.0`
