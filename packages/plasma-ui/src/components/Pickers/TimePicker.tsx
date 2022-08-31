@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 
 import { PickerDots } from './PickerDots';
 import { SimpleTimePicker, SimpleTimePickerProps } from './SimpleTimePicker';
@@ -99,6 +100,7 @@ export const TimePicker = ({
     const [[hours, minutes, seconds], setState] = React.useState(normalizeValues);
     const [minHours, minMinutes, minSeconds] = getTimeValues(min);
     const [maxHours, maxMinutes, maxSeconds] = getTimeValues(max);
+    const isFirstMounted = React.useRef(true);
 
     // Диапазоны для списков зависят от min и max,
     // при чем min и max принимаются как возможные предельные значения,
@@ -154,77 +156,52 @@ export const TimePicker = ({
         step,
     ]);
 
-    const onHoursChange = React.useCallback(
-        ({ value: h }) => {
-            setState(([, m, s]) => [h, m, s]);
-
-            if (onChange && h !== hours) {
-                onChange(getNewDate(value, [h, minutes, seconds]));
-            }
-        },
-        [hours, minutes, seconds],
-    );
-    const onMinutesChange = React.useCallback(
-        ({ value: m }) => {
-            setState(([h, , s]) => [h, m, s]);
-
-            if (onChange && m !== minutes) {
-                onChange(getNewDate(value, [hours, m, seconds]));
-            }
-        },
-        [hours, minutes, seconds],
-    );
-    const onSecondsChange = React.useCallback(
-        ({ value: s }) => {
-            setState(([h, m]) => [h, m, s]);
-
-            if (onChange && s !== seconds) {
-                onChange(getNewDate(value, [hours, minutes, s]));
-            }
-        },
-        [hours, minutes, seconds],
-    );
+    const onHoursChange = React.useCallback(({ value: h }) => setState(([, m, s]) => [h, m, s]), []);
+    const onMinutesChange = React.useCallback(({ value: m }) => setState(([h, , s]) => [h, m, s]), []);
+    const onSecondsChange = React.useCallback(({ value: s }) => setState(([h, m]) => [h, m, s]), []);
 
     /**
      * Если значение (value) обновилось извне, необходимо изменить стейт
-     * и вызвать событие изменения, создав новый экземпляр Date
      */
     if (prevValue.getTime() !== value.getTime()) {
         setPrevValue(value);
 
-        if (prevValue) {
-            setState((prevTime) => {
-                const [newHours, newMins, newSecs] = getValuesInRange(
-                    [hoursRange, minsRange, secsRange],
-                    normalizeValues,
-                    value,
-                );
+        setState((prevTime) => {
+            const [newHours, newMins, newSecs] = getValuesInRange(
+                [hoursRange, minsRange, secsRange],
+                normalizeValues,
+                value,
+            );
 
-                if (!isChanged(prevTime, [newHours, newMins, newSecs])) {
-                    return prevTime;
-                }
+            if (!isChanged(prevTime, [newHours, newMins, newSecs])) {
+                return prevTime;
+            }
 
-                if (onChange) {
-                    onChange(getNewDate(value, [newHours, newMins, newSecs]));
-                }
-
-                return [newHours, newMins, newSecs];
-            });
-        }
+            return [newHours, newMins, newSecs];
+        });
     }
 
     /**
-     * Если значение (value) выпадает из диапазона в зависимости от
-     * установленного шага (step), необходимо нормализовать значения,
-     * изменить стейт и вызвать событие изменения, создав новый экземпляр Date
+     * Если обновился внутренний стейт, необходимо проверить условия
+     * и вызвать событие изменения, создав новый экземпляр Date
+     */
+    useIsomorphicLayoutEffect(() => {
+        const prevTime = [value.getHours(), value.getMinutes(), value.getSeconds()];
+
+        if (!isFirstMounted.current || isChanged(prevTime, [hours, minutes, seconds])) {
+            onChange?.(getNewDate(value, [hours, minutes, seconds]));
+        }
+
+        isFirstMounted.current = false;
+    }, [hours, minutes, seconds]);
+
+    /**
+     * Если значение (value) выпадает из диапазона в зависимости от шага (step),
+     * необходимо нормализовать значения, изменить стейт
      */
     const newTime = getValuesInRange([hoursRange, minsRange, secsRange], [hours, minutes, seconds], value);
     if (isChanged([hours, minutes, seconds], newTime)) {
         setState(newTime);
-
-        if (onChange) {
-            onChange(getNewDate(value, [newTime[0], newTime[1], newTime[2]]));
-        }
     }
 
     return (
