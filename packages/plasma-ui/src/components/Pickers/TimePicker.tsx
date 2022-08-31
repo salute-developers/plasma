@@ -96,11 +96,10 @@ export const TimePicker = ({
     const normalizeValues = React.useMemo(() => getNormalizeValues(getTimeValues, getSeconds)(value, min, max), [
         value,
     ]);
-    const [prevValue, setPrevValue] = React.useState(value);
-    const [[hours, minutes, seconds], setState] = React.useState(normalizeValues);
+    const [hoursN, minutesN] = normalizeValues;
+
     const [minHours, minMinutes, minSeconds] = getTimeValues(min);
     const [maxHours, maxMinutes, maxSeconds] = getTimeValues(max);
-    const isFirstMounted = React.useRef(true);
 
     // Диапазоны для списков зависят от min и max,
     // при чем min и max принимаются как возможные предельные значения,
@@ -111,19 +110,19 @@ export const TimePicker = ({
         let minSecs = 0;
         let maxSecs = 59;
 
-        if (hours === minHours) {
+        if (hoursN === minHours) {
             minMins = minMinutes;
         }
 
-        if (hours === maxHours) {
+        if (hoursN === maxHours) {
             maxMins = maxMinutes;
         }
 
-        if (hours === minHours && minutes === minMinutes) {
+        if (hoursN === minHours && minutesN === minMinutes) {
             minSecs = minSeconds;
         }
 
-        if (hours === maxHours && minutes === maxMinutes) {
+        if (hoursN === maxHours && minutesN === maxMinutes) {
             maxSecs = maxSeconds;
         }
 
@@ -151,10 +150,15 @@ export const TimePicker = ({
         maxMinutes,
         minSeconds,
         maxSeconds,
-        hours === maxHours || hours === minHours,
-        minutes === minMinutes || minutes === maxMinutes,
+        hoursN === maxHours || hoursN === minHours,
+        minutesN === minMinutes || minutesN === maxMinutes,
         step,
     ]);
+
+    const [prevValue, setPrevValue] = React.useState(value);
+    const [[hours, minutes, seconds], setState] = React.useState(() => {
+        return getValuesInRange([hoursRange, minsRange, secsRange], normalizeValues, value);
+    });
 
     const onHoursChange = React.useCallback(({ value: h }) => setState(([, m, s]) => [h, m, s]), []);
     const onMinutesChange = React.useCallback(({ value: m }) => setState(([h, , s]) => [h, m, s]), []);
@@ -186,23 +190,12 @@ export const TimePicker = ({
      * и вызвать событие изменения, создав новый экземпляр Date
      */
     useIsomorphicLayoutEffect(() => {
-        const prevTime = [value.getHours(), value.getMinutes(), value.getSeconds()];
+        const valueTime = [value.getHours(), value.getMinutes(), value.getSeconds()];
 
-        if (!isFirstMounted.current || isChanged(prevTime, [hours, minutes, seconds])) {
+        if (isChanged(valueTime, [hours, minutes, seconds])) {
             onChange?.(getNewDate(value, [hours, minutes, seconds]));
         }
-
-        isFirstMounted.current = false;
-    }, [hours, minutes, seconds]);
-
-    /**
-     * Если значение (value) выпадает из диапазона в зависимости от шага (step),
-     * необходимо нормализовать значения, изменить стейт
-     */
-    const newTime = getValuesInRange([hoursRange, minsRange, secsRange], [hours, minutes, seconds], value);
-    if (isChanged([hours, minutes, seconds], newTime)) {
-        setState(newTime);
-    }
+    }, [hours, minutes, seconds, value]);
 
     return (
         <StyledWrapper id={id} {...rest}>
