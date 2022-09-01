@@ -33,7 +33,7 @@ export function App() {
 ```
 
 ### Подсказка
-Для вывода подсказки снизу от поля используйте свойство `helperText`.
+Для вывода подсказки снизу от поля используйте свойство `leftHelper` и/или `rightHelper`.
 
 ```tsx live
 import React from 'react';
@@ -45,7 +45,8 @@ export function App() {
             <TextArea
                 placeholder="Введите значение"
                 defaultValue="Значение"
-                helperText="Подсказка снизу"
+                leftHelper="Подсказка снизу слева"
+                rightHelper="Подсказка снизу справа"
             />
         </div>
     );
