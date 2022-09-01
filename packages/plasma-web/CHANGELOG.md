@@ -1,3 +1,15 @@
+# v1.124.0 (Thu Sep 01 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-web): Add right and left helper for `TextArea` [#148](https://github.com/salute-developers/plasma/pull/148) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.123.1 (Mon Aug 29 2022)
 
 #### 🐛 Bug Fix

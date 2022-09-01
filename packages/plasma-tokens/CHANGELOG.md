@@ -1,3 +1,17 @@
+# v1.21.0 (Thu Sep 01 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): update html view [#122](https://github.com/salute-developers/plasma/pull/122) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-tokens): update theme cli setup [#122](https://github.com/salute-developers/plasma/pull/122) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- feat(plasma-tokens): generate html view [#122](https://github.com/salute-developers/plasma/pull/122) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
 # v1.20.0 (Thu Aug 18 2022)
 
 #### 🚀 Enhancement

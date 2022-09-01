@@ -1,3 +1,15 @@
+# v1.68.0 (Thu Sep 01 2022)
+
+#### 🐛 Bug Fix
+
+- test(plasma-web): Update tests and snapshots for `TextArea` [#148](https://github.com/salute-developers/plasma/pull/148) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.67.0 (Mon Aug 29 2022)
 
 #### 🚀 Enhancement

@@ -1,5 +1,32 @@
 # (Thu Sep 01 2022)
 
+#### 🚀 Enhancement
+
+- docs(plasma-web-docs): Update docs for `TextArea` component [#148](https://github.com/salute-developers/plasma/pull/148) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-tokens@1.21.0`
+  - feat(plasma-tokens): update html view [#122](https://github.com/salute-developers/plasma/pull/122) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+  - feat(plasma-tokens): update theme cli setup [#122](https://github.com/salute-developers/plasma/pull/122) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+  - feat(plasma-tokens): generate html view [#122](https://github.com/salute-developers/plasma/pull/122) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- `@salutejs/plasma-web@1.124.0`
+  - feat(plasma-web): Add right and left helper for `TextArea` [#148](https://github.com/salute-developers/plasma/pull/148) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- test(plasma-b2c): Update snapshot for `TextArea` component [#148](https://github.com/salute-developers/plasma/pull/148) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.91.0`
+  - refactor(plasma-b2c): Small refactor for `TextArea` component [#148](https://github.com/salute-developers/plasma/pull/148) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-core@1.68.0`
+  - test(plasma-web): Update tests and snapshots for `TextArea` [#148](https://github.com/salute-developers/plasma/pull/148) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 2
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Thu Sep 01 2022)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-ui@1.124.3`
