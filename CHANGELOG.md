@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@salutejs/plasma-ui@1.124.3`
+  - fix(plasma-ui): Add sizes style for responsive typo in `DeviceThemeProvider` [#153](https://github.com/salute-developers/plasma/pull/153) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Thu Sep 01 2022)
+
+#### 🐛 Bug Fix
+
 - `@salutejs/plasma-ui@1.124.2`
   - fix(plasma-ui): Replaced onChange handler to useEffect for `TimePicker` component [#151](https://github.com/salute-developers/plasma/pull/151) ([@neretin-trike](https://github.com/neretin-trike))
 
