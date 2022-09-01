@@ -1,3 +1,15 @@
+# v1.124.2 (Thu Sep 01 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): Replaced onChange handler to useEffect for `TimePicker` component [#151](https://github.com/salute-developers/plasma/pull/151) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.124.1 (Tue Aug 30 2022)
 
 #### 🐛 Bug Fix
