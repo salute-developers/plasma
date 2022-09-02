@@ -21,6 +21,7 @@ import { ScalingColCard, scaleCallback, scaleResetCallback, ScalingColCardProps 
 import {
     CarouselGridWrapper,
     Carousel,
+    CarouselLight,
     CarouselVirtual,
     CarouselItem,
     CarouselCol,
@@ -562,4 +563,64 @@ export const AccessabilityDemo = () => {
             </StyledCarouselWrapper>
         </StyledWrapper>
     );
+};
+
+export const BasicLight: Story<CarouselProps & CarouselColProps & { displayGrid: boolean }> = ({
+    scrollAlign,
+    scrollSnapAlign,
+}) => {
+    const axis = 'x';
+    const delay = 30;
+    const longDelay = 150;
+    const [index] = useRemoteHandlers({
+        initialIndex: 0,
+        axis,
+        delay,
+        longDelay,
+        min: 0,
+        max: items.length - 1,
+    });
+
+    return (
+        <DeviceThemeProvider>
+            <CarouselGridWrapper>
+                <CarouselLight
+                    id="carousel"
+                    as={Row}
+                    axis={axis}
+                    index={index}
+                    scrollAlign={scrollAlign}
+                    style={basicCarouselStyle}
+                >
+                    {items.map(({ title, subtitle }, i) => (
+                        <CarouselCol
+                            key={`item:${i}`}
+                            size={3}
+                            sizeXL={4}
+                            scrollSnapAlign={scrollSnapAlign}
+                            aria-label={`${i + 1} из ${items.length}`}
+                            aria-selected={i === index}
+                            data-carousel-item-selected={i === index}
+                            data-carousel-item-index={i}
+                        >
+                            <ProductCard
+                                title={title}
+                                subtitle={subtitle}
+                                imageSrc={`${process.env.PUBLIC_URL}/images/320_320_${i % 12}.jpg`}
+                                focused={i === index}
+                            />
+                        </CarouselCol>
+                    ))}
+                </CarouselLight>
+            </CarouselGridWrapper>
+        </DeviceThemeProvider>
+    );
+};
+
+BasicLight.args = {
+    ...Basic.args,
+};
+
+BasicLight.argTypes = {
+    ...Basic.argTypes,
 };

@@ -1,6 +1,6 @@
 /* eslint-disable no-continue */
 import throttle from 'lodash.throttle';
-import { useRef, useEffect, useCallback, useMemo, useLayoutEffect } from 'react';
+import { useRef, useEffect, useCallback, useMemo, useLayoutEffect, useState } from 'react';
 
 import { useDebouncedFunction } from '../../hooks';
 
@@ -301,3 +301,149 @@ export const useCarousel = ({
         trackRef,
     };
 };
+
+// function getRealTrackPosition(track: HTMLElement, axis: UseCarouselOptions['axis']) {
+//     const rect = track.getBoundingClientRect();
+
+//     return Math.abs(rect[axis]) + track.offsetLeft;
+// }
+
+// function translateToPosition(
+//     track: HTMLElement,
+//     axis: UseCarouselOptions['axis'],
+//     position: number,
+//     animated: boolean,
+// ): void {
+//     if (animated) {
+//         track.style.transform = axis === 'x' ? `translateX(${-position}px)` : `translateY(${-position}px)`;
+//     } else {
+//         track.style.transitionProperty = 'none';
+//         track.style.transform = axis === 'x' ? `translateX(${-position}px)` : `translateY(${-position}px)`;
+//         requestAnimationFrame(() => {
+//             track.style.transitionProperty = '';
+//         });
+//     }
+// }
+
+function getDestination(
+    itemSize: number,
+    itemStart: number,
+    carouselSize: number,
+    trackOffset: number,
+    scrollAlign: UseCarouselOptions['scrollAlign'],
+): number {
+    switch (scrollAlign) {
+        case 'center': {
+            const relativeMiddle = itemStart + trackOffset + itemSize / 2;
+
+            return relativeMiddle - carouselSize / 2;
+        }
+        case 'start': {
+            return itemStart;
+        }
+        case 'end': {
+            return 2 * trackOffset + itemStart + itemSize - carouselSize;
+        }
+        case 'activeDirection': {
+            return itemStart;
+        }
+        default:
+            return itemStart;
+    }
+}
+
+// const EVENT_OPTIONS = { capture: true };
+
+export function useCSSCarousel({ index, axis, scrollAlign = 'center' }: UseCarouselOptions) {
+    const [prevIndex, setPrevIndex] = useState<number | null>(null);
+    const carouselRef = useRef<HTMLElement | null>(null);
+    const trackRef = useRef<HTMLElement | null>(null);
+    // const onIndexChangeRef = useRef(onIndexChange);
+
+    const scrollToIndex = useMemo(() => {
+        const offsetKey = axis === 'x' ? 'offsetLeft' : 'offsetTop';
+        const sizeKey = axis === 'x' ? 'offsetWidth' : 'offsetHeight';
+
+        return (nextIndex: number, currentIndex: number | null, align: UseCarouselOptions['scrollAlign']) => {
+            const track = trackRef.current;
+            const carousel = carouselRef.current;
+
+            if (track && carousel) {
+                const itemsNumber = track.children.length;
+                const itemToScrollTo = track.querySelector<HTMLElement>(`[data-carousel-item-index="${nextIndex}"]`);
+
+                if (itemToScrollTo) {
+                    const itemSize = itemToScrollTo[sizeKey];
+                    const carouselSize = carousel[sizeKey];
+                    const trackSize = track[sizeKey];
+                    const trackStart = track[offsetKey];
+                    const itemStart = itemToScrollTo[offsetKey];
+                    const trackEnd = trackSize - carouselSize + trackStart;
+
+                    const toPos = getDestination(itemSize, itemStart, carouselSize, trackStart, align);
+
+                    let pos = 0;
+
+                    if (toPos < 0) {
+                        pos = 0;
+                    } else if (toPos > trackEnd) {
+                        pos = trackEnd;
+                    } else {
+                        pos = toPos;
+                    }
+
+                    if (currentIndex !== null && Math.abs(nextIndex - currentIndex) !== itemsNumber - 1) {
+                        track.style.transform = axis === 'x' ? `translateX(${-pos}px)` : `translateY(${-pos}px)`;
+                    } else {
+                        track.style.transitionTimingFunction = 'step-start';
+                        track.style.transform = axis === 'x' ? `translateX(${-pos}px)` : `translateY(${-pos}px)`;
+                        setTimeout(() => {
+                            track.style.transitionTimingFunction = '';
+                        });
+                    }
+                }
+            }
+        };
+    }, [axis]);
+
+    if (index !== prevIndex) {
+        scrollToIndex(index, prevIndex, scrollAlign);
+        setPrevIndex(index);
+    }
+
+    useLayoutEffect(() => {
+        // надо вызвать первый раз, чтобы проскролить до initialIndex
+        scrollToIndex(index, null, scrollAlign);
+    }, []);
+
+    // useLayoutEffect(() => {
+    //     const track = trackRef.current;
+
+    //     function callOnIndexChangeCallback(event: TransitionEvent) {
+    //         if (onIndexChangeRef.current && track && event.propertyName === 'transform' && event.target === track) {
+    //             const activeItem = track.querySelector('[data-carousel-item-selected="true"]');
+    //             if (activeItem) {
+    //                 const activeItemIndex = activeItem.getAttribute('data-carousel-item-index');
+    //                 if (activeItemIndex !== null) {
+    //                     onIndexChangeRef.current(Number(activeItemIndex));
+    //                 }
+    //             }
+    //         }
+    //     }
+
+    //     if (track) {
+    //         track.addEventListener('transitionend', callOnIndexChangeCallback, EVENT_OPTIONS);
+    //     }
+
+    //     return () => {
+    //         if (track) {
+    //             track.removeEventListener('transitionend', callOnIndexChangeCallback, EVENT_OPTIONS);
+    //         }
+    //     };
+    // }, []);
+
+    return {
+        scrollRef: carouselRef,
+        trackRef,
+    };
+}

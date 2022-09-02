@@ -7,7 +7,7 @@ export type { CarouselItemProps, CarouselItemVirtualProps } from '@salutejs/plas
 
 export { useRemoteHandlers } from './Carousel.hooks';
 
-export { Carousel, CarouselVirtual } from './Carousel';
+export { Carousel, CarouselLight, CarouselVirtual } from './Carousel';
 
 export { CarouselCol } from './CarouselCol';
 export type { CarouselColProps } from './CarouselCol';

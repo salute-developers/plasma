@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {
     useCarousel,
+    useCSSCarousel,
     Carousel as BaseCarousel,
     CarouselTrack as BaseTrack,
     CarouselTemplateProps,
@@ -15,6 +16,9 @@ import { useForkRef } from '../../hooks';
 const StyledCarousel = styled(BaseCarousel)``;
 const StyledCarouselTrack = styled(BaseTrack)`
     ${applyNoSelect};
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transform: translate(0px, 0px);
 `;
 
 const CarouselTemplate = React.forwardRef<
@@ -79,6 +83,50 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
     ref,
 ) {
     const { scrollRef, trackRef } = useCarousel({
+        index,
+        axis,
+        scrollAlign,
+        detectActive,
+        detectThreshold,
+        scaleCallback,
+        scaleResetCallback,
+        onIndexChange,
+        onDetectActiveItem,
+        throttleMs,
+        debounceMs,
+        animatedScrollByIndex,
+        cssScroll,
+    });
+
+    const handleRef = useForkRef(scrollRef, ref);
+
+    return (
+        <CarouselTemplate ref={handleRef} trackRef={trackRef} axis={axis} scrollSnapType={scrollSnapType} {...rest} />
+    );
+});
+
+// eslint-disable-next-line prefer-arrow-callback
+export const CarouselLight = React.forwardRef<HTMLDivElement, CarouselProps>(function CarouselLight(
+    {
+        index = 0,
+        axis = 'x',
+        scrollSnapType = 'mandatory',
+        scrollAlign,
+        detectActive,
+        detectThreshold,
+        scaleCallback,
+        scaleResetCallback,
+        onIndexChange,
+        onDetectActiveItem,
+        throttleMs,
+        debounceMs,
+        animatedScrollByIndex,
+        cssScroll,
+        ...rest
+    },
+    ref,
+) {
+    const { scrollRef, trackRef } = useCSSCarousel({
         index,
         axis,
         scrollAlign,
