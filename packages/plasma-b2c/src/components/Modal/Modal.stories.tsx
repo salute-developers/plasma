@@ -1,5 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
+import styled from 'styled-components';
 
 import { Button } from '../Button';
 import { Headline3 } from '../Typography';
