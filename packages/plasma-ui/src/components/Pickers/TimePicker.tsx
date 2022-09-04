@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import styled from 'styled-components';
+// eslint-disable-next-line @typescript-eslint/camelcase
+// import { unstable_batchedUpdates } from 'react-dom';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 
 import { PickerDots } from './PickerDots';
 import { SimpleTimePicker, SimpleTimePickerProps } from './SimpleTimePicker';
 import { getNewDate, getNormalizeValues, getRange, getTimeValues, getValuesInRange, isChanged } from './utils';
-import type { TimeType } from './types';
+import type { TimeType, PickerItem } from './types';
 
 const StyledWrapper = styled.div`
     display: flex;
@@ -93,13 +95,12 @@ export const TimePicker = ({
     infiniteScroll,
     ...rest
 }: TimePickerProps) => {
-    const normalizeValues = React.useMemo(() => getNormalizeValues(getTimeValues, getSeconds)(value, min, max), [
+    const normalizeValues = useMemo(() => getNormalizeValues(getTimeValues, getSeconds)(value, min, max), [
         value,
+        min,
+        max,
     ]);
     const [hoursN, minutesN] = normalizeValues;
-
-    const [minHours, minMinutes, minSeconds] = getTimeValues(min);
-    const [maxHours, maxMinutes, maxSeconds] = getTimeValues(max);
 
     // Диапазоны для списков зависят от min и max,
     // при чем min и max принимаются как возможные предельные значения,
@@ -109,6 +110,8 @@ export const TimePicker = ({
         let maxMins = 59;
         let minSecs = 0;
         let maxSecs = 59;
+        const [minHours, minMinutes, minSeconds] = getTimeValues(min);
+        const [maxHours, maxMinutes, maxSeconds] = getTimeValues(max);
 
         if (hoursN === minHours) {
             minMins = minMinutes;
@@ -143,59 +146,80 @@ export const TimePicker = ({
             getRange(minMins, maxMins, minsStep),
             getRange(minSecs, maxSecs, secsStep),
         ];
-    }, [
-        minHours,
-        maxHours,
-        minMinutes,
-        maxMinutes,
-        minSeconds,
-        maxSeconds,
-        hoursN === maxHours || hoursN === minHours,
-        minutesN === minMinutes || minutesN === maxMinutes,
-        step,
-    ]);
+    }, [min, max, hoursN, minutesN, step]);
 
-    const [prevValue, setPrevValue] = React.useState(value);
-    const [[hours, minutes, seconds], setState] = React.useState(() => {
+    const [hoursMinutesSeconds, setState] = useState(() => {
         return getValuesInRange([hoursRange, minsRange, secsRange], normalizeValues, value);
     });
+    const [hours, minutes, seconds] = hoursMinutesSeconds;
 
-    const onHoursChange = React.useCallback(({ value: h }) => setState(([, m, s]) => [h, m, s]), []);
-    const onMinutesChange = React.useCallback(({ value: m }) => setState(([h, , s]) => [h, m, s]), []);
-    const onSecondsChange = React.useCallback(({ value: s }) => setState(([h, m]) => [h, m, s]), []);
+    const { onHoursChange, onMinutesChange, onSecondsChange } = React.useMemo(
+        () => ({
+            onHoursChange: ({ value: h }: PickerItem) => {
+                setState((prev) => {
+                    const [prevH, m, s] = prev;
 
-    /**
-     * Если значение (value) обновилось извне, необходимо изменить стейт
-     */
-    if (prevValue.getTime() !== value.getTime()) {
-        setPrevValue(value);
+                    if (h === prevH) {
+                        return prev;
+                    }
+                    return [h as number, m, s];
+                });
+            },
+            onMinutesChange: ({ value: m }: PickerItem) => {
+                setState((prev) => {
+                    const [h, prevM, s] = prev;
 
-        setState((prevTime) => {
-            const [newHours, newMins, newSecs] = getValuesInRange(
-                [hoursRange, minsRange, secsRange],
-                normalizeValues,
-                value,
-            );
+                    if (m === prevM) {
+                        return prev;
+                    }
+                    return [h, m as number, s];
+                });
+            },
+            onSecondsChange: ({ value: s }: PickerItem) => {
+                setState((prev) => {
+                    const [h, m, prevS] = prev;
 
-            if (!isChanged(prevTime, [newHours, newMins, newSecs])) {
-                return prevTime;
-            }
+                    if (s === prevS) {
+                        return prev;
+                    }
+                    return [h, m, s as number];
+                });
+            },
+        }),
+        [],
+    );
 
-            return [newHours, newMins, newSecs];
-        });
-    }
+    const onChangeRef = useRef(onChange);
+    const hoursMinutesSecondsRef = useRef(hoursMinutesSeconds);
+    useIsomorphicLayoutEffect(() => {
+        onChangeRef.current = onChange;
+        hoursMinutesSecondsRef.current = hoursMinutesSeconds;
+    });
 
-    /**
-     * Если обновился внутренний стейт, необходимо проверить условия
-     * и вызвать событие изменения, создав новый экземпляр Date
-     */
     useIsomorphicLayoutEffect(() => {
         const valueTime = [value.getHours(), value.getMinutes(), value.getSeconds()];
 
-        if (isChanged(valueTime, [hours, minutes, seconds])) {
-            onChange?.(getNewDate(value, [hours, minutes, seconds]));
+        if (onChangeRef.current && isChanged(valueTime, hoursMinutesSeconds)) {
+            const newDate = getNewDate(value, hoursMinutesSeconds);
+            onChangeRef.current(newDate);
         }
-    }, [hours, minutes, seconds, value]);
+    }, [hoursMinutesSeconds, value]);
+
+    useIsomorphicLayoutEffect(() => {
+        const [newHours, newMins, newSecs] = getValuesInRange(
+            [hoursRange, minsRange, secsRange],
+            normalizeValues,
+            value,
+        );
+        /**
+         * Не через getDerivedStateFromProps, так как
+         * - не надо выполнять isChanged в случае изменения hoursMinutesSeconds
+         * - надо выполнять проверку isChanged после всех ре-рендеров
+         */
+        if (isChanged(hoursMinutesSecondsRef.current, [newHours, newMins, newSecs])) {
+            setState([newHours, newMins, newSecs]);
+        }
+    }, [value, hoursRange, minsRange, secsRange, normalizeValues]);
 
     return (
         <StyledWrapper id={id} {...rest}>

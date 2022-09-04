@@ -186,7 +186,7 @@ export const scaleResetCallback = (itemEl: HTMLElement) => {
 /**
  * Вернет новый объект даты.
  */
-export const getNewDate = (value: Date, [hour, minutes, seconds]: number[]) => {
+export const getNewDate = (value: Date, [hour, minutes, seconds]: readonly [number, number, number]) => {
     const newDate = new Date(value);
     newDate.setHours(hour);
     newDate.setMinutes(minutes);
@@ -270,9 +270,10 @@ const getClosestValue = (range: number[], value: number) => {
  */
 export const getValuesInRange = (
     [firstRange, secondRange, thirdRange]: number[][],
-    [first, second, third]: readonly [number, number, number],
+    firstSecondThird: readonly [number, number, number],
     value: Date,
 ) => {
+    const [first, second, third] = firstSecondThird;
     if (firstRange.indexOf(first) === -1 || secondRange.indexOf(second) === -1 || thirdRange.indexOf(third) === -1) {
         const newFirst = firstRange.indexOf(first) === -1 ? getClosestValue(firstRange, first) : first;
         const newSecond = secondRange.indexOf(second) === -1 ? getClosestValue(secondRange, second) : second;
@@ -286,7 +287,7 @@ export const getValuesInRange = (
         return [newFirst, newSecond, newThird] as const;
     }
 
-    return [first, second, third] as const;
+    return firstSecondThird;
 };
 
 /**

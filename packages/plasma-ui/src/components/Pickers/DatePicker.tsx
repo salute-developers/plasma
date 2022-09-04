@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 
 import { SimpleDatePicker, SimpleDatePickerProps } from './SimpleDatePicker';
-import { getDateValues, getNormalizeValues, getRange, getTimeValues, getValuesInRange, isChanged } from './utils';
+import { getDateValues, getNormalizeValues, getRange, getTimeValues, isChanged } from './utils';
 import { DateType } from './types';
 
 const defaultOptions = {
@@ -89,9 +89,18 @@ export const DatePicker = ({
 }: DatePickerProps) => {
     const normalizeValues = React.useMemo(() => getNormalizeValues(getDateValues, getSeconds)(value, min, max), [
         value,
+        min,
+        max,
     ]);
 
-    const [[year, month, day], setState] = React.useState(normalizeValues);
+    const [yearMonthDay, setState] = React.useState(normalizeValues);
+    const [prevValue, setPrevValue] = useState(value);
+    if (prevValue !== value) {
+        setState(normalizeValues);
+        setPrevValue(value);
+    }
+
+    const [year, month, day] = yearMonthDay;
     const [minYear, minMonth, minDay] = getDateValues(min);
     const [maxYear, maxMonth, maxDay] = getDateValues(max);
 
@@ -125,17 +134,9 @@ export const DatePicker = ({
         return [1, maxDayInMonth];
     }, [minMonth, maxMonth, minDay, maxDay, year, month, minYear, maxYear]);
 
-    const [daysRange] = React.useMemo(() => {
-        return [getRange(daysFrom, daysTo)];
-    }, [daysFrom, daysTo]);
-
-    const [monthsRange] = React.useMemo(() => {
-        return [getRange(monthsFrom, monthsTo)];
-    }, [monthsFrom, monthsTo]);
-
-    const [yearRange] = React.useMemo(() => {
-        return [getRange(minYear, maxYear)];
-    }, [minYear, maxYear]);
+    const daysRange = React.useMemo(() => getRange(daysFrom, daysTo), [daysFrom, daysTo]);
+    const monthsRange = React.useMemo(() => getRange(monthsFrom, monthsTo), [monthsFrom, monthsTo]);
+    const yearRange = React.useMemo(() => getRange(minYear, maxYear), [minYear, maxYear]);
 
     const getNextMonth = React.useCallback(
         (currentMonth: number, currentYear: number): number => {
@@ -196,51 +197,28 @@ export const DatePicker = ({
     );
     const onDayChange = React.useCallback(({ value: d }) => setState(([y, m]) => [y, m, d]), []);
 
-    /**
-     * При очередном прогоне, если значения year, month, day изменились,
-     * необходимо вызвать событие изменения, создав новый экземпляр Date
-     */
-    useIsomorphicLayoutEffect(() => {
-        const oldDate = normalizeValues;
-
-        if (onChange && isChanged(oldDate, [year, month, day])) {
-            onChange(new Date(year, month, day, ...getTimeValues(value)));
-        }
-    }, [year, month, day]);
-
-    /**
-     * Если значение value обновилось извне, необходимо изменить стейт
-     * и вызвать событие изменения, создав новый экземпляр Date
-     */
-    useIsomorphicLayoutEffect(() => {
-        setState((prevDate) => {
-            const newDate = normalizeValues;
-
-            if (!isChanged(prevDate, newDate)) {
-                return prevDate;
-            }
-
-            if (onChange) {
-                const [newYear, newMonth, newDay] = newDate;
-                onChange(new Date(newYear, newMonth, newDay, ...getTimeValues(value)));
-            }
-
-            return newDate;
-        });
-    }, [value, normalizeValues]);
-
     const getOption = (key: keyof typeof defaultOptions) => (key in options ? options[key] : defaultOptions[key]);
-
     const daysOption = getOption('days');
     const monthsOption = getOption('months');
     const yearsOption = getOption('years');
     const shortMonthNameOption = getOption('shortMonthName');
     const monthNameFormat = shortMonthNameOption ? 'short' : 'long';
 
-    const newTime = getValuesInRange([yearRange, monthsRange, daysRange], [year, month, day], value);
-    if (isChanged([year, month, day], newTime)) {
-        setState(newTime);
-    }
+    const onChangeRef = useRef(onChange);
+    const normalizeValuesRef = useRef(normalizeValues);
+    const valueRef = useRef(value);
+    useIsomorphicLayoutEffect(() => {
+        onChangeRef.current = onChange;
+        normalizeValuesRef.current = normalizeValues;
+        valueRef.current = value;
+    });
+    useIsomorphicLayoutEffect(() => {
+        if (onChangeRef.current && isChanged(normalizeValuesRef.current, yearMonthDay)) {
+            onChangeRef.current(
+                new Date(yearMonthDay[0], yearMonthDay[1], yearMonthDay[2], ...getTimeValues(valueRef.current)),
+            );
+        }
+    }, [yearMonthDay]);
 
     return (
         <StyledWrapper id={id} {...rest}>
