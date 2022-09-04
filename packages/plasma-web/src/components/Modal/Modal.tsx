@@ -104,28 +104,33 @@ export const Modal: React.FC<ModalProps> = ({ id, isOpen, onClose, ...rest }) =>
     const wrapperRef = React.useRef<HTMLDivElement | null>(null);
     const portalRef = React.useRef<HTMLElement | null>(null);
     const controller = React.useContext(ModalsContext);
+    const [, forceRender] = React.useState(false);
 
-    const portalElement = React.useMemo(() => {
+    React.useEffect(() => {
         let portal = document.getElementById(MODALS_PORTAL_ID);
 
-        if (portal) {
-            return portal;
+        if (!portal) {
+            portal = document.createElement('div');
+            portal.setAttribute('id', MODALS_PORTAL_ID);
+            portal.setAttribute('aria-live', 'off');
+            portal.setAttribute('role', 'presentation');
+            portal.style.position = 'relative';
+            portal.style.zIndex = '9000';
+            document.body.appendChild(portal);
         }
 
-        portal = document.createElement('div');
-        portal.setAttribute('id', MODALS_PORTAL_ID);
-        portal.setAttribute('aria-live', 'off');
-        portal.setAttribute('role', 'presentation');
-        portal.style.position = 'relative';
-        portal.style.zIndex = '9000';
-        document.body.appendChild(portal);
+        portalRef.current = portal;
 
-        return portal;
+        /**
+         * Изменение стейта нужно для того, чтобы модальное окно
+         * отобразилось после записи DOM элемента в portalRef.current
+         */
+        forceRender(true);
+
+        return () => {
+            controller.unregister(innerId);
+        };
     }, []);
-
-    if (!portalRef.current) {
-        portalRef.current = portalElement;
-    }
 
     React.useEffect(() => {
         const onKeyDown = (event: KeyboardEvent) => {
