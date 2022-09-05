@@ -69,6 +69,14 @@ export type ButtonContentProps =
            * При указании этого свойства `contentLeft`, `contentRight` и `text` не применяются.
            */
           children?: never;
+          /**
+           * Состояние кнопки контролирующее отображение лоадера.
+           */
+          isLoading?: boolean;
+          /**
+           * Кастомный лоадер для кнопки.
+           */
+          loader?: React.ReactNode;
       }
     /**
      * С текстом и/или контентом справа.
@@ -78,6 +86,8 @@ export type ButtonContentProps =
           contentLeft?: never;
           contentRight?: React.ReactNode;
           children?: never;
+          isLoading?: boolean;
+          loader?: React.ReactNode;
       }
     /**
      * Через ``children``.
@@ -87,6 +97,8 @@ export type ButtonContentProps =
           contentLeft?: never;
           contentRight?: never;
           children?: React.ReactNode;
+          isLoading?: boolean;
+          loader?: React.ReactNode;
       };
 
 /**
@@ -97,6 +109,8 @@ export interface ButtonAllContentProps {
     contentLeft?: React.ReactNode;
     contentRight?: React.ReactNode;
     children?: React.ReactNode;
+    isLoading?: boolean;
+    loader?: React.ReactNode;
 }
 
 /**
@@ -105,6 +119,14 @@ export interface ButtonAllContentProps {
 export interface ButtonIsContentProps {
     $isContentLeft?: boolean;
     $isContentRight?: boolean;
+    $isLoading?: boolean;
+}
+
+/**
+ * @private
+ */
+export interface ButtonIsLoading {
+    $isLoading?: boolean;
 }
 
 /**
