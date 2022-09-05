@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { IconPlaceholder, disableProps } from '@salutejs/plasma-sb-utils';
+import { IconPlaceholder, disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Button, ButtonProps } from '.';
 
@@ -38,6 +38,7 @@ const propsToDisable = [
 
 export default {
     title: 'Controls/Button',
+    decorators: [InSpacingDecorator],
     argTypes: {
         contentType: {
             control: {
@@ -72,7 +73,7 @@ export default {
     },
 } as Meta;
 
-type ButtonStoryProps = ButtonProps & { contentType: string };
+type ButtonStoryProps = ButtonProps & { contentType: string; isLoading: boolean };
 
 const args: ButtonStoryProps = {
     view: 'primary',
@@ -83,6 +84,7 @@ const args: ButtonStoryProps = {
     focused: false,
     text: 'Label',
     contentType: 'Text',
+    isLoading: false,
     onClick,
     onFocus,
     onBlur,
@@ -112,3 +114,51 @@ export const Anchor: Story<ButtonStoryProps> = ({ contentType, text, ...rest }) 
 );
 
 Anchor.args = args;
+
+const argsLoading: ButtonStoryProps = {
+    ...args,
+    text: 'Start loading',
+};
+
+export const Loading: Story<ButtonStoryProps> = ({ contentType, isLoading, text, onClick: _onClick, ...rest }) => {
+    const [loading, setLoading] = useState(isLoading);
+    const [count, setCount] = useState(0);
+    const intervalId = useRef<number | undefined>();
+
+    const onClickHandle = useCallback(
+        (event) => {
+            event.persist();
+
+            _onClick?.(event);
+
+            setLoading(true);
+
+            intervalId.current = window.setInterval(() => {
+                setCount((prev) => {
+                    return prev + 1;
+                });
+            }, 1_000);
+        },
+        [_onClick],
+    );
+
+    if (count === 6) {
+        setLoading(false);
+        setCount(0);
+        window.clearInterval(intervalId.current);
+    }
+
+    return (
+        <Button
+            onClick={onClickHandle}
+            text={contentType !== 'Left' && text}
+            contentLeft={(contentType === 'Left' || contentType === 'Text+Left') && <IconPlaceholder />}
+            contentRight={contentType === 'Text+Right' && <IconPlaceholder />}
+            isLoading={loading}
+            loader={<div>Loading - {count}</div>}
+            {...rest}
+        />
+    );
+};
+
+Loading.args = argsLoading;

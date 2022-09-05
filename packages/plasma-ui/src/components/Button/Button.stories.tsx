@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { Story, Meta } from '@storybook/react';
 import { IconMic } from '@salutejs/plasma-icons';
 
-import { actionWithPersistedEvent, disableProps } from '../../helpers';
+import { actionWithPersistedEvent, disableProps, InSpacingDecorator } from '../../helpers';
 
 import { Button, ButtonProps, ActionButtonProps, ActionButton } from '.';
 
@@ -40,6 +40,7 @@ const propsToDisable = [
 
 export default {
     title: 'Controls/Button',
+    decorators: [InSpacingDecorator],
     argTypes: {
         text: {
             control: {
@@ -68,7 +69,10 @@ export default {
     },
 } as Meta;
 
-type ButtonStoryProps = Omit<ButtonProps, 'children' | 'contentLeft' | 'contentRight'> & { enableIcon: boolean };
+type ButtonStoryProps = Omit<ButtonProps, 'children' | 'contentLeft' | 'contentRight'> & {
+    enableIcon: boolean;
+    isLoading: boolean;
+};
 
 export const Default: Story<ButtonStoryProps> = ({ enableIcon, text, ...rest }) => (
     <Button text={text} contentLeft={enableIcon ? <IconMic size="s" color="inherit" /> : undefined} {...rest} />
@@ -86,6 +90,7 @@ Default.args = {
     disabled: false,
     square: false,
     stretch: false,
+    isLoading: false,
     onClick,
     onFocus,
     onBlur,
@@ -116,4 +121,57 @@ const ActionButtonPropsToDisable = ['text', 'tabIndex', 'square', 'focused', 'ou
 // eslint-disable-next-line @typescript-eslint/camelcase
 Action_Button.argTypes = {
     ...disableProps(ActionButtonPropsToDisable),
+};
+
+// eslint-disable-next-line @typescript-eslint/camelcase
+export const Loading_Button: Story<ButtonStoryProps> = ({ enableIcon, text, ...rest }) => {
+    const [loading, setLoading] = useState(false);
+    const [count, setCount] = useState(0);
+    const intervalId = useRef<number | undefined>();
+
+    const onClickHandle = useCallback((event) => {
+        event.persist();
+
+        setLoading(true);
+
+        intervalId.current = window.setInterval(() => {
+            setCount((prev) => {
+                return prev + 1;
+            });
+        }, 1_000);
+    }, []);
+
+    if (count === 6) {
+        setLoading(false);
+        setCount(0);
+        window.clearInterval(intervalId.current);
+    }
+
+    return (
+        <Button
+            text={text}
+            contentLeft={enableIcon ? <IconMic size="s" color="inherit" /> : undefined}
+            onClick={onClickHandle}
+            isLoading={loading}
+            loader={<div>Loading - {count}</div>}
+            {...rest}
+        />
+    );
+};
+
+// eslint-disable-next-line @typescript-eslint/camelcase
+Loading_Button.args = {
+    text: 'Start loading',
+    size: 'm',
+    view: 'primary',
+    pin: 'square-square',
+    enableIcon: true,
+    scaleOnInteraction: true,
+    outlined: true,
+    focused: false,
+    disabled: false,
+    square: false,
+    stretch: false,
+    onFocus,
+    onBlur,
 };

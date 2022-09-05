@@ -1,6 +1,8 @@
 import React, { forwardRef } from 'react';
 
-import { ButtonRoot, ButtonText } from './Button';
+import { white } from '../../tokens';
+
+import { ButtonContentWrapper, ButtonLoader, ButtonRoot, ButtonText, StyledSpinner } from './Button';
 import type { ButtonProps, ButtonAllContentProps } from './Button.types';
 
 /**
@@ -8,10 +10,20 @@ import type { ButtonProps, ButtonAllContentProps } from './Button.types';
  * что дает возможность кастомизировать вид, пропсы и т.п.,
  * при этом сохраняя в базе общий интерфейс.
  */
-export function createButton<T, P extends ButtonProps>(Root = ButtonRoot) {
+export function createButton<T extends HTMLElement, P extends ButtonProps>(Root = ButtonRoot) {
     // eslint-disable-next-line prefer-arrow-callback
     return forwardRef<T, P>(function Button(
-        { children, text, contentLeft, contentRight, square, ...rest }: ButtonProps & ButtonAllContentProps,
+        {
+            children,
+            text,
+            contentLeft,
+            contentRight,
+            square,
+            loader = <StyledSpinner color={white} size="56" />,
+            disabled,
+            isLoading,
+            ...rest
+        }: ButtonProps & ButtonAllContentProps,
         ref,
     ) {
         const isContentLeft = Boolean(contentLeft);
@@ -22,17 +34,22 @@ export function createButton<T, P extends ButtonProps>(Root = ButtonRoot) {
                 ref={ref}
                 $isContentLeft={isContentLeft}
                 $isContentRight={isContentRight}
+                $isLoading={isLoading}
+                disabled={isLoading || disabled}
                 square={square !== undefined ? square : !text && !children}
                 {...rest}
             >
-                {children}
-                {!children && contentLeft}
-                {!children && text && (
-                    <ButtonText $isContentLeft={isContentLeft} $isContentRight={isContentRight}>
-                        {text}
-                    </ButtonText>
-                )}
-                {!children && contentRight}
+                {isLoading && <ButtonLoader>{loader}</ButtonLoader>}
+                <ButtonContentWrapper $isLoading={isLoading}>
+                    {children}
+                    {!children && contentLeft}
+                    {!children && text && (
+                        <ButtonText $isContentLeft={isContentLeft} $isContentRight={isContentRight}>
+                            {text}
+                        </ButtonText>
+                    )}
+                    {!children && contentRight}
+                </ButtonContentWrapper>
             </Root>
         );
     });

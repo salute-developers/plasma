@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { applyDisabled, applyBlur, applyEllipsis } from '../../mixins';
+import { Spinner } from '../Spinner';
 
-import type { ButtonIsContentProps, StyledButtonProps } from './Button.types';
+import type { ButtonIsContentProps, ButtonIsLoading, StyledButtonProps } from './Button.types';
 
 /**
  * Корневой элемент для стилизации кнопки.
@@ -29,8 +30,34 @@ export const ButtonRoot = styled.button<StyledButtonProps>`
         outline: none;
     }
 
-    ${applyDisabled}
+    ${({ $isLoading: isLoading }) => !isLoading && applyDisabled}
+
     ${applyBlur}
+`;
+
+/**
+ * Элемент лоадера для кнопки.
+ */
+export const ButtonLoader = styled.div`
+    position: absolute;
+`;
+
+/**
+ * Спиннер по умолчанию с фиксированной шириной.
+ */
+export const StyledSpinner = styled(Spinner)`
+    width: 1.375rem;
+`;
+
+/**
+ * Обёртка для содержимого кнопки.
+ */
+export const ButtonContentWrapper = styled.div<ButtonIsLoading>`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ${({ $isLoading: isLoading }) => isLoading && 'opacity: 0;'}
 `;
 
 /**
