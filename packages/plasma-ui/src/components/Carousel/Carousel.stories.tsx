@@ -6,7 +6,7 @@ import * as tokens from '@salutejs/plasma-tokens';
 import { useVirtual } from '@salutejs/use-virtual';
 import styled, { ThemeContext } from 'styled-components';
 import { withPerformance, InteractionTaskArgs, PublicInteractionTask } from 'storybook-addon-performance';
-import { fireEvent, waitFor } from '@testing-library/dom';
+import { findAllByDisplayValue, fireEvent, waitFor } from '@testing-library/dom';
 import { IconChevronLeft, IconChevronRight } from '@salutejs/plasma-icons';
 
 import { isSberBox } from '../../utils';
@@ -565,15 +565,12 @@ export const AccessabilityDemo = () => {
     );
 };
 
-export const BasicLight: Story<CarouselProps & CarouselColProps & { displayGrid: boolean }> = ({
-    scrollAlign,
-    scrollSnapAlign,
-}) => {
+export const BasicLight: Story<CarouselProps & CarouselColProps & { displayGrid: boolean }> = ({ scrollAlign }) => {
     const axis = 'x';
     const delay = 30;
     const longDelay = 150;
     const [index] = useRemoteHandlers({
-        initialIndex: 0,
+        initialIndex: 40,
         axis,
         delay,
         longDelay,
@@ -597,10 +594,8 @@ export const BasicLight: Story<CarouselProps & CarouselColProps & { displayGrid:
                             key={`item:${i}`}
                             size={3}
                             sizeXL={4}
-                            scrollSnapAlign={scrollSnapAlign}
                             aria-label={`${i + 1} из ${items.length}`}
                             aria-selected={i === index}
-                            data-carousel-item-selected={i === index}
                             data-carousel-item-index={i}
                         >
                             <ProductCard
@@ -624,3 +619,67 @@ BasicLight.args = {
 BasicLight.argTypes = {
     ...Basic.argTypes,
 };
+
+function scaleCallbackLight(el: HTMLElement, slot: number) {
+    el.style.opacity = String(1 - Math.abs(slot) / 4);
+}
+
+/* // scaleCallback
+export const ScalingLight: Story<CarouselProps & CarouselColProps & { displayGrid: boolean }> = ({ scrollAlign }) => {
+    const axis = 'x';
+    const delay = 30;
+    const longDelay = 150;
+    const [index] = useRemoteHandlers({
+        initialIndex: 40,
+        axis,
+        delay,
+        longDelay,
+        min: 0,
+        max: items.length - 1,
+    });
+
+    return (
+        <DeviceThemeProvider>
+            <CarouselGridWrapper>
+                <CarouselLight
+                    id="carousel"
+                    as={Row}
+                    axis="x"
+                    index={index}
+                    scrollAlign={scrollAlign}
+                    scaleCallback={scaleCallbackLight}
+                    paddingStart="50%"
+                    paddingEnd="50%"
+                    style={centerItemCarouselStyle}
+                >
+                    {items.map(({ title, subtitle }, i) => (
+                        <CarouselCol
+                            key={`item:${i}`}
+                            size={3}
+                            sizeXL={4}
+                            aria-label={`${i + 1} из ${items.length}`}
+                            aria-selected={i === index}
+                            data-carousel-item-index={i}
+                        >
+                            <ProductCard
+                                title={title}
+                                subtitle={subtitle}
+                                imageSrc={`${process.env.PUBLIC_URL}/images/320_320_${i % 12}.jpg`}
+                                focused={i === index}
+                            />
+                        </CarouselCol>
+                    ))}
+                </CarouselLight>
+            </CarouselGridWrapper>
+        </DeviceThemeProvider>
+    );
+};
+
+ScalingLight.args = {
+    ...Basic.args,
+};
+
+ScalingLight.argTypes = {
+    ...Basic.argTypes,
+};
+*/

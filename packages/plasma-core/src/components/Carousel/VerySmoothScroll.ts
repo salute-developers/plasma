@@ -4,17 +4,10 @@ type VerySmoothScrollAbsoluteDir = 'vertical' | 'horizontal';
 
 type VerySmoothScrollMode = 'smooth' | 'jump';
 
-type SmoothScrollOptions = {
-    element?: HTMLElement;
-    mode?: VerySmoothScrollMode;
-    cssScroll: boolean;
-};
-
 export default class VerySmoothScroll {
-    constructor({ cssScroll = false, mode = 'smooth', element }: SmoothScrollOptions) {
+    constructor(element?: HTMLElement, mode: VerySmoothScrollMode = 'smooth') {
         this.scrollMode = mode;
         this.kekElement = element ?? null;
-        this.cssScroll = cssScroll;
     }
 
     kekElement: HTMLElement | null = null;
@@ -22,8 +15,6 @@ export default class VerySmoothScroll {
     private get element() {
         return this.kekElement ?? document.body;
     }
-
-    cssScroll: boolean;
 
     scrollMode: VerySmoothScrollMode;
 
@@ -129,13 +120,7 @@ export default class VerySmoothScroll {
     yy = 0;
 
     private scrollRelative(x: number, y: number): void {
-        if (this.cssScroll === true) {
-            this.xx += x;
-            this.yy += y;
-            this.element.style.transform = `translate(-${this.xx}px, -${this.yy}px)`;
-        } else {
-            this.element.scrollBy(x, y);
-        }
+        this.element.scrollBy(x, y);
     }
 
     setElement(element: HTMLElement): void {

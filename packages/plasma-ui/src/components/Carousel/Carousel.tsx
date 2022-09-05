@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import {
     useCarousel,
-    useCSSCarousel,
+    useCarouselLight,
     Carousel as BaseCarousel,
     CarouselTrack as BaseTrack,
     CarouselTemplateProps,
     CarouselProps,
+    CarouselLightProps,
     CarouselVirtualProps,
     applyNoSelect,
 } from '@salutejs/plasma-core';
@@ -77,7 +78,6 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
         throttleMs,
         debounceMs,
         animatedScrollByIndex,
-        cssScroll,
         ...rest
     },
     ref,
@@ -95,7 +95,6 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
         throttleMs,
         debounceMs,
         animatedScrollByIndex,
-        cssScroll,
     });
 
     const handleRef = useForkRef(scrollRef, ref);
@@ -106,47 +105,19 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
 });
 
 // eslint-disable-next-line prefer-arrow-callback
-export const CarouselLight = React.forwardRef<HTMLDivElement, CarouselProps>(function CarouselLight(
-    {
-        index = 0,
-        axis = 'x',
-        scrollSnapType = 'mandatory',
-        scrollAlign,
-        detectActive,
-        detectThreshold,
-        scaleCallback,
-        scaleResetCallback,
-        onIndexChange,
-        onDetectActiveItem,
-        throttleMs,
-        debounceMs,
-        animatedScrollByIndex,
-        cssScroll,
-        ...rest
-    },
+export const CarouselLight = React.forwardRef<HTMLDivElement, CarouselLightProps>(function CarouselLight(
+    { index = 0, axis = 'x', scrollAlign, ...rest },
     ref,
 ) {
-    const { scrollRef, trackRef } = useCSSCarousel({
+    const { scrollRef, trackRef } = useCarouselLight({
         index,
         axis,
         scrollAlign,
-        detectActive,
-        detectThreshold,
-        scaleCallback,
-        scaleResetCallback,
-        onIndexChange,
-        onDetectActiveItem,
-        throttleMs,
-        debounceMs,
-        animatedScrollByIndex,
-        cssScroll,
     });
 
     const handleRef = useForkRef(scrollRef, ref);
 
-    return (
-        <CarouselTemplate ref={handleRef} trackRef={trackRef} axis={axis} scrollSnapType={scrollSnapType} {...rest} />
-    );
+    return <CarouselTemplate ref={handleRef} trackRef={trackRef} axis={axis} scrollSnapType="none" {...rest} />;
 });
 
 /**

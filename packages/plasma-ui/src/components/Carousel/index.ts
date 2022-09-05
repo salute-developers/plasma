@@ -1,6 +1,6 @@
 export { CarouselGridWrapper } from '@salutejs/plasma-core';
 
-export type { CarouselProps, CarouselVirtualProps } from '@salutejs/plasma-core';
+export type { CarouselProps, CarouselLightProps, CarouselVirtualProps } from '@salutejs/plasma-core';
 
 export { CarouselItem, CarouselItemVirtual } from '@salutejs/plasma-core';
 export type { CarouselItemProps, CarouselItemVirtualProps } from '@salutejs/plasma-core';

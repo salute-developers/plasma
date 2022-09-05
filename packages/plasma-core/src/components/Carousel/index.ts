@@ -5,13 +5,15 @@ export { CarouselTrack } from './Carousel';
 export { CarouselItem, CarouselItemVirtual } from './CarouselItem';
 export type { CarouselItemProps, CarouselItemVirtualProps } from './CarouselItem';
 
-export { useCarousel, useCSSCarousel } from './hooks';
+export { useCarousel, useCarouselLight } from './hooks';
 
 export type {
     CarouselProps,
     ScrollAxis,
     UseCarouselOptions,
+    UseCarouselLightOptions,
     BasicProps,
+    CarouselLightProps,
     CarouselTemplateProps,
     CarouselVirtualProps,
 } from './types';
