@@ -6,6 +6,7 @@ const Icon = () => <IconDownload color="inherit" />;
 
 describe('plasma-core: Button', () => {
     const Button = getComponent('Button');
+    const Spinner = getComponent('Spinner');
 
     it('simple', () => {
         mount(
@@ -40,6 +41,21 @@ describe('plasma-core: Button', () => {
                 <Button contentLeft={<Icon />} />
                 <SpaceMe />
                 <Button contentRight={<Icon />} />
+            </CypressTestDecorator>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('with Loader', () => {
+        mount(
+            <CypressTestDecorator>
+                <Button size="l" view="primary" text="Button_view_primary" contentLeft={<Icon />} isLoading />
+                <PadMe />
+                <Button size="m" view="primary" text="Button_view_primary" contentLeft={<Icon />} isLoading />
+                <PadMe />
+                <Button size="s" view="primary" text="Button_view_primary" contentLeft={<Icon />} isLoading />
+                <PadMe />
+                <Button view="primary" isLoading />
             </CypressTestDecorator>,
         );
         cy.matchImageSnapshot();
