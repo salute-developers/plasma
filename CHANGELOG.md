@@ -1,3 +1,16 @@
+# (Tue Sep 06 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.91.1`, `@salutejs/plasma-web@1.124.1`
+  - fix(plasma-web): Extract document in useEffect for next.js rendering [#154](https://github.com/salute-developers/plasma/pull/154) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Thu Sep 01 2022)
 
 #### 🚀 Enhancement
