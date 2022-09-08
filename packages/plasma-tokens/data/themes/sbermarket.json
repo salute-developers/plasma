@@ -1,0 +1,621 @@
+{
+    "config": {
+        "name": "sbermarket",
+        "accentColor": {
+            "light": "#21A038",
+            "dark": "#2EE850"
+        },
+        "grayscale": {
+            "light": "coolGray",
+            "dark": "coolGray"
+        },
+        "opacity": {
+            "textIcons": true,
+            "surfaces": false
+        }
+    },
+    "dark": {
+        "textIcons": {
+            "default": {
+                "textPrimary": {
+                    "value": "#F2F5F7",
+                    "comment": "Основной цвет текста"
+                },
+                "textSecondary": {
+                    "value": "#A8B4BD",
+                    "comment": "Вторичный цвет текста"
+                },
+                "textTertiary": {
+                    "value": "#7D868C",
+                    "comment": "Третичный цвет текста"
+                },
+                "textParagraph": {
+                    "value": "#BEC9D1",
+                    "comment": "Сплошной наборный текст"
+                },
+                "textAccent": {
+                    "value": "#24B23E",
+                    "comment": "Акцентный цвет"
+                },
+                "textNegative": {
+                    "value": "#FF2E43",
+                    "comment": "Цвет ошибки"
+                },
+                "textAccentDiscount": {
+                    "value": "#FF1F78",
+                    "comment": "Дополнительный акцент"
+                },
+                "textAccentGold": {
+                    "value": "#FFD83D",
+                    "comment": "Дополнительный акцент"
+                },
+                "textAccentB2B": {
+                    "value": "#04C6C9",
+                    "comment": "Акцентный цвет бренда"
+                }
+            },
+            "onDark": {
+                "textPrimary": {
+                    "value": "rgba(242, 245, 247, 0.96)",
+                    "comment": "Основной цвет текста на темном фоне"
+                },
+                "textSecondary": {
+                    "value": "rgba(242, 245, 247, 0.64)",
+                    "comment": "Вторичный цвет текста на темном фоне"
+                },
+                "textTertiary": {
+                    "value": "rgba(242, 245, 247, 0.4)",
+                    "comment": "Третичный цвет текста на темном фоне"
+                },
+                "textParagraph": {
+                    "value": "rgba(242, 245, 247, 0.8)",
+                    "comment": "Сплошной наборный текст на темном фоне"
+                },
+                "textAccent": {
+                    "value": "#24B23E",
+                    "comment": "Акцентный цвет на темном фоне"
+                },
+                "textNegative": {
+                    "value": "#FF2E43",
+                    "comment": "Цвет ошибки на темном фоне"
+                },
+                "textAccentDiscount": {
+                    "value": "#FF1F78",
+                    "comment": "Дополнительный акцент"
+                },
+                "textAccentGold": {
+                    "value": "#FFD83D",
+                    "comment": "Дополнительный акцент"
+                },
+                "textAccentB2B": {
+                    "value": "#04C6C9",
+                    "comment": "Акцентный цвет бренда"
+                }
+            },
+            "onLight": {
+                "textPrimary": {
+                    "value": "#24282B",
+                    "comment": "Основной цвет текста на светлом фоне"
+                },
+                "textSecondary": {
+                    "value": "#8C959C",
+                    "comment": "Вторичный цвет текста на светлом фоне"
+                },
+                "textTertiary": {
+                    "value": "#BEC9D1",
+                    "comment": "Третичный цвет текста на светлом фоне"
+                },
+                "textParagraph": {
+                    "value": "#24282B",
+                    "comment": "Сплошной наборный текст на светлом фоне"
+                },
+                "textAccent": {
+                    "value": "#108E26",
+                    "comment": "Акцентный цвет на светлом фоне"
+                },
+                "textNegative": {
+                    "value": "#F31B31",
+                    "comment": "Цвет ошибки на светлом фоне"
+                },
+                "textAccentDiscount": {
+                    "value": "#FF1F78",
+                    "comment": "Дополнительный акцент"
+                },
+                "textAccentGold": {
+                    "value": "#FFD83D",
+                    "comment": "Дополнительный акцент"
+                },
+                "textAccentB2B": {
+                    "value": "#0C8688",
+                    "comment": "Акцентный цвет бренда"
+                }
+            },
+            "inverse": {
+                "textPrimary": {
+                    "value": "#24282B",
+                    "comment": "Инвертированный основной цвет текста"
+                }
+            }
+        },
+        "controlsSurfaces": {
+            "default": {
+                "surfaceSolidSecondary": {
+                    "value": "#24282B",
+                    "comment": "Вторичный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceSolidTertiary": {
+                    "value": "#31373B",
+                    "comment": "Третичный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceSolidCard": {
+                    "value": "#15181A",
+                    "comment": "Основной фон для карточек"
+                },
+                "surfaceTransparentDefault": {
+                    "value": "#FFFFFF",
+                    "comment": "Прозрачный фон поверхности/контрола по умолчанию"
+                },
+                "surfaceAccent": {
+                    "value": "#24B23E",
+                    "comment": "Акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentGradient": {
+                    "value": "TODO: необходимо указать вручную",
+                    "comment": "Акцентный фон поверхности/контрола с градиентом"
+                },
+                "surfaceNegative": {
+                    "value": "#FF2E43",
+                    "comment": "Цвет фона поверхности/контрола ошибка"
+                },
+                "surfaceAccentB2B": {
+                    "value": "#0DA8AB",
+                    "comment": "Акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentDiscount": {
+                    "value": "#FF1F78",
+                    "comment": "Дополнительный акцент для обозначения акций"
+                },
+                "surfaceAccentGold": {
+                    "value": "#FFD83D",
+                    "comment": "Дополнительный акцент"
+                },
+                "surfaceAccentBlue": {
+                    "value": "#5993FF",
+                    "comment": "Дополнительный акцент"
+                },
+                "surfaceAdditional": {
+                    "value": "#494F54",
+                    "comment": "Пунктирные дивайдеры и неактивные контролы"
+                }
+            },
+            "onDark": {
+                "surfaceSolidSecondary": {
+                    "value": "#24282B",
+                    "comment": "Вторичный непрозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceSolidTertiary": {
+                    "value": "#31373B",
+                    "comment": "Третичный непрозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceSolidCard": {
+                    "value": "#15181A",
+                    "comment": "Основной фон для карточек на темном фоне"
+                },
+                "surfaceAccent": {
+                    "value": "#24B23E",
+                    "comment": "Акцентный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceAccentGradient": {
+                    "value": "TODO: необходимо указать вручную",
+                    "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне"
+                },
+                "surfaceNegative": {
+                    "value": "#FF2E43",
+                    "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
+                },
+                "surfaceAccentB2B": {
+                    "value": "#0DA8AB",
+                    "comment": "Акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentDiscount": {
+                    "value": "#FF1F78",
+                    "comment": "Дополнительный акцент для обозначения акций"
+                },
+                "surfaceAccentGold": {
+                    "value": "#FFD83D",
+                    "comment": "Дополнительный акцент"
+                },
+                "surfaceAccentBlue": {
+                    "value": "#5993FF",
+                    "comment": "Дополнительный акцент"
+                },
+                "surfaceAdditional": {
+                    "value": "#494F54",
+                    "comment": "Пунктирные дивайдеры и неактивные контролы"
+                }
+            },
+            "onLight": {
+                "surfaceSolidSecondary": {
+                    "value": "#F2F5F7",
+                    "comment": "Вторичный непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceSolidTertiary": {
+                    "value": "#E4EBF0",
+                    "comment": "Третичный непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceSolidCard": {
+                    "value": "#FFFFFF",
+                    "comment": "Основной фон для карточек на светлом фоне"
+                },
+                "surfaceAccent": {
+                    "value": "#24B23E",
+                    "comment": "Акцентный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceAccentGradient": {
+                    "value": "TODO: необходимо указать вручную",
+                    "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне"
+                },
+                "surfaceNegative": {
+                    "value": "#F31B31",
+                    "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
+                },
+                "surfaceAccentB2B": {
+                    "value": "#0DA8AB",
+                    "comment": "Акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentDiscount": {
+                    "value": "#FF1F78",
+                    "comment": "Дополнительный акцент для обозначения акций"
+                },
+                "surfaceAccentGold": {
+                    "value": "#FFD83D",
+                    "comment": "Дополнительный акцент"
+                },
+                "surfaceAccentBlue": {
+                    "value": "#3F81FD",
+                    "comment": "Дополнительный акцент"
+                },
+                "surfaceAdditional": {
+                    "value": "#D1DDE5",
+                    "comment": "Пунктирные дивайдеры и неактивные контролы"
+                }
+            }
+        },
+        "banners": {
+            "default": {
+                "bannerRed": {
+                    "value": "#2E090D",
+                    "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
+                },
+                "bannerGold": {
+                    "value": "#1F1903",
+                    "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
+                },
+                "bannerGreen": {
+                    "value": "#071F0C",
+                    "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
+                },
+                "bannerMalachite": {
+                    "value": "#0A1C1C",
+                    "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
+                },
+                "bannerBlue": {
+                    "value": "#0A162B",
+                    "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
+                }
+            }
+        },
+        "backgrounds": {
+            "default": {
+                "backgroundPrimary": {
+                    "value": "#08090A",
+                    "comment": "Основной фон"
+                },
+                "backgroundOverlay": {
+                    "value": "rgba(21, 24, 26, 0.56)",
+                    "comment": "Вторичный фон"
+                }
+            }
+        }
+    },
+    "light": {
+        "textIcons": {
+            "default": {
+                "textPrimary": {
+                    "value": "#24282B",
+                    "comment": "Основной цвет текста"
+                },
+                "textSecondary": {
+                    "value": "#8C959C",
+                    "comment": "Вторичный цвет текста"
+                },
+                "textTertiary": {
+                    "value": "#BEC9D1",
+                    "comment": "Третичный цвет текста"
+                },
+                "textParagraph": {
+                    "value": "#24282B",
+                    "comment": "Сплошной наборный текст"
+                },
+                "textAccent": {
+                    "value": "#148F2B",
+                    "comment": "Акцентный цвет"
+                },
+                "textNegative": {
+                    "value": "#F31B31",
+                    "comment": "Цвет ошибки"
+                },
+                "textAccentDiscount": {
+                    "value": "#FF1F78",
+                    "comment": "Дополнительный акцент"
+                },
+                "textAccentGold": {
+                    "value": "#FFD83D",
+                    "comment": "Дополнительный акцент"
+                },
+                "textAccentB2B": {
+                    "value": "#0C8688",
+                    "comment": "Акцентный цвет бренда"
+                }
+            },
+            "onDark": {
+                "textPrimary": {
+                    "value": "rgba(242, 245, 247, 0.96)",
+                    "comment": "Основной цвет текста на темном фоне"
+                },
+                "textSecondary": {
+                    "value": "rgba(242, 245, 247, 0.64)",
+                    "comment": "Вторичный цвет текста на темном фоне"
+                },
+                "textTertiary": {
+                    "value": "rgba(242, 245, 247, 0.4)",
+                    "comment": "Третичный цвет текста на темном фоне"
+                },
+                "textParagraph": {
+                    "value": "rgba(242, 245, 247, 0.8)",
+                    "comment": "Сплошной наборный текст на темном фоне"
+                },
+                "textAccent": {
+                    "value": "#24B23E",
+                    "comment": "Акцентный цвет на темном фоне"
+                },
+                "textNegative": {
+                    "value": "#FF2E43",
+                    "comment": "Цвет ошибки на темном фоне"
+                },
+                "textAccentDiscount": {
+                    "value": "#FF1F78",
+                    "comment": "Дополнительный акцент"
+                },
+                "textAccentGold": {
+                    "value": "#FFD83D",
+                    "comment": "Дополнительный акцент"
+                },
+                "textAccentB2B": {
+                    "value": "#04C6C9",
+                    "comment": "Акцентный цвет бренда"
+                }
+            },
+            "onLight": {
+                "textPrimary": {
+                    "value": "#24282B",
+                    "comment": "Основной цвет текста на светлом фоне"
+                },
+                "textSecondary": {
+                    "value": "#8C959C",
+                    "comment": "Вторичный цвет текста  на светлом фоне"
+                },
+                "textTertiary": {
+                    "value": "#BEC9D1",
+                    "comment": "Третичный цвет текста на светлом фоне"
+                },
+                "textParagraph": {
+                    "value": "#24282B",
+                    "comment": "Сплошной наборный текст на светлом фоне"
+                },
+                "textAccent": {
+                    "value": "#148F2B",
+                    "comment": "Акцентный цвет на светлом фоне"
+                },
+                "textNegative": {
+                    "value": "#F31B31",
+                    "comment": "Цвет ошибки на светлом фоне"
+                },
+                "textAccentDiscount": {
+                    "value": "#FF1F78",
+                    "comment": "Дополнительный акцент"
+                },
+                "textAccentGold": {
+                    "value": "#FFD83D",
+                    "comment": "Дополнительный акцент"
+                },
+                "textAccentB2B": {
+                    "value": "#0C8688",
+                    "comment": "Акцентный цвет бренда"
+                }
+            },
+            "inverse": {
+                "textPrimary": {
+                    "value": "#F2F5F7",
+                    "comment": "Инвертированный основной цвет текста"
+                }
+            }
+        },
+        "controlsSurfaces": {
+            "default": {
+                "surfaceSolidSecondary": {
+                    "value": "#F2F5F7",
+                    "comment": "Вторичный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceSolidTertiary": {
+                    "value": "#E4EBF0",
+                    "comment": "Третичный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceSolidCard": {
+                    "value": "#FFFFFF",
+                    "comment": "Основной фон для карточек"
+                },
+                "surfaceAccent": {
+                    "value": "#24B23E",
+                    "comment": "Акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentGradient": {
+                    "value": "TODO: необходимо указать вручную",
+                    "comment": "Акцентный фон поверхности/контрола с градиентом"
+                },
+                "surfaceNegative": {
+                    "value": "#F31B31",
+                    "comment": "Цвет фона поверхности/контрола ошибка"
+                },
+                "surfaceAccentB2B": {
+                    "value": "#0DA8AB",
+                    "comment": "Акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentDiscount": {
+                    "value": "#FF1F78",
+                    "comment": "Дополнительный акцент для обозначения акций"
+                },
+                "surfaceAccentGold": {
+                    "value": "#FFD83D",
+                    "comment": "Дополнительный акцент"
+                },
+                "surfaceAccentBlue": {
+                    "value": "#3F81FD",
+                    "comment": "Дополнительный акцент"
+                },
+                "surfaceAdditional": {
+                    "value": "#D1DDE5",
+                    "comment": "Пунктирные дивайдеры и неактивные контролы"
+                }
+            },
+            "onDark": {
+                "surfaceSolidSecondary": {
+                    "value": "#24282B",
+                    "comment": "Вторичный непрозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceSolidTertiary": {
+                    "value": "#31373B",
+                    "comment": "Третичный непрозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceSolidCard": {
+                    "value": "#15181A",
+                    "comment": "Основной фон для карточек на темном фоне"
+                },
+                "surfaceAccent": {
+                    "value": "#24B23E",
+                    "comment": "Акцентный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceAccentGradient": {
+                    "value": "TODO: необходимо указать вручную",
+                    "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне"
+                },
+                "surfaceNegative": {
+                    "value": "#FF2E43",
+                    "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
+                },
+                "surfaceAccentB2B": {
+                    "value": "#0DA8AB",
+                    "comment": "Акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentDiscount": {
+                    "value": "#FF1F78",
+                    "comment": "Дополнительный акцент для обозначения акций"
+                },
+                "surfaceAccentGold": {
+                    "value": "#FFD83D",
+                    "comment": "Дополнительный акцент"
+                },
+                "surfaceAccentBlue": {
+                    "value": "#3F81FD",
+                    "comment": "Дополнительный акцент"
+                },
+                "surfaceAdditional": {
+                    "value": "#494F54",
+                    "comment": "Пунктирные дивайдеры и неактивные контролы"
+                }
+            },
+            "onLight": {
+                "surfaceSolidSecondary": {
+                    "value": "#F2F5F7",
+                    "comment": "Вторичный непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceSolidTertiary": {
+                    "value": "#E4EBF0",
+                    "comment": "Третичный непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceSolidCard": {
+                    "value": "#FFFFFF",
+                    "comment": "Основной фон для карточек на светлом фоне"
+                },
+                "surfaceAccent": {
+                    "value": "#24B23E",
+                    "comment": "Акцентный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceAccentGradient": {
+                    "value": "TODO: необходимо указать вручную",
+                    "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне"
+                },
+                "surfaceNegative": {
+                    "value": "#F31B31",
+                    "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
+                },
+                "surfaceAccentB2B": {
+                    "value": "#0DA8AB",
+                    "comment": "Акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentDiscount": {
+                    "value": "#FF1F78",
+                    "comment": "Дополнительный акцент для обозначения акций"
+                },
+                "surfaceAccentGold": {
+                    "value": "#FFD83D",
+                    "comment": "Дополнительный акцент"
+                },
+                "surfaceAccentBlue": {
+                    "value": "#3F81FD",
+                    "comment": "Дополнительный акцент"
+                },
+                "surfaceAdditional": {
+                    "value": "#D1DDE5",
+                    "comment": "Пунктирные дивайдеры и неактивные контролы"
+                }
+            }
+        },
+        "banners": {
+            "default": {
+                "bannerRed": {
+                    "value": "#FFF5F6",
+                    "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
+                },
+                "bannerGold": {
+                    "value": "#FFF7D6",
+                    "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
+                },
+                "bannerGreen": {
+                    "value": "#E0FFE9",
+                    "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
+                },
+                "bannerMalachite": {
+                    "value": "#E6FCFC",
+                    "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
+                },
+                "bannerBlue": {
+                    "value": "#F2F7FF",
+                    "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
+                }
+            }
+        },
+        "backgrounds": {
+            "default": {
+                "backgroundPrimary": {
+                    "value": "#F7F8FA",
+                    "comment": "Основной бэкграунд"
+                },
+                "backgroundOverlay": {
+                    "value": "rgba(21, 24, 26, 0.56)",
+                    "comment": "Чёрный оверлей под модалками с фоном"
+                }
+            }
+        }
+    }
+}
