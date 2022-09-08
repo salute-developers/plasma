@@ -1,3 +1,15 @@
+# v1.22.0 (Thu Sep 08 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): save themes artifacts [#136](https://github.com/salute-developers/plasma/pull/136) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
 # v1.21.0 (Thu Sep 01 2022)
 
 #### 🚀 Enhancement

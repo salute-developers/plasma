@@ -1,3 +1,17 @@
+# (Thu Sep 08 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): save ios & android tokens to release assets [#136](https://github.com/salute-developers/plasma/pull/136) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- `@salutejs/plasma-tokens@1.22.0`
+  - feat(plasma-tokens): save themes artifacts [#136](https://github.com/salute-developers/plasma/pull/136) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
 # (Tue Sep 06 2022)
 
 #### 🐛 Bug Fix
