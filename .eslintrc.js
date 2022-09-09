@@ -69,7 +69,7 @@ module.exports = {
         'react/destructuring-assignment': 'off',
         'react/sort-comp': 'off',
         'react/no-array-index-key': 'off',
-        'react-hooks/exhaustive-deps': 'off', // TODO: https://github.com/salute-developers/plasma/issues/23
+        'react-hooks/exhaustive-deps': 'warn', // TODO: make 'error'
 
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
