@@ -1,3 +1,18 @@
+# (Mon Sep 12 2022)
+
+#### 🐛 Bug Fix
+
+- style: exhaustive-deps warn [#158](https://github.com/salute-developers/plasma/pull/158) ([@KateKate](https://github.com/KateKate))
+- `@salutejs/plasma-ui@1.126.1`
+  - fix(plasma-ui): Fix component Sheet [#159](https://github.com/salute-developers/plasma/pull/159) (mokazakov@sberbank.ru)
+
+#### Authors: 2
+
+- Ekaterina Anishkina ([@KateKate](https://github.com/KateKate))
+- Misha Kazakov (mokazakov@sberbank.ru)
+
+---
+
 # (Thu Sep 08 2022)
 
 #### 🚀 Enhancement
