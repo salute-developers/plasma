@@ -41,11 +41,11 @@ export function useMultiGallery({
 
     React.useEffect(() => {
         onChangeGallery({ galleryIndex });
-    }, [galleryIndex]);
+    }, [galleryIndex, onChangeGallery]);
 
     React.useEffect(() => {
         setGalleryIndex(activeGallery);
-    }, [activeGallery]);
+    }, [activeGallery, setGalleryIndex]);
 
     return setGalleryIndex;
 }
