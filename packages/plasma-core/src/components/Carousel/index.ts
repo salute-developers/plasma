@@ -5,7 +5,7 @@ export { CarouselTrack } from './Carousel';
 export { CarouselItem, CarouselItemVirtual } from './CarouselItem';
 export type { CarouselItemProps, CarouselItemVirtualProps } from './CarouselItem';
 
-export { useCarousel } from './hooks';
+export { useCarousel, useCarouselLite } from './hooks';
 
 export type {
     CarouselProps,
@@ -14,4 +14,6 @@ export type {
     BasicProps,
     CarouselTemplateProps,
     CarouselVirtualProps,
+    UseCarouselLiteOptions,
+    CarouselLiteProps,
 } from './types';

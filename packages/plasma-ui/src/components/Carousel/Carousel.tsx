@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import {
     useCarousel,
+    useCarouselLite,
     Carousel as BaseCarousel,
     CarouselTrack as BaseTrack,
     CarouselTemplateProps,
     CarouselProps,
+    CarouselLiteProps,
     CarouselVirtualProps,
     applyNoSelect,
 } from '@salutejs/plasma-core';
@@ -19,7 +21,11 @@ const StyledCarouselTrack = styled(BaseTrack)`
 
 const CarouselTemplate = React.forwardRef<
     HTMLElement,
-    CarouselTemplateProps & { trackRef?: React.MutableRefObject<HTMLElement | null>; virtualSize?: number }
+    CarouselTemplateProps & {
+        trackRef?: React.MutableRefObject<HTMLElement | null>;
+        virtualSize?: number;
+        liteMode?: boolean;
+    }
 >(
     (
         {
@@ -32,6 +38,7 @@ const CarouselTemplate = React.forwardRef<
             listAriaLabel,
             children,
             virtualSize,
+            liteMode,
             ...rest
         },
         ref,
@@ -46,6 +53,7 @@ const CarouselTemplate = React.forwardRef<
                     role={listRole}
                     aria-label={listAriaLabel}
                     virtualSize={virtualSize}
+                    liteMode={liteMode}
                 >
                     {children}
                 </StyledCarouselTrack>
@@ -97,6 +105,26 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
     return (
         <CarouselTemplate ref={handleRef} trackRef={trackRef} axis={axis} scrollSnapType={scrollSnapType} {...rest} />
     );
+});
+
+/**
+ * Компонент для создания списков с прокруткой. Для прокрутки использует transform translate.
+ * Обратно совместим с компонентом Carousel при условии, что пропсы связанные с detectActive не используются.
+ */
+// eslint-disable-next-line prefer-arrow-callback
+export const CarouselLite = React.forwardRef<HTMLDivElement, CarouselLiteProps>(function CarouselLite(
+    { index = 0, axis = 'x', scrollAlign, ...rest },
+    ref,
+) {
+    const { scrollRef, trackRef } = useCarouselLite({
+        index,
+        axis,
+        scrollAlign,
+    });
+
+    const handleRef = useForkRef(scrollRef, ref);
+
+    return <CarouselTemplate ref={handleRef} trackRef={trackRef} axis={axis} liteMode {...rest} />;
 });
 
 /**

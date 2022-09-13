@@ -1,6 +1,6 @@
 import React, { useRef, useContext, useCallback } from 'react';
 import { Story, Meta, addDecorator } from '@storybook/react';
-import type { SnapType, SnapAlign } from '@salutejs/plasma-core';
+import type { SnapType, SnapAlign, CarouselLiteProps } from '@salutejs/plasma-core';
 import { CarouselItemVirtual } from '@salutejs/plasma-core';
 import * as tokens from '@salutejs/plasma-tokens';
 import { useVirtual } from '@salutejs/use-virtual';
@@ -21,6 +21,7 @@ import { ScalingColCard, scaleCallback, scaleResetCallback, ScalingColCardProps 
 import {
     CarouselGridWrapper,
     Carousel,
+    CarouselLite,
     CarouselVirtual,
     CarouselItem,
     CarouselCol,
@@ -191,7 +192,7 @@ Basic.story = {
 
 Basic.args = {
     displayGrid: true,
-    animatedScrollByIndex: isSberbox,
+    animatedScrollByIndex: true,
     scrollAlign: 'start',
     scrollSnapType: !isSberbox ? 'mandatory' : undefined,
     scrollSnapAlign: !isSberbox ? 'start' : undefined,
@@ -562,4 +563,84 @@ export const AccessabilityDemo = () => {
             </StyledCarouselWrapper>
         </StyledWrapper>
     );
+};
+
+export const CarouselLiteBasic: Story<CarouselLiteProps & CarouselColProps & { displayGrid: boolean }> = ({
+    scrollAlign,
+    scrollSnapType,
+    scrollSnapAlign,
+}) => {
+    const axis = 'x';
+    const delay = 30;
+    const longDelay = 150;
+    const [index] = useRemoteHandlers({
+        initialIndex: 40,
+        axis,
+        delay,
+        longDelay,
+        min: 0,
+        max: items.length - 1,
+    });
+
+    return (
+        <DeviceThemeProvider>
+            <CarouselGridWrapper>
+                <CarouselLite
+                    id="carousel-lite"
+                    as={Row}
+                    axis={axis}
+                    index={index}
+                    scrollAlign={scrollAlign}
+                    scrollSnapType={scrollSnapType}
+                    style={basicCarouselStyle}
+                >
+                    {items.map(({ title, subtitle }, i) => (
+                        <CarouselCol
+                            key={`item:${i}`}
+                            size={3}
+                            sizeXL={4}
+                            scrollSnapAlign={scrollSnapAlign}
+                            aria-label={`${i + 1} из ${items.length}`}
+                            aria-selected={i === index}
+                        >
+                            <ProductCard
+                                title={title}
+                                subtitle={subtitle}
+                                imageSrc={`${process.env.PUBLIC_URL}/images/320_320_${i % 12}.jpg`}
+                                focused={i === index}
+                            />
+                        </CarouselCol>
+                    ))}
+                </CarouselLite>
+            </CarouselGridWrapper>
+        </DeviceThemeProvider>
+    );
+};
+
+CarouselLiteBasic.args = {
+    displayGrid: true,
+    scrollAlign: 'start',
+    scrollSnapType: 'mandatory',
+    scrollSnapAlign: 'start',
+};
+
+CarouselLiteBasic.argTypes = {
+    scrollAlign: {
+        control: {
+            type: 'select',
+            options: ['center', 'start', 'end'],
+        },
+    },
+    scrollSnapType: {
+        control: {
+            type: 'inline-radio',
+            options: snapTypes,
+        },
+    },
+    scrollSnapAlign: {
+        control: {
+            type: 'inline-radio',
+            options: snapAlign,
+        },
+    },
 };

@@ -60,6 +60,7 @@ export const Carousel = styled.div<Pick<CarouselProps, 'axis' | 'scrollSnapType'
 export const CarouselTrack = styled.div<
     Pick<CarouselProps, 'axis' | 'paddingStart' | 'paddingEnd'> & {
         virtualSize?: number;
+        liteMode?: boolean;
     }
 >`
     ${({ virtualSize, axis }) =>
@@ -68,6 +69,15 @@ export const CarouselTrack = styled.div<
         css`
             position: absolute;
             ${axis === 'x' ? 'width' : 'height'}: ${virtualSize}px;
+        `}
+
+    ${({ liteMode }) =>
+        // для поддержки CarouselLite
+        liteMode &&
+        css`
+            transition-property: transform;
+            transition-duration: 0.5s;
+            transform: translate(0px, 0px);
         `}
 
     ${({ axis, paddingStart, paddingEnd }) =>

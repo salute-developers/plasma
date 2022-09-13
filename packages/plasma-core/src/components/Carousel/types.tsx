@@ -55,6 +55,42 @@ export interface BasicProps extends AsProps, HTMLAttributes<HTMLDivElement> {
      */
     listAriaLabel?: string;
 }
+
+export interface CarouselLiteProps extends AsProps, HTMLAttributes<HTMLDivElement> {
+    /**
+     * Индекс текущего элемента
+     */
+    index: number;
+    /**
+     * Ось прокрутки
+     */
+    axis: ScrollAxis;
+    /**
+     * Центрирование активного элемента при скролле
+     */
+    scrollAlign?: ScrollAlign;
+    /**
+     * Тип CSS Scroll Snap
+     */
+    scrollSnapType?: SnapType;
+    /**
+     * Отступ в начале, используется при центрировании крайних элементов
+     */
+    paddingStart?: string;
+    /**
+     * Отступ в конце, используется при центрировании крайних элементов
+     */
+    paddingEnd?: string;
+    /**
+     * Сменить WAI-ARIA Role списка.
+     */
+    listRole?: string;
+    /**
+     * Сменить WAI-ARIA Label списка.
+     */
+    listAriaLabel?: string;
+}
+
 export interface DetectionProps {
     /**
      * Вычислять активный элемент
@@ -81,6 +117,7 @@ export interface DetectionProps {
      */
     scaleResetCallback?: (itemEl: HTMLElement) => void;
 }
+
 export interface NoDetectionProps {
     detectActive?: false;
     detectThreshold?: never;
@@ -106,6 +143,8 @@ export type UseCarouselOptions = Pick<
     | 'throttleMs'
     | 'debounceMs'
 >;
+
+export type UseCarouselLiteOptions = Pick<CarouselLiteProps, 'index' | 'axis' | 'scrollAlign'>;
 
 export type CarouselTemplateProps = Omit<BasicProps, Exclude<keyof UseCarouselOptions, 'axis'>>;
 

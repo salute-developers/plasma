@@ -1,11 +1,18 @@
 /* eslint-disable no-continue */
 import throttle from 'lodash.throttle';
-import { useRef, useEffect, useCallback, useMemo } from 'react';
+import { useRef, useEffect, useCallback, useMemo, useLayoutEffect, useState } from 'react';
 
 import { useDebouncedFunction } from '../../hooks';
 
-import type { UseCarouselOptions } from './types';
-import { scrollToPos, getCalculatedPos, getCalculatedOffset, getItemSlot, getCarouselItems } from './utils';
+import type { UseCarouselLiteOptions, UseCarouselOptions } from './types';
+import {
+    scrollToPos,
+    getCalculatedPos,
+    getCalculatedOffset,
+    getItemSlot,
+    getCarouselItems,
+    translateToIndex,
+} from './utils';
 
 type UseCarouselHookResult = {
     scrollRef: React.MutableRefObject<HTMLElement | null>;
@@ -273,3 +280,43 @@ export const useCarousel = ({
         trackRef,
     };
 };
+
+export function useCarouselLite({ index, axis, scrollAlign = 'center' }: UseCarouselLiteOptions) {
+    const [prevIndex, setPrevIndex] = useState(index);
+    const carouselRef = useRef<HTMLElement | null>(null);
+    const trackRef = useRef<HTMLElement | null>(null);
+    const needTranslateToInitialIndex = useRef(true);
+
+    // Первый раз нужно проскролить к индексу, после первого рендера
+    useLayoutEffect(() => {
+        if (needTranslateToInitialIndex.current === false) {
+            return;
+        }
+
+        /**
+         * Вызываем через requestAnimationFrame, так как при использовании динамических CarouselCol
+         * ширины элементов высчитываются неверно внутри translateToIndex при синхронном вызове
+         */
+        const rafId = requestAnimationFrame(() => {
+            translateToIndex(index, index, axis, scrollAlign, trackRef.current, carouselRef.current, true);
+            needTranslateToInitialIndex.current = false;
+        });
+
+        return () => {
+            cancelAnimationFrame(rafId);
+        };
+    }, [axis, index, scrollAlign]);
+
+    /**
+     * Все последующие разы вызываем translateToIndex при изменении index прямо из рендера
+     */
+    if (index !== prevIndex) {
+        translateToIndex(index, prevIndex, axis, scrollAlign, trackRef.current, carouselRef.current, false);
+        setPrevIndex(index);
+    }
+
+    return {
+        scrollRef: carouselRef,
+        trackRef,
+    };
+}
