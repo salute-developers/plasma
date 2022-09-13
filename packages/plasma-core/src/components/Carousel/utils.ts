@@ -1,6 +1,6 @@
 import { animatedScrollToX, animatedScrollToY, TimingFunction } from '../../utils';
 
-import { ScrollAxis, ScrollAlign } from './types';
+import { ScrollAxis, ScrollAlign, UseCarouselLiteOptions } from './types';
 
 const positionModByScrollAlign = ({
     scrollAlign,
@@ -189,4 +189,148 @@ export const getItemSlot = (
 
 export function getCarouselItems(track: HTMLElement): HTMLCollectionOf<HTMLElement> {
     return track.children as HTMLCollectionOf<HTMLElement>;
+}
+
+const axisToTranslateMap: Record<UseCarouselLiteOptions['axis'], (position: number) => string> = {
+    x(position) {
+        return `translateX(${-position}px)`;
+    },
+    y(position) {
+        return `translateY(${-position}px)`;
+    },
+};
+const axisToOffsetKeyMap: Record<UseCarouselLiteOptions['axis'], 'offsetLeft' | 'offsetTop'> = {
+    x: 'offsetLeft',
+    y: 'offsetTop',
+};
+
+const axisToSizeKeyMap: Record<UseCarouselLiteOptions['axis'], 'offsetWidth' | 'offsetHeight'> = {
+    x: 'offsetWidth',
+    y: 'offsetHeight',
+};
+
+function getCenterPosition(itemSize: number, itemStart: number, carouselSize: number, trackOffset: number) {
+    const relativeMiddle = itemStart + trackOffset + itemSize / 2;
+
+    return relativeMiddle - carouselSize / 2;
+}
+
+function getEndPosition(itemSize: number, itemStart: number, carouselSize: number, trackOffset: number) {
+    return 2 * trackOffset + itemStart + itemSize - carouselSize;
+}
+
+function getTranslatePosition(
+    itemSize: number,
+    itemStart: number,
+    carouselSize: number,
+    trackOffset: number,
+    scrollAlign: UseCarouselLiteOptions['scrollAlign'],
+): number {
+    switch (scrollAlign) {
+        case 'start': {
+            return itemStart;
+        }
+        case 'end': {
+            return getEndPosition(itemSize, itemStart, carouselSize, trackOffset);
+        }
+        case 'center':
+        case 'activeDirection': // TODO: activeDirection сделать позже, мало кто использует. Fallback на 'center'
+        default:
+            return getCenterPosition(itemSize, itemStart, carouselSize, trackOffset);
+    }
+}
+
+function boundPosition(position: number, trackEnd: number): number {
+    if (position < 0) {
+        return 0;
+    }
+
+    if (position > trackEnd) {
+        return trackEnd;
+    }
+
+    return position;
+}
+
+function isMaximumDistance(currentIndex: number, nextIndex: number, length: number) {
+    return Math.abs(nextIndex - currentIndex) === length - 1;
+}
+
+function setTimingFunction(element: HTMLElement | null, timingFunction: 'step-start' | '') {
+    if (element) {
+        element.style.transitionTimingFunction = timingFunction;
+    }
+}
+
+function translateToPosition(element: HTMLElement, axis: UseCarouselLiteOptions['axis'], position: number): void {
+    const translate = axisToTranslateMap[axis];
+
+    element.style.transform = translate(position);
+}
+
+/**
+ * Делает расчет следующей позиции карусели исходя из параметров
+ * index, align и размеров элементов track и carousel.
+ * После применяет стиль к элементу track.
+ * Анимирование происходит из-за CSS свойства `transition-property: transform`, применённому к элементу track
+ *
+ * @param index индекс элемента к которому нужно сделать transform
+ * @param prevIndex индекс предыдущего активного элемента для расчёта дистанции между индексами
+ * @param axis ось вдоль которой будет происходить transform
+ * @param align определяет позицию активного элемента относительно элемента carousel
+ * @param track элемент к которому применяется transform
+ * @param carousel элемент содержащий track
+ * @param disableAnimation флаг для отключения анимирования transform
+ */
+export function translateToIndex(
+    index: number,
+    prevIndex: number,
+    axis: UseCarouselLiteOptions['axis'],
+    align: UseCarouselLiteOptions['scrollAlign'],
+    track: HTMLElement | null,
+    carousel: HTMLElement | null,
+    disableAnimation: boolean,
+): void {
+    if (track === null || carousel === null) {
+        return;
+    }
+
+    const itemToTranslateTo = track.children.item(index) as HTMLElement | null;
+
+    if (itemToTranslateTo === null) {
+        return;
+    }
+
+    const itemsNumber = track.children.length;
+
+    const offsetKey = axisToOffsetKeyMap[axis];
+    const sizeKey = axisToSizeKeyMap[axis];
+
+    const carouselSize = carousel[sizeKey];
+    const trackSize = track[sizeKey];
+    const trackOffset = track[offsetKey];
+    const trackEnd = trackSize - carouselSize + trackOffset;
+    const itemSize = itemToTranslateTo[sizeKey];
+    const itemStart = itemToTranslateTo[offsetKey];
+
+    const translatePosition = getTranslatePosition(itemSize, itemStart, carouselSize, trackOffset, align);
+
+    const position = boundPosition(translatePosition, trackEnd);
+
+    if (disableAnimation === true || isMaximumDistance(prevIndex, index, itemsNumber) === true) {
+        // Выключаем стандартный easing, переключая его на step-start
+        setTimingFunction(track, 'step-start');
+
+        translateToPosition(track, axis, position);
+
+        /**
+         * Включаем стандартный easing.
+         * нужно делать через setTimeout, чтобы transform успел произойти до изменения transitionTimingFunction
+         */
+        setTimeout(setTimingFunction, 0, track, '');
+
+        return;
+    }
+
+    translateToPosition(track, axis, position);
 }

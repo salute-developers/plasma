@@ -27,6 +27,7 @@ describe('plasma-ui: Carousel', () => {
     const Row = getComponent('Row');
     const Carousel = getComponent('Carousel');
     const CarouselVirtual = getComponent('CarouselVirtual');
+    const CarouselLite = getComponent('CarouselLite');
     const CarouselItemVirtual = getComponent('CarouselItemVirtual');
     const CarouselGridWrapper = getComponent('CarouselGridWrapper');
     const CarouselCol = getComponent('CarouselCol');
@@ -116,6 +117,49 @@ describe('plasma-ui: Carousel', () => {
                     </CarouselItem>
                 ))}
             </Carousel>
+        );
+    };
+
+    const AnimatedCarouselLiteY = () => {
+        const [index] = useRemoteHandlers({
+            initialIndex: 0,
+            axis: 'y',
+            delay: 30,
+            longDelay: 150,
+            min: 0,
+            max: items.length - 1,
+        });
+
+        return (
+            <CarouselLite
+                as={Row}
+                axis="y"
+                index={index}
+                paddingStart="50%"
+                paddingEnd="50%"
+                scrollSnapType="none"
+                style={{
+                    height: '100vh',
+                    maxHeight: '40rem',
+                    width: '100%',
+                    maxWidth: '22.5rem',
+                    margin: '0 auto',
+                    padding: '0.75rem',
+                }}
+            >
+                {items.map(({ title, subtitle, imageSrc }, i) => (
+                    <CarouselItem key={`item:${i}`} style={{ padding: '0.75rem 0' }}>
+                        <GalleryCard
+                            title={title}
+                            subtitle={subtitle}
+                            focused={i === index}
+                            imageSrc={imageSrc}
+                            imageRatio="1 / 1"
+                            scaleOnFocus
+                        />
+                    </CarouselItem>
+                ))}
+            </CarouselLite>
         );
     };
 
@@ -399,6 +443,85 @@ describe('plasma-ui: Carousel', () => {
         );
 
         cy.wait(100);
+        cy.matchImageSnapshot();
+    });
+
+    it('lite basic', () => {
+        const index = 0;
+
+        mount(
+            <CarouselDecorator>
+                <CarouselGridWrapper>
+                    <CarouselLite
+                        as={Row}
+                        axis="x"
+                        index={index}
+                        scrollSnapType="none"
+                        style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem' }}
+                    >
+                        {items.map(({ title, subtitle, imageSrc }, i) => (
+                            <CarouselCol key={`item:${i}`} size={3} sizeXL={4}>
+                                <ProductCard
+                                    title={title}
+                                    subtitle={subtitle}
+                                    focused={i === index}
+                                    imageSrc={imageSrc}
+                                />
+                            </CarouselCol>
+                        ))}
+                    </CarouselLite>
+                </CarouselGridWrapper>
+            </CarouselDecorator>,
+        );
+        cy.wait(100);
+        cy.matchImageSnapshot();
+    });
+
+    it('lite initialIndex', () => {
+        const index = 4;
+
+        mount(
+            <CarouselDecorator>
+                <CarouselGridWrapper>
+                    <CarouselLite
+                        as={Row}
+                        axis="x"
+                        index={index}
+                        scrollSnapType="none"
+                        style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem' }}
+                    >
+                        {items.map(({ title, subtitle, imageSrc }, i) => (
+                            <CarouselCol key={`item:${i}`} size={3} sizeXL={4}>
+                                <ProductCard
+                                    title={title}
+                                    subtitle={subtitle}
+                                    focused={i === index}
+                                    imageSrc={imageSrc}
+                                />
+                            </CarouselCol>
+                        ))}
+                    </CarouselLite>
+                </CarouselGridWrapper>
+            </CarouselDecorator>,
+        );
+        cy.wait(100);
+        cy.matchImageSnapshot();
+    });
+
+    it('lite animated Y', () => {
+        mount(
+            <CarouselDecorator>
+                <AnimatedCarouselLiteY />
+            </CarouselDecorator>,
+        );
+
+        cy.get('body').type('{downarrow}');
+        cy.wait(1000);
+        cy.get('body').type('{downarrow}');
+        cy.wait(1000);
+        cy.get('body').type('{uparrow}');
+        cy.wait(1000);
+        cy.get('body').type('{enter}');
         cy.matchImageSnapshot();
     });
 });
