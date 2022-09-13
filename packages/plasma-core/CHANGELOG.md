@@ -1,3 +1,15 @@
+# v1.70.0 (Tue Sep 13 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): add CarouselLite component [#155](https://github.com/salute-developers/plasma/pull/155) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+#### Authors: 1
+
+- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+---
+
 # v1.68.0 (Thu Sep 01 2022)
 
 #### 🐛 Bug Fix

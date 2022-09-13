@@ -1,3 +1,21 @@
+# (Tue Sep 13 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-core@1.70.0`, `@salutejs/plasma-ui@1.127.0`
+  - feat(plasma-ui): add CarouselLite component [#155](https://github.com/salute-developers/plasma/pull/155) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+#### 🐛 Bug Fix
+
+- style: exhaustive-deps warn issue [#161](https://github.com/salute-developers/plasma/pull/161) ([@KateKate](https://github.com/KateKate))
+
+#### Authors: 2
+
+- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+- Ekaterina Anishkina ([@KateKate](https://github.com/KateKate))
+
+---
+
 # (Mon Sep 12 2022)
 
 #### 🐛 Bug Fix
