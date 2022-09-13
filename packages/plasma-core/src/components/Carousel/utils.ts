@@ -209,6 +209,11 @@ const axisToSizeKeyMap: Record<UseCarouselLiteOptions['axis'], 'offsetWidth' | '
     y: 'offsetHeight',
 };
 
+const axisToScrollKeyMap: Record<UseCarouselLiteOptions['axis'], 'scrollLeft' | 'scrollTop'> = {
+    x: 'scrollLeft',
+    y: 'scrollTop',
+};
+
 function getCenterPosition(itemSize: number, itemStart: number, carouselSize: number, trackOffset: number) {
     const relativeMiddle = itemStart + trackOffset + itemSize / 2;
 
@@ -268,6 +273,8 @@ function translateToPosition(element: HTMLElement, axis: UseCarouselLiteOptions[
     element.style.transform = translate(position);
 }
 
+const scrollOptions: ScrollToOptions = { behavior: 'auto', left: 0, top: 0 };
+
 /**
  * Делает расчет следующей позиции карусели исходя из параметров
  * index, align и размеров элементов track и carousel.
@@ -293,6 +300,12 @@ export function translateToIndex(
 ): void {
     if (track === null || carousel === null) {
         return;
+    }
+
+    const scrollKey = axisToScrollKeyMap[axis];
+
+    if (disableAnimation === false && carousel[scrollKey] !== 0) {
+        carousel.scrollTo(scrollOptions);
     }
 
     const itemToTranslateTo = track.children.item(index) as HTMLElement | null;
