@@ -1,3 +1,15 @@
+# v1.128.0 (Wed Sep 14 2022)
+
+#### 🐛 Bug Fix
+
+- refactor(plasma-ui): Add addFocus mixin for `Checkbox` and `Radiobox` components [#135](https://github.com/salute-developers/plasma/pull/135) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.127.0 (Tue Sep 13 2022)
 
 #### 🚀 Enhancement

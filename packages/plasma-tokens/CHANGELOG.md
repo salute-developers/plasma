@@ -1,3 +1,15 @@
+# v1.23.0 (Wed Sep 14 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): Replace theme colors for button focus to primary in token [#135](https://github.com/salute-developers/plasma/pull/135) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.22.0 (Thu Sep 08 2022)
 
 #### 🚀 Enhancement

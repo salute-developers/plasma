@@ -1,5 +1,24 @@
 # (Wed Sep 14 2022)
 
+#### 🚀 Enhancement
+
+- test(plasma-ui): Update snapshots for components [#135](https://github.com/salute-developers/plasma/pull/135) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-tokens@1.23.0`
+  - feat(plasma-tokens): Replace theme colors for button focus to primary in token [#135](https://github.com/salute-developers/plasma/pull/135) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.128.0`
+  - refactor(plasma-ui): Add addFocus mixin for `Checkbox` and `Radiobox` components [#135](https://github.com/salute-developers/plasma/pull/135) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Wed Sep 14 2022)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-web@1.126.1`
