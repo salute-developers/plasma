@@ -5,7 +5,7 @@ import { addDecorator, addParameters } from '@storybook/react';
 import { Title, Subtitle, Description, Primary, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs/blocks';
 
 import { text, background, gradient } from '@salutejs/plasma-tokens';
-import { darkEva, darkJoy, darkSber, lightEva, lightJoy, lightSber } from '@salutejs/plasma-tokens';
+import { darkEva, darkJoy, darkSber, darkB2E, lightEva, lightJoy, lightSber, lightB2E } from '@salutejs/plasma-tokens';
 
 import storybookTheme from './theme';
 
@@ -32,9 +32,11 @@ const themes = {
     darkSber: createGlobalStyle(darkSber),
     darkEva: createGlobalStyle(darkEva),
     darkJoy: createGlobalStyle(darkJoy),
+    darkB2E: createGlobalStyle(darkB2E),
     lightSber: createGlobalStyle(lightSber),
     lightEva: createGlobalStyle(lightEva),
     lightJoy: createGlobalStyle(lightJoy),
+    lightB2E: createGlobalStyle(lightB2E),
 };
 
 const withTheme = (Story, context) => {
@@ -119,7 +121,7 @@ export const globalTypes = {
         description: 'Global theme for components',
         defaultValue: 'darkSber',
         toolbar: {
-            items: ['darkSber', 'darkJoy', 'darkEva', 'lightSber', 'lightJoy', 'lightEva'],
+            items: ['darkSber', 'darkJoy', 'darkEva', 'darkB2E', 'lightSber', 'lightJoy', 'lightEva', 'lightB2E'],
             showName: true,
         },
     },
