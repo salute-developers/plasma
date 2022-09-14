@@ -36,7 +36,7 @@ export const baseColors = mapDesignToBaseColors(ds);
 
 /* ======================================== */
 /* =                THEMES                = */
-/* =  Modes:( dark/light & sber/eva/joy ) = */
+/* =  Modes:( dark/light & sber/eva/joy/b2e ) = */
 /* ======================================== */
 
 export type ThemeTokens = { [key in keyof typeof FullColorsList]: TokenData<TColor> };
@@ -428,6 +428,34 @@ const darkBrand: ThemeTokens = {
         comment: FullColorsList.voicePhraseGradient,
     },
 };
+const darkB2E: ThemeTokens = {
+    ...darkTheme,
+    accent: {
+        value: humanizeColor(ds.theme.dark_b2e.color),
+        comment: FullColorsList.accent,
+    },
+    buttonAccent: {
+        value: humanizeColor(ds.theme.dark_button_b2e.color),
+        comment: FullColorsList.buttonAccent,
+    },
+    buttonFocused: {
+        value: humanizeColor(ds.theme.dark_focus_b2e.color),
+        comment: FullColorsList.buttonFocused,
+    },
+    // TODO: export from figma is broken (#135)
+    gradient: {
+        value: ds.gradients.dark_bg_b2e,
+        comment: FullColorsList.gradient,
+    },
+    gradientDevice: {
+        value: ds.gradients.dark_device_b2e,
+        comment: FullColorsList.gradient,
+    },
+    voicePhraseGradient: {
+        value: ds.gradients.dark_voice_phrase_b2e.linearGradient,
+        comment: FullColorsList.voicePhraseGradient,
+    },
+};
 const lightSber: ThemeTokens = {
     ...lightTheme,
     accent: {
@@ -541,16 +569,46 @@ const lightBrand: ThemeTokens = {
         comment: FullColorsList.voicePhraseGradient,
     },
 };
+const lightB2E: ThemeTokens = {
+    ...lightTheme,
+    accent: {
+        value: humanizeColor(ds.theme.light_b2e.color),
+        comment: FullColorsList.accent,
+    },
+    buttonAccent: {
+        value: humanizeColor(ds.theme.light_button_b2e.color),
+        comment: FullColorsList.buttonAccent,
+    },
+    buttonFocused: {
+        value: humanizeColor(ds.theme.light_focus_b2e.color),
+        comment: FullColorsList.buttonFocused,
+    },
+    // TODO: export from figma is broken (#135)
+    gradient: {
+        value: ds.gradients.light_bg_b2e,
+        comment: FullColorsList.gradient,
+    },
+    gradientDevice: {
+        value: ds.gradients.light_device_b2e,
+        comment: FullColorsList.gradient,
+    },
+    voicePhraseGradient: {
+        value: ds.gradients.light_voice_phrase_b2e.linearGradient,
+        comment: FullColorsList.voicePhraseGradient,
+    },
+};
 
 export const colorThemes = {
     darkSber,
     darkEva,
     darkJoy,
     darkBrand,
+    darkB2E,
     lightSber,
     lightEva,
     lightJoy,
     lightBrand,
+    lightB2E,
 };
 
 export type SimpleTokens = {
