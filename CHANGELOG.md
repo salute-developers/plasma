@@ -1,3 +1,16 @@
+# (Wed Sep 14 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.126.1`
+  - fix(plasma-web): Headline5 tag h5 [#164](https://github.com/salute-developers/plasma/pull/164) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Tue Sep 13 2022)
 
 #### 🚀 Enhancement
