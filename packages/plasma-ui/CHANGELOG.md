@@ -1,3 +1,20 @@
+# v1.129.0 (Thu Sep 15 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): Add b2e theme to storybook [#165](https://github.com/salute-developers/plasma/pull/165) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.128.0 (Wed Sep 14 2022)
 
 #### 🐛 Bug Fix

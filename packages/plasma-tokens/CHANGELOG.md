@@ -1,3 +1,15 @@
+# v1.24.0 (Thu Sep 15 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): Add b2e theme [#165](https://github.com/salute-developers/plasma/pull/165) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.23.0 (Wed Sep 14 2022)
 
 #### 🚀 Enhancement

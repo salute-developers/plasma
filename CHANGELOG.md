@@ -1,3 +1,18 @@
+# (Thu Sep 15 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.129.0`
+  - feat(plasma-ui): Add b2e theme to storybook [#165](https://github.com/salute-developers/plasma/pull/165) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-tokens@1.24.0`
+  - feat(plasma-tokens): Add b2e theme [#165](https://github.com/salute-developers/plasma/pull/165) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Wed Sep 14 2022)
 
 #### 🚀 Enhancement
