@@ -63,32 +63,6 @@ jobs:
       - name: Create Release
         run: npm run release
 
-      - name: Check if tokens are changed
-        uses: dorny/paths-filter@v2
-        id: changes
-        with:
-          filters: |
-            tokens:
-              - 'packages/plasma-tokens/**'
-
-      - name: Generate themes html view
-        if: steps.changes.outputs.tokens == 'true'
-        run: npm run generate:theme-html
-
-      - name: Save artifacts IOS & Android color tokens
-        if: steps.changes.outputs.tokens == 'true'
-        uses: actions/upload-artifact@v3
-        with:
-          name: ios & android color tokens
-          path: /home/runner/work/plasma/plasma/packages/plasma-tokens/build
-
-      - name: Save artifacts themes html view
-        if: steps.changes.outputs.tokens == 'true'
-        uses: actions/upload-artifact@v3
-        with:
-          name: themes html view
-          path: /home/runner/work/plasma/plasma/packages/plasma-tokens/data/themes/*.html
-
       - name: Update package-lock's
         if: github.event_name != 'pull_request'
         run: |
