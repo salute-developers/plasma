@@ -5,11 +5,11 @@ import { DataObject, TokenData, TokenDataGroup } from '@salutejs/plasma-tokens-u
 import { Theme, ThemeTokenDataGroups, TokenGroup, TokenType } from './types';
 import { themesFolder } from './constants';
 
+import { upperFirstLetter } from './utils';
+
 const isTokenData = (value: unknown): value is TokenData => {
     return typeof value === 'object' && value !== null && 'value' in value;
 };
-
-const capitalize = (value: string) => value.charAt(0).toUpperCase() + value.slice(1);
 
 const makePath = (path: string, key: string) => {
     if (!path && key in TokenGroup) {
@@ -20,7 +20,7 @@ const makePath = (path: string, key: string) => {
         return key;
     }
 
-    return path ? `${path}${capitalize(key)}` : key;
+    return path ? `${path}${upperFirstLetter(key)}` : key;
 };
 
 const dataObject2TokenDataGroup = (dataObject: DataObject, path: string): TokenDataGroup<string> => {
@@ -37,7 +37,7 @@ const dataObject2TokenDataGroup = (dataObject: DataObject, path: string): TokenD
     }, {});
 };
 
-export const theme2ColorTokenDataGroups = (theme: Theme): ThemeTokenDataGroups => {
+export const theme2ColorTokenDataGroups = (theme: Theme): Record<string, ThemeTokenDataGroups> => {
     const {
         config: { name },
         dark,
@@ -45,12 +45,14 @@ export const theme2ColorTokenDataGroups = (theme: Theme): ThemeTokenDataGroups =
     } = theme;
 
     return {
-        [`dark${capitalize(name)}`]: dataObject2TokenDataGroup((dark as unknown) as DataObject, ''),
-        [`light${capitalize(name)}`]: dataObject2TokenDataGroup((light as unknown) as DataObject, ''),
+        [name]: {
+            [`dark${upperFirstLetter(name)}`]: dataObject2TokenDataGroup((dark as unknown) as DataObject, ''),
+            [`light${upperFirstLetter(name)}`]: dataObject2TokenDataGroup((light as unknown) as DataObject, ''),
+        },
     };
 };
 
-export const generateColorThemesTokenDataGroups = (): ThemeTokenDataGroups => {
+export const generateColorThemesTokenDataGroups = (): Record<string, ThemeTokenDataGroups> => {
     if (!fs.existsSync(themesFolder)) {
         return {};
     }

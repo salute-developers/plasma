@@ -17,3 +17,7 @@ export const getGreyTokenData = ({ saturation, grayscale, opacity }: GetGreyToke
             : generalColorsAdditionalSaturation[grayscale][saturation];
     return opacity ? alphenColor(color, opacity - 1) : humanizeColor(color);
 };
+
+export const lowerFirstLetter = (value: string) => `${value[0].toLocaleLowerCase()}${value.slice(1)}`;
+
+export const upperFirstLetter = (value: string) => `${value[0].toLocaleUpperCase()}${value.slice(1)}`;

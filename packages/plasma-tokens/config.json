@@ -1,5 +1,5 @@
 {
-    "source": ["properties/**/*.json"],
+    "source": ["properties/**/base.json", "properties/**/theme.json"],
     "platforms": {
         "android": {
             "transformGroup": "android",

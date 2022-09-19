@@ -72,15 +72,27 @@ export const deprecatedColorTokenOnActualToken: Record<string, ActualTokenNames>
     // voicePhraseGradient = 'Градиент подсказок о голосовых запросах',
 };
 
-export const mapDeprecatedColorTokens = (themeTokenDataGroups: ThemeTokenDataGroups): ThemeTokenDataGroups => {
-    return Object.entries(themeTokenDataGroups).reduce((tokensWithDeprecated, [themeName, tokens]) => {
-        const deprecatedTokens = Object.entries(deprecatedColorTokenOnActualToken).reduce(
-            (acc, [oldName, actualName]) => ({
-                ...acc,
-                [oldName]: { value: tokens[actualName].value, comment: `@deprecated instead use ${actualName}` },
-            }),
-            {},
-        );
+export const mapDeprecatedColorTokens = (
+    themeTokenDataGroups: Record<string, ThemeTokenDataGroups>,
+): ThemeTokenDataGroups => {
+    const themeTokenDataGroupsByName = Object.values(themeTokenDataGroups).reduce(
+        (preValues, values) => ({
+            ...preValues,
+            ...values,
+        }),
+        {} as ThemeTokenDataGroups,
+    );
+
+    return Object.entries(themeTokenDataGroupsByName).reduce((tokensWithDeprecated, [themeName, tokens]) => {
+        const deprecatedTokens = Object.entries(deprecatedColorTokenOnActualToken)
+            .filter(([_, actualName]) => tokens[actualName])
+            .reduce(
+                (acc, [oldName, actualName]) => ({
+                    ...acc,
+                    [oldName]: { value: tokens[actualName].value, comment: `@deprecated instead use ${actualName}` },
+                }),
+                {},
+            );
 
         const { skeletonGradient, skeletonGradientLighter } = gradientColors[
             themeName.startsWith('dark') ? 'dark' : 'light'
