@@ -19,7 +19,7 @@
         "create:theme": "npx ts-node ./lib/themeBuilder/createTheme.ts",
         "generate:theme-html": "npx ts-node -e 'import { generateThemesHtmlView } from \"./lib/themeBuilder/generateThemeHTML\"; generateThemesHtmlView();'",
         "generate": "npx ts-node ./generate.ts",
-        "postgenerate": "npx style-dictionary build && node clean.js",
+        "postgenerate": "npx ts-node ./config.ts",
         "figma": "npm run extract --prefix='./design-language'"
     },
     "publishConfig": {
@@ -52,7 +52,7 @@
         "inquirer": "8.2.0",
         "jsdom": "17.0.0",
         "jsdom-global": "3.0.2",
-        "style-dictionary": "2.10.2",
+        "style-dictionary": "3.7.1",
         "ts-node": "10.2.1",
         "typescript": "3.9.10"
     },

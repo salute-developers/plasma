@@ -109,12 +109,17 @@ fs.writeFileSync(ROOT_INDEX_TS, indexTsContent);
 /** =       GENERATION OF AMZN DICT        = **/
 /** ======================================== **/
 
+// Properties
 const amznDictPropsDir = path.join('properties');
 fs.existsSync(amznDictPropsDir) || fs.mkdirSync(amznDictPropsDir);
 
 // Colors
 const amznDictPropsColorsDir = path.join(amznDictPropsDir, 'color');
 fs.existsSync(amznDictPropsColorsDir) || fs.mkdirSync(amznDictPropsColorsDir);
+
+// Brands
+const amznDictPropsBrandsDir = path.join(amznDictPropsColorsDir, 'brands');
+fs.existsSync(amznDictPropsBrandsDir) || fs.mkdirSync(amznDictPropsBrandsDir);
 
 // BASE Colors
 fs.writeFileSync(
@@ -165,12 +170,26 @@ fs.writeFileSync(
     path.join(amznDictPropsColorsDir, 'theme.json'),
     JSON.stringify(
         {
-            color: { ...generateColors(), ...themesColorTokenGroups },
+            color: generateColors(),
         },
         null,
         2,
     ),
 );
+
+// Brands Themes
+Object.entries(themesColorTokenGroups).forEach(([key, value]) => {
+    fs.writeFileSync(
+        path.join(amznDictPropsBrandsDir, `${key}.json`),
+        JSON.stringify(
+            {
+                color: value,
+            },
+            null,
+            2,
+        ),
+    );
+});
 
 /** ======================================== **/
 /** =       GENERATION OF theme.json       = **/
