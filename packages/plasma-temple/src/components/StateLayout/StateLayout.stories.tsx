@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Button, mediaQuery } from '@salutejs/plasma-ui';
+import { Button, Caption, Headline3, Headline2, mediaQuery } from '@salutejs/plasma-ui';
 
 import { StateLayout } from './StateLayout';
 
@@ -104,6 +104,22 @@ export const WithoutBackgroundMask = () => {
             background="images/cat.png"
             image={{ src: 'images/food.png', customRatio: '144' }}
             backgroundMask={false}
+        />
+    );
+};
+
+export const WithCustomRenderText = () => {
+    return (
+        <StateLayout
+            image={<StyledIcon src="images/error.svg" />}
+            button={buttonGroup}
+            renderText={
+                <>
+                    <Caption>Правильно: 8 / 10</Caption>
+                    <Headline3>Прекрасно!</Headline3>
+                    <Headline2>Как Вам такое удалось?</Headline2>
+                </>
+            }
         />
     );
 };

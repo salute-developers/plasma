@@ -6,22 +6,19 @@ import { startApp, stubImage, images } from '../../testHelpers/testRenderHelpers
 import { StateLayout } from './StateLayout';
 import { StateLayoutCommonProps } from './types';
 
-function initStateLayoutTest(props?: Partial<React.PropsWithChildren<StateLayoutCommonProps>>) {
+const defaultProps: React.PropsWithChildren<StateLayoutCommonProps> = {
+    title: 'StateLayout Component Test',
+    button: <Button view="primary" text="Button" data-cy="test-control" />,
+    background: images.imageBg,
+    backgroundFit: 'cover',
+    image: images.image320,
+};
+
+function initStateLayoutTest(props: React.PropsWithChildren<StateLayoutCommonProps> = defaultProps) {
     return startApp([
         {
             name: 'state',
-            component: () => (
-                <StateLayout
-                    title="StateLayout Component Test"
-                    button={<Button view="primary" text="Button" data-cy="test-control" />}
-                    background={images.imageBg}
-                    backgroundFit="cover"
-                    image={images.image320}
-                    {...props}
-                >
-                    {props?.children}
-                </StateLayout>
-            ),
+            component: () => <StateLayout {...props} />,
         },
     ]);
 }
@@ -56,6 +53,7 @@ describe('StateLayout', () => {
             }
         };
         initStateLayoutTest({
+            ...defaultProps,
             children: (
                 <div style={{ width: imageWidth() }}>
                     <Image base="div" src={images.image320} ratio="1 / 1" data-cy="test-image" />
@@ -68,6 +66,7 @@ describe('StateLayout', () => {
 
     it('render with broken image', () => {
         initStateLayoutTest({
+            ...defaultProps,
             image: 'invalid url',
         }).then(() => {
             cy.get('[data-cy="StateLayoutImage-container"]').should('exist');
@@ -76,6 +75,7 @@ describe('StateLayout', () => {
 
     it('render with custom ratio', () => {
         initStateLayoutTest({
+            ...defaultProps,
             image: { src: images.image320, customRatio: '150' },
         }).then(() => {
             cy.get('[data-cy="StateLayoutImage-container"]').should('exist');
@@ -84,10 +84,27 @@ describe('StateLayout', () => {
 
     it('render without background mask', () => {
         initStateLayoutTest({
+            ...defaultProps,
             image: { src: images.image320, customRatio: '100' },
             backgroundMask: false,
         }).then(() => {
             cy.get('[data-cy="StateLayoutImage-container"]').should('exist');
+        });
+    });
+
+    it('render with custom renderText prop', () => {
+        initStateLayoutTest({
+            renderText: (
+                <>
+                    <p>Правильно: 8 / 10</p>
+                    <h3 data-cy="StateLayout-custom-h3">Прекрасно!</h3>
+                    <h2>Как Вам такое удалось?</h2>
+                </>
+            ),
+            button: defaultProps.button,
+            image: { src: images.image320, customRatio: '150' },
+        }).then(() => {
+            cy.get('[data-cy="StateLayout-custom-h3"]').should('exist');
         });
     });
 });

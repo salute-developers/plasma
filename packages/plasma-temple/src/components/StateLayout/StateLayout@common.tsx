@@ -54,6 +54,7 @@ export const StateLayout: React.FC<StateLayoutProps> = ({
     backgroundMask,
     header,
     children,
+    renderText,
     platformComponents: { Headline, Text, TextWrapper },
     className,
 }) => {
@@ -77,8 +78,12 @@ export const StateLayout: React.FC<StateLayoutProps> = ({
             <StyledContainer>
                 <Col sizeXL={6} sizeM={3}>
                     <TextWrapper>
-                        <Headline data-cy="state-layout-title">{title}</Headline>
-                        {text && <Text data-cy="state-layout-text">{text}</Text>}
+                        {renderText || (
+                            <>
+                                <Headline data-cy="state-layout-title">{title}</Headline>
+                                {text && <Text data-cy="state-layout-text">{text}</Text>}
+                            </>
+                        )}
                     </TextWrapper>
                     {button}
                 </Col>
