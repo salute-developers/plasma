@@ -1,3 +1,17 @@
+# v1.72.1 (Tue Sep 20 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): restore scroll in translateToIndex [#162](https://github.com/salute-developers/plasma/pull/162) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+---
+
 # v1.72.0 (Thu Sep 15 2022)
 
 #### 🐛 Bug Fix

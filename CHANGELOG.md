@@ -1,3 +1,16 @@
+# (Tue Sep 20 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-core@1.72.1`
+  - fix(plasma-ui): restore scroll in translateToIndex [#162](https://github.com/salute-developers/plasma/pull/162) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+#### Authors: 1
+
+- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+---
+
 # (Thu Sep 15 2022)
 
 #### 🚀 Enhancement
