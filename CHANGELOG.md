@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@salutejs/plasma-temple@1.95.2`
+  - fix(plasma-temple): prevent `focusin` event [#163](https://github.com/salute-developers/plasma/pull/163) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 1
+
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
+# (Tue Sep 20 2022)
+
+#### 🐛 Bug Fix
+
 - `@salutejs/plasma-core@1.72.1`
   - fix(plasma-ui): restore scroll in translateToIndex [#162](https://github.com/salute-developers/plasma/pull/162) ([@arsenykruglikov](https://github.com/arsenykruglikov))
 
