@@ -29,7 +29,6 @@ const StyledContentContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     width: 100%;
     margin-top: auto;
 `;
@@ -64,6 +63,7 @@ export const StateLayoutMobile: React.FC<StateLayoutCommonProps> = ({
     button,
     children,
     className,
+    renderText,
     insets,
 }) => {
     const height = useWindowInnerHeight();
@@ -85,13 +85,17 @@ export const StateLayoutMobile: React.FC<StateLayoutCommonProps> = ({
             )}
             <StyledContentContainer>
                 <StateLayoutImage image={children ?? image} />
-                <StyledTitle data-cy="state-layout-title" breakWord={false}>
-                    {title}
-                </StyledTitle>
-                {text && (
-                    <StyledSubtitle data-cy="state-layout-text" breakWord={false}>
-                        {text}
-                    </StyledSubtitle>
+                {renderText || (
+                    <>
+                        <StyledTitle data-cy="state-layout-title" breakWord={false}>
+                            {title}
+                        </StyledTitle>
+                        {text && (
+                            <StyledSubtitle data-cy="state-layout-text" breakWord={false}>
+                                {text}
+                            </StyledSubtitle>
+                        )}
+                    </>
                 )}
             </StyledContentContainer>
             <StyledButtonWrapper>{button}</StyledButtonWrapper>
