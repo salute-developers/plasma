@@ -281,7 +281,12 @@ export const useCarousel = ({
     };
 };
 
-export function useCarouselLite({ index, axis, scrollAlign = 'center' }: UseCarouselLiteOptions) {
+export function useCarouselLite({
+    index,
+    axis,
+    scrollAlign = 'center',
+    scrollMode = 'translate',
+}: UseCarouselLiteOptions) {
     const [prevIndex, setPrevIndex] = useState(index);
     const carouselRef = useRef<HTMLElement | null>(null);
     const trackRef = useRef<HTMLElement | null>(null);
@@ -298,20 +303,20 @@ export function useCarouselLite({ index, axis, scrollAlign = 'center' }: UseCaro
          * ширины элементов высчитываются неверно внутри translateToIndex при синхронном вызове
          */
         const rafId = requestAnimationFrame(() => {
-            translateToIndex(index, index, axis, scrollAlign, trackRef.current, carouselRef.current, true);
+            translateToIndex(index, index, axis, scrollAlign, trackRef.current, carouselRef.current, true, scrollMode);
             needTranslateToInitialIndex.current = false;
         });
 
         return () => {
             cancelAnimationFrame(rafId);
         };
-    }, [axis, index, scrollAlign]);
+    }, [axis, index, scrollAlign, scrollMode]);
 
     /**
      * Все последующие разы вызываем translateToIndex при изменении index прямо из рендера
      */
     if (index !== prevIndex) {
-        translateToIndex(index, prevIndex, axis, scrollAlign, trackRef.current, carouselRef.current, false);
+        translateToIndex(index, prevIndex, axis, scrollAlign, trackRef.current, carouselRef.current, false, scrollMode);
         setPrevIndex(index);
     }
 
