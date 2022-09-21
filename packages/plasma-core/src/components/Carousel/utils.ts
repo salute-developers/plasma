@@ -278,8 +278,9 @@ const scrollOptions: ScrollToOptions = { behavior: 'auto', left: 0, top: 0 };
 /**
  * Делает расчет следующей позиции карусели исходя из параметров
  * index, align и размеров элементов track и carousel.
- * После применяет стиль к элементу track.
- * Анимирование происходит из-за CSS свойства `transition-property: transform`, применённому к элементу track
+ * После применяет transform к элементу track или вызывает scrollTo на элементе carousel.
+ * При scrollMode равном translate Анимирование происходит из-за CSS свойства `transition-property: transform`,
+ * применённому к элементу track
  *
  * @param index индекс элемента к которому нужно сделать transform
  * @param prevIndex индекс предыдущего активного элемента для расчёта дистанции между индексами
@@ -287,16 +288,18 @@ const scrollOptions: ScrollToOptions = { behavior: 'auto', left: 0, top: 0 };
  * @param align определяет позицию активного элемента относительно элемента carousel
  * @param track элемент к которому применяется transform
  * @param carousel элемент содержащий track
- * @param disableAnimation флаг для отключения анимирования transform
+ * @param disableAnimation флаг для отключения анимирования прокрутки
+ * @param scrollMode прокрутка через scrollTo или через translate
  */
 export function translateToIndex(
     index: number,
     prevIndex: number,
     axis: UseCarouselLiteOptions['axis'],
-    align: UseCarouselLiteOptions['scrollAlign'],
+    align: NonNullable<UseCarouselLiteOptions['scrollAlign']>,
     track: HTMLElement | null,
     carousel: HTMLElement | null,
     disableAnimation: boolean,
+    scrollMode: NonNullable<UseCarouselLiteOptions['scrollMode']>,
 ): void {
     if (track === null || carousel === null) {
         return;
@@ -304,7 +307,7 @@ export function translateToIndex(
 
     const scrollKey = axisToScrollKeyMap[axis];
 
-    if (disableAnimation === false && carousel[scrollKey] !== 0) {
+    if (disableAnimation === false && scrollMode === 'translate' && carousel[scrollKey] !== 0) {
         carousel.scrollTo(scrollOptions);
     }
 
@@ -329,6 +332,16 @@ export function translateToIndex(
     const translatePosition = getTranslatePosition(itemSize, itemStart, carouselSize, trackOffset, align);
 
     const position = boundPosition(translatePosition, trackEnd);
+
+    if (scrollMode === 'scroll') {
+        carousel.scrollTo({
+            behavior: disableAnimation ? 'auto' : 'smooth',
+            left: axis === 'x' ? position : 0,
+            top: axis === 'y' ? position : 0,
+        });
+
+        return;
+    }
 
     if (disableAnimation === true || isMaximumDistance(prevIndex, index, itemsNumber) === true) {
         // Выключаем стандартный easing, переключая его на step-start

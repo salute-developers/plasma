@@ -89,6 +89,10 @@ export interface CarouselLiteProps extends AsProps, HTMLAttributes<HTMLDivElemen
      * Сменить WAI-ARIA Label списка.
      */
     listAriaLabel?: string;
+    /**
+     * Переключает тип прокрутки
+     */
+    scrollMode?: 'scroll' | 'translate';
 }
 
 export interface DetectionProps {
@@ -144,7 +148,7 @@ export type UseCarouselOptions = Pick<
     | 'debounceMs'
 >;
 
-export type UseCarouselLiteOptions = Pick<CarouselLiteProps, 'index' | 'axis' | 'scrollAlign'>;
+export type UseCarouselLiteOptions = Pick<CarouselLiteProps, 'index' | 'axis' | 'scrollAlign' | 'scrollMode'>;
 
 export type CarouselTemplateProps = Omit<BasicProps, Exclude<keyof UseCarouselOptions, 'axis'>>;
 

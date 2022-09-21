@@ -113,13 +113,14 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
  */
 // eslint-disable-next-line prefer-arrow-callback
 export const CarouselLite = React.forwardRef<HTMLDivElement, CarouselLiteProps>(function CarouselLite(
-    { index = 0, axis = 'x', scrollAlign, ...rest },
+    { index = 0, axis = 'x', scrollAlign, scrollMode, ...rest },
     ref,
 ) {
     const { scrollRef, trackRef } = useCarouselLite({
         index,
         axis,
         scrollAlign,
+        scrollMode,
     });
 
     const handleRef = useForkRef(scrollRef, ref);
