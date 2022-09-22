@@ -1,10 +1,10 @@
 import type { Dictionary, File } from 'style-dictionary';
 import { upperFirstLetter, lowerFirstLetter } from '../../themeBuilder/utils';
 
-const getSwiftTemplate = (structContent: string, enumsContent: string, name: string) => {
-    const themeName = upperFirstLetter(name);
-
+const getSwiftTemplate = (structContent: string, enumsContent: string) => {
     const header = `
+// swiftlint:disable all
+
 import SwiftUI
 import UIKit
 
@@ -33,7 +33,7 @@ extension UIColor {
 `;
 
     const struct = `public struct ColorToken {\n${[structHeader, structContent].join('\n')}\n}`;
-    const enums = `public enum ${themeName}TokensColor {\n${enumsContent}\n}\n`;
+    const enums = `private enum PlasmaTokensColor {\n${enumsContent}\n}\n`;
 
     return [header, struct, enums].join('\n\n');
 };
@@ -63,5 +63,5 @@ export const iosSwiftCustomFormatter = ({ dictionary, file }: { dictionary: Dict
         })
         .join(`\n`);
 
-    return getSwiftTemplate(struct, enums, themeName);
+    return getSwiftTemplate(struct, enums);
 };

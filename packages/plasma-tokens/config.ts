@@ -1,7 +1,14 @@
-import StyleDictionaryPackage from 'style-dictionary';
+import StyleDictionaryPackage, { Format, Transform } from 'style-dictionary';
 import glob from 'fast-glob';
 import path from 'path';
-import { iosSwiftCustomFormatter, kotlinCustomFormatter, reactNativeCustomFormatter } from './lib/generator';
+import {
+    iosSwiftCustomFormatter,
+    kotlinCustomFormatter,
+    reactNativeCustomFormatter,
+    gradientSwiftTransformer,
+    gradientKotlinTransformer,
+    gradientReactNativeTransformer,
+} from './lib/generator';
 
 import { upperFirstLetter } from './lib/themeBuilder/utils';
 
@@ -15,7 +22,7 @@ const getStyleDictionaryConfig = (brand: string) => ({
     source: [path.join(tokensPath, `${brand}.json`)],
     platforms: {
         kotlin: {
-            transforms: ['attribute/cti', 'name/ti/camel', 'color/composeColor'],
+            transforms: ['attribute/cti', 'name/ti/camel', 'color/composeColor', 'color/gradientKotlin'],
             buildPath: `build/`,
             files: [
                 {
@@ -26,7 +33,7 @@ const getStyleDictionaryConfig = (brand: string) => ({
             ],
         },
         'react-native': {
-            transforms: ['attribute/cti', 'name/ti/camel', 'color/hex8'],
+            transforms: ['attribute/cti', 'name/ti/camel', 'color/hex8', 'color/gradientReactNative'],
             buildPath: `build/`,
             files: [
                 {
@@ -37,7 +44,16 @@ const getStyleDictionaryConfig = (brand: string) => ({
             ],
         },
         'ios-swift': {
-            transformGroup: 'ios-swift-separate',
+            transforms: [
+                'attribute/cti',
+                'name/ti/camel',
+                'color/UIColorSwift',
+                'content/swift/literal',
+                'asset/swift/literal',
+                'size/swift/remToCGFloat',
+                'font/swift/literal',
+                'color/gradientSwift',
+            ],
             buildPath: `build/`,
             files: [
                 {
@@ -50,7 +66,7 @@ const getStyleDictionaryConfig = (brand: string) => ({
     },
 });
 
-const mapFormatter = [
+const mapFormatter: Array<Format & { name: string }> = [
     {
         name: 'ios-swift/custom',
         formatter: iosSwiftCustomFormatter,
@@ -65,10 +81,31 @@ const mapFormatter = [
     },
 ];
 
+const mapTransformer: Array<Transform & { name: string }> = [
+    {
+        name: 'color/gradientSwift',
+        type: 'value',
+        transformer: gradientSwiftTransformer,
+    },
+    {
+        name: 'color/gradientReactNative',
+        type: 'value',
+        transformer: gradientReactNativeTransformer,
+    },
+    {
+        name: 'color/gradientKotlin',
+        type: 'value',
+        transformer: gradientKotlinTransformer,
+    },
+];
+
 fileNames.forEach((brand) =>
     platforms.forEach((platform) => {
         const styleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryConfig(brand));
+
         mapFormatter.forEach((formatter) => styleDictionary.registerFormat(formatter));
+        mapTransformer.forEach((transformer) => styleDictionary.registerTransform(transformer));
+
         styleDictionary.buildPlatform(platform);
     }),
 );
