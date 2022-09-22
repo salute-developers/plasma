@@ -11,14 +11,22 @@ const getReactNativeTemplate = (lightThemeContent: string, darkThemeContent: str
     return [lightTheme, darkTheme].join('\n\n');
 };
 
+const getTokenValue = (token: TransformedToken) => {
+    const value = token.original.value.linearGradient
+        ? `${token.value.replace(/@@@/g, '{').replace(/!!!/g, '}')}`
+        : `'${token.value}'`;
+
+    return `    ${token.attributes?.item}: ${value}`;
+};
+
+const getTheme = (tokenItems: TransformedToken[], theme: 'light' | 'dark') =>
+    tokenItems
+        .filter((tokens) => tokens.attributes?.type?.includes(theme))
+        .map(getTokenValue)
+        .join(`,\n`);
+
 export const reactNativeCustomFormatter = ({ dictionary, file }: { dictionary: Dictionary; file: File }) => {
     const themeName = file.className || '';
-
-    const getTheme = (tokenItems: TransformedToken[], theme: 'light' | 'dark') =>
-        tokenItems
-            .filter((tokens) => tokens.attributes?.type?.includes(theme))
-            .map((token) => `    ${token.attributes?.item}: '${token.value}'`)
-            .join(`,\n`);
 
     const lightTheme = getTheme(dictionary.allTokens, 'light');
     const darkTheme = getTheme(dictionary.allTokens, 'dark');
