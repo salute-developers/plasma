@@ -160,7 +160,12 @@
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradient": {
-                    "value": "TODO: необходимо указать вручную",
+                    "value": {
+                        "linearGradient": {
+                            "colors": ["#4817C1", "#C505D6"],
+                            "angle": 123
+                        }
+                    },
                     "comment": "Акцентный фон поверхности/контрола с градиентом"
                 },
                 "surfaceNegative": {
@@ -206,7 +211,12 @@
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentGradient": {
-                    "value": "TODO: необходимо указать вручную",
+                    "value": {
+                        "linearGradient": {
+                            "colors": ["#4817C1", "#C505D6"],
+                            "angle": 123
+                        }
+                    },
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне"
                 },
                 "surfaceNegative": {
@@ -252,7 +262,12 @@
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentGradient": {
-                    "value": "TODO: необходимо указать вручную",
+                    "value": {
+                        "linearGradient": {
+                            "colors": ["#4817C1", "#C505D6"],
+                            "angle": 123
+                        }
+                    },
                     "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне"
                 },
                 "surfaceNegative": {
@@ -460,7 +475,12 @@
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradient": {
-                    "value": "TODO: необходимо указать вручную",
+                    "value": {
+                        "linearGradient": {
+                            "colors": ["#4817C1", "#C505D6"],
+                            "angle": 123
+                        }
+                    },
                     "comment": "Акцентный фон поверхности/контрола с градиентом"
                 },
                 "surfaceNegative": {
@@ -506,7 +526,12 @@
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentGradient": {
-                    "value": "TODO: необходимо указать вручную",
+                    "value": {
+                        "linearGradient": {
+                            "colors": ["#4817C1", "#C505D6"],
+                            "angle": 123
+                        }
+                    },
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне"
                 },
                 "surfaceNegative": {
@@ -552,7 +577,12 @@
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentGradient": {
-                    "value": "TODO: необходимо указать вручную",
+                    "value": {
+                        "linearGradient": {
+                            "colors": ["#4817C1", "#C505D6"],
+                            "angle": 123
+                        }
+                    },
                     "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне"
                 },
                 "surfaceNegative": {
