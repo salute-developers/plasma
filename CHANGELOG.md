@@ -1,3 +1,19 @@
+# (Mon Sep 26 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-core@1.72.2`, `@salutejs/plasma-ui@1.129.2`
+  - fix(plasma-ui): scroll carousel on touch devices [#169](https://github.com/salute-developers/plasma/pull/169) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+- `@salutejs/plasma-temple@1.95.3`
+  - fix(plasma-temple): prevent `focusin` event [#163](https://github.com/salute-developers/plasma/pull/163) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 2
+
+- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # (Tue Sep 20 2022)
 
 #### 🐛 Bug Fix

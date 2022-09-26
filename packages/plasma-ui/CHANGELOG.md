@@ -1,3 +1,17 @@
+# v1.129.2 (Mon Sep 26 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): scroll carousel on touch devices [#169](https://github.com/salute-developers/plasma/pull/169) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+---
+
 # v1.129.1 (Tue Sep 20 2022)
 
 #### 🐛 Bug Fix
