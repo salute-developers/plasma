@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-icons",
-    "version": "1.98.2",
+    "version": "1.99.0",
     "description": "Salute Design System Icons",
     "main": "index.js",
     "module": "es/index.js",
@@ -23,7 +23,7 @@
         "@babel/preset-env": "^7.15.4",
         "@babel/preset-react": "^7.14.5",
         "@babel/preset-typescript": "^7.15.0",
-        "@salutejs/plasma-core": "1.72.2",
+        "@salutejs/plasma-core": "1.73.0",
         "@types/node": "^16.7.13",
         "@types/react": "16.9.38",
         "@types/react-dom": "16.9.8",
