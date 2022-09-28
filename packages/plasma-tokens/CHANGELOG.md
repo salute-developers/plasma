@@ -1,3 +1,16 @@
+# v1.25.0 (Wed Sep 28 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): Add `sbermarket` theme [#166](https://github.com/salute-developers/plasma/pull/166) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-tokens): Add customs theme generators [#166](https://github.com/salute-developers/plasma/pull/166) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.24.0 (Thu Sep 15 2022)
 
 #### 🚀 Enhancement

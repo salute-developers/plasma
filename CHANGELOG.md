@@ -1,3 +1,18 @@
+# (Wed Sep 28 2022)
+
+#### 🚀 Enhancement
+
+- chore: remove theme artifacts from workflow [#166](https://github.com/salute-developers/plasma/pull/166) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-tokens@1.25.0`
+  - feat(plasma-tokens): Add `sbermarket` theme [#166](https://github.com/salute-developers/plasma/pull/166) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-tokens): Add customs theme generators [#166](https://github.com/salute-developers/plasma/pull/166) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Mon Sep 26 2022)
 
 #### 🐛 Bug Fix
