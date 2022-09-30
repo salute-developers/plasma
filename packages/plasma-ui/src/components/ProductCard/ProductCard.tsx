@@ -24,7 +24,7 @@ export interface ProductCardProps extends CardProps, DisabledProps {
     /**
      * Слот под бейдж (-и).
      */
-    badge?: ReactNode;
+    badge?: ReactNode | Array<ReactNode>;
     /**
      * Текст или название карточки.
      */
@@ -148,12 +148,6 @@ const StyledCardContent = styled(CardContent)<{ $backgroundColor?: string; $isVa
             margin-top: -3rem;
         `}
 `;
-const StyledBadgeSlot = memo(styled.div`
-    position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
-    z-index: 1;
-`);
 const StyledText = memo(styled(Footnote1)`
     max-height: 3.38rem;
     overflow: hidden;
@@ -247,6 +241,17 @@ const Prices = memo<{ price: number; oldPrice?: number }>(({ price, oldPrice }) 
     );
 });
 
+const StyledBadges = memo(styled.div`
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    max-width: calc(100% - 0.75rem);
+`);
+
 /**
  * Карточка продукта с возможностью указания картинки, текста, цены и выбора количества.
  */
@@ -280,7 +285,7 @@ export const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(function
 
     return (
         <StyledRoot>
-            {badge && <StyledBadgeSlot>{badge}</StyledBadgeSlot>}
+            {badge && <StyledBadges>{badge}</StyledBadges>}
             <StyledCard
                 {...rest}
                 ref={ref}

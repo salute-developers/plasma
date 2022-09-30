@@ -21,7 +21,8 @@ export default {
 interface ProductCardProps extends ProductCardPropsBasic {
     'media:src'?: string;
     'media:alt'?: string;
-    'badge:text'?: string;
+    'badge1:text'?: string;
+    'badge2:text'?: string;
     'example:cardWidth'?: string | number;
 }
 
@@ -37,7 +38,8 @@ const StyledCardMedia = styled(CardMedia)`
 export const Product_Card: Story<ProductCardProps> = ({
     'media:src': imageSrc,
     'media:alt': imageAlt,
-    'badge:text': badgeText,
+    'badge1:text': badgeText,
+    'badge2:text': badge2Text,
     'example:cardWidth': cardWidth,
     quantity: q,
     ...rest
@@ -52,6 +54,8 @@ export const Product_Card: Story<ProductCardProps> = ({
         quantity7: 4,
     });
 
+    const badges = [<Badge text={badgeText} size="l" />, <Badge text={badge2Text} size="l" />];
+
     return (
         <div
             style={{
@@ -63,7 +67,7 @@ export const Product_Card: Story<ProductCardProps> = ({
         >
             <ProductCard
                 {...rest}
-                badge={<Badge text={badgeText} size="l" />}
+                badge={badges}
                 media={<StyledCardMedia src={imageSrc} alt={imageAlt} width="12.25rem" />}
                 quantity={state.quantity1}
                 onQuantityChange={(quantity) => setState((s) => ({ ...s, quantity1: quantity }))}
@@ -140,7 +144,8 @@ Product_Card.args = {
     quantityMax: 10,
     'media:src': './images/320_320_0.jpg',
     'media:alt': '',
-    'badge:text': '−20%',
+    'badge1:text': '−20%',
+    'badge2:text': '−30%',
     'example:cardWidth': '12.25rem',
 };
 
