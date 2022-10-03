@@ -41,11 +41,17 @@ describe('OrderSuccessPage', { scrollBehavior: false }, () => {
 
                 cy.get('[data-cy="order-success-button"]').should('contain.text', 'Вернуться в магазин');
             })
-            .then(() => cy.matchImageSnapshot());
+            .then(() => {
+                cy.get('[data-cy="order-success-button"]').waitForFocusElement();
+                cy.matchImageSnapshot();
+            });
     });
 
     it('render without image', () => {
-        initOrderSuccessPageTest({ imageSrc: undefined }).then(() => cy.matchImageSnapshot());
+        initOrderSuccessPageTest({ imageSrc: undefined }).then(() => {
+            cy.get('[data-cy="order-success-button"]').waitForFocusElement();
+            cy.matchImageSnapshot();
+        });
     });
 
     it('call received function', () => {

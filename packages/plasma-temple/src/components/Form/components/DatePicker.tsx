@@ -4,6 +4,7 @@ import { DatePicker as UIDatePicker, DatePickerProps as UIDatePickerProps, Butto
 import { useFocusOnMount } from '../../../hooks/useFocusOnMount';
 import { withWrapField } from '../hocs/withWrapField';
 import { FieldComponentProps } from '../types';
+import { isSberBoxLike } from '../../../utils';
 
 type DatePickerProps = FieldComponentProps<
     UIDatePickerProps,
@@ -23,6 +24,7 @@ export const DatePicker = withWrapField<Date, DatePickerProps>(
         const mountRef = React.useRef<HTMLButtonElement>(null);
         useFocusOnMount(mountRef, {
             delay: 250,
+            prevent: !isSberBoxLike(),
         });
 
         return (

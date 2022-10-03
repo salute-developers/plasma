@@ -55,12 +55,9 @@ function initConfirmOrderPageTest(props?: Partial<ConfirmOrderProps>) {
 
 describe('ConfirmOrderPage', { scrollBehavior: false }, () => {
     it('render', () => {
-        initConfirmOrderPageTest({ paymentDisabled: false })
-            .then(() => {
-                cy.get('[data-cy="confirm-order-payment-button"]').should('be.focused');
-            })
-            .then(() => {
-                cy.matchImageSnapshot();
-            });
+        initConfirmOrderPageTest({ paymentDisabled: false }).then(() => {
+            cy.get('[data-cy="confirm-order-payment-button"]').waitForFocusElement();
+            cy.matchImageSnapshot();
+        });
     });
 });
