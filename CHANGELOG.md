@@ -1,3 +1,17 @@
+# (Mon Oct 03 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-tokens@1.26.0`
+  - feat(plasma-tokens): Add gradient to `sbermarket` theme [#170](https://github.com/salute-developers/plasma/pull/170) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-tokens): Add gradient generators [#170](https://github.com/salute-developers/plasma/pull/170) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Wed Sep 28 2022)
 
 #### 🚀 Enhancement
