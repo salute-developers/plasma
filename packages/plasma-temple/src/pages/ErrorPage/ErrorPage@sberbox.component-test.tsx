@@ -13,7 +13,7 @@ describe('ErrorPage', { scrollBehavior: false }, () => {
             },
             buttons: renderButtons,
         }).then(() => {
-            cy.get('[data-cy="go-back-btn"]').should('exist').should('be.focused');
+            cy.get('[data-cy="go-back-btn"]').waitForFocusElement();
         });
     });
 
@@ -23,8 +23,6 @@ describe('ErrorPage', { scrollBehavior: false }, () => {
                 status: 'Что-то сломалось :(',
             },
             buttons: renderButtons(),
-        }).then(() => {
-            cy.get('[data-cy="go-back-btn"]').should('exist').should('not.be.focused');
         });
     });
 });

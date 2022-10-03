@@ -19,6 +19,7 @@ describe('ErrorPage', { scrollBehavior: false }, () => {
                 'Вернитесь на предыдущий экран и повторите попытку',
             );
             cy.get('[data-cy="close-btn"]').should('exist');
+            cy.get('[data-cy="go-back-btn"]').waitForFocusElement();
         });
     });
 

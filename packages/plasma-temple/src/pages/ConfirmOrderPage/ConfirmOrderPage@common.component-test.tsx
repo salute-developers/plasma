@@ -80,6 +80,7 @@ describe('ConfirmOrderPage', { scrollBehavior: false }, () => {
                     .should('contain.text', address.content);
             })
             .then(() => {
+                cy.get('[data-cy="confirm-order-payment-button"]').waitForFocusElement();
                 cy.matchImageSnapshot();
             });
     });

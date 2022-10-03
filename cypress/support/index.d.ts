@@ -19,6 +19,11 @@ declare global {
             triggerSpatNavEvent(dir: 'left' | 'right' | 'up' | 'down', times?: number): Chainable<HTMLElement>;
             mockImage(selector: string, path: string): Chainable;
             mockBackgroundImage(selector: string, path: string): Chainable;
+            /**
+             * Для `userAgent == 'sberbox'` ждем фокуса на элементе
+             * @param timeout {number?}
+             */
+            waitForFocusElement(timeout?: number): Chainable<HTMLElement>;
         }
     }
 }

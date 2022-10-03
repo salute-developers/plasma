@@ -132,3 +132,11 @@ Cypress.Commands.add('mockBackgroundImage', (selector: string, path: string) => 
         cy.get(selector).invoke('css', 'background-image', `url(data:image/jpg;base64,${src})`);
     });
 });
+
+Cypress.Commands.add('waitForFocusElement', { prevSubject: 'element' }, (subject: HTMLElement, timeout = 300) => {
+    const specsUa = Cypress.config('userAgent');
+
+    if (specsUa === 'sberbox') {
+        cy.wrap(subject, { timeout }).should('be.visible').should('be.focused');
+    }
+});
