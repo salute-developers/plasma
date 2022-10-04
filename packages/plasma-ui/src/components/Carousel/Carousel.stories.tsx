@@ -1,14 +1,14 @@
-import React, { useRef, useContext, useCallback } from 'react';
+import React, { useRef, useCallback } from 'react';
 import { Story, Meta, addDecorator } from '@storybook/react';
 import type { SnapType, SnapAlign, CarouselLiteProps } from '@salutejs/plasma-core';
 import { CarouselItemVirtual } from '@salutejs/plasma-core';
-import * as tokens from '@salutejs/plasma-tokens';
 import { useVirtual } from '@salutejs/use-virtual';
-import styled, { ThemeContext } from 'styled-components';
+import styled from 'styled-components';
 import { withPerformance, InteractionTaskArgs, PublicInteractionTask } from 'storybook-addon-performance';
 import { fireEvent, waitFor } from '@testing-library/dom';
 import { IconChevronLeft, IconChevronRight } from '@salutejs/plasma-icons';
 
+import { useThemeContext } from '../../hooks';
 import { isSberBox } from '../../utils';
 import { ProductCard, MusicCard, GalleryCard } from '../Card/Card.examples';
 import { DeviceThemeProvider } from '../Device';
@@ -222,8 +222,8 @@ Basic.argTypes = {
 };
 
 const CarouselVirtualBasicComponent = () => {
-    // deviceScale = 1 (Mobile), deviceScale = 2 (Sberbox, TV, Portal)
-    const { deviceScale } = useContext(ThemeContext);
+    // INFO: deviceScale = 1 (Mobile), deviceScale = 2 (Sberbox, TV, Portal)
+    const { deviceScale } = useThemeContext();
     const parentRef = useRef(null);
     const axis = 'x';
 
