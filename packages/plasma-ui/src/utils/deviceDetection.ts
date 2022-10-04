@@ -6,6 +6,12 @@ export const deviceScales = {
 
 export type DeviceKind = keyof typeof deviceScales;
 
+export enum DeviceKindList {
+    sberBox = 'sberBox',
+    mobile = 'mobile',
+    sberPortal = 'sberPortal',
+}
+
 /**
  * Проверка в браузере на устройство "SberPortal".
  * @return {boolean}
@@ -74,16 +80,16 @@ export const isTV = (): boolean => {
  */
 export const detectDevice = (): DeviceKind => {
     if (typeof navigator === 'undefined') {
-        return 'sberBox';
+        return DeviceKindList.sberBox;
     }
     switch (true) {
         case isSberPortal():
-            return 'sberPortal';
+            return DeviceKindList.sberPortal;
         case isSberBoxTop():
         case isSberBox():
         case isTV():
-            return 'sberBox';
+            return DeviceKindList.sberBox;
         default:
-            return 'mobile';
+            return DeviceKindList.mobile;
     }
 };
