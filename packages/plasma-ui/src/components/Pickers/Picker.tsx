@@ -1,11 +1,11 @@
-import React, { useMemo, useState, useRef, useCallback, useEffect, useContext } from 'react';
+import React, { useMemo, useState, useRef, useCallback, useEffect } from 'react';
 import type { HTMLAttributes } from 'react';
-import styled, { css, ThemeContext } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { primary } from '@salutejs/plasma-tokens';
 import { IconChevronUp, IconChevronDown } from '@salutejs/plasma-icons';
 import { applyDisabled, DisabledProps, useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 
-import { useRemoteListener } from '../../hooks';
+import { useRemoteListener, useThemeContext } from '../../hooks';
 import { Button } from '../Button';
 import { Carousel, CarouselProps } from '../Carousel';
 
@@ -297,7 +297,7 @@ export const Picker = ({
     const min = 0;
     const max = items.length - 1;
 
-    const theme = useContext(ThemeContext);
+    const theme = useThemeContext();
     // by default 'true' on high perfomance devices
     const infiniteScroll = rest.infiniteScroll ?? !theme?.lowPerformance;
 
