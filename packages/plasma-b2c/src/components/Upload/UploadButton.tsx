@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, useCallback, useState } from 'react';
+import React, { ChangeEventHandler, useCallback, useState, DragEvent, ChangeEvent } from 'react';
 import type { FC } from 'react';
 import styled, { css } from 'styled-components';
 import {
@@ -50,7 +50,7 @@ export interface StyledButtonProps {
 }
 
 export const StyledButton = styled.button<StyledButtonProps>`
-    ${footnote1}
+    ${footnote1};
 
     position: relative;
 
@@ -150,7 +150,7 @@ export interface UploadButtonProps {
     /**
      * Колбэк на выбор файла.
      */
-    onChange?: (file: File) => void;
+    onChange?: (file: File, event?: ChangeEvent<HTMLInputElement>) => void;
 }
 
 /**
@@ -172,13 +172,13 @@ export const UploadButton: FC<UploadButtonProps> = ({
     const paint = isProgress ? 'progress' : 'default';
 
     const onUpload = useCallback(
-        (files: FileList | null) => {
+        (files: FileList | null, event?: ChangeEvent<HTMLInputElement>) => {
             const result = (validate || defaultValidate)(files, accept);
 
             onValidation(result);
 
             if (result.data) {
-                onChange(result.data);
+                onChange(result.data, event);
             }
         },
         [accept, onChange, onValidation, validate],
@@ -188,7 +188,7 @@ export const UploadButton: FC<UploadButtonProps> = ({
     const dragEnd = useCallback(() => setGrabbing(false), []);
 
     const drop = useCallback(
-        (files: FileList | null, event: React.DragEvent<HTMLDivElement>) => {
+        (files: FileList | null, event: DragEvent<HTMLDivElement>) => {
             if (disabled || isProgress) {
                 return;
             }
@@ -202,10 +202,12 @@ export const UploadButton: FC<UploadButtonProps> = ({
     );
 
     const inputChangeHandler: ChangeEventHandler<HTMLInputElement> = useCallback(
-        ({ target }) => {
-            const { files } = target;
+        (event) => {
+            const {
+                target: { files },
+            } = event;
 
-            onUpload(files);
+            onUpload(files, event);
         },
         [onUpload],
     );
