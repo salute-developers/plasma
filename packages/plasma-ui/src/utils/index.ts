@@ -22,5 +22,5 @@ export type { Breakpoint, MediaQueryFunction } from './mediaQuery';
 
 export type { PinProps } from '@salutejs/plasma-core';
 
-export { detectDevice, deviceScales, isSberBox, isSberPortal } from './deviceDetection';
+export { detectDevice, deviceScales, isSberBox, isSberPortal, DeviceKindList } from './deviceDetection';
 export type { DeviceKind } from './deviceDetection';

@@ -75,7 +75,7 @@ export const DeviceThemeProvider = ({
     const Typo = React.useMemo(() => typoSizes[deviceKind], [deviceKind]);
 
     return (
-        <ThemeProvider theme={{ ...theme, deviceScale, lowPerformance }}>
+        <ThemeProvider theme={{ ...theme, deviceScale, lowPerformance, deviceKind }}>
             {responsiveTypo ? (
                 <>
                     <StandardTypo deviceScale={deviceScale} />
