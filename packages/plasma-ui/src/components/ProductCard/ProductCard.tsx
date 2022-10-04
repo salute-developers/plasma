@@ -11,6 +11,7 @@ import { Card } from '../Card/Card';
 import type { CardProps } from '../Card/Card';
 import { CardBody } from '../Card/CardBody';
 import { CardContent } from '../Card/CardContent';
+import { useDeviceKind } from '../../hooks';
 
 import { ProductCardStepper } from './ProductCardStepper';
 import type { ProductCardStepperProps } from './ProductCardStepper';
@@ -271,6 +272,10 @@ export const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(function
     },
     ref,
 ) {
+    const { isSberBox } = useDeviceKind();
+
+    const isReadonly = isSberBox || readonly;
+
     return (
         <StyledRoot>
             {badge && <StyledBadgeSlot>{badge}</StyledBadgeSlot>}
@@ -278,7 +283,7 @@ export const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(function
                 <StyledCardBody>
                     {media && <StyledMediaSlot>{media}</StyledMediaSlot>}
                     <StyledCardContent
-                        $isValuePositive={!readonly && !!quantity && quantity > 0}
+                        $isValuePositive={!isReadonly && !!quantity && quantity > 0}
                         $backgroundColor={backgroundColor}
                     >
                         {text && <StyledText>{text}</StyledText>}
@@ -288,13 +293,13 @@ export const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(function
                                 {price !== undefined && <Prices price={price} oldPrice={oldPrice} />}
                                 {!disabled && quantity !== undefined && (
                                     <StyledStepper
-                                        readonly={readonly}
+                                        readonly={isReadonly}
                                         value={quantity}
                                         step={quantityStep}
                                         min={quantityMin}
                                         max={quantityMax}
                                         onChange={onQuantityChange}
-                                        $onTop={readonly || (price !== undefined && quantity === 0)}
+                                        $onTop={isReadonly || (price !== undefined && quantity === 0)}
                                         disabled={disabledAction || disabled}
                                     />
                                 )}
