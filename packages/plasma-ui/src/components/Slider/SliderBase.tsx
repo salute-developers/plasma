@@ -1,7 +1,9 @@
 import React, { ReactNode } from 'react';
-import styled, { css, ThemeContext } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { surfaceLiquid03, buttonAccent, scalingPixelBasis, sberPortalScale } from '@salutejs/plasma-tokens';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
+
+import { useThemeContext } from '../../hooks';
 
 export const handleDiameter = 1.5;
 export const handleBorderWidth = 0.0625;
@@ -61,7 +63,7 @@ export const SliderBase = ({
     disabled,
 }: SliderProps) => {
     const ref = React.useRef<HTMLDivElement | null>(null);
-    const theme = React.useContext(ThemeContext);
+    const theme = useThemeContext();
 
     useIsomorphicLayoutEffect(() => {
         const resizeHandler = () => {
