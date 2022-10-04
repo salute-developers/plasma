@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import { overlay, primary, backgroundPrimary } from '@salutejs/plasma-tokens';
 
+import { ThemeProviderContext } from '../../hooks';
+
 import { useSheetSwipe } from './useSheetSwipe';
 
 export interface SheetProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -21,16 +23,36 @@ export interface SheetProps extends React.HTMLAttributes<HTMLDivElement> {
      */
     withOverlay?: boolean;
     children?: ReactNode;
+
+    /**
+     * Наличие состояния анимации/перехода, по-умолчанию true.
+     */
+    withTransition?: boolean;
 }
 
-const StyledWrapper = styled.div<{ isOpen: boolean }>`
+type CommonProps = Pick<SheetProps, 'withTransition' | 'isOpen'> & {
+    theme: ThemeProviderContext;
+};
+
+type HandleTransitionProps = Omit<CommonProps, 'isOpen'>;
+
+const handleTransition = (transition: string) => (props: HandleTransitionProps): string => {
+    const {
+        theme: { lowPerformance },
+        withTransition,
+    } = props;
+
+    return !withTransition || lowPerformance ? 'unset' : transition;
+};
+
+const StyledWrapper = styled.div<CommonProps>`
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     opacity: 1;
-    transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'all 0.5s 0.1s')};
+    transition: ${handleTransition('all 0.5s 0.1s')};
     z-index: 1000;
 
     ${({ isOpen }) =>
@@ -41,7 +63,7 @@ const StyledWrapper = styled.div<{ isOpen: boolean }>`
         `}
 `;
 
-const StyledContentWrapper = styled.div<{ isOpen: boolean }>`
+const StyledContentWrapper = styled.div<CommonProps>`
     position: absolute;
     left: 0;
     bottom: 0;
@@ -53,7 +75,7 @@ const StyledContentWrapper = styled.div<{ isOpen: boolean }>`
     flex-direction: column;
     justify-content: flex-end;
 
-    transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'transform 0.5s')};
+    transition: ${handleTransition('transform 0.5s')};
 
     ${({ isOpen }) =>
         !isOpen &&
@@ -104,15 +126,22 @@ const StyledSheetHandle = styled.div`
  * Открывает окно-шторку поверх основного экрана.
  * Только для приложения Салют.
  */
-export const Sheet = ({ isOpen, children, onClose, withOverlay = true, ...restProps }: SheetProps) => {
+export const Sheet = ({
+    isOpen,
+    children,
+    onClose,
+    withOverlay = true,
+    withTransition = true,
+    ...restProps
+}: SheetProps) => {
     const contentWrapperRef = React.useRef<HTMLDivElement>(null);
     const handleRef = React.useRef<HTMLDivElement>(null);
 
     useSheetSwipe({ contentWrapperRef, handleRef, onClose });
 
     return (
-        <StyledWrapper isOpen={isOpen} {...restProps}>
-            <StyledContentWrapper isOpen={isOpen} ref={contentWrapperRef}>
+        <StyledWrapper isOpen={isOpen} withTransition={withTransition} {...restProps}>
+            <StyledContentWrapper isOpen={isOpen} withTransition={withTransition} ref={contentWrapperRef}>
                 <StyledSheetHandle ref={handleRef} />
                 <StyledSheetContent>{children}</StyledSheetContent>
             </StyledContentWrapper>
