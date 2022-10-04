@@ -1,3 +1,21 @@
+# (Tue Oct 04 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-web@1.131.0`
+  - feat(plasma-web): Add keyboard navigation for `Calendar` component [#117](https://github.com/salute-developers/plasma/pull/117) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.131.0`
+  - fix(plasma-web): Fix behavior for select month and year [#117](https://github.com/salute-developers/plasma/pull/117) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Mon Oct 03 2022)
 
 #### 🚀 Enhancement
