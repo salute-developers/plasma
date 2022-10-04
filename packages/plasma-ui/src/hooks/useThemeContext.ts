@@ -3,7 +3,7 @@ import { ThemeContext } from 'styled-components';
 
 import { DeviceKind } from '../utils';
 
-interface ThemeProviderContext {
+export interface ThemeProviderContext {
     deviceKind: DeviceKind;
     deviceScale: number;
     lowPerformance: boolean;
