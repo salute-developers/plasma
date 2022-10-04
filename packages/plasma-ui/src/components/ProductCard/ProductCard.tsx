@@ -276,10 +276,19 @@ export const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(function
 
     const isReadonly = isSberBox || readonly;
 
+    const tabIndex = isSberBox ? 0 : -1;
+
     return (
         <StyledRoot>
             {badge && <StyledBadgeSlot>{badge}</StyledBadgeSlot>}
-            <StyledCard {...rest} ref={ref} disabled={disabled} $backgroundColor={backgroundColor}>
+            <StyledCard
+                {...rest}
+                ref={ref}
+                tabIndex={tabIndex}
+                outlined={isSberBox}
+                disabled={disabled}
+                $backgroundColor={backgroundColor}
+            >
                 <StyledCardBody>
                     {media && <StyledMediaSlot>{media}</StyledMediaSlot>}
                     <StyledCardContent
