@@ -1,3 +1,15 @@
+# v0.22.0 (Wed Oct 05 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-typo): typo by archetype [#129](https://github.com/salute-developers/plasma/pull/129) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+
+#### Authors: 1
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+
+---
+
 # v0.21.0 (Mon Oct 03 2022)
 
 #### 🐛 Bug Fix

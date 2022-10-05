@@ -2,6 +2,30 @@
 
 #### 🚀 Enhancement
 
+- test(plasma-b2c,plasma-tokens-b2b): Update snapshots for responsive typography [#129](https://github.com/salute-developers/plasma/pull/129) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-typo@0.22.0`
+  - feat(plasma-typo): typo by archetype [#129](https://github.com/salute-developers/plasma/pull/129) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+- `@salutejs/plasma-ui@1.133.0`
+  - feat(plasma-ui): use useThemeContext hook for Carousel.stories [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-ui): use useThemeContext hook for Picker [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-ui): use useThemeContext hook for Slider [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-ui): handle focus for when device kind is "sberbox" [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-ui): handle readonly state when device kind is 'sberBox [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-ui): add useDeviceKind hook [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-ui): add useThemeContext hook [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 3
+
+- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Wed Oct 05 2022)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-ui@1.132.0`
   - feat(plasma-ui): use useThemeContext hook for Carousel.stories [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
   - feat(plasma-ui): use useThemeContext hook for Picker [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
