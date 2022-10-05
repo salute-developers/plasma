@@ -1,3 +1,21 @@
+# v1.132.0 (Wed Oct 05 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): use useThemeContext hook for Carousel.stories [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-ui): use useThemeContext hook for Picker [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-ui): use useThemeContext hook for Slider [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-ui): handle focus for when device kind is "sberbox" [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-ui): handle readonly state when device kind is 'sberBox [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-ui): add useDeviceKind hook [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-ui): add useThemeContext hook [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.131.0 (Mon Oct 03 2022)
 
 #### 🐛 Bug Fix
