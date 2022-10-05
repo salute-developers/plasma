@@ -1,3 +1,16 @@
+# (Wed Oct 05 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.99.0`
+  - feat(plasma-b2c): passed event as second optional arguments for onChange/onUpload methods [#176](https://github.com/salute-developers/plasma/pull/176) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Tue Oct 04 2022)
 
 #### 🚀 Enhancement

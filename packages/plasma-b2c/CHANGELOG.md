@@ -1,3 +1,20 @@
+# v1.99.0 (Wed Oct 05 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): passed event as second optional arguments for onChange/onUpload methods [#176](https://github.com/salute-developers/plasma/pull/176) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.98.0 (Tue Oct 04 2022)
 
 #### 🐛 Bug Fix
