@@ -1,11 +1,9 @@
-import React, { useMemo, useState, useRef, useCallback } from 'react';
+import React, { useMemo, useState, useRef, useCallback, useEffect } from 'react';
 import type { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-// eslint-disable-next-line @typescript-eslint/camelcase
-import { unstable_batchedUpdates } from 'react-dom';
 import { primary } from '@salutejs/plasma-tokens';
 import { IconChevronUp, IconChevronDown } from '@salutejs/plasma-icons';
-import { applyDisabled, DisabledProps } from '@salutejs/plasma-core';
+import { applyDisabled, DisabledProps, useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 
 import { useRemoteListener, useThemeContext } from '../../hooks';
 import { Button } from '../Button';
@@ -311,57 +309,11 @@ export const Picker = ({
 
     const [isFocused, setIsFocused] = useState(false);
     const [index, setIndex] = useState(findItemIndex(virtualItems, value, infiniteScroll));
-    const [prevValue, setPrevValue] = useState(value);
-    const [prevVirtualItemsLength, setPrevVirtualItemsLength] = useState(virtualItems.length);
     // hasScrollAnim обязательно хранить в state, иначе пропадает плавность анимации
     const [hasScrollAnim, setScrollAnim] = useState(false);
 
     const wrapperRef = useRef<HTMLDivElement | null>(null);
     const carouselRef = useRef<HTMLDivElement | null>(null);
-
-    const getValueByIndex = useCallback((i: number) => virtualItems[i]?.value, [virtualItems]);
-
-    /**
-     * В случае изменения длины массива надо установить
-     * новый актуальный index для текущего value.
-     * Например, меняем месяц и новое кол-во дней в месяце [1 ... 30] => [1 ... 31].
-     */
-    if (virtualItems.length !== prevVirtualItemsLength) {
-        const newIndex = findItemIndex(virtualItems, value, infiniteScroll);
-        unstable_batchedUpdates(() => {
-            if (newIndex !== index) {
-                setIndex(newIndex);
-                setScrollAnim(false);
-            }
-            setPrevVirtualItemsLength(virtualItems.length);
-        });
-    }
-
-    /**
-     * Изменяет индекс выделенного элемента
-     * при обновлении значения value извне
-     */
-    if (prevValue !== value) {
-        /**
-         * Отключаем анимацию скролла, если выбраны крайние значения реального массива (items)
-         * при изменение value извне.
-         * Например, есть изначальный массив значений: [0,1,2,3], где max = 3.
-         * После добавления буферных значений для скролла, он становится [0,1,2,3,0,1,2,3,0,1,2,3],
-         * в котором необходимо попадать на "средний сектор" без анимации, т.е. на элементы с индексом 4 или 7
-         */
-        unstable_batchedUpdates(() => {
-            const firstRealItemsIndex = max + 1;
-            const lastRealItemsIndex = max * 2 + 1;
-            const newIndex = findItemIndex(virtualItems, value, infiniteScroll);
-            if (newIndex === firstRealItemsIndex || newIndex === lastRealItemsIndex) {
-                setScrollAnim(false);
-            }
-
-            const indexToSet = getValueByIndex(index) === value ? index : newIndex;
-            setIndex(indexToSet);
-            setPrevValue(value);
-        });
-    }
 
     const { toPrev, toNext } = useMemo(
         () => ({
@@ -370,6 +322,7 @@ export const Picker = ({
         }),
         [disabled, index, min, max, infiniteScroll],
     );
+
     const jump = useCallback(
         (cmd: GetIndexCmd) => {
             if (disabled) {
@@ -378,11 +331,48 @@ export const Picker = ({
 
             const firstRealItemsIndex = infiniteScroll ? max + 1 : min;
             const lastRealItemsIndex = infiniteScroll ? max * 2 + 1 : max;
+            const newIndex = getIndex(index, cmd, firstRealItemsIndex, lastRealItemsIndex, infiniteScroll);
 
-            setIndex(getIndex(index, cmd, firstRealItemsIndex, lastRealItemsIndex, infiniteScroll));
+            setIndex(newIndex);
         },
         [disabled, index, max, min, infiniteScroll],
     );
+
+    const prevValueRef = useRef(virtualItems[index]?.value);
+    useEffect(() => {
+        prevValueRef.current = virtualItems[index]?.value;
+    });
+    /**
+     * Изменяет индекс выделенного элемента
+     * при обновлении значения value извне.
+     *
+     * Выглядит так, что тут надо ulE => getDerivedStateFromProps,
+     * но тут неожиданно ломается карусель с vuirtualItems.
+     * Поэтому пока так до нового рефакторинга.
+     */
+    useIsomorphicLayoutEffect(() => {
+        const newIndex = findItemIndex(virtualItems, value, infiniteScroll);
+
+        // Отключаем анимацию скролла, если значение компонента осталось
+        // прежним, но индекс изменился
+        if (prevValueRef.current === virtualItems[newIndex]?.value && newIndex !== index) {
+            setScrollAnim(false);
+        }
+
+        // Отключаем анимацию скролла, если выбраны крайние значения реального массива (items)
+        // при изменение value извне.
+        // Например, есть изначальный массив значений: [0,1,2,3], где max = 3.
+        // После добавления буферных значений для скролла, он становится [0,1,2,3,0,1,2,3,0,1,2,3],
+        // в котором необходимо попадать на "средний сектор" без анимации, т.е. на элементы с индексом 4 или 7
+        const firstRealItemsIndex = max + 1;
+        const lastRealItemsIndex = max * 2 + 1;
+        if (newIndex === firstRealItemsIndex || newIndex === lastRealItemsIndex) {
+            setScrollAnim(false);
+        }
+
+        setIndex(newIndex);
+    }, [value, virtualItems, infiniteScroll, max, index]);
+
     // Навигация с помощью пульта/клавиатуры
     // Не перелистывает, если компонент неактивен
     useRemoteListener(
@@ -425,60 +415,53 @@ export const Picker = ({
                 setIndex(i);
             }
 
-            const nextValue = getValueByIndex(i);
-            if (value !== nextValue) {
+            if (virtualItems[i]?.value !== value) {
                 onChange?.(virtualItems[i]);
             }
 
-            if (prevValue !== nextValue) {
-                // Изменяем выбранный индекс если значение не изменилось
+            // Изменяем выбранный индекс если значение не изменилось
+            if (prevValueRef.current === virtualItems[i]?.value) {
                 setScrollAnim(false);
-                setIndex(findItemIndex(virtualItems, nextValue, infiniteScroll));
+                setIndex(i);
+                const newIndex = findItemIndex(virtualItems, virtualItems[i].value, infiniteScroll);
+                setIndex(newIndex);
             }
 
             // Включаем анимацию скролла, после изменения индекса
             setScrollAnim(true);
         },
-        [index, getValueByIndex, value, prevValue, onChange, virtualItems, infiniteScroll],
+        [index, virtualItems, value, onChange, infiniteScroll],
     );
-    const onItemClick = useCallback(
-        (item: PickerItemType) => {
-            // TODO: фикс - если не передан onChange, onItemClick работать не будет
-            if (onChange) {
-                setScrollAnim(true);
-                onChange(item);
-            }
-        },
-        [onChange],
-    );
+
     const onDetectActiveItem = useCallback(
         (i: number) => {
             if (
                 isSingleItem ||
                 !infiniteScroll ||
                 (!isTopPosition(i) && !isBottomPosition(i, virtualItems.length)) ||
-                !prevValue
+                !prevValueRef.current
             ) {
                 return;
             }
 
-            /**
-             * Отключаем анимацию скролла, если полученный индекс за
-             * пределами реального массива (items) и перебрасываем на
-             * аналогичное значение в середину
-             */
+            // Отключаем анимацию скролла, если полученный индекс за
+            // пределами реального массива (items) и перебрасываем на
+            // аналогичное значение в середину
             setScrollAnim(false);
+
             if (isTopPosition(i)) {
                 setIndex(i + (max - min) + 1);
                 return;
             }
+
             if (isBottomPosition(i, virtualItems.length)) {
                 setIndex(i - (max - min) - 1);
                 return;
             }
+
             setIndex(i);
         },
-        [virtualItems, infiniteScroll, max, min, isSingleItem, prevValue],
+        [isSingleItem, infiniteScroll, virtualItems.length, max],
     );
 
     const isFirstRender = useFirstRender();
@@ -526,7 +509,7 @@ export const Picker = ({
                         activeIndex={index}
                         tabIndex={index === i ? 0 : -1}
                         size={size}
-                        onItemClick={onItemClick}
+                        onItemClick={onChange}
                         disabled={disabled}
                         noScrollBehavior={!hasScrollAnim}
                         autofocus={((isFirstRender && autofocus) || isFocused) && index === i}
