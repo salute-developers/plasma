@@ -2,6 +2,19 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-ui@1.135.0`
+  - feat(plasma-ui): processing multiple badge [#175](https://github.com/salute-developers/plasma/pull/175) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Thu Oct 06 2022)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-ui@1.134.0`
   - feat(plasma-ui): handle "Sheet" component transition [#178](https://github.com/salute-developers/plasma/pull/178) ([@Yakutoc](https://github.com/Yakutoc))
 
