@@ -1,3 +1,21 @@
+# (Thu Oct 06 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.134.0`
+  - feat(plasma-ui): handle "Sheet" component transition [#178](https://github.com/salute-developers/plasma/pull/178) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-icons@1.101.0`, `@salutejs/plasma-sb-utils@0.74.0`
+  - chore(plasma-sb-utils): bump @salutejs/plasma-core version [#179](https://github.com/salute-developers/plasma/pull/179) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Wed Oct 05 2022)
 
 #### 🚀 Enhancement

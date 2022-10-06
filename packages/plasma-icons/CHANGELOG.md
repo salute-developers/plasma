@@ -1,3 +1,15 @@
+# v1.101.0 (Thu Oct 06 2022)
+
+#### 🐛 Bug Fix
+
+- chore(plasma-sb-utils): bump @salutejs/plasma-core version [#179](https://github.com/salute-developers/plasma/pull/179) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.100.0 (Mon Oct 03 2022)
 
 #### 🐛 Bug Fix
