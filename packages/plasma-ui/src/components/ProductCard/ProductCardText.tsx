@@ -1,0 +1,41 @@
+import React, { memo, isValidElement } from 'react';
+import styled, { css } from 'styled-components';
+import { body1 } from '@salutejs/plasma-core';
+
+import { Footnote1 } from '../Typography';
+import { mediaQuery } from '../../utils';
+
+import { ProductCardProps } from './ProductCard';
+
+type ProductCardTextProps = Pick<ProductCardProps, 'text'>;
+
+const StyledDefaultText = memo(styled(Footnote1)`
+    max-height: 3.38rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    ${({ theme: { deviceScale } }) =>
+        mediaQuery(
+            'XL',
+            deviceScale,
+        )(
+            css`
+                max-height: 3.75rem;
+                ${body1}
+            `,
+        )}
+`);
+
+export const ProductCardText = ({ text }: ProductCardTextProps) => {
+    if (!text) {
+        return null;
+    }
+
+    if (isValidElement(text)) {
+        return text;
+    }
+
+    return <StyledDefaultText>{text}</StyledDefaultText>;
+};
