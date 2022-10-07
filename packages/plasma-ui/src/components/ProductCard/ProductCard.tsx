@@ -15,6 +15,7 @@ import { useDeviceKind } from '../../hooks';
 
 import { ProductCardStepper } from './ProductCardStepper';
 import type { ProductCardStepperProps } from './ProductCardStepper';
+import { ProductCardText } from './ProductCardText';
 
 export interface ProductCardProps extends CardProps, DisabledProps {
     /**
@@ -28,7 +29,7 @@ export interface ProductCardProps extends CardProps, DisabledProps {
     /**
      * Текст или название карточки.
      */
-    text?: string;
+    text?: string | ReactNode;
     /**
      * Дополнительная информация для карточки.
      */
@@ -148,24 +149,6 @@ const StyledCardContent = styled(CardContent)<{ $backgroundColor?: string; $isVa
             margin-top: -3rem;
         `}
 `;
-const StyledText = memo(styled(Footnote1)`
-    max-height: 3.38rem;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-
-    ${(props) =>
-        mediaQuery(
-            'XL',
-            props.theme.deviceScale,
-        )(
-            css`
-                max-height: 3.75rem;
-                ${body1}
-            `,
-        )}
-`);
 
 const StyledAdditionalInfo = memo(styled(Footnote1)`
     overflow: hidden;
@@ -300,7 +283,7 @@ export const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(function
                         $isValuePositive={!isReadonly && !!quantity && quantity > 0}
                         $backgroundColor={backgroundColor}
                     >
-                        {text && <StyledText>{text}</StyledText>}
+                        <ProductCardText text={text} />
                         {additionalInfo && <StyledAdditionalInfo>{additionalInfo}</StyledAdditionalInfo>}
                         {(price !== undefined || quantity !== undefined) && (
                             <StyledBottom>
