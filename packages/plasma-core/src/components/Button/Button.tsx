@@ -52,10 +52,11 @@ export const StyledSpinner = styled(Spinner)`
 /**
  * Обёртка для содержимого кнопки.
  */
-export const ButtonContentWrapper = styled.div<ButtonIsLoading>`
+export const ButtonContentWrapper = styled.span<ButtonIsLoading>`
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: inherit;
+    justify-content: inherit;
+    width: 100%;
 
     ${({ $isLoading: isLoading }) => isLoading && 'opacity: 0;'}
 `;
