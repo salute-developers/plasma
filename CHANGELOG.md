@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@salutejs/plasma-core@1.76.2`
+  - fix(plasma-ui): fixes CarouselLite short track scroll bug [#184](https://github.com/salute-developers/plasma/pull/184) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+#### Authors: 1
+
+- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+---
+
+# (Mon Oct 10 2022)
+
+#### 🐛 Bug Fix
+
 - `@salutejs/plasma-core@1.76.1`
   - fix(plasma-core): Fix wrapper props for `Button` component [#183](https://github.com/salute-developers/plasma/pull/183) ([@neretin-trike](https://github.com/neretin-trike))
 

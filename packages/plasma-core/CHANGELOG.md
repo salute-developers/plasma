@@ -1,3 +1,17 @@
+# v1.76.2 (Mon Oct 10 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): fixes CarouselLite short track scroll bug [#184](https://github.com/salute-developers/plasma/pull/184) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+---
+
 # v1.76.1 (Mon Oct 10 2022)
 
 #### 🐛 Bug Fix
