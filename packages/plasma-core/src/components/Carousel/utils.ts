@@ -245,10 +245,19 @@ function getTranslatePosition(
     }
 }
 
-function boundPosition(position: number, trackEnd: number): number {
+function boundPosition(position: number, trackSize: number, carouselSize: number, trackOffset: number): number {
     if (position < 0) {
         return 0;
     }
+
+    // если все элементы помещаются в ширину карусели, то считаем trackEnd по-другому
+    if (trackSize < carouselSize) {
+        const trackEnd = Math.abs(carouselSize - trackSize - trackOffset);
+
+        return position < trackEnd ? position : trackEnd;
+    }
+
+    const trackEnd = trackSize - carouselSize + trackOffset;
 
     if (position > trackEnd) {
         return trackEnd;
@@ -257,8 +266,25 @@ function boundPosition(position: number, trackEnd: number): number {
     return position;
 }
 
-function isMaximumDistance(currentIndex: number, nextIndex: number, length: number) {
-    return Math.abs(nextIndex - currentIndex) === length - 1;
+/**
+ * Функция решает являются ли переданные индексы крайними с начала и конца.
+ * Например в такой карусели `([1][2][3][4])` — при изменении индекса с 4 на 1 или наоборот функция вернёт `true`,
+ * так как это переход между крайними элементами.
+ *
+ * Есть исключение, для карусели длинной в 2 элемента `([1][2])`.
+ * В этом случае переход с индекса 1 на 2 и наоборот не должен считаться переходом с одного края на другой.
+ *
+ * @param prevIndex
+ * @param index
+ * @param numberOfItems количество элементов в карусели
+ */
+function isMaximumDistance(prevIndex: number, index: number, numberOfItems: number) {
+    // проверка, что карусель состоит из 2-х элементов
+    if (numberOfItems === 2) {
+        return false;
+    }
+
+    return Math.abs(index - prevIndex) === numberOfItems - 1;
 }
 
 function setTimingFunction(element: HTMLElement | null, timingFunction: 'step-start' | '') {
@@ -317,7 +343,7 @@ export function translateToIndex(
         return;
     }
 
-    const itemsNumber = track.children.length;
+    const numberOfItems = track.children.length;
 
     const offsetKey = axisToOffsetKeyMap[axis];
     const sizeKey = axisToSizeKeyMap[axis];
@@ -325,13 +351,12 @@ export function translateToIndex(
     const carouselSize = carousel[sizeKey];
     const trackSize = track[sizeKey];
     const trackOffset = track[offsetKey];
-    const trackEnd = trackSize - carouselSize + trackOffset;
     const itemSize = itemToTranslateTo[sizeKey];
     const itemStart = itemToTranslateTo[offsetKey];
 
     const translatePosition = getTranslatePosition(itemSize, itemStart, carouselSize, trackOffset, align);
 
-    const position = boundPosition(translatePosition, trackEnd);
+    const position = boundPosition(translatePosition, trackSize, carouselSize, trackOffset);
 
     if (scrollMode === 'scroll') {
         carousel.scrollTo({
@@ -343,7 +368,7 @@ export function translateToIndex(
         return;
     }
 
-    if (disableAnimation === true || isMaximumDistance(prevIndex, index, itemsNumber) === true) {
+    if (disableAnimation === true || isMaximumDistance(prevIndex, index, numberOfItems) === true) {
         // Выключаем стандартный easing, переключая его на step-start
         setTimingFunction(track, 'step-start');
 
