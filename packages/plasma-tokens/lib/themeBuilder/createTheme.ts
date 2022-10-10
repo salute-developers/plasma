@@ -18,11 +18,12 @@ import {
     Theme,
     ThemeConfig,
     ThemeMode,
+    TokensBackgroundByType,
     TokensByType,
     TokensGetterFn,
 } from './types';
 import { baseColors, themesFolder } from './constants';
-import { generateThemeHtml } from './generateThemeHtml';
+import { generateThemeHtml } from './generateThemeHTML';
 
 const getTokensByGroups = <T extends string>(
     tokenGetters: Record<string, TokensGetterFn>,
@@ -61,11 +62,48 @@ const getTokensByGroups = <T extends string>(
     );
 };
 
+const getTokensBackgroundByGroups = <T extends string>(
+    tokenGetters: Record<string, TokensGetterFn>,
+    config: ThemeConfig,
+    mode: ThemeMode,
+): TokensBackgroundByType<T> => {
+    return Object.entries(tokenGetters).reduce(
+        (tokensByGroup, [name, getter]) => {
+            const tokens = getter(config);
+
+            return {
+                default: {
+                    ...tokensByGroup.default,
+                    [name]: tokens[mode].default,
+                },
+                dark: {
+                    ...tokensByGroup.dark,
+                    [name]: tokens[mode].dark,
+                },
+                light: {
+                    ...tokensByGroup.light,
+                    [name]: tokens[mode].light,
+                },
+                inverse: {
+                    ...tokensByGroup.inverse,
+                    [name]: tokens[mode].inverse,
+                },
+            };
+        },
+        {
+            default: {},
+            dark: {},
+            light: {},
+            inverse: {},
+        } as TokensBackgroundByType<T>,
+    );
+};
+
 const getThemeModeTokens = <T extends ThemeMode>(config: ThemeConfig, mode: T): Theme[T] => {
     return {
         textIcons: getTokensByGroups<TextIconsTokenName>(textIconsTokenGetters, config, mode),
         controlsSurfaces: getTokensByGroups<ControlsSurfacesName>(controlsSurfacesTokenGetters, config, mode),
-        backgrounds: getTokensByGroups<BackgroundName>(backgroundTokenGetters, config, mode),
+        backgrounds: getTokensBackgroundByGroups<BackgroundName>(backgroundTokenGetters, config, mode),
         overlay: getTokensByGroups<OverlayName>(overlayTokenGetters, config, mode),
         ...baseColors,
     };

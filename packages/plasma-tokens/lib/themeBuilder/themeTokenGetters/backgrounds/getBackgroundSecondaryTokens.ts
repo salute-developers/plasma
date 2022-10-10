@@ -2,12 +2,12 @@ import { general as generalColors } from '@salutejs/plasma-colors';
 import { humanizeColor } from '@salutejs/plasma-tokens-utils';
 
 import { baseColors } from '../../constants';
-import { ThemeConfig, TokensByType } from '../../types';
+import { ThemeConfig, TokensBackgroundByType } from '../../types';
 
-const comment: Record<keyof TokensByType, string> = {
+const comment: Record<keyof TokensBackgroundByType, string> = {
     default: 'Вторичный фон',
-    onDark: 'Вторичный фон на темном фоне',
-    onLight: 'Вторичный фон на светлом фоне',
+    dark: 'Вторичный фон на темном фоне',
+    light: 'Вторичный фон на светлом фоне',
     inverse: 'Инвертированный вторичный фон',
 };
 
@@ -20,13 +20,13 @@ export const getBackgroundSecondaryTokens = (config: ThemeConfig) => {
                 value: darkValue,
                 comment: comment.default,
             },
-            onDark: {
+            dark: {
                 value: darkValue,
-                comment: comment.onDark,
+                comment: comment.dark,
             },
-            onLight: {
+            light: {
                 value: baseColors.white.value,
-                comment: comment.onLight,
+                comment: comment.light,
             },
             inverse: {
                 value: baseColors.white.value,
@@ -38,13 +38,13 @@ export const getBackgroundSecondaryTokens = (config: ThemeConfig) => {
                 value: baseColors.white.value,
                 comment: comment.default,
             },
-            onDark: {
+            dark: {
                 value: darkValue,
-                comment: comment.onDark,
+                comment: comment.dark,
             },
-            onLight: {
+            light: {
                 value: baseColors.white.value,
-                comment: comment.onLight,
+                comment: comment.light,
             },
             inverse: {
                 value: darkValue,
