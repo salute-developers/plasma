@@ -70,9 +70,17 @@ export enum TokenGroup {
 
 export enum TokenType {
     default = 'default',
+    inverse = 'inverse',
+}
+
+export enum TokenGenericType {
     onDark = 'onDark',
     onLight = 'onLight',
-    inverse = 'inverse',
+}
+
+export enum TokenBackgroundType {
+    dark = 'dark',
+    light = 'light',
 }
 
 export enum Grayscale {
@@ -80,7 +88,15 @@ export enum Grayscale {
     gray = 'gray',
 }
 
-export type TokensByType<T extends string = string> = Record<TokenType, Record<T, TokenData<string>>>;
+export type TokensByType<T extends string = string> = Record<
+    TokenType | TokenGenericType,
+    Record<T, TokenData<string>>
+>;
+
+export type TokensBackgroundByType<T extends string = string> = Record<
+    TokenType | TokenBackgroundType,
+    Record<T, TokenData<string>>
+>;
 
 export type ThemeMode = 'dark' | 'light';
 
@@ -89,10 +105,12 @@ export type TokensGetterFn = (
 ) => Record<
     ThemeMode,
     {
-        default: TokenData;
-        onDark: TokenData;
-        onLight: TokenData;
-        inverse: TokenData;
+        default?: TokenData;
+        onDark?: TokenData;
+        dark?: TokenData;
+        onLight?: TokenData;
+        light?: TokenData;
+        inverse?: TokenData;
     }
 >;
 
@@ -101,13 +119,13 @@ export interface Theme {
     dark: {
         textIcons: TokensByType<TextIconsTokenName>;
         controlsSurfaces: TokensByType<ControlsSurfacesName>;
-        backgrounds: TokensByType<BackgroundName>;
+        backgrounds: TokensBackgroundByType<BackgroundName>;
         overlay: TokensByType<OverlayName>;
     };
     light: {
         textIcons: TokensByType<TextIconsTokenName>;
         controlsSurfaces: TokensByType<ControlsSurfacesName>;
-        backgrounds: TokensByType<BackgroundName>;
+        backgrounds: TokensBackgroundByType<BackgroundName>;
         overlay: TokensByType<OverlayName>;
     };
 }

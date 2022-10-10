@@ -25,13 +25,13 @@ const createHtmlTemplate = (themeName: string, tokens: string) => `
 </html>
 `;
 
-const createTokenTemplate = (name: string, token: TokenData, primary: string, tertiary: string) => {
+const createTokenTemplate = (name: string, token: TokenData, primary?: string, tertiary?: string) => {
     return `
         <div style="display: flex; flex-direction: column; font-size: 14px; margin-bottom: 24px; color: ${primary}">
             <div style="display: flex; align-items: center">
-                <div style="height: 44px; width: 44px; border-radius: 50%; margin-right: 16px; background-color: ${token.value}"></div>
+                <div style="height: 44px; width: 44px; border-radius: 50%; margin-right: 16px; background: ${token.value}"></div>
                 <span style="margin-right: 4px; font-weight: 600;">${name}</span>
-                <span style="color: ${tertiary}">${token.value}</span>
+                <span style="color: ${tertiary}; flex: 1;">${token.value}</span>
             </div>
             <div style="margin-top: 12px; ">${token.comment}</div>
         </div>
@@ -54,10 +54,10 @@ const createGroupTemplate = (mode: ThemeMode, group: TokenGroup, theme: Theme) =
                     ([type, tokens]) => `
                 <div style="display: flex; margin-bottom: 60px">
                     <div style="margin-right: 40px; font-size: 14px; font-weight: 660;">${type}</div>
-                    <div style="display: grid; grid-gap: 10px; grid-template-columns: repeat(3, 1fr); padding: 20px; border-radius: 50px; width: 100%; background-color: ${
+                    <div style="display: grid; grid-gap: 10px; grid-template-columns: repeat(3, 1fr); padding: 20px; border-radius: 50px; width: 100%; background: ${
                         (mode === 'light' && type === 'onDark') || (mode === 'dark' && type !== 'onLight')
-                            ? theme.dark.backgrounds.default.backgroundPrimary.value
-                            : theme.light.backgrounds.default.backgroundPrimary.value
+                            ? theme.dark.backgrounds.default?.backgroundPrimary.value
+                            : theme.light.backgrounds.default?.backgroundPrimary.value
                     };">
                         ${Object.entries(tokens as Record<string, TokenData>)
                             .map(
@@ -65,10 +65,10 @@ const createGroupTemplate = (mode: ThemeMode, group: TokenGroup, theme: Theme) =
                             ${createTokenTemplate(
                                 name,
                                 token,
-                                theme[mode].textIcons[type === 'inverse' ? 'default' : (type as TokenType)].textPrimary
+                                theme[mode].textIcons[type === 'inverse' ? 'default' : (type as TokenType)]?.textPrimary
                                     .value,
-                                theme[mode].textIcons[type === 'inverse' ? 'default' : (type as TokenType)].textTertiary
-                                    .value,
+                                theme[mode].textIcons[type === 'inverse' ? 'default' : (type as TokenType)]
+                                    ?.textTertiary.value,
                             )}
                         `,
                             )
@@ -86,9 +86,9 @@ const createModeTemplate = (mode: ThemeMode, theme: Theme) => {
     const name = theme.config.name;
 
     return `
-        <div style="margin-bottom: 50px; padding: 30px; border-radius: 50px; background-color: ${
-            theme[mode].backgrounds.default.backgroundPrimary.value
-        }; color: ${theme[mode].textIcons.default.textPrimary.value}">
+        <div style="margin-bottom: 50px; padding: 30px; border-radius: 50px; background: ${
+            theme[mode].backgrounds.default?.backgroundPrimary.value
+        }; color: ${theme[mode].textIcons.default?.textPrimary.value}">
             <div style="font-size: 24px; font-weight: 600;">${
                 mode === 'light' ? `🌝 Light ${name}` : `🌚 Dark ${name}`
             }</div>

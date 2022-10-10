@@ -1,11 +1,11 @@
 import { baseColors } from '../../constants';
 
-import { TokensByType } from '../../types';
+import { TokensBackgroundByType } from '../../types';
 
-const comment: Record<keyof TokensByType, string> = {
+const comment: Record<keyof TokensBackgroundByType, string> = {
     default: 'Основной фон',
-    onDark: 'Основной фон на темном фоне',
-    onLight: 'Основной фон на светлом фоне',
+    dark: 'Основной фон на темном фоне',
+    light: 'Основной фон на светлом фоне',
     inverse: 'Инвертированный основной фон',
 };
 
@@ -16,13 +16,13 @@ export const getBackgroundPrimaryTokens = () => {
                 value: baseColors.black.value,
                 comment: comment.default,
             },
-            onDark: {
+            dark: {
                 value: baseColors.black.value,
-                comment: comment.onDark,
+                comment: comment.dark,
             },
-            onLight: {
+            light: {
                 value: baseColors.white.value,
-                comment: comment.onLight,
+                comment: comment.light,
             },
             inverse: {
                 value: baseColors.white.value,
@@ -34,13 +34,13 @@ export const getBackgroundPrimaryTokens = () => {
                 value: baseColors.white.value,
                 comment: comment.default,
             },
-            onDark: {
+            dark: {
                 value: baseColors.black.value,
-                comment: comment.onDark,
+                comment: comment.dark,
             },
-            onLight: {
+            light: {
                 value: baseColors.white.value,
-                comment: comment.onLight,
+                comment: comment.light,
             },
             inverse: {
                 value: baseColors.black.value,
