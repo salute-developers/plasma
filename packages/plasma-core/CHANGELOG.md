@@ -1,3 +1,17 @@
+# v1.76.1 (Mon Oct 10 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-core): Fix wrapper props for `Button` component [#183](https://github.com/salute-developers/plasma/pull/183) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.76.0 (Mon Oct 10 2022)
 
 #### 🚀 Enhancement

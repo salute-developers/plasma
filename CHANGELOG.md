@@ -1,5 +1,18 @@
 # (Mon Oct 10 2022)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-core@1.76.1`
+  - fix(plasma-core): Fix wrapper props for `Button` component [#183](https://github.com/salute-developers/plasma/pull/183) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Mon Oct 10 2022)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-temple@1.102.0`
