@@ -1,3 +1,19 @@
+# v1.76.0 (Mon Oct 10 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-core): Add loader prop for `Button` component [#156](https://github.com/salute-developers/plasma/pull/156) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- test(plasma-b2c,plasma-ui,plasma-web): Add test and snapshot for `Button` component [#156](https://github.com/salute-developers/plasma/pull/156) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.74.0 (Mon Oct 03 2022)
 
 #### 🐛 Bug Fix

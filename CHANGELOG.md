@@ -1,3 +1,33 @@
+# (Mon Oct 10 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-temple@1.102.0`
+  - feat(plasma-temple): update desc [#181](https://github.com/salute-developers/plasma/pull/181) ([@LamaEats](https://github.com/LamaEats))
+  - feat(plasma-temple): add `renderText` prop for `StateLayout` component [#168](https://github.com/salute-developers/plasma/pull/168) ([@LamaEats](https://github.com/LamaEats))
+- `@salutejs/plasma-b2c@1.102.0`, `@salutejs/plasma-ui@1.136.0`, `@salutejs/plasma-web@1.134.0`
+  - docs(plasma-ui-docs,plasma-web-docs): Add example with loader for `Button` [#156](https://github.com/salute-developers/plasma/pull/156) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.102.0`, `@salutejs/plasma-core@1.76.0`, `@salutejs/plasma-ui@1.136.0`, `@salutejs/plasma-web@1.134.0`
+  - feat(plasma-core): Add loader prop for `Button` component [#156](https://github.com/salute-developers/plasma/pull/156) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-ui@1.136.0`
+  - feat(plasma-ui): processing multiple badge [#175](https://github.com/salute-developers/plasma/pull/175) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore(plasma-temple): update snapshots [#171](https://github.com/salute-developers/plasma/pull/171) ([@LamaEats](https://github.com/LamaEats))
+- `@salutejs/plasma-core@1.76.0`
+  - test(plasma-b2c,plasma-ui,plasma-web): Add test and snapshot for `Button` component [#156](https://github.com/salute-developers/plasma/pull/156) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-temple@1.102.0`
+  - chore(plasma-temple): waiting focus state on button [#171](https://github.com/salute-developers/plasma/pull/171) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 3
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # (Thu Oct 06 2022)
 
 #### 🚀 Enhancement

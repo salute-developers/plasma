@@ -1,3 +1,24 @@
+# v1.102.0 (Mon Oct 10 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): update desc [#181](https://github.com/salute-developers/plasma/pull/181) ([@LamaEats](https://github.com/LamaEats))
+- feat(plasma-temple): add `renderText` prop for `StateLayout` component [#168](https://github.com/salute-developers/plasma/pull/168) ([@LamaEats](https://github.com/LamaEats))
+
+#### 🐛 Bug Fix
+
+- chore(plasma-temple): waiting focus state on button [#171](https://github.com/salute-developers/plasma/pull/171) ([@LamaEats](https://github.com/LamaEats))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # v1.101.0 (Thu Oct 06 2022)
 
 #### 🐛 Bug Fix

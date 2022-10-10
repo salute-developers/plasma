@@ -1,3 +1,25 @@
+# v1.136.0 (Mon Oct 10 2022)
+
+#### 🚀 Enhancement
+
+- docs(plasma-ui-docs,plasma-web-docs): Add example with loader for `Button` [#156](https://github.com/salute-developers/plasma/pull/156) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-core): Add loader prop for `Button` component [#156](https://github.com/salute-developers/plasma/pull/156) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-ui): processing multiple badge [#175](https://github.com/salute-developers/plasma/pull/175) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.135.0 (Thu Oct 06 2022)
 
 #### 🚀 Enhancement
