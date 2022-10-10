@@ -1,7 +1,7 @@
 {
     "name": "@salutejs/plasma-temple",
     "version": "1.101.0",
-    "description": "Salute CanvasApp Templates.",
+    "description": "Salute CanvasApp Templates",
     "main": "dist/index.js",
     "module": "dist/es/index.js",
     "types": "dist/index.d.ts",
@@ -84,13 +84,7 @@
         "storybook:extract": "sb extract build-sb ./build-sb/stories.json",
         "test": "BABEL_ENV=test jest"
     },
-    "files": [
-        "dist",
-        "mobile",
-        "sberbox",
-        "sberportal",
-        "assistant"
-    ],
+    "files": ["dist", "mobile", "sberbox", "sberportal", "assistant"],
     "contributors": [
         "Vasiliy Loginevskiy",
         "Виноградов Антон Александрович",
