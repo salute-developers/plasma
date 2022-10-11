@@ -421,26 +421,22 @@ export const Picker = ({
 
     const onIndexChange = useCallback(
         (i: number) => {
-            if (i !== index) {
-                setIndex(i);
+            if (isTopPosition(i) || isBottomPosition(i, virtualItems.length)) {
+                return;
             }
+            // TODO: раскомментить
+            // const nextValue = getValueByIndex(i);
+            // if (value !== nextValue) {
+            //     onChange?.(virtualItems[i]);
+            // }
 
-            const nextValue = getValueByIndex(i);
-            if (value !== nextValue) {
-                onChange?.(virtualItems[i]);
-            }
-
-            if (prevValue !== nextValue) {
-                // Изменяем выбранный индекс если значение не изменилось
-                setScrollAnim(false);
-                setIndex(findItemIndex(virtualItems, nextValue, infiniteScroll));
-            }
-
-            // Включаем анимацию скролла, после изменения индекса
+            console.log('onIndexChange', i);
             setScrollAnim(true);
+            setIndex(i);
         },
-        [index, getValueByIndex, value, prevValue, onChange, virtualItems, infiniteScroll],
+        [virtualItems.length],
     );
+
     const onItemClick = useCallback(
         (item: PickerItemType) => {
             // TODO: фикс - если не передан onChange, onItemClick работать не будет
@@ -451,40 +447,32 @@ export const Picker = ({
         },
         [onChange],
     );
-    const onDetectActiveItem = useCallback(
-        (i: number) => {
-            if (
-                isSingleItem ||
-                !infiniteScroll ||
-                (!isTopPosition(i) && !isBottomPosition(i, virtualItems.length)) ||
-                !prevValue
-            ) {
-                return;
-            }
 
-            /**
-             * Отключаем анимацию скролла, если полученный индекс за
-             * пределами реального массива (items) и перебрасываем на
-             * аналогичное значение в середину
-             */
-            setScrollAnim(false);
-            if (isTopPosition(i)) {
-                setIndex(i + (max - min) + 1);
-                return;
-            }
-            if (isBottomPosition(i, virtualItems.length)) {
-                setIndex(i - (max - min) - 1);
-                return;
-            }
-            setIndex(i);
-        },
-        [virtualItems, infiniteScroll, max, min, isSingleItem, prevValue],
-    );
+    console.log('index = ', index);
 
     const isFirstRender = useFirstRender();
     const { onBlur, onFocus } = useMemo(
         () => ({ onBlur: () => !disabled && setIsFocused(false), onFocus: () => !disabled && setIsFocused(true) }),
         [disabled],
+    );
+
+    const onDetectActiveItem = useCallback(
+        (activeIndex: number) => {
+            if (isFirstRender || (!isTopPosition(activeIndex) && !isBottomPosition(activeIndex, virtualItems.length))) {
+                return;
+            }
+
+            if (isTopPosition(activeIndex)) {
+                setScrollAnim(false);
+                setIndex(activeIndex + items.length);
+            }
+
+            if (isBottomPosition(activeIndex, virtualItems.length)) {
+                setScrollAnim(false);
+                setIndex(activeIndex - items.length);
+            }
+        },
+        [isFirstRender, items.length, virtualItems.length],
     );
 
     return (
