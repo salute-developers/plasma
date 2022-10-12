@@ -6,6 +6,9 @@ import {
     surfaceLiquid03,
 } from '@salutejs/plasma-core';
 import type { AsProps } from '@salutejs/plasma-core';
+import { accent } from '@salutejs/plasma-tokens-b2c';
+
+import { addFocus } from '../../mixins';
 
 export interface TabItemProps extends AsProps, BaseTabItemProps {
     animated?: boolean;
@@ -34,4 +37,15 @@ export const TabItem = styled(BaseTabItem)<TabItemProps>`
             /* stylelint-disable-next-line number-max-precision */
             box-shadow: 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.05);
         `}
+
+    ${({ theme: { lowPerformance } }) => css`
+        ${addFocus({
+            outlineRadius: 'var(--tab-focus-border-radius)',
+            outlined: true,
+            outlineSize: '0.063rem',
+            outlineOffset: '0.125rem',
+            outlineColor: accent,
+            lowPerformance,
+        })}
+    `}
 `;
