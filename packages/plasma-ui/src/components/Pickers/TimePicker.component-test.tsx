@@ -87,9 +87,6 @@ describe('plasma-ui: TimePicker', () => {
             </CypressTestDecorator>,
         );
 
-        // отключение анимаций на всех div'ах внутри окружения, TODO: перенести в plasma-cy-utils?
-        cy.get('div').invoke('attr', 'style', 'transition: unset; animation: none; scroll-snap-type: none;');
-
         cy.get('div > div:nth-child(1)').contains('03').click({ force: true });
         cy.wait(150);
         cy.get('div > div:nth-child(3)').contains('04').click({ force: true });

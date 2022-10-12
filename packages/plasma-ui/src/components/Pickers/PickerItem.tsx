@@ -144,9 +144,16 @@ export const PickerItem = ({
 
     return (
         <StyledPickerItem $noScrollBehavior={noScrollBehavior} ref={itemRef} $size={size} onClick={onClick} {...rest}>
-            <StyledTransformable $noScrollBehavior={noScrollBehavior} $size={size} style={styles.wrapper}>
-                <StyledText style={styles.text}>{item.label}</StyledText>
-                <StyledWhiteText style={styles.whiteText} aria-hidden="true">
+            <StyledTransformable
+                data-picker-item="transformable"
+                $noScrollBehavior={noScrollBehavior}
+                $size={size}
+                style={styles.wrapper}
+            >
+                <StyledText data-picker-item="grey-text" style={styles.text}>
+                    {item.label}
+                </StyledText>
+                <StyledWhiteText data-picker-item="white-text" style={styles.whiteText} aria-hidden="true">
                     {item.label}
                 </StyledWhiteText>
             </StyledTransformable>
