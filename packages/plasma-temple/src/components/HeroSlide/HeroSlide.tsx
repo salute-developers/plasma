@@ -2,13 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { ButtonProps, Col, Row } from '@salutejs/plasma-ui';
 
-import { FullScreenBackground } from '../FullScreenBackground/FullScreenBackground';
+import { FullScreenBackground, FullScreenBackgroundProps } from '../FullScreenBackground/FullScreenBackground';
 import { useFocusOnMount } from '../../hooks/useFocusOnMount';
 import { UnifiedComponentProps } from '../../registry/types';
 import { isSberBoxLike } from '../../utils/deviceFamily';
 
-export interface HeroSlideProps {
+export interface HeroSlideProps extends Pick<FullScreenBackgroundProps, 'imageFit' | 'imageWidth' | 'imagePosition'> {
     autofocus: boolean;
+    suggestText?: string | false;
+    withMask?: boolean;
     src: string;
     onClick: React.MouseEventHandler<HTMLButtonElement>;
     title: string;
@@ -31,9 +33,14 @@ type PlatformComponents = {
 
 export const HeroSlide: React.FC<UnifiedComponentProps<HeroSlideProps, PlatformComponents>> = ({
     autofocus,
+    withMask = true,
     title,
+    suggestText = 'Попробуйте спросить',
     buttonText,
     src,
+    imageFit,
+    imageWidth,
+    imagePosition = 'right',
     onClick,
     onFocus,
     onBlur,
@@ -49,7 +56,7 @@ export const HeroSlide: React.FC<UnifiedComponentProps<HeroSlideProps, PlatformC
         <Wrapper {...props}>
             <StyledRow>
                 <Col sizeXL={6} sizeM={4}>
-                    <Suggest>Попробуйте спросить</Suggest>
+                    {suggestText && <Suggest>{suggestText}</Suggest>}
                     <Title>{title}</Title>
                     <Button onClick={onClick} onFocus={onFocus} onBlur={onBlur} ref={isSberBoxLike() ? mountRef : null}>
                         {buttonText}
@@ -57,7 +64,13 @@ export const HeroSlide: React.FC<UnifiedComponentProps<HeroSlideProps, PlatformC
                 </Col>
             </StyledRow>
             {children}
-            <FullScreenBackground src={src} />
+            <FullScreenBackground
+                src={src}
+                mask={withMask}
+                imageFit={imageFit}
+                imageWidth={imageWidth}
+                imagePosition={imagePosition}
+            />
         </Wrapper>
     );
 };

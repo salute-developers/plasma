@@ -1,2 +1,2 @@
 export { HeroSlider } from './HeroSlider';
-export type { HeroSliderProps } from './types';
+export type { HeroSliderProps, HeroItemSliderProps } from './types';
