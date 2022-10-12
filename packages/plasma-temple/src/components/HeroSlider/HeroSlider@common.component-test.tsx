@@ -32,8 +32,6 @@ describe('HeroSlider', () => {
     let onActiveItemChange: () => void;
 
     beforeEach(() => {
-        // stubImage(imageSrc, 'images/320_320_0.jpg');
-
         onItemClick = cy.stub();
         onActiveItemChange = cy.stub();
 
@@ -58,7 +56,7 @@ describe('HeroSlider', () => {
     });
 
     it('should switch to next slide automaticaly', () => {
-        cy.get('[data-cy="hero-slide-1"]', { timeout: 3500 })
+        cy.get('[data-cy="hero-slide-1"]', { timeout: 4000 })
             .should('be.visible')
             .then(() => {
                 expect(onActiveItemChange).to.be.calledWithExactly(
@@ -86,6 +84,30 @@ describe('HeroSlider without timline', () => {
                 };
             }),
             buttonText: 'Покажи',
+        }).then(() => cy.matchImageSnapshot());
+    });
+});
+
+describe('HeroSlider without mask and suggestText', () => {
+    it('render', () => {
+        initTests({
+            disableAutofocus: true,
+            items: Array.from({ length: 3 }, (_, i) => {
+                return {
+                    title: `Slide ${i + 1}`,
+                    src: images.image320,
+                    id: i + 1,
+                    withMask: false,
+                    suggestText: false,
+                };
+            }),
+            buttonText: 'Играть хочу',
+            getImageProps: () => {
+                return {
+                    imageFit: 'contain',
+                    imageWidth: '80%',
+                };
+            },
         }).then(() => cy.matchImageSnapshot());
     });
 });

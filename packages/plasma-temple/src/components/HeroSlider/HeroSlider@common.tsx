@@ -103,6 +103,7 @@ export const HeroSlider: React.FC<UnifiedComponentProps<HeroSliderProps, Platfor
     onItemClick,
     onActiveItemChange,
     buttonText,
+    getImageProps,
     platformComponents: { Wrapper, Slide },
 }) => {
     const [isActive, setIsActive] = React.useState(false);
@@ -153,7 +154,7 @@ export const HeroSlider: React.FC<UnifiedComponentProps<HeroSliderProps, Platfor
 
     const handleClick = React.useCallback(() => {
         onItemClick?.(item, activeIndex);
-    }, [item, onItemClick]);
+    }, [activeIndex, item, onItemClick]);
 
     const handleFocus = React.useCallback(() => {
         setIsActive(true);
@@ -163,13 +164,30 @@ export const HeroSlider: React.FC<UnifiedComponentProps<HeroSliderProps, Platfor
         setIsActive(false);
     }, []);
 
+    const imageProps = React.useMemo(() => {
+        if (typeof getImageProps === 'function') {
+            return getImageProps(activeIndex);
+        }
+
+        return {};
+    }, [getImageProps, activeIndex]);
+
+    const textForButton = React.useMemo(() => {
+        if (typeof buttonText === 'function') {
+            return buttonText(item, activeIndex);
+        }
+
+        return buttonText;
+    }, [buttonText, item, activeIndex]);
+
     return (
         <Wrapper ref={containerRef}>
             <Slide
                 {...item}
+                {...imageProps}
                 autofocus={!disableAutofocus}
                 onClick={handleClick}
-                buttonText={buttonText}
+                buttonText={textForButton}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 data-cy={`hero-slide-${activeIndex}`}

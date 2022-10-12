@@ -18,6 +18,7 @@ export type PickOptional<S, K extends keyof S> = Partial<Pick<S, K>>;
 export type AspectRatio = Ratio;
 
 export type ObjectFit = 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
+export type ObjectPosition = 'bottom' | 'center' | 'left' | 'right' | 'top' | string;
 
 export type Axis = 'x' | 'y';
 
