@@ -48,7 +48,7 @@ const views = {
  */
 export const Tabs = styled(BaseTabs)<TabsProps>`
     --tabs-border-radius: ${({ pilled }) => (pilled ? '6.25rem' : '0.875rem')};
-    --tab-focus-border-size: 0rem;
+    --tab-focus-border-size: 0.125rem;
     --tabs-margin: 0;
 
     border-radius: var(--tabs-border-radius);
@@ -56,8 +56,8 @@ export const Tabs = styled(BaseTabs)<TabsProps>`
     ${({ outsideScroll }) =>
         outsideScroll === true
             ? css`
-                  margin: 0 -1rem;
-                  padding: 0 1rem;
+                  margin: calc(var(--tab-focus-border-size) * -2) -1rem;
+                  padding: var(--tab-focus-border-size) 1rem;
                   border-radius: 0;
               `
             : outsideScroll &&
@@ -86,6 +86,7 @@ export const Tabs = styled(BaseTabs)<TabsProps>`
 
         --tab-item-height: calc(var(--tabs-height) - var(--tabs-padding) * 2);
         --tab-item-border-radius: calc(var(--tabs-border-radius) - var(--tabs-padding));
+        --tab-focus-border-radius: calc(var(--tab-item-border-radius) + 0.125rem);
 
         height: var(--tabs-height);
         padding: var(--tabs-padding);

@@ -18,14 +18,14 @@ export default {
     decorators: [InSpacingDecorator],
 } as Meta;
 
-interface DeafultStoryProps extends TabsProps {
+interface DefaultStoryProps extends TabsProps {
     itemsNumber: number;
     label: string;
     enableContentLeft: boolean;
     autoscroll: boolean;
 }
 
-export const Default: Story<DeafultStoryProps> = ({ itemsNumber, disabled, label, enableContentLeft, ...rest }) => {
+export const Default: Story<DefaultStoryProps> = ({ itemsNumber, disabled, label, enableContentLeft, ...rest }) => {
     const items = Array(itemsNumber).fill(0);
     const [index, setIndex] = useState(0);
 
@@ -35,7 +35,7 @@ export const Default: Story<DeafultStoryProps> = ({ itemsNumber, disabled, label
                 <TabItem
                     key={`item:${i}`}
                     isActive={i === index}
-                    tabIndex={!disabled ? i : -1}
+                    tabIndex={disabled ? -1 : 0}
                     contentLeft={enableContentLeft && <IconClock color="inherit" />}
                     onClick={() => !disabled && setIndex(i)}
                     onFocus={action(`onFocus item #${i}`)}
@@ -59,7 +59,7 @@ Default.args = {
     outsideScroll: true,
 };
 
-export const Arrows: Story<DeafultStoryProps> = ({
+export const Arrows: Story<DefaultStoryProps> = ({
     itemsNumber,
     disabled,
     stretch,
@@ -99,7 +99,7 @@ const StyledMultipleContainer = styled.div`
     column-gap: 1rem;
 `;
 
-interface MultipleStoryProps extends DeafultStoryProps {
+interface MultipleStoryProps extends DefaultStoryProps {
     outsideScrollLeftTab: boolean | { left?: string; right?: string };
     outsideScrollRightTab: boolean | { left?: string; right?: string };
 }
