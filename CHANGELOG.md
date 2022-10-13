@@ -1,3 +1,20 @@
+# (Thu Oct 13 2022)
+
+#### 🐛 Bug Fix
+
+- chore: lamaEats mantain platform-test [#172](https://github.com/salute-developers/plasma/pull/172) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: add @Yakutoc to CODEOWNERS [#172](https://github.com/salute-developers/plasma/pull/172) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: update CODEOWNERS [#172](https://github.com/salute-developers/plasma/pull/172) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-temple@1.102.3`
+  - fix(plasma-temple): `HeroSlider` improve api [#188](https://github.com/salute-developers/plasma/pull/188) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 2
+
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Mon Oct 10 2022)
 
 #### 🐛 Bug Fix

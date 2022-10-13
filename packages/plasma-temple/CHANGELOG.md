@@ -1,3 +1,17 @@
+# v1.102.3 (Thu Oct 13 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-temple): `HeroSlider` improve api [#188](https://github.com/salute-developers/plasma/pull/188) ([@LamaEats](https://github.com/LamaEats))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # v1.102.2 (Mon Oct 10 2022)
 
 #### 🐛 Bug Fix
