@@ -38,7 +38,8 @@ export const useCarousel = ({
     throttleMs = THROTTLE_DEFAULT_MS,
     debounceMs = DEBOUNCE_DEFAULT_MS,
 }: UseCarouselOptions): UseCarouselHookResult => {
-    const prevIndex = useRef<number | null>(null);
+    const prevIndexRef = useRef<number | null>(null);
+    const [prevIndex, setPrevIndex] = useState(index);
     const offset = useRef(0);
     const scrollRef = useRef<HTMLElement | null>(null);
     const trackRef = useRef<HTMLElement | null>(null);
@@ -155,6 +156,8 @@ export const useCarousel = ({
 
             const trackItems = trackRef.current.children;
 
+            let itemIndex: number | null = null;
+
             visibleItems.current.forEach((item) => {
                 /**
                  * Для Ox - ширина, для Oy - высота.
@@ -164,14 +167,20 @@ export const useCarousel = ({
 
                 const itemEnd = itemOffset + itemSize;
 
-                let itemIndex = 0;
-
-                for (let ii = 0; ii < trackItems.length; ii++) {
-                    const element = trackItems.item(ii);
-                    if (element === item) {
-                        itemIndex = ii;
-                        break;
+                if (itemIndex === null) {
+                    for (let ii = 0; ii < trackItems.length; ii++) {
+                        const element = trackItems.item(ii);
+                        if (element === item) {
+                            itemIndex = ii;
+                            break;
+                        }
                     }
+                } else {
+                    itemIndex += 1;
+                }
+
+                if (itemIndex === null) {
+                    return;
                 }
 
                 const itemSlot = getItemSlot(
@@ -181,7 +190,7 @@ export const useCarousel = ({
                     scrollPos,
                     scrollSize,
                     scrollAlign,
-                    prevIndex.current ?? 0,
+                    prevIndexRef.current ?? 0,
                     offset.current,
                 );
 
@@ -243,9 +252,9 @@ export const useCarousel = ({
                      */
                     animated:
                         animatedScrollByIndex &&
-                        (prevIndex.current === null || Math.abs(i - prevIndex.current) !== items.length - 1),
+                        (prevIndexRef.current === null || Math.abs(i - prevIndexRef.current) !== items.length - 1),
                 });
-                prevIndex.current = i;
+                prevIndexRef.current = i;
             }
         },
         [animatedScrollByIndex, axis, scrollAlign],
@@ -296,14 +305,10 @@ export const useCarousel = ({
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    /**
-     * Прокрутка до нужной позиции индекса, если индекс изменился.
-     */
-    useEffect(() => {
-        if (index !== prevIndex.current) {
-            toIndex(index);
-        }
-    }, [index, toIndex]);
+    if (index !== prevIndex) {
+        toIndex(index);
+        setPrevIndex(index);
+    }
 
     return {
         scrollRef,
