@@ -37,7 +37,6 @@ const StyledRoot = styled.div`
 
     display: flex;
     flex-direction: column-reverse;
-    overflow-y: auto;
     box-sizing: border-box;
 
     padding: 0 1.5rem 1.5rem;
