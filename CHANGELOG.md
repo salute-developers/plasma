@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@salutejs/plasma-b2c@1.102.4`
+  - fix(plasma-b2c): Button type=button [#190](https://github.com/salute-developers/plasma/pull/190) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
+# (Tue Oct 18 2022)
+
+#### 🐛 Bug Fix
+
 - `@salutejs/plasma-web@1.134.3`
   - fix(plasma-web): delete notification scrollbar [#189](https://github.com/salute-developers/plasma/pull/189) ([@Yakutoc](https://github.com/Yakutoc))
 

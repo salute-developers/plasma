@@ -1,3 +1,17 @@
+# v1.102.4 (Tue Oct 18 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-b2c): Button type=button [#190](https://github.com/salute-developers/plasma/pull/190) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.102.2 (Mon Oct 10 2022)
 
 #### 🐛 Bug Fix
