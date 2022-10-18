@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { backgroundPrimary } from '@salutejs/plasma-tokens-web';
+import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
-import { InSpacingDecorator } from '../../helpers';
 import { Popup } from '../Popup';
 import { TextField } from '../TextField';
 
