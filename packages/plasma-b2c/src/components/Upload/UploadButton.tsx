@@ -214,7 +214,14 @@ export const UploadButton: FC<UploadButtonProps> = ({
 
     return (
         <FileDrop onDrop={drop} onDragOver={dragStart} onDragLeave={dragEnd}>
-            <StyledButton isGrabbing={isGrabbing} paint={paint} status={status} disabled={disabled} {...rest}>
+            <StyledButton
+                type="button"
+                isGrabbing={isGrabbing}
+                paint={paint}
+                status={status}
+                disabled={disabled}
+                {...rest}
+            >
                 <StyledInputLabel disabled={disabled}>
                     <input disabled={disabled} type="file" onChange={inputChangeHandler} accept={accept} hidden />
                 </StyledInputLabel>
