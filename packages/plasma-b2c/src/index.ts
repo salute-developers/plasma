@@ -1,6 +1,7 @@
 export * from './components/AudioPlayer';
 export * from './components/Badge';
 export * from './components/Button';
+export * from './components/Calendar';
 export * from './components/Card';
 export * from './components/Carousel';
 export * from './components/Cell';
