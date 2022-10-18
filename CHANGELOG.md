@@ -1,3 +1,16 @@
+# (Tue Oct 18 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.134.3`
+  - fix(plasma-web): delete notification scrollbar [#189](https://github.com/salute-developers/plasma/pull/189) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Thu Oct 13 2022)
 
 #### 🐛 Bug Fix
