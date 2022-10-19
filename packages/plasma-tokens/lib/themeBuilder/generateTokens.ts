@@ -2,6 +2,15 @@ import fs from 'fs';
 import path from 'path';
 import { DataObject, TokenData, TokenDataGroup } from '@salutejs/plasma-tokens-utils';
 
+import {
+    mageTypoProperties,
+    sageTypoProperties,
+    soulmateTypoProperties,
+    rulerTypoProperties,
+    plasmaTypoProperties,
+    sbermarketTypoProperties,
+} from '@salutejs/plasma-typo';
+
 import { Theme, ThemeTokenDataGroups, TokenGroup, TokenType } from './types';
 import { themesFolder } from './constants';
 
@@ -70,4 +79,13 @@ export const generateColorThemesTokenDataGroups = (): Record<string, ThemeTokenD
                 ...themeTokens,
             };
         }, {});
+};
+
+export const typoArchetypes = {
+    mage: mageTypoProperties,
+    sage: sageTypoProperties,
+    soulmate: soulmateTypoProperties,
+    ruler: rulerTypoProperties,
+    plasma: plasmaTypoProperties,
+    sbermarket: sbermarketTypoProperties,
 };
