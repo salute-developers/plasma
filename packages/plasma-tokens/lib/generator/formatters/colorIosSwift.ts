@@ -38,7 +38,7 @@ extension UIColor {
     return [header, struct, enums].join('\n\n');
 };
 
-export const iosSwiftCustomFormatter = ({ dictionary, file }: { dictionary: Dictionary; file: File }) => {
+export const colorIosSwiftCustomFormatter = ({ dictionary, file }: { dictionary: Dictionary; file: File }) => {
     const themeName = file.className || '';
     const filterWord = 'light';
 

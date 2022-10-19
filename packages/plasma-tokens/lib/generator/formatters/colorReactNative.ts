@@ -25,7 +25,7 @@ const getTheme = (tokenItems: TransformedToken[], theme: 'light' | 'dark') =>
         .map(getTokenValue)
         .join(`,\n`);
 
-export const reactNativeCustomFormatter = ({ dictionary, file }: { dictionary: Dictionary; file: File }) => {
+export const colorReactNativeCustomFormatter = ({ dictionary, file }: { dictionary: Dictionary; file: File }) => {
     const themeName = file.className || '';
 
     const lightTheme = getTheme(dictionary.allTokens, 'light');

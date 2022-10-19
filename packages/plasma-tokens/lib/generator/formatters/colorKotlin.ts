@@ -44,7 +44,7 @@ const getEnumValue = (token: TransformedToken) => {
     return `    val ${token.attributes?.item}: ${type}`;
 };
 
-export const kotlinCustomFormatter = ({ dictionary, file }: { dictionary: Dictionary; file: File }) => {
+export const colorKotlinCustomFormatter = ({ dictionary, file }: { dictionary: Dictionary; file: File }) => {
     const themeName = file.className || '';
     const filterWord = 'light';
 

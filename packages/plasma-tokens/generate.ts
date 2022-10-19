@@ -20,7 +20,7 @@ import type { TypoSystem } from '@salutejs/plasma-tokens-utils';
 import { baseColors, colorThemes, typoSystem, typo, sizes } from './data';
 import type { ThemeTokens, TypographyTypes } from './data';
 import * as tokenGroups from './tokenGroups';
-import { generateColorThemesTokenDataGroups } from './lib/themeBuilder/generateTokens';
+import { generateColorThemesTokenDataGroups, typoArchetypes } from './lib/themeBuilder/generateTokens';
 import { mapDeprecatedColorTokens } from './lib/themeBuilder/mapDeprecatedTokens';
 
 const OUT_DIR = 'src';
@@ -117,6 +117,10 @@ fs.existsSync(amznDictPropsDir) || fs.mkdirSync(amznDictPropsDir);
 const amznDictPropsColorsDir = path.join(amznDictPropsDir, 'color');
 fs.existsSync(amznDictPropsColorsDir) || fs.mkdirSync(amznDictPropsColorsDir);
 
+// Typo
+const amznDictPropsTyposDir = path.join(amznDictPropsDir, 'typo');
+fs.existsSync(amznDictPropsTyposDir) || fs.mkdirSync(amznDictPropsTyposDir);
+
 // Brands
 const amznDictPropsBrandsDir = path.join(amznDictPropsColorsDir, 'brands');
 fs.existsSync(amznDictPropsBrandsDir) || fs.mkdirSync(amznDictPropsBrandsDir);
@@ -184,6 +188,28 @@ Object.entries(themesColorTokenGroups).forEach(([key, value]) => {
         JSON.stringify(
             {
                 color: value,
+            },
+            null,
+            2,
+        ),
+    );
+});
+
+// Themes Typo
+Object.entries(typoArchetypes).forEach(([key, value]) => {
+    fs.writeFileSync(
+        path.join(amznDictPropsTyposDir, `${key}.json`),
+        JSON.stringify(
+            {
+                typo: Object.entries(value.s).reduce(
+                    (acc, [keys, values]) => ({
+                        ...acc,
+                        [keys]: {
+                            value: values,
+                        },
+                    }),
+                    {},
+                ),
             },
             null,
             2,

@@ -1,10 +1,12 @@
-import StyleDictionaryPackage, { Format, Transform } from 'style-dictionary';
+import StyleDictionaryPackage, { Format, Transform, Config } from 'style-dictionary';
 import glob from 'fast-glob';
 import path from 'path';
 import {
-    iosSwiftCustomFormatter,
-    kotlinCustomFormatter,
-    reactNativeCustomFormatter,
+    colorIosSwiftCustomFormatter,
+    colorKotlinCustomFormatter,
+    colorReactNativeCustomFormatter,
+    typoReactNativeCustomFormatter,
+    typoKotlinCustomFormatter,
     gradientSwiftTransformer,
     gradientKotlinTransformer,
     gradientReactNativeTransformer,
@@ -12,22 +14,25 @@ import {
 
 import { upperFirstLetter } from './lib/themeBuilder/utils';
 
-const platforms = ['kotlin', 'react-native', 'ios-swift'];
+const platformsColor = ['ios-swift', 'react-native', 'kotlin'];
+const platformsTypo = ['react-native', 'kotlin'];
 
-const tokensPath = `properties/**/brands`;
+const tokensColorPath = `properties/color/brands`;
+const tokensTypoPath = `properties/typo/`;
 
-const fileNames = glob.sync(path.join(tokensPath, '*')).map((filePath) => path.parse(filePath).name);
+const colorFileNames = glob.sync(path.join(tokensColorPath, '*')).map((filePath) => path.parse(filePath).name);
+const typoFileNames = glob.sync(path.join(tokensTypoPath, '*')).map((filePath) => path.parse(filePath).name);
 
-const getStyleDictionaryConfig = (brand: string) => ({
-    source: [path.join(tokensPath, `${brand}.json`)],
+const getStyleDictionaryColorConfig = (brand: string): Config => ({
+    source: [path.join(tokensColorPath, `${brand}.json`)],
     platforms: {
         kotlin: {
             transforms: ['attribute/cti', 'name/ti/camel', 'color/composeColor', 'color/gradientKotlin'],
             buildPath: `build/`,
             files: [
                 {
-                    format: 'kotlin/custom',
-                    destination: `${brand}_kotlin.kt`,
+                    format: 'kotlin/custom/color',
+                    destination: `color/color_${brand}_kotlin.kt`,
                     className: upperFirstLetter(brand),
                 },
             ],
@@ -37,8 +42,8 @@ const getStyleDictionaryConfig = (brand: string) => ({
             buildPath: `build/`,
             files: [
                 {
-                    format: 'react-native/custom',
-                    destination: `${brand}_react-native.ts`,
+                    format: 'react-native/custom/color',
+                    destination: `color/color_${brand}_react-native.ts`,
                     className: upperFirstLetter(brand),
                 },
             ],
@@ -57,8 +62,8 @@ const getStyleDictionaryConfig = (brand: string) => ({
             buildPath: `build/`,
             files: [
                 {
-                    format: 'ios-swift/custom',
-                    destination: `${brand}_ios-swift.swift`,
+                    format: 'ios-swift/custom/color',
+                    destination: `color/color_${brand}_ios-swift.swift`,
                     className: upperFirstLetter(brand),
                 },
             ],
@@ -66,45 +71,104 @@ const getStyleDictionaryConfig = (brand: string) => ({
     },
 });
 
-const mapFormatter: Array<Format & { name: string }> = [
-    {
-        name: 'ios-swift/custom',
-        formatter: iosSwiftCustomFormatter,
+const getStyleDictionaryTypoConfig = (brand: string): Config => ({
+    source: [path.join(tokensTypoPath, `${brand}.json`)],
+    platforms: {
+        kotlin: {
+            transforms: ['attribute/cti', 'name/ti/camel'],
+            buildPath: `build/`,
+            files: [
+                {
+                    format: 'kotlin/custom/typo',
+                    destination: `typo/typo_${brand}_kotlin.kt`,
+                },
+            ],
+        },
+        'react-native': {
+            transforms: ['attribute/cti', 'name/ti/camel'],
+            buildPath: `build/`,
+            files: [
+                {
+                    format: 'react-native/custom/typo',
+                    destination: `typo/typo_${brand}_react-native.ts`,
+                },
+            ],
+        },
     },
-    {
-        name: 'react-native/custom',
-        formatter: reactNativeCustomFormatter,
-    },
-    {
-        name: 'kotlin/custom',
-        formatter: kotlinCustomFormatter,
-    },
-];
+});
 
-const mapTransformer: Array<Transform & { name: string }> = [
-    {
-        name: 'color/gradientSwift',
-        type: 'value',
-        transformer: gradientSwiftTransformer,
-    },
-    {
-        name: 'color/gradientReactNative',
-        type: 'value',
-        transformer: gradientReactNativeTransformer,
-    },
-    {
-        name: 'color/gradientKotlin',
-        type: 'value',
-        transformer: gradientKotlinTransformer,
-    },
-];
+interface MapFormatter {
+    color: Array<Format & { name: string }>;
+    typo: Array<Format & { name: string }>;
+}
 
-fileNames.forEach((brand) =>
-    platforms.forEach((platform) => {
-        const styleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryConfig(brand));
+const mapFormatter: MapFormatter = {
+    color: [
+        {
+            name: 'ios-swift/custom/color',
+            formatter: colorIosSwiftCustomFormatter,
+        },
+        {
+            name: 'react-native/custom/color',
+            formatter: colorReactNativeCustomFormatter,
+        },
 
-        mapFormatter.forEach((formatter) => styleDictionary.registerFormat(formatter));
-        mapTransformer.forEach((transformer) => styleDictionary.registerTransform(transformer));
+        {
+            name: 'kotlin/custom/color',
+            formatter: colorKotlinCustomFormatter,
+        },
+    ],
+    typo: [
+        {
+            name: 'react-native/custom/typo',
+            formatter: typoReactNativeCustomFormatter,
+        },
+        {
+            name: 'kotlin/custom/typo',
+            formatter: typoKotlinCustomFormatter,
+        },
+    ],
+};
+interface MapTransformer {
+    color: Array<Transform & { name: string }>;
+}
+
+const mapTransformer: MapTransformer = {
+    color: [
+        {
+            name: 'color/gradientSwift',
+            type: 'value',
+            transformer: gradientSwiftTransformer,
+        },
+        {
+            name: 'color/gradientReactNative',
+            type: 'value',
+            transformer: gradientReactNativeTransformer,
+        },
+        {
+            name: 'color/gradientKotlin',
+            type: 'value',
+            transformer: gradientKotlinTransformer,
+        },
+    ],
+};
+
+colorFileNames.forEach((brand) =>
+    platformsColor.forEach((platform) => {
+        const styleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryColorConfig(brand));
+
+        mapFormatter.color.forEach((formatter) => styleDictionary.registerFormat(formatter));
+        mapTransformer.color.forEach((transformer) => styleDictionary.registerTransform(transformer));
+
+        styleDictionary.buildPlatform(platform);
+    }),
+);
+
+typoFileNames.forEach((brand) =>
+    platformsTypo.forEach((platform) => {
+        const styleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryTypoConfig(brand));
+
+        mapFormatter.typo.forEach((formatter) => styleDictionary.registerFormat(formatter));
 
         styleDictionary.buildPlatform(platform);
     }),
