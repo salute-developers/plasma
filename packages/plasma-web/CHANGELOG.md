@@ -1,3 +1,17 @@
+# v1.135.1 (Wed Oct 19 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web): Fix color for header in `Calendar` component [#192](https://github.com/salute-developers/plasma/pull/192) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.134.3 (Tue Oct 18 2022)
 
 #### 🐛 Bug Fix

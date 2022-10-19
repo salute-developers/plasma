@@ -1,5 +1,19 @@
 # (Wed Oct 19 2022)
 
+#### 🐛 Bug Fix
+
+- test(plasma-web): Update snapshots for `Calendar` component [#192](https://github.com/salute-developers/plasma/pull/192) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-web@1.135.1`
+  - fix(plasma-web): Fix color for header in `Calendar` component [#192](https://github.com/salute-developers/plasma/pull/192) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Wed Oct 19 2022)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-tokens@1.27.0`
