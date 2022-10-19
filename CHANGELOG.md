@@ -1,3 +1,21 @@
+# (Wed Oct 19 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-tokens@1.27.0`
+  - feat(plasma-tokens): Add `sberprime` theme [#182](https://github.com/salute-developers/plasma/pull/182) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-tokens@1.27.0`
+  - fix(plasma-tokens): Fix theme generator [#182](https://github.com/salute-developers/plasma/pull/182) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Tue Oct 18 2022)
 
 #### 🐛 Bug Fix
