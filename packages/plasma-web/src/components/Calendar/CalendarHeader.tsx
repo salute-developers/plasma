@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { h4Bold } from '@salutejs/plasma-typo';
 import { IconDisclosureLeft, IconDisclosureRight } from '@salutejs/plasma-icons';
+import { primary } from '@salutejs/plasma-core';
 
 import { CalendarState } from './types';
 import type { CalendarStateType, DateObject } from './types';
@@ -32,6 +33,7 @@ const StyledHeader = styled.button`
 
     ${buttonFocus};
 
+    color: ${primary};
     cursor: pointer;
     padding: 0.5rem 0;
 
