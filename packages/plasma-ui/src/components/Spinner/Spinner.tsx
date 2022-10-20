@@ -1,9 +1,20 @@
+import React from 'react';
 import styled from 'styled-components';
 import { Spinner as SpinnerBase, SpinnerProps as SpinnerPropsBase } from '@salutejs/plasma-core';
 
-export interface SpinnerProps extends SpinnerPropsBase {}
+import { useThemeContext } from '../../hooks';
+
+export interface SpinnerProps extends SpinnerPropsBase {
+    deviceScale?: number;
+}
 
 /**
  * Компонент для отображения индикатора загрузки.
  */
-export const Spinner = styled(SpinnerBase)<SpinnerProps>``;
+const StyledSpinner = styled(SpinnerBase)<SpinnerProps>``;
+
+export const Spinner = (props: SpinnerProps) => {
+    const { deviceScale } = useThemeContext();
+
+    return <StyledSpinner deviceScale={deviceScale} {...props} />;
+};

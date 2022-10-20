@@ -79,7 +79,7 @@ const StyledButtonRoot = styled(ButtonRoot)<InteractionProps>`
 const ButtonBase = createButton<HTMLButtonElement, ActionButtonProps & ThemeProviderContextBase>(StyledButtonRoot);
 
 export const ActionButton = forwardRef<HTMLButtonElement, ActionButtonProps>((props, ref) => {
-    const { deviceScale } = useThemeContext();
+    const { deviceScale } = useThemeContext() || {};
 
     return <ButtonBase {...props} ref={ref} deviceScale={deviceScale} />;
 });
