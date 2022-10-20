@@ -1,3 +1,17 @@
+# (Thu Oct 20 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): Add Calendar (screenshots) [#191](https://github.com/salute-developers/plasma/pull/191) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.104.0`, `@salutejs/plasma-web@1.136.0`
+  - feat(plasma-b2c): Add Calendar [#191](https://github.com/salute-developers/plasma/pull/191) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Wed Oct 19 2022)
 
 #### 🐛 Bug Fix

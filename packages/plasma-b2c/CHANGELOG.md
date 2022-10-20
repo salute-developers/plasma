@@ -1,3 +1,15 @@
+# v1.104.0 (Thu Oct 20 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): Add Calendar [#191](https://github.com/salute-developers/plasma/pull/191) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.103.1 (Wed Oct 19 2022)
 
 #### 🐛 Bug Fix
