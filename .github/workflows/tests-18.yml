@@ -1,4 +1,4 @@
-name: Tests for React 17 support
+name: Tests for React 18 support
 
 on:
   push:
@@ -40,11 +40,11 @@ jobs:
       - name: Setup packages
         run: |
           npm i
-          npm i react@17 react-dom@17 --prefix="./packages/plasma-ui"
-          npm i react@17 react-dom@17 --prefix="./packages/plasma-core"
-          npm i react@17 react-dom@17 --prefix="./packages/plasma-icons"
-          npm i react@17 react-dom@17 --prefix="./packages/plasma-web"
-          npm i react@17 react-dom@17 --prefix="./packages/plasma-b2c"
+          npm i react@18 react-dom@18 --prefix="./packages/plasma-ui"
+          npm i react@18 react-dom@18 --prefix="./packages/plasma-core"
+          npm i react@18 react-dom@18 --prefix="./packages/plasma-icons"
+          npm i react@18 react-dom@18 --prefix="./packages/plasma-web"
+          npm i react@18 react-dom@18 --prefix="./packages/plasma-b2c"
           npx lerna bootstrap
 
       - name: Lint
