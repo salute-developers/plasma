@@ -10,9 +10,9 @@ export interface HeroSliderProps {
     withTimeline?: boolean;
     initialIndex?: number;
     disableAutofocus?: boolean;
+    buttonText: string | ((item: HeroItemSliderProps, index: number) => string);
     items: HeroItemSliderProps[];
     onItemClick?: (item: HeroItemSliderProps, index: number) => void;
     onActiveItemChange?: (item: HeroItemSliderProps, index: number) => void;
-    buttonText: string | ((item: HeroItemSliderProps, index: number) => string);
     getImageProps?: (index: number) => PickOptional<HeroSlideProps, 'imageFit' | 'imageWidth' | 'imagePosition'>;
 }
