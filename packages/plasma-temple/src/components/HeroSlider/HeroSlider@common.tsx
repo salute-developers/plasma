@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 import { primary, tertiary } from '@salutejs/plasma-tokens';
 
 import { useRemoteHandlers } from '../../hooks';
-import { useTouchHandler } from '../../hooks/useTouchHander';
+import { useTouchHandler, UseTouchHandlerCallback } from '../../hooks/useTouchHander';
 import { UnifiedComponentProps } from '../../registry/types';
 import { HeroSlideProps } from '../HeroSlide/HeroSlide';
 
@@ -120,17 +120,22 @@ export const HeroSlider: React.FC<UnifiedComponentProps<HeroSliderProps, Platfor
         disable: !isActive,
     });
 
-    useTouchHandler(containerRef, (dir) => {
-        setActiveIndex((prev) => {
-            const nextIndex = prev + dir;
+    const touchHandler = React.useCallback<UseTouchHandlerCallback>(
+        (dir) => {
+            setActiveIndex((prev) => {
+                const nextIndex = prev + dir;
 
-            if (nextIndex < 0 || nextIndex > childLen.current - 1) {
-                return prev;
-            }
+                if (nextIndex < 0 || nextIndex > childLen.current - 1) {
+                    return prev;
+                }
 
-            return nextIndex;
-        });
-    });
+                return nextIndex;
+            });
+        },
+        [setActiveIndex],
+    );
+
+    useTouchHandler(containerRef, touchHandler);
 
     React.useLayoutEffect(() => {
         timerRef.current = window.setTimeout(() => {
