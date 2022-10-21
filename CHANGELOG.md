@@ -1,3 +1,17 @@
+# (Fri Oct 21 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.105.0`
+  - feat(plasma-b2c): handling tab focus by cypress tests [#186](https://github.com/salute-developers/plasma/pull/186) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-b2c): handling tab focus [#186](https://github.com/salute-developers/plasma/pull/186) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Thu Oct 20 2022)
 
 #### 🚀 Enhancement

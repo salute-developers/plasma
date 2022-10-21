@@ -1,3 +1,21 @@
+# v1.105.0 (Fri Oct 21 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): handling tab focus by cypress tests [#186](https://github.com/salute-developers/plasma/pull/186) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): handling tab focus [#186](https://github.com/salute-developers/plasma/pull/186) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.104.0 (Thu Oct 20 2022)
 
 #### 🚀 Enhancement
