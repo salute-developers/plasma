@@ -38,6 +38,8 @@ export const StyledTabs = styled.div<TabsProps>`
         css`
             margin: 0 var(--tabs-margin);
         `}
+
+    gap: inherit;
 `;
 
 export const StyledWrapper = styled.div<TabsProps>`
@@ -73,9 +75,7 @@ export const StyledWrapper = styled.div<TabsProps>`
              * а при минимальном количестве занимают максимум половину ширины.
              */
             ${StyledTabItem} {
-                min-width: 25%;
-                max-width: 50%;
-                width: 100%;
+                flex: 1 1 calc((100% / 4) - 0.125rem);
             }
         `}
 
@@ -93,6 +93,8 @@ export const StyledWrapper = styled.div<TabsProps>`
                 cursor: not-allowed;
             `}
     }
+
+    gap: 0.125rem;
 `;
 
 /**
