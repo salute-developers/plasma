@@ -15,7 +15,7 @@ module.exports = {
               '../environment.stories.mdx',
           ],
     addons: [
-        '@storybook/preset-create-react-app',
+        // '@storybook/preset-create-react-app',
         '@storybook/addon-essentials',
         'storybook-addon-performance/register',
     ],

@@ -75,7 +75,9 @@ export const Stepper = ({
         onChange,
     });
     const { showRemove: remover, onRemove, ...rest } = props as RemoverProps;
-    const onRemoveClick = React.useCallback((e) => onRemove?.(e), [onRemove]);
+    const onRemoveClick = React.useCallback<React.MouseEventHandler<HTMLButtonElement>>((e) => onRemove?.(e), [
+        onRemove,
+    ]);
 
     return (
         <StepperRoot {...rest}>

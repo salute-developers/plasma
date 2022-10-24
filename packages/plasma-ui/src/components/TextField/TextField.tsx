@@ -37,7 +37,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
 ) {
     const placeLabel = (label || placeholder) as string | undefined;
 
-    const handleChange = useCallback(
+    const handleChange = useCallback<React.ChangeEventHandler<HTMLInputElement>>(
         (event) => {
             const { maxLength, value } = event.target;
 
