@@ -103,30 +103,19 @@ export const TabsView = styled(BaseTabs)<TabsViewProps>`
 
     ${({ size = 'l', stretch = false, shiftLeft, shiftRight }) =>
         css`
-            ${
-                shiftLeft &&
-                css`
-                    margin-left: calc(${shiftingSizes[size](stretch)} - var(--tab-focus-border-size) * 2);
-                `
-            }
+            ${shiftLeft &&
+            css`
+                margin-left: calc(${shiftingSizes[size](stretch)} - var(--tab-focus-border-size) * 2);
+            `}
 
-            ${
-                shiftRight &&
-                css`
-                    margin-right: ${shiftingSizes[size](stretch)};
-                `
-            }
-
-            ${
-                stretch &&
-                css`
-                    width: calc(100% + var(--tab-focus-border-size));
-                `
-            }
+            ${shiftRight &&
+            css`
+                margin-right: ${shiftingSizes[size](stretch)};
+            `}
         `};
 
     ${StyledTabs} {
-        padding: var(--tab-focus-border-size) 0;
+        padding: var(--tab-focus-border-size);
 
         background-color: ${({ view = 'secondary' }) => views[view]};
 
@@ -137,16 +126,6 @@ export const TabsView = styled(BaseTabs)<TabsViewProps>`
         ${({ size = 'l', stretch = false }) =>
             css`
                 ${sizes[size](stretch)};
-
-                ${stretch &&
-                css`
-                    width: calc(100% - var(--tab-focus-border-size));
-
-                    & > * {
-                        min-width: calc(25% - 0.25rem);
-                        max-width: calc(50% - 0.25rem);
-                    }
-                `}
             `};
 
         ${({ pilled }) =>
@@ -163,9 +142,6 @@ export const TabsView = styled(BaseTabs)<TabsViewProps>`
         /* stylelint-disable-next-line selector-max-universal */
         & > ${StyledTabItem} {
             ${(props) => !props.disabled && applyInteraction(props)}
-
-            margin-left: var(--tab-focus-border-size);
-            margin-right: var(--tab-focus-border-size);
         }
     }
 `;
