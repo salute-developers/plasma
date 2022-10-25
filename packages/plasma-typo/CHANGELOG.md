@@ -1,3 +1,16 @@
+# v0.25.0 (Tue Oct 25 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-typo): Add `sbermaket` archetype [#199](https://github.com/salute-developers/plasma/pull/199) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-typo): Add tokens for new typo [#199](https://github.com/salute-developers/plasma/pull/199) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.23.2 (Mon Oct 10 2022)
 
 #### 🐛 Bug Fix
