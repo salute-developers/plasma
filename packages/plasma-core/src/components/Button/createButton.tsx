@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { white } from '../../tokens';
+import { ThemeProviderContextBase } from '../../types';
 
 import { ButtonContentWrapper, ButtonLoader, ButtonRoot, ButtonText, StyledSpinner } from './Button';
 import type { ButtonProps, ButtonAllContentProps } from './Button.types';
@@ -19,11 +20,12 @@ export function createButton<T extends HTMLElement, P extends ButtonProps>(Root 
             contentLeft,
             contentRight,
             square,
-            loader = <StyledSpinner color={white} size="56" />,
+            deviceScale,
+            loader = <StyledSpinner color={white} size={56} deviceScale={deviceScale} />,
             disabled,
             isLoading,
             ...rest
-        }: ButtonProps & ButtonAllContentProps,
+        }: ButtonProps & ButtonAllContentProps & ThemeProviderContextBase,
         ref,
     ) {
         const isContentLeft = Boolean(contentLeft);

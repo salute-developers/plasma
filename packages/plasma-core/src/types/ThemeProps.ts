@@ -1,8 +1,5 @@
 import { ThemeProps as BaseProps } from 'styled-components';
 
-export type ThemeProps = BaseProps<{
-    /**
-     * Отключить любую анимацию компонента.
-     */
-    lowPerformance?: boolean;
-}>;
+import { ThemeProviderContextBase } from './ThemeProviderContextBase';
+
+export type ThemeProps = BaseProps<ThemeProviderContextBase>;
