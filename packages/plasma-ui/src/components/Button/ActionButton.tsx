@@ -1,3 +1,4 @@
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import {
     createButton,
@@ -8,8 +9,15 @@ import {
     button2,
     caption,
 } from '@salutejs/plasma-core';
-import type { ButtonProps as BaseProps, ButtonSizeProps, ButtonViewProps, PinProps } from '@salutejs/plasma-core';
+import type {
+    ButtonProps as BaseProps,
+    ButtonSizeProps,
+    ButtonViewProps,
+    PinProps,
+    ThemeProviderContextBase,
+} from '@salutejs/plasma-core';
 
+import { useThemeContext } from '../../hooks';
 import { applyInteraction, InteractionProps } from '../../mixins';
 
 export type ActionButtonProps = Omit<BaseProps, 'stretch' | 'pin'> &
@@ -68,7 +76,13 @@ const StyledButtonRoot = styled(ButtonRoot)<InteractionProps>`
  * Размеры ``ActionButton`` меньше размеров ``Button``.
  * Обладает теми же цветами, размерами и модификаторами, что и основная кнопка.
  */
-export const ActionButton = createButton<HTMLButtonElement, ActionButtonProps>(StyledButtonRoot);
+const ButtonBase = createButton<HTMLButtonElement, ActionButtonProps & ThemeProviderContextBase>(StyledButtonRoot);
+
+export const ActionButton = forwardRef<HTMLButtonElement, ActionButtonProps>((props, ref) => {
+    const { deviceScale } = useThemeContext();
+
+    return <ButtonBase {...props} ref={ref} deviceScale={deviceScale} />;
+});
 
 ActionButton.defaultProps = {
     size: 'm',
