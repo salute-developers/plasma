@@ -1,5 +1,6 @@
-export { mage } from './mage';
-export { plasma } from './plasma';
-export { ruler } from './ruler';
-export { sage } from './sage';
-export { soulmate } from './soulmate';
+export { mage, mageTypoProperties } from './mage';
+export { plasma, plasmaTypoProperties } from './plasma';
+export { ruler, rulerTypoProperties } from './ruler';
+export { sage, sageTypoProperties } from './sage';
+export { soulmate, soulmateTypoProperties } from './soulmate';
+export { sbermarket, sbermarketTypoProperties } from './sbermarket';

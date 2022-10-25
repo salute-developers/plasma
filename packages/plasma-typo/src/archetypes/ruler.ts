@@ -1,6 +1,6 @@
 import { createVariablesByArcheType, mergeTypoProps } from '../helpers';
 
-import { baseTypoL, baseTypoM, baseTypoS } from './mage';
+import { baseTypoL, baseTypoM, baseTypoS, typoCommonProps } from './mage';
 
 const typo = {
     'dspl-l': {
@@ -107,9 +107,18 @@ const typo = {
     },
 };
 
+const displayFontFamily = 'SB Sans Display';
+const textFontFamily = 'SB Sans Text';
+
+export const rulerTypoProperties = {
+    s: mergeTypoProps(baseTypoS, typo, typoCommonProps(displayFontFamily, textFontFamily)),
+    m: mergeTypoProps(baseTypoM, typo, typoCommonProps(displayFontFamily, textFontFamily)),
+    l: mergeTypoProps(baseTypoL, typo, typoCommonProps(displayFontFamily, textFontFamily)),
+};
+
 export const ruler = createVariablesByArcheType({
-    displayFontFamily: 'SB Sans Display',
-    textFontFamily: 'SB Sans Text',
+    displayFontFamily,
+    textFontFamily,
     typoS: mergeTypoProps(baseTypoS, typo),
     typoM: mergeTypoProps(baseTypoM, typo),
     typoL: mergeTypoProps(baseTypoL, typo),
