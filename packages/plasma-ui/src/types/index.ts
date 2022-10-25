@@ -5,4 +5,5 @@ export type {
     ShiftProps,
     SnapType,
     SnapAlign,
+    ThemeProviderContextBase,
 } from '@salutejs/plasma-core';

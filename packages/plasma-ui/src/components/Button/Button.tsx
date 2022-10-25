@@ -1,3 +1,4 @@
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import { createButton, ButtonRoot, applyNoSelect } from '@salutejs/plasma-core';
 import type {
@@ -5,9 +6,11 @@ import type {
     ButtonContentProps,
     ButtonSizeProps,
     ButtonViewProps,
+    ThemeProviderContextBase,
 } from '@salutejs/plasma-core';
 
 import { applyInteraction, InteractionProps } from '../../mixins';
+import { useThemeContext } from '../../hooks';
 
 import { applySizes, applyViews } from './Button.mixins';
 
@@ -28,7 +31,13 @@ const StyledButtonRoot = styled(ButtonRoot)<InteractionProps>`
  * Основной компонент для отображения кнопок.
  * Поддерживает несколько режимов отображения (`view`) и размеров (`size`).
  */
-export const Button = createButton<HTMLButtonElement, ButtonProps>(StyledButtonRoot);
+const ButtonBase = createButton<HTMLButtonElement, ButtonProps & ThemeProviderContextBase>(StyledButtonRoot);
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+    const { deviceScale } = useThemeContext();
+
+    return <ButtonBase {...props} ref={ref} deviceScale={deviceScale} />;
+});
 
 Button.defaultProps = {
     size: 'l',
