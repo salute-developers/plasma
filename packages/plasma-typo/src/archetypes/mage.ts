@@ -1,4 +1,4 @@
-import { createVariablesByArcheType } from '../helpers';
+import { createVariablesByArcheType, mergeTypoProps } from '../helpers';
 import { TypoProps } from '../types';
 
 export const baseTypoS: TypoProps = {
@@ -520,9 +520,191 @@ export const baseTypoL = {
     },
 };
 
+export const typoCommonProps = (displayFontFamily: string, textFontFamily: string) => ({
+    'dspl-l': {
+        'font-family': displayFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'dspl-l-bold': {
+        'font-family': displayFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'dspl-m': {
+        'font-family': displayFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'dspl-m-bold': {
+        'font-family': displayFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'dspl-s': {
+        'font-family': displayFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'dspl-s-bold': {
+        'font-family': displayFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    h1: {
+        'font-family': displayFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'h1-bold': {
+        'font-family': displayFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    h2: {
+        'font-family': displayFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'h2-bold': {
+        'font-family': displayFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    h3: {
+        'font-family': displayFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'h3-bold': {
+        'font-family': displayFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    h4: {
+        'font-family': displayFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'h4-bold': {
+        'font-family': displayFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    h5: {
+        'font-family': displayFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'h5-bold': {
+        'font-family': displayFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'body-l': {
+        'font-family': textFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'body-l-bold': {
+        'font-family': textFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'body-m': {
+        'font-family': textFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'body-m-bold': {
+        'font-family': textFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'body-s': {
+        'font-family': textFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'body-s-bold': {
+        'font-family': textFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'body-xs': {
+        'font-family': textFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'body-xs-bold': {
+        'font-family': textFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'body-xxs': {
+        'font-family': textFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'body-xxs-bold': {
+        'font-family': textFontFamily,
+        'letter-spacing': 'normal',
+        'font-style': 'normal',
+    },
+    'text-l': {
+        'font-family': textFontFamily,
+        'letter-spacing': '-0.02em',
+        'font-style': 'normal',
+    },
+    'text-l-bold': {
+        'font-family': textFontFamily,
+        'letter-spacing': '-0.02em',
+        'font-style': 'normal',
+    },
+    'text-m': {
+        'font-family': textFontFamily,
+        'letter-spacing': '-0.02em',
+        'font-style': 'normal',
+    },
+    'text-m-bold': {
+        'font-family': textFontFamily,
+        'letter-spacing': '-0.02em',
+        'font-style': 'normal',
+    },
+    'text-s': {
+        'font-family': textFontFamily,
+        'letter-spacing': '-0.015em',
+        'font-style': 'normal',
+    },
+    'text-s-bold': {
+        'font-family': textFontFamily,
+        'letter-spacing': '-0.015em',
+        'font-style': 'normal',
+    },
+    'text-xs': {
+        'font-family': textFontFamily,
+        'letter-spacing': '-0.01em',
+        'font-style': 'normal',
+    },
+    'text-xs-bold': {
+        'font-family': textFontFamily,
+        'letter-spacing': '-0.01em',
+        'font-style': 'normal',
+    },
+});
+
+const displayFontFamily = 'SB Sans Display';
+const textFontFamily = 'SB Sans Text';
+
+export const mageTypoProperties = {
+    s: mergeTypoProps(baseTypoS, typoCommonProps(displayFontFamily, textFontFamily)),
+    m: mergeTypoProps(baseTypoM, typoCommonProps(displayFontFamily, textFontFamily)),
+    l: mergeTypoProps(baseTypoL, typoCommonProps(displayFontFamily, textFontFamily)),
+};
+
 export const mage = createVariablesByArcheType({
-    displayFontFamily: 'SB Sans Display',
-    textFontFamily: 'SB Sans Text',
+    displayFontFamily,
+    textFontFamily,
     typoS: baseTypoS,
     typoM: baseTypoM,
     typoL: baseTypoL,

@@ -1,6 +1,6 @@
 import { createVariablesByArcheType, mergeTypoProps } from '../helpers';
 
-import { baseTypoL, baseTypoM, baseTypoS } from './mage';
+import { baseTypoL, baseTypoM, baseTypoS, typoCommonProps } from './mage';
 
 const typo = {
     'dspl-l': {
@@ -107,9 +107,18 @@ const typo = {
     },
 };
 
+const displayFontFamily = 'SB Serif Display';
+const textFontFamily = 'SB Sans Text';
+
+export const sageTypoProperties = {
+    s: mergeTypoProps(baseTypoS, typo, typoCommonProps(displayFontFamily, textFontFamily)),
+    m: mergeTypoProps(baseTypoM, typo, typoCommonProps(displayFontFamily, textFontFamily)),
+    l: mergeTypoProps(baseTypoL, typo, typoCommonProps(displayFontFamily, textFontFamily)),
+};
+
 export const sage = createVariablesByArcheType({
-    displayFontFamily: 'SB Serif Display',
-    textFontFamily: 'SB Sans Text',
+    displayFontFamily,
+    textFontFamily,
     typoS: mergeTypoProps(baseTypoS, typo),
     typoM: mergeTypoProps(baseTypoM, typo),
     typoL: mergeTypoProps(baseTypoL, typo),

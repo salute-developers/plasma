@@ -37,17 +37,21 @@ export const prepareCompatibleTypo = (typoMap: TypoMap) =>
         return acc;
     }, {});
 
-export const mergeTypoProps = (obj1: TypoProps, obj2: TypoProps): TypoProps => {
-    return Object.entries(obj2).reduce((acc, [key, value]) => {
-        return {
-            ...acc,
-            [key]: {
-                ...acc[key as TypoPropName],
-                ...value,
-            },
-        };
-    }, obj1);
-};
+export const mergeTypoProps = (...obj: TypoProps[]): TypoProps =>
+    [...obj].reduce(
+        (resultObj, currentObj) =>
+            Object.entries(currentObj).reduce(
+                (acc, [key, value]) => ({
+                    ...acc,
+                    [key]: {
+                        ...acc[key as TypoPropName],
+                        ...value,
+                    },
+                }),
+                resultObj,
+            ),
+        {},
+    );
 
 type FontFamily = 'SB Sans Display' | 'SB Serif Display' | 'SB Sans Cond Mono' | 'SB Sans Text' | 'SB Sans Text Mono';
 

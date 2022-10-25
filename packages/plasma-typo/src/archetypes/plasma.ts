@@ -1,6 +1,6 @@
 import { createVariablesByArcheType, mergeTypoProps } from '../helpers';
 
-import { baseTypoL, baseTypoM, baseTypoS } from './mage';
+import { baseTypoL, baseTypoM, baseTypoS, typoCommonProps } from './mage';
 
 const typo = {
     'dspl-l': {
@@ -107,9 +107,18 @@ const typo = {
     },
 };
 
+const displayFontFamily = 'SB Sans Cond Mono';
+const textFontFamily = 'SB Sans Text Mono';
+
+export const plasmaTypoProperties = {
+    s: mergeTypoProps(baseTypoS, typo, typoCommonProps(displayFontFamily, textFontFamily)),
+    m: mergeTypoProps(baseTypoM, typo, typoCommonProps(displayFontFamily, textFontFamily)),
+    l: mergeTypoProps(baseTypoL, typo, typoCommonProps(displayFontFamily, textFontFamily)),
+};
+
 export const plasma = createVariablesByArcheType({
-    displayFontFamily: 'SB Sans Cond Mono',
-    textFontFamily: 'SB Sans Text Mono',
+    displayFontFamily,
+    textFontFamily,
     typoS: mergeTypoProps(baseTypoS, typo),
     typoM: mergeTypoProps(baseTypoM, typo),
     typoL: mergeTypoProps(baseTypoL, typo),
