@@ -33,7 +33,9 @@
     "publishConfig": {
         "access": "restricted"
     },
-    "files": ["lib"],
+    "files": [
+        "lib"
+    ],
     "dependencies": {
         "@salutejs/plasma-core": "1.82.0",
         "@salutejs/plasma-tokens-b2b": "1.4.1",
