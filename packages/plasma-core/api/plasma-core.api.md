@@ -1106,7 +1106,7 @@ export const tertiary = "var(--plasma-colors-tertiary)";
 export const text = "var(--plasma-colors-text)";
 
 // @public
-const TextArea: StyledComponent<"textarea", any, Pick<TextAreaProps, "resize" | "status">, never>;
+const TextArea: StyledComponent<"textarea", any, Pick<TextAreaProps, "status" | "resize">, never>;
 export { TextArea }
 export { TextArea as TextFieldTextarea }
 
