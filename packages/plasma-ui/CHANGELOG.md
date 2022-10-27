@@ -1,3 +1,15 @@
+# v1.140.1 (Thu Oct 27 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): delete unnecessary max-height property [#201](https://github.com/salute-developers/plasma/pull/201) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.140.0 (Thu Oct 27 2022)
 
 #### 🚀 Enhancement

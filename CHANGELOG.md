@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@salutejs/plasma-ui@1.140.1`
+  - fix(plasma-ui): delete unnecessary max-height property [#201](https://github.com/salute-developers/plasma/pull/201) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Thu Oct 27 2022)
+
+#### 🐛 Bug Fix
+
 - `@salutejs/plasma-temple@1.106.1`
   - fix(plasma-temple): fix warnings and rerender of HeroSlider [#196](https://github.com/salute-developers/plasma/pull/196) ([@LamaEats](https://github.com/LamaEats))
 
