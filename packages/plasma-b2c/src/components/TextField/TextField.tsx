@@ -1,4 +1,5 @@
-import React, { forwardRef, useCallback } from 'react';
+import React, { ChangeEventHandler, forwardRef, useCallback } from 'react';
+
 import { FieldHelper } from '@salutejs/plasma-core';
 import type { FieldProps, InputProps } from '@salutejs/plasma-core';
 
@@ -48,7 +49,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
 ) {
     const placeLabel = (label || placeholder) as string | undefined;
 
-    const handleChange = useCallback(
+    const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
         (event) => {
             const { maxLength, value } = event.target;
 

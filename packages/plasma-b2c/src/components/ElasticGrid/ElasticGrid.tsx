@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { PropsWithChildren, useLayoutEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 const StyledContainer = styled.div`
@@ -34,7 +34,13 @@ export interface ElasticGridProps {
 /**
  * Компонент с резиновой сеткой
  */
-export const ElasticGrid: React.FC<ElasticGridProps> = ({ children, minColWidth, gapX = 0, gapY = 0, ...props }) => {
+export const ElasticGrid: React.FC<PropsWithChildren<ElasticGridProps>> = ({
+    children,
+    minColWidth,
+    gapX = 0,
+    gapY = 0,
+    ...props
+}) => {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const [itemProps, setItemProps] = useState<ItemProps>({
         width: `${minColWidth}px`,

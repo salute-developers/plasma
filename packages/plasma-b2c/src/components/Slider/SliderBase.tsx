@@ -1,6 +1,7 @@
-import React, { useCallback } from 'react';
+import React, { PropsWithChildren, useCallback } from 'react';
 import styled, { css } from 'styled-components';
 import { surfaceLiquid03, buttonAccent } from '@salutejs/plasma-core';
+import { DraggableData } from 'react-draggable';
 
 export const handleDiameter = 1.25;
 export const handleBorderWidth = 0.125; // 0.0625;
@@ -15,7 +16,7 @@ interface SliderProps {
     railFillXPosition?: number;
     disabled?: boolean;
     setStepSize(stepSize: number): void;
-    onChange?: (value: number, data: { lastX: number }) => void;
+    onChange?(value: number, data: DraggableData): void;
 }
 
 const Slider = styled.div<{ disabled?: boolean }>`
@@ -54,7 +55,7 @@ const Fill = styled.div`
     width: 0;
 `;
 
-export const SliderBase: React.FC<SliderProps> = ({
+export const SliderBase: React.FC<PropsWithChildren<SliderProps>> = ({
     max,
     min,
     setStepSize,
@@ -74,7 +75,7 @@ export const SliderBase: React.FC<SliderProps> = ({
             const position = min + (lastX / width) * (max - min);
             const result = Math.max(min, Math.min(max, position));
 
-            onChange(result, { lastX });
+            onChange(result, { lastX } as DraggableData);
         },
         [onChange, min, max],
     );
