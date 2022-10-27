@@ -1,3 +1,15 @@
+# v0.76.1 (Thu Oct 27 2022)
+
+#### 🐛 Bug Fix
+
+- chore(plasma-icons,plasma-sb-utils): Bump plasma-core version [#200](https://github.com/salute-developers/plasma/pull/200) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.75.2 (Mon Oct 10 2022)
 
 #### 🐛 Bug Fix
