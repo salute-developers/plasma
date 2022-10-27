@@ -2,6 +2,23 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-ui@1.140.0`
+  - fix(plasma-ui): handle "Spinner" size [#193](https://github.com/salute-developers/plasma/pull/193) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-ui): pass "deviceScale" prop for default spinner [#193](https://github.com/salute-developers/plasma/pull/193) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-core@1.79.0`
+  - feat(plasma-core): handle "Spinner" size [#193](https://github.com/salute-developers/plasma/pull/193) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-core): pass ThemeProviderContextBase for Button [#193](https://github.com/salute-developers/plasma/pull/193) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Thu Oct 27 2022)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-ui@1.139.0`
   - feat(plasma-ui): pass product card text as ReactNode [#180](https://github.com/salute-developers/plasma/pull/180) ([@Yakutoc](https://github.com/Yakutoc))
 

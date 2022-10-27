@@ -1,3 +1,16 @@
+# v1.140.0 (Thu Oct 27 2022)
+
+#### 🚀 Enhancement
+
+- fix(plasma-ui): handle "Spinner" size [#193](https://github.com/salute-developers/plasma/pull/193) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-ui): pass "deviceScale" prop for default spinner [#193](https://github.com/salute-developers/plasma/pull/193) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.139.0 (Thu Oct 27 2022)
 
 #### 🚀 Enhancement

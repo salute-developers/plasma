@@ -1,3 +1,16 @@
+# v1.79.0 (Thu Oct 27 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-core): handle "Spinner" size [#193](https://github.com/salute-developers/plasma/pull/193) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-core): pass ThemeProviderContextBase for Button [#193](https://github.com/salute-developers/plasma/pull/193) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.76.2 (Mon Oct 10 2022)
 
 #### 🐛 Bug Fix
