@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { monthShortName, monthLongName } from '@salutejs/plasma-core';
 
 import { Picker, PickerProps } from './Picker';
@@ -28,15 +28,18 @@ export interface SimpleDatePickerProps extends Omit<PickerProps, 'items'> {
     monthNameFormat?: MonthNameFormat;
 }
 
-export const SimpleDatePicker = React.memo<SimpleDatePickerProps>(({ id, type, monthNameFormat, range, ...rest }) => {
-    const formatterKey = getFormatterKey(type, monthNameFormat);
-    const formatter = labelFormatter[formatterKey];
+export const SimpleDatePicker = React.memo<SimpleDatePickerProps>(
+    ({ id, type, monthNameFormat, range, onChange, ...rest }) => {
+        const items = useMemo(() => {
+            const formatterKey = getFormatterKey(type, monthNameFormat);
+            const formatter = labelFormatter[formatterKey];
+            const from = range[0];
+            return range.map((_, i) => ({
+                label: formatter(from + i),
+                value: from + i,
+            }));
+        }, [range, monthNameFormat, type]);
 
-    const from = range[0];
-    const items = range.map((_, i) => ({
-        label: formatter(from + i),
-        value: from + i,
-    }));
-
-    return <Picker id={id ? `${id}-${type}` : undefined} items={items} {...rest} />;
-});
+        return <Picker id={id ? `${id}-${type}` : undefined} items={items} onChange={onChange} {...rest} />;
+    },
+);

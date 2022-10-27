@@ -394,8 +394,12 @@ export const Time_Picker: Story<TimePickerStoryProps> = ({
     ...rest
 }) => {
     const [value, setValue] = React.useState(parseDateTime(initialValue));
-    const min = React.useMemo(() => parseDateTime(minDate), [minDate]);
-    const max = React.useMemo(() => parseDateTime(maxDate), [maxDate]);
+    // const min = React.useMemo(() => parseDateTime(minDate), [minDate]);
+    // const max = React.useMemo(() => parseDateTime(maxDate), [maxDate]);
+
+    const [stateMin, setStateMin] = React.useState(parseDateTime(minDate));
+    const [stateMax, setStateMax] = React.useState(parseDateTime(maxDate));
+
     const hours = optionsHours;
     const minutes = optionsMinutes;
     const seconds = optionsSeconds;
@@ -410,19 +414,30 @@ export const Time_Picker: Story<TimePickerStoryProps> = ({
     );
 
     return (
-        <TimePicker
-            key={`${rest.size}-${rest.visibleItems}`}
-            id="picker"
-            value={value}
-            min={min}
-            max={max}
-            options={options}
-            onChange={setValue}
-            secondsAriaLabel="секунды"
-            minutesAriaLabel="минуты"
-            hoursAriaLabel="часы"
-            {...rest}
-        />
+        <>
+            <button
+                type="button"
+                onClick={() => {
+                    setStateMin(parseDateTime('01.09.1980 10:30:30'));
+                    setStateMax(parseDateTime('01.09.1980 00:30:30'));
+                }}
+            >
+                set max
+            </button>
+            <TimePicker
+                key={`${rest.size}-${rest.visibleItems}`}
+                id="picker"
+                value={value}
+                min={stateMin}
+                max={stateMax}
+                options={options}
+                onChange={setValue}
+                secondsAriaLabel="секунды"
+                minutesAriaLabel="минуты"
+                hoursAriaLabel="часы"
+                {...rest}
+            />
+        </>
     );
 };
 
@@ -462,4 +477,60 @@ Time_Picker.argTypes = {
             options: ['l', 's', 'xs'],
         },
     },
+};
+
+// const min = new Date(2021, 1, 1, 1, 1, 1);
+// const max = new Date(2021, 0, 0, 23, 59, 59);
+
+export const getMinMaxOfDay = (value: Date) => {
+    return {
+        min: new Date(value.getFullYear(), value.getMonth(), value.getDate(), 0, 0, 0),
+        max: new Date(value.getFullYear(), value.getMonth(), value.getDate(), 20, 59, 59),
+    };
+};
+
+// eslint-disable-next-line @typescript-eslint/camelcase
+export const Time_Picker_Test: Story<TimePickerStoryProps> = () => {
+    const { min, max } = getMinMaxOfDay(new Date());
+
+    // console.log('min', min);
+    // console.log('max', max);
+
+    const [pickerDate, setPickerDate] = React.useState(parseDateTime('01.09.1980 15:59:00'));
+
+    console.log('React.version', React.version);
+
+    const handleChangeTime: TimePickerProps['onChange'] = React.useCallback(
+        (newValue: Date) => {
+            console.log('__handleChangeTime', newValue);
+
+            // setTimeout(() => {
+            setPickerDate(newValue);
+            // }, 0);
+        },
+        [pickerDate],
+    );
+
+    return (
+        <>
+            <button
+                type="button"
+                onClick={() => {
+                    setPickerDate(parseDateTime('01.09.1980 22:32:30'));
+                }}
+            >
+                set value
+            </button>
+            <TimePicker
+                value={pickerDate}
+                onChange={handleChangeTime}
+                step={300}
+                size="s"
+                visibleItems={3}
+                min={min}
+                max={max}
+                options={{ hours: true, minutes: true, seconds: false }}
+            />
+        </>
+    );
 };
