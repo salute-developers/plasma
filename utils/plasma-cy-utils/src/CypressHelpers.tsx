@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { createPortal } from 'react-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import { mount as cyMount } from '@cypress/react';
@@ -78,14 +78,14 @@ interface CYTDec {
     noSSR?: boolean;
 }
 
-export const CypressTestDecorator: React.FC<CYTDec> = ({ noSSR, children }) => {
+export const CypressTestDecorator: React.FC<PropsWithChildren<CYTDec>> = ({ noSSR, children }) => {
     // eslint-disable-next-line
     // @ts-ignore
     const pkgName = Cypress.env('package');
     const tokens = Cypress.env('tokens');
     const SSRProvider = getComponent('SSRProvider');
 
-    const SSR: React.FC<CYTDec> = ({ noSSR: _noSSR, children }) => {
+    const SSR: React.FC<PropsWithChildren<CYTDec>> = ({ noSSR: _noSSR, children }) => {
         if (_noSSR) {
             return <>{children}</>;
         }
@@ -185,7 +185,7 @@ interface PortalProps {
     id: string;
 }
 
-export const Portal: React.FC<PortalProps> = ({ id, children }) => {
+export const Portal: React.FC<PropsWithChildren<PortalProps>> = ({ id, children }) => {
     const el = document.createElement('div');
 
     React.useEffect(() => {
