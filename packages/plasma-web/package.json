@@ -3,27 +3,11 @@
     "version": "1.143.0",
     "description": "Salute Design System / React UI kit for web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    "keywords": [
-        "design-system",
-        "react-components",
-        "ui-kit",
-        "react"
-    ],
+    "keywords": ["design-system", "react-components", "ui-kit", "react"],
     "main": "index.js",
     "module": "es/index.js",
     "types": "index.d.ts",
-    "files": [
-        "components",
-        "es",
-        "hocs",
-        "hooks",
-        "mixins",
-        "tokens",
-        "types",
-        "utils",
-        "index.d.ts",
-        "index.js"
-    ],
+    "files": ["components", "es", "hocs", "hooks", "mixins", "tokens", "types", "utils", "index.d.ts", "index.js"],
     "repository": {
         "type": "git",
         "url": "ssh://git@github.com:salute-developers/plasma.git",
@@ -64,15 +48,15 @@
         "@storybook/react": "6.3.8",
         "@storybook/theming": "6.3.8",
         "@types/node": "16.7.13",
-        "@types/react": "16.9.38",
-        "@types/react-dom": "16.9.8",
+        "@types/react": "18.0.21",
+        "@types/react-dom": "18.0.6",
         "@types/styled-components": "5.1.0",
         "babel-loader": "8.2.2",
         "babel-plugin-annotate-pure-calls": "0.4.0",
         "babel-plugin-styled-components": "1.13.2",
         "babel-plugin-transform-class-properties": "6.24.1",
-        "react": "16.13.1",
-        "react-dom": "16.13.1",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
         "react-scripts": "3.4.4",
         "styled-components": "5.3.1",
         "typescript": "3.9.10"
@@ -91,10 +75,6 @@
         "storybook:build": "build-storybook -s .storybook/public -c .storybook -o build-sb",
         "storybook:build:docs": "DOCS=true build-storybook --quiet -s .storybook/public -c .storybook -o build-sb-docs --docs"
     },
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Anton Vinogradov",
-        "Fanil Zubairov"
-    ],
+    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"],
     "sideEffects": false
 }

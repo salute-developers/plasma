@@ -38,7 +38,7 @@ export const DropdownUncontrolled: FC<DropdownUncontrolledProps> = ({
 }) => {
     const hasItems = Array.isArray(items) && items.length > 0;
 
-    const onToggle = useCallback(
+    const onToggle = useCallback<NonNullable<DropdownPopupProps['onToggle']>>(
         (newIsOpen, event) => {
             if (newIsOpen && hasItems && !disabled) {
                 onToggleExternal?.(true, event);

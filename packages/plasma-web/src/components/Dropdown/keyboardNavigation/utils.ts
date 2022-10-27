@@ -35,7 +35,7 @@ export enum Keys {
 /**
  * Возвращает экшн в соответствии с нажатой клавишей.
  */
-export const getActionFromKey = (event: KeyboardEvent, isOpen?: boolean) => {
+export const getActionFromKey = (event: React.KeyboardEvent, isOpen?: boolean) => {
     const { altKey, ctrlKey, metaKey } = event;
 
     // Все кнопки, которые открывают селект

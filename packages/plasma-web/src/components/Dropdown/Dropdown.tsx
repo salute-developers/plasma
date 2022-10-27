@@ -28,7 +28,7 @@ export const Dropdown: FC<DropdownProps> = ({
 }) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const onToggle = useCallback(
+    const onToggle = useCallback<NonNullable<DropdownUncontrolledProps['onToggle']>>(
         (newIsOpen, event) => {
             setIsOpen(newIsOpen);
             onToggleExternal?.(newIsOpen, event);
@@ -36,7 +36,7 @@ export const Dropdown: FC<DropdownProps> = ({
         [onToggleExternal, disabled],
     );
 
-    const onItemSelect = useCallback(
+    const onItemSelect = useCallback<NonNullable<DropdownUncontrolledProps['onItemSelect']>>(
         (item, event) => {
             if (closeOnSelect) {
                 onToggle?.(false, event);

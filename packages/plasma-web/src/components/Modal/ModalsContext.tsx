@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { PropsWithChildren, useEffect } from 'react';
 
 /**
  * Хранилище модальных окон.
@@ -21,7 +21,7 @@ export const MODALS_PORTAL_ID = 'plasma-modals-root';
 
 export const ModalsContext = React.createContext(controller);
 
-export const ModalsProvider: React.FC = ({ children }) => {
+export const ModalsProvider: React.FC<PropsWithChildren> = ({ children }) => {
     useEffect(() => {
         return () => {
             const portal = document.createElement('div');

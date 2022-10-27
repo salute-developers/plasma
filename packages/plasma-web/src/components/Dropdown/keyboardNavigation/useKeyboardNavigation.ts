@@ -31,7 +31,7 @@ export const useKeyboardNavigation = ({
 }: UseKeyboardNavigationProps) => {
     const getIndexByTyping = useOnComboType({ index, items });
 
-    const onKeyDown = useCallback(
+    const onKeyDown = useCallback<React.KeyboardEventHandler>(
         (event) => {
             if (!items.length) {
                 return;
