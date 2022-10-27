@@ -1,5 +1,18 @@
 # (Thu Oct 27 2022)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-temple@1.106.1`
+  - fix(plasma-temple): fix warnings and rerender of HeroSlider [#196](https://github.com/salute-developers/plasma/pull/196) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 1
+
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
+# (Thu Oct 27 2022)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-ui@1.140.0`
