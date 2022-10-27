@@ -8,6 +8,7 @@ const StyledSuggestText = () => null;
 
 const StyledTitle = styled(Headline2)`
     margin-bottom: 1.125rem;
+    white-space: pre-wrap;
 `;
 
 const StyledSlide = styled.div`
