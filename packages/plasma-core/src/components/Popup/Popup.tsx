@@ -28,7 +28,7 @@ export interface PopupProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * Событие сворачивания/разворачивания всплывающего окна.
      */
-    onToggle?: (isOpen: boolean, event: SyntheticEvent) => void;
+    onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
 }
 
 const StyledRoot = styled.div`
@@ -77,9 +77,9 @@ export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
             const handleRef = useForkRef<HTMLDivElement>(rootRef, outerRootRef);
 
             const onDocumentClick = useCallback(
-                (event) => {
+                (event: MouseEvent) => {
                     const targetIsRoot = event.target === rootRef.current;
-                    const rootHasTarget = rootRef.current?.contains(event.target);
+                    const rootHasTarget = rootRef.current?.contains(event.target as Element);
 
                     if (!targetIsRoot && !rootHasTarget) {
                         onToggle?.(false, event);
@@ -88,11 +88,11 @@ export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
                 [onToggle],
             );
 
-            const onClick = useCallback(
+            const onClick = useCallback<React.MouseEventHandler>(
                 (event) => {
                     if (trigger === 'click') {
-                        const targetIsPopup = event.target === popupRef;
-                        const rootHasTarget = popupRef.current?.contains(event.target);
+                        const targetIsPopup = event.target === popupRef.current;
+                        const rootHasTarget = popupRef.current?.contains(event.target as Element);
 
                         if (!targetIsPopup && !rootHasTarget) {
                             onToggle?.(!isOpen, event);
@@ -102,7 +102,7 @@ export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
                 [trigger, isOpen, onToggle],
             );
 
-            const onMouseEnter = useCallback(
+            const onMouseEnter = useCallback<React.MouseEventHandler>(
                 (event) => {
                     if (trigger === 'hover') {
                         onToggle?.(true, event);
@@ -111,7 +111,7 @@ export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
                 [trigger, onToggle],
             );
 
-            const onMouseLeave = useCallback(
+            const onMouseLeave = useCallback<React.MouseEventHandler>(
                 (event) => {
                     if (trigger === 'hover') {
                         onToggle?.(false, event);
@@ -120,7 +120,7 @@ export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
                 [trigger, onToggle],
             );
 
-            const onFocus = useCallback(
+            const onFocus = useCallback<React.FocusEventHandler>(
                 (event) => {
                     if (trigger === 'hover') {
                         onToggle?.(true, event);
@@ -129,7 +129,7 @@ export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
                 [trigger, onToggle],
             );
 
-            const onBlur = useCallback(
+            const onBlur = useCallback<React.FocusEventHandler>(
                 (event) => {
                     if (trigger === 'hover') {
                         onToggle?.(false, event);

@@ -36,7 +36,7 @@ export function createTabsController<T extends HTMLDivElement, P extends TabsCon
         const innerRef = useRef<HTMLDivElement>(null);
         const ref = useForkRef(outerRef, innerRef);
 
-        const onItemFocus = useCallback(
+        const onItemFocus = useCallback<React.FocusEventHandler>(
             (event) => {
                 if (disabled) {
                     return;
