@@ -7,6 +7,7 @@ import { HeroSlide as CommonSlide, HeroSlideProps } from './HeroSlide';
 
 const StyledTitle = styled(Headline2)`
     margin-bottom: 1.375rem;
+    white-space: pre-wrap;
 `;
 
 const StyledSuggestText = styled(Body1)`

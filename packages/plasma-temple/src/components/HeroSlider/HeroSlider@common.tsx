@@ -107,7 +107,6 @@ export const HeroSlider: React.FC<UnifiedComponentProps<HeroSliderProps, Platfor
     platformComponents: { Wrapper, Slide },
 }) => {
     const [isActive, setIsActive] = React.useState(false);
-    const childLen = React.useRef(items.length);
     const timerRef = React.useRef<number>(Infinity);
     const containerRef = React.useRef<HTMLDivElement>(null);
 
@@ -115,7 +114,7 @@ export const HeroSlider: React.FC<UnifiedComponentProps<HeroSliderProps, Platfor
         axis: 'x',
         initialIndex,
         min: 0,
-        max: childLen.current - 1,
+        max: items.length - 1,
         longCount: 1,
         disable: !isActive,
     });
@@ -125,14 +124,14 @@ export const HeroSlider: React.FC<UnifiedComponentProps<HeroSliderProps, Platfor
             setActiveIndex((prev) => {
                 const nextIndex = prev + dir;
 
-                if (nextIndex < 0 || nextIndex > childLen.current - 1) {
+                if (nextIndex < 0 || nextIndex > items.length - 1) {
                     return prev;
                 }
 
                 return nextIndex;
             });
         },
-        [setActiveIndex],
+        [setActiveIndex, items.length],
     );
 
     useTouchHandler(containerRef, touchHandler);
@@ -140,7 +139,7 @@ export const HeroSlider: React.FC<UnifiedComponentProps<HeroSliderProps, Platfor
     React.useLayoutEffect(() => {
         timerRef.current = window.setTimeout(() => {
             let nextIndex = activeIndex + 1;
-            if (nextIndex > childLen.current - 1) {
+            if (nextIndex > items.length - 1) {
                 nextIndex = 0;
             }
             setActiveIndex(nextIndex);
@@ -149,7 +148,7 @@ export const HeroSlider: React.FC<UnifiedComponentProps<HeroSliderProps, Platfor
         return () => {
             clearTimeout(timerRef.current);
         };
-    }, [activeIndex, setActiveIndex, time]);
+    }, [activeIndex, items.length, setActiveIndex, time]);
 
     const item = React.useMemo(() => items[activeIndex], [items, activeIndex]);
 
@@ -197,7 +196,7 @@ export const HeroSlider: React.FC<UnifiedComponentProps<HeroSliderProps, Platfor
                 onBlur={handleBlur}
                 data-cy={`hero-slide-${activeIndex}`}
             >
-                {withTimeline && <HeroDots count={childLen.current} current={activeIndex} time={time} />}
+                {withTimeline && <HeroDots count={items.length} current={activeIndex} time={time} />}
             </Slide>
         </Wrapper>
     );
