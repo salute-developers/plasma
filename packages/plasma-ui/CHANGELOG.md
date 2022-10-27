@@ -1,3 +1,20 @@
+# v1.139.0 (Thu Oct 27 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): pass product card text as ReactNode [#180](https://github.com/salute-developers/plasma/pull/180) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.138.1 (Thu Oct 27 2022)
 
 #### 🐛 Bug Fix

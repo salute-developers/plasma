@@ -1,5 +1,18 @@
 # (Thu Oct 27 2022)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.139.0`
+  - feat(plasma-ui): pass product card text as ReactNode [#180](https://github.com/salute-developers/plasma/pull/180) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Thu Oct 27 2022)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-icons@1.103.1`, `@salutejs/plasma-sb-utils@0.76.1`
