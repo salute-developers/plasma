@@ -10,4 +10,6 @@ export interface TabsProps extends BaseTabsProps {}
 export const Tabs = styled(BaseTabs)<TabsProps>`
     --tabs-margin: 1rem;
     --tab-focus-border-size: 0rem;
+
+    gap: 0;
 `;
