@@ -22,11 +22,11 @@
         "@salutejs/plasma-tokens-b2c": "0.19.0",
         "@salutejs/plasma-tokens-web": "1.25.0",
         "@salutejs/plasma-typo": "0.31.0",
-        "@types/react": "16.9.38",
-        "@types/react-dom": "16.9.8",
+        "@types/react": "18.0.28",
+        "@types/react-dom": "18.0.11",
         "@types/styled-components": "5.1.0",
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
         "styled-components": "5.3.1",
         "typescript": "3.9.10",
         "typescript-coverage-report": "0.7.0"
@@ -39,16 +39,11 @@
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
         "atLeast": 100
     },
     "publishConfig": {
         "access": "public"
     },
-    "files": [
-        "lib"
-    ]
+    "files": ["lib"]
 }
