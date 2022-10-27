@@ -24,11 +24,11 @@
         "@salutejs/plasma-colors": "0.3.0",
         "@salutejs/plasma-core": "1.82.0",
         "@storybook/react": "6.3.8",
-        "@types/react": "16.9.38",
-        "@types/react-dom": "16.9.8",
+        "@types/react": "18.0.21",
+        "@types/react-dom": "18.0.6",
         "@types/styled-components": "^5.1.0",
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
         "styled-components": "^5.1.1",
         "typescript": "3.9.10"
     },
@@ -41,7 +41,5 @@
     "publishConfig": {
         "access": "public"
     },
-    "files": [
-        "lib"
-    ]
+    "files": ["lib"]
 }
