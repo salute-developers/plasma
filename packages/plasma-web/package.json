@@ -3,12 +3,7 @@
     "version": "1.177.1",
     "description": "Salute Design System / React UI kit for web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    "keywords": [
-        "design-system",
-        "react-components",
-        "ui-kit",
-        "react"
-    ],
+    "keywords": ["design-system", "react-components", "ui-kit", "react"],
     "main": "index.js",
     "module": "es/index.js",
     "types": "index.d.ts",
@@ -50,15 +45,15 @@
         "@storybook/react": "6.5.16",
         "@storybook/theming": "6.5.16",
         "@types/node": "16.7.13",
-        "@types/react": "16.9.38",
-        "@types/react-dom": "16.9.8",
+        "@types/react": "18.0.28",
+        "@types/react-dom": "18.0.11",
         "@types/styled-components": "5.1.0",
         "babel-loader": "8.2.2",
         "babel-plugin-annotate-pure-calls": "0.4.0",
         "babel-plugin-styled-components": "1.13.2",
         "babel-plugin-transform-class-properties": "6.24.1",
-        "react": "16.13.1",
-        "react-dom": "16.13.1",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
         "react-scripts": "3.4.4",
         "styled-components": "5.3.1",
         "typescript": "3.9.10",
@@ -83,16 +78,9 @@
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
         "atLeast": 99.96
     },
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Anton Vinogradov",
-        "Fanil Zubairov"
-    ],
+    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"],
     "sideEffects": false
 }
