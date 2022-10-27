@@ -56,7 +56,7 @@ export function AssistantProvider<A extends AssistantSmartAppData = AssistantSma
         onData: handleData,
     });
 
-    const value: AssistantContextType = React.useMemo(() => ({ assistant, setAssistantState, state }), [
+    const value = React.useMemo<AssistantContextType>(() => ({ assistant, setAssistantState, state }), [
         state,
         assistant,
         setAssistantState,

@@ -9,7 +9,7 @@ import { AssistantState } from './store/types';
 export interface AssistantContextType {
     state: AssistantState;
     assistant: AssistantInstance | null;
-    setAssistantState: <T extends AssistantAppState>(state: T) => void;
+    setAssistantState: <T extends AssistantAppState>(newState: T) => void;
 }
 
 const throwFn = () => {

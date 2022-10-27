@@ -3,6 +3,7 @@ import {
     AssistantNavigationCommand,
     AssistantSmartAppData,
     createAssistant,
+    AssistantAppState as _AssistantAppState,
 } from '@salutejs/client';
 import type { PriceProps, Ratio } from '@salutejs/plasma-ui';
 import { DeviceKind } from '@salutejs/plasma-ui/utils';
@@ -73,13 +74,15 @@ export interface AssistantAppStateItem {
     };
 }
 
-export interface AssistantAppState {
+export interface AssistantAppState extends _AssistantAppState {
+    /*
     // eslint-disable-next-line camelcase
     item_selector: {
         items: Array<AssistantAppStateItem>;
     };
+    */
     screen?: string;
-    [key: string]: unknown;
+    // [key: string]: unknown;
 }
 
 export interface Entity<ID = string> {

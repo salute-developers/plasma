@@ -5,7 +5,7 @@ import { CarouselItem } from '@salutejs/plasma-ui';
 import { AnyObject } from '../../../../types';
 import { GalleryCardProps } from '../../../../components/GalleryCard';
 
-interface ShopLandingCardProps<T> extends Omit<GalleryCardProps<T>, 'onClick'> {
+export interface ShopLandingCardProps<T extends AnyObject> extends Omit<GalleryCardProps<T>, 'onClick'> {
     onClick: (card: T, index: number) => void;
 }
 

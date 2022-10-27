@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import styled, { css } from 'styled-components';
 import {
     Body1,
@@ -51,7 +51,7 @@ const mapDeviceToName: Record<DeviceKind, React.FC> = {
     mobile: Footnote1,
 };
 
-export const StyledName = styled(mapDeviceToName[deviceFamily])<{ lines: number }>`
+export const StyledName = styled(mapDeviceToName[deviceFamily])<PropsWithChildren<{ lines: number }>>`
     overflow: hidden;
     text-overflow: ellipsis;
     hyphens: none;

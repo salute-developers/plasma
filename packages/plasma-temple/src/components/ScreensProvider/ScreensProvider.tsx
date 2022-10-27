@@ -38,7 +38,7 @@ export function ScreensProvider({
 
     const { history } = state;
 
-    const pushHistory = React.useCallback((name, data) => {
+    const pushHistory = React.useCallback((name: string, data: AnyObject) => {
         provider.push(name);
         dispatch(Actions.pushHistory(name, data, {}));
     }, []);

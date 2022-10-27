@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { Body1, Caption, Card, CardBody, CardContent, Footnote1, Price } from '@salutejs/plasma-ui';
 import { IconChevronRight } from '@salutejs/plasma-icons';
@@ -29,7 +29,7 @@ const StyledCaption = styled(Caption)`
     color: ${secondary};
 `;
 
-const mapDeviceToContent: Record<DeviceFamily, React.FC> = {
+const mapDeviceToContent: Record<DeviceFamily, React.FC<{ children?: ReactNode }>> = {
     sberBox: Body1,
     sberPortal: Footnote1,
     mobile: Footnote1,

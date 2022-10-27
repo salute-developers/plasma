@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEventHandler } from 'react';
 import styled from 'styled-components';
 
 import { FormContextApi } from '../types';
@@ -47,7 +47,7 @@ export function Form<D, K extends keyof D = keyof D>(props: FormProps<D, K>): Re
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [sequence, currentField, formState, onChangeValueField, onSubmit]);
 
-    const onChangeHandler = React.useCallback(
+    const onChangeHandler = React.useCallback<ChangeEventHandler>(
         (value) => {
             setFormState((prevData) => {
                 return {
@@ -59,6 +59,8 @@ export function Form<D, K extends keyof D = keyof D>(props: FormProps<D, K>): Re
         [currentField],
     );
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // @ts-ignore
     const contextApi: FormContextApi<D> = React.useMemo(
         () => ({
             onSubmit: onSubmitHandler,
