@@ -10,7 +10,6 @@ import { ProductCardProps } from './ProductCard';
 type ProductCardTextProps = Pick<ProductCardProps, 'text'>;
 
 const StyledDefaultText = memo(styled(Footnote1)`
-    max-height: 3.38rem;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -22,7 +21,6 @@ const StyledDefaultText = memo(styled(Footnote1)`
             deviceScale,
         )(
             css`
-                max-height: 3.75rem;
                 ${body1}
             `,
         )}
