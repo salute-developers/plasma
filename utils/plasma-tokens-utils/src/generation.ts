@@ -70,10 +70,13 @@ export const generateToken = ({
             }
             return val;
         };
-        const objToStr = (type === 'css' ? JSON.stringify(value, replacer, 4) : JSON.stringify(value, null, 4)).replace(
-            /"/g,
-            "'",
-        );
+
+        const newValue = 'origin' in value ? value.origin : value;
+
+        const objToStr = (type === 'css'
+            ? JSON.stringify(newValue, replacer, 4)
+            : JSON.stringify(newValue, null, 4)
+        ).replace(/"/g, "'");
 
         out += `export const ${name}${typeHint} = ${objToStr};`;
     }
