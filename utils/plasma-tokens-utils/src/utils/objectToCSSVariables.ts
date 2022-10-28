@@ -18,10 +18,14 @@ export const objectToCSSVariables = (obj: DataObject, prefix = '') => {
             const value = obj[key];
 
             if (value && typeof value === 'object') {
-                vars = {
-                    ...vars,
-                    ...objectToCSSVariables(value, name),
-                };
+                if ('origin' in value && value.origin) {
+                    vars[getCSSVariableName(name)] = escapeValue(value.origin as string);
+                } else {
+                    vars = {
+                        ...vars,
+                        ...objectToCSSVariables(value, name),
+                    };
+                }
             } else {
                 vars[getCSSVariableName(name)] = escapeValue(value);
             }
