@@ -35,7 +35,7 @@ internal data class AngledLinearGradient(
 const getTheme = (tokenItems: TransformedToken[], theme: 'light' | 'dark') =>
     tokenItems
         .filter((tokens) => tokens.attributes?.type?.includes(theme))
-        .map((token) => `    ${token.attributes?.item} = ${token.value}`)
+        .map((token) => `    ${token.attributes?.item} = ${token.value},`)
         .join(`\n`);
 
 const getEnumValue = (token: TransformedToken) => {
