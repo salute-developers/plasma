@@ -151,16 +151,13 @@
                     "value": "#15181A",
                     "comment": "Основной фон для карточек"
                 },
-                "surfaceTransparentDefault": {
-                    "value": "#FFFFFF",
-                    "comment": "Прозрачный фон поверхности/контрола по умолчанию"
-                },
                 "surfaceAccent": {
                     "value": "#24B23E",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradient": {
                     "value": {
+                        "origin": "linear-gradient(122.62deg, #4817C1 0%, #C505D6 100%)",
                         "linearGradient": {
                             "colors": ["#4817C1", "#C505D6"],
                             "angle": 123
@@ -212,6 +209,7 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
+                        "origin": "linear-gradient(122.62deg, #4817C1 0%, #C505D6 100%)",
                         "linearGradient": {
                             "colors": ["#4817C1", "#C505D6"],
                             "angle": 123
@@ -263,6 +261,7 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
+                        "origin": "linear-gradient(122.62deg, #4817C1 0%, #C505D6 100%)",
                         "linearGradient": {
                             "colors": ["#4817C1", "#C505D6"],
                             "angle": 123
@@ -476,6 +475,7 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
+                        "origin": "linear-gradient(122.62deg, #4817C1 0%, #C505D6 100%)",
                         "linearGradient": {
                             "colors": ["#4817C1", "#C505D6"],
                             "angle": 123
@@ -527,6 +527,7 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
+                        "origin": "linear-gradient(122.62deg, #4817C1 0%, #C505D6 100%)",
                         "linearGradient": {
                             "colors": ["#4817C1", "#C505D6"],
                             "angle": 123
@@ -578,6 +579,7 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
+                        "origin": "linear-gradient(122.62deg, #4817C1 0%, #C505D6 100%)",
                         "linearGradient": {
                             "colors": ["#4817C1", "#C505D6"],
                             "angle": 123
