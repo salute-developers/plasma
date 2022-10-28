@@ -1,3 +1,16 @@
+# (Fri Oct 28 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-temple@1.106.3`
+  - fix(plasma-temple): update `HeroSliderDots` component [#202](https://github.com/salute-developers/plasma/pull/202) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 1
+
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # (Thu Oct 27 2022)
 
 #### 🐛 Bug Fix
