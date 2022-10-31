@@ -10,13 +10,26 @@ const dragAndDrop = (chainableSelector: Cypress.Chainable, coord: { clientX: num
 describe('plasma-b2c: Slider', () => {
     const Slider = getComponent('Slider');
     const Badge = getComponent('Badge');
+    const sliderThumbSelector = 'div > div + div > div';
 
-    it('simple', () => {
+    it('default', () => {
         mount(
             <CypressTestDecorator>
                 <Slider value={42} min={0} max={100} />
             </CypressTestDecorator>,
         );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('default: focus', () => {
+        mount(
+            <CypressTestDecorator>
+                <Slider value={24} min={0} max={100} />
+            </CypressTestDecorator>,
+        );
+
+        cy.get(sliderThumbSelector).focus();
 
         cy.matchImageSnapshot();
     });
@@ -46,6 +59,8 @@ describe('plasma-b2c: Slider', () => {
                 <Slider disabled value={42} min={0} max={100} />
             </CypressTestDecorator>,
         );
+
+        cy.get(sliderThumbSelector).focus();
 
         cy.matchImageSnapshot();
     });
