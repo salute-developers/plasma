@@ -24,3 +24,5 @@ export type { PinProps } from '@salutejs/plasma-core';
 
 export { detectDevice, deviceScales, isSberBox, isSberPortal, DeviceKindList } from './deviceDetection';
 export type { DeviceKind } from './deviceDetection';
+
+export { safeFlushSync, IS_REACT_18 } from './react';

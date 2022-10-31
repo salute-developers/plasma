@@ -6,6 +6,7 @@ import { IconChevronUp, IconChevronDown } from '@salutejs/plasma-icons';
 import { applyDisabled, DisabledProps, useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 
 import { useRemoteListener, useThemeContext } from '../../hooks';
+import { safeFlushSync, IS_REACT_18 } from '../../utils';
 import { Button } from '../Button';
 import { Carousel, CarouselProps } from '../Carousel';
 
@@ -310,7 +311,7 @@ export const Picker = ({
     const isFirstRender = useFirstRender();
     const [isFocused, setIsFocused] = useState(false);
     const [index, setIndex] = useState(findItemIndex(virtualItems, value, infiniteScroll));
-    const [hasScrollAnim, setScrollAnim] = useState(true);
+    const [hasScrollAnim, setScrollAnim] = useState(!IS_REACT_18);
 
     const wrapperRef = useRef<HTMLDivElement | null>(null);
     const carouselRef = useRef<HTMLDivElement | null>(null);
@@ -406,14 +407,18 @@ export const Picker = ({
     });
 
     useEffect(() => {
-        // Отключаем анимацию скролла при первом рендере
-        setScrollAnim(false);
+        // Отключаем анимацию скролла при первом рендере (React < 18)
+        if (!IS_REACT_18) {
+            setScrollAnim(false);
+        }
     }, []);
 
     const onIndexChange = useCallback(
         (i: number) => {
             if (i !== index) {
-                setIndex(i);
+                safeFlushSync(() => {
+                    setIndex(i);
+                });
             }
 
             if (virtualItems[i]?.value !== value) {
@@ -422,14 +427,22 @@ export const Picker = ({
 
             // Изменяем выбранный индекс если значение не изменилось
             if (prevValue === virtualItems[i]?.value) {
-                setScrollAnim(false);
-                setIndex(i);
+                safeFlushSync(() => {
+                    setScrollAnim(false);
+                });
+                safeFlushSync(() => {
+                    setIndex(i);
+                });
                 const newIndex = findItemIndex(virtualItems, virtualItems[i].value, infiniteScroll);
-                setIndex(newIndex);
+                safeFlushSync(() => {
+                    setIndex(newIndex);
+                });
             }
 
             // Включаем анимацию скролла, после изменения индекса
-            setScrollAnim(true);
+            safeFlushSync(() => {
+                setScrollAnim(true);
+            });
         },
         [virtualItems, infiniteScroll, value, onChange, prevValue],
     );
@@ -448,16 +461,24 @@ export const Picker = ({
             // Отключаем анимацию скролла, если полученный индекс за
             // пределами реального массива (items) и перебрасываем на
             // аналогичное значение в середину
-            setScrollAnim(false);
-            setIndex(i);
+            safeFlushSync(() => {
+                setScrollAnim(false);
+            });
+            safeFlushSync(() => {
+                setIndex(i);
+            });
 
             if (isTopPosition(i)) {
-                setIndex(i + (max - min) + 1);
+                safeFlushSync(() => {
+                    setIndex(i + (max - min) + 1);
+                });
                 return;
             }
 
             if (isBottomPosition(i, virtualItems.length)) {
-                setIndex(i - (max - min) - 1);
+                safeFlushSync(() => {
+                    setIndex(i - (max - min) - 1);
+                });
             }
         },
         [virtualItems, infiniteScroll, max, min, index, isSingleItem],
