@@ -2,6 +2,20 @@
 
 #### 🐛 Bug Fix
 
+- `@salutejs/plasma-b2c@1.108.2`, `@salutejs/plasma-web@1.139.2`
+  - test(plasma-web,plasma-b2c): Update snapshots and test for `Radiobox` and `Checkbox` components [#128](https://github.com/salute-developers/plasma/pull/128) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-web,plasma-b2c): Add redesign `Radiobox` and `Checkbox` components [#128](https://github.com/salute-developers/plasma/pull/128) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Mon Oct 31 2022)
+
+#### 🐛 Bug Fix
+
 - `@salutejs/plasma-tokens-utils@0.13.1`
   - fix(plasma-tokens-utils): Add support origin values in theme schemas [#203](https://github.com/salute-developers/plasma/pull/203) ([@neretin-trike](https://github.com/neretin-trike))
 - `@salutejs/plasma-tokens@1.27.1`
