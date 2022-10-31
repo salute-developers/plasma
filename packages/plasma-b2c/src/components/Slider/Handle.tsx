@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Draggable, { DraggableData } from 'react-draggable';
 import { surfaceLiquid03, white } from '@salutejs/plasma-core';
+import { accent } from '@salutejs/plasma-tokens-b2c';
 
 import { handleDiameter, handleBorderWidth } from './SliderBase';
 
@@ -26,14 +27,16 @@ const HandleStyled = styled.div`
     left: 0;
 `;
 
-const HandleStyledInner = styled.div`
-    border-radius: 50%;
-    box-sizing: content-box;
-    background-color: ${white};
+const SliderThumb = styled.div<{ disabled?: boolean }>`
     width: ${handleDiameter}rem;
     height: ${handleDiameter}rem;
+
     border: ${handleBorderWidth}rem solid ${surfaceLiquid03};
+    border-radius: 50%;
+
     background-clip: content-box;
+    background-color: ${white};
+    box-sizing: content-box;
 
     transition: transform 0.1s ease-in-out;
 
@@ -43,6 +46,17 @@ const HandleStyledInner = styled.div`
 
     &:active {
         transform: scale(0.92);
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:not([disabled]) {
+        &.focus-visible,
+        &[data-focus-visible-added] {
+            border-color: ${accent};
+        }
     }
 `;
 
@@ -103,6 +117,7 @@ export const Handle = React.forwardRef<HTMLDivElement, HandleProps>(
         const [leftValueBound, rightValueBound] = bounds;
         const leftPositionBound = leftValueBound ? (leftValueBound - min) * stepSize : null;
         const rightPositionBound = rightValueBound ? (rightValueBound - min) * stepSize : null;
+        const tabIndex = disabled ? -1 : 0;
 
         return (
             <Draggable
@@ -118,7 +133,7 @@ export const Handle = React.forwardRef<HTMLDivElement, HandleProps>(
                 disabled={disabled}
             >
                 <HandleStyled ref={ref} style={{ zIndex }}>
-                    <HandleStyledInner />
+                    <SliderThumb disabled={disabled} tabIndex={tabIndex} />
                 </HandleStyled>
             </Draggable>
         );
