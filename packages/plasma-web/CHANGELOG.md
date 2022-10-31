@@ -1,3 +1,15 @@
+# v1.139.0 (Mon Oct 31 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-web): reset Tabs gap [#197](https://github.com/salute-developers/plasma/pull/197) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.137.1 (Thu Oct 27 2022)
 
 #### 🐛 Bug Fix

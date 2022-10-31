@@ -1,3 +1,15 @@
+# v1.80.0 (Mon Oct 31 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-core): add tabs gap [#197](https://github.com/salute-developers/plasma/pull/197) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.79.0 (Thu Oct 27 2022)
 
 #### 🚀 Enhancement

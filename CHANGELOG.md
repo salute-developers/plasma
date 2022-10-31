@@ -1,3 +1,28 @@
+# (Mon Oct 31 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.141.0`
+  - feat(plasma-ui): add storybook wrapper with margin top [#197](https://github.com/salute-developers/plasma/pull/197) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.139.0`
+  - feat(plasma-web): reset Tabs gap [#197](https://github.com/salute-developers/plasma/pull/197) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-core@1.80.0`
+  - feat(plasma-core): add tabs gap [#197](https://github.com/salute-developers/plasma/pull/197) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore(plasma-b2c): update snapshots [#197](https://github.com/salute-developers/plasma/pull/197) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): update snapshots [#197](https://github.com/salute-developers/plasma/pull/197) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-core): update snapshots [#197](https://github.com/salute-developers/plasma/pull/197) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-ui@1.141.0`
+  - fix(plasma-ui): handle tabs gap [#197](https://github.com/salute-developers/plasma/pull/197) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Fri Oct 28 2022)
 
 #### 🐛 Bug Fix
