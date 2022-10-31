@@ -1,5 +1,18 @@
 # (Mon Oct 31 2022)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-tokens@1.28.0`
+  - feat(plasma-tokens): Add typography generator [#198](https://github.com/salute-developers/plasma/pull/198) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Mon Oct 31 2022)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-b2c@1.108.2`, `@salutejs/plasma-web@1.139.2`
