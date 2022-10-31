@@ -1,3 +1,16 @@
+# v1.27.1 (Mon Oct 31 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-tokens): Fix template generator for kotlin [#203](https://github.com/salute-developers/plasma/pull/203) ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-tokens): Fix `sbermarket` theme [#203](https://github.com/salute-developers/plasma/pull/203) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.27.0 (Wed Oct 19 2022)
 
 #### 🚀 Enhancement

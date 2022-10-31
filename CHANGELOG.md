@@ -1,5 +1,21 @@
 # (Mon Oct 31 2022)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-tokens-utils@0.13.1`
+  - fix(plasma-tokens-utils): Add support origin values in theme schemas [#203](https://github.com/salute-developers/plasma/pull/203) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-tokens@1.27.1`
+  - fix(plasma-tokens): Fix template generator for kotlin [#203](https://github.com/salute-developers/plasma/pull/203) ([@neretin-trike](https://github.com/neretin-trike))
+  - fix(plasma-tokens): Fix `sbermarket` theme [#203](https://github.com/salute-developers/plasma/pull/203) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Mon Oct 31 2022)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-ui@1.141.0`

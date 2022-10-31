@@ -1,3 +1,15 @@
+# v0.13.1 (Mon Oct 31 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-tokens-utils): Add support origin values in theme schemas [#203](https://github.com/salute-developers/plasma/pull/203) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.13.0 (Wed Aug 10 2022)
 
 #### 🚀 Enhancement
