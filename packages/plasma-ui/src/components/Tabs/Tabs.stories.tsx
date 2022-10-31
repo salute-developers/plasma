@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { Icon, IconClock } from '@salutejs/plasma-icons';
 import { InteractionTaskArgs, PublicInteractionTask, withPerformance } from 'storybook-addon-performance';
 import { fireEvent, waitFor } from '@testing-library/dom';
+import styled from 'styled-components';
 
 import { InContainerDecorator, disableProps } from '../../helpers';
 
@@ -55,6 +56,10 @@ const Icons = [
     <Icon icon={icons[3] as 'clock'} size="s" />,
 ];
 
+const StorybookTabsWrapper = styled.div`
+    margin-top: 0.5rem;
+`;
+
 export const Default: Story<StoryProps & TabsProps> = ({
     itemsNumber,
     size,
@@ -96,35 +101,37 @@ export const Default: Story<StoryProps & TabsProps> = ({
     const tabIndex = disabled ? -1 : 0;
 
     return (
-        <Tabs
-            id={id}
-            size={size}
-            view={view}
-            stretch={stretch}
-            pilled={pilled}
-            scaleOnPress={scaleOnInteraction}
-            outlined={!disabled && outlined}
-            disabled={disabled}
-            index={index}
-            animated={animated}
-            forwardedAs="ul"
-        >
-            {items.map((elem, i) => (
-                <TabItem
-                    key={`item:${i}`}
-                    forwardedAs="li"
-                    isActive={i === index}
-                    aria-controls={id}
-                    tabIndex={tabIndex}
-                    contentLeft={enableContentLeft && Icons[i % icons.length]}
-                    onClick={elem.onClick}
-                    onFocus={elem.onFocus}
-                    onBlur={elem.onBlur}
-                >
-                    {elem.label}
-                </TabItem>
-            ))}
-        </Tabs>
+        <StorybookTabsWrapper>
+            <Tabs
+                id={id}
+                size={size}
+                view={view}
+                stretch={stretch}
+                pilled={pilled}
+                scaleOnPress={scaleOnInteraction}
+                outlined={!disabled && outlined}
+                disabled={disabled}
+                index={index}
+                animated={animated}
+                forwardedAs="ul"
+            >
+                {items.map((elem, i) => (
+                    <TabItem
+                        key={`item:${i}`}
+                        forwardedAs="li"
+                        isActive={i === index}
+                        aria-controls={id}
+                        tabIndex={tabIndex}
+                        contentLeft={enableContentLeft && Icons[i % icons.length]}
+                        onClick={elem.onClick}
+                        onFocus={elem.onFocus}
+                        onBlur={elem.onBlur}
+                    >
+                        {elem.label}
+                    </TabItem>
+                ))}
+            </Tabs>
+        </StorybookTabsWrapper>
     );
 };
 
@@ -147,7 +154,7 @@ const interactionTasks: PublicInteractionTask[] = [
         name: 'Display Tabs',
         description: 'Select second tab',
         run: async ({ container, controls }: InteractionTaskArgs): Promise<void> => {
-            const [firstTab, secondTab] = container.querySelectorAll('[role="tab"]');
+            const [firstTab, secondTab] = Array.from(container.querySelectorAll('[role="tab"]'));
 
             if (firstTab === null || secondTab === null) {
                 throw new Error('');
@@ -196,13 +203,15 @@ export const Arrows: Story<StoryProps & TabsControllerProps> = ({
     const [index, setIndex] = useState(0);
 
     return (
-        <TabsController
-            items={items}
-            index={index}
-            onIndexChange={(i) => setIndex(i)}
-            stretch={stretch}
-            disabled={disabled}
-        />
+        <StorybookTabsWrapper>
+            <TabsController
+                items={items}
+                index={index}
+                onIndexChange={(i) => setIndex(i)}
+                stretch={stretch}
+                disabled={disabled}
+            />
+        </StorybookTabsWrapper>
     );
 };
 
