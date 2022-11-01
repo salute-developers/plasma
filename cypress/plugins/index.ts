@@ -24,6 +24,15 @@ const overrideConfig: Cypress.PluginConfig = (on, config) => {
         });
     }
 
+    on('before:browser:launch', (browser, launchOptions) => {
+        if (browser.name === 'chrome' || browser.name === 'chromium') {
+            launchOptions.args.push('--disable-gpu');
+            launchOptions.args.push('--encode-binary');
+        }
+
+        return launchOptions;
+    });
+
     if (process.env.PLATFORM_TESTS != null || config.env.package === 'plasma-temple') {
         on('before:browser:launch', (browser, launchOptions) => {
             if (browser.name === 'chrome' || browser.name === 'chromium') {

@@ -2,6 +2,9 @@ import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command';
 
 addMatchImageSnapshotCommand({
     customSnapshotsDir: Cypress.env('snapshotsDir'),
+    failureThreshold: 0.155,
+    failureThresholdType: 'percent',
+    customDiffConfig: { threshold: 0.15 },
 });
 
 const { isPlainObject, last } = Cypress._;
