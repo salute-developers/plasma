@@ -85,6 +85,7 @@ Default.args = {
     status: '' as 'success',
     disabled: false,
     readOnly: false,
+    size: 'm',
 };
 
 export const DeferredValue: Story<{ readOnly: boolean }> = ({ readOnly }) => {
