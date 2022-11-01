@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, createGlobalStyle } from 'styled-components';
 import { overlay, primary, backgroundPrimary } from '@salutejs/plasma-tokens';
 
 import { ThemeProviderContext } from '../../hooks';
@@ -44,6 +44,12 @@ const handleTransition = (transition: string) => (props: HandleTransitionProps):
 
     return !withTransition || lowPerformance ? 'unset' : transition;
 };
+
+const NoScroll = createGlobalStyle`
+    body {
+        overflow: hidden;
+    }
+`;
 
 const StyledWrapper = styled.div<CommonProps>`
     position: fixed;
@@ -109,7 +115,8 @@ const StyledSheetContent = styled.div`
 
 const StyledSheetHandle = styled.div`
     width: 4rem;
-    padding: 0.25rem 0;
+    padding: 1.75rem 0;
+    margin: -1.5rem 0;
     opacity: 0.65;
     align-self: center;
 
@@ -141,6 +148,7 @@ export const Sheet = ({
 
     return (
         <StyledWrapper isOpen={isOpen} withTransition={withTransition} {...restProps}>
+            {isOpen && <NoScroll />}
             <StyledContentWrapper isOpen={isOpen} withTransition={withTransition} ref={contentWrapperRef}>
                 <StyledSheetHandle ref={handleRef} />
                 <StyledSheetContent>{children}</StyledSheetContent>
