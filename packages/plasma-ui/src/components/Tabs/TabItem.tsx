@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, forwardRef } from 'react';
 import styled, { css } from 'styled-components';
-import { TabItem as BaseTabItem, button2, buttonFocused } from '@salutejs/plasma-core';
+import { TabItem as BaseTabItem, button2, buttonFocused, useForkRef } from '@salutejs/plasma-core';
 import type { TabItemProps as BaseTabItemProps, AsProps } from '@salutejs/plasma-core';
 
 import { useTabsAnimationContext } from './TabsAnimationContext';
@@ -81,14 +81,19 @@ export const StyledTabItemMemo = React.memo(StyledTabItem);
 /**
  * Элемент списка вкладок, недопустимо использовать вне компонента Tabs.
  */
-export const TabItem = (props: TabItemProps) => {
-    const ref = useRef<HTMLElement>(null);
+/**
+ * Элемент списка вкладо`к, недопустимо использовать вне компонента Tabs.
+ */
+export const TabItem = forwardRef<HTMLElement, TabItemProps>((props, outerRef) => {
+    const innerRef = useRef<HTMLElement>(null);
+    const ref = useForkRef(outerRef, innerRef);
+
     const { refs } = useTabsAnimationContext();
 
     useEffect(() => {
-        refs?.register(ref);
-        return () => refs?.unregister(ref);
-    }, [refs]);
+        refs?.register(innerRef);
+        return () => refs?.unregister(innerRef);
+    }, [ref, refs]);
 
     return <StyledTabItemMemo ref={ref} {...props} />;
-};
+});
