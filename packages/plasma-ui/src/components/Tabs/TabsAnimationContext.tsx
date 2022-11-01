@@ -1,14 +1,16 @@
-import React, { MutableRefObject, createContext, useContext } from 'react';
+import { MutableRefObject, createContext, useContext } from 'react';
+
+type RefObject = MutableRefObject<HTMLElement | null>;
 
 export class TabItemRefs {
-    public items: MutableRefObject<HTMLElement | null>[] = [];
+    public items: RefObject[] = [];
 
-    public register(ref: MutableRefObject<HTMLElement | null>): number {
+    public register(ref: RefObject): number {
         this.items.push(ref);
         return this.items.length - 1;
     }
 
-    public unregister(ref: React.MutableRefObject<HTMLElement | null>) {
+    public unregister(ref: RefObject) {
         this.items.splice(this.items.indexOf(ref), 1);
     }
 }
