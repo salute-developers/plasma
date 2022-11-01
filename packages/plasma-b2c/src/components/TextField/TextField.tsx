@@ -1,52 +1,27 @@
 import React, { forwardRef, useCallback } from 'react';
-import styled from 'styled-components';
-import { FieldRoot, FieldPlaceholder, FieldContent, FieldHelper, Input, primary } from '@salutejs/plasma-core';
+import { FieldHelper } from '@salutejs/plasma-core';
 import type { FieldProps, InputProps } from '@salutejs/plasma-core';
 
-import { bodySBold } from '../../tokens';
-import { FieldWrapper, applyInputStyles } from '../Field';
+import { FieldWrapper } from '../Field';
+
+import { Placeholder } from './Placeholder';
+import { Input } from './Input';
+import { Field } from './Field';
+import { Content } from './Content';
+import { Caption } from './Caption';
+import { textFieldProps } from './TextField.props';
 
 export interface TextFieldProps extends Omit<FieldProps, 'size'>, InputProps {
     /**
      * Лейбл сверху.
      */
     caption?: string;
+
+    /**
+     * Доступные размеры компонента.
+     */
+    size?: 'l' | 'm' | 's' | 'xs';
 }
-
-const StyledInput = styled(Input)`
-    ${applyInputStyles}
-    ${bodySBold}
-
-    border-radius: 0.75rem;
-
-    &:not(:placeholder-shown) {
-        /* stylelint-disable-next-line number-max-precision */
-        padding-top: 1.4375rem;
-    }
-
-    &::placeholder {
-        color: transparent;
-    }
-`;
-const StyledPlaceholder = styled(FieldPlaceholder)`
-    ${bodySBold}
-
-    top: 1rem;
-    left: 1rem;
-    right: 1rem;
-
-    input:not(:placeholder-shown) ~ & {
-        transform: scale(0.715);
-        top: 0.375rem;
-    }
-`;
-const StyledCaption = styled.span`
-    ${bodySBold}
-
-    display: flex;
-    margin-bottom: 0.75rem;
-    color: ${primary};
-`;
 
 /**
  * Поле ввода текста.
@@ -66,6 +41,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
         style,
         className,
         onChange,
+        size = 'm',
         ...rest
     },
     ref,
@@ -86,19 +62,22 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
     );
 
     return (
-        <FieldRoot
+        <Field
             $disabled={disabled}
             $isContentLeft={Boolean(contentLeft)}
             $isContentRight={Boolean(contentRight)}
             $isHelper={Boolean(helperText)}
+            properties={textFieldProps[size]}
+            witPlaceholder={!!placeLabel}
+            contentLeft={contentLeft}
             status={status}
             style={style}
             className={className}
         >
-            {caption && <StyledCaption id={id ? `${id}-label` : undefined}>{caption}</StyledCaption>}
+            {caption && <Caption id={id ? `${id}-label` : undefined}>{caption}</Caption>}
             <FieldWrapper status={status}>
-                {contentLeft && <FieldContent pos="left">{contentLeft}</FieldContent>}
-                <StyledInput
+                {contentLeft && <Content pos="left">{contentLeft}</Content>}
+                <Input
                     ref={ref}
                     id={id}
                     placeholder={placeLabel}
@@ -109,10 +88,14 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
                     onChange={handleChange}
                     {...rest}
                 />
-                {placeLabel && <StyledPlaceholder htmlFor={id}>{placeLabel}</StyledPlaceholder>}
-                {contentRight && <FieldContent pos="right">{contentRight}</FieldContent>}
+                {placeLabel && (
+                    <Placeholder visible={size !== 'xs'} htmlFor={id}>
+                        {placeLabel}
+                    </Placeholder>
+                )}
+                {contentRight && <Content pos="right">{contentRight}</Content>}
             </FieldWrapper>
             {helperText && <FieldHelper id={id ? `${id}-helpertext` : undefined}>{helperText}</FieldHelper>}
-        </FieldRoot>
+        </Field>
     );
 });
