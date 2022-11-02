@@ -1,3 +1,17 @@
+# (Wed Nov 02 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.110.0`
+  - feat(plasma-b2c): handle focus state by cy test [#205](https://github.com/salute-developers/plasma/pull/205) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-b2c): add accent color for slider thumb when focus [#205](https://github.com/salute-developers/plasma/pull/205) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Mon Oct 31 2022)
 
 #### 🚀 Enhancement
