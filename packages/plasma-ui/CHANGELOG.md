@@ -1,3 +1,15 @@
+# v1.143.1 (Thu Nov 03 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): Increase area for touch in `Sheet` component [#208](https://github.com/salute-developers/plasma/pull/208) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.143.0 (Thu Nov 03 2022)
 
 #### 🚀 Enhancement
