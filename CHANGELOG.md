@@ -1,5 +1,24 @@
 # (Thu Nov 03 2022)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-core@1.82.0`
+  - feat(plasma-b2c): handle TextField size by cypress test [#210](https://github.com/salute-developers/plasma/pull/210) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.111.0`
+  - feat(plasma-b2c): handle text field size [#210](https://github.com/salute-developers/plasma/pull/210) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore(plasma-b2c): update TextField snapshots [#210](https://github.com/salute-developers/plasma/pull/210) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Thu Nov 03 2022)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-ui@1.143.1`

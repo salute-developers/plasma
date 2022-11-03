@@ -1,3 +1,15 @@
+# v1.111.0 (Thu Nov 03 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): handle text field size [#210](https://github.com/salute-developers/plasma/pull/210) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.110.0 (Wed Nov 02 2022)
 
 #### 🚀 Enhancement
