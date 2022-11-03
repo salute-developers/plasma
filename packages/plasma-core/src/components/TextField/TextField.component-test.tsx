@@ -32,6 +32,84 @@ describe('plasma-core: TextField', () => {
         cy.matchImageSnapshot();
     });
 
+    it('default: handle size', () => {
+        function TextFieldStub(props) {
+            return <TextField {...props} caption="Label" value="Input value" helperText="Helper text" />;
+        }
+
+        mount(
+            <CypressTestDecorator>
+                <TextFieldStub size="l" />
+                <SpaceMe />
+                <TextFieldStub size="m" />
+                <SpaceMe />
+                <TextFieldStub size="s" />
+                <SpaceMe />
+                <TextFieldStub size="xs" />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('handle size with placeholder and content', () => {
+        function TextFieldStub(props) {
+            return (
+                <TextField
+                    {...props}
+                    caption="Label"
+                    value="Input value"
+                    helperText="Helper text"
+                    placeholder="Placeholder"
+                    contentLeft={<IconSleep color="inherit" size="s" />}
+                    contentRight={<IconEye color="inherit" size="s" />}
+                />
+            );
+        }
+
+        mount(
+            <CypressTestDecorator>
+                <TextFieldStub size="l" />
+                <SpaceMe />
+                <TextFieldStub size="m" />
+                <SpaceMe />
+                <TextFieldStub size="s" />
+                <SpaceMe />
+                <TextFieldStub size="xs" />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('handle size with placeholder', () => {
+        function TextFieldStub(props) {
+            return (
+                <TextField
+                    {...props}
+                    caption="Label"
+                    value="Input value"
+                    helperText="Helper text"
+                    placeholder="Placeholder"
+                />
+            );
+        }
+
+        mount(
+            <CypressTestDecorator>
+                <TextFieldStub size="l" />
+                <SpaceMe />
+                <TextFieldStub size="m" />
+                <SpaceMe />
+                <TextFieldStub size="s" />
+                <SpaceMe />
+                <TextFieldStub size="xs" />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('_maxLength', () => {
         mount(
             <CypressTestDecorator>
