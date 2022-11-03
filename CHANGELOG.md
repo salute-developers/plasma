@@ -1,3 +1,16 @@
+# (Thu Nov 03 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.143.0`
+  - feat(plasma-ui): Add ref for `TabItem` component [#209](https://github.com/salute-developers/plasma/pull/209) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Wed Nov 02 2022)
 
 #### 🚀 Enhancement
