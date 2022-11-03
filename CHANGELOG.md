@@ -1,5 +1,18 @@
 # (Thu Nov 03 2022)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.143.2`
+  - fix(plasma-ui): fix Pickers for React 18 [#207](https://github.com/salute-developers/plasma/pull/207) ([@akhdrv](https://github.com/akhdrv))
+
+#### Authors: 1
+
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+
+---
+
+# (Thu Nov 03 2022)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-core@1.82.0`
