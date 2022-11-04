@@ -9,20 +9,14 @@ const hexAToRGBA = (hex: string) => ({
 
 const getNormalizeValue = (value: number) => Number((value / 255).toFixed(3));
 
-const getGradientStop = (color: string, location: string) => {
+const getGradientStop = (color: string) => {
     const colors = hexAToRGBA(color);
     const [red, green, blue, alpha] = Object.values(colors).map(getNormalizeValue);
 
-    return `Gradient.Stop(color: UIColor(red: ${red}, green: ${green}, blue: ${blue}, alpha: ${alpha}).color, location: ${location})`;
+    return `UIColor(red: ${red}, green: ${green}, blue: ${blue}, alpha: ${alpha})`;
 };
 
-const getGradientStops = (colors: Array<string>, locations?: Array<string>) => {
-    if (colors.length === locations?.length) {
-        return colors.map((color: string, i: number) => getGradientStop(color, locations[i]));
-    }
-
-    return [getGradientStop(colors[0], '0'), getGradientStop(colors[1], '1')];
-};
+const getGradientStops = (colors: Array<string>) => [getGradientStop(colors[0]), getGradientStop(colors[1])];
 
 const getPointX = (deg: number) => Number(parseFloat(`${Math.sin((deg * Math.PI) / 180)}`).toFixed(2));
 
@@ -43,8 +37,8 @@ const getVectorPoints = (angle: string) => {
     };
 
     return {
-        startPoint,
-        endPoint,
+        startPoint: `UnitPoint(x: ${startPoint.x}, y: ${startPoint.y})`,
+        endPoint: `UnitPoint(x: ${endPoint.x}, y: ${endPoint.y})`,
     };
 };
 
@@ -55,17 +49,15 @@ export const gradientSwiftTransformer = (prop: TransformedToken) => {
         return prop.value;
     }
 
-    const { colors, angle, locations } = prop.original.value.linearGradient;
+    const { colors, angle } = prop.original.value.linearGradient;
 
-    const stops = getGradientStops(colors, locations).join(`,\n            `);
-
+    const [startColor, endColor] = getGradientStops(colors);
     const { startPoint, endPoint } = getVectorPoints(angle);
 
-    return `LinearGradient(
-        stops: [
-            ${stops}
-        ],
-        startPoint: UnitPoint(x: ${startPoint.x}, y: ${startPoint.y}),
-        endPoint: UnitPoint(x: ${endPoint.x}, y: ${endPoint.y})
-    )`;
+    return {
+        startColor,
+        endColor,
+        startPoint,
+        endPoint,
+    };
 };

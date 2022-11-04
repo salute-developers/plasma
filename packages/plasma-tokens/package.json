@@ -43,6 +43,9 @@
         "sizes.js.map",
         "theme.json"
     ],
+    "peerDependencies": {
+        "styled-components": "^5.1.1"
+    },
     "devDependencies": {
         "@salutejs/plasma-colors": "0.3.0",
         "@salutejs/plasma-tokens-utils": "0.13.1",
@@ -54,13 +57,10 @@
         "jsdom": "17.0.0",
         "jsdom-global": "3.0.2",
         "style-dictionary": "3.7.1",
+        "styled-components": "5.3.6",
         "ts-node": "10.2.1",
         "typescript": "3.9.10"
     },
-    "contributors": [
-        "Виноградов Антон Александрович",
-        "Зубаиров Фаниль Асхатович",
-        "Vasiliy Loginevskiy"
-    ],
+    "contributors": ["Виноградов Антон Александрович", "Зубаиров Фаниль Асхатович", "Vasiliy Loginevskiy"],
     "sideEffects": false
 }

@@ -10,3 +10,17 @@ export interface Gradient {
     start?: Point;
     end?: Point;
 }
+
+export const enum ThemeColor {
+    light = 'light',
+    dark = 'dark',
+}
+
+export type ThemeColorType = keyof typeof ThemeColor;
+
+export interface GradientToken {
+    startColor: string;
+    endColor: string;
+    startPoint: string;
+    endPoint: string;
+}
