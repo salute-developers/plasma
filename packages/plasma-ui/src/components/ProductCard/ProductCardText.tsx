@@ -5,7 +5,7 @@ import { body1 } from '@salutejs/plasma-core';
 import { Footnote1 } from '../Typography';
 import { mediaQuery } from '../../utils';
 
-import { ProductCardProps } from './ProductCard';
+import { ProductCardProps } from './types';
 
 type ProductCardTextProps = Pick<ProductCardProps, 'text'>;
 

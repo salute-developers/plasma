@@ -1,20 +1,34 @@
 import React, { useMemo, useState } from 'react';
-import { Story, Meta } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 import styled from 'styled-components';
 import { buttonBlack } from '@salutejs/plasma-tokens';
 import { InteractionTaskArgs, PublicInteractionTask, withPerformance } from 'storybook-addon-performance';
-import { fireEvent, findByText } from '@testing-library/dom';
+import { findByText, fireEvent } from '@testing-library/dom';
 
 import { InSpacingDecorator } from '../../helpers';
 import { Badge } from '../Badge';
 import { CardMedia } from '../Card/CardMedia';
 
-import { ProductCard } from '.';
 import type { ProductCardProps as ProductCardPropsBasic } from '.';
+import { ProductCard } from '.';
 
 export default {
     title: 'Content/ProductCard',
     decorators: [InSpacingDecorator],
+    argTypes: {
+        periodicity: {
+            control: {
+                type: 'select',
+                options: {
+                    default: '',
+                    perDay: '/ день',
+                    perWeek: '/ неделя',
+                    perMonth: '/ месяц',
+                    perYear: '/ год',
+                },
+            },
+        },
+    },
 } as Meta;
 
 // eslint-disable-next-line @typescript-eslint/camelcase, @typescript-eslint/class-name-casing
@@ -42,6 +56,7 @@ export const Product_Card: Story<ProductCardProps> = ({
     'badge2:text': badge2Text,
     'example:cardWidth': cardWidth,
     quantity: q,
+    periodicity,
     ...rest
 }) => {
     const [state, setState] = useState({
@@ -60,7 +75,7 @@ export const Product_Card: Story<ProductCardProps> = ({
         <div
             style={{
                 display: 'grid',
-                gridTemplateColumns: `repeat(7, ${cardWidth})`,
+                gridTemplateColumns: `repeat(auto-fill, ${cardWidth})`,
                 gap: '1rem',
                 alignItems: 'stretch',
             }}
@@ -70,6 +85,7 @@ export const Product_Card: Story<ProductCardProps> = ({
                 badge={badges}
                 media={<StyledCardMedia src={imageSrc} alt={imageAlt} width="12.25rem" />}
                 quantity={state.quantity1}
+                periodicity={periodicity}
                 onQuantityChange={(quantity) => setState((s) => ({ ...s, quantity1: quantity }))}
             />
             <ProductCard
@@ -180,7 +196,7 @@ const interactionTasks: PublicInteractionTask[] = [
         name: 'Add product count',
         description: 'Click on picker to increase number of products',
         run: async ({ container }: InteractionTaskArgs): Promise<void> => {
-            const [decreaseButton, increaseButton] = container.querySelectorAll('button');
+            const [decreaseButton, increaseButton] = Array.from(container.querySelectorAll('button'));
             fireEvent.click(increaseButton);
             await findByText(container, '2', undefined, { timeout: 20000 });
             fireEvent.click(decreaseButton);

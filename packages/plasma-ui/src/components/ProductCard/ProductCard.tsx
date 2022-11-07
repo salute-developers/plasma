@@ -1,93 +1,30 @@
-import React, { forwardRef, ReactNode, memo } from 'react';
+import React, { forwardRef, memo } from 'react';
 import styled, { css } from 'styled-components';
-import { body1, black, blackSecondary, success } from '@salutejs/plasma-core';
-import type { DisabledProps } from '@salutejs/plasma-core';
+import { body1, blackSecondary } from '@salutejs/plasma-core';
 import Color from 'color';
 
 import { mediaQuery } from '../../utils';
-import { Price } from '../Price';
-import { Footnote1, Body2, Caption } from '../Typography';
+import { Footnote1 } from '../Typography';
 import { Card } from '../Card/Card';
-import type { CardProps } from '../Card/Card';
 import { CardBody } from '../Card/CardBody';
 import { CardContent } from '../Card/CardContent';
 import { useDeviceKind } from '../../hooks';
 
 import { ProductCardStepper } from './ProductCardStepper';
-import type { ProductCardStepperProps } from './ProductCardStepper';
 import { ProductCardText } from './ProductCardText';
-
-export interface ProductCardProps extends CardProps, DisabledProps {
-    /**
-     * Слот под картинку.
-     */
-    media?: ReactNode;
-    /**
-     * Слот под бейдж (-и).
-     */
-    badge?: ReactNode | Array<ReactNode>;
-    /**
-     * Текст или название карточки.
-     */
-    text?: string | ReactNode;
-    /**
-     * Дополнительная информация для карточки.
-     */
-    additionalInfo?: string;
-    /**
-     * Актуальная цена.
-     */
-    price?: number;
-    /**
-     * Старая (перечеркнутая) цена.
-     */
-    oldPrice?: number;
-    /**
-     * Количество.
-     */
-    quantity?: ProductCardStepperProps['value'];
-    /**
-     * Колбек изменени количества.
-     */
-    onQuantityChange?: ProductCardStepperProps['onChange'];
-    /**
-     * Шаг изменения количества.
-     */
-    quantityStep?: ProductCardStepperProps['step'];
-    /**
-     * Минимальное количества.
-     */
-    quantityMin?: ProductCardStepperProps['min'];
-    /**
-     * Максимальное количества.
-     */
-    quantityMax?: ProductCardStepperProps['max'];
-    /**
-     * Слот под степпер.
-     */
-    stepper?: ReactNode;
-    /**
-     * Цвет подложки и градиента карточки.
-     */
-    backgroundColor?: string;
-    /**
-     * Режим только для чтения.
-     */
-    readonly?: boolean;
-    /**
-     * Отключить экшен кнопки.
-     */
-    disabledAction?: boolean;
-}
+import { ProductCardPrice } from './ProductCardPrice';
+import { ProductCardProps } from './types';
 
 const StyledRoot = styled.div`
     position: relative;
 `;
+
 const StyledCard = styled(Card)<{ $backgroundColor?: string }>`
     height: 100%;
     background-color: ${({ $backgroundColor }) => $backgroundColor};
     color: ${blackSecondary};
 `;
+
 const StyledMediaSlot = memo(styled.div`
     height: 100%;
     min-height: 0;
@@ -124,9 +61,9 @@ const getGradient = (backgroundColor: string) => {
 const StyledCardBody = styled(CardBody)`
     justify-content: space-between;
 `;
+
 const StyledCardContent = styled(CardContent)<{ $backgroundColor?: string; $isValuePositive?: boolean }>`
-    padding: 0.75rem;
-    padding-top: 0;
+    padding: 0 0.75rem 0.75rem;
 
     border-radius: 0;
     background-color: ${({ $backgroundColor }) => $backgroundColor};
@@ -165,35 +102,13 @@ const StyledAdditionalInfo = memo(styled(Footnote1)`
             `,
         )}
 `);
+
 const StyledBottom = memo(styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-top: 0.25rem;
 `);
-const StyledPrices = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    min-height: 2.375rem;
-`;
-const StyledPrice = styled(Price)<{ $type?: 'new' | 'old' }>`
-    color: ${({ $type }) => {
-        switch ($type) {
-            case 'new':
-                return success;
-            default:
-                return black;
-        }
-    }};
-
-    ${({ $type }) =>
-        $type === 'old' &&
-        css`
-            opacity: 0.56;
-        `}
-`;
 
 const StyledStepper = memo(styled(ProductCardStepper)<{ $onTop?: boolean }>`
     width: 100%;
@@ -208,21 +123,6 @@ const StyledStepper = memo(styled(ProductCardStepper)<{ $onTop?: boolean }>`
                   margin-top: 0.5rem;
               `}
 `);
-
-const Prices = memo<{ price: number; oldPrice?: number }>(({ price, oldPrice }) => {
-    return (
-        <StyledPrices>
-            <StyledPrice $type={oldPrice !== undefined ? 'new' : undefined} forwardedAs={Body2}>
-                {price}
-            </StyledPrice>
-            {oldPrice && (
-                <StyledPrice $type="old" stroke forwardedAs={Caption}>
-                    {oldPrice}
-                </StyledPrice>
-            )}
-        </StyledPrices>
-    );
-});
 
 const StyledBadges = memo(styled.div`
     position: absolute;
@@ -256,6 +156,7 @@ export const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(function
         disabledAction,
         readonly,
         backgroundColor = '#FFFFFF',
+        periodicity,
         ...rest
     },
     ref,
@@ -287,7 +188,7 @@ export const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(function
                         {additionalInfo && <StyledAdditionalInfo>{additionalInfo}</StyledAdditionalInfo>}
                         {(price !== undefined || quantity !== undefined) && (
                             <StyledBottom>
-                                {price !== undefined && <Prices price={price} oldPrice={oldPrice} />}
+                                <ProductCardPrice price={price} oldPrice={oldPrice} periodicity={periodicity} />
                                 {!disabled && quantity !== undefined && (
                                     <StyledStepper
                                         readonly={isReadonly}
