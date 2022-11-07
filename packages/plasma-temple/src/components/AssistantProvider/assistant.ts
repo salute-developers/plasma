@@ -7,22 +7,51 @@ export type AssistantProps = Parameters<typeof createSmartappDebugger>[0];
 
 export type InitializeParams = PickOptional<AssistantProps, 'token'> & Omit<AssistantProps, 'token'>;
 
+const errorMessage = {
+    notInitialized: "Assistant is not initialized.\n Don't try get instance before initialize",
+    dontSetAnotherInstance: "Don't use this feature. Its may break your application",
+};
+
 let assistant: AssistantInstance;
+let isInitialized: boolean;
 
 // @deprecated use getAssistantRef
 export const getAssistant = (): AssistantInstance => assistant;
 
 export interface AssistantRef {
-    assistant: AssistantInstance | null;
+    readonly assistant: AssistantInstance;
 }
 
-const assistantRef = {
+export interface ProtectedAssistantRef {
+    assistant: AssistantInstance;
+}
+
+export const assistantRef: ProtectedAssistantRef = {
     get assistant() {
-        return assistant ?? null;
+        if (!(assistant || isInitialized) && process.env.NODE_ENV === 'development') {
+            // eslint-disable-next-line no-console
+            console.warn(new ReferenceError(errorMessage.notInitialized));
+        }
+
+        return assistant;
+    },
+    /** @protected */
+    set assistant(value) {
+        if (isInitialized && process.env.NODE_ENV === 'development') {
+            // eslint-disable-next-line no-console
+            console.warn(new ReferenceError(errorMessage.dontSetAnotherInstance));
+        }
+
+        assistant = value;
+        isInitialized = true;
     },
 };
 
-export const getAssistantRef = (): AssistantRef => assistantRef;
+export const getAssistantRef = (): AssistantRef => {
+    return {
+        assistant: assistantRef.assistant,
+    };
+};
 
 export const initializeAssistant = <T extends AssistantSmartAppData>({
     getState,
@@ -31,7 +60,7 @@ export const initializeAssistant = <T extends AssistantSmartAppData>({
     ...restProps
 }: InitializeParams): AssistantInstance => {
     if (process.env.NODE_ENV === 'development' && !window.Cypress) {
-        assistant = createSmartappDebugger<T>({
+        assistantRef.assistant = createSmartappDebugger<T>({
             getState: () => {
                 const state = getState();
                 logger('Assistant state', state);
@@ -41,10 +70,10 @@ export const initializeAssistant = <T extends AssistantSmartAppData>({
             ...restProps,
         });
 
-        assistant.on('data', (action) => logger('Assistant Action', action));
+        assistantRef.assistant.on('data', (action) => logger('Assistant Action', action));
     } else {
-        assistant = createAssistant<T>({ getState, getRecoveryState });
+        assistantRef.assistant = createAssistant<T>({ getState, getRecoveryState });
     }
 
-    return assistant;
+    return assistantRef.assistant;
 };
