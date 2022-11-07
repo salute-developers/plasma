@@ -14,13 +14,14 @@
         "build:esm": "tsc -p ./tsconfig.es.json"
     },
     "peerDependencies": {
-        "@salutejs/plasma-core": ">=1.57.0",
         "react": ">=16.13.1",
         "react-dom": ">=16.13.1",
         "styled-components": "^5.1.1"
     },
+    "dependencies": {
+        "@salutejs/plasma-core": "1.81.0"
+    },
     "devDependencies": {
-        "@salutejs/plasma-core": "1.81.0",
         "@types/node": "16.7.13",
         "@types/react": "16.9.38",
         "@types/react-dom": "16.9.8",
@@ -34,8 +35,6 @@
     "publishConfig": {
         "access": "public"
     },
-    "files": [
-        "lib"
-    ],
+    "files": ["lib"],
     "sideEffects": false
 }
