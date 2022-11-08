@@ -1,3 +1,18 @@
+# v0.28.1 (Tue Nov 08 2022)
+
+#### 🐛 Bug Fix
+
+- feat(plasma-typo,plasma-core): Add duplicate some mixins for interrupt cycle in dependencies [#214](https://github.com/salute-developers/plasma/pull/214) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore(plasma-typo): Extract plasma-core and styled-components to dev deps [#212](https://github.com/salute-developers/plasma/pull/212) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.27.1 (Mon Oct 31 2022)
 
 #### 🐛 Bug Fix

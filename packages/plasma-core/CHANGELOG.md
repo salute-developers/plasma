@@ -1,3 +1,15 @@
+# v1.81.1 (Tue Nov 08 2022)
+
+#### 🐛 Bug Fix
+
+- feat(plasma-typo,plasma-core): Add duplicate some mixins for interrupt cycle in dependencies [#214](https://github.com/salute-developers/plasma/pull/214) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.80.1 (Mon Oct 31 2022)
 
 #### 🐛 Bug Fix
