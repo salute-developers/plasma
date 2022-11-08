@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { applyHyphens, applySpacing } from '@salutejs/plasma-core';
-import type { BreakWordProps, SpacingProps } from '@salutejs/plasma-core';
 
+import { applyHyphens, applySpacing } from '../mixins';
+import type { BreakWordProps, SpacingProps } from '../mixins';
 import {
     bodyL,
     bodyLBold,
