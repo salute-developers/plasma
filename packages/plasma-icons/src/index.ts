@@ -135,6 +135,12 @@ export { IconCall } from './Icons/IconCall';
 export { IconCallCircle } from './Icons/IconCallCircle';
 export { IconCallEnd } from './Icons/IconCallEnd';
 export { IconCallEndCircle } from './Icons/IconCallEndCircle';
+export { IconCallBlock } from './Icons/IconCallBlock';
+export { IconCallDash } from './Icons/IconCallDash';
+export { IconCallIncomingFill } from './Icons/IconCallIncomingFill';
+export { IconCallMissedFill } from './Icons/IconCallMissedFill';
+export { IconCallOutgoingFill } from './Icons/IconCallOutgoingFill';
+
 export { IconMessage } from './Icons/IconMessage';
 export { IconFeedback } from './Icons/IconFeedback';
 // Files

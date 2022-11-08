@@ -137,6 +137,11 @@ import { Call } from './Icon.assets/Call';
 import { CallCircle } from './Icon.assets/CallCircle';
 import { CallEnd } from './Icon.assets/CallEnd';
 import { CallEndCircle } from './Icon.assets/CallEndCircle';
+import { CallBlock } from './Icon.assets/CallBlock';
+import { CallDash } from './Icon.assets/CallDash';
+import { CallIncomingFill } from './Icon.assets/CallIncomingFill';
+import { CallMissedFill } from './Icon.assets/CallMissedFill';
+import { CallOutgoingFill } from './Icon.assets/CallOutgoingFill';
 import { Message } from './Icon.assets/Message';
 import { Feedback } from './Icon.assets/Feedback';
 // Files
@@ -316,6 +321,11 @@ export const iconSectionsSet = {
         callCircle: CallCircle,
         callEnd: CallEnd,
         callEndCircle: CallEndCircle,
+        callBlock: CallBlock,
+        callDash: CallDash,
+        callIncomingFill: CallIncomingFill,
+        callMissedFill: CallMissedFill,
+        callOutgoingFill: CallOutgoingFill,
         message: Message,
         feedback: Feedback,
     },
