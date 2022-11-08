@@ -1,5 +1,8 @@
 import * as typography from './tokens';
 
+export { applyHyphens, applySpacing, spacing } from './mixins';
+export type { BreakWordProps, SpacingProps } from './mixins';
+
 export { compatible } from './compatible';
 export * from './components';
 export { standard } from './standard';

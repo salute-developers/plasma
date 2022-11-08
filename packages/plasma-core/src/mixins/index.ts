@@ -9,9 +9,6 @@ export type { DisabledProps } from './applyDisabled';
 
 export { applyEllipsis } from './applyEllipsis';
 
-export { applyHyphens } from './applyHyphens';
-export type { BreakWordProps } from './applyHyphens';
-
 export { applyMaxLines } from './applyMaxLines';
 export type { MaxLinesProps } from './applyMaxLines';
 
@@ -31,5 +28,8 @@ export type { ScrollSnapProps } from './applyScrollSnap';
 
 export * from './shadows';
 
-export { applySpacing, spacing } from './applySpacing';
-export type { SpacingProps } from './applySpacing';
+export { applyHyphens } from '@salutejs/plasma-typo';
+export type { BreakWordProps } from '@salutejs/plasma-typo';
+
+export { applySpacing, spacing } from '@salutejs/plasma-typo';
+export type { SpacingProps } from '@salutejs/plasma-typo';
