@@ -1,23 +1,10 @@
-import React from 'react';
+import React, { useRef, useCallback, forwardRef } from 'react';
 import styled from 'styled-components';
-import Draggable, { DraggableData } from 'react-draggable';
-import { surfaceLiquid03, white } from '@salutejs/plasma-core';
-import { accent } from '@salutejs/plasma-tokens-b2c';
+import Draggable from 'react-draggable';
 
-import { handleDiameter, handleBorderWidth } from './SliderBase';
-
-interface HandleProps {
-    stepSize: number;
-    min: number;
-    max: number;
-    side?: 'left' | 'right';
-    bounds?: number[];
-    xPosition?: number;
-    zIndex?: number;
-    disabled?: boolean;
-    onChangeCommitted(value: number, data: DraggableData): void;
-    onChange?(value: number, data: DraggableData): void;
-}
+import { HandleProps } from './types';
+import { getSliderThumbValue, getOffsets } from './utils';
+import { Thumb } from './Thumb';
 
 const HandleStyled = styled.div`
     cursor: pointer;
@@ -27,74 +14,19 @@ const HandleStyled = styled.div`
     left: 0;
 `;
 
-const SliderThumb = styled.div<{ disabled?: boolean }>`
-    width: ${handleDiameter}rem;
-    height: ${handleDiameter}rem;
+export const Handle = forwardRef<HTMLDivElement, HandleProps>(
+    (
+        { stepSize, onChangeCommitted, onChange, xPosition, min, max, bounds = [], zIndex, disabled, side, ...rest },
+        ref,
+    ) => {
+        const lastOnChangeValue = useRef<number>();
 
-    border: ${handleBorderWidth}rem solid ${surfaceLiquid03};
-    border-radius: 50%;
+        const currentSliderValue = lastOnChangeValue?.current || rest.value;
 
-    background-clip: content-box;
-    background-color: ${white};
-    box-sizing: content-box;
-
-    transition: transform 0.1s ease-in-out;
-
-    &:hover {
-        transform: scale(1.08);
-    }
-
-    &:active {
-        transform: scale(0.92);
-    }
-
-    &:focus {
-        outline: none;
-    }
-
-    &:not([disabled]) {
-        &.focus-visible,
-        &[data-focus-visible-added] {
-            border-color: ${accent};
-        }
-    }
-`;
-
-function getValue(handleCenterXRelative: number, stepSize: number, min: number, max: number) {
-    const newValue = Math.round(handleCenterXRelative / stepSize) + min;
-
-    return Math.min(Math.max(newValue, min), max);
-}
-
-function getOffsets(
-    ref: ((instance: HTMLDivElement | null) => void) | React.MutableRefObject<HTMLDivElement | null> | null,
-    side?: 'left' | 'right',
-) {
-    if (!ref || !('current' in ref) || !ref.current || !side) {
-        return [0, 0];
-    }
-
-    const size = ref.current.clientWidth;
-
-    if (side === 'left') {
-        return [0, size];
-    }
-
-    if (side === 'right') {
-        return [size, 0];
-    }
-
-    return [0, 0];
-}
-
-export const Handle = React.forwardRef<HTMLDivElement, HandleProps>(
-    ({ stepSize, onChangeCommitted, onChange, xPosition, min, max, bounds = [], zIndex, disabled, side }, ref) => {
-        const lastOnChangeValue = React.useRef<number | null>(null);
-
-        const onDrag = React.useCallback(
+        const onDrag = useCallback(
             (_, data) => {
                 if (onChange) {
-                    const newValue = getValue(data.x, stepSize, min, max);
+                    const newValue = getSliderThumbValue(data.x, stepSize, min, max);
                     if (lastOnChangeValue.current !== newValue) {
                         onChange(newValue, data);
                         lastOnChangeValue.current = newValue;
@@ -104,9 +36,9 @@ export const Handle = React.forwardRef<HTMLDivElement, HandleProps>(
             [onChange, stepSize, min, max],
         );
 
-        const onStop = React.useCallback(
+        const onStop = useCallback(
             (_, data) => {
-                const newValue = getValue(data.x, stepSize, min, max);
+                const newValue = getSliderThumbValue(data.x, stepSize, min, max);
                 onChangeCommitted(newValue, data);
             },
             [onChangeCommitted, stepSize, min, max],
@@ -117,23 +49,39 @@ export const Handle = React.forwardRef<HTMLDivElement, HandleProps>(
         const [leftValueBound, rightValueBound] = bounds;
         const leftPositionBound = leftValueBound ? (leftValueBound - min) * stepSize : null;
         const rightPositionBound = rightValueBound ? (rightValueBound - min) * stepSize : null;
+
+        const position = typeof xPosition === 'number' ? { x: xPosition, y: 0 } : undefined;
+
         const tabIndex = disabled ? -1 : 0;
+
+        const computedBounds = {
+            left: (leftPositionBound ?? 0) + offsetLeft,
+            right: (rightPositionBound ?? stepSize * (max - min)) - offsetRight,
+        };
 
         return (
             <Draggable
                 axis="x"
-                bounds={{
-                    left: (leftPositionBound ?? 0) + offsetLeft,
-                    right: (rightPositionBound ?? stepSize * (max - min)) - offsetRight,
-                }}
+                bounds={computedBounds}
                 grid={[stepSize, 1]}
                 onStop={onStop}
                 onDrag={onDrag}
-                position={typeof xPosition === 'number' ? { x: xPosition, y: 0 } : undefined}
+                position={position}
                 disabled={disabled}
             >
                 <HandleStyled ref={ref} style={{ zIndex }}>
-                    <SliderThumb disabled={disabled} tabIndex={tabIndex} />
+                    <Thumb
+                        tabIndex={tabIndex}
+                        min={min}
+                        max={max}
+                        value={currentSliderValue}
+                        stepSize={stepSize}
+                        onChangeCommitted={onChangeCommitted}
+                        xPosition={xPosition}
+                        disabled={disabled}
+                        bounds={computedBounds}
+                        {...rest}
+                    />
                 </HandleStyled>
             </Draggable>
         );

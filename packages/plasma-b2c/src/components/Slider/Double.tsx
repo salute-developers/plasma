@@ -21,6 +21,16 @@ export interface SliderProps {
      */
     disabled?: boolean;
     /**
+     * Ярлык, определяющий назначение ползунка, например «Минимальная цена» [a11y].
+     */
+    ariaLabel?: string[];
+    /**
+     * Размера увеличенного шага (для клавиш PageUp, PageDown).
+     * Указывает процентное отношение от максимально возможного значения.
+     * Указава значение 20 при максимуме в 100, получим 20%.
+     */
+    multipleStepSize?: number;
+    /**
      * Вызывается при отпускании ползунка
      */
     onChangeCommitted(value: number[]): void;
@@ -37,7 +47,16 @@ function getXCenterHandle(handle: HTMLDivElement) {
     return handlePosition - containerX;
 }
 
-export const Slider: React.FC<SliderProps> = ({ min, max, value, disabled, onChangeCommitted, onChange }) => {
+export const Slider: React.FC<SliderProps> = ({
+    min,
+    max,
+    value,
+    disabled,
+    onChangeCommitted,
+    onChange,
+    ariaLabel,
+    multipleStepSize = 10,
+}) => {
     const [state, setState] = React.useState({
         stepSize: 0,
         railFillWidth: 0,
@@ -94,7 +113,7 @@ export const Slider: React.FC<SliderProps> = ({ min, max, value, disabled, onCha
         [onChange, value],
     );
 
-    const onFirstHandleChangeCommited = React.useCallback(
+    const onFirstHandleChangeCommitted = React.useCallback(
         (handleValue, data) => {
             onChangeCommitted([handleValue, value[1]]);
 
@@ -130,7 +149,7 @@ export const Slider: React.FC<SliderProps> = ({ min, max, value, disabled, onCha
         [onChange, value],
     );
 
-    const onSecondHandleChangeCommited = React.useCallback(
+    const onSecondHandleChangeCommitted = React.useCallback(
         (handleValue, data) => {
             onChangeCommitted([value[0], handleValue]);
             setState((prevState) => ({
@@ -141,6 +160,9 @@ export const Slider: React.FC<SliderProps> = ({ min, max, value, disabled, onCha
         },
         [onChangeCommitted, value],
     );
+
+    const [ariaLabelLeft, ariaLabelRight] = ariaLabel || [];
+    const currentFirstSliderValue = Math.max(state.firstValue, min);
 
     return (
         <SliderBase
@@ -154,28 +176,35 @@ export const Slider: React.FC<SliderProps> = ({ min, max, value, disabled, onCha
             <Handle
                 ref={firstHandleRef}
                 stepSize={state.stepSize}
-                onChangeCommitted={onFirstHandleChangeCommited}
+                multipleStepSize={multipleStepSize}
+                onChangeCommitted={onFirstHandleChangeCommitted}
                 onChange={onFirstHandleChange}
                 min={min}
-                max={max}
+                max={state.secondValue}
                 disabled={disabled}
                 bounds={[min, state.secondValue]}
                 side="left"
                 xPosition={state.xFirstHandle}
                 zIndex={state.firstHandleZIndex}
+                value={currentFirstSliderValue}
+                ariaLabel={ariaLabelLeft}
             />
             <Handle
                 ref={secondHandleRef}
                 stepSize={state.stepSize}
-                onChangeCommitted={onSecondHandleChangeCommited}
+                multipleStepSize={multipleStepSize}
+                onChangeCommitted={onSecondHandleChangeCommitted}
                 onChange={onSecondHandleChange}
                 min={min}
+                ariaValueMin={currentFirstSliderValue}
                 max={max}
                 disabled={disabled}
                 bounds={[state.firstValue, max]}
                 side="right"
                 xPosition={state.xSecondHandle}
                 zIndex={state.secondHandleZIndex}
+                value={Math.max(state.secondValue, min)}
+                ariaLabel={ariaLabelRight}
             />
         </SliderBase>
     );

@@ -6,7 +6,7 @@ export const handleDiameter = 1.25;
 export const handleBorderWidth = 0.125; // 0.0625;
 export const railHeight = 0.25;
 export const railBorderRadius = railHeight / 2;
-export const indentaion = handleDiameter / 2 + handleBorderWidth;
+export const indentation = handleDiameter / 2 + handleBorderWidth;
 
 interface SliderProps {
     min: number;
@@ -31,8 +31,8 @@ const Slider = styled.div<{ disabled?: boolean }>`
 
 const RailWrap = styled.div`
     height: 100%;
-    margin-left: ${indentaion}rem;
-    margin-right: ${indentaion}rem;
+    margin-left: ${indentation}rem;
+    margin-right: ${indentation}rem;
 `;
 
 const Rail = styled.div`
@@ -92,11 +92,13 @@ export const SliderBase: React.FC<SliderProps> = ({
         return () => window.removeEventListener('resize', resizeHandler);
     }, [min, max, setStepSize, ref.current]);
 
+    const fillStyle = { left: `${railFillXPosition}px`, width: `${railFillWidth}px` };
+
     return (
         <Slider disabled={disabled}>
-            <RailWrap ref={ref} onMouseDown={onHandleChange}>
+            <RailWrap aria-hidden="true" ref={ref} onMouseDown={onHandleChange}>
                 <Rail>
-                    <Fill style={{ left: `${railFillXPosition}px`, width: `${railFillWidth}px` }} />
+                    <Fill style={fillStyle} />
                 </Rail>
             </RailWrap>
             {children}

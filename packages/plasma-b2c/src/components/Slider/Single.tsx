@@ -21,6 +21,16 @@ export interface SliderProps {
      */
     disabled?: boolean;
     /**
+     * Ярлык, определяющий назначение ползунка, например «Минимальная цена» [a11y].
+     */
+    ariaLabel?: string;
+    /**
+     * Размера увеличенного шага (для клавиш PageUp, PageDown).
+     * Указывает процентное отношение от максимально возможного значения.
+     * Указава значение 20 при максимуме в 100, получим 20%.
+     */
+    multipleStepSize?: number;
+    /**
      * Вызывается при перемещении ползунка
      */
     onChangeCommitted(value: number): void;
@@ -30,7 +40,16 @@ export interface SliderProps {
     onChange?(value: number): void;
 }
 
-export const Slider: React.FC<SliderProps> = ({ min, max, value, disabled, onChangeCommitted, onChange }) => {
+export const Slider: React.FC<SliderProps> = ({
+    min,
+    max,
+    value,
+    disabled,
+    onChangeCommitted,
+    onChange,
+    ariaLabel,
+    multipleStepSize = 10,
+}) => {
     const [state, setState] = React.useState({
         xHandle: 0,
         stepSize: 0,
@@ -71,7 +90,7 @@ export const Slider: React.FC<SliderProps> = ({ min, max, value, disabled, onCha
         [onChange],
     );
 
-    const onHandleChangeCommited = React.useCallback(
+    const onHandleChangeCommitted = React.useCallback(
         (handleValue, data) => {
             onChangeCommitted(handleValue);
             setState((prevState) => ({
@@ -89,17 +108,20 @@ export const Slider: React.FC<SliderProps> = ({ min, max, value, disabled, onCha
             max={max}
             disabled={disabled}
             setStepSize={setStepSize}
-            onChange={onHandleChangeCommited}
+            onChange={onHandleChangeCommitted}
             railFillWidth={state.railFillWidth}
         >
             <Handle
                 stepSize={state.stepSize}
-                onChangeCommitted={onHandleChangeCommited}
+                onChangeCommitted={onHandleChangeCommitted}
                 onChange={onHandleChange}
                 xPosition={state.xHandle}
                 min={min}
                 max={max}
+                value={value}
                 disabled={disabled}
+                ariaLabel={ariaLabel}
+                multipleStepSize={multipleStepSize}
             />
         </SliderBase>
     );
