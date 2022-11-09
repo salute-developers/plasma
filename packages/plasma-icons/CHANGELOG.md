@@ -1,3 +1,15 @@
+# v1.107.0 (Wed Nov 09 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-icons): Add new call icons [#216](https://github.com/salute-developers/plasma/pull/216) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.106.2 (Wed Nov 09 2022)
 
 #### 🐛 Bug Fix
