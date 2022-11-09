@@ -1,3 +1,17 @@
+# v1.28.2 (Wed Nov 09 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-tokens): Fix gradient generator for iOS platform [#211](https://github.com/salute-developers/plasma/pull/211) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.28.0 (Mon Oct 31 2022)
 
 #### 🚀 Enhancement

@@ -1,3 +1,16 @@
+# (Wed Nov 09 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-tokens@1.28.2`
+  - fix(plasma-tokens): Fix gradient generator for iOS platform [#211](https://github.com/salute-developers/plasma/pull/211) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Tue Nov 08 2022)
 
 #### 🐛 Bug Fix
