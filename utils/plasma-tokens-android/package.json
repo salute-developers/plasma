@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-tokens-android",
-    "version": "2.35.1",
+    "version": "2.35.2",
     "description": "Plasma tokens for android",
     "files": [
         "tokens"
@@ -18,7 +18,7 @@
         "prepare": "mkdir -p tokens && cp -R node_modules/@salutejs/plasma-tokens/build/android/* tokens"
     },
     "devDependencies": {
-        "@salutejs/plasma-tokens": "1.28.1"
+        "@salutejs/plasma-tokens": "1.28.2"
     },
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "publishConfig": {

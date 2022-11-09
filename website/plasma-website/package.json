@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-website",
-    "version": "0.101.1",
+    "version": "0.101.2",
     "description": "Plasma Main App",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "repository": {
@@ -18,8 +18,8 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@salutejs/plasma-b2c": "1.111.1",
-        "@salutejs/plasma-icons": "1.106.1",
+        "@salutejs/plasma-b2c": "1.111.2",
+        "@salutejs/plasma-icons": "1.106.2",
         "@salutejs/plasma-tokens-b2c": "0.13.1",
         "@salutejs/plasma-typo": "0.28.1",
         "next": "^11.1.2",
