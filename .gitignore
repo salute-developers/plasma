@@ -10,3 +10,4 @@ cypress/results
 .nyc_output
 coverage
 coverage-ts
+s3_build
