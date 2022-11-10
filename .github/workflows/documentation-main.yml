@@ -42,47 +42,47 @@ jobs:
         run: npm run lint
 
       - name: Prepare directory
-        run: mkdir ../build
+        run: mkdir s3_build
 
       - name: Plasma Website
         run: |
           npm run build --prefix="./website/plasma-website"
-          cp -R ./website/plasma-website/build ../build/next-${{ github.sha }}
+          cp -R ./website/plasma-website/build ./s3_build/next-${{ github.sha }}
 
       - name: Plasma UI Docs
         run: |
           npm run build --prefix="./website/plasma-ui-docs"
-          cp -R ./website/plasma-ui-docs/build ../build/next-${{ github.sha }}/ui
+          cp -R ./website/plasma-ui-docs/build ./s3_build/next-${{ github.sha }}/ui
 
       - name: Plasma Web Docs
         run: |
           npm run build --prefix="./website/plasma-web-docs"
-          cp -R ./website/plasma-web-docs/build ../build/next-${{ github.sha }}/web
+          cp -R ./website/plasma-web-docs/build ./s3_build/next-${{ github.sha }}/web
 
       - name: Plasma Temple Docs
         run: |
           npm run build --prefix="./website/plasma-temple-docs"
-          cp -R ./website/plasma-temple-docs/build ../build/next-${{ github.sha }}/temple
+          cp -R ./website/plasma-temple-docs/build ./s3_build/next-${{ github.sha }}/temple
 
       - name: Plasma UI Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-ui"
-          cp -R ./packages/plasma-ui/build-sb ../build/next-${{ github.sha }}/ui-storybook
+          cp -R ./packages/plasma-ui/build-sb ./s3_build/next-${{ github.sha }}/ui-storybook
 
       - name: Plasma Web Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-web"
-          cp -R ./packages/plasma-web/build-sb ../build/next-${{ github.sha }}/web-storybook
+          cp -R ./packages/plasma-web/build-sb ./s3_build/next-${{ github.sha }}/web-storybook
 
       - name: Plasma B2C Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-b2c"
-          cp -R ./packages/plasma-b2c/build-sb ../build/next-${{ github.sha }}/b2c-storybook
+          cp -R ./packages/plasma-b2c/build-sb ./s3_build/next-${{ github.sha }}/b2c-storybook
 
       - name: Plasma Temple Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-temple"
-          cp -R ./packages/plasma-temple/build-sb ../build/next-${{ github.sha }}/temple-storybook
+          cp -R ./packages/plasma-temple/build-sb ./s3_build/next-${{ github.sha }}/temple-storybook
 
       - name: Upload documentation build
         uses: garygrossgarten/github-action-scp@release
@@ -90,7 +90,7 @@ jobs:
           host: ${{ secrets.DOCS_HOST }}
           username: ${{ secrets.DOCS_LOGIN }}
           privateKey: ${{ secrets.DOCS_KEY }}
-          local: "../build"
+          local: "./s3_build"
           remote: "/var/www/plasma"
 
       - name: Update and clean documentation
@@ -106,3 +106,16 @@ jobs:
             cd ../../var/www/plasma
             rm -rf current/
             mv next-${SHA} current
+
+      - name: s3 Upload documentation build
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_S3_ENDPOINT: ${{ secrets.AWS_ENDPOINT }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          SOURCE_DIR: "s3_build/next-${{ github.sha }}/"
+          DEST_DIR: 'current'
