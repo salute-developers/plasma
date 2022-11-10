@@ -55,7 +55,7 @@ const StyledDayRoot = styled.div<DayProps & FocusProps>`
     min-width: 2.5rem;
     min-height: 2rem;
 
-    border-radius: 0.5rem;
+    border-radius: 1rem;
 
     ${flexCenter};
 
