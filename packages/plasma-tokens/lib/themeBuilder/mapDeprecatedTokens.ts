@@ -101,6 +101,7 @@ export const mapDeprecatedColorTokens = (
         return {
             ...tokensWithDeprecated,
             [themeName]: {
+                fromData: true,
                 ...tokens,
                 skeletonGradient: {
                     value: skeletonGradient,

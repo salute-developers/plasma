@@ -9,7 +9,7 @@ import { escapeValue, join, getCSSVariableName } from './other';
  * @param {object} obj
  * @return {object}
  */
-export const objectToCSSVariables = (obj: DataObject, prefix = '') => {
+export const objectToCSSVariables = (obj: DataObject, prefix = '', fromData = false) => {
     let vars: Record<string, string | number> = {};
 
     for (const key in obj) {
@@ -19,7 +19,7 @@ export const objectToCSSVariables = (obj: DataObject, prefix = '') => {
 
             if (value && typeof value === 'object') {
                 if ('origin' in value && value.origin) {
-                    vars[getCSSVariableName(name)] = escapeValue(value.origin as string);
+                    vars[getCSSVariableName(name, fromData)] = escapeValue(value.origin as string);
                 } else {
                     vars = {
                         ...vars,
@@ -27,7 +27,7 @@ export const objectToCSSVariables = (obj: DataObject, prefix = '') => {
                     };
                 }
             } else {
-                vars[getCSSVariableName(name)] = escapeValue(value);
+                vars[getCSSVariableName(name, fromData)] = escapeValue(value);
             }
         }
     }

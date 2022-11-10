@@ -13,7 +13,9 @@ export const generateColorThemes = (colorThemes: Record<string, TokenDataGroup<s
     const files: GeneratedFiles = [];
     let indexContent = ROBO_COMMENT;
 
-    for (const [fileName, theme] of Object.entries(colorThemes)) {
+    for (const [fileName, themeItem] of Object.entries(colorThemes)) {
+        const { fromData, ...theme } = themeItem;
+
         const themeData = extractTokenData(theme);
         indexContent += `export { ${fileName} } from './${fileName}';\n`;
 
@@ -21,7 +23,7 @@ export const generateColorThemes = (colorThemes: Record<string, TokenDataGroup<s
             generateFile(
                 fileName,
                 attachToRoot({
-                    ...objectToCSSVariables(themeData, 'colors'),
+                    ...objectToCSSVariables(themeData, 'colors', Boolean(fromData)),
                     ...objectToCSSVariables(mixin),
                     color: themeData.text,
                     backgroundColor: themeData.background,
