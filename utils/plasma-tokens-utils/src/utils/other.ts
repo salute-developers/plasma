@@ -15,4 +15,5 @@ export const escapeValue = <T = string | number>(value: T) => {
 
 export const join = (...args: (string | undefined)[]) => args.filter(Boolean).join('-');
 
-export const getCSSVariableName = (key: string) => `--${DESIGN_SYSTEM_PREFIX}-${key}`;
+export const getCSSVariableName = (key: string, fromData = false) =>
+    `--${DESIGN_SYSTEM_PREFIX}-${key}`.replace(fromData ? 'plasma-colors-' : '', '');
