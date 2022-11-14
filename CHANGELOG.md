@@ -1,3 +1,16 @@
+# (Mon Nov 14 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-temple@1.111.0`
+  - feat(plasma-temple): one more `AssistantProvider` [#213](https://github.com/salute-developers/plasma/pull/213) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 1
+
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # (Wed Nov 09 2022)
 
 #### 🚀 Enhancement

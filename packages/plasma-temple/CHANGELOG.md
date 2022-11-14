@@ -1,3 +1,20 @@
+# v1.111.0 (Mon Nov 14 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-temple): one more `AssistantProvider` [#213](https://github.com/salute-developers/plasma/pull/213) ([@LamaEats](https://github.com/LamaEats))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # v1.109.4 (Wed Nov 09 2022)
 
 #### 🐛 Bug Fix
