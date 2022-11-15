@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import { disableProps } from '../../helpers';
@@ -21,12 +21,40 @@ export default {
                 options: currencyOptions,
             },
         },
+        periodicity: {
+            control: {
+                type: 'select',
+                options: {
+                    default: '',
+                    perDay: '/ день',
+                    perWeek: '/ неделя',
+                    perMonth: '/ месяц',
+                    perYear: '/ год',
+                },
+            },
+        },
+        withCustomPeriodicity: {
+            control: 'boolean',
+        },
         ...disableProps(propsToDisable),
     },
 } as Meta;
 
-export const Default: Story<PriceProps & { priceLabel: number }> = ({ priceLabel, ...rest }) => {
-    return <Price {...rest}>{priceLabel}</Price>;
+type Props = PriceProps & { priceLabel: number; withCustomPeriodicity?: boolean };
+
+const CustomPeriodicity = () => {
+    return <span>/ квартал</span>;
+};
+
+export const Default: Story<Props> = ({ priceLabel, withCustomPeriodicity, periodicity, ...rest }) => {
+    const CustomPeriodicityMemo = useMemo(() => <CustomPeriodicity />, []);
+    const currentPeriodicity = withCustomPeriodicity ? CustomPeriodicityMemo : periodicity;
+
+    return (
+        <Price periodicity={currentPeriodicity} {...rest}>
+            {priceLabel}
+        </Price>
+    );
 };
 
 Default.args = {
@@ -34,4 +62,5 @@ Default.args = {
     stroke: false,
     minimumFractionDigits: 0,
     priceLabel: 12345.67,
+    withCustomPeriodicity: false,
 };
