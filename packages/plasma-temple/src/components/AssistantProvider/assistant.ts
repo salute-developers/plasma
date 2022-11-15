@@ -15,7 +15,10 @@ const errorMessage = {
 let assistant: AssistantInstance;
 let isInitialized: boolean;
 
-// @deprecated use getAssistantRef
+/**
+ * @deprecated
+ * @use getAssistantRef
+ */
 export const getAssistant = (): AssistantInstance => assistant;
 
 export interface AssistantRef {
@@ -47,11 +50,7 @@ export const assistantRef: ProtectedAssistantRef = {
     },
 };
 
-export const getAssistantRef = (): AssistantRef => {
-    return {
-        assistant: assistantRef.assistant,
-    };
-};
+export const getAssistantRef = (): AssistantRef => assistantRef;
 
 export const initializeAssistant = <T extends AssistantSmartAppData>({
     getState,
