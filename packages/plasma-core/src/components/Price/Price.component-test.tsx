@@ -1,10 +1,9 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 
+// TODO: why we need global styles on body?
 describe('plasma-core: Price', () => {
     const Price = getComponent('Price');
-
-    // TODO: why we need global styles on body ?
 
     it('simple', () => {
         mount(
@@ -64,6 +63,28 @@ describe('plasma-core: Price', () => {
                     }
                 `}</style>
                 <Price minimumFractionDigits={4}>12345.6789</Price>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('processing periodicity', () => {
+        mount(
+            <CypressTestDecorator>
+                <style>{`
+                    body {
+                        font-family: "SB Sans Text", sans-serif;
+                    }
+                `}</style>
+
+                <Price periodicity="/ день">990</Price>
+                <PadMe />
+                <Price periodicity="/ неделя">1990</Price>
+                <PadMe />
+                <Price periodicity="/ месяц">2990</Price>
+                <PadMe />
+                <Price periodicity="/ год">3990</Price>
             </CypressTestDecorator>,
         );
 
