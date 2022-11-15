@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 
-// TODO: why we need global styles on body?
+// TODO: https://github.com/salute-developers/plasma/issues/224
 describe('plasma-core: Price', () => {
     const Price = getComponent('Price');
 
@@ -85,6 +85,24 @@ describe('plasma-core: Price', () => {
                 <Price periodicity="/ месяц">2990</Price>
                 <PadMe />
                 <Price periodicity="/ год">3990</Price>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('handle two prices in a row', () => {
+        mount(
+            <CypressTestDecorator>
+                <style>{`
+                    body {
+                        font-family: "SB Sans Text", sans-serif;
+                    }
+                `}</style>
+                <Price>99</Price>
+                <Price style={{ marginLeft: '0.25rem' }} stroke>
+                    200
+                </Price>
             </CypressTestDecorator>,
         );
 
