@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import styled from 'styled-components';
 import { h4Bold } from '@salutejs/plasma-typo';
 import { IconDisclosureLeft, IconDisclosureRight } from '@salutejs/plasma-icons';
@@ -6,7 +6,7 @@ import { primary } from '@salutejs/plasma-core';
 
 import { CalendarState } from './types';
 import type { CalendarStateType, DateObject } from './types';
-import { MONTH_NAMES, YEAR_RENDER_COUNT } from './utils';
+import { MONTH_NAMES, YEAR_RENDER_COUNT, getCalendarType } from './utils';
 import { buttonFocus, flexCenter, flexSpaceBetween } from './mixins';
 
 export interface CalendarHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -40,7 +40,11 @@ const StyledHeader = styled.button`
     ${flexSpaceBetween};
 `;
 
-const StyledHeaderDouble = styled.div`
+const StyledHeaderDouble = styled.h4`
+    ${h4Bold};
+
+    margin-top: 0;
+    margin-bottom: 0;
     padding: 0.5rem 0;
     flex: 1;
 
@@ -123,31 +127,43 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
         [type, startYear],
     );
 
+    const currentCalendarType = getCalendarType(isDouble ? CalendarState.Days : type);
+
+    const PreviousButton = useMemo(
+        () => (
+            <StyledArrow aria-label={`Предыдущий ${currentCalendarType}`} tabIndex={0} onClick={() => onPrev()}>
+                <IconDisclosureLeft />
+            </StyledArrow>
+        ),
+        [currentCalendarType, onPrev],
+    );
+
+    const NextButton = useMemo(
+        () => (
+            <StyledArrow aria-label={`Следующий ${currentCalendarType}`} tabIndex={0} onClick={() => onNext()}>
+                <IconDisclosureRight />
+            </StyledArrow>
+        ),
+        [currentCalendarType, onNext],
+    );
+
     return (
         <StyledCalendarHeader>
             {isDouble ? (
                 <StyledNavigation>
-                    <StyledArrow tabIndex={0} onClick={onPrev}>
-                        <IconDisclosureLeft />
-                    </StyledArrow>
-                    <StyledHeaderDouble>{getHeaderContent(firstDate)}</StyledHeaderDouble>
-                    <StyledHeaderDouble>{getHeaderContent(secondDate)}</StyledHeaderDouble>
-                    <StyledArrow tabIndex={0} onClick={onNext}>
-                        <IconDisclosureRight />
-                    </StyledArrow>
+                    {PreviousButton}
+                    <StyledHeaderDouble aria-live="polite">{getHeaderContent(firstDate)}</StyledHeaderDouble>
+                    <StyledHeaderDouble aria-live="polite">{getHeaderContent(secondDate)}</StyledHeaderDouble>
+                    {NextButton}
                 </StyledNavigation>
             ) : (
                 <>
-                    <StyledHeader onClick={handleCalendarState} tabIndex={0}>
+                    <StyledHeader aria-live="polite" id="id-grid-label" onClick={handleCalendarState} tabIndex={0}>
                         {getHeaderContent(firstDate)}
                     </StyledHeader>
                     <StyledArrows>
-                        <StyledArrow tabIndex={0} onClick={onPrev}>
-                            <IconDisclosureLeft />
-                        </StyledArrow>
-                        <StyledArrow tabIndex={0} onClick={onNext}>
-                            <IconDisclosureRight />
-                        </StyledArrow>
+                        {PreviousButton}
+                        {NextButton}
                     </StyledArrows>
                 </>
             )}

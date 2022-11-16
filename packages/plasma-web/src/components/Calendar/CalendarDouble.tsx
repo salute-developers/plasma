@@ -143,7 +143,7 @@ export const CalendarDouble: React.FC<CalendarDoubleProps> = ({
     }
 
     return (
-        <StyledCalendar {...rest}>
+        <StyledCalendar aria-label="Выбор даты" {...rest}>
             <CalendarHeader
                 isDouble
                 firstDate={firstDate}

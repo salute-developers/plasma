@@ -1,4 +1,4 @@
-import { useCallback, useLayoutEffect, useRef, useState } from 'react';
+import React, { useCallback, useLayoutEffect, useRef, useState, KeyboardEvent } from 'react';
 
 import { Keys, UseKeyNavigationProps } from '../types';
 import { ROW_STEP } from '../utils';
@@ -41,24 +41,28 @@ const getCorrectIndexes = (
 
     if (newColumnIndex === minColumnIndex - 1) {
         newColumnIndex += 1;
+
         while (newColumnIndex < maxColumnIndex && !isVisible(refs, newRowIndex, newColumnIndex)) {
             newColumnIndex++;
         }
     }
     if (newColumnIndex === columnSize + 1) {
         newColumnIndex -= 1;
+
         while (newColumnIndex > minColumnIndex && !isVisible(refs, newRowIndex, newColumnIndex)) {
             newColumnIndex--;
         }
     }
     if (newRowIndex === minColumnIndex - 1) {
         newRowIndex = ROW_STEP - 1;
+
         while (newRowIndex > minRowIndex && !isVisible(refs, newRowIndex, newColumnIndex)) {
             newRowIndex--;
         }
     }
     if (newRowIndex === rowSize + 1) {
         newRowIndex = rowSize + 1 - ROW_STEP;
+
         while (newRowIndex <= maxRowIndex && !isVisible(refs, newRowIndex, newColumnIndex)) {
             newRowIndex++;
         }
@@ -104,7 +108,9 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
     }, [selectIndexes]);
 
     const onKeyDown = useCallback(
-        (event: React.KeyboardEvent<HTMLDivElement>) => {
+        (event: KeyboardEvent<HTMLDivElement>) => {
+            const { keyCode, shiftKey: withShift } = event;
+
             const [currentRowIndex, currentColumnIndex] = selectIndexes;
 
             let newRowIndex = currentRowIndex;
@@ -119,19 +125,22 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
             const prevColumnIndex = currentColumnIndex - 1;
             const nextColumnIndex = currentColumnIndex + 1;
 
-            switch (event.keyCode) {
+            switch (keyCode) {
                 case Keys.pageUp:
-                    onPrev();
+                    onPrev(withShift);
                     break;
-                case Keys.pageDown:
-                    onNext();
+                case Keys.pageDown: {
+                    onNext(withShift);
+
                     break;
+                }
                 case Keys.home: {
                     newColumnIndex = minColumnIndex;
 
                     if (isVisible(outerRefs, newRowIndex, newColumnIndex)) {
                         break;
                     }
+
                     newColumnIndex = minColumnIndex - 1;
 
                     break;
@@ -142,6 +151,7 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
                     if (isVisible(outerRefs, newRowIndex, newColumnIndex)) {
                         break;
                     }
+
                     newColumnIndex = columnSize + 1;
 
                     break;
@@ -157,6 +167,7 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
                     if (!isDouble || getDoubleCalendarSide(currentRowIndex) === 'first') {
                         onPrev();
                     }
+
                     newRowIndex = minRowIndex - 1;
 
                     break;
@@ -173,6 +184,7 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
                     if (!isDouble || getDoubleCalendarSide(currentRowIndex) === 'second') {
                         onNext();
                     }
+
                     newRowIndex = rowSize + 1;
 
                     break;
@@ -187,6 +199,7 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
                     if (!isDouble || getDoubleCalendarSide(currentRowIndex) === 'first') {
                         onPrev();
                     }
+
                     newRowIndex = minRowIndex - 1;
 
                     break;
@@ -201,6 +214,7 @@ export const useKeyNavigation = ({ isDouble = false, size, onPrev, onNext }: Use
                     if (!isDouble || getDoubleCalendarSide(currentRowIndex) === 'second') {
                         onNext();
                     }
+
                     newRowIndex = rowSize + 1;
 
                     break;
