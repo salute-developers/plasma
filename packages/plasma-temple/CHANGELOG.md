@@ -1,3 +1,15 @@
+# v1.111.1 (Wed Nov 16 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-temple): `getAssistantRef` returns correct value [#221](https://github.com/salute-developers/plasma/pull/221) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 1
+
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # v1.111.0 (Mon Nov 14 2022)
 
 #### 🚀 Enhancement
