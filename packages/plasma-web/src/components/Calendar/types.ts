@@ -1,3 +1,5 @@
+import { HTMLAttributes } from 'react';
+
 export enum CalendarState {
     Days = 'Days',
     Months = 'Months',
@@ -52,6 +54,7 @@ export interface MonthsProps extends ItemProps {}
 
 export interface MonthsItem extends ItemProps {
     monthName: string;
+    monthFullName?: string;
     monthIndex: number;
 }
 
@@ -73,13 +76,11 @@ export interface DisabledDay {
 export interface UseKeyNavigationProps {
     size: [number, number];
     isDouble?: boolean;
-    onPrev: () => void;
-    onNext: () => void;
+    onPrev: (withShift?: boolean) => void;
+    onNext: (withShift?: boolean) => void;
 }
 
-export type UserPropsUpdate = readonly [Date | [Date, Date?], Date?, Date?, DisabledDay[]?, EventDay[]?];
-
-export interface Calendar extends React.HTMLAttributes<HTMLDivElement> {
+export interface Calendar extends HTMLAttributes<HTMLDivElement> {
     /**
      * Выбранное значение.
      */

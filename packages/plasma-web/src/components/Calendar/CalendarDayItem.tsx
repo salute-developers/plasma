@@ -1,6 +1,6 @@
 import React, { forwardRef, memo } from 'react';
 import styled, { css } from 'styled-components';
-import { FocusProps, accent, tertiary, secondary, primary, surfaceLiquid02 } from '@salutejs/plasma-core';
+import { FocusProps, accent, tertiary, secondary, primary, surfaceLiquid02, addFocus } from '@salutejs/plasma-core';
 import { bodyS } from '@salutejs/plasma-typo';
 
 import { flexCenter, selected } from './mixins';
@@ -46,7 +46,7 @@ const setSide = (side: 'left' | 'right', isCurrent?: boolean, isSelected?: boole
     }
 };
 
-const StyledDayRoot = styled.div<DayProps & FocusProps>`
+const StyledDayRoot = styled.div<DayProps & FocusProps & { $disabled?: boolean }>`
     ${bodyS};
 
     position: relative;
@@ -87,9 +87,9 @@ const StyledDayRoot = styled.div<DayProps & FocusProps>`
             color: ${tertiary};
         `}
 
-    ${({ isSelected, isCurrent, isHovered, dayOfWeek, disabled }) =>
+    ${({ isSelected, isCurrent, isHovered, dayOfWeek, $disabled }) =>
         !dayOfWeek &&
-        !disabled &&
+        !$disabled &&
         selected({
             StyledItem: StyledDay,
             minWidth: 2.25,
@@ -99,11 +99,17 @@ const StyledDayRoot = styled.div<DayProps & FocusProps>`
             isHovered,
         })};
 
-    ${({ disabled }) =>
-        disabled &&
+    ${({ $disabled, isCurrent }) =>
+        $disabled &&
         css`
             cursor: not-allowed;
             opacity: 0.4;
+
+            ${addFocus({
+                outlineRadius: '0.563rem',
+                outlineSize: '0.063rem',
+                outlineOffset: isCurrent ? '0.125rem' : '0.063rem',
+            })};
         `}
 `;
 
@@ -150,6 +156,7 @@ export const CalendarDayItem = memo(
                 onClick,
                 onMouseOver,
                 onFocus,
+                ...rest
             },
             outerRef,
         ) => {
@@ -158,7 +165,6 @@ export const CalendarDayItem = memo(
                     ref={outerRef}
                     tabIndex={isFocused ? 0 : -1}
                     dayOfWeek={dayOfWeek}
-                    disabled={disabled}
                     isCurrent={isCurrent}
                     isSelected={isSelected}
                     isDayInCurrentMonth={isDayInCurrentMonth}
@@ -171,9 +177,13 @@ export const CalendarDayItem = memo(
                     data-day={day}
                     data-month-index={monthIndex}
                     data-year={year}
+                    aria-selected={isSelected}
+                    aria-disabled={disabled}
+                    $disabled={disabled}
+                    {...rest}
                 >
                     <StyledDay inRange={inRange}>{day}</StyledDay>
-                    <StyledEvents>
+                    <StyledEvents aria-hidden>
                         {[eventList[0], eventList[1], eventList[2]].map(
                             (event, i) => event && <StyledEvent key={`${event.date}-${i}`} {...event} />,
                         )}

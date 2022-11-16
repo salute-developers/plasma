@@ -100,10 +100,10 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
     }, []);
 
     return (
-        <StyledCalendarMonths onKeyDown={onKeyDown}>
+        <StyledCalendarMonths role="grid" aria-labelledby="id-grid-label" onKeyDown={onKeyDown}>
             {months.map((month, i) => (
-                <StyledFlex key={i}>
-                    {month.map(({ monthName, monthIndex, isSelected, isCurrent }, j) => (
+                <StyledFlex role="row" key={i}>
+                    {month.map(({ monthName, monthIndex, isSelected, isCurrent, monthFullName }, j) => (
                         <StyledMonthRoot
                             id={`month-test-${i}-${j}`}
                             ref={(element: HTMLDivElement) => getRefs(element, i, j)}
@@ -112,7 +112,10 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
                             isSelected={isSelected}
                             onClick={handleOnChangeMonth}
                             data-month-index={monthIndex}
+                            aria-selected={isSelected}
+                            role="gridcell"
                             key={`StyledMonth-${i}-${j}`}
+                            aria-label={monthFullName}
                         >
                             <StyledMonth>{monthName}</StyledMonth>
                         </StyledMonthRoot>

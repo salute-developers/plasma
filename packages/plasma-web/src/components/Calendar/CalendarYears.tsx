@@ -102,9 +102,9 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
     }, []);
 
     return (
-        <StyledCalendarYears onKeyDown={onKeyDown}>
+        <StyledCalendarYears role="grid" aria-labelledby="id-grid-label" onKeyDown={onKeyDown}>
             {years.map((year, i) => (
-                <StyledFlex key={i}>
+                <StyledFlex role="row" key={i}>
                     {year.map(({ yearValue, isSelected, isCurrent }, j) => (
                         <StyledYearRoot
                             ref={(element: HTMLDivElement) => getRefs(element, i, j)}
@@ -113,7 +113,10 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
                             isSelected={isSelected}
                             onClick={handleOnChangeYear}
                             data-year={yearValue}
+                            aria-selected={isSelected}
+                            role="gridcell"
                             key={`StyledYear-${i}-${j}`}
+                            aria-label={String(yearValue)}
                         >
                             <StyledYear>{yearValue}</StyledYear>
                         </StyledYearRoot>

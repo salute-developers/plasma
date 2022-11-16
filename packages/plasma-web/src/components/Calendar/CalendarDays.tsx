@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import type { DateItem, DateObject, DisabledDay, EventDay } from './types';
 import {
     canSelectDate,
+    FULL_DAY_NAMES,
     getInRange,
     getSideInRange,
     isSameDay,
@@ -140,14 +141,20 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
     }, []);
 
     return (
-        <StyledCalendarDays onKeyDown={onKeyDown}>
-            <StyledFlex>
+        <StyledCalendarDays role="grid" aria-labelledby="id-grid-label" onKeyDown={onKeyDown}>
+            <StyledFlex role="row">
                 {SHORT_DAY_NAMES.map((name) => (
-                    <CalendarDayItem key={name} dayOfWeek day={name} />
+                    <CalendarDayItem
+                        role="columnheader"
+                        aria-label={FULL_DAY_NAMES[name]}
+                        key={name}
+                        dayOfWeek
+                        day={name}
+                    />
                 ))}
             </StyledFlex>
             {days.map((day: DateItem[], i) => (
-                <StyledFlex key={i}>
+                <StyledFlex role="row" key={i}>
                     {day.map(({ date, events, disabled, isSelected, isCurrent, isDayInCurrentMonth, inRange }, j) => (
                         <CalendarDayItem
                             ref={(element: HTMLDivElement) => getRefs(element, isDayInCurrentMonth, i, j)}
@@ -168,6 +175,7 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
                             onMouseOver={disabled ? undefined : handleOnHoverDay}
                             onFocus={handleOnFocusDay}
                             key={`StyledDay-${j}`}
+                            role="gridcell"
                         />
                     ))}
                 </StyledFlex>

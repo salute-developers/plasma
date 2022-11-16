@@ -52,37 +52,71 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
 
     const { date, calendarState, startYear, size } = state;
 
-    const handlePrev = useCallback(() => {
-        if (calendarState === CalendarState.Days) {
-            dispatch({ type: ActionType.PREVIOUS_MONTH, payload: { monthIndex: date.monthIndex, year: date.year } });
-            return;
-        }
+    const handlePrev = useCallback(
+        (withShift = false) => {
+            if (calendarState === CalendarState.Days) {
+                if (withShift) {
+                    dispatch({
+                        type: ActionType.PREVIOUS_YEAR,
+                        payload: { step: 1 },
+                    });
 
-        if (calendarState === CalendarState.Months) {
-            dispatch({ type: ActionType.PREVIOUS_YEAR, payload: { step: 1 } });
-            return;
-        }
+                    return;
+                }
 
-        if (calendarState === CalendarState.Years) {
-            dispatch({ type: ActionType.PREVIOUS_START_YEAR, payload: { yearsCount: YEAR_RENDER_COUNT } });
-        }
-    }, [date, calendarState]);
+                dispatch({
+                    type: ActionType.PREVIOUS_MONTH,
+                    payload: { monthIndex: date.monthIndex, year: date.year },
+                });
 
-    const handleNext = useCallback(() => {
-        if (calendarState === CalendarState.Days) {
-            dispatch({ type: ActionType.NEXT_MONTH, payload: { monthIndex: date.monthIndex, year: date.year } });
-            return;
-        }
+                return;
+            }
 
-        if (calendarState === CalendarState.Months) {
-            dispatch({ type: ActionType.NEXT_YEAR, payload: { step: 1 } });
-            return;
-        }
+            if (calendarState === CalendarState.Months) {
+                dispatch({ type: ActionType.PREVIOUS_YEAR, payload: { step: 1 } });
 
-        if (calendarState === CalendarState.Years) {
-            dispatch({ type: ActionType.NEXT_START_YEAR, payload: { yearsCount: YEAR_RENDER_COUNT } });
-        }
-    }, [date, calendarState]);
+                return;
+            }
+
+            if (calendarState === CalendarState.Years) {
+                dispatch({ type: ActionType.PREVIOUS_START_YEAR, payload: { yearsCount: YEAR_RENDER_COUNT } });
+            }
+        },
+        [date, calendarState],
+    );
+
+    const handleNext = useCallback(
+        (withShift = false) => {
+            if (calendarState === CalendarState.Days) {
+                if (withShift) {
+                    dispatch({
+                        type: ActionType.NEXT_YEAR,
+                        payload: { step: 1 },
+                    });
+
+                    return;
+                }
+
+                dispatch({
+                    type: ActionType.NEXT_MONTH,
+                    payload: { monthIndex: date.monthIndex, year: date.year },
+                });
+
+                return;
+            }
+
+            if (calendarState === CalendarState.Months) {
+                dispatch({ type: ActionType.NEXT_YEAR, payload: { step: 1 } });
+
+                return;
+            }
+
+            if (calendarState === CalendarState.Years) {
+                dispatch({ type: ActionType.NEXT_START_YEAR, payload: { yearsCount: YEAR_RENDER_COUNT } });
+            }
+        },
+        [date, calendarState],
+    );
 
     const [selectIndexes, onKeyDown, onSelectIndexes, outerRefs] = useKeyNavigation({
         size,
@@ -140,7 +174,7 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
     }
 
     return (
-        <StyledCalendar {...rest}>
+        <StyledCalendar aria-label="Выбор даты" {...rest}>
             <CalendarHeader
                 firstDate={date}
                 startYear={startYear}
