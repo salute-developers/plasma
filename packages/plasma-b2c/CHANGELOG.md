@@ -1,3 +1,16 @@
+# v1.113.0 (Thu Nov 17 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): processing slider keyboard support by cypress [#218](https://github.com/salute-developers/plasma/pull/218) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): add support a11y for Slider [#218](https://github.com/salute-developers/plasma/pull/218) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.111.2 (Wed Nov 09 2022)
 
 #### 🐛 Bug Fix
