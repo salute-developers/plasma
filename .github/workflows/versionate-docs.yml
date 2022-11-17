@@ -56,7 +56,7 @@ jobs:
           author_name: Salute Frontend Team
           author_email: salute.developers@gmail.com
 
-      # В папке "../build" скрипт положил артефакты сборки, заливаем их на удаленный сервер
+      # В папке "./s3_build" скрипт положил артефакты сборки, заливаем их на удаленный сервер
       - name: Upload documentation build
         if: ${{ steps.versionate_script.outputs.result == 'true' }}
         uses: garygrossgarten/github-action-scp@release
@@ -64,13 +64,8 @@ jobs:
           host: ${{ secrets.DOCS_HOST }}
           username: ${{ secrets.DOCS_LOGIN }}
           privateKey: ${{ secrets.DOCS_KEY }}
-          local: "../build"
+          local: "./s3_build"
           remote: "/var/www/plasma"
-
-      - name: Copy build
-        run: |
-          mkdir s3_build
-          cp -R ../build ./s3_build
 
       # Без --delete чтобы версии сохранялись
       - name: s3 Upload documentation build
