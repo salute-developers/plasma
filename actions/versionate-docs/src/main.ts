@@ -8,7 +8,7 @@ import { getCommitList } from './github';
 import { associatedPackages, associatedPrefixes } from './packages';
 
 const createBuildFolder = async () => {
-    const { stdout, stderr } = await exec('mkdir ../build');
+    const { stdout, stderr } = await exec('mkdir ./s3_build');
 
     console.log('> Creating build folder', stdout, stderr);
 };
@@ -22,7 +22,7 @@ const buildDocumentation = async (docpckgName: string, prefix: string, version: 
 
     console.log(`> Copying outputs for "${docpckgName}".`);
 
-    const copying = await exec(`cp -R ./website/${docpckgName}/build ../build/${prefix}-${version}`);
+    const copying = await exec(`cp -R ./website/${docpckgName}/build ./s3_build/${prefix}-${version}`);
 
     console.log(copying.stdout, copying.stderr);
 };

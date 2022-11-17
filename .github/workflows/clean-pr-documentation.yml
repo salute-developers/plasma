@@ -14,8 +14,6 @@ jobs:
     env:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
       PR_NAME: pr-${{ github.event.number }}
-      S3_PR_NAME: pr/pr-${{ github.event.number }}
-      S3_EXAMPLE_NAME: pr/demo-canvas-app-pr-${{ github.event.number }}
     steps:
       - name: Clean artifacts made for closed pr
         uses: appleboy/ssh-action@master
@@ -39,7 +37,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_S3_ENDPOINT: ${{ secrets.AWS_ENDPOINT }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
-          PATH_TO_DELETE: ${{ S3_PR_NAME }}
+          PATH_TO_DELETE: "pr/${PR_NAME}"
 
       - name: s3 Clean artifacts made for closed pr - example
         uses: vitorsgomes/s3-rm-action@master
@@ -51,4 +49,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_S3_ENDPOINT: ${{ secrets.AWS_ENDPOINT }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
-          PATH_TO_DELETE: ${{ S3_EXAMPLE_NAME }}
+          PATH_TO_DELETE: "pr/demo-canvas-app-${PR_NAME}"
