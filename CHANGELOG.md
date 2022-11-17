@@ -2,6 +2,22 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-core@1.82.0`
+  - feat(plasma-core/plasma-ui): [cypress] processing periodicity [#220](https://github.com/salute-developers/plasma/pull/220) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-core): add price periodicity [#220](https://github.com/salute-developers/plasma/pull/220) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-ui@1.145.0`
+  - feat(plasma-ui): processing price periodicity [#220](https://github.com/salute-developers/plasma/pull/220) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Thu Nov 17 2022)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-b2c@1.113.0`
   - feat(plasma-b2c): processing slider keyboard support by cypress [#218](https://github.com/salute-developers/plasma/pull/218) ([@Yakutoc](https://github.com/Yakutoc))
   - feat(plasma-b2c): add support a11y for Slider [#218](https://github.com/salute-developers/plasma/pull/218) ([@Yakutoc](https://github.com/Yakutoc))

@@ -1,3 +1,16 @@
+# v1.82.0 (Thu Nov 17 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-core/plasma-ui): [cypress] processing periodicity [#220](https://github.com/salute-developers/plasma/pull/220) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-core): add price periodicity [#220](https://github.com/salute-developers/plasma/pull/220) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.81.2 (Wed Nov 09 2022)
 
 #### 🐛 Bug Fix
