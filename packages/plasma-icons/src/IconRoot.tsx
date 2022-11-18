@@ -39,7 +39,7 @@ export const IconRoot: React.FC<IconRootProps> = ({ icon: IconComponent, size, c
     const w = `${sizeMap[size]}rem`;
 
     return (
-        <StyledRoot w={w} className={className}>
+        <StyledRoot aria-hidden w={w} className={className}>
             <IconComponent color={c} size={size} />
         </StyledRoot>
     );
