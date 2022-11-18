@@ -2,6 +2,7 @@ export {
     colorIosSwiftCustomFormatter,
     colorKotlinCustomFormatter,
     colorReactNativeCustomFormatter,
+    typoIosSwiftCustomFormatter,
     typoKotlinCustomFormatter,
     typoReactNativeCustomFormatter,
 } from './formatters';
