@@ -80,4 +80,4 @@ jobs:
           AWS_S3_ENDPOINT: ${{ secrets.AWS_ENDPOINT }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
           SOURCE_DIR: "s3_build"
-          DEST_DIR: 'version'
+          DEST_DIR: 'versions'
