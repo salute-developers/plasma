@@ -4,8 +4,7 @@ import { upperFirstLetter, lowerFirstLetter } from '../../themeBuilder/utils';
 import { GradientToken, ThemeColor, ThemeColorType } from '../types';
 
 const getSwiftTemplate = (structContent: string, gradientContent: string, enumsContent: string) => {
-    const header = `
-// swiftlint:disable all
+    const header = `// swiftlint:disable all
 
 import SMFoundation
 import SwiftUI
@@ -43,8 +42,13 @@ extension LinearGradient {
     const structHeader = `    public let plasmaTokensColorLight: UIColor
     public let plasmaTokensColorDark: UIColor
 
-    public var color: SwiftUI.Color { return Color(UIColor(light: plasmaTokensColorLight, dark: plasmaTokensColorDark)) }
-    public var uiColor: UIColor { return UIColor(light: plasmaTokensColorLight, dark: plasmaTokensColorDark) }
+    public var color: SwiftUI.Color { 
+        return Color(UIColor(light: plasmaTokensColorLight, dark: plasmaTokensColorDark)) 
+    }
+
+    public var uiColor: UIColor { 
+        return UIColor(light: plasmaTokensColorLight, dark: plasmaTokensColorDark) 
+    }
 `;
 
     const gradient = `\n    public enum Gradients {\n${gradientContent}\n    }`;
@@ -62,7 +66,8 @@ const getConditionalColorToken = (firstValue: string, secondValue: string) => `:
         } else {
             return ${secondValue};
         }
-    }`;
+    }
+`;
 
 const lightTokenSberMap: Record<string, string> = {
     lightTextAccent: 'UIColor(red: 0.819, green: 0.302, blue: 0, alpha: 1)',
@@ -100,11 +105,12 @@ const getStructure = (tokenItems: TransformedToken[], themeName: string) =>
             const tokenName = token.name.replace(`${ThemeColor.light}${themeName}`, '');
             const name = upperFirstLetter(tokenName);
 
-            return `    public static let ${lowerFirstLetter(
-                name,
-            )} = ColorToken(plasmaTokensColorLight: PlasmaTokensColor.light${name}, plasmaTokensColorDark: PlasmaTokensColor.dark${name})`;
+            return `    public static let ${lowerFirstLetter(name)} = ColorToken(
+        plasmaTokensColorLight: PlasmaTokensColor.light${name}, 
+        plasmaTokensColorDark: PlasmaTokensColor.dark${name}
+    )`;
         })
-        .join(`\n`);
+        .join(`\n\n`);
 
 const getGradient = (tokenItems: TransformedToken[], themeName: string) => {
     const regex = new RegExp(`((${ThemeColor.light}|${ThemeColor.dark})${themeName})`);
@@ -131,7 +137,7 @@ const getGradient = (tokenItems: TransformedToken[], themeName: string) => {
 
             return `        public static let ${key} = ${getLinearGradient(value, startPoint, endPoint)}`;
         })
-        .join(`\n`);
+        .join(`\n\n`);
 };
 
 const getEnums = (tokenItems: TransformedToken[], themeName: string) =>
@@ -142,7 +148,7 @@ const getEnums = (tokenItems: TransformedToken[], themeName: string) =>
             const modName = name.replace(themeName, '');
 
             if (lightTokenSberMap[modName]) {
-                return `    static let ${modName}${getConditionalColorToken(value, lightTokenSberMap[modName])}`;
+                return `    static var ${modName}${getConditionalColorToken(value, lightTokenSberMap[modName])}`;
             } else {
                 return `    static let ${modName} = ${value}`;
             }

@@ -30,6 +30,7 @@ import Foundation
 import SwiftUI
 import UIKit
 
+// swiftlint:disable file_length
 private extension UIFont {
     convenience init?(font: FontConvertible, size: CGFloat) {
         #if os(iOS) || os(tvOS) || os(watchOS)
@@ -74,7 +75,7 @@ public struct FontConvertible {
 
     public func uiFont(size: CGFloat) -> UIFont {
         guard let font = UIFont(font: self, size: size) else {
-            fatalError("Unabble to initialize font '\(name)' (\(family))")
+            fatalError("Unabble to initialize font '\\(name)' (\\(family))")
         }
 
         return font
@@ -84,11 +85,6 @@ public struct FontConvertible {
         return Font.custom(name, size: size)
     }
 }
-
-public struct LineStyle {
-    public internal(set) var spacing: CGFloat
-    public internal(set) var kerning: CGFloat
-}
 `;
 
     const fonts = `public enum FontFamily {
@@ -97,12 +93,6 @@ public struct LineStyle {
             name: "${fontFamilyName}-Regular",
             family: "${baseFontFamily}",
             path: "${fontFamilyName}-Regular.otf"
-        )
-
-        public static let medium = FontConvertible(
-            name: "${fontFamilyName}-Medium",
-            family: "${baseFontFamily}",
-            path: "${fontFamilyName}-Medium.otf"
         )
 
         public static let semibold = FontConvertible(
@@ -117,14 +107,19 @@ public struct LineStyle {
             path: "${fontFamilyName}-Bold.otf"
         )
 
-        fileprivate static let all: [FontConvertible] = [regular, medium, semibold, bold]
+        fileprivate static let all: [FontConvertible] = [regular, semibold, bold]
     }
 
-    fileprivate static let allCustomFonts: [FontConvertible] = [${baseFontFamily}.all].flatMap { $0 }
+    fileprivate static let allCustomFonts: [FontConvertible] = [${fontFamilyName}.all].flatMap { $0 }
 
     fileprivate static func registerAllCustomFonts() {
         allCustomFonts.forEach { $0.register() }
     }
+}
+`;
+    const lineStyleStruct = `public struct LineStyle {
+    public internal(set) var spacing: CGFloat
+    public internal(set) var kerning: CGFloat
 }`;
 
     const paragraphStyle = `    public func paragraphStyle() -> NSMutableParagraphStyle {
@@ -162,12 +157,12 @@ ${lineStyle}
 ${uiFont}
 
 ${font}
-};
+}
 
 // swiftlint:enable cyclomatic_complexity function_body_length
 `;
 
-    return [header, fonts, fontBookStyle].join('\n');
+    return [header, fonts, lineStyleStruct, fontBookStyle].join('\n');
 };
 
 const getFontFamily = (tokenItems: TransformedToken[]) => {
