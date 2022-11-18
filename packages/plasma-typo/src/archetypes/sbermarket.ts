@@ -39,7 +39,7 @@ export const baseTypoS: TypoProps = {
     },
     'h1-bold': {
         'font-size': '2rem',
-        'font-weight': '6700',
+        'font-weight': '700',
         'line-height': '2.5rem',
     },
     h2: {
@@ -84,7 +84,7 @@ export const baseTypoS: TypoProps = {
     },
     'body-l': {
         'font-size': '1.0625rem',
-        'font-weight': '500',
+        'font-weight': '400',
         'line-height': '1.5rem',
     },
     'body-l-bold': {
@@ -94,7 +94,7 @@ export const baseTypoS: TypoProps = {
     },
     'body-m': {
         'font-size': '0.9375rem',
-        'font-weight': '500',
+        'font-weight': '400',
         'line-height': '1.25rem',
     },
     'body-m-bold': {
@@ -104,7 +104,7 @@ export const baseTypoS: TypoProps = {
     },
     'body-s': {
         'font-size': '0.8125rem',
-        'font-weight': '500',
+        'font-weight': '400',
         'line-height': '1.125rem',
     },
     'body-s-bold': {
@@ -114,7 +114,7 @@ export const baseTypoS: TypoProps = {
     },
     'body-xs': {
         'font-size': '0.75rem',
-        'font-weight': '500',
+        'font-weight': '400',
         'line-height': '1rem',
     },
     'body-xs-bold': {
@@ -124,7 +124,7 @@ export const baseTypoS: TypoProps = {
     },
     'body-xxs': {
         'font-size': '0.625rem',
-        'font-weight': '500',
+        'font-weight': '400',
         'line-height': '0.75rem',
     },
     'body-xxs-bold': {
@@ -139,179 +139,6 @@ export const baseTypoS: TypoProps = {
     },
     'text-l-bold': {
         'font-size': '1.125rem',
-        'font-weight': '600',
-        'line-height': '1.75rem',
-    },
-    'text-m': {
-        'font-size': '1rem',
-        'font-weight': '400',
-        'line-height': '1.5rem',
-    },
-    'text-m-bold': {
-        'font-size': '1rem',
-        'font-weight': '600',
-        'line-height': '1.5rem',
-    },
-    'text-s': {
-        'font-size': '0.875rem',
-        'font-weight': '400',
-        'line-height': '1.25rem',
-    },
-    'text-s-bold': {
-        'font-size': '0.875rem',
-        'font-weight': '600',
-        'line-height': '1.25rem',
-    },
-    'text-xs': {
-        'font-size': '0.75rem',
-        'font-weight': '400',
-        'line-height': '1rem',
-    },
-    'text-xs-bold': {
-        'font-size': '0.75rem',
-        'font-weight': '600',
-        'line-height': '1rem',
-    },
-};
-
-export const baseTypoM = {
-    'dspl-l': {
-        'font-size': '7rem',
-        'font-weight': '400',
-        'line-height': '7rem',
-    },
-    'dspl-l-bold': {
-        'font-size': '7rem',
-        'font-weight': '700',
-        'line-height': '7rem',
-    },
-    'dspl-m': {
-        'font-size': '4.5rem',
-        'font-weight': '400',
-        'line-height': '4.75rem',
-    },
-    'dspl-m-bold': {
-        'font-size': '4.5rem',
-        'font-weight': '700',
-        'line-height': '4.75rem',
-    },
-    'dspl-s': {
-        'font-size': '3rem',
-        'font-weight': '400',
-        'line-height': '3.25rem',
-    },
-    'dspl-s-bold': {
-        'font-size': '3rem',
-        'font-weight': '700',
-        'line-height': '3.25rem',
-    },
-    h1: {
-        'font-size': '2.5rem',
-        'font-weight': '400',
-        'line-height': '2.75rem',
-    },
-    'h1-bold': {
-        'font-size': '2.5rem',
-        'font-weight': '700',
-        'line-height': '2.75rem',
-    },
-    h2: {
-        'font-size': '1.75rem',
-        'font-weight': '400',
-        'line-height': '2.125rem',
-    },
-    'h2-bold': {
-        'font-size': '1.75rem',
-        'font-weight': '700',
-        'line-height': '2.125rem',
-    },
-    h3: {
-        'font-size': '1.25rem',
-        'font-weight': '400',
-        'line-height': '1.625rem',
-    },
-    'h3-bold': {
-        'font-size': '1.25rem',
-        'font-weight': '700',
-        'line-height': '1.625rem',
-    },
-    h4: {
-        'font-size': '1.125rem',
-        'font-weight': '400',
-        'line-height': '1.5rem',
-    },
-    'h4-bold': {
-        'font-size': '1.125rem',
-        'font-weight': '700',
-        'line-height': '1.5rem',
-    },
-    h5: {
-        'font-size': '1rem',
-        'font-weight': '400',
-        'line-height': '1.375rem',
-    },
-    'h5-bold': {
-        'font-size': '1rem',
-        'font-weight': '700',
-        'line-height': '1.375rem',
-    },
-    'body-l': {
-        'font-size': '1.125rem',
-        'font-weight': '500',
-        'line-height': '1.375rem',
-    },
-    'body-l-bold': {
-        'font-size': '1.125rem',
-        'font-weight': '600',
-        'line-height': '1.375rem',
-    },
-    'body-m': {
-        'font-size': '1rem',
-        'font-weight': '500',
-        'line-height': '1.25rem',
-    },
-    'body-m-bold': {
-        'font-size': '1rem',
-        'font-weight': '600',
-        'line-height': '1.25rem',
-    },
-    'body-s': {
-        'font-size': '0.875rem',
-        'font-weight': '500',
-        'line-height': '1.125rem',
-    },
-    'body-s-bold': {
-        'font-size': '0.875rem',
-        'font-weight': '600',
-        'line-height': '1.125rem',
-    },
-    'body-xs': {
-        'font-size': '0.75rem',
-        'font-weight': '500',
-        'line-height': '0.875rem',
-    },
-    'body-xs-bold': {
-        'font-size': '0.75rem',
-        'font-weight': '600',
-        'line-height': '0.875rem',
-    },
-    'body-xxs': {
-        'font-size': '0.625rem',
-        'font-weight': '500',
-        'line-height': '0.75rem',
-    },
-    'body-xxs-bold': {
-        'font-size': '0.625rem',
-        'font-weight': '600',
-        'line-height': '0.75rem',
-    },
-    'text-l': {
-        'font-size': '1.25rem',
-        'font-weight': '400',
-        'line-height': '1.75rem',
-    },
-    'text-l-bold': {
-        'font-size': '1.25rem',
         'font-weight': '600',
         'line-height': '1.75rem',
     },
@@ -430,7 +257,7 @@ export const baseTypoL = {
     },
     'body-l': {
         'font-size': '1.125rem',
-        'font-weight': '500',
+        'font-weight': '400',
         'line-height': '1.5rem',
     },
     'body-l-bold': {
@@ -440,7 +267,7 @@ export const baseTypoL = {
     },
     'body-m': {
         'font-size': '1rem',
-        'font-weight': '500',
+        'font-weight': '400',
         'line-height': '1.25rem',
     },
     'body-m-bold': {
@@ -450,7 +277,7 @@ export const baseTypoL = {
     },
     'body-s': {
         'font-size': '0.875rem',
-        'font-weight': '500',
+        'font-weight': '400',
         'line-height': '1.125rem',
     },
     'body-s-bold': {
@@ -460,7 +287,7 @@ export const baseTypoL = {
     },
     'body-xs': {
         'font-size': '0.75rem',
-        'font-weight': '500',
+        'font-weight': '400',
         'line-height': '1rem',
     },
     'body-xs-bold': {
@@ -470,7 +297,7 @@ export const baseTypoL = {
     },
     'body-xxs': {
         'font-size': '0.625rem',
-        'font-weight': '500',
+        'font-weight': '400',
         'line-height': '0.75rem',
     },
     'body-xxs-bold': {
@@ -698,7 +525,6 @@ const textFontFamily = 'SB Sans Display';
 
 export const sbermarketTypoProperties = {
     s: mergeTypoProps(baseTypoS, typoCommonProps(displayFontFamily, textFontFamily)),
-    m: mergeTypoProps(baseTypoM, typoCommonProps(displayFontFamily, textFontFamily)),
     l: mergeTypoProps(baseTypoL, typoCommonProps(displayFontFamily, textFontFamily)),
 };
 
@@ -706,6 +532,5 @@ export const sbermarket = createVariablesByArcheType({
     displayFontFamily,
     textFontFamily,
     typoS: baseTypoS,
-    typoM: baseTypoM,
     typoL: baseTypoL,
 });

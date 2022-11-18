@@ -58,9 +58,9 @@ type FontFamily = 'SB Sans Display' | 'SB Serif Display' | 'SB Sans Cond Mono' |
 interface CreateVariablesByArcheTypeProps {
     displayFontFamily: FontFamily;
     textFontFamily: FontFamily;
-    typoS: TypoProps;
-    typoM: TypoProps;
-    typoL: TypoProps;
+    typoS?: TypoProps;
+    typoM?: TypoProps;
+    typoL?: TypoProps;
 }
 
 export const createVariablesByArcheType = ({
@@ -130,16 +130,31 @@ export const createVariablesByArcheType = ({
 
                 font-size: ${16 * deviceScale}px;
 
-                @media (max-width: ${559 * deviceScale}px) {
-                    ${prepareStandardBreakpointTypo(typoS)}
+                ${
+                    typoS &&
+                    css`
+                        @media (max-width: ${559 * deviceScale}px) {
+                            ${prepareStandardBreakpointTypo(typoS)}
+                        }
+                    `
                 }
 
-                @media (min-width: ${560 * deviceScale}px) and (max-width: ${959 * deviceScale}px) {
-                    ${prepareStandardBreakpointTypo(typoM)}
+                ${
+                    typoM &&
+                    css`
+                        @media (min-width: ${560 * deviceScale}px) and (max-width: ${959 * deviceScale}px) {
+                            ${prepareStandardBreakpointTypo(typoM)}
+                        }
+                    `
                 }
 
-                @media (min-width: ${960 * deviceScale}px) {
-                    ${prepareStandardBreakpointTypo(typoL)}
+                ${
+                    typoL &&
+                    css`
+                        @media (min-width: ${960 * deviceScale}px) {
+                            ${prepareStandardBreakpointTypo(typoL)}
+                        }
+                    `
                 }
             }
         `;
