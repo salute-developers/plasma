@@ -8,6 +8,16 @@ const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const date = new Date(1970, 1, 1);
 
+const dateFormatter = new Intl.DateTimeFormat('ru', {
+    month: 'long',
+});
+
+const getMonth = () => {
+    const [first, ...currentMonth] = dateFormatter.format(date);
+
+    return first.toUpperCase().concat(...currentMonth);
+};
+
 const events = [
     {
         date: new Date(2021, 5, 6),
@@ -332,6 +342,32 @@ describe('plasma-web: Calendar keyboard navigation', () => {
         cy.get('body').find('[data-day="8"][data-month-index="1"]').first().should('have.attr', 'tabindex', '0');
     });
 
+    it('navigate with Shift + `PageUp` and `PageDown`', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Calendar value={date} onChangeValue={() => {}} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('body').type('{shift}{pageup}');
+        cy.get('body')
+            .find('[data-day="2"][data-month-index="1"]')
+            .first()
+            .should('have.attr', 'tabindex', '0')
+            .should('have.attr', 'data-year', date.getFullYear() - 1);
+
+        cy.get('[id="id-grid-label"]').contains(`${getMonth()} ${date.getFullYear() - 1}`);
+
+        cy.get('body').type('{shift}{pagedown}'.repeat(2));
+        cy.get('body')
+            .find('[data-day="7"][data-month-index="1"]')
+            .first()
+            .should('have.attr', 'tabindex', '0')
+            .should('have.attr', 'data-year', date.getFullYear() + 1);
+
+        cy.get('[id="id-grid-label"]').contains(`${getMonth()} ${date.getFullYear() + 1}`);
+    });
+
     it('navigate with arrow abroad bounds', () => {
         mount(
             <CypressTestDecoratorWithTypo>
@@ -376,7 +412,7 @@ describe('plasma-web: Calendar keyboard navigation', () => {
         cy.get('body').find('[data-day="1"][data-month-index="2"]').last().should('have.attr', 'tabindex', '0');
     });
 
-    it('does not navigate to disabled days', () => {
+    it('processing aria-disabled as disabled attr', () => {
         const disabledDays = [...new Array(5)].map((_, day) => ({
             date: new Date(1970, 1, 11 + day),
         }));
@@ -387,8 +423,13 @@ describe('plasma-web: Calendar keyboard navigation', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('body').type('{downarrow}').type('{downarrow}').type('{downarrow}');
-        cy.get('body').find('[data-day="8"][data-month-index="1"]').first().should('have.attr', 'tabindex', '0');
+        cy.get('body').type('{downArrow}'.repeat(2));
+
+        cy.get('body')
+            .find('[data-day="15"][data-month-index="1"]')
+            .first()
+            .should('have.attr', 'tabindex', '0')
+            .should('have.attr', 'aria-disabled', 'true');
     });
 });
 
@@ -699,7 +740,7 @@ describe('plasma-web: CalendarDouble keyboard navigation', () => {
         cy.get('body').find('[data-day="1"][data-month-index="2"]').last().should('have.attr', 'tabindex', '0');
     });
 
-    it('does not navigate to disabled days', () => {
+    it('processing aria-disabled as disabled attr', () => {
         const disabledDays = [...new Array(5)].map((_, day) => ({
             date: new Date(1970, 1, 11 + day),
         }));
@@ -710,7 +751,12 @@ describe('plasma-web: CalendarDouble keyboard navigation', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('body').type('{downarrow}').type('{downarrow}').type('{downarrow}');
-        cy.get('body').find('[data-day="8"][data-month-index="1"]').first().should('have.attr', 'tabindex', '0');
+        cy.get('body').type('{downArrow}'.repeat(2));
+
+        cy.get('body')
+            .find('[data-day="15"][data-month-index="1"]')
+            .first()
+            .should('have.attr', 'tabindex', '0')
+            .should('have.attr', 'aria-disabled', 'true');
     });
 });
