@@ -10,12 +10,12 @@ import {
     gradientSwiftTransformer,
     gradientKotlinTransformer,
     gradientReactNativeTransformer,
+    typoIosSwiftCustomFormatter,
 } from './lib/generator';
 
 import { upperFirstLetter } from './lib/themeBuilder/utils';
 
-const platformsColor = ['ios-swift', 'react-native', 'kotlin'];
-const platformsTypo = ['react-native', 'kotlin'];
+const platforms = ['ios-swift', 'react-native', 'kotlin'];
 
 const tokensColorPath = `properties/color/brands`;
 const tokensTypoPath = `properties/typo/`;
@@ -94,6 +94,16 @@ const getStyleDictionaryTypoConfig = (brand: string): Config => ({
                 },
             ],
         },
+        'ios-swift': {
+            transforms: ['attribute/cti', 'name/ti/camel'],
+            buildPath: `build/`,
+            files: [
+                {
+                    format: 'ios-swift/custom/typo',
+                    destination: `typo/typo_${brand}_ios-swift.swift`,
+                },
+            ],
+        },
     },
 });
 
@@ -105,27 +115,30 @@ interface MapFormatter {
 const mapFormatter: MapFormatter = {
     color: [
         {
-            name: 'ios-swift/custom/color',
-            formatter: colorIosSwiftCustomFormatter,
+            name: 'kotlin/custom/color',
+            formatter: colorKotlinCustomFormatter,
         },
         {
             name: 'react-native/custom/color',
             formatter: colorReactNativeCustomFormatter,
         },
-
         {
-            name: 'kotlin/custom/color',
-            formatter: colorKotlinCustomFormatter,
+            name: 'ios-swift/custom/color',
+            formatter: colorIosSwiftCustomFormatter,
         },
     ],
     typo: [
+        {
+            name: 'kotlin/custom/typo',
+            formatter: typoKotlinCustomFormatter,
+        },
         {
             name: 'react-native/custom/typo',
             formatter: typoReactNativeCustomFormatter,
         },
         {
-            name: 'kotlin/custom/typo',
-            formatter: typoKotlinCustomFormatter,
+            name: 'ios-swift/custom/typo',
+            formatter: typoIosSwiftCustomFormatter,
         },
     ],
 };
@@ -154,7 +167,7 @@ const mapTransformer: MapTransformer = {
 };
 
 colorFileNames.forEach((brand) =>
-    platformsColor.forEach((platform) => {
+    platforms.forEach((platform) => {
         const styleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryColorConfig(brand));
 
         mapFormatter.color.forEach((formatter) => styleDictionary.registerFormat(formatter));
@@ -165,7 +178,7 @@ colorFileNames.forEach((brand) =>
 );
 
 typoFileNames.forEach((brand) =>
-    platformsTypo.forEach((platform) => {
+    platforms.forEach((platform) => {
         const styleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryTypoConfig(brand));
 
         mapFormatter.typo.forEach((formatter) => styleDictionary.registerFormat(formatter));
