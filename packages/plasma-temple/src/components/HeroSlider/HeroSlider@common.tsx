@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { primary, tertiary } from '@salutejs/plasma-tokens';
 
@@ -94,6 +94,22 @@ type PlatformComponents = {
     Slide: HeroSlideProps & React.RefAttributes<HTMLDivElement>;
 };
 
+const fetchMediaSrc = (src: string) => {
+    return new Promise<string>((resolve, reject) => {
+        const node = new Image();
+
+        node.onload = () => {
+            if (node.complete) {
+                resolve(src);
+            }
+        };
+
+        node.onerror = reject;
+
+        node.src = src;
+    });
+};
+
 export const HeroSlider: React.FC<UnifiedComponentProps<HeroSliderProps, PlatformComponents>> = ({
     time = 10000,
     withTimeline = true,
@@ -136,18 +152,26 @@ export const HeroSlider: React.FC<UnifiedComponentProps<HeroSliderProps, Platfor
 
     useTouchHandler(containerRef, touchHandler);
 
-    React.useLayoutEffect(() => {
-        timerRef.current = window.setTimeout(() => {
-            let nextIndex = activeIndex + 1;
-            if (nextIndex > items.length - 1) {
-                nextIndex = 0;
-            }
-            setActiveIndex(nextIndex);
-        }, time);
+    useEffect(() => {
+        Promise.all(items.map(({ src }) => fetchMediaSrc(src)));
+    }, [items]);
 
-        return () => {
-            clearTimeout(timerRef.current);
-        };
+    React.useEffect(() => {
+        if (typeof window !== 'undefined') {
+            timerRef.current = window.setTimeout(() => {
+                let nextIndex = activeIndex + 1;
+                if (nextIndex > items.length - 1) {
+                    nextIndex = 0;
+                }
+                setActiveIndex(nextIndex);
+            }, time);
+
+            return () => {
+                clearTimeout(timerRef.current);
+            };
+        }
+
+        return () => {};
     }, [activeIndex, items.length, setActiveIndex, time]);
 
     const item = React.useMemo(() => items[activeIndex], [items, activeIndex]);
