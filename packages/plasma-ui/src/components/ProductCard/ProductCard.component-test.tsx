@@ -124,4 +124,23 @@ describe('plasma-ui: ProductCard', () => {
         cy.mockImage('img', 'images/320_320_0.jpg');
         cy.matchImageSnapshot();
     });
+
+    it('with periodicity', () => {
+        mount(
+            <CypressTestDecorator>
+                <ProductCard
+                    style={{ width: '12.25rem' }}
+                    badge={<Badge text="−20%" size="l" />}
+                    media={<CardMedia src={src} alt="Молоко" width="12.25rem" height="12.25rem" />}
+                    text="Молоко в деревне ультрапастеризованное Моментики 925 мл"
+                    price={69}
+                    periodicity="/ неделя"
+                    quantity={0}
+                />
+            </CypressTestDecorator>,
+        );
+
+        cy.mockImage('img', 'images/320_320_0.jpg');
+        cy.matchImageSnapshot();
+    });
 });
