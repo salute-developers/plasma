@@ -1,10 +1,17 @@
 import React, { useRef, useCallback, forwardRef } from 'react';
 import styled from 'styled-components';
-import Draggable from 'react-draggable';
+import Draggable, { DraggableEventHandler } from 'react-draggable';
 
 import { HandleProps } from './types';
 import { getSliderThumbValue, getOffsets } from './utils';
 import { Thumb } from './Thumb';
+
+// TODO: PLASMA-1707
+declare module 'react-draggable' {
+    export interface DraggableProps {
+        children: React.ReactNode;
+    }
+}
 
 const HandleStyled = styled.div`
     cursor: pointer;
@@ -13,6 +20,8 @@ const HandleStyled = styled.div`
     top: 0;
     left: 0;
 `;
+
+export type { HandleProps };
 
 export const Handle = forwardRef<HTMLDivElement, HandleProps>(
     (
@@ -23,7 +32,7 @@ export const Handle = forwardRef<HTMLDivElement, HandleProps>(
 
         const currentSliderValue = lastOnChangeValue?.current || rest.value;
 
-        const onDrag = useCallback(
+        const onDrag = useCallback<DraggableEventHandler>(
             (_, data) => {
                 if (onChange) {
                     const newValue = getSliderThumbValue(data.x, stepSize, min, max);
@@ -36,7 +45,7 @@ export const Handle = forwardRef<HTMLDivElement, HandleProps>(
             [onChange, stepSize, min, max],
         );
 
-        const onStop = useCallback(
+        const onStop = useCallback<DraggableEventHandler>(
             (_, data) => {
                 const newValue = getSliderThumbValue(data.x, stepSize, min, max);
                 onChangeCommitted(newValue, data);
