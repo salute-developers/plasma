@@ -1,4 +1,4 @@
-import React, { FC, forwardRef } from 'react';
+import React, { ChangeEventHandler, FC, forwardRef } from 'react';
 import styled, { css, InterpolationFunction } from 'styled-components';
 import type { InputHTMLAttributes } from '@salutejs/plasma-core';
 
@@ -253,7 +253,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     },
     ref,
 ) {
-    const handleChange = React.useCallback(
+    const handleChange = React.useCallback<ChangeEventHandler<HTMLInputElement>>(
         (event) => {
             const { maxLength, value } = event.target;
 

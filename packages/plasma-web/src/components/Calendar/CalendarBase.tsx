@@ -2,7 +2,7 @@ import React, { useCallback, useMemo, useReducer, useState } from 'react';
 import styled from 'styled-components';
 
 import type { CalendarStateType, DateObject, Calendar } from './types';
-import { CalendarState } from './types';
+import { CalendarState, UseKeyNavigationProps } from './types';
 import { isValueUpdate, YEAR_RENDER_COUNT } from './utils';
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
@@ -52,7 +52,7 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
 
     const { date, calendarState, startYear, size } = state;
 
-    const handlePrev = useCallback(
+    const handlePrev = useCallback<UseKeyNavigationProps['onPrev']>(
         (withShift = false) => {
             if (calendarState === CalendarState.Days) {
                 if (withShift) {
@@ -85,7 +85,7 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
         [date, calendarState],
     );
 
-    const handleNext = useCallback(
+    const handleNext = useCallback<UseKeyNavigationProps['onNext']>(
         (withShift = false) => {
             if (calendarState === CalendarState.Days) {
                 if (withShift) {

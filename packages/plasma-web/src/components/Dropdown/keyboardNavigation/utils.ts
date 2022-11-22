@@ -35,7 +35,7 @@ export enum Keys {
 /**
  * Возвращает экшн в соответствии с нажатой клавишей.
  */
-export const getActionFromKey = (event: KeyboardEvent, isOpen?: boolean) => {
+export const getActionFromKey = (event: React.KeyboardEvent, isOpen?: boolean) => {
     const { altKey, ctrlKey, metaKey } = event;
 
     // Все кнопки, которые открывают селект
@@ -100,7 +100,7 @@ export const getActionFromKey = (event: KeyboardEvent, isOpen?: boolean) => {
 export const getUpdatedIndex = (action: Actions, index: number, items: DropdownNode[]) => {
     const pageSize = 10; // Используется для pageup/pagedown
     const maxIndex = items.length - 1;
-    let newIndex;
+    let newIndex: number;
 
     switch (action) {
         case Actions.First:
