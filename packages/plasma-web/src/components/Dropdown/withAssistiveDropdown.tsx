@@ -3,6 +3,8 @@ import type { FC, ComponentType, ForwardRefExoticComponent } from 'react';
 
 import { DropdownUncontrolled, DropdownUncontrolledProps } from './DropdownUncontrolled';
 import { useKeyboardNavigation, INITIAL_INDEX } from './keyboardNavigation';
+import { OnIndexChange, OnItemSelect } from './Dropdown.types';
+import { DropdownPopupProps } from './DropdownPopup';
 
 export interface WithAssistiveDropdownProps
     extends Pick<
@@ -53,7 +55,7 @@ export const withAssistiveDropdown = <P extends object>(
     const openingMethod = useRef<string | null>(null);
     const activeIndex = useMemo(() => items.findIndex((item) => item.isActive), [items]);
 
-    const onToggle = useCallback(
+    const onToggle = useCallback<NonNullable<DropdownPopupProps['onToggle']>>(
         (newIsOpen, event) => {
             if (newIsOpen) {
                 openingMethod.current = event.type;
@@ -64,7 +66,7 @@ export const withAssistiveDropdown = <P extends object>(
         [onToggleExternal],
     );
 
-    const onItemSelect = useCallback(
+    const onItemSelect = useCallback<OnItemSelect>(
         (item, event) => {
             if (closeOnSelect) {
                 onToggle?.(false, event);
@@ -74,7 +76,7 @@ export const withAssistiveDropdown = <P extends object>(
         [onToggle, onItemSelectExternal, closeOnSelect],
     );
 
-    const onIndexChange = useCallback(
+    const onIndexChange = useCallback<OnIndexChange>(
         (i) => {
             setIndex(i);
             onIndexChangeExternal?.(i);
