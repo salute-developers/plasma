@@ -24,8 +24,15 @@ declare global {
              * @param timeout {number?}
              */
             waitForFocusElement(timeout?: number): Chainable<HTMLElement>;
+            waitForResources(...resources: resourceOrOption[]): Chainable;
         }
     }
 }
+
+export type resourceOrOption =
+    | string
+    | {
+          timeout?: number;
+      };
 
 export { navigate };

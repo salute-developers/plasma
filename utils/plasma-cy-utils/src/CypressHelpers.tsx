@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import { createPortal } from 'react-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import { mount as cyMount } from '@cypress/react';
@@ -26,24 +26,23 @@ const StandardTypoStyle = createGlobalStyle(standardTypo);
 const CompatibleTypoStyle = createGlobalStyle(compatibleTypo);
 const ColorB2CStyle = createGlobalStyle(dark);
 
-export const getComponent = (componentName: string) => {
-    // eslint-disable-next-line
-    // @ts-ignore
-    const pkgName = Cypress.env('package');
+export const getComponent = function <T = PropsWithChildren<{}>>(componentName: string): React.FC<T> {
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+    const pkgName = Cypress.env('package') as string | undefined;
 
     if (!pkgName) {
         throw new Error('Add package env to your Cypress config');
     }
 
-    const check = (component: {}) => {
+    function check<T>(component: T): asserts component is NonNullable<T> {
         if (!component) {
             throw new Error(`Library ${pkgName} has no ${componentName}`);
         }
-    };
+    }
 
     if (pkgName === 'plasma-ui') {
-        // eslint-disable-next-line
-        const pkg = require('../../../packages/plasma-ui');
+        // eslint-disable-next-line global-require
+        const pkg = require('../../../packages/plasma-ui') as Record<string, React.FC<T> | undefined>;
         const component = pkg[componentName];
 
         check(component);
@@ -52,8 +51,8 @@ export const getComponent = (componentName: string) => {
     }
 
     if (pkgName === 'plasma-web') {
-        // eslint-disable-next-line
-        const pkg = require('../../../packages/plasma-web');
+        // eslint-disable-next-line global-require
+        const pkg = require('../../../packages/plasma-web') as Record<string, React.FC<T> | undefined>;
         const component = pkg[componentName];
 
         check(component);
@@ -62,8 +61,8 @@ export const getComponent = (componentName: string) => {
     }
 
     if (pkgName === 'plasma-b2c') {
-        // eslint-disable-next-line
-        const pkg = require('../../../packages/plasma-b2c');
+        // eslint-disable-next-line global-require
+        const pkg = require('../../../packages/plasma-b2c') as Record<string, React.FC<T> | undefined>;
         const component = pkg[componentName];
 
         check(component);
@@ -78,14 +77,14 @@ interface CYTDec {
     noSSR?: boolean;
 }
 
-export const CypressTestDecorator: React.FC<CYTDec> = ({ noSSR, children }) => {
-    // eslint-disable-next-line
-    // @ts-ignore
-    const pkgName = Cypress.env('package');
-    const tokens = Cypress.env('tokens');
+export const CypressTestDecorator: React.FC<PropsWithChildren<CYTDec>> = ({ noSSR, children }) => {
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+    const pkgName = Cypress.env('package') as string;
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
+    const tokens = Cypress.env('tokens') as string;
     const SSRProvider = getComponent('SSRProvider');
 
-    const SSR: React.FC<CYTDec> = ({ noSSR: _noSSR, children }) => {
+    const SSR: React.FC<PropsWithChildren<CYTDec>> = ({ noSSR: _noSSR, children }) => {
         if (_noSSR) {
             return <>{children}</>;
         }
@@ -168,24 +167,34 @@ export const mount: typeof cyMount = (...args) => {
 
     const cm = cyMount(jsx, opts);
 
-    // eslint-disable-next-line
-    // @ts-ignore
     cy.waitForResources('https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.1.0.css');
-    // eslint-disable-next-line
-    // @ts-ignore
     cy.waitForResources('https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.1.0.css');
-    // eslint-disable-next-line
-    // @ts-ignore
     cy.waitForResources('SBSansText.0.1.0.css', 'SBSansDisplay.0.1.0.css', { timeout: 1500 });
 
     return cm;
 };
 
+// NOTE: check cypress/support/index.d.ts
+declare global {
+    // eslint-disable-next-line @typescript-eslint/no-namespace
+    export namespace Cypress {
+        interface Chainable {
+            waitForResources(...resources: resourceOrOption[]): Chainable;
+        }
+    }
+}
+
+export type resourceOrOption =
+    | string
+    | {
+          timeout?: number;
+      };
+
 interface PortalProps {
     id: string;
 }
 
-export const Portal: React.FC<PortalProps> = ({ id, children }) => {
+export const Portal: React.FC<PropsWithChildren<PortalProps>> = ({ id, children }) => {
     const el = document.createElement('div');
 
     React.useEffect(() => {
