@@ -15,6 +15,7 @@ const StyledTextSkeleton = styled.div`
     width: 100%;
 `;
 
+// TODO: https://github.com/salute-developers/plasma/issues/230
 export interface TextSkeletonProps extends TextSizeProps, Partial<RoundnessProps> {
     /**
      * Количество линий скелета
@@ -38,10 +39,11 @@ export const TextSkeleton: React.FC<TextSkeletonProps & React.HTMLAttributes<HTM
     ...props
 }) => (
     <StyledTextSkeleton {...props}>
-        {Array.from(Array(lines), (_, i) => {
-            let w;
+        {Array.from(Array<number>(lines), (_, i) => {
+            let w: number;
             if (width) {
-                w = width;
+                // TODO; https://github.com/salute-developers/plasma/issues/230
+                w = width as number;
             } else {
                 switch (true) {
                     // Последняя строка

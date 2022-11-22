@@ -1,4 +1,4 @@
-import { isValidElement, Children } from 'react';
+import { isValidElement, Children, ReactChild } from 'react';
 import type { ReactNode } from 'react';
 
 export const extractTextFrom = (textSource?: string | number | null | ReactNode): string => {
@@ -11,7 +11,7 @@ export const extractTextFrom = (textSource?: string | number | null | ReactNode)
             if (!isValidElement(textSource) || !textSource.props || !textSource.props.children) {
                 return '';
             }
-            return Children.map(textSource.props.children, (child) => {
+            return Children.map<string, ReactChild>(textSource.props.children, (child) => {
                 return extractTextFrom(child);
             }).join('');
         }

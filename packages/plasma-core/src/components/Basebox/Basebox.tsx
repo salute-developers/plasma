@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { Body1, Footnote1 } from '../Typography';
 import { applyEllipsis, applyNoSelect } from '../../mixins';
 import { secondary } from '../../tokens';
 import type { InputHTMLAttributes } from '../../types';
-import { Body1, Footnote1 } from '../Typography';
 
 export type ControlProps = {
     /**

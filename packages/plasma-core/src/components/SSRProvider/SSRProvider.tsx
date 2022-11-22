@@ -1,4 +1,4 @@
-import React, { FC, createContext } from 'react';
+import React, { ReactNode, createContext } from 'react';
 
 export const SSRContext = createContext<{ uniqId: number | null }>({
     uniqId: null,
@@ -9,7 +9,7 @@ export const SSRContext = createContext<{ uniqId: number | null }>({
  *
  * Используется для корректного озвучивания скринридерами Radiobox и Checkbox компонент.
  */
-export const SSRProvider: FC = ({ children }) => {
+export const SSRProvider = ({ children }: { children: ReactNode }) => {
     const value = {
         uniqId: 0,
     };

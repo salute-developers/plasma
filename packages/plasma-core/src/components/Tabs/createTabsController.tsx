@@ -36,7 +36,7 @@ export function createTabsController<T extends HTMLDivElement, P extends TabsCon
         const innerRef = useRef<HTMLDivElement>(null);
         const ref = useForkRef(outerRef, innerRef);
 
-        const onItemFocus = useCallback(
+        const onItemFocus = useCallback<React.FocusEventHandler>(
             (event) => {
                 if (disabled) {
                     return;
@@ -82,7 +82,7 @@ export function createTabsController<T extends HTMLDivElement, P extends TabsCon
 
                 const minIndex = 0;
                 const maxIndex = refs.items.length - 1;
-                let nextIndex;
+                let nextIndex: number;
 
                 switch (event.keyCode) {
                     case Keys.end:

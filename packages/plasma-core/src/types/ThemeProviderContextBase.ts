@@ -1,4 +1,6 @@
-export interface ThemeProviderContextBase {
+import { DefaultTheme } from 'styled-components';
+
+export interface ThemeProviderContextBase extends DefaultTheme {
     /**
      * Отключить любую анимацию компонента.
      */
@@ -6,3 +8,5 @@ export interface ThemeProviderContextBase {
 
     deviceScale?: number;
 }
+
+// TODO: https://github.com/salute-developers/plasma/issues/232
