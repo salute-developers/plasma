@@ -14,7 +14,7 @@ import { useGetMutableValue } from '../../hooks/useGetMutableValue';
 import { isSberBoxLike } from '../../utils/deviceFamily';
 
 import { ShopLandingPageState } from './types';
-import { ShopLandingCard } from './components/ShopLandingCard/ShopLandingCard';
+import { ShopLandingCard, ShopLandingCardProps } from './components/ShopLandingCard/ShopLandingCard';
 import { ShopLandingCarousel } from './components/Carousel/ShopLandingCarousel';
 
 export interface ShopLandingPageProps<T extends AnyObject = AnyObject> extends ComponentPropsWithHeader {
@@ -71,7 +71,7 @@ export const ShopLandingPage = <T extends AnyObject = AnyObject>({
         }
     }, [activeIndex, changeState, getState]);
 
-    const handleItemClick = React.useCallback(
+    const handleItemClick = React.useCallback<ShopLandingCardProps<T>['onClick']>(
         (card, index: number) => {
             setActiveIndex(index);
             onItemClick(card);

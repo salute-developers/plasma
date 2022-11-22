@@ -1,7 +1,7 @@
 import { useCallback, useRef, useState } from 'react';
 import { AssistantClientCustomizedCommand, AssistantEvents, AssistantSmartAppData } from '@salutejs/client';
 
-import { AssistantInstance } from '../../../types';
+import { AssistantAppState, AssistantInstance } from '../../../types';
 import { InitializeParams, initializeAssistant } from '../assistant';
 import { useMount } from '../../../hooks/useMount';
 
@@ -15,11 +15,11 @@ export const useInitializeAssistant = <T extends AssistantSmartAppData>({
     onData?: (command: AssistantClientCustomizedCommand<T>) => void;
 }): {
     assistant: AssistantInstance | null;
-    setAssistantState: (newState: unknown) => void;
+    setAssistantState: (newState: AssistantAppState) => void;
 } => {
     // eslint-disable-next-line @typescript-eslint/camelcase
-    const assistantStateRef = useRef({ item_selector: { items: [] } });
-    const setAssistantState = useCallback((newState) => {
+    const assistantStateRef = useRef<AssistantAppState>({ item_selector: { items: [] } });
+    const setAssistantState = useCallback((newState: AssistantAppState) => {
         assistantStateRef.current = newState;
     }, []);
 

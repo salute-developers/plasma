@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, PropsWithChildren } from 'react';
 import styled, { StyledComponent } from 'styled-components';
 import { Body1, Caption, Footnote1 } from '@salutejs/plasma-ui';
 import { secondary, warning } from '@salutejs/plasma-tokens';
@@ -56,7 +56,7 @@ const StyledErrorMessage = styled(Caption)`
     color: ${warning};
 `;
 
-export interface FieldProps {
+export interface FieldProps extends PropsWithChildren<{}> {
     className?: string;
     type?: 'text' | 'select';
 }
@@ -79,7 +79,7 @@ export const FieldLabel: React.FC<FieldLabelProps> = ({ label, align = 'center',
     </StyledLabel>
 );
 
-export const FieldControl: React.FC<Pick<FieldProps, 'className'>> = ({ children, className }) => (
+export const FieldControl: React.FC<Pick<FieldProps, 'className' | 'children'>> = ({ children, className }) => (
     <StyledFieldControl className={className}>{children}</StyledFieldControl>
 );
 

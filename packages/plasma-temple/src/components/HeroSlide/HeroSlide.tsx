@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { ButtonProps, Col, Row } from '@salutejs/plasma-ui';
 
@@ -31,7 +31,7 @@ type PlatformComponents = {
     Button: ButtonProps & React.RefAttributes<HTMLButtonElement>;
 };
 
-export const HeroSlide: React.FC<UnifiedComponentProps<HeroSlideProps, PlatformComponents>> = ({
+export const HeroSlide: React.FC<PropsWithChildren<UnifiedComponentProps<HeroSlideProps, PlatformComponents>>> = ({
     autofocus,
     withMask = true,
     title,

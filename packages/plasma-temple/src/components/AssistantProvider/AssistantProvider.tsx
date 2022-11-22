@@ -56,11 +56,7 @@ export function AssistantProvider<A extends AssistantSmartAppData = AssistantSma
         onData: handleData,
     });
 
-    const value: AssistantContextType = React.useMemo(() => ({ assistant, setAssistantState, state }), [
-        state,
-        assistant,
-        setAssistantState,
-    ]);
+    const value = React.useMemo(() => ({ assistant, setAssistantState, state }), [state, assistant, setAssistantState]);
 
     return <AssistantContext.Provider value={value}>{children}</AssistantContext.Provider>;
 }

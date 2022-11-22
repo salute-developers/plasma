@@ -3,6 +3,9 @@ import {
     AssistantNavigationCommand,
     AssistantSmartAppData,
     createAssistant,
+    AssistantAppState as _AssistantAppState,
+    Action,
+    AssistantViewItemBase,
 } from '@salutejs/client';
 import type { PriceProps, Ratio } from '@salutejs/plasma-ui';
 import { DeviceKind } from '@salutejs/plasma-ui/utils';
@@ -63,23 +66,12 @@ export interface MediaObject {
     covered?: boolean;
 }
 
-export interface AssistantAppStateItem {
+export interface AssistantAppStateItem extends AssistantViewItemBase<Action> {
     title: string;
-    number?: number;
-    id?: string;
-    action?: {
-        type: string;
-        payload?: Record<string, unknown>;
-    };
 }
 
-export interface AssistantAppState {
-    // eslint-disable-next-line camelcase
-    item_selector: {
-        items: Array<AssistantAppStateItem>;
-    };
+export interface AssistantAppState extends _AssistantAppState {
     screen?: string;
-    [key: string]: unknown;
 }
 
 export interface Entity<ID = string> {

@@ -1,13 +1,8 @@
-import styled, { StyledComponent } from 'styled-components';
+import styled from 'styled-components';
 import { Carousel, CarouselProps as BaseCarouselProps } from '@salutejs/plasma-ui';
-
-import { GetStyledComponentProps } from '../../../types';
 
 export type CarouselProps = Omit<BaseCarouselProps, 'detectActive' | 'detectThreshold'>;
 
-type StyledComponentProps = GetStyledComponentProps<typeof Carousel>;
-type StyledCarousel = StyledComponent<typeof Carousel, any, StyledComponentProps, never>;
-
-export const CommonCarousel: StyledCarousel = styled(Carousel)`
+export const CommonCarousel: typeof Carousel = styled(Carousel)`
     padding-right: var(--plasma-grid-margin);
-`;
+` as typeof Carousel;

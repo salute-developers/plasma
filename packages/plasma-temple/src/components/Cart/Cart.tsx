@@ -7,6 +7,8 @@ import { CartMobile } from './Cart@mobile';
 import { CartSberBox } from './Cart@sberbox';
 import { CartSberPortal } from './Cart@sberportal';
 
+export type { CartProps };
+
 /**
  * Компонент корзины товаров.
  * Используется в связке с компонентом `CartProvider` и должен быть ниже `CartProvider` в дереве компонентов

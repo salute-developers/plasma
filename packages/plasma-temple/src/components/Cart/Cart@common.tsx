@@ -72,7 +72,11 @@ const StyledCol = styled(Col)`
     `)}
 `;
 
-export function CartCommon<ID = unknown, T extends AnyObject = AnyObject>({
+export function CartCommon<
+    ID = unknown,
+    T extends AnyObject = AnyObject,
+    L extends PlatformComponents<ID, T>['CartItemList'] = PlatformComponents<ID, T>['CartItemList']
+>({
     emptyCart,
     insets,
     defaultItemImage,
@@ -91,26 +95,26 @@ export function CartCommon<ID = unknown, T extends AnyObject = AnyObject>({
 
     const handleCheckout = React.useCallback(() => onCheckout(state), [onCheckout, state]);
     const onPlus = React.useCallback(
-        (item: T['items'][number]) => {
-            changeItemQuantity(item.id, item.quantity + 1);
+        (item: L['items'][number]) => {
+            changeItemQuantity(item.id as T['id'], item.quantity + 1);
         },
         [changeItemQuantity],
     );
 
     const onMinus = React.useCallback(
-        (item: T['items'][number]) => {
+        (item: L['items'][number]) => {
             if (item.quantity <= 0) {
-                removeItem(item.id);
+                removeItem(item.id as T['id']);
             } else {
-                changeItemQuantity(item.id, item.quantity - 1);
+                changeItemQuantity(item.id as T['id'], item.quantity - 1);
             }
         },
         [changeItemQuantity, removeItem],
     );
 
     const onRemove = React.useCallback(
-        (item: T['items'][number]) => {
-            removeItem(item.id);
+        (item: L['items'][number]) => {
+            removeItem(item.id as T['id']);
         },
         [removeItem],
     );

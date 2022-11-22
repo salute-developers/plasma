@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { isSberPortal } from '@salutejs/plasma-ui/utils';
 
 import { GalleryCard as DefaultGalleryCard } from '../GalleryCard/GalleryCard';
@@ -12,7 +12,7 @@ export interface GalleryCardContainerProps<T extends AnyObject> extends Omit<Gal
     onClick: (cardProps: GalleryCardParams<T>, index: number) => void;
 }
 
-const Root: React.FC<{ onClick: () => void }> = ({ onClick, children }) => {
+const Root: React.FC<{ onClick: () => void; children: ReactNode }> = ({ onClick, children }) => {
     const tabIndex = isSberPortal() ? undefined : -1;
 
     return (

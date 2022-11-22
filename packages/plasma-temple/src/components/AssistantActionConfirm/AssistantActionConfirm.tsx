@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import type { StyledComponent } from 'styled-components';
 import { Body1, Footnote1, Headline1, Button, Carousel, CarouselItem, Headline2 } from '@salutejs/plasma-ui';
@@ -150,7 +150,7 @@ const StyledItem = styled(CarouselItem)`
     display: inline-flex;
 `;
 
-const SelectItem: React.FC = ({ children, ...props }) => {
+const SelectItem: React.FC<{ children?: ReactNode }> = ({ children, ...props }) => {
     return <StyledItem {...props}>{children}</StyledItem>;
 };
 

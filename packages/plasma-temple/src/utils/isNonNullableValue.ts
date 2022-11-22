@@ -3,5 +3,5 @@ export function isNonNullableValue<T>(value: T, deep = false): value is NonNulla
         return value != null;
     }
 
-    return Object.values(value).every((v) => v != null);
+    return Object.values(value as Record<string, unknown>).every((v) => v != null);
 }

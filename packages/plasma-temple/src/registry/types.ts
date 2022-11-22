@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import type { ItemEntitiesProps } from '../pages/ItemPage/components/ItemEntities/ItemEntities';
 import type { NavColProps } from '../pages/ShopLandingPage/components/NavCol/NavCol';
@@ -9,7 +9,9 @@ import type { StateLayoutProps } from '../components/StateLayout';
 type EmptyObject = Record<never, never>;
 
 export type UnifiedComponentProps<T, P extends Record<string, unknown>> = T & {
-    platformComponents: { [K in keyof P]: React.ComponentType<P[K] extends void | never ? EmptyObject : P[K]> };
+    platformComponents: {
+        [K in keyof P]: React.ComponentType<PropsWithChildren<P[K] extends void | never ? EmptyObject : P[K]>>;
+    };
 };
 
 export interface Registry {
@@ -20,5 +22,5 @@ export interface Registry {
     >;
     Slider: React.ComponentType<HeroSliderProps>;
     StateLayout: React.ComponentType<StateLayoutProps>;
-    FocusableGalleryTitle: React.ComponentType<{}>;
+    FocusableGalleryTitle: React.ComponentType<PropsWithChildren<{}>>;
 }

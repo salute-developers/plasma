@@ -15,7 +15,7 @@ import { MediaPlayer } from '../MediaPlayer/MediaPlayer';
 import { ObjectFit } from '../../types';
 import { useAssistantInsets } from '../AssistantProvider';
 
-export interface VideoPlayerProps extends React.VideoHTMLAttributes<HTMLVideoElement> {
+export interface VideoPlayerProps extends Omit<React.VideoHTMLAttributes<HTMLVideoElement>, 'children'> {
     header?: React.ReactNode;
     goBack?: () => void;
     goNext?: () => void;

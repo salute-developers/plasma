@@ -104,6 +104,8 @@ export function withWrapField<V, P extends React.PropsWithChildren<Record<string
         const comp = React.useMemo(
             () => (
                 <Component
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                    // @ts-ignore
                     {...((props as unknown) as FieldPropsWithRef<V, P> & P)}
                     value={value}
                     label={label}

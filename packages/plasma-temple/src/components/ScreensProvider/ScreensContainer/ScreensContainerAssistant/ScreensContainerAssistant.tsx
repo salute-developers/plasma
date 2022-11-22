@@ -1,5 +1,5 @@
 import React from 'react';
-import { AssistantSmartAppData } from '@salutejs/client';
+import { AssistantClientCustomizedCommand, AssistantSmartAppData } from '@salutejs/client';
 
 import { AssistantProvider } from '../../../AssistantProvider';
 import { AssistantProviderProps } from '../../../AssistantProvider/AssistantProvider';
@@ -24,7 +24,7 @@ export function ScreensContainerAssistant<A extends AssistantSmartAppData = Assi
         onStart?.({ pushScreen, pushHistory });
     }, []);
 
-    const handleData = React.useCallback((command) => {
+    const handleData = React.useCallback((command: AssistantClientCustomizedCommand<A>) => {
         onData?.({ command, pushScreen, pushHistory, goToScreen, popScreen });
     }, []);
 

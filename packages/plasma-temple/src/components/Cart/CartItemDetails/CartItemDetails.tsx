@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import styled, { css } from 'styled-components';
 import { Body1, Caption, DeviceKind, Footnote1, Price } from '@salutejs/plasma-ui';
 import { primary, secondary } from '@salutejs/plasma-tokens';
@@ -24,7 +24,7 @@ const mapDeviceToTitle: Record<DeviceKind, React.FC> = {
     mobile: Footnote1,
 };
 
-export const StyledName = styled(mapDeviceToTitle[deviceFamily])<{ lines: number }>`
+export const StyledName = styled(mapDeviceToTitle[deviceFamily])<PropsWithChildren<{ lines: number }>>`
     overflow: hidden;
     text-overflow: ellipsis;
 

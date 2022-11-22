@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 import { useAssistant } from '../AssistantProvider';
 import { ScreensProviderContext } from '../ScreensProvider/ScreensProviderContext';
@@ -32,7 +32,7 @@ export const useNewHeaderProps = (props: HeaderProps): NewHeaderProps => {
 
     const subtitle = hasOldSubtitleProps(props) ? props.subtitle : props.subTitle;
 
-    const onArrowClick = React.useCallback(
+    const onArrowClick = React.useCallback<MouseEventHandler<HTMLButtonElement>>(
         (event) => {
             if (!isOldHeaderProps(props)) {
                 if (props.onArrowClick) {

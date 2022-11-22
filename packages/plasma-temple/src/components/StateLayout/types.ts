@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import { HeaderProps } from '../Header/types';
 import { Insets, MediaObject, ObjectFit } from '../../types';
@@ -29,6 +29,8 @@ interface StateLayoutProps {
      */
     insets?: Partial<Insets>;
     renderText?: never;
+
+    children?: undefined;
 }
 
 interface StateLayoutChildrenProps {
@@ -55,6 +57,8 @@ interface StateLayoutChildrenProps {
      * для позиционирования контента передаваемого в пропсе `button`
      */
     insets?: Partial<Insets>;
+
+    children?: ReactNode;
 }
 
 export type StateLayoutCommonProps = StateLayoutProps | StateLayoutChildrenProps;
