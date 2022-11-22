@@ -8,7 +8,7 @@ const DEFAULT_POSITION = 'bottom';
 const DEFAULT_TIMEOUT = 3000;
 const DEFAULT_FADE = true;
 
-export const ToastProvider: React.FC = ({ children }) => {
+export const ToastProvider = ({ children }: { children: ReactNode }) => {
     const [value, setValue] = useState<ToastInfo>({ text: null, position: null, timeout: null });
 
     const showToast = useCallback(

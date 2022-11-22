@@ -60,9 +60,9 @@ export const getCalculatedPos = ({
     scrollAlign: ScrollAlign;
 }) => {
     let position = scrollAlign === 'center' ? offset : 0;
-    let carouselSize;
-    let itemSize;
-    let scrollStart;
+    let carouselSize: number;
+    let itemSize: number;
+    let scrollStart: number;
 
     if (items.item(index) === null) {
         return position;
