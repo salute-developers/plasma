@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { SliderBase } from './SliderBase';
-import { Handle } from './Handle';
+import { Handle, HandleProps } from './Handle';
 
 export interface SliderProps {
     /**
@@ -84,14 +84,14 @@ export const Slider: React.FC<SliderProps> = ({
         }));
     }, [value, state.stepSize, min]);
 
-    const setStepSize = React.useCallback((newStepSize) => {
+    const setStepSize = React.useCallback((newStepSize: number) => {
         setState((prevState) => ({
             ...prevState,
             stepSize: newStepSize,
         }));
     }, []);
 
-    const onFirstHandleChange = React.useCallback(
+    const onFirstHandleChange = React.useCallback<NonNullable<HandleProps['onChange']>>(
         (handleValue, data) => {
             if (secondHandleRef?.current) {
                 const newHandleXPosition = data.x;
@@ -113,7 +113,7 @@ export const Slider: React.FC<SliderProps> = ({
         [onChange, value],
     );
 
-    const onFirstHandleChangeCommitted = React.useCallback(
+    const onFirstHandleChangeCommitted = React.useCallback<HandleProps['onChangeCommitted']>(
         (handleValue, data) => {
             onChangeCommitted([handleValue, value[1]]);
 
@@ -126,7 +126,7 @@ export const Slider: React.FC<SliderProps> = ({
         [onChangeCommitted, value],
     );
 
-    const onSecondHandleChange = React.useCallback(
+    const onSecondHandleChange = React.useCallback<NonNullable<HandleProps['onChange']>>(
         (handleValue, data) => {
             if (firstHandleRef?.current) {
                 const firstXHandleXPosition = getXCenterHandle(firstHandleRef.current);
@@ -149,7 +149,7 @@ export const Slider: React.FC<SliderProps> = ({
         [onChange, value],
     );
 
-    const onSecondHandleChangeCommitted = React.useCallback(
+    const onSecondHandleChangeCommitted = React.useCallback<HandleProps['onChangeCommitted']>(
         (handleValue, data) => {
             onChangeCommitted([value[0], handleValue]);
             setState((prevState) => ({

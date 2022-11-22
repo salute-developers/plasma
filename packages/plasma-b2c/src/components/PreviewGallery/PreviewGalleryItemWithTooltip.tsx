@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { PropsWithChildren, useCallback, useState } from 'react';
 import styled from 'styled-components';
 
 import { Tooltip } from '../Tooltip';
@@ -13,7 +13,10 @@ export interface PreviewGalleryItemWithTooltipProps {
     tooltip?: TooltipItem;
 }
 
-export const PreviewGalleryItemWithTooltip: React.FC<PreviewGalleryItemWithTooltipProps> = ({ children, tooltip }) => {
+export const PreviewGalleryItemWithTooltip: React.FC<PropsWithChildren<PreviewGalleryItemWithTooltipProps>> = ({
+    children,
+    tooltip,
+}) => {
     const [visible, setVisible] = useState(false);
 
     const onMouseOver = useCallback(() => {

@@ -18,6 +18,13 @@ import { FileDrop } from 'react-file-drop';
 import { StatusType, ValidationResult } from './types';
 import { defaultValidate } from './utils';
 
+// TODO: PLASMA-1708
+declare module 'react-file-drop' {
+    export interface FileDropProps {
+        children: React.ReactNode;
+    }
+}
+
 const statuses = {
     error: {
         borderColor: critical,

@@ -41,19 +41,21 @@ export interface PreviewGalleryListItemsProps {
 }
 
 const PreviewGalleryItem = memo(
-    SortableElement(({ status, ...itemRest }: PreviewGalleryItemProps & AddionalItemProps) => {
-        return status === 'error' ? (
-            <PreviewGalleryItemError {...itemRest} />
-        ) : (
-            <PreviewGalleryItemBase {...itemRest} />
-        );
-    }),
+    SortableElement<PreviewGalleryItemProps & AddionalItemProps>(
+        ({ status, ...itemRest }: PreviewGalleryItemProps & AddionalItemProps) => {
+            return status === 'error' ? (
+                <PreviewGalleryItemError {...itemRest} />
+            ) : (
+                <PreviewGalleryItemBase {...itemRest} />
+            );
+        },
+    ),
 );
 
 /**
  * Компонент со списком превью изображений.
  */
-export const PreviewGalleryListItems = SortableContainer(
+export const PreviewGalleryListItems = SortableContainer<PreviewGalleryListItemsProps & AddionalItemProps>(
     ({
         items = [],
         interactionType,

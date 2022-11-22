@@ -1,7 +1,11 @@
 interface Body extends HTMLElement {
-    createTextRange: () => any;
+    createTextRange: () => {
+        moveToElementText: (node: Node) => {};
+        select: () => {};
+    };
 }
 
+// TODO: https://github.com/salute-developers/plasma/issues/236
 export function selectText(node: Node) {
     setTimeout(() => {
         const body = document.body as Body;
