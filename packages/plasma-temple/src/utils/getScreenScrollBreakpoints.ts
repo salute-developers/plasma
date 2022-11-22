@@ -14,7 +14,10 @@ export const getScreenScrollBreakpoints = (
     }, []);
 
     const normalizedIntervals = intervalsBetweenBreakpoints
-        .flatMap((current) => [...Array(Math.floor(current / maxInterval)).fill(maxInterval), current % maxInterval])
+        .flatMap<number>((current) => [
+            ...Array(Math.floor(current / maxInterval)).fill(maxInterval),
+            current % maxInterval,
+        ])
         .filter((interval) => interval > 0);
 
     const newBreakpointsList = normalizedIntervals.reduce(

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { CarouselGridWrapper, CarouselItem, Container } from '@salutejs/plasma-ui';
 
@@ -62,7 +62,7 @@ interface FocusableGalleryProps {
     isMultiple?: boolean;
 }
 
-const FocusableGallery: React.FC<FocusableGalleryProps & GalleryProps> = ({
+const FocusableGallery: React.FC<PropsWithChildren<FocusableGalleryProps & GalleryProps>> = ({
     index,
     title,
     activeCardIndex = -1,

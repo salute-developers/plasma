@@ -16,6 +16,8 @@ export const Gallery = React.forwardRef<GalleryControl, GalleryProps>((props, re
         sberbox={GallerySberBox}
         sberportal={GallerySberPortal}
         mobile={GalleryMobile}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // @ts-ignore
         props={props}
         innerRef={ref}
     />

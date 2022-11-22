@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { Row, Col } from '@salutejs/plasma-ui';
 
@@ -16,7 +16,7 @@ type PlatformComponents = {
     TextWrapper: void;
 };
 
-type StateLayoutProps = UnifiedComponentProps<StateLayoutCommonProps, PlatformComponents>;
+type StateLayoutProps = PropsWithChildren<UnifiedComponentProps<StateLayoutCommonProps, PlatformComponents>>;
 
 export const StyledHeaderContainer = styled.div`
     position: fixed;

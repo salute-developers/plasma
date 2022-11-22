@@ -1,5 +1,5 @@
 import { RectSkeleton, RectSkeletonProps } from '@salutejs/plasma-ui';
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import styled, { css } from 'styled-components';
 
 export const ratios = {
@@ -14,7 +14,7 @@ export const ratios = {
 
 export type CardRatio = keyof typeof ratios;
 
-export interface CardSkeletonProps extends Omit<RectSkeletonProps, 'height' | 'width'> {
+export interface CardSkeletonProps extends PropsWithChildren<Omit<RectSkeletonProps, 'height' | 'width'>> {
     /** Соотношение сторон */
     ratio?: CardRatio;
     /** Нестандартное соотношение сторон в процентах */

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import styled, { css } from 'styled-components';
 import { Body1, Headline1, DeviceKind, Caption, Price, Headline4, mediaQuery, Footnote1 } from '@salutejs/plasma-ui';
 import { accent, critical, primary, warning } from '@salutejs/plasma-tokens';
@@ -18,7 +18,7 @@ export interface CartOrderDetailsProps {
     className?: string;
 }
 
-const mapDeviceToText: Record<DeviceKind, React.FC> = {
+const mapDeviceToText: Record<DeviceKind, React.FC<PropsWithChildren<{}>>> = {
     sberBox: Body1,
     sberPortal: Caption,
     mobile: Footnote1,
@@ -52,7 +52,7 @@ const StyledCell = styled.div`
     `)}
 `;
 
-const mapDeviceToAmountTitle: Record<DeviceKind, React.FC> = {
+const mapDeviceToAmountTitle: Record<DeviceKind, React.FC<PropsWithChildren<{}>>> = {
     sberBox: Body1,
     sberPortal: Caption,
     mobile: Caption,
@@ -60,7 +60,7 @@ const mapDeviceToAmountTitle: Record<DeviceKind, React.FC> = {
 
 const AmountTitle = mapDeviceToAmountTitle[deviceFamily];
 
-const mapDeviceToAmount: Record<DeviceKind, React.FC> = {
+const mapDeviceToAmount: Record<DeviceKind, React.FC<PropsWithChildren<{}>>> = {
     sberBox: Headline1,
     sberPortal: Headline4,
     mobile: Headline4,

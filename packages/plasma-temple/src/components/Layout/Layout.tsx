@@ -1,5 +1,5 @@
 import { Container } from '@salutejs/plasma-ui';
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import styled, { CSSObject } from 'styled-components';
 import { Insets } from '@salutejs/client';
 
@@ -51,7 +51,7 @@ const defaultInsets: Insets = {
     left: 0,
 };
 
-export const Layout: React.FC<LayoutProps> = ({ children, ignoreInsets }) => {
+export const Layout: React.FC<PropsWithChildren<LayoutProps>> = ({ children, ignoreInsets }) => {
     const insets = useAssistantInsets();
     const scrollableElementRef = React.useRef<HTMLDivElement>(null);
     const windowInnerHeight = useWindowInnerHeight();

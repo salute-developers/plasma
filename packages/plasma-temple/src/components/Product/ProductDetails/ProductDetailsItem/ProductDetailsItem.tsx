@@ -138,7 +138,7 @@ const getLines = (str: string, maxLengthRow: number) => {
 
 const padLines = (lines: string[], length: number) => {
     if (lines.length < length) {
-        return [...Array(length - lines.length), ...lines];
+        return [...Array<undefined>(length - lines.length), ...lines];
     }
 
     return lines;
