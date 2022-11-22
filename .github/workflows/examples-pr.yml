@@ -92,13 +92,6 @@ jobs:
               repo: context.repo.repo,
               body: `Demo canvas app deployed!
               
-              http://plasma.sberdevices.ru/demo-canvas-app-pr-${context.issue.number}/
-              <details>
-                <summary>New documentation</summary>
-                <br />
-
-                http://plasma.fine.sberdevices.ru/pr/demo-canvas-app-pr-${context.issue.number}/
-
-              </details>
+              http://plasma.sberdevices.ru/pr/demo-canvas-app-pr-${context.issue.number}/
               `
             })

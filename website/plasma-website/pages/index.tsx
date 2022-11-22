@@ -36,14 +36,14 @@ const CopyrightText = styled(TextS)`
     color: ${secondary};
 `;
 
-const basePath = process.env.BASE_PATH || '';
+const basePath = (process.env.BASE_PATH || '').replace('/pr-', '/pr/pr-');
 
 const menu = [
-    { title: 'Архетипы', href: '/archetypes', soon: true },
-    { title: 'Палитра', href: '/palette', soon: true },
-    { title: 'Типографика', href: '/typography', soon: true },
-    { title: 'Иконки', href: '/icons' },
-    { title: 'Иллюстрации', href: '/illustrations', soon: true },
+    { title: 'Архетипы', href: `${basePath}/archetypes/`, soon: true },
+    { title: 'Палитра', href: `${basePath}/palette/`, soon: true },
+    { title: 'Типографика', href: `${basePath}/typography/`, soon: true },
+    { title: 'Иконки', href: `${basePath}/icons/` },
+    { title: 'Иллюстрации', href: `${basePath}/illustrations/`, soon: true },
 ];
 const community = [
     {
@@ -62,8 +62,8 @@ const products = [
         title: 'Web B2C',
         description: 'Для веб-сервисов B2C-сегмента',
         links: [
-            { text: 'Документация', href: `${basePath}/web` },
-            { text: 'Сторибук', href: `${basePath}/b2c-storybook` },
+            { text: 'Документация', href: `${basePath}/web/` },
+            { text: 'Сторибук', href: `${basePath}/b2c-storybook/` },
             { text: 'Фигма', href: '', soon: true },
         ],
     },
@@ -71,8 +71,8 @@ const products = [
         title: 'Web B2B/E',
         description: 'Для веб-сервисов B2B- и B2E-сегментов',
         links: [
-            { text: 'Документация', href: `${basePath}/web` },
-            { text: 'Сторибук', href: `${basePath}/web-storybook` },
+            { text: 'Документация', href: `${basePath}/web/` },
+            { text: 'Сторибук', href: `${basePath}/web-storybook/` },
             { text: 'Фигма', href: '', soon: true },
         ],
     },
@@ -94,8 +94,8 @@ const products = [
         title: 'Canvas Apps',
         description: 'Для канвас-аппов ассистента',
         links: [
-            { text: 'Документация', href: `${basePath}/ui` },
-            { text: 'Сторибук', href: `${basePath}/ui-storybook` },
+            { text: 'Документация', href: `${basePath}/ui/` },
+            { text: 'Сторибук', href: `${basePath}/ui-storybook/` },
             { text: 'Фигма', href: 'https://www.figma.com/community/file/964418717233814341' },
         ],
     },
@@ -103,8 +103,8 @@ const products = [
         title: 'Temple',
         description: 'Шаблоны для ускорения разработки канвасов',
         links: [
-            { text: 'Документация', href: `${basePath}/temple` },
-            { text: 'Сторибук', href: `${basePath}/temple-storybook` },
+            { text: 'Документация', href: `${basePath}/temple/` },
+            { text: 'Сторибук', href: `${basePath}/temple-storybook/` },
             { text: 'Фигма', href: '', soon: true },
         ],
     },

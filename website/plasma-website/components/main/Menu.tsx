@@ -29,6 +29,7 @@ export const Item = styled(BodyL)`
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
 `;
+
 export const Link = styled(BaseLink)<{ $disabled?: boolean }>`
     color: ${primary};
     text-decoration: none;
@@ -38,6 +39,17 @@ export const Link = styled(BaseLink)<{ $disabled?: boolean }>`
         text-decoration: none;
     }
 `;
+
+const LinkTitle = styled.a`
+    color: ${primary};
+    text-decoration: none;
+
+    &:hover {
+        color: ${accent};
+        text-decoration: none;
+    }
+`;
+
 const DisabledText = styled.span`
     color: ${tertiary};
     cursor: default;
@@ -49,9 +61,7 @@ export const Menu: FC<MenuProps> = ({ items, style, className }) => (
             {items.map((item, i) => (
                 <Item key={`item:${i}`}>
                     {!item.soon ? (
-                        <Link href={item.href} external={item.external}>
-                            {item.title}
-                        </Link>
+                        <LinkTitle href={item.href}>{item.title}</LinkTitle>
                     ) : (
                         <>
                             <DisabledText>{item.title}</DisabledText>
