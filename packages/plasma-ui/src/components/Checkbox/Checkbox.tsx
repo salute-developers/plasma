@@ -51,6 +51,8 @@ export const StyledInput = styled(BaseboxInput)`
     height: 100%;
     opacity: 0;
 `;
+
+// TODO: https://github.com/salute-developers/plasma/issues/232
 export const StyledTrigger = styled(BaseboxTrigger)<{
     $focused?: boolean;
     $scaleOnInteraction?: boolean;

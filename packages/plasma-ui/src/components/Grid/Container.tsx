@@ -11,6 +11,7 @@ interface StyledContainerProps {
 const sidesCount = 2;
 const htmlFontSizePx = 16;
 
+// TODO: https://github.com/salute-developers/plasma/issues/232
 const StyledContainer = styled.div<StyledContainerProps>`
     margin: 0 auto;
 

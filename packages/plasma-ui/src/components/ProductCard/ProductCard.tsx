@@ -62,6 +62,7 @@ const StyledCardBody = styled(CardBody)`
     justify-content: space-between;
 `;
 
+// TODO: https://github.com/salute-developers/plasma/issues/232
 const StyledCardContent = styled(CardContent)<{ $backgroundColor?: string; $isValuePositive?: boolean }>`
     padding: 0 0.75rem 0.75rem;
 
@@ -87,6 +88,7 @@ const StyledCardContent = styled(CardContent)<{ $backgroundColor?: string; $isVa
         `}
 `;
 
+// TODO: https://github.com/salute-developers/plasma/issues/232
 const StyledAdditionalInfo = memo(styled(Footnote1)`
     overflow: hidden;
     text-overflow: ellipsis;
@@ -110,6 +112,7 @@ const StyledBottom = memo(styled.div`
     margin-top: 0.25rem;
 `);
 
+// TODO: https://github.com/salute-developers/plasma/issues/232
 const StyledStepper = memo(styled(ProductCardStepper)<{ $onTop?: boolean }>`
     width: 100%;
     transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'all 0.15s ease-in-out')};

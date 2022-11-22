@@ -17,6 +17,7 @@ const StyledFullHeightRow = styled(Row)`
     height: 100vh;
 `;
 
+// TODO: https://github.com/salute-developers/plasma/issues/232
 const StyledFullHeightCol = styled(Col)`
     height: 100vh;
 
@@ -67,7 +68,7 @@ export interface GridLinesProps extends React.HTMLAttributes<HTMLDivElement> {
  * Вспомогательный компонент для демонстрации в Storybook.
  */
 export const GridLines = ({ columns = 12, ...rest }: GridLinesProps) => {
-    const cols = Array(columns).fill(0);
+    const cols = Array<number>(columns).fill(0);
 
     return (
         <StyledFullHeightContainer {...rest}>

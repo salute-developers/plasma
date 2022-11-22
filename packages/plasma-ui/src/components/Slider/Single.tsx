@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { SliderBase } from './SliderBase';
-import { Handle } from './Handle';
+import { Handle, HandleProps } from './Handle';
 
 export interface SliderProps {
     /**
@@ -48,14 +48,14 @@ export const Slider = ({ min, max, value, disabled, onChangeCommitted, onChange 
         }));
     }, [value, state.stepSize, min]);
 
-    const setStepSize = React.useCallback((newStepSize) => {
+    const setStepSize = React.useCallback((newStepSize: number) => {
         setState((prevState) => ({
             ...prevState,
             stepSize: newStepSize,
         }));
     }, []);
 
-    const onHandleChange = React.useCallback(
+    const onHandleChange = React.useCallback<NonNullable<HandleProps['onChange']>>(
         (handleValue, data) => {
             const newHandleXPosition = data.x;
 
@@ -71,7 +71,7 @@ export const Slider = ({ min, max, value, disabled, onChangeCommitted, onChange 
         [onChange],
     );
 
-    const onHandleChangeCommited = React.useCallback(
+    const onHandleChangeCommited = React.useCallback<HandleProps['onChangeCommitted']>(
         (handleValue, data) => {
             onChangeCommitted(handleValue);
             setState((prevState) => ({

@@ -4,6 +4,7 @@ import { SelfPosition } from 'csstype';
 import { addFocus, FocusProps, OutlinedProps } from '@salutejs/plasma-core';
 import type { AsProps } from '@salutejs/plasma-core';
 
+// TODO: https://github.com/salute-developers/plasma/issues/232
 export const CellRoot = styled.div<FocusProps & OutlinedProps>`
     display: flex;
 

@@ -16,6 +16,7 @@ export interface HeaderArrowProps
     iconSize?: IconSize;
 }
 
+// TODO: https://github.com/salute-developers/plasma/issues/232
 const StyledButton = styled(Button)`
     position: absolute;
     top: 0;
@@ -38,6 +39,7 @@ const StyledButton = styled(Button)`
             margin-top: calc(var(--plasma-header-pt) * -1);
         `)}
 `;
+// TODO: https://github.com/salute-developers/plasma/issues/232
 const StyledIcon = styled(IconChevronLeft)<Pick<HeaderArrowProps, 'arrow'>>`
     transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'transform 0.15s ease-in-out')};
 
