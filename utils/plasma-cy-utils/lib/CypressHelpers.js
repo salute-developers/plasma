@@ -51,33 +51,32 @@ var StandardTypoStyle = styled_components_1.createGlobalStyle(plasma_typo_1.stan
 var CompatibleTypoStyle = styled_components_1.createGlobalStyle(plasma_typo_1.compatible);
 var ColorB2CStyle = styled_components_1.createGlobalStyle(themes_4.dark);
 exports.getComponent = function (componentName) {
-    // eslint-disable-next-line
-    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     var pkgName = Cypress.env('package');
     if (!pkgName) {
         throw new Error('Add package env to your Cypress config');
     }
-    var check = function (component) {
+    function check(component) {
         if (!component) {
             throw new Error("Library " + pkgName + " has no " + componentName);
         }
-    };
+    }
     if (pkgName === 'plasma-ui') {
-        // eslint-disable-next-line
+        // eslint-disable-next-line global-require
         var pkg = require('../../../packages/plasma-ui');
         var component = pkg[componentName];
         check(component);
         return component;
     }
     if (pkgName === 'plasma-web') {
-        // eslint-disable-next-line
+        // eslint-disable-next-line global-require
         var pkg = require('../../../packages/plasma-web');
         var component = pkg[componentName];
         check(component);
         return component;
     }
     if (pkgName === 'plasma-b2c') {
-        // eslint-disable-next-line
+        // eslint-disable-next-line global-require
         var pkg = require('../../../packages/plasma-b2c');
         var component = pkg[componentName];
         check(component);
@@ -87,9 +86,9 @@ exports.getComponent = function (componentName) {
 };
 exports.CypressTestDecorator = function (_a) {
     var noSSR = _a.noSSR, children = _a.children;
-    // eslint-disable-next-line
-    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     var pkgName = Cypress.env('package');
+    // eslint-disable-next-line @typescript-eslint/no-use-before-define
     var tokens = Cypress.env('tokens');
     var SSRProvider = exports.getComponent('SSRProvider');
     var SSR = function (_a) {
@@ -142,14 +141,8 @@ exports.mount = function () {
     var jsx = args[0], _a = args[1], opts = _a === void 0 ? {} : _a;
     opts.stylesheets = ((opts === null || opts === void 0 ? void 0 : opts.stylesheets) || []).concat('https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.1.0.css', 'https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.1.0.css');
     var cm = react_2.mount(jsx, opts);
-    // eslint-disable-next-line
-    // @ts-ignore
     cy.waitForResources('https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.1.0.css');
-    // eslint-disable-next-line
-    // @ts-ignore
     cy.waitForResources('https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.1.0.css');
-    // eslint-disable-next-line
-    // @ts-ignore
     cy.waitForResources('SBSansText.0.1.0.css', 'SBSansDisplay.0.1.0.css', { timeout: 1500 });
     return cm;
 };
