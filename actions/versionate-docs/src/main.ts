@@ -56,7 +56,7 @@ async function main() {
             const pckgName = associatedPackages[docPckgName];
             const prefix = associatedPrefixes[docPckgName];
             const version = versions[pckgName];
-            const url = `https://plasma.sberdevices.ru/${prefix}-${version}/`;
+            const url = `https://plasma.sberdevices.ru/versions/${prefix}-${version}/`;
 
             console.log(`> Running build for package "${docPckgName}". URL would be: "${url}".`);
 

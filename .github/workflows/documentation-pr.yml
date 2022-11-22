@@ -129,21 +129,10 @@ jobs:
               repo: context.repo.repo,
               body: `Documentation preview deployed!
               
-              website: http://plasma.sberdevices.ru/pr-${context.issue.number}/
-              ui storybook: http://plasma.sberdevices.ru/pr-${context.issue.number}/ui-storybook/
-              web storybook: http://plasma.sberdevices.ru/pr-${context.issue.number}/web-storybook/
-              b2c storybook: http://plasma.sberdevices.ru/pr-${context.issue.number}/b2c-storybook/
-              temple storybook: http://plasma.sberdevices.ru/pr-${context.issue.number}/temple-storybook/
-              <details>
-                <summary>New documentation</summary>
-                <br />
-
-                website: http://plasma.fine.sberdevices.ru/pr/pr-${context.issue.number}/
-                ui storybook: http://plasma.fine.sberdevices.ru/pr/pr-${context.issue.number}/ui-storybook/
-                web storybook: http://plasma.fine.sberdevices.ru/pr/pr-${context.issue.number}/web-storybook/
-                b2c storybook: http://plasma.fine.sberdevices.ru/pr/pr-${context.issue.number}/b2c-storybook/
-                temple storybook: http://plasma.fine.sberdevices.ru/pr/pr-${context.issue.number}/temple-storybook/
-
-              </details>
+              website: http://plasma.sberdevices.ru/pr/pr-${context.issue.number}/
+              ui storybook: http://plasma.sberdevices.ru/pr/pr-${context.issue.number}/ui-storybook/
+              web storybook: http://plasma.sberdevices.ru/pr/pr-${context.issue.number}/web-storybook/
+              b2c storybook: http://plasma.sberdevices.ru/pr/pr-${context.issue.number}/b2c-storybook/
+              temple storybook: http://plasma.sberdevices.ru/pr/pr-${context.issue.number}/temple-storybook/
               `
             })

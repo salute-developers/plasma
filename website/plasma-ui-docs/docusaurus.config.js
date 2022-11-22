@@ -15,8 +15,8 @@ const pckgJson = require('./package.json');
 const versionsArchived = require('./versionsArchived.json');
 
 const { PR_NAME, VERSION_NAME } = process.env;
-const prefix = VERSION_NAME || !PR_NAME ? '' : `/${PR_NAME}`;
-const baseUrl = VERSION_NAME ? `/${VERSION_NAME}/` : `${prefix}/ui/`;
+const prefix = VERSION_NAME || !PR_NAME ? '' : `/pr/${PR_NAME}`;
+const baseUrl = VERSION_NAME ? `/versions/${VERSION_NAME}/` : `${prefix}/ui/`;
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
