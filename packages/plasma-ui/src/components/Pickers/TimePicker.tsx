@@ -5,7 +5,7 @@ import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { PickerDots } from './PickerDots';
 import { SimpleTimePicker, SimpleTimePickerProps } from './SimpleTimePicker';
 import { getNewDate, getNormalizeValues, getRange, getTimeValues, getValuesInRange, isChanged } from './utils';
-import type { TimeType } from './types';
+import type { PickerItem, TimeType } from './types';
 
 const StyledWrapper = styled.div`
     display: flex;
@@ -156,9 +156,18 @@ export const TimePicker = ({
         step,
     ]);
 
-    const onHoursChange = React.useCallback(({ value: h }) => setState(([, m, s]) => [h, m, s]), []);
-    const onMinutesChange = React.useCallback(({ value: m }) => setState(([h, , s]) => [h, m, s]), []);
-    const onSecondsChange = React.useCallback(({ value: s }) => setState(([h, m]) => [h, m, s]), []);
+    const onHoursChange = React.useCallback(
+        ({ value: h }: PickerItem) => setState(([, m, s]) => [h as number, m, s]),
+        [],
+    );
+    const onMinutesChange = React.useCallback(
+        ({ value: m }: PickerItem) => setState(([h, , s]) => [h, m as number, s]),
+        [],
+    );
+    const onSecondsChange = React.useCallback(
+        ({ value: s }: PickerItem) => setState(([h, m]) => [h, m, s as number]),
+        [],
+    );
 
     /**
      * Если значение (value) обновилось извне, необходимо изменить стейт

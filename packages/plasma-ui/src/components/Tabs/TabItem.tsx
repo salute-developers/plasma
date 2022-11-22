@@ -10,6 +10,7 @@ export interface TabItemProps extends AsProps, BaseTabItemProps {
     animated?: boolean;
 }
 
+// TODO: https://github.com/salute-developers/plasma/issues/232
 /**
  * Элемент списка, недопустимо использовать вне компонента Tabs.
  */

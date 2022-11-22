@@ -56,6 +56,7 @@ export interface ConfirmProps {
     onDismiss?: () => void;
 }
 
+// TODO: https://github.com/salute-developers/plasma/issues/232
 const Wrapper = styled.div<{ visible: boolean }>`
     position: fixed;
     top: 0;
@@ -99,6 +100,7 @@ const tvLayout = css`
 
 const StyledButton = styled(Button)``;
 
+// TODO: https://github.com/salute-developers/plasma/issues/232
 const ConfirmRoot = styled.div<{ visible: boolean }>`
     position: absolute;
     left: 0;
@@ -142,6 +144,7 @@ const BtnWrap = styled.div<{ reverse: boolean }>`
     }
 `;
 
+// TODO: https://github.com/salute-developers/plasma/issues/232
 const StyledCell = styled(Cell)`
     flex: 1;
 

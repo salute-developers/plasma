@@ -9,6 +9,7 @@ import { ProductCardProps } from './types';
 
 type ProductCardTextProps = Pick<ProductCardProps, 'text'>;
 
+// TODO: https://github.com/salute-developers/plasma/issues/232
 const StyledDefaultText = memo(styled(Footnote1)`
     overflow: hidden;
     display: -webkit-box;

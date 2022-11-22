@@ -7,6 +7,7 @@ import { CarouselCol, CarouselItemProps } from '.';
 
 const scaleDelta = 0.37;
 
+// TODO: https://github.com/salute-developers/plasma/issues/232
 const StyledColInner = styled.div`
     transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'transform 0.1s ease 0s')};
 `;

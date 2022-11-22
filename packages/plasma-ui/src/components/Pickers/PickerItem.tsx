@@ -61,6 +61,7 @@ export const StyledPickerItem = styled.div<StyledSizeProps>`
     ${({ $size }) => sizes[$size]}
 `;
 
+// TODO: https://github.com/salute-developers/plasma/issues/232
 const StyledTransformable = styled.div<StyledSizeProps>`
     width: 100%;
     height: 100%;

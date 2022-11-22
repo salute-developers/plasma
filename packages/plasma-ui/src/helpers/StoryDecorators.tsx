@@ -1,23 +1,24 @@
 import React from 'react';
+import { Story as StoryType, StoryContext } from '@storybook/react';
 
 import { Container } from '../components/Grid';
 
 import { GridLines } from './GridLines';
 
-export const InSpacing = (Story: React.FC) => (
+export const InSpacing = (Story: StoryType) => (
     <div style={{ padding: '1rem' }}>
         <Story />
     </div>
 );
 
-export const WithGridLines = (Story: React.FC, context) => (
+export const WithGridLines = (Story: StoryType, context: StoryContext) => (
     <>
-        {context.args.displayGrid && <GridLines />}
+        {'displayGrid' in context.args && <GridLines />}
         <Story />
     </>
 );
 
-export const InContainer = (Story: React.FC) => (
+export const InContainer = (Story: StoryType) => (
     <Container>
         <Story />
     </Container>

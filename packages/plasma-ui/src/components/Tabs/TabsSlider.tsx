@@ -15,6 +15,7 @@ export const activeItemStyle = css`
     box-shadow: 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.05);
 `;
 
+// https://github.com/salute-developers/plasma/issues/232
 export const StyledSlider = styled.div<Pick<SliderProps, 'disabled'>>`
     position: absolute;
     z-index: -1;

@@ -7,6 +7,7 @@ export const FieldHelper = styled(BaseHelper)`
     padding-right: 1rem;
 `;
 
+// TODO: https://github.com/salute-developers/plasma/issues/232
 export const applyInputStyles: InterpolationFunction<ThemeProps & Pick<FieldProps, '$isFocused'>> = ({
     $isFocused,
 }) => css`

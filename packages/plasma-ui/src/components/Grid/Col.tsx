@@ -19,6 +19,7 @@ export interface ColProps extends ColSizeProps, ColOffsetProps, React.HTMLAttrib
     type?: 'rel' | 'calc';
 }
 
+// TODO: https://github.com/salute-developers/plasma/issues/232
 /**
  * Блок для размещения контента или строк (``Row``) внутри себя.
  *

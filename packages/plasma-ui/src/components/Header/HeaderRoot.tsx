@@ -27,6 +27,7 @@ interface StyledHeaderRootProps {
     $gradientColor?: string;
 }
 
+// TODO: https://github.com/salute-developers/plasma/issues/232
 const StyledHeaderRoot = styled.header<StyledHeaderRootProps>`
     box-sizing: content-box;
 

@@ -4,6 +4,7 @@ import { body2 } from '@salutejs/plasma-tokens';
 import { mediaQuery } from '../../utils';
 import { Headline4 } from '../Typography';
 
+// TODO: https://github.com/salute-developers/plasma/issues/232
 /**
  * Компонент для размещения заголовка.
  */

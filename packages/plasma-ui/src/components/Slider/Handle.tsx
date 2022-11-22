@@ -1,11 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import Draggable, { DraggableData } from 'react-draggable';
+import Draggable, { DraggableData, DraggableEventHandler } from 'react-draggable';
 import { surfaceLiquid03, white } from '@salutejs/plasma-tokens';
 
 import { handleDiameter, handleBorderWidth } from './SliderBase';
 
-interface HandleProps {
+// TODO: https://github.com/salute-developers/plasma/issues/195
+declare module 'react-draggable' {
+    export interface DraggableProps {
+        children: React.ReactNode;
+    }
+}
+
+export interface HandleProps {
     stepSize: number;
     min: number;
     max: number;
@@ -63,7 +70,7 @@ export const Handle = React.forwardRef<HTMLDivElement, HandleProps>(
     ({ stepSize, onChangeCommitted, onChange, xPosition, min, max, bounds = [], zIndex, disabled, side }, ref) => {
         const lastOnChangeValue = React.useRef<number | null>(null);
 
-        const onDrag = React.useCallback(
+        const onDrag = React.useCallback<DraggableEventHandler>(
             (_, data) => {
                 if (onChange) {
                     const newValue = getValue(data.x, stepSize, min, max);
@@ -76,7 +83,7 @@ export const Handle = React.forwardRef<HTMLDivElement, HandleProps>(
             [onChange, stepSize, min, max],
         );
 
-        const onStop = React.useCallback(
+        const onStop = React.useCallback<DraggableEventHandler>(
             (_, data) => {
                 const newValue = getValue(data.x, stepSize, min, max);
                 onChangeCommitted(newValue, data);

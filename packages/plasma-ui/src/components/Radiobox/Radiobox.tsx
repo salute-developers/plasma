@@ -18,6 +18,8 @@ const StyledTrigger = styled(CheckboxTrigger)`
     --plasma-trigger-border-radius: 1.25rem;
     --plasma-trigger-outline-radius: 1.375rem;
 `;
+
+// TODO: https://github.com/salute-developers/plasma/issues/232
 const StyledEllipse = styled.div`
     position: absolute;
     top: 0;
