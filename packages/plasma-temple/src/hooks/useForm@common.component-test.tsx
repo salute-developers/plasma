@@ -1,4 +1,4 @@
-import { mountHook } from '@cypress/react';
+import { mountHook } from '@cypress/react18';
 
 import { createEvent } from '../testHelpers/testRenderHelpers';
 

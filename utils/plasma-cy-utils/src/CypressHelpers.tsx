@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import { createPortal } from 'react-dom';
 import styled, { createGlobalStyle } from 'styled-components';
-import { mount as cyMount } from '@cypress/react';
+import { mount as cyMount } from '@cypress/react18';
 // plasma-web
 import { web } from '@salutejs/plasma-tokens-web/typo';
 import { light as webLight } from '@salutejs/plasma-tokens-web/themes';

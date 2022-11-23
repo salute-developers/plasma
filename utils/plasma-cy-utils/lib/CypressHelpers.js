@@ -30,7 +30,7 @@ exports.Portal = exports.mount = exports.withNoAnimation = exports.SpaceMe = exp
 var react_1 = __importDefault(require("react"));
 var react_dom_1 = require("react-dom");
 var styled_components_1 = __importStar(require("styled-components"));
-var react_2 = require("@cypress/react");
+var react18_1 = require("@cypress/react18");
 // plasma-web
 var typo_1 = require("@salutejs/plasma-tokens-web/typo");
 var themes_1 = require("@salutejs/plasma-tokens-web/themes");
@@ -141,7 +141,7 @@ exports.mount = function () {
     }
     var jsx = args[0], _a = args[1], opts = _a === void 0 ? {} : _a;
     opts.stylesheets = ((opts === null || opts === void 0 ? void 0 : opts.stylesheets) || []).concat('https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.1.0.css', 'https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.1.0.css');
-    var cm = react_2.mount(jsx, opts);
+    var cm = react18_1.mount(jsx, opts);
     // eslint-disable-next-line
     // @ts-ignore
     cy.waitForResources('https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.1.0.css');

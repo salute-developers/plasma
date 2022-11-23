@@ -16,7 +16,7 @@
         "styled-components": "^5.1.1"
     },
     "devDependencies": {
-        "@cypress/react": "5.10.1",
+        "@cypress/react18": "1.1.1",
         "@salutejs/plasma-tokens": "1.28.2",
         "@salutejs/plasma-tokens-b2b": "1.4.1",
         "@salutejs/plasma-tokens-b2c": "0.13.1",
@@ -39,7 +39,5 @@
     "publishConfig": {
         "access": "public"
     },
-    "files": [
-        "lib"
-    ]
+    "files": ["lib"]
 }

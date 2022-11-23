@@ -1,6 +1,6 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import type { MountReturn } from '@cypress/react';
+import type { MountReturn } from '@cypress/react18';
 import { AssistantClientCustomizedCommand, AssistantSmartAppData, createAssistantHostMock } from '@salutejs/client';
 import { Container } from '@salutejs/plasma-ui';
 import { mount } from '@salutejs/plasma-cy-utils';

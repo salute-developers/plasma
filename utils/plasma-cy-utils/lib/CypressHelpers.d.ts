@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from 'react';
-import { mount as cyMount } from '@cypress/react';
+import { mount as cyMount } from '@cypress/react18';
 export declare const getComponent: (componentName: string) => any;
 interface CYTDec {
     noSSR?: boolean;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { unmount } from '@cypress/react';
+import { unmount } from '@cypress/react18';
 import { Card, CardBody, CardMedia, CardContent, CardHeadline1 } from '@salutejs/plasma-ui';
 
 import { navigate } from '../../../../../cypress/support/commands';
