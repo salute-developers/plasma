@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-icons",
-    "version": "1.108.0",
+    "version": "1.109.0",
     "description": "Salute Design System Icons",
     "main": "index.js",
     "module": "es/index.js",
