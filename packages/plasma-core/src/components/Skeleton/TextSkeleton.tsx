@@ -17,7 +17,7 @@ const StyledTextSkeleton = styled.div`
 
 export interface TextSkeletonProps extends TextSizeProps, Partial<RoundnessProps> {
     /**
-     * Количетво линий скелета
+     * Количество линий скелета
      */
     lines: number;
     /**
