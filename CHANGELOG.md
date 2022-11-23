@@ -1,3 +1,25 @@
+# (Wed Nov 23 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-web@1.143.0`
+  - feat(plasma-web): [cypress] update tests [#222](https://github.com/salute-developers/plasma/pull/222) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): add a11y support [#222](https://github.com/salute-developers/plasma/pull/222) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-icons@1.109.0`
+  - feat(plasma-icons): add aria-hidden attr [#222](https://github.com/salute-developers/plasma/pull/222) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- ci: fix typo s3 versions [#227](https://github.com/salute-developers/plasma/pull/227) ([@kayman233](https://github.com/kayman233))
+- docs(plasma-ui, plasma-web): fix docs typos [#225](https://github.com/salute-developers/plasma/pull/225) ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Thu Nov 17 2022)
 
 #### 🚀 Enhancement
