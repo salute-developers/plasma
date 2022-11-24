@@ -1,3 +1,17 @@
+# v1.143.2 (Thu Nov 24 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web): improve type-coverage [#235](https://github.com/salute-developers/plasma/pull/235) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.143.1 (Thu Nov 24 2022)
 
 #### 🐛 Bug Fix

@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- `@salutejs/plasma-web@1.143.2`
+  - fix(plasma-web): improve type-coverage [#235](https://github.com/salute-developers/plasma/pull/235) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
+# (Thu Nov 24 2022)
+
+#### 🐛 Bug Fix
+
 - `@salutejs/plasma-b2c@1.115.1`
   - fix(plasma-b2c): improve type-coverage [#237](https://github.com/salute-developers/plasma/pull/237) ([@Yeti-or](https://github.com/Yeti-or))
 - `@salutejs/plasma-core@1.82.1`
