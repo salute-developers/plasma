@@ -1,3 +1,15 @@
+# v0.34.3 (Thu Nov 24 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-cy-utils): improve type-coverage [#240](https://github.com/salute-developers/plasma/pull/240) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v0.34.2 (Wed Nov 09 2022)
 
 #### 🐛 Bug Fix
