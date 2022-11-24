@@ -1,3 +1,15 @@
+# v1.83.0 (Thu Nov 24 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-core): improve type-coverage [#231](https://github.com/salute-developers/plasma/pull/231) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.82.1 (Thu Nov 24 2022)
 
 #### 🐛 Bug Fix

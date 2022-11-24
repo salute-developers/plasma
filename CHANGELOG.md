@@ -1,5 +1,26 @@
 # (Thu Nov 24 2022)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.147.0`
+  - feat(plasma-ui): [cypress] update tests [#229](https://github.com/salute-developers/plasma/pull/229) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-ui): processing price periodicity [#229](https://github.com/salute-developers/plasma/pull/229) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- docs(plasma-ui-docs): Card: fix images [#243](https://github.com/salute-developers/plasma/pull/243) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-core@1.83.0`
+  - fix(plasma-core): improve type-coverage [#231](https://github.com/salute-developers/plasma/pull/231) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
+# (Thu Nov 24 2022)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-web@1.143.2`
