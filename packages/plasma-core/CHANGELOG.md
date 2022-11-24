@@ -1,3 +1,15 @@
+# v1.82.1 (Thu Nov 24 2022)
+
+#### 🐛 Bug Fix
+
+- docs(plasma-core): Skeleton: fix typo [#241](https://github.com/salute-developers/plasma/pull/241) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.82.0 (Thu Nov 17 2022)
 
 #### 🚀 Enhancement

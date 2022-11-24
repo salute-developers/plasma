@@ -1,3 +1,18 @@
+# (Thu Nov 24 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.115.1`
+  - fix(plasma-b2c): improve type-coverage [#237](https://github.com/salute-developers/plasma/pull/237) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-core@1.82.1`
+  - docs(plasma-core): Skeleton: fix typo [#241](https://github.com/salute-developers/plasma/pull/241) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Wed Nov 23 2022)
 
 #### 🚀 Enhancement

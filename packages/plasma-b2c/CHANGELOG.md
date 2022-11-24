@@ -1,3 +1,17 @@
+# v1.115.1 (Thu Nov 24 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-b2c): improve type-coverage [#237](https://github.com/salute-developers/plasma/pull/237) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.115.0 (Wed Nov 23 2022)
 
 #### 🐛 Bug Fix
