@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-ui-docs",
-    "version": "0.123.1",
+    "version": "0.123.2",
     "description": "Plasma Documentation.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "repository": {
@@ -29,12 +29,12 @@
         "@docusaurus/theme-live-codeblock": "2.0.0-beta.6",
         "@mdx-js/react": "^1.6.21",
         "@salutejs/plasma-core": "1.82.1",
-        "@salutejs/plasma-docs-ui": "0.58.1",
+        "@salutejs/plasma-docs-ui": "0.58.2",
         "@salutejs/plasma-icons": "1.109.1",
         "@salutejs/plasma-tokens": "1.28.2",
         "@salutejs/plasma-tokens-web": "1.19.1",
         "@salutejs/plasma-ui": "1.146.1",
-        "@salutejs/plasma-web": "1.143.1",
+        "@salutejs/plasma-web": "1.143.2",
         "@salutejs/use-virtual": "2.0.0",
         "@svgr/webpack": "^5.5.0",
         "clsx": "^1.1.1",
