@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-cy-utils",
-    "version": "0.34.2",
+    "version": "0.34.3",
     "description": "Test helpers shared between ui libraries.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "main": "lib/index.js",
@@ -39,11 +39,16 @@
         "typescript-coverage": "npx typescript-coverage-report"
     },
     "typeCoverage": {
-        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
+        "ignoreFiles": [
+            "src/**/*component-test.tsx",
+            "src/**/*stories.tsx"
+        ],
         "atLeast": 100
     },
     "publishConfig": {
         "access": "public"
     },
-    "files": ["lib"]
+    "files": [
+        "lib"
+    ]
 }

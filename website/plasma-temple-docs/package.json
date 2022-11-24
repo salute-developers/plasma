@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-temple-docs",
-    "version": "0.76.0",
+    "version": "0.76.1",
     "description": "Plasma Temple documentation",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "repository": {
@@ -27,10 +27,10 @@
         "@docusaurus/preset-classic": "2.0.0-beta.6",
         "@docusaurus/theme-live-codeblock": "2.0.0-beta.6",
         "@mdx-js/react": "^1.6.21",
-        "@salutejs/plasma-docs-ui": "0.59.0",
-        "@salutejs/plasma-icons": "1.110.0",
+        "@salutejs/plasma-docs-ui": "0.59.1",
+        "@salutejs/plasma-icons": "1.110.1",
         "@salutejs/plasma-tokens": "1.28.2",
-        "@salutejs/plasma-ui": "1.147.0",
+        "@salutejs/plasma-ui": "1.147.1",
         "@svgr/webpack": "^5.5.0",
         "clsx": "^1.1.1",
         "file-loader": "^6.2.0",
