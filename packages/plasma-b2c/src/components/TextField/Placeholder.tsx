@@ -1,8 +1,14 @@
 import styled from 'styled-components';
 import { FieldPlaceholder } from '@salutejs/plasma-core';
 
-export const Placeholder = styled(FieldPlaceholder)<{ visible?: boolean }>`
-    --display: ${({ visible }) => (visible ? 'inline-flex' : 'none')};
+export const Placeholder = styled(FieldPlaceholder)<{ visible?: boolean; withCaption: boolean }>`
+    --display: ${({ visible, withCaption }) => {
+        if (withCaption || !visible) {
+            return 'none';
+        }
+
+        return 'inline-flex';
+    }};
 
     display: inline-flex;
     align-items: center;

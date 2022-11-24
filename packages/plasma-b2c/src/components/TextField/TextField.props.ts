@@ -6,7 +6,7 @@ export const textFieldProps = {
         --padding-left: 1.125rem;
         --padding-right: 1rem;
 
-        --padding-default: 1rem var(--padding-right) 1rem var(--padding-left);
+        --padding-default: 1.063rem var(--padding-right) 1.063rem var(--padding-left);
 
         --padding-placeholder-inactive: 0.563rem var(--padding-right) 0.563rem var(--padding-left);
 
@@ -60,7 +60,7 @@ export const textFieldProps = {
         --padding-left: 0.875rem;
         --padding-right: 0.75rem;
 
-        --padding-default: 0.5rem var(--padding-right) 0.5rem var(--padding-left);
+        --padding-default: 0.688rem var(--padding-right) 0.688rem var(--padding-left);
 
         --padding-placeholder-inactive: 0.313rem var(--padding-right) 0 var(--padding-left);
 
@@ -87,7 +87,7 @@ export const textFieldProps = {
         --padding-left: 0.625rem;
         --padding-right: 0.5rem;
 
-        --padding-default: 0.25rem var(--padding-right) 0.25rem var(--padding-left);
+        --padding-default: 0.563rem var(--padding-right) 0.563rem var(--padding-left);
 
         --padding-placeholder-inactive: var(--padding-default);
 

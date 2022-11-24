@@ -11,9 +11,14 @@ import { Content } from './Content';
 import { Caption } from './Caption';
 import { textFieldProps } from './TextField.props';
 
+export enum TextFieldView {
+    default = 'default',
+    innerLabel = 'innerLabel',
+}
+
 export interface TextFieldProps extends Omit<FieldProps, 'size'>, InputProps {
     /**
-     * Лейбл сверху.
+     * Выполняет роль label.
      */
     caption?: string;
 
@@ -21,6 +26,11 @@ export interface TextFieldProps extends Omit<FieldProps, 'size'>, InputProps {
      * Доступные размеры компонента.
      */
     size?: 'l' | 'm' | 's' | 'xs';
+
+    /**
+     * Определяет внешний вид компонента и поведение label/placeholder.
+     */
+    view?: TextFieldView;
 }
 
 /**
@@ -33,7 +43,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
         disabled,
         status,
         label,
-        placeholder,
+        placeholder: placeholderInput,
         contentLeft,
         contentRight,
         caption,
@@ -42,11 +52,21 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
         className,
         onChange,
         size = 'm',
+        view,
         ...rest
     },
     ref,
 ) {
-    const placeLabel = (label || placeholder) as string | undefined;
+    const placeholder = (label || placeholderInput) as string;
+
+    const hasTextFieldDefaultView = view === TextFieldView.default;
+
+    const withCaption = !view || hasTextFieldDefaultView;
+    const withoutCaption = !caption && !hasTextFieldDefaultView;
+
+    const captionOrPlaceholder = !withCaption ? caption : placeholder;
+    const currentId = id ? `${id}-label` : undefined;
+    const ariaDescribedBy = id ? `${id}-helpertext` : undefined;
 
     const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
         (event) => {
@@ -67,35 +87,35 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
             $isContentLeft={Boolean(contentLeft)}
             $isContentRight={Boolean(contentRight)}
             $isHelper={Boolean(helperText)}
+            withDefaultPadding={withCaption || withoutCaption}
             properties={textFieldProps[size]}
-            witPlaceholder={!!placeLabel}
             contentLeft={contentLeft}
             status={status}
             style={style}
             className={className}
         >
-            {caption && <Caption id={id ? `${id}-label` : undefined}>{caption}</Caption>}
+            <Caption visible={withCaption} id={currentId} caption={caption} />
             <FieldWrapper status={status}>
                 {contentLeft && <Content pos="left">{contentLeft}</Content>}
                 <Input
                     ref={ref}
                     id={id}
-                    placeholder={placeLabel}
+                    placeholder={placeholder}
                     disabled={disabled}
                     status={status}
-                    aria-labelledby={id ? `${id}-label` : undefined}
-                    aria-describedby={id ? `${id}-helpertext` : undefined}
+                    aria-labelledby={currentId}
+                    aria-describedby={ariaDescribedBy}
                     onChange={handleChange}
                     {...rest}
                 />
-                {placeLabel && (
-                    <Placeholder visible={size !== 'xs'} htmlFor={id}>
-                        {placeLabel}
+                {captionOrPlaceholder && (
+                    <Placeholder withCaption={withCaption} visible={size !== 'xs'} htmlFor={id}>
+                        {captionOrPlaceholder}
                     </Placeholder>
                 )}
                 {contentRight && <Content pos="right">{contentRight}</Content>}
             </FieldWrapper>
-            {helperText && <FieldHelper id={id ? `${id}-helpertext` : undefined}>{helperText}</FieldHelper>}
+            {helperText && <FieldHelper id={ariaDescribedBy}>{helperText}</FieldHelper>}
         </Field>
     );
 });
