@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-ui-docs",
-    "version": "0.124.1",
+    "version": "0.124.2",
     "description": "Plasma Documentation.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "repository": {
@@ -33,7 +33,7 @@
         "@salutejs/plasma-icons": "1.110.1",
         "@salutejs/plasma-tokens": "1.28.2",
         "@salutejs/plasma-tokens-web": "1.19.1",
-        "@salutejs/plasma-ui": "1.147.1",
+        "@salutejs/plasma-ui": "1.147.2",
         "@salutejs/plasma-web": "1.144.1",
         "@salutejs/use-virtual": "2.0.0",
         "@svgr/webpack": "^5.5.0",
