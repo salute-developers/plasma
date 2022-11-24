@@ -7,7 +7,10 @@ import { Content } from './Content';
 import { TextFieldProps } from './TextField';
 
 export const Field = styled(FieldRoot)<
-    TextFieldProps & { properties: ReadonlyArray<SimpleInterpolation>; witPlaceholder: boolean }
+    TextFieldProps & {
+        properties: ReadonlyArray<SimpleInterpolation>;
+        withDefaultPadding: boolean;
+    }
 >`
     ${({ properties }) => properties}
 
@@ -33,7 +36,9 @@ export const Field = styled(FieldRoot)<
         padding: var(--padding-default);
 
         &:not(:placeholder-shown) {
-            padding: ${({ witPlaceholder }) => (witPlaceholder ? 'var(--padding-input-not-placeholder-shown)' : null)};
+            padding: ${({ withDefaultPadding }) => {
+                return withDefaultPadding ? 'var(--padding-default)' : 'var(--padding-input-not-placeholder-shown)';
+            }};
         }
     }
 `;

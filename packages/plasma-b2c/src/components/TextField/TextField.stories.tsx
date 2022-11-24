@@ -3,13 +3,13 @@ import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconPlaceholder, InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
+import { TextFieldView } from './TextField';
+
 import { TextField, TextFieldProps } from '.';
 
 const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
-
-const statuses = ['', 'success', 'error'];
 
 const propsToDisable = [
     'helperBlock',
@@ -37,7 +37,13 @@ export default {
         status: {
             control: {
                 type: 'select',
-                options: statuses,
+                options: { default: '', success: 'success', error: 'error' },
+            },
+        },
+        view: {
+            control: {
+                type: 'select',
+                options: { ...TextFieldView, ...{ empty: '' } },
             },
         },
         maxLength: {
@@ -49,12 +55,12 @@ export default {
     },
 } as Meta;
 
-interface DefaultSortyProps extends TextFieldProps {
+interface DefaultStoryProps extends TextFieldProps {
     enableContentLeft: boolean;
     enableContentRight: boolean;
 }
 
-export const Default: Story<DefaultSortyProps> = ({ enableContentLeft, enableContentRight, status, ...rest }) => {
+export const Default: Story<DefaultStoryProps> = ({ enableContentLeft, enableContentRight, status, ...rest }) => {
     const [value, setValue] = React.useState('Значение поля');
 
     return (
@@ -77,9 +83,9 @@ export const Default: Story<DefaultSortyProps> = ({ enableContentLeft, enableCon
 Default.args = {
     id: 'example-text-field',
     type: 'text',
-    placeholder: 'Заполните поле',
-    caption: 'Лейбл',
-    helperText: 'Подсказка к полю',
+    placeholder: 'Заполните поле имя',
+    caption: 'Имя',
+    helperText: 'Допустимы только символы кириллицы',
     enableContentLeft: true,
     enableContentRight: true,
     status: '' as 'success',

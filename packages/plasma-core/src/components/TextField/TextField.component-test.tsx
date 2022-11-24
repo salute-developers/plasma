@@ -22,19 +22,16 @@ describe('plasma-core: TextField', () => {
         );
     }
 
-    it('default', () => {
-        mount(
-            <CypressTestDecorator>
-                <TextField value="Value" placeholder="Placeholder" helperText="Helper text" />
-            </CypressTestDecorator>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('default: handle size', () => {
+    it('checking the size of indents with default view and empty value', () => {
         function TextFieldStub(props) {
-            return <TextField {...props} caption="Label" value="Input value" helperText="Helper text" />;
+            return (
+                <TextField
+                    {...props}
+                    caption="Имя [label]"
+                    placeholder="Введите имя [placeholder]"
+                    helperText="Используйте только кириллицу"
+                />
+            );
         }
 
         mount(
@@ -52,7 +49,92 @@ describe('plasma-core: TextField', () => {
         cy.matchImageSnapshot();
     });
 
-    it('handle size with placeholder and content', () => {
+    it('checking the size of indents with default view and value', () => {
+        function TextFieldStub(props) {
+            return (
+                <TextField
+                    {...props}
+                    value="Кирилл"
+                    caption="Имя [label]"
+                    placeholder="Введите имя [placeholder]"
+                    helperText="Используйте только кириллицу"
+                />
+            );
+        }
+
+        mount(
+            <CypressTestDecorator>
+                <TextFieldStub size="l" />
+                <SpaceMe />
+                <TextFieldStub size="m" />
+                <SpaceMe />
+                <TextFieldStub size="s" />
+                <SpaceMe />
+                <TextFieldStub size="xs" />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('checking the size of indents with "innerLabel" view and empty value', () => {
+        function TextFieldStub(props) {
+            return (
+                <TextField
+                    {...props}
+                    caption="Имя [label]"
+                    placeholder="Введите имя [placeholder]"
+                    helperText="Используйте только кириллицу"
+                    view="innerLabel"
+                />
+            );
+        }
+
+        mount(
+            <CypressTestDecorator>
+                <TextFieldStub size="l" />
+                <SpaceMe />
+                <TextFieldStub size="m" />
+                <SpaceMe />
+                <TextFieldStub size="s" />
+                <SpaceMe />
+                <TextFieldStub size="xs" />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('checking the size of indents with "innerLabel" view and value', () => {
+        function TextFieldStub(props) {
+            return (
+                <TextField
+                    {...props}
+                    value="Кирилл"
+                    caption="Имя [label]"
+                    placeholder="Введите имя [placeholder]"
+                    helperText="Используйте только кириллицу"
+                    view="innerLabel"
+                />
+            );
+        }
+
+        mount(
+            <CypressTestDecorator>
+                <TextFieldStub size="l" />
+                <SpaceMe />
+                <TextFieldStub size="m" />
+                <SpaceMe />
+                <TextFieldStub size="s" />
+                <SpaceMe />
+                <TextFieldStub size="xs" />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('checking the size of indents with content', () => {
         function TextFieldStub(props) {
             return (
                 <TextField
@@ -82,34 +164,6 @@ describe('plasma-core: TextField', () => {
         cy.matchImageSnapshot();
     });
 
-    it('handle size with placeholder', () => {
-        function TextFieldStub(props) {
-            return (
-                <TextField
-                    {...props}
-                    caption="Label"
-                    value="Input value"
-                    helperText="Helper text"
-                    placeholder="Placeholder"
-                />
-            );
-        }
-
-        mount(
-            <CypressTestDecorator>
-                <TextFieldStub size="l" />
-                <SpaceMe />
-                <TextFieldStub size="m" />
-                <SpaceMe />
-                <TextFieldStub size="s" />
-                <SpaceMe />
-                <TextFieldStub size="xs" />
-            </CypressTestDecorator>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
     it('_maxLength', () => {
         mount(
             <CypressTestDecorator>
@@ -118,16 +172,6 @@ describe('plasma-core: TextField', () => {
         );
 
         cy.get('input').type('More then ten symbols');
-
-        cy.matchImageSnapshot();
-    });
-
-    it(':empty', () => {
-        mount(
-            <CypressTestDecorator>
-                <TextField placeholder="Placeholder" />
-            </CypressTestDecorator>,
-        );
 
         cy.matchImageSnapshot();
     });
@@ -177,36 +221,6 @@ describe('plasma-core: TextField', () => {
                 <TextField placeholder="Placeholder" status="warning" />
                 <SpaceMe />
                 <TextField placeholder="Placeholder" status="error" />
-            </CypressTestDecorator>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('content', () => {
-        mount(
-            <CypressTestDecorator>
-                <TextField
-                    value="Value"
-                    placeholder="Placeholder"
-                    helperText="Helper text"
-                    contentLeft={<IconSleep color="inherit" size="s" />}
-                />
-                <SpaceMe />
-                <TextField
-                    value="Value"
-                    placeholder="Placeholder"
-                    helperText="Helper text"
-                    contentLeft={<IconSleep color="inherit" size="s" />}
-                    contentRight={<IconEye color="inherit" size="s" />}
-                />
-                <SpaceMe />
-                <TextField
-                    value="Value"
-                    placeholder="Placeholder"
-                    helperText="Helper text"
-                    contentRight={<IconEye color="inherit" size="s" />}
-                />
             </CypressTestDecorator>,
         );
 
