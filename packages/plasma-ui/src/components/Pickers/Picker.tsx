@@ -299,7 +299,7 @@ export const Picker = ({
     const max = items.length - 1;
 
     const theme = useThemeContext();
-    // by default 'true' on high perfomance devices
+    // by default 'true' on high performance devices
     const infiniteScroll = rest.infiniteScroll ?? !theme?.lowPerformance;
 
     const virtualItems = useMemo(() => getItems(items, infiniteScroll, isSingleItem), [
@@ -346,6 +346,7 @@ export const Picker = ({
 
     const prevValue = usePreviousValue(virtualItems[index]?.value);
 
+    // TODO: https://github.com/salute-developers/plasma/issues/247
     const onFocus = useCallback(() => !disabled && setIsFocused(true), [disabled]);
 
     const onBlur = useCallback(() => !disabled && setIsFocused(false), [disabled]);
@@ -484,6 +485,8 @@ export const Picker = ({
         [virtualItems, infiniteScroll, max, min, index, isSingleItem],
     );
 
+    const hasControls = controls && !disabled;
+
     return (
         <StyledWrapper
             id={id}
@@ -535,13 +538,12 @@ export const Picker = ({
                     />
                 ))}
             </StyledCarousel>
-            {controls && (
+            {hasControls && (
                 <>
                     <StyledArrow
                         data-placement="top"
                         tabIndex={-1}
                         view="clear"
-                        disabled={disabled}
                         outlined={false}
                         contentLeft={<IconChevronUp size="s" />}
                         aria-hidden="true"
@@ -551,7 +553,6 @@ export const Picker = ({
                         data-placement="bottom"
                         tabIndex={-1}
                         view="clear"
-                        disabled={disabled}
                         outlined={false}
                         contentLeft={<IconChevronDown size="s" />}
                         aria-hidden="true"
