@@ -1,3 +1,19 @@
+# v1.114.3 (Fri Nov 25 2022)
+
+#### 🐛 Bug Fix
+
+- fixup! fix(plasma-temple): improve type-coverage [#239](https://github.com/salute-developers/plasma/pull/239) ([@Yeti-or](https://github.com/Yeti-or))
+- fix(plasma-temple): improve type-coverage of GP:Carousel [#239](https://github.com/salute-developers/plasma/pull/239) ([@Yeti-or](https://github.com/Yeti-or))
+- fix(plasma-temple): improve type-coverage [#239](https://github.com/salute-developers/plasma/pull/239) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.114.2 (Thu Nov 24 2022)
 
 #### 🐛 Bug Fix
