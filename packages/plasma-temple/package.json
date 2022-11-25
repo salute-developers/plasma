@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-temple",
-    "version": "1.114.2",
+    "version": "1.114.3",
     "description": "Salute CanvasApp Templates",
     "main": "dist/index.js",
     "module": "dist/es/index.js",
@@ -87,10 +87,19 @@
         "typescript-coverage": "npx typescript-coverage-report"
     },
     "typeCoverage": {
-        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
+        "ignoreFiles": [
+            "src/**/*component-test.tsx",
+            "src/**/*stories.tsx"
+        ],
         "atLeast": 99.89
     },
-    "files": ["dist", "mobile", "sberbox", "sberportal", "assistant"],
+    "files": [
+        "dist",
+        "mobile",
+        "sberbox",
+        "sberportal",
+        "assistant"
+    ],
     "contributors": [
         "Vasiliy Loginevskiy",
         "Виноградов Антон Александрович",
