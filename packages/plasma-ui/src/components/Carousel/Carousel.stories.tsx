@@ -1,5 +1,5 @@
 import React, { useRef, useCallback } from 'react';
-import { Story, Meta, addDecorator } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 import type { SnapType, SnapAlign, CarouselLiteProps } from '@salutejs/plasma-core';
 import { CarouselItemVirtual } from '@salutejs/plasma-core';
 import { useVirtual } from '@salutejs/use-virtual';
@@ -65,8 +65,6 @@ const ChevronLeft: React.FC = React.memo(() => {
 const ChevronRight: React.FC = React.memo(() => {
     return <IconChevronRight size="s" color="#fff" />;
 });
-
-addDecorator(withPerformance);
 
 function isSelected(element: HTMLElement) {
     return () => {
@@ -180,6 +178,8 @@ export const Basic: Story<CarouselProps & CarouselColProps & { displayGrid: bool
     );
 };
 
+Basic.decorators = [withPerformance];
+
 Basic.story = {
     name: 'Basic',
     parameters: {
@@ -285,6 +285,8 @@ export const CarouselVirtualBasic = () => {
     );
 };
 
+CarouselVirtualBasic.decorators = [withPerformance];
+
 CarouselVirtualBasic.args = {
     displayGrid: true,
 };
@@ -356,6 +358,8 @@ export const Vertical: Story<CarouselProps & CarouselColProps & { displayGrid: b
         </DeviceThemeProvider>
     );
 };
+
+Vertical.decorators = [withPerformance];
 
 Vertical.args = {
     ...Basic.args,
@@ -616,6 +620,8 @@ export const CarouselLiteBasic: Story<CarouselLiteProps & CarouselColProps & { d
         </DeviceThemeProvider>
     );
 };
+
+CarouselLiteBasic.decorators = [withPerformance];
 
 CarouselLiteBasic.args = {
     displayGrid: true,
