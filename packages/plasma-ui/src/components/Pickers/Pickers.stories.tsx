@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Story, Meta, addDecorator } from '@storybook/react';
+import { Story, Meta } from '@storybook/react';
 import { withPerformance, PublicInteractionTask, InteractionTaskArgs } from 'storybook-addon-performance';
 import type { SnapType } from '@salutejs/plasma-core';
 import { waitFor } from '@testing-library/dom';
@@ -9,8 +9,6 @@ import { isSberBox } from '../../utils';
 import { disableProps } from '../../helpers';
 
 import { DatePicker, TimePicker, DatePickerProps, TimePickerProps } from '.';
-
-addDecorator(withPerformance);
 
 const StyledWrapper = styled.div`
     display: grid;
@@ -212,6 +210,8 @@ export const Default: Story<DefaultStoryProps> = (args) => {
     );
 };
 
+Default.decorators = [withPerformance];
+
 Default.args = {
     initialValue: '01.09.1980 00:28:59',
     minDate: '01.01.1975 01:15:29',
@@ -326,6 +326,9 @@ export const Date_Picker: Story<DatePickerStoryProps> = ({
 };
 
 // eslint-disable-next-line @typescript-eslint/camelcase
+Date_Picker.decorators = [withPerformance];
+
+// eslint-disable-next-line @typescript-eslint/camelcase
 Date_Picker.parameters = {
     performance: {
         interactions: interactionTasksDatePicker,
@@ -425,6 +428,9 @@ export const Time_Picker: Story<TimePickerStoryProps> = ({
         />
     );
 };
+
+// eslint-disable-next-line @typescript-eslint/camelcase
+Time_Picker.decorators = [withPerformance];
 
 // eslint-disable-next-line @typescript-eslint/camelcase
 Time_Picker.parameters = {
