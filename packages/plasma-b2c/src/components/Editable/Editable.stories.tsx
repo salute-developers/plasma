@@ -54,4 +54,5 @@ Default.args = {
     iconSize: 's',
     componentName: 'Headline1',
     defaultValue: 'Document 1',
+    placeholder: 'Компонент с возможностью редактирования текста',
 };
