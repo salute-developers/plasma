@@ -64,6 +64,10 @@ export interface EditableProps {
      * Иконка справа от текста, для корректной работы hover на иконке нужно добавить свойство color="inherit"
      */
     icon?: React.ReactNode;
+    /**
+     * Текст для placeholder и aria-label
+     */
+    placeholder?: string;
 }
 
 /**
@@ -82,6 +86,7 @@ export const Editable: React.FC<EditableProps> = ({
     onChange,
     onBlur,
     onPaste,
+    placeholder,
     ...props
 }) => {
     const Component = textComponent;
@@ -180,6 +185,7 @@ export const Editable: React.FC<EditableProps> = ({
                 onBlur={handleBlur}
                 onFocus={handleFocus}
                 onKeyDown={handleKeyDown}
+                aria-label={placeholder}
             />
             <EditButton onClick={handleEditClick} $isHidden={isEditing}>
                 {icon}
