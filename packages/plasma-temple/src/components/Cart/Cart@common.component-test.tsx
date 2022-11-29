@@ -106,12 +106,14 @@ describe('Cart', () => {
         onGoToCatalogStub = cy.stub();
     });
 
-    it('render cart', () => {
+    // TODO: https://github.com/salute-developers/plasma/issues/250
+    it.skip('render cart', () => {
         generateWrapper();
         cy.matchImageSnapshot();
     });
 
-    it('increase item quantity', () => {
+    // TODO: https://github.com/salute-developers/plasma/issues/250
+    it.skip('increase item quantity', () => {
         generateWrapper({}, { onChangeCart: onChangeCartStub });
         cy.get('[data-cy="QuantityButton-plus"]')
             .first()
