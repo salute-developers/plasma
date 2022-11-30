@@ -15,8 +15,10 @@ export type ToastProps = {
 
 export const StyledRoot = styled(Footnote1)`
     display: inline-flex;
-    padding: 0.75rem 1.25rem;
-    border-radius: 1.25rem;
+    align-items: center;
+    /* stylelint-disable-next-line number-max-precision */
+    padding: 0.6875rem 1.25rem;
+    border-radius: 1.5rem;
 
     background: ${dark02};
     color: ${white};
@@ -24,6 +26,8 @@ export const StyledRoot = styled(Footnote1)`
     ${applyNoSelect};
 `;
 const StyledContent = styled.div`
+    display: flex;
+    align-items: center;
     margin-right: 0.5rem;
 `;
 

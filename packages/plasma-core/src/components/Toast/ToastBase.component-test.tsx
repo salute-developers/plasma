@@ -18,7 +18,7 @@ describe('plasma-core: Toast', () => {
         cy.matchImageSnapshot();
     });
 
-    it.skip('__content-left', () => {
+    it('with content-left', () => {
         mount(
             <CypressTestDecorator>
                 <Toast
