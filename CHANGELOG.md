@@ -1,3 +1,16 @@
+# (Wed Nov 30 2022)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.147.3`
+  - fix(plasma-ui): fix using sb-addon-performance usages for future storybook versions [#248](https://github.com/salute-developers/plasma/pull/248) ([@akhdrv](https://github.com/akhdrv))
+
+#### Authors: 1
+
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+
+---
+
 # (Fri Nov 25 2022)
 
 #### 🐛 Bug Fix
