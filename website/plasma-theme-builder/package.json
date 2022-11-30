@@ -8,14 +8,14 @@
         "start": "react-scripts start",
         "build": "react-scripts build"
     },
-    "license": "ISC",
     "dependencies": {
-        "@salutejs/plasma-b2c": "1.116.2",
-        "@salutejs/plasma-icons": "1.110.2",
-        "@salutejs/plasma-tokens-b2b": "1.4.1",
-        "@salutejs/plasma-tokens-b2c": "0.13.1",
-        "@salutejs/plasma-typo": "0.28.1",
-        "react": "^16.13.1",
+        "@salutejs/plasma-b2c": "1.125.0",
+        "@salutejs/plasma-icons": "1.116.0",
+        "@salutejs/plasma-tokens-b2b": "1.7.0",
+        "@salutejs/plasma-tokens-b2c": "0.16.0",
+        "@salutejs/plasma-tokens-web": "1.22.0",
+        "@salutejs/plasma-typo": "0.29.0",
+        "react": "^17.0.2",
         "react-dom": "^16.13.1",
         "react-scripts": "4.0.0",
         "styled-components": "^5.3.3"
