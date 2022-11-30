@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-temple",
-    "version": "1.114.3",
+    "version": "1.114.4",
     "description": "Salute CanvasApp Templates",
     "main": "dist/index.js",
     "module": "dist/es/index.js",
@@ -30,7 +30,7 @@
         "@salutejs/plasma-cy-utils": "0.34.3",
         "@salutejs/plasma-icons": "1.110.1",
         "@salutejs/plasma-tokens": "1.28.2",
-        "@salutejs/plasma-ui": "1.147.2",
+        "@salutejs/plasma-ui": "1.147.3",
         "@salutejs/spatial-navigation": "1.0.5",
         "@storybook/addon-docs": "6.4.9",
         "@storybook/addon-essentials": "6.4.9",
