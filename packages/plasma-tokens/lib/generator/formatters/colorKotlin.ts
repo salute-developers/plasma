@@ -1,60 +1,55 @@
 import type { Dictionary, File, TransformedToken } from 'style-dictionary';
 
 import { lowerFirstLetter } from '../../themeBuilder/utils';
+import { ThemeColor, ThemeColorType } from '../types';
 
-const getKotlinTemplate = (
-    dataClassContent: string,
-    lightThemeContent: string,
-    darkThemeContent: string,
-    name: string,
-) => {
-    const header = `
-package com.${lowerFirstLetter(name)}.uikit.theme.tokens
+const getKotlinTemplate = (lightThemeContent: string, darkThemeContent: string, name: string) => {
+    const header = `package ru.${lowerFirstLetter(name)}.sm_theme.theme.constants
 
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.runtime.Immutable
+import ru.${lowerFirstLetter(name)}.sm_theme.theme.AngledLinearGradient
+import ru.${lowerFirstLetter(name)}.sm_theme.theme.tokens.SMColor`;
 
-internal data class AngledLinearGradient(
-    private val colors: List<Color>,
-    private val stops: List<Float>? = null,
-    private val start: Offset = Offset.Zero,
-    private val end: Offset = Offset.Infinite,
-    private val tileMode: TileMode = TileMode.Clamp,
-    private val angle: Float = 0.0f,
-) : ShaderBrush()`;
+    const deprecatedColor = `    // Main colors
+    mainPrimary = Color(0xff24b23e),
+    mainWhite = Color(0xFFFFFFFF),
 
-    const dataClass = `@Immutable\ndata class ${name}Color(\n${dataClassContent}\n)`;
-    const lightTheme = `internal val lightColors = ${name}Color(\n${lightThemeContent}\n)`;
-    const darkTheme = `internal val darkColors = ${name}Color(\n${darkThemeContent}\n)\n`;
+    // Black shades
+    black100 = Color(0xff24282b),
+    black200 = Color(0xff8c959c),
+    black300 = Color(0xffbec9d1),
+    black400 = Color(0xffe4ebf0),
+    black500 = Color(0xfff2f5f7),
+    black600 = Color(0xFFF7F8FA),
 
-    return [header, dataClass, lightTheme, darkTheme].join('\n\n');
+    // Notification colors
+    notificationError = Color(0xfff31b31),
+    notificationSuccess = Color(0xFF32D74B),
+
+    // Accent colors
+    colorAccentSecondary = Color(0xffff1f78),
+    
+    /**
+     * relevant (new) color scheme
+     */`;
+
+    const lightTheme = `internal val lightColors = SMColor(\n${deprecatedColor}\n${lightThemeContent}\n)`;
+    const darkTheme = `internal val darkColors = SMColor(\n${deprecatedColor}\n${darkThemeContent}\n)\n`;
+
+    return [header, lightTheme, darkTheme].join('\n\n');
 };
 
-const getTheme = (tokenItems: TransformedToken[], theme: 'light' | 'dark') =>
+const getTheme = (tokenItems: TransformedToken[], theme: ThemeColorType) =>
     tokenItems
         .filter((tokens) => tokens.attributes?.type?.includes(theme))
         .map((token) => `    ${token.attributes?.item} = ${token.value},`)
         .join(`\n`);
 
-const getEnumValue = (token: TransformedToken) => {
-    const type = token.original.value.linearGradient ? 'Brush' : 'Color';
-
-    return `    val ${token.attributes?.item}: ${type}`;
-};
-
 export const colorKotlinCustomFormatter = ({ dictionary, file }: { dictionary: Dictionary; file: File }) => {
     const themeName = file.className || '';
-    const filterWord = 'light';
 
-    const enums = dictionary.allTokens
-        .filter((tokens) => tokens.attributes?.type?.includes(filterWord))
-        .map(getEnumValue)
-        .join(`,\n`);
+    const lightTheme = getTheme(dictionary.allTokens, ThemeColor.light);
+    const darkTheme = getTheme(dictionary.allTokens, ThemeColor.dark);
 
-    const lightTheme = getTheme(dictionary.allTokens, 'light');
-    const darkTheme = getTheme(dictionary.allTokens, 'dark');
-
-    return getKotlinTemplate(enums, lightTheme, darkTheme, themeName);
+    return getKotlinTemplate(lightTheme, darkTheme, themeName);
 };
