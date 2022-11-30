@@ -24,11 +24,11 @@ const getStops = (stops: Array<string>) => {
 
 const getGradient = ({ colors, locations, angle, start, end }: Gradient) =>
     [
-        colors ? `colors = ${getColors(colors)})` : undefined,
-        locations ? `stops = ${getStops(locations)})` : undefined,
-        angle ? `angle = ${getFloat(angle)}` : undefined,
-        start ? `start = Offset(${getFloat(start.x)}, ${getFloat(start.y)})` : undefined,
-        end ? `start = Offset(${getFloat(end.x)}, ${getFloat(end.y)})` : undefined,
+        colors ? `colors = ${getColors(colors)}),` : undefined,
+        locations ? `stops = ${getStops(locations)}),` : undefined,
+        angle ? `angle = ${getFloat(angle)},` : undefined,
+        start ? `start = Offset(${getFloat(start.x)}, ${getFloat(start.y)}),` : undefined,
+        end ? `start = Offset(${getFloat(end.x)}, ${getFloat(end.y)}),` : undefined,
     ].filter((item) => item);
 
 export const gradientKotlinTransformer = (prop: TransformedToken) => {
@@ -38,7 +38,7 @@ export const gradientKotlinTransformer = (prop: TransformedToken) => {
         return prop.value;
     }
 
-    const gradient = getGradient(linearGradient).join(',\n        ');
+    const gradient = getGradient(linearGradient).join('\n        ');
 
     return `AngledLinearGradient(
         ${gradient}

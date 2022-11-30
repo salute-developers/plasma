@@ -5,10 +5,20 @@ import { upperFirstLetter } from '../../themeBuilder/utils';
 const BASE_FONT_NAME = 'FontBase';
 const ADDITIONAL_FONT_NAME = 'FontAdditional';
 
+const fontWeightMap: Record<string, string> = {
+    '100': 'Thin',
+    '200': 'ExtraLight',
+    '300': 'Light',
+    '400': 'Normal',
+    '500': 'Medium',
+    '600': 'SemiBold',
+    '700': 'Bold',
+    '800': 'ExtraBold',
+    '900': 'Black',
+};
+
 const getKotlinTemplate = (
-    dataClassContent: string,
     typoStylesContent: string,
-    typoFuncContent: string,
     typoObjectContent: string,
     baseFontFamily: string,
     additionalFontFamily: string,
@@ -18,63 +28,90 @@ const getKotlinTemplate = (
 
     const isSameFont = baseFontFamilyName === additionalFontFamilyName;
 
-    const header = `package com.sbermarket.uikit.theme.constants
-package com.sbermarket.uikit.theme.tokens
+    const header = `package ru.sbermarket.sm_theme.theme.constants
 
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.runtime.Composable
+import ru.sbermarket.sm_theme.R
+import ru.sbermarket.sm_theme.theme.tokens.SMFontDecoration
+import ru.sbermarket.sm_theme.theme.tokens.SMTypography
 
-import com.sbermarket.uikit.R
-
-data class SMFontDecoration(
-    val Crossed: TextDecoration = TextDecoration.LineThrough
+private val defaultFontDecorations = SMFontDecoration(
+    Crossed = TextDecoration.LineThrough
 )
 
-@Composable
-private fun TextStyle.withoutFontScale(): TextStyle {
-    if (fontSize.type == TextUnitType.Unspecified) {
-        return this
-    }
-    val fontScale = LocalDensity.current.fontScale
-    return copy(fontSize = fontSize.div(fontScale), lineHeight = lineHeight.div(fontScale))
-}
-
-private val defaultFontDecorations = SMFontDecoration()
-
+// Font family SBSansDisplay
 private val ${baseFontFamilyName} = FontFamily(
-    Font(R.font.sbsansdisplay_regular, FontWeight.Normal),
+    Font(R.font.${baseFontFamilyName.toLocaleLowerCase()}_regular, FontWeight.Normal),
+    Font(R.font.${baseFontFamilyName.toLocaleLowerCase()}_semibold, FontWeight.SemiBold),
+    Font(R.font.${baseFontFamilyName.toLocaleLowerCase()}_bold, FontWeight.Bold)
 )
+
 private val ${BASE_FONT_NAME} = TextStyle(
     fontWeight = FontWeight.Normal,
     fontFamily = ${baseFontFamilyName},
-    color = defaultPalette.black100,
+    color = lightPalette.textPrimary,
 )${
         isSameFont
-            ? ''
+            ? `
+
+/**
+*  new (relevant) fonts
+*/`
             : `
 private val ${additionalFontFamilyName} = FontFamily(
-    Font(R.font.sbsanstext_regular, FontWeight.Normal),
+    Font(R.font.${additionalFontFamilyName.toLocaleLowerCase()}_regular, FontWeight.Normal),
+    Font(R.font.${additionalFontFamilyName.toLocaleLowerCase()}_semibold, FontWeight.SemiBold),
+    Font(R.font.${additionalFontFamilyName.toLocaleLowerCase()}_bold, FontWeight.Bold)
 )
+
 private val ${ADDITIONAL_FONT_NAME} = TextStyle(
     fontWeight = FontWeight.Normal,
     fontFamily = ${additionalFontFamilyName},
-    color = defaultPalette.black100,
-)`
+    color = lightPalette.textPrimary,
+)
+
+/**
+ *  new (relevant) fonts
+ */`
     }`;
 
-    const dataClass = `data class SMTypography(\n    val decoration: SMFontDecoration,\n${dataClassContent}\n)`;
-    const typoFunc = `@Composable\nfun SMTypography.withoutFontScale() = SMTypography(\n    decoration = this.decoration,\n${typoFuncContent}\n)`;
-    const typoObject = `internal val defaultTypo = SMTypography(\n    decoration = defaultFontDecorations,\n${typoObjectContent}\n)`;
+    const deprecatedTypo = `// Main Fonts
+    Title1 = h3Bold,
+    Title2 = h4Bold,
+    Body = bodyM,
+    Footnote = bodyS,
+    Caption = bodyXs,
 
-    return [header, dataClass, typoStylesContent, typoFunc, typoObject].join('\n\n');
+    // Extended fonts
+    HeadlineSemiBold = bodyLBold,
+    BodySemiBold = bodyMBold,
+    FootnoteSemiBold = bodySBold,
+    CaptionSemiBold = bodyXsBold,`;
+
+    const familyHeader = `family = ${baseFontFamilyName},
+    decoration = defaultFontDecorations,
+
+    ${deprecatedTypo}
+
+    /**
+     *  new (relevant) fonts
+     */`;
+
+    const typoObject = `internal val defaultTypo = SMTypography(\n    ${familyHeader}\n${typoObjectContent}\n)
+    
+/*
+* To create subsequent Typos and Colored Typos use .copy
+* E.g. val BodyCrossed = Body.copy(textDecoration = Decoration.Crossed)
+*
+* */`;
+
+    return [header, typoStylesContent, typoObject].join('\n');
 };
 
 const getFontFamilies = (tokenItems: TransformedToken[]): readonly [string, string] => {
@@ -88,11 +125,9 @@ const getFontFamilies = (tokenItems: TransformedToken[]): readonly [string, stri
     ];
 };
 
-const getDataClass = (tokenItems: TransformedToken[]) =>
-    tokenItems.map((token) => `    val ${token.name}: TextStyle`).join(`,\n`);
-
 const getTokenValue = (token: TransformedToken, baseFontFamily: string, additionalFontFamily: string) => {
     const { name, value } = token;
+    const defaultFontSize = 16;
     const isSameFont = baseFontFamily === additionalFontFamily;
 
     const typoMap: Record<string, string> = {
@@ -102,26 +137,30 @@ const getTokenValue = (token: TransformedToken, baseFontFamily: string, addition
 
     const fontFamily = isSameFont ? BASE_FONT_NAME : typoMap[value['font-family']];
 
-    const fontSize = value['font-size'].replace(/r?em/gi, '.em');
-    const lineHeight = value['line-height'].replace(/r?em/gi, '.em');
-    const fontWeight = `FontWeight.W${value['font-weight']}`;
-    const letterSpacing = value['letter-spacing'].replace(/r?em/gi, '.em');
+    const fontSize = Number(value['font-size'].replace(/r?em/gi, '')) * defaultFontSize + '.sp';
+    const lineHeight = Number(value['line-height'].replace(/r?em/gi, '')) * defaultFontSize + '.sp';
+    const fontWeight = `FontWeight.${fontWeightMap[value['font-weight']]}`;
     const fontStyle = `FontStyle.${upperFirstLetter(value['font-style'])}`;
+    const letterSpacing =
+        value['letter-spacing'] === 'normal'
+            ? 'normal'
+            : Number(value['letter-spacing'].replace(/r?em/gi, '')) * defaultFontSize + '.sp';
 
     return `private val ${name} = ${fontFamily}.copy(
     fontSize = ${fontSize},
     lineHeight = ${lineHeight},
-    letterSpacing = ${letterSpacing},
     fontWeight = ${fontWeight},
     fontStyle = ${fontStyle},
-)`;
+${
+    letterSpacing === 'normal'
+        ? ')\n'
+        : `    letterSpacing = ${letterSpacing},
+)\n`
+}`;
 };
 
 const getTypoStyles = (tokenItems: TransformedToken[], baseFontFamily: string, additionalFontFamily: string) =>
     tokenItems.map((item) => getTokenValue(item, baseFontFamily, additionalFontFamily)).join(`\n`);
-
-const getTypoFunc = (tokenItems: TransformedToken[]) =>
-    tokenItems.map((token) => `    ${token.name} = this.${token.name}.withoutFontScale()`).join(`,\n`);
 
 const getTypoObject = (tokenItems: TransformedToken[]) =>
     tokenItems.map((token) => `    ${token.name} = ${token.name}`).join(`,\n`);
@@ -129,10 +168,8 @@ const getTypoObject = (tokenItems: TransformedToken[]) =>
 export const typoKotlinCustomFormatter = ({ dictionary }: { dictionary: Dictionary }) => {
     const [baseFontFamily, additionalFontFamily] = getFontFamilies(dictionary.allTokens);
 
-    const dataClass = getDataClass(dictionary.allTokens);
     const typoStyles = getTypoStyles(dictionary.allTokens, baseFontFamily, additionalFontFamily);
-    const typoFunc = getTypoFunc(dictionary.allTokens);
     const typoObject = getTypoObject(dictionary.allTokens);
 
-    return getKotlinTemplate(dataClass, typoStyles, typoFunc, typoObject, baseFontFamily, additionalFontFamily);
+    return getKotlinTemplate(typoStyles, typoObject, baseFontFamily, additionalFontFamily);
 };
