@@ -1,0 +1,8 @@
+{
+    "short_name": "Plasma Theme Builder",
+    "name": "Plasma Theme Builder",
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+}

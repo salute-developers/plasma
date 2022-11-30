@@ -1,0 +1,45 @@
+{
+    "name": "@salutejs/plasma-theme-builder",
+    "version": "1.0.0",
+    "description": "Plasma Theme Builder.",
+    "author": "Salute Frontend Team <salute.developers@gmail.com>",
+    "private": true,
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "@salutejs/plasma-b2c": "1.116.2",
+        "@salutejs/plasma-icons": "1.110.2",
+        "@salutejs/plasma-tokens-b2b": "1.4.1",
+        "@salutejs/plasma-tokens-b2c": "0.13.1",
+        "@salutejs/plasma-typo": "0.28.1",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-scripts": "4.0.0",
+        "styled-components": "^5.3.3"
+    },
+    "homepage": ".",
+    "eslintConfig": {
+        "extends": ["react-app"],
+        "rules": {
+            "@typescript-eslint/no-redeclare": "off",
+            "no-redeclare": "off"
+        }
+    },
+    "devDependencies": {
+        "@types/react": "^17.0.11",
+        "@types/react-dom": "^17.0.11",
+        "@types/styled-components": "^5.1.26",
+        "react-error-overlay": "6.0.9",
+        "typescript": "3.9.10"
+    },
+    "overrides": {
+        "react-error-overlay": "6.0.9"
+    },
+    "browserslist": {
+        "production": [">0.2%", "not dead", "not op_mini all"],
+        "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+    }
+}
