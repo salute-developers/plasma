@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'SB Sans Text Mono';
+    src: url('./assets/fonts/SBSansTextMono-Regular.woff2') format('woff2'),
+         url('./assets/fonts/SBSansTextMono-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SB Sans Text Mono';
+    src: url('./assets/fonts/SBSansTextMono-Bold.woff2') format('woff2'),
+         url('./assets/fonts/SBSansTextMono-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
