@@ -1,3 +1,15 @@
+# v1.83.2 (Thu Dec 01 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-core): centering content [#253](https://github.com/salute-developers/plasma/pull/253) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.83.0 (Thu Nov 24 2022)
 
 #### 🐛 Bug Fix

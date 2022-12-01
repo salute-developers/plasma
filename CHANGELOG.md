@@ -1,3 +1,21 @@
+# (Thu Dec 01 2022)
+
+#### 🐛 Bug Fix
+
+- chore(plasma-b2c): [cypress] update snapshots [#253](https://github.com/salute-developers/plasma/pull/253) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-web): [cypress] update snapshots [#253](https://github.com/salute-developers/plasma/pull/253) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): [cypress] update snapshots [#253](https://github.com/salute-developers/plasma/pull/253) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-temple@1.114.5`
+  - fix(plasma-temple): skip tests for Cart [#251](https://github.com/salute-developers/plasma/pull/251) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-core@1.83.2`
+  - fix(plasma-core): centering content [#253](https://github.com/salute-developers/plasma/pull/253) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Wed Nov 30 2022)
 
 #### 🐛 Bug Fix

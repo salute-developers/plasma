@@ -1,3 +1,15 @@
+# v1.114.5 (Thu Dec 01 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-temple): skip tests for Cart [#251](https://github.com/salute-developers/plasma/pull/251) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.114.4 (Wed Nov 30 2022)
 
 #### 🐛 Bug Fix
