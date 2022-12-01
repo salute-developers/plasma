@@ -1,14 +1,70 @@
 import type { Dictionary, File, TransformedToken } from 'style-dictionary';
 
 import { upperFirstLetter } from '../../themeBuilder/utils';
+import { ThemeColor, ThemeColorType } from '../types';
 
-const getReactNativeTemplate = (lightThemeContent: string, darkThemeContent: string, name: string) => {
-    const themeName = upperFirstLetter(name);
+const getExportColorThemes = (theme: string) => `const ${theme}ColorsMapping = {
+  ...${theme}PlainColors,
+  ...${theme}Gradients,
+}
 
-    const lightTheme = `export const ${themeName}LightColors = {\n${lightThemeContent}\n} as const`;
-    const darkTheme = `export const ${themeName}DarkColors = {\n${darkThemeContent}\n} as const`;
+type ${theme}PlainColorsMap = {
+  [name in Exclude<keyof typeof ${theme}ColorsMapping, GradientKey>]: string
+}
 
-    return [lightTheme, darkTheme].join('\n\n');
+export const ${theme}Colors: ${theme}PlainColorsMap & GradientsMap = ${theme}ColorsMapping`;
+
+const getReactNativeTemplate = (
+    gradientKeysContent: string,
+    lightGradientContent: string,
+    darkGradientContent: string,
+    lightThemeContent: string,
+    darkThemeContent: string,
+) => {
+    const header = `import type * as ReactNative from 'react-native'
+import {DeprecatedColors} from './DeprecatedColors'
+import {CustomColors} from './CustomColors'
+
+// скопировано из react-native-linear-gradient чтобы вынести в shared тему
+interface LinearGradientProps extends ReactNative.ViewProps {
+  colors: (string | number)[]
+  start?: {x: number; y: number}
+  end?: {x: number; y: number}
+  locations?: number[]
+  useAngle?: boolean
+  angleCenter?: {x: number; y: number}
+  angle?: number
+}`;
+
+    const gradientKeys = `type GradientKey = 
+  ${gradientKeysContent}
+
+type GradientsMap = Record<GradientKey, LinearGradientProps>`;
+
+    const lightGradient = `/**
+ * relevant (new) color scheme
+ */
+export const LightGradients: GradientsMap = {\n${lightGradientContent}\n}`;
+    const darkGradient = `/**
+ * relevant (new) color scheme
+ */    
+export const DarkGradients: GradientsMap = {\n${darkGradientContent}\n}`;
+
+    const externalColors = `  ...DeprecatedColors,
+  ...CustomColors,
+  /**
+   * relevant (new) color scheme
+   */`;
+
+    const lightTheme = `export const LightPlainColors = {\n${externalColors}\n${lightThemeContent}\n}`;
+    const darkTheme = `export const DarkPlainColors = {\n${externalColors}\n${darkThemeContent}\n}`;
+
+    const lightExport = getExportColorThemes(upperFirstLetter(ThemeColor.light));
+    const darkExport = getExportColorThemes(upperFirstLetter(ThemeColor.dark));
+
+    return [header, gradientKeys, lightGradient, darkGradient, lightTheme, darkTheme, lightExport, darkExport].join(
+        '\n\n',
+    );
 };
 
 const getTokenValue = (token: TransformedToken) => {
@@ -16,20 +72,38 @@ const getTokenValue = (token: TransformedToken) => {
         ? `${token.value.replace(/@@@/g, '{').replace(/!!!/g, '}')}`
         : `'${token.value}'`;
 
-    return `    ${token.attributes?.item}: ${value}`;
+    return `  ${token.attributes?.item}: ${value},`;
 };
 
-const getTheme = (tokenItems: TransformedToken[], theme: 'light' | 'dark') =>
+const isGradientToken = (token: TransformedToken, theme: string) =>
+    token.attributes?.type?.includes(theme) && token.original.value.linearGradient;
+
+const getGradientKeys = (tokenItems: TransformedToken[]) =>
     tokenItems
-        .filter((tokens) => tokens.attributes?.type?.includes(theme))
+        .filter((token) => isGradientToken(token, ThemeColor.light))
+        .map((token) => `| '${token.attributes?.item}'`)
+        .join('\n  ');
+
+const getGradientTokens = (tokenItems: TransformedToken[], theme: ThemeColorType) =>
+    tokenItems
+        .filter((token) => isGradientToken(token, theme))
         .map(getTokenValue)
-        .join(`,\n`);
+        .join(`\n`);
 
-export const colorReactNativeCustomFormatter = ({ dictionary, file }: { dictionary: Dictionary; file: File }) => {
-    const themeName = file.className || '';
+const getTheme = (tokenItems: TransformedToken[], theme: ThemeColorType) =>
+    tokenItems
+        .filter((token) => token.attributes?.type?.includes(theme) && !token.original.value.linearGradient)
+        .map(getTokenValue)
+        .join(`\n`);
 
-    const lightTheme = getTheme(dictionary.allTokens, 'light');
-    const darkTheme = getTheme(dictionary.allTokens, 'dark');
+export const colorReactNativeCustomFormatter = ({ dictionary }: { dictionary: Dictionary }) => {
+    const gradientKeys = getGradientKeys(dictionary.allTokens);
 
-    return getReactNativeTemplate(lightTheme, darkTheme, themeName);
+    const lightGradientTokens = getGradientTokens(dictionary.allTokens, ThemeColor.light);
+    const darkGradientTokens = getGradientTokens(dictionary.allTokens, ThemeColor.dark);
+
+    const lightTheme = getTheme(dictionary.allTokens, ThemeColor.light);
+    const darkTheme = getTheme(dictionary.allTokens, ThemeColor.dark);
+
+    return getReactNativeTemplate(gradientKeys, lightGradientTokens, darkGradientTokens, lightTheme, darkTheme);
 };

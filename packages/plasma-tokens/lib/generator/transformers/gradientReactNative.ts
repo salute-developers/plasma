@@ -7,22 +7,22 @@ interface Gradient extends GradientBase {
 }
 
 const getGradient = (
-    { colors, locations, useAngle, angle, start, end, angleCenter }: Gradient,
+    { colors, locations, angle, start, useAngle, end, angleCenter }: Gradient,
     [openingBracket, closingBracket]: [string, string],
 ) => {
     const getPoint = (key: string, point?: Point) => `${key}: ${openingBracket}
-            x: ${point?.x},
-            y: ${point?.y},
-        ${closingBracket}`;
+      x: ${point?.x},
+      y: ${point?.y},
+    ${closingBracket},`;
 
     return [
-        colors ? `colors: [${colors.map((item: string) => `'${item}'`).join(', ')}]` : undefined,
+        colors ? `colors: [${colors.map((item: string) => `'${item}'`).join(', ')}],` : undefined,
         start ? getPoint('start', start) : undefined,
         end ? getPoint('end', end) : undefined,
-        locations ? `locations: [${locations?.join(', ')}]` : undefined,
-        useAngle ? `useAngle: ${useAngle}` : undefined,
+        locations ? `locations: [${locations?.join(', ')}],` : undefined,
         angleCenter ? getPoint('angleCenter', angleCenter) : undefined,
-        angle ? `angle: ${angle}` : undefined,
+        angle ? `angle: ${angle},` : undefined,
+        angle || useAngle === true || useAngle === false ? `useAngle: ${useAngle || Boolean(angle)},` : undefined,
     ].filter((item) => item);
 };
 
@@ -35,9 +35,9 @@ export const gradientReactNativeTransformer = (prop: TransformedToken) => {
 
     const [openingBracket, closingBracket] = ['@@@', '!!!'];
 
-    const gradient = getGradient(linearGradient, [openingBracket, closingBracket]).join(',\n        ');
+    const gradient = getGradient(linearGradient, [openingBracket, closingBracket]).join('\n    ');
 
     return `${openingBracket}
-        ${gradient}
-    ${closingBracket}`;
+    ${gradient}
+  ${closingBracket}`;
 };

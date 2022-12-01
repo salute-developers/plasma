@@ -2,61 +2,181 @@ import type { Dictionary, TransformedToken } from 'style-dictionary';
 
 import { upperFirstLetter } from '../../themeBuilder/utils';
 
-const BASE_FONT_NAME = 'baseRegular';
-const ADDITIONAL_FONT_NAME = 'additionalRegular';
+const BASE_FONT_NAME = 'base';
+const ADDITIONAL_FONT_NAME = 'additional';
+
+const fontWeightMap: Record<string, string> = {
+    '100': 'thin',
+    '200': 'ultraLight',
+    '300': 'light',
+    '400': 'regular',
+    '500': 'medium',
+    '600': 'semiBold',
+    '700': 'bold',
+    '800': 'heavy',
+    '900': 'black',
+};
+
+const getFontWeightStyles = (fontType: string, fontName: string) => `/**
+ * do not use directly
+ * use fonts from "relevant" section
+ */
+const ${fontType}Regular = styled(coloredText)({
+  fontFamily: '${fontName}-Regular',
+})
+
+/**
+ * do not use directly
+ * use fonts from "relevant" section
+ */
+const ${fontType}SemiBold = styled(coloredText)({
+  fontFamily: '${fontName}-SemiBold',
+})
+
+/**
+ * do not use directly
+ * use fonts from "relevant" section
+ */
+const ${fontType}Bold = styled(coloredText)({fontFamily: '${fontName}-Bold'})
+
+/**
+ * do not use directly
+ * use fonts from "relevant" section
+ */
+const ${fontType}BoldUppercase = styled(${fontType}Bold)(upperCaseStyle)`;
+
+const getFontWeightImports = (fontType: string) => `/**
+   * @deprecated
+   * use fonts from "relevant" section
+   */
+  ${fontType}Regular,
+  /**
+   * @deprecated
+   * use fonts from "relevant" section
+   */
+  ${fontType}SemiBold,
+  /**
+   * @deprecated
+   * use fonts from "relevant" section
+   */
+  ${fontType}Bold,
+  /**
+   * @deprecated
+   * use fonts from "relevant" section
+   */
+  ${fontType}BoldUppercase,`;
 
 const getReactNativeTemplate = (
-    constTypoStyles: string,
+    constTypoStylesContent: string,
     exportTypoStylesContent: string,
     baseFontFamily: string,
     additionalFontFamily: string,
 ) => {
+    const baseFontFamilyName = baseFontFamily.replace(/ /g, '');
+    const additionalFontFamilyName = additionalFontFamily.replace(/ /g, '');
+
     const isSameFont = baseFontFamily === additionalFontFamily;
 
     const header = `/* eslint-disable @typescript-eslint/no-magic-numbers */
-import type { TextStyle } from "react-native";
-import styled from "styled-components/native";
+import styled from 'styled-components/native'
+import {coloredText} from './typographyUtils'
 
-export interface ColoredTextProps {
-  color?: string;
-  textAlign?: TextStyle["textAlign"];
-  flexShrink?: number;
-}
-
-//to remove warn from styled components
+// to remove warn from styled components
 const addPx = (value?: number) =>
-  (value ?? null) !== null ? \`\${value}px\` : undefined;
+  (value ?? null) !== null ? \`\${value}px\` : undefined
 
-const upperCaseStyle = { textTransform: "uppercase" } as const;
+const upperCaseStyle = {textTransform: 'uppercase'} as const
 
-const ${BASE_FONT_NAME} = styled({ fontFamily: "${baseFontFamily}" });
-const ${BASE_FONT_NAME}Uppercase = styled(${BASE_FONT_NAME})(upperCaseStyle);
-${
-    isSameFont
-        ? ''
-        : `
-const ${ADDITIONAL_FONT_NAME} = styled({ fontFamily: "${additionalFontFamily}" });
-const ${ADDITIONAL_FONT_NAME}Uppercase = styled(${ADDITIONAL_FONT_NAME})(upperCaseStyle);
-`
-}
-export const createFontStyle = (
-  fontSize: number,
-  lineHeight: number,
-  fontWeight: number,
-  letterSpacing: string,
-  fontStyle: string,
-) => ({
+${getFontWeightStyles(BASE_FONT_NAME, baseFontFamilyName)}
+${isSameFont ? '' : `\n${getFontWeightStyles(ADDITIONAL_FONT_NAME, additionalFontFamilyName)}\n`}
+/**
+ * @deprecated
+ * do not use directly
+ * use fonts from "relevant" section
+ */
+export const createFontStyle = (fontSize: number, lineHeight: number) => ({
   fontSize: addPx(fontSize),
   lineHeight: addPx(lineHeight),
-  fontWeight,
-  letterSpacing,
+})
+
+const createNewFontStyle = (
+  fontSize: number,
+  lineHeight: number,
+  letterSpacing?: number,
+  fontStyle: 'normal' | 'italic' = 'normal',
+) => ({
+  ...createFontStyle(fontSize, lineHeight),
+  letterSpacing: addPx(letterSpacing),
   fontStyle,
-});
+})
 `;
-    const defaultTypoComponents = `\n  ${BASE_FONT_NAME},\n  ${BASE_FONT_NAME}Uppercase,${
-        isSameFont ? '' : `\n  ${ADDITIONAL_FONT_NAME},\n  ${ADDITIONAL_FONT_NAME}Uppercase,`
+
+    const defaultTypoComponents = `\n  ${getFontWeightImports(BASE_FONT_NAME)}${
+        isSameFont ? '' : `\n  ${getFontWeightImports(ADDITIONAL_FONT_NAME)}`
     }`;
-    const exportTypoStyles = `\nexport const Typography = {${defaultTypoComponents}\n  ${exportTypoStylesContent}\n};`;
+
+    const deprecatedTypo = `  /**
+   * @deprecated
+   * use H3Bold
+   */
+  Title1: H3Bold,
+  /**
+   * @deprecated
+   * use H4Bold
+   */
+  Title2: H4Bold,
+  /**
+   * @deprecated
+   * use BodyL
+   */
+  Headline: BodyL,
+  /**
+   * @deprecated
+   * use BodyLBold
+   */
+  HeadlineSemibold: BodyLBold,
+  /**
+   * @deprecated
+   * use BodyM
+   */
+  Body: BodyM,
+  /**
+   * @deprecated
+   * use BodyMBold
+   */
+  BodySemibold: BodyMBold,
+  /**
+   * @deprecated
+   * use BodyS
+   */
+  Footnote: BodyS,
+  /**
+   * @deprecated
+   * use BodySBold
+   */
+  FootnoteSemibold: BodySBold,
+  /**
+   * @deprecated
+   * use BodyXs
+   */
+  Caption: BodyXs,
+  /**
+   * @deprecated
+   * use H5Bold
+   */
+  BodyBold: H5Bold,
+
+  /**
+   * new (relevant) fonts
+   */
+`;
+
+    const exportTypoStyles = `\nexport const Typography = {${defaultTypoComponents}\n${deprecatedTypo}  ${exportTypoStylesContent}\n}\n`;
+
+    const constTypoStyles = `/**
+   new (relevant) fonts
+ */
+${constTypoStylesContent}`;
 
     return [header, constTypoStyles, exportTypoStyles].join('\n');
 };
@@ -82,28 +202,34 @@ const getTokenValue = (token: TransformedToken, baseFontFamily: string, addition
         [additionalFontFamily]: ADDITIONAL_FONT_NAME,
     };
 
-    const fontFamily = isSameFont ? BASE_FONT_NAME : typoMap[value['font-family']];
-
     const fontSize = Number(value['font-size'].replace(/rem/gi, '') * defaultFontSize);
     const lineHeight = Number(value['line-height'].replace(/rem/gi, '') * defaultFontSize);
-    const fontWeight = value['font-weight'];
-    const letterSpacing = `'${value['letter-spacing']}'`;
-    const fontStyle = `'${value['font-style']}'`;
+    const letterSpacing =
+        value['letter-spacing'] === 'normal'
+            ? undefined
+            : Number(value['letter-spacing'].replace(/r?em/gi, '') * defaultFontSize);
+    const fontStyle = value['font-style'] === 'normal' ? undefined : value['font-style'];
+    const family = isSameFont ? BASE_FONT_NAME : typoMap[value['font-family']];
+    const fontFamily = family + upperFirstLetter(fontWeightMap[value['font-weight']]);
 
-    return `const ${upperFirstLetter(name)} = styled(${fontFamily})(createFontStyle(${[
-        fontSize,
-        lineHeight,
-        fontWeight,
-        letterSpacing,
-        fontStyle,
-    ].join(', ')}));`;
+    const styles = [fontSize, lineHeight];
+
+    if (letterSpacing) {
+        styles.push(letterSpacing);
+    }
+
+    if (fontStyle) {
+        styles.push(fontStyle);
+    }
+
+    return `const ${upperFirstLetter(name)} = styled(${fontFamily})(createNewFontStyle(${styles.join(', ')}))`;
 };
 
 const getConstTypoStyles = (tokenItems: TransformedToken[], baseFontFamily: string, additionalFontFamily: string) =>
     tokenItems.map((item) => getTokenValue(item, baseFontFamily, additionalFontFamily)).join(`\n`);
 
 const getExportTypoStyles = (tokenItems: TransformedToken[]) =>
-    tokenItems.map((item) => upperFirstLetter(item.name)).join(`,\n  `);
+    tokenItems.map((item) => `${upperFirstLetter(item.name)},`).join(`\n  `);
 
 export const typoReactNativeCustomFormatter = ({ dictionary }: { dictionary: Dictionary }) => {
     const [baseFontFamily, additionalFontFamily] = getFontFamilies(dictionary.allTokens);
