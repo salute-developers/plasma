@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/showcase",
-    "version": "0.182.4",
+    "version": "0.182.5",
     "description": "Salute Design System Showcase",
     "files": [],
     "repository": {
@@ -22,7 +22,7 @@
         "@salutejs/plasma-tokens-b2c": "0.13.1",
         "@salutejs/plasma-tokens-web": "1.19.1",
         "@salutejs/plasma-typo": "0.28.1",
-        "@salutejs/plasma-ui": "1.147.4",
+        "@salutejs/plasma-ui": "1.147.5",
         "@salutejs/plasma-web": "1.144.2",
         "@storybook/addon-essentials": "6.3.4",
         "@storybook/addon-knobs": "6.3.0",

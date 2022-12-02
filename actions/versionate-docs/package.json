@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/versionate-docs",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "description": "Versionate documentation action",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "main": "lib/index.js",
