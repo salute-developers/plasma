@@ -1,3 +1,19 @@
+# (Fri Dec 02 2022)
+
+#### 🐛 Bug Fix
+
+- chore(plasma-ui): [cypress] update snapshots [#245](https://github.com/salute-developers/plasma/pull/245) ([@Yakutoc](https://github.com/Yakutoc))
+- docs(plasma-ui, plasma-web, plasma-temple): change links for new site [#238](https://github.com/salute-developers/plasma/pull/238) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-ui@1.147.5`
+  - fix(plasma-ui): hide controls when disabled/isSingleItem [#245](https://github.com/salute-developers/plasma/pull/245) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Thu Dec 01 2022)
 
 #### 🐛 Bug Fix

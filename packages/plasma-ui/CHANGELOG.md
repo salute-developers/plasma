@@ -1,3 +1,17 @@
+# v1.147.5 (Fri Dec 02 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): hide controls when disabled/isSingleItem [#245](https://github.com/salute-developers/plasma/pull/245) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.147.3 (Wed Nov 30 2022)
 
 #### 🐛 Bug Fix
