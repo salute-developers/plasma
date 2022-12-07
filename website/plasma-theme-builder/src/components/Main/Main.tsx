@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import { Button, DsplM, Link } from '@salutejs/plasma-b2c';
 import { accent } from '@salutejs/plasma-tokens-b2c';
 
-import type { PageProps } from '../types';
-
 const StyledMain = styled.div``;
 
 const Display = styled(DsplM)``;
@@ -25,7 +23,11 @@ const StyledButton = styled(Button)`
     margin-left: auto;
 `;
 
-export const Main = ({ onClick }: PageProps) => {
+interface MainProps {
+    onClick: () => void;
+}
+
+export const Main = ({ onClick }: MainProps) => {
     return (
         <StyledMain>
             <Display>

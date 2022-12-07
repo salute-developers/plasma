@@ -4,8 +4,8 @@ import { H4 } from '@salutejs/plasma-b2c';
 import { tertiary } from '@salutejs/plasma-tokens-b2c';
 
 import { SBSansTextMono } from '../mixins';
-import type { TokenValueProps } from '../types';
 import { TokensSubsection } from '../TokensSubsection/TokensSubsection';
+import type { TokenValue } from '../types';
 
 const StyledTokensSection = styled.div`
     ${SBSansTextMono};
@@ -24,7 +24,7 @@ const TokensSectionName = styled(H4)`
 
 interface TokensSectionProps {
     name: string;
-    items: Record<string, Record<string, TokenValueProps>>;
+    items: Record<string, Record<string, TokenValue>>;
 }
 
 export const TokensSection = ({ name, items }: TokensSectionProps) => {
@@ -41,7 +41,7 @@ export const TokensSection = ({ name, items }: TokensSectionProps) => {
             </TokensSectionName>
             {visible &&
                 tokens.map(([tokenName, tokenItems], index) => (
-                    <TokensSubsection key={`${index}_${tokenName}`} name={name} items={tokenItems} />
+                    <TokensSubsection key={`${index}_${tokenName}`} name={tokenName} items={tokenItems} />
                 ))}
         </StyledTokensSection>
     );
