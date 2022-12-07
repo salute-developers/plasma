@@ -1,10 +1,12 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { Button, Select, Switch, TextField } from '@salutejs/plasma-b2c';
+import { general as generalColors, PlasmaSaturation } from '@salutejs/plasma-colors';
 
-import { accentColors, saturations, shade } from '../../assets/mocks';
-import type { PageProps } from '../types';
 import { FormField } from '../FormField/FormField';
+import { createTheme } from '../../builder/createTheme';
+import { GeneralColor, Grayscale, ThemeData } from '../types';
+import type { Theme as ThemeType } from '../../builder/types';
 
 const Form = styled.form``;
 
@@ -30,14 +32,53 @@ const StyledButton = styled(Button)`
     margin-left: auto;
 `;
 
-export const Generator = ({ onClick }: PageProps) => {
-    const [state, setState] = useState({
+const PreviewRect = styled.div<{ background: string }>`
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    background-color: ${({ background }) => background};
+`;
+
+const getAccentColors = () =>
+    Object.entries(generalColors).map(([name, item]) => ({
+        value: name as GeneralColor,
+        label: name,
+        contentLeft: <PreviewRect background={item['500']} />,
+    }));
+
+const getSaturations = (accentColors: GeneralColor = 'red') =>
+    Object.keys(generalColors.amber).map((name: any) => ({
+        value: name,
+        label: name,
+        contentLeft: <PreviewRect background={generalColors[accentColors][name as PlasmaSaturation]} />,
+    }));
+
+export const getGrayscale = (): Array<{
+    value: Grayscale;
+    label: string;
+}> => [
+    {
+        value: 'gray',
+        label: 'gray',
+    },
+    {
+        value: 'coolGray',
+        label: 'coolGray',
+    },
+];
+interface GeneratorProps {
+    onGenerate: (data: ThemeType) => void;
+}
+
+export const Generator = ({ onGenerate }: GeneratorProps) => {
+    const [inputState, setInputState] = useState<'error' | undefined>();
+    const [data, setData] = useState<ThemeData>({
         themeName: '',
-        accentColors: accentColors[0].value,
-        lightSaturations: saturations[0].value,
-        darkSaturations: saturations[0].value,
-        lightGrayscale: shade[0].value,
-        darkGrayscale: shade[0].value,
+        accentColors: getAccentColors()[0].value,
+        lightSaturations: getSaturations()[0].value,
+        darkSaturations: getSaturations()[0].value,
+        lightGrayscale: getGrayscale()[0].value,
+        darkGrayscale: getGrayscale()[0].value,
         opacityIcons: false,
         opacitySurfaces: false,
     });
@@ -46,17 +87,19 @@ export const Generator = ({ onClick }: PageProps) => {
         (name: string) => (arg: any) => {
             const value = arg.target.value;
 
-            setState((prevState) => ({
+            setData((prevState) => ({
                 ...prevState,
                 [name]: value,
             }));
+
+            setInputState(undefined);
         },
         [],
     );
 
     const onChangeSelect = useCallback(
         (name: string) => (arg: any) => {
-            setState((prevState) => ({
+            setData((prevState) => ({
                 ...prevState,
                 [name]: arg,
             }));
@@ -68,7 +111,7 @@ export const Generator = ({ onClick }: PageProps) => {
         (name: string) => (arg: any) => {
             const value = arg.target.checked;
 
-            setState((prevState) => ({
+            setData((prevState) => ({
                 ...prevState,
                 [name]: value,
             }));
@@ -80,55 +123,102 @@ export const Generator = ({ onClick }: PageProps) => {
         event.preventDefault();
     }, []);
 
+    const onGenerateTheme = useCallback(() => {
+        const {
+            themeName,
+            accentColors,
+            lightSaturations,
+            darkSaturations,
+            lightGrayscale,
+            darkGrayscale,
+            opacityIcons,
+            opacitySurfaces,
+        } = data;
+
+        if (!RegExp(/^[\w\d]{3,}$/).test(themeName)) {
+            setInputState('error');
+            return;
+        }
+
+        const theme = createTheme({
+            name: themeName,
+            accentColor: {
+                light: generalColors[accentColors][lightSaturations],
+                dark: generalColors[accentColors][darkSaturations],
+            },
+            grayscale: {
+                light: lightGrayscale,
+                dark: darkGrayscale,
+            },
+            opacity: {
+                textIcons: opacityIcons,
+                surfaces: opacitySurfaces,
+            },
+        });
+
+        onGenerate(theme);
+    }, [onGenerate, data]);
+
+    const accentColors = useMemo(() => getAccentColors(), []);
+
+    const saturations = useMemo(() => getSaturations(data.accentColors), [data.accentColors]);
+
+    const grayscale = useMemo(() => getGrayscale(), []);
+
     return (
         <StyledGenerator>
             <Description>Выберите базовые настройки в соответствии с макетом для генерации цветовой схемы.</Description>
             <Form onSubmit={onSubmit}>
                 <FormField label="Наименование темы">
-                    <StyledTextField value={state.themeName} onChange={onChangeTextField('themeName')} />
+                    <StyledTextField
+                        value={data.themeName}
+                        helperText="Латинские буквы и/или цифры без пробелов, минимум 3 символа"
+                        status={inputState}
+                        onChange={onChangeTextField('themeName')}
+                    />
                 </FormField>
                 <FormField label="Акцентный цвет из основной палитры">
                     <StyledSelect
-                        value={state.accentColors}
+                        value={data.accentColors}
                         items={accentColors}
                         onChange={onChangeSelect('accentColors')}
                     />
                 </FormField>
                 <FormField label="Светлость акцентного цвета для светлой темы">
                     <StyledSelect
-                        value={state.lightSaturations}
+                        value={data.lightSaturations}
                         items={saturations}
                         onChange={onChangeSelect('lightSaturations')}
                     />
                 </FormField>
                 <FormField label="Светлость акцентного цвета для темной темы">
                     <StyledSelect
-                        value={state.darkSaturations}
+                        value={data.darkSaturations}
                         items={saturations}
                         onChange={onChangeSelect('darkSaturations')}
                     />
                 </FormField>
                 <FormField label="Оттенок серого для светлой темы">
                     <StyledSelect
-                        value={state.lightGrayscale}
-                        items={shade}
+                        value={data.lightGrayscale}
+                        items={grayscale}
                         onChange={onChangeSelect('lightGrayscale')}
                     />
                 </FormField>
                 <FormField label="Оттенок серого для темной темы">
                     <StyledSelect
-                        value={state.darkGrayscale}
-                        items={shade}
+                        value={data.darkGrayscale}
+                        items={grayscale}
                         onChange={onChangeSelect('darkGrayscale')}
                     />
                 </FormField>
                 <FormField label="Текст и иконки с прозрачностью">
-                    <Switch checked={state.opacityIcons} onChange={onChangeSwitch('opacityIcons')} />
+                    <Switch checked={data.opacityIcons} onChange={onChangeSwitch('opacityIcons')} />
                 </FormField>
                 <FormField label="Поверхности с прозрачностью">
-                    <Switch checked={state.opacitySurfaces} onChange={onChangeSwitch('opacitySurfaces')} />
+                    <Switch checked={data.opacitySurfaces} onChange={onChangeSwitch('opacitySurfaces')} />
                 </FormField>
-                <StyledButton type="button" text="Сгенеририовать тему" view="primary" onClick={onClick} />
+                <StyledButton type="button" text="Сгенеририовать тему" view="primary" onClick={onGenerateTheme} />
             </Form>
         </StyledGenerator>
     );

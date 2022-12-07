@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { TextM, Tooltip } from '@salutejs/plasma-b2c';
 
-import type { TokenValueProps } from '../types';
 import { getHEXA, getRGBA } from '../utils';
+import type { TokenValue } from '../types';
 
 const StyledToken = styled(TextM)<{ enabled?: boolean }>`
     font-family: inherit;
@@ -59,28 +59,32 @@ const TokenRGBAValue = styled.div`
 const hasOrigin = (values: string | Record<string, any>): values is Record<string, any> =>
     typeof values === 'object' && 'origin' in values;
 
+const isGradient = (value: string) => value.includes('gradient');
+
 interface TokenProps {
     name: string;
-    value: TokenValueProps;
+    data: TokenValue;
 }
 
-export const Token = ({ name, value }: TokenProps) => {
+export const Token = ({ name, data }: TokenProps) => {
+    const { value, comment, enabled } = data;
+
     const [visible, setVisible] = useState(false);
 
-    const newValue = hasOrigin(value.value) ? '#FFFFFFFF' : value.value;
+    const newValue = (!hasOrigin(value) && isGradient(value)) || hasOrigin(value) ? '#FFFFFFFF' : value;
 
     const onMouseEnter = () => setVisible(true);
 
     const onMouseLeave = () => setVisible(false);
 
     return (
-        <StyledToken enabled={value.enabled}>
-            <Tooltip placement="top-start" isVisible={visible} arrow text={value.comment} animated>
-                <TokenName disable={!value.enabled} onMouseLeave={onMouseLeave} onMouseEnter={onMouseEnter}>
+        <StyledToken enabled={enabled}>
+            <Tooltip placement="top-start" isVisible={Boolean(comment) && visible} arrow text={comment || ''} animated>
+                <TokenName disable={!enabled} onMouseLeave={onMouseLeave} onMouseEnter={onMouseEnter}>
                     {name}
                 </TokenName>
             </Tooltip>
-            <TokenColorPreview value={hasOrigin(value.value) ? value.value.origin : value.value} />
+            <TokenColorPreview value={hasOrigin(value) ? value.origin : value} />
             <TokenHEXAValue>{getHEXA(newValue)}</TokenHEXAValue>
             <TokenRGBAValue>{getRGBA(newValue)}</TokenRGBAValue>
         </StyledToken>

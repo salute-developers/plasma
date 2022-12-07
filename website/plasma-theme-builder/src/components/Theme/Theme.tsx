@@ -2,13 +2,13 @@ import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { Button, H4 } from '@salutejs/plasma-b2c';
 
-import { theme } from '../../assets/mocks';
-import type { ThemeType } from '../types';
 import { ThemeInfo } from '../ThemeInfo/ThemeInfo';
-import { ThemeTypeToggle } from '../ThemeTypeToggle/ThemeTypeToggle';
+import { ThemeModeToggle } from '../ThemeModeToggle/ThemeModeToggle';
 import { TokensSection } from '../TokensSection/TokensSection';
+import type { ThemeMode } from '../types';
+import type { Theme as ThemeType } from '../../builder/types';
 
-const StyledEditTheme = styled.div``;
+const StyledTheme = styled.div``;
 
 const Description = styled.div`
     margin-top: 2rem;
@@ -32,17 +32,25 @@ const StyledButton = styled(Button)`
     margin-left: auto;
 `;
 
-export const EditTheme = () => {
-    const [themeType, setThemeType] = useState<ThemeType>('light');
+interface ThemeProps {
+    data?: ThemeType;
+}
 
-    const onChangeThemeType = useCallback((value: ThemeType) => {
-        setThemeType(value);
+export const Theme = ({ data }: ThemeProps) => {
+    const [themeMode, setThemMode] = useState<ThemeMode>('dark');
+
+    const onChangeThemeType = useCallback((value: ThemeMode) => {
+        setThemMode(value);
     }, []);
 
-    const { accentColor, grayscale, name, opacity } = theme.config;
+    if (!data) {
+        return null;
+    }
+
+    const { accentColor, grayscale, name, opacity } = data.config;
 
     return (
-        <StyledEditTheme>
+        <StyledTheme>
             <Description>
                 <Column>
                     <ThemeInfo label="Название темы" value={name} />
@@ -59,12 +67,12 @@ export const EditTheme = () => {
             </Description>
             <Content>
                 <ThemeLabel bold={false}>Цветовая схема</ThemeLabel>
-                <ThemeTypeToggle selectedType={themeType} onClick={onChangeThemeType} />
-                {Object.entries(theme[themeType]).map(([tokenName, tokensItems]) => (
+                <ThemeModeToggle selectedMode={themeMode} onClick={onChangeThemeType} />
+                {Object.entries(data[themeMode]).map(([tokenName, tokensItems]) => (
                     <TokensSection key={tokenName} items={tokensItems} name={tokenName} />
                 ))}
             </Content>
             <StyledButton disabled text="Подтвердить создание темы" view="primary" />
-        </StyledEditTheme>
+        </StyledTheme>
     );
 };
