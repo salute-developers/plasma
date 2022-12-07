@@ -7,7 +7,7 @@ import type {
     ButtonViewProps,
 } from '@salutejs/plasma-core';
 import { buttonViews, ButtonView } from '@salutejs/plasma-web';
-import { bodySBold } from '@salutejs/plasma-typo';
+import { bodySBold, bodyLBold, bodyMBold } from '@salutejs/plasma-typo';
 
 export type ButtonProps = BaseProps &
     ButtonContentProps &
@@ -15,8 +15,8 @@ export type ButtonProps = BaseProps &
     Partial<ButtonViewProps<ButtonView>>;
 
 const buttonTypography = {
-    l: bodySBold,
-    m: bodySBold,
+    l: bodyLBold,
+    m: bodyMBold,
     s: bodySBold,
 };
 
