@@ -1,3 +1,16 @@
+# (Wed Dec 07 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.148.0`
+  - feat(plasma-ui): update sb-addon-performance version fixing measures and adding React 18 support [#249](https://github.com/salute-developers/plasma/pull/249) ([@akhdrv](https://github.com/akhdrv))
+
+#### Authors: 1
+
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+
+---
+
 # (Fri Dec 02 2022)
 
 #### 🐛 Bug Fix
