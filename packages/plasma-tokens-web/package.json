@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-tokens-web",
-    "version": "1.19.1",
+    "version": "1.20.0",
     "description": "",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "module": "es/index.js",
