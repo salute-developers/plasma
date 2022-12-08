@@ -43,7 +43,9 @@ describe('plasma-web: Progress', () => {
                 <PadMe />
                 <Progress value={50} status="warning" />
                 <PadMe />
-                <Progress value={100} status="error" />
+                <Progress value={75} status="error" />
+                <PadMe />
+                <Progress value={100} status="accent" />
             </CypressTestDecorator>,
         );
 
