@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { caption, tertiary, surfaceLiquid02 } from '@salutejs/plasma-core';
+import { caption, tertiary, surfaceLiquid02, accent } from '@salutejs/plasma-core';
 
 const statuses = {
     success: css`
@@ -11,6 +11,9 @@ const statuses = {
     `,
     error: css`
         background-color: #df2638;
+    `,
+    accent: css`
+        background-color: ${accent};
     `,
 };
 
