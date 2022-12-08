@@ -9,3 +9,141 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 <Description name="ProductCard" />
 <PropsTable name="ProductCard" />
 <StorybookLink name="ProductCard" />
+
+## Примеры
+
+```tsx live
+import React from 'react';
+import styled from 'styled-components';
+import { buttonBlack } from '@salutejs/plasma-tokens';
+
+import {
+    ProductCard,
+    Badge,
+    CardMedia,
+} from '@salutejs/plasma-ui';
+
+export function App() {
+    const StyledCardMedia = styled(CardMedia)`
+        height: 100%;
+    `;
+
+    const [state, setState] = useState({
+        quantity1: 0,
+        quantity2: 2,
+        quantity3: 0,
+        quantity4: 1,
+    });
+
+    const badges = [<Badge text="−20%" size="l" />, <Badge text="−30%" size="l" />];
+
+    return (
+        <div>
+            <ProductCard
+                badge={badges}
+                media={<StyledCardMedia src="/ui/images/320_320_0.jpg" alt="" width="12.25rem" />}
+                quantity={0}
+                text="Молоко в деревне ультрапастеризованное Моментики 925 мл"
+                price={69}
+                quantity={state.quantity1}
+                periodicity='/ месяц'
+                style={{ width: '12rem' }}
+                onQuantityChange={(quantity) => setState((s) => ({ ...s, quantity1: quantity }))}
+            />
+            <ProductCard
+                badge={<Badge view="warning" text="Больше нет" size="l" />}
+                media={<StyledCardMedia src="/ui/images/320_320_1.jpg" width="12.25rem" />}
+                text="Беконайзер с сыром, зеленью, большой котлетой, яйцом и соусом"
+                price={89}
+                oldPrice={100}
+                quantityMax={2}
+                quantity={state.quantity2}
+                style={{ width: '12rem' }}
+                onQuantityChange={(quantity) => setState((s) => ({ ...s, quantity2: quantity }))}
+            />
+            <ProductCard
+                disabled
+                badge={<Badge style={{ background: buttonBlack }} text="Раскупили" size="l" />}
+                media={<StyledCardMedia src="/ui/images/320_320_2.jpg" width="12.25rem" />}
+                text="Смартфон Midnight Midnight 13 128GB Midnight"
+                price={79289}
+                oldPrice={89109}
+                quantity={state.quantity3}
+                style={{ width: '12rem' }}
+                onQuantityChange={(quantity) => setState((s) => ({ ...s, quantity3: quantity }))}
+            />
+            <ProductCard
+                disabled
+                badge={<Badge style={{ background: buttonBlack }} text="Раскупили" size="l" />}
+                media={<StyledCardMedia src="/ui/images/320_320_2.jpg" width="12.25rem" />}
+                text="Смартфон Midnight Midnight 13 128GB Midnight"
+                additionalInfo="64GB"
+                price={79289}
+                oldPrice={89109}
+                quantity={state.quantity4}
+                style={{ width: '12rem' }}
+                onQuantityChange={(quantity) => setState((s) => ({ ...s, quantity4: quantity }))}
+            />
+        </div>
+    );
+}
+```
+
+```tsx live
+import React from 'react';
+import styled from 'styled-components';
+import { buttonBlack } from '@salutejs/plasma-tokens';
+
+import {
+    ProductCard,
+    Badge,
+    CardMedia,
+} from '@salutejs/plasma-ui';
+
+export function App() {
+    const [state, setState] = useState({
+        quantity5: 0,
+        quantity6: 2,
+        quantity7: 4,
+    });
+
+    const StyledCardMedia = styled(CardMedia)`
+        height: 100%;
+    `;
+
+    return (
+        <div>
+            <ProductCard
+                badge={<Badge text="Популярный" size="l" />}
+                media={<StyledCardMedia src="/ui/images/320_320_3.jpg" width="12.25rem" />}
+                text="Большой весенний букет"
+                price={7555}
+                disabledAction
+                quantity={state.quantity5}
+                onQuantityChange={(quantity) => setState((s) => ({ ...s, quantity5: quantity }))}
+                backgroundColor="#ebca1d"
+                style={{ width: '12rem' }}
+            />
+            <ProductCard
+                media={<StyledCardMedia src="/ui/images/320_320_3.jpg" width="12.25rem" />}
+                text="Большой"
+                additionalInfo="Длинный текст в подписи, который не помещается в строку"
+                price={7555}
+                quantity={state.quantity6}
+                onQuantityChange={(quantity) => setState((s) => ({ ...s, quantity6: quantity }))}
+                style={{ width: '12rem' }}
+            />
+            <ProductCard
+                media={<StyledCardMedia src="/ui/images/320_320_3.jpg" width="12.25rem" />}
+                text="Смартфон Midnight Midnight 13 128GB Midnight"
+                additionalInfo="128GB Midnight"
+                price={7555}
+                readonly
+                quantityMax={4}
+                quantity={state.quantity7}
+                style={{ width: '12rem' }}
+            />
+        </div>
+    );
+}
+```

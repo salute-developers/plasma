@@ -1,5 +1,5 @@
 import React from 'react';
-import { accent, primary, tertiary, critical } from '@salutejs/plasma-tokens';
+import { accent, primary, buttonBlack, tertiary, critical } from '@salutejs/plasma-tokens';
 import * as Icons from '@salutejs/plasma-icons';
 import * as UI from '@salutejs/plasma-ui';
 import { Filler } from '@salutejs/plasma-docs-ui';
@@ -14,6 +14,7 @@ const ReactLiveScope = {
     primary,
     tertiary,
     critical,
+    buttonBlack,
     styled,
     useVirtual,
     ...Icons,
