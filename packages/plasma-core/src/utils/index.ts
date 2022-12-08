@@ -16,3 +16,5 @@ export { setRef } from './setRef';
 export { toCssSize } from './toCssSize';
 
 export { transformStyles } from './transformStyles';
+
+export { IS_REACT_18, safeFlushSync } from './react';

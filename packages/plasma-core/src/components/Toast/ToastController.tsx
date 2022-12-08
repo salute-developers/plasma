@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect, useCallback } from 'react';
 import styled, { css, keyframes } from 'styled-components';
 
 import { Fade } from '../Fade';
+import { safeFlushSync } from '../../utils';
 
 import { ToastInfo } from './Toast.types';
 import { Toast, StyledRoot as ToastStyledRoot } from './Toast';
@@ -97,7 +98,9 @@ export const ToastController: React.FC<ToastInfo> = ({ role, text, contentLeft, 
     const animationEndHandler = useCallback(() => {
         if (!isVisible) {
             hideToast();
-            setIsVisible(true); // Необходимо вернуть булево к следующему вызову тоста
+            safeFlushSync(() => {
+                setIsVisible(true); // Необходимо вернуть булево к следующему вызову тоста
+            });
         }
         if (isVisible) {
             hideTimeout.current = setTimeout(() => {
