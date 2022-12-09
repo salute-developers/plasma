@@ -1,6 +1,6 @@
 /* eslint-disable no-continue */
 import throttle from 'lodash.throttle';
-import { useRef, useEffect, useCallback, useMemo, useLayoutEffect, useState } from 'react';
+import { useRef, useEffect, useCallback, useMemo, useLayoutEffect, useState, useReducer } from 'react';
 
 import { useDebouncedFunction } from '../../hooks';
 
@@ -22,6 +22,8 @@ type UseCarouselHookResult = {
 const THROTTLE_DEFAULT_MS = 100;
 const DEBOUNCE_DEFAULT_MS = 150;
 
+const noop = () => {};
+
 export const useCarousel = ({
     index,
     axis,
@@ -30,24 +32,105 @@ export const useCarousel = ({
     scrollAlign = 'center',
     scaleCallback,
     scaleResetCallback,
-    onIndexChange,
+    onIndexChange = noop,
     onDetectActiveItem,
     animatedScrollByIndex = false,
     throttleMs = THROTTLE_DEFAULT_MS,
     debounceMs = DEBOUNCE_DEFAULT_MS,
 }: UseCarouselOptions): UseCarouselHookResult => {
     const prevIndex = useRef<number | null>(null);
-    const direction = useRef<boolean | null>(null);
     const offset = useRef(0);
     const scrollRef = useRef<HTMLElement | null>(null);
     const trackRef = useRef<HTMLElement | null>(null);
+    const itemsObserver = useRef<IntersectionObserver | null>(null);
+    const visibleItems = useRef<Set<HTMLElement>>(new Set());
+    const [isVisibleItemsUpdated, setIsVisibleItemsUpdated] = useReducer((v) => v + 1, 0);
+    const [prevIsVisibleItemsUpdated] = useState(isVisibleItemsUpdated);
+
+    const scaleResetCallbackRef = useRef(scaleResetCallback);
+
+    useEffect(() => {
+        scaleResetCallbackRef.current = scaleResetCallback;
+    }, [scaleResetCallback]);
+
+    useEffect(() => {
+        let mutationObserver: MutationObserver | null = null;
+
+        if (scrollRef.current && trackRef.current) {
+            const intersectionObserver = new IntersectionObserver(
+                (entries) => {
+                    for (let i = 0; i < entries.length; i++) {
+                        const entry = entries[i];
+
+                        if (entry.isIntersecting === true) {
+                            visibleItems.current.add(entry.target as HTMLElement);
+                        } else {
+                            visibleItems.current.delete(entry.target as HTMLElement);
+
+                            requestAnimationFrame(() => {
+                                scaleResetCallbackRef.current?.(entry.target as HTMLElement);
+                            });
+                        }
+                        setIsVisibleItemsUpdated();
+                    }
+                },
+                { root: scrollRef.current },
+            );
+
+            const items = getCarouselItems(trackRef.current);
+
+            for (let i = 0; i < items.length; i++) {
+                const item = items.item(i);
+
+                if (item) {
+                    intersectionObserver.observe(item);
+                }
+            }
+
+            mutationObserver = new MutationObserver((mutationList) => {
+                for (let i = 0; i < mutationList.length; i++) {
+                    const mutation = mutationList[i];
+
+                    if (mutation.type === 'childList') {
+                        const { addedNodes, removedNodes } = mutation;
+
+                        for (let j = 0; j < addedNodes.length; j++) {
+                            const item = addedNodes.item(j);
+
+                            if (item) {
+                                intersectionObserver.observe(item as HTMLElement);
+                            }
+                        }
+
+                        for (let j = 0; j < removedNodes.length; j++) {
+                            const item = removedNodes.item(j);
+
+                            if (item) {
+                                intersectionObserver.unobserve(item as HTMLElement);
+                            }
+                        }
+                    }
+                }
+            });
+
+            mutationObserver.observe(trackRef.current, { attributes: false, subtree: false, childList: true });
+
+            itemsObserver.current = intersectionObserver;
+        }
+
+        return () => {
+            itemsObserver.current?.disconnect();
+            mutationObserver?.disconnect();
+            visibleItems.current.clear();
+        };
+    }, []);
 
     /**
      * Для того, чтобы не спамить изменениями индекса.
      * Задержка дебаунса слегка больше, чем у тротлинга.
      * Таким образом, событие срабатывает при завершении скролла.
      */
-    const debouncedOnIndexChange = useDebouncedFunction((i: number) => onIndexChange?.(i), debounceMs);
+    const debouncedOnIndexChange = useDebouncedFunction(onIndexChange, debounceMs);
 
     /**
      * Вычисление центрального элемента.
@@ -61,78 +144,39 @@ export const useCarousel = ({
             }
 
             /**
-             * Правая (или нижняя для Оу) граница элемента.
-             */
-            let itemEdge = offset.current;
-
-            /**
              * Смещение (отрицательный или положительный отступ)
              * и размер карусели (для Ox - ширина, для Oy - высота).
              */
             const scrollPos = scrollRef.current[axis === 'x' ? 'scrollLeft' : 'scrollTop'];
             const scrollSize = scrollRef.current[axis === 'x' ? 'offsetWidth' : 'offsetHeight'];
 
-            /**
-             * Граница скролла (видимой части).
-             * Смещение + размер.
-             */
-            const scrollEdge = scrollPos + scrollSize;
+            const sizeKey = axis === 'x' ? 'offsetWidth' : 'offsetHeight';
+            const offsetKey = axis === 'x' ? 'offsetLeft' : 'offsetTop';
 
-            /**
-             * Элементы перед, после и в видимой части.
-             * перед [ ВИДИМЫЕ ] после
-             */
-            const prevItems: HTMLElement[] = [];
-            const nextItems: HTMLElement[] = [];
-            let count = 0;
+            const trackItems = trackRef.current.children;
 
-            const items = getCarouselItems(trackRef.current);
-
-            /**
-             * Проходим по всему списку, суммируя ширины элементов,
-             * пока не найдем один элемент, чей центр будет в центре карусели.
-             */
-            for (let itemIndex = 0; itemIndex < items.length; itemIndex++) {
-                const item = items.item(itemIndex);
-
-                if (item === null) {
-                    continue;
-                }
-
+            visibleItems.current.forEach((item) => {
                 /**
                  * Для Ox - ширина, для Oy - высота.
                  */
-                const itemSize = item[axis === 'x' ? 'offsetWidth' : 'offsetHeight'];
+                const itemSize = item[sizeKey];
+                const itemOffset = item[offsetKey];
 
-                /**
-                 * Все элементы правее вьюпорта выпадают из процедуры.
-                 * Сравниваем по предыдущему элементу.
-                 * [ ... ] ...|n| <- Левый край элемента за пределами начала видимой части
-                 */
-                if (itemEdge > scrollEdge) {
-                    if (scaleCallback && scaleResetCallback) {
-                        nextItems.push(item);
+                const itemEnd = itemOffset + itemSize;
+
+                let itemIndex = 0;
+
+                for (let ii = 0; ii < trackItems.length; ii++) {
+                    const element = trackItems.item(ii);
+                    if (element === item) {
+                        itemIndex = ii;
+                        break;
                     }
-                    continue;
-                }
-
-                itemEdge += itemSize;
-
-                /**
-                 * Все элементы левее вьюпорта выпадают из процедуры.
-                 * Сравниваем по текущему элементу.
-                 * Правый край элемента за пределами начала видимой части -> |p|... [ ... ]
-                 */
-                if (scrollPos > itemEdge) {
-                    if (scaleCallback && scaleResetCallback) {
-                        prevItems.push(item);
-                    }
-                    continue;
                 }
 
                 const itemSlot = getItemSlot(
                     itemIndex,
-                    itemEdge,
+                    itemEnd,
                     itemSize,
                     scrollPos,
                     scrollSize,
@@ -141,40 +185,17 @@ export const useCarousel = ({
                     offset.current,
                 );
 
-                if (itemSlot !== null) {
-                    if (detectThreshold && Math.abs(itemSlot) <= detectThreshold) {
-                        onDetectActiveItem?.(itemIndex);
-                        debouncedOnIndexChange?.(itemIndex);
-                    }
-
-                    if (scaleCallback) {
-                        scaleCallback(item, itemSlot);
-                        /**
-                         * Количество айтемов в видимой части.
-                         */
-                        count++;
-                    }
+                if (detectThreshold && Math.abs(itemSlot) <= detectThreshold) {
+                    onDetectActiveItem?.(itemIndex);
+                    debouncedOnIndexChange(itemIndex);
                 }
-            }
 
-            if (scaleCallback && scaleResetCallback) {
-                window.requestAnimationFrame(() => {
-                    if (direction.current) {
-                        if (nextItems.length) {
-                            nextItems.splice(0, count).forEach((elem) => scaleCallback(elem, count));
-                            if (nextItems.length) {
-                                nextItems.splice(0, count).forEach((elem) => scaleResetCallback(elem));
-                            }
-                        }
-                    } else if (prevItems.length) {
-                        const prItemsRev = prevItems.reverse();
-                        prItemsRev.splice(0, count).forEach((elem) => scaleCallback(elem, count * -1));
-                        if (prItemsRev.length) {
-                            prItemsRev.splice(0, count).forEach((elem) => scaleResetCallback(elem));
-                        }
-                    }
-                });
-            }
+                if (scaleCallback) {
+                    requestAnimationFrame(() => {
+                        scaleCallback(item, itemSlot);
+                    });
+                }
+            });
         }, throttleMs);
     }, [
         axis,
@@ -183,10 +204,19 @@ export const useCarousel = ({
         detectThreshold,
         onDetectActiveItem,
         scaleCallback,
-        scaleResetCallback,
         scrollAlign,
         throttleMs,
     ]);
+
+    /**
+     * вызываем только на первое изменение visibleItems,
+     * потому что в useEffect не акутальные visibleItems
+     */
+    if (prevIsVisibleItemsUpdated !== isVisibleItemsUpdated) {
+        if (detectActive) {
+            throttledDetectActiveItem();
+        }
+    }
 
     /**
      * Прокрутка до нужной позиции индекса.
@@ -260,7 +290,7 @@ export const useCarousel = ({
              * событие скролла не произойдет, не сработает и определение центра,
              * необходимо вызвать его вручную.
              */
-            throttledDetectActiveItem();
+            // throttledDetectActiveItem();
         });
 
         // eslint-disable-next-line react-hooks/exhaustive-deps

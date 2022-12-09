@@ -516,7 +516,7 @@ export const Picker = ({
                 $isFocused={isFocused}
                 listRole="listbox"
                 listAriaLabel={ariaLabel}
-                {...(hasScrollAnim ? {} : { 'data-no-scroll-behavior': true })}
+                data-no-scroll-behavior={hasScrollAnim}
             >
                 {virtualItems.map((item, i) => (
                     <PickerItem
