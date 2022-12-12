@@ -14,6 +14,7 @@ import {
     normalizeLetterSpace,
     FullColorsList,
     alphenColor,
+    OverlayTokens,
 } from '@salutejs/plasma-tokens-utils';
 
 import { DesignLanguage } from '../design-language/build/diez-plasma-tokens-web';
@@ -48,51 +49,8 @@ type BaseTheme = Omit<
     'accent' | 'gradient' | 'gradientDevice' | 'voicePhraseGradient' | 'buttonAccent' | 'buttonFocused'
 >;
 
-const overlayTokens = {
-    overlaySoft: {
-        value: alphenColor(baseColors.black.value, -0.44),
-    },
-    overlayHard: {
-        value: alphenColor(baseColors.black.value, -0.1),
-    },
-    overlayBlur: {
-        value: alphenColor(general.gray['900'], -0.8),
-    },
-
-    darkOverlaySoft: {
-        value: alphenColor(baseColors.black.value, -0.44),
-    },
-    darkOverlayHard: {
-        value: alphenColor(baseColors.black.value, -0.1),
-    },
-    darkOverlayBlur: {
-        value: alphenColor(general.gray['900'], -0.8),
-    },
-
-    lightOverlaySoft: {
-        value: alphenColor(baseColors.black.value, -0.44),
-    },
-    lightOverlayHard: {
-        value: alphenColor(baseColors.black.value, -0.1),
-    },
-    lightOverlayBlur: {
-        value: alphenColor(general.gray['900'], -0.72),
-    },
-
-    inverseOverlaySoft: {
-        value: alphenColor(baseColors.black.value, -0.44),
-    },
-    inverseOverlayHard: {
-        value: alphenColor(baseColors.black.value, -0.1),
-    },
-    inverseOverlayBlur: {
-        value: alphenColor(general.gray['900'], -0.72),
-    },
-};
-
-const darkTheme: BaseTheme = {
+const darkTheme: BaseTheme & OverlayTokens = {
     ...baseColors,
-    ...overlayTokens,
 
     text: {
         value: humanizeColor(ds.theme.dark_primary.color),
@@ -149,11 +107,6 @@ const darkTheme: BaseTheme = {
     critical: {
         value: humanizeColor(ds.theme.dark_critical.color),
         comment: FullColorsList.critical,
-    },
-
-    overlay: {
-        value: humanizeColor(ds.theme.dark_overlay.color),
-        comment: FullColorsList.overlay,
     },
 
     surfaceLiquid01: {
@@ -225,11 +178,54 @@ const darkTheme: BaseTheme = {
         value: humanizeColor(ds.theme.dark_speech_bubble_received.color),
         comment: FullColorsList.speechBubbleReceived,
     },
+
+    overlay: {
+        value: humanizeColor(ds.theme.dark_overlay.color),
+        comment: FullColorsList.overlay,
+    },
+    overlaySoft: {
+        value: alphenColor(baseColors.black.value, -0.44),
+    },
+    overlayHard: {
+        value: alphenColor(baseColors.black.value, -0.1),
+    },
+    overlayBlur: {
+        value: alphenColor(general.gray['950'], -0.72),
+    },
+
+    darkOverlaySoft: {
+        value: alphenColor(baseColors.black.value, -0.44),
+    },
+    darkOverlayHard: {
+        value: alphenColor(baseColors.black.value, -0.1),
+    },
+    darkOverlayBlur: {
+        value: alphenColor(general.gray['950'], -0.72),
+    },
+
+    lightOverlaySoft: {
+        value: alphenColor(baseColors.black.value, -0.44),
+    },
+    lightOverlayHard: {
+        value: alphenColor(baseColors.black.value, -0.1),
+    },
+    lightOverlayBlur: {
+        value: alphenColor(general.gray['950'], -0.72),
+    },
+
+    inverseOverlaySoft: {
+        value: alphenColor(baseColors.black.value, -0.44),
+    },
+    inverseOverlayHard: {
+        value: alphenColor(baseColors.black.value, -0.1),
+    },
+    inverseOverlayBlur: {
+        value: alphenColor(general.gray['950'], -0.72),
+    },
 };
 
-const lightTheme: BaseTheme = {
+const lightTheme: BaseTheme & OverlayTokens = {
     ...baseColors,
-    ...overlayTokens,
 
     text: {
         value: humanizeColor(ds.theme.light_primary.color),
@@ -286,11 +282,6 @@ const lightTheme: BaseTheme = {
     critical: {
         value: humanizeColor(ds.theme.light_critical.color),
         comment: FullColorsList.critical,
-    },
-
-    overlay: {
-        value: humanizeColor(ds.theme.light_overlay.color),
-        comment: FullColorsList.overlay,
     },
 
     surfaceLiquid01: {
@@ -361,6 +352,50 @@ const lightTheme: BaseTheme = {
     speechBubbleReceived: {
         value: humanizeColor(ds.theme.light_speech_bubble_received.color),
         comment: FullColorsList.speechBubbleReceived,
+    },
+
+    overlay: {
+        value: humanizeColor(ds.theme.light_overlay.color),
+        comment: FullColorsList.overlay,
+    },
+    overlaySoft: {
+        value: alphenColor(baseColors.black.value, -0.44),
+    },
+    overlayHard: {
+        value: alphenColor(baseColors.black.value, -0.1),
+    },
+    overlayBlur: {
+        value: alphenColor(general.gray['900'], -0.8),
+    },
+
+    darkOverlaySoft: {
+        value: alphenColor(baseColors.black.value, -0.44),
+    },
+    darkOverlayHard: {
+        value: alphenColor(baseColors.black.value, -0.1),
+    },
+    darkOverlayBlur: {
+        value: alphenColor(general.gray['900'], -0.8),
+    },
+
+    lightOverlaySoft: {
+        value: alphenColor(baseColors.black.value, -0.44),
+    },
+    lightOverlayHard: {
+        value: alphenColor(baseColors.black.value, -0.1),
+    },
+    lightOverlayBlur: {
+        value: alphenColor(general.gray['900'], -0.8),
+    },
+
+    inverseOverlaySoft: {
+        value: alphenColor(baseColors.black.value, -0.44),
+    },
+    inverseOverlayHard: {
+        value: alphenColor(baseColors.black.value, -0.1),
+    },
+    inverseOverlayBlur: {
+        value: alphenColor(general.gray['900'], -0.8),
     },
 };
 
