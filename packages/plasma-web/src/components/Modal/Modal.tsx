@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import styled, { css, keyframes, createGlobalStyle } from 'styled-components';
-import { overlay, useUniqId } from '@salutejs/plasma-core';
+import { useUniqId } from '@salutejs/plasma-core';
+import { darkOverlayBlur } from '@salutejs/plasma-tokens-web';
 
 import { ModalsContext, MODALS_PORTAL_ID } from './ModalsContext';
 import { ModalView, ModalViewProps } from './ModalView';
@@ -74,8 +75,8 @@ const StyledOverlay = styled.div<{ transparent?: boolean }>`
     width: 100%;
     height: 100%;
 
-    background-color: ${({ transparent }) => (transparent ? 'transparent' : overlay)};
-
+    background-color: ${({ transparent }) => (transparent ? 'transparent' : darkOverlayBlur)};
+    backdrop-filter: blur(1rem);
     cursor: pointer;
 `;
 const StyledModal = styled.div<HidingProps>`
