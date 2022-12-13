@@ -108,3 +108,19 @@ export type GeneratedFiles = Array<{
     file: string;
     content: string;
 }>;
+
+type OverlayTokensKeys =
+    | 'overlaySoft'
+    | 'overlayHard'
+    | 'overlayBlur'
+    | 'darkOverlaySoft'
+    | 'darkOverlayHard'
+    | 'darkOverlayBlur'
+    | 'lightOverlaySoft'
+    | 'lightOverlayHard'
+    | 'lightOverlayBlur'
+    | 'inverseOverlaySoft'
+    | 'inverseOverlayHard'
+    | 'inverseOverlayBlur';
+
+export type OverlayTokens = Record<OverlayTokensKeys, TokenData<TColor>>;
