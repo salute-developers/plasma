@@ -1,3 +1,15 @@
+# v1.29.0 (Thu Dec 08 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): add overlay tokens [#256](https://github.com/salute-developers/plasma/pull/256) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.28.2 (Wed Nov 09 2022)
 
 #### 🐛 Bug Fix

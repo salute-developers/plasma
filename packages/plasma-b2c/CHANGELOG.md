@@ -1,3 +1,15 @@
+# v1.117.0 (Thu Dec 08 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-b2c): set correct button font size when change size [#259](https://github.com/salute-developers/plasma/pull/259) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.116.1 (Thu Nov 24 2022)
 
 #### 🐛 Bug Fix

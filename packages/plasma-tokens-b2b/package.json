@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-tokens-b2b",
-    "version": "1.4.1",
+    "version": "1.5.0",
     "description": "",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "module": "es/index.js",

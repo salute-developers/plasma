@@ -1,3 +1,28 @@
+# (Thu Dec 08 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-tokens@1.29.0`
+  - feat(plasma-tokens): add overlay tokens [#256](https://github.com/salute-developers/plasma/pull/256) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-tokens-b2b@1.5.0`
+  - feat(plasma-tokens-b2b): add overlay tokens [#256](https://github.com/salute-developers/plasma/pull/256) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-tokens-b2c@0.14.0`
+  - feat(plasma-tokens-b2c): add overlay tokens [#256](https://github.com/salute-developers/plasma/pull/256) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-tokens-web@1.20.0`
+  - feat(plasma-tokens-web): add overlay tokens [#256](https://github.com/salute-developers/plasma/pull/256) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore(plasma-b2c): update button snapshots [#259](https://github.com/salute-developers/plasma/pull/259) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.117.0`
+  - fix(plasma-b2c): set correct button font size when change size [#259](https://github.com/salute-developers/plasma/pull/259) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Wed Dec 07 2022)
 
 #### 🚀 Enhancement
