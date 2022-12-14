@@ -1,22 +1,10 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useMemo } from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { sberPortal, sberBox, mobile, sberPortalScale, sizes } from '@salutejs/plasma-tokens';
-import { transformStyles } from '@salutejs/plasma-core';
+import { sberPortalScale, sizes } from '@salutejs/plasma-tokens';
 import { standard, compatible } from '@salutejs/plasma-typo';
 
 import { detectDevice, deviceScales, DeviceKind } from '../../utils';
-
-/* stylelint-disable */
-const transformWithRoot = (typo: typeof sberBox) => `
-:root {
-    ${transformStyles(typo[':root'])}
-}`;
-const typoSizes = {
-    sberBox: createGlobalStyle`${transformWithRoot(sberBox)}`,
-    sberPortal: createGlobalStyle`${transformWithRoot(sberPortal)}`,
-    mobile: createGlobalStyle`${transformWithRoot(mobile)}`,
-};
-/* stylelint-enable */
+import { Typo } from '../Typo';
 
 const StandardTypo = createGlobalStyle(standard);
 const CompatibleTypo = createGlobalStyle(compatible);
@@ -72,7 +60,6 @@ export const DeviceThemeProvider = ({
 }: DeviceThemeProps) => {
     const deviceKind = detectDeviceCallback();
     const deviceScale = deviceScales[deviceKind] || sberPortalScale;
-    const Typo = React.useMemo(() => typoSizes[deviceKind], [deviceKind]);
 
     return (
         <ThemeProvider theme={{ ...theme, deviceScale, lowPerformance, deviceKind }}>
@@ -83,9 +70,27 @@ export const DeviceThemeProvider = ({
                     <Size />
                 </>
             ) : (
-                <Typo />
+                <Typo deviceKind={deviceKind} />
             )}
             {children}
         </ThemeProvider>
     );
+};
+
+export const DeviceThemeProviderSSG = ({
+    theme,
+    children,
+    detectDeviceCallback = detectDevice,
+    lowPerformance = false,
+}: DeviceThemeProps) => {
+    const deviceKind = detectDeviceCallback();
+    const deviceScale = deviceScales[deviceKind] || sberPortalScale;
+    const memoizedThemeData = useMemo(() => ({ ...theme, deviceScale, lowPerformance, deviceKind }), [
+        theme,
+        deviceScale,
+        lowPerformance,
+        deviceKind,
+    ]);
+
+    return <ThemeProvider theme={memoizedThemeData}>{children}</ThemeProvider>;
 };
