@@ -1,3 +1,27 @@
+# v1.118.0 (Wed Dec 14 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): add a11y for Editable component [#252](https://github.com/salute-developers/plasma/pull/252) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- fix(plasma-b2c): set correct button font size when change size [#259](https://github.com/salute-developers/plasma/pull/259) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### ⚠️ Pushed to `master`
+
+- Merge commit '2de734f1' into test ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.117.0 (Thu Dec 08 2022)
 
 #### 🐛 Bug Fix

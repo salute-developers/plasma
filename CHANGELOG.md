@@ -1,3 +1,46 @@
+# (Wed Dec 14 2022)
+
+#### 🚀 Enhancement
+
+- chore(plasma-b2c): update snapshot [#260](https://github.com/salute-developers/plasma/pull/260) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.118.0`
+  - feat(plasma-b2c): add a11y for Editable component [#252](https://github.com/salute-developers/plasma/pull/252) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.146.0`
+  - feat(plasma-web): add accent color [#260](https://github.com/salute-developers/plasma/pull/260) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): update cypress test/snapshots [#260](https://github.com/salute-developers/plasma/pull/260) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-tokens@1.30.0`, `@salutejs/plasma-tokens-utils@0.14.0`
+  - feat(plasma-tokens,plasma-tokens-utils): Add remove prefix from data themes [#217](https://github.com/salute-developers/plasma/pull/217) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-tokens@1.30.0`
+  - feat(plasma-tokens): Add sbermarket tenants [#217](https://github.com/salute-developers/plasma/pull/217) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-tokens): add overlay tokens [#256](https://github.com/salute-developers/plasma/pull/256) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-tokens-b2b@1.6.0`
+  - feat(plasma-tokens-b2b): add overlay tokens [#256](https://github.com/salute-developers/plasma/pull/256) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-tokens-b2c@0.15.0`
+  - feat(plasma-tokens-b2c): add overlay tokens [#256](https://github.com/salute-developers/plasma/pull/256) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-tokens-web@1.21.0`
+  - feat(plasma-tokens-web): add overlay tokens [#256](https://github.com/salute-developers/plasma/pull/256) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore(plasma-b2c): update button snapshots [#259](https://github.com/salute-developers/plasma/pull/259) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-core@1.85.0`, `@salutejs/plasma-ui@1.150.0`
+  - fix(plasma-core): Toast hiding with react-18 [#261](https://github.com/salute-developers/plasma/pull/261) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.118.0`
+  - fix(plasma-b2c): set correct button font size when change size [#259](https://github.com/salute-developers/plasma/pull/259) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### ⚠️ Pushed to `master`
+
+- `@salutejs/plasma-b2c@1.118.0`, `@salutejs/plasma-core@1.85.0`, `@salutejs/plasma-icons@1.112.0`, `@salutejs/plasma-temple@1.117.0`, `@salutejs/plasma-tokens-b2b@1.6.0`, `@salutejs/plasma-tokens-b2c@0.15.0`, `@salutejs/plasma-tokens-web@1.21.0`, `@salutejs/plasma-tokens@1.30.0`, `@salutejs/plasma-ui@1.150.0`, `@salutejs/plasma-web@1.146.0`, `@salutejs/plasma-cy-utils@0.36.0`, `@salutejs/plasma-sb-utils@0.83.0`, `@salutejs/plasma-tokens-android@2.37.0`, `@salutejs/plasma-tokens-ios-swift@2.37.0`
+  - Merge commit '2de734f1' into test ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 3
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Thu Dec 08 2022)
 
 #### 🚀 Enhancement
