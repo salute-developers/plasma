@@ -2,6 +2,24 @@
 
 #### 🚀 Enhancement
 
+- chore(plasma-b2c): update snapshots [#266](https://github.com/salute-developers/plasma/pull/266) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.148.0`
+  - feat(plasma-web): add overlay [#266](https://github.com/salute-developers/plasma/pull/266) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore(plasma-web): update snapshots [#266](https://github.com/salute-developers/plasma/pull/266) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Thu Dec 15 2022)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-tokens-utils@0.15.0`
   - feat(plasma-tokens-utils): describing type for overlay tokens [#265](https://github.com/salute-developers/plasma/pull/265) ([@Yakutoc](https://github.com/Yakutoc))
 

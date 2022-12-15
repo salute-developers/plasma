@@ -1,3 +1,20 @@
+# v1.148.0 (Thu Dec 15 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-web): add overlay [#266](https://github.com/salute-developers/plasma/pull/266) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.146.0 (Wed Dec 14 2022)
 
 #### 🚀 Enhancement
