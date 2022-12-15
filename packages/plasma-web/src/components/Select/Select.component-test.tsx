@@ -182,17 +182,17 @@ describe('plasma-web: Select a11y - keyboard control', () => {
         cy.root().get('[role="combobox"]').focus().trigger('keydown', { keyCode: Codes.Enter });
         cy.get('[role="combobox"]').should('have.attr', 'aria-expanded', 'true');
 
-        // Navigate to the third item (second is disabled)
+        // Navigate to the second item (it is disabled)
         cy.root().get('[role="combobox"]').focus().trigger('keydown', { keyCode: Codes.ArrowDown });
-        cy.get('[role="combobox"]').should('have.attr', 'aria-activedescendant', `${id}-dropdown-item-2`);
+        cy.get('[role="combobox"]').should('have.attr', 'aria-activedescendant', `${id}-dropdown-item-1`);
 
         // Select navigated item with "Enter"
         cy.root().get('[role="combobox"]').focus().trigger('keydown', { keyCode: Codes.Enter });
         cy.get('[role="combobox"]').should(($p) => {
-            // select should contain a value
-            expect($p).to.contain('Желает');
-            // select should be closed
-            expect($p.attr('aria-expanded')).to.eq('false');
+            // select should not contain a value
+            expect($p).not.contain(items[1].label);
+            // select should not be closed
+            expect($p.attr('aria-expanded')).to.eq('true');
         });
 
         // Open with enter
