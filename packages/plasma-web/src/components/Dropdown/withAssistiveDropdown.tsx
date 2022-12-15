@@ -68,9 +68,14 @@ export const withAssistiveDropdown = <P extends object>(
 
     const onItemSelect = useCallback<OnItemSelect>(
         (item, event) => {
+            if (item.isDisabled) {
+                return;
+            }
+
             if (closeOnSelect) {
                 onToggle?.(false, event);
             }
+
             onItemSelectExternal?.(item, event);
         },
         [onToggle, onItemSelectExternal, closeOnSelect],

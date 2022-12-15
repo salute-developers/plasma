@@ -96,16 +96,6 @@ const StyledDropdownItem = styled.li<StyledDropdownItemProps>`
         background-color: ${surfaceLiquid03};
     }
 
-    ${({ $disabled }) =>
-        $disabled &&
-        css`
-            &,
-            &:hover,
-            &:focus,
-            &:active {
-                background-color: transparent;
-            }
-        `}
     ${applyDisabled}
 `;
 const StyledContent = styled.div`
@@ -113,7 +103,7 @@ const StyledContent = styled.div`
     margin-right: 0.375rem;
 `;
 const StyledText = styled.span`
-    ${applyEllipsis}
+    ${applyEllipsis};
 
     margin-right: 0.625rem;
     pointer-events: none;
@@ -204,6 +194,7 @@ export const DropdownItem: FC<DropdownItemProps> = ({
             $color={color}
             role={role}
             aria-label={label}
+            aria-disabled={isDisabled}
             aria-selected={role === 'option' ? isActiveAsSingleOrNode : undefined}
             onClick={onClick}
             onMouseOver={onMouseOver}

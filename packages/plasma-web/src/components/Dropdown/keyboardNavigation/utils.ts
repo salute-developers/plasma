@@ -125,17 +125,6 @@ export const getUpdatedIndex = (action: Actions, index: number, items: DropdownN
             newIndex = index;
     }
 
-    let item = items[newIndex];
-
-    while (item.isDisabled) {
-        if (action !== Actions.Previous) {
-            newIndex = items.length - 1 === newIndex + 1 ? 0 : newIndex + 1;
-        } else {
-            newIndex = newIndex - 1 === -1 ? items.length - 1 : newIndex - 1;
-        }
-        item = items[newIndex];
-    }
-
     return newIndex;
 };
 

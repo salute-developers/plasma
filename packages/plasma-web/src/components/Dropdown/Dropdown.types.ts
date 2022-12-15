@@ -12,6 +12,6 @@ export interface DropdownNode extends DropdownItem {
     isDisabled?: boolean;
 }
 
-export type OnItemSelect = (item: DropdownItem, event: SyntheticEvent) => void;
+export type OnItemSelect = (item: DropdownNode, event: SyntheticEvent) => void;
 export type OnIndexChange = (index: number) => void;
 export type OnHover = (index: number) => void;
