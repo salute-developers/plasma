@@ -1,3 +1,27 @@
+# (Thu Dec 15 2022)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-tokens-utils@0.15.0`
+  - feat(plasma-tokens-utils): describing type for overlay tokens [#265](https://github.com/salute-developers/plasma/pull/265) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-tokens@1.31.0`
+  - fix(plasma-tokens): update tokens value [#265](https://github.com/salute-developers/plasma/pull/265) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-tokens-b2b@1.7.0`
+  - fix(plasma-tokens-b2b): update tokens value [#265](https://github.com/salute-developers/plasma/pull/265) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-tokens-b2c@0.16.0`
+  - fix(plasma-tokens-b2c): update tokens value [#265](https://github.com/salute-developers/plasma/pull/265) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-tokens-web@1.22.0`
+  - fix(plasma-tokens-web): update tokens value [#265](https://github.com/salute-developers/plasma/pull/265) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Wed Dec 14 2022)
 
 #### 🚀 Enhancement

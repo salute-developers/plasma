@@ -1,3 +1,15 @@
+# v1.22.0 (Thu Dec 15 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-tokens-web): update tokens value [#265](https://github.com/salute-developers/plasma/pull/265) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.21.0 (Wed Dec 14 2022)
 
 #### 🚀 Enhancement
