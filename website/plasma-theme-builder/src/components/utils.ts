@@ -39,3 +39,10 @@ export const getRGBA = (color: string) => {
 
     return `${red}, ${green}, ${blue}, ${alpha}`;
 };
+
+export const getThemeName = () => {
+    const params = new URL(window.location.toString()).searchParams;
+    return params.get('theme');
+};
+
+export const clearURLParam = () => (window.location.href = '/');

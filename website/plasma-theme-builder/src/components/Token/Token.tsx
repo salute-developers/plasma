@@ -80,7 +80,7 @@ export const Token = ({ name, data }: TokenProps) => {
     return (
         <StyledToken enabled={enabled}>
             <Tooltip placement="top-start" isVisible={Boolean(comment) && visible} arrow text={comment || ''} animated>
-                <TokenName disable={!enabled} onMouseLeave={onMouseLeave} onMouseEnter={onMouseEnter}>
+                <TokenName disable={enabled === false} onMouseLeave={onMouseLeave} onMouseEnter={onMouseEnter}>
                     {name}
                 </TokenName>
             </Tooltip>

@@ -24,10 +24,10 @@ const StyledButton = styled(Button)`
 `;
 
 interface MainProps {
-    onClick: () => void;
+    onGenerateTheme: () => void;
 }
 
-export const Main = ({ onClick }: MainProps) => {
+export const Main = ({ onGenerateTheme }: MainProps) => {
     return (
         <StyledMain>
             <Display>
@@ -58,10 +58,10 @@ export const Main = ({ onClick }: MainProps) => {
                 </Paragraph>
                 <Paragraph>
                     Для доступа к уже созданной теме необходимо сформировать ссылку в формате:
-                    https://plasma.sberdevices.ru/theme-builder/название_темы
+                    https://plasma.sberdevices.ru/plasma-theme-builder/?theme=название_темы
                 </Paragraph>
             </Description>
-            <StyledButton view="primary" text="Начать генерацию темы" onClick={onClick} />
+            <StyledButton view="primary" text="Начать генерацию темы" onClick={onGenerateTheme} />
         </StyledMain>
     );
 };
