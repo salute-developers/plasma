@@ -67,10 +67,10 @@ export const getGrayscale = (): Array<{
     },
 ];
 interface GeneratorProps {
-    onGenerate: (data: ThemeType) => void;
+    onPreviewTheme: (data: ThemeType) => void;
 }
 
-export const Generator = ({ onGenerate }: GeneratorProps) => {
+export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
     const [inputState, setInputState] = useState<'error' | undefined>();
     const [data, setData] = useState<ThemeData>({
         themeName: '',
@@ -156,8 +156,8 @@ export const Generator = ({ onGenerate }: GeneratorProps) => {
             },
         });
 
-        onGenerate(theme);
-    }, [onGenerate, data]);
+        onPreviewTheme(theme);
+    }, [onPreviewTheme, data]);
 
     const accentColors = useMemo(() => getAccentColors(), []);
 

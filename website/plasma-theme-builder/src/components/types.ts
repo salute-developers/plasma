@@ -8,7 +8,7 @@ export interface TokenValue {
 
 export type ThemeMode = 'light' | 'dark';
 
-export type PageType = 'main' | 'generator' | 'theme';
+export type PageType = 'main' | 'generator' | 'theme' | 'error';
 
 export type Grayscale = 'gray' | 'coolGray';
 
