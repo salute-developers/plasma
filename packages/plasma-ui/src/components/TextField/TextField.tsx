@@ -1,6 +1,6 @@
 import React, { forwardRef, useCallback } from 'react';
 import styled from 'styled-components';
-import { FieldRoot, FieldPlaceholder, FieldContent, Input } from '@salutejs/plasma-core';
+import { FieldRoot, FieldPlaceholder, FieldContent, Input, secondary } from '@salutejs/plasma-core';
 import type { FieldProps, InputProps } from '@salutejs/plasma-core';
 
 import { FieldHelper, applyInputStyles } from '../Field';
@@ -8,9 +8,17 @@ import { FieldHelper, applyInputStyles } from '../Field';
 export interface TextFieldProps extends FieldProps, InputProps {}
 
 const StyledInput = styled(Input)`
-    ${applyInputStyles}
+    ${applyInputStyles};
 
     border-radius: 1rem;
+
+    &::placeholder {
+        opacity: 0;
+    }
+
+    &:placeholder-shown + ${FieldPlaceholder} {
+        color: ${({ status }) => (status ? null : secondary)};
+    }
 `;
 
 /**
