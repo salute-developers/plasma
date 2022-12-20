@@ -1,0 +1,65 @@
+{
+    "name": "@salutejs/perftool",
+    "version": "0.1.0",
+    "description": "Performance measurement tool for React components",
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:salute-developers/plasma.git",
+        "directory": "utils/perftool"
+    },
+    "author": "Salute Frontend Team <salute.developers@gmail.com>",
+    "main": "lib/index.js",
+    "types": "lib/index.d.ts",
+    "type": "module",
+    "engines": {
+        "node": ">=16.0.0 <17",
+        "npm": "^6.0.0"
+    },
+    "bin": {
+        "perftool": "lib/index.js",
+        "perftool-compare": "lib/compare/index.js"
+    },
+    "peerDependencies": {
+        "react": ">=16.0.0",
+        "react-dom": ">=16.0.0"
+    },
+    "dependencies": {
+        "@vercel/ncc": "0.36.0",
+        "chalk": "5.2.0",
+        "commander": "9.4.1",
+        "express": "4.18.2",
+        "fast-glob": "3.2.12",
+        "html-webpack-plugin": "5.5.0",
+        "jstat": "1.9.6",
+        "loglevel": "1.8.1",
+        "loglevel-plugin-prefix": "0.8.4",
+        "morgan": "1.10.0",
+        "nanoevents": "7.0.1",
+        "puppeteer": "13.7.0",
+        "webpack": "5.75.0"
+    },
+    "devDependencies": {
+        "@types/express": "4.17.14",
+        "@types/morgan": "1.9.3",
+        "@types/node": "16.18.3",
+        "@types/react": "18.0.25",
+        "@types/react-dom": "18.0.8",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "typescript": "4.9.3"
+    },
+    "scripts": {
+        "prepare": "npm run build",
+        "prebuild": "npm run clean",
+        "build": "tsc",
+        "postbuild": "chmod +x lib/index.js lib/compare/index.js",
+        "clean": "rm -rf lib"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "files": [
+        "lib",
+        "src"
+    ]
+}
