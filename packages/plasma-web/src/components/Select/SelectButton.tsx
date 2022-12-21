@@ -43,7 +43,7 @@ const StyledArrow = styled(IconChevronDown)`
     user-select: none;
 `;
 const StyledText = styled.span`
-    ${applyEllipsis}
+    ${applyEllipsis};
 
     color: ${primary};
     transition: color 0.3s ease-in-out;
@@ -51,7 +51,7 @@ const StyledText = styled.span`
     user-select: none;
 `;
 const StyledPlaceholder = styled.span`
-    ${applyEllipsis}
+    ${applyEllipsis};
 
     color: ${tertiary};
     pointer-events: none;
@@ -62,7 +62,7 @@ interface StyledButtonProps extends Pick<SelectButtonProps, 'status' | 'hasItems
     focused?: boolean;
 }
 const StyledButton = styled.button<StyledButtonProps>`
-    ${body1}
+    ${body1};
 
     display: flex;
     align-items: center;
@@ -136,7 +136,7 @@ export const SelectButton = forwardRef<SelectRefElement, SelectButtonProps>(func
     ref,
 ) {
     return (
-        <StyledButton {...rest} ref={ref} hasItems={hasItems} aria-label={placeholder}>
+        <StyledButton type="button" {...rest} ref={ref} hasItems={hasItems} aria-label={placeholder}>
             {value && <StyledText>{value}</StyledText>}
             {placeholder && !value && <StyledPlaceholder aria-hidden="true">{placeholder}</StyledPlaceholder>}
             {hasItems && <StyledArrow size="xs" color="inherit" />}
