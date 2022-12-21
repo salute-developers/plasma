@@ -152,11 +152,15 @@ export const PreviewGalleryItemBase = memo(
             >
                 <Image base="div" src={image} ratio="16 / 9" />
 
-                {!actionDisabled && <StyledTrashButton onClick={itemActionHandle}>{actionIcon}</StyledTrashButton>}
+                {!actionDisabled && (
+                    <StyledTrashButton type="button" onClick={itemActionHandle}>
+                        {actionIcon}
+                    </StyledTrashButton>
+                )}
 
                 {interactionType === 'selectable' && status !== 'error' ? (
                     isSelected && (
-                        <StyledSelectButton>
+                        <StyledSelectButton type="button">
                             <IconDone size="xs" color="inherit" />
                         </StyledSelectButton>
                     )
