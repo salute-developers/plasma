@@ -1,3 +1,18 @@
+# (Wed Dec 21 2022)
+
+#### 🐛 Bug Fix
+
+- chore(plasma-temple): update snapshots [#271](https://github.com/salute-developers/plasma/pull/271) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): update snapshots [#271](https://github.com/salute-developers/plasma/pull/271) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-ui@1.151.1`
+  - fix(plasma-ui): hidden unnecessary pseudo-placeholder [#271](https://github.com/salute-developers/plasma/pull/271) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Thu Dec 15 2022)
 
 #### 🚀 Enhancement

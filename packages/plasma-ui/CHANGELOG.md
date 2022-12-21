@@ -1,3 +1,15 @@
+# v1.151.1 (Wed Dec 21 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): hidden unnecessary pseudo-placeholder [#271](https://github.com/salute-developers/plasma/pull/271) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.150.0 (Wed Dec 14 2022)
 
 #### 🐛 Bug Fix
