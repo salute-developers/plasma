@@ -28,7 +28,9 @@ const StyledCalendarHeader = styled.div`
     ${flexSpaceBetween};
 `;
 
-const StyledHeader = styled.button`
+const StyledHeader = styled.button.attrs({
+    type: 'button',
+})`
     ${h4Bold};
 
     ${buttonFocus};
