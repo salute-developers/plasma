@@ -79,7 +79,7 @@ const StyledDuration = styled.div`
 `;
 
 const StyledRoot = styled.div`
-    ${footnote1}
+    ${footnote1};
 
     position: relative;
     width: 100%;
@@ -169,7 +169,7 @@ export const AudioPlayer: FC<AudioPlayerProps> = ({
             </StyledContainer>
 
             {canDelete && (
-                <StyledDelete onClick={onDelete}>
+                <StyledDelete type="button" onClick={onDelete}>
                     <IconTrashFilled />
                 </StyledDelete>
             )}
