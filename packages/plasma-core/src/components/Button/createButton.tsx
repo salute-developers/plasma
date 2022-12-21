@@ -24,6 +24,7 @@ export function createButton<T extends HTMLElement, P extends ButtonProps>(Root 
             loader = <StyledSpinner color={white} size={56} deviceScale={deviceScale} />,
             disabled,
             isLoading,
+            type = 'button',
             ...rest
         }: ButtonProps & ButtonAllContentProps & ThemeProviderContextBase,
         ref,
@@ -34,6 +35,7 @@ export function createButton<T extends HTMLElement, P extends ButtonProps>(Root 
         return (
             <Root
                 ref={ref}
+                type={type}
                 $isContentLeft={isContentLeft}
                 $isContentRight={isContentRight}
                 $isLoading={isLoading}
