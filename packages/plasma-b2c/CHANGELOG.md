@@ -1,3 +1,16 @@
+# v1.122.0 (Thu Dec 22 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): set "Button" type to delete button from AudioPlayer [#272](https://github.com/salute-developers/plasma/pull/272) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): set "Button" type to delete, select button from Gallery [#272](https://github.com/salute-developers/plasma/pull/272) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.121.0 (Thu Dec 22 2022)
 
 #### 🚀 Enhancement

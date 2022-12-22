@@ -1,3 +1,15 @@
+# v1.87.0 (Thu Dec 22 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-core): handling button type [#272](https://github.com/salute-developers/plasma/pull/272) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.85.0 (Wed Dec 14 2022)
 
 #### 🐛 Bug Fix

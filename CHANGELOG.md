@@ -2,6 +2,25 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-web@1.149.0`
+  - feat(plasma-web): set "Button" type to calendar header [#272](https://github.com/salute-developers/plasma/pull/272) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): set "Button" type to select button from Select [#272](https://github.com/salute-developers/plasma/pull/272) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.122.0`
+  - feat(plasma-b2c): set "Button" type to delete button from AudioPlayer [#272](https://github.com/salute-developers/plasma/pull/272) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-b2c): set "Button" type to delete, select button from Gallery [#272](https://github.com/salute-developers/plasma/pull/272) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-core@1.87.0`
+  - feat(plasma-core): handling button type [#272](https://github.com/salute-developers/plasma/pull/272) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Thu Dec 22 2022)
+
+#### 🚀 Enhancement
+
 - chore(plasma-b2c): add snapshots [#244](https://github.com/salute-developers/plasma/pull/244) ([@Yakutoc](https://github.com/Yakutoc))
 - `@salutejs/plasma-b2c@1.121.0`
   - feat(plasma-b2c): add cypress test [#244](https://github.com/salute-developers/plasma/pull/244) ([@Yakutoc](https://github.com/Yakutoc))

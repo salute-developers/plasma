@@ -1,3 +1,16 @@
+# v1.149.0 (Thu Dec 22 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-web): set "Button" type to calendar header [#272](https://github.com/salute-developers/plasma/pull/272) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web): set "Button" type to select button from Select [#272](https://github.com/salute-developers/plasma/pull/272) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.148.0 (Thu Dec 15 2022)
 
 #### 🚀 Enhancement
