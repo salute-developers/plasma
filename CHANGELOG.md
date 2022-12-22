@@ -1,3 +1,25 @@
+# (Thu Dec 22 2022)
+
+#### 🚀 Enhancement
+
+- chore(plasma-b2c): add snapshots [#244](https://github.com/salute-developers/plasma/pull/244) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.121.0`
+  - feat(plasma-b2c): add cypress test [#244](https://github.com/salute-developers/plasma/pull/244) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore(plasma-b2c): update core snapshots [#244](https://github.com/salute-developers/plasma/pull/244) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-core@1.87.0`
+  - fix(plasma-core): revert changes in test [#244](https://github.com/salute-developers/plasma/pull/244) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.121.0`, `@salutejs/plasma-core@1.87.0`
+  - fix(plasma-b2c): correct processing "Text Field" view [#244](https://github.com/salute-developers/plasma/pull/244) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Wed Dec 21 2022)
 
 #### 🐛 Bug Fix
