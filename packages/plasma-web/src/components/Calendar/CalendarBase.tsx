@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useReducer, useState } from 'react';
+import React, { useCallback, useMemo, useReducer, useState, KeyboardEvent } from 'react';
 import styled from 'styled-components';
 
 import type { CalendarStateType, DateObject, Calendar } from './types';
@@ -28,6 +28,17 @@ const StyledCalendar = styled.div`
     height: 19.5rem;
 `;
 
+const IsOutOfRange = styled.div`
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    height: 0;
+    width: 0;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+`;
+
 /**
  * Компонент календаря.
  */
@@ -48,6 +59,8 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
     const [hoveredDay, setHoveredDay] = useState<DateObject | undefined>();
     const [prevType, setPrevType] = useState(type);
     const [prevValue, setPrevValue] = useState(value);
+    const [outOfRangeKey, setOutOfRangeKey] = useState<number>(0);
+
     const [state, dispatch] = useReducer(reducer, getInitialState(value, [5, 6], type));
 
     const { date, calendarState, startYear, size } = state;
@@ -118,7 +131,7 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
         [date, calendarState],
     );
 
-    const [selectIndexes, onKeyDown, onSelectIndexes, outerRefs] = useKeyNavigation({
+    const [selectIndexes, onKeyDown, onSelectIndexes, outerRefs, isOutOfRange] = useKeyNavigation({
         size,
         onNext: handleNext,
         onPrev: handlePrev,
@@ -173,8 +186,31 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
         setPrevType(type);
     }
 
+    // Изменяем ключ каждый раз как пытаемся перейти на даты которые находятся за пределами min/max ограничений.
+    // Это необходимо для того чтобы screen-reader корректно озвучивал уведомление aria-live="assertive"
+    // о том что нет доступных дат
+    const handleKeyDown = useCallback(
+        (event: KeyboardEvent<HTMLDivElement>) => {
+            setOutOfRangeKey((previousState) => Number(!previousState));
+
+            onKeyDown(event);
+        },
+        [onKeyDown],
+    );
+
     return (
         <StyledCalendar aria-label="Выбор даты" {...rest}>
+            {isOutOfRange && (
+                <IsOutOfRange
+                    key={outOfRangeKey}
+                    aria-atomic="true"
+                    role="alert"
+                    aria-live="assertive"
+                    aria-relevant="additions"
+                >
+                    Далее нет доступных дат.
+                </IsOutOfRange>
+            )}
             <CalendarHeader
                 firstDate={date}
                 startYear={startYear}
@@ -196,7 +232,7 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
                     onChangeDay={handleOnChangeDay}
                     onHoverDay={setHoveredDay}
                     onSetSelected={onSelectIndexes}
-                    onKeyDown={onKeyDown}
+                    onKeyDown={handleKeyDown}
                     outerRefs={outerRefs}
                 />
             )}

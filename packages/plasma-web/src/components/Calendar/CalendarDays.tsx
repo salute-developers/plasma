@@ -45,6 +45,10 @@ const StyledCalendarDays = styled.div`
     box-sizing: border-box;
 `;
 
+const StyledCalendarDaysHint = styled.span`
+    display: none;
+`;
+
 /**
  * Компонент дней в календаре.
  */
@@ -142,6 +146,9 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
 
     return (
         <StyledCalendarDays role="grid" aria-labelledby="id-grid-label" onKeyDown={onKeyDown}>
+            <StyledCalendarDaysHint id="withShift">
+                Для навигации только по доступным датам удерживайте клавишу Shift.
+            </StyledCalendarDaysHint>
             <StyledFlex role="row">
                 {SHORT_DAY_NAMES.map((name) => (
                     <CalendarDayItem
@@ -155,29 +162,49 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
             </StyledFlex>
             {days.map((day: DateItem[], i) => (
                 <StyledFlex role="row" key={i}>
-                    {day.map(({ date, events, disabled, isSelected, isCurrent, isDayInCurrentMonth, inRange }, j) => (
-                        <CalendarDayItem
-                            ref={(element: HTMLDivElement) => getRefs(element, isDayInCurrentMonth, i, j)}
-                            eventList={events}
-                            disabled={disabled}
-                            day={date.day}
-                            year={date.year}
-                            monthIndex={date.monthIndex}
-                            isFocused={i + offset === selectIndexes?.[0] && j === selectIndexes?.[1]}
-                            isSelected={isSelected}
-                            isCurrent={isCurrent}
-                            isDayInCurrentMonth={isDayInCurrentMonth}
-                            isDouble={isDouble}
-                            isHovered={isSameDay(date, hoveredDay)}
-                            inRange={getInRange(value, date, hoveredDay, inRange)}
-                            sideInRange={getSideInRange(value, date, hoveredDay, isSelected)}
-                            onClick={disabled ? undefined : handleOnChangeDay(i, j)}
-                            onMouseOver={disabled ? undefined : handleOnHoverDay}
-                            onFocus={handleOnFocusDay}
-                            key={`StyledDay-${j}`}
-                            role="gridcell"
-                        />
-                    ))}
+                    {day.map(
+                        (
+                            {
+                                date,
+                                events,
+                                disabled,
+                                isSelected,
+                                isCurrent,
+                                isDayInCurrentMonth,
+                                inRange,
+                                isOutOfMinMaxRange = false,
+                                disabledArrowKey,
+                                disabledMonths,
+                            },
+                            j,
+                        ) => (
+                            <CalendarDayItem
+                                ref={(element: HTMLDivElement) => getRefs(element, isDayInCurrentMonth, i, j)}
+                                eventList={events}
+                                disabled={disabled}
+                                day={date.day}
+                                year={date.year}
+                                monthIndex={date.monthIndex}
+                                isFocused={
+                                    i + offset === selectIndexes?.[0] && j === selectIndexes?.[1] && !isOutOfMinMaxRange
+                                }
+                                isSelected={isSelected}
+                                isCurrent={isCurrent}
+                                isDayInCurrentMonth={isDayInCurrentMonth}
+                                isDouble={isDouble}
+                                isHovered={isSameDay(date, hoveredDay)}
+                                inRange={getInRange(value, date, hoveredDay, inRange)}
+                                sideInRange={getSideInRange(value, date, hoveredDay, isSelected)}
+                                onClick={disabled ? undefined : handleOnChangeDay(i, j)}
+                                onMouseOver={disabled ? undefined : handleOnHoverDay}
+                                onFocus={handleOnFocusDay}
+                                key={`StyledDay-${j}`}
+                                role="gridcell"
+                                disabledArrowKey={disabledArrowKey}
+                                disabledMonths={disabledMonths}
+                            />
+                        ),
+                    )}
                 </StyledFlex>
             ))}
         </StyledCalendarDays>
