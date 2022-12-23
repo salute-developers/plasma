@@ -13,6 +13,8 @@ export interface CalendarDayItemProps extends DayProps, React.HTMLAttributes<HTM
     sideInRange?: 'left' | 'right';
     eventList?: EventDay[];
     isFocused?: boolean;
+    disabledArrowKey?: string;
+    disabledMonths?: string;
 }
 
 const StyledDay = styled.div<{ inRange?: boolean }>`
@@ -156,6 +158,8 @@ export const CalendarDayItem = memo(
                 onClick,
                 onMouseOver,
                 onFocus,
+                disabledArrowKey,
+                disabledMonths,
                 ...rest
             },
             outerRef,
@@ -177,8 +181,11 @@ export const CalendarDayItem = memo(
                     data-day={day}
                     data-month-index={monthIndex}
                     data-year={year}
+                    data-disabled-arrow-key={disabledArrowKey || undefined}
+                    data-disabled-months={disabledMonths || undefined}
                     aria-selected={isSelected}
                     aria-disabled={disabled}
+                    aria-describedby={disabled ? 'withShift' : undefined}
                     $disabled={disabled}
                     {...rest}
                 >

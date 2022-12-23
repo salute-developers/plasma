@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, MutableRefObject } from 'react';
 
 export enum CalendarState {
     Days = 'Days',
@@ -38,6 +38,9 @@ export interface DateItem extends ItemProps {
     date: DateObject;
     events?: EventDay[];
     disabled?: boolean;
+    isOutOfMinMaxRange?: boolean;
+    disabledArrowKey?: string;
+    disabledMonths?: string;
 }
 
 export interface DayProps extends Partial<ItemProps> {
@@ -123,3 +126,15 @@ export type CalendarRange<T> = Omit<T, 'value' | 'onChangeValue'> & {
      */
     onChangeValue: (values: [Date, Date?]) => void;
 };
+
+export interface DaysMetaDescription {
+    refs: MutableRefObject<HTMLDivElement[][]>;
+    rowSize: number;
+    newRowIndex: number;
+    newColumnIndex: number;
+    columnSize: number;
+    minColumnIndex: number;
+    defaultState?: number[];
+}
+
+export type KeyboardArrowKey = 'left' | 'right' | 'up' | 'down';
