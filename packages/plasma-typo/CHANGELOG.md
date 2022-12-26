@@ -1,3 +1,15 @@
+# v0.29.0 (Mon Dec 26 2022)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-typo): Fix font-weight for h1-bold token [#226](https://github.com/salute-developers/plasma/pull/226) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.28.1 (Tue Nov 08 2022)
 
 #### 🐛 Bug Fix
