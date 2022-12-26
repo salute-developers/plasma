@@ -1,3 +1,16 @@
+# v1.151.0 (Mon Dec 26 2022)
+
+#### 🚀 Enhancement
+
+- feat(plasma-web): [cypress] processing disabled option [#269](https://github.com/salute-developers/plasma/pull/269) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web): [a11y] processing disabled option [#269](https://github.com/salute-developers/plasma/pull/269) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.150.0 (Mon Dec 26 2022)
 
 #### 🐛 Bug Fix

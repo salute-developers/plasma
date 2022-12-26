@@ -2,6 +2,20 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-web@1.151.0`
+  - feat(plasma-web): [cypress] processing disabled option [#269](https://github.com/salute-developers/plasma/pull/269) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): [a11y] processing disabled option [#269](https://github.com/salute-developers/plasma/pull/269) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Mon Dec 26 2022)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-tokens@1.32.0`
   - fix(plasma-tokens): Fix onDarkTextPrimary token [#226](https://github.com/salute-developers/plasma/pull/226) ([@neretin-trike](https://github.com/neretin-trike))
   - feat(plasma-tokens): Update template token colors for ios-swift platform [#226](https://github.com/salute-developers/plasma/pull/226) ([@neretin-trike](https://github.com/neretin-trike))
