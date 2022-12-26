@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/perftool",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Performance measurement tool for React components",
     "repository": {
         "type": "git",
