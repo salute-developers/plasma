@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-docs-ui",
-    "version": "0.64.0",
+    "version": "0.65.0",
     "description": "Plasma Documentation.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "main": "lib/index.js",
@@ -35,9 +35,9 @@
         "lib"
     ],
     "dependencies": {
-        "@salutejs/plasma-core": "1.87.0",
+        "@salutejs/plasma-core": "1.88.0",
         "@salutejs/plasma-tokens-b2b": "1.7.0",
-        "@salutejs/plasma-web": "1.149.0",
+        "@salutejs/plasma-web": "1.150.0",
         "@types/marked": "3.0.1",
         "codesandbox": "2.2.3",
         "marked": "3.0.7",
