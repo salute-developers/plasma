@@ -2,6 +2,21 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-ui@1.154.0`
+  - chore(plasma-ui): add perftool to deps [#268](https://github.com/salute-developers/plasma/pull/268) ([@akhdrv](https://github.com/akhdrv))
+- `@salutejs/perftool@0.2.0`
+  - feat(perftool): add perftool [#268](https://github.com/salute-developers/plasma/pull/268) ([@akhdrv](https://github.com/akhdrv))
+
+#### Authors: 1
+
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+
+---
+
+# (Mon Dec 26 2022)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-web@1.151.0`
   - feat(plasma-web): [cypress] processing disabled option [#269](https://github.com/salute-developers/plasma/pull/269) ([@Yakutoc](https://github.com/Yakutoc))
   - feat(plasma-web): [a11y] processing disabled option [#269](https://github.com/salute-developers/plasma/pull/269) ([@Yakutoc](https://github.com/Yakutoc))
