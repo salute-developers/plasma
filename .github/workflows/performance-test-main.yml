@@ -1,0 +1,59 @@
+name: Component Performance Testing (Main)
+
+on:
+  workflow_run:
+    workflows: ["Release"]
+    branches: [master, rc]
+    types:
+      - completed
+
+jobs:
+  perftest:
+    runs-on: ubuntu-latest
+    env:
+      NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Prepare repository
+        run: git fetch --unshallow --tags
+
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: npm-deps-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            npm-deps-${{ hashFiles('package-lock.json') }}
+
+      - name: Setup packages
+        run: |
+          npm ci
+          npx lerna bootstrap --scope "@salutejs/plasma-ui"
+
+      - name: Use Node.js 16.15.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.15.x
+
+      - name: Run performance test
+        run: |
+          npm run perftool:test --prefix="./packages/plasma-ui"
+
+      - name: Upload performance test results to S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_S3_ENDPOINT: ${{ secrets.AWS_ENDPOINT }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          SOURCE_DIR: "packages/plasma-ui/perftest/"
+          DEST_DIR: 'perftest-reports'
