@@ -254,7 +254,7 @@ describe('plasma-web: Calendar', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('div:nth-child(5) > div:nth-child(5)').first().trigger('mouseover');
+        cy.get('div:nth-of-type(5) > div:nth-of-type(5)').first().trigger('mouseover');
 
         cy.matchImageSnapshot();
     });
@@ -270,8 +270,8 @@ describe('plasma-web: Calendar', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('div:nth-child(3) > div:nth-child(4)').first().trigger('mouseover');
-        cy.get('div:nth-child(5) > div:nth-child(5)').first().trigger('mouseover');
+        cy.get('div:nth-of-type(3) > div:nth-of-type(4)').first().trigger('mouseover');
+        cy.get('div:nth-of-type(5) > div:nth-of-type(5)').first().trigger('mouseover');
 
         cy.matchImageSnapshot();
     });
@@ -602,7 +602,7 @@ describe('plasma-web: CalendarDouble', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('div:nth-child(3) > div:nth-child(4) > div:nth-child(4)').first().trigger('mouseover');
+        cy.get('div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(4)').first().trigger('mouseover');
 
         cy.matchImageSnapshot();
     });
@@ -624,8 +624,8 @@ describe('plasma-web: CalendarDouble', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('div:nth-child(3) > div:nth-child(3) > div:nth-child(6)').first().trigger('mouseover');
-        cy.get('div:nth-child(3) > div:nth-child(4) > div:nth-child(4)').first().trigger('mouseover');
+        cy.get('div:nth-of-type(3) > div:nth-of-type(3) > div:nth-of-type(6)').first().trigger('mouseover');
+        cy.get('div:nth-of-type(3) > div:nth-of-type(4) > div:nth-of-type(4)').first().trigger('mouseover');
 
         cy.matchImageSnapshot();
     });
