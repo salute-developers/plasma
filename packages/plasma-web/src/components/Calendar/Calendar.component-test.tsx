@@ -451,6 +451,382 @@ describe('plasma-web: Calendar keyboard navigation', () => {
             .should('have.attr', 'tabindex', '0')
             .should('have.attr', 'aria-disabled', 'true');
     });
+
+    describe('navigate with pressed Shift and skipped disabled date', () => {
+        const shiftLeftArrow = '{shift}{leftArrow}';
+        const shiftRightArrow = '{shift}{rightArrow}';
+        const shiftDownArrow = '{shift}{downArrow}';
+        const shiftUpArrow = '{shift}{upArrow}';
+
+        it('Arrow Left or Right in current month', () => {
+            const disabledDays = [
+                {
+                    date: new Date(1970, 1, 4),
+                },
+                {
+                    date: new Date(1970, 1, 5),
+                },
+            ];
+
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <Calendar disabledList={disabledDays} value={date} onChangeValue={() => {}} />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            const start = '[data-day="3"][data-month-index="1"]';
+
+            cy.get('body').find(start).first().type(shiftRightArrow);
+
+            cy.get('body')
+                .find('[data-day="6"][data-month-index="1"]')
+                .first()
+                .should('have.attr', 'tabindex', '0')
+                .type(shiftLeftArrow);
+
+            cy.get('body').find(start).first().should('have.attr', 'tabindex', '0');
+        });
+
+        it('Arrow Up or Down in current month', () => {
+            const disabledDays = [
+                {
+                    date: new Date(1970, 1, 11),
+                },
+                {
+                    date: new Date(1970, 1, 12),
+                },
+            ];
+
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <Calendar disabledList={disabledDays} value={date} onChangeValue={() => {}} />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            const start = '[data-day="4"][data-month-index="1"]';
+
+            cy.get('body').find(start).first().type(shiftDownArrow);
+
+            cy.get('body').find('[data-day="13"][data-month-index="1"]').first().should('have.attr', 'tabindex', '0');
+
+            cy.get('body').find('[data-day="19"][data-month-index="1"]').type(shiftUpArrow);
+
+            cy.get('body').find('[data-day="10"][data-month-index="1"]').first().should('have.attr', 'tabindex', '0');
+        });
+
+        it('Arrow Left or Right between months', () => {
+            const disabledDays = [
+                {
+                    date: new Date(1970, 1, 28),
+                },
+                {
+                    date: new Date(1970, 2, 1),
+                },
+            ];
+
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <Calendar disabledList={disabledDays} value={date} onChangeValue={() => {}} />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            const start = '[data-day="27"][data-month-index="1"]';
+
+            cy.get('body').find(start).first().type(shiftRightArrow);
+
+            cy.get('body')
+                .find('[data-day="2"][data-month-index="2"]')
+                .first()
+                .should('have.attr', 'tabindex', '0')
+                .type(shiftLeftArrow);
+
+            cy.get('body').find(start).first().should('have.attr', 'tabindex', '0');
+        });
+
+        it('Arrow Left or Right when entire one month disabled', () => {
+            const may = [
+                {
+                    date: new Date(1970, 4, 1),
+                },
+            ];
+
+            const april = [
+                ...[...new Array(30)].map((_, day) => ({
+                    date: new Date(1970, 3, 1 + day),
+                })),
+            ];
+
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <Calendar disabledList={[...may, ...april]} value={new Date(1970, 2, 1)} onChangeValue={() => {}} />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.get('body').find('[data-day="31"][data-month-index="2"]').first().type(shiftRightArrow);
+
+            cy.get('body')
+                .find('[data-day="2"][data-month-index="4"]')
+                .first()
+                .should('have.attr', 'tabindex', '0')
+                .type(shiftLeftArrow);
+
+            cy.get('body').find('[data-day="31"][data-month-index="2"]').first().should('have.attr', 'tabindex', '0');
+        });
+
+        it('Arrow Left or Right when entire few months disabled', () => {
+            const march = [...new Array(31)].map((_, day) => ({
+                date: new Date(1970, 2, 1 + day),
+            }));
+
+            const april = [...new Array(31)].map((_, day) => ({
+                date: new Date(1970, 3, 1 + day),
+            }));
+
+            const may = [
+                {
+                    date: new Date(1970, 4, 1),
+                },
+            ];
+
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <Calendar disabledList={[...march, ...april, ...may]} value={date} onChangeValue={() => {}} />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            const start = '[data-day="28"][data-month-index="1"]';
+
+            cy.get('body').find(start).first().type(shiftRightArrow);
+
+            cy.get('body')
+                .find('[data-day="2"][data-month-index="4"]')
+                .first()
+                .should('have.attr', 'tabindex', '0')
+                .type(shiftLeftArrow);
+
+            cy.get('body').find(start).first().should('have.attr', 'tabindex', '0');
+        });
+
+        it("Can't jump to dates outside of min max dates", () => {
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <Calendar
+                        value={new Date(1970, 1, 28)}
+                        min={new Date(1970, 0, 31)}
+                        max={new Date(1970, 2, 1)}
+                        onChangeValue={() => {}}
+                    />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.get('body')
+                .find('[data-day="28"][data-month-index="1"]')
+                .first()
+                .type('rightArrow')
+                .should('have.attr', 'tabindex', '0');
+
+            cy.get('body')
+                .find('[data-day="28"][data-month-index="1"]')
+                .first()
+                .type(shiftRightArrow)
+                .should('have.attr', 'tabindex', '0');
+
+            cy.get('body')
+                .find('[data-day="1"][data-month-index="1"]')
+                .first()
+                .type('leftArrow')
+                .should('have.attr', 'tabindex', '0');
+
+            cy.get('body')
+                .find('[data-day="1"][data-month-index="1"]')
+                .first()
+                .type(shiftLeftArrow)
+                .should('have.attr', 'tabindex', '0');
+
+            cy.get('body')
+                .find('[data-day="5"][data-month-index="1"]')
+                .first()
+                .type('upArrow')
+                .should('have.attr', 'tabindex', '0');
+
+            cy.get('body')
+                .find('[data-day="5"][data-month-index="1"]')
+                .first()
+                .type(shiftUpArrow)
+                .should('have.attr', 'tabindex', '0');
+
+            cy.get('body')
+                .find('[data-day="25"][data-month-index="1"]')
+                .first()
+                .type('downArrow')
+                .should('have.attr', 'tabindex', '0');
+
+            cy.get('body')
+                .find('[data-day="25"][data-month-index="1"]')
+                .first()
+                .type(shiftDownArrow)
+                .should('have.attr', 'tabindex', '0');
+        });
+
+        it("Can't jump to dates outside of min max dates in current month", () => {
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <Calendar
+                        value={new Date(1970, 1, 14)}
+                        min={new Date(1970, 1, 10)}
+                        max={new Date(1970, 1, 15)}
+                        onChangeValue={() => {}}
+                    />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.get('body')
+                .find('[data-day="14"][data-month-index="1"]')
+                .first()
+                .type('rightArrow')
+                .should('have.attr', 'tabindex', '0');
+
+            cy.get('body').find('[data-day="14"][data-month-index="1"]').first().type(shiftRightArrow);
+
+            cy.get('body').find('[data-day="14"][data-month-index="1"]').first().should('have.attr', 'tabindex', '0');
+
+            cy.get('body')
+                .find('[data-day="11"][data-month-index="1"]')
+                .first()
+                .type('leftArrow')
+                .should('have.attr', 'tabindex', '0');
+
+            cy.get('body')
+                .find('[data-day="11"][data-month-index="1"]')
+                .first()
+                .type(shiftLeftArrow)
+                .should('have.attr', 'tabindex', '0');
+
+            cy.get('body')
+                .find('[data-day="12"][data-month-index="1"]')
+                .first()
+                .type('upArrow')
+                .should('have.attr', 'tabindex', '0');
+
+            cy.get('body')
+                .find('[data-day="12"][data-month-index="1"]')
+                .first()
+                .type(shiftUpArrow)
+                .should('have.attr', 'tabindex', '0');
+
+            cy.get('body')
+                .find('[data-day="12"][data-month-index="1"]')
+                .first()
+                .type('downArrow')
+                .should('have.attr', 'tabindex', '0');
+
+            cy.get('body')
+                .find('[data-day="12"][data-month-index="1"]')
+                .first()
+                .type(shiftDownArrow)
+                .should('have.attr', 'tabindex', '0');
+        });
+
+        it("Can't jump from the disabled day to the day of month that is outside min", () => {
+            const disabledList = [...new Array(8)].map((_, day) => ({
+                date: new Date(1970, 4, 1 + day),
+            }));
+
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <Calendar
+                        value={new Date(1970, 4, 1)}
+                        min={new Date(1970, 3, 31)}
+                        disabledList={disabledList}
+                        onChangeValue={() => {}}
+                    />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.get('body')
+                .find('[data-day="9"][data-month-index="4"]')
+                .first()
+                .type(shiftLeftArrow)
+                .should('have.attr', 'tabindex', '0')
+                .type(shiftUpArrow)
+                .should('have.attr', 'tabindex', '0');
+        });
+
+        it("Can't jump through disabled entire month in month that is outside min", () => {
+            const disabledList = [...new Array(28)].map((_, day) => ({
+                date: new Date(1970, 1, 1 + day),
+            }));
+
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <Calendar
+                        value={new Date(1970, 2, 1)}
+                        min={new Date(1970, 0, 31)}
+                        disabledList={disabledList}
+                        onChangeValue={() => {}}
+                    />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.get('body')
+                .find('[data-day="1"][data-month-index="2"]')
+                .first()
+                .type(shiftLeftArrow)
+                .should('have.attr', 'tabindex', '0')
+                .type(shiftUpArrow)
+                .should('have.attr', 'tabindex', '0');
+        });
+
+        it("Can't jump from the disabled day to the day of month that is outside max", () => {
+            const disabledList = [...new Array(8)].map((_, day) => ({
+                date: new Date(1970, 4, 24 + day),
+            }));
+
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <Calendar
+                        value={new Date(1970, 4, 1)}
+                        max={new Date(1970, 5, 1)}
+                        disabledList={disabledList}
+                        onChangeValue={() => {}}
+                    />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.get('body')
+                .find('[data-day="23"][data-month-index="4"]')
+                .first()
+                .type(shiftRightArrow)
+                .should('have.attr', 'tabindex', '0')
+                .type(shiftDownArrow)
+                .should('have.attr', 'tabindex', '0');
+        });
+
+        it("Can't jump through disabled entire month in month that is outside max", () => {
+            const disabledList = [...new Array(30)].map((_, day) => ({
+                date: new Date(1970, 5, 1 + day),
+            }));
+
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <Calendar
+                        value={new Date(1970, 4, 1)}
+                        max={new Date(1970, 6, 1)}
+                        disabledList={disabledList}
+                        onChangeValue={() => {}}
+                    />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            cy.get('body')
+                .find('[data-day="31"][data-month-index="4"]')
+                .first()
+                .type(shiftRightArrow)
+                .should('have.attr', 'tabindex', '0')
+                .type(shiftDownArrow)
+                .should('have.attr', 'tabindex', '0');
+        });
+    });
 });
 
 describe('plasma-web: CalendarDouble', () => {
@@ -778,5 +1154,123 @@ describe('plasma-web: CalendarDouble keyboard navigation', () => {
             .first()
             .should('have.attr', 'tabindex', '0')
             .should('have.attr', 'aria-disabled', 'true');
+    });
+
+    describe('navigate with pressed Shift and skipped disabled date', () => {
+        const shiftLeftArrow = '{shift}{leftArrow}';
+        const shiftDownArrow = '{shift}{downArrow}';
+        const shiftUpArrow = '{shift}{upArrow}';
+
+        it('default case', () => {
+            const may = [...new Array(31)].map((_, day) => ({
+                date: new Date(2022, 4, 1 + day),
+            }));
+
+            const apr = [...new Array(30)].map((_, day) => ({
+                date: new Date(2022, 3, 1 + day),
+            }));
+
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <Calendar
+                        isDouble
+                        disabledList={[...may, ...apr]}
+                        value={new Date(2022, 5, 1)}
+                        onChangeValue={() => {}}
+                    />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            const start = '[data-day="1"][data-month-index="5"]';
+
+            cy.get('body').find(start).first().type(shiftLeftArrow);
+
+            cy.get('body').find('[data-day="31"][data-month-index="2"]').first().should('have.attr', 'tabindex', '0');
+        });
+
+        it('arrow down + up', () => {
+            const june = [...new Array(6)].map((_, day) => ({
+                date: new Date(2022, 5, 1 + day),
+            }));
+
+            const may = [...new Array(31)].map((_, day) => ({
+                date: new Date(2022, 4, 1 + day),
+            }));
+
+            const apr = [...new Array(30)].map((_, day) => ({
+                date: new Date(2022, 3, 1 + day),
+            }));
+
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <Calendar
+                        isDouble
+                        disabledList={[...may, ...apr, ...june]}
+                        value={new Date(2022, 5, 1)}
+                        onChangeValue={() => {}}
+                    />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            const start = '[data-day="10"][data-month-index="5"]';
+
+            cy.get('body').find(start).first().type(shiftUpArrow);
+
+            cy.get('body')
+                .find('[data-day="31"][data-month-index="2"]')
+                .first()
+                .should('have.attr', 'tabindex', '0')
+                .type(shiftDownArrow);
+
+            cy.get('body').find('[data-day="7"][data-month-index="5"]').first().should('have.attr', 'tabindex', '0');
+        });
+
+        it('arrow up with min', () => {
+            const june = [...new Array(6)].map((_, day) => ({
+                date: new Date(2022, 5, 1 + day),
+            }));
+
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <Calendar
+                        isDouble
+                        disabledList={june}
+                        value={new Date(2022, 5, 1)}
+                        min={new Date(2022, 4, 31)}
+                        onChangeValue={() => {}}
+                    />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            const start = '[data-day="10"][data-month-index="5"]';
+
+            cy.get('body').find(start).first().type(shiftUpArrow);
+
+            cy.get('body').find(start).first().should('have.attr', 'tabindex', '0');
+        });
+
+        it('arrow down with max', () => {
+            const june = [...new Array(6)].map((_, day) => ({
+                date: new Date(2022, 5, 24 + day),
+            }));
+
+            mount(
+                <CypressTestDecoratorWithTypo>
+                    <Calendar
+                        isDouble
+                        disabledList={june}
+                        value={new Date(2022, 5, 1)}
+                        max={new Date(2022, 6, 1)}
+                        onChangeValue={() => {}}
+                    />
+                </CypressTestDecoratorWithTypo>,
+            );
+
+            const start = '[data-day="17"][data-month-index="5"]';
+
+            cy.get('body').find(start).first().type(shiftDownArrow);
+
+            cy.get('body').find(start).first().should('have.attr', 'tabindex', '0');
+        });
     });
 });
