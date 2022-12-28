@@ -1,4 +1,4 @@
-import { TokenData } from '@salutejs/plasma-tokens-utils';
+import { TokenData as TokenDataBase } from '@salutejs/plasma-tokens-utils';
 import type { TextIconsTokenName, ControlsSurfacesName, BackgroundName, OverlayName } from './themeTokenGetters';
 import { baseColors } from './constants';
 
@@ -38,6 +38,15 @@ export interface ThemeConfig {
     };
 }
 
+export type TokenData<T = {}> = TokenDataBase<T> & {
+    enabled?: boolean;
+};
+
+export type TokenGeneralColorByType<T extends string = string> = Record<
+    TokenType | TokenGenericType | TokenBackgroundType | string,
+    Record<T, TokenData<string>>
+>;
+
 export type TokenBaseColorByType<T extends string = string> = Record<'default', Record<T, TokenData<string>>>;
 
 export type TokensByType<T extends string = string> = Record<
@@ -49,6 +58,14 @@ export type TokensBackgroundByType<T extends string = string> = Record<
     TokenType | TokenBackgroundType,
     Record<T, TokenData<string>>
 >;
+
+export type TokensName =
+    | TextIconsTokenName
+    | ControlsSurfacesName
+    | BackgroundName
+    | OverlayName
+    | keyof typeof baseColors
+    | string;
 
 export type ThemeMode = 'dark' | 'light';
 
@@ -69,17 +86,9 @@ export type TokensGetterFn = (
 export interface Theme {
     config: ThemeConfig;
     dark: {
-        textIcons: TokensByType<TextIconsTokenName>;
-        controlsSurfaces: TokensByType<ControlsSurfacesName>;
-        backgrounds: TokensBackgroundByType<BackgroundName>;
-        overlay: TokensByType<OverlayName>;
-        baseColor: TokenBaseColorByType<keyof typeof baseColors>;
+        [k: string]: TokenGeneralColorByType<TokensName>;
     };
     light: {
-        textIcons: TokensByType<TextIconsTokenName>;
-        controlsSurfaces: TokensByType<ControlsSurfacesName>;
-        backgrounds: TokensBackgroundByType<BackgroundName>;
-        overlay: TokensByType<OverlayName>;
-        baseColor: TokenBaseColorByType<keyof typeof baseColors>;
+        [k: string]: TokenGeneralColorByType<TokensName>;
     };
 }

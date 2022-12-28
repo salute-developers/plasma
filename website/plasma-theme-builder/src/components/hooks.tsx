@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { getThemeData } from '../api/githubFilesFetcher';
-import { Theme } from '../builder/types';
+import type { Theme as ThemeType } from '../builder/types';
 
 export const useFetchTheme = (themeName: string | null) => {
-    const [response, setResponse] = useState<Theme | undefined>();
+    const [response, setResponse] = useState<ThemeType | undefined>();
     const [errorMessage, setErrorMessage] = useState<string | undefined>();
 
     useEffect(() => {
@@ -28,3 +28,45 @@ export const useFetchTheme = (themeName: string | null) => {
 
     return [response, errorMessage] as const;
 };
+
+export const useNormalizeThemeSections = (data?: ThemeType): ThemeType | undefined =>
+    useMemo(() => {
+        if (!data) {
+            return undefined;
+        }
+
+        const legacySectionMap: Record<string, string> = {
+            textIcons: 'text',
+            controlsSurfaces: 'surface',
+            banners: 'banner',
+            backgrounds: 'background',
+        };
+
+        const legacySections = Object.keys(legacySectionMap);
+        const themeSections = Object.keys(data.light).filter((key) => legacySections.includes(key)) as Array<
+            keyof ThemeType['dark' | 'light']
+        >;
+
+        return themeSections.reduce(
+            (prev, section) => {
+                const objectDark = prev.dark[section];
+                const objectLight = prev.light[section];
+
+                delete prev.dark[section];
+                delete prev.light[section];
+
+                return {
+                    ...prev,
+                    dark: {
+                        ...prev.dark,
+                        [legacySectionMap[section]]: objectDark,
+                    },
+                    light: {
+                        ...prev.light,
+                        [legacySectionMap[section]]: objectLight,
+                    },
+                };
+            },
+            { ...data },
+        );
+    }, [data]);

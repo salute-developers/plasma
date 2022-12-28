@@ -9,13 +9,19 @@ import type { ThemeMode } from '../types';
 const StyledThemeModeToggle = styled.div`
     ${SBSansTextMono};
 
-    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
 `;
 
 const StyledThemeTypeButton = styled(Button)<{ isSelected: boolean }>`
     padding: 0.75rem 0;
     cursor: pointer;
     color: ${({ isSelected }) => (isSelected ? accent : tertiary)};
+`;
+
+const Separator = styled.div`
+    margin: 0 1rem;
 `;
 
 interface ThemeModeButtonProps {
@@ -51,7 +57,8 @@ export const ThemeModeToggle = ({ onClick, selectedMode }: ThemeModeToggleProps)
 
     return (
         <StyledThemeModeToggle>
-            <ThemeModeButton mode="dark" selectedMode={selectedMode} onClick={handleOnClick} /> |{' '}
+            <ThemeModeButton mode="dark" selectedMode={selectedMode} onClick={handleOnClick} />
+            <Separator>|</Separator>
             <ThemeModeButton mode="light" selectedMode={selectedMode} onClick={handleOnClick} />
         </StyledThemeModeToggle>
     );
