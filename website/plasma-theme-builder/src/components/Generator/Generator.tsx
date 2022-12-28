@@ -5,8 +5,8 @@ import { general as generalColors, PlasmaSaturation } from '@salutejs/plasma-col
 
 import { FormField } from '../FormField/FormField';
 import { createTheme } from '../../builder/createTheme';
-import { GeneralColor, Grayscale, ThemeData } from '../types';
-import type { Theme as ThemeType } from '../../builder/types';
+import { GeneralColor, ThemeData } from '../types';
+import { Theme as ThemeType, Grayscale } from '../../builder/types';
 
 const Form = styled.form``;
 
@@ -58,12 +58,12 @@ export const getGrayscale = (): Array<{
     label: string;
 }> => [
     {
-        value: 'gray',
-        label: 'gray',
+        value: Grayscale.gray,
+        label: Grayscale.gray,
     },
     {
-        value: 'coolGray',
-        label: 'coolGray',
+        value: Grayscale.coolGray,
+        label: Grayscale.coolGray,
     },
 ];
 interface GeneratorProps {

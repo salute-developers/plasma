@@ -1,3 +1,6 @@
+import { createContext } from 'react';
+import { TokenContextHandlers } from './types';
+
 const rgbaToHexA = (rgbaOrigin: string) => {
     const separator = rgbaOrigin.includes(',') ? ',' : ' ';
     const rgba = rgbaOrigin.substring(5).replace(')', '');
@@ -46,3 +49,44 @@ export const getThemeName = () => {
 };
 
 export const clearURLParam = () => (window.location.href = '/');
+
+export const downloadFile = (fileContent: string, fileName: string, fileType: string) => {
+    const blob = new Blob([fileContent], {
+        type: fileType,
+    });
+    const link = document.createElement('a');
+    document.body.appendChild(link);
+
+    link.href = URL.createObjectURL(blob);
+    link.download = fileName;
+    link.click();
+    link.remove();
+};
+
+export const emptyInputData = {
+    section: {
+        value: '',
+        status: undefined,
+    },
+    subsection: {
+        value: '',
+        status: undefined,
+    },
+    name: {
+        value: '',
+        status: undefined,
+    },
+    value: {
+        value: '',
+        status: undefined,
+    },
+    comment: undefined,
+};
+
+export const TokenContext = createContext<TokenContextHandlers>({
+    onOpenTokenForm: () => {},
+    onTokenDelete: () => {},
+    onTokenEnabled: () => {},
+    onTokensSubsectionEnabled: () => {},
+    onTokensSectionEnabled: () => {},
+});
