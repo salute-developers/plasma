@@ -58,31 +58,39 @@ export type CliConfig = Partial<
     Pick<Config, 'include' | 'configPath' | 'outputFilePath' | 'logLevel' | 'failOnSignificantChanges'>
 >;
 
+function withDefault<T>(value: T | undefined, defaultValue: T): T {
+    if (typeof value === 'undefined') {
+        return defaultValue;
+    }
+
+    return value;
+}
+
 export function getConfig(cliConfig: CliConfig = {}, projectConfig: ProjectConfig = {}): Config {
     debug('getting final config');
     const mixedInputConfig = { ...cliConfig, ...projectConfig };
 
     const result = {
-        taskConfiguration: mixedInputConfig.taskConfiguration || {},
-        tasks: mixedInputConfig.tasks || [],
-        metricConfiguration: mixedInputConfig.metricConfiguration || {},
-        metrics: mixedInputConfig.metrics || [],
-        include: mixedInputConfig.include || [],
-        exclude: mixedInputConfig.exclude || [],
-        jobs: mixedInputConfig.jobs || 1,
-        retries: mixedInputConfig.retries || 10,
-        displayIntermediateCalculations: mixedInputConfig.displayIntermediateCalculations || true,
-        intermediateRefreshInterval: mixedInputConfig.intermediateRefreshInterval || 10000,
-        failOnSignificantChanges: mixedInputConfig.failOnSignificantChanges || true,
-        outputFilePath: mixedInputConfig.outputFilePath || 'perftest/report-[time].json',
-        configPath: mixedInputConfig.configPath || undefined,
-        logLevel: mixedInputConfig.logLevel || 'normal',
-        puppeteerOptions: mixedInputConfig.puppeteerOptions || {},
-        taskWaitTimeout: mixedInputConfig.taskWaitTimeout || 1000 * 10,
-        runWaitTimeout: mixedInputConfig.runWaitTimeout || 1000 * 60 * 2,
-        dryRunTimes: mixedInputConfig.taskWaitTimeout || 1,
-        modifyWebpackConfig: mixedInputConfig.modifyWebpackConfig || ((c) => c),
-        exportPickRule: mixedInputConfig.exportPickRule || 'named',
+        taskConfiguration: withDefault(mixedInputConfig.taskConfiguration, {}),
+        tasks: withDefault(mixedInputConfig.tasks, []),
+        metricConfiguration: withDefault(mixedInputConfig.metricConfiguration, {}),
+        metrics: withDefault(mixedInputConfig.metrics, []),
+        include: withDefault(mixedInputConfig.include, []),
+        exclude: withDefault(mixedInputConfig.exclude, []),
+        jobs: withDefault(mixedInputConfig.jobs, 1),
+        retries: withDefault(mixedInputConfig.retries, 10),
+        displayIntermediateCalculations: withDefault(mixedInputConfig.displayIntermediateCalculations, true),
+        intermediateRefreshInterval: withDefault(mixedInputConfig.intermediateRefreshInterval, 10000),
+        failOnSignificantChanges: withDefault(mixedInputConfig.failOnSignificantChanges, true),
+        outputFilePath: withDefault(mixedInputConfig.outputFilePath, 'perftest/report-[time].json'),
+        configPath: withDefault(mixedInputConfig.configPath, undefined),
+        logLevel: withDefault(mixedInputConfig.logLevel, 'normal'),
+        puppeteerOptions: withDefault(mixedInputConfig.puppeteerOptions, {}),
+        taskWaitTimeout: withDefault(mixedInputConfig.taskWaitTimeout, 1000 * 10),
+        runWaitTimeout: withDefault(mixedInputConfig.runWaitTimeout, 1000 * 60 * 2),
+        dryRunTimes: withDefault(mixedInputConfig.taskWaitTimeout, 1),
+        modifyWebpackConfig: withDefault(mixedInputConfig.modifyWebpackConfig, (c) => c),
+        exportPickRule: withDefault(mixedInputConfig.exportPickRule, 'named'),
     };
 
     debug('final config: ', result);
