@@ -63,6 +63,9 @@ import { TimerStroke } from './Icon.assets/TimerStroke';
 import { TimerFill } from './Icon.assets/TimerFill';
 import { Eye } from './Icon.assets/Eye';
 import { Share } from './Icon.assets/Share';
+import { CloudUpload } from './Icon.assets/CloudUpload';
+import { Record } from './Icon.assets/Record';
+import { Recording } from './Icon.assets/Recording';
 // Alert
 import { Bell } from './Icon.assets/Bell';
 import { BellActive } from './Icon.assets/BellActive';
@@ -242,6 +245,9 @@ export const iconSectionsSet = {
         timerFill: TimerFill,
         eye: Eye,
         share: Share,
+        cloudUpload: CloudUpload,
+        record: Record,
+        recording: Recording,
     },
     alert: {
         bell: Bell,
