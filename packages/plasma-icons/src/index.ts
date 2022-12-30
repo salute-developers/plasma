@@ -61,6 +61,9 @@ export { IconTimerStroke } from './Icons/IconTimerStroke';
 export { IconTimerFill } from './Icons/IconTimerFill';
 export { IconEye } from './Icons/IconEye';
 export { IconShare } from './Icons/IconShare';
+export { IconCloudUpload } from './Icons/IconCloudUpload';
+export { IconRecord } from './Icons/IconRecord';
+export { IconRecording } from './Icons/IconRecording';
 // Alert
 export { IconBell } from './Icons/IconBell';
 export { IconBellActive } from './Icons/IconBellActive';
