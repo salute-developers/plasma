@@ -1,3 +1,17 @@
+# v1.154.1 (Wed Jan 11 2023)
+
+#### 🐛 Bug Fix
+
+- chore(plasma-ui): update perftool script, config [#274](https://github.com/salute-developers/plasma/pull/274) ([@akhdrv](https://github.com/akhdrv))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+
+---
+
 # v1.154.0 (Mon Dec 26 2022)
 
 #### 🚀 Enhancement

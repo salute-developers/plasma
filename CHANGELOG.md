@@ -1,3 +1,20 @@
+# (Wed Jan 11 2023)
+
+#### 🐛 Bug Fix
+
+- ci: performance tests [#274](https://github.com/salute-developers/plasma/pull/274) ([@akhdrv](https://github.com/akhdrv))
+- ci: fix react 17 tests [#275](https://github.com/salute-developers/plasma/pull/275) ([@akhdrv](https://github.com/akhdrv))
+- `@salutejs/perftool@0.2.1`
+  - fix(perftool): default config values fix [#274](https://github.com/salute-developers/plasma/pull/274) ([@akhdrv](https://github.com/akhdrv))
+- `@salutejs/plasma-ui@1.154.1`
+  - chore(plasma-ui): update perftool script, config [#274](https://github.com/salute-developers/plasma/pull/274) ([@akhdrv](https://github.com/akhdrv))
+
+#### Authors: 1
+
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+
+---
+
 # (Mon Dec 26 2022)
 
 #### 🚀 Enhancement
