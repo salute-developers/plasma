@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-ui",
-    "version": "1.154.0",
+    "version": "1.154.1",
     "description": "Salute Design System",
     "main": "index.js",
     "module": "es/index.js",
@@ -31,7 +31,7 @@
         "@babel/preset-env": "7.15.4",
         "@babel/preset-react": "7.14.5",
         "@babel/preset-typescript": "7.15.0",
-        "@salutejs/perftool": "0.2.0",
+        "@salutejs/perftool": "0.2.1",
         "@salutejs/plasma-cy-utils": "0.38.0",
         "@salutejs/plasma-icons": "1.115.0",
         "@salutejs/plasma-sb-utils": "0.86.0",
@@ -97,7 +97,10 @@
         "perftool:compare": "node --experimental-specifier-resolution=node ./node_modules/.bin/perftool-compare"
     },
     "typeCoverage": {
-        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
+        "ignoreFiles": [
+            "src/**/*component-test.tsx",
+            "src/**/*stories.tsx"
+        ],
         "atLeast": 98.7
     },
     "jest": {
@@ -105,7 +108,18 @@
             "^styled-components": "<rootDir>/node_modules/styled-components"
         }
     },
-    "files": ["components", "hocs", "hooks", "mixins", "tokens", "types", "utils", "index.d.ts", "index.js", "es"],
+    "files": [
+        "components",
+        "hocs",
+        "hooks",
+        "mixins",
+        "tokens",
+        "types",
+        "utils",
+        "index.d.ts",
+        "index.js",
+        "es"
+    ],
     "contributors": [
         "Vasiliy Loginevskiy",
         "Антонов Игорь Александрович",
