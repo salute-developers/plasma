@@ -1,3 +1,15 @@
+# v1.116.0 (Wed Jan 11 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-icons): Add `CloudUpload`, `Record` and `Recording` icons [#277](https://github.com/salute-developers/plasma/pull/277) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.115.0 (Mon Dec 26 2022)
 
 #### 🐛 Bug Fix
