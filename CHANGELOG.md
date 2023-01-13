@@ -1,3 +1,17 @@
+# (Fri Jan 13 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-theme-builder): Add github workflow for deploy theme-builder on server [#254](https://github.com/salute-developers/plasma/pull/254) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Add pages and components for theme-builder [#254](https://github.com/salute-developers/plasma/pull/254) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Add create react app [#254](https://github.com/salute-developers/plasma/pull/254) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Wed Jan 11 2023)
 
 #### 🚀 Enhancement
