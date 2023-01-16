@@ -29,6 +29,7 @@ module.exports = {
     favicon: 'images/favicon.png',
     organizationName: 'Salute-Developers',
     projectName: 'Plasma',
+    trailingSlash: true,
     themes: ['@docusaurus/theme-live-codeblock'],
     themeConfig: {
         navbar: {
