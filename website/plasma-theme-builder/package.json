@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-theme-builder",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Plasma Theme Builder.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "private": true,
@@ -24,7 +24,9 @@
     },
     "homepage": ".",
     "eslintConfig": {
-        "extends": ["react-app"],
+        "extends": [
+            "react-app"
+        ],
         "rules": {
             "@typescript-eslint/no-redeclare": "off",
             "no-redeclare": "off"
@@ -41,7 +43,15 @@
         "react-error-overlay": "6.0.9"
     },
     "browserslist": {
-        "production": [">0.2%", "not dead", "not op_mini all"],
-        "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
     }
 }
