@@ -2,7 +2,7 @@ import type { Config } from '@salutejs/perftool';
 
 const config: Config = {
     jobs: 2,
-    retries: 50,
+    retries: 30,
     include: ['src/**/*.perftest.tsx'],
     outputFilePath: 'perftest/result.json',
     displayIntermediateCalculations: false,
