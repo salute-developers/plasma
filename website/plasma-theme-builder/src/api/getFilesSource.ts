@@ -29,6 +29,3 @@ export const getFilesSource = async (owner: string, repo: string, path: string, 
 
     return isString(filesSource) ? filesSource : '';
 };
-
-export const getThemeData = async (themeName: string, owner = 'salute-developers', repo = 'plasma', token?: string) =>
-    getFilesSource(owner, repo, `packages/plasma-tokens/data/themes/${themeName}.json`, token);

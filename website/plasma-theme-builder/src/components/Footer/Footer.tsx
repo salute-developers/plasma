@@ -37,6 +37,8 @@ const StyledLink = styled(Link)`
 `;
 
 export const Footer = () => {
+    const currentYear = new Date().getFullYear();
+
     return (
         <StyledFooter>
             <Content>
@@ -51,7 +53,7 @@ export const Footer = () => {
                 </StyledLink>
                 <IconTelegram />
             </Content>
-            <Copyright>©2022 Девайсы</Copyright>
+            <Copyright>©{currentYear} Девайсы</Copyright>
         </StyledFooter>
     );
 };

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Button, DsplM, Link } from '@salutejs/plasma-b2c';
 import { accent } from '@salutejs/plasma-tokens-b2c';
+import { useGithubAuth } from '../hooks';
+import { AuthRequestModal } from '../AuthRequestModal/AuthRequestModal';
 
 const StyledMain = styled.div``;
 
@@ -28,8 +30,24 @@ interface MainProps {
 }
 
 export const Main = ({ onGenerateTheme }: MainProps) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [token, getToken, getAuth] = useGithubAuth();
+
+    useEffect(() => {
+        getToken();
+    }, [getToken]);
+
+    const onAuthRequestModalOpen = useCallback(() => {
+        setIsOpen(true);
+    }, []);
+
+    const onAuthRequestModalClose = useCallback(() => {
+        setIsOpen(false);
+    }, []);
+
     return (
         <StyledMain>
+            <AuthRequestModal isOpen={isOpen} onClose={onAuthRequestModalClose} onGetAuth={getAuth} />
             <Display>
                 Генератор <AccentHeader>пользовательской</AccentHeader> темы
             </Display>
@@ -61,7 +79,11 @@ export const Main = ({ onGenerateTheme }: MainProps) => {
                     https://plasma.sberdevices.ru/plasma-theme-builder/?theme=название_темы
                 </Paragraph>
             </Description>
-            <StyledButton view="primary" text="Начать генерацию темы" onClick={onGenerateTheme} />
+            {token ? (
+                <StyledButton view="primary" text="Начать генерацию темы" onClick={onGenerateTheme} />
+            ) : (
+                <StyledButton view="primary" text="Авторизация" onClick={onAuthRequestModalOpen} />
+            )}
         </StyledMain>
     );
 };

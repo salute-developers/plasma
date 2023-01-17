@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+import { nanoid } from 'nanoid';
 import { TokenContextHandlers } from './types';
 
 const rgbaToHexA = (rgbaOrigin: string) => {
@@ -41,6 +42,19 @@ export const getRGBA = (color: string) => {
     const [red, green, blue, alpha] = Object.values(colors).map(getNormalizeValue);
 
     return `${red}, ${green}, ${blue}, ${alpha}`;
+};
+
+export const getUUID = () => {
+    const value = window.localStorage.getItem('uuid');
+
+    if (value) {
+        return value;
+    }
+
+    const pluginClientId = nanoid();
+    window.localStorage.setItem('uuid', pluginClientId);
+
+    return pluginClientId;
 };
 
 export const getThemeName = () => {
