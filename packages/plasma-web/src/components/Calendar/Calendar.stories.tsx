@@ -118,15 +118,31 @@ export const Base: Story<CalendarBaseProps> = ({ min, max, type }) => {
         color: 'purple',
     }));
 
-    const disabledDays = [...new Array(5)].map((_, day) => ({
-        date: new Date(2022, 5, 11 + day),
+    const disabledDays = [...new Array(6)].map((_, day) => ({
+        date: new Date(2022, 5, 14 + day),
+    }));
+
+    const aug = [...new Array(31)].map((_, day) => ({
+        date: new Date(2022, 7, 1 + day),
+    }));
+
+    const july = [...new Array(8)].map((_, day) => ({
+        date: new Date(2022, 6, 24 + day),
+    }));
+
+    const may = [...new Array(7)].map((_, day) => ({
+        date: new Date(2022, 4, 1 + day),
+    }));
+
+    const apr = [...new Array(30)].map((_, day) => ({
+        date: new Date(2022, 3, 1 + day),
     }));
 
     return (
         <CalendarBase
             value={value}
             eventList={eventsRange}
-            disabledList={disabledDays}
+            disabledList={[...disabledDays, ...apr, ...may, ...july, ...aug]}
             min={min}
             max={max}
             type={type}
