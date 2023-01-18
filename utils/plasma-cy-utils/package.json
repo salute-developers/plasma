@@ -36,19 +36,14 @@
         "prebuild": "npm run clean",
         "build": "tsc",
         "clean": "rm -rf lib",
-        "typescript-coverage": "npx typescript-coverage-report"
+        "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
         "atLeast": 100
     },
     "publishConfig": {
         "access": "public"
     },
-    "files": [
-        "lib"
-    ]
+    "files": ["lib"]
 }
