@@ -87,10 +87,19 @@
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
+        "ignoreFiles": [
+            "src/**/*component-test.tsx",
+            "src/**/*stories.tsx"
+        ],
         "atLeast": 99.89
     },
-    "files": ["dist", "mobile", "sberbox", "sberportal", "assistant"],
+    "files": [
+        "dist",
+        "mobile",
+        "sberbox",
+        "sberportal",
+        "assistant"
+    ],
     "contributors": [
         "Vasiliy Loginevskiy",
         "Виноградов Антон Александрович",

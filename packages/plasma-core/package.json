@@ -6,7 +6,18 @@
     "main": "index.js",
     "module": "es/index.js",
     "types": "index.d.ts",
-    "files": ["components", "hocs", "hooks", "mixins", "tokens", "types", "utils", "index.d.ts", "index.js", "es"],
+    "files": [
+        "components",
+        "hocs",
+        "hooks",
+        "mixins",
+        "tokens",
+        "types",
+        "utils",
+        "index.d.ts",
+        "index.js",
+        "es"
+    ],
     "peerDependencies": {
         "react": ">=16.13.1",
         "react-dom": ">=16.13.1",
@@ -56,10 +67,16 @@
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": ["src/**/*component-test.tsx"],
+        "ignoreFiles": [
+            "src/**/*component-test.tsx"
+        ],
         "atLeast": 99
     },
-    "contributors": ["Vasiliy Loginevskiy", "Виноградов Антон Александрович", "Зубаиров Фаниль Асхатович"],
+    "contributors": [
+        "Vasiliy Loginevskiy",
+        "Виноградов Антон Александрович",
+        "Зубаиров Фаниль Асхатович"
+    ],
     "sideEffects": false,
     "dependencies": {
         "@salutejs/plasma-typo": "0.29.0",
