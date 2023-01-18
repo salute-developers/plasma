@@ -30,4 +30,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Typescript Coverage Report Artifacts
-          path: /home/runner/work/plasma/plasma/packages/**/coverage-ts/
+          path: /home/runner/work/plasma/plasma/packages/*/coverage-ts/
