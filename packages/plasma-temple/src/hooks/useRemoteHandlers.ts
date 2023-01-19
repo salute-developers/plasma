@@ -20,11 +20,6 @@ interface UseRemoteListenerCallback {
     (key: RemoteKey, event: KeyboardEvent): void;
 }
 
-interface UseRemoteListenerProps {
-    keypressTimeMs?: number;
-    disable?: boolean;
-}
-
 export const useRemoteListener = (cb: UseRemoteListenerCallback, params: UseRemoteListenerProps): void => {
     const { keypressTimeMs = 150, disable = false } = params || {};
     const keydown = React.useRef<number | null>(null);
