@@ -1,3 +1,29 @@
+# (Thu Jan 19 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-theme-builder): Add builder [#258](https://github.com/salute-developers/plasma/pull/258) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Add github workflow for deploy theme-builder on server [#254](https://github.com/salute-developers/plasma/pull/254) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Add pages and components for theme-builder [#254](https://github.com/salute-developers/plasma/pull/254) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Add create react app [#254](https://github.com/salute-developers/plasma/pull/254) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- ci: fix size of ts report [#283](https://github.com/salute-developers/plasma/pull/283) ([@Yeti-or](https://github.com/Yeti-or))
+- docs(plasma-ui, plasma-web, plasma-temple): add trailing slash [#280](https://github.com/salute-developers/plasma/pull/280) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-temple@1.123.0`
+  - fix(plasma-temple): remove duplicate interface [#284](https://github.com/salute-developers/plasma/pull/284) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.126.0`, `@salutejs/plasma-core@1.89.0`, `@salutejs/plasma-temple@1.123.0`, `@salutejs/plasma-ui@1.156.0`, `@salutejs/plasma-web@1.153.0`, `@salutejs/plasma-cy-utils@0.39.0`
+  - ci: improve ts-coverage report [#282](https://github.com/salute-developers/plasma/pull/282) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 3
+
+- [@kayman233](https://github.com/kayman233)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Tue Jan 17 2023)
 
 #### 🚀 Enhancement

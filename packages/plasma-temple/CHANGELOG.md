@@ -1,3 +1,18 @@
+# v1.123.0 (Thu Jan 19 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-temple): remove duplicate interface [#284](https://github.com/salute-developers/plasma/pull/284) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- ci: improve ts-coverage report [#282](https://github.com/salute-developers/plasma/pull/282) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.121.1 (Wed Jan 11 2023)
 
 #### 🐛 Bug Fix
