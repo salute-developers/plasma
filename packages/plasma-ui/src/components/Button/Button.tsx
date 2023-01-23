@@ -36,7 +36,10 @@ const ButtonBase = createButton<HTMLButtonElement, ButtonProps & ThemeProviderCo
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     const { deviceScale } = useThemeContext() || {};
 
-    return <ButtonBase {...props} ref={ref} deviceScale={deviceScale} />;
+    // Добавляем класс `sn-section-item`, необходимый для работы @salutejs/spatial
+    return (
+        <ButtonBase {...props} ref={ref} className={`${props.className} sn-section-item`} deviceScale={deviceScale} />
+    );
 });
 
 Button.defaultProps = {

@@ -13,3 +13,5 @@ export {
     WithGridLines as WithGridLinesDecorator,
     InContainer as InContainerDecorator,
 } from './StoryDecorators';
+
+export { spatnavClassNameAttrs } from './spatnavClassNameAttrs';

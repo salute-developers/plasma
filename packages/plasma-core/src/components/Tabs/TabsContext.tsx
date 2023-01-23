@@ -13,10 +13,4 @@ export class TabItemRefs {
     }
 }
 
-interface TabsState {
-    refs?: TabItemRefs;
-}
-
-const initialValue: TabsState = {};
-
-export const TabsContext = createContext<TabsState>(initialValue);
+export const TabsContext = createContext<TabItemRefs | null>(null);

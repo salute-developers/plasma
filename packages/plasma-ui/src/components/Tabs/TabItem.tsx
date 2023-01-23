@@ -82,18 +82,20 @@ export const StyledTabItemMemo = React.memo(StyledTabItem);
 /**
  * Элемент списка вкладок, недопустимо использовать вне компонента Tabs.
  */
-/**
- * Элемент списка вкладо`к, недопустимо использовать вне компонента Tabs.
- */
 export const TabItem = forwardRef<HTMLElement, TabItemProps>((props, outerRef) => {
     const innerRef = useRef<HTMLElement>(null);
     const ref = useForkRef(outerRef, innerRef);
 
-    const { refs } = useTabsAnimationContext();
+    const refs = useTabsAnimationContext();
 
     useEffect(() => {
-        refs?.register(innerRef);
-        return () => refs?.unregister(innerRef);
+        if (!refs) {
+            return;
+        }
+
+        refs.register(innerRef);
+
+        return () => refs.unregister(innerRef);
     }, [ref, refs]);
 
     return <StyledTabItemMemo ref={ref} {...props} />;

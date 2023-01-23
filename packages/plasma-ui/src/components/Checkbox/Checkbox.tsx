@@ -16,6 +16,7 @@ import type { BaseboxProps, FocusProps, OutlinedProps } from '@salutejs/plasma-c
 import { accent, white, secondary, transparent } from '@salutejs/plasma-tokens';
 
 import { InteractionProps } from '../../mixins';
+import { spatnavClassNameAttrs } from '../../helpers';
 
 import { IconDone } from './IconDone';
 
@@ -43,7 +44,7 @@ export const StyledRoot = styled(BaseboxRoot)`
         margin-top: 1.25rem;
     }
 `;
-export const StyledInput = styled(BaseboxInput)`
+export const StyledInput = styled(BaseboxInput).attrs(spatnavClassNameAttrs)`
     /* SberBox не видит этот элемент, нужно спрятать от глаз,
      * но сделать достаточно большим, чтобы сфокусироваться на нем. */
     appearance: none;

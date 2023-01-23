@@ -46,7 +46,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs({ childr
     });
 
     return (
-        <TabsAnimationContext.Provider value={{ refs }}>
+        <TabsAnimationContext.Provider value={refs}>
             <TabsView ref={ref} {...rest}>
                 {animatedChildren}
                 <TabsSlider index={index} disabled={rest.disabled} />

@@ -35,7 +35,7 @@ export const StyledSlider = styled.div<Pick<SliderProps, 'disabled'>>`
  */
 export const TabsSlider = ({ index, ...rest }: SliderProps) => {
     const [dimensions, setDimensions] = useState({ left: 0, width: 0, height: 0 });
-    const { refs } = useTabsAnimationContext();
+    const refs = useTabsAnimationContext();
 
     useEffect(() => {
         if (!refs || index === undefined) {
