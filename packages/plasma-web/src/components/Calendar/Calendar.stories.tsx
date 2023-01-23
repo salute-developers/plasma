@@ -1,4 +1,4 @@
-import React, { ComponentProps } from 'react';
+import React, { ComponentProps, MouseEvent } from 'react';
 import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -300,12 +300,23 @@ export const WithPopup: Story<CalendarProps> = ({ min, max, isDouble }) => {
         date: new Date(2022, 5, 11 + day),
     }));
 
+    // INFO: В onMouseDown так же используем preventDefault чтобы скрыть нативный datepicker для iOS
+    const hideSafariDefaultDatepicker = (event: MouseEvent<HTMLInputElement>) => event.preventDefault();
+
     return (
         <Popup
             isOpen={isOpen}
             trigger="click"
             placement="bottom"
-            disclosure={<StyledTextField type="date" value={textValue} onChange={handleOnTextChange} />}
+            disclosure={
+                <StyledTextField
+                    type="date"
+                    onClick={hideSafariDefaultDatepicker}
+                    onMouseDown={hideSafariDefaultDatepicker}
+                    value={textValue}
+                    onChange={handleOnTextChange}
+                />
+            }
             onToggle={onToggle}
         >
             <StyledCalendar
