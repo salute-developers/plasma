@@ -20,7 +20,7 @@ import type { TypoSystem } from '@salutejs/plasma-tokens-utils';
 import { baseColors, colorThemes, typoSystem, typo, sizes } from './data';
 import type { ThemeTokens, TypographyTypes } from './data';
 import * as tokenGroups from './tokenGroups';
-import { generateColorThemesTokenDataGroups, typoArchetypes } from './lib/themeBuilder/generateTokens';
+import { generateColorThemesTokenDataGroups, typoArchetypes, shadows } from './lib/themeBuilder/generateTokens';
 import { mapDeprecatedColorTokens } from './lib/themeBuilder/mapDeprecatedTokens';
 
 const OUT_DIR = 'src';
@@ -125,6 +125,10 @@ fs.existsSync(amznDictPropsTyposDir) || fs.mkdirSync(amznDictPropsTyposDir);
 const amznDictPropsBrandsDir = path.join(amznDictPropsColorsDir, 'brands');
 fs.existsSync(amznDictPropsBrandsDir) || fs.mkdirSync(amznDictPropsBrandsDir);
 
+// Shadows
+const amznDictPropsShadowsDir = path.join(amznDictPropsDir, 'shadow');
+fs.existsSync(amznDictPropsShadowsDir) || fs.mkdirSync(amznDictPropsShadowsDir);
+
 // BASE Colors
 fs.writeFileSync(
     path.join(amznDictPropsColorsDir, 'base.json'),
@@ -210,6 +214,20 @@ Object.entries(typoArchetypes).forEach(([key, value]) => {
                     }),
                     {},
                 ),
+            },
+            null,
+            2,
+        ),
+    );
+});
+
+// Themes Shadow
+Object.entries(shadows).forEach(([key, type]) => {
+    fs.writeFileSync(
+        path.join(amznDictPropsShadowsDir, `${key}.json`),
+        JSON.stringify(
+            {
+                shadow: type,
             },
             null,
             2,

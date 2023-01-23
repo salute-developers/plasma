@@ -16,6 +16,8 @@ import { themesFolder } from './constants';
 
 import { upperFirstLetter } from './utils';
 
+import { sbermarketShadows } from '../../data/shadows';
+
 const isTokenData = (value: unknown): value is TokenData => {
     return typeof value === 'object' && value !== null && 'value' in value;
 };
@@ -88,4 +90,8 @@ export const typoArchetypes = {
     ruler: rulerTypoProperties,
     plasma: plasmaTypoProperties,
     sbermarket: sbermarketTypoProperties,
+};
+
+export const shadows = {
+    sbermarket: sbermarketShadows,
 };
