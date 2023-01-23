@@ -110,7 +110,7 @@ export function createTabsController<T extends HTMLDivElement, P extends TabsCon
         );
 
         return (
-            <TabsContext.Provider value={{ refs }}>
+            <TabsContext.Provider value={refs}>
                 <ListComponent ref={ref} onKeyDown={onKeyDown} {...rest}>
                     {items.map(({ label, contentLeft }, i) => (
                         <ItemComponent

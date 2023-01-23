@@ -112,11 +112,16 @@ export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(function TabI
 ) {
     const innerRef = useRef<HTMLButtonElement>(null);
     const ref = useForkRef(outerRef, innerRef);
-    const { refs } = useContext(TabsContext);
+    const refs = useContext(TabsContext);
 
     useEffect(() => {
-        refs?.register(innerRef);
-        return () => refs?.unregister(innerRef);
+        if (!refs) {
+            return;
+        }
+
+        refs.register(innerRef);
+
+        return () => refs.unregister(innerRef);
     }, [refs]);
 
     return (

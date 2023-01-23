@@ -4,10 +4,11 @@ import { FieldRoot, FieldPlaceholder, FieldContent, Input, secondary } from '@sa
 import type { FieldProps, InputProps } from '@salutejs/plasma-core';
 
 import { FieldHelper, applyInputStyles } from '../Field';
+import { spatnavClassNameAttrs } from '../../helpers';
 
 export interface TextFieldProps extends FieldProps, InputProps {}
 
-const StyledInput = styled(Input)`
+const StyledInput = styled(Input).attrs(spatnavClassNameAttrs)`
     ${applyInputStyles};
 
     border-radius: 1rem;
