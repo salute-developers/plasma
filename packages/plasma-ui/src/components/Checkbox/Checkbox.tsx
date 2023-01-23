@@ -16,7 +16,7 @@ import type { BaseboxProps, FocusProps, OutlinedProps } from '@salutejs/plasma-c
 import { accent, white, secondary, transparent } from '@salutejs/plasma-tokens';
 
 import { InteractionProps } from '../../mixins';
-import { spatnavClassNameAttrs } from '../../helpers';
+import { spatnavClassNameAttrs } from '../../utils';
 
 import { IconDone } from './IconDone';
 

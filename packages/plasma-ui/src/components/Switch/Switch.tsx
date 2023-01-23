@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Switch as BaseSwitch } from '@salutejs/plasma-core';
 import { accent, surfaceLiquid03, white } from '@salutejs/plasma-tokens';
 
-import { spatnavClassNameAttrs } from '../../helpers';
+import { spatnavClassNameAttrs } from '../../utils';
 
 export type { SwitchProps } from '@salutejs/plasma-core';
 
