@@ -4,7 +4,7 @@ import { FieldRoot, FieldContent, TextArea as BaseArea } from '@salutejs/plasma-
 import type { TextAreaProps as BaseProps } from '@salutejs/plasma-core';
 
 import { FieldHelper, applyInputStyles } from '../Field';
-import { spatnavClassNameAttrs } from '../../helpers';
+import { spatnavClassNameAttrs } from '../../utils';
 
 export interface TextAreaProps extends BaseProps {}
 

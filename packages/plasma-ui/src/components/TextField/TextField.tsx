@@ -4,7 +4,7 @@ import { FieldRoot, FieldPlaceholder, FieldContent, Input, secondary } from '@sa
 import type { FieldProps, InputProps } from '@salutejs/plasma-core';
 
 import { FieldHelper, applyInputStyles } from '../Field';
-import { spatnavClassNameAttrs } from '../../helpers';
+import { spatnavClassNameAttrs } from '../../utils';
 
 export interface TextFieldProps extends FieldProps, InputProps {}
 
