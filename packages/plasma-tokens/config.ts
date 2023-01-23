@@ -7,21 +7,24 @@ import {
     colorReactNativeCustomFormatter,
     typoReactNativeCustomFormatter,
     typoKotlinCustomFormatter,
+    typoIosSwiftCustomFormatter,
     gradientSwiftTransformer,
     gradientKotlinTransformer,
     gradientReactNativeTransformer,
-    typoIosSwiftCustomFormatter,
+    shadowReactNativeCustomFormatter,
 } from './lib/generator';
 
 import { upperFirstLetter } from './lib/themeBuilder/utils';
 
-const platforms = ['ios-swift', 'react-native', 'kotlin'];
+const platforms = ['ios-swift', 'react-native', 'kotlin'] as const;
 
 const tokensColorPath = `properties/color/brands`;
 const tokensTypoPath = `properties/typo/`;
+const tokensShadowPath = `properties/shadow/`;
 
 const colorFileNames = glob.sync(path.join(tokensColorPath, '*')).map((filePath) => path.parse(filePath).name);
 const typoFileNames = glob.sync(path.join(tokensTypoPath, '*')).map((filePath) => path.parse(filePath).name);
+const shadowFileNames = glob.sync(path.join(tokensShadowPath, '*')).map((filePath) => path.parse(filePath).name);
 
 const getStyleDictionaryColorConfig = (brand: string): Config => ({
     source: [path.join(tokensColorPath, `${brand}.json`)],
@@ -107,9 +110,26 @@ const getStyleDictionaryTypoConfig = (brand: string): Config => ({
     },
 });
 
+const getStyleDictionaryShadowConfig = (brand: string): Config => ({
+    source: [path.join(tokensShadowPath, `${brand}.json`)],
+    platforms: {
+        'react-native': {
+            transforms: ['attribute/cti', 'name/ti/camel'],
+            buildPath: `build/`,
+            files: [
+                {
+                    format: 'react-native/custom/shadow',
+                    destination: `shadow/shadow_${brand}_react-native.ts`,
+                },
+            ],
+        },
+    },
+});
+
 interface MapFormatter {
     color: Array<Format & { name: string }>;
     typo: Array<Format & { name: string }>;
+    shadow: Array<Format & { name: string }>;
 }
 
 const mapFormatter: MapFormatter = {
@@ -139,6 +159,12 @@ const mapFormatter: MapFormatter = {
         {
             name: 'ios-swift/custom/typo',
             formatter: typoIosSwiftCustomFormatter,
+        },
+    ],
+    shadow: [
+        {
+            name: 'react-native/custom/shadow',
+            formatter: shadowReactNativeCustomFormatter,
         },
     ],
 };
@@ -186,6 +212,16 @@ typoFileNames.forEach((brand) =>
         styleDictionary.buildPlatform(platform);
     }),
 );
+
+shadowFileNames.forEach((brand) => {
+    const reactNativePlatform = platforms[1];
+
+    const styleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryShadowConfig(brand));
+
+    mapFormatter.shadow.forEach((formatter) => styleDictionary.registerFormat(formatter));
+
+    styleDictionary.buildPlatform(reactNativePlatform);
+});
 
 const styleDictionaryLegacy = StyleDictionaryPackage.extend('./config.json');
 styleDictionaryLegacy.buildAllPlatforms();
