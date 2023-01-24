@@ -11,6 +11,7 @@ import type {
 
 import { applyInteraction, InteractionProps } from '../../mixins';
 import { useThemeContext } from '../../hooks';
+import { spatnavClassNameAttrs } from '../../utils';
 
 import { applySizes, applyViews } from './Button.mixins';
 
@@ -20,7 +21,7 @@ export type ButtonProps = BaseProps &
     Partial<ButtonViewProps> &
     InteractionProps;
 
-const StyledButtonRoot = styled(ButtonRoot)<InteractionProps>`
+const StyledButtonRoot = styled(ButtonRoot).attrs(spatnavClassNameAttrs)<InteractionProps>`
     ${applySizes}
     ${applyViews}
     ${applyInteraction}
@@ -36,10 +37,7 @@ const ButtonBase = createButton<HTMLButtonElement, ButtonProps & ThemeProviderCo
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     const { deviceScale } = useThemeContext() || {};
 
-    // Добавляем класс `sn-section-item`, необходимый для работы @salutejs/spatial
-    return (
-        <ButtonBase {...props} ref={ref} className={`${props.className} sn-section-item`} deviceScale={deviceScale} />
-    );
+    return <ButtonBase {...props} ref={ref} deviceScale={deviceScale} />;
 });
 
 Button.defaultProps = {

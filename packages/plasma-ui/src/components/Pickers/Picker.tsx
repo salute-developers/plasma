@@ -525,6 +525,7 @@ export const Picker = ({
                         index={i}
                         activeIndex={index}
                         tabIndex={index === i ? 0 : -1}
+                        className={index === i ? 'sn-section-item' : undefined}
                         size={size}
                         onItemClick={onChange}
                         disabled={disabled}
