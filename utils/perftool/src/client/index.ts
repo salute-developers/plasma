@@ -6,7 +6,7 @@ import { resolveTests } from './input';
 
 type CreatePerfToolClientParams<T extends Task<any, any>[]> = {
     subjects: Subject[];
-    tasks: [...T];
+    tasks: T;
     config: Config;
 };
 

@@ -1,3 +1,5 @@
+import assert from 'assert';
+
 import { Config } from '../config';
 import { Task } from '../client/measurement/types';
 import { RunTaskResult } from '../client/measurement/runner';
@@ -20,7 +22,7 @@ export default class TestController<T extends Task<any, any>[]> {
         this.planner = planner;
     }
 
-    async *run(): AsyncGenerator<RunTaskResult<T[number]>[]> {
+    async *run(): AsyncGenerator<RunTaskResult<T[number]>[], undefined> {
         const { executor } = this;
         const schedule = this.planner.plan();
 
@@ -32,13 +34,15 @@ export default class TestController<T extends Task<any, any>[]> {
                     return;
                 }
 
+                assert(value);
+
                 const result = await executor.execute(value);
 
                 if (result instanceof Error) {
                     throw result;
                 }
 
-                if (value[0]?.dry) {
+                if (value[0]?.type === 'dry') {
                     debug('[controller]', 'current run is dry, skipping');
                     continue;
                 }
@@ -57,5 +61,7 @@ export default class TestController<T extends Task<any, any>[]> {
         for await (const result of combineGenerators(generators)) {
             yield result;
         }
+
+        return undefined;
     }
 }

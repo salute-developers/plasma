@@ -1,10 +1,10 @@
-async function getNextPromise<T>(generator: AsyncGenerator<T>, index: number) {
+async function getNextPromise<T, TR>(generator: AsyncGenerator<T, TR>, index: number) {
     return { index, result: await generator.next() };
 }
 
 const neverResolvedPromise = new Promise<any>(() => {});
 
-export default async function* combineGenerators<T>(generators: AsyncGenerator<T>[]): AsyncGenerator<T> {
+export default async function* combineGenerators<T, TR>(generators: AsyncGenerator<T, TR>[]): AsyncGenerator<T, TR> {
     let finished = 0;
 
     const nextPromises = generators.map(getNextPromise);
@@ -22,4 +22,6 @@ export default async function* combineGenerators<T>(generators: AsyncGenerator<T
         nextPromises[index] = getNextPromise(generators[index], index);
         yield result.value;
     }
+
+    return (undefined as unknown) as TR;
 }

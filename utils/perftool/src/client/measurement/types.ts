@@ -3,7 +3,7 @@ import { ComponentType } from 'react';
 import { JSONSerializable } from '../../utils/types';
 
 export type MeasurerConfig = {
-    [key: string | number]: MeasurerConfig | Array<MeasurerConfig> | string | number | boolean;
+    [key: string]: MeasurerConfig | Array<MeasurerConfig> | string | number | boolean;
 };
 
 export type TaskAim = 'increase' | 'decrease';
@@ -32,6 +32,10 @@ export type Task<T extends JSONSerializable, C extends MeasurerConfig | void> = 
      * Flag indicating the result is unchanged if task is repeated
      */
     isIdempotent: T extends number ? boolean : true;
+    /**
+     * Applicable stabilizers for the task
+     */
+    availableStabilizers?: string[];
     /**
      * Display name
      */

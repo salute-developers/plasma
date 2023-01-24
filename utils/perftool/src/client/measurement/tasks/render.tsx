@@ -5,6 +5,7 @@ import { render as reactRender } from '../../../utils/react';
 import Deferred from '../../../utils/deferred';
 import debounce from '../../../utils/debounce';
 import MeasureLab from '../../../utils/MeasureLab';
+import { id as staticTaskStabilizerId } from '../../../stabilizers/staticTask';
 
 type RenderConfig = {
     renderWaitTimeout: number;
@@ -15,6 +16,7 @@ const render: Task<number, RenderConfig> = {
     isIdempotent: false,
     aim: 'decrease',
     name: 'Initial render',
+    availableStabilizers: [staticTaskStabilizerId],
     defaultConfig: {
         renderWaitTimeout: 1000,
     },

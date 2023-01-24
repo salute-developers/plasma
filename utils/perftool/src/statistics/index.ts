@@ -3,6 +3,7 @@ import { Task } from '../client/measurement/types';
 import { RunTaskResult } from '../client/measurement/runner';
 import { JSONSerializable } from '../utils/types';
 import { defer } from '../utils/deferred';
+import { id as staticTaskSubjectId } from '../stabilizers/staticTask';
 
 import metrics from './metrics';
 import { MetricResult } from './types';
@@ -62,7 +63,7 @@ export default class Statistics<T extends Task<any, any>[]> {
         this.computableObservations.get(subjectId)?.get(taskId)?.push(rest.result);
     }
 
-    async consume(source: AsyncGenerator<RunTaskResult<T[number]>[]>): Promise<void> {
+    async consume(source: AsyncGenerator<RunTaskResult<T[number]>[], undefined>): Promise<void> {
         this.isConsuming = true;
 
         for await (const resultGroup of source) {
@@ -78,12 +79,14 @@ export default class Statistics<T extends Task<any, any>[]> {
         this.isConsuming = false;
     }
 
-    async *stream(): AsyncGenerator<StatsReport> {
+    async *stream(): AsyncGenerator<StatsReport, undefined> {
         while (this.isConsuming) {
             await defer(this.config.intermediateRefreshInterval);
 
             yield this.getResult();
         }
+
+        return undefined;
     }
 
     getResult(): StatsReport {
@@ -106,7 +109,13 @@ export default class Statistics<T extends Task<any, any>[]> {
                 for (const metric of metrics) {
                     // TODO exclude metrics by task id
                     this.config;
-                    (report[subjectId][taskId] as StatsMap)[metric.id] = metric.compute(results);
+                    const metricResult = metric.compute(results);
+
+                    if (Array.isArray(metricResult) && subjectId !== staticTaskSubjectId) {
+                        metricResult[1] += this.config.absoluteError;
+                    }
+
+                    (report[subjectId][taskId] as StatsMap)[metric.id] = metricResult;
                 }
             }
         }
