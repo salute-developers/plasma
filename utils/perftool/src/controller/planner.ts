@@ -2,15 +2,17 @@ import { Task } from '../client/measurement/types';
 import { Config } from '../config';
 import { TestModule } from '../build/collect';
 import { debug } from '../utils/logger';
+import { id as staticTaskSubjectId } from '../stabilizers/staticTask';
+import { intersectStabilizers } from '../utils/stabilizers';
 
 import { Test } from './executor';
 
 export type IPlanner = {
-    plan(): Generator<Test[]>;
+    plan(): Generator<Test[], undefined>;
 };
 
 function getTests<T extends Task<any, any>[]>(config: Config, tasks: T[number][], modules: TestModule[]): Test[] {
-    const testGroups = tasks.map(({ id: taskId }) => {
+    const testGroups = tasks.map(({ id: taskId, availableStabilizers }) => {
         const suitableTestModules = modules.filter(({ path }) => {
             // TODO filter modules by task config rule (minimatch)
             config;
@@ -19,7 +21,15 @@ function getTests<T extends Task<any, any>[]>(config: Config, tasks: T[number][]
             return true;
         });
 
-        return suitableTestModules.map((module) => module.subjects.map(({ id: subjectId }) => ({ taskId, subjectId })));
+        const testGroup: Test[][] = suitableTestModules.map((module) =>
+            module.subjects.map(({ id: subjectId }) => ({ taskId, subjectId })),
+        );
+
+        if (intersectStabilizers(config, availableStabilizers).includes(staticTaskSubjectId)) {
+            testGroup.push([{ taskId, subjectId: staticTaskSubjectId }]);
+        }
+
+        return testGroup;
     });
 
     return testGroups.flat(2);
@@ -38,7 +48,7 @@ export default class Planner<T extends Task<any, any>[]> implements IPlanner {
         this.testModules = testModules;
     }
 
-    *plan(): Generator<Test[]> {
+    *plan(): Generator<Test[], undefined> {
         const idempotentTasks = this.tasks.filter(({ isIdempotent }) => isIdempotent);
         const nonIdempotentTasks = this.tasks.filter(({ isIdempotent }) => !isIdempotent);
 
@@ -58,18 +68,21 @@ export default class Planner<T extends Task<any, any>[]> implements IPlanner {
             } else {
                 debug('[planner]', 'dry-running is skipped');
             }
-            for (const test of tests) {
-                for (let i = 0; i < this.config.dryRunTimes; ++i) {
-                    yield [{ ...test, dry: true }];
+            for (let i = 0; i < this.config.dryRunTimes; ++i) {
+                for (const test of tests) {
+                    yield [{ ...test, type: 'dry' }];
                 }
             }
 
             debug('[planner]', 'running tests', this.config.retries, 'repetitions');
-            for (const test of tests) {
-                for (let i = 0; i < this.config.retries; ++i) {
+
+            for (let i = 0; i < this.config.retries; ++i) {
+                for (const test of tests) {
                     yield [test];
                 }
             }
         }
+
+        return undefined;
     }
 }

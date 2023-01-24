@@ -22,18 +22,16 @@ function build(config: WebpackConfig) {
         webpack(config, (err, stats) => {
             if (stats?.hasWarnings()) {
                 for (const warning of stats?.compilation.warnings || []) {
-                    // TODO better webpack logging
                     warn(warning);
-                    warn('webpack warning', warning.file, warning.details);
                 }
             }
 
             if (err || stats?.hasErrors()) {
                 for (const e of stats?.compilation.errors || []) {
                     // TODO better webpack logging
-                    error('webpack error', e.file, e.details);
+                    error(e);
                 }
-                reject(err || stats?.compilation.errors[0]);
+                reject(err || stats?.compilation.errors);
                 return;
             }
 
@@ -49,7 +47,7 @@ async function copyModules(target: string) {
 
     debug('copying files from', source, 'to', target);
 
-    const pathsToCopy = ['client', 'config', 'utils', 'clientEntry.ts'];
+    const pathsToCopy = ['client', 'config', 'utils', 'stabilizers', 'clientEntry.ts'];
 
     debug('will copy', pathsToCopy);
 

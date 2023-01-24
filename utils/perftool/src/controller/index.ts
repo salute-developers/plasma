@@ -20,7 +20,7 @@ export async function* runTests<T extends Task<any, any>[]>({
     port,
     tasks,
     testModules,
-}: RunTestsParams<T>): AsyncGenerator<RunTaskResult<T[number]>[]> {
+}: RunTestsParams<T>): AsyncGenerator<RunTaskResult<T[number]>[], undefined> {
     info('Running performance tests...');
 
     const executor = await Executor.create<T>(config, port);
@@ -34,4 +34,6 @@ export async function* runTests<T extends Task<any, any>[]>({
     }
 
     await executor.finalize();
+
+    return undefined;
 }

@@ -9,7 +9,7 @@ import { debug } from '../utils/logger';
 
 import { createInsertionScriptContent } from './clientScript';
 
-export type Test = { taskId: string; subjectId: string; dry?: true };
+export type Test = { taskId: string; subjectId: string; type?: 'dry' };
 
 export type IExecutor<T extends Task<any, any>[]> = {
     execute(tests: Test[]): Promise<RunTaskResult<T[number]>[] | Error>;

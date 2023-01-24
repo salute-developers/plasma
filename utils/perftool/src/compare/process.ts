@@ -9,7 +9,10 @@ import { compareSimpleMetricResults } from '../statistics/comparators';
 import { Config, getAllTasks } from '../config';
 import { TaskAim } from '../client/measurement/types';
 import { warn } from '../utils/logger';
+import { isStatsMap } from '../utils/statsMap';
 import getCurrentVersion from '../utils/version';
+import { id as staticTaskSubjectId, overrideMetric } from '../stabilizers/staticTask';
+import { intersectStabilizers } from '../utils/stabilizers';
 
 type IncomparableResult = {
     old?: JSONSerializable;
@@ -35,6 +38,8 @@ type CompareReport = {
     isVersionChanged: boolean;
     timestamp: number;
     hasSignificantNegativeChanges: boolean;
+    staticTaskChange?: Report[string];
+    stabilizers: string[];
     result: Report;
 };
 
@@ -51,16 +56,25 @@ function findSignificantNegativeChanges(config: Config, report: Report): boolean
     for (const tasks of Object.values(report)) {
         for (const [taskId, result] of Object.entries(tasks)) {
             const taskAim = taskIdToTaskMap[taskId]?.aim;
+            const taskShouldFailOnNegativeChanges =
+                config.taskConfiguration[taskId]?.failOnSignificantChanges !== false;
 
-            if (!('__comparable' in result) || !taskAim) {
+            if (!('__comparable' in result) || !taskAim || !taskShouldFailOnNegativeChanges) {
                 continue;
             }
 
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const { __comparable, ...comparableResults } = result;
 
-            for (const { change } of Object.values(comparableResults)) {
-                if (change?.significanceRank === 'high' && isNegativeChange(taskAim, change)) {
+            for (const [metricId, { change }] of Object.entries(comparableResults)) {
+                const metricShouldFailOnNegativeChanges =
+                    config.metricConfiguration[metricId]?.failOnSignificantChanges !== false;
+
+                if (
+                    change?.significanceRank === 'high' &&
+                    isNegativeChange(taskAim, change) &&
+                    metricShouldFailOnNegativeChanges
+                ) {
                     return true;
                 }
             }
@@ -68,10 +82,6 @@ function findSignificantNegativeChanges(config: Config, report: Report): boolean
     }
 
     return false;
-}
-
-function isStatsMap(obj: unknown): obj is StatsMap {
-    return typeof obj === 'object' && obj !== null && '__statsMap' in obj;
 }
 
 function processMetricResult<T extends MetricResult>(
@@ -141,6 +151,36 @@ function processTaskResult(
     return result;
 }
 
+function processStaticTaskStabilizer(
+    config: Config,
+    report: StatsReport,
+    staticTaskStabilizerResult: StatsReport[string],
+): void {
+    const staticTaskResult = staticTaskStabilizerResult as { [k: string]: StatsMap };
+    const allTasks = getAllTasks(config);
+    const taskIdToTaskMap = new Map(allTasks.map((task) => [task.id, task]));
+
+    for (const subjectResults of Object.values(report)) {
+        for (const [taskId, results] of Object.entries(subjectResults)) {
+            const task = taskIdToTaskMap.get(taskId);
+
+            if (
+                !task ||
+                !intersectStabilizers(config, task.availableStabilizers).includes(staticTaskSubjectId) ||
+                !isStatsMap(results)
+            ) {
+                continue;
+            }
+
+            for (const [metricId, metricResult] of Object.entries(results)) {
+                if (metricId === '__statsMap') continue;
+
+                results[metricId] = overrideMetric(staticTaskResult[taskId][metricId], metricResult as MetricResult);
+            }
+        }
+    }
+}
+
 function processSubjectResult(
     current: StatsReport[keyof StatsReport],
     previous?: StatsReport[keyof StatsReport],
@@ -159,18 +199,33 @@ export async function processReports(
     currentReport: ReportWithMeta,
     previousReport: ReportWithMeta,
 ): Promise<CompareReport> {
-    const { version: currentVersion, result: currentResult } = currentReport;
-    const { version: previousVersion, result: previousResult } = previousReport;
+    const { version: currentVersion, result: currentResult, staticTaskResult: currentStaticTaskResult } = currentReport;
+    const {
+        version: previousVersion,
+        result: previousResult,
+        staticTaskResult: previousStaticTaskResult,
+    } = previousReport;
 
+    const stabilizers = [];
     const isVersionChanged = currentVersion !== previousVersion;
     if (isVersionChanged) {
         warn('Looks like perftool version is changed. Some results may be falsy');
+    }
+
+    if (currentStaticTaskResult && previousStaticTaskResult) {
+        stabilizers.push(staticTaskSubjectId);
+
+        processStaticTaskStabilizer(config, currentResult, currentStaticTaskResult);
+        processStaticTaskStabilizer(config, previousResult, previousStaticTaskResult);
     }
 
     const result: Report = {};
     for (const [currentSubjectId, currentSubjectReport] of Object.entries(currentResult)) {
         result[currentSubjectId] = processSubjectResult(currentSubjectReport, previousResult[currentSubjectId]);
     }
+    const staticTaskChange = currentStaticTaskResult
+        ? processSubjectResult(currentStaticTaskResult, previousStaticTaskResult)
+        : undefined;
 
     const hasSignificantNegativeChanges = findSignificantNegativeChanges(config, result);
 
@@ -178,7 +233,9 @@ export async function processReports(
         version: await getCurrentVersion(),
         isVersionChanged,
         timestamp: Date.now(),
+        staticTaskChange,
         hasSignificantNegativeChanges,
+        stabilizers,
         result,
     };
 }

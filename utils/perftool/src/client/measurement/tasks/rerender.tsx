@@ -7,6 +7,7 @@ import Deferred from '../../../utils/deferred';
 import debounce from '../../../utils/debounce';
 import MeasureLab from '../../../utils/MeasureLab';
 import waitForIdle from '../../../utils/waitForIdle';
+import { id as staticTaskStabilizerId } from '../../../stabilizers/staticTask';
 
 type RerenderConfig = {
     renderWaitTimeout: number;
@@ -19,6 +20,7 @@ const rerender: Task<number, RerenderConfig> = {
     isIdempotent: false,
     name: 'Rerender',
     aim: 'decrease',
+    availableStabilizers: [staticTaskStabilizerId],
     defaultConfig: {
         renderWaitTimeout: 1000,
     },

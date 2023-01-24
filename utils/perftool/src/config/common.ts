@@ -33,6 +33,8 @@ export type Config = {
     metricConfiguration: {
         [key: string]: MetricConfiguration;
     };
+    stabilizers: string[];
+    absoluteError: number;
     metrics: Metric<any>[];
     include: string[];
     exclude: string[];
@@ -74,6 +76,8 @@ export function getConfig(cliConfig: CliConfig = {}, projectConfig: ProjectConfi
         taskConfiguration: withDefault(mixedInputConfig.taskConfiguration, {}),
         tasks: withDefault(mixedInputConfig.tasks, []),
         metricConfiguration: withDefault(mixedInputConfig.metricConfiguration, {}),
+        stabilizers: withDefault(mixedInputConfig.stabilizers, []),
+        absoluteError: withDefault(mixedInputConfig.absoluteError, 0),
         metrics: withDefault(mixedInputConfig.metrics, []),
         include: withDefault(mixedInputConfig.include, []),
         exclude: withDefault(mixedInputConfig.exclude, []),

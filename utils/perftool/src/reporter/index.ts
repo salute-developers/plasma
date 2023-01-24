@@ -8,6 +8,7 @@ import { debug, info } from '../utils/logger';
 import { TestModule } from '../build/collect';
 import { Config } from '../config';
 import getCurrentVersion from '../utils/version';
+import { id as staticTaskSubjectId } from '../stabilizers/staticTask';
 
 export type ReportWithMeta = {
     version: string;
@@ -17,6 +18,7 @@ export type ReportWithMeta = {
     duration: number;
     averageLoad: number[];
     freeMemory: number;
+    staticTaskResult?: StatsReport[string];
     result: StatsReport;
 };
 
@@ -26,7 +28,7 @@ export function measureStartingPoint() {
     startTime = performance.now();
 }
 
-export async function report(statsStream: AsyncGenerator<StatsReport>): Promise<void> {
+export async function report(statsStream: AsyncGenerator<StatsReport, undefined>): Promise<void> {
     for await (const statsReport of statsStream) {
         info(JSON.stringify(statsReport, null, 4));
     }
@@ -55,8 +57,16 @@ export async function generateReport(config: Config, data: StatsReport, testModu
         duration: Math.round(performance.now() - startTime),
         averageLoad: os.loadavg(),
         freeMemory: os.freemem(),
-        result: Object.fromEntries(Object.entries(data).map(([k, v]) => [subjectIdToReadableNameMap[k], v])),
+        result: Object.fromEntries(
+            Object.entries(data)
+                .filter(([k]) => k !== staticTaskSubjectId)
+                .map(([k, v]) => [subjectIdToReadableNameMap[k], v]),
+        ),
     };
+
+    if (staticTaskSubjectId in data) {
+        reportWithMeta.staticTaskResult = data[staticTaskSubjectId];
+    }
 
     const contents = JSON.stringify(reportWithMeta, null, 2);
     const fileName = path.resolve(config.outputFilePath.replace('[time]', new Date().toISOString()));
