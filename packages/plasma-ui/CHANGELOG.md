@@ -1,3 +1,21 @@
+# v1.157.0 (Tue Jan 24 2023)
+
+#### 🐛 Bug Fix
+
+- chore(plasma-ui): add Stepper and Tabs perftests [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
+- chore(plasma-ui): add ProductCard perftest [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
+- chore(plasma-ui): add Carousel perftest [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
+- chore(plasma-ui): change perftest retries, add Card perftest [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
+- chore(plasma-ui): delete performance addon reports [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+
+---
+
 # v1.156.0 (Thu Jan 19 2023)
 
 #### 🐛 Bug Fix

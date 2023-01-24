@@ -1,3 +1,25 @@
+# (Tue Jan 24 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-theme-builder): Add read theme from github repo [#270](https://github.com/salute-developers/plasma/pull/270) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.157.0`
+  - chore(plasma-ui): add Stepper and Tabs perftests [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
+  - chore(plasma-ui): add ProductCard perftest [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
+  - chore(plasma-ui): add Carousel perftest [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
+  - chore(plasma-ui): change perftest retries, add Card perftest [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
+  - chore(plasma-ui): delete performance addon reports [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
+
+#### Authors: 2
+
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Thu Jan 19 2023)
 
 #### 🚀 Enhancement
