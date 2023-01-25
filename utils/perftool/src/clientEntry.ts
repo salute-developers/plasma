@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+/* eslint-disable */
 
 import { getConfig, getAllTasks } from './config';
 import { createPerfToolClient } from './client';
@@ -7,8 +7,9 @@ import { subject as staticTaskSubject } from './stabilizers/staticTask';
 
 // <IMPORT_MARK>
 
-const config = getConfig();
-// <CONFIG_ARGS_MARK>
+const config = getConfig(
+    // <CONFIG_ARGS_MARK>
+);
 
 const allTestSubjects: Subject[] = [
     staticTaskSubject,
