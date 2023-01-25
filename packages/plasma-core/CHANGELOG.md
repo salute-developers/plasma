@@ -1,3 +1,15 @@
+# v1.90.0 (Wed Jan 25 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): add support of @salutejs/spatial, fix context memoization in Tabs [#285](https://github.com/salute-developers/plasma/pull/285) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+#### Authors: 1
+
+- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+---
+
 # v1.89.0 (Thu Jan 19 2023)
 
 #### 🐛 Bug Fix

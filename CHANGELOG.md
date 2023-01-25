@@ -1,5 +1,26 @@
 # (Wed Jan 25 2023)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.159.0`
+  - feat(plasma-ui): use attrs in Button, add spatial class in Picker [#285](https://github.com/salute-developers/plasma/pull/285) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+- `@salutejs/plasma-core@1.90.0`, `@salutejs/plasma-ui@1.159.0`
+  - feat(plasma-ui): add support of @salutejs/spatial, fix context memoization in Tabs [#285](https://github.com/salute-developers/plasma/pull/285) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.159.0`
+  - fix(plasma-ui): helpers => utils [#285](https://github.com/salute-developers/plasma/pull/285) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
+# (Wed Jan 25 2023)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/perftool@0.3.1`
