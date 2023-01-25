@@ -1,3 +1,18 @@
+# (Wed Jan 25 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.158.0`
+  - chore(plasma-ui): update perftool config [#286](https://github.com/salute-developers/plasma/pull/286) ([@akhdrv](https://github.com/akhdrv))
+- `@salutejs/perftool@0.3.0`
+  - feat(perftool): static task stabilizer [#286](https://github.com/salute-developers/plasma/pull/286) ([@akhdrv](https://github.com/akhdrv))
+
+#### Authors: 1
+
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+
+---
+
 # (Tue Jan 24 2023)
 
 #### 🚀 Enhancement

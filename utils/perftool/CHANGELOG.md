@@ -1,3 +1,15 @@
+# v0.3.0 (Wed Jan 25 2023)
+
+#### 🚀 Enhancement
+
+- feat(perftool): static task stabilizer [#286](https://github.com/salute-developers/plasma/pull/286) ([@akhdrv](https://github.com/akhdrv))
+
+#### Authors: 1
+
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+
+---
+
 # v0.2.1 (Wed Jan 11 2023)
 
 #### 🐛 Bug Fix

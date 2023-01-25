@@ -1,3 +1,15 @@
+# v1.158.0 (Wed Jan 25 2023)
+
+#### 🚀 Enhancement
+
+- chore(plasma-ui): update perftool config [#286](https://github.com/salute-developers/plasma/pull/286) ([@akhdrv](https://github.com/akhdrv))
+
+#### Authors: 1
+
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+
+---
+
 # v1.157.0 (Tue Jan 24 2023)
 
 #### 🐛 Bug Fix
