@@ -1,3 +1,15 @@
+# v0.3.1 (Wed Jan 25 2023)
+
+#### 🐛 Bug Fix
+
+- fix(perftool): fix auto prettier [#290](https://github.com/salute-developers/plasma/pull/290) ([@akhdrv](https://github.com/akhdrv))
+
+#### Authors: 1
+
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+
+---
+
 # v0.3.0 (Wed Jan 25 2023)
 
 #### 🚀 Enhancement

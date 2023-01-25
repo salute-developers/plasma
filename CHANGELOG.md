@@ -1,5 +1,18 @@
 # (Wed Jan 25 2023)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/perftool@0.3.1`
+  - fix(perftool): fix auto prettier [#290](https://github.com/salute-developers/plasma/pull/290) ([@akhdrv](https://github.com/akhdrv))
+
+#### Authors: 1
+
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+
+---
+
+# (Wed Jan 25 2023)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-ui@1.158.0`
