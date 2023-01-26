@@ -106,7 +106,7 @@ Default.args = {
 };
 
 export const Base: Story<CalendarBaseProps> = ({ min, max, type }) => {
-    const [value, setValue] = React.useState(new Date(2022, 5, 6));
+    const [value, setValue] = React.useState(undefined);
 
     const handleOnChange = React.useCallback((newValue: Date) => {
         setValue(newValue);
@@ -145,8 +145,8 @@ Base.argTypes = {
 };
 
 Base.args = {
-    min: new Date(2022, 4, 0),
-    max: new Date(2022, 6, 15),
+    min: new Date(2023, 0, 1),
+    max: new Date(2023, 8, 15),
     type: 'Days',
 };
 
