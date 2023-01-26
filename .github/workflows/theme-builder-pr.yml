@@ -41,6 +41,9 @@ jobs:
         run: mkdir s3_build
 
       - name: Build Theme Builder
+        env:
+          REACT_APP_APPLICATION_CLIENT_ID: ${{ secrets.REACT_APP_APPLICATION_CLIENT_ID }}
+          REACT_APP_AUTH_SERVER_URL: ${{ secrets.REACT_APP_AUTH_SERVER_URL }}
         run: |
           npm i --prefix="./website/plasma-theme-builder"
           npm run build --prefix="./website/plasma-theme-builder"
