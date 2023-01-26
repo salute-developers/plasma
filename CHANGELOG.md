@@ -1,3 +1,15 @@
+# (Thu Jan 26 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-theme-builder): Add edit tokens entities for theme [#276](https://github.com/salute-developers/plasma/pull/276) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Wed Jan 25 2023)
 
 #### 🚀 Enhancement
