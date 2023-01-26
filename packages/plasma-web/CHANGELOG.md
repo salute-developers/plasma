@@ -1,3 +1,17 @@
+# v1.155.0 (Thu Jan 26 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web): prevent default safari datepicker appearance [#287](https://github.com/salute-developers/plasma/pull/287) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.153.0 (Thu Jan 19 2023)
 
 #### 🐛 Bug Fix

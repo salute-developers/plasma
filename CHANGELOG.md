@@ -4,6 +4,24 @@
 
 - feat(plasma-theme-builder): Add edit tokens entities for theme [#276](https://github.com/salute-developers/plasma/pull/276) ([@neretin-trike](https://github.com/neretin-trike))
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.155.0`
+  - fix(plasma-web): prevent default safari datepicker appearance [#287](https://github.com/salute-developers/plasma/pull/287) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 2
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Thu Jan 26 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-theme-builder): Add edit tokens entities for theme [#276](https://github.com/salute-developers/plasma/pull/276) ([@neretin-trike](https://github.com/neretin-trike))
+
 #### Authors: 1
 
 - neretinaa ([@neretin-trike](https://github.com/neretin-trike))
