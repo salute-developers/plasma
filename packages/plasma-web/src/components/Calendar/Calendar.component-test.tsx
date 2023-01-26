@@ -89,6 +89,16 @@ describe('plasma-web: Calendar', () => {
         cy.matchImageSnapshot();
     });
 
+    it('value as undefined', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Calendar value={undefined} onChangeValue={() => {}} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('body').find('[aria-selected="true"]').should('not.be.exist');
+    });
+
     it('prev month', () => {
         mount(
             <CypressTestDecoratorWithTypo>
@@ -225,6 +235,16 @@ describe('plasma-web: Calendar', () => {
         );
 
         cy.matchImageSnapshot();
+    });
+
+    it('range with init values as undefined', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Calendar isRange value={[undefined, undefined]} onChangeValue={() => {}} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('body').find('[aria-selected="true"]').should('not.be.exist');
     });
 
     it('range in progress', () => {
