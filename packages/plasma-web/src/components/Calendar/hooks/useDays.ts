@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { DateItem, DateObject, DisabledDay, EventDay } from '../types';
+import { CalendarValueType, DateItem, DateObject, DisabledDay, EventDay } from '../types';
 import {
     getDaysInMonth,
     getNextDate,
@@ -16,7 +16,7 @@ import {
 /**
  * Метод возвращающий массив дней в предыдущем месяце.
  */
-const getDaysInPrevMonth = (date: DateObject, offsetDayInWeek: number, value: Date | [Date, Date?]) => {
+const getDaysInPrevMonth = (date: DateObject, offsetDayInWeek: number, value: CalendarValueType) => {
     const [prevYear, prevMonth] = getPrevDate(date.year, date.monthIndex);
     const daysInPrevMonth = getDaysInMonth(prevMonth, prevYear);
 
@@ -38,7 +38,7 @@ const getDaysInPrevMonth = (date: DateObject, offsetDayInWeek: number, value: Da
 /**
  * Метод возвращающий массив дней в текущем месяце.
  */
-const getDaysInCurrentMonth = (date: DateObject, daysInMonth: number, value: Date | [Date, Date?]) => {
+const getDaysInCurrentMonth = (date: DateObject, daysInMonth: number, value: CalendarValueType) => {
     return Array.from(Array(daysInMonth), (_, i) => ({
         isCurrent: IsCurrentDay(date, i + 1),
         isSelected: Array.isArray(value)
@@ -61,7 +61,7 @@ const getDaysInNextMonth = (
     date: DateObject,
     daysInMonth: number,
     offsetDayInWeek: number,
-    value: Date | [Date, Date?],
+    value: CalendarValueType,
 ) => {
     const [nextYear, nextMonthIndex] = getNextDate(date.year, date.monthIndex);
     const visibleDayCount = 42;
@@ -127,7 +127,7 @@ const getDaysWithModifications = (
  */
 export const useDays = (
     date: DateObject,
-    value: Date | [Date, Date?],
+    value: CalendarValueType,
     eventList?: EventDay[],
     disabledList?: DisabledDay[],
     min?: Date,

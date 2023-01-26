@@ -118,7 +118,7 @@ export const CalendarDouble: React.FC<CalendarDoubleProps> = ({
         [date, doubleDate],
     );
 
-    if (isValueUpdate(value, prevValue)) {
+    if (value && prevValue && isValueUpdate(value, prevValue)) {
         const newDate = getDateFromValue(value);
 
         const { year, monthIndex } = newDate;

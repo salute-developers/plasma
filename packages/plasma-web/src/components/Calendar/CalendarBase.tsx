@@ -155,7 +155,7 @@ export const CalendarBase: React.FC<CalendarBaseProps> = ({
         });
     }, []);
 
-    if (isValueUpdate(value, prevValue)) {
+    if (value && prevValue && isValueUpdate(value, prevValue)) {
         dispatch({
             type: ActionType.UPDATE_DATE,
             payload: { value },

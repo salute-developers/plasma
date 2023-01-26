@@ -80,11 +80,13 @@ export interface UseKeyNavigationProps {
     onNext: (withShift?: boolean) => void;
 }
 
+export type CalendarValueType = Date | undefined | [Date | undefined, Date?];
+
 export interface Calendar extends HTMLAttributes<HTMLDivElement> {
     /**
      * Выбранное значение.
      */
-    value: Date | [Date, Date?];
+    value: CalendarValueType;
     /**
      * Состояние календаря, отвечающее за отображение.
      */
