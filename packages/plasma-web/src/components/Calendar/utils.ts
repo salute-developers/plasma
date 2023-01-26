@@ -1,4 +1,4 @@
-import type { DateObject, DisabledDay, ItemProps } from './types';
+import type { CalendarValueType, DateObject, DisabledDay, ItemProps } from './types';
 import { CalendarStateType } from './types';
 
 export const ROW_STEP = 6;
@@ -46,11 +46,15 @@ export const getNextDate = (currentYear: number, currentMonth: number) =>
 export const getPrevDate = (currentYear: number, currentMonth: number) =>
     currentMonth - 1 < 0 ? [currentYear - 1, 11] : [currentYear, currentMonth - 1];
 
-export const getDateFromValue = (date: Date): DateObject => ({
-    day: date.getDate(),
-    monthIndex: date.getMonth(),
-    year: date.getFullYear(),
-});
+export const getDateFromValue = (date: Date | undefined): DateObject => {
+    const state = date || new Date();
+
+    return {
+        day: date !== undefined ? state.getDate() : 0,
+        monthIndex: state.getMonth(),
+        year: state.getFullYear(),
+    };
+};
 
 export const getDateFromNow = (): DateObject => {
     const nowDate = new Date();
@@ -90,7 +94,7 @@ export const isCurrentYear = (year: number) => {
 
 export const isSelectedYear = (date: DateObject, year: number) => date.year === year;
 
-export const getSortedValues = (values: [Date, (Date | undefined)?]) =>
+export const getSortedValues = (values: [Date | undefined, (Date | undefined)?]) =>
     values.sort((start, end) => {
         if (!start || !end) {
             return -1;
@@ -99,7 +103,12 @@ export const getSortedValues = (values: [Date, (Date | undefined)?]) =>
         return start.getTime() - end.getTime();
     });
 
-export const isDayInRage = (year: number, monthIndex: number, currentDay: number, values: [Date, Date?]) => {
+export const isDayInRage = (
+    year: number,
+    monthIndex: number,
+    currentDay: number,
+    values: [Date | undefined, Date?],
+) => {
     const [startValue, endValue] = getSortedValues(values);
 
     if (!endValue) {
@@ -107,7 +116,7 @@ export const isDayInRage = (year: number, monthIndex: number, currentDay: number
     }
 
     const day = new Date(year, monthIndex, currentDay);
-    return startValue <= day && day <= endValue;
+    return startValue && startValue <= day && day <= endValue;
 };
 
 export const isSameDay = (firstDate: DateObject, secondDate?: DateObject) =>
@@ -118,11 +127,11 @@ export const isSameDay = (firstDate: DateObject, secondDate?: DateObject) =>
 
 export const isValueUpdate = (value: Date | [Date, Date?], prevValue: Date | [Date, Date?]) => {
     if (!Array.isArray(value) && !Array.isArray(prevValue)) {
-        return prevValue.getTime() !== value.getTime();
+        return prevValue?.getTime() !== value?.getTime();
     }
 
     if (Array.isArray(value) && Array.isArray(prevValue)) {
-        return prevValue[0].getTime() !== value[0].getTime() || prevValue[1]?.getTime() !== value[1]?.getTime();
+        return prevValue[0]?.getTime() !== value[0]?.getTime() || prevValue[1]?.getTime() !== value[1]?.getTime();
     }
 
     return false;
@@ -175,7 +184,7 @@ export const getSideForHovered = (date: DateObject, hoveredDay: DateObject, star
  * Метод возвращает сторону, с которой нужно отрисовать направление полоски диапазона.
  */
 export const getSideInRange = (
-    value: Date | [Date, Date?],
+    value: CalendarValueType,
     date: DateObject,
     hoveredDay?: DateObject,
     isSelected?: boolean,
@@ -186,11 +195,11 @@ export const getSideInRange = (
 
     const [startValue, endValue] = value;
 
-    if (isSelected && endValue) {
+    if (startValue && isSelected && endValue) {
         return getSideForSelected(date, startValue, endValue);
     }
 
-    if (hoveredDay) {
+    if (startValue && hoveredDay) {
         return getSideForHovered(date, hoveredDay, startValue, isSelected);
     }
 
@@ -200,12 +209,7 @@ export const getSideInRange = (
 /**
  * Метод проверяет, находится ли выбранный день в диапазоне.
  */
-export const getInRange = (
-    value: Date | [Date, Date?],
-    date: DateObject,
-    hoveredDay?: DateObject,
-    inRange?: boolean,
-) => {
+export const getInRange = (value: CalendarValueType, date: DateObject, hoveredDay?: DateObject, inRange?: boolean) => {
     if (!isSelectProcess(value) || !hoveredDay) {
         return inRange;
     }
@@ -229,7 +233,7 @@ export const getInRange = (
  */
 export const canSelectDate = (
     { year, monthIndex, day }: DateObject,
-    value: Date | [Date, Date?],
+    value: CalendarValueType,
     disabledList?: DisabledDay[],
 ) => {
     if (!isSelectProcess(value)) {
@@ -239,7 +243,7 @@ export const canSelectDate = (
     const hoverDate = new Date(year, monthIndex, day);
     const [startDate] = value;
 
-    if (hoverDate.getTime() === startDate.getTime()) {
+    if (hoverDate?.getTime() === startDate?.getTime()) {
         return false;
     }
 

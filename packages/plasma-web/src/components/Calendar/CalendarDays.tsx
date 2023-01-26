@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
-import type { DateItem, DateObject, DisabledDay, EventDay } from './types';
+import type { DateItem, DateObject, DisabledDay, EventDay, CalendarValueType } from './types';
 import {
     canSelectDate,
     FULL_DAY_NAMES,
@@ -18,7 +18,7 @@ import { CalendarDayItem } from './CalendarDayItem';
 
 export interface CalendarDaysProps extends React.HTMLAttributes<HTMLDivElement> {
     date: DateObject;
-    value: Date | [Date, Date?];
+    value: CalendarValueType;
     min?: Date;
     max?: Date;
     eventList?: EventDay[];

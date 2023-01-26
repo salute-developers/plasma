@@ -1,20 +1,20 @@
 import { CalendarStateType } from '../types';
 import { getDateFromValue, getNextDate, getPrevDate, getStartYear } from '../utils';
 
-import { InitialState, Action, ActionType } from './types';
+import { Action, ActionType, InitialState } from './types';
 
 export const getInitialState = (
-    value: Date,
+    value: Date | undefined,
     size: [number, number],
     calendarState: CalendarStateType,
 ): InitialState => {
-    const date = getDateFromValue(value);
-    const startYear = getStartYear(date.year);
+    const initDate = value || new Date();
+    const date = getDateFromValue(initDate);
 
     return {
-        date,
+        date: { ...date, day: value !== undefined ? date.day : 0 },
+        startYear: getStartYear(date.year),
         calendarState,
-        startYear,
         size,
     };
 };

@@ -35,7 +35,10 @@ export const withRange = <T extends Calendar>(Component: React.FC<Calendar>) => 
             setValues([startValue, newDay]);
 
             const [first, second] = getSortedValues([startValue, newDay]);
-            onChangeValue([first, second]);
+
+            if (first) {
+                onChangeValue([first, second]);
+            }
         },
         [onChangeValue, startValue, endValue],
     );
