@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 
 import { AssistantAppState } from '../../../types';
 
@@ -7,7 +7,7 @@ import { useAssistant } from './useAssistant';
 export function useAssistantAppState(state: AssistantAppState): void {
     const { setAssistantState } = useAssistant();
 
-    React.useEffect(() => {
+    useEffect(() => {
         setAssistantState(state);
     }, [setAssistantState, state]);
 }
