@@ -1,3 +1,16 @@
+# (Fri Jan 27 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-theme-builder): Add envs to worflow actions for auth [#281](https://github.com/salute-developers/plasma/pull/281) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Add authorization via GitHub API [#281](https://github.com/salute-developers/plasma/pull/281) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Thu Jan 26 2023)
 
 #### 🚀 Enhancement
