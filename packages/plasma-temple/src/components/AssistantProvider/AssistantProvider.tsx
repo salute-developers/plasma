@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { AssistantClientCustomizedCommand, AssistantSmartAppData } from '@salutejs/client';
 
 import { logger } from '../../utils/logger';
+import { useMount } from '../../hooks';
 
 import { AssistantContext, AssistantContextType } from './AssistantContext';
 import { assistantRef, InitializeParams } from './assistant';
@@ -78,10 +79,12 @@ export const AssistantProviderInstance: AssistantProiderInstanceInterface = ({ i
     const [state, dispatch] = React.useReducer(reducer, initialAssistantState);
     const isInitRef = React.useRef(false);
 
-    if (instance && !isInitRef.current) {
-        assistantRef.assistant = instance;
-        isInitRef.current = true;
-    }
+    useMount(() => {
+        if (instance && !isInitRef.current) {
+            assistantRef.assistant = instance;
+            isInitRef.current = true;
+        }
+    });
 
     const stateSetter = React.useCallback(
         (nextState: AssistantAppState) => {
@@ -121,7 +124,7 @@ export const AssistantProviderInstance: AssistantProiderInstanceInterface = ({ i
 
         const unsubscribe = instance.on('data', onDataHandler);
 
-        window.appInitialData.forEach(onDataHandler);
+        instance.getInitialData().forEach(onDataHandler);
 
         return () => {
             unsubscribe();
