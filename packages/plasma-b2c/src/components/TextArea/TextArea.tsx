@@ -1,5 +1,5 @@
 import React, { createRef, useMemo, useState } from 'react';
-import styled from 'styled-components';
+import styled, { SimpleInterpolation } from 'styled-components';
 import {
     TextFieldRoot,
     TextArea as BaseArea,
@@ -12,30 +12,39 @@ import {
 } from '@salutejs/plasma-core';
 import type { TextAreaProps as BaseProps } from '@salutejs/plasma-core';
 
-import { FieldWrapper, FieldHelper, FieldHelpers, applyInputStyles } from '../Field/Field';
+import { FieldWrapper, FieldHelper, FieldHelpers, applyInputStyles } from '../Field';
 
-export interface TextAreaProps extends BaseProps {
+import { textAreaProps } from './TextArea.props';
+
+export interface TextAreaProps extends Omit<BaseProps, 'size'> {
     /**
      * Вспомогательные тексты снизу для поля ввода.
      */
     leftHelper?: string;
     rightHelper?: string;
+
+    /**
+     * Возможные размеры компонента
+     */
+    size?: 'l' | 'm' | 's' | 'xs';
 }
 
 const StyledTextArea = styled(BaseArea)`
-    ${applyInputStyles}
+    ${applyInputStyles};
+
+    padding: var(--padding);
+    min-height: var(--min-height);
 
     border: 0 none;
-    border-radius: 0.75rem;
+    border-radius: var(--border-radius);
+
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+
+    /* TODO: Replace local value with typography token when resolving issue PLASMA-1838 */
+    letter-spacing: -0.02em;
+
     color: ${secondary};
-
-    padding: 1.25rem 1.5rem;
-    padding-bottom: 3.5rem;
-
-    /* Design has a wrong token value: TextL FS 20px when actually TextL has FS 24px */
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    letter-spacing: -1.9%;
 
     &:disabled {
         color: ${tertiary};
@@ -46,7 +55,37 @@ const StyledTextArea = styled(BaseArea)`
     }
 `;
 
+const TextAreaWrapper = styled(TextFieldRoot)<{ $properties: ReadonlyArray<SimpleInterpolation> }>`
+    ${({ $properties }) => $properties};
+
+    --padding-bottom: ${({ $isHelper }) => ($isHelper ? 'var(--padding-bottom-override)' : null)};
+
+    ${FieldContent} {
+        top: var(--top);
+        right: var(--right);
+
+        height: 1.25rem;
+    }
+
+    ${StyledTextArea} {
+        padding-right: ${({ $isContentRight }) => ($isContentRight ? 'var(--padding-right)' : null)};
+    }
+
+    ${FieldHelper} {
+        font-size: 0.75rem;
+        line-height: 0.875rem;
+
+        /* TODO: Replace local value with typography token when resolving issue PLASMA-1838 */
+        letter-spacing: -0.02em;
+    }
+`;
+
 const StyledFieldHelpers = styled(FieldHelpers)<{ width: number }>`
+    bottom: 0.75rem;
+
+    padding-left: var(--padding-x);
+    padding-right: var(--padding-x);
+
     width: ${({ width }) => width}px;
 `;
 
@@ -80,6 +119,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
             style,
             id,
             className,
+            size = 'm',
             ...rest
         },
         outerRef,
@@ -98,10 +138,11 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
         });
 
         return (
-            <TextFieldRoot
+            <TextAreaWrapper
                 status={status}
                 $isContentRight={Boolean(contentRight)}
                 $isHelper={Boolean(leftHelper || rightHelper)}
+                $properties={textAreaProps[size]}
                 className={className}
                 style={style}
             >
@@ -127,7 +168,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
                         {rightHelper && <StyledFieldRightHelper>{rightHelper}</StyledFieldRightHelper>}
                     </StyledFieldHelpers>
                 </FieldWrapper>
-            </TextFieldRoot>
+            </TextAreaWrapper>
         );
     },
 );

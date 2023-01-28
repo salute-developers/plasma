@@ -62,15 +62,17 @@ export const Default: Story<TextAreaProps & { enableContentRight: boolean }> = (
 }) => {
     const [value, setValue] = React.useState('');
 
+    const handleChange = (e) => {
+        setValue(e.target.value);
+        onChange(e);
+    };
+
     return (
         <TextArea
             value={value}
             contentRight={enableContentRight && <IconPlaceholder />}
             status={status || undefined}
-            onChange={(e) => {
-                setValue(e.target.value);
-                onChange(e);
-            }}
+            onChange={handleChange}
             onFocus={onFocus}
             onBlur={onBlur}
             {...rest}
@@ -87,6 +89,7 @@ Default.args = {
     status: '' as 'success',
     resize: 'vertical',
     disabled: false,
+    size: 'm',
 };
 
 export const Live: Story<TextAreaProps & { enableContentRight: boolean }> = ({ status, ...rest }) => {
