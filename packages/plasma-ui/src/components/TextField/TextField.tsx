@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback } from 'react';
+import React, { forwardRef, useCallback, KeyboardEvent } from 'react';
 import styled from 'styled-components';
 import { FieldRoot, FieldPlaceholder, FieldContent, Input, secondary } from '@salutejs/plasma-core';
 import type { FieldProps, InputProps } from '@salutejs/plasma-core';
@@ -6,7 +6,12 @@ import type { FieldProps, InputProps } from '@salutejs/plasma-core';
 import { FieldHelper, applyInputStyles } from '../Field';
 import { spatnavClassNameAttrs } from '../../utils';
 
-export interface TextFieldProps extends FieldProps, InputProps {}
+export interface TextFieldProps extends FieldProps, InputProps {
+    /**
+     * Callback по нажатию Enter
+     */
+    onSearch?: (value: string, event?: KeyboardEvent<HTMLInputElement>) => void;
+}
 
 const StyledInput = styled(Input).attrs(spatnavClassNameAttrs)`
     ${applyInputStyles};
@@ -40,6 +45,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
         style,
         className,
         onChange,
+        onSearch,
         ...rest
     },
     ref,
@@ -57,6 +63,15 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
             onChange(event);
         },
         [onChange],
+    );
+
+    const handleSearch = useCallback(
+        (event: KeyboardEvent<HTMLInputElement>) => {
+            if (event.keyCode === 13 && onSearch) {
+                onSearch((event.target as HTMLInputElement).value, event);
+            }
+        },
+        [onSearch],
     );
 
     return (
@@ -80,6 +95,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
                 status={status}
                 aria-describedby={id ? `${id}-helpertext` : undefined}
                 onChange={handleChange}
+                onKeyUp={onSearch && handleSearch}
                 {...rest}
             />
             {placeLabel && size === 'l' && <FieldPlaceholder htmlFor={id}>{placeLabel}</FieldPlaceholder>}

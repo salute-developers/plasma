@@ -76,6 +76,7 @@ export const Default: Story<TextFieldProps & { enableLeftIcon: boolean; enableRi
             onChange={(v) => setValue(v.target.value)}
             onFocus={action('onFocus')}
             onBlur={action('onBlur')}
+            onSearch={action('onSearch')}
             {...rest}
         />
     );
