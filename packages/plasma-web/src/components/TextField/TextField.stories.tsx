@@ -9,6 +9,7 @@ import { TextField, TextFieldProps } from '.';
 const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
+const onSearch = action('onSearch');
 
 const sizes = ['l', 'm', 's'];
 const statuses = ['', 'success', 'warning', 'error'];
@@ -81,6 +82,7 @@ export const Default: Story<DefaultSortyProps> = ({
             }}
             onFocus={onFocus}
             onBlur={onBlur}
+            onSearch={onSearch}
         />
     );
 };
