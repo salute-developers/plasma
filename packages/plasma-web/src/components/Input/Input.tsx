@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, FC, forwardRef } from 'react';
+import React, { ChangeEventHandler, FC, forwardRef, KeyboardEvent, useCallback } from 'react';
 import styled, { css, InterpolationFunction } from 'styled-components';
 import type { InputHTMLAttributes } from '@salutejs/plasma-core';
 
@@ -42,6 +42,11 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
     label?: string | number;
     hasContentLeft?: boolean;
     hasContentRight?: boolean;
+
+    /**
+     * Callback по нажатию Enter
+     */
+    onSearch?: (value: string, event?: KeyboardEvent<HTMLInputElement>) => void;
 }
 
 const StyledHint = styled.span`
@@ -249,6 +254,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
         hasContentLeft,
         hasContentRight,
         onChange,
+        onSearch,
         ...rest
     },
     ref,
@@ -266,6 +272,15 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
         [onChange],
     );
 
+    const handleSearch = useCallback(
+        (event: KeyboardEvent<HTMLInputElement>) => {
+            if (event.keyCode === 13 && onSearch) {
+                onSearch((event.target as HTMLInputElement).value, event);
+            }
+        },
+        [onSearch],
+    );
+
     return (
         <>
             <StyledInput
@@ -279,6 +294,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
                 $hasContentLeft={hasContentLeft}
                 $hasContentRight={hasContentRight}
                 $animatedHint={animatedHint}
+                onKeyUp={onSearch && handleSearch}
                 {...rest}
             />
             {size === 'l' && animatedHint && (

@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, KeyboardEvent } from 'react';
 
 import { Field } from '../Field';
 import type { FieldProps } from '../Field';
@@ -7,7 +7,12 @@ import type { InputProps } from '../Input';
 
 export interface TextFieldProps
     extends Pick<FieldProps, 'contentLeft' | 'contentRight' | 'helperText'>,
-        Omit<InputProps, 'hasContentLeft' | 'hasContentRight'> {}
+        Omit<InputProps, 'hasContentLeft' | 'hasContentRight'> {
+    /**
+     * Callback по нажатию Enter
+     */
+    onSearch?: (value: string, event?: KeyboardEvent<HTMLInputElement>) => void;
+}
 
 /**
  * Поле ввода текста.
