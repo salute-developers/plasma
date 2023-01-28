@@ -1,3 +1,21 @@
+# (Sat Jan 28 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-theme-builder): Add envs to worflow actions for auth [#281](https://github.com/salute-developers/plasma/pull/281) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Add authorization via GitHub API [#281](https://github.com/salute-developers/plasma/pull/281) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-web@1.156.0`
+  - feat(plasma-web): add storybook example for undefined case [#291](https://github.com/salute-developers/plasma/pull/291) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): add cypress tests for handling undefined cases [#291](https://github.com/salute-developers/plasma/pull/291) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): handling value as undefined [#291](https://github.com/salute-developers/plasma/pull/291) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 2
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Fri Jan 27 2023)
 
 #### 🚀 Enhancement
