@@ -9,7 +9,7 @@ export interface TokenValue {
 
 export type ThemeMode = 'light' | 'dark';
 
-export type PageType = 'main' | 'generator' | 'theme' | 'error';
+export type PageType = 'main' | 'generator' | 'theme' | 'pull-request' | 'error';
 
 export type GeneralColor = keyof typeof generalColors;
 

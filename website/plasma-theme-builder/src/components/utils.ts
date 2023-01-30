@@ -104,3 +104,11 @@ export const TokenContext = createContext<TokenContextHandlers>({
     onTokensSubsectionEnabled: () => {},
     onTokensSectionEnabled: () => {},
 });
+
+export const getFilesPath = (name?: string) => ({
+    theme: `packages/plasma-tokens/data/themes/${name}.json`,
+});
+
+export const getFilesTree = (themeContent: string, name: string) => ({
+    [getFilesPath(name).theme]: themeContent,
+});

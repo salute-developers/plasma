@@ -6,7 +6,7 @@ import { IconPlus, IconCross } from '@salutejs/plasma-icons';
 import { ThemeInfo } from '../ThemeInfo/ThemeInfo';
 import { ThemeModeToggle } from '../ThemeModeToggle/ThemeModeToggle';
 import { TokensSection } from '../TokensSection/TokensSection';
-import { downloadFile, emptyInputData, TokenContext } from '../utils';
+import { emptyInputData, TokenContext } from '../utils';
 import { TokenForm } from '../TokenForm/TokenForm';
 import { AddTokenSection } from '../AddTokenSection/AddTokenSection';
 import { useNormalizeThemeSections } from '../hooks';
@@ -49,9 +49,10 @@ const IconButton = styled(Button)``;
 
 interface ThemeProps {
     data?: ThemeType;
+    onPullRequest: (data: ThemeType) => void;
 }
 
-export const Theme = ({ data }: ThemeProps) => {
+export const Theme = ({ data, onPullRequest }: ThemeProps) => {
     const initialThemeData = useNormalizeThemeSections(data);
 
     const [themeData, setThemeData] = useState(initialThemeData);
@@ -173,9 +174,11 @@ export const Theme = ({ data }: ThemeProps) => {
         [themeData, onThemeDataChange],
     );
 
-    const onDownloadTheme = useCallback(() => {
-        downloadFile(JSON.stringify(themeData, null, 4), `${themeData?.config.name}.json`, 'JSON');
-    }, [themeData]);
+    const onCreateTheme = useCallback(() => {
+        if (themeData) {
+            onPullRequest(themeData);
+        }
+    }, [onPullRequest, themeData]);
 
     if (!themeData) {
         return null;
@@ -239,7 +242,7 @@ export const Theme = ({ data }: ThemeProps) => {
                     </TokenContext.Provider>
                 ))}
             </Content>
-            <StyledButton text="Подтвердить создание темы" view="primary" onClick={onDownloadTheme} />
+            <StyledButton text="Подтвердить создание темы" view="primary" onClick={onCreateTheme} />
         </StyledTheme>
     );
 };
