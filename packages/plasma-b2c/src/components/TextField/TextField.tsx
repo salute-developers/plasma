@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, forwardRef, useCallback } from 'react';
+import React, { ChangeEventHandler, forwardRef, useCallback, KeyboardEvent } from 'react';
 import { FieldHelper } from '@salutejs/plasma-core';
 import type { FieldProps, InputProps } from '@salutejs/plasma-core';
 
@@ -31,6 +31,11 @@ export interface TextFieldProps extends Omit<FieldProps, 'size'>, InputProps {
      * Определяет внешний вид компонента и поведение label/placeholder.
      */
     view?: TextFieldView;
+
+    /**
+     * Callback по нажатию Enter
+     */
+    onSearch?: (value: string, event?: KeyboardEvent<HTMLInputElement>) => void;
 }
 
 /**
@@ -53,6 +58,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
         onChange,
         size = 'm',
         view,
+        onSearch,
         ...rest
     },
     ref,
@@ -81,6 +87,15 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
         [onChange],
     );
 
+    const handleSearch = useCallback(
+        (event: KeyboardEvent<HTMLInputElement>) => {
+            if (event.keyCode === 13 && onSearch) {
+                onSearch((event.target as HTMLInputElement).value, event);
+            }
+        },
+        [onSearch],
+    );
+
     return (
         <Field
             $disabled={disabled}
@@ -106,6 +121,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
                     aria-labelledby={currentId}
                     aria-describedby={ariaDescribedBy}
                     onChange={handleChange}
+                    onKeyUp={onSearch && handleSearch}
                     {...rest}
                 />
                 {captionOrPlaceholder && (
