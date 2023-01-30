@@ -10,6 +10,7 @@ import { TextField, TextFieldProps } from '.';
 const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
+const onSearch = action('onSearch');
 
 const propsToDisable = [
     'helperBlock',
@@ -75,6 +76,7 @@ export const Default: Story<DefaultStoryProps> = ({ enableContentLeft, enableCon
             }}
             onFocus={onFocus}
             onBlur={onBlur}
+            onSearch={onSearch}
             {...rest}
         />
     );
