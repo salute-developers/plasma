@@ -6,8 +6,9 @@ import { Footer } from './Footer/Footer';
 import { Main } from './Main/Main';
 import { Generator } from './Generator/Generator';
 import { Theme } from './Theme/Theme';
-import { SBSansTextMono } from './mixins';
 import { Error } from './Error/Error';
+import { PullRequest } from './PullRequest/PullRequest';
+import { SBSansTextMono } from './mixins';
 import { useFetchTheme } from './hooks';
 import { clearURLParam, getThemeName } from './utils';
 import type { PageType } from './types';
@@ -30,6 +31,7 @@ const Header = styled(H1)`
 const App = () => {
     const [state, setState] = useState<PageType>('main');
     const [data, setData] = useState<ThemeType>();
+    const [token, setToken] = useState<string | undefined>();
 
     const themeName = getThemeName();
     const [themeData, errorMessage] = useFetchTheme(themeName);
@@ -45,6 +47,10 @@ const App = () => {
         }
     }, [themeData, errorMessage]);
 
+    const onSetToken = useCallback((value: string) => {
+        setToken(value);
+    }, []);
+
     const onMain = useCallback(() => {
         setState('main');
         clearURLParam();
@@ -59,12 +65,18 @@ const App = () => {
         setData(data);
     }, []);
 
+    const onPullRequest = useCallback((data: ThemeType) => {
+        setState('pull-request');
+        setData(data);
+    }, []);
+
     return (
         <StyledRoot>
             <Header>Plasma</Header>
-            {state === 'main' && <Main onGenerateTheme={onGenerateTheme} />}
+            {state === 'main' && <Main onSetToken={onSetToken} onGenerateTheme={onGenerateTheme} />}
             {state === 'generator' && <Generator onPreviewTheme={onPreviewTheme} />}
-            {state === 'theme' && <Theme data={data} />}
+            {state === 'theme' && <Theme data={data} onPullRequest={onPullRequest} />}
+            {state === 'pull-request' && <PullRequest data={data} token={token} />}
             {state === 'error' && <Error message={errorMessage} onMain={onMain} />}
             <Footer />
         </StyledRoot>

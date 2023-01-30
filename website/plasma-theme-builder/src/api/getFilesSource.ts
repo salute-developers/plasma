@@ -2,7 +2,13 @@ import { Octokit } from 'octokit';
 
 const isString = (value: unknown): value is string => typeof value === 'string';
 
-export const getFilesSource = async (owner: string, repo: string, path: string, token?: string): Promise<string> => {
+export const getFilesSource = async (
+    owner: string,
+    repo: string,
+    path: string,
+    token?: string,
+    branchName?: string,
+): Promise<string> => {
     const octokit = new Octokit({
         auth: token,
     });
@@ -16,6 +22,7 @@ export const getFilesSource = async (owner: string, repo: string, path: string, 
                 owner,
                 repo,
                 path,
+                ref: branchName,
             });
 
             return result.data;

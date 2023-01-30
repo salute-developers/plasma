@@ -27,15 +27,22 @@ const StyledButton = styled(Button)`
 
 interface MainProps {
     onGenerateTheme: () => void;
+    onSetToken: (value: string) => void;
 }
 
-export const Main = ({ onGenerateTheme }: MainProps) => {
+export const Main = ({ onGenerateTheme, onSetToken }: MainProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const [token, getToken, getAuth] = useGithubAuth();
 
     useEffect(() => {
         getToken();
     }, [getToken]);
+
+    useEffect(() => {
+        if (token) {
+            onSetToken(token);
+        }
+    }, [token, onSetToken]);
 
     const onAuthRequestModalOpen = useCallback(() => {
         setIsOpen(true);
