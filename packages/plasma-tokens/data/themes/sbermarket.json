@@ -15,10 +15,10 @@
         }
     },
     "dark": {
-        "textIcons": {
+        "text": {
             "default": {
                 "textPrimary": {
-                    "value": "#F2F5F7",
+                    "value": "#FF00FFFF",
                     "comment": "Основной цвет текста"
                 },
                 "textSecondary": {
@@ -137,7 +137,7 @@
                 }
             }
         },
-        "controlsSurfaces": {
+        "surface": {
             "default": {
                 "surfaceSolidSecondary": {
                     "value": "#24282B",
@@ -159,7 +159,10 @@
                     "value": {
                         "origin": "linear-gradient(122.62deg, #4817C1 0%, #C505D6 100%)",
                         "linearGradient": {
-                            "colors": ["#4817C1", "#C505D6"],
+                            "colors": [
+                                "#4817C1",
+                                "#C505D6"
+                            ],
                             "angle": 123
                         }
                     },
@@ -211,7 +214,10 @@
                     "value": {
                         "origin": "linear-gradient(122.62deg, #4817C1 0%, #C505D6 100%)",
                         "linearGradient": {
-                            "colors": ["#4817C1", "#C505D6"],
+                            "colors": [
+                                "#4817C1",
+                                "#C505D6"
+                            ],
                             "angle": 123
                         }
                     },
@@ -263,7 +269,10 @@
                     "value": {
                         "origin": "linear-gradient(122.62deg, #4817C1 0%, #C505D6 100%)",
                         "linearGradient": {
-                            "colors": ["#4817C1", "#C505D6"],
+                            "colors": [
+                                "#4817C1",
+                                "#C505D6"
+                            ],
                             "angle": 123
                         }
                     },
@@ -295,7 +304,7 @@
                 }
             }
         },
-        "banners": {
+        "banner": {
             "default": {
                 "bannerRed": {
                     "value": "#2E090D",
@@ -319,7 +328,7 @@
                 }
             }
         },
-        "backgrounds": {
+        "background": {
             "default": {
                 "backgroundPrimary": {
                     "value": "#08090A",
@@ -333,7 +342,7 @@
         }
     },
     "light": {
-        "textIcons": {
+        "text": {
             "default": {
                 "textPrimary": {
                     "value": "#24282B",
@@ -455,7 +464,7 @@
                 }
             }
         },
-        "controlsSurfaces": {
+        "surface": {
             "default": {
                 "surfaceSolidSecondary": {
                     "value": "#F2F5F7",
@@ -477,7 +486,10 @@
                     "value": {
                         "origin": "linear-gradient(122.62deg, #4817C1 0%, #C505D6 100%)",
                         "linearGradient": {
-                            "colors": ["#4817C1", "#C505D6"],
+                            "colors": [
+                                "#4817C1",
+                                "#C505D6"
+                            ],
                             "angle": 123
                         }
                     },
@@ -529,7 +541,10 @@
                     "value": {
                         "origin": "linear-gradient(122.62deg, #4817C1 0%, #C505D6 100%)",
                         "linearGradient": {
-                            "colors": ["#4817C1", "#C505D6"],
+                            "colors": [
+                                "#4817C1",
+                                "#C505D6"
+                            ],
                             "angle": 123
                         }
                     },
@@ -581,7 +596,10 @@
                     "value": {
                         "origin": "linear-gradient(122.62deg, #4817C1 0%, #C505D6 100%)",
                         "linearGradient": {
-                            "colors": ["#4817C1", "#C505D6"],
+                            "colors": [
+                                "#4817C1",
+                                "#C505D6"
+                            ],
                             "angle": 123
                         }
                     },
@@ -613,7 +631,7 @@
                 }
             }
         },
-        "banners": {
+        "banner": {
             "default": {
                 "bannerRed": {
                     "value": "#FFF5F6",
@@ -637,7 +655,7 @@
                 }
             }
         },
-        "backgrounds": {
+        "background": {
             "default": {
                 "backgroundPrimary": {
                     "value": "#F7F8FA",
