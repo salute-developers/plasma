@@ -21,7 +21,7 @@ const getFontWeightStyles = (fontType: string, fontName: string) => `/**
  * do not use directly
  * use fonts from "relevant" section
  */
-const ${fontType}Regular = styled(coloredText)({
+const ${fontType}Regular = styled(Text)({
   fontFamily: '${fontName}-Regular',
 })
 
@@ -29,7 +29,7 @@ const ${fontType}Regular = styled(coloredText)({
  * do not use directly
  * use fonts from "relevant" section
  */
-const ${fontType}SemiBold = styled(coloredText)({
+const ${fontType}SemiBold = styled(Text)({
   fontFamily: '${fontName}-SemiBold',
 })
 
@@ -37,7 +37,7 @@ const ${fontType}SemiBold = styled(coloredText)({
  * do not use directly
  * use fonts from "relevant" section
  */
-const ${fontType}Bold = styled(coloredText)({fontFamily: '${fontName}-Bold'})
+const ${fontType}Bold = styled(Text)({fontFamily: '${fontName}-Bold'})
 
 /**
  * do not use directly
@@ -78,8 +78,14 @@ const getReactNativeTemplate = (
     const isSameFont = baseFontFamily === additionalFontFamily;
 
     const header = `/* eslint-disable @typescript-eslint/no-magic-numbers */
+import {Text} from 'react-native'
 import styled from 'styled-components/native'
-import {coloredText} from './typographyUtils'
+
+/**
+ * @description
+ * Design System 2.0 typo
+ * do not add custom typo / custom deps here
+ */
 
 // to remove warn from styled components
 const addPx = (value?: number) =>
@@ -207,7 +213,7 @@ const getTokenValue = (token: TransformedToken, baseFontFamily: string, addition
     const letterSpacing =
         value['letter-spacing'] === 'normal'
             ? undefined
-            : Number(value['letter-spacing'].replace(/r?em/gi, '') * defaultFontSize);
+            : Number(value['letter-spacing'].replace(/r?em/gi, '') * fontSize);
     const fontStyle = value['font-style'] === 'normal' ? undefined : value['font-style'];
     const family = isSameFont ? BASE_FONT_NAME : typoMap[value['font-family']];
     const fontFamily = family + upperFirstLetter(fontWeightMap[value['font-weight']]);
