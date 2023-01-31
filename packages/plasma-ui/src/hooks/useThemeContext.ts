@@ -15,5 +15,5 @@ export interface ThemeProviderContext {
  * @return {ThemeProviderContext}
  */
 export const useThemeContext = (): ThemeProviderContext => {
-    return useContext<ThemeProviderContext>(ThemeContext);
+    return useContext<ThemeProviderContext>(ThemeContext) || {};
 };
