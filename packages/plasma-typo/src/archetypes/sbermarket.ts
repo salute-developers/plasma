@@ -430,7 +430,7 @@ export const typoCommonProps = (displayFontFamily: string, textFontFamily: strin
     },
     'body-l': {
         'font-family': textFontFamily,
-        'letter-spacing': '0.02em',
+        'letter-spacing': 'normal',
         'font-style': 'normal',
     },
     'body-l-bold': {
@@ -440,7 +440,7 @@ export const typoCommonProps = (displayFontFamily: string, textFontFamily: strin
     },
     'body-m': {
         'font-family': textFontFamily,
-        'letter-spacing': '0.02em',
+        'letter-spacing': 'normal',
         'font-style': 'normal',
     },
     'body-m-bold': {
@@ -450,7 +450,7 @@ export const typoCommonProps = (displayFontFamily: string, textFontFamily: strin
     },
     'body-s': {
         'font-family': textFontFamily,
-        'letter-spacing': '0.02em',
+        'letter-spacing': 'normal',
         'font-style': 'normal',
     },
     'body-s-bold': {
@@ -460,7 +460,7 @@ export const typoCommonProps = (displayFontFamily: string, textFontFamily: strin
     },
     'body-xs': {
         'font-family': textFontFamily,
-        'letter-spacing': '0.02em',
+        'letter-spacing': 'normal',
         'font-style': 'normal',
     },
     'body-xs-bold': {
@@ -470,7 +470,7 @@ export const typoCommonProps = (displayFontFamily: string, textFontFamily: strin
     },
     'body-xxs': {
         'font-family': textFontFamily,
-        'letter-spacing': '0.02em',
+        'letter-spacing': 'normal',
         'font-style': 'normal',
     },
     'body-xxs-bold': {
@@ -480,42 +480,42 @@ export const typoCommonProps = (displayFontFamily: string, textFontFamily: strin
     },
     'text-l': {
         'font-family': textFontFamily,
-        'letter-spacing': '0em',
+        'letter-spacing': 'normal',
         'font-style': 'normal',
     },
     'text-l-bold': {
         'font-family': textFontFamily,
-        'letter-spacing': '0em',
+        'letter-spacing': 'normal',
         'font-style': 'normal',
     },
     'text-m': {
         'font-family': textFontFamily,
-        'letter-spacing': '0em',
+        'letter-spacing': 'normal',
         'font-style': 'normal',
     },
     'text-m-bold': {
         'font-family': textFontFamily,
-        'letter-spacing': '0em',
+        'letter-spacing': 'normal',
         'font-style': 'normal',
     },
     'text-s': {
         'font-family': textFontFamily,
-        'letter-spacing': '0em',
+        'letter-spacing': 'normal',
         'font-style': 'normal',
     },
     'text-s-bold': {
         'font-family': textFontFamily,
-        'letter-spacing': '0em',
+        'letter-spacing': 'normal',
         'font-style': 'normal',
     },
     'text-xs': {
         'font-family': textFontFamily,
-        'letter-spacing': '0em',
+        'letter-spacing': 'normal',
         'font-style': 'normal',
     },
     'text-xs-bold': {
         'font-family': textFontFamily,
-        'letter-spacing': '0em',
+        'letter-spacing': 'normal',
         'font-style': 'normal',
     },
 });
