@@ -1,3 +1,20 @@
+# v1.158.0 (Wed Feb 01 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-web): add onSearch event [#294](https://github.com/salute-developers/plasma/pull/294) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.156.0 (Sat Jan 28 2023)
 
 #### 🚀 Enhancement

@@ -2,6 +2,23 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-b2c@1.131.0`
+  - feat(plasma-b2c): add onSearch event [#294](https://github.com/salute-developers/plasma/pull/294) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-ui@1.161.0`
+  - feat(plasma-ui): add onSearch event [#294](https://github.com/salute-developers/plasma/pull/294) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.158.0`
+  - feat(plasma-web): add onSearch event [#294](https://github.com/salute-developers/plasma/pull/294) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Wed Feb 01 2023)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-tokens@1.33.0`
   - feat(plasma-tokens): Add generate shadow tokens for React-Native [#288](https://github.com/salute-developers/plasma/pull/288) ([@neretin-trike](https://github.com/neretin-trike))
   - feat(plasmsa-tokens): Add shadow tokens [#288](https://github.com/salute-developers/plasma/pull/288) ([@neretin-trike](https://github.com/neretin-trike))
