@@ -1,3 +1,15 @@
+# v1.160.0 (Wed Feb 01 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): add default return value [#304](https://github.com/salute-developers/plasma/pull/304) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.159.0 (Wed Jan 25 2023)
 
 #### 🚀 Enhancement

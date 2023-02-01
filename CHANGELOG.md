@@ -1,3 +1,23 @@
+# (Wed Feb 01 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-tokens@1.33.0`
+  - feat(plasma-tokens): Add generate shadow tokens for React-Native [#288](https://github.com/salute-developers/plasma/pull/288) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasmsa-tokens): Add shadow tokens [#288](https://github.com/salute-developers/plasma/pull/288) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.160.0`
+  - fix(plasma-ui): add default return value [#304](https://github.com/salute-developers/plasma/pull/304) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 2
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Sat Jan 28 2023)
 
 #### 🚀 Enhancement
