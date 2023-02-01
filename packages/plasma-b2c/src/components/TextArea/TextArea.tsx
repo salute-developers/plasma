@@ -9,6 +9,8 @@ import {
     tertiary,
     useResizeObserver,
     FieldContent,
+    surfaceLiquid01,
+    surfaceLiquid02,
 } from '@salutejs/plasma-core';
 import type { TextAreaProps as BaseProps } from '@salutejs/plasma-core';
 
@@ -29,14 +31,22 @@ export interface TextAreaProps extends Omit<BaseProps, 'size'> {
     size?: 'l' | 'm' | 's' | 'xs';
 }
 
-const StyledTextArea = styled(BaseArea)`
+const StyledTextArea = styled(BaseArea)<{ $isHelper: boolean }>`
     ${applyInputStyles};
 
-    padding: var(--padding);
+    --computed-height: calc(9.375rem - var(--field-helpers-padding-top) - var(--padding-bottom) - 14px);
+
+    padding: var(--padding-top) var(--padding-right-default) 0 var(--padding-left-default);
+    padding-bottom: ${({ $isHelper }) => ($isHelper ? null : 'var(--padding-bottom)')};
+
     min-height: var(--min-height);
 
-    border: 0 none;
-    border-radius: var(--border-radius);
+    /* INFO: Высчитываем высоты с учетом высоты блока с подсказками */
+    height: ${({ $isHelper }) => ($isHelper ? 'var(--computed-height)' : null)};
+
+    border: none;
+    border-radius: ${({ $isHelper }) =>
+        $isHelper ? 'var(--border-radius) var(--border-radius) 0 0' : 'var(--border-radius)'};
 
     font-size: var(--font-size);
     line-height: var(--line-height);
@@ -55,10 +65,24 @@ const StyledTextArea = styled(BaseArea)`
     }
 `;
 
+const StyledFieldHelpers = styled(FieldHelpers)<{ width: number }>`
+    position: initial;
+
+    padding: var(--field-helpers-padding-top) var(--padding-right-default) var(--padding-bottom)
+        var(--padding-left-default);
+
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+
+    background-color: ${surfaceLiquid01};
+
+    width: ${({ width }) => width}px;
+
+    transition: background-color 0.1s ease-in-out;
+`;
+
 const TextAreaWrapper = styled(TextFieldRoot)<{ $properties: ReadonlyArray<SimpleInterpolation> }>`
     ${({ $properties }) => $properties};
-
-    --padding-bottom: ${({ $isHelper }) => ($isHelper ? 'var(--padding-bottom-override)' : null)};
 
     ${FieldContent} {
         top: var(--top);
@@ -78,15 +102,10 @@ const TextAreaWrapper = styled(TextFieldRoot)<{ $properties: ReadonlyArray<Simpl
         /* TODO: Replace local value with typography token when resolving issue PLASMA-1838 */
         letter-spacing: -0.02em;
     }
-`;
 
-const StyledFieldHelpers = styled(FieldHelpers)<{ width: number }>`
-    bottom: 0.75rem;
-
-    padding-left: var(--padding-x);
-    padding-right: var(--padding-x);
-
-    width: ${({ width }) => width}px;
+    textarea[data-focus-visible-added] + ${StyledFieldHelpers} {
+        background-color: ${surfaceLiquid02};
+    }
 `;
 
 const StyledFieldContentWrapper = styled.div<{ width: number }>`
@@ -125,6 +144,7 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
         outerRef,
     ) => {
         const [width, setWidth] = useState(0);
+
         const ref = useMemo(() => (outerRef && 'current' in outerRef ? outerRef : createRef<HTMLTextAreaElement>()), [
             outerRef,
         ]);
@@ -137,11 +157,13 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
             setWidth(elementWidth);
         });
 
+        const hasHelper = Boolean(leftHelper || rightHelper);
+
         return (
             <TextAreaWrapper
                 status={status}
                 $isContentRight={Boolean(contentRight)}
-                $isHelper={Boolean(leftHelper || rightHelper)}
+                $isHelper={hasHelper}
                 $properties={textAreaProps[size]}
                 className={className}
                 style={style}
@@ -161,12 +183,15 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
                         onFocus={onFocus}
                         onBlur={onBlur}
                         aria-describedby={id ? `${id}-helper` : undefined}
+                        $isHelper={hasHelper}
                         {...rest}
                     />
-                    <StyledFieldHelpers width={width} id={id ? `${id}-helper` : undefined}>
-                        {leftHelper && <FieldHelper as={TextFieldHelper}>{leftHelper}</FieldHelper>}
-                        {rightHelper && <StyledFieldRightHelper>{rightHelper}</StyledFieldRightHelper>}
-                    </StyledFieldHelpers>
+                    {hasHelper && (
+                        <StyledFieldHelpers width={width} id={id ? `${id}-helper` : undefined}>
+                            {leftHelper && <FieldHelper as={TextFieldHelper}>{leftHelper}</FieldHelper>}
+                            {rightHelper && <StyledFieldRightHelper>{rightHelper}</StyledFieldRightHelper>}
+                        </StyledFieldHelpers>
+                    )}
                 </FieldWrapper>
             </TextAreaWrapper>
         );
