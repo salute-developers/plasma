@@ -166,6 +166,7 @@ export const parameters = {
             </>
         ),
         theme: storybookTheme,
+        source: { type: 'code' },
     },
     options: {
         storySort: {
