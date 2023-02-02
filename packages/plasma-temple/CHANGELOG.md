@@ -1,3 +1,20 @@
+# v1.129.0 (Thu Feb 02 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-*): Remove source maps from bundles [#309](https://github.com/salute-developers/plasma/pull/309) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.128.0 (Wed Feb 01 2023)
 
 #### 🐛 Bug Fix

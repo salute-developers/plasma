@@ -1,5 +1,28 @@
 # (Thu Feb 02 2023)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.133.0`, `@salutejs/plasma-core@1.92.0`, `@salutejs/plasma-icons@1.120.0`, `@salutejs/plasma-temple@1.129.0`, `@salutejs/plasma-ui@1.162.0`, `@salutejs/plasma-web@1.160.0`
+  - feat(plasma-*): Remove source maps from bundles [#309](https://github.com/salute-developers/plasma/pull/309) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.133.0`
+  - chore(plasma-b2c): enable preview source code [#308](https://github.com/salute-developers/plasma/pull/308) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-ui@1.162.0`
+  - chore(plasma-ui): enable preview source code [#308](https://github.com/salute-developers/plasma/pull/308) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.160.0`
+  - chore(plasma-web): enable preview source code [#308](https://github.com/salute-developers/plasma/pull/308) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 2
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Thu Feb 02 2023)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-tokens@1.33.1`
