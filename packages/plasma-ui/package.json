@@ -78,8 +78,8 @@
         "prebuild": "rm -rf ./components ./es ./helpers ./hocs ./hooks ./mixins ./tokens ./types ./utils index.d.ts index.d.ts.map index.js index.js.map",
         "build": "npm run build:cjs && npm run build:esm",
         "postbuild": "tsc --outDir . --emitDeclarationOnly",
-        "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma-ui babel ./src --out-dir . --source-maps --extensions .ts,.tsx",
-        "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma-ui babel ./src --out-dir ./es --source-maps --extensions .ts,.tsx",
+        "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma-ui babel ./src --out-dir . --extensions .ts,.tsx",
+        "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma-ui babel ./src --out-dir ./es --extensions .ts,.tsx",
         "build-storybook": "npm run storybook:build",
         "build:storybook": "npm run storybook:build && npm run storybook:extract",
         "prestorybook": "./sync-readme.sh",
@@ -97,10 +97,7 @@
         "perftool:compare": "node --experimental-specifier-resolution=node ./node_modules/.bin/perftool-compare"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
         "atLeast": 98.7
     },
     "jest": {
@@ -108,18 +105,7 @@
             "^styled-components": "<rootDir>/node_modules/styled-components"
         }
     },
-    "files": [
-        "components",
-        "hocs",
-        "hooks",
-        "mixins",
-        "tokens",
-        "types",
-        "utils",
-        "index.d.ts",
-        "index.js",
-        "es"
-    ],
+    "files": ["components", "hocs", "hooks", "mixins", "tokens", "types", "utils", "index.d.ts", "index.js", "es"],
     "contributors": [
         "Vasiliy Loginevskiy",
         "Антонов Игорь Александрович",

@@ -45,8 +45,8 @@
         "prebuild": "rm -rf ./es ./Icon.assets ./Icons index.js ./Icon* ./index.* ./scalable",
         "build": "npm run build:cjs && npm run build:esm",
         "postbuild": "tsc --outDir . --emitDeclarationOnly",
-        "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma babel ./src --out-dir . --source-maps --extensions .ts,.tsx",
-        "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma babel ./src --out-dir ./es --source-maps --extensions .ts,.tsx"
+        "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma babel ./src --out-dir . --extensions .ts,.tsx",
+        "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma babel ./src --out-dir ./es --extensions .ts,.tsx"
     },
     "files": [
         "Icon.assets",

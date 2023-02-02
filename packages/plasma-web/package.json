@@ -3,27 +3,11 @@
     "version": "1.159.1",
     "description": "Salute Design System / React UI kit for web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    "keywords": [
-        "design-system",
-        "react-components",
-        "ui-kit",
-        "react"
-    ],
+    "keywords": ["design-system", "react-components", "ui-kit", "react"],
     "main": "index.js",
     "module": "es/index.js",
     "types": "index.d.ts",
-    "files": [
-        "components",
-        "es",
-        "hocs",
-        "hooks",
-        "mixins",
-        "tokens",
-        "types",
-        "utils",
-        "index.d.ts",
-        "index.js"
-    ],
+    "files": ["components", "es", "hocs", "hooks", "mixins", "tokens", "types", "utils", "index.d.ts", "index.js"],
     "repository": {
         "type": "git",
         "url": "ssh://git@github.com:salute-developers/plasma.git",
@@ -86,24 +70,17 @@
         "prebuild": "rm -rf ./components ./es ./helpers ./hocs ./hooks ./mixins ./tokens ./types ./utils index.d.ts index.d.ts.map index.js index.js.map",
         "build": "npm run build:cjs && npm run build:esm",
         "postbuild": "tsc --outDir . --emitDeclarationOnly",
-        "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma-web babel ./src --out-dir . --source-maps --extensions .ts,.tsx",
-        "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma-web babel ./src --out-dir ./es --source-maps --extensions .ts,.tsx",
+        "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma-web babel ./src --out-dir . --extensions .ts,.tsx",
+        "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma-web babel ./src --out-dir ./es --extensions .ts,.tsx",
         "storybook": "start-storybook -s .storybook/public -p ${PORT:-7007} -c .storybook",
         "storybook:build": "build-storybook -s .storybook/public -c .storybook -o build-sb",
         "storybook:build:docs": "DOCS=true build-storybook --quiet -s .storybook/public -c .storybook -o build-sb-docs --docs",
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
         "atLeast": 99.96
     },
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Anton Vinogradov",
-        "Fanil Zubairov"
-    ],
+    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"],
     "sideEffects": false
 }
