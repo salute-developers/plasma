@@ -50,7 +50,7 @@ const withTheme = (Story, context) => {
         <>
             {context.globals.typoVersion === 'standard' ? (
                 <>
-                    <TypoStyle />
+                    <TypoStyle breakWord={context.globals.breakWord === 'yes'} />
                     <CompatibleTypoStyle />
                 </>
             ) : (
@@ -124,6 +124,15 @@ export const globalTypes = {
         defaultValue: 'standard',
         toolbar: {
             items: ['standard', 'old'],
+            showName: true,
+        },
+    },
+    breakWord: {
+        name: 'Break word',
+        description: 'Break word for typography',
+        defaultValue: 'yes',
+        toolbar: {
+            items: ['yes', 'no'],
             showName: true,
         },
     },
