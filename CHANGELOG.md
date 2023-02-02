@@ -1,3 +1,25 @@
+# (Thu Feb 02 2023)
+
+#### 🚀 Enhancement
+
+- feat: Add ignore component-test files for babel config [#307](https://github.com/salute-developers/plasma/pull/307) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-web@1.159.0`
+  - feat(plasma-web): update storybook example [#273](https://github.com/salute-developers/plasma/pull/273) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): add cypress tests for navigate by Shift + Arrow Left\Right\Up\Down [#273](https://github.com/salute-developers/plasma/pull/273) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): navigate by Shift + Arrow Left\Right\Up\Down [#273](https://github.com/salute-developers/plasma/pull/273) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.159.0`
+  - fix(plasma-web): update cypress tests [#273](https://github.com/salute-developers/plasma/pull/273) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 2
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Wed Feb 01 2023)
 
 #### 🚀 Enhancement
