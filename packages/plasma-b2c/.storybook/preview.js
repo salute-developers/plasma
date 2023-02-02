@@ -136,4 +136,7 @@ export const parameters = {
             order: ['About', 'Intro', 'Colors', 'Typography', 'Controls'],
         },
     },
+    docs: {
+        source: { type: 'code' },
+    },
 };
