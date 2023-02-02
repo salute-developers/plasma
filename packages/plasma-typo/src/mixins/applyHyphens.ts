@@ -4,12 +4,19 @@ export interface BreakWordProps {
     breakWord?: boolean;
 }
 
-/*
- * Миксин переноса слов по слогам
- */
-export const applyHyphens: InterpolationFunction<BreakWordProps> = ({ breakWord = true }) =>
-    breakWord &&
-    css`
-        overflow-wrap: break-word;
-        hyphens: auto;
-    `;
+export const applyHyphens: InterpolationFunction<BreakWordProps> = ({ breakWord }) => css`
+    ${breakWord === true &&
+    `
+        --plasma-typo-overflow-wrap: break-word;
+        --plasma-typo-hyphens: auto;
+    `}
+
+    ${breakWord === false &&
+    `
+        --plasma-typo-overflow-wrap: normal;
+        --plasma-typo-hyphens: manual;
+    `}
+
+    overflow-wrap: var(--plasma-typo-overflow-wrap);
+    hyphens: var(--plasma-typo-hyphens);
+`;

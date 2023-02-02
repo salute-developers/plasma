@@ -45,6 +45,10 @@ export interface DeviceThemeProps {
      * Флаг для отключения анимаций и прочих твиков над UI, снижающих производительность.
      */
     lowPerformance?: boolean;
+    /**
+     * Флаг для отключения переноса в типографике
+     */
+    breakWord?: boolean;
     children?: ReactNode;
 }
 
@@ -69,16 +73,17 @@ export const DeviceThemeProvider = ({
     detectDeviceCallback = detectDevice,
     responsiveTypo = false,
     lowPerformance = false,
+    breakWord = true,
 }: DeviceThemeProps) => {
     const deviceKind = detectDeviceCallback();
     const deviceScale = deviceScales[deviceKind] || sberPortalScale;
     const Typo = React.useMemo(() => typoSizes[deviceKind], [deviceKind]);
 
     return (
-        <ThemeProvider theme={{ ...theme, deviceScale, lowPerformance, deviceKind }}>
+        <ThemeProvider theme={{ ...theme, deviceScale, lowPerformance, breakWord, deviceKind }}>
             {responsiveTypo ? (
                 <>
-                    <StandardTypo deviceScale={deviceScale} />
+                    <StandardTypo deviceScale={deviceScale} breakWord={breakWord} />
                     <CompatibleTypo />
                     <Size />
                 </>

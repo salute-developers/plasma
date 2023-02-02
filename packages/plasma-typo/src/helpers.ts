@@ -71,8 +71,9 @@ export const createVariablesByArcheType = ({
     typoL,
 }: CreateVariablesByArcheTypeProps): InterpolationFunction<{
     deviceScale?: number;
+    breakWord?: boolean;
 }> => {
-    return ({ deviceScale = 1 }) => css`
+    return ({ deviceScale = 1, breakWord = true }) => css`
             :root {
                 --plasma-typo-display-font-family: '${displayFontFamily}', sans-serif;
                 --plasma-typo-text-font-family: '${textFontFamily}', sans-serif;
@@ -129,6 +130,14 @@ export const createVariablesByArcheType = ({
                 --plasma-typo-text-xs-letter-spacing: -0.019em;
 
                 font-size: ${16 * deviceScale}px;
+
+                ${
+                    breakWord &&
+                    css`
+                        --plasma-typo-overflow-wrap: break-word;
+                        --plasma-typo-hyphens: auto;
+                    `
+                }
 
                 ${
                     typoS &&
