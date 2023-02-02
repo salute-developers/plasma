@@ -25,6 +25,10 @@ export const generateTypoSystem = (
                 attachToRoot({
                     ...objectToCSSVariables(theme, 'typo'),
                     ...objectToCSSVariables(mixin),
+                    ...{
+                        '--plasma-typo-overflow-wrap': 'break-word',
+                        '--plasma-typo-hyphens': 'auto',
+                    },
                     fontSize: `${HTML_FONT_SIZE * scale}px`,
                 }),
             ),
