@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-ui",
-    "version": "1.161.1",
+    "version": "1.162.0",
     "description": "Salute Design System",
     "main": "index.js",
     "module": "es/index.js",
@@ -11,7 +11,7 @@
     },
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "dependencies": {
-        "@salutejs/plasma-core": "1.91.1",
+        "@salutejs/plasma-core": "1.92.0",
         "@salutejs/plasma-typo": "0.29.1",
         "color": "3.1.2",
         "lodash.throttle": "4.1.1",
@@ -33,8 +33,8 @@
         "@babel/preset-typescript": "7.15.0",
         "@salutejs/perftool": "0.3.1",
         "@salutejs/plasma-cy-utils": "0.40.1",
-        "@salutejs/plasma-icons": "1.119.1",
-        "@salutejs/plasma-sb-utils": "0.89.1",
+        "@salutejs/plasma-icons": "1.120.0",
+        "@salutejs/plasma-sb-utils": "0.90.0",
         "@salutejs/plasma-tokens": "1.33.1",
         "@salutejs/use-virtual": "2.0.0",
         "@storybook/addon-docs": "6.3.8",
@@ -97,7 +97,10 @@
         "perftool:compare": "node --experimental-specifier-resolution=node ./node_modules/.bin/perftool-compare"
     },
     "typeCoverage": {
-        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
+        "ignoreFiles": [
+            "src/**/*component-test.tsx",
+            "src/**/*stories.tsx"
+        ],
         "atLeast": 98.7
     },
     "jest": {
@@ -105,7 +108,18 @@
             "^styled-components": "<rootDir>/node_modules/styled-components"
         }
     },
-    "files": ["components", "hocs", "hooks", "mixins", "tokens", "types", "utils", "index.d.ts", "index.js", "es"],
+    "files": [
+        "components",
+        "hocs",
+        "hooks",
+        "mixins",
+        "tokens",
+        "types",
+        "utils",
+        "index.d.ts",
+        "index.js",
+        "es"
+    ],
     "contributors": [
         "Vasiliy Loginevskiy",
         "Антонов Игорь Александрович",
