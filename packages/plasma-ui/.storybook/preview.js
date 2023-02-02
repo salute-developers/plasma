@@ -48,6 +48,7 @@ const withTheme = (Story, context) => {
             detectDeviceCallback={() => deviceKind}
             responsiveTypo={context.globals.typoSystem === 'responsive'}
             lowPerformance={context.globals.lowPerformanceDevice === 'yes'}
+            breakWord={context.globals.breakWord === 'yes'}
         >
             <Theme />
             <DocumentStyle />
@@ -147,6 +148,15 @@ export const globalTypes = {
         name: 'Low performance',
         description: 'Low performance device',
         defaultValue: 'no',
+        toolbar: {
+            items: ['yes', 'no'],
+            showName: true,
+        },
+    },
+    breakWord: {
+        name: 'Break word',
+        description: 'Break word for typography',
+        defaultValue: 'yes',
         toolbar: {
             items: ['yes', 'no'],
             showName: true,
