@@ -19,18 +19,15 @@
         "prebuild": "rm -rf ./components ./es ./helpers ./hocs ./hooks ./mixins ./tokens ./types ./utils index.d.ts index.d.ts.map index.js index.js.map",
         "build": "npm run build:cjs && npm run build:esm",
         "postbuild": "tsc --outDir . --emitDeclarationOnly",
-        "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma-b2c babel ./src --out-dir . --source-maps --extensions .ts,.tsx",
-        "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma-b2c babel ./src --out-dir ./es --source-maps --extensions .ts,.tsx",
+        "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma-b2c babel ./src --out-dir . --extensions .ts,.tsx",
+        "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma-b2c babel ./src --out-dir ./es --extensions .ts,.tsx",
         "storybook": "start-storybook -s .storybook/public -p ${PORT:-7007} -c .storybook",
         "storybook:build": "build-storybook -s .storybook/public -c .storybook -o build-sb",
         "test": "jest",
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
         "atLeast": 99.97
     },
     "dependencies": {
@@ -91,23 +88,7 @@
         "typescript": "3.9.10",
         "typescript-coverage-report": "0.7.0"
     },
-    "keywords": [
-        "design-system",
-        "react-components",
-        "ui-kit",
-        "react"
-    ],
-    "files": [
-        "components",
-        "es",
-        "hocs",
-        "hooks",
-        "mixins",
-        "tokens",
-        "types",
-        "utils",
-        "index.d.ts",
-        "index.js"
-    ],
+    "keywords": ["design-system", "react-components", "ui-kit", "react"],
+    "files": ["components", "es", "hocs", "hooks", "mixins", "tokens", "types", "utils", "index.d.ts", "index.js"],
     "sideEffects": false
 }
