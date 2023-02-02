@@ -1,3 +1,15 @@
+# v0.29.1 (Thu Feb 02 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-typo): Fix letter-spacing for sbermarket typo [#305](https://github.com/salute-developers/plasma/pull/305) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.29.0 (Mon Dec 26 2022)
 
 #### 🐛 Bug Fix

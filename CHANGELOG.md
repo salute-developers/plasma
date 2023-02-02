@@ -1,5 +1,20 @@
 # (Thu Feb 02 2023)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-tokens@1.33.1`
+  - fix(plasma-tokens): Update token template for Kotlin and React-Native platforms [#305](https://github.com/salute-developers/plasma/pull/305) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-typo@0.29.1`
+  - fix(plasma-typo): Fix letter-spacing for sbermarket typo [#305](https://github.com/salute-developers/plasma/pull/305) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Thu Feb 02 2023)
+
 #### 🚀 Enhancement
 
 - feat: Add ignore component-test files for babel config [#307](https://github.com/salute-developers/plasma/pull/307) ([@neretin-trike](https://github.com/neretin-trike))
