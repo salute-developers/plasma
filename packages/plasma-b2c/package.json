@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-b2c",
-    "version": "1.133.0",
+    "version": "1.134.0",
     "description": "Salute Design System / React UI kit for business-related web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "main": "index.js",
