@@ -1,3 +1,21 @@
+# v1.134.0 (Fri Feb 03 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): add tests for handling property size [#295](https://github.com/salute-developers/plasma/pull/295) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): handling property size [#295](https://github.com/salute-developers/plasma/pull/295) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.133.0 (Thu Feb 02 2023)
 
 #### 🚀 Enhancement

@@ -1,3 +1,22 @@
+# (Fri Feb 03 2023)
+
+#### 🚀 Enhancement
+
+- chore(plasma-b2c): add local text area snapshots [#295](https://github.com/salute-developers/plasma/pull/295) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.134.0`
+  - feat(plasma-b2c): add tests for handling property size [#295](https://github.com/salute-developers/plasma/pull/295) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-b2c): handling property size [#295](https://github.com/salute-developers/plasma/pull/295) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore(plasma-b2c): update core text area snapshots [#295](https://github.com/salute-developers/plasma/pull/295) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Thu Feb 02 2023)
 
 #### 🚀 Enhancement
