@@ -34,7 +34,7 @@ jobs:
       - name: Setup packages
         run: |
           npm ci
-          npx lerna bootstrap --scope "@salutejs/plasma-ui"
+          npx lerna bootstrap
 
       - name: Use Node.js 16.15.x
         uses: actions/setup-node@v1
