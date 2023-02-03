@@ -52,6 +52,21 @@ export const bodyL = {
 
 > При использовании стандартной типографики устанавливать размер шрифта на теге `<html>` не обязательно, это уже предусмотрено в глобальных стилях.
 
+### Перенос 
+По умолчанию для всех компонентов типографики в теме включен перенос текста. Если необходимо отключить данное поведение, нужно указать `breakWard={false}` в провайдере темы `DeviceThemeProvider`.
+
+```js
+import { DeviceThemeProvider } from '@salutejs/plasma-ui';
+
+export default function App() {
+    return (
+        <DeviceThemeProvider breakWord={false}>
+           ...
+        </DeviceThemeProvider>
+    );
+}
+```
+
 ## Состав
 Типографика дизайн-системы Plasma включает в себя следующие компоненты:
 - [Hero Unit](../components/typography#hero-unit):
