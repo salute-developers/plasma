@@ -2,6 +2,18 @@
 
 #### 🚀 Enhancement
 
+- feat(plasma-theme-builder): Add create pull request via github [#303](https://github.com/salute-developers/plasma/pull/303) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Fri Feb 03 2023)
+
+#### 🚀 Enhancement
+
 - chore(plasma-b2c): add local text area snapshots [#295](https://github.com/salute-developers/plasma/pull/295) ([@Yakutoc](https://github.com/Yakutoc))
 - `@salutejs/plasma-b2c@1.134.0`
   - feat(plasma-b2c): add tests for handling property size [#295](https://github.com/salute-developers/plasma/pull/295) ([@Yakutoc](https://github.com/Yakutoc))
