@@ -19,10 +19,10 @@ jobs:
       - name: Prepare repository
         run: git fetch --unshallow --tags
 
-      - name: Use Node.js 12.x
+      - name: Use Node.js 14
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 14
 
       # Данный шаг не исполняется, т.к. в настоящее время actions/cache поддерживается только для типов событий push и pull_request 
       - name: Cache node modules
