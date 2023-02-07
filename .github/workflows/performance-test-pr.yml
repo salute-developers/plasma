@@ -53,7 +53,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_S3_ENDPOINT: ${{ secrets.AWS_ENDPOINT }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
-          SOURCE: 's3://${{ secrets.AWS_S3_BUCKET }}/perftest-reports/result.json'
+          SOURCE: 's3://${{ secrets.AWS_S3_BUCKET_2 }}/perftest-reports/result.json'
           DEST: './perftest-reports/'
 
       - name: Check main report existence
