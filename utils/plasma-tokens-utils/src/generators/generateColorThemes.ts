@@ -26,7 +26,6 @@ export const generateColorThemes = (colorThemes: Record<string, TokenDataGroup<s
                     ...objectToCSSVariables(themeData, 'colors', Boolean(fromData)),
                     ...objectToCSSVariables(mixin),
                     color: themeData.text,
-                    backgroundColor: themeData.background,
                 }),
             ),
         );
