@@ -81,7 +81,7 @@ const args: ButtonStoryProps = {
     size: 'l',
     pin: 'square-square',
     disabled: false,
-    outlined: false,
+    outlined: true,
     focused: false,
     text: 'Label',
     contentType: 'Text',
