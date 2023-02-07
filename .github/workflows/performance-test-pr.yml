@@ -127,8 +127,8 @@ jobs:
               repo: context.repo.repo,
               body: commentBody,
             })
-
+        
       - name: Send report
-        if: always()
-        run: |
-          npm run perftool:send:report -- -- {{ github.sha }}
+        run: npm run perftool:send:report
+        env:
+          GITHUB_SHA: ${{ github.sha }}
