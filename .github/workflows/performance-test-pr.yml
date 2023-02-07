@@ -22,7 +22,7 @@ jobs:
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 12.x 
 
       - name: Cache node modules
         uses: actions/cache@v1
@@ -41,6 +41,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16.15.x
+      
+      - name: Send report
+        run: npm run perftool:send:report
+        env:
+          GITHUB_SHA: ${{ github.sha }}
 
       - name: Prepare directory
         run: |
@@ -127,8 +132,3 @@ jobs:
               repo: context.repo.repo,
               body: commentBody,
             })
-
-      - name: Send report
-        if: always()
-        run: |
-          npm run perftool:send:report -- -- {{ github.sha }}
