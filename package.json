@@ -33,7 +33,8 @@
     "lint:packages": "./scripts/lint-packages.js",
     "test": "lerna run test",
     "typescript-coverage": "lerna run typescript-coverage --no-bail --stream",
-    "generate:theme-html": "lerna run generate:theme-html --scope @salutejs/plasma-tokens"
+    "generate:theme-html": "lerna run generate:theme-html --scope @salutejs/plasma-tokens",
+    "perftool:send:report": "./scripts/perftool-send-report.js"
   },
   "devDependencies": {
     "@actions/core": "1.2.7",
