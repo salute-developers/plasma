@@ -15,6 +15,10 @@ type ToastCommonParameters = {
      * callback срабатывающий в момент события showToast
      */
     onShow?: () => void;
+    /**
+     * Значение для дополнительно отступа блока подсказки, считается в rem.
+     */
+    offset?: number;
 };
 
 export type ToastInfo = ToastCommonParameters & {
