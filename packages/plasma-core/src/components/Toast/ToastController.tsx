@@ -64,15 +64,15 @@ const StyledFade = styled(Fade)<{ isVisible: boolean }>`
     `};
 `;
 
-const StyledRoot = styled.div<{ position: string; isVisible: boolean }>`
+const StyledRoot = styled.div<{ $position: string; isVisible: boolean; $offset?: number }>`
     position: fixed;
     left: 50%;
     z-index: 1000;
     transform: translateX(-50%);
 
-    ${({ position, isVisible }) => css`
-        ${position}: 5rem;
-        animation: 300ms ${isVisible ? showAnimation(position) : hideAnimation(position)};
+    ${({ $position, isVisible, $offset = 0 }) => css`
+        ${$position}: ${$offset + 5}rem;
+        animation: 300ms ${isVisible ? showAnimation($position) : hideAnimation($position)};
     `};
 
     display: flex;
@@ -89,7 +89,7 @@ const StyledRoot = styled.div<{ position: string; isVisible: boolean }>`
  * Создаёт <div />, который внутри себя содержит тост.
  * Цикл: show => timeout => hide.
  */
-export const ToastController: React.FC<ToastInfo> = ({ role, text, contentLeft, position, timeout, fade }) => {
+export const ToastController: React.FC<ToastInfo> = ({ role, text, contentLeft, position, timeout, fade, offset }) => {
     const { hideToast } = useToast();
     const [isVisible, setIsVisible] = useState(true);
     const hideTimeout = useRef<number | null>(null);
@@ -131,7 +131,13 @@ export const ToastController: React.FC<ToastInfo> = ({ role, text, contentLeft, 
     return (
         <>
             {fade && <StyledFade isVisible={isVisible} placement={position} />}
-            <StyledRoot key={toastKey} position={position} isVisible={isVisible} onAnimationEnd={animationEndHandler}>
+            <StyledRoot
+                key={toastKey}
+                $position={position}
+                $offset={offset}
+                isVisible={isVisible}
+                onAnimationEnd={animationEndHandler}
+            >
                 <Toast role={role} text={text} contentLeft={contentLeft} />
             </StyledRoot>
         </>

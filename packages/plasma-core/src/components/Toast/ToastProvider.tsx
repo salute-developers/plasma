@@ -32,6 +32,7 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
             role,
             onHide,
             onShow,
+            offset,
         } = getShowToastCallSignature(args);
 
         setValue({
@@ -43,6 +44,7 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
             role,
             onHide,
             onShow,
+            offset,
         });
 
         if (onShow) {
