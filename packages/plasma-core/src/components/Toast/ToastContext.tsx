@@ -1,16 +1,9 @@
-import { ReactNode, createContext } from 'react';
+import { createContext } from 'react';
 
-import { ToastInfo, ToastPosition, ToastRole } from './Toast.types';
+import { ToastInfo, ShowToast } from './Toast.types';
 
 type ContextType = ToastInfo & {
-    showToast: (
-        text: string,
-        position?: ToastPosition,
-        timeout?: number,
-        fade?: boolean,
-        contentLeft?: ReactNode,
-        role?: ToastRole,
-    ) => void;
+    showToast: ShowToast;
     hideToast: () => void;
 };
 
