@@ -97,10 +97,7 @@
         "perftool:compare": "node --experimental-specifier-resolution=node ./node_modules/.bin/perftool-compare"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
         "atLeast": 98.7
     },
     "jest": {
@@ -108,18 +105,6 @@
             "^styled-components": "<rootDir>/node_modules/styled-components"
         }
     },
-    "files": [
-        "components",
-        "hocs",
-        "hooks",
-        "mixins",
-        "tokens",
-        "types",
-        "utils",
-        "index.d.ts",
-        "index.js",
-        "es"
-    ],
     "contributors": [
         "Vasiliy Loginevskiy",
         "Антонов Игорь Александрович",
