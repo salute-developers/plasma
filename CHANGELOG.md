@@ -2,6 +2,28 @@
 
 #### 🚀 Enhancement
 
+- feat: bump lerna to 4 version [#314](https://github.com/salute-developers/plasma/pull/314) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- chore: replace 12.16.1 to 14.0.0 [#312](https://github.com/salute-developers/plasma/pull/312) ([@Yakutoc](https://github.com/Yakutoc))
+- docs: replace `node` версии `v12.x` to `v14` [#312](https://github.com/salute-developers/plasma/pull/312) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: update GitHub workflows configs [#312](https://github.com/salute-developers/plasma/pull/312) ([@Yakutoc](https://github.com/Yakutoc))
+- docs(plasma-ui): doc examples for product card [#263](https://github.com/salute-developers/plasma/pull/263) ([@kayman233](https://github.com/kayman233))
+- ci: new s3 bucket [#316](https://github.com/salute-developers/plasma/pull/316) ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 3
+
+- [@kayman233](https://github.com/kayman233)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Wed Feb 08 2023)
+
+#### 🚀 Enhancement
+
 - feat(plasma-theme-builder): Add create pull request via github [#303](https://github.com/salute-developers/plasma/pull/303) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
