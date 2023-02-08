@@ -14,8 +14,6 @@ const plugins = [
 ];
 const ignore = ['**/*.d.ts', '**/helpers', '**/__helpers', '**/*.stories.tsx'];
 
-!process.env.INCLUDE_TEST_FILES && ignore.push('**/*.component-test.tsx');
-
 process.env.COVERAGE && plugins.push(['babel-plugin-istanbul']);
 
 module.exports = {
