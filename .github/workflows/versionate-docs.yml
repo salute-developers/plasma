@@ -69,6 +69,7 @@ jobs:
 
       # Без --delete чтобы версии сохранялись
       - name: s3 Upload documentation build
+        if: ${{ steps.versionate_script.outputs.result == 'true' }}
         run: >
           aws s3 sync
           ./s3_build/
