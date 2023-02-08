@@ -13,7 +13,7 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 ## Состав
 При сборке карусели используйте структуру, в которой корневым элементом
 является `Carousel` со вложенными в него `CarouselItem` или `CarouselCol`.
-При необходимости отображения элементов карусели в [сетке](./grid), оборачивайте карусель в `CarouselGridWrapper`.
+При необходимости отображения элементов карусели в [сетке](../grid), оборачивайте карусель в `CarouselGridWrapper`.
 
 ### Carousel
 <Description name="Carousel" />
@@ -147,8 +147,8 @@ export const MyGallery = () = (
 
 * В данном примере используются `Grid` и `CSS Scroll Snap`.
 * В корне приложения необходимо разместить `DeviceThemeProvider`.
-* В качестве основного блока разметки контейнер ([Container](./grid/#container)),
-а колонки ([Col](./grid/#col)) помещаются в строки ([Row](./grid/#row)).
+* В качестве основного блока разметки контейнер ([Container](../grid/#container)),
+а колонки ([Col](../grid/#col)) помещаются в строки ([Row](../grid/#row)).
 * Карусель поддерживает определение (`detectActive`) активного элемента.
 
 ```tsx live
