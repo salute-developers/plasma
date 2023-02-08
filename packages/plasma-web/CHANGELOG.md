@@ -1,3 +1,15 @@
+# v1.161.0 (Wed Feb 08 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web): set value prop outlined to true [#313](https://github.com/salute-developers/plasma/pull/313) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.160.0 (Thu Feb 02 2023)
 
 #### 🚀 Enhancement

@@ -1,3 +1,15 @@
+# v1.135.0 (Wed Feb 08 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-b2c): set value prop outlined to true [#313](https://github.com/salute-developers/plasma/pull/313) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.134.0 (Fri Feb 03 2023)
 
 #### 🚀 Enhancement

@@ -1,3 +1,23 @@
+# (Wed Feb 08 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-theme-builder): Add create pull request via github [#303](https://github.com/salute-developers/plasma/pull/303) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.135.0`
+  - fix(plasma-b2c): set value prop outlined to true [#313](https://github.com/salute-developers/plasma/pull/313) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.161.0`
+  - fix(plasma-web): set value prop outlined to true [#313](https://github.com/salute-developers/plasma/pull/313) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 2
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Fri Feb 03 2023)
 
 #### 🚀 Enhancement
