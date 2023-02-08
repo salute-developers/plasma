@@ -1,2 +1,2 @@
-export { Price } from './Price';
-export type { PriceProps } from './Price';
+export { Price } from '@salutejs/plasma-hope';
+export type { PriceProps } from '@salutejs/plasma-hope';

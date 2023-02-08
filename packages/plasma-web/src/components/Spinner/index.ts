@@ -1,2 +1,2 @@
-export { Spinner } from './Spinner';
-export type { SpinnerProps } from './Spinner';
+export { Spinner } from '@salutejs/plasma-hope';
+export type { SpinnerProps } from '@salutejs/plasma-hope';

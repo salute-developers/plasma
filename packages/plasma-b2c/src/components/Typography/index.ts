@@ -38,4 +38,4 @@ export {
     ParagraphText2,
     Subtitle,
     Underline,
-} from '@salutejs/plasma-web';
+} from '@salutejs/plasma-hope';

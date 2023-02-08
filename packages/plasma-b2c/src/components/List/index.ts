@@ -1,2 +1,2 @@
-export { List } from '@salutejs/plasma-web';
-export { ListItem } from '@salutejs/plasma-web';
+export { List } from '@salutejs/plasma-hope';
+export { ListItem } from '@salutejs/plasma-hope';

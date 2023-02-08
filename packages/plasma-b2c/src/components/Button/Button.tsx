@@ -6,7 +6,7 @@ import type {
     ButtonSizeProps,
     ButtonViewProps,
 } from '@salutejs/plasma-core';
-import { buttonViews, ButtonView } from '@salutejs/plasma-web';
+import { buttonViews, ButtonView } from '@salutejs/plasma-hope';
 import { bodySBold, bodyLBold, bodyMBold } from '@salutejs/plasma-typo';
 
 export type ButtonProps = BaseProps &

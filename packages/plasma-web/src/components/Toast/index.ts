@@ -1,2 +1,2 @@
-export { Toast, ToastProvider, useToast } from '@salutejs/plasma-core';
-export type { ToastProps, ToastPosition } from '@salutejs/plasma-core';
+export { Toast, ToastProvider, useToast } from '@salutejs/plasma-hope';
+export type { ToastProps, ToastPosition } from '@salutejs/plasma-hope';

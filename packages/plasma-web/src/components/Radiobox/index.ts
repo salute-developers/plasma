@@ -1,3 +1,2 @@
-export { Radiobox } from './Radiobox';
-export { RadioGroup } from './RadioGroup';
-export type { RadioboxProps } from './Radiobox';
+export { Radiobox, RadioGroup } from '@salutejs/plasma-hope';
+export type { RadioboxProps } from '@salutejs/plasma-hope';

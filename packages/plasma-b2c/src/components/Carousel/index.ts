@@ -1,5 +1,5 @@
-export { Carousel, CarouselGridWrapper } from '@salutejs/plasma-web';
-export type { CarouselProps } from '@salutejs/plasma-web';
+export { Carousel, CarouselGridWrapper } from '@salutejs/plasma-hope';
+export type { CarouselProps } from '@salutejs/plasma-hope';
 
-export { CarouselItem } from '@salutejs/plasma-web';
-export type { CarouselItemProps } from '@salutejs/plasma-web';
+export { CarouselItem } from '@salutejs/plasma-hope';
+export type { CarouselItemProps } from '@salutejs/plasma-hope';

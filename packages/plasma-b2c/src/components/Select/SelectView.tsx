@@ -15,8 +15,8 @@ import {
     SelectDropdown as BaseDropdown,
     SelectButton as BaseButton,
     withAssistiveDropdown,
-} from '@salutejs/plasma-web';
-import type { SelectViewProps, SelectRefElement } from '@salutejs/plasma-web';
+} from '@salutejs/plasma-hope';
+import type { SelectViewProps, SelectRefElement } from '@salutejs/plasma-hope';
 
 import { SelectGroup } from './SelectGroup';
 

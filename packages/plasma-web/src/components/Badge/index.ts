@@ -1,5 +1,2 @@
-export { badgeSizes } from '@salutejs/plasma-core';
-export type { BadgeSize } from '@salutejs/plasma-core';
-
-export { Badge, badgeViews } from './Badge';
-export type { BadgeProps, BadgeView } from './Badge';
+export { Badge, badgeViews, badgeSizes } from '@salutejs/plasma-hope';
+export type { BadgeProps, BadgeView, BadgeSize } from '@salutejs/plasma-hope';

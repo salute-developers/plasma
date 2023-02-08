@@ -1,7 +1,7 @@
-export { SmartPaginationDots } from './SmartPaginationDots';
-export type { SmartPaginationDotsProps } from './SmartPaginationDots';
+export { SmartPaginationDots } from '@salutejs/plasma-hope';
+export type { SmartPaginationDotsProps } from '@salutejs/plasma-hope';
 
-export { PaginationDots } from './PaginationDots';
+export { PaginationDots } from '@salutejs/plasma-hope';
 
-export { PaginationDot } from './PaginationDot';
-export type { PaginationDotProps } from './PaginationDot';
+export { PaginationDot } from '@salutejs/plasma-hope';
+export type { PaginationDotProps } from '@salutejs/plasma-hope';

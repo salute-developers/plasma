@@ -1,4 +1,4 @@
-export { Row, Col, sizes, offsets } from '@salutejs/plasma-web';
-export type { ColProps, ColCount, ColSizeProps, ColOffsetProps } from '@salutejs/plasma-web';
+export { Row, Col, sizes, offsets } from '@salutejs/plasma-hope';
+export type { ColProps, ColCount, ColSizeProps, ColOffsetProps } from '@salutejs/plasma-hope';
 
 export { Container } from './Container';

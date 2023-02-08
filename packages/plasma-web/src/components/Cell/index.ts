@@ -1,2 +1,2 @@
-export { Cell } from './Cell';
-export type { CellProps } from './Cell';
+export { Cell } from '@salutejs/plasma-hope';
+export type { CellProps } from '@salutejs/plasma-hope';
