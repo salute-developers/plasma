@@ -69,15 +69,13 @@ jobs:
 
       # Без --delete чтобы версии сохранялись
       - name: s3 Upload documentation build
-        if: ${{ steps.versionate_script.outputs.result == 'true' }}
-        uses: jakejarvis/s3-sync-action@master
-        with:
-          args: --acl public-read --follow-symlinks
+        run: >
+          aws s3 sync
+          ./s3_build/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/versions/
+          --endpoint-url ${{ secrets.AWS_ENDPOINT }}
+          --region ${{ secrets.AWS_REGION }}
+          --acl public-read --follow-symlinks
         env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET_2 }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_S3_ENDPOINT: ${{ secrets.AWS_ENDPOINT }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          SOURCE_DIR: "s3_build"
-          DEST_DIR: 'versions'
