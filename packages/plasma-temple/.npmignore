@@ -1,0 +1,11 @@
+/components/**/*.component-test*
+/es/components/**/*.component-test*
+docs
+src
+.storybook
+/package-lock.json
+/.prettierrc
+/babel.config.js
+/index.js
+/jest.config.js
+/tsconfig.json
