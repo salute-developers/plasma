@@ -2,6 +2,30 @@
 
 #### 🚀 Enhancement
 
+- feat(plasma-preftest): Remove lerna scope from setup step [#310](https://github.com/salute-developers/plasma/pull/310) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- docs(plasma-ui-docs): Add descriptions for breakWorkd props in typography components [#310](https://github.com/salute-developers/plasma/pull/310) ([@neretin-trike](https://github.com/neretin-trike))
+- ci: fix upload step in versionate [#321](https://github.com/salute-developers/plasma/pull/321) ([@kayman233](https://github.com/kayman233))
+- docs(plasma-ui, plasma-web): fix links in docs [#321](https://github.com/salute-developers/plasma/pull/321) ([@kayman233](https://github.com/kayman233))
+- ci: remove sync action [#320](https://github.com/salute-developers/plasma/pull/320) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-b2c@1.136.0`, `@salutejs/plasma-ui@1.163.0`
+  - feat(plasma-ui,plasma-b2c): Add breakWord props for storybook preview [#310](https://github.com/salute-developers/plasma/pull/310) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-typo@0.30.0`, `@salutejs/plasma-ui@1.163.0`, `@salutejs/plasma-tokens-utils@0.16.0`
+  - feat(plasma-typo,plasma-ui): Add breakWord props for global style root [#310](https://github.com/salute-developers/plasma/pull/310) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Wed Feb 08 2023)
+
+#### 🚀 Enhancement
+
 - feat: bump lerna to 4 version [#314](https://github.com/salute-developers/plasma/pull/314) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix

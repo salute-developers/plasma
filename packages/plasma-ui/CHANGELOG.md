@@ -1,3 +1,16 @@
+# v1.163.0 (Wed Feb 08 2023)
+
+#### 🐛 Bug Fix
+
+- feat(plasma-ui,plasma-b2c): Add breakWord props for storybook preview [#310](https://github.com/salute-developers/plasma/pull/310) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-typo,plasma-ui): Add breakWord props for global style root [#310](https://github.com/salute-developers/plasma/pull/310) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.162.0 (Thu Feb 02 2023)
 
 #### 🚀 Enhancement

@@ -1,3 +1,15 @@
+# v0.16.0 (Wed Feb 08 2023)
+
+#### 🐛 Bug Fix
+
+- feat(plasma-typo,plasma-ui): Add breakWord props for global style root [#310](https://github.com/salute-developers/plasma/pull/310) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.15.0 (Thu Dec 15 2022)
 
 #### 🚀 Enhancement
