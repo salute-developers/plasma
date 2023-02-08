@@ -26,15 +26,18 @@ interface LiveDemoProps extends ToastProps {
     timeout: number;
     fade: boolean;
     enableContentLeft: boolean;
+    offset?: number;
 }
 
 const Container = styled.div`
+    position: relative;
+    z-index: 10000;
     display: flex;
     gap: 0.5rem;
     padding: 1rem;
 `;
 
-export const LiveDemo: Story<LiveDemoProps> = ({ role, text, position, timeout, fade, enableContentLeft }) => {
+export const LiveDemo: Story<LiveDemoProps> = ({ role, text, position, timeout, fade, enableContentLeft, offset }) => {
     const { showToast, hideToast } = useToast();
     const contentLeft = enableContentLeft && <IconClose size="xs" color={critical} />;
 
@@ -52,6 +55,7 @@ export const LiveDemo: Story<LiveDemoProps> = ({ role, text, position, timeout, 
                         role,
                         onHide: action('onHide'),
                         onShow: action('onShow'),
+                        offset,
                     });
                 }}
             >
@@ -68,6 +72,7 @@ LiveDemo.args = {
     position: 'bottom',
     timeout: 10000,
     fade: true,
+    offset: 0,
 };
 
 LiveDemo.argTypes = {
@@ -81,6 +86,11 @@ LiveDemo.argTypes = {
         options: ['top', 'bottom'],
         control: {
             type: 'inline-radio',
+        },
+    },
+    offset: {
+        control: {
+            type: 'number',
         },
     },
 };
