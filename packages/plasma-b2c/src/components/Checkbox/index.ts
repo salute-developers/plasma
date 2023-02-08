@@ -1,2 +1,2 @@
-export { Checkbox } from '@salutejs/plasma-web';
-export type { CheckboxProps } from '@salutejs/plasma-web';
+export { Checkbox } from '@salutejs/plasma-hope';
+export type { CheckboxProps } from '@salutejs/plasma-hope';

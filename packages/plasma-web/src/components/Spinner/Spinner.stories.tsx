@@ -7,7 +7,7 @@ import { InSpacingDecorator, disableProps } from '../../helpers';
 import { Button } from '../Button';
 import { Body1 } from '../Typography';
 
-import { Spinner, SpinnerProps } from './Spinner';
+import { Spinner, SpinnerProps } from '.';
 
 const propsToDisable = ['color', 'theme', 'as', 'forwardedAs'];
 

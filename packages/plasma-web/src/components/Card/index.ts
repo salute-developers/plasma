@@ -1,13 +1,13 @@
-export { Card, StyledCard } from './Card';
-export type { CardProps } from './Card';
+export { Card, StyledCard } from '@salutejs/plasma-hope';
+export type { CardProps } from '@salutejs/plasma-hope';
 
-export { CardBadge } from './CardBadge';
+export { CardBadge } from '@salutejs/plasma-hope';
 
-export { CardBody } from './CardBody';
-export type { CardBodyProps } from './CardBody';
+export { CardBody } from '@salutejs/plasma-hope';
+export type { CardBodyProps } from '@salutejs/plasma-hope';
 
-export { CardContent } from './CardContent';
-export type { CardContentProps } from './CardContent';
+export { CardContent } from '@salutejs/plasma-hope';
+export type { CardContentProps } from '@salutejs/plasma-hope';
 
-export { CardMedia } from './CardMedia';
-export type { CardMediaProps } from './CardMedia';
+export { CardMedia } from '@salutejs/plasma-hope';
+export type { CardMediaProps } from '@salutejs/plasma-hope';

@@ -1,5 +1,5 @@
-export { Button } from './Button';
-export type { ButtonProps } from './Button';
+export { Button } from '@salutejs/plasma-hope';
+export type { ButtonProps } from '@salutejs/plasma-hope';
 
-export { buttonViews } from './Button.props';
-export type { ButtonView } from './Button.props';
+export { buttonViews } from '@salutejs/plasma-hope';
+export type { ButtonView } from '@salutejs/plasma-hope';

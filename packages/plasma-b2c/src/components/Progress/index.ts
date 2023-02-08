@@ -1,2 +1,2 @@
-export { Progress } from '@salutejs/plasma-web';
-export type { ProgressProps } from '@salutejs/plasma-web';
+export { Progress } from '@salutejs/plasma-hope';
+export type { ProgressProps } from '@salutejs/plasma-hope';

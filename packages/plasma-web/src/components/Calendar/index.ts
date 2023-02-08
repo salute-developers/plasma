@@ -1,7 +1,2 @@
-export { CalendarBase } from './CalendarBase';
-export { CalendarDouble } from './CalendarDouble';
-export { Calendar, CalendarBaseRange, CalendarDoubleRange } from './Calendar';
-
-export type { CalendarBaseProps } from './CalendarBase';
-export type { CalendarDoubleProps } from './CalendarDouble';
-export type { CalendarProps } from './Calendar';
+export { Calendar, CalendarBase, CalendarBaseRange, CalendarDouble, CalendarDoubleRange } from '@salutejs/plasma-hope';
+export type { CalendarProps, CalendarBaseProps, CalendarDoubleProps } from '@salutejs/plasma-hope';

@@ -33,7 +33,7 @@ export default {
 } as Meta;
 
 export const Default: Story<BadgeProps & { enableIcon: boolean }> = ({ enableIcon, ...rest }) => (
-    <Badge contentLeft={enableIcon && <IconSettings color="inherit" size="xs" />} {...rest} />
+    <Badge contentLeft={enableIcon ? <IconSettings color="inherit" size="xs" /> : undefined} {...rest} />
 );
 
 Default.args = {

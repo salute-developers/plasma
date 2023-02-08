@@ -20,11 +20,23 @@ export {
 
 export type { TypographyTypes } from '@salutejs/plasma-core';
 
-export * from './Body';
-export * from './Button';
-export * from './Caption';
-export * from './Footnote';
-export * from './Headline';
-export * from './Paragraph';
-export * from './Subtitle';
-export * from './Underline';
+export {
+    Body1,
+    Body2,
+    Button1,
+    Button2,
+    Caption,
+    Footnote1,
+    Footnote2,
+    Headline1,
+    Headline2,
+    Headline3,
+    Headline4,
+    Headline5,
+    P1,
+    P2,
+    ParagraphText1,
+    ParagraphText2,
+    Subtitle,
+    Underline,
+} from '@salutejs/plasma-hope';

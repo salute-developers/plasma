@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Container as BaseContainer } from '@salutejs/plasma-web';
+import { Container as BaseContainer } from '@salutejs/plasma-hope';
 
 /**
  * Блок с полями по бокам для размещения контента по вертикали.

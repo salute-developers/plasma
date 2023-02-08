@@ -1,2 +1,2 @@
-export { List } from './List';
-export { ListItem } from './ListItem';
+export { List } from '@salutejs/plasma-hope';
+export { ListItem } from '@salutejs/plasma-hope';

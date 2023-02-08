@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
-import { withSingleSelect, withMultiSelect } from '@salutejs/plasma-web';
-import type { SelectProps, SelectRefElement } from '@salutejs/plasma-web';
+import { withSingleSelect, withMultiSelect } from '@salutejs/plasma-hope';
+import type { SelectProps, SelectRefElement } from '@salutejs/plasma-hope';
 
 import { SelectView } from './SelectView';
 

@@ -1,4 +1,3 @@
-export { NotificationsProvider } from './NotificationsProvider';
-export { Notification } from './Notification';
-export { addNotification, closeNotification } from './NotificationsStore';
-export type { NotificationProps } from './Notification';
+export { NotificationsProvider, Notification } from '@salutejs/plasma-hope';
+export { addNotification, closeNotification } from '@salutejs/plasma-hope';
+export type { NotificationProps } from '@salutejs/plasma-hope';

@@ -1,1 +1,1 @@
-export { Link } from '@salutejs/plasma-web';
+export { Link } from '@salutejs/plasma-hope';
