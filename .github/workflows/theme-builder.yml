@@ -71,7 +71,7 @@ jobs:
 
       - name: Install s3cmd
         run: |
-          pip3 install s3cmd --no-cache
+          pip3 install s3cmd
 
       - name: s3 Upload build
         run: >
@@ -82,6 +82,7 @@ jobs:
           --host-bucket ${{ secrets.AWS_ENDPOINT }}
           --bucket-location ${{ secrets.AWS_REGION }}
           --signature-v2
+          --delete-removed
           sync
           ./s3_build/plasma-theme-builder-next/
           s3://${{ secrets.AWS_S3_BUCKET_2 }}/plasma-theme-builder/
