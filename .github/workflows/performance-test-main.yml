@@ -45,14 +45,19 @@ jobs:
         run: |
           npm run perftool:test --prefix="./packages/plasma-ui"
 
+      - name: Install s3cmd
+        run: |
+          pip3 install s3cmd --no-cache
+
       - name: Upload performance test results to S3
         run: >
-          aws s3 sync
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          sync
           ./packages/plasma-ui/perftest/
           s3://${{ secrets.AWS_S3_BUCKET_2 }}/perftest-reports/
-          --endpoint-url ${{ secrets.AWS_ENDPOINT }}
-          --region ${{ secrets.AWS_REGION }}
-          --acl public-read --follow-symlinks --delete
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
