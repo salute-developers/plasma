@@ -67,16 +67,21 @@ jobs:
           local: "./s3_build"
           remote: "/var/www/plasma"
 
-      # Без --delete чтобы версии сохранялись
+      - name: Install s3cmd
+        if: ${{ steps.versionate_script.outputs.result == 'true' }}
+        run: |
+          pip3 install s3cmd --no-cache
+
       - name: s3 Upload documentation build
         if: ${{ steps.versionate_script.outputs.result == 'true' }}
         run: >
-          aws s3 sync
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          sync
           ./s3_build/
           s3://${{ secrets.AWS_S3_BUCKET_2 }}/versions/
-          --endpoint-url ${{ secrets.AWS_ENDPOINT }}
-          --region ${{ secrets.AWS_REGION }}
-          --acl public-read --follow-symlinks
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
