@@ -40,21 +40,19 @@ addDecorator(withAppState);
 
 export const globalTypes = {
     theme: {
-        name: 'Theme',
         description: 'Global theme for components',
         defaultValue: 'darkSber',
         toolbar: {
+            title: 'Theme',
             items: ['darkSber', 'darkJoy', 'darkEva'],
-            showName: true,
         },
     },
     typoSize: {
-        name: 'Device kind',
         description: 'Global typography size for components',
         defaultValue: 'mobile',
         toolbar: {
+            title: 'Device kind',
             items: ['mobile', 'sberBox', 'sberPortal'],
-            showName: true,
         },
     },
 };

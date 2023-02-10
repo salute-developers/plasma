@@ -46,10 +46,10 @@ addParameters({
 
 export const globalTypes = {
     theme: {
-        name: 'Theme',
         description: 'Global theme for components',
         defaultValue: isWeb() ? 'light' : 'darkSber',
         toolbar: {
+            title: 'Theme',
             items: [
                 'darkSber',
                 'darkEva',
@@ -62,7 +62,6 @@ export const globalTypes = {
                 'b2c:light',
                 'b2c:dark',
             ],
-            showName: true,
         },
     },
     typo: {
@@ -71,7 +70,7 @@ export const globalTypes = {
         defaultValue: isWeb() ? 'web' : 'sberBox',
         toolbar: {
             items: ['sberPortal', 'sberBox', 'mobile', 'web', 'b2c'],
-            showName: true,
+            title: true,
         },
     },
 };
