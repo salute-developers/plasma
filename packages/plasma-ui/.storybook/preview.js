@@ -118,48 +118,43 @@ addParameters({
 
 export const globalTypes = {
     theme: {
-        name: 'Theme',
         description: 'Global theme for components',
         defaultValue: 'darkSber',
         toolbar: {
+            title: 'Theme',
             items: ['darkSber', 'darkJoy', 'darkEva', 'darkB2E', 'lightSber', 'lightJoy', 'lightEva', 'lightB2E'],
-            showName: true,
         },
     },
     typoSystem: {
-        name: 'Typo system',
         description: 'Typography system',
         defaultValue: 'legacy',
         toolbar: {
+            title: 'Typo system',
             items: ['legacy', 'responsive'],
-            showName: true,
         },
     },
     deviceKind: {
-        name: 'Device kind',
         description: 'Device kind',
         defaultValue: 'sberBox',
         toolbar: {
+            title: 'Device kind',
             items: ['mobile', 'sberBox', 'sberPortal'],
-            showName: true,
         },
     },
     lowPerformanceDevice: {
-        name: 'Low performance',
         description: 'Low performance device',
         defaultValue: 'no',
         toolbar: {
+            title: 'Low performance',
             items: ['yes', 'no'],
-            showName: true,
         },
     },
     breakWord: {
-        name: 'Break word',
         description: 'Break word for typography',
         defaultValue: 'yes',
         toolbar: {
+            title: 'Break word',
             items: ['yes', 'no'],
-            showName: true,
         },
     },
 };

@@ -110,30 +110,27 @@ addParameters({
 
 export const globalTypes = {
     theme: {
-        name: 'Theme',
         description: 'Global theme for components',
         defaultValue: 'dark',
         toolbar: {
+            title: 'Theme',
             items: ['light', 'dark'],
-            showName: true,
         },
     },
     typoVersion: {
-        name: 'Typography version',
         description: 'Global typography version for components',
         defaultValue: 'standard',
         toolbar: {
+            title: 'Typography version',
             items: ['standard', 'old'],
-            showName: true,
         },
     },
     breakWord: {
-        name: 'Break word',
         description: 'Break word for typography',
         defaultValue: 'yes',
         toolbar: {
+            title: 'Break word',
             items: ['yes', 'no'],
-            showName: true,
         },
     },
 };
