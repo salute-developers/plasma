@@ -1,7 +1,9 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { IconClose } from '@salutejs/plasma-icons';
 import { critical } from '@salutejs/plasma-tokens-b2c';
+import styled from 'styled-components';
 
 import { Button } from '../Button';
 
@@ -25,20 +27,35 @@ interface LiveDemoProps extends ToastProps {
     fade: boolean;
 }
 
+const Container = styled.div`
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+`;
+
 export const LiveDemo: Story<LiveDemoProps> = ({ toastText, position, timeout, fade, enableContentLeft }) => {
-    const { showToast } = useToast();
+    const { showToast, hideToast } = useToast();
     const contentLeft = enableContentLeft && <IconClose size="xs" color={critical} />;
 
     return (
-        <div>
+        <Container>
+            <Button onClick={hideToast}>Скрыть уведомление</Button>
             <Button
                 onClick={() => {
-                    showToast(toastText, position, timeout, fade, contentLeft);
+                    showToast({
+                        text: toastText,
+                        position,
+                        timeout,
+                        fade,
+                        contentLeft,
+                        onHide: action('onHide'),
+                        onShow: action('onShow'),
+                    });
                 }}
             >
                 Показать уведомление
             </Button>
-        </div>
+        </Container>
     );
 };
 
