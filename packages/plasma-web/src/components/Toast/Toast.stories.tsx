@@ -1,5 +1,7 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import { Button } from '../Button';
 
@@ -22,19 +24,33 @@ interface LiveDemoProps extends ToastProps {
     fade: boolean;
 }
 
+const Container = styled.div`
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+`;
+
 export const LiveDemo: Story<LiveDemoProps> = ({ toastText, position, timeout, fade }) => {
-    const { showToast } = useToast();
+    const { showToast, hideToast } = useToast();
 
     return (
-        <div>
+        <Container>
+            <Button onClick={hideToast}>Скрыть уведомление</Button>
             <Button
                 onClick={() => {
-                    showToast(toastText, position, timeout, fade);
+                    showToast({
+                        text: toastText,
+                        position,
+                        timeout,
+                        fade,
+                        onHide: action('onHide'),
+                        onShow: action('onShow'),
+                    });
                 }}
             >
                 Показать уведомление
             </Button>
-        </div>
+        </Container>
     );
 };
 
