@@ -61,9 +61,6 @@ packages/plasma-basic-template/*
 
 packages/plasma-shop-template/*
 
-utils/perftool/*
-!utils/perftool/src
-
 utils/plasma-cy-utils/*
 !utils/plasma-cy-utils/src
 
