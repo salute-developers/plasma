@@ -121,6 +121,7 @@ jobs:
           --bucket-location ${{ secrets.AWS_REGION }}
           --signature-v2
           --delete-removed
+          --no-mime-magic
           sync
           ./s3_build/next-${{ github.sha }}/
           s3://${{ secrets.AWS_S3_BUCKET_2 }}/current/
