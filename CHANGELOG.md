@@ -1,5 +1,19 @@
 # (Fri Feb 10 2023)
 
+#### 🐛 Bug Fix
+
+- chore(plasma-b2c): update tests snapshots [#311](https://github.com/salute-developers/plasma/pull/311) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.137.1`
+  - fix(plasma-b2c): avoid text overflow [#311](https://github.com/salute-developers/plasma/pull/311) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Fri Feb 10 2023)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-b2c@1.137.0`, `@salutejs/plasma-core@1.94.0`, `@salutejs/plasma-temple@1.131.0`, `@salutejs/plasma-ui@1.164.0`, `@salutejs/plasma-web@1.163.0`

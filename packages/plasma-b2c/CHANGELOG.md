@@ -1,3 +1,17 @@
+# v1.137.1 (Fri Feb 10 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-b2c): avoid text overflow [#311](https://github.com/salute-developers/plasma/pull/311) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.137.0 (Fri Feb 10 2023)
 
 #### 🚀 Enhancement
