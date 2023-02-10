@@ -3,12 +3,7 @@
     "version": "1.165.0",
     "description": "Salute Design System / React UI kit for web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    "keywords": [
-        "design-system",
-        "react-components",
-        "ui-kit",
-        "react"
-    ],
+    "keywords": ["design-system", "react-components", "ui-kit", "react"],
     "main": "index.js",
     "module": "es/index.js",
     "types": "index.d.ts",
@@ -45,12 +40,12 @@
         "@salutejs/plasma-tokens-b2b": "1.9.0",
         "@salutejs/plasma-tokens-b2c": "0.18.0",
         "@salutejs/plasma-tokens-web": "1.24.0",
-        "@storybook/addon-docs": "6.3.8",
-        "@storybook/addon-essentials": "6.3.8",
-        "@storybook/addons": "6.3.8",
+        "@storybook/addon-docs": "6.5.16",
+        "@storybook/addon-essentials": "6.5.16",
+        "@storybook/addons": "6.5.16",
         "@storybook/preset-create-react-app": "3.2.0",
-        "@storybook/react": "6.3.8",
-        "@storybook/theming": "6.3.8",
+        "@storybook/react": "6.5.16",
+        "@storybook/theming": "6.5.16",
         "@types/node": "16.7.13",
         "@types/react": "16.9.38",
         "@types/react-dom": "16.9.8",
@@ -82,16 +77,9 @@
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
         "atLeast": 99.96
     },
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Anton Vinogradov",
-        "Fanil Zubairov"
-    ],
+    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"],
     "sideEffects": false
 }
