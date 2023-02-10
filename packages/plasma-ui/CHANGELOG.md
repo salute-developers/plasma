@@ -1,3 +1,15 @@
+# v1.164.0 (Fri Feb 10 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-*): Add .npmignore and remove file field for test files [#322](https://github.com/salute-developers/plasma/pull/322) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.163.0 (Wed Feb 08 2023)
 
 #### 🐛 Bug Fix

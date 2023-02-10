@@ -1,3 +1,23 @@
+# (Fri Feb 10 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.137.0`, `@salutejs/plasma-core@1.94.0`, `@salutejs/plasma-temple@1.131.0`, `@salutejs/plasma-ui@1.164.0`, `@salutejs/plasma-web@1.163.0`
+  - feat(plasma-*): Add .npmignore and remove file field for test files [#322](https://github.com/salute-developers/plasma/pull/322) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- fix: Revert test files exclude from bundle [#322](https://github.com/salute-developers/plasma/pull/322) ([@neretin-trike](https://github.com/neretin-trike))
+- ci: delete-removed flag for workflows [#325](https://github.com/salute-developers/plasma/pull/325) ([@kayman233](https://github.com/kayman233))
+- ci: use s3cmd to upload [#325](https://github.com/salute-developers/plasma/pull/325) ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Wed Feb 08 2023)
 
 #### 🚀 Enhancement
