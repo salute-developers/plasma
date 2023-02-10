@@ -137,10 +137,10 @@ addParameters({
 
 export const globalTypes = {
     theme: {
-        name: 'Theme',
         description: 'Global theme for components',
         defaultValue: 'b2b:light',
         toolbar: {
+            title: 'Theme',
             items: [
                 B2B_LIGHT_THEME,
                 B2B_DARK_THEME,
@@ -149,7 +149,6 @@ export const globalTypes = {
                 LEGACY_LIGHT_THEME,
                 LEGACY_DARK_THEME,
             ],
-            showName: true,
         },
     },
 };
