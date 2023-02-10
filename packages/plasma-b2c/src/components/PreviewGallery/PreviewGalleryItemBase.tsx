@@ -2,9 +2,9 @@ import React, { memo } from 'react';
 import styled, { css } from 'styled-components';
 import { whiteSecondary, whiteTertiary, buttonAccent, critical, whitePrimary } from '@salutejs/plasma-core';
 import { IconDone, IconDrag } from '@salutejs/plasma-icons';
+import { Footnote2 } from '@salutejs/plasma-hope';
 
 import { Image } from '../Image';
-import { Footnote2 } from '../Typography';
 
 import { AddionalItemProps, StatusType, TooltipItem } from './types';
 
@@ -49,7 +49,10 @@ export const StyledIconDrag = styled(IconDrag)`
     }
 `;
 
-export const StyledCaption = styled(Footnote2)`
+// NOTE: don't know how to fix ts error TS2742
+type styledCaption = typeof Footnote2;
+
+export const StyledCaption: styledCaption = styled(Footnote2)`
     position: absolute;
     left: 0.625rem;
     bottom: 0.5rem;
