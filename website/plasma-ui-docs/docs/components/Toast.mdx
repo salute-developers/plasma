@@ -40,34 +40,79 @@ export const App = () => (
 
 После этого, с помощью хука `useToast` можно получить доступ к управлению подсказками.
 
+Метод `showToast` имеет два вида **call signature**.
+
+**Legacy** вариант, где у `showToast` inline аргументы.
+
 ```jsx title="MyComponent.tsx"
 import React from 'react'
 import { useToast, Button } from '@salutejs/plasma-ui'
 
 export const MyComponent = () => {
     const { showToast, hideToast } = useToast()
-    
+
     return (
         <Button onClick={() => showToast('text message')} />
     )
 }
 ```
 
+Актуальный вариант, где у `showToast` **call signature** уже объект.
+
+```jsx title="MyComponent.tsx"
+import React from 'react'
+import { useToast, Button } from '@salutejs/plasma-ui'
+
+export const MyComponent = () => {
+    const { showToast, hideToast } = useToast()
+
+    const onHide = () => {}
+
+    return (
+        <Button onClick={() => showToast({ text, position, timeout, fade, contentLeft, role, onHide })} />
+    )
+}
+```
+
 `showToast` имеет необязательный аргумент `position`, отвечающий за позиционирование подсказки.
-```jsx
+
+```ts
 type Position = 'top' | 'bottom';
 ```
 
-`showToast` имеет необязательный аргумент timeout, отвечающий за время отображения подсказки.
-Если аргумент не передается, по умолчанию подсказка отображается в течение 3 секунд. 
+`showToast` имеет необязательный аргумент `timeout`, отвечающий за время отображения подсказки.
+Если аргумент не передается, по умолчанию подсказка отображается в течение 3 секунд.
+
 Скрыть текущую подсказку в любой момент можно с помощью функции `hideToast`.
 
 ## Аргументы функции `showToast`
-| Название        | Тип                          | Значение   | Описание |
-| --------------- |----------------------------- | ---------- | --------------- |
-| `text`*         | `string`                     |            | Текстовое содержимое. |
-| `position`      | `'top', 'bottom'`            | `'bottom'` | Положение сообщения. |
-| `timeout`       | `number`                     | `3000`     | Задержка перед скрытием. |
-| `fade`          | `boolean`                    | `true`     | Отображать Градиентный оверлей на всю страницу |
-| `contentLeft`   | `ReactNode`                  |            | Контент слева. |
-| `role`          | `'alert', 'log', 'status'`   | `status`   | Значение атрибута WAI-ARIA role. |
+| Название  | Тип       | Значение | Описание           |
+|-----------|-----------|----------|--------------------|
+| `options` | `Options` |          | Конфигурация toast |
+
+```ts
+import type { ReactNode } from 'react';
+
+export interface Options {
+    text: string;
+    position?: 'top' | 'bottom';
+    timeout?: number;
+    contentLeft?: ReactNode;
+    fade?: boolean;
+    role?: 'alert' | 'log' | 'status';
+    // callback срабатывающий в момент события hideToast
+    onHide?: () => void;
+    // callback срабатывающий в момент события showToast
+    onShow?: () => void;
+}
+```
+
+## Аргументы функции `showToast` Legacy
+| Название      | Тип                        | Значение   | Описание                                       |
+|---------------|----------------------------|------------|------------------------------------------------|
+| `text`*       | `string`                   |            | Текстовое содержимое.                          |
+| `position`    | `'top', 'bottom'`          | `'bottom'` | Положение сообщения.                           |
+| `timeout`     | `number`                   | `3000`     | Задержка перед скрытием.                       |
+| `fade`        | `boolean`                  | `true`     | Отображать Градиентный оверлей на всю страницу |
+| `contentLeft` | `ReactNode`                |            | Контент слева.                                 |
+| `role`        | `'alert', 'log', 'status'` | `status`   | Значение атрибута WAI-ARIA role.               |
