@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import styled from 'styled-components';
 import { IconChevronLeft, IconChevronRight } from '@salutejs/plasma-icons';
 
-import { ShowcaseComponentRow } from '../../helpers';
+import { InSpacingDecorator, ShowcaseComponentRow } from '../../helpers';
 import { ActionButton } from '../Button';
 import { Caption } from '../Typography';
 
@@ -26,6 +26,7 @@ const rows = Array.from({ length: 4 }, () => [0, 0, 0, 0]);
 
 export default {
     title: 'Controls/PaginationDots',
+    decorators: [InSpacingDecorator],
 } as Meta;
 
 export const Default = () => {

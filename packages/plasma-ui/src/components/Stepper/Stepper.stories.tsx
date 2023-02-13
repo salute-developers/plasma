@@ -5,7 +5,7 @@ import { IconMinus, IconPlus, IconClose } from '@salutejs/plasma-icons';
 import { InteractionTaskArgs, PublicInteractionTask, withPerformance } from 'storybook-addon-performance';
 import { fireEvent, findByText } from '@testing-library/dom';
 
-import { actionWithPersistedEvent, ShowcaseComponentRow } from '../../helpers';
+import { actionWithPersistedEvent, InSpacingDecorator, ShowcaseComponentRow } from '../../helpers';
 
 import { Pin } from './StepperButton';
 
@@ -27,6 +27,7 @@ const items = [
 
 export default {
     title: 'Controls/Stepper',
+    decorators: [InSpacingDecorator],
 } as Meta;
 
 export const Default = () => {

@@ -6,11 +6,13 @@ import { critical } from '@salutejs/plasma-core';
 import styled from 'styled-components';
 
 import { Button } from '../Button';
+import { InSpacingDecorator } from '../../helpers';
 
 import { Toast, useToast, ToastProps, ToastPosition } from '.';
 
 export default {
     title: 'Controls/Toast',
+    decorators: [InSpacingDecorator],
 } as Meta;
 
 export const Default: Story<ToastProps> = (args) => <Toast {...args} />;

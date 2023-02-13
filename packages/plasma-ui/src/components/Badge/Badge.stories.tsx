@@ -2,7 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import { IconSettings } from '@salutejs/plasma-icons';
 
-import { disableProps } from '../../helpers';
+import { disableProps, InSpacingDecorator } from '../../helpers';
 
 import { Badge, BadgeProps, badgeSizes, badgeViews } from '.';
 
@@ -10,6 +10,7 @@ const propsToDisable = ['contentLeft', 'theme', 'as', 'forwardedAs'];
 
 export default {
     title: 'Content/Badge',
+    decorators: [InSpacingDecorator],
     component: Badge,
     argTypes: {
         size: {
