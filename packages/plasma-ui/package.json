@@ -31,7 +31,7 @@
         "@babel/preset-env": "7.15.4",
         "@babel/preset-react": "7.14.5",
         "@babel/preset-typescript": "7.15.0",
-        "@salutejs/perftool": "0.3.1",
+        "@salutejs/perftool": "0.3.6",
         "@salutejs/plasma-cy-utils": "0.41.0",
         "@salutejs/plasma-icons": "1.122.0",
         "@salutejs/plasma-sb-utils": "0.92.0",
@@ -92,15 +92,10 @@
         "storybook:extract": "sb extract build-sb ./build-sb/stories.json",
         "test": "BABEL_ENV=cjs jest",
         "test:watch": "BABEL_ENV=cjs jest --watch",
-        "typescript-coverage": "npx typescript-coverage-report > /dev/null",
-        "perftool:test": "node --experimental-specifier-resolution=node ./node_modules/.bin/perftool",
-        "perftool:compare": "node --experimental-specifier-resolution=node ./node_modules/.bin/perftool-compare"
+        "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
         "atLeast": 98.7
     },
     "jest": {
