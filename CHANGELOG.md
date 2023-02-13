@@ -1,3 +1,20 @@
+# (Mon Feb 13 2023)
+
+#### 🐛 Bug Fix
+
+- ci: remove old server usage [#331](https://github.com/salute-developers/plasma/pull/331) ([@kayman233](https://github.com/kayman233))
+- ci: mime type bug fix [#327](https://github.com/salute-developers/plasma/pull/327) ([@kayman233](https://github.com/kayman233))
+- docs(plasma-ui, plasma-web): fix images in docs [#327](https://github.com/salute-developers/plasma/pull/327) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-temple@1.131.1`
+  - fix(plasma-temple): assistant state logic [#293](https://github.com/salute-developers/plasma/pull/293) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # (Fri Feb 10 2023)
 
 #### 🐛 Bug Fix

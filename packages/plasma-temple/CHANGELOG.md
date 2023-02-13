@@ -1,3 +1,15 @@
+# v1.131.1 (Mon Feb 13 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-temple): assistant state logic [#293](https://github.com/salute-developers/plasma/pull/293) ([@LamaEats](https://github.com/LamaEats))
+
+#### Authors: 1
+
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # v1.131.0 (Fri Feb 10 2023)
 
 #### 🚀 Enhancement
