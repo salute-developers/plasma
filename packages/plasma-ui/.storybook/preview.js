@@ -2,7 +2,7 @@ import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 import { addDecorator, addParameters } from '@storybook/react';
-import { Title, Subtitle, Description, Primary, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs/blocks';
+import { Title, Subtitle, Description, Primary, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 
 import { text, background, gradient } from '@salutejs/plasma-tokens';
 import { darkEva, darkJoy, darkSber, darkB2E, lightEva, lightJoy, lightSber, lightB2E } from '@salutejs/plasma-tokens';

@@ -15,6 +15,7 @@ import { DeviceThemeProvider } from '../Device';
 import { Row } from '../Grid';
 import { Button } from '../Button';
 import { Body3 } from '../Typography/Body';
+import { InContainer, WithGridLines } from '../../helpers/StoryDecorators';
 
 import { ScalingColCard, scaleCallback, scaleResetCallback, ScalingColCardProps } from './Carousel.examples';
 
@@ -115,6 +116,7 @@ const isSberbox = isSberBox();
 
 export default {
     title: 'Controls/Carousel',
+    decorators: [WithGridLines, InContainer],
 } as Meta;
 
 const basicCarouselStyle = { paddingTop: '1.25rem', paddingBottom: '1.25rem' };
@@ -180,13 +182,10 @@ export const Basic: Story<CarouselProps & CarouselColProps & { displayGrid: bool
 
 Basic.decorators = [withPerformance];
 
-Basic.story = {
-    name: 'Basic',
-    parameters: {
-        performance: {
-            interactions: interactionTasksArrowRight,
-            disable: false,
-        },
+Basic.parameters = {
+    performance: {
+        interactions: interactionTasksArrowRight,
+        disable: false,
     },
 };
 
@@ -487,13 +486,10 @@ export const CenterItem: Story<CarouselProps & ScalingColCardProps & { displayGr
     );
 };
 
-CenterItem.story = {
-    name: 'CenterItem',
-    parameters: {
-        performance: {
-            interactions: interactionTasksArrowRight,
-            disable: false,
-        },
+CenterItem.parameters = {
+    performance: {
+        interactions: interactionTasksArrowRight,
+        disable: false,
     },
 };
 

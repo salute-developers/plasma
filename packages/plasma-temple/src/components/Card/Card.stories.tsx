@@ -11,14 +11,16 @@ export default {
     parameters: {
         ignoreInsets: true,
     },
+    args: {
+        cover: true,
+        withPositionBadge: true,
+    },
     argTypes: {
         cover: {
             control: { type: 'boolean' },
-            defaultValue: true,
         },
         withPositionBadge: {
             control: { type: 'boolean' },
-            defaultValue: true,
         },
     },
 };
