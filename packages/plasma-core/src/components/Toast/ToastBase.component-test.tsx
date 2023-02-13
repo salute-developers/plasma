@@ -135,6 +135,7 @@ describe('plasma-core: Toast', () => {
     });
 
     it('clearTimeout on hide', () => {
+        // TODO: https://github.com/salute-developers/plasma/issues/334
         const Button = getComponent('Button');
 
         const Interactive = () => {
