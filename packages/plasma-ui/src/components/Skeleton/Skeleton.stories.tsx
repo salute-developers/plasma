@@ -6,6 +6,7 @@ import { radiuses, Roundness, TypographyTypes } from '@salutejs/plasma-core';
 import { withSkeleton, WithSkeletonProps } from '../../hocs';
 import { Button, ButtonProps } from '../Button';
 import { Card, CardBody, CardMedia, CardContent, CardHeadline1, CardHeadline3, CardFootnote1 } from '../Card';
+import { InSpacingDecorator } from '../../helpers';
 
 import { LineSkeleton, TextSkeleton, RectSkeleton } from '.';
 import type { LineSkeletonProps, TextSkeletonProps, RectSkeletonProps } from '.';
@@ -20,6 +21,7 @@ const f1Style = { marginTop: '0.375rem' };
 
 export default {
     title: 'Content/Skeleton',
+    decorators: [InSpacingDecorator],
 } as Meta;
 
 export const Line: Story<LineSkeletonProps> = (args) => <LineSkeleton {...args} />;

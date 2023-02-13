@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { disableProps } from '../../helpers';
+import { disableProps, InSpacingDecorator } from '../../helpers';
 
 import { IconSet, IconSetProps } from './IconSet';
 
@@ -9,6 +9,7 @@ const propsToDisable = ['size', 'exclude', 'include'];
 
 export default {
     title: 'Content/Icon',
+    decorators: [InSpacingDecorator],
     component: IconSet,
     argTypes: {
         ...disableProps(propsToDisable),

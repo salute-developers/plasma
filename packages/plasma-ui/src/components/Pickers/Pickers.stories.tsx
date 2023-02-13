@@ -6,7 +6,7 @@ import type { SnapType } from '@salutejs/plasma-core';
 import { waitFor } from '@testing-library/dom';
 
 import { isSberBox } from '../../utils';
-import { disableProps } from '../../helpers';
+import { disableProps, InSpacingDecorator } from '../../helpers';
 
 import { DatePicker, TimePicker, DatePickerProps, TimePickerProps } from '.';
 
@@ -112,6 +112,7 @@ const interactionTasksTimePicker: PublicInteractionTask[] = [
 
 export default {
     title: 'Controls/Pickers',
+    decorators: [InSpacingDecorator],
     argTypes: {
         ...disableProps(propsToDisable),
     },
