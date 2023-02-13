@@ -7,9 +7,7 @@ import { disableProps, InSpacingDecorator } from '../../helpers';
 import { Button } from '../Button';
 import { P1, Headline1, Headline3 } from '../Typography';
 
-import { ModalView } from './ModalView';
-
-import { ModalsProvider, Modal } from '.';
+import { ModalView, ModalsProvider, Modal } from '.';
 
 const longText = `Если после применения правила Лопиталя неопределённость типа 0 / 0 осталась, мнимая единица традиционно
 развивает Наибольший Общий Делитель (НОД). Функция многих переменных, исключая очевидный случай,

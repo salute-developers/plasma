@@ -6,9 +6,7 @@ import { Button } from '../Button';
 import { Modal, ModalsProvider } from '../Modal';
 import { Headline3 } from '../Typography';
 
-import { Notification, NotificationProps } from './Notification';
-
-import { addNotification, NotificationsProvider } from '.';
+import { Notification, NotificationProps, addNotification, NotificationsProvider } from '.';
 
 const statuses = ['success', 'warning', 'error', ''];
 const titles = ['Выполнено', 'Внимание', 'Ошибка'];
