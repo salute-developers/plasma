@@ -1,7 +1,12 @@
 import React from 'react';
 import { Filler } from '@salutejs/plasma-sb-utils';
+import { Meta } from '@storybook/react';
 
 import { Container, Row, Col } from '.';
+
+export default {
+    title: 'Layout/Grid',
+} as Meta;
 
 export const Default = () => (
     <Container>
