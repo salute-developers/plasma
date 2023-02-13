@@ -15,9 +15,9 @@ export default {
     decorators: [InSpacing],
     argTypes: {
         size: {
+            options: sizes,
             control: {
                 type: 'select',
-                options: sizes,
             },
         },
         ...disableProps(propsToDisable),

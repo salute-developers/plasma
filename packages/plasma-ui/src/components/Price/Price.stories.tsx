@@ -16,21 +16,21 @@ export default {
     decorators: [InSpacing],
     argTypes: {
         currency: {
+            options: currencyOptions,
             control: {
                 type: 'inline-radio',
-                options: currencyOptions,
             },
         },
         periodicity: {
+            options: {
+                default: '',
+                perDay: '/ день',
+                perWeek: '/ неделя',
+                perMonth: '/ месяц',
+                perYear: '/ год',
+            },
             control: {
                 type: 'select',
-                options: {
-                    default: '',
-                    perDay: '/ день',
-                    perWeek: '/ неделя',
-                    perMonth: '/ месяц',
-                    perYear: '/ год',
-                },
             },
         },
         withCustomPeriodicity: {

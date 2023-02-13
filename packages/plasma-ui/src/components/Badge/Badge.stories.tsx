@@ -13,15 +13,15 @@ export default {
     component: Badge,
     argTypes: {
         size: {
+            options: Object.keys(badgeSizes),
             control: {
                 type: 'inline-radio',
-                options: Object.keys(badgeSizes),
             },
         },
         view: {
+            options: Object.keys(badgeViews),
             control: {
                 type: 'inline-radio',
-                options: Object.keys(badgeViews),
             },
         },
         ...disableProps(propsToDisable),

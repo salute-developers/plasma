@@ -31,15 +31,15 @@ Line.args = {
 
 Line.argTypes = {
     size: {
+        options: textSizes,
         control: {
             type: 'select',
-            options: textSizes,
         },
     },
     roundness: {
+        options: roundnessKeys,
         control: {
             type: 'select',
-            options: roundnessKeys,
         },
     },
 };
@@ -81,9 +81,9 @@ Rect.argTypes = {
         },
     },
     roundness: {
+        options: roundnessKeys,
         control: {
             type: 'select',
-            options: roundnessKeys,
         },
     },
 };
@@ -144,9 +144,9 @@ InCard.args = {
 
 InCard.argTypes = {
     roundness: {
+        options: roundnessKeys,
         control: {
             type: 'select',
-            options: roundnessKeys,
         },
     },
 };

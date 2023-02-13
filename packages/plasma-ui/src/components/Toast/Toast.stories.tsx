@@ -70,15 +70,15 @@ LiveDemo.args = {
 
 LiveDemo.argTypes = {
     role: {
+        options: ['alert', 'log', 'status'],
         control: {
             type: 'inline-radio',
-            options: ['alert', 'log', 'status'],
         },
     },
     position: {
+        options: ['top', 'bottom'],
         control: {
             type: 'inline-radio',
-            options: ['top', 'bottom'],
         },
     },
 };

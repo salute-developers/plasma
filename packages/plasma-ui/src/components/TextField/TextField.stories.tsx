@@ -39,9 +39,9 @@ export default {
             },
         },
         status: {
+            options: statusOptions,
             control: {
                 type: 'select',
-                options: statusOptions,
             },
         },
         maxLength: {

@@ -17,15 +17,15 @@ export default {
     decorators: [InSpacingDecorator],
     argTypes: {
         periodicity: {
+            options: {
+                default: '',
+                perDay: '/ день',
+                perWeek: '/ неделя',
+                perMonth: '/ месяц',
+                perYear: '/ год',
+            },
             control: {
                 type: 'select',
-                options: {
-                    default: '',
-                    perDay: '/ день',
-                    perWeek: '/ неделя',
-                    perMonth: '/ месяц',
-                    perYear: '/ год',
-                },
             },
         },
     },
