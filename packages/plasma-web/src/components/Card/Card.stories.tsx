@@ -9,11 +9,7 @@ import { InSpacingDecorator } from '../../helpers';
 import { BodyM, H4 } from '../Typography';
 import { Cell } from '../Cell';
 
-import { Card, CardProps } from './Card';
-import { CardBody } from './CardBody';
-import { CardBadge } from './CardBadge';
-import { CardContent } from './CardContent';
-import { CardMedia } from './CardMedia';
+import { Card, CardProps, CardBody, CardBadge, CardContent, CardMedia } from '.';
 
 const roundList = [250, 32, 28, 24, 20, 18, 16, 14, 12, 8, 0] as const;
 const ratios = ['1/1', '3/4', '4/3', '9/16', '16/9', '1/2', '2/1'] as const;

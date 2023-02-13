@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 
 import { InSpacingDecorator } from '../../helpers';
 
-import { Progress, ProgressProps } from './Progress';
+import { Progress, ProgressProps } from '.';
 
 export default {
     title: 'Controls/Progress',
