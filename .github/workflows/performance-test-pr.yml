@@ -66,7 +66,7 @@ jobs:
       - name: Run performance test
         if: always()
         run: |
-          npm run perftool:test --prefix="./packages/plasma-ui"
+          (cd ./packages/plasma-ui && node --experimental-specifier-resolution=node ./node_modules/.bin/perftool)
 
       - name: Copy main report to pr report directory
         if: steps.mainReportCheck.outputs.files_exists == 'true'
@@ -76,7 +76,7 @@ jobs:
       - name: Compare test results
         if: steps.mainReportCheck.outputs.files_exists == 'true'
         run: |
-          npm run perftool:compare --prefix="./packages/plasma-ui" -- -- ./perftest/result.json ./perftest/main-result.json
+          (cd ./packages/plasma-ui && node --experimental-specifier-resolution=node ./node_modules/.bin/perftool-compare -- ./perftest/result.json ./perftest/main-result.json)
 
       - name: Save comparison result
         if: steps.mainReportCheck.outputs.files_exists == 'true' && always()
