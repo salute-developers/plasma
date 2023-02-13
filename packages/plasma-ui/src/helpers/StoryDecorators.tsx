@@ -13,7 +13,7 @@ export const InSpacing = (Story: StoryType) => (
 
 export const WithGridLines = (Story: StoryType, context: StoryContext) => (
     <>
-        {'displayGrid' in context.args && <GridLines />}
+        {'displayGrid' in context.args && context.args.displayGrid && <GridLines />}
         <Story />
     </>
 );

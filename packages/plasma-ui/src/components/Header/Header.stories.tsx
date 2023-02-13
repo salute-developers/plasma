@@ -6,6 +6,7 @@ import { IconMic, IconPlus, IconTrash } from '@salutejs/plasma-icons';
 
 import { Button } from '../Button';
 import { Tabs, TabItem } from '../Tabs';
+import { InContainer, WithGridLines } from '../../helpers/StoryDecorators';
 
 import {
     Header,
@@ -95,6 +96,7 @@ const Content = ({ contentType, contentItemsNumber, enableIcons }: ContentCompon
 
 export default {
     title: 'Layout/Header',
+    decorators: [WithGridLines, InContainer],
 } as Meta;
 
 export const Default: Story<HeaderProps & { enableLogo: boolean; displayGrid: boolean } & ContentComponentProps> = ({

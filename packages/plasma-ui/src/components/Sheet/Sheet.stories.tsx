@@ -35,15 +35,18 @@ export const Default = ({ withOverlay, withTransition }) => {
     );
 };
 
-Default.argTypes = {
+Default.argsType = {
     withOverlay: {
         control: { type: 'boolean' },
-        defaultValue: true,
     },
     withTransition: {
         control: { type: 'boolean' },
-        defaultValue: true,
     },
+};
+
+Default.args = {
+    withOverlay: true,
+    withTransition: true,
 };
 
 export const WithoutOverlay = () => {
