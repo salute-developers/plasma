@@ -1,11 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Meta } from '@storybook/react';
 import { ThemeColors, extractCanvasThemeColors } from '@salutejs/plasma-sb-utils';
 import { darkEva, darkJoy, darkSber, lightEva, lightJoy, lightSber } from '@salutejs/plasma-tokens';
 
 const StyledContainer = styled.div`
     display: flex;
 `;
+
+export default {
+    title: 'Colors',
+} as Meta;
 
 const colors = extractCanvasThemeColors(
     { Sber: darkSber, Athena: darkEva, Joy: darkJoy },

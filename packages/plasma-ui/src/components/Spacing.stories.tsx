@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Meta } from '@storybook/react';
 import { applySpacing, SpacingProps } from '@salutejs/plasma-core';
 
 import { Headline3, Body1, Body2, Footnote2, Caption } from './Typography';
@@ -13,6 +14,10 @@ const Wrapper = styled.div`
         background-color: rgba(255, 255, 255, 0.1);
     }
 `;
+
+export default {
+    title: 'Spacing',
+} as Meta;
 
 export const Default = () => (
     <Wrapper>
