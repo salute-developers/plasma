@@ -45,6 +45,9 @@ examples/**
 packages/plasma-b2c/*
 !packages/plasma-b2c/src
 
+packages/plasma-hope/*
+!packages/plasma-hope/src
+
 packages/plasma-ui/*
 !packages/plasma-ui/src
 
