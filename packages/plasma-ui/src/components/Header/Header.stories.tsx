@@ -150,9 +150,9 @@ Default.args = {
 
 Default.argTypes = {
     contentType: {
+        options: contentTypes,
         control: {
             type: 'select',
-            options: contentTypes,
         },
     },
 };
@@ -227,9 +227,9 @@ CustomAssembly.args = {
 CustomAssembly.argTypes = {
     ...Default.argTypes,
     variant: {
+        options: ['title+subtitle', 'label+title', 'title'],
         control: {
             type: 'inline-radio',
-            options: ['title+subtitle', 'label+title', 'title'],
         },
     },
 };
@@ -287,9 +287,9 @@ Neu.args = {
 
 Neu.argTypes = {
     contentType: {
+        options: contentTypes,
         control: {
             type: 'select',
-            options: contentTypes,
         },
     },
 };
@@ -338,9 +338,9 @@ Gradient.args = {
 
 Gradient.argTypes = {
     contentType: {
+        options: contentTypes,
         control: {
             type: 'select',
-            options: contentTypes,
         },
     },
 };

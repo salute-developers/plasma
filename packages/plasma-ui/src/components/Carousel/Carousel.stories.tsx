@@ -201,21 +201,21 @@ Basic.args = {
 
 Basic.argTypes = {
     scrollAlign: {
+        options: ['center', 'start', 'end', 'activeDirection'],
         control: {
             type: 'select',
-            options: ['center', 'start', 'end', 'activeDirection'],
         },
     },
     scrollSnapType: {
+        options: snapTypes,
         control: {
             type: 'inline-radio',
-            options: snapTypes,
         },
     },
     scrollSnapAlign: {
+        options: snapAlign,
         control: {
             type: 'inline-radio',
-            options: snapAlign,
         },
     },
 };
@@ -628,21 +628,21 @@ CarouselLiteBasic.args = {
 
 CarouselLiteBasic.argTypes = {
     scrollAlign: {
+        options: ['center', 'start', 'end'],
         control: {
             type: 'select',
-            options: ['center', 'start', 'end'],
         },
     },
     scrollSnapType: {
+        options: snapTypes,
         control: {
             type: 'inline-radio',
-            options: snapTypes,
         },
     },
     scrollSnapAlign: {
+        options: snapAlign,
         control: {
             type: 'inline-radio',
-            options: snapAlign,
         },
     },
 };

@@ -48,21 +48,21 @@ export default {
             },
         },
         size: {
+            options: sizes,
             control: {
                 type: 'inline-radio',
-                options: sizes,
             },
         },
         view: {
+            options: views,
             control: {
                 type: 'select',
-                options: views,
             },
         },
         pin: {
+            options: pins,
             control: {
                 type: 'select',
-                options: pins,
             },
         },
         ...disableProps(propsToDisable),

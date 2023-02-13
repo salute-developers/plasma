@@ -27,15 +27,15 @@ export default {
             },
         },
         size: {
+            options: sizeKeys,
             control: {
                 type: 'inline-radio',
-                options: sizeKeys,
             },
         },
         view: {
+            options: viewKeys,
             control: {
                 type: 'inline-radio',
-                options: viewKeys,
             },
         },
         ...disableProps(propsToDisable),

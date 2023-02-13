@@ -238,33 +238,33 @@ Default.args = {
 
 Default.argTypes = {
     DatePickerSize: {
+        options: ['l', 's', 'xs'],
         control: {
             type: 'inline-radio',
-            options: ['l', 's', 'xs'],
         },
     },
     TimePickerSize: {
+        options: ['l', 's', 'xs'],
         control: {
             type: 'inline-radio',
-            options: ['l', 's', 'xs'],
         },
     },
     DatePickerVisibleItems: {
+        options: [3, 5],
         control: {
             type: 'inline-radio',
-            options: [3, 5],
         },
     },
     TimePickerVisibleItems: {
+        options: [3, 5],
         control: {
             type: 'inline-radio',
-            options: [3, 5],
         },
     },
     scrollSnapType: {
+        options: snapTypes,
         control: {
             type: 'select',
-            options: snapTypes,
         },
     },
 };
@@ -358,21 +358,21 @@ Date_Picker.args = {
 // eslint-disable-next-line @typescript-eslint/camelcase
 Date_Picker.argTypes = {
     size: {
+        options: ['l', 's', 'xs'],
         control: {
             type: 'inline-radio',
-            options: ['l', 's', 'xs'],
         },
     },
     visibleItems: {
+        options: [3, 5],
         control: {
             type: 'inline-radio',
-            options: [3, 5],
         },
     },
     scrollSnapType: {
+        options: snapTypes,
         control: {
             type: 'select',
-            options: snapTypes,
         },
     },
 };
@@ -463,9 +463,9 @@ Time_Picker.argTypes = {
     // eslint-disable-next-line @typescript-eslint/camelcase
     ...Date_Picker.argTypes,
     size: {
+        options: ['l', 's', 'xs'],
         control: {
             type: 'inline-radio',
-            options: ['l', 's', 'xs'],
         },
     },
 };

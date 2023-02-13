@@ -92,9 +92,9 @@ IconSize.args = {
 
 IconSize.argTypes = {
     size: {
+        options: ['xs', 's', 'm', 'l', 'xl', 'xxl'] as Array<CellSize>,
         control: {
             type: 'select',
-            options: ['xs', 's', 'm', 'l', 'xl', 'xxl'] as Array<CellSize>,
         },
     },
 };
@@ -298,15 +298,15 @@ Align.args = {
 Align.argTypes = {
     ...IconSize.argTypes,
     alignLeft: {
+        options: ['top', 'center', 'bottom'],
         control: {
             type: 'inline-radio',
-            options: ['top', 'center', 'bottom'],
         },
     },
     alignRight: {
+        options: ['top', 'center'],
         control: {
             type: 'inline-radio',
-            options: ['top', 'center'],
         },
     },
 };
