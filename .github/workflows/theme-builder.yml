@@ -49,26 +49,6 @@ jobs:
           npm run build --prefix="./website/plasma-theme-builder"
           cp -R ./website/plasma-theme-builder/build ./s3_build/plasma-theme-builder-next
 
-      - name: Upload build
-        uses: garygrossgarten/github-action-scp@release
-        with:
-          host: ${{ secrets.DOCS_HOST }}
-          username: ${{ secrets.DOCS_LOGIN }}
-          privateKey: ${{ secrets.DOCS_KEY }}
-          local: "./s3_build"
-          remote: "/var/www/plasma"
-
-      - name: Replace existing app with the fresh one
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.DOCS_HOST }}
-          username: ${{ secrets.DOCS_LOGIN }}
-          key: ${{ secrets.DOCS_KEY }}
-          script: |
-            cd ../../var/www/plasma
-            rm -rf plasma-theme-builder/
-            mv plasma-theme-builder-next plasma-theme-builder
-
       - name: Install s3cmd
         run: |
           pip3 install s3cmd

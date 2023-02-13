@@ -85,26 +85,6 @@ jobs:
           npm run storybook:build --prefix="./packages/plasma-temple"
           cp -R ./packages/plasma-temple/build-sb ./s3_build/${PR_NAME}/temple-storybook
 
-      - name: Clean old builds
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.DOCS_HOST }}
-          username: ${{ secrets.DOCS_LOGIN }}
-          key: ${{ secrets.DOCS_KEY }}
-          envs: PR_NAME
-          script: |
-            cd ../../var/www/plasma
-            rm -rf $PR_NAME/
-
-      - name: Upload builds
-        uses: garygrossgarten/github-action-scp@release
-        with:
-          host: ${{ secrets.DOCS_HOST }}
-          username: ${{ secrets.DOCS_LOGIN }}
-          privateKey: ${{ secrets.DOCS_KEY }}
-          local: "./s3_build"
-          remote: "/var/www/plasma"
-
       - name: Install s3cmd
         run: |
           pip3 install s3cmd
