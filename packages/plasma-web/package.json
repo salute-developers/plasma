@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-web",
-    "version": "1.164.0",
+    "version": "1.165.0",
     "description": "Salute Design System / React UI kit for web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "keywords": [
@@ -19,8 +19,8 @@
     },
     "dependencies": {
         "@popperjs/core": "2.9.2",
-        "@salutejs/plasma-core": "1.95.0",
-        "@salutejs/plasma-typo": "0.30.0",
+        "@salutejs/plasma-core": "1.96.0",
+        "@salutejs/plasma-typo": "0.31.0",
         "react-focus-lock": "2.8.1",
         "react-popper": "2.2.5",
         "storeon": "3.1.4"
@@ -39,12 +39,12 @@
         "@babel/preset-react": "7.14.5",
         "@babel/preset-typescript": "7.15.0",
         "@salutejs/plasma-colors": "0.3.0",
-        "@salutejs/plasma-cy-utils": "0.41.0",
-        "@salutejs/plasma-icons": "1.123.0",
-        "@salutejs/plasma-sb-utils": "0.93.0",
-        "@salutejs/plasma-tokens-b2b": "1.8.0",
-        "@salutejs/plasma-tokens-b2c": "0.17.0",
-        "@salutejs/plasma-tokens-web": "1.23.0",
+        "@salutejs/plasma-cy-utils": "0.42.0",
+        "@salutejs/plasma-icons": "1.124.0",
+        "@salutejs/plasma-sb-utils": "0.94.0",
+        "@salutejs/plasma-tokens-b2b": "1.9.0",
+        "@salutejs/plasma-tokens-b2c": "0.18.0",
+        "@salutejs/plasma-tokens-web": "1.24.0",
         "@storybook/addon-docs": "6.3.8",
         "@storybook/addon-essentials": "6.3.8",
         "@storybook/addons": "6.3.8",

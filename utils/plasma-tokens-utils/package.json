@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-tokens-utils",
-    "version": "0.16.0",
+    "version": "0.17.0",
     "description": "Code shared between token libraries.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "main": "lib/index.js",
