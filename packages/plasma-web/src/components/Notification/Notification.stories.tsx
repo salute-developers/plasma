@@ -52,9 +52,9 @@ Default.args = {
 
 Default.argTypes = {
     status: {
+        options: statuses,
         control: {
             type: 'select',
-            options: statuses,
         },
     },
 };

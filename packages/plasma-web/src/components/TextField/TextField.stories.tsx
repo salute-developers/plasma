@@ -20,9 +20,9 @@ export default {
     decorators: [InSpacingDecorator],
     argTypes: {
         status: {
+            options: statuses,
             control: {
                 type: 'select',
-                options: statuses,
             },
         },
         maxLength: {
@@ -31,9 +31,9 @@ export default {
             },
         },
         size: {
+            options: sizes,
             control: {
                 type: 'inline-radio',
-                options: sizes,
             },
         },
     },
@@ -103,9 +103,9 @@ Default.args = {
 
 Default.argTypes = {
     animatedHint: {
+        options: ['label', 'placeholder'],
         control: {
             type: 'inline-radio',
-            options: ['label', 'placeholder'],
         },
     },
 };

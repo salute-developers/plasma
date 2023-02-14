@@ -18,9 +18,9 @@ export default {
     decorators: [InSpacingDecorator],
     argTypes: {
         size: {
+            options: sizes,
             control: {
                 type: 'select',
-                options: sizes,
             },
         },
         ...disableProps(propsToDisable),
@@ -33,7 +33,7 @@ Default.args = {
     size: 32,
 };
 
-const StyledWrapper = styled.div<{ loading?: boolean }>`
+const StyledWrapper = styled.div<{ $loading?: boolean }>`
     &::after {
         position: absolute;
         top: 0;
@@ -46,8 +46,8 @@ const StyledWrapper = styled.div<{ loading?: boolean }>`
         background: ${surfaceLiquid01};
     }
 
-    ${({ loading }) =>
-        loading &&
+    ${({ $loading }) =>
+        $loading &&
         css`
             &::after {
                 display: block;
@@ -78,7 +78,7 @@ export const Live = () => {
     }, [loading]);
 
     return (
-        <StyledWrapper loading={loading}>
+        <StyledWrapper $loading={loading}>
             <Body1 id="example-live-text" mb="8x">
                 При нажатии кнопки приложение будет на 10 секунд переведено в состояние загрузки, отображая при этом
                 индикатор Spinner, который не может быть сфокусирован и не доступен для взаимодействия. Через 10 секунд

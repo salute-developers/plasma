@@ -23,15 +23,15 @@ export default {
     decorators: [InSpacingDecorator],
     argTypes: {
         ratio: {
+            options: ratios,
             control: {
                 type: 'select',
-                options: ratios,
             },
         },
         roundness: {
+            options: roundList,
             control: {
                 type: 'select',
-                options: roundList,
             },
         },
     },

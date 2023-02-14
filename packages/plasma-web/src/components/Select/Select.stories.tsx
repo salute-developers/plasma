@@ -14,9 +14,9 @@ export default {
     decorators: [InSpacingDecorator],
     argTypes: {
         status: {
+            options: statuses,
             control: {
                 type: 'select',
-                options: statuses,
             },
         },
         ...disableProps(propsToDisable),
