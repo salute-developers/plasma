@@ -2,6 +2,35 @@
 
 #### 🚀 Enhancement
 
+- feat(plasma): send perftool report CR [#323](https://github.com/salute-developers/plasma/pull/323) ([@KateKate](https://github.com/KateKate))
+- feat(plasma): send perftool report [#323](https://github.com/salute-developers/plasma/pull/323) ([@KateKate](https://github.com/KateKate))
+- `@salutejs/plasma-b2c@1.139.0`, `@salutejs/cra-template-plasma-basic-template@2.3.0`, `@salutejs/plasma-core@1.96.0`, `@salutejs/plasma-icons@1.124.0`, `@salutejs/plasma-temple@1.133.0`, `@salutejs/plasma-tokens-b2b@1.9.0`, `@salutejs/plasma-tokens-b2c@0.18.0`, `@salutejs/plasma-tokens-web@1.24.0`, `@salutejs/plasma-tokens@1.35.0`, `@salutejs/plasma-typo@0.31.0`, `@salutejs/plasma-ui@1.166.0`, `@salutejs/plasma-web@1.165.0`, `@salutejs/plasma-sb-utils@0.94.0`, `@salutejs/plasma-tokens-utils@0.17.0`
+  - feat(plasma-*): Remove declarationMap from tsconfig.json [#326](https://github.com/salute-developers/plasma/pull/326) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- chore: set 14.21.2 node version [#332](https://github.com/salute-developers/plasma/pull/332) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: set engines prop [#332](https://github.com/salute-developers/plasma/pull/332) ([@Yakutoc](https://github.com/Yakutoc))
+- docs: bump node.js to 14.x [#332](https://github.com/salute-developers/plasma/pull/332) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: migrate to actions/setup-node@v3 [#332](https://github.com/salute-developers/plasma/pull/332) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: enable version docs for mq [#340](https://github.com/salute-developers/plasma/pull/340) ([@Yeti-or](https://github.com/Yeti-or))
+- ci: enable version docs for mq [#339](https://github.com/salute-developers/plasma/pull/339) ([@Yeti-or](https://github.com/Yeti-or))
+- ci: enable version docs for mq [#338](https://github.com/salute-developers/plasma/pull/338) ([@Yeti-or](https://github.com/Yeti-or))
+- ci: enable version docs for mq [#337](https://github.com/salute-developers/plasma/pull/337) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 4
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Ekaterina Anishkina ([@KateKate](https://github.com/KateKate))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
+# (Tue Feb 14 2023)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-core@1.95.0`
   - chore(plasma-core): add issue for cypress "clearTimeout on hide" test [#319](https://github.com/salute-developers/plasma/pull/319) ([@Yakutoc](https://github.com/Yakutoc))
   - feat(plasma-core): add onHide/onShow callbacks [#319](https://github.com/salute-developers/plasma/pull/319) ([@Yakutoc](https://github.com/Yakutoc))

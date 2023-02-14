@@ -1,3 +1,15 @@
+# v2.3.0 (Tue Feb 14 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-*): Remove declarationMap from tsconfig.json [#326](https://github.com/salute-developers/plasma/pull/326) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v2.2.2 (Mon Jul 25 2022)
 
 #### 🐛 Bug Fix
