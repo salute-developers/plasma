@@ -1,6 +1,8 @@
 name: Versionate Docs
 
 on:
+  merge_group:
+      types: [checks_requested]
   # Запуск только в мастере
   push:
     branches:
