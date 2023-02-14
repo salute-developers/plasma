@@ -1,3 +1,33 @@
+# (Tue Feb 14 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-core@1.95.0`
+  - chore(plasma-core): add issue for cypress "clearTimeout on hide" test [#319](https://github.com/salute-developers/plasma/pull/319) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-core): add onHide/onShow callbacks [#319](https://github.com/salute-developers/plasma/pull/319) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.164.0`
+  - feat(plasma-web): add onHide action in storybook [#319](https://github.com/salute-developers/plasma/pull/319) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.138.0`
+  - feat(plasma-b2c): add onHide action in storybook [#319](https://github.com/salute-developers/plasma/pull/319) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-ui@1.165.0`
+  - feat(plasma-ui): add onHide action in storybook [#319](https://github.com/salute-developers/plasma/pull/319) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- docs(plasma-ui): update toast [#319](https://github.com/salute-developers/plasma/pull/319) ([@Yakutoc](https://github.com/Yakutoc))
+- docs(plasma-web): update toast [#319](https://github.com/salute-developers/plasma/pull/319) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: update perftool scripts [#328](https://github.com/salute-developers/plasma/pull/328) ([@akhdrv](https://github.com/akhdrv))
+- chore: delete perftool [#328](https://github.com/salute-developers/plasma/pull/328) ([@akhdrv](https://github.com/akhdrv))
+- `@salutejs/plasma-ui@1.165.0`
+  - chore(plasma-ui): update perftool and config [#328](https://github.com/salute-developers/plasma/pull/328) ([@akhdrv](https://github.com/akhdrv))
+
+#### Authors: 2
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+
+---
+
 # (Mon Feb 13 2023)
 
 #### 🐛 Bug Fix

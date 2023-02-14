@@ -1,3 +1,16 @@
+# v1.95.0 (Tue Feb 14 2023)
+
+#### 🚀 Enhancement
+
+- chore(plasma-core): add issue for cypress "clearTimeout on hide" test [#319](https://github.com/salute-developers/plasma/pull/319) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-core): add onHide/onShow callbacks [#319](https://github.com/salute-developers/plasma/pull/319) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.94.0 (Fri Feb 10 2023)
 
 #### 🚀 Enhancement

@@ -1,3 +1,15 @@
+# v1.138.0 (Tue Feb 14 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): add onHide action in storybook [#319](https://github.com/salute-developers/plasma/pull/319) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.137.1 (Fri Feb 10 2023)
 
 #### 🐛 Bug Fix

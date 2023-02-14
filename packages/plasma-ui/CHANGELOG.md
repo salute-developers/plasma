@@ -1,3 +1,22 @@
+# v1.165.0 (Tue Feb 14 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): add onHide action in storybook [#319](https://github.com/salute-developers/plasma/pull/319) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore(plasma-ui): update perftool and config [#328](https://github.com/salute-developers/plasma/pull/328) ([@akhdrv](https://github.com/akhdrv))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+
+---
+
 # v1.164.0 (Fri Feb 10 2023)
 
 #### 🚀 Enhancement
