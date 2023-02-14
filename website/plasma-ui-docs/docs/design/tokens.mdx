@@ -5,12 +5,14 @@ sidebar_position: 1
 ---
 
 # Токены
-Пакет Plasma Tokens (`@berdevices/plasma-tokens`) предоставляет набор переменных (_токенов_), реализующих дизайн-систему **Plasma** для разных устройств.
+Пакет Plasma Tokens (`@berdevices/plasma-tokens`) предоставляет набор переменных (_токенов_), реализующих дизайн-систему **Plasma** для разных устройств и тем.
 
 ## Пример использования
 
 Примеры приведены с использованием [styled-components](https://styled-components.com/).
 Использовать токены можно и без этого инструмента.
+
+### Устройства
 
 ```jsx title="App.tsx"
 import React from 'react';
@@ -32,6 +34,40 @@ export default function App() {
     );
 }
 ```
+
+### Темы
+
+В данном пакете есть набор продуктовых тем, из которых также можно брать токены с новой системой именования.
+
+```jsx title="App.tsx"
+import React from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
+
+import { bodyM } from '@salutejs/plasma-typo';
+import { darkSbermarket } from '@salutejs/plasma-tokens';
+import { surfaceAccent, textPrimary } from '@salutejs/plasma-tokens/brands/sbermarket';
+
+const Theme = createGlobalStyle(darkSbermarket);
+
+const AppStyled = styled.div`
+    ${bodyM}
+    background-color: ${surfaceAccent};
+`;
+
+const HeaderStyeld = styled.h2`
+    color: ${textPrimary};
+`
+
+export default function App() {
+    return (
+        <AppStyled>
+            <Theme />
+            <HeaderStyeld>Hello Plasma</HeaderStyeld>
+        </AppStyled>
+    );
+}
+```
+
 
 ## Реализация
 
