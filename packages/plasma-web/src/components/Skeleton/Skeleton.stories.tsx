@@ -3,6 +3,7 @@ import { typography } from '@salutejs/plasma-tokens-b2b';
 import { radiuses, TypographyTypes } from '@salutejs/plasma-core';
 import { Story, Meta } from '@storybook/react';
 
+import { InSpacingDecorator } from '../../helpers';
 import { withSkeleton, WithSkeletonProps } from '../../hocs';
 import { Button as BasicButton, ButtonProps } from '../Button';
 
@@ -14,6 +15,7 @@ const ButtonSkeleton = withSkeleton<ButtonProps & WithSkeletonProps>(BasicButton
 
 export default {
     title: 'Content/Skeleton',
+    decorators: [InSpacingDecorator],
     argTypes: {
         size: {
             options: textSizes,

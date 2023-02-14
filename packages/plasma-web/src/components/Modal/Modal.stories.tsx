@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
 
 import { SSRProvider } from '../SSRProvider';
-import { disableProps } from '../../helpers';
+import { disableProps, InSpacingDecorator } from '../../helpers';
 import { Button } from '../Button';
 import { P1, Headline1, Headline3 } from '../Typography';
 
@@ -19,6 +19,7 @@ const longText = `Если после применения правила Лоп
 
 export default {
     title: 'Controls/Modal',
+    decorators: [InSpacingDecorator],
 } as Meta;
 
 export const Default: Story<{ heading: string; text: string }> = ({ heading, text }) => (

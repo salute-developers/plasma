@@ -1,7 +1,15 @@
 import React from 'react';
+import { Meta } from '@storybook/react';
 import { Filler } from '@salutejs/plasma-sb-utils';
 
+import { InSpacingDecorator } from '../../helpers';
+
 import { Container, Row, Col } from '.';
+
+export default {
+    title: 'Layout/Grid',
+    decorators: [InSpacingDecorator],
+} as Meta;
 
 export const Default = () => (
     <Container>
