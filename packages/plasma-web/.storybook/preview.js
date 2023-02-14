@@ -1,7 +1,7 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { addDecorator, addParameters } from '@storybook/react';
-import { Title, Subtitle, Description, Primary, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs/blocks';
+import { Title, Subtitle, Description, Primary, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { link, linkHover, linkActive, surfaceSolid01 } from '@salutejs/plasma-tokens-b2b';
 import { light as b2bLight, dark as b2bDark } from '@salutejs/plasma-tokens-b2b/themes';
 import { light as b2cLight, dark as b2cDark } from '@salutejs/plasma-tokens-b2c/themes';
@@ -9,7 +9,7 @@ import { light as legacyLight, dark as legacyDark } from '@salutejs/plasma-token
 import { b2b as b2bTypo } from '@salutejs/plasma-tokens-b2b/typo';
 import { standard as standardTypo, compatible as compatibleTypo } from '@salutejs/plasma-typo';
 
-import { ToastProvider } from '../src/components/Toast';
+import { ToastProvider } from '@salutejs/plasma-core';
 
 import storybookTheme from './theme';
 
