@@ -137,9 +137,9 @@ export const Base: Story<CalendarBaseProps> = ({ min, max, type }) => {
 
 Base.argTypes = {
     type: {
+        options: ['Days', 'Months', 'Years'],
         control: {
             type: 'select',
-            options: ['Days', 'Months', 'Years'],
         },
     },
 };
@@ -183,7 +183,7 @@ Double.args = {
     max: new Date(2022, 6, 15),
 };
 
-export const Range: Story<ComponentProps<CalendarBaseRange>> = ({ min, max, type }) => {
+export const Range: Story<ComponentProps<typeof CalendarBaseRange>> = ({ min, max, type }) => {
     const [values, setValue] = React.useState<[Date, Date?]>([new Date(2022, 5, 16), new Date(2022, 5, 25)]);
     const handleOnChange = React.useCallback((newValue: [Date, Date?]) => {
         onChangeValue(newValue);
@@ -217,9 +217,9 @@ export const Range: Story<ComponentProps<CalendarBaseRange>> = ({ min, max, type
 
 Range.argTypes = {
     type: {
+        options: ['Days', 'Months', 'Years'],
         control: {
             type: 'select',
-            options: ['Days', 'Months', 'Years'],
         },
     },
 };
@@ -230,7 +230,7 @@ Range.args = {
     type: 'Days',
 };
 
-export const DoubleRange: Story<ComponentProps<CalendarDoubleRange>> = ({ min, max }) => {
+export const DoubleRange: Story<ComponentProps<typeof CalendarDoubleRange>> = ({ min, max }) => {
     const [values, setValue] = React.useState<[Date, Date?]>([new Date(2022, 5, 7), new Date(2022, 6, 9)]);
     const handleOnChange = React.useCallback((newValue: [Date, Date?]) => {
         onChangeValue(newValue);

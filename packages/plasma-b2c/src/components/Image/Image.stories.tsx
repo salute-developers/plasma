@@ -15,15 +15,15 @@ export default {
     decorators: [InSpacingDecorator],
     argTypes: {
         base: {
+            options: bases,
             control: {
                 type: 'inline-radio',
-                options: bases,
             },
         },
         ratio: {
+            options: ratios,
             control: {
                 type: 'select',
-                options: ratios,
             },
         },
         ...disableProps(propsToDisable),

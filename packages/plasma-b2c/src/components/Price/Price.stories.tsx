@@ -13,9 +13,9 @@ export default {
     decorators: [InSpacingDecorator],
     argTypes: {
         currency: {
+            options: currencyOptions,
             control: {
                 type: 'inline-radio',
-                options: currencyOptions,
             },
         },
         ...disableProps(propsToDisable),
