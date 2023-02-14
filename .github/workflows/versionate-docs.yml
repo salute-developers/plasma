@@ -1,13 +1,12 @@
 name: Versionate Docs
 
 on:
-  merge_group:
-      types: [checks_requested]
   # Запуск только в мастере
   push:
     branches:
       - rc
       - master
+      - gh-readonly-queue/master/*
 
 jobs:
   versionate_docs:
