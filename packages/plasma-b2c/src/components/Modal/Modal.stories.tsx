@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import styled from 'styled-components';
+import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button';
 import { Headline3 } from '../Typography';
@@ -9,6 +10,7 @@ import { ModalsProvider, Modal } from '.';
 
 export default {
     title: 'Controls/Modal',
+    decorators: [InSpacingDecorator],
 } as Meta;
 
 const StyledWrapper = styled.div`

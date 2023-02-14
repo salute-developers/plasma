@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { IconClose } from '@salutejs/plasma-icons';
 import { critical } from '@salutejs/plasma-tokens-b2c';
 import styled from 'styled-components';
+import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button';
 
@@ -11,6 +12,7 @@ import { Toast, useToast, ToastProps, ToastPosition } from '.';
 
 export default {
     title: 'Controls/Toast',
+    decorators: [InSpacingDecorator],
 } as Meta;
 
 export const ToastComponent: Story<ToastProps> = (args) => <Toast {...args} />;
