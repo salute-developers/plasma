@@ -1,5 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
+import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button';
 import { Modal, ModalsProvider } from '../Modal';
@@ -26,6 +27,7 @@ const getNotificationProps = (i: number) => ({
 
 export default {
     title: 'Controls/Notification',
+    decorators: [InSpacingDecorator],
 } as Meta;
 
 interface DefaultStoryProps {

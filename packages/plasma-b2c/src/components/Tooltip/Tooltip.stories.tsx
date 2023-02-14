@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
 import { IconDownload } from '@salutejs/plasma-icons';
-import { disableProps } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button';
 
@@ -30,6 +30,7 @@ const StyledGrid = styled.div`
 
 export default {
     title: 'Controls/Tooltip',
+    decorators: [InSpacingDecorator],
 } as Meta;
 
 export const Live = () => {

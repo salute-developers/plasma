@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import { disableProps } from '@salutejs/plasma-sb-utils';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Price, PriceProps } from '.';
 
@@ -10,7 +10,7 @@ const propsToDisable = ['children', 'theme', 'as', 'forwardedAs'];
 export default {
     title: 'Content/Price',
     component: Price,
-    decorators: [InSpacing],
+    decorators: [InSpacingDecorator],
     argTypes: {
         currency: {
             control: {
