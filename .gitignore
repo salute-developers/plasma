@@ -11,3 +11,4 @@ cypress/results
 coverage
 coverage-ts
 s3_build
+temp

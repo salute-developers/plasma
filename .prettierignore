@@ -3,3 +3,6 @@
 /package-lock.json
 /build
 utils/plasma-cy-utils/lib
+packages/plasma-b2c/api/
+packages/plasma-web/api/
+reports
