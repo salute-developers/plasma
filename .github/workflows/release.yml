@@ -54,6 +54,9 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      - name: API Report
+        run: npm run api:report
+
       - name: Unit tests
         run: npm run test
 
