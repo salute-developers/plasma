@@ -2,6 +2,20 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-b2c@1.140.0`, `@salutejs/plasma-temple@1.134.0`, `@salutejs/plasma-ui@1.167.0`, `@salutejs/plasma-web@1.166.0`
+  - feat: Update using title in toolBar instead of name in preview.js [#330](https://github.com/salute-developers/plasma/pull/330) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat: Bump storybook version to 6.5 [#330](https://github.com/salute-developers/plasma/pull/330) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Tue Feb 14 2023)
+
+#### 🚀 Enhancement
+
 - feat(plasma): send perftool report CR [#323](https://github.com/salute-developers/plasma/pull/323) ([@KateKate](https://github.com/KateKate))
 - feat(plasma): send perftool report [#323](https://github.com/salute-developers/plasma/pull/323) ([@KateKate](https://github.com/KateKate))
 - `@salutejs/plasma-b2c@1.139.0`, `@salutejs/cra-template-plasma-basic-template@2.3.0`, `@salutejs/plasma-core@1.96.0`, `@salutejs/plasma-icons@1.124.0`, `@salutejs/plasma-temple@1.133.0`, `@salutejs/plasma-tokens-b2b@1.9.0`, `@salutejs/plasma-tokens-b2c@0.18.0`, `@salutejs/plasma-tokens-web@1.24.0`, `@salutejs/plasma-tokens@1.35.0`, `@salutejs/plasma-typo@0.31.0`, `@salutejs/plasma-ui@1.166.0`, `@salutejs/plasma-web@1.165.0`, `@salutejs/plasma-sb-utils@0.94.0`, `@salutejs/plasma-tokens-utils@0.17.0`
