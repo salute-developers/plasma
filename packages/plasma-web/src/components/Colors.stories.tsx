@@ -1,10 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Meta } from '@storybook/react';
 import { general, additional } from '@salutejs/plasma-colors';
 import { light, dark } from '@salutejs/plasma-tokens-b2b/themes';
 import { ThemeColors, extractWebThemeColors } from '@salutejs/plasma-sb-utils';
 
-import { PaletteGrid, flattenPalette } from '../helpers';
+import { PaletteGrid, flattenPalette, InSpacingDecorator } from '../helpers';
+
+export default {
+    title: 'Colors',
+    decorators: [InSpacingDecorator],
+} as Meta;
 
 const StyledContainer = styled.div`
     display: flex;
