@@ -22,9 +22,11 @@ import type { ThemeTokens, TypographyTypes } from './data';
 import * as tokenGroups from './tokenGroups';
 import { generateColorThemesTokenDataGroups, typoArchetypes, shadows } from './lib/themeBuilder/generateTokens';
 import { mapDeprecatedColorTokens } from './lib/themeBuilder/mapDeprecatedTokens';
+import { upperFirstLetter } from './lib/themeBuilder/utils';
 
 const OUT_DIR = 'src';
 const COLORS_DIR = path.join(OUT_DIR, 'colors');
+const BRANDS_DIR = path.join(OUT_DIR, 'brands');
 const THEMES_DIR = path.join(OUT_DIR, 'themes');
 const THEMES_VALUES_DIR = path.join(OUT_DIR, 'themesValues');
 const TYPOGRAPHY_DIR = path.join(OUT_DIR, 'typography');
@@ -33,6 +35,8 @@ const TYPO_DIR = path.join(OUT_DIR, 'typo');
 const ROOT_INDEX_TS = path.join(OUT_DIR, 'index.ts');
 
 fs.existsSync(OUT_DIR) || fs.mkdirSync(OUT_DIR);
+
+fs.existsSync(BRANDS_DIR) || fs.mkdirSync(BRANDS_DIR);
 
 /** ========================================== **/
 /** ========= Генерация цветов и тем ========= **/
@@ -56,6 +60,22 @@ writeGeneratedToFS(THEMES_DIR, generateColorThemes({ ...themesColorTokenGroupsFa
 
 // Отдельные файлы для импорта в компонентах
 writeGeneratedToFS(THEMES_VALUES_DIR, generateColorThemeValues({ ...themesColorTokenGroupsFallback, ...colorThemes }));
+
+const brands = Object.keys(themesColorTokenGroups);
+
+brands.forEach((brand) => {
+    const brandDir = path.join(BRANDS_DIR, brand);
+    const themeName = `dark${upperFirstLetter(brand)}`;
+    const theme = themesColorTokenGroups[brand][themeName];
+
+    writeGeneratedToFS(brandDir, [
+        {
+            file: 'index.ts',
+            content: generateTokens(theme, 'css', 'colors'),
+        },
+        { file: 'values.ts', content: generateTokens(theme) },
+    ]);
+});
 
 /** ========================================== **/
 /** ===== Генерация размеров компонентов ===== **/

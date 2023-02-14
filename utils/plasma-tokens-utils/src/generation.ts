@@ -54,12 +54,14 @@ export const generateToken = ({
         out += '\n\n';
     }
 
-    if (typeof value === 'string') {
+    if (typeof value === 'string' || (typeof value === 'object' && 'origin' in value)) {
+        const newValue = typeof value === 'object' ? value.origin : value;
+
         // type=css param is used for colors values only
         if (type === 'css') {
-            value = toCSSVarTokenWithValue(`${prefix}-${paramCase(name)}`, value);
+            value = toCSSVarTokenWithValue(`${prefix}-${paramCase(name)}`, newValue);
         } else {
-            value = escapeValue(value);
+            value = escapeValue(newValue);
         }
         out += `export const ${name}${typeHint} = '${value}';\n`;
     } else {
