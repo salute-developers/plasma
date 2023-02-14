@@ -223,9 +223,9 @@ Default.args = {
 Default.argTypes = {
     ...disableProps(propsToDisable),
     size: {
+        options: sizes,
         control: {
             type: 'inline-radio',
-            options: sizes,
         },
     },
 };

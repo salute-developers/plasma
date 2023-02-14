@@ -16,15 +16,15 @@ export default {
     title: 'Content/Skeleton',
     argTypes: {
         size: {
+            options: textSizes,
             control: {
                 type: 'select',
-                options: textSizes,
             },
         },
         roundness: {
+            options: roundnessKeys,
             control: {
                 type: 'select',
-                options: roundnessKeys,
             },
         },
     },

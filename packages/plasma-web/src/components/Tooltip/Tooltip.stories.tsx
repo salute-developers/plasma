@@ -65,7 +65,7 @@ export const All = () => {
 };
 
 const StyledRow = styled.div<SpacingProps>`
-    ${applySpacing}
+    ${applySpacing};
     display: flex;
 `;
 
@@ -117,9 +117,9 @@ Live.args = {
 
 Live.argTypes = {
     placement: {
+        options: placements,
         control: {
             type: 'select',
-            options: placements,
         },
     },
     ...disableProps(['isVisible']),
