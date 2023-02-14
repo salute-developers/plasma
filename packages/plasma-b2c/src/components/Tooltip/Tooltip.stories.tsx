@@ -86,9 +86,9 @@ Default.args = {
 
 Default.argTypes = {
     placement: {
+        options: placements,
         control: {
             type: 'select',
-            options: placements,
         },
     },
     ...disableProps(['isVisible']),

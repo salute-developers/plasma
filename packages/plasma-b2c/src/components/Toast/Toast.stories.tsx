@@ -72,9 +72,9 @@ LiveDemo.args = {
 
 LiveDemo.argTypes = {
     position: {
+        options: ['top', 'bottom'],
         control: {
             type: 'inline-radio',
-            options: ['top', 'bottom'],
         },
     },
 };

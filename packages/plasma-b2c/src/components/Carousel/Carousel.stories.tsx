@@ -32,9 +32,9 @@ export default {
     decorators: [InSpacingDecorator],
     argTypes: {
         align: {
+            options: ['center', 'start', 'end'],
             control: {
                 type: 'inline-radio',
-                options: ['center', 'start', 'end'],
             },
         },
     },

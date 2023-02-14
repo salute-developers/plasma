@@ -40,15 +40,15 @@ export default {
     decorators: [InSpacingDecorator],
     argTypes: {
         status: {
+            options: statuses,
             control: {
                 type: 'select',
-                options: statuses,
             },
         },
         resize: {
+            options: resizes,
             control: {
                 type: 'select',
-                options: resizes,
             },
         },
         ...disableProps(propsToDisable),

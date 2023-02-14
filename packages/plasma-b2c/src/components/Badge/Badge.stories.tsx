@@ -16,15 +16,15 @@ export default {
     decorators: [InSpacingDecorator],
     argTypes: {
         size: {
+            options: sizeKeys,
             control: {
                 type: 'inline-radio',
-                options: sizeKeys,
             },
         },
         view: {
+            options: viewKeys,
             control: {
                 type: 'select',
-                options: viewKeys,
             },
         },
         ...disableProps(propsToDisable),

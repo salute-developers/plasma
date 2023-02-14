@@ -36,15 +36,15 @@ export default {
     decorators: [InSpacingDecorator],
     argTypes: {
         status: {
+            options: { default: '', success: 'success', error: 'error' },
             control: {
                 type: 'select',
-                options: { default: '', success: 'success', error: 'error' },
             },
         },
         view: {
+            options: { ...TextFieldView, ...{ empty: '' } },
             control: {
                 type: 'select',
-                options: { ...TextFieldView, ...{ empty: '' } },
             },
         },
         maxLength: {
