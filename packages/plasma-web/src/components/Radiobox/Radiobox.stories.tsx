@@ -112,9 +112,9 @@ export const Default: Story<RadioboxProps> = ({ name, label, description, disabl
 
 Default.argTypes = {
     size: {
+        options: sizes,
         control: {
             type: 'inline-radio',
-            options: sizes,
         },
     },
 };
