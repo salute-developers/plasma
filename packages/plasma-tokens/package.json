@@ -8,7 +8,7 @@
     "types": "index.d.ts",
     "scripts": {
         "prepare": "npm run build",
-        "prebuild": "rm -rf ./build ./colors ./es ./properties ./src ./themes ./themesValues ./typo ./typography ./typographyValues ./index.* ./theme.json",
+        "prebuild": "rm -rf ./build ./colors ./es ./properties ./src ./brands ./themes ./themesValues ./typo ./typography ./typographyValues ./index.* ./theme.json",
         "build": "npm run build:ds && npm run build:tokens",
         "prebuild:tokens": "npm run generate",
         "build:tokens": "npm run build:cjs && npm run build:esm",
@@ -27,6 +27,7 @@
     },
     "files": [
         "colors",
+        "brands",
         "es",
         "themes",
         "themesValues",
@@ -61,10 +62,6 @@
         "ts-node": "10.2.1",
         "typescript": "3.9.10"
     },
-    "contributors": [
-        "Виноградов Антон Александрович",
-        "Зубаиров Фаниль Асхатович",
-        "Vasiliy Loginevskiy"
-    ],
+    "contributors": ["Виноградов Антон Александрович", "Зубаиров Фаниль Асхатович", "Vasiliy Loginevskiy"],
     "sideEffects": false
 }
