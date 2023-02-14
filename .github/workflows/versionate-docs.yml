@@ -1,16 +1,18 @@
 name: Versionate Docs
 
 on:
-  # Запуск только в мастере
+  pull_request:
+  merge_group:
   push:
     branches:
       - rc
       - master
-      - gh-readonly-queue/master/*
 
 jobs:
   versionate_docs:
     name: Versionate docs
+    # Запуск только в мастере
+    if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
