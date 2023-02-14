@@ -2,6 +2,26 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-ui@1.168.0`
+  - feat(plasma-ui): Add InSpacingDecorator in stories [#335](https://github.com/salute-developers/plasma/pull/335) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-ui): Fix control.options warning in storybook [#335](https://github.com/salute-developers/plasma/pull/335) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(palsma-ui): Remove stories.mdx from components [#335](https://github.com/salute-developers/plasma/pull/335) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-temple@1.135.0`, `@salutejs/plasma-ui@1.168.0`
+  - feat(plasma-ui,plasma-temple): Solve warning problems in storyboook [#335](https://github.com/salute-developers/plasma/pull/335) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Tue Feb 14 2023)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-b2c@1.140.0`, `@salutejs/plasma-temple@1.134.0`, `@salutejs/plasma-ui@1.167.0`, `@salutejs/plasma-web@1.166.0`
   - feat: Update using title in toolBar instead of name in preview.js [#330](https://github.com/salute-developers/plasma/pull/330) ([@neretin-trike](https://github.com/neretin-trike))
   - feat: Bump storybook version to 6.5 [#330](https://github.com/salute-developers/plasma/pull/330) ([@neretin-trike](https://github.com/neretin-trike))

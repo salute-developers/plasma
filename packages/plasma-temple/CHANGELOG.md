@@ -1,3 +1,17 @@
+# v1.135.0 (Tue Feb 14 2023)
+
+#### 🐛 Bug Fix
+
+- feat(plasma-ui,plasma-temple): Solve warning problems in storyboook [#335](https://github.com/salute-developers/plasma/pull/335) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.134.0 (Tue Feb 14 2023)
 
 #### 🚀 Enhancement

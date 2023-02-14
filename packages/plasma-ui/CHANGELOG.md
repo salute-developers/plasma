@@ -1,3 +1,21 @@
+# v1.168.0 (Tue Feb 14 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): Add InSpacingDecorator in stories [#335](https://github.com/salute-developers/plasma/pull/335) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-ui): Fix control.options warning in storybook [#335](https://github.com/salute-developers/plasma/pull/335) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(palsma-ui): Remove stories.mdx from components [#335](https://github.com/salute-developers/plasma/pull/335) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- feat(plasma-ui,plasma-temple): Solve warning problems in storyboook [#335](https://github.com/salute-developers/plasma/pull/335) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.167.0 (Tue Feb 14 2023)
 
 #### 🚀 Enhancement
