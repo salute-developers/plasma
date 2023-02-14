@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
 
+import { InSpacingDecorator } from '../../helpers';
 import { Button } from '../Button';
 import { Headline4 } from '../Typography';
 
@@ -22,6 +23,7 @@ const StyledButtonGroup = styled.div`
 
 export default {
     title: 'Controls/PaginationDots',
+    decorators: [InSpacingDecorator],
 } as Meta;
 
 export const Default: Story<{ itemsCount: number }> = ({ itemsCount }) => {

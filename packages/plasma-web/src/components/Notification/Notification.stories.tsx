@@ -1,6 +1,7 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
+import { InSpacingDecorator } from '../../helpers';
 import { Button } from '../Button';
 import { Modal, ModalsProvider } from '../Modal';
 import { Headline3 } from '../Typography';
@@ -28,6 +29,7 @@ const getNotificationProps = (i: number) => ({
 
 export default {
     title: 'Controls/Notification',
+    decorators: [InSpacingDecorator],
 } as Meta;
 
 interface DefaultStoryProps {

@@ -3,12 +3,14 @@ import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
+import { InSpacingDecorator } from '../../helpers';
 import { Button } from '../Button';
 
 import { Toast, useToast, ToastProps, ToastPosition } from '.';
 
 export default {
     title: 'Controls/Toast',
+    decorators: [InSpacingDecorator],
 } as Meta;
 
 export const ToastComponent: Story<ToastProps> = (args) => <Toast {...args} />;
