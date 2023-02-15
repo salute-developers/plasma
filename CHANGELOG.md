@@ -1,5 +1,45 @@
 # (Wed Feb 15 2023)
 
+#### 🚀 Enhancement
+
+- chore(plasma-b2c): add toast + offset snapshot [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-core@1.97.0`
+  - feat(plasma-core): add test for offset prop [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-core): add offset prop [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.167.0`
+  - feat(plasma-web): add offset prop in storybook [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.141.0`
+  - feat(plasma-b2c): add offset prop in storybook [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-ui@1.169.0`
+  - feat(plasma-ui): add offset prop in storybook [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- ci: fix eslint [#324](https://github.com/salute-developers/plasma/pull/324) ([@Yeti-or](https://github.com/Yeti-or))
+- chore(plasma-web): add toast + offset snapshot [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): add toast + offset snapshot [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yakutoc](https://github.com/Yakutoc))
+- docs(plasma-ui): add offset prop in doc [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yakutoc](https://github.com/Yakutoc))
+- docs(plasma-web): add offset prop in doc [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yakutoc](https://github.com/Yakutoc))
+- docs(plasma-ui-docs): Update docs for token.mdx [#343](https://github.com/salute-developers/plasma/pull/343) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-hope@0.1.0`
+  - fix(plasma-hope): publish pkg [#346](https://github.com/salute-developers/plasma/pull/346) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-web@1.167.0`
+  - chore(plasma-web): fix stories imports [#324](https://github.com/salute-developers/plasma/pull/324) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.141.0`
+  - chore(plasma-b2c): hack to fix typings [#324](https://github.com/salute-developers/plasma/pull/324) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.141.0`, `@salutejs/plasma-core@1.97.0`, `@salutejs/plasma-hope@0.1.0`, `@salutejs/plasma-web@1.167.0`
+  - refactor(plasma-web/plasma-b2c): move common code to plasma-hope [#324](https://github.com/salute-developers/plasma/pull/324) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 3
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
+# (Wed Feb 15 2023)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-web@1.166.1`

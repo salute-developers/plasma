@@ -1,3 +1,15 @@
+# v1.169.0 (Wed Feb 15 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): add offset prop in storybook [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.168.1 (Wed Feb 15 2023)
 
 #### 🐛 Bug Fix

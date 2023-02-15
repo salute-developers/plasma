@@ -1,3 +1,21 @@
+# v1.97.0 (Wed Feb 15 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-core): add test for offset prop [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-core): add offset prop [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- refactor(plasma-web/plasma-b2c): move common code to plasma-hope [#324](https://github.com/salute-developers/plasma/pull/324) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.96.0 (Tue Feb 14 2023)
 
 #### 🚀 Enhancement
