@@ -1,7 +1,7 @@
 {
     "name": "@salutejs/plasma-hope",
     "version": "0.0.0",
-    "description": "Salute Design System / React UI kit for web applications",
+    "description": "Salute Design System / Internal React UI kit for web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "keywords": ["design-system", "react-components", "ui-kit", "react"],
     "main": "index.js",
