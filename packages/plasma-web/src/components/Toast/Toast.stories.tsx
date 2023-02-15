@@ -29,7 +29,6 @@ interface LiveDemoProps extends ToastProps {
 const Container = styled.div`
     display: flex;
     gap: 0.5rem;
-    padding: 1rem;
 `;
 
 export const LiveDemo: Story<LiveDemoProps> = ({ toastText, position, timeout, fade }) => {
