@@ -18,10 +18,13 @@ const getAuthURL = (pluginClientId: string) => {
 
     const url = new URL(GITHUB_AUTH_API_URL);
     const params = new URLSearchParams(url.search);
+    const currentURL = window.location.href;
+
+    const redirectURI = `${REACT_APP_AUTH_SERVER_URL}/auth/${pluginClientId}?redirectUrl=${encodeURI(currentURL)}`;
 
     appendChainParam(params)
         .append('client_id', REACT_APP_APPLICATION_CLIENT_ID)
-        .append('redirect_uri', `${REACT_APP_AUTH_SERVER_URL}/auth/${pluginClientId}`)
+        .append('redirect_uri', redirectURI)
         .append('response_type', 'code')
         .append('scope', 'public_repo');
 
