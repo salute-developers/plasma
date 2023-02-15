@@ -8,7 +8,18 @@ import * as typography from '../Typography';
 
 import { Editable, EditableProps } from '.';
 
-const propsToDisable = ['ref', 'theme', 'as', 'forwardedAs'];
+const propsToDisable = [
+    'ref',
+    'theme',
+    'as',
+    'forwardedAs',
+    'textComponent',
+    'icon',
+    'onChange',
+    'onBlur',
+    'onPaste',
+    'value',
+];
 
 export default {
     title: 'Controls/Editable',
