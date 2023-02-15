@@ -167,4 +167,32 @@ describe('plasma-core: Toast', () => {
         // Toast must be visible at this moment
         cy.matchImageSnapshot();
     });
+
+    it('offset', () => {
+        const Button = getComponent('Button');
+
+        const Interactive = () => {
+            const { showToast } = useToast();
+
+            return (
+                <Button
+                    id="show"
+                    text="show"
+                    onClick={() => showToast({ text: 'Toast component test with offset props', offset: 10 })}
+                />
+            );
+        };
+
+        mount(
+            <CypressTestDecorator>
+                <ToastProvider>
+                    <Interactive />
+                </ToastProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('#show').click();
+
+        cy.matchImageSnapshot();
+    });
 });
