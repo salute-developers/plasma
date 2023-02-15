@@ -1,3 +1,15 @@
+# v1.168.1 (Wed Feb 15 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): Resolve "Importing from @storybook/addon-docs/blocks is deprecated" [#344](https://github.com/salute-developers/plasma/pull/344) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.168.0 (Tue Feb 14 2023)
 
 #### 🚀 Enhancement
