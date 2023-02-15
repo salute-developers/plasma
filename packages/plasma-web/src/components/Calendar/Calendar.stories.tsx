@@ -215,8 +215,8 @@ export const Range: Story<ComponentProps<typeof CalendarBaseRange>> = ({ min, ma
         date: new Date(2022, 5, 11 + day),
     }));
 
-    const eventList = React.useMemo(() => [...baseEvents, ...eventsRange], []);
-    const disabledList = React.useMemo(() => [{ date: new Date(2022, 5, 4) }, ...disabledDays], []);
+    const eventList = React.useMemo(() => [...baseEvents, ...eventsRange], [eventsRange]);
+    const disabledList = React.useMemo(() => [{ date: new Date(2022, 5, 4) }, ...disabledDays], [disabledDays]);
 
     return (
         <CalendarBaseRange
@@ -262,8 +262,8 @@ export const DoubleRange: Story<ComponentProps<typeof CalendarDoubleRange>> = ({
         date: new Date(2022, 6, 10 + day),
     }));
 
-    const eventList = React.useMemo(() => [...baseEvents, ...eventsRange], []);
-    const disabledList = React.useMemo(() => [{ date: new Date(2022, 5, 4) }, ...disabledDays], []);
+    const eventList = React.useMemo(() => [...baseEvents, ...eventsRange], [eventsRange]);
+    const disabledList = React.useMemo(() => [{ date: new Date(2022, 5, 4) }, ...disabledDays], [disabledDays]);
 
     return (
         <CalendarDoubleRange
@@ -293,15 +293,12 @@ export const WithPopup: Story<CalendarProps> = ({ min, max, isDouble }) => {
         setValue(new Date(newValue));
     }, []);
 
-    const handleOnChange = React.useCallback(
-        (newValue: Date) => {
-            setValue(newValue);
-            setTextValue(new Date(newValue).toLocaleDateString('en-CA'));
-            setIsOpen(false);
-            onChangeValue(newValue);
-        },
-        [textValue],
-    );
+    const handleOnChange = React.useCallback((newValue: Date) => {
+        setValue(newValue);
+        setTextValue(new Date(newValue).toLocaleDateString('en-CA'));
+        setIsOpen(false);
+        onChangeValue(newValue);
+    }, []);
 
     const onToggle = React.useCallback((newIsOpen) => {
         setIsOpen(newIsOpen);
