@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styled, { css, keyframes, createGlobalStyle } from 'styled-components';
 import { useUniqId } from '@salutejs/plasma-core';
-import { darkOverlayBlur } from '@salutejs/plasma-tokens-web';
+import { darkOverlayBlur, overlaySoft } from '@salutejs/plasma-tokens-web';
 
 import { ModalsContext, MODALS_PORTAL_ID } from './ModalsContext';
 import { ModalView, ModalViewProps } from './ModalView';
@@ -12,7 +12,13 @@ export interface ModalProps extends ModalViewProps {
      * Отображение модального окна.
      */
     isOpen: boolean;
+
+    /**
+     * Нужно ли применять blur для подложки
+     */
+    withBlur?: boolean;
 }
+
 interface HidingProps {
     isHiding?: boolean;
 }
@@ -69,16 +75,25 @@ const StyledWrapper = styled.div<HidingProps>`
             animation: 0.1s ${wrapperHideAnimation} ease-out;
         `}
 `;
-const StyledOverlay = styled.div<{ transparent?: boolean }>`
+
+const StyledOverlay = styled.div<{ transparent?: boolean; $withBlur?: boolean }>`
     position: absolute;
+
+    ${({ $withBlur }) => {
+        return css`
+            --background-color: ${$withBlur ? darkOverlayBlur : overlaySoft};
+            --backdrop-filter: ${$withBlur ? 'blur(1rem)' : 'none'};
+        `;
+    }};
 
     width: 100%;
     height: 100%;
 
-    background-color: ${({ transparent }) => (transparent ? 'transparent' : darkOverlayBlur)};
-    backdrop-filter: blur(1rem);
+    background-color: ${({ transparent }) => (transparent ? 'transparent' : 'var(--background-color)')};
+    backdrop-filter: var(--backdrop-filter);
     cursor: pointer;
 `;
+
 const StyledModal = styled.div<HidingProps>`
     position: absolute;
     height: 100%;
@@ -164,7 +179,11 @@ export const Modal: React.FC<ModalProps> = ({ id, isOpen, onClose, ...rest }) =>
             {portalRef.current &&
                 ReactDOM.createPortal(
                     <StyledWrapper ref={wrapperRef}>
-                        <StyledOverlay transparent={controller.items.indexOf(innerId) !== 0} onClick={onClose} />
+                        <StyledOverlay
+                            transparent={controller.items.indexOf(innerId) !== 0}
+                            onClick={onClose}
+                            $withBlur={withBlur}
+                        />
                         <StyledModal>
                             <ModalView onClose={onClose} {...rest} />
                         </StyledModal>
