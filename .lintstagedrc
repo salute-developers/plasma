@@ -12,7 +12,6 @@
     ],
     "*.json": [
         "prettier --write --parser json",
-        "node",
         "git add"
     ]
 }
