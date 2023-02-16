@@ -350,6 +350,11 @@ export type CalendarProps = ({
     isRange: true;
 } & CalendarRange<CalendarDoubleProps>);
 
+// Warning: (ae-forgotten-export) The symbol "CalendarState" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type CalendarStateType = keyof typeof CalendarState;
+
 export { canUseDOM }
 
 export { Caption }
@@ -1023,10 +1028,6 @@ export { WithAutoFocusProps }
 export { withSkeleton }
 
 export { WithSkeletonProps }
-
-// Warnings were encountered during analysis:
-//
-// /Users/vloginevskiy/Projects/Salute_OpenSource/plasma/packages/plasma-hope/src/components/Calendar/CalendarBase.tsx:19:5 - (ae-forgotten-export) The symbol "CalendarStateType" needs to be exported by the entry point index.d.ts
 
 // (No @packageDocumentation comment for this package)
 
