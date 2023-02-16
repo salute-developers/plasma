@@ -20,13 +20,13 @@ describe('plasma-web: Modal', () => {
     const P1 = getComponent('P1');
     const Headline3 = getComponent('Headline1');
 
-    function Demo({ open = false }: { open?: boolean }) {
+    function Demo({ open = false, withBlur = false }: { open?: boolean; withBlur?: boolean }) {
         const [isOpen, setIsOpen] = React.useState(open);
 
         return (
             <>
                 <Button text="Открыть модальное окно" onClick={() => setIsOpen(true)} />
-                <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+                <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} withBlur={withBlur}>
                     <Headline3>{heading}</Headline3>
                     <P1>{text}</P1>
                     <Button text="Закрыть" onClick={() => setIsOpen(false)} />
@@ -150,5 +150,20 @@ describe('plasma-web: Modal', () => {
         cy.get('div').contains('Modal A').should('be.visible');
         cy.get('body').click(5, 5);
         cy.get('#plasma-modals-root').should('be.empty');
+    });
+
+    it('withBlur', () => {
+        mount(
+            <CypressTestDecorator>
+                <NoAnimationStyle />
+                <ModalsProvider>
+                    <Demo withBlur />
+                </ModalsProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').click();
+
+        cy.matchImageSnapshot();
     });
 });
