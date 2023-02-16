@@ -54,10 +54,6 @@ const StyledBodyM = styled(BodyM)`
     color: ${whiteSecondary};
 `;
 
-const Styled2BodyM = styled(BodyM)`
-    color: ${secondary};
-`;
-
 const StyledH4 = styled(H4)`
     margin: 0.25rem 0;
 
