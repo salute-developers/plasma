@@ -11,37 +11,74 @@
 +/// <reference types="react" />
 +
  import { addFocus } from '@salutejs/plasma-core';
+ import { addNotification } from '@salutejs/plasma-hope';
  import { animatedScrollToX } from '@salutejs/plasma-core';
- import { animatedScrollToY } from '@salutejs/plasma-core';
-@@ -32,6 +34,7 @@
+@@ -35,13 +37,14 @@
  import { BodyS } from '@salutejs/plasma-typo';
  import { BodyXS } from '@salutejs/plasma-typo';
  import { BodyXXS } from '@salutejs/plasma-typo';
+-import { Button } from '@salutejs/plasma-hope';
++import { Breakpoint } from '@salutejs/plasma-hope';
 +import { BreakWordProps } from '@salutejs/plasma-core';
- import { Button1 } from '@salutejs/plasma-core';
- import { Button2 } from '@salutejs/plasma-core';
- import type { ButtonContentProps } from '@salutejs/plasma-core';
-@@ -50,7 +53,7 @@
- import { CarouselItem } from '@salutejs/plasma-core';
- import { CarouselItemProps } from '@salutejs/plasma-core';
- import type { CarouselProps as CarouselProps_2 } from '@salutejs/plasma-core';
--import type { ComponentType } from 'react';
+ import { Button1 } from '@salutejs/plasma-hope';
+ import { Button2 } from '@salutejs/plasma-hope';
+-import { ButtonHTMLAttributes } from 'react';
+ import { ButtonProps } from '@salutejs/plasma-hope';
+-import { ButtonView } from '@salutejs/plasma-hope';
+-import { buttonViews } from '@salutejs/plasma-hope';
++import type { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-core';
++import type { ButtonSizeProps } from '@salutejs/plasma-core';
++import type { ButtonViewProps } from '@salutejs/plasma-core';
+ import { Calendar } from '@salutejs/plasma-hope';
+ import { CalendarBase } from '@salutejs/plasma-hope';
+ import { CalendarBaseProps } from '@salutejs/plasma-hope';
+@@ -69,6 +72,7 @@
+ import { CarouselProps } from '@salutejs/plasma-hope';
+ import { Cell } from '@salutejs/plasma-hope';
+ import { CellProps } from '@salutejs/plasma-hope';
 +import { ChangeEvent } from 'react';
+ import { Checkbox } from '@salutejs/plasma-hope';
+ import { CheckboxProps } from '@salutejs/plasma-hope';
+ import { closeNotification } from '@salutejs/plasma-hope';
+@@ -77,10 +81,7 @@
+ import { ColOffsetProps } from '@salutejs/plasma-hope';
+ import { ColProps } from '@salutejs/plasma-hope';
+ import { ColSizeProps } from '@salutejs/plasma-hope';
+-import type { ComponentType } from 'react';
+-import { Container } from '@salutejs/plasma-hope';
  import { convertRoundnessMatrix } from '@salutejs/plasma-core';
- import { CoverProps } from '@salutejs/plasma-core/components/Card/CardContent';
- import type { DetailedHTMLProps } from 'react';
-@@ -58,7 +61,6 @@
+-import type { DetailedHTMLProps } from 'react';
+ import { DisabledProps } from '@salutejs/plasma-core';
+ import { Dropdown } from '@salutejs/plasma-hope';
+ import { DropdownItem } from '@salutejs/plasma-hope';
+@@ -89,15 +90,18 @@
  import { DsplL } from '@salutejs/plasma-typo';
  import { DsplM } from '@salutejs/plasma-typo';
  import { DsplS } from '@salutejs/plasma-typo';
 -import { extractTextFrom } from '@salutejs/plasma-core';
  import { FC } from 'react';
- import type { FieldProps as FieldProps_2 } from '@salutejs/plasma-core';
- import { FlattenSimpleInterpolation } from 'styled-components';
-@@ -77,9 +79,11 @@
- import { Headline3 } from '@salutejs/plasma-core';
- import { Headline4 } from '@salutejs/plasma-core';
- import { HTMLAttributes } from 'react';
+-import type { FieldProps as FieldProps_2 } from '@salutejs/plasma-core';
+-import { FlattenSimpleInterpolation } from 'styled-components';
++import type { FieldProps } from '@salutejs/plasma-core';
+ import { FocusProps } from '@salutejs/plasma-core';
+ import { Footnote1 } from '@salutejs/plasma-hope';
+ import { Footnote2 } from '@salutejs/plasma-hope';
+ import { formatCurrency } from '@salutejs/plasma-core';
+ import { ForwardRefExoticComponent } from 'react';
++import { gridBreakpoints } from '@salutejs/plasma-hope';
++import { gridColumns } from '@salutejs/plasma-hope';
++import { gridGutters } from '@salutejs/plasma-hope';
++import { gridMargins } from '@salutejs/plasma-hope';
++import { gridSizes } from '@salutejs/plasma-hope';
+ import { H1 } from '@salutejs/plasma-typo';
+ import { H2 } from '@salutejs/plasma-typo';
+ import { H3 } from '@salutejs/plasma-typo';
+@@ -108,10 +112,12 @@
+ import { Headline3 } from '@salutejs/plasma-hope';
+ import { Headline4 } from '@salutejs/plasma-hope';
+ import { Headline5 } from '@salutejs/plasma-hope';
+-import { HTMLAttributes } from 'react';
++import type { HTMLAttributes } from 'react';
 +import { Image as Image_2 } from '@salutejs/plasma-core';
  import { ImageBaseProps } from '@salutejs/plasma-core';
 -import type { ImageProps as ImageProps_2 } from '@salutejs/plasma-core';
@@ -49,40 +86,65 @@
  import { InputHTMLAttributes } from '@salutejs/plasma-core';
 +import type { InputProps } from '@salutejs/plasma-core';
  import { KeyboardEvent as KeyboardEvent_2 } from 'react';
- import { LineSkeleton } from '@salutejs/plasma-core';
- import { LineSkeletonProps } from '@salutejs/plasma-core';
-@@ -100,10 +104,10 @@
- import { Popup } from '@salutejs/plasma-core';
- import { PopupProps } from '@salutejs/plasma-core';
- import type { PriceProps as PriceProps_2 } from '@salutejs/plasma-core';
+ import { LineSkeleton } from '@salutejs/plasma-hope';
+ import { LineSkeletonProps } from '@salutejs/plasma-hope';
+@@ -119,6 +125,8 @@
+ import { List } from '@salutejs/plasma-hope';
+ import { ListItem } from '@salutejs/plasma-hope';
+ import { MaxLinesProps } from '@salutejs/plasma-core';
++import { mediaQuery } from '@salutejs/plasma-hope';
++import { MediaQueryFunction } from '@salutejs/plasma-hope';
+ import { Modal } from '@salutejs/plasma-hope';
+ import { ModalProps } from '@salutejs/plasma-hope';
+ import { ModalsProvider } from '@salutejs/plasma-hope';
+@@ -146,14 +154,14 @@
+ import { PriceProps } from '@salutejs/plasma-hope';
+ import { Progress } from '@salutejs/plasma-hope';
+ import { ProgressProps } from '@salutejs/plasma-hope';
 +import { PropsWithChildren } from 'react';
+ import { Radiobox } from '@salutejs/plasma-hope';
+ import { RadioboxProps } from '@salutejs/plasma-hope';
+ import { RadioGroup } from '@salutejs/plasma-hope';
  import { radiuses } from '@salutejs/plasma-core';
  import { Ratio } from '@salutejs/plasma-core';
  import { default as React_2 } from 'react';
 -import { ReactElement } from 'react';
- import { ReactNode } from 'react';
- import { RectSkeleton } from '@salutejs/plasma-core';
- import { RectSkeletonProps } from '@salutejs/plasma-core';
-@@ -118,6 +122,9 @@
- import { SmartPaginationDotsProps as SmartPaginationDotsProps_2 } from '@salutejs/plasma-core';
+-import type { ReactNode } from 'react';
++import { ReactNode } from 'react';
+ import { RectSkeleton } from '@salutejs/plasma-hope';
+ import { RectSkeletonProps } from '@salutejs/plasma-hope';
+ import { RefAttributes } from 'react';
+@@ -161,6 +169,8 @@
+ import { RoundnessProps } from '@salutejs/plasma-core';
+ import { Row } from '@salutejs/plasma-hope';
+ import { ScrollSnapProps } from '@salutejs/plasma-core';
++import type { SelectProps } from '@salutejs/plasma-hope';
++import { SelectViewProps } from '@salutejs/plasma-hope';
+ import { setRef } from '@salutejs/plasma-core';
+ import { shadows } from '@salutejs/plasma-core';
+ import { ShiftProps } from '@salutejs/plasma-core';
+@@ -170,6 +180,9 @@
+ import { SmartPaginationDotsProps } from '@salutejs/plasma-hope';
  import { SnapAlign } from '@salutejs/plasma-core';
  import { SnapType } from '@salutejs/plasma-core';
 +import { SortableContainerProps } from 'react-sortable-hoc';
 +import { SortableElementProps } from 'react-sortable-hoc';
 +import { spacing } from '@salutejs/plasma-core';
  import { SpacingProps } from '@salutejs/plasma-core';
- import type { SpinnerProps as SpinnerProps_2 } from '@salutejs/plasma-core';
- import { SSRProvider } from '@salutejs/plasma-core';
-@@ -126,7 +133,7 @@
- import { SwitchProps } from '@salutejs/plasma-core';
- import type { SyntheticEvent } from 'react';
+ import { Spinner } from '@salutejs/plasma-hope';
+ import { SpinnerProps } from '@salutejs/plasma-hope';
+@@ -179,9 +192,8 @@
+ import { Subtitle } from '@salutejs/plasma-hope';
+ import { Switch } from '@salutejs/plasma-hope';
+ import { SwitchProps } from '@salutejs/plasma-hope';
+-import type { SyntheticEvent } from 'react';
  import { syntheticFocus } from '@salutejs/plasma-core';
 -import type { TabItemProps as TabItemProps_2 } from '@salutejs/plasma-core';
 +import { TabItemProps as TabItemProps_2 } from '@salutejs/plasma-core';
  import { TabsControllerProps as TabsControllerProps_2 } from '@salutejs/plasma-core';
  import type { TabsProps as TabsProps_2 } from '@salutejs/plasma-core';
  import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
-@@ -190,9 +197,36 @@
+@@ -246,8 +258,35 @@
  
  export { applyView }
  
@@ -99,7 +161,7 @@
 +
  export { AsProps }
  
- // @public
++// @public
 +export const AudioPlayer: FC<AudioPlayerProps>;
 +
 +// @public (undocumented)
@@ -115,88 +177,74 @@
 +    url: string;
 +}
 +
-+// @public
- export const Badge: StyledComponent<FC<BadgeProps_2>, any, BadgeProps, never>;
+ export { Badge }
  
- // @public (undocumented)
-@@ -237,58 +271,41 @@
- // @public (undocumented)
- export type Breakpoint = keyof typeof gridBreakpoints;
+ export { BadgeProps }
+@@ -278,10 +317,33 @@
  
+ export { BodyXXS }
+ 
+-// @public (undocumented)
+-export type Breakpoint = keyof typeof gridBreakpoints;
++export { Breakpoint }
+ 
+-export { Button }
 +export { BreakWordProps }
 +
- // @public
--export const Button: ForwardRefExoticComponent<(ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
++// @public
 +export const Button: ForwardRefExoticComponent<(ButtonProps_2<HTMLElement> & {
- text?: ReactNode;
- contentLeft?: ReactNode;
- contentRight?: undefined;
- children?: undefined;
- isLoading?: boolean | undefined;
- loader?: ReactNode;
--} & RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
++text?: ReactNode;
++contentLeft?: ReactNode;
++contentRight?: undefined;
++children?: undefined;
++isLoading?: boolean | undefined;
++loader?: ReactNode;
 +} & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "success" | "warning" | "critical" | "secondary" | "overlay" | "clear">> & RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & {
- text?: ReactNode;
- contentLeft?: undefined;
- contentRight?: ReactNode;
- children?: undefined;
- isLoading?: boolean | undefined;
- loader?: ReactNode;
--} & RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
++text?: ReactNode;
++contentLeft?: undefined;
++contentRight?: ReactNode;
++children?: undefined;
++isLoading?: boolean | undefined;
++loader?: ReactNode;
 +} & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "success" | "warning" | "critical" | "secondary" | "overlay" | "clear">> & RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & {
- text?: undefined;
- contentLeft?: undefined;
- contentRight?: undefined;
- children?: ReactNode;
- isLoading?: boolean | undefined;
- loader?: ReactNode;
--} & RefAttributes<HTMLButtonElement>)>;
++text?: undefined;
++contentLeft?: undefined;
++contentRight?: undefined;
++children?: ReactNode;
++isLoading?: boolean | undefined;
++loader?: ReactNode;
 +} & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "success" | "warning" | "critical" | "secondary" | "overlay" | "clear">> & RefAttributes<HTMLButtonElement>)>;
  
  export { Button1 }
  
- export { Button2 }
+@@ -289,10 +351,6 @@
  
-+// Warning: (ae-forgotten-export) The symbol "ButtonView" needs to be exported by the entry point index.d.ts
-+//
- // @public (undocumented)
- export type ButtonProps = ButtonProps_2 & Partial<ButtonSizeProps> & Partial<ButtonViewProps<ButtonView>> & ButtonContentProps;
+ export { ButtonProps }
  
--// @public (undocumented)
--export type ButtonView = keyof typeof buttonViews;
+-export { ButtonView }
 -
--// @public
--export const buttonViews: {
--    primary: FlattenSimpleInterpolation;
--    success: FlattenSimpleInterpolation;
--    warning: FlattenSimpleInterpolation;
--    critical: FlattenSimpleInterpolation;
--    secondary: FlattenSimpleInterpolation;
--    checked: FlattenSimpleInterpolation;
--    overlay: {
--        backgroundColor: string;
--        color: string;
--    };
--    clear: {
--        backgroundColor: string;
--        color: string;
--    };
--};
+-export { buttonViews }
 -
- // @public
- export const Calendar: React_2.FC<CalendarProps>;
+ export { Calendar }
  
-@@ -404,6 +421,9 @@
- }
+ export { CalendarBase }
+@@ -351,6 +409,9 @@
  
- // @public (undocumented)
+ export { CheckboxProps }
+ 
++// @public (undocumented)
 +export function clearSelection(): void;
 +
-+// @public (undocumented)
- export const closeNotification: (id: string, delay?: number) => void;
+ export { closeNotification }
  
- // @public
-@@ -444,87 +464,73 @@
+ export { Col }
+@@ -363,77 +424,64 @@
+ 
+ export { ColSizeProps }
+ 
+-export { Container }
++// @public
++export const Container: StyledComponent<"div", any, {}, never>;
  
  export { convertRoundnessMatrix }
  
@@ -205,22 +253,11 @@
 +
  export { DisabledProps }
  
- // @public
- export const Dropdown: FC<DropdownProps>;
+ export { Dropdown }
  
--// Warning: (ae-forgotten-export) The symbol "DropdownItemProps_2" needs to be exported by the entry point index.d.ts
-+// Warning: (ae-forgotten-export) The symbol "DropdownItemProps" needs to be exported by the entry point index.d.ts
- //
- // @public
--export const DropdownItem: FC<DropdownItemProps_2>;
-+export const DropdownItem: FC<DropdownItemProps>;
+ export { DropdownItem }
  
-+// @public
-+export const DropdownList: StyledComponent<"ul", any, {}, never>;
-+
-+// Warning: (ae-forgotten-export) The symbol "DropdownUncontrolledProps" needs to be exported by the entry point index.d.ts
-+//
- // @public (undocumented)
+-// @public (undocumented)
 -export interface DropdownItemProps extends DropdownNodeType, Omit<DetailedHTMLProps<HTMLAttributes<HTMLLIElement>, HTMLLIElement>, 'onClick' | 'ref'> {
 -    color?: string;
 -    contentLeft?: ReactNode;
@@ -233,15 +270,11 @@
 -    // (undocumented)
 -    onFocus?: () => void;
 -    // Warning: (ae-forgotten-export) The symbol "OnHover" needs to be exported by the entry point index.d.ts
-+export interface DropdownProps extends Omit<DropdownUncontrolledProps, 'isOpen' | 'hoverIndex'> {
-+    closeOnSelect?: boolean;
-+    // Warning: (ae-forgotten-export) The symbol "OnItemSelect" needs to be exported by the entry point index.d.ts
-     //
+-    //
 -    // (undocumented)
 -    onHover?: OnHover;
-+    // @deprecated
-+    onItemClick?: OnItemSelect;
- }
+-}
++export { DropdownList }
  
 -// @public (undocumented)
 -export interface DropdownItemType {
@@ -254,14 +287,16 @@
 -    // (undocumented)
 -    value: string | number;
 -}
++export { DropdownProps }
+ 
+-export { DropdownList }
 +export { DsplL }
 +
 +export { DsplM }
 +
 +export { DsplS }
- 
- // @public
--export const DropdownList: StyledComponent<"ul", any, {}, never>;
++
++// @public
 +export const Editable: React_2.FC<EditableProps>;
  
  // @public (undocumented)
@@ -269,23 +304,23 @@
 +export interface EditableProps {
 +    icon?: React_2.ReactNode;
 +    maxLength?: number;
-     // (undocumented)
--    isActive?: boolean;
++    // (undocumented)
 +    onBlur?: React_2.FocusEventHandler<HTMLDivElement>;
 +    // Warning: (ae-forgotten-export) The symbol "RefElement" needs to be exported by the entry point index.d.ts
 +    //
-+    // (undocumented)
+     // (undocumented)
+-    isActive?: boolean;
 +    onChange?: React_2.FormEventHandler<RefElement>;
-+    // (undocumented)
+     // (undocumented)
+-    isDisabled?: boolean;
 +    onPaste?: React_2.ClipboardEventHandler<HTMLDivElement>;
 +    placeholder?: string;
      // (undocumented)
--    isDisabled?: boolean;
+-    items?: Array<DropdownNodeType>;
 +    spellCheck?: 'true' | 'false';
 +    // Warning: (ae-forgotten-export) The symbol "typography" needs to be exported by the entry point index.d.ts
 +    textComponent: typeof typography[keyof typeof typography];
-     // (undocumented)
--    items?: Array<DropdownNodeType>;
++    // (undocumented)
 +    value?: string;
  }
  
@@ -303,16 +338,7 @@
 +    minColWidth: number;
  }
  
--// Warning: (ae-forgotten-export) The symbol "DropdownUncontrolledProps_2" needs to be exported by the entry point index.d.ts
--//
--// @public (undocumented)
--export interface DropdownProps extends Omit<DropdownUncontrolledProps_2, 'isOpen' | 'hoverIndex'> {
--    closeOnSelect?: boolean;
--    // Warning: (ae-forgotten-export) The symbol "OnItemSelect_2" needs to be exported by the entry point index.d.ts
--    //
--    // @deprecated
--    onItemClick?: OnItemSelect_2;
--}
+-export { DropdownProps }
 -
 -export { DsplL }
 -
@@ -325,9 +351,62 @@
  export { FocusProps }
  
  export { Footnote1 }
-@@ -593,14 +599,11 @@
- // @public (undocumented)
- export const Headline5: StyledComponent<"div", any, {}, never>;
+@@ -442,44 +490,15 @@
+ 
+ export { formatCurrency }
+ 
+-// @public (undocumented)
+-export const gridBreakpoints: {
+-    XXL: number;
+-    XL: number;
+-    L: number;
+-    M: number;
+-    S: number;
+-};
+-
+-// @public (undocumented)
+-export const gridColumns: {
+-    XXL: number;
+-    XL: number;
+-    L: number;
+-    M: number;
+-    S: number;
+-};
+-
+-// @public (undocumented)
+-export const gridGutters: {
+-    XXL: number;
+-    XL: number;
+-    L: number;
+-    M: number;
+-    S: number;
+-};
+-
+-// @public (undocumented)
+-export const gridMargins: {
+-    XXL: number;
+-    XL: number;
+-    L: number;
+-    M: number;
+-    S: number;
+-};
++export { gridBreakpoints }
+ 
+-// @public (undocumented)
+-export const gridSizes: ("XXL" | "XL" | "L" | "M" | "S")[];
++export { gridColumns }
++
++export { gridGutters }
++
++export { gridMargins }
++
++export { gridSizes }
+ 
+ export { H1 }
+ 
+@@ -501,14 +520,11 @@
+ 
+ export { Headline5 }
  
 -// @public
 -const Image_2: React.FC<ImageProps>;
@@ -341,7 +420,21 @@
  
  export { InputHTMLAttributes }
  
-@@ -650,13 +653,6 @@
+@@ -524,11 +540,9 @@
+ 
+ export { MaxLinesProps }
+ 
+-// @public
+-export const mediaQuery: (breakpoint: Breakpoint, deviceScale?: number) => MediaQueryFunction;
++export { mediaQuery }
+ 
+-// @public (undocumented)
+-export type MediaQueryFunction = (content: FlattenSimpleInterpolation | string) => FlattenSimpleInterpolation;
++export { MediaQueryFunction }
+ 
+ export { Modal }
+ 
+@@ -540,13 +554,6 @@
  
  export { monthShortName }
  
@@ -352,22 +445,10 @@
 -    value: Array<string | number> | null;
 -}
 -
- // @public
- const Notification_2: React_2.ForwardRefExoticComponent<NotificationProps & React_2.RefAttributes<HTMLDivElement>>;
  export { Notification_2 as Notification }
-@@ -674,10 +670,8 @@
-     children: ReactNode;
- }>;
  
--// Warning: (ae-forgotten-export) The symbol "Breakpoint_2" needs to be exported by the entry point index.d.ts
--//
- // @public (undocumented)
--export const offsets: Record<Breakpoint_2, keyof ColOffsetProps>;
-+export const offsets: Record<Breakpoint, keyof ColOffsetProps>;
- 
- export { OutlinedProps }
- 
-@@ -717,6 +711,11 @@
+ export { NotificationProps }
+@@ -583,6 +590,11 @@
  
  export { PopupProps }
  
@@ -376,15 +457,12 @@
 +// @public
 +export const PreviewGallery: FC<PreviewGalleryProps & HTMLAttributes<HTMLDivElement> & SortableContainerProps>;
 +
- // @public
- export const Price: StyledComponent<FC<PriceProps_2>, any, {}, never>;
+ export { Price }
  
-@@ -766,45 +765,25 @@
- 
+ export { PriceProps }
+@@ -614,67 +626,27 @@
  export { ScrollSnapProps }
  
-+// Warning: (ae-forgotten-export) The symbol "SelectViewProps" needs to be exported by the entry point index.d.ts
-+//
  // @public
 -export const Select: <T>(props: ({
 +export const Select: React_2.ForwardRefExoticComponent<({
@@ -427,18 +505,26 @@
 -//
  // @public (undocumented)
 -export const SelectDropdown: StyledComponent<FC<DropdownUncontrolledProps>, any, {}, never>;
--
++export const SelectGroup: StyledComponent<"div", any, {}, never>;
+ 
 -// @public (undocumented)
 -export interface SelectDropdownProps extends DropdownUncontrolledProps {
 -}
-+export const SelectGroup: StyledComponent<"div", any, {}, never>;
++export { SelectProps }
  
  // @public (undocumented)
- export type SelectProps<T = any> = ({
-@@ -819,15 +798,7 @@
- } & Omit<SelectViewProps, 'onItemClick' | 'value' | 'label' | 'multiselect'>;
- 
- // @public (undocumented)
+-export type SelectProps<T = any> = ({
+-    multiselect?: false;
+-    separator?: never;
+-} | {
+-    multiselect?: true;
+-    separator?: string;
+-}) & {
+-    value: T;
+-    onChange?: (value: T) => void;
+-} & Omit<SelectViewProps, 'onItemClick' | 'value' | 'label' | 'multiselect'>;
+-
+-// @public (undocumented)
 -export type SelectRefElement = HTMLButtonElement;
 -
 -// @public
@@ -452,22 +538,21 @@
  
  export { setRef }
  
-@@ -836,17 +807,20 @@
+@@ -682,16 +654,19 @@
+ 
  export { ShiftProps }
  
- // @public (undocumented)
+-// @public (undocumented)
 -export interface SingleSelectProps extends Omit<SelectViewProps, 'onItemClick' | 'value' | 'label' | 'multiselect'> {
 -    onChange?: (value: string | number | null) => void;
 -    value: string | number | null;
 -}
 -
--// @public (undocumented)
--export const sizes: Record<Breakpoint_2, keyof ColSizeProps>;
-+export const sizes: Record<Breakpoint, keyof ColSizeProps>;
+ export { sizes }
  
  export { SkeletonGradientProps }
  
- // @public
++// @public
 +export const Slider: React_2.FC<SliderProps>;
 +
 +// Warning: (ae-forgotten-export) The symbol "SliderProps_2" needs to be exported by the entry point index.d.ts
@@ -476,11 +561,10 @@
 +// @public (undocumented)
 +export type SliderProps = SliderProps_2 | SliderProps_3;
 +
-+// @public
- export const SmartPaginationDots: React_2.FC<SmartPaginationDotsProps>;
+ export { SmartPaginationDots }
  
- // @public (undocumented)
-@@ -858,6 +832,8 @@
+ export { SmartPaginationDotsProps }
+@@ -700,6 +675,8 @@
  
  export { SnapType }
  
@@ -488,8 +572,8 @@
 +
  export { SpacingProps }
  
- // @public
-@@ -882,10 +858,12 @@
+ export { Spinner }
+@@ -719,10 +696,12 @@
  export { syntheticFocus }
  
  // @public
@@ -504,7 +588,7 @@
  }
  
  // @public
-@@ -900,6 +878,13 @@
+@@ -737,6 +716,13 @@
  
  // @public (undocumented)
  export interface TabsProps extends TabsProps_2 {
@@ -518,7 +602,7 @@
  }
  
  // @public
-@@ -908,13 +893,11 @@
+@@ -745,13 +731,11 @@
  export { TextareaHTMLAttributes }
  
  // @public (undocumented)
@@ -535,7 +619,7 @@
  }
  
  export { TextareaResize }
-@@ -922,11 +905,13 @@
+@@ -759,11 +743,13 @@
  // @public
  export const TextField: React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
  
@@ -543,7 +627,7 @@
 -//
  // @public (undocumented)
 -export interface TextFieldProps extends Pick<FieldProps, 'contentLeft' | 'contentRight' | 'helperText'>, Omit<InputProps, 'hasContentLeft' | 'hasContentRight'> {
-+export interface TextFieldProps extends Omit<FieldProps_2, 'size'>, InputProps {
++export interface TextFieldProps extends Omit<FieldProps, 'size'>, InputProps {
 +    caption?: string;
      onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
 +    size?: 'l' | 'm' | 's' | 'xs';
@@ -552,7 +636,7 @@
  }
  
  export { TextL }
-@@ -972,6 +957,44 @@
+@@ -800,6 +786,44 @@
  
  export { Underline }
  
@@ -597,7 +681,7 @@
  export { useDebouncedFunction }
  
  export { useForkRef }
-@@ -980,27 +1003,28 @@
+@@ -808,27 +832,28 @@
  
  export { useToast }
  
