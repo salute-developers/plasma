@@ -1,3 +1,17 @@
+# v1.97.1 (Thu Feb 16 2023)
+
+#### 🐛 Bug Fix
+
+- build: add api reports to plasma-core & hope [#349](https://github.com/salute-developers/plasma/pull/349) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.97.0 (Wed Feb 15 2023)
 
 #### 🚀 Enhancement

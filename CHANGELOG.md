@@ -1,3 +1,29 @@
+# (Thu Feb 16 2023)
+
+#### 🐛 Bug Fix
+
+- build: use only prettier on json files [#349](https://github.com/salute-developers/plasma/pull/349) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: Remove showcase package from utils [#348](https://github.com/salute-developers/plasma/pull/348) ([@neretin-trike](https://github.com/neretin-trike))
+- build: configure renovate [#350](https://github.com/salute-developers/plasma/pull/350) ([@Yeti-or](https://github.com/Yeti-or))
+- Add renovate.json [#350](https://github.com/salute-developers/plasma/pull/350) ([@renovate[bot]](https://github.com/renovate[bot]))
+- `@salutejs/plasma-b2c@1.141.1`, `@salutejs/plasma-core@1.97.1`, `@salutejs/plasma-hope@0.1.1`, `@salutejs/plasma-web@1.167.1`
+  - build: add api reports to plasma-core & hope [#349](https://github.com/salute-developers/plasma/pull/349) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.141.1`, `@salutejs/plasma-hope@0.1.1`, `@salutejs/plasma-web@1.167.1`
+  - fix(plasma-hope): export CalendarStateType [#349](https://github.com/salute-developers/plasma/pull/349) ([@Yeti-or](https://github.com/Yeti-or))
+  - build: add api-extractor [#342](https://github.com/salute-developers/plasma/pull/342) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-hope@0.1.1`
+  - fix(plasma-hope): export CalendarStateType [#349](https://github.com/salute-developers/plasma/pull/349) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.141.1`, `@salutejs/plasma-web@1.167.1`
+  - build: improve api-report [#349](https://github.com/salute-developers/plasma/pull/349) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 3
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Wed Feb 15 2023)
 
 #### 🚀 Enhancement
