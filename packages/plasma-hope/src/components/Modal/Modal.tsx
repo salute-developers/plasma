@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState, useContext, FC } from 'react';
 import ReactDOM from 'react-dom';
 import styled, { css, keyframes, createGlobalStyle } from 'styled-components';
 import { useUniqId } from '@salutejs/plasma-core';
@@ -114,15 +114,18 @@ const NoScroll = createGlobalStyle`
  * Модальное окно.
  * Управляет показом/скрытием, подложкой и анимацией визуальной части модального окна.
  */
-export const Modal: React.FC<ModalProps> = ({ id, isOpen, onClose, ...rest }) => {
+export const Modal: FC<ModalProps> = ({ id, isOpen, onClose, withBlur, ...rest }) => {
     const uniqId = useUniqId();
     const innerId = id || uniqId;
-    const wrapperRef = React.useRef<HTMLDivElement | null>(null);
-    const portalRef = React.useRef<HTMLElement | null>(null);
-    const controller = React.useContext(ModalsContext);
-    const [, forceRender] = React.useState(false);
 
-    React.useEffect(() => {
+    const wrapperRef = useRef<HTMLDivElement | null>(null);
+    const portalRef = useRef<HTMLElement | null>(null);
+
+    const controller = useContext(ModalsContext);
+
+    const [, forceRender] = useState(false);
+
+    useEffect(() => {
         let portal = document.getElementById(MODALS_PORTAL_ID);
 
         if (!portal) {
@@ -146,9 +149,9 @@ export const Modal: React.FC<ModalProps> = ({ id, isOpen, onClose, ...rest }) =>
         return () => {
             controller.unregister(innerId);
         };
-    }, []);
+    }, [controller, innerId]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const onKeyDown = (event: KeyboardEvent) => {
             if (
                 event.keyCode === ESCAPE_KEYCODE &&
@@ -160,11 +163,13 @@ export const Modal: React.FC<ModalProps> = ({ id, isOpen, onClose, ...rest }) =>
                 onClose?.();
             }
         };
+
         window.addEventListener('keydown', onKeyDown);
+
         return () => {
             window.removeEventListener('keydown', onKeyDown);
         };
-    }, []);
+    }, [onClose]);
 
     if (isOpen) {
         controller.register(innerId);
