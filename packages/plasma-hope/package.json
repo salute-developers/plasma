@@ -1,13 +1,29 @@
 {
     "name": "@salutejs/plasma-hope",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Salute Design System / Internal React UI kit for web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    "keywords": ["design-system", "react-components", "ui-kit", "react"],
+    "keywords": [
+        "design-system",
+        "react-components",
+        "ui-kit",
+        "react"
+    ],
     "main": "index.js",
     "module": "es/index.js",
     "types": "index.d.ts",
-    "files": ["components", "es", "hocs", "hooks", "mixins", "tokens", "types", "utils", "index.d.ts", "index.js"],
+    "files": [
+        "components",
+        "es",
+        "hocs",
+        "hooks",
+        "mixins",
+        "tokens",
+        "types",
+        "utils",
+        "index.d.ts",
+        "index.js"
+    ],
     "repository": {
         "type": "git",
         "url": "ssh://git@github.com:salute-developers/plasma.git",
@@ -15,7 +31,7 @@
     },
     "dependencies": {
         "@popperjs/core": "2.9.2",
-        "@salutejs/plasma-core": "1.97.0",
+        "@salutejs/plasma-core": "1.97.1",
         "@salutejs/plasma-typo": "0.31.0",
         "react-focus-lock": "2.8.1",
         "react-popper": "2.2.5",
@@ -37,8 +53,8 @@
         "@microsoft/api-extractor": "7.34.4",
         "@salutejs/plasma-colors": "0.3.0",
         "@salutejs/plasma-cy-utils": "0.43.0",
-        "@salutejs/plasma-icons": "1.125.0",
-        "@salutejs/plasma-sb-utils": "0.95.0",
+        "@salutejs/plasma-icons": "1.125.1",
+        "@salutejs/plasma-sb-utils": "0.95.1",
         "@salutejs/plasma-tokens-b2b": "1.10.0",
         "@salutejs/plasma-tokens-b2c": "0.19.0",
         "@salutejs/plasma-tokens-web": "1.25.0",
@@ -82,9 +98,14 @@
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
+        "ignoreFiles": [
+            "src/**/*component-test.tsx",
+            "src/**/*stories.tsx"
+        ],
         "atLeast": 99.96
     },
-    "contributors": ["Vasiliy Loginevskiy"],
+    "contributors": [
+        "Vasiliy Loginevskiy"
+    ],
     "sideEffects": false
 }
