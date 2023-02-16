@@ -1,4 +1,4 @@
-export { CalendarBase } from './CalendarBase';
+export { CalendarBase, CalendarStateType } from './CalendarBase';
 export { CalendarDouble } from './CalendarDouble';
 export { Calendar, CalendarBaseRange, CalendarDoubleRange } from './Calendar';
 

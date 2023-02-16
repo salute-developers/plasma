@@ -12,6 +12,8 @@ import { useKeyNavigation } from './hooks';
 import { getInitialState, reducer } from './store/reducer';
 import { ActionType } from './store/types';
 
+export { CalendarStateType };
+
 export type CalendarBaseProps = Calendar & {
     /**
      * Тип отображения календаря: дни, месяца, года.
