@@ -1,6 +1,17 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
-  ]
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": ["config:base"],
+    "prHourlyLimit": 12,
+    "schedule": ["every weekday"],
+    "ignoreDeps": [
+        "react",
+        "react-dom",
+        "cypress",
+        "node",
+        "npm",
+        "lerna",
+        "typescript",
+        "eslint",
+        "storybook-addon-performance"
+    ]
 }
