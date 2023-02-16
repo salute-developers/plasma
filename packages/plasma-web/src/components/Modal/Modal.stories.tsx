@@ -18,10 +18,24 @@ const longText = `Если после применения правила Лоп
 export default {
     title: 'Controls/Modal',
     decorators: [InSpacingDecorator],
+    argTypes: {
+        withBlur: {
+            control: {
+                type: 'boolean',
+            },
+        },
+    },
 } as Meta;
 
-export const Default: Story<{ heading: string; text: string }> = ({ heading, text }) => (
+type ModalStoryProps = { heading: string; text: string; withBlur?: boolean };
+
+const StyledButton = styled(Button)`
+    margin-right: 1rem;
+`;
+
+export const Default: Story<ModalStoryProps> = ({ heading, text }) => (
     <div style={{ margin: '-1rem', padding: '1rem', background: 'rgba(8, 8, 8, 0.2)' }}>
+        {/* eslint-disable-next-line no-alert */}
         <ModalView onClose={() => alert('Close!')}>
             <Headline1>{heading}</Headline1>
             <P1>{text}</P1>
@@ -48,7 +62,7 @@ const StyledWrapper = styled.div`
     height: 1200px;
 `;
 
-export const LiveDemo = () => {
+export const LiveDemo: Story<ModalStoryProps> = ({ withBlur }) => {
     const root = React.useRef<HTMLElement | null>(null);
     const [isOpenA, setIsOpenA] = React.useState(false);
     const [isOpenB, setIsOpenB] = React.useState(false);
@@ -83,7 +97,7 @@ export const LiveDemo = () => {
         <SSRProvider>
             <StyledWrapper>
                 <ModalsProvider>
-                    <Button text="Открыть окно A" onClick={() => setIsOpenA(true)} />
+                    <StyledButton text="Открыть окно A" onClick={() => setIsOpenA(true)} />
                     <Button text="Открыть окно A на всю высоту" onClick={() => setIsOpenFullHeightA(true)} />
 
                     <h1>БОЖЕСТВЕННАЯ КОМЕДИЯ. ДАНТЕ АЛИГЬЕРИ</h1>
@@ -107,12 +121,13 @@ export const LiveDemo = () => {
                         isOpen={isOpenA}
                         onClose={onCloseA}
                         aria-labelledby="example-modalA-title"
-                        closeButtonAriaLabel="Закрыть (кнока-крестик)"
+                        closeButtonAriaLabel="Закрыть (кнопка-крестик)"
+                        withBlur={withBlur}
                     >
                         <Headline3 id="example-modalA-title" mb="8x">
                             Модальное окно A
                         </Headline3>
-                        <Button view="primary" text="Открыть окно B" onClick={() => setIsOpenB(true)} />
+                        <StyledButton view="primary" text="Открыть окно B" onClick={() => setIsOpenB(true)} />
                         <Button text="Закрыть" onClick={onCloseA} />
                     </Modal>
 
@@ -121,12 +136,12 @@ export const LiveDemo = () => {
                         isOpen={isOpenB}
                         onClose={onCloseB}
                         aria-labelledby="example-modalB-title"
-                        closeButtonAriaLabel="Закрыть (кнока-крестик)"
+                        closeButtonAriaLabel="Закрыть (кнопка-крестик)"
                     >
                         <Headline3 id="example-modalB-title" mb="8x">
                             Модальное окно B
                         </Headline3>
-                        <Button view="primary" text="Открыть окно C" onClick={() => setIsOpenC(true)} />
+                        <StyledButton view="primary" text="Открыть окно C" onClick={() => setIsOpenC(true)} />
                         <Button text="Закрыть" onClick={onCloseB} />
 
                         <Modal
@@ -134,7 +149,7 @@ export const LiveDemo = () => {
                             isOpen={isOpenC}
                             onClose={onCloseC}
                             aria-labelledby="example-modalC-title"
-                            closeButtonAriaLabel="Закрыть (кнока-крестик)"
+                            closeButtonAriaLabel="Закрыть (кнопка-крестик)"
                         >
                             <Headline3 id="example-modalC-title" mb="8x">
                                 Модальное окно C (вложенное)
@@ -152,12 +167,12 @@ export const LiveDemo = () => {
                         isOpen={isOpenFullHeightA}
                         onClose={onCloseFullHeightA}
                         aria-labelledby="example-modalFullHeightA-title"
-                        closeButtonAriaLabel="Закрыть (кнока-крестик)"
+                        closeButtonAriaLabel="Закрыть (кнопка-крестик)"
                     >
                         <Headline3 id="example-modalFullHeightA-title" mb="8x">
                             Модальное окно на всю высоту
                         </Headline3>
-                        <Button
+                        <StyledButton
                             view="primary"
                             text="Открыть окно B на всю высоту"
                             onClick={() => setIsOpenFullHeightB(true)}
@@ -170,12 +185,12 @@ export const LiveDemo = () => {
                         isOpen={isOpenFullHeightB}
                         onClose={onCloseFullHeightB}
                         aria-labelledby="example-modalFullHeightB-title"
-                        closeButtonAriaLabel="Закрыть (кнока-крестик)"
+                        closeButtonAriaLabel="Закрыть (кнопка-крестик)"
                     >
                         <Headline3 id="example-modalFullHeightB-title" mb="8x">
                             Модальное окно B
                         </Headline3>
-                        <Button
+                        <StyledButton
                             view="primary"
                             text="Открыть окно C на всю высоту"
                             onClick={() => setIsOpenFullHeightC(true)}
@@ -187,7 +202,7 @@ export const LiveDemo = () => {
                             isOpen={isOpenFullHeightC}
                             onClose={onCloseFullHeightC}
                             aria-labelledby="example-modalFullHeightC-title"
-                            closeButtonAriaLabel="Закрыть (кнока-крестик)"
+                            closeButtonAriaLabel="Закрыть (кнопка-крестик)"
                         >
                             <Headline3 id="example-modalFullHeightC-title" mb="8x">
                                 Модальное окно C на всю высоту (вложенное)
@@ -203,4 +218,8 @@ export const LiveDemo = () => {
             </StyledWrapper>
         </SSRProvider>
     );
+};
+
+LiveDemo.args = {
+    withBlur: false,
 };
