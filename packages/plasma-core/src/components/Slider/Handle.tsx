@@ -4,7 +4,7 @@ import Draggable, { DraggableEventHandler } from 'react-draggable';
 
 import { HandleProps } from './types';
 import { getSliderThumbValue, getOffsets } from './utils';
-import { Thumb } from './Thumb';
+import { Thumb } from './ThumbBase';
 
 // TODO: PLASMA-1707
 declare module 'react-draggable' {

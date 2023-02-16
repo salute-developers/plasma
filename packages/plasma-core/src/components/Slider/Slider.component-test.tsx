@@ -7,7 +7,7 @@ const dragAndDrop = (chainableSelector: Cypress.Chainable, coord: { clientX: num
     chainableSelector.trigger('mousedown').trigger('mousemove', coord).trigger('mouseup');
 };
 
-describe('plasma-b2c: Slider', () => {
+describe('plasma-core: Slider', () => {
     const Slider = getComponent('Slider');
     const Badge = getComponent('Badge');
     const sliderThumbSelector = 'div > div + div > div';

@@ -1,12 +1,9 @@
 import React, { KeyboardEvent, useCallback } from 'react';
 import styled from 'styled-components';
-import { surfaceLiquid03, white } from '@salutejs/plasma-core';
-import { accent } from '@salutejs/plasma-tokens-b2c';
 import { DraggableData } from 'react-draggable';
 
 import { ThumbProps } from './types';
 import { getSliderThumbValue } from './utils';
-import { handleBorderWidth, handleDiameter } from './SliderBase';
 
 const KeyboardSupport = {
     PageUp: 33,
@@ -19,26 +16,13 @@ const KeyboardSupport = {
     ArrowDown: 40,
 };
 
-const SliderThumb = styled.div<{ disabled?: boolean }>`
-    width: ${handleDiameter}rem;
-    height: ${handleDiameter}rem;
-
-    border: ${handleBorderWidth}rem solid ${surfaceLiquid03};
+export const ThumbBase = styled.div<{ disabled?: boolean }>`
     border-radius: 50%;
 
     background-clip: content-box;
-    background-color: ${white};
     box-sizing: content-box;
 
     transition: transform 0.1s ease-in-out;
-
-    &:hover {
-        transform: scale(1.08);
-    }
-
-    &:active {
-        transform: scale(0.92);
-    }
 
     &:focus {
         outline: none;
@@ -47,10 +31,12 @@ const SliderThumb = styled.div<{ disabled?: boolean }>`
     &:not([disabled]) {
         &.focus-visible,
         &[data-focus-visible-added] {
-            border-color: ${accent};
+            border-color: currentColor;
         }
     }
 `;
+
+export type Thumb = typeof ThumbBase;
 
 export const Thumb = ({
     onChangeCommitted,
@@ -63,6 +49,7 @@ export const Thumb = ({
     ariaValueMin = min,
     ariaLabel,
     multipleStepSize,
+    thumb: ThumbAbstract,
     ...rest
 }: ThumbProps) => {
     const onKeyPress = useCallback(
@@ -134,7 +121,7 @@ export const Thumb = ({
     );
 
     return (
-        <SliderThumb
+        <ThumbAbstract
             role="slider"
             aria-label={ariaLabel}
             aria-valuemin={ariaValueMin}

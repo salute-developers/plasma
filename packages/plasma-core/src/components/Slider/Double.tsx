@@ -2,24 +2,13 @@ import React from 'react';
 
 import { SliderBase } from './SliderBase';
 import { Handle, HandleProps } from './Handle';
+import { SliderBaseProps, ThumbProp } from './types';
 
-export interface SliderProps {
-    /**
-     * Минимальное значение
-     */
-    min: number;
-    /**
-     * Максимальное значение
-     */
-    max: number;
+export interface SliderProps extends SliderBaseProps, ThumbProp {
     /**
      * Текущее значение
      */
     value: number[];
-    /**
-     * Компонент неактивен
-     */
-    disabled?: boolean;
     /**
      * Ярлык, определяющий назначение ползунка, например «Минимальная цена» [a11y].
      */
@@ -27,7 +16,7 @@ export interface SliderProps {
     /**
      * Размера увеличенного шага (для клавиш PageUp, PageDown).
      * Указывает процентное отношение от максимально возможного значения.
-     * Указава значение 20 при максимуме в 100, получим 20%.
+     * Указав значение 20 при максимуме в 100, получим 20%.
      */
     multipleStepSize?: number;
     /**
@@ -56,6 +45,8 @@ export const Slider: React.FC<SliderProps> = ({
     onChange,
     ariaLabel,
     multipleStepSize = 10,
+    thumb,
+    ...rest
 }) => {
     const [state, setState] = React.useState({
         stepSize: 0,
@@ -72,17 +63,19 @@ export const Slider: React.FC<SliderProps> = ({
     const firstHandleRef = React.useRef<HTMLDivElement | null>(null);
     const secondHandleRef = React.useRef<HTMLDivElement | null>(null);
 
+    const { stepSize } = state;
+
     React.useEffect(() => {
         const firstLocalValue = Math.min(Math.max(value[0], min), max) - min;
         const secondLocalValue = Math.min(Math.max(value[1], min), max) - min;
         setState((prevState) => ({
             ...prevState,
-            railFillXPosition: state.stepSize * firstLocalValue,
-            railFillWidth: state.stepSize * secondLocalValue - state.stepSize * firstLocalValue,
-            xFirstHandle: state.stepSize * firstLocalValue,
-            xSecondHandle: state.stepSize * secondLocalValue,
+            railFillXPosition: stepSize * firstLocalValue,
+            railFillWidth: stepSize * secondLocalValue - stepSize * firstLocalValue,
+            xFirstHandle: stepSize * firstLocalValue,
+            xSecondHandle: stepSize * secondLocalValue,
         }));
-    }, [value, state.stepSize, min]);
+    }, [value, stepSize, min, max]);
 
     const setStepSize = React.useCallback((newStepSize: number) => {
         setState((prevState) => ({
@@ -172,6 +165,7 @@ export const Slider: React.FC<SliderProps> = ({
             setStepSize={setStepSize}
             railFillWidth={state.railFillWidth}
             railFillXPosition={state.railFillXPosition}
+            {...rest}
         >
             <Handle
                 ref={firstHandleRef}
@@ -188,6 +182,7 @@ export const Slider: React.FC<SliderProps> = ({
                 zIndex={state.firstHandleZIndex}
                 value={currentFirstSliderValue}
                 ariaLabel={ariaLabelLeft}
+                thumb={thumb}
             />
             <Handle
                 ref={secondHandleRef}
@@ -205,6 +200,7 @@ export const Slider: React.FC<SliderProps> = ({
                 zIndex={state.secondHandleZIndex}
                 value={Math.max(state.secondValue, min)}
                 ariaLabel={ariaLabelRight}
+                thumb={thumb}
             />
         </SliderBase>
     );

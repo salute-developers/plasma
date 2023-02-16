@@ -8,10 +8,11 @@ export type SliderProps = SingleSliderProps | DoubleSliderProps;
 const isSingleValueProps = (props: SliderProps): props is SingleSliderProps => typeof props.value === 'number';
 
 /**
- * Слайдер позволяет определить числовое значение в пределах указаного промежутка. Можно указать два значения.
+ * Слайдер позволяет определить числовое значение в пределах указанного промежутка.
+ * Можно указать два значения.
  * Только для приложения Салют.
  */
-export const Slider: React.FC<SliderProps> = (props) => {
+export const SliderCore: React.FC<SliderProps> = (props) => {
     if (isSingleValueProps(props)) {
         return <SliderSingleValue {...props} />;
     }
