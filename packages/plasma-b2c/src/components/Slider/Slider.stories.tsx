@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { Story } from '@storybook/react';
 
-import { Slider } from './Slider';
-import { SliderProps } from './Single';
-import { SliderProps as DoubleSliderProps } from './Double';
+import { Slider, SliderProps, SliderProps as DoubleSliderProps } from '.';
 
 const propsToDisable = ['value', 'onChangeCommitted'];
 

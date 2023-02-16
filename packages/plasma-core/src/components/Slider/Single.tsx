@@ -2,24 +2,13 @@ import React from 'react';
 
 import { SliderBase } from './SliderBase';
 import { Handle, HandleProps } from './Handle';
+import { SliderBaseProps, ThumbProp } from './types';
 
-export interface SliderProps {
-    /**
-     * Минимальное значение
-     */
-    min: number;
-    /**
-     * Максимальное значение
-     */
-    max: number;
+export interface SliderProps extends SliderBaseProps, ThumbProp {
     /**
      * Текущее значение
      */
     value: number;
-    /**
-     * Компонент неактивен
-     */
-    disabled?: boolean;
     /**
      * Ярлык, определяющий назначение ползунка, например «Минимальная цена» [a11y].
      */
@@ -27,7 +16,7 @@ export interface SliderProps {
     /**
      * Размера увеличенного шага (для клавиш PageUp, PageDown).
      * Указывает процентное отношение от максимально возможного значения.
-     * Указава значение 20 при максимуме в 100, получим 20%.
+     * Указав значение 20 при максимуме в 100, получим 20%.
      */
     multipleStepSize?: number;
     /**
@@ -49,6 +38,8 @@ export const Slider: React.FC<SliderProps> = ({
     onChange,
     ariaLabel,
     multipleStepSize = 10,
+    thumb,
+    ...rest
 }) => {
     const [state, setState] = React.useState({
         xHandle: 0,
@@ -56,16 +47,17 @@ export const Slider: React.FC<SliderProps> = ({
         railFillWidth: 0,
     });
 
+    const { stepSize } = state;
+
     React.useEffect(() => {
         const localValue = Math.min(Math.max(value, min), max) - min;
-        const { stepSize } = state;
 
         setState((prevState) => ({
             ...prevState,
             xHandle: stepSize * localValue,
             railFillWidth: stepSize * localValue,
         }));
-    }, [value, state.stepSize, min]);
+    }, [value, stepSize, min, max]);
 
     const setStepSize = React.useCallback((newStepSize: number) => {
         setState((prevState) => ({
@@ -110,6 +102,7 @@ export const Slider: React.FC<SliderProps> = ({
             setStepSize={setStepSize}
             onChange={onHandleChangeCommitted}
             railFillWidth={state.railFillWidth}
+            {...rest}
         >
             <Handle
                 stepSize={state.stepSize}
@@ -122,6 +115,7 @@ export const Slider: React.FC<SliderProps> = ({
                 disabled={disabled}
                 ariaLabel={ariaLabel}
                 multipleStepSize={multipleStepSize}
+                thumb={thumb}
             />
         </SliderBase>
     );

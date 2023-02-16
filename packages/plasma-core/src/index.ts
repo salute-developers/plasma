@@ -21,6 +21,7 @@ export * from './components/Badge';
 export * from './components/Image';
 export * from './components/Toast';
 export * from './components/Typography';
+export * from './components/Slider';
 export * from './types';
 export * from './tokens';
 export * from './utils';
