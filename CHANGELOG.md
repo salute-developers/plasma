@@ -1,3 +1,23 @@
+# (Fri Feb 17 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-theme-builder): Update redirectURI for auth request [#345](https://github.com/salute-developers/plasma/pull/345) ([@neretin-trike](https://github.com/neretin-trike))
+- build: remove obscure versions [#351](https://github.com/salute-developers/plasma/pull/351) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.141.2`, `@salutejs/plasma-core@1.97.2`, `@salutejs/plasma-hope@0.1.2`, `@salutejs/plasma-icons@1.125.2`, `@salutejs/plasma-temple@1.136.2`, `@salutejs/plasma-tokens-b2b@1.10.1`, `@salutejs/plasma-tokens-b2c@0.19.1`, `@salutejs/plasma-tokens-web@1.25.1`, `@salutejs/plasma-tokens@1.36.1`, `@salutejs/plasma-ui@1.169.2`, `@salutejs/plasma-web@1.167.2`, `@salutejs/plasma-cy-utils@0.43.1`, `@salutejs/plasma-sb-utils@0.95.2`
+  - ci: fix package-locks [#352](https://github.com/salute-developers/plasma/pull/352) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### ⚠️ Pushed to `master`
+
+- ci: change renovate schedule ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Thu Feb 16 2023)
 
 #### 🐛 Bug Fix
