@@ -1,3 +1,22 @@
+# v1.37.0 (Fri Feb 17 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): Add theme sberHealth [#354](https://github.com/salute-developers/plasma/pull/354) ([@gibushnev](https://github.com/gibushnev))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- ci: fix package-locks [#352](https://github.com/salute-developers/plasma/pull/352) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 3
+
+- [@gibushnev](https://github.com/gibushnev)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.36.0 (Wed Feb 15 2023)
 
 #### 🐛 Bug Fix

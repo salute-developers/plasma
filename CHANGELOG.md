@@ -1,5 +1,31 @@
 # (Fri Feb 17 2023)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-tokens@1.37.0`
+  - feat(plasma-tokens): Add theme sberHealth [#354](https://github.com/salute-developers/plasma/pull/354) ([@gibushnev](https://github.com/gibushnev))
+
+#### 🐛 Bug Fix
+
+- fix(plasma-theme-builder): Update redirectURI for auth request [#345](https://github.com/salute-developers/plasma/pull/345) ([@neretin-trike](https://github.com/neretin-trike))
+- build: remove obscure versions [#351](https://github.com/salute-developers/plasma/pull/351) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.142.0`, `@salutejs/plasma-core@1.98.0`, `@salutejs/plasma-hope@0.2.0`, `@salutejs/plasma-icons@1.126.0`, `@salutejs/plasma-temple@1.137.0`, `@salutejs/plasma-tokens-b2b@1.11.0`, `@salutejs/plasma-tokens-b2c@0.20.0`, `@salutejs/plasma-tokens-web@1.26.0`, `@salutejs/plasma-tokens@1.37.0`, `@salutejs/plasma-ui@1.170.0`, `@salutejs/plasma-web@1.168.0`, `@salutejs/plasma-cy-utils@0.44.0`, `@salutejs/plasma-sb-utils@0.96.0`
+  - ci: fix package-locks [#352](https://github.com/salute-developers/plasma/pull/352) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### ⚠️ Pushed to `master`
+
+- ci: change renovate schedule ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 3
+
+- [@gibushnev](https://github.com/gibushnev)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
+# (Fri Feb 17 2023)
+
 #### 🐛 Bug Fix
 
 - fix(plasma-theme-builder): Update redirectURI for auth request [#345](https://github.com/salute-developers/plasma/pull/345) ([@neretin-trike](https://github.com/neretin-trike))
