@@ -97,7 +97,7 @@
  import { Modal } from '@salutejs/plasma-hope';
  import { ModalProps } from '@salutejs/plasma-hope';
  import { ModalsProvider } from '@salutejs/plasma-hope';
-@@ -146,14 +154,14 @@
+@@ -147,14 +155,14 @@
  import { PriceProps } from '@salutejs/plasma-hope';
  import { Progress } from '@salutejs/plasma-hope';
  import { ProgressProps } from '@salutejs/plasma-hope';
@@ -114,7 +114,7 @@
  import { RectSkeleton } from '@salutejs/plasma-hope';
  import { RectSkeletonProps } from '@salutejs/plasma-hope';
  import { RefAttributes } from 'react';
-@@ -161,6 +169,8 @@
+@@ -162,6 +170,8 @@
  import { RoundnessProps } from '@salutejs/plasma-core';
  import { Row } from '@salutejs/plasma-hope';
  import { ScrollSnapProps } from '@salutejs/plasma-core';
@@ -123,7 +123,7 @@
  import { setRef } from '@salutejs/plasma-core';
  import { shadows } from '@salutejs/plasma-core';
  import { ShiftProps } from '@salutejs/plasma-core';
-@@ -170,6 +180,9 @@
+@@ -171,6 +181,9 @@
  import { SmartPaginationDotsProps } from '@salutejs/plasma-hope';
  import { SnapAlign } from '@salutejs/plasma-core';
  import { SnapType } from '@salutejs/plasma-core';
@@ -133,7 +133,7 @@
  import { SpacingProps } from '@salutejs/plasma-core';
  import { Spinner } from '@salutejs/plasma-hope';
  import { SpinnerProps } from '@salutejs/plasma-hope';
-@@ -179,9 +192,8 @@
+@@ -180,9 +193,8 @@
  import { Subtitle } from '@salutejs/plasma-hope';
  import { Switch } from '@salutejs/plasma-hope';
  import { SwitchProps } from '@salutejs/plasma-hope';
@@ -144,7 +144,7 @@
  import { TabsControllerProps as TabsControllerProps_2 } from '@salutejs/plasma-core';
  import type { TabsProps as TabsProps_2 } from '@salutejs/plasma-core';
  import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
-@@ -246,8 +258,35 @@
+@@ -247,8 +259,35 @@
  
  export { applyView }
  
@@ -180,7 +180,7 @@
  export { Badge }
  
  export { BadgeProps }
-@@ -278,10 +317,33 @@
+@@ -279,10 +318,33 @@
  
  export { BodyXXS }
  
@@ -217,7 +217,7 @@
  
  export { Button1 }
  
-@@ -289,10 +351,6 @@
+@@ -290,10 +352,6 @@
  
  export { ButtonProps }
  
@@ -228,7 +228,7 @@
  export { Calendar }
  
  export { CalendarBase }
-@@ -351,6 +409,9 @@
+@@ -352,6 +410,9 @@
  
  export { CheckboxProps }
  
@@ -238,7 +238,7 @@
  export { closeNotification }
  
  export { Col }
-@@ -363,77 +424,64 @@
+@@ -364,77 +425,64 @@
  
  export { ColSizeProps }
  
@@ -351,7 +351,7 @@
  export { FocusProps }
  
  export { Footnote1 }
-@@ -442,44 +490,15 @@
+@@ -443,44 +491,15 @@
  
  export { formatCurrency }
  
@@ -404,7 +404,7 @@
  
  export { H1 }
  
-@@ -501,14 +520,11 @@
+@@ -502,14 +521,11 @@
  
  export { Headline5 }
  
@@ -420,7 +420,7 @@
  
  export { InputHTMLAttributes }
  
-@@ -524,11 +540,9 @@
+@@ -525,11 +541,9 @@
  
  export { MaxLinesProps }
  
@@ -434,7 +434,7 @@
  
  export { Modal }
  
-@@ -540,13 +554,6 @@
+@@ -543,13 +557,6 @@
  
  export { monthShortName }
  
@@ -448,7 +448,7 @@
  export { Notification_2 as Notification }
  
  export { NotificationProps }
-@@ -583,6 +590,11 @@
+@@ -586,6 +593,11 @@
  
  export { PopupProps }
  
@@ -460,7 +460,7 @@
  export { Price }
  
  export { PriceProps }
-@@ -614,67 +626,27 @@
+@@ -617,67 +629,27 @@
  export { ScrollSnapProps }
  
  // @public
@@ -538,7 +538,7 @@
  
  export { setRef }
  
-@@ -682,16 +654,19 @@
+@@ -685,16 +657,19 @@
  
  export { ShiftProps }
  
@@ -564,7 +564,7 @@
  export { SmartPaginationDots }
  
  export { SmartPaginationDotsProps }
-@@ -700,6 +675,8 @@
+@@ -703,6 +678,8 @@
  
  export { SnapType }
  
@@ -573,7 +573,7 @@
  export { SpacingProps }
  
  export { Spinner }
-@@ -719,10 +696,12 @@
+@@ -722,10 +699,12 @@
  export { syntheticFocus }
  
  // @public
@@ -588,7 +588,7 @@
  }
  
  // @public
-@@ -737,6 +716,13 @@
+@@ -740,6 +719,13 @@
  
  // @public (undocumented)
  export interface TabsProps extends TabsProps_2 {
@@ -602,7 +602,7 @@
  }
  
  // @public
-@@ -745,13 +731,11 @@
+@@ -748,13 +734,11 @@
  export { TextareaHTMLAttributes }
  
  // @public (undocumented)
@@ -619,7 +619,7 @@
  }
  
  export { TextareaResize }
-@@ -759,11 +743,13 @@
+@@ -762,11 +746,13 @@
  // @public
  export const TextField: React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
  
@@ -636,7 +636,7 @@
  }
  
  export { TextL }
-@@ -800,6 +786,44 @@
+@@ -803,6 +789,44 @@
  
  export { Underline }
  
@@ -681,7 +681,7 @@
  export { useDebouncedFunction }
  
  export { useForkRef }
-@@ -808,27 +832,28 @@
+@@ -811,27 +835,28 @@
  
  export { useToast }
  

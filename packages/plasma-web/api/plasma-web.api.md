@@ -122,6 +122,7 @@ import { MaxLinesProps } from '@salutejs/plasma-core';
 import { Modal } from '@salutejs/plasma-hope';
 import { ModalProps } from '@salutejs/plasma-hope';
 import { ModalsProvider } from '@salutejs/plasma-hope';
+import { ModalView } from '@salutejs/plasma-hope';
 import { monthLongName } from '@salutejs/plasma-core';
 import { monthShortName } from '@salutejs/plasma-core';
 import { Notification as Notification_2 } from '@salutejs/plasma-hope';
@@ -535,6 +536,8 @@ export { Modal }
 export { ModalProps }
 
 export { ModalsProvider }
+
+export { ModalView }
 
 export { monthLongName }
 

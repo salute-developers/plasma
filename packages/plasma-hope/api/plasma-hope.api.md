@@ -631,19 +631,28 @@ export const mediaQuery: (breakpoint: Breakpoint, deviceScale?: number) => Media
 export type MediaQueryFunction = (content: FlattenSimpleInterpolation | string) => FlattenSimpleInterpolation;
 
 // @public
-export const Modal: React_2.FC<ModalProps>;
+export const Modal: FC<ModalProps>;
 
-// Warning: (ae-forgotten-export) The symbol "ModalViewProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export interface ModalProps extends ModalViewProps {
     isOpen: boolean;
+    withBlur?: boolean;
 }
 
 // @public (undocumented)
 export const ModalsProvider: React_2.FC<{
     children: ReactNode;
 }>;
+
+// @public
+export const ModalView: React_2.ForwardRefExoticComponent<ModalViewProps & React_2.RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export interface ModalViewProps extends React_2.HTMLAttributes<HTMLDivElement> {
+    children?: React_2.ReactNode;
+    closeButtonAriaLabel?: string;
+    onClose?: () => void;
+}
 
 export { monthLongName }
 
