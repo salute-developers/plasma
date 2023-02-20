@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-sb-utils",
-    "version": "0.96.1",
+    "version": "0.97.0",
     "description": "Code shared between ui libraries.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "main": "lib/index.js",
@@ -22,7 +22,7 @@
     },
     "devDependencies": {
         "@salutejs/plasma-colors": "0.3.0",
-        "@salutejs/plasma-core": "1.98.1",
+        "@salutejs/plasma-core": "1.99.0",
         "@storybook/react": "6.3.8",
         "@types/react": "16.9.38",
         "@types/react-dom": "16.9.8",
