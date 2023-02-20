@@ -1,5 +1,18 @@
 # (Mon Feb 20 2023)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-tokens@1.37.1`
+  - fix(plasma-tokens): Fix sberHealth scheme in json [#359](https://github.com/salute-developers/plasma/pull/359) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Mon Feb 20 2023)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-b2c@1.143.0`
