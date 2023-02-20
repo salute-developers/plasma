@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 import styled from 'styled-components';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
@@ -11,13 +11,28 @@ import { ModalsProvider, Modal } from '.';
 export default {
     title: 'Controls/Modal',
     decorators: [InSpacingDecorator],
+    argTypes: {
+        withBlur: {
+            control: {
+                type: 'boolean',
+            },
+        },
+    },
 } as Meta;
 
 const StyledWrapper = styled.div`
     height: 1200px;
 `;
 
-export const LiveDemo = () => {
+const StyledHeadline3 = styled(Headline3)`
+    padding-bottom: 1rem;
+`;
+
+const StyledButton = styled(Button)`
+    margin-right: 1rem;
+`;
+
+export const LiveDemo: Story<{ withBlur: boolean }> = ({ withBlur }) => {
     const [isOpenA, setIsOpenA] = React.useState(false);
     const [isOpenB, setIsOpenB] = React.useState(false);
     const [isOpenC, setIsOpenC] = React.useState(false);
@@ -31,23 +46,27 @@ export const LiveDemo = () => {
             <ModalsProvider>
                 <Button text="Open modal" onClick={() => setIsOpenA(true)} />
 
-                <Modal id="modalA" isOpen={isOpenA} onClose={onCloseA}>
-                    <Headline3>Modal A</Headline3>
-                    <Button view="primary" text="Open modal B" onClick={() => setIsOpenB(true)} />
+                <Modal id="modalA" isOpen={isOpenA} onClose={onCloseA} withBlur={withBlur}>
+                    <StyledHeadline3>Modal A</StyledHeadline3>
+                    <StyledButton view="primary" text="Open modal B" onClick={() => setIsOpenB(true)} />
                     <Button text="Close" onClick={onCloseA} />
                 </Modal>
 
                 <Modal id="modalB" isOpen={isOpenB} onClose={onCloseB}>
-                    <Headline3>Modal B</Headline3>
-                    <Button view="primary" text="Open modal C" onClick={() => setIsOpenC(true)} />
+                    <StyledHeadline3>Modal B</StyledHeadline3>
+                    <StyledButton view="primary" text="Open modal C" onClick={() => setIsOpenC(true)} />
                     <Button text="Close" onClick={onCloseB} />
 
                     <Modal id="modalC" isOpen={isOpenC} onClose={onCloseC}>
-                        <Headline3>Modal C</Headline3>
+                        <StyledHeadline3>Modal C</StyledHeadline3>
                         <Button text="Close" onClick={onCloseC} />
                     </Modal>
                 </Modal>
             </ModalsProvider>
         </StyledWrapper>
     );
+};
+
+LiveDemo.args = {
+    withBlur: false,
 };
