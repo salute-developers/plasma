@@ -1,19 +1,38 @@
 import React from 'react';
+import styled from 'styled-components';
+import { SliderCore, SliderProps, ThumbBase, SliderSettings } from '@salutejs/plasma-core';
+import {
+    surfaceLiquid03,
+    white,
+    buttonAccent as fillColor,
+    accent,
+    sberPortalScale,
+    scalingPixelBasis,
+} from '@salutejs/plasma-tokens';
 
-import { Slider as SliderSingleValue, SliderProps as SingleSliderProps } from './Single';
-import { Slider as SliderDoubleValues, SliderProps as DoubleSliderProps } from './Double';
+import { useThemeContext } from '../../hooks';
 
-type SliderProps = SingleSliderProps | DoubleSliderProps;
+const sliderSettings: SliderSettings = {
+    indent: 0.8125,
+    backgroundColor: surfaceLiquid03,
+    fillColor,
+};
 
-const isSingleValueProps = (props: SliderProps): props is SingleSliderProps => typeof props.value === 'number';
+const StyledThumb = styled(ThumbBase)`
+    width: 1.5rem;
+    height: 1.5rem;
 
-/**
- * Слайдер позволяет определить числовое значение в пределах указаного промежутка. Можно указать два значения.
- * Только для приложения Салют.
- */
+    border: 0.063rem solid ${surfaceLiquid03};
+
+    background-color: ${white};
+
+    color: ${accent};
+`;
+
 export const Slider = (props: SliderProps) => {
-    if (isSingleValueProps(props)) {
-        return <SliderSingleValue {...props} />;
-    }
-    return <SliderDoubleValues {...props} />;
+    const theme = useThemeContext();
+
+    const fontSizeMultiplier = (theme?.deviceScale ?? sberPortalScale) * scalingPixelBasis;
+
+    return <SliderCore {...props} settings={{ ...sliderSettings, fontSizeMultiplier }} thumb={StyledThumb} />;
 };
