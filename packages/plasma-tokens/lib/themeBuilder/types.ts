@@ -63,8 +63,11 @@ export type OverlayName = 'overlaySoft' | 'overlayHard';
 
 export enum TokenGroup {
     textIcons = 'textIcons',
+    text = 'text',
     controlsSurfaces = 'controlsSurfaces',
+    surface = 'surface',
     backgrounds = 'backgrounds',
+    background = 'background',
     overlay = 'overlay',
 }
 
