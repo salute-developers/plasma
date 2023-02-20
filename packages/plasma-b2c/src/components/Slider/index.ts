@@ -1,2 +1,2 @@
-export { Slider } from '@salutejs/plasma-core';
+export { Slider } from './Slider';
 export type { SliderProps } from '@salutejs/plasma-core';
