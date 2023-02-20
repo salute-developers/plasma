@@ -27,7 +27,7 @@
                 }
             }
         },
-        "text": {
+        "textIcons": {
             "default": {
                 "textPrimary": {
                     "value": "#F9F9F9FF",
@@ -185,7 +185,7 @@
                 }
             }
         },
-        "surface": {
+        "controlsSurfaces": {
             "default": {
                 "surfaceSolidDefault": {
                     "value": "#FFFFFF",
@@ -397,7 +397,7 @@
                 }
             }
         },
-        "background": {
+        "backgrounds": {
             "default": {
                 "backgroundPrimary": {
                     "value": "#080808FF",
@@ -437,7 +437,7 @@
                 }
             }
         },
-        "text": {
+        "textIcons": {
             "default": {
                 "textPrimary": {
                     "value": "#171717",
@@ -595,7 +595,7 @@
                 }
             }
         },
-        "surface": {
+        "controlsSurfaces": {
             "default": {
                 "surfaceSolidDefault": {
                     "value": "#171717FF",
@@ -807,7 +807,7 @@
                 }
             }
         },
-        "background": {
+        "backgrounds": {
             "default": {
                 "backgroundPrimary": {
                     "value": "#F9F9F9FF",
