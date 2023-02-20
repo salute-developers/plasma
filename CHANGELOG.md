@@ -1,3 +1,37 @@
+# (Mon Feb 20 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.143.0`
+  - feat(plasma-b2c): processing withBlur prop in story [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.143.0`, `@salutejs/plasma-hope@0.3.0`, `@salutejs/plasma-web@1.169.0`
+  - feat: add api reports [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.3.0`
+  - feat(plasma-hope): export ModalViewProps as part API component [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-hope): add prop withBlur [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.169.0`
+  - feat(plasma-web): add test for withBlur prop [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): processing withBlur prop [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- fix(plasma-b2c): update cypress snapshots [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
+- fix(plasma-web): update cypress snapshots [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.143.0`
+  - fix(plasma-b2c): resolve import for ModalView [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.169.0`
+  - fix(plasma-web): resolve import for ModalView [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.3.0`
+  - fix(plasma-hope): resolve import for ModalView [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
+  - fix(plasma-hope): lint fixes [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
+  - docs(plasma-hope): extend readme text [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Fri Feb 17 2023)
 
 #### 🚀 Enhancement
