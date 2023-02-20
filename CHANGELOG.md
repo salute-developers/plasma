@@ -1,5 +1,18 @@
 # (Mon Feb 20 2023)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-tokens@1.38.0`
+  - feat(plasma-tokens): Add new name for TokenGroup [#361](https://github.com/salute-developers/plasma/pull/361) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Mon Feb 20 2023)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-tokens@1.37.1`
