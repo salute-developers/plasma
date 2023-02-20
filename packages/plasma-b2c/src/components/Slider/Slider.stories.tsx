@@ -2,10 +2,22 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { Story } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import { Slider, SliderProps, SliderProps as DoubleSliderProps } from '.';
 
-const propsToDisable = ['value', 'onChangeCommitted'];
+const propsToDisable = [
+    'value',
+    'onChangeCommitted',
+    'theme',
+    'as',
+    'forwardedAs',
+    'onChange',
+    'fontSizeMultiplier',
+    'gap',
+    'settings',
+    'hasHoverAnimation',
+];
 
 export default {
     title: 'Controls/Slider',
@@ -13,7 +25,6 @@ export default {
     decorators: [InSpacingDecorator],
     argTypes: {
         ...disableProps(propsToDisable),
-        onChange: { action: 'onChange' },
     },
 };
 
@@ -30,7 +41,7 @@ export const Default: Story<SliderProps> = (args) => {
 
     return (
         <SliderWrapper>
-            <Slider value={value} onChangeCommitted={onChangeCommittedHandle} {...args} />
+            <Slider value={value} onChange={action('onChange')} onChangeCommitted={onChangeCommittedHandle} {...args} />
         </SliderWrapper>
     );
 };
@@ -52,7 +63,7 @@ export const MultipleValues: Story<DoubleSliderProps> = (args) => {
 
     return (
         <SliderWrapper>
-            <Slider value={value} onChangeCommitted={onChangeCommittedHandle} {...args} />
+            <Slider value={value} onChange={action('onChange')} onChangeCommitted={onChangeCommittedHandle} {...args} />
         </SliderWrapper>
     );
 };
@@ -61,6 +72,6 @@ MultipleValues.args = {
     min: 0,
     max: 100,
     disabled: false,
-    ariaLabel: ['Минимальцая цена товара', 'Максимальная цена товара'],
+    ariaLabel: ['Минимальная цена товара', 'Максимальная цена товара'],
     multipleStepSize: 10,
 };
