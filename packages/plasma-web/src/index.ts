@@ -6,6 +6,7 @@ export * from './components/Carousel';
 export * from './components/Cell';
 export * from './components/Checkbox';
 export * from './components/Dropdown';
+export * from './components/Editable';
 export * from './components/Grid';
 export * from './components/Image';
 export * from './components/Link';
