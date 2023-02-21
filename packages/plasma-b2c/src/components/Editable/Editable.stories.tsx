@@ -46,6 +46,7 @@ interface ExtraProps {
 
 export const Default: Story<EditableProps & ExtraProps> = ({ defaultValue, componentName, iconSize, ...rest }) => {
     const [value, setValue] = useState<string>(defaultValue);
+
     const handleChange = useCallback((e) => {
         setValue(e.target.textContent);
     }, []);
