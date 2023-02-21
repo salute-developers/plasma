@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { ValidationResult } from '../Upload';
-import { StatusType } from '../Upload/types';
+import type { StatusType } from '../Upload';
 
 import { UploadAudio } from '.';
 import type { UploadAudioProps } from '.';
