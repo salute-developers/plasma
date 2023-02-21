@@ -1,16 +1,19 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { IconTrashFilled, IconTrash } from '@salutejs/plasma-icons';
+import { IconTrash, IconTrashFilled } from '@salutejs/plasma-icons';
 import { Icon } from '@salutejs/plasma-icons/Icon';
 import { surfaceSolid01 } from '@salutejs/plasma-tokens-b2c';
 
-import { arrayItemRemoving, arrayItemSelecting, arrayItemSwapping } from './utils';
-import type { PreviewGalleryProps } from './PreviewGallery';
-import type { PreviewGalleryItemProps } from './PreviewGalleryItemBase';
-
-import { PreviewGallery } from '.';
+import {
+    arrayItemRemoving,
+    arrayItemSelecting,
+    arrayItemSwapping,
+    PreviewGallery,
+    PreviewGalleryItemProps,
+    PreviewGalleryProps,
+} from '.';
 
 const StyledAddButton = styled.div`
     width: 100%;
@@ -63,7 +66,7 @@ interface StoryProps extends PreviewGalleryProps {}
 
 const images: Array<PreviewGalleryItemProps> = [
     {
-        id: 1 * Math.random(),
+        id: Math.random(),
         image: './images/320_320_0.jpg',
         caption: '3:24',
         tooltip: {
@@ -105,8 +108,7 @@ export const Selectable: Story<StoryProps> = ({ ...rest }) => {
 
     const onItemClick = useCallback((id) => {
         setItems((oldItems) => {
-            const newItems = arrayItemSelecting(oldItems, id);
-            return newItems;
+            return arrayItemSelecting(oldItems, id);
         });
     }, []);
 
@@ -140,8 +142,7 @@ export const Draggable: Story<StoryProps> = ({ ...rest }) => {
 
     const onItemsSortEnd = useCallback(({ oldIndex, newIndex }) => {
         setItems((oldItems) => {
-            const newItems = arrayItemSwapping(oldItems, oldIndex, newIndex);
-            return newItems;
+            return arrayItemSwapping(oldItems, oldIndex, newIndex);
         });
     }, []);
 
