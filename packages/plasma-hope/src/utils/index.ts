@@ -23,4 +23,8 @@ export {
     gutters as gridGutters,
     sizes as gridSizes,
 } from './mediaQuery';
+
 export type { MediaQueryFunction, Breakpoint } from './mediaQuery';
+
+export * from './clearSelection';
+export * from './selectText';
