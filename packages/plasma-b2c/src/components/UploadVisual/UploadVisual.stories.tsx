@@ -1,15 +1,15 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
+import type { PreviewGalleryItemProps } from '../PreviewGallery';
 import { arrayItemRemoving, arrayItemSelecting, arrayItemSwapping } from '../PreviewGallery';
-import type { PreviewGalleryItemProps } from '../PreviewGallery/PreviewGalleryItemBase';
-import { StatusType } from '../Upload/types';
 import { ValidationResult } from '../Upload';
+import type { StatusType } from '../Upload';
 
-import { UploadVisual } from '.';
 import type { UploadVisualProps } from '.';
+import { UploadVisual } from '.';
 
 export default {
     title: 'Controls/UploadVisual',
@@ -51,7 +51,7 @@ export interface ValidationState {
 interface StoryProps extends UploadVisualProps {}
 
 const images = [
-    { id: 1 * Math.random(), image: './images/320_320_0.jpg', caption: '3:24' },
+    { id: Math.random(), image: './images/320_320_0.jpg', caption: '3:24' },
     { id: 2 * Math.random(), image: './images/320_320_1.jpg', isSelected: true },
     { id: 3 * Math.random(), image: './images/320_320_2.jpg' },
     { id: 4 * Math.random(), image: './images/320_320_3.jpg' },
@@ -89,8 +89,7 @@ export const Selectabe: Story<StoryProps> = ({ ...rest }) => {
 
     const onItemSelect = useCallback((id) => {
         setItems((oldItems) => {
-            const newItems = arrayItemSelecting(oldItems, id);
-            return newItems;
+            return arrayItemSelecting(oldItems, id);
         });
     }, []);
 
@@ -176,8 +175,7 @@ export const Draggable: Story<StoryProps> = ({ ...rest }) => {
 
     const onItemsSortEnd = useCallback(({ oldIndex, newIndex }) => {
         setItems((oldItems) => {
-            const newItems = arrayItemSwapping(oldItems, oldIndex, newIndex);
-            return newItems;
+            return arrayItemSwapping(oldItems, oldIndex, newIndex);
         });
     }, []);
 
