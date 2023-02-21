@@ -82,6 +82,13 @@ exports.getComponent = function (componentName) {
         check(component);
         return component;
     }
+    if (pkgName === 'plasma-hope') {
+        // eslint-disable-next-line global-require
+        var pkg = require('../../../packages/plasma-hope');
+        var component = pkg[componentName];
+        check(component);
+        return component;
+    }
     throw new Error("Library " + pkgName + " is not required in plasma-core/CypressHelpers:getComponent");
 };
 exports.CypressTestDecorator = function (_a) {

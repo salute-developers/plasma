@@ -70,6 +70,16 @@ export const getComponent = function <T = PropsWithChildren<{}>>(componentName: 
         return component;
     }
 
+    if (pkgName === 'plasma-hope') {
+        // eslint-disable-next-line global-require
+        const pkg = require('../../../packages/plasma-hope') as Record<string, React.FC<T> | undefined>;
+        const component = pkg[componentName];
+
+        check(component);
+
+        return component;
+    }
+
     throw new Error(`Library ${pkgName} is not required in plasma-core/CypressHelpers:getComponent`);
 };
 

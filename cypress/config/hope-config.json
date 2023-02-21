@@ -1,0 +1,14 @@
+{
+    "component": {
+        "componentFolder": "./packages/plasma-hope/src",
+        "testFiles": "**/*component-test.{ts,tsx}"
+    },
+    "env": {
+        "snapshotsDir": "cypress/snapshots/hope",
+        "packageDir": "../../packages/plasma-hope",
+        "package": "plasma-hope",
+        "a11yCheck": true
+    },
+    "video": false,
+    "retries": 3
+}

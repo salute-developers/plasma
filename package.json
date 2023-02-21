@@ -22,6 +22,7 @@
     "cy:web:run-ct-update-diffs": "PACKAGE_NAME=plasma-web CYPRESS_updateSnapshots=true CYPRESS_CONFIG_FILE=web-config.json npm run cy:run-ct",
     "cy:b2b:run-ct-update-diffs": "PACKAGE_NAME=plasma-web CYPRESS_updateSnapshots=true CYPRESS_CONFIG_FILE=b2b-config.json npm run cy:run-ct",
     "cy:b2c:run-ct-update-diffs": "PACKAGE_NAME=plasma-b2c CYPRESS_updateSnapshots=true CYPRESS_CONFIG_FILE=b2c-config.json npm run cy:run-ct",
+    "cy:hope:run-ct-update-diffs": "PACKAGE_NAME=plasma-hope CYPRESS_updateSnapshots=true CYPRESS_CONFIG_FILE=hope-config.json npm run cy:run-ct",
     "cy:temple:run-ct-update-diffs": "PACKAGE_NAME=plasma-temple CYPRESS_updateSnapshots=true CYPRESS_CONFIG_FILE=temple npm run cy:run-ct",
     "cy:ui:open-ct": "PACKAGE_DIR=packages/plasma-ui node actions/platform-test/lib/index.js --config cypress/config/ui-config.json --command open-ct --env failOnSnapshotDiff=false",
     "cy:web:open-ct": "PACKAGE_DIR=packages/plasma-web node actions/platform-test/lib/index.js --config cypress/config/web-config.json --command open-ct --env failOnSnapshotDiff=false",
