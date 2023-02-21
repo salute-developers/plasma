@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
-import { ValidationResult } from './types';
-
-import { Upload } from '.';
+import { Upload, ValidationResult } from '.';
 import type { UploadProps } from '.';
 
 export default {
