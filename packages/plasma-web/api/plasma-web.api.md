@@ -19,7 +19,12 @@ import { applyScrollSnap } from '@salutejs/plasma-core';
 import { applySkeletonGradient } from '@salutejs/plasma-core';
 import { applySpacing } from '@salutejs/plasma-core';
 import { applyView } from '@salutejs/plasma-core';
+import { arrayItemRemoving } from '@salutejs/plasma-hope';
+import { arrayItemSelecting } from '@salutejs/plasma-hope';
+import { arrayItemSwapping } from '@salutejs/plasma-hope';
 import { AsProps } from '@salutejs/plasma-core';
+import { AudioPlayer } from '@salutejs/plasma-hope';
+import { AudioPlayerProps } from '@salutejs/plasma-hope';
 import { Badge } from '@salutejs/plasma-hope';
 import { BadgeProps } from '@salutejs/plasma-hope';
 import { BadgeSize } from '@salutejs/plasma-hope';
@@ -80,6 +85,7 @@ import { ColSizeProps } from '@salutejs/plasma-hope';
 import type { ComponentType } from 'react';
 import { Container } from '@salutejs/plasma-hope';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
+import { defaultValidate } from '@salutejs/plasma-hope';
 import type { DetailedHTMLProps } from 'react';
 import { DisabledProps } from '@salutejs/plasma-core';
 import { Dropdown } from '@salutejs/plasma-hope';
@@ -89,6 +95,10 @@ import { DropdownProps } from '@salutejs/plasma-hope';
 import { DsplL } from '@salutejs/plasma-typo';
 import { DsplM } from '@salutejs/plasma-typo';
 import { DsplS } from '@salutejs/plasma-typo';
+import { Editable } from '@salutejs/plasma-hope';
+import { EditableProps } from '@salutejs/plasma-hope';
+import { ElasticGrid } from '@salutejs/plasma-hope';
+import { ElasticGridProps } from '@salutejs/plasma-hope';
 import { extractTextFrom } from '@salutejs/plasma-core';
 import { FC } from 'react';
 import type { FieldProps as FieldProps_2 } from '@salutejs/plasma-core';
@@ -143,6 +153,9 @@ import { PinProps } from '@salutejs/plasma-core';
 import { Placement } from '@salutejs/plasma-hope';
 import { Popup } from '@salutejs/plasma-hope';
 import { PopupProps } from '@salutejs/plasma-hope';
+import { PreviewGallery } from '@salutejs/plasma-hope';
+import { PreviewGalleryItemProps } from '@salutejs/plasma-hope';
+import { PreviewGalleryProps } from '@salutejs/plasma-hope';
 import { Price } from '@salutejs/plasma-hope';
 import { PriceProps } from '@salutejs/plasma-hope';
 import { Progress } from '@salutejs/plasma-hope';
@@ -205,10 +218,19 @@ import { TooltipProps } from '@salutejs/plasma-hope';
 import { transformStyles } from '@salutejs/plasma-core';
 import { TypographyTypes } from '@salutejs/plasma-core';
 import { Underline } from '@salutejs/plasma-hope';
+import { Upload } from '@salutejs/plasma-hope';
+import { UploadAudio } from '@salutejs/plasma-hope';
+import { UploadAudioProps } from '@salutejs/plasma-hope';
+import { UploadProgress } from '@salutejs/plasma-hope';
+import { UploadProgressProps } from '@salutejs/plasma-hope';
+import { UploadProps } from '@salutejs/plasma-hope';
+import { UploadVisual } from '@salutejs/plasma-hope';
+import { UploadVisualProps } from '@salutejs/plasma-hope';
 import { useDebouncedFunction } from '@salutejs/plasma-core';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { useToast } from '@salutejs/plasma-hope';
+import { ValidationResult } from '@salutejs/plasma-hope';
 import { View } from '@salutejs/plasma-core';
 import { ViewProps } from '@salutejs/plasma-core';
 import { views } from '@salutejs/plasma-core';
@@ -247,7 +269,17 @@ export { applySpacing }
 
 export { applyView }
 
+export { arrayItemRemoving }
+
+export { arrayItemSelecting }
+
+export { arrayItemSwapping }
+
 export { AsProps }
+
+export { AudioPlayer }
+
+export { AudioPlayerProps }
 
 export { Badge }
 
@@ -368,6 +400,8 @@ export { Container }
 
 export { convertRoundnessMatrix }
 
+export { defaultValidate }
+
 export { DisabledProps }
 
 export { Dropdown }
@@ -432,6 +466,14 @@ export { DsplL }
 export { DsplM }
 
 export { DsplS }
+
+export { Editable }
+
+export { EditableProps }
+
+export { ElasticGrid }
+
+export { ElasticGridProps }
 
 export { extractTextFrom }
 
@@ -585,6 +627,12 @@ export { Placement }
 export { Popup }
 
 export { PopupProps }
+
+export { PreviewGallery }
+
+export { PreviewGalleryItemProps }
+
+export { PreviewGalleryProps }
 
 export { Price }
 
@@ -803,6 +851,22 @@ export { TypographyTypes }
 
 export { Underline }
 
+export { Upload }
+
+export { UploadAudio }
+
+export { UploadAudioProps }
+
+export { UploadProgress }
+
+export { UploadProgressProps }
+
+export { UploadProps }
+
+export { UploadVisual }
+
+export { UploadVisualProps }
+
 export { useDebouncedFunction }
 
 export { useForkRef }
@@ -810,6 +874,8 @@ export { useForkRef }
 export { useIsomorphicLayoutEffect }
 
 export { useToast }
+
+export { ValidationResult }
 
 export { View }
 

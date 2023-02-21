@@ -4,6 +4,8 @@
 
 ```ts
 
+/// <reference types="react" />
+
 import { addFocus } from '@salutejs/plasma-core';
 import { animatedScrollToX } from '@salutejs/plasma-core';
 import { animatedScrollToY } from '@salutejs/plasma-core';
@@ -50,6 +52,8 @@ import { CarouselGridWrapper } from '@salutejs/plasma-core';
 import { CarouselItem } from '@salutejs/plasma-core';
 import { CarouselItemProps } from '@salutejs/plasma-core';
 import type { CarouselProps as CarouselProps_2 } from '@salutejs/plasma-core';
+import { ChangeEvent } from 'react';
+import { ClipboardEventHandler } from 'react';
 import type { ComponentType } from 'react';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
 import { CoverProps } from '@salutejs/plasma-core/components/Card/CardContent';
@@ -62,10 +66,12 @@ import { extractTextFrom } from '@salutejs/plasma-core';
 import { FC } from 'react';
 import type { FieldProps as FieldProps_2 } from '@salutejs/plasma-core';
 import { FlattenSimpleInterpolation } from 'styled-components';
+import { FocusEventHandler } from 'react';
 import { FocusProps } from '@salutejs/plasma-core';
 import { Footnote1 } from '@salutejs/plasma-core';
 import { Footnote2 } from '@salutejs/plasma-core';
 import { formatCurrency } from '@salutejs/plasma-core';
+import { FormEventHandler } from 'react';
 import { ForwardRefExoticComponent } from 'react';
 import { H1 } from '@salutejs/plasma-typo';
 import { H2 } from '@salutejs/plasma-typo';
@@ -101,6 +107,7 @@ import { PinProps } from '@salutejs/plasma-core';
 import { Popup } from '@salutejs/plasma-core';
 import { PopupProps } from '@salutejs/plasma-core';
 import type { PriceProps as PriceProps_2 } from '@salutejs/plasma-core';
+import { PropsWithChildren } from 'react';
 import { radiuses } from '@salutejs/plasma-core';
 import { Ratio } from '@salutejs/plasma-core';
 import { default as React_2 } from 'react';
@@ -119,6 +126,8 @@ import { SkeletonGradientProps } from '@salutejs/plasma-core';
 import { SmartPaginationDotsProps as SmartPaginationDotsProps_2 } from '@salutejs/plasma-core';
 import { SnapAlign } from '@salutejs/plasma-core';
 import { SnapType } from '@salutejs/plasma-core';
+import { SortableContainerProps } from 'react-sortable-hoc';
+import { SortableElementProps } from 'react-sortable-hoc';
 import { SpacingProps } from '@salutejs/plasma-core';
 import type { SpinnerProps as SpinnerProps_2 } from '@salutejs/plasma-core';
 import { SSRProvider } from '@salutejs/plasma-core';
@@ -191,7 +200,32 @@ export { applySpacing }
 
 export { applyView }
 
+// @public
+export const arrayItemRemoving: (oldItems: Array<PreviewGalleryItemProps>, id: number | string) => PreviewGalleryItemProps[];
+
+// @public
+export const arrayItemSelecting: (oldItems: Array<PreviewGalleryItemProps>, id: number | string, multipleSelect?: boolean) => PreviewGalleryItemProps[];
+
+// @public
+export const arrayItemSwapping: (oldItems: Array<PreviewGalleryItemProps>, oldIndex: number, newIndex: number) => PreviewGalleryItemProps[];
+
 export { AsProps }
+
+// @public
+export const AudioPlayer: FC<AudioPlayerProps>;
+
+// @public (undocumented)
+export interface AudioPlayerProps {
+    canDelete: boolean;
+    duration?: number;
+    isPlaying: boolean;
+    isSelected: boolean;
+    onClick: () => void;
+    onDelete: () => void;
+    onPlay: (event: React_2.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+    title: string;
+    url: string;
+}
 
 // @public
 export const Badge: StyledComponent<FC<BadgeProps_2>, any, BadgeProps, never>;
@@ -405,6 +439,9 @@ export interface CheckboxProps extends Omit<BaseboxProps, 'size'>, Partial<SizeP
 }
 
 // @public (undocumented)
+export function clearSelection(): void;
+
+// @public (undocumented)
 export const closeNotification: (id: string, delay?: number) => void;
 
 // @public
@@ -444,6 +481,9 @@ export interface ColSizeProps {
 export const Container: StyledComponent<"div", any, {}, never>;
 
 export { convertRoundnessMatrix }
+
+// @public
+export const defaultValidate: (files: FileList | null, accept?: string | undefined) => ValidationResult;
 
 export { DisabledProps }
 
@@ -521,6 +561,40 @@ export { DsplL }
 export { DsplM }
 
 export { DsplS }
+
+// @public
+export const Editable: React_2.FC<EditableProps>;
+
+// @public (undocumented)
+export interface EditableProps {
+    icon?: React_2.ReactNode;
+    maxLength?: number;
+    // (undocumented)
+    onBlur?: FocusEventHandler<HTMLDivElement>;
+    // Warning: (ae-forgotten-export) The symbol "RefElement" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
+    onChange?: FormEventHandler<RefElement>;
+    // (undocumented)
+    onPaste?: ClipboardEventHandler<HTMLDivElement>;
+    placeholder?: string;
+    // (undocumented)
+    spellCheck?: 'true' | 'false';
+    // Warning: (ae-forgotten-export) The symbol "typography" needs to be exported by the entry point index.d.ts
+    textComponent: typeof typography[keyof typeof typography];
+    // (undocumented)
+    value?: string;
+}
+
+// @public
+export const ElasticGrid: FC<PropsWithChildren<ElasticGridProps>>;
+
+// @public (undocumented)
+export interface ElasticGridProps {
+    gapX?: number;
+    gapY?: number;
+    minColWidth: number;
+}
 
 export { extractTextFrom }
 
@@ -726,6 +800,38 @@ export { Popup }
 export { PopupProps }
 
 // @public
+export const PreviewGallery: FC<PreviewGalleryProps & HTMLAttributes<HTMLDivElement> & SortableContainerProps>;
+
+// @public (undocumented)
+export interface PreviewGalleryItemProps {
+    actionDisabled?: boolean;
+    caption?: string;
+    component?: JSX.Element;
+    customClickHandle?: (id: string | number) => void;
+    id: string | number;
+    image?: string;
+    isSelected?: boolean;
+    // Warning: (ae-forgotten-export) The symbol "StatusType_2" needs to be exported by the entry point index.d.ts
+    status?: StatusType_2;
+    // Warning: (ae-forgotten-export) The symbol "TooltipItem" needs to be exported by the entry point index.d.ts
+    tooltip?: TooltipItem;
+}
+
+// @public (undocumented)
+export interface PreviewGalleryProps {
+    actionIcon: JSX.Element;
+    // Warning: (ae-forgotten-export) The symbol "InteractionType" needs to be exported by the entry point index.d.ts
+    interactionType?: InteractionType;
+    items?: Array<PreviewGalleryItemProps & Omit<SortableElementProps, 'index'>>;
+    itemSize?: string;
+    maxHeight?: number;
+    onItemAction?: (id: string | number) => void;
+    onItemClick?: (id: string | number) => void;
+    // Warning: (ae-forgotten-export) The symbol "SortableIndexProps" needs to be exported by the entry point index.d.ts
+    onItemsSortEnd?: ({ oldIndex, newIndex }: SortableIndexProps) => void;
+}
+
+// @public
 export const Price: StyledComponent<FC<PriceProps_2>, any, {}, never>;
 
 // @public (undocumented)
@@ -827,6 +933,9 @@ export type SelectProps<T = any> = ({
 // @public (undocumented)
 export type SelectRefElement = HTMLButtonElement;
 
+// @public (undocumented)
+export function selectText(node: Node): void;
+
 // @public
 export const SelectView: React_2.ForwardRefExoticComponent<SelectViewProps & React_2.RefAttributes<HTMLButtonElement>>;
 
@@ -874,6 +983,9 @@ export interface SpinnerProps extends SpinnerProps_2 {
 }
 
 export { SSRProvider }
+
+// @public (undocumented)
+export type StatusType = 'error' | 'success';
 
 export { StyledCard }
 
@@ -978,6 +1090,44 @@ export { TypographyTypes }
 
 export { Underline }
 
+// @public
+export const Upload: FC<UploadProps>;
+
+// @public
+export const UploadAudio: FC<UploadAudioProps>;
+
+// @public (undocumented)
+export interface UploadAudioProps extends UploadProps {
+}
+
+// @public (undocumented)
+export const UploadProgress: FC<UploadProgressProps>;
+
+// @public (undocumented)
+export interface UploadProgressProps {
+    // (undocumented)
+    label?: string;
+    // (undocumented)
+    progress?: number;
+}
+
+// Warning: (ae-forgotten-export) The symbol "UploadButtonProps" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export interface UploadProps extends Omit<UploadButtonProps, 'isProgress'> {
+    content?: JSX.Element | string;
+    message?: string;
+    progress?: number;
+}
+
+// @public
+export const UploadVisual: FC<UploadVisualProps>;
+
+// @public (undocumented)
+export interface UploadVisualProps extends UploadProps, PreviewGalleryProps {
+    maxCount?: number;
+}
+
 export { useDebouncedFunction }
 
 export { useForkRef }
@@ -985,6 +1135,16 @@ export { useForkRef }
 export { useIsomorphicLayoutEffect }
 
 export { useToast }
+
+// @public (undocumented)
+export interface ValidationResult {
+    // (undocumented)
+    data: File | null;
+    // (undocumented)
+    message?: string;
+    // (undocumented)
+    status?: StatusType;
+}
 
 export { View }
 
