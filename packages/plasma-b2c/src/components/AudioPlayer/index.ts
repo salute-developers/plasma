@@ -1,2 +1,2 @@
-export { AudioPlayer } from './AudioPlayer';
-export type { AudioPlayerProps } from './AudioPlayer';
+export { AudioPlayer } from '@salutejs/plasma-hope';
+export type { AudioPlayerProps } from '@salutejs/plasma-hope';
