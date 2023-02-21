@@ -1,6 +1,5 @@
-export { Upload } from './Upload';
-export { UploadProgress } from './UploadProgress';
-export { defaultValidate } from './utils';
-export type { UploadProps } from './Upload';
-export type { UploadProgressProps } from './UploadProgress';
-export type { ValidationResult } from './types';
+export { Upload } from '@salutejs/plasma-hope';
+export { UploadProgress } from '@salutejs/plasma-hope';
+export { defaultValidate } from '@salutejs/plasma-hope';
+
+export type { UploadProgressProps, UploadProps, ValidationResult, StatusType } from '@salutejs/plasma-hope';
