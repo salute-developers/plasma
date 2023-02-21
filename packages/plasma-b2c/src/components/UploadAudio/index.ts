@@ -1,2 +1,2 @@
-export { UploadAudio } from './UploadAudio';
-export type { UploadAudioProps } from './UploadAudio';
+export { UploadAudio } from '@salutejs/plasma-hope';
+export type { UploadAudioProps } from '@salutejs/plasma-hope';
