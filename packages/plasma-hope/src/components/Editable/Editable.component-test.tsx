@@ -20,7 +20,7 @@ const paste = (selector: string, text: string) => {
 
 const noop = () => {};
 
-describe('plasma-b2c: Editable', () => {
+describe('plasma-hope: Editable', () => {
     const Editable = getComponent('Editable');
 
     it('simple', () => {
