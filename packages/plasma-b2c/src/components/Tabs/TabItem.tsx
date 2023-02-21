@@ -39,7 +39,8 @@ export const TabItem = styled(BaseTabItem)<TabItemProps>`
             box-shadow: 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.05);
         `}
 
-    ${({ theme: { lowPerformance } }) => css`
+    /* TODO: https://github.com/salute-developers/plasma/issues/232 */
+    ${({ theme: { lowPerformance } }: { theme: { lowPerformance: boolean } }) => css`
         ${addFocus({
             outlineRadius: 'var(--tab-focus-border-radius)',
             outlined: true,
