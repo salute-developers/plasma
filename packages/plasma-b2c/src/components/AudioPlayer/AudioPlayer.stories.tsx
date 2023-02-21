@@ -49,6 +49,7 @@ export const Base: Story<StoryProps> = ({ ...rest }) => {
     }, []);
 
     const onDelete = useCallback((id: number) => {
+        // eslint-disable-next-line no-alert
         alert(`Трек id:${id} будет удалён`);
     }, []);
 
