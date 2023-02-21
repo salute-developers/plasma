@@ -1,3 +1,4 @@
+export * from './components/AudioPlayer';
 export * from './components/Badge';
 export * from './components/Button';
 export * from './components/Calendar';
