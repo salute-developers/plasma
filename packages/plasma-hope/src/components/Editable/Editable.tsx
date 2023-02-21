@@ -1,4 +1,14 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, {
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+    CSSProperties,
+    FormEventHandler,
+    ClipboardEventHandler,
+    FocusEventHandler,
+    KeyboardEventHandler,
+} from 'react';
 import styled from 'styled-components';
 import { tertiary, text, background } from '@salutejs/plasma-core';
 
@@ -36,7 +46,7 @@ const StyledContainer = styled.span`
     }
 `;
 
-const extraComponentStyles: React.CSSProperties = {
+const extraComponentStyles: CSSProperties = {
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     marginRight: '-1rem',
@@ -48,9 +58,9 @@ type RefElement = HTMLDivElement | HTMLSpanElement;
 
 export interface EditableProps {
     value?: string;
-    onChange?: React.FormEventHandler<RefElement>;
-    onBlur?: React.FocusEventHandler<HTMLDivElement>;
-    onPaste?: React.ClipboardEventHandler<HTMLDivElement>;
+    onChange?: FormEventHandler<RefElement>;
+    onBlur?: FocusEventHandler<HTMLDivElement>;
+    onPaste?: ClipboardEventHandler<HTMLDivElement>;
     spellCheck?: 'true' | 'false';
     /**
      * Максимальная длина текста в символах
@@ -96,9 +106,12 @@ export const Editable: React.FC<EditableProps> = ({
     const inputRef = useRef<HTMLDivElement>(null);
     const prevValueRef = useRef(value || '');
 
-    const handlePaste = useCallback<React.ClipboardEventHandler<HTMLDivElement>>(
+    const handlePaste = useCallback<ClipboardEventHandler<HTMLDivElement>>(
         (e) => {
-            if (!inputRef.current) return;
+            if (!inputRef.current) {
+                return;
+            }
+
             e.preventDefault();
 
             const text = e.clipboardData.getData('text/plain').replace(/[\n\r]/gi, '');
@@ -120,10 +133,12 @@ export const Editable: React.FC<EditableProps> = ({
         [onPaste],
     );
 
-    const handleBlur = useCallback<React.FocusEventHandler<HTMLDivElement>>(
+    const handleBlur = useCallback<FocusEventHandler<HTMLDivElement>>(
         (e) => {
             setIsEditing(false);
+
             clearSelection();
+
             if (onBlur) {
                 onBlur(e);
             }
@@ -131,8 +146,9 @@ export const Editable: React.FC<EditableProps> = ({
         [onBlur],
     );
 
-    const handleFocus = useCallback<React.FocusEventHandler<RefElement>>(() => {
+    const handleFocus = useCallback<FocusEventHandler<RefElement>>(() => {
         setIsEditing(true);
+
         inputRef.current && selectText(inputRef.current);
     }, []);
 
@@ -140,35 +156,44 @@ export const Editable: React.FC<EditableProps> = ({
         inputRef.current?.focus();
     }, []);
 
-    const handleKeyDown = useCallback<React.KeyboardEventHandler>(
-        (e) => {
-            if (e.keyCode === KeyCodes.ENTER || e.keyCode === KeyCodes.ESCAPE) {
-                inputRef.current?.blur();
-            }
-        },
-        [maxLength],
-    );
+    const handleKeyDown = useCallback<KeyboardEventHandler>((e) => {
+        if ([KeyCodes.ENTER, KeyCodes.ESCAPE].includes(e.keyCode)) {
+            inputRef.current?.blur();
+        }
+    }, []);
 
-    const handleChange = useCallback<React.FormEventHandler<RefElement>>(
+    const handleChange = useCallback<FormEventHandler<RefElement>>(
         (e) => {
-            if (!inputRef.current) return;
+            if (!inputRef.current) {
+                return;
+            }
 
             const contentLength = inputRef.current.textContent?.length || 0;
 
             if (!maxLength || contentLength <= maxLength) {
                 prevValueRef.current = inputRef.current.textContent || '';
+
                 onChange && onChange(e);
             } else {
                 inputRef.current.textContent = prevValueRef.current;
             }
         },
-        [onChange],
+        [maxLength, onChange],
     );
 
     useEffect(() => {
-        if (!inputRef.current) return;
-        if (typeof value === 'undefined') return;
-        if (value === inputRef.current.textContent) return;
+        if (!inputRef.current) {
+            return;
+        }
+
+        if (typeof value === 'undefined') {
+            return;
+        }
+
+        if (value === inputRef.current.textContent) {
+            return;
+        }
+
         inputRef.current.textContent = value;
     }, [value, textComponent]);
 
