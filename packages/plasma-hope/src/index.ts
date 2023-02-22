@@ -23,6 +23,7 @@ export * from './components/Skeleton';
 export * from './components/Spinner';
 export * from './components/SSRProvider';
 export * from './components/Switch';
+export * from './components/Slider';
 export * from './components/Tabs';
 export * from './components/TextArea';
 export * from './components/TextField';
