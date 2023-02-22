@@ -59,20 +59,15 @@
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx"],
         "atLeast": 99
     },
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Виноградов Антон Александрович",
-        "Зубаиров Фаниль Асхатович"
-    ],
+    "contributors": ["Vasiliy Loginevskiy", "Виноградов Антон Александрович", "Зубаиров Фаниль Асхатович"],
     "sideEffects": false,
     "dependencies": {
         "@salutejs/plasma-typo": "0.31.0",
         "focus-visible": "5.2.0",
-        "lodash.throttle": "4.1.1"
+        "lodash.throttle": "4.1.1",
+        "react-draggable": "4.4.3"
     }
 }
