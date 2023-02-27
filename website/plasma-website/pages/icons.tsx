@@ -7,7 +7,10 @@ export default function Home() {
     const [searchQuery, setSearchQuery] = useState('');
     const [isPanelOpen, setIsPanelOpen] = useState(false);
 
-    const onSearchInput = useCallback((e) => setSearchQuery(e.currentTarget.value), [setSearchQuery]);
+    const onSearchInput = useCallback<React.FormEventHandler<HTMLInputElement>>(
+        (e) => setSearchQuery(e.currentTarget.value),
+        [setSearchQuery],
+    );
     const onItemClick = useCallback(() => setIsPanelOpen(true), [setIsPanelOpen]);
     const onPanelClose = useCallback(() => setIsPanelOpen(false), [setIsPanelOpen]);
 

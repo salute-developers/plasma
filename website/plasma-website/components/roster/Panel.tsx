@@ -60,11 +60,11 @@ export const Panel: FC<PanelProps> = ({ isOpen, onClose, ...rest }) => {
     const panelRef = useRef<HTMLDivElement>(null);
 
     const onDocumentClick = useCallback(
-        (event) => {
+        (event: MouseEvent) => {
             const targetIsPanel = event.target === panelRef.current;
-            const targetInPanel = panelRef.current?.contains(event.target);
+            const targetInPanel = panelRef.current?.contains(event.target as Node);
             if (!targetIsPanel && !targetInPanel) {
-                onClose?.(event);
+                onClose?.((event as unknown) as React.MouseEvent<HTMLElement>);
             }
         },
         [onClose],
