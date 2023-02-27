@@ -1,0 +1,1 @@
+../../../../plasma-hope/src/components/Editable/Editable.component-test.tsx
