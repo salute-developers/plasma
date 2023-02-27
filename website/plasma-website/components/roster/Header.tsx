@@ -46,9 +46,10 @@ const menu = [
 
 export const Header: FC<HeaderProps> = () => {
     const { state, dispatch } = useContext(Context);
-    const onThemeSwitcherChange = useCallback((event) => dispatch(setTheme(event.target.checked ? 'dark' : 'light')), [
-        dispatch,
-    ]);
+    const onThemeSwitcherChange = useCallback<React.ChangeEventHandler<HTMLInputElement>>(
+        (event) => dispatch(setTheme(event.target.checked ? 'dark' : 'light')),
+        [dispatch],
+    );
 
     return (
         <StyledRoot>
