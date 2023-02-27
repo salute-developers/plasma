@@ -1,3 +1,20 @@
+# v1.145.0 (Mon Feb 27 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): add partial typing for theme [#366](https://github.com/salute-developers/plasma/pull/366) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.144.0 (Mon Feb 20 2023)
 
 #### 🐛 Bug Fix

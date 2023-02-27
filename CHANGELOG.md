@@ -1,3 +1,23 @@
+# (Mon Feb 27 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.145.0`
+  - feat(plasma-b2c): add partial typing for theme [#366](https://github.com/salute-developers/plasma/pull/366) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore(deps): update package-lock [#357](https://github.com/salute-developers/plasma/pull/357) ([@Yeti-or](https://github.com/Yeti-or))
+- chore(deps): update dependency @testing-library/cypress to v7.0.7 [#357](https://github.com/salute-developers/plasma/pull/357) ([@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 3
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Mon Feb 20 2023)
 
 #### 🚀 Enhancement
