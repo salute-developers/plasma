@@ -23,13 +23,14 @@
         "@salutejs/plasma-tokens": "1.38.0",
         "@salutejs/plasma-ui": "1.171.0",
         "@salutejs/spatial-navigation": "1.0.5",
-        "next": "11.0.1",
+        "@types/react-dom": "^18.0.11",
+        "next": "^12.3.4",
         "react": "17.0.2",
         "react-dom": "17.0.2",
         "styled-components": "^5.3.0"
     },
     "devDependencies": {
-        "@types/react": "17.0.12",
+        "@types/react": "^18.0.28",
         "@types/styled-components": "^5.1.10",
         "eslint-config-next": "^11.0.1",
         "typescript": "^3.9.10"
