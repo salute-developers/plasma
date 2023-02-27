@@ -94,7 +94,7 @@
     "http-server": "0.12.3",
     "husky": "4.3.0",
     "image-loader": "0.0.1",
-    "lerna": "4.0.0",
+    "lerna": "5.6.2",
     "lint-staged": "10.4.2",
     "node-fetch": "2.6.1",
     "nyc": "15.1.0",
