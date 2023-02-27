@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
@@ -11,7 +11,15 @@ if (typeof window !== 'undefined') {
     import('@salutejs/spatial-navigation');
 }
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({
+    Component,
+    pageProps,
+    router: r,
+}: AppProps<{
+    back: boolean;
+    title: string;
+    subtitle: string;
+}>) {
     const router = useRouter();
 
     const onArrowClick = useCallback(() => {
