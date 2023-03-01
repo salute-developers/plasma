@@ -1,0 +1,1 @@
+../../../../plasma-core/src/components/Slider/Slider.component-test.tsx
