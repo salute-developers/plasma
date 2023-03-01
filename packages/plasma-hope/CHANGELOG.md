@@ -1,3 +1,16 @@
+# v0.5.0 (Wed Mar 01 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-hope): processing unit test [#373](https://github.com/salute-developers/plasma/pull/373) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-hope): add jest config [#373](https://github.com/salute-developers/plasma/pull/373) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v0.4.0 (Mon Feb 20 2023)
 
 #### 🐛 Bug Fix

@@ -1,3 +1,26 @@
+# (Wed Mar 01 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-hope@0.5.0`
+  - feat(plasma-hope): processing unit test [#373](https://github.com/salute-developers/plasma/pull/373) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-hope): add jest config [#373](https://github.com/salute-developers/plasma/pull/373) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- build(demo-canvas-app): fix types of styled-components [#371](https://github.com/salute-developers/plasma/pull/371) ([@Yeti-or](https://github.com/Yeti-or))
+- build(plasma-website): fix types of styled-components [#371](https://github.com/salute-developers/plasma/pull/371) ([@Yeti-or](https://github.com/Yeti-or))
+- build(plasma-website): bump next version [#371](https://github.com/salute-developers/plasma/pull/371) ([@Yeti-or](https://github.com/Yeti-or))
+- build(demo-canvas-app): bump next version [#371](https://github.com/salute-developers/plasma/pull/371) ([@Yeti-or](https://github.com/Yeti-or))
+- build: bump lerna to 5.x [#370](https://github.com/salute-developers/plasma/pull/370) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Mon Feb 27 2023)
 
 #### 🚀 Enhancement
