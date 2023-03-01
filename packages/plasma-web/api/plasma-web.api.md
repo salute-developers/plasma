@@ -80,6 +80,7 @@ import { ColSizeProps } from '@salutejs/plasma-hope';
 import type { ComponentType } from 'react';
 import { Container } from '@salutejs/plasma-hope';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
+import { defaultValidate } from '@salutejs/plasma-hope';
 import type { DetailedHTMLProps } from 'react';
 import { DisabledProps } from '@salutejs/plasma-core';
 import { Dropdown } from '@salutejs/plasma-hope';
@@ -205,10 +206,15 @@ import { TooltipProps } from '@salutejs/plasma-hope';
 import { transformStyles } from '@salutejs/plasma-core';
 import { TypographyTypes } from '@salutejs/plasma-core';
 import { Underline } from '@salutejs/plasma-hope';
+import { Upload } from '@salutejs/plasma-hope';
+import { UploadProgress } from '@salutejs/plasma-hope';
+import { UploadProgressProps } from '@salutejs/plasma-hope';
+import { UploadProps } from '@salutejs/plasma-hope';
 import { useDebouncedFunction } from '@salutejs/plasma-core';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { useToast } from '@salutejs/plasma-hope';
+import { ValidationResult } from '@salutejs/plasma-hope';
 import { View } from '@salutejs/plasma-core';
 import { ViewProps } from '@salutejs/plasma-core';
 import { views } from '@salutejs/plasma-core';
@@ -367,6 +373,8 @@ export { ColSizeProps }
 export { Container }
 
 export { convertRoundnessMatrix }
+
+export { defaultValidate }
 
 export { DisabledProps }
 
@@ -803,6 +811,14 @@ export { TypographyTypes }
 
 export { Underline }
 
+export { Upload }
+
+export { UploadProgress }
+
+export { UploadProgressProps }
+
+export { UploadProps }
+
 export { useDebouncedFunction }
 
 export { useForkRef }
@@ -810,6 +826,8 @@ export { useForkRef }
 export { useIsomorphicLayoutEffect }
 
 export { useToast }
+
+export { ValidationResult }
 
 export { View }
 
