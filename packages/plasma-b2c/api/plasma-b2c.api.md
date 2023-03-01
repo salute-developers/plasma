@@ -72,7 +72,6 @@ import { CarouselItemProps } from '@salutejs/plasma-hope';
 import { CarouselProps } from '@salutejs/plasma-hope';
 import { Cell } from '@salutejs/plasma-hope';
 import { CellProps } from '@salutejs/plasma-hope';
-import { ChangeEvent } from 'react';
 import { Checkbox } from '@salutejs/plasma-hope';
 import { CheckboxProps } from '@salutejs/plasma-hope';
 import { closeNotification } from '@salutejs/plasma-hope';
@@ -82,6 +81,7 @@ import { ColOffsetProps } from '@salutejs/plasma-hope';
 import { ColProps } from '@salutejs/plasma-hope';
 import { ColSizeProps } from '@salutejs/plasma-hope';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
+import { defaultValidate } from '@salutejs/plasma-hope';
 import { DisabledProps } from '@salutejs/plasma-core';
 import { Dropdown } from '@salutejs/plasma-hope';
 import { DropdownItem } from '@salutejs/plasma-hope';
@@ -90,7 +90,7 @@ import { DropdownProps } from '@salutejs/plasma-hope';
 import { DsplL } from '@salutejs/plasma-typo';
 import { DsplM } from '@salutejs/plasma-typo';
 import { DsplS } from '@salutejs/plasma-typo';
-import { FC } from 'react';
+import type { FC } from 'react';
 import type { FieldProps } from '@salutejs/plasma-core';
 import { FocusProps } from '@salutejs/plasma-core';
 import { Footnote1 } from '@salutejs/plasma-hope';
@@ -188,6 +188,7 @@ import { SpacingProps } from '@salutejs/plasma-core';
 import { Spinner } from '@salutejs/plasma-hope';
 import { SpinnerProps } from '@salutejs/plasma-hope';
 import { SSRProvider } from '@salutejs/plasma-hope';
+import { StatusType } from '@salutejs/plasma-hope';
 import { StyledCard } from '@salutejs/plasma-hope';
 import { StyledComponent } from 'styled-components';
 import { Subtitle } from '@salutejs/plasma-hope';
@@ -217,10 +218,15 @@ import { TooltipProps } from '@salutejs/plasma-hope';
 import { transformStyles } from '@salutejs/plasma-core';
 import { TypographyTypes } from '@salutejs/plasma-core';
 import { Underline } from '@salutejs/plasma-hope';
+import { Upload } from '@salutejs/plasma-hope';
+import { UploadProgress } from '@salutejs/plasma-hope';
+import { UploadProgressProps } from '@salutejs/plasma-hope';
+import { UploadProps } from '@salutejs/plasma-hope';
 import { useDebouncedFunction } from '@salutejs/plasma-core';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { useToast } from '@salutejs/plasma-hope';
+import { ValidationResult } from '@salutejs/plasma-hope';
 import { View } from '@salutejs/plasma-core';
 import { ViewProps } from '@salutejs/plasma-core';
 import { views } from '@salutejs/plasma-core';
@@ -430,8 +436,7 @@ export const Container: StyledComponent<"div", any, {}, never>;
 
 export { convertRoundnessMatrix }
 
-// @public
-export const defaultValidate: (files: FileList | null, accept?: string | undefined) => ValidationResult;
+export { defaultValidate }
 
 export { DisabledProps }
 
@@ -688,6 +693,8 @@ export { SpinnerProps }
 
 export { SSRProvider }
 
+export { StatusType }
+
 export { StyledCard }
 
 export { Subtitle }
@@ -789,8 +796,7 @@ export { TypographyTypes }
 
 export { Underline }
 
-// @public
-export const Upload: FC<UploadProps>;
+export { Upload }
 
 // @public
 export const UploadAudio: FC<UploadAudioProps>;
@@ -799,25 +805,11 @@ export const UploadAudio: FC<UploadAudioProps>;
 export interface UploadAudioProps extends UploadProps {
 }
 
-// @public (undocumented)
-export const UploadProgress: FC<UploadProgressProps>;
+export { UploadProgress }
 
-// @public (undocumented)
-export interface UploadProgressProps {
-    // (undocumented)
-    label?: string;
-    // (undocumented)
-    progress?: number;
-}
+export { UploadProgressProps }
 
-// Warning: (ae-forgotten-export) The symbol "UploadButtonProps" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export interface UploadProps extends Omit<UploadButtonProps, 'isProgress'> {
-    content?: JSX.Element | string;
-    message?: string;
-    progress?: number;
-}
+export { UploadProps }
 
 // @public
 export const UploadVisual: FC<UploadVisualProps>;
@@ -835,17 +827,7 @@ export { useIsomorphicLayoutEffect }
 
 export { useToast }
 
-// @public (undocumented)
-export interface ValidationResult {
-    // (undocumented)
-    data: File | null;
-    // (undocumented)
-    message?: string;
-    // Warning: (ae-forgotten-export) The symbol "StatusType_2" needs to be exported by the entry point index.d.ts
-    //
-    // (undocumented)
-    status?: StatusType_2;
-}
+export { ValidationResult }
 
 export { View }
 

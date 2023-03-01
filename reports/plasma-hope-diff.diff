@@ -32,33 +32,27 @@
  import { Calendar } from '@salutejs/plasma-hope';
  import { CalendarBase } from '@salutejs/plasma-hope';
  import { CalendarBaseProps } from '@salutejs/plasma-hope';
-@@ -69,6 +72,7 @@
- import { CarouselProps } from '@salutejs/plasma-hope';
- import { Cell } from '@salutejs/plasma-hope';
- import { CellProps } from '@salutejs/plasma-hope';
-+import { ChangeEvent } from 'react';
- import { Checkbox } from '@salutejs/plasma-hope';
- import { CheckboxProps } from '@salutejs/plasma-hope';
- import { closeNotification } from '@salutejs/plasma-hope';
-@@ -77,10 +81,7 @@
+@@ -77,11 +80,8 @@
  import { ColOffsetProps } from '@salutejs/plasma-hope';
  import { ColProps } from '@salutejs/plasma-hope';
  import { ColSizeProps } from '@salutejs/plasma-hope';
 -import type { ComponentType } from 'react';
 -import { Container } from '@salutejs/plasma-hope';
  import { convertRoundnessMatrix } from '@salutejs/plasma-core';
+ import { defaultValidate } from '@salutejs/plasma-hope';
 -import type { DetailedHTMLProps } from 'react';
  import { DisabledProps } from '@salutejs/plasma-core';
  import { Dropdown } from '@salutejs/plasma-hope';
  import { DropdownItem } from '@salutejs/plasma-hope';
-@@ -89,15 +90,18 @@
+@@ -90,15 +90,18 @@
  import { DsplL } from '@salutejs/plasma-typo';
  import { DsplM } from '@salutejs/plasma-typo';
  import { DsplS } from '@salutejs/plasma-typo';
 -import { extractTextFrom } from '@salutejs/plasma-core';
- import { FC } from 'react';
+-import { FC } from 'react';
 -import type { FieldProps as FieldProps_2 } from '@salutejs/plasma-core';
 -import { FlattenSimpleInterpolation } from 'styled-components';
++import type { FC } from 'react';
 +import type { FieldProps } from '@salutejs/plasma-core';
  import { FocusProps } from '@salutejs/plasma-core';
  import { Footnote1 } from '@salutejs/plasma-hope';
@@ -73,7 +67,7 @@
  import { H1 } from '@salutejs/plasma-typo';
  import { H2 } from '@salutejs/plasma-typo';
  import { H3 } from '@salutejs/plasma-typo';
-@@ -108,10 +112,12 @@
+@@ -109,10 +112,12 @@
  import { Headline3 } from '@salutejs/plasma-hope';
  import { Headline4 } from '@salutejs/plasma-hope';
  import { Headline5 } from '@salutejs/plasma-hope';
@@ -88,7 +82,7 @@
  import { KeyboardEvent as KeyboardEvent_2 } from 'react';
  import { LineSkeleton } from '@salutejs/plasma-hope';
  import { LineSkeletonProps } from '@salutejs/plasma-hope';
-@@ -119,6 +125,8 @@
+@@ -120,6 +125,8 @@
  import { List } from '@salutejs/plasma-hope';
  import { ListItem } from '@salutejs/plasma-hope';
  import { MaxLinesProps } from '@salutejs/plasma-core';
@@ -97,7 +91,7 @@
  import { Modal } from '@salutejs/plasma-hope';
  import { ModalProps } from '@salutejs/plasma-hope';
  import { ModalsProvider } from '@salutejs/plasma-hope';
-@@ -147,14 +155,14 @@
+@@ -148,14 +155,14 @@
  import { PriceProps } from '@salutejs/plasma-hope';
  import { Progress } from '@salutejs/plasma-hope';
  import { ProgressProps } from '@salutejs/plasma-hope';
@@ -114,7 +108,7 @@
  import { RectSkeleton } from '@salutejs/plasma-hope';
  import { RectSkeletonProps } from '@salutejs/plasma-hope';
  import { RefAttributes } from 'react';
-@@ -162,6 +170,8 @@
+@@ -163,6 +170,8 @@
  import { RoundnessProps } from '@salutejs/plasma-core';
  import { Row } from '@salutejs/plasma-hope';
  import { ScrollSnapProps } from '@salutejs/plasma-core';
@@ -123,7 +117,7 @@
  import { setRef } from '@salutejs/plasma-core';
  import { shadows } from '@salutejs/plasma-core';
  import { ShiftProps } from '@salutejs/plasma-core';
-@@ -171,6 +181,9 @@
+@@ -172,18 +181,21 @@
  import { SmartPaginationDotsProps } from '@salutejs/plasma-hope';
  import { SnapAlign } from '@salutejs/plasma-core';
  import { SnapType } from '@salutejs/plasma-core';
@@ -133,7 +127,10 @@
  import { SpacingProps } from '@salutejs/plasma-core';
  import { Spinner } from '@salutejs/plasma-hope';
  import { SpinnerProps } from '@salutejs/plasma-hope';
-@@ -180,9 +193,8 @@
+ import { SSRProvider } from '@salutejs/plasma-hope';
++import { StatusType } from '@salutejs/plasma-hope';
+ import { StyledCard } from '@salutejs/plasma-hope';
+ import { StyledComponent } from 'styled-components';
  import { Subtitle } from '@salutejs/plasma-hope';
  import { Switch } from '@salutejs/plasma-hope';
  import { SwitchProps } from '@salutejs/plasma-hope';
@@ -144,7 +141,7 @@
  import { TabsControllerProps as TabsControllerProps_2 } from '@salutejs/plasma-core';
  import type { TabsProps as TabsProps_2 } from '@salutejs/plasma-core';
  import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
-@@ -247,8 +259,35 @@
+@@ -253,8 +265,35 @@
  
  export { applyView }
  
@@ -180,17 +177,17 @@
  export { Badge }
  
  export { BadgeProps }
-@@ -279,10 +318,33 @@
+@@ -285,10 +324,33 @@
  
  export { BodyXXS }
  
 -// @public (undocumented)
 -export type Breakpoint = keyof typeof gridBreakpoints;
 +export { Breakpoint }
++
++export { BreakWordProps }
  
 -export { Button }
-+export { BreakWordProps }
-+
 +// @public
 +export const Button: ForwardRefExoticComponent<(ButtonProps_2<HTMLElement> & {
 +text?: ReactNode;
@@ -217,7 +214,7 @@
  
  export { Button1 }
  
-@@ -290,10 +352,6 @@
+@@ -296,10 +358,6 @@
  
  export { ButtonProps }
  
@@ -228,7 +225,7 @@
  export { Calendar }
  
  export { CalendarBase }
-@@ -352,6 +410,9 @@
+@@ -358,6 +416,9 @@
  
  export { CheckboxProps }
  
@@ -238,7 +235,7 @@
  export { closeNotification }
  
  export { Col }
-@@ -364,77 +425,64 @@
+@@ -370,7 +431,8 @@
  
  export { ColSizeProps }
  
@@ -248,12 +245,7 @@
  
  export { convertRoundnessMatrix }
  
-+// @public
-+export const defaultValidate: (files: FileList | null, accept?: string | undefined) => ValidationResult;
-+
- export { DisabledProps }
- 
- export { Dropdown }
+@@ -382,67 +444,50 @@
  
  export { DropdownItem }
  
@@ -308,19 +300,19 @@
 +    onBlur?: React_2.FocusEventHandler<HTMLDivElement>;
 +    // Warning: (ae-forgotten-export) The symbol "RefElement" needs to be exported by the entry point index.d.ts
 +    //
-     // (undocumented)
--    isActive?: boolean;
++    // (undocumented)
 +    onChange?: React_2.FormEventHandler<RefElement>;
      // (undocumented)
--    isDisabled?: boolean;
+-    isActive?: boolean;
 +    onPaste?: React_2.ClipboardEventHandler<HTMLDivElement>;
 +    placeholder?: string;
      // (undocumented)
--    items?: Array<DropdownNodeType>;
+-    isDisabled?: boolean;
 +    spellCheck?: 'true' | 'false';
 +    // Warning: (ae-forgotten-export) The symbol "typography" needs to be exported by the entry point index.d.ts
 +    textComponent: typeof typography[keyof typeof typography];
-+    // (undocumented)
+     // (undocumented)
+-    items?: Array<DropdownNodeType>;
 +    value?: string;
  }
  
@@ -351,7 +343,7 @@
  export { FocusProps }
  
  export { Footnote1 }
-@@ -443,44 +491,15 @@
+@@ -451,44 +496,15 @@
  
  export { formatCurrency }
  
@@ -404,7 +396,7 @@
  
  export { H1 }
  
-@@ -502,14 +521,11 @@
+@@ -510,14 +526,11 @@
  
  export { Headline5 }
  
@@ -420,7 +412,7 @@
  
  export { InputHTMLAttributes }
  
-@@ -525,11 +541,9 @@
+@@ -533,11 +546,9 @@
  
  export { MaxLinesProps }
  
@@ -434,7 +426,7 @@
  
  export { Modal }
  
-@@ -543,13 +557,6 @@
+@@ -551,13 +562,6 @@
  
  export { monthShortName }
  
@@ -448,7 +440,7 @@
  export { Notification_2 as Notification }
  
  export { NotificationProps }
-@@ -586,6 +593,11 @@
+@@ -594,6 +598,11 @@
  
  export { PopupProps }
  
@@ -460,7 +452,7 @@
  export { Price }
  
  export { PriceProps }
-@@ -617,67 +629,27 @@
+@@ -625,67 +634,27 @@
  export { ScrollSnapProps }
  
  // @public
@@ -538,7 +530,7 @@
  
  export { setRef }
  
-@@ -685,16 +657,19 @@
+@@ -693,16 +662,19 @@
  
  export { ShiftProps }
  
@@ -564,7 +556,7 @@
  export { SmartPaginationDots }
  
  export { SmartPaginationDotsProps }
-@@ -703,6 +678,8 @@
+@@ -711,6 +683,8 @@
  
  export { SnapType }
  
@@ -573,7 +565,16 @@
  export { SpacingProps }
  
  export { Spinner }
-@@ -722,10 +699,12 @@
+@@ -719,6 +693,8 @@
+ 
+ export { SSRProvider }
+ 
++export { StatusType }
++
+ export { StyledCard }
+ 
+ export { Subtitle }
+@@ -730,10 +706,12 @@
  export { syntheticFocus }
  
  // @public
@@ -588,7 +589,7 @@
  }
  
  // @public
-@@ -740,6 +719,13 @@
+@@ -748,6 +726,13 @@
  
  // @public (undocumented)
  export interface TabsProps extends TabsProps_2 {
@@ -602,7 +603,7 @@
  }
  
  // @public
-@@ -748,13 +734,11 @@
+@@ -756,13 +741,11 @@
  export { TextareaHTMLAttributes }
  
  // @public (undocumented)
@@ -619,7 +620,7 @@
  }
  
  export { TextareaResize }
-@@ -762,11 +746,13 @@
+@@ -770,11 +753,13 @@
  // @public
  export const TextField: React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
  
@@ -636,13 +637,10 @@
  }
  
  export { TextL }
-@@ -803,6 +789,44 @@
+@@ -813,12 +798,27 @@
  
- export { Underline }
+ export { Upload }
  
-+// @public
-+export const Upload: FC<UploadProps>;
-+
 +// @public
 +export const UploadAudio: FC<UploadAudioProps>;
 +
@@ -650,26 +648,12 @@
 +export interface UploadAudioProps extends UploadProps {
 +}
 +
-+// @public (undocumented)
-+export const UploadProgress: FC<UploadProgressProps>;
-+
-+// @public (undocumented)
-+export interface UploadProgressProps {
-+    // (undocumented)
-+    label?: string;
-+    // (undocumented)
-+    progress?: number;
-+}
-+
-+// Warning: (ae-forgotten-export) The symbol "UploadButtonProps" needs to be exported by the entry point index.d.ts
-+//
-+// @public (undocumented)
-+export interface UploadProps extends Omit<UploadButtonProps, 'isProgress'> {
-+    content?: JSX.Element | string;
-+    message?: string;
-+    progress?: number;
-+}
-+
+ export { UploadProgress }
+ 
+ export { UploadProgressProps }
+ 
+ export { UploadProps }
+ 
 +// @public
 +export const UploadVisual: FC<UploadVisualProps>;
 +
@@ -681,25 +665,7 @@
  export { useDebouncedFunction }
  
  export { useForkRef }
-@@ -811,27 +835,28 @@
- 
- export { useToast }
- 
-+// @public (undocumented)
-+export interface ValidationResult {
-+    // (undocumented)
-+    data: File | null;
-+    // (undocumented)
-+    message?: string;
-+    // Warning: (ae-forgotten-export) The symbol "StatusType_2" needs to be exported by the entry point index.d.ts
-+    //
-+    // (undocumented)
-+    status?: StatusType_2;
-+}
-+
- export { View }
- 
- export { ViewProps }
+@@ -835,21 +835,10 @@
  
  export { views }
  

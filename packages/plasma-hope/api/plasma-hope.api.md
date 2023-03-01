@@ -50,6 +50,7 @@ import { CarouselGridWrapper } from '@salutejs/plasma-core';
 import { CarouselItem } from '@salutejs/plasma-core';
 import { CarouselItemProps } from '@salutejs/plasma-core';
 import type { CarouselProps as CarouselProps_2 } from '@salutejs/plasma-core';
+import { ChangeEvent } from 'react';
 import type { ComponentType } from 'react';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
 import { CoverProps } from '@salutejs/plasma-core/components/Card/CardContent';
@@ -444,6 +445,9 @@ export interface ColSizeProps {
 export const Container: StyledComponent<"div", any, {}, never>;
 
 export { convertRoundnessMatrix }
+
+// @public
+export const defaultValidate: (files: FileList | null, accept?: string | undefined) => ValidationResult;
 
 export { DisabledProps }
 
@@ -875,6 +879,9 @@ export interface SpinnerProps extends SpinnerProps_2 {
 
 export { SSRProvider }
 
+// @public (undocumented)
+export type StatusType = 'error' | 'success';
+
 export { StyledCard }
 
 // @public (undocumented)
@@ -978,6 +985,29 @@ export { TypographyTypes }
 
 export { Underline }
 
+// @public
+export const Upload: FC<UploadProps>;
+
+// @public (undocumented)
+export const UploadProgress: FC<UploadProgressProps>;
+
+// @public (undocumented)
+export interface UploadProgressProps {
+    // (undocumented)
+    label?: string;
+    // (undocumented)
+    progress?: number;
+}
+
+// Warning: (ae-forgotten-export) The symbol "UploadButtonProps" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export interface UploadProps extends Omit<UploadButtonProps, 'isProgress'> {
+    content?: JSX.Element | string;
+    message?: string;
+    progress?: number;
+}
+
 export { useDebouncedFunction }
 
 export { useForkRef }
@@ -985,6 +1015,16 @@ export { useForkRef }
 export { useIsomorphicLayoutEffect }
 
 export { useToast }
+
+// @public (undocumented)
+export interface ValidationResult {
+    // (undocumented)
+    data: File | null;
+    // (undocumented)
+    message?: string;
+    // (undocumented)
+    status?: StatusType;
+}
 
 export { View }
 
