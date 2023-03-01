@@ -14,6 +14,12 @@ const config: Config = {
     failOnSignificantChanges: false,
     stabilizers: ['staticTask'],
     absoluteError: 1,
+    render: {
+        renderWaitTimeout: 500,
+    },
+    rerender: {
+        renderWaitTimeout: 500,
+    },
     modifyWebpackConfig: function (config) {
         const babelLoaderOpts = config.module.rules.find(
             (rule) => typeof rule === 'object' && rule.loader === 'babel-loader',
