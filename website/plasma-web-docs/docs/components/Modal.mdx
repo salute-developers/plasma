@@ -39,13 +39,17 @@ import { Modal, Headline3, P1, Button } from '@salutejs/plasma-web';
 export function App() {
     const [isOpen, setIsOpen] = React.useState(false);
 
+    const close = React.useCallback(() => {
+      setIsOpen(false);
+    });
+
     return (
         <div>
-            <Button text="Открыть модальное окно" onClick={() => setIsOpen(true)} />
-            <Modal isOpen={isOpen}>
-                <Headline3>Модальное окно</Headline3>
+            <Button text="Открыть модальное окно" onClick={() => setIsOpen(!isOpen)} />
+            <Modal isOpen={isOpen} onClose={close}>
+                <Headline3 mb={10}>Модальное окно</Headline3>
                 <P1>Содержимое модального окна.</P1>
-                <Button text="Закрыть" onClick={() => setIsOpen(!isOpen)} />
+                <Button text="Закрыть" onClick={close} />
             </Modal>
         </div>
     );
