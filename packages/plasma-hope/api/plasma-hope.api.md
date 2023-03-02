@@ -51,6 +51,7 @@ import { CarouselItem } from '@salutejs/plasma-core';
 import { CarouselItemProps } from '@salutejs/plasma-core';
 import type { CarouselProps as CarouselProps_2 } from '@salutejs/plasma-core';
 import { ChangeEvent } from 'react';
+import { ClipboardEventHandler } from 'react';
 import type { ComponentType } from 'react';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
 import { CoverProps } from '@salutejs/plasma-core/components/Card/CardContent';
@@ -63,10 +64,12 @@ import { extractTextFrom } from '@salutejs/plasma-core';
 import { FC } from 'react';
 import type { FieldProps as FieldProps_2 } from '@salutejs/plasma-core';
 import { FlattenSimpleInterpolation } from 'styled-components';
+import { FocusEventHandler } from 'react';
 import { FocusProps } from '@salutejs/plasma-core';
 import { Footnote1 } from '@salutejs/plasma-core';
 import { Footnote2 } from '@salutejs/plasma-core';
 import { formatCurrency } from '@salutejs/plasma-core';
+import { FormEventHandler } from 'react';
 import { ForwardRefExoticComponent } from 'react';
 import { H1 } from '@salutejs/plasma-typo';
 import { H2 } from '@salutejs/plasma-typo';
@@ -417,6 +420,9 @@ export interface CheckboxProps extends Omit<BaseboxProps, 'size'>, Partial<SizeP
 }
 
 // @public (undocumented)
+export function clearSelection(): void;
+
+// @public (undocumented)
 export const closeNotification: (id: string, delay?: number) => void;
 
 // @public
@@ -536,6 +542,30 @@ export { DsplL }
 export { DsplM }
 
 export { DsplS }
+
+// @public
+export const Editable: React_2.FC<EditableProps>;
+
+// @public (undocumented)
+export interface EditableProps {
+    icon?: React_2.ReactNode;
+    maxLength?: number;
+    // (undocumented)
+    onBlur?: FocusEventHandler<HTMLDivElement>;
+    // Warning: (ae-forgotten-export) The symbol "RefElement" needs to be exported by the entry point index.d.ts
+    //
+    // (undocumented)
+    onChange?: FormEventHandler<RefElement>;
+    // (undocumented)
+    onPaste?: ClipboardEventHandler<HTMLDivElement>;
+    placeholder?: string;
+    // (undocumented)
+    spellCheck?: 'true' | 'false';
+    // Warning: (ae-forgotten-export) The symbol "typography" needs to be exported by the entry point index.d.ts
+    textComponent: typeof typography[keyof typeof typography];
+    // (undocumented)
+    value?: string;
+}
 
 export { extractTextFrom }
 
@@ -873,6 +903,9 @@ export type SelectProps<T = any> = ({
 
 // @public (undocumented)
 export type SelectRefElement = HTMLButtonElement;
+
+// @public (undocumented)
+export function selectText(node: Node): void;
 
 // @public
 export const SelectView: React_2.ForwardRefExoticComponent<SelectViewProps & React_2.RefAttributes<HTMLButtonElement>>;
