@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { arrayItemRemoving, arrayItemSelecting, arrayItemSwapping } from '../PreviewGallery';
-import type { PreviewGalleryItemProps } from '../PreviewGallery/PreviewGalleryItemBase';
+import type { PreviewGalleryItemProps } from '../PreviewGallery';
 import { StatusType } from '../Upload/types';
 import { ValidationResult } from '../Upload';
 
