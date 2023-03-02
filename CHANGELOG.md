@@ -1,3 +1,28 @@
+# (Thu Mar 02 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-web): add cypress snapshots [#374](https://github.com/salute-developers/plasma/pull/374) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): delete unnecessary cypress snapshots [#374](https://github.com/salute-developers/plasma/pull/374) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): add cypress snapshots [#374](https://github.com/salute-developers/plasma/pull/374) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.147.0`, `@salutejs/plasma-hope@0.6.0`, `@salutejs/plasma-web@1.172.0`
+  - feat: add api reports after re-export Upload component [#374](https://github.com/salute-developers/plasma/pull/374) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.6.0`
+  - feat(plasma-hope): add "react-file-drop" [#374](https://github.com/salute-developers/plasma/pull/374) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-hope): add "Upload" component [#374](https://github.com/salute-developers/plasma/pull/374) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.172.0`
+  - feat(plasma-web): add cypress tests symlink [#374](https://github.com/salute-developers/plasma/pull/374) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): re-export "Upload" component [#374](https://github.com/salute-developers/plasma/pull/374) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.147.0`
+  - feat(plasma-b2c): add cypress tests symlink [#374](https://github.com/salute-developers/plasma/pull/374) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-b2c): re-export "Upload" component [#374](https://github.com/salute-developers/plasma/pull/374) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Wed Mar 01 2023)
 
 #### 🚀 Enhancement
