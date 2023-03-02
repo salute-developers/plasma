@@ -4,6 +4,8 @@
 
 ```ts
 
+/// <reference types="react" />
+
 import { addFocus } from '@salutejs/plasma-core';
 import { animatedScrollToX } from '@salutejs/plasma-core';
 import { animatedScrollToY } from '@salutejs/plasma-core';
@@ -207,6 +209,22 @@ export const arrayItemSelecting: (oldItems: Array<PreviewGalleryItemProps>, id: 
 export const arrayItemSwapping: (oldItems: Array<PreviewGalleryItemProps>, oldIndex: number, newIndex: number) => PreviewGalleryItemProps[];
 
 export { AsProps }
+
+// @public
+export const AudioPlayer: FC<AudioPlayerProps>;
+
+// @public (undocumented)
+export interface AudioPlayerProps {
+    canDelete: boolean;
+    duration?: number;
+    isPlaying: boolean;
+    isSelected: boolean;
+    onClick: () => void;
+    onDelete: () => void;
+    onPlay: (event: React_2.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+    title: string;
+    url: string;
+}
 
 // @public
 export const Badge: StyledComponent<FC<BadgeProps_2>, any, BadgeProps, never>;
