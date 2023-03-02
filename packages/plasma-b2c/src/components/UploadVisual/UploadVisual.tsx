@@ -4,9 +4,8 @@ import styled from 'styled-components';
 import { IconTrashFilled } from '@salutejs/plasma-icons';
 
 import { Upload, UploadProps } from '../Upload';
-import { PreviewGallery } from '../PreviewGallery';
-import { StyledRoot as StyledPreviewGallery } from '../PreviewGallery/PreviewGalleryItems';
-import type { PreviewGalleryProps } from '../PreviewGallery/PreviewGallery';
+import { StyledPreviewGallery, PreviewGallery } from '../PreviewGallery';
+import type { PreviewGalleryProps } from '../PreviewGallery';
 
 export interface UploadVisualProps extends UploadProps, PreviewGalleryProps {
     /**
