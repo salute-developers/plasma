@@ -120,6 +120,8 @@ import { SkeletonGradientProps } from '@salutejs/plasma-core';
 import { SmartPaginationDotsProps as SmartPaginationDotsProps_2 } from '@salutejs/plasma-core';
 import { SnapAlign } from '@salutejs/plasma-core';
 import { SnapType } from '@salutejs/plasma-core';
+import { SortableContainerProps } from 'react-sortable-hoc';
+import { SortableElementProps } from 'react-sortable-hoc';
 import { SpacingProps } from '@salutejs/plasma-core';
 import type { SpinnerProps as SpinnerProps_2 } from '@salutejs/plasma-core';
 import { SSRProvider } from '@salutejs/plasma-core';
@@ -191,6 +193,15 @@ export { applySkeletonGradient }
 export { applySpacing }
 
 export { applyView }
+
+// @public
+export const arrayItemRemoving: (oldItems: Array<PreviewGalleryItemProps>, id: number | string) => PreviewGalleryItemProps[];
+
+// @public
+export const arrayItemSelecting: (oldItems: Array<PreviewGalleryItemProps>, id: number | string, multipleSelect?: boolean) => PreviewGalleryItemProps[];
+
+// @public
+export const arrayItemSwapping: (oldItems: Array<PreviewGalleryItemProps>, oldIndex: number, newIndex: number) => PreviewGalleryItemProps[];
 
 export { AsProps }
 
@@ -730,6 +741,38 @@ export { Popup }
 export { PopupProps }
 
 // @public
+export const PreviewGallery: FC<PreviewGalleryProps & HTMLAttributes<HTMLDivElement> & SortableContainerProps>;
+
+// @public (undocumented)
+export interface PreviewGalleryItemProps {
+    actionDisabled?: boolean;
+    caption?: string;
+    component?: JSX.Element;
+    customClickHandle?: (id: string | number) => void;
+    id: string | number;
+    image?: string;
+    isSelected?: boolean;
+    // Warning: (ae-forgotten-export) The symbol "StatusType_2" needs to be exported by the entry point index.d.ts
+    status?: StatusType_2;
+    // Warning: (ae-forgotten-export) The symbol "TooltipItem" needs to be exported by the entry point index.d.ts
+    tooltip?: TooltipItem;
+}
+
+// @public (undocumented)
+export interface PreviewGalleryProps {
+    actionIcon: JSX.Element;
+    // Warning: (ae-forgotten-export) The symbol "InteractionType" needs to be exported by the entry point index.d.ts
+    interactionType?: InteractionType;
+    items?: Array<PreviewGalleryItemProps & Omit<SortableElementProps, 'index'>>;
+    itemSize?: string;
+    maxHeight?: number;
+    onItemAction?: (id: string | number) => void;
+    onItemClick?: (id: string | number) => void;
+    // Warning: (ae-forgotten-export) The symbol "SortableIndexProps" needs to be exported by the entry point index.d.ts
+    onItemsSortEnd?: ({ oldIndex, newIndex }: SortableIndexProps) => void;
+}
+
+// @public
 export const Price: StyledComponent<FC<PriceProps_2>, any, {}, never>;
 
 // @public (undocumented)
@@ -883,6 +926,12 @@ export { SSRProvider }
 export type StatusType = 'error' | 'success';
 
 export { StyledCard }
+
+// @public (undocumented)
+export const StyledPreviewGallery: StyledComponent<"div", any, {
+isGrabbing: boolean;
+maxHeight?: number | undefined;
+}, never>;
 
 // @public (undocumented)
 export const Subtitle: StyledComponent<"div", any, {}, never>;

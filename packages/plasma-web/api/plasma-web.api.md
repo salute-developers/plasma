@@ -19,6 +19,9 @@ import { applyScrollSnap } from '@salutejs/plasma-core';
 import { applySkeletonGradient } from '@salutejs/plasma-core';
 import { applySpacing } from '@salutejs/plasma-core';
 import { applyView } from '@salutejs/plasma-core';
+import { arrayItemRemoving } from '@salutejs/plasma-hope';
+import { arrayItemSelecting } from '@salutejs/plasma-hope';
+import { arrayItemSwapping } from '@salutejs/plasma-hope';
 import { AsProps } from '@salutejs/plasma-core';
 import { Badge } from '@salutejs/plasma-hope';
 import { BadgeProps } from '@salutejs/plasma-hope';
@@ -144,6 +147,9 @@ import { PinProps } from '@salutejs/plasma-core';
 import { Placement } from '@salutejs/plasma-hope';
 import { Popup } from '@salutejs/plasma-hope';
 import { PopupProps } from '@salutejs/plasma-hope';
+import { PreviewGallery } from '@salutejs/plasma-hope';
+import { PreviewGalleryItemProps } from '@salutejs/plasma-hope';
+import { PreviewGalleryProps } from '@salutejs/plasma-hope';
 import { Price } from '@salutejs/plasma-hope';
 import { PriceProps } from '@salutejs/plasma-hope';
 import { Progress } from '@salutejs/plasma-hope';
@@ -178,6 +184,7 @@ import { SpinnerProps } from '@salutejs/plasma-hope';
 import { SSRProvider } from '@salutejs/plasma-hope';
 import { StyledCard } from '@salutejs/plasma-hope';
 import { StyledComponent } from 'styled-components';
+import { StyledPreviewGallery } from '@salutejs/plasma-hope';
 import { Subtitle } from '@salutejs/plasma-hope';
 import { Switch } from '@salutejs/plasma-hope';
 import { SwitchProps } from '@salutejs/plasma-hope';
@@ -252,6 +259,12 @@ export { applySkeletonGradient }
 export { applySpacing }
 
 export { applyView }
+
+export { arrayItemRemoving }
+
+export { arrayItemSelecting }
+
+export { arrayItemSwapping }
 
 export { AsProps }
 
@@ -594,6 +607,12 @@ export { Popup }
 
 export { PopupProps }
 
+export { PreviewGallery }
+
+export { PreviewGalleryItemProps }
+
+export { PreviewGalleryProps }
+
 export { Price }
 
 export { PriceProps }
@@ -720,6 +739,8 @@ export { SpinnerProps }
 export { SSRProvider }
 
 export { StyledCard }
+
+export { StyledPreviewGallery }
 
 export { Subtitle }
 
