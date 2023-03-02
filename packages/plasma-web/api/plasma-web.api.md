@@ -93,6 +93,8 @@ import { DropdownProps } from '@salutejs/plasma-hope';
 import { DsplL } from '@salutejs/plasma-typo';
 import { DsplM } from '@salutejs/plasma-typo';
 import { DsplS } from '@salutejs/plasma-typo';
+import { Editable } from '@salutejs/plasma-hope';
+import { EditableProps } from '@salutejs/plasma-hope';
 import { extractTextFrom } from '@salutejs/plasma-core';
 import { FC } from 'react';
 import type { FieldProps as FieldProps_2 } from '@salutejs/plasma-core';
@@ -454,6 +456,10 @@ export { DsplL }
 export { DsplM }
 
 export { DsplS }
+
+export { Editable }
+
+export { EditableProps }
 
 export { extractTextFrom }
 

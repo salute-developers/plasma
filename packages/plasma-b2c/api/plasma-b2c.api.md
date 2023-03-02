@@ -93,6 +93,8 @@ import { DropdownProps } from '@salutejs/plasma-hope';
 import { DsplL } from '@salutejs/plasma-typo';
 import { DsplM } from '@salutejs/plasma-typo';
 import { DsplS } from '@salutejs/plasma-typo';
+import { Editable } from '@salutejs/plasma-hope';
+import { EditableProps } from '@salutejs/plasma-hope';
 import type { FC } from 'react';
 import type { FieldProps } from '@salutejs/plasma-core';
 import { FocusProps } from '@salutejs/plasma-core';
@@ -454,29 +456,9 @@ export { DsplM }
 
 export { DsplS }
 
-// @public
-export const Editable: React_2.FC<EditableProps>;
+export { Editable }
 
-// @public (undocumented)
-export interface EditableProps {
-    icon?: React_2.ReactNode;
-    maxLength?: number;
-    // (undocumented)
-    onBlur?: React_2.FocusEventHandler<HTMLDivElement>;
-    // Warning: (ae-forgotten-export) The symbol "RefElement" needs to be exported by the entry point index.d.ts
-    //
-    // (undocumented)
-    onChange?: React_2.FormEventHandler<RefElement>;
-    // (undocumented)
-    onPaste?: React_2.ClipboardEventHandler<HTMLDivElement>;
-    placeholder?: string;
-    // (undocumented)
-    spellCheck?: 'true' | 'false';
-    // Warning: (ae-forgotten-export) The symbol "typography" needs to be exported by the entry point index.d.ts
-    textComponent: typeof typography[keyof typeof typography];
-    // (undocumented)
-    value?: string;
-}
+export { EditableProps }
 
 // @public
 export const ElasticGrid: React_2.FC<PropsWithChildren<ElasticGridProps>>;

@@ -44,10 +44,10 @@
  import { DisabledProps } from '@salutejs/plasma-core';
  import { Dropdown } from '@salutejs/plasma-hope';
  import { DropdownItem } from '@salutejs/plasma-hope';
-@@ -93,15 +93,18 @@
- import { DsplL } from '@salutejs/plasma-typo';
- import { DsplM } from '@salutejs/plasma-typo';
+@@ -95,15 +95,18 @@
  import { DsplS } from '@salutejs/plasma-typo';
+ import { Editable } from '@salutejs/plasma-hope';
+ import { EditableProps } from '@salutejs/plasma-hope';
 -import { extractTextFrom } from '@salutejs/plasma-core';
 -import { FC } from 'react';
 -import type { FieldProps as FieldProps_2 } from '@salutejs/plasma-core';
@@ -67,7 +67,7 @@
  import { H1 } from '@salutejs/plasma-typo';
  import { H2 } from '@salutejs/plasma-typo';
  import { H3 } from '@salutejs/plasma-typo';
-@@ -112,10 +115,11 @@
+@@ -114,10 +117,11 @@
  import { Headline3 } from '@salutejs/plasma-hope';
  import { Headline4 } from '@salutejs/plasma-hope';
  import { Headline5 } from '@salutejs/plasma-hope';
@@ -81,7 +81,7 @@
  import { KeyboardEvent as KeyboardEvent_2 } from 'react';
  import { LineSkeleton } from '@salutejs/plasma-hope';
  import { LineSkeletonProps } from '@salutejs/plasma-hope';
-@@ -123,6 +127,8 @@
+@@ -125,6 +129,8 @@
  import { List } from '@salutejs/plasma-hope';
  import { ListItem } from '@salutejs/plasma-hope';
  import { MaxLinesProps } from '@salutejs/plasma-core';
@@ -90,7 +90,7 @@
  import { Modal } from '@salutejs/plasma-hope';
  import { ModalProps } from '@salutejs/plasma-hope';
  import { ModalsProvider } from '@salutejs/plasma-hope';
-@@ -154,14 +160,14 @@
+@@ -156,14 +162,14 @@
  import { PriceProps } from '@salutejs/plasma-hope';
  import { Progress } from '@salutejs/plasma-hope';
  import { ProgressProps } from '@salutejs/plasma-hope';
@@ -107,7 +107,7 @@
  import { RectSkeleton } from '@salutejs/plasma-hope';
  import { RectSkeletonProps } from '@salutejs/plasma-hope';
  import { RefAttributes } from 'react';
-@@ -169,6 +175,8 @@
+@@ -171,6 +177,8 @@
  import { RoundnessProps } from '@salutejs/plasma-core';
  import { Row } from '@salutejs/plasma-hope';
  import { ScrollSnapProps } from '@salutejs/plasma-core';
@@ -116,7 +116,7 @@
  import { setRef } from '@salutejs/plasma-core';
  import { shadows } from '@salutejs/plasma-core';
  import { ShiftProps } from '@salutejs/plasma-core';
-@@ -179,19 +187,20 @@
+@@ -181,19 +189,20 @@
  import { SmartPaginationDotsProps } from '@salutejs/plasma-hope';
  import { SnapAlign } from '@salutejs/plasma-core';
  import { SnapType } from '@salutejs/plasma-core';
@@ -139,7 +139,7 @@
  import { TabsControllerProps as TabsControllerProps_2 } from '@salutejs/plasma-core';
  import type { TabsProps as TabsProps_2 } from '@salutejs/plasma-core';
  import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
-@@ -269,6 +278,22 @@
+@@ -271,6 +280,22 @@
  
  export { AsProps }
  
@@ -162,17 +162,17 @@
  export { Badge }
  
  export { BadgeProps }
-@@ -299,10 +324,33 @@
+@@ -301,10 +326,33 @@
  
  export { BodyXXS }
  
 -// @public (undocumented)
 -export type Breakpoint = keyof typeof gridBreakpoints;
 +export { Breakpoint }
++
++export { BreakWordProps }
  
 -export { Button }
-+export { BreakWordProps }
-+
 +// @public
 +export const Button: ForwardRefExoticComponent<(ButtonProps_2<HTMLElement> & {
 +text?: ReactNode;
@@ -199,7 +199,7 @@
  
  export { Button1 }
  
-@@ -310,10 +358,6 @@
+@@ -312,10 +360,6 @@
  
  export { ButtonProps }
  
@@ -210,7 +210,7 @@
  export { Calendar }
  
  export { CalendarBase }
-@@ -372,6 +416,9 @@
+@@ -374,6 +418,9 @@
  
  export { CheckboxProps }
  
@@ -220,7 +220,7 @@
  export { closeNotification }
  
  export { Col }
-@@ -384,7 +431,8 @@
+@@ -386,7 +433,8 @@
  
  export { ColSizeProps }
  
@@ -230,7 +230,7 @@
  
  export { convertRoundnessMatrix }
  
-@@ -396,67 +444,50 @@
+@@ -398,57 +446,8 @@
  
  export { DropdownItem }
  
@@ -251,8 +251,7 @@
 -    // (undocumented)
 -    onHover?: OnHover;
 -}
-+export { DropdownList }
- 
+-
 -// @public (undocumented)
 -export interface DropdownItemType {
 -    // (undocumented)
@@ -264,71 +263,49 @@
 -    // (undocumented)
 -    value: string | number;
 -}
-+export { DropdownProps }
+-
+ export { DropdownList }
  
--export { DropdownList }
-+export { DsplL }
-+
-+export { DsplM }
-+
-+export { DsplS }
-+
-+// @public
-+export const Editable: React_2.FC<EditableProps>;
- 
- // @public (undocumented)
+-// @public (undocumented)
 -export interface DropdownNodeType extends DropdownItemType {
-+export interface EditableProps {
-+    icon?: React_2.ReactNode;
-+    maxLength?: number;
-+    // (undocumented)
-+    onBlur?: React_2.FocusEventHandler<HTMLDivElement>;
-+    // Warning: (ae-forgotten-export) The symbol "RefElement" needs to be exported by the entry point index.d.ts
-+    //
-     // (undocumented)
+-    // (undocumented)
 -    isActive?: boolean;
-+    onChange?: React_2.FormEventHandler<RefElement>;
-     // (undocumented)
+-    // (undocumented)
 -    isDisabled?: boolean;
-+    onPaste?: React_2.ClipboardEventHandler<HTMLDivElement>;
-+    placeholder?: string;
-     // (undocumented)
+-    // (undocumented)
 -    items?: Array<DropdownNodeType>;
-+    spellCheck?: 'true' | 'false';
-+    // Warning: (ae-forgotten-export) The symbol "typography" needs to be exported by the entry point index.d.ts
-+    textComponent: typeof typography[keyof typeof typography];
-+    // (undocumented)
-+    value?: string;
- }
- 
- // @public
+-}
+-
+-// @public
 -export const DropdownPopup: StyledComponent<React_2.NamedExoticComponent<PopupProps & React_2.RefAttributes<HTMLDivElement>>, any, DropdownPopupProps, never>;
-+export const ElasticGrid: React_2.FC<PropsWithChildren<ElasticGridProps>>;
- 
- // @public (undocumented)
+-
+-// @public (undocumented)
 -export interface DropdownPopupProps extends PopupProps {
 -    // @deprecated
 -    offsetTop?: string | number;
+-}
+-
+ export { DropdownProps }
+ 
+ export { DsplL }
+@@ -461,7 +460,15 @@
+ 
+ export { EditableProps }
+ 
+-export { extractTextFrom }
++// @public
++export const ElasticGrid: React_2.FC<PropsWithChildren<ElasticGridProps>>;
++
++// @public (undocumented)
 +export interface ElasticGridProps {
 +    gapX?: number;
 +    gapY?: number;
 +    minColWidth: number;
- }
++}
  
--export { DropdownProps }
--
--export { DsplL }
--
--export { DsplM }
--
--export { DsplS }
--
--export { extractTextFrom }
--
  export { FocusProps }
  
- export { Footnote1 }
-@@ -465,44 +496,15 @@
+@@ -471,44 +478,15 @@
  
  export { formatCurrency }
  
@@ -381,7 +358,7 @@
  
  export { H1 }
  
-@@ -524,14 +526,11 @@
+@@ -530,14 +508,11 @@
  
  export { Headline5 }
  
@@ -397,7 +374,7 @@
  
  export { InputHTMLAttributes }
  
-@@ -547,11 +546,9 @@
+@@ -553,11 +528,9 @@
  
  export { MaxLinesProps }
  
@@ -411,7 +388,7 @@
  
  export { Modal }
  
-@@ -565,13 +562,6 @@
+@@ -571,13 +544,6 @@
  
  export { monthShortName }
  
@@ -425,7 +402,7 @@
  export { Notification_2 as Notification }
  
  export { NotificationProps }
-@@ -645,67 +635,27 @@
+@@ -651,67 +617,27 @@
  export { ScrollSnapProps }
  
  // @public
@@ -503,7 +480,7 @@
  
  export { setRef }
  
-@@ -713,12 +663,6 @@
+@@ -719,12 +645,6 @@
  
  export { ShiftProps }
  
@@ -516,7 +493,7 @@
  export { sizes }
  
  export { SkeletonGradientProps }
-@@ -736,6 +680,8 @@
+@@ -742,6 +662,8 @@
  
  export { SnapType }
  
@@ -525,7 +502,7 @@
  export { SpacingProps }
  
  export { Spinner }
-@@ -744,6 +690,8 @@
+@@ -750,6 +672,8 @@
  
  export { SSRProvider }
  
@@ -534,7 +511,7 @@
  export { StyledCard }
  
  export { StyledPreviewGallery }
-@@ -757,10 +705,12 @@
+@@ -763,10 +687,12 @@
  export { syntheticFocus }
  
  // @public
@@ -549,7 +526,7 @@
  }
  
  // @public
-@@ -775,6 +725,13 @@
+@@ -781,6 +707,13 @@
  
  // @public (undocumented)
  export interface TabsProps extends TabsProps_2 {
@@ -563,7 +540,7 @@
  }
  
  // @public
-@@ -783,13 +740,11 @@
+@@ -789,13 +722,11 @@
  export { TextareaHTMLAttributes }
  
  // @public (undocumented)
@@ -580,7 +557,7 @@
  }
  
  export { TextareaResize }
-@@ -797,11 +752,13 @@
+@@ -803,11 +734,13 @@
  // @public
  export const TextField: React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
  
@@ -597,7 +574,7 @@
  }
  
  export { TextL }
-@@ -840,12 +797,27 @@
+@@ -846,12 +779,27 @@
  
  export { Upload }
  
@@ -625,7 +602,7 @@
  export { useDebouncedFunction }
  
  export { useForkRef }
-@@ -862,21 +834,10 @@
+@@ -868,21 +816,10 @@
  
  export { views }
  
