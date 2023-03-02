@@ -182,6 +182,7 @@ import { shadows } from '@salutejs/plasma-core';
 import { ShiftProps } from '@salutejs/plasma-core';
 import { sizes } from '@salutejs/plasma-hope';
 import { SkeletonGradientProps } from '@salutejs/plasma-core';
+import { SliderProps } from '@salutejs/plasma-core';
 import { SmartPaginationDots } from '@salutejs/plasma-hope';
 import { SmartPaginationDotsProps } from '@salutejs/plasma-hope';
 import { SnapAlign } from '@salutejs/plasma-core';
@@ -666,14 +667,10 @@ export { sizes }
 
 export { SkeletonGradientProps }
 
-// @public
-export const Slider: React_2.FC<SliderProps>;
-
-// Warning: (ae-forgotten-export) The symbol "SliderProps_2" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "SliderProps_3" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export type SliderProps = SliderProps_2 | SliderProps_3;
+export const Slider: (props: SliderProps) => JSX.Element;
+
+export { SliderProps }
 
 export { SmartPaginationDots }
 

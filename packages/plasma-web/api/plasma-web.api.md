@@ -174,6 +174,7 @@ import { shadows } from '@salutejs/plasma-core';
 import { ShiftProps } from '@salutejs/plasma-core';
 import { sizes } from '@salutejs/plasma-hope';
 import { SkeletonGradientProps } from '@salutejs/plasma-core';
+import { SliderProps } from '@salutejs/plasma-core';
 import { SmartPaginationDots } from '@salutejs/plasma-hope';
 import { SmartPaginationDotsProps } from '@salutejs/plasma-hope';
 import { SnapAlign } from '@salutejs/plasma-core';
@@ -721,6 +722,11 @@ export interface SingleSelectProps extends Omit<SelectViewProps, 'onItemClick' |
 export { sizes }
 
 export { SkeletonGradientProps }
+
+// @public (undocumented)
+export const Slider: (props: SliderProps) => JSX.Element;
+
+export { SliderProps }
 
 export { SmartPaginationDots }
 
