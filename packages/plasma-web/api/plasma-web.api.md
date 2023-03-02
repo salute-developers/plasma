@@ -23,6 +23,8 @@ import { arrayItemRemoving } from '@salutejs/plasma-hope';
 import { arrayItemSelecting } from '@salutejs/plasma-hope';
 import { arrayItemSwapping } from '@salutejs/plasma-hope';
 import { AsProps } from '@salutejs/plasma-core';
+import { AudioPlayer } from '@salutejs/plasma-hope';
+import { AudioPlayerProps } from '@salutejs/plasma-hope';
 import { Badge } from '@salutejs/plasma-hope';
 import { BadgeProps } from '@salutejs/plasma-hope';
 import { BadgeSize } from '@salutejs/plasma-hope';
@@ -270,6 +272,10 @@ export { arrayItemSelecting }
 export { arrayItemSwapping }
 
 export { AsProps }
+
+export { AudioPlayer }
+
+export { AudioPlayerProps }
 
 export { Badge }
 
