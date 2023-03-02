@@ -1,13 +1,29 @@
 {
     "name": "@salutejs/plasma-hope",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "description": "Salute Design System / Internal React UI kit for web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    "keywords": ["design-system", "react-components", "ui-kit", "react"],
+    "keywords": [
+        "design-system",
+        "react-components",
+        "ui-kit",
+        "react"
+    ],
     "main": "index.js",
     "module": "es/index.js",
     "types": "index.d.ts",
-    "files": ["components", "es", "hocs", "hooks", "mixins", "tokens", "types", "utils", "index.d.ts", "index.js"],
+    "files": [
+        "components",
+        "es",
+        "hocs",
+        "hooks",
+        "mixins",
+        "tokens",
+        "types",
+        "utils",
+        "index.d.ts",
+        "index.js"
+    ],
     "repository": {
         "type": "git",
         "url": "ssh://git@github.com:salute-developers/plasma.git",
@@ -88,9 +104,14 @@
         "test": "jest --passWithNoTests"
     },
     "typeCoverage": {
-        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
+        "ignoreFiles": [
+            "src/**/*component-test.tsx",
+            "src/**/*stories.tsx"
+        ],
         "atLeast": 99.96
     },
-    "contributors": ["Vasiliy Loginevskiy"],
+    "contributors": [
+        "Vasiliy Loginevskiy"
+    ],
     "sideEffects": false
 }
