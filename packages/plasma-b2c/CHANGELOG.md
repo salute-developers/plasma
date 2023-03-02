@@ -1,3 +1,23 @@
+# v1.151.0 (Thu Mar 02 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): use --passWithNoTests flag for jest [#369](https://github.com/salute-developers/plasma/pull/369) ([@Yakutoc](https://github.com/Yakutoc))
+- feat: add api reports after re-export AudioPlayer component [#369](https://github.com/salute-developers/plasma/pull/369) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): add cypress tests symlink [AudioPlayer] [#369](https://github.com/salute-developers/plasma/pull/369) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): re-export "AudioPlayer" component [#369](https://github.com/salute-developers/plasma/pull/369) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.150.0 (Thu Mar 02 2023)
 
 #### 🚀 Enhancement
