@@ -3,6 +3,8 @@ import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-u
 import { IconClose } from '@salutejs/plasma-icons';
 import { critical } from '@salutejs/plasma-tokens-b2c';
 
+import { IS_REACT_18 } from '../../utils';
+
 describe('plasma-core: Toast', () => {
     const Toast = getComponent('Toast');
     const useToast = getComponent('useToast');
@@ -22,7 +24,7 @@ describe('plasma-core: Toast', () => {
         mount(
             <CypressTestDecorator>
                 <Toast
-                    text="Short Text Message Without Action"
+                    text={IS_REACT_18 ? 'Sweet-18' : 'Run fools 17'}
                     contentLeft={<IconClose size="xs" color={critical} />}
                 />
             </CypressTestDecorator>,
