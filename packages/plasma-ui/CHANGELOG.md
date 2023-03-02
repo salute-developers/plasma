@@ -1,3 +1,16 @@
+# v1.172.0 (Thu Mar 02 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): add cypress test symlink [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-ui): re-export slider component [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.171.0 (Mon Feb 20 2023)
 
 #### 🐛 Bug Fix

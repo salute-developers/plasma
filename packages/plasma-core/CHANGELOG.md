@@ -1,3 +1,17 @@
+# v1.100.0 (Thu Mar 02 2023)
+
+#### 🚀 Enhancement
+
+- feat: add api reports after re-export Slider component [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-core): feat react-draggable [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-core): slider move to core [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.99.0 (Mon Feb 20 2023)
 
 #### 🐛 Bug Fix

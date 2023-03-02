@@ -2,6 +2,41 @@
 
 #### 🚀 Enhancement
 
+- feat(plasma-ui): delete unnecessary cypress snapshots [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-ui): add cypress snapshots [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): delete unnecessary cypress snapshots [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): add cypress snapshots [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web): add cypress Slider snapshots [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.149.0`, `@salutejs/plasma-core@1.100.0`, `@salutejs/plasma-hope@0.8.0`, `@salutejs/plasma-web@1.174.0`
+  - feat: add api reports after re-export Slider component [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-ui@1.172.0`
+  - feat(plasma-ui): add cypress test symlink [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-ui): re-export slider component [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.149.0`
+  - feat(plasma-b2c): add cypress tests symlink [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-b2c): re-export SliderThumb from plasma-hope [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-b2c): re-export slider component [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.174.0`
+  - feat(plasma-web): add cypress tests symlink [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): re-export SliderThumb from plasma-hope [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): re-export slider component [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.8.0`
+  - feat(plasma-hope): add SliderThumb [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-core@1.100.0`
+  - feat(plasma-core): feat react-draggable [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.149.0`, `@salutejs/plasma-core@1.100.0`
+  - feat(plasma-core): slider move to core [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Thu Mar 02 2023)
+
+#### 🚀 Enhancement
+
 - feat(plasma-web): add cypress snapshots [#376](https://github.com/salute-developers/plasma/pull/376) ([@Yakutoc](https://github.com/Yakutoc))
 - feat(plasma-b2c): delete unnecessary cypress snapshots [#376](https://github.com/salute-developers/plasma/pull/376) ([@Yakutoc](https://github.com/Yakutoc))
 - feat(plasma-b2c): add cypress snapshots [#376](https://github.com/salute-developers/plasma/pull/376) ([@Yakutoc](https://github.com/Yakutoc))
