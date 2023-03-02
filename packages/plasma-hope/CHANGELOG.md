@@ -1,3 +1,17 @@
+# v0.7.0 (Thu Mar 02 2023)
+
+#### 🚀 Enhancement
+
+- feat: add api reports after re-export PreviewGallery component [#376](https://github.com/salute-developers/plasma/pull/376) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-hope): add "react-sortable-hoc" [#376](https://github.com/salute-developers/plasma/pull/376) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-hope): add "PreviewGallery" component [#376](https://github.com/salute-developers/plasma/pull/376) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v0.6.0 (Thu Mar 02 2023)
 
 #### 🚀 Enhancement
