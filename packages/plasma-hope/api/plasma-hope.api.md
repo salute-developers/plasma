@@ -899,6 +899,11 @@ export const sizes: Record<Breakpoint, keyof ColSizeProps>;
 
 export { SkeletonGradientProps }
 
+// @public (undocumented)
+export const SliderThumb: StyledComponent<"div", any, {
+disabled?: boolean | undefined;
+}, never>;
+
 // @public
 export const SmartPaginationDots: React_2.FC<SmartPaginationDotsProps>;
 

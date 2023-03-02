@@ -13,6 +13,8 @@ import { BreakWordProps as BreakWordProps_2 } from '@salutejs/plasma-typo/lib/cj
 import { Context } from 'react';
 import { CSSObject } from 'styled-components';
 import { DefaultTheme } from 'styled-components';
+import { DraggableData } from 'react-draggable';
+import { FC } from 'react';
 import { FlattenInterpolation } from 'styled-components';
 import { FlattenSimpleInterpolation } from 'styled-components';
 import { FunctionComponent } from 'react';
@@ -914,6 +916,51 @@ export interface SkeletonGradientProps {
 }
 
 // @public (undocumented)
+export const Slider: FC<SliderProps>;
+
+// @public (undocumented)
+export interface SliderBaseProps {
+    disabled?: boolean;
+    max: number;
+    min: number;
+    settings?: SliderSettings;
+}
+
+// @public
+export const SliderCore: React_2.FC<SliderProps>;
+
+// Warning: (ae-forgotten-export) The symbol "ThumbProp" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export interface SliderDoubleProps extends SliderBaseProps, ThumbProp {
+    ariaLabel?: string[];
+    multipleStepSize?: number;
+    onChange?(value: number[]): void;
+    onChangeCommitted(value: number[]): void;
+    value: number[];
+}
+
+// @public (undocumented)
+export type SliderProps = SliderSingleProps | SliderDoubleProps;
+
+// @public (undocumented)
+export type SliderSettings = Partial<{
+    indent: number;
+    fontSizeMultiplier: number;
+    backgroundColor: string;
+    fillColor: string;
+}>;
+
+// @public (undocumented)
+export interface SliderSingleProps extends SliderBaseProps, ThumbProp {
+    ariaLabel?: string;
+    multipleStepSize?: number;
+    onChange?(value: number): void;
+    onChangeCommitted(value: number): void;
+    value: number;
+}
+
+// @public (undocumented)
 export interface SmartPaginationDotsProps {
     // (undocumented)
     index: number;
@@ -1117,6 +1164,11 @@ export interface ThemeProviderContextBase extends DefaultTheme {
     deviceScale?: number;
     lowPerformance?: boolean;
 }
+
+// @public (undocumented)
+export const ThumbBase: StyledComponent<"div", any, {
+disabled?: boolean | undefined;
+}, never>;
 
 // Warning: (ae-forgotten-export) The symbol "tfs" needs to be exported by the entry point index.d.ts
 //
