@@ -2,6 +2,36 @@
 
 #### 🚀 Enhancement
 
+- feat(plasma-web): add cypress Editable snapshots [#368](https://github.com/salute-developers/plasma/pull/368) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): delete unnecessary cypress Editable snapshots [#368](https://github.com/salute-developers/plasma/pull/368) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): add cypress Editable snapshots [#368](https://github.com/salute-developers/plasma/pull/368) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.150.0`, `@salutejs/plasma-hope@0.9.0`, `@salutejs/plasma-web@1.175.0`
+  - feat: add api reports after re-export Editable component [#368](https://github.com/salute-developers/plasma/pull/368) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.175.0`
+  - feat(plasma-web): add cypress tests symlink [Editable] [#368](https://github.com/salute-developers/plasma/pull/368) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): re-export "Editable" component [#368](https://github.com/salute-developers/plasma/pull/368) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.150.0`
+  - feat(plasma-b2c): add cypress tests symlink [Editable] [#368](https://github.com/salute-developers/plasma/pull/368) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-b2c): re-export "Editable" component [#368](https://github.com/salute-developers/plasma/pull/368) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.9.0`
+  - feat(plasma-hope): add "Editable" component [#368](https://github.com/salute-developers/plasma/pull/368) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-hope): add selectText, clearSelection methods [#368](https://github.com/salute-developers/plasma/pull/368) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- docs(plasma-web): Modal: add onClose to example [#377](https://github.com/salute-developers/plasma/pull/377) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
+# (Thu Mar 02 2023)
+
+#### 🚀 Enhancement
+
 - feat(plasma-ui): delete unnecessary cypress snapshots [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
 - feat(plasma-ui): add cypress snapshots [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
 - feat(plasma-b2c): delete unnecessary cypress snapshots [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
