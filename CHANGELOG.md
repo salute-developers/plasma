@@ -1,5 +1,18 @@
 # (Fri Mar 03 2023)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-core@1.100.1`
+  - fix(plasma-core): fix IS_REACT_18 [#380](https://github.com/salute-developers/plasma/pull/380) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
+# (Fri Mar 03 2023)
+
 #### 🚀 Enhancement
 
 - feat(plasma-web): add cypress ElasticGrid snapshots [#372](https://github.com/salute-developers/plasma/pull/372) ([@Yakutoc](https://github.com/Yakutoc))

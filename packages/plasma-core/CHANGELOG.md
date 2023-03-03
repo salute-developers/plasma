@@ -1,3 +1,15 @@
+# v1.100.1 (Fri Mar 03 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-core): fix IS_REACT_18 [#380](https://github.com/salute-developers/plasma/pull/380) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.100.0 (Thu Mar 02 2023)
 
 #### 🚀 Enhancement
