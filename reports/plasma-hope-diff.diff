@@ -37,10 +37,10 @@
  import { DisabledProps } from '@salutejs/plasma-core';
  import { Dropdown } from '@salutejs/plasma-hope';
  import { DropdownItem } from '@salutejs/plasma-hope';
-@@ -97,15 +95,18 @@
- import { DsplS } from '@salutejs/plasma-typo';
- import { Editable } from '@salutejs/plasma-hope';
+@@ -99,15 +97,18 @@
  import { EditableProps } from '@salutejs/plasma-hope';
+ import { ElasticGrid } from '@salutejs/plasma-hope';
+ import { ElasticGridProps } from '@salutejs/plasma-hope';
 -import { extractTextFrom } from '@salutejs/plasma-core';
 -import { FC } from 'react';
 -import type { FieldProps as FieldProps_2 } from '@salutejs/plasma-core';
@@ -60,7 +60,7 @@
  import { H1 } from '@salutejs/plasma-typo';
  import { H2 } from '@salutejs/plasma-typo';
  import { H3 } from '@salutejs/plasma-typo';
-@@ -116,10 +117,11 @@
+@@ -118,10 +119,11 @@
  import { Headline3 } from '@salutejs/plasma-hope';
  import { Headline4 } from '@salutejs/plasma-hope';
  import { Headline5 } from '@salutejs/plasma-hope';
@@ -74,7 +74,7 @@
  import { KeyboardEvent as KeyboardEvent_2 } from 'react';
  import { LineSkeleton } from '@salutejs/plasma-hope';
  import { LineSkeletonProps } from '@salutejs/plasma-hope';
-@@ -127,6 +129,8 @@
+@@ -129,6 +131,8 @@
  import { List } from '@salutejs/plasma-hope';
  import { ListItem } from '@salutejs/plasma-hope';
  import { MaxLinesProps } from '@salutejs/plasma-core';
@@ -83,14 +83,7 @@
  import { Modal } from '@salutejs/plasma-hope';
  import { ModalProps } from '@salutejs/plasma-hope';
  import { ModalsProvider } from '@salutejs/plasma-hope';
-@@ -158,14 +162,14 @@
- import { PriceProps } from '@salutejs/plasma-hope';
- import { Progress } from '@salutejs/plasma-hope';
- import { ProgressProps } from '@salutejs/plasma-hope';
-+import { PropsWithChildren } from 'react';
- import { Radiobox } from '@salutejs/plasma-hope';
- import { RadioboxProps } from '@salutejs/plasma-hope';
- import { RadioGroup } from '@salutejs/plasma-hope';
+@@ -166,8 +170,7 @@
  import { radiuses } from '@salutejs/plasma-core';
  import { Ratio } from '@salutejs/plasma-core';
  import { default as React_2 } from 'react';
@@ -100,7 +93,7 @@
  import { RectSkeleton } from '@salutejs/plasma-hope';
  import { RectSkeletonProps } from '@salutejs/plasma-hope';
  import { RefAttributes } from 'react';
-@@ -173,6 +177,8 @@
+@@ -175,6 +178,8 @@
  import { RoundnessProps } from '@salutejs/plasma-core';
  import { Row } from '@salutejs/plasma-hope';
  import { ScrollSnapProps } from '@salutejs/plasma-core';
@@ -109,7 +102,7 @@
  import { setRef } from '@salutejs/plasma-core';
  import { shadows } from '@salutejs/plasma-core';
  import { ShiftProps } from '@salutejs/plasma-core';
-@@ -183,19 +189,20 @@
+@@ -185,19 +190,20 @@
  import { SmartPaginationDotsProps } from '@salutejs/plasma-hope';
  import { SnapAlign } from '@salutejs/plasma-core';
  import { SnapType } from '@salutejs/plasma-core';
@@ -132,7 +125,7 @@
  import { TabsControllerProps as TabsControllerProps_2 } from '@salutejs/plasma-core';
  import type { TabsProps as TabsProps_2 } from '@salutejs/plasma-core';
  import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
-@@ -307,10 +314,33 @@
+@@ -309,10 +315,33 @@
  
  export { BodyXXS }
  
@@ -169,7 +162,7 @@
  
  export { Button1 }
  
-@@ -318,10 +348,6 @@
+@@ -320,10 +349,6 @@
  
  export { ButtonProps }
  
@@ -180,7 +173,7 @@
  export { Calendar }
  
  export { CalendarBase }
-@@ -380,6 +406,9 @@
+@@ -382,6 +407,9 @@
  
  export { CheckboxProps }
  
@@ -190,7 +183,7 @@
  export { closeNotification }
  
  export { Col }
-@@ -392,7 +421,8 @@
+@@ -394,7 +422,8 @@
  
  export { ColSizeProps }
  
@@ -200,7 +193,7 @@
  
  export { convertRoundnessMatrix }
  
-@@ -404,57 +434,8 @@
+@@ -406,57 +435,8 @@
  
  export { DropdownItem }
  
@@ -258,24 +251,16 @@
  export { DropdownProps }
  
  export { DsplL }
-@@ -467,7 +448,15 @@
+@@ -473,8 +453,6 @@
  
- export { EditableProps }
+ export { ElasticGridProps }
  
 -export { extractTextFrom }
-+// @public
-+export const ElasticGrid: React_2.FC<PropsWithChildren<ElasticGridProps>>;
-+
-+// @public (undocumented)
-+export interface ElasticGridProps {
-+    gapX?: number;
-+    gapY?: number;
-+    minColWidth: number;
-+}
- 
+-
  export { FocusProps }
  
-@@ -477,44 +466,15 @@
+ export { Footnote1 }
+@@ -483,44 +461,15 @@
  
  export { formatCurrency }
  
@@ -328,7 +313,7 @@
  
  export { H1 }
  
-@@ -536,14 +496,11 @@
+@@ -542,14 +491,11 @@
  
  export { Headline5 }
  
@@ -344,7 +329,7 @@
  
  export { InputHTMLAttributes }
  
-@@ -559,11 +516,9 @@
+@@ -565,11 +511,9 @@
  
  export { MaxLinesProps }
  
@@ -358,7 +343,7 @@
  
  export { Modal }
  
-@@ -577,13 +532,6 @@
+@@ -583,13 +527,6 @@
  
  export { monthShortName }
  
@@ -372,7 +357,7 @@
  export { Notification_2 as Notification }
  
  export { NotificationProps }
-@@ -657,67 +605,27 @@
+@@ -663,67 +600,27 @@
  export { ScrollSnapProps }
  
  // @public
@@ -409,20 +394,20 @@
 -    isOpen?: boolean;
 -    value?: string | number | null;
 -}
--
--// Warning: (ae-forgotten-export) The symbol "DropdownUncontrolledProps" needs to be exported by the entry point index.d.ts
--//
--// @public (undocumented)
--export const SelectDropdown: StyledComponent<FC<DropdownUncontrolledProps>, any, {}, never>;
 +    value: any;
 +    onChange?: ((value: any) => void) | undefined;
 +} & Pick<SelectViewProps, "form" | "slot" | "style" | "title" | "type" | "name" | "className" | "color" | "id" | "lang" | "role" | "tabIndex" | "aria-activedescendant" | "aria-atomic" | "aria-autocomplete" | "aria-busy" | "aria-checked" | "aria-colcount" | "aria-colindex" | "aria-colspan" | "aria-controls" | "aria-current" | "aria-describedby" | "aria-details" | "aria-disabled" | "aria-dropeffect" | "aria-errormessage" | "aria-expanded" | "aria-flowto" | "aria-grabbed" | "aria-haspopup" | "aria-hidden" | "aria-invalid" | "aria-keyshortcuts" | "aria-label" | "aria-labelledby" | "aria-level" | "aria-live" | "aria-modal" | "aria-multiline" | "aria-multiselectable" | "aria-orientation" | "aria-owns" | "aria-placeholder" | "aria-posinset" | "aria-pressed" | "aria-readonly" | "aria-relevant" | "aria-required" | "aria-roledescription" | "aria-rowcount" | "aria-rowindex" | "aria-rowspan" | "aria-selected" | "aria-setsize" | "aria-sort" | "aria-valuemax" | "aria-valuemin" | "aria-valuenow" | "aria-valuetext" | "children" | "dangerouslySetInnerHTML" | "onCopy" | "onCopyCapture" | "onCut" | "onCutCapture" | "onPaste" | "onPasteCapture" | "onCompositionEnd" | "onCompositionEndCapture" | "onCompositionStart" | "onCompositionStartCapture" | "onCompositionUpdate" | "onCompositionUpdateCapture" | "onFocus" | "onFocusCapture" | "onBlur" | "onBlurCapture" | "onChangeCapture" | "onBeforeInput" | "onBeforeInputCapture" | "onInput" | "onInputCapture" | "onReset" | "onResetCapture" | "onSubmit" | "onSubmitCapture" | "onInvalid" | "onInvalidCapture" | "onLoad" | "onLoadCapture" | "onError" | "onErrorCapture" | "onKeyDown" | "onKeyDownCapture" | "onKeyPress" | "onKeyPressCapture" | "onKeyUp" | "onKeyUpCapture" | "onAbort" | "onAbortCapture" | "onCanPlay" | "onCanPlayCapture" | "onCanPlayThrough" | "onCanPlayThroughCapture" | "onDurationChange" | "onDurationChangeCapture" | "onEmptied" | "onEmptiedCapture" | "onEncrypted" | "onEncryptedCapture" | "onEnded" | "onEndedCapture" | "onLoadedData" | "onLoadedDataCapture" | "onLoadedMetadata" | "onLoadedMetadataCapture" | "onLoadStart" | "onLoadStartCapture" | "onPause" | "onPauseCapture" | "onPlay" | "onPlayCapture" | "onPlaying" | "onPlayingCapture" | "onProgress" | "onProgressCapture" | "onRateChange" | "onRateChangeCapture" | "onSeeked" | "onSeekedCapture" | "onSeeking" | "onSeekingCapture" | "onStalled" | "onStalledCapture" | "onSuspend" | "onSuspendCapture" | "onTimeUpdate" | "onTimeUpdateCapture" | "onVolumeChange" | "onVolumeChangeCapture" | "onWaiting" | "onWaitingCapture" | "onAuxClick" | "onAuxClickCapture" | "onClick" | "onClickCapture" | "onContextMenu" | "onContextMenuCapture" | "onDoubleClick" | "onDoubleClickCapture" | "onDrag" | "onDragCapture" | "onDragEnd" | "onDragEndCapture" | "onDragEnter" | "onDragEnterCapture" | "onDragExit" | "onDragExitCapture" | "onDragLeave" | "onDragLeaveCapture" | "onDragOver" | "onDragOverCapture" | "onDragStart" | "onDragStartCapture" | "onDrop" | "onDropCapture" | "onMouseDown" | "onMouseDownCapture" | "onMouseEnter" | "onMouseLeave" | "onMouseMove" | "onMouseMoveCapture" | "onMouseOut" | "onMouseOutCapture" | "onMouseOver" | "onMouseOverCapture" | "onMouseUp" | "onMouseUpCapture" | "onSelect" | "onSelectCapture" | "onTouchCancel" | "onTouchCancelCapture" | "onTouchEnd" | "onTouchEndCapture" | "onTouchMove" | "onTouchMoveCapture" | "onTouchStart" | "onTouchStartCapture" | "onPointerDown" | "onPointerDownCapture" | "onPointerMove" | "onPointerMoveCapture" | "onPointerUp" | "onPointerUpCapture" | "onPointerCancel" | "onPointerCancelCapture" | "onPointerEnter" | "onPointerEnterCapture" | "onPointerLeave" | "onPointerLeaveCapture" | "onPointerOver" | "onPointerOverCapture" | "onPointerOut" | "onPointerOutCapture" | "onGotPointerCapture" | "onGotPointerCaptureCapture" | "onLostPointerCapture" | "onLostPointerCaptureCapture" | "onScroll" | "onScrollCapture" | "onWheel" | "onWheelCapture" | "onAnimationStart" | "onAnimationStartCapture" | "onAnimationEnd" | "onAnimationEndCapture" | "onAnimationIteration" | "onAnimationIterationCapture" | "onTransitionEnd" | "onTransitionEndCapture" | "defaultChecked" | "defaultValue" | "suppressContentEditableWarning" | "suppressHydrationWarning" | "accessKey" | "contentEditable" | "contextMenu" | "dir" | "draggable" | "hidden" | "placeholder" | "spellCheck" | "translate" | "radioGroup" | "about" | "datatype" | "inlist" | "prefix" | "property" | "resource" | "typeof" | "vocab" | "autoCapitalize" | "autoCorrect" | "autoSave" | "itemProp" | "itemScope" | "itemType" | "itemID" | "itemRef" | "results" | "security" | "unselectable" | "inputMode" | "is" | "autoFocus" | "disabled" | "formAction" | "formEncType" | "formMethod" | "formNoValidate" | "formTarget" | "status" | "isOpen" | "items" | "onItemSelect" | "helperText"> & React_2.RefAttributes<HTMLButtonElement>)>;
  
+-// Warning: (ae-forgotten-export) The symbol "DropdownUncontrolledProps" needs to be exported by the entry point index.d.ts
+-//
  // @public (undocumented)
--export interface SelectDropdownProps extends DropdownUncontrolledProps {
--}
+-export const SelectDropdown: StyledComponent<FC<DropdownUncontrolledProps>, any, {}, never>;
 +export const SelectGroup: StyledComponent<"div", any, {}, never>;
  
+-// @public (undocumented)
+-export interface SelectDropdownProps extends DropdownUncontrolledProps {
+-}
+-
 -// @public (undocumented)
 -export type SelectProps<T = any> = ({
 -    multiselect?: false;
@@ -450,7 +435,7 @@
  
  export { setRef }
  
-@@ -725,12 +633,6 @@
+@@ -731,12 +628,6 @@
  
  export { ShiftProps }
  
@@ -463,7 +448,7 @@
  export { sizes }
  
  export { SkeletonGradientProps }
-@@ -748,6 +650,8 @@
+@@ -754,6 +645,8 @@
  
  export { SnapType }
  
@@ -472,7 +457,7 @@
  export { SpacingProps }
  
  export { Spinner }
-@@ -756,6 +660,8 @@
+@@ -762,6 +655,8 @@
  
  export { SSRProvider }
  
@@ -481,7 +466,7 @@
  export { StyledCard }
  
  export { StyledPreviewGallery }
-@@ -769,10 +675,12 @@
+@@ -775,10 +670,12 @@
  export { syntheticFocus }
  
  // @public
@@ -496,7 +481,7 @@
  }
  
  // @public
-@@ -787,6 +695,13 @@
+@@ -793,6 +690,13 @@
  
  // @public (undocumented)
  export interface TabsProps extends TabsProps_2 {
@@ -510,7 +495,7 @@
  }
  
  // @public
-@@ -795,13 +710,11 @@
+@@ -801,13 +705,11 @@
  export { TextareaHTMLAttributes }
  
  // @public (undocumented)
@@ -527,7 +512,7 @@
  }
  
  export { TextareaResize }
-@@ -809,11 +722,13 @@
+@@ -815,11 +717,13 @@
  // @public
  export const TextField: React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
  
@@ -544,7 +529,7 @@
  }
  
  export { TextL }
-@@ -852,12 +767,27 @@
+@@ -858,12 +762,27 @@
  
  export { Upload }
  
@@ -572,7 +557,7 @@
  export { useDebouncedFunction }
  
  export { useForkRef }
-@@ -874,21 +804,10 @@
+@@ -880,21 +799,10 @@
  
  export { views }
  

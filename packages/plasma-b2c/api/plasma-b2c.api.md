@@ -95,6 +95,8 @@ import { DsplM } from '@salutejs/plasma-typo';
 import { DsplS } from '@salutejs/plasma-typo';
 import { Editable } from '@salutejs/plasma-hope';
 import { EditableProps } from '@salutejs/plasma-hope';
+import { ElasticGrid } from '@salutejs/plasma-hope';
+import { ElasticGridProps } from '@salutejs/plasma-hope';
 import type { FC } from 'react';
 import type { FieldProps } from '@salutejs/plasma-core';
 import { FocusProps } from '@salutejs/plasma-core';
@@ -162,7 +164,6 @@ import { Price } from '@salutejs/plasma-hope';
 import { PriceProps } from '@salutejs/plasma-hope';
 import { Progress } from '@salutejs/plasma-hope';
 import { ProgressProps } from '@salutejs/plasma-hope';
-import { PropsWithChildren } from 'react';
 import { Radiobox } from '@salutejs/plasma-hope';
 import { RadioboxProps } from '@salutejs/plasma-hope';
 import { RadioGroup } from '@salutejs/plasma-hope';
@@ -448,15 +449,9 @@ export { Editable }
 
 export { EditableProps }
 
-// @public
-export const ElasticGrid: React_2.FC<PropsWithChildren<ElasticGridProps>>;
+export { ElasticGrid }
 
-// @public (undocumented)
-export interface ElasticGridProps {
-    gapX?: number;
-    gapY?: number;
-    minColWidth: number;
-}
+export { ElasticGridProps }
 
 export { FocusProps }
 
