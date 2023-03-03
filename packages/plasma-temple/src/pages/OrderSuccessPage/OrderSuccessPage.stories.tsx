@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { HeaderProps } from '@salutejs/plasma-ui/components/Header/Header';
+import type { HeaderProps } from '@salutejs/plasma-ui';
 
 import { OrderSuccessPage } from './OrderSuccessPage';
 

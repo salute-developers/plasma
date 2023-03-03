@@ -1,8 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import classnames from 'classnames';
-import { Headline3, Spinner } from '@salutejs/plasma-ui';
-import { gridMargins, gridSizes, mediaQuery } from '@salutejs/plasma-ui/utils';
+import { Headline3, Spinner, gridMargins, gridSizes, mediaQuery } from '@salutejs/plasma-ui';
 import { Insets } from '@salutejs/client';
 
 import { isControlVisible, MediaPlayerControls } from '../MediaPlayer/MediaPlayerControls';

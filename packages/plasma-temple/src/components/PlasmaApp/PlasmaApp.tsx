@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeaderProps } from '@salutejs/plasma-ui/components/Header/Header';
+import type { HeaderProps } from '@salutejs/plasma-ui';
 
 import { PageProps } from '../Page/Page';
 import { PushScreenFn } from '../Page/types';

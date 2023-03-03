@@ -1,9 +1,17 @@
 import React, { ReactNode } from 'react';
 import styled, { css } from 'styled-components';
 import type { StyledComponent } from 'styled-components';
-import { Body1, Footnote1, Headline1, Button, Carousel, CarouselItem, Headline2 } from '@salutejs/plasma-ui';
+import {
+    Body1,
+    Footnote1,
+    Headline1,
+    Button,
+    Carousel,
+    CarouselItem,
+    Headline2,
+    mediaQuery,
+} from '@salutejs/plasma-ui';
 import { primary, secondary } from '@salutejs/plasma-tokens';
-import { mediaQuery } from '@salutejs/plasma-ui/utils';
 
 import { useFocusOnMount } from '../../hooks/useFocusOnMount';
 import { DeviceFamily, GetStyledComponentProps } from '../../types';

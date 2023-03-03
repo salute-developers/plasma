@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { CarouselGridWrapper, Carousel, CarouselItem } from '@salutejs/plasma-ui';
-import { isSberPortal, mediaQuery } from '@salutejs/plasma-ui/utils';
+import { CarouselGridWrapper, Carousel, CarouselItem, isSberPortal, mediaQuery } from '@salutejs/plasma-ui';
 
 import { GalleryCardContainer } from '../GalleryCard/GalleryCardContainer';
 import { AnyObject } from '../../types';

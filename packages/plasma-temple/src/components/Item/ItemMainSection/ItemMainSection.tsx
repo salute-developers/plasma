@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { Button, Row, Col, mediaQuery } from '@salutejs/plasma-ui';
-import { IconPlay } from '@salutejs/plasma-icons/Icons/IconPlay';
+import { IconPlay } from '@salutejs/plasma-icons';
 
 import { isSberBoxLike } from '../../../utils/deviceFamily';
 import { useFocusOnMount } from '../../../hooks/useFocusOnMount';

@@ -1,9 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Card, CardBody, CardMedia, CardBody1, CardBadge, CardContent, Caption } from '@salutejs/plasma-ui';
+import { Card, CardBody, CardMedia, CardBody1, CardBadge, CardContent, Caption, mediaQuery } from '@salutejs/plasma-ui';
 import { IconClock } from '@salutejs/plasma-icons';
 import { overlay, primary } from '@salutejs/plasma-tokens';
-import { mediaQuery } from '@salutejs/plasma-ui/utils';
 
 import { getMediaObjectSrc } from '../../utils/getMediaObjectSrc';
 import { AnyObject } from '../../types';

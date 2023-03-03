@@ -1,7 +1,16 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Button, Col, Headline1, Headline2, Row, Image, ButtonProps } from '@salutejs/plasma-ui';
-import { DeviceKind, mediaQuery } from '@salutejs/plasma-ui/utils';
+import {
+    Button,
+    Col,
+    Headline1,
+    Headline2,
+    Row,
+    Image,
+    ButtonProps,
+    DeviceKind,
+    mediaQuery,
+} from '@salutejs/plasma-ui';
 
 import { deviceFamily, isSberBoxLike } from '../../../utils/deviceFamily';
 import { withProps } from '../../../components/hocs/withProps';

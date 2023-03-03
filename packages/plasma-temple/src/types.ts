@@ -8,7 +8,7 @@ import {
     AssistantViewItemBase,
 } from '@salutejs/client';
 import type { PriceProps, Ratio } from '@salutejs/plasma-ui';
-import { DeviceKind } from '@salutejs/plasma-ui/utils';
+import { DeviceKind } from '@salutejs/plasma-ui';
 import { StyledComponent } from 'styled-components';
 
 // infer component props from @salutejs/plasma-core
