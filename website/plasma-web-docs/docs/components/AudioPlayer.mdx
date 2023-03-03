@@ -1,0 +1,70 @@
+---
+id: AudioPlayer
+title: AudioPlayer
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# AudioPlayer
+
+<Description name="AudioPlayer" />
+<PropsTable name="AudioPlayer" />
+<StorybookLink name="AudioPlayer" />
+
+## Использование
+
+```tsx live
+import React, { useState, useCallback } from 'react';
+import { AudioPlayer } from '@salutejs/plasma-web';
+
+export function App() {
+    const song = {
+        name: 'I’m Not Okay',
+        duration: 128,
+        id: 123,
+        file: 'https://vc-static.sberdevices.ru/smartmarket-video-news/media/uploads/15/159f025fe48c54f70b7a4041edbb413044f01a61.mp3',
+        canDelete: true,
+    };
+
+    const [state, setState] = useState({
+        isSelected: false,
+        isPlaying: false,
+    });
+
+    const onSelect = useCallback(() => {
+        setState((prevState) => ({
+            ...prevState,
+            isSelected: !prevState.isSelected,
+        }));
+    }, []);
+
+    const onPlay = useCallback(() => {
+        setState((prevState) => ({
+            ...prevState,
+            isPlaying: !prevState.isPlaying,
+        }));
+    }, []);
+
+    const onDelete = useCallback((id) => {
+        alert(`Трек id:${id} будет удалён`);
+    }, []);
+
+
+    return (
+      <AudioPlayer
+            title={song.name}
+            duration={song.duration}
+            url={song.file}
+            isPlaying={state.isPlaying}
+            isSelected={state.isSelected}
+            canDelete={song.canDelete}
+            onClick={onSelect}
+            onDelete={() => onDelete(song.id)}
+            onPlay={(event) => {
+                event.stopPropagation();
+                onPlay();
+            }}
+      />
+    );
+}
+```
