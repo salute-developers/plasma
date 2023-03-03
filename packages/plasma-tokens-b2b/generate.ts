@@ -87,6 +87,8 @@ export * from './colors';
 export * from './sizes';
 export * from './typography';
 export * from './typographyValues';
+export * from './typo';
+export * from './themes';
 `;
 
 fs.writeFileSync(ROOT_INDEX_TS, indexTsContent);
