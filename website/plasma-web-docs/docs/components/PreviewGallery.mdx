@@ -1,0 +1,125 @@
+---
+id: PreviewGallery
+title: PreviewGallery
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# PreviewGallery
+
+<Description name="PreviewGallery" />
+<PropsTable name="PreviewGallery" />
+<StorybookLink name="PreviewGallery" />
+
+## Использование
+
+```tsx live
+import React, { useState, useCallback } from 'react';
+import { IconTrashFilled } from '@salutejs/plasma-icons';
+import { PreviewGallery, arrayItemRemoving, arrayItemSelecting } from '@salutejs/plasma-web';
+
+export function App() {
+    const images = [
+        {
+            id: Math.random(),
+            image: 'https://plasma.sberdevices.ru/ui/images/320_320_1.jpg',
+            caption: '3:24',
+            tooltip: {
+                text: 'Высокое качество воспроизведения',
+                placement: 'top',
+            },
+        },
+        { id: 2 * Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_2.jpg', isSelected: true },
+        { id: 3 * Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_3.jpg', actionDisabled: true },
+        { id: 4 * Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_4.jpg' },
+    ];
+
+    const [items, setItems] = useState(images);
+
+    const onItemRemove = useCallback((id) => {
+        setItems((oldItems) => {
+            const newItems = arrayItemRemoving(oldItems, id);
+
+            if (newItems.length === 1) {
+                newItems[0].isSelected = true;
+            }
+
+            return newItems;
+        });
+    }, []);
+
+    const onItemClick = useCallback((id) => {
+        setItems((oldItems) => {
+            return arrayItemSelecting(oldItems, id);
+        });
+    }, []);
+
+    return (
+         <section style={{width: '23.75rem'}}>
+             <PreviewGallery
+                items={items}
+                onItemAction={onItemRemove}
+                actionIcon={<IconTrashFilled size="xs" color="inherit" />}
+                onItemClick={onItemClick}
+              />
+         </section>
+    )
+}
+```
+
+Режим "Draggable".
+
+```tsx live
+import React, { useState, useCallback } from 'react';
+import { IconTrash } from '@salutejs/plasma-icons';
+import { PreviewGallery, arrayItemRemoving, arrayItemSwapping } from '@salutejs/plasma-web';
+
+export function App() {
+    const images = [
+        {
+            id: Math.random(),
+            image: 'https://plasma.sberdevices.ru/ui/images/320_320_1.jpg',
+            caption: '3:24',
+            tooltip: {
+                text: 'Высокое качество воспроизведения',
+                placement: 'top',
+            },
+        },
+        { id: 2 * Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_2.jpg', isSelected: true },
+        { id: 3 * Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_3.jpg', actionDisabled: true },
+        { id: 4 * Math.random(), image: 'https://plasma.sberdevices.ru/ui/images/320_320_4.jpg' },
+    ];
+
+    const [items, setItems] = useState(images);
+
+    const onItemRemove = useCallback((id) => {
+        setItems((oldItems) => {
+            const newItems = arrayItemRemoving(oldItems, id);
+
+            if (newItems.length === 1) {
+                newItems[0].isSelected = true;
+            }
+
+            return newItems;
+        });
+    }, []);
+
+    const onItemsSortEnd = useCallback(({ oldIndex, newIndex }) => {
+        setItems((oldItems) => {
+            return arrayItemSwapping(oldItems, oldIndex, newIndex);
+        });
+    }, []);
+
+    return (
+        <section style={{width: '23.75rem'}}>
+            <PreviewGallery
+                interactionType="draggable"
+                items={items}
+                actionIcon={<IconTrash size="xs" color="inherit" />}
+                onItemAction={onItemRemove}
+                onItemsSortEnd={onItemsSortEnd}
+            />
+        </section>
+    );
+}
+```
