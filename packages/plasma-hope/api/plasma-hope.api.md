@@ -107,6 +107,7 @@ import { PinProps } from '@salutejs/plasma-core';
 import { Popup } from '@salutejs/plasma-core';
 import { PopupProps } from '@salutejs/plasma-core';
 import type { PriceProps as PriceProps_2 } from '@salutejs/plasma-core';
+import { PropsWithChildren } from 'react';
 import { radiuses } from '@salutejs/plasma-core';
 import { Ratio } from '@salutejs/plasma-core';
 import { default as React_2 } from 'react';
@@ -583,6 +584,16 @@ export interface EditableProps {
     textComponent: typeof typography[keyof typeof typography];
     // (undocumented)
     value?: string;
+}
+
+// @public
+export const ElasticGrid: FC<PropsWithChildren<ElasticGridProps>>;
+
+// @public (undocumented)
+export interface ElasticGridProps {
+    gapX?: number;
+    gapY?: number;
+    minColWidth: number;
 }
 
 export { extractTextFrom }
