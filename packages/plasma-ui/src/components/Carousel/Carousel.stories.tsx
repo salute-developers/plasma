@@ -69,7 +69,7 @@ const items = Array(100)
     .fill({
         title: 'Заголовок',
         subtitle: 'Описание уравнение времени, сублимиpуя с повеpхности ядpа кометы, вращает реликтовый ледник',
-        imageSrc: `${process.env.PUBLIC_URL}/images/320_320_n.jpg`,
+        imageSrc: 'images/320_320_n.jpg',
     })
     .map(({ title, subtitle, imageSrc }, i) => ({
         id: `slide_${i}`,
@@ -141,7 +141,7 @@ export const Basic: Story<CarouselProps & CarouselColProps & { displayGrid: bool
                             <ProductCard
                                 title={title}
                                 subtitle={subtitle}
-                                imageSrc={`${process.env.PUBLIC_URL}/images/320_320_${i % 12}.jpg`}
+                                imageSrc={`images/320_320_${i % 12}.jpg`}
                                 focused={i === index}
                             />
                         </CarouselCol>
@@ -223,7 +223,7 @@ const CarouselVirtualBasicComponent = () => {
                                 title={title}
                                 subtitle={subtitle}
                                 focused={i === currentIndex}
-                                imageSrc={`${process.env.PUBLIC_URL}/images/320_320_${i % 12}.jpg`}
+                                imageSrc={`images/320_320_${i % 12}.jpg`}
                                 imageRatio="1 / 1"
                                 tabIndex={i === currentIndex ? 0 : -1}
                             />
@@ -307,7 +307,7 @@ export const Vertical: Story<CarouselProps & CarouselColProps & { displayGrid: b
                             title={title}
                             subtitle={subtitle}
                             focused={i === index}
-                            imageSrc={`${process.env.PUBLIC_URL}/images/320_320_${i % 12}.jpg`}
+                            imageSrc={`images/320_320_${i % 12}.jpg`}
                             imageRatio="1 / 1"
                             scaleOnFocus
                             tabIndex={0}
@@ -558,7 +558,7 @@ export const CarouselLiteBasic: Story<CarouselLiteProps & CarouselColProps & { d
                             <ProductCard
                                 title={title}
                                 subtitle={subtitle}
-                                imageSrc={`${process.env.PUBLIC_URL}/images/320_320_${i % 12}.jpg`}
+                                imageSrc={`images/320_320_${i % 12}.jpg`}
                                 focused={i === index}
                             />
                         </CarouselCol>
