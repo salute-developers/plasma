@@ -3,27 +3,11 @@
     "version": "0.19.0",
     "description": "Salute Design System / Internal React UI kit for web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    "keywords": [
-        "design-system",
-        "react-components",
-        "ui-kit",
-        "react"
-    ],
+    "keywords": ["design-system", "react-components", "ui-kit", "react"],
     "main": "index.js",
     "module": "es/index.js",
     "types": "index.d.ts",
-    "files": [
-        "components",
-        "es",
-        "hocs",
-        "hooks",
-        "mixins",
-        "tokens",
-        "types",
-        "utils",
-        "index.d.ts",
-        "index.js"
-    ],
+    "files": ["components", "es", "hocs", "hooks", "mixins", "tokens", "types", "utils", "index.d.ts", "index.js"],
     "repository": {
         "type": "git",
         "url": "ssh://git@github.com:salute-developers/plasma.git",
@@ -103,17 +87,13 @@
         "storybook:build": "build-storybook -s .storybook/public -c .storybook -o build-sb",
         "storybook:build:docs": "DOCS=true build-storybook --quiet -s .storybook/public -c .storybook -o build-sb-docs --docs",
         "typescript-coverage": "npx typescript-coverage-report > /dev/null",
-        "test": "jest --passWithNoTests"
+        "test": "jest --passWithNoTests",
+        "build:watch": "npm run build:esm -- --watch"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
         "atLeast": 99.96
     },
-    "contributors": [
-        "Vasiliy Loginevskiy"
-    ],
+    "contributors": ["Vasiliy Loginevskiy"],
     "sideEffects": false
 }

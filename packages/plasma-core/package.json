@@ -56,19 +56,14 @@
         "generate:typings": "tsc --outDir . --emitDeclarationOnly",
         "test": "NODE_ICU_DATA=node_modules/full-icu jest",
         "test:watch": "NODE_ICU_DATA=node_modules/full-icu jest --watch",
-        "typescript-coverage": "npx typescript-coverage-report > /dev/null"
+        "typescript-coverage": "npx typescript-coverage-report > /dev/null",
+        "build:watch": "npm run build:esm -- --watch"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx"],
         "atLeast": 99
     },
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Виноградов Антон Александрович",
-        "Зубаиров Фаниль Асхатович"
-    ],
+    "contributors": ["Vasiliy Loginevskiy", "Виноградов Антон Александрович", "Зубаиров Фаниль Асхатович"],
     "sideEffects": false,
     "dependencies": {
         "@salutejs/plasma-typo": "0.33.0",
