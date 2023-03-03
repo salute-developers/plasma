@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Meta } from '@storybook/react';
 import { general, additional } from '@salutejs/plasma-colors';
-import { light, dark } from '@salutejs/plasma-tokens-b2b/themes';
+import { light, dark } from '@salutejs/plasma-tokens-b2b';
 import { ThemeColors, extractWebThemeColors } from '@salutejs/plasma-sb-utils';
 
 import { PaletteGrid, flattenPalette, InSpacingDecorator } from '../helpers';

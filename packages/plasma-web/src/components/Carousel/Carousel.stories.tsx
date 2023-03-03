@@ -29,7 +29,7 @@ const items = Array(25)
     .fill({
         title: 'Слайд',
         subtitle: 'Описание слайда',
-        imageSrc: `${process.env.PUBLIC_URL}/images/320_320_n.jpg`,
+        imageSrc: 'images/320_320_n.jpg',
         imageAlt: 'Картинка',
     })
     .map(({ title, subtitle, imageSrc, imageAlt }, i) => ({
