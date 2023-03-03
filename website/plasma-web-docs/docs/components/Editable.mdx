@@ -1,0 +1,32 @@
+---
+id: Editable
+title: Editable
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Editable
+
+<Description name="Editable" />
+<PropsTable name="Editable" />
+<StorybookLink name="Editable" />
+
+## Использование
+
+```tsx live
+import React from 'react';
+import { Editable } from '@salutejs/plasma-web';
+import { IconEdit } from '@salutejs/plasma-icons';
+import { Headline1 } from '@salutejs/plasma-typo';
+
+export function App() {
+    return (
+        <Editable
+            icon={<IconEdit size='s' color="inherit" />}
+            textComponent={Headline1}
+            value="Default value"
+            onChange={() => { console.log('handleChange') }}
+        />
+    );
+}
+```
