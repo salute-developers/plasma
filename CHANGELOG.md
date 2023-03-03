@@ -1,3 +1,26 @@
+# (Fri Mar 03 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-web): add cypress ElasticGrid snapshots [#372](https://github.com/salute-developers/plasma/pull/372) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.152.0`, `@salutejs/plasma-hope@0.11.0`, `@salutejs/plasma-web@1.177.0`
+  - feat: add api reports after re-export ElasticGrid component [#372](https://github.com/salute-developers/plasma/pull/372) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.11.0`
+  - feat(plasma-hope): add "@types/resize-observer-browser" [#372](https://github.com/salute-developers/plasma/pull/372) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-hope): add "ElasticGrid" component [#372](https://github.com/salute-developers/plasma/pull/372) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.177.0`
+  - feat(plasma-web): add cypress tests symlink [ElasticGrid] [#372](https://github.com/salute-developers/plasma/pull/372) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): re-export "ElasticGrid" component [#372](https://github.com/salute-developers/plasma/pull/372) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.152.0`
+  - feat(plasma-b2c): add cypress tests symlink [ElasticGrid] [#372](https://github.com/salute-developers/plasma/pull/372) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-b2c): re-export "ElasticGrid" component [#372](https://github.com/salute-developers/plasma/pull/372) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Thu Mar 02 2023)
 
 #### 🚀 Enhancement

@@ -1,3 +1,17 @@
+# v0.11.0 (Fri Mar 03 2023)
+
+#### 🚀 Enhancement
+
+- feat: add api reports after re-export ElasticGrid component [#372](https://github.com/salute-developers/plasma/pull/372) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-hope): add "@types/resize-observer-browser" [#372](https://github.com/salute-developers/plasma/pull/372) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-hope): add "ElasticGrid" component [#372](https://github.com/salute-developers/plasma/pull/372) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v0.10.0 (Thu Mar 02 2023)
 
 #### 🚀 Enhancement
