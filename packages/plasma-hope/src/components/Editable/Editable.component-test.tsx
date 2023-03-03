@@ -75,8 +75,9 @@ describe('plasma-hope: Editable', () => {
 
         // для случаев, если не поддерживаются современные интерфейсы window
         cy.window().then((win) => {
+            // NOTE: https://github.com/salute-developers/plasma/issues/384
             // callsFake не работает с данным методом
-            cy.stub(win, 'getSelection', undefined);
+            // cy.stub(win, 'getSelection', undefined);
 
             // для браузеров IE < 9 при использовании компонента
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
