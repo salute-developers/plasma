@@ -1,8 +1,18 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Body1, Body2, Button, Col, Footnote1, Headline3, Price, Row } from '@salutejs/plasma-ui';
+import {
+    Body1,
+    Body2,
+    Button,
+    Col,
+    Footnote1,
+    Headline3,
+    Price,
+    Row,
+    detectDevice,
+    mediaQuery,
+} from '@salutejs/plasma-ui';
 import { secondary } from '@salutejs/plasma-tokens';
-import { detectDevice, mediaQuery } from '@salutejs/plasma-ui/utils';
 
 import { Header } from '../../components/Header/Header';
 import { ComponentPropsWithHeader } from '../../components/Header/types';

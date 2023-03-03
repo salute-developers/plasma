@@ -1,5 +1,5 @@
 import React from 'react';
-import { detectDevice } from '@salutejs/plasma-ui/utils';
+import { detectDevice } from '@salutejs/plasma-ui';
 
 import { DeviceFamily } from '../../../types';
 

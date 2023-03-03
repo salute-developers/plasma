@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { IconSalute } from '@salutejs/plasma-icons';
-import { mediaQuery } from '@salutejs/plasma-ui/utils';
+import { mediaQuery } from '@salutejs/plasma-ui';
 
 export interface AssistantSuggestProps {
     onManualFill: () => void;

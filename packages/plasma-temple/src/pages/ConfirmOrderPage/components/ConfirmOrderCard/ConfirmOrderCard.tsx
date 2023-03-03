@@ -1,9 +1,8 @@
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
-import { Body1, Caption, Card, CardBody, CardContent, Footnote1, Price } from '@salutejs/plasma-ui';
+import { Body1, Caption, Card, CardBody, CardContent, Footnote1, Price, detectDevice } from '@salutejs/plasma-ui';
 import { IconChevronRight } from '@salutejs/plasma-icons';
 import { secondary } from '@salutejs/plasma-tokens';
-import { detectDevice } from '@salutejs/plasma-ui/utils';
 
 import { DeviceFamily } from '../../../../types';
 

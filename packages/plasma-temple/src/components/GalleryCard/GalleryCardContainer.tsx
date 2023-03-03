@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { isSberPortal } from '@salutejs/plasma-ui/utils';
+import { isSberPortal } from '@salutejs/plasma-ui';
 
 import { GalleryCard as DefaultGalleryCard } from '../GalleryCard/GalleryCard';
 import { AnyObject } from '../../types';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@salutejs/plasma-ui';
-import { HeaderProps } from '@salutejs/plasma-ui/components/Header/Header';
+import type { HeaderProps } from '@salutejs/plasma-ui';
 
 import { useFocusOnMount } from '../../hooks/useFocusOnMount';
 import { THROTTLE_WAIT } from '../../hooks/useThrottledCallback';

@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { isSberPortal } from '@salutejs/plasma-ui/utils';
+import { isSberPortal } from '@salutejs/plasma-ui';
 import { AssistantNavigationCommand } from '@salutejs/client';
 
 import { Axis } from '../../../types';

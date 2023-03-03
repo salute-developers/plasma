@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { CarouselItem } from '@salutejs/plasma-ui';
-import { mediaQuery } from '@salutejs/plasma-ui/utils';
+import { CarouselItem, mediaQuery } from '@salutejs/plasma-ui';
 
 import { UnifiedComponentProps } from '../../../../registry/types';
 import { useRemoteHandlers, useRemoteListener } from '../../../../hooks';

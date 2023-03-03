@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { mediaQuery } from '@salutejs/plasma-ui/utils';
-import { applyHyphens, BreakWordProps, TextBox } from '@salutejs/plasma-ui';
+import { applyHyphens, BreakWordProps, TextBox, mediaQuery } from '@salutejs/plasma-ui';
 import { body1, footnote1, headline1, headline2, secondary } from '@salutejs/plasma-tokens';
 
 export interface ProductTitleProps {

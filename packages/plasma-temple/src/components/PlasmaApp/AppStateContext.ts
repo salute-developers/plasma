@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { HeaderProps } from '@salutejs/plasma-ui/components/Header/Header';
+import type { HeaderProps } from '@salutejs/plasma-ui';
 
 export interface AppStateContextValue {
     header?: HeaderProps;

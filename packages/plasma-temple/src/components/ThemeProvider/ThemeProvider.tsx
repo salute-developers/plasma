@@ -1,9 +1,18 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { DeviceThemeProvider } from '@salutejs/plasma-ui';
-import { DeviceThemeProps } from '@salutejs/plasma-ui/components/Device/DeviceDetection';
-import { fonts, gradient, text } from '@salutejs/plasma-tokens';
-import { darkJoy, darkEva, darkSber, lightJoy, lightEva, lightSber } from '@salutejs/plasma-tokens/themes';
+import type { DeviceThemeProps } from '@salutejs/plasma-ui';
+import {
+    fonts,
+    gradient,
+    text,
+    darkJoy,
+    darkEva,
+    darkSber,
+    lightJoy,
+    lightEva,
+    lightSber,
+} from '@salutejs/plasma-tokens';
 import { CharacterId, ThemeColorName } from '@salutejs/client';
 
 export interface ThemeProviderProps extends DeviceThemeProps {

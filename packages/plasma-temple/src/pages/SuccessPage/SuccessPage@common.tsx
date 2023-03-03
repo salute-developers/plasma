@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { mediaQuery } from '@salutejs/plasma-ui/utils';
+import { mediaQuery } from '@salutejs/plasma-ui';
 
 import { useFocusOnMount } from '../../hooks/useFocusOnMount';
 import { THROTTLE_WAIT } from '../../hooks/useThrottledCallback';
