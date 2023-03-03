@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-b2c",
-    "version": "1.151.0",
+    "version": "1.152.0",
     "description": "Salute Design System / React UI kit for business-related web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "main": "index.js",
@@ -38,7 +38,7 @@
     },
     "dependencies": {
         "@salutejs/plasma-core": "1.100.0",
-        "@salutejs/plasma-hope": "0.10.0",
+        "@salutejs/plasma-hope": "0.11.0",
         "@salutejs/plasma-typo": "0.31.0",
         "react-draggable": "4.4.3",
         "react-file-drop": "3.1.2",
