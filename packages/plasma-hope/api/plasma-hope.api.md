@@ -57,6 +57,7 @@ import { ClipboardEventHandler } from 'react';
 import type { ComponentType } from 'react';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
 import { CoverProps } from '@salutejs/plasma-core/components/Card/CardContent';
+import type { CSSObject } from 'styled-components';
 import { CSSProperties } from 'react';
 import type { DetailedHTMLProps } from 'react';
 import { DisabledProps } from '@salutejs/plasma-core';
@@ -306,7 +307,43 @@ export { Button1 }
 export { Button2 }
 
 // @public (undocumented)
+export const buttonCheckedActive = "var(--plasma-colors-button-checked-active)";
+
+// @public (undocumented)
+export const buttonCheckedActiveColor = "var(--plasma-colors-button-checked-active-color)";
+
+// @public (undocumented)
+export const buttonCheckedHover = "var(--plasma-colors-button-checked-hover)";
+
+// @public (undocumented)
+export const buttonCheckedHoverColor = "var(--plasma-colors-button-checked-hover-color)";
+
+// @public (undocumented)
+export const buttonCriticalActive = "var(--plasma-colors-button-critical-active)";
+
+// @public (undocumented)
+export const buttonCriticalHover = "var(--plasma-colors-button-critical-hover)";
+
+// @public (undocumented)
+export const buttonPrimaryActive = "var(--plasma-colors-button-primary-active)";
+
+// @public (undocumented)
+export const buttonPrimaryHover = "var(--plasma-colors-button-primary-hover)";
+
+// @public (undocumented)
 export type ButtonProps = ButtonProps_2 & Partial<ButtonSizeProps> & Partial<ButtonViewProps<ButtonView>> & ButtonContentProps;
+
+// @public (undocumented)
+export const buttonSecondaryActive = "var(--plasma-colors-button-secondary-active)";
+
+// @public (undocumented)
+export const buttonSecondaryHover = "var(--plasma-colors-button-secondary-hover)";
+
+// @public (undocumented)
+export const buttonSuccessActive = "var(--plasma-colors-button-success-active)";
+
+// @public (undocumented)
+export const buttonSuccessHover = "var(--plasma-colors-button-success-hover)";
 
 // @public (undocumented)
 export type ButtonView = keyof typeof buttonViews;
@@ -328,6 +365,12 @@ export const buttonViews: {
         color: string;
     };
 };
+
+// @public (undocumented)
+export const buttonWarningActive = "var(--plasma-colors-button-warning-active)";
+
+// @public (undocumented)
+export const buttonWarningHover = "var(--plasma-colors-button-warning-hover)";
 
 // @public
 export const Calendar: React_2.FC<CalendarProps>;
@@ -609,6 +652,27 @@ export interface ElasticGridProps {
 
 export { extractTextFrom }
 
+// @public (undocumented)
+export const fieldColor = "var(--plasma-field-color)";
+
+// @public (undocumented)
+export const fieldContentMargin = "var(--plasma-field-content-margin)";
+
+// @public (undocumented)
+export const fieldHelperTextMarginTop = "var(--plasma-field-helper-text-margin-top)";
+
+// @public (undocumented)
+export const fieldHelperTextTypo: CSSObject;
+
+// @public (undocumented)
+export const fieldLabelColor = "var(--plasma-field-label-color)";
+
+// @public (undocumented)
+export const fieldLabelMarginBottom = "var(--plasma-field-label-margin-bottom)";
+
+// @public (undocumented)
+export const fieldTypo: CSSObject;
+
 export { FocusProps }
 
 export { Footnote1 }
@@ -677,6 +741,9 @@ export { Headline4 }
 // @public (undocumented)
 export const Headline5: StyledComponent<"div", any, {}, never>;
 
+// @public (undocumented)
+export const headline5: CSSObject;
+
 // @public
 const Image_2: React.FC<ImageProps>;
 export { Image_2 as Image }
@@ -686,7 +753,91 @@ export { ImageBaseProps }
 // @public (undocumented)
 export type ImageProps = ImageProps_2;
 
+// @public (undocumented)
+export const inputBackground = "var(--plasma-input-background-color)";
+
+// @public (undocumented)
+export const inputBackgroundFocus = "var(--plasma-input-focus-background-color)";
+
+// @public (undocumented)
+export const inputBackgroundHover = "var(--plasma-input-hover-background-color)";
+
+// @public (undocumented)
+export const inputBorder = "var(--plasma-colors-input-border)";
+
+// @public (undocumented)
+export const inputBorderFocus = "var(--plasma-colors-input-border-focus)";
+
+// @public (undocumented)
+export const inputBorderHover = "var(--plasma-colors-input-border-hover)";
+
+// @public (undocumented)
+export const inputBorderRadius = "var(--plasma-input-border-radius)";
+
+// @public (undocumented)
+export const inputBorderWidth = "var(--plasma-input-border-width)";
+
+// @public (undocumented)
+export const inputCaretColor = "var(--plasma-input-caret-color)";
+
+// @public (undocumented)
+export const inputColor = "var(--plasma-input-color)";
+
+// @public (undocumented)
+export const inputErrorBackground = "var(--plasma-input-error-background)";
+
+// @public (undocumented)
+export const inputErrorBorderColor = "var(--plasma-input-error-border-color)";
+
+// @public (undocumented)
+export const inputErrorCaretColor = "var(--plasma-input-error-caret-color)";
+
+// @public (undocumented)
+export const inputErrorColor = "var(--plasma-input-error-color)";
+
+// @public (undocumented)
+export const inputFocusPlaceholderColor = "var(--plasma-input-focus-placeholder-color)";
+
 export { InputHTMLAttributes }
+
+// @public (undocumented)
+export const inputLabelColor = "var(--plasma-input-label-color)";
+
+// @public (undocumented)
+export const inputLabelMarginTop = "var(--plasma-input-label-margin-top)";
+
+// @public (undocumented)
+export const inputLabelTypo: CSSObject;
+
+// @public (undocumented)
+export const inputPlaceholderColor = "var(--plasma-input-placeholder-color)";
+
+// @public (undocumented)
+export const inputSuccessBackground = "var(--plasma-input-success-background)";
+
+// @public (undocumented)
+export const inputSuccessBorderColor = "var(--plasma-input-success-border-color)";
+
+// @public (undocumented)
+export const inputSuccessCaretColor = "var(--plasma-input-success-caret-color)";
+
+// @public (undocumented)
+export const inputSuccessColor = "var(--plasma-input-success-color)";
+
+// @public (undocumented)
+export const inputTypo: CSSObject;
+
+// @public (undocumented)
+export const inputWarningBackground = "var(--plasma-input-warning-background)";
+
+// @public (undocumented)
+export const inputWarningBorderColor = "var(--plasma-input-warning-border-color)";
+
+// @public (undocumented)
+export const inputWarningCaretColor = "var(--plasma-input-warning-caret-color)";
+
+// @public (undocumented)
+export const inputWarningColor = "var(--plasma-input-warning-color)";
 
 export { LineSkeleton }
 
@@ -700,6 +851,24 @@ $isHover?: boolean | undefined;
 $isPressed?: boolean | undefined;
 $isVisited?: boolean | undefined;
 }, never>;
+
+// @public (undocumented)
+export const link = "var(--plasma-colors-link)";
+
+// @public (undocumented)
+export const linkActive = "var(--plasma-colors-link-active)";
+
+// @public (undocumented)
+export const linkHover = "var(--plasma-colors-link-hover)";
+
+// @public (undocumented)
+export const linkVisited = "var(--plasma-colors-link-visited)";
+
+// @public (undocumented)
+export const linkVisitedActive = "var(--plasma-colors-link-visited-active)";
+
+// @public (undocumented)
+export const linkVisitedHover = "var(--plasma-colors-link-visited-hover)";
 
 // @public (undocumented)
 export const List: StyledComponent<"ul", any, SpacingProps, never>;
@@ -1013,6 +1182,9 @@ maxHeight?: number | undefined;
 
 // @public (undocumented)
 export const Subtitle: StyledComponent<"div", any, {}, never>;
+
+// @public (undocumented)
+export const subtitle: CSSObject;
 
 // @public
 export const Switch: StyledComponent<ForwardRefExoticComponent<SwitchProps & RefAttributes<HTMLInputElement>>, any, {}, never>;
