@@ -2,8 +2,7 @@ import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { Meta, Story } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { IconTrash, IconTrashFilled } from '@salutejs/plasma-icons';
-import { Icon } from '@salutejs/plasma-icons/Icon';
+import { IconTrash, IconTrashFilled, Icon } from '@salutejs/plasma-icons';
 import { surfaceSolid01 } from '@salutejs/plasma-tokens-b2c';
 
 import {

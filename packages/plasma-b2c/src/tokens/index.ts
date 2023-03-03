@@ -9,6 +9,6 @@ export {
     linkVisitedActive,
     inputBorder,
     inputBorderHover,
-} from '@salutejs/plasma-hope/tokens';
+} from '@salutejs/plasma-hope';
 
 export * from '@salutejs/plasma-typo';

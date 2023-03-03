@@ -46,7 +46,7 @@ const items = Array(25)
     .fill({
         title: 'Заголовок',
         subtitle: 'Описание уравнение времени, сублимиpуя с повеpхности ядpа кометы, вращает реликтовый ледник',
-        imageSrc: `${process.env.PUBLIC_URL}/images/320_320_n.jpg`,
+        imageSrc: 'images/320_320_n.jpg',
     })
     .map(({ title, subtitle, imageSrc }, i) => ({
         id: i,
