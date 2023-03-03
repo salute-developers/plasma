@@ -1,0 +1,51 @@
+---
+id: slider
+title: Slider
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Slider
+
+Слайдер позволяет определить числовое значение в пределах указанного промежутка.
+
+<Description name="Slider" />
+<PropsTable name="Slider" />
+<StorybookLink name="Slider" />
+
+## Использование
+
+```tsx live
+import React from 'react';
+import { Slider  } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <section>
+            <Slider onChangeCommitted={() => {}} min={0} max={100} value={30} />
+        </section>
+    );
+}
+```
+
+Можно использовать диапазон значений.
+
+```tsx live
+import React, { useState } from 'react';
+import { Slider  } from '@salutejs/plasma-web';
+
+export function App() {
+    const [value, setValue] = useState([10, 80]);
+
+
+    const onChangeCommittedHandle = (values) => {
+        setValue(values);
+    };
+
+    return (
+        <section>
+            <Slider onChangeCommitted={onChangeCommittedHandle} min={0} max={100} value={value} />
+        </section>
+    );
+}
+```
