@@ -1,0 +1,87 @@
+---
+id: Upload
+title: Upload
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Upload
+
+<Description name="Upload" />
+<PropsTable name="Upload" />
+<StorybookLink name="Upload" />
+
+## Использование
+
+```tsx live
+import React, { useState, useCallback } from 'react';
+import { Upload  } from '@salutejs/plasma-web';
+
+export function App() {
+    const [state, setState] = useState({
+        status: undefined,
+        progress: undefined,
+        message: 'Подсказывающее сообщение',
+    });
+
+    const onChange = useCallback(() => {
+        const interval = setInterval(
+            () =>
+                setState(({ progress }) => {
+                    const value = progress === undefined ? 0 : progress;
+
+                    if (value + 25 > 100) {
+                        clearInterval(interval);
+
+                        return {
+                            status: 'error',
+                            progress: undefined,
+                            message: 'Файл не загрузился',
+                        };
+                    }
+
+                    return {
+                        status: undefined,
+                        progress: value + 25,
+                        message: undefined,
+                    };
+                }),
+            1000,
+        );
+    }, []);
+
+    const onValidation = useCallback((result) => {
+        const { message, status: rStatus } = result;
+
+        setState((prevState) => ({
+            ...prevState,
+            message,
+            status: rStatus,
+        }));
+    }, []);
+
+
+    const customValidate = useCallback((files) => {
+        return {
+            message: `Добавлен файл формата ${files[0].type}`,
+            status: 'success',
+            data: files[0],
+        };
+    }, []);
+
+    return (
+        <section>
+           <Upload
+                status={state.status}
+                progress={state.progress}
+                message={state.message}
+                loader={<div style={{ color: 'green' }}>Custom progressbar {state.progress}%</div>}
+                content="Загрузите файл формата любого"
+                onValidation={onValidation}
+                validate={customValidate}
+                onChange={onChange}
+            />
+        </section>
+    );
+}
+```
