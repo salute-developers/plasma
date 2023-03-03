@@ -1,0 +1,45 @@
+---
+id: ElasticGrid
+title: ElasticGrid
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# ElasticGrid
+
+<Description name="ElasticGrid" />
+<PropsTable name="ElasticGrid" />
+<StorybookLink name="ElasticGrid" />
+
+## Использование
+
+```tsx live
+import React from 'react';
+import { ElasticGrid } from '@salutejs/plasma-web';
+
+export function App() {
+    const Item = {
+        width: '100%',
+        height: '100px',
+        backgroundColor: '#999',
+        borderRadius: '10px',
+    }
+
+    const props = {
+        itemsNumber: 5,
+        minColWidth: 125,
+        gapX: 8,
+        gapY: 8,
+    }
+
+    return (
+        <section>
+            <ElasticGrid {...props}>
+                {Array(12)
+                    .fill(0)
+                    .map((_, k) => (<div key={k} style={Item} />))}
+            </ElasticGrid>
+        </section>
+    )
+}
+```
