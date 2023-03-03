@@ -3,10 +3,10 @@ import { createGlobalStyle } from 'styled-components';
 import { addDecorator, addParameters } from '@storybook/react';
 import { Title, Subtitle, Description, Primary, ArgsTable, PRIMARY_STORY } from '@storybook/addon-docs';
 import { link, linkHover, linkActive, surfaceSolid01 } from '@salutejs/plasma-tokens-b2b';
-import { light as b2bLight, dark as b2bDark } from '@salutejs/plasma-tokens-b2b/themes';
-import { light as b2cLight, dark as b2cDark } from '@salutejs/plasma-tokens-b2c/themes';
-import { light as legacyLight, dark as legacyDark } from '@salutejs/plasma-tokens-web/themes';
-import { b2b as b2bTypo } from '@salutejs/plasma-tokens-b2b/typo';
+import { light as b2bLight, dark as b2bDark } from '@salutejs/plasma-tokens-b2b';
+import { light as b2cLight, dark as b2cDark } from '@salutejs/plasma-tokens-b2c';
+import { light as legacyLight, dark as legacyDark } from '@salutejs/plasma-tokens-web';
+import { b2b as b2bTypo } from '@salutejs/plasma-tokens-b2b';
 import { standard as standardTypo, compatible as compatibleTypo } from '@salutejs/plasma-typo';
 
 import { ToastProvider } from '@salutejs/plasma-core';
