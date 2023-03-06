@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/demo-canvas-app",
-    "version": "0.150.1",
+    "version": "0.151.0",
     "description": "Demo Canvas App",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "repository": {
@@ -19,9 +19,9 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@salutejs/plasma-icons": "1.128.1",
-        "@salutejs/plasma-tokens": "1.38.0",
-        "@salutejs/plasma-ui": "1.172.1",
+        "@salutejs/plasma-icons": "1.129.0",
+        "@salutejs/plasma-tokens": "1.39.0",
+        "@salutejs/plasma-ui": "1.173.0",
         "@salutejs/spatial-navigation": "1.0.5",
         "next": "^12.3.4",
         "react": "17.0.2",
