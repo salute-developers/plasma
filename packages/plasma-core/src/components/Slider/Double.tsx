@@ -2,32 +2,7 @@ import React from 'react';
 
 import { SliderBase } from './SliderBase';
 import { Handle, HandleProps } from './Handle';
-import { SliderBaseProps, ThumbProp } from './types';
-
-export interface SliderProps extends SliderBaseProps, ThumbProp {
-    /**
-     * Текущее значение
-     */
-    value: number[];
-    /**
-     * Ярлык, определяющий назначение ползунка, например «Минимальная цена» [a11y].
-     */
-    ariaLabel?: string[];
-    /**
-     * Размера увеличенного шага (для клавиш PageUp, PageDown).
-     * Указывает процентное отношение от максимально возможного значения.
-     * Указав значение 20 при максимуме в 100, получим 20%.
-     */
-    multipleStepSize?: number;
-    /**
-     * Вызывается при отпускании ползунка
-     */
-    onChangeCommitted(value: number[]): void;
-    /**
-     * Вызывается при перемещении ползунка
-     */
-    onChange?(value: number[]): void;
-}
+import { SliderInternalProps, DoubleSliderProps } from './types';
 
 function getXCenterHandle(handle: HTMLDivElement) {
     const containerX = handle.parentElement?.getBoundingClientRect()?.x || 0;
@@ -36,7 +11,7 @@ function getXCenterHandle(handle: HTMLDivElement) {
     return handlePosition - containerX;
 }
 
-export const Slider: React.FC<SliderProps> = ({
+export const Slider: React.FC<SliderInternalProps & DoubleSliderProps> = ({
     min,
     max,
     value,
