@@ -8,15 +8,6 @@ on:
 
 jobs:
   perftest:
-    strategy:
-      max-parallel: 1
-      matrix:
-        stage: ['master', 'PR']
-        include:
-          - stage: master
-            branch: master
-          - stage: PR
-            branch: ${{ github.ref }}
     runs-on: ubuntu-latest
     env:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
@@ -24,74 +15,42 @@ jobs:
       ICONS_PUBLIC_URL: /icons
     steps:
       - uses: actions/checkout@v2
+
+      - uses: ./.github/actions/run-performance-test
         with:
-          ref: ${{ matrix.branch }}
-
-      - name: Prepare repository
-        run: git fetch --unshallow --tags
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-
-      - name: Cache node modules
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: npm-deps-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            npm-deps-${{ hashFiles('package-lock.json') }}
-
-      - name: Setup packages
-        run: |
-          npm ci
-          npx lerna bootstrap
-
-      - name: Use Node.js 16.15.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16.15.x
-
-      - name: Prepare directory
-        run: |
-          mkdir perftest-reports
-
-      - name: Run performance test
-        run: |
-          (cd ./packages/plasma-ui && node --experimental-specifier-resolution=node ./node_modules/.bin/perftool)
+          branch: master
       
-      - name: Save ${{ matrix.stage }} report result
-        uses: actions/upload-artifact@v2
+      - uses: actions/checkout@v2
+      
+      - uses: ./.github/actions/run-performance-test
         with:
-          name: ${{ matrix.stage }} report result
-          path: /home/runner/work/plasma/plasma/packages/plasma-ui/perftest/result.json
+          branch: ${{ github.ref }}
 
       - name: Download master report
-        if: matrix.stage == 'PR'
+        if: github.ref != 'master'
         uses: actions/download-artifact@v2
         with:
           name: master report result
       
       - name: Copy master report to pr report directory
-        if: matrix.stage == 'PR'
+        if: github.ref != 'master'
         run: |
           cp result.json ./packages/plasma-ui/perftest/master-result.json
 
       - name: Compare test results
-        if: matrix.stage == 'PR'
+        if: github.ref != 'master'
         run: |
           (cd ./packages/plasma-ui && node --experimental-specifier-resolution=node ./node_modules/.bin/perftool-compare -- ./perftest/result.json ./perftest/master-result.json)
 
       - name: Save comparison result
-        if: matrix.stage == 'PR'
+        if: github.ref != 'master'
         uses: actions/upload-artifact@v2
         with:
           name: Component performance comparison result
           path: /home/runner/work/plasma/plasma/packages/plasma-ui/perftest/*.json
 
       - name: Post result comment
-        if: matrix.stage == 'PR'
+        if: github.ref != 'master'
         uses: actions/github-script@v3
         with:
           github-token: ${{secrets.GH_TOKEN}}
@@ -124,7 +83,7 @@ jobs:
             })
         
       - name: Send report
-        if: matrix.stage == 'PR'
+        if: github.ref != 'master'
         run: |
           ./scripts/perftool-send-report.js \
           --reportPath /home/runner/work/plasma/plasma/packages/plasma-ui/perftest/comparison.json
