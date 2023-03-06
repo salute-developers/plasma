@@ -26,7 +26,6 @@
         "generate:typings": "tsc --outDir . --emitDeclarationOnly",
         "storybook": "start-storybook -s .storybook/public -p ${PORT:-7007} -c .storybook",
         "storybook:build": "build-storybook -s .storybook/public -c .storybook -o build-sb",
-        "test": "jest --passWithNoTests",
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
