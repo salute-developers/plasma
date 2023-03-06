@@ -4,14 +4,7 @@ import { DraggableData } from 'react-draggable';
 
 import { useIsomorphicLayoutEffect } from '../../hooks';
 
-import { SliderBaseProps, SliderSettings } from './types';
-
-interface SliderProps extends SliderBaseProps {
-    railFillWidth: number;
-    railFillXPosition?: number;
-    setStepSize(stepSize: number): void;
-    onChange?(value: number, data: DraggableData): void;
-}
+import { SliderViewProps, SliderSettings } from './types';
 
 const Slider = styled.div<{ disabled?: boolean; $settings: SliderSettings }>`
     position: relative;
@@ -60,7 +53,7 @@ const Fill = styled.div`
     width: 0;
 `;
 
-export const SliderBase: React.FC<PropsWithChildren<SliderProps>> = ({
+export const SliderBase: React.FC<PropsWithChildren<SliderViewProps>> = ({
     max,
     min,
     setStepSize,

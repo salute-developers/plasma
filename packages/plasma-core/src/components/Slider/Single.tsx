@@ -2,34 +2,9 @@ import React from 'react';
 
 import { SliderBase } from './SliderBase';
 import { Handle, HandleProps } from './Handle';
-import { SliderBaseProps, ThumbProp } from './types';
+import { SliderInternalProps, SingleSliderProps } from './types';
 
-export interface SliderProps extends SliderBaseProps, ThumbProp {
-    /**
-     * Текущее значение
-     */
-    value: number;
-    /**
-     * Ярлык, определяющий назначение ползунка, например «Минимальная цена» [a11y].
-     */
-    ariaLabel?: string;
-    /**
-     * Размера увеличенного шага (для клавиш PageUp, PageDown).
-     * Указывает процентное отношение от максимально возможного значения.
-     * Указав значение 20 при максимуме в 100, получим 20%.
-     */
-    multipleStepSize?: number;
-    /**
-     * Вызывается при перемещении ползунка
-     */
-    onChangeCommitted(value: number): void;
-    /**
-     * Вызывается при отпускании ползунка
-     */
-    onChange?(value: number): void;
-}
-
-export const Slider: React.FC<SliderProps> = ({
+export const Slider: React.FC<SliderInternalProps & SingleSliderProps> = ({
     min,
     max,
     value,
