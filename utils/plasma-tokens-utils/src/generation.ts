@@ -15,6 +15,7 @@ type GeneratedTokenType = 'value' | 'css';
  * @param {GeneratedTokenType} type Тип выводимого токена
  * @param {string} prefix Префикс в CSS-токене
  * @param {boolean} withType Генерировать типы для токенов
+ * @param {boolean} fromData Тема из генератора
  * @return {string}
  */
 export const generateToken = ({
@@ -23,12 +24,14 @@ export const generateToken = ({
     name,
     prefix,
     withType,
+    fromData,
 }: {
     token: TokenData<TokenType>;
     type: GeneratedTokenType;
     name: string;
     prefix?: string;
     withType?: boolean;
+    fromData?: boolean;
 }) => {
     const { comment } = token;
     let { value } = token;
@@ -59,7 +62,7 @@ export const generateToken = ({
 
         // type=css param is used for colors values only
         if (type === 'css') {
-            value = toCSSVarTokenWithValue(`${prefix}-${paramCase(name)}`, newValue);
+            value = toCSSVarTokenWithValue(`${prefix}-${paramCase(name)}`, newValue, fromData);
         } else {
             value = escapeValue(newValue);
         }
@@ -68,7 +71,7 @@ export const generateToken = ({
         // type=css param is used for typography values only
         const replacer = (k: string, val: string) => {
             if (k) {
-                return toCSSVarTokenWithValue(`${prefix}-${paramCase(k)}`, val);
+                return toCSSVarTokenWithValue(`${prefix}-${paramCase(k)}`, val, fromData);
             }
             return val;
         };
@@ -98,11 +101,15 @@ export const generateTokens = (
     type: GeneratedTokenType = 'value',
     prefix?: string,
     withType?: boolean,
-) =>
-    Object.entries(tokens).reduce(
-        (acc, [name, token]) => `${acc}${generateToken({ token, type, name, prefix, withType })}\n`,
+) => {
+    const { fromData, ...theme } = tokens;
+
+    return Object.entries(theme).reduce(
+        (acc, [name, token]) =>
+            `${acc}${generateToken({ token, type, name, prefix, withType, fromData: Boolean(fromData) })}\n`,
         ROBO_COMMENT,
     );
+};
 
 /**
  * Генерация типографики, разложенной по типам компонентов.
