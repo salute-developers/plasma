@@ -1,3 +1,15 @@
+# v1.101.0 (Mon Mar 06 2023)
+
+#### 🐛 Bug Fix
+
+- build(plasma-core): bump react to 18 version [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.100.1 (Fri Mar 03 2023)
 
 #### 🐛 Bug Fix

@@ -1,3 +1,19 @@
+# v0.12.0 (Mon Mar 06 2023)
+
+#### 🐛 Bug Fix
+
+- test(plasma-hope): disable stub [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+- build(plasma-hope): bump react to 18x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+- build(plasma-b2c): bump react to 18.x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v0.11.0 (Fri Mar 03 2023)
 
 #### 🚀 Enhancement

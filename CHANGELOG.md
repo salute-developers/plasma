@@ -1,3 +1,51 @@
+# (Mon Mar 06 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-web-docs): add PreviewGallery [#379](https://github.com/salute-developers/plasma/pull/379) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web-docs): add ElasticGrid [#379](https://github.com/salute-developers/plasma/pull/379) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web-docs): add AudioPlayer [#379](https://github.com/salute-developers/plasma/pull/379) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web-docs): add Editable [#379](https://github.com/salute-developers/plasma/pull/379) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web-docs): add Upload [#379](https://github.com/salute-developers/plasma/pull/379) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web-docs): add Slider [#379](https://github.com/salute-developers/plasma/pull/379) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- build(plasma-docs-ui): bump react to 18x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+- ci: add react-18 to tests [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-hope@0.12.0`
+  - test(plasma-hope): disable stub [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+  - build(plasma-hope): bump react to 18x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.153.0`
+  - build(plasma-hope): update API diff [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-temple@1.140.0`, `@salutejs/plasma-ui@1.173.0`, `@salutejs/plasma-web@1.178.0`, `@salutejs/plasma-sb-utils@0.99.0`
+  - build(plasma-hope): bump react to 18x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-web@1.178.0`
+  - build(plasma-web): bump react to 18x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-sb-utils@0.99.0`
+  - build(plasma-sb-utils): bump react to 18x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-typo@0.32.0`
+  - build(plasma-typo): bump react to 18x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.153.0`, `@salutejs/plasma-hope@0.12.0`
+  - build(plasma-b2c): bump react to 18.x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-icons@1.129.0`
+  - build(plasma-icons): bump react to 18x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-temple@1.140.0`
+  - build(plasma-temple): bump react to 18.x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-cy-utils@0.46.0`
+  - build(plasma-cy-utils): bump react to 18x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-core@1.101.0`
+  - build(plasma-core): bump react to 18 version [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-ui@1.173.0`
+  - build(plasma-ui): bump react to 18x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Fri Mar 03 2023)
 
 #### 🐛 Bug Fix
