@@ -1,0 +1,65 @@
+---
+id: UploadAudio
+title: UploadAudio
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+## UploadAudio
+<Description name="UploadAudio" />
+<PropsTable name="UploadAudio" />
+<StorybookLink name="UploadAudio" />
+
+## Использование
+
+```tsx live
+import React, { useState, useCallback } from 'react';
+import { UploadAudio } from '@salutejs/plasma-web';
+
+export function App() {
+    const [progress, setProgress] = useState(undefined);
+
+    const [state, setState] = useState({
+        status: undefined,
+        message: undefined,
+    });
+
+    const onValidation = useCallback((result) => {
+        const { message, status: rStatus } = result;
+
+        setState((prevState) => ({
+            ...prevState,
+            message,
+            status: rStatus,
+        }));
+    }, []);
+
+    const onChange = useCallback(() => {
+        const interval = setInterval(
+            () =>
+                setProgress((prevValue) => {
+                    const value = prevValue === undefined ? 0 : prevValue;
+
+                    if (value + 5 > 100) {
+                        clearInterval(interval);
+                        return undefined;
+                    }
+                    return value + 5;
+                }),
+            1000,
+        );
+    }, []);
+
+    return (
+        <section>
+            <UploadAudio
+                progress={progress}
+                onChange={onChange}
+                onValidation={onValidation}
+                status={state.status}
+                message={state.message}
+            />
+        </section>
+    );
+}
+```
