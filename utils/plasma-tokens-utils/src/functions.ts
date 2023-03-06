@@ -61,10 +61,13 @@ const toRem = (value: string | number, basis = 16): string => {
  * Преобразует название и значение токена в CSS Var.
  * @param {string} name
  * @param {string|number} value
+ * @param {fromData|undefined} fromData
  * @return {string}
  */
-export const toCSSVarTokenWithValue = (name: string, value: string | number) =>
-    value ? `var(${getCSSVariableName(name)}, ${escapeValue(value)})` : `var(${getCSSVariableName(name)})`;
+export const toCSSVarTokenWithValue = (name: string, value: string | number, fromData?: boolean) =>
+    value
+        ? `var(${getCSSVariableName(name, fromData)}, ${escapeValue(value)})`
+        : `var(${getCSSVariableName(name, fromData)})`;
 
 // ToDo: перенести в новый пакет, plasma-utils, где шарится код между всеми компонентами, токенами, утилитами
 export const capitalize = (str: string) => str[0].toUpperCase() + str.slice(1);

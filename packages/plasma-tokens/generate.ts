@@ -66,7 +66,7 @@ const brands = Object.keys(themesColorTokenGroups);
 brands.forEach((brand) => {
     const brandDir = path.join(BRANDS_DIR, brand);
     const themeName = `dark${upperFirstLetter(brand)}`;
-    const theme = themesColorTokenGroups[brand][themeName];
+    const theme = themesColorTokenGroupsFallback[themeName];
 
     writeGeneratedToFS(brandDir, [
         {
@@ -194,6 +194,7 @@ const generateColors = () => {
 };
 
 // Themes Colors
+// Для автогенератора тем нативных платформ
 fs.writeFileSync(
     path.join(amznDictPropsColorsDir, 'theme.json'),
     JSON.stringify(
@@ -206,6 +207,7 @@ fs.writeFileSync(
 );
 
 // Brands Themes
+// Для автогенератора тем нативных платформ
 Object.entries(themesColorTokenGroups).forEach(([key, value]) => {
     fs.writeFileSync(
         path.join(amznDictPropsBrandsDir, `${key}.json`),
@@ -220,6 +222,7 @@ Object.entries(themesColorTokenGroups).forEach(([key, value]) => {
 });
 
 // Themes Typo
+// Для автогенератора тем нативных платформ
 Object.entries(typoArchetypes).forEach(([key, value]) => {
     fs.writeFileSync(
         path.join(amznDictPropsTyposDir, `${key}.json`),
@@ -242,6 +245,7 @@ Object.entries(typoArchetypes).forEach(([key, value]) => {
 });
 
 // Themes Shadow
+// Для автогенератора тем нативных платформ
 Object.entries(shadows).forEach(([key, type]) => {
     fs.writeFileSync(
         path.join(amznDictPropsShadowsDir, `${key}.json`),
