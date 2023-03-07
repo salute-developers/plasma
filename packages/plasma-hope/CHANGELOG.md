@@ -1,3 +1,16 @@
+# v0.14.0 (Tue Mar 07 2023)
+
+#### 🚀 Enhancement
+
+- feat: add api reports after re-export UploadAudio component [#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-hope): add "UploadAudio" component [#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v0.13.0 (Tue Mar 07 2023)
 
 #### 🚀 Enhancement

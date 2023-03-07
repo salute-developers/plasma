@@ -2,6 +2,31 @@
 
 #### 🚀 Enhancement
 
+- feat(plasma-web-docs): add UploadAudio.mdx [#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web): add cypress snapshots [#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): delete unnecessary cypress snapshots [#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): add cypress snapshots [#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.155.0`, `@salutejs/plasma-hope@0.14.0`, `@salutejs/plasma-web@1.180.0`
+  - feat: add api reports after re-export UploadAudio component [#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.180.0`
+  - feat(plasma-web): add cypress tests symlink [UploadAudio] [#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): re-export "UploadAudio" component [#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.155.0`
+  - feat(plasma-b2c): add cypress tests symlink [UploadAudio] [#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-b2c): re-export "UploadAudio" component [#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.14.0`
+  - feat(plasma-hope): add "UploadAudio" component [#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Tue Mar 07 2023)
+
+#### 🚀 Enhancement
+
 - feat(plasma-web-docs): add UploadVisual.mdx [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
 - feat(plasma-web): add cypress snapshots [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
 - feat(plasma-b2c): delete unnecessary cypress snapshots [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
