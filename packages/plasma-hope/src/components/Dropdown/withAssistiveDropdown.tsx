@@ -1,5 +1,5 @@
-import React, { useState, useRef, useCallback, useEffect, useMemo } from 'react';
-import type { FC, ComponentType, ForwardRefExoticComponent } from 'react';
+import React, { useState, useRef, useCallback, useEffect, useMemo, forwardRef } from 'react';
+import type { ComponentType, ForwardRefExoticComponent } from 'react';
 
 import { DropdownUncontrolled, DropdownUncontrolledProps } from './DropdownUncontrolled';
 import { useKeyboardNavigation, INITIAL_INDEX } from './keyboardNavigation';
@@ -36,122 +36,129 @@ export interface WithAssistiveDropdownProps
 export const withAssistiveDropdown = <P extends object>(
     Component: ComponentType<P> | ForwardRefExoticComponent<P>,
     Dropdown: ComponentType<DropdownUncontrolledProps> = DropdownUncontrolled,
-): FC<P & WithAssistiveDropdownProps> => ({
-    id,
-    items,
-    placement,
-    trigger,
-    disabled,
-    menuRole,
-    menuItemRole,
-    closeOnSelect = true,
-    onToggle: onToggleExternal,
-    onItemSelect: onItemSelectExternal,
-    onIndexChange: onIndexChangeExternal,
-    ...rest
-}) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [index, setIndex] = useState(INITIAL_INDEX);
-    const openingMethod = useRef<string | null>(null);
-    const activeIndex = useMemo(() => items.findIndex((item) => item.isActive), [items]);
+) =>
+    forwardRef<HTMLButtonElement, P & WithAssistiveDropdownProps>(
+        (
+            {
+                id,
+                items,
+                placement,
+                trigger,
+                disabled,
+                menuRole,
+                menuItemRole,
+                closeOnSelect = true,
+                onToggle: onToggleExternal,
+                onItemSelect: onItemSelectExternal,
+                onIndexChange: onIndexChangeExternal,
+                ...rest
+            },
+            ref,
+        ) => {
+            const [isOpen, setIsOpen] = useState(false);
+            const [index, setIndex] = useState(INITIAL_INDEX);
+            const openingMethod = useRef<string | null>(null);
+            const activeIndex = useMemo(() => items.findIndex((item) => item.isActive), [items]);
 
-    const onToggle = useCallback<NonNullable<DropdownPopupProps['onToggle']>>(
-        (newIsOpen, event) => {
-            if (newIsOpen) {
-                openingMethod.current = event.type;
-            }
-            setIsOpen(newIsOpen);
-            onToggleExternal?.(newIsOpen, event);
+            const onToggle = useCallback<NonNullable<DropdownPopupProps['onToggle']>>(
+                (newIsOpen, event) => {
+                    if (newIsOpen) {
+                        openingMethod.current = event.type;
+                    }
+                    setIsOpen(newIsOpen);
+                    onToggleExternal?.(newIsOpen, event);
+                },
+                [onToggleExternal],
+            );
+
+            const onItemSelect = useCallback<OnItemSelect>(
+                (item, event) => {
+                    if (item.isDisabled) {
+                        return;
+                    }
+
+                    if (closeOnSelect) {
+                        onToggle?.(false, event);
+                    }
+
+                    onItemSelectExternal?.(item, event);
+                },
+                [onToggle, onItemSelectExternal, closeOnSelect],
+            );
+
+            const onIndexChange = useCallback<OnIndexChange>(
+                (i) => {
+                    setIndex(i);
+                    onIndexChangeExternal?.(i);
+                },
+                [onIndexChangeExternal],
+            );
+
+            const onBlur = useCallback(() => {
+                if (openingMethod.current === 'keydown') {
+                    setIsOpen(false);
+                    setIndex(INITIAL_INDEX);
+                }
+            }, []);
+
+            const onHover = useCallback((newIndex: number) => {
+                setIndex(newIndex);
+            }, []);
+
+            const onMouseLeave = useCallback(() => {
+                setIndex(-1);
+            }, []);
+
+            const { onKeyDown } = useKeyboardNavigation({
+                items,
+                isOpen,
+                index,
+                onToggle,
+                onItemSelect,
+                onIndexChange,
+            });
+
+            useEffect(() => {
+                setIndex(activeIndex);
+            }, [activeIndex]);
+
+            useEffect(() => {
+                if (!isOpen) {
+                    onIndexChange?.(activeIndex === -1 ? INITIAL_INDEX : activeIndex);
+                }
+            }, [isOpen, onIndexChange, activeIndex]);
+
+            return (
+                <Dropdown
+                    id={id}
+                    role={menuRole}
+                    itemRole={menuItemRole}
+                    aria-labelledby={id ? `${id}-disclosure` : undefined}
+                    isOpen={isOpen}
+                    items={items}
+                    placement={placement}
+                    trigger={trigger}
+                    disabled={disabled}
+                    hoverIndex={index}
+                    onBlur={onBlur}
+                    onKeyDown={onKeyDown}
+                    onToggle={onToggle}
+                    onItemSelect={onItemSelect}
+                    onHover={onHover}
+                    onMouseLeave={onMouseLeave}
+                >
+                    <Component
+                        {...(rest as P)}
+                        ref={ref}
+                        id={id ? `${id}-disclosure` : undefined}
+                        isOpen={isOpen}
+                        disabled={disabled}
+                        aria-activedescendant={id && index >= 0 ? `${id}-item-${index}` : undefined}
+                        aria-controls={id}
+                        aria-expanded={isOpen}
+                        aria-haspopup={menuRole}
+                    />
+                </Dropdown>
+            );
         },
-        [onToggleExternal],
     );
-
-    const onItemSelect = useCallback<OnItemSelect>(
-        (item, event) => {
-            if (item.isDisabled) {
-                return;
-            }
-
-            if (closeOnSelect) {
-                onToggle?.(false, event);
-            }
-
-            onItemSelectExternal?.(item, event);
-        },
-        [onToggle, onItemSelectExternal, closeOnSelect],
-    );
-
-    const onIndexChange = useCallback<OnIndexChange>(
-        (i) => {
-            setIndex(i);
-            onIndexChangeExternal?.(i);
-        },
-        [onIndexChangeExternal],
-    );
-
-    const onBlur = useCallback(() => {
-        if (openingMethod.current === 'keydown') {
-            setIsOpen(false);
-            setIndex(INITIAL_INDEX);
-        }
-    }, []);
-
-    const onHover = useCallback((newIndex: number) => {
-        setIndex(newIndex);
-    }, []);
-
-    const onMouseLeave = useCallback(() => {
-        setIndex(-1);
-    }, []);
-
-    const { onKeyDown } = useKeyboardNavigation({
-        items,
-        isOpen,
-        index,
-        onToggle,
-        onItemSelect,
-        onIndexChange,
-    });
-
-    useEffect(() => {
-        setIndex(activeIndex);
-    }, [activeIndex]);
-
-    useEffect(() => {
-        if (!isOpen) {
-            onIndexChange?.(activeIndex === -1 ? INITIAL_INDEX : activeIndex);
-        }
-    }, [isOpen, onIndexChange, activeIndex]);
-
-    return (
-        <Dropdown
-            id={id}
-            role={menuRole}
-            itemRole={menuItemRole}
-            aria-labelledby={id ? `${id}-disclosure` : undefined}
-            isOpen={isOpen}
-            items={items}
-            placement={placement}
-            trigger={trigger}
-            disabled={disabled}
-            hoverIndex={index}
-            onBlur={onBlur}
-            onKeyDown={onKeyDown}
-            onToggle={onToggle}
-            onItemSelect={onItemSelect}
-            onHover={onHover}
-            onMouseLeave={onMouseLeave}
-        >
-            <Component
-                {...(rest as P)}
-                id={id ? `${id}-disclosure` : undefined}
-                isOpen={isOpen}
-                disabled={disabled}
-                aria-activedescendant={id && index >= 0 ? `${id}-item-${index}` : undefined}
-                aria-controls={id}
-                aria-expanded={isOpen}
-                aria-haspopup={menuRole}
-            />
-        </Dropdown>
-    );
-};
