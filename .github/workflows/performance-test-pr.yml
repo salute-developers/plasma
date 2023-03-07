@@ -48,7 +48,7 @@ jobs:
 
       - name: Run performance test for master
         run: |
-          (cd ./packages/plasma-ui && node --experimental-specifier-resolution=node ./node_modules/.bin/perftool)
+          (cd ./packages/plasma-ui && npx perftool)
 
       - name: Save report result for master
         uses: actions/upload-artifact@v2
@@ -80,7 +80,7 @@ jobs:
       - name: Run performance test for PR
         shell: bash
         run: |
-          (cd ./packages/plasma-ui && node --experimental-specifier-resolution=node ./node_modules/.bin/perftool)
+          (cd ./packages/plasma-ui && npx perftool)
 
       - name: Save report result for PR
         uses: actions/upload-artifact@v2
@@ -99,7 +99,7 @@ jobs:
 
       - name: Compare test results
         run: |
-          (cd ./packages/plasma-ui && node --experimental-specifier-resolution=node ./node_modules/.bin/perftool-compare -- ./perftest/result.json ./perftest/master-result.json)
+          (cd ./packages/plasma-ui && npx perftool-compare ./perftest/result.json ./perftest/master-result.json)
 
       - name: Save comparison result
         uses: actions/upload-artifact@v2

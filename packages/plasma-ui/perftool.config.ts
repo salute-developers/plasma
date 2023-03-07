@@ -14,14 +14,16 @@ const config: Config = {
     failOnSignificantChanges: false,
     stabilizers: ['staticTask'],
     absoluteError: 1,
-    render: {
-        renderWaitTimeout: 500,
-    },
-    rerender: {
-        renderWaitTimeout: 500,
+    taskConfiguration: {
+        render: {
+            renderWaitTimeout: 500,
+        },
+        rerender: {
+            renderWaitTimeout: 500,
+        },
     },
     modifyWebpackConfig: function (config) {
-        const babelLoaderOpts = config.module.rules.find(
+        const babelLoaderOpts = config.module?.rules?.find(
             (rule) => typeof rule === 'object' && rule.loader === 'babel-loader',
         );
 
@@ -29,7 +31,7 @@ const config: Config = {
             babelLoaderOpts?.options?.plugins?.push('babel-plugin-styled-components');
         }
 
-        config.resolve.alias = {
+        (config.resolve = config.resolve || {}).alias = {
             react: '/node_modules/react',
             'react-dom': '/node_modules/react-dom',
             'styled-components': '/node_modules/styled-components',
