@@ -1166,7 +1166,7 @@ export { views }
 // Warning: (ae-forgotten-export) The symbol "WithAssistiveDropdownProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export const withAssistiveDropdown: <P extends object>(Component: React_2.ComponentClass<P, any> | React_2.FunctionComponent<P> | React_2.ForwardRefExoticComponent<P>, Dropdown?: ComponentType<DropdownUncontrolledProps>) => React_2.FC<P & WithAssistiveDropdownProps>;
+export const withAssistiveDropdown: <P extends object>(Component: React_2.ComponentClass<P, any> | React_2.FunctionComponent<P> | React_2.ForwardRefExoticComponent<P>, Dropdown?: ComponentType<DropdownUncontrolledProps>) => React_2.ForwardRefExoticComponent<React_2.PropsWithoutRef<P & WithAssistiveDropdownProps> & React_2.RefAttributes<HTMLButtonElement>>;
 
 export { withAutoFocus }
 
