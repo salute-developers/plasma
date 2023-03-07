@@ -16,41 +16,98 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: ./.github/actions/run-performance-test
+      - name: Prepare repository for master
+        run: git fetch --unshallow --tags
+
+      - name: Setup Node.js for master
+        uses: actions/setup-node@v3
         with:
-          branch: master
+          node-version-file: '.nvmrc'
+
+      - name: Cache node modules for master
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: npm-deps-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            npm-deps-${{ hashFiles('package-lock.json') }}
+
+      - name: Setup packages for master
+        run: |
+          npm ci
+          npx lerna bootstrap
+
+      - name: Use Node.js 16.15.x for master
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.15.x
+      
+      - name: Prepare directory for master
+        run: |
+          mkdir perftest-reports
+
+      - name: Run performance test for master
+        run: |
+          (cd ./packages/plasma-ui && node --experimental-specifier-resolution=node ./node_modules/.bin/perftool)
+
+      - name: Save report result for master
+        uses: actions/upload-artifact@v2
+        with:
+          name: Master report result
+          path: /home/runner/work/plasma/plasma/packages/plasma-ui/perftest/result.json
       
       - uses: actions/checkout@v2
-      
-      - uses: ./.github/actions/run-performance-test
+
+      - name: Setup Node.js for PR
+        uses: actions/setup-node@v3
         with:
-          branch: ${{ github.ref }}
+          node-version-file: '.nvmrc'
+
+      - name: Setup packages for PR
+        run: |
+          npm ci
+          npx lerna bootstrap
+
+      - name: Use Node.js 16.15.x for PR
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.15.x
+      
+      - name: Prepare directory for PR
+        run: |
+          mkdir perftest-reports
+
+      - name: Run performance test for PR
+        shell: bash
+        run: |
+          (cd ./packages/plasma-ui && node --experimental-specifier-resolution=node ./node_modules/.bin/perftool)
+
+      - name: Save report result for PR
+        uses: actions/upload-artifact@v2
+        with:
+          name: PR report result
+          path: /home/runner/work/plasma/plasma/packages/plasma-ui/perftest/result.json
 
       - name: Download master report
-        if: github.ref != 'master'
         uses: actions/download-artifact@v2
         with:
           name: master report result
       
       - name: Copy master report to pr report directory
-        if: github.ref != 'master'
         run: |
           cp result.json ./packages/plasma-ui/perftest/master-result.json
 
       - name: Compare test results
-        if: github.ref != 'master'
         run: |
           (cd ./packages/plasma-ui && node --experimental-specifier-resolution=node ./node_modules/.bin/perftool-compare -- ./perftest/result.json ./perftest/master-result.json)
 
       - name: Save comparison result
-        if: github.ref != 'master'
         uses: actions/upload-artifact@v2
         with:
           name: Component performance comparison result
           path: /home/runner/work/plasma/plasma/packages/plasma-ui/perftest/*.json
 
       - name: Post result comment
-        if: github.ref != 'master'
         uses: actions/github-script@v3
         with:
           github-token: ${{secrets.GH_TOKEN}}
@@ -83,7 +140,6 @@ jobs:
             })
         
       - name: Send report
-        if: github.ref != 'master'
         run: |
           ./scripts/perftool-send-report.js \
           --reportPath /home/runner/work/plasma/plasma/packages/plasma-ui/perftest/comparison.json
