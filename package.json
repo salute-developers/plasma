@@ -96,7 +96,7 @@
     "husky": "^8.0.0",
     "image-loader": "0.0.1",
     "lerna": "5.6.2",
-    "lint-staged": "10.4.2",
+    "lint-staged": "13.1.2",
     "node-fetch": "2.6.1",
     "nyc": "15.1.0",
     "prettier": "2.0.5",
