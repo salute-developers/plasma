@@ -224,6 +224,8 @@ import { Upload } from '@salutejs/plasma-hope';
 import { UploadProgress } from '@salutejs/plasma-hope';
 import { UploadProgressProps } from '@salutejs/plasma-hope';
 import { UploadProps } from '@salutejs/plasma-hope';
+import { UploadVisual } from '@salutejs/plasma-hope';
+import { UploadVisualProps } from '@salutejs/plasma-hope';
 import { useDebouncedFunction } from '@salutejs/plasma-core';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
@@ -863,6 +865,10 @@ export { UploadProgress }
 export { UploadProgressProps }
 
 export { UploadProps }
+
+export { UploadVisual }
+
+export { UploadVisualProps }
 
 export { useDebouncedFunction }
 
