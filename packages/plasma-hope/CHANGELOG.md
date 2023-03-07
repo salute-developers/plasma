@@ -1,3 +1,16 @@
+# v0.13.0 (Tue Mar 07 2023)
+
+#### 🚀 Enhancement
+
+- feat: add api reports after re-export UploadVisual component [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-hope): add "UploadVisual" component [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v0.12.1 (Tue Mar 07 2023)
 
 #### 🐛 Bug Fix

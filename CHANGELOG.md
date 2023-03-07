@@ -1,5 +1,30 @@
 # (Tue Mar 07 2023)
 
+#### 🚀 Enhancement
+
+- feat(plasma-web-docs): add UploadVisual.mdx [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web): add cypress snapshots [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): delete unnecessary cypress snapshots [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): add cypress snapshots [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.154.0`, `@salutejs/plasma-hope@0.13.0`, `@salutejs/plasma-web@1.179.0`
+  - feat: add api reports after re-export UploadVisual component [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.179.0`
+  - feat(plasma-web): add cypress tests symlink [UploadVisual] [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): re-export "UploadVisual" component [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.154.0`
+  - feat(plasma-b2c): add cypress tests symlink [UploadVisual] [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-b2c): re-export "UploadVisual" component [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.13.0`
+  - feat(plasma-hope): add "UploadVisual" component [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Tue Mar 07 2023)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-hope@0.12.1`
