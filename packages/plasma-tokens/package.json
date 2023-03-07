@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-tokens",
-    "version": "1.39.0",
+    "version": "1.39.1",
     "description": "",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "module": "es/index.js",
@@ -49,7 +49,7 @@
     },
     "devDependencies": {
         "@salutejs/plasma-colors": "0.3.0",
-        "@salutejs/plasma-tokens-utils": "0.18.0",
+        "@salutejs/plasma-tokens-utils": "0.18.1",
         "@salutejs/plasma-typo": "0.32.0",
         "@types/inquirer": "8.2.1",
         "@types/node": "16.7.13",
