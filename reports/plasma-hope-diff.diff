@@ -37,7 +37,7 @@
  import { DisabledProps } from '@salutejs/plasma-core';
  import { Dropdown } from '@salutejs/plasma-hope';
  import { DropdownItem } from '@salutejs/plasma-hope';
-@@ -99,15 +97,18 @@
+@@ -99,15 +97,17 @@
  import { EditableProps } from '@salutejs/plasma-hope';
  import { ElasticGrid } from '@salutejs/plasma-hope';
  import { ElasticGridProps } from '@salutejs/plasma-hope';
@@ -45,7 +45,6 @@
 -import { FC } from 'react';
 -import type { FieldProps as FieldProps_2 } from '@salutejs/plasma-core';
 -import { FlattenSimpleInterpolation } from 'styled-components';
-+import type { FC } from 'react';
 +import type { FieldProps } from '@salutejs/plasma-core';
  import { FocusProps } from '@salutejs/plasma-core';
  import { Footnote1 } from '@salutejs/plasma-hope';
@@ -60,7 +59,7 @@
  import { H1 } from '@salutejs/plasma-typo';
  import { H2 } from '@salutejs/plasma-typo';
  import { H3 } from '@salutejs/plasma-typo';
-@@ -118,10 +119,11 @@
+@@ -118,10 +118,11 @@
  import { Headline3 } from '@salutejs/plasma-hope';
  import { Headline4 } from '@salutejs/plasma-hope';
  import { Headline5 } from '@salutejs/plasma-hope';
@@ -74,7 +73,7 @@
  import { KeyboardEvent as KeyboardEvent_2 } from 'react';
  import { LineSkeleton } from '@salutejs/plasma-hope';
  import { LineSkeletonProps } from '@salutejs/plasma-hope';
-@@ -129,6 +131,8 @@
+@@ -129,6 +130,8 @@
  import { List } from '@salutejs/plasma-hope';
  import { ListItem } from '@salutejs/plasma-hope';
  import { MaxLinesProps } from '@salutejs/plasma-core';
@@ -83,7 +82,7 @@
  import { Modal } from '@salutejs/plasma-hope';
  import { ModalProps } from '@salutejs/plasma-hope';
  import { ModalsProvider } from '@salutejs/plasma-hope';
-@@ -166,8 +170,7 @@
+@@ -166,8 +169,7 @@
  import { radiuses } from '@salutejs/plasma-core';
  import { Ratio } from '@salutejs/plasma-core';
  import { default as React_2 } from 'react';
@@ -93,7 +92,7 @@
  import { RectSkeleton } from '@salutejs/plasma-hope';
  import { RectSkeletonProps } from '@salutejs/plasma-hope';
  import { RefAttributes } from 'react';
-@@ -175,6 +178,8 @@
+@@ -175,6 +177,8 @@
  import { RoundnessProps } from '@salutejs/plasma-core';
  import { Row } from '@salutejs/plasma-hope';
  import { ScrollSnapProps } from '@salutejs/plasma-core';
@@ -102,7 +101,7 @@
  import { setRef } from '@salutejs/plasma-core';
  import { shadows } from '@salutejs/plasma-core';
  import { ShiftProps } from '@salutejs/plasma-core';
-@@ -185,19 +190,20 @@
+@@ -185,19 +189,20 @@
  import { SmartPaginationDotsProps } from '@salutejs/plasma-hope';
  import { SnapAlign } from '@salutejs/plasma-core';
  import { SnapType } from '@salutejs/plasma-core';
@@ -125,7 +124,7 @@
  import { TabsControllerProps as TabsControllerProps_2 } from '@salutejs/plasma-core';
  import type { TabsProps as TabsProps_2 } from '@salutejs/plasma-core';
  import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
-@@ -311,10 +317,33 @@
+@@ -313,10 +318,33 @@
  
  export { BodyXXS }
  
@@ -162,7 +161,7 @@
  
  export { Button1 }
  
-@@ -322,10 +351,6 @@
+@@ -324,10 +352,6 @@
  
  export { ButtonProps }
  
@@ -173,7 +172,7 @@
  export { Calendar }
  
  export { CalendarBase }
-@@ -384,6 +409,9 @@
+@@ -386,6 +410,9 @@
  
  export { CheckboxProps }
  
@@ -183,7 +182,7 @@
  export { closeNotification }
  
  export { Col }
-@@ -396,7 +424,8 @@
+@@ -398,7 +425,8 @@
  
  export { ColSizeProps }
  
@@ -193,7 +192,7 @@
  
  export { convertRoundnessMatrix }
  
-@@ -408,57 +437,8 @@
+@@ -410,57 +438,8 @@
  
  export { DropdownItem }
  
@@ -251,7 +250,7 @@
  export { DropdownProps }
  
  export { DsplL }
-@@ -475,8 +455,6 @@
+@@ -477,8 +456,6 @@
  
  export { ElasticGridProps }
  
@@ -260,7 +259,7 @@
  export { FocusProps }
  
  export { Footnote1 }
-@@ -485,44 +463,15 @@
+@@ -487,44 +464,15 @@
  
  export { formatCurrency }
  
@@ -310,7 +309,7 @@
  
  export { H1 }
  
-@@ -544,14 +493,11 @@
+@@ -546,14 +494,11 @@
  
  export { Headline5 }
  
@@ -326,7 +325,7 @@
  
  export { InputHTMLAttributes }
  
-@@ -567,11 +513,9 @@
+@@ -569,11 +514,9 @@
  
  export { MaxLinesProps }
  
@@ -340,7 +339,7 @@
  
  export { Modal }
  
-@@ -585,13 +529,6 @@
+@@ -587,13 +530,6 @@
  
  export { monthShortName }
  
@@ -354,7 +353,7 @@
  export { Notification_2 as Notification }
  
  export { NotificationProps }
-@@ -665,67 +602,27 @@
+@@ -667,67 +603,27 @@
  export { ScrollSnapProps }
  
  // @public
@@ -400,8 +399,11 @@
 -// @public (undocumented)
 -export interface SelectDropdownProps extends DropdownUncontrolledProps {
 -}
--
--// @public (undocumented)
++    value: any;
++    onChange?: ((value: any) => void) | undefined;
++} & Pick<SelectViewProps, "form" | "slot" | "style" | "title" | "type" | "name" | "className" | "color" | "id" | "lang" | "role" | "tabIndex" | "aria-activedescendant" | "aria-atomic" | "aria-autocomplete" | "aria-busy" | "aria-checked" | "aria-colcount" | "aria-colindex" | "aria-colspan" | "aria-controls" | "aria-current" | "aria-describedby" | "aria-details" | "aria-disabled" | "aria-dropeffect" | "aria-errormessage" | "aria-expanded" | "aria-flowto" | "aria-grabbed" | "aria-haspopup" | "aria-hidden" | "aria-invalid" | "aria-keyshortcuts" | "aria-label" | "aria-labelledby" | "aria-level" | "aria-live" | "aria-modal" | "aria-multiline" | "aria-multiselectable" | "aria-orientation" | "aria-owns" | "aria-placeholder" | "aria-posinset" | "aria-pressed" | "aria-readonly" | "aria-relevant" | "aria-required" | "aria-roledescription" | "aria-rowcount" | "aria-rowindex" | "aria-rowspan" | "aria-selected" | "aria-setsize" | "aria-sort" | "aria-valuemax" | "aria-valuemin" | "aria-valuenow" | "aria-valuetext" | "children" | "dangerouslySetInnerHTML" | "onCopy" | "onCopyCapture" | "onCut" | "onCutCapture" | "onPaste" | "onPasteCapture" | "onCompositionEnd" | "onCompositionEndCapture" | "onCompositionStart" | "onCompositionStartCapture" | "onCompositionUpdate" | "onCompositionUpdateCapture" | "onFocus" | "onFocusCapture" | "onBlur" | "onBlurCapture" | "onChangeCapture" | "onBeforeInput" | "onBeforeInputCapture" | "onInput" | "onInputCapture" | "onReset" | "onResetCapture" | "onSubmit" | "onSubmitCapture" | "onInvalid" | "onInvalidCapture" | "onLoad" | "onLoadCapture" | "onError" | "onErrorCapture" | "onKeyDown" | "onKeyDownCapture" | "onKeyPress" | "onKeyPressCapture" | "onKeyUp" | "onKeyUpCapture" | "onAbort" | "onAbortCapture" | "onCanPlay" | "onCanPlayCapture" | "onCanPlayThrough" | "onCanPlayThroughCapture" | "onDurationChange" | "onDurationChangeCapture" | "onEmptied" | "onEmptiedCapture" | "onEncrypted" | "onEncryptedCapture" | "onEnded" | "onEndedCapture" | "onLoadedData" | "onLoadedDataCapture" | "onLoadedMetadata" | "onLoadedMetadataCapture" | "onLoadStart" | "onLoadStartCapture" | "onPause" | "onPauseCapture" | "onPlay" | "onPlayCapture" | "onPlaying" | "onPlayingCapture" | "onProgress" | "onProgressCapture" | "onRateChange" | "onRateChangeCapture" | "onResize" | "onResizeCapture" | "onSeeked" | "onSeekedCapture" | "onSeeking" | "onSeekingCapture" | "onStalled" | "onStalledCapture" | "onSuspend" | "onSuspendCapture" | "onTimeUpdate" | "onTimeUpdateCapture" | "onVolumeChange" | "onVolumeChangeCapture" | "onWaiting" | "onWaitingCapture" | "onAuxClick" | "onAuxClickCapture" | "onClick" | "onClickCapture" | "onContextMenu" | "onContextMenuCapture" | "onDoubleClick" | "onDoubleClickCapture" | "onDrag" | "onDragCapture" | "onDragEnd" | "onDragEndCapture" | "onDragEnter" | "onDragEnterCapture" | "onDragExit" | "onDragExitCapture" | "onDragLeave" | "onDragLeaveCapture" | "onDragOver" | "onDragOverCapture" | "onDragStart" | "onDragStartCapture" | "onDrop" | "onDropCapture" | "onMouseDown" | "onMouseDownCapture" | "onMouseEnter" | "onMouseLeave" | "onMouseMove" | "onMouseMoveCapture" | "onMouseOut" | "onMouseOutCapture" | "onMouseOver" | "onMouseOverCapture" | "onMouseUp" | "onMouseUpCapture" | "onSelect" | "onSelectCapture" | "onTouchCancel" | "onTouchCancelCapture" | "onTouchEnd" | "onTouchEndCapture" | "onTouchMove" | "onTouchMoveCapture" | "onTouchStart" | "onTouchStartCapture" | "onPointerDown" | "onPointerDownCapture" | "onPointerMove" | "onPointerMoveCapture" | "onPointerUp" | "onPointerUpCapture" | "onPointerCancel" | "onPointerCancelCapture" | "onPointerEnter" | "onPointerEnterCapture" | "onPointerLeave" | "onPointerLeaveCapture" | "onPointerOver" | "onPointerOverCapture" | "onPointerOut" | "onPointerOutCapture" | "onGotPointerCapture" | "onGotPointerCaptureCapture" | "onLostPointerCapture" | "onLostPointerCaptureCapture" | "onScroll" | "onScrollCapture" | "onWheel" | "onWheelCapture" | "onAnimationStart" | "onAnimationStartCapture" | "onAnimationEnd" | "onAnimationEndCapture" | "onAnimationIteration" | "onAnimationIterationCapture" | "onTransitionEnd" | "onTransitionEndCapture" | "status" | "defaultChecked" | "defaultValue" | "suppressContentEditableWarning" | "suppressHydrationWarning" | "accessKey" | "contentEditable" | "contextMenu" | "dir" | "draggable" | "hidden" | "nonce" | "placeholder" | "spellCheck" | "translate" | "radioGroup" | "about" | "datatype" | "inlist" | "prefix" | "property" | "resource" | "typeof" | "vocab" | "autoCapitalize" | "autoCorrect" | "autoSave" | "itemProp" | "itemScope" | "itemType" | "itemID" | "itemRef" | "results" | "security" | "unselectable" | "inputMode" | "is" | "autoFocus" | "disabled" | "formAction" | "formEncType" | "formMethod" | "formNoValidate" | "formTarget" | "isOpen" | "items" | "onItemSelect" | "helperText"> & React_2.RefAttributes<HTMLButtonElement>)>;
+ 
+ // @public (undocumented)
 -export type SelectProps<T = any> = ({
 -    multiselect?: false;
 -    separator?: never;
@@ -412,14 +414,11 @@
 -    value: T;
 -    onChange?: (value: T) => void;
 -} & Omit<SelectViewProps, 'onItemClick' | 'value' | 'label' | 'multiselect'>;
-+    value: any;
-+    onChange?: ((value: any) => void) | undefined;
-+} & Pick<SelectViewProps, "form" | "slot" | "style" | "title" | "type" | "name" | "className" | "color" | "id" | "lang" | "role" | "tabIndex" | "aria-activedescendant" | "aria-atomic" | "aria-autocomplete" | "aria-busy" | "aria-checked" | "aria-colcount" | "aria-colindex" | "aria-colspan" | "aria-controls" | "aria-current" | "aria-describedby" | "aria-details" | "aria-disabled" | "aria-dropeffect" | "aria-errormessage" | "aria-expanded" | "aria-flowto" | "aria-grabbed" | "aria-haspopup" | "aria-hidden" | "aria-invalid" | "aria-keyshortcuts" | "aria-label" | "aria-labelledby" | "aria-level" | "aria-live" | "aria-modal" | "aria-multiline" | "aria-multiselectable" | "aria-orientation" | "aria-owns" | "aria-placeholder" | "aria-posinset" | "aria-pressed" | "aria-readonly" | "aria-relevant" | "aria-required" | "aria-roledescription" | "aria-rowcount" | "aria-rowindex" | "aria-rowspan" | "aria-selected" | "aria-setsize" | "aria-sort" | "aria-valuemax" | "aria-valuemin" | "aria-valuenow" | "aria-valuetext" | "children" | "dangerouslySetInnerHTML" | "onCopy" | "onCopyCapture" | "onCut" | "onCutCapture" | "onPaste" | "onPasteCapture" | "onCompositionEnd" | "onCompositionEndCapture" | "onCompositionStart" | "onCompositionStartCapture" | "onCompositionUpdate" | "onCompositionUpdateCapture" | "onFocus" | "onFocusCapture" | "onBlur" | "onBlurCapture" | "onChangeCapture" | "onBeforeInput" | "onBeforeInputCapture" | "onInput" | "onInputCapture" | "onReset" | "onResetCapture" | "onSubmit" | "onSubmitCapture" | "onInvalid" | "onInvalidCapture" | "onLoad" | "onLoadCapture" | "onError" | "onErrorCapture" | "onKeyDown" | "onKeyDownCapture" | "onKeyPress" | "onKeyPressCapture" | "onKeyUp" | "onKeyUpCapture" | "onAbort" | "onAbortCapture" | "onCanPlay" | "onCanPlayCapture" | "onCanPlayThrough" | "onCanPlayThroughCapture" | "onDurationChange" | "onDurationChangeCapture" | "onEmptied" | "onEmptiedCapture" | "onEncrypted" | "onEncryptedCapture" | "onEnded" | "onEndedCapture" | "onLoadedData" | "onLoadedDataCapture" | "onLoadedMetadata" | "onLoadedMetadataCapture" | "onLoadStart" | "onLoadStartCapture" | "onPause" | "onPauseCapture" | "onPlay" | "onPlayCapture" | "onPlaying" | "onPlayingCapture" | "onProgress" | "onProgressCapture" | "onRateChange" | "onRateChangeCapture" | "onResize" | "onResizeCapture" | "onSeeked" | "onSeekedCapture" | "onSeeking" | "onSeekingCapture" | "onStalled" | "onStalledCapture" | "onSuspend" | "onSuspendCapture" | "onTimeUpdate" | "onTimeUpdateCapture" | "onVolumeChange" | "onVolumeChangeCapture" | "onWaiting" | "onWaitingCapture" | "onAuxClick" | "onAuxClickCapture" | "onClick" | "onClickCapture" | "onContextMenu" | "onContextMenuCapture" | "onDoubleClick" | "onDoubleClickCapture" | "onDrag" | "onDragCapture" | "onDragEnd" | "onDragEndCapture" | "onDragEnter" | "onDragEnterCapture" | "onDragExit" | "onDragExitCapture" | "onDragLeave" | "onDragLeaveCapture" | "onDragOver" | "onDragOverCapture" | "onDragStart" | "onDragStartCapture" | "onDrop" | "onDropCapture" | "onMouseDown" | "onMouseDownCapture" | "onMouseEnter" | "onMouseLeave" | "onMouseMove" | "onMouseMoveCapture" | "onMouseOut" | "onMouseOutCapture" | "onMouseOver" | "onMouseOverCapture" | "onMouseUp" | "onMouseUpCapture" | "onSelect" | "onSelectCapture" | "onTouchCancel" | "onTouchCancelCapture" | "onTouchEnd" | "onTouchEndCapture" | "onTouchMove" | "onTouchMoveCapture" | "onTouchStart" | "onTouchStartCapture" | "onPointerDown" | "onPointerDownCapture" | "onPointerMove" | "onPointerMoveCapture" | "onPointerUp" | "onPointerUpCapture" | "onPointerCancel" | "onPointerCancelCapture" | "onPointerEnter" | "onPointerEnterCapture" | "onPointerLeave" | "onPointerLeaveCapture" | "onPointerOver" | "onPointerOverCapture" | "onPointerOut" | "onPointerOutCapture" | "onGotPointerCapture" | "onGotPointerCaptureCapture" | "onLostPointerCapture" | "onLostPointerCaptureCapture" | "onScroll" | "onScrollCapture" | "onWheel" | "onWheelCapture" | "onAnimationStart" | "onAnimationStartCapture" | "onAnimationEnd" | "onAnimationEndCapture" | "onAnimationIteration" | "onAnimationIterationCapture" | "onTransitionEnd" | "onTransitionEndCapture" | "status" | "defaultChecked" | "defaultValue" | "suppressContentEditableWarning" | "suppressHydrationWarning" | "accessKey" | "contentEditable" | "contextMenu" | "dir" | "draggable" | "hidden" | "nonce" | "placeholder" | "spellCheck" | "translate" | "radioGroup" | "about" | "datatype" | "inlist" | "prefix" | "property" | "resource" | "typeof" | "vocab" | "autoCapitalize" | "autoCorrect" | "autoSave" | "itemProp" | "itemScope" | "itemType" | "itemID" | "itemRef" | "results" | "security" | "unselectable" | "inputMode" | "is" | "autoFocus" | "disabled" | "formAction" | "formEncType" | "formMethod" | "formNoValidate" | "formTarget" | "isOpen" | "items" | "onItemSelect" | "helperText"> & React_2.RefAttributes<HTMLButtonElement>)>;
- 
- // @public (undocumented)
--export type SelectRefElement = HTMLButtonElement;
 +export const SelectGroup: StyledComponent<"div", any, {}, never>;
  
+-// @public (undocumented)
+-export type SelectRefElement = HTMLButtonElement;
+-
 -// @public
 -export const SelectView: React_2.ForwardRefExoticComponent<SelectViewProps & React_2.RefAttributes<HTMLButtonElement>>;
 +export { SelectProps }
@@ -432,7 +431,7 @@
  
  export { setRef }
  
-@@ -733,12 +630,6 @@
+@@ -735,12 +631,6 @@
  
  export { ShiftProps }
  
@@ -445,7 +444,7 @@
  export { sizes }
  
  export { SkeletonGradientProps }
-@@ -756,6 +647,8 @@
+@@ -758,6 +648,8 @@
  
  export { SnapType }
  
@@ -454,7 +453,7 @@
  export { SpacingProps }
  
  export { Spinner }
-@@ -764,6 +657,8 @@
+@@ -766,6 +658,8 @@
  
  export { SSRProvider }
  
@@ -463,7 +462,7 @@
  export { StyledCard }
  
  export { StyledPreviewGallery }
-@@ -777,10 +672,12 @@
+@@ -779,10 +673,12 @@
  export { syntheticFocus }
  
  // @public
@@ -478,7 +477,7 @@
  }
  
  // @public
-@@ -795,6 +692,13 @@
+@@ -797,6 +693,13 @@
  
  // @public (undocumented)
  export interface TabsProps extends TabsProps_2 {
@@ -492,7 +491,7 @@
  }
  
  // @public
-@@ -803,13 +707,11 @@
+@@ -805,13 +708,11 @@
  export { TextareaHTMLAttributes }
  
  // @public (undocumented)
@@ -509,7 +508,7 @@
  }
  
  export { TextareaResize }
-@@ -817,11 +719,13 @@
+@@ -819,11 +720,13 @@
  // @public
  export const TextField: React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
  
@@ -526,21 +525,7 @@
  }
  
  export { TextL }
-@@ -860,6 +764,13 @@
- 
- export { Upload }
- 
-+// @public
-+export const UploadAudio: FC<UploadAudioProps>;
-+
-+// @public (undocumented)
-+export interface UploadAudioProps extends UploadProps {
-+}
-+
- export { UploadProgress }
- 
- export { UploadProgressProps }
-@@ -886,21 +797,10 @@
+@@ -892,21 +795,10 @@
  
  export { views }
  

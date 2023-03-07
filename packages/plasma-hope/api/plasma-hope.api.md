@@ -1104,6 +1104,13 @@ export { Underline }
 // @public
 export const Upload: FC<UploadProps>;
 
+// @public
+export const UploadAudio: FC<UploadAudioProps>;
+
+// @public (undocumented)
+export interface UploadAudioProps extends UploadProps {
+}
+
 // @public (undocumented)
 export const UploadProgress: FC<UploadProgressProps>;
 
