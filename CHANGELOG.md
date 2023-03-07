@@ -1,3 +1,16 @@
+# (Tue Mar 07 2023)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-hope@0.12.1`
+  - fix(plasma-hope): set correct transitive dependencies [#388](https://github.com/salute-developers/plasma/pull/388) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Mon Mar 06 2023)
 
 #### 🚀 Enhancement

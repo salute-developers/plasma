@@ -1,3 +1,17 @@
+# v0.12.1 (Tue Mar 07 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-hope): set correct transitive dependencies [#388](https://github.com/salute-developers/plasma/pull/388) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v0.12.0 (Mon Mar 06 2023)
 
 #### 🐛 Bug Fix
