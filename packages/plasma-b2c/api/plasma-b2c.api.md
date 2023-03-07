@@ -97,7 +97,6 @@ import { Editable } from '@salutejs/plasma-hope';
 import { EditableProps } from '@salutejs/plasma-hope';
 import { ElasticGrid } from '@salutejs/plasma-hope';
 import { ElasticGridProps } from '@salutejs/plasma-hope';
-import type { FC } from 'react';
 import type { FieldProps } from '@salutejs/plasma-core';
 import { FocusProps } from '@salutejs/plasma-core';
 import { Footnote1 } from '@salutejs/plasma-hope';
@@ -227,6 +226,8 @@ import { transformStyles } from '@salutejs/plasma-core';
 import { TypographyTypes } from '@salutejs/plasma-core';
 import { Underline } from '@salutejs/plasma-hope';
 import { Upload } from '@salutejs/plasma-hope';
+import { UploadAudio } from '@salutejs/plasma-hope';
+import { UploadAudioProps } from '@salutejs/plasma-hope';
 import { UploadProgress } from '@salutejs/plasma-hope';
 import { UploadProgressProps } from '@salutejs/plasma-hope';
 import { UploadProps } from '@salutejs/plasma-hope';
@@ -764,12 +765,9 @@ export { Underline }
 
 export { Upload }
 
-// @public
-export const UploadAudio: FC<UploadAudioProps>;
+export { UploadAudio }
 
-// @public (undocumented)
-export interface UploadAudioProps extends UploadProps {
-}
+export { UploadAudioProps }
 
 export { UploadProgress }
 

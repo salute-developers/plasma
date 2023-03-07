@@ -221,6 +221,8 @@ import { transformStyles } from '@salutejs/plasma-core';
 import { TypographyTypes } from '@salutejs/plasma-core';
 import { Underline } from '@salutejs/plasma-hope';
 import { Upload } from '@salutejs/plasma-hope';
+import { UploadAudio } from '@salutejs/plasma-hope';
+import { UploadAudioProps } from '@salutejs/plasma-hope';
 import { UploadProgress } from '@salutejs/plasma-hope';
 import { UploadProgressProps } from '@salutejs/plasma-hope';
 import { UploadProps } from '@salutejs/plasma-hope';
@@ -859,6 +861,10 @@ export { TypographyTypes }
 export { Underline }
 
 export { Upload }
+
+export { UploadAudio }
+
+export { UploadAudioProps }
 
 export { UploadProgress }
 
