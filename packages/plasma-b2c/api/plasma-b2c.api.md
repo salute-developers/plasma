@@ -230,6 +230,8 @@ import { Upload } from '@salutejs/plasma-hope';
 import { UploadProgress } from '@salutejs/plasma-hope';
 import { UploadProgressProps } from '@salutejs/plasma-hope';
 import { UploadProps } from '@salutejs/plasma-hope';
+import { UploadVisual } from '@salutejs/plasma-hope';
+import { UploadVisualProps } from '@salutejs/plasma-hope';
 import { useDebouncedFunction } from '@salutejs/plasma-core';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
@@ -775,13 +777,9 @@ export { UploadProgressProps }
 
 export { UploadProps }
 
-// @public
-export const UploadVisual: FC<UploadVisualProps>;
+export { UploadVisual }
 
-// @public (undocumented)
-export interface UploadVisualProps extends UploadProps, PreviewGalleryProps {
-    maxCount?: number;
-}
+export { UploadVisualProps }
 
 export { useDebouncedFunction }
 

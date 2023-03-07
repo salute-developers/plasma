@@ -1124,6 +1124,14 @@ export interface UploadProps extends Omit<UploadButtonProps, 'isProgress'> {
     progress?: number;
 }
 
+// @public
+export const UploadVisual: FC<UploadVisualProps>;
+
+// @public (undocumented)
+export interface UploadVisualProps extends UploadProps, PreviewGalleryProps {
+    maxCount?: number;
+}
+
 export { useDebouncedFunction }
 
 export { useForkRef }

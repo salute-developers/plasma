@@ -125,7 +125,7 @@
  import { TabsControllerProps as TabsControllerProps_2 } from '@salutejs/plasma-core';
  import type { TabsProps as TabsProps_2 } from '@salutejs/plasma-core';
  import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
-@@ -309,10 +315,33 @@
+@@ -311,10 +317,33 @@
  
  export { BodyXXS }
  
@@ -162,7 +162,7 @@
  
  export { Button1 }
  
-@@ -320,10 +349,6 @@
+@@ -322,10 +351,6 @@
  
  export { ButtonProps }
  
@@ -173,7 +173,7 @@
  export { Calendar }
  
  export { CalendarBase }
-@@ -382,6 +407,9 @@
+@@ -384,6 +409,9 @@
  
  export { CheckboxProps }
  
@@ -183,7 +183,7 @@
  export { closeNotification }
  
  export { Col }
-@@ -394,7 +422,8 @@
+@@ -396,7 +424,8 @@
  
  export { ColSizeProps }
  
@@ -193,7 +193,7 @@
  
  export { convertRoundnessMatrix }
  
-@@ -406,57 +435,8 @@
+@@ -408,57 +437,8 @@
  
  export { DropdownItem }
  
@@ -251,7 +251,7 @@
  export { DropdownProps }
  
  export { DsplL }
-@@ -473,8 +453,6 @@
+@@ -475,8 +455,6 @@
  
  export { ElasticGridProps }
  
@@ -260,7 +260,7 @@
  export { FocusProps }
  
  export { Footnote1 }
-@@ -483,44 +461,15 @@
+@@ -485,44 +463,15 @@
  
  export { formatCurrency }
  
@@ -272,7 +272,8 @@
 -    M: number;
 -    S: number;
 -};
--
++export { gridBreakpoints }
+ 
 -// @public (undocumented)
 -export const gridColumns: {
 -    XXL: number;
@@ -281,7 +282,8 @@
 -    M: number;
 -    S: number;
 -};
--
++export { gridColumns }
+ 
 -// @public (undocumented)
 -export const gridGutters: {
 -    XXL: number;
@@ -290,7 +292,8 @@
 -    M: number;
 -    S: number;
 -};
--
++export { gridGutters }
+ 
 -// @public (undocumented)
 -export const gridMargins: {
 -    XXL: number;
@@ -299,21 +302,15 @@
 -    M: number;
 -    S: number;
 -};
-+export { gridBreakpoints }
++export { gridMargins }
  
 -// @public (undocumented)
 -export const gridSizes: ("XXL" | "XL" | "L" | "M" | "S")[];
-+export { gridColumns }
-+
-+export { gridGutters }
-+
-+export { gridMargins }
-+
 +export { gridSizes }
  
  export { H1 }
  
-@@ -542,14 +491,11 @@
+@@ -544,14 +493,11 @@
  
  export { Headline5 }
  
@@ -329,7 +326,7 @@
  
  export { InputHTMLAttributes }
  
-@@ -565,11 +511,9 @@
+@@ -567,11 +513,9 @@
  
  export { MaxLinesProps }
  
@@ -343,7 +340,7 @@
  
  export { Modal }
  
-@@ -583,13 +527,6 @@
+@@ -585,13 +529,6 @@
  
  export { monthShortName }
  
@@ -357,7 +354,7 @@
  export { Notification_2 as Notification }
  
  export { NotificationProps }
-@@ -663,67 +600,27 @@
+@@ -665,67 +602,27 @@
  export { ScrollSnapProps }
  
  // @public
@@ -394,16 +391,12 @@
 -    isOpen?: boolean;
 -    value?: string | number | null;
 -}
-+    value: any;
-+    onChange?: ((value: any) => void) | undefined;
-+} & Pick<SelectViewProps, "form" | "slot" | "style" | "title" | "type" | "name" | "className" | "color" | "id" | "lang" | "role" | "tabIndex" | "aria-activedescendant" | "aria-atomic" | "aria-autocomplete" | "aria-busy" | "aria-checked" | "aria-colcount" | "aria-colindex" | "aria-colspan" | "aria-controls" | "aria-current" | "aria-describedby" | "aria-details" | "aria-disabled" | "aria-dropeffect" | "aria-errormessage" | "aria-expanded" | "aria-flowto" | "aria-grabbed" | "aria-haspopup" | "aria-hidden" | "aria-invalid" | "aria-keyshortcuts" | "aria-label" | "aria-labelledby" | "aria-level" | "aria-live" | "aria-modal" | "aria-multiline" | "aria-multiselectable" | "aria-orientation" | "aria-owns" | "aria-placeholder" | "aria-posinset" | "aria-pressed" | "aria-readonly" | "aria-relevant" | "aria-required" | "aria-roledescription" | "aria-rowcount" | "aria-rowindex" | "aria-rowspan" | "aria-selected" | "aria-setsize" | "aria-sort" | "aria-valuemax" | "aria-valuemin" | "aria-valuenow" | "aria-valuetext" | "children" | "dangerouslySetInnerHTML" | "onCopy" | "onCopyCapture" | "onCut" | "onCutCapture" | "onPaste" | "onPasteCapture" | "onCompositionEnd" | "onCompositionEndCapture" | "onCompositionStart" | "onCompositionStartCapture" | "onCompositionUpdate" | "onCompositionUpdateCapture" | "onFocus" | "onFocusCapture" | "onBlur" | "onBlurCapture" | "onChangeCapture" | "onBeforeInput" | "onBeforeInputCapture" | "onInput" | "onInputCapture" | "onReset" | "onResetCapture" | "onSubmit" | "onSubmitCapture" | "onInvalid" | "onInvalidCapture" | "onLoad" | "onLoadCapture" | "onError" | "onErrorCapture" | "onKeyDown" | "onKeyDownCapture" | "onKeyPress" | "onKeyPressCapture" | "onKeyUp" | "onKeyUpCapture" | "onAbort" | "onAbortCapture" | "onCanPlay" | "onCanPlayCapture" | "onCanPlayThrough" | "onCanPlayThroughCapture" | "onDurationChange" | "onDurationChangeCapture" | "onEmptied" | "onEmptiedCapture" | "onEncrypted" | "onEncryptedCapture" | "onEnded" | "onEndedCapture" | "onLoadedData" | "onLoadedDataCapture" | "onLoadedMetadata" | "onLoadedMetadataCapture" | "onLoadStart" | "onLoadStartCapture" | "onPause" | "onPauseCapture" | "onPlay" | "onPlayCapture" | "onPlaying" | "onPlayingCapture" | "onProgress" | "onProgressCapture" | "onRateChange" | "onRateChangeCapture" | "onResize" | "onResizeCapture" | "onSeeked" | "onSeekedCapture" | "onSeeking" | "onSeekingCapture" | "onStalled" | "onStalledCapture" | "onSuspend" | "onSuspendCapture" | "onTimeUpdate" | "onTimeUpdateCapture" | "onVolumeChange" | "onVolumeChangeCapture" | "onWaiting" | "onWaitingCapture" | "onAuxClick" | "onAuxClickCapture" | "onClick" | "onClickCapture" | "onContextMenu" | "onContextMenuCapture" | "onDoubleClick" | "onDoubleClickCapture" | "onDrag" | "onDragCapture" | "onDragEnd" | "onDragEndCapture" | "onDragEnter" | "onDragEnterCapture" | "onDragExit" | "onDragExitCapture" | "onDragLeave" | "onDragLeaveCapture" | "onDragOver" | "onDragOverCapture" | "onDragStart" | "onDragStartCapture" | "onDrop" | "onDropCapture" | "onMouseDown" | "onMouseDownCapture" | "onMouseEnter" | "onMouseLeave" | "onMouseMove" | "onMouseMoveCapture" | "onMouseOut" | "onMouseOutCapture" | "onMouseOver" | "onMouseOverCapture" | "onMouseUp" | "onMouseUpCapture" | "onSelect" | "onSelectCapture" | "onTouchCancel" | "onTouchCancelCapture" | "onTouchEnd" | "onTouchEndCapture" | "onTouchMove" | "onTouchMoveCapture" | "onTouchStart" | "onTouchStartCapture" | "onPointerDown" | "onPointerDownCapture" | "onPointerMove" | "onPointerMoveCapture" | "onPointerUp" | "onPointerUpCapture" | "onPointerCancel" | "onPointerCancelCapture" | "onPointerEnter" | "onPointerEnterCapture" | "onPointerLeave" | "onPointerLeaveCapture" | "onPointerOver" | "onPointerOverCapture" | "onPointerOut" | "onPointerOutCapture" | "onGotPointerCapture" | "onGotPointerCaptureCapture" | "onLostPointerCapture" | "onLostPointerCaptureCapture" | "onScroll" | "onScrollCapture" | "onWheel" | "onWheelCapture" | "onAnimationStart" | "onAnimationStartCapture" | "onAnimationEnd" | "onAnimationEndCapture" | "onAnimationIteration" | "onAnimationIterationCapture" | "onTransitionEnd" | "onTransitionEndCapture" | "status" | "defaultChecked" | "defaultValue" | "suppressContentEditableWarning" | "suppressHydrationWarning" | "accessKey" | "contentEditable" | "contextMenu" | "dir" | "draggable" | "hidden" | "nonce" | "placeholder" | "spellCheck" | "translate" | "radioGroup" | "about" | "datatype" | "inlist" | "prefix" | "property" | "resource" | "typeof" | "vocab" | "autoCapitalize" | "autoCorrect" | "autoSave" | "itemProp" | "itemScope" | "itemType" | "itemID" | "itemRef" | "results" | "security" | "unselectable" | "inputMode" | "is" | "autoFocus" | "disabled" | "formAction" | "formEncType" | "formMethod" | "formNoValidate" | "formTarget" | "isOpen" | "items" | "onItemSelect" | "helperText"> & React_2.RefAttributes<HTMLButtonElement>)>;
- 
+-
 -// Warning: (ae-forgotten-export) The symbol "DropdownUncontrolledProps" needs to be exported by the entry point index.d.ts
 -//
- // @public (undocumented)
+-// @public (undocumented)
 -export const SelectDropdown: StyledComponent<FC<DropdownUncontrolledProps>, any, {}, never>;
-+export const SelectGroup: StyledComponent<"div", any, {}, never>;
- 
+-
 -// @public (undocumented)
 -export interface SelectDropdownProps extends DropdownUncontrolledProps {
 -}
@@ -419,15 +412,19 @@
 -    value: T;
 -    onChange?: (value: T) => void;
 -} & Omit<SelectViewProps, 'onItemClick' | 'value' | 'label' | 'multiselect'>;
-+export { SelectProps }
++    value: any;
++    onChange?: ((value: any) => void) | undefined;
++} & Pick<SelectViewProps, "form" | "slot" | "style" | "title" | "type" | "name" | "className" | "color" | "id" | "lang" | "role" | "tabIndex" | "aria-activedescendant" | "aria-atomic" | "aria-autocomplete" | "aria-busy" | "aria-checked" | "aria-colcount" | "aria-colindex" | "aria-colspan" | "aria-controls" | "aria-current" | "aria-describedby" | "aria-details" | "aria-disabled" | "aria-dropeffect" | "aria-errormessage" | "aria-expanded" | "aria-flowto" | "aria-grabbed" | "aria-haspopup" | "aria-hidden" | "aria-invalid" | "aria-keyshortcuts" | "aria-label" | "aria-labelledby" | "aria-level" | "aria-live" | "aria-modal" | "aria-multiline" | "aria-multiselectable" | "aria-orientation" | "aria-owns" | "aria-placeholder" | "aria-posinset" | "aria-pressed" | "aria-readonly" | "aria-relevant" | "aria-required" | "aria-roledescription" | "aria-rowcount" | "aria-rowindex" | "aria-rowspan" | "aria-selected" | "aria-setsize" | "aria-sort" | "aria-valuemax" | "aria-valuemin" | "aria-valuenow" | "aria-valuetext" | "children" | "dangerouslySetInnerHTML" | "onCopy" | "onCopyCapture" | "onCut" | "onCutCapture" | "onPaste" | "onPasteCapture" | "onCompositionEnd" | "onCompositionEndCapture" | "onCompositionStart" | "onCompositionStartCapture" | "onCompositionUpdate" | "onCompositionUpdateCapture" | "onFocus" | "onFocusCapture" | "onBlur" | "onBlurCapture" | "onChangeCapture" | "onBeforeInput" | "onBeforeInputCapture" | "onInput" | "onInputCapture" | "onReset" | "onResetCapture" | "onSubmit" | "onSubmitCapture" | "onInvalid" | "onInvalidCapture" | "onLoad" | "onLoadCapture" | "onError" | "onErrorCapture" | "onKeyDown" | "onKeyDownCapture" | "onKeyPress" | "onKeyPressCapture" | "onKeyUp" | "onKeyUpCapture" | "onAbort" | "onAbortCapture" | "onCanPlay" | "onCanPlayCapture" | "onCanPlayThrough" | "onCanPlayThroughCapture" | "onDurationChange" | "onDurationChangeCapture" | "onEmptied" | "onEmptiedCapture" | "onEncrypted" | "onEncryptedCapture" | "onEnded" | "onEndedCapture" | "onLoadedData" | "onLoadedDataCapture" | "onLoadedMetadata" | "onLoadedMetadataCapture" | "onLoadStart" | "onLoadStartCapture" | "onPause" | "onPauseCapture" | "onPlay" | "onPlayCapture" | "onPlaying" | "onPlayingCapture" | "onProgress" | "onProgressCapture" | "onRateChange" | "onRateChangeCapture" | "onResize" | "onResizeCapture" | "onSeeked" | "onSeekedCapture" | "onSeeking" | "onSeekingCapture" | "onStalled" | "onStalledCapture" | "onSuspend" | "onSuspendCapture" | "onTimeUpdate" | "onTimeUpdateCapture" | "onVolumeChange" | "onVolumeChangeCapture" | "onWaiting" | "onWaitingCapture" | "onAuxClick" | "onAuxClickCapture" | "onClick" | "onClickCapture" | "onContextMenu" | "onContextMenuCapture" | "onDoubleClick" | "onDoubleClickCapture" | "onDrag" | "onDragCapture" | "onDragEnd" | "onDragEndCapture" | "onDragEnter" | "onDragEnterCapture" | "onDragExit" | "onDragExitCapture" | "onDragLeave" | "onDragLeaveCapture" | "onDragOver" | "onDragOverCapture" | "onDragStart" | "onDragStartCapture" | "onDrop" | "onDropCapture" | "onMouseDown" | "onMouseDownCapture" | "onMouseEnter" | "onMouseLeave" | "onMouseMove" | "onMouseMoveCapture" | "onMouseOut" | "onMouseOutCapture" | "onMouseOver" | "onMouseOverCapture" | "onMouseUp" | "onMouseUpCapture" | "onSelect" | "onSelectCapture" | "onTouchCancel" | "onTouchCancelCapture" | "onTouchEnd" | "onTouchEndCapture" | "onTouchMove" | "onTouchMoveCapture" | "onTouchStart" | "onTouchStartCapture" | "onPointerDown" | "onPointerDownCapture" | "onPointerMove" | "onPointerMoveCapture" | "onPointerUp" | "onPointerUpCapture" | "onPointerCancel" | "onPointerCancelCapture" | "onPointerEnter" | "onPointerEnterCapture" | "onPointerLeave" | "onPointerLeaveCapture" | "onPointerOver" | "onPointerOverCapture" | "onPointerOut" | "onPointerOutCapture" | "onGotPointerCapture" | "onGotPointerCaptureCapture" | "onLostPointerCapture" | "onLostPointerCaptureCapture" | "onScroll" | "onScrollCapture" | "onWheel" | "onWheelCapture" | "onAnimationStart" | "onAnimationStartCapture" | "onAnimationEnd" | "onAnimationEndCapture" | "onAnimationIteration" | "onAnimationIterationCapture" | "onTransitionEnd" | "onTransitionEndCapture" | "status" | "defaultChecked" | "defaultValue" | "suppressContentEditableWarning" | "suppressHydrationWarning" | "accessKey" | "contentEditable" | "contextMenu" | "dir" | "draggable" | "hidden" | "nonce" | "placeholder" | "spellCheck" | "translate" | "radioGroup" | "about" | "datatype" | "inlist" | "prefix" | "property" | "resource" | "typeof" | "vocab" | "autoCapitalize" | "autoCorrect" | "autoSave" | "itemProp" | "itemScope" | "itemType" | "itemID" | "itemRef" | "results" | "security" | "unselectable" | "inputMode" | "is" | "autoFocus" | "disabled" | "formAction" | "formEncType" | "formMethod" | "formNoValidate" | "formTarget" | "isOpen" | "items" | "onItemSelect" | "helperText"> & React_2.RefAttributes<HTMLButtonElement>)>;
  
  // @public (undocumented)
 -export type SelectRefElement = HTMLButtonElement;
--
++export const SelectGroup: StyledComponent<"div", any, {}, never>;
+ 
 -// @public
 -export const SelectView: React_2.ForwardRefExoticComponent<SelectViewProps & React_2.RefAttributes<HTMLButtonElement>>;
--
--// @public (undocumented)
++export { SelectProps }
+ 
+ // @public (undocumented)
 -export interface SelectViewProps extends Pick<FieldProps, 'status' | 'placeholder' | 'helperText' | 'disabled'>, Pick<SelectDropdownProps, 'items' | 'onItemSelect'>, Omit<SelectButtonProps, 'hasItems' | 'isExpanded' | 'onChange'> {
 -    multiselect?: boolean;
 -}
@@ -435,7 +432,7 @@
  
  export { setRef }
  
-@@ -731,12 +628,6 @@
+@@ -733,12 +630,6 @@
  
  export { ShiftProps }
  
@@ -448,7 +445,7 @@
  export { sizes }
  
  export { SkeletonGradientProps }
-@@ -754,6 +645,8 @@
+@@ -756,6 +647,8 @@
  
  export { SnapType }
  
@@ -457,7 +454,7 @@
  export { SpacingProps }
  
  export { Spinner }
-@@ -762,6 +655,8 @@
+@@ -764,6 +657,8 @@
  
  export { SSRProvider }
  
@@ -466,7 +463,7 @@
  export { StyledCard }
  
  export { StyledPreviewGallery }
-@@ -775,10 +670,12 @@
+@@ -777,10 +672,12 @@
  export { syntheticFocus }
  
  // @public
@@ -481,7 +478,7 @@
  }
  
  // @public
-@@ -793,6 +690,13 @@
+@@ -795,6 +692,13 @@
  
  // @public (undocumented)
  export interface TabsProps extends TabsProps_2 {
@@ -495,7 +492,7 @@
  }
  
  // @public
-@@ -801,13 +705,11 @@
+@@ -803,13 +707,11 @@
  export { TextareaHTMLAttributes }
  
  // @public (undocumented)
@@ -512,7 +509,7 @@
  }
  
  export { TextareaResize }
-@@ -815,11 +717,13 @@
+@@ -817,11 +719,13 @@
  // @public
  export const TextField: React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
  
@@ -529,7 +526,7 @@
  }
  
  export { TextL }
-@@ -858,12 +762,27 @@
+@@ -860,6 +764,13 @@
  
  export { Upload }
  
@@ -543,21 +540,7 @@
  export { UploadProgress }
  
  export { UploadProgressProps }
- 
- export { UploadProps }
- 
-+// @public
-+export const UploadVisual: FC<UploadVisualProps>;
-+
-+// @public (undocumented)
-+export interface UploadVisualProps extends UploadProps, PreviewGalleryProps {
-+    maxCount?: number;
-+}
-+
- export { useDebouncedFunction }
- 
- export { useForkRef }
-@@ -880,21 +799,10 @@
+@@ -886,21 +797,10 @@
  
  export { views }
  
