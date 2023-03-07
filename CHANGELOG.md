@@ -1,5 +1,18 @@
 # (Tue Mar 07 2023)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-tokens@1.39.1`, `@salutejs/plasma-tokens-utils@0.18.1`
+  - fix(plasma-tokens): Remove `plasma-colors` prefix from brand themes [#391](https://github.com/salute-developers/plasma/pull/391) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Tue Mar 07 2023)
+
 #### 🚀 Enhancement
 
 - feat(plasma-web-docs): add UploadAudio.mdx [#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
