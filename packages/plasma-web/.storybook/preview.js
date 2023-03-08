@@ -59,7 +59,6 @@ const themes = {
 };
 
 const withTheme = (Story, context) => {
-    let typoSystem = 'responsive';
     let theme = context.globals.theme;
 
     if (theme === 'light') {
@@ -68,15 +67,11 @@ const withTheme = (Story, context) => {
         theme = LEGACY_DARK_THEME;
     }
 
-    if (theme === LEGACY_LIGHT_THEME || theme === LEGACY_DARK_THEME) {
-        typoSystem = 'leagacy';
-    }
-
     const Theme = themes[theme];
 
     return (
         <>
-            {typoSystem === 'responsive' ? (
+            {context.globals.typoVersion === 'standard' ? (
                 <>
                     <TypoStyle />
                     <CompatibleTypoStyle />
@@ -84,6 +79,7 @@ const withTheme = (Story, context) => {
             ) : (
                 <OldTypo />
             )}
+
             <Theme />
             <DocumentStyle />
             <Story {...context} />
@@ -149,6 +145,14 @@ export const globalTypes = {
                 LEGACY_LIGHT_THEME,
                 LEGACY_DARK_THEME,
             ],
+        },
+    },
+    typoVersion: {
+        description: 'Global typography version for components',
+        defaultValue: 'standard',
+        toolbar: {
+            title: 'Typography version',
+            items: ['standard', 'old'],
         },
     },
 };
