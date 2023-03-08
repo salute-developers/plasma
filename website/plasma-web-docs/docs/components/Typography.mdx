@@ -7,7 +7,7 @@ import { StorybookLink } from '@site/src/components';
 
 # Typography
 В состав Plasma Web входят компоненты, реализующие типографическую систему [типографическую систему Plasma](../../design/typography).
-Они заменяют обычные HTML-теги, такие как `h1`, `h2`, `h3`, `h4`, `p` и некоторые другие.
+Они заменяют обычные HTML-теги, такие, как `h1`, `h2`, `h3`, `h4`, `p`, etc.
 
 <StorybookLink name="Typography" />
 
@@ -24,87 +24,126 @@ import { StorybookLink } from '@site/src/components';
 
 ## Состав
 
+### Hero unit
+
+```tsx live
+import React from 'react';
+import { DsplL, DsplM, DsplS } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <div style={{ display: 'block' }}>
+            <DsplL bold={false}>
+                DsplL
+            </DsplL>
+
+            <DsplL>DsplL Bold</DsplL>
+
+            <DsplM bold={false}>
+                DsplM
+            </DsplM>
+
+            <DsplM>DsplM Bold</DsplM>
+
+            <DsplS bold={false}>
+                DsplS
+            </DsplS>
+
+            <DsplS>DsplS Bold</DsplS>
+        </div>
+    );
+}
+```
+
 ### Заголовки
 
 ```tsx live
 import React from 'react';
-import { Headline1, Headline2, Headline3, Headline4 } from '@salutejs/plasma-web';
+import { H1, H2, H3, H4, H5 } from '@salutejs/plasma-web';
 
 export function App() {
     return (
-        <div>
-            <Headline1>Headline1</Headline1>
-            <Headline2>Headline2</Headline2>
-            <Headline3>Headline3</Headline3>
-            <Headline4>Headline4</Headline4>
+        <div style={{ display: 'block' }}>
+            <H1 bold={false}>
+                H1
+            </H1>
+            <H1>H1 Bold</H1>
+
+            <H2 bold={false}>
+                H2
+            </H2>
+            <H2>H2 Bold</H2>
+
+            <H3 bold={false}>
+                H3
+            </H3>
+            <H3>H3 Bold</H3>
+
+            <H4 bold={false}>
+                H4
+            </H4>
+            <H4>H4 Bold</H4>
+
+            <H5 bold={false}>
+                H5
+            </H5>
+            <H5>H5 Bold</H5>
         </div>
     );
 }
 ```
 
-### Основной текст
+### Интерфейсы
+Типографика для таких частей интерфейса, как button, label, подписи, и т.п.
 
 ```tsx live
 import React from 'react';
-import { Body1, Body2, ParagraphText1, ParagraphText2 } from '@salutejs/plasma-web';
+import { BodyL, BodyM, BodyS, BodyXS, BodyXXS } from '@salutejs/plasma-web';
 
 export function App() {
     return (
-        <div>
-            <Body1>Body1</Body1>
-            <Body2>Body2</Body2>
-            <ParagraphText1>ParagraphText1</ParagraphText1>
-            <ParagraphText2>ParagraphText2</ParagraphText2>
+        <div style={{ display: 'block' }}>
+            <BodyL>BodyL</BodyL>
+            <BodyL bold>BodyL полужирный</BodyL>
+
+            <BodyM>BodyM</BodyM>
+            <BodyM bold>BodyM полужирный</BodyM>
+
+            <BodyS>BodyS</BodyS>
+            <BodyS bold>BodyS полужирный</BodyS>
+
+            <BodyXS>BodyXS</BodyXS>
+            <BodyXS bold>BodyXS полужирный</BodyXS>
+
+            <BodyXXS>BodyXXS</BodyXXS>
+            <BodyXXS bold>BodyXXS полужирный</BodyXXS>
         </div>
     );
 }
 ```
 
-### Вспомогательный текст
+### Текст
+Типографические элементы для описаний к статьям, дополнительной информации и т.д.
 
 ```tsx live
 import React from 'react';
-import { Footnote1, Footnote2 } from '@salutejs/plasma-web';
+import { TextL, TextM, TextS, TextXS } from '@salutejs/plasma-web';
 
 export function App() {
     return (
-        <div>
-            <Footnote1>Footnote1</Footnote1>
-            <Footnote2>Footnote2</Footnote2>
+        <div style={{ display: 'block' }}>
+            <TextL>TextL</TextL>
+            <TextL bold>TextL полужирный</TextL>
+
+            <TextM>TextM</TextM>
+            <TextM bold>TextM полужирный</TextM>
+
+            <TextS>TextS</TextS>
+            <TextS bold>TextS полужирный</TextS>
+
+            <TextXS>TextXS</TextXS>
+            <TextXS bold>TextXS полужирный</TextXS>
         </div>
     );
 }
 ```
-
-### Контролы
-
-```tsx live
-import React from 'react';
-import { Button1, Button2 } from '@salutejs/plasma-web';
-
-export function App() {
-    return (
-        <div>
-            <Button1>Button1</Button1>
-            <Button2>Button2</Button2>
-        </div>
-    );
-}
-```
-
-### Дополнительные
-
-```tsx live
-import React from 'react';
-import { Caption, Underline } from '@salutejs/plasma-web';
-
-export function App() {
-    return (
-        <div>
-            <Caption>Caption</Caption>
-            <Underline>Underline</Underline>
-        </div>
-    );
-}
-```
-
