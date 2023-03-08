@@ -1,3 +1,21 @@
+# v1.156.0 (Wed Mar 08 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): delete unnecessary dependencies/devDependencies [#392](https://github.com/salute-developers/plasma/pull/392) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): delete jest config [#392](https://github.com/salute-developers/plasma/pull/392) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.155.1 (Tue Mar 07 2023)
 
 #### 🐛 Bug Fix

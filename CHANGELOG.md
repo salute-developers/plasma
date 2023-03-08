@@ -1,3 +1,17 @@
+# (Wed Mar 08 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.156.0`
+  - feat(plasma-b2c): delete unnecessary dependencies/devDependencies [#392](https://github.com/salute-developers/plasma/pull/392) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-b2c): delete jest config [#392](https://github.com/salute-developers/plasma/pull/392) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Tue Mar 07 2023)
 
 #### 🐛 Bug Fix
