@@ -1,7 +1,8 @@
 export { Dropdown } from './Dropdown';
 export type { DropdownProps } from './Dropdown';
 
-export { DropdownList } from './DropdownList';
+export { DropdownList, applyDropdownListCssProperties } from './DropdownList';
+export type { DropdownListCssProperties } from './DropdownList';
 
 export { DropdownItem } from './DropdownItem';
 export type { DropdownItemProps } from './DropdownItem';
