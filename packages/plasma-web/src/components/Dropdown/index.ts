@@ -7,5 +7,5 @@ export type { DropdownItem as DropdownItemType, DropdownNode as DropdownNodeType
 
 export { withAssistiveDropdown } from './withAssistiveDropdown';
 
-export { Dropdown, DropdownList, DropdownItem } from '@salutejs/plasma-hope';
-export type { DropdownProps } from '@salutejs/plasma-hope';
+export { Dropdown, DropdownList, DropdownItem, applyDropdownListCssProperties } from '@salutejs/plasma-hope';
+export type { DropdownProps, DropdownListCssProperties } from '@salutejs/plasma-hope';

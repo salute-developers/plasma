@@ -1,19 +1,28 @@
 import React, { FC, useState, useCallback } from 'react';
+import styled from 'styled-components';
 
 import { DropdownUncontrolled, DropdownUncontrolledProps } from './DropdownUncontrolled';
 import type { OnItemSelect } from './Dropdown.types';
 
-export interface DropdownProps extends Omit<DropdownUncontrolledProps, 'isOpen' | 'hoverIndex'> {
+import { applyDropdownListCssProperties, DropdownListCssProperties } from '.';
+
+export interface DropdownProps
+    extends Omit<DropdownUncontrolledProps, 'isOpen' | 'hoverIndex'>,
+        DropdownListCssProperties {
     /**
      * Закрыть выпадающий список после выбора.
      */
     closeOnSelect?: boolean;
     /**
-     * Обработчик клика по айтему.
+     * Обработчик клика по item.
      * @deprecated Будет удалено в v2.0, используйте onItemSelect.
      */
     onItemClick?: OnItemSelect;
 }
+
+const StyledDropdownUncontrolled = styled(DropdownUncontrolled)`
+    ${applyDropdownListCssProperties};
+`;
 
 /**
  * Выпадающий список без внешнего контроля видимости.
@@ -50,7 +59,7 @@ export const Dropdown: FC<DropdownProps> = ({
     );
 
     return (
-        <DropdownUncontrolled
+        <StyledDropdownUncontrolled
             {...rest}
             isOpen={isOpen}
             disabled={disabled}
