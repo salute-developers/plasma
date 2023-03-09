@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import usePrismTheme from '@theme/hooks/usePrismTheme';
 import useThemeContext from '@theme/hooks/useThemeContext';
 import { PlaygroundPreview } from '@salutejs/plasma-docs-ui';
 import { light, dark } from '@salutejs/plasma-tokens-b2b/themes';
+import { standard } from '@salutejs/plasma-typo';
 import Translate from '@docusaurus/Translate';
 import clsx from 'clsx';
 
@@ -31,6 +32,8 @@ const StyledPlayground = styled.div`
     position: relative;
 `;
 
+const StandardTypo = createGlobalStyle(standard);
+
 const getSourceWithoutImports = (source: string) => {
     const regexp = /import\s+?(?:(?:(?:[\w*\s{},]*)\s+from\s+?)|)(?:(?:".*?")|(?:'.*?'))[\s]*?(?:;|$|)/g;
     return source
@@ -48,6 +51,7 @@ const ResultWithHeader: FC = () => {
 
     return (
         <>
+            <StandardTypo />
             <Header>
                 <Translate id="theme.Playground.result" description="The result label of the live codeblocks">
                     Result
