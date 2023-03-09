@@ -541,6 +541,17 @@ export const Display3: StyledComponent<"div", any, SpacingProps & BreakWordProps
 // @public (undocumented)
 export const display3: CSSObject;
 
+// Warning: (ae-forgotten-export) The symbol "SliderBaseProps" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export interface DoubleSliderProps extends SliderBaseProps {
+    ariaLabel?: string[];
+    multipleStepSize?: number;
+    onChange?(value: number[]): void;
+    onChangeCommitted(value: number[]): void;
+    value: number[];
+}
+
 // @public (undocumented)
 export const extractTextFrom: (textSource?: string | number | null | ReactNode) => string;
 
@@ -904,6 +915,15 @@ export interface ShiftProps {
 }
 
 // @public (undocumented)
+export interface SingleSliderProps extends SliderBaseProps {
+    ariaLabel?: string;
+    multipleStepSize?: number;
+    onChange?(value: number): void;
+    onChangeCommitted(value: number): void;
+    value: number;
+}
+
+// @public (undocumented)
 export const skeletonGradient = "var(--plasma-colors-skeleton-gradient)";
 
 // @public (undocumented)
@@ -915,33 +935,16 @@ export interface SkeletonGradientProps {
     lighter?: boolean;
 }
 
-// @public (undocumented)
-export const Slider: FC<SliderProps>;
-
-// @public (undocumented)
-export interface SliderBaseProps {
-    disabled?: boolean;
-    max: number;
-    min: number;
-    settings?: SliderSettings;
-}
-
-// @public
-export const SliderCore: React_2.FC<SliderProps>;
-
-// Warning: (ae-forgotten-export) The symbol "ThumbProp" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "SliderInternalProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export interface SliderDoubleProps extends SliderBaseProps, ThumbProp {
-    ariaLabel?: string[];
-    multipleStepSize?: number;
-    onChange?(value: number[]): void;
-    onChangeCommitted(value: number[]): void;
-    value: number[];
-}
+export const Slider: FC<(SingleSliderProps & SliderInternalProps) | (DoubleSliderProps & SliderInternalProps)>;
+
+// @public
+export const SliderCore: React_2.FC<SliderProps & SliderInternalProps>;
 
 // @public (undocumented)
-export type SliderProps = SliderSingleProps | SliderDoubleProps;
+export type SliderProps = SingleSliderProps | DoubleSliderProps;
 
 // @public (undocumented)
 export type SliderSettings = Partial<{
@@ -950,15 +953,6 @@ export type SliderSettings = Partial<{
     backgroundColor: string;
     fillColor: string;
 }>;
-
-// @public (undocumented)
-export interface SliderSingleProps extends SliderBaseProps, ThumbProp {
-    ariaLabel?: string;
-    multipleStepSize?: number;
-    onChange?(value: number): void;
-    onChangeCommitted(value: number): void;
-    value: number;
-}
 
 // @public (undocumented)
 export interface SmartPaginationDotsProps {
