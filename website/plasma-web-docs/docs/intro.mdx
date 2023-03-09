@@ -39,7 +39,7 @@ npm install @salutejs/plasma-web @salutejs/plasma-tokens-web @salutejs/plasma-ic
 
 ```jsx title="GlobalStyle.tsx"
 import { createGlobalStyle } from 'styled-components';
-import { web } from '@salutejs/plasma-tokens-web/typo';
+import { standard } from '@salutejs/plasma-typo';
 import { light } from '@salutejs/plasma-tokens-web/themes';
 import {
     text, // Цвет текста
@@ -55,7 +55,7 @@ const DocumentStyle = createGlobalStyle`
     }
 `;
 const ThemeStyle = createGlobalStyle(light);
-const TypoStyle = createGlobalStyle(web);
+const TypoStyle = createGlobalStyle(standard);
 
 export const GlobalStyle = () => (
     <>
