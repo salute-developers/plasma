@@ -43,7 +43,7 @@ jobs:
 
       - name: Run performance test
         run: |
-          (cd ./packages/plasma-ui && node --experimental-specifier-resolution=node ./node_modules/.bin/perftool)
+          (cd ./packages/plasma-ui && npx perftool)
 
       - name: Install s3cmd
         run: |
