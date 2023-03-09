@@ -11,7 +11,7 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 <StorybookLink name="Select" />
 
 ```tsx live
-import React from 'react';
+import React, { useState } from 'react';
 import { Select } from '@salutejs/plasma-web';
 
 export function App() {
@@ -34,7 +34,7 @@ export function App() {
         { value: 'fullText', label: 'Каждый охотник желает знать, где сидит фазан' },
     ];
 
-    const [value, setValue] = React.useState(null);
+    const [value, setValue] = useState(null);
 
     return (
         <div style={{ maxWidth: '20rem' }}>
@@ -54,6 +54,63 @@ export function App() {
                 <Select value={null} items={[]} placeholder="Another select" />
             </div>
         </div>
+    );
+}
+```
+
+### Управление высотой выпадающего меню
+Что бы задать высоту и `scroll` для выпадающего меню можно использовать **props** для компонента `Select`:
+- **listOverflow**
+- **listHeight**
+
+> Эти **props** необязательные, если их не указать будет использовано значение - [initial](https://developer.mozilla.org/en-US/docs/Web/CSS/initial)
+
+```tsx live
+import React, { useState, useCallback } from 'react';
+import { Select, Modal, ModalsProvider, H3, Button } from '@salutejs/plasma-web';
+
+export function App() {
+    const [value, setValue] = useState(null);
+    const [isOpenA, setIsOpenA] = useState(false);
+
+    const onCloseA = useCallback(() => setIsOpenA(false), []);
+
+    const items = [
+        { value: 'each', label: 'Каждый' },
+        { value: 'hunter', label: 'Охотник', isDisabled: true },
+        { value: 'wants', label: 'Желает' },
+        {
+            value: 'toKnow',
+            label: 'Знать',
+            items: [
+                { value: '_fullText', label: 'Каждый охотник желает знать, где сидит фазан' },
+                { value: '_thePheasant', label: 'Фазан' },
+                { value: '_is', label: 'Сидит' },
+            ],
+        },
+        { value: 'where', label: 'Где' },
+        { value: 'is', label: 'Сидит' },
+        { value: 'thePheasant', label: 'Фазан' },
+        { value: 'fullText', label: 'Каждый охотник желает знать, где сидит фазан' },
+    ];
+
+    return (
+        <section>
+            <ModalsProvider>
+                <Button text="Open modal" onClick={() => setIsOpenA(true)} />
+
+                <Modal style={{ "height": "20rem" }} id="modalA" isOpen={isOpenA} onClose={onCloseA}>
+                    <H3>Фильтр</H3>
+                    <Select
+                        value={value}
+                        onChange={setValue}
+                        items={items}
+                        listHeight={11}
+                        listOverflow="scroll"
+                    />
+                </Modal>
+            </ModalsProvider>
+        </section>
     );
 }
 ```
