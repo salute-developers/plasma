@@ -15,16 +15,18 @@ jobs:
       ICONS_PUBLIC_URL: /icons
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: master
 
-      - name: Prepare repository
+      - name: Prepare repository for master
         run: git fetch --unshallow --tags
 
-      - name: Setup Node.js
+      - name: Setup Node.js for master
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
 
-      - name: Cache node modules
+      - name: Cache node modules for master
         uses: actions/cache@v1
         with:
           path: node_modules
@@ -32,81 +34,80 @@ jobs:
           restore-keys: |
             npm-deps-${{ hashFiles('package-lock.json') }}
 
-      - name: Setup packages
+      - name: Setup packages for master
         run: |
           npm ci
           npx lerna bootstrap
 
-      - name: Use Node.js 16.15.x
+      - name: Use Node.js 16.15.x for master
         uses: actions/setup-node@v1
         with:
           node-version: 16.15.x
 
-      - name: Prepare directory
-        run: |
-          mkdir perftest-reports
-
-      - name: Download existing reports from S3
-        uses: prewk/s3-cp-action@v1
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_S3_ENDPOINT: ${{ secrets.AWS_ENDPOINT }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          SOURCE: 's3://${{ secrets.AWS_S3_BUCKET_2 }}/perftest-reports/result.json'
-          DEST: './perftest-reports/'
-
-      - name: Check main report existence
-        if: always()
-        id: mainReportCheck
-        uses: andstor/file-existence-action@v2
-        with:
-          files: "perftest-reports/result.json"
-
-      - name: Run performance test
-        if: always()
+      - name: Run performance test for master
         run: |
           (cd ./packages/plasma-ui && npx perftool)
-
-      - name: Copy main report to pr report directory
-        if: steps.mainReportCheck.outputs.files_exists == 'true'
+      
+      - name: Copy master report result
         run: |
-          cp perftest-reports/result.json ./packages/plasma-ui/perftest/main-result.json
+          cp ./packages/plasma-ui/perftest/result.json master-result.json
+      
+      - uses: actions/checkout@v2
+        with:
+          clean: false
+
+      - name: Setup Node.js for PR
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Cache node modules for PR
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: npm-deps-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            npm-deps-${{ hashFiles('package-lock.json') }}
+
+      - name: Setup packages for PR
+        run: |
+          npm ci
+          npx lerna bootstrap
+
+      - name: Use Node.js 16.15.x for PR
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.15.x
+
+      - name: Run performance test for PR
+        run: |
+          (cd ./packages/plasma-ui && npx perftool)
+      
+      - name: Copy master report to PR report directory
+        run: |
+          cp master-result.json ./packages/plasma-ui/perftest/master-result.json
 
       - name: Compare test results
-        if: steps.mainReportCheck.outputs.files_exists == 'true'
         run: |
-          (cd ./packages/plasma-ui && npx perftool-compare -- ./perftest/result.json ./perftest/main-result.json)
+          (cd ./packages/plasma-ui && npx perftool-compare ./perftest/result.json ./perftest/master-result.json)
 
       - name: Save comparison result
-        if: steps.mainReportCheck.outputs.files_exists == 'true' && always()
         uses: actions/upload-artifact@v2
         with:
           name: Component performance comparison result
           path: /home/runner/work/plasma/plasma/packages/plasma-ui/perftest/*.json
 
-      - name: Save pr report result
-        if: steps.mainReportCheck.outputs.files_exists == 'false' && always()
-        uses: actions/upload-artifact@v2
-        with:
-          name: Component performance comparison result
-          path: /home/runner/work/plasma/plasma/packages/plasma-ui/perftest/result.json
-
       - name: Post result comment
-        if: always()
         uses: actions/github-script@v3
         with:
           github-token: ${{secrets.GH_TOKEN}}
           script: |
-            const hasMainReport = ${{ steps.mainReportCheck.outputs.files_exists }};
             let report = null;
             let result = null;
             try {
-              report = hasMainReport ? require('/home/runner/work/plasma/plasma/packages/plasma-ui/perftest/comparison.json') : null;
+              report = require('/home/runner/work/plasma/plasma/packages/plasma-ui/perftest/comparison.json');
             } catch (e) {}
-            if (!hasMainReport) {
-              result = '🌚 Missing base report';
-            } else if (!report) {
+            if (!report) {
               result = '💀 Missing report, something went wrong';
             } else {
               result = report.hasSignificantNegativeChanges
