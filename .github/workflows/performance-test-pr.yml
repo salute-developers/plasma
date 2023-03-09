@@ -15,6 +15,8 @@ jobs:
       ICONS_PUBLIC_URL: /icons
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: 'master'
 
       - name: Prepare repository for master
         run: git fetch --unshallow --tags
@@ -53,7 +55,7 @@ jobs:
       - name: Save report result for master
         uses: actions/upload-artifact@v2
         with:
-          name: Master report result
+          name: master report result
           path: /home/runner/work/plasma/plasma/packages/plasma-ui/perftest/result.json
       
       - uses: actions/checkout@v2
