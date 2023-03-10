@@ -98,29 +98,21 @@ jobs:
           path: /home/runner/work/plasma/plasma/packages/plasma-ui/perftest/*.json
 
       - name: Post result comment
+        if: always()
         uses: actions/github-script@v3
         with:
           github-token: ${{secrets.GH_TOKEN}}
           script: |
-            let report = null;
-            let result = null;
-            try {
-              report = require('/home/runner/work/plasma/plasma/packages/plasma-ui/perftest/comparison.json');
-            } catch (e) {}
-            if (!report) {
-              result = '💀 Missing report, something went wrong';
-            } else {
-              result = report.hasSignificantNegativeChanges
-                  ? '🔴 Fail'
-                  : '🟢 Success'
-            }
-            const subject = report ? 'comparison report' : 'current report';
+            let report = require('/home/runner/work/plasma/plasma/packages/plasma-ui/perftest/comparison.json');
+            let result = report.hasSignificantNegativeChanges
+                ? '🔴 Fail'
+                : '🟢 Success'
             const commentBody = `
             **Component performance testing**
 
             Result: **${result}**
 
-            Check out ${subject} in job artifacts!
+            Check out report in job artifacts!
             `;
             github.issues.createComment({
               issue_number: context.issue.number,
