@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
 import { Story, Meta } from '@storybook/react';
-import { withPerformance } from 'storybook-addon-performance';
 
 import { InSpacingDecorator, IconPlaceholder } from '../../helpers';
 import { Button } from '../Button';
@@ -20,7 +19,7 @@ const longText = `Канадский актёр, кинопродюсер, и м
 
 export default {
     title: 'Content/Card',
-    decorators: [InSpacingDecorator, withPerformance],
+    decorators: [InSpacingDecorator],
     parameters: {
         performance: {
             disable: false,
