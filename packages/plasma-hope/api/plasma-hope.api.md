@@ -163,6 +163,7 @@ import { Underline } from '@salutejs/plasma-core';
 import { useDebouncedFunction } from '@salutejs/plasma-core';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
+import { useResizeObserver } from '@salutejs/plasma-core';
 import { useToast } from '@salutejs/plasma-core';
 import { View } from '@salutejs/plasma-core';
 import { ViewProps } from '@salutejs/plasma-core';
@@ -1214,19 +1215,22 @@ export interface TabsControllerProps extends TabsControllerProps_2 {
 export interface TabsProps extends TabsProps_2 {
 }
 
-// @public
-export const TextArea: React_2.ForwardRefExoticComponent<TextAreaProps & React_2.RefAttributes<HTMLTextAreaElement>>;
+// @public (undocumented)
+export const TextArea: React_2.ForwardRefExoticComponent<TextAreaProps & {
+    design: 'b2c' | 'web';
+} & React_2.RefAttributes<HTMLTextAreaElement>>;
 
 export { TextareaHTMLAttributes }
 
 // @public (undocumented)
-export interface TextAreaProps extends TextAreaProps_2 {
+export interface TextAreaProps extends Omit<TextAreaProps_2, 'size'> {
     // @deprecated (undocumented)
-    helperBlock?: React_2.ReactElement;
+    helperBlock?: React.ReactElement;
     // @deprecated (undocumented)
     helperText?: string;
     leftHelper?: string;
     rightHelper?: string;
+    size?: 'l' | 'm' | 's' | 'xs';
 }
 
 export { TextareaResize }
@@ -1327,6 +1331,8 @@ export { useDebouncedFunction }
 export { useForkRef }
 
 export { useIsomorphicLayoutEffect }
+
+export { useResizeObserver }
 
 export { useToast }
 
