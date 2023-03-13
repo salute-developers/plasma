@@ -1,1 +1,1 @@
-export { useForkRef, useIsomorphicLayoutEffect, useDebouncedFunction } from '@salutejs/plasma-core';
+export { useForkRef, useIsomorphicLayoutEffect, useDebouncedFunction, useResizeObserver } from '@salutejs/plasma-core';
