@@ -12,14 +12,10 @@
         "prepare": "npm run build",
         "build": "tsc"
     },
-    "files": [
-        "dist"
-    ],
-    "contributors": [
-        "Vasiliy Loginevskiy"
-    ],
+    "files": ["dist"],
+    "contributors": ["Vasiliy Loginevskiy"],
     "devDependencies": {
         "@types/styled-components": "^5.1.0",
-        "typescript": "^3.9.10"
+        "typescript": "^4.0.8"
     }
 }

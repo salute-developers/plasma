@@ -3,12 +3,7 @@
     "version": "1.180.1",
     "description": "Salute Design System / React UI kit for web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    "keywords": [
-        "design-system",
-        "react-components",
-        "ui-kit",
-        "react"
-    ],
+    "keywords": ["design-system", "react-components", "ui-kit", "react"],
     "main": "index.js",
     "module": "es/index.js",
     "types": "index.d.ts",
@@ -61,7 +56,7 @@
         "react-dom": "18.2.0",
         "react-scripts": "3.4.4",
         "styled-components": "5.3.1",
-        "typescript": "3.9.10",
+        "typescript": "4.0.8",
         "typescript-coverage-report": "0.7.0"
     },
     "publishConfig": {
@@ -83,16 +78,9 @@
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
         "atLeast": 99.96
     },
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Anton Vinogradov",
-        "Fanil Zubairov"
-    ],
+    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"],
     "sideEffects": false
 }
