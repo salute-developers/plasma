@@ -58,6 +58,19 @@ module.exports = {
 
         '@typescript-eslint/explicit-function-return-type': 'off',
 
+        // TODO: Удалить правила с 62 по 72, после влития https://github.com/salute-developers/plasma/pull/383
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        '@typescript-eslint/ban-types': 'off',
+        '@typescript-eslint/class-name-casing': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/prefer-as-const': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
+        'react/default-props-match-prop-types': 'off',
+        'react/no-unused-prop-types': 'off',
+        'react/require-default-props': 'off',
+        camelcase: 'off',
+
         'react/prop-types': 'off',
         'react/static-property-placement': 'off',
         'react/state-in-constructor': 'off',
@@ -69,7 +82,7 @@ module.exports = {
         'react/destructuring-assignment': 'off',
         'react/sort-comp': 'off',
         'react/no-array-index-key': 'off',
-        'react-hooks/exhaustive-deps': 'warn', // TODO: https://github.com/salute-developers/plasma/issues/160
+        'react-hooks/exhaustive-deps': 'off', // TODO: вернуть на warn, а затем  https://github.com/salute-developers/plasma/issues/160
 
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',

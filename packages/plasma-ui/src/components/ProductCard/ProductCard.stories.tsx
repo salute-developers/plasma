@@ -29,7 +29,7 @@ export default {
     },
 } as Meta;
 
-// eslint-disable-next-line @typescript-eslint/camelcase, @typescript-eslint/class-name-casing
+// eslint-disable-next-line @typescript-eslint/naming-convention, @typescript-eslint/naming-convention
 interface ProductCardProps extends ProductCardPropsBasic {
     'media:src'?: string;
     'media:alt'?: string;
@@ -46,7 +46,7 @@ const StyledCardMedia = styled(CardMedia)`
     height: 100%;
 `;
 
-// eslint-disable-next-line @typescript-eslint/camelcase
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const Product_Card: Story<ProductCardProps> = ({
     'media:src': imageSrc,
     'media:alt': imageAlt,
@@ -148,7 +148,7 @@ export const Product_Card: Story<ProductCardProps> = ({
     );
 };
 
-// eslint-disable-next-line @typescript-eslint/camelcase
+// eslint-disable-next-line @typescript-eslint/naming-convention
 Product_Card.args = {
     text: 'Молоко в деревне ультрапастеризованное Моментики 925 мл',
     price: 69,

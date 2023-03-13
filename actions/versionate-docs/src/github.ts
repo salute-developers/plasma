@@ -9,7 +9,7 @@ const getPullRequestCommitList = async (token: string) => {
     const { data: commits } = await octokit.rest.pulls.listCommits({
         owner,
         repo,
-        // eslint-disable-next-line @typescript-eslint/camelcase
+        // eslint-disable-next-line @typescript-eslint/naming-convention
         pull_number: number,
     });
     return commits.map(({ commit }) => commit.message);

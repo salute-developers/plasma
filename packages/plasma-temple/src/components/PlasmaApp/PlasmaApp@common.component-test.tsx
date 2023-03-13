@@ -122,7 +122,7 @@ describe('PlasmaApp', () => {
     it('reaction on state action -- pushHistory', () => {
         sendAction({
             type: 'smart_app_data',
-            // eslint-disable-next-line @typescript-eslint/camelcase
+            // eslint-disable-next-line @typescript-eslint/naming-convention
             smart_app_data: {
                 type: 'pushHistory',
                 payload: {
@@ -142,7 +142,7 @@ describe('PlasmaApp', () => {
     it('reaction on state action -- popHistory', () => {
         sendAction({
             type: 'smart_app_data',
-            // eslint-disable-next-line @typescript-eslint/camelcase
+            // eslint-disable-next-line @typescript-eslint/naming-convention
             smart_app_data: {
                 type: 'pushHistory',
                 payload: {
@@ -158,7 +158,7 @@ describe('PlasmaApp', () => {
 
         sendAction({
             type: 'smart_app_data',
-            // eslint-disable-next-line @typescript-eslint/camelcase
+            // eslint-disable-next-line @typescript-eslint/naming-convention
             smart_app_data: {
                 type: 'popHistory',
             },
@@ -172,7 +172,7 @@ describe('PlasmaApp', () => {
 
         sendAction({
             type: 'smart_app_data',
-            // eslint-disable-next-line @typescript-eslint/camelcase
+            // eslint-disable-next-line @typescript-eslint/naming-convention
             smart_app_data: {
                 type: 'customAction',
                 payload: {
@@ -246,7 +246,7 @@ describe('Page.getInitialProps', () => {
     });
 
     it('sync - as component function prop', () => {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore чет для этого типов нет, но так работает
         Component.getInitialProps = ({ params, character }) => {
             expect(character).to.equal('sber');
@@ -282,7 +282,7 @@ describe('Page.getInitialProps', () => {
             </>
         );
 
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore чет для этого типов нет, но так работает
         Component.getInitialProps = ({ params, character }) => {
             expect(character).to.equal('sber');
