@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-ui",
-    "version": "1.173.1",
+    "version": "1.173.2",
     "description": "Salute Design System",
     "main": "index.js",
     "module": "es/index.js",
