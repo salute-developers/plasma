@@ -47,7 +47,7 @@ jobs:
         npm run cy:temple:run-ct
 
     - name: Save artifacts
-      if: ${{ always() }}
+      if: ${{ failure() }}
       uses: actions/upload-artifact@v2
       with:
         name: Test Artifacts
