@@ -60,12 +60,8 @@
         "style-dictionary": "3.7.1",
         "styled-components": "5.3.6",
         "ts-node": "10.2.1",
-        "typescript": "3.9.10"
+        "typescript": "4.0.8"
     },
-    "contributors": [
-        "Виноградов Антон Александрович",
-        "Зубаиров Фаниль Асхатович",
-        "Vasiliy Loginevskiy"
-    ],
+    "contributors": ["Виноградов Антон Александрович", "Зубаиров Фаниль Асхатович", "Vasiliy Loginevskiy"],
     "sideEffects": false
 }
