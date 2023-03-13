@@ -207,7 +207,7 @@ import { TabItemProps as TabItemProps_2 } from '@salutejs/plasma-core';
 import { TabsControllerProps as TabsControllerProps_2 } from '@salutejs/plasma-core';
 import type { TabsProps as TabsProps_2 } from '@salutejs/plasma-core';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
-import type { TextAreaProps as TextAreaProps_2 } from '@salutejs/plasma-core';
+import { TextAreaProps } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
 import { TextL } from '@salutejs/plasma-typo';
 import { TextM } from '@salutejs/plasma-typo';
@@ -703,18 +703,12 @@ export interface TabsProps extends TabsProps_2 {
     view?: 'secondary' | 'clear';
 }
 
-// @public
+// @public (undocumented)
 export const TextArea: React_2.ForwardRefExoticComponent<TextAreaProps & React_2.RefAttributes<HTMLTextAreaElement>>;
 
 export { TextareaHTMLAttributes }
 
-// @public (undocumented)
-export interface TextAreaProps extends Omit<TextAreaProps_2, 'size'> {
-    leftHelper?: string;
-    // (undocumented)
-    rightHelper?: string;
-    size?: 'l' | 'm' | 's' | 'xs';
-}
+export { TextAreaProps }
 
 export { TextareaResize }
 
