@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
-import { withPerformance, PublicInteractionTask, InteractionTaskArgs } from 'storybook-addon-performance';
 import type { SnapType } from '@salutejs/plasma-core';
-import { waitFor } from '@testing-library/dom';
 
 import { isSberBox } from '../../utils';
 import { disableProps, InSpacingDecorator } from '../../helpers';
@@ -29,86 +27,6 @@ const parseDateTime = (dateTime: string) => {
 };
 
 const propsToDisable = ['initialValue', 'minDate', 'maxDate'];
-
-function isSelected(element: HTMLElement) {
-    return () => {
-        const ariaSelected = element.getAttribute('tabindex');
-        if (ariaSelected === '0') {
-            return Promise.resolve();
-        }
-        return Promise.reject();
-    };
-}
-
-const interactionTasksDatePicker: PublicInteractionTask[] = [
-    {
-        name: 'Change value',
-        run: async ({ container }: InteractionTaskArgs): Promise<void> => {
-            const testingElements = container.querySelector('#picker-month');
-
-            if (testingElements === null) {
-                throw new Error('');
-            }
-
-            const selected = testingElements.querySelector('div[tabindex="0"]');
-
-            if (selected === null) {
-                throw new Error('');
-            }
-
-            const { nextSibling, previousSibling } = selected;
-            let testingElement = nextSibling;
-            let button = testingElements.querySelector<HTMLElement>('[data-placement="bottom"]');
-
-            if (nextSibling instanceof HTMLElement && nextSibling.getAttribute('aria-hidden') === 'true') {
-                testingElement = previousSibling;
-                button = testingElements.querySelector<HTMLElement>('[data-placement="top"]');
-            }
-
-            if (button && testingElement) {
-                button.click();
-                await waitFor(isSelected(testingElement as HTMLElement));
-            } else {
-                throw new Error('');
-            }
-        },
-    },
-];
-
-const interactionTasksTimePicker: PublicInteractionTask[] = [
-    {
-        name: 'Change value',
-        run: async ({ container }: InteractionTaskArgs): Promise<void> => {
-            const testingElements = container.querySelector('#picker-minutes');
-
-            if (testingElements === null) {
-                throw new Error('');
-            }
-
-            const selected = testingElements.querySelector('div[tabindex="0"]');
-
-            if (selected === null) {
-                throw new Error('');
-            }
-
-            const { nextSibling, previousSibling } = selected;
-            let testingElement = nextSibling;
-            let button = testingElements.querySelector<HTMLElement>('[data-placement="bottom"]');
-
-            if (nextSibling instanceof HTMLElement && nextSibling.getAttribute('aria-hidden') === 'true') {
-                testingElement = previousSibling;
-                button = testingElements.querySelector<HTMLElement>('[data-placement="top"]');
-            }
-
-            if (button && testingElement) {
-                button.click();
-                await waitFor(isSelected(testingElement as HTMLElement));
-            } else {
-                throw new Error('');
-            }
-        },
-    },
-];
 
 export default {
     title: 'Controls/Pickers',
@@ -210,8 +128,6 @@ export const Default: Story<DefaultStoryProps> = (args) => {
         </StyledWrapper>
     );
 };
-
-Default.decorators = [withPerformance];
 
 Default.args = {
     initialValue: '01.09.1980 00:28:59',
@@ -327,18 +243,6 @@ export const Date_Picker: Story<DatePickerStoryProps> = ({
 };
 
 // eslint-disable-next-line @typescript-eslint/camelcase
-Date_Picker.decorators = [withPerformance];
-
-// eslint-disable-next-line @typescript-eslint/camelcase
-Date_Picker.parameters = {
-    performance: {
-        interactions: interactionTasksDatePicker,
-        allowedGroups: ['client'],
-        disable: false,
-    },
-};
-
-// eslint-disable-next-line @typescript-eslint/camelcase
 Date_Picker.args = {
     initialValue: '01.09.1980 00:28:59',
     minDate: '01.02.1975 01:15:29',
@@ -430,17 +334,6 @@ export const Time_Picker: Story<TimePickerStoryProps> = ({
     );
 };
 
-// eslint-disable-next-line @typescript-eslint/camelcase
-Time_Picker.decorators = [withPerformance];
-
-// eslint-disable-next-line @typescript-eslint/camelcase
-Time_Picker.parameters = {
-    performance: {
-        interactions: interactionTasksTimePicker,
-        allowedGroups: ['client'],
-        disable: false,
-    },
-};
 // eslint-disable-next-line @typescript-eslint/camelcase
 Time_Picker.args = {
     initialValue: '01.09.1980 00:28:59',

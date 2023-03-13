@@ -4,8 +4,6 @@ import type { SnapType, SnapAlign, CarouselLiteProps } from '@salutejs/plasma-co
 import { CarouselItemVirtual } from '@salutejs/plasma-core';
 import { useVirtual } from '@salutejs/use-virtual';
 import styled from 'styled-components';
-import { withPerformance, InteractionTaskArgs, PublicInteractionTask } from 'storybook-addon-performance';
-import { fireEvent, waitFor } from '@testing-library/dom';
 import { IconChevronLeft, IconChevronRight } from '@salutejs/plasma-icons';
 
 import { useThemeContext } from '../../hooks';
@@ -66,32 +64,6 @@ const ChevronLeft: React.FC = React.memo(() => {
 const ChevronRight: React.FC = React.memo(() => {
     return <IconChevronRight size="s" color="#fff" />;
 });
-
-function isSelected(element: HTMLElement) {
-    return () => {
-        const ariaSelected = element.getAttribute('aria-selected');
-        if (ariaSelected === 'true') {
-            return Promise.resolve();
-        }
-        return Promise.reject();
-    };
-}
-
-const interactionTasksArrowRight: PublicInteractionTask[] = [
-    {
-        name: 'Short ArrowRight press',
-        run: async ({ container }: InteractionTaskArgs): Promise<void> => {
-            const element = container.querySelector('#carousel');
-            const selected = container.querySelector('[aria-selected="true"]');
-            const nextSibling = selected?.nextSibling;
-
-            if (element && selected && nextSibling) {
-                fireEvent.keyDown(element, { key: 'ArrowRight', code: 'ArrowRight', charCode: 39 });
-                await waitFor(isSelected(nextSibling as HTMLElement));
-            }
-        },
-    },
-];
 
 const items = Array(100)
     .fill({
@@ -178,15 +150,6 @@ export const Basic: Story<CarouselProps & CarouselColProps & { displayGrid: bool
             </CarouselGridWrapper>
         </DeviceThemeProvider>
     );
-};
-
-Basic.decorators = [withPerformance];
-
-Basic.parameters = {
-    performance: {
-        interactions: interactionTasksArrowRight,
-        disable: false,
-    },
 };
 
 Basic.args = {
@@ -284,8 +247,6 @@ export const CarouselVirtualBasic = () => {
     );
 };
 
-CarouselVirtualBasic.decorators = [withPerformance];
-
 CarouselVirtualBasic.args = {
     displayGrid: true,
 };
@@ -357,8 +318,6 @@ export const Vertical: Story<CarouselProps & CarouselColProps & { displayGrid: b
         </DeviceThemeProvider>
     );
 };
-
-Vertical.decorators = [withPerformance];
 
 Vertical.args = {
     ...Basic.args,
@@ -486,13 +445,6 @@ export const CenterItem: Story<CarouselProps & ScalingColCardProps & { displayGr
     );
 };
 
-CenterItem.parameters = {
-    performance: {
-        interactions: interactionTasksArrowRight,
-        disable: false,
-    },
-};
-
 CenterItem.args = {
     ...Basic.args,
 };
@@ -616,8 +568,6 @@ export const CarouselLiteBasic: Story<CarouselLiteProps & CarouselColProps & { d
         </DeviceThemeProvider>
     );
 };
-
-CarouselLiteBasic.decorators = [withPerformance];
 
 CarouselLiteBasic.args = {
     displayGrid: true,

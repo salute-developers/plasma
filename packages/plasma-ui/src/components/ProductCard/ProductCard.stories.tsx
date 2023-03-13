@@ -2,8 +2,6 @@ import React, { useMemo, useState } from 'react';
 import { Meta, Story } from '@storybook/react';
 import styled from 'styled-components';
 import { buttonBlack } from '@salutejs/plasma-tokens';
-import { InteractionTaskArgs, PublicInteractionTask, withPerformance } from 'storybook-addon-performance';
-import { findByText, fireEvent } from '@testing-library/dom';
 
 import { InSpacingDecorator } from '../../helpers';
 import { Badge } from '../Badge';
@@ -190,26 +188,3 @@ export const ProductCardPerformance: Story<ProductCardProps> = () => {
         </div>
     );
 };
-
-const interactionTasks: PublicInteractionTask[] = [
-    {
-        name: 'Add product count',
-        description: 'Click on picker to increase number of products',
-        run: async ({ container }: InteractionTaskArgs): Promise<void> => {
-            const [decreaseButton, increaseButton] = Array.from(container.querySelectorAll('button'));
-            fireEvent.click(increaseButton);
-            await findByText(container, '2', undefined, { timeout: 20000 });
-            fireEvent.click(decreaseButton);
-            await findByText(container, '1', undefined, { timeout: 20000 });
-        },
-    },
-];
-
-ProductCardPerformance.parameters = {
-    performance: {
-        interactions: interactionTasks,
-        disable: false,
-    },
-};
-
-ProductCardPerformance.decorators = [withPerformance];
