@@ -5,6 +5,18 @@ import { IconEye } from '@salutejs/plasma-icons';
 describe('plasma-core: TextArea', () => {
     const TextArea = getComponent('TextArea');
 
+    /*
+     * INFO: Необходимо исключить эту ошибку, т.к. это проблема в Cypress:
+     * https://github.com/cypress-io/cypress/issues/8418#issuecomment-992564877
+     */
+    beforeEach(() => {
+        cy.on('uncaught:exception', (err) => {
+            if (err.toString().match(/ResizeObserver loop limit exceeded/)) {
+                return false;
+            }
+        });
+    });
+
     it('default', () => {
         mount(
             <CypressTestDecorator>

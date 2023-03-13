@@ -11,6 +11,18 @@ describe('plasma-b2c: TextArea', () => {
         rightHelper: '125 слов',
     };
 
+    /*
+     * INFO: Необходимо исключить эту ошибку, т.к. это проблема в Cypress:
+     * https://github.com/cypress-io/cypress/issues/8418#issuecomment-992564877
+     */
+    beforeEach(() => {
+        cy.on('uncaught:exception', (err) => {
+            if (err.toString().match(/ResizeObserver loop limit exceeded/)) {
+                return false;
+            }
+        });
+    });
+
     it('_size :empty', () => {
         mount(
             <CypressTestDecorator>
