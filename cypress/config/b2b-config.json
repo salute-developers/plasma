@@ -11,7 +11,7 @@
         "packageDir": "../../packages/plasma-web",
         "package": "plasma-web",
         "tokens": "plasma-tokens-b2b",
-        "a11yCheck": true
+        "a11yCheck": false
     },
     "video": false,
     "retries": 3

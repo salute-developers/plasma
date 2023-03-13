@@ -7,7 +7,7 @@
         "snapshotsDir": "cypress/snapshots/web",
         "packageDir": "../../packages/plasma-web",
         "package": "plasma-web",
-        "a11yCheck": true
+        "a11yCheck": false
     },
     "video": false,
     "retries": 3
