@@ -196,7 +196,7 @@ interface DatePickerStoryProps extends DatePickerProps {
     optionsShortMonthName: boolean;
 }
 
-// eslint-disable-next-line @typescript-eslint/camelcase
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const Date_Picker: Story<DatePickerStoryProps> = ({
     initialValue,
     minDate,
@@ -242,7 +242,7 @@ export const Date_Picker: Story<DatePickerStoryProps> = ({
     );
 };
 
-// eslint-disable-next-line @typescript-eslint/camelcase
+// eslint-disable-next-line @typescript-eslint/naming-convention
 Date_Picker.args = {
     initialValue: '01.09.1980 00:28:59',
     minDate: '01.02.1975 01:15:29',
@@ -260,7 +260,7 @@ Date_Picker.args = {
     infiniteScroll: true,
 };
 
-// eslint-disable-next-line @typescript-eslint/camelcase
+// eslint-disable-next-line @typescript-eslint/naming-convention
 Date_Picker.argTypes = {
     size: {
         options: ['l', 's', 'xs'],
@@ -291,7 +291,7 @@ interface TimePickerStoryProps extends TimePickerProps {
     optionsSeconds: boolean;
 }
 
-// eslint-disable-next-line @typescript-eslint/camelcase
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const Time_Picker: Story<TimePickerStoryProps> = ({
     initialValue,
     minDate,
@@ -334,7 +334,7 @@ export const Time_Picker: Story<TimePickerStoryProps> = ({
     );
 };
 
-// eslint-disable-next-line @typescript-eslint/camelcase
+// eslint-disable-next-line @typescript-eslint/naming-convention
 Time_Picker.args = {
     initialValue: '01.09.1980 00:28:59',
     minDate: '01.09.1980 00:15:29',
@@ -352,9 +352,9 @@ Time_Picker.args = {
     infiniteScroll: true,
 };
 
-// eslint-disable-next-line @typescript-eslint/camelcase
+// eslint-disable-next-line @typescript-eslint/naming-convention
 Time_Picker.argTypes = {
-    // eslint-disable-next-line @typescript-eslint/camelcase
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     ...Date_Picker.argTypes,
     size: {
         options: ['l', 's', 'xs'],

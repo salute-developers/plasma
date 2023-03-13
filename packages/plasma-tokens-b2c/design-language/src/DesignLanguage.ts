@@ -2,7 +2,7 @@ import { Color } from '@diez/prefabs';
 
 import { playgroundWebB2CTokens } from './designs/PlaygroundWebB2C.figma';
 
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable @typescript-eslint/naming-convention */
 const colors = {
     white_primary: playgroundWebB2CTokens.colors.textIconsGlblWhitePrimary,
     white_secondary: playgroundWebB2CTokens.colors.textIconsGlblWhiteSecondary,
@@ -168,4 +168,4 @@ export const designLanguage = {
     typography,
     gradients,
 };
-/* eslint-enable @typescript-eslint/camelcase */
+/* eslint-enable @typescript-eslint/naming-convention */

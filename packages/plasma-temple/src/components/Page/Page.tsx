@@ -90,10 +90,10 @@ export const Page: PageFunctionComponent = ({
 
                     window.AssistantClient.onData({
                         type: 'smart_app_data',
-                        // eslint-disable-next-line @typescript-eslint/camelcase
+                        // eslint-disable-next-line @typescript-eslint/naming-convention
                         smart_app_data: smartAppData,
                         // Для обратной совместимости
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
                         action: smartAppData,
                     });

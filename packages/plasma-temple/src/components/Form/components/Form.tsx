@@ -59,7 +59,7 @@ export function Form<D, K extends keyof D = keyof D>(props: FormProps<D, K>): Re
         [currentField],
     );
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const contextApi: FormContextApi<D> = React.useMemo(
         () => ({

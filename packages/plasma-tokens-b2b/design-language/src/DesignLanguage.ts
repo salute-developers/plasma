@@ -3,7 +3,7 @@ import { Color } from '@diez/prefabs';
 import { plasmaStylesTokens } from './designs/PlasmaStyles.figma';
 import { sasUiKitTokens } from './designs/SasUiKit.figma';
 
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable @typescript-eslint/naming-convention */
 const colors = {
     white_primary: plasmaStylesTokens.colors.textIconsGlblWhitePrimary,
     white_secondary: plasmaStylesTokens.colors.textIconsGlblWhiteSecondary,
@@ -165,4 +165,4 @@ export const designLanguage = {
     typography,
     gradients,
 };
-/* eslint-enable @typescript-eslint/camelcase */
+/* eslint-enable @typescript-eslint/naming-convention */

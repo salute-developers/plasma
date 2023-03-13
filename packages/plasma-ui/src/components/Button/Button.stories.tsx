@@ -96,14 +96,14 @@ Default.args = {
     onBlur,
 };
 
-// eslint-disable-next-line @typescript-eslint/camelcase
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const Action_Button: Story<ActionButtonProps> = (args) => (
     <ActionButton {...args}>
         <IconMic size="xs" color="inherit" />
     </ActionButton>
 );
 
-// eslint-disable-next-line @typescript-eslint/camelcase
+// eslint-disable-next-line @typescript-eslint/naming-convention
 Action_Button.args = {
     size: 'm',
     view: 'primary',
@@ -118,12 +118,12 @@ Action_Button.args = {
 
 const ActionButtonPropsToDisable = ['text', 'tabIndex', 'square', 'focused', 'outlined', 'stretch'];
 
-// eslint-disable-next-line @typescript-eslint/camelcase
+// eslint-disable-next-line @typescript-eslint/naming-convention
 Action_Button.argTypes = {
     ...disableProps(ActionButtonPropsToDisable),
 };
 
-// eslint-disable-next-line @typescript-eslint/camelcase
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const Loading_Button: Story<ButtonStoryProps> = ({ enableIcon, text, ...rest }) => {
     const [loading, setLoading] = useState(false);
     const [count, setCount] = useState(0);
@@ -159,7 +159,7 @@ export const Loading_Button: Story<ButtonStoryProps> = ({ enableIcon, text, ...r
     );
 };
 
-// eslint-disable-next-line @typescript-eslint/camelcase
+// eslint-disable-next-line @typescript-eslint/naming-convention
 Loading_Button.args = {
     text: 'Start loading',
     size: 'm',

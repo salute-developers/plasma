@@ -8,7 +8,7 @@ import { ItemSberBox } from './Item@sberbox';
 import { ItemSberPortal } from './Item@sberportal';
 
 export const Item: ItemComponent = (props) => (
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     <DeviceComponent sberbox={ItemSberBox} sberportal={ItemSberPortal} mobile={ItemMobile} props={props} />
 );

@@ -17,7 +17,7 @@ export const useInitializeAssistant = <T extends AssistantSmartAppData>({
     assistant: AssistantInstance | null;
     setAssistantState: (newState: AssistantAppState) => void;
 } => {
-    // eslint-disable-next-line @typescript-eslint/camelcase
+    // eslint-disable-next-line @typescript-eslint/naming-convention
     const assistantStateRef = useRef<AssistantAppState>({ item_selector: { items: [] } });
     const setAssistantState = useCallback((newState: AssistantAppState) => {
         assistantStateRef.current = newState;

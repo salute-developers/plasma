@@ -97,7 +97,7 @@ const defaultCommands: AssistantClientCustomizedCommand<AssistantSmartAppData>[]
             right: 0,
             bottom: 144,
         },
-        // eslint-disable-next-line @typescript-eslint/camelcase
+        // eslint-disable-next-line @typescript-eslint/naming-convention
         sdk_meta: {
             mid: String(Date.now()),
             requestId: '-1',
@@ -111,7 +111,7 @@ const defaultCommands: AssistantClientCustomizedCommand<AssistantSmartAppData>[]
             gender: 'male',
             appeal: 'official',
         },
-        // eslint-disable-next-line @typescript-eslint/camelcase
+        // eslint-disable-next-line @typescript-eslint/naming-convention
         sdk_meta: {
             mid: String(Date.now()),
             requestId: '-1',
@@ -122,7 +122,7 @@ const defaultCommands: AssistantClientCustomizedCommand<AssistantSmartAppData>[]
         theme: {
             name: 'dark',
         },
-        // eslint-disable-next-line @typescript-eslint/camelcase
+        // eslint-disable-next-line @typescript-eslint/naming-convention
         sdk_meta: {
             mid: String(Date.now()),
             requestId: '-1',
@@ -148,7 +148,7 @@ export const startApp: StartApp = (pages, onStart, commands = []) => {
     });
 
     return cy.window().then((win) => {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         win.appInitialData = defaultCommands.concat(commands);
         mockAssistant = createAssistantHostMock({ context: win });
@@ -183,7 +183,7 @@ export const startApp: StartApp = (pages, onStart, commands = []) => {
 
 export const startScreensApp: StartScreensApp = ({ screens, onStart, onData, commands = [] }) => {
     return cy.window().then((win) => {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         win.appInitialData = defaultCommands.concat(commands);
         mockAssistant = createAssistantHostMock({ context: win });
@@ -219,7 +219,7 @@ export const startScreensApp: StartScreensApp = ({ screens, onStart, onData, com
 function sendAction<T extends Partial<AssistantClientCustomizedCommand<AssistantSmartAppData>>>(command: T) {
     const sendedCommand = {
         ...command,
-        // eslint-disable-next-line @typescript-eslint/camelcase
+        // eslint-disable-next-line @typescript-eslint/naming-convention
         sdk_meta: {},
     } as AssistantClientCustomizedCommand<AssistantSmartAppData>;
 
@@ -237,7 +237,7 @@ function sendAction<T extends Partial<AssistantClientCustomizedCommand<Assistant
 export function sendSmartAppData<T extends AssistantSmartAppData['smart_app_data']>(action: T) {
     return sendAction({
         type: 'smart_app_data',
-        // eslint-disable-next-line @typescript-eslint/camelcase
+        // eslint-disable-next-line @typescript-eslint/naming-convention
         smart_app_data: action,
     });
 }

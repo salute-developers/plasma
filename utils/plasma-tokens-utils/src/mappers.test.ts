@@ -1,6 +1,6 @@
 import { mapDesignToBaseColors, mapDesignToTypography } from './mappers';
 
-/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable @typescript-eslint/naming-convention */
 const ds = {
     colors: {
         white: {
@@ -33,7 +33,7 @@ const ds = {
     },
     typography: {},
 };
-/* eslint-enable @typescript-eslint/camelcase */
+/* eslint-enable @typescript-eslint/naming-convention */
 
 // TODO: https://github.com/salute-developers/plasma/issues/467
 describe.skip('mapDesignToBaseColors', () => {
