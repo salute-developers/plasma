@@ -1,3 +1,17 @@
+# v1.173.2 (Mon Mar 13 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): Remove storybook-addon-performance [#406](https://github.com/salute-developers/plasma/pull/406) ([@neretin-trike](https://github.com/neretin-trike))
+- ci: update perftool [#401](https://github.com/salute-developers/plasma/pull/401) ([@akhdrv](https://github.com/akhdrv))
+
+#### Authors: 2
+
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.173.0 (Mon Mar 06 2023)
 
 #### 🐛 Bug Fix

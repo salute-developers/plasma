@@ -1,3 +1,27 @@
+# (Mon Mar 13 2023)
+
+#### 🐛 Bug Fix
+
+- chore(plasma-*): disabled axe check [#403](https://github.com/salute-developers/plasma/pull/403) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: perftool in master CR [#402](https://github.com/salute-developers/plasma/pull/402) ([@KateKate](https://github.com/KateKate))
+- ci: perf test for master [#402](https://github.com/salute-developers/plasma/pull/402) ([@KateKate](https://github.com/KateKate))
+- ci: update commitlint [#394](https://github.com/salute-developers/plasma/pull/394) ([@Yeti-or](https://github.com/Yeti-or))
+- ci: update lint-staged [#394](https://github.com/salute-developers/plasma/pull/394) ([@Yeti-or](https://github.com/Yeti-or))
+- ci: update husky version [#394](https://github.com/salute-developers/plasma/pull/394) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-ui@1.173.2`
+  - fix(plasma-ui): Remove storybook-addon-performance [#406](https://github.com/salute-developers/plasma/pull/406) ([@neretin-trike](https://github.com/neretin-trike))
+  - ci: update perftool [#401](https://github.com/salute-developers/plasma/pull/401) ([@akhdrv](https://github.com/akhdrv))
+
+#### Authors: 5
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- Ekaterina Anishkina ([@KateKate](https://github.com/KateKate))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Wed Mar 08 2023)
 
 #### 🚀 Enhancement
