@@ -1,3 +1,16 @@
+# v1.26.0 (Tue Mar 14 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-*): Rename eslint rule and add temp rules [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasm-*): Bump typescript version to 4.0.8 [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.24.0 (Tue Feb 14 2023)
 
 #### 🚀 Enhancement

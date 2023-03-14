@@ -1,3 +1,15 @@
+# v0.4.0 (Tue Mar 14 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasm-*): Bump typescript version to 4.0.8 [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.3.0 (Wed Apr 27 2022)
 
 #### 🐛 Bug Fix

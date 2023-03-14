@@ -1,3 +1,16 @@
+# v1.182.0 (Tue Mar 14 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-*): Bump react-script version to 4.0.3 [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasm-*): Bump typescript version to 4.0.8 [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.180.1 (Tue Mar 07 2023)
 
 #### 🐛 Bug Fix

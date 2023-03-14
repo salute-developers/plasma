@@ -2,6 +2,29 @@
 
 #### 🚀 Enhancement
 
+- feat: Update API [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-temple@1.141.0`, `@salutejs/plasma-tokens-b2b@1.11.0`, `@salutejs/plasma-tokens-b2c@0.20.0`, `@salutejs/plasma-tokens-web@1.26.0`, `@salutejs/plasma-ui@1.174.0`, `@salutejs/plasma-tokens-utils@0.19.0`
+  - feat(plasma-*): Rename eslint rule and add temp rules [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-temple@1.141.0`, `@salutejs/plasma-ui@1.174.0`, `@salutejs/plasma-web@1.182.0`
+  - feat(plasma-*): Bump react-script version to 4.0.3 [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.158.0`, `@salutejs/plasma-colors@0.4.0`, `@salutejs/plasma-core@1.102.0`, `@salutejs/plasma-hope@0.16.0`, `@salutejs/plasma-icons@1.130.0`, `@salutejs/plasma-temple@1.141.0`, `@salutejs/plasma-tokens-b2b@1.11.0`, `@salutejs/plasma-tokens-b2c@0.20.0`, `@salutejs/plasma-tokens-core@0.2.0`, `@salutejs/plasma-tokens-web@1.26.0`, `@salutejs/plasma-tokens@1.40.0`, `@salutejs/plasma-typo@0.33.0`, `@salutejs/plasma-ui@1.174.0`, `@salutejs/plasma-web@1.182.0`, `@salutejs/plasma-cy-utils@0.47.0`, `@salutejs/plasma-sb-utils@0.100.0`, `@salutejs/plasma-tokens-utils@0.19.0`
+  - feat(plasm-*): Bump typescript version to 4.0.8 [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-cy-utils@0.47.0`
+  - fix(plasma-cy-utils): Update js files by new typescript version [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Tue Mar 14 2023)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-hope@0.15.0`
   - feat: change withAssistiveDropdown return api [#393](https://github.com/salute-developers/plasma/pull/393) (alexander.lobyntsev@virtualhealth.com)
 
