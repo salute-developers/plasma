@@ -1,3 +1,19 @@
+# v0.15.0 (Tue Mar 14 2023)
+
+#### 🚀 Enhancement
+
+- feat: change withAssistiveDropdown return api [#393](https://github.com/salute-developers/plasma/pull/393) (alexander.lobyntsev@virtualhealth.com)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-hope): withAssistiveDropdown return forwardRef [#393](https://github.com/salute-developers/plasma/pull/393) (alexander.lobyntsev@virtualhealth.com)
+
+#### Authors: 1
+
+- Alexander Lobyntsev (alexander.lobyntsev@virtualhealth.com)
+
+---
+
 # v0.14.0 (Tue Mar 07 2023)
 
 #### 🚀 Enhancement

@@ -1,3 +1,23 @@
+# (Tue Mar 14 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-hope@0.15.0`
+  - feat: change withAssistiveDropdown return api [#393](https://github.com/salute-developers/plasma/pull/393) (alexander.lobyntsev@virtualhealth.com)
+
+#### 🐛 Bug Fix
+
+- ci: save artifacts if previous step of a job fails [#404](https://github.com/salute-developers/plasma/pull/404) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.15.0`
+  - fix(plasma-hope): withAssistiveDropdown return forwardRef [#393](https://github.com/salute-developers/plasma/pull/393) (alexander.lobyntsev@virtualhealth.com)
+
+#### Authors: 2
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Alexander Lobyntsev (alexander.lobyntsev@virtualhealth.com)
+
+---
+
 # (Mon Mar 13 2023)
 
 #### 🐛 Bug Fix
