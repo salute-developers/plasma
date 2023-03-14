@@ -57,6 +57,7 @@ import { ClipboardEventHandler } from 'react';
 import type { ComponentType } from 'react';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
 import { CoverProps } from '@salutejs/plasma-core/components/Card/CardContent';
+import { CSSProperties } from 'react';
 import type { DetailedHTMLProps } from 'react';
 import { DisabledProps } from '@salutejs/plasma-core';
 import { DsplL } from '@salutejs/plasma-typo';
@@ -86,6 +87,7 @@ import { HTMLAttributes } from 'react';
 import { ImageBaseProps } from '@salutejs/plasma-core';
 import type { ImageProps as ImageProps_2 } from '@salutejs/plasma-core';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
+import { InterpolationFunction } from 'styled-components';
 import { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import { LineSkeleton } from '@salutejs/plasma-core';
 import { LineSkeletonProps } from '@salutejs/plasma-core';
@@ -181,6 +183,9 @@ export { animatedScrollToY }
 export { applyBlur }
 
 export { applyDisabled }
+
+// @public (undocumented)
+export const applyDropdownListCssProperties: InterpolationFunction<DropdownListCssProperties>;
 
 export { applyEllipsis }
 
@@ -527,6 +532,12 @@ export interface DropdownItemType {
 export const DropdownList: StyledComponent<"ul", any, {}, never>;
 
 // @public (undocumented)
+export interface DropdownListCssProperties {
+    listHeight?: number | CSSProperties['height'];
+    listOverflow?: CSSProperties['overflow'];
+}
+
+// @public (undocumented)
 export interface DropdownNodeType extends DropdownItemType {
     // (undocumented)
     isActive?: boolean;
@@ -548,7 +559,7 @@ export interface DropdownPopupProps extends PopupProps {
 // Warning: (ae-forgotten-export) The symbol "DropdownUncontrolledProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export interface DropdownProps extends Omit<DropdownUncontrolledProps, 'isOpen' | 'hoverIndex'> {
+export interface DropdownProps extends Omit<DropdownUncontrolledProps, 'isOpen' | 'hoverIndex'>, DropdownListCssProperties {
     closeOnSelect?: boolean;
     // Warning: (ae-forgotten-export) The symbol "OnItemSelect" needs to be exported by the entry point index.d.ts
     //
