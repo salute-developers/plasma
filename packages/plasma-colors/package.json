@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-colors",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "All color palettes for Salute Ecosystem",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "main": "dist/index.js",
@@ -22,7 +22,11 @@
         "types.d.ts",
         "types.js"
     ],
-    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"],
+    "contributors": [
+        "Vasiliy Loginevskiy",
+        "Anton Vinogradov",
+        "Fanil Zubairov"
+    ],
     "devDependencies": {
         "typescript": "^4.0.8"
     }

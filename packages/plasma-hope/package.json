@@ -1,13 +1,29 @@
 {
     "name": "@salutejs/plasma-hope",
-    "version": "0.15.0",
+    "version": "0.16.0",
     "description": "Salute Design System / Internal React UI kit for web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    "keywords": ["design-system", "react-components", "ui-kit", "react"],
+    "keywords": [
+        "design-system",
+        "react-components",
+        "ui-kit",
+        "react"
+    ],
     "main": "index.js",
     "module": "es/index.js",
     "types": "index.d.ts",
-    "files": ["components", "es", "hocs", "hooks", "mixins", "tokens", "types", "utils", "index.d.ts", "index.js"],
+    "files": [
+        "components",
+        "es",
+        "hocs",
+        "hooks",
+        "mixins",
+        "tokens",
+        "types",
+        "utils",
+        "index.d.ts",
+        "index.js"
+    ],
     "repository": {
         "type": "git",
         "url": "ssh://git@github.com:salute-developers/plasma.git",
@@ -15,8 +31,8 @@
     },
     "dependencies": {
         "@popperjs/core": "2.9.2",
-        "@salutejs/plasma-core": "1.101.1",
-        "@salutejs/plasma-typo": "0.32.0",
+        "@salutejs/plasma-core": "1.102.0",
+        "@salutejs/plasma-typo": "0.33.0",
         "react-file-drop": "3.1.2",
         "react-focus-lock": "2.8.1",
         "react-popper": "2.2.5",
@@ -37,13 +53,13 @@
         "@babel/preset-react": "7.14.5",
         "@babel/preset-typescript": "7.15.0",
         "@microsoft/api-extractor": "7.34.4",
-        "@salutejs/plasma-colors": "0.3.0",
-        "@salutejs/plasma-cy-utils": "0.46.1",
-        "@salutejs/plasma-icons": "1.129.1",
-        "@salutejs/plasma-sb-utils": "0.99.1",
-        "@salutejs/plasma-tokens-b2b": "1.10.1",
-        "@salutejs/plasma-tokens-b2c": "0.19.1",
-        "@salutejs/plasma-tokens-web": "1.25.1",
+        "@salutejs/plasma-colors": "0.4.0",
+        "@salutejs/plasma-cy-utils": "0.47.0",
+        "@salutejs/plasma-icons": "1.130.0",
+        "@salutejs/plasma-sb-utils": "0.100.0",
+        "@salutejs/plasma-tokens-b2b": "1.11.0",
+        "@salutejs/plasma-tokens-b2c": "0.20.0",
+        "@salutejs/plasma-tokens-web": "1.26.0",
         "@storybook/addon-docs": "6.3.8",
         "@storybook/addon-essentials": "6.3.8",
         "@storybook/addons": "6.3.8",
@@ -90,9 +106,14 @@
         "test": "jest --passWithNoTests"
     },
     "typeCoverage": {
-        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
+        "ignoreFiles": [
+            "src/**/*component-test.tsx",
+            "src/**/*stories.tsx"
+        ],
         "atLeast": 99.96
     },
-    "contributors": ["Vasiliy Loginevskiy"],
+    "contributors": [
+        "Vasiliy Loginevskiy"
+    ],
     "sideEffects": false
 }
