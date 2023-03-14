@@ -86,4 +86,17 @@ describe('plasma-web: Dropdown', () => {
         cy.get('button').click();
         cy.matchImageSnapshot();
     });
+
+    it("handling dropdown menu height", () => {
+        mount(
+            <CypressTestDecorator>
+                <Dropdown items={items} listOverflow="scroll" listHeight={6}>
+                    <Button text="Open" stretch />
+                </Dropdown>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').click();
+        cy.matchImageSnapshot();
+    });
 });
