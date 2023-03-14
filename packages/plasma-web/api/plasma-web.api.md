@@ -10,6 +10,7 @@ import { animatedScrollToX } from '@salutejs/plasma-core';
 import { animatedScrollToY } from '@salutejs/plasma-core';
 import { applyBlur } from '@salutejs/plasma-core';
 import { applyDisabled } from '@salutejs/plasma-core';
+import { applyDropdownListCssProperties } from '@salutejs/plasma-hope';
 import { applyEllipsis } from '@salutejs/plasma-core';
 import { applyHyphens } from '@salutejs/plasma-core';
 import { applyMaxLines } from '@salutejs/plasma-core';
@@ -91,6 +92,7 @@ import { DisabledProps } from '@salutejs/plasma-core';
 import { Dropdown } from '@salutejs/plasma-hope';
 import { DropdownItem } from '@salutejs/plasma-hope';
 import { DropdownList } from '@salutejs/plasma-hope';
+import { DropdownListCssProperties } from '@salutejs/plasma-hope';
 import { DropdownProps } from '@salutejs/plasma-hope';
 import { DsplL } from '@salutejs/plasma-typo';
 import { DsplM } from '@salutejs/plasma-typo';
@@ -252,6 +254,8 @@ export { animatedScrollToY }
 export { applyBlur }
 
 export { applyDisabled }
+
+export { applyDropdownListCssProperties }
 
 export { applyEllipsis }
 
@@ -441,6 +445,8 @@ export interface DropdownItemType {
 }
 
 export { DropdownList }
+
+export { DropdownListCssProperties }
 
 // @public (undocumented)
 export interface DropdownNodeType extends DropdownItemType {
