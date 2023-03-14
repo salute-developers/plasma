@@ -2,6 +2,24 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-core@1.103.0`
+  - feat: add api reports after change slider types [#398](https://github.com/salute-developers/plasma/pull/398) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-core@1.103.0`
+  - fix(plasma-core): rework slider types [#398](https://github.com/salute-developers/plasma/pull/398) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Tue Mar 14 2023)
+
+#### 🚀 Enhancement
+
 - feat: Update API [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
 - `@salutejs/plasma-temple@1.141.0`, `@salutejs/plasma-tokens-b2b@1.11.0`, `@salutejs/plasma-tokens-b2c@0.20.0`, `@salutejs/plasma-tokens-web@1.26.0`, `@salutejs/plasma-ui@1.174.0`, `@salutejs/plasma-tokens-utils@0.19.0`
   - feat(plasma-*): Rename eslint rule and add temp rules [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))

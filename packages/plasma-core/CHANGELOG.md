@@ -1,3 +1,19 @@
+# v1.103.0 (Tue Mar 14 2023)
+
+#### 🚀 Enhancement
+
+- feat: add api reports after change slider types [#398](https://github.com/salute-developers/plasma/pull/398) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- fix(plasma-core): rework slider types [#398](https://github.com/salute-developers/plasma/pull/398) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.102.0 (Tue Mar 14 2023)
 
 #### 🚀 Enhancement
