@@ -6,7 +6,7 @@ title: Dropdown
 import { PropsTable, Description, StorybookLink } from '@site/src/components';
 
 # Dropdown
-Набор компонентов для создания выпадающих списков. Обладают возможностью управления с клавиатуры (только 1й уровень).
+Набор компонентов для создания выпадающих списков. Обладают возможностью управления с клавиатуры (только 1‑й уровень).
 
 <StorybookLink name="Dropdown" />
 
@@ -41,13 +41,13 @@ const items = [
          */
         isDisabled: false
     },
-    ...
 ];
 ```
 
 ### Вызов по клику
 ```tsx live
 import React from 'react';
+import { IconEdit, IconTrash, IconCopy } from '@salutejs/plasma-icons';
 import { Button, Dropdown } from '@salutejs/plasma-web';
 
 export function App() {
@@ -58,7 +58,7 @@ export function App() {
                 items={[
                     { value: 'edit', label: 'Редактировать', contentLeft: <IconEdit color="inherit" /> },
                     { value: 'copy', label: 'Копировать', contentLeft: <IconCopy color="inherit" />, isDisabled: true },
-                    { value: 'delete', label: 'Удалить', contentLeft: <IconTrash color="inherit" />, color: critical }
+                    { value: 'delete', label: 'Удалить', contentLeft: <IconTrash color="inherit" />, color: "critical" }
                 ]}
                 trigger="click"
                 onItemSelect={(item) => console.log(item)}
@@ -70,8 +70,7 @@ export function App() {
 }
 ```
 
-> Для обработки выбора элемента используйте коллбек `onItemSelect`.
-
+> Для обработки выбора элемента используйте callback - `onItemSelect`.
 
 ### Вызов по наведению
 
@@ -105,7 +104,8 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import styled from 'styled';
+import styled from 'styled-components';
+import { IconEdit, IconTrash, IconCopy } from '@salutejs/plasma-icons';
 import { Button, Dropdown } from '@salutejs/plasma-web';
 
 export function App() {
@@ -125,12 +125,94 @@ export function App() {
                 items={[
                     { value: 'edit', label: 'Редактировать', contentLeft: <IconEdit color="inherit" /> },
                     { value: 'copy', label: 'Копировать', contentLeft: <IconCopy color="inherit" />, isDisabled: true },
-                    { value: 'delete', label: 'Удалить', contentLeft: <IconTrash color="inherit" />, color: critical }
+                    { value: 'delete', label: 'Удалить', contentLeft: <IconTrash color="inherit" />, color: 'critical' }
                 ]}
                 onItemSelect={(item) => console.log(item)}
             >
                 <Button text="Опции" />
             </StyledDropdown>
+        </div>
+    );
+}
+```
+
+### Управление высотой выпадающего меню
+Что бы задать высоту и `scroll` для выпадающего меню можно использовать **props** для компонента `Dropdown`:
+- **listOverflow**
+- **listHeight**
+
+> Эти **props** необязательные, если их не указать будет использовано значение - [initial](https://developer.mozilla.org/en-US/docs/Web/CSS/initial)
+
+#### Пример
+```tsx live
+import React from 'react';
+import { IconEdit, IconTrash, IconCopy } from '@salutejs/plasma-icons';
+import { Button, Dropdown } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <section style={{ height:"350px" }}>
+            <Dropdown
+                id="example-dropdown-click"
+                items={[
+                    { value: 'edit', label: 'Редактировать', contentLeft: <IconEdit color="inherit" /> },
+                    { value: 'copy', label: 'Копировать', contentLeft: <IconCopy color="inherit" />, isDisabled: true },
+                    { value: 'delete', label: 'Удалить', contentLeft: <IconTrash color="inherit" />, color: "critical" }
+                ]}
+                trigger="click"
+                onItemSelect={(item) => console.log(item)}
+                listHeight={6}
+                listOverflow="scroll"
+            >
+                <Button text="Опции" />
+            </Dropdown>
+        </section>
+    );
+}
+```
+
+Или переопределить в компоненте `DropdownList` значения для css custom properties:
+- **--plasma-dropdown-height**
+- **--plasma-dropdown-overflow**
+
+Достаточно обернуть в `styled`:
+
+#### Пример
+```tsx live
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { DropdownPopup, DropdownList, DropdownItem, Button } from '@salutejs/plasma-web';
+import { IconHeart } from '@salutejs/plasma-icons';
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const StyledDropdownList = styled(DropdownList)`
+        --plasma-dropdown-height: 6rem;
+        --plasma-dropdown-overflow: scroll
+    `
+
+    return (
+        <div style={{ height:"350px", display: 'block' }}>
+            <DropdownPopup
+                isOpen={isOpen}
+                trigger="click"
+                placement="bottom"
+                onToggle={(is) => setIsOpen(is)}
+                disclosure={<Button text="Меню" />}
+            >
+                <StyledDropdownList>
+                    <DropdownItem value={100001} label="Новости" />
+                    <DropdownItem value={100002} label="Каталог" color="var(--plasma-colors-accent)" />
+                    <DropdownItem
+                        value={100003}
+                        label="О нас"
+                        color="var(--plasma-colors-critical)"
+                        contentLeft={<IconHeart color="inherit" />}
+                    />
+                    <DropdownItem value={100004} label="Недоступно" isDisabled />
+                </StyledDropdownList>
+            </DropdownPopup>
         </div>
     );
 }
@@ -186,10 +268,13 @@ export function App() {
 ```
 
 ## Доступность
-Для обеспечения доступности модуль `Dropdown` предлагает компонент высшего порядка `withAssistiveDropdown`, в который можно обернуть компонент-вызыватель, например, кнопку. Данный хок добавляет к компоненту API выпадающего списка, а также позволяет осуществлять навигацию с помощью клавиатуры.
+Для обеспечения доступности модуль `Dropdown` предлагает компонент высшего порядка `withAssistiveDropdown`, в который можно обернуть компонент-вызыватель, например, кнопку.
+
+Данный хок добавляет к компоненту API выпадающего списка, а также позволяет осуществлять навигацию с помощью клавиатуры.
 
 ```tsx live
 import React from 'react';
+import { IconEdit, IconTrash, IconCopy } from '@salutejs/plasma-icons';
 import { withAssistiveDropdown, Button } from '@salutejs/plasma-web';
 
 export function App() {
@@ -203,7 +288,7 @@ export function App() {
                 items={[
                     { value: 'edit', label: 'Редактировать', contentLeft: <IconEdit color="inherit" /> },
                     { value: 'copy', label: 'Копировать', contentLeft: <IconCopy color="inherit" />, isDisabled: true },
-                    { value: 'delete', label: 'Удалить', contentLeft: <IconTrash color="inherit" />, color: critical }
+                    { value: 'delete', label: 'Удалить', contentLeft: <IconTrash color="inherit" />, color: 'critical' }
                 ]}
             />
         </div>
@@ -212,5 +297,5 @@ export function App() {
 ```
 
 :::caution
-Для обеспечния корректной работы навигации с помощью клавиатуры необходимо указать свойство `id`.
+Для обеспечения корректной работы навигации с помощью клавиатуры необходимо указать свойство `id`.
 :::
