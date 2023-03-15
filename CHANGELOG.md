@@ -2,6 +2,27 @@
 
 #### 🚀 Enhancement
 
+- feat(plasma-web-docs): handling height constraint for Dropdown component [#407](https://github.com/salute-developers/plasma/pull/407) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web): [snapshot] handling height constraint [#407](https://github.com/salute-developers/plasma/pull/407) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): [snapshot] handling height constraint [#407](https://github.com/salute-developers/plasma/pull/407) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.18.0`, `@salutejs/plasma-web@1.185.0`
+  - feat: add api reports [#407](https://github.com/salute-developers/plasma/pull/407) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.185.0`
+  - feat(plasma-web): [cypress] handling height constraint [#407](https://github.com/salute-developers/plasma/pull/407) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): handling height constraint [#407](https://github.com/salute-developers/plasma/pull/407) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.18.0`
+  - feat(plasma-hope): handling height constraint [#407](https://github.com/salute-developers/plasma/pull/407) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Wed Mar 15 2023)
+
+#### 🚀 Enhancement
+
 - feat(plasma-web-docs): processing bew typography logic [#395](https://github.com/salute-developers/plasma/pull/395) ([@Yakutoc](https://github.com/Yakutoc))
 - feat(plasma-web-docs): use standard from "plasma-typo" [#395](https://github.com/salute-developers/plasma/pull/395) ([@Yakutoc](https://github.com/Yakutoc))
 - feat(plasma-web-docs): describe typography-legacy components [#395](https://github.com/salute-developers/plasma/pull/395) ([@Yakutoc](https://github.com/Yakutoc))
