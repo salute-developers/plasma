@@ -1,5 +1,18 @@
 # (Wed Mar 15 2023)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-colors@0.4.1`
+  - fix(plasma-colors): empty npm tar [#413](https://github.com/salute-developers/plasma/pull/413) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
+# (Wed Mar 15 2023)
+
 #### 🚀 Enhancement
 
 - feat(plasma-web-docs): handling height constraint for Dropdown component [#407](https://github.com/salute-developers/plasma/pull/407) ([@Yakutoc](https://github.com/Yakutoc))

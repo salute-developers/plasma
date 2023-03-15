@@ -1,3 +1,15 @@
+# v0.4.1 (Wed Mar 15 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-colors): empty npm tar [#413](https://github.com/salute-developers/plasma/pull/413) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v0.4.0 (Tue Mar 14 2023)
 
 #### 🚀 Enhancement
