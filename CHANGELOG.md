@@ -1,3 +1,28 @@
+# (Wed Mar 15 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-web-docs): processing bew typography logic [#395](https://github.com/salute-developers/plasma/pull/395) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web-docs): use standard from "plasma-typo" [#395](https://github.com/salute-developers/plasma/pull/395) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web-docs): describe typography-legacy components [#395](https://github.com/salute-developers/plasma/pull/395) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web-docs): describe typography.mdx [#395](https://github.com/salute-developers/plasma/pull/395) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web-docs): describe typography-legacy.mdx [#395](https://github.com/salute-developers/plasma/pull/395) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web-docs): describe typography components [#395](https://github.com/salute-developers/plasma/pull/395) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.184.0`
+  - feat(plasma-web): processing new typography in story [#395](https://github.com/salute-developers/plasma/pull/395) (alexander.lobyntsev@virtualhealth.com)
+  - feat(plasma-web): processing new typography [#395](https://github.com/salute-developers/plasma/pull/395) (alexander.lobyntsev@virtualhealth.com)
+
+#### 🐛 Bug Fix
+
+- chore(plasma-web-docs): add @salutejs/plasma-typo [#395](https://github.com/salute-developers/plasma/pull/395) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 2
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Alexander Lobyntsev (alexander.lobyntsev@virtualhealth.com)
+
+---
+
 # (Tue Mar 14 2023)
 
 #### 🚀 Enhancement

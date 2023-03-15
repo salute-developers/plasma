@@ -1,3 +1,16 @@
+# v1.184.0 (Wed Mar 15 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-web): processing new typography in story [#395](https://github.com/salute-developers/plasma/pull/395) (alexander.lobyntsev@virtualhealth.com)
+- feat(plasma-web): processing new typography [#395](https://github.com/salute-developers/plasma/pull/395) (alexander.lobyntsev@virtualhealth.com)
+
+#### Authors: 1
+
+- Alexander Lobyntsev (alexander.lobyntsev@virtualhealth.com)
+
+---
+
 # v1.182.0 (Tue Mar 14 2023)
 
 #### 🚀 Enhancement
