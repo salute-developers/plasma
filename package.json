@@ -37,7 +37,7 @@
     "test": "lerna run test",
     "typescript-coverage": "lerna run typescript-coverage --no-bail --stream",
     "generate:theme-html": "lerna run generate:theme-html --scope @salutejs/plasma-tokens",
-    "prepare": "husky install"
+    "prepare": "[[ -z $CI ]] && husky install || echo skip husky"
   },
   "devDependencies": {
     "@actions/core": "1.2.7",
