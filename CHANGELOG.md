@@ -1,3 +1,34 @@
+# (Thu Mar 16 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-web): [snapshot] handling Select height constraint [#397](https://github.com/salute-developers/plasma/pull/397) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): [snapshot] handling Select height constraint [#397](https://github.com/salute-developers/plasma/pull/397) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web-docs): handling height constraint for Select component [#397](https://github.com/salute-developers/plasma/pull/397) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.161.0`, `@salutejs/plasma-hope@0.19.0`, `@salutejs/plasma-web@1.186.0`
+  - feat: add api reports [#397](https://github.com/salute-developers/plasma/pull/397) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.186.0`
+  - feat(plasma-web): [cypress] handling Select height constraint [#397](https://github.com/salute-developers/plasma/pull/397) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): apply DropdownListCssProperties for Select component [#397](https://github.com/salute-developers/plasma/pull/397) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.161.0`
+  - feat(plasma-b2c): apply DropdownListCssProperties for Select component [#397](https://github.com/salute-developers/plasma/pull/397) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.19.0`
+  - feat(plasma-hope): use DropdownListCssProperties for Select component [#397](https://github.com/salute-developers/plasma/pull/397) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- ci: disable api:diff [#417](https://github.com/salute-developers/plasma/pull/417) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: disable husky for CI [#417](https://github.com/salute-developers/plasma/pull/417) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.161.0`, `@salutejs/plasma-core@1.104.0`, `@salutejs/plasma-hope@0.19.0`, `@salutejs/plasma-icons@1.132.0`, `@salutejs/plasma-temple@1.143.0`, `@salutejs/plasma-tokens-b2b@1.12.0`, `@salutejs/plasma-tokens-b2c@0.21.0`, `@salutejs/plasma-tokens-web@1.27.0`, `@salutejs/plasma-tokens@1.41.0`, `@salutejs/plasma-ui@1.176.0`, `@salutejs/plasma-web@1.186.0`, `@salutejs/plasma-cy-utils@0.48.0`, `@salutejs/plasma-sb-utils@0.102.0`, `@salutejs/plasma-tokens-android@2.48.0`, `@salutejs/plasma-tokens-ios-swift@2.48.0`
+  - build: update package-locks [#412](https://github.com/salute-developers/plasma/pull/412) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Wed Mar 15 2023)
 
 #### 🐛 Bug Fix
