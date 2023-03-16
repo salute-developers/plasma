@@ -16,14 +16,8 @@
         "build:cjs": "tsc",
         "build:esm": "tsc -p ./tsconfig.es.json"
     },
-    "files": [
-        "dist"
-    ],
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Anton Vinogradov",
-        "Fanil Zubairov"
-    ],
+    "files": ["dist", "es"],
+    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"],
     "devDependencies": {
         "typescript": "^4.0.8"
     }
