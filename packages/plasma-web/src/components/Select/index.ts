@@ -1,8 +1,8 @@
 export { Select } from './Select';
-export type { SelectProps } from './Select';
+export type { SelectProps, SelectRefElement } from '@salutejs/plasma-hope';
 
 export { SelectButton } from './SelectButton';
-export type { SelectButtonProps, SelectRefElement } from './SelectButton';
+export type { SelectButtonProps } from './SelectButton';
 
 export { SelectDropdown } from './SelectDropdown';
 export type { SelectDropdownProps } from './SelectDropdown';
