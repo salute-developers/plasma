@@ -15,8 +15,39 @@ jobs:
       ICONS_PUBLIC_URL: /icons
     steps:
       - uses: actions/checkout@v2
+
+      - name: Setup Node.js for PR
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Cache node modules for PR
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: npm-deps-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            npm-deps-${{ hashFiles('package-lock.json') }}
+
+      - name: Setup packages for PR
+        run: |
+          npm install npm@6.14.17 -g
+          npm ci
+          npx lerna bootstrap
+
+      - name: Use Node.js 16.15.x for PR
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.15.x
+
+      - name: Run performance test for PR
+        run: |
+          npx perftool -o perftest/pr-result.json
+
+      - uses: actions/checkout@v2
         with:
           ref: master
+          clean: false
 
       - name: Prepare repository for master
         run: git fetch --unshallow --tags
@@ -47,57 +78,18 @@ jobs:
 
       - name: Run performance test for master
         run: |
-          (cd ./packages/plasma-ui && npx perftool)
-      
-      - name: Copy master report result
-        run: |
-          cp ./packages/plasma-ui/perftest/result.json master-result.json
-      
-      - uses: actions/checkout@v2
-        with:
-          clean: false
-
-      - name: Setup Node.js for PR
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-
-      - name: Cache node modules for PR
-        uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: npm-deps-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            npm-deps-${{ hashFiles('package-lock.json') }}
-
-      - name: Setup packages for PR
-        run: |
-          npm install npm@6.14.17 -g
-          npm ci
-          npx lerna bootstrap
-
-      - name: Use Node.js 16.15.x for PR
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16.15.x
-
-      - name: Run performance test for PR
-        run: |
-          (cd ./packages/plasma-ui && npx perftool)
-      
-      - name: Copy master report to PR report directory
-        run: |
-          cp master-result.json ./packages/plasma-ui/perftest/master-result.json
+          npx perftool -o perftest/master-result.json
 
       - name: Compare test results
         run: |
-          (cd ./packages/plasma-ui && npx perftool-compare ./perftest/result.json ./perftest/master-result.json)
+          npx perftool-compare -o perftest/comparison.json perftest/pr-result.json perftest/master-result.json
 
       - name: Save comparison result
+        if: always()
         uses: actions/upload-artifact@v2
         with:
           name: Component performance comparison result
-          path: /home/runner/work/plasma/plasma/packages/plasma-ui/perftest/*.json
+          path: /home/runner/work/plasma/plasma/perftest/*.json
 
       - name: Post result comment
         if: always()
@@ -105,7 +97,7 @@ jobs:
         with:
           github-token: ${{secrets.GH_TOKEN}}
           script: |
-            let report = require('/home/runner/work/plasma/plasma/packages/plasma-ui/perftest/comparison.json');
+            let report = require('/home/runner/work/plasma/plasma/perftest/comparison.json');
             let result = report.hasSignificantNegativeChanges
                 ? '🔴 Fail'
                 : '🟢 Success'
@@ -126,6 +118,6 @@ jobs:
       - name: Send report
         run: |
           ./scripts/perftool-send-report.js \
-          --reportPath /home/runner/work/plasma/plasma/packages/plasma-ui/perftest/comparison.json
+          --reportPath /home/runner/work/plasma/plasma/perftest/comparison.json
         env:
           GITHUB_SHA: ${{ github.sha }}

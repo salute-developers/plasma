@@ -8,6 +8,5 @@ src
 /jest.config.js
 /tsconfig.json
 /sync-readme.sh
-/perftool.config.ts
 /tsconfig.test.json
 /environment.stories.mdx
