@@ -10,5 +10,6 @@ cypress/results
 .nyc_output
 coverage
 coverage-ts
+perftest
 s3_build
 temp
