@@ -1,5 +1,7 @@
 import React, { forwardRef, ReactElement, RefAttributes } from 'react';
 
+import type { DropdownListCssProperties } from '../Dropdown';
+
 import { SelectView } from './SelectView';
 import { withSingleSelect } from './withSingleSelect';
 import { withMultiSelect } from './withMultiSelect';
@@ -29,14 +31,15 @@ export type SelectProps<T = any> = (
       }
 ) & {
     /**
-     * Значение контрола.
+     * Значение control.
      */
     value: T;
     /**
      * Обработчик изменения значения.
      */
     onChange?: (value: T) => void;
-} & Omit<SelectViewProps, 'onItemClick' | 'value' | 'label' | 'multiselect'>;
+} & Omit<SelectViewProps, 'onItemClick' | 'value' | 'label' | 'multiselect'> &
+    DropdownListCssProperties;
 
 const SingleSelect = withSingleSelect(SelectView);
 const MultiSelect = withMultiSelect(SelectView);
