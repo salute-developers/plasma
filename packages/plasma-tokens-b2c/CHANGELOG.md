@@ -1,3 +1,15 @@
+# v0.21.0 (Thu Mar 16 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens-*): Add tokens and typo to index for export [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.20.0 (Tue Mar 14 2023)
 
 #### 🚀 Enhancement

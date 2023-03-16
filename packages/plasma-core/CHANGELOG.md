@@ -1,3 +1,15 @@
+# v1.104.0 (Thu Mar 16 2023)
+
+#### 🐛 Bug Fix
+
+- feat(plasma-core,plasma-hope): Add build watcher and export tokens [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.103.0 (Tue Mar 14 2023)
 
 #### 🚀 Enhancement

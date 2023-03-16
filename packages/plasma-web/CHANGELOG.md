@@ -1,3 +1,20 @@
+# v1.187.0 (Thu Mar 16 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-web): Replace builder for storybook to Vite [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.186.0 (Thu Mar 16 2023)
 
 #### 🚀 Enhancement

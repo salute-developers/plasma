@@ -1,3 +1,15 @@
+# v0.5.0 (Thu Mar 16 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-colors): Add ESM module transpilation [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.4.1 (Wed Mar 15 2023)
 
 #### 🐛 Bug Fix

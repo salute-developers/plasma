@@ -1,3 +1,15 @@
+# v0.102.0 (Thu Mar 16 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-sb-utils): Change module result to ESM [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.100.0 (Tue Mar 14 2023)
 
 #### 🚀 Enhancement

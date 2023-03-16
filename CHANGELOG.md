@@ -2,6 +2,38 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-web@1.187.0`
+  - feat(plasma-web): Replace builder for storybook to Vite [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-ui@1.176.0`
+  - feat(plasma-ui): Replace builder for storybook to Vite [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-temple@1.143.0`
+  - feat(plasma-temple): Replace builder for storybook to Vite [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.162.0`
+  - feat(plasma-b2c): Replace builder for storybook to Vite [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-tokens-b2b@1.12.0`, `@salutejs/plasma-tokens-b2c@0.21.0`, `@salutejs/plasma-tokens-web@1.27.0`
+  - feat(plasma-tokens-*): Add tokens and typo to index for export [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-colors@0.5.0`
+  - feat(plasma-colors): Add ESM module transpilation [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-sb-utils@0.102.0`
+  - feat(plasma-sb-utils): Change module result to ESM [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-hope@0.20.0`
+  - chore(plasma-hope): Update API [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-core@1.104.0`, `@salutejs/plasma-hope@0.20.0`
+  - feat(plasma-core,plasma-hope): Add build watcher and export tokens [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Thu Mar 16 2023)
+
+#### 🚀 Enhancement
+
 - feat(plasma-web): [snapshot] handling Select height constraint [#397](https://github.com/salute-developers/plasma/pull/397) ([@Yakutoc](https://github.com/Yakutoc))
 - feat(plasma-b2c): [snapshot] handling Select height constraint [#397](https://github.com/salute-developers/plasma/pull/397) ([@Yakutoc](https://github.com/Yakutoc))
 - feat(plasma-web-docs): handling height constraint for Select component [#397](https://github.com/salute-developers/plasma/pull/397) ([@Yakutoc](https://github.com/Yakutoc))

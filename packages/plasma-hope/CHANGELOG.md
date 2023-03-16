@@ -1,3 +1,16 @@
+# v0.20.0 (Thu Mar 16 2023)
+
+#### 🐛 Bug Fix
+
+- chore(plasma-hope): Update API [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-core,plasma-hope): Add build watcher and export tokens [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.19.0 (Thu Mar 16 2023)
 
 #### 🚀 Enhancement
