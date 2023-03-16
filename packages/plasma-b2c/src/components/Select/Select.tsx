@@ -1,13 +1,18 @@
 import React, { forwardRef } from 'react';
-import { withSingleSelect, withMultiSelect } from '@salutejs/plasma-hope';
+import styled from 'styled-components';
+import { withSingleSelect, withMultiSelect, applyDropdownListCssProperties } from '@salutejs/plasma-hope';
 import type { SelectProps, SelectRefElement } from '@salutejs/plasma-hope';
 
 import { SelectView } from './SelectView';
 
 export type { SelectProps };
 
-const SingleSelect = withSingleSelect(SelectView);
-const MultiSelect = withMultiSelect(SelectView);
+const StyledSelectView = styled(SelectView)`
+    ${applyDropdownListCssProperties};
+`;
+
+const SingleSelect = withSingleSelect(StyledSelectView);
+const MultiSelect = withMultiSelect(StyledSelectView);
 
 /**
  * Выпадающий список для использования в формах.

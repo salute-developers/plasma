@@ -6,7 +6,7 @@ import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { Select, SelectProps, SelectGroup } from '.';
 
 const statuses = ['', 'success', 'warning', 'error'];
-const propsToDisable = ['value', 'items', 'onItemClick', 'separator', 'onChange'];
+const propsToDisable = ['value', 'items', 'onItemClick', 'separator', 'onChange', 'onItemSelect', 'isOpen'];
 
 export default {
     title: 'Controls/Select',
@@ -15,6 +15,12 @@ export default {
     argTypes: {
         status: {
             options: statuses,
+            control: {
+                type: 'select',
+            },
+        },
+        listOverflow: {
+            options: ['scroll', 'hidden', 'auto', ''],
             control: {
                 type: 'select',
             },
@@ -81,6 +87,7 @@ Default.args = {
     helperText: 'Заполните пример',
     status: '' as 'success',
     disabled: false,
+    listHeight: '',
 };
 
 export const Group: Story<SelectProps> = ({ status, ...rest }) => {
@@ -118,4 +125,5 @@ Group.args = {
     helperText: 'Заполните пример',
     status: '' as 'success',
     disabled: false,
+    listHeight: '',
 };
