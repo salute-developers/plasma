@@ -117,6 +117,24 @@ describe('plasma-web: Select', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('handling dropdown menu height', () => {
+        mount(
+            <CypressTestDecorator>
+                <Select
+                    items={items}
+                    placeholder="Попробуй радугу"
+                    helperText="Skittles"
+                    listOverflow="scroll"
+                    listHeight={9}
+                />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').click();
+
+        cy.matchImageSnapshot();
+    });
 });
 
 describe('plasma-web: Select a11y - keyboard control', () => {
