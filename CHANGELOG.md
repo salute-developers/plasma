@@ -1,3 +1,29 @@
+# (Fri Mar 17 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-colors@0.6.0`
+  - fix(plasma-colors): Add `es` folder for include to tarball [#405](https://github.com/salute-developers/plasma/pull/405) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.163.0`
+  - feat(plasma-b2c): Add import TextArea from plasma-hope [#405](https://github.com/salute-developers/plasma/pull/405) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-web@1.188.0`
+  - feat(plasma-web): Add import TextArea from plasma-hope [#405](https://github.com/salute-developers/plasma/pull/405) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-hope@0.21.0`
+  - feat(plasma-hope): Add TextArea union from plasma-web and plasma-b2c [#405](https://github.com/salute-developers/plasma/pull/405) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.163.0`, `@salutejs/plasma-hope@0.21.0`, `@salutejs/plasma-web@1.188.0`
+  - feat(plasma-hope,plasma-web,plasma-b2c): Update TextArea API [#405](https://github.com/salute-developers/plasma/pull/405) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.163.0`, `@salutejs/plasma-core@1.105.0`
+  - test(plasma-b2c,plasma-web): Add error exclude for `TextArea` component [#405](https://github.com/salute-developers/plasma/pull/405) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Thu Mar 16 2023)
 
 #### 🚀 Enhancement

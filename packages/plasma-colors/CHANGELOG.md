@@ -1,3 +1,15 @@
+# v0.6.0 (Fri Mar 17 2023)
+
+#### 🚀 Enhancement
+
+- fix(plasma-colors): Add `es` folder for include to tarball [#405](https://github.com/salute-developers/plasma/pull/405) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.5.0 (Thu Mar 16 2023)
 
 #### 🚀 Enhancement

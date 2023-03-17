@@ -1,3 +1,17 @@
+# v1.105.0 (Fri Mar 17 2023)
+
+#### 🐛 Bug Fix
+
+- test(plasma-b2c,plasma-web): Add error exclude for `TextArea` component [#405](https://github.com/salute-developers/plasma/pull/405) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.104.0 (Thu Mar 16 2023)
 
 #### 🐛 Bug Fix
