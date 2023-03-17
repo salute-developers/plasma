@@ -1,17 +1,10 @@
 module.exports = {
-    stories: process.env.DOCS
-        ? [
-              '../src/!(showcase)/**/*.stories.@(mdx|tsx)',
-              '../README.stories.mdx',
-              '../Tokens.stories.mdx',
-              '../environment.stories.mdx',
-          ]
-        : [
-              '../src/**/*.stories.@(mdx|tsx)',
-              '../README.stories.mdx',
-              '../Tokens.stories.mdx',
-              '../environment.stories.mdx',
-          ],
+    stories: [
+        '../src/**/*.stories.@(mdx|tsx)',
+        '../README.stories.mdx',
+        '../Tokens.stories.mdx',
+        '../environment.stories.mdx',
+    ],
     addons: ['@storybook/addon-essentials'],
     framework: '@storybook/react',
     core: {
