@@ -8,4 +8,4 @@ jobs:
     name: Publish
     runs-on: ubuntu-latest
     steps:
-        run: 'echo "no release required"'
+        - run: 'echo "no release required"'
