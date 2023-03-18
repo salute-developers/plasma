@@ -1,6 +1,7 @@
 name: Unit tests for React 17 support
 
 on:
+  merge_group:
   push:
     branches:
       - rc

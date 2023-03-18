@@ -1,6 +1,8 @@
 name: Cypress component testing
 
-on: push
+on:
+  merge_group:
+  push:
 
 jobs:
   cypress:

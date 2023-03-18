@@ -1,6 +1,8 @@
 name: Typescript coverage
 
-on: push
+on:
+  merge_group:
+  push:
 
 jobs:
   typescript-coverage:

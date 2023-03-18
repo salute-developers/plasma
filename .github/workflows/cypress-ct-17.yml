@@ -1,6 +1,8 @@
 name: Cypress component testing react-17
 
-on: push
+on:
+  merge_group:
+  push:
 
 jobs:
   cypress:
