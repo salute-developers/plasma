@@ -88,6 +88,7 @@ import { HTMLAttributes } from 'react';
 import { ImageBaseProps } from '@salutejs/plasma-core';
 import { ImageProps } from '@salutejs/plasma-core';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
+import { InputHTMLAttributes as InputHTMLAttributes_2 } from 'react';
 import { InterpolationFunction } from 'styled-components';
 import { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import { LineSkeleton } from '@salutejs/plasma-core';
@@ -1078,10 +1079,10 @@ export const Select: <T>(props: ({
 // @public (undocumented)
 export const SelectButton: React_2.ForwardRefExoticComponent<SelectButtonProps & React_2.RefAttributes<HTMLButtonElement>>;
 
-// Warning: (ae-forgotten-export) The symbol "FieldProps" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "FieldProps_3" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export interface SelectButtonProps extends Pick<FieldProps, 'status' | 'placeholder' | 'disabled'>, Omit<ButtonHTMLAttributes<SelectRefElement>, 'value'> {
+export interface SelectButtonProps extends Pick<FieldProps_3, 'status' | 'placeholder' | 'disabled'>, Omit<ButtonHTMLAttributes<SelectRefElement>, 'value'> {
     // (undocumented)
     children?: never;
     // (undocumented)
@@ -1119,6 +1120,8 @@ export function selectText(node: Node): void;
 // @public
 export const SelectView: React_2.ForwardRefExoticComponent<SelectViewProps & React_2.RefAttributes<HTMLButtonElement>>;
 
+// Warning: (ae-forgotten-export) The symbol "FieldProps" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
 export interface SelectViewProps extends Pick<FieldProps, 'status' | 'placeholder' | 'helperText' | 'disabled'>, Pick<SelectDropdownProps, 'items' | 'onItemSelect'>, Omit<SelectButtonProps, 'hasItems' | 'isExpanded' | 'onChange'> {
     multiselect?: boolean;
@@ -1234,14 +1237,35 @@ export interface TextAreaProps extends Omit<TextAreaProps_2, 'size'> {
 
 export { TextareaResize }
 
-// @public
-export const TextField: React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
-
-// Warning: (ae-forgotten-export) The symbol "InputProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export interface TextFieldProps extends Pick<FieldProps, 'contentLeft' | 'contentRight' | 'helperText'>, Omit<InputProps, 'hasContentLeft' | 'hasContentRight'> {
+export const TextField: React_2.ForwardRefExoticComponent<TextFieldProps & {
+    design: 'b2c' | 'web';
+} & React_2.RefAttributes<HTMLInputElement>>;
+
+// @public (undocumented)
+export interface TextFieldProps extends Omit<InputHTMLAttributes_2<HTMLInputElement>, 'size'> {
+    // @deprecated (undocumented)
+    $isFocused?: boolean;
+    animatedHint?: 'label' | 'placeholder';
+    caption?: string;
+    contentLeft?: React.ReactElement;
+    contentRight?: React.ReactElement;
+    helperText?: string;
+    // @deprecated (undocumented)
+    htmlSize?: InputHTMLAttributes_2<HTMLInputElement>['size'];
+    label?: string | number;
     onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
+    size?: 'l' | 'm' | 's' | 'xs';
+    status?: 'success' | 'warning' | 'error';
+    view?: TextFieldView | keyof typeof TextFieldView;
+}
+
+// @public (undocumented)
+export enum TextFieldView {
+    // (undocumented)
+    default = "default",
+    // (undocumented)
+    innerLabel = "innerLabel"
 }
 
 export { TextL }
