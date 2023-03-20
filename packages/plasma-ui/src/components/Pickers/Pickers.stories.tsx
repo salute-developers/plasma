@@ -196,7 +196,7 @@ interface DatePickerStoryProps extends DatePickerProps {
     optionsShortMonthName: boolean;
 }
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
+// eslint-disable-next-line @typescript-eslint/naming-convention, camelcase
 export const Date_Picker: Story<DatePickerStoryProps> = ({
     initialValue,
     minDate,
@@ -291,7 +291,7 @@ interface TimePickerStoryProps extends TimePickerProps {
     optionsSeconds: boolean;
 }
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
+// eslint-disable-next-line @typescript-eslint/naming-convention, camelcase
 export const Time_Picker: Story<TimePickerStoryProps> = ({
     initialValue,
     minDate,

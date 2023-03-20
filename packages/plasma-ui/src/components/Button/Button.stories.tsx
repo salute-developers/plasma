@@ -96,7 +96,7 @@ Default.args = {
     onBlur,
 };
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
+// eslint-disable-next-line @typescript-eslint/naming-convention, camelcase
 export const Action_Button: Story<ActionButtonProps> = (args) => (
     <ActionButton {...args}>
         <IconMic size="xs" color="inherit" />
@@ -123,7 +123,7 @@ Action_Button.argTypes = {
     ...disableProps(ActionButtonPropsToDisable),
 };
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
+// eslint-disable-next-line @typescript-eslint/naming-convention, camelcase
 export const Loading_Button: Story<ButtonStoryProps> = ({ enableIcon, text, ...rest }) => {
     const [loading, setLoading] = useState(false);
     const [count, setCount] = useState(0);

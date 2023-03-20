@@ -46,7 +46,7 @@ const StyledCardMedia = styled(CardMedia)`
     height: 100%;
 `;
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
+// eslint-disable-next-line @typescript-eslint/naming-convention, camelcase
 export const Product_Card: Story<ProductCardProps> = ({
     'media:src': imageSrc,
     'media:alt': imageAlt,

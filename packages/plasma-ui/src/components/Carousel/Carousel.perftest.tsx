@@ -32,9 +32,9 @@ const basicCarouselStyle = { paddingTop: '1.25rem', paddingBottom: '1.25rem' };
 const basicProps = {
     displayGrid: true,
     animatedScrollByIndex: true,
-    scrollAlign: 'start' as 'start',
-    scrollSnapType: 'mandatory' as 'mandatory',
-    scrollSnapAlign: 'start' as 'start',
+    scrollAlign: 'start' as const,
+    scrollSnapType: 'mandatory' as const,
+    scrollSnapAlign: 'start' as const,
     detectActive: true,
     detectThreshold: 0.5,
 };
@@ -203,9 +203,9 @@ export const Vertical = () => {
 
 const carouselLiteBasicProps = {
     displayGrid: true,
-    scrollAlign: 'start' as 'start',
-    scrollSnapType: 'mandatory' as 'mandatory',
-    scrollSnapAlign: 'start' as 'start',
+    scrollAlign: 'start' as const,
+    scrollSnapType: 'mandatory' as const,
+    scrollSnapAlign: 'start' as const,
 };
 
 export const CarouselLiteBasic = () => {
