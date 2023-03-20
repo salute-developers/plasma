@@ -11,10 +11,10 @@ interface State {
     detail: ItemPageState;
 }
 
-let onItemShow: Function;
-let onItemFocus: Function;
+let onItemShow: () => void;
+let onItemFocus: () => void;
 
-function beforeTests<T extends object>(partialProps?: T) {
+function beforeTests<T extends {}>(partialProps?: T) {
     beforeEach(() => {
         onItemShow = cy.stub();
         onItemFocus = cy.stub();

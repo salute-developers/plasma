@@ -3,7 +3,7 @@ import { compare as semverCompare } from 'semver';
 /**
  * Function composition.
  */
-export function compose<R>(...funcs: Function[]) {
+export function compose<R>(...funcs: ((...args: any) => any)[]) {
     return (initialValue: R) => funcs.reduceRight((result, func) => func(result), initialValue);
 }
 

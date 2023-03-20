@@ -41,7 +41,7 @@ export const getComponent = function <T = PropsWithChildren<{}>>(componentName: 
     }
 
     if (pkgName === 'plasma-ui') {
-        // eslint-disable-next-line global-require
+        // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
         const pkg = require('../../../packages/plasma-ui') as Record<string, React.FC<T> | undefined>;
         const component = pkg[componentName];
 
@@ -51,7 +51,7 @@ export const getComponent = function <T = PropsWithChildren<{}>>(componentName: 
     }
 
     if (pkgName === 'plasma-web') {
-        // eslint-disable-next-line global-require
+        // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
         const pkg = require('../../../packages/plasma-web') as Record<string, React.FC<T> | undefined>;
         const component = pkg[componentName];
 
@@ -61,7 +61,7 @@ export const getComponent = function <T = PropsWithChildren<{}>>(componentName: 
     }
 
     if (pkgName === 'plasma-b2c') {
-        // eslint-disable-next-line global-require
+        // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
         const pkg = require('../../../packages/plasma-b2c') as Record<string, React.FC<T> | undefined>;
         const component = pkg[componentName];
 
