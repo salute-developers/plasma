@@ -3,9 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconPlaceholder, InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
-import { TextFieldView } from './TextField';
-
-import { TextField, TextFieldProps } from '.';
+import { TextField, TextFieldView, TextFieldProps } from '.';
 
 const onChange = action('onChange');
 const onFocus = action('onFocus');
