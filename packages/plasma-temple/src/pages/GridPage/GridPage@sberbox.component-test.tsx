@@ -9,7 +9,7 @@ interface State {
 }
 
 describe('GridPage', () => {
-    let stubbedCallback: Function;
+    let stubbedCallback: () => void;
 
     const stubbedData = Array.from({ length: 10 }, (_, i) => ({
         text: `Title ${i + 1}`,

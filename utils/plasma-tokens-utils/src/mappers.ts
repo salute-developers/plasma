@@ -85,7 +85,7 @@ export const mapDesignToBaseColors = (ds: DesignLanguage): BaseColors => ({
 
 export const mapDesignToTypography = <TK extends string, TV extends Record<string, any>>(
     ds: DesignLanguage,
-    normalize?: Function,
+    normalize?: (...args: any) => any,
 ): TypoSystem<TK> => {
     const typoStyles = {} as TV;
     const fonts = {} as Record<string, string>;

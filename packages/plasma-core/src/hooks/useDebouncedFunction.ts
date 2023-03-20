@@ -6,7 +6,7 @@ import React from 'react';
  * @param {boolean} cleanUp
  * https://habr.com/ru/company/domclick/blog/510616/
  */
-export function useDebouncedFunction(func: Function, delay: number, cleanUp?: boolean) {
+export function useDebouncedFunction(func: (...args: any) => any, delay: number, cleanUp?: boolean) {
     const timeoutRef = React.useRef<number>();
 
     /**

@@ -62,21 +62,21 @@ exports.getComponent = function (componentName) {
         }
     }
     if (pkgName === 'plasma-ui') {
-        // eslint-disable-next-line global-require
+        // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
         var pkg = require('../../../packages/plasma-ui');
         var component = pkg[componentName];
         check(component);
         return component;
     }
     if (pkgName === 'plasma-web') {
-        // eslint-disable-next-line global-require
+        // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
         var pkg = require('../../../packages/plasma-web');
         var component = pkg[componentName];
         check(component);
         return component;
     }
     if (pkgName === 'plasma-b2c') {
-        // eslint-disable-next-line global-require
+        // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
         var pkg = require('../../../packages/plasma-b2c');
         var component = pkg[componentName];
         check(component);

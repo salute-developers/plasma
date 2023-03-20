@@ -9,8 +9,8 @@ const StorybookTabsWrapper = styled.div`
 
 const defaultProps = {
     itemsNumber: 4,
-    size: 'l' as 'l',
-    view: 'secondary' as 'secondary',
+    size: 'l' as const,
+    view: 'secondary' as const,
     stretch: true,
     pilled: false,
     scaleOnInteraction: true,
