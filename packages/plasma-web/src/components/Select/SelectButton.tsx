@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import {
     body1,
@@ -11,10 +11,12 @@ import {
     critical,
     applyEllipsis,
 } from '@salutejs/plasma-core';
+import type { FieldProps as BaseProps, DisabledProps } from '@salutejs/plasma-core';
 import { IconChevronDown } from '@salutejs/plasma-icons';
 
 import { inputBorder, inputBorderHover } from '../../tokens';
-import type { FieldProps } from '../Field';
+
+export interface FieldProps extends BaseProps, DisabledProps, HTMLAttributes<HTMLLabelElement> {}
 
 export type SelectRefElement = HTMLButtonElement;
 
