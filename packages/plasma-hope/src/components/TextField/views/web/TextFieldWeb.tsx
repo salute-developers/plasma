@@ -5,9 +5,6 @@ import { TextFieldPropsCommon } from '../../types';
 import { Field } from './Field';
 import { Input } from './Input';
 
-/**
- * Поле ввода текста.
- */
 // eslint-disable-next-line prefer-arrow-callback
 export const TextFieldWeb = forwardRef<HTMLInputElement, TextFieldPropsCommon>(function TextField(
     {

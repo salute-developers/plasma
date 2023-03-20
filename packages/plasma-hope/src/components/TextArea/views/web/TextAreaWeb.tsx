@@ -28,9 +28,6 @@ const StyledFieldRightHelper = styled(FieldHelper)`
     margin-left: auto;
 `;
 
-/**
- * Поле ввода многострочного текста.
- */
 // eslint-disable-next-line prefer-arrow-callback
 export const TextAreaWeb = ({
     id,
