@@ -27,6 +27,7 @@ jobs:
 
     - name: Setup packages
       run: |
+        npm install npm@6.14.17 -g
         npm i
         npm i react@17 react-dom@17 --prefix="./packages/plasma-ui"
         npm i react@17 react-dom@17 --prefix="./packages/plasma-temple"

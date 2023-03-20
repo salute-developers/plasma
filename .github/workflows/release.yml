@@ -1,7 +1,7 @@
 name: Release
 
 on:
-  # Запуск в пулл-реквесте независимо от версионирования
+  # Запуск в pull request независимо от версионирования
   pull_request:
     branches:
       - rc
@@ -48,6 +48,7 @@ jobs:
 
       - name: Setup packages
         run: |
+          npm install npm@6.14.17 -g
           npm i
           npx lerna bootstrap
 

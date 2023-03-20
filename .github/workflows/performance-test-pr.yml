@@ -36,6 +36,7 @@ jobs:
 
       - name: Setup packages for master
         run: |
+          npm install npm@6.14.17 -g
           npm ci
           npx lerna bootstrap
 
@@ -71,6 +72,7 @@ jobs:
 
       - name: Setup packages for PR
         run: |
+          npm install npm@6.14.17 -g
           npm ci
           npx lerna bootstrap
 
