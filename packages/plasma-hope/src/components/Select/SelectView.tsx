@@ -1,11 +1,13 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import { TextFieldRoot, TextFieldHelper } from '@salutejs/plasma-core';
+import type { FieldProps as BaseProps, DisabledProps } from '@salutejs/plasma-core';
 
 import { withAssistiveDropdown } from '../Dropdown';
-import type { FieldProps } from '../Field';
 
 import { SelectDropdown, SelectDropdownProps } from './SelectDropdown';
 import { SelectButton, SelectButtonProps, SelectRefElement } from './SelectButton';
+
+export interface FieldProps extends BaseProps, DisabledProps, HTMLAttributes<HTMLLabelElement> {}
 
 export interface SelectViewProps
     extends Pick<FieldProps, 'status' | 'placeholder' | 'helperText' | 'disabled'>,

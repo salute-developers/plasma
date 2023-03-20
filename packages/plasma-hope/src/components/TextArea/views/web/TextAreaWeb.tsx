@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { FieldRoot, FieldContent, FieldHelper, TextArea as BaseArea } from '@salutejs/plasma-core';
 
-import { applyInputStyles } from '../../../Field';
 import type { TextAreaPropsCommon } from '../../types';
+
+import { applyInputStyles } from './mixins';
 
 const StyledTextArea = styled(BaseArea)`
     -webkit-appearance: none; /* для отображение рамок на iOS */

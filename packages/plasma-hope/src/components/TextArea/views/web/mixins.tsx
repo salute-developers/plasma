@@ -2,7 +2,7 @@ import { css, InterpolationFunction } from 'styled-components';
 import { background, accent, tertiary, primary, fieldStatuses } from '@salutejs/plasma-core';
 import type { FieldProps } from '@salutejs/plasma-core';
 
-import { inputBorder, inputBorderHover } from '../../tokens';
+import { inputBorder, inputBorderHover } from '../../../../tokens';
 
 export const applyInputStyles: InterpolationFunction<Pick<FieldProps, 'status' | '$isFocused'>> = ({
     status,
