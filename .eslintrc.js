@@ -58,18 +58,16 @@ module.exports = {
 
         '@typescript-eslint/explicit-function-return-type': 'off',
 
-        // TODO: Удалить правила с 62 по 72, после влития https://github.com/salute-developers/plasma/pull/383
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
-        '@typescript-eslint/no-unused-vars': 'off',
-        '@typescript-eslint/ban-types': 'off',
-        '@typescript-eslint/class-name-casing': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
-        '@typescript-eslint/prefer-as-const': 'off',
-        '@typescript-eslint/no-var-requires': 'off',
-        'react/default-props-match-prop-types': 'off',
-        'react/no-unused-prop-types': 'off',
-        'react/require-default-props': 'off',
-        camelcase: 'off',
+        '@typescript-eslint/ban-types': [
+            'error',
+            {
+                extendDefaults: true,
+                types: {
+                    '{}': false,
+                    object: false,
+                },
+            },
+        ],
 
         'react/prop-types': 'off',
         'react/static-property-placement': 'off',
