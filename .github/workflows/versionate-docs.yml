@@ -29,6 +29,7 @@ jobs:
 
       - name: Setup packages
         run: |
+          npm install npm@6.14.17 -g
           npm ci
           npx lerna bootstrap
 

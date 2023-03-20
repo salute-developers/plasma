@@ -35,6 +35,7 @@ jobs:
       # ToDo: https://github.com/salute-developers/plasma/issues/255
       - name: Setup packages
         run: |
+          npm install npm@6.14.17 -g
           npm i
 
       - name: Prepare directory for build
