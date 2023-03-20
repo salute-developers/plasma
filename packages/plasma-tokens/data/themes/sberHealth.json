@@ -27,7 +27,7 @@
                 }
             }
         },
-        "textIcons": {
+        "text": {
             "default": {
                 "textPrimary": {
                     "value": "#F9F9F9FF",
@@ -46,7 +46,7 @@
                     "comment": "Сплошной наборный текст"
                 },
                 "textAccent": {
-                    "value": "#52BAFFFF",
+                    "value": "#ffcc00ff",
                     "comment": "Акцентный цвет"
                 },
                 "textAccentGradient": {
@@ -185,7 +185,7 @@
                 }
             }
         },
-        "controlsSurfaces": {
+        "surface": {
             "default": {
                 "surfaceSolidDefault": {
                     "value": "#FFFFFF",
@@ -397,7 +397,7 @@
                 }
             }
         },
-        "backgrounds": {
+        "background": {
             "default": {
                 "backgroundPrimary": {
                     "value": "#080808FF",
@@ -437,7 +437,7 @@
                 }
             }
         },
-        "textIcons": {
+        "text": {
             "default": {
                 "textPrimary": {
                     "value": "#171717",
@@ -595,7 +595,7 @@
                 }
             }
         },
-        "controlsSurfaces": {
+        "surface": {
             "default": {
                 "surfaceSolidDefault": {
                     "value": "#171717FF",
@@ -807,7 +807,7 @@
                 }
             }
         },
-        "backgrounds": {
+        "background": {
             "default": {
                 "backgroundPrimary": {
                     "value": "#F9F9F9FF",
