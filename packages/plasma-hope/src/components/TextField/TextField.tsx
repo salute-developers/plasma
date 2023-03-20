@@ -1,66 +1,44 @@
-import React, { forwardRef, KeyboardEvent } from 'react';
+import React, { ChangeEventHandler, forwardRef, KeyboardEvent, useCallback, useMemo } from 'react';
 
-import { Field } from '../Field';
-import type { FieldProps } from '../Field';
-import { Input } from '../Input';
-import type { InputProps } from '../Input';
+import { TextFieldWeb } from './views/web/TextFieldWeb';
+import { TextFieldB2C } from './views/b2c/TextFieldB2C';
+import type { TextFieldProps as TextFieldPropsBase } from './types';
 
-export interface TextFieldProps
-    extends Pick<FieldProps, 'contentLeft' | 'contentRight' | 'helperText'>,
-        Omit<InputProps, 'hasContentLeft' | 'hasContentRight'> {
-    /**
-     * Callback по нажатию Enter
-     */
-    onSearch?: (value: string, event?: KeyboardEvent<HTMLInputElement>) => void;
-}
+const componentMap = {
+    web: TextFieldWeb,
+    b2c: TextFieldB2C,
+};
 
-/**
- * Поле ввода текста.
- */
-// eslint-disable-next-line prefer-arrow-callback
-export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function TextField(
-    {
-        id,
-        size,
-        disabled,
-        status,
-        label,
-        animatedHint,
-        contentLeft,
-        contentRight,
-        helperText,
-        className,
-        style,
-        ...rest
+export type TextFieldProps = TextFieldPropsBase & {
+    design: 'b2c' | 'web';
+};
+
+export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
+    ({ design, onSearch, onChange, ...rest }, innerRef) => {
+        const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
+            (event) => {
+                const { maxLength, value } = event.target;
+
+                if (!onChange || (maxLength !== -1 && value.length > maxLength)) {
+                    return;
+                }
+
+                onChange(event);
+            },
+            [onChange],
+        );
+
+        const handleKeyUp = useCallback(
+            (event: KeyboardEvent<HTMLInputElement>) => {
+                if (event.keyCode === 13 && onSearch) {
+                    onSearch((event.target as HTMLInputElement).value, event);
+                }
+            },
+            [onSearch],
+        );
+
+        const TextFieldView = useMemo(() => componentMap[design], [design]);
+
+        return <TextFieldView ref={innerRef} onChange={handleChange} onKeyUp={handleKeyUp} {...rest} />;
     },
-    ref,
-) {
-    return (
-        <Field
-            id={id}
-            disabled={disabled}
-            label={animatedHint !== 'label' ? label : undefined}
-            helperText={helperText}
-            contentLeft={contentLeft}
-            contentRight={contentRight}
-            status={status}
-            className={className}
-            style={style}
-        >
-            <Input
-                {...rest}
-                ref={ref}
-                id={id}
-                disabled={disabled}
-                size={size}
-                status={status}
-                label={label}
-                animatedHint={animatedHint}
-                hasContentLeft={Boolean(contentLeft)}
-                hasContentRight={Boolean(contentRight)}
-                aria-labelledby={id ? `${id}-label` : undefined}
-                aria-describedby={id ? `${id}-helpertext` : undefined}
-            />
-        </Field>
-    );
-});
+);
