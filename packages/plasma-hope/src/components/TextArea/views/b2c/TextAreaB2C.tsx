@@ -106,9 +106,6 @@ const StyledFieldRightHelper = styled(FieldHelper)`
     margin-left: auto;
 `;
 
-/**
- * Поле ввода многострочного текста.
- */
 export const TextAreaB2C = ({
     leftHelper,
     rightHelper,

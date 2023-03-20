@@ -10,9 +10,6 @@ import { Content } from './Content';
 import { Caption } from './Caption';
 import { textFieldProps } from './TextField.props';
 
-/**
- * Поле ввода текста.
- */
 // eslint-disable-next-line prefer-arrow-callback
 export const TextFieldB2C = forwardRef<HTMLInputElement, TextFieldPropsCommon>(function TextField(
     {
