@@ -98,7 +98,6 @@ import { Editable } from '@salutejs/plasma-hope';
 import { EditableProps } from '@salutejs/plasma-hope';
 import { ElasticGrid } from '@salutejs/plasma-hope';
 import { ElasticGridProps } from '@salutejs/plasma-hope';
-import type { FieldProps } from '@salutejs/plasma-core';
 import { FocusProps } from '@salutejs/plasma-core';
 import { Footnote1 } from '@salutejs/plasma-hope';
 import { Footnote2 } from '@salutejs/plasma-hope';
@@ -123,8 +122,6 @@ import { Image as Image_2 } from '@salutejs/plasma-hope';
 import { ImageBaseProps } from '@salutejs/plasma-hope';
 import { ImageProps } from '@salutejs/plasma-hope';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
-import type { InputProps } from '@salutejs/plasma-core';
-import { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import { LineSkeleton } from '@salutejs/plasma-hope';
 import { LineSkeletonProps } from '@salutejs/plasma-hope';
 import { Link } from '@salutejs/plasma-hope';
@@ -209,6 +206,8 @@ import type { TabsProps as TabsProps_2 } from '@salutejs/plasma-core';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
 import { TextAreaProps } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
+import { TextFieldProps } from '@salutejs/plasma-hope';
+import { TextFieldView } from '@salutejs/plasma-hope';
 import { TextL } from '@salutejs/plasma-typo';
 import { TextM } from '@salutejs/plasma-typo';
 import { TextS } from '@salutejs/plasma-typo';
@@ -703,7 +702,7 @@ export interface TabsProps extends TabsProps_2 {
     view?: 'secondary' | 'clear';
 }
 
-// @public (undocumented)
+// @public
 export const TextArea: React_2.ForwardRefExoticComponent<TextAreaProps & React_2.RefAttributes<HTMLTextAreaElement>>;
 
 export { TextareaHTMLAttributes }
@@ -715,14 +714,9 @@ export { TextareaResize }
 // @public
 export const TextField: React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
 
-// @public (undocumented)
-export interface TextFieldProps extends Omit<FieldProps, 'size'>, InputProps {
-    caption?: string;
-    onSearch?: (value: string, event?: KeyboardEvent_2<HTMLInputElement>) => void;
-    size?: 'l' | 'm' | 's' | 'xs';
-    // Warning: (ae-forgotten-export) The symbol "TextFieldView" needs to be exported by the entry point index.d.ts
-    view?: TextFieldView;
-}
+export { TextFieldProps }
+
+export { TextFieldView }
 
 export { TextL }
 
