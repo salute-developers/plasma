@@ -1,3 +1,17 @@
+# v0.50.0 (Tue Mar 21 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-*): Fix some types by es-lint rules ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.49.0 (Fri Mar 17 2023)
 
 #### 🐛 Bug Fix

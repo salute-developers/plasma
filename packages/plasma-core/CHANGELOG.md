@@ -1,3 +1,21 @@
+# v1.106.0 (Tue Mar 21 2023)
+
+#### 🚀 Enhancement
+
+- feat(plamas-core): Update API for useDebouncedFunction hook [#430](https://github.com/salute-developers/plasma/pull/430) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- fix(plasma-*): Fix some types by es-lint rules ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.105.0 (Fri Mar 17 2023)
 
 #### 🐛 Bug Fix

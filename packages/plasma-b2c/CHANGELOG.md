@@ -1,3 +1,22 @@
+# v1.164.0 (Tue Mar 21 2023)
+
+#### 🐛 Bug Fix
+
+- chore(plasma-b2c): remove unused variable [#353](https://github.com/salute-developers/plasma/pull/353) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### ⚠️ Pushed to `master`
+
+- fix(plasma-web,b2c): Remove storybook docs ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.163.0 (Fri Mar 17 2023)
 
 #### 🚀 Enhancement

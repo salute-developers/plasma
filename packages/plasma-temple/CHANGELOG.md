@@ -1,3 +1,20 @@
+# v1.145.0 (Tue Mar 21 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-*): Fix some types by es-lint rules ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- fix(plasma-temple): Remove storybook docs [#420](https://github.com/salute-developers/plasma/pull/420) ([@neretin-trike](https://github.com/neretin-trike))
+- build(plasma-temple): remove unused dep [#422](https://github.com/salute-developers/plasma/pull/422) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.144.0 (Fri Mar 17 2023)
 
 #### 🐛 Bug Fix

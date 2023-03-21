@@ -1,3 +1,18 @@
+# v1.178.0 (Tue Mar 21 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-*): Fix some types by es-lint rules ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+- fix(plasma-ui): Remove storybook docs ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.177.0 (Fri Mar 17 2023)
 
 #### 🐛 Bug Fix

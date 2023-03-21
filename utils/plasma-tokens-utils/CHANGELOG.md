@@ -1,3 +1,15 @@
+# v0.20.0 (Tue Mar 21 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-*): Fix some types by es-lint rules ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.19.0 (Tue Mar 14 2023)
 
 #### 🚀 Enhancement

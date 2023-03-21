@@ -1,3 +1,46 @@
+# (Tue Mar 21 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-core@1.106.0`
+  - feat(plamas-core): Update API for useDebouncedFunction hook [#430](https://github.com/salute-developers/plasma/pull/430) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- fix: Remove temp es rules ([@neretin-trike](https://github.com/neretin-trike))
+- build: used specify npm version by package.json#engine section [#427](https://github.com/salute-developers/plasma/pull/427) ([@Yakutoc](https://github.com/Yakutoc))
+- docs: delete unnecessary paragraph about devices [#428](https://github.com/salute-developers/plasma/pull/428) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(deps): remove dependency @types/react-helmet [#424](https://github.com/salute-developers/plasma/pull/424) ([@Yeti-or](https://github.com/Yeti-or))
+- ci: remove duplicate jobs in mq [#423](https://github.com/salute-developers/plasma/pull/423) ([@Yeti-or](https://github.com/Yeti-or))
+- ci: enable mq [#421](https://github.com/salute-developers/plasma/pull/421) ([@Yeti-or](https://github.com/Yeti-or))
+- ci: skip husky when run CI pipeline [#419](https://github.com/salute-developers/plasma/pull/419) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-core@1.106.0`, `@salutejs/plasma-temple@1.145.0`, `@salutejs/plasma-ui@1.178.0`, `@salutejs/plasma-cy-utils@0.50.0`, `@salutejs/plasma-tokens-utils@0.20.0`
+  - fix(plasma-*): Fix some types by es-lint rules ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-temple@1.145.0`
+  - fix(plasma-temple): Remove storybook docs [#420](https://github.com/salute-developers/plasma/pull/420) ([@neretin-trike](https://github.com/neretin-trike))
+  - build(plasma-temple): remove unused dep [#422](https://github.com/salute-developers/plasma/pull/422) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-ui@1.178.0`
+  - fix(plasma-ui): Remove storybook docs ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.164.0`
+  - chore(plasma-b2c): remove unused variable [#353](https://github.com/salute-developers/plasma/pull/353) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### ⚠️ Pushed to `master`
+
+- ci: use npm@6.14.17 ([@Yakutoc](https://github.com/Yakutoc))
+- build: disabled auto-installing peer dependencies ([@Yakutoc](https://github.com/Yakutoc))
+- build: use v16.19.1 node ([@Yakutoc](https://github.com/Yakutoc))
+- ci: fix mq ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.164.0`, `@salutejs/plasma-web@1.189.0`
+  - fix(plasma-web,b2c): Remove storybook docs ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 3
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Fri Mar 17 2023)
 
 #### 🚀 Enhancement
