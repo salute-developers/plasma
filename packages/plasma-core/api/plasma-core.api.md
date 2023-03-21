@@ -1225,7 +1225,7 @@ export type UseCarouselLiteOptions = Pick<CarouselLiteProps, 'index' | 'axis' | 
 export type UseCarouselOptions = Pick<CarouselProps, 'index' | 'axis' | 'detectActive' | 'detectThreshold' | 'scrollAlign' | 'scaleCallback' | 'scaleResetCallback' | 'onIndexChange' | 'onDetectActiveItem' | 'animatedScrollByIndex' | 'throttleMs' | 'debounceMs'>;
 
 // @public (undocumented)
-export function useDebouncedFunction(func: Function, delay: number, cleanUp?: boolean): (...args: any[]) => void;
+export function useDebouncedFunction(func: (...args: any) => any, delay: number, cleanUp?: boolean): (...args: any[]) => void;
 
 // Warning: (ae-forgotten-export) The symbol "UseForkRefHook" needs to be exported by the entry point index.d.ts
 //
