@@ -9,6 +9,7 @@ import { Sheet } from './Sheet';
 export default {
     title: 'Content/Sheet',
     decorators: [InSpacing],
+    parameters: { viewport: { defaultViewport: '860' } },
 };
 
 export const Default = ({ withOverlay, withTransition }) => {
