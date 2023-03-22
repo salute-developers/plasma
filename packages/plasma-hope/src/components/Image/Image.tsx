@@ -1,10 +1,10 @@
+import { FC } from 'react';
 import styled from 'styled-components';
 import { Image as BaseImage } from '@salutejs/plasma-core';
-import type { ImageProps as BaseProps } from '@salutejs/plasma-core';
 
-export type ImageProps = BaseProps;
+import { ImageProps } from './types';
 
 /**
  * Компонент для отображения картинок.
  */
-export const Image: React.FC<ImageProps> = styled(BaseImage)``;
+export const Image: FC<ImageProps> = styled(BaseImage)``;
