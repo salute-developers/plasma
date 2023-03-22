@@ -2,7 +2,12 @@ import styled from 'styled-components';
 
 import { Image, ImageProps } from '../Image';
 
-export type HeaderLogoProps = Omit<ImageProps, 'height' | 'ratio' | 'customRatio'>;
+// INFO: Omit 'onResize' | 'onResizeCapture' | 'nonce'
+// because this types coming with @types/react@18.0.25 and breaks react@17.0.2 with @types/react@18.0.18
+export type HeaderLogoProps = Omit<
+    ImageProps,
+    'height' | 'ratio' | 'customRatio' | 'onResize' | 'onResizeCapture' | 'nonce'
+>;
 
 /**
  * Компонент для размещения логотипа.
