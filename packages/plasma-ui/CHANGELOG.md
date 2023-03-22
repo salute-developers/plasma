@@ -1,3 +1,19 @@
+# v1.178.1 (Wed Mar 22 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): omit 'onResize', 'onResizeCapture', 'nonce' in HeaderLogoProps [#434](https://github.com/salute-developers/plasma/pull/434) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): Sheet: fix storybook viewport [#433](https://github.com/salute-developers/plasma/pull/433) ([@Yeti-or](https://github.com/Yeti-or))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.178.0 (Tue Mar 21 2023)
 
 #### 🐛 Bug Fix

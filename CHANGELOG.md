@@ -1,3 +1,19 @@
+# (Wed Mar 22 2023)
+
+#### 🐛 Bug Fix
+
+- build: bump lerna version to 6.x [#432](https://github.com/salute-developers/plasma/pull/432) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-ui@1.178.1`
+  - fix(plasma-ui): omit 'onResize', 'onResizeCapture', 'nonce' in HeaderLogoProps [#434](https://github.com/salute-developers/plasma/pull/434) ([@Yakutoc](https://github.com/Yakutoc))
+  - chore(plasma-ui): Sheet: fix storybook viewport [#433](https://github.com/salute-developers/plasma/pull/433) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Tue Mar 21 2023)
 
 #### 🚀 Enhancement
