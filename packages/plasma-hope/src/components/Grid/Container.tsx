@@ -1,35 +1,20 @@
-import styled, { css } from 'styled-components';
+import React, { useMemo, FC, PropsWithChildren } from 'react';
 
-import { gridGutters, gridMargins, gridSizes, mediaQuery } from '../../utils';
+import { Container as ContainerWeb } from './views/web/Container';
+import { Container as ContainerB2C } from './views/b2c/Container';
 
-const deviceScale = 1;
-const sidesCount = 2;
+const componentMap = {
+    web: ContainerWeb,
+    b2c: ContainerB2C,
+};
 
 /**
  * Блок с полями по бокам для размещения контента по вертикали.
  * Блок нельзя вкладывать сам в себя или дальше по дереву.
  */
-export const Container = styled.div`
-    margin: 0 auto;
+export const Container: FC<PropsWithChildren<{ design: 'b2c' | 'web' }>> = (props): JSX.Element => {
+    const { design, children } = props;
+    const ContainerView = useMemo(() => componentMap[design], [design]);
 
-    display: flex;
-    box-sizing: border-box;
-    flex-direction: column;
-
-    width: 100%;
-    padding-left: var(--plasma-grid-margin);
-    padding-right: var(--plasma-grid-margin);
-
-    max-width: 90rem;
-
-    ${() =>
-        gridSizes.map((breakpoint) =>
-            mediaQuery(
-                breakpoint,
-                deviceScale,
-            )(css`
-                --plasma-grid-margin: ${gridMargins[breakpoint]}rem;
-                --plasma-grid-gutter: ${gridGutters[breakpoint] / sidesCount}rem;
-            `),
-        )}
-`;
+    return <ContainerView> {children} </ContainerView>;
+};
