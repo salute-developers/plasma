@@ -4,7 +4,7 @@ import { Action, ActionTypes } from './actions';
 import type { State } from './types';
 
 export const initialState: State = {
-    theme: 'light',
+    theme: 'dark',
 };
 
 export const reducer: Reducer<State, Action> = (state, action) => {

@@ -1,33 +1,36 @@
-import type { HTMLAttributes, FC } from 'react';
-import styled from 'styled-components';
-import { BodyL } from '@salutejs/plasma-b2c';
-import { primary, accent, tertiary } from '@salutejs/plasma-tokens-b2c';
+import type { HTMLAttributes } from 'react';
+import styled, { css } from 'styled-components';
+import { BodyS } from '@salutejs/plasma-b2c';
+import { primary, accent } from '@salutejs/plasma-tokens-b2c';
 
 import { Badge } from '../Badge';
 import { Link as BaseLink } from '../Link';
+import { multipleMediaQuery } from '../../mixins';
 
 export type MenuItem = {
     title: string;
     href: string;
-    soon?: boolean;
+    state?: string;
     external?: boolean;
 };
-export interface MenuProps extends HTMLAttributes<HTMLDivElement> {
-    items: Array<MenuItem>;
-    children?: never;
-}
 
 export const List = styled.ul`
     margin: 0;
     padding: 0;
     list-style: none;
 `;
-export const Item = styled(BodyL)`
+export const Item = styled(BodyS)`
     display: flex;
     align-items: center;
 
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+    margin-right: 2rem;
+    padding-bottom: 1.625rem;
+
+    ${multipleMediaQuery(['M', 'S'])(
+        css`
+            padding-bottom: 0;
+        `,
+    )}
 `;
 
 export const Link = styled(BaseLink)<{ $disabled?: boolean }>`
@@ -50,26 +53,18 @@ const LinkTitle = styled.a`
     }
 `;
 
-const DisabledText = styled.span`
-    color: ${tertiary};
-    cursor: default;
-`;
+export interface MenuProps extends HTMLAttributes<HTMLDivElement> {
+    items: Array<MenuItem>;
+    children?: never;
+}
 
-export const Menu: FC<MenuProps> = ({ items, style, className }) => (
-    <nav style={style} className={className}>
-        <List>
-            {items.map((item, i) => (
-                <Item key={`item:${i}`}>
-                    {!item.soon ? (
-                        <LinkTitle href={item.href}>{item.title}</LinkTitle>
-                    ) : (
-                        <>
-                            <DisabledText>{item.title}</DisabledText>
-                            <Badge text="скоро" />
-                        </>
-                    )}
-                </Item>
-            ))}
-        </List>
-    </nav>
+export const Menu = ({ items, style, className }: MenuProps) => (
+    <List style={style} className={className}>
+        {items.map((item, i) => (
+            <Item key={`item:${i}`}>
+                <LinkTitle href={item.href}>{item.title}</LinkTitle>
+                {item.state && <Badge text={item.state} />}
+            </Item>
+        ))}
+    </List>
 );

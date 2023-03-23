@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { body1, text, background } from '@salutejs/plasma-tokens-b2c';
-import { standard } from '@salutejs/plasma-typo';
+import { plasma, compatible } from '@salutejs/plasma-typo';
 import { light, dark } from '@salutejs/plasma-tokens-b2c/themes';
 
 import { Context } from '../store';
@@ -37,7 +37,8 @@ const DocumentStyle = createGlobalStyle`
         }
     }
 `;
-const TypoStyle = createGlobalStyle(standard);
+const TypoStyle = createGlobalStyle(plasma);
+const CompatibleTypoStyle = createGlobalStyle(compatible);
 
 export const GlobalStyle = () => {
     const { state } = useContext(Context);
@@ -48,6 +49,7 @@ export const GlobalStyle = () => {
             <DocumentStyle />
             <Theme />
             <TypoStyle />
+            <CompatibleTypoStyle />
         </>
     );
 };
