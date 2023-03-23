@@ -86,7 +86,7 @@ import { Headline3 } from '@salutejs/plasma-core';
 import { Headline4 } from '@salutejs/plasma-core';
 import { HTMLAttributes } from 'react';
 import { ImageBaseProps } from '@salutejs/plasma-core';
-import type { ImageProps as ImageProps_2 } from '@salutejs/plasma-core';
+import { ImageProps } from '@salutejs/plasma-core';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
 import { InterpolationFunction } from 'styled-components';
 import { KeyboardEvent as KeyboardEvent_2 } from 'react';
@@ -746,13 +746,12 @@ export const Headline5: StyledComponent<"div", any, {}, never>;
 export const headline5: CSSObject;
 
 // @public
-const Image_2: React.FC<ImageProps>;
+const Image_2: FC<ImageProps>;
 export { Image_2 as Image }
 
 export { ImageBaseProps }
 
-// @public (undocumented)
-export type ImageProps = ImageProps_2;
+export { ImageProps }
 
 // @public (undocumented)
 export const inputBackground = "var(--plasma-input-background-color)";

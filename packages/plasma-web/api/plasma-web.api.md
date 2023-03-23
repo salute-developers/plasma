@@ -121,8 +121,9 @@ import { Headline3 } from '@salutejs/plasma-hope';
 import { Headline4 } from '@salutejs/plasma-hope';
 import { Headline5 } from '@salutejs/plasma-hope';
 import { HTMLAttributes } from 'react';
-import { ImageBaseProps } from '@salutejs/plasma-core';
-import type { ImageProps as ImageProps_2 } from '@salutejs/plasma-core';
+import { Image as Image_2 } from '@salutejs/plasma-hope';
+import { ImageBaseProps } from '@salutejs/plasma-hope';
+import { ImageProps } from '@salutejs/plasma-hope';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
 import { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import { LineSkeleton } from '@salutejs/plasma-hope';
@@ -166,7 +167,7 @@ import { Radiobox } from '@salutejs/plasma-hope';
 import { RadioboxProps } from '@salutejs/plasma-hope';
 import { RadioGroup } from '@salutejs/plasma-hope';
 import { radiuses } from '@salutejs/plasma-core';
-import { Ratio } from '@salutejs/plasma-core';
+import { Ratio } from '@salutejs/plasma-hope';
 import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
 import type { ReactNode } from 'react';
@@ -555,14 +556,11 @@ export { Headline4 }
 
 export { Headline5 }
 
-// @public
-const Image_2: React.FC<ImageProps>;
 export { Image_2 as Image }
 
 export { ImageBaseProps }
 
-// @public (undocumented)
-export type ImageProps = ImageProps_2;
+export { ImageProps }
 
 export { InputHTMLAttributes }
 
