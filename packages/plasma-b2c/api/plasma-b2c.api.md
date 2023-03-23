@@ -98,6 +98,7 @@ import { Editable } from '@salutejs/plasma-hope';
 import { EditableProps } from '@salutejs/plasma-hope';
 import { ElasticGrid } from '@salutejs/plasma-hope';
 import { ElasticGridProps } from '@salutejs/plasma-hope';
+import { FC } from 'react';
 import { FocusProps } from '@salutejs/plasma-core';
 import { Footnote1 } from '@salutejs/plasma-hope';
 import { Footnote2 } from '@salutejs/plasma-hope';
@@ -161,6 +162,7 @@ import { Price } from '@salutejs/plasma-hope';
 import { PriceProps } from '@salutejs/plasma-hope';
 import { Progress } from '@salutejs/plasma-hope';
 import { ProgressProps } from '@salutejs/plasma-hope';
+import { PropsWithChildren } from 'react';
 import { Radiobox } from '@salutejs/plasma-hope';
 import { RadioboxProps } from '@salutejs/plasma-hope';
 import { RadioGroup } from '@salutejs/plasma-hope';
@@ -426,7 +428,11 @@ export { ColProps }
 export { ColSizeProps }
 
 // @public
-export const Container: StyledComponent<"div", any, {}, never>;
+export const Container: StyledComponent<FC<PropsWithChildren<    {
+design: "b2c" | "web";
+}>>, any, {
+design: "b2c";
+}, "design">;
 
 export { convertRoundnessMatrix }
 

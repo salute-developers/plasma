@@ -84,7 +84,6 @@ import { ColOffsetProps } from '@salutejs/plasma-hope';
 import { ColProps } from '@salutejs/plasma-hope';
 import { ColSizeProps } from '@salutejs/plasma-hope';
 import type { ComponentType } from 'react';
-import { Container } from '@salutejs/plasma-hope';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
 import { defaultValidate } from '@salutejs/plasma-hope';
 import type { DetailedHTMLProps } from 'react';
@@ -162,6 +161,7 @@ import { Price } from '@salutejs/plasma-hope';
 import { PriceProps } from '@salutejs/plasma-hope';
 import { Progress } from '@salutejs/plasma-hope';
 import { ProgressProps } from '@salutejs/plasma-hope';
+import { PropsWithChildren } from 'react';
 import { Radiobox } from '@salutejs/plasma-hope';
 import { RadioboxProps } from '@salutejs/plasma-hope';
 import { RadioGroup } from '@salutejs/plasma-hope';
@@ -407,7 +407,12 @@ export { ColProps }
 
 export { ColSizeProps }
 
-export { Container }
+// @public
+export const Container: StyledComponent<FC<PropsWithChildren<    {
+design: "web" | "b2c";
+}>>, any, {
+design: "web";
+}, "design">;
 
 export { convertRoundnessMatrix }
 
