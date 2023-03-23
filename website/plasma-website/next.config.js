@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 
+const packagesInfo = require('./getPackageInfo');
+
 const { PR_NAME } = process.env;
 
 const basePath = PR_NAME ? `/pr/${PR_NAME}` : '';
@@ -12,6 +14,7 @@ module.exports = {
     trailingSlash: true,
     env: {
         BASE_PATH: basePath,
+        PACKAGES_INFO: packagesInfo,
     },
     webpack: (config) => {
         return {
