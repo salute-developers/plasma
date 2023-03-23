@@ -8,5 +8,5 @@ export const Badge = styled(BaseBadge).attrs(() => ({ size: 's', view: 'primary'
 
     background-color: ${buttonPrimary};
     color: ${whitePrimary};
-    border-radius: 0.375rem;
+    border-radius: 0.5rem;
 `;

@@ -38,11 +38,11 @@ export default class Document extends BaseDocument {
                     />
                     <link
                         rel="stylesheet"
-                        href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.1.0.css"
+                        href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansTextMono.0.1.0.css"
                     />
                     <link
                         rel="stylesheet"
-                        href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.1.0.css"
+                        href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansCondMono.0.1.0.css"
                     />
                     <link rel="preconnect" href="https://fonts.googleapis.com" />
                     <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
