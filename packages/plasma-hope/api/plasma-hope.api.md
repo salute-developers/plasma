@@ -528,7 +528,9 @@ export interface ColSizeProps {
 }
 
 // @public
-export const Container: StyledComponent<"div", any, {}, never>;
+export const Container: FC<PropsWithChildren<{
+    design: 'b2c' | 'web';
+}>>;
 
 export { convertRoundnessMatrix }
 
