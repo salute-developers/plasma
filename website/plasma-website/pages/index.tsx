@@ -36,7 +36,7 @@ const CopyrightText = styled(TextS)`
     color: ${secondary};
 `;
 
-const basePath = (process.env.BASE_PATH || '').replace('/pr-', '/pr/pr-');
+const basePath = process.env.BASE_PATH || '';
 
 const menu = [
     { title: 'Архетипы', href: `${basePath}/archetypes/`, soon: true },

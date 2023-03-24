@@ -3,7 +3,7 @@ const path = require('path');
 
 const { PR_NAME } = process.env;
 
-const basePath = PR_NAME ? `/${PR_NAME}` : '';
+const basePath = PR_NAME ? `/pr/${PR_NAME}` : '';
 
 module.exports = {
     basePath,
