@@ -1,3 +1,16 @@
+# v0.23.0 (Fri Mar 24 2023)
+
+#### 🚀 Enhancement
+
+- feat: api report after merged Image component [#435](https://github.com/salute-developers/plasma/pull/435) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-hope): add "Image" component ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v0.22.0 (Tue Mar 21 2023)
 
 #### 🐛 Bug Fix

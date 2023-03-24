@@ -1,3 +1,22 @@
+# (Fri Mar 24 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.165.0`, `@salutejs/plasma-hope@0.23.0`, `@salutejs/plasma-web@1.190.0`
+  - feat: api report after merged Image component [#435](https://github.com/salute-developers/plasma/pull/435) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.165.0`
+  - feat(plasma-b2c): re-export "Image" component from plasma-hope ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.190.0`
+  - feat(plasma-web): re-export "Image" component from plasma-hope ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.23.0`
+  - feat(plasma-hope): add "Image" component ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Wed Mar 22 2023)
 
 #### 🐛 Bug Fix

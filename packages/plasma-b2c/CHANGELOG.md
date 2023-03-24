@@ -1,3 +1,16 @@
+# v1.165.0 (Fri Mar 24 2023)
+
+#### 🚀 Enhancement
+
+- feat: api report after merged Image component [#435](https://github.com/salute-developers/plasma/pull/435) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): re-export "Image" component from plasma-hope ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.164.0 (Tue Mar 21 2023)
 
 #### 🐛 Bug Fix
