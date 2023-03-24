@@ -2,6 +2,31 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-b2c@1.166.0`, `@salutejs/plasma-hope@0.24.0`, `@salutejs/plasma-web@1.191.0`
+  - feat(plasma-hope,plasma-web,plasma-b2c): Update TextField API [#429](https://github.com/salute-developers/plasma/pull/429) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-hope@0.24.0`
+  - feat(plasma-hope): Remove Input and Field components ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-hope): Add TextField union from plasma-web and plasma-b2c ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.166.0`
+  - feat(plasma-b2c): Add import TextField from plasma-hope ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-hope@0.24.0`, `@salutejs/plasma-web@1.191.0`
+  - feat(plasma-web): Add import TextField from plasma-hope ([@neretin-trike](https://github.com/neretin-trike))
+
+#### ⚠️ Pushed to `master`
+
+- `@salutejs/plasma-b2c@1.166.0`, `@salutejs/plasma-web@1.191.0`
+  - feat(plasma-web,plasma-b2c): Remove Input and Field components ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Fri Mar 24 2023)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-b2c@1.165.0`, `@salutejs/plasma-hope@0.23.0`, `@salutejs/plasma-web@1.190.0`
   - feat: api report after merged Image component [#435](https://github.com/salute-developers/plasma/pull/435) ([@Yakutoc](https://github.com/Yakutoc))
 - `@salutejs/plasma-b2c@1.165.0`

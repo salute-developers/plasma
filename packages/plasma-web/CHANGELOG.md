@@ -1,3 +1,20 @@
+# v1.191.0 (Fri Mar 24 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-hope,plasma-web,plasma-b2c): Update TextField API [#429](https://github.com/salute-developers/plasma/pull/429) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-web): Add import TextField from plasma-hope ([@neretin-trike](https://github.com/neretin-trike))
+
+#### ⚠️ Pushed to `master`
+
+- feat(plasma-web,plasma-b2c): Remove Input and Field components ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.190.0 (Fri Mar 24 2023)
 
 #### 🚀 Enhancement
