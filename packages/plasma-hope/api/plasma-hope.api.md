@@ -528,9 +528,11 @@ export interface ColSizeProps {
 }
 
 // @public
-export const Container: FC<PropsWithChildren<{
+export const Container: React_2.ForwardRefExoticComponent<React_2.HTMLAttributes<HTMLDivElement> & {
     design: 'b2c' | 'web';
-}>>;
+} & {
+    children?: React_2.ReactNode;
+} & React_2.RefAttributes<HTMLDivElement>>;
 
 export { convertRoundnessMatrix }
 

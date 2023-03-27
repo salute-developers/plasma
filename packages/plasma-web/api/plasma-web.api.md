@@ -161,7 +161,6 @@ import { Price } from '@salutejs/plasma-hope';
 import { PriceProps } from '@salutejs/plasma-hope';
 import { Progress } from '@salutejs/plasma-hope';
 import { ProgressProps } from '@salutejs/plasma-hope';
-import { PropsWithChildren } from 'react';
 import { Radiobox } from '@salutejs/plasma-hope';
 import { RadioboxProps } from '@salutejs/plasma-hope';
 import { RadioGroup } from '@salutejs/plasma-hope';
@@ -169,7 +168,7 @@ import { radiuses } from '@salutejs/plasma-core';
 import { Ratio } from '@salutejs/plasma-hope';
 import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
-import type { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { RectSkeleton } from '@salutejs/plasma-hope';
 import { RectSkeletonProps } from '@salutejs/plasma-hope';
 import { RefAttributes } from 'react';
@@ -408,9 +407,11 @@ export { ColProps }
 export { ColSizeProps }
 
 // @public
-export const Container: StyledComponent<FC<PropsWithChildren<    {
+export const Container: StyledComponent<ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & {
 design: "web" | "b2c";
-}>>, any, {
+} & {
+children?: ReactNode;
+} & RefAttributes<HTMLDivElement>>, any, {
 design: "web";
 }, "design">;
 
