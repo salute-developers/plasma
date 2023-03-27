@@ -18,13 +18,13 @@ export default {
     decorators: [InSpacingDecorator],
 } as Meta;
 
-interface DeafultStoryProps extends TabsProps {
+interface DefaultStoryProps extends TabsProps {
     itemsNumber: number;
     label: string;
     enableContentLeft: boolean;
 }
 
-export const Default: Story<DeafultStoryProps> = ({ itemsNumber, disabled, stretch, label, enableContentLeft }) => {
+export const Default: Story<DefaultStoryProps> = ({ itemsNumber, disabled, stretch, label, enableContentLeft }) => {
     const items = Array(itemsNumber).fill(0);
     const [index, setIndex] = useState(0);
 
@@ -54,7 +54,7 @@ Default.args = {
     label: 'Label',
 };
 
-export const Arrows: Story<DeafultStoryProps> = ({ itemsNumber, disabled, stretch, label, enableContentLeft }) => {
+export const Arrows: Story<DefaultStoryProps> = ({ itemsNumber, disabled, stretch, label, enableContentLeft }) => {
     const items = Array(itemsNumber).fill({
         label,
         contentLeft: enableContentLeft && <IconClock color="inherit" />,
