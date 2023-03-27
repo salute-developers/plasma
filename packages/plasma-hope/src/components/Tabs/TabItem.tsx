@@ -1,43 +1,10 @@
-import styled, { css } from 'styled-components';
-import { TabItem as BaseTabItem, secondary, footnote2 } from '@salutejs/plasma-core';
-import type { TabItemProps as BaseTabItemProps } from '@salutejs/plasma-core';
+import { TabItem as TabItemB2C } from './views/b2c/TabItem';
+import { TabItem as TabItemWeb } from './views/web/TabItem';
+import type { Design } from './types';
 
-import { link, linkHover, linkActive } from '../../tokens';
+const componentMap = {
+    b2c: TabItemB2C,
+    web: TabItemWeb,
+};
 
-export interface TabItemProps extends BaseTabItemProps {}
-
-/**
- * Элемент списка вкладок, недопустимо импользовать вне компонента Tabs.
- */
-export const TabItem = styled(BaseTabItem)`
-    ${footnote2};
-
-    /* stylelint-disable-next-line number-max-precision */
-    padding: 1rem 1.3125rem;
-    height: 3.75rem;
-
-    /* stylelint-disable-next-line number-max-precision */
-    box-shadow: inset 0 -0.0625rem 0 rgba(0, 0, 0, 0.16);
-    color: ${secondary};
-
-    transition: color 0.1s ease-in-out, box-shadow 0.3s ease-in-out;
-
-    &:hover {
-        color: ${linkHover};
-    }
-
-    /**
-     * Состояние активности
-     */
-    ${({ isActive }) =>
-        isActive &&
-        css`
-            color: ${link};
-            box-shadow: inset 0 -0.125rem 0 ${link};
-        `}
-
-    &.focus-visible:focus {
-        color: ${linkActive};
-        box-shadow: inset 0 -0.125rem 0 ${linkActive};
-    }
-`;
+export const TabItem = ({ design }: Design) => componentMap[design];
