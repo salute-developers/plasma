@@ -1,15 +1,10 @@
-import styled from 'styled-components';
-import { Tabs as BaseTabs } from '@salutejs/plasma-core';
-import type { TabsProps as BaseTabsProps } from '@salutejs/plasma-core';
+import { Design } from './types';
+import { Tabs as TabsB2C } from './views/b2c/Tabs';
+import { Tabs as TabsWeb } from './views/web/Tabs';
 
-export interface TabsProps extends BaseTabsProps {}
+const componentMap = {
+    b2c: TabsB2C,
+    web: TabsWeb,
+};
 
-/**
- * Контейнер вкладок, основной компонент для пользовательской сборки вкладок.
- */
-export const Tabs = styled(BaseTabs)<TabsProps>`
-    --tabs-margin: 1rem;
-    --tab-focus-border-size: 0rem;
-
-    gap: 0;
-`;
+export const Tabs = ({ design }: Design) => componentMap[design];
