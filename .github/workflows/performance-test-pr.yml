@@ -40,10 +40,10 @@ jobs:
           npm ci
           npx lerna bootstrap
 
-      - name: Use Node.js 16.15.x for master
-        uses: actions/setup-node@v1
+      - name: Setup Node.js for master
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.15.x
+          node-version-file: '.nvmrc'
 
       - name: Run performance test for master
         run: |
@@ -76,10 +76,10 @@ jobs:
           npm ci
           npx lerna bootstrap
 
-      - name: Use Node.js 16.15.x for PR
-        uses: actions/setup-node@v1
+      - name: Setup Node.js for PR
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.15.x
+          node-version-file: '.nvmrc'
 
       - name: Run performance test for PR
         run: |
