@@ -1,3 +1,41 @@
+# (Tue Mar 28 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-web): delete "Grid" unnecessary cypress snapshots ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.167.0`, `@salutejs/plasma-hope@0.25.0`, `@salutejs/plasma-web@1.192.0`
+  - feat: api report after merged Grid component [#436](https://github.com/salute-developers/plasma/pull/436) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.167.0`
+  - feat(plasma-b2c): add "Grid" cypress test ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-b2c): re-export "Grid" component from plasma-hope ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.192.0`
+  - feat(plasma-web): add "Grid" cypress test ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): re-export "Grid" component from plasma-hope ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.25.0`
+  - feat(plasma-hope): add "Grid" cypress test ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-hope): add "Grid" component ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore(deps): remove dependency @types/uuid [#441](https://github.com/salute-developers/plasma/pull/441) ([@Yeti-or](https://github.com/Yeti-or))
+- chore(deps): update dependency fast-glob to v3.2.12 [#411](https://github.com/salute-developers/plasma/pull/411) ([@renovate[bot]](https://github.com/renovate[bot]))
+- docs: Update CONTRIBUTING file [#440](https://github.com/salute-developers/plasma/pull/440) ([@neretin-trike](https://github.com/neretin-trike))
+- docs: fix pr base path [#439](https://github.com/salute-developers/plasma/pull/439) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-b2c@1.167.0`, `@salutejs/plasma-hope@0.25.0`, `@salutejs/plasma-web@1.192.0`
+  - feat(plasma-hope,plasma-web,plasma-b2c): Update API for `Container` component [#446](https://github.com/salute-developers/plasma/pull/446) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-hope@0.25.0`
+  - fix(plasmas-hope): Fix `Container` component for rest props in Grid ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 5
+
+- [@kayman233](https://github.com/kayman233)
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Fri Mar 24 2023)
 
 #### 🚀 Enhancement

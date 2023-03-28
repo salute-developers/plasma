@@ -1,3 +1,23 @@
+# v0.25.0 (Tue Mar 28 2023)
+
+#### 🚀 Enhancement
+
+- feat: api report after merged Grid component [#436](https://github.com/salute-developers/plasma/pull/436) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-hope): add "Grid" cypress test ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-hope): add "Grid" component ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- feat(plasma-hope,plasma-web,plasma-b2c): Update API for `Container` component [#446](https://github.com/salute-developers/plasma/pull/446) ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasmas-hope): Fix `Container` component for rest props in Grid ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 2
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.24.0 (Fri Mar 24 2023)
 
 #### 🚀 Enhancement

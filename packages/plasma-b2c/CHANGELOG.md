@@ -1,3 +1,24 @@
+# v1.167.0 (Tue Mar 28 2023)
+
+#### 🚀 Enhancement
+
+- feat: api report after merged Grid component [#436](https://github.com/salute-developers/plasma/pull/436) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): add "Grid" cypress test ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): re-export "Grid" component from plasma-hope ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- feat(plasma-hope,plasma-web,plasma-b2c): Update API for `Container` component [#446](https://github.com/salute-developers/plasma/pull/446) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.166.0 (Fri Mar 24 2023)
 
 #### 🚀 Enhancement
