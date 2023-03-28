@@ -14,5 +14,8 @@ export interface HeroSliderProps {
     items: HeroItemSliderProps[];
     onItemClick?: (item: HeroItemSliderProps, index: number) => void;
     onActiveItemChange?: (item: HeroItemSliderProps, index: number) => void;
-    getImageProps?: (index: number) => PickOptional<HeroSlideProps, 'imageFit' | 'imageWidth' | 'imagePosition'>;
+    getImageProps?: (
+        index: number,
+        item: HeroItemSliderProps,
+    ) => PickOptional<HeroSlideProps, 'imageFit' | 'imageWidth' | 'imagePosition'>;
 }
