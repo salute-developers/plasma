@@ -2,6 +2,18 @@
 
 #### 🚀 Enhancement
 
+- feat(plasma-website): Redesign for main slute website [#437](https://github.com/salute-developers/plasma/pull/437) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Tue Mar 28 2023)
+
+#### 🚀 Enhancement
+
 - feat(plasma-web): delete "Grid" unnecessary cypress snapshots ([@Yakutoc](https://github.com/Yakutoc))
 - `@salutejs/plasma-b2c@1.167.0`, `@salutejs/plasma-hope@0.25.0`, `@salutejs/plasma-web@1.192.0`
   - feat: api report after merged Grid component [#436](https://github.com/salute-developers/plasma/pull/436) ([@Yakutoc](https://github.com/Yakutoc))
