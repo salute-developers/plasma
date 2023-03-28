@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 import { Product, ProductProps } from './Product';
 
-const Root = styled.main``;
+const Root = styled.main`
+    margin-bottom: 2rem;
+`;
 
 interface ProductListProps {
     items: Array<ProductProps>;

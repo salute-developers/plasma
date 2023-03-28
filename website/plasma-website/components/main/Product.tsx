@@ -11,7 +11,7 @@ const MetaInfo = styled.div`
     display: flex;
 `;
 const Content = styled(BodyXS)`
-    margin-right: 2rem;
+    margin-right: 1rem;
 `;
 const Title = styled(DsplS)`
     display: inline-flex;
