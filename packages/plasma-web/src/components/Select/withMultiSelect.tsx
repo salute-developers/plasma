@@ -1,7 +1,6 @@
 import React, { forwardRef, useCallback, useMemo } from 'react';
 import type { ComponentType, RefAttributes } from 'react';
-
-import { DropdownItem } from '../Dropdown/Dropdown.types';
+import { DropdownItemType } from '@salutejs/plasma-hope';
 
 import { flattenItemsRecursive, setActiveRecursive } from './Select.utils';
 import type { SelectRefElement } from './SelectButton';
@@ -9,7 +8,7 @@ import type { SelectViewProps } from './SelectView';
 
 export interface MultiSelectProps extends Omit<SelectViewProps, 'onItemClick' | 'value' | 'label' | 'multiselect'> {
     /**
-     * Значение контрола.
+     * Значение control.
      */
     value: Array<string | number> | null;
     /**
@@ -28,7 +27,9 @@ export interface MultiSelectProps extends Omit<SelectViewProps, 'onItemClick' | 
 export const withMultiSelect = (View: ComponentType<SelectViewProps & RefAttributes<SelectRefElement>>) =>
     forwardRef<SelectRefElement, MultiSelectProps>(
         ({ value, items = [], separator = ', ', onChange, ...rest }, ref) => {
-            const isActive = useCallback((item: DropdownItem) => Boolean(value && value.includes(item.value)), [value]);
+            const isActive = useCallback((item: DropdownItemType) => Boolean(value && value.includes(item.value)), [
+                value,
+            ]);
 
             const viewValue = useMemo(
                 () =>
@@ -42,7 +43,7 @@ export const withMultiSelect = (View: ComponentType<SelectViewProps & RefAttribu
             const viewItems = useMemo(() => setActiveRecursive(items, isActive), [value, items, isActive]);
 
             const onItemSelect = useCallback(
-                (item: DropdownItem) => {
+                (item: DropdownItemType) => {
                     const set = new Set(value);
 
                     if (set.has(item.value)) {

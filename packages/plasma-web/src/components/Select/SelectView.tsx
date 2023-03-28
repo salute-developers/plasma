@@ -1,8 +1,7 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 import { TextFieldRoot, TextFieldHelper } from '@salutejs/plasma-core';
 import type { FieldProps as BaseProps, DisabledProps } from '@salutejs/plasma-core';
-
-import { withAssistiveDropdown } from '../Dropdown';
+import { withAssistiveDropdown } from '@salutejs/plasma-hope';
 
 import { SelectDropdown, SelectDropdownProps } from './SelectDropdown';
 import { SelectButton, SelectButtonProps, SelectRefElement } from './SelectButton';

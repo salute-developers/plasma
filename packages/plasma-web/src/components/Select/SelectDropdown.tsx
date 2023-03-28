@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-
-import { DropdownUncontrolled, DropdownUncontrolledProps } from '../Dropdown/DropdownUncontrolled';
+import { DropdownUncontrolled } from '@salutejs/plasma-hope';
+import type { DropdownUncontrolledProps } from '@salutejs/plasma-hope';
 
 export interface SelectDropdownProps extends DropdownUncontrolledProps {}
 
