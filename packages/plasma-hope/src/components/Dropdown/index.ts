@@ -13,3 +13,6 @@ export type { DropdownPopupProps } from './DropdownPopup';
 export type { DropdownItem as DropdownItemType, DropdownNode as DropdownNodeType } from './Dropdown.types';
 
 export { withAssistiveDropdown } from './withAssistiveDropdown';
+
+export { DropdownUncontrolled } from './DropdownUncontrolled';
+export type { DropdownUncontrolledProps } from './DropdownUncontrolled';
