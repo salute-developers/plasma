@@ -11,7 +11,7 @@ export interface DropdownMenuProps extends HTMLAttributes<HTMLUListElement> {
      */
     items: Array<DropdownNode>;
     /**
-     * Индекс айтема, который нужно подсветить.
+     * Индекс item, который нужно подсветить.
      */
     hoverIndex?: number;
     /**
@@ -19,18 +19,18 @@ export interface DropdownMenuProps extends HTMLAttributes<HTMLUListElement> {
      */
     itemRole?: string;
     /**
-     * Обработчик выбора айтема.
+     * Обработчик выбора item.
      */
     onItemSelect?: OnItemSelect;
     /**
-     * Обработчик наведения на айтем.
+     * Обработчик наведения на item.
      */
     onHover?: OnHover;
     children?: React.ReactNode;
 }
 
 /**
- * Меню дропдауна, выводящее текущий список и все вложенные в него списки в попапах.
+ * Меню dropdown, выводящее текущий список и все вложенные в него списки в popup.
  */
 export const DropdownMenu: FC<DropdownMenuProps> = ({
     id,

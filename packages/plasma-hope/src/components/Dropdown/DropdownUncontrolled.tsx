@@ -15,7 +15,7 @@ export interface DropdownUncontrolledProps
         > {}
 
 /**
- * Выпадающий список с внешнего контроля видимости через пропы `isOpen` и `onToggle`.
+ * Выпадающий список с внешнего контроля видимости через props: `isOpen` и `onToggle`.
  */
 export const DropdownUncontrolled: FC<DropdownUncontrolledProps> = ({
     id,

@@ -31,7 +31,7 @@ export interface WithAssistiveDropdownProps
 }
 
 /**
- * Декорирует переданный компонент, выводя доступный дропдаун.
+ * Декорирует переданный компонент, выводя доступный dropdown.
  */
 export const withAssistiveDropdown = <P extends object>(
     Component: ComponentType<P> | ForwardRefExoticComponent<P>,
