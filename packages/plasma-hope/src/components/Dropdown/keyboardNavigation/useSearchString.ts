@@ -8,7 +8,7 @@ export const useSearchString = () => {
     const getSearchString = useCallback(
         (char: string) => {
             // Скидываем таймаут и начинаем новый
-            // Это позволяет делать поиск с несколькими буквами, как нативный селект
+            // Это позволяет делать поиск с несколькими буквами, как нативный select
             if (searchTimeout.current) {
                 window.clearTimeout(searchTimeout.current);
             }

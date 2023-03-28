@@ -10,7 +10,7 @@ export const useOnComboType = ({ items, index }: { items: DropdownItem[]; index:
 
     return useCallback(
         (letter: string) => {
-            // Находим индекс первого подходящего айтема
+            // Находим индекс первого подходящего item
             const updatedSearchString = getSearchString(letter);
             const searchIndex = getIndexByLetter(
                 items.map((item) => item.label),

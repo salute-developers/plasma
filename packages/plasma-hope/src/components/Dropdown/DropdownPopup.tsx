@@ -12,7 +12,7 @@ export interface DropdownPopupProps extends PopupProps {
 }
 
 /**
- * Попап с внешним контролем над видимостью через пропы `isOpen` и `onToggle`.
+ * Popup с внешним контролем над видимостью через props: `isOpen` и `onToggle`.
  */
 export const DropdownPopup = styled(Popup)<DropdownPopupProps>`
     & & {
@@ -31,7 +31,7 @@ export const DropdownPopup = styled(Popup)<DropdownPopupProps>`
 `;
 
 /**
- * Попап, не требующий внешнего контроля над видимостью.
+ * Popup, не требующий внешнего контроля над видимостью.
  */
 export const DropdownSelfControlledPopup: FC<Omit<DropdownPopupProps, 'isOpen' | 'onToggle'>> = ({ ...rest }) => {
     const [isOpen, setIsOpen] = useState(false);

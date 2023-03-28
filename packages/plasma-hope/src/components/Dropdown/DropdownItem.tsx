@@ -30,7 +30,7 @@ export interface DropdownItemProps
      */
     isActive?: boolean;
     /**
-     * Программный ховер (нужен для навигации с клавиатуры).
+     * Программный hover (нужен для навигации с клавиатуры).
      */
     isHovered?: boolean;
     index: number;

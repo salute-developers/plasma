@@ -18,8 +18,8 @@ export interface UseKeyboardNavigationProps {
 export const INITIAL_INDEX = 0;
 
 /**
- * Клавиатурная навигация для дропдауна.
- * Работает для каждого инстанса дропдауна (попапа) отдельно.
+ * Клавиатурная навигация для dropdown.
+ * Работает для каждого instance dropdown, (popup) отдельно.
  */
 export const useKeyboardNavigation = ({
     items,
