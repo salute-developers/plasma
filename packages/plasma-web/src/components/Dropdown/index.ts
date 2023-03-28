@@ -1,11 +1,18 @@
-export type { DropdownItemProps } from './DropdownItem';
+export {
+    Dropdown,
+    DropdownList,
+    DropdownItem,
+    applyDropdownListCssProperties,
+    withAssistiveDropdown,
+    DropdownUncontrolled,
+    DropdownPopup,
+} from '@salutejs/plasma-hope';
 
-export { DropdownPopup } from './DropdownPopup';
-export type { DropdownPopupProps } from './DropdownPopup';
-
-export type { DropdownItem as DropdownItemType, DropdownNode as DropdownNodeType } from './Dropdown.types';
-
-export { withAssistiveDropdown } from './withAssistiveDropdown';
-
-export { Dropdown, DropdownList, DropdownItem, applyDropdownListCssProperties } from '@salutejs/plasma-hope';
-export type { DropdownProps, DropdownListCssProperties } from '@salutejs/plasma-hope';
+export type {
+    DropdownItem as DropdownItemType,
+    DropdownNodeType,
+    DropdownItemProps,
+    DropdownPopupProps,
+    DropdownProps,
+    DropdownListCssProperties,
+} from '@salutejs/plasma-hope';
