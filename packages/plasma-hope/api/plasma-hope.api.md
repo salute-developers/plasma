@@ -611,8 +611,6 @@ export interface DropdownPopupProps extends PopupProps {
     offsetTop?: string | number;
 }
 
-// Warning: (ae-forgotten-export) The symbol "DropdownUncontrolledProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export interface DropdownProps extends Omit<DropdownUncontrolledProps, 'isOpen' | 'hoverIndex'>, DropdownListCssProperties {
     closeOnSelect?: boolean;
@@ -620,6 +618,15 @@ export interface DropdownProps extends Omit<DropdownUncontrolledProps, 'isOpen' 
     //
     // @deprecated
     onItemClick?: OnItemSelect;
+}
+
+// @public
+export const DropdownUncontrolled: FC<DropdownUncontrolledProps>;
+
+// Warning: (ae-forgotten-export) The symbol "DropdownMenuProps" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export interface DropdownUncontrolledProps extends DisabledProps, Omit<DropdownMenuProps, 'onKeyDown' | 'onBlur'>, PickOptional<DropdownPopupProps, 'isOpen' | 'placement' | 'trigger' | 'offsetTop' | 'onToggle' | 'onKeyDown' | 'onBlur'> {
 }
 
 export { DsplL }
