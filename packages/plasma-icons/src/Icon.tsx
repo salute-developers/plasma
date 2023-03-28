@@ -45,6 +45,7 @@ import { TrashFilled } from './Icon.assets/TrashFilled';
 import { Cart } from './Icon.assets/Cart';
 import { CartAlt } from './Icon.assets/CartAlt';
 import { Drag } from './Icon.assets/Drag';
+import { Menu } from './Icon.assets/Menu';
 // Action
 import { Alarm } from './Icon.assets/Alarm';
 import { BankCard } from './Icon.assets/BankCard';
@@ -195,6 +196,7 @@ export const iconSectionsSet = {
         chevronUp: ChevronUp,
         maximize: Maximize,
         close: Close,
+        menu: Menu,
     },
     universal: {
         avatar: Avatar,

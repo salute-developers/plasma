@@ -43,6 +43,7 @@ export { IconCart } from './Icons/IconCart';
 export { IconCartAlt } from './Icons/IconCartAlt';
 export { IconPercentStroke } from './Icons/IconPercentStroke';
 export { IconDrag } from './Icons/IconDrag';
+export { IconMenu } from './Icons/IconMenu';
 // Action
 export { IconAlarm } from './Icons/IconAlarm';
 export { IconBankCard } from './Icons/IconBankCard';
