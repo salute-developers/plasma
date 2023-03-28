@@ -57,6 +57,7 @@ import { ClipboardEventHandler } from 'react';
 import type { ComponentType } from 'react';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
 import { CoverProps } from '@salutejs/plasma-core/components/Card/CardContent';
+import { createTabsController } from '@salutejs/plasma-core';
 import type { CSSObject } from 'styled-components';
 import { CSSProperties } from 'react';
 import type { DetailedHTMLProps } from 'react';
@@ -140,9 +141,9 @@ import { StyledComponent } from 'styled-components';
 import { SwitchProps } from '@salutejs/plasma-core';
 import type { SyntheticEvent } from 'react';
 import { syntheticFocus } from '@salutejs/plasma-core';
-import type { TabItemProps as TabItemProps_2 } from '@salutejs/plasma-core';
+import { TabItemProps as TabItemProps_2 } from '@salutejs/plasma-core';
 import { TabsControllerProps as TabsControllerProps_2 } from '@salutejs/plasma-core';
-import type { TabsProps as TabsProps_2 } from '@salutejs/plasma-core';
+import { TabsProps as TabsProps_2 } from '@salutejs/plasma-core';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
 import type { TextAreaProps as TextAreaProps_2 } from '@salutejs/plasma-core';
 import { TextareaResize } from '@salutejs/plasma-core';
@@ -541,6 +542,8 @@ export const Container: React_2.ForwardRefExoticComponent<React_2.HTMLAttributes
 } & React_2.RefAttributes<HTMLDivElement>>;
 
 export { convertRoundnessMatrix }
+
+export { createTabsController }
 
 // @public
 export const defaultValidate: (files: FileList | null, accept?: string | undefined) => ValidationResult;
@@ -1206,18 +1209,19 @@ export { SwitchProps }
 
 export { syntheticFocus }
 
-// @public
-export const TabItem: StyledComponent<ForwardRefExoticComponent<TabItemProps_2 & RefAttributes<HTMLButtonElement>>, any, {}, never>;
+// Warning: (ae-forgotten-export) The symbol "Design" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export const TabItem: ({ design }: Design) => StyledComponent<ForwardRefExoticComponent<TabItemProps_2 & RefAttributes<HTMLButtonElement>>, any, TabItemProps, never>;
 
 // @public (undocumented)
 export interface TabItemProps extends TabItemProps_2 {
+    // (undocumented)
+    animated?: boolean;
 }
 
-// @public
-export const Tabs: StyledComponent<ForwardRefExoticComponent<TabsProps_2 & RefAttributes<HTMLDivElement>>, any, TabsProps, never>;
-
-// @public
-export const TabsController: ForwardRefExoticComponent<TabsControllerProps_2 & RefAttributes<HTMLDivElement>>;
+// @public (undocumented)
+export const Tabs: ({ design }: Design) => StyledComponent<ForwardRefExoticComponent<TabsProps_2 & RefAttributes<HTMLDivElement>>, any, TabsProps, never>;
 
 // @public (undocumented)
 export interface TabsControllerProps extends TabsControllerProps_2 {
@@ -1225,6 +1229,13 @@ export interface TabsControllerProps extends TabsControllerProps_2 {
 
 // @public (undocumented)
 export interface TabsProps extends TabsProps_2 {
+    outsideScroll?: boolean | {
+        left?: string;
+        right?: string;
+    };
+    pilled?: boolean;
+    size?: 'l' | 's';
+    view?: 'secondary' | 'clear';
 }
 
 // @public (undocumented)

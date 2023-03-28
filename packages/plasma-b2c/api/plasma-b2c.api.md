@@ -201,9 +201,12 @@ import { Subtitle } from '@salutejs/plasma-hope';
 import { Switch } from '@salutejs/plasma-hope';
 import { SwitchProps } from '@salutejs/plasma-hope';
 import { syntheticFocus } from '@salutejs/plasma-core';
+import { TabItemProps } from '@salutejs/plasma-hope';
 import { TabItemProps as TabItemProps_2 } from '@salutejs/plasma-core';
+import { TabsControllerProps } from '@salutejs/plasma-hope';
 import { TabsControllerProps as TabsControllerProps_2 } from '@salutejs/plasma-core';
-import type { TabsProps as TabsProps_2 } from '@salutejs/plasma-core';
+import { TabsProps } from '@salutejs/plasma-hope';
+import { TabsProps as TabsProps_2 } from '@salutejs/plasma-core';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
 import { TextAreaProps } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
@@ -682,11 +685,7 @@ export { syntheticFocus }
 // @public
 export const TabItem: StyledComponent<ForwardRefExoticComponent<TabItemProps_2 & RefAttributes<HTMLButtonElement>>, any, TabItemProps, never>;
 
-// @public (undocumented)
-export interface TabItemProps extends AsProps, TabItemProps_2 {
-    // (undocumented)
-    animated?: boolean;
-}
+export { TabItemProps }
 
 // @public
 export const Tabs: StyledComponent<ForwardRefExoticComponent<TabsProps_2 & RefAttributes<HTMLDivElement>>, any, TabsProps, never>;
@@ -694,20 +693,9 @@ export const Tabs: StyledComponent<ForwardRefExoticComponent<TabsProps_2 & RefAt
 // @public
 export const TabsController: ForwardRefExoticComponent<TabsControllerProps_2 & RefAttributes<HTMLDivElement>>;
 
-// @public (undocumented)
-export interface TabsControllerProps extends TabsControllerProps_2 {
-}
+export { TabsControllerProps }
 
-// @public (undocumented)
-export interface TabsProps extends TabsProps_2 {
-    outsideScroll?: boolean | {
-        left?: string;
-        right?: string;
-    };
-    pilled?: boolean;
-    size?: 'l' | 's';
-    view?: 'secondary' | 'clear';
-}
+export { TabsProps }
 
 // @public
 export const TextArea: React_2.ForwardRefExoticComponent<TextAreaProps & React_2.RefAttributes<HTMLTextAreaElement>>;
