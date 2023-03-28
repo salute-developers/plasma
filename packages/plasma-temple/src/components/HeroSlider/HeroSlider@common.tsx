@@ -170,11 +170,12 @@ export const HeroSlider: React.FC<UnifiedComponentProps<HeroSliderProps, Platfor
 
     const imageProps = React.useMemo(() => {
         if (typeof getImageProps === 'function') {
-            return getImageProps(activeIndex);
+            // NOTE: item идет вторым параметром для сохранения обратной совместимости
+            return getImageProps(activeIndex, item);
         }
 
         return {};
-    }, [getImageProps, activeIndex]);
+    }, [getImageProps, item, activeIndex]);
 
     const textForButton = React.useMemo(() => {
         if (typeof buttonText === 'function') {
