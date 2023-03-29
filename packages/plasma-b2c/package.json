@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-b2c",
-    "version": "1.167.0",
+    "version": "1.168.0",
     "description": "Salute Design System / React UI kit for business-related web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "main": "index.js",
@@ -37,7 +37,7 @@
     },
     "dependencies": {
         "@salutejs/plasma-core": "1.106.0",
-        "@salutejs/plasma-hope": "0.25.0",
+        "@salutejs/plasma-hope": "0.26.0",
         "@salutejs/plasma-typo": "0.33.0"
     },
     "peerDependencies": {
@@ -56,7 +56,7 @@
         "@microsoft/api-extractor": "7.34.4",
         "@salutejs/plasma-colors": "0.6.0",
         "@salutejs/plasma-cy-utils": "0.50.0",
-        "@salutejs/plasma-icons": "1.134.0",
+        "@salutejs/plasma-icons": "1.135.0",
         "@salutejs/plasma-sb-utils": "0.104.0",
         "@salutejs/plasma-tokens-b2b": "1.14.0",
         "@salutejs/plasma-tokens-b2c": "0.23.0",
