@@ -38,9 +38,9 @@ import { Button1 } from '@salutejs/plasma-core';
 import { Button2 } from '@salutejs/plasma-core';
 import type { ButtonContentProps } from '@salutejs/plasma-core';
 import { ButtonHTMLAttributes } from 'react';
-import type { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-core';
-import type { ButtonSizeProps } from '@salutejs/plasma-core';
-import type { ButtonViewProps } from '@salutejs/plasma-core';
+import { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-core';
+import { ButtonSizeProps } from '@salutejs/plasma-core';
+import { ButtonViewProps } from '@salutejs/plasma-core';
 import { canUseDOM } from '@salutejs/plasma-core';
 import { Caption } from '@salutejs/plasma-core';
 import { CardBodyProps } from '@salutejs/plasma-core';
@@ -280,29 +280,35 @@ export { BodyXXS }
 // @public (undocumented)
 export type Breakpoint = keyof typeof gridBreakpoints;
 
-// @public
-export const Button: ForwardRefExoticComponent<(ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
-text?: ReactNode;
-contentLeft?: ReactNode;
-contentRight?: undefined;
-children?: undefined;
-isLoading?: boolean | undefined;
-loader?: ReactNode;
-} & RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
-text?: ReactNode;
-contentLeft?: undefined;
-contentRight?: ReactNode;
-children?: undefined;
-isLoading?: boolean | undefined;
-loader?: ReactNode;
-} & RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
-text?: undefined;
-contentLeft?: undefined;
-contentRight?: undefined;
-children?: ReactNode;
-isLoading?: boolean | undefined;
-loader?: ReactNode;
-} & RefAttributes<HTMLButtonElement>)>;
+// @public (undocumented)
+export const Button: React_2.ForwardRefExoticComponent<(ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
+    text?: React_2.ReactNode;
+    contentLeft?: React_2.ReactNode;
+    contentRight?: undefined;
+    children?: undefined;
+    isLoading?: boolean | undefined;
+    loader?: React_2.ReactNode;
+} & {
+    design: 'b2c' | 'web';
+} & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
+    text?: React_2.ReactNode;
+    contentLeft?: undefined;
+    contentRight?: React_2.ReactNode;
+    children?: undefined;
+    isLoading?: boolean | undefined;
+    loader?: React_2.ReactNode;
+} & {
+    design: 'b2c' | 'web';
+} & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
+    text?: undefined;
+    contentLeft?: undefined;
+    contentRight?: undefined;
+    children?: React_2.ReactNode;
+    isLoading?: boolean | undefined;
+    loader?: React_2.ReactNode;
+} & {
+    design: 'b2c' | 'web';
+} & React_2.RefAttributes<HTMLButtonElement>)>;
 
 export { Button1 }
 
