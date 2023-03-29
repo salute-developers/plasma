@@ -1,5 +1,18 @@
 # (Wed Mar 29 2023)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-temple@1.147.0`
+  - feat(plasma-temple): update getImageProps slider args [#451](https://github.com/salute-developers/plasma/pull/451) ([@shirinovIldar](https://github.com/shirinovIldar))
+
+#### Authors: 1
+
+-  Ildar Shirinov ([@shirinovIldar](https://github.com/shirinovIldar))
+
+---
+
+# (Wed Mar 29 2023)
+
 #### 🐛 Bug Fix
 
 - fix(plasma-website): Fix by design review [#452](https://github.com/salute-developers/plasma/pull/452) ([@neretin-trike](https://github.com/neretin-trike))
