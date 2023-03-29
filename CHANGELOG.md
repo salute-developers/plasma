@@ -2,6 +2,25 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-b2c@1.169.0`, `@salutejs/plasma-hope@0.27.0`, `@salutejs/plasma-web@1.194.0`
+  - feat(plasma-hope,plasma-web,plasma-b2c): Update Button API [#453](https://github.com/salute-developers/plasma/pull/453) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.169.0`
+  - feat(plasma-b2c): Add import Button from plasma-hope ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-web@1.194.0`
+  - feat(plasma-web): Add import Button from plasma-hope ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-hope@0.27.0`
+  - feat(plasma-hope): Add Button union from plasma-web and plasma-b2c ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Wed Mar 29 2023)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-temple@1.147.0`
   - feat(plasma-temple): update getImageProps slider args [#451](https://github.com/salute-developers/plasma/pull/451) ([@shirinovIldar](https://github.com/shirinovIldar))
 

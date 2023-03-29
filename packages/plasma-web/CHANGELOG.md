@@ -1,3 +1,16 @@
+# v1.194.0 (Wed Mar 29 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-hope,plasma-web,plasma-b2c): Update Button API [#453](https://github.com/salute-developers/plasma/pull/453) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-web): Add import Button from plasma-hope ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.192.0 (Tue Mar 28 2023)
 
 #### 🚀 Enhancement
