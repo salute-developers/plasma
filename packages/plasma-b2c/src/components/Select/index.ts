@@ -1,4 +1,4 @@
 export { Select } from './Select';
-export type { SelectProps } from './Select';
+export type { SelectProps } from '@salutejs/plasma-hope';
 
-export { SelectGroup } from './SelectGroup';
+export { SelectGroup } from '@salutejs/plasma-hope';
