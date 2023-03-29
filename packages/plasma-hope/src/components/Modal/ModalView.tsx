@@ -61,6 +61,7 @@ export const ModalView = React.forwardRef<HTMLDivElement, ModalViewProps>(
                 <StyledBody {...rest} ref={ref} role={role} aria-modal="true">
                     <StyledContent>{children}</StyledContent>
                     <StyledButtonClose
+                        design="web"
                         aria-label={closeButtonAriaLabel}
                         onClick={onClose}
                         contentLeft={<IconClose size="s" color="inherit" />}

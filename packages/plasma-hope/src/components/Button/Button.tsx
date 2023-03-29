@@ -1,31 +1,24 @@
-import styled from 'styled-components';
-import { createButton, ButtonRoot } from '@salutejs/plasma-core';
-import type {
-    ButtonProps as BaseProps,
-    ButtonContentProps,
-    ButtonSizeProps,
-    ButtonViewProps,
-} from '@salutejs/plasma-core';
+import React, { forwardRef, useMemo } from 'react';
+import { createButton } from '@salutejs/plasma-core';
 
-import { applySizes } from './Button.mixins';
-import { buttonViews } from './Button.props';
-import type { ButtonView } from './Button.props';
+import { ButtonWeb } from './views/web/ButtonWeb';
+import { ButtonB2C } from './views/b2c/ButtonB2C';
+import type { ButtonProps as ButtonPropsBase } from './types';
 
-export type ButtonProps = BaseProps &
-    Partial<ButtonSizeProps> &
-    Partial<ButtonViewProps<ButtonView>> &
-    ButtonContentProps;
+const componentMap = {
+    web: ButtonWeb,
+    b2c: ButtonB2C,
+};
 
-const StyledButtonRoot = styled(ButtonRoot)<Partial<ButtonSizeProps> & Partial<ButtonViewProps<ButtonView>>>`
-    ${applySizes}
-    ${({ view }) => buttonViews[view]}
-`;
+export type ButtonProps = ButtonPropsBase & {
+    design: 'b2c' | 'web';
+};
 
-/**
- * Кнопка.
- * Поддерживает несколько режимов отображения (`view`) и размеров (`size`).
- */
-export const Button = createButton<HTMLButtonElement, ButtonProps>(StyledButtonRoot);
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ design, ...rest }, ref) => {
+    const ButtonView = useMemo(() => createButton<HTMLButtonElement, ButtonPropsBase>(componentMap[design]), [design]);
+
+    return <ButtonView {...rest} ref={ref} />;
+});
 
 Button.defaultProps = {
     size: 'm',
