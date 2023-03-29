@@ -1,12 +1,15 @@
 import React, { forwardRef, ReactElement, RefAttributes } from 'react';
+import styled from 'styled-components';
 
 import type { DropdownListCssProperties } from '../Dropdown';
+import { applyDropdownListCssProperties } from '../Dropdown';
 
 import { SelectView } from './SelectView';
 import { withSingleSelect } from './withSingleSelect';
 import { withMultiSelect } from './withMultiSelect';
 import type { SelectViewProps } from './SelectView';
 import type { SelectRefElement } from './SelectButton';
+import type { Design } from './types';
 
 export type SelectProps<T = any> = (
     | {
@@ -41,17 +44,17 @@ export type SelectProps<T = any> = (
 } & Omit<SelectViewProps, 'onItemClick' | 'value' | 'label' | 'multiselect'> &
     DropdownListCssProperties;
 
-const SingleSelect = withSingleSelect(SelectView);
-const MultiSelect = withMultiSelect(SelectView);
+const StyledSelectView = styled(SelectView)`
+    ${applyDropdownListCssProperties};
+`;
 
-/**
- * Выпадающий список для использования в формах.
- * Поддерживает выбор одного или нескольких значений.
- */
-// eslint-disable-next-line prefer-arrow-callback
-export const Select = forwardRef<SelectRefElement, SelectProps>(function Select(props, ref) {
-    if (props.multiselect) {
-        return <MultiSelect ref={ref} {...props} />;
-    }
-    return <SingleSelect ref={ref} {...props} />;
-}) as <T>(props: SelectProps<T> & RefAttributes<SelectRefElement>) => ReactElement;
+const SingleSelect = withSingleSelect(StyledSelectView);
+const MultiSelect = withMultiSelect(StyledSelectView);
+
+export const Select = ({ design }: Design) =>
+    forwardRef<SelectRefElement, SelectProps>((props, ref) => {
+        if (props.multiselect) {
+            return <MultiSelect design={design} ref={ref} {...props} />;
+        }
+        return <SingleSelect design={design} ref={ref} {...props} />;
+    }) as <T>(props: SelectProps<T> & RefAttributes<SelectRefElement>) => ReactElement;

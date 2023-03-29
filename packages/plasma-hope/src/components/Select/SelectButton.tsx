@@ -16,6 +16,9 @@ import { IconChevronDown } from '@salutejs/plasma-icons';
 
 import { inputBorder, inputBorderHover } from '../../tokens';
 
+import { applyB2CSelectButton } from './views/b2c/SelectButton';
+import { Design } from './types';
+
 export interface FieldProps extends BaseProps, DisabledProps, HTMLAttributes<HTMLLabelElement> {}
 
 export type SelectRefElement = HTMLButtonElement;
@@ -32,6 +35,10 @@ export interface SelectButtonProps
     children?: never;
 }
 
+export interface StyledButtonProps extends Pick<SelectButtonProps, 'status' | 'hasItems' | 'isOpen'> {
+    focused?: boolean;
+}
+
 const statuses = {
     success,
     warning,
@@ -44,6 +51,7 @@ const StyledArrow = styled(IconChevronDown)`
     pointer-events: none;
     user-select: none;
 `;
+
 const StyledText = styled.span`
     ${applyEllipsis};
 
@@ -52,6 +60,7 @@ const StyledText = styled.span`
     pointer-events: none;
     user-select: none;
 `;
+
 const StyledPlaceholder = styled.span`
     ${applyEllipsis};
 
@@ -60,10 +69,7 @@ const StyledPlaceholder = styled.span`
     user-select: none;
 `;
 
-interface StyledButtonProps extends Pick<SelectButtonProps, 'status' | 'hasItems' | 'isOpen'> {
-    focused?: boolean;
-}
-const StyledButton = styled.button<StyledButtonProps>`
+const StyledButton = styled.button<StyledButtonProps & Design>`
     ${body1};
 
     display: flex;
@@ -130,10 +136,12 @@ const StyledButton = styled.button<StyledButtonProps>`
                 transform: rotate(-180deg);
             }
         `}
+
+    ${({ design, ...props }) => design === 'b2c' && applyB2CSelectButton(props)}
 `;
 
 // eslint-disable-next-line prefer-arrow-callback
-export const SelectButton = forwardRef<SelectRefElement, SelectButtonProps>(function SelectButton(
+export const SelectButton = forwardRef<SelectRefElement, SelectButtonProps & Design>(function SelectButton(
     { value, placeholder, hasItems, ...rest },
     ref,
 ) {
