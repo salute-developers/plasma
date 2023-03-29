@@ -1,1 +1,0 @@
-../../../../plasma-web/src/components/Select/Select.component-test.tsx
