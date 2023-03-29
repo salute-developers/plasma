@@ -1,5 +1,17 @@
 # (Wed Mar 29 2023)
 
+#### 🐛 Bug Fix
+
+- fix(plasma-website): Fix by design review [#452](https://github.com/salute-developers/plasma/pull/452) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Wed Mar 29 2023)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-icons@1.135.0`
