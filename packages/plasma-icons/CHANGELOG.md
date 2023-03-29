@@ -1,3 +1,15 @@
+# v1.135.0 (Wed Mar 29 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-icons): add "Menu" icon [#448](https://github.com/salute-developers/plasma/pull/448) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.134.0 (Tue Mar 21 2023)
 
 #### 🐛 Bug Fix
