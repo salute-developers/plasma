@@ -2,6 +2,30 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-b2c@1.170.0`, `@salutejs/plasma-hope@0.28.0`, `@salutejs/plasma-web@1.195.0`
+  - feat: api report after merged "Tabs" component [#445](https://github.com/salute-developers/plasma/pull/445) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.195.0`
+  - feat(plasma-web): re-export "Tabs" component from plasma-hope [#445](https://github.com/salute-developers/plasma/pull/445) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.170.0`
+  - feat(plasma-b2c): re-export "Tabs" component from plasma-hope [#445](https://github.com/salute-developers/plasma/pull/445) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.28.0`
+  - feat(plasma-hope): add "Tabs" component [#445](https://github.com/salute-developers/plasma/pull/445) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore(deps): update dependency @types/cypress-image-snapshot to v3.1.6 [#399](https://github.com/salute-developers/plasma/pull/399) ([@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Wed Mar 29 2023)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-b2c@1.169.0`, `@salutejs/plasma-hope@0.27.0`, `@salutejs/plasma-web@1.194.0`
   - feat(plasma-hope,plasma-web,plasma-b2c): Update Button API [#453](https://github.com/salute-developers/plasma/pull/453) ([@neretin-trike](https://github.com/neretin-trike))
 - `@salutejs/plasma-b2c@1.169.0`

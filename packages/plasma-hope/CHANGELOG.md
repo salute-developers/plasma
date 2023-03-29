@@ -1,3 +1,16 @@
+# v0.28.0 (Wed Mar 29 2023)
+
+#### 🚀 Enhancement
+
+- feat: api report after merged "Tabs" component [#445](https://github.com/salute-developers/plasma/pull/445) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-hope): add "Tabs" component [#445](https://github.com/salute-developers/plasma/pull/445) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v0.27.0 (Wed Mar 29 2023)
 
 #### 🚀 Enhancement
