@@ -1,4 +1,4 @@
-export { Button } from '@salutejs/plasma-hope';
+export { Button } from './Button';
 export type { ButtonProps } from '@salutejs/plasma-hope';
 
 export { buttonViews } from '@salutejs/plasma-hope';
