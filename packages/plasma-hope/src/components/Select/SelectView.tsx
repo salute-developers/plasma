@@ -1,11 +1,11 @@
-import React, { forwardRef, HTMLAttributes } from 'react';
-import { TextFieldRoot, TextFieldHelper } from '@salutejs/plasma-core';
+import React, { useMemo, forwardRef, HTMLAttributes } from 'react';
 import type { FieldProps as BaseProps, DisabledProps } from '@salutejs/plasma-core';
 
-import { withAssistiveDropdown } from '../Dropdown';
-
-import { SelectDropdown, SelectDropdownProps } from './SelectDropdown';
-import { SelectButton, SelectButtonProps, SelectRefElement } from './SelectButton';
+import { SelectDropdownProps } from './SelectDropdown';
+import { SelectButtonProps, SelectRefElement } from './SelectButton';
+import { SelectView as SelectViewWeb } from './views/web/SelectView';
+import { SelectView as SelectViewB2C } from './views/b2c/SelectView';
+import { Design } from './types';
 
 export interface FieldProps extends BaseProps, DisabledProps, HTMLAttributes<HTMLLabelElement> {}
 
@@ -19,60 +19,17 @@ export interface SelectViewProps
     multiselect?: boolean;
 }
 
-const DropdownButton = withAssistiveDropdown(SelectButton, SelectDropdown);
+const componentsMap = {
+    web: SelectViewWeb,
+    b2c: SelectViewB2C,
+};
 
 /**
  * Поле с выпадающим списком.
  */
-export const SelectView = forwardRef<SelectRefElement, SelectViewProps>(
-    (
-        {
-            id,
-            placeholder,
-            value,
-            helperText,
-            disabled,
-            status,
-            className,
-            style,
-            items,
-            multiselect,
-            onItemSelect,
-            ...rest
-        },
-        ref,
-    ) => {
-        const hasItems = Array.isArray(items) && items.length > 0;
+export const SelectView = forwardRef<SelectRefElement, SelectViewProps & Design>((props, ref) => {
+    const { design } = props;
+    const SelectViewBase = useMemo(() => componentsMap[design], [design]);
 
-        return (
-            <TextFieldRoot
-                id={id}
-                $size="m"
-                $disabled={disabled}
-                $isContentRight={hasItems}
-                $isHelper={Boolean(helperText)}
-                status={status}
-                className={className}
-                style={style}
-            >
-                <DropdownButton
-                    {...rest}
-                    ref={ref}
-                    id={id ? `${id}-dropdown` : id}
-                    role="combobox"
-                    menuRole="listbox"
-                    menuItemRole="option"
-                    value={value}
-                    placeholder={placeholder}
-                    hasItems={hasItems}
-                    status={status}
-                    items={items}
-                    disabled={disabled}
-                    closeOnSelect={!multiselect}
-                    onItemSelect={onItemSelect}
-                />
-                {helperText && <TextFieldHelper>{helperText}</TextFieldHelper>}
-            </TextFieldRoot>
-        );
-    },
-);
+    return <SelectViewBase {...props} ref={ref} />;
+});

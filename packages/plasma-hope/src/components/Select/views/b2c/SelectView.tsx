@@ -1,80 +1,17 @@
 import React, { forwardRef } from 'react';
-import styled, { css } from 'styled-components';
-import {
-    TextFieldRoot,
-    TextFieldHelper,
-    button2,
-    surfaceLiquid01,
-    surfaceLiquid02,
-    primary,
-    success,
-    warning,
-    critical,
-} from '@salutejs/plasma-core';
-import {
-    SelectDropdown as BaseDropdown,
-    SelectButton as BaseButton,
-    withAssistiveDropdown,
-} from '@salutejs/plasma-hope';
-import type { SelectViewProps, SelectRefElement } from '@salutejs/plasma-hope';
+import styled from 'styled-components';
+import { TextFieldRoot, TextFieldHelper } from '@salutejs/plasma-core';
+
+import type { SelectViewProps } from '../../SelectView';
+import type { SelectRefElement } from '../../SelectButton';
+import { SelectButton as BaseButton } from '../../SelectButton';
+import { SelectDropdown as BaseDropdown } from '../../SelectDropdown';
+import { withAssistiveDropdown } from '../../../Dropdown';
 
 import { SelectGroup } from './SelectGroup';
 
-const statuses = {
-    success,
-    warning,
-    error: critical,
-};
+const SelectButton = styled(BaseButton).attrs({ design: 'b2c' })``;
 
-const SelectButton = styled(BaseButton)`
-    ${button2}
-
-    --plasma-select-button-arrow-margin: 0 -0.25rem 0 0.75rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-
-    width: 100%;
-    height: 3rem;
-    padding: 1rem;
-
-    background-color: ${surfaceLiquid01};
-    border: 0 none;
-    border-radius: 0.75rem;
-    color: ${primary};
-    transition: background-color 0.3s ease-in-out;
-
-    &:focus {
-        outline: 0 none;
-    }
-
-    &:disabled {
-        cursor: inherit;
-    }
-
-    ${({ hasItems }) =>
-        hasItems &&
-        css`
-            &:hover:not(:disabled),
-            &:focus:not(:disabled) {
-                background-color: ${surfaceLiquid02};
-                color: ${primary};
-                cursor: pointer;
-            }
-        `}
-
-    &:focus:not(:disabled) {
-        background-color: ${surfaceLiquid02};
-    }
-
-    ${({ status }) =>
-        status &&
-        css`
-            color: ${statuses[status]};
-        `}
-`;
 const StyledRoot = styled(TextFieldRoot)`
     /* stylelint-disable-next-line declaration-block-semicolon-newline-after, rule-empty-line-before */
     ${SelectGroup} &:not(:last-child) {
@@ -93,17 +30,8 @@ const StyledRoot = styled(TextFieldRoot)`
         border-bottom-right-radius: 0;
     }
 `;
-const SelectDropdown = styled(BaseDropdown)`
-    --plasma-dropdown-padding: 0.125rem;
-    --plasma-dropdown-border-radius: 0.875rem;
-    --plasma-dropdown-item-height: 2.75rem;
-    --plasma-dropdown-item-padding: 0.875rem;
-    --plasma-dropdown-item-border-radius: 0.75rem;
-    --plasma-dropdown-item-font-size: ${button2.fontSize};
-    --plasma-dropdown-item-font-weight: ${button2.fontWeight};
-    --plasma-dropdown-item-line-height: ${button2.lineHeight};
-    --plasma-dropdown-item-letter-spacing: ${button2.letterSpacing};
-`;
+
+const SelectDropdown = styled(BaseDropdown).attrs({ design: 'b2c' })``;
 
 const DropdownButton = withAssistiveDropdown(SelectButton, SelectDropdown);
 

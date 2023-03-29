@@ -6,10 +6,11 @@ import { DropdownItem } from '../Dropdown/Dropdown.types';
 import { flattenItemsRecursive, setActiveRecursive } from './Select.utils';
 import type { SelectRefElement } from './SelectButton';
 import type { SelectViewProps } from './SelectView';
+import { Design } from './types';
 
 export interface MultiSelectProps extends Omit<SelectViewProps, 'onItemClick' | 'value' | 'label' | 'multiselect'> {
     /**
-     * Значение контрола.
+     * Значение control.
      */
     value: Array<string | number> | null;
     /**
@@ -26,7 +27,7 @@ export interface MultiSelectProps extends Omit<SelectViewProps, 'onItemClick' | 
  * Выпадающий список с возможностью выбора нескольких значений.
  */
 export const withMultiSelect = (View: ComponentType<SelectViewProps & RefAttributes<SelectRefElement>>) =>
-    forwardRef<SelectRefElement, MultiSelectProps>(
+    forwardRef<SelectRefElement, MultiSelectProps & Design>(
         ({ value, items = [], separator = ', ', onChange, ...rest }, ref) => {
             const isActive = useCallback((item: DropdownItem) => Boolean(value && value.includes(item.value)), [value]);
 

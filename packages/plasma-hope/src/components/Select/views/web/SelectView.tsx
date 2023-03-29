@@ -1,22 +1,14 @@
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef } from 'react';
 import { TextFieldRoot, TextFieldHelper } from '@salutejs/plasma-core';
-import type { FieldProps as BaseProps, DisabledProps } from '@salutejs/plasma-core';
-import { withAssistiveDropdown } from '@salutejs/plasma-hope';
+import styled from 'styled-components';
 
-import { SelectDropdown, SelectDropdownProps } from './SelectDropdown';
-import { SelectButton, SelectButtonProps, SelectRefElement } from './SelectButton';
+import { withAssistiveDropdown } from '../../../Dropdown';
+import { SelectDropdown as BaseDropdown } from '../../SelectDropdown';
+import { SelectButton as BaseButton, SelectRefElement } from '../../SelectButton';
+import { SelectViewProps } from '../../SelectView';
 
-export interface FieldProps extends BaseProps, DisabledProps, HTMLAttributes<HTMLLabelElement> {}
-
-export interface SelectViewProps
-    extends Pick<FieldProps, 'status' | 'placeholder' | 'helperText' | 'disabled'>,
-        Pick<SelectDropdownProps, 'items' | 'onItemSelect'>,
-        Omit<SelectButtonProps, 'hasItems' | 'isExpanded' | 'onChange'> {
-    /**
-     * Выбор нескольких значений.
-     */
-    multiselect?: boolean;
-}
+const SelectDropdown = styled(BaseDropdown).attrs({ design: 'web' })``;
+const SelectButton = styled(BaseButton).attrs({ design: 'web' })``;
 
 const DropdownButton = withAssistiveDropdown(SelectButton, SelectDropdown);
 
