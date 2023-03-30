@@ -1,20 +1,18 @@
-import React, { ChangeEventHandler, forwardRef, KeyboardEvent, useCallback, useMemo } from 'react';
+import React, { ChangeEventHandler, forwardRef, KeyboardEvent, useCallback } from 'react';
 
 import { TextFieldWeb } from './views/web/TextFieldWeb';
 import { TextFieldB2C } from './views/b2c/TextFieldB2C';
-import type { TextFieldProps as TextFieldPropsBase } from './types';
+import type { TextFieldProps, Design } from './types';
 
 const componentMap = {
     web: TextFieldWeb,
     b2c: TextFieldB2C,
 };
 
-export type TextFieldProps = TextFieldPropsBase & {
-    design: 'b2c' | 'web';
-};
+export const TextField = ({ design }: Design) => {
+    const TextFieldView = componentMap[design];
 
-export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
-    ({ design, onSearch, onChange, ...rest }, innerRef) => {
+    return forwardRef<HTMLInputElement, TextFieldProps>(({ onSearch, onChange, ...rest }, innerRef) => {
         const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
             (event) => {
                 const { maxLength, value } = event.target;
@@ -37,8 +35,6 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
             [onSearch],
         );
 
-        const TextFieldView = useMemo(() => componentMap[design], [design]);
-
         return <TextFieldView ref={innerRef} onChange={handleChange} onKeyUp={handleKeyUp} {...rest} />;
-    },
-);
+    });
+};

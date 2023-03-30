@@ -41,7 +41,7 @@ const StyledBody = styled.div`
 const StyledContent = styled.div`
     padding: 2rem;
 `;
-const StyledButtonClose = styled(Button).attrs(() => ({ view: 'clear' }))`
+const StyledButtonClose = styled(Button({ design: 'web' })).attrs(() => ({ view: 'clear' }))`
     position: absolute;
     top: 0;
     right: 0;
@@ -61,7 +61,6 @@ export const ModalView = React.forwardRef<HTMLDivElement, ModalViewProps>(
                 <StyledBody {...rest} ref={ref} role={role} aria-modal="true">
                     <StyledContent>{children}</StyledContent>
                     <StyledButtonClose
-                        design="web"
                         aria-label={closeButtonAriaLabel}
                         onClick={onClose}
                         contentLeft={<IconClose size="s" color="inherit" />}

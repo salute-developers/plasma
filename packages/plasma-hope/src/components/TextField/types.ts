@@ -59,3 +59,7 @@ export interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElemen
 export interface TextFieldPropsCommon extends TextFieldProps {
     onKeyUp?: (event: KeyboardEvent<HTMLInputElement>) => void;
 }
+
+export type Design = {
+    design: 'b2c' | 'web';
+};

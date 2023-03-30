@@ -65,3 +65,7 @@ export const offsets: Record<Breakpoint, keyof ColOffsetProps> = {
     XL: 'offsetXL',
     XXL: 'offsetXXL',
 };
+
+export type Design = {
+    design: 'b2c' | 'web';
+};
