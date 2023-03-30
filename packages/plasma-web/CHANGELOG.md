@@ -1,3 +1,21 @@
+# v1.196.0 (Thu Mar 30 2023)
+
+#### 🚀 Enhancement
+
+- feat: api report after merged "Dropdown" component [#447](https://github.com/salute-developers/plasma/pull/447) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web): add symlink for cypress test ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web): re-export "Dropdown" component from "plasma-hope" ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web): [Select] replace import path to "@salutejs/plasma-hope" ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.195.0 (Wed Mar 29 2023)
 
 #### 🚀 Enhancement

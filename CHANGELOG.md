@@ -1,3 +1,36 @@
+# (Thu Mar 30 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): update snapshots ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.29.0`, `@salutejs/plasma-web@1.196.0`
+  - feat: api report after merged "Dropdown" component [#447](https://github.com/salute-developers/plasma/pull/447) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.171.0`
+  - feat(plasma-web): add correct symlink for cypress test ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.196.0`
+  - feat(plasma-web): add symlink for cypress test ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): re-export "Dropdown" component from "plasma-hope" ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.29.0`
+  - feat(plasma-hope): add cypress test ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-hope): export DropdownUncontrolled component ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-web@1.196.0`
+  - fix(plasma-web): [Select] replace import path to "@salutejs/plasma-hope" ([@Yakutoc](https://github.com/Yakutoc))
+
+#### ⚠️ Pushed to `master`
+
+- chore(plasma-web): update snapshots ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.29.0`
+  - docs(plasma-hope): fix typo ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Wed Mar 29 2023)
 
 #### 🚀 Enhancement

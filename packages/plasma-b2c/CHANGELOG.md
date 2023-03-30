@@ -1,3 +1,15 @@
+# v1.171.0 (Thu Mar 30 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-web): add correct symlink for cypress test ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.170.0 (Wed Mar 29 2023)
 
 #### 🚀 Enhancement

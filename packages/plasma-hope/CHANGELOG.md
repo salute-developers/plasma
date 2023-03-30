@@ -1,3 +1,21 @@
+# v0.29.0 (Thu Mar 30 2023)
+
+#### 🚀 Enhancement
+
+- feat: api report after merged "Dropdown" component [#447](https://github.com/salute-developers/plasma/pull/447) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-hope): add cypress test ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-hope): export DropdownUncontrolled component ([@Yakutoc](https://github.com/Yakutoc))
+
+#### ⚠️ Pushed to `master`
+
+- docs(plasma-hope): fix typo ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v0.28.0 (Wed Mar 29 2023)
 
 #### 🚀 Enhancement
