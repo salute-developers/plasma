@@ -2,9 +2,11 @@ import React, { forwardRef } from 'react';
 import { TextArea as TextAreaHope } from '@salutejs/plasma-hope';
 import type { TextAreaProps } from '@salutejs/plasma-hope';
 
+const TextAreaBase = TextAreaHope({ design: 'web' });
+
 /**
  * Поле ввода многострочного текста.
  */
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>((props, ref) => (
-    <TextAreaHope design="web" {...props} ref={ref} />
+    <TextAreaBase {...props} ref={ref} />
 ));
