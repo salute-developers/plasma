@@ -281,16 +281,16 @@ export { BodyXXS }
 // @public (undocumented)
 export type Breakpoint = keyof typeof gridBreakpoints;
 
+// Warning: (ae-forgotten-export) The symbol "Design" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const Button: React_2.ForwardRefExoticComponent<(ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
+export const Button: ({ design }: Design) => React_2.ForwardRefExoticComponent<(ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
     text?: React_2.ReactNode;
     contentLeft?: React_2.ReactNode;
     contentRight?: undefined;
     children?: undefined;
     isLoading?: boolean | undefined;
     loader?: React_2.ReactNode;
-} & {
-    design: 'b2c' | 'web';
 } & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
     text?: React_2.ReactNode;
     contentLeft?: undefined;
@@ -298,8 +298,6 @@ export const Button: React_2.ForwardRefExoticComponent<(ButtonProps_2<HTMLElemen
     children?: undefined;
     isLoading?: boolean | undefined;
     loader?: React_2.ReactNode;
-} & {
-    design: 'b2c' | 'web';
 } & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
     text?: undefined;
     contentLeft?: undefined;
@@ -307,8 +305,6 @@ export const Button: React_2.ForwardRefExoticComponent<(ButtonProps_2<HTMLElemen
     children?: React_2.ReactNode;
     isLoading?: boolean | undefined;
     loader?: React_2.ReactNode;
-} & {
-    design: 'b2c' | 'web';
 } & React_2.RefAttributes<HTMLButtonElement>)>;
 
 export { Button1 }
@@ -534,12 +530,10 @@ export interface ColSizeProps {
     sizeXXL?: ColCount;
 }
 
-// @public
-export const Container: React_2.ForwardRefExoticComponent<React_2.HTMLAttributes<HTMLDivElement> & {
-    design: 'b2c' | 'web';
-} & {
-    children?: React_2.ReactNode;
-} & React_2.RefAttributes<HTMLDivElement>>;
+// Warning: (ae-forgotten-export) The symbol "Design_2" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export const Container: ({ design }: Design_2) => StyledComponent<"div", any, HTMLAttributes<HTMLDivElement>, never>;
 
 export { convertRoundnessMatrix }
 
@@ -1074,11 +1068,11 @@ export const Row: StyledComponent<"div", any, {}, never>;
 
 export { ScrollSnapProps }
 
-// Warning: (ae-forgotten-export) The symbol "Design" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "Design_3" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "SelectViewProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const Select: ({ design }: Design) => <T>(props: ({
+export const Select: ({ design }: Design_3) => <T>(props: ({
     multiselect?: false | undefined;
     separator?: undefined;
 } & {
@@ -1176,10 +1170,10 @@ export { SwitchProps }
 
 export { syntheticFocus }
 
-// Warning: (ae-forgotten-export) The symbol "Design_2" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "Design_4" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const TabItem: ({ design }: Design_2) => StyledComponent<ForwardRefExoticComponent<TabItemProps_2 & RefAttributes<HTMLButtonElement>>, any, TabItemProps, never>;
+export const TabItem: ({ design }: Design_4) => StyledComponent<ForwardRefExoticComponent<TabItemProps_2 & RefAttributes<HTMLButtonElement>>, any, TabItemProps, never>;
 
 // @public (undocumented)
 export interface TabItemProps extends TabItemProps_2 {
@@ -1188,7 +1182,7 @@ export interface TabItemProps extends TabItemProps_2 {
 }
 
 // @public (undocumented)
-export const Tabs: ({ design }: Design_2) => StyledComponent<ForwardRefExoticComponent<TabsProps_2 & RefAttributes<HTMLDivElement>>, any, TabsProps, never>;
+export const Tabs: ({ design }: Design_4) => StyledComponent<ForwardRefExoticComponent<TabsProps_2 & RefAttributes<HTMLDivElement>>, any, TabsProps, never>;
 
 // @public (undocumented)
 export interface TabsControllerProps extends TabsControllerProps_2 {
@@ -1205,10 +1199,10 @@ export interface TabsProps extends TabsProps_2 {
     view?: 'secondary' | 'clear';
 }
 
+// Warning: (ae-forgotten-export) The symbol "Design_5" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const TextArea: React_2.ForwardRefExoticComponent<TextAreaProps & {
-    design: 'b2c' | 'web';
-} & React_2.RefAttributes<HTMLTextAreaElement>>;
+export const TextArea: ({ design }: Design_5) => React_2.ForwardRefExoticComponent<TextAreaProps & React_2.RefAttributes<HTMLTextAreaElement>>;
 
 export { TextareaHTMLAttributes }
 
@@ -1225,10 +1219,10 @@ export interface TextAreaProps extends Omit<TextAreaProps_2, 'size'> {
 
 export { TextareaResize }
 
+// Warning: (ae-forgotten-export) The symbol "Design_6" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const TextField: React_2.ForwardRefExoticComponent<TextFieldProps & {
-    design: 'b2c' | 'web';
-} & React_2.RefAttributes<HTMLInputElement>>;
+export const TextField: ({ design }: Design_6) => React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export interface TextFieldProps extends Omit<InputHTMLAttributes_2<HTMLInputElement>, 'size'> {
