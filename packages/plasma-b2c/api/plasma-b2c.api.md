@@ -168,7 +168,6 @@ import { RadioGroup } from '@salutejs/plasma-hope';
 import { radiuses } from '@salutejs/plasma-core';
 import { Ratio } from '@salutejs/plasma-hope';
 import { default as React_2 } from 'react';
-import { ReactNode } from 'react';
 import { RectSkeleton } from '@salutejs/plasma-hope';
 import { RectSkeletonProps } from '@salutejs/plasma-hope';
 import { RefAttributes } from 'react';
@@ -328,21 +327,21 @@ export { Breakpoint }
 export { BreakWordProps }
 
 // @public
-export const Button: React_2.ForwardRefExoticComponent<(ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"primary" | "success" | "warning" | "critical" | "secondary" | "checked" | "overlay" | "clear">> & {
+export const Button: React_2.ForwardRefExoticComponent<(ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
     text?: React_2.ReactNode;
     contentLeft?: React_2.ReactNode;
     contentRight?: undefined;
     children?: undefined;
     isLoading?: boolean | undefined;
     loader?: React_2.ReactNode;
-} & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"primary" | "success" | "warning" | "critical" | "secondary" | "checked" | "overlay" | "clear">> & {
+} & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
     text?: React_2.ReactNode;
     contentLeft?: undefined;
     contentRight?: React_2.ReactNode;
     children?: undefined;
     isLoading?: boolean | undefined;
     loader?: React_2.ReactNode;
-} & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"primary" | "success" | "warning" | "critical" | "secondary" | "checked" | "overlay" | "clear">> & {
+} & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
     text?: undefined;
     contentLeft?: undefined;
     contentRight?: undefined;
@@ -431,13 +430,7 @@ export { ColProps }
 export { ColSizeProps }
 
 // @public
-export const Container: StyledComponent<ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & {
-design: "b2c" | "web";
-} & {
-children?: ReactNode;
-} & RefAttributes<HTMLDivElement>>, any, {
-design: "b2c";
-}, "design">;
+export const Container: StyledComponent<"div", any, HTMLAttributes<HTMLDivElement>, never>;
 
 export { convertRoundnessMatrix }
 
