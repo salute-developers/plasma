@@ -933,13 +933,6 @@ export { monthLongName }
 
 export { monthShortName }
 
-// @public (undocumented)
-export interface MultiSelectProps extends Omit<SelectViewProps, 'onItemClick' | 'value' | 'label' | 'multiselect'> {
-    onChange?: (value: Array<string | number> | null) => void;
-    separator?: string;
-    value: Array<string | number> | null;
-}
-
 // @public
 const Notification_2: React_2.ForwardRefExoticComponent<NotificationProps & React_2.RefAttributes<HTMLDivElement>>;
 export { Notification_2 as Notification }
@@ -1081,8 +1074,11 @@ export const Row: StyledComponent<"div", any, {}, never>;
 
 export { ScrollSnapProps }
 
-// @public
-export const Select: <T>(props: ({
+// Warning: (ae-forgotten-export) The symbol "Design" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "SelectViewProps" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export const Select: ({ design }: Design) => <T>(props: ({
     multiselect?: false | undefined;
     separator?: undefined;
 } & {
@@ -1097,27 +1093,7 @@ export const Select: <T>(props: ({
 } & Pick<SelectViewProps, "form" | "slot" | "style" | "title" | "className" | "color" | "id" | "lang" | "name" | "type" | "role" | "tabIndex" | "aria-activedescendant" | "aria-atomic" | "aria-autocomplete" | "aria-busy" | "aria-checked" | "aria-colcount" | "aria-colindex" | "aria-colspan" | "aria-controls" | "aria-current" | "aria-describedby" | "aria-details" | "aria-disabled" | "aria-dropeffect" | "aria-errormessage" | "aria-expanded" | "aria-flowto" | "aria-grabbed" | "aria-haspopup" | "aria-hidden" | "aria-invalid" | "aria-keyshortcuts" | "aria-label" | "aria-labelledby" | "aria-level" | "aria-live" | "aria-modal" | "aria-multiline" | "aria-multiselectable" | "aria-orientation" | "aria-owns" | "aria-placeholder" | "aria-posinset" | "aria-pressed" | "aria-readonly" | "aria-relevant" | "aria-required" | "aria-roledescription" | "aria-rowcount" | "aria-rowindex" | "aria-rowspan" | "aria-selected" | "aria-setsize" | "aria-sort" | "aria-valuemax" | "aria-valuemin" | "aria-valuenow" | "aria-valuetext" | "children" | "dangerouslySetInnerHTML" | "onCopy" | "onCopyCapture" | "onCut" | "onCutCapture" | "onPaste" | "onPasteCapture" | "onCompositionEnd" | "onCompositionEndCapture" | "onCompositionStart" | "onCompositionStartCapture" | "onCompositionUpdate" | "onCompositionUpdateCapture" | "onFocus" | "onFocusCapture" | "onBlur" | "onBlurCapture" | "onChangeCapture" | "onBeforeInput" | "onBeforeInputCapture" | "onInput" | "onInputCapture" | "onReset" | "onResetCapture" | "onSubmit" | "onSubmitCapture" | "onInvalid" | "onInvalidCapture" | "onLoad" | "onLoadCapture" | "onError" | "onErrorCapture" | "onKeyDown" | "onKeyDownCapture" | "onKeyPress" | "onKeyPressCapture" | "onKeyUp" | "onKeyUpCapture" | "onAbort" | "onAbortCapture" | "onCanPlay" | "onCanPlayCapture" | "onCanPlayThrough" | "onCanPlayThroughCapture" | "onDurationChange" | "onDurationChangeCapture" | "onEmptied" | "onEmptiedCapture" | "onEncrypted" | "onEncryptedCapture" | "onEnded" | "onEndedCapture" | "onLoadedData" | "onLoadedDataCapture" | "onLoadedMetadata" | "onLoadedMetadataCapture" | "onLoadStart" | "onLoadStartCapture" | "onPause" | "onPauseCapture" | "onPlay" | "onPlayCapture" | "onPlaying" | "onPlayingCapture" | "onProgress" | "onProgressCapture" | "onRateChange" | "onRateChangeCapture" | "onResize" | "onResizeCapture" | "onSeeked" | "onSeekedCapture" | "onSeeking" | "onSeekingCapture" | "onStalled" | "onStalledCapture" | "onSuspend" | "onSuspendCapture" | "onTimeUpdate" | "onTimeUpdateCapture" | "onVolumeChange" | "onVolumeChangeCapture" | "onWaiting" | "onWaitingCapture" | "onAuxClick" | "onAuxClickCapture" | "onClick" | "onClickCapture" | "onContextMenu" | "onContextMenuCapture" | "onDoubleClick" | "onDoubleClickCapture" | "onDrag" | "onDragCapture" | "onDragEnd" | "onDragEndCapture" | "onDragEnter" | "onDragEnterCapture" | "onDragExit" | "onDragExitCapture" | "onDragLeave" | "onDragLeaveCapture" | "onDragOver" | "onDragOverCapture" | "onDragStart" | "onDragStartCapture" | "onDrop" | "onDropCapture" | "onMouseDown" | "onMouseDownCapture" | "onMouseEnter" | "onMouseLeave" | "onMouseMove" | "onMouseMoveCapture" | "onMouseOut" | "onMouseOutCapture" | "onMouseOver" | "onMouseOverCapture" | "onMouseUp" | "onMouseUpCapture" | "onSelect" | "onSelectCapture" | "onTouchCancel" | "onTouchCancelCapture" | "onTouchEnd" | "onTouchEndCapture" | "onTouchMove" | "onTouchMoveCapture" | "onTouchStart" | "onTouchStartCapture" | "onPointerDown" | "onPointerDownCapture" | "onPointerMove" | "onPointerMoveCapture" | "onPointerUp" | "onPointerUpCapture" | "onPointerCancel" | "onPointerCancelCapture" | "onPointerEnter" | "onPointerEnterCapture" | "onPointerLeave" | "onPointerLeaveCapture" | "onPointerOver" | "onPointerOverCapture" | "onPointerOut" | "onPointerOutCapture" | "onGotPointerCapture" | "onGotPointerCaptureCapture" | "onLostPointerCapture" | "onLostPointerCaptureCapture" | "onScroll" | "onScrollCapture" | "onWheel" | "onWheelCapture" | "onAnimationStart" | "onAnimationStartCapture" | "onAnimationEnd" | "onAnimationEndCapture" | "onAnimationIteration" | "onAnimationIterationCapture" | "onTransitionEnd" | "onTransitionEndCapture" | "status" | "defaultChecked" | "defaultValue" | "suppressContentEditableWarning" | "suppressHydrationWarning" | "accessKey" | "contentEditable" | "contextMenu" | "dir" | "draggable" | "hidden" | "nonce" | "placeholder" | "spellCheck" | "translate" | "radioGroup" | "about" | "datatype" | "inlist" | "prefix" | "property" | "resource" | "typeof" | "vocab" | "autoCapitalize" | "autoCorrect" | "autoSave" | "itemProp" | "itemScope" | "itemType" | "itemID" | "itemRef" | "results" | "security" | "unselectable" | "inputMode" | "is" | "autoFocus" | "disabled" | "formAction" | "formEncType" | "formMethod" | "formNoValidate" | "formTarget" | "isOpen" | "items" | "onItemSelect" | "helperText"> & DropdownListCssProperties & React_2.RefAttributes<HTMLButtonElement>)) => ReactElement;
 
 // @public (undocumented)
-export const SelectButton: React_2.ForwardRefExoticComponent<SelectButtonProps & React_2.RefAttributes<HTMLButtonElement>>;
-
-// Warning: (ae-forgotten-export) The symbol "FieldProps_3" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export interface SelectButtonProps extends Pick<FieldProps_3, 'status' | 'placeholder' | 'disabled'>, Omit<ButtonHTMLAttributes<SelectRefElement>, 'value'> {
-    // (undocumented)
-    children?: never;
-    // (undocumented)
-    hasItems?: boolean;
-    // (undocumented)
-    isOpen?: boolean;
-    value?: string | number | null;
-}
-
-// @public (undocumented)
-export const SelectDropdown: StyledComponent<FC<DropdownUncontrolledProps>, any, {}, never>;
-
-// @public (undocumented)
-export interface SelectDropdownProps extends DropdownUncontrolledProps {
-}
+export const SelectGroup: StyledComponent<"div", any, {}, never>;
 
 // @public (undocumented)
 export type SelectProps<T = any> = ({
@@ -1137,27 +1113,11 @@ export type SelectRefElement = HTMLButtonElement;
 // @public (undocumented)
 export function selectText(node: Node): void;
 
-// @public
-export const SelectView: React_2.ForwardRefExoticComponent<SelectViewProps & React_2.RefAttributes<HTMLButtonElement>>;
-
-// Warning: (ae-forgotten-export) The symbol "FieldProps" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export interface SelectViewProps extends Pick<FieldProps, 'status' | 'placeholder' | 'helperText' | 'disabled'>, Pick<SelectDropdownProps, 'items' | 'onItemSelect'>, Omit<SelectButtonProps, 'hasItems' | 'isExpanded' | 'onChange'> {
-    multiselect?: boolean;
-}
-
 export { setRef }
 
 export { shadows }
 
 export { ShiftProps }
-
-// @public (undocumented)
-export interface SingleSelectProps extends Omit<SelectViewProps, 'onItemClick' | 'value' | 'label' | 'multiselect'> {
-    onChange?: (value: string | number | null) => void;
-    value: string | number | null;
-}
 
 // @public (undocumented)
 export const sizes: Record<Breakpoint, keyof ColSizeProps>;
@@ -1216,10 +1176,10 @@ export { SwitchProps }
 
 export { syntheticFocus }
 
-// Warning: (ae-forgotten-export) The symbol "Design" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "Design_2" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const TabItem: ({ design }: Design) => StyledComponent<ForwardRefExoticComponent<TabItemProps_2 & RefAttributes<HTMLButtonElement>>, any, TabItemProps, never>;
+export const TabItem: ({ design }: Design_2) => StyledComponent<ForwardRefExoticComponent<TabItemProps_2 & RefAttributes<HTMLButtonElement>>, any, TabItemProps, never>;
 
 // @public (undocumented)
 export interface TabItemProps extends TabItemProps_2 {
@@ -1228,7 +1188,7 @@ export interface TabItemProps extends TabItemProps_2 {
 }
 
 // @public (undocumented)
-export const Tabs: ({ design }: Design) => StyledComponent<ForwardRefExoticComponent<TabsProps_2 & RefAttributes<HTMLDivElement>>, any, TabsProps, never>;
+export const Tabs: ({ design }: Design_2) => StyledComponent<ForwardRefExoticComponent<TabsProps_2 & RefAttributes<HTMLDivElement>>, any, TabsProps, never>;
 
 // @public (undocumented)
 export interface TabsControllerProps extends TabsControllerProps_2 {
@@ -1411,12 +1371,6 @@ export const withAssistiveDropdown: <P extends object>(Component: React_2.Compon
 export { withAutoFocus }
 
 export { WithAutoFocusProps }
-
-// @public
-export const withMultiSelect: (View: ComponentType<SelectViewProps & RefAttributes<SelectRefElement>>) => React_2.ForwardRefExoticComponent<MultiSelectProps & React_2.RefAttributes<HTMLButtonElement>>;
-
-// @public
-export const withSingleSelect: (View: ComponentType<SelectViewProps & RefAttributes<SelectRefElement>>) => React_2.ForwardRefExoticComponent<SingleSelectProps & React_2.RefAttributes<HTMLButtonElement>>;
 
 export { withSkeleton }
 
