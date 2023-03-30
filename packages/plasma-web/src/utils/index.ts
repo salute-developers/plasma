@@ -15,12 +15,9 @@ export {
 
 export type { TimingFunction, PinProps } from '@salutejs/plasma-core';
 
-export {
-    mediaQuery,
-    breakpoints as gridBreakpoints,
-    columns as gridColumns,
-    margins as gridMargins,
-    gutters as gridGutters,
-    sizes as gridSizes,
-} from './mediaQuery';
-export type { MediaQueryFunction, Breakpoint } from './mediaQuery';
+export { mediaQuery, gridBreakpoints, gridColumns, gridMargins, gridGutters, gridSizes } from '@salutejs/plasma-hope';
+
+export type { Breakpoint, MediaQueryFunction } from '@salutejs/plasma-hope';
+
+export { clearSelection } from '@salutejs/plasma-hope';
+export { selectText } from '@salutejs/plasma-hope';
