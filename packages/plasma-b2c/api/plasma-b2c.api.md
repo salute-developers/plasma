@@ -10,6 +10,7 @@ import { animatedScrollToX } from '@salutejs/plasma-core';
 import { animatedScrollToY } from '@salutejs/plasma-core';
 import { applyBlur } from '@salutejs/plasma-core';
 import { applyDisabled } from '@salutejs/plasma-core';
+import { applyDropdownListCssProperties } from '@salutejs/plasma-hope';
 import { applyEllipsis } from '@salutejs/plasma-core';
 import { applyHyphens } from '@salutejs/plasma-core';
 import { applyMaxLines } from '@salutejs/plasma-core';
@@ -47,7 +48,9 @@ import { Button2 } from '@salutejs/plasma-hope';
 import { ButtonProps } from '@salutejs/plasma-hope';
 import { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-core';
 import { ButtonSizeProps } from '@salutejs/plasma-core';
+import { ButtonView } from '@salutejs/plasma-hope';
 import { ButtonViewProps } from '@salutejs/plasma-core';
+import { buttonViews } from '@salutejs/plasma-hope';
 import { Calendar } from '@salutejs/plasma-hope';
 import { CalendarBase } from '@salutejs/plasma-hope';
 import { CalendarBaseProps } from '@salutejs/plasma-hope';
@@ -77,6 +80,7 @@ import { Cell } from '@salutejs/plasma-hope';
 import { CellProps } from '@salutejs/plasma-hope';
 import { Checkbox } from '@salutejs/plasma-hope';
 import { CheckboxProps } from '@salutejs/plasma-hope';
+import { clearSelection } from '@salutejs/plasma-hope';
 import { closeNotification } from '@salutejs/plasma-hope';
 import { Col } from '@salutejs/plasma-hope';
 import { ColCount } from '@salutejs/plasma-hope';
@@ -88,9 +92,14 @@ import { defaultValidate } from '@salutejs/plasma-hope';
 import { DisabledProps } from '@salutejs/plasma-core';
 import { Dropdown } from '@salutejs/plasma-hope';
 import { DropdownItem } from '@salutejs/plasma-hope';
+import { DropdownItemProps } from '@salutejs/plasma-hope';
 import { DropdownList } from '@salutejs/plasma-hope';
 import { DropdownListCssProperties } from '@salutejs/plasma-hope';
+import { DropdownNodeType } from '@salutejs/plasma-hope';
+import { DropdownPopup } from '@salutejs/plasma-hope';
+import { DropdownPopupProps } from '@salutejs/plasma-hope';
 import { DropdownProps } from '@salutejs/plasma-hope';
+import { DropdownUncontrolled } from '@salutejs/plasma-hope';
 import { DsplL } from '@salutejs/plasma-typo';
 import { DsplM } from '@salutejs/plasma-typo';
 import { DsplS } from '@salutejs/plasma-typo';
@@ -98,6 +107,7 @@ import { Editable } from '@salutejs/plasma-hope';
 import { EditableProps } from '@salutejs/plasma-hope';
 import { ElasticGrid } from '@salutejs/plasma-hope';
 import { ElasticGridProps } from '@salutejs/plasma-hope';
+import { extractTextFrom } from '@salutejs/plasma-core';
 import { FocusProps } from '@salutejs/plasma-core';
 import { Footnote1 } from '@salutejs/plasma-hope';
 import { Footnote2 } from '@salutejs/plasma-hope';
@@ -177,6 +187,7 @@ import { Row } from '@salutejs/plasma-hope';
 import { ScrollSnapProps } from '@salutejs/plasma-core';
 import { SelectGroup } from '@salutejs/plasma-hope';
 import { SelectProps } from '@salutejs/plasma-hope';
+import { selectText } from '@salutejs/plasma-hope';
 import { SelectViewProps } from '@salutejs/plasma-hope/components/Select/SelectView';
 import { setRef } from '@salutejs/plasma-core';
 import { shadows } from '@salutejs/plasma-core';
@@ -245,6 +256,7 @@ import { ValidationResult } from '@salutejs/plasma-hope';
 import { View } from '@salutejs/plasma-core';
 import { ViewProps } from '@salutejs/plasma-core';
 import { views } from '@salutejs/plasma-core';
+import { withAssistiveDropdown } from '@salutejs/plasma-hope';
 import { withAutoFocus } from '@salutejs/plasma-core';
 import { WithAutoFocusProps } from '@salutejs/plasma-core';
 import { withSkeleton } from '@salutejs/plasma-core';
@@ -261,6 +273,8 @@ export { animatedScrollToY }
 export { applyBlur }
 
 export { applyDisabled }
+
+export { applyDropdownListCssProperties }
 
 export { applyEllipsis }
 
@@ -356,6 +370,10 @@ export { Button2 }
 
 export { ButtonProps }
 
+export { ButtonView }
+
+export { buttonViews }
+
 export { Calendar }
 
 export { CalendarBase }
@@ -414,8 +432,7 @@ export { Checkbox }
 
 export { CheckboxProps }
 
-// @public (undocumented)
-export function clearSelection(): void;
+export { clearSelection }
 
 export { closeNotification }
 
@@ -441,10 +458,23 @@ export { DisabledProps }
 export { Dropdown }
 
 export { DropdownItem }
+export { DropdownItem as DropdownItemType }
+
+export { DropdownItemProps }
 
 export { DropdownList }
 
+export { DropdownListCssProperties }
+
+export { DropdownNodeType }
+
+export { DropdownPopup }
+
+export { DropdownPopupProps }
+
 export { DropdownProps }
+
+export { DropdownUncontrolled }
 
 export { DsplL }
 
@@ -459,6 +489,8 @@ export { EditableProps }
 export { ElasticGrid }
 
 export { ElasticGridProps }
+
+export { extractTextFrom }
 
 export { FocusProps }
 
@@ -625,8 +657,7 @@ export { SelectGroup }
 
 export { SelectProps }
 
-// @public (undocumented)
-export function selectText(node: Node): void;
+export { selectText }
 
 export { setRef }
 
@@ -771,6 +802,8 @@ export { View }
 export { ViewProps }
 
 export { views }
+
+export { withAssistiveDropdown }
 
 export { withAutoFocus }
 

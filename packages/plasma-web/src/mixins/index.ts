@@ -16,6 +16,7 @@ export {
     applyScrollSnap,
     shadows,
     applySpacing,
+    spacing,
 } from '@salutejs/plasma-core';
 
 export type {
@@ -31,4 +32,5 @@ export type {
     View,
     ScrollSnapProps,
     SpacingProps,
+    BreakWordProps,
 } from '@salutejs/plasma-core';

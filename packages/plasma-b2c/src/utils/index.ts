@@ -3,6 +3,7 @@ export {
     animatedScrollToY,
     canUseDOM,
     convertRoundnessMatrix,
+    extractTextFrom,
     padZeroNumber,
     monthLongName,
     monthShortName,
@@ -18,5 +19,5 @@ export { mediaQuery, gridBreakpoints, gridColumns, gridMargins, gridGutters, gri
 
 export type { Breakpoint, MediaQueryFunction } from '@salutejs/plasma-hope';
 
-export * from './clearSelection';
-export * from './selectText';
+export { clearSelection } from '@salutejs/plasma-hope';
+export { selectText } from '@salutejs/plasma-hope';

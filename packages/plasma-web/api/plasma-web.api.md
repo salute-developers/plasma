@@ -41,6 +41,8 @@ import { BodyM } from '@salutejs/plasma-typo';
 import { BodyS } from '@salutejs/plasma-typo';
 import { BodyXS } from '@salutejs/plasma-typo';
 import { BodyXXS } from '@salutejs/plasma-typo';
+import { Breakpoint } from '@salutejs/plasma-hope';
+import { BreakWordProps } from '@salutejs/plasma-core';
 import { Button1 } from '@salutejs/plasma-hope';
 import { Button2 } from '@salutejs/plasma-hope';
 import { ButtonProps } from '@salutejs/plasma-hope';
@@ -78,6 +80,7 @@ import { Cell } from '@salutejs/plasma-hope';
 import { CellProps } from '@salutejs/plasma-hope';
 import { Checkbox } from '@salutejs/plasma-hope';
 import { CheckboxProps } from '@salutejs/plasma-hope';
+import { clearSelection } from '@salutejs/plasma-hope';
 import { closeNotification } from '@salutejs/plasma-hope';
 import { Col } from '@salutejs/plasma-hope';
 import { ColCount } from '@salutejs/plasma-hope';
@@ -105,12 +108,16 @@ import { EditableProps } from '@salutejs/plasma-hope';
 import { ElasticGrid } from '@salutejs/plasma-hope';
 import { ElasticGridProps } from '@salutejs/plasma-hope';
 import { extractTextFrom } from '@salutejs/plasma-core';
-import { FlattenSimpleInterpolation } from 'styled-components';
 import { FocusProps } from '@salutejs/plasma-core';
 import { Footnote1 } from '@salutejs/plasma-hope';
 import { Footnote2 } from '@salutejs/plasma-hope';
 import { formatCurrency } from '@salutejs/plasma-core';
 import { ForwardRefExoticComponent } from 'react';
+import { gridBreakpoints } from '@salutejs/plasma-hope';
+import { gridColumns } from '@salutejs/plasma-hope';
+import { gridGutters } from '@salutejs/plasma-hope';
+import { gridMargins } from '@salutejs/plasma-hope';
+import { gridSizes } from '@salutejs/plasma-hope';
 import { H1 } from '@salutejs/plasma-typo';
 import { H2 } from '@salutejs/plasma-typo';
 import { H3 } from '@salutejs/plasma-typo';
@@ -132,6 +139,8 @@ import { Link } from '@salutejs/plasma-hope';
 import { List } from '@salutejs/plasma-hope';
 import { ListItem } from '@salutejs/plasma-hope';
 import { MaxLinesProps } from '@salutejs/plasma-core';
+import { mediaQuery } from '@salutejs/plasma-hope';
+import { MediaQueryFunction } from '@salutejs/plasma-hope';
 import { Modal } from '@salutejs/plasma-hope';
 import { ModalProps } from '@salutejs/plasma-hope';
 import { ModalsProvider } from '@salutejs/plasma-hope';
@@ -176,7 +185,9 @@ import { Roundness } from '@salutejs/plasma-core';
 import { RoundnessProps } from '@salutejs/plasma-core';
 import { Row } from '@salutejs/plasma-hope';
 import { ScrollSnapProps } from '@salutejs/plasma-core';
+import { SelectGroup } from '@salutejs/plasma-hope';
 import { SelectProps } from '@salutejs/plasma-hope';
+import { selectText } from '@salutejs/plasma-hope';
 import { SelectViewProps } from '@salutejs/plasma-hope/components/Select/SelectView';
 import { setRef } from '@salutejs/plasma-core';
 import { shadows } from '@salutejs/plasma-core';
@@ -188,10 +199,12 @@ import { SmartPaginationDots } from '@salutejs/plasma-hope';
 import { SmartPaginationDotsProps } from '@salutejs/plasma-hope';
 import { SnapAlign } from '@salutejs/plasma-core';
 import { SnapType } from '@salutejs/plasma-core';
+import { spacing } from '@salutejs/plasma-core';
 import { SpacingProps } from '@salutejs/plasma-core';
 import { Spinner } from '@salutejs/plasma-hope';
 import { SpinnerProps } from '@salutejs/plasma-hope';
 import { SSRProvider } from '@salutejs/plasma-hope';
+import { StatusType } from '@salutejs/plasma-hope';
 import { StyledCard } from '@salutejs/plasma-hope';
 import { StyledComponent } from 'styled-components';
 import { StyledPreviewGallery } from '@salutejs/plasma-hope';
@@ -323,8 +336,9 @@ export { BodyXS }
 
 export { BodyXXS }
 
-// @public (undocumented)
-export type Breakpoint = keyof typeof gridBreakpoints;
+export { Breakpoint }
+
+export { BreakWordProps }
 
 // @public
 export const Button: React_2.ForwardRefExoticComponent<(ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
@@ -418,6 +432,8 @@ export { Checkbox }
 
 export { CheckboxProps }
 
+export { clearSelection }
+
 export { closeNotification }
 
 export { Col }
@@ -484,44 +500,15 @@ export { Footnote2 }
 
 export { formatCurrency }
 
-// @public (undocumented)
-export const gridBreakpoints: {
-    XXL: number;
-    XL: number;
-    L: number;
-    M: number;
-    S: number;
-};
+export { gridBreakpoints }
 
-// @public (undocumented)
-export const gridColumns: {
-    XXL: number;
-    XL: number;
-    L: number;
-    M: number;
-    S: number;
-};
+export { gridColumns }
 
-// @public (undocumented)
-export const gridGutters: {
-    XXL: number;
-    XL: number;
-    L: number;
-    M: number;
-    S: number;
-};
+export { gridGutters }
 
-// @public (undocumented)
-export const gridMargins: {
-    XXL: number;
-    XL: number;
-    L: number;
-    M: number;
-    S: number;
-};
+export { gridMargins }
 
-// @public (undocumented)
-export const gridSizes: ("XXL" | "XL" | "L" | "M" | "S")[];
+export { gridSizes }
 
 export { H1 }
 
@@ -563,11 +550,9 @@ export { ListItem }
 
 export { MaxLinesProps }
 
-// @public
-export const mediaQuery: (breakpoint: Breakpoint, deviceScale?: number) => MediaQueryFunction;
+export { mediaQuery }
 
-// @public (undocumented)
-export type MediaQueryFunction = (content: FlattenSimpleInterpolation | string) => FlattenSimpleInterpolation;
+export { MediaQueryFunction }
 
 export { Modal }
 
@@ -668,7 +653,11 @@ export const Select: React_2.ForwardRefExoticComponent<({
     onChange?: ((value: any) => void) | undefined;
 } & Pick<SelectViewProps, "type" | "defaultChecked" | "defaultValue" | "suppressContentEditableWarning" | "suppressHydrationWarning" | "accessKey" | "className" | "contentEditable" | "contextMenu" | "dir" | "draggable" | "hidden" | "id" | "lang" | "nonce" | "placeholder" | "slot" | "spellCheck" | "style" | "tabIndex" | "title" | "translate" | "radioGroup" | "role" | "about" | "datatype" | "inlist" | "prefix" | "property" | "resource" | "typeof" | "vocab" | "autoCapitalize" | "autoCorrect" | "autoSave" | "color" | "itemProp" | "itemScope" | "itemType" | "itemID" | "itemRef" | "results" | "security" | "unselectable" | "inputMode" | "is" | "aria-activedescendant" | "aria-atomic" | "aria-autocomplete" | "aria-busy" | "aria-checked" | "aria-colcount" | "aria-colindex" | "aria-colspan" | "aria-controls" | "aria-current" | "aria-describedby" | "aria-details" | "aria-disabled" | "aria-dropeffect" | "aria-errormessage" | "aria-expanded" | "aria-flowto" | "aria-grabbed" | "aria-haspopup" | "aria-hidden" | "aria-invalid" | "aria-keyshortcuts" | "aria-label" | "aria-labelledby" | "aria-level" | "aria-live" | "aria-modal" | "aria-multiline" | "aria-multiselectable" | "aria-orientation" | "aria-owns" | "aria-placeholder" | "aria-posinset" | "aria-pressed" | "aria-readonly" | "aria-relevant" | "aria-required" | "aria-roledescription" | "aria-rowcount" | "aria-rowindex" | "aria-rowspan" | "aria-selected" | "aria-setsize" | "aria-sort" | "aria-valuemax" | "aria-valuemin" | "aria-valuenow" | "aria-valuetext" | "children" | "dangerouslySetInnerHTML" | "onCopy" | "onCopyCapture" | "onCut" | "onCutCapture" | "onPaste" | "onPasteCapture" | "onCompositionEnd" | "onCompositionEndCapture" | "onCompositionStart" | "onCompositionStartCapture" | "onCompositionUpdate" | "onCompositionUpdateCapture" | "onFocus" | "onFocusCapture" | "onBlur" | "onBlurCapture" | "onChangeCapture" | "onBeforeInput" | "onBeforeInputCapture" | "onInput" | "onInputCapture" | "onReset" | "onResetCapture" | "onSubmit" | "onSubmitCapture" | "onInvalid" | "onInvalidCapture" | "onLoad" | "onLoadCapture" | "onError" | "onErrorCapture" | "onKeyDown" | "onKeyDownCapture" | "onKeyPress" | "onKeyPressCapture" | "onKeyUp" | "onKeyUpCapture" | "onAbort" | "onAbortCapture" | "onCanPlay" | "onCanPlayCapture" | "onCanPlayThrough" | "onCanPlayThroughCapture" | "onDurationChange" | "onDurationChangeCapture" | "onEmptied" | "onEmptiedCapture" | "onEncrypted" | "onEncryptedCapture" | "onEnded" | "onEndedCapture" | "onLoadedData" | "onLoadedDataCapture" | "onLoadedMetadata" | "onLoadedMetadataCapture" | "onLoadStart" | "onLoadStartCapture" | "onPause" | "onPauseCapture" | "onPlay" | "onPlayCapture" | "onPlaying" | "onPlayingCapture" | "onProgress" | "onProgressCapture" | "onRateChange" | "onRateChangeCapture" | "onResize" | "onResizeCapture" | "onSeeked" | "onSeekedCapture" | "onSeeking" | "onSeekingCapture" | "onStalled" | "onStalledCapture" | "onSuspend" | "onSuspendCapture" | "onTimeUpdate" | "onTimeUpdateCapture" | "onVolumeChange" | "onVolumeChangeCapture" | "onWaiting" | "onWaitingCapture" | "onAuxClick" | "onAuxClickCapture" | "onClick" | "onClickCapture" | "onContextMenu" | "onContextMenuCapture" | "onDoubleClick" | "onDoubleClickCapture" | "onDrag" | "onDragCapture" | "onDragEnd" | "onDragEndCapture" | "onDragEnter" | "onDragEnterCapture" | "onDragExit" | "onDragExitCapture" | "onDragLeave" | "onDragLeaveCapture" | "onDragOver" | "onDragOverCapture" | "onDragStart" | "onDragStartCapture" | "onDrop" | "onDropCapture" | "onMouseDown" | "onMouseDownCapture" | "onMouseEnter" | "onMouseLeave" | "onMouseMove" | "onMouseMoveCapture" | "onMouseOut" | "onMouseOutCapture" | "onMouseOver" | "onMouseOverCapture" | "onMouseUp" | "onMouseUpCapture" | "onSelect" | "onSelectCapture" | "onTouchCancel" | "onTouchCancelCapture" | "onTouchEnd" | "onTouchEndCapture" | "onTouchMove" | "onTouchMoveCapture" | "onTouchStart" | "onTouchStartCapture" | "onPointerDown" | "onPointerDownCapture" | "onPointerMove" | "onPointerMoveCapture" | "onPointerUp" | "onPointerUpCapture" | "onPointerCancel" | "onPointerCancelCapture" | "onPointerEnter" | "onPointerEnterCapture" | "onPointerLeave" | "onPointerLeaveCapture" | "onPointerOver" | "onPointerOverCapture" | "onPointerOut" | "onPointerOutCapture" | "onGotPointerCapture" | "onGotPointerCaptureCapture" | "onLostPointerCapture" | "onLostPointerCaptureCapture" | "onScroll" | "onScrollCapture" | "onWheel" | "onWheelCapture" | "onAnimationStart" | "onAnimationStartCapture" | "onAnimationEnd" | "onAnimationEndCapture" | "onAnimationIteration" | "onAnimationIterationCapture" | "onTransitionEnd" | "onTransitionEndCapture" | "disabled" | "autoFocus" | "form" | "formAction" | "formEncType" | "formMethod" | "formNoValidate" | "formTarget" | "name" | "status" | "helperText" | "items" | "onItemSelect" | "isOpen"> & DropdownListCssProperties & React_2.RefAttributes<HTMLButtonElement>)>;
 
+export { SelectGroup }
+
 export { SelectProps }
+
+export { selectText }
 
 export { setRef }
 
@@ -693,6 +682,8 @@ export { SnapAlign }
 
 export { SnapType }
 
+export { spacing }
+
 export { SpacingProps }
 
 export { Spinner }
@@ -700,6 +691,8 @@ export { Spinner }
 export { SpinnerProps }
 
 export { SSRProvider }
+
+export { StatusType }
 
 export { StyledCard }
 
