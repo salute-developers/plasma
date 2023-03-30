@@ -1,3 +1,4 @@
+import { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 
 import { gridGutters, gridMargins, gridSizes, mediaQuery } from '../../../../utils';
@@ -5,7 +6,7 @@ import { gridGutters, gridMargins, gridSizes, mediaQuery } from '../../../../uti
 const deviceScale = 1;
 const sidesCount = 2;
 
-export const Container = styled.div`
+export const ContainerWeb = styled.div<HTMLAttributes<HTMLDivElement>>`
     margin: 0 auto;
 
     display: flex;

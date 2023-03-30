@@ -1,27 +1,23 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { forwardRef } from 'react';
 import { createButton } from '@salutejs/plasma-core';
 
 import { ButtonWeb } from './views/web/ButtonWeb';
 import { ButtonB2C } from './views/b2c/ButtonB2C';
-import type { ButtonProps as ButtonPropsBase } from './types';
+import type { ButtonProps, Design } from './types';
 
 const componentMap = {
     web: ButtonWeb,
     b2c: ButtonB2C,
 };
 
-export type ButtonProps = ButtonPropsBase & {
-    design: 'b2c' | 'web';
-};
+export const Button = ({ design }: Design) => {
+    const ButtonView = createButton<HTMLButtonElement, ButtonProps>(componentMap[design]);
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ design, ...rest }, ref) => {
-    const ButtonView = useMemo(() => createButton<HTMLButtonElement, ButtonPropsBase>(componentMap[design]), [design]);
+    ButtonView.defaultProps = {
+        size: 'm',
+        view: 'secondary',
+        pin: 'square-square',
+    };
 
-    return <ButtonView {...rest} ref={ref} />;
-});
-
-Button.defaultProps = {
-    size: 'm',
-    view: 'secondary',
-    pin: 'square-square',
+    return forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => <ButtonView {...props} ref={ref} />);
 };

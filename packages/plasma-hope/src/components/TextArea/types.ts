@@ -29,3 +29,7 @@ export interface TextAreaPropsCommon extends TextAreaProps {
     outerRef: React.RefObject<HTMLTextAreaElement>;
     width: number;
 }
+
+export type Design = {
+    design: 'b2c' | 'web';
+};

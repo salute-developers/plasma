@@ -11,3 +11,7 @@ export type ButtonProps = BaseProps &
     Partial<ButtonSizeProps> &
     Partial<ButtonViewProps<ButtonView>> &
     ButtonContentProps;
+
+export type Design = {
+    design: 'b2c' | 'web';
+};
