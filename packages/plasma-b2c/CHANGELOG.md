@@ -1,3 +1,23 @@
+# v1.172.0 (Thu Mar 30 2023)
+
+#### 🚀 Enhancement
+
+- feat: api report after merged "Select" component [#455](https://github.com/salute-developers/plasma/pull/455) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): update test symlink ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c): re-export "Select" component ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-hope): export "Select" component ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.171.0 (Thu Mar 30 2023)
 
 #### 🚀 Enhancement

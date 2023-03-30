@@ -1,3 +1,17 @@
+# v0.30.0 (Thu Mar 30 2023)
+
+#### 🚀 Enhancement
+
+- feat: api report after merged "Select" component [#455](https://github.com/salute-developers/plasma/pull/455) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-hope): add cypress tests ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-hope): export "Select" component ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v0.29.0 (Thu Mar 30 2023)
 
 #### 🚀 Enhancement

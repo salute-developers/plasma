@@ -2,6 +2,33 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-b2c@1.172.0`, `@salutejs/plasma-hope@0.30.0`, `@salutejs/plasma-web@1.197.0`
+  - feat: api report after merged "Select" component [#455](https://github.com/salute-developers/plasma/pull/455) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.172.0`
+  - feat(plasma-b2c): update test symlink ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-b2c): re-export "Select" component ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.197.0`
+  - feat(plasma-web): update test symlink ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): re-export "Select" component ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.30.0`
+  - feat(plasma-hope): add cypress tests ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-hope): export "Select" component ([@Yakutoc](https://github.com/Yakutoc))
+
+#### ⚠️ Pushed to `master`
+
+- chore(plasma-b2c): update snapshots ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-web): update snapshots ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Thu Mar 30 2023)
+
+#### 🚀 Enhancement
+
 - feat(plasma-b2c): update snapshots ([@Yakutoc](https://github.com/Yakutoc))
 - `@salutejs/plasma-hope@0.29.0`, `@salutejs/plasma-web@1.196.0`
   - feat: api report after merged "Dropdown" component [#447](https://github.com/salute-developers/plasma/pull/447) ([@Yakutoc](https://github.com/Yakutoc))
