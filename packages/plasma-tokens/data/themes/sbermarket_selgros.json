@@ -1,6 +1,6 @@
 {
     "config": {
-        "name": "metro",
+        "name": "sbermarket_selgros",
         "accentColor": {
             "light": "#21A038",
             "dark": "#2EE850"
@@ -34,7 +34,7 @@
                     "comment": "Сплошной наборный текст"
                 },
                 "textAccent": {
-                    "value": "#0064FE",
+                    "value": "#E40421",
                     "comment": "Акцентный цвет"
                 },
                 "textNegative": {
@@ -72,7 +72,7 @@
                     "comment": "Сплошной наборный текст на темном фоне"
                 },
                 "textAccent": {
-                    "value": "#0064FE",
+                    "value": "#E40421",
                     "comment": "Акцентный цвет на темном фоне"
                 },
                 "textNegative": {
@@ -110,7 +110,7 @@
                     "comment": "Сплошной наборный текст на светлом фоне"
                 },
                 "textAccent": {
-                    "value": "#0064FE",
+                    "value": "#E40421",
                     "comment": "Акцентный цвет на светлом фоне"
                 },
                 "textNegative": {
@@ -152,7 +152,7 @@
                     "comment": "Основной фон для карточек"
                 },
                 "surfaceAccent": {
-                    "value": "#0064FE",
+                    "value": "#E40421",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradient": {
@@ -204,7 +204,7 @@
                     "comment": "Основной фон для карточек на темном фоне"
                 },
                 "surfaceAccent": {
-                    "value": "#0064FE",
+                    "value": "#E40421",
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentGradient": {
@@ -256,7 +256,7 @@
                     "comment": "Основной фон для карточек на светлом фоне"
                 },
                 "surfaceAccent": {
-                    "value": "#0064FE",
+                    "value": "#E40421",
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentGradient": {
@@ -352,7 +352,7 @@
                     "comment": "Сплошной наборный текст"
                 },
                 "textAccent": {
-                    "value": "#0064FE",
+                    "value": "#E40421",
                     "comment": "Акцентный цвет"
                 },
                 "textNegative": {
@@ -390,7 +390,7 @@
                     "comment": "Сплошной наборный текст на темном фоне"
                 },
                 "textAccent": {
-                    "value": "#0064FE",
+                    "value": "#E40421",
                     "comment": "Акцентный цвет на темном фоне"
                 },
                 "textNegative": {
@@ -428,7 +428,7 @@
                     "comment": "Сплошной наборный текст на светлом фоне"
                 },
                 "textAccent": {
-                    "value": "#0064FE",
+                    "value": "#E40421",
                     "comment": "Акцентный цвет на светлом фоне"
                 },
                 "textNegative": {
@@ -470,7 +470,7 @@
                     "comment": "Основной фон для карточек"
                 },
                 "surfaceAccent": {
-                    "value": "#0064FE",
+                    "value": "#E40421",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradient": {
@@ -522,7 +522,7 @@
                     "comment": "Основной фон для карточек на темном фоне"
                 },
                 "surfaceAccent": {
-                    "value": "#0064FE",
+                    "value": "#E40421",
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentGradient": {
@@ -574,7 +574,7 @@
                     "comment": "Основной фон для карточек на светлом фоне"
                 },
                 "surfaceAccent": {
-                    "value": "#0064FE",
+                    "value": "#E40421",
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentGradient": {
