@@ -1,3 +1,22 @@
+# (Fri Mar 31 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-tokens@1.44.0`
+  - fix(plasma-tokens): Rename tenants name for `sbermarket` [#459](https://github.com/salute-developers/plasma/pull/459) (neretinartem@Neretins-MBP.netis)
+  - feat(plasma-tokens): Add `sbermarketVinlab` theme (neretinartem@Neretins-MBP.netis)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-tokens@1.44.0`
+  - fix(plasma-tokens): Fix theme name for gradient function in Swift formatters (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # (Thu Mar 30 2023)
 
 #### 🚀 Enhancement
