@@ -1,6 +1,6 @@
 import type { Dictionary, File, TransformedToken } from 'style-dictionary';
 
-import { upperFirstLetter, lowerFirstLetter } from '../../themeBuilder/utils';
+import { upperFirstLetter, lowerFirstLetter, camelize } from '../../themeBuilder/utils';
 import { GradientToken, ThemeColor, ThemeColorType } from '../types';
 
 const getSwiftTemplate = (structContent: string, gradientContent: string, enumsContent: string) => {
@@ -113,7 +113,8 @@ const getStructure = (tokenItems: TransformedToken[], themeName: string) =>
         .join(`\n\n`);
 
 const getGradient = (tokenItems: TransformedToken[], themeName: string) => {
-    const regex = new RegExp(`((${ThemeColor.light}|${ThemeColor.dark})${themeName})`);
+    const name = camelize(themeName);
+    const regex = new RegExp(`((${ThemeColor.light}|${ThemeColor.dark})${name})`);
 
     const gradient = tokenItems
         .filter(({ name }) => hasGradientWord(name))
