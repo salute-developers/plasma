@@ -108,12 +108,18 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
 });
 
 /**
- * Компонент для создания списков с прокруткой. Для прокрутки использует transform translate.
- * Обратно совместим с компонентом Carousel при условии, что пропсы связанные с detectActive не используются.
+ * Компонент для создания списков с прокруткой,
+ * но по умолчанию использует для прокрутки `transform translate` вместо scrollTo.
+ * В отличии от Carousel управляется исключительно сверху и самостоятельно не отслеживает активный элемент.
+ * То есть не принимает пропсы `detectActive`, `detectThreshold`, `onIndexChange`,
+ * `onDetectActiveItem`, `scaleCallback`, `scaleResetCallback`.
+ *
+ * Лучше всего подходит для использования на устройствах, управляемых с помощью пульта или клавиатуры.
+ * На устройствах с сенсорным экраном рекомендуется установить пропс `scrollMode="scroll"`.
  */
 // eslint-disable-next-line prefer-arrow-callback
 export const CarouselLite = React.forwardRef<HTMLDivElement, CarouselLiteProps>(function CarouselLite(
-    { index = 0, axis = 'x', scrollAlign, scrollMode, ...rest },
+    { index = 0, axis = 'x', scrollAlign = 'center', scrollMode = 'translate', ...rest },
     ref,
 ) {
     const { scrollRef, trackRef } = useCarouselLite({

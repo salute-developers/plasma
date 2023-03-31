@@ -19,6 +19,11 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 <Description name="Carousel" />
 <PropsTable name="Carousel" />
 
+### CarouselLite
+
+<Description name="CarouselLite" />
+<PropsTable name="CarouselLite" />
+
 ### CarouselVirtual
 Рекомендуется использовать вместе с хуком, который возвращает "виртуализированный" список элементов.
 ```
@@ -207,14 +212,73 @@ export function App() {
 }
 ```
 
-## Доступность
-В элемент карусели добавьте атрибут `aria-label`,
-со значением, обозначающим текущую позицию в списке:
+### Пример использования CarouselLite
 
-```tsx
-<Carousel>
-    {items.map((item, i) => <CarouselItem aria-label={`${i + 1} из ${items.length}`} />)}
-</Carousel>
+```tsx live
+import React from 'react';
+import {
+    DeviceThemeProvider,
+    CarouselGridWrapper,
+    Carousel,
+    CarouselLite,
+    CarouselCol,
+    Card,
+    CardBody,
+    CardContent,
+    BodyL,
+    useRemoteHandlers,
+} from '@salutejs/plasma-ui';
+
+export function App() {
+    const items = Array(25)
+        .fill({
+            title: 'Заголовок',
+            subtitle: 'Описание уравнение времени, сублимиpуя с повеpхности ядpа кометы, вращает реликтовый ледник',
+        })
+        .map(({ title, subtitle }, i) => ({
+            title: `${title} ${i}`,
+            subtitle: `${subtitle} ${i}`,
+        }));
+
+    const axis = 'x';
+
+    const [index] = useRemoteHandlers({
+        initialIndex: 1,
+        axis,
+        delay: 30,
+        longDelay: 150,
+        min: 0,
+        max: items.length - 1,
+    });
+
+    return (
+        <DeviceThemeProvider>
+            <BodyL>CarouselLite</BodyL>
+            <CarouselGridWrapper>
+                <CarouselLite
+                    axis={axis}
+                    index={index}
+                    scrollSnapType="mandatory"
+                    style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem' }}
+                >
+                    {items.map(({ title, subtitle }, i) => (
+                        <CarouselCol key={`item:${i}`} size={3} sizeXL={4} scrollSnapAlign="start">
+                            <Card style={{ height: '150px', width: '350px', margin: '16px' }} focused={i === index}>
+                                <CardBody>
+                                    <CardContent>
+                                        {subtitle && <div style={{ fontSize: '12px', lineHeight: '20px' }}>{subtitle}</div>}
+                                        <div style={{ fontSize: '16px' }}>{title}</div>
+                                    </CardContent>
+                                </CardBody>
+                            </Card>
+                        </CarouselCol>
+                    ))}
+                </CarouselLite>
+            </CarouselGridWrapper>
+        </DeviceThemeProvider>
+    );
+}
+
 ```
 
 ### Карусель с "виртуализированным" списком элементов
@@ -294,3 +358,14 @@ export function App() {
 }
 
 ```
+
+## Доступность
+В элемент карусели добавьте атрибут `aria-label`,
+со значением, обозначающим текущую позицию в списке:
+
+```tsx
+<Carousel>
+    {items.map((item, i) => <CarouselItem aria-label={`${i + 1} из ${items.length}`} />)}
+</Carousel>
+```
+
