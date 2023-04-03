@@ -10,7 +10,6 @@ import { animatedScrollToX } from '@salutejs/plasma-core';
 import { animatedScrollToY } from '@salutejs/plasma-core';
 import { applyBlur } from '@salutejs/plasma-core';
 import { applyDisabled } from '@salutejs/plasma-core';
-import { applyDropdownListCssProperties } from '@salutejs/plasma-hope';
 import { applyEllipsis } from '@salutejs/plasma-core';
 import { applyHyphens } from '@salutejs/plasma-core';
 import { applyMaxLines } from '@salutejs/plasma-core';
@@ -274,8 +273,6 @@ export { applyBlur }
 
 export { applyDisabled }
 
-export { applyDropdownListCssProperties }
-
 export { applyEllipsis }
 
 export { applyHyphens }
@@ -463,8 +460,6 @@ export { DropdownItem as DropdownItemType }
 export { DropdownItemProps }
 
 export { DropdownList }
-
-export { DropdownListCssProperties }
 
 export { DropdownNodeType }
 

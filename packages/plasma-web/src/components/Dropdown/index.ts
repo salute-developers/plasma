@@ -2,7 +2,6 @@ export {
     Dropdown,
     DropdownList,
     DropdownItem,
-    applyDropdownListCssProperties,
     withAssistiveDropdown,
     DropdownUncontrolled,
     DropdownPopup,
@@ -14,5 +13,4 @@ export type {
     DropdownItemProps,
     DropdownPopupProps,
     DropdownProps,
-    DropdownListCssProperties,
 } from '@salutejs/plasma-hope';
