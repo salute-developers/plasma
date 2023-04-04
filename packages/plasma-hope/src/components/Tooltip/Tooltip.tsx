@@ -63,7 +63,7 @@ const StyledArrow = styled.div`
 `;
 
 const StyledTooltip = styled.span<Pick<TooltipProps, 'isVisible' | 'animated'>>`
-    ${caption}
+    ${caption};
 
     position: absolute;
     z-index: 9200;
@@ -122,9 +122,11 @@ export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
     ) => {
         const tooltipElement = useRef<HTMLSpanElement>(null);
         const ref = useForkRef(outerRef, tooltipElement);
+
         const [wrapperElement, setWrapperElement] = useState<HTMLDivElement | null>(null);
         const [arrowElement, setArrowElement] = useState<HTMLSpanElement | null>(null);
-        const { styles, attributes } = usePopper(wrapperElement, tooltipElement.current, {
+
+        const { styles, attributes, forceUpdate } = usePopper(wrapperElement, tooltipElement.current, {
             strategy: 'fixed',
             placement,
             modifiers: [
@@ -146,6 +148,14 @@ export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
                 window.removeEventListener('keydown', onKeyDown);
             };
         }, []);
+
+        useEffect(() => {
+            if (!isVisible || !forceUpdate) {
+                return;
+            }
+
+            forceUpdate();
+        }, [isVisible]);
 
         return (
             <>
