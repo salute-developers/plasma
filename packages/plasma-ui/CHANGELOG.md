@@ -1,3 +1,17 @@
+# v1.180.1 (Tue Apr 04 2023)
+
+#### 🐛 Bug Fix
+
+- chore(docs): added CarouselLite docs and examples [#456](https://github.com/salute-developers/plasma/pull/456) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+---
+
 # v1.178.1 (Wed Mar 22 2023)
 
 #### 🐛 Bug Fix

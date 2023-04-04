@@ -1,3 +1,31 @@
+# (Tue Apr 04 2023)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.173.1`, `@salutejs/plasma-web@1.198.1`
+  - fix(plasma-web,plasma-b2c): remove private api [#458](https://github.com/salute-developers/plasma/pull/458) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-ui@1.180.1`
+  - chore(docs): added CarouselLite docs and examples [#456](https://github.com/salute-developers/plasma/pull/456) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+#### ⚠️ Pushed to `master`
+
+- `@salutejs/plasma-b2c@1.173.1`, `@salutejs/plasma-web@1.198.1`
+  - fix(plasma-web,plasma-b2c): fix various api diff between web/b2c ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-web@1.198.1`
+  - refactor(plasma-web): Update `TextArea`, `TextField`, `Button` and `Container` components ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.173.1`
+  - refactor(plasma-b2c): Update `TextArea`, `TextField`, `Button` and `Container` components ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-hope@0.31.1`
+  - refactor(plasma-hope): Update `TextArea`, `TextField`, `Button` and `Container` components ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 3
+
+- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Fri Mar 31 2023)
 
 #### 🚀 Enhancement
