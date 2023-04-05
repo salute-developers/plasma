@@ -87,3 +87,27 @@ export function App() {
 
 При этом, с активированным экранным считывающим устройством (screen reader),
 происходит объявление переключаемых опций.
+
+## Проблемы в Safari iOS 14.5 и ниже
+
+Для корректной работы необходимо **выключить** `scroll-snap-align`.
+
+Для этого нужно использовать - **disableScrollSnapAlign**.
+
+По-умолчанию значение для этого свойства - **false**.
+
+```tsx live
+import React from 'react';
+import { DatePicker } from '@salutejs/plasma-ui';
+
+export function App() {
+    return (
+        <DatePicker
+            min={new Date(1970, 0, 0, 0, 0, 0)}
+            max={new Date(2021, 10, 10, 0, 0, 0)}
+            value={new Date(2007, 3, 5, 0, 0, 0)}
+            disableScrollSnapAlign
+        />
+    );
+}
+```
