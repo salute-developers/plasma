@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-theme-builder",
-    "version": "1.54.1",
+    "version": "1.54.2",
     "description": "Plasma Theme Builder.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "private": true,
@@ -9,7 +9,7 @@
         "build": "react-scripts build"
     },
     "dependencies": {
-        "@salutejs/plasma-b2c": "1.173.1",
+        "@salutejs/plasma-b2c": "1.173.2",
         "@salutejs/plasma-colors": "0.6.0",
         "@salutejs/plasma-icons": "1.136.0",
         "@salutejs/plasma-tokens-b2b": "1.14.0",
