@@ -1,3 +1,16 @@
+# (Wed Apr 05 2023)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-hope@0.31.2`
+  - fix(plasma-hope): use "forceUpdate" [#461](https://github.com/salute-developers/plasma/pull/461) (alexander.lobyntsev@virtualhealth.com)
+
+#### Authors: 1
+
+- Alexander Lobyntsev (alexander.lobyntsev@virtualhealth.com)
+
+---
+
 # (Tue Apr 04 2023)
 
 #### 🐛 Bug Fix
