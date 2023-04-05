@@ -85,6 +85,7 @@ export const DatePicker = ({
     monthsAriaLabel: monthAriaLabel,
     yearsAriaLabel: yearAriaLabel,
     infiniteScroll,
+    disableScrollSnapAlign = false,
     ...rest
 }: DatePickerProps) => {
     const normalizeValues = React.useMemo(() => getNormalizeValues(getDateValues, getSeconds)(value, min, max), [
@@ -263,6 +264,7 @@ export const DatePicker = ({
                     infiniteScroll={infiniteScroll}
                     onChange={onDayChange}
                     aria-label={dayAriaLabel}
+                    disableScrollSnapAlign={disableScrollSnapAlign}
                 />
             )}
             {monthsOption && (
@@ -281,6 +283,7 @@ export const DatePicker = ({
                     infiniteScroll={infiniteScroll}
                     onChange={onMonthChange}
                     aria-label={monthAriaLabel}
+                    disableScrollSnapAlign={disableScrollSnapAlign}
                 />
             )}
             {yearsOption && (
@@ -298,6 +301,7 @@ export const DatePicker = ({
                     infiniteScroll={infiniteScroll}
                     onChange={onYearChange}
                     aria-label={yearAriaLabel}
+                    disableScrollSnapAlign={disableScrollSnapAlign}
                 />
             )}
             {enableNativeControl && <input type="hidden" value={value.toISOString()} name={name} />}

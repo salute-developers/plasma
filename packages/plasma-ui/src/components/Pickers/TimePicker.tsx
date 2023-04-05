@@ -91,6 +91,7 @@ export const TimePicker = ({
     minutesAriaLabel,
     hoursAriaLabel,
     infiniteScroll,
+    disableScrollSnapAlign = false,
     ...rest
 }: TimePickerProps) => {
     const normalizeValues = React.useMemo(() => getNormalizeValues(getTimeValues, getSeconds)(value, min, max), [
@@ -230,6 +231,7 @@ export const TimePicker = ({
                     infiniteScroll={infiniteScroll}
                     onChange={onHoursChange}
                     aria-label={hoursAriaLabel}
+                    disableScrollSnapAlign={disableScrollSnapAlign}
                 />
             )}
             {options.hours && options.minutes && <PickerDots $size={size} />}
@@ -248,6 +250,7 @@ export const TimePicker = ({
                     infiniteScroll={infiniteScroll}
                     onChange={onMinutesChange}
                     aria-label={minutesAriaLabel}
+                    disableScrollSnapAlign={disableScrollSnapAlign}
                 />
             )}
             {options.minutes && options.seconds && <PickerDots $size={size} />}
@@ -266,6 +269,7 @@ export const TimePicker = ({
                     infiniteScroll={infiniteScroll}
                     onChange={onSecondsChange}
                     aria-label={secondsAriaLabel}
+                    disableScrollSnapAlign={disableScrollSnapAlign}
                 />
             )}
             {enableNativeControl && <input type="hidden" value={value.toISOString()} name={name} />}

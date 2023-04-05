@@ -25,6 +25,7 @@ interface StyledSizeProps {
     $size: keyof typeof sizes;
     $noScrollBehavior: boolean;
     isSnapAlwaysStop?: boolean;
+    $disableScrollSnapAlign?: boolean;
 }
 
 export const StyledPickerItem = styled.div<StyledSizeProps>`
@@ -41,10 +42,11 @@ export const StyledPickerItem = styled.div<StyledSizeProps>`
     cursor: pointer;
     user-select: none;
 
-    ${({ $noScrollBehavior }) =>
+    ${({ $noScrollBehavior, $disableScrollSnapAlign }) =>
         !$noScrollBehavior &&
         css`
-            scroll-snap-align: center;
+            //INFO: Используем значение "initial" для корректного отображения на iOS 14.5 и ниже
+            scroll-snap-align: ${$disableScrollSnapAlign ? 'initial' : 'center'};
         `}
 
     &:focus {
@@ -64,7 +66,13 @@ export const StyledPickerItem = styled.div<StyledSizeProps>`
 // TODO: https://github.com/salute-developers/plasma/issues/232
 const StyledTransformable = styled.div<StyledSizeProps>`
     width: 100%;
-    height: 100%;
+
+    // INFO: Убираем высоту для корректного отображения на iOS 14.0
+    ${({ $disableScrollSnapAlign }) =>
+        !$disableScrollSnapAlign &&
+        css`
+            height: 100%;
+        `}
 
     flex-direction: column;
 
@@ -109,6 +117,11 @@ export interface PickerItemProps extends React.HTMLAttributes<HTMLDivElement>, S
      * и перебросит на элемент с индексом <6> (т.е. числом 2)
      */
     isSnapAlwaysStop?: boolean;
+    /**
+     * Выключаем css свойства для указания стороны привязки в scroll-snap контейнере
+     * @default false
+     */
+    disableScrollSnapAlign?: boolean;
 }
 
 export const PickerItem = ({
@@ -120,6 +133,7 @@ export const PickerItem = ({
     onItemClick,
     autofocus,
     disabled,
+    disableScrollSnapAlign,
     ...rest
 }: PickerItemProps) => {
     const itemRef = React.useRef<HTMLDivElement | null>(null);
@@ -144,8 +158,20 @@ export const PickerItem = ({
     }, [autofocus]);
 
     return (
-        <StyledPickerItem $noScrollBehavior={noScrollBehavior} ref={itemRef} $size={size} onClick={onClick} {...rest}>
-            <StyledTransformable $noScrollBehavior={noScrollBehavior} $size={size} style={styles.wrapper}>
+        <StyledPickerItem
+            $noScrollBehavior={noScrollBehavior}
+            $disableScrollSnapAlign={disableScrollSnapAlign}
+            ref={itemRef}
+            $size={size}
+            onClick={onClick}
+            {...rest}
+        >
+            <StyledTransformable
+                $noScrollBehavior={noScrollBehavior}
+                $disableScrollSnapAlign={disableScrollSnapAlign}
+                $size={size}
+                style={styles.wrapper}
+            >
                 <StyledText style={styles.text}>{item.label}</StyledText>
                 <StyledWhiteText style={styles.whiteText} aria-hidden="true">
                     {item.label}

@@ -54,9 +54,10 @@ interface DefaultStoryProps extends DatePickerProps {
     optionsHours: boolean;
     optionsMinutes: boolean;
     optionsSeconds: boolean;
+    disableScrollSnapAlign: boolean;
 }
 
-export const Default: Story<DefaultStoryProps> = (args) => {
+export const Default: Story<DefaultStoryProps> = ({ disableScrollSnapAlign, ...args }) => {
     const [value, setValue] = React.useState(parseDateTime(args.initialValue));
     const min = React.useMemo(() => parseDateTime(args.minDate), [args.minDate]);
     const max = React.useMemo(() => parseDateTime(args.maxDate), [args.maxDate]);
@@ -67,6 +68,7 @@ export const Default: Story<DefaultStoryProps> = (args) => {
     const hours = args.optionsHours;
     const minutes = args.optionsMinutes;
     const seconds = args.optionsSeconds;
+
     const dateOptions = React.useMemo(
         () => ({
             years,
@@ -105,6 +107,7 @@ export const Default: Story<DefaultStoryProps> = (args) => {
                 daysAriaLabel="день"
                 monthsAriaLabel="месяц"
                 yearsAriaLabel="год"
+                disableScrollSnapAlign={disableScrollSnapAlign}
             />
             <TimePicker
                 key={`time-${args.TimePickerSize}-${args.TimePickerVisibleItems}`}
@@ -124,6 +127,7 @@ export const Default: Story<DefaultStoryProps> = (args) => {
                 secondsAriaLabel="секунды"
                 minutesAriaLabel="минуты"
                 hoursAriaLabel="часы"
+                disableScrollSnapAlign={disableScrollSnapAlign}
             />
         </StyledWrapper>
     );
@@ -151,6 +155,7 @@ Default.args = {
     TimePickerVisibleItems: 5,
     DatePickerNativeControl: false,
     TimePickerNativeControl: false,
+    disableScrollSnapAlign: false,
 };
 
 Default.argTypes = {
