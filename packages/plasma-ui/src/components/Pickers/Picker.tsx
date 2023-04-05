@@ -273,6 +273,11 @@ export interface PickerProps
      * Бесконечная прокрутка; выключена по умолчанию для lowPerformance Devices
      */
     infiniteScroll?: boolean;
+    /**
+     * Выключаем css свойства для указания стороны привязки в scroll-snap контейнере.
+     * @default false
+     */
+    disableScrollSnapAlign?: boolean;
 }
 
 /**
@@ -290,6 +295,7 @@ export const Picker = ({
     scrollSnapType,
     'aria-label': ariaLabel,
     onChange,
+    disableScrollSnapAlign,
     ...rest
 }: PickerProps) => {
     const isSingleItem = items.length === 1;
@@ -536,6 +542,7 @@ export const Picker = ({
                         isSnapAlwaysStop={
                             i === min + INDEX_STOP_BUFFER || i === virtualItems.length - 1 - INDEX_STOP_BUFFER
                         }
+                        disableScrollSnapAlign={disableScrollSnapAlign}
                     />
                 ))}
             </StyledCarousel>
