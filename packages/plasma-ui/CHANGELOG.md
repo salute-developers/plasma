@@ -1,3 +1,15 @@
+# v1.181.0 (Thu Apr 06 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): add offScrollSnapAlign prop ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.180.1 (Tue Apr 04 2023)
 
 #### 🐛 Bug Fix

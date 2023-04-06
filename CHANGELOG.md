@@ -1,3 +1,20 @@
+# (Thu Apr 06 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui-docs): add block "Проблемы в Safari iOS 14.5 и ниже" [#464](https://github.com/salute-developers/plasma/pull/464) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.181.0`
+  - fix(plasma-ui): add offScrollSnapAlign prop ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Wed Apr 05 2023)
 
 #### 🐛 Bug Fix
