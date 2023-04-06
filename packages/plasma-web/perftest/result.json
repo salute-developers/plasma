@@ -1,0 +1,279 @@
+{
+  "version": "0.3.9",
+  "jobs": 2,
+  "retries": 30,
+  "timestamp": 1680791753487,
+  "duration": 320170,
+  "averageLoad": [
+    3.82568359375,
+    3.21826171875,
+    2.63330078125
+  ],
+  "freeMemory": 2587496448,
+  "result": {
+    "src/components/Calendar/Calendar.perftest.tsx#Default": {
+      "render": {
+        "__statsMap": true,
+        "median": [
+          58.600000001490116,
+          3.2827697994995404
+        ],
+        "mean": [
+          60.52666666706403,
+          3.2827697994995404
+        ]
+      },
+      "rerender": {
+        "__statsMap": true,
+        "median": [
+          9.399999991059303,
+          1.5465980185099149
+        ],
+        "mean": [
+          8.909999998907248,
+          1.5465980185099166
+        ]
+      }
+    },
+    "src/components/Calendar/Calendar.perftest.tsx#Double": {
+      "render": {
+        "__statsMap": true,
+        "median": [
+          81.49999999254942,
+          4.495050134196518
+        ],
+        "mean": [
+          79.85999999890724,
+          4.495050134196518
+        ]
+      },
+      "rerender": {
+        "__statsMap": true,
+        "median": [
+          16.24999999254942,
+          1.8247064892693388
+        ],
+        "mean": [
+          15.693333331743876,
+          1.8247064892693388
+        ]
+      }
+    },
+    "src/components/Calendar/Calendar.perftest.tsx#DoubleRange": {
+      "render": {
+        "__statsMap": true,
+        "median": [
+          76.60000000149012,
+          3.9211817305468912
+        ],
+        "mean": [
+          80.24000000059604,
+          3.9211817305468912
+        ]
+      },
+      "rerender": {
+        "__statsMap": true,
+        "median": [
+          16.5,
+          1.7819935073729454
+        ],
+        "mean": [
+          15.9633333320419,
+          1.7819935073729471
+        ]
+      }
+    },
+    "src/components/Calendar/Calendar.perftest.tsx#WithPopup": {
+      "render": {
+        "__statsMap": true,
+        "median": [
+          60.850000001490116,
+          4.137573993292143
+        ],
+        "mean": [
+          62.17666666607062,
+          4.137573993292143
+        ]
+      },
+      "rerender": {
+        "__statsMap": true,
+        "median": [
+          9.700000002980232,
+          1.5721825148093078
+        ],
+        "mean": [
+          9.436666665971279,
+          1.5721825148093078
+        ]
+      }
+    },
+    "src/components/Dropdown/Dropdon.perftest.tsx#Trigger": {
+      "render": {
+        "__statsMap": true,
+        "median": [
+          37.99999999254942,
+          3.6433046955919437
+        ],
+        "mean": [
+          40.39666666587194,
+          3.6433046955919437
+        ]
+      },
+      "rerender": {
+        "__statsMap": true,
+        "median": [
+          7.1500000059604645,
+          1.5574663462868816
+        ],
+        "mean": [
+          6.55333333214124,
+          1.5574663462868816
+        ]
+      }
+    },
+    "src/components/Dropdown/Dropdon.perftest.tsx#Styling": {
+      "render": {
+        "__statsMap": true,
+        "median": [
+          38.5,
+          3.4102554136927523
+        ],
+        "mean": [
+          38.649999999503294,
+          3.4102554136927523
+        ]
+      },
+      "rerender": {
+        "__statsMap": true,
+        "median": [
+          5,
+          1.460522294659909
+        ],
+        "mean": [
+          4.7799999992052715,
+          1.460522294659909
+        ]
+      }
+    },
+    "src/components/Dropdown/Dropdon.perftest.tsx#InlineOrBlockWrapper": {
+      "render": {
+        "__statsMap": true,
+        "median": [
+          38.850000001490116,
+          3.271354732543692
+        ],
+        "mean": [
+          40.98999999960264,
+          3.271354732543692
+        ]
+      },
+      "rerender": {
+        "__statsMap": true,
+        "median": [
+          6.800000004470348,
+          1.4711256814810207
+        ],
+        "mean": [
+          6.720000001788139,
+          1.4711256814810207
+        ]
+      }
+    },
+    "src/components/Dropdown/Dropdon.perftest.tsx#CustomAssembly": {
+      "render": {
+        "__statsMap": true,
+        "median": [
+          33.04999999701977,
+          2.277958269591764
+        ],
+        "mean": [
+          32.94666666736205,
+          2.277958269591764
+        ]
+      },
+      "rerender": {
+        "__statsMap": true,
+        "median": [
+          4.799999997019768,
+          1.4185109805926714
+        ],
+        "mean": [
+          4.773333332439264,
+          1.4185109805926714
+        ]
+      }
+    },
+    "src/components/Dropdown/Dropdon.perftest.tsx#AccessibilityHOC": {
+      "render": {
+        "__statsMap": true,
+        "median": [
+          35.399999998509884,
+          2.6460999610100018
+        ],
+        "mean": [
+          37.05666666527589,
+          2.6460999610100018
+        ]
+      },
+      "rerender": {
+        "__statsMap": true,
+        "median": [
+          4.700000002980232,
+          1.3556206467478962
+        ],
+        "mean": [
+          4.353333331644535,
+          1.3556206467478962
+        ]
+      }
+    },
+    "src/components/ElasticGrid/ElasticGrid.perftest.tsx#Default": {
+      "render": {
+        "__statsMap": true,
+        "median": [
+          16.75,
+          2.086654251838727
+        ],
+        "mean": [
+          17.456666666766008,
+          2.086654251838727
+        ]
+      },
+      "rerender": {
+        "__statsMap": true,
+        "median": [
+          1.6999999955296516,
+          1.1482604682557467
+        ],
+        "mean": [
+          1.5166666666666666,
+          1.1482604682557467
+        ]
+      }
+    }
+  },
+  "staticTaskResult": {
+    "render": {
+      "__statsMap": true,
+      "median": [
+        9.649999998509884,
+        0.601527485873909
+      ],
+      "mean": [
+        9.88333333383004,
+        0.601527485873909
+      ]
+    },
+    "rerender": {
+      "__statsMap": true,
+      "median": [
+        3.3000000044703484,
+        0.28177142987483306
+      ],
+      "mean": [
+        2.996666666865349,
+        0.28177142987483306
+      ]
+    }
+  }
+}
