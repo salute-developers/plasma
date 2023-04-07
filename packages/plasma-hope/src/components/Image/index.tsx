@@ -1,4 +1,3 @@
-export type { ImageBaseProps, Ratio } from '@salutejs/plasma-core';
-export type { ImageProps } from './types';
+export type { ImageBaseProps, Ratio, ImageProps } from '@salutejs/plasma-core';
 
-export { Image } from './Image';
+export { Image } from '@salutejs/plasma-core';
