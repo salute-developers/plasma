@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
 
 import { toCssSize } from '../../utils';
@@ -99,7 +99,7 @@ const StyledDivImg = styled.div`
 /**
  * Компонент для отображения картинок.
  */
-export const Image: React.FC<ImageProps> = ({ src, srcSet, sizes, base = 'img', alt, width, height, ...props }) => {
+const ImageBase: React.FC<ImageProps> = ({ src, srcSet, sizes, base = 'img', alt, width, height, ...props }) => {
     const ratio = 'ratio' in props ? props.ratio : undefined;
     const customRatio = 'customRatio' in props ? props.customRatio : undefined;
 
@@ -110,3 +110,8 @@ export const Image: React.FC<ImageProps> = ({ src, srcSet, sizes, base = 'img', 
         </StyledRoot>
     );
 };
+
+/**
+ * Компонент для отображения картинок.
+ */
+export const Image: FC<ImageProps> = styled(ImageBase)``;
