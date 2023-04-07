@@ -22,7 +22,9 @@
         "types",
         "utils",
         "index.d.ts",
-        "index.js"
+        "index.js",
+        "collectPackageInfo.d.ts",
+        "collectPackageInfo.js"
     ],
     "repository": {
         "type": "git",

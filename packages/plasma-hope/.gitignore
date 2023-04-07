@@ -8,6 +8,6 @@
 /types
 /utils
 /index.*
+/collectPackageInfo.*
 /helpers
-build-sb
-build-sb-docs
+
