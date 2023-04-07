@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { paragraph1, paragraph2 } from '../../../tokens';
-import { applyHyphens, applySpacing, BreakWordProps, SpacingProps } from '../../../mixins';
+import { paragraph1, paragraph2 } from '../../tokens';
+import { applyHyphens, applySpacing, BreakWordProps, SpacingProps } from '../../mixins';
 
 export const ParagraphText1 = styled.div<SpacingProps & BreakWordProps>`
     ${applyHyphens}

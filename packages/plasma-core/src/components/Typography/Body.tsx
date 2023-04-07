@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { body1, body2, body3 } from '../../../tokens';
-import { applyHyphens, applySpacing, BreakWordProps, SpacingProps } from '../../../mixins';
+import { body1, body2, body3 } from '../../tokens';
+import { applyHyphens, applySpacing, BreakWordProps, SpacingProps } from '../../mixins';
 
 export const Body1 = styled.div<SpacingProps & BreakWordProps>`
     ${applyHyphens}
