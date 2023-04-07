@@ -6,7 +6,6 @@ const Icon = () => <IconDownload color="inherit" />;
 
 describe('plasma-core: Button', () => {
     const Button = getComponent('Button');
-    const Spinner = getComponent('Spinner');
 
     it('simple', () => {
         mount(
@@ -176,5 +175,18 @@ describe('plasma-core: Button', () => {
             </CypressTestDecorator>,
         );
         cy.matchImageSnapshot();
+    });
+
+    it('as', () => {
+        // INFO: Почему и как может сломаться?
+        // https://plasma.sberdevices.ru/ui/types/as-and-forwardedas/#forwardedas
+
+        mount(
+            <CypressTestDecorator>
+                <Button as="a">Hello Plasma</Button>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('[type="button"]').first().should('have.prop', 'tagName').should('eq', 'A');
     });
 });
