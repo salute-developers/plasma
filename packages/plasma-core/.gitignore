@@ -7,5 +7,6 @@
 /utils
 /index.js*
 /index.d.ts*
+/collectPackageInfo.*
 /es
 /__helpers
