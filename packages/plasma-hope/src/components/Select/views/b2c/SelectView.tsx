@@ -7,8 +7,7 @@ import type { SelectRefElement } from '../../SelectButton';
 import { SelectButton as BaseButton } from '../../SelectButton';
 import { SelectDropdown as BaseDropdown } from '../../SelectDropdown';
 import { withAssistiveDropdown } from '../../../Dropdown';
-
-import { SelectGroup } from './SelectGroup';
+import { SelectGroup } from '../../SelectGroup';
 
 const SelectButton = styled(BaseButton).attrs({ design: 'b2c' })``;
 
