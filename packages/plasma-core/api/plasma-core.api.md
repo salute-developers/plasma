@@ -673,7 +673,7 @@ export const Headline4: StyledComponent<"div", any, SpacingProps & BreakWordProp
 export const headline4: CSSObject;
 
 // @public
-const Image_2: React_2.FC<ImageProps>;
+const Image_2: FC<ImageProps>;
 export { Image_2 as Image }
 
 // Warning: (ae-forgotten-export) The symbol "HeightProps" needs to be exported by the entry point index.d.ts

@@ -86,6 +86,7 @@ import { Headline2 } from '@salutejs/plasma-core';
 import { Headline3 } from '@salutejs/plasma-core';
 import { Headline4 } from '@salutejs/plasma-core';
 import { HTMLAttributes } from 'react';
+import { Image as Image_2 } from '@salutejs/plasma-core';
 import { ImageBaseProps } from '@salutejs/plasma-core';
 import { ImageProps } from '@salutejs/plasma-core';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
@@ -760,8 +761,6 @@ export const Headline5: StyledComponent<"div", any, {}, never>;
 // @public (undocumented)
 export const headline5: CSSObject;
 
-// @public
-const Image_2: FC<ImageProps>;
 export { Image_2 as Image }
 
 export { ImageBaseProps }
