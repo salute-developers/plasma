@@ -1,3 +1,16 @@
+# v0.31.3 (Mon Apr 10 2023)
+
+#### 🐛 Bug Fix
+
+- fix: api report after export "Image" component from "plasma-core" [#467](https://github.com/salute-developers/plasma/pull/467) ([@Yakutoc](https://github.com/Yakutoc))
+- fix(plasma-hope): re-export "Image" from plasma-core ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v0.31.2 (Wed Apr 05 2023)
 
 #### 🐛 Bug Fix

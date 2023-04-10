@@ -1,3 +1,16 @@
+# v1.107.1 (Mon Apr 10 2023)
+
+#### 🐛 Bug Fix
+
+- fix: api report after export "Image" component from "plasma-core" [#467](https://github.com/salute-developers/plasma/pull/467) ([@Yakutoc](https://github.com/Yakutoc))
+- fix(plasma-core): export "Image" as styled component ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.106.0 (Tue Mar 21 2023)
 
 #### 🚀 Enhancement

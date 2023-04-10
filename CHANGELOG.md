@@ -1,3 +1,22 @@
+# (Mon Apr 10 2023)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-core@1.107.1`, `@salutejs/plasma-hope@0.31.3`
+  - fix: api report after export "Image" component from "plasma-core" [#467](https://github.com/salute-developers/plasma/pull/467) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-ui@1.181.1`
+  - fix(plasma-ui): re-export "Image" from plasma-core ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@0.31.3`
+  - fix(plasma-hope): re-export "Image" from plasma-core ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-core@1.107.1`
+  - fix(plasma-core): export "Image" as styled component ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Thu Apr 06 2023)
 
 #### 🚀 Enhancement

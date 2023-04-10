@@ -1,3 +1,15 @@
+# v1.181.1 (Mon Apr 10 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): re-export "Image" from plasma-core ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.181.0 (Thu Apr 06 2023)
 
 #### 🐛 Bug Fix
