@@ -1,6 +1,6 @@
 import type { Dictionary, File, TransformedToken } from 'style-dictionary';
 
-import { upperFirstLetter } from '../../themeBuilder/utils';
+import { camelize, upperFirstLetter } from '../../themeBuilder/utils';
 import { ThemeColor, ThemeColorType } from '../types';
 
 const getExportColorThemes = (theme: string) => `const ${theme}ColorsMapping = {
@@ -36,8 +36,7 @@ interface LinearGradientProps extends ReactNative.ViewProps {
   angle?: number
 }`;
 
-    const gradientKeys = `type GradientKey = 
-  ${gradientKeysContent}
+    const gradientKeys = `type GradientKey = ${gradientKeysContent}
 
 type GradientsMap = Record<GradientKey, LinearGradientProps>`;
 
@@ -76,13 +75,16 @@ const getTokenValue = (token: TransformedToken) => {
 };
 
 const isGradientToken = (token: TransformedToken, theme: string) =>
-    token.attributes?.type?.includes(theme) && token.original.value.linearGradient;
+    (camelize(token.attributes?.type) || '').includes(theme) && token.original.value.linearGradient;
 
-const getGradientKeys = (tokenItems: TransformedToken[]) =>
-    tokenItems
+const getGradientKeys = (tokenItems: TransformedToken[]) => {
+    const keys = `\n  ${tokenItems
         .filter((token) => isGradientToken(token, ThemeColor.light))
         .map((token) => `| '${token.attributes?.item}'`)
-        .join('\n  ');
+        .join('\n  ')}`;
+
+    return keys.replace(/\s/g, '') ? keys : 'any';
+};
 
 const getGradientTokens = (tokenItems: TransformedToken[], theme: ThemeColorType) =>
     tokenItems
@@ -92,7 +94,9 @@ const getGradientTokens = (tokenItems: TransformedToken[], theme: ThemeColorType
 
 const getTheme = (tokenItems: TransformedToken[], theme: ThemeColorType) =>
     tokenItems
-        .filter((token) => token.attributes?.type?.includes(theme) && !token.original.value.linearGradient)
+        .filter(
+            (token) => (camelize(token.attributes?.type) || '').includes(theme) && !token.original.value.linearGradient,
+        )
         .map(getTokenValue)
         .join(`\n`);
 
