@@ -12,11 +12,11 @@ export interface Gradient {
 }
 
 export const enum ThemeColor {
-    light = 'light',
-    dark = 'dark',
+    light = 'Light',
+    dark = 'Dark',
 }
 
-export type ThemeColorType = keyof typeof ThemeColor;
+export type ThemeColorType = 'Light' | 'Dark';
 
 export interface GradientToken {
     startColor: string;

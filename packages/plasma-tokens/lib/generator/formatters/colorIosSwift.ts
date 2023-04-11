@@ -84,12 +84,12 @@ const getLinearGradient = (
 ) => `LinearGradient(
             stopColors: [
                 ColorToken(
-                    plasmaTokensColorLight: ${token.light.startColor},
-                    plasmaTokensColorDark: ${token.dark.startColor}
+                    plasmaTokensColorLight: ${token.Light.startColor},
+                    plasmaTokensColorDark: ${token.Dark.startColor}
                 ),
                 ColorToken(
-                    plasmaTokensColorLight: ${token.light.endColor},
-                    plasmaTokensColorDark: ${token.dark.endColor}
+                    plasmaTokensColorLight: ${token.Light.endColor},
+                    plasmaTokensColorDark: ${token.Dark.endColor}
                 )
             ],
             startPoint: ${startPoint},
@@ -100,9 +100,9 @@ const hasGradientWord = (name: string) => name.toLocaleLowerCase().includes('gra
 
 const getStructure = (tokenItems: TransformedToken[], themeName: string) =>
     tokenItems
-        .filter(({ name }) => name.includes(ThemeColor.light) && !hasGradientWord(name))
+        .filter(({ name }) => name.includes(`${themeName}${ThemeColor.light}`) && !hasGradientWord(name))
         .map((token) => {
-            const tokenName = token.name.replace(`${ThemeColor.light}${themeName}`, '');
+            const tokenName = token.name.replace(`${themeName}${ThemeColor.light}`, '');
             const name = upperFirstLetter(tokenName);
 
             return `    public static let ${lowerFirstLetter(name)} = ColorToken(
@@ -113,15 +113,14 @@ const getStructure = (tokenItems: TransformedToken[], themeName: string) =>
         .join(`\n\n`);
 
 const getGradient = (tokenItems: TransformedToken[], themeName: string) => {
-    const name = camelize(themeName);
-    const regex = new RegExp(`((${ThemeColor.light}|${ThemeColor.dark})${name})`);
+    const regex = new RegExp(`(${themeName}(${ThemeColor.light}|${ThemeColor.dark}))`);
 
     const gradient = tokenItems
         .filter(({ name }) => hasGradientWord(name))
         .reduce<Record<string, Record<ThemeColorType, GradientToken>>>((acc, token) => {
             const tokenName = token.name.replace(regex, '');
             const name = lowerFirstLetter(tokenName);
-            const themeColor = (token.name.match(regex)?.[2] || 'light') as ThemeColorType;
+            const themeColor = (token.name.match(regex)?.[2] || ThemeColor.light) as ThemeColorType;
 
             return {
                 ...acc,
@@ -146,7 +145,7 @@ const getEnums = (tokenItems: TransformedToken[], themeName: string) =>
         .filter(({ name }) => !hasGradientWord(name))
         .map((token) => {
             const { name, value } = token;
-            const modName = name.replace(themeName, '');
+            const modName = lowerFirstLetter(name.replace(themeName, ''));
 
             if (lightTokenSberMap[modName]) {
                 return `    static var ${modName}${getConditionalColorToken(value, lightTokenSberMap[modName])}`;
@@ -157,7 +156,7 @@ const getEnums = (tokenItems: TransformedToken[], themeName: string) =>
         .join(`\n`);
 
 export const colorIosSwiftCustomFormatter = ({ dictionary, file }: { dictionary: Dictionary; file: File }) => {
-    const themeName = file.className || '';
+    const themeName = lowerFirstLetter(camelize(file.className) || '');
 
     const struct = getStructure(dictionary.allTokens, themeName);
     const gradient = getGradient(dictionary.allTokens, themeName);

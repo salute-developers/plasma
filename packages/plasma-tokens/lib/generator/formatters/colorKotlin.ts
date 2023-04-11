@@ -1,6 +1,6 @@
 import type { Dictionary, File, TransformedToken } from 'style-dictionary';
 
-import { lowerFirstLetter } from '../../themeBuilder/utils';
+import { camelize, lowerFirstLetter } from '../../themeBuilder/utils';
 import { ThemeColor, ThemeColorType } from '../types';
 
 const getKotlinTemplate = (lightThemeContent: string, darkThemeContent: string, name: string) => {
@@ -41,12 +41,12 @@ import ru.${lowerFirstLetter(name)}.sm_theme.theme.tokens.SMColor`;
 
 const getTheme = (tokenItems: TransformedToken[], theme: ThemeColorType) =>
     tokenItems
-        .filter((tokens) => tokens.attributes?.type?.includes(theme))
+        .filter((token) => (camelize(token.attributes?.type) || '').includes(theme))
         .map((token) => `    ${token.attributes?.item} = ${token.value},`)
         .join(`\n`);
 
 export const colorKotlinCustomFormatter = ({ dictionary, file }: { dictionary: Dictionary; file: File }) => {
-    const themeName = file.className || '';
+    const themeName = lowerFirstLetter(file.className || '');
 
     const lightTheme = getTheme(dictionary.allTokens, ThemeColor.light);
     const darkTheme = getTheme(dictionary.allTokens, ThemeColor.dark);
