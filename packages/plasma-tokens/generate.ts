@@ -22,7 +22,6 @@ import type { ThemeTokens, TypographyTypes } from './data';
 import * as tokenGroups from './tokenGroups';
 import { generateColorThemesTokenDataGroups, typoArchetypes, shadows } from './lib/themeBuilder/generateTokens';
 import { mapDeprecatedColorTokens } from './lib/themeBuilder/mapDeprecatedTokens';
-import { upperFirstLetter } from './lib/themeBuilder/utils';
 
 const OUT_DIR = 'src';
 const COLORS_DIR = path.join(OUT_DIR, 'colors');
@@ -45,9 +44,9 @@ fs.existsSync(BRANDS_DIR) || fs.mkdirSync(BRANDS_DIR);
 // Генерация цветов
 writeGeneratedToFS(COLORS_DIR, [
     // Файл с токенами CSS-Variables (с дефолтными значениями)
-    { file: 'index.ts', content: generateTokens(colorThemes.darkSber, 'css', 'colors') },
+    { file: 'index.ts', content: generateTokens(colorThemes.salutejs_sber__dark, 'css', 'colors') },
     // Файл с токенами (JS-переменными) для инъекции значения напрямую
-    { file: 'values.ts', content: generateTokens(colorThemes.darkSber) },
+    { file: 'values.ts', content: generateTokens(colorThemes.salutejs_sber__dark) },
 ]);
 
 // Генерация токенов для кастомных тем из data/themes
@@ -56,7 +55,11 @@ const themesColorTokenGroups = generateColorThemesTokenDataGroups();
 const themesColorTokenGroupsFallback = mapDeprecatedColorTokens(themesColorTokenGroups);
 
 // Генерация и запись файлов тем для создания глобальных стилей
-writeGeneratedToFS(THEMES_DIR, generateColorThemes({ ...themesColorTokenGroupsFallback, ...colorThemes }));
+const withDeprecated = true;
+writeGeneratedToFS(
+    THEMES_DIR,
+    generateColorThemes({ ...themesColorTokenGroupsFallback, ...colorThemes }, undefined, withDeprecated),
+);
 
 // Отдельные файлы для импорта в компонентах
 writeGeneratedToFS(THEMES_VALUES_DIR, generateColorThemeValues({ ...themesColorTokenGroupsFallback, ...colorThemes }));
@@ -65,7 +68,7 @@ const brands = Object.keys(themesColorTokenGroups);
 
 brands.forEach((brand) => {
     const brandDir = path.join(BRANDS_DIR, brand);
-    const themeName = `dark${upperFirstLetter(brand)}`;
+    const themeName = `${brand}__dark`;
     const theme = themesColorTokenGroupsFallback[themeName];
 
     writeGeneratedToFS(brandDir, [
@@ -290,8 +293,8 @@ const addStylesToTypo = (t: TypoSystem<TypographyTypes>) => {
         },
         root: {
             ...typoStyles.body1,
-            color: extractTokenData(colorThemes.darkSber).text,
-            backgroundColor: extractTokenData(colorThemes.darkSber).background,
+            color: extractTokenData(colorThemes.salutejs_sber__dark).text,
+            backgroundColor: extractTokenData(colorThemes.salutejs_sber__dark).background,
         },
     };
 
@@ -303,15 +306,15 @@ fs.writeFileSync(
     generateThemeJSON(
         addStylesToTypo(typoSystem),
         // Dark Sber is default
-        extractTokenData(colorThemes.darkSber),
+        extractTokenData(colorThemes.salutejs_sber__dark),
         // Check https://theme-ui.com/theme-spec/#color-modes
         {
-            darkSber: extractTokenData(colorThemes.darkSber),
-            darkEva: extractTokenData(colorThemes.darkEva),
-            darkJoy: extractTokenData(colorThemes.darkJoy),
-            lightSber: extractTokenData(colorThemes.lightSber),
-            lightEva: extractTokenData(colorThemes.lightEva),
-            lightJoy: extractTokenData(colorThemes.lightJoy),
+            darkSber: extractTokenData(colorThemes.salutejs_sber__dark),
+            darkEva: extractTokenData(colorThemes.salutejs_eva__dark),
+            darkJoy: extractTokenData(colorThemes.salutejs_joy__dark),
+            lightSber: extractTokenData(colorThemes.salutejs_sber__light),
+            lightEva: extractTokenData(colorThemes.salutejs_eva__light),
+            lightJoy: extractTokenData(colorThemes.salutejs_joy__light),
         },
     ),
 );

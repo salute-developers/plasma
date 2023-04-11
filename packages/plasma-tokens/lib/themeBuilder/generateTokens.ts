@@ -57,8 +57,8 @@ export const theme2ColorTokenDataGroups = (theme: Theme): Record<string, ThemeTo
 
     return {
         [name]: {
-            [`dark${upperFirstLetter(name)}`]: dataObject2TokenDataGroup((dark as unknown) as DataObject, ''),
-            [`light${upperFirstLetter(name)}`]: dataObject2TokenDataGroup((light as unknown) as DataObject, ''),
+            [`${name}__dark`]: dataObject2TokenDataGroup((dark as unknown) as DataObject, ''),
+            [`${name}__light`]: dataObject2TokenDataGroup((light as unknown) as DataObject, ''),
         },
     };
 };
