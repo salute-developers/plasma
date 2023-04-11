@@ -95,7 +95,7 @@ export const mapDeprecatedColorTokens = (
             );
 
         const { skeletonGradient, skeletonGradientLighter } = gradientColors[
-            themeName.startsWith('dark') ? 'dark' : 'light'
+            themeName.endsWith('dark') ? 'dark' : 'light'
         ];
 
         return {

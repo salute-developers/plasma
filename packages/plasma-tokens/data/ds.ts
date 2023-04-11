@@ -682,16 +682,16 @@ const lightB2E: ThemeTokens = {
 };
 
 export const colorThemes = {
-    darkSber,
-    darkEva,
-    darkJoy,
-    darkBrand,
-    darkB2E,
-    lightSber,
-    lightEva,
-    lightJoy,
-    lightBrand,
-    lightB2E,
+    salutejs_sber__dark: darkSber,
+    salutejs_eva__dark: darkEva,
+    salutejs_joy__dark: darkJoy,
+    salutejs_brand__dark: darkBrand,
+    salutejs_B2E__dark: darkB2E,
+    salutejs_sber__light: lightSber,
+    salutejs_eva__light: lightEva,
+    salutejs_joy__light: lightJoy,
+    salutejs_brand__light: lightBrand,
+    salutejs_B2E__light: lightB2E,
 };
 
 export type SimpleTokens = {
