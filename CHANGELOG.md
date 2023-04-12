@@ -1,3 +1,37 @@
+# (Wed Apr 12 2023)
+
+#### 🚀 Enhancement
+
+- feat: Add custom babel plugin `babel-plugin-import-replacer` (neretinartem@Neretins-MBP.netis)
+- feat: Add custom babel plugin `babel-plugin-collect-package-info` (neretinartem@Neretins-MBP.netis)
+- `@salutejs/plasma-hope@0.32.0`
+  - feat(plasma-hope): Update API [#460](https://github.com/salute-developers/plasma/pull/460) (neretinartem@Neretins-MBP.netis)
+  - feat(plasma-hope): Add `collectPackageInfo` and custom babel config (neretinartem@Neretins-MBP.netis)
+- `@salutejs/plasma-ui@1.182.0`
+  - feat(plasma-ui): Add `collectPackageInfo` and custom babel config (neretinartem@Neretins-MBP.netis)
+- `@salutejs/plasma-core@1.108.0`
+  - feat(plasma-core): Add `collectPackageInfo` and custom babel config (neretinartem@Neretins-MBP.netis)
+  - feat(plasma-core): add test for prop 'as' [#469](https://github.com/salute-developers/plasma/pull/469) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- docs(plasma-ui-docs): add block "Переносы на SberBox, SberPortal, etc." [#473](https://github.com/salute-developers/plasma/pull/473) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-ui@1.182.0`
+  - ci: perftool for whole repo, fail on bad changes [#418](https://github.com/salute-developers/plasma/pull/418) ([@akhdrv](https://github.com/akhdrv))
+
+#### ⚠️ Pushed to `master`
+
+- `@salutejs/plasma-core@1.108.0`, `@salutejs/plasma-hope@0.32.0`, `@salutejs/plasma-ui@1.182.0`
+  - refactor(plasma-ui,plasma-core,plasma-hope): Refactor some components for clean re-export (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 3
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # (Mon Apr 10 2023)
 
 #### 🐛 Bug Fix

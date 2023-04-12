@@ -1,3 +1,21 @@
+# v1.108.0 (Wed Apr 12 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-core): Add `collectPackageInfo` and custom babel config (neretinartem@Neretins-MBP.netis)
+- feat(plasma-core): add test for prop 'as' [#469](https://github.com/salute-developers/plasma/pull/469) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### ⚠️ Pushed to `master`
+
+- refactor(plasma-ui,plasma-core,plasma-hope): Refactor some components for clean re-export (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 2
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v1.107.1 (Mon Apr 10 2023)
 
 #### 🐛 Bug Fix

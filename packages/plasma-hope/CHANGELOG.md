@@ -1,3 +1,25 @@
+# v0.32.0 (Wed Apr 12 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-hope): Update API [#460](https://github.com/salute-developers/plasma/pull/460) (neretinartem@Neretins-MBP.netis)
+- feat(plasma-hope): Add `collectPackageInfo` and custom babel config (neretinartem@Neretins-MBP.netis)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### ⚠️ Pushed to `master`
+
+- refactor(plasma-ui,plasma-core,plasma-hope): Refactor some components for clean re-export (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v0.31.3 (Mon Apr 10 2023)
 
 #### 🐛 Bug Fix

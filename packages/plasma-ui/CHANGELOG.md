@@ -1,3 +1,26 @@
+# v1.182.0 (Wed Apr 12 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): Add `collectPackageInfo` and custom babel config (neretinartem@Neretins-MBP.netis)
+
+#### 🐛 Bug Fix
+
+- ci: perftool for whole repo, fail on bad changes [#418](https://github.com/salute-developers/plasma/pull/418) ([@akhdrv](https://github.com/akhdrv))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### ⚠️ Pushed to `master`
+
+- refactor(plasma-ui,plasma-core,plasma-hope): Refactor some components for clean re-export (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v1.181.1 (Mon Apr 10 2023)
 
 #### 🐛 Bug Fix
