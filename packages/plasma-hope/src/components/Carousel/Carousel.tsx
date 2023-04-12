@@ -1,8 +1,16 @@
 import React from 'react';
-import { useCarousel, Carousel as StyledCarousel, CarouselTrack as StyledCarouselTrack } from '@salutejs/plasma-core';
+import {
+    useCarousel,
+    Carousel as CarouselCore,
+    CarouselTrack as StyledCarouselTrack,
+    applyNoSelect,
+} from '@salutejs/plasma-core';
 import type { CarouselProps as BaseProps } from '@salutejs/plasma-core';
+import styled from 'styled-components';
 
 import { useForkRef } from '../../hooks';
+
+import { useDragScroll } from './hooks';
 
 export type CarouselProps = Omit<BaseProps, 'axis' | 'animatedScrollByIndex' | 'throttleMs' | 'debounceMs'> & {
     /**
@@ -10,6 +18,10 @@ export type CarouselProps = Omit<BaseProps, 'axis' | 'animatedScrollByIndex' | '
      */
     ariaLive?: 'off' | 'polite';
 };
+
+const StyledCarousel = styled(CarouselCore)`
+    ${applyNoSelect};
+`;
 
 /**
  * Компонент для создания списков с прокруткой.
@@ -46,6 +58,8 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
         onIndexChange,
     });
     const handleRef = useForkRef(scrollRef, ref);
+
+    useDragScroll(scrollRef);
 
     return (
         <StyledCarousel ref={handleRef} axis={axis} scrollSnapType={scrollSnapType} {...rest}>
