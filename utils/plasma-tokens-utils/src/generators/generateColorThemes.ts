@@ -22,12 +22,15 @@ export const generateColorThemes = (colorThemes: Record<string, TokenDataGroup<s
         files.push(
             generateFile(
                 fileName,
-                attachToRoot({
-                    ...objectToCSSVariables(themeData, 'colors', Boolean(fromData)),
-                    ...objectToCSSVariables(mixin),
-                    color: themeData.text,
-                    backgroundColor: themeData.background,
-                }),
+                attachToRoot(
+                    {
+                        ...objectToCSSVariables(themeData, 'colors', Boolean(fromData)),
+                        ...objectToCSSVariables(mixin),
+                        color: themeData.text,
+                        backgroundColor: themeData.background,
+                    },
+                    fromData ? fileName : undefined,
+                ),
             ),
         );
     }

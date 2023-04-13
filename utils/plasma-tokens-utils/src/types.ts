@@ -17,7 +17,7 @@ export type CSSProperties = CSS.Properties<string | number>;
  * Объект с корневыми CSSVariables.
  */
 export type CSSRootTheme = {
-    ':root': CSSProperties;
+    [x: string]: CSSProperties;
 };
 
 export type TokenType = string | CSSProperties | Array<string | number> | Record<string, string>;
