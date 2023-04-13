@@ -9,7 +9,7 @@
         "build": "react-scripts build"
     },
     "dependencies": {
-        "@salutejs/plasma-b2c": "1.175.0",
+        "@salutejs/plasma-b2c": "1.200.0",
         "@salutejs/plasma-colors": "0.6.0",
         "@salutejs/plasma-icons": "1.137.0",
         "@salutejs/plasma-tokens-b2b": "1.14.0",
@@ -26,9 +26,7 @@
     },
     "homepage": ".",
     "eslintConfig": {
-        "extends": [
-            "react-app"
-        ],
+        "extends": ["react-app"],
         "rules": {
             "@typescript-eslint/no-redeclare": "off",
             "no-redeclare": "off"
@@ -45,15 +43,7 @@
         "react-error-overlay": "6.0.9"
     },
     "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
+        "production": [">0.2%", "not dead", "not op_mini all"],
+        "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
     }
 }
