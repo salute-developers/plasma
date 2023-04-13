@@ -142,16 +142,17 @@ export const Sheet = ({
     ...restProps
 }: SheetProps) => {
     const contentWrapperRef = React.useRef<HTMLDivElement>(null);
+    const contentRef = React.useRef<HTMLDivElement>(null);
     const handleRef = React.useRef<HTMLDivElement>(null);
 
-    useSheetSwipe({ contentWrapperRef, handleRef, onClose });
+    useSheetSwipe({ contentWrapperRef, contentRef, handleRef, onClose });
 
     return (
         <StyledWrapper isOpen={isOpen} withTransition={withTransition} {...restProps}>
             {isOpen && <NoScroll />}
             <StyledContentWrapper isOpen={isOpen} withTransition={withTransition} ref={contentWrapperRef}>
                 <StyledSheetHandle ref={handleRef} />
-                <StyledSheetContent>{children}</StyledSheetContent>
+                <StyledSheetContent ref={contentRef}>{children}</StyledSheetContent>
             </StyledContentWrapper>
             <StyledOverlay withOverlay={withOverlay} onClick={onClose} />
         </StyledWrapper>
