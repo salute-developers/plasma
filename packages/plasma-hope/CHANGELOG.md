@@ -1,3 +1,20 @@
+# v0.33.0 (Thu Apr 13 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-hope): draggable scroll in carousel [#476](https://github.com/salute-developers/plasma/pull/476) ([@kayman233](https://github.com/kayman233))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v0.32.0 (Wed Apr 12 2023)
 
 #### 🚀 Enhancement

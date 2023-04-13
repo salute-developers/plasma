@@ -1,3 +1,16 @@
+# (Thu Apr 13 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-hope@0.33.0`
+  - feat(plasma-hope): draggable scroll in carousel [#476](https://github.com/salute-developers/plasma/pull/476) ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 1
+
+- [@kayman233](https://github.com/kayman233)
+
+---
+
 # (Wed Apr 12 2023)
 
 #### 🚀 Enhancement
