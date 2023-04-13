@@ -36,15 +36,6 @@ export const Default = ({ withOverlay, withTransition }) => {
     );
 };
 
-Default.argsType = {
-    withOverlay: {
-        control: { type: 'boolean' },
-    },
-    withTransition: {
-        control: { type: 'boolean' },
-    },
-};
-
 Default.args = {
     withOverlay: true,
     withTransition: true,
@@ -67,4 +58,44 @@ export const WithoutOverlay = () => {
             </Sheet>
         </>
     );
+};
+
+export const WithScroll = ({ withOverlay, withTransition }) => {
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    return (
+        <>
+            <Button onClick={() => setIsOpen(true)}>Открыть</Button>
+            <Sheet
+                isOpen={isOpen}
+                withOverlay={withOverlay}
+                withTransition={withTransition}
+                onClose={() => setIsOpen(false)}
+            >
+                <Body1>
+                    <Button onClick={() => setIsOpen(false)}>Закрыть</Button>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae tempore vitae porro laboriosam
+                        consectetur fugiat assumenda, earum nesciunt. Distinctio minima nesciunt dicta rem quae vel
+                        illum ea fugit molestiae dolorem? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos
+                        nostrum placeat, neque repudiandae consectetur voluptates soluta et sint eum obcaecati nesciunt
+                        ullam, dolorem labore quaerat vero maxime ab ipsa nihil.
+                    </p>
+                    <Button onClick={() => setIsOpen(false)}>Закрыть</Button>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae tempore vitae porro laboriosam
+                        consectetur fugiat assumenda, earum nesciunt. Distinctio minima nesciunt dicta rem quae vel
+                        illum ea fugit molestiae dolorem? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos
+                        nostrum placeat, neque repudiandae consectetur voluptates soluta et sint eum obcaecati nesciunt
+                        ullam, dolorem labore quaerat vero maxime ab ipsa nihil.
+                    </p>
+                </Body1>
+            </Sheet>
+        </>
+    );
+};
+
+WithScroll.args = {
+    withOverlay: true,
+    withTransition: true,
 };
