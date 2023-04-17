@@ -1,3 +1,20 @@
+# (Mon Apr 17 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.201.0`, `@salutejs/plasma-hope@1.201.0`, `@salutejs/plasma-web@1.201.0`
+  - feat(plasma-hope): reAlign versions [#480](https://github.com/salute-developers/plasma/pull/480) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### 🐛 Bug Fix
+
+- build(plasma-theme-builder): update package-lock [#483](https://github.com/salute-developers/plasma/pull/483) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Thu Apr 13 2023)
 
 #### 🚀 Enhancement

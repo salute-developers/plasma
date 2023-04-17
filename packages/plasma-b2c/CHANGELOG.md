@@ -1,3 +1,20 @@
+# v1.201.0 (Mon Apr 17 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-hope): reAlign versions [#480](https://github.com/salute-developers/plasma/pull/480) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.175.0 (Thu Apr 13 2023)
 
 #### 🐛 Bug Fix

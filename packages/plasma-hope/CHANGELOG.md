@@ -1,3 +1,15 @@
+# v1.201.0 (Mon Apr 17 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-hope): reAlign versions [#480](https://github.com/salute-developers/plasma/pull/480) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v0.33.0 (Thu Apr 13 2023)
 
 #### 🚀 Enhancement
