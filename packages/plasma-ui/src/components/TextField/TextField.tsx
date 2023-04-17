@@ -1,17 +1,30 @@
-import React, { forwardRef, useCallback, KeyboardEvent } from 'react';
-import styled from 'styled-components';
-import { FieldRoot, FieldPlaceholder, FieldContent, Input, secondary } from '@salutejs/plasma-core';
+import React, { forwardRef, useCallback, KeyboardEvent, useRef } from 'react';
+import styled, { css } from 'styled-components';
+import { FieldRoot, FieldPlaceholder, FieldContent, Input, secondary, useForkRef } from '@salutejs/plasma-core';
 import type { FieldProps, InputProps } from '@salutejs/plasma-core';
 
 import { FieldHelper, applyInputStyles } from '../Field';
 import { spatnavClassNameAttrs } from '../../utils';
+import { useThemeContext } from '../../hooks';
+
+import { HiddenDiv } from './HiddenDiv';
+import { useTrailingSymbol } from './useTrailingSymbol';
 
 export interface TextFieldProps extends FieldProps, InputProps {
     /**
      * Callback по нажатию Enter
      */
     onSearch?: (value: string, event?: KeyboardEvent<HTMLInputElement>) => void;
+    /**
+     * Висящие символы справа от курсора
+     */
+    rightTrailingSymbols?: string;
 }
+
+const positionTopMap = {
+    l: '1.7rem',
+    m: '0.875rem',
+};
 
 const StyledInput = styled(Input).attrs(spatnavClassNameAttrs)`
     ${applyInputStyles};
@@ -25,6 +38,62 @@ const StyledInput = styled(Input).attrs(spatnavClassNameAttrs)`
     &:placeholder-shown + ${FieldPlaceholder} {
         color: ${({ status }) => (status ? null : secondary)};
     }
+`;
+
+export const RightTrailingSymbols = styled.div`
+    position: absolute;
+    z-index: -1;
+
+    font-family: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+`;
+
+const Field = styled(FieldRoot)<{
+    $rightTrailingSymbolsPosition?: number;
+    $rightTrailingSymbolsWidth?: number;
+    $rightTrailingSymbols?: string;
+    $deviceScale?: number;
+}>`
+    ${({
+        $isContentRight,
+        $size = 'l',
+        $rightTrailingSymbolsPosition = 0,
+        $rightTrailingSymbolsWidth = 0,
+        $rightTrailingSymbols = '',
+        $deviceScale = 1,
+    }) => {
+        const paddingRightBase = $isContentRight ? '4rem' : '2rem';
+        const isSingle = $rightTrailingSymbols.length === 1;
+
+        const rightTrailingSymbolsWidth = isSingle ? 0 : $rightTrailingSymbolsWidth;
+
+        // INFO: Высчитываем значения для увеличения отступа справа.
+        // INFO: 12 - база для множителя "на глаз".
+        const offsetByDeviceScale = isSingle ? $deviceScale * 12 : rightTrailingSymbolsWidth;
+
+        // INFO: Если у нас есть висящие символы, необходимо увеличить отступ справа.
+        const paddingRight = $rightTrailingSymbols ? `calc(${paddingRightBase} + ${offsetByDeviceScale}px)` : null;
+
+        // INFO: Расчитываем значение для позиции left с учетом deviceScale.
+        // INFO: 8 - база для множителя "на глаз" для более равмномерного отступа как для 1 символа, так и текста.
+        const rightTrailingSymbolsPosition = $rightTrailingSymbolsPosition + $deviceScale * 8;
+
+        return css`
+            & > ${StyledInput} {
+                padding-right: ${paddingRight};
+            }
+
+            ${RightTrailingSymbols} {
+                top: ${positionTopMap[$size]};
+                left: ${rightTrailingSymbolsPosition}px;
+            }
+
+            ${FieldPlaceholder} {
+                white-space: ${$rightTrailingSymbols ? 'pre' : null};
+            }
+        `;
+    }}
 `;
 
 /**
@@ -46,17 +115,22 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
         className,
         onChange,
         onSearch,
+        rightTrailingSymbols,
+        value,
         ...rest
     },
     ref,
 ) {
+    const rightTrailingSymbolsRef = useRef<HTMLDivElement>(null);
+
     const placeLabel = (label || placeholder) as string | undefined;
+    const { deviceScale } = useThemeContext();
 
     const handleChange = useCallback<React.ChangeEventHandler<HTMLInputElement>>(
         (event) => {
-            const { maxLength, value } = event.target;
+            const { maxLength } = event.target;
 
-            if (!onChange || (maxLength !== -1 && value.length > maxLength)) {
+            if (!onChange || (maxLength !== -1 && event.target.value.length > maxLength)) {
                 return;
             }
 
@@ -74,8 +148,24 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
         [onSearch],
     );
 
+    const rightTrailingSymbolsWidth = rightTrailingSymbolsRef?.current?.clientWidth || 0;
+
+    const { inputRef, hiddenDivRef, rightTrailingSymbolsPosition } = useTrailingSymbol({
+        size,
+        contentRight,
+        contentLeft,
+        rightTrailingSymbols,
+        value,
+        rightTrailingSymbolsWidth,
+        deviceScale,
+    });
+
+    const forkRef = useForkRef(inputRef, ref);
+
+    const placeholderText = rightTrailingSymbols && !value ? `${placeLabel}  ${rightTrailingSymbols}` : placeLabel;
+
     return (
-        <FieldRoot
+        <Field
             $size={size}
             $disabled={disabled}
             $isContentLeft={Boolean(contentLeft)}
@@ -84,11 +174,16 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
             status={status}
             style={style}
             className={className}
+            $rightTrailingSymbolsPosition={rightTrailingSymbolsPosition}
+            $rightTrailingSymbolsWidth={rightTrailingSymbolsWidth}
+            $rightTrailingSymbols={rightTrailingSymbols}
+            $deviceScale={deviceScale}
         >
             {contentLeft && <FieldContent pos="left">{contentLeft}</FieldContent>}
+
             <StyledInput
                 $size={size}
-                ref={ref}
+                ref={forkRef}
                 id={id}
                 placeholder={placeLabel}
                 disabled={disabled}
@@ -96,11 +191,19 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
                 aria-describedby={id ? `${id}-helpertext` : undefined}
                 onChange={handleChange}
                 onKeyUp={onSearch && handleSearch}
+                value={value}
                 {...rest}
             />
-            {placeLabel && size === 'l' && <FieldPlaceholder htmlFor={id}>{placeLabel}</FieldPlaceholder>}
+
+            {placeLabel && size === 'l' && <FieldPlaceholder htmlFor={id}>{placeholderText}</FieldPlaceholder>}
+
             {contentRight && <FieldContent pos="right">{contentRight}</FieldContent>}
+
             {helperText && <FieldHelper id={id ? `${id}-helpertext` : undefined}>{helperText}</FieldHelper>}
-        </FieldRoot>
+
+            {value && <RightTrailingSymbols ref={rightTrailingSymbolsRef}>{rightTrailingSymbols}</RightTrailingSymbols>}
+
+            <HiddenDiv ref={hiddenDivRef}>{value}</HiddenDiv>
+        </Field>
     );
 });
