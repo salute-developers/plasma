@@ -1,9 +1,14 @@
 {
     "name": "@salutejs/plasma-hope",
-    "version": "1.200.0",
+    "version": "1.201.0",
     "description": "Salute Design System / Internal React UI kit for web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    "keywords": ["design-system", "react-components", "ui-kit", "react"],
+    "keywords": [
+        "design-system",
+        "react-components",
+        "ui-kit",
+        "react"
+    ],
     "main": "index.js",
     "module": "es/index.js",
     "types": "index.d.ts",
@@ -104,9 +109,14 @@
         "build:watch": "npm run build:esm -- --watch"
     },
     "typeCoverage": {
-        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
+        "ignoreFiles": [
+            "src/**/*component-test.tsx",
+            "src/**/*stories.tsx"
+        ],
         "atLeast": 99.96
     },
-    "contributors": ["Vasiliy Loginevskiy"],
+    "contributors": [
+        "Vasiliy Loginevskiy"
+    ],
     "sideEffects": false
 }

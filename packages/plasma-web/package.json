@@ -1,9 +1,14 @@
 {
     "name": "@salutejs/plasma-web",
-    "version": "1.200.0",
+    "version": "1.201.0",
     "description": "Salute Design System / React UI kit for web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    "keywords": ["design-system", "react-components", "ui-kit", "react"],
+    "keywords": [
+        "design-system",
+        "react-components",
+        "ui-kit",
+        "react"
+    ],
     "main": "index.js",
     "module": "es/index.js",
     "types": "index.d.ts",
@@ -14,7 +19,7 @@
     },
     "dependencies": {
         "@salutejs/plasma-core": "1.108.0",
-        "@salutejs/plasma-hope": "1.200.0",
+        "@salutejs/plasma-hope": "1.201.0",
         "@salutejs/plasma-typo": "0.33.0"
     },
     "peerDependencies": {
@@ -78,9 +83,16 @@
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
+        "ignoreFiles": [
+            "src/**/*component-test.tsx",
+            "src/**/*stories.tsx"
+        ],
         "atLeast": 99.96
     },
-    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"],
+    "contributors": [
+        "Vasiliy Loginevskiy",
+        "Anton Vinogradov",
+        "Fanil Zubairov"
+    ],
     "sideEffects": false
 }
