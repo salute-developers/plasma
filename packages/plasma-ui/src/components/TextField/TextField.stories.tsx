@@ -93,4 +93,5 @@ Default.args = {
     size: 'l',
     enableLeftIcon: true,
     enableRightIcon: true,
+    rightTrailingSymbols: '',
 };
