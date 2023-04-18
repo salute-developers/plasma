@@ -20,6 +20,8 @@ import type {
 import { useThemeContext } from '../../hooks';
 import { applyInteraction, InteractionProps } from '../../mixins';
 
+import { sizes } from './ActionButton.sizes';
+
 export type ActionButtonProps = Omit<BaseProps, 'stretch' | 'pin'> &
     Partial<ButtonSizeProps> &
     Partial<ButtonViewProps> &
@@ -64,6 +66,8 @@ const applySizes = getButtonSizesMixin(buttonSizes, buttonTypography);
 const applyViews = ({ view }: ButtonViewProps) => buttonViews[view];
 
 const StyledButtonRoot = styled(ButtonRoot)<InteractionProps>`
+    ${sizes}
+
     ${applySizes}
     ${applyViews}
     ${applyInteraction}

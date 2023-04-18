@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { sberPortal, sberBox, mobile, sberPortalScale, sizes } from '@salutejs/plasma-tokens';
+import { sberPortal, sberBox, mobile, sberPortalScale } from '@salutejs/plasma-tokens';
 import { transformStyles } from '@salutejs/plasma-core';
 import { standard, compatible } from '@salutejs/plasma-typo';
 
@@ -20,7 +20,6 @@ const typoSizes = {
 
 const StandardTypo = createGlobalStyle(standard);
 const CompatibleTypo = createGlobalStyle(compatible);
-const Size = createGlobalStyle(sizes);
 
 export interface DeviceThemeProps {
     /**
@@ -85,7 +84,6 @@ export const DeviceThemeProvider = ({
                 <>
                     <StandardTypo deviceScale={deviceScale} breakWord={breakWord} />
                     <CompatibleTypo />
-                    <Size />
                 </>
             ) : (
                 <Typo />

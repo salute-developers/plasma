@@ -14,6 +14,7 @@ import { useThemeContext } from '../../hooks';
 import { spatnavClassNameAttrs } from '../../utils';
 
 import { applySizes, applyViews } from './Button.mixins';
+import { sizes } from './Button.sizes';
 
 export type ButtonProps = BaseProps &
     ButtonContentProps &
@@ -22,6 +23,8 @@ export type ButtonProps = BaseProps &
     InteractionProps;
 
 const StyledButtonRoot = styled(ButtonRoot).attrs(spatnavClassNameAttrs)<InteractionProps>`
+    ${sizes}
+
     ${applySizes}
     ${applyViews}
     ${applyInteraction}
