@@ -12,12 +12,11 @@ import {
     generateTypographyValues,
     generateTypoSystem,
     generateThemeJSON,
-    generateThemeFromData,
     FullColorsList,
 } from '@salutejs/plasma-tokens-utils';
 import type { TypoSystem } from '@salutejs/plasma-tokens-utils';
 
-import { baseColors, colorThemes, typoSystem, typo, sizes } from './data';
+import { baseColors, colorThemes, typoSystem, typo } from './data';
 import type { ThemeTokens, TypographyTypes } from './data';
 import * as tokenGroups from './tokenGroups';
 import { generateColorThemesTokenDataGroups, typoArchetypes, shadows } from './lib/themeBuilder/generateTokens';
@@ -62,7 +61,7 @@ writeGeneratedToFS(
 );
 
 // Отдельные файлы для импорта в компонентах
-writeGeneratedToFS(THEMES_VALUES_DIR, generateColorThemeValues({ ...themesColorTokenGroupsFallback, ...colorThemes }));
+writeGeneratedToFS(THEMES_VALUES_DIR, generateColorThemeValues({ ...colorThemes }));
 
 const brands = Object.keys(themesColorTokenGroups);
 
@@ -80,12 +79,6 @@ brands.forEach((brand) => {
     ]);
 });
 
-/** ========================================== **/
-/** ===== Генерация размеров компонентов ===== **/
-/** ========================================== **/
-
-writeGeneratedToFS(OUT_DIR, [generateThemeFromData(sizes, 'sizes')]);
-
 /** =================================================== **/
 /** ========= Генерация типографической сетки ========= **/
 /** =================================================== **/
@@ -97,7 +90,7 @@ writeGeneratedToFS(TYPOGRAPHY_DIR, generateTypography(typoSystem.typoStyles));
 writeGeneratedToFS(TYPOGRAPHY_VALUES_DIR, generateTypographyValues(typoSystem));
 
 // Типографика по типам устройств для создания глобального стиля
-writeGeneratedToFS(TYPO_DIR, generateTypoSystem(typo, sizes));
+writeGeneratedToFS(TYPO_DIR, generateTypoSystem(typo));
 
 /** ====================================== **/
 /** ========= Генерация index.ts ========= **/
@@ -119,7 +112,6 @@ export const mobileScale = ${typo.mobile.scale};
 export const scalingPixelBasis = ${HTML_FONT_SIZE};
 
 export * from './colors';
-export * from './sizes';
 export * from './typography';
 export * from './typographyValues';
 export * from './typo';
