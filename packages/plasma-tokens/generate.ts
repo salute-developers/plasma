@@ -4,20 +4,17 @@ import {
     ROBO_COMMENT,
     HTML_FONT_SIZE,
     writeGeneratedToFS,
-    extractTokenData,
     generateColorThemes,
     generateColorThemeValues,
     generateTokens,
     generateTypography,
     generateTypographyValues,
     generateTypoSystem,
-    generateThemeJSON,
     FullColorsList,
 } from '@salutejs/plasma-tokens-utils';
-import type { TypoSystem } from '@salutejs/plasma-tokens-utils';
 
 import { baseColors, colorThemes, typoSystem, typo } from './data';
-import type { ThemeTokens, TypographyTypes } from './data';
+import type { ThemeTokens } from './data';
 import * as tokenGroups from './tokenGroups';
 import { generateColorThemesTokenDataGroups, typoArchetypes, shadows } from './lib/themeBuilder/generateTokens';
 import { mapDeprecatedColorTokens } from './lib/themeBuilder/mapDeprecatedTokens';
@@ -254,75 +251,4 @@ Object.entries(shadows).forEach(([key, type]) => {
     );
 });
 
-/** ======================================== **/
-/** =       GENERATION OF theme.json       = **/
-/** ======================================== **/
-
-// https://theme-ui.com/theme-spec/#styles
-const addStylesToTypo = (t: TypoSystem<TypographyTypes>) => {
-    const { typoStyles } = t;
-
-    t.styles = {
-        h1: {
-            ...typoStyles.headline1,
-            margin: 0,
-        },
-        h2: {
-            ...typoStyles.headline2,
-            margin: 0,
-        },
-        h3: {
-            ...typoStyles.headline3,
-            margin: 0,
-        },
-        h4: {
-            ...typoStyles.headline4,
-            margin: 0,
-        },
-        p: {
-            ...typoStyles.paragraph1,
-            margin: 0,
-        },
-        root: {
-            ...typoStyles.body1,
-            color: extractTokenData(colorThemes.salutejs_sber__dark).text,
-            backgroundColor: extractTokenData(colorThemes.salutejs_sber__dark).background,
-        },
-    };
-
-    return t;
-};
-
-fs.writeFileSync(
-    'theme.json',
-    generateThemeJSON(
-        addStylesToTypo(typoSystem),
-        // Dark Sber is default
-        extractTokenData(colorThemes.salutejs_sber__dark),
-        // Check https://theme-ui.com/theme-spec/#color-modes
-        {
-            darkSber: extractTokenData(colorThemes.salutejs_sber__dark),
-            darkEva: extractTokenData(colorThemes.salutejs_eva__dark),
-            darkJoy: extractTokenData(colorThemes.salutejs_joy__dark),
-            lightSber: extractTokenData(colorThemes.salutejs_sber__light),
-            lightEva: extractTokenData(colorThemes.salutejs_eva__light),
-            lightJoy: extractTokenData(colorThemes.salutejs_joy__light),
-        },
-    ),
-);
-
-// TODO: Забрать сетки из figma
-// theme: {
-//   breakpoints: [],
-//   space: [],
-//   borders: [],
-//   radii: [],
-//   sizes
-//   width: [],
-//   heights: [],
-//   maxWidths: [],
-//   zIndices
-//   transitions
-//   shadows
-//   gradients: {},
-// }
+// TODO: при добавлении токенов в темы https://theme-ui.com/theme-spec/#styles
