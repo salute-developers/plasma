@@ -64,16 +64,23 @@ const getThemeTokenDataGroupsByName = (themeTokenDataGroups: Record<string, Them
         {},
     );
 
-const getDeprecatedTokens = (tokens: TokenDataGroup<string>) =>
-    Object.entries(deprecatedColorTokenOnActualToken)
+const getDeprecatedTokens = (tokens: TokenDataGroup<string>) => {
+    // Данный префикс будет удалён на этапе генерации файлов с токенами (values.ts и index.ts)
+    const legacyPrefix = 'plasmaColors';
+
+    return Object.entries(deprecatedColorTokenOnActualToken)
         .filter(([_, actualName]) => tokens[actualName])
         .reduce(
             (acc, [oldName, actualName]) => ({
                 ...acc,
-                [`${oldName}`]: { value: tokens[actualName].value, comment: `@deprecated instead use ${actualName}` },
+                [`${legacyPrefix}-${oldName}`]: {
+                    value: tokens[actualName].value,
+                    comment: `@deprecated instead use ${actualName}`,
+                },
             }),
             {},
         );
+};
 
 export const mapDeprecatedColorTokens = (
     themeTokenDataGroups: Record<string, ThemeTokenDataGroups>,

@@ -4,6 +4,10 @@ import { attachToRoot, extractTokenData, objectToCSSVariables, getDeprecatedVars
 
 import { generateFile } from './generateFile';
 
+// Метод для поиска ключа, у которого может быть  префикс
+const findExistedProp = (themeData: Record<string, string>, prop: string) =>
+    Object.keys(themeData).find((data) => data.endsWith(prop)) || '';
+
 /**
  * Генерация цветовых схем для создания глобального стиля.
  * @param {Record<string, TokenDataGroup<string>>>} colorThemes Цветовые схемы, разложенные по названиям
@@ -35,8 +39,8 @@ export const generateColorThemes = (
                 attachToRoot({
                     ...objectToCSSVariables(themeData, 'colors', Boolean(fromData)),
                     ...objectToCSSVariables(mixin),
-                    color: themeData.text,
-                    backgroundColor: themeData.background,
+                    color: themeData[findExistedProp(themeData, 'text')],
+                    backgroundColor: themeData[findExistedProp(themeData, 'background')],
                 }),
                 deprecated,
             ),
