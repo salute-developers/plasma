@@ -66,7 +66,11 @@ export const generateToken = ({
         } else {
             value = escapeValue(newValue);
         }
-        out += `export const ${name}${typeHint} = '${value}';\n`;
+
+        // Для случаев, когда у токена есть префикс
+        const clearName = name.split('-')[1] || name;
+
+        out += `export const ${clearName}${typeHint} = '${value}';\n`;
     } else {
         // type=css param is used for typography values only
         const replacer = (k: string, val: string) => {
