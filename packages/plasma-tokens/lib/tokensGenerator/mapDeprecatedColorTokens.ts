@@ -1,25 +1,8 @@
+import { TokenDataGroup } from '@salutejs/plasma-tokens-utils';
 import { colors as gradientColors } from '../../data/colors';
-import { baseColors } from './constants';
-import { BackgroundName, ControlsSurfacesName, OverlayName, TextIconsTokenName, ThemeTokenDataGroups } from './types';
+import { ActualTokenNames, ThemeTokenDataGroups } from './types';
 
-type ActualTokenNames =
-    | TextIconsTokenName
-    | ControlsSurfacesName
-    | BackgroundName
-    | OverlayName
-    | keyof typeof baseColors
-    | 'onDarkTextPrimary'
-    | 'onDarkTextSecondary'
-    | 'onDarkTextTertiary'
-    | 'onLightTextPrimary'
-    | 'onLightTextSecondary'
-    | 'onLightTextTertiary'
-    | 'onLightSurfaceSolidDefault'
-    | 'onLightSurfaceTransparentSecondary'
-    | 'onDarkSurfaceSolidDefault'
-    | 'onDarkSurfaceTransparentSecondary';
-
-export const deprecatedColorTokenOnActualToken: Record<string, ActualTokenNames> = {
+const deprecatedColorTokenOnActualToken: Record<string, ActualTokenNames> = {
     whitePrimary: 'onDarkTextPrimary',
     whiteSecondary: 'onDarkTextSecondary',
     whiteTertiary: 'onDarkTextTertiary',
@@ -72,27 +55,33 @@ export const deprecatedColorTokenOnActualToken: Record<string, ActualTokenNames>
     // voicePhraseGradient = 'Градиент подсказок о голосовых запросах',
 };
 
+const getThemeTokenDataGroupsByName = (themeTokenDataGroups: Record<string, ThemeTokenDataGroups>) =>
+    Object.values(themeTokenDataGroups).reduce(
+        (acc, values) => ({
+            ...acc,
+            ...values,
+        }),
+        {},
+    );
+
+const getDeprecatedTokens = (tokens: TokenDataGroup<string>) =>
+    Object.entries(deprecatedColorTokenOnActualToken)
+        .filter(([_, actualName]) => tokens[actualName])
+        .reduce(
+            (acc, [oldName, actualName]) => ({
+                ...acc,
+                [`${oldName}`]: { value: tokens[actualName].value, comment: `@deprecated instead use ${actualName}` },
+            }),
+            {},
+        );
+
 export const mapDeprecatedColorTokens = (
     themeTokenDataGroups: Record<string, ThemeTokenDataGroups>,
 ): ThemeTokenDataGroups => {
-    const themeTokenDataGroupsByName = Object.values(themeTokenDataGroups).reduce(
-        (preValues, values) => ({
-            ...preValues,
-            ...values,
-        }),
-        {} as ThemeTokenDataGroups,
-    );
+    const themeTokenDataGroupsByName = getThemeTokenDataGroupsByName(themeTokenDataGroups);
 
     return Object.entries(themeTokenDataGroupsByName).reduce((tokensWithDeprecated, [themeName, tokens]) => {
-        const deprecatedTokens = Object.entries(deprecatedColorTokenOnActualToken)
-            .filter(([_, actualName]) => tokens[actualName])
-            .reduce(
-                (acc, [oldName, actualName]) => ({
-                    ...acc,
-                    [oldName]: { value: tokens[actualName].value, comment: `@deprecated instead use ${actualName}` },
-                }),
-                {},
-            );
+        const deprecatedTokens = getDeprecatedTokens(tokens);
 
         const { skeletonGradient, skeletonGradientLighter } = gradientColors[
             themeName.endsWith('dark') ? 'dark' : 'light'

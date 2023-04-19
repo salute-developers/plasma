@@ -1,5 +1,3 @@
-// import { general } from '@salutejs/plasma-colors';
-
 export const colors = {
     dark: {
         skeletonGradient: `linear-gradient(

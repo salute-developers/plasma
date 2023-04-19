@@ -1,6 +1,6 @@
 import type { Dictionary, File, TransformedToken } from 'style-dictionary';
 
-import { camelize, upperFirstLetter } from '../../themeBuilder/utils';
+import { camelize, upperFirstLetter } from '../../tokensGenerator/utils';
 import { ThemeColor, ThemeColorType } from '../types';
 
 const getExportColorThemes = (theme: string) => `const ${theme}ColorsMapping = {

@@ -1,0 +1,1 @@
+export { createLegacyTypo } from './createLegacyTypo';
