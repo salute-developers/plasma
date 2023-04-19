@@ -1,6 +1,6 @@
 import type { Dictionary, File, TransformedToken } from 'style-dictionary';
 
-import { camelize, lowerFirstLetter } from '../../themeBuilder/utils';
+import { camelize, lowerFirstLetter } from '../../tokensGenerator/utils';
 import { ThemeColor, ThemeColorType } from '../types';
 
 const getKotlinTemplate = (lightThemeContent: string, darkThemeContent: string, name: string) => {

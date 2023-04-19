@@ -1,6 +1,6 @@
 import type { Dictionary, TransformedToken } from 'style-dictionary';
 
-import { upperFirstLetter } from '../../themeBuilder/utils';
+import { upperFirstLetter } from '../../tokensGenerator/utils';
 
 const BASE_FONT_NAME = 'base';
 const ADDITIONAL_FONT_NAME = 'additional';

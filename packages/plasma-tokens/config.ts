@@ -14,7 +14,7 @@ import {
     shadowReactNativeCustomFormatter,
 } from './lib/generator';
 
-import { upperFirstLetter } from './lib/themeBuilder/utils';
+import { upperFirstLetter } from './lib/tokensGenerator/utils';
 
 const platforms = ['ios-swift', 'react-native', 'kotlin'] as const;
 

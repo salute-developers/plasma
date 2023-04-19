@@ -1,5 +1,4 @@
 import { TokenData, TokenDataGroup } from '@salutejs/plasma-tokens-utils';
-import { general as generalColors, PlasmaSaturation } from '@salutejs/plasma-colors';
 
 export interface ThemeConfig {
     name: string;
@@ -15,17 +14,6 @@ export interface ThemeConfig {
         textIcons: boolean;
         surfaces: boolean;
     };
-}
-
-export interface SetupAnswers {
-    name: string;
-    accentColor: keyof typeof generalColors;
-    accentColorSaturationLight: PlasmaSaturation;
-    accentColorSaturationDark: PlasmaSaturation;
-    grayscaleLight: Grayscale;
-    grayscaleDark: Grayscale;
-    opacityTextIcons: boolean;
-    opacitySurfaces: boolean;
 }
 
 export type TextIconsTokenName =
@@ -134,3 +122,22 @@ export interface Theme {
 }
 
 export type ThemeTokenDataGroups = Record<string, TokenDataGroup<string>>;
+
+export type ActualTokenNames =
+    | TextIconsTokenName
+    | ControlsSurfacesName
+    | BackgroundName
+    | OverlayName
+    | 'white'
+    | 'black'
+    | 'clear'
+    | 'onDarkTextPrimary'
+    | 'onDarkTextSecondary'
+    | 'onDarkTextTertiary'
+    | 'onLightTextPrimary'
+    | 'onLightTextSecondary'
+    | 'onLightTextTertiary'
+    | 'onLightSurfaceSolidDefault'
+    | 'onLightSurfaceTransparentSecondary'
+    | 'onDarkSurfaceSolidDefault'
+    | 'onDarkSurfaceTransparentSecondary';

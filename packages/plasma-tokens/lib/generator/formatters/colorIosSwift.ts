@@ -1,6 +1,6 @@
 import type { Dictionary, File, TransformedToken } from 'style-dictionary';
 
-import { upperFirstLetter, lowerFirstLetter, camelize } from '../../themeBuilder/utils';
+import { upperFirstLetter, lowerFirstLetter, camelize } from '../../tokensGenerator/utils';
 import { GradientToken, ThemeColor, ThemeColorType } from '../types';
 
 const getSwiftTemplate = (structContent: string, gradientContent: string, enumsContent: string) => {

@@ -2,21 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import { DataObject, TokenData, TokenDataGroup } from '@salutejs/plasma-tokens-utils';
 
-import {
-    mageTypoProperties,
-    sageTypoProperties,
-    soulmateTypoProperties,
-    rulerTypoProperties,
-    plasmaTypoProperties,
-    sbermarketTypoProperties,
-} from '@salutejs/plasma-typo';
-
 import { Theme, ThemeTokenDataGroups, TokenGroup, TokenType } from './types';
-import { themesFolder } from './constants';
 
 import { upperFirstLetter } from './utils';
-
-import { sbermarketShadows } from '../../data/shadows';
+import { mapDeprecatedColorTokens } from './mapDeprecatedColorTokens';
 
 const isTokenData = (value: unknown): value is TokenData => {
     return typeof value === 'object' && value !== null && 'value' in value;
@@ -34,21 +23,20 @@ const makePath = (path: string, key: string) => {
     return path ? `${path}${upperFirstLetter(key)}` : key;
 };
 
-const dataObject2TokenDataGroup = (dataObject: DataObject, path: string): TokenDataGroup<string> => {
-    return Object.entries(dataObject).reduce((acc, [key, value]) => {
+const dataObjectToTokenDataGroup = (dataObject: DataObject, path: string): TokenDataGroup<string> =>
+    Object.entries(dataObject).reduce((acc, [key, value]) => {
         const fullPath = makePath(path, key);
 
         if (isTokenData(value)) {
             return { ...acc, [fullPath]: value };
         } else if (value && typeof value === 'object') {
-            return { ...acc, ...dataObject2TokenDataGroup(value, fullPath) };
+            return { ...acc, ...dataObjectToTokenDataGroup(value, fullPath) };
         }
 
         return acc;
     }, {});
-};
 
-export const theme2ColorTokenDataGroups = (theme: Theme): Record<string, ThemeTokenDataGroups> => {
+const themeToColorTokenDataGroups = (theme: Theme): Record<string, ThemeTokenDataGroups> => {
     const {
         config: { name },
         dark,
@@ -57,13 +45,15 @@ export const theme2ColorTokenDataGroups = (theme: Theme): Record<string, ThemeTo
 
     return {
         [name]: {
-            [`${name}__dark`]: dataObject2TokenDataGroup((dark as unknown) as DataObject, ''),
-            [`${name}__light`]: dataObject2TokenDataGroup((light as unknown) as DataObject, ''),
+            [`${name}__dark`]: dataObjectToTokenDataGroup((dark as unknown) as DataObject, ''),
+            [`${name}__light`]: dataObjectToTokenDataGroup((light as unknown) as DataObject, ''),
         },
     };
 };
 
-export const generateColorThemesTokenDataGroups = (): Record<string, ThemeTokenDataGroups> => {
+const generateColorThemesTokenDataGroups = (): Record<string, ThemeTokenDataGroups> => {
+    const themesFolder = path.join(__dirname, '../../data/themes');
+
     if (!fs.existsSync(themesFolder)) {
         return {};
     }
@@ -74,7 +64,7 @@ export const generateColorThemesTokenDataGroups = (): Record<string, ThemeTokenD
         .reduce((colorSchemas, item) => {
             const fileContent = fs.readFileSync(path.join(themesFolder, item.name), 'utf-8');
 
-            const themeTokens = theme2ColorTokenDataGroups(JSON.parse(fileContent));
+            const themeTokens = themeToColorTokenDataGroups(JSON.parse(fileContent));
 
             return {
                 ...colorSchemas,
@@ -83,15 +73,8 @@ export const generateColorThemesTokenDataGroups = (): Record<string, ThemeTokenD
         }, {});
 };
 
-export const typoArchetypes = {
-    mage: mageTypoProperties,
-    sage: sageTypoProperties,
-    soulmate: soulmateTypoProperties,
-    ruler: rulerTypoProperties,
-    plasma: plasmaTypoProperties,
-    sbermarket: sbermarketTypoProperties,
-};
+// Генерация токенов для кастомных тем из data/themes
+export const themesColorTokenGroups = generateColorThemesTokenDataGroups();
 
-export const shadows = {
-    sbermarket: sbermarketShadows,
-};
+// Добавляем старые токены для обратной совместимости
+export const themesColorTokenGroupsFallback = mapDeprecatedColorTokens(themesColorTokenGroups);
