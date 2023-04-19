@@ -1,3 +1,20 @@
+# v1.45.0 (Wed Apr 19 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): Update formatter for colorIosSwift, colorKotlin, colorReactNative templates [#475](https://github.com/salute-developers/plasma/pull/475) (neretinartem@Neretins-MBP.netis)
+- feat(plasma-tokens): Update theme name convetion for old and new themes (neretinartem@Neretins-MBP.netis)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-tokens): Update theme name `vinlab` to `winelab` (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v1.44.0 (Fri Mar 31 2023)
 
 #### 🚀 Enhancement

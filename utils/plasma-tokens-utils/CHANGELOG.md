@@ -1,3 +1,15 @@
+# v0.21.0 (Wed Apr 19 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens-utils): Add fallback for legacy theme names (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v0.20.0 (Tue Mar 21 2023)
 
 #### 🐛 Bug Fix

@@ -1,3 +1,26 @@
+# (Wed Apr 19 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-tokens@1.45.0`
+  - feat(plasma-tokens): Update formatter for colorIosSwift, colorKotlin, colorReactNative templates [#475](https://github.com/salute-developers/plasma/pull/475) (neretinartem@Neretins-MBP.netis)
+  - feat(plasma-tokens): Update theme name convetion for old and new themes (neretinartem@Neretins-MBP.netis)
+- `@salutejs/plasma-tokens-utils@0.21.0`
+  - feat(plasma-tokens-utils): Add fallback for legacy theme names (neretinartem@Neretins-MBP.netis)
+
+#### 🐛 Bug Fix
+
+- build(plasma-theme-builder): update package-lock [#485](https://github.com/salute-developers/plasma/pull/485) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-tokens@1.45.0`
+  - fix(plasma-tokens): Update theme name `vinlab` to `winelab` (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 2
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Mon Apr 17 2023)
 
 #### 🚀 Enhancement
