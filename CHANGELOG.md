@@ -1,3 +1,17 @@
+# (Thu Apr 20 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-ui@1.184.0`
+  - feat(plasma-ui): Add new stories with scroll content and button [#482](https://github.com/salute-developers/plasma/pull/482) (neretinartem@Neretins-MBP.netis)
+  - feat(plasma-ui): Add swipe for whole sheet (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # (Wed Apr 19 2023)
 
 #### 🚀 Enhancement

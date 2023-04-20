@@ -1,3 +1,21 @@
+# v1.184.0 (Thu Apr 20 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): Add new stories with scroll content and button [#482](https://github.com/salute-developers/plasma/pull/482) (neretinartem@Neretins-MBP.netis)
+- feat(plasma-ui): Add swipe for whole sheet (neretinartem@Neretins-MBP.netis)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v1.182.0 (Wed Apr 12 2023)
 
 #### 🚀 Enhancement
