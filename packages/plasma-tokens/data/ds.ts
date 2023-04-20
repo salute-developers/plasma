@@ -17,11 +17,8 @@ import {
     OverlayTokens,
 } from '@salutejs/plasma-tokens-utils';
 
-import { DesignLanguage } from '../design-language/build/diez-plasma-tokens-web';
-import type {
-    Typography as TypographySet,
-    Typograph as TypographyData,
-} from '../design-language/build/diez-plasma-tokens-web';
+import { DesignLanguage } from './legacyThemes';
+import type { Typography as TypographySet, Typograph as TypographyData } from './legacyThemes';
 
 import { colors } from './colors';
 import { general } from '@salutejs/plasma-colors';
