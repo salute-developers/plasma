@@ -11,7 +11,7 @@
         "prebuild": "rm -rf ./build ./colors ./es ./properties ./src ./brands ./themes ./themesValues ./typo ./typography ./typographyValues ./index.* ./theme.json",
         "build": "npm run build:ds && npm run build:tokens",
         "prebuild:tokens": "npm run generate",
-        "build:tokens": "npm run build:cjs && npm run build:esm",
+        "build:tokens": "npm run build:cjs && npm run build:esm && npm run lint",
         "build:cjs": "tsc",
         "build:esm": "tsc -p ./tsconfig.es.json",
         "prebuild:ds": "npm ci --prefix='design-language'",
@@ -20,7 +20,8 @@
         "generate:theme-html": "npx ts-node -e 'import { generateThemesHtmlView } from \"./lib/themeBuilder/generateThemeHTML\"; generateThemesHtmlView();'",
         "generate": "npx ts-node ./generate.ts",
         "postgenerate": "npx ts-node ./config.ts",
-        "figma": "npm run extract --prefix='./design-language'"
+        "figma": "npm run extract --prefix='./design-language'",
+        "lint": "../../node_modules/.bin/eslint --ext .js,.ts,.tsx ./src --fix --quiet"
     },
     "publishConfig": {
         "access": "public"
@@ -62,10 +63,6 @@
         "ts-node": "10.2.1",
         "typescript": "4.0.8"
     },
-    "contributors": [
-        "Виноградов Антон Александрович",
-        "Зубаиров Фаниль Асхатович",
-        "Vasiliy Loginevskiy"
-    ],
+    "contributors": ["Виноградов Антон Александрович", "Зубаиров Фаниль Асхатович", "Vasiliy Loginevskiy"],
     "sideEffects": false
 }
