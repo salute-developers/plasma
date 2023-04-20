@@ -69,6 +69,9 @@ module.exports = {
             },
         ],
 
+        camelcase: 'warn',
+        'no-irregular-whitespace': 'warn',
+
         'react/prop-types': 'off',
         'react/static-property-placement': 'off',
         'react/state-in-constructor': 'off',
