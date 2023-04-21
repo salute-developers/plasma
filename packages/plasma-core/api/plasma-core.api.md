@@ -814,7 +814,9 @@ export interface PopupProps extends HTMLAttributes<HTMLDivElement> {
     disclosure?: ReactNode;
     isOpen?: boolean;
     onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
-    placement: 'bottom' | 'right' | 'left';
+    // Warning: (ae-forgotten-export) The symbol "PopupPlacement" needs to be exported by the entry point index.d.ts
+    // Warning: (ae-forgotten-export) The symbol "PopupBasicPlacement" needs to be exported by the entry point index.d.ts
+    placement?: PopupPlacement | Array<PopupBasicPlacement>;
     trigger: 'hover' | 'click';
 }
 
