@@ -1,6 +1,8 @@
 import React, { memo, useRef, useCallback, useEffect } from 'react';
 import type { HTMLAttributes, ReactNode, RefAttributes, SyntheticEvent } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import { usePopper } from 'react-popper';
+import PopperJS from '@popperjs/core';
 
 import { useForkRef } from '../../hooks';
 
@@ -16,7 +18,7 @@ export interface PopupProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * Расположение всплывающего окна.
      */
-    placement: 'bottom' | 'right' | 'left';
+    placement?: 'top' | 'bottom' | 'right' | 'left' | 'auto';
     /**
      * Элемент, при нажатии на который произойдет вызов всплывающего окна.
      */
@@ -36,33 +38,12 @@ const StyledRoot = styled.div`
     box-sizing: border-box;
     display: inline-flex;
 `;
-const StyledPopup = styled.div<Pick<PopupProps, 'placement'>>`
+const StyledPopup = styled.div`
     position: absolute;
     z-index: 1;
     padding: var(--plasma-popup-padding);
     margin: var(--plasma-popup-margin);
     width: var(--plasma-popup-width);
-
-    ${({ placement }) => {
-        switch (placement) {
-            case 'left':
-                return css`
-                    top: 0;
-                    right: 100%;
-                `;
-            case 'right':
-                return css`
-                    top: 0;
-                    left: 100%;
-                `;
-            case 'bottom':
-            default:
-                return css`
-                    top: 100%;
-                    left: 0;
-                `;
-        }
-    }}
 `;
 
 /**
@@ -71,10 +52,14 @@ const StyledPopup = styled.div<Pick<PopupProps, 'placement'>>`
  */
 export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
     React.forwardRef<HTMLDivElement, PopupProps>(
-        ({ disclosure, children, isOpen, trigger, placement, onToggle, ...rest }, outerRootRef) => {
+        ({ disclosure, children, isOpen, trigger, placement = 'auto', onToggle, ...rest }, outerRootRef) => {
             const rootRef = useRef<HTMLDivElement | null>(null);
             const popupRef = useRef<HTMLDivElement | null>(null);
             const handleRef = useForkRef<HTMLDivElement>(rootRef, outerRootRef);
+
+            const { styles, attributes, forceUpdate } = usePopper(rootRef.current, popupRef.current, {
+                placement: `${placement}-start` as PopperJS.Placement,
+            });
 
             const onDocumentClick = useCallback(
                 (event: MouseEvent) => {
@@ -143,6 +128,14 @@ export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
                 return () => document.removeEventListener('click', onDocumentClick);
             }, []);
 
+            useEffect(() => {
+                if (!isOpen || !forceUpdate) {
+                    return;
+                }
+
+                forceUpdate();
+            }, [isOpen]);
+
             return (
                 <StyledRoot
                     ref={handleRef}
@@ -156,9 +149,9 @@ export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
                     {disclosure}
                     {children && (
                         <StyledPopup
+                            {...attributes.popper}
                             ref={popupRef}
-                            placement={placement}
-                            style={{ display: isOpen ? 'block' : 'none' }}
+                            style={{ ...styles.popper, ...{ display: isOpen ? 'block' : 'none' } }}
                         >
                             {children}
                         </StyledPopup>
