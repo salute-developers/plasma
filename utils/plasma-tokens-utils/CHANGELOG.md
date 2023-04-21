@@ -1,3 +1,15 @@
+# v0.22.0 (Fri Apr 21 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-tokens): Change default value for deprecated prop in generateFile (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v0.21.0 (Wed Apr 19 2023)
 
 #### 🚀 Enhancement

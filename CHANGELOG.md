@@ -1,3 +1,23 @@
+# (Fri Apr 21 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-tokens@1.46.0`
+  - feat(plasma-tokens): Remove `src` directory from .gitignore [#488](https://github.com/salute-developers/plasma/pull/488) (neretinartem@Neretins-MBP.netis)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-tokens@1.46.0`
+  - fix(plasma-tokens): Update theme name `sbermarket_winelab` to `sbermarket_wlbusiness` (neretinartem@Neretins-MBP.netis)
+- `@salutejs/plasma-tokens-utils@0.22.0`
+  - fix(plasma-tokens): Change default value for deprecated prop in generateFile (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # (Thu Apr 20 2023)
 
 #### 🚀 Enhancement

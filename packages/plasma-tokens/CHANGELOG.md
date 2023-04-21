@@ -1,3 +1,19 @@
+# v1.46.0 (Fri Apr 21 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): Remove `src` directory from .gitignore [#488](https://github.com/salute-developers/plasma/pull/488) (neretinartem@Neretins-MBP.netis)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-tokens): Update theme name `sbermarket_winelab` to `sbermarket_wlbusiness` (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v1.45.0 (Wed Apr 19 2023)
 
 #### 🚀 Enhancement
