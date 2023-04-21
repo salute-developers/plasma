@@ -6,7 +6,9 @@ module.exports = {
     testEnvironment: 'jsdom',
     testMatch: ['**/*.test.tsx'],
     moduleNameMapper: {
-        '^react(.*)$': '<rootDir>/node_modules/react$1',
+        '^react-dom$': '<rootDir>/node_modules/react-dom',
+        '^react$': '<rootDir>/node_modules/react',
+        '^react-draggable$': '<rootDir>/node_modules/react-draggable',
     },
     globals: {
         'ts-jest': {
