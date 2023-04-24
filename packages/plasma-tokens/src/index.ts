@@ -16,7 +16,6 @@ export const mobileScale = 1;
 export const scalingPixelBasis = 16;
 
 export * from './colors';
-export * from './sizes';
 export * from './typography';
 export * from './typographyValues';
 export * from './typo';

@@ -239,100 +239,100 @@ export const skeletonGradientLighter =
     'var(--skeleton-gradient-lighter, linear-gradient( 90deg, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0.32) 6.25%, rgba(255, 255, 255, 0.20) 12.5%, rgba(255, 255, 255, 0.04) 25%, rgba(255, 255, 255, 0.20) 37.5%, rgba(255, 255, 255, 0.32) 43.75%, rgba(255, 255, 255, 0.36) 50%, rgba(255, 255, 255, 0.08) 56.25%, rgba(255, 255, 255, 0.20) 62.5%, rgba(255, 255, 255, 0.04) 75%, rgba(255, 255, 255, 0.20) 87.5%, rgba(255, 255, 255, 0.32) 93.75%, rgba(255, 255, 255, 0.36) 100% ))';
 
 /** @deprecated instead use onDarkTextPrimary */
-export const whitePrimary = 'var(--white-primary, rgba(255, 255, 255, 0.96))';
+export const whitePrimary = 'var(--plasma-colors-white-primary, rgba(255, 255, 255, 0.96))';
 
 /** @deprecated instead use onDarkTextSecondary */
-export const whiteSecondary = 'var(--white-secondary, rgba(255, 255, 255, 0.56))';
+export const whiteSecondary = 'var(--plasma-colors-white-secondary, rgba(255, 255, 255, 0.56))';
 
 /** @deprecated instead use onDarkTextTertiary */
-export const whiteTertiary = 'var(--white-tertiary, rgba(255, 255, 255, 0.28))';
+export const whiteTertiary = 'var(--plasma-colors-white-tertiary, rgba(255, 255, 255, 0.28))';
 
 /** @deprecated instead use onLightTextPrimary */
-export const blackPrimary = 'var(--black-primary, rgba(36, 40, 43, 0.96))';
+export const blackPrimary = 'var(--plasma-colors-black-primary, rgba(36, 40, 43, 0.96))';
 
 /** @deprecated instead use onLightTextSecondary */
-export const blackSecondary = 'var(--black-secondary, rgba(36, 40, 43, 0.56))';
+export const blackSecondary = 'var(--plasma-colors-black-secondary, rgba(36, 40, 43, 0.56))';
 
 /** @deprecated instead use onLightTextTertiary */
-export const blackTertiary = 'var(--black-tertiary, rgba(36, 40, 43, 0.28))';
+export const blackTertiary = 'var(--plasma-colors-black-tertiary, rgba(36, 40, 43, 0.28))';
 
 /** @deprecated instead use onLightSurfaceSolidDefault */
-export const buttonBlack = 'var(--button-black, #08090A)';
+export const buttonBlack = 'var(--plasma-colors-button-black, #08090A)';
 
 /** @deprecated instead use onLightSurfaceTransparentSecondary */
-export const buttonBlackSecondary = 'var(--button-black-secondary, rgba(8, 9, 10, 0.06))';
+export const buttonBlackSecondary = 'var(--plasma-colors-button-black-secondary, rgba(8, 9, 10, 0.06))';
 
 /** @deprecated instead use onDarkSurfaceSolidDefault */
-export const buttonWhite = 'var(--button-white, #FFFFFF)';
+export const buttonWhite = 'var(--plasma-colors-button-white, #FFFFFF)';
 
 /** @deprecated instead use onDarkSurfaceTransparentSecondary */
-export const buttonWhiteSecondary = 'var(--button-white-secondary, rgba(255, 255, 255, 0.12))';
+export const buttonWhiteSecondary = 'var(--plasma-colors-button-white-secondary, rgba(255, 255, 255, 0.12))';
 
 /** @deprecated instead use textPrimary */
-export const text = 'var(--text, rgba(255, 255, 255, 0.96))';
+export const text = 'var(--plasma-colors-text, rgba(255, 255, 255, 0.96))';
 
 /** @deprecated instead use textPrimary */
-export const primary = 'var(--primary, rgba(255, 255, 255, 0.96))';
+export const primary = 'var(--plasma-colors-primary, rgba(255, 255, 255, 0.96))';
 
 /** @deprecated instead use textSecondary */
-export const secondary = 'var(--secondary, rgba(255, 255, 255, 0.56))';
+export const secondary = 'var(--plasma-colors-secondary, rgba(255, 255, 255, 0.56))';
 
 /** @deprecated instead use textTertiary */
-export const tertiary = 'var(--tertiary, rgba(255, 255, 255, 0.28))';
+export const tertiary = 'var(--plasma-colors-tertiary, rgba(255, 255, 255, 0.28))';
 
 /** @deprecated instead use textParagraph */
-export const paragraph = 'var(--paragraph, rgba(255, 255, 255, 0.8))';
+export const paragraph = 'var(--plasma-colors-paragraph, rgba(255, 255, 255, 0.8))';
 
 /** @deprecated instead use backgroundPrimary */
-export const background = 'var(--background, #08090A)';
+export const background = 'var(--plasma-colors-background, #08090A)';
 
 /** @deprecated instead use textAccent */
-export const accent = 'var(--accent, #15D015)';
+export const accent = 'var(--plasma-colors-accent, #15D015)';
 
 /** @deprecated instead use textPositive */
-export const success = 'var(--success, #1A9E32)';
+export const success = 'var(--plasma-colors-success, #1A9E32)';
 
 /** @deprecated instead use textWarning */
-export const warning = 'var(--warning, #F55D05)';
+export const warning = 'var(--plasma-colors-warning, #F55D05)';
 
 /** @deprecated instead use textNegative */
-export const critical = 'var(--critical, #FF293E)';
+export const critical = 'var(--plasma-colors-critical, #FF293E)';
 
 /** @deprecated instead use overlaySoft */
-export const overlay = 'var(--overlay, rgba(8, 9, 10, 0.56))';
+export const overlay = 'var(--plasma-colors-overlay, rgba(8, 9, 10, 0.56))';
 
 /** @deprecated instead use surfaceTransparentPrimary */
-export const surfaceLiquid01 = 'var(--surface-liquid01, rgba(242, 245, 247, 0.06))';
+export const surfaceLiquid01 = 'var(--plasma-colors-surface-liquid01, rgba(242, 245, 247, 0.06))';
 
 /** @deprecated instead use surfaceTransparentSecondary */
-export const surfaceLiquid02 = 'var(--surface-liquid02, rgba(242, 245, 247, 0.12))';
+export const surfaceLiquid02 = 'var(--plasma-colors-surface-liquid02, rgba(242, 245, 247, 0.12))';
 
 /** @deprecated instead use surfaceTransparentTertiary */
-export const surfaceLiquid03 = 'var(--surface-liquid03, rgba(242, 245, 247, 0.2))';
+export const surfaceLiquid03 = 'var(--plasma-colors-surface-liquid03, rgba(242, 245, 247, 0.2))';
 
 /** @deprecated instead use surfaceSolidPrimary */
-export const surfaceSolid01 = 'var(--surface-solid01, #15181A)';
+export const surfaceSolid01 = 'var(--plasma-colors-surface-solid01, #15181A)';
 
 /** @deprecated instead use surfaceSolidSecondary */
-export const surfaceSolid02 = 'var(--surface-solid02, #24282B)';
+export const surfaceSolid02 = 'var(--plasma-colors-surface-solid02, #24282B)';
 
 /** @deprecated instead use surfaceSolidTertiary */
-export const surfaceSolid03 = 'var(--surface-solid03, #31373B)';
+export const surfaceSolid03 = 'var(--plasma-colors-surface-solid03, #31373B)';
 
 /** @deprecated instead use surfaceTransparentCard */
-export const surfaceCard = 'var(--surface-card, rgba(242, 245, 247, 0.06))';
+export const surfaceCard = 'var(--plasma-colors-surface-card, rgba(242, 245, 247, 0.06))';
 
 /** @deprecated instead use surfaceTransparentSecondary */
-export const buttonSecondary = 'var(--button-secondary, rgba(242, 245, 247, 0.12))';
+export const buttonSecondary = 'var(--plasma-colors-button-secondary, rgba(242, 245, 247, 0.12))';
 
 /** @deprecated instead use textAccent */
-export const buttonAccent = 'var(--button-accent, #15D015)';
+export const buttonAccent = 'var(--plasma-colors-button-accent, #15D015)';
 
 /** @deprecated instead use surfacePositive */
-export const buttonSuccess = 'var(--button-success, #1A9E32)';
+export const buttonSuccess = 'var(--plasma-colors-button-success, #1A9E32)';
 
 /** @deprecated instead use surfaceWarning */
-export const buttonWarning = 'var(--button-warning, #F55D05)';
+export const buttonWarning = 'var(--plasma-colors-button-warning, #F55D05)';
 
 /** @deprecated instead use surfaceNegative */
-export const buttonCritical = 'var(--button-critical, #FF293E)';
+export const buttonCritical = 'var(--plasma-colors-button-critical, #FF293E)';
