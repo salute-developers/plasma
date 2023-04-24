@@ -1,3 +1,17 @@
+# (Mon Apr 24 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-tokens@1.47.0`
+  - feat(plasma-tokens): Remove design-language pacakage [#489](https://github.com/salute-developers/plasma/pull/489) (neretinartem@Neretins-MBP.netis)
+  - feat(plasma-tokens): Saving themes artifacts from diez compile (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # (Fri Apr 21 2023)
 
 #### 🚀 Enhancement

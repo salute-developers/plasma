@@ -1,3 +1,21 @@
+# v1.47.0 (Mon Apr 24 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): Remove design-language pacakage [#489](https://github.com/salute-developers/plasma/pull/489) (neretinartem@Neretins-MBP.netis)
+- feat(plasma-tokens): Saving themes artifacts from diez compile (neretinartem@Neretins-MBP.netis)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v1.46.0 (Fri Apr 21 2023)
 
 #### 🚀 Enhancement
