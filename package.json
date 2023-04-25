@@ -125,7 +125,7 @@
         "upload-assets",
         {
           "assets": [
-            "./packages/plasma-tokens/build/**/*"
+            "./utils/plasma-tokens-native/build/**/*"
           ]
         }
       ],

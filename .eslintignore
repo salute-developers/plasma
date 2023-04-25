@@ -77,5 +77,4 @@ utils/plasma-sb-utils/src/helpers/flattenPalette.ts
 utils/plasma-tokens-utils/*
 !utils/plasma-tokens-utils/src
 
-utils/plasma-tokens-ios-swift/*
-utils/plasma-tokens-android/*
+utils/plasma-tokens-native/data
