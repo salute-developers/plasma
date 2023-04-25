@@ -1,0 +1,1 @@
+export { createProperties } from './createProperties';
