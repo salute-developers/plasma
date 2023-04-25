@@ -1,3 +1,17 @@
+# v1.111.1 (Tue Apr 25 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-core): add default uniqId for Spinner [#492](https://github.com/salute-developers/plasma/pull/492) ([@kayman233](https://github.com/kayman233))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.111.0 (Mon Apr 24 2023)
 
 #### 🐛 Bug Fix

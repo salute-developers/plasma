@@ -1,3 +1,16 @@
+# (Tue Apr 25 2023)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-core@1.111.1`
+  - fix(plasma-core): add default uniqId for Spinner [#492](https://github.com/salute-developers/plasma/pull/492) ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 1
+
+- [@kayman233](https://github.com/kayman233)
+
+---
+
 # (Mon Apr 24 2023)
 
 #### 🚀 Enhancement
