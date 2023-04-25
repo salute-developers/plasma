@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { ROBO_COMMENT, HTML_FONT_SIZE } from '@salutejs/plasma-tokens-utils';
 
-import { typo } from '../../../data';
+import { typo } from '../../data';
 
 export const createRootIndex = (srcDir: string) => {
     const rootIndexTsDir = path.join(srcDir, 'index.ts');

@@ -1,9 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-import { generateTokens, writeGeneratedToFS } from '@salutejs/plasma-tokens-utils';
-
-import { lowerFirstLetter } from '../../tokensGenerator/utils';
-import type { ThemeTokenDataGroups } from '../../tokensGenerator/types';
+import {
+    generateTokens,
+    writeGeneratedToFS,
+    lowerFirstLetter,
+    ThemeTokenDataGroups,
+} from '@salutejs/plasma-tokens-utils';
 
 export const createBrands = (srcDir: string, themesColorTokenGroupsFallback: ThemeTokenDataGroups) => {
     const fixedThemeType = '__dark';
