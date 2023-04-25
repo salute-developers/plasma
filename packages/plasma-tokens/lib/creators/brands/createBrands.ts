@@ -1,4 +1,4 @@
-import fs from 'fs-extra';
+import fs from 'fs';
 import path from 'path';
 import { generateTokens, writeGeneratedToFS } from '@salutejs/plasma-tokens-utils';
 
@@ -8,7 +8,7 @@ import type { ThemeTokenDataGroups } from '../../tokensGenerator/types';
 export const createBrands = (srcDir: string, themesColorTokenGroupsFallback: ThemeTokenDataGroups) => {
     const fixedThemeType = '__dark';
     const brandsDir = path.join(srcDir, 'brands');
-    fs.ensureDirSync(brandsDir);
+    fs.existsSync(brandsDir) || fs.mkdirSync(brandsDir);
 
     Object.keys(themesColorTokenGroupsFallback)
         .filter((brand) => brand.endsWith(fixedThemeType))

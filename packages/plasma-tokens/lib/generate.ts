@@ -1,16 +1,11 @@
-import fs from 'fs-extra';
+import fs from 'fs';
 
-import { createRootIndex, createThemes, createLegacyTypo, createProperties, createBrands } from './creators';
+import { createRootIndex, createThemes, createLegacyTypo, createBrands } from './creators';
 
-import {
-    themesColorTokenGroups,
-    themesColorTokenGroupsFallback,
-    shadowTokens,
-    typoArchetypes,
-} from './tokensGenerator';
+import { themesColorTokenGroupsFallback } from './tokensGenerator';
 
 const outDir = 'src';
-fs.ensureDirSync(outDir);
+fs.existsSync(outDir) || fs.mkdirSync(outDir);
 
 /** ========================================================= **/
 /** ================== Генерация index.ts =================== **/
@@ -28,9 +23,5 @@ createBrands(outDir, themesColorTokenGroupsFallback);
 /** ============ Генерация типографической сетки ============ **/
 /** ========================================================= **/
 createLegacyTypo(outDir);
-/** ========================================================= **/
-/** ============== Генерация токенов для натива ============= **/
-/** ========================================================= **/
-createProperties(themesColorTokenGroups, shadowTokens, typoArchetypes);
 
 // TODO: при добавлении токенов в темы посмотреть на https://theme-ui.com/theme-spec/#styles
