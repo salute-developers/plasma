@@ -18,7 +18,7 @@ import { upperFirstLetter } from './lib/tokensGenerator/utils';
 
 const platforms = ['ios-swift', 'react-native', 'kotlin'] as const;
 
-const tokensColorPath = `properties/color/brands`;
+const tokensColorPath = `properties/color/`;
 const tokensTypoPath = `properties/typo/`;
 const tokensShadowPath = `properties/shadow/`;
 
@@ -222,6 +222,3 @@ shadowFileNames.forEach((brand) => {
 
     styleDictionary.buildPlatform(reactNativePlatform);
 });
-
-const styleDictionaryLegacy = StyleDictionaryPackage.extend('./config.json');
-styleDictionaryLegacy.buildAllPlatforms();
