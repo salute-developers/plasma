@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { keyframes, css } from 'styled-components';
 
 import { accent } from '../../tokens';
+import { useUniqId } from '../../hooks';
 
 import { SpinnerSvg } from './SpinnerSvg';
 
@@ -48,11 +49,13 @@ const sizeFormatting = (size: number | string, deviceScale = 1): string => {
  */
 export const Spinner: React.FC<SpinnerProps> = (props) => {
     const { id, size = 56, color = accent, deviceScale, ...rest } = props;
+    const uniqId = useUniqId();
+    const innerId = id || uniqId;
     const currentSize = sizeFormatting(size, deviceScale);
 
     return (
-        <StyledRoot id={id} $size={currentSize} {...rest}>
-            <SpinnerSvg id={id} width={size} height={size} color={color} />
+        <StyledRoot id={innerId} $size={currentSize} {...rest}>
+            <SpinnerSvg id={innerId} width={size} height={size} color={color} />
         </StyledRoot>
     );
 };
