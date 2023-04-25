@@ -54,4 +54,17 @@ describe('plasma-core: Spinner', () => {
         );
         cy.matchImageSnapshot();
     });
+
+    it('many colors', () => {
+        mount(
+            <CypressTestDecorator>
+                <Spin size={32} color="green" />
+                <PadMe />
+                <Spin size={32} color="blue" />
+                <PadMe />
+                <Spin size={32} color="red" />
+            </CypressTestDecorator>,
+        );
+        cy.matchImageSnapshot();
+    });
 });
