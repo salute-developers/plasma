@@ -4,10 +4,10 @@ import {
     generateColorThemes,
     generateColorThemeValues,
     generateTokens,
+    ThemeTokenDataGroups,
 } from '@salutejs/plasma-tokens-utils';
 
-import { colorThemes as legacyColorThemes } from '../../../data';
-import type { ThemeTokenDataGroups } from '../../tokensGenerator/types';
+import { colorThemes as legacyColorThemes } from '../../data';
 
 export const createThemes = (srcDir: string, themesColorTokenGroupsFallback: ThemeTokenDataGroups) => {
     const legacyColorsDir = path.join(srcDir, 'colors');

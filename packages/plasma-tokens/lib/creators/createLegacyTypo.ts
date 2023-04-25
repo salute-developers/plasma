@@ -6,7 +6,7 @@ import {
     writeGeneratedToFS,
 } from '@salutejs/plasma-tokens-utils';
 
-import { typoSystem, typo } from '../../../data';
+import { typoSystem, typo } from '../../data';
 
 export const createLegacyTypo = (srcDir: string) => {
     const typoDir = path.join(srcDir, 'typo');
