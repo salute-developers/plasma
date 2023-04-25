@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-core",
-    "version": "1.111.0",
+    "version": "1.111.1",
     "description": "Core library for Plasma: Salute Design System",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "main": "index.js",
