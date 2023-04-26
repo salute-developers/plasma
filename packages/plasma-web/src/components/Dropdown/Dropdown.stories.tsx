@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { accent, success, warning, critical } from '@salutejs/plasma-core';
+import { Story } from '@storybook/react';
 import { IconEye, IconMagicWand, IconAccessibility, IconHeart, IconTrash, IconLocation } from '@salutejs/plasma-icons';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button';
 
-import { Dropdown, DropdownList, DropdownItem, withAssistiveDropdown } from '.';
+import { Dropdown, DropdownProps, DropdownList, DropdownItem, withAssistiveDropdown } from '.';
 
 export default {
     title: 'Controls/Dropdown',
@@ -168,4 +169,38 @@ export const AccessibilityHOC = () => {
             onItemSelect={action('onItemSelect')}
         />
     );
+};
+
+const placements = ['top', 'bottom', 'left', 'right', 'auto', ['left', 'right']];
+
+export const Placements: Story<DropdownProps> = (args) => {
+    const placement = args.placement?.includes(',') ? args.placement?.split(',') : args.placement;
+    return (
+        <>
+            <Dropdown id="example-dropdown-placements1" items={items} placement={placement}>
+                <Button text="Меню" />
+            </Dropdown>
+            <Dropdown
+                id="example-dropdown-placements2"
+                style={{ marginLeft: '500px' }}
+                items={items}
+                placement={placement}
+            >
+                <Button text="Меню" />
+            </Dropdown>
+        </>
+    );
+};
+
+Placements.args = {
+    placement: 'bottom',
+};
+
+Placements.argTypes = {
+    placement: {
+        options: placements,
+        control: {
+            type: 'select',
+        },
+    },
 };
