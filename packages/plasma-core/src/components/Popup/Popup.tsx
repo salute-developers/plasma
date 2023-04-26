@@ -6,6 +6,9 @@ import PopperJS from '@popperjs/core';
 
 import { useForkRef } from '../../hooks';
 
+export type PopupBasicPlacement = 'top' | 'bottom' | 'right' | 'left';
+export type PopupPlacement = PopupBasicPlacement | 'auto';
+
 export interface PopupProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * Всплывающее окно раскрыто или нет.
@@ -16,9 +19,9 @@ export interface PopupProps extends HTMLAttributes<HTMLDivElement> {
      */
     trigger: 'hover' | 'click';
     /**
-     * Расположение всплывающего окна.
+     * Расположение всплывающего окна. По умолчанию "auto"
      */
-    placement?: 'top' | 'bottom' | 'right' | 'left' | 'auto';
+    placement?: PopupPlacement | Array<PopupBasicPlacement>;
     /**
      * Элемент, при нажатии на который произойдет вызов всплывающего окна.
      */
@@ -46,6 +49,14 @@ const StyledPopup = styled.div`
     width: var(--plasma-popup-width);
 `;
 
+export const getPlacement = (placement: PopupPlacement) => {
+    return `${placement}-start` as PopperJS.Placement;
+};
+
+const getAutoPlacements = (placements?: PopupPlacement[]) => {
+    return (placements || []).map((placement) => getPlacement(placement));
+};
+
 /**
  * Всплывающее окно с возможностью позиционирования
  * и вызова по клику либо ховеру.
@@ -57,8 +68,22 @@ export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
             const popupRef = useRef<HTMLDivElement | null>(null);
             const handleRef = useForkRef<HTMLDivElement>(rootRef, outerRootRef);
 
+            const isAutoArray = Array.isArray(placement);
+            const isAuto = isAutoArray || placement === 'auto';
+
             const { styles, attributes, forceUpdate } = usePopper(rootRef.current, popupRef.current, {
-                placement: `${placement}-start` as PopperJS.Placement,
+                placement: getPlacement(isAutoArray ? 'auto' : (placement as PopupPlacement)),
+                modifiers: [
+                    {
+                        name: 'flip',
+                        enabled: isAuto,
+                        options: {
+                            allowedAutoPlacements: getAutoPlacements(
+                                isAutoArray ? (placement as PopupPlacement[]) : [],
+                            ),
+                        },
+                    },
+                ],
             });
 
             const onDocumentClick = useCallback(
