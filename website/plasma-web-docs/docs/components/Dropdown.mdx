@@ -267,6 +267,48 @@ export function App() {
 }
 ```
 
+## Позицирование
+Помимо стандартных способов расположения, можно также указать значение `auto`, которое будет автоматически определять нужное расположение.
+
+Если необходимо автоматически использовать лишь определенные раположения, то нужно передать массив расположений. Например:
+
+```tsx live
+import React from 'react';
+import { Button, Dropdown } from "@salutejs/plasma-web";
+
+export function App() {
+    return (
+        <div style={{ height:"200px", display: 'flex', flexDirection: 'column' }}>
+            <Dropdown
+                id="example-dropdown-hover-1"
+                items={[
+                { value: 100001, label: "Новости" },
+                { value: 100002, label: "Каталог" }
+                ]}
+                trigger="hover"
+                onItemSelect={(item) => console.log(item)}
+                style={{ margin: '0 0 100px 0' }}
+                placement={['top', 'bottom']}
+            >
+                <Button text="Меню" />
+            </Dropdown>
+            <Dropdown
+                id="example-dropdown-hover-2"
+                items={[
+                { value: 100001, label: "Новости" },
+                { value: 100002, label: "Каталог" }
+                ]}
+                trigger="hover"
+                onItemSelect={(item) => console.log(item)}
+                placement={['top', 'bottom']}
+            >
+                <Button text="Меню" />
+            </Dropdown>
+        </div>
+    );
+}
+```
+
 ## Доступность
 Для обеспечения доступности модуль `Dropdown` предлагает компонент высшего порядка `withAssistiveDropdown`, в который можно обернуть компонент-вызыватель, например, кнопку.
 

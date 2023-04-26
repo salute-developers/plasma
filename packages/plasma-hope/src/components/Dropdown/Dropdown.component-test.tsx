@@ -92,4 +92,38 @@ describe('plasma-hope: Dropdown', () => {
         cy.get('button').click();
         cy.matchImageSnapshot();
     });
+
+    it('auto placement bottom', () => {
+        mount(
+            <CypressTestDecorator>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Dropdown placement={['top', 'bottom']} style={{ margin: '0 0 350px 0' }} items={items}>
+                        <Button id="first" text="Open" stretch />
+                    </Dropdown>
+                    <Dropdown placement={['top', 'bottom']} items={items}>
+                        <Button id="second" text="Open" stretch />
+                    </Dropdown>
+                </div>
+            </CypressTestDecorator>,
+        );
+        cy.get('#first').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('auto placement top', () => {
+        mount(
+            <CypressTestDecorator>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Dropdown placement={['top', 'bottom']} style={{ margin: '0 0 350px 0' }} items={items}>
+                        <Button id="first" text="Open" stretch />
+                    </Dropdown>
+                    <Dropdown placement={['top', 'bottom']} items={items}>
+                        <Button id="second" text="Open" stretch />
+                    </Dropdown>
+                </div>
+            </CypressTestDecorator>,
+        );
+        cy.get('#second').click();
+        cy.matchImageSnapshot();
+    });
 });
