@@ -1,3 +1,25 @@
+# (Wed Apr 26 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-core@1.112.0`
+  - feat: change api-report after usePopper in popup [#490](https://github.com/salute-developers/plasma/pull/490) ([@kayman233](https://github.com/kayman233))
+  - feat(plasma-core): auto placements in Popup ([@kayman233](https://github.com/kayman233))
+  - feat(plasma-core): usePopper in popup ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-b2c@1.205.0`, `@salutejs/plasma-hope@1.205.0`, `@salutejs/plasma-web@1.205.0`
+  - feat(plasma-b2c): Dropdown new placements ([@kayman233](https://github.com/kayman233))
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.187.0`
+  - fix(plasma-ui): fix jest config ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 1
+
+- [@kayman233](https://github.com/kayman233)
+
+---
+
 # (Tue Apr 25 2023)
 
 #### 🐛 Bug Fix

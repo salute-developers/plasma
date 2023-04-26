@@ -1,3 +1,20 @@
+# v1.205.0 (Wed Apr 26 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c): Dropdown new placements ([@kayman233](https://github.com/kayman233))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.204.1 (Tue Apr 25 2023)
 
 #### 🐛 Bug Fix

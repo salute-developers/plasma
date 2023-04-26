@@ -1,3 +1,17 @@
+# v1.112.0 (Wed Apr 26 2023)
+
+#### 🚀 Enhancement
+
+- feat: change api-report after usePopper in popup [#490](https://github.com/salute-developers/plasma/pull/490) ([@kayman233](https://github.com/kayman233))
+- feat(plasma-core): auto placements in Popup ([@kayman233](https://github.com/kayman233))
+- feat(plasma-core): usePopper in popup ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 1
+
+- [@kayman233](https://github.com/kayman233)
+
+---
+
 # v1.111.1 (Tue Apr 25 2023)
 
 #### 🐛 Bug Fix

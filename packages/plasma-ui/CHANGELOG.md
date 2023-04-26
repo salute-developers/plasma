@@ -1,3 +1,17 @@
+# v1.187.0 (Wed Apr 26 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): fix jest config ([@kayman233](https://github.com/kayman233))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.186.1 (Tue Apr 25 2023)
 
 #### 🐛 Bug Fix
