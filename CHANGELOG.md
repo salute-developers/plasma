@@ -1,3 +1,29 @@
+# (Thu Apr 27 2023)
+
+#### 🚀 Enhancement
+
+- feat: Remove unused packages: `plasma-tokens-android`, `plasma-tokens-ios-swift` (neretinartem@Neretins-MBP.netis)
+- `@salutejs/plasma-tokens@1.48.0`
+  - feat(plasma-tokens): Update `src` directory [#487](https://github.com/salute-developers/plasma/pull/487) (neretinartem@Neretins-MBP.netis)
+  - feat(plasma-tokens): Updating and refactoring themes generate (neretinartem@Neretins-MBP.netis)
+  - feat(plasma-tokens): Remove generate `theme.json` file (neretinartem@Neretins-MBP.netis)
+  - feat(plasma-tokens): Remove new schema generate (neretinartem@Neretins-MBP.netis)
+  - feat(plasma-tokens): Remove size tokens from generate (neretinartem@Neretins-MBP.netis)
+- `@salutejs/plasma-ui@1.188.0`
+  - feat(plasma-ui): Add size tokens to `Button` component (neretinartem@Neretins-MBP.netis)
+
+#### ⚠️ Pushed to `master`
+
+- `@salutejs/plasma-tokens@1.48.0`, `@salutejs/plasma-tokens-utils@0.23.0`
+  - fix(plasma-tokens, plasma-tokens-utiles): Add plasma-colors prefix to depracted tokens (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 2
+
+- Neretin Artem (neretinartem@Neretins-MacBook-Pro.local)
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # (Wed Apr 26 2023)
 
 #### 🚀 Enhancement

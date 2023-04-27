@@ -1,3 +1,20 @@
+# v1.188.0 (Thu Apr 27 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): Add size tokens to `Button` component (neretinartem@Neretins-MBP.netis)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v1.187.0 (Wed Apr 26 2023)
 
 #### 🐛 Bug Fix

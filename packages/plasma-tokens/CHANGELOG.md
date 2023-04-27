@@ -1,3 +1,23 @@
+# v1.48.0 (Thu Apr 27 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): Update `src` directory [#487](https://github.com/salute-developers/plasma/pull/487) (neretinartem@Neretins-MBP.netis)
+- feat(plasma-tokens): Updating and refactoring themes generate (neretinartem@Neretins-MBP.netis)
+- feat(plasma-tokens): Remove generate `theme.json` file (neretinartem@Neretins-MBP.netis)
+- feat(plasma-tokens): Remove new schema generate (neretinartem@Neretins-MBP.netis)
+- feat(plasma-tokens): Remove size tokens from generate (neretinartem@Neretins-MBP.netis)
+
+#### ⚠️ Pushed to `master`
+
+- fix(plasma-tokens, plasma-tokens-utiles): Add plasma-colors prefix to depracted tokens (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v1.47.0 (Mon Apr 24 2023)
 
 #### 🚀 Enhancement
