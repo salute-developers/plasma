@@ -1,3 +1,21 @@
+# v1.189.0 (Thu Apr 27 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): trailing symbols snapshots/test [TextField] [#484](https://github.com/salute-developers/plasma/pull/484) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-ui): handling trailing symbols ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.188.0 (Thu Apr 27 2023)
 
 #### 🚀 Enhancement

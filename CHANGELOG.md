@@ -2,6 +2,20 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-ui@1.189.0`
+  - feat(plasma-ui): trailing symbols snapshots/test [TextField] [#484](https://github.com/salute-developers/plasma/pull/484) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-ui): handling trailing symbols ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Thu Apr 27 2023)
+
+#### 🚀 Enhancement
+
 - feat: Remove unused packages: `plasma-tokens-android`, `plasma-tokens-ios-swift` (neretinartem@Neretins-MBP.netis)
 - `@salutejs/plasma-tokens@1.48.0`
   - feat(plasma-tokens): Update `src` directory [#487](https://github.com/salute-developers/plasma/pull/487) (neretinartem@Neretins-MBP.netis)
