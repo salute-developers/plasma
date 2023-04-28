@@ -1,3 +1,5 @@
+import { HTMLAttributes } from 'react';
+
 import type { Breakpoint } from '../../utils';
 
 type IntCount = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16;
@@ -69,3 +71,10 @@ export const offsets: Record<Breakpoint, keyof ColOffsetProps> = {
 export type Design = {
     design: 'b2c' | 'web';
 };
+
+export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
+    /**
+     * Максимальная ширина контейнера. По умолчанию 125rem/90rem для b2c/web соотвественно
+     */
+    maxWidth?: string;
+}

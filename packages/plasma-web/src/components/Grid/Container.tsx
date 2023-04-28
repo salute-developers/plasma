@@ -5,5 +5,6 @@ export const ContainerBase = ContainerHope({ design: 'web' });
 /**
  * Блок с полями по бокам для размещения контента по вертикали.
  * Блок нельзя вкладывать сам в себя или дальше по дереву.
+ * Для настройки максимальной ширины необходимо использовать свойство `maxWidth`.
  */
 export const Container = ContainerBase;
