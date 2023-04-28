@@ -5,3 +5,5 @@ export { generateThemeFromData } from './generateThemeFromData';
 export { generateFile } from './generateFile';
 export { generateColorThemesTokenDataGroups } from './generateColorThemesTokenDataGroups';
 export { getMapDeprecatedColorTokens } from './getMapDeprecatedColorTokens';
+export { generateTokenSet } from './generateTokenSet';
+export { generateThemes } from './generateThemes';

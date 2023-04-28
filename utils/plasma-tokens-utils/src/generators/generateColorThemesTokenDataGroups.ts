@@ -20,36 +20,50 @@ const makePath = (path: string, key: string) => {
     return path ? `${path}${upperFirstLetter(key)}` : key;
 };
 
-const dataObjectToTokenDataGroup = (dataObject: DataObject, path: string): TokenDataGroup<string> =>
+const dataObjectToTokenDataGroup = (dataObject: DataObject, path: string, prefix?: string): TokenDataGroup<string> =>
     Object.entries(dataObject).reduce((acc, [key, value]) => {
         const fullPath = makePath(path, key);
 
         if (isTokenData(value)) {
-            return { ...acc, [fullPath]: value };
+            const tokenName = prefix ? `${prefix}${upperFirstLetter(fullPath)}` : fullPath;
+            return { ...acc, [tokenName]: value };
         }
         if (value && typeof value === 'object') {
-            return { ...acc, ...dataObjectToTokenDataGroup(value, fullPath) };
+            return { ...acc, ...dataObjectToTokenDataGroup(value, fullPath, prefix) };
         }
 
         return acc;
     }, {});
 
-const themeToColorTokenDataGroups = (theme: Theme): Record<string, ThemeTokenDataGroups> => {
+const themeToColorTokenDataGroups = (theme: Theme): Record<string, Record<string, ThemeTokenDataGroups>> => {
     const {
         config: { name },
         dark,
         light,
+        shadow,
     } = theme;
+
+    const shadowTokens = shadow
+        ? dataObjectToTokenDataGroup((shadow as unknown) as DataObject, '', 'shadow')
+        : undefined;
 
     return {
         [name]: {
-            [`${name}__dark`]: dataObjectToTokenDataGroup((dark as unknown) as DataObject, ''),
-            [`${name}__light`]: dataObjectToTokenDataGroup((light as unknown) as DataObject, ''),
+            [`${name}__dark`]: {
+                color: dataObjectToTokenDataGroup((dark as unknown) as DataObject, ''),
+                shadow: shadowTokens,
+            },
+            [`${name}__light`]: {
+                color: dataObjectToTokenDataGroup((light as unknown) as DataObject, ''),
+                shadow: shadowTokens,
+            },
         },
     };
 };
 
-export const generateColorThemesTokenDataGroups = (themesFolder: string): Record<string, ThemeTokenDataGroups> => {
+export const generateColorThemesTokenDataGroups = (
+    themesFolder: string,
+): Record<string, Record<string, ThemeTokenDataGroups>> => {
     if (!fs.existsSync(themesFolder)) {
         return {};
     }

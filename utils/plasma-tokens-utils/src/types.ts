@@ -230,6 +230,16 @@ export type TokensGetterFn = (
     }
 >;
 
+export interface Shadow {
+    color: string;
+    blurRadius: string;
+    spreadRadius: string;
+    offset: {
+        x: string;
+        y: string;
+    };
+}
+
 export interface Theme {
     config: ThemeConfig;
     dark: {
@@ -244,9 +254,14 @@ export interface Theme {
         backgrounds: TokensBackgroundByType<BackgroundName>;
         overlay: TokensByType<OverlayName>;
     };
+    shadow?: Record<string, string>;
 }
 
-export type ThemeTokenDataGroups = Record<string, TokenDataGroup<string>>;
+export type ThemeTokenDataGroups = Record<string, TokenDataGroup<string> | undefined>;
+
+export type GeneratedTokenType = 'value' | 'css';
+
+export type GeneratedTokenMode = 'color' | 'shadow';
 
 export type ActualTokenNames =
     | TextIconsTokenName

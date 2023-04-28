@@ -1,4 +1,5 @@
 import { DESIGN_SYSTEM_PREFIX } from '../constants';
+import { Shadow } from '../types';
 
 /**
  * В строковых значениях токенов встречаются нежелательные символы,
@@ -15,5 +16,10 @@ export const escapeValue = <T = string | number>(value: T) => {
 
 export const join = (...args: (string | undefined)[]) => args.filter(Boolean).join('-');
 
-export const getCSSVariableName = (key: string, fromData = false) =>
-    `--${DESIGN_SYSTEM_PREFIX}-${key}`.replace(fromData ? 'plasma-colors-' : '', '');
+export const getCSSVariableName = (key: string, withDesignPrefix = true) =>
+    withDesignPrefix ? `--${DESIGN_SYSTEM_PREFIX}-${key}` : `--${key}`;
+
+export const getBoxShadow = (shadows: Array<Shadow>) =>
+    shadows.map(
+        ({ offset: { x, y }, blurRadius, spreadRadius, color }) => `${x} ${y} ${blurRadius} ${spreadRadius} ${color}`,
+    );

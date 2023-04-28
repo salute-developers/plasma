@@ -2,6 +2,7 @@ import path from 'path';
 import {
     writeGeneratedToFS,
     generateColorThemes,
+    generateThemes,
     generateColorThemeValues,
     generateTokens,
     ThemeTokenDataGroups,
@@ -9,7 +10,7 @@ import {
 
 import { colorThemes as legacyColorThemes } from '../../data';
 
-export const createThemes = (srcDir: string, themesColorTokenGroupsFallback: ThemeTokenDataGroups) => {
+export const createThemes = (srcDir: string, themesColorTokenGroupsFallback: Record<string, ThemeTokenDataGroups>) => {
     const legacyColorsDir = path.join(srcDir, 'colors');
     const themesDir = path.join(srcDir, 'themes');
     const legacyThemesValuesDir = path.join(srcDir, 'themesValues');
@@ -23,10 +24,9 @@ export const createThemes = (srcDir: string, themesColorTokenGroupsFallback: The
         { file: 'values.ts', content: generateTokens(legacyColorThemes.salutejs_sber__dark) },
     ]);
     // Генерация и запись файлов тем для создания глобальных стилей
-    writeGeneratedToFS(
-        themesDir,
-        generateColorThemes({ ...themesColorTokenGroupsFallback, ...legacyColorThemes }, undefined, withDeprecated),
-    );
+    writeGeneratedToFS(themesDir, generateThemes(themesColorTokenGroupsFallback, undefined, withDeprecated));
+    // Генерация и запись файлов старых тем для создания глобальных стилей
+    writeGeneratedToFS(themesDir, generateColorThemes(legacyColorThemes, undefined, withDeprecated));
     // Отдельные файлы для импорта в компонентах
     writeGeneratedToFS(legacyThemesValuesDir, generateColorThemeValues({ ...legacyColorThemes }));
 };
