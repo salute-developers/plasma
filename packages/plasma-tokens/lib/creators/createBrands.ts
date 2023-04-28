@@ -28,13 +28,6 @@ export const createBrands = (srcDir: string, themesColorTokenGroupsFallback: Rec
                         '\n' +
                         generateTokenSet({ tokens: shadow, type: 'css', mode: 'shadow' }),
                 },
-                {
-                    file: 'values.ts',
-                    content:
-                        generateTokenSet({ tokens: color, type: 'value', mode: 'color' }) +
-                        '\n' +
-                        generateTokenSet({ tokens: shadow, type: 'value', mode: 'shadow' }),
-                },
             ]);
         });
 };
