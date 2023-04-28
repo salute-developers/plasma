@@ -1,14 +1,13 @@
-import { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 
 import { gridGutters, gridMargins, gridSizes, mediaQuery } from '../../../../utils';
+import { ContainerProps } from '../../types';
+import { applyMaxWidth } from '../applyMaxWidth';
 
 const deviceScale = 1;
 const sidesCount = 2;
 
-export const ContainerWeb = styled.div<HTMLAttributes<HTMLDivElement>>`
-    margin: 0 auto;
-
+export const ContainerWeb = styled.div<ContainerProps>`
     display: flex;
     box-sizing: border-box;
     flex-direction: column;
@@ -17,7 +16,9 @@ export const ContainerWeb = styled.div<HTMLAttributes<HTMLDivElement>>`
     padding-left: var(--plasma-grid-margin);
     padding-right: var(--plasma-grid-margin);
 
-    max-width: 90rem;
+    ${({ maxWidth }) => css`
+        ${applyMaxWidth({ maxWidth, defaultMaxWidth: '90rem' })}
+    `}
 
     ${() =>
         gridSizes.map((breakpoint) =>

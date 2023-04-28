@@ -1,8 +1,6 @@
 import React from 'react';
-import { Meta } from '@storybook/react';
-import { Filler } from '@salutejs/plasma-sb-utils';
-
-import { InSpacingDecorator } from '../../helpers';
+import { Filler, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { Meta, Story } from '@storybook/react';
 
 import { Container, Row, Col } from '.';
 
@@ -11,8 +9,8 @@ export default {
     decorators: [InSpacingDecorator],
 } as Meta;
 
-export const Default = () => (
-    <Container>
+export const Default: Story<{ maxWidth: string }> = ({ maxWidth }) => (
+    <Container maxWidth={maxWidth}>
         <Row>
             <Col sizeS={1} sizeM={2} sizeL={3} sizeXL={4}>
                 <Filler style={{ marginBottom: '1rem' }}>1</Filler>
@@ -33,3 +31,7 @@ export const Default = () => (
         </Row>
     </Container>
 );
+
+Default.args = {
+    maxWidth: '90rem',
+};
