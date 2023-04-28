@@ -1,3 +1,15 @@
+# v1.49.0 (Fri Apr 28 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): Remove generation legacy tokens and themes for native platforms [#493](https://github.com/salute-developers/plasma/pull/493) (neretinartem@Neretins-MacBook-Pro.local)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MacBook-Pro.local)
+
+---
+
 # v1.48.0 (Thu Apr 27 2023)
 
 #### 🚀 Enhancement

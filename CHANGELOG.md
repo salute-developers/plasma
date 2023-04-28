@@ -1,3 +1,17 @@
+# (Fri Apr 28 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens-*): Remove `plasma-android-ios-swift` and `plasma-tokens-android` (neretinartem@Neretins-MacBook-Pro.local)
+- `@salutejs/plasma-tokens@1.49.0`
+  - feat(plasma-tokens): Remove generation legacy tokens and themes for native platforms [#493](https://github.com/salute-developers/plasma/pull/493) (neretinartem@Neretins-MacBook-Pro.local)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MacBook-Pro.local)
+
+---
+
 # (Thu Apr 27 2023)
 
 #### 🚀 Enhancement
