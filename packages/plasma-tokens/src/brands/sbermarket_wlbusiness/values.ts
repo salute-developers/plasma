@@ -263,3 +263,27 @@ export const buttonAccent = '#24B23E';
 
 /** @deprecated instead use surfaceNegative */
 export const buttonCritical = '#FF2E43';
+
+export const shadowDownSoftL = '0px 60px 112px -8px rgba(0, 0, 0, 0.2)';
+
+export const shadowDownSoftM = '0px 16px 32px -8px rgba(0, 0, 0, 0.16)';
+
+export const shadowDownSoftS = '0px 1px 4px -1px rgba(0, 0, 0, 0.04), 0px 6px 12 -2px rgba(8, 8, 8, 0.1)';
+
+export const shadowDownHardL = '0px 60px 112px -8px rgba(0, 0, 0, 0.6)';
+
+export const shadowDownHardM = '0px 16px 32px -8px rgba(0, 0, 0, 0.4)';
+
+export const shadowDownHardS = '0px 1px 4px -2px rgba(0, 0, 0, 0.08), 0px 6px 12 -2px rgba(8, 8, 8, 0.24)';
+
+export const shadowUpSoftL = '0px -60px 112px -8px rgba(0, 0, 0, 0.08)';
+
+export const shadowUpSoftM = '0px -20px 48px -8px rgba(0, 0, 0, 0.06)';
+
+export const shadowUpSoftS = '0px -1px 4px -1px rgba(0, 0, 0, 0.03), 0px -3px 14 -5px rgba(8, 8, 8, 0.12)';
+
+export const shadowUpHardL = '0px -60px 112px -8px rgba(0, 0, 0, 0.32)';
+
+export const shadowUpHardM = '0px -20px 48px -8px rgba(0, 0, 0, 0.2)';
+
+export const shadowUpHardS = '0px -1px 4px -1px rgba(0, 0, 0, 0.03), 0px -3px 14 -5px rgba(8, 8, 8, 0.24)';
