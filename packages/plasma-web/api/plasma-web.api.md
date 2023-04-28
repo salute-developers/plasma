@@ -86,6 +86,7 @@ import { ColCount } from '@salutejs/plasma-hope';
 import { ColOffsetProps } from '@salutejs/plasma-hope';
 import { ColProps } from '@salutejs/plasma-hope';
 import { ColSizeProps } from '@salutejs/plasma-hope';
+import { ContainerProps } from '@salutejs/plasma-hope/components/Grid/types';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
 import { defaultValidate } from '@salutejs/plasma-hope';
 import { DisabledProps } from '@salutejs/plasma-core';
@@ -127,7 +128,6 @@ import { Headline2 } from '@salutejs/plasma-hope';
 import { Headline3 } from '@salutejs/plasma-hope';
 import { Headline4 } from '@salutejs/plasma-hope';
 import { Headline5 } from '@salutejs/plasma-hope';
-import { HTMLAttributes } from 'react';
 import { Image as Image_2 } from '@salutejs/plasma-hope';
 import { ImageBaseProps } from '@salutejs/plasma-hope';
 import { ImageProps } from '@salutejs/plasma-hope';
@@ -444,7 +444,7 @@ export { ColProps }
 export { ColSizeProps }
 
 // @public
-export const Container: StyledComponent<"div", any, HTMLAttributes<HTMLDivElement>, never>;
+export const Container: StyledComponent<"div", any, ContainerProps, never>;
 
 export { convertRoundnessMatrix }
 
