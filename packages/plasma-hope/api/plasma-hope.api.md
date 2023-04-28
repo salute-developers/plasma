@@ -532,9 +532,10 @@ export interface ColSizeProps {
 }
 
 // Warning: (ae-forgotten-export) The symbol "Design_2" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "ContainerProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const Container: ({ design }: Design_2) => StyledComponent<"div", any, HTMLAttributes<HTMLDivElement>, never>;
+export const Container: ({ design }: Design_2) => StyledComponent<"div", any, ContainerProps, never>;
 
 export { convertRoundnessMatrix }
 
