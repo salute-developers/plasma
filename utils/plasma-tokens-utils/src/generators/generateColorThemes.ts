@@ -1,12 +1,9 @@
-import { ROBO_COMMENT } from '../constants';
 import type { TokenDataGroup, DataObject, GeneratedFiles } from '../types';
 import { attachToRoot, extractTokenData, objectToCSSVariables, getDeprecatedVars } from '../utils';
 
 import { generateFile } from './generateFile';
 
-// Метод для поиска ключа, у которого может быть  префикс
-const findExistedProp = (themeData: Record<string, string>, prop: string) =>
-    Object.keys(themeData).find((data) => data.endsWith(prop)) || '';
+// TODO: https://github.com/salute-developers/plasma/issues/512
 
 /**
  * Генерация цветовых схем для создания глобального стиля.
@@ -19,11 +16,10 @@ export const generateColorThemes = (
     withDeprecated = false,
 ) => {
     const files: GeneratedFiles = [];
-    let indexContent = ROBO_COMMENT;
+    let indexContent = '';
 
     for (const [fileName, themeItem] of Object.entries(colorThemes)) {
-        const { fromData, ...theme } = themeItem;
-        const themeData = extractTokenData(theme);
+        const themeData = extractTokenData(themeItem);
         const [deprecated, deprecatedThemeName] = withDeprecated ? getDeprecatedVars(fileName) : ['', ''];
 
         const fileNames = [fileName];
@@ -37,10 +33,10 @@ export const generateColorThemes = (
             generateFile(
                 fileName,
                 attachToRoot({
-                    ...objectToCSSVariables(themeData, 'colors', Boolean(fromData)),
+                    ...objectToCSSVariables(themeData, 'colors'),
                     ...objectToCSSVariables(mixin),
-                    color: themeData[findExistedProp(themeData, 'text')],
-                    backgroundColor: themeData[findExistedProp(themeData, 'background')],
+                    color: themeData.text,
+                    backgroundColor: themeData.background,
                 }),
                 deprecated,
             ),

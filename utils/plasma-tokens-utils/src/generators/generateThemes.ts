@@ -1,6 +1,11 @@
 import type { DataObject, GeneratedFiles, ThemeTokenDataGroups } from '../types';
-import { attachToRoot, extractTokenData, getDeprecatedVars } from '../utils';
-import { objectToCSSShadowVariables, objectToCSSCommonVariables } from '../utils/objectToCSSVariables';
+import {
+    attachToRoot,
+    extractTokenData,
+    getDeprecatedVars,
+    objectToCSSShadowVariables,
+    objectToCSSVariables,
+} from '../utils';
 
 import { generateFile } from './generateFile';
 
@@ -13,6 +18,7 @@ export const generateThemes = (
     mixin: DataObject = {},
     withDeprecated = false,
 ) => {
+    const withPrefixDesign = false;
     const files: GeneratedFiles = [];
     let indexContent = '';
 
@@ -34,9 +40,9 @@ export const generateThemes = (
             generateFile(
                 fileName,
                 attachToRoot({
-                    ...objectToCSSCommonVariables(themeData),
+                    ...objectToCSSVariables(themeData, '', withPrefixDesign),
                     ...objectToCSSShadowVariables(themeShadow),
-                    ...objectToCSSCommonVariables(mixin),
+                    ...objectToCSSVariables(mixin, '', withPrefixDesign),
                     color: themeData[findExistedProp(themeData, 'text')],
                     backgroundColor: themeData[findExistedProp(themeData, 'background')],
                 }),
