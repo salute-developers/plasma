@@ -1,13 +1,13 @@
 import fs from 'fs';
 import path from 'path';
 import {
-    generateTokens,
+    generateTokenSet,
     writeGeneratedToFS,
     lowerFirstLetter,
     ThemeTokenDataGroups,
 } from '@salutejs/plasma-tokens-utils';
 
-export const createBrands = (srcDir: string, themesColorTokenGroupsFallback: ThemeTokenDataGroups) => {
+export const createBrands = (srcDir: string, themesColorTokenGroupsFallback: Record<string, ThemeTokenDataGroups>) => {
     const fixedThemeType = '__dark';
     const brandsDir = path.join(srcDir, 'brands');
     fs.existsSync(brandsDir) || fs.mkdirSync(brandsDir);
@@ -17,14 +17,24 @@ export const createBrands = (srcDir: string, themesColorTokenGroupsFallback: The
         .forEach((brand) => {
             const themeName = lowerFirstLetter(brand.replace(fixedThemeType, ''));
             const brandDir = path.join(brandsDir, themeName);
-            const theme = themesColorTokenGroupsFallback[brand];
+
+            const { shadow, color } = themesColorTokenGroupsFallback[brand];
 
             writeGeneratedToFS(brandDir, [
                 {
                     file: 'index.ts',
-                    content: generateTokens(theme, 'css', 'colors'),
+                    content:
+                        generateTokenSet({ tokens: color, type: 'css', mode: 'color' }) +
+                        '\n' +
+                        generateTokenSet({ tokens: shadow, type: 'css', mode: 'shadow' }),
                 },
-                { file: 'values.ts', content: generateTokens(theme) },
+                {
+                    file: 'values.ts',
+                    content:
+                        generateTokenSet({ tokens: color, type: 'value', mode: 'color' }) +
+                        '\n' +
+                        generateTokenSet({ tokens: shadow, type: 'value', mode: 'shadow' }),
+                },
             ]);
         });
 };

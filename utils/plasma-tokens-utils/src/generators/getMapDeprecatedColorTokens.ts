@@ -125,7 +125,7 @@ const deprecatedColorTokenOnActualToken: Record<string, ActualTokenNames> = {
     // voicePhraseGradient = 'Градиент подсказок о голосовых запросах',
 };
 
-const getThemeTokenDataGroupsByName = (themeTokenDataGroups: Record<string, ThemeTokenDataGroups>) =>
+const getThemeTokenDataGroupsByName = (themeTokenDataGroups: Record<string, Record<string, ThemeTokenDataGroups>>) =>
     Object.values(themeTokenDataGroups).reduce(
         (acc, values) => ({
             ...acc,
@@ -153,12 +153,12 @@ const getDeprecatedTokens = (tokens: TokenDataGroup<string>) => {
 };
 
 export const getMapDeprecatedColorTokens = (
-    themeTokenDataGroups: Record<string, ThemeTokenDataGroups>,
-): ThemeTokenDataGroups => {
+    themeTokenDataGroups: Record<string, Record<string, ThemeTokenDataGroups>>,
+): Record<string, ThemeTokenDataGroups> => {
     const themeTokenDataGroupsByName = getThemeTokenDataGroupsByName(themeTokenDataGroups);
 
     return Object.entries(themeTokenDataGroupsByName).reduce((tokensWithDeprecated, [themeName, tokens]) => {
-        const deprecatedTokens = getDeprecatedTokens(tokens);
+        const deprecatedTokens = getDeprecatedTokens(tokens.color || {});
 
         const { skeletonGradient, skeletonGradientLighter } = gradientColors[
             themeName.endsWith('dark') ? 'dark' : 'light'
@@ -167,15 +167,19 @@ export const getMapDeprecatedColorTokens = (
         return {
             ...tokensWithDeprecated,
             [themeName]: {
-                fromData: true,
-                ...tokens,
-                skeletonGradient: {
-                    value: skeletonGradient,
+                color: {
+                    ...tokens.color,
+                    skeletonGradient: {
+                        value: skeletonGradient,
+                    },
+                    skeletonGradientLighter: {
+                        value: skeletonGradientLighter,
+                    },
+                    ...deprecatedTokens,
                 },
-                skeletonGradientLighter: {
-                    value: skeletonGradientLighter,
+                shadow: {
+                    ...tokens.shadow,
                 },
-                ...deprecatedTokens,
             },
         };
     }, {});
