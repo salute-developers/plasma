@@ -1,4 +1,4 @@
-import { HTML_FONT_SIZE, ROBO_COMMENT } from '../constants';
+import { HTML_FONT_SIZE } from '../constants';
 import type { DataObject, GeneratedFiles } from '../types';
 import { attachToRoot, objectToCSSVariables } from '../utils';
 
@@ -14,7 +14,7 @@ export const generateTypoSystem = (
     mixin: DataObject = {},
 ) => {
     const files: GeneratedFiles = [];
-    let indexContent = ROBO_COMMENT;
+    let indexContent = '';
 
     for (const [fileName, { theme, scale = 1 }] of Object.entries(typoThemes)) {
         indexContent += `export { ${fileName} } from './${fileName}';\n`;

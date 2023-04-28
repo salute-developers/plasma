@@ -10,9 +10,7 @@ export const generateColorThemeValues = (colorThemes: Record<string, TokenDataGr
     const out: GeneratedFiles = [];
 
     for (const [name, themeItem] of Object.entries(colorThemes)) {
-        const { fromData: _, ...theme } = themeItem;
-
-        out.push({ file: `${name}.ts`, content: generateTokens(theme) });
+        out.push({ file: `${name}.ts`, content: generateTokens(themeItem) });
     }
 
     return out;
