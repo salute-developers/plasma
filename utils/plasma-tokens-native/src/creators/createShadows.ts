@@ -13,4 +13,5 @@ export const createShadows = (dir: string, shadowTokens: Record<string, any>) =>
                 2,
             ),
         })),
+        '',
     );

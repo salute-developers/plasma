@@ -19,7 +19,8 @@
     ],
     "scripts": {
         "prepare": "npm run build",
-        "prebuild": "mkdir -p data && cp -R node_modules/@salutejs/plasma-tokens/data/* data",
+        "prebuild": "rm -rf ./build ./properties ./data && npm run mkdir",
+        "mkdir": "mkdir -p data && cp -R node_modules/@salutejs/plasma-tokens/data/* data",
         "build": "npx ts-node ./src/generate.ts",
         "postbuild": "npx ts-node ./config.ts"
     },
