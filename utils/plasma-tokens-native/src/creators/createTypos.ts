@@ -21,4 +21,5 @@ export const createTypos = (dir: string, typoArchetypes: Record<string, any>) =>
                 2,
             ),
         })),
+        '',
     );

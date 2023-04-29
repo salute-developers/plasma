@@ -13,7 +13,7 @@ const propsShadowDir = path.join(propsDir, 'shadow');
 const propsTypoDir = path.join(propsDir, 'typo');
 
 export const createProperties = (
-    themesColorTokenGroups: Record<string, ThemeTokenDataGroups>,
+    themesColorTokenGroups: Record<string, Record<string, ThemeTokenDataGroups>>,
     shadowTokens: Record<string, any>,
     typoArchetypes: Record<string, any>,
 ) => {

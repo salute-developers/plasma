@@ -27,4 +27,4 @@ export interface GradientToken {
     endPoint: string;
 }
 
-export type ThemeTokenDataGroups = Record<string, TokenDataGroup<string>>;
+export type ThemeTokenDataGroups = Record<string, TokenDataGroup<string> | undefined>;
