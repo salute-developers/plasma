@@ -25,7 +25,7 @@ export type SelectRefElement = HTMLButtonElement;
 
 export interface SelectButtonProps
     extends Pick<FieldProps, 'status' | 'placeholder' | 'disabled'>,
-        Omit<ButtonHTMLAttributes<SelectRefElement>, 'value'> {
+        Omit<ButtonHTMLAttributes<SelectRefElement>, 'value' | 'onResize' | 'onResizeCapture' | 'nonce'> {
     /**
      * Выводимое значение.
      */
