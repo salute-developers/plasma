@@ -1,3 +1,21 @@
+# v1.208.0 (Wed May 03 2023)
+
+#### 🚀 Enhancement
+
+- feat: change api-report for Container in Grid [#495](https://github.com/salute-developers/plasma/pull/495) ([@kayman233](https://github.com/kayman233))
+- feat(plasma-hope): maxWidth for Grid ([@kayman233](https://github.com/kayman233))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.206.0 (Thu Apr 27 2023)
 
 #### 🐛 Bug Fix

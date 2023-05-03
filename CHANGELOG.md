@@ -1,3 +1,17 @@
+# (Wed May 03 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.208.0`, `@salutejs/plasma-hope@1.208.0`, `@salutejs/plasma-web@1.208.0`
+  - feat: change api-report for Container in Grid [#495](https://github.com/salute-developers/plasma/pull/495) ([@kayman233](https://github.com/kayman233))
+  - feat(plasma-hope): maxWidth for Grid ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 1
+
+- [@kayman233](https://github.com/kayman233)
+
+---
+
 # (Fri Apr 28 2023)
 
 #### 🚀 Enhancement
