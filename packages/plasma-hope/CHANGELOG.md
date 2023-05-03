@@ -1,3 +1,16 @@
+# v1.208.1 (Wed May 03 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-*): update api report [#497](https://github.com/salute-developers/plasma/pull/497) ([@Yakutoc](https://github.com/Yakutoc))
+- fix(plasma-hope): omit 'onResize', 'onResizeCapture', 'nonce' properties for SelectButtonProps ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.208.0 (Wed May 03 2023)
 
 #### 🚀 Enhancement

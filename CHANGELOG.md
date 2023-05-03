@@ -1,5 +1,20 @@
 # (Wed May 03 2023)
 
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.208.1`, `@salutejs/plasma-hope@1.208.1`, `@salutejs/plasma-web@1.208.1`
+  - fix(plasma-*): update api report [#497](https://github.com/salute-developers/plasma/pull/497) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@1.208.1`
+  - fix(plasma-hope): omit 'onResize', 'onResizeCapture', 'nonce' properties for SelectButtonProps ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Wed May 03 2023)
+
 #### 🚀 Enhancement
 
 - `@salutejs/plasma-b2c@1.208.0`, `@salutejs/plasma-hope@1.208.0`, `@salutejs/plasma-web@1.208.0`
