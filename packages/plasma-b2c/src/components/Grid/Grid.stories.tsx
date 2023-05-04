@@ -33,5 +33,5 @@ export const Default: Story<{ maxWidth: string }> = ({ maxWidth }) => (
 );
 
 Default.args = {
-    maxWidth: '125rem',
+    maxWidth: '90rem',
 };

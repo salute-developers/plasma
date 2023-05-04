@@ -531,11 +531,13 @@ export interface ColSizeProps {
     sizeXXL?: ColCount;
 }
 
-// Warning: (ae-forgotten-export) The symbol "Design_2" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "ContainerProps" needs to be exported by the entry point index.d.ts
-//
+// @public
+export const Container: StyledComponent<"div", any, ContainerProps, never>;
+
 // @public (undocumented)
-export const Container: ({ design }: Design_2) => StyledComponent<"div", any, ContainerProps, never>;
+export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
+    maxWidth?: string;
+}
 
 export { convertRoundnessMatrix }
 
@@ -1068,11 +1070,11 @@ export const Row: StyledComponent<"div", any, {}, never>;
 
 export { ScrollSnapProps }
 
-// Warning: (ae-forgotten-export) The symbol "Design_3" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "Design_2" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "SelectViewProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const Select: ({ design }: Design_3) => <T>(props: ({
+export const Select: ({ design }: Design_2) => <T>(props: ({
     multiselect?: false | undefined;
     separator?: undefined;
 } & {
@@ -1170,10 +1172,10 @@ export { SwitchProps }
 
 export { syntheticFocus }
 
-// Warning: (ae-forgotten-export) The symbol "Design_4" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "Design_3" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const TabItem: ({ design }: Design_4) => StyledComponent<ForwardRefExoticComponent<TabItemProps_2 & RefAttributes<HTMLButtonElement>>, any, TabItemProps, never>;
+export const TabItem: ({ design }: Design_3) => StyledComponent<ForwardRefExoticComponent<TabItemProps_2 & RefAttributes<HTMLButtonElement>>, any, TabItemProps, never>;
 
 // @public (undocumented)
 export interface TabItemProps extends TabItemProps_2 {
@@ -1182,7 +1184,7 @@ export interface TabItemProps extends TabItemProps_2 {
 }
 
 // @public (undocumented)
-export const Tabs: ({ design }: Design_4) => StyledComponent<ForwardRefExoticComponent<TabsProps_2 & RefAttributes<HTMLDivElement>>, any, TabsProps, never>;
+export const Tabs: ({ design }: Design_3) => StyledComponent<ForwardRefExoticComponent<TabsProps_2 & RefAttributes<HTMLDivElement>>, any, TabsProps, never>;
 
 // @public (undocumented)
 export interface TabsControllerProps extends TabsControllerProps_2 {
@@ -1199,10 +1201,10 @@ export interface TabsProps extends TabsProps_2 {
     view?: 'secondary' | 'clear';
 }
 
-// Warning: (ae-forgotten-export) The symbol "Design_5" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "Design_4" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const TextArea: ({ design }: Design_5) => React_2.ForwardRefExoticComponent<TextAreaProps & React_2.RefAttributes<HTMLTextAreaElement>>;
+export const TextArea: ({ design }: Design_4) => React_2.ForwardRefExoticComponent<TextAreaProps & React_2.RefAttributes<HTMLTextAreaElement>>;
 
 export { TextareaHTMLAttributes }
 
@@ -1219,10 +1221,10 @@ export interface TextAreaProps extends Omit<TextAreaProps_2, 'size'> {
 
 export { TextareaResize }
 
-// Warning: (ae-forgotten-export) The symbol "Design_6" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "Design_5" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const TextField: ({ design }: Design_6) => React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
+export const TextField: ({ design }: Design_5) => React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export interface TextFieldProps extends Omit<InputHTMLAttributes_2<HTMLInputElement>, 'size'> {
