@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { CardContent as CardContentBase, CardContentProps as CardContentPropsBase } from '@salutejs/plasma-core';
 
-export type CardContentProps = Omit<CardContentPropsBase, 'compact'>;
+export type CardContentProps = Omit<CardContentPropsBase, 'compact' | 'nonce' | 'onResize' | 'onResizeCapture'>;
 
 /**
  * Компонент для отображения как текстового, так и любого другого контента.
