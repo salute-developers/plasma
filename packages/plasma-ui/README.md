@@ -97,7 +97,7 @@ import { addFocus } from '@salutejs/plasma-ui/mixins';
 import { withAutoFocus } from '@salutejs/plasma-ui/hocs';
 ```
 
-Подробнее можно ознакомиться на страницах документации по [hocs](https://bit.ly/3vC4IZE), [mixins](https://bit.ly/3Lk4ayb) и [utils](https://bit.ly/3w0POwr).
+Подробнее можно ознакомиться на страницах документации по [hocs](https://bit.ly/412n7fY), [mixins](https://bit.ly/44mQvQT) и [utils](https://bit.ly/3w0POwr).
 
 ## Полезные ссылки:
 
