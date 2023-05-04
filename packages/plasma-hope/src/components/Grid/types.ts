@@ -74,7 +74,7 @@ export type Design = {
 
 export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
     /**
-     * Максимальная ширина контейнера. По умолчанию 125rem/90rem для b2c/web соотвественно
+     * Максимальная ширина контейнера. По умолчанию 90rem(=1440px).
      */
     maxWidth?: string;
 }
