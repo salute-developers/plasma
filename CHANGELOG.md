@@ -1,3 +1,16 @@
+# (Wed May 10 2023)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.208.2`, `@salutejs/plasma-hope@1.208.2`, `@salutejs/plasma-web@1.208.2`
+  - fix(plasma-hope): default max-width for Grid [#501](https://github.com/salute-developers/plasma/pull/501) ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 1
+
+- [@kayman233](https://github.com/kayman233)
+
+---
+
 # (Wed May 03 2023)
 
 #### 🐛 Bug Fix

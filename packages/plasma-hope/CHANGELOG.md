@@ -1,3 +1,15 @@
+# v1.208.2 (Wed May 10 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-hope): default max-width for Grid [#501](https://github.com/salute-developers/plasma/pull/501) ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 1
+
+- [@kayman233](https://github.com/kayman233)
+
+---
+
 # v1.208.1 (Wed May 03 2023)
 
 #### 🐛 Bug Fix
