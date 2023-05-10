@@ -1,5 +1,25 @@
 # (Wed May 10 2023)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-hope@1.209.0`
+  - feat(plasma-hope): update api report [#498](https://github.com/salute-developers/plasma/pull/498) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- docs(plasma-web-docs): fix CodeSandbox import [#502](https://github.com/salute-developers/plasma/pull/502) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-hope@1.209.0`
+  - fix(plasma-hope): omit 'onResize', 'onResizeCapture', 'nonce' properties for CardContentProps ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Wed May 10 2023)
+
 #### 🐛 Bug Fix
 
 - `@salutejs/plasma-b2c@1.208.2`, `@salutejs/plasma-hope@1.208.2`, `@salutejs/plasma-web@1.208.2`

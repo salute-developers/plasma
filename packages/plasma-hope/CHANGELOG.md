@@ -1,3 +1,19 @@
+# v1.209.0 (Wed May 10 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-hope): update api report [#498](https://github.com/salute-developers/plasma/pull/498) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- fix(plasma-hope): omit 'onResize', 'onResizeCapture', 'nonce' properties for CardContentProps ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.208.2 (Wed May 10 2023)
 
 #### 🐛 Bug Fix
