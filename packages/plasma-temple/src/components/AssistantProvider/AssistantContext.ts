@@ -2,7 +2,6 @@ import { createContext } from 'react';
 
 import { AssistantAppState, AssistantInstance } from '../../types';
 
-import { getAssistantRef } from './assistant';
 import { initialAssistantState } from './store/reducer';
 import { AssistantState } from './store/types';
 
@@ -18,6 +17,6 @@ const throwFn = () => {
 
 export const AssistantContext = createContext<AssistantContextType>({
     state: initialAssistantState,
-    assistant: getAssistantRef().assistant,
+    assistant: null,
     setAssistantState: throwFn,
 });
