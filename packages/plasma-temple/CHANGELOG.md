@@ -1,3 +1,17 @@
+# v1.158.1 (Thu May 11 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-temple): create assistant ctx [#503](https://github.com/salute-developers/plasma/pull/503) ([@LamaEats](https://github.com/LamaEats))
+- docs: fix links in docs [#500](https://github.com/salute-developers/plasma/pull/500) ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # v1.158.0 (Fri Apr 28 2023)
 
 #### 🐛 Bug Fix

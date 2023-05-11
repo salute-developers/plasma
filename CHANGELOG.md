@@ -1,3 +1,19 @@
+# (Thu May 11 2023)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-temple@1.158.1`
+  - fix(plasma-temple): create assistant ctx [#503](https://github.com/salute-developers/plasma/pull/503) ([@LamaEats](https://github.com/LamaEats))
+- `@salutejs/plasma-temple@1.158.1`, `@salutejs/plasma-tokens@1.49.1`, `@salutejs/plasma-ui@1.190.1`
+  - docs: fix links in docs [#500](https://github.com/salute-developers/plasma/pull/500) ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+
+---
+
 # (Wed May 10 2023)
 
 #### 🚀 Enhancement
