@@ -22,10 +22,14 @@ import { applyInteraction, InteractionProps } from '../../mixins';
 
 import { sizes } from './ActionButton.sizes';
 
-export type ActionButtonProps = Omit<BaseProps, 'stretch' | 'pin'> &
+type ActionButtonBaseProps = Omit<BaseProps, 'stretch' | 'pin'> &
     Partial<ButtonSizeProps> &
     Partial<ButtonViewProps> &
     InteractionProps & { pin?: Extract<PinProps['pin'], 'square-square' | 'circle-circle'> };
+
+// INFO: Omit 'onResize' | 'onResizeCapture' | 'nonce'
+// because this types coming with @types/react@18 and breaks react@17.0.2 with @types/react@18
+export type ActionButtonProps = Omit<ActionButtonBaseProps, 'nonce' | 'onResize' | 'onResizeCapture'>;
 
 const buttonSizes = {
     l: {
