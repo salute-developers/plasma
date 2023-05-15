@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@salutejs/plasma-ui';
 
-import { startApp } from '../../testHelpers/testRenderHelpers';
+import { startApp, images } from '../../testHelpers/testRenderHelpers';
 import { AnyObject } from '../../types';
 
 import { Cart, CartProps } from './Cart';
@@ -10,7 +10,7 @@ import { EmptyCart } from './EmptyCart/EmptyCart';
 import { useCart } from './hooks/useCart';
 import { CartItemType, CartState } from './types';
 
-const imageSrc = 'images/img.png';
+const imageSrc = images.imagePlaceholder;
 
 export const items: CartItemType[] = [
     {
@@ -65,9 +65,9 @@ export function generateWrapper<ID = unknown, T extends AnyObject = AnyObject>(
     passedProps?: Partial<CartProps<ID, T>>,
     passedProviderProps?: Partial<CartProviderProps>,
     cartWrapper?: React.ComponentType,
-) {
+): Cypress.Chainable {
     const defaultProps: CartProps<ID, T> = {
-        defaultItemImage: 'images/placeholder.png',
+        defaultItemImage: images.imagePlaceholder,
         onCheckout: dummyFn,
         onImageClick: dummyFn,
     };
@@ -76,7 +76,7 @@ export function generateWrapper<ID = unknown, T extends AnyObject = AnyObject>(
     const providerProps = { initialState: defaultState, ...passedProviderProps };
 
     const CartWrapper = cartWrapper ?? React.Fragment;
-    startApp(
+    return startApp(
         [
             {
                 name: 'form',
@@ -91,10 +91,6 @@ export function generateWrapper<ID = unknown, T extends AnyObject = AnyObject>(
         ],
         ({ pushScreen }) => pushScreen('form'),
     );
-
-    return providerProps.initialState?.items.length
-        ? cy.mockImage('[data-cy="CartItemImage"] > img', 'images/placeholder.png')
-        : cy.mockBackgroundImage('[data-cy="EmptyCart-image"] > div', 'images/placeholder.png');
 }
 
 describe('Cart', () => {
@@ -107,30 +103,38 @@ describe('Cart', () => {
     });
 
     // TODO: https://github.com/salute-developers/plasma/issues/250
-    it.skip('render cart', () => {
-        generateWrapper();
-        cy.matchImageSnapshot();
+    it('render cart', (done) => {
+        generateWrapper().then(() => {
+            cy.matchImageSnapshot();
+            done();
+        });
     });
 
     // TODO: https://github.com/salute-developers/plasma/issues/250
-    it.skip('increase item quantity', () => {
-        generateWrapper({}, { onChangeCart: onChangeCartStub });
-        cy.get('[data-cy="QuantityButton-plus"]')
-            .first()
-            .click()
-            .then(() => {
-                expect(onChangeCartStub).to.be.calledOnce;
-            });
-        cy.matchImageSnapshot();
+    it('increase item quantity', (done) => {
+        generateWrapper({}, { onChangeCart: onChangeCartStub }).then(() => {
+            cy.get('[data-cy="QuantityButton-plus"]')
+                .first()
+                .click()
+                .then(() => {
+                    expect(onChangeCartStub).to.be.calledOnce;
+                });
+            cy.matchImageSnapshot();
+
+            done();
+        });
     });
 
-    it('decrease item quantity', () => {
-        generateWrapper();
-        cy.get('[data-cy="QuantityButton-minus"]').first().click();
-        cy.matchImageSnapshot();
+    it('decrease item quantity', (done) => {
+        generateWrapper().then(() => {
+            cy.get('[data-cy="QuantityButton-minus"]').first().click();
+            cy.matchImageSnapshot();
+
+            done();
+        });
     });
 
-    it('add item', () => {
+    it('add item', (done) => {
         const CartWrapper: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
             const { addItem } = useCart();
 
@@ -147,18 +151,18 @@ describe('Cart', () => {
             );
         };
 
-        generateWrapper({}, { onChangeCart: onChangeCartStub }, CartWrapper);
-
-        cy.get('[data-cy="add-button"]')
-            .click()
-            .then(() => {
-                expect(onChangeCartStub).to.be.calledOnce;
-            });
-        cy.mockImage('[data-cy="CartItemImage"] > img', 'images/placeholder.png');
-        cy.matchImageSnapshot();
+        generateWrapper({}, { onChangeCart: onChangeCartStub }, CartWrapper).then(() => {
+            cy.get('[data-cy="add-button"]')
+                .click()
+                .then(() => {
+                    expect(onChangeCartStub).to.be.calledOnce;
+                });
+            cy.matchImageSnapshot();
+            done();
+        });
     });
 
-    it('decrease item quantity to 0', () => {
+    it('decrease item quantity to 0', (done) => {
         const CartWrapper: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
             const { changeItemQuantity } = useCart();
 
@@ -172,18 +176,18 @@ describe('Cart', () => {
             );
         };
 
-        generateWrapper({}, { onChangeCart: onChangeCartStub }, CartWrapper);
-
-        cy.get('[data-cy="change-quantity-button"]')
-            .click()
-            .then(() => {
-                expect(onChangeCartStub).to.be.calledOnce;
-            });
-        cy.mockImage('[data-cy="CartItemImage"] > img', 'images/placeholder.png');
-        cy.matchImageSnapshot();
+        generateWrapper({}, { onChangeCart: onChangeCartStub }, CartWrapper).then(() => {
+            cy.get('[data-cy="change-quantity-button"]')
+                .click()
+                .then(() => {
+                    expect(onChangeCartStub).to.be.calledOnce;
+                });
+            cy.matchImageSnapshot();
+            done();
+        });
     });
 
-    it('remove item', () => {
+    it('remove item', (done) => {
         const CartWrapper: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
             const { state, removeItem } = useCart();
 
@@ -197,18 +201,18 @@ describe('Cart', () => {
             );
         };
 
-        generateWrapper({}, { onChangeCart: onChangeCartStub }, CartWrapper);
-
-        cy.get('[data-cy="remove-button"]')
-            .click()
-            .then(() => {
-                expect(onChangeCartStub).to.be.calledOnce;
-            });
-        cy.mockImage('[data-cy="CartItemImage"] > img', 'images/placeholder.png');
-        cy.matchImageSnapshot();
+        generateWrapper({}, { onChangeCart: onChangeCartStub }, CartWrapper).then(() => {
+            cy.get('[data-cy="remove-button"]')
+                .click()
+                .then(() => {
+                    expect(onChangeCartStub).to.be.calledOnce;
+                });
+            cy.matchImageSnapshot();
+            done();
+        });
     });
 
-    it('clear cart', () => {
+    it('clear cart', (done) => {
         const CartWrapper: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => {
             const { clearCart } = useCart();
 
@@ -222,21 +226,26 @@ describe('Cart', () => {
             );
         };
 
-        generateWrapper({ emptyCart: <EmptyCart /> }, { onChangeCart: onChangeCartStub }, CartWrapper);
+        generateWrapper(
+            { emptyCart: <EmptyCart imageSrc={images.imagePlaceholder} /> },
+            { onChangeCart: onChangeCartStub },
+            CartWrapper,
+        ).then(() => {
+            cy.get('[data-cy="clear-button"]')
+                .click()
+                .then(() => {
+                    expect(onChangeCartStub).to.be.calledOnce;
+                });
+            cy.matchImageSnapshot();
 
-        cy.get('[data-cy="clear-button"]')
-            .click()
-            .then(() => {
-                expect(onChangeCartStub).to.be.calledOnce;
-            });
-        cy.mockBackgroundImage('[data-cy="EmptyCart-image"] > div', 'images/placeholder.png');
-        cy.matchImageSnapshot();
+            done();
+        });
     });
 
     describe('empty cart', () => {
         beforeEach(() => {
             generateWrapper(
-                { emptyCart: <EmptyCart onGoToCatalog={onGoToCatalogStub} /> },
+                { emptyCart: <EmptyCart onGoToCatalog={onGoToCatalogStub} imageSrc={images.imagePlaceholder} /> },
                 { initialState: { items: [], amount: 0, quantity: 0, currency: 'rub' } },
             );
         });
