@@ -1,3 +1,17 @@
+# v1.50.0 (Tue May 16 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): Remove source generation methods (neretinartem@Neretins-MBP.netis)
+- feat(plasma-tokens): Remove native themes generator (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 2
+
+- Neretin Artem (neretinartem@Neretins-MacBook-Pro.local)
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v1.49.0 (Fri Apr 28 2023)
 
 #### 🚀 Enhancement

@@ -1,3 +1,24 @@
+# (Tue May 16 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens-native): Add generate native tokens and thems in new package [#494](https://github.com/salute-developers/plasma/pull/494) (neretinartem@Neretins-MBP.netis)
+- `@salutejs/plasma-tokens@1.50.0`
+  - feat(plasma-tokens): Remove source generation methods (neretinartem@Neretins-MBP.netis)
+  - feat(plasma-tokens): Remove native themes generator (neretinartem@Neretins-MBP.netis)
+
+#### ⚠️ Pushed to `master`
+
+- `@salutejs/plasma-tokens-utils@0.24.0`
+  - feat(plasma-tokens-utils, plasma-tokens): Extract generation methods to utility library (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 2
+
+- Neretin Artem (neretinartem@Neretins-MacBook-Pro.local)
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # (Thu May 11 2023)
 
 #### 🐛 Bug Fix

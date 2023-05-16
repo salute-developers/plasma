@@ -1,3 +1,15 @@
+# v0.24.0 (Tue May 16 2023)
+
+#### ⚠️ Pushed to `master`
+
+- feat(plasma-tokens-utils, plasma-tokens): Extract generation methods to utility library (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v0.23.0 (Thu Apr 27 2023)
 
 #### ⚠️ Pushed to `master`
