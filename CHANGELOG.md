@@ -1,3 +1,16 @@
+# (Wed May 17 2023)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-ui@1.191.1`
+  - fix(plasma-ui): omit 'onResize', 'onResizeCapture', 'nonce' properties for ActionButtonProps [#506](https://github.com/salute-developers/plasma/pull/506) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Tue May 16 2023)
 
 #### 🚀 Enhancement
