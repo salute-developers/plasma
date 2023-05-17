@@ -41,6 +41,8 @@ type ExtendedColors = Record<'inputErrorBackground', TokenData>;
 /* =                THEMES                = */
 /* ======================================== */
 
+general.gray['900'] = '#232323'; // TODO: https://github.com/salute-developers/plasma/issues/508
+
 const light: FullColors & WebColors & ExtendedColors = {
     ...baseColors,
 

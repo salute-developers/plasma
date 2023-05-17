@@ -40,6 +40,8 @@ const baseColors = mapDesignToBaseColors(ds);
 /* =                THEMES                = */
 /* ======================================== */
 
+general.gray['900'] = '#232323'; // TODO: https://github.com/salute-developers/plasma/issues/508
+
 const light: FullColors & WebColors = {
     ...baseColors,
 

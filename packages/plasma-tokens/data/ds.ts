@@ -45,6 +45,8 @@ type BaseTheme = Omit<
     'accent' | 'gradient' | 'gradientDevice' | 'voicePhraseGradient' | 'buttonAccent' | 'buttonFocused'
 >;
 
+general.gray['900'] = '#232323'; // TODO: https://github.com/salute-developers/plasma/issues/508
+
 const darkTheme: BaseTheme & OverlayTokens = {
     ...baseColors,
 
