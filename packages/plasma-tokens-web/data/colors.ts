@@ -1,6 +1,9 @@
 import { general } from '@salutejs/plasma-colors';
 import { lightenColor } from '@salutejs/plasma-tokens-utils';
 
+general.electricBlue['400'] = '#5993FF'; // TODO: https://github.com/salute-developers/plasma/issues/508
+general.electricBlue['700'] = '#2364DE'; // TODO: https://github.com/salute-developers/plasma/issues/508
+
 export const colors = {
     light: {
         buttonPrimaryHover: '#447ff9',
