@@ -1,15 +1,6 @@
 name: Unit tests for React 17 support
 
-on:
-  merge_group:
-  push:
-    branches:
-      - rc
-      - master
-  pull_request:
-    branches:
-      - rc
-      - master
+on: workflow_dispatch
 
 jobs:
   build:

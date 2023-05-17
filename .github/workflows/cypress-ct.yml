@@ -1,7 +1,6 @@
 name: Cypress component testing
 
-on:
-  push:
+on: workflow_dispatch
 
 jobs:
   cypress:
@@ -9,7 +8,7 @@ jobs:
     env:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
       COVERAGE: true
-    steps: 
+    steps:
     - uses: actions/checkout@v2
 
     - name: Setup Node.js

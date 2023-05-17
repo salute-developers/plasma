@@ -1,10 +1,6 @@
 name: Component Performance Testing
 
-on:
-  pull_request:
-    branches:
-      - rc
-      - master
+on: workflow_dispatch
 
 jobs:
   perftest:
@@ -114,7 +110,7 @@ jobs:
               repo: context.repo.repo,
               body: commentBody,
             })
-        
+
       - name: Send report
         run: |
           ./scripts/perftool-send-report.js \

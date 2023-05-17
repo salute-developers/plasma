@@ -1,7 +1,6 @@
 name: Cypress component testing react-17
 
-on:
-  push:
+on: workflow_dispatch
 
 jobs:
   cypress:

@@ -1,11 +1,6 @@
 name: Main Documentation and Storybook
 
-on:
-  workflow_run:
-    workflows: ["Release"]
-    branches: [master, rc]
-    types:
-      - completed
+on: workflow_dispatch
 
 jobs:
   build:
@@ -24,7 +19,7 @@ jobs:
         with:
           node-version-file: '.nvmrc'
 
-      # Данный шаг не исполняется, т.к. в настоящее время actions/cache поддерживается только для типов событий push и pull_request 
+      # Данный шаг не исполняется, т.к. в настоящее время actions/cache поддерживается только для типов событий push и pull_request
       - name: Cache node modules
         uses: actions/cache@v1
         with:

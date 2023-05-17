@@ -1,11 +1,6 @@
 name: PR documentation
 
-on:
-  pull_request:
-    types: [closed]
-    branches:
-      - rc
-      - master
+on: workflow_dispatch
 
 jobs:
   clean:

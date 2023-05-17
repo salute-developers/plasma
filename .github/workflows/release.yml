@@ -1,18 +1,6 @@
 name: Release
 
-on:
-  # Запуск в pull request независимо от версионирования
-  pull_request:
-    branches:
-      - rc
-      - master
-
-  # Запуск в мастере только после версионирования
-  workflow_run:
-    workflows: ["Versionate Docs"]
-    branches: [master, rc]
-    types:
-      - completed
+on: workflow_dispatch
 
 jobs:
   publish:
