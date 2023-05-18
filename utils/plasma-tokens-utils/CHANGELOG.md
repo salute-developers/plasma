@@ -1,3 +1,16 @@
+# v0.25.0 (Thu May 18 2023)
+
+#### ⚠️ Pushed to `master`
+
+- refactor(plasma-tokens-utils): Small refactor and remove unused code (neretinartem@Neretins-MBP.netis)
+- feat(plasma-tokens, plasma-tokens-utils): Add generete token set and themes for new schemas (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v0.24.0 (Tue May 16 2023)
 
 #### ⚠️ Pushed to `master`

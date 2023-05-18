@@ -1,3 +1,32 @@
+# (Thu May 18 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens-native): Update generation native shemes [#496](https://github.com/salute-developers/plasma/pull/496) (neretinartem@Neretins-MBP.netis)
+- `@salutejs/plasma-tokens@1.51.0`
+  - feat(plasma-tokens): Remove generate value files from createBrands (neretinartem@Neretins-MBP.netis)
+  - feat(plasma-tokens): Update `src` directory with robo comment in typography files (neretinartem@Neretins-MBP.netis)
+  - feat(plasma-tokens): Update `src` directory with new shadow tokens (neretinartem@Neretins-MBP.netis)
+  - feat(plasma-tokens): Add shadow tokens to new schemas (neretinartem@Neretins-MBP.netis)
+
+#### 🐛 Bug Fix
+
+- chore: add significant changes to perftool report [#486](https://github.com/salute-developers/plasma/pull/486) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+
+#### ⚠️ Pushed to `master`
+
+- `@salutejs/plasma-tokens-utils@0.25.0`
+  - refactor(plasma-tokens-utils): Small refactor and remove unused code (neretinartem@Neretins-MBP.netis)
+- `@salutejs/plasma-tokens@1.51.0`, `@salutejs/plasma-tokens-utils@0.25.0`
+  - feat(plasma-tokens, plasma-tokens-utils): Add generete token set and themes for new schemas (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 2
+
+- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # (Wed May 17 2023)
 
 #### 🐛 Bug Fix

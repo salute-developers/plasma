@@ -1,3 +1,22 @@
+# v1.51.0 (Thu May 18 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): Remove generate value files from createBrands (neretinartem@Neretins-MBP.netis)
+- feat(plasma-tokens): Update `src` directory with robo comment in typography files (neretinartem@Neretins-MBP.netis)
+- feat(plasma-tokens): Update `src` directory with new shadow tokens (neretinartem@Neretins-MBP.netis)
+- feat(plasma-tokens): Add shadow tokens to new schemas (neretinartem@Neretins-MBP.netis)
+
+#### ⚠️ Pushed to `master`
+
+- feat(plasma-tokens, plasma-tokens-utils): Add generete token set and themes for new schemas (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v1.50.0 (Tue May 16 2023)
 
 #### 🚀 Enhancement
