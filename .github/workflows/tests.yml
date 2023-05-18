@@ -28,18 +28,23 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: Cache node modules
-        uses: actions/cache@v1
+        id: cache-npm
+        uses: actions/cache@v3
         with:
-          path: node_modules
-          key: npm-deps-${{ hashFiles('package-lock.json') }}
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            npm-deps-${{ hashFiles('package-lock.json') }}
+            npm-${{ hashFiles('package-lock.json') }}
+            npm-
 
       - name: Setup packages
+        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
         run: |
           npm install npm@6.14.17 -g
-          npm i
-          npx lerna bootstrap
+          npm ci
+
+      - name: Lerna bootstrap
+        run: npx lerna bootstrap
 
       - name: Lint
         run: npm run lint
