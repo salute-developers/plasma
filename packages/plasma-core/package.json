@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-core",
-    "version": "1.115.0",
+    "version": "1.116.0",
     "description": "Core library for Plasma: Salute Design System",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "main": "index.js",
@@ -19,7 +19,7 @@
         "@babel/preset-react": "7.14.5",
         "@babel/preset-typescript": "7.15.0",
         "@microsoft/api-extractor": "7.34.4",
-        "@salutejs/plasma-cy-utils": "0.57.0",
+        "@salutejs/plasma-cy-utils": "0.58.0",
         "@types/jest": "27.0.1",
         "@types/lodash.throttle": "4.1.6",
         "@types/node": "15.14.9",
