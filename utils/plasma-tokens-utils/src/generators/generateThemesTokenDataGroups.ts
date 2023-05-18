@@ -35,7 +35,7 @@ const dataObjectToTokenDataGroup = (dataObject: DataObject, path: string, prefix
         return acc;
     }, {});
 
-const themeToColorTokenDataGroups = (theme: Theme): Record<string, Record<string, ThemeTokenDataGroups>> => {
+const themeToTokenDataGroups = (theme: Theme): Record<string, Record<string, ThemeTokenDataGroups>> => {
     const {
         config: { name },
         dark,
@@ -61,7 +61,7 @@ const themeToColorTokenDataGroups = (theme: Theme): Record<string, Record<string
     };
 };
 
-export const generateColorThemesTokenDataGroups = (
+export const generateThemesTokenDataGroups = (
     themesFolder: string,
 ): Record<string, Record<string, ThemeTokenDataGroups>> => {
     if (!fs.existsSync(themesFolder)) {
@@ -74,7 +74,7 @@ export const generateColorThemesTokenDataGroups = (
         .reduce((colorSchemas, item) => {
             const fileContent = fs.readFileSync(path.join(themesFolder, item.name), 'utf-8');
 
-            const themeTokens = themeToColorTokenDataGroups(JSON.parse(fileContent));
+            const themeTokens = themeToTokenDataGroups(JSON.parse(fileContent));
 
             return {
                 ...colorSchemas,

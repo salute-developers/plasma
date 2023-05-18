@@ -1,6 +1,8 @@
 import type { TokenDataGroup, GeneratedFiles } from '../types';
 import { generateTokens } from '../generation';
 
+// TODO: https://github.com/salute-developers/plasma/issues/512
+
 /**
  * Генерация тем на основе объекта.
  * @param {Record<string, TokenDataGroup<string>>} colorThemes Объект с темами

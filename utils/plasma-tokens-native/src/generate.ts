@@ -1,5 +1,5 @@
 import path from 'path';
-import { generateColorThemesTokenDataGroups } from '@salutejs/plasma-tokens-utils';
+import { generateThemesTokenDataGroups } from '@salutejs/plasma-tokens-utils';
 import {
     mageTypoProperties,
     sageTypoProperties,
@@ -14,7 +14,7 @@ import { sbermarketShadows } from '../data/shadows';
 
 import { createProperties } from './creators';
 
-const themesColorTokenGroups = generateColorThemesTokenDataGroups(path.join(__dirname, '../data/themes'));
+const themesColorTokenGroups = generateThemesTokenDataGroups(path.join(__dirname, '../data/themes'));
 
 const shadowTokens = {
     sbermarket: sbermarketShadows,

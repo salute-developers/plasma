@@ -152,10 +152,10 @@ const getDeprecatedTokens = (tokens: TokenDataGroup<string>) => {
         );
 };
 
-export const getMapDeprecatedColorTokens = (
-    themeTokenDataGroups: Record<string, Record<string, ThemeTokenDataGroups>>,
+export const getThemesTokensFallback = (
+    themesTokenDataGroups: Record<string, Record<string, ThemeTokenDataGroups>>,
 ): Record<string, ThemeTokenDataGroups> => {
-    const themeTokenDataGroupsByName = getThemeTokenDataGroupsByName(themeTokenDataGroups);
+    const themeTokenDataGroupsByName = getThemeTokenDataGroupsByName(themesTokenDataGroups);
 
     return Object.entries(themeTokenDataGroupsByName).reduce((tokensWithDeprecated, [themeName, tokens]) => {
         const deprecatedTokens = getDeprecatedTokens(tokens.color || {});
