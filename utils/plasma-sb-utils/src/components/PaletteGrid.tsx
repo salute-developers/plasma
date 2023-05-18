@@ -19,11 +19,12 @@ const textColors = {
     200: [black, black],
     150: [black, black],
     100: [black, black],
+    50: [black, black],
 };
 
 const StyledGrid = styled.div`
     display: grid;
-    grid-template-columns: max-content repeat(14, 200px);
+    grid-template-columns: max-content repeat(15, 200px);
 `;
 
 const shadow =
