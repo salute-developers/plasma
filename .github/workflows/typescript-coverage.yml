@@ -25,7 +25,7 @@ jobs:
           npm i --no-progress --ignore-scripts --silent
 
       - name: Lerna bootstrap
-        run: npx lerna run prepare --scope="@salutejs/plasma-tokens"
+        run: npx lerna bootstrap --scope="@salutejs/plasma-tokens"
 
       - name: Run Typescript Coverage
         if: ${{ always() }}
