@@ -17,27 +17,13 @@ jobs:
           cache: 'npm'
           node-version-file: '.nvmrc'
 
-      - name: Get npm cache directory
-        id: npm-cache-dir
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-
-      - name: Cache node modules
-        id: cache-npm
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.npm-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
       - name: Setup packages
         run: |
           npm i -g --no-progress --no-audit npm@6.14.17 
           npm i --no-progress --ignore-scripts --silent
 
       - name: Lerna bootstrap
-        run: npx lerna bootstrap --no-progress -- --no-audit --ignore-scripts
+        run: npx lerna bootstrap --no-ci -- --no-audit --ignore-scripts
 
       - name: Run Typescript Coverage
         if: ${{ always() }}
