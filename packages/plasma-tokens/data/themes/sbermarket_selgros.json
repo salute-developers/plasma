@@ -692,7 +692,7 @@
                         },
                         {
                             "color": "rgba(8, 8, 8, 0.1)",
-                            "blurRadius": "12",
+                            "blurRadius": "12px",
                             "spreadRadius": "-2px",
                             "offset": {
                                 "x": "0px",
@@ -742,7 +742,7 @@
                         },
                         {
                             "color": "rgba(8, 8, 8, 0.24)",
-                            "blurRadius": "12",
+                            "blurRadius": "12px",
                             "spreadRadius": "-2px",
                             "offset": {
                                 "x": "0px",
@@ -794,7 +794,7 @@
                         },
                         {
                             "color": "rgba(8, 8, 8, 0.12)",
-                            "blurRadius": "14",
+                            "blurRadius": "14px",
                             "spreadRadius": "-5px",
                             "offset": {
                                 "x": "0px",
@@ -844,7 +844,7 @@
                         },
                         {
                             "color": "rgba(8, 8, 8, 0.24)",
-                            "blurRadius": "14",
+                            "blurRadius": "14px",
                             "spreadRadius": "-5px",
                             "offset": {
                                 "x": "0px",
