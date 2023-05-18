@@ -22,10 +22,10 @@ jobs:
         if: steps.setup-npm.outputs.cache-hit != 'true'
         run: |
           npm i -g --no-progress --no-audit npm@6.14.17 
-          npm i --no-progress --ignore-scripts --silent
+          npm ci --no-progress --no-audit --prefer-offline --ignore-scripts --silent
 
       - name: Lerna bootstrap
-        run: npx lerna bootstrap --scope="@salutejs/plasma-tokens"
+        run: npx lerna bootstrap -- --no-audit --ignore-scripts --prefer-offline
 
       - name: Run Typescript Coverage
         if: ${{ always() }}
