@@ -41,7 +41,7 @@ jobs:
         if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
         run: |
           npm install npm@6.14.17 -g
-          npm ci
+          npm i
 
       - name: Lerna bootstrap
         run: npx lerna bootstrap
