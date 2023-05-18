@@ -141,6 +141,7 @@ export const StyledTrigger = styled(BaseboxTrigger)<{ outlineRadius?: string } &
     `}
 `;
 export const StyledContent = styled(BaseboxContent)<SizeProps>`
+    overflow: hidden;
     ${({ size }) => css`
         margin-top: ${sizes[size].contentTopOffset};
         margin-left: ${sizes[size].contentLeftOffset};
@@ -189,6 +190,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
         style,
         className,
         'aria-label': ariaLabelExternal,
+        singleLine = false,
         ...rest
     },
     ref,
@@ -225,12 +227,18 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
                 </StyledTrigger>
                 <StyledContent size={size}>
                     {label && (
-                        <StyledLabel as="span" size={size} id={uniqLabelId} aria-hidden={typeof label === 'string'}>
+                        <StyledLabel
+                            as="span"
+                            size={size}
+                            singleLine={singleLine}
+                            id={uniqLabelId}
+                            aria-hidden={typeof label === 'string'}
+                        >
                             {label}
                         </StyledLabel>
                     )}
                     {description && (
-                        <StyledDescription size={size} mt={4} id={uniqDescriptionId}>
+                        <StyledDescription size={size} mt={4} singleLine={singleLine} id={uniqDescriptionId}>
                             {description}
                         </StyledDescription>
                     )}

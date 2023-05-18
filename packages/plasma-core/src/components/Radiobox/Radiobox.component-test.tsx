@@ -110,6 +110,7 @@ describe('plasma-core: Radiobox', () => {
                         disabled
                         label="Radiobox with a very very very very very long label"
                         description="Radiobox description with a very very very very very long text"
+                        singleLine
                     />
                     <Radiobox disabled label="Radiobox 2" description="Radiobox 2 description" />
                 </div>

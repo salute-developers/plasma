@@ -126,7 +126,7 @@ export const StyledContent = styled(BaseboxContent)`
  */
 // eslint-disable-next-line prefer-arrow-callback
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Checkbox(
-    { id, label, description, disabled, focused, scaleOnInteraction, style, className, ...rest },
+    { id, label, description, disabled, focused, scaleOnInteraction, style, className, singleLine = false, ...rest },
     ref,
 ) {
     const uniqId = useUniqId();
@@ -150,11 +150,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
                 </StyledTrigger>
                 {label && (
                     <StyledContent>
-                        <BaseboxLabel as="span" id={uniqLabelId}>
+                        <BaseboxLabel as="span" singleLine={singleLine} id={uniqLabelId}>
                             {label}
                         </BaseboxLabel>
                         {description && (
-                            <BaseboxDescription mt={4} id={uniqDescriptionId}>
+                            <BaseboxDescription mt={4} singleLine={singleLine} id={uniqDescriptionId}>
                                 {description}
                             </BaseboxDescription>
                         )}

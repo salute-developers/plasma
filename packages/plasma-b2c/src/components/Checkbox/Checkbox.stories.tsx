@@ -181,6 +181,7 @@ Default.args = {
     label: 'Label',
     description: 'Description',
     disabled: false,
+    singleLine: false,
     size: 'm',
 };
 

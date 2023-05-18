@@ -60,6 +60,7 @@ const StyledEllipse = styled.div<SizeProps>`
 `;
 
 const CheckboxContent = styled(StyledContent)`
+    overflow: hidden;
     ${({ size }) => css`
         margin-top: ${sizes[size].contentTopOffset};
         margin-left: ${sizes[size].contentLeftOffset};
@@ -71,7 +72,18 @@ const CheckboxContent = styled(StyledContent)`
  */
 // eslint-disable-next-line prefer-arrow-callback
 export const Radiobox = forwardRef<HTMLInputElement, RadioboxProps>(function Radiobox(
-    { size = 'm', id, label, description, disabled, style, className, 'aria-label': ariaLabelExternal, ...rest },
+    {
+        size = 'm',
+        id,
+        label,
+        description,
+        disabled,
+        style,
+        className,
+        'aria-label': ariaLabelExternal,
+        singleLine = false,
+        ...rest
+    },
     ref,
 ) {
     const uniqId = useUniqId();
@@ -97,12 +109,18 @@ export const Radiobox = forwardRef<HTMLInputElement, RadioboxProps>(function Rad
                 </StyledTrigger>
                 <CheckboxContent size={size}>
                     {label && (
-                        <CheckboxLabel as="span" size={size} id={uniqLabelId} aria-hidden={typeof label === 'string'}>
+                        <CheckboxLabel
+                            as="span"
+                            size={size}
+                            singleLine={singleLine}
+                            id={uniqLabelId}
+                            aria-hidden={typeof label === 'string'}
+                        >
                             {label}
                         </CheckboxLabel>
                     )}
                     {description && (
-                        <CheckboxDescription size={size} mt={4} id={uniqDescriptionId}>
+                        <CheckboxDescription size={size} mt={4} singleLine={singleLine} id={uniqDescriptionId}>
                             {description}
                         </CheckboxDescription>
                     )}
