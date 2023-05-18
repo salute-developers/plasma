@@ -15,11 +15,19 @@ jobs:
         id: setup-npm
         uses: actions/setup-node@v3
         with:
-          cache: 'npm'
           node-version-file: '.nvmrc'
 
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Setup packages
-        if: steps.setup-npm.outputs.cache-hit != 'true'
+        if: steps.cache-npm.outputs.cache-hit != 'true'
         run: |
           npm i -g --no-progress --no-audit npm@6.14.17 
           npm ci --no-progress --no-audit --prefer-offline --silent
