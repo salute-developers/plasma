@@ -83,7 +83,7 @@ export const Live = () => {
     );
 };
 
-export const Default: Story<RadioboxProps> = ({ name, label, description, disabled, size }) => {
+export const Default: Story<RadioboxProps> = ({ name, label, description, disabled, singleLine, size }) => {
     const value = 0;
     const [checked, setChecked] = React.useState(true);
 
@@ -96,6 +96,7 @@ export const Default: Story<RadioboxProps> = ({ name, label, description, disabl
                 description={description}
                 disabled={disabled}
                 checked={checked}
+                singleLine={singleLine}
                 size={size}
                 onChange={(event) => {
                     event.persist();
@@ -124,5 +125,6 @@ Default.args = {
     label: 'Label',
     description: 'Description',
     disabled: false,
+    singleLine: false,
     size: 'm',
 };

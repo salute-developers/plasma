@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { Body1, Footnote1 } from '../Typography';
 import { applyEllipsis, applyNoSelect } from '../../mixins';
@@ -22,6 +22,10 @@ export type ControlProps = {
 };
 export interface BaseboxProps extends ControlProps, InputHTMLAttributes<HTMLInputElement> {
     children?: never;
+    /**
+     * Title и description в одну строку или с переносом строк
+     */
+    singleLine?: boolean;
 }
 
 export const StyledRoot = styled.div`
@@ -58,9 +62,18 @@ export const StyledContent = styled.div`
     flex-direction: column;
     margin-left: 0.75rem;
 `;
-export const StyledLabel = styled(Body1)`
-    ${applyEllipsis}
+export const StyledLabel = styled(Body1)<{ singleLine?: boolean }>`
+    ${({ singleLine }) =>
+        singleLine &&
+        css`
+            ${applyEllipsis}
+        `}
 `;
-export const StyledDescription = styled(Footnote1)`
+export const StyledDescription = styled(Footnote1)<{ singleLine?: boolean }>`
     color: ${secondary};
+    ${({ singleLine }) =>
+        singleLine &&
+        css`
+            ${applyEllipsis}
+        `}
 `;

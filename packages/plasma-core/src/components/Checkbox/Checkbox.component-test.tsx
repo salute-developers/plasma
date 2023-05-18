@@ -108,6 +108,7 @@ describe('plasma-core: Checkbox', () => {
                         disabled
                         label="Checkbox with a very very very very very long label"
                         description="Checkbox description with a very very very very very long text"
+                        singleLine
                     />
                     <Checkbox disabled label="Checkbox 2" description="Checkbox 2 description" />
                 </div>
