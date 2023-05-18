@@ -7,18 +7,18 @@ import {
     ThemeTokenDataGroups,
 } from '@salutejs/plasma-tokens-utils';
 
-export const createBrands = (srcDir: string, themesColorTokenGroupsFallback: Record<string, ThemeTokenDataGroups>) => {
+export const createBrands = (srcDir: string, themesTokens: Record<string, ThemeTokenDataGroups>) => {
     const fixedThemeType = '__dark';
     const brandsDir = path.join(srcDir, 'brands');
     fs.existsSync(brandsDir) || fs.mkdirSync(brandsDir);
 
-    Object.keys(themesColorTokenGroupsFallback)
+    Object.keys(themesTokens)
         .filter((brand) => brand.endsWith(fixedThemeType))
         .forEach((brand) => {
             const themeName = lowerFirstLetter(brand.replace(fixedThemeType, ''));
             const brandDir = path.join(brandsDir, themeName);
 
-            const { shadow, color } = themesColorTokenGroupsFallback[brand];
+            const { shadow, color } = themesTokens[brand];
 
             writeGeneratedToFS(brandDir, [
                 {

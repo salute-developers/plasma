@@ -1,14 +1,14 @@
 import fs from 'fs';
 import path from 'path';
 
-import { generateColorThemesTokenDataGroups, getMapDeprecatedColorTokens } from '@salutejs/plasma-tokens-utils';
+import { generateThemesTokenDataGroups, getThemesTokensFallback } from '@salutejs/plasma-tokens-utils';
 
 import { createRootIndex, createThemes, createLegacyTypo, createBrands } from './creators';
 
 // Генерация токенов для кастомных тем из data/themes
-export const themesColorTokenGroups = generateColorThemesTokenDataGroups(path.join(__dirname, '../data/themes'));
+export const themesTokenDataGroups = generateThemesTokenDataGroups(path.join(__dirname, '../data/themes'));
 // Добавляем старые токены для обратной совместимости
-export const themesColorTokenGroupsFallback = getMapDeprecatedColorTokens(themesColorTokenGroups);
+export const themesTokensFallback = getThemesTokensFallback(themesTokenDataGroups);
 
 const outDir = 'src';
 fs.existsSync(outDir) || fs.mkdirSync(outDir);
@@ -20,11 +20,11 @@ createRootIndex(outDir);
 /** ========================================================= **/
 /** ================= Генерация цветов и тем ================ **/
 /** ========================================================= **/
-createThemes(outDir, themesColorTokenGroupsFallback);
+createThemes(outDir, themesTokensFallback);
 /** ========================================================= **/
 /** ======== Генерация тем, на основе созданных схем ======== **/
 /** ========================================================= **/
-createBrands(outDir, themesColorTokenGroupsFallback);
+createBrands(outDir, themesTokensFallback);
 /** ========================================================= **/
 /** ============ Генерация типографической сетки ============ **/
 /** ========================================================= **/
