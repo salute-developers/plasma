@@ -395,3 +395,17 @@ export const buttonWarning = 'var(--plasma-colors-button-warning, #FF7024FF)';
 
 /** @deprecated instead use surfaceNegative */
 export const buttonCritical = 'var(--plasma-colors-button-critical, #FF293EFF)';
+
+export const borderRadiusXxs = 'var(--border-radius-xxs, 4px)';
+
+export const borderRadiusXs = 'var(--border-radius-xs, 6px)';
+
+export const borderRadiusS = 'var(--border-radius-s, 8px)';
+
+export const borderRadiusM = 'var(--border-radius-m, 12px)';
+
+export const borderRadiusL = 'var(--border-radius-l, 16px)';
+
+export const borderRadiusXl = 'var(--border-radius-xl, 20px)';
+
+export const borderRadiusXxl = 'var(--border-radius-xxl, 32px)';
