@@ -19,22 +19,20 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: Setup packages
-        if: steps.setup-npm.outputs.cache-hit != 'true'
-        run: |
-          npm i -g --no-progress --no-audit npm@6.14.17 
-          npm ci --cache .npm --no-progress --no-audit --prefer-offline --silent
+        if: steps.setup-npm.outputs.cache-hit == 'true'
+        run: npm list
 
-      - name: Lerna bootstrap
-        run: npx lerna bootstrap -- --no-audit --prefer-offline --cache .npm
+#      - name: Lerna bootstrap
+#        run: npx lerna bootstrap -- --no-audit --prefer-offline --cache .npm
 
-      - name: Run Typescript Coverage
-        if: ${{ always() }}
-        run: |
-          npm run typescript-coverage
+#      - name: Run Typescript Coverage
+#        if: ${{ always() }}
+#        run: |
+#          npm run typescript-coverage
 
-      - name: Save artifacts
-        if: ${{ failure() }}
-        uses: actions/upload-artifact@v2
-        with:
-          name: Typescript Coverage Report Artifacts
-          path: /home/runner/work/plasma/plasma/packages/*/coverage-ts/
+#      - name: Save artifacts
+#        if: ${{ failure() }}
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: Typescript Coverage Report Artifacts
+#          path: /home/runner/work/plasma/plasma/packages/*/coverage-ts/
