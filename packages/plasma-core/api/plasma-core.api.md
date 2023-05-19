@@ -130,13 +130,17 @@ export const BaseboxContent: StyledComponent<"div", any, {}, never>;
 export const BaseboxContentWrapper: StyledComponent<"label", any, {}, never>;
 
 // @public (undocumented)
-export const BaseboxDescription: StyledComponent<"div", any, SpacingProps_2 & BreakWordProps_2, never>;
+export const BaseboxDescription: StyledComponent<"div", any, SpacingProps_2 & BreakWordProps_2 & {
+singleLine?: boolean | undefined;
+}, never>;
 
 // @public (undocumented)
 export const BaseboxInput: StyledComponent<"input", any, {}, never>;
 
 // @public (undocumented)
-export const BaseboxLabel: StyledComponent<"div", any, SpacingProps_2 & BreakWordProps_2, never>;
+export const BaseboxLabel: StyledComponent<"div", any, SpacingProps_2 & BreakWordProps_2 & {
+singleLine?: boolean | undefined;
+}, never>;
 
 // Warning: (ae-forgotten-export) The symbol "ControlProps" needs to be exported by the entry point index.d.ts
 //
@@ -144,6 +148,7 @@ export const BaseboxLabel: StyledComponent<"div", any, SpacingProps_2 & BreakWor
 export interface BaseboxProps extends ControlProps, InputHTMLAttributes<HTMLInputElement> {
     // (undocumented)
     children?: never;
+    singleLine?: boolean;
 }
 
 // @public (undocumented)
