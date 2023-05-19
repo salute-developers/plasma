@@ -1,3 +1,20 @@
+# v0.116.0 (Fri May 19 2023)
+
+#### 🚀 Enhancement
+
+- fix(plasma-sb-utils): Add new saturate for `PaletteGrid` component [#509](https://github.com/salute-developers/plasma/pull/509) (neretinartem@Neretins-MBP.netis)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v0.115.0 (Fri May 19 2023)
 
 #### 🐛 Bug Fix

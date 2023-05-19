@@ -1,3 +1,15 @@
+# v0.7.0 (Fri May 19 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-colors): Update colors palette (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v0.6.0 (Fri Mar 17 2023)
 
 #### 🚀 Enhancement

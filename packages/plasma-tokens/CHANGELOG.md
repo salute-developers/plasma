@@ -1,3 +1,15 @@
+# v1.53.0 (Fri May 19 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens-*): Add override colors for fallback (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v1.52.0 (Fri May 19 2023)
 
 #### 🚀 Enhancement

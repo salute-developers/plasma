@@ -2,6 +2,23 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-sb-utils@0.116.0`
+  - fix(plasma-sb-utils): Add new saturate for `PaletteGrid` component [#509](https://github.com/salute-developers/plasma/pull/509) (neretinartem@Neretins-MBP.netis)
+- `@salutejs/plasma-tokens-b2b@1.20.0`, `@salutejs/plasma-tokens-b2c@0.29.0`, `@salutejs/plasma-tokens-web@1.35.0`, `@salutejs/plasma-tokens@1.53.0`
+  - feat(plasma-tokens-*): Add override colors for fallback (neretinartem@Neretins-MBP.netis)
+- `@salutejs/plasma-colors@0.7.0`
+  - feat(plasma-colors): Update colors palette (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
+# (Fri May 19 2023)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-tokens@1.52.0`
   - feat(plasma-tokens): Update `src` directory with new tokens [#513](https://github.com/salute-developers/plasma/pull/513) (neretinartem@Neretins-MBP.netis)
   - feat(plasma-tokens): Add theme SBOL ([@gibushnev](https://github.com/gibushnev))
