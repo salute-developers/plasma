@@ -833,5 +833,28 @@
                 }
             }
         }
+    },
+    "borderRadius": {
+        "xxs": {
+            "value": "4px"
+        },
+        "xs": {
+            "value": "6px"
+        },
+        "s": {
+            "value": "8px"
+        },
+        "m": {
+            "value": "12px"
+        },
+        "l": {
+            "value": "16px"
+        },
+        "xl": {
+            "value": "20px"
+        },
+        "xxl": {
+            "value": "32px"
+        }
     }
 }
