@@ -18,9 +18,20 @@ jobs:
           cache: 'npm'
           node-version-file: '.nvmrc'
 
+      - name: Get npm version
+        id: npm-version
+        run: |
+          echo "::set-output name=version::$(npm -v)"
+
+      - name: Install npm 6.14.17
+        if: steps.npm-version.outputs.version != '6.14.17'
+        run: npm i -g --no-progress --no-audit npm@6.14.17
+
       - name: Setup packages
-        if: steps.setup-npm.outputs.cache-hit == 'true'
-        run: npm list
+        if: steps.setup-npm.outputs.cache-hit != 'true'
+        run: |
+          npm ci --no-progress --silent --no-audit --prefer-offline
+          npm list
 
 #      - name: Lerna bootstrap
 #        run: npx lerna bootstrap -- --no-audit --prefer-offline --cache .npm
