@@ -1,3 +1,18 @@
+# (Fri May 19 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-tokens@1.52.0`
+  - feat(plasma-tokens): Update `src` directory with new tokens [#513](https://github.com/salute-developers/plasma/pull/513) (neretinartem@Neretins-MBP.netis)
+  - feat(plasma-tokens): Add theme SBOL ([@gibushnev](https://github.com/gibushnev))
+
+#### Authors: 2
+
+- [@gibushnev](https://github.com/gibushnev)
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # (Thu May 18 2023)
 
 #### 🚀 Enhancement

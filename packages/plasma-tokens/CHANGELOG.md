@@ -1,3 +1,22 @@
+# v1.52.0 (Fri May 19 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): Update `src` directory with new tokens [#513](https://github.com/salute-developers/plasma/pull/513) (neretinartem@Neretins-MBP.netis)
+- feat(plasma-tokens): Add theme SBOL ([@gibushnev](https://github.com/gibushnev))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 3
+
+- [@gibushnev](https://github.com/gibushnev)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v1.51.0 (Thu May 18 2023)
 
 #### 🚀 Enhancement
