@@ -255,13 +255,14 @@ export interface Theme {
         overlay: TokensByType<OverlayName>;
     };
     shadow?: Record<string, string>;
+    borderRadius?: Record<string, string>;
 }
 
 export type ThemeTokenDataGroups = Record<string, TokenDataGroup<string> | undefined>;
 
 export type GeneratedTokenType = 'value' | 'css';
 
-export type GeneratedTokenMode = 'color' | 'shadow';
+export type GeneratedTokenMode = 'color' | 'shadow' | 'borderRadius';
 
 export type ActualTokenNames =
     | TextIconsTokenName
