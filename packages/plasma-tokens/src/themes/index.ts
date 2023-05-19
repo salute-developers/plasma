@@ -12,6 +12,8 @@ export { sbermarket_selgros__dark, darkSbermarket_selgros } from './sbermarket_s
 export { sbermarket_selgros__light, lightSbermarket_selgros } from './sbermarket_selgros__light';
 export { sbermarket_wlbusiness__dark, darkSbermarket_wlbusiness } from './sbermarket_wlbusiness__dark';
 export { sbermarket_wlbusiness__light, lightSbermarket_wlbusiness } from './sbermarket_wlbusiness__light';
+export { sberonline__dark, darkSberonline } from './sberonline__dark';
+export { sberonline__light, lightSberonline } from './sberonline__light';
 export { sberprime__dark, darkSberprime } from './sberprime__dark';
 export { sberprime__light, lightSberprime } from './sberprime__light';
 export { salutejs_sber__dark, darkSber } from './salutejs_sber__dark';
