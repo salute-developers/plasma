@@ -294,3 +294,17 @@ export const shadowUpHardM = 'var(--shadow-up-hard-m, 0px -20px 48px -8px rgba(0
 
 export const shadowUpHardS =
     'var(--shadow-up-hard-s, 0px -1px 4px -1px rgba(0, 0, 0, 0.03)), var(--shadow-up-hard-s, 0px -3px 14px -5px rgba(8, 8, 8, 0.24))';
+
+export const borderRadiusXxs = 'var(--border-radius-xxs, 4px)';
+
+export const borderRadiusXs = 'var(--border-radius-xs, 6px)';
+
+export const borderRadiusS = 'var(--border-radius-s, 8px)';
+
+export const borderRadiusM = 'var(--border-radius-m, 12px)';
+
+export const borderRadiusL = 'var(--border-radius-l, 16px)';
+
+export const borderRadiusXl = 'var(--border-radius-xl, 20px)';
+
+export const borderRadiusXxl = 'var(--border-radius-xxl, 40px)';
