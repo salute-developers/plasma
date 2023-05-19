@@ -180,6 +180,9 @@ export const getThemesTokensFallback = (
                 shadow: {
                     ...tokens.shadow,
                 },
+                borderRadius: {
+                    ...tokens.borderRadius,
+                },
             },
         };
     }, {});

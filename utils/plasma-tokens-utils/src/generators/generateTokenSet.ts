@@ -24,7 +24,7 @@ interface GenerateTokens {
     mode: GeneratedTokenMode;
 }
 
-const generateShadowToken = ({ value, type, name, withPrefixDesign }: GenerateProps) => {
+const generateShadowTokenValue = ({ value, type, name, withPrefixDesign }: GenerateProps) => {
     let result = '';
 
     if (!Array.isArray(value)) {
@@ -40,7 +40,7 @@ const generateShadowToken = ({ value, type, name, withPrefixDesign }: GeneratePr
     return result;
 };
 
-const generateColorToken = ({ value, type, name, withPrefixDesign }: GenerateProps) => {
+const generateTokenValue = ({ value, type, name, withPrefixDesign }: GenerateProps) => {
     let result = '';
 
     if (typeof value !== 'string' && !(typeof value === 'object' && 'origin' in value)) {
@@ -57,8 +57,9 @@ const generateColorToken = ({ value, type, name, withPrefixDesign }: GeneratePro
 };
 
 const generateMethodsMap: Record<string, (props: GenerateProps) => TokenType> = {
-    color: generateColorToken,
-    shadow: generateShadowToken,
+    color: generateTokenValue,
+    shadow: generateShadowTokenValue,
+    borderRadius: generateTokenValue,
 };
 
 const generateToken = ({ token, type, name, mode }: GenerateToken) => {
