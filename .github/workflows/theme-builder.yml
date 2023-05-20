@@ -33,9 +33,7 @@ jobs:
 
       # ToDo: https://github.com/salute-developers/plasma/issues/255
       - name: Setup packages
-        run: |
-          npm install npm@6.14.17 -g
-          npm i
+        run: npm ci --no-progress --no-audit
 
       - name: Prepare directory build
         run: mkdir -p s3_build
@@ -46,7 +44,7 @@ jobs:
           REACT_APP_APPLICATION_CLIENT_ID: ${{ secrets.REACT_APP_APPLICATION_CLIENT_ID }}
           REACT_APP_AUTH_SERVER_URL: ${{ secrets.REACT_APP_AUTH_SERVER_URL }}
         run: |
-          npm i --prefix="./website/plasma-theme-builder"
+          npm i --no-progress --no-audit --prefix="./website/plasma-theme-builder"
           npm run build --prefix="./website/plasma-theme-builder"
           cp -R ./website/plasma-theme-builder/build ./s3_build/plasma-theme-builder-next
 

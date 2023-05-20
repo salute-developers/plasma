@@ -28,10 +28,10 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: Setup packages
-        run: |
-          npm install npm@6.14.17 -g
-          npm ci
-          npx lerna bootstrap
+        run: npm ci --no-progress --no-audit
+
+      - name: Setup packages
+        run: npx lerna bootstrap
 
       # Проверит лог коммитов, по ним забекапит нужные версии нужных сайтов документации
       - name: Versionate script

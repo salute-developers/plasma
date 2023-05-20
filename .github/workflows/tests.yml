@@ -36,10 +36,10 @@ jobs:
             npm-deps-${{ hashFiles('package-lock.json') }}
 
       - name: Setup packages
-        run: |
-          npm install npm@6.14.17 -g
-          npm i
-          npx lerna bootstrap
+        run: npm ci --no-progress --no-audit
+
+      - name: Lerna bootstrap
+        run: npx lerna bootstrap
 
       - name: Lint
         run: npm run lint
