@@ -34,7 +34,7 @@ jobs:
             npm-deps-${{ hashFiles('package-lock.json') }}
 
       - name: Setup packages
-        run: npm i --no-progress --no-audit --prefer-offline
+        run: npm i --no-progress --no-audit
       - name: Lerna bootstrap
         run: npx lerna bootstrap
 

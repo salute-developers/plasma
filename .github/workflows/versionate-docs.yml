@@ -28,7 +28,7 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: Setup packages
-        run: npm ci --no-progress --no-audit --prefer-offline
+        run: npm ci --no-progress --no-audit
 
       - name: Setup packages
         run: npx lerna bootstrap

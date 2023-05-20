@@ -33,7 +33,7 @@ jobs:
 
       # ToDo: https://github.com/salute-developers/plasma/issues/255
       - name: Setup packages
-        run: npm i --no-progress --no-audit --prefer-offline
+        run: npm i --no-progress --no-audit
 
       - name: Prepare directory build
         run: mkdir -p s3_build
