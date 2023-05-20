@@ -35,6 +35,7 @@ jobs:
 
       - name: Setup packages
         run: npm ci --no-progress
+
       - name: Lerna bootstrap
         run: npx lerna bootstrap
 
