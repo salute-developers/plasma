@@ -30,10 +30,10 @@ jobs:
             npm-deps-${{ hashFiles('package-lock.json') }}
 
       - name: Setup packages for PR
-        run: |
-          npm install npm@6.14.17 -g
-          npm ci
-          npx lerna bootstrap
+        run: npm ci --no-progress --no-audit --prefer-offline
+
+      - name: Lerna bootstrap for PR
+        run: npx lerna bootstrap
 
       - name: Use Node.js 16.15.x for PR
         uses: actions/setup-node@v1
@@ -66,10 +66,10 @@ jobs:
             npm-deps-${{ hashFiles('package-lock.json') }}
 
       - name: Setup packages for master
-        run: |
-          npm install npm@6.14.17 -g
-          npm ci
-          npx lerna bootstrap
+        run: npm ci --no-progress --no-audit --prefer-offline
+
+      - name: Lerna bootstrap for master
+        run: npx lerna bootstrap
 
       - name: Use Node.js 16.15.x for master
         uses: actions/setup-node@v1
@@ -158,7 +158,7 @@ jobs:
               repo: context.repo.repo,
               body: commentBody,
             });
-        
+
       - name: Send report
         run: |
           ./scripts/perftool-send-report.js \
