@@ -17,10 +17,10 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: Setup packages
-        run: |
-          npm install npm@6.14.17 -g
-          npm i
-          npx lerna bootstrap
+        run: npm ci --no-progress
+
+      - name: Lerna bootstrap
+        run: npx lerna bootstrap
 
       - name: Run Typescript Coverage
         if: ${{ always() }}
