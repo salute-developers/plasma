@@ -141,8 +141,5 @@
   },
   "dependencies": {
     "babel-plugin-annotate-pure-calls": "0.4.0"
-  },
-  "engines": {
-    "npm": "6.14.17"
   }
 }
