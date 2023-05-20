@@ -26,6 +26,7 @@
         "@storybook/react": "6.3.8",
         "@types/react": "18.0.28",
         "@types/react-dom": "18.0.11",
+        "@types/react-native": "0.69.6",
         "@types/styled-components": "^5.1.0",
         "react": "18.2.0",
         "react-dom": "18.2.0",
@@ -41,7 +42,5 @@
     "publishConfig": {
         "access": "public"
     },
-    "files": [
-        "lib"
-    ]
+    "files": ["lib"]
 }
