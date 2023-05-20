@@ -30,10 +30,10 @@ jobs:
             npm-deps-${{ hashFiles('package-lock.json') }}
 
       - name: Setup packages for PR
-        run: |
-          npm install npm@6.14.17 -g
-          npm ci
-          npx lerna bootstrap
+        run: npm ci --no-progress
+
+      - name: Lerna bootstrap for PR
+        run: npx lerna bootstrap
 
       - name: Use Node.js 16.15.x for PR
         uses: actions/setup-node@v1
@@ -49,15 +49,15 @@ jobs:
           ref: ${{github.event.pull_request.base.ref}}
           clean: false
 
-      - name: Prepare repository for master
+      - name: Prepare repository for base ref
         run: git fetch --unshallow --tags
 
-      - name: Setup Node.js for master
+      - name: Setup Node.js for base ref
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
 
-      - name: Cache node modules for master
+      - name: Cache node modules for base ref
         uses: actions/cache@v1
         with:
           path: node_modules
@@ -65,18 +65,20 @@ jobs:
           restore-keys: |
             npm-deps-${{ hashFiles('package-lock.json') }}
 
-      - name: Setup packages for master
+      - name: Setup packages for base ref
         run: |
-          npm install npm@6.14.17 -g
-          npm ci
-          npx lerna bootstrap
+          npm i -g --no-audit npm@6.14.17 
+          npm ci --no-progress
 
-      - name: Use Node.js 16.15.x for master
+      - name: Lerna bootstrap for base ref
+        run: npx lerna bootstrap
+
+      - name: Use Node.js 16.15.x for base ref
         uses: actions/setup-node@v1
         with:
           node-version: 16.15.x
 
-      - name: Run performance test for master
+      - name: Run performance test for base ref
         run: |
           npx perftool -o perftest/master-result.json
 
@@ -158,7 +160,7 @@ jobs:
               repo: context.repo.repo,
               body: commentBody,
             });
-        
+
       - name: Send report
         run: |
           ./scripts/perftool-send-report.js \
