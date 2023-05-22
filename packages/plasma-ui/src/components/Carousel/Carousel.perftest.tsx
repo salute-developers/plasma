@@ -94,12 +94,15 @@ export const Basic = () => {
     );
 };
 
+const carouselItemWidth = 450;
+const carouselVirtualStyle = { paddingTop: '1.25rem', paddingBottom: '1.25rem', height: '22rem' };
+const carouselItemVirtualStyle = { width: `${carouselItemWidth}px` };
+
 export const CarouselVirtualBasic = () => {
     // INFO: deviceScale = 1 (Mobile), deviceScale = 2 (Sberbox, TV, Portal)
     const parentRef = useRef(null);
     const axis = 'x';
 
-    const width = 450;
     const gap = 40;
 
     const { visibleItems, totalSize } = useVirtual({
@@ -107,26 +110,20 @@ export const CarouselVirtualBasic = () => {
         parentRef,
         axis,
         // estimateSize должен возвращать значение в px.
-        estimateSize: useCallback(() => width + gap, [width, gap]),
+        estimateSize: useCallback(() => carouselItemWidth + gap, [carouselItemWidth, gap]),
         overscan: 6,
     });
 
     return (
         <CarouselGridWrapper>
-            <CarouselVirtual
-                ref={parentRef}
-                as={Row}
-                axis={axis}
-                style={{ paddingTop: '1.25rem', paddingBottom: '1.25rem', height: '22rem' }}
-                virtualSize={totalSize}
-            >
+            <CarouselVirtual ref={parentRef} as={Row} axis={axis} style={carouselVirtualStyle} virtualSize={totalSize}>
                 {visibleItems.map(({ index: i, start }) => {
                     const { title, subtitle } = items[i];
                     return (
                         <CarouselItemVirtual
                             key={`item:${i}`}
                             left={start}
-                            style={{ width: `${width}px` }}
+                            style={carouselItemVirtualStyle}
                             aria-label={`${i + 1} из ${items.length}`}
                         >
                             {title}
