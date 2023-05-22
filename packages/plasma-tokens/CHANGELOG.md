@@ -1,3 +1,22 @@
+# v1.54.0 (Mon May 22 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): Update `src` directory with new tokens [#514](https://github.com/salute-developers/plasma/pull/514) (neretinartem@Neretins-MBP.netis)
+- feat(plasma-tokens): Add methods for generate border-radius tokens (neretinartem@Neretins-MBP.netis)
+- feat(plasma-tokens): Add border-radius tokens to schemes (neretinartem@Neretins-MBP.netis)
+- feat(plasma-tokens): Rename file and methods for more symmantics (neretinartem@Neretins-MBP.netis)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-tokens): Fix some measure for shadows tokens (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v1.53.0 (Fri May 19 2023)
 
 #### 🚀 Enhancement

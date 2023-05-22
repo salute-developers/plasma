@@ -1,3 +1,25 @@
+# (Mon May 22 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-tokens@1.54.0`
+  - feat(plasma-tokens): Update `src` directory with new tokens [#514](https://github.com/salute-developers/plasma/pull/514) (neretinartem@Neretins-MBP.netis)
+  - feat(plasma-tokens): Add border-radius tokens to schemes (neretinartem@Neretins-MBP.netis)
+- `@salutejs/plasma-tokens@1.54.0`, `@salutejs/plasma-tokens-utils@0.26.0`
+  - feat(plasma-tokens): Add methods for generate border-radius tokens (neretinartem@Neretins-MBP.netis)
+  - feat(plasma-tokens): Rename file and methods for more symmantics (neretinartem@Neretins-MBP.netis)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-tokens@1.54.0`
+  - fix(plasma-tokens): Fix some measure for shadows tokens (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # (Fri May 19 2023)
 
 #### 🚀 Enhancement

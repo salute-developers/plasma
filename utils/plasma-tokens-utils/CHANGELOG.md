@@ -1,3 +1,16 @@
+# v0.26.0 (Mon May 22 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): Add methods for generate border-radius tokens (neretinartem@Neretins-MBP.netis)
+- feat(plasma-tokens): Rename file and methods for more symmantics (neretinartem@Neretins-MBP.netis)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v0.25.0 (Thu May 18 2023)
 
 #### ⚠️ Pushed to `master`
