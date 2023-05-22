@@ -16,7 +16,7 @@ const defaultProps = {
     scaleOnInteraction: true,
     outlined: false,
     disabled: false,
-    text: 'Label',
+    text: 'Label' as const,
 };
 
 const icon = <div style={{ width: 10, height: 10 }} />;

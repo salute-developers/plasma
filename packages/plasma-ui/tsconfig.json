@@ -41,6 +41,7 @@
         "./src/showcase",
         "./src/**/*.stories.tsx",
         "**/*.test.tsx",
-        "./src/**/*.component-test.tsx"
+        "./src/**/*.component-test.tsx",
+        "./src/**/*.perftest.tsx"
     ]
 }

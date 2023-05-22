@@ -2,6 +2,8 @@ import React, { useMemo, useState } from 'react';
 
 import { ProductCard } from '.';
 
+const defaultStyle = { width: '12.25rem' };
+
 export const Default = () => {
     const [quantity, setQuantity] = useState(1);
 
@@ -9,11 +11,7 @@ export const Default = () => {
     const media = useMemo(() => <div style={{ width: '12.25rem', height: '12.25rem' }} />, []);
 
     return (
-        <div
-            style={{
-                width: '12.25rem',
-            }}
-        >
+        <div style={defaultStyle}>
             <ProductCard
                 badge={badge}
                 media={media}
