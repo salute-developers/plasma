@@ -113,7 +113,7 @@ jobs:
                 const metrics = Object.entries(item);
 
                 metrics.forEach(([metricName, metric]) => {
-                    if (metric.mean.change.significanceRank !== 'high') {
+                    if (!metric.mean.change || metric.mean.change.significanceRank !== 'high') {
                         return;
                     }
             
