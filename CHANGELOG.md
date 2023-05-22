@@ -2,6 +2,24 @@
 
 #### 🚀 Enhancement
 
+- `@salutejs/plasma-core@1.120.0`
+  - feat: change api-report for Basebox [#511](https://github.com/salute-developers/plasma/pull/511) ([@kayman233](https://github.com/kayman233))
+
+#### ⚠️ Pushed to `master`
+
+- `@salutejs/plasma-b2c@1.215.0`, `@salutejs/plasma-core@1.120.0`, `@salutejs/plasma-hope@1.215.0`, `@salutejs/plasma-ui@1.196.0`, `@salutejs/plasma-web@1.215.0`
+  - fix(plasma-web, plasma-b2c, plasma-ui): fix single/multiple lines in Checkbox/Radiobox ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 1
+
+- [@kayman233](https://github.com/kayman233)
+
+---
+
+# (Mon May 22 2023)
+
+#### 🚀 Enhancement
+
 - `@salutejs/plasma-tokens@1.54.0`
   - feat(plasma-tokens): Update `src` directory with new tokens [#514](https://github.com/salute-developers/plasma/pull/514) (neretinartem@Neretins-MBP.netis)
   - feat(plasma-tokens): Add border-radius tokens to schemes (neretinartem@Neretins-MBP.netis)
