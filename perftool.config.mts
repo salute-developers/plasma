@@ -1,8 +1,8 @@
 import type { Config } from '@salutejs/perftool';
 
 const config: Config = {
-    jobs: 2,
-    retries: 30,
+    jobs: 1,
+    retries: 20,
     taskConfiguration: {
         render: {
             renderWaitTimeout: 500,
@@ -23,6 +23,11 @@ const config: Config = {
     failOnSignificantChanges: true,
     stabilizers: ['staticTask'],
     absoluteError: 1,
+    cache: {
+        taskState: true,
+    },
+    // Remove cache files older than 30 days
+    cacheExpirationTime: 1000 * 60 * 60 * 24 * 30,
     modifyWebpackConfig(config) {
         const babelLoaderOpts = config.module?.rules?.find(
             (rule) => typeof rule === 'object' && rule.loader?.includes('babel-loader'),

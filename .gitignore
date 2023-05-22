@@ -11,5 +11,6 @@ cypress/results
 coverage
 coverage-ts
 perftest
+.perftool
 s3_build
 temp
