@@ -17,15 +17,17 @@ jobs:
     env:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
       PR_NAME: pr-${{ github.event.number }}
-      ICONS_PUBLIC_URL: /icons
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - name: Setup Node.js for PR
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
           cache: 'npm'
+
+      - name: Install s3cmd
+        run: pip3 install s3cmd
 
       - name: Cache dependencies
         id: cache-npm
@@ -46,29 +48,33 @@ jobs:
       - name: Lerna bootstrap for PR
         run: npx lerna bootstrap
 
-      - name: Use Node.js 16.15.x for PR
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.15.x
+      - name: Restore perftool cache
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --no-mime-magic
+          sync
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/perftool-cache/
+          ./.perftool/cache/
 
       - name: Run performance test for PR
-        run: |
-          npx perftool -o perftest/pr-result.json
+        run: >
+          npx perftool
+          -o perftest/pr-result.json
+          --baseBranchRef ${{ github.event.pull_request.base.sha }}
+          --currentBranchRef ${{ github.event.pull_request.head.sha }}
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
-          ref: ${{github.event.pull_request.base.ref}}
+          ref: ${{ github.event.pull_request.base.ref }}
           clean: false
 
-      - name: Prepare repository for base ref
-        run: git fetch --unshallow --tags
-
-      - name: Setup Node.js for base ref
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-
-      - name: Cache dependencies for base ref
+      - name: Cache dependencies for ${{ github.event.pull_request.base.ref }}
         id: cache-npm-base-ref
         uses: actions/cache@v3
         with:
@@ -80,25 +86,39 @@ jobs:
             npm-base-ref-${{ hashFiles('package-lock.json') }}
             npm-base-ref
 
-      - name: Setup packages for base ref
+      - name: Setup packages for ${{ github.event.pull_request.base.ref }}
         if: ${{ steps.cache-npm-base-ref.outputs.cache-hit != 'true' }}
         run: npm ci --no-progress
 
-      - name: Lerna bootstrap for base ref
+      - name: Lerna bootstrap for ${{ github.event.pull_request.base.ref }}
         run: npx lerna bootstrap
 
-      - name: Use Node.js 16.15.x for base ref
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16.15.x
+      - name: Run performance test for ${{ github.event.pull_request.base.ref }}
+        run: >
+          npx perftool
+          -o perftest/base-result.json
+          --currentBranchRef ${{ github.event.pull_request.base.sha }}
 
-      - name: Run performance test for base ref
-        run: |
-          npx perftool -o perftest/master-result.json
+      - name: Save perftool cache
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --no-mime-magic
+          sync
+          ./.perftool/cache/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/perftool-cache/
 
       - name: Compare test results
-        run: |
-          npx perftool-compare -o perftest/comparison.json perftest/pr-result.json perftest/master-result.json
+        run: >
+          npx perftool-compare
+          -o perftest/comparison.json
+          perftest/pr-result.json
+          perftest/base-result.json
 
       - name: Save comparison result
         if: always()
@@ -176,8 +196,8 @@ jobs:
             });
 
       - name: Send report
-        run: |
-          ./scripts/perftool-send-report.js \
+        run: >
+          ./scripts/perftool-send-report.js
           --reportPath /home/runner/work/plasma/plasma/perftest/comparison.json
         env:
           GITHUB_SHA: ${{ github.sha }}
