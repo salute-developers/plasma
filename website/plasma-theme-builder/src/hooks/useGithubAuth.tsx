@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 
-import { getUUID } from '../utils';
-import { getEnv, getAuthToken } from '../../api';
+import { getUUID } from '../components/utils';
+import { getEnv, getAuthToken } from '../api';
 
 const GITHUB_AUTH_API_URL = 'https://github.com/login/oauth/authorize';
 

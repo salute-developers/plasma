@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import type { Theme as ThemeType } from '../../builder/types';
+import type { Theme as ThemeType } from '../builder/types';
 
 export const useNormalizeThemeSections = (data?: ThemeType): ThemeType | undefined =>
     useMemo(() => {

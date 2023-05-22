@@ -9,7 +9,7 @@ import {
     createTree,
     getCurrentSha,
     updateCommit,
-} from '../../api';
+} from '../api';
 
 interface RunProcessGithubPR {
     owner: string;

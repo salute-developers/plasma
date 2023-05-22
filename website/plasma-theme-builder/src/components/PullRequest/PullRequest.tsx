@@ -5,7 +5,7 @@ import { BodyS, H5, Link, Progress } from '@salutejs/plasma-b2c';
 import { tertiary } from '@salutejs/plasma-tokens-b2c';
 
 import type { Theme as ThemeType } from '../../builder/types';
-import { Steps, useRunGithubPRProcess } from '../hooks/useRunGithubPRProcess';
+import { Steps, useRunGithubPRProcess } from '../../hooks/useRunGithubPRProcess';
 import { getFilesTree } from '../utils';
 
 const StyledPullRequest = styled.div`

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from '@salutejs/plasma-b2c';
-import { primary } from '@salutejs/plasma-tokens-b2c';
+import { whitePrimary } from '@salutejs/plasma-tokens-b2c';
 
 import { IconGitHub, IconTelegram } from '../../icons';
 import { SBSansTextMono } from '../mixins';
@@ -28,7 +28,7 @@ const Copyright = styled.div`
 // TODO: https://github.com/salute-developers/plasma/issues/279
 const StyledLink = styled(Link)`
     &:visited {
-        color: ${primary};
+        color: ${whitePrimary};
     }
 
     &::before {
@@ -42,7 +42,7 @@ export const Footer = () => {
     return (
         <StyledFooter>
             <Content>
-                <StyledLink view="primary" target="_blank" href="https://github.com/salute-developers/plasma/">
+                <StyledLink target="_blank" href="https://github.com/salute-developers/plasma/">
                     GitHub
                 </StyledLink>
                 <IconGitHub />
