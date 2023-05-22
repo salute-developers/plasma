@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Button, DsplM, Link } from '@salutejs/plasma-b2c';
 import { accent } from '@salutejs/plasma-tokens-b2c';
-import { useGithubAuth } from '../hooks';
+import { useGithubAuth } from '../../hooks';
 import { AuthRequestModal } from '../AuthRequestModal/AuthRequestModal';
 
 const StyledMain = styled.div``;

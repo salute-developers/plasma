@@ -9,7 +9,7 @@ import { Theme } from './Theme/Theme';
 import { Error } from './Error/Error';
 import { PullRequest } from './PullRequest/PullRequest';
 import { SBSansTextMono } from './mixins';
-import { useFetchTheme } from './hooks';
+import { useFetchTheme } from '../hooks';
 import { clearURLParam, getThemeName } from './utils';
 import type { PageType } from './types';
 import type { Theme as ThemeType } from '../builder/types';

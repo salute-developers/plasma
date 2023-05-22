@@ -135,7 +135,7 @@ export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
             opacitySurfaces,
         } = data;
 
-        if (!RegExp(/^[\w\d]{3,}$/).test(themeName)) {
+        if (!RegExp(/^[a-z\d]{3,}$/).test(themeName)) {
             setInputState('error');
             return;
         }
@@ -172,7 +172,7 @@ export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
                 <FormField label="Наименование темы">
                     <StyledTextField
                         value={data.themeName}
-                        helperText="Латинские буквы и/или цифры без пробелов, минимум 3 символа"
+                        helperText="Латинские буквы и цифры без пробелов в нижнем регистре, минимум 3 символа"
                         status={inputState}
                         onChange={onChangeTextField('themeName')}
                     />

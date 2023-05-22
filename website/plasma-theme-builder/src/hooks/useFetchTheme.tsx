@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { getFilesSource } from '../../api';
-import type { Theme as ThemeType } from '../../builder/types';
+import { getFilesSource } from '../api';
+import type { Theme as ThemeType } from '../builder/types';
 
 const getThemeData = async (themeName: string, owner = 'salute-developers', repo = 'plasma', token?: string) =>
     getFilesSource(owner, repo, `packages/plasma-tokens/data/themes/${themeName}.json`, token);
