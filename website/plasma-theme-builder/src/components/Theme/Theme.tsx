@@ -9,7 +9,7 @@ import { TokensSection } from '../TokensSection/TokensSection';
 import { emptyInputData, TokenContext } from '../utils';
 import { TokenForm } from '../TokenForm/TokenForm';
 import { AddTokenSection } from '../AddTokenSection/AddTokenSection';
-import { useNormalizeThemeSections } from '../hooks';
+import { useNormalizeThemeSections } from '../../hooks';
 import type { InputData, ThemeMode } from '../types';
 import type { Theme as ThemeType } from '../../builder/types';
 
