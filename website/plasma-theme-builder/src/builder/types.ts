@@ -1,6 +1,5 @@
 import { TokenData as TokenDataBase } from '@salutejs/plasma-tokens-utils';
 import type { TextIconsTokenName, ControlsSurfacesName, BackgroundName, OverlayName } from './themeTokenGetters';
-import { baseColors } from './constants';
 
 export enum TokenType {
     default = 'default',
@@ -59,13 +58,7 @@ export type TokensBackgroundByType<T extends string = string> = Record<
     Record<T, TokenData<string>>
 >;
 
-export type TokensName =
-    | TextIconsTokenName
-    | ControlsSurfacesName
-    | BackgroundName
-    | OverlayName
-    | keyof typeof baseColors
-    | string;
+export type TokensName = TextIconsTokenName | ControlsSurfacesName | BackgroundName | OverlayName | string;
 
 export type ThemeMode = 'dark' | 'light';
 
