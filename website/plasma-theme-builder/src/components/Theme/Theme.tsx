@@ -203,15 +203,16 @@ export const Theme = ({ data, onPullRequest }: ThemeProps) => {
                 </Column>
             </Description>
             <Content>
-                <TokenForm
-                    themeMode={themeMode}
-                    isOpen={isFormTokenOpen}
-                    inputData={inputData}
-                    themeData={themeData}
-                    onTokenFormShow={onTokenFormShow}
-                    onInputDataChange={onInputDataChange}
-                    onThemeDataChange={onThemeDataChange}
-                />
+                {isFormTokenOpen && (
+                    <TokenForm
+                        themeMode={themeMode}
+                        isOpen={isFormTokenOpen}
+                        inputData={inputData}
+                        themeData={themeData}
+                        onTokenFormShow={onTokenFormShow}
+                        onThemeDataChange={onThemeDataChange}
+                    />
+                )}
                 <ThemeLabel bold={false}>Цветовая схема</ThemeLabel>
                 <ThemeControls>
                     <ThemeModeToggle selectedMode={themeMode} onClick={onChangeThemeType} />

@@ -72,8 +72,6 @@ const TokenRGBAValue = styled.div`
 const hasOrigin = (values: string | Record<string, any>): values is Record<string, any> =>
     typeof values === 'object' && 'origin' in values;
 
-const isGradient = (value: string) => value.includes('gradient');
-
 interface TokenProps {
     section: string;
     subsection: string;
@@ -89,19 +87,16 @@ export const Token = ({ section, subsection, name, data }: TokenProps) => {
 
     const normalizeValue = useMemo(() => {
         const defaultColor = '#FFFFFFFF';
+        const regexHex = new RegExp(/^#([A-Fa-f0-9]{6,8})$\b/g);
 
-        if (hasOrigin(value)) {
-            return defaultColor;
-        }
-
-        if (isGradient(value)) {
+        if (hasOrigin(value) || !regexHex.test(value)) {
             return defaultColor;
         }
 
         return value;
     }, [value]);
 
-    const colorPreview = useMemo(() => (hasOrigin(value) ? value.origin : value), [value]);
+    const colorPreview = useMemo(() => (hasOrigin(value) ? (value.origin as string) : value), [value]);
 
     const tokenInfo = useMemo(
         () => ({
@@ -115,7 +110,7 @@ export const Token = ({ section, subsection, name, data }: TokenProps) => {
                 value: name,
             },
             value: {
-                value: getHEXA(normalizeValue),
+                value: colorPreview,
             },
             comment: {
                 value: comment,
@@ -124,7 +119,7 @@ export const Token = ({ section, subsection, name, data }: TokenProps) => {
                 value: enabled,
             },
         }),
-        [comment, enabled, name, normalizeValue, section, subsection],
+        [colorPreview, comment, enabled, name, section, subsection],
     );
 
     const onMouseEnter = () => setVisible(true);
