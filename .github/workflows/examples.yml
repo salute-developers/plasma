@@ -3,7 +3,6 @@ name: Build demos
 on:
   push:
     branches:
-      - rc
       - master
 
 jobs:

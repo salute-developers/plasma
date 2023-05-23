@@ -3,7 +3,7 @@ name: Main Documentation and Storybook
 on:
   workflow_run:
     workflows: ["Release"]
-    branches: [master, rc]
+    branches: [master]
     types:
       - completed
 

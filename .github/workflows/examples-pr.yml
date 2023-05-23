@@ -3,7 +3,7 @@ name: PR demos
 on:
   pull_request:
     branches:
-      - rc
+      - dev
       - master
 
 jobs:

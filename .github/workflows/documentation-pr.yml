@@ -3,7 +3,7 @@ name: PR Documentation and Storybook
 on:
   pull_request:
     branches:
-      - rc
+      - dev
       - master
 
 jobs:

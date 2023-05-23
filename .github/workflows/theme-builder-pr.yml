@@ -3,7 +3,7 @@ name: PR theme-builder
 on:
   pull_request:
     branches:
-      - rc
+      - dev
       - master
 
 jobs:

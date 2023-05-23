@@ -4,11 +4,11 @@ on:
   merge_group:
   push:
     branches:
-      - rc
+      - dev
       - master
   pull_request:
     branches:
-      - rc
+      - dev
       - master
 
 jobs:
