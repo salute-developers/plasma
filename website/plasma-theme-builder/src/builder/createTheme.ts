@@ -4,7 +4,6 @@ import {
     backgroundTokenGetters,
     overlayTokenGetters,
 } from './themeTokenGetters';
-import { baseColors } from './constants';
 
 import type { TextIconsTokenName, ControlsSurfacesName, BackgroundName, OverlayName } from './themeTokenGetters';
 import type { Theme, ThemeConfig, ThemeMode, TokensBackgroundByType, TokensByType, TokensGetterFn } from './types';
@@ -89,9 +88,6 @@ const getThemeModeTokens = <T extends ThemeMode>(config: ThemeConfig, mode: T): 
         controlsSurfaces: getTokensByGroups<ControlsSurfacesName>(controlsSurfacesTokenGetters, config, mode),
         backgrounds: getTokensBackgroundByGroups<BackgroundName>(backgroundTokenGetters, config, mode),
         overlay: getTokensByGroups<OverlayName>(overlayTokenGetters, config, mode),
-        baseColor: {
-            default: baseColors,
-        },
     };
 };
 
