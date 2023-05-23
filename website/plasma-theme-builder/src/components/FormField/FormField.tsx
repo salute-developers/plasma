@@ -11,7 +11,10 @@ const StyledSwitchGroup = styled.div`
     justify-content: space-between;
 `;
 
-const Label = styled.div``;
+const Label = styled.div`
+    align-self: baseline;
+    margin-top: 1rem;
+`;
 
 export interface FormFieldProps {
     label: string;

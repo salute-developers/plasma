@@ -1,6 +1,8 @@
-import { createContext } from 'react';
+import React, { createContext } from 'react';
 import { nanoid } from 'nanoid';
-import { TokenContextHandlers } from './types';
+import { GeneralColor, TokenContextHandlers } from './types';
+import { PreviewRect } from './PreviewRect/PreviewRect';
+import { PlasmaSaturation, general as generalColors } from '@salutejs/plasma-colors';
 
 const rgbaToHexA = (rgbaOrigin: string) => {
     const separator = rgbaOrigin.includes(',') ? ',' : ' ';
@@ -112,3 +114,17 @@ export const getFilesPath = (name?: string) => ({
 export const getFilesTree = (themeContent: string, name: string) => ({
     [getFilesPath(name).theme]: themeContent,
 });
+
+export const getSaturations = (accentColors: GeneralColor = 'red') =>
+    Object.keys(generalColors.amber).map((name: any) => ({
+        value: name,
+        label: name,
+        contentLeft: <PreviewRect background={generalColors[accentColors][name as PlasmaSaturation]} />,
+    }));
+
+export const getAccentColors = () =>
+    Object.entries(generalColors).map(([name, item]) => ({
+        value: name as GeneralColor,
+        label: name,
+        contentLeft: <PreviewRect background={item['500']} />,
+    }));

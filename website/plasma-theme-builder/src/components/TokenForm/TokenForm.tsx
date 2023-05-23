@@ -1,10 +1,12 @@
-import React, { ChangeEvent, useCallback } from 'react';
+import React, { ChangeEvent, useCallback, useMemo, useState } from 'react';
 import styled from 'styled-components';
-import { Button, H3, Modal, Switch, TextField } from '@salutejs/plasma-b2c';
+import { Button, H3, Modal, Select, Switch, TextField } from '@salutejs/plasma-b2c';
+import { PlasmaSaturation, general as generalColors } from '@salutejs/plasma-colors';
 
 import { FormField } from '../FormField/FormField';
-import { InputData, ThemeMode } from '../types';
 import type { Theme as ThemeType } from '../../builder/types';
+import type { InputData, ThemeMode, GeneralColor } from '../types';
+import { getAccentColors, getSaturations } from '../utils';
 
 const Form = styled.form``;
 
@@ -15,13 +17,14 @@ const StyledTokenForm = styled(Modal)`
 const ColorTokenField = styled.div`
     display: flex;
     gap: 1rem;
+    flex-direction: column;
 `;
 
 const PreviewColor = styled.div<{ value: string }>`
     width: 3rem;
     height: 3rem;
     border-radius: 0.75rem;
-    background-color: ${({ value }) => value};
+    background: ${({ value }) => value};
 `;
 
 const StyledTextField = styled(TextField)`
@@ -29,7 +32,16 @@ const StyledTextField = styled(TextField)`
 `;
 
 const StyledTextFieldWithColor = styled(TextField)`
-    min-width: 21rem;
+    width: 25rem;
+`;
+
+const StyledSelect = styled(Select)`
+    width: 10rem;
+`;
+
+const StyledPaletteSelect = styled.div`
+    display: flex;
+    gap: 1rem;
 `;
 
 const StyledButtons = styled.div`
@@ -44,7 +56,6 @@ interface TokenFormProps {
     inputData: InputData;
     themeData: ThemeType;
     onTokenFormShow: (value: boolean) => void;
-    onInputDataChange: (data: InputData) => void;
     onThemeDataChange: (data?: ThemeType) => void;
 }
 
@@ -54,45 +65,75 @@ export const TokenForm = ({
     inputData,
     themeData,
     onTokenFormShow,
-    onInputDataChange,
     onThemeDataChange,
 }: TokenFormProps) => {
-    const onChangeTextField = useCallback(
-        (event: ChangeEvent<HTMLInputElement>) => {
-            const { name, value } = event.target;
+    const [name, setName] = useState(inputData.name);
+    const [selectedColor, setSelectedColor] = useState<GeneralColor | undefined>();
+    const [selectedSaturation, setSelectedSaturation] = useState<PlasmaSaturation | undefined>();
+    const [value, setValue] = useState(inputData.value);
+    const [comment, setComment] = useState(inputData.comment);
+    const [enabled, setEnabled] = useState(inputData.enabled);
 
-            onInputDataChange({
-                ...inputData,
-                [name]: {
-                    value: value,
-                    status: undefined,
-                    comment: undefined,
-                },
-            });
+    const onChangeName = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+
+        setName({ value });
+    }, []);
+
+    const onChangeSelectedColor = useCallback(
+        (color: GeneralColor) => {
+            const saturation500 = 7;
+            const saturation: PlasmaSaturation = selectedSaturation || getSaturations()[saturation500].value;
+            const value = generalColors[color][saturation];
+
+            setSelectedColor(color);
+            setSelectedSaturation(saturation);
+            setValue({ value });
         },
-        [onInputDataChange, inputData],
+        [selectedSaturation],
     );
 
-    const onChangeSwitch = useCallback(
-        (event: ChangeEvent<HTMLInputElement>) => {
-            const { name, checked } = event.target;
+    const onChangeSelectedSaturation = useCallback(
+        (saturation: PlasmaSaturation) => {
+            const colorRed = 0;
+            const color: GeneralColor = selectedColor || getAccentColors()[colorRed].value;
+            const value = generalColors[color][saturation];
 
-            onInputDataChange({
-                ...inputData,
-                [name]: {
-                    value: checked,
-                    status: undefined,
-                    comment: undefined,
-                },
-            });
+            setSelectedColor(color);
+            setSelectedSaturation(saturation);
+            setValue({ value });
         },
-        [onInputDataChange, inputData],
+        [selectedColor],
     );
+
+    const onChangeValue = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+
+        setSelectedColor(undefined);
+        setSelectedSaturation(undefined);
+        setValue({ value });
+    }, []);
+
+    const onChangeComment = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+        const { value } = event.target;
+
+        setComment({ value });
+    }, []);
+
+    const onChangeEnabled = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+        const { checked: value } = event.target;
+
+        setEnabled({ value });
+    }, []);
+
+    const accentColors = useMemo(() => getAccentColors(), []);
+
+    const saturations = useMemo(() => getSaturations(selectedColor), [selectedColor]);
 
     const onCancel = useCallback(() => onTokenFormShow(false), [onTokenFormShow]);
 
     const onApply = useCallback(() => {
-        const { section, subsection, name, value, comment, enabled } = inputData;
+        const { section, subsection } = inputData;
 
         const hasToken = themeData[themeMode][section.value][subsection.value][name.value];
 
@@ -112,37 +153,19 @@ export const TokenForm = ({
         });
 
         if (!name.value.startsWith(section.value)) {
-            onInputDataChange({
-                ...inputData,
-                name: {
-                    value: inputData.name.value,
-                    status: 'error',
-                    helpText: 'Название токена должно начинаться с ' + section.value,
-                },
-            });
-            return;
-        }
-
-        if (!/#\b[0-9A-Fa-f]{8}\b/g.test(value.value)) {
-            onInputDataChange({
-                ...inputData,
-                value: {
-                    value: inputData.value.value,
-                    status: 'error',
-                    helpText: 'Цвет должен быть в формате #FFFFFFFF',
-                },
+            setName({
+                value: name.value,
+                status: 'error',
+                helpText: 'Название токена должно начинаться с ' + section.value,
             });
             return;
         }
 
         if (comment?.value && comment.value?.length >= 60) {
-            onInputDataChange({
-                ...inputData,
-                comment: {
-                    value: inputData.comment?.value,
-                    status: 'error',
-                    helpText: 'Комментарий не должен превышать 60 символов',
-                },
+            setComment({
+                value: comment?.value,
+                status: 'error',
+                helpText: 'Комментарий не должен превышать 60 символов',
             });
             return;
         }
@@ -162,7 +185,7 @@ export const TokenForm = ({
             dark: getDataByThemeMode('dark'),
             light: getDataByThemeMode('light'),
         });
-    }, [onInputDataChange, onTokenFormShow, onThemeDataChange, inputData, themeData, themeMode]);
+    }, [themeData, themeMode, onTokenFormShow, onThemeDataChange, inputData, name, value, comment, enabled]);
 
     const onSubmit = useCallback((event) => {
         event.preventDefault();
@@ -175,38 +198,54 @@ export const TokenForm = ({
                 <FormField label="Название">
                     <StyledTextField
                         name="name"
-                        value={inputData.name?.value}
-                        status={inputData.name?.status}
-                        helperText={inputData.name?.helpText}
-                        onChange={onChangeTextField}
+                        value={name?.value}
+                        status={name?.status}
+                        helperText={name?.helpText}
+                        onChange={onChangeName}
                     />
                 </FormField>
                 <FormField label="Значение цвета">
                     <ColorTokenField>
-                        <PreviewColor value={inputData.value.value} />
+                        <StyledPaletteSelect>
+                            <PreviewColor value={value.value} />
+                            <StyledSelect
+                                listOverflow="scroll"
+                                listHeight="25"
+                                items={accentColors}
+                                value={selectedColor}
+                                onChange={onChangeSelectedColor}
+                            />
+                            <StyledSelect
+                                listOverflow="scroll"
+                                listHeight="25"
+                                items={saturations}
+                                value={selectedSaturation}
+                                onChange={onChangeSelectedSaturation}
+                            />
+                        </StyledPaletteSelect>
                         <StyledTextFieldWithColor
                             name="value"
-                            value={inputData.value.value}
-                            status={inputData.value?.status}
-                            helperText={inputData.value?.helpText}
-                            onChange={onChangeTextField}
+                            value={value.value}
+                            status={value?.status}
+                            helperText={value?.helpText}
+                            onChange={onChangeValue}
                         />
                     </ColorTokenField>
                 </FormField>
                 <FormField label="Комментарий">
                     <StyledTextField
                         name="comment"
-                        value={inputData.comment?.value}
-                        status={inputData.comment?.status}
-                        helperText={inputData.comment?.helpText}
-                        onChange={onChangeTextField}
+                        value={comment?.value}
+                        status={comment?.status}
+                        helperText={comment?.helpText}
+                        onChange={onChangeComment}
                     />
                 </FormField>
                 <FormField label="Отображать токен">
                     <Switch
                         name="enabled"
-                        checked={inputData.enabled?.value || inputData.enabled?.value === undefined ? true : false}
-                        onChange={onChangeSwitch}
+                        checked={enabled?.value || enabled?.value === undefined ? true : false}
+                        onChange={onChangeEnabled}
                     />
                 </FormField>
                 <StyledButtons>
