@@ -1,12 +1,13 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { Button, Select, Switch, TextField } from '@salutejs/plasma-b2c';
-import { general as generalColors, PlasmaSaturation } from '@salutejs/plasma-colors';
+import { general as generalColors } from '@salutejs/plasma-colors';
 
 import { FormField } from '../FormField/FormField';
 import { createTheme } from '../../builder/createTheme';
-import { GeneralColor, ThemeData } from '../types';
+import { ThemeData } from '../types';
 import { Theme as ThemeType, Grayscale } from '../../builder/types';
+import { getAccentColors, getSaturations } from '../utils';
 
 const Form = styled.form``;
 
@@ -31,27 +32,6 @@ const StyledButton = styled(Button)`
     margin: 2rem 0;
     margin-left: auto;
 `;
-
-const PreviewRect = styled.div<{ background: string }>`
-    width: 2rem;
-    height: 2rem;
-    border-radius: 0.5rem;
-    background-color: ${({ background }) => background};
-`;
-
-const getAccentColors = () =>
-    Object.entries(generalColors).map(([name, item]) => ({
-        value: name as GeneralColor,
-        label: name,
-        contentLeft: <PreviewRect background={item['500']} />,
-    }));
-
-const getSaturations = (accentColors: GeneralColor = 'red') =>
-    Object.keys(generalColors.amber).map((name: any) => ({
-        value: name,
-        label: name,
-        contentLeft: <PreviewRect background={generalColors[accentColors][name as PlasmaSaturation]} />,
-    }));
 
 export const getGrayscale = (): Array<{
     value: Grayscale;
