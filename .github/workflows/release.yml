@@ -4,7 +4,7 @@ on:
   # Запуск в pull request независимо от версионирования
   pull_request:
     branches:
-      - rc
+      - dev
       - master
 
   # Запуск в мастере только после версионирования

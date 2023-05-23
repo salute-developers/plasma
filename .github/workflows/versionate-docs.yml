@@ -3,7 +3,6 @@ name: Versionate Docs
 on:
   push:
     branches:
-      - rc
       - master
 
 jobs:

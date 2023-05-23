@@ -117,7 +117,7 @@
   },
   "auto": {
     "prereleaseBranches": [
-      "rc"
+      "dev"
     ],
     "plugins": [
       [

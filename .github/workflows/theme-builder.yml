@@ -3,7 +3,6 @@ name: Build theme-builder
 on:
   push:
     branches:
-      - rc
       - master
 
 jobs:
