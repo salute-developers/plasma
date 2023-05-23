@@ -48,6 +48,7 @@
         "@types/styled-components": "5.1.0",
         "@vitejs/plugin-react": "3.1.0",
         "copyfiles": "2.4.1",
+        "default-browser-id": "1.0.4",
         "jest": "26.6.3",
         "jest-config": "26.6.3",
         "react": "18.2.0",
@@ -85,10 +86,7 @@
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
         "atLeast": 99.89
     },
     "contributors": [

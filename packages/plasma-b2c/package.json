@@ -29,11 +29,7 @@
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx",
-            "src/**/*perftest.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx", "src/**/*perftest.tsx"],
         "atLeast": 99.97
     },
     "dependencies": {
@@ -79,6 +75,7 @@
         "babel-plugin-annotate-pure-calls": "0.4.0",
         "babel-plugin-styled-components": "1.13.2",
         "babel-plugin-transform-class-properties": "6.24.1",
+        "default-browser-id": "1.0.4",
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "styled-components": "5.3.1",
@@ -87,11 +84,6 @@
         "typescript-coverage-report": "0.7.0",
         "vite": "4.1.4"
     },
-    "keywords": [
-        "design-system",
-        "react-components",
-        "ui-kit",
-        "react"
-    ],
+    "keywords": ["design-system", "react-components", "ui-kit", "react"],
     "sideEffects": false
 }
