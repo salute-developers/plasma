@@ -603,52 +603,52 @@ export const typoCommonProps = (displayFontFamily: string, textFontFamily: strin
     },
     'body-l': {
         'font-family': textFontFamily,
-        'letter-spacing': 'normal',
+        'letter-spacing': '-0.02em',
         'font-style': 'normal',
     },
     'body-l-bold': {
         'font-family': textFontFamily,
-        'letter-spacing': 'normal',
+        'letter-spacing': '-0.02em',
         'font-style': 'normal',
     },
     'body-m': {
         'font-family': textFontFamily,
-        'letter-spacing': 'normal',
+        'letter-spacing': '-0.02em',
         'font-style': 'normal',
     },
     'body-m-bold': {
         'font-family': textFontFamily,
-        'letter-spacing': 'normal',
+        'letter-spacing': '-0.02em',
         'font-style': 'normal',
     },
     'body-s': {
         'font-family': textFontFamily,
-        'letter-spacing': 'normal',
+        'letter-spacing': '-0.02em',
         'font-style': 'normal',
     },
     'body-s-bold': {
         'font-family': textFontFamily,
-        'letter-spacing': 'normal',
+        'letter-spacing': '-0.02em',
         'font-style': 'normal',
     },
     'body-xs': {
         'font-family': textFontFamily,
-        'letter-spacing': 'normal',
+        'letter-spacing': '-0.02em',
         'font-style': 'normal',
     },
     'body-xs-bold': {
         'font-family': textFontFamily,
-        'letter-spacing': 'normal',
+        'letter-spacing': '-0.02em',
         'font-style': 'normal',
     },
     'body-xxs': {
         'font-family': textFontFamily,
-        'letter-spacing': 'normal',
+        'letter-spacing': '-0.02em',
         'font-style': 'normal',
     },
     'body-xxs-bold': {
         'font-family': textFontFamily,
-        'letter-spacing': 'normal',
+        'letter-spacing': '-0.02em',
         'font-style': 'normal',
     },
     'text-l': {
@@ -673,22 +673,22 @@ export const typoCommonProps = (displayFontFamily: string, textFontFamily: strin
     },
     'text-s': {
         'font-family': textFontFamily,
-        'letter-spacing': '-0.015em',
+        'letter-spacing': '-0.02em',
         'font-style': 'normal',
     },
     'text-s-bold': {
         'font-family': textFontFamily,
-        'letter-spacing': '-0.015em',
+        'letter-spacing': '-0.02emm',
         'font-style': 'normal',
     },
     'text-xs': {
         'font-family': textFontFamily,
-        'letter-spacing': '-0.01em',
+        'letter-spacing': '-0.02em',
         'font-style': 'normal',
     },
     'text-xs-bold': {
         'font-family': textFontFamily,
-        'letter-spacing': '-0.01em',
+        'letter-spacing': '-0.02em',
         'font-style': 'normal',
     },
 });
