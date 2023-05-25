@@ -28,7 +28,8 @@
         "rootDir": "src",
         "baseUrl": ".",
         "paths": {
-            "@salutejs/plasma-ui": ["node_modules/@salutejs/plasma-ui"]
+            "@salutejs/plasma-ui": ["node_modules/@salutejs/plasma-ui"],
+            "react": ["./node_modules/@types/react"]
         },
         "preserveSymlinks": true
     },
