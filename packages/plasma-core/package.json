@@ -77,6 +77,6 @@
         "focus-visible": "5.2.0",
         "lodash.throttle": "4.1.1",
         "react-draggable": "4.4.3",
-        "react-popper": "2.2.5"
+        "react-popper": "2.3.0"
     }
 }
