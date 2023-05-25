@@ -4,6 +4,8 @@
 
 ```ts
 
+/// <reference types="react" />
+
 import { addFocus } from '@salutejs/plasma-core';
 import { addNotification } from '@salutejs/plasma-hope';
 import { animatedScrollToX } from '@salutejs/plasma-core';
