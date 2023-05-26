@@ -6,6 +6,11 @@ on:
       - master
       - dev
 
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   perftest:
     runs-on: ubuntu-latest
