@@ -1,7 +1,15 @@
 name: Typescript coverage
 
 on:
-  push:
+  pull_request:
+    branches:
+      - master
+      - dev
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
 
 jobs:
   typescript-coverage:
@@ -15,8 +23,22 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Cache dependencies
+        id: cache-npm
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+            ~/.cache
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            npm-${{ hashFiles('package-lock.json') }}
+            npm-
 
       - name: Setup packages
+        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
         run: npm ci --no-progress
 
       - name: Lerna bootstrap
