@@ -21,15 +21,18 @@ jobs:
         with:
           node-version-file: '.nvmrc'
 
-      - name: Cache node modules for PR
-        uses: actions/cache@v1
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v3
         with:
           path: node_modules
-          key: npm-deps-${{ hashFiles('package-lock.json') }}
+          key: npm-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            npm-deps-${{ hashFiles('package-lock.json') }}
+            npm-${{ hashFiles('package-lock.json') }}
+            npm-
 
       - name: Setup packages for PR
+        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
         run: npm ci --no-progress
 
       - name: Lerna bootstrap for PR
@@ -58,17 +61,18 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: Cache node modules for base ref
-        uses: actions/cache@v1
+        id: cache-npm
+        uses: actions/cache@v3
         with:
           path: node_modules
-          key: npm-deps-${{ hashFiles('package-lock.json') }}
+          key: npm-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            npm-deps-${{ hashFiles('package-lock.json') }}
+            npm-${{ hashFiles('package-lock.json') }}
+            npm-
 
       - name: Setup packages for base ref
-        run: |
-          npm i -g --no-audit npm@6.14.17 
-          npm ci --no-progress
+        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+        run: npm ci --no-progress
 
       - name: Lerna bootstrap for base ref
         run: npx lerna bootstrap

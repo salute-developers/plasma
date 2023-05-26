@@ -18,14 +18,17 @@ jobs:
         node-version-file: '.nvmrc'
 
     - name: Cache node modules
-      uses: actions/cache@v1
+      id: cache-npm
+      uses: actions/cache@v3
       with:
         path: node_modules
-        key: npm-deps-${{ hashFiles('package-lock.json') }}
+        key: npm-${{ hashFiles('package-lock.json') }}
         restore-keys: |
-          npm-deps-${{ hashFiles('package-lock.json') }}
+          npm-${{ hashFiles('package-lock.json') }}
+          npm-
 
     - name: Setup packages
+      if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
       run: |
         npm ci --no-progress
         npm i --no-progress react@17 react-dom@17 --prefix="./packages/plasma-ui"

@@ -1,4 +1,4 @@
-name: PR documentation
+name: Clean up S3
 
 on:
   pull_request:
