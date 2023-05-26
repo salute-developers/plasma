@@ -1,4 +1,4 @@
-name: PR documentation
+name: Clean up S3
 
 on:
   pull_request:
@@ -6,6 +6,11 @@ on:
     branches:
       - dev
       - master
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
 
 jobs:
   clean:
