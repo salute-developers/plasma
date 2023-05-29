@@ -37,8 +37,7 @@ const StyledTextArea = styled(BaseArea)<{ $isHelper: boolean }>`
     font-size: var(--font-size);
     line-height: var(--line-height);
 
-    /* TODO: Replace local value with typography token when resolving issue PLASMA-1838 */
-    letter-spacing: -0.02em;
+    letter-spacing: var(--plasma-typo-body-m-letter-spacing);
 
     color: ${secondary};
 
@@ -87,8 +86,7 @@ const TextAreaWrapper = styled(TextFieldRoot)<{ $properties: ReadonlyArray<Simpl
         font-size: 0.75rem;
         line-height: 0.875rem;
 
-        /* TODO: Replace local value with typography token when resolving issue PLASMA-1838 */
-        letter-spacing: -0.02em;
+        letter-spacing: var(--plasma-typo-text-xs-letter-spacing);
     }
 
     textarea[data-focus-visible-added] + ${StyledFieldHelpers} {
