@@ -25,12 +25,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
 
-      - name: Cache node modules
+      - name: Cache dependencies
         id: cache-npm
         uses: actions/cache@v3
         with:
-          path: node_modules
+          path: |
+            node_modules
+            ~/.cache
           key: npm-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             npm-${{ hashFiles('package-lock.json') }}
@@ -44,7 +48,7 @@ jobs:
         run: npx lerna bootstrap
 
       - name: Use Node.js 16.15.x for PR
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 16.15.x
 
@@ -64,16 +68,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
-
-      - name: Cache node modules for base ref
-        id: cache-npm
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            npm-${{ hashFiles('package-lock.json') }}
-            npm-
 
       - name: Setup packages for base ref
         if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
