@@ -1,71 +1,71 @@
-name: Build demos
-
-on:
-  push:
-    branches:
-      - master
-
-jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    env:
-      NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Prepare repository
-        run: git fetch --unshallow --tags
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-
-      - name: Cache node modules
-        id: cache-npm
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            npm-${{ hashFiles('package-lock.json') }}
-            npm-
-
-      - name: Setup packages
-        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
-        run: npm ci --no-progress
-
-      - name: Lerna bootstrap
-        run: npx lerna bootstrap
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Prepare directory build
-        run: mkdir -p s3_build
-
-      # 2 папки, так как названия разные - в первом случае нужно для replace
-      - name: Build Demo Canvas App
-        run: |
-          npm run build --prefix="./examples/demo-canvas-app"
-          cp -R ./examples/demo-canvas-app/build ./s3_build/demo-canvas-app-next
-
-      - name: Install s3cmd
-        run: |
-          pip3 install s3cmd
-
-      - name: s3 Upload build
-        run: >
-          s3cmd
-          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
-          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          --host ${{ secrets.AWS_ENDPOINT }}
-          --host-bucket ${{ secrets.AWS_ENDPOINT }}
-          --bucket-location ${{ secrets.AWS_REGION }}
-          --signature-v2
-          --delete-removed
-          --no-mime-magic
-          sync
-          ./s3_build/demo-canvas-app-next/
-          s3://${{ secrets.AWS_S3_BUCKET_2 }}/demo-canvas-app/
+#name: Build demos
+#
+#on:
+#  push:
+#    branches:
+#      - master
+#
+#jobs:
+#  build:
+#    name: Build
+#    runs-on: ubuntu-latest
+#    env:
+#      NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
+#    steps:
+#      - uses: actions/checkout@v2
+#
+#      - name: Prepare repository
+#        run: git fetch --unshallow --tags
+#
+#      - name: Setup Node.js
+#        uses: actions/setup-node@v3
+#        with:
+#          node-version-file: '.nvmrc'
+#
+#      - name: Cache node modules
+#        id: cache-npm
+#        uses: actions/cache@v3
+#        with:
+#          path: node_modules
+#          key: npm-${{ hashFiles('package-lock.json') }}
+#          restore-keys: |
+#            npm-${{ hashFiles('package-lock.json') }}
+#            npm-
+#
+#      - name: Setup packages
+#        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+#        run: npm ci --no-progress
+#
+#      - name: Lerna bootstrap
+#        run: npx lerna bootstrap
+#
+#      - name: Lint
+#        run: npm run lint
+#
+#      - name: Prepare directory build
+#        run: mkdir -p s3_build
+#
+#      # 2 папки, так как названия разные - в первом случае нужно для replace
+#      - name: Build Demo Canvas App
+#        run: |
+#          npm run build --prefix="./examples/demo-canvas-app"
+#          cp -R ./examples/demo-canvas-app/build ./s3_build/demo-canvas-app-next
+#
+#      - name: Install s3cmd
+#        run: |
+#          pip3 install s3cmd
+#
+#      - name: s3 Upload build
+#        run: >
+#          s3cmd
+#          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+#          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#          --host ${{ secrets.AWS_ENDPOINT }}
+#          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+#          --bucket-location ${{ secrets.AWS_REGION }}
+#          --signature-v2
+#          --delete-removed
+#          --no-mime-magic
+#          sync
+#          ./s3_build/demo-canvas-app-next/
+#          s3://${{ secrets.AWS_S3_BUCKET_2 }}/demo-canvas-app/

@@ -1,51 +1,51 @@
-name: Typescript coverage
-
-on:
-  push:
-
-concurrency:
-  # New commit on branch cancels running workflows of the same branch
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
-jobs:
-  typescript-coverage:
-    runs-on: ubuntu-latest
-    env:
-      NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-
-      - name: Cache node modules
-        id: cache-npm
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            npm-${{ hashFiles('package-lock.json') }}
-            npm-
-
-      - name: Setup packages
-        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
-        run: npm ci --no-progress
-
-      - name: Lerna bootstrap
-        run: npx lerna bootstrap
-
-      - name: Run Typescript Coverage
-        if: ${{ always() }}
-        run: |
-          npm run typescript-coverage
-
-      - name: Save artifacts
-        if: ${{ failure() }}
-        uses: actions/upload-artifact@v2
-        with:
-          name: Typescript Coverage Report Artifacts
-          path: /home/runner/work/plasma/plasma/packages/*/coverage-ts/
+#name: Typescript coverage
+#
+#on:
+#  push:
+#
+#concurrency:
+#  # New commit on branch cancels running workflows of the same branch
+#  group: ${{ github.workflow }}-${{ github.ref }}
+#  cancel-in-progress: true
+#
+#jobs:
+#  typescript-coverage:
+#    runs-on: ubuntu-latest
+#    env:
+#      NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
+#    steps:
+#      - uses: actions/checkout@v2
+#
+#      - name: Setup Node.js
+#        uses: actions/setup-node@v3
+#        with:
+#          node-version-file: '.nvmrc'
+#
+#      - name: Cache node modules
+#        id: cache-npm
+#        uses: actions/cache@v3
+#        with:
+#          path: node_modules
+#          key: npm-${{ hashFiles('package-lock.json') }}
+#          restore-keys: |
+#            npm-${{ hashFiles('package-lock.json') }}
+#            npm-
+#
+#      - name: Setup packages
+#        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+#        run: npm ci --no-progress
+#
+#      - name: Lerna bootstrap
+#        run: npx lerna bootstrap
+#
+#      - name: Run Typescript Coverage
+#        if: ${{ always() }}
+#        run: |
+#          npm run typescript-coverage
+#
+#      - name: Save artifacts
+#        if: ${{ failure() }}
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: Typescript Coverage Report Artifacts
+#          path: /home/runner/work/plasma/plasma/packages/*/coverage-ts/

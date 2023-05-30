@@ -1,11 +1,11 @@
-name: Release
-
-on:
-  merge_group:
-
-jobs:
-  publish:
-    name: Publish
-    runs-on: ubuntu-latest
-    steps:
-        - run: 'echo "no release required"'
+#name: Release
+#
+#on:
+#  merge_group:
+#
+#jobs:
+#  publish:
+#    name: Publish
+#    runs-on: ubuntu-latest
+#    steps:
+#        - run: 'echo "no release required"'

@@ -1,78 +1,78 @@
-name: Versionate Docs
-
-on:
-  push:
-    branches:
-      - master
-
-jobs:
-  versionate_docs:
-    name: Versionate docs
-    # Запуск только в мастере
-    if: ${{ github.event_name != 'pull_request' }}
-    runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Unset header
-        # https://github.com/intuit/auto/issues/1030
-        run: git config --local --unset http.https://github.com/.extraheader
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-
-      - name: Setup packages
-        run: npm ci --no-progress
-
-      - name: Setup packages
-        run: npx lerna bootstrap
-
-      # Проверит лог коммитов, по ним забекапит нужные версии нужных сайтов документации
-      - name: Versionate script
-        id: versionate_script
-        uses: ./actions/versionate-docs
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      # Предыдущий шаг проапдейдит json-файлы, их нужно закоммитить
-      - name: Extract branch name
-        if: ${{ steps.versionate_script.outputs.result == 'true' }}
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-
-      # Коммит изменений в полученную в предыдущем шаге ветку
-      - name: Commit & Push changes
-        if: ${{ steps.versionate_script.outputs.result == 'true' }}
-        uses: actions-js/push@master
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          message: 'chore: Update `versionsArchive.json` [skip ci]'
-          branch: ${{ steps.extract_branch.outputs.branch }}
-          author_name: Salute Frontend Team
-          author_email: salute.developers@gmail.com
-
-      - name: Install s3cmd
-        if: ${{ steps.versionate_script.outputs.result == 'true' }}
-        run: |
-          pip3 install s3cmd
-
-      - name: s3 Upload documentation build
-        if: ${{ steps.versionate_script.outputs.result == 'true' }}
-        run: >
-          s3cmd
-          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
-          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          --host ${{ secrets.AWS_ENDPOINT }}
-          --host-bucket ${{ secrets.AWS_ENDPOINT }}
-          --bucket-location ${{ secrets.AWS_REGION }}
-          --signature-v2
-          --no-mime-magic
-          sync
-          ./s3_build/
-          s3://${{ secrets.AWS_S3_BUCKET_2 }}/versions/
+#name: Versionate Docs
+#
+#on:
+#  push:
+#    branches:
+#      - master
+#
+#jobs:
+#  versionate_docs:
+#    name: Versionate docs
+#    # Запуск только в мастере
+#    if: ${{ github.event_name != 'pull_request' }}
+#    runs-on: ubuntu-latest
+#    env:
+#      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+#      NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
+#    steps:
+#      - uses: actions/checkout@v2
+#
+#      - name: Unset header
+#        # https://github.com/intuit/auto/issues/1030
+#        run: git config --local --unset http.https://github.com/.extraheader
+#
+#      - name: Setup Node.js
+#        uses: actions/setup-node@v3
+#        with:
+#          node-version-file: '.nvmrc'
+#
+#      - name: Setup packages
+#        run: npm ci --no-progress
+#
+#      - name: Setup packages
+#        run: npx lerna bootstrap
+#
+#      # Проверит лог коммитов, по ним забекапит нужные версии нужных сайтов документации
+#      - name: Versionate script
+#        id: versionate_script
+#        uses: ./actions/versionate-docs
+#        with:
+#          token: ${{ secrets.GITHUB_TOKEN }}
+#
+#      # Предыдущий шаг проапдейдит json-файлы, их нужно закоммитить
+#      - name: Extract branch name
+#        if: ${{ steps.versionate_script.outputs.result == 'true' }}
+#        shell: bash
+#        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+#        id: extract_branch
+#
+#      # Коммит изменений в полученную в предыдущем шаге ветку
+#      - name: Commit & Push changes
+#        if: ${{ steps.versionate_script.outputs.result == 'true' }}
+#        uses: actions-js/push@master
+#        with:
+#          github_token: ${{ secrets.GH_TOKEN }}
+#          message: 'chore: Update `versionsArchive.json` [skip ci]'
+#          branch: ${{ steps.extract_branch.outputs.branch }}
+#          author_name: Salute Frontend Team
+#          author_email: salute.developers@gmail.com
+#
+#      - name: Install s3cmd
+#        if: ${{ steps.versionate_script.outputs.result == 'true' }}
+#        run: |
+#          pip3 install s3cmd
+#
+#      - name: s3 Upload documentation build
+#        if: ${{ steps.versionate_script.outputs.result == 'true' }}
+#        run: >
+#          s3cmd
+#          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+#          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#          --host ${{ secrets.AWS_ENDPOINT }}
+#          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+#          --bucket-location ${{ secrets.AWS_REGION }}
+#          --signature-v2
+#          --no-mime-magic
+#          sync
+#          ./s3_build/
+#          s3://${{ secrets.AWS_S3_BUCKET_2 }}/versions/
