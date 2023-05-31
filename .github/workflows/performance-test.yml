@@ -8,7 +8,7 @@ on:
 
 concurrency:
   # New commit on branch cancels running workflows of the same branch
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.head_ref }}
   cancel-in-progress: true
 
 jobs:
@@ -68,8 +68,20 @@ jobs:
         with:
           node-version-file: '.nvmrc'
 
+      - name: Cache dependencies for base ref
+        id: cache-npm-base-ref
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+            ~/.cache
+          key: npm-base-ref-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            npm-base-ref-${{ hashFiles('package-lock.json') }}
+            npm-base-ref
+
       - name: Setup packages for base ref
-        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+        if: ${{ steps.cache-npm-base-ref.outputs.cache-hit != 'true' }}
         run: npm ci --no-progress
 
       - name: Lerna bootstrap for base ref
