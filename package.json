@@ -52,7 +52,6 @@
     "@cypress/webpack-dev-server": "1.4.0",
     "@cypress/webpack-preprocessor": "5.9.1",
     "@salutejs/perftool": "0.7.0",
-    "@salutejs/plasma-cy-utils": "file:utils/plasma-cy-utils",
     "@storybook/addon-actions": "6.0.0-rc.13",
     "@storybook/addon-backgrounds": "6.0.0-rc.13",
     "@storybook/addon-knobs": "6.0.0-rc.13",
