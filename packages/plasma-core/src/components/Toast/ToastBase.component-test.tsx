@@ -1,7 +1,9 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import { IconClose } from '@salutejs/plasma-icons';
-import { critical } from '@salutejs/plasma-tokens-b2c';
+
+// import { critical } from '@salutejs/plasma-tokens-b2c';
+const critical = 'var(--plasma-colors-critical, #E31227)';
 
 describe('plasma-core: Toast', () => {
     const Toast = getComponent('Toast');
