@@ -1,11 +1,29 @@
 import React from 'react';
-import styled from 'styled-components';
 import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe, withNoAnimation } from '@salutejs/plasma-cy-utils';
-import { typography } from '@salutejs/plasma-tokens';
 
 import { radiuses } from '../..';
 
-const textSizes = Object.keys(typography);
+// from  typography in '@salutejs/plasma-tokens'
+const textSizes = [
+    'display1',
+    'display2',
+    'display3',
+    'headline1',
+    'headline2',
+    'headline3',
+    'headline4',
+    'body1',
+    'body2',
+    'body3',
+    'paragraph1',
+    'paragraph2',
+    'footnote1',
+    'footnote2',
+    'button1',
+    'button2',
+    'caption',
+    'underline',
+];
 const roundnessKeys = Object.keys(radiuses).map((r) => Number(r));
 
 describe('plasma-core: Skeleton', () => {
