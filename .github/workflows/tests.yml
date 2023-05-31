@@ -15,7 +15,7 @@ concurrency:
   # New commit on branch cancels running workflows of the same branch
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
-  
+
 jobs:
   build:
     name: Build
@@ -31,12 +31,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
 
       - name: Cache node modules
         id: cache-npm
         uses: actions/cache@v3
         with:
-          path: node_modules
+          path: |
+            node_modules
+            ~/.cache
           key: npm-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             npm-${{ hashFiles('package-lock.json') }}
@@ -47,7 +51,7 @@ jobs:
         run: npm ci --no-progress
 
       - name: Lerna bootstrap
-        run: npx lerna bootstrap
+        run: npx lerna bootstrap -- --prefer-offline
 
       - name: Lint
         run: npm run lint
