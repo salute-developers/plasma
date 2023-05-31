@@ -1,7 +1,9 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 import styled from 'styled-components';
-import { critical } from '@salutejs/plasma-tokens';
+
+// import { critical } from '@salutejs/plasma-tokens';
+const critical = 'var(--plasma-colors-critical, #E31227)';
 
 describe('plasma-core: Spinner', () => {
     const Spinner = getComponent('Spinner');
