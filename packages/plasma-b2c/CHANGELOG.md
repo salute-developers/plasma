@@ -1,3 +1,27 @@
+# v1.216.0 (Thu Jun 01 2023)
+
+#### 🚀 Enhancement
+
+- chore: add api report [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore: use "paths" property in tsconfig.json [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: [packages] update package-lock files [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### ⚠️ Pushed to `master`
+
+- test(plasma-b2c): add more performance tests, exclude perftests from tsconfig & type coverage ([@Troff8](https://github.com/Troff8))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Troff ([@Troff8](https://github.com/Troff8))
+
+---
+
 # v1.215.0 (Mon May 22 2023)
 
 #### 🐛 Bug Fix

@@ -1,3 +1,17 @@
+# v0.34.0 (Thu Jun 01 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-b2c, plasma-web): fix letter-spacing value in Body, Text [#526](https://github.com/salute-developers/plasma/pull/526) ([@kayman233](https://github.com/kayman233))
+- chore: [packages] update package-lock files [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v0.33.0 (Tue Mar 14 2023)
 
 #### 🚀 Enhancement

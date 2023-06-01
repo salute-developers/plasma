@@ -1,3 +1,15 @@
+# v1.55.0 (Thu Jun 01 2023)
+
+#### 🐛 Bug Fix
+
+- chore: [packages] update package-lock files [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.54.0 (Mon May 22 2023)
 
 #### 🚀 Enhancement

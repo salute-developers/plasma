@@ -1,3 +1,17 @@
+# v0.119.0 (Thu Jun 01 2023)
+
+#### 🐛 Bug Fix
+
+- chore: [utils] update package-lock files [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v0.118.0 (Mon May 22 2023)
 
 #### 🐛 Bug Fix

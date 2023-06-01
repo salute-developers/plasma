@@ -1,3 +1,19 @@
+# v1.121.0 (Thu Jun 01 2023)
+
+#### 🐛 Bug Fix
+
+- fix(deps): update dependency react-popper to v2.3.0 [#526](https://github.com/salute-developers/plasma/pull/526) ([@renovate[bot]](https://github.com/renovate[bot]))
+- test: resolve cy-utils [#526](https://github.com/salute-developers/plasma/pull/526) ([@kayman233](https://github.com/kayman233))
+- chore: [packages] update package-lock files [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 3
+
+- [@kayman233](https://github.com/kayman233)
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.120.0 (Mon May 22 2023)
 
 #### 🚀 Enhancement

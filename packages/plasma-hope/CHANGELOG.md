@@ -1,3 +1,21 @@
+# v1.216.0 (Thu Jun 01 2023)
+
+#### 🐛 Bug Fix
+
+- fix(deps): update dependency react-popper to v2.3.0 [#526](https://github.com/salute-developers/plasma/pull/526) ([@renovate[bot]](https://github.com/renovate[bot]))
+- fix(plasma-b2c): remove local typography values in TextArea [#526](https://github.com/salute-developers/plasma/pull/526) ([@kayman233](https://github.com/kayman233))
+- chore: [packages] update package-lock files [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 4
+
+- [@kayman233](https://github.com/kayman233)
+- [@renovate[bot]](https://github.com/renovate[bot])
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.215.0 (Mon May 22 2023)
 
 #### 🐛 Bug Fix

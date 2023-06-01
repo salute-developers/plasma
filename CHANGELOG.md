@@ -1,3 +1,71 @@
+# (Thu Jun 01 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-theme-builder): Remove `baseColors` group [#526](https://github.com/salute-developers/plasma/pull/526) (neretinartem@Neretins-MBP.netis)
+- feat(plasma-theme-builder): Add selectors from color palette for token value [#526](https://github.com/salute-developers/plasma/pull/526) (neretinartem@Neretins-MBP.netis)
+- feat(plasma-theme-builder): Change directory for hooks [#526](https://github.com/salute-developers/plasma/pull/526) (neretinartem@Neretins-MBP.netis)
+- `@salutejs/plasma-b2c@1.216.0`, `@salutejs/plasma-web@1.216.0`
+  - chore: add api report [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- ci: [Cypress] used @types/react, @types/react-dom [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: [Unit-tests] used @types/react, @types/react-dom [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: fix mq jobs [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yeti-or](https://github.com/Yeti-or))
+- ci: cleanup caches by a closed PR [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: improve ci [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: fix git hook for api-report [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yeti-or](https://github.com/Yeti-or))
+- ci: update auto => 10.36.6 [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yeti-or](https://github.com/Yeti-or))
+- docs: release flow [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yeti-or](https://github.com/Yeti-or))
+- ci: remove plasma-cy-utils from root [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yeti-or](https://github.com/Yeti-or))
+- docs: delete paragraph about npm v6.14.17 [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: [actions] update package-lock files [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: [examples] update package-lock files [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: [website] update package-lock files [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: add .npmrc for theme-builder [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: [root] update package-lock files [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: delete using npm@6.14.17 [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: set package engines npm property to ^8.19.0 || 6.14.17 [#522](https://github.com/salute-developers/plasma/pull/522) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: prepare actions for dev branch [#521](https://github.com/salute-developers/plasma/pull/521) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.216.0`, `@salutejs/plasma-temple@1.165.0`, `@salutejs/plasma-ui@1.197.0`, `@salutejs/plasma-web@1.216.0`
+  - chore: use "paths" property in tsconfig.json [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-core@1.121.0`, `@salutejs/plasma-hope@1.216.0`
+  - fix(deps): update dependency react-popper to v2.3.0 [#526](https://github.com/salute-developers/plasma/pull/526) ([@renovate[bot]](https://github.com/renovate[bot]))
+- `@salutejs/plasma-core@1.121.0`
+  - test: resolve cy-utils [#526](https://github.com/salute-developers/plasma/pull/526) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-hope@1.216.0`
+  - fix(plasma-b2c): remove local typography values in TextArea [#526](https://github.com/salute-developers/plasma/pull/526) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-typo@0.34.0`
+  - fix(plasma-b2c, plasma-web): fix letter-spacing value in Body, Text [#526](https://github.com/salute-developers/plasma/pull/526) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-cy-utils@0.62.0`, `@salutejs/plasma-sb-utils@0.119.0`, `@salutejs/plasma-tokens-utils@0.27.0`
+  - chore: [utils] update package-lock files [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.216.0`, `@salutejs/cra-template-plasma-basic-template@2.4.0`, `@salutejs/plasma-colors@0.8.0`, `@salutejs/plasma-core@1.121.0`, `@salutejs/plasma-hope@1.216.0`, `@salutejs/plasma-icons@1.150.0`, `@salutejs/cra-template-plasma-shop-template@2.3.0`, `@salutejs/plasma-temple@1.165.0`, `@salutejs/plasma-tokens-b2b@1.22.0`, `@salutejs/plasma-tokens-b2c@0.31.0`, `@salutejs/plasma-tokens-core@0.3.0`, `@salutejs/plasma-tokens-web@1.37.0`, `@salutejs/plasma-tokens@1.55.0`, `@salutejs/plasma-typo@0.34.0`, `@salutejs/plasma-ui@1.197.0`, `@salutejs/plasma-web@1.216.0`
+  - chore: [packages] update package-lock files [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.216.0`
+  - test(plasma-web): add more performance tests, exclude perftests from tsconfig & type coverage [#472](https://github.com/salute-developers/plasma/pull/472) ([@Troff8](https://github.com/Troff8))
+
+#### ⚠️ Pushed to `master`
+
+- test: update perftool, update perftool config ([@akhdrv](https://github.com/akhdrv))
+- ci: fix workflow run when new tests are added ([@akhdrv](https://github.com/akhdrv))
+- `@salutejs/plasma-ui@1.197.0`
+  - test(plasma-ui): add more performance tests, exclude perftests from tsconfig & type coverage ([@Troff8](https://github.com/Troff8))
+- `@salutejs/plasma-b2c@1.216.0`
+  - test(plasma-b2c): add more performance tests, exclude perftests from tsconfig & type coverage ([@Troff8](https://github.com/Troff8))
+
+#### Authors: 7
+
+- [@kayman233](https://github.com/kayman233)
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+- Troff ([@Troff8](https://github.com/Troff8))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Mon May 22 2023)
 
 #### 🚀 Enhancement
