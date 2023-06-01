@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - dev
+      - ci-enable-cache
 
 concurrency:
   # New commit on branch cancels running workflows of the same branch
