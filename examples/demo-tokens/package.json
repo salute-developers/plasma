@@ -1,9 +1,9 @@
 {
     "name": "@salutejs/demo-tokens",
-    "version": "0.43.0",
+    "version": "0.44.0",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "dependencies": {
-        "@salutejs/plasma-tokens": "1.54.0",
+        "@salutejs/plasma-tokens": "1.55.0",
         "@testing-library/jest-dom": "^5.11.5",
         "@testing-library/react": "^11.1.1",
         "@testing-library/user-event": "^12.2.0",
