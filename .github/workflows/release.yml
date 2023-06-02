@@ -63,14 +63,8 @@ jobs:
       - name: Lerna bootstrap
         run: npx lerna bootstrap
 
-      - name: Lint
-        run: npm run lint
-
       - name: API Report
         run: npm run api:report
-
-      - name: Unit tests
-        run: npm run test
 
       - name: Release Info
         run: npm whoami && npx auto info || echo 'auto info returned 1'

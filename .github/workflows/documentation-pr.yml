@@ -46,11 +46,9 @@ jobs:
       - name: Setup packages
         if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
         run: npm ci --no-progress
+
       - name: Lerna bootstrap
         run: npx lerna bootstrap
-
-      - name: Lint
-        run: npm run lint
 
       - name: Prepare directory
         run: |

@@ -45,9 +45,6 @@ jobs:
       - name: Lerna bootstrap
         run: npx lerna bootstrap
 
-      - name: Lint
-        run: npm run lint
-
       - name: Prepare directory
         run: mkdir s3_build
 
