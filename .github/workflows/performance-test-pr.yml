@@ -5,6 +5,7 @@ on:
     branches:
       - master
       - dev
+      - check-perftool-one-threaded
 
 concurrency:
   # New commit on branch cancels running workflows of the same branch

@@ -51,7 +51,7 @@
     "@cypress/react": "5.9.2",
     "@cypress/webpack-dev-server": "1.4.0",
     "@cypress/webpack-preprocessor": "5.9.1",
-    "@salutejs/perftool": "0.10.0",
+    "@salutejs/perftool": "0.10.1-canary.20.5189745419.0",
     "@storybook/addon-actions": "6.0.0-rc.13",
     "@storybook/addon-backgrounds": "6.0.0-rc.13",
     "@storybook/addon-knobs": "6.0.0-rc.13",
