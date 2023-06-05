@@ -1,1 +1,0 @@
-export { GlobalStyle } from './GlobalStyle';
