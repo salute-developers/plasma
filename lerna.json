@@ -1,5 +1,5 @@
 {
-    "packages": ["packages/*", "examples/*", "utils/*", "website/*", "actions/*"],
+    "packages": ["packages/*", "utils/*", "website/*", "actions/*"],
     "version": "independent",
     "ignoreChanges": ["*.md", "*.component-test.tsx", "package-lock.json"],
     "loglevel": "verbose",
