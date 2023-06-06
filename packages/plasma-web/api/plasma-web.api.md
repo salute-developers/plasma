@@ -251,6 +251,7 @@ import { UploadProps } from '@salutejs/plasma-hope';
 import { UploadVisual } from '@salutejs/plasma-hope';
 import { UploadVisualProps } from '@salutejs/plasma-hope';
 import { useDebouncedFunction } from '@salutejs/plasma-core';
+import { useFocusTrap } from '@salutejs/plasma-hope';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { useToast } from '@salutejs/plasma-hope';
@@ -787,6 +788,8 @@ export { UploadVisual }
 export { UploadVisualProps }
 
 export { useDebouncedFunction }
+
+export { useFocusTrap }
 
 export { useForkRef }
 

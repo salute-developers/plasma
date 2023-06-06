@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import FocusLock from 'react-focus-lock';
 import { backgroundPrimary } from '@salutejs/plasma-core';
 import { IconClose } from '@salutejs/plasma-icons';
 
@@ -21,7 +20,7 @@ export interface ModalViewProps extends React.HTMLAttributes<HTMLDivElement> {
     closeButtonAriaLabel?: string;
 }
 
-const StyledFocusLock = styled(FocusLock)`
+const StyledWrapper = styled.div`
     display: flex;
     align-items: center;
     height: 100%;
@@ -57,7 +56,7 @@ const StyledButtonClose = styled(Button({ design: 'web' })).attrs(() => ({ view:
 export const ModalView = React.forwardRef<HTMLDivElement, ModalViewProps>(
     ({ role = 'dialog', closeButtonAriaLabel, children, onClose, ...rest }, ref) => {
         return (
-            <StyledFocusLock returnFocus>
+            <StyledWrapper>
                 <StyledBody {...rest} ref={ref} role={role} aria-modal="true">
                     <StyledContent>{children}</StyledContent>
                     <StyledButtonClose
@@ -66,7 +65,7 @@ export const ModalView = React.forwardRef<HTMLDivElement, ModalViewProps>(
                         contentLeft={<IconClose size="s" color="inherit" />}
                     />
                 </StyledBody>
-            </StyledFocusLock>
+            </StyledWrapper>
         );
     },
 );

@@ -1335,6 +1335,11 @@ export interface UploadVisualProps extends UploadProps, PreviewGalleryProps {
 
 export { useDebouncedFunction }
 
+// Warning: (ae-forgotten-export) The symbol "FocusTrapOptions" needs to be exported by the entry point index.d.ts
+//
+// @public
+export const useFocusTrap: (active?: boolean, options?: FocusTrapOptions) => (instance: HTMLElement | null) => void;
+
 export { useForkRef }
 
 export { useIsomorphicLayoutEffect }
