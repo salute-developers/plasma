@@ -4,6 +4,8 @@ import styled, { css, keyframes, createGlobalStyle } from 'styled-components';
 import { useUniqId } from '@salutejs/plasma-core';
 import { darkOverlayBlur, overlaySoft } from '@salutejs/plasma-tokens-web';
 
+import { useFocusTrap } from '../../hooks';
+
 import { ModalsContext, MODALS_PORTAL_ID } from './ModalsContext';
 import { ModalView, ModalViewProps } from './ModalView';
 
@@ -120,6 +122,7 @@ export const Modal: FC<ModalProps> = ({ id, isOpen, onClose, withBlur, ...rest }
 
     const wrapperRef = useRef<HTMLDivElement | null>(null);
     const portalRef = useRef<HTMLElement | null>(null);
+    const trapRef = useFocusTrap(true);
 
     const controller = useContext(ModalsContext);
 
@@ -190,7 +193,7 @@ export const Modal: FC<ModalProps> = ({ id, isOpen, onClose, withBlur, ...rest }
                             $withBlur={withBlur}
                         />
                         <StyledModal>
-                            <ModalView onClose={onClose} {...rest} />
+                            <ModalView onClose={onClose} ref={trapRef} {...rest} />
                         </StyledModal>
                     </StyledWrapper>,
                     portalRef.current,
