@@ -1,0 +1,38 @@
+name: Cypress component testing
+
+on:
+  merge_group:
+  pull_request:
+    branches:
+      - master
+      - dev
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  cypress:
+    strategy:
+      fail-fast: false
+      matrix:
+        scope: [ui, web, b2c, temple]
+
+    uses: ./.github/workflows/cypress-common.yml
+    with:
+      scope: ${{ matrix.scope }}
+    secrets: inherit
+
+  cypress-react-17:
+    strategy:
+      fail-fast: false
+      matrix:
+        scope: [ui, web, b2c, temple]
+
+    uses: ./.github/workflows/cypress-common.yml
+    with:
+      scope: ${{ matrix.scope }}
+      with-react-17: true
+    secrets: inherit
+
