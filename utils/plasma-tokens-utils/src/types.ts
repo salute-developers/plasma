@@ -2,7 +2,7 @@ import * as CSS from 'csstype';
 
 import { BaseColorsList, ThemeColorsList, WebColorsList } from './constants';
 
-type DataValue = string | number | DataObject;
+export type DataValue = string | number | DataObject;
 
 /**
  * Объект с произвольным содержанием.
@@ -20,7 +20,7 @@ export type CSSRootTheme = {
     ':root': CSSProperties;
 };
 
-export type TokenType = string | CSSProperties | Array<string | number> | Record<string, string>;
+export type TokenType = string | CSSProperties | Array<string | number> | Record<string, string> | Array<any>;
 
 /**
  * Содержимое дата-токена.
