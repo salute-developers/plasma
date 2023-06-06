@@ -20,11 +20,15 @@ export const enum ThemeColor {
 
 export type ThemeColorType = 'Light' | 'Dark';
 
+export type GradientType = '.linear' | '.radial';
+
 export interface GradientToken {
     startColor: string;
     endColor: string;
     startPoint: string;
     endPoint: string;
+    type: GradientType;
+    locations: [number, number];
 }
 
 export type ThemeTokenDataGroups = Record<string, TokenDataGroup<string> | undefined>;
