@@ -1,0 +1,37 @@
+name: 'Prepare environment'
+
+description: 'Setup node.js env and install all dependencies'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version-file: '.nvmrc'
+        cache: 'npm'
+
+    - name: Cache node modules
+      id: node_modules
+      uses: actions/cache@v3
+      with:
+        path: node_modules
+        key: node-modules-${{ hashFiles('package-lock.json') }}
+        restore-keys: |
+          node-modules-${{ hashFiles('package-lock.json') }}
+          node-modules-
+
+    - name: Cache dependencies
+      id: cache
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache
+        key: cache-${{ hashFiles('package-lock.json') }}
+        restore-keys: |
+          cache-${{ hashFiles('package-lock.json') }}
+          cache-            
+
+    - name: Setup packages
+      shell: bash
+      if: ${{ steps.cache.outputs.cache-hit != 'true' && steps.node_modules.outputs.cache-hit != 'true' }}
+      run: npm ci --no-progress
