@@ -12,12 +12,12 @@
     },
     "dependencies": {
         "@theme-ui/css": "0.3.1",
-        "color": "^3.1.2",
+        "color": "^4.2.3",
         "csstype": "3.0.3",
         "param-case": "3.0.3"
     },
     "devDependencies": {
-        "@types/color": "3.0.1",
+        "@types/color": "^3.0.3",
         "@types/jest": "^26.0.20",
         "@types/node": "^14.11.1",
         "jest": "^26.6.3",
@@ -36,7 +36,5 @@
     "publishConfig": {
         "access": "public"
     },
-    "files": [
-        "lib"
-    ]
+    "files": ["lib"]
 }

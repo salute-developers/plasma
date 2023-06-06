@@ -1,6 +1,18 @@
-import type { DataObject } from '../types';
+import type { DataObject, DataValue } from '../types';
 
 import { escapeValue, join, getCSSVariableName } from './other';
+
+const getNormalizedValue = (value: DataValue): string => {
+    if (Array.isArray(value)) {
+        return value.map((val) => val.origin).join(', ');
+    }
+
+    if (typeof value === 'object') {
+        return value.origin as string;
+    }
+
+    return value as string;
+};
 
 /**
  * Преобразовать объект токенов в плоский объект,
@@ -17,10 +29,10 @@ export const objectToCSSVariables = (obj: DataObject, prefix = '', withPrefixDes
             const name = join(prefix, key);
             const value = obj[key] || '';
 
-            if (typeof value !== 'object' || 'origin' in value) {
-                const newValue = typeof value === 'object' && value.origin ? value.origin : value;
+            if (typeof value !== 'object' || 'origin' in value || Array.isArray(value)) {
+                const newValue = getNormalizedValue(value);
 
-                vars[getCSSVariableName(name, withPrefixDesign)] = escapeValue(newValue as string);
+                vars[getCSSVariableName(name, withPrefixDesign)] = escapeValue(newValue);
 
                 return vars;
             }
