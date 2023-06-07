@@ -25,7 +25,7 @@
         "@babel/preset-env": "7.15.4",
         "@babel/preset-react": "7.14.5",
         "@babel/preset-typescript": "7.15.0",
-        "@mdx-js/mdx": "1.6.16",
+        "@mdx-js/mdx": "1.6.22",
         "@salutejs/client": "1.0.0",
         "@salutejs/plasma-cy-utils": "0.62.0",
         "@salutejs/plasma-icons": "1.150.0",
