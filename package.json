@@ -72,7 +72,7 @@
     "babel-plugin-const-enum": "1.2.0",
     "babel-plugin-inline-svg": "1.2.0",
     "babel-plugin-istanbul": "6.1.1",
-    "babel-plugin-styled-components": "1.13.2",
+    "babel-plugin-styled-components": "1.13.3",
     "chalk": "4.1.2",
     "commander": "10.0.0",
     "cypress": "8.0.0",
