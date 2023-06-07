@@ -21,7 +21,7 @@
         "@microsoft/api-extractor": "7.34.4",
         "@salutejs/plasma-cy-utils": "0.62.0",
         "@types/jest": "27.0.1",
-        "@types/lodash.throttle": "4.1.6",
+        "@types/lodash.throttle": "4.1.7",
         "@types/node": "15.14.9",
         "@types/react": "18.0.28",
         "@types/react-dom": "18.0.11",
