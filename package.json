@@ -68,7 +68,7 @@
     "@typescript-eslint/parser": "4.33.0",
     "auto": "10.36.6",
     "axe-core": "4.3.4",
-    "babel-eslint": "10.1.0",
+    "@babel/eslint-parser": "7.11.0",
     "babel-plugin-const-enum": "1.2.0",
     "babel-plugin-inline-svg": "1.2.0",
     "babel-plugin-istanbul": "6.1.1",
