@@ -40,7 +40,7 @@
         "@storybook/react": "6.5.16",
         "@storybook/theming": "6.5.16",
         "@types/jest": "26.0.20",
-        "@types/lodash": "4.14.160",
+        "@types/lodash": "4.14.195",
         "@types/lodash.throttle": "4.1.6",
         "@types/node": "12.12.30",
         "@types/react": "18.0.28",
