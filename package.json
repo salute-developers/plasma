@@ -99,7 +99,7 @@
     "image-loader": "0.0.1",
     "lerna": "6.5.1",
     "lint-staged": "13.1.2",
-    "node-fetch": "2.6.1",
+    "node-fetch": "2.6.11",
     "nyc": "15.1.0",
     "prettier": "2.0.5",
     "required-path": "1.0.1",
