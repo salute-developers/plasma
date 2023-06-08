@@ -1,0 +1,106 @@
+name: Component performance testing reusable workflow
+
+on:
+  workflow_call:
+    inputs:
+      target:
+        type: string
+        default: 'pr'
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    env:
+      NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
+      PR_NAME: pr-${{ github.event.number }}
+
+    steps:
+      - name: Checkout into PR
+        if: ${{ inputs.target == 'pr' }}
+        uses: actions/checkout@v3
+
+      - name: Checkout into ${{ github.event.pull_request.base.ref }}
+        if: ${{ inputs.target == 'base' }}
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          clean: false
+
+      - name: Install s3cmd
+        run: pip3 install s3cmd
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Cache dependencies
+        id: cache-npm
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+            ~/.cache
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            npm-${{ hashFiles('package-lock.json') }}
+            npm-
+
+      - name: Setup packages
+        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+        run: npm ci --no-progress
+
+      - name: Lerna bootstrap
+        run: npx lerna bootstrap
+
+      - name: Restore perftool cache
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --no-mime-magic
+          sync
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/perftool-cache/
+          ./.perftool/cache/
+
+      - name: Run performance test for PR
+        if: ${{ inputs.target == 'pr' }}
+        run: >
+          npx perftool
+          -o perftest/pr-result.json
+          --baseBranchRef ${{ github.event.pull_request.base.sha }}
+          --currentBranchRef ${{ github.event.pull_request.head.sha }}
+
+      - name: Run performance test for ${{ github.event.pull_request.base.ref }}
+        if: ${{ inputs.target == 'base' }}
+        run: >
+          npx perftool
+          -o perftest/base-result.json
+          --currentBranchRef ${{ github.event.pull_request.base.sha }}
+
+      - name: Save perftool cache
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --no-mime-magic
+          sync
+          ./.perftool/cache/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/perftool-cache/
+
+      - name: Archive perftest result
+        uses: actions/upload-artifact@v3
+        with:
+          name: perftest-artifact-${{ inputs.target }}-${{ github.head_ref }}
+          path: /home/runner/work/plasma/plasma/perftest/${{ inputs.target }}-result.json
+          retention-days: 3

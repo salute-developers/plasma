@@ -1,0 +1,32 @@
+name: Component performance testing
+
+on:
+  merge_group:
+  pull_request:
+    branches:
+      - master
+      - dev
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  performance-test:
+    strategy:
+      fail-fast: true
+      matrix:
+        target: [ pr, base ]
+
+    uses: ./.github/workflows/performance-test-common.yml
+    with:
+      target: ${{ matrix.target }}
+
+    secrets: inherit
+
+  comparison:
+    needs: [performance-test]
+    uses: ./.github/workflows/performance-test-processing.yml
+    secrets: inherit
+
