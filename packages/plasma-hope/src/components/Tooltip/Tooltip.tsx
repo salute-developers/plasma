@@ -154,8 +154,14 @@ export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
                 return;
             }
 
-            forceUpdate();
-        }, [isVisible]);
+            /*
+             * INFO: Метод forceUpdate содержит в себе flushSync и приводит
+             * к повторному рендеру компонента, который уже находится в процессе рендера.
+             * Данный хак, нужен для того, чтобы это поведение избежать и перенаправить
+             * вызов метода в очередь микрозадач.
+             */
+            Promise.resolve().then(forceUpdate);
+        }, [isVisible, forceUpdate]);
 
         return (
             <>
