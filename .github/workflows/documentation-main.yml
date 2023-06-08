@@ -19,28 +19,7 @@ jobs:
       - name: Prepare repository
         run: git fetch --unshallow --tags
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
-
-      # Данный шаг не исполняется, т.к. в настоящее время actions/cache поддерживается только для типов событий push и pull_request
-      - name: Cache dependencies
-        id: cache-npm
-        uses: actions/cache@v3
-        with:
-          path: |
-            node_modules
-            ~/.cache
-          key: npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            npm-${{ hashFiles('package-lock.json') }}
-            npm-
-
-      - name: Setup packages
-        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
-        run: npm ci --no-progress
+      - uses: ./.github/actions/prepare-environment
 
       - name: Lerna bootstrap
         run: npx lerna bootstrap
