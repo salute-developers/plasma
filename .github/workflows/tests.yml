@@ -42,7 +42,7 @@ jobs:
           npm i --no-progress react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-web"
 
       - name: Lerna bootstrap by scope
-        run: npx lerna bootstrap --scope="@salutejs/plasma-ui" --scope="@salutejs/plasma-web" --scope="@salutejs/plasma-b2c" --scope="@salutejs/plasma-temple"
+        run: npx lerna bootstrap --scope="@salutejs/plasma-ui" --scope="@salutejs/plasma-web" --scope="@salutejs/plasma-b2c" --scope="@salutejs/plasma-temple" --scope="@salutejs/plasma-hope" --scope="@salutejs/plasma-core"
 
       - name: Unit tests for React 17
         run: npm run test -- --scope="@salutejs/plasma-ui" --scope="@salutejs/plasma-web" --scope="@salutejs/plasma-b2c" --scope="@salutejs/plasma-temple"
