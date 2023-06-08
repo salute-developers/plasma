@@ -158,8 +158,14 @@ export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
                     return;
                 }
 
-                forceUpdate();
-            }, [isOpen]);
+                /*
+                 * INFO: Метод forceUpdate содержит в себе flushSync и приводит
+                 * к повторному рендеру компонента, который уже находится в процессе рендера.
+                 * Данный хак, нужен для того, чтобы это поведение избежать и перенаправить
+                 * вызов метода в очередь микрозадач.
+                 */
+                Promise.resolve().then(forceUpdate);
+            }, [isOpen, forceUpdate]);
 
             return (
                 <StyledRoot
