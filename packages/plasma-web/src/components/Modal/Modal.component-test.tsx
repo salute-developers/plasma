@@ -46,12 +46,12 @@ describe('plasma-web: Modal', () => {
                     <Headline3>Modal A</Headline3>
                     <P1>{text}</P1>
                     <Button text="Open modal B" onClick={() => setIsOpenB(true)} />
-                    <Button text="Close" onClick={() => setIsOpenA(false)} />
+                    <Button text="Close-A" onClick={() => setIsOpenA(false)} />
                 </Modal>
                 <Modal id="modalB" isOpen={isOpenB} onClose={() => setIsOpenB(false)}>
                     <Headline3>Modal B</Headline3>
                     <P1>{text}</P1>
-                    <Button text="Close" onClick={() => setIsOpenB(false)} />
+                    <Button text="Close-B" onClick={() => setIsOpenB(false)} />
                 </Modal>
             </>
         );
@@ -165,5 +165,36 @@ describe('plasma-web: Modal', () => {
         cy.get('button').click();
 
         cy.matchImageSnapshot();
+    });
+
+    it('check focus trap', () => {
+        mount(
+            <CypressTestDecorator>
+                <NoAnimationStyle />
+                <ModalsProvider>
+                    <Double />
+                </ModalsProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').contains('Open modal A').type('{enter}');
+        cy.get('button').contains('Open modal B').type('{enter}');
+        cy.get('button').contains('Close-B').type('{enter}');
+        cy.focused().should(($p) => {
+            expect($p).to.contain('Open modal B');
+        });
+
+        cy.focused().tab();
+        cy.focused().tab();
+        // по какой-то причине таб не срабатывает с первого раза
+        cy.focused().tab().tab();
+
+        cy.focused().should(($p) => {
+            expect($p).to.contain('Close-A');
+        });
+        cy.get('button').contains('Close-A').type('{enter}');
+        cy.focused().should(($p) => {
+            expect($p).to.contain('Open modal A');
+        });
     });
 });
