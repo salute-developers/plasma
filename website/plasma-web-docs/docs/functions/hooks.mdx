@@ -1,0 +1,29 @@
+---
+id: hooks
+title: Хуки
+---
+
+# Хуки
+
+## `useFocusTrap`
+
+Захвататывает фокус внутри одного DOM элемента.
+
+```tsx
+import React from 'react';
+import { useFocusTrap } from '@salutejs/plasma-web';
+
+export const  Default = () => (
+    const ref = useFocusTrap();
+    return (
+        <div ref={ref}>
+            <button>Trapped to the button</button>
+        </div>
+    );
+);
+```
+
+Принимает параметры `active`(по умолчанию `true`) и `options`: объект опций с полями 
+`{ focusSelector?: string | HTMLElement; disableAriaHider?: boolean }`.
+Первый - selector или Element, который должен быть в фокусе при открытии.
+Второй - нужна ли установка aria-hidden на всех элементах, кроме активного.
