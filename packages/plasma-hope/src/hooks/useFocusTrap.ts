@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react';
 
 import { markForFocusLater, returnFocus, setupScopedFocus, teardownScopedFocus } from '../utils/focusManager';
-import { focusSelector, focusable, tabbable } from '../utils/tabbable';
+import { focusSelector, isFocusable, isTabble } from '../utils/tabbable';
 import { scopeTab } from '../utils/scopeTab';
 import { createAriaHider } from '../utils/ariaHider';
 
@@ -51,10 +51,10 @@ export const useFocusTrap = (
                         const children = Array.from<HTMLElement>(node.querySelectorAll(focusSelector));
                         focusElement =
                             // tabbable предпочтительнее focusable
-                            children.find(tabbable) || children.find(focusable) || null;
+                            children.find(isTabble) || children.find(isFocusable) || null;
 
                         // Если ничего не нашлось, то может ли сама нода быть под фокусом
-                        if (!focusElement && focusable(node)) {
+                        if (!focusElement && isFocusable(node)) {
                             focusElement = node;
                         }
                     }

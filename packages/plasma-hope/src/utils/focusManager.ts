@@ -9,15 +9,17 @@ const handleBlur = () => {
 };
 
 const handleFocus = () => {
-    if (needToFocus) {
-        needToFocus = false;
-        if (!focusElement || focusElement.contains(document.activeElement)) {
-            return;
-        }
-
-        const el = findTabbableDescendants(focusElement)[0] || focusElement;
-        el.focus();
+    if (!needToFocus) {
+        return;
     }
+
+    needToFocus = false;
+    if (!focusElement || focusElement.contains(document.activeElement)) {
+        return;
+    }
+
+    const el = findTabbableDescendants(focusElement)[0] || focusElement;
+    el.focus();
 };
 
 export const markForFocusLater = () => {

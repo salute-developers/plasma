@@ -186,11 +186,10 @@ describe('plasma-web: Modal', () => {
 
         cy.focused().tab();
         cy.focused().tab();
-        // по какой-то причине таб не срабатывает с первого раза
-        cy.focused().tab().tab();
+        cy.focused().tab();
 
         cy.focused().should(($p) => {
-            expect($p).to.contain('Close-A');
+            expect($p).to.contain('Open modal B');
         });
         cy.get('button').contains('Close-A').type('{enter}');
         cy.focused().should(($p) => {
