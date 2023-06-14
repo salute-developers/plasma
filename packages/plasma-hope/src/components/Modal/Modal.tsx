@@ -122,7 +122,7 @@ export const Modal: FC<ModalProps> = ({ id, isOpen, onClose, withBlur, ...rest }
 
     const wrapperRef = useRef<HTMLDivElement | null>(null);
     const portalRef = useRef<HTMLElement | null>(null);
-    const trapRef = useFocusTrap(true);
+    const trapRef = useFocusTrap();
 
     const controller = useContext(ModalsContext);
 
