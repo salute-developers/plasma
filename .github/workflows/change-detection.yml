@@ -1,0 +1,55 @@
+name: Change detection
+
+on:
+  workflow_call:
+    outputs:
+      SCOPE:
+        description: "scope collection"
+        value: ${{ jobs.run.outputs.SCOPE }}
+      HAS_SCOPE:
+        description: "has scope"
+        value: ${{ jobs.run.outputs.HAS_SCOPE }}
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    outputs:
+      SCOPE: ${{ steps.set-scope.outputs.SCOPE }}
+      HAS_SCOPE: ${{ steps.set-scope.outputs.HAS_SCOPE }}
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-environment
+
+      - name: Get lerna ls output
+        shell: bash
+        id: changed-state
+        # `tr '\n' ','` -> replace \n to ','
+        # `sed 's/,$//` -> delete last ',' character
+        run: echo "CHANGED_STATE=$(npx lerna ls --since=$(git merge-base --fork-point origin/dev) | tr '\n' ',' | sed 's/,$//')" >> "$GITHUB_OUTPUT"
+
+      - name: Computed scope state
+        id: scope
+        uses: actions/github-script@v6
+        env:
+          CHANGED_STATE: ${{ steps.changed-state.outputs.CHANGED_STATE }}
+        with:
+          script: |
+            const processingScope = require('./.github/processing-scope.js');
+            
+            return processingScope();
+
+      - name: Set $GITHUB_OUTPUT
+        id: set-scope
+        run: |
+          echo "HAS_SCOPE=${{ fromJSON(steps.scope.outputs.result).HAS_SCOPE }}" >> $GITHUB_OUTPUT
+          echo "SCOPE=${{ fromJSON(steps.scope.outputs.result).SCOPE }}" >> $GITHUB_OUTPUT
+
+      - name: Console log
+        run: |
+          echo "HAS_SCOPE ---> ${{ fromJSON(steps.scope.outputs.result).HAS_SCOPE }}"
+          echo "SCOPE ---> ${{ toJSON(fromJSON(steps.scope.outputs.result).SCOPE) }}"
+
