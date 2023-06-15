@@ -13,11 +13,17 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  scope:
+      uses: ./.github/workflows/change-detection.yml
+      secrets: inherit
+
   cypress:
+    needs: scope
+    if: ${{ needs.scope.outputs.HAS_SCOPE == 'true' }}
     strategy:
       fail-fast: false
       matrix:
-        scope: [ui, web, b2c, temple]
+        scope: ${{fromJson(needs.scope.outputs.SCOPE)}}
 
     uses: ./.github/workflows/cypress-common.yml
     with:
@@ -25,10 +31,12 @@ jobs:
     secrets: inherit
 
   cypress-react-17:
+    needs: scope
+    if: ${{ needs.scope.outputs.HAS_SCOPE == 'true' }}
     strategy:
       fail-fast: false
       matrix:
-        scope: [ui, web, b2c, temple]
+        scope: ${{fromJson(needs.scope.outputs.SCOPE)}}
 
     uses: ./.github/workflows/cypress-common.yml
     with:
