@@ -1,46 +1,51 @@
 import { findTabbableDescendants } from './tabbable';
 
-const focusLaterElements: Array<HTMLElement> = [];
-let focusElement: HTMLElement | null = null;
-let needToFocus = false;
+/**
+ *  Менеджер фокуса при открытии и закрытии нод при использовании focus-trap.
+ *  Также необходим, чтобы фокус всегда должен находиться внутри необходимой ноды.
+ * */
+export class FocusManager {
+    // массив с элементами, которые нужно зафокусить после анмаунта
+    private focusLaterElements: Array<HTMLElement> = [];
 
-const handleBlur = () => {
-    needToFocus = true;
-};
+    // массив с trap нодами
+    private focusNodes: Array<HTMLElement> = [];
 
-const handleFocus = () => {
-    if (!needToFocus) {
-        return;
-    }
+    private handleFocus = () => {
+        // Фокус всегда должен находиться внутри необходимой ноды
+        const focusNode = this.focusNodes[this.focusNodes.length - 1];
 
-    needToFocus = false;
-    if (!focusElement || focusElement.contains(document.activeElement)) {
-        return;
-    }
+        if (!focusNode || focusNode.contains(document.activeElement)) {
+            return;
+        }
 
-    const el = findTabbableDescendants(focusElement)[0] || focusElement;
-    el.focus();
-};
+        // Выделяем первый tabbable элемент
+        const el = findTabbableDescendants(focusNode)[0] || focusNode;
+        el.focus();
+    };
 
-export const markForFocusLater = () => {
-    focusLaterElements.push(document.activeElement as HTMLElement);
-};
+    // добавление на фокус после анмаунта
+    public markForFocusLater = () => {
+        this.focusLaterElements.push(document.activeElement as HTMLElement);
+    };
 
-export const returnFocus = () => {
-    const toFocus = focusLaterElements.pop() ?? null;
-    if (toFocus) {
-        toFocus.focus();
-    }
-};
+    // фокус на необходимый элемент
+    public returnFocus = () => {
+        const toFocus = this.focusLaterElements.pop() ?? null;
+        if (toFocus) {
+            toFocus.focus();
+        }
+    };
 
-export const setupScopedFocus = (element: HTMLElement) => {
-    focusElement = element;
-    document.addEventListener('focusout', handleBlur, false);
-    document.addEventListener('focusin', handleFocus, true);
-};
+    // при маунте ноды
+    public setupScopedFocus = (element: HTMLElement) => {
+        this.focusNodes.push(element);
+        document.addEventListener('focusin', this.handleFocus, true);
+    };
 
-export const teardownScopedFocus = () => {
-    focusElement = null;
-    document.removeEventListener('focusout', handleBlur);
-    document.removeEventListener('focusin', handleFocus);
-};
+    // при анмаунте
+    public teardownScopedFocus = () => {
+        this.focusNodes.pop();
+        document.removeEventListener('focusin', this.handleFocus);
+    };
+}
