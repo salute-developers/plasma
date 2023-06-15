@@ -1,83 +1,74 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-import { markForFocusLater, returnFocus, setupScopedFocus, teardownScopedFocus } from '../utils/focusManager';
+import { FocusManager } from '../utils/focusManager';
 import { focusSelector, isFocusable, isTabble } from '../utils/tabbable';
 import { scopeTab } from '../utils/scopeTab';
-import { createAriaHider } from '../utils/ariaHider';
 
-export type FocusTrapOptions = {
-    focusSelector?: string | HTMLElement;
-    disableAriaHider?: boolean;
+// Находим элемент для фокуса
+const getFocusElement = (node: HTMLElement, firstFocusSelector?: string | HTMLElement): HTMLElement | null => {
+    let focusElement: HTMLElement | null = null;
+    if (firstFocusSelector) {
+        focusElement =
+            typeof firstFocusSelector === 'string' ? node.querySelector(firstFocusSelector) : firstFocusSelector;
+    }
+
+    if (!focusElement) {
+        const children = Array.from<HTMLElement>(node.querySelectorAll(focusSelector));
+        focusElement = children.find((el) => isTabble(el)) || null;
+    }
+
+    // Если ничего не нашлось, то может ли сама нода быть под фокусом
+    if (!focusElement && isFocusable(node)) {
+        focusElement = node;
+    }
+
+    return focusElement;
 };
+
+const processNode = (node: HTMLElement, firstFocusSelector?: string | HTMLElement) => {
+    const focusElement = getFocusElement(node, firstFocusSelector);
+
+    if (focusElement) {
+        focusElement.focus();
+    }
+};
+
+const focusManager = new FocusManager();
 
 /**
  *  Захватывает фокус внутри DOM node.
  * */
 export const useFocusTrap = (
     active = true,
-    options: FocusTrapOptions = {},
+    firstFocusSelector?: string | HTMLElement,
 ): ((instance: HTMLElement | null) => void) => {
     const ref = useRef<HTMLElement | null>();
-    const restoreAria = useRef<(() => void) | null>(null);
 
     const setRef = useCallback(
         (node: HTMLElement | null) => {
-            if (restoreAria.current) {
-                restoreAria.current();
-            }
-
             if (ref.current) {
-                teardownScopedFocus();
-                returnFocus();
+                focusManager.teardownScopedFocus();
+                focusManager.returnFocus();
             }
 
             if (active && node) {
-                setupScopedFocus(node);
-                markForFocusLater();
-
-                const processNode = (node: HTMLElement) => {
-                    restoreAria.current = !options.disableAriaHider ? createAriaHider(node) : null;
-
-                    // Находим первый элемент для фокуса
-                    let focusElement: HTMLElement | null = null;
-                    if (options.focusSelector) {
-                        focusElement =
-                            typeof options.focusSelector === 'string'
-                                ? node.querySelector(options.focusSelector)
-                                : options.focusSelector;
-                    }
-
-                    if (!focusElement) {
-                        const children = Array.from<HTMLElement>(node.querySelectorAll(focusSelector));
-                        focusElement =
-                            // tabbable предпочтительнее focusable
-                            children.find(isTabble) || children.find(isFocusable) || null;
-
-                        // Если ничего не нашлось, то может ли сама нода быть под фокусом
-                        if (!focusElement && isFocusable(node)) {
-                            focusElement = node;
-                        }
-                    }
-
-                    if (focusElement) {
-                        // Фокус на первый элемент внутри
-                        focusElement.focus();
-                    }
-                };
+                focusManager.setupScopedFocus(node);
+                focusManager.markForFocusLater();
 
                 // Delay processing the HTML node by a frame. This ensures focus is assigned correctly.
                 setTimeout(() => {
                     if (node.ownerDocument) {
-                        processNode(node);
+                        processNode(node, firstFocusSelector);
                     }
                 });
 
                 ref.current = node;
-            } else {
-                ref.current = null;
+                return;
             }
+
+            ref.current = null;
         },
-        [active, options.focusSelector, options.disableAriaHider],
+        [active, firstFocusSelector],
     );
 
     useEffect(() => {
