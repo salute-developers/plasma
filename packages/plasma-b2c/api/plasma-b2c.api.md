@@ -112,7 +112,6 @@ import { ElasticGrid } from '@salutejs/plasma-hope';
 import { ElasticGridProps } from '@salutejs/plasma-hope';
 import { extractTextFrom } from '@salutejs/plasma-core';
 import { FocusProps } from '@salutejs/plasma-core';
-import { FocusTrapOptions } from '@salutejs/plasma-hope';
 import { Footnote1 } from '@salutejs/plasma-hope';
 import { Footnote2 } from '@salutejs/plasma-hope';
 import { formatCurrency } from '@salutejs/plasma-core';
@@ -494,8 +493,6 @@ export { ElasticGridProps }
 export { extractTextFrom }
 
 export { FocusProps }
-
-export { FocusTrapOptions }
 
 export { Footnote1 }
 

@@ -695,12 +695,6 @@ export const fieldTypo: CSSObject;
 
 export { FocusProps }
 
-// @public (undocumented)
-export type FocusTrapOptions = {
-    focusSelector?: string | HTMLElement;
-    disableAriaHider?: boolean;
-};
-
 export { Footnote1 }
 
 export { Footnote2 }
@@ -1342,7 +1336,7 @@ export interface UploadVisualProps extends UploadProps, PreviewGalleryProps {
 export { useDebouncedFunction }
 
 // @public
-export const useFocusTrap: (active?: boolean, options?: FocusTrapOptions) => (instance: HTMLElement | null) => void;
+export const useFocusTrap: (active?: boolean, firstFocusSelector?: string | HTMLElement | undefined) => (instance: HTMLElement | null) => void;
 
 export { useForkRef }
 

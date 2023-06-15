@@ -7,23 +7,56 @@ title: Хуки
 
 ## `useFocusTrap`
 
-Захвататывает фокус внутри одного DOM элемента.
+Захвататывает фокус внутри одного DOM элемента. На данный момент уже подключен в комопненте [Modal](../components/Modal).
 
-```tsx
-import React from 'react';
-import { useFocusTrap } from '@salutejs/plasma-web';
+```tsx live
+import React, { useState } from "react";
+import { useFocusTrap, Button } from "@salutejs/plasma-web";
 
-export const  Default = () => (
+export function App() {
     const ref = useFocusTrap();
+    const [showButtons, setShowButtons] = useState(false);
     return (
-        <div ref={ref}>
-            <button>Trapped to the button</button>
-        </div>
+        <>
+            <Button onClick={() => setShowButtons(true)}>Показать кнопки</Button>
+            {showButtons && (
+                <div style={{ margin: "1rem 0" }} ref={ref}>
+                    <Button>Первый для фокуса</Button>
+                    <Button>Кнопка</Button>
+                    <Button onClick={() => setShowButtons(false)}>Закрыть</Button>
+                </div>
+            )}
+        </>
     );
-);
+}
 ```
 
-Принимает параметры `active`(по умолчанию `true`) и `options`: объект опций с полями 
-`{ focusSelector?: string | HTMLElement; disableAriaHider?: boolean }`.
-Первый - selector или Element, который должен быть в фокусе при открытии.
-Второй - нужна ли установка aria-hidden на всех элементах, кроме активного.
+Принимает параметры `active`(по умолчанию `true`) и `firstFocusSelector?: string | HTMLElement` - selector или Element, который должен быть в фокусе при открытии.
+
+```tsx live
+import React, { useState } from "react";
+import { useFocusTrap, Button } from "@salutejs/plasma-web";
+
+export function App() {
+    const ref = useFocusTrap(true, "#focus-first");
+
+    const [showButtons, setShowButtons] = useState(false);
+
+    return (
+        <>
+            <Button onClick={() => setShowButtons(true)}>Показать кнопки</Button>
+            {showButtons && (
+                <div style={{ margin: "1rem 0" }} ref={ref}>
+                    <Button>
+                        Не первый
+                    </Button>
+                    <Button id="focus-first">
+                        Первый для фокуса
+                    </Button>
+                    <Button onClick={() => setShowButtons(false)}>Закрыть</Button>
+                </div>
+            )}
+        </>
+    );
+}
+```
