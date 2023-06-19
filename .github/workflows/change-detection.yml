@@ -24,32 +24,31 @@ jobs:
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
 
-      - name: Set scope
-        id: set-scope
+      - name: Get lerna ls output
         shell: bash
+        id: changed-state
+        # `tr '\n' ','` -> replace \n to ','
+        # `sed 's/,$//` -> delete last ',' character
+        run: echo "CHANGED_STATE=$(npx lerna ls --since=$(git merge-base --fork-point origin/dev) | tr '\n' ',' | sed 's/,$//')" >> "$GITHUB_OUTPUT"
+
+      - name: Computed scope state
+        id: scope
+        uses: actions/github-script@v6
+        env:
+          CHANGED_STATE: ${{ steps.changed-state.outputs.CHANGED_STATE }}
+        with:
+          script: |
+            const processingScope = require('./.github/processing-scope.js');
+            
+            return processingScope();
+
+      - name: Set $GITHUB_OUTPUT
+        id: set-scope
         run: |
-          # Get changed state   
-          lerna_ls=$(npx lerna ls --since=$(git merge-base --fork-point origin/dev))
-          
-          # Parse lerna ls output and print string like "b2c, web, temple, etc"
-          state=$(awk -F '-' '{if ($2 == "b2c" || $2 == "web" || $2=="ui" || $2=="temple") printf "%s%s", sep, $2; sep=","} END {print ""}' <<< $lerna_ls)
-          
-          # Create scope as array     
-          IFS="," read -a scope <<< $state
-          
-          if [[ ${#scope[@]} -ne 0 ]]; then
-            echo "HAS_SCOPE=true" >> "$GITHUB_OUTPUT"
-          
-            # "--null-input" - Don't read any input at all! Instead, the filter is run once using null as the input. This is useful when using jq as a simple calculator or to construct JSON data from scratch.
-            # "--compact-output" - By default, jq pretty-prints JSON output. Using this option will result in more compact output by instead putting each JSON object on a single line.
-            # Remaining arguments are positional string arguments. These are available to the jq program as $ARGS.positional[]
-            echo "SCOPE=$(jq --compact-output --null-input '$ARGS.positional' --args -- "${scope[@]}")" >> "$GITHUB_OUTPUT"
-          else
-            echo "HAS_SCOPE=false" >> "$GITHUB_OUTPUT"
-          fi
+          echo "HAS_SCOPE=${{ fromJSON(steps.scope.outputs.result).HAS_SCOPE }}" >> $GITHUB_OUTPUT
+          echo "SCOPE=${{ fromJSON(steps.scope.outputs.result).SCOPE }}" >> $GITHUB_OUTPUT
 
       - name: Console log
         run: |
-          echo "HAS_SCOPE ---> ${{ steps.set-scope.outputs.HAS_SCOPE }}"
-          echo "SCOPE ---> ${{ steps.set-scope.outputs.SCOPE }}"
-
+          echo "HAS_SCOPE ---> ${{ fromJSON(steps.scope.outputs.result).HAS_SCOPE }}"
+          echo "SCOPE ---> ${{ toJSON(fromJSON(steps.scope.outputs.result).SCOPE) }}"
