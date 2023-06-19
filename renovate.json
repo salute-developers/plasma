@@ -3,14 +3,6 @@
     "extends": ["config:base"],
     "prHourlyLimit": 2,
     "schedule": ["every weekday"],
-    "ignoreDeps": [
-        "react",
-        "react-dom",
-        "cypress",
-        "node",
-        "npm",
-        "lerna",
-        "typescript",
-        "eslint"
-    ]
+    "rebaseWhen": "never",
+    "ignoreDeps": ["react", "react-dom", "cypress", "node", "npm", "lerna", "typescript", "eslint"]
 }

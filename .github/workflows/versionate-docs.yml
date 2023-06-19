@@ -21,29 +21,9 @@ jobs:
         # https://github.com/intuit/auto/issues/1030
         run: git config --local --unset http.https://github.com/.extraheader
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'npm'
+      - uses: ./.github/actions/prepare-environment
 
-      - name: Cache dependencies
-        id: cache-npm
-        uses: actions/cache@v3
-        with:
-          path: |
-            node_modules
-            ~/.cache
-          key: npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            npm-${{ hashFiles('package-lock.json') }}
-            npm-
-
-      - name: Setup packages
-        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
-        run: npm ci --no-progress
-
-      - name: Setup packages
+      - name: Lerna bootstrap
         run: npx lerna bootstrap
 
       # Проверит лог коммитов, по ним забекапит нужные версии нужных сайтов документации

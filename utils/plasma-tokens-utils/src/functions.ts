@@ -22,6 +22,8 @@ export const humanizeColor = (clr: string) => {
     return hslColor.rgb().toString();
 };
 
+export const getHEXAColor = (clr: string) => Color(clr).hexa().toString();
+
 /**
  * Осветлить/затемнить на x процентных пунктов.
  */

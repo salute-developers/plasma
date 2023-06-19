@@ -370,14 +370,6 @@ const App = () => {
 export default App;
 ```
 
-## Готовый пример
-
-Все описанные выше примеры можно посмотреть в [демо-приложении](https://github.com/salute-developers/plasma/blob/master/examples/demo-tokens/src/App.tsx).
-
-Приложение основано на [create-react-app](https://create-react-app.dev) c использованием [typescript](https://www.typescriptlang.org/) и [styled-components](https://styled-components.com/).
-
-Для запуска приложение прочитайте [README](https://github.com/salute-developers/plasma/blob/master/examples/demo-tokens/README.md).
-
 ## Создание кастомной темы
 
 ```bash

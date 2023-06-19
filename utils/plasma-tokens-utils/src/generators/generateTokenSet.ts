@@ -24,8 +24,22 @@ interface GenerateTokens {
     mode: GeneratedTokenMode;
 }
 
+const getNormalizedValue = (value: string | any[] | Record<string, string>) => {
+    if (Array.isArray(value)) {
+        return value.map((val) => val.origin);
+    }
+
+    if (typeof value === 'object') {
+        return value.origin;
+    }
+
+    return value;
+};
+
 const generateShadowTokenValue = ({ value, type, name, withPrefixDesign }: GenerateProps) => {
-    let result = '';
+    if (type !== 'css') {
+        return '';
+    }
 
     if (!Array.isArray(value)) {
         return value;
@@ -33,27 +47,24 @@ const generateShadowTokenValue = ({ value, type, name, withPrefixDesign }: Gener
 
     const newValue = getBoxShadow((value as unknown) as Array<Shadow>);
 
-    if (type === 'css') {
-        result = newValue.map((val) => toCSSVarTokenWithValue(`${paramCase(name)}`, val, withPrefixDesign)).join(', ');
-    }
-
-    return result;
+    return newValue.map((val) => toCSSVarTokenWithValue(`${paramCase(name)}`, val, withPrefixDesign)).join(', ');
 };
 
 const generateTokenValue = ({ value, type, name, withPrefixDesign }: GenerateProps) => {
-    let result = '';
-
-    if (typeof value !== 'string' && !(typeof value === 'object' && 'origin' in value)) {
+    if (
+        type !== 'css' ||
+        (typeof value !== 'string' && !(typeof value === 'object' && 'origin' in value) && !Array.isArray(value))
+    ) {
         return value;
     }
 
-    const newValue = typeof value === 'object' ? value.origin : value;
+    const newValue = getNormalizedValue(value);
 
-    if (type === 'css') {
-        result = toCSSVarTokenWithValue(`${paramCase(name)}`, newValue, withPrefixDesign);
+    if (Array.isArray(newValue)) {
+        return newValue.map((val) => toCSSVarTokenWithValue(`${paramCase(name)}`, val, withPrefixDesign)).join(', ');
     }
 
-    return result;
+    return toCSSVarTokenWithValue(`${paramCase(name)}`, newValue, withPrefixDesign);
 };
 
 const generateMethodsMap: Record<string, (props: GenerateProps) => TokenType> = {
