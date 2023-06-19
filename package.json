@@ -36,7 +36,7 @@
     "lint:js": "eslint --ext .js,.ts,.tsx .",
     "lint:packages": "./scripts/lint-packages.js",
     "test": "lerna run test",
-    "typescript-coverage": "lerna run typescript-coverage --no-bail --stream",
+    "typescript-coverage": "lerna run typescript-coverage --since=$(git merge-base --fork-point origin/dev) --no-bail --stream",
     "generate:theme-html": "lerna run generate:theme-html --scope @salutejs/plasma-tokens",
     "prepare": "test ! -n \"$CI\" && husky install || echo skip husky"
   },
