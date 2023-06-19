@@ -7,7 +7,13 @@ on:
       - dev
 
 jobs:
+  scope:
+    uses: ./.github/workflows/change-detection.yml
+    secrets: inherit
+
   perftest:
+    needs: scope
+    if: ${{ needs.scope.outputs.HAS_SCOPE == 'true' }}
     runs-on: ubuntu-latest
     env:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
