@@ -16,6 +16,8 @@ concurrency:
 jobs:
   scope:
     uses: ./.github/workflows/change-detection.yml
+    with:
+      exclude-dependents: true
     secrets: inherit
 
   perftest:
