@@ -1,3 +1,15 @@
+# v0.27.0 (Tue Jun 20 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens-utils): Add support new format tokens value to generate (neretinartem@Neretins-MacBook-Pro.local)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MacBook-Pro.local)
+
+---
+
 # v0.26.0 (Mon May 22 2023)
 
 #### 🚀 Enhancement

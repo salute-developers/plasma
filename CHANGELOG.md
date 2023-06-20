@@ -1,3 +1,45 @@
+# (Tue Jun 20 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens-native): Add generate complex gradient for iOS [#548](https://github.com/salute-developers/plasma/pull/548) (neretinartem@Neretins-MBP.netis)
+- `@salutejs/plasma-tokens@1.56.0`
+  - feat(plasma-tokens): Update `src` directory with new tokens [#518](https://github.com/salute-developers/plasma/pull/518) (neretinartem@Neretins-MBP.netis)
+  - feat(plasma-tokens): Add theme ASDK [#559](https://github.com/salute-developers/plasma/pull/559) ([@AleksandraIushkova](https://github.com/AleksandraIushkova))
+
+#### 🐛 Bug Fix
+
+- fix: version docs as part of release ([@Yeti-or](https://github.com/Yeti-or))
+- fix: release workflow ([@Yeti-or](https://github.com/Yeti-or))
+- chore: add comment why can't use parallel run performance testing [#549](https://github.com/salute-developers/plasma/pull/549) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: refactoring performance test workflow [#559](https://github.com/salute-developers/plasma/pull/559) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: use "prepare-environment" action [#559](https://github.com/salute-developers/plasma/pull/559) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: delete old version cypress workflows [#559](https://github.com/salute-developers/plasma/pull/559) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: create reusable workflow for cypress test [#559](https://github.com/salute-developers/plasma/pull/559) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: add cache for perftool tasks [#555](https://github.com/salute-developers/plasma/pull/555) ([@akhdrv](https://github.com/akhdrv))
+- chore: delete examples packages [#559](https://github.com/salute-developers/plasma/pull/559) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: delete unnecessary examples workflows [#559](https://github.com/salute-developers/plasma/pull/559) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: delete workflow for react 17 [#544](https://github.com/salute-developers/plasma/pull/544) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: delete unnecessary unit test/lint workflow [#559](https://github.com/salute-developers/plasma/pull/559) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: extend unit test/lint workflow [#559](https://github.com/salute-developers/plasma/pull/559) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: disable rebase for renovate [#550](https://github.com/salute-developers/plasma/pull/550) ([@Yeti-or](https://github.com/Yeti-or))
+- ci: add cache for perftool tasks [#519](https://github.com/salute-developers/plasma/pull/519) ([@akhdrv](https://github.com/akhdrv))
+- `@salutejs/plasma-core@1.122.0`, `@salutejs/plasma-hope@1.217.0`
+  - fix(plasma-core): Add promise resolve for forceUpdate method in `Popup` and `Tooltip` components [#554](https://github.com/salute-developers/plasma/pull/554) (neretinartem@Neretins-MBP.netis)
+- `@salutejs/plasma-tokens@1.56.0`
+  - docs: delete unnecessary mention in readme files [#543](https://github.com/salute-developers/plasma/pull/543) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 6
+
+- [@AleksandraIushkova](https://github.com/AleksandraIushkova)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- Neretin Artem (neretinartem@Neretins-MacBook-Pro.local)
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Thu Jun 01 2023)
 
 #### 🚀 Enhancement

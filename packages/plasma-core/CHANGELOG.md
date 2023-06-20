@@ -1,3 +1,15 @@
+# v1.122.0 (Tue Jun 20 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-core): Add promise resolve for forceUpdate method in `Popup` and `Tooltip` components [#554](https://github.com/salute-developers/plasma/pull/554) (neretinartem@Neretins-MacBook-Pro.local)
+
+#### Authors: 1
+
+- Neretin Artem (neretinartem@Neretins-MacBook-Pro.local)
+
+---
+
 # v1.121.0 (Thu Jun 01 2023)
 
 #### 🐛 Bug Fix

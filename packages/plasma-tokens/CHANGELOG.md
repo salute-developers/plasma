@@ -1,3 +1,22 @@
+# v1.56.0 (Tue Jun 20 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): Update `src` directory with new tokens [#518](https://github.com/salute-developers/plasma/pull/518) (neretinartem@Neretins-MBP.netis)
+- feat(plasma-tokens): Add theme ASDK [#559](https://github.com/salute-developers/plasma/pull/559) ([@AleksandraIushkova](https://github.com/AleksandraIushkova))
+
+#### 🐛 Bug Fix
+
+- docs: delete unnecessary mention in readme files [#543](https://github.com/salute-developers/plasma/pull/543) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 3
+
+- [@AleksandraIushkova](https://github.com/AleksandraIushkova)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v1.55.0 (Thu Jun 01 2023)
 
 #### 🐛 Bug Fix
