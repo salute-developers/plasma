@@ -130,16 +130,6 @@ export const asdk__dark = {
             'linear-gradient(336.84deg, rgba(20, 116, 70, 0.6) 0%, rgba(8, 8, 8, 0) 64.88%), radial-gradient(100% 100% at 75.89% 100%, rgba(0, 133, 255, 0.24) 0%, rgba(0, 71, 255, 0.03) 100%), linear-gradient(180deg, rgba(8, 8, 8, 0) 50%, rgba(7, 71, 33, 0.3) 100%), linear-gradient(270deg, #061621 0%, rgba(8, 8, 8, 0) 100%), #080808FF',
         '--backgroundMobileAssistantBrand':
             'linear-gradient(336.9deg, #184BAB 0%, rgba(8, 8, 8, 0) 64.95%), radial-gradient(66.53% 100% at 73.33% 100%, rgba(22, 69, 164, 0.44) 0%, rgba(11, 39, 45, 0.1) 100%), linear-gradient(180.03deg, rgba(8, 8, 8, 0) 50%, rgba(22, 69, 164, 0.41) 99.97%), linear-gradient(269.47deg, rgba(22, 69, 164, 0.3) 0.52%, rgba(8, 8, 8, 0) 99.61%), #080808FF',
-        '--backgroundDeviceAssistantMain':
-            'linear-gradient(26.05deg, rgba(15, 153, 24, 0.28) 0%, rgba(8, 8, 8, 0) 72.24%), radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(0, 170, 255, 0.24) 0%, rgba(8, 8, 8, 0) 99.69%), radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(0, 102, 255, 0.6) 0%, rgba(8, 8, 8, 0) 99.69%), #080808FF',
-        '--backgroundDeviceAssistantAthena':
-            'linear-gradient(26.05deg, rgba(26, 140, 255, 0.16) 0%, rgba(8, 8, 8, 0) 72.24%), radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(0, 85, 255, 0.28) 0%, rgba(8, 8, 8, 0) 99.69%), radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(128, 0, 255, 0.48) 0%, rgba(8, 8, 8, 0) 99.69%), #080808FF',
-        '--backgroundDeviceAssistantJoy':
-            'linear-gradient(26.05deg, rgba(255, 148, 77, 0.28) 0%, rgba(8, 8, 8, 0) 72.24%), radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(138, 60, 215, 0.24) 0%, rgba(8, 8, 8, 0) 99.69%), radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(89, 22, 215, 0.48) 0%, rgba(8, 8, 8, 0) 99.69%), #080808FF',
-        '--backgroundDeviceAssistantB2E':
-            'linear-gradient(26.05deg, rgba(15, 153, 24, 0.28) 0%, rgba(8, 8, 8, 0) 72.24%), radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(0, 170, 255, 0.24) 0%, rgba(8, 8, 8, 0) 99.69%), radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(0, 102, 255, 0.6) 0%, rgba(8, 8, 8, 0) 99.69%), #080808FF',
-        '--backgroundDeviceAssistantBrand':
-            'linear-gradient(26.05deg, rgba(82, 142, 255, 0.28) 0%, rgba(8, 8, 8, 0) 72.24%), radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(49, 94, 255, 0.24) 0%, rgba(8, 8, 8, 0) 99.69%), radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(28, 107, 255, 0.48) 0%, rgba(8, 8, 8, 0) 99.69%), #080808FF',
         '--darkBackgroundPrimary': '#171717FF',
         '--darkBackgroundSecondary': '#262626FF',
         '--darkBackgroundTertiary': '#363636FF',
