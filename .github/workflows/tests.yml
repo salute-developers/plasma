@@ -13,20 +13,28 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  scope:
+    uses: ./.github/workflows/change-detection.yml
+    secrets: inherit
+
   build:
+    needs: scope
     name: Build
+    if: ${{ needs.scope.outputs.HAS_SCOPE == 'true' }}
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - uses: ./.github/actions/prepare-environment
 
       - name: Lerna bootstrap
-        run: npx lerna bootstrap
+        run: npx lerna bootstrap --since=$(git merge-base --fork-point origin/dev)
 
       - name: Lint
         run: npm run lint
@@ -36,13 +44,13 @@ jobs:
 
       - name: Setup React 17
         run: |
-          npm i --no-progress react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-ui"
-          npm i --no-progress react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-temple"
-          npm i --no-progress react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-b2c"
-          npm i --no-progress react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-web"
+          npm i --no-progress --no-audit react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-ui"
+          npm i --no-progress --no-audit react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-temple"
+          npm i --no-progress --no-audit react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-b2c"
+          npm i --no-progress --no-audit react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-web"
 
       - name: Lerna bootstrap by scope
-        run: npx lerna bootstrap --scope="@salutejs/plasma-ui" --scope="@salutejs/plasma-web" --scope="@salutejs/plasma-b2c" --scope="@salutejs/plasma-temple" --scope="@salutejs/plasma-hope" --scope="@salutejs/plasma-core"
+        run: npx lerna bootstrap --scope=@salutejs/plasma-{ui,web,b2c,temple,hope,core}
 
       - name: Unit tests for React 17
-        run: npm run test -- --scope="@salutejs/plasma-ui" --scope="@salutejs/plasma-web" --scope="@salutejs/plasma-b2c" --scope="@salutejs/plasma-temple"
+        run: npm run test -- --scope=@salutejs/plasma-{ui,web,b2c,temple}
