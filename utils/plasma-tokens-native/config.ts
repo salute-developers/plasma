@@ -7,27 +7,38 @@ import {
     colorIosSwiftCustomFormatter,
     colorKotlinCustomFormatter,
     colorReactNativeCustomFormatter,
+    colorXMLCustomFormatter,
     typoReactNativeCustomFormatter,
     typoKotlinCustomFormatter,
     typoIosSwiftCustomFormatter,
     gradientSwiftTransformer,
     gradientKotlinTransformer,
     gradientReactNativeTransformer,
+    gradientXMLTransformer,
     shadowReactNativeCustomFormatter,
 } from './src/generator';
 
-const platforms = ['ios-swift', 'react-native', 'kotlin'] as const;
+const styles = {
+    color: {
+        path: 'properties/color/',
+        platforms: ['ios-swift', 'react-native', 'kotlin', 'xml'],
+    },
+    typo: {
+        path: 'properties/typo/',
+        platforms: ['ios-swift', 'react-native', 'kotlin'],
+    },
+    shadow: {
+        path: 'properties/shadow/',
+        platforms: ['react-native'],
+    },
+};
 
-const tokensColorPath = 'properties/color/';
-const tokensTypoPath = 'properties/typo/';
-const tokensShadowPath = 'properties/shadow/';
-
-const colorFileNames = glob.sync(path.join(tokensColorPath, '*')).map((filePath) => path.parse(filePath).name);
-const typoFileNames = glob.sync(path.join(tokensTypoPath, '*')).map((filePath) => path.parse(filePath).name);
-const shadowFileNames = glob.sync(path.join(tokensShadowPath, '*')).map((filePath) => path.parse(filePath).name);
+const colorFileNames = glob.sync(path.join(styles.color.path, '*')).map((filePath) => path.parse(filePath).name);
+const typoFileNames = glob.sync(path.join(styles.typo.path, '*')).map((filePath) => path.parse(filePath).name);
+const shadowFileNames = glob.sync(path.join(styles.shadow.path, '*')).map((filePath) => path.parse(filePath).name);
 
 const getStyleDictionaryColorConfig = (brand: string): Config => ({
-    source: [path.join(tokensColorPath, `${brand}.json`)],
+    source: [path.join(styles.color.path, `${brand}.json`)],
     platforms: {
         kotlin: {
             transforms: ['attribute/cti', 'name/ti/camel', 'color/composeColor', 'color/gradientKotlin'],
@@ -71,11 +82,22 @@ const getStyleDictionaryColorConfig = (brand: string): Config => ({
                 },
             ],
         },
+        xml: {
+            transforms: ['attribute/cti', 'name/cti/snake', 'color/hex8android', 'color/gradientXML'],
+            buildPath: 'build/',
+            files: [
+                {
+                    format: 'xml/custom/color',
+                    destination: `color/color_${brand}_xml.xml`,
+                    className: upperFirstLetter(brand),
+                },
+            ],
+        },
     },
 });
 
 const getStyleDictionaryTypoConfig = (brand: string): Config => ({
-    source: [path.join(tokensTypoPath, `${brand}.json`)],
+    source: [path.join(styles.typo.path, `${brand}.json`)],
     platforms: {
         kotlin: {
             transforms: ['attribute/cti', 'name/ti/camel'],
@@ -111,7 +133,7 @@ const getStyleDictionaryTypoConfig = (brand: string): Config => ({
 });
 
 const getStyleDictionaryShadowConfig = (brand: string): Config => ({
-    source: [path.join(tokensShadowPath, `${brand}.json`)],
+    source: [path.join(styles.shadow.path, `${brand}.json`)],
     platforms: {
         'react-native': {
             transforms: ['attribute/cti', 'name/ti/camel'],
@@ -145,6 +167,10 @@ const mapFormatter: MapFormatter = {
         {
             name: 'ios-swift/custom/color',
             formatter: colorIosSwiftCustomFormatter,
+        },
+        {
+            name: 'xml/custom/color',
+            formatter: colorXMLCustomFormatter,
         },
     ],
     typo: [
@@ -189,11 +215,16 @@ const mapTransformer: MapTransformer = {
             type: 'value',
             transformer: gradientKotlinTransformer,
         },
+        {
+            name: 'color/gradientXML',
+            type: 'value',
+            transformer: gradientXMLTransformer,
+        },
     ],
 };
 
 colorFileNames.forEach((brand) =>
-    platforms.forEach((platform) => {
+    styles.color.platforms.forEach((platform) => {
         const styleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryColorConfig(brand));
 
         mapFormatter.color.forEach((formatter) => styleDictionary.registerFormat(formatter));
@@ -204,7 +235,7 @@ colorFileNames.forEach((brand) =>
 );
 
 typoFileNames.forEach((brand) =>
-    platforms.forEach((platform) => {
+    styles.typo.platforms.forEach((platform) => {
         const styleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryTypoConfig(brand));
 
         mapFormatter.typo.forEach((formatter) => styleDictionary.registerFormat(formatter));
@@ -213,12 +244,12 @@ typoFileNames.forEach((brand) =>
     }),
 );
 
-shadowFileNames.forEach((brand) => {
-    const reactNativePlatform = platforms[1];
+shadowFileNames.forEach((brand) =>
+    styles.shadow.platforms.forEach((platform) => {
+        const styleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryShadowConfig(brand));
 
-    const styleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryShadowConfig(brand));
+        mapFormatter.shadow.forEach((formatter) => styleDictionary.registerFormat(formatter));
 
-    mapFormatter.shadow.forEach((formatter) => styleDictionary.registerFormat(formatter));
-
-    styleDictionary.buildPlatform(reactNativePlatform);
-});
+        styleDictionary.buildPlatform(platform);
+    }),
+);
