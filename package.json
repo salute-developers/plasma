@@ -6,7 +6,7 @@
     "api:generate-report": "lerna run api-report --since=$(git merge-base --fork-point origin/dev) --no-bail --stream",
     "api:diff": "./scripts/stable-diff.sh packages/plasma-web/api/* packages/plasma-b2c/api/* > reports/plasma-hope-diff.diff || echo 'diff generated'",
     "api:report": "npm run api:generate-report",
-    "release": "tsc -p auto-plugins/tsconfig.json && git diff && auto shipit",
+    "release": "tsc -p auto-plugins/tsconfig.json && git diff && auto shipit -v",
     "cy:clean": "rm -rf cypress/{results,reports,screenshots,videos}",
     "cy:accept-diffs": "docker run -it --rm -v $PWD:/e2e -w /e2e -e CYPRESS_updateSnapshots=true -e CYPRESS_BASE_URL=${PUBLIC_URL:-'http://host.docker.internal:6006'} cypress/included:8.0.0 run --browser chrome",
     "cy:run": "docker run -it --rm -v $PWD:/e2e -w /e2e -e CYPRESS_BASE_URL=${PUBLIC_URL:-'http://host.docker.internal:6006'} cypress/included:8.0.0 run --browser chrome",

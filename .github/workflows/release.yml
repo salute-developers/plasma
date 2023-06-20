@@ -55,7 +55,7 @@ jobs:
         run: npm run api:report
 
       - name: Release Info
-        run: npm whoami && npx auto info || echo 'auto info returned 1'
+        run: npm whoami && npx lerna info && npx auto info || echo 'auto info returned 1'
 
       - name: Create Release
         run: npm run release
