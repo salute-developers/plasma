@@ -364,11 +364,11 @@ export const backgroundDefault = 'var(--background-default, #080808FF)';
 export const backgroundModalSheet =
     'var(--background-modal-sheet, linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(1, 182, 255, 0) 50%)), var(--background-modal-sheet, #080808FF)';
 
-/** Фон Джой на мобиле */
+/** Фон ассистента на мобиле */
 export const backgroundMobileAssistantMain =
     'var(--background-mobile-assistant-main, linear-gradient(336.84deg, rgba(20, 116, 70, 0.6) 0%, rgba(8, 8, 8, 0) 64.88%)), var(--background-mobile-assistant-main, radial-gradient(100% 100% at 75.89% 100%, rgba(0, 133, 255, 0.24) 0%, rgba(0, 71, 255, 0.03) 100%)), var(--background-mobile-assistant-main, linear-gradient(180deg, rgba(8, 8, 8, 0) 50%, rgba(7, 71, 33, 0.3) 100%)), var(--background-mobile-assistant-main, linear-gradient(270deg, #061621 0%, rgba(8, 8, 8, 0) 100%)), var(--background-mobile-assistant-main, #080808FF)';
 
-/** Фон Джой на мобиле */
+/** Фон Афины на мобиле */
 export const backgroundMobileAssistantAthena =
     'var(--background-mobile-assistant-athena, linear-gradient(336.9deg, #143787 0%, rgba(8, 8, 8, 0) 64.95%)), var(--background-mobile-assistant-athena, radial-gradient(66.53% 100% at 73.33% 100%, rgba(110, 5, 193, 0.44) 0%, rgba(53, 19, 149, 0.1) 99.69%)), var(--background-mobile-assistant-athena, linear-gradient(180.03deg, rgba(8, 8, 8, 0) 50%, rgba(25, 63, 152, 0.41) 99.97%)), var(--background-mobile-assistant-athena, linear-gradient(270deg, rgba(39, 15, 107, 0.3) 0%, rgba(8, 8, 8, 0) 100%)), var(--background-mobile-assistant-athena, #080808FF)';
 
@@ -376,33 +376,13 @@ export const backgroundMobileAssistantAthena =
 export const backgroundMobileAssistantJoy =
     'var(--background-mobile-assistant-joy, linear-gradient(336.9deg, rgba(255, 156, 101, 0.24) 0%, rgba(8, 8, 8, 0) 64.95%)), var(--background-mobile-assistant-joy, radial-gradient(66.53% 100% at 73.33% 100%, rgba(61, 19, 149, 0.34) 0%, rgba(19, 24, 149, 0.1) 99.69%)), var(--background-mobile-assistant-joy, linear-gradient(180.03deg, rgba(8, 8, 8, 0) 50%, rgba(255, 215, 179, 0.15) 99.97%)), var(--background-mobile-assistant-joy, linear-gradient(270deg, rgba(107, 15, 87, 0.2) 0%, rgba(8, 8, 8, 0) 100%)), var(--background-mobile-assistant-joy, #080808FF)';
 
-/** Фон Джой на мобиле */
+/** Фоновый градиент B2E-ассистента на мобиле */
 export const backgroundMobileAssistantB2E =
     'var(--background-mobile-assistant-b2-e, linear-gradient(336.84deg, rgba(20, 116, 70, 0.6) 0%, rgba(8, 8, 8, 0) 64.88%)), var(--background-mobile-assistant-b2-e, radial-gradient(100% 100% at 75.89% 100%, rgba(0, 133, 255, 0.24) 0%, rgba(0, 71, 255, 0.03) 100%)), var(--background-mobile-assistant-b2-e, linear-gradient(180deg, rgba(8, 8, 8, 0) 50%, rgba(7, 71, 33, 0.3) 100%)), var(--background-mobile-assistant-b2-e, linear-gradient(270deg, #061621 0%, rgba(8, 8, 8, 0) 100%)), var(--background-mobile-assistant-b2-e, #080808FF)';
 
-/** Фон Джой на мобиле */
+/** Фоновый градиент бренда на мобиле */
 export const backgroundMobileAssistantBrand =
     'var(--background-mobile-assistant-brand, linear-gradient(336.9deg, #184BAB 0%, rgba(8, 8, 8, 0) 64.95%)), var(--background-mobile-assistant-brand, radial-gradient(66.53% 100% at 73.33% 100%, rgba(22, 69, 164, 0.44) 0%, rgba(11, 39, 45, 0.1) 100%)), var(--background-mobile-assistant-brand, linear-gradient(180.03deg, rgba(8, 8, 8, 0) 50%, rgba(22, 69, 164, 0.41) 99.97%)), var(--background-mobile-assistant-brand, linear-gradient(269.47deg, rgba(22, 69, 164, 0.3) 0.52%, rgba(8, 8, 8, 0) 99.61%)), var(--background-mobile-assistant-brand, #080808FF)';
-
-/** Фон Джой на мобиле */
-export const backgroundDeviceAssistantMain =
-    'var(--background-device-assistant-main, linear-gradient(26.05deg, rgba(15, 153, 24, 0.28) 0%, rgba(8, 8, 8, 0) 72.24%)), var(--background-device-assistant-main, radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(0, 170, 255, 0.24) 0%, rgba(8, 8, 8, 0) 99.69%)), var(--background-device-assistant-main, radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(0, 102, 255, 0.6) 0%, rgba(8, 8, 8, 0) 99.69%)), var(--background-device-assistant-main, #080808FF)';
-
-/** Фон Джой на мобиле */
-export const backgroundDeviceAssistantAthena =
-    'var(--background-device-assistant-athena, linear-gradient(26.05deg, rgba(26, 140, 255, 0.16) 0%, rgba(8, 8, 8, 0) 72.24%)), var(--background-device-assistant-athena, radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(0, 85, 255, 0.28) 0%, rgba(8, 8, 8, 0) 99.69%)), var(--background-device-assistant-athena, radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(128, 0, 255, 0.48) 0%, rgba(8, 8, 8, 0) 99.69%)), var(--background-device-assistant-athena, #080808FF)';
-
-/** Фон Джой на мобиле */
-export const backgroundDeviceAssistantJoy =
-    'var(--background-device-assistant-joy, linear-gradient(26.05deg, rgba(255, 148, 77, 0.28) 0%, rgba(8, 8, 8, 0) 72.24%)), var(--background-device-assistant-joy, radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(138, 60, 215, 0.24) 0%, rgba(8, 8, 8, 0) 99.69%)), var(--background-device-assistant-joy, radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(89, 22, 215, 0.48) 0%, rgba(8, 8, 8, 0) 99.69%)), var(--background-device-assistant-joy, #080808FF)';
-
-/** Фон Джой на мобиле */
-export const backgroundDeviceAssistantB2E =
-    'var(--background-device-assistant-b2-e, linear-gradient(26.05deg, rgba(15, 153, 24, 0.28) 0%, rgba(8, 8, 8, 0) 72.24%)), var(--background-device-assistant-b2-e, radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(0, 170, 255, 0.24) 0%, rgba(8, 8, 8, 0) 99.69%)), var(--background-device-assistant-b2-e, radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(0, 102, 255, 0.6) 0%, rgba(8, 8, 8, 0) 99.69%)), var(--background-device-assistant-b2-e, #080808FF)';
-
-/** Фон Джой на мобиле */
-export const backgroundDeviceAssistantBrand =
-    'var(--background-device-assistant-brand, linear-gradient(26.05deg, rgba(82, 142, 255, 0.28) 0%, rgba(8, 8, 8, 0) 72.24%)), var(--background-device-assistant-brand, radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(49, 94, 255, 0.24) 0%, rgba(8, 8, 8, 0) 99.69%)), var(--background-device-assistant-brand, radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(28, 107, 255, 0.48) 0%, rgba(8, 8, 8, 0) 99.69%)), var(--background-device-assistant-brand, #080808FF)';
 
 /** Первичный фон на темном фоне */
 export const darkBackgroundPrimary = 'var(--dark-background-primary, #171717FF)';

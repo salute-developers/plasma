@@ -130,16 +130,6 @@ export const asdk__light = {
             'linear-gradient(336.9deg, rgba(4, 255, 44, 0.02) 0%, rgba(255, 255, 255, 0) 64.95%), radial-gradient(100% 100% at 75.89% 100%, rgba(0, 179, 255, 0.06) 0%, rgba(0, 209, 255, 0.01) 100%), linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, rgba(0, 251, 59, 0.05) 100%), linear-gradient(270deg, rgba(6, 195, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%), #FFFFFFFF',
         '--backgroundMobileAssistantBrand':
             'linear-gradient(336.9deg, rgba(40, 197, 230, 0.06) 0%, rgba(255, 255, 255, 0) 64.95%), radial-gradient(66.53% 100% at 73.33% 100%, rgba(42, 114, 248, 0.04) 0%, rgba(41, 105, 227, 0.01) 99.69%), linear-gradient(180.03deg, rgba(42, 114, 248, 0) 50%, rgba(42, 114, 248, 0.04) 99.97%), linear-gradient(269.47deg, rgba(40, 197, 230, 0.03) 0.52%, rgba(255, 255, 255, 0) 99.61%), #FFFFFFFF',
-        '--backgroundDeviceAssistantMain':
-            'linear-gradient(26.05deg, rgba(24, 242, 61, 0.08) 0%, rgba(255, 255, 255, 0) 72.24%), radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(0, 170, 255, 0.06) 0%, rgba(255, 255, 255, 0) 99.69%), radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(0, 170, 255, 0.12) 0%, rgba(255, 255, 255, 0) 99.69%), #FFFFFFFF',
-        '--backgroundDeviceAssistantAthena':
-            'linear-gradient(26.05deg, rgba(26, 178, 255, 0.08) 0%, rgba(255, 255, 255, 0) 72.24%), radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(0, 170, 255, 0.06) 0%, rgba(255, 255, 255, 0) 99.69%), radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(128, 0, 255, 0.08) 0%, rgba(255, 255, 255, 0) 99.69%), #FFFFFFFF',
-        '--backgroundDeviceAssistantJoy':
-            'linear-gradient(26.05deg, rgba(255, 219, 77, 0.1) 0%, rgba(255, 255, 255, 0) 72.24%), radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(163, 71, 255, 0.06) 0%, rgba(255, 255, 255, 0) 99.69%), radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(140, 26, 255, 0.08) 0%, rgba(255, 255, 255, 0) 99.69%), #FFFFFFFF',
-        '--backgroundDeviceAssistantB2E':
-            'linear-gradient(26.05deg, rgba(24, 242, 61, 0.08) 0%, rgba(255, 255, 255, 0) 72.24%), radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(0, 170, 255, 0.06) 0%, rgba(255, 255, 255, 0) 99.69%), radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(0, 170, 255, 0.12) 0%, rgba(255, 255, 255, 0) 99.69%), #FFFFFFFF',
-        '--backgroundDeviceAssistantBrand':
-            'linear-gradient(26.05deg, rgba(41, 195, 230, 0.1) 0%, rgba(255, 255, 255, 0) 72.24%), radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(42, 114, 248, 0.08) 0%, rgba(255, 255, 255, 0) 99.69%), radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(41, 105, 227, 0.08) 0%, rgba(255, 255, 255, 0) 99.69%), #FFFFFFFF',
         '--darkBackgroundPrimary': '#171717FF',
         '--darkBackgroundSecondary': '#262626FF',
         '--darkBackgroundTertiary': '#363636FF',
