@@ -16,5 +16,8 @@ module.exports = () => {
         .filter((item) => CYPRESS_SCOPE.includes(item))
         .map((item) => `"${item.split('-')[1]}"`);
 
-    return { SCOPE: JSON.stringify(scope), HAS_SCOPE: !!scope.length };
+    return {
+        SCOPE: JSON.stringify(scope),
+        HAS_SCOPE: !!scope.length,
+    };
 };

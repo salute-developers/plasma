@@ -2,6 +2,11 @@ name: Change detection
 
 on:
   workflow_call:
+    inputs:
+      exclude-dependents:
+        description: 'Lerna boostrap filter-option, exclude all transitive dependents when running a command with --since'
+        default: false
+        type: boolean
     outputs:
       SCOPE:
         description: "scope collection"
@@ -24,12 +29,17 @@ jobs:
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
 
+      - name: Set exclude-dependents env
+        if: ${{ inputs.exclude-dependents }}
+        run: echo "EXCLUDE_DEPENDENTS=--exclude-dependents" >> $GITHUB_ENV
+
       - name: Get lerna ls output
         shell: bash
         id: changed-state
         # `tr '\n' ','` -> replace \n to ','
         # `sed 's/,$//` -> delete last ',' character
-        run: echo "CHANGED_STATE=$(npx lerna ls --since=$(git merge-base --fork-point origin/dev) | tr '\n' ',' | sed 's/,$//')" >> "$GITHUB_OUTPUT"
+        run: |
+          echo "CHANGED_STATE=$(npx lerna ls --since=$(git merge-base --fork-point origin/dev) ${{ env.EXCLUDE_DEPENDENTS }} | tr '\n' ',' | sed 's/,$//')" >> "$GITHUB_OUTPUT"
 
       - name: Computed scope state
         id: scope
