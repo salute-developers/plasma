@@ -94,6 +94,14 @@
                             "locations": [0, 1],
                             "startPoint": { "x": 0, "y": 0.5 },
                             "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#24B23E", "#1CC9C9"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
                         }
                     },
                     "comment": "Градиент"
@@ -102,6 +110,14 @@
                     "value": {
                         "origin": "linear-gradient(93.97deg, #52BAFF 6.49%, #ADADFF 93.51%)",
                         "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#52BAFF", "#ADADFF"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": ["#52BAFF", "#ADADFF"],
@@ -122,6 +138,14 @@
                             "locations": [0, 1],
                             "startPoint": { "x": 0, "y": 0.5 },
                             "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#FD9C68", "#F391E2"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
                         }
                     },
                     "comment": "Градиент Джой"
@@ -136,6 +160,14 @@
                             "locations": [0, 1],
                             "startPoint": { "x": 0, "y": 0.5 },
                             "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#24B23E", "#1CC9C9"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
                         }
                     },
                     "comment": "Градиент B2E-ассистента"
@@ -144,6 +176,14 @@
                     "value": {
                         "origin": "linear-gradient(89.83deg, #528EFF 0%, #04C6C9 100%)",
                         "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#528EFF", "#04C6C9"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": ["#528EFF", "#04C6C9"],
@@ -214,6 +254,14 @@
                             "locations": [0, 1],
                             "startPoint": { "x": 0, "y": 0.5 },
                             "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#24B23E", "#1CC9C9"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
                         }
                     },
                     "comment": "Градиент на темном фоне"
@@ -222,6 +270,14 @@
                     "value": {
                         "origin": "linear-gradient(93.97deg, #52BAFF 6.49%, #ADADFF 93.51%)",
                         "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#52BAFF", "#ADADFF"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": ["#52BAFF", "#ADADFF"],
@@ -242,6 +298,14 @@
                             "locations": [0, 1],
                             "startPoint": { "x": 0, "y": 0.5 },
                             "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#FD9C68", "#F391E2"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
                         }
                     },
                     "comment": "Градиент Джой на темном фоне"
@@ -256,6 +320,14 @@
                             "locations": [0, 1],
                             "startPoint": { "x": 0, "y": 0.5 },
                             "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#24B23E", "#1CC9C9"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
                         }
                     },
                     "comment": "Градиент B2E-ассистента на темном фоне"
@@ -264,6 +336,14 @@
                     "value": {
                         "origin": "linear-gradient(89.83deg, #528EFF 0%, #04C6C9 100%)",
                         "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#528EFF", "#04C6C9"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": ["#528EFF", "#04C6C9"],
@@ -334,6 +414,14 @@
                             "locations": [0, 1],
                             "startPoint": { "x": 0, "y": 0.5 },
                             "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#24B23E", "#00A4D1"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
                         }
                     },
                     "comment": "Градиент на светлом фоне"
@@ -342,6 +430,14 @@
                     "value": {
                         "origin": "linear-gradient(89.83deg, #118CDF 0%, #7A7AFF 100%)",
                         "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#118CDF", "#7A7AFF"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": ["#118CDF", "#7A7AFF"],
@@ -362,6 +458,14 @@
                             "locations": [0, 1],
                             "startPoint": { "x": 0, "y": 0.5 },
                             "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#FCA349", "#FF52C5"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
                         }
                     },
                     "comment": "Градиент Джой на светлом фоне"
@@ -376,6 +480,14 @@
                             "locations": [0, 1],
                             "startPoint": { "x": 0, "y": 0.5 },
                             "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#24B23E", "#00A4D1"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
                         }
                     },
                     "comment": "Градиент B2E-ассистента на светлом фоне"
@@ -384,6 +496,14 @@
                     "value": {
                         "origin": "linear-gradient(93.97deg, #3E79F0 6.49%, #27C6E5 93.51%)",
                         "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": ["#3E79F0", "#27C6E5"],
@@ -668,6 +788,14 @@
                                 "locations": [0, 0.5],
                                 "startPoint": { "x": 0.5, "y": 0 },
                                 "endPoint": { "x": 0.5, "y": 1 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(255, 255, 255, 0.1)", "rgba(1, 182, 255, 0)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0.5, "y": 0 },
+                                "endPoint": { "x": 0.5, "y": 0.5 }
                             }
                         },
                         { "origin": "#080808FF", "backgroundColor": "#080808FF" }
@@ -685,6 +813,14 @@
                                 "locations": [0, 0.65],
                                 "startPoint": { "x": 0.7, "y": 0.96 },
                                 "endPoint": { "x": 0.3, "y": 0.04 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(8, 8, 8, 0)", "rgba(20, 116, 70, 0.6)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0.5, "y": 0.2 },
+                                "endPoint": { "x": 0.9, "y": 1.2 }
                             }
                         },
                         {
@@ -696,6 +832,14 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 0.75, "y": 1 },
                                 "endPoint": { "x": 0.165, "y": 0 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".radial",
+                                "colors": ["rgba(0, 133, 255, 0.24)", "rgba(0, 71, 255, 0.03)"],
+                                "locations": [0, 1],
+                                "center": { "x": 0.66, "y": 1 },
+                                "radius": { "x": 1, "y": 1 }
                             }
                         },
                         {
@@ -707,6 +851,14 @@
                                 "locations": [0.5, 1],
                                 "startPoint": { "x": 0.5, "y": 0 },
                                 "endPoint": { "x": 0.5, "y": 1 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(8, 8, 8, 0)", "rgba(7, 71, 33, 0.3)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0, "y": 0.5 },
+                                "endPoint": { "x": 0, "y": 1 }
                             }
                         },
                         {
@@ -718,11 +870,19 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 1, "y": 0.5 },
                                 "endPoint": { "x": 0, "y": 0.5 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#061621", "rgba(8, 8, 8, 0)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 1, "y": 0 },
+                                "endPoint": { "x": 0, "y": 0 }
                             }
                         },
                         { "origin": "#080808FF", "backgroundColor": "#080808FF" }
                     ],
-                    "comment": "Фон Джой на мобиле"
+                    "comment": "Фон ассистента на мобиле"
                 },
                 "backgroundMobileAssistantAthena": {
                     "value": [
@@ -735,6 +895,14 @@
                                 "locations": [0, 0.65],
                                 "startPoint": { "x": 0.7, "y": 0.96 },
                                 "endPoint": { "x": 0.3, "y": 0.04 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(8, 8, 8, 0)", "#143787"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0.5, "y": 0.2 },
+                                "endPoint": { "x": 0.9, "y": 1.2 }
                             }
                         },
                         {
@@ -746,6 +914,14 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 0.75, "y": 1 },
                                 "endPoint": { "x": 0.165, "y": 0 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".radial",
+                                "colors": ["rgba(110, 5, 193, 0.44)", "rgba(53, 19, 149, 0.1)"],
+                                "locations": [0, 1],
+                                "center": { "x": 0.66, "y": 1 },
+                                "radius": { "x": 1, "y": 1 }
                             }
                         },
                         {
@@ -757,6 +933,14 @@
                                 "locations": [0.5, 1],
                                 "startPoint": { "x": 0.5, "y": 0 },
                                 "endPoint": { "x": 0.5, "y": 1 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(8, 8, 8, 0)", "rgba(25, 63, 152, 0.41)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0, "y": 0.5 },
+                                "endPoint": { "x": 0, "y": 1 }
                             }
                         },
                         {
@@ -768,11 +952,19 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 1, "y": 0.5 },
                                 "endPoint": { "x": 0, "y": 0.5 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(39, 15, 107, 0.3)", "rgba(8, 8, 8, 0)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 1, "y": 0 },
+                                "endPoint": { "x": 0, "y": 0 }
                             }
                         },
                         { "origin": "#080808FF", "backgroundColor": "#080808FF" }
                     ],
-                    "comment": "Фон Джой на мобиле"
+                    "comment": "Фон Афины на мобиле"
                 },
                 "backgroundMobileAssistantJoy": {
                     "value": [
@@ -785,6 +977,14 @@
                                 "locations": [0, 0.65],
                                 "startPoint": { "x": 0.7, "y": 0.96 },
                                 "endPoint": { "x": 0.3, "y": 0.04 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(8, 8, 8, 0)", "rgba(255, 156, 101, 0.24)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0.5, "y": 0.2 },
+                                "endPoint": { "x": 0.9, "y": 1.2 }
                             }
                         },
                         {
@@ -796,6 +996,14 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 0.75, "y": 1 },
                                 "endPoint": { "x": 0.165, "y": 0 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".radial",
+                                "colors": ["rgba(61, 19, 149, 0.34)", "rgba(19, 24, 149, 0.1)"],
+                                "locations": [0, 1],
+                                "center": { "x": 0.66, "y": 1 },
+                                "radius": { "x": 1, "y": 1 }
                             }
                         },
                         {
@@ -807,6 +1015,14 @@
                                 "locations": [0.5, 1],
                                 "startPoint": { "x": 0.5, "y": 0 },
                                 "endPoint": { "x": 0.5, "y": 1 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(8, 8, 8, 0)", "rgba(255, 215, 179, 0.15)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0, "y": 0.5 },
+                                "endPoint": { "x": 0, "y": 1 }
                             }
                         },
                         {
@@ -818,6 +1034,14 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 1, "y": 0.5 },
                                 "endPoint": { "x": 0, "y": 0.5 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(107, 15, 87, 0.2)", "rgba(8, 8, 8, 0)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 1, "y": 0 },
+                                "endPoint": { "x": 0, "y": 0 }
                             }
                         },
                         { "origin": "#080808FF", "backgroundColor": "#080808FF" }
@@ -835,6 +1059,14 @@
                                 "locations": [0, 0.65],
                                 "startPoint": { "x": 0.7, "y": 0.96 },
                                 "endPoint": { "x": 0.3, "y": 0.04 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(8, 8, 8, 0)", "rgba(20, 116, 70, 0.6)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0.5, "y": 0.2 },
+                                "endPoint": { "x": 0.9, "y": 1.2 }
                             }
                         },
                         {
@@ -846,6 +1078,14 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 0.75, "y": 1 },
                                 "endPoint": { "x": 0.165, "y": 0 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".radial",
+                                "colors": ["rgba(0, 133, 255, 0.24)", "rgba(0, 71, 255, 0.03)"],
+                                "locations": [0, 1],
+                                "center": { "x": 0.66, "y": 1 },
+                                "radius": { "x": 1, "y": 1 }
                             }
                         },
                         {
@@ -857,6 +1097,14 @@
                                 "locations": [0.5, 1],
                                 "startPoint": { "x": 0.5, "y": 0 },
                                 "endPoint": { "x": 0.5, "y": 1 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(8, 8, 8, 0)", "rgba(7, 71, 33, 0.3)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0, "y": 0.5 },
+                                "endPoint": { "x": 0, "y": 1 }
                             }
                         },
                         {
@@ -868,11 +1116,19 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 1, "y": 0.5 },
                                 "endPoint": { "x": 0, "y": 0.5 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#061621", "rgba(8, 8, 8, 0)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 1, "y": 0 },
+                                "endPoint": { "x": 0, "y": 0 }
                             }
                         },
                         { "origin": "#080808FF", "backgroundColor": "#080808FF" }
                     ],
-                    "comment": "Фон Джой на мобиле"
+                    "comment": "Фоновый градиент B2E-ассистента на мобиле"
                 },
                 "backgroundMobileAssistantBrand": {
                     "value": [
@@ -885,6 +1141,14 @@
                                 "locations": [0, 0.65],
                                 "startPoint": { "x": 0.7, "y": 0.96 },
                                 "endPoint": { "x": 0.3, "y": 0.04 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(8, 8, 8, 0)", "#184BAB"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0.5, "y": 0.2 },
+                                "endPoint": { "x": 0.9, "y": 1.2 }
                             }
                         },
                         {
@@ -896,6 +1160,14 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 0.75, "y": 1 },
                                 "endPoint": { "x": 0.165, "y": 0 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".radial",
+                                "colors": ["rgba(22, 69, 164, 0.44)", "rgba(11, 39, 45, 0.1)"],
+                                "locations": [0, 1],
+                                "center": { "x": 0.66, "y": 1 },
+                                "radius": { "x": 1, "y": 1 }
                             }
                         },
                         {
@@ -907,6 +1179,14 @@
                                 "locations": [0.5, 1],
                                 "startPoint": { "x": 0.5, "y": 0 },
                                 "endPoint": { "x": 0.5, "y": 1 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(8, 8, 8, 0)", "rgba(22, 69, 164, 0.41)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0, "y": 0.5 },
+                                "endPoint": { "x": 0, "y": 1 }
                             }
                         },
                         {
@@ -918,206 +1198,19 @@
                                 "locations": [0.01, 1],
                                 "startPoint": { "x": 1, "y": 0.49 },
                                 "endPoint": { "x": 0, "y": 0.51 }
-                            }
-                        },
-                        { "origin": "#080808FF", "backgroundColor": "#080808FF" }
-                    ],
-                    "comment": "Фон Джой на мобиле"
-                },
-                "backgroundDeviceAssistantMain": {
-                    "value": [
-                        {
-                            "origin": "linear-gradient(26.05deg, rgba(15, 153, 24, 0.28) 0%, rgba(8, 8, 8, 0) 72.24%)",
-                            "swift": {
+                            },
+                            "xml": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": ["rgba(15, 153, 24, 0.28)", "rgba(8, 8, 8, 0)"],
-                                "locations": [0, 0.72],
-                                "startPoint": { "x": 0.28, "y": 0.95 },
-                                "endPoint": { "x": 0.72, "y": 0.05 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(0, 170, 255, 0.24) 0%, rgba(8, 8, 8, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(0, 170, 255, 0.24)", "rgba(8, 8, 8, 0)"],
+                                "colors": ["rgba(22, 69, 164, 0.3)", "rgba(8, 8, 8, 0)"],
                                 "locations": [0, 1],
-                                "startPoint": { "x": 0.2, "y": 1 },
-                                "endPoint": { "x": -0.8, "y": -0.5 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(0, 102, 255, 0.6) 0%, rgba(8, 8, 8, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(0, 102, 255, 0.6)", "rgba(8, 8, 8, 0)"],
-                                "locations": [0, 1],
-                                "startPoint": { "x": 0.6, "y": 1.33 },
-                                "endPoint": { "x": 1.5, "y": -0.2 }
+                                "startPoint": { "x": 1, "y": 0 },
+                                "endPoint": { "x": 0, "y": 0 }
                             }
                         },
                         { "origin": "#080808FF", "backgroundColor": "#080808FF" }
                     ],
-                    "comment": "Фон Джой на мобиле"
-                },
-                "backgroundDeviceAssistantAthena": {
-                    "value": [
-                        {
-                            "origin": "linear-gradient(26.05deg, rgba(26, 140, 255, 0.16) 0%, rgba(8, 8, 8, 0) 72.24%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".linear",
-                                "colors": ["rgba(26, 140, 255, 0.16)", "rgba(8, 8, 8, 0)"],
-                                "locations": [0, 0.72],
-                                "startPoint": { "x": 0.28, "y": 0.95 },
-                                "endPoint": { "x": 0.72, "y": 0.05 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(0, 85, 255, 0.28) 0%, rgba(8, 8, 8, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(0, 85, 255, 0.28)", "rgba(8, 8, 8, 0)"],
-                                "locations": [0, 1],
-                                "startPoint": { "x": 0.2, "y": 1 },
-                                "endPoint": { "x": -0.8, "y": -0.5 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(128, 0, 255, 0.48) 0%, rgba(8, 8, 8, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(128, 0, 255, 0.48)", "rgba(8, 8, 8, 0)"],
-                                "locations": [0, 1],
-                                "startPoint": { "x": 0.6, "y": 1.33 },
-                                "endPoint": { "x": 1.5, "y": -0.2 }
-                            }
-                        },
-                        { "origin": "#080808FF", "backgroundColor": "#080808FF" }
-                    ],
-                    "comment": "Фон Джой на мобиле"
-                },
-                "backgroundDeviceAssistantJoy": {
-                    "value": [
-                        {
-                            "origin": "linear-gradient(26.05deg, rgba(255, 148, 77, 0.28) 0%, rgba(8, 8, 8, 0) 72.24%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".linear",
-                                "colors": ["rgba(255, 148, 77, 0.28)", "rgba(8, 8, 8, 0)"],
-                                "locations": [0, 0.72],
-                                "startPoint": { "x": 0.28, "y": 0.95 },
-                                "endPoint": { "x": 0.72, "y": 0.05 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(138, 60, 215, 0.24) 0%, rgba(8, 8, 8, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(138, 60, 215, 0.24)", "rgba(8, 8, 8, 0)"],
-                                "locations": [0, 1],
-                                "startPoint": { "x": 0.2, "y": 1 },
-                                "endPoint": { "x": -0.8, "y": -0.5 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(89, 22, 215, 0.48) 0%, rgba(8, 8, 8, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(89, 22, 215, 0.48)", "rgba(8, 8, 8, 0)"],
-                                "locations": [0, 1],
-                                "startPoint": { "x": 0.6, "y": 1.33 },
-                                "endPoint": { "x": 1.5, "y": -0.2 }
-                            }
-                        },
-                        { "origin": "#080808FF", "backgroundColor": "#080808FF" }
-                    ],
-                    "comment": "Фон Джой на мобиле"
-                },
-                "backgroundDeviceAssistantB2E": {
-                    "value": [
-                        {
-                            "origin": "linear-gradient(26.05deg, rgba(15, 153, 24, 0.28) 0%, rgba(8, 8, 8, 0) 72.24%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".linear",
-                                "colors": ["rgba(15, 153, 24, 0.28)", "rgba(8, 8, 8, 0)"],
-                                "locations": [0, 0.72],
-                                "startPoint": { "x": 0.28, "y": 0.95 },
-                                "endPoint": { "x": 0.72, "y": 0.05 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(0, 170, 255, 0.24) 0%, rgba(8, 8, 8, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(0, 170, 255, 0.24)", "rgba(8, 8, 8, 0)"],
-                                "locations": [0, 1],
-                                "startPoint": { "x": 0.2, "y": 1 },
-                                "endPoint": { "x": -0.8, "y": -0.5 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(0, 102, 255, 0.6) 0%, rgba(8, 8, 8, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(0, 102, 255, 0.6)", "rgba(8, 8, 8, 0)"],
-                                "locations": [0, 1],
-                                "startPoint": { "x": 0.6, "y": 1.33 },
-                                "endPoint": { "x": 1.5, "y": -0.2 }
-                            }
-                        },
-                        { "origin": "#080808FF", "backgroundColor": "#080808FF" }
-                    ],
-                    "comment": "Фон Джой на мобиле"
-                },
-                "backgroundDeviceAssistantBrand": {
-                    "value": [
-                        {
-                            "origin": "linear-gradient(26.05deg, rgba(82, 142, 255, 0.28) 0%, rgba(8, 8, 8, 0) 72.24%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".linear",
-                                "colors": ["rgba(82, 142, 255, 0.28)", "rgba(8, 8, 8, 0)"],
-                                "locations": [0, 0.72],
-                                "startPoint": { "x": 0.28, "y": 0.95 },
-                                "endPoint": { "x": 0.72, "y": 0.05 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(49, 94, 255, 0.24) 0%, rgba(8, 8, 8, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(49, 94, 255, 0.24)", "rgba(8, 8, 8, 0)"],
-                                "locations": [0, 1],
-                                "startPoint": { "x": 0.2, "y": 1 },
-                                "endPoint": { "x": -0.8, "y": -0.5 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(28, 107, 255, 0.48) 0%, rgba(8, 8, 8, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(28, 107, 255, 0.48)", "rgba(8, 8, 8, 0)"],
-                                "locations": [0, 1],
-                                "startPoint": { "x": 0.6, "y": 1.33 },
-                                "endPoint": { "x": 1.5, "y": -0.2 }
-                            }
-                        },
-                        { "origin": "#080808FF", "backgroundColor": "#080808FF" }
-                    ],
-                    "comment": "Фон Джой на мобиле"
+                    "comment": "Фоновый градиент бренда на мобиле"
                 }
             },
             "dark": {
@@ -1231,6 +1324,14 @@
                             "locations": [0, 1],
                             "startPoint": { "x": 0, "y": 0.5 },
                             "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#24B23E", "#00A4D1"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
                         }
                     },
                     "comment": "Градиент"
@@ -1239,6 +1340,14 @@
                     "value": {
                         "origin": "linear-gradient(89.83deg, #118CDF 0%, #7A7AFF 100%)",
                         "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#118CDF", "#7A7AFF"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": ["#118CDF", "#7A7AFF"],
@@ -1259,6 +1368,14 @@
                             "locations": [0, 1],
                             "startPoint": { "x": 0, "y": 0.5 },
                             "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#FCA349", "#FF52C5"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
                         }
                     },
                     "comment": "Градиент Джой"
@@ -1273,6 +1390,14 @@
                             "locations": [0, 1],
                             "startPoint": { "x": 0, "y": 0.5 },
                             "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#24B23E", "#00A4D1"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
                         }
                     },
                     "comment": "Градиент B2E-ассистента"
@@ -1281,6 +1406,14 @@
                     "value": {
                         "origin": "linear-gradient(93.97deg, #3E79F0 6.49%, #27C6E5 93.51%)",
                         "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": ["#3E79F0", "#27C6E5"],
@@ -1351,6 +1484,14 @@
                             "locations": [0, 1],
                             "startPoint": { "x": 0, "y": 0.5 },
                             "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#24B23E", "#1CC9C9"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
                         }
                     },
                     "comment": "Градиент на темном фоне"
@@ -1359,6 +1500,14 @@
                     "value": {
                         "origin": "linear-gradient(93.97deg, #52BAFF 6.49%, #ADADFF 93.51%)",
                         "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#52BAFF", "#ADADFF"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": ["#52BAFF", "#ADADFF"],
@@ -1379,6 +1528,14 @@
                             "locations": [0, 1],
                             "startPoint": { "x": 0, "y": 0.5 },
                             "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#FD9C68", "#F391E2"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
                         }
                     },
                     "comment": "Градиент Джой на темном фоне"
@@ -1393,6 +1550,14 @@
                             "locations": [0, 1],
                             "startPoint": { "x": 0, "y": 0.5 },
                             "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#24B23E", "#1CC9C9"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
                         }
                     },
                     "comment": "Градиент B2E-ассистента на темном фоне"
@@ -1401,6 +1566,14 @@
                     "value": {
                         "origin": "linear-gradient(89.83deg, #528EFF 0%, #04C6C9 100%)",
                         "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#528EFF", "#04C6C9"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": ["#528EFF", "#04C6C9"],
@@ -1471,6 +1644,14 @@
                             "locations": [0, 1],
                             "startPoint": { "x": 0, "y": 0.5 },
                             "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#24B23E", "#00A6C7"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
                         }
                     },
                     "comment": "Градиент на светлом фоне"
@@ -1479,6 +1660,14 @@
                     "value": {
                         "origin": "linear-gradient(89.83deg, #118CDF 0%, #7A7AFF 100%)",
                         "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#118CDF", "#7A7AFF"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": ["#118CDF", "#7A7AFF"],
@@ -1499,6 +1688,14 @@
                             "locations": [0, 1],
                             "startPoint": { "x": 0, "y": 0.5 },
                             "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#FCA349", "#FF52C5"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
                         }
                     },
                     "comment": "Градиент Джой на светлом фоне"
@@ -1513,6 +1710,14 @@
                             "locations": [0, 1],
                             "startPoint": { "x": 0, "y": 0.5 },
                             "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#24B23E", "#00A6C7"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
                         }
                     },
                     "comment": "Градиент B2E-ассистента на светлом фоне"
@@ -1521,6 +1726,14 @@
                     "value": {
                         "origin": "linear-gradient(93.97deg, #3E79F0 6.49%, #27C6E5 93.51%)",
                         "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#3E79F0", "#27C6E5"],
+                            "locations": [0, 1],
+                            "startPoint": { "x": 0, "y": 0.5 },
+                            "endPoint": { "x": 1, "y": 0.5 }
+                        },
+                        "xml": {
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": ["#3E79F0", "#27C6E5"],
@@ -1805,6 +2018,14 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 0.5, "y": 0 },
                                 "endPoint": { "x": 0.5, "y": 1 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(245, 245, 245, 0)", "rgba(245, 245, 245, 0)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0.5, "y": 0 },
+                                "endPoint": { "x": 0.5, "y": 0.5 }
                             }
                         },
                         { "origin": "#F5F5F5FF", "backgroundColor": "#F5F5F5FF" }
@@ -1822,6 +2043,14 @@
                                 "locations": [0, 0.65],
                                 "startPoint": { "x": 0.7, "y": 0.96 },
                                 "endPoint": { "x": 0.3, "y": 0.04 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(4, 255, 44, 0.02)", "rgba(255, 255, 255, 0)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0.5, "y": 0.2 },
+                                "endPoint": { "x": 0.9, "y": 1.2 }
                             }
                         },
                         {
@@ -1833,6 +2062,14 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 0.75, "y": 1 },
                                 "endPoint": { "x": 0.165, "y": 0 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".radial",
+                                "colors": ["rgba(0, 179, 255, 0.06)", "rgba(0, 209, 255, 0.01)"],
+                                "locations": [0, 1],
+                                "center": { "x": 0.66, "y": 1 },
+                                "radius": { "x": 1, "y": 1 }
                             }
                         },
                         {
@@ -1844,6 +2081,14 @@
                                 "locations": [0.5, 1],
                                 "startPoint": { "x": 0.5, "y": 0 },
                                 "endPoint": { "x": 0.5, "y": 1 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(255, 255, 255, 0)", "rgba(0, 251, 59, 0.05)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0, "y": 0.5 },
+                                "endPoint": { "x": 0, "y": 1 }
                             }
                         },
                         {
@@ -1855,11 +2100,19 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 1, "y": 0.5 },
                                 "endPoint": { "x": 0, "y": 0.5 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(6, 195, 255, 0.05)", "rgba(255, 255, 255, 0)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 1, "y": 0 },
+                                "endPoint": { "x": 0, "y": 0 }
                             }
                         },
                         { "origin": "#FFFFFFFF", "backgroundColor": "#FFFFFFFF" }
                     ],
-                    "comment": "Фон Джой на мобиле"
+                    "comment": "Фон ассистента на мобиле"
                 },
                 "backgroundMobileAssistantAthena": {
                     "value": [
@@ -1872,6 +2125,14 @@
                                 "locations": [0, 0.65],
                                 "startPoint": { "x": 0.7, "y": 0.96 },
                                 "endPoint": { "x": 0.3, "y": 0.04 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(0, 224, 255, 0.06)", "rgba(255, 255, 255, 0)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0.5, "y": 0.2 },
+                                "endPoint": { "x": 0.9, "y": 1.2 }
                             }
                         },
                         {
@@ -1883,6 +2144,14 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 0.75, "y": 1 },
                                 "endPoint": { "x": 0.165, "y": 0 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".radial",
+                                "colors": ["rgba(0, 87, 255, 0.04)", "rgba(87, 8, 255, 0.01)"],
+                                "locations": [0, 1],
+                                "center": { "x": 0.66, "y": 1 },
+                                "radius": { "x": 1, "y": 1 }
                             }
                         },
                         {
@@ -1894,6 +2163,14 @@
                                 "locations": [0.5, 1],
                                 "startPoint": { "x": 0.5, "y": 0 },
                                 "endPoint": { "x": 0.5, "y": 1 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(255, 255, 255, 0)", "rgba(0, 224, 255, 0.06)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0, "y": 0.5 },
+                                "endPoint": { "x": 0, "y": 1 }
                             }
                         },
                         {
@@ -1905,11 +2182,19 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 1, "y": 0.5 },
                                 "endPoint": { "x": 0, "y": 0.5 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(0, 71, 253, 0.02)", "rgba(255, 255, 255, 0)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 1, "y": 0 },
+                                "endPoint": { "x": 0, "y": 0 }
                             }
                         },
                         { "origin": "#FFFFFFFF", "backgroundColor": "#FFFFFFFF" }
                     ],
-                    "comment": "Фон Джой на мобиле"
+                    "comment": "Фон Афины на мобиле"
                 },
                 "backgroundMobileAssistantJoy": {
                     "value": [
@@ -1922,6 +2207,14 @@
                                 "locations": [0, 0.65],
                                 "startPoint": { "x": 0.7, "y": 0.96 },
                                 "endPoint": { "x": 0.3, "y": 0.04 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#FFC8030D", "rgba(255, 255, 255, 0)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0.5, "y": 0.2 },
+                                "endPoint": { "x": 0.9, "y": 1.2 }
                             }
                         },
                         {
@@ -1933,6 +2226,14 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 0.75, "y": 1 },
                                 "endPoint": { "x": 0.165, "y": 0 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".radial",
+                                "colors": ["rgba(148, 0, 238, 0.02)", "rgba(160, 4, 255, 0.01)"],
+                                "locations": [0, 1],
+                                "center": { "x": 0.66, "y": 1 },
+                                "radius": { "x": 1, "y": 1 }
                             }
                         },
                         {
@@ -1944,6 +2245,14 @@
                                 "locations": [0.5, 1],
                                 "startPoint": { "x": 0.5, "y": 0 },
                                 "endPoint": { "x": 0.5, "y": 1 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(255, 255, 255, 0)", "rgba(255, 184, 0, 0.04)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0, "y": 0.5 },
+                                "endPoint": { "x": 0, "y": 1 }
                             }
                         },
                         {
@@ -1955,6 +2264,14 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 1, "y": 0.5 },
                                 "endPoint": { "x": 0, "y": 0.5 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(240, 0, 187, 0.03)", "rgba(255, 255, 255, 0)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 1, "y": 0 },
+                                "endPoint": { "x": 0, "y": 0 }
                             }
                         },
                         { "origin": "#FFFFFFFF", "backgroundColor": "#FFFFFFFF" }
@@ -1972,6 +2289,14 @@
                                 "locations": [0, 0.65],
                                 "startPoint": { "x": 0.7, "y": 0.96 },
                                 "endPoint": { "x": 0.3, "y": 0.04 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(4, 255, 44, 0.02)", "rgba(255, 255, 255, 0)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0.5, "y": 0.2 },
+                                "endPoint": { "x": 0.9, "y": 1.2 }
                             }
                         },
                         {
@@ -1983,6 +2308,14 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 0.75, "y": 1 },
                                 "endPoint": { "x": 0.165, "y": 0 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".radial",
+                                "colors": ["rgba(0, 179, 255, 0.06)", "rgba(0, 209, 255, 0.01)"],
+                                "locations": [0, 1],
+                                "center": { "x": 0.66, "y": 1 },
+                                "radius": { "x": 1, "y": 1 }
                             }
                         },
                         {
@@ -1994,6 +2327,14 @@
                                 "locations": [0.5, 1],
                                 "startPoint": { "x": 0.5, "y": 0 },
                                 "endPoint": { "x": 0.5, "y": 1 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(255, 255, 255, 0)", "rgba(0, 251, 59, 0.05)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0, "y": 0.5 },
+                                "endPoint": { "x": 0, "y": 1 }
                             }
                         },
                         {
@@ -2005,11 +2346,19 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 1, "y": 0.5 },
                                 "endPoint": { "x": 0, "y": 0.5 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(6, 195, 255, 0.05)", "rgba(255, 255, 255, 0)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 1, "y": 0 },
+                                "endPoint": { "x": 0, "y": 0 }
                             }
                         },
                         { "origin": "#FFFFFFFF", "backgroundColor": "#FFFFFFFF" }
                     ],
-                    "comment": "Фон Джой на мобиле"
+                    "comment": "Фоновый градиент B2E-ассистента на мобиле"
                 },
                 "backgroundMobileAssistantBrand": {
                     "value": [
@@ -2022,6 +2371,14 @@
                                 "locations": [0, 0.65],
                                 "startPoint": { "x": 0.7, "y": 0.96 },
                                 "endPoint": { "x": 0.3, "y": 0.04 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(255, 255, 255, 0)", "rgba(40, 197, 230, 0.06)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0.5, "y": 0.2 },
+                                "endPoint": { "x": 0.9, "y": 1.2 }
                             }
                         },
                         {
@@ -2033,6 +2390,14 @@
                                 "locations": [0, 1],
                                 "startPoint": { "x": 0.75, "y": 1 },
                                 "endPoint": { "x": 0.165, "y": 0 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".radial",
+                                "colors": ["rgba(42, 114, 248, 0.04)", "rgba(41, 105, 227, 0.01)"],
+                                "locations": [0, 1],
+                                "center": { "x": 0.66, "y": 1 },
+                                "radius": { "x": 1, "y": 1 }
                             }
                         },
                         {
@@ -2044,6 +2409,14 @@
                                 "locations": [0.5, 1],
                                 "startPoint": { "x": 0.5, "y": 0 },
                                 "endPoint": { "x": 0.5, "y": 1 }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["rgba(42, 114, 248, 0)", "rgba(42, 114, 248, 0.04)"],
+                                "locations": [0, 1],
+                                "startPoint": { "x": 0, "y": 0.5 },
+                                "endPoint": { "x": 0, "y": 1 }
                             }
                         },
                         {
@@ -2055,206 +2428,19 @@
                                 "locations": [0.01, 1],
                                 "startPoint": { "x": 1, "y": 0.49 },
                                 "endPoint": { "x": 0, "y": 0.51 }
-                            }
-                        },
-                        { "origin": "#FFFFFFFF", "backgroundColor": "#FFFFFFFF" }
-                    ],
-                    "comment": "Фон Джой на мобиле"
-                },
-                "backgroundDeviceAssistantMain": {
-                    "value": [
-                        {
-                            "origin": "linear-gradient(26.05deg, rgba(24, 242, 61, 0.08) 0%, rgba(255, 255, 255, 0) 72.24%)",
-                            "swift": {
+                            },
+                            "xml": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": ["rgba(24, 242, 61, 0.08)", "rgba(255, 255, 255, 0)"],
-                                "locations": [0, 0.72],
-                                "startPoint": { "x": 0.28, "y": 0.95 },
-                                "endPoint": { "x": 0.72, "y": 0.05 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(0, 170, 255, 0.06) 0%, rgba(255, 255, 255, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(0, 170, 255, 0.06)", "rgba(255, 255, 255, 0)"],
+                                "colors": ["rgba(40, 197, 230, 0.03)", "rgba(255, 255, 255, 0)"],
                                 "locations": [0, 1],
-                                "startPoint": { "x": 0.2, "y": 1 },
-                                "endPoint": { "x": -0.8, "y": -0.5 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(0, 170, 255, 0.12) 0%, rgba(255, 255, 255, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(0, 170, 255, 0.12)", "rgba(255, 255, 255, 0)"],
-                                "locations": [0, 1],
-                                "startPoint": { "x": 0.6, "y": 1.33 },
-                                "endPoint": { "x": 1.5, "y": -0.2 }
+                                "startPoint": { "x": 1, "y": 0 },
+                                "endPoint": { "x": 0, "y": 0 }
                             }
                         },
                         { "origin": "#FFFFFFFF", "backgroundColor": "#FFFFFFFF" }
                     ],
-                    "comment": "Фон Джой на мобиле"
-                },
-                "backgroundDeviceAssistantAthena": {
-                    "value": [
-                        {
-                            "origin": "linear-gradient(26.05deg, rgba(26, 178, 255, 0.08) 0%, rgba(255, 255, 255, 0) 72.24%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".linear",
-                                "colors": ["rgba(26, 178, 255, 0.08)", "rgba(255, 255, 255, 0)"],
-                                "locations": [0, 0.72],
-                                "startPoint": { "x": 0.28, "y": 0.95 },
-                                "endPoint": { "x": 0.72, "y": 0.05 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(0, 170, 255, 0.06) 0%, rgba(255, 255, 255, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(0, 170, 255, 0.06)", "rgba(255, 255, 255, 0)"],
-                                "locations": [0, 1],
-                                "startPoint": { "x": 0.2, "y": 1 },
-                                "endPoint": { "x": -0.8, "y": -0.5 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(128, 0, 255, 0.08) 0%, rgba(255, 255, 255, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(128, 0, 255, 0.08)", "rgba(255, 255, 255, 0)"],
-                                "locations": [0, 1],
-                                "startPoint": { "x": 0.6, "y": 1.33 },
-                                "endPoint": { "x": 1.5, "y": -0.2 }
-                            }
-                        },
-                        { "origin": "#FFFFFFFF", "backgroundColor": "#FFFFFFFF" }
-                    ],
-                    "comment": "Фон Джой на мобиле"
-                },
-                "backgroundDeviceAssistantJoy": {
-                    "value": [
-                        {
-                            "origin": "linear-gradient(26.05deg, rgba(255, 219, 77, 0.1) 0%, rgba(255, 255, 255, 0) 72.24%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".linear",
-                                "colors": ["rgba(255, 219, 77, 0.1)", "rgba(255, 255, 255, 0)"],
-                                "locations": [0, 0.72],
-                                "startPoint": { "x": 0.28, "y": 0.95 },
-                                "endPoint": { "x": 0.72, "y": 0.05 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(163, 71, 255, 0.06) 0%, rgba(255, 255, 255, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(163, 71, 255, 0.06)", "rgba(255, 255, 255, 0)"],
-                                "locations": [0, 1],
-                                "startPoint": { "x": 0.2, "y": 1 },
-                                "endPoint": { "x": -0.8, "y": -0.5 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(140, 26, 255, 0.08) 0%, rgba(255, 255, 255, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(140, 26, 255, 0.08)", "rgba(255, 255, 255, 0)"],
-                                "locations": [0, 1],
-                                "startPoint": { "x": 0.6, "y": 1.33 },
-                                "endPoint": { "x": 1.5, "y": -0.2 }
-                            }
-                        },
-                        { "origin": "#FFFFFFFF", "backgroundColor": "#FFFFFFFF" }
-                    ],
-                    "comment": "Фон Джой на мобиле"
-                },
-                "backgroundDeviceAssistantB2E": {
-                    "value": [
-                        {
-                            "origin": "linear-gradient(26.05deg, rgba(24, 242, 61, 0.08) 0%, rgba(255, 255, 255, 0) 72.24%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".linear",
-                                "colors": ["rgba(24, 242, 61, 0.08)", "rgba(255, 255, 255, 0)"],
-                                "locations": [0, 0.72],
-                                "startPoint": { "x": 0.28, "y": 0.95 },
-                                "endPoint": { "x": 0.72, "y": 0.05 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(0, 170, 255, 0.06) 0%, rgba(255, 255, 255, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(0, 170, 255, 0.06)", "rgba(255, 255, 255, 0)"],
-                                "locations": [0, 1],
-                                "startPoint": { "x": 0.2, "y": 1 },
-                                "endPoint": { "x": -0.8, "y": -0.5 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(0, 170, 255, 0.12) 0%, rgba(255, 255, 255, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(0, 170, 255, 0.12)", "rgba(255, 255, 255, 0)"],
-                                "locations": [0, 1],
-                                "startPoint": { "x": 0.6, "y": 1.33 },
-                                "endPoint": { "x": 1.5, "y": -0.2 }
-                            }
-                        },
-                        { "origin": "#FFFFFFFF", "backgroundColor": "#FFFFFFFF" }
-                    ],
-                    "comment": "Фон Джой на мобиле"
-                },
-                "backgroundDeviceAssistantBrand": {
-                    "value": [
-                        {
-                            "origin": "linear-gradient(26.05deg, rgba(41, 195, 230, 0.1) 0%, rgba(255, 255, 255, 0) 72.24%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".linear",
-                                "colors": ["rgba(41, 195, 230, 0.1)", "rgba(255, 255, 255, 0)"],
-                                "locations": [0, 0.72],
-                                "startPoint": { "x": 0.28, "y": 0.95 },
-                                "endPoint": { "x": 0.72, "y": 0.05 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(100.59% 151.52% at 15.68% 100%, rgba(42, 114, 248, 0.08) 0%, rgba(255, 255, 255, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(42, 114, 248, 0.08)", "rgba(255, 255, 255, 0)"],
-                                "locations": [0, 1],
-                                "startPoint": { "x": 0.2, "y": 1 },
-                                "endPoint": { "x": -0.8, "y": -0.5 }
-                            }
-                        },
-                        {
-                            "origin": "radial-gradient(88.9% 159.44% at 58.27% 143.96%, rgba(41, 105, 227, 0.08) 0%, rgba(255, 255, 255, 0) 99.69%)",
-                            "swift": {
-                                "kind": "gradient",
-                                "type": ".radial",
-                                "colors": ["rgba(41, 105, 227, 0.08)", "rgba(255, 255, 255, 0)"],
-                                "locations": [0, 1],
-                                "startPoint": { "x": 0.6, "y": 1.33 },
-                                "endPoint": { "x": 1.5, "y": -0.2 }
-                            }
-                        },
-                        { "origin": "#FFFFFFFF", "backgroundColor": "#FFFFFFFF" }
-                    ],
-                    "comment": "Фон Джой на мобиле"
+                    "comment": "Фоновый градиент бренда на мобиле"
                 }
             },
             "dark": {
