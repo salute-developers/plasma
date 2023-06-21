@@ -10,7 +10,7 @@ import { Error } from './Error/Error';
 import { PullRequest } from './PullRequest/PullRequest';
 import { SBSansTextMono } from './mixins';
 import { useFetchTheme } from '../hooks';
-import { clearURLParam, getThemeName } from './utils';
+import { clearURLParam, getURLParams } from './utils';
 import type { PageType } from './types';
 import type { Theme as ThemeType } from '../builder/types';
 
@@ -33,10 +33,14 @@ const App = () => {
     const [data, setData] = useState<ThemeType>();
     const [token, setToken] = useState<string | undefined>();
 
-    const themeName = getThemeName();
-    const [themeData, errorMessage] = useFetchTheme(themeName);
+    const [themeName, branchName] = getURLParams(['theme', 'branch']);
+    const [themeData, errorMessage] = useFetchTheme(themeName, branchName);
 
     useEffect(() => {
+        if (!token) {
+            return;
+        }
+
         if (themeData) {
             setState('theme');
             setData(themeData);
@@ -45,7 +49,7 @@ const App = () => {
         if (errorMessage) {
             setState('error');
         }
-    }, [themeData, errorMessage]);
+    }, [themeData, token, errorMessage]);
 
     const onSetToken = useCallback((value: string) => {
         setToken(value);

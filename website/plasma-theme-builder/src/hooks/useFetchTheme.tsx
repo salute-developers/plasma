@@ -3,10 +3,15 @@ import { useEffect, useState } from 'react';
 import { getFilesSource } from '../api';
 import type { Theme as ThemeType } from '../builder/types';
 
-const getThemeData = async (themeName: string, owner = 'salute-developers', repo = 'plasma', token?: string) =>
-    getFilesSource(owner, repo, `packages/plasma-tokens/data/themes/${themeName}.json`, token);
+const getThemeData = async (
+    themeName: string,
+    branchName?: string,
+    owner = 'salute-developers',
+    repo = 'plasma',
+    token?: string,
+) => getFilesSource(owner, repo, `packages/plasma-tokens/data/themes/${themeName}.json`, token, branchName);
 
-export const useFetchTheme = (themeName: string | null) => {
+export const useFetchTheme = (themeName?: string, branchName?: string) => {
     const [response, setResponse] = useState<ThemeType | undefined>();
     const [errorMessage, setErrorMessage] = useState<string | undefined>();
 
@@ -17,7 +22,7 @@ export const useFetchTheme = (themeName: string | null) => {
 
         const fetchData = async () => {
             try {
-                const rawData = await getThemeData(themeName);
+                const rawData = await getThemeData(themeName, branchName);
                 const dataObject = JSON.parse(rawData);
                 setResponse(dataObject);
             } catch (err) {
@@ -27,7 +32,7 @@ export const useFetchTheme = (themeName: string | null) => {
         };
 
         fetchData();
-    }, [themeName]);
+    }, [branchName, themeName]);
 
     return [response, errorMessage] as const;
 };
