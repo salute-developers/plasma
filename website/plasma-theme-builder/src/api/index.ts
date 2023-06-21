@@ -9,4 +9,6 @@ export {
     createTree,
     getCurrentSha,
     updateCommit,
+    getDefaultBranch,
+    getPullRequestList,
 } from './githubAPIMethods';

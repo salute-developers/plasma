@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { nanoid } from 'nanoid';
 import { BodyS, H5, Link, Progress } from '@salutejs/plasma-b2c';
 import { tertiary } from '@salutejs/plasma-tokens-b2c';
 
@@ -30,6 +29,7 @@ const Header = styled(H5)`
 
 const statusMap: Record<number, string> = {
     [Steps.INIT]: 'Подготовка...',
+    [Steps.GET_DEFAULT_BRANCH]: 'Создание базовой ветки...',
     [Steps.CREATE_BRANCH]: 'Создание новой ветки...',
     [Steps.LATEST_COMMIT]: 'Получение последнего коммита из master ветки...',
     [Steps.CREATE_FILES_BLOB]: 'Создание blob объекта из темы...',
@@ -37,19 +37,20 @@ const statusMap: Record<number, string> = {
     [Steps.CREATE_COMMIT]: 'Создание нового коммита...',
     [Steps.SET_COMMIT_TO_BRANCH]: 'Установка коммита на ветку...',
     [Steps.CREATE_PULL_REQUEST]: 'Создание пул-реквеста...',
+    [Steps.READ_PULL_REQUEST]: 'Чтение пул-реквеста...',
     [Steps.DONE]: 'Работа завершена',
 };
 
 interface PullRequestProps {
     data?: ThemeType;
     token?: string;
+    branchNameFromParam?: string;
 }
 
-export const PullRequest = ({ data, token }: PullRequestProps) => {
+export const PullRequest = ({ data, token, branchNameFromParam }: PullRequestProps) => {
     const [step, createPullRequest] = useRunGithubPRProcess({
         owner: 'salute-developers',
         repo: 'plasma',
-        branchName: `theme-${nanoid()}`,
     });
     const [pullRequestLink, setPullRequestLink] = useState<string | undefined>('');
 
@@ -68,27 +69,32 @@ export const PullRequest = ({ data, token }: PullRequestProps) => {
 
         const getResult = async () => {
             const result = await createPullRequest({
-                commitMessage: `${commitType}(plasma-tokens): ${commitMessage}`,
                 prTitle: `${commitType}(plasma-tokens): ${pullRequestHeader}`,
+                commitMessage: `${commitType}(plasma-tokens): ${commitMessage}`,
                 filesTree,
                 token,
+                themeName,
+                branchNameFromParam,
             });
-            setPullRequestLink(result?.data.html_url);
+
+            const link = (Array.isArray(result?.data) ? result?.data[0] : result?.data).html_url;
+
+            setPullRequestLink(link);
         };
 
         getResult();
-    }, [createPullRequest, data, step, token]);
+    }, [createPullRequest, branchNameFromParam, data, step, token]);
 
     return (
         <StyledPullRequest>
             <ProgressGroup>
-                <Header>Статус создания пул-реквеста в Github</Header>
+                <Header>Статус работы с пул-реквестом в Github</Header>
                 {pullRequestLink ? (
-                    <Link href={pullRequestLink}>Ссылка на реквест</Link>
+                    <Link target='_blank' href={pullRequestLink}>Ссылка на реквест</Link>
                 ) : (
                     <>
                         <Status>{statusMap[step]}</Status>
-                        <Progress value={100 / (8 / step)} status="accent" />
+                        <Progress value={Math.round(100 / (9 / step))} status="accent" />
                     </>
                 )}
             </ProgressGroup>

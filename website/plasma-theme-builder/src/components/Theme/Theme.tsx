@@ -49,10 +49,11 @@ const IconButton = styled(Button)``;
 
 interface ThemeProps {
     data?: ThemeType;
+    branchNameFromParam?: string;
     onPullRequest: (data: ThemeType) => void;
 }
 
-export const Theme = ({ data, onPullRequest }: ThemeProps) => {
+export const Theme = ({ data, branchNameFromParam, onPullRequest }: ThemeProps) => {
     const initialThemeData = useNormalizeThemeSections(data);
 
     const [themeData, setThemeData] = useState(initialThemeData);
@@ -243,7 +244,11 @@ export const Theme = ({ data, onPullRequest }: ThemeProps) => {
                     </TokenContext.Provider>
                 ))}
             </Content>
-            <StyledButton text="Подтвердить создание темы" view="primary" onClick={onCreateTheme} />
+            <StyledButton
+                text={`Подтвердить ${branchNameFromParam ? 'редактирование' : 'создание'} темы`}
+                view="primary"
+                onClick={onCreateTheme}
+            />
         </StyledTheme>
     );
 };

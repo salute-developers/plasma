@@ -18,6 +18,15 @@ export interface GitCreateBlobResponse {
     type?: FileType;
 }
 
+export const getDefaultBranch = async (octokit: Octokit, owner: string, repo: string) => {
+    const { data: refData } = await octokit.rest.repos.get({
+        owner,
+        repo,
+    });
+
+    return refData.default_branch;
+};
+
 export const getCurrentSha = async (octokit: Octokit, owner: string, repo: string, branchName: string) => {
     const { data: refData } = await octokit.rest.git.getRef({
         owner,
@@ -111,17 +120,27 @@ export const createBranch = async (octokit: Octokit, owner: string, repo: string
     });
 };
 
+export const getPullRequestList = async (octokit: Octokit, owner: string, repo: string, base: string, branchName: string) =>
+    octokit.rest.pulls.list({
+        owner,
+        repo,
+        state: 'open',
+        base: base,
+        head: `${owner}:${branchName}`,
+    });
+
 export const createPullRequest = async (
     octokit: Octokit,
     owner: string,
     repo: string,
     branchName: string,
     title: string,
+    base: string,
 ) =>
     octokit.rest.pulls.create({
         owner,
         repo,
-        base: 'refs/heads/master',
+        base: `refs/heads/${base}`,
         head: `refs/heads/${branchName}`,
         title,
     });

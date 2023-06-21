@@ -9,31 +9,36 @@ import {
     createTree,
     getCurrentSha,
     updateCommit,
+    getDefaultBranch,
+    getPullRequestList,
 } from '../api';
 
 interface RunProcessGithubPR {
     owner: string;
     repo: string;
-    branchName: string;
 }
 
 interface CreatePR {
     commitMessage: string;
     prTitle: string;
     filesTree: Record<string, string>;
+    themeName: string;
     token?: string;
+    branchNameFromParam?: string;
 }
 
 export const enum Steps {
     INIT = 0,
-    CREATE_BRANCH = 1,
-    LATEST_COMMIT = 2,
-    CREATE_FILES_BLOB = 3,
-    CREATE_FILES_TREE = 4,
-    CREATE_COMMIT = 5,
-    SET_COMMIT_TO_BRANCH = 6,
-    CREATE_PULL_REQUEST = 7,
-    DONE = 8,
+    GET_DEFAULT_BRANCH = 1,
+    CREATE_BRANCH = 2,
+    LATEST_COMMIT = 3,
+    CREATE_FILES_BLOB = 4,
+    CREATE_FILES_TREE = 5,
+    CREATE_COMMIT = 6,
+    SET_COMMIT_TO_BRANCH = 7,
+    CREATE_PULL_REQUEST = 8,
+    READ_PULL_REQUEST = 9,
+    DONE = 10,
 }
 
 const saveMetaData = (octokit: Octokit, owner: string, repo: string) => <T>(fn: (...args: any[]) => Promise<T>) => (
@@ -42,11 +47,11 @@ const saveMetaData = (octokit: Octokit, owner: string, repo: string) => <T>(fn: 
 
 export const sleep = async (seconds: number) => new Promise((r) => setTimeout(r, seconds));
 
-export const useRunGithubPRProcess = ({ owner, repo, branchName }: RunProcessGithubPR) => {
+export const useRunGithubPRProcess = ({ owner, repo }: RunProcessGithubPR) => {
     const [step, setStep] = useState<Steps>(Steps.INIT);
 
     const onCreatePullRequest = useCallback(
-        async ({ commitMessage, prTitle, filesTree, token }: CreatePR) => {
+        async ({ commitMessage, prTitle, filesTree, token, themeName, branchNameFromParam }: CreatePR) => {
             const octokit = new Octokit({
                 auth: token,
             });
@@ -56,7 +61,11 @@ export const useRunGithubPRProcess = ({ owner, repo, branchName }: RunProcessGit
                 return saveMetaData(octokit, owner, repo);
             };
 
-            if (branchName !== 'master') {
+            const branchName = `theme-builder-${themeName}`;
+
+            const defaultBranch = await withMetaData(Steps.GET_DEFAULT_BRANCH)(getDefaultBranch)();
+
+            if (branchNameFromParam !== branchName) {
                 await withMetaData(Steps.CREATE_BRANCH)(createBranch)(branchName);
             }
 
@@ -81,14 +90,23 @@ export const useRunGithubPRProcess = ({ owner, repo, branchName }: RunProcessGit
             await withMetaData(Steps.SET_COMMIT_TO_BRANCH)(updateCommit)(branchName, newCommitSha);
 
             let pullRequest;
-            if (branchName !== 'master') {
-                pullRequest = await withMetaData(Steps.CREATE_PULL_REQUEST)(createPullRequest)(branchName, prTitle);
+            if (branchNameFromParam !== branchName) {
+                pullRequest = await withMetaData(Steps.CREATE_PULL_REQUEST)(createPullRequest)(
+                    branchName,
+                    prTitle,
+                    defaultBranch,
+                );
+            } else {
+                pullRequest = await withMetaData(Steps.READ_PULL_REQUEST)(getPullRequestList)(
+                    defaultBranch,
+                    branchName,
+                );
             }
 
             setStep(Steps.DONE);
             return pullRequest;
         },
-        [branchName, owner, repo],
+        [owner, repo],
     );
 
     return [step, onCreatePullRequest] as const;
