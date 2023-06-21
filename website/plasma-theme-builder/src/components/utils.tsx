@@ -59,9 +59,13 @@ export const getUUID = () => {
     return pluginClientId;
 };
 
-export const getThemeName = () => {
-    const params = new URL(window.location.toString()).searchParams;
-    return params.get('theme');
+export const getURLParams = (params: string[]) => {
+    const paramsFromURL = new URL(window.location.toString()).searchParams;
+
+    return params.reduce((acc: (string | undefined)[], param) => {
+        acc.push(paramsFromURL.get(param) || undefined);
+        return acc;
+    }, []);
 };
 
 export const clearURLParam = () => (window.location.href = '/');
