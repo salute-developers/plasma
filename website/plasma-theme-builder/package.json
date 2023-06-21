@@ -9,13 +9,13 @@
         "build": "react-scripts build"
     },
     "dependencies": {
-        "@salutejs/plasma-b2c": "1.216.0",
+        "@salutejs/plasma-b2c": "1.217.0",
         "@salutejs/plasma-colors": "0.7.0",
-        "@salutejs/plasma-icons": "1.150.0",
-        "@salutejs/plasma-tokens-b2b": "1.21.0",
-        "@salutejs/plasma-tokens-b2c": "0.30.0",
-        "@salutejs/plasma-tokens-utils": "0.26.0",
-        "@salutejs/plasma-tokens-web": "1.36.0",
+        "@salutejs/plasma-icons": "1.151.0",
+        "@salutejs/plasma-tokens-b2b": "1.22.0",
+        "@salutejs/plasma-tokens-b2c": "0.31.0",
+        "@salutejs/plasma-tokens-utils": "0.27.0",
+        "@salutejs/plasma-tokens-web": "1.37.0",
         "@salutejs/plasma-typo": "0.34.0",
         "nanoid": "^4.0.0",
         "octokit": "^1.7.1",
@@ -26,9 +26,7 @@
     },
     "homepage": ".",
     "eslintConfig": {
-        "extends": [
-            "react-app"
-        ],
+        "extends": ["react-app"],
         "rules": {
             "@typescript-eslint/no-redeclare": "off",
             "no-redeclare": "off"
@@ -45,15 +43,7 @@
         "react-error-overlay": "6.0.9"
     },
     "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
+        "production": [">0.2%", "not dead", "not op_mini all"],
+        "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
     }
 }
