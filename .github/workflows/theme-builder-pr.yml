@@ -61,12 +61,16 @@ jobs:
         with:
           github-token: ${{secrets.GH_TOKEN}}
           script: |
+            const branchName = context.payload.pull_request.head.ref;
+            const themeName = branchName.split('theme-builder-')[1];
+            const params = themeName ? `?theme=${themeName}&branch=${branchName}` : ''; 
+
             github.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: `Theme Builder app deployed!
               
-              http://plasma.sberdevices.ru/pr/plasma-theme-builder-pr-${context.issue.number}/
+              http://plasma.sberdevices.ru/pr/plasma-theme-builder-pr-${context.issue.number}/${params}
               `
             })
