@@ -115,7 +115,7 @@ export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
             opacitySurfaces,
         } = data;
 
-        if (!RegExp(/^[a-z\d]{3,}$/).test(themeName)) {
+        if (!RegExp(/^[a-z\d_]{3,}$/).test(themeName)) {
             setInputState('error');
             return;
         }

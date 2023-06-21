@@ -79,8 +79,8 @@ const App = () => {
             <Header>Plasma</Header>
             {state === 'main' && <Main onSetToken={onSetToken} onGenerateTheme={onGenerateTheme} />}
             {state === 'generator' && <Generator onPreviewTheme={onPreviewTheme} />}
-            {state === 'theme' && <Theme data={data} onPullRequest={onPullRequest} />}
-            {state === 'pull-request' && <PullRequest data={data} token={token} />}
+            {state === 'theme' && <Theme data={data} branchNameFromParam={branchName} onPullRequest={onPullRequest} />}
+            {state === 'pull-request' && <PullRequest branchNameFromParam={branchName} data={data} token={token} />}
             {state === 'error' && <Error message={errorMessage} onMain={onMain} />}
             <Footer />
         </StyledRoot>
