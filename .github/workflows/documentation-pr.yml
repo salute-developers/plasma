@@ -19,7 +19,6 @@ jobs:
   build:
     name: Build
     needs: scope
-    if: ${{ fromJSON(needs.scope.outputs).HAS_DOCUMENTATION_CHANGED == 'true' }}
     runs-on: ubuntu-latest
     env:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
@@ -34,7 +33,9 @@ jobs:
       - uses: ./.github/actions/prepare-environment
 
       - name: Lerna bootstrap
-        run: npx lerna bootstrap --since=$(git merge-base --fork-point origin/dev) --include-dependents
+        run: |
+          echo ${{ fromJSON(needs.scope.outputs).HAS_DOCUMENTATION_CHANGED == 'true' }}
+          npx lerna bootstrap --since=$(git merge-base --fork-point origin/dev) --include-dependents
 
       - name: Prepare directory
         run: mkdir s3_build
