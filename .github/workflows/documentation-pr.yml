@@ -12,71 +12,83 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  scope:
+    uses: ./.github/workflows/change-detection.yml
+    secrets: inherit
+
   build:
     name: Build
+    needs: scope
+    if: ${{ fromJSON(needs.scope.outputs).HAS_DOCUMENTATION_CHANGED == 'true' }}
     runs-on: ubuntu-latest
     env:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
       PR_NAME: pr-${{ github.event.number }}
       ICONS_PUBLIC_URL: /icons
-    steps:
-      - uses: actions/checkout@v2
 
-      - name: Prepare repository
-        run: git fetch --unshallow --tags
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - uses: ./.github/actions/prepare-environment
 
       - name: Lerna bootstrap
-        run: npx lerna bootstrap
+        run: npx lerna bootstrap --since=$(git merge-base --fork-point origin/dev) --include-dependents
 
       - name: Prepare directory
-        run: |
-          mkdir s3_build
+        run: mkdir s3_build
 
       - name: Plasma Website
+        if: ${{ fromJSON(needs.scope.outputs).HAS_PLASMA_WEBSITE == 'true' }}
         run: |
           npm run build --prefix="./website/plasma-website"
           cp -R ./website/plasma-website/build ./s3_build/${PR_NAME}
 
       - name: Plasma UI Docs
+        if: ${{ fromJSON(needs.scope.outputs).HAS_PLASMA_UI_DOCS == 'true' }}
         run: |
           npm run build --prefix="./website/plasma-ui-docs"
           cp -R ./website/plasma-ui-docs/build ./s3_build/${PR_NAME}/ui
 
       - name: Plasma Web Docs
+        if: ${{ fromJSON(needs.scope.outputs).HAS_PLASMA_WEB_DOCS == 'true' }}
         run: |
           npm run build --prefix="./website/plasma-web-docs"
           cp -R ./website/plasma-web-docs/build ./s3_build/${PR_NAME}/web
 
       - name: Plasma Web Temple
+        if: ${{ fromJSON(needs.scope.outputs).HAS_PLASMA_TEMPLE_DOCS == 'true' }}
         run: |
           npm run build --prefix="./website/plasma-temple-docs"
           cp -R ./website/plasma-temple-docs/build ./s3_build/${PR_NAME}/temple
 
       - name: Plasma UI Storybook
+        if: ${{ fromJSON(needs.scope.outputs).HAS_PLASMA_UI == 'true' }}
         run: |
           npm run storybook:build --prefix="./packages/plasma-ui"
           cp -R ./packages/plasma-ui/build-sb ./s3_build/${PR_NAME}/ui-storybook
 
       - name: Plasma Web Storybook
+        if: ${{ fromJSON(needs.scope.outputs).HAS_PLASMA_WEB == 'true' }}
         run: |
           npm run storybook:build --prefix="./packages/plasma-web"
           cp -R ./packages/plasma-web/build-sb ./s3_build/${PR_NAME}/web-storybook
 
       - name: Plasma B2C Storybook
+        if: ${{ fromJSON(needs.scope.outputs).HAS_PLASMA_B2C == 'true' }}
         run: |
           npm run storybook:build --prefix="./packages/plasma-b2c"
           cp -R ./packages/plasma-b2c/build-sb ./s3_build/${PR_NAME}/b2c-storybook
 
       - name: Plasma Temple Storybook
+        if: ${{ fromJSON(needs.scope.outputs).HAS_PLASMA_TEMPLE == 'true' }}
         run: |
           npm run storybook:build --prefix="./packages/plasma-temple"
           cp -R ./packages/plasma-temple/build-sb ./s3_build/${PR_NAME}/temple-storybook
 
       - name: Install s3cmd
-        run: |
-          pip3 install s3cmd
+        run: pip3 install s3cmd
 
       - name: s3 Upload builds
         run: >
