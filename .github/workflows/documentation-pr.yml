@@ -19,7 +19,7 @@ jobs:
   build:
     name: Build
     needs: scope
-    if: ${{ fromJSON(needs.scope.outputs.CHANGE_DETECTION_STATE).HAS_DOCUMENTATION_CHANGED == 'true' }}
+    if: ${{ fromJSON(needs.scope.outputs.CHANGE_DETECTION_STATE.HAS_DOCUMENTATION_CHANGED) }}
     runs-on: ubuntu-latest
     env:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
