@@ -73,7 +73,7 @@
         "text": {
             "default": {
                 "textPrimary": {
-                    "value": "rgba(255, 255, 255, 0.96);",
+                    "value": "rgba(255, 255, 255, 0.96)",
                     "comment": "Основной цвет текста"
                 },
                 "textSecondary": {
