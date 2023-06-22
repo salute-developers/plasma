@@ -3,18 +3,14 @@ name: Change detection
 on:
   workflow_call:
     outputs:
-      SCOPE:
-        description: "scope collection"
-        value: ${{ jobs.run.outputs.SCOPE }}
-      HAS_SCOPE:
-        description: "has scope"
-        value: ${{ jobs.run.outputs.HAS_SCOPE }}
+      CHANGE_DETECTION_STATE:
+        description: "CHANGE_DETECTION_STATE"
+        value: ${{ jobs.run.outputs.STATE }}
 jobs:
   run:
     runs-on: ubuntu-latest
     outputs:
-      SCOPE: ${{ steps.set-scope.outputs.SCOPE }}
-      HAS_SCOPE: ${{ steps.set-scope.outputs.HAS_SCOPE }}
+      STATE: ${{ steps.set-state.outputs.STATE }}
 
     steps:
       - uses: actions/checkout@v3
@@ -29,7 +25,7 @@ jobs:
         id: changed-state
         # `tr '\n' ','` -> replace \n to ','
         # `sed 's/,$//` -> delete last ',' character
-        run: echo "CHANGED_STATE=$(npx lerna ls --since=$(git merge-base --fork-point origin/dev) | tr '\n' ',' | sed 's/,$//')" >> "$GITHUB_OUTPUT"
+        run: echo "CHANGED_STATE=$(npx lerna ls --all --since=$(git merge-base --fork-point origin/dev) | tr '\n' ',' | sed 's/,$//' | sed 's/(PRIVATE)/''/g' |  sed 's/[ \t]/''/g')" >> "$GITHUB_OUTPUT"
 
       - name: Computed scope state
         id: scope
@@ -42,14 +38,10 @@ jobs:
             
             return processingScope();
 
-      - name: Set $GITHUB_OUTPUT
-        id: set-scope
-        run: |
-          echo "HAS_SCOPE=${{ fromJSON(steps.scope.outputs.result).HAS_SCOPE }}" >> $GITHUB_OUTPUT
-          echo "SCOPE=${{ fromJSON(steps.scope.outputs.result).SCOPE }}" >> $GITHUB_OUTPUT
+      - name: Set state
+        id: set-state
+        run: echo "STATE=${{ toJSON(steps.scope.outputs.result) }}" >> $GITHUB_OUTPUT
 
-      - name: Console log
-        run: |
-          echo "HAS_SCOPE ---> ${{ fromJSON(steps.scope.outputs.result).HAS_SCOPE }}"
-          echo "SCOPE ---> ${{ toJSON(fromJSON(steps.scope.outputs.result).SCOPE) }}"
+      - name: Echo state
+        run: echo "STATE ---> ${{ toJSON(steps.scope.outputs.result) }}"
 
