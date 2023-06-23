@@ -1,7 +1,6 @@
 import { general as generalColors } from '@salutejs/plasma-colors';
 import { humanizeColor } from '@salutejs/plasma-tokens-utils';
-
-import { ThemeConfig, TokensByType } from '../../types';
+import type { TokensByType, ThemeConfig } from '@salutejs/plasma-tokens-utils';
 
 const comment: Record<keyof TokensByType, string> = {
     default: 'Основной непрозрачный фон поверхности/контрола',

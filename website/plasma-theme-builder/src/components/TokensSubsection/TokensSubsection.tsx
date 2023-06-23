@@ -5,9 +5,11 @@ import { secondary } from '@salutejs/plasma-tokens-b2c';
 import { IconPlus, IconEye } from '@salutejs/plasma-icons';
 
 import { Token } from '../Token/Token';
-import { emptyInputData, TokenContext } from '../utils';
+
 import { iconButtonFade } from '../mixins';
-import type { TokenValue } from '../types';
+import { TokenContext } from '../../utils';
+import { emptyInputData } from '../../types';
+import type { TokenValue } from '../../types';
 
 const StyledTokensSubsection = styled.div`
     margin-left: 1rem;

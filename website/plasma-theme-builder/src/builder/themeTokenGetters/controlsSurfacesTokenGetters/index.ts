@@ -1,4 +1,3 @@
-import { TokensGetterFn } from '../../types';
 import { getSurfaceAccentGradient } from './getSurfaceAccentGradient';
 import { getSurfaceAccentTokens } from './getSurfaceAccentTokens';
 import { getSurfaceClearTokens } from './getSurfaceClearTokens';
@@ -14,25 +13,9 @@ import { getSurfaceTransparentDefaultTokens } from './getSurfaceTransparentDefau
 import { getSurfaceTransparentPrimaryTokens } from './getSurfaceTransparentPrimaryTokens';
 import { getSurfaceTransparentSecondaryTokens } from './getSurfaceTransparentSecondaryTokens';
 import { getSurfaceTransparentTertiaryTokens } from './getSurfaceTransparentTertiaryTokens';
-import { getSurfaceWarningTokens } from './getSurfaceWarningTokens';
+import { ControlsSurfacesName, TokensGetterFn } from '@salutejs/plasma-tokens-utils';
 
-export type ControlsSurfacesName =
-    | 'surfaceSolidDefault'
-    | 'surfaceSolidPrimary'
-    | 'surfaceSolidSecondary'
-    | 'surfaceSolidTertiary'
-    | 'surfaceSolidCard'
-    | 'surfaceTransparentDefault'
-    | 'surfaceTransparentPrimary'
-    | 'surfaceTransparentSecondary'
-    | 'surfaceTransparentTertiary'
-    | 'surfaceTransparentCard'
-    | 'surfaceAccent'
-    | 'surfaceAccentGradient'
-    | 'surfacePositive'
-    | 'surfaceWarning'
-    | 'surfaceNegative'
-    | 'surfaceClear';
+import { getSurfaceWarningTokens } from './getSurfaceWarningTokens';
 
 export const controlsSurfacesTokenGetters: Record<ControlsSurfacesName, TokensGetterFn> = {
     surfaceSolidDefault: getSurfaceSolidDefaultTokens,

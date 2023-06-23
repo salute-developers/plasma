@@ -1,8 +1,8 @@
 import { general as generalColors } from '@salutejs/plasma-colors';
 import { humanizeColor } from '@salutejs/plasma-tokens-utils';
-import { generalColorsAdditionalSaturation } from '../../constants';
+import type { TokensByType, ThemeConfig } from '@salutejs/plasma-tokens-utils';
 
-import { ThemeConfig, TokensByType } from '../../types';
+import { generalColorsAdditionalSaturation } from '../../../types';
 
 const comment: Record<keyof TokensByType, string> = {
     default: 'Основной фон для карточек',

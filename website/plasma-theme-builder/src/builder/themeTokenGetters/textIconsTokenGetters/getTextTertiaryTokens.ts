@@ -1,5 +1,6 @@
-import { ThemeConfig, TokensByType } from '../../types';
-import { getGreyTokenData } from '../../utils';
+import type { TokensByType, ThemeConfig } from '@salutejs/plasma-tokens-utils';
+
+import { getGreyTokenData } from '../../../utils';
 
 const comment: Record<keyof TokensByType, string> = {
     default: 'Третичный цвет текста',

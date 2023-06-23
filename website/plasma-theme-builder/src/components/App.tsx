@@ -7,11 +7,11 @@ import { Generator } from './Generator/Generator';
 import { Theme } from './Theme/Theme';
 import { Error } from './Error/Error';
 import { PullRequest } from './PullRequest/PullRequest';
+
 import { useFetchTheme } from '../hooks';
-import { clearURLParam, getURLParams } from './utils';
-import type { PageType } from './types';
-import type { Theme as ThemeType } from '../builder/types';
 import { multipleMediaQuery } from './mixins';
+import { clearURLParam, getURLParams } from '../utils';
+import type { PageType, Theme as ThemeType } from '../types';
 
 const StyledRoot = styled.div`
     min-width: 35rem;

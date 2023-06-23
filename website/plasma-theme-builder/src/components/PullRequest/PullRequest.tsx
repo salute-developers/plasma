@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { BodyS, H5, Link, Progress } from '@salutejs/plasma-b2c';
 import { tertiary } from '@salutejs/plasma-tokens-b2c';
 
-import type { Theme as ThemeType } from '../../builder/types';
-import { Steps, useRunGithubPRProcess } from '../../hooks/useRunGithubPRProcess';
-import { getFilesTree } from '../utils';
+import { useRunGithubPRProcess } from '../../hooks';
+import { Steps } from '../../types';
+import type { Theme as ThemeType } from '../../types';
 
 const StyledPullRequest = styled.div`
     margin: 2rem 0;
@@ -26,6 +26,14 @@ const Status = styled(BodyS)`
 const Header = styled(H5)`
     margin-bottom: 1rem;
 `;
+
+const getFilesPath = (name: string) => ({
+    theme: `packages/plasma-tokens/data/themes/${name}.json`,
+});
+
+const getFilesTree = (themeContent: string, name: string) => ({
+    [getFilesPath(name).theme]: themeContent,
+});
 
 const statusMap: Record<number, string> = {
     [Steps.INIT]: 'Подготовка...',

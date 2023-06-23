@@ -2,8 +2,7 @@ import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { accent, tertiary } from '@salutejs/plasma-tokens-b2c';
 import { Button } from '@salutejs/plasma-b2c';
-
-import type { ThemeMode } from '../types';
+import type { ThemeMode } from '@salutejs/plasma-tokens-utils';
 
 const StyledThemeModeToggle = styled.div`
     display: flex;

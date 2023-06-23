@@ -3,9 +3,9 @@ import styled, { css } from 'styled-components';
 import { Button, TextM, Tooltip } from '@salutejs/plasma-b2c';
 import { IconTrashFilled, IconEye, IconEdit } from '@salutejs/plasma-icons';
 
-import { getHEXA, getRGBA, TokenContext } from '../utils';
 import { iconButtonFade } from '../mixins';
-import type { TokenValue } from '../types';
+import { normalizeValue, getHEXAColor, getRGBAColor, TokenContext, getColorValue } from '../../utils';
+import type { TokenValue } from '../../types';
 
 const IconButtons = styled.div`
     display: flex;
@@ -69,9 +69,6 @@ const TokenRGBAValue = styled.div`
     width: 20rem;
 `;
 
-const hasOrigin = (values: string | Record<string, any>): values is Record<string, any> =>
-    typeof values === 'object' && 'origin' in values;
-
 interface TokenProps {
     section: string;
     subsection: string;
@@ -85,18 +82,7 @@ export const Token = ({ section, subsection, name, data }: TokenProps) => {
 
     const { value, comment = '', enabled } = data;
 
-    const normalizeValue = useMemo(() => {
-        const defaultColor = '#FFFFFFFF';
-        const regexHex = new RegExp(/^#([A-Fa-f0-9]{6,8})$\b/g);
-
-        if (hasOrigin(value) || !regexHex.test(value)) {
-            return defaultColor;
-        }
-
-        return value;
-    }, [value]);
-
-    const colorPreview = useMemo(() => (hasOrigin(value) ? (value.origin as string) : value), [value]);
+    const normalizedValue = useMemo(() => normalizeValue(value), [value]);
 
     const tokenInfo = useMemo(
         () => ({
@@ -110,7 +96,7 @@ export const Token = ({ section, subsection, name, data }: TokenProps) => {
                 value: name,
             },
             value: {
-                value: colorPreview,
+                value: value,
             },
             comment: {
                 value: comment,
@@ -119,7 +105,7 @@ export const Token = ({ section, subsection, name, data }: TokenProps) => {
                 value: enabled,
             },
         }),
-        [colorPreview, comment, enabled, name, section, subsection],
+        [comment, enabled, name, section, subsection, value],
     );
 
     const onMouseEnter = () => setVisible(true);
@@ -161,9 +147,9 @@ export const Token = ({ section, subsection, name, data }: TokenProps) => {
                     {name}
                 </TokenName>
             </Tooltip>
-            <TokenColorPreview style={{ background: colorPreview }} />
-            <TokenHEXAValue>{getHEXA(normalizeValue)}</TokenHEXAValue>
-            <TokenRGBAValue>{getRGBA(normalizeValue)}</TokenRGBAValue>
+            <TokenColorPreview style={{ background: getColorValue(value) }} />
+            <TokenHEXAValue>{getHEXAColor(normalizedValue)}</TokenHEXAValue>
+            <TokenRGBAValue>{getRGBAColor(normalizedValue)}</TokenRGBAValue>
             <IconButtons>
                 <IconButton view="clear" onClick={onTokenEditClick} contentLeft={<IconEdit />} />
                 <IconButton view="clear" onClick={onTokenDeleteClick} contentLeft={<IconTrashFilled />} />

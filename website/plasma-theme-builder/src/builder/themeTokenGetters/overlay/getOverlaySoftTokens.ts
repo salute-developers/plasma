@@ -1,7 +1,7 @@
 import { alphenColor } from '@salutejs/plasma-tokens-utils';
+import type { TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { baseColors } from '../../constants';
-import { TokensByType } from '../../types';
+import { baseColors } from '../../../types';
 
 const comment: Record<keyof TokensByType, string> = {
     default: 'Цвет фона паранжи светлый',

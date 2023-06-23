@@ -2,16 +2,18 @@ import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { Button, H4 } from '@salutejs/plasma-b2c';
 import { IconPlus, IconCross } from '@salutejs/plasma-icons';
+import type { ThemeMode } from '@salutejs/plasma-tokens-utils';
 
 import { ThemeInfo } from '../ThemeInfo/ThemeInfo';
 import { ThemeModeToggle } from '../ThemeModeToggle/ThemeModeToggle';
 import { TokensSection } from '../TokensSection/TokensSection';
-import { emptyInputData, TokenContext } from '../utils';
 import { TokenForm } from '../TokenForm/TokenForm';
 import { AddTokenSection } from '../AddTokenSection/AddTokenSection';
+
 import { useNormalizeThemeSections } from '../../hooks';
-import type { InputData, ThemeMode } from '../types';
-import type { Theme as ThemeType } from '../../builder/types';
+import { TokenContext } from '../../utils';
+import { emptyInputData } from '../../types';
+import type { InputData, Theme as ThemeType } from '../../types';
 
 const StyledTheme = styled.div`
     width: 70rem;

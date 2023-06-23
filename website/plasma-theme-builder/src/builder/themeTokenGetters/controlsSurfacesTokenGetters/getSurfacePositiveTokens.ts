@@ -1,4 +1,5 @@
-import { TokensByType } from '../../types';
+import type { TokensByType } from '@salutejs/plasma-tokens-utils';
+
 import { positiveTokensCreator } from '../textIconsTokenGetters/getTextPositiveTokens';
 
 const comment: Record<keyof TokensByType, string> = {

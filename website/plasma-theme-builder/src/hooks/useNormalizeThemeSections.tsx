@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import type { Theme as ThemeType } from '../builder/types';
+import type { Theme as ThemeType } from '../types';
 
 export const useNormalizeThemeSections = (data?: ThemeType): ThemeType | undefined =>
     useMemo(() => {
@@ -20,26 +20,25 @@ export const useNormalizeThemeSections = (data?: ThemeType): ThemeType | undefin
             keyof ThemeType['dark' | 'light']
         >;
 
-        return themeSections.reduce(
-            (prev, section) => {
-                const objectDark = prev.dark[section];
-                const objectLight = prev.light[section];
+        const copyData = JSON.parse(JSON.stringify(data));
 
-                delete prev.dark[section];
-                delete prev.light[section];
+        return themeSections.reduce((prev, section) => {
+            const objectDark = prev.dark[section];
+            const objectLight = prev.light[section];
 
-                return {
-                    ...prev,
-                    dark: {
-                        ...prev.dark,
-                        [legacySectionMap[section]]: objectDark,
-                    },
-                    light: {
-                        ...prev.light,
-                        [legacySectionMap[section]]: objectLight,
-                    },
-                };
-            },
-            { ...data },
-        );
+            delete prev.dark[section];
+            delete prev.light[section];
+
+            return {
+                ...prev,
+                dark: {
+                    ...prev.dark,
+                    [legacySectionMap[section]]: objectDark,
+                },
+                light: {
+                    ...prev.light,
+                    [legacySectionMap[section]]: objectLight,
+                },
+            };
+        }, copyData);
     }, [data]);

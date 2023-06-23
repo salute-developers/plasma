@@ -1,3 +1,11 @@
+import type {
+    ThemeConfig,
+    ThemeMode,
+    TokensBackgroundByType,
+    TokensByType,
+    TokensGetterFn,
+} from '@salutejs/plasma-tokens-utils';
+
 import {
     textIconsTokenGetters,
     controlsSurfacesTokenGetters,
@@ -6,7 +14,7 @@ import {
 } from './themeTokenGetters';
 
 import type { TextIconsTokenName, ControlsSurfacesName, BackgroundName, OverlayName } from './themeTokenGetters';
-import type { Theme, ThemeConfig, ThemeMode, TokensBackgroundByType, TokensByType, TokensGetterFn } from './types';
+import type { Theme } from '../types';
 
 const getTokensByGroups = <T extends string>(
     tokenGetters: Record<string, TokensGetterFn>,

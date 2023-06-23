@@ -1,8 +1,8 @@
 import { general as generalColors } from '@salutejs/plasma-colors';
 import { humanizeColor } from '@salutejs/plasma-tokens-utils';
+import type { ThemeConfig, TokensBackgroundByType } from '@salutejs/plasma-tokens-utils';
 
-import { baseColors } from '../../constants';
-import { ThemeConfig, TokensBackgroundByType } from '../../types';
+import { baseColors } from '../../../types';
 
 const comment: Record<keyof TokensBackgroundByType, string> = {
     default: 'Третичный фон',

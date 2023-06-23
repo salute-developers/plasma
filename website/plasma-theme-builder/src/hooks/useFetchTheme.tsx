@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { getFilesSource } from '../api';
-import type { Theme as ThemeType } from '../builder/types';
+import type { Theme as ThemeType } from '../types';
 
 const getThemeData = async (
     themeName: string,
