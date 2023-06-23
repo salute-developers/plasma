@@ -1,6 +1,6 @@
-import { baseColors } from '../../constants';
+import type { TokensBackgroundByType } from '@salutejs/plasma-tokens-utils';
 
-import { TokensBackgroundByType } from '../../types';
+import { baseColors } from '../../../types/constants';
 
 const comment: Record<keyof TokensBackgroundByType, string> = {
     default: 'Основной фон',

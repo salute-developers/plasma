@@ -1,4 +1,5 @@
-import { TokensByType } from '../../types';
+import type { TokensByType } from '@salutejs/plasma-tokens-utils';
+
 import { accentGradientCreator } from '../textIconsTokenGetters/getTextAccentGradient';
 
 const comment: Record<keyof TokensByType, string> = {

@@ -1,9 +1,9 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import { TextField, H4 } from '@salutejs/plasma-b2c';
+import type { ThemeMode } from '@salutejs/plasma-tokens-utils';
 
-import type { ThemeMode } from '../types';
-import type { Theme as ThemeType } from '../../builder/types';
+import type { Theme as ThemeType } from '../../types';
 
 const StyledAddTokenSection = styled.div`
     margin-top: 1rem;
