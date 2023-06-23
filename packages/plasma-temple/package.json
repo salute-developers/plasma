@@ -10,6 +10,7 @@
         "url": "git+https://github.com/salute-developers/plasma.git"
     },
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
+    "license": "MIT",
     "peerDependencies": {
         "@salutejs/client": "^1.0.0",
         "@salutejs/plasma-icons": "^1.0.0",
@@ -86,10 +87,7 @@
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
         "atLeast": 99.89
     },
     "contributors": [

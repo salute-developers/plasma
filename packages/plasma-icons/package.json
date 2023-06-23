@@ -10,6 +10,7 @@
         "url": "ssh://git@github.com:salute-developers/plasma.git"
     },
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
+    "license": "MIT",
     "peerDependencies": {
         "@salutejs/plasma-core": "^1.0.0",
         "react": ">=16.13.1",

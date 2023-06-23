@@ -3,12 +3,8 @@
     "version": "2.3.0",
     "description": "Plasma Temple Basic Template",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    "keywords": [
-        "react",
-        "create-react-app",
-        "template",
-        "typescript"
-    ],
+    "license": "MIT",
+    "keywords": ["react", "create-react-app", "template", "typescript"],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/salute-developers/plasma.git",
@@ -20,10 +16,7 @@
     "bugs": {
         "url": "https://github.com/salute-developers/plasma/issues"
     },
-    "files": [
-        "template",
-        "template.json"
-    ],
+    "files": ["template", "template.json"],
     "publishConfig": {
         "access": "public"
     }

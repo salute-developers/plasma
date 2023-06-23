@@ -3,6 +3,7 @@
     "version": "0.34.0",
     "description": "Plasma Typography System's tokens",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
+    "license": "MIT",
     "module": "lib/esm/index.js",
     "main": "lib/cjs/index.js",
     "types": "lib/cjs/index.d.ts",
@@ -32,8 +33,6 @@
     "publishConfig": {
         "access": "public"
     },
-    "files": [
-        "lib"
-    ],
+    "files": ["lib"],
     "sideEffects": false
 }

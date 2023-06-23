@@ -3,6 +3,7 @@
     "version": "0.132.0",
     "description": "Plasma Documentation.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
+    "license": "MIT",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "repository": {
@@ -33,9 +34,7 @@
     "publishConfig": {
         "access": "restricted"
     },
-    "files": [
-        "lib"
-    ],
+    "files": ["lib"],
     "dependencies": {
         "@salutejs/plasma-core": "1.122.0",
         "@salutejs/plasma-tokens-b2b": "1.22.0",

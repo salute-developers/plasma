@@ -2,6 +2,7 @@
   "name": "plasma",
   "private": true,
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "api:generate-report": "lerna run api-report --since=$(git merge-base --fork-point origin/dev) --no-bail --stream",
     "api:diff": "./scripts/stable-diff.sh packages/plasma-web/api/* packages/plasma-b2c/api/* > reports/plasma-hope-diff.diff || echo 'diff generated'",

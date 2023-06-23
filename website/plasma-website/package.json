@@ -3,6 +3,7 @@
     "version": "0.183.0",
     "description": "Plasma Main App",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
+    "license": "MIT",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/salute-developers/plasma.git"

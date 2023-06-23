@@ -12,6 +12,7 @@
     },
     "keywords": [],
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
+    "license": "MIT",
     "private": true,
     "publishConfig": {
         "access": "restricted"
