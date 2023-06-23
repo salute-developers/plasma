@@ -1,5 +1,6 @@
-import { baseColors } from '../../constants';
-import { TokensByType } from '../../types';
+import type { TokensByType } from '@salutejs/plasma-tokens-utils';
+
+import { baseColors } from '../../../types';
 
 const comment: Record<keyof TokensByType, string> = {
     default: 'Фон поверхности/контрола без заливки',

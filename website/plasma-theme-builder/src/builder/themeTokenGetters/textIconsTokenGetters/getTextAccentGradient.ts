@@ -1,6 +1,5 @@
 import { humanizeColor } from '@salutejs/plasma-tokens-utils';
-
-import { ThemeConfig, TokensByType } from '../../types';
+import type { TokensByType, ThemeConfig } from '@salutejs/plasma-tokens-utils';
 
 export const accentGradientCreator = (comment: Record<keyof TokensByType, string>) => {
     return (config: ThemeConfig) => {

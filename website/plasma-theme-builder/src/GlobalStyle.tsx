@@ -4,9 +4,9 @@ import { plasma } from '@salutejs/plasma-typo';
 import { light, dark } from '@salutejs/plasma-tokens-b2c/themes';
 import { text } from '@salutejs/plasma-tokens-b2c';
 import { b2c } from '@salutejs/plasma-tokens-b2c/typo';
+import type { ThemeMode } from '@salutejs/plasma-tokens-utils';
 
 import { SBSansTextMono } from './components/mixins';
-import { ThemeMode } from './components/types';
 
 const DocumentStyle = createGlobalStyle`
     html {

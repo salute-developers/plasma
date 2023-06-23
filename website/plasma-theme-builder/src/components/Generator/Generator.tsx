@@ -2,12 +2,13 @@ import React, { useCallback, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { Button, Select, Switch, TextField } from '@salutejs/plasma-b2c';
 import { general as generalColors } from '@salutejs/plasma-colors';
+import { Grayscale } from '@salutejs/plasma-tokens-utils';
 
 import { FormField } from '../FormField/FormField';
+
 import { createTheme } from '../../builder/createTheme';
-import { ThemeData } from '../types';
-import { Theme as ThemeType, Grayscale } from '../../builder/types';
-import { getAccentColors, getSaturations } from '../utils';
+import { getAccentColors, getSaturations } from '../../utils';
+import type { ThemeData, Theme as ThemeType } from '../../types';
 
 const Form = styled.form``;
 

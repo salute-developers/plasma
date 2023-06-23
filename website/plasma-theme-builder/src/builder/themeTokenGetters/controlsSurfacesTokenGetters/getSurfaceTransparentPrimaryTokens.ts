@@ -1,8 +1,8 @@
 import { alphenColor } from '@salutejs/plasma-tokens-utils';
+import type { TokensByType, ThemeConfig } from '@salutejs/plasma-tokens-utils';
 
-import { baseColors } from '../../constants';
-import { ThemeConfig, TokensByType } from '../../types';
-import { getGreyTokenData } from '../../utils';
+import { getGreyTokenData } from '../../../utils';
+import { baseColors } from '../../../types';
 
 const comment: Record<keyof TokensByType, string> = {
     default: 'Основной прозрачный фон поверхности/контрола',

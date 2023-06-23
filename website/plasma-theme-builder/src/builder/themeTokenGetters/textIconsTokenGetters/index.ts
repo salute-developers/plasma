@@ -1,4 +1,5 @@
-import { TokensGetterFn } from '../../types';
+import { TextIconsTokenName, TokensGetterFn } from '@salutejs/plasma-tokens-utils';
+
 import { getTextAccentGradient } from './getTextAccentGradient';
 import { getTextAccentTokens } from './getTextAccentTokens';
 import { getTextNegativeTokens } from './getTextNegativeTokens';
@@ -8,17 +9,6 @@ import { getTextPrimaryTokens } from './getTextPrimaryTokens';
 import { getTextSecondaryTokens } from './getTextSecondaryTokens';
 import { getTextTertiaryTokens } from './getTextTertiaryTokens';
 import { getTextWarningTokens } from './getTextWarningTokens';
-
-export type TextIconsTokenName =
-    | 'textPrimary'
-    | 'textSecondary'
-    | 'textTertiary'
-    | 'textParagraph'
-    | 'textAccent'
-    | 'textAccentGradient'
-    | 'textPositive'
-    | 'textWarning'
-    | 'textNegative';
 
 export const textIconsTokenGetters: Record<TextIconsTokenName, TokensGetterFn> = {
     textPrimary: getTextPrimaryTokens,

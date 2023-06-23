@@ -2,11 +2,12 @@ import React, { ChangeEvent, useCallback, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { Button, H3, Modal, Select, Switch, TextField } from '@salutejs/plasma-b2c';
 import { PlasmaSaturation, general as generalColors } from '@salutejs/plasma-colors';
+import type { ThemeMode } from '@salutejs/plasma-tokens-utils';
 
 import { FormField } from '../FormField/FormField';
-import type { Theme as ThemeType } from '../../builder/types';
-import type { InputData, ThemeMode, GeneralColor } from '../types';
-import { getAccentColors, getSaturations } from '../utils';
+
+import { getAccentColors, getSaturations } from '../../utils';
+import type { InputData, GeneralColor, Theme as ThemeType } from '../../types';
 
 const Form = styled.form``;
 
@@ -187,7 +188,7 @@ export const TokenForm = ({
         });
     }, [themeData, themeMode, onTokenFormShow, onThemeDataChange, inputData, name, value, comment, enabled]);
 
-    const onSubmit = useCallback((event) => {
+    const onSubmit = useCallback((event: React.SyntheticEvent) => {
         event.preventDefault();
     }, []);
 

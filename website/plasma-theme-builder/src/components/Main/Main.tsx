@@ -7,7 +7,7 @@ import { ThemeKindItem } from '../ThemeKindItem/ThemeKindItem';
 
 import { IconArrowLeft } from '../../icons';
 import { useGithubAuth } from '../../hooks';
-import { clearURLParam } from '../utils';
+import { clearURLParam } from '../../utils';
 import type { ThemeKindItemProps } from '../ThemeKindItem/ThemeKindItem';
 
 const StyledMain = styled.div``;

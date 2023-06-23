@@ -17,7 +17,6 @@
         "@salutejs/plasma-tokens-utils": "0.27.0",
         "@salutejs/plasma-tokens-web": "1.37.0",
         "@salutejs/plasma-typo": "0.34.0",
-        "nanoid": "^4.0.0",
         "octokit": "^1.7.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
@@ -26,7 +25,9 @@
     },
     "homepage": ".",
     "eslintConfig": {
-        "extends": ["react-app"],
+        "extends": [
+            "react-app"
+        ],
         "rules": {
             "@typescript-eslint/no-redeclare": "off",
             "no-redeclare": "off"
@@ -43,7 +44,15 @@
         "react-error-overlay": "6.0.9"
     },
     "browserslist": {
-        "production": [">0.2%", "not dead", "not op_mini all"],
-        "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
     }
 }

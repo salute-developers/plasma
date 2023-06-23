@@ -12,6 +12,7 @@ import {
     getDefaultBranch,
     getPullRequestList,
 } from '../api';
+import { Steps } from '../types';
 
 interface RunProcessGithubPR {
     owner: string;
@@ -25,20 +26,6 @@ interface CreatePR {
     themeName: string;
     token?: string;
     branchNameFromParam?: string;
-}
-
-export const enum Steps {
-    INIT = 0,
-    GET_DEFAULT_BRANCH = 1,
-    CREATE_BRANCH = 2,
-    LATEST_COMMIT = 3,
-    CREATE_FILES_BLOB = 4,
-    CREATE_FILES_TREE = 5,
-    CREATE_COMMIT = 6,
-    SET_COMMIT_TO_BRANCH = 7,
-    CREATE_PULL_REQUEST = 8,
-    READ_PULL_REQUEST = 9,
-    DONE = 10,
 }
 
 const saveMetaData = (octokit: Octokit, owner: string, repo: string) => <T>(fn: (...args: any[]) => Promise<T>) => (
