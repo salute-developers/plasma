@@ -19,10 +19,7 @@ jobs:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
       PR_NAME: pr-${{ github.event.number }}
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Prepare repository
-        run: git fetch --unshallow --tags
+      - uses: actions/checkout@v3
 
       # ToDo: https://github.com/salute-developers/plasma/issues/255
 
