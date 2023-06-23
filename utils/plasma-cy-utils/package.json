@@ -3,6 +3,7 @@
     "version": "0.63.0",
     "description": "Test helpers shared between ui libraries.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
+    "license": "MIT",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "repository": {
@@ -39,16 +40,11 @@
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
         "atLeast": 100
     },
     "publishConfig": {
         "access": "public"
     },
-    "files": [
-        "lib"
-    ]
+    "files": ["lib"]
 }

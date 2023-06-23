@@ -3,6 +3,7 @@
     "version": "0.120.0",
     "description": "Code shared between ui libraries.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
+    "license": "MIT",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "repository": {
@@ -41,7 +42,5 @@
     "publishConfig": {
         "access": "public"
     },
-    "files": [
-        "lib"
-    ]
+    "files": ["lib"]
 }

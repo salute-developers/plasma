@@ -3,6 +3,7 @@
     "version": "0.8.0",
     "description": "Versionate documentation action",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
+    "license": "MIT",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "repository": {
@@ -34,8 +35,5 @@
     "publishConfig": {
         "access": "restricted"
     },
-    "files": [
-        "lib",
-        "action.yml"
-    ]
+    "files": ["lib", "action.yml"]
 }

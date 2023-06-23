@@ -3,6 +3,7 @@
     "version": "1.122.0",
     "description": "Core library for Plasma: Salute Design System",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
+    "license": "MIT",
     "main": "index.js",
     "module": "es/index.js",
     "types": "index.d.ts",
@@ -60,16 +61,10 @@
         "build:watch": "npm run build:esm -- --watch"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx"],
         "atLeast": 99
     },
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Виноградов Антон Александрович",
-        "Зубаиров Фаниль Асхатович"
-    ],
+    "contributors": ["Vasiliy Loginevskiy", "Виноградов Антон Александрович", "Зубаиров Фаниль Асхатович"],
     "sideEffects": false,
     "dependencies": {
         "@popperjs/core": "2.9.2",

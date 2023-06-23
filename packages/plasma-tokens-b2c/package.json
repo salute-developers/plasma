@@ -3,6 +3,7 @@
     "version": "0.31.0",
     "description": "",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
+    "license": "MIT",
     "module": "es/index.js",
     "main": "index.js",
     "types": "index.d.ts",
@@ -50,10 +51,6 @@
         "sizes.js.map",
         "theme.json"
     ],
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Anton Vinogradov",
-        "Fanil Zubairov"
-    ],
+    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"],
     "sideEffects": false
 }
