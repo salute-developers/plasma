@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { plasma } from '@salutejs/plasma-typo';
-import { dark } from '@salutejs/plasma-tokens-b2c/themes';
+import { light, dark } from '@salutejs/plasma-tokens-b2c/themes';
 import { text } from '@salutejs/plasma-tokens-b2c';
 import { b2c } from '@salutejs/plasma-tokens-b2c/typo';
 
 import { SBSansTextMono } from './components/mixins';
+import { ThemeMode } from './components/types';
 
 const DocumentStyle = createGlobalStyle`
     html {
@@ -22,15 +23,29 @@ const DocumentStyle = createGlobalStyle`
     }
 `;
 
-const ThemeStyle = createGlobalStyle(dark);
+const LightThemeStyle = createGlobalStyle(light);
+const DarkThemeStyle = createGlobalStyle(dark);
 const TypoStyle = createGlobalStyle(plasma);
 const OldTypoStyle = createGlobalStyle(b2c);
 
-export const GlobalStyle = () => (
-    <>
-        <DocumentStyle />
-        <ThemeStyle />
-        <TypoStyle />
-        <OldTypoStyle />
-    </>
-);
+const matchMediaWithColorScheme = window.matchMedia('(prefers-color-scheme: dark');
+
+const getSystemTheme = () => (matchMediaWithColorScheme.matches ? 'dark' : 'light');
+
+export const GlobalStyle = () => {
+    const [theme, setTheme] = useState<ThemeMode>(getSystemTheme());
+
+    matchMediaWithColorScheme.addEventListener('change', ({ matches }) => {
+        setTheme(matches ? 'dark' : 'light');
+    });
+
+    return (
+        <>
+            <DocumentStyle />
+            {theme === 'dark' && <DarkThemeStyle />}
+            {theme === 'light' && <LightThemeStyle />}
+            <TypoStyle />
+            <OldTypoStyle />
+        </>
+    );
+};
