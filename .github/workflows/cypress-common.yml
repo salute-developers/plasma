@@ -21,9 +21,17 @@ jobs:
       COVERAGE: true
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - uses: ./.github/actions/prepare-environment
+
+      - name: Set default scope
+        if: ${{ inputs.scope != 'temple' }}
+        run: echo "SCOPE={b2c,web,core,hope,icons,typo,tokens,cy-utils,ui}" >> $GITHUB_ENV
+
+      - name: Set scope from "Plasma-temple"
+        if: ${{ inputs.scope == 'temple' }}
+        run: echo "SCOPE={b2c,web,core,hope,icons,typo,tokens,cy-utils,ui,temple}" >> $GITHUB_ENV
 
       - name: Install React 17
         if:  ${{ inputs.with-react-17 }}
@@ -34,7 +42,7 @@ jobs:
           npm i --no-progress react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-web"
 
       - name: Lerna bootstrap
-        run: npx lerna bootstrap
+        run: npx lerna bootstrap --scope=@salutejs/plasma-${{env.SCOPE}} --scope="@salutejs/platform-test"
 
       - name: Run Cypress CT for Plasma ${{ inputs.scope }}
         if: ${{ success() }}
