@@ -99,7 +99,7 @@ export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
         [],
     );
 
-    const onSubmit = useCallback((event) => {
+    const onSubmit = useCallback((event: React.SyntheticEvent) => {
         event.preventDefault();
     }, []);
 
