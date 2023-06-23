@@ -19,24 +19,22 @@
         "@salutejs/plasma-typo": "0.34.0",
         "nanoid": "^4.0.0",
         "octokit": "^1.7.1",
-        "react": "^17.0.2",
-        "react-dom": "^16.13.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
         "react-scripts": "4.0.0",
         "styled-components": "^5.3.3"
     },
     "homepage": ".",
     "eslintConfig": {
-        "extends": [
-            "react-app"
-        ],
+        "extends": ["react-app"],
         "rules": {
             "@typescript-eslint/no-redeclare": "off",
             "no-redeclare": "off"
         }
     },
     "devDependencies": {
-        "@types/react": "^17.0.11",
-        "@types/react-dom": "^17.0.11",
+        "@types/react": "^18.2.0",
+        "@types/react-dom": "^18.2.0",
         "@types/styled-components": "^5.1.26",
         "react-error-overlay": "6.0.9",
         "typescript": "^4.0.8"
@@ -45,15 +43,7 @@
         "react-error-overlay": "6.0.9"
     },
     "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
+        "production": [">0.2%", "not dead", "not op_mini all"],
+        "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
     }
 }

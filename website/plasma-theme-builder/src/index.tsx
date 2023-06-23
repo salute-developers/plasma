@@ -1,13 +1,20 @@
 import React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import App from './components/App';
 import { GlobalStyle } from './GlobalStyle';
 
-ReactDOM.render(
-    <>
+const rootElement = document.querySelector('#root');
+
+if (!rootElement) {
+    throw new Error('App root container was not found');
+}
+
+const root = createRoot(rootElement);
+
+root.render(
+    <React.StrictMode>
         <GlobalStyle />
         <App />
-    </>,
-    document.getElementById('root'),
+    </React.StrictMode>,
 );

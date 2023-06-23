@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, ReactNode } from 'react';
+import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 const StyledSwitchGroup = styled.div`
@@ -20,7 +20,7 @@ export interface FormFieldProps {
     label: string;
 }
 
-export const FormField = ({ label, children }: FormFieldProps & PropsWithChildren<ReactNode>) => {
+export const FormField = ({ label, children }: FormFieldProps & PropsWithChildren) => {
     return (
         <StyledSwitchGroup>
             <Label>{label}</Label>
