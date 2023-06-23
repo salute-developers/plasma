@@ -12,10 +12,7 @@ jobs:
     env:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Prepare repository
-        run: git fetch --unshallow --tags
+      - uses: actions/checkout@v3
 
       - uses: ./.github/actions/prepare-environment
 
