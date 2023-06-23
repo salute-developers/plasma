@@ -50,6 +50,26 @@ export const getRGBAColor = (color: string) => {
     return `rgba(${r}, ${g}, ${b}, ${Number(a / 255).toFixed(2)})`;
 };
 
+export const getSwiftUIColor = (color: string | undefined) => {
+    if (!color) {
+        return '';
+    }
+
+    const hexColor = getHEXAColor(color);
+    const colors = hexAToRGBA(hexColor);
+    const [red, green, blue, alpha] = colors.map((value) => Number((value / 255).toFixed(3)));
+
+    return `UIColor(red: ${red}, green: ${green}, blue: ${blue}, alpha: ${alpha})`;
+};
+
+export const getAndroidColor = (color: string) => {
+    const hexColor = getHEXAColor(color);
+    const hex = hexColor.slice(1, 7);
+    const alfa = hexColor.length === 9 ? `${hexColor.slice(7)}` : 'FF';
+
+    return `#${alfa}${hex}`;
+};
+
 export const getSaturations = (accentColors: GeneralColor = 'red') =>
     Object.keys(generalColors.amber).map((name: any) => ({
         value: name,

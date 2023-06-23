@@ -53,6 +53,12 @@ export interface InputData {
     enabled?: InputDataEnabled;
 }
 
+export interface GetGreyTokenDataParams {
+    saturation: PlasmaSaturation | 50;
+    grayscale: Grayscale;
+    opacity?: number | null;
+}
+
 export interface TokenContextHandlers {
     onOpenTokenForm: (data: InputData) => void;
     onTokenDelete: (data: InputData) => void;
