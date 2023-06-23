@@ -3,12 +3,9 @@ import styled from 'styled-components';
 import { accent, tertiary } from '@salutejs/plasma-tokens-b2c';
 import { Button } from '@salutejs/plasma-b2c';
 
-import { SBSansTextMono } from '../mixins';
 import type { ThemeMode } from '../types';
 
 const StyledThemeModeToggle = styled.div`
-    ${SBSansTextMono};
-
     display: flex;
     align-items: center;
     width: 100%;

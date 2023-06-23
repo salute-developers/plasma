@@ -5,8 +5,6 @@ import { dark } from '@salutejs/plasma-tokens-b2c/themes';
 import { text } from '@salutejs/plasma-tokens-b2c';
 import { b2c } from '@salutejs/plasma-tokens-b2c/typo';
 
-import './index.css';
-
 import { SBSansTextMono } from './components/mixins';
 
 const DocumentStyle = createGlobalStyle`
@@ -23,6 +21,7 @@ const DocumentStyle = createGlobalStyle`
         ${SBSansTextMono};
     }
 `;
+
 const ThemeStyle = createGlobalStyle(dark);
 const TypoStyle = createGlobalStyle(plasma);
 const OldTypoStyle = createGlobalStyle(b2c);
