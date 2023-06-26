@@ -2,6 +2,8 @@
 
 export { asdk__dark, darkAsdk } from './asdk__dark';
 export { asdk__light, lightAsdk } from './asdk__light';
+export { plasma_b2c__dark, darkPlasma_b2c } from './plasma_b2c__dark';
+export { plasma_b2c__light, lightPlasma_b2c } from './plasma_b2c__light';
 export { sberHealth__dark, darkSberHealth } from './sberHealth__dark';
 export { sberHealth__light, lightSberHealth } from './sberHealth__light';
 export { sbermarket__dark, darkSbermarket } from './sbermarket__dark';
