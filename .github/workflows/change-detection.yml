@@ -7,6 +7,10 @@ on:
         description: 'Lerna boostrap filter-option, exclude all transitive dependents when running a command with --since'
         default: false
         type: boolean
+      as-enumeration:
+        description: 'Get scope as "[plasma-temple,plasma-core,plasma-ui]", etc'
+        default: false
+        type: boolean
     outputs:
       SCOPE:
         description: "scope collection"
@@ -14,12 +18,52 @@ on:
       HAS_SCOPE:
         description: "has scope"
         value: ${{ jobs.run.outputs.HAS_SCOPE }}
+      HAS_DOCUMENTATION_CHANGED:
+        description: ""
+        value: ${{ jobs.run.outputs.HAS_DOCUMENTATION_CHANGED }}
+      HAS_PLASMA_UI_DOCS:
+        description: ""
+        value: ${{ jobs.run.outputs.HAS_PLASMA_UI_DOCS }}
+      HAS_PLASMA_WEB_DOCS:
+        description: ""
+        value: ${{ jobs.run.outputs.HAS_PLASMA_WEB_DOCS }}
+      HAS_PLASMA_TEMPLE_DOCS:
+        description: ""
+        value: ${{ jobs.run.outputs.HAS_PLASMA_TEMPLE_DOCS }}
+      HAS_PLASMA_WEBSITE:
+        description: ""
+        value: ${{ jobs.run.outputs.HAS_PLASMA_WEBSITE }}
+      HAS_PLASMA_UI:
+        description: ""
+        value: ${{ jobs.run.outputs.HAS_PLASMA_UI }}
+      HAS_PLASMA_WEB:
+        description: ""
+        value: ${{ jobs.run.outputs.HAS_PLASMA_WEB }}
+      HAS_PLASMA_B2C:
+        description: ""
+        value: ${{ jobs.run.outputs.HAS_PLASMA_B2C }}
+      HAS_PLASMA_TEMPLE:
+        description: ""
+        value: ${{ jobs.run.outputs.HAS_PLASMA_TEMPLE }}
+      PACKAGES_ENUMERATION:
+        description: ""
+        value: ${{ jobs.run.outputs.PACKAGES_ENUMERATION }}
 jobs:
   run:
     runs-on: ubuntu-latest
     outputs:
-      SCOPE: ${{ steps.set-scope.outputs.SCOPE }}
-      HAS_SCOPE: ${{ steps.set-scope.outputs.HAS_SCOPE }}
+      SCOPE: ${{ steps.set-output.outputs.SCOPE }}
+      HAS_SCOPE: ${{ steps.set-output.outputs.HAS_SCOPE }}
+      HAS_DOCUMENTATION_CHANGED: ${{ steps.set-output.outputs.HAS_DOCUMENTATION_CHANGED }}
+      HAS_PLASMA_UI_DOCS: ${{ steps.set-output.outputs.HAS_PLASMA_UI_DOCS }}
+      HAS_PLASMA_WEB_DOCS: ${{ steps.set-output.outputs.HAS_PLASMA_WEB_DOCS }}
+      HAS_PLASMA_TEMPLE_DOCS: ${{ steps.set-output.outputs.HAS_PLASMA_TEMPLE_DOCS }}
+      HAS_PLASMA_WEBSITE: ${{ steps.set-output.outputs.HAS_PLASMA_WEBSITE }}
+      HAS_PLASMA_TEMPLE: ${{ steps.set-output.outputs.HAS_PLASMA_TEMPLE }}
+      HAS_PLASMA_B2C: ${{ steps.set-output.outputs.HAS_PLASMA_B2C }}
+      HAS_PLASMA_WEB: ${{ steps.set-output.outputs.HAS_PLASMA_WEB }}
+      HAS_PLASMA_UI: ${{ steps.set-output.outputs.HAS_PLASMA_UI }}
+      PACKAGES_ENUMERATION: ${{ steps.set-output.outputs.PACKAGES_ENUMERATION }}
 
     steps:
       - uses: actions/checkout@v3
@@ -36,30 +80,35 @@ jobs:
       - name: Get lerna ls output
         shell: bash
         id: changed-state
-        # `tr '\n' ','` -> replace \n to ','
-        # `sed 's/,$//` -> delete last ',' character
         run: |
-          echo "CHANGED_STATE=$(npx lerna ls --since=$(git merge-base --fork-point origin/dev) ${{ env.EXCLUDE_DEPENDENTS }} | tr '\n' ',' | sed 's/,$//')" >> "$GITHUB_OUTPUT"
+          #INFO: `jq -c` => Делаем вывод в одну JSON строку  
+          echo "CHANGED_STATE=$(npx lerna la --json --since=$(git merge-base --fork-point origin/dev) ${{ env.EXCLUDE_DEPENDENTS }} | jq -c)" >> "$GITHUB_OUTPUT"
 
       - name: Computed scope state
         id: scope
         uses: actions/github-script@v6
         env:
-          CHANGED_STATE: ${{ steps.changed-state.outputs.CHANGED_STATE }}
+          CHANGED_STATE: ${{ toJSON(steps.changed-state.outputs.CHANGED_STATE) }}
+          AS_ENUMERATION: ${{ inputs.as-enumeration }}
         with:
           script: |
             const processingScope = require('./.github/processing-scope.js');
             
             return processingScope();
 
-      - name: Set $GITHUB_OUTPUT
-        id: set-scope
+      - name: Set "GITHUB_OUTPUT"
+        id: set-output
         run: |
-          echo "HAS_SCOPE=${{ fromJSON(steps.scope.outputs.result).HAS_SCOPE }}" >> $GITHUB_OUTPUT
           echo "SCOPE=${{ fromJSON(steps.scope.outputs.result).SCOPE }}" >> $GITHUB_OUTPUT
-
-      - name: Console log
-        run: |
-          echo "HAS_SCOPE ---> ${{ fromJSON(steps.scope.outputs.result).HAS_SCOPE }}"
-          echo "SCOPE ---> ${{ toJSON(fromJSON(steps.scope.outputs.result).SCOPE) }}"
+          echo "HAS_SCOPE=${{ fromJSON(steps.scope.outputs.result).HAS_SCOPE }}" >> $GITHUB_OUTPUT
+          echo "HAS_PLASMA_UI_DOCS=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_UI_DOCS }}" >> $GITHUB_OUTPUT
+          echo "HAS_PLASMA_WEB_DOCS=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_WEB_DOCS }}" >> $GITHUB_OUTPUT
+          echo "HAS_PLASMA_TEMPLE_DOCS=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_TEMPLE_DOCS }}" >> $GITHUB_OUTPUT
+          echo "HAS_PLASMA_WEBSITE=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_WEBSITE }}" >> $GITHUB_OUTPUT
+          echo "HAS_DOCUMENTATION_CHANGED=${{ fromJSON(steps.scope.outputs.result).HAS_DOCUMENTATION_CHANGED }}" >> $GITHUB_OUTPUT
+          echo "HAS_PLASMA_TEMPLE=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_TEMPLE }}" >> $GITHUB_OUTPUT
+          echo "HAS_PLASMA_B2C=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_B2C }}" >> $GITHUB_OUTPUT
+          echo "HAS_PLASMA_WEB=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_WEB }}" >> $GITHUB_OUTPUT
+          echo "HAS_PLASMA_UI=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_UI }}" >> $GITHUB_OUTPUT
+          echo "PACKAGES_ENUMERATION=${{ fromJSON(steps.scope.outputs.result).PACKAGES_ENUMERATION }}" >> $GITHUB_OUTPUT
 
