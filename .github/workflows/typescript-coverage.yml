@@ -25,7 +25,8 @@ jobs:
       - uses: ./.github/actions/prepare-environment
 
       - name: Lerna bootstrap
-        run: npx lerna bootstrap --since=$(git merge-base --fork-point origin/dev)
+      # INFO: Игнорируем пакеты связанные с plasma-tokens, т.к. в них не запускается typescript-coverage  
+        run: npx lerna bootstrap --since=$(git merge-base --fork-point origin/dev) --ignore "@salutejs/plasma-tokens*"
 
       - name: Run Typescript Coverage
         if: ${{ always() }}
