@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { H1 } from '@salutejs/plasma-b2c';
+import styled, { css } from 'styled-components';
 
 import { Footer } from './Footer/Footer';
 import { Main } from './Main/Main';
@@ -8,24 +7,27 @@ import { Generator } from './Generator/Generator';
 import { Theme } from './Theme/Theme';
 import { Error } from './Error/Error';
 import { PullRequest } from './PullRequest/PullRequest';
-import { SBSansTextMono } from './mixins';
 import { useFetchTheme } from '../hooks';
 import { clearURLParam, getThemeName } from './utils';
 import type { PageType } from './types';
 import type { Theme as ThemeType } from '../builder/types';
+import { multipleMediaQuery } from './mixins';
 
 const StyledRoot = styled.div`
-    width: 60rem;
+    min-width: 35rem;
     min-height: 100vh;
 
     padding: 2rem 4rem;
 
+    ${multipleMediaQuery(['M', 'S'])(
+        css`
+            padding: 2rem 3.5rem;
+        `,
+    )}
+
+    position: relative;
     display: flex;
     flex-direction: column;
-`;
-
-const Header = styled(H1)`
-    ${SBSansTextMono};
 `;
 
 const App = () => {
@@ -72,7 +74,6 @@ const App = () => {
 
     return (
         <StyledRoot>
-            <Header>Plasma</Header>
             {state === 'main' && <Main onSetToken={onSetToken} onGenerateTheme={onGenerateTheme} />}
             {state === 'generator' && <Generator onPreviewTheme={onPreviewTheme} />}
             {state === 'theme' && <Theme data={data} onPullRequest={onPullRequest} />}
