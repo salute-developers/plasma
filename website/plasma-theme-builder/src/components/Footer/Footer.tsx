@@ -1,34 +1,40 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from '@salutejs/plasma-b2c';
-import { whitePrimary } from '@salutejs/plasma-tokens-b2c';
+import { Link, TextS } from '@salutejs/plasma-b2c';
+import { secondary, linkHover, primary } from '@salutejs/plasma-tokens-b2c';
 
-import { IconGitHub, IconTelegram } from '../../icons';
+import { IconGitHub } from '../../icons';
 import { SBSansTextMono } from '../mixins';
 
-const StyledFooter = styled.footer`
+const Root = styled(TextS)`
     ${SBSansTextMono};
-    margin-top: auto;
+
+    position: relative;
 `;
 
-const Content = styled.div`
-    margin: 1rem 0;
-
-    width: 7.5rem;
-
+const GitHubLink = styled.div`
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-`;
+    height: 3rem;
 
-const Copyright = styled.div`
-    margin-top: 4rem;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
 `;
 
 // TODO: https://github.com/salute-developers/plasma/issues/279
 const StyledLink = styled(Link)`
+    display: flex;
+    align-items: center;
+
+    color: ${primary};
+
     &:visited {
-        color: ${whitePrimary};
+        color: ${primary};
+    }
+
+    &:hover,
+    &:active,
+    &:visited:active {
+        color: ${linkHover};
     }
 
     &::before {
@@ -36,24 +42,26 @@ const StyledLink = styled(Link)`
     }
 `;
 
+const StyledIconGitHub = styled(IconGitHub)`
+    padding-left: 0.5rem;
+`;
+
+const CopyrightText = styled.span`
+    color: ${secondary};
+`;
+
 export const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     return (
-        <StyledFooter>
-            <Content>
-                <StyledLink target="_blank" href="https://github.com/salute-developers/plasma/">
+        <Root>
+            <GitHubLink>
+                <StyledLink href="https://github.com/salute-developers/plasma">
                     GitHub
+                    <StyledIconGitHub />
                 </StyledLink>
-                <IconGitHub />
-            </Content>
-            <Content>
-                <StyledLink target="_blank" href="https://t.me/smartmarket_community">
-                    Telegram
-                </StyledLink>
-                <IconTelegram />
-            </Content>
-            <Copyright>©{currentYear} Девайсы</Copyright>
-        </StyledFooter>
+            </GitHubLink>
+            <CopyrightText>{`©${currentYear} СалютДевайсы`}</CopyrightText>
+        </Root>
     );
 };

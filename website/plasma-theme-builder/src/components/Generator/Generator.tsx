@@ -12,7 +12,7 @@ import { getAccentColors, getSaturations } from '../utils';
 const Form = styled.form``;
 
 const StyledGenerator = styled.div`
-    width: 42rem;
+    width: 45rem;
 `;
 
 const Description = styled.div`
