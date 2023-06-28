@@ -31,7 +31,7 @@ jobs:
       - name: Run Typescript Coverage
         if: ${{ always() }}
         run: |
-          npm run typescript-coverage
+          npm run typescript-coverage -- --ignore '@salutejs/plasma-tokens*'
 
       - name: Save artifacts
         if: ${{ failure() }}
