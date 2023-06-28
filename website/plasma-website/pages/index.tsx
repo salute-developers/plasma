@@ -59,6 +59,7 @@ const SiteName = styled(BodyM)`
 const Footer = styled.footer`
     position: absolute;
     bottom: 2rem;
+    left: 0.5rem;
 
     ${multipleMediaQuery(['M', 'S'])(css`
         position: relative;
