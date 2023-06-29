@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-tokens-utils",
-    "version": "0.27.0",
+    "version": "0.28.0",
     "description": "Code shared between token libraries.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "license": "MIT",
@@ -37,5 +37,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "files": ["lib"]
+    "files": [
+        "lib"
+    ]
 }
