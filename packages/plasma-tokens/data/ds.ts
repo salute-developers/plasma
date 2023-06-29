@@ -541,34 +541,6 @@ const darkJoy: ThemeTokens = {
         comment: FullColorsList.voicePhraseGradient,
     },
 };
-const darkBrand: ThemeTokens = {
-    ...darkTheme,
-    accent: {
-        value: humanizeColor(ds.theme.dark_brand.color),
-        comment: FullColorsList.accent,
-    },
-    buttonAccent: {
-        value: humanizeColor(ds.theme.dark_button_brand.color),
-        comment: FullColorsList.buttonAccent,
-    },
-    buttonFocused: {
-        value: humanizeColor(ds.theme.dark_primary.color),
-        comment: FullColorsList.buttonFocused,
-    },
-    // TODO: export from figma is broken (#135)
-    gradient: {
-        value: ds.gradients.dark_bg_brand,
-        comment: FullColorsList.gradient,
-    },
-    gradientDevice: {
-        value: ds.gradients.dark_device_brand,
-        comment: FullColorsList.gradient,
-    },
-    voicePhraseGradient: {
-        value: ds.gradients.dark_voice_phrase_brand.linearGradient,
-        comment: FullColorsList.voicePhraseGradient,
-    },
-};
 const darkB2E: ThemeTokens = {
     ...darkTheme,
     accent: {
@@ -682,34 +654,6 @@ const lightJoy: ThemeTokens = {
         comment: FullColorsList.voicePhraseGradient,
     },
 };
-const lightBrand: ThemeTokens = {
-    ...lightTheme,
-    accent: {
-        value: humanizeColor(ds.theme.light_brand.color),
-        comment: FullColorsList.accent,
-    },
-    buttonAccent: {
-        value: humanizeColor(ds.theme.light_button_brand.color),
-        comment: FullColorsList.buttonAccent,
-    },
-    buttonFocused: {
-        value: humanizeColor(ds.theme.light_primary.color),
-        comment: FullColorsList.buttonFocused,
-    },
-    // TODO: export from figma is broken (#135)
-    gradient: {
-        value: ds.gradients.light_bg_brand,
-        comment: FullColorsList.gradient,
-    },
-    gradientDevice: {
-        value: ds.gradients.light_device_brand,
-        comment: FullColorsList.gradient,
-    },
-    voicePhraseGradient: {
-        value: ds.gradients.light_voice_phrase_brand.linearGradient,
-        comment: FullColorsList.voicePhraseGradient,
-    },
-};
 const lightB2E: ThemeTokens = {
     ...lightTheme,
     accent: {
@@ -743,12 +687,10 @@ export const colorThemes = {
     salutejs_sber__dark: darkSber,
     salutejs_eva__dark: darkEva,
     salutejs_joy__dark: darkJoy,
-    salutejs_brand__dark: darkBrand,
     salutejs_B2E__dark: darkB2E,
     salutejs_sber__light: lightSber,
     salutejs_eva__light: lightEva,
     salutejs_joy__light: lightJoy,
-    salutejs_brand__light: lightBrand,
     salutejs_B2E__light: lightB2E,
 };
 
