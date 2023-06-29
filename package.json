@@ -45,6 +45,7 @@
     "@actions/github": "4.0.0",
     "@auto-it/conventional-commits": "10.36.6",
     "@auto-it/npm": "10.36.6",
+    "@auto-it/released": "10.46.0",
     "@auto-it/upload-assets": "10.37.4",
     "@commitlint/cli": "17.4.4",
     "@commitlint/config-conventional": "17.4.4",
@@ -137,7 +138,14 @@
         }
       ],
       "conventional-commits",
-      "./auto-plugins/dist/update-deps.js"
+      "./auto-plugins/dist/update-deps.js",
+      [
+        "released",
+        {
+          "message": "\uD83D\uDE80 This %TYPE is included in version: %VERSION \uD83D\uDE80",
+          "includeBotPrs": true
+        }
+      ]
     ]
   },
   "dependencies": {
