@@ -1,3 +1,61 @@
+# (Thu Jun 29 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-theme-builder): Add complex gradient editor for android and ios platforms [#582](https://github.com/salute-developers/plasma/pull/582) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Add switch color theme by system config [#582](https://github.com/salute-developers/plasma/pull/582) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Remove local font `SBSansTextMono` and set it for global style [#582](https://github.com/salute-developers/plasma/pull/582) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Bump to React 18 and add missing types [#582](https://github.com/salute-developers/plasma/pull/582) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Redesign main page [#582](https://github.com/salute-developers/plasma/pull/582) ([@neretin-trike](https://github.com/neretin-trike))
+- feat: Add branch name to link in theme-builder-pr workflow [#582](https://github.com/salute-developers/plasma/pull/582) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Add edit theme if PR existed [#582](https://github.com/salute-developers/plasma/pull/582) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Add read theme files from branch [#582](https://github.com/salute-developers/plasma/pull/582) ([@neretin-trike](https://github.com/neretin-trike))
+- feat: Add bootstrap ignore for plasmsa-tokens packages in `typescript-coverage` worflow [#582](https://github.com/salute-developers/plasma/pull/582) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-tokens-native): Add generate complex gradient for Android [#582](https://github.com/salute-developers/plasma/pull/582) (neretinartem@Neretins-MacBook-Pro.local)
+- `@salutejs/plasma-tokens@1.57.0`
+  - feat(plasma-tokens): Remove `salutejs_brand` theme [#582](https://github.com/salute-developers/plasma/pull/582) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-tokens): Update `src` directory for `plasma_b2c` theme [#582](https://github.com/salute-developers/plasma/pull/582) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-tokens): Add theme plasmab2sstyles [#582](https://github.com/salute-developers/plasma/pull/582) ([@Irinkv](https://github.com/Irinkv))
+  - feat(plasma-tokens): Update `src` directory [#582](https://github.com/salute-developers/plasma/pull/582) (neretinartem@Neretins-MacBook-Pro.local)
+  - feat(plasma-tokens): Update `asdk` theme with xml [#582](https://github.com/salute-developers/plasma/pull/582) (neretinartem@Neretins-MacBook-Pro.local)
+
+#### 🐛 Bug Fix
+
+- refactor(plasma-theme-builder): Clean up types and utils for builder and service [#582](https://github.com/salute-developers/plasma/pull/582) ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-website): Fix margin for footer [#582](https://github.com/salute-developers/plasma/pull/582) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: add "@auto-it/released" plugin [#582](https://github.com/salute-developers/plasma/pull/582) ([@Yakutoc](https://github.com/Yakutoc))
+- fix: Add ingore in workflow for typescript-coverage step [#582](https://github.com/salute-developers/plasma/pull/582) ([@neretin-trike](https://github.com/neretin-trike))
+- ci: "Cypress" lerna bootstrap with --scope [#582](https://github.com/salute-developers/plasma/pull/582) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: "Theme Builder" delete unnecessary "Prepare repository" step [#582](https://github.com/salute-developers/plasma/pull/582) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: "Lint, Unit test" lerna bootstrap with --since [#582](https://github.com/salute-developers/plasma/pull/582) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: "Performance Testing" lerna bootstrap with --scope [#582](https://github.com/salute-developers/plasma/pull/582) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: "Typescript Coverage" lerna bootstrap with --since [#582](https://github.com/salute-developers/plasma/pull/582) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: use change detection state [#582](https://github.com/salute-developers/plasma/pull/582) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: change detection use exclude-dependents flag [#582](https://github.com/salute-developers/plasma/pull/582) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: change detection as js script [#582](https://github.com/salute-developers/plasma/pull/582) ([@Yakutoc](https://github.com/Yakutoc))
+- docs: useFocus hook docs [#582](https://github.com/salute-developers/plasma/pull/582) ([@kayman233](https://github.com/kayman233))
+- ci: fix scopes for boostrap react17 unit tests [#582](https://github.com/salute-developers/plasma/pull/582) ([@kayman233](https://github.com/kayman233))
+- ci: fix release action [#570](https://github.com/salute-developers/plasma/pull/570) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.218.0`, `@salutejs/cra-template-plasma-basic-template@2.4.0`, `@salutejs/plasma-colors@0.8.0`, `@salutejs/plasma-core@1.123.0`, `@salutejs/plasma-hope@1.218.0`, `@salutejs/plasma-icons@1.152.0`, `@salutejs/cra-template-plasma-shop-template@2.3.0`, `@salutejs/plasma-temple@1.167.0`, `@salutejs/plasma-tokens-b2b@1.23.0`, `@salutejs/plasma-tokens-b2c@0.32.0`, `@salutejs/plasma-tokens-core@0.3.0`, `@salutejs/plasma-tokens-web@1.38.0`, `@salutejs/plasma-tokens@1.57.0`, `@salutejs/plasma-typo@0.35.0`, `@salutejs/plasma-ui@1.199.0`, `@salutejs/plasma-web@1.218.0`, `@salutejs/plasma-cy-utils@0.64.0`, `@salutejs/plasma-sb-utils@0.121.0`, `@salutejs/plasma-tokens-utils@0.28.0`
+  - chore: add forgotten license [#582](https://github.com/salute-developers/plasma/pull/582) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.218.0`, `@salutejs/plasma-hope@1.218.0`, `@salutejs/plasma-web@1.218.0`
+  - fix(plasma-hope): update useFocusTrap [#582](https://github.com/salute-developers/plasma/pull/582) ([@kayman233](https://github.com/kayman233))
+  - fix(plasma-hope): refactor useFocusTrap [#582](https://github.com/salute-developers/plasma/pull/582) ([@kayman233](https://github.com/kayman233))
+  - feat(plasma-b2c, plasma-web): focusTrap hook added [#582](https://github.com/salute-developers/plasma/pull/582) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-web@1.218.0`
+  - test: tests for focusTrap [#582](https://github.com/salute-developers/plasma/pull/582) ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 6
+
+- [@Irinkv](https://github.com/Irinkv)
+- [@kayman233](https://github.com/kayman233)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Neretin Artem (neretinartem@Neretins-MacBook-Pro.local)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Tue Jun 20 2023)
 
 #### 🚀 Enhancement

@@ -1,3 +1,15 @@
+# v0.3.0 (Thu Jun 29 2023)
+
+#### 🐛 Bug Fix
+
+- chore: add forgotten license [#582](https://github.com/salute-developers/plasma/pull/582) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 1
+
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v0.2.0 (Tue Mar 14 2023)
 
 #### 🚀 Enhancement
