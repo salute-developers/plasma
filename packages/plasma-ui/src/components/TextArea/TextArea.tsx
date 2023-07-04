@@ -14,12 +14,18 @@ const StyledTextArea = styled(BaseArea).attrs(spatnavClassNameAttrs)`
     border-radius: 1rem;
 `;
 
+const StyledFieldContentWrapper = styled.div<{ width?: string }>`
+    position: absolute;
+    top: 0;
+
+    width: ${({ width }) => width || '100%'};
+`;
 /**
  * Поле ввода многострочного текста.
  */
 // eslint-disable-next-line prefer-arrow-callback
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea(
-    { id, disabled, status, label, placeholder, contentRight, helperText, style, className, ...rest },
+    { id, disabled, status, label, placeholder, contentRight, helperText, style, className, width, ...rest },
     ref,
 ) {
     const placeLabel = (label || placeholder) as string | undefined;
@@ -34,8 +40,20 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function 
             className={className}
             aria-describedby={id ? `${id}-helpertext` : undefined}
         >
-            <StyledTextArea ref={ref} id={id} placeholder={placeLabel} disabled={disabled} status={status} {...rest} />
-            {contentRight && <FieldContent pos="right">{contentRight}</FieldContent>}
+            <StyledTextArea
+                ref={ref}
+                id={id}
+                placeholder={placeLabel}
+                disabled={disabled}
+                status={status}
+                width={width}
+                {...rest}
+            />
+            {contentRight && (
+                <StyledFieldContentWrapper width={width}>
+                    <FieldContent pos="right">{contentRight}</FieldContent>
+                </StyledFieldContentWrapper>
+            )}
             {helperText && <FieldHelper id={id ? `${id}-helpertext` : undefined}>{helperText}</FieldHelper>}
         </FieldRoot>
     );

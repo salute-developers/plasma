@@ -17,9 +17,9 @@ export const TextArea = ({ design }: Design) => {
     const TextAreaView = componentMap[design];
 
     return forwardRef<HTMLTextAreaElement, TextAreaProps>((props, innerRef) => {
-        const { rightHelper, leftHelper, label, placeholder } = props;
+        const { rightHelper, leftHelper, label, placeholder, height, width } = props;
 
-        const [width, setWidth] = useState(0);
+        const [helperWidth, setHelperWidth] = useState(0);
 
         const outerRef = innerRef && 'current' in innerRef ? innerRef : createRef<HTMLTextAreaElement>();
         const hasHelper = Boolean(leftHelper || rightHelper);
@@ -27,10 +27,10 @@ export const TextArea = ({ design }: Design) => {
 
         useResizeObserver(outerRef, (currentElement) => {
             const { width: elementWidth } = currentElement.getBoundingClientRect();
-            setWidth(elementWidth / ROOT_FONT_SIZE);
+            setHelperWidth(elementWidth / ROOT_FONT_SIZE);
         });
 
-        const commonProps = { outerRef, hasHelper, placeLabel, width };
+        const commonProps = { outerRef, hasHelper, placeLabel, helperWidth, height, width };
 
         return <TextAreaView {...commonProps} {...props} />;
     });
