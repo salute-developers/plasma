@@ -27,7 +27,7 @@ export interface TextAreaPropsCommon extends TextAreaProps {
     hasHelper: boolean;
     placeLabel?: string;
     outerRef: React.RefObject<HTMLTextAreaElement>;
-    width: number;
+    helperWidth: number;
 }
 
 export type Design = {

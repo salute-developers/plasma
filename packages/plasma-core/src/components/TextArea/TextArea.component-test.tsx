@@ -104,6 +104,23 @@ describe('plasma-core: TextArea', () => {
         cy.matchImageSnapshot();
     });
 
+    it('custom width and height', () => {
+        mount(
+            <CypressTestDecorator>
+                <TextArea
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    width="10rem"
+                    height="10rem"
+                    contentRight={<IconEye color="inherit" size="s" />}
+                />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('contentRight', () => {
         mount(
             <CypressTestDecorator>
