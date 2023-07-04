@@ -9,21 +9,33 @@ export interface TextAreaProps extends Omit<FieldProps, 'contentLeft'>, Textarea
      * Изменение размера текстового поля.
      */
     resize?: TextareaResize;
+    /**
+     * Высота текстового поля.
+     */
+    height?: string;
+    /**
+     * Ширина текстового поля.
+     */
+    width?: string;
 }
 
 /**
  * Base textarea.
  */
-export const TextArea = styled.textarea<Pick<TextAreaProps, 'resize' | 'status'>>`
+export const TextArea = styled.textarea<Pick<TextAreaProps, 'resize' | 'status' | 'height' | 'width'>>`
     ${applyInputStyles}
 
     display: block;
-    height: 9.375rem; /* 150px */
     min-height: 3.5rem; /* 56px */
 
-    ${({ resize }) =>
+    height: ${({ height }) => height || '9.375rem'};
+    width: ${({ width }) => width || '100%'};
+
+    ${({ resize, width }) =>
         css`
             ${resize && `resize: ${resize};`}
-            ${resize !== 'both' && resize !== 'horizontal' && 'min-width: 100%;max-width: 100%;'}
+            ${resize !== 'both' &&
+            resize !== 'horizontal' &&
+            `min-width: ${width || '100%'}; max-width: ${width || '100%'}`}
         `}
 `;

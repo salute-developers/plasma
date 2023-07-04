@@ -43,6 +43,8 @@ export const TextAreaWeb = ({
     hasHelper,
     placeLabel,
     outerRef,
+    helperWidth,
+    height,
     width,
     ...rest
 }: TextAreaPropsCommon) => {
@@ -55,7 +57,7 @@ export const TextAreaWeb = ({
             className={className}
         >
             {contentRight && (
-                <StyledFieldContentWrapper width={width}>
+                <StyledFieldContentWrapper width={helperWidth}>
                     <FieldContent pos="right">{contentRight}</FieldContent>
                 </StyledFieldContentWrapper>
             )}
@@ -65,11 +67,13 @@ export const TextAreaWeb = ({
                 placeholder={placeLabel}
                 disabled={disabled}
                 status={status}
+                height={height}
+                width={width}
                 aria-describedby={id ? `${id}-helper` : undefined}
                 {...rest}
             />
             {(hasHelper || helperText) && (
-                <StyledFieldHelpers width={width} id={id ? `${id}-helper` : undefined}>
+                <StyledFieldHelpers width={helperWidth} id={id ? `${id}-helper` : undefined}>
                     {(leftHelper || helperText) && <FieldHelper>{leftHelper || helperText}</FieldHelper>}
                     {rightHelper && <StyledFieldRightHelper>{rightHelper}</StyledFieldRightHelper>}
                 </StyledFieldHelpers>

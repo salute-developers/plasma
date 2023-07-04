@@ -17,10 +17,10 @@ import type { TextAreaPropsCommon } from '../../types';
 import { FieldWrapper, FieldHelper, FieldHelpers, applyInputStyles } from './Field'; // INFO: Этот компонент скопирован из plasma-b2c
 import { textAreaProps } from './TextArea.props';
 
-const StyledTextArea = styled(BaseArea)<{ $isHelper: boolean }>`
+const StyledTextArea = styled(BaseArea)<{ $isHelper: boolean; height?: string }>`
     ${applyInputStyles};
 
-    --computed-height: calc(9.375rem - var(--field-helpers-padding-top) - var(--padding-bottom) - 14px);
+    --computed-height: calc(var(--field-helpers-padding-top) + var(--padding-bottom) + 14px);
 
     padding: var(--padding-top) var(--padding-right-default) 0 var(--padding-left-default);
     padding-bottom: ${({ $isHelper }) => ($isHelper ? null : 'var(--padding-bottom)')};
@@ -28,7 +28,7 @@ const StyledTextArea = styled(BaseArea)<{ $isHelper: boolean }>`
     min-height: var(--min-height);
 
     /* INFO: Высчитываем высоты с учетом высоты блока с подсказками */
-    height: ${({ $isHelper }) => ($isHelper ? 'var(--computed-height)' : null)};
+    height: ${({ $isHelper, height }) => ($isHelper ? `calc(${height || '9.375rem'} - var(--computed-height))` : null)};
 
     border: none;
     border-radius: ${({ $isHelper }) =>
@@ -121,6 +121,8 @@ export const TextAreaB2C = ({
     hasHelper,
     placeLabel,
     outerRef,
+    helperWidth,
+    height,
     width,
     ...rest
 }: TextAreaPropsCommon) => {
@@ -132,9 +134,9 @@ export const TextAreaB2C = ({
             className={className}
             style={style}
         >
-            <FieldWrapper width={width} status={status}>
+            <FieldWrapper width={helperWidth} status={status}>
                 {contentRight && (
-                    <StyledFieldContentWrapper width={width}>
+                    <StyledFieldContentWrapper width={helperWidth}>
                         <FieldContent pos="right">{contentRight}</FieldContent>
                     </StyledFieldContentWrapper>
                 )}
@@ -149,11 +151,13 @@ export const TextAreaB2C = ({
                     onFocus={onFocus}
                     onBlur={onBlur}
                     aria-describedby={id ? `${id}-helper` : undefined}
+                    height={height}
+                    width={width}
                     $isHelper={hasHelper}
                     {...rest}
                 />
                 {hasHelper && (
-                    <StyledFieldHelpers width={width} id={id ? `${id}-helper` : undefined}>
+                    <StyledFieldHelpers width={helperWidth} id={id ? `${id}-helper` : undefined}>
                         {leftHelper && <FieldHelper as={TextFieldHelper}>{leftHelper}</FieldHelper>}
                         {rightHelper && <StyledFieldRightHelper>{rightHelper}</StyledFieldRightHelper>}
                     </StyledFieldHelpers>
