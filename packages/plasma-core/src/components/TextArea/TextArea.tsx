@@ -22,20 +22,23 @@ export interface TextAreaProps extends Omit<FieldProps, 'contentLeft'>, Textarea
 /**
  * Base textarea.
  */
-export const TextArea = styled.textarea<Pick<TextAreaProps, 'resize' | 'status' | 'height' | 'width'>>`
+export const TextArea = styled.textarea<
+    Pick<TextAreaProps, 'resize' | 'status' | 'height' | 'width' | 'rows' | 'cols'>
+>`
     ${applyInputStyles}
 
     display: block;
     min-height: 3.5rem; /* 56px */
 
-    height: ${({ height }) => height || '9.375rem'};
-    width: ${({ width }) => width || '100%'};
+    height: ${({ height, rows }) => (rows ? 'unset' : height || '9.375rem')};
+    width: ${({ width, cols }) => (cols ? 'unset' : width || '100%')};
 
-    ${({ resize, width }) =>
+    ${({ resize, width, cols }) =>
         css`
             ${resize && `resize: ${resize};`}
             ${resize !== 'both' &&
             resize !== 'horizontal' &&
+            !cols &&
             `min-width: ${width || '100%'}; max-width: ${width || '100%'}`}
         `}
 `;
