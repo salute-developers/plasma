@@ -14,6 +14,7 @@ on:
 
 jobs:
   run:
+    if: ${{ inputs.scope != '' }}
     runs-on: ubuntu-latest
     continue-on-error: true
     env:

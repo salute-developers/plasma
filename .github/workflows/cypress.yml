@@ -13,20 +13,28 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  scope:
+  change-detection:
       uses: ./.github/workflows/change-detection.yml
       secrets: inherit
 
+  change-detection-temple:
+    uses: ./.github/workflows/change-detection.yml
+    with:
+      exclude-dependents: true
+    secrets: inherit
+
   cypress:
-    needs: scope
-    if: ${{ needs.scope.outputs.HAS_SCOPE == 'true' }}
+    needs: change-detection
+    if: ${{ needs.change-detection.outputs.HAS_SCOPE == 'true' }}
     strategy:
       fail-fast: false
       matrix:
         # [Note]
         # Важно что бы массив был со значениями, где `""` экранируются, например -> ["\"b2c\""]
         # Можно для этого использовать JSON.stringify()
-        scope: ${{fromJson(needs.scope.outputs.SCOPE)}}
+        scope: ${{fromJson(needs.change-detection.outputs.SCOPE)}}
+        exclude:
+          - scope: temple
 
     uses: ./.github/workflows/cypress-common.yml
     with:
@@ -34,16 +42,35 @@ jobs:
     secrets: inherit
 
   cypress-react-17:
-    needs: scope
-    if: ${{ needs.scope.outputs.HAS_SCOPE == 'true' }}
+    needs: change-detection
+    if: ${{ needs.change-detection.outputs.HAS_SCOPE == 'true' }}
     strategy:
       fail-fast: false
       matrix:
-        scope: ${{fromJson(needs.scope.outputs.SCOPE)}}
+        scope: ${{fromJson(needs.change-detection.outputs.SCOPE)}}
+        exclude:
+          - scope: temple
 
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
+      with-react-17: true
+    secrets: inherit
+
+  cypress-temple:
+    needs: change-detection-temple
+    if: ${{ needs.change-detection-temple.outputs.HAS_PLASMA_TEMPLE == 'true' }}
+    uses: ./.github/workflows/cypress-common.yml
+    with:
+      scope: 'temple'
+    secrets: inherit
+
+  cypress-temple-react-17:
+    needs: change-detection-temple
+    if: ${{ needs.change-detection-temple.outputs.HAS_PLASMA_TEMPLE == 'true' }}
+    uses: ./.github/workflows/cypress-common.yml
+    with:
+      scope: 'temple'
       with-react-17: true
     secrets: inherit
 
