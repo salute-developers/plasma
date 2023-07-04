@@ -1107,7 +1107,7 @@ export const tertiary = "var(--plasma-colors-tertiary)";
 export const text = "var(--plasma-colors-text)";
 
 // @public
-const TextArea: StyledComponent<"textarea", any, Pick<TextAreaProps, "status" | "resize">, never>;
+const TextArea: StyledComponent<"textarea", any, Pick<TextAreaProps, "height" | "width" | "status" | "rows" | "cols" | "resize">, never>;
 export { TextArea }
 export { TextArea as TextFieldTextarea }
 
@@ -1141,7 +1141,9 @@ export interface TextareaHTMLAttributes<T> extends DisabledProps, React_2.Textar
 
 // @public (undocumented)
 export interface TextAreaProps extends Omit<FieldProps, 'contentLeft'>, TextareaHTMLAttributes<HTMLTextAreaElement> {
+    height?: string;
     resize?: TextareaResize;
+    width?: string;
 }
 
 // @public (undocumented)

@@ -17,7 +17,7 @@ import type { TextAreaPropsCommon } from '../../types';
 import { FieldWrapper, FieldHelper, FieldHelpers, applyInputStyles } from './Field'; // INFO: Этот компонент скопирован из plasma-b2c
 import { textAreaProps } from './TextArea.props';
 
-const StyledTextArea = styled(BaseArea)<{ $isHelper: boolean; height?: string }>`
+const StyledTextArea = styled(BaseArea)<{ $isHelper: boolean; height?: string; rows?: number }>`
     ${applyInputStyles};
 
     --computed-height: calc(var(--field-helpers-padding-top) + var(--padding-bottom) + 14px);
@@ -28,7 +28,8 @@ const StyledTextArea = styled(BaseArea)<{ $isHelper: boolean; height?: string }>
     min-height: var(--min-height);
 
     /* INFO: Высчитываем высоты с учетом высоты блока с подсказками */
-    height: ${({ $isHelper, height }) => ($isHelper ? `calc(${height || '9.375rem'} - var(--computed-height))` : null)};
+    height: ${({ $isHelper, height, rows }) =>
+        $isHelper && !rows ? `calc(${height || '9.375rem'} - var(--computed-height))` : null};
 
     border: none;
     border-radius: ${({ $isHelper }) =>
