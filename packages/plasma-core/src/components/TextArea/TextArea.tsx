@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled, { css, InterpolationFunction } from 'styled-components';
+import { CSSProperties } from 'react';
 
 import type { TextareaHTMLAttributes, TextareaResize } from '../../types';
 import type { FieldProps } from '../Field';
@@ -10,15 +11,29 @@ export interface TextAreaProps extends Omit<FieldProps, 'contentLeft'>, Textarea
      */
     resize?: TextareaResize;
     /**
-     * Высота текстового поля.
+     * Высота текстового поля, значения в rem
+     * @example height="10", height={10}
      */
-    height?: string;
+    height?: number | CSSProperties['height'];
     /**
-     * Ширина текстового поля.
+     * Ширина текстового поля, значения в rem
+     * @example width="10", width={10}
      */
-    width?: string;
+    width?: number | CSSProperties['width'];
 }
 
+export const applyTextAreaCssProperties: InterpolationFunction<Pick<TextAreaProps, 'height' | 'width'>> = ({
+    height,
+    width,
+}) => {
+    const computedHeight = !Number.isNaN(Number(height)) ? `${height}rem` : height;
+    const computedWidth = !Number.isNaN(Number(width)) ? `${width}rem` : width;
+
+    return css`
+        --plasma-textarea-height: ${computedHeight};
+        --plasma-textarea-width: ${computedWidth};
+    `;
+};
 /**
  * Base textarea.
  */
@@ -26,19 +41,20 @@ export const TextArea = styled.textarea<
     Pick<TextAreaProps, 'resize' | 'status' | 'height' | 'width' | 'rows' | 'cols'>
 >`
     ${applyInputStyles}
+    ${applyTextAreaCssProperties}
 
     display: block;
     min-height: 3.5rem; /* 56px */
 
-    height: ${({ height, rows }) => (rows ? 'unset' : height || '9.375rem')};
-    width: ${({ width, cols }) => (cols ? 'unset' : width || '100%')};
+    height: ${({ rows }) => (rows ? 'unset' : 'var(--plasma-textarea-height, 9.375rem)')};
+    width: ${({ cols }) => (cols ? 'unset' : 'var(--plasma-textarea-width, 100%)')};
 
-    ${({ resize, width, cols }) =>
+    ${({ resize, cols }) =>
         css`
             ${resize && `resize: ${resize};`}
             ${resize !== 'both' &&
             resize !== 'horizontal' &&
             !cols &&
-            `min-width: ${width || '100%'}; max-width: ${width || '100%'}`}
+            'min-width: var(--plasma-textarea-width, 100%); max-width: var(--plasma-textarea-width, 100%)'}
         `}
 `;

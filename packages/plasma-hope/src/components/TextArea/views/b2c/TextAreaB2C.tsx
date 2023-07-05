@@ -3,6 +3,7 @@ import styled, { SimpleInterpolation } from 'styled-components';
 import {
     TextFieldRoot,
     TextArea as BaseArea,
+    applyTextAreaCssProperties,
     TextFieldHelper,
     primary,
     secondary,
@@ -17,10 +18,11 @@ import type { TextAreaPropsCommon } from '../../types';
 import { FieldWrapper, FieldHelper, FieldHelpers, applyInputStyles } from './Field'; // INFO: Этот компонент скопирован из plasma-b2c
 import { textAreaProps } from './TextArea.props';
 
-const StyledTextArea = styled(BaseArea)<{ $isHelper: boolean; height?: string; rows?: number }>`
+const StyledTextArea = styled(BaseArea)<{ $isHelper: boolean; rows?: number }>`
     ${applyInputStyles};
+    ${applyTextAreaCssProperties};
 
-    --computed-height: calc(var(--field-helpers-padding-top) + var(--padding-bottom) + 14px);
+    --computed-height: calc(var(--field-helpers-padding-top) + var(--padding-bottom) + 0.875rem);
 
     padding: var(--padding-top) var(--padding-right-default) 0 var(--padding-left-default);
     padding-bottom: ${({ $isHelper }) => ($isHelper ? null : 'var(--padding-bottom)')};
@@ -28,8 +30,8 @@ const StyledTextArea = styled(BaseArea)<{ $isHelper: boolean; height?: string; r
     min-height: var(--min-height);
 
     /* INFO: Высчитываем высоты с учетом высоты блока с подсказками */
-    height: ${({ $isHelper, height, rows }) =>
-        $isHelper && !rows ? `calc(${height || '9.375rem'} - var(--computed-height))` : null};
+    height: ${({ $isHelper, rows }) =>
+        $isHelper && !rows ? 'calc(var(--plasma-textarea-height, 9.375rem) - var(--computed-height))' : null};
 
     border: none;
     border-radius: ${({ $isHelper }) =>
