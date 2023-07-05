@@ -4,12 +4,7 @@
     "description": "Salute Design System / React UI kit for web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "license": "MIT",
-    "keywords": [
-        "design-system",
-        "react-components",
-        "ui-kit",
-        "react"
-    ],
+    "keywords": ["design-system", "react-components", "ui-kit", "react"],
     "main": "index.js",
     "module": "es/index.js",
     "types": "index.d.ts",
@@ -80,22 +75,14 @@
         "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma-web babel ./src --out-dir . --extensions .ts,.tsx",
         "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma-web babel ./src --out-dir ./es --extensions .ts,.tsx",
         "generate:typings": "tsc --outDir . --emitDeclarationOnly",
-        "storybook": "start-storybook -s .storybook/public -p ${PORT:-7007} -c .storybook",
-        "storybook:build": "build-storybook -s .storybook/public -c .storybook -o build-sb",
+        "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -s .storybook/public -p ${PORT:-7007} -c .storybook",
+        "storybook:build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook -s .storybook/public -c .storybook -o build-sb",
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx",
-            "src/**/*perftest.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx", "src/**/*perftest.tsx"],
         "atLeast": 99.96
     },
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Anton Vinogradov",
-        "Fanil Zubairov"
-    ],
+    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"],
     "sideEffects": false
 }

@@ -81,16 +81,13 @@
         "build:copy:cjs": "npm run build:copy -- dist/",
         "build:copy:esm": "npm run build:copy -- dist/es/",
         "build:declaration": "tsc --outDir dist/ --emitDeclarationOnly",
-        "storybook": "start-storybook -s .storybook/public -p ${PORT:-6006} -c .storybook",
-        "storybook:build": "build-storybook --quiet -s .storybook/public -c .storybook -o build-sb",
+        "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -s .storybook/public -p ${PORT:-6006} -c .storybook",
+        "storybook:build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook --quiet -s .storybook/public -c .storybook -o build-sb",
         "test": "BABEL_ENV=test jest",
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
         "atLeast": 99.89
     },
     "contributors": [
