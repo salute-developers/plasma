@@ -111,8 +111,8 @@ describe('plasma-core: TextArea', () => {
                     value="Value"
                     placeholder="Placeholder"
                     helperText="Helper text"
-                    width="10rem"
-                    height="10rem"
+                    width={10}
+                    height={10}
                     contentRight={<IconEye color="inherit" size="s" />}
                 />
             </CypressTestDecorator>,

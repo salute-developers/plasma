@@ -12,6 +12,7 @@ import { BreakWordProps } from '@salutejs/plasma-typo';
 import { BreakWordProps as BreakWordProps_2 } from '@salutejs/plasma-typo/lib/cjs/mixins/applyHyphens';
 import { Context } from 'react';
 import { CSSObject } from 'styled-components';
+import { CSSProperties } from 'react';
 import { DefaultTheme } from 'styled-components';
 import { DraggableData } from 'react-draggable';
 import { FC } from 'react';
@@ -75,6 +76,9 @@ export const applyScrollSnap: InterpolationFunction<ScrollSnapProps>;
 export const applySkeletonGradient: InterpolationFunction<SkeletonGradientProps>;
 
 export { applySpacing }
+
+// @public (undocumented)
+export const applyTextAreaCssProperties: InterpolationFunction<Pick<TextAreaProps, 'height' | 'width'>>;
 
 // @public
 export const applyView: InterpolationFunction<ViewProps>;
@@ -1141,9 +1145,9 @@ export interface TextareaHTMLAttributes<T> extends DisabledProps, React_2.Textar
 
 // @public (undocumented)
 export interface TextAreaProps extends Omit<FieldProps, 'contentLeft'>, TextareaHTMLAttributes<HTMLTextAreaElement> {
-    height?: string;
+    height?: number | CSSProperties['height'];
     resize?: TextareaResize;
-    width?: string;
+    width?: number | CSSProperties['width'];
 }
 
 // @public (undocumented)
