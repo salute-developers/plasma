@@ -1,4 +1,4 @@
-export { useDebouncedFunction, useForkRef } from '@salutejs/plasma-core';
+export { useDebouncedFunction, useForkRef, useResizeObserver } from '@salutejs/plasma-core';
 
 export { useRemoteListener } from './useRemoteListener';
 export { useThemeContext } from './useThemeContext';
