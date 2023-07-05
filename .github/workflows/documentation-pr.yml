@@ -64,27 +64,32 @@ jobs:
       - name: Prepare directory
         run: mkdir s3_build
 
+      # TODO: https://github.com/salute-developers/plasma/issues/603
       - name: Plasma Website
         if: ${{ needs.scope.outputs.HAS_PLASMA_WEBSITE == 'true' }}
         run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-website"
           cp -R ./website/plasma-website/build ./s3_build/${PR_NAME}
 
       - name: Plasma UI Docs
         if: ${{ needs.scope.outputs.HAS_PLASMA_UI_DOCS == 'true' && needs.scope.outputs.HAS_PLASMA_UI == 'true' }}
         run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-ui-docs"
           cp -R ./website/plasma-ui-docs/build ./s3_build/${PR_NAME}/ui
 
       - name: Plasma Web Docs
         if: ${{ needs.scope.outputs.HAS_PLASMA_WEB_DOCS == 'true' }}
         run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-web-docs"
           cp -R ./website/plasma-web-docs/build ./s3_build/${PR_NAME}/web
 
       - name: Plasma Web Temple
         if: ${{ needs.scope.outputs.HAS_PLASMA_TEMPLE_DOCS == 'true' && needs.scope.outputs.HAS_PLASMA_TEMPLE == 'true' }}
         run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-temple-docs"
           cp -R ./website/plasma-temple-docs/build ./s3_build/${PR_NAME}/temple
 
