@@ -14,6 +14,7 @@ jobs:
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
+      with-artifacts: true
     secrets: inherit
 
   cypress-react-17:
@@ -26,5 +27,6 @@ jobs:
     with:
       scope: ${{ matrix.scope }}
       with-react-17: true
+      with-artifacts: true
     secrets: inherit
 
