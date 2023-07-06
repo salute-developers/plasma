@@ -8,7 +8,9 @@ on:
         required: true
         type: string
       with-react-17:
-        required: false
+        type: boolean
+        default: false
+      with-artifacts:
         type: boolean
         default: false
 
@@ -50,7 +52,7 @@ jobs:
         run: npm run cy:${{ inputs.scope }}:run-ct
 
       - name: Save artifacts
-        if: ${{ failure() }}
+        if: ${{ failure() || inputs.with-artifacts }}
         uses: actions/upload-artifact@v2
         with:
           name: Test Artifacts
