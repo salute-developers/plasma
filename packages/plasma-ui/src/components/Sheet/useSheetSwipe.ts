@@ -1,14 +1,32 @@
+import throttle from 'lodash.throttle';
 import React, { useEffect, useState } from 'react';
 
 const SWIPE_THRESHOLD = 0.2;
+const THROTTLE_DEFAULT_MS = 100;
+
+const isScrollable = (element: HTMLElement | null) => {
+    if (!element) {
+        return false;
+    }
+
+    const style = getComputedStyle(element);
+
+    return (
+        style.overflow === 'scroll' ||
+        style.overflow === 'auto' ||
+        style.overflowY === 'scroll' ||
+        style.overflowY === 'auto'
+    );
+};
 
 export const useSheetSwipe = (args: {
     contentWrapperRef: React.RefObject<HTMLDivElement>;
     contentRef: React.RefObject<HTMLDivElement>;
     handleRef: React.RefObject<HTMLDivElement>;
+    throttleMs?: number;
     onClose: () => void;
 }) => {
-    const { contentWrapperRef, contentRef, handleRef, onClose } = args;
+    const { contentWrapperRef, contentRef, handleRef, onClose, throttleMs = THROTTLE_DEFAULT_MS } = args;
     const [isTopScroll, setIsTopScroll] = useState(true);
 
     useEffect(() => {
@@ -16,12 +34,14 @@ export const useSheetSwipe = (args: {
         const handleEl = handleRef.current;
         const contentEl = contentRef.current;
 
-        const hasScroll = contentEl && contentEl.scrollHeight > contentEl.clientHeight;
-        const triggerElement = !isTopScroll && hasScroll ? handleEl : contentWrapperEl;
+        const triggerElement = !isTopScroll && isScrollable(contentEl) ? handleEl : contentWrapperEl;
 
         if (!triggerElement || !contentEl || !contentWrapperEl) {
             return;
         }
+
+        const nodes = Array.from<HTMLElement>(contentWrapperEl.querySelectorAll('*'));
+        const scrollableElements = nodes.filter(isScrollable);
 
         let startY = 0;
         let currentY = 0;
@@ -56,20 +76,26 @@ export const useSheetSwipe = (args: {
             }
         };
 
-        const onScroll = () => {
-            setIsTopScroll(contentEl.scrollTop <= 0);
-        };
+        const onScroll = throttle((event: Event) => {
+            setIsTopScroll((event.target as HTMLElement).scrollTop <= 0);
+        }, throttleMs);
 
         triggerElement.addEventListener('touchstart', onTouchStart);
         triggerElement.addEventListener('touchmove', onTouchMove);
         triggerElement.addEventListener('touchend', onTouchEnd);
-        contentEl.addEventListener('scroll', onScroll);
+
+        scrollableElements.forEach((element) => {
+            element.addEventListener('scroll', onScroll);
+        });
 
         return () => {
             triggerElement.removeEventListener('touchstart', onTouchStart);
             triggerElement.removeEventListener('touchmove', onTouchMove);
             triggerElement.removeEventListener('touchend', onTouchEnd);
-            contentEl.removeEventListener('scroll', onScroll);
+
+            scrollableElements.forEach((element) => {
+                element.removeEventListener('scroll', onScroll);
+            });
         };
     }, [isTopScroll]);
 };
