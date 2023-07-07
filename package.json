@@ -124,11 +124,14 @@
     ],
     "plugins": [
       [
-        "upload-assets",
+        "./auto-plugins/dist/upload-assets-extend.js",
         {
           "assets": [
             "./utils/plasma-tokens-native/build/**/*"
-          ]
+          ],
+          "message": "🐤 Download canary assets:",
+          "group": "(color|shadow|typo).*\\.(kt|xml|swift|ts)",
+          "compact": true
         }
       ],
       [
