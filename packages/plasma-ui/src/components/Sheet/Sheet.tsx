@@ -28,6 +28,11 @@ export interface SheetProps extends React.HTMLAttributes<HTMLDivElement> {
      * Наличие состояния анимации/перехода, по-умолчанию true.
      */
     withTransition?: boolean;
+
+    /**
+     * Throttling внутренних обработчиков события onScroll
+     */
+    throttleMs?: number;
 }
 
 type CommonProps = Pick<SheetProps, 'withTransition' | 'isOpen'> & {
@@ -139,13 +144,14 @@ export const Sheet = ({
     onClose,
     withOverlay = true,
     withTransition = true,
+    throttleMs,
     ...restProps
 }: SheetProps) => {
     const contentWrapperRef = React.useRef<HTMLDivElement>(null);
     const contentRef = React.useRef<HTMLDivElement>(null);
     const handleRef = React.useRef<HTMLDivElement>(null);
 
-    useSheetSwipe({ contentWrapperRef, contentRef, handleRef, onClose });
+    useSheetSwipe({ contentWrapperRef, contentRef, handleRef, throttleMs, onClose });
 
     return (
         <StyledWrapper isOpen={isOpen} withTransition={withTransition} {...restProps}>
