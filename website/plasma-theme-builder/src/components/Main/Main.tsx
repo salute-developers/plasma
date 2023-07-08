@@ -39,7 +39,7 @@ const themeKindItems: Array<ThemeKindItemProps> = [
                 languages: 'CSS',
             },
             {
-                name: 'React-kotlin',
+                name: 'React-Native',
                 languages: 'TypeScript',
             },
             {
@@ -61,7 +61,7 @@ const themeKindItems: Array<ThemeKindItemProps> = [
                 languages: 'CSS',
             },
             {
-                name: 'React-kotlin',
+                name: 'React-Native',
                 languages: 'TypeScript',
             },
             {
@@ -82,10 +82,6 @@ const themeKindItems: Array<ThemeKindItemProps> = [
                 name: 'Web',
                 languages: 'CSS',
             },
-            {
-                name: 'React-kotlin',
-                languages: 'TypeScript',
-            },
         ],
     },
     {
@@ -97,7 +93,7 @@ const themeKindItems: Array<ThemeKindItemProps> = [
                 languages: 'CSS',
             },
             {
-                name: 'React-kotlin',
+                name: 'React-Native',
                 languages: 'TypeScript',
             },
         ],
