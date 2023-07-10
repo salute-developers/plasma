@@ -45,23 +45,27 @@ jobs:
             const enumeration = JSON.parse(JSON.parse(ENUMERATION));
                                     
             if (!enumeration.includes('plasma-core')) {
-              enumeration.push('plasma-core')
+              enumeration.push('plasma-core');
             }
             
             if (!enumeration.includes('plasma-hope')) {
-              enumeration.push('plasma-hope')
+              enumeration.push('plasma-hope');
             }
             
             if (!enumeration.includes('plasma-icons')) {
-              enumeration.push('plasma-icons')
+              enumeration.push('plasma-icons');
             }
             
             if (!enumeration.includes('plasma-docs-ui')) {
-              enumeration.push('plasma-docs-ui')
+              enumeration.push('plasma-docs-ui');
+            }
+            
+            if (!enumeration.includes('plasma-website')) {
+              enumeration.push('plasma-website');
             }
             
             if (enumeration.includes('plasma-temple-docs') || enumeration.includes('plasma-ui-docs')) {
-              enumeration.push('plasma-web')
+              enumeration.push('plasma-web');
             }
             
             return enumeration.join(',');  
