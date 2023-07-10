@@ -21,6 +21,18 @@ export interface TextAreaProps extends Omit<BaseProps, 'size'> {
      * Возможные размеры компонента.
      */
     size?: 'l' | 'm' | 's' | 'xs';
+    /**
+     * Автоматическая высота поля ввода.
+     */
+    autoResize?: boolean;
+    /**
+     * Максимальная высота поля ввода в автоматическом режиме(в rem).
+     */
+    maxAuto?: number;
+    /**
+     * Минимальная высота поля ввода в автоматическом режиме(в rem).
+     */
+    minAuto?: number;
 }
 
 export interface TextAreaPropsCommon extends TextAreaProps {

@@ -35,6 +35,38 @@ export function App() {
 Также можно регулировать высоту и ширину, используя свойства `height` и `width`, 
 указав значения в `rem` или соответствующие свойствам css значения.
 
+## Autoresize
+Также можно включить автоматическое регулирование высоты поля ввода по длине контента внутри (параметра `value`).
+Для этого необходимо использовать свойство `autoResize`. 
+При этом, если пользователь вручную регулирует высоту(`resize`), то она так и остается пользовательской.
+
+В этом режиме можно указать крайние значения высоты поля ввода, используя свойства `autoMin`, `autoMax`,
+указав их в `rem`.
+
+```tsx live
+import React from 'react';
+import { TextArea } from '@salutejs/plasma-web';
+
+export function App() {
+    const [value, setValue] = React.useState('Значение');
+
+    return (
+        <div>
+            <TextArea
+                placeholder="Введите значение"
+                value={value}
+                onChange={(e) => {
+                    setValue(e.target.value);
+                }}
+                autoResize
+                minAuto={3}
+                maxAuto={5}
+            />
+        </div>
+    );
+}
+```
+
 ### Подсказка
 Для вывода подсказки снизу от поля используйте свойство `leftHelper` и/или `rightHelper`.
 
