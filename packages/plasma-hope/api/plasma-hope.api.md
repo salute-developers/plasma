@@ -98,6 +98,7 @@ import { LineSkeletonProps } from '@salutejs/plasma-core';
 import { MaxLinesProps } from '@salutejs/plasma-core';
 import { monthLongName } from '@salutejs/plasma-core';
 import { monthShortName } from '@salutejs/plasma-core';
+import { MutableRefObject } from 'react';
 import { NoCoverProps } from '@salutejs/plasma-core/components/Card/CardContent';
 import { OtherProps } from '@salutejs/plasma-core/components/Card/CardContent';
 import { OutlinedProps } from '@salutejs/plasma-core';
@@ -1210,11 +1211,14 @@ export { TextareaHTMLAttributes }
 
 // @public (undocumented)
 export interface TextAreaProps extends Omit<TextAreaProps_2, 'size'> {
+    autoResize?: boolean;
     // @deprecated (undocumented)
     helperBlock?: React.ReactElement;
     // @deprecated (undocumented)
     helperText?: string;
     leftHelper?: string;
+    maxAuto?: number;
+    minAuto?: number;
     rightHelper?: string;
     size?: 'l' | 'm' | 's' | 'xs';
 }
@@ -1332,6 +1336,9 @@ export const UploadVisual: FC<UploadVisualProps>;
 export interface UploadVisualProps extends UploadProps, PreviewGalleryProps {
     maxCount?: number;
 }
+
+// @public (undocumented)
+export const useAutoResize: <T extends HTMLTextAreaElement>(active: boolean, ref: MutableRefObject<T | null>, value?: string | number | readonly string[] | undefined, minHeight?: number | undefined, maxHeight?: number | undefined) => void;
 
 export { useDebouncedFunction }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled, { SimpleInterpolation } from 'styled-components';
 import {
     TextFieldRoot,
@@ -14,6 +14,8 @@ import {
 } from '@salutejs/plasma-core';
 
 import type { TextAreaPropsCommon } from '../../types';
+import { useForkRef } from '../../../../hooks';
+import { useAutoResize } from '../..';
 
 import { FieldWrapper, FieldHelper, FieldHelpers, applyInputStyles } from './Field'; // INFO: Этот компонент скопирован из plasma-b2c
 import { textAreaProps } from './TextArea.props';
@@ -127,8 +129,17 @@ export const TextAreaB2C = ({
     helperWidth,
     height,
     width,
+    value,
+    autoResize = false,
+    minAuto = 0,
+    maxAuto,
     ...rest
 }: TextAreaPropsCommon) => {
+    const inputRef = useRef<HTMLTextAreaElement | null>(null);
+    const forkRef = useForkRef(inputRef, outerRef);
+
+    useAutoResize(autoResize, inputRef, value, minAuto, maxAuto);
+
     return (
         <TextAreaWrapper
             status={status}
@@ -144,7 +155,7 @@ export const TextAreaB2C = ({
                     </StyledFieldContentWrapper>
                 )}
                 <StyledTextArea
-                    ref={outerRef}
+                    ref={forkRef}
                     id={id}
                     placeholder={placeLabel}
                     disabled={disabled}
@@ -154,8 +165,9 @@ export const TextAreaB2C = ({
                     onFocus={onFocus}
                     onBlur={onBlur}
                     aria-describedby={id ? `${id}-helper` : undefined}
-                    height={height}
+                    height={autoResize ? minAuto : height}
                     width={width}
+                    value={value}
                     $isHelper={hasHelper}
                     {...rest}
                 />

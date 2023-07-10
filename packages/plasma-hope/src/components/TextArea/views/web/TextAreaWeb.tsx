@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { FieldRoot, FieldContent, FieldHelper, TextArea as BaseArea } from '@salutejs/plasma-core';
 
 import type { TextAreaPropsCommon } from '../../types';
+import { useForkRef } from '../../../../hooks';
+import { useAutoResize } from '../../useAutoResize';
 
 import { applyInputStyles } from './mixins';
 
@@ -46,8 +48,17 @@ export const TextAreaWeb = ({
     helperWidth,
     height,
     width,
+    value,
+    autoResize = false,
+    minAuto = 0,
+    maxAuto,
     ...rest
 }: TextAreaPropsCommon) => {
+    const inputRef = useRef<HTMLTextAreaElement | null>(null);
+    const forkRef = useForkRef(inputRef, outerRef);
+
+    useAutoResize(autoResize, inputRef, value, minAuto, maxAuto);
+
     return (
         <FieldRoot
             $disabled={disabled}
@@ -62,14 +73,15 @@ export const TextAreaWeb = ({
                 </StyledFieldContentWrapper>
             )}
             <StyledTextArea
-                ref={outerRef}
+                ref={forkRef}
                 id={id}
                 placeholder={placeLabel}
                 disabled={disabled}
                 status={status}
-                height={height}
+                height={autoResize ? minAuto : height}
                 width={width}
                 aria-describedby={id ? `${id}-helper` : undefined}
+                value={value}
                 {...rest}
             />
             {(hasHelper || helperText) && (
