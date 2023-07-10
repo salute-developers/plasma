@@ -66,6 +66,8 @@ jobs:
             
             if (enumeration.includes('plasma-temple-docs') || enumeration.includes('plasma-ui-docs')) {
               enumeration.push('plasma-web');
+            
+              enumeration.push('plasma-b2c');
             }
             
             return enumeration.join(',');  
