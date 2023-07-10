@@ -1,4 +1,5 @@
 export * from './color';
 export * from './other';
-export * from './themeContext';
+export * from './tokenContext';
 export * from './gradient';
+export * from './themes';

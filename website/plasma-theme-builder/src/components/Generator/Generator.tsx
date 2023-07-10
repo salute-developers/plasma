@@ -7,7 +7,7 @@ import { Grayscale } from '@salutejs/plasma-tokens-utils';
 import { FormField } from '../FormField/FormField';
 
 import { createTheme } from '../../builder/createTheme';
-import { getAccentColors, getSaturations } from '../../utils';
+import { deleteTheme, getAccentColors, getSavedThemes, getSaturations, loadTheme } from '../../utils';
 import type { ThemeData, Theme as ThemeType } from '../../types';
 
 const Form = styled.form``;
@@ -31,7 +31,16 @@ const StyledTextField = styled(TextField)`
 const StyledButton = styled(Button)`
     display: block;
     margin: 2rem 0;
-    margin-left: auto;
+`;
+
+const StyledButtons = styled.div`
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+`;
+
+const StyledSelectSavedThemes = styled(StyledSelect)`
+    margin-top: 2rem;
 `;
 
 export const getGrayscale = (): Array<{
@@ -47,13 +56,25 @@ export const getGrayscale = (): Array<{
         label: Grayscale.coolGray,
     },
 ];
+
+const HELPER_TEXT_VALIDATION_ERROR = 'Латинские буквы и цифры без пробелов в нижнем регистре, минимум 3 символа';
+
+const HELPER_TEXT_SAME_NAME_ERROR = 'Тема с таким названием уже существует в черновиках';
+
 interface GeneratorProps {
     onPreviewTheme: (data: ThemeType) => void;
 }
 
 export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
-    const [inputState, setInputState] = useState<'error' | undefined>();
-    const [data, setData] = useState<ThemeData>({
+    const [savedThemes, setSavedThemes] = useState(getSavedThemes());
+    const [inputState, setInputState] = useState<{
+        status?: 'error';
+        helperText?: string;
+    }>({
+        helperText: HELPER_TEXT_VALIDATION_ERROR,
+    });
+    const [data, setData] = useState<ThemeData & { savedTheme?: string }>({
+        savedTheme: getSavedThemes()[0]?.value || '',
         themeName: '',
         accentColors: getAccentColors()[0].value,
         lightSaturations: getSaturations()[0].value,
@@ -73,7 +94,9 @@ export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
                 [name]: value,
             }));
 
-            setInputState(undefined);
+            setInputState({
+                helperText: HELPER_TEXT_VALIDATION_ERROR,
+            });
         },
         [],
     );
@@ -116,8 +139,20 @@ export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
             opacitySurfaces,
         } = data;
 
-        if (!RegExp(/^[a-z\d_]{3,}$/).test(themeName)) {
-            setInputState('error');
+        if (savedThemes.some((savedTheme) => themeName === savedTheme.value)) {
+            setInputState({
+                status: 'error',
+                helperText: HELPER_TEXT_SAME_NAME_ERROR,
+            });
+            return;
+        }
+
+        const themeNameValidationRegexp = new RegExp(/^[a-z\d_]{3,}$/);
+        if (!themeNameValidationRegexp.test(themeName)) {
+            setInputState({
+                status: 'error',
+                helperText: HELPER_TEXT_VALIDATION_ERROR,
+            });
             return;
         }
 
@@ -138,7 +173,7 @@ export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
         });
 
         onPreviewTheme(theme);
-    }, [onPreviewTheme, data]);
+    }, [onPreviewTheme, savedThemes, data]);
 
     const accentColors = useMemo(() => getAccentColors(), []);
 
@@ -146,15 +181,56 @@ export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
 
     const grayscale = useMemo(() => getGrayscale(), []);
 
+    const onLoadTheme = useCallback(() => {
+        if (!data.savedTheme) {
+            return;
+        }
+
+        const theme = loadTheme(data.savedTheme);
+
+        if (!theme) {
+            return;
+        }
+
+        onPreviewTheme(theme.themeData);
+    }, [onPreviewTheme, data]);
+
+    const onDeleteTheme = useCallback(() => {
+        if (!data.savedTheme) {
+            return;
+        }
+
+        const themes = savedThemes.filter((item) => item.value !== data.savedTheme);
+
+        setSavedThemes(themes);
+        deleteTheme(data.savedTheme);
+    }, [data, savedThemes]);
+
     return (
         <StyledGenerator>
+            {Boolean(savedThemes.length) && (
+                <>
+                    <Description>Черновики тем</Description>
+                    <Form onSubmit={onSubmit}>
+                        <StyledSelectSavedThemes
+                            value={data.savedTheme}
+                            items={savedThemes}
+                            onChange={onChangeSelect('savedTheme')}
+                        />
+                        <StyledButtons>
+                            <StyledButton text="Удалить тему" onClick={onDeleteTheme} />
+                            <StyledButton text="Продолжить редактировать тему" view="primary" onClick={onLoadTheme} />
+                        </StyledButtons>
+                    </Form>
+                </>
+            )}
             <Description>Выберите базовые настройки в соответствии с макетом для генерации цветовой схемы.</Description>
             <Form onSubmit={onSubmit}>
                 <FormField label="Наименование темы">
                     <StyledTextField
                         value={data.themeName}
-                        helperText="Латинские буквы и цифры без пробелов в нижнем регистре, минимум 3 символа"
-                        status={inputState}
+                        helperText={inputState?.helperText}
+                        status={inputState?.status}
                         onChange={onChangeTextField('themeName')}
                     />
                 </FormField>
@@ -199,7 +275,9 @@ export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
                 <FormField label="Поверхности с прозрачностью">
                     <Switch checked={data.opacitySurfaces} onChange={onChangeSwitch('opacitySurfaces')} />
                 </FormField>
-                <StyledButton type="button" text="Сгенеририовать тему" view="primary" onClick={onGenerateTheme} />
+                <StyledButtons>
+                    <StyledButton text="Сгенеририовать тему" view="primary" onClick={onGenerateTheme} />
+                </StyledButtons>
             </Form>
         </StyledGenerator>
     );

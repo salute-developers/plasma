@@ -1,3 +1,5 @@
+export const THEME_BUILDER_PREFIX = 'theme-builder';
+
 export const baseColors = {
     white: {
         value: '#FFFFFF',
