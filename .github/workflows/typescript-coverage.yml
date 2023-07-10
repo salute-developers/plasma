@@ -13,10 +13,20 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  scope:
+    uses: ./.github/workflows/change-detection.yml
+    with:
+      as-enumeration: true
+    secrets: inherit
+
   typescript-coverage:
+    needs: scope
+    if: ${{ needs.scope.outputs.HAS_SCOPE == 'true' }}
     runs-on: ubuntu-latest
     env:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
+      # INFO: Игнорируем пакеты связанные с plasma-tokens, документацией и утилитами, т.к. в них не запускается typescript-coverage
+      LERNA_IGNORE_LIST: "@salutejs/plasma-{tokens*,temple-docs,ui-docs,docs-ui,web-docs,website,theme-builder,cy-utils,sb-utils}"
     steps:
       - uses: actions/checkout@v3
         with:
@@ -24,14 +34,31 @@ jobs:
 
       - uses: ./.github/actions/prepare-environment
 
+      - name: Computed scope
+        id: scope
+        uses: actions/github-script@v6
+        env:
+          ENUMERATION: ${{ toJSON(needs.scope.outputs.PACKAGES_ENUMERATION) }}
+        with:
+          result-encoding: string
+          script: |
+            const { ENUMERATION } = process.env;
+            
+            const enumeration = JSON.parse(JSON.parse(ENUMERATION));
+            
+            if (!enumeration.includes('plasma-core')) {
+              enumeration.push('plasma-core')
+            }
+            
+            return enumeration.join(',');     
+
       - name: Lerna bootstrap
-      # INFO: Игнорируем пакеты связанные с plasma-tokens, т.к. в них не запускается typescript-coverage  
-        run: npx lerna bootstrap --since=$(git merge-base --fork-point origin/dev) --ignore "@salutejs/plasma-tokens*"
+        run: npx lerna bootstrap --scope=@salutejs/{${{steps.scope.outputs.result}}} --ignore=${{env.LERNA_IGNORE_LIST}}
 
       - name: Run Typescript Coverage
         if: ${{ always() }}
         run: |
-          npm run typescript-coverage -- --ignore '@salutejs/plasma-tokens*'
+          npm run typescript-coverage -- --ignore=${{env.LERNA_IGNORE_LIST}}
 
       - name: Save artifacts
         if: ${{ failure() }}
