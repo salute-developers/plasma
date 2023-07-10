@@ -47,6 +47,7 @@ const App = () => {
         if (themeData) {
             setState('theme');
             setData(themeData);
+            return;
         }
 
         if (errorMessage) {

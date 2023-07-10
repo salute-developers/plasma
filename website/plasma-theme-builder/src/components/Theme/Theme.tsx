@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Button, H4 } from '@salutejs/plasma-b2c';
 import { IconPlus, IconCross } from '@salutejs/plasma-icons';
@@ -11,7 +11,7 @@ import { TokenForm } from '../TokenForm/TokenForm';
 import { AddTokenSection } from '../AddTokenSection/AddTokenSection';
 
 import { useNormalizeThemeSections } from '../../hooks';
-import { TokenContext } from '../../utils';
+import { TokenContext, saveTheme } from '../../utils';
 import { emptyInputData } from '../../types';
 import type { InputData, Theme as ThemeType } from '../../types';
 
@@ -183,6 +183,12 @@ export const Theme = ({ data, defaultData, branchNameFromParam, onPullRequest }:
             onPullRequest(themeData);
         }
     }, [onPullRequest, themeData]);
+
+    useEffect(() => {
+        if (themeData) {
+            saveTheme(themeData);
+        }
+    }, [themeData]);
 
     if (!themeData) {
         return null;

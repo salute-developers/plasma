@@ -68,3 +68,8 @@ export interface TokenContextHandlers {
     onTokensSectionEnabled: (data: InputData) => void;
     defaultData?: ThemeType;
 }
+
+export interface SavedTheme {
+    themeData: ThemeType;
+    date: Date;
+}
