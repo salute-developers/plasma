@@ -73,7 +73,6 @@ jobs:
         run: mkdir s3_build
 
       - name: Plasma Website
-        if: ${{ needs.scope.outputs.HAS_PLASMA_WEBSITE == 'true' }}
         run: |
           npm run build --prefix="./website/plasma-website"
           cp -R ./website/plasma-website/build ./s3_build/${PR_NAME}
