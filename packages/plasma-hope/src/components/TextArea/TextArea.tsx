@@ -5,19 +5,31 @@ import { useResizeObserver } from '../../hooks';
 import { TextAreaWeb } from './views/web/TextAreaWeb';
 import { TextAreaB2C } from './views/b2c/TextAreaB2C';
 import type { TextAreaProps, Design } from './types';
+import { useAutoResize } from './useAutoResize';
 
 const componentMap = {
     web: TextAreaWeb,
     b2c: TextAreaB2C,
 };
 
-const ROOT_FONT_SIZE = 16;
+export const ROOT_FONT_SIZE = 16;
 
 export const TextArea = ({ design }: Design) => {
     const TextAreaView = componentMap[design];
 
     return forwardRef<HTMLTextAreaElement, TextAreaProps>((props, innerRef) => {
-        const { rightHelper, leftHelper, label, placeholder, height, width } = props;
+        const {
+            rightHelper,
+            leftHelper,
+            label,
+            placeholder,
+            height,
+            width,
+            autoResize = false,
+            minAuto = 0,
+            maxAuto,
+            value,
+        } = props;
 
         const [helperWidth, setHelperWidth] = useState(0);
 
@@ -29,6 +41,8 @@ export const TextArea = ({ design }: Design) => {
             const { width: elementWidth } = currentElement.getBoundingClientRect();
             setHelperWidth(elementWidth / ROOT_FONT_SIZE);
         });
+
+        useAutoResize(autoResize, outerRef, value, minAuto, maxAuto);
 
         const commonProps = { outerRef, hasHelper, placeLabel, helperWidth, height, width };
 

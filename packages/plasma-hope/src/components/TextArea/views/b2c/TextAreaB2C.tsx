@@ -127,6 +127,8 @@ export const TextAreaB2C = ({
     helperWidth,
     height,
     width,
+    autoResize,
+    minAuto,
     ...rest
 }: TextAreaPropsCommon) => {
     return (
@@ -154,7 +156,7 @@ export const TextAreaB2C = ({
                     onFocus={onFocus}
                     onBlur={onBlur}
                     aria-describedby={id ? `${id}-helper` : undefined}
-                    height={height}
+                    height={autoResize ? minAuto : height}
                     width={width}
                     $isHelper={hasHelper}
                     {...rest}

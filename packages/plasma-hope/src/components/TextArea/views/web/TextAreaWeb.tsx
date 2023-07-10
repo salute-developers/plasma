@@ -46,6 +46,8 @@ export const TextAreaWeb = ({
     helperWidth,
     height,
     width,
+    autoResize,
+    minAuto,
     ...rest
 }: TextAreaPropsCommon) => {
     return (
@@ -67,7 +69,7 @@ export const TextAreaWeb = ({
                 placeholder={placeLabel}
                 disabled={disabled}
                 status={status}
-                height={height}
+                height={autoResize ? minAuto : height}
                 width={width}
                 aria-describedby={id ? `${id}-helper` : undefined}
                 {...rest}
