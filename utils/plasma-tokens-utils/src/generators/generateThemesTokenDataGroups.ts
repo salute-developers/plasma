@@ -24,10 +24,15 @@ const dataObjectToTokenDataGroup = (dataObject: DataObject, path: string, prefix
     Object.entries(dataObject).reduce((acc, [key, value]) => {
         const fullPath = makePath(path, key);
 
+        if (isTokenData(value) && value.enabled === false) {
+            return acc;
+        }
+
         if (isTokenData(value)) {
             const tokenName = prefix ? `${prefix}${upperFirstLetter(fullPath)}` : fullPath;
             return { ...acc, [tokenName]: value };
         }
+
         if (value && typeof value === 'object') {
             return { ...acc, ...dataObjectToTokenDataGroup(value, fullPath, prefix) };
         }
