@@ -28,6 +28,7 @@ export type TokenType = string | CSSProperties | Array<string | number> | Record
 export interface TokenData<T = {}> {
     value: T;
     comment?: string;
+    enabled?: boolean;
 }
 
 export type TColor = string;
