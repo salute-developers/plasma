@@ -9,6 +9,8 @@ import type { TokenValue } from '../../types';
 
 const IconButtons = styled.div`
     display: flex;
+    min-width: 9rem;
+    justify-content: end;
 `;
 
 const IconButton = styled(Button)`
@@ -77,7 +79,7 @@ interface TokenProps {
 }
 
 export const Token = ({ section, subsection, name, data }: TokenProps) => {
-    const { onOpenTokenForm, onTokenDelete, onTokenEnabled } = useContext(TokenContext);
+    const { onOpenTokenForm, onTokenDelete, onTokenEnabled, defaultData } = useContext(TokenContext);
     const [visible, setVisible] = useState(false);
 
     const { value, comment = '', enabled } = data;
@@ -129,6 +131,8 @@ export const Token = ({ section, subsection, name, data }: TokenProps) => {
         });
     }, [onTokenEnabled, tokenInfo, enabled]);
 
+    const canDelete = defaultData && !defaultData['dark'][section][subsection][name];
+
     return (
         <StyledToken enabled={enabled}>
             <Tooltip
@@ -152,7 +156,9 @@ export const Token = ({ section, subsection, name, data }: TokenProps) => {
             <TokenRGBAValue>{getRGBAColor(normalizedValue)}</TokenRGBAValue>
             <IconButtons>
                 <IconButton view="clear" onClick={onTokenEditClick} contentLeft={<IconEdit />} />
-                <IconButton view="clear" onClick={onTokenDeleteClick} contentLeft={<IconTrashFilled />} />
+                {canDelete && (
+                    <IconButton view="clear" onClick={onTokenDeleteClick} contentLeft={<IconTrashFilled />} />
+                )}
                 <IconButton view="clear" onClick={onTokenEnabledClick} contentLeft={<IconEye />} />
             </IconButtons>
         </StyledToken>
