@@ -70,6 +70,7 @@ interface TokenFormProps {
     isOpen: boolean;
     inputData: InputData;
     themeData: ThemeType;
+    defaultThemeData?: ThemeType;
     onTokenFormShow: (value: boolean) => void;
     onThemeDataChange: (data?: ThemeType) => void;
 }
@@ -79,6 +80,7 @@ export const TokenForm = ({
     isOpen,
     inputData,
     themeData,
+    defaultThemeData,
     onTokenFormShow,
     onThemeDataChange,
 }: TokenFormProps) => {
@@ -133,26 +135,30 @@ export const TokenForm = ({
     const onCancel = useCallback(() => onTokenFormShow(false), [onTokenFormShow]);
 
     const onApply = useCallback(() => {
-        const { section, subsection } = inputData;
+        const { section, subsection, name: prevName } = inputData;
 
         const tokenName = `${section.value}${name.value}`;
         const hasToken = themeData[themeMode][section.value][subsection.value][tokenName];
         const cleanedValue = typeof value.value === 'string' ? value.value.replace(/[\s;]*/gm, '') : value.value;
 
-        const getDataByThemeMode = (themeMode: ThemeMode) => ({
-            ...themeData[themeMode],
-            [section.value]: {
-                ...themeData[themeMode][section.value],
-                [subsection.value]: {
-                    ...themeData[themeMode][section.value][subsection.value],
-                    [tokenName]: {
-                        value: cleanedValue,
-                        comment: comment?.value,
-                        enabled: enabled?.value,
+        const getDataByThemeMode = (themeMode: ThemeMode) => {
+            delete themeData[themeMode][section.value][subsection.value][prevName.value];
+
+            return {
+                ...themeData[themeMode],
+                [section.value]: {
+                    ...themeData[themeMode][section.value],
+                    [subsection.value]: {
+                        ...themeData[themeMode][section.value][subsection.value],
+                        [tokenName]: {
+                            value: cleanedValue,
+                            comment: comment?.value,
+                            enabled: enabled?.value,
+                        },
                     },
                 },
-            },
-        });
+            };
+        };
 
         if (!RegExp(/^[\w\d]{3,}$/).test(name.value)) {
             setName({
@@ -193,6 +199,11 @@ export const TokenForm = ({
         event.preventDefault();
     }, []);
 
+    const canRename = Boolean(
+        defaultThemeData &&
+            defaultThemeData['dark'][inputData.section.value][inputData.subsection.value][inputData.name.value],
+    );
+
     return (
         <StyledTokenForm id="modalA" isOpen={isOpen} onClose={onCancel}>
             <StyledHeader bold={false}>Редактирование токена</StyledHeader>
@@ -203,6 +214,7 @@ export const TokenForm = ({
                         <StyledTokenName
                             size="s"
                             name="name"
+                            readOnly={canRename}
                             value={name?.value}
                             status={name?.status}
                             helperText={name?.helpText}

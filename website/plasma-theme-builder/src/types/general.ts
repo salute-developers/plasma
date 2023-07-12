@@ -1,6 +1,7 @@
 import { general as generalColors, PlasmaSaturation } from '@salutejs/plasma-colors';
 import { Grayscale } from '@salutejs/plasma-tokens-utils';
-import { Swift, XML } from './gradient';
+
+import type { Swift, XML, Theme as ThemeType } from '.';
 
 export type ComplexValue = string | Record<string, string> | MultiplatformValue | Array<MultiplatformValue>;
 
@@ -65,4 +66,5 @@ export interface TokenContextHandlers {
     onTokenEnabled: (data: InputData) => void;
     onTokensSubsectionEnabled: (data: InputData) => void;
     onTokensSectionEnabled: (data: InputData) => void;
+    defaultData?: ThemeType;
 }
