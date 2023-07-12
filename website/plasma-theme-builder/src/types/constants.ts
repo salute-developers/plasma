@@ -40,7 +40,10 @@ export const emptyInputData = {
         value: '',
         status: undefined,
     },
-    comment: undefined,
+    comment: {
+        value: '',
+        status: undefined,
+    },
 };
 
 export const zeroPoint = {
