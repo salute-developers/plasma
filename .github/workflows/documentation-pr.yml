@@ -78,7 +78,7 @@ jobs:
         run: npx lerna bootstrap --scope=@salutejs/{${{steps.scope.outputs.result}}}
 
       - name: Prepare directory
-        run: mkdir s3_build
+        run: mkdir -p s3_build/${PR_NAME}
 
       # TODO: https://github.com/salute-developers/plasma/issues/603
       - name: Plasma Website
@@ -86,7 +86,7 @@ jobs:
         run: |
           export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-website"
-          cp -R ./website/plasma-website/build ./s3_build/${PR_NAME}
+          cp -R ./website/plasma-website/build/ ./s3_build/${PR_NAME}
 
       - name: Plasma UI Docs
         if: ${{ needs.scope.outputs.HAS_PLASMA_UI_DOCS == 'true' && needs.scope.outputs.HAS_PLASMA_UI == 'true' }}
