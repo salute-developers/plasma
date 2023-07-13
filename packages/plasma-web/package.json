@@ -1,10 +1,15 @@
 {
     "name": "@salutejs/plasma-web",
-    "version": "1.218.0",
+    "version": "1.219.0",
     "description": "Salute Design System / React UI kit for web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "license": "MIT",
-    "keywords": ["design-system", "react-components", "ui-kit", "react"],
+    "keywords": [
+        "design-system",
+        "react-components",
+        "ui-kit",
+        "react"
+    ],
     "main": "index.js",
     "module": "es/index.js",
     "types": "index.d.ts",
@@ -14,8 +19,8 @@
         "directory": "packages/plasma-web"
     },
     "dependencies": {
-        "@salutejs/plasma-core": "1.123.0",
-        "@salutejs/plasma-hope": "1.218.0",
+        "@salutejs/plasma-core": "1.124.0",
+        "@salutejs/plasma-hope": "1.219.0",
         "@salutejs/plasma-typo": "0.35.0"
     },
     "peerDependencies": {
@@ -34,8 +39,8 @@
         "@microsoft/api-extractor": "7.34.4",
         "@salutejs/plasma-colors": "0.8.0",
         "@salutejs/plasma-cy-utils": "0.64.0",
-        "@salutejs/plasma-icons": "1.152.0",
-        "@salutejs/plasma-sb-utils": "0.121.0",
+        "@salutejs/plasma-icons": "1.153.0",
+        "@salutejs/plasma-sb-utils": "0.122.0",
         "@salutejs/plasma-tokens-b2b": "1.23.0",
         "@salutejs/plasma-tokens-b2c": "0.32.0",
         "@salutejs/plasma-tokens-web": "1.38.0",
@@ -80,9 +85,17 @@
         "typescript-coverage": "npx typescript-coverage-report > /dev/null"
     },
     "typeCoverage": {
-        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx", "src/**/*perftest.tsx"],
+        "ignoreFiles": [
+            "src/**/*component-test.tsx",
+            "src/**/*stories.tsx",
+            "src/**/*perftest.tsx"
+        ],
         "atLeast": 99.96
     },
-    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"],
+    "contributors": [
+        "Vasiliy Loginevskiy",
+        "Anton Vinogradov",
+        "Fanil Zubairov"
+    ],
     "sideEffects": false
 }
