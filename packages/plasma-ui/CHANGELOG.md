@@ -1,3 +1,26 @@
+# v1.200.0 (Thu Jul 13 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-core): custom width/height for TextArea [#620](https://github.com/salute-developers/plasma/pull/620) ([@kayman233](https://github.com/kayman233))
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): Fix scrollable behavior for `Sheet` component [#620](https://github.com/salute-developers/plasma/pull/620) ([@neretin-trike](https://github.com/neretin-trike))
+- chore(storybook): avoid OpenSSL v3.0 breaking changes [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+- fix(plasma-core): new height/width types in TextArea [#620](https://github.com/salute-developers/plasma/pull/620) ([@kayman233](https://github.com/kayman233))
+- fix(plasma-core): fix cols/rows usage in TextArea [#620](https://github.com/salute-developers/plasma/pull/620) ([@kayman233](https://github.com/kayman233))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 4
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.199.0 (Thu Jun 29 2023)
 
 #### 🐛 Bug Fix

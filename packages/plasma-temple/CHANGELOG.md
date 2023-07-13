@@ -1,3 +1,17 @@
+# v1.168.0 (Thu Jul 13 2023)
+
+#### 🐛 Bug Fix
+
+- chore(storybook): avoid OpenSSL v3.0 breaking changes [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # v1.167.0 (Thu Jun 29 2023)
 
 #### 🐛 Bug Fix

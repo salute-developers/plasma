@@ -1,3 +1,49 @@
+# (Thu Jul 13 2023)
+
+#### 🚀 Enhancement
+
+- ci: fix pr docs [#620](https://github.com/salute-developers/plasma/pull/620) ([@kayman233](https://github.com/kayman233))
+- feat: Add new options for `upload-assets` plugin for compact and grouped view [#620](https://github.com/salute-developers/plasma/pull/620) ([@neretin-trike](https://github.com/neretin-trike))
+- feat: Add custom plugin `upload-assets-extends` [#620](https://github.com/salute-developers/plasma/pull/620) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Add favicon [#620](https://github.com/salute-developers/plasma/pull/620) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-core@1.124.0`, `@salutejs/plasma-hope@1.219.0`, `@salutejs/plasma-ui@1.200.0`
+  - feat(plasma-core): custom width/height for TextArea [#620](https://github.com/salute-developers/plasma/pull/620) ([@kayman233](https://github.com/kayman233))
+
+#### 🐛 Bug Fix
+
+- ci: run lerna boostrap with ignore plasma-tokens [Lint] [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: extend computed scope logic [PR Documentation and Storybook] [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: rework computed scope logic [Typescript coverage] [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+- fix(plasma-theme-builder): Remove auto theme changes [#620](https://github.com/salute-developers/plasma/pull/620) ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-theme-builder): Fix platform name on `Main` page [#620](https://github.com/salute-developers/plasma/pull/620) ([@neretin-trike](https://github.com/neretin-trike))
+- docs: rewrite paragraph about "Node, npm versions" [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+- ci(documentation): use "--openssl-legacy-provider" flag [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+- ci(theme-builder): use "--openssl-legacy-provider" flag [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: use Node.js/NPM LTS version [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: add "@kayman233" as owner [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: add flag "with-artifacts" [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: refactoring cypress workflow [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: add cypress component testing by schedule [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: delete "change-detection" logic for Perftest by base branch [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: refactoring change-detection [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: "PR Documentation and Storybook" with --scope [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-ui@1.200.0`
+  - fix(plasma-ui): Fix scrollable behavior for `Sheet` component [#620](https://github.com/salute-developers/plasma/pull/620) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.219.0`, `@salutejs/plasma-temple@1.168.0`, `@salutejs/plasma-ui@1.200.0`, `@salutejs/plasma-web@1.219.0`
+  - chore(storybook): avoid OpenSSL v3.0 breaking changes [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-core@1.124.0`, `@salutejs/plasma-hope@1.219.0`, `@salutejs/plasma-ui@1.200.0`
+  - fix(plasma-core): new height/width types in TextArea [#620](https://github.com/salute-developers/plasma/pull/620) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-b2c@1.219.0`, `@salutejs/plasma-core@1.124.0`, `@salutejs/plasma-hope@1.219.0`, `@salutejs/plasma-ui@1.200.0`, `@salutejs/plasma-web@1.219.0`
+  - fix(plasma-core): fix cols/rows usage in TextArea [#620](https://github.com/salute-developers/plasma/pull/620) ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 3
+
+- [@kayman233](https://github.com/kayman233)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Thu Jun 29 2023)
 
 #### 🚀 Enhancement

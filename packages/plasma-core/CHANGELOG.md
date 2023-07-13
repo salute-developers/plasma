@@ -1,3 +1,22 @@
+# v1.124.0 (Thu Jul 13 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-core): custom width/height for TextArea [#620](https://github.com/salute-developers/plasma/pull/620) ([@kayman233](https://github.com/kayman233))
+
+#### 🐛 Bug Fix
+
+- fix(plasma-core): new height/width types in TextArea [#620](https://github.com/salute-developers/plasma/pull/620) ([@kayman233](https://github.com/kayman233))
+- fix(plasma-core): fix cols/rows usage in TextArea [#620](https://github.com/salute-developers/plasma/pull/620) ([@kayman233](https://github.com/kayman233))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.123.0 (Thu Jun 29 2023)
 
 #### 🐛 Bug Fix
