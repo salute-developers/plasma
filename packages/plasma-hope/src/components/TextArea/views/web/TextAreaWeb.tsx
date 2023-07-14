@@ -52,6 +52,7 @@ export const TextAreaWeb = ({
         <FieldRoot
             $disabled={disabled}
             $isHelper={hasHelper || Boolean(helperText)}
+            $isContentRight={Boolean(contentRight)}
             status={status}
             style={style}
             className={className}
