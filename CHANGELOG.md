@@ -1,3 +1,15 @@
+# (Fri Jul 14 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-theme-builder): Fix avoid open-ssl [#622](https://github.com/salute-developers/plasma/pull/622) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Thu Jul 13 2023)
 
 #### 🚀 Enhancement
