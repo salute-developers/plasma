@@ -130,6 +130,13 @@ describe('plasma-core: TextArea', () => {
                     helperText="Helper text"
                     contentRight={<IconEye color="inherit" size="s" />}
                 />
+                <SpaceMe />
+                <TextArea
+                    value="Very very very very very very very very very very very very long text"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    contentRight={<IconEye color="inherit" size="s" />}
+                />
             </CypressTestDecorator>,
         );
 
