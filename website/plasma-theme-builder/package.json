@@ -5,8 +5,8 @@
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "private": true,
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build"
+        "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
+        "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build"
     },
     "dependencies": {
         "@salutejs/plasma-b2c": "1.219.0",
@@ -25,9 +25,7 @@
     },
     "homepage": ".",
     "eslintConfig": {
-        "extends": [
-            "react-app"
-        ],
+        "extends": ["react-app"],
         "rules": {
             "@typescript-eslint/no-redeclare": "off",
             "no-redeclare": "off"
@@ -44,15 +42,7 @@
         "react-error-overlay": "6.0.9"
     },
     "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
+        "production": [">0.2%", "not dead", "not op_mini all"],
+        "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
     }
 }
