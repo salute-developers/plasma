@@ -133,6 +133,7 @@ export const TextAreaB2C = ({
         <TextAreaWrapper
             status={status}
             $isHelper={hasHelper}
+            $isContentRight={Boolean(contentRight)}
             $properties={textAreaProps[size]}
             className={className}
             style={style}
