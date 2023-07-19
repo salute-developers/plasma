@@ -371,3 +371,31 @@ export const buttonWarning = 'var(--plasma-colors-button-warning, rgba(250, 95, 
 
 /** @deprecated instead use surfaceNegative */
 export const buttonCritical = 'var(--plasma-colors-button-critical, rgba(255, 41, 62, 1))';
+
+export const shadowDownSoftS =
+    'var(--shadow-down-soft-s, 0px 4px 14px -4px rgba(8, 8, 8, 0.08)), var(--shadow-down-soft-s, 0px 1px 4px -1px rgba(0, 0, 0, 0.04))';
+
+export const shadowDownSoftM = 'var(--shadow-down-soft-m, 0px 24px 48px -8px rgba(0, 0, 0, 0.08))';
+
+export const shadowDownSoftL = 'var(--shadow-down-soft-l, 0px 60px 112px -8px rgba(0, 0, 0, 0.08))';
+
+export const shadowDownHardS =
+    'var(--shadow-down-hard-s, 0px 4px 12px -3px rgba(8, 8, 8, 0.16)), var(--shadow-down-hard-s, 0px 1px 4px -2px rgba(0, 0, 0, 0.08))';
+
+export const shadowDownHardM = 'var(--shadow-down-hard-m, 0px 16px 32px -8px rgba(0, 0, 0, 0.24))';
+
+export const shadowDownHardL = 'var(--shadow-down-hard-l, 0px 60px 112px -8px rgba(0, 0, 0, 0.40))';
+
+export const shadowUpSoftS =
+    'var(--shadow-up-soft-s, 0px -4px 14px -4px rgba(8, 8, 8, 0.08)), var(--shadow-up-soft-s, 0px -1px 4px -1px rgba(0, 0, 0, 0.03))';
+
+export const shadowUpSoftM = 'var(--shadow-up-soft-m, 0px -24px 48px -8px rgba(0, 0, 0, 0.08))';
+
+export const shadowUpSoftL = 'var(--shadow-up-soft-l, 0px -60px 112px -8px rgba(0, 0, 0, 0.08))';
+
+export const shadowUpHardS =
+    'var(--shadow-up-hard-s, 0px -4px 12px -3px rgba(8, 8, 8, 0.20)), var(--shadow-up-hard-s, 0px -1px 4px -1px rgba(0, 0, 0, 0.03))';
+
+export const shadowUpHardM = 'var(--shadow-up-hard-m, 0px -16px 32px -8px rgba(0, 0, 0, 0.24))';
+
+export const shadowUpHardL = 'var(--shadow-up-hard-l, 0px -60px 112px -8px rgba(0, 0, 0, 0.40))';
