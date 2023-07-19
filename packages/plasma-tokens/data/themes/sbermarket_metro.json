@@ -653,15 +653,21 @@
     "shadow": {
         "down": {
             "soft": {
-                "l": {
+                "s": {
                     "value": [
                         {
-                            "color": "rgba(0, 0, 0, 0.2)",
-                            "blurRadius": "112px",
-                            "spreadRadius": "-8px",
-                            "offset": {
-                                "x": "0px",
-                                "y": "60px"
+                            "origin": "0px 6px 12px rgba(0, 0, 0, 0.08)",
+                            "ios": {
+                                "kind": "shadow",
+                                "color": "#000",
+                                "offset": { "width": 0, "height": 2 },
+                                "opacity": 0.08,
+                                "radius": 1.5
+                            },
+                            "android": {
+                                "kind": "shadow",
+                                "color": "rgba(0, 0, 0, 0.48)",
+                                "elevation": 8
                             }
                         }
                     ]
@@ -669,49 +675,58 @@
                 "m": {
                     "value": [
                         {
-                            "color": "rgba(0, 0, 0, 0.16)",
-                            "blurRadius": "32px",
-                            "spreadRadius": "-8px",
-                            "offset": {
-                                "x": "0px",
-                                "y": "16px"
+                            "origin": "0 12px 24px rgba(0, 0, 0, 0.12)",
+                            "ios": {
+                                "kind": "shadow",
+                                "color": "#000",
+                                "offset": { "width": 0, "height": 4 },
+                                "opacity": 0.1,
+                                "radius": 3
+                            },
+                            "android": {
+                                "kind": "shadow",
+                                "color": "rgba(0, 0, 0, 0.64)",
+                                "elevation": 24
                             }
                         }
                     ]
                 },
-                "s": {
+                "l": {
                     "value": [
                         {
-                            "color": "rgba(0, 0, 0, 0.04)",
-                            "blurRadius": "4px",
-                            "spreadRadius": "-1px",
-                            "offset": {
-                                "x": "0px",
-                                "y": "1px"
-                            }
-                        },
-                        {
-                            "color": "rgba(8, 8, 8, 0.1)",
-                            "blurRadius": "12px",
-                            "spreadRadius": "-2px",
-                            "offset": {
-                                "x": "0px",
-                                "y": "6px"
+                            "origin": "0 24px 48px rgba(0, 0, 0, 0.16)",
+                            "ios": {
+                                "kind": "shadow",
+                                "color": "#000",
+                                "offset": { "width": 0, "height": 7 },
+                                "opacity": 0.16,
+                                "radius": 7
+                            },
+                            "android": {
+                                "kind": "shadow",
+                                "color": "rgba(0, 0, 0, 0.96)",
+                                "elevation": 40
                             }
                         }
                     ]
                 }
             },
             "hard": {
-                "l": {
+                "s": {
                     "value": [
                         {
-                            "color": "rgba(0, 0, 0, 0.6)",
-                            "blurRadius": "112px",
-                            "spreadRadius": "-8px",
-                            "offset": {
-                                "x": "0px",
-                                "y": "60px"
+                            "origin": "0px 6px 12px rgba(0, 0, 0, 0.12)",
+                            "ios": {
+                                "kind": "shadow",
+                                "color": "#000",
+                                "offset": { "width": 0, "height": 2 },
+                                "opacity": 0.15,
+                                "radius": 1.5
+                            },
+                            "android": {
+                                "kind": "shadow",
+                                "color": "rgba(0, 0, 0, 0.8)",
+                                "elevation": 16
                             }
                         }
                     ]
@@ -719,136 +734,37 @@
                 "m": {
                     "value": [
                         {
-                            "color": "rgba(0, 0, 0, 0.4)",
-                            "blurRadius": "32px",
-                            "spreadRadius": "-8px",
-                            "offset": {
-                                "x": "0px",
-                                "y": "16px"
+                            "origin": "0 12px 24px rgba(0, 0, 0, 0.16)",
+                            "ios": {
+                                "kind": "shadow",
+                                "color": "#000",
+                                "offset": { "width": 0, "height": 4 },
+                                "opacity": 0.2,
+                                "radius": 3
+                            },
+                            "android": {
+                                "kind": "shadow",
+                                "color": "rgba(0, 0, 0, 0.96)",
+                                "elevation": 32
                             }
                         }
                     ]
                 },
-                "s": {
-                    "value": [
-                        {
-                            "color": "rgba(0, 0, 0, 0.08)",
-                            "blurRadius": "4px",
-                            "spreadRadius": "-2px",
-                            "offset": {
-                                "x": "0px",
-                                "y": "1px"
-                            }
-                        },
-                        {
-                            "color": "rgba(8, 8, 8, 0.24)",
-                            "blurRadius": "12px",
-                            "spreadRadius": "-2px",
-                            "offset": {
-                                "x": "0px",
-                                "y": "6px"
-                            }
-                        }
-                    ]
-                }
-            }
-        },
-        "up": {
-            "soft": {
                 "l": {
                     "value": [
                         {
-                            "color": "rgba(0, 0, 0, 0.08)",
-                            "blurRadius": "112px",
-                            "spreadRadius": "-8px",
-                            "offset": {
-                                "x": "0px",
-                                "y": "-60px"
-                            }
-                        }
-                    ]
-                },
-                "m": {
-                    "value": [
-                        {
-                            "color": "rgba(0, 0, 0, 0.06)",
-                            "blurRadius": "48px",
-                            "spreadRadius": "-8px",
-                            "offset": {
-                                "x": "0px",
-                                "y": "-20px"
-                            }
-                        }
-                    ]
-                },
-                "s": {
-                    "value": [
-                        {
-                            "color": "rgba(0, 0, 0, 0.03)",
-                            "blurRadius": "4px",
-                            "spreadRadius": "-1px",
-                            "offset": {
-                                "x": "0px",
-                                "y": "-1px"
-                            }
-                        },
-                        {
-                            "color": "rgba(8, 8, 8, 0.12)",
-                            "blurRadius": "14px",
-                            "spreadRadius": "-5px",
-                            "offset": {
-                                "x": "0px",
-                                "y": "-3px"
-                            }
-                        }
-                    ]
-                }
-            },
-            "hard": {
-                "l": {
-                    "value": [
-                        {
-                            "color": "rgba(0, 0, 0, 0.32)",
-                            "blurRadius": "112px",
-                            "spreadRadius": "-8px",
-                            "offset": {
-                                "x": "0px",
-                                "y": "-60px"
-                            }
-                        }
-                    ]
-                },
-                "m": {
-                    "value": [
-                        {
-                            "color": "rgba(0, 0, 0, 0.2)",
-                            "blurRadius": "48px",
-                            "spreadRadius": "-8px",
-                            "offset": {
-                                "x": "0px",
-                                "y": "-20px"
-                            }
-                        }
-                    ]
-                },
-                "s": {
-                    "value": [
-                        {
-                            "color": "rgba(0, 0, 0, 0.03)",
-                            "blurRadius": "4px",
-                            "spreadRadius": "-1px",
-                            "offset": {
-                                "x": "0px",
-                                "y": "-1px"
-                            }
-                        },
-                        {
-                            "color": "rgba(8, 8, 8, 0.24)",
-                            "blurRadius": "14px",
-                            "spreadRadius": "-5px",
-                            "offset": {
-                                "x": "0px",
-                                "y": "-3px"
+                            "origin": "0 24px 48px rgba(0, 0, 0, 0.2)",
+                            "ios": {
+                                "kind": "shadow",
+                                "color": "#000",
+                                "offset": { "width": 0, "height": 7 },
+                                "opacity": 0.24,
+                                "radius": 7
+                            },
+                            "android": {
+                                "kind": "shadow",
+                                "color": "rgba(0, 0, 0, 1)",
+                                "elevation": 48
                             }
                         }
                     ]

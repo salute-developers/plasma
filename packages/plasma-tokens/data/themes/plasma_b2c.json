@@ -1179,5 +1179,67 @@
                 }
             }
         }
+    },
+    "shadow": {
+        "down": {
+            "soft": {
+                "s": {
+                    "value": [
+                        { "origin": "0px 4px 14px -4px rgba(8, 8, 8, 0.08)" },
+                        { "origin": "0px 1px 4px -1px rgba(0, 0, 0, 0.04)" }
+                    ]
+                },
+                "m": {
+                    "value": [{ "origin": "0px 24px 48px -8px rgba(0, 0, 0, 0.08)" }]
+                },
+                "l": {
+                    "value": [{ "origin": "0px 60px 112px -8px rgba(0, 0, 0, 0.08)" }]
+                }
+            },
+            "hard": {
+                "s": {
+                    "value": [
+                        { "origin": "0px 4px 12px -3px rgba(8, 8, 8, 0.16)" },
+                        { "origin": "0px 1px 4px -2px rgba(0, 0, 0, 0.08)" }
+                    ]
+                },
+                "m": {
+                    "value": [{ "origin": "0px 16px 32px -8px rgba(0, 0, 0, 0.24)" }]
+                },
+                "l": {
+                    "value": [{ "origin": "0px 60px 112px -8px rgba(0, 0, 0, 0.40)" }]
+                }
+            }
+        },
+        "up": {
+            "soft": {
+                "s": {
+                    "value": [
+                        { "origin": "0px -4px 14px -4px rgba(8, 8, 8, 0.08)" },
+                        { "origin": "0px -1px 4px -1px rgba(0, 0, 0, 0.03)" }
+                    ]
+                },
+                "m": {
+                    "value": [{ "origin": "0px -24px 48px -8px rgba(0, 0, 0, 0.08)" }]
+                },
+                "l": {
+                    "value": [{ "origin": "0px -60px 112px -8px rgba(0, 0, 0, 0.08)" }]
+                }
+            },
+            "hard": {
+                "s": {
+                    "value": [
+                        { "origin": "0px -4px 12px -3px rgba(8, 8, 8, 0.20)" },
+                        { "origin": "0px -1px 4px -1px rgba(0, 0, 0, 0.03)" }
+                    ]
+                },
+                "m": {
+                    "value": [{ "origin": "0px -16px 32px -8px rgba(0, 0, 0, 0.24)" }]
+                },
+                "l": {
+                    "value": [{ "origin": "0px -60px 112px -8px rgba(0, 0, 0, 0.40)" }]
+                }
+            }
+        }
     }
 }
