@@ -7,3 +7,4 @@ export { generateThemesTokenDataGroups } from './generateThemesTokenDataGroups';
 export { getThemesTokensFallback } from './getThemesTokensFallback';
 export { generateTokenSet } from './generateTokenSet';
 export { generateThemes } from './generateThemes';
+export { generateShadowsToken } from './generateShadowsToken';

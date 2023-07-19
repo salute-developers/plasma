@@ -1,5 +1,5 @@
 import path from 'path';
-import { generateThemesTokenDataGroups } from '@salutejs/plasma-tokens-utils';
+import { generateThemesTokenDataGroups, generateShadowsToken } from '@salutejs/plasma-tokens-utils';
 import {
     mageTypoProperties,
     sageTypoProperties,
@@ -9,16 +9,12 @@ import {
     sbermarketTypoProperties,
 } from '@salutejs/plasma-typo';
 
-// Директория создаётся после выполнения команды prepare
-import { sbermarketShadows } from '../data/shadows';
-
 import { createProperties } from './creators';
 
-const themesColorTokenGroups = generateThemesTokenDataGroups(path.join(__dirname, '../data/themes'));
+const themeDir = path.join(__dirname, '../data/themes');
 
-const shadowTokens = {
-    sbermarket: sbermarketShadows,
-};
+const themesColorTokenGroups = generateThemesTokenDataGroups(themeDir);
+const shadowTokens = generateShadowsToken(themeDir);
 
 const typoArchetypes = {
     mage: mageTypoProperties,

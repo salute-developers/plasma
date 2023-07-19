@@ -232,12 +232,18 @@ export type TokensGetterFn = (
 >;
 
 export interface Shadow {
-    color: string;
-    blurRadius: string;
-    spreadRadius: string;
-    offset: {
-        x: string;
-        y: string;
+    origin: string;
+    ios?: {
+        kind: 'shadow';
+        color: string;
+        offset: { width: number; height: number };
+        opacity: number;
+        radius: number;
+    };
+    android?: {
+        kind: 'shadow';
+        color: string;
+        elevation: number;
     };
 }
 
