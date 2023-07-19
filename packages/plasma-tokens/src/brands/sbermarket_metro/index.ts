@@ -267,33 +267,17 @@ export const buttonAccent = 'var(--plasma-colors-button-accent, #0064FE)';
 /** @deprecated instead use surfaceNegative */
 export const buttonCritical = 'var(--plasma-colors-button-critical, #FF2E43)';
 
-export const shadowDownSoftL = 'var(--shadow-down-soft-l, 0px 60px 112px -8px rgba(0, 0, 0, 0.2))';
+export const shadowDownSoftS = 'var(--shadow-down-soft-s, 0px 6px 12px rgba(0, 0, 0, 0.08))';
 
-export const shadowDownSoftM = 'var(--shadow-down-soft-m, 0px 16px 32px -8px rgba(0, 0, 0, 0.16))';
+export const shadowDownSoftM = 'var(--shadow-down-soft-m, 0 12px 24px rgba(0, 0, 0, 0.12))';
 
-export const shadowDownSoftS =
-    'var(--shadow-down-soft-s, 0px 1px 4px -1px rgba(0, 0, 0, 0.04)), var(--shadow-down-soft-s, 0px 6px 12px -2px rgba(8, 8, 8, 0.1))';
+export const shadowDownSoftL = 'var(--shadow-down-soft-l, 0 24px 48px rgba(0, 0, 0, 0.16))';
 
-export const shadowDownHardL = 'var(--shadow-down-hard-l, 0px 60px 112px -8px rgba(0, 0, 0, 0.6))';
+export const shadowDownHardS = 'var(--shadow-down-hard-s, 0px 6px 12px rgba(0, 0, 0, 0.12))';
 
-export const shadowDownHardM = 'var(--shadow-down-hard-m, 0px 16px 32px -8px rgba(0, 0, 0, 0.4))';
+export const shadowDownHardM = 'var(--shadow-down-hard-m, 0 12px 24px rgba(0, 0, 0, 0.16))';
 
-export const shadowDownHardS =
-    'var(--shadow-down-hard-s, 0px 1px 4px -2px rgba(0, 0, 0, 0.08)), var(--shadow-down-hard-s, 0px 6px 12px -2px rgba(8, 8, 8, 0.24))';
-
-export const shadowUpSoftL = 'var(--shadow-up-soft-l, 0px -60px 112px -8px rgba(0, 0, 0, 0.08))';
-
-export const shadowUpSoftM = 'var(--shadow-up-soft-m, 0px -20px 48px -8px rgba(0, 0, 0, 0.06))';
-
-export const shadowUpSoftS =
-    'var(--shadow-up-soft-s, 0px -1px 4px -1px rgba(0, 0, 0, 0.03)), var(--shadow-up-soft-s, 0px -3px 14px -5px rgba(8, 8, 8, 0.12))';
-
-export const shadowUpHardL = 'var(--shadow-up-hard-l, 0px -60px 112px -8px rgba(0, 0, 0, 0.32))';
-
-export const shadowUpHardM = 'var(--shadow-up-hard-m, 0px -20px 48px -8px rgba(0, 0, 0, 0.2))';
-
-export const shadowUpHardS =
-    'var(--shadow-up-hard-s, 0px -1px 4px -1px rgba(0, 0, 0, 0.03)), var(--shadow-up-hard-s, 0px -3px 14px -5px rgba(8, 8, 8, 0.24))';
+export const shadowDownHardL = 'var(--shadow-down-hard-l, 0 24px 48px rgba(0, 0, 0, 0.2))';
 
 export const borderRadiusXxs = 'var(--border-radius-xxs, 4px)';
 
