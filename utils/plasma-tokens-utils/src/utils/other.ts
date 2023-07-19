@@ -19,7 +19,4 @@ export const join = (...args: (string | undefined)[]) => args.filter(Boolean).jo
 export const getCSSVariableName = (key: string, withDesignPrefix = true) =>
     withDesignPrefix ? `--${DESIGN_SYSTEM_PREFIX}-${key}` : `--${key}`;
 
-export const getBoxShadow = (shadows: Array<Shadow>) =>
-    shadows.map(
-        ({ offset: { x, y }, blurRadius, spreadRadius, color }) => `${x} ${y} ${blurRadius} ${spreadRadius} ${color}`,
-    );
+export const getBoxShadow = (shadows: Array<Shadow>) => shadows.map(({ origin }) => origin);
