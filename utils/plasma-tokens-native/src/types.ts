@@ -23,12 +23,11 @@ export type ThemeColorType = 'Light' | 'Dark';
 export type GradientType = '.linear' | '.radial';
 
 export interface GradientToken {
-    startColor: string;
-    endColor: string;
+    colors: string[];
     startPoint: string;
     endPoint: string;
     type: GradientType;
-    locations: [number, number];
+    locations: number[];
 }
 
 export type ThemeTokenDataGroups = Record<string, TokenDataGroup<string> | undefined>;

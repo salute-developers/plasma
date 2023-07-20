@@ -97,25 +97,33 @@ const padFormatter = (strings: TemplateStringsArray, ...expressionValues: string
     return finalString.substring(1).replace(/\n/gm, `\n${pads}`);
 };
 
+const getColorToken = (lightColor: string, darkColor: string, pads = ' '.repeat(8)) =>
+    padFormatter`${pads}
+ColorToken(
+    plasmaTokensColorLight: ${lightColor},
+    plasmaTokensColorDark: ${darkColor}
+)`;
+
+const getColorTokenList = (token: Record<ThemeColorType, GradientToken>) => {
+    const tokenCount = token.Light.colors.length === token.Dark.colors.length ? token.Light.colors.length : 0;
+
+    return [...Array(tokenCount).keys()]
+        .map((index) => getColorToken(token.Light.colors[index], token.Dark.colors[index]))
+        .join(',\n        ');
+};
+
 const getPlasmaGradient = (
     token: Record<ThemeColorType, GradientToken>,
     startPoint: string,
     endPoint: string,
     type: GradientType,
-    locations: [number, number],
+    locations: number[],
     pads = ' '.repeat(8),
 ) => padFormatter`${pads}
 GradientToken(
     type: ${type},
     colors: [
-        ColorToken(
-            plasmaTokensColorLight: ${token.Light.startColor},
-            plasmaTokensColorDark: ${token.Dark.startColor}
-        ),
-        ColorToken(
-            plasmaTokensColorLight: ${token.Light.endColor},
-            plasmaTokensColorDark: ${token.Dark.endColor}
-        )
+        ${getColorTokenList(token)}
     ],
     locations: [${locations?.join(', ')}],
     startPoint: ${startPoint},

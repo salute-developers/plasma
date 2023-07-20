@@ -12,16 +12,15 @@ const getAndroidColor = (color: string) => {
     return getNormalizeValue(hexColor);
 };
 
-const getGradientStops = (colors: Array<string>) => [getAndroidColor(colors[0]), getAndroidColor(colors[1])];
+const getGradientStops = (colors: Array<string>) => colors.map(getAndroidColor);
 
 const getGradient = (value: any) => {
-    const { type, colors, locations } = value;
-    const [startColor, endColor] = getGradientStops(colors);
+    const { type, colors: colorsBase, locations } = value;
+    const colors = getGradientStops(colorsBase);
 
     const base = {
         type,
-        startColor,
-        endColor,
+        colors,
         locations,
     };
 
