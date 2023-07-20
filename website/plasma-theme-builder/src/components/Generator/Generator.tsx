@@ -147,7 +147,7 @@ export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
             return;
         }
 
-        const themeNameValidationRegexp = new RegExp(/^[a-z\d_]{3,}$/);
+        const themeNameValidationRegexp = new RegExp(/^[a-zA-Z\d_]{3,}$/);
         if (!themeNameValidationRegexp.test(themeName)) {
             setInputState({
                 status: 'error',

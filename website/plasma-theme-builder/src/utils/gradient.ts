@@ -53,14 +53,14 @@ const getLocations = (restParams: string[]) =>
     }, []);
 
 export const parseGradient = (gradientString: string) => {
-    const regex = /((rgba?|hsla?)\([\d.%\s,()#\w]?\))|(#\w{6,8})|(linear|radial)-gradient\([\d.%\s,()#\w]+?\)(?=,*\s*(linear|radial|$|rgb|hsl|#))/g;
+    const regex = /((rgba?|hsla?)\([\d.%\s,()#\w]*\))|(#\w{6,8})|(linear|radial)-gradient\([\d.%\s,()#\w]+?\)(?=,*\s*(linear|radial|$|rgb|hsl|#))/g;
     const gradientArray = gradientString.match(regex);
 
     if (!gradientArray) {
         return null;
     }
 
-    return gradientArray.reduce((result, gradient) => {
+    const layers = gradientArray.reduce((result, gradient) => {
         const type = gradient.substring(0, gradient.indexOf('('));
 
         const origin = gradient;
@@ -88,6 +88,8 @@ export const parseGradient = (gradientString: string) => {
                     endPoint,
                 },
             });
+
+            return result;
         }
 
         if (type === 'radial-gradient') {
@@ -112,15 +114,27 @@ export const parseGradient = (gradientString: string) => {
                     radius: zeroPoint,
                 },
             });
+
+            return result;
         }
 
-        if (!type) {
-            result.push({
-                origin,
-                backgroundColor: origin,
-            });
-        }
+        result.push({
+            origin,
+            backgroundColor: origin,
+        });
 
         return result;
     }, [] as Array<MultiplatformValue>);
+
+    const lastLayer = layers.length - 1;
+    if (layers.length > 1 && !layers[lastLayer].backgroundColor) {
+        const transparent = '#FFFFFF00';
+
+        layers.push({
+            backgroundColor: transparent,
+            origin: transparent,
+        });
+    }
+
+    return layers;
 };

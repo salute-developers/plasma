@@ -160,6 +160,16 @@ export const TokenForm = ({
             };
         };
 
+        const getSynchronizedThemeData = (currentThemeMode: ThemeMode, themeMode: ThemeMode) => {
+            const data = getDataByThemeMode(currentThemeMode);
+            const mutatedData = currentThemeMode === 'light' ? themeData.dark : themeData.light;
+
+            const enabled = data[section.value][subsection.value][tokenName].enabled;
+            mutatedData[section.value][subsection.value][tokenName].enabled = enabled;
+
+            return currentThemeMode === themeMode ? data : mutatedData;
+        };
+
         if (!RegExp(/^[\w\d]{3,}$/).test(name.value)) {
             setName({
                 value: name.value,
@@ -183,7 +193,8 @@ export const TokenForm = ({
         if (hasToken) {
             onThemeDataChange({
                 ...themeData,
-                [themeMode]: getDataByThemeMode(themeMode),
+                dark: getSynchronizedThemeData(themeMode, 'dark'),
+                light: getSynchronizedThemeData(themeMode, 'light'),
             });
             return;
         }
@@ -193,7 +204,7 @@ export const TokenForm = ({
             dark: getDataByThemeMode('dark'),
             light: getDataByThemeMode('light'),
         });
-    }, [themeData, themeMode, onTokenFormShow, onThemeDataChange, inputData, name, value, comment, enabled]);
+    }, [themeData, themeMode, inputData, name, value, comment, enabled, onTokenFormShow, onThemeDataChange]);
 
     const onSubmit = useCallback((event: React.SyntheticEvent) => {
         event.preventDefault();
