@@ -62,9 +62,10 @@ export const GradientTokenValue = ({ value, onChangeValue }: GradientTokenValueP
 
     const onChangeGradientValue = useCallback((event: ChangeEvent<HTMLTextAreaElement>) => {
         const { value: currentValue } = event.target;
+        const layers = parseGradient(currentValue);
 
         setGradientValue(currentValue);
-        setLayers(parseGradient(currentValue));
+        setLayers(layers);
     }, []);
 
     const onChangeSwiftGradientValue = useCallback(

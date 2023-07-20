@@ -54,7 +54,7 @@ export const useRunGithubPRProcess = ({ owner, repo }: RunProcessGithubPR) => {
             const defaultBranch = await withMetaData(Steps.GET_DEFAULT_BRANCH)(getDefaultBranch)();
 
             if (branchNameFromParam !== branchName) {
-                await withMetaData(Steps.CREATE_BRANCH)(createBranch)(branchName);
+                await withMetaData(Steps.CREATE_BRANCH)(createBranch)(branchName, defaultBranch);
             }
 
             const { commitSha, treeSha } = await withMetaData(Steps.LATEST_COMMIT)(getCurrentSha)(branchName);

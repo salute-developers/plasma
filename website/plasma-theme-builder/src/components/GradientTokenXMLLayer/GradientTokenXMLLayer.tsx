@@ -53,11 +53,6 @@ const LayerEditableValue = styled.div`
     gap: 1rem;
 `;
 
-const Row = styled.div`
-    display: flex;
-    gap: 1rem;
-`;
-
 const LayerEditablePart = styled.span``;
 
 const StyledInput = styled(TextField)`
@@ -112,7 +107,7 @@ export const GradientTokenXMLLayer = ({ originalColor, xml, index, onChangeXMLVa
     }
 
     const { colors, locations, type } = xml;
-    const [colorStart, colorStop] = [getAndroidColor(colors[0]), getAndroidColor(colors[1])];
+    const xmlColors = colors.map(getAndroidColor);
 
     const [first, second] = getPointsName(type);
     const firstPoint = xml[first] || zeroPoint;
@@ -126,17 +121,8 @@ export const GradientTokenXMLLayer = ({ originalColor, xml, index, onChangeXMLVa
             </LayerHeader>
             <LayerWrapper>
                 <LayerReadonlyContent>
-                    <Row>
-                        <LayerReadonlyValue>color_0: {colorStart}</LayerReadonlyValue>
-                        <LayerReadonlyValue>color_1: {colorStop}</LayerReadonlyValue>
-                    </Row>
-                    <Row>
-                        {locations.map((location, index) => (
-                            <LayerReadonlyValue key={index}>
-                                locations_{index}: {location}
-                            </LayerReadonlyValue>
-                        ))}
-                    </Row>
+                    <LayerReadonlyValue>colors: [{xmlColors.join(', ')}]</LayerReadonlyValue>
+                    <LayerReadonlyValue>locations: [{locations.join(', ')}]</LayerReadonlyValue>
                 </LayerReadonlyContent>
                 <LayerEditableContent>
                     <LayerEditableValue>
