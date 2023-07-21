@@ -18,23 +18,6 @@ ${
     themeName.includes('sbermarket')
         ? 'import SMFoundation\nimport SwiftUI\nimport UIKit'
         : 'import SwiftUI\nimport UIKit'
-}
-
-extension UIColor {
-    convenience init(light: UIColor, dark: UIColor) {
-        self.init { traitCollection in
-            switch traitCollection.userInterfaceStyle {
-            case .dark:
-                return dark
-            case .light, .unspecified:
-                return light
-            @unknown default:
-                return light
-            }
-        }
-    }
-
-    public var color: SwiftUI.Color { return SwiftUI.Color(self) }
 }`;
 
     const gradientStructs = `public struct GradientToken {
@@ -44,7 +27,7 @@ extension UIColor {
     }
 
     public let type: Kind
-    public let colors: [ColorToken]
+    public let colors: [PlasmaColorToken]
     public let locations: [CGFloat]
     public let startPoint: CGPoint
     public let endPoint: CGPoint
@@ -52,28 +35,34 @@ extension UIColor {
 
 public struct ComplexGradientToken {
     public let gradients: [GradientToken]
-    public let backgroundColor: ColorToken
+    public let backgroundColor: PlasmaColorToken
 }`;
 
-    const structHeader = `    public let plasmaTokensColorLight: UIColor
-    public let plasmaTokensColorDark: UIColor
+    const plasmaColorScheme = `public enum PlasmaColorScheme {
+    case light
+    case dark
+}`;
 
-    public var color: SwiftUI.Color { 
-        return SwiftUI.Color(UIColor(light: plasmaTokensColorLight, dark: plasmaTokensColorDark)) 
-    }
+    const structHeader = `    public let light: UIColor
+    public let dark: UIColor
 
-    public var uiColor: UIColor { 
-        return UIColor(light: plasmaTokensColorLight, dark: plasmaTokensColorDark) 
+    public func color(_ scheme: PlasmaColorScheme) -> UIColor {
+        switch scheme {
+        case .dark:
+            return dark
+        case .light:
+            return light
+        }
     }
 `;
 
     const gradient = `\n    public enum PlasmaGradient {\n${gradientContent}\n    }`;
 
-    const colorStruct = `public struct ColorToken {\n${[structHeader, structContent, gradient].join('\n')}\n}`;
+    const colorStruct = `public struct PlasmaColorToken {\n${[structHeader, structContent, gradient].join('\n')}\n}`;
 
     const enums = `private enum PlasmaTokensColor {\n${enumsContent}\n}\n`;
 
-    return [header, gradientStructs, colorStruct, enums].join('\n\n');
+    return [header, gradientStructs, plasmaColorScheme, colorStruct, enums].join('\n\n');
 };
 
 const getConditionalColorToken = (firstValue: string, secondValue: string) => `: UIColor {
@@ -99,9 +88,9 @@ const padFormatter = (strings: TemplateStringsArray, ...expressionValues: string
 
 const getColorToken = (lightColor: string, darkColor: string, pads = ' '.repeat(8)) =>
     padFormatter`${pads}
-ColorToken(
-    plasmaTokensColorLight: ${lightColor},
-    plasmaTokensColorDark: ${darkColor}
+PlasmaColorToken(
+    light: ${lightColor},
+    dark: ${darkColor}
 )`;
 
 const getColorTokenList = (token: Record<ThemeColorType, GradientToken>) => {
@@ -153,9 +142,9 @@ const getPlasmaComplexGradient = (tokens: ComplexGradientTokens) => {
             gradients: [
                 ${gradients.join(`,\n${' '.repeat(16)}`)}
             ],
-            backgroundColor: ColorToken(
-                plasmaTokensColorLight: ${backgroundColorLight},
-                plasmaTokensColorDark: ${backgroundColorDark}
+            backgroundColor: PlasmaColorToken(
+                light: ${backgroundColorLight},
+                dark: ${backgroundColorDark}
             )
         )`;
 };
@@ -167,9 +156,9 @@ const getStructure = (tokenItems: TransformedToken[], themeName: string) =>
             const tokenName = token.name.replace(`${themeName}${ThemeColor.light}`, '');
             const name = upperFirstLetter(tokenName);
 
-            return `    public static let ${lowerFirstLetter(name)} = ColorToken(
-        plasmaTokensColorLight: PlasmaTokensColor.light${name}, 
-        plasmaTokensColorDark: PlasmaTokensColor.dark${name}
+            return `    public static let ${lowerFirstLetter(name)} = PlasmaColorToken(
+        light: PlasmaTokensColor.light${name},
+        dark: PlasmaTokensColor.dark${name}
     )`;
         })
         .join('\n\n');
