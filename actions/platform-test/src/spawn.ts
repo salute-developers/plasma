@@ -7,7 +7,7 @@ export function spawnCyCommand(command: 'run-ct' | 'open-ct', args: ReadonlyArra
     log('spawn args', args);
 
     return new Promise((resolve, reject) => {
-        const proc = spawn('cypress', [command, '--browser', 'chrome', ...args], {
+        const proc = spawn('cypress', [command, '--browser', 'chromium', ...args], {
             env: process.env,
             stdio: 'inherit',
             detached: false,

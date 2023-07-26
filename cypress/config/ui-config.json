@@ -7,7 +7,8 @@
         "snapshotsDir": "cypress/snapshots/ui",
         "packageDir": "../../packages/plasma-ui",
         "package": "plasma-ui",
-        "a11yCheck": false
+        "a11yCheck": false,
+        "threshold": 0
     },
     "animationDistanceThreshold": 0,
     "video": false,

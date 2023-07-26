@@ -6,7 +6,8 @@
     "env": {
         "snapshotsDir": "cypress/snapshots/temple@sberportal",
         "packageDir": "packages/plasma-temple",
-        "package": "plasma-temple"
+        "package": "plasma-temple",
+        "threshold": 0.025
     },
     "userAgent": "sberportal",
     "retries": 1,
