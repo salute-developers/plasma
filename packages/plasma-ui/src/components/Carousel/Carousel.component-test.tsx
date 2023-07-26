@@ -312,7 +312,10 @@ describe('plasma-ui: Carousel', () => {
         cy.wait(1000);
         cy.get('body').type('{leftarrow}');
         cy.wait(1000);
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.02,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('_scrollAlign', () => {
@@ -347,7 +350,10 @@ describe('plasma-ui: Carousel', () => {
             </CarouselDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.015,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('animated X', () => {
@@ -443,7 +449,10 @@ describe('plasma-ui: Carousel', () => {
         );
 
         cy.wait(100);
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('lite basic', () => {

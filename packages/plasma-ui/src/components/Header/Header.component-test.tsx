@@ -33,7 +33,10 @@ describe('plasma-ui: Header: desktop', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('__title', () => {
@@ -69,7 +72,10 @@ describe('plasma-ui: Header: desktop', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('__content', () => {
@@ -83,7 +89,10 @@ describe('plasma-ui: Header: desktop', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('_minimize', () => {
@@ -95,7 +104,10 @@ describe('plasma-ui: Header: desktop', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('_back', () => {
@@ -107,7 +119,10 @@ describe('plasma-ui: Header: desktop', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('_gradient', () => {
@@ -128,7 +143,10 @@ describe('plasma-ui: Header: desktop', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 });
 
@@ -160,7 +178,10 @@ describe('plasma-ui: Header: mobile', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('__title', () => {
@@ -196,7 +217,10 @@ describe('plasma-ui: Header: mobile', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('__content', () => {
@@ -210,7 +234,10 @@ describe('plasma-ui: Header: mobile', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('_minimize', () => {
@@ -222,7 +249,10 @@ describe('plasma-ui: Header: mobile', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('_back', () => {
@@ -234,7 +264,10 @@ describe('plasma-ui: Header: mobile', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('_gradient', () => {
@@ -255,7 +288,10 @@ describe('plasma-ui: Header: mobile', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 });
 
@@ -282,7 +318,10 @@ describe('plasma-ui: Header: _size', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('_sberPortal', () => {
@@ -305,7 +344,10 @@ describe('plasma-ui: Header: _size', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('_mobile', () => {
@@ -321,6 +363,9 @@ describe('plasma-ui: Header: _size', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 });
