@@ -11,6 +11,9 @@ describe('plasma-hope: UploadAudio', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 });

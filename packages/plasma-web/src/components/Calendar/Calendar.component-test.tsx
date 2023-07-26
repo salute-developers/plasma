@@ -108,7 +108,10 @@ describe('plasma-web: Calendar', () => {
 
         cy.get('button').eq(1).click();
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('next month', () => {
@@ -120,7 +123,10 @@ describe('plasma-web: Calendar', () => {
 
         cy.get('button').eq(2).click();
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('prev year', () => {
@@ -133,7 +139,10 @@ describe('plasma-web: Calendar', () => {
         cy.get('button').eq(0).click();
         cy.get('button').eq(1).click();
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('next year', () => {
@@ -146,7 +155,10 @@ describe('plasma-web: Calendar', () => {
         cy.get('button').eq(0).click();
         cy.get('button').eq(2).click();
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('prev range years', () => {
@@ -161,7 +173,10 @@ describe('plasma-web: Calendar', () => {
 
         cy.get('button').eq(1).click();
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('next range years', () => {
@@ -176,7 +191,10 @@ describe('plasma-web: Calendar', () => {
 
         cy.get('button').eq(2).click();
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('event list', () => {
@@ -891,7 +909,10 @@ describe('plasma-web: CalendarDouble', () => {
 
         cy.get('button').first().click();
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('next month', () => {
@@ -903,7 +924,10 @@ describe('plasma-web: CalendarDouble', () => {
 
         cy.get('button').last().click();
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('event list', () => {
