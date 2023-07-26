@@ -7,7 +7,8 @@
         "snapshotsDir": "cypress/snapshots/b2c",
         "packageDir": "../../packages/plasma-b2c",
         "package": "plasma-b2c",
-        "a11yCheck": false
+        "a11yCheck": false,
+        "threshold": 0
     },
     "video": false,
     "retries": 3
