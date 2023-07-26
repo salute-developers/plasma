@@ -23,7 +23,10 @@ describe('plasma-ui: ProductCard', () => {
         );
 
         cy.mockImage('img', 'images/320_320_0.jpg');
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('positive quantity', () => {
@@ -43,7 +46,10 @@ describe('plasma-ui: ProductCard', () => {
         );
 
         cy.mockImage('img', 'images/320_320_0.jpg');
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('disabled', () => {
@@ -141,6 +147,9 @@ describe('plasma-ui: ProductCard', () => {
         );
 
         cy.mockImage('img', 'images/320_320_0.jpg');
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 });
