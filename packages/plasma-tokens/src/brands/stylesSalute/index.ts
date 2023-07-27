@@ -30,9 +30,6 @@ export const textWarning = 'var(--text-warning, #FF7024FF)';
 /** Цвет ошибки */
 export const textNegative = 'var(--text-negative, #FF293EFF)';
 
-/** Акцентный цвет */
-export const textAccentMain = 'var(--text-accent-main, #24B23EFF)';
-
 /** Акцентный цвет Афины */
 export const textAccentAthena = 'var(--text-accent-athena, #199AF0FF)';
 
@@ -44,9 +41,6 @@ export const textAccentB2E = 'var(--text-accent-b2-e, #24B23EFF)';
 
 /** Акцентный цвет бренда */
 export const textAccentBrand = 'var(--text-accent-brand, #528EFFFF)';
-
-/** Градиент */
-export const textGradientMain = 'var(--text-gradient-main, linear-gradient(89.83deg, #24B23E 0%, #1CC9C9 100%))';
 
 /** Градиент Афины */
 export const textGradientAthena =
@@ -60,6 +54,12 @@ export const textGradientB2E = 'var(--text-gradient-b2-e, linear-gradient(89.83d
 
 /** Градиент бренда */
 export const textGradientBrand = 'var(--text-gradient-brand, linear-gradient(89.83deg, #528EFF 0%, #04C6C9 100%))';
+
+/** Градиент */
+export const textGradientMain = 'var(--text-gradient-main, linear-gradient(89.83deg, #24B23E 0%, #1CC9C9 100%))';
+
+/** Акцентный цвет */
+export const textAccentMain = 'var(--text-accent-main, #24B23E)';
 
 /** Основной цвет текста на темном фоне */
 export const onDarkTextPrimary = 'var(--on-dark-text-primary, #FFFFFFF5)';
@@ -82,9 +82,6 @@ export const onDarkTextWarning = 'var(--on-dark-text-warning, #FF7024FF)';
 /** Цвет ошибки на темном фоне */
 export const onDarkTextNegative = 'var(--on-dark-text-negative, #FF293EFF)';
 
-/** Акцентный цвет на темном фоне */
-export const onDarkTextAccentMain = 'var(--on-dark-text-accent-main, #24B23EFF)';
-
 /** Акцентный цвет Афины на темном */
 export const onDarkTextAccentAthena = 'var(--on-dark-text-accent-athena, #199AF0FF)';
 
@@ -96,10 +93,6 @@ export const onDarkTextAccentB2E = 'var(--on-dark-text-accent-b2-e, #24B23EFF)';
 
 /** Акцентный цвет бренда на темном фоне */
 export const onDarkTextAccentBrand = 'var(--on-dark-text-accent-brand, #528EFFFF)';
-
-/** Градиент на темном фоне */
-export const onDarkTextGradientMain =
-    'var(--on-dark-text-gradient-main, linear-gradient(89.83deg, #24B23E 0%, #1CC9C9 100%))';
 
 /** Градиент Афины на темном фоне */
 export const onDarkTextGradientAthena =
@@ -117,6 +110,13 @@ export const onDarkTextGradientB2E =
 export const onDarkTextGradientBrand =
     'var(--on-dark-text-gradient-brand, linear-gradient(89.83deg, #528EFF 0%, #04C6C9 100%))';
 
+/** Градиент на темном фоне */
+export const onDarkTextGradientMain =
+    'var(--on-dark-text-gradient-main, linear-gradient(89.83deg, #24B23E 0%, #1CC9C9 100%))';
+
+/** Акцентный цвет на темном фоне */
+export const onDarkTextAccentMain = 'var(--on-dark-text-accent-main, #24B23E)';
+
 /** Основной цвет текста на светлом фоне */
 export const onLightTextPrimary = 'var(--on-light-text-primary, rgba(8, 8, 8, 0.96))';
 
@@ -130,32 +130,25 @@ export const onLightTextTertiary = 'var(--on-light-text-tertiary, #08080847)';
 export const onLightTextParagraph = 'var(--on-light-text-paragraph, rgba(8, 8, 8, 0.8))';
 
 /** Цвет успеха на светлом фоне */
-export const onLightTextPositive = 'var(--on-light-text-positive, #108E26FF)';
+export const onLightTextPositive = 'var(--on-light-text-positive, #1A9E32)';
 
 /** Цвет предупреждения на светлом фоне */
-export const onLightTextWarning = 'var(--on-light-text-warning, #F55D05FF)';
+export const onLightTextWarning = 'var(--on-light-text-warning, #FA5F05)';
 
 /** Цвет ошибки на светлом фоне */
-export const onLightTextNegative = 'var(--on-light-text-negative, #FF293EFF)';
-
-/** Акцентный цвет на светлом фоне */
-export const onLightTextAccentMain = 'var(--on-light-text-accent-main, #108E26FF)';
+export const onLightTextNegative = 'var(--on-light-text-negative, #FF293E)';
 
 /** Акцентный цвет Афины на светлом фоне */
-export const onLightTextAccentAthena = 'var(--on-light-text-accent-athena, #0B7ECBFF)';
+export const onLightTextAccentAthena = 'var(--on-light-text-accent-athena, #118CDF)';
 
 /** Акцентный цвет Джой на светлом фоне */
-export const onLightTextAccentJoy = 'var(--on-light-text-accent-joy, #AD42F5FF)';
+export const onLightTextAccentJoy = 'var(--on-light-text-accent-joy, #B559F3)';
 
 /** Акцентный цвет B2E-ассистента на светлом фоне */
-export const onLightTextAccentB2E = 'var(--on-light-text-accent-b2-e, #108E26FF)';
+export const onLightTextAccentB2E = 'var(--on-light-text-accent-b2-e, #1A9E32)';
 
 /** Акцентный цвет бренда на светлом фоне */
-export const onLightTextAccentBrand = 'var(--on-light-text-accent-brand, #2A72F8FF)';
-
-/** Градиент на светлом фоне */
-export const onLightTextGradientMain =
-    'var(--on-light-text-gradient-main, linear-gradient(89.83deg, #24B23E 0%, #00A4D1 100%))';
+export const onLightTextAccentBrand = 'var(--on-light-text-accent-brand, #3F81FD)';
 
 /** Градиент Афины на светлом фоне */
 export const onLightTextGradientAthena =
@@ -172,6 +165,13 @@ export const onLightTextGradientB2E =
 /** Акцентный цвет бренда на светлом фоне */
 export const onLightTextGradientBrand =
     'var(--on-light-text-gradient-brand, linear-gradient(93.97deg, #3E79F0 6.49%, #27C6E5 93.51%))';
+
+/** Градиент на светлом фоне */
+export const onLightTextGradientMain =
+    'var(--on-light-text-gradient-main, linear-gradient(89.83deg, #24B23E 0%, #00A4D1 100%))';
+
+/** Акцентный цвет на светлом фоне */
+export const onLightTextAccentMain = 'var(--on-light-text-accent-main, #1A9E32)';
 
 /** Инвертированный основной цвет текста */
 export const inverseTextPrimary = 'var(--inverse-text-primary, rgba(8, 8, 8, 0.96))';
@@ -198,7 +198,7 @@ export const surfaceSolidSecondary = 'var(--surface-solid-secondary, #262626FF)'
 export const surfaceSolidTertiary = 'var(--surface-solid-tertiary, #363636)';
 
 /** Основной фон для карточек */
-export const surfaceSolidCard = 'var(--surface-solid-card, #262626FF)';
+export const surfaceSolidCard = 'var(--surface-solid-card, #171717)';
 
 /** Основной прозрачный фон поверхности/контрола */
 export const surfaceTransparentPrimary = 'var(--surface-transparent-primary, rgba(255, 255, 255, 0.06))';
@@ -210,7 +210,7 @@ export const surfaceTransparentSecondary = 'var(--surface-transparent-secondary,
 export const surfaceTransparentTertiary = 'var(--surface-transparent-tertiary, rgba(255, 255, 255, 0.2))';
 
 /** Прозрачный фон для карточек */
-export const surfaceTransparentCard = 'var(--surface-transparent-card, rgba(255, 255, 255, 0.12))';
+export const surfaceTransparentCard = 'var(--surface-transparent-card, rgba(255,255,255,0.06))';
 
 /** Цвет фона поверхности/контрола успех */
 export const surfacePositive = 'var(--surface-positive, #1A9E32FF)';
@@ -223,9 +223,6 @@ export const surfaceNegative = 'var(--surface-negative, #FF293EFF)';
 
 /** Фон поверхности/контрола без заливки */
 export const surfaceClear = 'var(--surface-clear, rgba(0, 0, 0, 0))';
-
-/** Акцентный цвет поверхности/контролла */
-export const surfaceAccentMain = 'var(--surface-accent-main, #1A9E32FF)';
 
 /** Акцентный цвет поверхности/контролла Афины */
 export const surfaceAccentAthena = 'var(--surface-accent-athena, #118CDFFF)';
@@ -243,7 +240,16 @@ export const surfaceAccentBrand = 'var(--surface-accent-brand, #3F81FDFF)';
 export const surfaceSpeechBubbleSent = 'var(--surface-speech-bubble-sent, #08080847)';
 
 /** Цвет баббла сообщения от ассистента */
-export const surfaceSpeechBubbleReceived = 'var(--surface-speech-bubble-received, #FFFFFF1F)';
+export const surfaceSpeechBubbleReceived = 'var(--surface-speech-bubble-received, #FFFFFF0F)';
+
+/** Фон для скелетона */
+export const surfaceSkeleton =
+    'var(--surface-skeleton, linear-gradient(90deg, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.01) 17.19%, rgba(255, 255, 255, 0.05) 40.24%, rgba(255, 255, 255, 0.06) 51.17%, rgba(255, 255, 255, 0.05) 62.12%, rgba(255, 255, 255, 0.01) 82.81%, rgba(255, 255, 255, 0.00) 100%))';
+
+/** Акцентный цвет поверхности/контролла */
+export const surfaceAccentMain = 'var(--surface-accent-main, #1A9E32)';
+
+export const surfaceGradientMain = 'var(--surface-gradient-main, linear-gradient(89.83deg, #24B23E 0%, #00A4D1 100%))';
 
 /** Непрозрачный фон поверхности/контрола по умолчанию на темном фоне */
 export const onDarkSurfaceSolidDefault = 'var(--on-dark-surface-solid-default, #FFFFFF)';
@@ -258,7 +264,7 @@ export const onDarkSurfaceSolidSecondary = 'var(--on-dark-surface-solid-secondar
 export const onDarkSurfaceSolidTertiary = 'var(--on-dark-surface-solid-tertiary, #363636)';
 
 /** Основной фон для карточек на темном фоне */
-export const onDarkSurfaceSolidCard = 'var(--on-dark-surface-solid-card, #262626FF)';
+export const onDarkSurfaceSolidCard = 'var(--on-dark-surface-solid-card, #171717)';
 
 /** Основной прозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceTransparentPrimary = 'var(--on-dark-surface-transparent-primary, rgba(255, 255, 255, 0.06))';
@@ -271,7 +277,7 @@ export const onDarkSurfaceTransparentSecondary =
 export const onDarkSurfaceTransparentTertiary = 'var(--on-dark-surface-transparent-tertiary, rgba(255, 255, 255, 0.2))';
 
 /** Прозрачный фон для карточек на темном фоне */
-export const onDarkSurfaceTransparentCard = 'var(--on-dark-surface-transparent-card, rgba(255, 255, 255, 0.12))';
+export const onDarkSurfaceTransparentCard = 'var(--on-dark-surface-transparent-card, rgba(255,255,255,0.06))';
 
 /** Цвет фона поверхности/контрола успех на темном фоне */
 export const onDarkSurfacePositive = 'var(--on-dark-surface-positive, #1A9E32FF)';
@@ -281,9 +287,6 @@ export const onDarkSurfaceWarning = 'var(--on-dark-surface-warning, #FA5F05FF)';
 
 /** Цвет фона поверхности/контрола ошибка на темном */
 export const onDarkSurfaceNegative = 'var(--on-dark-surface-negative, #FF293EFF)';
-
-/** Акцентный цвет поверхности/контролла */
-export const onDarkSurfaceAccentMain = 'var(--on-dark-surface-accent-main, #1A9E32FF)';
 
 /** Акцентный цвет поверхности/контролла Афины */
 export const onDarkSurfaceAccentAthena = 'var(--on-dark-surface-accent-athena, #118CDFFF)';
@@ -296,6 +299,12 @@ export const onDarkSurfaceAccentB2E = 'var(--on-dark-surface-accent-b2-e, #1A9E3
 
 /** Акцентный цвет поверхности/контролла бренда */
 export const onDarkSurfaceAccentBrand = 'var(--on-dark-surface-accent-brand, #3F81FDFF)';
+
+/** Акцентный цвет поверхности/контролла */
+export const onDarkSurfaceAccentMain = 'var(--on-dark-surface-accent-main, #1A9E32)';
+
+export const onDarkSurfaceGradientMain =
+    'var(--on-dark-surface-gradient-main, linear-gradient(89.83deg, #24B23E 0%, #00A4D1 100%))';
 
 /** Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне */
 export const onLightSurfaceSolidDefault = 'var(--on-light-surface-solid-default, #080808)';
@@ -333,9 +342,6 @@ export const onLightSurfaceWarning = 'var(--on-light-surface-warning, #FA5F05FF)
 /** Цвет фона поверхности/контрола ошибка на светлом фоне */
 export const onLightSurfaceNegative = 'var(--on-light-surface-negative, #FF293EFF)';
 
-/** Акцентный цвет поверхности/контролла на светлом фоне */
-export const onLightSurfaceAccentMain = 'var(--on-light-surface-accent-main, #1A9E32FF)';
-
 /** Акцентный цвет поверхности/контролла Афины на светлом фоне */
 export const onLightSurfaceAccentAthena = 'var(--on-light-surface-accent-athena, #118CDFFF)';
 
@@ -348,25 +354,24 @@ export const onLightSurfaceAccentB2E = 'var(--on-light-surface-accent-b2-e, #1A9
 /** Акцентный цвет поверхности/контролла бренда на светлом */
 export const onLightSurfaceAccentBrand = 'var(--on-light-surface-accent-brand, #3F81FDFF)';
 
+/** Прозрачный цвет поверхности/контролла на светлом фоне */
+export const onLightSurfaceTransparentDeep = 'var(--on-light-surface-transparent-deep, #080808A2)';
+
+/** Акцентный цвет поверхности/контролла на светлом фоне */
+export const onLightSurfaceAccentMain = 'var(--on-light-surface-accent-main, #1A9E32)';
+
+export const onLightSurfaceGradientMain =
+    'var(--on-light-surface-gradient-main, linear-gradient(89.83deg, #24B23E 0%, #00A4D1 100%))';
+
 /** Первичный фон */
-export const backgroundPrimary = 'var(--background-primary, #171717FF)';
+export const backgroundPrimary = 'var(--background-primary, #000000FF)';
 
 /** Вторичный фон */
-export const backgroundSecondary = 'var(--background-secondary, #262626FF)';
-
-/** Третичный фон */
-export const backgroundTertiary = 'var(--background-tertiary, #363636FF)';
-
-/** Дефолтный фон */
-export const backgroundDefault = 'var(--background-default, #080808FF)';
+export const backgroundSecondary = 'var(--background-secondary, #171717FF)';
 
 /** Фон для модальной шторки */
 export const backgroundModalSheet =
     'var(--background-modal-sheet, linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(1, 182, 255, 0) 50%)), var(--background-modal-sheet, #080808FF)';
-
-/** Фон ассистента на мобиле */
-export const backgroundMobileAssistantMain =
-    'var(--background-mobile-assistant-main, linear-gradient(336.84deg, rgba(20, 116, 70, 0.6) 0%, rgba(8, 8, 8, 0) 64.88%)), var(--background-mobile-assistant-main, radial-gradient(100% 100% at 75.89% 100%, rgba(0, 133, 255, 0.24) 0%, rgba(0, 71, 255, 0.03) 100%)), var(--background-mobile-assistant-main, linear-gradient(180deg, rgba(8, 8, 8, 0) 50%, rgba(7, 71, 33, 0.3) 100%)), var(--background-mobile-assistant-main, linear-gradient(270deg, #061621 0%, rgba(8, 8, 8, 0) 100%)), var(--background-mobile-assistant-main, #080808FF)';
 
 /** Фон Афины на мобиле */
 export const backgroundMobileAssistantAthena =
@@ -384,23 +389,9 @@ export const backgroundMobileAssistantB2E =
 export const backgroundMobileAssistantBrand =
     'var(--background-mobile-assistant-brand, linear-gradient(336.9deg, #184BAB 0%, rgba(8, 8, 8, 0) 64.95%)), var(--background-mobile-assistant-brand, radial-gradient(66.53% 100% at 73.33% 100%, rgba(22, 69, 164, 0.44) 0%, rgba(11, 39, 45, 0.1) 100%)), var(--background-mobile-assistant-brand, linear-gradient(180.03deg, rgba(8, 8, 8, 0) 50%, rgba(22, 69, 164, 0.41) 99.97%)), var(--background-mobile-assistant-brand, linear-gradient(269.47deg, rgba(22, 69, 164, 0.3) 0.52%, rgba(8, 8, 8, 0) 99.61%)), var(--background-mobile-assistant-brand, #080808FF)';
 
-/** Первичный фон на темном фоне */
-export const darkBackgroundPrimary = 'var(--dark-background-primary, #171717FF)';
-
-/** Вторичный фон на темном фоне */
-export const darkBackgroundSecondary = 'var(--dark-background-secondary, #262626FF)';
-
-/** Третичный фон на темном фоне */
-export const darkBackgroundTertiary = 'var(--dark-background-tertiary, #363636FF)';
-
-/** Дефолтный фон на темном фоне */
-export const darkBackgroundDefault = 'var(--dark-background-default, #080808FF)';
-
-/** Основной фон на светлом фоне */
-export const lightBackgroundPrimary = 'var(--light-background-primary, #FFFFFF)';
-
-/** Дефолтный фон на светлом фоне */
-export const lightBackgroundDefault = 'var(--light-background-default, #F5F5F5FF)';
+/** Фон ассистента на мобиле */
+export const backgroundMobileAssistantMain =
+    'var(--background-mobile-assistant-main, linear-gradient(336.84deg, rgba(20, 116, 70, 0.6) 0%, rgba(8, 8, 8, 0) 64.88%)), var(--background-mobile-assistant-main, radial-gradient(100% 100% at 75.89% 100%, rgba(0, 133, 255, 0.24) 0%, rgba(0, 71, 255, 0.03) 100%)), var(--background-mobile-assistant-main, linear-gradient(180deg, rgba(8, 8, 8, 0) 50%, rgba(7, 71, 33, 0.3) 100%)), var(--background-mobile-assistant-main, linear-gradient(270deg, #061621 0%, rgba(8, 8, 8, 0) 100%)), var(--background-mobile-assistant-main, #080808FF)';
 
 export const skeletonGradient =
     'var(--skeleton-gradient, linear-gradient( 90deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.08) 6.25%, rgba(255, 255, 255, 0.05) 12.5%, rgba(255, 255, 255, 0.01) 25%, rgba(255, 255, 255, 0.05) 37.5%, rgba(255, 255, 255, 0.08) 43.75%, rgba(255, 255, 255, 0.09) 50%, rgba(255, 255, 255, 0.08) 56.25%, rgba(255, 255, 255, 0.05) 62.5%, rgba(255, 255, 255, 0.01) 75%, rgba(255, 255, 255, 0.05) 87.5%, rgba(255, 255, 255, 0.08) 93.75%, rgba(255, 255, 255, 0.09) 100% ))';
@@ -454,7 +445,7 @@ export const tertiary = 'var(--plasma-colors-tertiary, #FFFFFF47)';
 export const paragraph = 'var(--plasma-colors-paragraph, #FFFFFFCC)';
 
 /** @deprecated instead use backgroundPrimary */
-export const background = 'var(--plasma-colors-background, #171717FF)';
+export const background = 'var(--plasma-colors-background, #000000FF)';
 
 /** @deprecated instead use textPositive */
 export const success = 'var(--plasma-colors-success, #24B23EFF)';
@@ -484,7 +475,7 @@ export const surfaceSolid02 = 'var(--plasma-colors-surface-solid02, #262626FF)';
 export const surfaceSolid03 = 'var(--plasma-colors-surface-solid03, #363636)';
 
 /** @deprecated instead use surfaceTransparentCard */
-export const surfaceCard = 'var(--plasma-colors-surface-card, rgba(255, 255, 255, 0.12))';
+export const surfaceCard = 'var(--plasma-colors-surface-card, rgba(255,255,255,0.06))';
 
 /** @deprecated instead use surfaceTransparentSecondary */
 export const buttonSecondary = 'var(--plasma-colors-button-secondary, rgba(255, 255, 255, 0.12))';
