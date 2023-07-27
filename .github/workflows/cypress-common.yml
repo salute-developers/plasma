@@ -30,11 +30,11 @@ jobs:
 
       - name: Set default scope
         if: ${{ inputs.scope != 'temple' }}
-        run: echo "SCOPE={b2c,web,core,hope,icons,typo,tokens,cy-utils,ui}" >> $GITHUB_ENV
+        run: echo "SCOPE={b2c,web,core,hope,icons,typo,tokens,tokens-utils,tokens-native,cy-utils,ui}" >> $GITHUB_ENV
 
       - name: Set scope from "Plasma-temple"
         if: ${{ inputs.scope == 'temple' }}
-        run: echo "SCOPE={b2c,web,core,hope,icons,typo,tokens,cy-utils,ui,temple}" >> $GITHUB_ENV
+        run: echo "SCOPE={b2c,web,core,hope,icons,typo,tokens,tokens-utils,tokens-native,cy-utils,ui,temple}" >> $GITHUB_ENV
 
       - name: Install React 17
         if:  ${{ inputs.with-react-17 }}
