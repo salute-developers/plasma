@@ -51,6 +51,10 @@ jobs:
             if (!enumeration.includes('plasma-hope')) {
               enumeration.push('plasma-hope');
             }
+
+            if (!enumeration.includes('plasma-tokens-utils')) {
+              enumeration.push('plasma-tokens-utils');
+            }
             
             if (!enumeration.includes('plasma-icons')) {
               enumeration.push('plasma-icons');
@@ -71,7 +75,6 @@ jobs:
             if (enumeration.includes('plasma-temple-docs') || enumeration.includes('plasma-ui-docs')) {
               enumeration.push('plasma-web');
             }
-            
             return enumeration.join(',');  
 
       - name: Lerna bootstrap
