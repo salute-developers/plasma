@@ -73,12 +73,12 @@ export const baseTypoS: TypoProps = {
         'line-height': '1.5rem',
     },
     h5: {
-        'font-size': '0.875rem',
+        'font-size': '1rem',
         'font-weight': '400',
         'line-height': '1.375rem',
     },
     'h5-bold': {
-        'font-size': '0.875rem',
+        'font-size': '1rem',
         'font-weight': '600',
         'line-height': '1.375rem',
     },
