@@ -1,5 +1,5 @@
 import throttle from 'lodash.throttle';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const SWIPE_THRESHOLD = 0.2;
 const THROTTLE_DEFAULT_MS = 0;
@@ -28,6 +28,8 @@ export const useSheetSwipe = (args: {
 }) => {
     const { contentWrapperRef, contentRef, handleRef, onClose, throttleMs = THROTTLE_DEFAULT_MS } = args;
     const [isTopScroll, setIsTopScroll] = useState(true);
+    const startY = useRef(0);
+    const currentY = useRef(0);
 
     useEffect(() => {
         const contentWrapperEl = contentWrapperRef.current;
@@ -43,22 +45,19 @@ export const useSheetSwipe = (args: {
         const nodes = Array.from<HTMLElement>(contentWrapperEl.querySelectorAll('*'));
         const scrollableElements = nodes.filter(isScrollable);
 
-        let startY = 0;
-        let currentY = 0;
-
         contentWrapperEl.style.willChange = 'transform';
 
         const onTouchStart = (event: TouchEvent) => {
-            startY = event.changedTouches[0].clientY;
-            currentY = startY;
+            startY.current = event.changedTouches[0].clientY;
+            currentY.current = startY.current;
 
             contentWrapperEl.style.transition = 'none';
         };
 
         const onTouchMove = (event: TouchEvent) => {
             const { clientY } = event.changedTouches[0];
-            currentY = Math.max(startY, clientY);
-            const offsetY = currentY - startY;
+            currentY.current = Math.max(startY.current, clientY);
+            const offsetY = currentY.current - startY.current;
 
             contentWrapperEl.style.transform = `translateY(${offsetY}px)`;
         };
@@ -66,7 +65,7 @@ export const useSheetSwipe = (args: {
         const onTouchEnd = (event: TouchEvent) => {
             const curtainHeight = contentWrapperEl.offsetHeight;
             const endY = event.changedTouches[0].clientY;
-            const offsetY = endY - startY;
+            const offsetY = endY - startY.current;
 
             contentWrapperEl.style.transform = '';
             contentWrapperEl.style.transition = '';
@@ -77,7 +76,13 @@ export const useSheetSwipe = (args: {
         };
 
         const onScroll = throttle((event: Event) => {
-            setIsTopScroll((event.target as HTMLElement).scrollTop <= 0);
+            const onTop = (event.target as HTMLElement).scrollTop <= 0;
+
+            if (onTop) {
+                contentWrapperEl.style.transition = 'transform 0.3s';
+            }
+
+            setIsTopScroll(onTop);
         }, throttleMs);
 
         triggerElement.addEventListener('touchstart', onTouchStart);
