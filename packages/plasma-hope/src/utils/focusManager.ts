@@ -6,7 +6,7 @@ import { findTabbableDescendants } from './tabbable';
  * */
 export class FocusManager {
     // массив с элементами, которые нужно зафокусить после анмаунта
-    private focusLaterElements: Array<HTMLElement> = [];
+    private focusAfterElements: Array<HTMLElement> = [];
 
     // массив с trap нодами
     private focusNodes: Array<HTMLElement> = [];
@@ -25,13 +25,15 @@ export class FocusManager {
     };
 
     // добавление на фокус после анмаунта
-    public markForFocusLater = () => {
-        this.focusLaterElements.push(document.activeElement as HTMLElement);
+    public markForFocusAfter = (focusLaterNode?: React.RefObject<HTMLElement>) => {
+        const node =
+            focusLaterNode && focusLaterNode.current ? focusLaterNode.current : (document.activeElement as HTMLElement);
+        this.focusAfterElements.push(node);
     };
 
     // фокус на необходимый элемент
     public returnFocus = () => {
-        const toFocus = this.focusLaterElements.pop() ?? null;
+        const toFocus = this.focusAfterElements.pop() ?? null;
         if (toFocus) {
             toFocus.focus();
         }

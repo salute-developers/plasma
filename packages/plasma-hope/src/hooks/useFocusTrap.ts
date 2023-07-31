@@ -5,11 +5,17 @@ import { focusSelector, isFocusable, isTabble } from '../utils/tabbable';
 import { scopeTab } from '../utils/scopeTab';
 
 // Находим элемент для фокуса
-const getFocusElement = (node: HTMLElement, firstFocusSelector?: string | HTMLElement): HTMLElement | null => {
+const getFocusElement = (
+    node: HTMLElement,
+    firstFocusSelector?: string | React.RefObject<HTMLElement>,
+): HTMLElement | null => {
     let focusElement: HTMLElement | null = null;
     if (firstFocusSelector) {
-        focusElement =
-            typeof firstFocusSelector === 'string' ? node.querySelector(firstFocusSelector) : firstFocusSelector;
+        if (typeof firstFocusSelector === 'string') {
+            focusElement = node.querySelector(firstFocusSelector);
+        } else if (firstFocusSelector.current) {
+            focusElement = firstFocusSelector.current;
+        }
     }
 
     if (!focusElement) {
@@ -25,7 +31,7 @@ const getFocusElement = (node: HTMLElement, firstFocusSelector?: string | HTMLEl
     return focusElement;
 };
 
-const processNode = (node: HTMLElement, firstFocusSelector?: string | HTMLElement) => {
+const processNode = (node: HTMLElement, firstFocusSelector?: string | React.RefObject<HTMLElement>) => {
     const focusElement = getFocusElement(node, firstFocusSelector);
 
     if (focusElement) {
@@ -40,7 +46,8 @@ const focusManager = new FocusManager();
  * */
 export const useFocusTrap = (
     active = true,
-    firstFocusSelector?: string | HTMLElement,
+    firstFocusSelector?: string | React.RefObject<HTMLElement>,
+    focusAfterNode?: React.RefObject<HTMLElement>,
 ): ((instance: HTMLElement | null) => void) => {
     const ref = useRef<HTMLElement | null>();
 
@@ -53,7 +60,7 @@ export const useFocusTrap = (
 
             if (active && node) {
                 focusManager.setupScopedFocus(node);
-                focusManager.markForFocusLater();
+                focusManager.markForFocusAfter(focusAfterNode);
 
                 // Delay processing the HTML node by a frame. This ensures focus is assigned correctly.
                 setTimeout(() => {
