@@ -31,7 +31,8 @@ export function App() {
 }
 ```
 
-Принимает параметры `active`(по умолчанию `true`) и `firstFocusSelector?: string | HTMLElement` - selector или Element, который должен быть в фокусе при открытии.
+Принимает параметры `active`(по умолчанию `true`), `firstFocusSelector?: string | React.RefObject<HTMLElement>` - selector или RefObject, который должен быть в фокусе при открытии,
+а также `focusAfterNode?: React.RefObject<HTMLElement>` - элемент для фокуса после закрытия(по умолчанию фокус на последнем перед открытием активном элементе).
 
 ```tsx live
 import React, { useState } from "react";
