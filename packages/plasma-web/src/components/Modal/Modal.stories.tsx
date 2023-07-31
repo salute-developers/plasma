@@ -62,7 +62,7 @@ const StyledWrapper = styled.div`
     height: 1200px;
 `;
 
-export const LiveDemo: Story<ModalStoryProps> = ({ withBlur }) => {
+export const LiveDemo: Story<ModalStoryProps> = ({ withBlur, ...rest }) => {
     const root = React.useRef<HTMLElement | null>(null);
     const [isOpenA, setIsOpenA] = React.useState(false);
     const [isOpenB, setIsOpenB] = React.useState(false);
@@ -123,6 +123,7 @@ export const LiveDemo: Story<ModalStoryProps> = ({ withBlur }) => {
                         aria-labelledby="example-modalA-title"
                         closeButtonAriaLabel="Закрыть (кнопка-крестик)"
                         withBlur={withBlur}
+                        {...rest}
                     >
                         <Headline3 id="example-modalA-title" mb="8x">
                             Модальное окно A
@@ -137,6 +138,7 @@ export const LiveDemo: Story<ModalStoryProps> = ({ withBlur }) => {
                         onClose={onCloseB}
                         aria-labelledby="example-modalB-title"
                         closeButtonAriaLabel="Закрыть (кнопка-крестик)"
+                        {...rest}
                     >
                         <Headline3 id="example-modalB-title" mb="8x">
                             Модальное окно B
@@ -150,6 +152,7 @@ export const LiveDemo: Story<ModalStoryProps> = ({ withBlur }) => {
                             onClose={onCloseC}
                             aria-labelledby="example-modalC-title"
                             closeButtonAriaLabel="Закрыть (кнопка-крестик)"
+                            {...rest}
                         >
                             <Headline3 id="example-modalC-title" mb="8x">
                                 Модальное окно C (вложенное)
@@ -168,6 +171,7 @@ export const LiveDemo: Story<ModalStoryProps> = ({ withBlur }) => {
                         onClose={onCloseFullHeightA}
                         aria-labelledby="example-modalFullHeightA-title"
                         closeButtonAriaLabel="Закрыть (кнопка-крестик)"
+                        {...rest}
                     >
                         <Headline3 id="example-modalFullHeightA-title" mb="8x">
                             Модальное окно на всю высоту
@@ -186,6 +190,7 @@ export const LiveDemo: Story<ModalStoryProps> = ({ withBlur }) => {
                         onClose={onCloseFullHeightB}
                         aria-labelledby="example-modalFullHeightB-title"
                         closeButtonAriaLabel="Закрыть (кнопка-крестик)"
+                        {...rest}
                     >
                         <Headline3 id="example-modalFullHeightB-title" mb="8x">
                             Модальное окно B
@@ -203,6 +208,7 @@ export const LiveDemo: Story<ModalStoryProps> = ({ withBlur }) => {
                             onClose={onCloseFullHeightC}
                             aria-labelledby="example-modalFullHeightC-title"
                             closeButtonAriaLabel="Закрыть (кнопка-крестик)"
+                            {...rest}
                         >
                             <Headline3 id="example-modalFullHeightC-title" mb="8x">
                                 Модальное окно C на всю высоту (вложенное)
@@ -222,4 +228,7 @@ export const LiveDemo: Story<ModalStoryProps> = ({ withBlur }) => {
 
 LiveDemo.args = {
     withBlur: false,
+    closeOnEsc: true,
+    closeOnOverlayClick: true,
+    showCloseButton: true,
 };

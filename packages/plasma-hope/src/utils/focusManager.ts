@@ -25,9 +25,9 @@ export class FocusManager {
     };
 
     // добавление на фокус после анмаунта
-    public markForFocusAfter = (focusLaterNode?: React.RefObject<HTMLElement>) => {
+    public markForFocusAfter = (focusAfterNode?: React.RefObject<HTMLElement>) => {
         const node =
-            focusLaterNode && focusLaterNode.current ? focusLaterNode.current : (document.activeElement as HTMLElement);
+            focusAfterNode && focusAfterNode.current ? focusAfterNode.current : (document.activeElement as HTMLElement);
         this.focusAfterElements.push(node);
     };
 
