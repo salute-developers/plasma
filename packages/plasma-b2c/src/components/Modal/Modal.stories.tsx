@@ -32,7 +32,7 @@ const StyledButton = styled(Button)`
     margin-right: 1rem;
 `;
 
-export const LiveDemo: Story<{ withBlur: boolean }> = ({ withBlur }) => {
+export const LiveDemo: Story<{ withBlur: boolean }> = ({ withBlur, ...rest }) => {
     const [isOpenA, setIsOpenA] = React.useState(false);
     const [isOpenB, setIsOpenB] = React.useState(false);
     const [isOpenC, setIsOpenC] = React.useState(false);
@@ -46,18 +46,18 @@ export const LiveDemo: Story<{ withBlur: boolean }> = ({ withBlur }) => {
             <ModalsProvider>
                 <Button text="Open modal" onClick={() => setIsOpenA(true)} />
 
-                <Modal id="modalA" isOpen={isOpenA} onClose={onCloseA} withBlur={withBlur}>
+                <Modal id="modalA" isOpen={isOpenA} onClose={onCloseA} withBlur={withBlur} {...rest}>
                     <StyledHeadline3>Modal A</StyledHeadline3>
                     <StyledButton view="primary" text="Open modal B" onClick={() => setIsOpenB(true)} />
                     <Button text="Close" onClick={onCloseA} />
                 </Modal>
 
-                <Modal id="modalB" isOpen={isOpenB} onClose={onCloseB}>
+                <Modal id="modalB" isOpen={isOpenB} onClose={onCloseB} {...rest}>
                     <StyledHeadline3>Modal B</StyledHeadline3>
                     <StyledButton view="primary" text="Open modal C" onClick={() => setIsOpenC(true)} />
                     <Button text="Close" onClick={onCloseB} />
 
-                    <Modal id="modalC" isOpen={isOpenC} onClose={onCloseC}>
+                    <Modal id="modalC" isOpen={isOpenC} onClose={onCloseC} {...rest}>
                         <StyledHeadline3>Modal C</StyledHeadline3>
                         <Button text="Close" onClick={onCloseC} />
                     </Modal>
@@ -69,4 +69,7 @@ export const LiveDemo: Story<{ withBlur: boolean }> = ({ withBlur }) => {
 
 LiveDemo.args = {
     withBlur: false,
+    closeOnEsc: true,
+    closeOnOverlayClick: true,
+    showCloseButton: true,
 };

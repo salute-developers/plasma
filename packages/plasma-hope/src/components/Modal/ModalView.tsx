@@ -11,13 +11,17 @@ export interface ModalViewProps extends React.HTMLAttributes<HTMLDivElement> {
      */
     children?: React.ReactNode;
     /**
-     * Обработчик клика по кнопке "закрыть".
+     * Общий обработчик клика по кнопке "закрыть".
      */
     onClose?: () => void;
     /**
      * WAI-ARIA атрибут кнопки "закрыть".
      */
     closeButtonAriaLabel?: string;
+    /**
+     * Отображать кнопку "закрыть"(по умолчанию true).
+     */
+    showCloseButton?: boolean;
 }
 
 const StyledWrapper = styled.div`
@@ -54,16 +58,18 @@ const StyledButtonClose = styled(Button({ design: 'web' })).attrs(() => ({ view:
  * Визуальная часть модального окна.
  */
 export const ModalView = React.forwardRef<HTMLDivElement, ModalViewProps>(
-    ({ role = 'dialog', closeButtonAriaLabel, children, onClose, ...rest }, ref) => {
+    ({ role = 'dialog', closeButtonAriaLabel, children, onClose, showCloseButton = true, ...rest }, ref) => {
         return (
             <StyledWrapper>
                 <StyledBody {...rest} ref={ref} role={role} aria-modal="true">
                     <StyledContent>{children}</StyledContent>
-                    <StyledButtonClose
-                        aria-label={closeButtonAriaLabel}
-                        onClick={onClose}
-                        contentLeft={<IconClose size="s" color="inherit" />}
-                    />
+                    {showCloseButton && (
+                        <StyledButtonClose
+                            aria-label={closeButtonAriaLabel}
+                            onClick={onClose}
+                            contentLeft={<IconClose size="s" color="inherit" />}
+                        />
+                    )}
                 </StyledBody>
             </StyledWrapper>
         );

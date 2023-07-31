@@ -123,6 +123,7 @@ import { ReactNode } from 'react';
 import { RectSkeleton } from '@salutejs/plasma-core';
 import { RectSkeletonProps } from '@salutejs/plasma-core';
 import { RefAttributes } from 'react';
+import { RefObject } from 'react';
 import { Roundness } from '@salutejs/plasma-core';
 import { RoundnessProps } from '@salutejs/plasma-core';
 import { ScrollSnapProps } from '@salutejs/plasma-core';
@@ -907,7 +908,13 @@ export const Modal: FC<ModalProps>;
 
 // @public (undocumented)
 export interface ModalProps extends ModalViewProps {
+    closeOnEsc?: boolean;
+    closeOnOverlayClick?: boolean;
+    focusAfterRef?: React_2.RefObject<HTMLElement>;
+    initialFocusRef?: React_2.RefObject<HTMLElement>;
     isOpen: boolean;
+    onEscKeyDown?: (event: KeyboardEvent) => void;
+    onOverlayClick?: (event: React_2.MouseEvent<HTMLDivElement>) => void;
     withBlur?: boolean;
 }
 
@@ -924,6 +931,7 @@ export interface ModalViewProps extends React_2.HTMLAttributes<HTMLDivElement> {
     children?: React_2.ReactNode;
     closeButtonAriaLabel?: string;
     onClose?: () => void;
+    showCloseButton?: boolean;
 }
 
 export { monthLongName }
@@ -1343,7 +1351,7 @@ export const useAutoResize: <T extends HTMLTextAreaElement>(active: boolean, ref
 export { useDebouncedFunction }
 
 // @public
-export const useFocusTrap: (active?: boolean, firstFocusSelector?: string | HTMLElement | undefined) => (instance: HTMLElement | null) => void;
+export const useFocusTrap: (active?: boolean, firstFocusSelector?: string | RefObject<HTMLElement> | undefined, focusAfterNode?: RefObject<HTMLElement> | undefined) => (instance: HTMLElement | null) => void;
 
 export { useForkRef }
 

@@ -57,6 +57,49 @@ describe('plasma-web: Modal', () => {
         );
     }
 
+    function Custom(props: { closeOnEsc?: boolean; closeOnOverlayClick?: boolean; showCloseButton?: boolean }) {
+        const [isOpenA, setIsOpenA] = React.useState(false);
+        const [isOpenB, setIsOpenB] = React.useState(false);
+
+        const otherButton = React.useRef<HTMLButtonElement | null>(null);
+        const closeBtnRef = React.useRef<HTMLButtonElement | null>(null);
+
+        return (
+            <>
+                <Button text="Open modal A" onClick={() => setIsOpenA(true)} />
+                <Button
+                    style={{ margin: '0 10px' }}
+                    text="Open modal B"
+                    onClick={() => setIsOpenB(true)}
+                    ref={otherButton}
+                />
+                <Modal
+                    id="modalA"
+                    isOpen={isOpenA}
+                    onClose={() => setIsOpenA(false)}
+                    initialFocusRef={closeBtnRef}
+                    focusAfterRef={otherButton}
+                    {...props}
+                >
+                    <Headline3>Modal A</Headline3>
+                    <P1>{text}</P1>
+                    <Button text="First button" onClick={() => setIsOpenA(false)} />
+                    <Button
+                        style={{ margin: '0 10px' }}
+                        ref={closeBtnRef}
+                        text="Close-A"
+                        onClick={() => setIsOpenA(false)}
+                    />
+                </Modal>
+                <Modal id="modalB" isOpen={isOpenB} onClose={() => setIsOpenB(false)} {...props}>
+                    <Headline3>Modal B</Headline3>
+                    <P1>{text}</P1>
+                    <Button text="Close-B" onClick={() => setIsOpenB(false)} />
+                </Modal>
+            </>
+        );
+    }
+
     it('simple', () => {
         mount(
             <CypressTestDecorator>
@@ -195,5 +238,61 @@ describe('plasma-web: Modal', () => {
         cy.focused().should(($p) => {
             expect($p).to.contain('Open modal A');
         });
+    });
+
+    it('focus initial - later', () => {
+        mount(
+            <CypressTestDecorator>
+                <NoAnimationStyle />
+                <ModalsProvider>
+                    <Custom />
+                </ModalsProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').contains('Open modal A').type('{enter}');
+        cy.focused().should(($p) => {
+            expect($p).to.contain('Close-A');
+        });
+        cy.get('button').contains('Close-A').type('{enter}');
+        cy.focused().should(($p) => {
+            expect($p).to.contain('Open modal B');
+        });
+    });
+
+    it('forbidden close', () => {
+        mount(
+            <CypressTestDecorator>
+                <NoAnimationStyle />
+                <ModalsProvider>
+                    <Custom closeOnEsc={false} closeOnOverlayClick={false} />
+                </ModalsProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').contains('Open modal A').type('{enter}');
+        cy.get('#plasma-modals-root > div').should('be.visible');
+
+        // overlay
+        cy.get('body').click(5, 5);
+        cy.get('#plasma-modals-root').should('not.be.empty');
+
+        // esc
+        cy.get('body').type('{esc}');
+        cy.get('#plasma-modals-root').should('not.be.empty');
+    });
+
+    it('without close icon', () => {
+        mount(
+            <CypressTestDecorator>
+                <NoAnimationStyle />
+                <ModalsProvider>
+                    <Custom showCloseButton={false} />
+                </ModalsProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').contains('Open modal A').type('{enter}');
+        cy.matchImageSnapshot();
     });
 });

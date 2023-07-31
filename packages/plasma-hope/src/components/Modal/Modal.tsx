@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useContext, FC } from 'react';
+import React, { useEffect, useCallback, useRef, useState, useContext, FC } from 'react';
 import ReactDOM from 'react-dom';
 import styled, { css, keyframes, createGlobalStyle } from 'styled-components';
 import { useUniqId } from '@salutejs/plasma-core';
@@ -16,9 +16,34 @@ export interface ModalProps extends ModalViewProps {
     isOpen: boolean;
 
     /**
-     * Нужно ли применять blur для подложки
+     * Нужно ли применять blur для подложки.
      */
     withBlur?: boolean;
+    /**
+     * Закрывать модальное окно при нажатии на ESC(по умолчанию true).
+     */
+    closeOnEsc?: boolean;
+    /**
+     * Закрывать модальное окно при нажатии вне области модального окна(по умолчанию true),
+     */
+    closeOnOverlayClick?: boolean;
+    /**
+     * Обработчик клика при нажатии на ESC(если не передан, то при нажатии используется onClose).
+     */
+    onEscKeyDown?: (event: KeyboardEvent) => void;
+    /**
+     * Обработчик клика при нажатии вне области модального окна(если не передан, то при нажатии используется onClose).
+     */
+    onOverlayClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+    /**
+     * Первый элемент для фокуса внутри модального окна.
+     */
+    initialFocusRef?: React.RefObject<HTMLElement>;
+    /**
+     * Элемент для фокуса после закрытия модального окна
+     * (по умолчанию фокус на последнем перед открытием активном элементе).
+     */
+    focusAfterRef?: React.RefObject<HTMLElement>;
 }
 
 interface HidingProps {
@@ -78,7 +103,7 @@ const StyledWrapper = styled.div<HidingProps>`
         `}
 `;
 
-const StyledOverlay = styled.div<{ transparent?: boolean; $withBlur?: boolean }>`
+const StyledOverlay = styled.div<{ transparent?: boolean; $withBlur?: boolean; clickable?: boolean }>`
     position: absolute;
 
     ${({ $withBlur }) => {
@@ -93,7 +118,7 @@ const StyledOverlay = styled.div<{ transparent?: boolean; $withBlur?: boolean }>
 
     background-color: ${({ transparent }) => (transparent ? 'transparent' : 'var(--background-color)')};
     backdrop-filter: var(--backdrop-filter);
-    cursor: pointer;
+    cursor: ${({ clickable }) => (clickable ? 'pointer' : 'default')};
 `;
 
 const StyledModal = styled.div<HidingProps>`
@@ -116,17 +141,45 @@ const NoScroll = createGlobalStyle`
  * Модальное окно.
  * Управляет показом/скрытием, подложкой и анимацией визуальной части модального окна.
  */
-export const Modal: FC<ModalProps> = ({ id, isOpen, onClose, withBlur, ...rest }) => {
+export const Modal: FC<ModalProps> = ({
+    id,
+    isOpen,
+    onClose,
+    onOverlayClick,
+    onEscKeyDown,
+    closeOnEsc = true,
+    closeOnOverlayClick = true,
+    withBlur,
+    initialFocusRef,
+    focusAfterRef,
+    ...rest
+}) => {
     const uniqId = useUniqId();
     const innerId = id || uniqId;
 
     const wrapperRef = useRef<HTMLDivElement | null>(null);
     const portalRef = useRef<HTMLElement | null>(null);
-    const trapRef = useFocusTrap();
+    const trapRef = useFocusTrap(true, initialFocusRef, focusAfterRef);
 
     const controller = useContext(ModalsContext);
 
     const [, forceRender] = useState(false);
+
+    const onOverlayKeyDown = useCallback(
+        (event: React.MouseEvent<HTMLDivElement>) => {
+            if (!closeOnOverlayClick) {
+                return;
+            }
+
+            if (onOverlayClick) {
+                onOverlayClick(event);
+                return;
+            }
+
+            onClose?.();
+        },
+        [closeOnOverlayClick, onOverlayClick, onClose],
+    );
 
     useEffect(() => {
         let portal = document.getElementById(MODALS_PORTAL_ID);
@@ -157,12 +210,18 @@ export const Modal: FC<ModalProps> = ({ id, isOpen, onClose, withBlur, ...rest }
     useEffect(() => {
         const onKeyDown = (event: KeyboardEvent) => {
             if (
+                closeOnEsc &&
                 event.keyCode === ESCAPE_KEYCODE &&
                 wrapperRef.current &&
                 portalRef.current &&
                 portalRef.current.contains(wrapperRef.current) &&
                 portalRef.current.children[portalRef.current.children.length - 1] === wrapperRef.current
             ) {
+                if (onEscKeyDown) {
+                    onEscKeyDown(event);
+                    return;
+                }
+
                 onClose?.();
             }
         };
@@ -172,7 +231,7 @@ export const Modal: FC<ModalProps> = ({ id, isOpen, onClose, withBlur, ...rest }
         return () => {
             window.removeEventListener('keydown', onKeyDown);
         };
-    }, [onClose]);
+    }, [onClose, onEscKeyDown, closeOnEsc]);
 
     if (isOpen) {
         controller.register(innerId);
@@ -189,7 +248,8 @@ export const Modal: FC<ModalProps> = ({ id, isOpen, onClose, withBlur, ...rest }
                     <StyledWrapper ref={wrapperRef}>
                         <StyledOverlay
                             transparent={controller.items.indexOf(innerId) !== 0}
-                            onClick={onClose}
+                            clickable={closeOnOverlayClick}
+                            onClick={onOverlayKeyDown}
                             $withBlur={withBlur}
                         />
                         <StyledModal>
