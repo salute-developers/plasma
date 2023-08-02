@@ -10,7 +10,6 @@ const componentMap = {
     b2c: ButtonB2C,
 };
 
-// WIP
 export const Button = ({ design }: Design) => {
     const ButtonView = createButton<HTMLButtonElement, ButtonProps>(componentMap[design]);
 
