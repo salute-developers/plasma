@@ -3,12 +3,14 @@ import path from 'path';
 
 import { generateThemesTokenDataGroups, getThemesTokensFallback } from '@salutejs/plasma-tokens-utils';
 
-import { createRootIndex, createThemes, createLegacyTypo, createBrands } from './creators';
+import { createRootIndex, createThemes, createLegacyTypo, createBrands, createDefaultBrand } from './creators';
 
 // Генерация токенов для кастомных тем из data/themes
 export const themesTokenDataGroups = generateThemesTokenDataGroups(path.join(__dirname, '../data/themes'));
 // Добавляем старые токены для обратной совместимости
-export const themesTokensFallback = getThemesTokensFallback(themesTokenDataGroups);
+export const themesTokensSet = getThemesTokensFallback(themesTokenDataGroups);
+
+const { default__dark, default__light, ...themesTokensFallback } = themesTokensSet;
 
 const outDir = 'src';
 fs.existsSync(outDir) || fs.mkdirSync(outDir);
@@ -25,6 +27,10 @@ createThemes(outDir, themesTokensFallback);
 /** ======== Генерация тем, на основе созданных схем ======== **/
 /** ========================================================= **/
 createBrands(outDir, themesTokensFallback);
+/** ========================================================= **/
+/** ======== Генерация темы, на основе базовой схемы ======== **/
+/** ========================================================= **/
+createDefaultBrand(outDir, default__dark);
 /** ========================================================= **/
 /** ============ Генерация типографической сетки ============ **/
 /** ========================================================= **/
