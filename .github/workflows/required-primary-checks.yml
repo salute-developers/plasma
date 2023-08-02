@@ -44,8 +44,9 @@ jobs:
 
       - uses: ./.github/actions/prepare-environment
 
+        # TODO Вернуть флаг `--since` как только появиться возможность использовать rc версии пакетов
       - name: Lerna bootstrap
-        run: npx lerna bootstrap --since=$(git merge-base --fork-point origin/dev) --ignore=${{env.LERNA_IGNORE_LIST}}
+        run: npx lerna bootstrap --ignore=${{env.LERNA_IGNORE_LIST}}
 
       - name: Unit tests
         run: npm run test
