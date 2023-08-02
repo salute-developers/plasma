@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
-import { IconDownload } from '@salutejs/plasma-icons';
+import { IconDownload, IconApps } from '@salutejs/plasma-icons';
 
 import { InSpacingDecorator, disableProps } from '../../helpers';
 import { applySpacing, SpacingProps } from '../../mixins';
@@ -116,6 +116,35 @@ Live.args = {
 };
 
 Live.argTypes = {
+    placement: {
+        options: placements,
+        control: {
+            type: 'select',
+        },
+    },
+    ...disableProps(['isVisible']),
+};
+
+export const ChangeText: Story<TooltipProps> = ({ text, ...rest }) => {
+    return (
+        <div>
+            <div style={{ marginLeft: '100px', marginBottom: '35px' }}>
+                <Tooltip text={text} isVisible {...rest}>
+                    <IconApps />
+                </Tooltip>
+            </div>
+        </div>
+    );
+};
+
+ChangeText.args = {
+    text: 'Hello',
+    placement: 'bottom',
+    animated: true,
+    arrow: true,
+};
+
+ChangeText.argTypes = {
     placement: {
         options: placements,
         control: {

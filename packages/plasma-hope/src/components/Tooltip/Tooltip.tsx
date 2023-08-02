@@ -131,7 +131,7 @@ export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
             placement,
             modifiers: [
                 { name: 'offset', options: { offset: [offset[0], offset[1]] } },
-                { name: 'arrow', options: { element: arrowElement, padding: 10 } },
+                { name: 'arrow', options: { element: arrowElement } },
             ],
         });
 
@@ -161,7 +161,7 @@ export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
              * вызов метода в очередь микрозадач.
              */
             Promise.resolve().then(forceUpdate);
-        }, [isVisible, forceUpdate]);
+        }, [isVisible, forceUpdate, text]);
 
         return (
             <>
@@ -169,7 +169,7 @@ export const Tooltip = forwardRef<HTMLSpanElement, TooltipProps>(
                     {...attributes.popper}
                     ref={ref}
                     id={id}
-                    isVisible={isVisible}
+                    isVisible={isVisible && Boolean(text?.length)}
                     animated={animated}
                     style={styles.popper}
                     role="tooltip"
