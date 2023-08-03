@@ -1,0 +1,90 @@
+---
+id: confirm
+title: Confirm
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Confirm
+<Description name="Confirm" />
+<PropsTable name="Confirm" />
+<StorybookLink name="Confirm" />
+
+## Использование
+Компонент `Confirm` может содержать заголовок, подзаголовок, кнопки для подтверждения, footer.
+
+```tsx live
+import React, { useState } from 'react';
+import { Confirm, Button } from '@salutejs/plasma-ui';
+
+export function App() {
+    const [visible, setVisible] = useState(false);
+
+    const hide = () => {
+        setVisible(false);
+    };
+
+    const title = 'Использовать максимум возможностей?';
+    const subtitle = 'Возможно всё.';
+    const approveText = 'Да';
+    const dismissText = 'Нет';
+
+    const props = {
+        title,
+        subtitle,
+        approveText,
+        dismissText,
+    };
+
+    return (
+        <>
+            <Button text="Show Confirm" onClick={() => setVisible(true)} />
+            <Confirm visible={visible} onApprove={hide} onDismiss={hide} view="primary" {...props} />
+        </>
+    );
+}
+```
+
+### Footer
+
+Свойство `extraContent`, принимающее JSX элемент. Находиться под основным контентом.
+
+```tsx live
+import React, { useState } from 'react';
+import { Confirm, Button, Body3 } from '@salutejs/plasma-ui';
+import { IconHelp } from '@salutejs/plasma-icons';
+
+export function App() {
+    const [visible, setVisible] = useState(false);
+
+    const hide = () => {
+        setVisible(false);
+    };
+
+    const title = 'Использовать максимум возможностей?';
+    const subtitle = 'Возможно всё.';
+    const approveText = 'Да';
+    const dismissText = 'Нет';
+
+    const props = {
+        title,
+        subtitle,
+        approveText,
+        dismissText,
+    };
+
+    const extraContent = (
+        <div style={{ display: "flex", alignItems: "center", padding: "0.5rem 0"}}>
+            <IconHelp />
+            <Body3 style={{ paddingLeft: '0.5rem' }}>Дополнительный контент</Body3>
+        </div>
+    );
+
+    return (
+        <>
+            <Button text="Show Confirm" onClick={() => setVisible(true)} />
+            <Confirm visible={visible} extraContent={extraContent} onApprove={hide} onDismiss={hide} view="primary" {...props} />
+        </>
+    );
+}
+```
