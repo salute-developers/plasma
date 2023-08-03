@@ -1,10 +1,12 @@
 import React, { useState, useRef } from 'react';
 import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { IconHelp } from '@salutejs/plasma-icons';
+import styled from 'styled-components';
 
 import { InSpacing } from '../../helpers/StoryDecorators';
 import { Button } from '../Button';
-import { Body1 } from '../Typography';
+import { Body1, Body3 } from '../Typography';
 
 import { useAutoFocus } from './Confirm.hooks';
 
@@ -18,6 +20,12 @@ export default {
 
 const onApproveAction = action('onApprove');
 const onDismissAction = action('onDismiss');
+
+const ExtraContentBlock = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+`;
 
 export const Default: Story<ConfirmProps> = ({ visible: _visible, ...rest }) => {
     const [visible, setVisible] = useState(_visible);
@@ -81,6 +89,56 @@ export const Default: Story<ConfirmProps> = ({ visible: _visible, ...rest }) => 
 };
 
 Default.args = {
+    title: 'Использовать максимум возможностей?',
+    subtitle: 'Возможно всё.',
+    view: 'primary',
+    approveText: 'Да',
+    dismissText: 'Нет',
+    visible: false,
+};
+
+export const ExtraContent: Story<ConfirmProps> = ({ visible: _visible, ...rest }) => {
+    const [visible, setVisible] = useState(_visible);
+
+    const btnRef = useRef<HTMLButtonElement>(null);
+    useAutoFocus(btnRef, { trigger: !visible });
+
+    const hide = () => {
+        setVisible(false);
+    };
+
+    const onDismiss = () => {
+        onDismissAction();
+        hide();
+    };
+
+    const onApprove = () => {
+        onApproveAction();
+        hide();
+    };
+
+    const extraContent = (
+        <ExtraContentBlock>
+            <IconHelp />
+            <Body3 style={{ paddingLeft: '0.5rem' }}>Дополнительный контент</Body3>
+        </ExtraContentBlock>
+    );
+
+    return (
+        <>
+            <Button ref={btnRef} text="Show Confirm" onClick={() => setVisible(true)} />
+            <Confirm
+                visible={visible}
+                extraContent={extraContent}
+                onApprove={onApprove}
+                onDismiss={onDismiss}
+                {...rest}
+            />
+        </>
+    );
+};
+
+ExtraContent.args = {
     title: 'Использовать максимум возможностей?',
     subtitle: 'Возможно всё.',
     view: 'primary',

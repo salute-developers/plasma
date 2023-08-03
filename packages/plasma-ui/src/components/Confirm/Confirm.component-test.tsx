@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
-import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
+import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { IconHelp } from '@salutejs/plasma-icons';
+import styled from 'styled-components';
+
+const ConfirmFooter = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+`;
 
 describe('Confirm', () => {
     const Confirm = getComponent('Confirm');
+    const Body3 = getComponent('Body3');
 
     const title = 'Использовать максимум возможностей?';
     const subtitle = 'Возможно всё.';
@@ -16,10 +25,26 @@ describe('Confirm', () => {
         dismissText,
     };
 
+    const extraContent = (
+        <ConfirmFooter>
+            <IconHelp />
+            <Body3 style={{ paddingLeft: '0.5rem' }}>Дополнительный контент</Body3>
+        </ConfirmFooter>
+    );
+
     it('basic', () => {
         mount(
             <CypressTestDecorator>
                 <Confirm visible view="primary" {...props} />
+            </CypressTestDecorator>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('withExtraContent', () => {
+        mount(
+            <CypressTestDecorator>
+                <Confirm visible extraContent={extraContent} view="primary" {...props} />
             </CypressTestDecorator>,
         );
         cy.matchImageSnapshot();

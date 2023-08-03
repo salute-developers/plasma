@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, ReactNode } from 'react';
 import styled, { css, createGlobalStyle } from 'styled-components';
 import { overlay, backgroundPrimary } from '@salutejs/plasma-tokens';
 import { ButtonRoot } from '@salutejs/plasma-core';
@@ -54,6 +54,11 @@ export interface ConfirmProps {
      * Обработчик отказа
      */
     onDismiss?: () => void;
+
+    /**
+     * Компонент снизу
+     */
+    extraContent?: ReactNode;
 }
 
 // TODO: https://github.com/salute-developers/plasma/issues/232
@@ -106,23 +111,34 @@ const ConfirmRoot = styled.div<{ visible: boolean }>`
     left: 0;
     right: 0;
 
-    margin: 1rem;
+    transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'transform 0.5s')};
+
+    ${({ visible }) =>
+        !visible && {
+            transform: 'translateY(-100%)',
+        }};
+`;
+
+const ConfirmContainer = styled.div`
+    margin: 1rem 1rem 0;
     padding: 0.75rem;
     border-radius: 1.25rem;
 
     background-color: ${backgroundPrimary};
+`;
 
+const ConfirmMain = styled.div`
     ${({ theme }) => css`
         ${mediaQuery('M', theme.deviceScale)(tvLayout)}
         ${mediaQuery('L', theme.deviceScale)(tvLayout)}
         ${mediaQuery('XL', theme.deviceScale)(tvLayout)}
     `}
+`;
 
-    transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'transform 0.5s')};
-    ${({ visible }) =>
-        !visible && {
-            transform: 'translateY(-100%)',
-        }};
+const ConfirmFooter = styled.div`
+    margin-left: 1rem;
+    margin-right: 1rem;
+    max-width: 100%;
 `;
 
 const BtnWrap = styled.div<{ reverse: boolean }>`
@@ -173,6 +189,7 @@ export const Confirm = (props: ConfirmProps) => {
         dismissText,
         view = 'secondary',
         reverseButtons = false,
+        extraContent,
         onApprove,
         onDismiss,
         ...rest
@@ -202,6 +219,7 @@ export const Confirm = (props: ConfirmProps) => {
     const dismiss = dismissText ? (
         <StyledButton size="s" stretch view="secondary" text={dismissText} onClick={onDismissClick} />
     ) : null;
+
     const buttons = (
         <BtnWrap reverse={reverseButtons}>
             {dismiss}
@@ -213,9 +231,14 @@ export const Confirm = (props: ConfirmProps) => {
         <Wrapper visible={visible} {...rest}>
             <Overlay onClick={onDismissClick} />
             {visible && <NoScroll />}
-            <ConfirmRoot visible={visible}>
-                <StyledCell content={<TextBox title={title} subTitle={subtitle} />} />
-                {buttons}
+            <ConfirmRoot visible>
+                <ConfirmContainer>
+                    <ConfirmMain>
+                        <StyledCell content={<TextBox title={title} subTitle={subtitle} />} />
+                        {buttons}
+                    </ConfirmMain>
+                </ConfirmContainer>
+                <ConfirmFooter>{extraContent}</ConfirmFooter>
             </ConfirmRoot>
         </Wrapper>
     );
