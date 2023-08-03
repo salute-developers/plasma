@@ -134,7 +134,7 @@
             "./utils/plasma-tokens-native/build/**/*"
           ],
           "message": "🐤 Download canary assets:",
-          "group": "(color|shadow|typo).*\\.(kt|xml|swift|ts)",
+          "group": "(color|shadow|typo|borderRadius).*\\.(kt|xml|swift|ts)",
           "compact": true
         }
       ],
