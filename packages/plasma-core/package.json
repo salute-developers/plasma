@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-core",
-    "version": "1.124.0",
+    "version": "1.125.0",
     "description": "Core library for Plasma: Salute Design System",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "license": "MIT",
@@ -20,7 +20,7 @@
         "@babel/preset-react": "7.14.5",
         "@babel/preset-typescript": "7.15.0",
         "@microsoft/api-extractor": "7.34.4",
-        "@salutejs/plasma-cy-utils": "0.64.0",
+        "@salutejs/plasma-cy-utils": "0.65.0",
         "@types/jest": "27.0.1",
         "@types/lodash.throttle": "4.1.6",
         "@types/node": "15.14.9",
@@ -74,7 +74,7 @@
     "sideEffects": false,
     "dependencies": {
         "@popperjs/core": "2.9.2",
-        "@salutejs/plasma-typo": "0.35.0",
+        "@salutejs/plasma-typo": "0.36.0",
         "focus-visible": "5.2.0",
         "lodash.throttle": "4.1.1",
         "react-draggable": "4.4.3",

@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-tokens-b2b",
-    "version": "1.23.0",
+    "version": "1.24.0",
     "description": "",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "license": "MIT",
@@ -10,7 +10,7 @@
     "devDependencies": {
         "@salutejs/plasma-colors": "0.8.0",
         "@salutejs/plasma-tokens-core": "0.3.0",
-        "@salutejs/plasma-tokens-utils": "0.28.0",
+        "@salutejs/plasma-tokens-utils": "0.29.0",
         "@types/node": "16.7.13",
         "deepmerge": "4.2.2",
         "jsdom": "17.0.0",
