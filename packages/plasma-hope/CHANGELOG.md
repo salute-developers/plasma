@@ -1,3 +1,34 @@
+# v1.220.0 (Thu Aug 03 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-b2c, plasma-web): Modal refinement [#629](https://github.com/salute-developers/plasma/pull/629) ([@kayman233](https://github.com/kayman233))
+- feat(plasma-hope): useFocusTrap focusAfterNode added [#629](https://github.com/salute-developers/plasma/pull/629) ([@kayman233](https://github.com/kayman233))
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web, plasma-b2c): Tooltip update on text change [#637](https://github.com/salute-developers/plasma/pull/637) ([@kayman233](https://github.com/kayman233))
+- chore: delete "test" comment [#639](https://github.com/salute-developers/plasma/pull/639) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-hope, plasma-web): Add some threshold fallbacks [#630](https://github.com/salute-developers/plasma/pull/630) ([@neretin-trike](https://github.com/neretin-trike))
+- ci: test [#631](https://github.com/salute-developers/plasma/pull/631) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-b2c, plasma-web): autoResize for TextArea [#614](https://github.com/salute-developers/plasma/pull/614) ([@kayman233](https://github.com/kayman233))
+- fix(plasma-hope): Fix overlay content with contentRight in `TextArea` [#621](https://github.com/salute-developers/plasma/pull/621) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'dev' ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 5
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.219.0 (Thu Jul 13 2023)
 
 #### 🚀 Enhancement

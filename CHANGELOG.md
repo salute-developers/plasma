@@ -1,3 +1,88 @@
+# (Thu Aug 03 2023)
+
+### Release Notes
+
+#### ci: enable full "lerna bootstrap" [Unit tests] ([#639](https://github.com/salute-developers/plasma/pull/639))
+
+Убрали флаг `--since` для **Unit tests**.
+
+#### ci: split lint and unit tests to different jobs ([#631](https://github.com/salute-developers/plasma/pull/631))
+
+Разделили первичные и важные проверки, такие как Lint и Unit tests,  в рамках одного workflow на две разные jobs
+
+---
+
+#### 🚀 Enhancement
+
+- feat: Add global threshold to all cypress configs [#630](https://github.com/salute-developers/plasma/pull/630) ([@neretin-trike](https://github.com/neretin-trike))
+- feat: Add condition for `plasma-tokens-utils` in documentation-pr workflow [#632](https://github.com/salute-developers/plasma/pull/632) ([@neretin-trike](https://github.com/neretin-trike))
+- feat: Add tokens-utils and tokens-native packages for cypres-common [#624](https://github.com/salute-developers/plasma/pull/624) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-tokens): Update `color` generator template for `iOS` [#626](https://github.com/salute-developers/plasma/pull/626) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-tokens): Add support multiple color in gradient for XML and SWIFT themes [#626](https://github.com/salute-developers/plasma/pull/626) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Add support multiple color in gradient [#626](https://github.com/salute-developers/plasma/pull/626) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(pasma-theme-builder): Add save and load draft themes [#612](https://github.com/salute-developers/plasma/pull/612) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Add disabling remove and rename default tokens [#618](https://github.com/salute-developers/plasma/pull/618) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-tokens@1.58.0`
+  - feat(plasma-tokens): Add `default` theme and tokens generation [#636](https://github.com/salute-developers/plasma/pull/636) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-tokens): Update `src` directory [#638](https://github.com/salute-developers/plasma/pull/638) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-tokens): Add `plasma-web` scheme [#638](https://github.com/salute-developers/plasma/pull/638) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-tokens): Update `src` directory and rename `asdk` -> `stylesSalute` [#625](https://github.com/salute-developers/plasma/pull/625) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-tokens): Add `stylesSalute` and remove `asdk` scheme [#625](https://github.com/salute-developers/plasma/pull/625) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-tokens): Udpate `src` directory for new shadow tokens [#624](https://github.com/salute-developers/plasma/pull/624) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-tokens): Udpate some JSON schemes for new shadow format [#624](https://github.com/salute-developers/plasma/pull/624) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-tokens): Update `src` directory for `plasma_b2c` theme [#617](https://github.com/salute-developers/plasma/pull/617) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.220.0`, `@salutejs/plasma-hope@1.220.0`, `@salutejs/plasma-web@1.220.0`
+  - feat(plasma-b2c, plasma-web): Modal refinement [#629](https://github.com/salute-developers/plasma/pull/629) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-hope@1.220.0`
+  - feat(plasma-hope): useFocusTrap focusAfterNode added [#629](https://github.com/salute-developers/plasma/pull/629) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-temple@1.169.0`
+  - feat(plasma-temple): Add some threshold fallbacks [#630](https://github.com/salute-developers/plasma/pull/630) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-ui@1.201.0`
+  - feat(plasma-ui): Add some threshold fallbacks [#630](https://github.com/salute-developers/plasma/pull/630) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-tokens@1.58.0`, `@salutejs/plasma-tokens-utils@0.29.0`
+  - feat(plasma-tokens-native): Update `react-native` generator for `shadow` tokens [#624](https://github.com/salute-developers/plasma/pull/624) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-tokens-utils@0.29.0`
+  - feat(plasma-tokens-utils): Add exclude `enabled=false` tokens from generated themes [#617](https://github.com/salute-developers/plasma/pull/617) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- ci: enable full "lerna bootstrap" [Unit tests] [#639](https://github.com/salute-developers/plasma/pull/639) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: split lint and unit tests to different jobs [#631](https://github.com/salute-developers/plasma/pull/631) ([@Yakutoc](https://github.com/Yakutoc))
+- docs: styled-components v6 not supported [#628](https://github.com/salute-developers/plasma/pull/628) ([@kayman233](https://github.com/kayman233))
+- fix(plasma-theme-builder): Fix some issues [#618](https://github.com/salute-developers/plasma/pull/618) ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-theme-builder): Fix avoid open-ssl [#623](https://github.com/salute-developers/plasma/pull/623) ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-theme-builder): Fix avoid open-ssl [#622](https://github.com/salute-developers/plasma/pull/622) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.220.0`, `@salutejs/plasma-hope@1.220.0`, `@salutejs/plasma-web@1.220.0`
+  - fix(plasma-web, plasma-b2c): Tooltip update on text change [#637](https://github.com/salute-developers/plasma/pull/637) ([@kayman233](https://github.com/kayman233))
+  - feat(plasma-b2c, plasma-web): autoResize for TextArea [#614](https://github.com/salute-developers/plasma/pull/614) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-hope@1.220.0`
+  - chore: delete "test" comment [#639](https://github.com/salute-developers/plasma/pull/639) ([@Yakutoc](https://github.com/Yakutoc))
+  - ci: test [#631](https://github.com/salute-developers/plasma/pull/631) ([@Yakutoc](https://github.com/Yakutoc))
+  - fix(plasma-hope): Fix overlay content with contentRight in `TextArea` [#621](https://github.com/salute-developers/plasma/pull/621) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-hope@1.220.0`, `@salutejs/plasma-web@1.220.0`
+  - feat(plasma-hope, plasma-web): Add some threshold fallbacks [#630](https://github.com/salute-developers/plasma/pull/630) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-ui@1.201.0`
+  - fix(plasma-ui): Fix hide behavior in `Sheet` component on slow scroll [#635](https://github.com/salute-developers/plasma/pull/635) ([@neretin-trike](https://github.com/neretin-trike))
+  - fix(plasma-ui): fix scroll TimePicker on android [#619](https://github.com/salute-developers/plasma/pull/619) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-typo@0.36.0`
+  - fix(plasma-web, plasma-b2c): h5 font-size fix [#633](https://github.com/salute-developers/plasma/pull/633) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-core@1.125.0`
+  - test(plasma-core): Update test and snapshots for `contentRight` [#621](https://github.com/salute-developers/plasma/pull/621) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### ⚠️ Pushed to `master`
+
+- `@salutejs/plasma-b2c@1.220.0`, `@salutejs/plasma-core@1.125.0`, `@salutejs/plasma-hope@1.220.0`, `@salutejs/plasma-temple@1.169.0`, `@salutejs/plasma-tokens@1.58.0`, `@salutejs/plasma-typo@0.36.0`, `@salutejs/plasma-ui@1.201.0`, `@salutejs/plasma-web@1.220.0`, `@salutejs/plasma-tokens-utils@0.29.0`
+  - Merge branch 'dev' ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 4
+
+- [@kayman233](https://github.com/kayman233)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Fri Jul 14 2023)
 
 #### 🐛 Bug Fix

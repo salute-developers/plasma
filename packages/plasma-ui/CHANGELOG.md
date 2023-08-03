@@ -1,3 +1,28 @@
+# v1.201.0 (Thu Aug 03 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): Add some threshold fallbacks [#630](https://github.com/salute-developers/plasma/pull/630) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): Fix hide behavior in `Sheet` component on slow scroll [#635](https://github.com/salute-developers/plasma/pull/635) ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-ui): fix scroll TimePicker on android [#619](https://github.com/salute-developers/plasma/pull/619) ([@kayman233](https://github.com/kayman233))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'dev' ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 4
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.200.0 (Thu Jul 13 2023)
 
 #### 🚀 Enhancement

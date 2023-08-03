@@ -1,3 +1,22 @@
+# v1.125.0 (Thu Aug 03 2023)
+
+#### 🐛 Bug Fix
+
+- test(plasma-core): Update test and snapshots for `contentRight` [#621](https://github.com/salute-developers/plasma/pull/621) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'dev' ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.124.0 (Thu Jul 13 2023)
 
 #### 🚀 Enhancement

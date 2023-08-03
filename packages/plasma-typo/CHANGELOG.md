@@ -1,3 +1,20 @@
+# v0.36.0 (Thu Aug 03 2023)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-web, plasma-b2c): h5 font-size fix [#633](https://github.com/salute-developers/plasma/pull/633) ([@kayman233](https://github.com/kayman233))
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'dev' ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v0.35.0 (Thu Jun 29 2023)
 
 #### 🐛 Bug Fix

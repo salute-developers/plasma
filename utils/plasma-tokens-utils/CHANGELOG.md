@@ -1,3 +1,21 @@
+# v0.29.0 (Thu Aug 03 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens-native): Update `react-native` generator for `shadow` tokens [#624](https://github.com/salute-developers/plasma/pull/624) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-tokens-utils): Add exclude `enabled=false` tokens from generated themes [#617](https://github.com/salute-developers/plasma/pull/617) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'dev' ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v0.28.0 (Thu Jun 29 2023)
 
 #### 🐛 Bug Fix
