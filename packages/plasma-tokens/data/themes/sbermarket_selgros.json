@@ -777,22 +777,22 @@
             "value": "4px"
         },
         "xs": {
-            "value": "6px"
-        },
-        "s": {
             "value": "8px"
         },
-        "m": {
+        "s": {
             "value": "12px"
         },
-        "l": {
+        "m": {
             "value": "16px"
         },
-        "xl": {
+        "l": {
             "value": "20px"
         },
+        "xl": {
+            "value": "24px"
+        },
         "xxl": {
-            "value": "40px"
+            "value": "32px"
         }
     }
 }
