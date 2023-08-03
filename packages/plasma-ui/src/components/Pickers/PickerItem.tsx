@@ -8,15 +8,18 @@ import { getStyles } from './utils';
 const sizes: Record<PickerSize, CSSObject> = {
     l: {
         ...display2,
+        height: '5rem',
         padding: '0.5rem 0',
     },
     s: {
         ...headline1,
         fontWeight: 600,
+        height: '2.25rem',
         padding: 0,
     },
     xs: {
         ...headline2,
+        height: '1.75rem',
         padding: 0,
     },
 };

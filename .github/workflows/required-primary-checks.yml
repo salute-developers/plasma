@@ -1,4 +1,4 @@
-name: Lint/Unit tests
+name: Required primary checks
 
 on:
   merge_group:
@@ -12,20 +12,31 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref }}
   cancel-in-progress: true
 
-jobs:
-  scope:
-    uses: ./.github/workflows/change-detection.yml
-    secrets: inherit
+env:
+  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
+  LERNA_IGNORE_LIST: "@salutejs/plasma-{temple-docs,ui-docs,docs-ui,web-docs,website,cy-utils,sb-utils}"
 
-  build:
-    needs: scope
-    name: Build
-    if: ${{ needs.scope.outputs.HAS_SCOPE == 'true' }}
+jobs:
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: ./.github/actions/prepare-environment
+
+      - name: Lerna bootstrap
+        run: npx lerna bootstrap
+
+      - name: Lint
+        run: npm run lint
+
+  tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
         with:
@@ -33,11 +44,9 @@ jobs:
 
       - uses: ./.github/actions/prepare-environment
 
+        # TODO Вернуть флаг `--since` как только появиться возможность использовать rc версии пакетов
       - name: Lerna bootstrap
-        run: npx lerna bootstrap --ignore @salutejs/plasma-tokens*
-
-      - name: Lint
-        run: npm run lint
+        run: npx lerna bootstrap --ignore=${{env.LERNA_IGNORE_LIST}}
 
       - name: Unit tests
         run: npm run test

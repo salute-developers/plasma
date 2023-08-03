@@ -8,7 +8,7 @@ import { Theme } from './Theme/Theme';
 import { Error } from './Error/Error';
 import { PullRequest } from './PullRequest/PullRequest';
 
-import { useFetchTheme } from '../hooks';
+import { useDefaultThemeData, useFetchTheme } from '../hooks';
 import { multipleMediaQuery } from './mixins';
 import { clearURLParam, getURLParams } from '../utils';
 import type { PageType, Theme as ThemeType } from '../types';
@@ -34,6 +34,7 @@ const App = () => {
     const [state, setState] = useState<PageType>('main');
     const [data, setData] = useState<ThemeType>();
     const [token, setToken] = useState<string | undefined>();
+    const defaultData = useDefaultThemeData();
 
     const [themeName, branchName] = getURLParams(['theme', 'branch']);
     const [themeData, errorMessage] = useFetchTheme(themeName, branchName);
@@ -46,6 +47,7 @@ const App = () => {
         if (themeData) {
             setState('theme');
             setData(themeData);
+            return;
         }
 
         if (errorMessage) {
@@ -80,7 +82,14 @@ const App = () => {
         <StyledRoot>
             {state === 'main' && <Main onSetToken={onSetToken} onGenerateTheme={onGenerateTheme} />}
             {state === 'generator' && <Generator onPreviewTheme={onPreviewTheme} />}
-            {state === 'theme' && <Theme data={data} branchNameFromParam={branchName} onPullRequest={onPullRequest} />}
+            {state === 'theme' && (
+                <Theme
+                    data={data}
+                    defaultData={defaultData}
+                    branchNameFromParam={branchName}
+                    onPullRequest={onPullRequest}
+                />
+            )}
             {state === 'pull-request' && <PullRequest branchNameFromParam={branchName} data={data} token={token} />}
             {state === 'error' && <Error message={errorMessage} onMain={onMain} />}
             <Footer />

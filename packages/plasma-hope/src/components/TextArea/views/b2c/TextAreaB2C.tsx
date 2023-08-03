@@ -127,12 +127,15 @@ export const TextAreaB2C = ({
     helperWidth,
     height,
     width,
+    autoResize,
+    minAuto,
     ...rest
 }: TextAreaPropsCommon) => {
     return (
         <TextAreaWrapper
             status={status}
             $isHelper={hasHelper}
+            $isContentRight={Boolean(contentRight)}
             $properties={textAreaProps[size]}
             className={className}
             style={style}
@@ -154,7 +157,7 @@ export const TextAreaB2C = ({
                     onFocus={onFocus}
                     onBlur={onBlur}
                     aria-describedby={id ? `${id}-helper` : undefined}
-                    height={height}
+                    height={autoResize ? minAuto : height}
                     width={width}
                     $isHelper={hasHelper}
                     {...rest}

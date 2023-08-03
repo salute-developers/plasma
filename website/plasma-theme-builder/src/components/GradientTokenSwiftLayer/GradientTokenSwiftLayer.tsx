@@ -98,7 +98,7 @@ export const GradientTokenSwiftLayer = ({
     }
 
     const { colors, locations, startPoint, endPoint } = swift;
-    const [colorStart, colorStop] = [getSwiftUIColor(colors[0]), getSwiftUIColor(colors[1])];
+    const swiftColors = colors.map(getSwiftUIColor);
 
     return (
         <Root>
@@ -108,8 +108,7 @@ export const GradientTokenSwiftLayer = ({
             </LayerHeader>
             <LayerWrapper>
                 <LayerReadonlyContent>
-                    <LayerReadonlyValue>colorStart: {colorStart}</LayerReadonlyValue>
-                    <LayerReadonlyValue>colorStop: {colorStop}</LayerReadonlyValue>
+                    <LayerReadonlyValue>colors: [{swiftColors.join(', ')}]</LayerReadonlyValue>
                     <LayerReadonlyValue>locations: [{locations.join(', ')}]</LayerReadonlyValue>
                 </LayerReadonlyContent>
                 <LayerEditableContent>

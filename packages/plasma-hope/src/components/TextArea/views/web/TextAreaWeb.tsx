@@ -46,12 +46,15 @@ export const TextAreaWeb = ({
     helperWidth,
     height,
     width,
+    autoResize,
+    minAuto,
     ...rest
 }: TextAreaPropsCommon) => {
     return (
         <FieldRoot
             $disabled={disabled}
             $isHelper={hasHelper || Boolean(helperText)}
+            $isContentRight={Boolean(contentRight)}
             status={status}
             style={style}
             className={className}
@@ -67,7 +70,7 @@ export const TextAreaWeb = ({
                 placeholder={placeLabel}
                 disabled={disabled}
                 status={status}
-                height={height}
+                height={autoResize ? minAuto : height}
                 width={width}
                 aria-describedby={id ? `${id}-helper` : undefined}
                 {...rest}

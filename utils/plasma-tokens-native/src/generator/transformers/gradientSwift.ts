@@ -20,7 +20,7 @@ const getUIColor = (color: string) => {
     return `UIColor(red: ${red}, green: ${green}, blue: ${blue}, alpha: ${alpha})`;
 };
 
-const getGradientStops = (colors: Array<string>) => [getUIColor(colors[0]), getUIColor(colors[1])];
+const getGradientStops = (colors: Array<string>) => colors.map(getUIColor);
 
 const getVectorPoints = (startPoint: Point, endPoint: Point) => ({
     startPoint: `CGPoint(x: ${startPoint.x}, y: ${startPoint.y})`,
@@ -28,14 +28,13 @@ const getVectorPoints = (startPoint: Point, endPoint: Point) => ({
 });
 
 const getGradient = (value: any) => {
-    const { type, colors, locations, startPoint: rawStartPoint, endPoint: rawEndPoint } = value;
-    const [startColor, endColor] = getGradientStops(colors);
+    const { type, colors: colorsBase, locations, startPoint: rawStartPoint, endPoint: rawEndPoint } = value;
+    const colors = getGradientStops(colorsBase);
     const { startPoint, endPoint } = getVectorPoints(rawStartPoint, rawEndPoint);
 
     return {
         type,
-        startColor,
-        endColor,
+        colors,
         locations,
         startPoint,
         endPoint,
@@ -67,14 +66,13 @@ const getLinearVectorPointsLegacy = (angle: string) => {
 };
 // TODO: Убрать после того, как переделаем схемы на новый формат градиентов
 const getLinearGradientLegacy = (value: any) => {
-    const { angle, colors, locations = ['0', '100'] } = value;
-    const [startColor, endColor] = getGradientStops(colors);
+    const { angle, colors: colorsBase, locations = ['0', '100'] } = value;
+    const colors = getGradientStops(colorsBase);
     const { startPoint, endPoint } = getLinearVectorPointsLegacy(angle);
 
     return {
         type: '.linear',
-        startColor,
-        endColor,
+        colors,
         locations: locations.map((item: string) => Number((Number(item) / 100).toFixed(2))),
         startPoint,
         endPoint,

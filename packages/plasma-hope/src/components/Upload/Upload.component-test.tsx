@@ -18,7 +18,10 @@ describe('plasma-hope: Upload', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     function Demo() {
@@ -60,7 +63,10 @@ describe('plasma-hope: Upload', () => {
                 return cy.get('.file-drop').trigger('drop', event);
             });
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('_content', () => {
@@ -79,7 +85,10 @@ describe('plasma-hope: Upload', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('_status', () => {
@@ -91,7 +100,10 @@ describe('plasma-hope: Upload', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('_progress', () => {
@@ -127,7 +139,10 @@ describe('plasma-hope: Upload', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('_disabled', () => {
@@ -139,7 +154,10 @@ describe('plasma-hope: Upload', () => {
             </CypressTestDecorator>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 });
 

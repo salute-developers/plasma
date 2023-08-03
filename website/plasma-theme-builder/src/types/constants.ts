@@ -1,3 +1,5 @@
+export const THEME_BUILDER_PREFIX = 'theme-builder';
+
 export const baseColors = {
     white: {
         value: '#FFFFFF',
@@ -40,7 +42,10 @@ export const emptyInputData = {
         value: '',
         status: undefined,
     },
-    comment: undefined,
+    comment: {
+        value: '',
+        status: undefined,
+    },
 };
 
 export const zeroPoint = {

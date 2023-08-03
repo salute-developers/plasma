@@ -42,11 +42,16 @@ interface GradientToken {
     locations: [number, number];
 }
 
+const getColors = (color: string, name: string, layerNumber: string, index: number) =>
+    `<color name="${name}${layerNumber}_color_${index}">${color}</color>`;
+
+const getLocations = (location: number, name: string, layerNumber: string, index: number) =>
+    `<item name="${name}${layerNumber}_position_${index}" format="float" type="dimen">${location}</item>`;
+
 const getGradient = ({ name, type, layerNumber, comment, colors, locations }: GradientToken) => {
-    const base = `<color name="${name}${layerNumber}_color_0">${colors[0]}</color><!-- ${comment} -->
-  <color name="${name}${layerNumber}_color_1">${colors[1]}</color>
-  <item name="${name}${layerNumber}_position_0" format="float" type="dimen">${locations[0]}</item>
-  <item name="${name}${layerNumber}_position_1" format="float" type="dimen">${locations[1]}</item>`;
+    const base = `<!-- ${comment} -->
+  ${colors.map((color, index) => getColors(color, name, layerNumber, index)).join('\n  ')}
+  ${locations.map((location, index) => getLocations(location, name, layerNumber, index)).join('\n  ')}`;
 
     if (type === '.linear') {
         return getLinearGradient(name, base, layerNumber);
@@ -58,7 +63,7 @@ const getGradient = ({ name, type, layerNumber, comment, colors, locations }: Gr
 };
 
 const getGradientToken = (name: string, gradient: any, comment?: string, layer?: number) => {
-    const { startColor, endColor, locations, type } = gradient;
+    const { colors, locations, type } = gradient;
     const layerNumber = layer !== undefined ? `_z${layer}` : '';
 
     if (!type) {
@@ -69,7 +74,7 @@ const getGradientToken = (name: string, gradient: any, comment?: string, layer?:
         name,
         type,
         comment,
-        colors: [startColor, endColor],
+        colors,
         locations,
         layerNumber,
     });
@@ -88,9 +93,9 @@ const getGradientToken = (name: string, gradient: any, comment?: string, layer?:
 };
 
 const getTokenValue = (token: TransformedToken, themeName: string) => {
-    const prefix = themeName.includes('asdk') ? 'sdkit_' : ''; // INFO: Условие специально для темы asdk
+    const hardcodePrefix = themeName.includes('styles_salute') ? 'sdkit_' : ''; // INFO: Условие специально для темы saluteStyles
 
-    const name = token.name.replace(`color_${themeName}_`, prefix);
+    const name = token.name.replace(`color_${themeName}_`, hardcodePrefix);
     const { comment } = token;
     const { value } = token.original;
 

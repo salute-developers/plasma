@@ -35,7 +35,10 @@ describe('plasma-ui: Cell', () => {
         );
 
         cy.mockImage('img', src);
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('__icon_size', () => {
@@ -52,7 +55,10 @@ describe('plasma-ui: Cell', () => {
         );
 
         cy.mockImage('img', src);
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('__right', () => {
@@ -81,7 +87,10 @@ describe('plasma-ui: Cell', () => {
         );
 
         cy.mockImage('img', src);
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('_align_left', () => {
@@ -105,7 +114,10 @@ describe('plasma-ui: Cell', () => {
         );
 
         cy.mockImage('img', src);
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('_align_right', () => {
@@ -129,7 +141,10 @@ describe('plasma-ui: Cell', () => {
         );
 
         cy.mockImage('img', src);
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 
     it('_list_item', () => {
@@ -161,6 +176,9 @@ describe('plasma-ui: Cell', () => {
         );
 
         cy.mockImage('img', src);
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
     });
 });

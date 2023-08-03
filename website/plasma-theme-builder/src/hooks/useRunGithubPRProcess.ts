@@ -12,7 +12,8 @@ import {
     getDefaultBranch,
     getPullRequestList,
 } from '../api';
-import { Steps } from '../types';
+import { deleteTheme } from '../utils';
+import { THEME_BUILDER_PREFIX, Steps } from '../types';
 
 interface RunProcessGithubPR {
     owner: string;
@@ -48,12 +49,12 @@ export const useRunGithubPRProcess = ({ owner, repo }: RunProcessGithubPR) => {
                 return saveMetaData(octokit, owner, repo);
             };
 
-            const branchName = `theme-builder-${themeName}`;
+            const branchName = `${THEME_BUILDER_PREFIX}-${themeName}`;
 
             const defaultBranch = await withMetaData(Steps.GET_DEFAULT_BRANCH)(getDefaultBranch)();
 
             if (branchNameFromParam !== branchName) {
-                await withMetaData(Steps.CREATE_BRANCH)(createBranch)(branchName);
+                await withMetaData(Steps.CREATE_BRANCH)(createBranch)(branchName, defaultBranch);
             }
 
             const { commitSha, treeSha } = await withMetaData(Steps.LATEST_COMMIT)(getCurrentSha)(branchName);
@@ -91,6 +92,7 @@ export const useRunGithubPRProcess = ({ owner, repo }: RunProcessGithubPR) => {
             }
 
             setStep(Steps.DONE);
+            deleteTheme(branchName);
             return pullRequest;
         },
         [owner, repo],

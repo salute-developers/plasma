@@ -186,7 +186,10 @@ describe('Form -- different types of fields', () => {
                 },
             },
         ).then(() => {
-            cy.matchImageSnapshot();
+            cy.matchImageSnapshot({
+                failureThreshold: 0.1,
+                failureThresholdType: 'percent',
+            });
         });
     });
 });

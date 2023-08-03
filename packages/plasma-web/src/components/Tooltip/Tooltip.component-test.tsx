@@ -5,6 +5,33 @@ describe('plasma-web: Tooltip', () => {
     const Tooltip = getComponent('Tooltip');
     const Button = getComponent('Button');
 
+    function Demo() {
+        const [inputValue, setInputValue] = React.useState('');
+
+        return (
+            <div>
+                <div style={{ marginLeft: '100px', marginBottom: '35px' }}>
+                    <Tooltip text={inputValue} isVisible>
+                        <Button text="hello" />
+                    </Tooltip>
+                </div>
+                <label
+                    htmlFor="tooltip-input"
+                    style={{
+                        display: 'block',
+                        marginTop: '100px',
+                    }}
+                >
+                    <input
+                        id="tooltip-input"
+                        value={inputValue}
+                        onChange={(event) => setInputValue(event.target.value)}
+                    />
+                </label>
+            </div>
+        );
+    }
+
     it('simple', () => {
         mount(
             <CypressTestDecorator>
@@ -179,5 +206,23 @@ describe('plasma-web: Tooltip', () => {
         );
 
         cy.matchImageSnapshot();
+    });
+
+    it('Text interaction', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot('empty');
+
+        cy.get('input').type('1');
+
+        cy.matchImageSnapshot('single');
+
+        cy.get('input').type('234');
+
+        cy.matchImageSnapshot('multiple');
     });
 });

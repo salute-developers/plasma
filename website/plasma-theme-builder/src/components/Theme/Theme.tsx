@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Button, H4 } from '@salutejs/plasma-b2c';
 import { IconPlus, IconCross } from '@salutejs/plasma-icons';
@@ -11,7 +11,7 @@ import { TokenForm } from '../TokenForm/TokenForm';
 import { AddTokenSection } from '../AddTokenSection/AddTokenSection';
 
 import { useNormalizeThemeSections } from '../../hooks';
-import { TokenContext } from '../../utils';
+import { TokenContext, saveTheme } from '../../utils';
 import { emptyInputData } from '../../types';
 import type { InputData, Theme as ThemeType } from '../../types';
 
@@ -51,11 +51,12 @@ const IconButton = styled(Button)``;
 
 interface ThemeProps {
     data?: ThemeType;
+    defaultData?: ThemeType;
     branchNameFromParam?: string;
     onPullRequest: (data: ThemeType) => void;
 }
 
-export const Theme = ({ data, branchNameFromParam, onPullRequest }: ThemeProps) => {
+export const Theme = ({ data, defaultData, branchNameFromParam, onPullRequest }: ThemeProps) => {
     const initialThemeData = useNormalizeThemeSections(data);
 
     const [themeData, setThemeData] = useState(initialThemeData);
@@ -183,6 +184,12 @@ export const Theme = ({ data, branchNameFromParam, onPullRequest }: ThemeProps) 
         }
     }, [onPullRequest, themeData]);
 
+    useEffect(() => {
+        if (themeData) {
+            saveTheme(themeData);
+        }
+    }, [themeData]);
+
     if (!themeData) {
         return null;
     }
@@ -209,6 +216,7 @@ export const Theme = ({ data, branchNameFromParam, onPullRequest }: ThemeProps) 
                 {isFormTokenOpen && (
                     <TokenForm
                         themeMode={themeMode}
+                        defaultThemeData={defaultData}
                         isOpen={isFormTokenOpen}
                         inputData={inputData}
                         themeData={themeData}
@@ -235,6 +243,7 @@ export const Theme = ({ data, branchNameFromParam, onPullRequest }: ThemeProps) 
                     <TokenContext.Provider
                         key={sectionName}
                         value={{
+                            defaultData,
                             onOpenTokenForm,
                             onTokenDelete,
                             onTokenEnabled,

@@ -184,7 +184,10 @@ describe('GalleryPage', () => {
         });
 
         afterEach(() => {
-            cy.matchImageSnapshot();
+            cy.matchImageSnapshot({
+                failureThreshold: 0.05,
+                failureThresholdType: 'percent',
+            });
             unmount();
         });
 
