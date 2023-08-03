@@ -7,6 +7,7 @@ export {
     typoKotlinCustomFormatter,
     typoReactNativeCustomFormatter,
     shadowReactNativeCustomFormatter,
+    borderRadiusReactNativeCustomFormatter,
 } from './formatters';
 export {
     gradientSwiftTransformer,

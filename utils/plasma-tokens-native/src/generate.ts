@@ -1,5 +1,9 @@
 import path from 'path';
-import { generateThemesTokenDataGroups, generateShadowsToken } from '@salutejs/plasma-tokens-utils';
+import {
+    generateThemesTokenDataGroups,
+    generateShadowsToken,
+    generateBorderRadiusTokens,
+} from '@salutejs/plasma-tokens-utils';
 import {
     mageTypoProperties,
     sageTypoProperties,
@@ -15,6 +19,7 @@ const themeDir = path.join(__dirname, '../data/themes');
 
 const themesColorTokenGroups = generateThemesTokenDataGroups(themeDir);
 const shadowTokens = generateShadowsToken(themeDir);
+const borderRadiusTokens = generateBorderRadiusTokens(themeDir);
 
 const typoArchetypes = {
     mage: mageTypoProperties,
@@ -28,4 +33,4 @@ const typoArchetypes = {
 /** ========================================================= **/
 /** ============== Генерация токенов для натива ============= **/
 /** ========================================================= **/
-createProperties(themesColorTokenGroups, shadowTokens, typoArchetypes);
+createProperties(themesColorTokenGroups, shadowTokens, borderRadiusTokens, typoArchetypes);
