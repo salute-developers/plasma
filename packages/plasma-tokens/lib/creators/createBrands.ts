@@ -18,7 +18,7 @@ export const createBrands = (srcDir: string, themesTokens: Record<string, ThemeT
             const themeName = lowerFirstLetter(brand.replace(fixedThemeType, ''));
             const brandDir = path.join(brandsDir, themeName);
 
-            const { shadow, color, borderRadius } = themesTokens[brand];
+            const { shadow, color, borderRadius, spacing } = themesTokens[brand];
 
             writeGeneratedToFS(brandDir, [
                 {
@@ -28,7 +28,9 @@ export const createBrands = (srcDir: string, themesTokens: Record<string, ThemeT
                         '\n' +
                         generateTokenSet({ tokens: shadow, type: 'css', mode: 'shadow' }) +
                         '\n' +
-                        generateTokenSet({ tokens: borderRadius, type: 'css', mode: 'borderRadius' }),
+                        generateTokenSet({ tokens: borderRadius, type: 'css', mode: 'borderRadius' }) +
+                        '\n' +
+                        generateTokenSet({ tokens: spacing, type: 'css', mode: 'spacing' }),
                 },
             ]);
         });

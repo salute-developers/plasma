@@ -183,6 +183,9 @@ export const getThemesTokensFallback = (
                 borderRadius: {
                     ...tokens.borderRadius,
                 },
+                spacing: {
+                    ...tokens.spacing,
+                },
             },
         };
     }, {});
