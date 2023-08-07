@@ -794,5 +794,52 @@
         "xxl": {
             "value": "32px"
         }
+    },
+    "spacing": {
+        "0x": {
+            "value": "0px"
+        },
+        "1x": {
+            "value": "2px"
+        },
+        "2x": {
+            "value": "4px"
+        },
+        "3x": {
+            "value": "6px"
+        },
+        "4x": {
+            "value": "8px"
+        },
+        "6x": {
+            "value": "12px"
+        },
+        "8x": {
+            "value": "16px"
+        },
+        "10x": {
+            "value": "20px"
+        },
+        "12x": {
+            "value": "24px"
+        },
+        "16x": {
+            "value": "32px"
+        },
+        "20x": {
+            "value": "40px"
+        },
+        "24x": {
+            "value": "48px"
+        },
+        "32x": {
+            "value": "64px"
+        },
+        "40x": {
+            "value": "80px"
+        },
+        "60x": {
+            "value": "120px"
+        }
     }
 }
