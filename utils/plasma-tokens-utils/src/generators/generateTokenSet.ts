@@ -71,6 +71,7 @@ const generateMethodsMap: Record<string, (props: GenerateProps) => TokenType> = 
     color: generateTokenValue,
     shadow: generateShadowTokenValue,
     borderRadius: generateTokenValue,
+    spacing: generateTokenValue,
 };
 
 const generateToken = ({ token, type, name, mode }: GenerateToken) => {
