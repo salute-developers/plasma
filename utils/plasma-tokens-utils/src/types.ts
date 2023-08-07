@@ -273,13 +273,14 @@ export interface Theme {
     };
     shadow?: Record<string, string>;
     borderRadius?: Record<string, string>;
+    spacing?: Record<string, string>;
 }
 
 export type ThemeTokenDataGroups = Record<string, TokenDataGroup<string> | undefined>;
 
 export type GeneratedTokenType = 'value' | 'css';
 
-export type GeneratedTokenMode = 'color' | 'shadow' | 'borderRadius';
+export type GeneratedTokenMode = 'color' | 'shadow' | 'borderRadius' | 'spacing';
 
 export type ActualTokenNames =
     | TextIconsTokenName

@@ -23,10 +23,11 @@ export const generateThemes = (
     let indexContent = '';
 
     for (const [fileName, themeItem] of Object.entries(themes)) {
-        const { color = {}, shadow = {}, borderRadius = {} } = themeItem;
+        const { color = {}, shadow = {}, borderRadius = {}, spacing = {} } = themeItem;
         const themeData = extractTokenData(color);
         const themeShadow = extractTokenData(shadow);
         const themeBorderRadius = extractTokenData(borderRadius);
+        const themeSpacing = extractTokenData(spacing);
 
         const [deprecated, deprecatedThemeName] = withDeprecated ? getDeprecatedVars(fileName) : ['', ''];
 
@@ -44,6 +45,7 @@ export const generateThemes = (
                     ...objectToCSSVariables(themeData, '', withPrefixDesign),
                     ...objectToCSSShadowVariables(themeShadow),
                     ...objectToCSSVariables(themeBorderRadius, '', withPrefixDesign),
+                    ...objectToCSSVariables(themeSpacing, '', withPrefixDesign),
                     ...objectToCSSVariables(mixin, '', withPrefixDesign),
                     color: themeData[findExistedProp(themeData, 'text')],
                     backgroundColor: themeData[findExistedProp(themeData, 'background')],

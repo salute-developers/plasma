@@ -47,6 +47,7 @@ const themeToTokenDataGroups = (theme: Theme): Record<string, Record<string, The
         light,
         shadow,
         borderRadius,
+        spacing,
     } = theme;
 
     const shadowTokens = shadow
@@ -57,17 +58,23 @@ const themeToTokenDataGroups = (theme: Theme): Record<string, Record<string, The
         ? dataObjectToTokenDataGroup((borderRadius as unknown) as DataObject, '', 'borderRadius')
         : undefined;
 
+    const spacingTokens = spacing
+        ? dataObjectToTokenDataGroup((spacing as unknown) as DataObject, '', 'spacing')
+        : undefined;
+
     return {
         [name]: {
             [`${name}__dark`]: {
                 color: dataObjectToTokenDataGroup((dark as unknown) as DataObject, ''),
                 shadow: shadowTokens,
                 borderRadius: borderRadiusTokens,
+                spacing: spacingTokens,
             },
             [`${name}__light`]: {
                 color: dataObjectToTokenDataGroup((light as unknown) as DataObject, ''),
                 shadow: shadowTokens,
                 borderRadius: borderRadiusTokens,
+                spacing: spacingTokens,
             },
         },
     };
