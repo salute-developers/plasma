@@ -82,6 +82,10 @@ const themeKindItems: Array<ThemeKindItemProps> = [
                 name: 'Web',
                 languages: 'CSS',
             },
+            {
+                name: 'React-Native',
+                languages: 'TypeScript',
+            },
         ],
     },
     {
