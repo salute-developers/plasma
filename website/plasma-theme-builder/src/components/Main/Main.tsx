@@ -89,6 +89,20 @@ const themeKindItems: Array<ThemeKindItemProps> = [
         ],
     },
     {
+        name: 'Отступы',
+        description: 'Семантический набор значений для используемых отступов',
+        supportedPlatforms: [
+            {
+                name: 'Web',
+                languages: 'CSS',
+            },
+            {
+                name: 'React-Native',
+                languages: 'TypeScript',
+            },
+        ],
+    },
+    {
         name: 'Тени',
         description: 'Семантический набор значений для используемых теней',
         supportedPlatforms: [
