@@ -8,6 +8,7 @@ export {
     typoReactNativeCustomFormatter,
     shadowReactNativeCustomFormatter,
     borderRadiusReactNativeCustomFormatter,
+    spacingReactNativeCustomFormatter,
 } from './formatters';
 export {
     gradientSwiftTransformer,
