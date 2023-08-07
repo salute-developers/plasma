@@ -9,3 +9,4 @@ export { generateTokenSet } from './generateTokenSet';
 export { generateThemes } from './generateThemes';
 export { generateShadowsToken } from './generateShadowsToken';
 export { generateBorderRadiusTokens } from './generateBorderRadiusTokens';
+export { generateSpacingTokens } from './generateSpacingTokens';

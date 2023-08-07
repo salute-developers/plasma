@@ -17,6 +17,7 @@ import {
     gradientXMLTransformer,
     shadowReactNativeCustomFormatter,
     borderRadiusReactNativeCustomFormatter,
+    spacingReactNativeCustomFormatter,
 } from './src/generator';
 
 const getStyleDictionaryColorConfig = (brand: string, filesPath: string): Config => ({
@@ -146,6 +147,22 @@ const getStyleDictionaryBorderRadiusConfig = (brand: string, filesPath: string):
     },
 });
 
+const getStyleDictionarySpacingConfig = (brand: string, filesPath: string): Config => ({
+    source: [path.join(filesPath, `${brand}.json`)],
+    platforms: {
+        'react-native': {
+            transforms: ['attribute/cti', 'name/ti/camel'],
+            buildPath: 'build/',
+            files: [
+                {
+                    format: 'react-native/custom/spacing',
+                    destination: `spacing/spacing_${brand}_react-native.ts`,
+                },
+            ],
+        },
+    },
+});
+
 const getFilesName = (fullPath: string) =>
     glob.sync(path.join(fullPath, '*')).map((filePath) => path.parse(filePath).name);
 
@@ -243,6 +260,17 @@ const styles: StyleTypes = {
             {
                 name: 'react-native/custom/borderRadius',
                 formatter: borderRadiusReactNativeCustomFormatter,
+            },
+        ],
+    },
+    spacing: {
+        path: 'properties/spacing/',
+        platforms: ['react-native'],
+        config: getStyleDictionarySpacingConfig,
+        formatters: [
+            {
+                name: 'react-native/custom/spacing',
+                formatter: spacingReactNativeCustomFormatter,
             },
         ],
     },

@@ -7,3 +7,4 @@ export { typoReactNativeCustomFormatter } from './typoReactNative';
 export { typoKotlinCustomFormatter } from './typoKotlin';
 export { shadowReactNativeCustomFormatter } from './shadowReactNative';
 export { borderRadiusReactNativeCustomFormatter } from './borderRadiusReactNative';
+export { spacingReactNativeCustomFormatter } from './spacingReactNative';
