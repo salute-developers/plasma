@@ -14,7 +14,7 @@ jobs:
     env:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Prepare repository
         run: git fetch --unshallow --tags
@@ -29,21 +29,25 @@ jobs:
 
       - name: Plasma Website
         run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-website"
           cp -R ./website/plasma-website/build ./s3_build/next-${{ github.sha }}
 
       - name: Plasma UI Docs
         run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-ui-docs"
           cp -R ./website/plasma-ui-docs/build ./s3_build/next-${{ github.sha }}/ui
 
       - name: Plasma Web Docs
         run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-web-docs"
           cp -R ./website/plasma-web-docs/build ./s3_build/next-${{ github.sha }}/web
 
       - name: Plasma Temple Docs
         run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-temple-docs"
           cp -R ./website/plasma-temple-docs/build ./s3_build/next-${{ github.sha }}/temple
 
@@ -68,8 +72,7 @@ jobs:
           cp -R ./packages/plasma-temple/build-sb ./s3_build/next-${{ github.sha }}/temple-storybook
 
       - name: Install s3cmd
-        run: |
-          pip3 install s3cmd
+        run: pip3 install s3cmd
 
       - name: s3 Upload documentation build
         run: >
