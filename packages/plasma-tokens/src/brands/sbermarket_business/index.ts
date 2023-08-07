@@ -292,3 +292,33 @@ export const borderRadiusL = 'var(--border-radius-l, 20px)';
 export const borderRadiusXl = 'var(--border-radius-xl, 24px)';
 
 export const borderRadiusXxl = 'var(--border-radius-xxl, 32px)';
+
+export const spacing0x = 'var(--spacing0x, 0px)';
+
+export const spacing1x = 'var(--spacing1x, 2px)';
+
+export const spacing2x = 'var(--spacing2x, 4px)';
+
+export const spacing3x = 'var(--spacing3x, 6px)';
+
+export const spacing4x = 'var(--spacing4x, 8px)';
+
+export const spacing6x = 'var(--spacing6x, 12px)';
+
+export const spacing8x = 'var(--spacing8x, 16px)';
+
+export const spacing10x = 'var(--spacing10x, 20px)';
+
+export const spacing12x = 'var(--spacing12x, 24px)';
+
+export const spacing16x = 'var(--spacing16x, 32px)';
+
+export const spacing20x = 'var(--spacing20x, 40px)';
+
+export const spacing24x = 'var(--spacing24x, 48px)';
+
+export const spacing32x = 'var(--spacing32x, 64px)';
+
+export const spacing40x = 'var(--spacing40x, 80px)';
+
+export const spacing60x = 'var(--spacing60x, 120px)';
