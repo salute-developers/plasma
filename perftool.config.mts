@@ -2,7 +2,7 @@ import type { Config } from '@salutejs/perftool';
 
 const config: Config = {
     jobs: 1,
-    retries: 20,
+    retries: 40,
     taskConfiguration: {
         render: {
             renderWaitTimeout: 500,
@@ -25,6 +25,7 @@ const config: Config = {
     absoluteError: 1,
     cache: {
         taskState: true,
+        testSubjectsDeps: true,
     },
     // Remove cache files older than 30 days
     cacheExpirationTime: 1000 * 60 * 60 * 24 * 30,
