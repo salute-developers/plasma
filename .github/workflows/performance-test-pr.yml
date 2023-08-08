@@ -57,7 +57,7 @@ jobs:
           key: cache-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             cache-${{ hashFiles('package-lock.json') }}
-            cache-            
+            cache-
 
       - name: Setup packages for PR
         if: ${{ steps.cache.outputs.cache-hit != 'true' && steps.node_modules.outputs.cache-hit != 'true' }}
@@ -87,24 +87,6 @@ jobs:
           --baseBranchRef ${{ github.event.pull_request.base.sha }}
           --currentBranchRef ${{ github.event.pull_request.head.sha }}
 
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.base.ref }}
-          clean: false
-
-      - name: Setup packages for ${{ github.event.pull_request.base.ref }}
-        if: ${{ steps.cache.outputs.cache-hit != 'true' && steps.node_modules.outputs.cache-hit != 'true' }}
-        run: npm ci --no-progress
-
-      - name: Lerna bootstrap for ${{ github.event.pull_request.base.ref }}
-        run: npx lerna bootstrap --scope=@salutejs/plasma-{core,hope,web,b2c,ui,icons}
-
-      - name: Run performance test for ${{ github.event.pull_request.base.ref }}
-        run: >
-          npx perftool
-          -o perftest/base-result.json
-          --currentBranchRef ${{ github.event.pull_request.base.sha }}
-
       - name: Save perftool cache
         run: >
           s3cmd
@@ -118,6 +100,44 @@ jobs:
           sync
           ./.perftool/cache/
           s3://${{ secrets.AWS_S3_BUCKET_2 }}/perftool-cache/
+
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.base.ref }}
+          clean: false
+
+      - name: Cache node modules
+        id: node_modules_base
+        uses: actions/cache/restore@v3
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            node-modules-${{ hashFiles('package-lock.json') }}
+            node-modules-
+
+      - name: Cache dependencies
+        id: cache_base
+        uses: actions/cache/restore@v3
+        with:
+          path: ~/.cache
+          key: cache-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            cache-${{ hashFiles('package-lock.json') }}
+            cache-
+
+      - name: Setup packages for ${{ github.event.pull_request.base.ref }}
+        if: ${{ steps.cache_base.outputs.cache-hit != 'true' && steps.node_modules_base.outputs.cache-hit != 'true' }}
+        run: npm ci --no-progress
+
+      - name: Lerna bootstrap for ${{ github.event.pull_request.base.ref }}
+        run: npx lerna bootstrap --scope=@salutejs/plasma-{core,hope,web,b2c,ui,icons}
+
+      - name: Run performance test for ${{ github.event.pull_request.base.ref }}
+        run: >
+          npx perftool
+          -o perftest/base-result.json
+          --currentBranchRef ${{ github.event.pull_request.head.sha }}
 
       - name: Compare test results
         run: >
