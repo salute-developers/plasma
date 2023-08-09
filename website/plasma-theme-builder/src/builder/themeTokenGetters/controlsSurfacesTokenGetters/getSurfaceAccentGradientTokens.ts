@@ -1,6 +1,6 @@
 import type { TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { accentGradientCreator } from '../textIconsTokenGetters/getTextAccentGradient';
+import { accentGradientCreator } from '../textIconsTokenGetters/getTextAccentGradientTokens';
 
 const comment: Record<keyof TokensByType, string> = {
     default: 'Акцентный фон поверхности/контрола с градиентом',
@@ -9,4 +9,4 @@ const comment: Record<keyof TokensByType, string> = {
     inverse: 'Инвертированный акцентный фон поверхности/контрола с градиентом',
 };
 
-export const getSurfaceAccentGradient = accentGradientCreator(comment);
+export const getSurfaceAccentGradientTokens = accentGradientCreator(comment);

@@ -1,10 +1,17 @@
-import { humanizeColor } from '@salutejs/plasma-tokens-utils';
+import { humanizeColor, alphenColor } from '@salutejs/plasma-tokens-utils';
 import type { TokensByType, ThemeConfig } from '@salutejs/plasma-tokens-utils';
 
-export const accentGradientCreator = (comment: Record<keyof TokensByType, string>) => {
+export const transparentAccentGradientCreator = (comment: Record<keyof TokensByType, string>) => {
     return (config: ThemeConfig) => {
-        const darkValue = `linear-gradient(135deg, black 0%, ${humanizeColor(config.accentColor.dark)} 100%)`;
-        const lightValue = `linear-gradient(135deg, white 0%, ${humanizeColor(config.accentColor.light)} 100%)`;
+        const opacityDegrees = -0.88;
+        const darkValue = `linear-gradient(135deg, black 0%, ${alphenColor(
+            humanizeColor(config.accentColor.dark),
+            opacityDegrees,
+        )} 100%)`;
+        const lightValue = `linear-gradient(135deg, white 0%, ${alphenColor(
+            humanizeColor(config.accentColor.light),
+            opacityDegrees,
+        )} 100%)`;
 
         return {
             dark: {
@@ -48,10 +55,10 @@ export const accentGradientCreator = (comment: Record<keyof TokensByType, string
 };
 
 const comment: Record<keyof TokensByType, string> = {
-    default: 'Акцентный цвет с градиентом',
-    onDark: 'Акцентный цвет с градиентом на темном фоне',
-    onLight: 'Акцентный цвет с градиентом на светлом фоне',
-    inverse: 'Инвертированный акцентный цвет с градиентом',
+    default: 'Прозрачный акцентный цвет с градиентом',
+    onDark: 'Прозрачный акцентный цвет с градиентом на темном фоне',
+    onLight: 'Прозрачный акцентный цвет с градиентом на светлом фоне',
+    inverse: 'Прозрачный инвертированный акцентный цвет с градиентом',
 };
 
-export const getTextAccentGradient = accentGradientCreator(comment);
+export const getTextTransparentAccentGradientTokens = transparentAccentGradientCreator(comment);
