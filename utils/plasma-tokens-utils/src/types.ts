@@ -151,7 +151,12 @@ export type TextIconsTokenName =
     | 'textAccentGradient'
     | 'textPositive'
     | 'textWarning'
-    | 'textNegative';
+    | 'textNegative'
+    | 'textTransparentAccent'
+    | 'textTransparentAccentGradient'
+    | 'textTransparentPositive'
+    | 'textTransparentWarning'
+    | 'textTransparentNegative';
 
 export type ControlsSurfacesName =
     | 'surfaceSolidDefault'
@@ -159,7 +164,7 @@ export type ControlsSurfacesName =
     | 'surfaceSolidSecondary'
     | 'surfaceSolidTertiary'
     | 'surfaceSolidCard'
-    | 'surfaceTransparentDefault'
+    | 'surfaceTransparentDeep'
     | 'surfaceTransparentPrimary'
     | 'surfaceTransparentSecondary'
     | 'surfaceTransparentTertiary'
@@ -169,7 +174,12 @@ export type ControlsSurfacesName =
     | 'surfacePositive'
     | 'surfaceWarning'
     | 'surfaceNegative'
-    | 'surfaceClear';
+    | 'surfaceClear'
+    | 'surfaceTransparentAccent'
+    | 'surfaceTransparentAccentGradient'
+    | 'surfaceTransparentPositive'
+    | 'surfaceTransparentWarning'
+    | 'surfaceTransparentNegative';
 
 export type BackgroundName = 'backgroundPrimary' | 'backgroundSecondary' | 'backgroundTertiary';
 
