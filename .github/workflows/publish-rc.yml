@@ -1,0 +1,23 @@
+name: Release
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - dev
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    name: Publish RC version
+    if: github.event.pull_request.merged == true
+    uses: ./.github/workflows/publish-common.yml
+    with:
+      with-update-package-lock: true
+      commit-message: "chore: update package-locks"
+    secrets: inherit
+
