@@ -11,7 +11,7 @@
         },
         "opacity": {
             "textIcons": false,
-            "surfaces": false
+            "surfaces": true
         }
     },
     "dark": {
@@ -59,6 +59,26 @@
         },
         "text": {
             "default": {
+                "textAccent": {
+                    "value": "#FFFFFF",
+                    "comment": "Акцентный цвет"
+                },
+                "textAccentGradient": {
+                    "value": "linear-gradient(135deg, black 0%, #FFFFFF 100%)",
+                    "comment": "Акцентный цвет с градиентом"
+                },
+                "textNegative": {
+                    "value": "#FF293E",
+                    "comment": "Цвет ошибки"
+                },
+                "textParagraph": {
+                    "value": "#ECECEC",
+                    "comment": "Сплошной наборный текст"
+                },
+                "textPositive": {
+                    "value": "#1A9E32",
+                    "comment": "Цвет успеха"
+                },
                 "textPrimary": {
                     "value": "#F5F5F5",
                     "comment": "Основной цвет текста"
@@ -71,32 +91,52 @@
                     "value": "#7A7A7A",
                     "comment": "Третичный цвет текста"
                 },
-                "textParagraph": {
-                    "value": "#ECECEC",
-                    "comment": "Сплошной наборный текст"
-                },
-                "textAccent": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный цвет"
-                },
-                "textAccentGradient": {
-                    "value": "linear-gradient(135deg, black 0%, #FFFFFF 100%)",
-                    "comment": "Акцентный цвет с градиентом"
-                },
-                "textPositive": {
-                    "value": "#1A9E32",
-                    "comment": "Цвет успеха"
-                },
                 "textWarning": {
                     "value": "#FA5F05",
                     "comment": "Цвет предупреждения"
                 },
-                "textNegative": {
-                    "value": "#FF293E",
-                    "comment": "Цвет ошибки"
+                "textTransparentAccent": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный акцентный цвет"
+                },
+                "textTransparentAccentGradient": {
+                    "value": "linear-gradient(135deg, black 0%, rgba(255, 255, 255, 0.12) 100%)",
+                    "comment": "Прозрачный акцентный цвет с градиентом"
+                },
+                "textTransparentNegative": {
+                    "value": "rgba(255, 41, 62, 0.12)",
+                    "comment": "Прозрачный цвет ошибки"
+                },
+                "textTransparentPositive": {
+                    "value": "rgba(26, 158, 50, 0.12)",
+                    "comment": "Прозрачный цвет успеха"
+                },
+                "textTransparentWarning": {
+                    "value": "rgba(250, 95, 5, 0.12)",
+                    "comment": "Прозрачный цвет предупреждения"
                 }
             },
             "onDark": {
+                "textAccent": {
+                    "value": "#FFFFFF",
+                    "comment": "Акцентный цвет на темном фоне"
+                },
+                "textAccentGradient": {
+                    "value": "linear-gradient(135deg, black 0%, #FFFFFF 100%)",
+                    "comment": "Акцентный цвет с градиентом на темном фоне"
+                },
+                "textNegative": {
+                    "value": "#FF293E",
+                    "comment": "Цвет ошибки на темном фоне"
+                },
+                "textParagraph": {
+                    "value": "#ECECEC",
+                    "comment": "Сплошной наборный текст на темном фоне"
+                },
+                "textPositive": {
+                    "value": "#1A9E32",
+                    "comment": "Цвет успеха на темном фоне"
+                },
                 "textPrimary": {
                     "value": "#F5F5F5",
                     "comment": "Основной цвет текста на темном фоне"
@@ -109,32 +149,52 @@
                     "value": "#7A7A7A",
                     "comment": "Третичный цвет текста на темном фоне"
                 },
-                "textParagraph": {
-                    "value": "#ECECEC",
-                    "comment": "Сплошной наборный текст на темном фоне"
-                },
-                "textAccent": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный цвет на темном фоне"
-                },
-                "textAccentGradient": {
-                    "value": "linear-gradient(135deg, black 0%, #FFFFFF 100%)",
-                    "comment": "Акцентный цвет с градиентом на темном фоне"
-                },
-                "textPositive": {
-                    "value": "#1A9E32",
-                    "comment": "Цвет успеха на темном фоне"
-                },
                 "textWarning": {
                     "value": "#FA5F05",
                     "comment": "Цвет предупреждения на темном фоне"
                 },
-                "textNegative": {
-                    "value": "#FF293E",
-                    "comment": "Цвет ошибки на темном фоне"
+                "textTransparentAccent": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный акцентный цвет на темном фоне"
+                },
+                "textTransparentAccentGradient": {
+                    "value": "linear-gradient(135deg, black 0%, rgba(255, 255, 255, 0.12) 100%)",
+                    "comment": "Прозрачный акцентный цвет с градиентом на темном фоне"
+                },
+                "textTransparentNegative": {
+                    "value": "rgba(255, 41, 62, 0.12)",
+                    "comment": "Прозрачный цвет ошибки на темном фоне"
+                },
+                "textTransparentPositive": {
+                    "value": "rgba(26, 158, 50, 0.12)",
+                    "comment": "Прозрачный цвет успеха на темном фоне"
+                },
+                "textTransparentWarning": {
+                    "value": "rgba(250, 95, 5, 0.12)",
+                    "comment": "Прозрачный цвет предупреждения на темном фоне"
                 }
             },
             "onLight": {
+                "textAccent": {
+                    "value": "#FFFFFF",
+                    "comment": "Акцентный цвет на светлом фоне"
+                },
+                "textAccentGradient": {
+                    "value": "linear-gradient(135deg, white 0%, #FFFFFF 100%)",
+                    "comment": "Акцентный цвет с градиентом на светлом фоне"
+                },
+                "textNegative": {
+                    "value": "#F31B30",
+                    "comment": "Цвет ошибки на светлом фоне"
+                },
+                "textParagraph": {
+                    "value": "#262626",
+                    "comment": "Сплошной наборный текст на светлом фоне"
+                },
+                "textPositive": {
+                    "value": "#108E25",
+                    "comment": "Цвет успеха на светлом фоне"
+                },
                 "textPrimary": {
                     "value": "#171717",
                     "comment": "Основной цвет текста на светлом фоне"
@@ -147,32 +207,52 @@
                     "value": "#858585",
                     "comment": "Третичный цвет текста на светлом фоне"
                 },
-                "textParagraph": {
-                    "value": "#262626",
-                    "comment": "Сплошной наборный текст на светлом фоне"
-                },
-                "textAccent": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный цвет на светлом фоне"
-                },
-                "textAccentGradient": {
-                    "value": "linear-gradient(135deg, white 0%, #FFFFFF 100%)",
-                    "comment": "Акцентный цвет с градиентом на светлом фоне"
-                },
-                "textPositive": {
-                    "value": "#108E25",
-                    "comment": "Цвет успеха на светлом фоне"
-                },
                 "textWarning": {
                     "value": "#E85702",
                     "comment": "Цвет предупреждения на светлом фоне"
                 },
-                "textNegative": {
-                    "value": "#F31B30",
-                    "comment": "Цвет ошибки на светлом фоне"
+                "textTransparentAccent": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный акцентный цвет на светлом фоне"
+                },
+                "textTransparentAccentGradient": {
+                    "value": "linear-gradient(135deg, white 0%, rgba(255, 255, 255, 0.12) 100%)",
+                    "comment": "Прозрачный акцентный цвет с градиентом на светлом фоне"
+                },
+                "textTransparentNegative": {
+                    "value": "rgba(243, 27, 48, 0.12)",
+                    "comment": "Прозрачный цвет ошибки на светлом фоне"
+                },
+                "textTransparentPositive": {
+                    "value": "rgba(16, 142, 37, 0.12)",
+                    "comment": "Прозрачный цвет успеха на светлом фоне"
+                },
+                "textTransparentWarning": {
+                    "value": "rgba(232, 87, 2, 0.12)",
+                    "comment": "Прозрачный цвет предупреждения на светлом фоне"
                 }
             },
             "inverse": {
+                "textAccent": {
+                    "value": "#FFFFFF",
+                    "comment": "Инвертированный акцентный цвет"
+                },
+                "textAccentGradient": {
+                    "value": "linear-gradient(135deg, white 0%, #FFFFFF 100%)",
+                    "comment": "Инвертированный акцентный цвет с градиентом"
+                },
+                "textNegative": {
+                    "value": "#F31B30",
+                    "comment": "Инвертированный цвет ошибки"
+                },
+                "textParagraph": {
+                    "value": "#262626",
+                    "comment": "Инвертированный cплошной наборный текст"
+                },
+                "textPositive": {
+                    "value": "#108E25",
+                    "comment": "Инвертированный цвет успеха"
+                },
                 "textPrimary": {
                     "value": "#171717",
                     "comment": "Инвертированный основной цвет текста"
@@ -185,34 +265,58 @@
                     "value": "#858585",
                     "comment": "Инвертированный третичный цвет текста"
                 },
-                "textParagraph": {
-                    "value": "#262626",
-                    "comment": "Инвертированный cплошной наборный текст"
-                },
-                "textAccent": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный акцентный цвет"
-                },
-                "textAccentGradient": {
-                    "value": "linear-gradient(135deg, white 0%, #FFFFFF 100%)",
-                    "comment": "Инвертированный акцентный цвет с градиентом"
-                },
-                "textPositive": {
-                    "value": "#108E25",
-                    "comment": "Инвертированный цвет успеха"
-                },
                 "textWarning": {
                     "value": "#E85702",
                     "comment": "Инвертированный цвет предупреждения"
                 },
-                "textNegative": {
-                    "value": "#F31B30",
-                    "comment": "Инвертированный цвет ошибки"
+                "textTransparentAccent": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный инвертированный акцентный цвет"
+                },
+                "textTransparentAccentGradient": {
+                    "value": "linear-gradient(135deg, white 0%, rgba(255, 255, 255, 0.12) 100%)",
+                    "comment": "Прозрачный инвертированный акцентный цвет с градиентом"
+                },
+                "textTransparentNegative": {
+                    "value": "rgba(243, 27, 48, 0.12)",
+                    "comment": "Прозрачный инвертированный цвет ошибки"
+                },
+                "textTransparentPositive": {
+                    "value": "rgba(16, 142, 37, 0.12)",
+                    "comment": "Прозрачный инвертированный цвет успеха"
+                },
+                "textTransparentWarning": {
+                    "value": "rgba(232, 87, 2, 0.12)",
+                    "comment": "Прозрачный инвертированный цвет предупреждения"
                 }
             }
         },
         "surface": {
             "default": {
+                "surfaceAccent": {
+                    "value": "#FFFFFF",
+                    "comment": "Акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentGradient": {
+                    "value": "linear-gradient(135deg, black 0%, #FFFFFF 100%)",
+                    "comment": "Акцентный фон поверхности/контрола с градиентом"
+                },
+                "surfaceClear": {
+                    "value": "rgba(0, 0, 0, 0)",
+                    "comment": "Фон поверхности/контрола без заливки"
+                },
+                "surfaceNegative": {
+                    "value": "#FF293E",
+                    "comment": "Цвет фона поверхности/контрола ошибка"
+                },
+                "surfacePositive": {
+                    "value": "#1A9E32",
+                    "comment": "Цвет фона поверхности/контрола успех"
+                },
+                "surfaceWarning": {
+                    "value": "#FA5F05",
+                    "comment": "Цвет фона поверхности/контрола предупреждение"
+                },
                 "surfaceSolidDefault": {
                     "value": "#FFFFFF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
@@ -233,52 +337,72 @@
                     "value": "#171717",
                     "comment": "Основной фон для карточек"
                 },
-                "surfaceTransparentDefault": {
-                    "value": "#FFFFFF",
-                    "comment": "Прозрачный фон поверхности/контрола по умолчанию"
+                "surfaceTransparentAccent": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола"
+                },
+                "surfaceTransparentAccentGradient": {
+                    "value": "linear-gradient(135deg, black 0%, rgba(255, 255, 255, 0.12) 100%)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола с градиентом"
+                },
+                "surfaceTransparentCard": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный фон для карточек"
+                },
+                "surfaceTransparentDeep": {
+                    "value": "rgba(255, 255, 255, 0.64)",
+                    "comment": "Непрозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentNegative": {
+                    "value": "rgba(255, 41, 62, 0.12)",
+                    "comment": "Прозрачный цвет фона поверхности/контрола ошибка"
+                },
+                "surfaceTransparentPositive": {
+                    "value": "rgba(26, 158, 50, 0.12)",
+                    "comment": "Прозрачный цвет фона поверхности/контрола успех"
                 },
                 "surfaceTransparentPrimary": {
-                    "value": "#171717",
+                    "value": "rgba(255, 255, 255, 0.06)",
                     "comment": "Основной прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentSecondary": {
-                    "value": "#262626",
+                    "value": "rgba(255, 255, 255, 0.12)",
                     "comment": "Вторичный прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentTertiary": {
-                    "value": "#363636",
+                    "value": "rgba(255, 255, 255, 0.2)",
                     "comment": "Третичный прозрачный фон поверхности/контрола"
                 },
-                "surfaceTransparentCard": {
-                    "value": "#080808",
-                    "comment": "Прозрачный фон для карточек"
-                },
-                "surfaceAccent": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный фон поверхности/контрола"
-                },
-                "surfaceAccentGradient": {
-                    "value": "linear-gradient(135deg, black 0%, #FFFFFF 100%)",
-                    "comment": "Акцентный фон поверхности/контрола с градиентом"
-                },
-                "surfacePositive": {
-                    "value": "#1A9E32",
-                    "comment": "Цвет фона поверхности/контрола успех"
-                },
-                "surfaceWarning": {
-                    "value": "#FA5F05",
-                    "comment": "Цвет фона поверхности/контрола предупреждение"
-                },
-                "surfaceNegative": {
-                    "value": "#FF293E",
-                    "comment": "Цвет фона поверхности/контрола ошибка"
-                },
-                "surfaceClear": {
-                    "value": "rgba(0, 0, 0, 0)",
-                    "comment": "Фон поверхности/контрола без заливки"
+                "surfaceTransparentWarning": {
+                    "value": "rgba(250, 95, 5, 0.12)",
+                    "comment": "Прозрачный цвет фона поверхности/контрола предупреждение"
                 }
             },
             "onDark": {
+                "surfaceAccent": {
+                    "value": "#FFFFFF",
+                    "comment": "Акцентный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceAccentGradient": {
+                    "value": "linear-gradient(135deg, black 0%, #FFFFFF 100%)",
+                    "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне"
+                },
+                "surfaceClear": {
+                    "value": "rgba(0, 0, 0, 0)",
+                    "comment": "Фон поверхности/контрола без заливки на темном фоне"
+                },
+                "surfaceNegative": {
+                    "value": "#FF293E",
+                    "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
+                },
+                "surfacePositive": {
+                    "value": "#1A9E32",
+                    "comment": "Цвет фона поверхности/контрола успех на темном фоне"
+                },
+                "surfaceWarning": {
+                    "value": "#FA5F05",
+                    "comment": "Цвет фона поверхности/контрола предупреждение на темном фоне"
+                },
                 "surfaceSolidDefault": {
                     "value": "#FFFFFF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на темном фоне"
@@ -299,52 +423,72 @@
                     "value": "#171717",
                     "comment": "Основной фон для карточек на темном фоне"
                 },
-                "surfaceTransparentDefault": {
-                    "value": "#FFFFFF",
-                    "comment": "Прозрачный фон поверхности/контрола по умолчанию на темном фоне"
+                "surfaceTransparentAccent": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceTransparentAccentGradient": {
+                    "value": "linear-gradient(135deg, black 0%, rgba(255, 255, 255, 0.12) 100%)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне"
+                },
+                "surfaceTransparentCard": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный фон для карточек на темном фоне"
+                },
+                "surfaceTransparentDeep": {
+                    "value": "rgba(255, 255, 255, 0.64)",
+                    "comment": "Непрозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceTransparentNegative": {
+                    "value": "rgba(255, 41, 62, 0.12)",
+                    "comment": "Прозрачный цвет фона поверхности/контрола ошибка на темном фоне"
+                },
+                "surfaceTransparentPositive": {
+                    "value": "rgba(26, 158, 50, 0.12)",
+                    "comment": "Прозрачный цвет фона поверхности/контрола успех на темном фоне"
                 },
                 "surfaceTransparentPrimary": {
-                    "value": "#171717",
+                    "value": "rgba(255, 255, 255, 0.06)",
                     "comment": "Основной прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentSecondary": {
-                    "value": "#262626",
+                    "value": "rgba(255, 255, 255, 0.12)",
                     "comment": "Вторичный прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentTertiary": {
-                    "value": "#363636",
+                    "value": "rgba(255, 255, 255, 0.2)",
                     "comment": "Третичный прозрачный фон поверхности/контрола на темном фоне"
                 },
-                "surfaceTransparentCard": {
-                    "value": "#080808",
-                    "comment": "Прозрачный фон для карточек на темном фоне"
-                },
-                "surfaceAccent": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный фон поверхности/контрола на темном фоне"
-                },
-                "surfaceAccentGradient": {
-                    "value": "linear-gradient(135deg, black 0%, #FFFFFF 100%)",
-                    "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне"
-                },
-                "surfacePositive": {
-                    "value": "#1A9E32",
-                    "comment": "Цвет фона поверхности/контрола успех на темном фоне"
-                },
-                "surfaceWarning": {
-                    "value": "#FA5F05",
-                    "comment": "Цвет фона поверхности/контрола предупреждение на темном фоне"
-                },
-                "surfaceNegative": {
-                    "value": "#FF293E",
-                    "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
-                },
-                "surfaceClear": {
-                    "value": "rgba(0, 0, 0, 0)",
-                    "comment": "Фон поверхности/контрола без заливки на темном фоне"
+                "surfaceTransparentWarning": {
+                    "value": "rgba(250, 95, 5, 0.12)",
+                    "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне"
                 }
             },
             "onLight": {
+                "surfaceAccent": {
+                    "value": "#FFFFFF",
+                    "comment": "Акцентный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceAccentGradient": {
+                    "value": "linear-gradient(135deg, white 0%, #FFFFFF 100%)",
+                    "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне"
+                },
+                "surfaceClear": {
+                    "value": "rgba(0, 0, 0, 0)",
+                    "comment": "Фон поверхности/контрола без заливки на светлом фоне"
+                },
+                "surfaceNegative": {
+                    "value": "#F31B30",
+                    "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
+                },
+                "surfacePositive": {
+                    "value": "#108E25",
+                    "comment": "Цвет фона поверхности/контрола успех на светлом фоне"
+                },
+                "surfaceWarning": {
+                    "value": "#E85702",
+                    "comment": "Цвет фона поверхности/контрола предупреждение на светлом фоне"
+                },
                 "surfaceSolidDefault": {
                     "value": "#080808",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне"
@@ -365,52 +509,72 @@
                     "value": "#F7F7F7",
                     "comment": "Основной фон для карточек на светлом фоне"
                 },
-                "surfaceTransparentDefault": {
-                    "value": "#080808",
-                    "comment": "Прозрачный фон поверхности/контрола по умолчанию на светлом фоне"
+                "surfaceTransparentAccent": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceTransparentAccentGradient": {
+                    "value": "linear-gradient(135deg, white 0%, rgba(255, 255, 255, 0.12) 100%)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне"
+                },
+                "surfaceTransparentCard": {
+                    "value": "rgba(8, 8, 8, 0.06)",
+                    "comment": "Прозрачный фон для карточек на светлом фоне"
+                },
+                "surfaceTransparentDeep": {
+                    "value": "rgba(0, 0, 0, 0.64)",
+                    "comment": "Непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceTransparentNegative": {
+                    "value": "rgba(243, 27, 48, 0.12)",
+                    "comment": "Прозрачный цвет фона поверхности/контрола ошибка на светлом фоне"
+                },
+                "surfaceTransparentPositive": {
+                    "value": "rgba(16, 142, 37, 0.12)",
+                    "comment": "Прозрачный цвет фона поверхности/контрола успех на светлом фоне"
                 },
                 "surfaceTransparentPrimary": {
-                    "value": "#F5F5F5",
+                    "value": "rgba(8, 8, 8, 0.02)",
                     "comment": "Основной прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentSecondary": {
-                    "value": "#ECECEC",
+                    "value": "rgba(8, 8, 8, 0.06)",
                     "comment": "Вторичный прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentTertiary": {
-                    "value": "#DDDDDD",
+                    "value": "rgba(8, 8, 8, 0.12)",
                     "comment": "Третичный прозрачный фон поверхности/контрола на светлом фоне"
                 },
-                "surfaceTransparentCard": {
-                    "value": "#F7F7F7",
-                    "comment": "Прозрачный фон для карточек на светлом фоне"
-                },
-                "surfaceAccent": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный фон поверхности/контрола на светлом фоне"
-                },
-                "surfaceAccentGradient": {
-                    "value": "linear-gradient(135deg, white 0%, #FFFFFF 100%)",
-                    "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне"
-                },
-                "surfacePositive": {
-                    "value": "#108E25",
-                    "comment": "Цвет фона поверхности/контрола успех на светлом фоне"
-                },
-                "surfaceWarning": {
-                    "value": "#E85702",
-                    "comment": "Цвет фона поверхности/контрола предупреждение на светлом фоне"
-                },
-                "surfaceNegative": {
-                    "value": "#F31B30",
-                    "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
-                },
-                "surfaceClear": {
-                    "value": "rgba(0, 0, 0, 0)",
-                    "comment": "Фон поверхности/контрола без заливки на светлом фоне"
+                "surfaceTransparentWarning": {
+                    "value": "rgba(232, 87, 2, 0.12)",
+                    "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне"
                 }
             },
             "inverse": {
+                "surfaceAccent": {
+                    "value": "#FFFFFF",
+                    "comment": "Инвертированный акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentGradient": {
+                    "value": "linear-gradient(135deg, white 0%, #FFFFFF 100%)",
+                    "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом"
+                },
+                "surfaceClear": {
+                    "value": "rgba(0, 0, 0, 0)",
+                    "comment": "Инвертированный фон поверхности/контрола без заливки"
+                },
+                "surfaceNegative": {
+                    "value": "#F31B30",
+                    "comment": "Инвертированный цвет фона поверхности/контрола ошибка"
+                },
+                "surfacePositive": {
+                    "value": "#108E25",
+                    "comment": "Инвертированный цвет фона поверхности/контрола успех"
+                },
+                "surfaceWarning": {
+                    "value": "#E85702",
+                    "comment": "Инвертированный цвет фона поверхности/контрола предупреждение"
+                },
                 "surfaceSolidDefault": {
                     "value": "#080808",
                     "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию"
@@ -431,49 +595,45 @@
                     "value": "#F7F7F7",
                     "comment": "Инвертированный основной фон для карточек"
                 },
-                "surfaceTransparentDefault": {
-                    "value": "#080808",
-                    "comment": "Инвертированный прозрачный фон поверхности/контрола по умолчанию"
+                "surfaceTransparentAccent": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола"
+                },
+                "surfaceTransparentAccentGradient": {
+                    "value": "linear-gradient(135deg, white 0%, rgba(255, 255, 255, 0.12) 100%)",
+                    "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом"
+                },
+                "surfaceTransparentCard": {
+                    "value": "rgba(8, 8, 8, 0.06)",
+                    "comment": "Инвертированный прозрачный фон для карточек"
+                },
+                "surfaceTransparentDeep": {
+                    "value": "rgba(0, 0, 0, 0.64)",
+                    "comment": "Инвертированный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentNegative": {
+                    "value": "rgba(243, 27, 48, 0.12)",
+                    "comment": "Прозрачный инвертированный цвет фона поверхности/контрола ошибка"
+                },
+                "surfaceTransparentPositive": {
+                    "value": "rgba(16, 142, 37, 0.12)",
+                    "comment": "Прозрачный инвертированный цвет фона поверхности/контрола успех"
                 },
                 "surfaceTransparentPrimary": {
-                    "value": "#F5F5F5",
+                    "value": "rgba(8, 8, 8, 0.02)",
                     "comment": "Инвертированный основной прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentSecondary": {
-                    "value": "#ECECEC",
+                    "value": "rgba(8, 8, 8, 0.06)",
                     "comment": "Инвертированный вторичный прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentTertiary": {
-                    "value": "#DDDDDD",
+                    "value": "rgba(8, 8, 8, 0.12)",
                     "comment": "Инвертированный третичный прозрачный фон поверхности/контрола"
                 },
-                "surfaceTransparentCard": {
-                    "value": "#F7F7F7",
-                    "comment": "Инвертированный прозрачный фон для карточек"
-                },
-                "surfaceAccent": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный акцентный фон поверхности/контрола"
-                },
-                "surfaceAccentGradient": {
-                    "value": "linear-gradient(135deg, white 0%, #FFFFFF 100%)",
-                    "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом"
-                },
-                "surfacePositive": {
-                    "value": "#108E25",
-                    "comment": "Инвертированный цвет фона поверхности/контрола успех"
-                },
-                "surfaceWarning": {
-                    "value": "#E85702",
-                    "comment": "Инвертированный цвет фона поверхности/контрола предупреждение"
-                },
-                "surfaceNegative": {
-                    "value": "#F31B30",
-                    "comment": "Инвертированный цвет фона поверхности/контрола ошибка"
-                },
-                "surfaceClear": {
-                    "value": "rgba(0, 0, 0, 0)",
-                    "comment": "Инвертированный фон поверхности/контрола без заливки"
+                "surfaceTransparentWarning": {
+                    "value": "rgba(232, 87, 2, 0.12)",
+                    "comment": "Прозрачный инвертированный цвет фона поверхности/контрола предупреждение"
                 }
             }
         },
@@ -581,6 +741,26 @@
         },
         "text": {
             "default": {
+                "textAccent": {
+                    "value": "#FFFFFF",
+                    "comment": "Акцентный цвет"
+                },
+                "textAccentGradient": {
+                    "value": "linear-gradient(135deg, white 0%, #FFFFFF 100%)",
+                    "comment": "Акцентный цвет с градиентом"
+                },
+                "textNegative": {
+                    "value": "#F31B30",
+                    "comment": "Цвет ошибки"
+                },
+                "textParagraph": {
+                    "value": "#262626",
+                    "comment": "Сплошной наборный текст"
+                },
+                "textPositive": {
+                    "value": "#108E25",
+                    "comment": "Цвет успеха"
+                },
                 "textPrimary": {
                     "value": "#171717",
                     "comment": "Основной цвет текста"
@@ -593,32 +773,52 @@
                     "value": "#858585",
                     "comment": "Третичный цвет текста"
                 },
-                "textParagraph": {
-                    "value": "#262626",
-                    "comment": "Сплошной наборный текст"
-                },
-                "textAccent": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный цвет"
-                },
-                "textAccentGradient": {
-                    "value": "linear-gradient(135deg, white 0%, #FFFFFF 100%)",
-                    "comment": "Акцентный цвет с градиентом"
-                },
-                "textPositive": {
-                    "value": "#108E25",
-                    "comment": "Цвет успеха"
-                },
                 "textWarning": {
                     "value": "#E85702",
                     "comment": "Цвет предупреждения"
                 },
-                "textNegative": {
-                    "value": "#F31B30",
-                    "comment": "Цвет ошибки"
+                "textTransparentAccent": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный акцентный цвет"
+                },
+                "textTransparentAccentGradient": {
+                    "value": "linear-gradient(135deg, white 0%, rgba(255, 255, 255, 0.12) 100%)",
+                    "comment": "Прозрачный акцентный цвет с градиентом"
+                },
+                "textTransparentNegative": {
+                    "value": "rgba(243, 27, 48, 0.12)",
+                    "comment": "Прозрачный цвет ошибки"
+                },
+                "textTransparentPositive": {
+                    "value": "rgba(16, 142, 37, 0.12)",
+                    "comment": "Цвет успеха"
+                },
+                "textTransparentWarning": {
+                    "value": "rgba(232, 87, 2, 0.12)",
+                    "comment": "Прозрачный цвет предупреждения"
                 }
             },
             "onDark": {
+                "textAccent": {
+                    "value": "#FFFFFF",
+                    "comment": "Акцентный цвет на темном фоне"
+                },
+                "textAccentGradient": {
+                    "value": "linear-gradient(135deg, black 0%, #FFFFFF 100%)",
+                    "comment": "Акцентный цвет с градиентом на темном фоне"
+                },
+                "textNegative": {
+                    "value": "#FF293E",
+                    "comment": "Цвет ошибки на темном фоне"
+                },
+                "textParagraph": {
+                    "value": "#ECECEC",
+                    "comment": "Сплошной наборный текст на темном фоне"
+                },
+                "textPositive": {
+                    "value": "#1A9E32",
+                    "comment": "Цвет успеха на темном фоне"
+                },
                 "textPrimary": {
                     "value": "#F5F5F5",
                     "comment": "Основной цвет текста на темном фоне"
@@ -631,32 +831,52 @@
                     "value": "#7A7A7A",
                     "comment": "Третичный цвет текста на темном фоне"
                 },
-                "textParagraph": {
-                    "value": "#ECECEC",
-                    "comment": "Сплошной наборный текст на темном фоне"
-                },
-                "textAccent": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный цвет на темном фоне"
-                },
-                "textAccentGradient": {
-                    "value": "linear-gradient(135deg, black 0%, #FFFFFF 100%)",
-                    "comment": "Акцентный цвет с градиентом на темном фоне"
-                },
-                "textPositive": {
-                    "value": "#1A9E32",
-                    "comment": "Цвет успеха на темном фоне"
-                },
                 "textWarning": {
                     "value": "#FA5F05",
                     "comment": "Цвет предупреждения на темном фоне"
                 },
-                "textNegative": {
-                    "value": "#FF293E",
-                    "comment": "Цвет ошибки на темном фоне"
+                "textTransparentAccent": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный акцентный цвет на темном фоне"
+                },
+                "textTransparentAccentGradient": {
+                    "value": "linear-gradient(135deg, black 0%, rgba(255, 255, 255, 0.12) 100%)",
+                    "comment": "Прозрачный акцентный цвет с градиентом на темном фоне"
+                },
+                "textTransparentNegative": {
+                    "value": "rgba(255, 41, 62, 0.12)",
+                    "comment": "Прозрачный цвет ошибки на темном фоне"
+                },
+                "textTransparentPositive": {
+                    "value": "rgba(26, 158, 50, 0.12)",
+                    "comment": "Цвет успеха на темном фоне"
+                },
+                "textTransparentWarning": {
+                    "value": "rgba(250, 95, 5, 0.12)",
+                    "comment": "Прозрачный цвет предупреждения на темном фоне"
                 }
             },
             "onLight": {
+                "textAccent": {
+                    "value": "#FFFFFF",
+                    "comment": "Акцентный цвет на светлом фоне"
+                },
+                "textAccentGradient": {
+                    "value": "linear-gradient(135deg, white 0%, #FFFFFF 100%)",
+                    "comment": "Акцентный цвет с градиентом на светлом фоне"
+                },
+                "textNegative": {
+                    "value": "#F31B30",
+                    "comment": "Цвет ошибки на светлом фоне"
+                },
+                "textParagraph": {
+                    "value": "#262626",
+                    "comment": "Сплошной наборный текст на светлом фоне"
+                },
+                "textPositive": {
+                    "value": "#108E25",
+                    "comment": "Цвет успеха на светлом фоне"
+                },
                 "textPrimary": {
                     "value": "#171717",
                     "comment": "Основной цвет текста на светлом фоне"
@@ -669,32 +889,52 @@
                     "value": "#858585",
                     "comment": "Третичный цвет текста на светлом фоне"
                 },
-                "textParagraph": {
-                    "value": "#262626",
-                    "comment": "Сплошной наборный текст на светлом фоне"
-                },
-                "textAccent": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный цвет на светлом фоне"
-                },
-                "textAccentGradient": {
-                    "value": "linear-gradient(135deg, white 0%, #FFFFFF 100%)",
-                    "comment": "Акцентный цвет с градиентом на светлом фоне"
-                },
-                "textPositive": {
-                    "value": "#108E25",
-                    "comment": "Цвет успеха на светлом фоне"
-                },
                 "textWarning": {
                     "value": "#E85702",
                     "comment": "Цвет предупреждения на светлом фоне"
                 },
-                "textNegative": {
-                    "value": "#F31B30",
-                    "comment": "Цвет ошибки на светлом фоне"
+                "textTransparentAccent": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный акцентный цвет на светлом фоне"
+                },
+                "textTransparentAccentGradient": {
+                    "value": "linear-gradient(135deg, white 0%, rgba(255, 255, 255, 0.12) 100%)",
+                    "comment": "Прозрачный акцентный цвет с градиентом на светлом фоне"
+                },
+                "textTransparentNegative": {
+                    "value": "rgba(243, 27, 48, 0.12)",
+                    "comment": "Прозрачный цвет ошибки на светлом фоне"
+                },
+                "textTransparentPositive": {
+                    "value": "rgba(16, 142, 37, 0.12)",
+                    "comment": "Цвет успеха на светлом фоне"
+                },
+                "textTransparentWarning": {
+                    "value": "rgba(232, 87, 2, 0.12)",
+                    "comment": "Прозрачный цвет предупреждения на светлом фоне"
                 }
             },
             "inverse": {
+                "textAccent": {
+                    "value": "#FFFFFF",
+                    "comment": "Инвертированный акцентный цвет"
+                },
+                "textAccentGradient": {
+                    "value": "linear-gradient(135deg, black 0%, #FFFFFF 100%)",
+                    "comment": "Инвертированный акцентный цвет с градиентом"
+                },
+                "textNegative": {
+                    "value": "#FF293E",
+                    "comment": "Инвертированный цвет ошибки"
+                },
+                "textParagraph": {
+                    "value": "#ECECEC",
+                    "comment": "Инвертированный cплошной наборный текст"
+                },
+                "textPositive": {
+                    "value": "#1A9E32",
+                    "comment": "Инвертированный цвет успеха"
+                },
                 "textPrimary": {
                     "value": "#F5F5F5",
                     "comment": "Инвертированный основной цвет текста"
@@ -707,34 +947,58 @@
                     "value": "#7A7A7A",
                     "comment": "Инвертированный третичный цвет текста"
                 },
-                "textParagraph": {
-                    "value": "#ECECEC",
-                    "comment": "Инвертированный cплошной наборный текст"
-                },
-                "textAccent": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный акцентный цвет"
-                },
-                "textAccentGradient": {
-                    "value": "linear-gradient(135deg, black 0%, #FFFFFF 100%)",
-                    "comment": "Инвертированный акцентный цвет с градиентом"
-                },
-                "textPositive": {
-                    "value": "#1A9E32",
-                    "comment": "Инвертированный цвет успеха"
-                },
                 "textWarning": {
                     "value": "#FA5F05",
                     "comment": "Инвертированный цвет предупреждения"
                 },
-                "textNegative": {
-                    "value": "#FF293E",
-                    "comment": "Инвертированный цвет ошибки"
+                "textTransparentAccent": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный инвертированный акцентный цвет"
+                },
+                "textTransparentAccentGradient": {
+                    "value": "linear-gradient(135deg, black 0%, rgba(255, 255, 255, 0.12) 100%)",
+                    "comment": "Прозрачный инвертированный акцентный цвет с градиентом"
+                },
+                "textTransparentNegative": {
+                    "value": "rgba(255, 41, 62, 0.12)",
+                    "comment": "Прозрачный инвертированный цвет ошибки"
+                },
+                "textTransparentPositive": {
+                    "value": "rgba(26, 158, 50, 0.12)",
+                    "comment": "Инвертированный цвет успеха"
+                },
+                "textTransparentWarning": {
+                    "value": "rgba(250, 95, 5, 0.12)",
+                    "comment": "Прозрачный инвертированный цвет предупреждения"
                 }
             }
         },
         "surface": {
             "default": {
+                "surfaceAccent": {
+                    "value": "#FFFFFF",
+                    "comment": "Акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentGradient": {
+                    "value": "linear-gradient(135deg, white 0%, #FFFFFF 100%)",
+                    "comment": "Акцентный фон поверхности/контрола с градиентом"
+                },
+                "surfaceClear": {
+                    "value": "rgba(0, 0, 0, 0)",
+                    "comment": "Фон поверхности/контрола без заливки"
+                },
+                "surfaceNegative": {
+                    "value": "#F31B30",
+                    "comment": "Цвет фона поверхности/контрола ошибка"
+                },
+                "surfacePositive": {
+                    "value": "#108E25",
+                    "comment": "Цвет успеха"
+                },
+                "surfaceWarning": {
+                    "value": "#E85702",
+                    "comment": "Цвет фона поверхности/контрола предупреждение"
+                },
                 "surfaceSolidDefault": {
                     "value": "#080808",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
@@ -755,52 +1019,72 @@
                     "value": "#F7F7F7",
                     "comment": "Основной фон для карточек"
                 },
-                "surfaceTransparentDefault": {
-                    "value": "#080808",
-                    "comment": "Прозрачный фон поверхности/контрола по умолчанию"
+                "surfaceTransparentAccent": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола"
+                },
+                "surfaceTransparentAccentGradient": {
+                    "value": "linear-gradient(135deg, white 0%, rgba(255, 255, 255, 0.12) 100%)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола с градиентом"
+                },
+                "surfaceTransparentCard": {
+                    "value": "rgba(8, 8, 8, 0.06)",
+                    "comment": "Прозрачный фон для карточек"
+                },
+                "surfaceTransparentDeep": {
+                    "value": "rgba(0, 0, 0, 0.64)",
+                    "comment": "Непрозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentNegative": {
+                    "value": "rgba(243, 27, 48, 0.12)",
+                    "comment": "Прозрачный цвет фона поверхности/контрола ошибка"
+                },
+                "surfaceTransparentPositive": {
+                    "value": "rgba(16, 142, 37, 0.12)",
+                    "comment": "Цвет успеха"
                 },
                 "surfaceTransparentPrimary": {
-                    "value": "#F5F5F5",
+                    "value": "rgba(8, 8, 8, 0.02)",
                     "comment": "Основной прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentSecondary": {
-                    "value": "#ECECEC",
+                    "value": "rgba(8, 8, 8, 0.06)",
                     "comment": "Вторичный прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentTertiary": {
-                    "value": "#DDDDDD",
+                    "value": "rgba(8, 8, 8, 0.12)",
                     "comment": "Третичный прозрачный фон поверхности/контрола"
                 },
-                "surfaceTransparentCard": {
-                    "value": "#F7F7F7",
-                    "comment": "Прозрачный фон для карточек"
-                },
-                "surfaceAccent": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный фон поверхности/контрола"
-                },
-                "surfaceAccentGradient": {
-                    "value": "linear-gradient(135deg, white 0%, #FFFFFF 100%)",
-                    "comment": "Акцентный фон поверхности/контрола с градиентом"
-                },
-                "surfacePositive": {
-                    "value": "#108E25",
-                    "comment": "Цвет успеха"
-                },
-                "surfaceWarning": {
-                    "value": "#E85702",
-                    "comment": "Цвет фона поверхности/контрола предупреждение"
-                },
-                "surfaceNegative": {
-                    "value": "#F31B30",
-                    "comment": "Цвет фона поверхности/контрола ошибка"
-                },
-                "surfaceClear": {
-                    "value": "rgba(0, 0, 0, 0)",
-                    "comment": "Фон поверхности/контрола без заливки"
+                "surfaceTransparentWarning": {
+                    "value": "rgba(232, 87, 2, 0.12)",
+                    "comment": "Прозрачный цвет фона поверхности/контрола предупреждение"
                 }
             },
             "onDark": {
+                "surfaceAccent": {
+                    "value": "#FFFFFF",
+                    "comment": "Акцентный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceAccentGradient": {
+                    "value": "linear-gradient(135deg, black 0%, #FFFFFF 100%)",
+                    "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне"
+                },
+                "surfaceClear": {
+                    "value": "rgba(0, 0, 0, 0)",
+                    "comment": "Фон поверхности/контрола без заливки на темном фоне"
+                },
+                "surfaceNegative": {
+                    "value": "#FF293E",
+                    "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
+                },
+                "surfacePositive": {
+                    "value": "#1A9E32",
+                    "comment": "Цвет успеха на темном фоне"
+                },
+                "surfaceWarning": {
+                    "value": "#FA5F05",
+                    "comment": "Цвет фона поверхности/контрола предупреждение на темном фоне"
+                },
                 "surfaceSolidDefault": {
                     "value": "#FFFFFF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на темном фоне"
@@ -821,52 +1105,72 @@
                     "value": "#171717",
                     "comment": "Основной фон для карточек на темном фоне"
                 },
-                "surfaceTransparentDefault": {
-                    "value": "#FFFFFF",
-                    "comment": "Прозрачный фон поверхности/контрола по умолчанию на темном фоне"
+                "surfaceTransparentAccent": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceTransparentAccentGradient": {
+                    "value": "linear-gradient(135deg, black 0%, rgba(255, 255, 255, 0.12) 100%)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола с градиентом на темном фоне"
+                },
+                "surfaceTransparentCard": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный фон для карточек на темном фоне"
+                },
+                "surfaceTransparentDeep": {
+                    "value": "rgba(255, 255, 255, 0.64)",
+                    "comment": "Непрозрачный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceTransparentNegative": {
+                    "value": "rgba(255, 41, 62, 0.12)",
+                    "comment": "Прозрачный цвет фона поверхности/контрола ошибка на темном фоне"
+                },
+                "surfaceTransparentPositive": {
+                    "value": "rgba(26, 158, 50, 0.12)",
+                    "comment": "Цвет успеха на темном фоне"
                 },
                 "surfaceTransparentPrimary": {
-                    "value": "#171717",
+                    "value": "rgba(255, 255, 255, 0.06)",
                     "comment": "Основной прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentSecondary": {
-                    "value": "#262626",
+                    "value": "rgba(255, 255, 255, 0.12)",
                     "comment": "Вторичный прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentTertiary": {
-                    "value": "#363636",
+                    "value": "rgba(255, 255, 255, 0.2)",
                     "comment": "Третичный прозрачный фон поверхности/контрола на темном фоне"
                 },
-                "surfaceTransparentCard": {
-                    "value": "#080808",
-                    "comment": "Прозрачный фон для карточек на темном фоне"
-                },
-                "surfaceAccent": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный фон поверхности/контрола на темном фоне"
-                },
-                "surfaceAccentGradient": {
-                    "value": "linear-gradient(135deg, black 0%, #FFFFFF 100%)",
-                    "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне"
-                },
-                "surfacePositive": {
-                    "value": "#1A9E32",
-                    "comment": "Цвет успеха на темном фоне"
-                },
-                "surfaceWarning": {
-                    "value": "#FA5F05",
-                    "comment": "Цвет фона поверхности/контрола предупреждение на темном фоне"
-                },
-                "surfaceNegative": {
-                    "value": "#FF293E",
-                    "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
-                },
-                "surfaceClear": {
-                    "value": "rgba(0, 0, 0, 0)",
-                    "comment": "Фон поверхности/контрола без заливки на темном фоне"
+                "surfaceTransparentWarning": {
+                    "value": "rgba(250, 95, 5, 0.12)",
+                    "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на темном фоне"
                 }
             },
             "onLight": {
+                "surfaceAccent": {
+                    "value": "#FFFFFF",
+                    "comment": "Акцентный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceAccentGradient": {
+                    "value": "linear-gradient(135deg, white 0%, #FFFFFF 100%)",
+                    "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне"
+                },
+                "surfaceClear": {
+                    "value": "rgba(0, 0, 0, 0)",
+                    "comment": "Фон поверхности/контрола без заливки на светлом фоне"
+                },
+                "surfaceNegative": {
+                    "value": "#F31B30",
+                    "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
+                },
+                "surfacePositive": {
+                    "value": "#108E25",
+                    "comment": "Цвет успеха на светлом фоне"
+                },
+                "surfaceWarning": {
+                    "value": "#E85702",
+                    "comment": "Цвет фона поверхности/контрола предупреждение на светлом фоне"
+                },
                 "surfaceSolidDefault": {
                     "value": "#080808",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне"
@@ -887,52 +1191,72 @@
                     "value": "#F7F7F7",
                     "comment": "Основной фон для карточек на светлом фоне"
                 },
-                "surfaceTransparentDefault": {
-                    "value": "#080808",
-                    "comment": "Прозрачный фон поверхности/контрола по умолчанию на светлом фоне"
+                "surfaceTransparentAccent": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceTransparentAccentGradient": {
+                    "value": "linear-gradient(135deg, white 0%, rgba(255, 255, 255, 0.12) 100%)",
+                    "comment": "Прозрачный акцентный фон поверхности/контрола с градиентом на светлом фоне"
+                },
+                "surfaceTransparentCard": {
+                    "value": "rgba(8, 8, 8, 0.06)",
+                    "comment": "Прозрачный фон для карточек на светлом фоне"
+                },
+                "surfaceTransparentDeep": {
+                    "value": "rgba(0, 0, 0, 0.64)",
+                    "comment": "Непрозрачный фон поверхности/контрола на светлом фоне"
+                },
+                "surfaceTransparentNegative": {
+                    "value": "rgba(243, 27, 48, 0.12)",
+                    "comment": "Прозрачный цвет фона поверхности/контрола ошибка на светлом фоне"
+                },
+                "surfaceTransparentPositive": {
+                    "value": "rgba(16, 142, 37, 0.12)",
+                    "comment": "Цвет успеха на светлом фоне"
                 },
                 "surfaceTransparentPrimary": {
-                    "value": "#F5F5F5",
+                    "value": "rgba(8, 8, 8, 0.02)",
                     "comment": "Основной прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentSecondary": {
-                    "value": "#ECECEC",
+                    "value": "rgba(8, 8, 8, 0.06)",
                     "comment": "Вторичный прозрачный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceTransparentTertiary": {
-                    "value": "#DDDDDD",
+                    "value": "rgba(8, 8, 8, 0.12)",
                     "comment": "Третичный прозрачный фон поверхности/контрола на светлом фоне"
                 },
-                "surfaceTransparentCard": {
-                    "value": "#F7F7F7",
-                    "comment": "Прозрачный фон для карточек на светлом фоне"
-                },
-                "surfaceAccent": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный фон поверхности/контрола на светлом фоне"
-                },
-                "surfaceAccentGradient": {
-                    "value": "linear-gradient(135deg, white 0%, #FFFFFF 100%)",
-                    "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне"
-                },
-                "surfacePositive": {
-                    "value": "#108E25",
-                    "comment": "Цвет успеха на светлом фоне"
-                },
-                "surfaceWarning": {
-                    "value": "#E85702",
-                    "comment": "Цвет фона поверхности/контрола предупреждение на светлом фоне"
-                },
-                "surfaceNegative": {
-                    "value": "#F31B30",
-                    "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
-                },
-                "surfaceClear": {
-                    "value": "rgba(0, 0, 0, 0)",
-                    "comment": "Фон поверхности/контрола без заливки на светлом фоне"
+                "surfaceTransparentWarning": {
+                    "value": "rgba(232, 87, 2, 0.12)",
+                    "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне"
                 }
             },
             "inverse": {
+                "surfaceAccent": {
+                    "value": "#FFFFFF",
+                    "comment": "Инвертированный акцентный фон поверхности/контрола"
+                },
+                "surfaceAccentGradient": {
+                    "value": "linear-gradient(135deg, black 0%, #FFFFFF 100%)",
+                    "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом"
+                },
+                "surfaceClear": {
+                    "value": "rgba(0, 0, 0, 0)",
+                    "comment": "Инвертированный фон поверхности/контрола без заливки"
+                },
+                "surfaceNegative": {
+                    "value": "#FF293E",
+                    "comment": "Инвертированный цвет фона поверхности/контрола ошибка"
+                },
+                "surfacePositive": {
+                    "value": "#1A9E32",
+                    "comment": "Инвертированный цвет успеха"
+                },
+                "surfaceWarning": {
+                    "value": "#FA5F05",
+                    "comment": "Инвертированный цвет фона поверхности/контрола предупреждение"
+                },
                 "surfaceSolidDefault": {
                     "value": "#FFFFFF",
                     "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию"
@@ -953,49 +1277,45 @@
                     "value": "#171717",
                     "comment": "Инвертированный основной фон для карточек"
                 },
-                "surfaceTransparentDefault": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный прозрачный фон поверхности/контрола по умолчанию"
+                "surfaceTransparentAccent": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола"
+                },
+                "surfaceTransparentAccentGradient": {
+                    "value": "linear-gradient(135deg, black 0%, rgba(255, 255, 255, 0.12) 100%)",
+                    "comment": "Прозрачный инвертированный акцентный фон поверхности/контрола с градиентом"
+                },
+                "surfaceTransparentCard": {
+                    "value": "rgba(255, 255, 255, 0.12)",
+                    "comment": "Инвертированный прозрачный фон для карточек"
+                },
+                "surfaceTransparentDeep": {
+                    "value": "rgba(255, 255, 255, 0.64)",
+                    "comment": "Инвертированный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceTransparentNegative": {
+                    "value": "rgba(255, 41, 62, 0.12)",
+                    "comment": "Прозрачный инвертированный цвет фона поверхности/контрола ошибка"
+                },
+                "surfaceTransparentPositive": {
+                    "value": "rgba(26, 158, 50, 0.12)",
+                    "comment": "Инвертированный цвет успеха"
                 },
                 "surfaceTransparentPrimary": {
-                    "value": "#171717",
+                    "value": "rgba(255, 255, 255, 0.06)",
                     "comment": "Инвертированный основной прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentSecondary": {
-                    "value": "#262626",
+                    "value": "rgba(255, 255, 255, 0.12)",
                     "comment": "Инвертированный вторичный прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentTertiary": {
-                    "value": "#363636",
+                    "value": "rgba(255, 255, 255, 0.2)",
                     "comment": "Инвертированный третичный прозрачный фон поверхности/контрола"
                 },
-                "surfaceTransparentCard": {
-                    "value": "#080808",
-                    "comment": "Инвертированный прозрачный фон для карточек"
-                },
-                "surfaceAccent": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный акцентный фон поверхности/контрола"
-                },
-                "surfaceAccentGradient": {
-                    "value": "linear-gradient(135deg, black 0%, #FFFFFF 100%)",
-                    "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом"
-                },
-                "surfacePositive": {
-                    "value": "#1A9E32",
-                    "comment": "Инвертированный цвет успеха"
-                },
-                "surfaceWarning": {
-                    "value": "#FA5F05",
-                    "comment": "Инвертированный цвет фона поверхности/контрола предупреждение"
-                },
-                "surfaceNegative": {
-                    "value": "#FF293E",
-                    "comment": "Инвертированный цвет фона поверхности/контрола ошибка"
-                },
-                "surfaceClear": {
-                    "value": "rgba(0, 0, 0, 0)",
-                    "comment": "Инвертированный фон поверхности/контрола без заливки"
+                "surfaceTransparentWarning": {
+                    "value": "rgba(250, 95, 5, 0.12)",
+                    "comment": "Прозрачный инвертированный цвет фона поверхности/контрола предупреждение"
                 }
             }
         },
