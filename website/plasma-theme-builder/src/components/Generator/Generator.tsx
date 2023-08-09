@@ -82,7 +82,7 @@ export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
         lightGrayscale: getGrayscale()[0].value,
         darkGrayscale: getGrayscale()[0].value,
         opacityIcons: false,
-        opacitySurfaces: false,
+        opacitySurfaces: true,
     });
 
     const onChangeTextField = useCallback(
@@ -271,9 +271,6 @@ export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
                 </FormField>
                 <FormField label="Текст и иконки с прозрачностью">
                     <Switch checked={data.opacityIcons} onChange={onChangeSwitch('opacityIcons')} />
-                </FormField>
-                <FormField label="Поверхности с прозрачностью">
-                    <Switch checked={data.opacitySurfaces} onChange={onChangeSwitch('opacitySurfaces')} />
                 </FormField>
                 <StyledButtons>
                     <StyledButton text="Сгенеририовать тему" view="primary" onClick={onGenerateTheme} />
