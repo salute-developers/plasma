@@ -38,6 +38,7 @@ const StyledButtonRoot = styled(ButtonRoot).attrs(spatnavClassNameAttrs)<Interac
 const ButtonBase = createButton<HTMLButtonElement, ButtonProps & ThemeProviderContextBase>(StyledButtonRoot);
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+    window.top;
     const { deviceScale } = useThemeContext();
 
     return <ButtonBase {...props} ref={ref} deviceScale={deviceScale} />;
