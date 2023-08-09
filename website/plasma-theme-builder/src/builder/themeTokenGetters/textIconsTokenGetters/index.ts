@@ -1,7 +1,7 @@
 import { TextIconsTokenName, TokensGetterFn } from '@salutejs/plasma-tokens-utils';
 
-import { getTextAccentGradient } from './getTextAccentGradient';
 import { getTextAccentTokens } from './getTextAccentTokens';
+import { getTextAccentGradientTokens } from './getTextAccentGradientTokens';
 import { getTextNegativeTokens } from './getTextNegativeTokens';
 import { getTextParagraphTokens } from './getTextParagraphTokens';
 import { getTextPositiveTokens } from './getTextPositiveTokens';
@@ -9,15 +9,34 @@ import { getTextPrimaryTokens } from './getTextPrimaryTokens';
 import { getTextSecondaryTokens } from './getTextSecondaryTokens';
 import { getTextTertiaryTokens } from './getTextTertiaryTokens';
 import { getTextWarningTokens } from './getTextWarningTokens';
+import { getTextTransparentAccentTokens } from './getTextTransparentAccentTokens';
+import { getTextTransparentAccentGradientTokens } from './getTextTransparentAccentGradientTokens';
+import { getTextTransparentNegativeTokens } from './getTextTransparentNegativeTokens';
+import { getTextTransparentPositiveTokens } from './getTextTransparentPositiveTokens';
+import { getTextTransparentWarningTokens } from './getTextTransparentWarningTokens';
 
-export const textIconsTokenGetters: Record<TextIconsTokenName, TokensGetterFn> = {
+// TODO: Удалить после релиза пакета plasma-tokens-utils
+type NewTokens =
+    | 'textTransparentAccent'
+    | 'textTransparentAccentGradient'
+    | 'textTransparentPositive'
+    | 'textTransparentWarning'
+    | 'textTransparentNegative';
+type TextIconsTokenNameExtend = TextIconsTokenName | NewTokens;
+
+export const textIconsTokenGetters: Record<TextIconsTokenNameExtend, TokensGetterFn> = {
+    textAccent: getTextAccentTokens,
+    textAccentGradient: getTextAccentGradientTokens,
+    textNegative: getTextNegativeTokens,
+    textParagraph: getTextParagraphTokens,
+    textPositive: getTextPositiveTokens,
     textPrimary: getTextPrimaryTokens,
     textSecondary: getTextSecondaryTokens,
     textTertiary: getTextTertiaryTokens,
-    textParagraph: getTextParagraphTokens,
-    textAccent: getTextAccentTokens,
-    textAccentGradient: getTextAccentGradient,
-    textPositive: getTextPositiveTokens,
     textWarning: getTextWarningTokens,
-    textNegative: getTextNegativeTokens,
+    textTransparentAccent: getTextTransparentAccentTokens,
+    textTransparentAccentGradient: getTextTransparentAccentGradientTokens,
+    textTransparentNegative: getTextTransparentNegativeTokens,
+    textTransparentPositive: getTextTransparentPositiveTokens,
+    textTransparentWarning: getTextTransparentWarningTokens,
 };
