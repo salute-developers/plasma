@@ -118,7 +118,7 @@ jobs:
 
       - name: Cache dependencies
         id: cache_base
-        uses: actions/cache/restore@v3
+        uses: actions/cache@v3
         with:
           path: ~/.cache
           key: cache-${{ hashFiles('package-lock.json') }}
