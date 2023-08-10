@@ -28,6 +28,7 @@ export const useSheetSwipe = (args: {
 }) => {
     const { contentWrapperRef, contentRef, handleRef, onClose, throttleMs = THROTTLE_DEFAULT_MS } = args;
     const [isTopScroll, setIsTopScroll] = useState(true);
+    const isOverscroll = useRef(false);
     const startY = useRef(0);
     const currentY = useRef(0);
 
@@ -48,6 +49,8 @@ export const useSheetSwipe = (args: {
         contentWrapperEl.style.willChange = 'transform';
 
         const onTouchStart = (event: TouchEvent) => {
+            isOverscroll.current = false;
+
             startY.current = event.changedTouches[0].clientY;
             currentY.current = startY.current;
 
@@ -59,10 +62,21 @@ export const useSheetSwipe = (args: {
             currentY.current = Math.max(startY.current, clientY);
             const offsetY = currentY.current - startY.current;
 
+            if (isOverscroll.current) {
+                startY.current = Infinity;
+                return;
+            }
+
+            if (offsetY !== 0 && event.cancelable) {
+                event.preventDefault();
+            }
+
             contentWrapperEl.style.transform = `translateY(${offsetY}px)`;
         };
 
         const onTouchEnd = (event: TouchEvent) => {
+            isOverscroll.current = false;
+
             const curtainHeight = contentWrapperEl.offsetHeight;
             const endY = event.changedTouches[0].clientY;
             const offsetY = endY - startY.current;
@@ -78,8 +92,8 @@ export const useSheetSwipe = (args: {
         const onScroll = throttle((event: Event) => {
             const onTop = (event.target as HTMLElement).scrollTop <= 0;
 
-            if (onTop) {
-                contentWrapperEl.style.transition = 'transform 0.3s';
+            if (!onTop) {
+                isOverscroll.current = true;
             }
 
             setIsTopScroll(onTop);
