@@ -32,11 +32,19 @@ async function perftoolSendReport() {
         return;
     }
 
+    if (!Object.keys(result).length) {
+        console.info('No data to send');
+        return;
+    }
+
     console.info('Sending report...');
     const data = {
-        staticTaskChange,
         ...result,
     };
+
+    if (staticTaskChange) {
+        data.staticTaskChange = staticTaskChange;
+    }
 
     const body = [];
     const sessionId = crypto.randomUUID();
@@ -49,7 +57,7 @@ async function perftoolSendReport() {
                 const metric = data[componentId][taskId][metricId];
                 for (const typeId of ['old', 'new', 'change']) {
                     const item = {
-                        ua: 'perftool',
+                        ua: 'perftest/packages/plasma',
                         hostname: commitHash,
                         sessionId,
                         path: componentId,
