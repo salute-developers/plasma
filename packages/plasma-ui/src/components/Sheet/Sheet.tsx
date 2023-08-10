@@ -112,6 +112,7 @@ const StyledSheetContent = styled.div`
 
     max-height: 100%;
     overflow: auto;
+    overscroll-behavior: contain;
 
     &::-webkit-scrollbar {
         display: none;
