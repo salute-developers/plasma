@@ -22,7 +22,6 @@ const getReactNativeTemplate = (
     darkThemeContent: string,
 ) => {
     const header = `import type * as ReactNative from 'react-native'
-import {DeprecatedColors} from './DeprecatedColors'
 import {CustomColors} from './CustomColors'
 
 // скопировано из react-native-linear-gradient чтобы вынести в shared тему
@@ -49,8 +48,7 @@ export const LightGradients: GradientsMap = {\n${lightGradientContent}\n}`;
  */    
 export const DarkGradients: GradientsMap = {\n${darkGradientContent}\n}`;
 
-    const externalColors = `  ...DeprecatedColors,
-  ...CustomColors,
+    const externalColors = `  ...CustomColors,
   /**
    * relevant (new) color scheme
    */`;
