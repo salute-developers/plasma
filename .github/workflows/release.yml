@@ -1,13 +1,13 @@
 name: Release
 
 on:
-  pull_request:
+  workflow_run:
+    workflows: ["PR theme-builder"]
     branches:
       - dev
-      - master
-  push:
-    branches:
-      - master
+      - master 
+    types:
+      - completed
 
 
 concurrency:

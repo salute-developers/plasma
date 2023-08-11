@@ -12,8 +12,37 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    name: Build
+  tokens-build:
+    name: Build plasma-tokens
+    runs-on: ubuntu-latest
+    if: ${{ always() && contains(github.event.head_commit.message, 'auto save') }}
+    env:
+      NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build Theme Builder
+        run: |
+          npm i --no-progress --prefix="./packages/plasma-tokens"
+          npm run build --prefix="./packages/plasma-tokens"
+      
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      
+      # Коммит изменений в полученную в предыдущем шаге ветку
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          message: 'feat(plasma-tokens): Update `src` directory'
+          branch: ${{ steps.extract_branch.outputs.branch }}
+          author_name: Salute Frontend Team
+          author_email: salute.developers@gmail.com
+
+  service-build:
+    name: Build plasma-theme-builder
     runs-on: ubuntu-latest
     env:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
