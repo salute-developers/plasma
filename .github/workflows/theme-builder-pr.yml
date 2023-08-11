@@ -1,4 +1,4 @@
-name: PR theme-builder
+name: ThemeBuilder
 
 on:
   pull_request:
@@ -12,37 +12,52 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  tokens-build:
+  get_head_commit:
+    name: Check auto save
+    runs-on: ubuntu-latest
+    outputs:
+      HEAD_COMMIT_MESSAGE: ${{ steps.get_head_commit_message.outputs.HEAD_COMMIT_MESSAGE }}
+    steps:
+      - name: Get repo
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Print head git commit message
+        id: get_head_commit_message
+        run: echo "HEAD_COMMIT_MESSAGE=$(git show -s --format=%s)" >> $GITHUB_OUTPUT
+
+  tokens_build:
     name: Build plasma-tokens
     runs-on: ubuntu-latest
-    if: ${{ always() && contains(github.event.head_commit.message, 'auto save') }}
+    needs: get_head_commit
+    if: ${{ contains(needs.get_head_commit.outputs.HEAD_COMMIT_MESSAGE, '[auto save]') }}
     env:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
     steps:
       - uses: actions/checkout@v3
 
+      - name: checkout
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          gh pr checkout ${{ github.event.pull_request.number }}
+
       - name: Build Theme Builder
         run: |
+          npm i --no-progress
           npm i --no-progress --prefix="./packages/plasma-tokens"
           npm run build --prefix="./packages/plasma-tokens"
-      
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-      
-      # Коммит изменений в полученную в предыдущем шаге ветку
-      - name: Commit & Push changes
-        uses: actions-js/push@master
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          message: 'feat(plasma-tokens): Update `src` directory'
-          branch: ${{ steps.extract_branch.outputs.branch }}
-          author_name: Salute Frontend Team
-          author_email: salute.developers@gmail.com
 
-  service-build:
-    name: Build plasma-theme-builder
+      - name: Commit & Push changes
+        run: |
+          git config --global user.name "Salute Frontend Team"
+          git config --global user.email "salute.developers@gmail.com"
+          git add .
+          git commit -m "feat(plasma-tokens): Update `src` directory"
+          git push        
+  
+  build:
+    name: ThemeBuilder
     runs-on: ubuntu-latest
     env:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
