@@ -22,6 +22,8 @@ export { sberprime__dark, darkSberprime } from './sberprime__dark';
 export { sberprime__light, lightSberprime } from './sberprime__light';
 export { stylesSalute__dark, darkStylesSalute } from './stylesSalute__dark';
 export { stylesSalute__light, lightStylesSalute } from './stylesSalute__light';
+export { test_2__dark, darkTest_2 } from './test_2__dark';
+export { test_2__light, lightTest_2 } from './test_2__light';
 export { salutejs_sber__dark, darkSber } from './salutejs_sber__dark';
 export { salutejs_eva__dark, darkEva } from './salutejs_eva__dark';
 export { salutejs_joy__dark, darkJoy } from './salutejs_joy__dark';
