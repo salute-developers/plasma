@@ -9,7 +9,6 @@ import {
     createTree,
     getCurrentSha,
     updateCommit,
-    getDefaultBranch,
     getPullRequestList,
 } from '../api';
 import { deleteTheme } from '../utils';
@@ -25,6 +24,7 @@ interface CreatePR {
     prTitle: string;
     filesTree: Record<string, string>;
     themeName: string;
+    defaultBranch: string;
     token?: string;
     branchNameFromParam?: string;
 }
@@ -33,13 +33,20 @@ const saveMetaData = (octokit: Octokit, owner: string, repo: string) => <T>(fn: 
     ...args: any[]
 ) => fn(octokit, owner, repo, ...args);
 
-export const sleep = async (seconds: number) => new Promise((r) => setTimeout(r, seconds));
-
 export const useRunGithubPRProcess = ({ owner, repo }: RunProcessGithubPR) => {
     const [step, setStep] = useState<Steps>(Steps.INIT);
 
     const onCreatePullRequest = useCallback(
-        async ({ commitMessage, prTitle, filesTree, token, themeName, branchNameFromParam }: CreatePR) => {
+        async ({
+            commitMessage,
+            prTitle,
+            filesTree,
+            token,
+            themeName,
+            branchNameFromParam,
+            defaultBranch,
+        }: CreatePR) => {
+            const branchName = `${THEME_BUILDER_PREFIX}-${themeName}`;
             const octokit = new Octokit({
                 auth: token,
             });
@@ -48,10 +55,6 @@ export const useRunGithubPRProcess = ({ owner, repo }: RunProcessGithubPR) => {
                 setStep(step);
                 return saveMetaData(octokit, owner, repo);
             };
-
-            const branchName = `${THEME_BUILDER_PREFIX}-${themeName}`;
-
-            const defaultBranch = await withMetaData(Steps.GET_DEFAULT_BRANCH)(getDefaultBranch)();
 
             if (branchNameFromParam !== branchName) {
                 await withMetaData(Steps.CREATE_BRANCH)(createBranch)(branchName, defaultBranch);
