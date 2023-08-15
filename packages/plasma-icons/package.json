@@ -47,7 +47,8 @@
         "build": "npm run build:cjs && npm run build:esm",
         "postbuild": "tsc --outDir . --emitDeclarationOnly",
         "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma babel ./src --out-dir . --extensions .ts,.tsx",
-        "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma babel ./src --out-dir ./es --extensions .ts,.tsx"
+        "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma babel ./src --out-dir ./es --extensions .ts,.tsx",
+        "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
     },
     "files": [
         "Icon.assets",

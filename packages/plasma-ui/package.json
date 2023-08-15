@@ -89,14 +89,11 @@
         "storybook:serve": "http-server ./build-sb -c-1 -p 3000",
         "test": "BABEL_ENV=cjs jest",
         "test:watch": "BABEL_ENV=cjs jest --watch",
-        "typescript-coverage": "npx typescript-coverage-report > /dev/null"
+        "typescript-coverage": "npx typescript-coverage-report > /dev/null",
+        "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx",
-            "src/**/*perftest.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx", "src/**/*perftest.tsx"],
         "atLeast": 98.7
     },
     "jest": {

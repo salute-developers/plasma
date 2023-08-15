@@ -11,14 +11,11 @@
     },
     "scripts": {
         "prepare": "npm run build",
-        "build": "tsc"
+        "build": "tsc",
+        "lint": "../../node_modules/.bin/eslint ./src --ext .ts --quiet"
     },
-    "files": [
-        "dist"
-    ],
-    "contributors": [
-        "Vasiliy Loginevskiy"
-    ],
+    "files": ["dist"],
+    "contributors": ["Vasiliy Loginevskiy"],
     "devDependencies": {
         "@types/styled-components": "^5.1.0",
         "typescript": "^4.0.8"

@@ -10,12 +10,12 @@
     "scripts": {
         "prepare": "npm run build",
         "prebuild": "rm -rf ./build ./colors ./es ./properties ./src ./brands ./themes ./themesValues ./typo ./typography ./typographyValues ./index.* ./theme.json",
-        "build": "npm run generate && npm run build:cjs && npm run build:esm && npm run lint",
+        "build": "npm run generate && npm run build:cjs && npm run build:esm && npm run lint -- --fix",
         "build:cjs": "tsc",
         "build:esm": "tsc -p ./tsconfig.es.json",
         "generate": "npx ts-node ./lib/generate.ts",
         "figma": "npm run extract --prefix='./design-language'",
-        "lint": "../../node_modules/.bin/eslint --ext .js,.ts,.tsx ./src --fix --quiet"
+        "lint": "../../node_modules/.bin/eslint ./src ./lib --ext .ts --quiet"
     },
     "publishConfig": {
         "access": "public"
@@ -50,10 +50,6 @@
         "ts-node": "10.2.1",
         "typescript": "4.0.8"
     },
-    "contributors": [
-        "Виноградов Антон Александрович",
-        "Зубаиров Фаниль Асхатович",
-        "Vasiliy Loginevskiy"
-    ],
+    "contributors": ["Виноградов Антон Александрович", "Зубаиров Фаниль Асхатович", "Vasiliy Loginevskiy"],
     "sideEffects": false
 }

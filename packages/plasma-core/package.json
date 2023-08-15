@@ -58,19 +58,14 @@
         "test": "NODE_ICU_DATA=node_modules/full-icu jest",
         "test:watch": "NODE_ICU_DATA=node_modules/full-icu jest --watch",
         "typescript-coverage": "npx typescript-coverage-report > /dev/null",
-        "build:watch": "npm run build:esm -- --watch"
+        "build:watch": "npm run build:esm -- --watch",
+        "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx"],
         "atLeast": 99
     },
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Виноградов Антон Александрович",
-        "Зубаиров Фаниль Асхатович"
-    ],
+    "contributors": ["Vasiliy Loginevskiy", "Виноградов Антон Александрович", "Зубаиров Фаниль Асхатович"],
     "sideEffects": false,
     "dependencies": {
         "@popperjs/core": "2.9.2",

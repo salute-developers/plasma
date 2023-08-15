@@ -2,8 +2,8 @@ import { AssistantWindow, AssistantHost as DefaultAssistantHost, AssistantClient
 
 export declare global {
     enum FocusableAreaSearchMode {
-        'visible',
-        'all',
+        visible,
+        all,
     }
 
     type SpatialNavigationDirection = 'up' | 'down' | 'left' | 'right';

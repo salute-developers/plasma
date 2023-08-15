@@ -15,17 +15,11 @@
         "build": "npm run build:colors",
         "build:colors": "npm run build:cjs && npm run build:esm",
         "build:cjs": "tsc",
-        "build:esm": "tsc -p ./tsconfig.es.json"
+        "build:esm": "tsc -p ./tsconfig.es.json",
+        "lint": "../../node_modules/.bin/eslint ./src/additional.ts ./src/general.ts ./src/index.ts --ext .ts --quiet"
     },
-    "files": [
-        "dist",
-        "es"
-    ],
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Anton Vinogradov",
-        "Fanil Zubairov"
-    ],
+    "files": ["dist", "es"],
+    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"],
     "devDependencies": {
         "typescript": "^4.0.8"
     }

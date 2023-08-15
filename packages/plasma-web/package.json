@@ -4,12 +4,7 @@
     "description": "Salute Design System / React UI kit for web applications",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "license": "MIT",
-    "keywords": [
-        "design-system",
-        "react-components",
-        "ui-kit",
-        "react"
-    ],
+    "keywords": ["design-system", "react-components", "ui-kit", "react"],
     "main": "index.js",
     "module": "es/index.js",
     "types": "index.d.ts",
@@ -82,20 +77,13 @@
         "generate:typings": "tsc --outDir . --emitDeclarationOnly",
         "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -s .storybook/public -p ${PORT:-7007} -c .storybook",
         "storybook:build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook -s .storybook/public -c .storybook -o build-sb",
-        "typescript-coverage": "npx typescript-coverage-report > /dev/null"
+        "typescript-coverage": "npx typescript-coverage-report > /dev/null",
+        "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx",
-            "src/**/*perftest.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx", "src/**/*perftest.tsx"],
         "atLeast": 99.96
     },
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Anton Vinogradov",
-        "Fanil Zubairov"
-    ],
+    "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"],
     "sideEffects": false
 }
