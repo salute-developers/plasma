@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import { BodyS, H5, Link, Progress } from '@salutejs/plasma-b2c';
 import { tertiary } from '@salutejs/plasma-tokens-b2c';
 
+import { getDefaultBranch } from '../../api';
 import { useRunGithubPRProcess } from '../../hooks';
 import { Steps } from '../../types';
 import type { Theme as ThemeType } from '../../types';
+import { getBrands, getFilesTree, getThemes, getThemesTokenSet } from '../../utils';
 
 const StyledPullRequest = styled.div`
     margin: 2rem 0;
@@ -27,17 +29,8 @@ const Header = styled(H5)`
     margin-bottom: 1rem;
 `;
 
-const getFilesPath = (name: string) => ({
-    theme: `packages/plasma-tokens/data/themes/${name}.json`,
-});
-
-const getFilesTree = (themeContent: string, name: string) => ({
-    [getFilesPath(name).theme]: themeContent,
-});
-
 const statusMap: Record<number, string> = {
     [Steps.INIT]: 'Подготовка...',
-    [Steps.GET_DEFAULT_BRANCH]: 'Создание базовой ветки...',
     [Steps.CREATE_BRANCH]: 'Создание новой ветки...',
     [Steps.LATEST_COMMIT]: 'Получение последнего коммита из master ветки...',
     [Steps.CREATE_FILES_BLOB]: 'Создание blob объекта из темы...',
@@ -56,10 +49,10 @@ interface PullRequestProps {
 }
 
 export const PullRequest = ({ data, token, branchNameFromParam }: PullRequestProps) => {
-    const [step, createPullRequest] = useRunGithubPRProcess({
-        owner: 'salute-developers',
-        repo: 'plasma',
-    });
+    const owner = 'salute-developers';
+    const repo = 'plasma';
+
+    const [step, createPullRequest] = useRunGithubPRProcess({ owner, repo });
     const [pullRequestLink, setPullRequestLink] = useState<string | undefined>('');
 
     useEffect(() => {
@@ -68,20 +61,32 @@ export const PullRequest = ({ data, token, branchNameFromParam }: PullRequestPro
         }
 
         const themeName = data?.config.name || 'default';
-        const content = JSON.stringify(data, null, 4) + '\n';
-        const filesTree = getFilesTree(content, themeName);
-
         const commitType = 'feat';
         const commitMessage = `Add theme ${themeName}`;
         const pullRequestHeader = `auto generate ${themeName} theme`;
 
+        const getContentForCommit = async (defaultBranch: string) => {
+            const scheme = JSON.stringify(data, null, 4) + '\n';
+            const themesTokensSet = getThemesTokenSet(scheme);
+            const themes = await getThemes(themesTokensSet, owner, repo, defaultBranch);
+            const brands = getBrands(themesTokensSet, themeName);
+
+            return [scheme, ...themes, brands];
+        };
+
         const getResult = async () => {
+            const defaultBranch = await getDefaultBranch(undefined, owner, repo, token);
+
+            const content = await getContentForCommit(defaultBranch);
+            const filesTree = getFilesTree(content, themeName);
+
             const result = await createPullRequest({
                 prTitle: `${commitType}(plasma-tokens): ${pullRequestHeader}`,
                 commitMessage: `${commitType}(plasma-tokens): ${commitMessage}`,
                 filesTree,
                 token,
                 themeName,
+                defaultBranch,
                 branchNameFromParam,
             });
 
@@ -98,11 +103,13 @@ export const PullRequest = ({ data, token, branchNameFromParam }: PullRequestPro
             <ProgressGroup>
                 <Header>Статус работы с пул-реквестом в Github</Header>
                 {pullRequestLink ? (
-                    <Link target='_blank' href={pullRequestLink}>Ссылка на реквест</Link>
+                    <Link target="_blank" href={pullRequestLink}>
+                        Ссылка на реквест
+                    </Link>
                 ) : (
                     <>
                         <Status>{statusMap[step]}</Status>
-                        <Progress value={Math.round(100 / (9 / step))} status="accent" />
+                        <Progress value={Math.round(100 / (8 / step))} status="accent" />
                     </>
                 )}
             </ProgressGroup>
