@@ -19,6 +19,11 @@ jobs:
       - name: Prepare directory build
         run: mkdir -p s3_build
 
+      # TODO: https://github.com/salute-developers/plasma/issues/255
+      - name: Lerna bootstrap with scope
+        run: | 
+          npx lerna bootstrap --scope @salutejs/plasma-theme-builder --scope=@salutejs/plasma-{tokens,tokens-utils}
+
       # 2 папки, так как названия разные - в первом случае нужно для replace
       - name: Build Theme Builder
         env:
@@ -26,7 +31,6 @@ jobs:
           REACT_APP_AUTH_SERVER_URL: ${{ secrets.REACT_APP_AUTH_SERVER_URL }}
         run: |
           export NODE_OPTIONS=--openssl-legacy-provider
-          npm i --no-progress --prefix="./website/plasma-theme-builder"
           npm run build --prefix="./website/plasma-theme-builder"
           cp -R ./website/plasma-theme-builder/build ./s3_build/plasma-theme-builder-next
 
