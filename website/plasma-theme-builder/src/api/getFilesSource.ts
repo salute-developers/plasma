@@ -3,19 +3,22 @@ import { Octokit } from 'octokit';
 const isString = (value: unknown): value is string => typeof value === 'string';
 
 export const getFilesSource = async (
+    octokit: Octokit | undefined,
     owner: string,
     repo: string,
     path: string,
-    token?: string,
     branchName?: string,
+    token?: string,
 ): Promise<string> => {
-    const octokit = new Octokit({
-        auth: token,
-    });
+    const octokitInstance =
+        octokit ??
+        new Octokit({
+            auth: token,
+        });
 
     const getFileSource = async (path: string) => {
         try {
-            const result = await octokit.rest.repos.getContent({
+            const result = await octokitInstance.rest.repos.getContent({
                 headers: {
                     accept: 'application/vnd.github.v3.raw',
                 },

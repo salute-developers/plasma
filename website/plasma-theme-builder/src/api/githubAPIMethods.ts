@@ -18,8 +18,14 @@ export interface GitCreateBlobResponse {
     type?: FileType;
 }
 
-export const getDefaultBranch = async (octokit: Octokit, owner: string, repo: string) => {
-    const { data: refData } = await octokit.rest.repos.get({
+export const getDefaultBranch = async (octokit: Octokit | undefined, owner: string, repo: string, token?: string) => {
+    const octokitInstance =
+        octokit ??
+        new Octokit({
+            auth: token,
+        });
+
+    const { data: refData } = await octokitInstance.rest.repos.get({
         owner,
         repo,
     });

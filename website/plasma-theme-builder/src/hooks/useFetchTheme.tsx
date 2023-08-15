@@ -9,7 +9,7 @@ const getThemeData = async (
     owner = 'salute-developers',
     repo = 'plasma',
     token?: string,
-) => getFilesSource(owner, repo, `packages/plasma-tokens/data/themes/${themeName}.json`, token, branchName);
+) => getFilesSource(undefined, owner, repo, `packages/plasma-tokens/data/themes/${themeName}.json`, branchName, token);
 
 export const useFetchTheme = (themeName?: string, branchName?: string) => {
     const [response, setResponse] = useState<ThemeType | undefined>();

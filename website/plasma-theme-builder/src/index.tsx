@@ -13,8 +13,8 @@ if (!rootElement) {
 const root = createRoot(rootElement);
 
 root.render(
-    <React.StrictMode>
+    <>
         <GlobalStyle />
         <App />
-    </React.StrictMode>,
+    </>,
 );
