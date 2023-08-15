@@ -11,6 +11,14 @@
         "url": "ssh://git@github.com:salute-developers/plasma.git",
         "directory": "utils/plasma-cy-utils"
     },
+    "scripts": {
+        "prepare": "npm run build",
+        "prebuild": "npm run clean",
+        "build": "tsc",
+        "clean": "rm -rf lib",
+        "typescript-coverage": "npx typescript-coverage-report > /dev/null",
+        "lint": "../../node_modules/.bin/eslint ./src --ext .ts,.tsx --quiet"
+    },
     "peerDependencies": {
         "react": ">=16.13.1",
         "react-dom": ">=16.13.1",
@@ -32,24 +40,12 @@
         "typescript": "4.0.8",
         "typescript-coverage-report": "0.7.0"
     },
-    "scripts": {
-        "prepare": "npm run build",
-        "prebuild": "npm run clean",
-        "build": "tsc",
-        "clean": "rm -rf lib",
-        "typescript-coverage": "npx typescript-coverage-report > /dev/null"
-    },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
         "atLeast": 100
     },
     "publishConfig": {
         "access": "public"
     },
-    "files": [
-        "lib"
-    ]
+    "files": ["lib"]
 }
