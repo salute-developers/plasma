@@ -3,26 +3,19 @@
     "version": "1.10.0",
     "description": "Plasma tokens for swift, kotlin, react-native",
     "private": true,
-    "files": [
-        "build"
-    ],
+    "files": ["build"],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/salute-developers/plasma.git"
     },
-    "keywords": [
-        "plasma",
-        "tokens",
-        "ios",
-        "react-native",
-        "kotlin"
-    ],
+    "keywords": ["plasma", "tokens", "ios", "react-native", "kotlin"],
     "scripts": {
         "prepare": "npm run build",
         "prebuild": "rm -rf ./build ./properties ./data && npm run mkdir",
         "mkdir": "mkdir -p data && cp -R node_modules/@salutejs/plasma-tokens/data/* data",
         "build": "npx ts-node ./src/generate.ts",
-        "postbuild": "npx ts-node ./config.ts"
+        "postbuild": "npx ts-node ./config.ts",
+        "lint": "../../node_modules/.bin/eslint ./src --ext .ts,.tsx --quiet"
     },
     "devDependencies": {
         "@salutejs/plasma-tokens": "1.59.0",
