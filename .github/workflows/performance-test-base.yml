@@ -17,7 +17,7 @@ jobs:
       - uses: ./.github/actions/prepare-environment
 
       - name: Lerna bootstrap
-        run: npx lerna bootstrap --scope=@salutejs/plasma-{core,hope,web,b2c,ui,icons}
+        run: npx lerna bootstrap --scope=@salutejs/plasma-{core,hope,new-hope,web,b2c,ui,icons}
 
       - name: Install s3cmd
         run: pip3 install s3cmd
