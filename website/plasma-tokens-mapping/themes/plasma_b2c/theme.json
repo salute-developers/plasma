@@ -1,0 +1,55 @@
+{
+    "components": {
+        "Button": {
+            "variations": {
+                "_view": {
+                    "primary": {
+                        "--plasma-button-color": "var(--plasma-colors-white)",
+                        "--plasma-button-bg-color": "var(--plasma-colors-button-accent)",
+                        "--plasma-button-color-hover": "var(--plasma-colors-white)",
+                        "--plasma-button-bg-color-hover": "var(--plasma-colors-button-primary-hover)",
+                        "--plasma-button-color-active": "var(--plasma-colors-white)",
+                        "--plasma-button-bg-color-active": "var(--plasma-colors-button-primary-active)"
+                    },
+                    "secondary": {
+                        "--plasma-button-color": "var(--plasma-colors-text)",
+                        "--plasma-button-bg-color": "var(--plasma-colors-button-secondary)",
+                        "--plasma-button-color-hover": "var(--plasma-colors-text)",
+                        "--plasma-button-bg-color-hover": "var(--plasma-colors-button-secondary-hover)",
+                        "--plasma-button-color-active": "var(--plasma-colors-text)",
+                        "--plasma-button-bg-color-active": "var(--plasma-colors-button-secondary-active)"
+                    },
+                    "yes": {
+                        "--plasma-button-color": "white",
+                        "--plasma-button-bg-color": "#fc0",
+                        "--plasma-button-color-hover": "white",
+                        "--plasma-button-bg-color-hover": "yellow",
+                        "--plasma-button-color-active": "white",
+                        "--plasma-button-bg-color-active": "orange"
+                    }
+                },
+                "_size": {
+                    "s": {
+                        "--plasma-button-padding-y": "var(--plasma-button-s-padding-y)",
+                        "--plasma-button-padding-x": "var(--plasma-button-s-padding-x)",
+                        "--plasma-button-height": "var(--plasma-button-s-height)",
+                        "--plasma-button-radius": "var(--plasma-button-s-radius)"
+                    },
+                    "m": {
+                        "--plasma-button-padding-y": "var(--plasma-button-m-padding-y)",
+                        "--plasma-button-padding-x": "var(--plasma-button-m-padding-x)",
+                        "--plasma-button-height": "var(--plasma-button-m-height)",
+                        "--plasma-button-radius": "var(--plasma-button-m-radius)"
+                    },
+                    "l": {
+                        "--plasma-button-padding-y": "var(--plasma-button-l-padding-y)",
+                        "--plasma-button-padding-x": "var(--plasma-button-l-padding-x)",
+                        "--plasma-button-height": "var(--plasma-button-l-height)",
+                        "--plasma-button-radius": " var(--plasma-button-l-radius)"
+                    }
+                }
+            }
+        }
+    },
+    "name": "plasma_b2c"
+}

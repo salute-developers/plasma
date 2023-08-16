@@ -1,0 +1,38 @@
+{
+    "name": "@salutejs/plasma-tokens-mapping",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@linaria/core": "^4.5.4",
+        "@linaria/react": "^4.5.4",
+
+        "@salutejs/plasma-typo": "^0.36.0",
+        "@salutejs/plasma-new-hope": "0.0.0",
+
+        "fs-extra": "^11.1.1",
+
+        "immer": "^10.0.2",
+
+        "next": "13.4.12",
+
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+
+        "use-immer": "^0.9.0"
+    },
+    "devDependencies": {
+        "@types/fs-extra": "^11.0.1",
+        "@types/node": "20.4.6",
+        "@types/react": "18.2.18",
+        "@types/react-dom": "18.2.7",
+        "@linaria/babel-preset": "^4.5.4",
+        "next-with-linaria": "^0.5.1",
+        "typescript": "5.1.6"
+    }
+}
