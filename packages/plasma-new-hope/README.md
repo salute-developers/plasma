@@ -50,5 +50,6 @@ vim src
 [] tokens-mapping: Переключение тем
 [] tokens-mapping: AutoComplete токенов из theme-builder
 [] new-hope: Сборка в emotion
+[] ds-generator: Включить eslint
 [] ds-generator: Генерация компонент??
 [] ds-generator: Геренрация stories

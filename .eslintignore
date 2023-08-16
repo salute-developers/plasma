@@ -80,3 +80,4 @@ utils/plasma-tokens-native/data
 
 website/plasma-tokens-mapping/*
 packages/plasma-new-hope/*
+tools/plasma-ds-generator
