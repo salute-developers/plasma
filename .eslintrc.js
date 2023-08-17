@@ -112,6 +112,7 @@ module.exports = {
         '@typescript-eslint/ban-ts-ignore': 'off',
         'react-hooks/rules-of-hooks': 'off',
         'react/require-default-props': 'warn',
+        'react/no-unused-prop-types': 'warn',
     },
     overrides: [
         {
