@@ -25,7 +25,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: ./.github/actions/prepare-environment
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-environment
 
       - name: Lerna bootstrap
         run: npx lerna bootstrap
@@ -42,7 +43,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: ./.github/actions/prepare-environment
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-environment
 
         # TODO Вернуть флаг `--since` как только появиться возможность использовать rc версии пакетов
       - name: Lerna bootstrap
