@@ -29,14 +29,12 @@
         "build": "tsc",
         "clean": "rm -rf lib",
         "test": "jest",
-        "test:watch": "jest --watch"
+        "test:watch": "jest --watch",
+        "lint": "../../node_modules/.bin/eslint ./src --ext .ts --quiet"
     },
     "private": true,
     "publishConfig": {
         "access": "restricted"
     },
-    "files": [
-        "lib",
-        "action.yml"
-    ]
+    "files": ["lib", "action.yml"]
 }
