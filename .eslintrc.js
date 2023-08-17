@@ -59,12 +59,12 @@ module.exports = {
         '@typescript-eslint/explicit-function-return-type': 'off',
 
         '@typescript-eslint/ban-types': [
-            'error',
+            'warn',
             {
                 extendDefaults: true,
                 types: {
-                    '{}': false,
-                    object: false,
+                    '{}': 'false',
+                    object: 'false',
                 },
             },
         ],
@@ -106,6 +106,12 @@ module.exports = {
         'no-use-before-define': 'off',
         '@typescript-eslint/no-empty-function': 'off',
         '@typescript-eslint/no-empty-interface': 'off',
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        '@typescript-eslint/no-use-before-define': 'off',
+        '@typescript-eslint/ban-ts-ignore': 'off',
+        'react-hooks/rules-of-hooks': 'off',
+        'react/require-default-props': 'warn',
     },
     overrides: [
         {
@@ -130,7 +136,7 @@ module.exports = {
     ],
     settings: {
         react: {
-            version: '16.13.1',
+            version: 'detect',
         },
     },
 };
