@@ -3,6 +3,7 @@ node_modules
 
 actions/versionate-docs/lib
 actions/versionate-docs/node_modules
+
 actions/platform-test/lib
 actions/platform-test/node_modules
 
@@ -18,22 +19,19 @@ packages/plasma-core/*
 !packages/plasma-core/src
 
 packages/plasma-tokens/*
-!packages/plasma-tokens/data.ts
-!packages/plasma-tokens/generate.ts
-!packages/plasma-tokens/utils.ts
+!packages/plasma-tokens/src
+!packages/plasma-tokens/lib
 
 packages/plasma-tokens-b2b/*
 !packages/plasma-tokens-b2b/data
 !packages/plasma-tokens-b2b/generate.ts
 
 packages/plasma-tokens-b2c/*
-!packages/plasma-tokens-b2c/data.ts
 !packages/plasma-tokens-b2c/dataColors.ts
 !packages/plasma-tokens-b2c/generate.ts
 !packages/plasma-tokens-b2c/utils.ts
 
 packages/plasma-tokens-web/*
-!packages/plasma-tokens-web/data.ts
 !packages/plasma-tokens-web/generate.ts
 
 packages/plasma-typo/*
