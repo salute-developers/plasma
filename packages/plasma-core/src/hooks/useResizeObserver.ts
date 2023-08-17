@@ -18,7 +18,11 @@ export const useResizeObserver = <T extends HTMLElement>(
 
         const { current } = ref;
 
-        const resizeObserver = new window.ResizeObserver(() => callback(current));
+        const resizeObserver = new window.ResizeObserver(() => {
+            window.requestAnimationFrame(() => {
+                callback(current);
+            });
+        });
 
         resizeObserver.observe(ref.current);
 
