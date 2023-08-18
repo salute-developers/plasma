@@ -13,13 +13,17 @@ on:
       commit-message:
         type: string
         default: 'chore: update package-locks [skip ci]'
-
+    secrets:
+      gh_token:
+        required: true
+      npm_registry_token:
+        required: true
 jobs:
   publish:
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.gh_token }}
+      NPM_REGISTRY_TOKEN: ${{ secrets.npm_registry_token }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -51,4 +55,4 @@ jobs:
         uses: ./.github/actions/update-package-lock
         with:
           commit-message: ${{ inputs.commit-message }}
-          token: ${{ env.GH_TOKEN }}
+          token: ${{ secrets.gh_token }}

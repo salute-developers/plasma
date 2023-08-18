@@ -30,10 +30,8 @@ runs:
 
     - name: Commit & Push package-lock's
       uses: actions-js/push@master
-      env:
-        GITHUB_TOKEN: ${{ inputs.token }}
       with:
-        github_token: ${{ env.GITHUB_TOKEN }}
+        github_token: ${{ inputs.token }}
         message: ${{ inputs.commit-message }}
         branch: ${{ steps.branch_name.outputs.BRANCH }}
         author_name: Salute Frontend Team
