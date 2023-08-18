@@ -1,3 +1,47 @@
+# (Fri Aug 18 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens-native): Remove deprecated colors tokens from ReactNative [#660](https://github.com/salute-developers/plasma/pull/660) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Update theme kind items [#660](https://github.com/salute-developers/plasma/pull/660) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Actualized generate tokens set [#660](https://github.com/salute-developers/plasma/pull/660) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Update theme kind items with react-native in border-radius [#660](https://github.com/salute-developers/plasma/pull/660) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-core@1.126.0`
+  - fix(plasma-core): Add requestAnimationFrame for useResizeObserver hook [#660](https://github.com/salute-developers/plasma/pull/660) (neretinartem@Neretins-MacBook-Pro.local)
+- `@salutejs/plasma-ui@1.202.0`
+  - feat(plasma-ui): add prop "extraContent" [Confirm] [#660](https://github.com/salute-developers/plasma/pull/660) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-tokens-utils@0.30.0`
+  - feat(plasma-tokens-native): Add generate `spacing` tokens for react-native [#660](https://github.com/salute-developers/plasma/pull/660) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(palsma-tokens-*): Add borderRadius tokens generate for react-native and refactor config.ts [#660](https://github.com/salute-developers/plasma/pull/660) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-tokens@1.59.0`
+  - feat(plasma-tokens): Update `src` directories with `spacing` tokens in sbermarket themes [#660](https://github.com/salute-developers/plasma/pull/660) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-tokens): Add `spacing` tokens to sbermarket schemes [#660](https://github.com/salute-developers/plasma/pull/660) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- chore: disable codecove [#660](https://github.com/salute-developers/plasma/pull/660) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: fix perftest workflow [#660](https://github.com/salute-developers/plasma/pull/660) ([@akhdrv](https://github.com/akhdrv))
+- test: perftest partial run [#660](https://github.com/salute-developers/plasma/pull/660) ([@akhdrv](https://github.com/akhdrv))
+- chore: use NODE_OPTIONS=--openssl-legacy-provider [#660](https://github.com/salute-developers/plasma/pull/660) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-ui@1.202.0`
+  - fix(plasma-ui): Update behavior scroll in `Sheet` component [#660](https://github.com/salute-developers/plasma/pull/660) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-tokens@1.59.0`, `@salutejs/plasma-tokens-utils@0.30.0`
+  - feat(plasma-tokens,plasma-tokens-utils): Add generate `spacing` tokens for web [#660](https://github.com/salute-developers/plasma/pull/660) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-tokens,plasma-tokens-utils): Update `default` theme with actualized tokens [#660](https://github.com/salute-developers/plasma/pull/660) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-tokens@1.59.0`
+  - fix(plasma-tokens): Update `src` directory for `sbermarket` themes [#660](https://github.com/salute-developers/plasma/pull/660) ([@neretin-trike](https://github.com/neretin-trike))
+  - fix(palsma-tokens): Update values in border-radius tokesn for `sbermarket` schemes [#660](https://github.com/salute-developers/plasma/pull/660) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 5
+
+- [@kayman233](https://github.com/kayman233)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- Neretin Artem (neretinartem@Neretins-MacBook-Pro.local)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Thu Aug 03 2023)
 
 ### Release Notes

@@ -1,3 +1,22 @@
+# v1.202.0 (Fri Aug 18 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-ui): add prop "extraContent" [Confirm] [#660](https://github.com/salute-developers/plasma/pull/660) ([@kayman233](https://github.com/kayman233))
+
+#### 🐛 Bug Fix
+
+- fix(plasma-ui): Update behavior scroll in `Sheet` component [#660](https://github.com/salute-developers/plasma/pull/660) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 3
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.201.0 (Thu Aug 03 2023)
 
 #### 🚀 Enhancement

@@ -1,3 +1,20 @@
+# v1.126.0 (Fri Aug 18 2023)
+
+#### 🚀 Enhancement
+
+- fix(plasma-core): Add requestAnimationFrame for useResizeObserver hook [#660](https://github.com/salute-developers/plasma/pull/660) (neretinartem@Neretins-MacBook-Pro.local)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Neretin Artem (neretinartem@Neretins-MacBook-Pro.local)
+
+---
+
 # v1.125.0 (Thu Aug 03 2023)
 
 #### 🐛 Bug Fix
