@@ -15,5 +15,7 @@ jobs:
   publish:
     name: Publish canary version
     uses: ./.github/workflows/publish-common.yml
+    with:
+      cmd: 'bootstrap:since'
     secrets: inherit
 
