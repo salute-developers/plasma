@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-cy-utils",
-    "version": "0.65.0",
+    "version": "0.66.0",
     "description": "Test helpers shared between ui libraries.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "license": "MIT",
@@ -18,10 +18,10 @@
     },
     "devDependencies": {
         "@cypress/react": "5.10.1",
-        "@salutejs/plasma-tokens": "1.58.0",
-        "@salutejs/plasma-tokens-b2b": "1.24.0",
-        "@salutejs/plasma-tokens-b2c": "0.33.0",
-        "@salutejs/plasma-tokens-web": "1.39.0",
+        "@salutejs/plasma-tokens": "1.59.0",
+        "@salutejs/plasma-tokens-b2b": "1.25.0",
+        "@salutejs/plasma-tokens-b2c": "0.34.0",
+        "@salutejs/plasma-tokens-web": "1.40.0",
         "@salutejs/plasma-typo": "0.36.0",
         "@types/react": "18.0.28",
         "@types/react-dom": "18.0.11",

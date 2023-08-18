@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-theme-builder",
-    "version": "1.76.0",
+    "version": "1.77.0",
     "description": "Plasma Theme Builder.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "private": true,
@@ -9,13 +9,13 @@
         "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build"
     },
     "dependencies": {
-        "@salutejs/plasma-b2c": "1.220.0",
+        "@salutejs/plasma-b2c": "1.221.0",
         "@salutejs/plasma-colors": "0.8.0",
-        "@salutejs/plasma-icons": "1.154.0",
-        "@salutejs/plasma-tokens-b2b": "1.24.0",
-        "@salutejs/plasma-tokens-b2c": "0.33.0",
-        "@salutejs/plasma-tokens-utils": "0.29.0",
-        "@salutejs/plasma-tokens-web": "1.39.0",
+        "@salutejs/plasma-icons": "1.155.0",
+        "@salutejs/plasma-tokens-b2b": "1.25.0",
+        "@salutejs/plasma-tokens-b2c": "0.34.0",
+        "@salutejs/plasma-tokens-utils": "0.30.0",
+        "@salutejs/plasma-tokens-web": "1.40.0",
         "@salutejs/plasma-typo": "0.36.0",
         "octokit": "^1.7.1",
         "react": "^18.2.0",
