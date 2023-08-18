@@ -85,5 +85,7 @@ jobs:
     uses: ./.github/workflows/publish-common.yml
     with:
       with-update-package-lock: true
-    secrets: inherit
+    secrets:
+      gh_token: ${{ secrets.GH_TOKEN }}
+      npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
 
