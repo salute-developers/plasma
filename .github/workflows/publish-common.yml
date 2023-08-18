@@ -51,3 +51,4 @@ jobs:
         uses: ./.github/actions/update-package-lock
         with:
           commit-message: ${{ inputs.commit-message }}
+          token: ${{ env.GH_TOKEN }}
