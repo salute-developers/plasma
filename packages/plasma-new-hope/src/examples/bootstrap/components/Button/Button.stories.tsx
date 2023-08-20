@@ -9,7 +9,7 @@ const views = ['primary', 'secondary', 'success', 'warning', 'critical', 'checke
 const size = ['s', 'm', 'l'];
 
 export default {
-    title: 'Controls/Button',
+    title: 'plasma-b2c/Button',
     component: Button,
     argTypes: {
         view: {

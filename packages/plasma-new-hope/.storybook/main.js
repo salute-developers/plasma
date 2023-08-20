@@ -1,5 +1,7 @@
+const linaria = require('@linaria/vite').default;
+
 module.exports = {
-    stories: ['../src/**/*.stories.tsx', 'src/components/Button/Button.stories.tsx'],
+    stories: ['../src/**/*.stories.tsx'],
     addons: ['@storybook/addon-essentials'],
     framework: '@storybook/react',
     core: {
@@ -17,6 +19,12 @@ module.exports = {
                 ...config.build,
                 sourcemap: false,
             },
+            plugins: [
+                ...config.plugins,
+                linaria({
+                    exclude: ['../../../'],
+                }),
+            ],
         };
     },
 };

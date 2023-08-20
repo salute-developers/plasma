@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@oclif/test": "^2.4.4",
+    "@salutejs/plasma-new-hope": "0.0.0",
     "@types/chai": "^4",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.18.40",

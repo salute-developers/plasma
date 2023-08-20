@@ -5,13 +5,19 @@
     "main": "index.js",
     "module": "es/index.js",
     "types": "types/index.d.ts",
-    "files": ["cjs", "es", "types", "styled-components"],
+    "files": [
+        "cjs",
+        "es",
+        "types",
+        "styled-components"
+    ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "prepare": "npm run build",
         "build": "npm run build:css && npm run build:styled-components",
         "postbuild": "npm run generate:typings",
         "build:css": "BABEL_ENV=esm SC_NAMESPACE=plasma-new-hope rollup -c",
+        "build:css:watch": "BABEL_ENV=esm SC_NAMESPACE=plasma-new-hope rollup -c -w",
         "prebuild:styled-components": "rm -rf src-sc && cp -R src src-sc && npm run build:replace-linaria-sc",
         "build:replace-linaria-sc": "./scripts/replace-linaria_sc.sh",
         "build:styled-components": "npm run build:styled-components:esm",
@@ -19,14 +25,19 @@
         "postbuild:styled-components": "rm -rf src-sc",
         "generate:typings:css": "tsc --outDir types --emitDeclarationOnly",
         "generate:typings:styled-components": "",
-        "generate:typings": "npm run generate:typings:css && npm run generate:typings:styled-components"
+        "generate:typings": "npm run generate:typings:css && npm run generate:typings:styled-components",
+        "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -s .storybook/public -p ${PORT:-7002} -c .storybook"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/salute-developers/plasma.git",
         "directory": "packages/plasma-new-hope"
     },
-    "keywords": ["design-system", "ui-kit", "react"],
+    "keywords": [
+        "design-system",
+        "ui-kit",
+        "react"
+    ],
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "license": "MIT",
     "bugs": {
@@ -46,9 +57,16 @@
         "@babel/preset-typescript": "7.15.0",
         "@ironkinoko/rollup-plugin-styles": "^4.0.3",
         "@linaria/rollup": "^4.5.4",
+        "@linaria/vite": "^4.5.4",
         "@rollup/plugin-babel": "^6.0.3",
         "@rollup/plugin-commonjs": "^25.0.4",
         "@rollup/plugin-node-resolve": "^15.1.0",
+        "@storybook/addon-docs": "^6.5.16",
+        "@storybook/addon-essentials": "^6.5.16",
+        "@storybook/addons": "^6.5.16",
+        "@storybook/builder-vite": "^0.4.2",
+        "@storybook/react": "^6.5.16",
+        "@storybook/theming": "^6.5.16",
         "@types/node": "15.14.9",
         "@types/react": "18.0.28",
         "@types/react-dom": "18.0.11",
