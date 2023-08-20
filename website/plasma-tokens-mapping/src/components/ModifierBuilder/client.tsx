@@ -3,8 +3,8 @@
 import React, { useState, PropsWithChildren } from 'react';
 
 import { styled } from '@linaria/react';
-// @ts-ignore
-import { h2, h3, textM } from '@salutejs/plasma-typo/lib/esm/tokens';
+
+import { h2, h3, textM, bodyM } from '@salutejs/plasma-typo';
 
 import { useTheme, useThemeDispatch } from '../../state';
 import { ChangeEventHandler } from 'react';
@@ -31,15 +31,22 @@ export const Header = styled.div`
     align-items: center;
 `;
 
+const Label = styled.label`
+    display: flex;
+    ${bodyM}
+`;
+
+
 export interface ModValueProps {
     name: string;
     modName: string;
     componentName: string;
     tokenAPI: string[];
+    isDefault: boolean;
 }
 
 export function ModValueClient(props: PropsWithChildren<ModValueProps>) {
-    const { name, modName, componentName, tokenAPI } = props;
+    const { name, modName, componentName, tokenAPI, isDefault } = props;
 
     const theme = useTheme();
     const dispatch = useThemeDispatch();
@@ -95,6 +102,19 @@ export function ModValueClient(props: PropsWithChildren<ModValueProps>) {
         });
     };
 
+    const onCheck: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+        const { checked } = e.target;
+
+        if (checked) {
+            dispatch({
+                type: 'set_default',
+                componentName,
+                modName,
+                modValue: name,
+            });
+        }
+    };
+
     const disabled = isEditing && Object.keys(tokens).some((key) => tokens[key] === '');
 
     return (
@@ -110,6 +130,7 @@ export function ModValueClient(props: PropsWithChildren<ModValueProps>) {
                         Cancel
                     </button>
                 )}
+                <Label><input type="checkbox" checked={isDefault} onChange={onCheck}/> Default </Label>
             </Header>
             <ul>
                 {Object.keys(tokens).map((tokenName) => {
@@ -125,7 +146,7 @@ export function ModValueClient(props: PropsWithChildren<ModValueProps>) {
     );
 }
 
-const Nano = styled.div`
+const PreviewColor = styled.div`
     display: inline-block;
     width: 1.5rem;
     height: 1.5rem;
@@ -158,7 +179,7 @@ const Token = ({ name, value, onChange, isEditing }: TokenProps) => {
             <Text>
                 {name}: {isEditing ? <input value={value} onChange={handle} /> : value}
             </Text>
-            <Nano style={{ backgroundColor: value }} />
+            <PreviewColor style={{ backgroundColor: value }} />
         </Flex>
     );
 };
@@ -176,6 +197,7 @@ export function ModifierBuilder({ name, tokenAPI, componentName }: ModifierBuild
     const dispatch = useThemeDispatch();
 
     const modifier = theme.components[componentName].variations[name] || {};
+    const defaultValue = theme.components[componentName].defaults[name];
 
     const addModifier = () => {
         dispatch({
@@ -200,6 +222,7 @@ export function ModifierBuilder({ name, tokenAPI, componentName }: ModifierBuild
             </Header>
             {Object.keys(modifier).map((modValue) => {
                 // const tokens = modifier[modValue];
+                const isDefault = defaultValue === modValue;
 
                 return (
                     <ModValueClient
@@ -208,6 +231,7 @@ export function ModifierBuilder({ name, tokenAPI, componentName }: ModifierBuild
                         componentName={componentName}
                         modName={name}
                         tokenAPI={tokenAPI}
+                        isDefault={isDefault}
                     />
                 );
             })}

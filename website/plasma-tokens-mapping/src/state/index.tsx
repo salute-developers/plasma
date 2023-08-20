@@ -17,7 +17,10 @@ export interface ModifierTheme {
 export interface ComponentTheme {
     variations: {
         [key: modName]: ModifierTheme;
-    };
+    }
+    defaults: {
+        [key: modName]: modValue;
+    }
 }
 
 export interface ThemeState {
@@ -67,7 +70,13 @@ type Action =
           componentName: string;
           modName: string;
           modValue: string;
-      };
+      }
+    | {
+        type: 'set_default';
+        componentName: string;
+        modName: string;
+        modValue: string;
+    };
 
 export function themeReducer(theme: ThemeState, action: Action) {
     console.log('ACTION ===>', action);
@@ -81,6 +90,7 @@ export function themeReducer(theme: ThemeState, action: Action) {
         case 'remove_tokens': {
             const { componentName, modName, modValue } = action;
             delete theme.components[componentName].variations[modName][modValue];
+            delete theme.components[componentName].defaults[modName];
             break;
         }
         case 'add_modifier': {
@@ -89,6 +99,11 @@ export function themeReducer(theme: ThemeState, action: Action) {
                 ...theme.components[componentName].variations[modName],
                 [modValue]: {},
             };
+            break;
+        }
+        case 'set_default': {
+            const { componentName, modName, modValue } = action;
+            theme.components[componentName].defaults[modName] = modValue;
             break;
         }
     }

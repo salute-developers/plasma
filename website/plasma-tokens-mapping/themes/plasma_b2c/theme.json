@@ -1,6 +1,9 @@
 {
     "components": {
         "Button": {
+            "defaults": {
+                "_view": "primary"
+            },
             "variations": {
                 "_view": {
                     "primary": {

@@ -2,6 +2,7 @@
     "name": "xyz",
     "components": {
         "Button": {
+            "defaults": {},
             "variations": {
             }
         }

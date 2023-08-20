@@ -2,6 +2,7 @@
     "name": "sds",
     "components": {
         "Button": {
+            "defaults": {},
             "variations": {
             }
         }
