@@ -33,8 +33,6 @@ export function Preview(props: PreviewProps) {
 
     const defs = components[`${componentName}_Conf`]?.defaults;
 
-    console.log('DEFAULTS', defs);
-
     const defaultStyles = {};
 
     for (const defModName of Object.keys(defs)) {
@@ -45,20 +43,12 @@ export function Preview(props: PreviewProps) {
         Object.assign(defaultStyles, tokens);
     }
 
-    console.log('DEFAULTS_STYLE', defaultStyles);
-
-    // const styles = {...defaultStyles};
-
     const mods = theme.components[componentName].variations[modName] || {};
-
-    console.log('__MODS__', mods, modName);
 
     // for (const modValue of Object.keys(mods)) {
     //     const tokens = mods[modValue];
     //     Object.assign(styles, tokens);
     // }
-
-    // console.log('STYLES', styles);
 
     // // TODO: moved to separate folder with all components
     // const cong = mergeConfig(buttonConfig, {});

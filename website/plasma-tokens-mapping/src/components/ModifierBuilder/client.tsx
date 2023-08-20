@@ -54,14 +54,10 @@ export function ModValueClient(props: PropsWithChildren<ModValueProps>) {
               return acc;
           }, {});
 
-    console.log('>=><'.repeat(10));
-    console.log(modName, name, __tokens, tokenAPI);
-
     const [isEditing, setEditing] = useState(isNew);
     const [tokens, setTokens] = useState(__tokens);
 
     const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-        console.log('IS_EDITING', isEditing);
         setEditing(!isEditing);
 
         if (isEditing) {
@@ -174,9 +170,6 @@ export interface ModifierBuilderProps {
 }
 
 export function ModifierBuilder({ name, tokenAPI, componentName }: ModifierBuilderProps) {
-    // console.log('modifier', name);
-    // console.log(theme);
-
     const [newModVal, setNewModVal] = useState('');
 
     const theme = useTheme();

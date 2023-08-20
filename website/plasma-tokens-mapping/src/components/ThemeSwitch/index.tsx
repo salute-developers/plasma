@@ -1,6 +1,7 @@
 import { styled } from '@linaria/react';
 import { use } from 'react';
 import { getThemeNames } from '../../data';
+import Link from 'next/link';
 
 // @ts-ignore
 import { bodyM } from '@salutejs/plasma-typo/lib/esm/tokens';
@@ -19,11 +20,14 @@ export const ThemeSwitch = ({ active }: ThemeSwitchProps) => {
     return (
         <Root>
             <span>Theme: </span>
-            <select defaultValue={active}>
+            <menu>
                 {themeNames.map((name) => {
-                    return <option key={name}>{name}</option>;
+                    if (name == active) {
+                        return <li key={name}>{name}</li>
+                    }
+                    return <li key={name}><Link href={`?theme=${name}`}>{name}</Link></li>
                 })}
-            </select>
+            </menu>
         </Root>
     );
 };

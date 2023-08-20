@@ -30,11 +30,7 @@ export function ModifierBuilder(props: ModifierProps) {
     const { name, tokenAPI } = props;
     const { componentTheme } = props;
 
-    console.log(typeof componentTheme);
-
     const intial = componentTheme['components']['button']['variations'][name] || {};
-
-    console.log(intial);
 
     const [modValues, setModValues] = useState<Modifier['values']>(intial);
 
@@ -54,8 +50,6 @@ export function ModifierBuilder(props: ModifierProps) {
         }
         setModValues(newVal);
     };
-
-    console.log(modValues);
 
     return (
         <div className={styles.modifier}>
@@ -122,8 +116,6 @@ interface PreviewProps {}
 
 function Preview(props: PreviewProps) {
     const cong = mergeConfig(buttonConfig);
-
-    console.log('CONG', cong);
 
     const Button = component(cong);
 

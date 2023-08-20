@@ -18,14 +18,6 @@
                         "--plasma-button-bg-color-hover": "var(--plasma-colors-button-secondary-hover)",
                         "--plasma-button-color-active": "var(--plasma-colors-text)",
                         "--plasma-button-bg-color-active": "var(--plasma-colors-button-secondary-active)"
-                    },
-                    "yes": {
-                        "--plasma-button-color": "white",
-                        "--plasma-button-bg-color": "#fc0",
-                        "--plasma-button-color-hover": "white",
-                        "--plasma-button-bg-color-hover": "yellow",
-                        "--plasma-button-color-active": "white",
-                        "--plasma-button-bg-color-active": "orange"
                     }
                 },
                 "_size": {

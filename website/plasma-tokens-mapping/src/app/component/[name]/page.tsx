@@ -13,11 +13,17 @@ import { ThemeProvider, ThemeState } from '../../../state';
 const PLASMA_DIR = process.env.PLASMA_DIR!;
 const plasmaNewHopePath = path.join(PLASMA_DIR, 'packages/plasma-new-hope');
 
-export default async function ComponentPage({ params, searchParams }: { params: { name: string }; searchParams: {} }) {
+type QueryParams = {
+    theme: string;
+}
+
+export default async function ComponentPage({ params, searchParams }: { params: { name: string }; searchParams?: QueryParams }) {
     const { name } = params;
 
     console.log('>___<');
     console.log(searchParams);
+
+    const activeTheme = searchParams ? searchParams.theme : 'plasma_b2c';
 
     const componentDir = path.join(plasmaNewHopePath, 'src/components', name);
     const dirs = await fs.readdir(componentDir);
@@ -33,20 +39,20 @@ export default async function ComponentPage({ params, searchParams }: { params: 
     }
 
     const themes = await getThemes();
-    const theme = {
-        name: themes[0].name,
-        data: themes[0].value,
-    };
+    const theme = themes.find(theme => theme.name === activeTheme)!
 
-    const themeObj = (theme.data as unknown) as ThemeState;
+    console.log(theme);
+
+    // TODO: improve typings
+    const themeObj = (theme.value as unknown) as ThemeState;
     themeObj.name = theme.name;
-    const componentTheme = ((theme.data as unknown) as ThemeState).components[name];
 
-    const activeTheme = 'plasma_b2c';
+    const componentTheme = ((theme.value as unknown) as ThemeState).components[name];
+
 
     return (
         <>
-            <ThemeProvider initialTheme={themeObj}>
+            <ThemeProvider key={theme.name} initialTheme={themeObj}>
                 <ComponentBuilder
                     name={name}
                     theme={componentTheme}

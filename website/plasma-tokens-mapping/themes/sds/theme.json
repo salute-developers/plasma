@@ -1,3 +1,9 @@
 {
-    "yes": "no"
+    "name": "sds",
+    "components": {
+        "Button": {
+            "variations": {
+            }
+        }
+    }
 }

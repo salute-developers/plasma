@@ -39,6 +39,7 @@ vim src
 [] example-ds: Сборка example-design-system на конфигах new-hope
 [] new-hope: Icon
 [] new-hope: Typography
+[] new-hope: Spin
 [] new-hope: TextField
 [] new-hope: TextArea
 [] example: Переключение engines
@@ -47,7 +48,7 @@ vim src
 [] example-ds: Dark / Light Theme
 [] plasma-hope: Замена plasma-b2c/web:Button => plasma-new-hope:Button
 [] new-hope: Link
-[] tokens-mapping: Переключение тем
+[x] tokens-mapping: Переключение тем
 [] tokens-mapping: AutoComplete токенов из theme-builder
 [] new-hope: Сборка в emotion
 [] ds-generator: Включить eslint
