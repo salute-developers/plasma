@@ -76,6 +76,10 @@ type Action =
         componentName: string;
         modName: string;
         modValue: string;
+    } | {
+        type: 'remove_default';
+        componentName: string;
+        modName: string;
     };
 
 export function themeReducer(theme: ThemeState, action: Action) {
@@ -104,6 +108,12 @@ export function themeReducer(theme: ThemeState, action: Action) {
         case 'set_default': {
             const { componentName, modName, modValue } = action;
             theme.components[componentName].defaults[modName] = modValue;
+            break;
+        }
+
+        case 'remove_default': {
+            const { componentName, modName } = action;
+            delete theme.components[componentName].defaults[modName];
             break;
         }
     }

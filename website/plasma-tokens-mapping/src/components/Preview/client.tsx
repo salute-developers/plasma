@@ -36,11 +36,16 @@ export function Preview(props: PreviewProps) {
     const defaultStyles = {};
 
     for (const defModName of Object.keys(defs)) {
-        const defModValue = defs[defModName];
+        const defModValueFromComponents = defs[defModName];
 
-        const tokens = theme.components[componentName].variations[`_${defModName}`]?.[defModValue] || {};
-
-        Object.assign(defaultStyles, tokens);
+        const defModValueFromBuilder = theme.components[componentName].defaults[`_${defModName}`]
+        if (defModValueFromBuilder) {
+            const tokens = theme.components[componentName].variations[`_${defModName}`]?.[defModValueFromBuilder] || {};
+            Object.assign(defaultStyles, tokens);
+        } else {
+            const tokens = theme.components[componentName].variations[`_${defModName}`]?.[defModValueFromComponents] || {};
+            Object.assign(defaultStyles, tokens);
+        }
     }
 
     const mods = theme.components[componentName].variations[modName] || {};

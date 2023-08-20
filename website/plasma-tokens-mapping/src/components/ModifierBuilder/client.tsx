@@ -112,6 +112,12 @@ export function ModValueClient(props: PropsWithChildren<ModValueProps>) {
                 modName,
                 modValue: name,
             });
+        } else {
+            dispatch({
+                type: 'remove_default',
+                componentName,
+                modName,
+            })
         }
     };
 
