@@ -12,16 +12,21 @@ import { getStaticVariants, getDynamicVariants, ComponentConfig } from './common
 // TODO: remove props => _view=primary
 /** linaria engine */
 export const _component = (componentConfig: ComponentConfig) => {
-    const { tag: Root, base, defaults } = componentConfig;
+    const { tag, base, defaults, name } = componentConfig;
     const staticVarians = getStaticVariants(componentConfig);
     const dynamicVarians = getDynamicVariants(componentConfig);
+    const Root = tag as React.ElementType;
 
-    return ({ className, ...rest }: any) => {
+    const component: React.FC<{ className: string }> = ({ className, ...rest }) => {
         const variants = dynamicVarians({ ...defaults, ...rest });
         const cls = cx(className, base, ...staticVarians, ...variants);
 
         return <Root className={cls} {...defaults} {...rest} />;
     };
+    if (name) {
+        component.displayName = name;
+    }
+    return component;
 };
 /** linaria engine */
 

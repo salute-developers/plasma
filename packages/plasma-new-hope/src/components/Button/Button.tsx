@@ -44,22 +44,25 @@ export const buttonRoot = (Root: any) => (props: any) => {
     const { children, text, contentLeft, contentRight, ...rest } = props;
     const txt = typeof children === 'string' ? children : children ? undefined : text;
 
-    return (
+    const comp = (
         <Root {...rest}>
             {contentLeft}
             {txt ? <ButtonText>{txt}</ButtonText> : children}
             {contentRight}
         </Root>
     );
+
+    return comp;
 };
 
 export const buttonConfig: ComponentConfig = {
+    name: 'Button',
     tag: 'button',
     layout: buttonRoot,
     base,
     variations: {
         view: {
-            css: view, // '.bfjp0j3' // css(['color:#226af1;background-color:rgba(34,106,241,0.09);'])
+            css: view,
         },
         size: {
             css: size,

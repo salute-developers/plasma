@@ -10,7 +10,7 @@ export function getStaticVariants(config: ComponentConfig) {
         css && res.push(css);
     }
 
-    console.log('static', res);
+    // console.log('static', res);
     return res;
 }
 
@@ -24,7 +24,7 @@ export function getDynamicVariants(config: ComponentConfig /* extra = {} */) {
         for (const [key, value] of Object.entries(config.variations || {})) {
             if (key in props) {
                 const css = value[props[key]];
-                console.log(css);
+                // console.log(css);
                 // no css for { modifier: true }
                 css && res.push(value[props[key]]);
                 // key in extra && res.push(extra[key][props[key]]);
@@ -45,19 +45,18 @@ export function getDynamicVariants(config: ComponentConfig /* extra = {} */) {
         //     }
         // }
 
-        console.log('dynamic', res);
+        // console.log('dynamic', res);
         return res;
     };
 }
 
 export type Variant = {
     // should we name it css or base ??
-    css: any;
-
-    [key: string]: any;
-};
+    css?: any;
+} & Record<string, any>;
 
 export interface ComponentConfig {
+    name: string;
     // TODO: react
     layout: Function;
     // TODO: tags
