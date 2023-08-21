@@ -5,6 +5,8 @@ import { css } from '@linaria/core';
 
 import { base as view } from './_view/base';
 import { base as size } from './_size/base';
+import { base as disabled } from './_disabled/base';
+import { base as focused } from './_focused/base';
 
 import { fontFamily } from './tokens';
 
@@ -66,6 +68,12 @@ export const buttonConfig: ComponentConfig = {
         },
         size: {
             css: size,
+        },
+        disabled: {
+            css: disabled,
+        },
+        focused: {
+            css: focused,
         },
     },
     defaults: {

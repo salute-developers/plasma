@@ -6,7 +6,7 @@ import { styled } from '@linaria/react';
 
 import { h2, h3, textM, bodyM } from '@salutejs/plasma-typo';
 
-import { useTheme, useThemeDispatch } from '../../state';
+import { useTheme, useThemeDispatch, ModifierTokensAPI } from '../../state';
 import { ChangeEventHandler } from 'react';
 import { Preview } from '../Preview/client';
 
@@ -41,8 +41,22 @@ export interface ModValueProps {
     name: string;
     modName: string;
     componentName: string;
-    tokenAPI: string[];
+    tokenAPI: ModifierTokensAPI;
     isDefault: boolean;
+}
+
+const generateEmptyTokens = (tokenAPI: ModifierTokensAPI): Record<string,string> => {
+    if (Array.isArray(tokenAPI)) {
+        return tokenAPI.reduce<Record<string, string>>((acc, key) => {
+            acc[key] = '';
+            return acc;
+        }, {});
+    } else {
+        return tokenAPI.tokens.reduce<Record<string, string>>((acc, key) => {
+            acc[key] = '';
+            return acc;
+        }, {});
+    }
 }
 
 export function ModValueClient(props: PropsWithChildren<ModValueProps>) {
@@ -53,13 +67,11 @@ export function ModValueClient(props: PropsWithChildren<ModValueProps>) {
 
     const _tokens = theme.components[componentName].variations[modName][name];
 
+
     const isNew = Object.keys(_tokens).length === 0;
     const __tokens = !isNew
         ? _tokens
-        : tokenAPI.reduce<Record<string, string>>((acc, key) => {
-              acc[key] = '';
-              return acc;
-          }, {});
+        : generateEmptyTokens(tokenAPI);
 
     const [isEditing, setEditing] = useState(isNew);
     const [tokens, setTokens] = useState(__tokens);
@@ -192,7 +204,7 @@ const Token = ({ name, value, onChange, isEditing }: TokenProps) => {
 
 export interface ModifierBuilderProps {
     name: string;
-    tokenAPI: string[];
+    tokenAPI: ModifierTokensAPI;
     componentName: string;
 }
 
@@ -205,12 +217,15 @@ export function ModifierBuilder({ name, tokenAPI, componentName }: ModifierBuild
     const modifier = theme.components[componentName].variations[name] || {};
     const defaultValue = theme.components[componentName].defaults[name];
 
+    const isBool = Array.isArray(tokenAPI) ? false : tokenAPI.type === 'boolean';
+    const hasMods = Object.keys(modifier).length !== 0;
+
     const addModifier = () => {
         dispatch({
             type: 'add_modifier',
             componentName,
             modName: name,
-            modValue: newModVal,
+            modValue: isBool ? "true" : newModVal,
         });
         setNewModVal('');
     };
@@ -223,8 +238,8 @@ export function ModifierBuilder({ name, tokenAPI, componentName }: ModifierBuild
         <Root>
             <Header>
                 <Headline2>{name}:</Headline2>
-                <input type="text" value={newModVal} onChange={onChange} />
-                <button onClick={addModifier}>Add</button>
+                <input type="text" disabled={isBool} value={newModVal} onChange={onChange} />
+                <button disabled={isBool && hasMods} onClick={addModifier}>Add</button>
             </Header>
             {Object.keys(modifier).map((modValue) => {
                 // const tokens = modifier[modValue];

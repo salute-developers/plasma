@@ -3,6 +3,14 @@ import { createContext, Dispatch, ReactNode, useContext } from 'react';
 
 import { useImmerReducer } from 'use-immer';
 
+
+
+export type ModifierTokensAPI = Array<string> | {
+    type: 'boolean' | 'enum';
+    tokens: Array<string>;
+}
+
+
 export type modName = string;
 export type modValue = string;
 export type componentName = string;

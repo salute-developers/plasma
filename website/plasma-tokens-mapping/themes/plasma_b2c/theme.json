@@ -2,7 +2,8 @@
     "components": {
         "Button": {
             "defaults": {
-                "_view": "primary"
+                "_view": "primary",
+                "_focused": "true"
             },
             "variations": {
                 "_view": {
@@ -41,6 +42,16 @@
                         "--plasma-button-padding-x": "var(--plasma-button-l-padding-x)",
                         "--plasma-button-height": "var(--plasma-button-l-height)",
                         "--plasma-button-radius": " var(--plasma-button-l-radius)"
+                    }
+                },
+                "_disabled": {
+                    "true": {
+                        "--plasma-button-disabled-opacity": "0.4"
+                    }
+                },
+                "_focused": {
+                    "true": {
+                        "--plasma-button-focus-color": "var(--plasma-colors-button-focused)"
                     }
                 }
             }

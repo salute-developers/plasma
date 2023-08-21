@@ -4,7 +4,7 @@ import { styled } from '@linaria/react';
 import { h1 } from '@salutejs/plasma-typo';
 import { ReactNode } from 'react';
 
-import { ComponentTheme } from '../../state';
+import { ComponentTheme, ModifierTokensAPI } from '../../state';
 import { ModifierBuilder } from '../ModifierBuilder/client';
 import { SaveTheme } from '../Save/client';
 
@@ -27,7 +27,7 @@ interface ComponentBuilderProps {
     name: string;
     theme: ComponentTheme;
     themeSwitcher: ReactNode;
-    variationsAPI: Record<string, Array<string>>;
+    variationsAPI: Record<string, ModifierTokensAPI>;
 }
 
 export function ComponentBuilder({ name, theme, themeSwitcher, variationsAPI }: ComponentBuilderProps) {

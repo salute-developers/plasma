@@ -31,10 +31,12 @@ vim src
 
 ## TODO
 
-[x] tokens-mapping: defaults
-[] tokens-mapping: boolean modifier
+[x] tokens-mapping: defaults saving
+[x] tokens-mapping: boolean modifier
 [] tokens-mapping: state vc modifier ???
 [] tokens-mapping: intersection
+[] tokens-mapping: default values for tokens
+[] new-hope: engine: filer props
 [] ds-generator: Генерация componentConfig из theme.json
 [] new-hope: Типизация componentConfig
 [] new-hope: Типизация Button

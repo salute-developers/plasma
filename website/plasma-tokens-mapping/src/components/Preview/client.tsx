@@ -31,24 +31,27 @@ export function Preview(props: PreviewProps) {
 
     const { componentName, modName } = props;
 
-    const defs = components[`${componentName}_Conf`]?.defaults;
+    const defsFromComponent = components[`${componentName}_Conf`]?.defaults;
+
+    const _defs = Object.keys(defsFromComponent).reduce<Record<string, string>>((acc, el) => {
+        acc[`_${el}`] = defsFromComponent[el];
+        return acc;
+    }, {});
+
+    const defs = {..._defs, ...theme.components[componentName].defaults};
 
     const defaultStyles = {};
 
     for (const defModName of Object.keys(defs)) {
-        const defModValueFromComponents = defs[defModName];
-
-        const defModValueFromBuilder = theme.components[componentName].defaults[`_${defModName}`]
-        if (defModValueFromBuilder) {
-            const tokens = theme.components[componentName].variations[`_${defModName}`]?.[defModValueFromBuilder] || {};
-            Object.assign(defaultStyles, tokens);
-        } else {
-            const tokens = theme.components[componentName].variations[`_${defModName}`]?.[defModValueFromComponents] || {};
+        const defModValue = defs[defModName];
+        const tokens = theme.components[componentName].variations[defModName]?.[defModValue] || {};
+        if (defModName !== modName) {
+            // don't use defaults for preview of same modifier
             Object.assign(defaultStyles, tokens);
         }
     }
 
-    const mods = theme.components[componentName].variations[modName] || {};
+    const mods = {...theme.components[componentName].variations[modName]} || {};
 
     // for (const modValue of Object.keys(mods)) {
     //     const tokens = mods[modValue];
@@ -63,15 +66,31 @@ export function Preview(props: PreviewProps) {
 
     const Component = components[componentName];
 
+    if (Object.keys(mods).length === 1) {
+        // these is boolean mod
+        // _disabled: { true: {}}
+        // I don't like how these code done here =((
+        Object.assign(mods, {
+            // _modifier_false
+            '': {}
+        });
+    }
+
+    const defProps = Object.keys(defs).reduce<Record<string,string>>((acc, modName) => {
+        acc[modName.slice(1)] = defs[modName];
+        return acc;
+    }, {});
+
     return (
         <Root>
             <div style={{ ...defaultStyles }} key={`${componentName}_${modName}`}>
                 {Object.keys(mods).map((modVal) => {
-                    const props = { [modName.slice(1)]: modVal };
+                    const props = { ...defProps, [modName.slice(1)]: modVal === 'true' ? true : '' };
+
                     return (
                         <span key={modVal} style={{ marginRight: '1rem', ...mods[modVal] }}>
                             <Component {...props}>
-                                hello {modName}_{modVal}
+                                hello {modName}_{modVal === '' ? 'false' : modVal}
                             </Component>
                         </span>
                     );
