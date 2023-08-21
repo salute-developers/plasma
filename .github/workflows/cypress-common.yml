@@ -57,10 +57,3 @@ jobs:
         with:
           name: Test Artifacts
           path: /home/runner/work/plasma/plasma/cypress
-
-      - name: Code Coverage ${{ inputs.scope }}
-        if: ${{ always() }}
-        uses: codecov/codecov-action@v2
-        with:
-          directory: cypress/plasma-${{ inputs.scope }}-coverage
-          flags: plasma-${{ inputs.scope }},plasma-core
