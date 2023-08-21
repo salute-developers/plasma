@@ -1,0 +1,8 @@
+comment: false
+
+github_checks: false
+
+coverage:
+  status:
+    patch: off
+    project: off
