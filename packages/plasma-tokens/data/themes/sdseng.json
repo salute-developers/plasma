@@ -83,10 +83,6 @@
                     "value": "linear-gradient(135deg, black 0%, #FFFFFF 100%)",
                     "comment": "Акцентный цвет с градиентом"
                 },
-                "textPositive": {
-                    "value": "#1A9E32",
-                    "comment": "Цвет успеха"
-                },
                 "textWarning": {
                     "value": "#FA5F05",
                     "comment": "Цвет предупреждения"
@@ -94,6 +90,10 @@
                 "textNegative": {
                     "value": "#FF293E",
                     "comment": "Цвет ошибки"
+                },
+                "textPositive": {
+                    "value": "#0492B9",
+                    "comment": "Цвет успеха"
                 }
             },
             "onDark": {
