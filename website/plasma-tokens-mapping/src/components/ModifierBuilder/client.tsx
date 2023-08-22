@@ -215,7 +215,7 @@ export function ModifierBuilder({ name, tokenAPI, componentName }: ModifierBuild
     const dispatch = useThemeDispatch();
 
     const modifier = theme.components[componentName].variations[name] || {};
-    const defaultValue = theme.components[componentName].defaults[name];
+    const defaultValue = theme.components[componentName]?.defaults?.[name];
 
     const isBool = Array.isArray(tokenAPI) ? false : tokenAPI.type === 'boolean';
     const hasMods = Object.keys(modifier).length !== 0;

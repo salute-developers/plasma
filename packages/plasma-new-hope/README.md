@@ -6,21 +6,46 @@
  npx lerna bootstrap --include-dependents --scope="@salutejs/plasma-new-hope"
 ```
 
-Пример Дизайн-Системы:
+### New Hope
+
+Пересборка:
+```
+cd packages/plasma-new-hope
+npm run build:css:watch
+```
+
+### Пример Дизайн-Системы:
 
 ```sh
  cd examples/example-design-system
  npm run storybook
 ```
 
-Token Mappings:
+### Token Mappings:
 
 ```
 cd website/plasma-tokens-mapping
 PORT=7777 PLASMA_DIR=../../  npm run dev
 ```
 
-DS Generator:
+**NB**
+
+Khown problems with build:
+
+
+```
+- error ../../packages/plasma-new-hope/es/components/Button/Button.js
+TypeError: Cannot create property 'message' on symbol 'Symbol(skip)'
+    at run.next (<anonymous>)
+    at Generator.next (<anonymous>)
+```
+
+fix:
+```
+rm -rf .next/cache
+```
+
+### DS Generator:
 
 **WIP**
 

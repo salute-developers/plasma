@@ -8,7 +8,7 @@ import { getThemes } from '../../../data';
 import { ThemeSwitch } from '../../../components/ThemeSwitch';
 import { ComponentBuilder } from '../../../components/ComponentBuilder';
 
-import { ThemeProvider, ThemeState } from '../../../state';
+import { ModifierTokensAPI, ThemeProvider, ThemeState } from '../../../state';
 
 const PLASMA_DIR = process.env.PLASMA_DIR!;
 const plasmaNewHopePath = path.join(PLASMA_DIR, 'packages/plasma-new-hope');
@@ -20,35 +20,32 @@ type QueryParams = {
 export default async function ComponentPage({ params, searchParams }: { params: { name: string }; searchParams?: QueryParams }) {
     const { name } = params;
 
-    console.log('>___<');
-    console.log(searchParams);
+    const activeTheme = searchParams?.theme || 'plasma_b2c';
 
-    const activeTheme = searchParams ? searchParams.theme : 'plasma_b2c';
-
+    console.log();
+    console.log('Active theme on server:', activeTheme);
+    console.log();
+    
     const componentDir = path.join(plasmaNewHopePath, 'src/components', name);
     const dirs = await fs.readdir(componentDir);
 
     const modDirs = dirs.filter((dir) => dir.startsWith('_'));
 
-    const modsAPI = {} as Record<string, Array<string>>;
+    const modsAPI = {} as Record<string, ModifierTokensAPI>;
 
     for (const modName of modDirs) {
         const tokens = await fs.readJSON(path.join(componentDir, modName, 'tokens.json'));
-
         modsAPI[modName] = tokens;
     }
 
     const themes = await getThemes();
     const theme = themes.find(theme => theme.name === activeTheme)!
 
-    console.log(theme);
-
     // TODO: improve typings
     const themeObj = (theme.value as unknown) as ThemeState;
     themeObj.name = theme.name;
 
     const componentTheme = ((theme.value as unknown) as ThemeState).components[name];
-
 
     return (
         <>
