@@ -6,7 +6,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button } from './Button';
 
 export default {
-    title: 'bootstrap/Button',
+    title: 'sds/Button',
     component: Button,
     argTypes: {},
 } as ComponentMeta<typeof Button>;

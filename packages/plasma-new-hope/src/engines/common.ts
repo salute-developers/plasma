@@ -82,6 +82,12 @@ export function mergeConfig(baseConfig: ComponentConfig, userConfig?: UserCompon
         }
     }
 
+    for (const key in baseConfig.defaults || {}) {
+        if (!(key in res.defaults)) {
+            res.defaults[key] = baseConfig.defaults[key];
+        }
+    }
+
     // TODO: intersections
 
     return res;
