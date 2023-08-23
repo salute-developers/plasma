@@ -47,11 +47,12 @@ rm -rf .next/cache
 
 ### DS Generator:
 
-**WIP**
-
 ```
 cd tools/plasma-ds-generator
-vim src
+
+npm ci 
+
+PATH_TO_THEMES=../../website/plasma-tokens-mapping/themes PATH_TO_DESTINATION_CONFIG=../../packages/plasma-new-hope/src/examples  ./bin/scipt.js
 ```
 
 ## TODO
@@ -62,7 +63,7 @@ vim src
 [] tokens-mapping: intersection
 [] tokens-mapping: default values for tokens
 [] new-hope: engine: filer props
-[] ds-generator: Генерация componentConfig из theme.json
+[x] ds-generator: Генерация componentConfig из theme.json
 [] new-hope: Типизация componentConfig
 [] new-hope: Типизация Button
 [] new-hope: Включить eslint

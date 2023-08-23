@@ -1,3 +1,3 @@
 # ds-generator
 
-bla-bla
+TODO: rewrite to ts or even better to ocliff
