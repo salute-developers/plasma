@@ -1,15 +1,9 @@
 import React from 'react';
 
-// import { styled } from '@linaria/react';
-// import { css } from '@linaria/core';
 import { cx } from '@linaria/core';
 
 import { getStaticVariants, getDynamicVariants, ComponentConfig } from './common';
 
-// TODO: tagResolver: (source, tag) => string
-// export { styled, css };
-
-// TODO: remove props => _view=primary
 /** linaria engine */
 export const _component = (componentConfig: ComponentConfig) => {
     const { tag, base, defaults, name } = componentConfig;
@@ -21,7 +15,28 @@ export const _component = (componentConfig: ComponentConfig) => {
         const variants = dynamicVarians({ ...defaults, ...rest });
         const cls = cx(className, base, ...staticVarians, ...variants);
 
-        return <Root className={cls} {...defaults} {...rest} />;
+        // styled-components do it inside
+        // filter props
+        const props: Record<string, any> = {};
+        for (const key in rest) {
+            if (!(key in componentConfig.variations)) {
+                props[key] = (rest as Record<string, any>)[key];
+            }
+        }
+
+        // styled-components do it inside
+        // add props that should be attr( disabled for example)
+        const htmlAttrs: Record<string, any> = {};
+        for (const [key, value] of Object.entries(componentConfig.variations || {})) {
+            if (key in rest) {
+                const attrs = value.attrs;
+                if (typeof attrs === 'boolean') {
+                    htmlAttrs[key] = (rest as Record<string, any>)[key];
+                }
+            }
+        }
+
+        return <Root className={cls} {...htmlAttrs} {...props} />;
     };
     if (name) {
         component.displayName = name;
@@ -33,3 +48,5 @@ export const _component = (componentConfig: ComponentConfig) => {
 export function component(config: ComponentConfig) {
     return config.layout(_component(config));
 }
+
+

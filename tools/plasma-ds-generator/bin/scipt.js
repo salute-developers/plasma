@@ -122,7 +122,7 @@ const noModKeys = t.key(key => key.replace('_', ''));
 
 function tmplCompConfig(config) {
 
-    const meta = { hasCss: false };
+    const meta = { needCssImport: false };
 
     const transform = t({
         defaults: noModKeys(),
@@ -144,7 +144,7 @@ function tmplCompConfig(config) {
 
 // TODO: import { css } from 'plasma-new-hope';
 function tmplImportCss(meta) {
-    if (meta.hasCss) {
+    if (meta.needCssImport) {
         return '\n' + "import { css } from '@linaria/core';" + '\n';
     } else {
         return '';
@@ -157,13 +157,10 @@ function tokensToCss(meta, indention = 4) {
         const __ = ' '.repeat(indention * (level + 1));
 
         const res = ['css`'];
+        meta.needCssImport = true;
 
         for (const token of Object.keys(tokens)) {
             res.push(`${__}${token}: ${tokens[token]};`);
-        }
-
-        if (res.length > 1) {
-            meta.hasCss = true;
         }
 
         res.push(_ + '`');

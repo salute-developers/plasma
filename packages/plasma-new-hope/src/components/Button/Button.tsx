@@ -71,6 +71,7 @@ export const buttonConfig: ComponentConfig = {
         },
         disabled: {
             css: disabled,
+            attrs: true
         },
         focused: {
             css: focused,

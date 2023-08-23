@@ -57,13 +57,21 @@ PATH_TO_THEMES=../../website/plasma-tokens-mapping/themes PATH_TO_DESTINATION_CO
 
 ## TODO
 
+[] tokens-mapping: Dark / Light Theme
+[] tokens-mapping: switch tokens with theme
+[] new-hope: storybook ThemeSwitch
+[] new-hope: Button: pin
+[] new-hope: Button: plasma-b2c
+[] new-hope: sds => sds-eng
+[] new-hope: Button: sds-eng
 [x] tokens-mapping: defaults saving
 [x] tokens-mapping: boolean modifier
 [] tokens-mapping: state vc modifier ???
-[] tokens-mapping: intersection
+[] tokens-mapping: intersection ???
 [] tokens-mapping: default values for tokens
-[] new-hope: engine: filer props
+[x] new-hope: engine: linaria filter props
 [x] ds-generator: Генерация componentConfig из theme.json
+[x] ds-generator: examples plasma-new-hope
 [] new-hope: Типизация componentConfig
 [] new-hope: Типизация Button
 [] new-hope: Включить eslint
@@ -72,11 +80,13 @@ PATH_TO_THEMES=../../website/plasma-tokens-mapping/themes PATH_TO_DESTINATION_CO
 [] new-hope: Icon
 [] new-hope: Typography
 [] new-hope: Spin
+[] new-hope: Button: isLoading
 [] new-hope: TextField
 [] new-hope: TextArea
-[] example: Переключение engines
+[x] new-hope: storybook: linaria
+[x] new-hope: storybook: styled-components
+[] example: Переключение engines ???
 [] tokens-mapping: Включить eslint
-[] tokens-mapping: Dark / Light Theme
 [] example-ds: Dark / Light Theme
 [] plasma-hope: Замена plasma-b2c/web:Button => plasma-new-hope:Button
 [] new-hope: Link
@@ -84,5 +94,5 @@ PATH_TO_THEMES=../../website/plasma-tokens-mapping/themes PATH_TO_DESTINATION_CO
 [] tokens-mapping: AutoComplete токенов из theme-builder
 [] new-hope: Сборка в emotion
 [] ds-generator: Включить eslint
-[] ds-generator: Генерация компонент??
+[] ds-generator: Генерация компонент
 [] ds-generator: Геренрация stories

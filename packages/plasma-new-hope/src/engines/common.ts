@@ -53,6 +53,7 @@ export function getDynamicVariants(config: ComponentConfig /* extra = {} */) {
 export type Variant = {
     // should we name it css or base ??
     css?: any;
+    attrs?: boolean;
 } & Record<string, any>;
 
 export interface ComponentConfig {
@@ -79,6 +80,9 @@ export function mergeConfig(baseConfig: ComponentConfig, userConfig?: UserCompon
         // copy variations base css
         for (const key in res.variations) {
             res.variations[key].css = baseConfig.variations[key].css;
+            if (baseConfig.variations[key].attrs) {
+                res.variations[key].attrs = baseConfig.variations[key].attrs;
+            }
         }
     }
 
