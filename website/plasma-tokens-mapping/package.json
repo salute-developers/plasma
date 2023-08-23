@@ -3,9 +3,9 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start",
+        "dev": "PLASMA_DIR=../.. next dev",
+        "build": "PLASMA_DIR=../.. next build",
+        "start": "PLASMA_DIR=../.. next start",
         "lint": "next lint"
     },
     "dependencies": {
