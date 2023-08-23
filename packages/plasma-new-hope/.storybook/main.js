@@ -1,7 +1,9 @@
 const linaria = require('@linaria/vite').default;
 
+const USE_STYLED_COMPONENTS = process.env.USE_STYLED_COMPONENTS || false;
+
 module.exports = {
-    stories: ['../src/**/*.stories.tsx'],
+    stories: USE_STYLED_COMPONENTS ? ['../src-sc/**/*.stories.tsx'] : ['../src/**/*.stories.tsx'],
     addons: ['@storybook/addon-essentials'],
     framework: '@storybook/react',
     core: {

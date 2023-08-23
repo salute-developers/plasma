@@ -1,18 +1,14 @@
+
+types
+
+# css via linaria
 cjs
 es
+
+# styled-components
+src-sc
 styled-components
 !styled-components/package.json
 
 
-/components
-/hocs
-/hooks
-/mixins
-/node_modules
-/tokens
-/types
-/utils
-/index.*
-/collectPackageInfo.*
-/helpers
-
+node_modules

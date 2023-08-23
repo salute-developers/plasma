@@ -2,7 +2,7 @@
     "name": "@salutejs/plasma-new-hope",
     "version": "0.0.0",
     "description": "Salute Design System blueprint",
-    "main": "index.js",
+    "main": "cjs/index.js",
     "module": "es/index.js",
     "types": "types/index.d.ts",
     "files": [
@@ -29,7 +29,9 @@
         "generate:typings:css": "tsc --outDir types --emitDeclarationOnly",
         "generate:typings:styled-components": "",
         "generate:typings": "npm run generate:typings:css && npm run generate:typings:styled-components",
-        "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -s .storybook/public -p ${PORT:-7002} -c .storybook"
+        "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -s .storybook/public -p ${PORT:-7002} -c .storybook",
+        "prestorybook:sc":"npm run prebuild:styled-components",
+        "storybook:sc": "USE_STYLED_COMPONENTS=true NODE_OPTIONS=--openssl-legacy-provider start-storybook -s .storybook/public -p ${PORT:-7002} -c .storybook"
     },
     "repository": {
         "type": "git",
