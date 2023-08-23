@@ -15,7 +15,7 @@
         "access": "public"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "echo \"Error: no test specified\"",
         "prepare": "npm run build",
         "build": "npm run build:css && npm run build:styled-components",
         "postbuild": "npm run generate:typings",
