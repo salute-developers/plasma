@@ -76,6 +76,7 @@ import { Warning } from './Icon.assets/Warning';
 // AV
 import { CamReverse } from './Icon.assets/CamReverse';
 import { CameraVideo } from './Icon.assets/CameraVideo';
+import { CameraVideoFill } from './Icon.assets/CameraVideoFill';
 import { VideoOff } from './Icon.assets/VideoOff';
 import { Mic } from './Icon.assets/Mic';
 import { MicNone } from './Icon.assets/MicNone';
@@ -262,6 +263,7 @@ export const iconSectionsSet = {
     av: {
         camReverse: CamReverse,
         cameraVideo: CameraVideo,
+        cameraVideoFill: CameraVideoFill,
         videoOff: VideoOff,
         mic: Mic,
         micNone: MicNone,
