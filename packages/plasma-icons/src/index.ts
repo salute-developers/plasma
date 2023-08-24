@@ -74,6 +74,7 @@ export { IconWarning } from './Icons/IconWarning';
 // AV
 export { IconCamReverse } from './Icons/IconCamReverse';
 export { IconCameraVideo } from './Icons/IconCameraVideo';
+export { IconCameraVideoFill } from './Icons/IconCameraVideoFill';
 export { IconVideoOff } from './Icons/IconVideoOff';
 export { IconMic } from './Icons/IconMic';
 export { IconMicNone } from './Icons/IconMicNone';
