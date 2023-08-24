@@ -76,6 +76,7 @@ jobs:
           --bucket-location ${{ secrets.AWS_REGION }}
           --signature-v2
           --no-mime-magic
+          --no-preserve
           sync
           s3://${{ secrets.AWS_S3_BUCKET_2 }}/perftool-cache/
           ./.perftool/cache/
@@ -97,6 +98,7 @@ jobs:
           --bucket-location ${{ secrets.AWS_REGION }}
           --signature-v2
           --no-mime-magic
+          --no-preserve
           sync
           ./.perftool/cache/
           s3://${{ secrets.AWS_S3_BUCKET_2 }}/perftool-cache/
