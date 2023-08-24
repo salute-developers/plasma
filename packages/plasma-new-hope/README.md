@@ -76,6 +76,7 @@ PATH_TO_THEMES=../../website/plasma-tokens-mapping/themes PATH_TO_DESTINATION_CO
 [] new-hope: Типизация Button
 [] new-hope: Включить eslint
 [] new-hope: Переписать сборку new-hope на rollup
+[] new-hope: Починить сборку в commonJS 
 [] example-ds: Сборка example-design-system на конфигах new-hope
 [] new-hope: Icon
 [] new-hope: Typography
