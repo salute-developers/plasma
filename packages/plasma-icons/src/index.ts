@@ -147,6 +147,7 @@ export { IconCallMissedFill } from './Icons/IconCallMissedFill';
 export { IconCallOutgoingFill } from './Icons/IconCallOutgoingFill';
 
 export { IconMessage } from './Icons/IconMessage';
+export { IconMessageChatFill } from './Icons/IconMessageChatFill';
 export { IconFeedback } from './Icons/IconFeedback';
 // Files
 export { IconCardstack } from './Icons/IconCardstack';
