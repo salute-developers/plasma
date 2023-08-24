@@ -148,6 +148,7 @@ import { CallIncomingFill } from './Icon.assets/CallIncomingFill';
 import { CallMissedFill } from './Icon.assets/CallMissedFill';
 import { CallOutgoingFill } from './Icon.assets/CallOutgoingFill';
 import { Message } from './Icon.assets/Message';
+import { MessageChatFill } from './Icon.assets/MessageChatFill';
 import { Feedback } from './Icon.assets/Feedback';
 // Files
 import { Cardstack } from './Icon.assets/Cardstack';
@@ -338,6 +339,7 @@ export const iconSectionsSet = {
         callMissedFill: CallMissedFill,
         callOutgoingFill: CallOutgoingFill,
         message: Message,
+        messageChatFill: MessageChatFill,
         feedback: Feedback,
     },
     files: {
