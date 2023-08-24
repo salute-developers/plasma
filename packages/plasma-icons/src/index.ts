@@ -172,6 +172,7 @@ export { IconPip1 } from './Icons/IconPip1';
 export { IconStoreGamepad } from './Icons/IconStoreGamepad';
 export { IconStoreRemote } from './Icons/IconStoreRemote';
 export { IconTicket } from './Icons/IconTicket';
+export { IconSberSpasibo } from './Icons/IconSberSpasibo';
 // Logo
 export { IconSalute } from './Icons/IconSalute';
 export { IconSaluteCircle } from './Icons/IconSaluteCircle';

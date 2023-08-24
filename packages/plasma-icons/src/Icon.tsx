@@ -173,6 +173,7 @@ import { Pip1 } from './Icon.assets/Pip1';
 import { StoreGamepad } from './Icon.assets/StoreGamepad';
 import { StoreRemote } from './Icon.assets/StoreRemote';
 import { Ticket } from './Icon.assets/Ticket';
+import { SberSpasibo } from './Icon.assets/SberSpasibo';
 // Logo
 import { Salute } from './Icon.assets/Salute';
 import { SaluteCircle } from './Icon.assets/SaluteCircle';
@@ -365,6 +366,7 @@ export const iconSectionsSet = {
         storeGamepad: StoreGamepad,
         storeRemote: StoreRemote,
         ticket: Ticket,
+        sberSpasibo: SberSpasibo,
     },
     logo: {
         salute: Salute,
