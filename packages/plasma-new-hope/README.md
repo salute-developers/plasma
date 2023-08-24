@@ -57,8 +57,7 @@ PATH_TO_THEMES=../../website/plasma-tokens-mapping/themes PATH_TO_DESTINATION_CO
 
 ## TODO
 
-[] tokens-mapping: Dark / Light Theme
-[] tokens-mapping: switch tokens with theme
+[x] tokens-mapping: Dark / Light Theme
 [] new-hope: storybook ThemeSwitch
 [] new-hope: Button: pin
 [] new-hope: Button: plasma-b2c
@@ -69,6 +68,7 @@ PATH_TO_THEMES=../../website/plasma-tokens-mapping/themes PATH_TO_DESTINATION_CO
 [] tokens-mapping: state vc modifier ???
 [] tokens-mapping: intersection ???
 [] tokens-mapping: default values for tokens
+[] tokens-mapping: merge tokens with theme
 [x] new-hope: engine: linaria filter props
 [x] ds-generator: Генерация componentConfig из theme.json
 [x] ds-generator: examples plasma-new-hope

@@ -6,6 +6,7 @@ import path from 'path';
 import { getThemes } from '../../../data';
 
 import { ThemeSwitch } from '../../../components/ThemeSwitch';
+import { ThemeSwitchStyle } from '../../../components/ThemeSwitchStyle'
 import { ComponentBuilder } from '../../../components/ComponentBuilder';
 
 import { ModifierTokensAPI, ThemeProvider, ThemeState } from '../../../state';
@@ -54,7 +55,7 @@ export default async function ComponentPage({ params, searchParams }: { params: 
                     name={name}
                     theme={componentTheme}
                     variationsAPI={modsAPI}
-                    themeSwitcher={<ThemeSwitch active={activeTheme} />}
+                    themeSwitcher={<><ThemeSwitchStyle /><ThemeSwitch active={activeTheme} /></>}
                 />
             </ThemeProvider>
 
