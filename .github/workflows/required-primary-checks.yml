@@ -24,12 +24,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
 
       - name: Lerna bootstrap
-        run: npx lerna bootstrap
+        run: npx lerna bootstrap --since=$(git merge-base --fork-point origin/dev)
 
       - name: Lint
         run: npm run lint
