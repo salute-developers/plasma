@@ -6,14 +6,7 @@
     "exact": true,
     "command": {
         "bootstrap": {
-            "npmClientArgs": [
-                "--no-audit",
-                "--no-optional",
-                "--loglevel error",
-                "--no-progress",
-                "--unsafe-perm",
-                "--prefer-offline"
-            ]
+            "npmClientArgs": ["--no-audit", "--no-optional", "--loglevel error", "--no-progress", "--unsafe-perm"]
         },
         "publish": {
             "verifyAccess": false
