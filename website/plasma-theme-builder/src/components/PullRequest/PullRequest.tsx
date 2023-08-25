@@ -29,6 +29,24 @@ const Header = styled(H5)`
     margin-bottom: 1rem;
 `;
 
+const Links = styled.div`
+    margin-top: 2rem;
+
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+`;
+
+const LinkWrapper = styled.div``;
+
+const getFilesPath = (name: string) => ({
+    theme: `packages/plasma-tokens/data/themes/${name}.json`,
+});
+
+const getFilesTree = (themeContent: string, name: string) => ({
+    [getFilesPath(name).theme]: themeContent,
+});
+
 const statusMap: Record<number, string> = {
     [Steps.INIT]: 'Подготовка...',
     [Steps.CREATE_BRANCH]: 'Создание новой ветки...',
@@ -54,6 +72,7 @@ export const PullRequest = ({ data, token, branchNameFromParam }: PullRequestPro
 
     const [step, createPullRequest] = useRunGithubPRProcess({ owner, repo });
     const [pullRequestLink, setPullRequestLink] = useState<string | undefined>('');
+    const [continueEditLink, setContinueEditLink] = useState<string | undefined>('');
 
     useEffect(() => {
         if (step) {
@@ -93,6 +112,7 @@ export const PullRequest = ({ data, token, branchNameFromParam }: PullRequestPro
             const link = (Array.isArray(result?.data) ? result?.data[0] : result?.data).html_url;
 
             setPullRequestLink(link);
+            setContinueEditLink(`?theme=${themeName}&branch=${branchNameFromParam}`);
         };
 
         getResult();
@@ -103,9 +123,16 @@ export const PullRequest = ({ data, token, branchNameFromParam }: PullRequestPro
             <ProgressGroup>
                 <Header>Статус работы с пул-реквестом в Github</Header>
                 {pullRequestLink ? (
-                    <Link target="_blank" href={pullRequestLink}>
-                        Ссылка на реквест
-                    </Link>
+                    <Links>
+                        <LinkWrapper>
+                            <Link href={continueEditLink}>Продолжить редактировать тему</Link>
+                        </LinkWrapper>
+                        <LinkWrapper>
+                            <Link target="_blank" href={pullRequestLink}>
+                                Ссылка на пул-реквест в GitHub
+                            </Link>
+                        </LinkWrapper>
+                    </Links>
                 ) : (
                     <>
                         <Status>{statusMap[step]}</Status>
