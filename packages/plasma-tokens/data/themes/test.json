@@ -59,10 +59,6 @@
         },
         "text": {
             "default": {
-                "textAccent": {
-                    "value": "#18EEF2",
-                    "comment": "Акцентный цвет"
-                },
                 "textAccentGradient": {
                     "value": "linear-gradient(135deg, black 0%, #18EEF2 100%)",
                     "comment": "Акцентный цвет с градиентом"
@@ -114,6 +110,10 @@
                 "textTransparentWarning": {
                     "value": "rgba(250, 95, 5, 0.12)",
                     "comment": "Прозрачный цвет предупреждения"
+                },
+                "textAccent": {
+                    "value": "#FF1F78",
+                    "comment": "Акцентный цвет"
                 }
             },
             "onDark": {
