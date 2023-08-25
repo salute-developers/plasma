@@ -1,15 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { getFilesSource } from '../api';
-import type { Theme as ThemeType } from '../types';
+import { getFullThemeName, getThemeData, loadTheme } from '../utils';
 
-const getThemeData = async (
-    themeName: string,
-    branchName?: string,
-    owner = 'salute-developers',
-    repo = 'plasma',
-    token?: string,
-) => getFilesSource(undefined, owner, repo, `packages/plasma-tokens/data/themes/${themeName}.json`, branchName, token);
+import type { Theme as ThemeType } from '../types';
 
 export const useFetchTheme = (themeName?: string, branchName?: string) => {
     const [response, setResponse] = useState<ThemeType | undefined>();
@@ -20,11 +13,17 @@ export const useFetchTheme = (themeName?: string, branchName?: string) => {
             return;
         }
 
+        const fullThemeName = getFullThemeName(themeName, branchName);
+        const result = loadTheme(fullThemeName)?.themeData;
+        if (result) {
+            setResponse(result);
+            return;
+        }
+
         const fetchData = async () => {
             try {
-                const rawData = await getThemeData(themeName, branchName);
-                const dataObject = JSON.parse(rawData);
-                setResponse(dataObject);
+                const themeData = await getThemeData(themeName, branchName);
+                setResponse(themeData);
             } catch (err) {
                 setErrorMessage(`Тема "${themeName}" не найдена в репозитории.`);
                 console.error(err);

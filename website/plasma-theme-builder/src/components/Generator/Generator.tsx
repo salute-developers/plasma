@@ -7,7 +7,16 @@ import { Grayscale } from '@salutejs/plasma-tokens-utils';
 import { FormField } from '../FormField/FormField';
 
 import { createTheme } from '../../builder/createTheme';
-import { deleteTheme, getAccentColors, getSavedThemes, getSaturations, loadTheme } from '../../utils';
+import {
+    deleteTheme,
+    getAccentColors,
+    getSavedThemes,
+    getSaturations,
+    loadTheme,
+    pushURLParams,
+    createThemeURLParams,
+} from '../../utils';
+
 import type { ThemeData, Theme as ThemeType } from '../../types';
 
 const Form = styled.form``;
@@ -182,11 +191,15 @@ export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
     const grayscale = useMemo(() => getGrayscale(), []);
 
     const onLoadTheme = useCallback(() => {
-        if (!data.savedTheme) {
+        const { savedTheme } = data;
+
+        if (!savedTheme) {
             return;
         }
 
-        const theme = loadTheme(data.savedTheme);
+        const theme = loadTheme(savedTheme);
+        const params = createThemeURLParams(savedTheme);
+        pushURLParams(params);
 
         if (!theme) {
             return;
@@ -196,14 +209,16 @@ export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
     }, [onPreviewTheme, data]);
 
     const onDeleteTheme = useCallback(() => {
-        if (!data.savedTheme) {
+        const { savedTheme } = data;
+
+        if (!savedTheme) {
             return;
         }
 
-        const themes = savedThemes.filter((item) => item.value !== data.savedTheme);
+        const themes = savedThemes.filter((item) => item.value !== savedTheme);
 
         setSavedThemes(themes);
-        deleteTheme(data.savedTheme);
+        deleteTheme(savedTheme);
     }, [data, savedThemes]);
 
     return (

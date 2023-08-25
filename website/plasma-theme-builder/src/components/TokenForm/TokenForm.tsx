@@ -252,6 +252,7 @@ export const TokenForm = ({
                     <StyledTextField
                         size="s"
                         name="comment"
+                        readOnly={canRename}
                         value={comment?.value}
                         status={comment?.status}
                         helperText={comment?.helpText}
