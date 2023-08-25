@@ -131,7 +131,7 @@ export const Token = ({ section, subsection, name, data }: TokenProps) => {
         });
     }, [onTokenEnabled, tokenInfo, enabled]);
 
-    const canDelete = defaultData && !defaultData['dark'][section][subsection][name];
+    const canDelete = defaultData && !defaultData['dark'][section]?.[subsection][name];
 
     return (
         <StyledToken enabled={enabled}>
