@@ -11,16 +11,8 @@ export const getUUID = () => {
     return pluginClientId;
 };
 
-export const getURLParams = (params: string[]) => {
-    const paramsFromURL = new URL(window.location.toString()).searchParams;
-
-    return params.reduce((acc: (string | undefined)[], param) => {
-        acc.push(paramsFromURL.get(param) || undefined);
-        return acc;
-    }, []);
-};
-
-export const getFormatDate = (date: Date) => {
+export const getFormatDate = (date: string) => {
+    const newDate = new Date(date);
     const formatter = new Intl.DateTimeFormat('ru-RU', {
         day: '2-digit',
         month: '2-digit',
@@ -30,7 +22,5 @@ export const getFormatDate = (date: Date) => {
         second: '2-digit',
     });
 
-    return formatter.format(date).replace(/,/, '');
+    return formatter.format(newDate).replace(/,/, '');
 };
-
-export const clearURLParam = () => (window.location.href = '/');

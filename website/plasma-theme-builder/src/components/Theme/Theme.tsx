@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { Button, H4 } from '@salutejs/plasma-b2c';
 import { IconPlus, IconCross } from '@salutejs/plasma-icons';
@@ -10,8 +10,7 @@ import { TokensSection } from '../TokensSection/TokensSection';
 import { TokenForm } from '../TokenForm/TokenForm';
 import { AddTokenSection } from '../AddTokenSection/AddTokenSection';
 
-import { useNormalizeThemeSections } from '../../hooks';
-import { TokenContext, saveTheme } from '../../utils';
+import { TokenContext, getResetThemeData, saveTheme, getNormalizeThemeSections } from '../../utils';
 import { emptyInputData } from '../../types';
 import type { InputData, Theme as ThemeType } from '../../types';
 
@@ -41,10 +40,12 @@ const ThemeControls = styled.div`
     margin-top: 1rem;
 `;
 
-const StyledButton = styled(Button)`
-    display: block;
+const StyledButtons = styled.div`
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-end;
+
     margin: 2rem 0;
-    margin-left: auto;
 `;
 
 const IconButton = styled(Button)``;
@@ -52,12 +53,13 @@ const IconButton = styled(Button)``;
 interface ThemeProps {
     data?: ThemeType;
     defaultData?: ThemeType;
+    themeNameFromParam?: string;
     branchNameFromParam?: string;
     onPullRequest: (data: ThemeType) => void;
 }
 
-export const Theme = ({ data, defaultData, branchNameFromParam, onPullRequest }: ThemeProps) => {
-    const initialThemeData = useNormalizeThemeSections(data);
+export const Theme = ({ data, defaultData, themeNameFromParam, branchNameFromParam, onPullRequest }: ThemeProps) => {
+    const initialThemeData = useMemo(() => getNormalizeThemeSections(data), [data]);
 
     const [themeData, setThemeData] = useState(initialThemeData);
     const [themeMode, setThemMode] = useState<ThemeMode>('dark');
@@ -184,11 +186,17 @@ export const Theme = ({ data, defaultData, branchNameFromParam, onPullRequest }:
         }
     }, [onPullRequest, themeData]);
 
+    const onResetTheme = useCallback(async () => {
+        const theme = await getResetThemeData(themeData, themeNameFromParam, branchNameFromParam);
+        const normalizedTheme = getNormalizeThemeSections(theme);
+        onThemeDataChange(normalizedTheme);
+    }, [themeNameFromParam, branchNameFromParam, themeData, onThemeDataChange]);
+
     useEffect(() => {
         if (themeData) {
-            saveTheme(themeData);
+            saveTheme(themeData, themeNameFromParam, branchNameFromParam);
         }
-    }, [themeData]);
+    }, [themeData, themeNameFromParam, branchNameFromParam]);
 
     if (!themeData) {
         return null;
@@ -255,11 +263,14 @@ export const Theme = ({ data, defaultData, branchNameFromParam, onPullRequest }:
                     </TokenContext.Provider>
                 ))}
             </Content>
-            <StyledButton
-                text={`Подтвердить ${branchNameFromParam ? 'редактирование' : 'создание'} темы`}
-                view="primary"
-                onClick={onCreateTheme}
-            />
+            <StyledButtons>
+                <Button text={`Сбросить прогресс редактирования`} view="secondary" onClick={onResetTheme} />
+                <Button
+                    text={`Подтвердить ${branchNameFromParam ? 'редактирование' : 'создание'} темы`}
+                    view="primary"
+                    onClick={onCreateTheme}
+                />
+            </StyledButtons>
         </StyledTheme>
     );
 };

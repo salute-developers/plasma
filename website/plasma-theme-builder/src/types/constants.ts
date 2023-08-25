@@ -1,3 +1,4 @@
+export const BASE_PREFIX = 'base';
 export const THEME_BUILDER_PREFIX = 'theme-builder';
 
 export const baseColors = {

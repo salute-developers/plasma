@@ -11,7 +11,7 @@ import { PullRequest } from './PullRequest/PullRequest';
 import { useDefaultThemeData, useFetchTheme } from '../hooks';
 import { multipleMediaQuery } from './mixins';
 import { clearURLParam, getURLParams } from '../utils';
-import type { PageType, Theme as ThemeType } from '../types';
+import type { Theme as ThemeType } from '../types';
 
 const StyledRoot = styled.div`
     min-width: 35rem;
@@ -30,8 +30,18 @@ const StyledRoot = styled.div`
     flex-direction: column;
 `;
 
+const PAGE_TYPE = {
+    MAIN: 'MAIN',
+    GENERATOR: 'GENERATOR',
+    THEME: 'THEME',
+    PULL_REQUEST: 'PULL_REQUEST',
+    ERROR: 'ERROR',
+} as const;
+
+type PageType = typeof PAGE_TYPE[keyof typeof PAGE_TYPE];
+
 const App = () => {
-    const [state, setState] = useState<PageType>('main');
+    const [state, setState] = useState<PageType>(PAGE_TYPE.MAIN);
     const [data, setData] = useState<ThemeType>();
     const [token, setToken] = useState<string | undefined>();
     const defaultData = useDefaultThemeData();
@@ -45,13 +55,13 @@ const App = () => {
         }
 
         if (themeData) {
-            setState('theme');
+            setState(PAGE_TYPE.THEME);
             setData(themeData);
             return;
         }
 
         if (errorMessage) {
-            setState('error');
+            setState(PAGE_TYPE.ERROR);
         }
     }, [themeData, token, errorMessage]);
 
@@ -60,38 +70,39 @@ const App = () => {
     }, []);
 
     const onMain = useCallback(() => {
-        setState('main');
+        setState(PAGE_TYPE.MAIN);
         clearURLParam();
     }, []);
 
     const onGenerateTheme = useCallback(() => {
-        setState('generator');
+        setState(PAGE_TYPE.GENERATOR);
     }, []);
 
     const onPreviewTheme = useCallback((data: ThemeType) => {
-        setState('theme');
+        setState(PAGE_TYPE.THEME);
         setData(data);
     }, []);
 
     const onPullRequest = useCallback((data: ThemeType) => {
-        setState('pull-request');
+        setState(PAGE_TYPE.PULL_REQUEST);
         setData(data);
     }, []);
 
     return (
         <StyledRoot>
-            {state === 'main' && <Main onSetToken={onSetToken} onGenerateTheme={onGenerateTheme} />}
-            {state === 'generator' && <Generator onPreviewTheme={onPreviewTheme} />}
-            {state === 'theme' && (
+            {state === PAGE_TYPE.MAIN && <Main onSetToken={onSetToken} onGenerateTheme={onGenerateTheme} />}
+            {state === PAGE_TYPE.GENERATOR && <Generator onPreviewTheme={onPreviewTheme} />}
+            {state === PAGE_TYPE.THEME && (
                 <Theme
                     data={data}
                     defaultData={defaultData}
+                    themeNameFromParam={themeName}
                     branchNameFromParam={branchName}
                     onPullRequest={onPullRequest}
                 />
             )}
-            {state === 'pull-request' && <PullRequest branchNameFromParam={branchName} data={data} token={token} />}
-            {state === 'error' && <Error message={errorMessage} onMain={onMain} />}
+            {state === PAGE_TYPE.PULL_REQUEST && <PullRequest data={data} token={token} />}
+            {state === PAGE_TYPE.ERROR && <Error message={errorMessage} onMain={onMain} />}
             <Footer />
         </StyledRoot>
     );
