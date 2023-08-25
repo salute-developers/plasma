@@ -15,8 +15,6 @@ jobs:
   publish:
     name: Publish canary version
     uses: ./.github/workflows/publish-common.yml
-    with:
-      cmd: 'bootstrap:since'
     secrets:
       gh_token: ${{ secrets.GH_TOKEN }}
       npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
