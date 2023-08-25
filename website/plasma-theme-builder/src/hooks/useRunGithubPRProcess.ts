@@ -11,7 +11,6 @@ import {
     updateCommit,
     getPullRequestList,
 } from '../api';
-import { deleteTheme } from '../utils';
 import { THEME_BUILDER_PREFIX, Steps } from '../types';
 
 interface RunProcessGithubPR {
@@ -95,7 +94,6 @@ export const useRunGithubPRProcess = ({ owner, repo }: RunProcessGithubPR) => {
             }
 
             setStep(Steps.DONE);
-            deleteTheme(branchName);
             return pullRequest;
         },
         [owner, repo],

@@ -5,8 +5,6 @@ import type { Swift, XML, Theme as ThemeType } from '.';
 
 export type ComplexValue = string | Record<string, string> | MultiplatformValue | Array<MultiplatformValue>;
 
-export type PageType = 'main' | 'generator' | 'theme' | 'pull-request' | 'error';
-
 export type GeneralColor = keyof typeof generalColors;
 
 export interface TokenValue {
@@ -71,5 +69,6 @@ export interface TokenContextHandlers {
 
 export interface SavedTheme {
     themeData: ThemeType;
-    date: Date;
+    date: string;
+    branchName?: string;
 }

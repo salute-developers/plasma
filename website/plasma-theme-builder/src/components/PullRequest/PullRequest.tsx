@@ -1,13 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { BodyS, H5, Link, Progress } from '@salutejs/plasma-b2c';
 import { tertiary } from '@salutejs/plasma-tokens-b2c';
 
 import { getDefaultBranch } from '../../api';
 import { useRunGithubPRProcess } from '../../hooks';
-import { Steps } from '../../types';
+import { BASE_PREFIX, Steps, THEME_BUILDER_PREFIX } from '../../types';
 import type { Theme as ThemeType } from '../../types';
-import { getBrands, getFilesTree, getThemes, getThemesTokenSet } from '../../utils';
+import {
+    getBrands,
+    getFilesTree,
+    getURLParams,
+    getThemes,
+    getThemesTokenSet,
+    rewriteTheme,
+    createURL,
+} from '../../utils';
 
 const StyledPullRequest = styled.div`
     margin: 2rem 0;
@@ -16,6 +24,7 @@ const StyledPullRequest = styled.div`
 
 const ProgressGroup = styled.div`
     padding: 1rem;
+    margin-bottom: 1rem;
 
     border: 1px solid ${tertiary};
     border-radius: 0.5rem;
@@ -39,14 +48,6 @@ const Links = styled.div`
 
 const LinkWrapper = styled.div``;
 
-const getFilesPath = (name: string) => ({
-    theme: `packages/plasma-tokens/data/themes/${name}.json`,
-});
-
-const getFilesTree = (themeContent: string, name: string) => ({
-    [getFilesPath(name).theme]: themeContent,
-});
-
 const statusMap: Record<number, string> = {
     [Steps.INIT]: 'Подготовка...',
     [Steps.CREATE_BRANCH]: 'Создание новой ветки...',
@@ -63,16 +64,19 @@ const statusMap: Record<number, string> = {
 interface PullRequestProps {
     data?: ThemeType;
     token?: string;
-    branchNameFromParam?: string;
 }
 
-export const PullRequest = ({ data, token, branchNameFromParam }: PullRequestProps) => {
+export const PullRequest = ({ data, token }: PullRequestProps) => {
     const owner = 'salute-developers';
     const repo = 'plasma';
 
     const [step, createPullRequest] = useRunGithubPRProcess({ owner, repo });
     const [pullRequestLink, setPullRequestLink] = useState<string | undefined>('');
     const [continueEditLink, setContinueEditLink] = useState<string | undefined>('');
+    const [themeNameFromParam, branchNameFromParam] = getURLParams(['theme', 'branch']);
+
+    const themeName = themeNameFromParam || data?.config.name || 'default';
+    const branchName = `${THEME_BUILDER_PREFIX}-${themeName}`;
 
     useEffect(() => {
         if (step) {
@@ -110,22 +114,37 @@ export const PullRequest = ({ data, token, branchNameFromParam }: PullRequestPro
             });
 
             const link = (Array.isArray(result?.data) ? result?.data[0] : result?.data).html_url;
-
             setPullRequestLink(link);
-            setContinueEditLink(`?theme=${themeName}&branch=${branchNameFromParam}`);
+
+            const linkToContinue = createURL([
+                ['theme', themeName],
+                ['branch', branchName],
+            ]);
+            setContinueEditLink(linkToContinue);
         };
 
         getResult();
-    }, [createPullRequest, branchNameFromParam, data, step, token]);
+    }, [branchName, branchNameFromParam, createPullRequest, data, step, themeName, themeNameFromParam, token]);
+
+    const onContinueEditClick = useCallback(() => {
+        if (!themeNameFromParam && !branchNameFromParam) {
+            rewriteTheme(themeName, branchName);
+        }
+        if (themeNameFromParam && !branchNameFromParam) {
+            rewriteTheme(`${BASE_PREFIX}-${themeName}`, branchName);
+        }
+    }, [branchName, branchNameFromParam, themeName, themeNameFromParam]);
 
     return (
         <StyledPullRequest>
             <ProgressGroup>
-                <Header>Статус работы с пул-реквестом в Github</Header>
+                <Header>Статус работы с созданной темой</Header>
                 {pullRequestLink ? (
                     <Links>
                         <LinkWrapper>
-                            <Link href={continueEditLink}>Продолжить редактировать тему</Link>
+                            <Link onClick={onContinueEditClick} href={continueEditLink}>
+                                Продолжить редактировать тему
+                            </Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link target="_blank" href={pullRequestLink}>
