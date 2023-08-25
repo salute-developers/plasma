@@ -18,16 +18,16 @@ export const saveTheme = (themeData: ThemeType) => {
         date: new Date(),
     };
 
-    window.sessionStorage.setItem(`${THEME_BUILDER_PREFIX}-${themeData.config.name}`, JSON.stringify(data));
+    window.localStorage.setItem(`${THEME_BUILDER_PREFIX}-${themeData.config.name}`, JSON.stringify(data));
 };
 
 export const loadTheme = (themeName: string): SavedTheme | undefined => {
-    const savedThemeData = window.sessionStorage.getItem(`${THEME_BUILDER_PREFIX}-${themeName}`);
+    const savedThemeData = window.localStorage.getItem(`${THEME_BUILDER_PREFIX}-${themeName}`);
     return savedThemeData ? JSON.parse(savedThemeData) : undefined;
 };
 
 export const loadAllThemeNames = (): (readonly [string, Date])[] => {
-    const themes = Object.keys(sessionStorage)
+    const themes = Object.keys(localStorage)
         .filter((key) => key.startsWith(THEME_BUILDER_PREFIX))
         .map((item) => {
             const name = item.replace(`${THEME_BUILDER_PREFIX}-`, '');
@@ -40,7 +40,7 @@ export const loadAllThemeNames = (): (readonly [string, Date])[] => {
 };
 
 export const deleteTheme = (themeName: string) => {
-    window.sessionStorage.removeItem(`${THEME_BUILDER_PREFIX}-${themeName}`);
+    window.localStorage.removeItem(`${THEME_BUILDER_PREFIX}-${themeName}`);
 };
 
 export const getSavedThemes = () =>
