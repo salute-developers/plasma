@@ -2,7 +2,7 @@
     "config": {
         "name": "sdseng",
         "accentColor": {
-            "light": "#FFFFFF",
+            "light": "#0C72B6",
             "dark": "#FFFFFF"
         },
         "grayscale": {
@@ -83,6 +83,10 @@
                     "value": "linear-gradient(135deg, black 0%, #FFFFFF 100%)",
                     "comment": "Акцентный цвет с градиентом"
                 },
+                "textPositive": {
+                    "value": "#1A9E32",
+                    "comment": "Цвет успеха"
+                },
                 "textWarning": {
                     "value": "#FA5F05",
                     "comment": "Цвет предупреждения"
@@ -90,10 +94,6 @@
                 "textNegative": {
                     "value": "#FF293E",
                     "comment": "Цвет ошибки"
-                },
-                "textPositive": {
-                    "value": "#0492B9",
-                    "comment": "Цвет успеха"
                 }
             },
             "onDark": {
@@ -582,27 +582,27 @@
         "text": {
             "default": {
                 "textPrimary": {
-                    "value": "rgba(8, 8, 8, 0.96)",
+                    "value": "rgba(23, 23, 23, 0.96)",
                     "comment": "Основной цвет текста"
                 },
                 "textSecondary": {
-                    "value": "rgba(8, 8, 8, 0.56)",
+                    "value": "rgba(23, 23, 23, 0.56)",
                     "comment": "Вторичный цвет текста"
                 },
                 "textTertiary": {
-                    "value": "rgba(8, 8, 8, 0.4)",
+                    "value": "rgba(23, 23, 23, 0.4)",
                     "comment": "Третичный цвет текста"
                 },
                 "textParagraph": {
-                    "value": "rgba(8, 8, 8, 0.8)",
+                    "value": "rgba(23, 23, 23, 0.8)",
                     "comment": "Сплошной наборный текст"
                 },
                 "textAccent": {
-                    "value": "#FFFFFF",
+                    "value": "#0C72B6",
                     "comment": "Акцентный цвет"
                 },
                 "textAccentGradient": {
-                    "value": "linear-gradient(135deg, white 0%, #FFFFFF 100%)",
+                    "value": "linear-gradient(45.00deg, rgb(30, 44, 108) 0%,rgb(43, 101, 185) 100%)",
                     "comment": "Акцентный цвет с градиентом"
                 },
                 "textPositive": {
@@ -614,7 +614,7 @@
                     "comment": "Цвет предупреждения"
                 },
                 "textNegative": {
-                    "value": "#F31B30",
+                    "value": "#F31B31",
                     "comment": "Цвет ошибки"
                 }
             },
@@ -752,7 +752,7 @@
                     "comment": "Третичный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidCard": {
-                    "value": "#F7F7F7",
+                    "value": "#FFFFFF",
                     "comment": "Основной фон для карточек"
                 },
                 "surfaceTransparentDefault": {
@@ -772,27 +772,27 @@
                     "comment": "Третичный прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentCard": {
-                    "value": "rgba(8, 8, 8, 0.06)",
+                    "value": "#FFFFFF",
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceAccent": {
-                    "value": "#FFFFFF",
+                    "value": "#0B7ECB",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradient": {
-                    "value": "linear-gradient(135deg, white 0%, #FFFFFF 100%)",
+                    "value": "linear-gradient(45.00deg, rgb(30, 44, 108) 0%,rgb(43, 101, 185) 100%)",
                     "comment": "Акцентный фон поверхности/контрола с градиентом"
                 },
                 "surfacePositive": {
-                    "value": "#108E25",
+                    "value": "#1A9E32",
                     "comment": "Цвет успеха"
                 },
                 "surfaceWarning": {
-                    "value": "#E85702",
+                    "value": "#FA5F05",
                     "comment": "Цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceNegative": {
-                    "value": "#F31B30",
+                    "value": "#DD1428",
                     "comment": "Цвет фона поверхности/контрола ошибка"
                 },
                 "surfaceClear": {
@@ -1002,7 +1002,7 @@
         "background": {
             "default": {
                 "backgroundPrimary": {
-                    "value": "#FFFFFF",
+                    "value": "#F9F9F9",
                     "comment": "Основной фон"
                 },
                 "backgroundSecondary": {
