@@ -20,6 +20,8 @@ export { sberonline__dark, darkSberonline } from './sberonline__dark';
 export { sberonline__light, lightSberonline } from './sberonline__light';
 export { sberprime__dark, darkSberprime } from './sberprime__dark';
 export { sberprime__light, lightSberprime } from './sberprime__light';
+export { sdseng__dark, darkSdseng } from './sdseng__dark';
+export { sdseng__light, lightSdseng } from './sdseng__light';
 export { stylesSalute__dark, darkStylesSalute } from './stylesSalute__dark';
 export { stylesSalute__light, lightStylesSalute } from './stylesSalute__light';
 export { salutejs_sber__dark, darkSber } from './salutejs_sber__dark';
