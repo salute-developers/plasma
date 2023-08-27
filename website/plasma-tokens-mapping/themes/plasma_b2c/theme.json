@@ -2,7 +2,7 @@
     "components": {
         "Button": {
             "defaults": {
-                "_view": "primary",
+                "_view": "default",
                 "_focused": "true"
             },
             "variations": {
@@ -11,25 +11,57 @@
                         "--plasma-button-color": "var(--inverse-text-primary)",
                         "--plasma-button-bg-color": "var(--surface-solid-default)",
                         "--plasma-button-color-hover": "var(--inverse-text-primary)",
-                        "--plasma-button-bg-color-hover": "#2d2d2d",
+                        "--plasma-button-bg-color-hover": "color-mix(in srgb, var(--inverse-text-primary), var(--surface-solid-default) 85%)",
                         "--plasma-button-color-active": "var(--inverse-text-primary)",
-                        "--plasma-button-bg-color-active": "#393939"
+                        "--plasma-button-bg-color-active": "color-mix(in srgb, var(--inverse-text-primary), var(--surface-solid-default) 80%)"
                     },
                     "primary": {
-                        "--plasma-button-color": "var(--plasma-colors-white)",
-                        "--plasma-button-bg-color": "var(--plasma-colors-button-accent)",
-                        "--plasma-button-color-hover": "var(--plasma-colors-white)",
-                        "--plasma-button-bg-color-hover": "var(--plasma-colors-button-primary-hover)",
-                        "--plasma-button-color-active": "var(--plasma-colors-white)",
-                        "--plasma-button-bg-color-active": "var(--plasma-colors-button-primary-active)"
+                        "--plasma-button-color": "var(--on-dark-text-primary)",
+                        "--plasma-button-bg-color": "var(--surface-accent)",
+                        "--plasma-button-color-hover": "var(--on-dark-text-primary)",
+                        "--plasma-button-bg-color-hover": "color-mix(in srgb, var(--text-primary), var(--surface-accent) 85%)",
+                        "--plasma-button-color-active": "var(--on-dark-text-primary)",
+                        "--plasma-button-bg-color-active": "color-mix(in srgb, var(--text-primary), var(--surface-accent) 80%)"
                     },
                     "secondary": {
-                        "--plasma-button-color": "var(--plasma-colors-text)",
-                        "--plasma-button-bg-color": "var(--plasma-colors-button-secondary)",
-                        "--plasma-button-color-hover": "var(--plasma-colors-text)",
-                        "--plasma-button-bg-color-hover": "var(--plasma-colors-button-secondary-hover)",
-                        "--plasma-button-color-active": "var(--plasma-colors-text)",
-                        "--plasma-button-bg-color-active": "var(--plasma-colors-button-secondary-active)"
+                        "--plasma-button-color": "var(--text-primary)",
+                        "--plasma-button-bg-color": "var(--surface-transparent-secondary)",
+                        "--plasma-button-color-hover": "var(--text-primary)",
+                        "--plasma-button-bg-color-hover": "color-mix(in srgb, var(--inverse-text-primary), var(--surface-transparent-secondary) 85%)",
+                        "--plasma-button-color-active": "var(--text-primary)",
+                        "--plasma-button-bg-color-active": "color-mix(in srgb, var(--inverse-text-primary), var(--surface-transparent-secondary) 80%)"
+                    },
+                    "clear": {
+                        "--plasma-button-color": "var(--text-primary)",
+                        "--plasma-button-bg-color": "var(--surface-clear)",
+                        "--plasma-button-color-hover": "var(--text-primary)",
+                        "--plasma-button-bg-color-hover": "color-mix(in srgb, var(--text-primary), var(--surface-clear) 95%)",
+                        "--plasma-button-color-active": "var(--text-primary)",
+                        "--plasma-button-bg-color-active": "color-mix(in srgb, var(--text-primary), var(--surface-clear) 90%)"
+                    },
+                    "positive": {
+                        "--plasma-button-color": "var(--on-dark-text-primary)",
+                        "--plasma-button-bg-color": "var(--surface-positive)",
+                        "--plasma-button-color-hover": "var(--on-dark-text-primary)",
+                        "--plasma-button-bg-color-hover": "color-mix(in srgb, var(--inverse-text-primary), var(--surface-positive) 85%)",
+                        "--plasma-button-color-active": "var(--on-dark-text-primary)",
+                        "--plasma-button-bg-color-active": "color-mix(in srgb, var(--text-primary), var(--surface-positive) 85%)"
+                    },
+                    "warning": {
+                        "--plasma-button-color": "var(--on-dark-text-primary)",
+                        "--plasma-button-bg-color": "var(--surface-warning)",
+                        "--plasma-button-color-hover": "var(--on-dark-text-primary)",
+                        "--plasma-button-bg-color-hover": "color-mix(in srgb, var(--inverse-text-primary), var(--surface-warning) 85%)",
+                        "--plasma-button-color-active": "var(--on-dark-text-primary)",
+                        "--plasma-button-bg-color-active": "color-mix(in srgb, var(--text-primary), var(--surface-warning) 85%)"
+                    },
+                    "negative": {
+                        "--plasma-button-color": "var(--on-dark-text-primary)",
+                        "--plasma-button-bg-color": "var(--surface-negative)",
+                        "--plasma-button-color-hover": "var(--on-dark-text-primary)",
+                        "--plasma-button-bg-color-hover": "color-mix(in srgb, var(--inverse-text-primary), var(--surface-negative) 85%)",
+                        "--plasma-button-color-active": "var(--on-dark-text-primary)",
+                        "--plasma-button-bg-color-active": "color-mix(in srgb, var(--text-primary), var(--surface-negative) 85%)"
                     }
                 },
                 "_size": {
