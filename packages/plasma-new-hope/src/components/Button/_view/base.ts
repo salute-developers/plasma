@@ -18,6 +18,13 @@ export const base = css`
 
         /* TODO: */
         scale: 1.02;
-        opacity: 0.8;
     }
 `;
+
+// TODO: background-image: gradients
+
+/// TODO: tokens: optional / default / func toHover(color) => hoverColor ??
+/*
+    { "optional": true, "value":  "--plasma-button-focus-color" }
+    { "default": "#fc0", "value":  "--plasma-button-focus-color" }
+*/

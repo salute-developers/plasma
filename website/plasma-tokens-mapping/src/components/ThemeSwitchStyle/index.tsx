@@ -14,11 +14,12 @@ export const ThemeSwitchStyle = () => {
     const onCheck: React.ChangeEventHandler<HTMLInputElement> = e => {
         const data = document.documentElement.dataset;
         data['theme'] = e.target.checked ? 'dark': 'light';
-    }
+    };
+
     return (
         <label>
             <input ref={inputRef as LegacyRef<HTMLInputElement>} onChange={onCheck} type="checkbox"></input>
             Dark
         </label>
-    )
+    );
 }

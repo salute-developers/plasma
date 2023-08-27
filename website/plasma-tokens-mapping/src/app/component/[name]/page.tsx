@@ -9,7 +9,8 @@ import { ThemeSwitch } from '../../../components/ThemeSwitch';
 import { ThemeSwitchStyle } from '../../../components/ThemeSwitchStyle'
 import { ComponentBuilder } from '../../../components/ComponentBuilder';
 
-import { ModifierTokensAPI, ThemeProvider, ThemeState } from '../../../state';
+import { BgType, BgType_NO, ModifierTokensAPI, ThemeProvider, ThemeState } from '../../../state';
+import { BGSwitcher } from '../../../components/BackgroundSwitcher';
 
 const PLASMA_DIR = process.env.PLASMA_DIR!;
 const plasmaNewHopePath = path.join(PLASMA_DIR, 'packages/plasma-new-hope');
@@ -45,8 +46,10 @@ export default async function ComponentPage({ params, searchParams }: { params: 
     // TODO: improve typings
     const themeObj = (theme.value as unknown) as ThemeState;
     themeObj.name = theme.name;
+    themeObj.previewType = BgType_NO;
 
     const componentTheme = ((theme.value as unknown) as ThemeState).components[name];
+
 
     return (
         <>
@@ -55,7 +58,7 @@ export default async function ComponentPage({ params, searchParams }: { params: 
                     name={name}
                     theme={componentTheme}
                     variationsAPI={modsAPI}
-                    themeSwitcher={<><ThemeSwitchStyle /><ThemeSwitch active={activeTheme} /></>}
+                    themeSwitcher={<><ThemeSwitchStyle /><BGSwitcher /><ThemeSwitch active={activeTheme} /></>}
                 />
             </ThemeProvider>
 

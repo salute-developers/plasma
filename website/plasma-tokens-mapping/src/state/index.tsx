@@ -31,11 +31,21 @@ export interface ComponentTheme {
     }
 }
 
+export enum BgType {
+    NO = 'NO',
+    SQUARE = 'SQUARE',
+    DARK = 'DARK',
+};
+
+// Cause fucking 'use client';
+export const BgType_NO = BgType.NO;
+
 export interface ThemeState {
     name: string;
     components: {
         [key: componentName]: ComponentTheme;
     };
+    previewType: BgType;
 }
 
 const ThemeContext = createContext<ThemeState | null>(null);
@@ -88,6 +98,9 @@ type Action =
         type: 'remove_default';
         componentName: string;
         modName: string;
+    } | {
+        type: 'change_preview_bg';
+        bgType: BgType;
     };
 
 export function themeReducer(theme: ThemeState, action: Action) {
@@ -122,6 +135,12 @@ export function themeReducer(theme: ThemeState, action: Action) {
         case 'remove_default': {
             const { componentName, modName } = action;
             delete theme.components[componentName].defaults[modName];
+            break;
+        }
+
+        case 'change_preview_bg': {
+            const { bgType } = action;
+            theme.previewType = bgType;
             break;
         }
     }

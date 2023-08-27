@@ -180,11 +180,30 @@ const Text = styled.span`
     ${textM}
 `;
 
+const Light = styled.span`
+    color: var(--text-secondary);
+`
+
 interface TokenProps {
     name: string;
     value: string;
     isEditing: boolean;
     onChange: (name: string, value: string) => void;
+}
+
+const LittleSyntax = ({ value }: { value: string}) => {
+    const variable = value.match(/var\((.*)\)/);
+    if (variable) {
+        return (<>
+            <Light >{'var('}</Light>
+            {variable[1]}
+            <Light >{');'}</Light>
+        </>);
+    } else {
+        return (<>
+            {value};
+        </>);
+    }
 }
 
 const Token = ({ name, value, onChange, isEditing }: TokenProps) => {
@@ -195,9 +214,13 @@ const Token = ({ name, value, onChange, isEditing }: TokenProps) => {
     return (
         <Flex>
             <Text>
-                {name}: {isEditing ? <input value={value} onChange={handle} /> : value}
+                {name}: {
+                    isEditing
+                    ? <input value={value} onChange={handle} />
+                    : <LittleSyntax value={value} />
+                }
             </Text>
-            <PreviewColor style={{ backgroundColor: value }} />
+            <PreviewColor style={{ background: value }} />
         </Flex>
     );
 };

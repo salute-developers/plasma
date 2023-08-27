@@ -7,6 +7,14 @@
             },
             "variations": {
                 "_view": {
+                    "default": {
+                        "--plasma-button-color": "var(--inverse-text-primary)",
+                        "--plasma-button-bg-color": "var(--surface-solid-default)",
+                        "--plasma-button-color-hover": "var(--inverse-text-primary)",
+                        "--plasma-button-bg-color-hover": "#2d2d2d",
+                        "--plasma-button-color-active": "var(--inverse-text-primary)",
+                        "--plasma-button-bg-color-active": "#393939"
+                    },
                     "primary": {
                         "--plasma-button-color": "var(--plasma-colors-white)",
                         "--plasma-button-bg-color": "var(--plasma-colors-button-accent)",

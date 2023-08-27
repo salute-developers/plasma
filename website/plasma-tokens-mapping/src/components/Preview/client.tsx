@@ -6,7 +6,7 @@ import { styled } from '@linaria/react';
 
 // import { buttonConfig } from '@salutejs/plasma-new-hope';
 // import { component, mergeConfig } from '@salutejs/plasma-new-hope';
-import { useTheme } from '../../state';
+import { BgType, useTheme } from '../../state';
 
 import { Button, buttonConfig } from '../../hope';
 
@@ -20,11 +20,32 @@ export interface PreviewProps {
     modName: string;
 }
 
-const Root = styled.div`
+
+
+
+const bgTypes = {
+    [BgType.NO]: '',
+    [BgType.SQUARE]: 'url(/square.png)',
+    [BgType.DARK]: 'url(https://cdn-app.sberdevices.ru/misc/0.0.0/assets/sberdevices/boom3/images/intro/bg@2x.jpeg)',
+};
+
+const Root = styled.div<{ type: BgType}>`
     border: 1px dotted #4169e1;
-    height: 6rem;
+    border-radius: 1rem;
+    min-height: 6rem;
     padding: 1rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    column-gap: 1rem;
+
+    background-size: ${props => props.type === BgType.DARK ? 'cover' : 'auto'};
+    background-attachment: ${props => props.type === BgType.DARK ? 'fixed' : ''};
+    background-image: ${props => bgTypes[props.type]};
 `;
+
+
 
 export function Preview(props: PreviewProps) {
     const theme = useTheme();
@@ -82,20 +103,18 @@ export function Preview(props: PreviewProps) {
     }, {});
 
     return (
-        <Root>
-            <div style={{ ...defaultStyles }} key={`${componentName}_${modName}`}>
-                {Object.keys(mods).map((modVal) => {
-                    const props = { ...defProps, [modName.slice(1)]: modVal === 'true' ? true : '' };
+        <Root type={theme.previewType} style={{ ...defaultStyles }} key={`${componentName}_${modName}`}>
+            {Object.keys(mods).map((modVal) => {
+                const props = { ...defProps, [modName.slice(1)]: modVal === 'true' ? true : '' };
 
-                    return (
-                        <span key={modVal} style={{ marginRight: '1rem', ...mods[modVal] }}>
-                            <Component {...props}>
-                                hello {modName}_{modVal === '' ? 'false' : modVal}
-                            </Component>
-                        </span>
-                    );
-                })}
-            </div>
+                return (
+                    <span key={modVal} style={{ ...mods[modVal] }}>
+                        <Component {...props}>
+                            hello {modName}_{modVal === '' ? 'false' : modVal}
+                        </Component>
+                    </span>
+                );
+            })}
         </Root>
     );
 }
