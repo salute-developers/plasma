@@ -1,23 +1,27 @@
 {
-    "name": "@salutejs/plasma-tokens-core",
-    "version": "0.3.0",
-    "description": "plasma core tokens",
-    "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    "license": "MIT",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "publishConfig": {
-        "access": "public"
-    },
-    "scripts": {
-        "prepare": "npm run build",
-        "build": "tsc",
-        "lint": "../../node_modules/.bin/eslint ./src --ext .ts --quiet"
-    },
-    "files": ["dist"],
-    "contributors": ["Vasiliy Loginevskiy"],
-    "devDependencies": {
-        "@types/styled-components": "^5.1.0",
-        "typescript": "^4.0.8"
-    }
+  "name": "@salutejs/plasma-tokens-core",
+  "version": "0.4.0-dev.0",
+  "description": "plasma core tokens",
+  "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "tsc",
+    "lint": "../../node_modules/.bin/eslint ./src --ext .ts --quiet"
+  },
+  "files": [
+    "dist"
+  ],
+  "contributors": [
+    "Vasiliy Loginevskiy"
+  ],
+  "devDependencies": {
+    "@types/styled-components": "^5.1.0",
+    "typescript": "^4.0.8"
+  }
 }
