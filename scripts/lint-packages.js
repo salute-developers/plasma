@@ -156,7 +156,7 @@ const lintDepsVersions = (pkgInfo, packagesInfo) => {
         const depPkgInfo = packagesInfo.get(pkgName);
         const actual = depPkgInfo.version;
 
-        if (!semver.satisfies(actual, range)) {
+        if (!semver.satisfies(actual, range, { includePrerelease: true })) {
             msgs.push(`peerDeps should be in range: ${pkgName} local version ${actual} not in range: ${range}`);
             return;
         }
