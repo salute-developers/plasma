@@ -9,9 +9,10 @@
   "types": "index.d.ts",
   "scripts": {
     "prepare": "npm run build",
-    "prebuild": "rm -rf ./build ./colors ./es ./properties ./src ./brands ./themes ./themesValues ./typo ./typography ./typographyValues ./index.* ./theme.json",
+    "prebuild": "rm -rf ./build ./colors ./es ./properties ./src ./brands ./themes ./themesValues ./typo ./typography ./typographyValues ./index.* ./theme.json ./css",
     "build": "npm run generate && npm run build:cjs && npm run build:esm && npm run lint -- --fix",
-    "build:cjs": "tsc",
+    "copy-css-files": "mkdir -p ${CSS_BUILD_PATH} && cp -R src/css/* ${CSS_BUILD_PATH}",
+    "build:cjs": "tsc && CSS_BUILD_PATH=css npm run copy-css-files",
     "build:esm": "tsc -p ./tsconfig.es.json",
     "generate": "npx ts-node ./lib/generate.ts",
     "figma": "npm run extract --prefix='./design-language'",

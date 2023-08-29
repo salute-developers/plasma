@@ -9,4 +9,6 @@
 /themesValues
 /index.*
 /theme.json
+/css
+/src/css
 /data/themes/*.html
