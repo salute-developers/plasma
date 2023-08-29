@@ -14,9 +14,13 @@ export const escapeValue = <T = string | number>(value: T) => {
     return value;
 };
 
+const toKebab = (k: string) => k.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`);
+
 export const join = (...args: (string | undefined)[]) => args.filter(Boolean).join('-');
 
-export const getCSSVariableName = (key: string, withDesignPrefix = true) =>
-    withDesignPrefix ? `--${DESIGN_SYSTEM_PREFIX}-${key}` : `--${key}`;
+export const getCSSVariableName = (key: string, withDesignPrefix = true, withKebabCase = false) => {
+    const variable = withKebabCase ? toKebab(key) : key;
+    return withDesignPrefix ? `--${DESIGN_SYSTEM_PREFIX}-${variable}` : `--${variable}`;
+};
 
 export const getBoxShadow = (shadows: Array<Shadow>) => shadows.map(({ origin }) => origin);
