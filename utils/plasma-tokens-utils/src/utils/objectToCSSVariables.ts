@@ -20,9 +20,15 @@ const getNormalizedValue = (value: DataValue): string => {
  * @param {object} obj
  * @param {string} prefix
  * @param {boolean?} withPrefixDesign
+ * @param {boolean?} withKebabCase
  * @return {object}
  */
-export const objectToCSSVariables = (obj: DataObject, prefix = '', withPrefixDesign?: boolean) =>
+export const objectToCSSVariables = (
+    obj: DataObject,
+    prefix = '',
+    withPrefixDesign?: boolean,
+    withKebabCase?: boolean,
+) =>
     Object.keys(obj)
         .filter((key) => key !== 'modes' && key !== 'comment')
         .reduce((vars, key) => {
@@ -32,7 +38,7 @@ export const objectToCSSVariables = (obj: DataObject, prefix = '', withPrefixDes
             if (typeof value !== 'object' || 'origin' in value || Array.isArray(value)) {
                 const newValue = getNormalizedValue(value);
 
-                vars[getCSSVariableName(name, withPrefixDesign)] = escapeValue(newValue);
+                vars[getCSSVariableName(name, withPrefixDesign, withKebabCase)] = escapeValue(newValue);
 
                 return vars;
             }

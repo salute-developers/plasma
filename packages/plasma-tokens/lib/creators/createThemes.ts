@@ -15,6 +15,7 @@ export const createThemes = (srcDir: string, themesTokens: Record<string, ThemeT
     const themesDir = path.join(srcDir, 'themes');
     const legacyThemesValuesDir = path.join(srcDir, 'themesValues');
     const withDeprecated = true;
+    const withKebabCase = true;
 
     // Генерация цветов
     writeGeneratedToFS(legacyColorsDir, [
@@ -24,7 +25,7 @@ export const createThemes = (srcDir: string, themesTokens: Record<string, ThemeT
         { file: 'values.ts', content: generateTokens(legacyColorThemes.salutejs_sber__dark) },
     ]);
     // Генерация и запись файлов тем для создания глобальных стилей
-    writeGeneratedToFS(themesDir, generateThemes(themesTokens, undefined, withDeprecated));
+    writeGeneratedToFS(themesDir, generateThemes(themesTokens, undefined, withDeprecated, withKebabCase));
     // Генерация и запись файлов старых тем для создания глобальных стилей
     writeGeneratedToFS(themesDir, generateColorThemes(legacyColorThemes, undefined, withDeprecated));
     // Отдельные файлы для импорта в компонентах
