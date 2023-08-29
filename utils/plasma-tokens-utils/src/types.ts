@@ -20,6 +20,14 @@ export type CSSRootTheme = {
     ':root': CSSProperties;
 };
 
+/**
+ * Объект с корневыми CSSVariables.
+ */
+export type CSSThemeMode = {
+    '.light': CSSProperties;
+    '.dark': CSSProperties;
+};
+
 export type TokenType = string | CSSProperties | Array<string | number> | Record<string, string> | Array<any>;
 
 /**

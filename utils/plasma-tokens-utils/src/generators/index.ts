@@ -9,5 +9,8 @@ export { generateThemes } from './generateThemes';
 export { generateShadowsToken } from './generateShadowsToken';
 export { generateBorderRadiusTokens } from './generateBorderRadiusTokens';
 export { generateSpacingTokens } from './generateSpacingTokens';
+export { generateThemesCSS } from './generateThemesCSS';
+export { generateTypoCSS } from './generateTypoCSS';
 export { getThemesTokensFallback } from './getThemesTokensFallback';
 export { getThemeTokenDataGroups } from './getThemeTokenDataGroups';
+export { getThemeData } from './getThemeData';

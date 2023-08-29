@@ -1,9 +1,15 @@
 import fs from 'fs';
 import path from 'path';
-
 import { generateThemesTokenDataGroups, getThemesTokensFallback } from '@salutejs/plasma-tokens-utils';
 
-import { createRootIndex, createThemes, createLegacyTypo, createBrands, createDefaultBrand } from './creators';
+import {
+    createRootIndex,
+    createThemes,
+    createLegacyTypo,
+    createBrands,
+    createDefaultBrand,
+    createCSSStyles,
+} from './creators';
 
 // Генерация токенов для кастомных тем из data/themes
 export const themesTokenDataGroups = generateThemesTokenDataGroups(path.join(__dirname, '../data/themes'));
@@ -23,6 +29,10 @@ createRootIndex(outDir);
 /** ================= Генерация цветов и тем ================ **/
 /** ========================================================= **/
 createThemes(outDir, themesTokensFallback);
+/** ========================================================= **/
+/** ================== Генерация css стилей ================= **/
+/** ========================================================= **/
+createCSSStyles(outDir, themesTokensFallback);
 /** ========================================================= **/
 /** ======== Генерация тем, на основе созданных схем ======== **/
 /** ========================================================= **/

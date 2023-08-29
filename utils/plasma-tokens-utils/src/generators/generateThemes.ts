@@ -1,34 +1,20 @@
+import { attachToRoot, getDeprecatedVars } from '../utils';
 import type { DataObject, GeneratedFiles, ThemeTokenDataGroups } from '../types';
-import {
-    attachToRoot,
-    extractTokenData,
-    getDeprecatedVars,
-    objectToCSSShadowVariables,
-    objectToCSSVariables,
-} from '../utils';
 
 import { generateFile } from './generateFile';
-
-// Метод для поиска ключа, у которого может быть  префикс
-const findExistedProp = (themeData: Record<string, string>, prop: string) =>
-    Object.keys(themeData).find((data) => data.endsWith(prop)) || '';
+import { getThemeData } from './getThemeData';
 
 export const generateThemes = (
     themes: Record<string, ThemeTokenDataGroups>,
     mixin: DataObject = {},
     withDeprecated = false,
+    withKebabCase?: boolean,
 ) => {
-    const withPrefixDesign = false;
     const files: GeneratedFiles = [];
     let indexContent = '';
 
     for (const [fileName, themeItem] of Object.entries(themes)) {
-        const { color = {}, shadow = {}, borderRadius = {}, spacing = {} } = themeItem;
-        const themeData = extractTokenData(color);
-        const themeShadow = extractTokenData(shadow);
-        const themeBorderRadius = extractTokenData(borderRadius);
-        const themeSpacing = extractTokenData(spacing);
-
+        const theme = getThemeData(themeItem, mixin, withKebabCase);
         const [deprecated, deprecatedThemeName] = withDeprecated ? getDeprecatedVars(fileName) : ['', ''];
 
         const fileNames = [fileName];
@@ -38,21 +24,7 @@ export const generateThemes = (
 
         indexContent += `export { ${fileNames.join(', ')} } from './${fileName}';\n`;
 
-        files.push(
-            generateFile(
-                fileName,
-                attachToRoot({
-                    ...objectToCSSVariables(themeData, '', withPrefixDesign),
-                    ...objectToCSSShadowVariables(themeShadow),
-                    ...objectToCSSVariables(themeBorderRadius, '', withPrefixDesign),
-                    ...objectToCSSVariables(themeSpacing, '', withPrefixDesign),
-                    ...objectToCSSVariables(mixin, '', withPrefixDesign),
-                    color: themeData[findExistedProp(themeData, 'text')],
-                    backgroundColor: themeData[findExistedProp(themeData, 'background')],
-                }),
-                deprecated,
-            ),
-        );
+        files.push(generateFile(fileName, attachToRoot(theme), deprecated));
     }
 
     files.push({
