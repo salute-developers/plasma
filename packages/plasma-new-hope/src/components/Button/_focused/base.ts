@@ -17,9 +17,9 @@ export const base = css`
         
         inset: -0.125rem;
         border: 0.125rem solid transparent;
-        /* TODO: br */
-        /* border-radius: calc(var(--plasma-button-l-radius) + var(--plasma-outline-size)); */
-        border-radius: 0.75rem;
+        
+        /* NOTE: border => _size */
+
         transition: box-shadow 0.2s ease-in-out 0s;
     }
 

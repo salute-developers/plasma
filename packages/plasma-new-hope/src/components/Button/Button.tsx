@@ -8,7 +8,7 @@ import { base as size } from './_size/base';
 import { base as disabled } from './_disabled/base';
 import { base as focused } from './_focused/base';
 
-import { fontFamily } from './tokens';
+// import { fontFamily } from './tokens';
 
 import { ComponentConfig } from '../../engines';
 
@@ -23,13 +23,6 @@ const base = css`
     border: none;
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-    font-family: ${fontFamily};
-    font-weight: var(--plasma-typo-button2-font-weight);
-    font-style: var(--plasma-typo-button2-font-style);
-    font-size: var(--plasma-typo-button2-font-size);
-    letter-spacing: var(--plasma-typo-button2-letter-spacing);
-    line-height: var(--plasma-typo-button2-line-height);
 `;
 
 const ButtonText = styled.span`

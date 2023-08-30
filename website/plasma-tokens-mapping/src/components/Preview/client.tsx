@@ -9,7 +9,8 @@ import { styled } from '@linaria/react';
 import { BgType, useTheme } from '../../state';
 
 import { Button, buttonConfig } from '../../hope';
-
+import { typoPlain } from '../../tokens';
+ 
 const components = {
     Button: Button,
     Button_Conf: buttonConfig,
@@ -29,7 +30,7 @@ const bgTypes = {
     [BgType.DARK]: 'url(https://cdn-app.sberdevices.ru/misc/0.0.0/assets/sberdevices/boom3/images/intro/bg@2x.jpeg)',
 };
 
-const Root = styled.div<{ type: BgType}>`
+const Root = styled.div<{ $type: BgType}>`
     border: 1px dotted #4169e1;
     border-radius: 1rem;
     min-height: 6rem;
@@ -40,9 +41,11 @@ const Root = styled.div<{ type: BgType}>`
     row-gap: 1rem;
     column-gap: 1rem;
 
-    background-size: ${props => props.type === BgType.DARK ? 'cover' : 'auto'};
-    background-attachment: ${props => props.type === BgType.DARK ? 'fixed' : ''};
-    background-image: ${props => bgTypes[props.type]};
+    align-items: baseline;
+
+    background-size: ${props => props.$type === BgType.DARK ? 'cover' : 'auto'};
+    background-attachment: ${props => props.$type === BgType.DARK ? 'fixed' : ''};
+    background-image: ${props => bgTypes[props.$type]};
 `;
 
 
@@ -61,7 +64,7 @@ export function Preview(props: PreviewProps) {
 
     const defs = {..._defs, ...theme.components[componentName].defaults};
 
-    const defaultStyles = {};
+    const defaultStyles: Record<string, string> = {};
 
     for (const defModName of Object.keys(defs)) {
         const defModValue = defs[defModName];
@@ -69,6 +72,18 @@ export function Preview(props: PreviewProps) {
         if (defModName !== modName) {
             // don't use defaults for preview of same modifier
             Object.assign(defaultStyles, tokens);
+        }
+    }
+
+
+    for (const s in defaultStyles) {
+        if (defaultStyles[s].startsWith('$')) {
+            // TODO: Refactor
+            // enum tokens
+            // @ts-ignore
+            Object.assign(defaultStyles, typoPlain[defaultStyles[s]]);
+            // console.log(styles, typoPlain, s, styles[s], typoPlain[styles[s]]);
+            delete defaultStyles[s];
         }
     }
 
@@ -103,12 +118,32 @@ export function Preview(props: PreviewProps) {
     }, {});
 
     return (
-        <Root type={theme.previewType} style={{ ...defaultStyles }} key={`${componentName}_${modName}`}>
+        <Root $type={theme.previewType} style={{ ...defaultStyles }} key={`${componentName}_${modName}`}>
             {Object.keys(mods).map((modVal) => {
                 const props = { ...defProps, [modName.slice(1)]: modVal === 'true' ? true : '' };
+                
+                const styles = {
+                    ...mods[modVal]
+                };
+
+                
+                for (const s in styles) {
+                    // TODO: its hack for empty mapping
+                    if (styles[s] === ' ') {
+                        delete styles[s];
+                    } else if (styles[s].startsWith('$')) {
+                        // TODO: Refactor
+                        // enum tokens
+                        // @ts-ignore
+                        Object.assign(styles, typoPlain[styles[s]]);
+                        // console.log(styles, typoPlain, s, styles[s], typoPlain[styles[s]]);
+                        delete styles[s];
+
+                    }
+                }
 
                 return (
-                    <span key={modVal} style={{ ...mods[modVal] }}>
+                    <span key={modVal} style={styles}>
                         <Component {...props}>
                             hello {modName}_{modVal === '' ? 'false' : modVal}
                         </Component>

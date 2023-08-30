@@ -58,6 +58,7 @@ PATH_TO_THEMES=../../website/plasma-tokens-mapping/themes PATH_TO_DESTINATION_CO
 ## TODO
 
 [x] tokens-mapping: Dark / Light Theme
+[] tokens-mapping: connect tokens-theme to theme
 [] new-hope: storybook ThemeSwitch
 [] new-hope: Button: pin
 [] new-hope: Button: plasma-b2c
@@ -77,6 +78,7 @@ PATH_TO_THEMES=../../website/plasma-tokens-mapping/themes PATH_TO_DESTINATION_CO
 [] new-hope: Включить eslint
 [] new-hope: Переписать сборку new-hope на rollup
 [] new-hope: Починить сборку в commonJS 
+[] new-hope: Add api-extractor
 [] example-ds: Сборка example-design-system на конфигах new-hope
 [] new-hope: Icon
 [] new-hope: Typography

@@ -6,9 +6,15 @@ import { styled } from '@linaria/react';
 
 import { h2, h3, textM, bodyM } from '@salutejs/plasma-typo';
 
-import { useTheme, useThemeDispatch, ModifierTokensAPI } from '../../state';
+import { useTheme, useThemeDispatch, ModifierTokensAPI, TokenObject } from '../../state';
 import { ChangeEventHandler } from 'react';
 import { Preview } from '../Preview/client';
+
+import { typo } from '../../tokens';
+
+const plasmaTokens = {
+    typo,
+};
 
 export const Headline2 = styled.h1`
     ${h2}
@@ -45,15 +51,25 @@ export interface ModValueProps {
     isDefault: boolean;
 }
 
-const generateEmptyTokens = (tokenAPI: ModifierTokensAPI): Record<string,string> => {
+// TODO: Token nornalization
+
+const generateEmptyTokens = (tokenAPI: ModifierTokensAPI): Record<string, TokenObject> => {
     if (Array.isArray(tokenAPI)) {
-        return tokenAPI.reduce<Record<string, string>>((acc, key) => {
-            acc[key] = '';
+        return tokenAPI.reduce<Record<string, TokenObject>>((acc, key) => {
+            if (typeof key === 'string') {
+                acc[key] = '';
+            } else {
+                acc[key.name] = key;
+            }
             return acc;
         }, {});
     } else {
-        return tokenAPI.tokens.reduce<Record<string, string>>((acc, key) => {
-            acc[key] = '';
+        return tokenAPI.tokens.reduce<Record<string, TokenObject>>((acc, key) => {
+            if (typeof key === 'string') {
+                acc[key] = '';
+            } else {
+                acc[key.name] = key;
+            }
             return acc;
         }, {});
     }
@@ -85,6 +101,8 @@ export function ModValueClient(props: PropsWithChildren<ModValueProps>) {
                 componentName,
                 modName,
                 modValue: name,
+                // TODO: fck
+                // @ts-ignore
                 tokens,
             });
         }
@@ -152,10 +170,33 @@ export function ModValueClient(props: PropsWithChildren<ModValueProps>) {
             </Header>
             <ul>
                 {Object.keys(tokens).map((tokenName) => {
-                    const tokenValue = tokens[tokenName];
+                    
+                    const tokenValue = tokens[tokenName] as TokenObject;
+                    // console.log('TOKEN', tokenValue, tokenName, typeof tokenName)
+                    if (typeof tokenValue === 'string') {
+                        return (
+                            <li key={tokenName}>
+                                <Token isEditing={isEditing} name={tokenName} value={tokenValue} onChange={tokenChanged} />
+                            </li>
+                        );
+                    }
+                    // TODO: Improve tokens API
+                    const name = tokenValue.name;
+                    
+                    const valParts = tokenValue.value.split(':');
+                    
+                    const valTokens = valParts.reduce<Record<string, any>>((acc, el) => {
+                        if (acc && acc[el]) {
+                            return acc[el]
+                        }
+                        return null;
+                    }, plasmaTokens);
+
+                    const values = valTokens ? Object.keys(valTokens): [];
+
                     return (
-                        <li key={tokenName}>
-                            <Token isEditing={isEditing} name={tokenName} value={tokenValue} onChange={tokenChanged} />
+                        <li key={name}>
+                            <TokenEnum isEditing={isEditing} name={name} values={values.map(a => [a,a])} value={" "} onChange={tokenChanged} />
                         </li>
                     );
                 })}
@@ -191,6 +232,10 @@ interface TokenProps {
     onChange: (name: string, value: string) => void;
 }
 
+interface TokenEnumProps extends TokenProps {
+    values: Array<[string, string]>
+}
+
 const LittleSyntax = ({ value }: { value: string}) => {
     const variable = value.match(/var\((.*)\)/);
     if (variable) {
@@ -221,6 +266,26 @@ const Token = ({ name, value, onChange, isEditing }: TokenProps) => {
                 }
             </Text>
             <PreviewColor style={{ background: value }} />
+        </Flex>
+    );
+};
+
+const TokenEnum = ({ name, value, values, onChange, isEditing }: TokenEnumProps) => {
+    const handle: ChangeEventHandler<HTMLSelectElement> = (e) => {
+        onChange(name, e.target.value);
+    };
+
+    const options = [[' ', ' ']].concat(values).map(([ val, label ]) => (<option key={val} value={val}>{label}</option>));
+
+    return (
+        <Flex>
+            <Text>
+                {name}: {
+                    isEditing
+                    ? <select value={value} onChange={handle}>{options}</select>
+                    : <LittleSyntax value={value} />
+                }
+            </Text>
         </Flex>
     );
 };

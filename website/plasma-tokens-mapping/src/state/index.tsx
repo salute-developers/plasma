@@ -4,10 +4,15 @@ import { createContext, Dispatch, ReactNode, useContext } from 'react';
 import { useImmerReducer } from 'use-immer';
 
 
+export type TokenObject = string | {
+    type: 'enum';
+    name: string;
+    value: string;
+};
 
-export type ModifierTokensAPI = Array<string> | {
+export type ModifierTokensAPI = Array<TokenObject> | {
     type: 'boolean' | 'enum';
-    tokens: Array<string>;
+    tokens: Array<TokenObject>;
 }
 
 

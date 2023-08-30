@@ -3,7 +3,8 @@
         "Button": {
             "defaults": {
                 "_view": "default",
-                "_focused": "true"
+                "_focused": "true",
+                "_size": "m"
             },
             "variations": {
                 "_view": {
@@ -65,23 +66,53 @@
                     }
                 },
                 "_size": {
-                    "s": {
-                        "--plasma-button-padding-y": "var(--plasma-button-s-padding-y)",
-                        "--plasma-button-padding-x": "var(--plasma-button-s-padding-x)",
-                        "--plasma-button-height": "var(--plasma-button-s-height)",
-                        "--plasma-button-radius": "var(--plasma-button-s-radius)"
+                    "l": {
+                        "--plasma-button-height": "56px",
+                        "--plasma-button-padding": "24px",
+                        "--plasma-button-radius": "14px",
+                        "typography": "$bodyLBold"
+                    },
+                    "lr": {
+                        "--plasma-button-height": "56px",
+                        "--plasma-button-padding": " ",
+                        "--plasma-button-radius": " ",
+                        "typography": "$bodyLBold"
                     },
                     "m": {
-                        "--plasma-button-padding-y": "var(--plasma-button-m-padding-y)",
-                        "--plasma-button-padding-x": "var(--plasma-button-m-padding-x)",
-                        "--plasma-button-height": "var(--plasma-button-m-height)",
-                        "--plasma-button-radius": "var(--plasma-button-m-radius)"
+                        "--plasma-button-height": "48px",
+                        "--plasma-button-padding": "20px",
+                        "--plasma-button-radius": "12px",
+                        "typography": "$bodyMBold"
                     },
-                    "l": {
-                        "--plasma-button-padding-y": "var(--plasma-button-l-padding-y)",
-                        "--plasma-button-padding-x": "var(--plasma-button-l-padding-x)",
-                        "--plasma-button-height": "var(--plasma-button-l-height)",
-                        "--plasma-button-radius": " var(--plasma-button-l-radius)"
+                    "mr": {
+                        "--plasma-button-height": "48px",
+                        "--plasma-button-padding": " ",
+                        "--plasma-button-radius": " ",
+                        "typography": "$bodyMBold"
+                    },
+                    "s": {
+                        "--plasma-button-height": "40px",
+                        "--plasma-button-padding": "16px",
+                        "--plasma-button-radius": "10px",
+                        "typography": "$bodySBold"
+                    },
+                    "sr": {
+                        "--plasma-button-height": "40px",
+                        "--plasma-button-padding": " ",
+                        "--plasma-button-radius": " ",
+                        "typography": "$bodySBold"
+                    },
+                    "xs": {
+                        "--plasma-button-height": "32px",
+                        "--plasma-button-padding": "12px",
+                        "--plasma-button-radius": "8px",
+                        "typography": "$bodyXSBold"
+                    },
+                    "xsr": {
+                        "--plasma-button-height": "32px",
+                        "--plasma-button-padding": " ",
+                        "--plasma-button-radius": " ",
+                        "typography": "$bodyXSBold"
                     }
                 },
                 "_disabled": {
@@ -91,11 +122,18 @@
                 },
                 "_focused": {
                     "true": {
-                        "--plasma-button-focus-color": "var(--plasma-colors-button-focused)"
+                        "--plasma-button-focus-color": "var(--surface-accent)"
                     }
                 }
             }
         }
     },
+    "global": {
+        "xxx": {
+            "dark": "#fco",
+            "light": "#foc"
+        }
+    },
+    "tokens": "plasma_b2c",
     "name": "plasma_b2c"
 }
