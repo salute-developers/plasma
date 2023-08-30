@@ -7,7 +7,7 @@ import { getStaticVariants, getDynamicVariants, ComponentConfig } from './common
 
 export { styled, css };
 
-export const component = (componentConfig: ComponentConfig) => {
+export const _component = (componentConfig: ComponentConfig) => {
     const { tag, base, defaults } = componentConfig;
     const staticVarians = getStaticVariants(componentConfig);
     const dynamicVarians = getDynamicVariants(componentConfig);
@@ -20,3 +20,8 @@ export const component = (componentConfig: ComponentConfig) => {
 
     return (props: any) => <Root as={tag} {...defaults} {...props} />;
 };
+
+
+export function component(config: ComponentConfig) {
+    return config.layout(_component(config));
+}
