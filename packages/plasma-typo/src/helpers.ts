@@ -1,6 +1,6 @@
 import { css, CSSObject, InterpolationFunction } from 'styled-components';
 
-import { TypoPropName, TypoProps } from './types';
+import { CreateVariablesByArcheTypeProps, TypoPropName, TypoProps } from './types';
 
 export const prepareStandardBreakpointTypo = (typo: CSSObject) =>
     Object.entries(typo).reduce<CSSObject>((acc, [typoKey, typoProps]) => {
@@ -21,10 +21,10 @@ type TypoMap = Record<
     } & Partial<Record<CompatProps, string>>
 >;
 
-export const prepareCompatibleTypo = (typoMap: TypoMap) =>
+export const prepareCompatibleTypo = (typoMap: TypoMap, oldDesignPrefix = '', newDesignPrefix = '') =>
     Object.entries(typoMap).reduce<CSSObject>((acc, [oldKey, { name, ...rest }]) => {
-        const oldPrefix = `--plasma-typo-${oldKey}`;
-        const newPrefix = `--plasma-typo-${name}`;
+        const oldPrefix = `--${oldDesignPrefix}typo-${oldKey}`;
+        const newPrefix = `--${newDesignPrefix}typo-${name}`;
 
         compatProps.forEach((compatProp) => {
             acc[`${oldPrefix}-${compatProp}`] = `var(${newPrefix}-${compatProp})`;
@@ -52,16 +52,6 @@ export const mergeTypoProps = (...obj: TypoProps[]): TypoProps =>
             ),
         {},
     );
-
-type FontFamily = 'SB Sans Display' | 'SB Serif Display' | 'SB Sans Cond Mono' | 'SB Sans Text' | 'SB Sans Text Mono';
-
-interface CreateVariablesByArcheTypeProps {
-    displayFontFamily: FontFamily;
-    textFontFamily: FontFamily;
-    typoS?: TypoProps;
-    typoM?: TypoProps;
-    typoL?: TypoProps;
-}
 
 export const createVariablesByArcheType = ({
     displayFontFamily,
