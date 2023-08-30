@@ -56,6 +56,10 @@ jobs:
               enumeration.push('plasma-tokens-utils');
             }
             
+            if (enumeration.includes('plasma-tokens-native') && !enumeration.includes('plasma-tokens')) {
+              enumeration.push('plasma-tokens');
+            }
+            
             if (!enumeration.includes('plasma-icons')) {
               enumeration.push('plasma-icons');
             }
@@ -75,6 +79,7 @@ jobs:
             if (enumeration.includes('plasma-temple-docs') || enumeration.includes('plasma-ui-docs')) {
               enumeration.push('plasma-web');
             }
+            
             return enumeration.join(',');  
 
       - name: Lerna bootstrap
