@@ -7,17 +7,18 @@
     "scripts": {
         "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
         "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
-        "lint": "../../node_modules/.bin/eslint ./src --ext .ts,.tsx --quiet"
+        "lint": "../../node_modules/.bin/eslint ./src --ext .ts,.tsx --quiet",
+        "install:dev": "npm i @salutejs/plasma-b2c@dev @salutejs/plasma-colors@dev @salutejs/plasma-icons@dev @salutejs/plasma-tokens-b2b@dev @salutejs/plasma-tokens-b2c@dev @salutejs/plasma-tokens-utils@dev @salutejs/plasma-tokens-web@dev @salutejs/plasma-typo@dev --no-audit --no-progress"
     },
     "dependencies": {
-        "@salutejs/plasma-b2c": "1.221.0",
-        "@salutejs/plasma-colors": "0.8.0",
-        "@salutejs/plasma-icons": "1.155.0",
-        "@salutejs/plasma-tokens-b2b": "1.25.0",
-        "@salutejs/plasma-tokens-b2c": "0.34.0",
-        "@salutejs/plasma-tokens-utils": "0.30.0",
-        "@salutejs/plasma-tokens-web": "1.40.0",
-        "@salutejs/plasma-typo": "0.36.0",
+        "@salutejs/plasma-b2c": "1.222.0-dev.0",
+        "@salutejs/plasma-colors": "0.9.0-dev.0",
+        "@salutejs/plasma-icons": "1.156.0-dev.0",
+        "@salutejs/plasma-tokens-b2b": "1.26.0-dev.0",
+        "@salutejs/plasma-tokens-b2c": "0.35.0-dev.0",
+        "@salutejs/plasma-tokens-utils": "0.31.0-dev.0",
+        "@salutejs/plasma-tokens-web": "1.41.0-dev.0",
+        "@salutejs/plasma-typo": "0.37.0-dev.0",
         "octokit": "^1.7.1",
         "prettier": "^2.6.2",
         "react": "^18.2.0",
