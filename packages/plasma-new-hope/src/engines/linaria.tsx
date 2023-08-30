@@ -45,8 +45,8 @@ export const _component = (componentConfig: ComponentConfig) => {
 };
 /** linaria engine */
 
+// TODO: move to common
+// TODO: refactor generator to import from @salute/plasma-new-hope/
 export function component(config: ComponentConfig) {
     return config.layout(_component(config));
 }
-
-
