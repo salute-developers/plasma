@@ -7,6 +7,9 @@ inputs:
     description: 'Commit message when updated package-lock'
     required: false
     default: 'chore: update package-locks [skip ci]'
+  tag:
+    description: 'publish tag: canary,dev,latest. For example, tag === "dev" run => npm install @salutejs/plasma-b2c@dev'
+    required: false
   token:
     description: 'A Github Token'
     required: true
@@ -33,6 +36,22 @@ runs:
       with:
         github_token: ${{ inputs.token }}
         message: ${{ inputs.commit-message }}
+        branch: ${{ steps.branch_name.outputs.BRANCH }}
+        author_name: Salute Frontend Team
+        author_email: salute.developers@gmail.com
+
+    - name: Update dependencies versions in private packages by dev tag
+      if: ${{ inputs.tag == 'dev' }}
+      shell: bash
+      run: |
+        npx lerna run install:dev --scope=@salutejs/plasma-{docs-ui,tokens-native,theme-builder,website,temple-docs,ui-docs,web-docs}
+
+    - name: Commit & Push changes files
+      if: ${{ inputs.tag == 'dev' }}
+      uses: actions-js/push@master
+      with:
+        github_token: ${{ inputs.token }}
+        message: "Update versions"
         branch: ${{ steps.branch_name.outputs.BRANCH }}
         author_name: Salute Frontend Team
         author_email: salute.developers@gmail.com
