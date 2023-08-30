@@ -1,5 +1,5 @@
 import { createVariablesByArcheType, mergeTypoProps } from '../helpers';
-import { TypoProps } from '../types';
+import type { CreateVariablesByArcheTypeProps, TypoProps } from '../types';
 
 export const baseTypoS: TypoProps = {
     'dspl-l': {
@@ -702,10 +702,13 @@ export const mageTypoProperties = {
     l: mergeTypoProps(baseTypoL, typoCommonProps(displayFontFamily, textFontFamily)),
 };
 
-export const mage = createVariablesByArcheType({
+export const mageTypoObject: CreateVariablesByArcheTypeProps = {
     displayFontFamily,
     textFontFamily,
     typoS: baseTypoS,
     typoM: baseTypoM,
     typoL: baseTypoL,
-});
+    getTypoCommonProps: typoCommonProps,
+};
+
+export const mage = createVariablesByArcheType(mageTypoObject);

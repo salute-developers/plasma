@@ -5,6 +5,34 @@ export interface BoldProps {
     bold?: boolean;
 }
 
+export type FontFamily =
+    | 'SB Sans Display'
+    | 'SB Serif Display'
+    | 'SB Sans Cond Mono'
+    | 'SB Sans Text'
+    | 'SB Sans Text Mono';
+
+export type TypoCommonProps = (
+    displayFontFamily: string,
+    textFontFamily: string,
+) => Record<
+    TypoPropName,
+    {
+        'font-family': string;
+        'letter-spacing': string;
+        'font-style': string;
+    }
+>;
+
+export interface CreateVariablesByArcheTypeProps {
+    displayFontFamily?: FontFamily;
+    textFontFamily?: FontFamily;
+    typoS?: TypoProps;
+    typoM?: TypoProps;
+    typoL?: TypoProps;
+    getTypoCommonProps?: TypoCommonProps;
+}
+
 export type TypoPropName =
     | 'dspl-l'
     | 'dspl-l-bold'
