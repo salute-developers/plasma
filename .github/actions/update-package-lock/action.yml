@@ -44,7 +44,9 @@ runs:
       if: ${{ inputs.tag == 'dev' }}
       shell: bash
       run: |
-        npx lerna run install:dev --scope=@salutejs/plasma-{docs-ui,tokens-native,theme-builder,website,temple-docs,ui-docs,web-docs}
+        # в scope перечислены приватные пакеты у которых в зависимостях нет приватных пакетов
+        # иначе будет ошибка 404 
+        npx lerna run install:dev --scope=@salutejs/plasma-{docs-ui,tokens-native,theme-builder,website}
 
     - name: Commit & Push changes files
       if: ${{ inputs.tag == 'dev' }}
