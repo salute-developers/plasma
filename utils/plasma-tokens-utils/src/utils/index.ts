@@ -11,3 +11,4 @@ export { lowerFirstLetter } from './lowerFirstLetter';
 export { camelize } from './camelize';
 export { writeGeneratedToFS } from './writeGeneratedToFS';
 export { jsToCss } from './jsToCss';
+export { getMediaQuery } from './getMediaQuery';

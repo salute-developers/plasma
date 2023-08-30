@@ -14,6 +14,13 @@ export const generateCSSThemeModuleFile = (name: string, content: object) => {
     };
 };
 
+export const generateCSSTypoRootFile = (name: string, content: (string | undefined)[]) => {
+    return {
+        file: `${name}.typo.css`,
+        content: `\n${content.filter(Boolean).join('\n\n')}\n`,
+    };
+};
+
 /**
  * Создает дескриптор на файл с определенным именем и контентом.
  */
