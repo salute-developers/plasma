@@ -7,6 +7,8 @@ const { stripIndent } = require('common-tags');
 
 const { t } = require('../src/transform');
 
+const { typoPlain } = require('../src/refactor');
+
 const PATH_TO_THEMES = process.env.PATH_TO_THEMES;
 const PATH_TO_DESTINATION_CONFIG = process.env.PATH_TO_DESTINATION_CONFIG;
 
@@ -128,7 +130,7 @@ function tmplCompConfig(config) {
         defaults: noModKeys(),
         variations: noModKeys({
             _: {
-                _: tokensToCss(meta)
+                _: extendTokens(cleanTokens(tokensToCss(meta)))
             }
         })
     });
@@ -148,6 +150,31 @@ function tmplImportCss(meta) {
         return '\n' + "import { css } from '@linaria/core';" + '\n';
     } else {
         return '';
+    }
+}
+
+function extendTokens(scheme, indention = 4) {
+    return (tokens, level) => {
+        // TODO: refactor
+        if (tokens['typography']) {
+            Object.assign(tokens, typoPlain[tokens['typography']]);
+            delete tokens['typography'];
+        }
+        return t(scheme, indention)(tokens, level);
+    }
+}
+
+function cleanTokens(scheme, indention = 4) {
+    return (tokens, level) => {
+        const next = {};
+        for (const tokenName of Object.keys(tokens)) {
+            if (tokens[tokenName] === ' ') {
+                continue;
+            }
+            next[tokenName] = tokens[tokenName];
+        }
+        
+        return t(scheme, indention)(next, level);
     }
 }
 
