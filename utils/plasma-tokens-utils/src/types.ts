@@ -27,6 +27,9 @@ export type CSSThemeMode = {
     '.light': CSSProperties;
     '.dark': CSSProperties;
 };
+export interface CSSObject extends CSSProperties {
+    [key: string]: CSSObject | string | number | undefined;
+}
 
 export type TokenType = string | CSSProperties | Array<string | number> | Record<string, string> | Array<any>;
 

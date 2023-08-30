@@ -1,6 +1,14 @@
 import fs from 'fs';
 import path from 'path';
 import { generateThemesTokenDataGroups, getThemesTokensFallback } from '@salutejs/plasma-tokens-utils';
+import {
+    mageTypoObject,
+    plasmaTypoObject,
+    rulerTypoObject,
+    sageTypoObject,
+    sbermarketTypoObject,
+    soulmateTypoObject,
+} from '@salutejs/plasma-typo';
 
 import {
     createRootIndex,
@@ -18,6 +26,15 @@ export const themesTokensSet = getThemesTokensFallback(themesTokenDataGroups);
 
 const { default__dark, default__light, ...themesTokensFallback } = themesTokensSet;
 
+const typoArchetypes = {
+    mage: mageTypoObject,
+    sage: sageTypoObject,
+    soulmate: soulmateTypoObject,
+    ruler: rulerTypoObject,
+    plasma: plasmaTypoObject,
+    sbermarket: sbermarketTypoObject,
+};
+
 const outDir = 'src';
 fs.existsSync(outDir) || fs.mkdirSync(outDir);
 
@@ -32,7 +49,7 @@ createThemes(outDir, themesTokensFallback);
 /** ========================================================= **/
 /** ================== Генерация css стилей ================= **/
 /** ========================================================= **/
-createCSSStyles(outDir, themesTokensFallback);
+createCSSStyles(outDir, themesTokensFallback, typoArchetypes);
 /** ========================================================= **/
 /** ======== Генерация тем, на основе созданных схем ======== **/
 /** ========================================================= **/
@@ -45,5 +62,3 @@ createDefaultBrand(outDir, default__dark);
 /** ============ Генерация типографической сетки ============ **/
 /** ========================================================= **/
 createLegacyTypo(outDir);
-
-// TODO: при добавлении токенов в темы посмотреть на https://theme-ui.com/theme-spec/#styles
