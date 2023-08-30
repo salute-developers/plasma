@@ -21,5 +21,9 @@ const typoOldMap = {
 };
 
 export const compatible = {
-    ':root': prepareCompatibleTypo(typoOldMap),
+    ':root': prepareCompatibleTypo(typoOldMap, 'plasma-', 'plasma-'),
+};
+
+export const compatibleNewTypoTokens = {
+    ':root': prepareCompatibleTypo(typoOldMap, 'plasma-'),
 };

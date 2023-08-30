@@ -1,4 +1,5 @@
 import { createVariablesByArcheType, mergeTypoProps } from '../helpers';
+import { CreateVariablesByArcheTypeProps } from '../types';
 
 import { baseTypoL, baseTypoM, baseTypoS, typoCommonProps } from './mage';
 
@@ -116,10 +117,13 @@ export const sageTypoProperties = {
     l: mergeTypoProps(baseTypoL, typo, typoCommonProps(displayFontFamily, textFontFamily)),
 };
 
-export const sage = createVariablesByArcheType({
+export const sageTypoObject: CreateVariablesByArcheTypeProps = {
     displayFontFamily,
     textFontFamily,
     typoS: mergeTypoProps(baseTypoS, typo),
     typoM: mergeTypoProps(baseTypoM, typo),
     typoL: mergeTypoProps(baseTypoL, typo),
-});
+    getTypoCommonProps: typoCommonProps,
+};
+
+export const sage = createVariablesByArcheType(sageTypoObject);

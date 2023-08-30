@@ -9,14 +9,22 @@ export const applyHyphens: InterpolationFunction<BreakWordProps> = ({ breakWord 
     `
         --plasma-typo-overflow-wrap: break-word;
         --plasma-typo-hyphens: auto;
+
+        // INFO: для новых токенов типографики (без префикса plasma)
+        --typo-overflow-wrap: break-word;
+        --typo-hyphens: auto;
     `}
 
     ${breakWord === false &&
     `
         --plasma-typo-overflow-wrap: normal;
         --plasma-typo-hyphens: manual;
+
+        // INFO: для новых токенов типографики (без префикса plasma)
+        --typo-overflow-wrap: normal;
+        --typo-hyphens: manual;
     `}
 
-    overflow-wrap: var(--plasma-typo-overflow-wrap);
-    hyphens: var(--plasma-typo-hyphens);
+    overflow-wrap: var(--plasma-typo-overflow-wrap, var(--typo-overflow-wrap));
+    hyphens: var(--plasma-typo-hyphens, var(--typo-hyphens));
 `;

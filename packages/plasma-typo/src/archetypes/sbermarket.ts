@@ -1,5 +1,5 @@
 import { createVariablesByArcheType, mergeTypoProps } from '../helpers';
-import { TypoProps } from '../types';
+import type { CreateVariablesByArcheTypeProps, TypoProps } from '../types';
 
 export const baseTypoS: TypoProps = {
     'dspl-l': {
@@ -528,9 +528,12 @@ export const sbermarketTypoProperties = {
     l: mergeTypoProps(baseTypoL, typoCommonProps(displayFontFamily, textFontFamily)),
 };
 
-export const sbermarket = createVariablesByArcheType({
+export const sbermarketTypoObject: CreateVariablesByArcheTypeProps = {
     displayFontFamily,
     textFontFamily,
     typoS: baseTypoS,
     typoL: baseTypoL,
-});
+    getTypoCommonProps: typoCommonProps,
+};
+
+export const sbermarket = createVariablesByArcheType(sbermarketTypoObject);
