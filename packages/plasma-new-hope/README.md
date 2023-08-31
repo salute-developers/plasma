@@ -57,53 +57,54 @@ PATH_TO_THEMES=../../website/plasma-tokens-mapping/themes PATH_TO_DESTINATION_CO
 
 ## TODO
 
-[x] tokens-mapping: Dark / Light Theme
-[] tokens-mapping: connect tokens-theme to theme
-[] new-hope: storybook ThemeSwitch
-[x] new-hope: Button: size
-[] new-hope: Button: pin
-[] plasma-b2c: Button: pin
-[] plasma-b2c: Button: pin + focus
-[] new-hope: hovered / actived
-[] new-hope: Button: plasma-b2c
-[] new-hope: sds => sds-eng
-[] new-hope: Button: sds-eng
-[] new-hope: Button: outlined
-[] new-hope: focus-visible => polyfill ??
-[] new-hope: fix mergeConfig extend check example in plasma-b2c
-[x] tokens-mapping: defaults saving
-[x] tokens-mapping: boolean modifier
-[] tokens-mapping: state vc modifier ???
-[] tokens-mapping: intersection ???
-[] tokens-mapping: default values for tokens
-[] tokens-mapping: merge tokens with theme
-[] tokens-mapping: Complex tokens: enums => select
-[x] new-hope: engine: linaria filter props
-[x] ds-generator: Генерация componentConfig из theme.json
-[x] ds-generator: examples plasma-new-hope
-[] new-hope: Типизация componentConfig
-[] new-hope: Типизация Button
-[] new-hope: Включить eslint
-[] new-hope: Переписать сборку new-hope на rollup
-[] new-hope: Починить сборку в commonJS 
-[] new-hope: Add api-extractor
-[] example-ds: Сборка example-design-system на конфигах new-hope
-[] new-hope: Icon
-[] new-hope: Typography
-[] new-hope: Spin
-[] new-hope: Button: isLoading
-[] new-hope: TextField
-[] new-hope: TextArea
-[x] new-hope: storybook: linaria
-[x] new-hope: storybook: styled-components
-[] example: Переключение engines ???
-[] tokens-mapping: Включить eslint
-[] example-ds: Dark / Light Theme
-[] plasma-hope: Замена plasma-b2c/web:Button => plasma-new-hope:Button
-[] new-hope: Link
-[x] tokens-mapping: Переключение тем
-[] tokens-mapping: AutoComplete токенов из theme-builder
-[] new-hope: Сборка в emotion
-[] ds-generator: Включить eslint
-[] ds-generator: Генерация компонент
-[] ds-generator: Геренрация stories
+* [x] tokens-mapping: Dark / Light Theme
+* [] tokens-mapping: connect tokens-theme to theme
+* [] new-hope: storybook ThemeSwitch
+* [x] new-hope: Button: size
+* [] new-hope: Button: pin
+* [] new-hope: make hover/active scala token
+* [] plasma-b2c: Button: pin
+* [] plasma-b2c: Button: pin + focus
+* [] new-hope: hovered / actived
+* [] new-hope: Button: plasma-b2c
+* [] new-hope: sds => sds-eng
+* [] new-hope: Button: sds-eng
+* [] new-hope: Button: outlined
+* [] new-hope: focus-visible => polyfill ??
+* [] new-hope: fix mergeConfig extend check example in plasma-b2c
+* [x] tokens-mapping: defaults saving
+* [x] tokens-mapping: boolean modifier
+* [] tokens-mapping: state vc modifier ???
+* [] tokens-mapping: intersection ???
+* [] tokens-mapping: default values for tokens
+* [] tokens-mapping: merge tokens with theme
+* [] tokens-mapping: Complex tokens: enums => select
+* [x] new-hope: engine: linaria filter props
+* [x] ds-generator: Генерация componentConfig из theme.json
+* [x] ds-generator: examples plasma-new-hope
+* [] new-hope: Типизация componentConfig
+* [] new-hope: Типизация Button
+* [] new-hope: Включить eslint
+* [] new-hope: Переписать сборку new-hope на rollup
+* [] new-hope: Починить сборку в commonJS 
+* [] new-hope: Add api-extractor
+* [] example-ds: Сборка example-design-system на конфигах new-hope
+* [] new-hope: Icon
+* [] new-hope: Typography
+* [] new-hope: Spin
+* [] new-hope: Button: isLoading
+* [] new-hope: TextField
+* [] new-hope: TextArea
+* [x] new-hope: storybook: linaria
+* [x] new-hope: storybook: styled-components
+* [] example: Переключение engines ???
+* [] tokens-mapping: Включить eslint
+* [] example-ds: Dark / Light Theme
+* [] plasma-hope: Замена plasma-b2c/web:Button => plasma-new-hope:Button
+* [] new-hope: Link
+* [x] tokens-mapping: Переключение тем
+* [] tokens-mapping: AutoComplete токенов из theme-builder
+* [] new-hope: Сборка в emotion
+* [] ds-generator: Включить eslint
+* [] ds-generator: Генерация компонент
+* [] ds-generator: Геренрация stories

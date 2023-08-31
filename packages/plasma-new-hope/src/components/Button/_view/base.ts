@@ -10,14 +10,18 @@ export const base = css`
     :hover {
         color: var(--plasma-button-color-hover, var(--plasma-button-color));
         background-color: var(--plasma-button-bg-color-hover, var(--plasma-button-bg-color));
+
+        /* TODO: */
+        scale: 1.02;
     }
+
 
     :active {
         color: var(--plasma-button-color-active, var(--plasma-button-color));
         background-color: var(--plasma-button-bg-color-active, var(--plasma-button-bg-color));
 
         /* TODO: */
-        scale: 1.02;
+        scale: 0.98;
     }
 `;
 
