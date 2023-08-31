@@ -24,6 +24,7 @@ const packagesInfo = lerna.packages
 
         try {
             const packageJSON = require(required(packagePath));
+
             const {
                 name,
                 version,
@@ -34,17 +35,25 @@ const packagesInfo = lerna.packages
                 author,
             } = packageJSON;
 
-            packages.set(name, {
-                name,
-                version,
-                dependencies,
-                devDependencies,
-                peerDependencies,
-                private,
-                author,
-                path: packagePath,
-                dir: p,
-            });
+            // TODO: Убрать проверку, как только auto + npm plugin сможет корректно проставлять
+            // версии в приватных пакетах
+            if (
+                !['@salutejs/plasma-web-docs', '@salutejs/plasma-ui-docs', '@salutejs/plasma-temple-docs'].includes(
+                    name,
+                )
+            ) {
+                packages.set(name, {
+                    name,
+                    version,
+                    dependencies,
+                    devDependencies,
+                    peerDependencies,
+                    private,
+                    author,
+                    path: packagePath,
+                    dir: p,
+                });
+            }
         } catch (err) {
             console.error(p, 'Error while reading package.json');
         }
