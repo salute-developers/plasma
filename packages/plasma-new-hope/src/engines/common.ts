@@ -76,6 +76,7 @@ export type UserComponentConfig = Partial<ComponentConfig>;
 export function mergeConfig(baseConfig: ComponentConfig, userConfig?: UserComponentConfig) {
     const res = { ...baseConfig, ...userConfig };
 
+    // TODO: how we do extend ??
     if (res.variations) {
         // copy variations base css
         for (const key in res.variations) {

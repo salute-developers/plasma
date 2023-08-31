@@ -12,6 +12,33 @@ export const config = {
         view: 'secondary',
     },
     variations: {
+        pin: {
+            'square-square': css``,
+            'clear-clear': css`
+                border-radius: 0;
+            `,
+            'square-clear': css`
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            `,
+            'clear-square': css`
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            `,
+            'clear-circle': css`
+                border-radius: calc(var(--plasma-button-height) / 2);
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            `,
+            'circle-clear': css`
+                border-radius: calc(var(--plasma-button-height) / 2);
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+            `,
+            'circle-circle': css`
+                border-radius: calc(var(--plasma-button-height) / 2);
+            `,
+        },
         view: {
             primary: css`
                 --plasma-button-color: var(--plasma-colors-white);

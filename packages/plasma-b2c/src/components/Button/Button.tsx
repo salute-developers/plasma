@@ -5,6 +5,9 @@ import type { ButtonProps } from '@salutejs/plasma-hope';
 import { buttonConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
 
 import { config } from './Button.config';
+import { css } from 'styled-components';
+
+buttonConfig.variations['pin'] = { css: css`` };
 
 const mergedConfig = mergeConfig(buttonConfig, config);
 

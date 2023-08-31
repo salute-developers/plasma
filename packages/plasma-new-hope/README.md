@@ -60,16 +60,24 @@ PATH_TO_THEMES=../../website/plasma-tokens-mapping/themes PATH_TO_DESTINATION_CO
 [x] tokens-mapping: Dark / Light Theme
 [] tokens-mapping: connect tokens-theme to theme
 [] new-hope: storybook ThemeSwitch
+[x] new-hope: Button: size
 [] new-hope: Button: pin
+[] plasma-b2c: Button: pin
+[] plasma-b2c: Button: pin + focus
+[] new-hope: hovered / actived
 [] new-hope: Button: plasma-b2c
 [] new-hope: sds => sds-eng
 [] new-hope: Button: sds-eng
+[] new-hope: Button: outlined
+[] new-hope: focus-visible => polyfill ??
+[] new-hope: fix mergeConfig extend check example in plasma-b2c
 [x] tokens-mapping: defaults saving
 [x] tokens-mapping: boolean modifier
 [] tokens-mapping: state vc modifier ???
 [] tokens-mapping: intersection ???
 [] tokens-mapping: default values for tokens
 [] tokens-mapping: merge tokens with theme
+[] tokens-mapping: Complex tokens: enums => select
 [x] new-hope: engine: linaria filter props
 [x] ds-generator: Генерация componentConfig из theme.json
 [x] ds-generator: examples plasma-new-hope
