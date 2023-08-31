@@ -46,5 +46,7 @@
     "publishConfig": {
         "access": "restricted"
     },
-    "files": ["lib"]
+    "files": [
+        "lib"
+    ]
 }
