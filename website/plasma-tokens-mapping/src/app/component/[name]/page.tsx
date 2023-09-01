@@ -11,6 +11,7 @@ import { ComponentBuilder } from '../../../components/ComponentBuilder';
 
 import { BgType, BgType_NO, ModifierTokensAPI, ThemeProvider, ThemeState } from '../../../state';
 import { BGSwitcher } from '../../../components/BackgroundSwitcher';
+import { PlasmaTokens } from '../../../components/PlasmaTokens';
 
 const PLASMA_DIR = process.env.PLASMA_DIR!;
 const plasmaNewHopePath = path.join(PLASMA_DIR, 'packages/plasma-new-hope');
@@ -58,7 +59,14 @@ export default async function ComponentPage({ params, searchParams }: { params: 
                     name={name}
                     theme={componentTheme}
                     variationsAPI={modsAPI}
-                    themeSwitcher={<><ThemeSwitchStyle /><BGSwitcher /><ThemeSwitch active={activeTheme} /></>}
+                    themeSwitcher={
+                        <>
+                            <ThemeSwitchStyle />
+                            <BGSwitcher />
+                            <PlasmaTokens activeTheme={activeTheme} />
+                            <ThemeSwitch active={activeTheme} />
+                        </>
+                    }
                 />
             </ThemeProvider>
 

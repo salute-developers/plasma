@@ -6,6 +6,8 @@ import { component, mergeConfig } from '@salutejs/plasma-new-hope';
 
 import { config } from './Button.config';
 
-const _config = mergeConfig(buttonConfig, config);
+// buttonConfig.variations['pin'] = { css: '' };
+
+export const _config = mergeConfig(buttonConfig, config);
 
 export const Button = component(_config);

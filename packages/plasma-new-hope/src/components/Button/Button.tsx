@@ -7,6 +7,7 @@ import { base as view } from './_view/base';
 import { base as size } from './_size/base';
 import { base as disabled } from './_disabled/base';
 import { base as focused } from './_focused/base';
+import { base as square, yes } from './_square/base';
 
 // import { fontFamily } from './tokens';
 
@@ -35,15 +36,33 @@ const ButtonText = styled.span`
     }
 `;
 
+// TODO: I dpn't like this code =/
+// Could we do better ???
+const LoadWrap = styled.div<{ isLoading: boolean}>`
+    opacity: ${(props) => props.isLoading ? '0' : '1'};
+    display: flex;
+    width: 100%;
+    align-items: inherit;
+    justify-content: inherit;
+`;
+
+const Loader = styled.div`
+    position: absolute;
+`;
+
 export const buttonRoot = (Root: any) => (props: any) => {
-    const { children, text, contentLeft, contentRight, ...rest } = props;
+    const { children, text, contentLeft, contentRight, isLoading, ...rest } = props;
+    // TODO: do we need to always wrap children into <ButtonText> ???
     const txt = typeof children === 'string' ? children : children ? undefined : text;
 
     const comp = (
         <Root {...rest}>
-            {contentLeft}
-            {txt ? <ButtonText>{txt}</ButtonText> : children}
-            {contentRight}
+            <LoadWrap isLoading={isLoading}>
+                {contentLeft}
+                {txt ? <ButtonText>{txt}</ButtonText> : children}
+                {contentRight}
+            </LoadWrap>
+            {isLoading && <Loader>♻️</Loader>}
         </Root>
     );
 
@@ -68,6 +87,10 @@ export const buttonConfig: ComponentConfig = {
         },
         focused: {
             css: focused,
+        },
+        square: {
+            css: square,
+            true: yes,
         },
     },
     defaults: {

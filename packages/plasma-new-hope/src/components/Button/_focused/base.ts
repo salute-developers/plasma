@@ -23,7 +23,7 @@ export const base = css`
         transition: box-shadow 0.2s ease-in-out 0s;
     }
 
-    :focus::before {
+    :focus-visible::before {
         box-shadow: 0 0 0 0.125rem var(--plasma-button-focus-color);
     }
 `;

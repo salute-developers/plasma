@@ -142,10 +142,17 @@ export function Preview(props: PreviewProps) {
                     }
                 }
 
+                let txt = `hello ${modName}_${modVal === '' ? 'false' : modVal}`
+                
+                // TODO: tmp desicion
+                if (modName === '_square' && modVal) {
+                    txt = 'X';
+                }
+
                 return (
                     <span key={modVal} style={styles}>
                         <Component {...props}>
-                            hello {modName}_{modVal === '' ? 'false' : modVal}
+                            {txt}
                         </Component>
                     </span>
                 );

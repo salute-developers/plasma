@@ -80,8 +80,14 @@ export function mergeConfig(baseConfig: ComponentConfig, userConfig?: UserCompon
     if (res.variations) {
         // copy variations base css
         for (const key in res.variations) {
-            res.variations[key].css = baseConfig.variations[key].css;
-            if (baseConfig.variations[key].attrs) {
+            res.variations[key].css = baseConfig.variations[key]?.css;
+            // TODO: fuck me
+            /* start of bad decision */
+            if (!res.variations[key]['true'] && baseConfig.variations[key]?.true) {
+                res.variations[key]['true'] = baseConfig.variations[key]['true'];
+            }
+            /* end of bad decision */
+            if (baseConfig.variations[key]?.attrs) {
                 res.variations[key].attrs = baseConfig.variations[key].attrs;
             }
         }

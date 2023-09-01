@@ -290,7 +290,7 @@ body {
 }
 
 
-:root[data-theme="light"], :root[data-plasma-theme="sdseng"] {
+:root[data-theme="light"], :root[data-plasma-theme="sds"] {
 --overlay-soft: rgba(0,0,0,0.56);
 --overlay-hard: rgba(0,0,0,0.9);
 --on-dark-overlay-soft: rgba(0,0,0,0.56);

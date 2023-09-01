@@ -164,6 +164,15 @@ function extendTokens(scheme, indention = 4) {
     }
 }
 
+// TODO: remove empty objects:
+/*
+        square: {
+            true: css`
+            `,
+        },
+        =>
+        square: {}
+*/
 function cleanTokens(scheme, indention = 4) {
     return (tokens, level) => {
         const next = {};

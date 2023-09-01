@@ -2,8 +2,87 @@
     "name": "sds",
     "components": {
         "Button": {
-            "defaults": {},
+            "defaults": {
+                "_size": "m",
+                "_focused": "true",
+                "_view": "secondary"
+            },
             "variations": {
+                "_view": {
+                    "primary": {
+                        "--plasma-button-color": "var(--on-dark-text-primary)",
+                        "--plasma-button-bg-color": "var(--surface-accent)",
+                        "--plasma-button-color-hover": " ",
+                        "--plasma-button-bg-color-hover": "#18A2FF",
+                        "--plasma-button-color-active": " ",
+                        "--plasma-button-bg-color-active": "#045891"
+                    },
+                    "secondary": {
+                        "--plasma-button-color": "var(--text-primary)",
+                        "--plasma-button-bg-color": "var(--surface-transparent-secondary)",
+                        "--plasma-button-color-hover": " ",
+                        "--plasma-button-bg-color-hover": "rgba(11,126,203,0.12)",
+                        "--plasma-button-color-active": " ",
+                        "--plasma-button-bg-color-active": "rgba(11,126,203,0.19)"
+                    },
+                    "clear": {
+                        "--plasma-button-color": "var(--text-accent)",
+                        "--plasma-button-bg-color": "var(--surface-clear)",
+                        "--plasma-button-color-hover": " ",
+                        "--plasma-button-bg-color-hover": "rgb(11, 126, 203, 0.12)",
+                        "--plasma-button-color-active": " ",
+                        "--plasma-button-bg-color-active": "rgb(11, 126, 203, 0.19)"
+                    },
+                    "negative": {
+                        "--plasma-button-color": "var(--on-dark-text-primary)",
+                        "--plasma-button-bg-color": "var(--surface-negative)",
+                        "--plasma-button-color-hover": " ",
+                        "--plasma-button-bg-color-hover": "#E65260",
+                        "--plasma-button-color-active": " ",
+                        "--plasma-button-bg-color-active": "#C60014"
+                    },
+                    "white": {
+                        "--plasma-button-color": "var(--text-primary)",
+                        "--plasma-button-bg-color": "var(--background-primary)",
+                        "--plasma-button-color-hover": " ",
+                        "--plasma-button-bg-color-hover": "#FFFFFF",
+                        "--plasma-button-color-active": " ",
+                        "--plasma-button-bg-color-active": "#EBEAEA"
+                    }
+                },
+                "_size": {
+                    "m": {
+                        "--plasma-button-height": "40px",
+                        "--plasma-button-padding": "20px",
+                        "--plasma-button-radius": "4px",
+                        "typography": "$bodyM"
+                    },
+                    "s": {
+                        "--plasma-button-height": "28px",
+                        "--plasma-button-padding": "12px",
+                        "--plasma-button-radius": "4px",
+                        "typography": "$bodyM"
+                    },
+                    "xs": {
+                        "--plasma-button-height": "20px",
+                        "--plasma-button-padding": "12px",
+                        "--plasma-button-radius": "4px",
+                        "typography": "$bodyS"
+                    }
+                },
+                "_disabled": {
+                    "true": {
+                        "--plasma-button-disabled-opacity": "0.4"
+                    }
+                },
+                "_focused": {
+                    "true": {
+                        "--plasma-button-focus-color": "var(--surface-accent)"
+                    }
+                },
+                "_square": {
+                    "true": {}
+                }
             }
         }
     }

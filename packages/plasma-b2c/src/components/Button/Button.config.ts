@@ -132,5 +132,6 @@ export const config = {
                 --plasma-button-focus-color: var(--plasma-colors-button-focused);
             `,
         },
+        square: {},
     },
 };
