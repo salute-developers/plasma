@@ -5,6 +5,7 @@ import { general as generalColors } from '@salutejs/plasma-colors';
 import { Grayscale } from '@salutejs/plasma-tokens-utils';
 
 import { FormField } from '../FormField/FormField';
+import { BackwardButton } from '../BackwardButton/BackwardButton';
 
 import { createTheme } from '../../builder/createTheme';
 import {
@@ -13,7 +14,7 @@ import {
     getSavedThemes,
     getSaturations,
     loadTheme,
-    pushURLParams,
+    pushHistoryState,
     createThemeURLParams,
 } from '../../utils';
 
@@ -25,9 +26,7 @@ const StyledGenerator = styled.div`
     width: 45rem;
 `;
 
-const Description = styled.div`
-    margin-top: 2rem;
-`;
+const Description = styled.div``;
 
 const StyledSelect = styled(Select)`
     min-width: 14rem;
@@ -72,9 +71,10 @@ const HELPER_TEXT_SAME_NAME_ERROR = 'Тема с таким названием �
 
 interface GeneratorProps {
     onPreviewTheme: (data: ThemeType) => void;
+    onMain: () => void;
 }
 
-export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
+export const Generator = ({ onPreviewTheme, onMain }: GeneratorProps) => {
     const [savedThemes, setSavedThemes] = useState(getSavedThemes());
     const [inputState, setInputState] = useState<{
         status?: 'error';
@@ -93,6 +93,10 @@ export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
         opacityIcons: false,
         opacitySurfaces: true,
     });
+
+    const onBackwardClick = useCallback(() => {
+        onMain();
+    }, [onMain]);
 
     const onChangeTextField = useCallback(
         (name: string) => (arg: any) => {
@@ -199,7 +203,7 @@ export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
 
         const theme = loadTheme(savedTheme);
         const params = createThemeURLParams(savedTheme);
-        pushURLParams(params);
+        pushHistoryState(params);
 
         if (!theme) {
             return;
@@ -223,6 +227,7 @@ export const Generator = ({ onPreviewTheme }: GeneratorProps) => {
 
     return (
         <StyledGenerator>
+            <BackwardButton onBackwardClick={onBackwardClick} />
             {Boolean(savedThemes.length) && (
                 <>
                     <Description>Черновики тем</Description>

@@ -62,8 +62,6 @@ export const getThemeData = async (
     repo = 'plasma',
     token?: string,
 ): Promise<ThemeType> => {
-    console.log('branchName', branchName);
-
     const response = await getFilesSource(
         undefined,
         owner,
