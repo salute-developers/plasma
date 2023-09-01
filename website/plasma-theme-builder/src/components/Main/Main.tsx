@@ -4,8 +4,8 @@ import { BodyM } from '@salutejs/plasma-b2c';
 
 import { AuthRequestModal } from '../AuthRequestModal/AuthRequestModal';
 import { ThemeKindItem } from '../ThemeKindItem/ThemeKindItem';
+import { BackwardButton } from '../BackwardButton/BackwardButton';
 
-import { IconArrowLeft } from '../../icons';
 import { useGithubAuth } from '../../hooks';
 import { clearURLParam } from '../../utils';
 import type { ThemeKindItemProps } from '../ThemeKindItem/ThemeKindItem';
@@ -14,18 +14,6 @@ const StyledMain = styled.div``;
 
 const Display = styled(BodyM)`
     margin-bottom: 2.5rem;
-`;
-
-const BackwardButton = styled.div`
-    cursor: pointer;
-    position: absolute;
-    left: 1.5rem;
-
-    opacity: 0.56;
-
-    &:hover {
-        opacity: 1;
-    }
 `;
 
 const themeKindItems: Array<ThemeKindItemProps> = [
@@ -127,6 +115,10 @@ export const Main = ({ onGenerateTheme, onSetToken }: MainProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const [token, getToken, getAuth] = useGithubAuth();
 
+    const onBackwardClick = useCallback(() => {
+        clearURLParam();
+    }, []);
+
     useEffect(() => {
         getToken();
     }, [getToken]);
@@ -145,15 +137,9 @@ export const Main = ({ onGenerateTheme, onSetToken }: MainProps) => {
         setIsOpen(false);
     }, []);
 
-    const onBackward = useCallback(() => {
-        clearURLParam();
-    }, []);
-
     return (
         <StyledMain>
-            <BackwardButton onClick={onBackward}>
-                <IconArrowLeft />
-            </BackwardButton>
+            <BackwardButton onBackwardClick={onBackwardClick} />
             <AuthRequestModal isOpen={isOpen} onClose={onAuthRequestModalClose} onGetAuth={getAuth} />
             <Display bold>Темы</Display>
             {themeKindItems.map(({ name, description, supportedPlatforms }, index) => (

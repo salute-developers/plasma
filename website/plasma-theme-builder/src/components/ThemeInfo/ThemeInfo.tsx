@@ -4,7 +4,7 @@ import { accent } from '@salutejs/plasma-tokens-b2c';
 import { BodyM } from '@salutejs/plasma-b2c';
 
 const StyledThemeInfo = styled.div`
-    margin: 1rem 0;
+    margin-bottom: 1rem;
 `;
 
 const ThemeLabel = styled(BodyM)``;
