@@ -9,6 +9,7 @@ import { ThemeModeToggle } from '../ThemeModeToggle/ThemeModeToggle';
 import { TokensSection } from '../TokensSection/TokensSection';
 import { TokenForm } from '../TokenForm/TokenForm';
 import { AddTokenSection } from '../AddTokenSection/AddTokenSection';
+import { BackwardButton } from '../BackwardButton/BackwardButton';
 
 import { TokenContext, getResetThemeData, saveTheme, getNormalizeThemeSections } from '../../utils';
 import { emptyInputData } from '../../types';
@@ -19,8 +20,6 @@ const StyledTheme = styled.div`
 `;
 
 const Description = styled.div`
-    margin-top: 2rem;
-
     display: flex;
     align-items: flex-end;
     gap: 4rem;
@@ -56,9 +55,17 @@ interface ThemeProps {
     themeNameFromParam?: string;
     branchNameFromParam?: string;
     onPullRequest: (data: ThemeType) => void;
+    onGenerateTheme: () => void;
 }
 
-export const Theme = ({ data, defaultData, themeNameFromParam, branchNameFromParam, onPullRequest }: ThemeProps) => {
+export const Theme = ({
+    data,
+    defaultData,
+    themeNameFromParam,
+    branchNameFromParam,
+    onPullRequest,
+    onGenerateTheme,
+}: ThemeProps) => {
     const initialThemeData = useMemo(() => getNormalizeThemeSections(data), [data]);
 
     const [themeData, setThemeData] = useState(initialThemeData);
@@ -66,6 +73,10 @@ export const Theme = ({ data, defaultData, themeNameFromParam, branchNameFromPar
     const [inputData, setInputData] = useState<InputData>(emptyInputData);
     const [isFormTokenOpen, setIsFormTokenOpen] = useState(false);
     const [isAddTokenSectionOpen, setIsAddTokenSectionOpen] = useState(false);
+
+    const onBackwardClick = useCallback(() => {
+        onGenerateTheme();
+    }, [onGenerateTheme]);
 
     const onTokenFormShow = useCallback((value: boolean) => {
         setIsFormTokenOpen(value);
@@ -206,6 +217,7 @@ export const Theme = ({ data, defaultData, themeNameFromParam, branchNameFromPar
 
     return (
         <StyledTheme>
+            <BackwardButton onBackwardClick={onBackwardClick} />
             <Description>
                 <Column>
                     <ThemeInfo label="Название темы" value={name} />

@@ -10,7 +10,7 @@ import { PullRequest } from './PullRequest/PullRequest';
 
 import { useDefaultThemeData, useFetchTheme } from '../hooks';
 import { multipleMediaQuery } from './mixins';
-import { clearURLParam, getURLParams } from '../utils';
+import { getURLParams, pushHistoryState } from '../utils';
 import type { Theme as ThemeType } from '../types';
 
 const StyledRoot = styled.div`
@@ -71,11 +71,12 @@ const App = () => {
 
     const onMain = useCallback(() => {
         setState(PAGE_TYPE.MAIN);
-        clearURLParam();
+        pushHistoryState('/');
     }, []);
 
     const onGenerateTheme = useCallback(() => {
         setState(PAGE_TYPE.GENERATOR);
+        pushHistoryState('/');
     }, []);
 
     const onPreviewTheme = useCallback((data: ThemeType) => {
@@ -91,13 +92,14 @@ const App = () => {
     return (
         <StyledRoot>
             {state === PAGE_TYPE.MAIN && <Main onSetToken={onSetToken} onGenerateTheme={onGenerateTheme} />}
-            {state === PAGE_TYPE.GENERATOR && <Generator onPreviewTheme={onPreviewTheme} />}
+            {state === PAGE_TYPE.GENERATOR && <Generator onMain={onMain} onPreviewTheme={onPreviewTheme} />}
             {state === PAGE_TYPE.THEME && (
                 <Theme
                     data={data}
                     defaultData={defaultData}
                     themeNameFromParam={themeName}
                     branchNameFromParam={branchName}
+                    onGenerateTheme={onGenerateTheme}
                     onPullRequest={onPullRequest}
                 />
             )}

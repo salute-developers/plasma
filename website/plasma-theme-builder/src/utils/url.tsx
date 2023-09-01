@@ -23,10 +23,25 @@ export const createURL = (params: [string?, string?][], relativeLocation = './')
     return `${relativeLocation}?${mappedParams.join('&')}`;
 };
 
-export const pushURLParams = (params: [string?, string?][], relativeLocation = '') => {
-    const newURL = createURL(params, relativeLocation);
-    const { href } = window.location;
-    window.history.pushState({}, '', href + newURL);
+type PushHistoryState = {
+    (params: [string?, string?][], relativeLocation?: string): void;
+    (url: string, relativeLocation?: string): void;
+};
+
+export const pushHistoryState: PushHistoryState = (value, relativeLocation = '') => {
+    let newState = '';
+
+    if (typeof value === 'string') {
+        newState = value;
+    }
+
+    if (typeof value === 'object') {
+        const newURL = createURL(value, relativeLocation);
+        const { href } = window.location;
+        newState = href + newURL;
+    }
+
+    window.history.pushState({}, '', newState);
 };
 
 export const clearURLParam = () => (window.location.href = '/');
