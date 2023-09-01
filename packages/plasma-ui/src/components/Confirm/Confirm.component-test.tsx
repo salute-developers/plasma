@@ -38,6 +38,7 @@ describe('Confirm', () => {
                 <Confirm visible view="primary" {...props} />
             </CypressTestDecorator>,
         );
+
         cy.matchImageSnapshot();
     });
 
@@ -47,6 +48,66 @@ describe('Confirm', () => {
                 <Confirm visible extraContent={extraContent} view="primary" {...props} />
             </CypressTestDecorator>,
         );
+        cy.matchImageSnapshot();
+    });
+
+    it('position: top + right', () => {
+        mount(
+            <CypressTestDecorator>
+                <Confirm visible positionX="right" fullWidth={false} view="primary" {...props} />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('position: top + left', () => {
+        mount(
+            <CypressTestDecorator>
+                <Confirm visible positionX="left" fullWidth={false} view="primary" {...props} />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('position: bottom + right', () => {
+        mount(
+            <CypressTestDecorator>
+                <Confirm visible positionY="bottom" positionX="right" fullWidth={false} view="primary" {...props} />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('position: bottom + left', () => {
+        mount(
+            <CypressTestDecorator>
+                <Confirm visible positionY="bottom" positionX="left" fullWidth={false} view="primary" {...props} />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('position: bottom + full width', () => {
+        mount(
+            <CypressTestDecorator>
+                <Confirm visible positionY="bottom" fullWidth view="primary" {...props} />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('position: top + full width', () => {
+        mount(
+            <CypressTestDecorator>
+                <Confirm visible positionY="top" fullWidth view="primary" {...props} />
+            </CypressTestDecorator>,
+        );
+
         cy.matchImageSnapshot();
     });
 
@@ -192,4 +253,6 @@ describe('Confirm', () => {
             cy.get('@onDismissAction').should('have.been.calledTwice');
         });
     });
+
+    describe('position', () => {});
 });

@@ -10,6 +10,10 @@ import { Cell } from '../Cell';
 
 import { useAutoFocus } from './Confirm.hooks';
 
+type PositionX = 'left' | 'right';
+
+type PositionY = 'bottom' | 'top';
+
 export interface ConfirmProps {
     /**
      * Заголовок подтверждения
@@ -59,7 +63,21 @@ export interface ConfirmProps {
      * Компонент снизу
      */
     extraContent?: ReactNode;
+
+    /**
+     * Горизонтальное положение окна
+     */
+    positionX?: PositionX;
+
+    /**
+     * Вертикальное положение окна
+     */
+    positionY?: PositionY;
+
+    fullWidth?: boolean;
 }
+
+type ConfirmRootProps = { visible: boolean; positionX?: PositionX; positionY?: PositionY; fullWidth?: boolean };
 
 // TODO: https://github.com/salute-developers/plasma/issues/232
 const Wrapper = styled.div<{ visible: boolean }>`
@@ -105,11 +123,48 @@ const tvLayout = css`
 
 const StyledButton = styled(Button)``;
 
+const handlePositionX = ({ positionX }: { positionX?: PositionX }) => {
+    switch (positionX) {
+        case 'left':
+            return css`
+                left: 0;
+            `;
+        case 'right':
+            return css`
+                right: 0;
+            `;
+        default:
+            return null;
+    }
+};
+
+const handlePositionY = ({ positionY }: { positionY?: PositionY }) => {
+    switch (positionY) {
+        case 'top':
+            return css`
+                top: 0;
+            `;
+        case 'bottom':
+            return css`
+                bottom: 0;
+            `;
+        default:
+            return null;
+    }
+};
+
 // TODO: https://github.com/salute-developers/plasma/issues/232
-const ConfirmRoot = styled.div<{ visible: boolean }>`
+const ConfirmRoot = styled.div<ConfirmRootProps>`
     position: absolute;
-    left: 0;
-    right: 0;
+
+    ${handlePositionX};
+
+    ${handlePositionY};
+
+    ${({ fullWidth }) =>
+        fullWidth && {
+            width: '100%',
+        }};
 
     transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'transform 0.5s')};
 
@@ -192,17 +247,22 @@ export const Confirm = (props: ConfirmProps) => {
         extraContent,
         onApprove,
         onDismiss,
+        positionX,
+        positionY,
+        fullWidth = true,
         ...rest
     } = props;
 
     const onApproveClick = useCallback(() => {
         onApprove();
     }, [onApprove]);
+
     const onDismissClick = useCallback(() => {
         onDismiss && onDismiss();
     }, [onDismiss]);
 
     const btnRef = useRef<HTMLButtonElement>(null);
+
     useAutoFocus(btnRef, { trigger: visible });
 
     const approve = (
@@ -231,7 +291,7 @@ export const Confirm = (props: ConfirmProps) => {
         <Wrapper visible={visible} {...rest}>
             <Overlay onClick={onDismissClick} />
             {visible && <NoScroll />}
-            <ConfirmRoot visible>
+            <ConfirmRoot visible positionX={positionX} positionY={positionY} fullWidth={fullWidth}>
                 <ConfirmContainer>
                     <ConfirmMain>
                         <StyledCell content={<TextBox title={title} subTitle={subtitle} />} />

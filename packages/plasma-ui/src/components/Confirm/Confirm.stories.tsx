@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Story } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconHelp } from '@salutejs/plasma-icons';
@@ -16,6 +16,16 @@ export default {
     title: 'Controls/Confirm',
     decorators: [InSpacing],
     component: Confirm,
+    argTypes: {
+        positionX: {
+            options: ['left', 'right', null],
+            control: { type: 'select' },
+        },
+        positionY: {
+            options: ['top', 'bottom', null],
+            control: { type: 'select' },
+        },
+    },
 };
 
 const onApproveAction = action('onApprove');
@@ -95,6 +105,9 @@ Default.args = {
     approveText: 'Да',
     dismissText: 'Нет',
     visible: false,
+    positionX: null,
+    positionY: null,
+    fullWidth: true,
 };
 
 export const ExtraContent: Story<ConfirmProps> = ({ visible: _visible, ...rest }) => {
