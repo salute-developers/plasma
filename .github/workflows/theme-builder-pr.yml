@@ -29,7 +29,7 @@ jobs:
       # TODO: https://github.com/salute-developers/plasma/issues/255
       - name: Lerna bootstrap with scope
         run: | 
-          npx lerna bootstrap --scope @salutejs/plasma-theme-builder --scope=@salutejs/plasma-{tokens,tokens-utils}
+          npx lerna bootstrap --scope @salutejs/plasma-theme-builder --scope=@salutejs/plasma-{tokens,tokens-utils,typo}
 
       # TODO: https://github.com/salute-developers/plasma/issues/603
       - name: Build Theme Builder
