@@ -5,7 +5,7 @@ import { ButtonRoot } from '@salutejs/plasma-core';
 
 import { mediaQuery } from '../../utils';
 import { Button, ButtonProps } from '../Button';
-import { TextBox } from '../TextBox';
+import { TextBox, TextBoxTitle, TextBoxSubTitle } from '../TextBox';
 import { Cell } from '../Cell';
 
 import { useAutoFocus } from './Confirm.hooks';
@@ -188,6 +188,14 @@ const ConfirmMain = styled.div`
         ${mediaQuery('L', theme.deviceScale)(tvLayout)}
         ${mediaQuery('XL', theme.deviceScale)(tvLayout)}
     `}
+
+    ${TextBoxTitle} {
+        white-space: pre-line;
+    }
+
+    ${TextBoxSubTitle} {
+        white-space: pre-line;
+    }
 `;
 
 const ConfirmFooter = styled.div`

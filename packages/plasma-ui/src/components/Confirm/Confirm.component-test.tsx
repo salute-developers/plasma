@@ -94,7 +94,7 @@ describe('Confirm', () => {
     it('position: bottom + full width', () => {
         mount(
             <CypressTestDecorator>
-                <Confirm visible positionY="bottom" fullWidth view="primary" {...props} />
+                <Confirm visible positionY="bottom" view="primary" {...props} />
             </CypressTestDecorator>,
         );
 
@@ -104,7 +104,31 @@ describe('Confirm', () => {
     it('position: top + full width', () => {
         mount(
             <CypressTestDecorator>
-                <Confirm visible positionY="top" fullWidth view="primary" {...props} />
+                <Confirm visible positionY="top" view="primary" {...props} />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('title: white-space: pre-line', () => {
+        const { title, ...rest } = props;
+
+        mount(
+            <CypressTestDecorator>
+                <Confirm visible title={'Processing new line by \n and this new line'} view="primary" {...rest} />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('subtitle: white-space: pre-line', () => {
+        const { subtitle, ...rest } = props;
+
+        mount(
+            <CypressTestDecorator>
+                <Confirm visible subtitle={'Processing new line by \n and this new line'} view="primary" {...rest} />
             </CypressTestDecorator>,
         );
 
