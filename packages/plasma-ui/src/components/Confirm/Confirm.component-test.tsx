@@ -38,6 +38,7 @@ describe('Confirm', () => {
                 <Confirm visible view="primary" {...props} />
             </CypressTestDecorator>,
         );
+
         cy.matchImageSnapshot();
     });
 
@@ -47,6 +48,30 @@ describe('Confirm', () => {
                 <Confirm visible extraContent={extraContent} view="primary" {...props} />
             </CypressTestDecorator>,
         );
+        cy.matchImageSnapshot();
+    });
+
+    it('title: white-space: pre-line', () => {
+        const { title, ...rest } = props;
+
+        mount(
+            <CypressTestDecorator>
+                <Confirm visible title={'Processing new line by \n and this new line'} view="primary" {...rest} />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('subtitle: white-space: pre-line', () => {
+        const { subtitle, ...rest } = props;
+
+        mount(
+            <CypressTestDecorator>
+                <Confirm visible subtitle={'Processing new line by \n and this new line'} view="primary" {...rest} />
+            </CypressTestDecorator>,
+        );
+
         cy.matchImageSnapshot();
     });
 
