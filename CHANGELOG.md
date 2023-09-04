@@ -1,3 +1,95 @@
+# (Mon Sep 04 2023)
+
+#### 🚀 Enhancement
+
+- Update package-locks [Private packages] [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-theme-builder): Add `backward` button for each page [#681](https://github.com/salute-developers/plasma/pull/681) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Enhance theme saving logic [#681](https://github.com/salute-developers/plasma/pull/681) (neretinartem@Neretins-MacBook-Pro.local)
+- feat(plasma-theme-builder): Add link for continue edit [#681](https://github.com/salute-developers/plasma/pull/681) (neretinartem@Neretins-MacBook-Pro.local)
+- feat(plasma-theme-builder): Replace sessionStorage using to localStorage [#681](https://github.com/salute-developers/plasma/pull/681) (neretinartem@Neretins-MacBook-Pro.local)
+- feat(plasma-theme-builder): Add auto generate tokens set and theme for web [#681](https://github.com/salute-developers/plasma/pull/681) (neretinartem@Neretins-MacBook-Pro.local)
+- feat: Add lerna install with scope in theme-builder workflow [#681](https://github.com/salute-developers/plasma/pull/681) (neretinartem@Neretins-MacBook-Pro.local)
+- `@salutejs/plasma-icons@1.159.0`
+  - feat(plasma-icons): add MessageChatFill [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-icons): add CameraVideoFill [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-icons): add SberSpasibo [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-tokens-utils@0.31.0`
+  - feat(plasma-tokens-utils): Update API: extract getThemeTokenDataGroups to index [#681](https://github.com/salute-developers/plasma/pull/681) (neretinartem@Neretins-MacBook-Pro.local)
+
+#### 🐛 Bug Fix
+
+- Update versions [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- fix(plasma-theme-builder): Fix for adding group with default tokens [#681](https://github.com/salute-developers/plasma/pull/681) (neretinartem@Neretins-MacBook-Pro.local)
+- ci(unit-tests): use `--since` [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(eslint): ignore "plasma-{website,temple}" [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- ci(lint): use `--since` [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: update eslint rules [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: add "@salutejs/eslint-config" [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- Update versions [#681](https://github.com/salute-developers/plasma/pull/681) ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore(lint-packages): exclude packages with private deps [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-website): update version [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- ci("publish-rc"): delete scope "temple-docs,ui-docs,web-docs" [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- ci("publish-rc"): update dependencies versions in private packages by dev tag [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- ci("PR Documentation and Storybook"): add "plasma-tokens" as dep [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-website): add "install:dev" npm script [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-utils): add "install:dev" npm script [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: apply "includePrerelease" for semver.satisfies [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(lerna): disable npmClientArgs "--prefer-offline" [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- ci(publish-canary): enable full bootstrap [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: fix perftool cache sync [#681](https://github.com/salute-developers/plasma/pull/681) ([@akhdrv](https://github.com/akhdrv))
+- ci: add steps for lint [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(eslint): update ignore list [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: avoid eslint errors [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(actions): add lint script [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(website): add lint script [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: run eslint by lerna [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: disable "codecov/codecov-action@v2" [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: disable code cove [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: pass secret GitHub token [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: pass GitHub token to action by env [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: enable bootstrap flag `--since` [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: pass GitHub token to action [Publish] [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: return "tsc -p auto-plugins/tsconfig.json" for release script [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: enable schema for lerna.json [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: rename workflow running by merge queue [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: delete old release workflow file [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: add publish-latest/release workflow [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: add publish-rc workflow [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: add publish-canary workflow [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: add publish-common.yml [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.225.0`, `@salutejs/plasma-colors@0.10.0`, `@salutejs/plasma-core@1.128.0`, `@salutejs/plasma-hope@1.225.0`, `@salutejs/plasma-icons@1.159.0`, `@salutejs/plasma-temple@1.174.0`, `@salutejs/plasma-tokens-b2b@1.27.0`, `@salutejs/plasma-tokens-b2c@0.36.0`, `@salutejs/plasma-tokens-web@1.42.0`, `@salutejs/plasma-tokens@1.61.0`, `@salutejs/plasma-ui@1.206.0`, `@salutejs/plasma-web@1.225.0`, `@salutejs/plasma-cy-utils@0.68.0`, `@salutejs/plasma-sb-utils@0.126.0`
+  - chore: update package-locks [#681](https://github.com/salute-developers/plasma/pull/681) ([@Salute-Eva](https://github.com/Salute-Eva))
+  - Update versions [#681](https://github.com/salute-developers/plasma/pull/681) ([@Salute-Eva](https://github.com/Salute-Eva))
+- `@salutejs/plasma-colors@0.10.0`
+  - chore(plasma-colors): lint entire src dir [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-temple@1.174.0`
+  - chore: delete unnecessary plasma-temple eslint config [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+  - chore(plasma-temple): disabled eslint rules: require-default-props, no-unused-prop-types [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.225.0`, `@salutejs/plasma-hope@1.225.0`, `@salutejs/plasma-icons@1.159.0`, `@salutejs/plasma-temple@1.174.0`, `@salutejs/plasma-ui@1.206.0`, `@salutejs/plasma-web@1.225.0`
+  - chore: update package-locks [#681](https://github.com/salute-developers/plasma/pull/681) ([@Salute-Eva](https://github.com/Salute-Eva))
+  - Update versions [#681](https://github.com/salute-developers/plasma/pull/681) ([@Salute-Eva](https://github.com/Salute-Eva))
+- `@salutejs/plasma-icons@1.159.0`
+  - docs(plasma-icons): add part "How to add new icon" [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.225.0`, `@salutejs/plasma-colors@0.10.0`, `@salutejs/plasma-core@1.128.0`, `@salutejs/plasma-hope@1.225.0`, `@salutejs/plasma-icons@1.159.0`, `@salutejs/cra-template-plasma-shop-template@2.4.0`, `@salutejs/plasma-temple@1.174.0`, `@salutejs/plasma-tokens-b2b@1.27.0`, `@salutejs/plasma-tokens-b2c@0.36.0`, `@salutejs/plasma-tokens-core@0.4.0`, `@salutejs/plasma-tokens-web@1.42.0`, `@salutejs/plasma-tokens@1.61.0`, `@salutejs/plasma-typo@0.37.0`, `@salutejs/plasma-ui@1.206.0`, `@salutejs/plasma-web@1.225.0`, `@salutejs/plasma-cy-utils@0.68.0`, `@salutejs/plasma-sb-utils@0.126.0`, `@salutejs/plasma-tokens-utils@0.31.0`
+  - chore: update package-locks [#681](https://github.com/salute-developers/plasma/pull/681) ([@Salute-Eva](https://github.com/Salute-Eva))
+  - Update versions [#681](https://github.com/salute-developers/plasma/pull/681) ([@Salute-Eva](https://github.com/Salute-Eva))
+- `@salutejs/plasma-tokens@1.61.0`
+  - chore(plasma-tokens): replace "error" to "warn" for eslint rules: prefer-template, import/order [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.225.0`, `@salutejs/plasma-colors@0.10.0`, `@salutejs/plasma-core@1.128.0`, `@salutejs/plasma-hope@1.225.0`, `@salutejs/plasma-icons@1.159.0`, `@salutejs/cra-template-plasma-shop-template@2.4.0`, `@salutejs/plasma-temple@1.174.0`, `@salutejs/plasma-tokens-b2b@1.27.0`, `@salutejs/plasma-tokens-b2c@0.36.0`, `@salutejs/plasma-tokens-core@0.4.0`, `@salutejs/plasma-tokens-web@1.42.0`, `@salutejs/plasma-tokens@1.61.0`, `@salutejs/plasma-typo@0.37.0`, `@salutejs/plasma-ui@1.206.0`, `@salutejs/plasma-web@1.225.0`
+  - chore(packages): add lint script [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-cy-utils@0.68.0`, `@salutejs/plasma-sb-utils@0.126.0`, `@salutejs/plasma-tokens-utils@0.31.0`
+  - chore(utils): add lint script [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 5
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- Neretin Artem (neretinartem@Neretins-MacBook-Pro.local)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Fri Aug 18 2023)
 
 #### 🚀 Enhancement

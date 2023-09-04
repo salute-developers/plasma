@@ -1,3 +1,24 @@
+# v0.31.0 (Mon Sep 04 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens-utils): Update API: extract getThemeTokenDataGroups to index [#681](https://github.com/salute-developers/plasma/pull/681) (neretinartem@Neretins-MacBook-Pro.local)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks [#681](https://github.com/salute-developers/plasma/pull/681) ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions [#681](https://github.com/salute-developers/plasma/pull/681) ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore(utils): add lint script [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Neretin Artem (neretinartem@Neretins-MacBook-Pro.local)
+
+---
+
 # v0.30.0 (Fri Aug 18 2023)
 
 #### 🚀 Enhancement
