@@ -45,6 +45,60 @@ export function App() {
 }
 ```
 
+### Позиционирование
+
+Добавлены новые свойства: **positionX**, **positionY**, **fullWidth**.
+
+По умолчанию компонент `Confirm` занимает всю доступную ширину.
+
+Что бы управлять позиционированием нужно использовать,
+
+`positionX` - отвечает за позиционирование по горизонтальной оси. Доступные значение: `'left' | 'right'`.
+
+`positionY` - отвечает за позиционирование по вертикальной оси. Доступные значение: `'top' | 'bottom'`
+
+И установить `fullWidth = false`.
+
+```tsx live
+import React, { useState } from 'react';
+import { Confirm, Button } from '@salutejs/plasma-ui';
+
+export function App() {
+    const [visible, setVisible] = useState(false);
+
+    const hide = () => {
+        setVisible(false);
+    };
+
+    const title = 'Использовать максимум возможностей?';
+    const subtitle = 'Возможно всё.';
+    const approveText = 'Да';
+    const dismissText = 'Нет';
+
+    const props = {
+        title,
+        subtitle,
+        approveText,
+        dismissText,
+    };
+
+    return (
+        <>
+            <Button text="Show Confirm" onClick={() => setVisible(true)} />
+            <Confirm
+                visible={visible}
+                positionY="bottom"
+                positionX="right"
+                fullWidth={false}
+                onApprove={hide}
+                onDismiss={hide}
+                view="primary" {...props}
+            />
+        </>
+    );
+}
+```
+
 ### Footer
 
 Свойство `extraContent`, принимающее JSX элемент. Находиться под основным контентом.
