@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/versionate-docs",
-    "version": "0.9.0",
+    "version": "0.10.0",
     "description": "Versionate documentation action",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "license": "MIT",
@@ -36,5 +36,8 @@
     "publishConfig": {
         "access": "restricted"
     },
-    "files": ["lib", "action.yml"]
+    "files": [
+        "lib",
+        "action.yml"
+    ]
 }

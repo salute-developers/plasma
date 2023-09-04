@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-colors",
-  "version": "0.10.0-dev.0",
+  "version": "0.10.0",
   "description": "All color palettes for Salute Ecosystem",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",

@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-ui-docs",
-    "version": "0.210.0",
+    "version": "0.211.0",
     "description": "Plasma Documentation.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "license": "MIT",
@@ -31,7 +31,7 @@
         "@docusaurus/theme-live-codeblock": "2.0.0-beta.6",
         "@mdx-js/react": "^1.6.21",
         "@salutejs/plasma-core": "~1.127.0-dev.0",
-        "@salutejs/plasma-docs-ui": "0.136.0",
+        "@salutejs/plasma-docs-ui": "0.137.0",
         "@salutejs/plasma-icons": "~1.156.0-dev.0",
         "@salutejs/plasma-tokens": "~1.60.0-dev.0",
         "@salutejs/plasma-tokens-web": "~1.41.0-dev.0",
@@ -48,8 +48,16 @@
         "url-loader": "^4.1.1"
     },
     "browserslist": {
-        "production": [">0.5%", "not dead", "not op_mini all"],
-        "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+        "production": [
+            ">0.5%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
     },
     "devDependencies": {
         "@docusaurus/module-type-aliases": "^2.0.0-beta.4",
