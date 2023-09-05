@@ -61,7 +61,7 @@ const StyledHint = styled.span`
     color: ${inputLabelColor};
 `;
 const StyledLabel = styled(StyledHint)`
-    ${inputTypo}
+    ${inputTypo};
 
     input:focus + &,
     input:not(:placeholder-shown) + & {
@@ -130,6 +130,8 @@ const applySizes: InterpolationFunction<StyledInputProps> = () => ({
     const paddingLeft = $hasContentLeft ? hasContentPaddingLeft : paddingX;
     const paddingRight = $hasContentRight ? hasContentPaddingRight : paddingX;
     const padding = getPadding(paddingTop, paddingBottom, paddingLeft, paddingRight, paddingY, paddingX);
+    const labelPaddingHasContentRight = !$hasContentLeft && $hasContentRight ? paddingX : null;
+    const labelPaddingHasContentLeft = $hasContentLeft && !$hasContentRight ? hasContentPaddingLeft : null;
 
     return css`
         height: ${height};
@@ -148,6 +150,7 @@ const applySizes: InterpolationFunction<StyledInputProps> = () => ({
         & + ${StyledHint} {
             height: ${height};
             padding: ${paddingY} ${paddingLeft} ${paddingY} ${paddingRight};
+            padding-left: ${labelPaddingHasContentRight};
         }
 
         &:focus + ${StyledLabel},
@@ -155,6 +158,7 @@ const applySizes: InterpolationFunction<StyledInputProps> = () => ({
         &:not(:placeholder-shown) + ${StyledPlaceholder} {
             height: auto;
             padding-top: ${inputLabelMarginTop};
+            padding-left: ${labelPaddingHasContentLeft};
         }
     `;
 };
