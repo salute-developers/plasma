@@ -152,6 +152,53 @@ describe('plasma-web: TextField', () => {
         cy.matchImageSnapshot();
     });
 
+    it('content: with label', () => {
+        mount(
+            <CypressTestDecorator>
+                <TextField
+                    size="l"
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                    label="Label"
+                />
+                <TextField
+                    size="l"
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                    label="Label"
+                    contentLeft={<IconSleep color="inherit" size="s" />}
+                />
+                <SpaceMe />
+                <TextField
+                    size="l"
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                    label="Label"
+                    contentLeft={<IconSleep color="inherit" size="s" />}
+                    contentRight={<IconEye color="inherit" size="s" />}
+                />
+                <SpaceMe />
+                <TextField
+                    size="l"
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                    label="Label"
+                    contentRight={<IconEye color="inherit" size="s" />}
+                />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('_animatedHint:label', () => {
         mount(
             <CypressTestDecorator>
