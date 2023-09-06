@@ -20,11 +20,11 @@ runs:
     - name: Update package-lock's
       shell: bash
       run: |
-        npm i --package-lock-only
+        npm i --no-audit --no-progress --package-lock-only
         lerna clean -y
-        lerna exec --no-private -- npm i --package-lock-only --ignore-scripts
+        lerna exec --no-private -- npm i --no-audit --no-progress --package-lock-only --ignore-scripts
         # root deps don't update correctly on first regeneration O_o
-        npm i --package-lock-only
+        npm i --no-audit --no-progress --package-lock-only
 
     - name: Extract branch name
       id: branch_name
@@ -40,14 +40,34 @@ runs:
         author_name: Salute Frontend Team
         author_email: salute.developers@gmail.com
 
+      # [NOTE]: Временное решение.
+      # Как только научим plugin npm для auto изменять версии в приватных пакетах при публикации RC версии данный шаг будет удален
+      # Перечисленные пакеты приватные и у них нет в зависимостях приватных пакетов
+      # Если мы попробуем установить приватный пакет то получим ошибку
     - name: Update dependencies versions in private packages by dev tag
       if: ${{ inputs.tag == 'dev' }}
       shell: bash
       run: |
-        # в scope перечислены приватные пакеты у которых в зависимостях нет приватных пакетов
-        # иначе будет ошибка 404 
-        npx lerna run install:dev --scope=@salutejs/plasma-{docs-ui,tokens-native,theme-builder,website}
+        lerna_ls=$(npx lerna ls --json)
+        # Получаем и сохраняем версию пакета, например "@salutejs/plasma-core@1.128.0" 
+        core=@salutejs/plasma-core@$(echo $lerna_ls | jq -r -c '.[] | select( .name == "@salutejs/plasma-core" ) | .version')
+        tokens_b2b=@salutejs/plasma-tokens-b2b@$(echo $lerna_ls | jq -r -c '.[] | select( .name == "@salutejs/plasma-tokens-b2b" ) | .version')
+        tokens_b2c=@salutejs/plasma-tokens-b2c@$(echo $lerna_ls | jq -r -c '.[] | select( .name == "@salutejs/plasma-tokens-b2c" ) | .version')
+        tokens_web=@salutejs/plasma-tokens-web@$(echo $lerna_ls | jq -r -c '.[] | select( .name == "@salutejs/plasma-tokens-web" ) | .version')
+        web=@salutejs/plasma-web@$(echo $lerna_ls | jq -r -c '.[] | select( .name == "@salutejs/plasma-web" ) | .version')
+        tokens=@salutejs/plasma-tokens@$(echo $lerna_ls | jq -r -c '.[] | select( .name == "@salutejs/plasma-tokens" ) | .version')
+        tokens_utils=@salutejs/plasma-tokens-utils@$(echo $lerna_ls | jq -r -c '.[] | select( .name == "@salutejs/plasma-tokens-utils" ) | .version')
+        typo=@salutejs/plasma-typo@$(echo $lerna_ls | jq -r -c '.[] | select( .name == "@salutejs/plasma-typo" ) | .version')
+        b2c=@salutejs/plasma-b2c@$(echo $lerna_ls | jq -r -c '.[] | select( .name == "@salutejs/plasma-b2c" ) | .version')
+        icons=@salutejs/plasma-icons@$(echo $lerna_ls | jq -r -c '.[] | select( .name == "@salutejs/plasma-icons" ) | .version')
+        colors=@salutejs/plasma-colors@$(echo $lerna_ls | jq -r -c '.[] | select( .name == "@salutejs/plasma-colors" ) | .version')
+                
+        npm i $core $tokens_b2b $web --no-audit --no-progress --prefix="./utils/plasma-docs-ui"
+        npm i $tokens $tokens_utils $typo --no-audit --no-progress --prefix="./utils/plasma-tokens-native"
+        npm i $b2c $icons $tokens_b2c $typo --no-audit --no-progress --prefix="./website/plasma-website"
+        npm i $b2c $colors $icons $tokens_b2b $tokens_b2c $tokens_utils $tokens_web $typo --no-audit --no-progress --prefix="./website/plasma-theme-builder"
 
+      # [NOTE]: Временное решение.
     - name: Commit & Push changes files
       if: ${{ inputs.tag == 'dev' }}
       uses: actions-js/push@master
