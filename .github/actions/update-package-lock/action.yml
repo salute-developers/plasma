@@ -62,10 +62,10 @@ runs:
         icons=@salutejs/plasma-icons@$(echo $lerna_ls | jq -r -c '.[] | select( .name == "@salutejs/plasma-icons" ) | .version')
         colors=@salutejs/plasma-colors@$(echo $lerna_ls | jq -r -c '.[] | select( .name == "@salutejs/plasma-colors" ) | .version')
                 
-        npm i $core $tokens_b2b $web --no-audit --no-progress --prefix="./utils/plasma-docs-ui"
-        npm i $tokens $tokens_utils $typo --no-audit --no-progress --prefix="./utils/plasma-tokens-native"
-        npm i $b2c $icons $tokens_b2c $typo --no-audit --no-progress --prefix="./website/plasma-website"
-        npm i $b2c $colors $icons $tokens_b2b $tokens_b2c $tokens_utils $tokens_web $typo --no-audit --no-progress --prefix="./website/plasma-theme-builder"
+        npm i $core $tokens_b2b $web --no-audit --no-progress --save-exact --prefix="./utils/plasma-docs-ui"
+        npm i $tokens $tokens_utils $typo --no-audit --no-progress --save-exact --prefix="./utils/plasma-tokens-native"
+        npm i $b2c $icons $tokens_b2c $typo --no-audit --no-progress --save-exact --legacy-peer-deps --prefix="./website/plasma-website"
+        npm i $b2c $colors $icons $tokens_b2b $tokens_b2c $tokens_utils $tokens_web $typo --no-audit --no-progress --save-exact --prefix="./website/plasma-theme-builder"
 
       # [NOTE]: Временное решение.
     - name: Commit & Push changes files
