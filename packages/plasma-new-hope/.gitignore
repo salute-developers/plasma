@@ -7,7 +7,7 @@ es
 
 # styled-components
 src-sc
-styled-components
+styled-components/*
 !styled-components/package.json
 
 
