@@ -15,7 +15,7 @@ concurrency:
 env:
   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
   NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
-  LERNA_IGNORE_LIST: "@salutejs/plasma-{temple-docs,ui-docs,docs-ui,web-docs,website,cy-utils,sb-utils}"
+  LERNA_IGNORE_LIST: "@salutejs/plasma-{temple-docs,ui-docs,docs-ui,web-docs,website,cy-utils,sb-utils,tokens-native}"
 
 jobs:
   lint:
@@ -31,7 +31,7 @@ jobs:
         uses: ./.github/actions/prepare-environment
 
       - name: Lerna bootstrap
-        run: npx lerna bootstrap --since=$(git merge-base --fork-point origin/dev)
+        run: npx lerna bootstrap
 
       - name: Lint
         run: npm run lint
