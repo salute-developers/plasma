@@ -14,7 +14,15 @@ jobs:
     env:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
     steps:
+      # [NOTE]: В проекте default branch - dev, что бы правильно собрать
+      # актуальную версию для branch master, нужно указать ref = 'master'
       - uses: actions/checkout@v3
+      # [DOC]: About REF. The branch, tag or SHA to checkout. When checking out the repository that
+      # triggered a workflow, this defaults to the reference or SHA for that event.
+      # Otherwise, **uses the default branch**.
+      # [DOC]: Last commit on default branch
+        with:
+          ref: 'master'
 
       - name: Prepare repository
         run: git fetch --unshallow --tags
