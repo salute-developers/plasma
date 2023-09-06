@@ -27,9 +27,9 @@
         "install:dev": "npm i @salutejs/plasma-tokens@dev @salutejs/plasma-tokens-utils@dev @salutejs/plasma-typo@dev -D --no-audit --no-progress"
     },
     "devDependencies": {
-        "@salutejs/plasma-tokens": "1.61.0",
-        "@salutejs/plasma-tokens-utils": "0.31.0",
-        "@salutejs/plasma-typo": "0.37.0",
+        "@salutejs/plasma-tokens": "1.61.0-dev.0",
+        "@salutejs/plasma-tokens-utils": "0.31.0-dev.0",
+        "@salutejs/plasma-typo": "0.37.0-dev.0",
         "style-dictionary": "^3.7.2",
         "styled-components": "^5.3.10",
         "ts-node": "^10.9.1"
