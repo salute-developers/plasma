@@ -15,8 +15,8 @@ export const base = css`
         box-sizing: content-box;
         pointer-events: none;
         
-        inset: -0.125rem;
-        border: 0.125rem solid transparent;
+        inset: calc(-1 * var(--btn-outline-size));
+        border: var(--btn-outline-size) solid transparent;
         
         /* NOTE: border => _size */
 
@@ -24,6 +24,6 @@ export const base = css`
     }
 
     :focus-visible::before {
-        box-shadow: 0 0 0 0.125rem var(--plasma-button-focus-color);
+        box-shadow: 0 0 0 var(--btn-outline-size) var(--plasma-button-focus-color);
     }
 `;

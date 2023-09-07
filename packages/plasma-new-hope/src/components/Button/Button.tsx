@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
+import { PropsWithChildren, ReactNode } from 'react';
 
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
@@ -12,6 +13,8 @@ import { base as square, yes } from './_square/base';
 // import { fontFamily } from './tokens';
 
 import { ComponentConfig } from '../../engines';
+import { applyEllipsis } from '../../mixins';
+
 
 const base = css`
     position: relative;
@@ -26,7 +29,12 @@ const base = css`
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 `;
 
+
+// TODO: PLASMA-2164
+// WHY do we need applyEllipsis ??
 const ButtonText = styled.span`
+    ${applyEllipsis()}
+
     :not(:last-child) {
         margin-right: 0.375rem;
     }
@@ -38,7 +46,7 @@ const ButtonText = styled.span`
 
 // TODO: I dpn't like this code =/
 // Could we do better ???
-const LoadWrap = styled.div<{ isLoading: boolean}>`
+const LoadWrap = styled.div<{ isLoading?: boolean}>`
     opacity: ${(props) => props.isLoading ? '0' : '1'};
     display: flex;
     width: 100%;
@@ -50,24 +58,36 @@ const Loader = styled.div`
     position: absolute;
 `;
 
-export const buttonRoot = (Root: any) => (props: any) => {
-    const { children, text, contentLeft, contentRight, isLoading, ...rest } = props;
-    // TODO: do we need to always wrap children into <ButtonText> ???
+export interface ButtonProps extends PropsWithChildren {
+    text?: string;
+    contentLeft?: ReactNode;
+    contentRight?: ReactNode;
+
+    isLoading?: boolean;
+    loader?: ReactNode;
+}
+
+export const buttonRoot = (Root: any) => forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
+    const { children, text, contentLeft, contentRight, isLoading, loader, ...rest } = props;
     const txt = typeof children === 'string' ? children : children ? undefined : text;
 
-    const comp = (
-        <Root {...rest}>
+    return (
+        <Root
+            type="button"
+            ref={ref}
+            contentLeft={Boolean(contentLeft)}
+            contentRight={Boolean(contentRight)}
+            {...rest}
+        >
             <LoadWrap isLoading={isLoading}>
                 {contentLeft}
                 {txt ? <ButtonText>{txt}</ButtonText> : children}
                 {contentRight}
             </LoadWrap>
-            {isLoading && <Loader>♻️</Loader>}
+            {isLoading && <Loader>{loader ? loader : '♻️'}</Loader>}
         </Root>
     );
-
-    return comp;
-};
+});
 
 export const buttonConfig: ComponentConfig = {
     name: 'Button',
@@ -87,6 +107,7 @@ export const buttonConfig: ComponentConfig = {
         },
         focused: {
             css: focused,
+            // TODO: isLoading => disabled
         },
         square: {
             css: square,
