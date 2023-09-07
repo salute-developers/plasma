@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import { cx } from '@linaria/core';
 
@@ -11,7 +11,8 @@ export const _component = (componentConfig: ComponentConfig) => {
     const dynamicVarians = getDynamicVariants(componentConfig);
     const Root = tag as React.ElementType;
 
-    const component: React.FC<{ className: string }> = ({ className, ...rest }) => {
+    const component = forwardRef((p, ref) => {
+        const { className, ...rest } = p as { className: string };
         const variants = dynamicVarians({ ...defaults, ...rest });
         const cls = cx(className, base, ...staticVarians, ...variants);
 
@@ -36,8 +37,8 @@ export const _component = (componentConfig: ComponentConfig) => {
             }
         }
 
-        return <Root className={cls} {...htmlAttrs} {...props} />;
-    };
+        return <Root className={cls} {...htmlAttrs} {...props} ref={ref} />;
+    });
     if (name) {
         component.displayName = name;
     }

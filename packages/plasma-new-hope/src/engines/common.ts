@@ -66,8 +66,10 @@ export interface ComponentConfig {
     // TODO: css
     base: any;
 
+    // TODO: optional
     variations: Record<string, Variant>;
 
+    // TODO: optional
     defaults: Record<string, string>;
 }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import styled from 'styled-components';
 import { css } from 'styled-components';
@@ -12,13 +12,13 @@ export const _component = (componentConfig: ComponentConfig) => {
     const staticVarians = getStaticVariants(componentConfig);
     const dynamicVarians = getDynamicVariants(componentConfig);
 
-    const Root = styled.div`
+    const Root = styled(tag as any)`
         ${base}
         ${staticVarians}
         ${dynamicVarians}
     `;
 
-    return (props: any) => <Root as={tag} {...defaults} {...props} />;
+    return forwardRef((props, ref) => <Root {...defaults} {...props} ref={ref} />);
 };
 
 
