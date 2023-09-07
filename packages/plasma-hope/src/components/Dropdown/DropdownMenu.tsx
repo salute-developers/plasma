@@ -1,6 +1,6 @@
 import React, { HTMLAttributes, FC } from 'react';
 
-import { DropdownSelfControlledPopup } from './DropdownPopup';
+import { DropdownSelfControlledPopover } from './DropdownPopover';
 import { DropdownList } from './DropdownList';
 import { DropdownItem } from './DropdownItem';
 import type { DropdownNode, OnHover, OnItemSelect } from './Dropdown.types';
@@ -30,7 +30,7 @@ export interface DropdownMenuProps extends HTMLAttributes<HTMLUListElement> {
 }
 
 /**
- * Меню dropdown, выводящее текущий список и все вложенные в него списки в popup.
+ * Меню dropdown, выводящее текущий список и все вложенные в него списки в Popover.
  */
 export const DropdownMenu: FC<DropdownMenuProps> = ({
     id,
@@ -46,7 +46,7 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
         <DropdownList {...rest} id={id} role={role}>
             {items.map((item, i) =>
                 item.items && item.items.length ? (
-                    <DropdownSelfControlledPopup
+                    <DropdownSelfControlledPopover
                         role="presentation"
                         key={item.value}
                         id={id ? `${id}-nested-${i}` : id}
@@ -65,7 +65,7 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({
                         }
                     >
                         <DropdownMenu items={item.items} onItemSelect={onItemSelect} />
-                    </DropdownSelfControlledPopup>
+                    </DropdownSelfControlledPopover>
                 ) : (
                     <DropdownItem
                         {...item}

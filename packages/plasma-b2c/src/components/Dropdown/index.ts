@@ -4,13 +4,13 @@ export {
     DropdownItem,
     withAssistiveDropdown,
     DropdownUncontrolled,
-    DropdownPopup,
+    DropdownPopover,
 } from '@salutejs/plasma-hope';
 
 export type {
     DropdownItem as DropdownItemType,
     DropdownNodeType,
     DropdownItemProps,
-    DropdownPopupProps,
+    DropdownPopoverProps,
     DropdownProps,
 } from '@salutejs/plasma-hope';

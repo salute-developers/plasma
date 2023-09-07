@@ -1,9 +1,9 @@
 import React, { FC, useState } from 'react';
 import styled, { css } from 'styled-components';
 
-import { Popup, PopupProps } from '../Popup';
+import { Popover, PopoverProps } from '../Popover';
 
-export interface DropdownPopupProps extends PopupProps {
+export interface DropdownPopoverProps extends PopoverProps {
     /**
      * Отступ сверху.
      * @deprecated
@@ -12,9 +12,9 @@ export interface DropdownPopupProps extends PopupProps {
 }
 
 /**
- * Popup с внешним контролем над видимостью через props: `isOpen` и `onToggle`.
+ * Popover с внешним контролем над видимостью через props: `isOpen` и `onToggle`.
  */
-export const DropdownPopup = styled(Popup)<DropdownPopupProps>`
+export const DropdownPopover = styled(Popover)<DropdownPopoverProps>`
     & & {
         width: 100%;
 
@@ -31,10 +31,10 @@ export const DropdownPopup = styled(Popup)<DropdownPopupProps>`
 `;
 
 /**
- * Popup, не требующий внешнего контроля над видимостью.
+ * Popover, не требующий внешнего контроля над видимостью.
  */
-export const DropdownSelfControlledPopup: FC<Omit<DropdownPopupProps, 'isOpen' | 'onToggle'>> = ({ ...rest }) => {
+export const DropdownSelfControlledPopover: FC<Omit<DropdownPopoverProps, 'isOpen' | 'onToggle'>> = ({ ...rest }) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    return <DropdownPopup {...rest} isOpen={isOpen} onToggle={(is) => setIsOpen(is)} />;
+    return <DropdownPopover {...rest} isOpen={isOpen} onToggle={(is: boolean) => setIsOpen(is)} />;
 };

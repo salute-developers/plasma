@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import type { DropdownPopupProps } from '../DropdownPopup';
+import type { DropdownPopoverProps } from '../DropdownPopover';
 import type { DropdownNode, OnItemSelect, OnIndexChange } from '../Dropdown.types';
 
 import { getActionFromKey, getUpdatedIndex, Actions } from './utils';
@@ -10,7 +10,7 @@ export interface UseKeyboardNavigationProps {
     items: DropdownNode[];
     isOpen?: boolean;
     index?: number;
-    onToggle?: DropdownPopupProps['onToggle'];
+    onToggle?: DropdownPopoverProps['onToggle'];
     onItemSelect?: OnItemSelect;
     onIndexChange?: OnIndexChange;
 }
@@ -19,7 +19,7 @@ export const INITIAL_INDEX = 0;
 
 /**
  * Клавиатурная навигация для dropdown.
- * Работает для каждого instance dropdown, (popup) отдельно.
+ * Работает для каждого instance dropdown, (Popover) отдельно.
  */
 export const useKeyboardNavigation = ({
     items,

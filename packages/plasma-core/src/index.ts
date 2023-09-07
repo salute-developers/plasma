@@ -7,6 +7,7 @@ export * from './components/Field';
 export * from './components/Image';
 export * from './components/Input';
 export * from './components/PaginationDots';
+export * from './components/Popover';
 export * from './components/Popup';
 export * from './components/Price';
 export * from './components/RadioGroup';

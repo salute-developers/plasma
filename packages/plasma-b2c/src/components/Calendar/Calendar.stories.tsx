@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import { backgroundPrimary } from '@salutejs/plasma-tokens-web';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
-import { Popup } from '../Popup';
+import { Popover } from '../Popover';
 import { TextField } from '../TextField';
 
 import { Calendar, CalendarBase, CalendarBaseRange, CalendarDouble, CalendarDoubleRange } from '.';
@@ -266,7 +266,7 @@ DoubleRange.args = {
     max: new Date(2022, 7, 15),
 };
 
-export const WithPopup: Story<CalendarProps> = ({ min, max, isDouble }) => {
+export const WithPopover: Story<CalendarProps> = ({ min, max, isDouble }) => {
     const [textValue, setTextValue] = React.useState('2022-06-06');
     const [value, setValue] = React.useState(new Date(textValue));
     const [isOpen, setIsOpen] = React.useState(false);
@@ -298,7 +298,7 @@ export const WithPopup: Story<CalendarProps> = ({ min, max, isDouble }) => {
     }));
 
     return (
-        <Popup
+        <Popover
             isOpen={isOpen}
             trigger="click"
             placement="bottom"
@@ -314,11 +314,11 @@ export const WithPopup: Story<CalendarProps> = ({ min, max, isDouble }) => {
                 isDouble={isDouble}
                 onChangeValue={handleOnChange}
             />
-        </Popup>
+        </Popover>
     );
 };
 
-WithPopup.args = {
+WithPopover.args = {
     min: new Date(2022, 4, 0),
     max: new Date(2022, 6, 15),
     isDouble: false,

@@ -67,7 +67,7 @@ describe('plasma-hope: Dropdown', () => {
         cy.matchImageSnapshot();
     });
 
-    it("block and popup's width", () => {
+    it("block and Popover's width", () => {
         mount(
             <CypressTestDecorator>
                 <Dropdown items={items} style={{ display: 'block', '--plasma-popup-width': '100%' }}>

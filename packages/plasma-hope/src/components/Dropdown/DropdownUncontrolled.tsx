@@ -4,13 +4,13 @@ import type { DisabledProps } from '@salutejs/plasma-core';
 import { PickOptional } from '../../types';
 
 import { DropdownMenu, DropdownMenuProps } from './DropdownMenu';
-import { DropdownPopup, DropdownPopupProps } from './DropdownPopup';
+import { DropdownPopover, DropdownPopoverProps } from './DropdownPopover';
 
 export interface DropdownUncontrolledProps
     extends DisabledProps,
         Omit<DropdownMenuProps, 'onKeyDown' | 'onBlur'>,
         PickOptional<
-            DropdownPopupProps,
+            DropdownPopoverProps,
             'isOpen' | 'placement' | 'trigger' | 'offsetTop' | 'onToggle' | 'onKeyDown' | 'onBlur'
         > {}
 
@@ -38,7 +38,7 @@ export const DropdownUncontrolled: FC<DropdownUncontrolledProps> = ({
 }) => {
     const hasItems = Array.isArray(items) && items.length > 0;
 
-    const onToggle = useCallback<NonNullable<DropdownPopupProps['onToggle']>>(
+    const onToggle = useCallback<NonNullable<DropdownPopoverProps['onToggle']>>(
         (newIsOpen, event) => {
             if (newIsOpen && hasItems && !disabled) {
                 onToggleExternal?.(true, event);
@@ -50,7 +50,7 @@ export const DropdownUncontrolled: FC<DropdownUncontrolledProps> = ({
     );
 
     return (
-        <DropdownPopup
+        <DropdownPopover
             isOpen={isOpen}
             trigger={trigger}
             placement={placement}
@@ -70,6 +70,6 @@ export const DropdownUncontrolled: FC<DropdownUncontrolledProps> = ({
                 onHover={onHover}
                 onItemSelect={onItemSelect}
             />
-        </DropdownPopup>
+        </DropdownPopover>
     );
 };

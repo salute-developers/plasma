@@ -7,8 +7,8 @@ export type { DropdownListCssProperties } from './DropdownList';
 export { DropdownItem } from './DropdownItem';
 export type { DropdownItemProps } from './DropdownItem';
 
-export { DropdownPopup } from './DropdownPopup';
-export type { DropdownPopupProps } from './DropdownPopup';
+export { DropdownPopover } from './DropdownPopover';
+export type { DropdownPopoverProps } from './DropdownPopover';
 
 export type { DropdownItem as DropdownItemType, DropdownNode as DropdownNodeType } from './Dropdown.types';
 
