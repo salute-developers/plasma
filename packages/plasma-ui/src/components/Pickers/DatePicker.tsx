@@ -88,6 +88,7 @@ export const DatePicker = ({
     disableScrollSnapAlign = false,
     ...rest
 }: DatePickerProps) => {
+    window.top;
     const normalizeValues = React.useMemo(() => getNormalizeValues(getDateValues, getSeconds)(value, min, max), [
         value,
     ]);
