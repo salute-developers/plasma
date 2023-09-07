@@ -133,5 +133,29 @@ export const config = {
             `,
         },
         square: {},
+        // TODO: PLASMA-2165
+        shiftLeft: {
+            true: css`
+                margin-left: calc(-1 * var(--btn-padding));
+            `,
+        },
+        shiftRight: {
+            true: css`
+                margin-right: calc(-1 * var(--btn-padding));
+            `,
+        },
+        // TODO: PLASMA-2163
+        contentLeft: {
+            true: css`
+                padding-left: var(--btn-padding);
+                padding-right: var(--btn-padding);
+            `,
+        },
+        contentRight: {
+            true: css`
+                padding-left: var(--btn-padding);
+                padding-right: var(--btn-padding);
+            `,
+        },
     },
 };
