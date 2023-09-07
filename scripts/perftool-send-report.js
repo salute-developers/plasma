@@ -6,14 +6,7 @@ const fetch = require('node-fetch');
 const { program } = require('commander');
 
 const getMetadata = (data) => {
-    if (!data) {
-        return JSON.stringify({});
-    }
-
-    const result = {};
-    for (const key of Object.keys(data)) {
-        result[key] = String(data[key]);
-    }
+    const result = Object.fromEntries(Object.entries(data).map(([k, v]) => [k, String(v)]));
 
     return JSON.stringify(result);
 };
@@ -49,18 +42,25 @@ async function perftoolSendReport() {
     const body = [];
     const sessionId = crypto.randomUUID();
     const commitHash = process.env.GITHUB_SHA;
-    // e.g. componentId = src/components/Carousel/Carousel.perftest.tsx#CarouselLiteBasic
-    for (const componentId of Object.keys(data)) {
+    // e.g. subjectId = src/components/Carousel/Carousel.perftest.tsx#CarouselLiteBasic
+    for (const [subjectId, subject] of Object.entries(data)) {
         // e.g. taskId = rerender | render
-        for (const taskId of Object.keys(data[componentId])) {
-            for (const metricId of ['median', 'mean']) {
-                const metric = data[componentId][taskId][metricId];
+        for (const [taskId, task] of Object.entries(subject)) {
+            const filteredMetrics = Object.entries(task).filter(([k]) => !k.startsWith('_'));
+            // e.g. metricId = median | mean
+            for (const [metricId, metric] of filteredMetrics) {
                 for (const typeId of ['old', 'new', 'change']) {
+                    // change, old are optional
+                    if (!metric[typeId]) {
+                        // eslint-disable-next-line no-continue
+                        continue;
+                    }
+
                     const item = {
                         ua: 'perftest/packages/plasma',
                         hostname: commitHash,
                         sessionId,
-                        path: componentId,
+                        path: subjectId,
                         key: `${taskId}_${metricId}`,
                         valueStr: typeId,
                         metadata: getMetadata(metric[typeId]),
