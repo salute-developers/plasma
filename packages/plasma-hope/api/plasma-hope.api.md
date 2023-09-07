@@ -111,7 +111,10 @@ import { ParagraphText1 } from '@salutejs/plasma-core';
 import { ParagraphText2 } from '@salutejs/plasma-core';
 import { PickOptional } from '@salutejs/plasma-core';
 import { PinProps } from '@salutejs/plasma-core';
+import { Popover } from '@salutejs/plasma-core';
+import { PopoverProps } from '@salutejs/plasma-core';
 import { Popup } from '@salutejs/plasma-core';
+import { PopupPlacement } from '@salutejs/plasma-core';
 import { PopupProps } from '@salutejs/plasma-core';
 import type { PriceProps as PriceProps_2 } from '@salutejs/plasma-core';
 import { PropsWithChildren } from 'react';
@@ -123,7 +126,6 @@ import { ReactNode } from 'react';
 import { RectSkeleton } from '@salutejs/plasma-core';
 import { RectSkeletonProps } from '@salutejs/plasma-core';
 import { RefAttributes } from 'react';
-import { RefObject } from 'react';
 import { Roundness } from '@salutejs/plasma-core';
 import { RoundnessProps } from '@salutejs/plasma-core';
 import { ScrollSnapProps } from '@salutejs/plasma-core';
@@ -166,6 +168,7 @@ import { transformStyles } from '@salutejs/plasma-core';
 import { TypographyTypes } from '@salutejs/plasma-core';
 import { Underline } from '@salutejs/plasma-core';
 import { useDebouncedFunction } from '@salutejs/plasma-core';
+import { useFocusTrap } from '@salutejs/plasma-core';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { useResizeObserver } from '@salutejs/plasma-core';
@@ -606,10 +609,10 @@ export interface DropdownNodeType extends DropdownItemType {
 }
 
 // @public
-export const DropdownPopup: StyledComponent<React_2.NamedExoticComponent<PopupProps & React_2.RefAttributes<HTMLDivElement>>, any, DropdownPopupProps, never>;
+export const DropdownPopover: StyledComponent<React_2.NamedExoticComponent<PopoverProps & React_2.RefAttributes<HTMLDivElement>>, any, DropdownPopoverProps, never>;
 
 // @public (undocumented)
-export interface DropdownPopupProps extends PopupProps {
+export interface DropdownPopoverProps extends PopoverProps {
     // @deprecated
     offsetTop?: string | number;
 }
@@ -629,7 +632,7 @@ export const DropdownUncontrolled: FC<DropdownUncontrolledProps>;
 // Warning: (ae-forgotten-export) The symbol "DropdownMenuProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export interface DropdownUncontrolledProps extends DisabledProps, Omit<DropdownMenuProps, 'onKeyDown' | 'onBlur'>, PickOptional<DropdownPopupProps, 'isOpen' | 'placement' | 'trigger' | 'offsetTop' | 'onToggle' | 'onKeyDown' | 'onBlur'> {
+export interface DropdownUncontrolledProps extends DisabledProps, Omit<DropdownMenuProps, 'onKeyDown' | 'onBlur'>, PickOptional<DropdownPopoverProps, 'isOpen' | 'placement' | 'trigger' | 'offsetTop' | 'onToggle' | 'onKeyDown' | 'onBlur'> {
 }
 
 export { DsplL }
@@ -994,7 +997,13 @@ export { PinProps }
 // @public (undocumented)
 export type Placement = BasePlacement | VariationPlacement;
 
+export { Popover }
+
+export { PopoverProps }
+
 export { Popup }
+
+export { PopupPlacement }
 
 export { PopupProps }
 
@@ -1350,8 +1359,7 @@ export const useAutoResize: <T extends HTMLTextAreaElement>(active: boolean, ref
 
 export { useDebouncedFunction }
 
-// @public
-export const useFocusTrap: (active?: boolean, firstFocusSelector?: string | RefObject<HTMLElement> | undefined, focusAfterNode?: RefObject<HTMLElement> | undefined) => (instance: HTMLElement | null) => void;
+export { useFocusTrap }
 
 export { useForkRef }
 

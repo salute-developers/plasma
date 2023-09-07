@@ -1,194 +1,172 @@
-import React, { memo, useRef, useCallback, useEffect } from 'react';
-import type { HTMLAttributes, ReactNode, RefAttributes, SyntheticEvent } from 'react';
-import styled from 'styled-components';
-import { usePopper } from 'react-popper';
-import PopperJS from '@popperjs/core';
+import React, { useEffect, useRef, useState, useContext, FC } from 'react';
+import ReactDOM from 'react-dom';
+import styled, { css } from 'styled-components';
 
-import { useForkRef } from '../../hooks';
+import { useUniqId } from '../../hooks';
 
-export type PopupBasicPlacement = 'top' | 'bottom' | 'right' | 'left';
-export type PopupPlacement = PopupBasicPlacement | 'auto';
+import { PopupContext, MODALS_PORTAL_ID } from './PopupContext';
 
-export interface PopupProps extends HTMLAttributes<HTMLDivElement> {
+type BasicPopupPlacement = 'center' | 'top' | 'bottom' | 'right' | 'left';
+type MixedPopupPlacement = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+export type PopupPlacement = BasicPopupPlacement | MixedPopupPlacement;
+
+export interface PopupProps extends React.HTMLAttributes<HTMLDivElement> {
     /**
-     * Всплывающее окно раскрыто или нет.
+     * Отображение модального окна.
      */
-    isOpen?: boolean;
+    isOpen: boolean;
+    /* Позиция на экране
+     * center - по умолчанию
+     * left, right, top, bottom и их комбинации
+     * (x, y) - <number | string, number | string> или проценты; (0, 0) - верхний левый угол
+     */
+    position?: PopupPlacement | [number | string, number | string];
     /**
-     * Способо всплывающего окна - наведение или клик мышью.
+     * Содержимое Popup.
      */
-    trigger: 'hover' | 'click';
-    /**
-     * Расположение всплывающего окна. По умолчанию "auto"
-     */
-    placement?: PopupPlacement | Array<PopupBasicPlacement>;
-    /**
-     * Элемент, при нажатии на который произойдет вызов всплывающего окна.
-     */
-    disclosure?: ReactNode;
-    /**
-     * Контент всплывающего окна.
-     */
-    children?: ReactNode;
-    /**
-     * Событие сворачивания/разворачивания всплывающего окна.
-     */
-    onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
+    children?: React.ReactNode;
 }
 
-const StyledRoot = styled.div`
-    position: relative;
-    box-sizing: border-box;
-    display: inline-flex;
-`;
-const StyledPopup = styled.div`
-    position: absolute;
+interface HidingProps {
+    isHiding?: boolean;
+}
+
+interface PositionProps {
+    position?: PopupPlacement | [number | string, number | string];
+}
+
+const StyledWrapper = styled.div<HidingProps>`
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 1;
-    padding: var(--plasma-popup-padding);
-    margin: var(--plasma-popup-margin);
-    width: var(--plasma-popup-width);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
-export const getPlacement = (placement: PopupPlacement) => {
-    return `${placement}-start` as PopperJS.Placement;
+const PopupView = styled.div`
+    position: relative;
+    max-width: 100%;
+    pointer-events: all;
+`;
+
+const handlePosition = (position?: PopupPlacement | [number | string, number | string]) => {
+    if (!position || position === 'center') {
+        return;
+    }
+
+    if (Array.isArray(position)) {
+        const [left, top] = position;
+        return css`
+            left: ${typeof left === 'number' ? `${left}rem` : left};
+            top: ${typeof top === 'number' ? `${top}rem` : top};
+        `;
+    }
+
+    let left;
+    let right;
+    let top;
+    let bottom;
+    const placements = position.split('-') as BasicPopupPlacement[];
+
+    placements.forEach((placement: BasicPopupPlacement) => {
+        switch (placement) {
+            case 'left':
+                left = 0;
+                break;
+            case 'right':
+                right = 0;
+                break;
+            case 'top':
+                top = 0;
+                break;
+            case 'bottom':
+                bottom = 0;
+                break;
+            default:
+                break;
+        }
+    });
+
+    return css`
+        left: ${left};
+        right: ${right};
+        top: ${top};
+        bottom: ${bottom};
+    `;
 };
 
-const getAutoPlacements = (placements?: PopupPlacement[]) => {
-    return (placements || []).map((placement) => getPlacement(placement));
-};
+const StyledPopup = styled.div<PositionProps>`
+    position: absolute;
+    pointer-events: none;
+
+    ${({ position }) => handlePosition(position)};
+`;
 
 /**
- * Всплывающее окно с возможностью позиционирования
- * и вызова по клику либо ховеру.
+ * Базовый Popup.
+ * Управляет показом/скрытием и анимацией(?) высплывающего окна.
  */
-export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
-    React.forwardRef<HTMLDivElement, PopupProps>(
-        ({ disclosure, children, isOpen, trigger, placement = 'auto', onToggle, ...rest }, outerRootRef) => {
-            const rootRef = useRef<HTMLDivElement | null>(null);
-            const popupRef = useRef<HTMLDivElement | null>(null);
-            const handleRef = useForkRef<HTMLDivElement>(rootRef, outerRootRef);
+export const Popup: FC<PopupProps> = ({ id, isOpen, position, children, role = 'dialog', ...rest }) => {
+    const uniqId = useUniqId();
+    const innerId = id || uniqId;
 
-            const isAutoArray = Array.isArray(placement);
-            const isAuto = isAutoArray || placement === 'auto';
+    const portalRef = useRef<HTMLElement | null>(null);
 
-            const { styles, attributes, forceUpdate } = usePopper(rootRef.current, popupRef.current, {
-                placement: getPlacement(isAutoArray ? 'auto' : (placement as PopupPlacement)),
-                modifiers: [
-                    {
-                        name: 'flip',
-                        enabled: isAuto,
-                        options: {
-                            allowedAutoPlacements: getAutoPlacements(
-                                isAutoArray ? (placement as PopupPlacement[]) : [],
-                            ),
-                        },
-                    },
-                ],
-            });
+    const controller = useContext(PopupContext);
 
-            const onDocumentClick = useCallback(
-                (event: MouseEvent) => {
-                    const targetIsRoot = event.target === rootRef.current;
-                    const rootHasTarget = rootRef.current?.contains(event.target as Element);
+    const [, forceRender] = useState(false);
 
-                    if (!targetIsRoot && !rootHasTarget) {
-                        onToggle?.(false, event);
-                    }
-                },
-                [onToggle],
-            );
+    useEffect(() => {
+        let portal = document.getElementById(MODALS_PORTAL_ID);
 
-            const onClick = useCallback<React.MouseEventHandler>(
-                (event) => {
-                    if (trigger === 'click') {
-                        const targetIsPopup = event.target === popupRef.current;
-                        const rootHasTarget = popupRef.current?.contains(event.target as Element);
+        if (!portal) {
+            portal = document.createElement('div');
+            portal.setAttribute('id', MODALS_PORTAL_ID);
+            portal.setAttribute('aria-live', 'off');
+            portal.setAttribute('role', 'presentation');
+            portal.style.position = 'relative';
+            portal.style.zIndex = '9000';
+            document.body.appendChild(portal);
+        }
 
-                        if (!targetIsPopup && !rootHasTarget) {
-                            onToggle?.(!isOpen, event);
-                        }
-                    }
-                },
-                [trigger, isOpen, onToggle],
-            );
+        portalRef.current = portal;
 
-            const onMouseEnter = useCallback<React.MouseEventHandler>(
-                (event) => {
-                    if (trigger === 'hover') {
-                        onToggle?.(true, event);
-                    }
-                },
-                [trigger, onToggle],
-            );
+        /**
+         * Изменение стейта нужно для того, чтобы Popup
+         * отобразился после записи DOM элемента в portalRef.current
+         */
+        forceRender(true);
 
-            const onMouseLeave = useCallback<React.MouseEventHandler>(
-                (event) => {
-                    if (trigger === 'hover') {
-                        onToggle?.(false, event);
-                    }
-                },
-                [trigger, onToggle],
-            );
+        return () => {
+            controller.unregister(innerId);
+        };
+    }, [controller, innerId]);
 
-            const onFocus = useCallback<React.FocusEventHandler>(
-                (event) => {
-                    if (trigger === 'hover') {
-                        onToggle?.(true, event);
-                    }
-                },
-                [trigger, onToggle],
-            );
+    if (isOpen) {
+        controller.register(innerId);
+    } else {
+        controller.unregister(innerId);
+        return null;
+    }
 
-            const onBlur = useCallback<React.FocusEventHandler>(
-                (event) => {
-                    if (trigger === 'hover') {
-                        onToggle?.(false, event);
-                    }
-                },
-                [trigger, onToggle],
-            );
-
-            useEffect(() => {
-                document.addEventListener('click', onDocumentClick);
-                return () => document.removeEventListener('click', onDocumentClick);
-            }, []);
-
-            useEffect(() => {
-                if (!isOpen || !forceUpdate) {
-                    return;
-                }
-
-                /*
-                 * INFO: Метод forceUpdate содержит в себе flushSync и приводит
-                 * к повторному рендеру компонента, который уже находится в процессе рендера.
-                 * Данный хак, нужен для того, чтобы это поведение избежать и перенаправить
-                 * вызов метода в очередь микрозадач.
-                 */
-                Promise.resolve().then(forceUpdate);
-            }, [isOpen, forceUpdate]);
-
-            return (
-                <StyledRoot
-                    ref={handleRef}
-                    onClick={onClick}
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    {...rest}
-                >
-                    {disclosure}
-                    {children && (
-                        <StyledPopup
-                            {...attributes.popper}
-                            ref={popupRef}
-                            style={{ ...styles.popper, ...{ display: isOpen ? 'block' : 'none' } }}
-                        >
-                            {children}
+    return (
+        <>
+            {portalRef.current &&
+                ReactDOM.createPortal(
+                    <StyledWrapper>
+                        <StyledPopup position={position}>
+                            <PopupView {...rest} role={role} aria-modal="true">
+                                {children}
+                            </PopupView>
                         </StyledPopup>
-                    )}
-                </StyledRoot>
-            );
-        },
-    ),
-);
+                    </StyledWrapper>,
+                    portalRef.current,
+                )}
+        </>
+    );
+};

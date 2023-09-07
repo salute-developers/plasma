@@ -99,8 +99,8 @@ import { DropdownItemProps } from '@salutejs/plasma-hope';
 import { DropdownList } from '@salutejs/plasma-hope';
 import { DropdownListCssProperties } from '@salutejs/plasma-hope';
 import { DropdownNodeType } from '@salutejs/plasma-hope';
-import { DropdownPopup } from '@salutejs/plasma-hope';
-import { DropdownPopupProps } from '@salutejs/plasma-hope';
+import { DropdownPopover } from '@salutejs/plasma-hope';
+import { DropdownPopoverProps } from '@salutejs/plasma-hope';
 import { DropdownProps } from '@salutejs/plasma-hope';
 import { DropdownUncontrolled } from '@salutejs/plasma-hope';
 import { DsplL } from '@salutejs/plasma-typo';
@@ -165,7 +165,10 @@ import { ParagraphText2 } from '@salutejs/plasma-hope';
 import { PickOptional } from '@salutejs/plasma-core';
 import { PinProps } from '@salutejs/plasma-core';
 import { Placement } from '@salutejs/plasma-hope';
+import { Popover } from '@salutejs/plasma-hope';
+import { PopoverProps } from '@salutejs/plasma-hope';
 import { Popup } from '@salutejs/plasma-hope';
+import { PopupPlacement } from '@salutejs/plasma-hope';
 import { PopupProps } from '@salutejs/plasma-hope';
 import { PreviewGallery } from '@salutejs/plasma-hope';
 import { PreviewGalleryItemProps } from '@salutejs/plasma-hope';
@@ -468,9 +471,9 @@ export { DropdownList }
 
 export { DropdownNodeType }
 
-export { DropdownPopup }
+export { DropdownPopover }
 
-export { DropdownPopupProps }
+export { DropdownPopoverProps }
 
 export { DropdownProps }
 
@@ -598,7 +601,13 @@ export { PinProps }
 
 export { Placement }
 
+export { Popover }
+
+export { PopoverProps }
+
 export { Popup }
+
+export { PopupPlacement }
 
 export { PopupProps }
 

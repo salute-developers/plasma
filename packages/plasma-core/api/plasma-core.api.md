@@ -24,6 +24,7 @@ import { InterpolationFunction } from 'styled-components';
 import { MutableRefObject } from 'react';
 import { default as React_2 } from 'react';
 import { ReactNode } from 'react';
+import { RefObject } from 'react';
 import { spacing } from '@salutejs/plasma-typo';
 import { SpacingProps } from '@salutejs/plasma-typo';
 import { SpacingProps as SpacingProps_2 } from '@salutejs/plasma-typo/lib/cjs/mixins/applySpacing';
@@ -815,18 +816,35 @@ export interface PinProps {
 }
 
 // @public
-export const Popup: React_2.NamedExoticComponent<PopupProps & React_2.RefAttributes<HTMLDivElement>>;
+export const Popover: React_2.NamedExoticComponent<PopoverProps & React_2.RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
-export interface PopupProps extends HTMLAttributes<HTMLDivElement> {
+export interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
     children?: ReactNode;
     disclosure?: ReactNode;
     isOpen?: boolean;
     onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
-    // Warning: (ae-forgotten-export) The symbol "PopupPlacement" needs to be exported by the entry point index.d.ts
-    // Warning: (ae-forgotten-export) The symbol "PopupBasicPlacement" needs to be exported by the entry point index.d.ts
-    placement?: PopupPlacement | Array<PopupBasicPlacement>;
+    // Warning: (ae-forgotten-export) The symbol "PopoverPlacement" needs to be exported by the entry point index.d.ts
+    // Warning: (ae-forgotten-export) The symbol "PopoverBasicPlacement" needs to be exported by the entry point index.d.ts
+    placement?: PopoverPlacement | Array<PopoverBasicPlacement>;
     trigger: 'hover' | 'click';
+}
+
+// @public
+export const Popup: FC<PopupProps>;
+
+// Warning: (ae-forgotten-export) The symbol "BasicPopupPlacement" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "MixedPopupPlacement" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type PopupPlacement = BasicPopupPlacement | MixedPopupPlacement;
+
+// @public (undocumented)
+export interface PopupProps extends React_2.HTMLAttributes<HTMLDivElement> {
+    children?: React_2.ReactNode;
+    isOpen: boolean;
+    // (undocumented)
+    position?: PopupPlacement | [number | string, number | string];
 }
 
 // @public
@@ -1239,6 +1257,9 @@ export type UseCarouselOptions = Pick<CarouselProps, 'index' | 'axis' | 'detectA
 
 // @public (undocumented)
 export function useDebouncedFunction(func: (...args: any) => any, delay: number, cleanUp?: boolean): (...args: any[]) => void;
+
+// @public
+export const useFocusTrap: (active?: boolean, firstFocusSelector?: string | RefObject<HTMLElement> | undefined, focusAfterNode?: RefObject<HTMLElement> | undefined) => (instance: HTMLElement | null) => void;
 
 // Warning: (ae-forgotten-export) The symbol "UseForkRefHook" needs to be exported by the entry point index.d.ts
 //
