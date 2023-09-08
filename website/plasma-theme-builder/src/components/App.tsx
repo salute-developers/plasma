@@ -71,12 +71,12 @@ const App = () => {
 
     const onMain = useCallback(() => {
         setState(PAGE_TYPE.MAIN);
-        pushHistoryState('/');
+        pushHistoryState('./');
     }, []);
 
     const onGenerateTheme = useCallback(() => {
         setState(PAGE_TYPE.GENERATOR);
-        pushHistoryState('/');
+        pushHistoryState('./');
     }, []);
 
     const onPreviewTheme = useCallback((data: ThemeType) => {

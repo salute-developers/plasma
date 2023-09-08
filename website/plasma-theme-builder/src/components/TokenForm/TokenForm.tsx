@@ -212,7 +212,7 @@ export const TokenForm = ({
 
     const canRename = Boolean(
         defaultThemeData &&
-            defaultThemeData['dark'][inputData.section.value][inputData.subsection.value][inputData.name.value],
+            defaultThemeData['dark'][inputData.section.value]?.[inputData.subsection.value]?.[inputData.name.value],
     );
 
     return (
