@@ -14,15 +14,16 @@
         "access": "restricted"
     },
     "scripts": {
+        "NODE_OPTIONS": "NODE_OPTIONS=--openssl-legacy-provider",
         "docusaurus": "docusaurus",
-        "start": "docusaurus start",
-        "build": "docusaurus build",
-        "swizzle": "docusaurus swizzle",
-        "deploy": "docusaurus deploy",
-        "clear": "docusaurus clear",
-        "serve": "docusaurus serve",
-        "write-translations": "docusaurus write-translations",
-        "write-heading-ids": "docusaurus write-heading-ids",
+        "start": "npm run NODE_OPTIONS && docusaurus start",
+        "build": "npm run NODE_OPTIONS && docusaurus build",
+        "swizzle": "npm run NODE_OPTIONS && docusaurus swizzle",
+        "deploy": "npm run NODE_OPTIONS && docusaurus deploy",
+        "clear": "npm run NODE_OPTIONS && docusaurus clear",
+        "serve": "npm run NODE_OPTIONS && docusaurus serve",
+        "write-translations": "npm run NODE_OPTIONS && docusaurus write-translations",
+        "write-heading-ids": "npm run NODE_OPTIONS && docusaurus write-heading-ids",
         "lint": "../../node_modules/.bin/eslint ./src --ext .ts,.tsx --quiet"
     },
     "dependencies": {
@@ -47,16 +48,8 @@
         "url-loader": "^4.1.1"
     },
     "browserslist": {
-        "production": [
-            ">0.5%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
+        "production": [">0.5%", "not dead", "not op_mini all"],
+        "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
     },
     "devDependencies": {
         "@docusaurus/module-type-aliases": "^2.0.0-beta.4",
