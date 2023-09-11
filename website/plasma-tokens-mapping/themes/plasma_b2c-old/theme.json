@@ -1,0 +1,117 @@
+{
+    "components": {
+        "Button": {
+            "defaults": {
+                "_focused": "true",
+                "_size": "m",
+                "_view": "secondary"
+            },
+            "variations": {
+                "_view": {
+                    "primary": {
+                        "--plasma-button-color": "var(--plasma-colors-white)",
+                        "--plasma-button-bg-color": "var(--plasma-colors-button-accent)",
+                        "--plasma-button-color-hover": " ",
+                        "--plasma-button-bg-color-hover": "var(--plasma-colors-button-primary-hover)",
+                        "--plasma-button-color-active": " ",
+                        "--plasma-button-bg-color-active": "var(--plasma-colors-button-primary-active)"
+                    },
+                    "secondary": {
+                        "--plasma-button-color": "var(--plasma-colors-text)",
+                        "--plasma-button-bg-color": "var(--plasma-colors-button-secondary)",
+                        "--plasma-button-color-hover": " ",
+                        "--plasma-button-bg-color-hover": "var(--plasma-colors-button-secondary-hover)",
+                        "--plasma-button-color-active": " ",
+                        "--plasma-button-bg-color-active": "var(--plasma-colors-button-secondary-active)"
+                    },
+                    "clear": {
+                        "--plasma-button-color": "var(--plasma-colors-text)",
+                        "--plasma-button-bg-color": "var(--plasma-colors-transparent)",
+                        "--plasma-button-color-hover": " ",
+                        "--plasma-button-bg-color-hover": " ",
+                        "--plasma-button-color-active": " ",
+                        "--plasma-button-bg-color-active": " "
+                    },
+                    "success": {
+                        "--plasma-button-color": "var(--plasma-colors-white)",
+                        "--plasma-button-bg-color": "var(--plasma-colors-button-success)",
+                        "--plasma-button-color-hover": " ",
+                        "--plasma-button-bg-color-hover": "var(--plasma-colors-button-success-hover)",
+                        "--plasma-button-color-active": " ",
+                        "--plasma-button-bg-color-active": "var(--plasma-colors-button-success-active)"
+                    },
+                    "warning": {
+                        "--plasma-button-color": "var(--plasma-colors-white)",
+                        "--plasma-button-bg-color": "var(--plasma-colors-button-warning)",
+                        "--plasma-button-color-hover": " ",
+                        "--plasma-button-bg-color-hover": "var(--plasma-colors-button-warning-hover)",
+                        "--plasma-button-color-active": " ",
+                        "--plasma-button-bg-color-active": "var(--plasma-colors-button-warning-active)"
+                    },
+                    "critical": {
+                        "--plasma-button-color": "var(--plasma-colors-white)",
+                        "--plasma-button-bg-color": "var(--plasma-colors-button-critical)",
+                        "--plasma-button-color-hover": " ",
+                        "--plasma-button-bg-color-hover": "var(--plasma-colors-button-critical-hover)",
+                        "--plasma-button-color-active": " ",
+                        "--plasma-button-bg-color-active": "var(--plasma-colors-button-critical-active)"
+                    },
+                    "checked": {
+                        "--plasma-button-color": "var(--plasma-colors-background)",
+                        "--plasma-button-bg-color": "var(--plasma-colors-button-checked)",
+                        "--plasma-button-color-hover": "var(--plasma-colors-button-checked-hover-color)",
+                        "--plasma-button-bg-color-hover": "var(--plasma-colors-button-checked-hover)",
+                        "--plasma-button-color-active": "var(--plasma-colors-button-checked-active-color)",
+                        "--plasma-button-bg-color-active": "var(--plasma-colors-button-checked-active)"
+                    },
+                    "overlay": {
+                        "--plasma-button-color": "var(--plasma-colors-white)",
+                        "--plasma-button-bg-color": "var(--plasma-colors-black-secondary)",
+                        "--plasma-button-color-hover": " ",
+                        "--plasma-button-bg-color-hover": " ",
+                        "--plasma-button-color-active": " ",
+                        "--plasma-button-bg-color-active": " "
+                    }
+                },
+                "_size": {
+                    "l": {
+                        "--plasma-button-height": "3.5rem",
+                        "--plasma-button-padding": "1.625rem",
+                        "--plasma-button-radius": "1rem",
+                        "typography": "$bodyLBold"
+                    },
+                    "m": {
+                        "--plasma-button-height": "3rem",
+                        "--plasma-button-padding": "1.375rem",
+                        "--plasma-button-radius": "0.75rem",
+                        "typography": "$bodyMBold"
+                    },
+                    "s": {
+                        "--plasma-button-height": "2.5rem",
+                        "--plasma-button-padding": "1.125rem",
+                        "--plasma-button-radius": "0.75rem",
+                        "typography": "$bodySBold"
+                    }
+                },
+                "_disabled": {
+                    "true": {
+                        "--plasma-button-disabled-opacity": "0.4"
+                    }
+                },
+                "_focused": {
+                    "true": {
+                        "--plasma-button-focus-color": "var(--plasma-colors-button-focused)"
+                    }
+                }
+            }
+        }
+    },
+    "global": {
+        "xxx": {
+            "dark": "#fco",
+            "light": "#foc"
+        }
+    },
+    "tokens": "plasma_b2c",
+    "name": "plasma_b2c-old"
+}
