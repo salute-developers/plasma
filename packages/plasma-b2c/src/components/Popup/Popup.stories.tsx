@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Story, Meta } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
@@ -32,6 +32,29 @@ export default {
 
 type PopupStoryProps = { position: string };
 
+const showAnimation = keyframes`
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+`;
+const hideAnimation = keyframes`
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+`;
+
 const StyledButton = styled(Button)`
     margin-right: 1rem;
 `;
@@ -47,7 +70,7 @@ export const PopupDemo: Story<PopupStoryProps> = ({ position }) => {
         <SSRProvider>
             <StyledWrapper>
                 <StyledButton text="Открыть окно A" onClick={() => setIsOpenA(true)} />
-                <Popup isOpen={isOpenA} position={position}>
+                <Popup isOpen={isOpenA} position={position} showAnimation={showAnimation} hideAnimation={hideAnimation}>
                     <div style={{ background: 'white', padding: '1rem' }}>
                         <Button onClick={() => setIsOpenA(false)}>Close</Button>
                         Content

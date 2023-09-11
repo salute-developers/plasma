@@ -17,7 +17,7 @@ class PopupController {
 
 const controller = new PopupController();
 
-export const MODALS_PORTAL_ID = 'plasma-popup-root';
+export const POPOVER_PORTAL_ID = 'plasma-popup-root';
 
 export const PopupContext = React.createContext(controller);
 

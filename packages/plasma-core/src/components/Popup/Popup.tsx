@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState, useContext, FC } from 'react';
 import ReactDOM from 'react-dom';
-import styled, { css } from 'styled-components';
+import styled, { Keyframes, css } from 'styled-components';
 
 import { useUniqId } from '../../hooks';
 
-import { PopupContext, MODALS_PORTAL_ID } from './PopupContext';
+import { PopupContext, POPOVER_PORTAL_ID } from './PopupContext';
 
 type BasicPopupPlacement = 'center' | 'top' | 'bottom' | 'right' | 'left';
 type MixedPopupPlacement = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
@@ -25,28 +25,32 @@ export interface PopupProps extends React.HTMLAttributes<HTMLDivElement> {
      * Содержимое Popup.
      */
     children?: React.ReactNode;
+    /**
+     * Анимация при появлении Popup.
+     */
+    showAnimation?: Keyframes;
+    /**
+     * Анимация при скрытии Popup.
+     */
+    hideAnimation?: Keyframes;
+    /**
+     * Значение z-index для Popup.
+     */
+    zIndex: string;
 }
 
 interface HidingProps {
     isHiding?: boolean;
 }
 
-interface PositionProps {
+const DEFAULT_Z_INDEX = 9000;
+
+interface PopupRootProps {
     position?: PopupPlacement | [number | string, number | string];
+    showAnimation?: Keyframes;
+    hideAnimation?: Keyframes;
+    zIndex?: string;
 }
-
-const StyledWrapper = styled.div<HidingProps>`
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`;
 
 const PopupView = styled.div`
     position: relative;
@@ -56,7 +60,11 @@ const PopupView = styled.div`
 
 const handlePosition = (position?: PopupPlacement | [number | string, number | string]) => {
     if (!position || position === 'center') {
-        return;
+        return css`
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        `;
     }
 
     if (Array.isArray(position)) {
@@ -97,21 +105,49 @@ const handlePosition = (position?: PopupPlacement | [number | string, number | s
         right: ${right};
         top: ${top};
         bottom: ${bottom};
+        ${left !== 0 &&
+        right !== 0 &&
+        css`
+            left: 50%;
+            transform: translateX(-50%);
+        `}
+        ${top !== 0 &&
+        bottom !== 0 &&
+        css`
+            top: 50%;
+            transform: translateY(-50%);
+        `}
     `;
 };
 
-const StyledPopup = styled.div<PositionProps>`
-    position: absolute;
-    pointer-events: none;
+const PopupRoot = styled.div<HidingProps & PopupRootProps>`
+    position: fixed;
+    ${({ zIndex }) => css`
+        z-index: ${zIndex || DEFAULT_Z_INDEX};
+    `}
 
     ${({ position }) => handlePosition(position)};
+
+    ${({ isHiding, showAnimation, hideAnimation }) => css`
+        animation: 0.4s ${isHiding ? hideAnimation : showAnimation} ease-out;
+    `}
 `;
 
 /**
  * Базовый Popup.
  * Управляет показом/скрытием и анимацией(?) высплывающего окна.
  */
-export const Popup: FC<PopupProps> = ({ id, isOpen, position, children, role = 'dialog', ...rest }) => {
+export const Popup: FC<PopupProps> = ({
+    id,
+    isOpen,
+    position,
+    children,
+    role,
+    zIndex,
+    showAnimation,
+    hideAnimation,
+    ...rest
+}) => {
     const uniqId = useUniqId();
     const innerId = id || uniqId;
 
@@ -122,15 +158,12 @@ export const Popup: FC<PopupProps> = ({ id, isOpen, position, children, role = '
     const [, forceRender] = useState(false);
 
     useEffect(() => {
-        let portal = document.getElementById(MODALS_PORTAL_ID);
+        let portal = document.getElementById(POPOVER_PORTAL_ID);
 
         if (!portal) {
             portal = document.createElement('div');
-            portal.setAttribute('id', MODALS_PORTAL_ID);
-            portal.setAttribute('aria-live', 'off');
-            portal.setAttribute('role', 'presentation');
+            portal.setAttribute('id', POPOVER_PORTAL_ID);
             portal.style.position = 'relative';
-            portal.style.zIndex = '9000';
             document.body.appendChild(portal);
         }
 
@@ -145,7 +178,7 @@ export const Popup: FC<PopupProps> = ({ id, isOpen, position, children, role = '
         return () => {
             controller.unregister(innerId);
         };
-    }, [controller, innerId]);
+    }, [controller, innerId, zIndex]);
 
     if (isOpen) {
         controller.register(innerId);
@@ -158,13 +191,11 @@ export const Popup: FC<PopupProps> = ({ id, isOpen, position, children, role = '
         <>
             {portalRef.current &&
                 ReactDOM.createPortal(
-                    <StyledWrapper>
-                        <StyledPopup position={position}>
-                            <PopupView {...rest} role={role} aria-modal="true">
-                                {children}
-                            </PopupView>
-                        </StyledPopup>
-                    </StyledWrapper>,
+                    <PopupRoot position={position} showAnimation={showAnimation} hideAnimation={hideAnimation}>
+                        <PopupView {...rest} role={role}>
+                            {children}
+                        </PopupView>
+                    </PopupRoot>,
                     portalRef.current,
                 )}
         </>

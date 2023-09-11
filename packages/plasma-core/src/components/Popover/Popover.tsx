@@ -41,6 +41,7 @@ const StyledRoot = styled.div`
     box-sizing: border-box;
     display: inline-flex;
 `;
+
 const StyledPopover = styled.div`
     position: absolute;
     z-index: 1;
