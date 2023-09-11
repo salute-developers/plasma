@@ -1,26 +1,22 @@
 import React, { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
 
-import { getStaticVariants, getDynamicVariants, ComponentConfig } from './common';
+import { getStaticVariants, getDynamicVariants } from './common';
+import type { ComponentConfig, HTMLAnyAttributes } from './types';
 
 export { styled, css };
 
 /* eslint-disable no-underscore-dangle */
-
 export const _component = (componentConfig: ComponentConfig) => {
     const { tag, base, defaults } = componentConfig;
-    const staticVarians = getStaticVariants(componentConfig);
-    const dynamicVarians = getDynamicVariants(componentConfig);
+    const staticVariants = getStaticVariants(componentConfig);
+    const dynamicVariants = getDynamicVariants(componentConfig);
 
-    const Root = styled(tag as any)`
+    const Root = styled(tag as React.ElementType)`
         ${base}
-        ${staticVarians}
-        ${dynamicVarians}
+        ${staticVariants}
+        ${dynamicVariants}
     `;
 
-    return forwardRef((props, ref) => <Root {...defaults} {...props} ref={ref} />);
+    return forwardRef<HTMLElement, HTMLAnyAttributes>((props, ref) => <Root {...defaults} {...props} ref={ref} />);
 };
-
-export function component(config: ComponentConfig) {
-    return config.layout(_component(config));
-}
