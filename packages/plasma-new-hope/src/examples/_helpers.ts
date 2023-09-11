@@ -1,8 +1,14 @@
 import { ArgTypes } from '@storybook/react';
 
 import { ComponentConfig } from '../engines';
+import type { HTMLTagList, PropsType, Variants } from '../engines/types';
 
-export function argTypesFromConfig(config: ComponentConfig) {
+export function argTypesFromConfig<
+    Tag extends HTMLTagList,
+    VariantList extends Variants,
+    VariantsProps extends PropsType<VariantList>,
+    LayoutProps extends React.HTMLAttributes<HTMLElement>
+>(config: ComponentConfig<Tag, VariantList, VariantsProps, LayoutProps>) {
     const { defaults, variations } = config;
 
     const argTypes: ArgTypes = {};
