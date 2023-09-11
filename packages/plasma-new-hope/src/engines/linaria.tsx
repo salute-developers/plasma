@@ -1,51 +1,50 @@
 import React, { forwardRef } from 'react';
 import { cx } from '@linaria/core';
 
-import { getStaticVariants, getDynamicVariants, ComponentConfig } from './common';
+import { getStaticVariants, getDynamicVariants } from './common';
+import type { ComponentConfig, HTMLAnyAttributes } from './types';
 
 /* eslint-disable no-underscore-dangle */
 export const _component = (componentConfig: ComponentConfig) => {
     const { tag, base, defaults, name } = componentConfig;
-    const staticVarians = getStaticVariants(componentConfig);
-    const dynamicVarians = getDynamicVariants(componentConfig);
+    const staticVariants = getStaticVariants(componentConfig);
+    const dynamicVariants = getDynamicVariants(componentConfig);
     const Root = tag as React.ElementType;
 
-    const component = forwardRef((p, ref) => {
-        const { className, ...rest } = p as { className: string };
-        const variants = dynamicVarians({ ...defaults, ...rest });
-        const cls = cx(className, base, ...staticVarians, ...variants);
+    const component = forwardRef<HTMLElement, HTMLAnyAttributes>((props, ref) => {
+        const { className, ...rest } = props;
+        const variants = dynamicVariants({ ...defaults, ...rest });
+        const cls = cx(className, base, ...staticVariants, ...variants);
 
         // styled-components do it inside
         // filter props
-        const props: Record<string, any> = {};
+        const baseProps: HTMLAnyAttributes = {};
         for (const key in rest) {
             if (!(key in componentConfig.variations)) {
-                props[key] = (rest as Record<string, any>)[key];
+                baseProps[key] = rest[key];
             }
         }
 
+        baseProps.ref = ref;
+
         // styled-components do it inside
         // add props that should be attr( disabled for example)
-        const htmlAttrs: Record<string, any> = {};
-        for (const [key, value] of Object.entries(componentConfig.variations || {})) {
+        const htmlAttrs: HTMLAnyAttributes = {};
+        for (const key in componentConfig.variations || {}) {
             if (key in rest) {
-                const { attrs } = value;
+                const variant = componentConfig.variations[key];
+
+                const { attrs } = variant;
                 if (typeof attrs === 'boolean') {
-                    htmlAttrs[key] = (rest as Record<string, any>)[key];
+                    htmlAttrs[key] = rest[key];
                 }
             }
         }
 
-        return <Root className={cls} {...htmlAttrs} {...props} ref={ref} />;
+        return <Root className={cls} {...htmlAttrs} {...baseProps} />;
     });
     if (name) {
         component.displayName = name;
     }
     return component;
 };
-
-// TODO: move to common
-// TODO: refactor generator to import from @salute/plasma-new-hope/
-export function component(config: ComponentConfig) {
-    return config.layout(_component(config));
-}

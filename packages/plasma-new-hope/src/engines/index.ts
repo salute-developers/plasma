@@ -1,4 +1,8 @@
-export { mergeConfig } from './common';
-export type { Variant, ComponentConfig } from './common';
+import { css as cssLibrary } from '@linaria/core';
 
-export { component } from './linaria';
+import type { CSS } from './types';
+
+export const css = cssLibrary as CSS;
+export { mergeConfig, component } from './common';
+
+export type { Variant, ComponentConfig, RootProps, CSS } from './types';
