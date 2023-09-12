@@ -2,6 +2,15 @@
     "prereleaseBranches": ["dev"],
     "plugins": [
         [
+            "./auto-plugins/dist/upload-assets-extend.js",
+            {
+                "assets": ["./utils/plasma-tokens-native/build/**/*"],
+                "message": "🐤 Download canary assets:",
+                "group": "(color|shadow|typo|borderRadius|spacing).*\\.(kt|xml|swift|ts)",
+                "compact": true
+            }
+        ],
+        [
             "npm",
             {
                 "setRcToken": false,
@@ -14,15 +23,6 @@
             {
                 "message": "🚀 This %TYPE is included in version: %VERSION 🚀",
                 "includeBotPrs": true
-            }
-        ],
-        [
-            "./auto-plugins/dist/upload-assets-extend.js",
-            {
-                "assets": ["./utils/plasma-tokens-native/build/**/*"],
-                "message": "🐤 Download canary assets:",
-                "group": "(color|shadow|typo).*\\.(kt|xml|swift|ts)",
-                "compact": true
             }
         ]
     ]
