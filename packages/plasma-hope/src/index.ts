@@ -11,7 +11,6 @@ export * from './components/ElasticGrid';
 export * from './components/Dropdown';
 export * from './components/Grid';
 export * from './components/Image';
-export * from './components/Link';
 export * from './components/List';
 export * from './components/Modal';
 export * from './components/Notification';
