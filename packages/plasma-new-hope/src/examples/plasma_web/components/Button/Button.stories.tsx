@@ -9,7 +9,7 @@ import { config } from './Button.config';
 import { Button } from './Button';
 
 export default {
-    title: 'plasma_b2c/Button',
+    title: 'plasma_web/Button',
     decorators: [WithTheme],
     component: Button,
     argTypes: argTypesFromConfig(mergeConfig(buttonConfig, config)),

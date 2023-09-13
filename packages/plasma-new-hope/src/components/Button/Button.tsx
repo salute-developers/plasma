@@ -2,7 +2,7 @@ import React, { forwardRef, PropsWithChildren, ReactNode } from 'react';
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 
-import { ComponentConfig } from '../../engines';
+import { RootProps } from '../../engines';
 import { applyEllipsis } from '../../mixins';
 
 import { base as view } from './_view/base';
@@ -60,7 +60,9 @@ export interface ButtonProps extends PropsWithChildren {
     loader?: ReactNode;
 }
 
-export const buttonRoot = (Root: any) =>
+export const buttonRoot = (
+    Root: RootProps<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement> & ButtonProps>,
+) =>
     forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
         const { children, text, contentLeft, contentRight, isLoading, loader, ...rest } = props;
         // eslint-disable-next-line no-nested-ternary
@@ -84,7 +86,7 @@ export const buttonRoot = (Root: any) =>
         );
     });
 
-export const buttonConfig: ComponentConfig = {
+export const buttonConfig = {
     name: 'Button',
     tag: 'button',
     layout: buttonRoot,
