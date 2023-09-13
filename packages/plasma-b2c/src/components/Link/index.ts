@@ -1,1 +1,1 @@
-export { Link } from '@salutejs/plasma-hope';
+export { Link } from './Link';

@@ -8,6 +8,7 @@
 
 import { addFocus } from '@salutejs/plasma-core';
 import { addNotification } from '@salutejs/plasma-hope';
+import { AnchorHTMLAttributes } from 'react';
 import { animatedScrollToX } from '@salutejs/plasma-core';
 import { animatedScrollToY } from '@salutejs/plasma-core';
 import { applyBlur } from '@salutejs/plasma-core';
@@ -116,6 +117,7 @@ import { Footnote1 } from '@salutejs/plasma-hope';
 import { Footnote2 } from '@salutejs/plasma-hope';
 import { formatCurrency } from '@salutejs/plasma-core';
 import { ForwardRefExoticComponent } from 'react';
+import { FunctionComponent } from 'react';
 import { gridBreakpoints } from '@salutejs/plasma-hope';
 import { gridColumns } from '@salutejs/plasma-hope';
 import { gridGutters } from '@salutejs/plasma-hope';
@@ -137,7 +139,7 @@ import { ImageProps } from '@salutejs/plasma-hope';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
 import { LineSkeleton } from '@salutejs/plasma-hope';
 import { LineSkeletonProps } from '@salutejs/plasma-hope';
-import { Link } from '@salutejs/plasma-hope';
+import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { List } from '@salutejs/plasma-hope';
 import { ListItem } from '@salutejs/plasma-hope';
 import { MaxLinesProps } from '@salutejs/plasma-core';
@@ -180,6 +182,7 @@ import { Price } from '@salutejs/plasma-hope';
 import { PriceProps } from '@salutejs/plasma-hope';
 import { Progress } from '@salutejs/plasma-hope';
 import { ProgressProps } from '@salutejs/plasma-hope';
+import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { Radiobox } from '@salutejs/plasma-hope';
 import { RadioboxProps } from '@salutejs/plasma-hope';
 import { RadioGroup } from '@salutejs/plasma-hope';
@@ -548,7 +551,18 @@ export { LineSkeleton }
 
 export { LineSkeletonProps }
 
-export { Link }
+// @public
+export const Link: FunctionComponent<PropsType<    {
+view: {
+primary: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & AnchorHTMLAttributes<HTMLAnchorElement> & LinkCustomProps & RefAttributes<HTMLAnchorElement>>;
 
 export { List }
 
