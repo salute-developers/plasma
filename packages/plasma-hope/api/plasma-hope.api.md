@@ -868,15 +868,6 @@ export { LineSkeleton }
 
 export { LineSkeletonProps }
 
-// Warning: (ae-forgotten-export) The symbol "LinkProps" needs to be exported by the entry point index.d.ts
-//
-// @public
-export const Link: StyledComponent<"a", any, LinkProps & {
-$isHover?: boolean | undefined;
-$isPressed?: boolean | undefined;
-$isVisited?: boolean | undefined;
-}, never>;
-
 // @public (undocumented)
 export const link = "var(--plasma-colors-link)";
 
