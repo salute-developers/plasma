@@ -21,7 +21,8 @@
   "dependencies": {
     "@salutejs/plasma-core": "1.133.1-dev.0",
     "@salutejs/plasma-hope": "1.231.1-dev.0",
-    "@salutejs/plasma-typo": "0.38.0"
+    "@salutejs/plasma-typo": "0.38.0",
+    "@salutejs/plasma-new-hope": "0.1.0-dev.0"
   },
   "peerDependencies": {
     "@salutejs/plasma-icons": "^1.0.0",
