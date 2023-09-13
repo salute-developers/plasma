@@ -100,19 +100,20 @@ const handlePosition = (position?: PopupPlacement | [number | string, number | s
         }
     });
 
+    const isCenteredX = left !== 0 && right !== 0;
+    const isCenteredY = top !== 0 && bottom !== 0;
+
     return css`
         left: ${left};
         right: ${right};
         top: ${top};
         bottom: ${bottom};
-        ${left !== 0 &&
-        right !== 0 &&
+        ${isCenteredX &&
         css`
             left: 50%;
             transform: translateX(-50%);
         `}
-        ${top !== 0 &&
-        bottom !== 0 &&
+        ${isCenteredY &&
         css`
             top: 50%;
             transform: translateY(-50%);

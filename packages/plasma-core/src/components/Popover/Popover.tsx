@@ -102,11 +102,14 @@ export const Popover = memo<PopoverProps & RefAttributes<HTMLDivElement>>(
             const onClick = useCallback<React.MouseEventHandler>(
                 (event) => {
                     if (trigger === 'click') {
+                        if (!onToggle) {
+                            return;
+                        }
                         const targetIsPopover = event.target === popoverRef.current;
                         const rootHasTarget = popoverRef.current?.contains(event.target as Element);
 
                         if (!targetIsPopover && !rootHasTarget) {
-                            onToggle?.(!isOpen, event);
+                            onToggle(!isOpen, event);
                         }
                     }
                 },
