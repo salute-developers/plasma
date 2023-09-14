@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { InSpacing } from '../../helpers/StoryDecorators';
 import { Button } from '../Button';
 import { Body1, Body3 } from '../Typography';
+import { disableProps } from '../../helpers';
 
 import { useAutoFocus } from './Confirm.hooks';
 
@@ -16,6 +17,15 @@ export default {
     title: 'Controls/Confirm',
     decorators: [InSpacing],
     component: Confirm,
+    argTypes: {
+        buttonsDirection: {
+            options: ['horizontal', 'horizontal-reverse', 'vertical', 'vertical-reverse', undefined],
+            control: {
+                type: 'select',
+            },
+        },
+        ...disableProps(['onApprove', 'onDismiss', 'extraContent']),
+    },
 };
 
 const onApproveAction = action('onApprove');
@@ -95,6 +105,8 @@ Default.args = {
     approveText: 'Да',
     dismissText: 'Нет',
     visible: false,
+    reverseButtons: false,
+    buttonsDirection: undefined,
 };
 
 export const ExtraContent: Story<ConfirmProps> = ({ visible: _visible, ...rest }) => {
@@ -145,4 +157,6 @@ ExtraContent.args = {
     approveText: 'Да',
     dismissText: 'Нет',
     visible: false,
+    reverseButtons: false,
+    buttonsDirection: undefined,
 };

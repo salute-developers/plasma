@@ -75,6 +75,56 @@ describe('Confirm', () => {
         cy.matchImageSnapshot();
     });
 
+    it('button direction: default(horizontal)', () => {
+        mount(
+            <CypressTestDecorator>
+                <Confirm visible view="primary" {...props} />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('button direction: vertical', () => {
+        mount(
+            <CypressTestDecorator>
+                <Confirm visible buttonsDirection="vertical" view="primary" {...props} />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('button direction: horizontal-reverse', () => {
+        mount(
+            <CypressTestDecorator>
+                <Confirm visible buttonsDirection="horizontal-reverse" view="primary" {...props} />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('button direction: vertical-reverse', () => {
+        mount(
+            <CypressTestDecorator>
+                <Confirm visible buttonsDirection="vertical-reverse" view="primary" {...props} />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('button direction + reverseButtons', () => {
+        mount(
+            <CypressTestDecorator>
+                <Confirm visible reverseButtons buttonsDirection="vertical-reverse" view="primary" {...props} />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     ['primary', undefined, 'secondary', 'success', 'warning', 'critical'].forEach((view) => {
         it(`_view_${view}`, () => {
             mount(
