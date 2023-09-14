@@ -94,7 +94,7 @@ jobs:
         run: |
           export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-website"
-          cp -R ./website/plasma-website/build/ ./s3_build/${PR_NAME}
+          cp -R ./website/plasma-website/build/. ./s3_build/${PR_NAME}
 
       - name: Plasma UI Docs
         if: ${{ needs.scope.outputs.HAS_PLASMA_UI_DOCS == 'true' && needs.scope.outputs.HAS_PLASMA_UI == 'true' }}
