@@ -88,3 +88,83 @@ export function App() {
     );
 }
 ```
+
+### Buttons direction
+
+Свойство `buttonsDirection` задает направление кнопок, доступные значения:
+
+```ts
+type Direction = 'horizontal' | 'vertical' | 'horizontal-reverse' | 'vertical-reverse';
+```
+
+Значение по-умолчанию: `horizontal`
+
+```tsx live
+import React, { useState } from 'react';
+import { Confirm, Button } from '@salutejs/plasma-ui';
+
+export function App() {
+    const [visible, setVisible] = useState(false);
+
+    const hide = () => {
+        setVisible(false);
+    };
+
+    const title = 'Использовать максимум возможностей?';
+    const subtitle = 'Возможно всё.';
+    const approveText = 'Да';
+    const dismissText = 'Нет';
+
+    const props = {
+        title,
+        subtitle,
+        approveText,
+        dismissText,
+    };
+
+    return (
+        <>
+            <Button text="Show Confirm" onClick={() => setVisible(true)} />
+            <Confirm visible={visible} buttonsDirection="vertical-reverse" onApprove={hide} onDismiss={hide} view="primary" {...props} />
+        </>
+    );
+}
+```
+
+#### Обратная совместимость с `reverseButtons`.
+
+Свойство `reverseButtons` в данный момент помечено как **deprecated**.
+
+Если оно `true`, то `buttonsDirection` не будет применяться.
+
+```tsx live
+import React, { useState } from 'react';
+import { Confirm, Button } from '@salutejs/plasma-ui';
+
+export function App() {
+    const [visible, setVisible] = useState(false);
+
+    const hide = () => {
+        setVisible(false);
+    };
+
+    const title = 'Использовать максимум возможностей?';
+    const subtitle = 'Возможно всё.';
+    const approveText = 'Да';
+    const dismissText = 'Нет';
+
+    const props = {
+        title,
+        subtitle,
+        approveText,
+        dismissText,
+    };
+
+    return (
+        <>
+            <Button text="Show Confirm" onClick={() => setVisible(true)} />
+            <Confirm visible={visible} reverseButtons buttonsDirection="vertical-reverse" onApprove={hide} onDismiss={hide} view="primary" {...props} />
+        </>
+    );
+}
+```

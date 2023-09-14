@@ -2,6 +2,7 @@ import React, { useCallback, useRef, ReactNode } from 'react';
 import styled, { css, createGlobalStyle } from 'styled-components';
 import { overlay, backgroundPrimary } from '@salutejs/plasma-tokens';
 import { ButtonRoot } from '@salutejs/plasma-core';
+import { FlexDirectionProperty } from 'csstype';
 
 import { mediaQuery } from '../../utils';
 import { Button, ButtonProps } from '../Button';
@@ -9,6 +10,26 @@ import { TextBox, TextBoxTitle, TextBoxSubTitle } from '../TextBox';
 import { Cell } from '../Cell';
 
 import { useAutoFocus } from './Confirm.hooks';
+
+const flexDirection: Record<Direction, FlexDirectionProperty> = {
+    horizontal: 'row',
+    'horizontal-reverse': 'row-reverse',
+    vertical: 'column',
+    'vertical-reverse': 'column-reverse',
+};
+
+const marginByDirection: Record<Direction, MarginSide> = {
+    horizontal: 'margin-right',
+    'horizontal-reverse': 'margin-left',
+    vertical: 'margin-bottom',
+    'vertical-reverse': 'margin-top',
+};
+
+export type Direction = 'horizontal' | 'vertical' | 'horizontal-reverse' | 'vertical-reverse';
+
+type MarginSide = 'margin-right' | 'margin-left' | 'margin-bottom' | 'margin-top';
+
+type HandleDirection = { reverse: boolean; direction: Direction };
 
 export interface ConfirmProps {
     /**
@@ -31,7 +52,8 @@ export interface ConfirmProps {
     dismissText?: string;
 
     /**
-     * Очередность кнопок
+     * Очередность кнопок. Вместо этого свойства лучше использовать `buttonsDirection`
+     * @deprecated
      */
     reverseButtons?: boolean;
 
@@ -59,6 +81,11 @@ export interface ConfirmProps {
      * Компонент снизу
      */
     extraContent?: ReactNode;
+
+    /**
+     * Направление для группы кнопок
+     */
+    buttonsDirection?: Direction;
 }
 
 // TODO: https://github.com/salute-developers/plasma/issues/232
@@ -149,18 +176,30 @@ const ConfirmFooter = styled.div`
     max-width: 100%;
 `;
 
-const BtnWrap = styled.div<{ reverse: boolean }>`
-    flex: 1;
-    display: flex;
-
-    ${StyledButton}:not(:last-child) {
-        ${({ reverse }) => (reverse ? { marginLeft: '0.75rem' } : { marginRight: '0.75rem' })}
+const handleFlexDirection = ({ reverse, direction }: HandleDirection) => {
+    if (reverse) {
+        return flexDirection['horizontal-reverse'];
     }
 
-    ${({ reverse }) =>
-        reverse && {
-            flexDirection: 'row-reverse',
-        }};
+    return flexDirection[direction];
+};
+
+const handleMarginByDirection = ({ direction, reverse }: HandleDirection) => {
+    const margin = reverse ? marginByDirection['horizontal-reverse'] : marginByDirection[direction];
+
+    return css`
+        ${margin}: 0.5rem;
+    `;
+};
+
+const BtnWrap = styled.div<{ reverse: boolean; direction: Direction }>`
+    flex: 1;
+    display: flex;
+    flex-direction: ${handleFlexDirection};
+
+    ${StyledButton}:not(:last-child) {
+        ${handleMarginByDirection}
+    }
 
     /* https://css-tricks.com/flexbox-truncated-text */
     ${ButtonRoot} {
@@ -200,6 +239,7 @@ export const Confirm = (props: ConfirmProps) => {
         extraContent,
         onApprove,
         onDismiss,
+        buttonsDirection = 'horizontal',
         ...rest
     } = props;
 
@@ -211,6 +251,7 @@ export const Confirm = (props: ConfirmProps) => {
     }, [onDismiss]);
 
     const btnRef = useRef<HTMLButtonElement>(null);
+
     useAutoFocus(btnRef, { trigger: visible });
 
     const approve = (
@@ -229,7 +270,7 @@ export const Confirm = (props: ConfirmProps) => {
     ) : null;
 
     const buttons = (
-        <BtnWrap reverse={reverseButtons}>
+        <BtnWrap reverse={reverseButtons} direction={buttonsDirection}>
             {dismiss}
             {approve}
         </BtnWrap>
