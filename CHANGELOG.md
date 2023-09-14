@@ -1,3 +1,64 @@
+# (Thu Sep 14 2023)
+
+#### 🚀 Enhancement
+
+- Update versions [#699](https://github.com/salute-developers/plasma/pull/699) ([@Yakutoc](https://github.com/Yakutoc))
+- feat: Update plasma theme-builder workflow [#699](https://github.com/salute-developers/plasma/pull/699) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-tokens@1.63.0`, `@salutejs/plasma-tokens-utils@0.32.0`
+  - feat(plasma-tokens): Add generate css files with typo tokens [#699](https://github.com/salute-developers/plasma/pull/699) (neretinartem@Neretins-MacBook-Pro.local)
+  - feat(plasma-tokens): Add generate css files with color tokens [#699](https://github.com/salute-developers/plasma/pull/699) (neretinartem@Neretins-MacBook-Pro.local)
+  - feat(plasma-tokens-utils): Add kebab case for css vars in web themes [#699](https://github.com/salute-developers/plasma/pull/699) (neretinartem@Neretins-MacBook-Pro.local)
+- `@salutejs/plasma-typo@0.38.0`
+  - feat(plasma-typo): Add extract typo objects and types [#699](https://github.com/salute-developers/plasma/pull/699) (neretinartem@Neretins-MacBook-Pro.local)
+- `@salutejs/plasma-tokens@1.63.0`
+  - feat(plasma-tokens): Update css vars in web themes from `src` directory [#699](https://github.com/salute-developers/plasma/pull/699) (neretinartem@Neretins-MacBook-Pro.local)
+- `@salutejs/plasma-ui@1.209.0`
+  - feat(plasma-ui): processing new line for title, subtitle [#699](https://github.com/salute-developers/plasma/pull/699) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- Update versions [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
+- fix(plasma-theme-builder): Fix edit not default tokens in custom groups and routers [#699](https://github.com/salute-developers/plasma/pull/699) ([@neretin-trike](https://github.com/neretin-trike))
+- chore(auto): fix upload-assets plugin order [#699](https://github.com/salute-developers/plasma/pull/699) ([@Yakutoc](https://github.com/Yakutoc))
+- ci("Main Documentation and Storybook"): checkout to "master" branch [#699](https://github.com/salute-developers/plasma/pull/699) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-web-docs): add path to "plasma-hope" for parse [#699](https://github.com/salute-developers/plasma/pull/699) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-web-docs): use "NODE_OPTIONS=--openssl-legacy-provider" [#699](https://github.com/salute-developers/plasma/pull/699) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: fix perftest metrics sending [#699](https://github.com/salute-developers/plasma/pull/699) ([@akhdrv](https://github.com/akhdrv))
+- ci: use exact version [#699](https://github.com/salute-developers/plasma/pull/699) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-website): use exact version [#699](https://github.com/salute-developers/plasma/pull/699) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-utils): use exact version [#699](https://github.com/salute-developers/plasma/pull/699) ([@Yakutoc](https://github.com/Yakutoc))
+- ci(lint): disable flag `--since` [#699](https://github.com/salute-developers/plasma/pull/699) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-utils): update version [#699](https://github.com/salute-developers/plasma/pull/699) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-website): update version [#699](https://github.com/salute-developers/plasma/pull/699) ([@Yakutoc](https://github.com/Yakutoc))
+- ci(publish-rc): manualy install deps for private packages [#699](https://github.com/salute-developers/plasma/pull/699) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.227.0`, `@salutejs/plasma-core@1.130.0`, `@salutejs/plasma-hope@1.227.0`, `@salutejs/plasma-icons@1.161.0`, `@salutejs/plasma-temple@1.177.0`, `@salutejs/plasma-tokens-b2b@1.28.0`, `@salutejs/plasma-tokens-b2c@0.37.0`, `@salutejs/plasma-tokens-web@1.43.0`, `@salutejs/plasma-tokens@1.63.0`, `@salutejs/plasma-typo@0.38.0`, `@salutejs/plasma-ui@1.209.0`, `@salutejs/plasma-web@1.227.0`, `@salutejs/plasma-cy-utils@0.70.0`, `@salutejs/plasma-sb-utils@0.128.0`, `@salutejs/plasma-tokens-utils@0.32.0`
+  - chore: update package-locks [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
+  - Update versions [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
+- `@salutejs/plasma-b2c@1.227.0`, `@salutejs/plasma-core@1.130.0`, `@salutejs/plasma-hope@1.227.0`, `@salutejs/plasma-icons@1.161.0`, `@salutejs/plasma-temple@1.177.0`, `@salutejs/plasma-tokens@1.63.0`, `@salutejs/plasma-ui@1.209.0`, `@salutejs/plasma-web@1.227.0`, `@salutejs/plasma-cy-utils@0.70.0`, `@salutejs/plasma-sb-utils@0.128.0`
+  - chore: update package-locks [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
+  - Update versions [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
+- `@salutejs/plasma-tokens@1.63.0`
+  - fix(plasma-tokens): Update gradient tokens in `stylesSalute` scheme for ios and android platforms [#699](https://github.com/salute-developers/plasma/pull/699) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-temple@1.177.0`, `@salutejs/plasma-ui@1.209.0`
+  - chore: update package-locks [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
+  - Update versions [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
+- `@salutejs/plasma-b2c@1.227.0`, `@salutejs/plasma-hope@1.227.0`, `@salutejs/plasma-web@1.227.0`
+  - chore: update package-locks [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
+  - Update versions [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
+- `@salutejs/plasma-hope@1.227.0`, `@salutejs/plasma-web@1.227.0`
+  - fix(plasma-web): fix padding-left without/with content-{left,right} [TextField] [#699](https://github.com/salute-developers/plasma/pull/699) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 6
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- Neretin Artem (neretinartem@Neretins-MacBook-Pro.local)
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Mon Sep 04 2023)
 
 #### 🚀 Enhancement

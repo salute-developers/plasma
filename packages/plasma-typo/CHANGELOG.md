@@ -1,3 +1,21 @@
+# v0.38.0 (Thu Sep 14 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-typo): Add extract typo objects and types [#699](https://github.com/salute-developers/plasma/pull/699) (neretinartem@Neretins-MacBook-Pro.local)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Neretin Artem (neretinartem@Neretins-MacBook-Pro.local)
+
+---
+
 # v0.37.0 (Mon Sep 04 2023)
 
 #### 🐛 Bug Fix

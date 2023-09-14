@@ -1,3 +1,24 @@
+# v0.32.0 (Thu Sep 14 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens): Add generate css files with typo tokens [#699](https://github.com/salute-developers/plasma/pull/699) (neretinartem@Neretins-MacBook-Pro.local)
+- feat(plasma-tokens): Add generate css files with color tokens [#699](https://github.com/salute-developers/plasma/pull/699) (neretinartem@Neretins-MacBook-Pro.local)
+- feat(plasma-tokens-utils): Add kebab case for css vars in web themes [#699](https://github.com/salute-developers/plasma/pull/699) (neretinartem@Neretins-MacBook-Pro.local)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Neretin Artem (neretinartem@Neretins-MacBook-Pro.local)
+- Neretin Artem (neretinartem@Neretins-MBP.netis)
+
+---
+
 # v0.31.0 (Mon Sep 04 2023)
 
 #### 🚀 Enhancement
