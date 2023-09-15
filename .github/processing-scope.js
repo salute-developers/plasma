@@ -35,15 +35,13 @@ module.exports = () => {
     const HAS_PLASMA_UI_DOCS = packagesList.includes('@salutejs/plasma-ui-docs');
     const HAS_PLASMA_WEB_DOCS = packagesList.includes('@salutejs/plasma-web-docs');
     const HAS_PLASMA_TEMPLE_DOCS = packagesList.includes('@salutejs/plasma-temple-docs');
-    const HAS_PLASMA_WEBSITE = packagesList.includes('@salutejs/plasma-website');
 
     const HAS_PLASMA_UI = packagesList.includes('@salutejs/plasma-ui');
     const HAS_PLASMA_WEB = packagesList.includes('@salutejs/plasma-web');
     const HAS_PLASMA_B2C = packagesList.includes('@salutejs/plasma-b2c');
     const HAS_PLASMA_TEMPLE = packagesList.includes('@salutejs/plasma-temple');
 
-    const HAS_DOCUMENTATION_CHANGED =
-        HAS_PLASMA_UI_DOCS || HAS_PLASMA_WEB_DOCS || HAS_PLASMA_TEMPLE_DOCS || HAS_PLASMA_WEBSITE;
+    const HAS_DOCUMENTATION_CHANGED = HAS_PLASMA_UI_DOCS || HAS_PLASMA_WEB_DOCS || HAS_PLASMA_TEMPLE_DOCS;
 
     /**
      * List short packages name
@@ -70,7 +68,6 @@ module.exports = () => {
         HAS_PLASMA_UI_DOCS,
         HAS_PLASMA_WEB_DOCS,
         HAS_PLASMA_TEMPLE_DOCS,
-        HAS_PLASMA_WEBSITE,
         HAS_PLASMA_UI,
         HAS_PLASMA_WEB,
         HAS_PLASMA_B2C,

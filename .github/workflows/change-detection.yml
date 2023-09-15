@@ -30,9 +30,6 @@ on:
       HAS_PLASMA_TEMPLE_DOCS:
         description: ""
         value: ${{ jobs.run.outputs.HAS_PLASMA_TEMPLE_DOCS }}
-      HAS_PLASMA_WEBSITE:
-        description: ""
-        value: ${{ jobs.run.outputs.HAS_PLASMA_WEBSITE }}
       HAS_PLASMA_UI:
         description: ""
         value: ${{ jobs.run.outputs.HAS_PLASMA_UI }}
@@ -58,7 +55,6 @@ jobs:
       HAS_PLASMA_UI_DOCS: ${{ steps.set-output.outputs.HAS_PLASMA_UI_DOCS }}
       HAS_PLASMA_WEB_DOCS: ${{ steps.set-output.outputs.HAS_PLASMA_WEB_DOCS }}
       HAS_PLASMA_TEMPLE_DOCS: ${{ steps.set-output.outputs.HAS_PLASMA_TEMPLE_DOCS }}
-      HAS_PLASMA_WEBSITE: ${{ steps.set-output.outputs.HAS_PLASMA_WEBSITE }}
       HAS_PLASMA_TEMPLE: ${{ steps.set-output.outputs.HAS_PLASMA_TEMPLE }}
       HAS_PLASMA_B2C: ${{ steps.set-output.outputs.HAS_PLASMA_B2C }}
       HAS_PLASMA_WEB: ${{ steps.set-output.outputs.HAS_PLASMA_WEB }}
@@ -104,7 +100,6 @@ jobs:
           echo "HAS_PLASMA_UI_DOCS=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_UI_DOCS }}" >> $GITHUB_OUTPUT
           echo "HAS_PLASMA_WEB_DOCS=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_WEB_DOCS }}" >> $GITHUB_OUTPUT
           echo "HAS_PLASMA_TEMPLE_DOCS=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_TEMPLE_DOCS }}" >> $GITHUB_OUTPUT
-          echo "HAS_PLASMA_WEBSITE=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_WEBSITE }}" >> $GITHUB_OUTPUT
           echo "HAS_DOCUMENTATION_CHANGED=${{ fromJSON(steps.scope.outputs.result).HAS_DOCUMENTATION_CHANGED }}" >> $GITHUB_OUTPUT
           echo "HAS_PLASMA_TEMPLE=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_TEMPLE }}" >> $GITHUB_OUTPUT
           echo "HAS_PLASMA_B2C=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_B2C }}" >> $GITHUB_OUTPUT
