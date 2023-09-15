@@ -22,7 +22,13 @@ export const humanizeColor = (clr: string) => {
     return hslColor.rgb().toString();
 };
 
-export const getHEXAColor = (clr: string) => Color(clr).hexa().toString();
+export const getHEXAColor = (clr: string) => {
+    try {
+        return Color(clr).hexa().toString();
+    } catch (error) {
+        return clr;
+    }
+};
 
 /**
  * Осветлить/затемнить на x процентных пунктов.
@@ -40,9 +46,23 @@ export const lightenColor = (color: string, value: number) => {
 /**
  * Изменить непрозрачность цвета на x.
  */
-export const alphenColor = (color: string, value: number) => {
+export const alphenColor = (color: string, value: number, format: 'hexa' | 'rgba' = 'rgba', isRaw = false) => {
     const rgb = Color(color).rgb();
-    return humanizeColor(rgb.alpha(rgb.alpha() + value).toString());
+    const newColor = rgb.alpha(rgb.alpha() + value).toString();
+
+    if (format === 'hexa' && isRaw) {
+        return getHEXAColor(newColor);
+    }
+
+    if (format === 'hexa' && !isRaw) {
+        return getHEXAColor(humanizeColor(newColor));
+    }
+
+    if (format === 'rgba' && isRaw) {
+        return newColor;
+    }
+
+    return humanizeColor(newColor);
 };
 
 /**
@@ -97,3 +117,10 @@ export const compose = (...fns: Array<(s: TypographStyle) => TypographStyle>) =>
         (prevFn, nextFn) => (...args) => nextFn(prevFn(...args)),
         (value) => value,
     );
+
+/**
+ * Извлечение цвета и прозрачности из ссылочного токена.
+ *  @example '[genera.red.500][-0.99]' => ['genera.red.500', '-0.99']
+ *  @example '[genera.red.500]' => ['genera.red.500']
+ */
+export const extractColors = (value: string) => /\[(.*?)\](?:\[(.*?)\])?/g.exec(value) || [];

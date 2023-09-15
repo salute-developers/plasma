@@ -4,6 +4,8 @@ import { BaseColorsList, ThemeColorsList, WebColorsList } from './constants';
 
 export type DataValue = string | number | DataObject;
 
+export type ThemeNode = Record<string, any>;
+
 /**
  * Объект с произвольным содержанием.
  */
