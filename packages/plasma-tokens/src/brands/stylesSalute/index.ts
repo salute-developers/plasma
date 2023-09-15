@@ -22,25 +22,25 @@ export const textTertiary = 'var(--text-tertiary, #FFFFFF47)';
 export const textParagraph = 'var(--text-paragraph, #FFFFFFCC)';
 
 /** Цвет успеха */
-export const textPositive = 'var(--text-positive, #24B23EFF)';
+export const textPositive = 'var(--text-positive, #24B23E)';
 
 /** Цвет предупреждения */
-export const textWarning = 'var(--text-warning, #FF7024FF)';
+export const textWarning = 'var(--text-warning, #FF7024)';
 
 /** Цвет ошибки */
-export const textNegative = 'var(--text-negative, #FF293EFF)';
+export const textNegative = 'var(--text-negative, #FF293E)';
 
 /** Акцентный цвет Афины */
-export const textAccentAthena = 'var(--text-accent-athena, #199AF0FF)';
+export const textAccentAthena = 'var(--text-accent-athena, #199AF0)';
 
 /** Акцентный цвет Джой */
-export const textAccentJoy = 'var(--text-accent-joy, #C46BFFFF)';
+export const textAccentJoy = 'var(--text-accent-joy, #C46BFF)';
 
 /** Акцентный цвет B2E-ассистента */
-export const textAccentB2E = 'var(--text-accent-b2-e, #24B23EFF)';
+export const textAccentB2E = 'var(--text-accent-b2-e, #24B23E)';
 
 /** Акцентный цвет бренда */
-export const textAccentBrand = 'var(--text-accent-brand, #528EFFFF)';
+export const textAccentBrand = 'var(--text-accent-brand, #528EFF)';
 
 /** Градиент Афины */
 export const textGradientAthena =
@@ -74,25 +74,25 @@ export const onDarkTextTertiary = 'var(--on-dark-text-tertiary, #FFFFFF47)';
 export const onDarkTextParagraph = 'var(--on-dark-text-paragraph, #FFFFFFCC)';
 
 /** Цвет успеха на темном фоне */
-export const onDarkTextPositive = 'var(--on-dark-text-positive, #24B23EFF)';
+export const onDarkTextPositive = 'var(--on-dark-text-positive, #24B23E)';
 
 /** Цвет предупреждения на темном фоне */
-export const onDarkTextWarning = 'var(--on-dark-text-warning, #FF7024FF)';
+export const onDarkTextWarning = 'var(--on-dark-text-warning, #FF7024)';
 
 /** Цвет ошибки на темном фоне */
-export const onDarkTextNegative = 'var(--on-dark-text-negative, #FF293EFF)';
+export const onDarkTextNegative = 'var(--on-dark-text-negative, #FF293E)';
 
 /** Акцентный цвет Афины на темном */
-export const onDarkTextAccentAthena = 'var(--on-dark-text-accent-athena, #199AF0FF)';
+export const onDarkTextAccentAthena = 'var(--on-dark-text-accent-athena, #199AF0)';
 
 /** Акцентный цвет Джой на темном фоне */
-export const onDarkTextAccentJoy = 'var(--on-dark-text-accent-joy, #C46BFFFF)';
+export const onDarkTextAccentJoy = 'var(--on-dark-text-accent-joy, #C46BFF)';
 
 /** Акцентный цвет B2E-ассистента на темном фоне */
-export const onDarkTextAccentB2E = 'var(--on-dark-text-accent-b2-e, #24B23EFF)';
+export const onDarkTextAccentB2E = 'var(--on-dark-text-accent-b2-e, #24B23E)';
 
 /** Акцентный цвет бренда на темном фоне */
-export const onDarkTextAccentBrand = 'var(--on-dark-text-accent-brand, #528EFFFF)';
+export const onDarkTextAccentBrand = 'var(--on-dark-text-accent-brand, #528EFF)';
 
 /** Градиент Афины на темном фоне */
 export const onDarkTextGradientAthena =
@@ -192,7 +192,7 @@ export const surfaceSolidDefault = 'var(--surface-solid-default, #FFFFFF)';
 export const surfaceSolidPrimary = 'var(--surface-solid-primary, #171717)';
 
 /** Вторичный непрозрачный фон поверхности/контрола */
-export const surfaceSolidSecondary = 'var(--surface-solid-secondary, #262626FF)';
+export const surfaceSolidSecondary = 'var(--surface-solid-secondary, #262626)';
 
 /** Третичный непрозрачный фон поверхности/контрола */
 export const surfaceSolidTertiary = 'var(--surface-solid-tertiary, #363636)';
@@ -213,28 +213,28 @@ export const surfaceTransparentTertiary = 'var(--surface-transparent-tertiary, r
 export const surfaceTransparentCard = 'var(--surface-transparent-card, rgba(255,255,255,0.06))';
 
 /** Цвет фона поверхности/контрола успех */
-export const surfacePositive = 'var(--surface-positive, #1A9E32FF)';
+export const surfacePositive = 'var(--surface-positive, #1A9E32)';
 
 /** Цвет фона поверхности/контрола предупреждение */
-export const surfaceWarning = 'var(--surface-warning, #FA5F05FF)';
+export const surfaceWarning = 'var(--surface-warning, #FA5F05)';
 
 /** Цвет фона поверхности/контрола ошибка */
-export const surfaceNegative = 'var(--surface-negative, #FF293EFF)';
+export const surfaceNegative = 'var(--surface-negative, #FF293E)';
 
 /** Фон поверхности/контрола без заливки */
 export const surfaceClear = 'var(--surface-clear, rgba(0, 0, 0, 0))';
 
 /** Акцентный цвет поверхности/контролла Афины */
-export const surfaceAccentAthena = 'var(--surface-accent-athena, #118CDFFF)';
+export const surfaceAccentAthena = 'var(--surface-accent-athena, #118CDF)';
 
 /** Акцентный цвет поверхности/контролла Джой */
-export const surfaceAccentJoy = 'var(--surface-accent-joy, #B559F3FF)';
+export const surfaceAccentJoy = 'var(--surface-accent-joy, #B559F3)';
 
 /** Акцентный цвет поверхности/контролла B2E-ассистента */
-export const surfaceAccentB2E = 'var(--surface-accent-b2-e, #1A9E32FF)';
+export const surfaceAccentB2E = 'var(--surface-accent-b2-e, #1A9E32)';
 
 /** Акцентный цвет поверхности/контролла бренда */
-export const surfaceAccentBrand = 'var(--surface-accent-brand, #3F81FDFF)';
+export const surfaceAccentBrand = 'var(--surface-accent-brand, #3F81FD)';
 
 /** Цвет баббла сообщения от пользователя */
 export const surfaceSpeechBubbleSent = 'var(--surface-speech-bubble-sent, #08080847)';
@@ -258,7 +258,7 @@ export const onDarkSurfaceSolidDefault = 'var(--on-dark-surface-solid-default, #
 export const onDarkSurfaceSolidPrimary = 'var(--on-dark-surface-solid-primary, #171717)';
 
 /** Вторичный непрозрачный фон поверхности/контрола на темном */
-export const onDarkSurfaceSolidSecondary = 'var(--on-dark-surface-solid-secondary, #262626FF)';
+export const onDarkSurfaceSolidSecondary = 'var(--on-dark-surface-solid-secondary, #262626)';
 
 /** Третичный непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidTertiary = 'var(--on-dark-surface-solid-tertiary, #363636)';
@@ -280,25 +280,25 @@ export const onDarkSurfaceTransparentTertiary = 'var(--on-dark-surface-transpare
 export const onDarkSurfaceTransparentCard = 'var(--on-dark-surface-transparent-card, rgba(255,255,255,0.06))';
 
 /** Цвет фона поверхности/контрола успех на темном фоне */
-export const onDarkSurfacePositive = 'var(--on-dark-surface-positive, #1A9E32FF)';
+export const onDarkSurfacePositive = 'var(--on-dark-surface-positive, #1A9E32)';
 
 /** Цвет фона поверхности/контрола предупреждение на темном */
-export const onDarkSurfaceWarning = 'var(--on-dark-surface-warning, #FA5F05FF)';
+export const onDarkSurfaceWarning = 'var(--on-dark-surface-warning, #FA5F05)';
 
 /** Цвет фона поверхности/контрола ошибка на темном */
-export const onDarkSurfaceNegative = 'var(--on-dark-surface-negative, #FF293EFF)';
+export const onDarkSurfaceNegative = 'var(--on-dark-surface-negative, #FF293E)';
 
 /** Акцентный цвет поверхности/контролла Афины */
-export const onDarkSurfaceAccentAthena = 'var(--on-dark-surface-accent-athena, #118CDFFF)';
+export const onDarkSurfaceAccentAthena = 'var(--on-dark-surface-accent-athena, #118CDF)';
 
 /** Акцентный цвет поверхности/контролла Джой */
-export const onDarkSurfaceAccentJoy = 'var(--on-dark-surface-accent-joy, #B559F3FF)';
+export const onDarkSurfaceAccentJoy = 'var(--on-dark-surface-accent-joy, #B559F3)';
 
 /** Акцентный цвет поверхности/контролла B2E-ассистента */
-export const onDarkSurfaceAccentB2E = 'var(--on-dark-surface-accent-b2-e, #1A9E32FF)';
+export const onDarkSurfaceAccentB2E = 'var(--on-dark-surface-accent-b2-e, #1A9E32)';
 
 /** Акцентный цвет поверхности/контролла бренда */
-export const onDarkSurfaceAccentBrand = 'var(--on-dark-surface-accent-brand, #3F81FDFF)';
+export const onDarkSurfaceAccentBrand = 'var(--on-dark-surface-accent-brand, #3F81FD)';
 
 /** Акцентный цвет поверхности/контролла */
 export const onDarkSurfaceAccentMain = 'var(--on-dark-surface-accent-main, #1A9E32)';
@@ -310,13 +310,13 @@ export const onDarkSurfaceGradientMain =
 export const onLightSurfaceSolidDefault = 'var(--on-light-surface-solid-default, #080808)';
 
 /** Основной непрозрачный фон поверхности/контрола на светлом */
-export const onLightSurfaceSolidPrimary = 'var(--on-light-surface-solid-primary, #F5F5F5FF)';
+export const onLightSurfaceSolidPrimary = 'var(--on-light-surface-solid-primary, #F5F5F5)';
 
 /** Вторичный непрозрачный фон поверхности/контрола на светлом */
-export const onLightSurfaceSolidSecondary = 'var(--on-light-surface-solid-secondary, #ECECECFF)';
+export const onLightSurfaceSolidSecondary = 'var(--on-light-surface-solid-secondary, #ECECEC)';
 
 /** Третичный непрозрачный фон поверхности/контрола на светлом */
-export const onLightSurfaceSolidTertiary = 'var(--on-light-surface-solid-tertiary, #DDDDDDFF)';
+export const onLightSurfaceSolidTertiary = 'var(--on-light-surface-solid-tertiary, #DDDDDD)';
 
 /** Основной фон для карточек на светлом фоне */
 export const onLightSurfaceSolidCard = 'var(--on-light-surface-solid-card, #FFFFFFFF)';
@@ -334,25 +334,25 @@ export const onLightSurfaceTransparentTertiary = 'var(--on-light-surface-transpa
 export const onLightSurfaceTransparentCard = 'var(--on-light-surface-transparent-card, #FFFFFFFF)';
 
 /** Цвет фона поверхности/контрола успех на светлом фоне */
-export const onLightSurfacePositive = 'var(--on-light-surface-positive, #1A9E32FF)';
+export const onLightSurfacePositive = 'var(--on-light-surface-positive, #1A9E32)';
 
 /** Цвет фона поверхности/контрола предупреждение на светлом */
-export const onLightSurfaceWarning = 'var(--on-light-surface-warning, #FA5F05FF)';
+export const onLightSurfaceWarning = 'var(--on-light-surface-warning, #FA5F05)';
 
 /** Цвет фона поверхности/контрола ошибка на светлом фоне */
-export const onLightSurfaceNegative = 'var(--on-light-surface-negative, #FF293EFF)';
+export const onLightSurfaceNegative = 'var(--on-light-surface-negative, #FF293E)';
 
 /** Акцентный цвет поверхности/контролла Афины на светлом фоне */
-export const onLightSurfaceAccentAthena = 'var(--on-light-surface-accent-athena, #118CDFFF)';
+export const onLightSurfaceAccentAthena = 'var(--on-light-surface-accent-athena, #118CDF)';
 
 /** Акцентный цвет поверхности/контролла Джой на светлом */
-export const onLightSurfaceAccentJoy = 'var(--on-light-surface-accent-joy, #B559F3FF)';
+export const onLightSurfaceAccentJoy = 'var(--on-light-surface-accent-joy, #B559F3)';
 
 /** Акцентный цвет поверхности B2E-ассистента на светлом */
-export const onLightSurfaceAccentB2E = 'var(--on-light-surface-accent-b2-e, #1A9E32FF)';
+export const onLightSurfaceAccentB2E = 'var(--on-light-surface-accent-b2-e, #1A9E32)';
 
 /** Акцентный цвет поверхности/контролла бренда на светлом */
-export const onLightSurfaceAccentBrand = 'var(--on-light-surface-accent-brand, #3F81FDFF)';
+export const onLightSurfaceAccentBrand = 'var(--on-light-surface-accent-brand, #3F81FD)';
 
 /** Прозрачный цвет поверхности/контролла на светлом фоне */
 export const onLightSurfaceTransparentDeep = 'var(--on-light-surface-transparent-deep, #080808A2)';
@@ -367,7 +367,7 @@ export const onLightSurfaceGradientMain =
 export const backgroundPrimary = 'var(--background-primary, #000000FF)';
 
 /** Вторичный фон */
-export const backgroundSecondary = 'var(--background-secondary, #171717FF)';
+export const backgroundSecondary = 'var(--background-secondary, #171717)';
 
 /** Фон для модальной шторки */
 export const backgroundModalSheet =
