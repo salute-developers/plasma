@@ -53,31 +53,31 @@
                     "comment": "Сплошной наборный текст"
                 },
                 "textPositive": {
-                    "value": "#24B23EFF",
+                    "value": "[general.green.400]",
                     "comment": "Цвет успеха"
                 },
                 "textWarning": {
-                    "value": "#FF7024FF",
+                    "value": "[general.orange.400]",
                     "comment": "Цвет предупреждения"
                 },
                 "textNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет ошибки"
                 },
                 "textAccentAthena": {
-                    "value": "#199AF0FF",
+                    "value": "[general.blue.400]",
                     "comment": "Акцентный цвет Афины"
                 },
                 "textAccentJoy": {
-                    "value": "#C46BFFFF",
+                    "value": "[general.orchid.400]",
                     "comment": "Акцентный цвет Джой"
                 },
                 "textAccentB2E": {
-                    "value": "#24B23EFF",
+                    "value": "[general.green.400]",
                     "comment": "Акцентный цвет B2E-ассистента"
                 },
                 "textAccentBrand": {
-                    "value": "#528EFFFF",
+                    "value": "[general.electricBlue.400]",
                     "comment": "Акцентный цвет бренда"
                 },
                 "textGradientAthena": {
@@ -217,7 +217,7 @@
                     "comment": "Градиент бренда"
                 },
                 "textAccent": {
-                    "value": "#24B23E",
+                    "value": "[general.green.400]",
                     "comment": "Акцентный цвет",
                     "enabled": false
                 },
@@ -256,7 +256,7 @@
                     "comment": "Градиент"
                 },
                 "textAccentMain": {
-                    "value": "#24B23E",
+                    "value": "[general.green.400]",
                     "comment": "Акцентный цвет"
                 }
             },
@@ -278,31 +278,31 @@
                     "comment": "Сплошной наборный текст на темном фоне"
                 },
                 "textPositive": {
-                    "value": "#24B23EFF",
+                    "value": "[general.green.400]",
                     "comment": "Цвет успеха на темном фоне"
                 },
                 "textWarning": {
-                    "value": "#FF7024FF",
+                    "value": "[general.orange.400]",
                     "comment": "Цвет предупреждения на темном фоне"
                 },
                 "textNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет ошибки на темном фоне"
                 },
                 "textAccentAthena": {
-                    "value": "#199AF0FF",
+                    "value": "[general.blue.400]",
                     "comment": "Акцентный цвет Афины на темном"
                 },
                 "textAccentJoy": {
-                    "value": "#C46BFFFF",
+                    "value": "[general.orchid.400]",
                     "comment": "Акцентный цвет Джой на темном фоне"
                 },
                 "textAccentB2E": {
-                    "value": "#24B23EFF",
+                    "value": "[general.green.400]",
                     "comment": "Акцентный цвет B2E-ассистента на темном фоне"
                 },
                 "textAccentBrand": {
-                    "value": "#528EFFFF",
+                    "value": "[general.electricBlue.400]",
                     "comment": "Акцентный цвет бренда на темном фоне"
                 },
                 "textGradientAthena": {
@@ -442,7 +442,7 @@
                     "comment": "Градиент бренда на темном фоне"
                 },
                 "textAccent": {
-                    "value": "#24B23EFF",
+                    "value": "[general.green.400]",
                     "comment": "Акцентный цвет на темном фоне",
                     "enabled": false
                 },
@@ -481,7 +481,7 @@
                     "comment": "Градиент на темном фоне"
                 },
                 "textAccentMain": {
-                    "value": "#24B23E",
+                    "value": "[general.green.400]",
                     "comment": "Акцентный цвет на темном фоне"
                 }
             },
@@ -503,31 +503,31 @@
                     "comment": "Сплошной наборный текст на светлом фоне"
                 },
                 "textPositive": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха на светлом фоне"
                 },
                 "textWarning": {
-                    "value": "#FA5F05",
+                    "value": "[general.orange.500]",
                     "comment": "Цвет предупреждения на светлом фоне"
                 },
                 "textNegative": {
-                    "value": "#FF293E",
+                    "value": "[general.red.500]",
                     "comment": "Цвет ошибки на светлом фоне"
                 },
                 "textAccentAthena": {
-                    "value": "#118CDF",
+                    "value": "[general.blue.500]",
                     "comment": "Акцентный цвет Афины на светлом фоне"
                 },
                 "textAccentJoy": {
-                    "value": "#B559F3",
+                    "value": "[general.orchid.500]",
                     "comment": "Акцентный цвет Джой на светлом фоне"
                 },
                 "textAccentB2E": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет B2E-ассистента на светлом фоне"
                 },
                 "textAccentBrand": {
-                    "value": "#3F81FD",
+                    "value": "[general.electricBlue.500]",
                     "comment": "Акцентный цвет бренда на светлом фоне"
                 },
                 "textGradientAthena": {
@@ -667,7 +667,7 @@
                     "comment": "Акцентный цвет бренда на светлом фоне"
                 },
                 "textAccent": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет на светлом фоне",
                     "enabled": false
                 },
@@ -706,7 +706,7 @@
                     "comment": "Градиент на светлом фоне"
                 },
                 "textAccentMain": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет на светлом фоне"
                 }
             },
@@ -736,19 +736,19 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
                 },
                 "surfaceSolidPrimary": {
-                    "value": "#171717",
+                    "value": "[general.gray.950]",
                     "comment": "Основной непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidSecondary": {
-                    "value": "#262626FF",
+                    "value": "[general.gray.900]",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidTertiary": {
-                    "value": "#363636",
+                    "value": "[general.gray.850]",
                     "comment": "Третичный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidCard": {
-                    "value": "#171717",
+                    "value": "[general.gray.950]",
                     "comment": "Основной фон для карточек"
                 },
                 "surfaceTransparentPrimary": {
@@ -768,15 +768,15 @@
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfacePositive": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Цвет фона поверхности/контрола успех"
                 },
                 "surfaceWarning": {
-                    "value": "#FA5F05FF",
+                    "value": "[general.orange.500]",
                     "comment": "Цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка"
                 },
                 "surfaceClear": {
@@ -784,19 +784,19 @@
                     "comment": "Фон поверхности/контрола без заливки"
                 },
                 "surfaceAccentAthena": {
-                    "value": "#118CDFFF",
+                    "value": "[general.blue.500]",
                     "comment": "Акцентный цвет поверхности/контролла Афины"
                 },
                 "surfaceAccentJoy": {
-                    "value": "#B559F3FF",
+                    "value": "[general.orchid.500]",
                     "comment": "Акцентный цвет поверхности/контролла Джой"
                 },
                 "surfaceAccentB2E": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет поверхности/контролла B2E-ассистента"
                 },
                 "surfaceAccentBrand": {
-                    "value": "#3F81FDFF",
+                    "value": "[general.electricBlue.500]",
                     "comment": "Акцентный цвет поверхности/контролла бренда"
                 },
                 "surfaceSpeechBubbleSent": {
@@ -808,7 +808,7 @@
                     "comment": "Цвет баббла сообщения от ассистента"
                 },
                 "surfaceAccent": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет поверхности/контролла",
                     "enabled": false
                 },
@@ -863,7 +863,7 @@
                     "comment": "Фон для скелетона"
                 },
                 "surfaceAccentMain": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет поверхности/контролла"
                 },
                 "surfaceGradientMain": {
@@ -907,19 +907,19 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на темном фоне"
                 },
                 "surfaceSolidPrimary": {
-                    "value": "#171717",
+                    "value": "[general.gray.950]",
                     "comment": "Основной непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceSolidSecondary": {
-                    "value": "#262626FF",
+                    "value": "[general.gray.900]",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола на темном"
                 },
                 "surfaceSolidTertiary": {
-                    "value": "#363636",
+                    "value": "[general.gray.850]",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceSolidCard": {
-                    "value": "#171717",
+                    "value": "[general.gray.950]",
                     "comment": "Основной фон для карточек на темном фоне"
                 },
                 "surfaceTransparentPrimary": {
@@ -939,40 +939,40 @@
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfacePositive": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Цвет фона поверхности/контрола успех на темном фоне"
                 },
                 "surfaceWarning": {
-                    "value": "#FA5F05FF",
+                    "value": "[general.orange.500]",
                     "comment": "Цвет фона поверхности/контрола предупреждение на темном"
                 },
                 "surfaceNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка на темном"
                 },
                 "surfaceAccentAthena": {
-                    "value": "#118CDFFF",
+                    "value": "[general.blue.500]",
                     "comment": "Акцентный цвет поверхности/контролла Афины"
                 },
                 "surfaceAccentJoy": {
-                    "value": "#B559F3FF",
+                    "value": "[general.orchid.500]",
                     "comment": "Акцентный цвет поверхности/контролла Джой"
                 },
                 "surfaceAccentB2E": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет поверхности/контролла B2E-ассистента"
                 },
                 "surfaceAccentBrand": {
-                    "value": "#3F81FDFF",
+                    "value": "[general.electricBlue.500]",
                     "comment": "Акцентный цвет поверхности/контролла бренда"
                 },
                 "surfaceAccent": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет поверхности/контролла",
                     "enabled": false
                 },
                 "surfaceAccentMain": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет поверхности/контролла"
                 },
                 "surfaceGradientMain": {
@@ -1012,19 +1012,19 @@
             },
             "onLight": {
                 "surfaceSolidDefault": {
-                    "value": "#080808",
+                    "value": "[general.gray.1000]",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне"
                 },
                 "surfaceSolidPrimary": {
-                    "value": "#F5F5F5FF",
+                    "value": "[general.gray.100]",
                     "comment": "Основной непрозрачный фон поверхности/контрола на светлом"
                 },
                 "surfaceSolidSecondary": {
-                    "value": "#ECECECFF",
+                    "value": "[general.gray.150]",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола на светлом"
                 },
                 "surfaceSolidTertiary": {
-                    "value": "#DDDDDDFF",
+                    "value": "[general.gray.200]",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на светлом"
                 },
                 "surfaceSolidCard": {
@@ -1048,35 +1048,35 @@
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
                 "surfacePositive": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Цвет фона поверхности/контрола успех на светлом фоне"
                 },
                 "surfaceWarning": {
-                    "value": "#FA5F05FF",
+                    "value": "[general.orange.500]",
                     "comment": "Цвет фона поверхности/контрола предупреждение на светлом"
                 },
                 "surfaceNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
                 },
                 "surfaceAccentAthena": {
-                    "value": "#118CDFFF",
+                    "value": "[general.blue.500]",
                     "comment": "Акцентный цвет поверхности/контролла Афины на светлом фоне"
                 },
                 "surfaceAccentJoy": {
-                    "value": "#B559F3FF",
+                    "value": "[general.orchid.500]",
                     "comment": "Акцентный цвет поверхности/контролла Джой на светлом"
                 },
                 "surfaceAccentB2E": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет поверхности B2E-ассистента на светлом"
                 },
                 "surfaceAccentBrand": {
-                    "value": "#3F81FDFF",
+                    "value": "[general.electricBlue.500]",
                     "comment": "Акцентный цвет поверхности/контролла бренда на светлом"
                 },
                 "surfaceAccent": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет поверхности/контролла на светлом фоне",
                     "enabled": false
                 },
@@ -1085,7 +1085,7 @@
                     "comment": "Прозрачный цвет поверхности/контролла на светлом фоне"
                 },
                 "surfaceAccentMain": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет поверхности/контролла на светлом фоне"
                 },
                 "surfaceGradientMain": {
@@ -1132,7 +1132,7 @@
                     "comment": "Первичный фон"
                 },
                 "backgroundSecondary": {
-                    "value": "#171717FF",
+                    "value": "[general.gray.950]",
                     "comment": "Вторичный фон"
                 },
                 "backgroundModalSheet": {
@@ -1885,31 +1885,31 @@
                     "comment": "Сплошной наборный текст"
                 },
                 "textPositive": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха"
                 },
                 "textWarning": {
-                    "value": "#FA5F05",
+                    "value": "[general.orange.500]",
                     "comment": "Цвет предупреждения"
                 },
                 "textNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет ошибки"
                 },
                 "textAccentAthena": {
-                    "value": "#118CDF",
+                    "value": "[general.blue.500]",
                     "comment": "Акцентный цвет Афины"
                 },
                 "textAccentJoy": {
-                    "value": "#B559F3",
+                    "value": "[general.orchid.500]",
                     "comment": "Акцентный цвет Джой"
                 },
                 "textAccentB2E": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет B2E-ассистента"
                 },
                 "textAccentBrand": {
-                    "value": "#3F81FD",
+                    "value": "[general.electricBlue.500]",
                     "comment": "Акцентный цвет бренда"
                 },
                 "textGradientAthena": {
@@ -2015,12 +2015,12 @@
                     "comment": "Градиент бренда"
                 },
                 "textAccent": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет",
                     "enabled": false
                 },
                 "textAccentMain": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет"
                 },
                 "textGradientB2E": {
@@ -2110,31 +2110,31 @@
                     "comment": "Сплошной наборный текст на темном фоне"
                 },
                 "textPositive": {
-                    "value": "#24B23EFF",
+                    "value": "[general.green.400]",
                     "comment": "Цвет успеха на темном фоне"
                 },
                 "textWarning": {
-                    "value": "#FF7024",
+                    "value": "[general.orange.400]",
                     "comment": "Цвет предупреждения на темном фоне"
                 },
                 "textNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет ошибки на темном фоне"
                 },
                 "textAccentAthena": {
-                    "value": "#199AF0FF",
+                    "value": "[general.blue.400]",
                     "comment": "Акцентный цвет Афины на темном"
                 },
                 "textAccentJoy": {
-                    "value": "#C46BFFFF",
+                    "value": "[general.orchid.400]",
                     "comment": "Акцентный цвет Джой на темном фоне"
                 },
                 "textAccentB2E": {
-                    "value": "#24B23EFF",
+                    "value": "[general.green.400]",
                     "comment": "Акцентный цвет B2E-ассистента на темном фоне"
                 },
                 "textAccentBrand": {
-                    "value": "#528EFFFF",
+                    "value": "[general.electricBlue.400]",
                     "comment": "Акцентный цвет бренда на темном фоне"
                 },
                 "textGradientAthena": {
@@ -2274,12 +2274,12 @@
                     "comment": "Градиент бренда на темном фоне"
                 },
                 "textAccent": {
-                    "value": "#24B23EFF",
+                    "value": "[general.green.400]",
                     "comment": "Акцентный цвет на темном фоне",
                     "enabled": false
                 },
                 "textAccentMain": {
-                    "value": "#24B23E",
+                    "value": "[general.green.400]",
                     "comment": "Акцентный цвет на темном фоне"
                 },
                 "textGradientMain": {
@@ -2335,31 +2335,31 @@
                     "comment": "Сплошной наборный текст на светлом фоне"
                 },
                 "textPositive": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха на светлом фоне"
                 },
                 "textWarning": {
-                    "value": "#FA5F05",
+                    "value": "[general.orange.500]",
                     "comment": "Цвет предупреждения на светлом фоне"
                 },
                 "textNegative": {
-                    "value": "#FF293E",
+                    "value": "[general.red.500]",
                     "comment": "Цвет ошибки на светлом фоне"
                 },
                 "textAccentAthena": {
-                    "value": "#118CDF",
+                    "value": "[general.blue.500]",
                     "comment": "Акцентный цвет Афины на светлом фоне"
                 },
                 "textAccentJoy": {
-                    "value": "#B559F3",
+                    "value": "[general.orchid.500]",
                     "comment": "Акцентный цвет Джой на светлом фоне"
                 },
                 "textAccentB2E": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет B2E-ассистента на светлом фоне"
                 },
                 "textAccentBrand": {
-                    "value": "#3F81FD",
+                    "value": "[general.electricBlue.500]",
                     "comment": "Акцентный цвет бренда на светлом фоне"
                 },
                 "textGradientAthena": {
@@ -2499,12 +2499,12 @@
                     "comment": "Акцентный цвет бренда на светлом фоне"
                 },
                 "textAccent": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет на светлом фоне",
                     "enabled": false
                 },
                 "textAccentMain": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет на светлом фоне"
                 },
                 "textGradientMain": {
@@ -2564,19 +2564,19 @@
         "surface": {
             "default": {
                 "surfaceSolidDefault": {
-                    "value": "#080808",
+                    "value": "[general.gray.1000]",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
                 },
                 "surfaceSolidPrimary": {
-                    "value": "#F5F5F5FF",
+                    "value": "[general.gray.100]",
                     "comment": "Основной непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidSecondary": {
-                    "value": "#ECECECFF",
+                    "value": "[general.gray.150]",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidTertiary": {
-                    "value": "#DDDDDDFF",
+                    "value": "[general.gray.200]",
                     "comment": "Третичный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidCard": {
@@ -2600,15 +2600,15 @@
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfacePositive": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха"
                 },
                 "surfaceWarning": {
-                    "value": "#FA5F05FF",
+                    "value": "[general.orange.500]",
                     "comment": "Цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка"
                 },
                 "surfaceClear": {
@@ -2616,19 +2616,19 @@
                     "comment": "Фон поверхности/контрола без заливки"
                 },
                 "surfaceAccentAthena": {
-                    "value": "#118CDFFF",
+                    "value": "[general.blue.500]",
                     "comment": "Акцентный цвет поверхности/контролла Афины"
                 },
                 "surfaceAccentJoy": {
-                    "value": "#B559F3FF",
+                    "value": "[general.orchid.500]",
                     "comment": "Акцентный цвет поверхности/контролла Джой"
                 },
                 "surfaceAccentB2E": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет поверхности/контролла B2E-ассистента"
                 },
                 "surfaceAccentBrand": {
-                    "value": "#3F81FDFF",
+                    "value": "[general.electricBlue.500]",
                     "comment": "Акцентный цвет поверхности/контролла бренда"
                 },
                 "surfaceSpeechBubbleSent": {
@@ -2640,7 +2640,7 @@
                     "comment": "Цвет баббла сообщения от ассистента"
                 },
                 "surfaceAccent": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет поверхности/контролла",
                     "enabled": false
                 },
@@ -2695,7 +2695,7 @@
                     "comment": "Фон для скелетона"
                 },
                 "surfaceAccentMain": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет поверхности/контролла"
                 },
                 "surfaceGradientMain": {
@@ -2739,19 +2739,19 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на темном фоне"
                 },
                 "surfaceSolidPrimary": {
-                    "value": "#171717",
+                    "value": "[general.gray.950]",
                     "comment": "Основной непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceSolidSecondary": {
-                    "value": "#262626FF",
+                    "value": "[general.gray.900]",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола на темном"
                 },
                 "surfaceSolidTertiary": {
-                    "value": "#363636",
+                    "value": "[general.gray.850]",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceSolidCard": {
-                    "value": "#171717FF",
+                    "value": "[general.gray.950]",
                     "comment": "Основной фон для карточек на темном фоне"
                 },
                 "surfaceTransparentPrimary": {
@@ -2771,40 +2771,40 @@
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfacePositive": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха на темном фоне"
                 },
                 "surfaceWarning": {
-                    "value": "#FA5F05FF",
+                    "value": "[general.orange.500]",
                     "comment": "Цвет фона поверхности/контрола предупреждение на темном"
                 },
                 "surfaceNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
                 },
                 "surfaceAccentAthena": {
-                    "value": "#118CDFFF",
+                    "value": "[general.blue.500]",
                     "comment": "Акцентный цвет поверхности/контролла Афины"
                 },
                 "surfaceAccentJoy": {
-                    "value": "#B559F3FF",
+                    "value": "[general.orchid.500]",
                     "comment": "Акцентный цвет поверхности/контролла Джой"
                 },
                 "surfaceAccentB2E": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет поверхности/контролла B2E-ассистента"
                 },
                 "surfaceAccentBrand": {
-                    "value": "#3F81FDFF",
+                    "value": "[general.electricBlue.500]",
                     "comment": "Акцентный цвет поверхности/контролла бренда"
                 },
                 "surfaceAccent": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет поверхности/контролла",
                     "enabled": false
                 },
                 "surfaceAccentMain": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет поверхности/контролла"
                 },
                 "surfaceGradientMain": {
@@ -2844,19 +2844,19 @@
             },
             "onLight": {
                 "surfaceSolidDefault": {
-                    "value": "#080808",
+                    "value": "[general.gray.1000]",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне"
                 },
                 "surfaceSolidPrimary": {
-                    "value": "#F5F5F5FF",
+                    "value": "[general.gray.100]",
                     "comment": "Основной непрозрачный фон поверхности/контрола на светлом"
                 },
                 "surfaceSolidSecondary": {
-                    "value": "#ECECECFF",
+                    "value": "[general.gray.150]",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола на светлом"
                 },
                 "surfaceSolidTertiary": {
-                    "value": "#DDDDDDFF",
+                    "value": "[general.gray.200]",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на светлом"
                 },
                 "surfaceSolidCard": {
@@ -2880,35 +2880,35 @@
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
                 "surfacePositive": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха на светлом фоне"
                 },
                 "surfaceWarning": {
-                    "value": "#FA5F05FF",
+                    "value": "[general.orange.500]",
                     "comment": "Цвет фона поверхности/контрола предупреждение на светлом"
                 },
                 "surfaceNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
                 },
                 "surfaceAccentAthena": {
-                    "value": "#118CDFFF",
+                    "value": "[general.blue.500]",
                     "comment": "Акцентный цвет поверхности/контролла Афины на светлом фоне"
                 },
                 "surfaceAccentJoy": {
-                    "value": "#B559F3FF",
+                    "value": "[general.orchid.500]",
                     "comment": "Акцентный цвет поверхности/контролла Джой на светлом"
                 },
                 "surfaceAccentB2E": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет поверхности B2E-ассистента на светлом"
                 },
                 "surfaceAccentBrand": {
-                    "value": "#3F81FDFF",
+                    "value": "[general.electricBlue.500]",
                     "comment": "Акцентный цвет поверхности/контролла бренда на светлом"
                 },
                 "surfaceAccent": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет поверхности/контролла на светлом фоне",
                     "enabled": false
                 },
@@ -2917,7 +2917,7 @@
                     "comment": "Прозрачный цвет поверхности/контролла на светлом фоне"
                 },
                 "surfaceAccentMain": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Акцентный цвет поверхности/контролла на светлом фоне"
                 },
                 "surfaceGradientMain": {
