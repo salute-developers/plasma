@@ -30,23 +30,23 @@
         "textIcons": {
             "default": {
                 "textPrimary": {
-                    "value": "#F9F9F9FF",
+                    "value": "[general.gray.50]",
                     "comment": "Основной цвет текста"
                 },
                 "textSecondary": {
-                    "value": "#949494FF",
+                    "value": "[general.gray.400]",
                     "comment": "Вторичный цвет текста"
                 },
                 "textTertiary": {
-                    "value": "#4E4E4EFF",
+                    "value": "[general.gray.800]",
                     "comment": "Третичный цвет текста"
                 },
                 "textParagraph": {
-                    "value": "#C7C7C7FF",
+                    "value": "[general.gray.250]",
                     "comment": "Сплошной наборный текст"
                 },
                 "textAccent": {
-                    "value": "#52BAFFFF",
+                    "value": "[general.blue.300]",
                     "comment": "Акцентный цвет"
                 },
                 "textAccentGradient": {
@@ -54,19 +54,19 @@
                     "comment": "Акцентный цвет с градиентом"
                 },
                 "textPositive": {
-                    "value": "#24B23EFF",
+                    "value": "[general.green.400]",
                     "comment": "Цвет успеха"
                 },
                 "textWarning": {
-                    "value": "#FF7024FF",
+                    "value": "[general.orange.400]",
                     "comment": "Цвет предупреждения"
                 },
                 "textNegative": {
-                    "value": "#FF3D51FF",
+                    "value": "[general.red.400]",
                     "comment": "Цвет ошибки"
                 },
                 "textAccentSecondary": {
-                    "value": "#FF8FBCFF",
+                    "value": "[general.pink.300]",
                     "comment": "Второй акцентный цвет"
                 },
                 "textAccentGradientSecondary": {
@@ -76,23 +76,23 @@
             },
             "onDark": {
                 "textPrimary": {
-                    "value": "#F9F9F9FF",
+                    "value": "[general.gray.50]",
                     "comment": "Основной цвет текста на темном фоне"
                 },
                 "textSecondary": {
-                    "value": "#949494FF",
+                    "value": "[general.gray.400]",
                     "comment": "Вторичный цвет текста на темном фоне"
                 },
                 "textTertiary": {
-                    "value": "#4E4E4EFF",
+                    "value": "[general.gray.800]",
                     "comment": "Третичный цвет текста на темном фоне"
                 },
                 "textParagraph": {
-                    "value": "#C7C7C7FF",
+                    "value": "[general.gray.250]",
                     "comment": "Сплошной наборный текст на темном фоне"
                 },
                 "textAccent": {
-                    "value": "#52BAFFFF",
+                    "value": "[general.blue.300]",
                     "comment": "Акцентный цвет на темном фоне"
                 },
                 "textAccentGradient": {
@@ -100,19 +100,19 @@
                     "comment": "Акцентный цвет с градиентом на темном фоне"
                 },
                 "textPositive": {
-                    "value": "#24B23EFF",
+                    "value": "[general.green.400]",
                     "comment": "Цвет успеха на темном фоне"
                 },
                 "textWarning": {
-                    "value": "#FF7024FF",
+                    "value": "[general.orange.400]",
                     "comment": "Цвет предупреждения на темном фоне"
                 },
                 "textNegative": {
-                    "value": "#FF3D51FF",
+                    "value": "[general.red.400]",
                     "comment": "Цвет ошибки на темном фоне"
                 },
                 "textAccentSecondary": {
-                    "value": "#FF8FBCFF",
+                    "value": "[general.pink.300]",
                     "comment": "Второй акцентный цвет на темном фоне"
                 },
                 "textAccentGradientSecondary": {
@@ -122,11 +122,11 @@
             },
             "onLight": {
                 "textPrimary": {
-                    "value": "#171717",
+                    "value": "[general.gray.950]",
                     "comment": "Основной цвет текста на светлом фоне"
                 },
                 "textSecondary": {
-                    "value": "#4E4E4E",
+                    "value": "[general.gray.800]",
                     "comment": "Вторичный цвет текста на светлом фоне"
                 },
                 "textTertiary": {
@@ -138,7 +138,7 @@
                     "comment": "Сплошной наборный текст на светлом фоне"
                 },
                 "textAccent": {
-                    "value": "#118CDFFF",
+                    "value": "[general.blue.500]",
                     "comment": "Акцентный цвет на светлом фоне"
                 },
                 "textAccentGradient": {
@@ -146,7 +146,7 @@
                     "comment": "Акцентный цвет с градиентом на светлом фоне"
                 },
                 "textPositive": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха на светлом фоне"
                 },
                 "textWarning": {
@@ -154,11 +154,11 @@
                     "comment": "Цвет предупреждения на светлом фоне"
                 },
                 "textNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет ошибки на светлом фоне"
                 },
                 "textAccentSecondary": {
-                    "value": "#FF4791FF",
+                    "value": "[general.pink.400]",
                     "comment": "Второй акцентный цвет на светлом фоне"
                 },
                 "textAccentGradientSecondary": {
@@ -168,11 +168,11 @@
             },
             "inverse": {
                 "textPrimary": {
-                    "value": "#171717",
+                    "value": "[general.gray.950]",
                     "comment": "Инвертированный основной цвет текста"
                 },
                 "textSecondary": {
-                    "value": "#4E4E4E",
+                    "value": "[general.gray.800]",
                     "comment": "Инвертированный вторичный цвет текста"
                 },
                 "textTertiary": {
@@ -192,19 +192,19 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
                 },
                 "surfaceSolidPrimary": {
-                    "value": "#171717",
+                    "value": "[general.gray.950]",
                     "comment": "Основной непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidSecondary": {
-                    "value": "#262626FF",
+                    "value": "[general.gray.900]",
                     "comment": "Вторичный непрозрачный фон поверхности"
                 },
                 "surfaceSolidTertiary": {
-                    "value": "#363636",
+                    "value": "[general.gray.850]",
                     "comment": "Третичный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidCard": {
-                    "value": "#171717",
+                    "value": "[general.gray.950]",
                     "comment": "Основной фон для карточек"
                 },
                 "surfaceTransparentPrimary": {
@@ -232,15 +232,15 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом"
                 },
                 "surfacePositive": {
-                    "value": "#24B23EFF",
+                    "value": "[general.green.400]",
                     "comment": "Цвет фона поверхности/контрола успех"
                 },
                 "surfaceWarning": {
-                    "value": "#FF7024FF",
+                    "value": "[general.orange.400]",
                     "comment": "Цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка"
                 },
                 "surfaceClear": {
@@ -248,7 +248,7 @@
                     "comment": "Фон поверхности/контрола без заливки"
                 },
                 "surfaceAccentSecondary": {
-                    "value": "#FF4791FF",
+                    "value": "[general.pink.400]",
                     "comment": "Второй акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradientSecondary": {
@@ -262,19 +262,19 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на темном фоне"
                 },
                 "surfaceSolidPrimary": {
-                    "value": "#171717",
+                    "value": "[general.gray.950]",
                     "comment": "Основной непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceSolidSecondary": {
-                    "value": "#262626FF",
+                    "value": "[general.gray.900]",
                     "comment": "Вторичный непрозрачный фон поверхности на темном фоне"
                 },
                 "surfaceSolidTertiary": {
-                    "value": "#363636",
+                    "value": "[general.gray.850]",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceSolidCard": {
-                    "value": "#171717",
+                    "value": "[general.gray.950]",
                     "comment": "Основной фон для карточек на темном фоне"
                 },
                 "surfaceTransparentPrimary": {
@@ -302,15 +302,15 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне"
                 },
                 "surfacePositive": {
-                    "value": "#24B23EFF",
+                    "value": "[general.green.400]",
                     "comment": "Цвет фона поверхности/контрола успех на темном фоне"
                 },
                 "surfaceWarning": {
-                    "value": "#FF7024FF",
+                    "value": "[general.orange.400]",
                     "comment": "Цвет фона поверхности предупреждение на темном фоне"
                 },
                 "surfaceNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
                 },
                 "surfaceClear": {
@@ -318,7 +318,7 @@
                     "comment": "Фон поверхности/контрола без заливки на темном фоне"
                 },
                 "surfaceAccentSecondary": {
-                    "value": "#FF4791FF",
+                    "value": "[general.pink.400]",
                     "comment": "Второй акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentGradientSecondary": {
@@ -328,19 +328,19 @@
             },
             "onLight": {
                 "surfaceSolidDefault": {
-                    "value": "#171717FF",
+                    "value": "[general.gray.950]",
                     "comment": "Непрозрачный фон поверхности по умолчанию на светлом фоне"
                 },
                 "surfaceSolidPrimary": {
-                    "value": "#F5F5F5FF",
+                    "value": "[general.gray.100]",
                     "comment": "Основной непрозрачный фон поверхности на светлом фоне"
                 },
                 "surfaceSolidSecondary": {
-                    "value": "#ECECECFF",
+                    "value": "[general.gray.150]",
                     "comment": "Вторичный непрозрачный фон поверхности на светлом фоне"
                 },
                 "surfaceSolidTertiary": {
-                    "value": "#DDDDDDFF",
+                    "value": "[general.gray.200]",
                     "comment": "Третичный непрозрачный фон поверхности на светлом фоне"
                 },
                 "surfaceSolidCard": {
@@ -372,15 +372,15 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне"
                 },
                 "surfacePositive": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Цвет фона поверхности/контрола успех на светлом фоне"
                 },
                 "surfaceWarning": {
-                    "value": "#FA5F05FF",
+                    "value": "[general.orange.500]",
                     "comment": "Цвет фона поверхности предупреждение на светлом фоне"
                 },
                 "surfaceNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
                 },
                 "surfaceClear": {
@@ -388,7 +388,7 @@
                     "comment": "Фон поверхности/контрола без заливки на светлом фоне"
                 },
                 "surfaceAccentSecondary": {
-                    "value": "#FF4791FF",
+                    "value": "[general.pink.400]",
                     "comment": "Второй акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentGradientSecondary": {
@@ -400,25 +400,25 @@
         "backgrounds": {
             "default": {
                 "backgroundPrimary": {
-                    "value": "#080808FF",
+                    "value": "[general.gray.1000]",
                     "comment": "Основной фон"
                 }
             },
             "dark": {
                 "backgroundPrimary": {
-                    "value": "#080808FF",
+                    "value": "[general.gray.1000]",
                     "comment": "Основной фон на темном фоне"
                 }
             },
             "light": {
                 "backgroundPrimary": {
-                    "value": "#F9F9F9FF",
+                    "value": "[general.gray.50]",
                     "comment": "Основной фон на светлом фоне"
                 }
             },
             "inverse": {
                 "backgroundPrimary": {
-                    "value": "#F9F9F9FF",
+                    "value": "[general.gray.50]",
                     "comment": "Инвертированный основной фон"
                 }
             }
@@ -440,23 +440,23 @@
         "textIcons": {
             "default": {
                 "textPrimary": {
-                    "value": "#171717",
+                    "value": "[general.gray.950]",
                     "comment": "Основной цвет текста"
                 },
                 "textSecondary": {
-                    "value": "#707070FF",
+                    "value": "[general.gray.700]",
                     "comment": "Вторичный цвет текста"
                 },
                 "textTertiary": {
-                    "value": "#b3b3b3FF",
+                    "value": "[general.gray.300]",
                     "comment": "Третичный цвет текста"
                 },
                 "textParagraph": {
-                    "value": "#363636FF",
+                    "value": "[general.gray.850]",
                     "comment": "Сплошной наборный текст"
                 },
                 "textAccent": {
-                    "value": "#118CDFFF",
+                    "value": "[general.blue.500]",
                     "comment": "Акцентный цвет"
                 },
                 "textAccentGradient": {
@@ -464,7 +464,7 @@
                     "comment": "Акцентный цвет с градиентом"
                 },
                 "textPositive": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха"
                 },
                 "textWarning": {
@@ -472,11 +472,11 @@
                     "comment": "Цвет предупреждения"
                 },
                 "textNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет ошибки"
                 },
                 "textAccentSecondary": {
-                    "value": "#FF1F78FF",
+                    "value": "[general.pink.500]",
                     "comment": "Второй акцентный цвет"
                 },
                 "textAccentGradientSecondary": {
@@ -486,23 +486,23 @@
             },
             "onDark": {
                 "textPrimary": {
-                    "value": "#F9F9F9FF",
+                    "value": "[general.gray.50]",
                     "comment": "Основной цвет текста на темном фоне"
                 },
                 "textSecondary": {
-                    "value": "#949494FF",
+                    "value": "[general.gray.400]",
                     "comment": "Вторичный цвет текста на темном фоне"
                 },
                 "textTertiary": {
-                    "value": "#4E4E4EFF",
+                    "value": "[general.gray.800]",
                     "comment": "Третичный цвет текста на темном фоне"
                 },
                 "textParagraph": {
-                    "value": "#C7C7C7FF",
+                    "value": "[general.gray.250]",
                     "comment": "Сплошной наборный текст на темном фоне"
                 },
                 "textAccent": {
-                    "value": "#52BAFFFF",
+                    "value": "[general.blue.300]",
                     "comment": "Акцентный цвет на темном фоне"
                 },
                 "textAccentGradient": {
@@ -510,19 +510,19 @@
                     "comment": "Акцентный цвет с градиентом на темном фоне"
                 },
                 "textPositive": {
-                    "value": "#24B23EFF",
+                    "value": "[general.green.400]",
                     "comment": "Цвет успеха на темном фоне"
                 },
                 "textWarning": {
-                    "value": "#FF7024FF",
+                    "value": "[general.orange.400]",
                     "comment": "Цвет предупреждения на темном фоне"
                 },
                 "textNegative": {
-                    "value": "#FF3D51FF",
+                    "value": "[general.red.400]",
                     "comment": "Цвет ошибки на темном фоне"
                 },
                 "textAccentSecondary": {
-                    "value": "#FF8FBCFF",
+                    "value": "[general.pink.300]",
                     "comment": "Второй акцентный цвет на темном фоне"
                 },
                 "textAccentGradientSecondary": {
@@ -532,23 +532,23 @@
             },
             "onLight": {
                 "textPrimary": {
-                    "value": "#171717",
+                    "value": "[general.gray.950]",
                     "comment": "Основной цвет текста на светлом фоне"
                 },
                 "textSecondary": {
-                    "value": "#707070FF",
+                    "value": "[general.gray.700]",
                     "comment": "Вторичный цвет текста на светлом фоне"
                 },
                 "textTertiary": {
-                    "value": "#b3b3b3FF",
+                    "value": "[general.gray.300]",
                     "comment": "Третичный цвет текста на светлом фоне"
                 },
                 "textParagraph": {
-                    "value": "#363636FF",
+                    "value": "[general.gray.850]",
                     "comment": "Сплошной наборный текст на светлом фоне"
                 },
                 "textAccent": {
-                    "value": "#118CDFFF",
+                    "value": "[general.blue.500]",
                     "comment": "Акцентный цвет на светлом фоне"
                 },
                 "textAccentGradient": {
@@ -556,7 +556,7 @@
                     "comment": "Акцентный цвет с градиентом на светлом фоне"
                 },
                 "textPositive": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха на светлом фоне"
                 },
                 "textWarning": {
@@ -564,11 +564,11 @@
                     "comment": "Цвет предупреждения на светлом фоне"
                 },
                 "textNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет ошибки на светлом фоне"
                 },
                 "textAccentSecondary": {
-                    "value": "#FF4791FF",
+                    "value": "[general.pink.400]",
                     "comment": "Второй акцентный цвет на светлом фоне"
                 },
                 "textAccentGradientSecondary": {
@@ -578,19 +578,19 @@
             },
             "inverse": {
                 "textPrimary": {
-                    "value": "#F9F9F9FF",
+                    "value": "[general.gray.50]",
                     "comment": "Инвертированный основной цвет текста"
                 },
                 "textSecondary": {
-                    "value": "#949494FF",
+                    "value": "[general.gray.400]",
                     "comment": "Инвертированный вторичный цвет текста"
                 },
                 "textTertiary": {
-                    "value": "#4E4E4EFF",
+                    "value": "[general.gray.800]",
                     "comment": "Инвертированный третичный цвет текста"
                 },
                 "textParagraph": {
-                    "value": "#C7C7C7FF",
+                    "value": "[general.gray.250]",
                     "comment": "Инвертированный cплошной наборный текст"
                 }
             }
@@ -598,19 +598,19 @@
         "controlsSurfaces": {
             "default": {
                 "surfaceSolidDefault": {
-                    "value": "#171717FF",
+                    "value": "[general.gray.950]",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
                 },
                 "surfaceSolidPrimary": {
-                    "value": "#F5F5F5FF",
+                    "value": "[general.gray.100]",
                     "comment": "Основной непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidSecondary": {
-                    "value": "#ECECECFF",
+                    "value": "[general.gray.150]",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidTertiary": {
-                    "value": "#DDDDDDFF",
+                    "value": "[general.gray.200]",
                     "comment": "Третичный непрозрачный фон поверхности/контрола"
                 },
                 "surfaceSolidCard": {
@@ -634,7 +634,7 @@
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceAccent": {
-                    "value": "#199AF0FF",
+                    "value": "[general.blue.400]",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradient": {
@@ -642,15 +642,15 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом"
                 },
                 "surfacePositive": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха"
                 },
                 "surfaceWarning": {
-                    "value": "#FA5F05FF",
+                    "value": "[general.orange.500]",
                     "comment": "Цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка"
                 },
                 "surfaceClear": {
@@ -658,7 +658,7 @@
                     "comment": "Фон поверхности/контрола без заливки"
                 },
                 "surfaceAccentSecondary": {
-                    "value": "#FF4791FF",
+                    "value": "[general.pink.400]",
                     "comment": "Второй акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradientSecondary": {
@@ -672,19 +672,19 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на темном фоне"
                 },
                 "surfaceSolidPrimary": {
-                    "value": "#171717",
+                    "value": "[general.gray.950]",
                     "comment": "Основной непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceSolidSecondary": {
-                    "value": "#262626FF",
+                    "value": "[general.gray.900]",
                     "comment": "Вторичный непрозрачный фон поверхности на темном фоне"
                 },
                 "surfaceSolidTertiary": {
-                    "value": "#363636",
+                    "value": "[general.gray.850]",
                     "comment": "Третичный непрозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceSolidCard": {
-                    "value": "#171717",
+                    "value": "[general.gray.950]",
                     "comment": "Основной фон для карточек на темном фоне"
                 },
                 "surfaceTransparentPrimary": {
@@ -704,7 +704,7 @@
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceAccent": {
-                    "value": "#199AF0FF",
+                    "value": "[general.blue.400]",
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentGradient": {
@@ -712,15 +712,15 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне"
                 },
                 "surfacePositive": {
-                    "value": "#24B23EFF",
+                    "value": "[general.green.400]",
                     "comment": "Цвет успеха на темном фоне"
                 },
                 "surfaceWarning": {
-                    "value": "#FF7024FF",
+                    "value": "[general.orange.400]",
                     "comment": "Цвет фона поверхности предупреждение на темном фоне"
                 },
                 "surfaceNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности ошибка на темном фоне"
                 },
                 "surfaceClear": {
@@ -728,7 +728,7 @@
                     "comment": "Фон поверхности/контрола без заливки на темном фоне"
                 },
                 "surfaceAccentSecondary": {
-                    "value": "#FF4791FF",
+                    "value": "[general.pink.400]",
                     "comment": "Второй акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentGradientSecondary": {
@@ -738,19 +738,19 @@
             },
             "onLight": {
                 "surfaceSolidDefault": {
-                    "value": "#171717FF",
+                    "value": "[general.gray.950]",
                     "comment": "Непрозрачный фон поверхности по умолчанию на светлом фоне"
                 },
                 "surfaceSolidPrimary": {
-                    "value": "#F5F5F5FF",
+                    "value": "[general.gray.100]",
                     "comment": "Основной непрозрачный фон поверхности на светлом фоне"
                 },
                 "surfaceSolidSecondary": {
-                    "value": "#ECECECFF",
+                    "value": "[general.gray.150]",
                     "comment": "Вторичный непрозрачный фон поверхности на светлом фоне"
                 },
                 "surfaceSolidTertiary": {
-                    "value": "#DDDDDDFF",
+                    "value": "[general.gray.200]",
                     "comment": "Третичный непрозрачный фон поверхности на светлом фоне"
                 },
                 "surfaceSolidCard": {
@@ -774,7 +774,7 @@
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
                 "surfaceAccent": {
-                    "value": "#199AF0FF",
+                    "value": "[general.blue.400]",
                     "comment": "Акцентный фон поверхности на светлом фоне"
                 },
                 "surfaceAccentGradient": {
@@ -782,15 +782,15 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне"
                 },
                 "surfacePositive": {
-                    "value": "#1A9E32FF",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха на светлом фоне"
                 },
                 "surfaceWarning": {
-                    "value": "#FA5F05FF",
+                    "value": "[general.orange.500]",
                     "comment": "Цвет фона поверхности предупреждение на светлом фоне"
                 },
                 "surfaceNegative": {
-                    "value": "#FF293EFF",
+                    "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности ошибка на светлом фоне"
                 },
                 "surfaceClear": {
@@ -798,7 +798,7 @@
                     "comment": "Фон поверхности/контрола без заливки на светлом фоне"
                 },
                 "surfaceAccentSecondary": {
-                    "value": "#FF4791FF",
+                    "value": "[general.pink.400]",
                     "comment": "Второй акцентный фон поверхности на светлом фоне"
                 },
                 "surfaceAccentGradientSecondary": {
@@ -810,25 +810,25 @@
         "backgrounds": {
             "default": {
                 "backgroundPrimary": {
-                    "value": "#F9F9F9FF",
+                    "value": "[general.gray.50]",
                     "comment": "Основной фон"
                 }
             },
             "dark": {
                 "backgroundPrimary": {
-                    "value": "#080808FF",
+                    "value": "[general.gray.1000]",
                     "comment": "Основной фон на темном фоне"
                 }
             },
             "light": {
                 "backgroundPrimary": {
-                    "value": "#F9F9F9FF",
+                    "value": "[general.gray.50]",
                     "comment": "Основной фон на светлом фоне"
                 }
             },
             "inverse": {
                 "backgroundPrimary": {
-                    "value": "#080808FF",
+                    "value": "[general.gray.1000]",
                     "comment": "Инвертированный основной фон"
                 }
             }

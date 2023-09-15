@@ -42,7 +42,7 @@
                     "comment": "Акцентный цвет с градиентом"
                 },
                 "textPositive": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха"
                 },
                 "textWarning": {
@@ -50,7 +50,7 @@
                     "comment": "Цвет предупреждения"
                 },
                 "textNegative": {
-                    "value": "#FF293E",
+                    "value": "[general.red.500]",
                     "comment": "Цвет ошибки"
                 }
             },
@@ -80,7 +80,7 @@
                     "comment": "Акцентный цвет с градиентом на темном фоне"
                 },
                 "textPositive": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха на темном фоне"
                 },
                 "textWarning": {
@@ -88,7 +88,7 @@
                     "comment": "Цвет предупреждения на темном фоне"
                 },
                 "textNegative": {
-                    "value": "#FF293E",
+                    "value": "[general.red.500]",
                     "comment": "Цвет ошибки на темном фоне"
                 }
             },
@@ -110,7 +110,7 @@
                     "comment": "Сплошной наборный текст на светлом фоне"
                 },
                 "textAccent": {
-                    "value": "#15B015",
+                    "value": "[general.herbal.400]",
                     "comment": "Акцентный цвет на светлом фоне"
                 },
                 "textAccentGradient": {
@@ -118,7 +118,7 @@
                     "comment": "Акцентный цвет с градиентом на светлом фоне"
                 },
                 "textPositive": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха на светлом фоне"
                 },
                 "textWarning": {
@@ -126,7 +126,7 @@
                     "comment": "Цвет предупреждения на светлом фоне"
                 },
                 "textNegative": {
-                    "value": "#FF293E",
+                    "value": "[general.red.500]",
                     "comment": "Цвет ошибки на светлом фоне"
                 }
             }
@@ -170,7 +170,7 @@
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceAccent": {
-                    "value": "#15B015",
+                    "value": "[general.herbal.400]",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradient": {
@@ -178,7 +178,7 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом"
                 },
                 "surfacePositive": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Цвет фона поверхности/контрола успех"
                 },
                 "surfaceWarning": {
@@ -186,7 +186,7 @@
                     "comment": "Цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceNegative": {
-                    "value": "#FF293E",
+                    "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка"
                 },
                 "surfaceClear": {
@@ -232,7 +232,7 @@
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceAccent": {
-                    "value": "#15B015",
+                    "value": "[general.herbal.400]",
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentGradient": {
@@ -240,7 +240,7 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне"
                 },
                 "surfacePositive": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Цвет фона поверхности/контрола успех на темном фоне"
                 },
                 "surfaceWarning": {
@@ -248,7 +248,7 @@
                     "comment": "Цвет фона поверхности/контрола предупреждение на темном фоне"
                 },
                 "surfaceNegative": {
-                    "value": "#FF293E",
+                    "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
                 }
             },
@@ -290,7 +290,7 @@
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
                 "surfaceAccent": {
-                    "value": "#15B015",
+                    "value": "[general.herbal.400]",
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentGradient": {
@@ -298,7 +298,7 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне"
                 },
                 "surfacePositive": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Цвет фона поверхности/контрола успех на светлом фоне"
                 },
                 "surfaceWarning": {
@@ -306,7 +306,7 @@
                     "comment": "Цвет фона поверхности/контрола предупреждение на светлом фоне"
                 },
                 "surfaceNegative": {
-                    "value": "#FF293E",
+                    "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
                 }
             }
@@ -364,7 +364,7 @@
                     "comment": "Сплошной наборный текст"
                 },
                 "textAccent": {
-                    "value": "#15B015",
+                    "value": "[general.herbal.400]",
                     "comment": "Акцентный цвет"
                 },
                 "textAccentGradient": {
@@ -372,7 +372,7 @@
                     "comment": "Акцентный цвет с градиентом"
                 },
                 "textPositive": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха"
                 },
                 "textWarning": {
@@ -380,7 +380,7 @@
                     "comment": "Цвет предупреждения"
                 },
                 "textNegative": {
-                    "value": "#FF293E",
+                    "value": "[general.red.500]",
                     "comment": "Цвет ошибки"
                 }
             },
@@ -410,7 +410,7 @@
                     "comment": "Акцентный цвет с градиентом на темном фоне"
                 },
                 "textPositive": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха на темном фоне"
                 },
                 "textWarning": {
@@ -418,7 +418,7 @@
                     "comment": "Цвет предупреждения на темном фоне"
                 },
                 "textNegative": {
-                    "value": "#FF293E",
+                    "value": "[general.red.500]",
                     "comment": "Цвет ошибки на темном фоне"
                 }
             },
@@ -440,7 +440,7 @@
                     "comment": "Сплошной наборный текст на светлом фоне"
                 },
                 "textAccent": {
-                    "value": "#0C9C0C",
+                    "value": "[general.herbal.500]",
                     "comment": "Акцентный цвет на светлом фоне"
                 },
                 "textAccentGradient": {
@@ -448,7 +448,7 @@
                     "comment": "Акцентный цвет с градиентом на светлом фоне"
                 },
                 "textPositive": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха на светлом фоне"
                 },
                 "textWarning": {
@@ -456,7 +456,7 @@
                     "comment": "Цвет предупреждения на светлом фоне"
                 },
                 "textNegative": {
-                    "value": "#FF293E",
+                    "value": "[general.red.500]",
                     "comment": "Цвет ошибки на светлом фоне"
                 }
             }
@@ -500,7 +500,7 @@
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceAccent": {
-                    "value": "#15B015",
+                    "value": "[general.herbal.400]",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradient": {
@@ -508,7 +508,7 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом"
                 },
                 "surfacePositive": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха"
                 },
                 "surfaceWarning": {
@@ -516,7 +516,7 @@
                     "comment": "Цвет фона поверхности/контрола предупреждение"
                 },
                 "surfaceNegative": {
-                    "value": "#FF293E",
+                    "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка"
                 },
                 "surfaceClear": {
@@ -562,7 +562,7 @@
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceAccent": {
-                    "value": "#15B015",
+                    "value": "[general.herbal.400]",
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentGradient": {
@@ -570,7 +570,7 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне"
                 },
                 "surfacePositive": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха на темном фоне"
                 },
                 "surfaceWarning": {
@@ -578,7 +578,7 @@
                     "comment": "Цвет фона поверхности/контрола предупреждение на темном фоне"
                 },
                 "surfaceNegative": {
-                    "value": "#FF293E",
+                    "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
                 }
             },
@@ -620,7 +620,7 @@
                     "comment": "Прозрачный фон для карточек на светлом фоне"
                 },
                 "surfaceAccent": {
-                    "value": "#15B015",
+                    "value": "[general.herbal.400]",
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentGradient": {
@@ -628,7 +628,7 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне"
                 },
                 "surfacePositive": {
-                    "value": "#1A9E32",
+                    "value": "[general.green.500]",
                     "comment": "Цвет успеха на светлом фоне"
                 },
                 "surfaceWarning": {
@@ -636,7 +636,7 @@
                     "comment": "Цвет фона поверхности/контрола предупреждение на светлом фоне"
                 },
                 "surfaceNegative": {
-                    "value": "#FF293E",
+                    "value": "[general.red.500]",
                     "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
                 }
             }
