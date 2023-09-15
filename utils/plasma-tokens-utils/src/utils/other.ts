@@ -14,7 +14,7 @@ export const escapeValue = <T = string | number>(value: T) => {
     return value;
 };
 
-const toKebab = (k: string) => k.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`);
+export const toKebab = (k: string) => k.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`);
 
 export const join = (...args: (string | undefined)[]) => args.filter(Boolean).join('-');
 
