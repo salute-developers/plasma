@@ -1,5 +1,6 @@
 import { TokenDataGroup } from '../index';
-import { ActualTokenNames, ThemeTokenDataGroups } from '../types';
+import { toKebab } from '../utils/other';
+import type { ActualTokenNames, ThemeTokenDataGroups } from '../types';
 
 const gradientColors = {
     dark: {
@@ -103,7 +104,7 @@ const deprecatedColorTokenOnActualToken: Record<string, ActualTokenNames> = {
     overlay: 'overlaySoft',
 
     // gradient = 'Градиент для заливки основного фона',
-    // gradientDevice = 'Бэкграунд ассистента на девайсах',
+    // gradientDevice = 'Бэкграунд ассистента на девайсах',
 
     surfaceLiquid01: 'surfaceTransparentPrimary',
     surfaceLiquid02: 'surfaceTransparentSecondary',
@@ -144,7 +145,7 @@ const getDeprecatedTokens = (tokens: TokenDataGroup<string>) => {
             (acc, [oldName, actualName]) => ({
                 ...acc,
                 [`${legacyPrefix}-${oldName}`]: {
-                    value: tokens[actualName].value,
+                    value: `var(--${toKebab(actualName)})`,
                     comment: `@deprecated instead use ${actualName}`,
                 },
             }),
