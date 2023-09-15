@@ -13,4 +13,6 @@ export { generateThemesCSS } from './generateThemesCSS';
 export { generateTyposCSS } from './generateTyposCSS';
 export { getThemesTokensFallback } from './getThemesTokensFallback';
 export { getThemeTokenDataGroups } from './getThemeTokenDataGroups';
+export { getThemesWithRestoredColors } from './getThemesWithRestoredColors';
+export { getRestoredColorFromPalette } from './getRestoredColorFromPalette';
 export { getThemeData } from './getThemeData';

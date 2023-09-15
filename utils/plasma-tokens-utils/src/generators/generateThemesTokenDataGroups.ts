@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { getThemeTokenDataGroups } from '../index';
+import { getThemeTokenDataGroups, getThemesWithRestoredColors } from '../index';
 import type { ThemeTokenDataGroups } from '../types';
 
 export const generateThemesTokenDataGroups = (
@@ -11,7 +11,7 @@ export const generateThemesTokenDataGroups = (
         return {};
     }
 
-    return fs
+    const themes = fs
         .readdirSync(themesFolder, { withFileTypes: true })
         .filter((item) => item.isFile() && path.extname(path.join(themesFolder, item.name)) === '.json')
         .reduce((colorSchemas, item) => {
@@ -24,4 +24,6 @@ export const generateThemesTokenDataGroups = (
                 ...themeTokens,
             };
         }, {});
+
+    return getThemesWithRestoredColors(themes);
 };
