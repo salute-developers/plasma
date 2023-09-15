@@ -34,7 +34,7 @@
                     "comment": "Сплошной наборный текст"
                 },
                 "textAccent": {
-                    "value": "#24B23E",
+                    "value": "[general.green.400]",
                     "comment": "Акцентный цвет"
                 },
                 "textNegative": {
@@ -42,15 +42,15 @@
                     "comment": "Цвет ошибки"
                 },
                 "textAccentDiscount": {
-                    "value": "#FF1F78",
+                    "value": "[general.pink.500]",
                     "comment": "Дополнительный акцент"
                 },
                 "textAccentGold": {
-                    "value": "#FFD83D",
+                    "value": "[general.gold.200]",
                     "comment": "Дополнительный акцент"
                 },
                 "textAccentB2B": {
-                    "value": "#04C6C9",
+                    "value": "[general.malachite.300]",
                     "comment": "Акцентный цвет бренда"
                 }
             },
@@ -72,7 +72,7 @@
                     "comment": "Сплошной наборный текст на темном фоне"
                 },
                 "textAccent": {
-                    "value": "#24B23E",
+                    "value": "[general.green.400]",
                     "comment": "Акцентный цвет на темном фоне"
                 },
                 "textNegative": {
@@ -80,15 +80,15 @@
                     "comment": "Цвет ошибки на темном фоне"
                 },
                 "textAccentDiscount": {
-                    "value": "#FF1F78",
+                    "value": "[general.pink.500]",
                     "comment": "Дополнительный акцент"
                 },
                 "textAccentGold": {
-                    "value": "#FFD83D",
+                    "value": "[general.gold.200]",
                     "comment": "Дополнительный акцент"
                 },
                 "textAccentB2B": {
-                    "value": "#04C6C9",
+                    "value": "[general.malachite.300]",
                     "comment": "Акцентный цвет бренда"
                 }
             },
@@ -110,23 +110,23 @@
                     "comment": "Сплошной наборный текст на светлом фоне"
                 },
                 "textAccent": {
-                    "value": "#108E26",
+                    "value": "[general.green.600]",
                     "comment": "Акцентный цвет на светлом фоне"
                 },
                 "textNegative": {
-                    "value": "#F31B31",
+                    "value": "[general.red.600]",
                     "comment": "Цвет ошибки на светлом фоне"
                 },
                 "textAccentDiscount": {
-                    "value": "#FF1F78",
+                    "value": "[general.pink.500]",
                     "comment": "Дополнительный акцент"
                 },
                 "textAccentGold": {
-                    "value": "#FFD83D",
+                    "value": "[general.gold.200]",
                     "comment": "Дополнительный акцент"
                 },
                 "textAccentB2B": {
-                    "value": "#0C8688",
+                    "value": "[general.malachite.600]",
                     "comment": "Акцентный цвет бренда"
                 }
             },
@@ -152,7 +152,7 @@
                     "comment": "Основной фон для карточек"
                 },
                 "surfaceAccent": {
-                    "value": "#24B23E",
+                    "value": "[general.green.400]",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentGradient": {
@@ -170,15 +170,15 @@
                     "comment": "Цвет фона поверхности/контрола ошибка"
                 },
                 "surfaceAccentB2B": {
-                    "value": "#0DA8AB",
+                    "value": "[general.malachite.400]",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentDiscount": {
-                    "value": "#FF1F78",
+                    "value": "[general.pink.500]",
                     "comment": "Дополнительный акцент для обозначения акций"
                 },
                 "surfaceAccentGold": {
-                    "value": "#FFD83D",
+                    "value": "[general.gold.200]",
                     "comment": "Дополнительный акцент"
                 },
                 "surfaceAccentBlue": {
@@ -204,7 +204,7 @@
                     "comment": "Основной фон для карточек на темном фоне"
                 },
                 "surfaceAccent": {
-                    "value": "#24B23E",
+                    "value": "[general.green.400]",
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceAccentGradient": {
@@ -222,15 +222,15 @@
                     "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
                 },
                 "surfaceAccentB2B": {
-                    "value": "#0DA8AB",
+                    "value": "[general.malachite.400]",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentDiscount": {
-                    "value": "#FF1F78",
+                    "value": "[general.pink.500]",
                     "comment": "Дополнительный акцент для обозначения акций"
                 },
                 "surfaceAccentGold": {
-                    "value": "#FFD83D",
+                    "value": "[general.gold.200]",
                     "comment": "Дополнительный акцент"
                 },
                 "surfaceAccentBlue": {
@@ -256,7 +256,7 @@
                     "comment": "Основной фон для карточек на светлом фоне"
                 },
                 "surfaceAccent": {
-                    "value": "#24B23E",
+                    "value": "[general.green.400]",
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
                 "surfaceAccentGradient": {
@@ -270,23 +270,23 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне"
                 },
                 "surfaceNegative": {
-                    "value": "#F31B31",
+                    "value": "[general.red.600]",
                     "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
                 },
                 "surfaceAccentB2B": {
-                    "value": "#0DA8AB",
+                    "value": "[general.malachite.400]",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentDiscount": {
-                    "value": "#FF1F78",
+                    "value": "[general.pink.500]",
                     "comment": "Дополнительный акцент для обозначения акций"
                 },
                 "surfaceAccentGold": {
-                    "value": "#FFD83D",
+                    "value": "[general.gold.200]",
                     "comment": "Дополнительный акцент"
                 },
                 "surfaceAccentBlue": {
-                    "value": "#3F81FD",
+                    "value": "[general.electricBlue.500]",
                     "comment": "Дополнительный акцент"
                 },
                 "surfaceAdditional": {
@@ -298,23 +298,23 @@
         "banners": {
             "default": {
                 "bannerRed": {
-                    "value": "#2E090D",
+                    "value": "[general.red.950]",
                     "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
                 },
                 "bannerGold": {
-                    "value": "#1F1903",
+                    "value": "[general.gold.950]",
                     "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
                 },
                 "bannerGreen": {
-                    "value": "#071F0C",
+                    "value": "[general.green.950]",
                     "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
                 },
                 "bannerMalachite": {
-                    "value": "#0A1C1C",
+                    "value": "[general.malachite.950]",
                     "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
                 },
                 "bannerBlue": {
-                    "value": "#0A162B",
+                    "value": "[general.electricBlue.950]",
                     "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
                 }
             }
@@ -356,7 +356,7 @@
                     "comment": "Акцентный цвет"
                 },
                 "textNegative": {
-                    "value": "#F31B31",
+                    "value": "[general.red.600]",
                     "comment": "Цвет ошибки"
                 },
                 "textAccentDiscount": {
@@ -364,11 +364,11 @@
                     "comment": "Дополнительный акцент"
                 },
                 "textAccentGold": {
-                    "value": "#FFD83D",
+                    "value": "[general.gold.200]",
                     "comment": "Дополнительный акцент"
                 },
                 "textAccentB2B": {
-                    "value": "#0C8688",
+                    "value": "[general.malachite.600]",
                     "comment": "Акцентный цвет бренда"
                 }
             },
@@ -402,11 +402,11 @@
                     "comment": "Дополнительный акцент"
                 },
                 "textAccentGold": {
-                    "value": "#FFD83D",
+                    "value": "[general.gold.200]",
                     "comment": "Дополнительный акцент"
                 },
                 "textAccentB2B": {
-                    "value": "#04C6C9",
+                    "value": "[general.malachite.300]",
                     "comment": "Акцентный цвет бренда"
                 }
             },
@@ -432,7 +432,7 @@
                     "comment": "Акцентный цвет на светлом фоне"
                 },
                 "textNegative": {
-                    "value": "#F31B31",
+                    "value": "[general.red.600]",
                     "comment": "Цвет ошибки на светлом фоне"
                 },
                 "textAccentDiscount": {
@@ -440,11 +440,11 @@
                     "comment": "Дополнительный акцент"
                 },
                 "textAccentGold": {
-                    "value": "#FFD83D",
+                    "value": "[general.gold.200]",
                     "comment": "Дополнительный акцент"
                 },
                 "textAccentB2B": {
-                    "value": "#0C8688",
+                    "value": "[general.malachite.600]",
                     "comment": "Акцентный цвет бренда"
                 }
             },
@@ -484,11 +484,11 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом"
                 },
                 "surfaceNegative": {
-                    "value": "#F31B31",
+                    "value": "[general.red.600]",
                     "comment": "Цвет фона поверхности/контрола ошибка"
                 },
                 "surfaceAccentB2B": {
-                    "value": "#0DA8AB",
+                    "value": "[general.malachite.400]",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentDiscount": {
@@ -496,11 +496,11 @@
                     "comment": "Дополнительный акцент для обозначения акций"
                 },
                 "surfaceAccentGold": {
-                    "value": "#FFD83D",
+                    "value": "[general.gold.200]",
                     "comment": "Дополнительный акцент"
                 },
                 "surfaceAccentBlue": {
-                    "value": "#3F81FD",
+                    "value": "[general.electricBlue.500]",
                     "comment": "Дополнительный акцент"
                 },
                 "surfaceAdditional": {
@@ -540,7 +540,7 @@
                     "comment": "Цвет фона поверхности/контрола ошибка на темном фоне"
                 },
                 "surfaceAccentB2B": {
-                    "value": "#0DA8AB",
+                    "value": "[general.malachite.400]",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentDiscount": {
@@ -548,11 +548,11 @@
                     "comment": "Дополнительный акцент для обозначения акций"
                 },
                 "surfaceAccentGold": {
-                    "value": "#FFD83D",
+                    "value": "[general.gold.200]",
                     "comment": "Дополнительный акцент"
                 },
                 "surfaceAccentBlue": {
-                    "value": "#3F81FD",
+                    "value": "[general.electricBlue.500]",
                     "comment": "Дополнительный акцент"
                 },
                 "surfaceAdditional": {
@@ -588,11 +588,11 @@
                     "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне"
                 },
                 "surfaceNegative": {
-                    "value": "#F31B31",
+                    "value": "[general.red.600]",
                     "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне"
                 },
                 "surfaceAccentB2B": {
-                    "value": "#0DA8AB",
+                    "value": "[general.malachite.400]",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
                 "surfaceAccentDiscount": {
@@ -600,11 +600,11 @@
                     "comment": "Дополнительный акцент для обозначения акций"
                 },
                 "surfaceAccentGold": {
-                    "value": "#FFD83D",
+                    "value": "[general.gold.200]",
                     "comment": "Дополнительный акцент"
                 },
                 "surfaceAccentBlue": {
-                    "value": "#3F81FD",
+                    "value": "[general.electricBlue.500]",
                     "comment": "Дополнительный акцент"
                 },
                 "surfaceAdditional": {
@@ -616,23 +616,23 @@
         "banners": {
             "default": {
                 "bannerRed": {
-                    "value": "#FFF5F6",
+                    "value": "[general.red.100]",
                     "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
                 },
                 "bannerGold": {
-                    "value": "#FFF7D6",
+                    "value": "[general.gold.100]",
                     "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
                 },
                 "bannerGreen": {
-                    "value": "#E0FFE9",
+                    "value": "[general.green.100]",
                     "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
                 },
                 "bannerMalachite": {
-                    "value": "#E6FCFC",
+                    "value": "[general.malachite.100]",
                     "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
                 },
                 "bannerBlue": {
-                    "value": "#F2F7FF",
+                    "value": "[general.electricBlue.100]",
                     "comment": "Бэкграунд для баннеров и всплывающих нотификаций"
                 }
             }
