@@ -90,7 +90,6 @@ jobs:
 
       # TODO: https://github.com/salute-developers/plasma/issues/603
       - name: Plasma Website
-        if: ${{ needs.scope.outputs.HAS_PLASMA_WEBSITE == 'true' }}
         run: |
           export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-website"
