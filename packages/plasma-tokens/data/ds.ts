@@ -45,7 +45,7 @@ type BaseTheme = Omit<
     'accent' | 'gradient' | 'gradientDevice' | 'voicePhraseGradient' | 'buttonAccent' | 'buttonFocused'
 >;
 
-general.gray['900'] = '#232323'; // TODO: https://github.com/salute-developers/plasma/issues/508
+const generalGray900 = '#232323'; // TODO: https://github.com/salute-developers/plasma/issues/508
 
 const darkTheme: BaseTheme & OverlayTokens = {
     ...baseColors,
@@ -423,7 +423,7 @@ const lightTheme: BaseTheme & OverlayTokens = {
         value: alphenColor(baseColors.black.value, -0.1),
     },
     overlayBlur: {
-        value: alphenColor(general.gray['900'], -0.8),
+        value: alphenColor(generalGray900, -0.8),
     },
 
     darkOverlaySoft: {
@@ -433,7 +433,7 @@ const lightTheme: BaseTheme & OverlayTokens = {
         value: alphenColor(baseColors.black.value, -0.1),
     },
     darkOverlayBlur: {
-        value: alphenColor(general.gray['900'], -0.8),
+        value: alphenColor(generalGray900, -0.8),
     },
 
     lightOverlaySoft: {
@@ -443,7 +443,7 @@ const lightTheme: BaseTheme & OverlayTokens = {
         value: alphenColor(baseColors.black.value, -0.1),
     },
     lightOverlayBlur: {
-        value: alphenColor(general.gray['900'], -0.8),
+        value: alphenColor(generalGray900, -0.8),
     },
 
     inverseOverlaySoft: {
@@ -453,7 +453,7 @@ const lightTheme: BaseTheme & OverlayTokens = {
         value: alphenColor(baseColors.black.value, -0.1),
     },
     inverseOverlayBlur: {
-        value: alphenColor(general.gray['900'], -0.8),
+        value: alphenColor(generalGray900, -0.8),
     },
 };
 
