@@ -60,7 +60,7 @@
     "@cypress/webpack-preprocessor": "5.9.1",
     "@salutejs/eslint-config": "1.2.0",
     "@salutejs/eslint-config-base": "0.4.0",
-    "@salutejs/perftool": "0.13.0",
+    "@salutejs/perftool": "0.18.0",
     "@salutejs/prettier-config": "0.3.0",
     "@storybook/addon-actions": "6.0.0-rc.13",
     "@storybook/addon-backgrounds": "6.0.0-rc.13",
