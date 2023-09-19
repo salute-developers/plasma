@@ -1,10 +1,12 @@
-import { humanizeColor } from '@salutejs/plasma-tokens-utils';
+import { getRestoredColorFromPalette } from '@salutejs/plasma-tokens-utils';
 import type { TokensByType, ThemeConfig } from '@salutejs/plasma-tokens-utils';
 
 export const accentGradientCreator = (comment: Record<keyof TokensByType, string>) => {
     return (config: ThemeConfig) => {
-        const darkValue = `linear-gradient(135deg, black 0%, ${humanizeColor(config.accentColor.dark)} 100%)`;
-        const lightValue = `linear-gradient(135deg, white 0%, ${humanizeColor(config.accentColor.light)} 100%)`;
+        const colorDark = getRestoredColorFromPalette(config.accentColor.dark);
+        const colorLight = getRestoredColorFromPalette(config.accentColor.light);
+        const darkValue = `linear-gradient(135deg, black 0%, ${colorDark} 100%)`;
+        const lightValue = `linear-gradient(135deg, white 0%, ${colorLight} 100%)`;
 
         return {
             dark: {

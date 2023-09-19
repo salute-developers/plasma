@@ -16,16 +16,6 @@ export const baseColors = {
     },
 };
 
-// TODO: использовать палитру когда будет добавлена колонка 50
-export const generalColorsAdditionalSaturation = {
-    coolGray: {
-        50: '#F7F8FA',
-    },
-    gray: {
-        50: '#F7F7F7',
-    },
-};
-
 export const emptyInputData = {
     section: {
         value: '',

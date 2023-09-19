@@ -1,17 +1,13 @@
-import { humanizeColor, alphenColor } from '@salutejs/plasma-tokens-utils';
+import { alphenColor, getRestoredColorFromPalette } from '@salutejs/plasma-tokens-utils';
 import type { TokensByType, ThemeConfig } from '@salutejs/plasma-tokens-utils';
 
 export const transparentAccentGradientCreator = (comment: Record<keyof TokensByType, string>) => {
     return (config: ThemeConfig) => {
         const opacityDegrees = -0.88;
-        const darkValue = `linear-gradient(135deg, black 0%, ${alphenColor(
-            humanizeColor(config.accentColor.dark),
-            opacityDegrees,
-        )} 100%)`;
-        const lightValue = `linear-gradient(135deg, white 0%, ${alphenColor(
-            humanizeColor(config.accentColor.light),
-            opacityDegrees,
-        )} 100%)`;
+        const colorDark = alphenColor(getRestoredColorFromPalette(config.accentColor.dark), opacityDegrees);
+        const colorLight = alphenColor(getRestoredColorFromPalette(config.accentColor.light), opacityDegrees);
+        const darkValue = `linear-gradient(135deg, black 0%, ${colorDark} 100%)`;
+        const lightValue = `linear-gradient(135deg, white 0%, ${colorLight} 100%)`;
 
         return {
             dark: {

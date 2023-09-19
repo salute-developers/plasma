@@ -12,41 +12,43 @@ const comment: Record<keyof TokensByType, string> = {
 
 export const getSurfaceTransparentDeepTokens = () => {
     const opacityDegrees = -0.36;
+    const lightValue = alphenColor(baseColors.white.value, opacityDegrees);
+    const darkValue = alphenColor(baseColors.black.value, opacityDegrees);
 
     return {
         dark: {
             default: {
-                value: alphenColor(baseColors.white.value, opacityDegrees),
+                value: lightValue,
                 comment: comment.default,
             },
             onDark: {
-                value: alphenColor(baseColors.white.value, opacityDegrees),
+                value: lightValue,
                 comment: comment.onDark,
             },
             onLight: {
-                value: alphenColor(baseColors.black.value, opacityDegrees),
+                value: darkValue,
                 comment: comment.onLight,
             },
             inverse: {
-                value: alphenColor(baseColors.black.value, opacityDegrees),
+                value: darkValue,
                 comment: comment.inverse,
             },
         },
         light: {
             default: {
-                value: alphenColor(baseColors.black.value, opacityDegrees),
+                value: darkValue,
                 comment: comment.default,
             },
             onDark: {
-                value: alphenColor(baseColors.white.value, opacityDegrees),
+                value: lightValue,
                 comment: comment.onDark,
             },
             onLight: {
-                value: alphenColor(baseColors.black.value, opacityDegrees),
+                value: darkValue,
                 comment: comment.onLight,
             },
             inverse: {
-                value: alphenColor(baseColors.white.value, opacityDegrees),
+                value: lightValue,
                 comment: comment.inverse,
             },
         },
