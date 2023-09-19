@@ -1,8 +1,4 @@
-import { general as generalColors } from '@salutejs/plasma-colors';
-import { humanizeColor } from '@salutejs/plasma-tokens-utils';
 import type { TokensByType, ThemeConfig } from '@salutejs/plasma-tokens-utils';
-
-import { generalColorsAdditionalSaturation } from '../../../types';
 
 const comment: Record<keyof TokensByType, string> = {
     default: 'Основной фон для карточек',
@@ -12,8 +8,8 @@ const comment: Record<keyof TokensByType, string> = {
 };
 
 export const getSurfaceSolidCardTokens = (config: ThemeConfig) => {
-    const darkValue = humanizeColor(generalColors[config.grayscale.dark][950]);
-    const lightValue = humanizeColor(generalColorsAdditionalSaturation[config.grayscale.light][50]);
+    const darkValue = `[general.${config.grayscale.dark}.${950}]`;
+    const lightValue = `[general.${config.grayscale.light}.${50}]`;
 
     return {
         dark: {

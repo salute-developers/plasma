@@ -1,7 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { Button, Select, Switch, TextField } from '@salutejs/plasma-b2c';
-import { general as generalColors } from '@salutejs/plasma-colors';
 import { Grayscale } from '@salutejs/plasma-tokens-utils';
 
 import { FormField } from '../FormField/FormField';
@@ -172,8 +171,8 @@ export const Generator = ({ onPreviewTheme, onMain }: GeneratorProps) => {
         const theme = createTheme({
             name: themeName,
             accentColor: {
-                light: generalColors[accentColors][lightSaturations],
-                dark: generalColors[accentColors][darkSaturations],
+                light: `[general.${accentColors}.${lightSaturations}]`,
+                dark: `[general.${accentColors}.${darkSaturations}]`,
             },
             grayscale: {
                 light: lightGrayscale,
