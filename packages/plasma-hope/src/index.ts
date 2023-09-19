@@ -17,6 +17,7 @@ export * from './components/Modal';
 export * from './components/Notification';
 export * from './components/PaginationDots';
 export * from './components/Popup';
+export * from './components/Popover';
 export * from './components/Price';
 export * from './components/Progress';
 export * from './components/PreviewGallery';

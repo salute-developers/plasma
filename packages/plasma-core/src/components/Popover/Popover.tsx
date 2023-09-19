@@ -1,4 +1,4 @@
-import React, { memo, useRef, useCallback, useEffect } from 'react';
+import React, { memo, useRef, useCallback, useEffect, useState } from 'react';
 import type { HTMLAttributes, ReactNode, RefAttributes, SyntheticEvent } from 'react';
 import styled from 'styled-components';
 import { usePopper } from 'react-popper';
@@ -6,26 +6,30 @@ import PopperJS from '@popperjs/core';
 
 import { useForkRef } from '../../hooks';
 
-export type PopupBasicPlacement = 'top' | 'bottom' | 'right' | 'left';
-export type PopupPlacement = PopupBasicPlacement | 'auto';
+export type PopoverBasicPlacement = 'top' | 'bottom' | 'right' | 'left';
+export type PopoverPlacement = PopoverBasicPlacement | 'auto';
 
-export interface PopupProps extends HTMLAttributes<HTMLDivElement> {
+export interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * Всплывающее окно раскрыто или нет.
      */
     isOpen?: boolean;
     /**
-     * Способо всплывающего окна - наведение или клик мышью.
+     * Способ всплывающего окна - наведение или клик мышью.
      */
     trigger: 'hover' | 'click';
     /**
      * Расположение всплывающего окна. По умолчанию "auto"
      */
-    placement?: PopupPlacement | Array<PopupBasicPlacement>;
+    placement?: PopoverPlacement | Array<PopoverBasicPlacement>;
+    /**
+     * Стрелка над элементом показывается или нет.
+     */
+    showArrow?: boolean;
     /**
      * Элемент, при нажатии на который произойдет вызов всплывающего окна.
      */
-    disclosure?: ReactNode;
+    target?: ReactNode;
     /**
      * Контент всплывающего окна.
      */
@@ -34,6 +38,10 @@ export interface PopupProps extends HTMLAttributes<HTMLDivElement> {
      * Событие сворачивания/разворачивания всплывающего окна.
      */
     onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
+    /**
+     * Закрывать окно при нажатии вне области окна(по умолчанию true),
+     */
+    closeOnOverlayClick: boolean;
 }
 
 const StyledRoot = styled.div`
@@ -41,54 +49,109 @@ const StyledRoot = styled.div`
     box-sizing: border-box;
     display: inline-flex;
 `;
-const StyledPopup = styled.div`
+
+const StyledArrow = styled.div`
+    visibility: hidden;
+
+    &,
+    &::before {
+        position: absolute;
+        width: 0.5rem;
+        height: 0.5rem;
+        background: inherit;
+    }
+
+    &::before {
+        visibility: visible;
+        content: '';
+        transform: rotate(45deg);
+    }
+`;
+
+const StyledPopover = styled.div`
     position: absolute;
     z-index: 1;
+
+    &[data-popper-placement^='top'] > ${StyledArrow} {
+        bottom: -0.25rem;
+    }
+
+    &[data-popper-placement^='bottom'] > ${StyledArrow} {
+        top: -0.25rem;
+    }
+
+    &[data-popper-placement^='left'] > ${StyledArrow} {
+        right: -0.25rem;
+    }
+
+    &[data-popper-placement^='right'] > ${StyledArrow} {
+        left: -0.25rem;
+    }
+
     padding: var(--plasma-popup-padding);
     margin: var(--plasma-popup-margin);
     width: var(--plasma-popup-width);
 `;
 
-export const getPlacement = (placement: PopupPlacement) => {
+export const getPlacement = (placement: PopoverPlacement) => {
     return `${placement}-start` as PopperJS.Placement;
 };
 
-const getAutoPlacements = (placements?: PopupPlacement[]) => {
+const getAutoPlacements = (placements?: PopoverPlacement[]) => {
     return (placements || []).map((placement) => getPlacement(placement));
 };
 
 /**
  * Всплывающее окно с возможностью позиционирования
  * и вызова по клику либо ховеру.
- * @deprecated Используйте Popover
  */
-export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
-    React.forwardRef<HTMLDivElement, PopupProps>(
-        ({ disclosure, children, isOpen, trigger, placement = 'auto', onToggle, ...rest }, outerRootRef) => {
+export const Popover = memo<PopoverProps & RefAttributes<HTMLDivElement>>(
+    React.forwardRef<HTMLDivElement, PopoverProps>(
+        (
+            {
+                target,
+                children,
+                isOpen,
+                trigger,
+                showArrow = false,
+                placement = 'auto',
+                closeOnOverlayClick = true,
+                onToggle,
+                ...rest
+            },
+            outerRootRef,
+        ) => {
             const rootRef = useRef<HTMLDivElement | null>(null);
-            const popupRef = useRef<HTMLDivElement | null>(null);
+            const popoverRef = useRef<HTMLDivElement | null>(null);
             const handleRef = useForkRef<HTMLDivElement>(rootRef, outerRootRef);
+
+            const [arrowElement, setArrowElement] = useState<HTMLSpanElement | null>(null);
 
             const isAutoArray = Array.isArray(placement);
             const isAuto = isAutoArray || placement === 'auto';
 
-            const { styles, attributes, forceUpdate } = usePopper(rootRef.current, popupRef.current, {
-                placement: getPlacement(isAutoArray ? 'auto' : (placement as PopupPlacement)),
+            const { styles, attributes, forceUpdate } = usePopper(rootRef.current, popoverRef.current, {
+                placement: getPlacement(isAutoArray ? 'auto' : (placement as PopoverPlacement)),
                 modifiers: [
                     {
                         name: 'flip',
                         enabled: isAuto,
                         options: {
                             allowedAutoPlacements: getAutoPlacements(
-                                isAutoArray ? (placement as PopupPlacement[]) : [],
+                                isAutoArray ? (placement as PopoverPlacement[]) : [],
                             ),
                         },
                     },
+                    { name: 'arrow', options: { element: arrowElement } },
                 ],
             });
 
             const onDocumentClick = useCallback(
                 (event: MouseEvent) => {
+                    console.log('closeOnOverlayClick', closeOnOverlayClick);
+                    if (!closeOnOverlayClick) {
+                        return;
+                    }
                     const targetIsRoot = event.target === rootRef.current;
                     const rootHasTarget = rootRef.current?.contains(event.target as Element);
 
@@ -96,16 +159,17 @@ export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
                         onToggle?.(false, event);
                     }
                 },
-                [onToggle],
+                [onToggle, closeOnOverlayClick],
             );
 
             const onClick = useCallback<React.MouseEventHandler>(
                 (event) => {
                     if (trigger === 'click') {
-                        const targetIsPopup = event.target === popupRef.current;
-                        const rootHasTarget = popupRef.current?.contains(event.target as Element);
+                        console.log('popover click');
+                        const targetIsPopover = event.target === popoverRef.current;
+                        const rootHasTarget = popoverRef.current?.contains(event.target as Element);
 
-                        if (!targetIsPopup && !rootHasTarget) {
+                        if (!targetIsPopover && !rootHasTarget) {
                             onToggle?.(!isOpen, event);
                         }
                     }
@@ -155,6 +219,7 @@ export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
             }, []);
 
             useEffect(() => {
+                console.log('effect', isOpen);
                 if (!isOpen || !forceUpdate) {
                     return;
                 }
@@ -168,6 +233,8 @@ export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
                 Promise.resolve().then(forceUpdate);
             }, [isOpen, forceUpdate]);
 
+            console.log(isOpen);
+
             return (
                 <StyledRoot
                     ref={handleRef}
@@ -178,15 +245,18 @@ export const Popup = memo<PopupProps & RefAttributes<HTMLDivElement>>(
                     onBlur={onBlur}
                     {...rest}
                 >
-                    {disclosure}
+                    {target}
                     {children && (
-                        <StyledPopup
+                        <StyledPopover
                             {...attributes.popper}
-                            ref={popupRef}
+                            ref={popoverRef}
                             style={{ ...styles.popper, ...{ display: isOpen ? 'block' : 'none' } }}
                         >
+                            {showArrow && (
+                                <StyledArrow ref={setArrowElement} style={styles.arrow} {...attributes.arrow} />
+                            )}
                             {children}
-                        </StyledPopup>
+                        </StyledPopover>
                     )}
                 </StyledRoot>
             );
