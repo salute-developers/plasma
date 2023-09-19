@@ -42,7 +42,8 @@
     "generate:theme-html": "lerna run generate:theme-html --scope @salutejs/plasma-tokens",
     "prepare": "test ! -n \"$CI\" && husky install || echo skip husky",
     "bootstrap": "npx lerna bootstrap",
-    "bootstrap:since": "npm run bootstrap -- --since=$(git merge-base --fork-point origin/dev)"
+    "bootstrap:since": "npm run bootstrap -- --since=$(git merge-base --fork-point origin/dev)",
+    "postinstall": "patch-package"
   },
   "devDependencies": {
     "@actions/core": "1.2.7",
@@ -129,7 +130,8 @@
     "webpack-dev-server": "3.11.2"
   },
   "dependencies": {
-    "babel-plugin-annotate-pure-calls": "0.4.0"
+    "babel-plugin-annotate-pure-calls": "0.4.0",
+    "patch-package": "8.0.0"
   },
   "engines": {
     "npm": "^8.19.0 || ^9.5.1"
