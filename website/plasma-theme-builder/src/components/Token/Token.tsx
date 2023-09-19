@@ -4,8 +4,9 @@ import { Button, TextM, Tooltip } from '@salutejs/plasma-b2c';
 import { IconTrashFilled, IconEye, IconEdit } from '@salutejs/plasma-icons';
 
 import { iconButtonFade } from '../mixins';
-import { normalizeValue, getHEXAColor, getRGBAColor, TokenContext, getColorValue } from '../../utils';
+import { normalizeValue, getHEXAColor, getRGBAColor, TokenContext, getBackgroundColor } from '../../utils';
 import type { TokenValue } from '../../types';
+import { PreviewColor } from '../PreviewColor/PreviewColor';
 
 const IconButtons = styled.div`
     display: flex;
@@ -55,12 +56,6 @@ const TokenName = styled.span<{ disable?: boolean }>`
         css`
             text-decoration: line-through;
         `}
-`;
-
-const TokenColorPreview = styled.div`
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
 `;
 
 const TokenHEXAValue = styled.div`
@@ -151,7 +146,7 @@ export const Token = ({ section, subsection, name, data }: TokenProps) => {
                     {name}
                 </TokenName>
             </Tooltip>
-            <TokenColorPreview style={{ background: getColorValue(value) }} />
+            <PreviewColor background={getBackgroundColor(value)} borderRadius="50%" size="1rem" />
             <TokenHEXAValue>{getHEXAColor(normalizedValue)}</TokenHEXAValue>
             <TokenRGBAValue>{getRGBAColor(normalizedValue)}</TokenRGBAValue>
             <IconButtons>

@@ -8,7 +8,7 @@ import { GradientTokenCSSLayer } from '../GradientTokenCSSLayer/GradientTokenCSS
 import { GradientTokenSwiftLayer } from '../GradientTokenSwiftLayer/GradientTokenSwiftLayer';
 import { GradientTokenXMLLayer } from '../GradientTokenXMLLayer/GradientTokenXMLLayer';
 
-import { getColorValue, parseGradient } from '../../utils';
+import { getBackgroundColor, parseGradient } from '../../utils';
 import type { MultiplatformValue, InputDataValue, Swift, XML } from '../../types';
 
 const Root = styled.div``;
@@ -51,8 +51,8 @@ export const GradientTokenValue = ({ value, onChangeValue }: GradientTokenValueP
         platformTypeItems[0],
     );
 
-    const colorValue = getColorValue(value.value);
-    const [gradientValue, setGradientValue] = useState(colorValue === value.value ? '' : colorValue);
+    const colorValue = getBackgroundColor(value.value);
+    const [gradientValue, setGradientValue] = useState(colorValue);
 
     const onSelectPlatformType = useCallback((value: string) => {
         setSelectPlatformType(value as typeof platformTypeItems[number]);

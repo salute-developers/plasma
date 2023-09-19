@@ -1,31 +1,62 @@
 import React from 'react';
 import { general as generalColors } from '@salutejs/plasma-colors';
-import { alphenColor, getHEXAColor, humanizeColor } from '@salutejs/plasma-tokens-utils';
+import { extractColors, getHEXAColor, getRestoredColorFromPalette } from '@salutejs/plasma-tokens-utils';
 import type { PlasmaSaturation } from '@salutejs/plasma-colors';
 
 import { PreviewColor } from '../components/PreviewColor/PreviewColor';
 
-import { generalColorsAdditionalSaturation } from '../types';
 import type { ComplexValue, GeneralColor, GetGreyTokenDataParams } from '../types';
 
 export { getHEXAColor };
 
-export const normalizeValue = (value: ComplexValue) => {
-    const regex = new RegExp(/((rgba?|hsla?)\([\d.%\s,()#\w]*\))|(#\w{6,8})/gm);
-    const defaultColor = '#FFFFFFFF';
+const DEFAULT_WHITE_COLOR = '#FFFFFFFF';
+const DEFAULT_BLACK_COLOR = '#000000FF';
+const excludeColors = [DEFAULT_WHITE_COLOR, DEFAULT_BLACK_COLOR];
 
-    if (typeof value === 'string' && !value.includes('gradient')) {
-        if (!regex.test(value)) {
-            return defaultColor;
+const isValidColorValue = (value: string) => /((rgba?|hsla?)\([\d.%\s,()#\w]*\))|(#\w{6,8})/m.test(value);
+
+export const getPaletteColorByHEX = (inputColor: string) => {
+    const hexInputColor = getHEXAColor(inputColor);
+
+    for (const [shade, saturations] of Object.entries(generalColors)) {
+        for (const [saturation, color] of Object.entries(saturations)) {
+            const hexPaletteColor = getHEXAColor(color);
+
+            if (!excludeColors.includes(hexInputColor) && hexInputColor === hexPaletteColor) {
+                return ([shade, saturation] as unknown) as [GeneralColor, PlasmaSaturation];
+            }
         }
-
-        return value;
     }
 
-    return defaultColor;
+    return [undefined, undefined];
 };
 
-export const getColorValue = (value: ComplexValue) => {
+export const getPaletteColorByValue = (value: ComplexValue) => {
+    if (typeof value === 'string' && value.startsWith('[') && value.endsWith(']')) {
+        const [, color] = extractColors(value);
+        const [, shade, saturation] = color.split('.');
+
+        return ([shade, saturation] as unknown) as [GeneralColor, PlasmaSaturation];
+    }
+
+    return [undefined, undefined];
+};
+
+export const normalizeValue = (value: ComplexValue) => {
+    if (typeof value === 'string' && !value.includes('gradient')) {
+        const newValue = getRestoredColorFromPalette(value);
+
+        if (!isValidColorValue(newValue)) {
+            return DEFAULT_WHITE_COLOR;
+        }
+
+        return newValue;
+    }
+
+    return DEFAULT_WHITE_COLOR;
+};
+
+export const getBackgroundColor = (value: ComplexValue) => {
     if (Array.isArray(value)) {
         return value.map((val) => val.origin).join(', ');
     }
@@ -34,7 +65,13 @@ export const getColorValue = (value: ComplexValue) => {
         return value.origin;
     }
 
-    return value;
+    const newValue = getRestoredColorFromPalette(value);
+
+    if (!isValidColorValue(newValue)) {
+        return DEFAULT_WHITE_COLOR;
+    }
+
+    return newValue;
 };
 
 const hexAToRGBA = (hex: string) => [
@@ -91,9 +128,7 @@ export const getAccentColors = () =>
     }));
 
 export const getGreyTokenData = ({ saturation, grayscale, opacity }: GetGreyTokenDataParams) => {
-    const color =
-        saturation !== 50
-            ? generalColors[grayscale][saturation]
-            : generalColorsAdditionalSaturation[grayscale][saturation];
-    return opacity ? alphenColor(color, opacity - 1) : humanizeColor(color);
+    return opacity
+        ? `[general.${grayscale}.${saturation}][${(opacity - 1).toPrecision(3)}]`
+        : `[general.${grayscale}.${saturation}]`;
 };
