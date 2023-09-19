@@ -7,6 +7,7 @@ on:
     branches:
       - master
       - dev
+      - SPEED-1074-perftest-new-endpoint
 
 concurrency:
   # New commit on branch cancels running workflows of the same branch

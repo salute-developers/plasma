@@ -5,6 +5,7 @@ import { Switch } from '.';
 const onChange = () => {};
 
 export function Default() {
+    window.top;
     return (
         <Switch
             key={1}

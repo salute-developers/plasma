@@ -67,6 +67,9 @@ async function perftoolSendReport() {
                         service: 'packages/plasma',
                         payload: getMetadata(metric[kind]),
                     };
+
+                    console.log(JSON.stringify(item, null, 4));
+
                     body.push(item);
                 }
             }

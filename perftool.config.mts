@@ -2,7 +2,7 @@ import type { Config } from '@salutejs/perftool';
 
 const config: Config = {
     jobs: 1,
-    retries: 40,
+    retries: 2,
     taskConfiguration: {
         render: {
             renderWaitTimeout: 500,
