@@ -1,11 +1,9 @@
-import { general as generalColors } from '@salutejs/plasma-colors';
-import { humanizeColor, alphenColor } from '@salutejs/plasma-tokens-utils';
 import type { TokensByType } from '@salutejs/plasma-tokens-utils';
 
 export const transparentWarningTokensCreator = (comment: Record<keyof TokensByType, string>) => {
     const opacityDegrees = -0.88;
-    const darkValue = alphenColor(humanizeColor(generalColors.orange[500]), opacityDegrees);
-    const lightValue = alphenColor(humanizeColor(generalColors.orange[600]), opacityDegrees);
+    const darkValue = `[general.orange.500][${opacityDegrees}]`;
+    const lightValue = `[general.orange.600][${opacityDegrees}]`;
 
     return () => ({
         dark: {

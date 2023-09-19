@@ -1,5 +1,3 @@
-import { general as generalColors } from '@salutejs/plasma-colors';
-import { humanizeColor } from '@salutejs/plasma-tokens-utils';
 import type { TokensByType, ThemeConfig } from '@salutejs/plasma-tokens-utils';
 
 const comment: Record<keyof TokensByType, string> = {
@@ -10,8 +8,8 @@ const comment: Record<keyof TokensByType, string> = {
 };
 
 export const getSurfaceSolidPrimaryTokens = (config: ThemeConfig) => {
-    const darkValue = humanizeColor(generalColors[config.grayscale.dark][950]);
-    const lightValue = humanizeColor(generalColors[config.grayscale.light][100]);
+    const darkValue = `[general.${config.grayscale.dark}.${950}]`;
+    const lightValue = `[general.${config.grayscale.light}.${100}]`;
 
     return {
         dark: {

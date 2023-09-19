@@ -1,10 +1,8 @@
-import { general as generalColors } from '@salutejs/plasma-colors';
-import { humanizeColor } from '@salutejs/plasma-tokens-utils';
 import type { TokensByType } from '@salutejs/plasma-tokens-utils';
 
 export const positiveTokensCreator = (comment: Record<keyof TokensByType, string>) => {
-    const darkValue = humanizeColor(generalColors.green[500]);
-    const lightValue = humanizeColor(generalColors.green[600]);
+    const darkValue = '[general.green.500]';
+    const lightValue = '[general.green.600]';
 
     return () => ({
         dark: {

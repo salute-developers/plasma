@@ -1,11 +1,10 @@
-import { humanizeColor, alphenColor } from '@salutejs/plasma-tokens-utils';
 import type { TokensByType, ThemeConfig } from '@salutejs/plasma-tokens-utils';
 
 export const transparentAccentTokenCreator = (comment: Record<keyof TokensByType, string>) => {
     return (config: ThemeConfig) => {
         const opacityDegrees = -0.88;
-        const accentColorDark = alphenColor(humanizeColor(config.accentColor.dark), opacityDegrees);
-        const accentColorLight = alphenColor(humanizeColor(config.accentColor.light), opacityDegrees);
+        const accentColorDark = `${config.accentColor.dark}[${opacityDegrees}]`;
+        const accentColorLight = `${config.accentColor.light}[${opacityDegrees}]`;
 
         return {
             dark: {
