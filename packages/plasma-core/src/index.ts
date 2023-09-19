@@ -8,6 +8,7 @@ export * from './components/Image';
 export * from './components/Input';
 export * from './components/PaginationDots';
 export * from './components/Popup';
+export * from './components/Popover';
 export * from './components/Price';
 export * from './components/RadioGroup';
 export * from './components/Skeleton';
