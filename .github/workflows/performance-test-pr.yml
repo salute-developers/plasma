@@ -227,5 +227,6 @@ jobs:
         run: >
           ./scripts/perftool-send-report.js
           --reportPath /home/runner/work/plasma/plasma/perftest/comparison.json
+          --referrer https://github.com/${{ github.repository }}/pull/${{ github.event.number }}
         env:
           GITHUB_SHA: ${{ github.sha }}
