@@ -11,12 +11,12 @@ const getMetadata = (data) => {
     return JSON.stringify(result);
 };
 
-const METRICS_URL = 'https://metrics.prom.third-party-app.sberdevices.ru/create-canvas-app-metrics';
+const METRICS_URL = 'https://metrics.prom.third-party-app.sberdevices.ru/perftool';
 
-program.option('--reportPath <string>').parse();
+program.option('--reportPath <string>').option('--referrer <string>').parse();
 
 async function perftoolSendReport() {
-    const { reportPath } = program.opts();
+    const { reportPath, referrer } = program.opts();
     // eslint-disable-next-line global-require, import/no-dynamic-require
     const { staticTaskChange, result, isVersionChanged } = require(reportPath);
 
@@ -40,30 +40,32 @@ async function perftoolSendReport() {
     }
 
     const body = [];
-    const sessionId = crypto.randomUUID();
+    const runId = crypto.randomUUID();
     const commitHash = process.env.GITHUB_SHA;
     // e.g. subjectId = src/components/Carousel/Carousel.perftest.tsx#CarouselLiteBasic
-    for (const [subjectId, subject] of Object.entries(data)) {
+    for (const [componentId, subject] of Object.entries(data)) {
         // e.g. taskId = rerender | render
         for (const [taskId, task] of Object.entries(subject)) {
             const filteredMetrics = Object.entries(task).filter(([k]) => !k.startsWith('_'));
             // e.g. metricId = median | mean
             for (const [metricId, metric] of filteredMetrics) {
-                for (const typeId of ['old', 'new', 'change']) {
+                for (const kind of ['old', 'new', 'change']) {
                     // change, old are optional
-                    if (!metric[typeId]) {
+                    if (!metric[kind]) {
                         // eslint-disable-next-line no-continue
                         continue;
                     }
 
                     const item = {
-                        ua: 'perftest/packages/plasma',
-                        hostname: commitHash,
-                        sessionId,
-                        path: subjectId,
-                        key: `${taskId}_${metricId}`,
-                        valueStr: typeId,
-                        metadata: getMetadata(metric[typeId]),
+                        commitHash,
+                        runId,
+                        componentId,
+                        taskId,
+                        metricId,
+                        kind,
+                        referrer,
+                        service: 'packages/plasma',
+                        payload: getMetadata(metric[kind]),
                     };
                     body.push(item);
                 }
