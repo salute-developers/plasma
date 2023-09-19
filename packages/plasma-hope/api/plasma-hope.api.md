@@ -115,6 +115,9 @@ import { Popover } from '@salutejs/plasma-core';
 import { PopoverPlacement } from '@salutejs/plasma-core';
 import { PopoverProps } from '@salutejs/plasma-core';
 import { Popup } from '@salutejs/plasma-core';
+import { PopupBase } from '@salutejs/plasma-core';
+import { PopupBasePlacement } from '@salutejs/plasma-core';
+import { PopupBaseProps } from '@salutejs/plasma-core';
 import { PopupProps } from '@salutejs/plasma-core';
 import type { PriceProps as PriceProps_2 } from '@salutejs/plasma-core';
 import { PropsWithChildren } from 'react';
@@ -1004,6 +1007,12 @@ export { PopoverPlacement }
 export { PopoverProps }
 
 export { Popup }
+
+export { PopupBase }
+
+export { PopupBasePlacement }
+
+export { PopupBaseProps }
 
 export { PopupProps }
 

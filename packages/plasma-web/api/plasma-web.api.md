@@ -169,6 +169,9 @@ import { Popover } from '@salutejs/plasma-hope';
 import { PopoverPlacement } from '@salutejs/plasma-hope';
 import { PopoverProps } from '@salutejs/plasma-hope';
 import { Popup } from '@salutejs/plasma-hope';
+import { PopupBase } from '@salutejs/plasma-hope';
+import { PopupBasePlacement } from '@salutejs/plasma-hope';
+import { PopupBaseProps } from '@salutejs/plasma-hope';
 import { PopupProps } from '@salutejs/plasma-hope';
 import { PreviewGallery } from '@salutejs/plasma-hope';
 import { PreviewGalleryItemProps } from '@salutejs/plasma-hope';
@@ -608,6 +611,12 @@ export { PopoverPlacement }
 export { PopoverProps }
 
 export { Popup }
+
+export { PopupBase }
+
+export { PopupBasePlacement }
+
+export { PopupBaseProps }
 
 export { PopupProps }
 

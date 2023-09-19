@@ -21,6 +21,7 @@ import { FlattenSimpleInterpolation } from 'styled-components';
 import { FunctionComponent } from 'react';
 import { HTMLAttributes } from 'react';
 import { InterpolationFunction } from 'styled-components';
+import { Keyframes } from 'styled-components';
 import { MutableRefObject } from 'react';
 import { default as React_2 } from 'react';
 import { ReactNode } from 'react';
@@ -840,6 +841,29 @@ export interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
 
 // @public @deprecated
 export const Popup: React_2.NamedExoticComponent<PopupProps & React_2.RefAttributes<HTMLDivElement>>;
+
+// @public
+export const PopupBase: FC<PopupBaseProps>;
+
+// Warning: (ae-forgotten-export) The symbol "BasicPopupBasePlacement" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "MixedPopupBasePlacement" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type PopupBasePlacement = BasicPopupBasePlacement | MixedPopupBasePlacement;
+
+// @public (undocumented)
+export interface PopupBaseProps extends React_2.HTMLAttributes<HTMLDivElement> {
+    children?: React_2.ReactNode;
+    frame: 'document' | React_2.RefObject<HTMLElement>;
+    hideAnimation?: Keyframes;
+    isOpen: boolean;
+    // (undocumented)
+    offset?: [number | string, number | string];
+    // (undocumented)
+    position?: PopupBasePlacement;
+    showAnimation?: Keyframes;
+    zIndex?: string;
+}
 
 // @public (undocumented)
 export interface PopupProps extends HTMLAttributes<HTMLDivElement> {
