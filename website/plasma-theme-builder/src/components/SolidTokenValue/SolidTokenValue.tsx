@@ -1,11 +1,18 @@
 import React, { ChangeEvent, useCallback, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { Select, TextField } from '@salutejs/plasma-b2c';
-import { PlasmaSaturation, general as generalColors } from '@salutejs/plasma-colors';
+import { PlasmaSaturation } from '@salutejs/plasma-colors';
+import { getRestoredColorFromPalette } from '@salutejs/plasma-tokens-utils';
 
 import { PreviewColor } from '../PreviewColor/PreviewColor';
 
-import { getAccentColors, getSaturations } from '../../utils';
+import {
+    getAccentColors,
+    getBackgroundColor,
+    getPaletteColorByHEX,
+    getPaletteColorByValue,
+    getSaturations,
+} from '../../utils';
 import type { GeneralColor, InputDataValue } from '../../types';
 
 const Root = styled.div``;
@@ -36,10 +43,15 @@ interface SolidTokenValueProps {
 }
 
 export const SolidTokenValue = ({ value, onChangeValue }: SolidTokenValueProps) => {
-    const [selectedColor, setSelectedColor] = useState<GeneralColor | undefined>();
-    const [selectedSaturation, setSelectedSaturation] = useState<PlasmaSaturation | undefined>();
+    const [paletteColor, paletteSaturation] = getPaletteColorByValue(value.value);
 
-    const normalizeColor = typeof value.value === 'string' ? value.value : '';
+    const [selectedColor, setSelectedColor] = useState<GeneralColor | undefined>(paletteColor);
+    const [selectedSaturation, setSelectedSaturation] = useState<PlasmaSaturation | undefined>(paletteSaturation);
+
+    const normalizeColor = useMemo(
+        () => (typeof value.value === 'string' ? getRestoredColorFromPalette(value.value) : ''),
+        [value.value],
+    );
 
     const accentColors = useMemo(() => getAccentColors(), []);
 
@@ -49,12 +61,11 @@ export const SolidTokenValue = ({ value, onChangeValue }: SolidTokenValueProps) 
         (color: GeneralColor) => {
             const saturation500 = 7;
             const saturation: PlasmaSaturation = selectedSaturation || getSaturations()[saturation500].value;
-            const value = generalColors[color][saturation];
 
             setSelectedColor(color);
             setSelectedSaturation(saturation);
 
-            onChangeValue(value);
+            onChangeValue(`[general.${color}.${saturation}]`);
         },
         [onChangeValue, selectedSaturation],
     );
@@ -63,12 +74,11 @@ export const SolidTokenValue = ({ value, onChangeValue }: SolidTokenValueProps) 
         (saturation: PlasmaSaturation) => {
             const colorRed = 0;
             const color: GeneralColor = selectedColor || getAccentColors()[colorRed].value;
-            const value = generalColors[color][saturation];
 
             setSelectedColor(color);
             setSelectedSaturation(saturation);
 
-            onChangeValue(value);
+            onChangeValue(`[general.${color}.${saturation}]`);
         },
         [onChangeValue, selectedColor],
     );
@@ -77,10 +87,13 @@ export const SolidTokenValue = ({ value, onChangeValue }: SolidTokenValueProps) 
         (event: ChangeEvent<HTMLInputElement>) => {
             const { value } = event.target;
 
-            setSelectedColor(undefined);
-            setSelectedSaturation(undefined);
+            const [color, saturation] = getPaletteColorByHEX(value);
 
-            onChangeValue(value);
+            setSelectedColor(color);
+            setSelectedSaturation(saturation);
+
+            const formattedColor = color && saturation ? `[general.${color}.${saturation}]` : value;
+            onChangeValue(formattedColor);
         },
         [onChangeValue],
     );
@@ -88,7 +101,7 @@ export const SolidTokenValue = ({ value, onChangeValue }: SolidTokenValueProps) 
     return (
         <Root>
             <StyledPaletteSelect>
-                <PreviewColor background={normalizeColor} borderRadius="0.75rem" size="3rem" />
+                <PreviewColor background={getBackgroundColor(value.value)} borderRadius="0.75rem" size="3rem" />
                 <StyledSelect
                     listOverflow="scroll"
                     listHeight="25"
