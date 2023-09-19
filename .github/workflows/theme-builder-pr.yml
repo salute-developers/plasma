@@ -39,7 +39,7 @@ jobs:
         run: |
           export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-theme-builder"
-          cp -R ./website/plasma-theme-builder/build ./s3_build/plasma-theme-builder-${PR_NAME}
+          cp -R ./website/plasma-theme-builder/build/. ./s3_build/plasma-theme-builder-${PR_NAME}
 
       - name: Install s3cmd
         run: |
