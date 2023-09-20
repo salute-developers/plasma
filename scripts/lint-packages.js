@@ -35,25 +35,17 @@ const packagesInfo = lerna.packages
                 author,
             } = packageJSON;
 
-            // TODO: Убрать проверку, как только auto + npm plugin сможет корректно проставлять
-            // версии в приватных пакетах
-            if (
-                !['@salutejs/plasma-web-docs', '@salutejs/plasma-ui-docs', '@salutejs/plasma-temple-docs'].includes(
-                    name,
-                )
-            ) {
-                packages.set(name, {
-                    name,
-                    version,
-                    dependencies,
-                    devDependencies,
-                    peerDependencies,
-                    private,
-                    author,
-                    path: packagePath,
-                    dir: p,
-                });
-            }
+            packages.set(name, {
+                name,
+                version,
+                dependencies,
+                devDependencies,
+                peerDependencies,
+                private,
+                author,
+                path: packagePath,
+                dir: p,
+            });
         } catch (err) {
             console.error(p, 'Error while reading package.json');
         }
