@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import { usePopper } from 'react-popper';
 import PopperJS from '@popperjs/core';
 
-import { useForkRef } from '../../hooks';
+import { useFocusTrap, useForkRef } from '../../hooks';
+
+const ESCAPE_KEYCODE = 27;
 
 export type PopoverBasicPlacement = 'top' | 'bottom' | 'right' | 'left';
 export type PopoverPlacement = PopoverBasicPlacement | 'auto';
@@ -19,29 +21,41 @@ export interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
      */
     trigger: 'hover' | 'click';
     /**
-     * Расположение всплывающего окна. По умолчанию "auto"
+     * Расположение всплывающего окна. По умолчанию "auto".
      */
     placement?: PopoverPlacement | Array<PopoverBasicPlacement>;
     /**
-     * Стрелка над элементом показывается или нет.
+     * Отступ окна относительно элемента, у которого оно вызвано.
      */
-    showArrow?: boolean;
+    offset?: [number, number];
     /**
-     * Элемент, при нажатии на который произойдет вызов всплывающего окна.
+     * Элемент, рядом с которым произойдет вызов всплывающего окна.
      */
     target?: ReactNode;
+    /**
+     * Стрелка над элементом.
+     */
+    arrow?: ReactNode;
     /**
      * Контент всплывающего окна.
      */
     children?: ReactNode;
     /**
+     * Блокировать ли фокус на всплывающем окне.
+     */
+    isFocusTrapped?: boolean;
+    /**
      * Событие сворачивания/разворачивания всплывающего окна.
      */
     onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
     /**
-     * Закрывать окно при нажатии вне области окна(по умолчанию true),
+     * Закрывать окно при нажатии вне области окна(по умолчанию true).
      */
-    closeOnOverlayClick: boolean;
+    closeOnOverlayClick?: boolean;
+    /**
+     * Закрывать окно при нажатии ESC(по умолчанию true).
+     */
+    closeOnEsc?: boolean;
 }
 
 const StyledRoot = styled.div`
@@ -50,47 +64,26 @@ const StyledRoot = styled.div`
     display: inline-flex;
 `;
 
-const StyledArrow = styled.div`
-    visibility: hidden;
-
-    &,
-    &::before {
-        position: absolute;
-        width: 0.5rem;
-        height: 0.5rem;
-        background: inherit;
-    }
-
-    &::before {
-        visibility: visible;
-        content: '';
-        transform: rotate(45deg);
-    }
-`;
-
 const StyledPopover = styled.div`
     position: absolute;
     z-index: 1;
 
-    &[data-popper-placement^='top'] > ${StyledArrow} {
+    /* stylelint-disable selector-max-id */
+    &[data-popper-placement^='top'] > #popover-arrow {
         bottom: -0.25rem;
     }
 
-    &[data-popper-placement^='bottom'] > ${StyledArrow} {
+    &[data-popper-placement^='bottom'] > #popover-arrow {
         top: -0.25rem;
     }
 
-    &[data-popper-placement^='left'] > ${StyledArrow} {
+    &[data-popper-placement^='left'] > #popover-arrow {
         right: -0.25rem;
     }
 
-    &[data-popper-placement^='right'] > ${StyledArrow} {
+    &[data-popper-placement^='right'] > #popover-arrow {
         left: -0.25rem;
     }
-
-    padding: var(--plasma-popup-padding);
-    margin: var(--plasma-popup-margin);
-    width: var(--plasma-popup-width);
 `;
 
 export const getPlacement = (placement: PopoverPlacement) => {
@@ -113,9 +106,12 @@ export const Popover = memo<PopoverProps & RefAttributes<HTMLDivElement>>(
                 children,
                 isOpen,
                 trigger,
-                showArrow = false,
+                arrow,
                 placement = 'auto',
+                offset = [0, 0],
+                isFocusTrapped = false,
                 closeOnOverlayClick = true,
+                closeOnEsc = true,
                 onToggle,
                 ...rest
             },
@@ -125,6 +121,10 @@ export const Popover = memo<PopoverProps & RefAttributes<HTMLDivElement>>(
             const popoverRef = useRef<HTMLDivElement | null>(null);
             const handleRef = useForkRef<HTMLDivElement>(rootRef, outerRootRef);
 
+            const trapRef = useFocusTrap(isOpen && isFocusTrapped);
+
+            const popoverForkRef = useForkRef<HTMLDivElement>(popoverRef, trapRef);
+
             const [arrowElement, setArrowElement] = useState<HTMLSpanElement | null>(null);
 
             const isAutoArray = Array.isArray(placement);
@@ -133,6 +133,7 @@ export const Popover = memo<PopoverProps & RefAttributes<HTMLDivElement>>(
             const { styles, attributes, forceUpdate } = usePopper(rootRef.current, popoverRef.current, {
                 placement: getPlacement(isAutoArray ? 'auto' : (placement as PopoverPlacement)),
                 modifiers: [
+                    { name: 'offset', options: { offset: [offset[0], offset[1]] } },
                     {
                         name: 'flip',
                         enabled: isAuto,
@@ -146,26 +147,32 @@ export const Popover = memo<PopoverProps & RefAttributes<HTMLDivElement>>(
                 ],
             });
 
-            const onDocumentClick = useCallback(
-                (event: MouseEvent) => {
-                    console.log('closeOnOverlayClick', closeOnOverlayClick);
-                    if (!closeOnOverlayClick) {
-                        return;
-                    }
-                    const targetIsRoot = event.target === rootRef.current;
-                    const rootHasTarget = rootRef.current?.contains(event.target as Element);
-
-                    if (!targetIsRoot && !rootHasTarget) {
+            const onEscape = useCallback(
+                (event: KeyboardEvent) => {
+                    if (isOpen && closeOnEsc && event.keyCode === ESCAPE_KEYCODE) {
                         onToggle?.(false, event);
                     }
                 },
-                [onToggle, closeOnOverlayClick],
+                [closeOnEsc, isOpen, onToggle],
+            );
+
+            const onDocumentClick = useCallback(
+                (event: MouseEvent) => {
+                    if (isOpen && closeOnOverlayClick && onToggle) {
+                        const targetIsRoot = event.target === rootRef.current;
+                        const rootHasTarget = rootRef.current?.contains(event.target as Element);
+
+                        if (!targetIsRoot && !rootHasTarget) {
+                            onToggle(false, event);
+                        }
+                    }
+                },
+                [closeOnOverlayClick, isOpen, onToggle],
             );
 
             const onClick = useCallback<React.MouseEventHandler>(
                 (event) => {
                     if (trigger === 'click') {
-                        console.log('popover click');
                         const targetIsPopover = event.target === popoverRef.current;
                         const rootHasTarget = popoverRef.current?.contains(event.target as Element);
 
@@ -216,10 +223,14 @@ export const Popover = memo<PopoverProps & RefAttributes<HTMLDivElement>>(
             useEffect(() => {
                 document.addEventListener('click', onDocumentClick);
                 return () => document.removeEventListener('click', onDocumentClick);
-            }, []);
+            }, [closeOnOverlayClick, isOpen, onToggle]);
 
             useEffect(() => {
-                console.log('effect', isOpen);
+                window.addEventListener('keydown', onEscape);
+                return () => window.removeEventListener('keydown', onEscape);
+            }, [closeOnEsc, isOpen, onToggle]);
+
+            useEffect(() => {
                 if (!isOpen || !forceUpdate) {
                     return;
                 }
@@ -232,8 +243,6 @@ export const Popover = memo<PopoverProps & RefAttributes<HTMLDivElement>>(
                  */
                 Promise.resolve().then(forceUpdate);
             }, [isOpen, forceUpdate]);
-
-            console.log(isOpen);
 
             return (
                 <StyledRoot
@@ -249,11 +258,18 @@ export const Popover = memo<PopoverProps & RefAttributes<HTMLDivElement>>(
                     {children && (
                         <StyledPopover
                             {...attributes.popper}
-                            ref={popoverRef}
+                            ref={popoverForkRef}
                             style={{ ...styles.popper, ...{ display: isOpen ? 'block' : 'none' } }}
                         >
-                            {showArrow && (
-                                <StyledArrow ref={setArrowElement} style={styles.arrow} {...attributes.arrow} />
+                            {arrow && (
+                                <div
+                                    id="popover-arrow"
+                                    ref={setArrowElement}
+                                    style={styles.arrow}
+                                    {...attributes.arrow}
+                                >
+                                    {arrow}
+                                </div>
                             )}
                             {children}
                         </StyledPopover>

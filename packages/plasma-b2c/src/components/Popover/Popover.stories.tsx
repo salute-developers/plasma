@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
 import { surfaceSolid03 } from '@salutejs/plasma-tokens-web';
+import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
-import { InSpacingDecorator, disableProps } from '../../helpers';
 import { Button } from '../Button';
 
 import { Popover, PopoverProps, PopoverPlacement } from '.';

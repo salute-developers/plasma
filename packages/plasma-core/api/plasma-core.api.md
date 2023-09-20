@@ -24,6 +24,7 @@ import { InterpolationFunction } from 'styled-components';
 import { MutableRefObject } from 'react';
 import { default as React_2 } from 'react';
 import { ReactNode } from 'react';
+import { RefObject } from 'react';
 import { spacing } from '@salutejs/plasma-typo';
 import { SpacingProps } from '@salutejs/plasma-typo';
 import { SpacingProps as SpacingProps_2 } from '@salutejs/plasma-typo/lib/cjs/mixins/applySpacing';
@@ -824,12 +825,15 @@ export type PopoverPlacement = PopoverBasicPlacement | 'auto';
 
 // @public (undocumented)
 export interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
+    arrow?: ReactNode;
     children?: ReactNode;
-    closeOnOverlayClick: boolean;
+    closeOnEsc?: boolean;
+    closeOnOverlayClick?: boolean;
+    isFocusTrapped?: boolean;
     isOpen?: boolean;
+    offset?: [number, number];
     onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
     placement?: PopoverPlacement | Array<PopoverBasicPlacement>;
-    showArrow?: boolean;
     target?: ReactNode;
     trigger: 'hover' | 'click';
 }
@@ -1259,6 +1263,9 @@ export type UseCarouselOptions = Pick<CarouselProps, 'index' | 'axis' | 'detectA
 
 // @public (undocumented)
 export function useDebouncedFunction(func: (...args: any) => any, delay: number, cleanUp?: boolean): (...args: any[]) => void;
+
+// @public
+export const useFocusTrap: (active?: boolean, firstFocusSelector?: string | RefObject<HTMLElement> | undefined, focusAfterNode?: RefObject<HTMLElement> | undefined) => (instance: HTMLElement | null) => void;
 
 // Warning: (ae-forgotten-export) The symbol "UseForkRefHook" needs to be exported by the entry point index.d.ts
 //
