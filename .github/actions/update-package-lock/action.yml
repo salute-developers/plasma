@@ -17,9 +17,12 @@ runs:
     - name: Update package-lock's
       shell: bash
       run: |
+        # Sync package-lock file state (root  level)
         npm i --no-audit --no-progress --package-lock-only
+        # Remove the node_modules directory from all packages
         lerna clean -y
-        lerna exec --no-private -- npm i --no-audit --no-progress --package-lock-only --ignore-scripts
+        # Sync package-lock files state (includes private packages)
+        lerna exec -- npm i --no-audit --no-progress --ignore-scripts --package-lock-only --lockfile-version 2
         # root deps don't update correctly on first regeneration O_o
         npm i --no-audit --no-progress --package-lock-only
 
