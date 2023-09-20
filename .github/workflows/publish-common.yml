@@ -13,9 +13,6 @@ on:
       commit-message:
         type: string
         default: 'chore: update package-locks [skip ci]'
-      tag:
-        type: string
-        description: 'publish tag: canary,dev,latest. For example, tag === "dev" run => npm install @salutejs/plasma-b2c@dev'
     secrets:
       gh_token:
         required: true
@@ -58,5 +55,4 @@ jobs:
         uses: ./.github/actions/update-package-lock
         with:
           commit-message: ${{ inputs.commit-message }}
-          tag: ${{ inputs.tag }}
           token: ${{ secrets.gh_token }}
