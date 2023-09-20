@@ -941,6 +941,9 @@ export interface RoundnessProps {
 export function safeFlushSync(fn: () => void): void;
 
 // @public (undocumented)
+export const safeUseId: () => string;
+
+// @public (undocumented)
 export type ScrollAxis = 'x' | 'y';
 
 // @public (undocumented)

@@ -17,4 +17,4 @@ export { toCssSize } from './toCssSize';
 
 export { transformStyles } from './transformStyles';
 
-export { IS_REACT_18, safeFlushSync } from './react';
+export { IS_REACT_18, safeFlushSync, safeUseId } from './react';
