@@ -1,0 +1,13 @@
+diff --git a/node_modules/@auto-it/npm/dist/index.js b/node_modules/@auto-it/npm/dist/index.js
+index 9e81d10..3adfc2d 100644
+--- a/node_modules/@auto-it/npm/dist/index.js
++++ b/node_modules/@auto-it/npm/dist/index.js
+@@ -257,7 +257,7 @@ const makeMonorepoInstallList = (packageList) => [
+ ].join("\n");
+ /** Get an array of independent next version package updates */
+ const getIndependentNextReleases = async (bump, prereleaseBranch) => {
+-    const packages = await core_1.getLernaPackages();
++    const packages = await core_1.getLernaPackages({ includesPrivatePackage: true });
+     const [, changedPackagesResult = ""] = await await_to_js_1.default(core_1.execPromise("npx", ["lerna", "changed", "-a"]));
+     const changedPackages = changedPackagesResult
+         .split("\n")

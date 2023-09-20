@@ -1,0 +1,19 @@
+diff --git a/node_modules/@auto-it/core/dist/utils/get-lerna-packages.js b/node_modules/@auto-it/core/dist/utils/get-lerna-packages.js
+index 6fb2e7f..d4b1d7f 100644
+--- a/node_modules/@auto-it/core/dist/utils/get-lerna-packages.js
++++ b/node_modules/@auto-it/core/dist/utils/get-lerna-packages.js
+@@ -3,12 +3,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
+ const tslib_1 = require("tslib");
+ const exec_promise_1 = tslib_1.__importDefault(require("./exec-promise"));
+ /** Get all of the packages in the lerna monorepo */
+-async function getLernaPackages() {
++async function getLernaPackages({ includesPrivatePackage = false } = {}) {
+     const packages = [];
+     const response = await exec_promise_1.default("npx", ["lerna", "ls", "-pla"]);
+     response.split("\n").forEach((packageInfo) => {
+         const [packagePath, name, version, isPrivate] = packageInfo.split(":");
+-        if (version !== "MISSING" && isPrivate !== "PRIVATE") {
++        if (version !== "MISSING" && (includesPrivatePackage || isPrivate !== "PRIVATE")) {
+             packages.push({ path: packagePath, name, version });
+         }
+     });
