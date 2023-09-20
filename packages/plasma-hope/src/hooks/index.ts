@@ -1,2 +1,7 @@
-export { useForkRef, useIsomorphicLayoutEffect, useDebouncedFunction, useResizeObserver } from '@salutejs/plasma-core';
-export { useFocusTrap } from './useFocusTrap';
+export {
+    useForkRef,
+    useIsomorphicLayoutEffect,
+    useDebouncedFunction,
+    useResizeObserver,
+    useFocusTrap,
+} from '@salutejs/plasma-core';
