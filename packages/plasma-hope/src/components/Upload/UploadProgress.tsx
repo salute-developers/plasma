@@ -1,7 +1,6 @@
+import { Spinner } from '@salutejs/plasma-core';
 import React, { FC } from 'react';
 import styled from 'styled-components';
-
-import { Spinner } from '../Spinner';
 
 const StyledRoot = styled.div`
     display: flex;
