@@ -142,7 +142,6 @@ import { SnapType } from '@salutejs/plasma-core';
 import { SortableContainerProps } from 'react-sortable-hoc';
 import { SortableElementProps } from 'react-sortable-hoc';
 import { SpacingProps } from '@salutejs/plasma-core';
-import type { SpinnerProps as SpinnerProps_2 } from '@salutejs/plasma-core';
 import { SSRProvider } from '@salutejs/plasma-core';
 import { StyledCard } from '@salutejs/plasma-core';
 import { StyledComponent } from 'styled-components';
@@ -1156,13 +1155,6 @@ export { SnapAlign }
 export { SnapType }
 
 export { SpacingProps }
-
-// @public
-export const Spinner: StyledComponent<FC<SpinnerProps_2>, any, SpinnerProps, never>;
-
-// @public (undocumented)
-export interface SpinnerProps extends SpinnerProps_2 {
-}
 
 export { SSRProvider }
 
