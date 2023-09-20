@@ -212,8 +212,7 @@ import { SnapAlign } from '@salutejs/plasma-core';
 import { SnapType } from '@salutejs/plasma-core';
 import { spacing } from '@salutejs/plasma-core';
 import { SpacingProps } from '@salutejs/plasma-core';
-import { Spinner } from '@salutejs/plasma-hope';
-import { SpinnerProps } from '@salutejs/plasma-hope';
+import { SpinnerProps } from '@salutejs/plasma-core';
 import { SSRProvider } from '@salutejs/plasma-hope';
 import { StatusType } from '@salutejs/plasma-hope';
 import { StyledCard } from '@salutejs/plasma-hope';
@@ -718,7 +717,8 @@ export { spacing }
 
 export { SpacingProps }
 
-export { Spinner }
+// @public
+export const Spinner: StyledComponent<FunctionComponent<SpinnerProps>, any, {}, never>;
 
 export { SpinnerProps }
 
