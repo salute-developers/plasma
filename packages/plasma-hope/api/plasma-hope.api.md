@@ -126,7 +126,6 @@ import { ReactNode } from 'react';
 import { RectSkeleton } from '@salutejs/plasma-core';
 import { RectSkeletonProps } from '@salutejs/plasma-core';
 import { RefAttributes } from 'react';
-import { RefObject } from 'react';
 import { Roundness } from '@salutejs/plasma-core';
 import { RoundnessProps } from '@salutejs/plasma-core';
 import { ScrollSnapProps } from '@salutejs/plasma-core';
@@ -169,6 +168,7 @@ import { transformStyles } from '@salutejs/plasma-core';
 import { TypographyTypes } from '@salutejs/plasma-core';
 import { Underline } from '@salutejs/plasma-core';
 import { useDebouncedFunction } from '@salutejs/plasma-core';
+import { useFocusTrap } from '@salutejs/plasma-core';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { useResizeObserver } from '@salutejs/plasma-core';
@@ -1359,8 +1359,7 @@ export const useAutoResize: <T extends HTMLTextAreaElement>(active: boolean, ref
 
 export { useDebouncedFunction }
 
-// @public
-export const useFocusTrap: (active?: boolean, firstFocusSelector?: string | RefObject<HTMLElement> | undefined, focusAfterNode?: RefObject<HTMLElement> | undefined) => (instance: HTMLElement | null) => void;
+export { useFocusTrap }
 
 export { useForkRef }
 
