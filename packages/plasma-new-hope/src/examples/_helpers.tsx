@@ -25,11 +25,13 @@ export function argTypesFromConfig<
     VariantList extends Variants,
     VariantsProps extends PropsType<VariantList>,
     LayoutProps extends React.HTMLAttributes<HTMLElement>
->(config: ComponentConfig<Tag, VariantList, VariantsProps, LayoutProps>) {
+>(config: ComponentConfig<Tag, VariantList, VariantsProps, LayoutProps>, exclude: string[] = []) {
     const { defaults, variations } = config;
 
+    const filteredVariations = Object.entries(variations).filter(([key]) => !exclude.includes(key));
+
     const argTypes: ArgTypes = {};
-    for (const [key, val] of Object.entries(variations)) {
+    for (const [key, val] of filteredVariations) {
         const control: ArgTypes[''] = {
             control: {},
         };
