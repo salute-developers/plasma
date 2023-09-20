@@ -165,6 +165,9 @@ import { ParagraphText2 } from '@salutejs/plasma-hope';
 import { PickOptional } from '@salutejs/plasma-core';
 import { PinProps } from '@salutejs/plasma-core';
 import { Placement } from '@salutejs/plasma-hope';
+import { Popover } from '@salutejs/plasma-hope';
+import { PopoverPlacement } from '@salutejs/plasma-hope';
+import { PopoverProps } from '@salutejs/plasma-hope';
 import { Popup } from '@salutejs/plasma-hope';
 import { PopupProps } from '@salutejs/plasma-hope';
 import { PreviewGallery } from '@salutejs/plasma-hope';
@@ -597,6 +600,12 @@ export { PickOptional }
 export { PinProps }
 
 export { Placement }
+
+export { Popover }
+
+export { PopoverPlacement }
+
+export { PopoverProps }
 
 export { Popup }
 
