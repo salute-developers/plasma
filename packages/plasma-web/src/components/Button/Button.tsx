@@ -5,7 +5,7 @@ import type { ButtonProps } from '@salutejs/plasma-hope';
 export const ButtonBase = ButtonHope({ design: 'web' });
 
 /**
- * Кнопка.
+ * Кнопка.фывфвыфывфывфывфывфы
  * Поддерживает несколько режимов отображения (`view`) и размеров (`size`).
  */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => <ButtonBase {...props} ref={ref} />);
