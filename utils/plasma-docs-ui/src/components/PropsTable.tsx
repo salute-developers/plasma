@@ -1,7 +1,7 @@
 import React, { FC, HTMLAttributes, useMemo } from 'react';
 import marked from 'marked';
 
-import type { ComponentProps } from '../types';
+import type { ComponentProps, ComponentProp } from '../types';
 
 export interface PropsTableProps extends HTMLAttributes<HTMLTableElement> {
     props: ComponentProps;
@@ -26,6 +26,18 @@ export const PropsTable: FC<PropsTableProps> = ({ props, exclude: propsExclude =
         return null;
     }
 
+    const getType = (type?: ComponentProp['type']) => {
+        if (!type) {
+            return '';
+        }
+
+        if (type.raw && type.value) {
+            return type.raw;
+        }
+
+        return type.name;
+    };
+
     return (
         <table>
             <thead>
@@ -47,7 +59,7 @@ export const PropsTable: FC<PropsTableProps> = ({ props, exclude: propsExclude =
                                 </code>
                             </td>
                             <td>
-                                <code>{prop.type?.name}</code>
+                                <code>{getType(prop.type)}</code>
                             </td>
                             <td>{prop.defaultValue && <code>{prop.defaultValue.value}</code>}</td>
                             <td dangerouslySetInnerHTML={{ __html: marked(prop.description || '') }} />

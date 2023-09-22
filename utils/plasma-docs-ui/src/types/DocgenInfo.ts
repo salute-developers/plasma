@@ -1,6 +1,8 @@
-interface ComponentProp {
+export interface ComponentProp {
     type: {
         name: string;
+        raw: string;
+        value: any[];
     };
     defaultValue?: any;
     description?: string;

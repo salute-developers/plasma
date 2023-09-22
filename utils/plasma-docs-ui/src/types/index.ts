@@ -1,1 +1,1 @@
-export type { ComponentProps, ComponentDocgenInfo, DocgenInfo } from './DocgenInfo';
+export type { ComponentProps, ComponentProp, ComponentDocgenInfo, DocgenInfo } from './DocgenInfo';
