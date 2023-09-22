@@ -294,6 +294,10 @@ interface TimePickerStoryProps extends TimePickerProps {
     optionsHours: boolean;
     optionsMinutes: boolean;
     optionsSeconds: boolean;
+    hoursLabel?: string;
+    minutesLabel?: string;
+    secondsLabel?: string;
+    hasLabel?: boolean;
 }
 
 // eslint-disable-next-line @typescript-eslint/naming-convention, camelcase
@@ -355,6 +359,10 @@ Time_Picker.args = {
     visibleItems: 3,
     step: 1,
     infiniteScroll: true,
+    hoursLabel: '',
+    minutesLabel: '',
+    secondsLabel: '',
+    hasLabel: false,
 };
 
 // eslint-disable-next-line @typescript-eslint/naming-convention

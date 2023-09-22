@@ -1,16 +1,49 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
+import { whiteTertiary, footnote1 } from '@salutejs/plasma-tokens';
 
 import { PickerDots } from './PickerDots';
 import { SimpleTimePicker, SimpleTimePickerProps } from './SimpleTimePicker';
 import { getNewDate, getNormalizeValues, getRange, getTimeValues, getValuesInRange, isChanged } from './utils';
-import type { PickerItem, TimeType } from './types';
+import type { PickerItem, TimeType, PickerSize } from './types';
+import { DEFAULT_PICKER_SIZE } from './types';
 
 const StyledWrapper = styled.div`
     display: flex;
     width: max-content;
     align-items: stretch;
+`;
+
+const labelFontSize: Record<PickerSize, string> = {
+    l: '0.875rem',
+    s: '0.75rem',
+    xs: '0.625rem',
+};
+
+const StyledSimpleTimePicker = styled(SimpleTimePicker)`
+    &[data-label] {
+        margin-top: 2rem;
+    }
+
+    &[data-label]::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        margin-top: ${({ controls }) => (controls ? '-2.5rem' : '-1.5rem')};
+        width: 100%;
+        color: ${whiteTertiary};
+        ${footnote1};
+        font-weight: normal;
+        font-size: ${({ size = DEFAULT_PICKER_SIZE }) => labelFontSize[size]};
+    }
+
+    &[data-label] + ${PickerDots} {
+        &::before,
+        &::after {
+            top: calc(50% + 1rem);
+        }
+    }
 `;
 
 const defaultOptions = {
@@ -66,6 +99,26 @@ export interface TimePickerProps extends Omit<SimpleTimePickerProps, 'type' | 'r
      * Сменить WAI-ARIA Label списка годов.
      */
     hoursAriaLabel?: string;
+
+    /**
+     * Label для picker "часов"
+     */
+    hoursLabel?: string;
+
+    /**
+     * Label для picker "минуты"
+     */
+    minutesLabel?: string;
+
+    /**
+     * Label для picker "секунды"
+     */
+    secondsLabel?: string;
+
+    /**
+     * Показывать ли label для picker "секунды", "минуты" и т.д.
+     */
+    hasLabel?: boolean;
 }
 
 /**
@@ -92,6 +145,10 @@ export const TimePicker = ({
     hoursAriaLabel,
     infiniteScroll,
     disableScrollSnapAlign = false,
+    hoursLabel,
+    minutesLabel,
+    secondsLabel,
+    hasLabel = false,
     ...rest
 }: TimePickerProps) => {
     const normalizeValues = React.useMemo(() => getNormalizeValues(getTimeValues, getSeconds)(value, min, max), [
@@ -217,7 +274,7 @@ export const TimePicker = ({
     return (
         <StyledWrapper id={id} {...rest}>
             {options.hours && (
-                <SimpleTimePicker
+                <StyledSimpleTimePicker
                     id={id}
                     type="hours"
                     autofocus={autofocus}
@@ -232,11 +289,12 @@ export const TimePicker = ({
                     onChange={onHoursChange}
                     aria-label={hoursAriaLabel}
                     disableScrollSnapAlign={disableScrollSnapAlign}
+                    data-label={hasLabel ? hoursLabel || 'часов' : null}
                 />
             )}
             {options.hours && options.minutes && <PickerDots $size={size} />}
             {options.minutes && (
-                <SimpleTimePicker
+                <StyledSimpleTimePicker
                     id={id}
                     type="minutes"
                     autofocus={autofocus && !options.hours}
@@ -251,11 +309,12 @@ export const TimePicker = ({
                     onChange={onMinutesChange}
                     aria-label={minutesAriaLabel}
                     disableScrollSnapAlign={disableScrollSnapAlign}
+                    data-label={hasLabel ? minutesLabel || 'минут' : null}
                 />
             )}
             {options.minutes && options.seconds && <PickerDots $size={size} />}
             {options.seconds && (
-                <SimpleTimePicker
+                <StyledSimpleTimePicker
                     id={id}
                     type="seconds"
                     autofocus={autofocus && !options.hours && !options.minutes}
@@ -270,6 +329,7 @@ export const TimePicker = ({
                     onChange={onSecondsChange}
                     aria-label={secondsAriaLabel}
                     disableScrollSnapAlign={disableScrollSnapAlign}
+                    data-label={hasLabel ? secondsLabel || 'секунд' : null}
                 />
             )}
             {enableNativeControl && <input type="hidden" value={value.toISOString()} name={name} />}
