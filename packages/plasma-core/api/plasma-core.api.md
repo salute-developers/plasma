@@ -21,7 +21,6 @@ import { FlattenSimpleInterpolation } from 'styled-components';
 import { FunctionComponent } from 'react';
 import { HTMLAttributes } from 'react';
 import { InterpolationFunction } from 'styled-components';
-import { Keyframes } from 'styled-components';
 import { MutableRefObject } from 'react';
 import { default as React_2 } from 'react';
 import { ReactNode } from 'react';
@@ -854,14 +853,12 @@ export type PopupBasePlacement = BasicPopupBasePlacement | MixedPopupBasePlaceme
 // @public (undocumented)
 export interface PopupBaseProps extends React_2.HTMLAttributes<HTMLDivElement> {
     children?: React_2.ReactNode;
-    frame: 'document' | React_2.RefObject<HTMLElement>;
-    hideAnimation?: Keyframes;
+    frame?: 'document' | React_2.RefObject<HTMLElement>;
     isOpen: boolean;
     // (undocumented)
     offset?: [number | string, number | string];
     // (undocumented)
-    position?: PopupBasePlacement;
-    showAnimation?: Keyframes;
+    placement?: PopupBasePlacement;
     zIndex?: string;
 }
 

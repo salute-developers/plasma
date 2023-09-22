@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useContext, FC } from 'react';
 import ReactDOM from 'react-dom';
-import styled, { Keyframes, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { useUniqId } from '../../hooks';
 
@@ -19,27 +19,20 @@ export interface PopupBaseProps extends React.HTMLAttributes<HTMLDivElement> {
      * center - по умолчанию
      * left, right, top, bottom и их комбинации
      */
-    position?: PopupBasePlacement;
-    /* Смещение отнсительно текущей позиции налево и вверх
-     * (x, y) - <number | string, number | string> или проценты
+    placement?: PopupBasePlacement;
+    /* Смещение отнсительно текущей позиции налево и вверх.
+     * (x, y) - <number | string, number | string> или проценты.
+     * При передаче number, то расчёт в rem.
      */
     offset?: [number | string, number | string];
     /**
-     * В каком контейнере позиционируется.
+     * В каком контейнере позиционируется(по умолчанию document).
      */
-    frame: 'document' | React.RefObject<HTMLElement>;
+    frame?: 'document' | React.RefObject<HTMLElement>;
     /**
      * Содержимое PopupBase.
      */
     children?: React.ReactNode;
-    /**
-     * Анимация при появлении PopupBase.
-     */
-    showAnimation?: Keyframes;
-    /**
-     * Анимация при скрытии PopupBase.
-     */
-    hideAnimation?: Keyframes;
     /**
      * Значение z-index для PopupBase.
      */
@@ -50,16 +43,9 @@ interface HidingProps {
     isHiding?: boolean;
 }
 
-const DEFAULT_Z_INDEX = 9000;
+export const DEFAULT_Z_INDEX = 9000;
 
-interface PopupBaseRootProps {
-    position?: PopupBasePlacement;
-    frame: 'document' | React.RefObject<HTMLElement>;
-    offset?: [number | string, number | string];
-    showAnimation?: Keyframes;
-    hideAnimation?: Keyframes;
-    zIndex?: string;
-}
+interface PopupBaseRootProps extends Omit<PopupBaseProps, 'isOpen'> {}
 
 const PopupBaseView = styled.div`
     position: relative;
@@ -67,16 +53,16 @@ const PopupBaseView = styled.div`
     pointer-events: all;
 `;
 
-const handlePosition = (position?: PopupBasePlacement, offset?: [number | string, number | string]) => {
-    let x = '';
-    let y = '';
+const handlePosition = (placement?: PopupBasePlacement, offset?: [number | string, number | string]) => {
+    let x = '0rem';
+    let y = '0rem';
     if (offset) {
         const [_x, _y] = offset;
         x = typeof _x === 'number' ? `${_x}rem` : _x;
         y = typeof _y === 'number' ? `${_y}rem` : _y;
     }
 
-    if (!position || position === 'center') {
+    if (!placement || placement === 'center') {
         return css`
             left: calc(50% + ${x});
             top: calc(50% - ${y});
@@ -88,34 +74,34 @@ const handlePosition = (position?: PopupBasePlacement, offset?: [number | string
     let right;
     let top;
     let bottom;
-    const placements = position.split('-') as BasicPopupBasePlacement[];
+    const placements = placement.split('-') as BasicPopupBasePlacement[];
 
     placements.forEach((placement: BasicPopupBasePlacement) => {
         switch (placement) {
             case 'left':
-                left = 0;
+                left = x;
                 break;
             case 'right':
-                right = 0;
+                right = x;
                 break;
             case 'top':
-                top = 0;
+                top = y;
                 break;
             case 'bottom':
-                bottom = 0;
+                bottom = y;
                 break;
             default:
                 break;
         }
     });
 
-    const isCenteredX = left !== 0 && right !== 0;
-    const isCenteredY = top !== 0 && bottom !== 0;
+    const isCenteredX = left === undefined && right === undefined;
+    const isCenteredY = top === undefined && bottom === undefined;
 
     return css`
-        left: calc(${left} + ${x});
+        left: ${left};
         right: ${right};
-        top: calc(${top} - ${y});
+        top: ${top};
         bottom: ${bottom};
         ${isCenteredX &&
         css`
@@ -139,11 +125,7 @@ const PopupBaseRoot = styled.div<HidingProps & PopupBaseRootProps>`
         z-index: ${zIndex || DEFAULT_Z_INDEX};
     `}
 
-    ${({ position, offset }) => handlePosition(position, offset)};
-
-    ${({ isHiding, showAnimation, hideAnimation }) => css`
-        animation: 0.4s ${isHiding ? hideAnimation : showAnimation} ease-out;
-    `}
+    ${({ placement, offset }) => handlePosition(placement, offset)};
 `;
 
 /**
@@ -153,14 +135,12 @@ const PopupBaseRoot = styled.div<HidingProps & PopupBaseRootProps>`
 export const PopupBase: FC<PopupBaseProps> = ({
     id,
     isOpen,
-    position,
+    placement,
     offset,
     frame = 'document',
     children,
     role,
     zIndex,
-    showAnimation,
-    hideAnimation,
     ...rest
 }) => {
     const uniqId = useUniqId();
@@ -209,14 +189,7 @@ export const PopupBase: FC<PopupBaseProps> = ({
         <>
             {portalRef.current &&
                 ReactDOM.createPortal(
-                    <PopupBaseRoot
-                        position={position}
-                        frame={frame}
-                        offset={offset}
-                        zIndex={zIndex}
-                        showAnimation={showAnimation}
-                        hideAnimation={hideAnimation}
-                    >
+                    <PopupBaseRoot placement={placement} frame={frame} offset={offset} zIndex={zIndex}>
                         <PopupBaseView {...rest} role={role}>
                             {children}
                         </PopupBaseView>
