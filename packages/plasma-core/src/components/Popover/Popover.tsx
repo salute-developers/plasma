@@ -8,22 +8,22 @@ import { useFocusTrap, useForkRef } from '../../hooks';
 
 const ESCAPE_KEYCODE = 27;
 
-export type PopoverBasicPlacement = 'top' | 'bottom' | 'right' | 'left';
-export type PopoverPlacement = PopoverBasicPlacement | 'auto';
+export type PopoverPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
+export type PopoverPlacement = PopoverPlacementBasic | 'auto';
 
 export interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * Всплывающее окно раскрыто или нет.
      */
-    isOpen?: boolean;
+    isOpen: boolean;
     /**
      * Способ всплывающего окна - наведение или клик мышью.
      */
-    trigger: 'hover' | 'click';
+    trigger?: 'hover' | 'click';
     /**
-     * Расположение всплывающего окна. По умолчанию "auto".
+     * Сторона открытия окна относительно target элемента. По умолчанию "auto".
      */
-    placement?: PopoverPlacement | Array<PopoverBasicPlacement>;
+    placement?: PopoverPlacement | Array<PopoverPlacementBasic>;
     /**
      * Отступ окна относительно элемента, у которого оно вызвано.
      */
@@ -41,7 +41,7 @@ export interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
      */
     children?: ReactNode;
     /**
-     * Блокировать ли фокус на всплывающем окне.
+     * Блокировать ли фокус на всплывающем окне(по умолчанию true).
      */
     isFocusTrapped?: boolean;
     /**
@@ -109,7 +109,7 @@ export const Popover = memo<PopoverProps & RefAttributes<HTMLDivElement>>(
                 arrow,
                 placement = 'auto',
                 offset = [0, 0],
-                isFocusTrapped = false,
+                isFocusTrapped = true,
                 closeOnOverlayClick = true,
                 closeOnEsc = true,
                 onToggle,
