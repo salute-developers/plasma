@@ -123,6 +123,49 @@ describe('plasma-ui: TimePicker', () => {
             }
         });
     });
+
+    it('label', () => {
+        mount(
+            <CypressTestDecorator>
+                <TimePicker
+                    value={new Date(1980, 8, 1, 0, 28, 59)}
+                    min={new Date(1975, 1, 1, 0, 15, 29)}
+                    max={new Date(1985, 10, 30, 12, 30, 30)}
+                    hasLabel
+                />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('label with controls', () => {
+        mount(
+            <CypressTestDecorator>
+                <TimePicker
+                    value={new Date(1980, 8, 1, 0, 28, 59)}
+                    min={new Date(1975, 1, 1, 0, 15, 29)}
+                    max={new Date(1985, 10, 30, 12, 30, 30)}
+                    hasLabel
+                    onChange={noop}
+                    controls
+                />
+            </CypressTestDecorator>,
+        );
+
+        // отключение анимаций на всех div'ах внутри окружения, TODO: перенести в plasma-cy-utils?
+        cy.get('div').invoke('attr', 'style', 'transition: unset; animation: none; scroll-snap-type: none;');
+
+        cy.get('div > div:nth-child(1)').contains('03').click({ force: true });
+        cy.wait(150);
+        cy.get('div > div:nth-child(3)').contains('04').click({ force: true });
+        cy.wait(150);
+        cy.get('div > div:nth-child(5)').contains('06').click({ force: true });
+
+        cy.wait(1000);
+
+        cy.matchImageSnapshot();
+    });
 });
 
 describe('plasma-ui: TimePicker update value', () => {
