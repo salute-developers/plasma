@@ -818,10 +818,10 @@ export interface PinProps {
 // @public
 export const Popover: React_2.NamedExoticComponent<PopoverProps & React_2.RefAttributes<HTMLDivElement>>;
 
-// Warning: (ae-forgotten-export) The symbol "PopoverBasicPlacement" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "PopoverPlacementBasic" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type PopoverPlacement = PopoverBasicPlacement | 'auto';
+export type PopoverPlacement = PopoverPlacementBasic | 'auto';
 
 // @public (undocumented)
 export interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
@@ -830,12 +830,12 @@ export interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
     closeOnEsc?: boolean;
     closeOnOverlayClick?: boolean;
     isFocusTrapped?: boolean;
-    isOpen?: boolean;
+    isOpen: boolean;
     offset?: [number, number];
     onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
-    placement?: PopoverPlacement | Array<PopoverBasicPlacement>;
+    placement?: PopoverPlacement | Array<PopoverPlacementBasic>;
     target?: ReactNode;
-    trigger: 'hover' | 'click';
+    trigger?: 'hover' | 'click';
 }
 
 // @public @deprecated

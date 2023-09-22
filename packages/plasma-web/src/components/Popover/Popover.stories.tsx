@@ -76,7 +76,7 @@ Live.args = {
     trigger: 'click',
     closeOnOverlayClick: true,
     closeOnEsc: true,
-    isFocusTrapped: false,
+    isFocusTrapped: true,
     skidding: 0,
     distance: 6,
 };
