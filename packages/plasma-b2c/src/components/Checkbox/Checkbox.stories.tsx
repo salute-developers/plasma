@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import { Meta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
@@ -8,6 +8,7 @@ import { Link } from '../Link';
 import { Checkbox, CheckboxProps } from '.';
 
 const propsToDisable = [
+    'view',
     'name',
     'indeterminate',
     'id',
@@ -92,7 +93,7 @@ const items = [
 ];
 
 const getChildren = (value: string) => items.filter((item) => item.parent === value);
-const getState = (values: Record<string, boolean | null>, value: string) => {
+const getState = (values: Record<string, boolean | undefined>, value: string) => {
     const allChildren = getChildren(value);
 
     if (!allChildren.length) {
@@ -112,7 +113,7 @@ const getState = (values: Record<string, boolean | null>, value: string) => {
     return { checked: true, indeterminate: false };
 };
 
-export const Live = () => {
+export const Live = (args) => {
     const [values, setValues] = React.useState({
         russian: true,
         english: true,
@@ -151,28 +152,48 @@ export const Live = () => {
             }}
             onFocus={onFocus}
             onBlur={onBlur}
+            {...args}
         />
     ));
 };
 
-export const Default: Story<CheckboxProps> = (args) => {
+Live.argTypes = {
+    ...disableProps([...propsToDisable, 'label', 'description']),
+    size: {
+        options: sizes,
+        control: {
+            type: 'inline-radio',
+        },
+    },
+};
+
+Live.args = {
+    size: 'm',
+    view: 'accent',
+    singleLine: false,
+    focused: true,
+};
+
+export const Default: ComponentStory<CheckboxProps> = (args) => {
     const value = 0;
     const [checked, setChecked] = React.useState(true);
 
     return (
-        <Checkbox
-            value={value}
-            checked={checked}
-            onChange={(event) => {
-                event.persist();
+        <>
+            <Checkbox
+                value={value}
+                checked={checked}
+                onChange={(event) => {
+                    event.persist();
 
-                setChecked(event.target.checked);
-                onChange(event);
-            }}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            {...args}
-        />
+                    setChecked(event.target.checked);
+                    onChange(event);
+                }}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                {...args}
+            />
+        </>
     );
 };
 
@@ -183,6 +204,8 @@ Default.args = {
     disabled: false,
     singleLine: false,
     size: 'm',
+    view: 'accent',
+    focused: true,
 };
 
 Default.argTypes = {

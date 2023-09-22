@@ -34,6 +34,7 @@ import { BadgeSize } from '@salutejs/plasma-hope';
 import { badgeSizes } from '@salutejs/plasma-hope';
 import { BadgeView } from '@salutejs/plasma-hope';
 import { badgeViews } from '@salutejs/plasma-hope';
+import { BaseboxProps } from '@salutejs/plasma-new-hope';
 import { BlurProps } from '@salutejs/plasma-core';
 import { blurs } from '@salutejs/plasma-core';
 import { Body1 } from '@salutejs/plasma-hope';
@@ -80,8 +81,6 @@ import { CarouselItemProps } from '@salutejs/plasma-hope';
 import { CarouselProps } from '@salutejs/plasma-hope';
 import { Cell } from '@salutejs/plasma-hope';
 import { CellProps } from '@salutejs/plasma-hope';
-import { Checkbox } from '@salutejs/plasma-hope';
-import { CheckboxProps } from '@salutejs/plasma-hope';
 import { clearSelection } from '@salutejs/plasma-hope';
 import { closeNotification } from '@salutejs/plasma-hope';
 import { Col } from '@salutejs/plasma-hope';
@@ -112,6 +111,7 @@ import { EditableProps } from '@salutejs/plasma-hope';
 import { ElasticGrid } from '@salutejs/plasma-hope';
 import { ElasticGridProps } from '@salutejs/plasma-hope';
 import { extractTextFrom } from '@salutejs/plasma-core';
+import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { FocusProps } from '@salutejs/plasma-core';
 import { Footnote1 } from '@salutejs/plasma-hope';
 import { Footnote2 } from '@salutejs/plasma-hope';
@@ -437,9 +437,27 @@ export { Cell }
 
 export { CellProps }
 
-export { Checkbox }
+// @public
+export const Checkbox: FunctionComponent<PropsType<    {
+size: {
+s: string;
+m: string;
+};
+view: {
+accent: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & Filter<InputHTMLAttributes<HTMLInputElement>, "size"> & BaseboxProps & RefAttributes<HTMLInputElement>>;
 
-export { CheckboxProps }
+// Warning: (ae-forgotten-export) The symbol "CheckboxComponent" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type CheckboxProps = typeof CheckboxComponent;
 
 export { clearSelection }
 
