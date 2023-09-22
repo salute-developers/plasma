@@ -1,7 +1,7 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
-import { surfaceSolid03 } from '@salutejs/plasma-tokens-web';
+import { surfaceSolid03, surfaceSolid02 } from '@salutejs/plasma-tokens-web';
 
 import { SSRProvider } from '../SSRProvider';
 import { InSpacingDecorator } from '../../helpers';
@@ -13,7 +13,7 @@ export default {
     title: 'Controls/PopupBase',
     decorators: [InSpacingDecorator],
     argTypes: {
-        position: {
+        placement: {
             options: [
                 'center',
                 'top',
@@ -32,30 +32,7 @@ export default {
     },
 } as Meta;
 
-type PopupBaseStoryProps = { position: string; offsetX: number; offsetY: number };
-
-const showAnimation = keyframes`
-    0% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-`;
-const hideAnimation = keyframes`
-    0% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-`;
+type PopupBaseStoryProps = { placement: string; offsetX: number; offsetY: number };
 
 const StyledButton = styled(Button)`
     margin-top: 1rem;
@@ -82,7 +59,12 @@ const OtherContent = styled.div`
     right: 0;
 `;
 
-export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ position, offsetX, offsetY }) => {
+const Content = styled.div`
+    background: ${surfaceSolid02};
+    padding: 1rem;
+`;
+
+export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, offsetX, offsetY }) => {
     const [isOpenA, setIsOpenA] = React.useState(false);
     const [isOpenB, setIsOpenB] = React.useState(false);
 
@@ -95,20 +77,20 @@ export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ position, offsetX, o
                     <StyledButton text="Открыть во Frame" onClick={() => setIsOpenA(true)} />
                     <StyledButton text="Открыть в document" onClick={() => setIsOpenB(true)} />
                 </div>
-                <PopupBase frame={ref} isOpen={isOpenA} position={position} offset={[offsetX, offsetY]}>
-                    <div style={{ background: 'white', padding: '1rem' }}>
+                <PopupBase frame={ref} isOpen={isOpenA} placement={placement} offset={[offsetX, offsetY]}>
+                    <Content>
                         <Button onClick={() => setIsOpenA(false)}>Close</Button>
                         <>Content</>
-                    </div>
+                    </Content>
                 </PopupBase>
                 <OtherContent ref={ref}>
                     <>Frame</>
                 </OtherContent>
-                <PopupBase frame="document" isOpen={isOpenB} position={position} offset={[offsetX, offsetY]}>
-                    <div style={{ background: 'white', padding: '1rem' }}>
+                <PopupBase frame="document" isOpen={isOpenB} placement={placement} offset={[offsetX, offsetY]}>
+                    <Content>
                         <Button onClick={() => setIsOpenB(false)}>Close</Button>
                         <>Content</>
-                    </div>
+                    </Content>
                 </PopupBase>
             </StyledWrapper>
         </SSRProvider>
@@ -116,7 +98,7 @@ export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ position, offsetX, o
 };
 
 PopupBaseDemo.args = {
-    position: 'center',
+    placement: 'center',
     offsetX: 0,
     offsetY: 0,
 };
