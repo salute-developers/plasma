@@ -30,6 +30,10 @@ export type PropsType<J extends Variants = Variants> = {
     [L in keyof J]?: keyof J[L] extends 'true' ? boolean : keyof J[L];
 };
 
+export type Filter<T extends {} = {}, U extends string = string> = {
+    [k in keyof T]: k extends U ? unknown : T[k];
+};
+
 export interface ComponentConfig<
     Tag extends HTMLTagList = React.ElementType,
     VariantList extends Variants = Variants,
