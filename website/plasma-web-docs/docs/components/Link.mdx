@@ -7,7 +7,7 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 
 # Link
 <Description name="Link" />
-<PropsTable name="Link" exclude={['$isHover', '$isPressed', '$isVisited']} />
+<PropsTable name="Link" exclude={['css', 'focused']} />
 <StorybookLink name="Link" />
 
 ```tsx live
@@ -17,7 +17,7 @@ import { P1, Link } from '@salutejs/plasma-web';
 export function App() {
     return (
         <P1>
-            Скачайте <Link href="/" target="__blank">приложение</Link>.
+            Скачайте <Link href="/" target="_blank">приложение</Link>.
         </P1>
     );
 }
