@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
 
-import { white } from '../../tokens';
 import { ThemeProviderContextBase } from '../../types';
 
 import { ButtonContentWrapper, ButtonLoader, ButtonRoot, ButtonText, StyledSpinner } from './Button';
@@ -21,7 +20,7 @@ export function createButton<T extends HTMLElement, P extends ButtonProps>(Root 
             contentRight,
             square,
             deviceScale,
-            loader = <StyledSpinner color={white} size={56} deviceScale={deviceScale} />,
+            loader = <StyledSpinner color="currentColor" size={56} deviceScale={deviceScale} />,
             disabled,
             isLoading,
             type = 'button',
