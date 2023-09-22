@@ -47,7 +47,7 @@
     "@types/node": "16.7.13",
     "jsdom": "17.0.0",
     "jsdom-global": "3.0.2",
-    "styled-components": "5.3.6",
+    "styled-components": "5.3.11",
     "ts-node": "10.2.1",
     "typescript": "4.0.8"
   },
