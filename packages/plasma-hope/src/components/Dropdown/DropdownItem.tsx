@@ -1,5 +1,5 @@
-import React, { useRef, useCallback, useMemo } from 'react';
-import type { DetailedHTMLProps, HTMLAttributes, ReactNode, FC, SyntheticEvent } from 'react';
+import React, { useRef, useCallback, useMemo, forwardRef } from 'react';
+import type { DetailedHTMLProps, HTMLAttributes, ReactNode, SyntheticEvent } from 'react';
 import styled, { css } from 'styled-components';
 import {
     body1,
@@ -9,6 +9,7 @@ import {
     surfaceLiquid03,
     applyDisabled,
     applyEllipsis,
+    useForkRef,
 } from '@salutejs/plasma-core';
 import { IconChevronRight, IconDone } from '@salutejs/plasma-icons';
 
@@ -130,25 +131,30 @@ const StyledDot = styled.div`
 /**
  * Элемент выпадающего списка.
  */
-export const DropdownItem: FC<DropdownItemProps> = ({
-    value,
-    label,
-    isActive,
-    isDisabled,
-    isHovered,
-    color,
-    contentLeft,
-    items = [],
-    role = 'menuitem',
-    index,
-    onClick: onClickExternal,
-    onHover,
-    onFocus,
-    ...rest
-}) => {
+export const DropdownItem = forwardRef<HTMLLIElement, DropdownItemProps>((props, outerRef) => {
+    const {
+        value,
+        label,
+        isActive,
+        isDisabled,
+        isHovered,
+        color,
+        contentLeft,
+        items = [],
+        role = 'menuitem',
+        index,
+        onClick: onClickExternal,
+        onHover,
+        onFocus,
+        ...rest
+    } = props;
+
     const ref = useRef<HTMLLIElement>(null);
+    const forkRef = useForkRef(outerRef, ref);
     const hasItems = Boolean(items.length);
+
     const isActiveAsSingleOrNode = Boolean(isActive || items.filter((item) => item.isActive)?.length);
+
     const contentRight = useMemo(() => {
         if (hasItems) {
             return (
@@ -187,7 +193,7 @@ export const DropdownItem: FC<DropdownItemProps> = ({
     return (
         <StyledDropdownItem
             {...rest}
-            ref={ref}
+            ref={forkRef}
             $withAssistive={Boolean(onHover)}
             $hover={isHovered}
             $disabled={isDisabled}
@@ -205,4 +211,4 @@ export const DropdownItem: FC<DropdownItemProps> = ({
             {contentRight}
         </StyledDropdownItem>
     );
-};
+});
