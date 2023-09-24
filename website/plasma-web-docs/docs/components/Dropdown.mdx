@@ -267,10 +267,10 @@ export function App() {
 }
 ```
 
-## Позицирование
+## Позиционирование
 Помимо стандартных способов расположения, можно также указать значение `auto`, которое будет автоматически определять нужное расположение.
 
-Если необходимо автоматически использовать лишь определенные раположения, то нужно передать массив расположений. Например:
+Если необходимо автоматически использовать лишь определенные расположения, то нужно передать массив расположений. Например:
 
 ```tsx live
 import React from 'react';
@@ -341,3 +341,44 @@ export function App() {
 :::caution
 Для обеспечения корректной работы навигации с помощью клавиатуры необходимо указать свойство `id`.
 :::
+
+
+## Ref для DropdownItem
+
+Достаточно указать свойство `ref` на компоненте.
+
+```tsx live
+import React, { useState, useRef } from 'react';
+import { DropdownPopup, DropdownList, DropdownItem, Button } from '@salutejs/plasma-web';
+import { IconHeart } from '@salutejs/plasma-icons';
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(false);
+    const dropDownItemRef = useRef<HTMLLIElement | null>(null);
+
+    return (
+        <div style={{ height:"350px", display: 'block' }}>
+            <DropdownPopup
+                isOpen={isOpen}
+                trigger="click"
+                placement="bottom"
+                onToggle={(is) => setIsOpen(is)}
+                disclosure={<Button text="Меню" />}
+            >
+                <DropdownList>
+                    <DropdownItem value={100001} label="Новости" />
+                    <DropdownItem value={100002} label="Каталог" color="var(--plasma-colors-accent)" />
+                    <DropdownItem
+                        value={100003}
+                        label="О нас"
+                        color="var(--plasma-colors-critical)"
+                        contentLeft={<IconHeart color="inherit" />}
+                        ref={dropDownItemRef}
+                    />
+                    <DropdownItem value={100004} label="Недоступно" isDisabled />
+                </DropdownList>
+            </DropdownPopup>
+        </div>
+    );
+}
+```
