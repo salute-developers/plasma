@@ -25,7 +25,7 @@
     "@theme-ui/css": "0.3.1",
     "color": "^4.2.3",
     "csstype": "3.0.3",
-    "param-case": "3.0.3"
+    "param-case": "3.0.4"
   },
   "devDependencies": {
     "@types/color": "^3.0.3",
