@@ -26,12 +26,12 @@
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
-    "@babel/cli": "7.15.4",
-    "@babel/core": "7.15.5",
-    "@babel/plugin-transform-react-constant-elements": "7.17.12",
-    "@babel/preset-env": "7.15.4",
-    "@babel/preset-react": "7.14.5",
-    "@babel/preset-typescript": "7.15.0",
+    "@babel/cli": "7.22.15",
+    "@babel/core": "7.22.20",
+    "@babel/plugin-transform-react-constant-elements": "7.22.5",
+    "@babel/preset-env": "7.22.20",
+    "@babel/preset-react": "7.22.15",
+    "@babel/preset-typescript": "7.22.15",
     "@salutejs/plasma-cy-utils": "0.70.0",
     "@salutejs/plasma-icons": "1.162.0-dev.0",
     "@salutejs/plasma-sb-utils": "0.129.0-dev.0",
