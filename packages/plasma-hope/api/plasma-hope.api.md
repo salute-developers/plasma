@@ -554,7 +554,7 @@ export { DisabledProps }
 export const Dropdown: FC<DropdownProps>;
 
 // @public
-export const DropdownItem: FC<DropdownItemProps>;
+export const DropdownItem: React_2.ForwardRefExoticComponent<DropdownItemProps & React_2.RefAttributes<HTMLLIElement>>;
 
 // @public (undocumented)
 export interface DropdownItemProps extends DropdownNodeType, Omit<DetailedHTMLProps<HTMLAttributes<HTMLLIElement>, HTMLLIElement>, 'onClick' | 'ref'> {
