@@ -16,15 +16,17 @@ runs:
   steps:
     - name: Update package-lock's
       shell: bash
+      env:
+        options: "--no-audit --no-progress --package-lock-only --lockfile-version 2 --legacy-peer-deps"
       run: |
         # Sync package-lock file state (root  level)
-        npm i --no-audit --no-progress --package-lock-only
+        npm i ${{ env.options }}
         # Remove the node_modules directory from all packages
         lerna clean -y
-        # Sync package-lock files state (includes private packages)
-        lerna exec -- npm i --no-audit --no-progress --ignore-scripts --package-lock-only --lockfile-version 2
+        # Sync package-lock files state
+        lerna exec --no-private -- npm i ${{ env.options }} --ignore-scripts
         # root deps don't update correctly on first regeneration O_o
-        npm i --no-audit --no-progress --package-lock-only
+        npm i ${{ env.options }}
 
     - name: Extract branch name
       id: branch_name
