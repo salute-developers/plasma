@@ -14,6 +14,7 @@ export * from './components/Image';
 export * from './components/Link';
 export * from './components/List';
 export * from './components/Modal';
+export * from './components/ModalBase';
 export * from './components/Notification';
 export * from './components/PaginationDots';
 export * from './components/Popup';

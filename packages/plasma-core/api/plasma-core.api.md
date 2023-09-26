@@ -752,6 +752,21 @@ export interface MaxLinesProps {
     maxLines?: number;
 }
 
+// @public
+export const ModalBase: FC<ModalBaseProps>;
+
+// @public (undocumented)
+export interface ModalBaseProps extends Omit<PopupBaseProps, 'frame'> {
+    closeOnEsc?: boolean;
+    closeOnOverlayClick?: boolean;
+    focusAfterRef?: React_2.RefObject<HTMLElement>;
+    initialFocusRef?: React_2.RefObject<HTMLElement>;
+    onClose?: () => void;
+    onEscKeyDown?: (event: KeyboardEvent) => void;
+    onOverlayClick?: (event: React_2.MouseEvent<HTMLDivElement>) => void;
+    withBlur?: boolean;
+}
+
 // @public (undocumented)
 export const monthLongName: (val: number) => string;
 
@@ -842,7 +857,12 @@ export interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
 export const Popup: React_2.NamedExoticComponent<PopupProps & React_2.RefAttributes<HTMLDivElement>>;
 
 // @public
-export const PopupBase: FC<PopupBaseProps>;
+export const PopupBase: React_2.ForwardRefExoticComponent<PopupBaseProps & React_2.RefAttributes<HTMLDivElement>>;
+
+// Warning: (ae-forgotten-export) The symbol "PopupBaseController" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export const PopupBaseContext: React_2.Context<PopupBaseController>;
 
 // Warning: (ae-forgotten-export) The symbol "BasicPopupBasePlacement" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "MixedPopupBasePlacement" needs to be exported by the entry point index.d.ts
@@ -859,8 +879,15 @@ export interface PopupBaseProps extends React_2.HTMLAttributes<HTMLDivElement> {
     offset?: [number | string, number | string];
     // (undocumented)
     placement?: PopupBasePlacement;
+    // Warning: (ae-forgotten-export) The symbol "PopupInfo" needs to be exported by the entry point index.d.ts
+    popupInfo?: PopupInfo;
     zIndex?: string;
 }
+
+// @public (undocumented)
+export const PopupBaseProvider: React_2.FC<{
+    children: ReactNode;
+}>;
 
 // @public (undocumented)
 export interface PopupProps extends HTMLAttributes<HTMLDivElement> {

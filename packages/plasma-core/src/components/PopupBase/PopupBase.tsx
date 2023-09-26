@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState, useContext, FC } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import styled, { css } from 'styled-components';
 
 import { useUniqId } from '../../hooks';
 
-import { PopupBaseContext, POPOVER_PORTAL_ID } from './PopupBaseContext';
+import { PopupBaseContext, POPOVER_PORTAL_ID, PopupInfo } from './PopupBaseContext';
 
 type BasicPopupBasePlacement = 'center' | 'top' | 'bottom' | 'right' | 'left';
 type MixedPopupBasePlacement = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
@@ -37,6 +37,10 @@ export interface PopupBaseProps extends React.HTMLAttributes<HTMLDivElement> {
      * Значение z-index для PopupBase.
      */
     zIndex?: string;
+    /**
+     * Дополнительная информация для программного взаимодействия с окном через контекст.
+     */
+    popupInfo?: PopupInfo;
 }
 
 interface HidingProps {
@@ -132,70 +136,68 @@ const PopupBaseRoot = styled.div<HidingProps & PopupBaseRootProps>`
  * Базовый PopupBase.
  * Управляет показом/скрытием и анимацией(?) высплывающего окна.
  */
-export const PopupBase: FC<PopupBaseProps> = ({
-    id,
-    isOpen,
-    placement,
-    offset,
-    frame = 'document',
-    children,
-    role,
-    zIndex,
-    ...rest
-}) => {
-    const uniqId = useUniqId();
-    const innerId = id || uniqId;
 
-    const portalRef = useRef<HTMLElement | null>(null);
+export const PopupBase = React.forwardRef<HTMLDivElement, PopupBaseProps>(
+    ({ id, isOpen, placement, offset, frame = 'document', children, role, zIndex, popupInfo, ...rest }, ref) => {
+        const uniqId = useUniqId();
+        const innerId = id || uniqId;
 
-    const controller = useContext(PopupBaseContext);
+        const portalRef = useRef<HTMLElement | null>(null);
 
-    const [, forceRender] = useState(false);
+        const controller = useContext(PopupBaseContext);
 
-    useEffect(() => {
-        let portal = document.getElementById(POPOVER_PORTAL_ID);
+        const [, forceRender] = useState(false);
 
-        if (frame !== 'document' && frame && frame.current) {
-            portal = frame.current;
+        useEffect(() => {
+            let portal = document.getElementById(POPOVER_PORTAL_ID);
+
+            if (frame !== 'document' && frame && frame.current) {
+                portal = frame.current;
+            }
+
+            if (!portal) {
+                portal = document.createElement('div');
+                portal.setAttribute('id', POPOVER_PORTAL_ID);
+                document.body.appendChild(portal);
+            }
+
+            portalRef.current = portal;
+
+            /**
+             * Изменение стейта нужно для того, чтобы PopupBase
+             * отобразился после записи DOM элемента в portalRef.current
+             */
+            forceRender(true);
+
+            return () => {
+                controller.unregister(innerId);
+            };
+        }, [controller, innerId, zIndex]);
+
+        useEffect(() => {
+            if (isOpen) {
+                controller.register({ id: innerId, ...popupInfo });
+            } else {
+                controller.unregister(innerId);
+            }
+        }, [isOpen]);
+
+        if (!isOpen) {
+            return null;
         }
 
-        if (!portal) {
-            portal = document.createElement('div');
-            portal.setAttribute('id', POPOVER_PORTAL_ID);
-            document.body.appendChild(portal);
-        }
-
-        portalRef.current = portal;
-
-        /**
-         * Изменение стейта нужно для того, чтобы PopupBase
-         * отобразился после записи DOM элемента в portalRef.current
-         */
-        forceRender(true);
-
-        return () => {
-            controller.unregister(innerId);
-        };
-    }, [controller, innerId, zIndex]);
-
-    if (isOpen) {
-        controller.register(innerId);
-    } else {
-        controller.unregister(innerId);
-        return null;
-    }
-
-    return (
-        <>
-            {portalRef.current &&
-                ReactDOM.createPortal(
-                    <PopupBaseRoot placement={placement} frame={frame} offset={offset} zIndex={zIndex}>
-                        <PopupBaseView {...rest} role={role}>
-                            {children}
-                        </PopupBaseView>
-                    </PopupBaseRoot>,
-                    portalRef.current,
-                )}
-        </>
-    );
-};
+        return (
+            <>
+                {portalRef.current &&
+                    ReactDOM.createPortal(
+                        <PopupBaseRoot ref={ref} placement={placement} frame={frame} offset={offset} zIndex={zIndex}>
+                            <PopupBaseView {...rest} role={role}>
+                                {children}
+                            </PopupBaseView>
+                        </PopupBaseRoot>,
+                        portalRef.current,
+                    )}
+            </>
+        );
+    },
+);
