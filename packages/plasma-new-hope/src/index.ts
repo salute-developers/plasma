@@ -5,3 +5,4 @@ export * from './components/Button';
 export * from './components/Link';
 export * from './components/Spinner';
 export * from './components/Checkbox';
+export * from './components/Radiobox';
