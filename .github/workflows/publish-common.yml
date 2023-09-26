@@ -26,7 +26,9 @@ jobs:
       NPM_REGISTRY_TOKEN: ${{ secrets.npm_registry_token }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        with:
+         show-progress: false
 
       - name: Prepare repository
         run: git fetch --unshallow --tags
@@ -38,20 +40,31 @@ jobs:
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
 
+      - name: Lerna found changed packages
+        id: lerna
+        uses: ./.github/actions/lerna-changed
+
+      - name: Create "HAS_CHANGED" shortcut
+        run: echo "HAS_CHANGED=${{ steps.lerna.outputs.HAS_CHANGED }}" >> $GITHUB_ENV
+
       - name: Lerna bootstrap
+        if: ${{ fromJSON(env.HAS_CHANGED) }}
         run: npm run ${{ inputs.cmd }}
 
       - name: API Report
+        if: ${{ fromJSON(env.HAS_CHANGED) }}
         run: npm run api:report
 
       - name: Release Info
+        if: ${{ fromJSON(env.HAS_CHANGED) }}
         run: npm whoami && npx lerna info && npx auto info || echo 'auto info returned 1'
 
       - name: Create Release
+        if: ${{ fromJSON(env.HAS_CHANGED) }}
         run: npm run release
 
       - name: Update package-lock files
-        if: ${{ inputs.with-update-package-lock }}
+        if: ${{ fromJSON(env.HAS_CHANGED) && inputs.with-update-package-lock }}
         uses: ./.github/actions/update-package-lock
         with:
           commit-message: ${{ inputs.commit-message }}
