@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import { ComponentStory, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { SSRProvider } from '../SSRProvider';
@@ -46,7 +46,7 @@ const items = [
     { name: 'language', value: 'elixir', label: 'Elixir', disabled: true },
 ];
 
-export const Live = () => {
+export const Live = (props) => {
     const [value, setValue] = React.useState('c');
 
     return (
@@ -74,6 +74,7 @@ export const Live = () => {
                                 }}
                                 onFocus={onFocus}
                                 onBlur={onBlur}
+                                {...props}
                             />
                         </ListItem>
                     ))}
@@ -83,7 +84,23 @@ export const Live = () => {
     );
 };
 
-export const Default: Story<RadioboxProps> = ({ name, label, description, disabled, singleLine, size }) => {
+Live.argTypes = {
+    size: {
+        options: sizes,
+        control: {
+            type: 'inline-radio',
+        },
+    },
+};
+
+Live.args = {
+    size: 'm',
+    view: 'accent',
+    singleLine: false,
+    focused: true,
+};
+
+export const Default: ComponentStory<RadioboxProps> = ({ name, label, description, disabled, singleLine, size }) => {
     const value = 0;
     const [checked, setChecked] = React.useState(true);
 
