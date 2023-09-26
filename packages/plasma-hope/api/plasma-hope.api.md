@@ -24,7 +24,6 @@ import { AsProps } from '@salutejs/plasma-core';
 import { BadgeProps as BadgeProps_2 } from '@salutejs/plasma-core';
 import { BadgeSize } from '@salutejs/plasma-core';
 import { badgeSizes } from '@salutejs/plasma-core';
-import type { BaseboxProps } from '@salutejs/plasma-core';
 import { BlurProps } from '@salutejs/plasma-core';
 import { blurs } from '@salutejs/plasma-core';
 import { Body1 } from '@salutejs/plasma-core';
@@ -487,16 +486,6 @@ export const Cell: ({ content, description, ...rest }: CellProps) => JSX.Element
 export interface CellProps {
     content: React_2.ReactElement;
     description: string;
-}
-
-// @public
-export const Checkbox: React_2.ForwardRefExoticComponent<CheckboxProps & React_2.RefAttributes<HTMLInputElement>>;
-
-// Warning: (ae-forgotten-export) The symbol "SizeProps" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export interface CheckboxProps extends Omit<BaseboxProps, 'size'>, Partial<SizeProps> {
-    indeterminate?: boolean;
 }
 
 // @public (undocumented)
@@ -1055,20 +1044,6 @@ export interface ProgressProps {
     status?: keyof typeof statuses_2;
     value: number;
 }
-
-// @public
-export const Radiobox: React_2.ForwardRefExoticComponent<RadioboxProps & React_2.RefAttributes<HTMLInputElement>>;
-
-// Warning: (ae-forgotten-export) The symbol "SizeProps_2" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export interface RadioboxProps extends Omit<BaseboxProps, 'size'>, Partial<SizeProps_2> {
-}
-
-// Warning: (ae-forgotten-export) The symbol "RadioGroupProps" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const RadioGroup: React_2.ForwardRefExoticComponent<RadioGroupProps & React_2.RefAttributes<HTMLInputElement>>;
 
 export { radiuses }
 
