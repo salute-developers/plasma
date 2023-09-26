@@ -183,9 +183,7 @@ import { PriceProps } from '@salutejs/plasma-hope';
 import { Progress } from '@salutejs/plasma-hope';
 import { ProgressProps } from '@salutejs/plasma-hope';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
-import { Radiobox } from '@salutejs/plasma-hope';
-import { RadioboxProps } from '@salutejs/plasma-hope';
-import { RadioGroup } from '@salutejs/plasma-hope';
+import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
 import { radiuses } from '@salutejs/plasma-core';
 import { Ratio } from '@salutejs/plasma-hope';
 import { default as React_2 } from 'react';
@@ -665,9 +663,27 @@ export { Progress }
 
 export { ProgressProps }
 
-export { Radiobox }
+// @public
+export const Radiobox: FunctionComponent<PropsType<    {
+size: {
+s: string;
+m: string;
+};
+view: {
+accent: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & Filter<InputHTMLAttributes<HTMLInputElement>, "size"> & Pick<BaseboxProps, "size" | "view" | "id" | "focused" | "label" | "description" | "singleLine"> & RefAttributes<HTMLInputElement>>;
 
-export { RadioboxProps }
+// Warning: (ae-forgotten-export) The symbol "RadioboxComponent" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type RadioboxProps = typeof RadioboxComponent;
 
 export { RadioGroup }
 
