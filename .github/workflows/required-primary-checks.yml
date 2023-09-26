@@ -23,17 +23,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          show-progress: false
 
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
 
+      - name: Lerna found changed packages
+        id: lerna
+        uses: ./.github/actions/lerna-changed
+
+      - name: Create "HAS_CHANGED" shortcut
+        run: echo "HAS_CHANGED=${{ steps.lerna.outputs.HAS_CHANGED }}" >> $GITHUB_ENV
+
       - name: Lerna bootstrap
+        if: ${{ fromJSON(env.HAS_CHANGED) }}
         run: npx lerna bootstrap
 
       - name: Lint
+        if: ${{ fromJSON(env.HAS_CHANGED) }}
         run: npm run lint
 
   tests:
@@ -41,20 +51,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          show-progress: false
 
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
 
+      - name: Lerna found changed packages
+        id: lerna
+        uses: ./.github/actions/lerna-changed
+
+      - name: Create "HAS_CHANGED" shortcut
+        run: echo "HAS_CHANGED=${{ steps.lerna.outputs.HAS_CHANGED }}" >> $GITHUB_ENV
+
       - name: Lerna bootstrap
+        if: ${{ fromJSON(env.HAS_CHANGED) }}
         run: npx lerna bootstrap --since=$(git merge-base --fork-point origin/dev) --ignore=${{env.LERNA_IGNORE_LIST}}
 
       - name: Unit tests
+        if: ${{ fromJSON(env.HAS_CHANGED) }}
         run: npm run test
 
       - name: Setup React 17
+        if: ${{ fromJSON(env.HAS_CHANGED) }}
         run: |
           npm i --no-progress --no-audit react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-ui"
           npm i --no-progress --no-audit react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-temple"
@@ -62,7 +83,9 @@ jobs:
           npm i --no-progress --no-audit react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-web"
 
       - name: Lerna bootstrap by scope
+        if: ${{ fromJSON(env.HAS_CHANGED) }}
         run: npx lerna bootstrap --scope=@salutejs/plasma-{ui,web,b2c,temple,hope,new-hope,core}
 
       - name: Unit tests for React 17
+        if: ${{ fromJSON(env.HAS_CHANGED) }}
         run: npm run test -- --scope=@salutejs/plasma-{ui,web,b2c,temple}
