@@ -94,6 +94,8 @@ import { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import { LineSkeleton } from '@salutejs/plasma-core';
 import { LineSkeletonProps } from '@salutejs/plasma-core';
 import { MaxLinesProps } from '@salutejs/plasma-core';
+import { ModalBase } from '@salutejs/plasma-core';
+import { ModalBaseProps } from '@salutejs/plasma-core';
 import { monthLongName } from '@salutejs/plasma-core';
 import { monthShortName } from '@salutejs/plasma-core';
 import { MutableRefObject } from 'react';
@@ -114,8 +116,10 @@ import { PopoverPlacement } from '@salutejs/plasma-core';
 import { PopoverProps } from '@salutejs/plasma-core';
 import { Popup } from '@salutejs/plasma-core';
 import { PopupBase } from '@salutejs/plasma-core';
+import { PopupBaseContext } from '@salutejs/plasma-core';
 import { PopupBasePlacement } from '@salutejs/plasma-core';
 import { PopupBaseProps } from '@salutejs/plasma-core';
+import { PopupBaseProvider } from '@salutejs/plasma-core';
 import { PopupProps } from '@salutejs/plasma-core';
 import type { PriceProps as PriceProps_2 } from '@salutejs/plasma-core';
 import { PropsWithChildren } from 'react';
@@ -898,6 +902,10 @@ export type MediaQueryFunction = (content: FlattenSimpleInterpolation | string) 
 // @public
 export const Modal: FC<ModalProps>;
 
+export { ModalBase }
+
+export { ModalBaseProps }
+
 // @public (undocumented)
 export interface ModalProps extends ModalViewProps {
     closeOnEsc?: boolean;
@@ -996,9 +1004,13 @@ export { Popup }
 
 export { PopupBase }
 
+export { PopupBaseContext }
+
 export { PopupBasePlacement }
 
 export { PopupBaseProps }
+
+export { PopupBaseProvider }
 
 export { PopupProps }
 

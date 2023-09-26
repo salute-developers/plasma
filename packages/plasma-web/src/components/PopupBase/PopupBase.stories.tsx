@@ -7,7 +7,7 @@ import { SSRProvider } from '../SSRProvider';
 import { InSpacingDecorator } from '../../helpers';
 import { Button } from '../Button';
 
-import { PopupBase } from '.';
+import { PopupBase, PopupBaseProvider } from '.';
 
 export default {
     title: 'Controls/PopupBase',
@@ -73,25 +73,27 @@ export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, offsetX, 
     return (
         <SSRProvider>
             <StyledWrapper>
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <StyledButton text="Открыть во Frame" onClick={() => setIsOpenA(true)} />
-                    <StyledButton text="Открыть в document" onClick={() => setIsOpenB(true)} />
-                </div>
-                <PopupBase frame={ref} isOpen={isOpenA} placement={placement} offset={[offsetX, offsetY]}>
-                    <Content>
-                        <Button onClick={() => setIsOpenA(false)}>Close</Button>
-                        <>Content</>
-                    </Content>
-                </PopupBase>
-                <OtherContent ref={ref}>
-                    <>Frame</>
-                </OtherContent>
-                <PopupBase frame="document" isOpen={isOpenB} placement={placement} offset={[offsetX, offsetY]}>
-                    <Content>
-                        <Button onClick={() => setIsOpenB(false)}>Close</Button>
-                        <>Content</>
-                    </Content>
-                </PopupBase>
+                <PopupBaseProvider>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <StyledButton text="Открыть во Frame" onClick={() => setIsOpenA(true)} />
+                        <StyledButton text="Открыть в document" onClick={() => setIsOpenB(true)} />
+                    </div>
+                    <PopupBase frame={ref} isOpen={isOpenA} placement={placement} offset={[offsetX, offsetY]}>
+                        <Content>
+                            <Button onClick={() => setIsOpenA(false)}>Close</Button>
+                            <>Content</>
+                        </Content>
+                    </PopupBase>
+                    <OtherContent ref={ref}>
+                        <>Frame</>
+                    </OtherContent>
+                    <PopupBase frame="document" isOpen={isOpenB} placement={placement} offset={[offsetX, offsetY]}>
+                        <Content>
+                            <Button onClick={() => setIsOpenB(false)}>Close</Button>
+                            <>Content</>
+                        </Content>
+                    </PopupBase>
+                </PopupBaseProvider>
             </StyledWrapper>
         </SSRProvider>
     );

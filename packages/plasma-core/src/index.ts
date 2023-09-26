@@ -6,6 +6,7 @@ export * from './components/Fade';
 export * from './components/Field';
 export * from './components/Image';
 export * from './components/Input';
+export * from './components/ModalBase';
 export * from './components/PaginationDots';
 export * from './components/Popup';
 export * from './components/PopupBase';

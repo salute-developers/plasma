@@ -1,17 +1,40 @@
 import React, { ReactNode, useEffect } from 'react';
 
+export interface PopupInfo {
+    id: string;
+    isModal?: true;
+    onOverlayClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+}
+
 /**
  * Хранилище модальных окон.
  */
 class PopupBaseController {
-    public items: string[] = [];
+    public items: PopupInfo[] = [];
 
-    public register(id: string) {
-        return this.items.push(id);
+    public register(info: PopupInfo) {
+        return this.items.push(info);
     }
 
     public unregister(id: string) {
-        this.items.splice(this.items.indexOf(id), 1);
+        const index = this.items.findIndex((item: PopupInfo) => id === item.id);
+        if (index === -1) {
+            return;
+        }
+        this.items.splice(index, 1);
+    }
+
+    getLastModal() {
+        const modals = this.items.filter((item: PopupInfo) => item.isModal);
+        return modals && modals[modals.length - 1];
+    }
+
+    public getIdLastModal() {
+        return this.getLastModal()?.id;
+    }
+
+    public callCurrentModalClose(event: React.MouseEvent<HTMLDivElement>) {
+        this.getLastModal()?.onOverlayClick?.(event);
     }
 }
 
