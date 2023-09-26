@@ -1,0 +1,22 @@
+name: 'Lerna changed'
+
+description: 'Check when lerna changed state'
+
+outputs:
+  HAS_CHANGED:
+    description: "Have changed state since the last tagged release"
+    value: ${{ steps.has-changed.outputs.HAS_CHANGED }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Lerna changed output
+      shell: bash
+      id: has-changed
+      run: |
+        echo "HAS_CHANGED=$([[ $(npx lerna changed -a) ]] && echo "true" || echo "false")" >> $GITHUB_OUTPUT
+
+    - name: Echo output
+      shell: bash
+      run: echo "HAS_CHANGED -> ${{ steps.has-changed.outputs.HAS_CHANGED }}"
+
