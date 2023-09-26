@@ -40,7 +40,7 @@ npm install @salutejs/plasma-ui @salutejs/plasma-tokens @salutejs/plasma-icons
 
 ```jsx title="GlobalStyle.tsx"
 import { createGlobalStyle } from 'styled-components';
-import { darkSber } from '@salutejs/plasma-tokens/themes'; // Или один из списка: darkEva, darkJoy, lightEva, lightJoy, lightSber
+import { salutejs_sber__dark } from '@salutejs/plasma-tokens/themes'; // Или один из списка: salutejs_eva__dark, salutejs_joy__dark, salutejs_eva__light, salutejs_sber__light
 import {
     text, // Цвет текста
     background, // Цвет подложки
@@ -54,7 +54,7 @@ const DocumentStyle = createGlobalStyle`
         background-image: ${gradient};
     }
 `;
-const ThemeStyle = createGlobalStyle(darkSber);
+const ThemeStyle = createGlobalStyle(salutejs_sber__dark);
 
 export const GlobalStyle = () => (
     <>
