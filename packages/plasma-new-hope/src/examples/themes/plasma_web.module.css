@@ -21,15 +21,15 @@
   --text-secondary-active: rgba(255, 255, 255, 0.78);
   /* добавлены вручную */
   --text-tertiary: rgba(255, 255, 255, 0.28);
-  /* добавлены вручную (НУЖНО ПЕРЕСЧИТАТЬ) */
-  --text-tertiary-hover: rgba(255, 255, 255, 0.58);
-  --text-tertiary-active: rgba(255, 255, 255, 0.43);
+  /* добавлены вручную */
+  --text-tertiary-hover: rgba(255, 255, 255, 1);
+  --text-tertiary-active: rgba(255, 255, 255, 0.64);
   /* добавлены вручную */
   --text-paragraph: rgba(255, 255, 255, 0.8);
-  /* добавлены вручную (НУЖНО ПЕРЕСЧИТАТЬ) */
-  --text-paragraph-hover: rgba(255, 255, 255, 0.6);
-  --text-paragraph-active: rgba(255, 255, 255, 0.7);
-  /* добавлены вручную (НУЖНО ПЕРЕСЧИТАТЬ) */
+  /* добавлены вручную */
+  --text-paragraph-hover: rgba(255, 255, 255, 0.48);
+  --text-paragraph-active: rgba(255, 255, 255, 0.64);
+  /* добавлены вручную */
   --text-accent: rgba(63, 129, 253, 1);
   /* добавлены вручную */
   --text-accent-hover: rgba(93, 149, 253, 1);
@@ -194,15 +194,15 @@
   --text-secondary-active: rgba(8, 8, 8, 0.78);
   /* добавлены вручную */
   --text-tertiary: rgba(8, 8, 8, 0.28);
-  /* добавлены вручную (НУЖНО ПЕРЕСЧИТАТЬ) */
-  --text-secondary-hover: rgba(8, 8, 8, 0.58);
-  --text-secondary-active: rgba(8, 8, 8, 0.43);
+  /* добавлены вручную */
+  --text-tertiary-hover: rgba(8, 8, 8, 1);
+  --text-tertiary-active: rgba(8, 8, 8, 0.64);
   /* добавлены вручную */
   --text-paragraph: rgba(8, 8, 8, 0.8);
-  /* добавлены вручную (НУЖНО ПЕРЕСЧИТАТЬ) */
-  --text-paragraph-hover: rgba(8, 8, 8, 0.6);
-  --text-paragraph-active: rgba(8, 8, 8, 0.7);
-  /* добавлены вручную (НУЖНО ПЕРЕСЧИТАТЬ) */
+  /* добавлены вручную */
+  --text-paragraph-hover: rgba(8, 8, 8, 0.48);
+  --text-paragraph-active: rgba(8, 8, 8, 0.64);
+  /* добавлены вручную */
   --text-accent: rgba(42, 114, 248, 1);
   /* добавлены вручную */
   --text-accent-hover: rgba(82, 141, 250, 1);
