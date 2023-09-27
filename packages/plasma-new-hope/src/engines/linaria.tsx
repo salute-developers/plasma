@@ -6,14 +6,14 @@ import type { ComponentConfig, HTMLAnyAttributes } from './types';
 
 /* eslint-disable no-underscore-dangle */
 export const _component = (componentConfig: ComponentConfig) => {
-    const { tag, base, defaults, name } = componentConfig;
+    const { tag, base, name } = componentConfig;
     const staticVariants = getStaticVariants(componentConfig);
     const dynamicVariants = getDynamicVariants(componentConfig);
     const Root = tag as React.ElementType;
 
     const component = forwardRef<HTMLElement, HTMLAnyAttributes>((props, ref) => {
         const { className, ...rest } = props;
-        const variants = dynamicVariants({ ...defaults, ...rest });
+        const variants = dynamicVariants(rest);
         const cls = cx(className, base, ...staticVariants, ...variants);
 
         // styled-components do it inside
