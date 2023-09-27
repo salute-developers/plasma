@@ -8,7 +8,7 @@ export { styled, css };
 
 /* eslint-disable no-underscore-dangle */
 export const _component = (componentConfig: ComponentConfig) => {
-    const { tag, base, defaults } = componentConfig;
+    const { tag, base } = componentConfig;
     const staticVariants = getStaticVariants(componentConfig);
     const dynamicVariants = getDynamicVariants(componentConfig);
 
@@ -18,5 +18,5 @@ export const _component = (componentConfig: ComponentConfig) => {
         ${dynamicVariants}
     `;
 
-    return forwardRef<HTMLElement, HTMLAnyAttributes>((props, ref) => <Root {...defaults} {...props} ref={ref} />);
+    return forwardRef<HTMLElement, HTMLAnyAttributes>((props, ref) => <Root {...props} ref={ref} />);
 };

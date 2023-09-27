@@ -91,5 +91,9 @@ export function component<
 >(
     config: ComponentConfig<Tag, VariantList, VariantsProps, LayoutProps>,
 ): React.FunctionComponent<VariantsProps & LayoutProps> {
-    return config.layout(_component((config as unknown) as ComponentConfig));
+    const Comp = config.layout(_component((config as unknown) as ComponentConfig));
+
+    return React.forwardRef<VariantsProps & LayoutProps, any>((props, ref) => (
+        <Comp {...config?.defaults} {...props} ref={ref} />
+    ));
 }

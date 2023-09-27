@@ -10,5 +10,5 @@ perl -p -i -e "s/import { css } from '\@linaria\/core'/import { css } from 'styl
 
 rm -rf src-sc/engines/linaria.tsx
 perl -p -i -e "s/import { css as cssLibrary } from '\@linaria\/core'/import { css as cssLibrary } from 'styled-components'/g" src-sc/engines/index.ts 
-perl -p -i -e "s/linaria/styled-components/g" src-sc/engines/index.ts src-sc/engines/common.ts
+perl -p -i -e "s/linaria/styled-components/g" src-sc/engines/index.ts src-sc/engines/common.tsx
 
