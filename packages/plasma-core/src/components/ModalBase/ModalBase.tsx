@@ -1,9 +1,11 @@
-import React, { useCallback, useContext, FC, useEffect } from 'react';
+import React, { useCallback, FC, useEffect } from 'react';
 import styled, { createGlobalStyle, css } from 'styled-components';
 
 import { useFocusTrap, useUniqId } from '../../hooks';
-import { PopupBaseContext, PopupInfo } from '../PopupBase/PopupBaseContext';
+import { usePopupBaseContext } from '../PopupBase/PopupBaseContext';
 import { DEFAULT_Z_INDEX, PopupBase, PopupBaseProps } from '../PopupBase/PopupBase';
+
+import { ModalInfo, getIdLastModal } from './ModalBaseContext';
 
 export interface ModalBaseProps extends Omit<PopupBaseProps, 'frame'> {
     /**
@@ -41,6 +43,7 @@ export interface ModalBaseProps extends Omit<PopupBaseProps, 'frame'> {
     onClose?: () => void;
 }
 
+// TODO: новый отдельный оверлей #778
 const StyledOverlay = styled.div<{ transparent?: boolean; $withBlur?: boolean; clickable?: boolean; zIndex?: string }>`
     position: absolute;
 
@@ -97,11 +100,11 @@ export const ModalBase: FC<ModalBaseProps> = ({
 }) => {
     const uniqId = useUniqId();
     const innerId = id || uniqId;
-    const controller = useContext(PopupBaseContext);
+    const popupController = usePopupBaseContext();
 
     const trapRef = useFocusTrap(true, initialFocusRef, focusAfterRef);
 
-    const onOverlayClickCallback = useCallback(
+    const onOverlayKeyDown = useCallback(
         (event: React.MouseEvent<HTMLDivElement>) => {
             if (!closeOnOverlayClick) {
                 return;
@@ -112,32 +115,28 @@ export const ModalBase: FC<ModalBaseProps> = ({
                 return;
             }
 
-            onClose?.();
+            if (onClose) {
+                onClose();
+            }
         },
         [closeOnOverlayClick, onOverlayClick, onClose],
-    );
-
-    // Вызов обработчика текущего окна
-    const onOverlayKeyDown = useCallback(
-        (event: React.MouseEvent<HTMLDivElement>) => {
-            controller.callCurrentModalClose(event);
-        },
-        [controller.items],
     );
 
     // При ESC закрывает текущее окно, если это возможно
     const onKeyDown = useCallback(
         (event: KeyboardEvent) => {
-            if (closeOnEsc && event.keyCode === ESCAPE_KEYCODE && controller.getIdLastModal() === innerId) {
+            if (closeOnEsc && event.keyCode === ESCAPE_KEYCODE && getIdLastModal(popupController.items) === innerId) {
                 if (onEscKeyDown) {
                     onEscKeyDown(event);
                     return;
                 }
 
-                onClose?.();
+                if (onClose) {
+                    onClose();
+                }
             }
         },
-        [onClose, onEscKeyDown, controller.items, closeOnEsc],
+        [onClose, onEscKeyDown, popupController, closeOnEsc],
     );
 
     useEffect(() => {
@@ -145,22 +144,18 @@ export const ModalBase: FC<ModalBaseProps> = ({
         return () => {
             window.removeEventListener('keydown', onKeyDown);
         };
-    }, [onClose, onEscKeyDown, controller.items, closeOnEsc]);
+    }, [onClose, onEscKeyDown, popupController, closeOnEsc]);
 
-    const modalInfo: PopupInfo = {
+    const modalInfo: ModalInfo = {
         id: innerId,
-        isModal: true,
-        onOverlayClick: onOverlayClickCallback,
+        info: {
+            isModal: true,
+        },
     };
-
-    if (!isOpen) {
-        return null;
-    }
 
     return (
         <>
             <NoScroll />
-            <StyledOverlay clickable={closeOnOverlayClick} onClick={onOverlayKeyDown} $withBlur={withBlur} />
             <PopupBase
                 id={innerId}
                 frame="document"
@@ -168,6 +163,14 @@ export const ModalBase: FC<ModalBaseProps> = ({
                 placement={placement}
                 ref={trapRef}
                 popupInfo={modalInfo}
+                overlay={
+                    <StyledOverlay
+                        transparent={getIdLastModal(popupController.items) !== innerId}
+                        clickable={closeOnOverlayClick}
+                        onClick={onOverlayKeyDown}
+                        $withBlur={withBlur}
+                    />
+                }
                 {...rest}
             >
                 {children}
