@@ -50,7 +50,7 @@ import { Button1 } from '@salutejs/plasma-hope';
 import { Button2 } from '@salutejs/plasma-hope';
 import { ButtonProps } from '@salutejs/plasma-hope';
 import { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-core';
-import { ButtonSizeProps } from '@salutejs/plasma-core';
+import { ButtonSizes } from '@salutejs/plasma-hope';
 import { ButtonView } from '@salutejs/plasma-hope';
 import { ButtonViewProps } from '@salutejs/plasma-core';
 import { buttonViews } from '@salutejs/plasma-hope';
@@ -350,21 +350,21 @@ export { Breakpoint }
 export { BreakWordProps }
 
 // @public
-export const Button: React_2.ForwardRefExoticComponent<(ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
+export const Button: React_2.ForwardRefExoticComponent<(ButtonProps_2<HTMLElement> & Partial<ButtonSizes> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
     text?: React_2.ReactNode;
     contentLeft?: React_2.ReactNode;
     contentRight?: undefined;
     children?: undefined;
     isLoading?: boolean | undefined;
     loader?: React_2.ReactNode;
-} & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
+} & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizes> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
     text?: React_2.ReactNode;
     contentLeft?: undefined;
     contentRight?: React_2.ReactNode;
     children?: undefined;
     isLoading?: boolean | undefined;
     loader?: React_2.ReactNode;
-} & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
+} & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizes> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
     text?: undefined;
     contentLeft?: undefined;
     contentRight?: undefined;

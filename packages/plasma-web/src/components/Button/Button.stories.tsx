@@ -7,7 +7,7 @@ import { IconPlaceholder, disableProps, InSpacingDecorator } from '../../helpers
 import { Button, ButtonProps } from '.';
 
 const views = ['primary', 'secondary', 'success', 'warning', 'critical', 'checked', 'clear'];
-const sizes = ['l', 'm', 's'];
+const sizes = ['l', 'm', 's', 'xs', 'xxs'];
 const pins = [
     'square-square',
     'circle-circle',
@@ -91,12 +91,22 @@ const args: ButtonStoryProps = {
     onBlur,
 };
 
+const iconSize = {
+    l: 's',
+    m: 's',
+    s: 's',
+    xs: 'xs',
+    xxs: 'xs',
+};
+
 export const Default: Story<ButtonStoryProps> = ({ contentType, text, ...rest }) => (
     <Button
         autoFocus
         text={contentType !== 'Left' && text}
-        contentLeft={(contentType === 'Left' || contentType === 'Text+Left') && <IconPlaceholder />}
-        contentRight={contentType === 'Text+Right' && <IconPlaceholder />}
+        contentLeft={
+            (contentType === 'Left' || contentType === 'Text+Left') && <IconPlaceholder size={iconSize[rest.size]} />
+        }
+        contentRight={contentType === 'Text+Right' && <IconPlaceholder size={iconSize[rest.size]} />}
         {...rest}
     />
 );
@@ -107,8 +117,10 @@ export const Anchor: Story<ButtonStoryProps> = ({ contentType, text, ...rest }) 
     <Button
         as="a"
         text={contentType !== 'Left' && text}
-        contentLeft={(contentType === 'Left' || contentType === 'Text+Left') && <IconPlaceholder />}
-        contentRight={contentType === 'Text+Right' && <IconPlaceholder />}
+        contentLeft={
+            (contentType === 'Left' || contentType === 'Text+Left') && <IconPlaceholder size={iconSize[rest.size]} />
+        }
+        contentRight={contentType === 'Text+Right' && <IconPlaceholder size={iconSize[rest.size]} />}
         {...rest}
     />
 );
@@ -153,8 +165,12 @@ export const Loading: Story<ButtonStoryProps> = ({ contentType, text, isLoading,
             autoFocus
             onClick={onClickHandle}
             text={contentType !== 'Left' && text}
-            contentLeft={(contentType === 'Left' || contentType === 'Text+Left') && <IconPlaceholder />}
-            contentRight={contentType === 'Text+Right' && <IconPlaceholder />}
+            contentLeft={
+                (contentType === 'Left' || contentType === 'Text+Left') && (
+                    <IconPlaceholder size={iconSize[rest.size]} />
+                )
+            }
+            contentRight={contentType === 'Text+Right' && <IconPlaceholder size={iconSize[rest.size]} />}
             isLoading={loading}
             loader={<div>Loading - {count}</div>}
             {...rest}

@@ -39,7 +39,6 @@ import { Button2 } from '@salutejs/plasma-core';
 import type { ButtonContentProps } from '@salutejs/plasma-core';
 import { ButtonHTMLAttributes } from 'react';
 import { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-core';
-import { ButtonSizeProps } from '@salutejs/plasma-core';
 import { ButtonViewProps } from '@salutejs/plasma-core';
 import { canUseDOM } from '@salutejs/plasma-core';
 import { Caption } from '@salutejs/plasma-core';
@@ -289,24 +288,22 @@ export { BodyXXS }
 // @public (undocumented)
 export type Breakpoint = keyof typeof gridBreakpoints;
 
-// Warning: (ae-forgotten-export) The symbol "Design" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
-export const Button: ({ design }: Design) => React_2.ForwardRefExoticComponent<(ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
+export const Button: ({ design }: Design) => React_2.ForwardRefExoticComponent<(ButtonProps_2<HTMLElement> & Partial<ButtonSizes> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
     text?: React_2.ReactNode;
     contentLeft?: React_2.ReactNode;
     contentRight?: undefined;
     children?: undefined;
     isLoading?: boolean | undefined;
     loader?: React_2.ReactNode;
-} & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
+} & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizes> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
     text?: React_2.ReactNode;
     contentLeft?: undefined;
     contentRight?: React_2.ReactNode;
     children?: undefined;
     isLoading?: boolean | undefined;
     loader?: React_2.ReactNode;
-} & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizeProps<string | number>> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
+} & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizes> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
     text?: undefined;
     contentLeft?: undefined;
     contentRight?: undefined;
@@ -344,13 +341,18 @@ export const buttonPrimaryActive = "var(--plasma-colors-button-primary-active)";
 export const buttonPrimaryHover = "var(--plasma-colors-button-primary-hover)";
 
 // @public (undocumented)
-export type ButtonProps = ButtonProps_2 & Partial<ButtonSizeProps> & Partial<ButtonViewProps<ButtonView>> & ButtonContentProps;
+export type ButtonProps = ButtonProps_2 & Partial<ButtonSizes> & Partial<ButtonViewProps<ButtonView>> & ButtonContentProps;
 
 // @public (undocumented)
 export const buttonSecondaryActive = "var(--plasma-colors-button-secondary-active)";
 
 // @public (undocumented)
 export const buttonSecondaryHover = "var(--plasma-colors-button-secondary-hover)";
+
+// @public
+export type ButtonSizes = {
+    size: 'l' | 'm' | 's' | 'xs' | 'xxs';
+};
 
 // @public (undocumented)
 export const buttonSuccessActive = "var(--plasma-colors-button-success-active)";
@@ -552,6 +554,11 @@ export { createTabsController }
 
 // @public
 export const defaultValidate: (files: FileList | null, accept?: string | undefined) => ValidationResult;
+
+// @public (undocumented)
+export type Design = {
+    design: 'b2c' | 'web';
+};
 
 export { DisabledProps }
 
