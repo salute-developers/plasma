@@ -859,11 +859,6 @@ export const Popup: React_2.NamedExoticComponent<PopupProps & React_2.RefAttribu
 // @public
 export const PopupBase: React_2.ForwardRefExoticComponent<PopupBaseProps & React_2.RefAttributes<HTMLDivElement>>;
 
-// Warning: (ae-forgotten-export) The symbol "PopupBaseController" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const PopupBaseContext: React_2.Context<PopupBaseController>;
-
 // Warning: (ae-forgotten-export) The symbol "BasicPopupBasePlacement" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "MixedPopupBasePlacement" needs to be exported by the entry point index.d.ts
 //
@@ -877,9 +872,9 @@ export interface PopupBaseProps extends React_2.HTMLAttributes<HTMLDivElement> {
     isOpen: boolean;
     // (undocumented)
     offset?: [number | string, number | string];
+    overlay?: React_2.ReactNode;
     // (undocumented)
     placement?: PopupBasePlacement;
-    // Warning: (ae-forgotten-export) The symbol "PopupInfo" needs to be exported by the entry point index.d.ts
     popupInfo?: PopupInfo;
     zIndex?: string;
 }
@@ -888,6 +883,24 @@ export interface PopupBaseProps extends React_2.HTMLAttributes<HTMLDivElement> {
 export const PopupBaseProvider: React_2.FC<{
     children: ReactNode;
 }>;
+
+// @public (undocumented)
+export interface PopupContextType {
+    // (undocumented)
+    items: PopupInfo[];
+    // (undocumented)
+    register: (info: PopupInfo) => void;
+    // (undocumented)
+    unregister: (id: string) => void;
+}
+
+// @public (undocumented)
+export interface PopupInfo {
+    // (undocumented)
+    id: string;
+    // (undocumented)
+    info?: Object;
+}
 
 // @public (undocumented)
 export interface PopupProps extends HTMLAttributes<HTMLDivElement> {
@@ -1333,6 +1346,9 @@ export const usePaginationDots: ({ items, index, visibleItems }: SmartPagination
     }[];
     activeId: string | number;
 };
+
+// @public (undocumented)
+export const usePopupBaseContext: () => PopupContextType;
 
 // @public
 export const useResizeObserver: <T extends HTMLElement>(ref: MutableRefObject<T | null>, callback: (element: T) => void) => void;

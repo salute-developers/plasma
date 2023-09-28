@@ -51,6 +51,7 @@ const StyledWrapper = styled.div`
     height: 1200px;
 `;
 
+// TODO: новый отдельный оверлей #778
 const ModalOverlayVariables = createGlobalStyle`
     body {
         --plasma-modal-blur-overlay-color: ${darkOverlayBlur};
