@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState, useContext } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import styled, { css } from 'styled-components';
 
 import { useUniqId } from '../../hooks';
 
-import { PopupBaseContext, POPOVER_PORTAL_ID, PopupInfo } from './PopupBaseContext';
+import { POPOVER_PORTAL_ID, PopupInfo, usePopupBaseContext } from './PopupBaseContext';
 
 type BasicPopupBasePlacement = 'center' | 'top' | 'bottom' | 'right' | 'left';
 type MixedPopupBasePlacement = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
@@ -33,6 +33,10 @@ export interface PopupBaseProps extends React.HTMLAttributes<HTMLDivElement> {
      * Содержимое PopupBase.
      */
     children?: React.ReactNode;
+    /**
+     * Соседний элемент для окна в портале.
+     */
+    overlay?: React.ReactNode;
     /**
      * Значение z-index для PopupBase.
      */
@@ -138,13 +142,19 @@ const PopupBaseRoot = styled.div<HidingProps & PopupBaseRootProps>`
  */
 
 export const PopupBase = React.forwardRef<HTMLDivElement, PopupBaseProps>(
-    ({ id, isOpen, placement, offset, frame = 'document', children, role, zIndex, popupInfo, ...rest }, ref) => {
+    (
+        { id, isOpen, placement, offset, frame = 'document', children, overlay, role, zIndex, popupInfo, ...rest },
+        ref,
+    ) => {
+        // Внутренее состояние, необходимое для правильного отображения вложенных окон, а также для анимации
+        const [isClosed, setClosed] = useState(!isOpen);
+
         const uniqId = useUniqId();
         const innerId = id || uniqId;
 
         const portalRef = useRef<HTMLElement | null>(null);
 
-        const controller = useContext(PopupBaseContext);
+        const popupController = usePopupBaseContext();
 
         const [, forceRender] = useState(false);
 
@@ -168,21 +178,20 @@ export const PopupBase = React.forwardRef<HTMLDivElement, PopupBaseProps>(
              * отобразился после записи DOM элемента в portalRef.current
              */
             forceRender(true);
-
-            return () => {
-                controller.unregister(innerId);
-            };
-        }, [controller, innerId, zIndex]);
+        }, []);
 
         useEffect(() => {
+            // сначала добавление/удаление из контекста
             if (isOpen) {
-                controller.register({ id: innerId, ...popupInfo });
+                popupController.register({ id: innerId, ...popupInfo });
             } else {
-                controller.unregister(innerId);
+                popupController.unregister(innerId);
             }
+            // затем отображение
+            setClosed(!isOpen);
         }, [isOpen]);
 
-        if (!isOpen) {
+        if (isClosed) {
             return null;
         }
 
@@ -190,11 +199,20 @@ export const PopupBase = React.forwardRef<HTMLDivElement, PopupBaseProps>(
             <>
                 {portalRef.current &&
                     ReactDOM.createPortal(
-                        <PopupBaseRoot ref={ref} placement={placement} frame={frame} offset={offset} zIndex={zIndex}>
-                            <PopupBaseView {...rest} role={role}>
-                                {children}
-                            </PopupBaseView>
-                        </PopupBaseRoot>,
+                        <>
+                            {overlay}
+                            <PopupBaseRoot
+                                ref={ref}
+                                placement={placement}
+                                frame={frame}
+                                offset={offset}
+                                zIndex={zIndex}
+                            >
+                                <PopupBaseView {...rest} role={role}>
+                                    {children}
+                                </PopupBaseView>
+                            </PopupBaseRoot>
+                        </>,
                         portalRef.current,
                     )}
             </>

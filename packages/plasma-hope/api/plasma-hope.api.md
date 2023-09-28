@@ -116,10 +116,11 @@ import { PopoverPlacement } from '@salutejs/plasma-core';
 import { PopoverProps } from '@salutejs/plasma-core';
 import { Popup } from '@salutejs/plasma-core';
 import { PopupBase } from '@salutejs/plasma-core';
-import { PopupBaseContext } from '@salutejs/plasma-core';
 import { PopupBasePlacement } from '@salutejs/plasma-core';
 import { PopupBaseProps } from '@salutejs/plasma-core';
 import { PopupBaseProvider } from '@salutejs/plasma-core';
+import { PopupContextType } from '@salutejs/plasma-core';
+import { PopupInfo } from '@salutejs/plasma-core';
 import { PopupProps } from '@salutejs/plasma-core';
 import type { PriceProps as PriceProps_2 } from '@salutejs/plasma-core';
 import { PropsWithChildren } from 'react';
@@ -175,6 +176,7 @@ import { useDebouncedFunction } from '@salutejs/plasma-core';
 import { useFocusTrap } from '@salutejs/plasma-core';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
+import { usePopupBaseContext } from '@salutejs/plasma-core';
 import { useResizeObserver } from '@salutejs/plasma-core';
 import { useToast } from '@salutejs/plasma-core';
 import { View } from '@salutejs/plasma-core';
@@ -1004,13 +1006,15 @@ export { Popup }
 
 export { PopupBase }
 
-export { PopupBaseContext }
-
 export { PopupBasePlacement }
 
 export { PopupBaseProps }
 
 export { PopupBaseProvider }
+
+export { PopupContextType }
+
+export { PopupInfo }
 
 export { PopupProps }
 
@@ -1350,6 +1354,8 @@ export { useFocusTrap }
 export { useForkRef }
 
 export { useIsomorphicLayoutEffect }
+
+export { usePopupBaseContext }
 
 export { useResizeObserver }
 
