@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { applyDisabled, applyBlur, applyEllipsis } from '../../mixins';
+import { applyDisabled, applyEllipsis } from '../../mixins';
 import { Spinner } from '../Spinner';
 
 import type { ButtonIsContentProps, ButtonIsLoading, StyledButtonProps } from './Button.types';
@@ -31,8 +31,6 @@ export const ButtonRoot = styled.button<StyledButtonProps>`
     }
 
     ${({ $isLoading: isLoading }) => !isLoading && applyDisabled}
-
-    ${applyBlur}
 `;
 
 /**
