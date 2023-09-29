@@ -1,3 +1,17 @@
+# v0.71.0 (Fri Sep 29 2023)
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 1
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v0.70.0 (Thu Sep 14 2023)
 
 #### 🐛 Bug Fix

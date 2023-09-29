@@ -1,3 +1,127 @@
+# (Fri Sep 29 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-docs-ui): Update types for props keys [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Update building tokens for new tokens value [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-theme-builder): Add methods for support extract colors from palette [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-temple@1.183.0`, `@salutejs/plasma-ui@1.215.0`
+  - Update package-locks [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+- `@salutejs/plasma-ui@1.215.0`
+  - feat(plasma-ui): add labels for time pickers [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-ui): add prop "buttonsDirection" [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@1.235.0`
+  - feat(plasma-hope): Remove `Radiobox` component [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-hope): Remove `Spinner` component [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-hope): Remove `Link` component [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-web): add api report [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+  - feat(plasma-web): pass ref to "DropdownItem" [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.236.0`
+  - feat(plasma-web): Replace `Radiobox` from plasma-new-hope and update snapshots [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-web): Replace `Checkbox` from plasma-new-hope and update snapshots [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-web): Replace `Spinner` from plasma-new-hope [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-web): Replace `Link` from plasma-new-hope [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.236.0`
+  - feat(plasma-b2c): Replace `Radiobox` from plasma-new-hope and update snapshots [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-b2c): Replace `Checkbox` from plasma-new-hope [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-b2c): Replace `Spinner` from plasma-new-hope [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-b2c): Replace `Link` from plasma-new-hope [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-new-hope@0.5.0`
+  - feat(plasma-new-hope): Add `Radiobox` component with new design and tokens [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-new-hope): Add core `Radiobox` component [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-new-hope): Add `Checkbox` component with new design and tokens [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-new-hope): Add core `Checkbox` component [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-new-hope): Add wrapper for layout with default props [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-new-hope): Add `Spinner` component with new design and tokens [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-new-hope): Update `Button` component with new design and tokens themes [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-new-hope): Add `Link` component with new design and tokens themes [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-new-hope): Add core `Link` component [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-new-hope): Add typing for engines [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-new-hope): 🚀 boostrap && init [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.236.0`, `@salutejs/plasma-core@1.134.0`, `@salutejs/plasma-hope@1.235.0`, `@salutejs/plasma-web@1.236.0`
+  - feat(plasma-core): focusTrap, arrow and offset for Popover [#781](https://github.com/salute-developers/plasma/pull/781) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-tokens@1.64.0`
+  - feat(plasma-tokens): Replace rgb/a and hexa values to values from color palette [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - feat(plasma-tokens): Replace tokens value in schemes to colors palette [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-tokens-utils@0.33.0`
+  - feat(plasma-tokens-utils): Add method for restored themes value from color palette [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- docs: update import deprecated darkSber [#781](https://github.com/salute-developers/plasma/pull/781) ([@azeek21](https://github.com/azeek21))
+- ci: enable semgrep workflow [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: exclude private packages for sync package-lock's files [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: up perftool [#781](https://github.com/salute-developers/plasma/pull/781) ([@akhdrv](https://github.com/akhdrv))
+- ci: new endpoint for perftool-send-report [#781](https://github.com/salute-developers/plasma/pull/781) ([@akhdrv](https://github.com/akhdrv))
+- chore: update package-locks [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+- ci("PR Documentation and Storybook"): delete "HAS_PLASMA_WEBSITE" flag [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(lint-packages): delete unnecessary check for private packages [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+- ci(publish): sync package-lock files state (includes private packages) [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: fix version for private packages [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+- ci(publish): delete unnecessary manual version update [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: patch for @auto-it/(core,npm) logic [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: add "patch-package" dep [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(github): add pull request template [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: fix website main-page in pr [#781](https://github.com/salute-developers/plasma/pull/781) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-temple@1.183.0`, `@salutejs/plasma-ui@1.215.0`
+  - Update versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+  - chore: update package-locks [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+- `@salutejs/plasma-b2c@1.236.0`, `@salutejs/plasma-hope@1.235.0`, `@salutejs/plasma-web@1.236.0`
+  - chore: update package-locks [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+  - Update versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+  - feat(plasma-b2c,plasma-web): Button size_xs/xss [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.236.0`, `@salutejs/plasma-hope@1.235.0`, `@salutejs/plasma-new-hope@0.5.0`, `@salutejs/plasma-web@1.236.0`
+  - chore: update package-locks [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+  - Update versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+- `@salutejs/plasma-b2c@1.236.0`, `@salutejs/plasma-new-hope@0.5.0`, `@salutejs/plasma-web@1.236.0`
+  - chore: update package-locks [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+  - Update versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+- `@salutejs/plasma-b2c@1.236.0`, `@salutejs/plasma-core@1.134.0`, `@salutejs/plasma-hope@1.235.0`, `@salutejs/plasma-icons@1.165.0`, `@salutejs/plasma-new-hope@0.5.0`, `@salutejs/plasma-temple@1.183.0`, `@salutejs/plasma-ui@1.215.0`, `@salutejs/plasma-web@1.236.0`, `@salutejs/plasma-sb-utils@0.132.0`
+  - chore: update package-locks [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+  - Update versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+- `@salutejs/plasma-new-hope@0.5.0`
+  - fix(plasma-new-hope): Update hover and active colors for tertiary and paragraph tokens in themes [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - chore: update package-locks [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+  - Update versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+- `@salutejs/plasma-core@1.134.0`, `@salutejs/plasma-new-hope@0.5.0`
+  - feat(plasma-new-hope,plasma-core): Add core `Spinner` component [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.236.0`, `@salutejs/plasma-core@1.134.0`, `@salutejs/plasma-hope@1.235.0`, `@salutejs/plasma-icons@1.165.0`, `@salutejs/plasma-temple@1.183.0`, `@salutejs/plasma-ui@1.215.0`, `@salutejs/plasma-web@1.236.0`, `@salutejs/plasma-sb-utils@0.132.0`
+  - fix: Bump package-lock versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+  - Update versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+  - chore: update package-locks [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+  - chore: update version [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.236.0`, `@salutejs/plasma-core@1.134.0`, `@salutejs/plasma-web@1.236.0`
+  - fix(plasma-core): PopupBase refactoring [#781](https://github.com/salute-developers/plasma/pull/781) ([@kayman233](https://github.com/kayman233))
+  - fix(plasma-core): Popover refactoring [#781](https://github.com/salute-developers/plasma/pull/781) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-b2c@1.236.0`, `@salutejs/plasma-core@1.134.0`, `@salutejs/plasma-hope@1.235.0`, `@salutejs/plasma-web@1.236.0`
+  - feat(plasma-web, plasma-b2c): PopupBase component [#781](https://github.com/salute-developers/plasma/pull/781) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-core@1.134.0`, `@salutejs/plasma-hope@1.235.0`
+  - fix(plasma-hope): move focusTrap to plasma-core [#781](https://github.com/salute-developers/plasma/pull/781) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-core@1.134.0`, `@salutejs/plasma-hope@1.235.0`, `@salutejs/plasma-web@1.236.0`
+  - feat(plasma-web, plasma-b2c): Popover component [#781](https://github.com/salute-developers/plasma/pull/781) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-b2c@1.236.0`, `@salutejs/plasma-core@1.134.0`, `@salutejs/plasma-hope@1.235.0`, `@salutejs/plasma-icons@1.165.0`, `@salutejs/plasma-temple@1.183.0`, `@salutejs/plasma-tokens-b2b@1.29.0`, `@salutejs/plasma-tokens-b2c@0.38.0`, `@salutejs/plasma-tokens-web@1.44.0`, `@salutejs/plasma-tokens@1.64.0`, `@salutejs/plasma-ui@1.215.0`, `@salutejs/plasma-web@1.236.0`, `@salutejs/plasma-cy-utils@0.71.0`, `@salutejs/plasma-sb-utils@0.132.0`, `@salutejs/plasma-tokens-utils@0.33.0`
+  - chore: update package-locks [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+  - Update versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+- `@salutejs/plasma-tokens@1.64.0`, `@salutejs/plasma-tokens-utils@0.33.0`
+  - feat(plasma-tokens,plasma-token-native): Change legacy token value to css-variables [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.236.0`, `@salutejs/plasma-core@1.134.0`, `@salutejs/plasma-hope@1.235.0`, `@salutejs/plasma-icons@1.165.0`, `@salutejs/plasma-temple@1.183.0`, `@salutejs/plasma-tokens-web@1.44.0`, `@salutejs/plasma-ui@1.215.0`, `@salutejs/plasma-web@1.236.0`, `@salutejs/plasma-sb-utils@0.132.0`, `@salutejs/plasma-tokens-utils@0.33.0`
+  - chore: update package-locks [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+- `@salutejs/plasma-core@1.134.0`
+  - fix(plasma-ui,plasma-web,plasma-b2c): Button Spinner checked color [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 7
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Abdulaziz Askaraliev ([@azeek21](https://github.com/azeek21))
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Thu Sep 14 2023)
 
 #### 🚀 Enhancement
