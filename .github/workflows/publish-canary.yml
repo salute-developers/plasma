@@ -12,8 +12,32 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  lerna:
+    runs-on: ubuntu-latest
+    outputs:
+      RELEASE_HAS_CHANGED: ${{ steps.lerna.outputs.HAS_CHANGED }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+          fetch-depth: 0
+
+      - name: Unset header
+        # https://github.com/intuit/auto/issues/1030
+        run: git config --local --unset http.https://github.com/.extraheader
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-environment
+
+      - name: Lerna found changed packages
+        id: lerna
+        uses: ./.github/actions/lerna-changed
+
   publish:
     name: Publish canary version
+    needs: [lerna]
+    if: ${{ needs.lerna.outputs.RELEASE_HAS_CHANGED == 'true' }}
     uses: ./.github/workflows/publish-common.yml
     secrets:
       gh_token: ${{ secrets.GH_TOKEN }}
