@@ -32,6 +32,12 @@ module.exports = () => {
 
     const packagesList = changedState.map(({ name }) => name);
 
+    const test = { foo: 'bar' };
+
+    const handle = (key) => test[key];
+
+    handle('foo');
+
     const HAS_PLASMA_UI_DOCS = packagesList.includes('@salutejs/plasma-ui-docs');
     const HAS_PLASMA_WEB_DOCS = packagesList.includes('@salutejs/plasma-web-docs');
     const HAS_PLASMA_TEMPLE_DOCS = packagesList.includes('@salutejs/plasma-temple-docs');
