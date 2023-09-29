@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-temple-docs",
-  "version": "0.172.1-dev.0",
+  "version": "0.173.0-dev.0",
   "description": "Plasma Temple documentation",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -32,7 +32,7 @@
     "@salutejs/plasma-docs-ui": "0.146.1-dev.0",
     "@salutejs/plasma-icons": "1.165.0-dev.0",
     "@salutejs/plasma-tokens": "1.64.0-dev.0",
-    "@salutejs/plasma-ui": "1.214.0-dev.0",
+    "@salutejs/plasma-ui": "1.215.0-dev.0",
     "@svgr/webpack": "^5.5.0",
     "clsx": "^1.1.1",
     "file-loader": "^6.2.0",
