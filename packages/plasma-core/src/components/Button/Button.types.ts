@@ -1,6 +1,6 @@
 import type { FlattenSimpleInterpolation, CSSObject } from 'styled-components';
 
-import type { DisabledProps, FocusProps, OutlinedProps, BlurProps } from '../../mixins';
+import type { DisabledProps, FocusProps, OutlinedProps, blurs } from '../../mixins';
 import type { ShiftProps, AsProps } from '../../types';
 import type { PinProps } from '../../utils';
 
@@ -16,7 +16,6 @@ export interface ButtonProps<T = HTMLElement>
         OutlinedProps,
         DisabledProps,
         ShiftProps,
-        BlurProps,
         AsProps,
         Omit<React.AnchorHTMLAttributes<T>, 'type'>,
         React.ButtonHTMLAttributes<T> {
@@ -28,6 +27,12 @@ export interface ButtonProps<T = HTMLElement>
      * Растягиваемость кнопки (кнопка занимает ширину контейнера)
      */
     stretch?: boolean;
+
+    /**
+     * Степень размытия фона
+     * @deprecated для кнопок без прозрачности не работает
+     */
+    blur?: keyof typeof blurs;
 }
 
 /**
@@ -141,9 +146,8 @@ export interface StyledButtonProps
         OutlinedProps,
         DisabledProps,
         ShiftProps,
-        BlurProps,
         ButtonIsContentProps,
-        Pick<ButtonProps, 'square' | 'stretch'> {}
+        Pick<ButtonProps, 'square' | 'stretch' | 'blur'> {}
 
 /**
  * @private
