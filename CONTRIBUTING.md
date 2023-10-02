@@ -40,7 +40,7 @@ npx lerna bootstrap --scope [имя пакета 1] --scope [имя пакета
 Если возникла какая-либо проблема со сборкой, можно попробовать полностью удалить все зависимости и установить их заново:
 
 ```sh
-rm -rm ./node_modules/
+rm -rf ./node_modules/
 npm ci
 npx lerna clean -y
 npx lerna bootstrap
