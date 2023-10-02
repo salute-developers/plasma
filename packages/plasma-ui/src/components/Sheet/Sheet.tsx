@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled, { css, createGlobalStyle } from 'styled-components';
-import { overlay, primary, backgroundPrimary } from '@salutejs/plasma-tokens';
+import { overlay, white, backgroundPrimary } from '@salutejs/plasma-tokens';
 
 import { ThemeProviderContext } from '../../hooks';
 
@@ -130,7 +130,8 @@ const StyledSheetHandle = styled.div`
         content: '';
         display: block;
         border-radius: 0.625rem;
-        background-color: ${primary};
+        background-color: ${white};
+        opacity: 0.96;
         height: 0.25rem;
     }
 `;
