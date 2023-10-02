@@ -289,7 +289,9 @@ export const buttonFocused = "var(--plasma-colors-button-focused)";
 export const buttonPrimary = "var(--plasma-colors-button-primary)";
 
 // @public
-export interface ButtonProps<T = HTMLElement> extends Partial<PinProps>, FocusProps, OutlinedProps, DisabledProps, ShiftProps, BlurProps, AsProps, Omit<React.AnchorHTMLAttributes<T>, 'type'>, React.ButtonHTMLAttributes<T> {
+export interface ButtonProps<T = HTMLElement> extends Partial<PinProps>, FocusProps, OutlinedProps, DisabledProps, ShiftProps, AsProps, Omit<React.AnchorHTMLAttributes<T>, 'type'>, React.ButtonHTMLAttributes<T> {
+    // @deprecated
+    blur?: keyof typeof blurs;
     square?: boolean;
     stretch?: boolean;
 }
