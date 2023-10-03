@@ -6,10 +6,9 @@ import styled from 'styled-components';
 
 import { InSpacing } from '../../helpers/StoryDecorators';
 import { Button } from '../Button';
+import { PopupBaseProvider } from '../PopupBase';
 import { Body1, Body3 } from '../Typography';
 import { disableProps } from '../../helpers';
-
-import { useAutoFocus } from './Confirm.hooks';
 
 import { Confirm, ConfirmProps } from '.';
 
@@ -20,6 +19,22 @@ export default {
     argTypes: {
         buttonsDirection: {
             options: ['horizontal', 'horizontal-reverse', 'vertical', 'vertical-reverse', undefined],
+            control: {
+                type: 'select',
+            },
+        },
+        placement: {
+            options: [
+                'center',
+                'top',
+                'bottom',
+                'right',
+                'left',
+                'top-right',
+                'top-left',
+                'bottom-right',
+                'bottom-left',
+            ],
             control: {
                 type: 'select',
             },
@@ -41,7 +56,6 @@ export const Default: Story<ConfirmProps> = ({ visible: _visible, ...rest }) => 
     const [visible, setVisible] = useState(_visible);
 
     const btnRef = useRef<HTMLButtonElement>(null);
-    useAutoFocus(btnRef, { trigger: !visible });
 
     const hide = () => {
         setVisible(false);
@@ -58,7 +72,7 @@ export const Default: Story<ConfirmProps> = ({ visible: _visible, ...rest }) => 
     };
 
     return (
-        <>
+        <PopupBaseProvider>
             <Button ref={btnRef} text="Show Confirm" onClick={() => setVisible(true)} />
             <Confirm visible={visible} onApprove={onApprove} onDismiss={onDismiss} {...rest} />
             <Body1 mt={12}>
@@ -94,7 +108,7 @@ export const Default: Story<ConfirmProps> = ({ visible: _visible, ...rest }) => 
                 Gentiles, Protestants and Catholics, will be able to join hands and sing in the words of the old
                 spiritual, &#34;Free at last, free at last. Thank God Almighty, we are free at last.&#34;
             </Body1>
-        </>
+        </PopupBaseProvider>
     );
 };
 
@@ -104,16 +118,15 @@ Default.args = {
     view: 'primary',
     approveText: 'Да',
     dismissText: 'Нет',
+    placement: 'top',
     visible: false,
+    stretch: true,
     reverseButtons: false,
     buttonsDirection: undefined,
 };
 
 export const ExtraContent: Story<ConfirmProps> = ({ visible: _visible, ...rest }) => {
     const [visible, setVisible] = useState(_visible);
-
-    const btnRef = useRef<HTMLButtonElement>(null);
-    useAutoFocus(btnRef, { trigger: !visible });
 
     const hide = () => {
         setVisible(false);
@@ -138,7 +151,7 @@ export const ExtraContent: Story<ConfirmProps> = ({ visible: _visible, ...rest }
 
     return (
         <>
-            <Button ref={btnRef} text="Show Confirm" onClick={() => setVisible(true)} />
+            <Button text="Show Confirm" onClick={() => setVisible(true)} />
             <Confirm
                 visible={visible}
                 extraContent={extraContent}
@@ -156,7 +169,9 @@ ExtraContent.args = {
     view: 'primary',
     approveText: 'Да',
     dismissText: 'Нет',
+    placement: 'top',
     visible: false,
+    stretch: true,
     reverseButtons: false,
     buttonsDirection: undefined,
 };
