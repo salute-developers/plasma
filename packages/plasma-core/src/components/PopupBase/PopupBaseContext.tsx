@@ -18,10 +18,10 @@ export interface PopupContextType {
 const PopupBaseContext = React.createContext<PopupContextType>({
     items,
     register(_info: PopupInfo): void {
-        throw new Error('Function not implemented.');
+        throw new Error('Function not implemented. Add PopupBaseProvider');
     },
     unregister(_id: string): void {
-        throw new Error('Function not implemented.');
+        throw new Error('Function not implemented. Add PopupBaseProvider');
     },
 });
 

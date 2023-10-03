@@ -95,6 +95,7 @@ export const ModalBase: FC<ModalBaseProps> = ({
     withBlur,
     initialFocusRef,
     focusAfterRef,
+    zIndex,
     children,
     ...rest
 }) => {
@@ -163,11 +164,13 @@ export const ModalBase: FC<ModalBaseProps> = ({
                 placement={placement}
                 ref={trapRef}
                 popupInfo={modalInfo}
+                zIndex={zIndex}
                 overlay={
                     <StyledOverlay
                         transparent={getIdLastModal(popupController.items) !== innerId}
                         clickable={closeOnOverlayClick}
                         onClick={onOverlayKeyDown}
+                        zIndex={zIndex}
                         $withBlur={withBlur}
                     />
                 }

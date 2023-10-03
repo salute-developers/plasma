@@ -12,6 +12,7 @@ const ConfirmFooter = styled.div`
 describe('Confirm', () => {
     const Confirm = getComponent('Confirm');
     const Body3 = getComponent('Body3');
+    const PopupBaseProvider = getComponent('PopupBaseProvider');
 
     const title = 'Использовать максимум возможностей?';
     const subtitle = 'Возможно всё.';
@@ -35,7 +36,9 @@ describe('Confirm', () => {
     it('basic', () => {
         mount(
             <CypressTestDecorator>
-                <Confirm visible view="primary" {...props} />
+                <PopupBaseProvider>
+                    <Confirm visible view="primary" {...props} />
+                </PopupBaseProvider>
             </CypressTestDecorator>,
         );
 
@@ -45,7 +48,9 @@ describe('Confirm', () => {
     it('withExtraContent', () => {
         mount(
             <CypressTestDecorator>
-                <Confirm visible extraContent={extraContent} view="primary" {...props} />
+                <PopupBaseProvider>
+                    <Confirm visible extraContent={extraContent} view="primary" {...props} />
+                </PopupBaseProvider>
             </CypressTestDecorator>,
         );
         cy.matchImageSnapshot();
@@ -56,7 +61,9 @@ describe('Confirm', () => {
 
         mount(
             <CypressTestDecorator>
-                <Confirm visible title={'Processing new line by \n and this new line'} view="primary" {...rest} />
+                <PopupBaseProvider>
+                    <Confirm visible title={'Processing new line by \n and this new line'} view="primary" {...rest} />
+                </PopupBaseProvider>
             </CypressTestDecorator>,
         );
 
@@ -68,7 +75,14 @@ describe('Confirm', () => {
 
         mount(
             <CypressTestDecorator>
-                <Confirm visible subtitle={'Processing new line by \n and this new line'} view="primary" {...rest} />
+                <PopupBaseProvider>
+                    <Confirm
+                        visible
+                        subtitle={'Processing new line by \n and this new line'}
+                        view="primary"
+                        {...rest}
+                    />
+                </PopupBaseProvider>
             </CypressTestDecorator>,
         );
 
@@ -78,7 +92,9 @@ describe('Confirm', () => {
     it('button direction: default(horizontal)', () => {
         mount(
             <CypressTestDecorator>
-                <Confirm visible view="primary" {...props} />
+                <PopupBaseProvider>
+                    <Confirm visible view="primary" {...props} />
+                </PopupBaseProvider>
             </CypressTestDecorator>,
         );
 
@@ -88,7 +104,9 @@ describe('Confirm', () => {
     it('button direction: vertical', () => {
         mount(
             <CypressTestDecorator>
-                <Confirm visible buttonsDirection="vertical" view="primary" {...props} />
+                <PopupBaseProvider>
+                    <Confirm visible buttonsDirection="vertical" view="primary" {...props} />
+                </PopupBaseProvider>
             </CypressTestDecorator>,
         );
 
@@ -98,7 +116,9 @@ describe('Confirm', () => {
     it('button direction: horizontal-reverse', () => {
         mount(
             <CypressTestDecorator>
-                <Confirm visible buttonsDirection="horizontal-reverse" view="primary" {...props} />
+                <PopupBaseProvider>
+                    <Confirm visible buttonsDirection="horizontal-reverse" view="primary" {...props} />
+                </PopupBaseProvider>
             </CypressTestDecorator>,
         );
 
@@ -108,7 +128,9 @@ describe('Confirm', () => {
     it('button direction: vertical-reverse', () => {
         mount(
             <CypressTestDecorator>
-                <Confirm visible buttonsDirection="vertical-reverse" view="primary" {...props} />
+                <PopupBaseProvider>
+                    <Confirm visible buttonsDirection="vertical-reverse" view="primary" {...props} />
+                </PopupBaseProvider>
             </CypressTestDecorator>,
         );
 
@@ -118,7 +140,9 @@ describe('Confirm', () => {
     it('button direction + reverseButtons', () => {
         mount(
             <CypressTestDecorator>
-                <Confirm visible reverseButtons buttonsDirection="vertical-reverse" view="primary" {...props} />
+                <PopupBaseProvider>
+                    <Confirm visible reverseButtons buttonsDirection="vertical-reverse" view="primary" {...props} />
+                </PopupBaseProvider>
             </CypressTestDecorator>,
         );
 
@@ -129,7 +153,9 @@ describe('Confirm', () => {
         it(`_view_${view}`, () => {
             mount(
                 <CypressTestDecorator>
-                    <Confirm visible view={view} {...props} />
+                    <PopupBaseProvider>
+                        <Confirm visible view={view} {...props} />
+                    </PopupBaseProvider>
                 </CypressTestDecorator>,
             );
             cy.matchImageSnapshot();
@@ -140,7 +166,9 @@ describe('Confirm', () => {
         it('_reverse', () => {
             mount(
                 <CypressTestDecorator>
-                    <Confirm reverseButtons visible view="primary" {...props} />
+                    <PopupBaseProvider>
+                        <Confirm reverseButtons visible view="primary" {...props} />
+                    </PopupBaseProvider>
                 </CypressTestDecorator>,
             );
             cy.matchImageSnapshot();
@@ -149,7 +177,9 @@ describe('Confirm', () => {
         it('_one', () => {
             mount(
                 <CypressTestDecorator>
-                    <Confirm reverseButtons visible view="primary" {...{ ...props, dismissText: null }} />
+                    <PopupBaseProvider>
+                        <Confirm reverseButtons visible view="primary" {...{ ...props, dismissText: null }} />
+                    </PopupBaseProvider>
                 </CypressTestDecorator>,
             );
             cy.matchImageSnapshot();
@@ -162,15 +192,18 @@ describe('Confirm', () => {
         it('_yes', () => {
             mount(
                 <CypressTestDecorator>
-                    <Confirm visible view="primary" {...props} />
-                    <Body1 mt={12}>
-                        I have a dream that one day this nation will rise up and live out the true meaning of its creed.
-                        We hold these truths to be self-evident that all men are created equal. I have a dream that one
-                        day on the red hills of Georgia the sons of former slaves and the sons of former slaveowners
-                        will be able to sit down together at the table of brotherhood. I have a dream that one day even
-                        the state of Mississippi, a state sweltering with the heat of injustice, sweltering with the
-                        heat of oppression, will be transformed into an oasis of freedom and justice. I have a dream...
-                    </Body1>
+                    <PopupBaseProvider>
+                        <Confirm visible view="primary" {...props} />
+                        <Body1 mt={12}>
+                            I have a dream that one day this nation will rise up and live out the true meaning of its
+                            creed. We hold these truths to be self-evident that all men are created equal. I have a
+                            dream that one day on the red hills of Georgia the sons of former slaves and the sons of
+                            former slaveowners will be able to sit down together at the table of brotherhood. I have a
+                            dream that one day even the state of Mississippi, a state sweltering with the heat of
+                            injustice, sweltering with the heat of oppression, will be transformed into an oasis of
+                            freedom and justice. I have a dream...
+                        </Body1>
+                    </PopupBaseProvider>
                 </CypressTestDecorator>,
             );
             cy.matchImageSnapshot();
@@ -179,15 +212,18 @@ describe('Confirm', () => {
         it('_no', () => {
             mount(
                 <CypressTestDecorator>
-                    <Confirm view="primary" {...props} />
-                    <Body1 mt={12}>
-                        I have a dream that one day this nation will rise up and live out the true meaning of its creed.
-                        We hold these truths to be self-evident that all men are created equal. I have a dream that one
-                        day on the red hills of Georgia the sons of former slaves and the sons of former slaveowners
-                        will be able to sit down together at the table of brotherhood. I have a dream that one day even
-                        the state of Mississippi, a state sweltering with the heat of injustice, sweltering with the
-                        heat of oppression, will be transformed into an oasis of freedom and justice. I have a dream...
-                    </Body1>
+                    <PopupBaseProvider>
+                        <Confirm view="primary" {...props} />
+                        <Body1 mt={12}>
+                            I have a dream that one day this nation will rise up and live out the true meaning of its
+                            creed. We hold these truths to be self-evident that all men are created equal. I have a
+                            dream that one day on the red hills of Georgia the sons of former slaves and the sons of
+                            former slaveowners will be able to sit down together at the table of brotherhood. I have a
+                            dream that one day even the state of Mississippi, a state sweltering with the heat of
+                            injustice, sweltering with the heat of oppression, will be transformed into an oasis of
+                            freedom and justice. I have a dream...
+                        </Body1>
+                    </PopupBaseProvider>
                 </CypressTestDecorator>,
             );
             cy.matchImageSnapshot();
@@ -212,7 +248,7 @@ describe('Confirm', () => {
             };
 
             return (
-                <>
+                <PopupBaseProvider>
                     <Button id="show" text="show" onClick={() => setVisible(true)} />
                     <Confirm
                         id="confirm"
@@ -230,7 +266,7 @@ describe('Confirm', () => {
                         the state of Mississippi, a state sweltering with the heat of injustice, sweltering with the
                         heat of oppression, will be transformed into an oasis of freedom and justice. I have a dream...
                     </Body1>
-                </>
+                </PopupBaseProvider>
             );
         };
 
@@ -263,7 +299,7 @@ describe('Confirm', () => {
 
             cy.get('#show').click();
 
-            cy.get('#confirm > :first-child').click();
+            cy.contains(dismissText).click();
             cy.get('@onDismissAction').should('have.been.calledTwice');
         });
     });

@@ -7,9 +7,9 @@ import { FlexDirectionProperty } from 'csstype';
 import { mediaQuery } from '../../utils';
 import { Button, ButtonProps } from '../Button';
 import { TextBox, TextBoxTitle, TextBoxSubTitle } from '../TextBox';
+import { ModalBase } from '../ModalBase';
+import { PopupBasePlacement } from '../PopupBase';
 import { Cell } from '../Cell';
-
-import { useAutoFocus } from './Confirm.hooks';
 
 const flexDirection: Record<Direction, FlexDirectionProperty> = {
     horizontal: 'row',
@@ -58,6 +58,11 @@ export interface ConfirmProps {
     reverseButtons?: boolean;
 
     /**
+     * Направление для группы кнопок
+     */
+    buttonsDirection?: Direction;
+
+    /**
      * Вид подтверждения
      */
     view?: Exclude<ButtonProps['view'], 'checked' | 'clear' | 'overlay'>;
@@ -83,43 +88,19 @@ export interface ConfirmProps {
     extraContent?: ReactNode;
 
     /**
-     * Направление для группы кнопок
+     * Расположения окна. По умолчанию top
      */
-    buttonsDirection?: Direction;
+    placement?: PopupBasePlacement;
+
+    /**
+     * Расятнуто ли окно на весь экран. По умолчанию true
+     */
+    stretch?: boolean;
 }
 
-// TODO: https://github.com/salute-developers/plasma/issues/232
-const Wrapper = styled.div<{ visible: boolean }>`
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: 1;
-    transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'all 0.5s 0.1s')};
-    z-index: 1000;
-
-    ${({ visible }) =>
-        !visible &&
-        css`
-            opacity: 0;
-            visibility: hidden;
-        `}
-`;
-
-const Overlay = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    background-color: ${overlay};
-`;
-
-const NoScroll = createGlobalStyle`
+const ModalOverlayVariables = createGlobalStyle`
     body {
-        overflow: hidden;
+        --plasma-modal-overlay-color: ${overlay};
     }
 `;
 
@@ -133,16 +114,17 @@ const tvLayout = css`
 const StyledButton = styled(Button)``;
 
 // TODO: https://github.com/salute-developers/plasma/issues/232
-const ConfirmRoot = styled.div<{ visible: boolean }>`
-    position: absolute;
-    left: 0;
-    right: 0;
-
+const ConfirmRoot = styled.div<{ visible: boolean; stretch?: boolean }>`
     transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'transform 0.5s')};
 
     ${({ visible }) =>
         !visible && {
             transform: 'translateY(-100%)',
+        }};
+
+    ${({ stretch }) =>
+        stretch && {
+            width: '100vw',
         }};
 `;
 
@@ -232,6 +214,7 @@ export const Confirm = (props: ConfirmProps) => {
         title,
         subtitle,
         visible,
+        stretch = true,
         approveText,
         dismissText,
         view = 'secondary',
@@ -240,7 +223,7 @@ export const Confirm = (props: ConfirmProps) => {
         onApprove,
         onDismiss,
         buttonsDirection = 'horizontal',
-        ...rest
+        placement = 'top',
     } = props;
 
     const onApproveClick = useCallback(() => {
@@ -251,8 +234,6 @@ export const Confirm = (props: ConfirmProps) => {
     }, [onDismiss]);
 
     const btnRef = useRef<HTMLButtonElement>(null);
-
-    useAutoFocus(btnRef, { trigger: visible });
 
     const approve = (
         <StyledButton
@@ -277,18 +258,25 @@ export const Confirm = (props: ConfirmProps) => {
     );
 
     return (
-        <Wrapper visible={visible} {...rest}>
-            <Overlay onClick={onDismissClick} />
-            {visible && <NoScroll />}
-            <ConfirmRoot visible>
-                <ConfirmContainer>
-                    <ConfirmMain>
-                        <StyledCell content={<TextBox title={title} subTitle={subtitle} />} />
-                        {buttons}
-                    </ConfirmMain>
-                </ConfirmContainer>
-                <ConfirmFooter>{extraContent}</ConfirmFooter>
-            </ConfirmRoot>
-        </Wrapper>
+        <>
+            <ModalOverlayVariables />
+            <ModalBase
+                isOpen={visible}
+                onOverlayClick={onDismissClick}
+                zIndex="1000"
+                initialFocusRef={btnRef}
+                placement={placement}
+            >
+                <ConfirmRoot visible stretch={stretch}>
+                    <ConfirmContainer>
+                        <ConfirmMain>
+                            <StyledCell content={<TextBox title={title} subTitle={subtitle} />} />
+                            {buttons}
+                        </ConfirmMain>
+                    </ConfirmContainer>
+                    <ConfirmFooter>{extraContent}</ConfirmFooter>
+                </ConfirmRoot>
+            </ModalBase>
+        </>
     );
 };
