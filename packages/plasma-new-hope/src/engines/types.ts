@@ -18,7 +18,8 @@ export type Variant = {
     css?: PolymorphicClassName;
     attrs?: boolean;
     true?: PolymorphicClassName;
-} & Record<string, any>;
+    // TODO https://github.com/salute-developers/plasma/issues/804
+} & Record<any, any>;
 
 export type HTMLAnyAttributes = Record<string, any>;
 

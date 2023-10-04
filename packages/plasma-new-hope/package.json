@@ -85,6 +85,8 @@
     "dependencies": {
         "@linaria/core": "^4.5.4",
         "@linaria/react": "^4.5.4",
-        "@salutejs/plasma-core": "1.134.0"
+        "@popperjs/core": "^2.11.8",
+        "@salutejs/plasma-core": "1.134.0",
+        "react-popper": "^2.3.0"
     }
 }
