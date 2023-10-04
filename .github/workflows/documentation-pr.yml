@@ -28,9 +28,12 @@ jobs:
       PR_NAME: pr-${{ github.event.number }}
       ICONS_PUBLIC_URL: /icons
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+         show-progress: false
 
-      - uses: ./.github/actions/prepare-environment
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-environment
 
       - name: Computed scope
         id: scope
@@ -144,6 +147,12 @@ jobs:
           npm run storybook:build --prefix="./packages/plasma-temple"
           cp -R ./packages/plasma-temple/build-sb ./s3_build/${PR_NAME}/temple-storybook
 
+      - name: Plasma "New Hope" Storybook
+        if: ${{ needs.scope.outputs.HAS_PLASMA_HOPE == 'true' }}
+        run: |
+          npm run storybook:build --prefix="./packages/plasma-new-hope"
+          cp -R ./packages/plasma-new-hope/build-sb ./s3_build/${PR_NAME}/new-hope-storybook
+
       - name: Install s3cmd
         run: pip3 install s3cmd
 
@@ -169,10 +178,11 @@ jobs:
           HAS_PLASMA_WEB: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_WEB) }}
           HAS_PLASMA_UI: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_UI) }}
           HAS_PLASMA_TEMPLE: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_TEMPLE) }}
+          HAS_PLASMA_HOPE: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_HOPE) }}
         with:
           github-token: ${{secrets.GH_TOKEN}}
           script: |
-            const { HAS_PLASMA_B2C, HAS_PLASMA_WEB, HAS_PLASMA_UI, HAS_PLASMA_TEMPLE } = process.env;
+            const { HAS_PLASMA_B2C, HAS_PLASMA_WEB, HAS_PLASMA_UI, HAS_PLASMA_TEMPLE, HAS_PLASMA_HOPE } = process.env;
                               
             const { 
               issue: { number }, 
@@ -199,6 +209,10 @@ jobs:
               links.push(`temple storybook: http://plasma.sberdevices.ru/pr/pr-${number}/temple-storybook/`)
             }
             
+            if (HAS_PLASMA_HOPE === 'true') {
+              links.push(`new-hope storybook: http://plasma.sberdevices.ru/pr/pr-${number}/new-hope-storybook/`)
+            }
+
             github.rest.issues.createComment({
               issue_number: number,
               owner,
