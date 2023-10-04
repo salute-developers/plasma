@@ -6,6 +6,7 @@ export const ButtonBase = ButtonHope({ design: 'b2c' });
 
 /**
  * Кнопка.
+ * RODO
  * Поддерживает несколько режимов отображения (`view`) и размеров (`size`).
  */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => <ButtonBase {...props} ref={ref} />);
