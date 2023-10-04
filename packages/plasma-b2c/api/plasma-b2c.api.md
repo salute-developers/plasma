@@ -91,6 +91,7 @@ import { ColSizeProps } from '@salutejs/plasma-hope';
 import { Container } from '@salutejs/plasma-hope';
 import { ContainerProps } from '@salutejs/plasma-hope';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
+import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/type';
 import { defaultValidate } from '@salutejs/plasma-hope';
 import { DisabledProps } from '@salutejs/plasma-core';
 import { Dropdown } from '@salutejs/plasma-hope';
@@ -133,6 +134,7 @@ import { Headline2 } from '@salutejs/plasma-hope';
 import { Headline3 } from '@salutejs/plasma-hope';
 import { Headline4 } from '@salutejs/plasma-hope';
 import { Headline5 } from '@salutejs/plasma-hope';
+import { HTMLAttributes } from 'react';
 import { Image as Image_2 } from '@salutejs/plasma-hope';
 import { ImageBaseProps } from '@salutejs/plasma-hope';
 import { ImageProps } from '@salutejs/plasma-hope';
@@ -169,9 +171,9 @@ import { ParagraphText2 } from '@salutejs/plasma-hope';
 import { PickOptional } from '@salutejs/plasma-core';
 import { PinProps } from '@salutejs/plasma-core';
 import { Placement } from '@salutejs/plasma-hope';
-import { Popover } from '@salutejs/plasma-hope';
-import { PopoverPlacement } from '@salutejs/plasma-hope';
-import { PopoverProps } from '@salutejs/plasma-hope';
+import { PopoverPlacement } from '@salutejs/plasma-new-hope';
+import { PopoverProps } from '@salutejs/plasma-new-hope';
+import { PopoverTrigger } from '@salutejs/plasma-new-hope';
 import { Popup } from '@salutejs/plasma-hope';
 import { PopupBase } from '@salutejs/plasma-hope';
 import { PopupBasePlacement } from '@salutejs/plasma-hope';
@@ -268,6 +270,7 @@ import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { usePopupBaseContext } from '@salutejs/plasma-hope';
 import { useToast } from '@salutejs/plasma-hope';
 import { ValidationResult } from '@salutejs/plasma-hope';
+import { Variant } from '@salutejs/plasma-new-hope';
 import { View } from '@salutejs/plasma-core';
 import { ViewProps } from '@salutejs/plasma-core';
 import { views } from '@salutejs/plasma-core';
@@ -643,11 +646,14 @@ export { PinProps }
 
 export { Placement }
 
-export { Popover }
+// @public
+export const Popover: FunctionComponent<PropsType<Record<string, Variant>> & HTMLAttributes<HTMLDivElement> & CustomPopoverProps & RefAttributes<HTMLDivElement>>;
 
 export { PopoverPlacement }
 
 export { PopoverProps }
+
+export { PopoverTrigger }
 
 export { Popup }
 
