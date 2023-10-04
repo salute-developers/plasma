@@ -1,105 +1,19 @@
-import React, { memo, useRef, useCallback, useEffect, useState } from 'react';
-import type { HTMLAttributes, ReactNode, RefAttributes, SyntheticEvent } from 'react';
-import styled from 'styled-components';
+import React, { useRef, useCallback, useEffect, useState, forwardRef } from 'react';
 import { usePopper } from 'react-popper';
-import PopperJS from '@popperjs/core';
+import { useFocusTrap, useForkRef } from '@salutejs/plasma-core';
 
-import { useFocusTrap, useForkRef } from '../../hooks';
+import { RootProps } from '../../engines/types';
 
-const ESCAPE_KEYCODE = 27;
-
-export type PopoverPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
-export type PopoverPlacement = PopoverPlacementBasic | 'auto';
-
-export interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
-    /**
-     * Всплывающее окно раскрыто или нет.
-     */
-    isOpen: boolean;
-    /**
-     * Способ всплывающего окна - наведение или клик мышью.
-     */
-    trigger?: 'hover' | 'click';
-    /**
-     * Сторона открытия окна относительно target элемента. По умолчанию "auto".
-     */
-    placement?: PopoverPlacement | Array<PopoverPlacementBasic>;
-    /**
-     * Отступ окна относительно элемента, у которого оно вызвано.
-     */
-    offset?: [number, number];
-    /**
-     * Элемент, рядом с которым произойдет вызов всплывающего окна.
-     */
-    target?: ReactNode;
-    /**
-     * Стрелка над элементом.
-     */
-    arrow?: ReactNode;
-    /**
-     * Контент всплывающего окна.
-     */
-    children?: ReactNode;
-    /**
-     * Блокировать ли фокус на всплывающем окне(по умолчанию true).
-     */
-    isFocusTrapped?: boolean;
-    /**
-     * Событие сворачивания/разворачивания всплывающего окна.
-     */
-    onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
-    /**
-     * Закрывать окно при нажатии вне области окна(по умолчанию true).
-     */
-    closeOnOverlayClick?: boolean;
-    /**
-     * Закрывать окно при нажатии ESC(по умолчанию true).
-     */
-    closeOnEsc?: boolean;
-}
-
-const StyledRoot = styled.div`
-    position: relative;
-    box-sizing: border-box;
-    display: inline-flex;
-`;
-
-const StyledPopover = styled.div`
-    position: absolute;
-    z-index: 1;
-
-    /* stylelint-disable selector-max-id */
-    &[data-popper-placement^='top'] > #popover-arrow {
-        bottom: -0.25rem;
-    }
-
-    &[data-popper-placement^='bottom'] > #popover-arrow {
-        top: -0.25rem;
-    }
-
-    &[data-popper-placement^='left'] > #popover-arrow {
-        right: -0.25rem;
-    }
-
-    &[data-popper-placement^='right'] > #popover-arrow {
-        left: -0.25rem;
-    }
-`;
-
-export const getPlacement = (placement: PopoverPlacement) => {
-    return `${placement}-start` as PopperJS.Placement;
-};
-
-const getAutoPlacements = (placements?: PopoverPlacement[]) => {
-    return (placements || []).map((placement) => getPlacement(placement));
-};
+import type { PopoverPlacement, PopoverProps } from './type';
+import { ESCAPE_KEYCODE, getAutoPlacements, getPlacement } from './utils';
+import { StyledArrow, StyledPopover, StyledRoot } from './styles';
 
 /**
  * Всплывающее окно с возможностью позиционирования
  * и вызова по клику либо ховеру.
  */
-export const Popover = memo<PopoverProps & RefAttributes<HTMLDivElement>>(
-    React.forwardRef<HTMLDivElement, PopoverProps>(
+export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
+    forwardRef<HTMLDivElement, PopoverProps>(
         (
             {
                 target,
@@ -245,7 +159,7 @@ export const Popover = memo<PopoverProps & RefAttributes<HTMLDivElement>>(
             }, [isOpen, forceUpdate]);
 
             return (
-                <StyledRoot
+                <Root
                     ref={handleRef}
                     onClick={onClick}
                     onMouseEnter={onMouseEnter}
@@ -262,20 +176,28 @@ export const Popover = memo<PopoverProps & RefAttributes<HTMLDivElement>>(
                             style={{ ...styles.popper, ...{ display: isOpen ? 'block' : 'none' } }}
                         >
                             {arrow && (
-                                <div
+                                <StyledArrow
                                     id="popover-arrow"
                                     ref={setArrowElement}
                                     style={styles.arrow}
                                     {...attributes.arrow}
                                 >
                                     {arrow}
-                                </div>
+                                </StyledArrow>
                             )}
                             {children}
                         </StyledPopover>
                     )}
-                </StyledRoot>
+                </Root>
             );
         },
-    ),
-);
+    );
+
+export const popoverConfig = {
+    name: 'Popover',
+    tag: 'div',
+    layout: popoverRoot,
+    base: StyledRoot,
+    variations: {},
+    defaults: {},
+};

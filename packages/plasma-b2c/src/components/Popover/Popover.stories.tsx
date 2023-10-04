@@ -6,14 +6,51 @@ import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button';
 
-import { Popover, PopoverProps, PopoverPlacement } from '.';
+import { Popover } from '.';
+import type { PopoverPlacement, PopoverTrigger } from '.';
 
 const placements: Array<PopoverPlacement> = ['top', 'bottom', 'right', 'left', 'auto'];
+const triggers: Array<PopoverTrigger> = ['click', 'hover'];
 
 export default {
     title: 'Controls/Popover',
     decorators: [InSpacingDecorator],
+    argTypes: {
+        placement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
+        },
+        trigger: {
+            options: triggers,
+            control: {
+                type: 'select',
+            },
+        },
+        ...disableProps(['isOpen']),
+    },
 } as Meta;
+
+type PopoverStoryProps = {
+    placement?: PopoverPlacement;
+    trigger?: PopoverTrigger;
+    isFocusTrapped?: boolean;
+    closeOnOverlayClick?: boolean;
+    closeOnEsc?: boolean;
+    skidding?: number;
+    distance?: number;
+};
+
+const args: PopoverStoryProps = {
+    placement: 'bottom',
+    trigger: 'click',
+    closeOnOverlayClick: true,
+    closeOnEsc: true,
+    isFocusTrapped: true,
+    skidding: 0,
+    distance: 6,
+};
 
 const StyledArrow = styled.div`
     visibility: hidden;
@@ -42,11 +79,7 @@ const StyledContent = styled.div`
     align-items: center;
 `;
 
-export const Live: Story<PopoverProps & { skidding?: number; distance?: number }> = ({
-    skidding = 0,
-    distance = 0,
-    ...args
-}) => {
+export const Default: Story<PopoverStoryProps> = ({ skidding = 0, distance = 0, ...args }) => {
     const [isOpen, setIsOpen] = React.useState(false);
 
     return (
@@ -71,28 +104,4 @@ export const Live: Story<PopoverProps & { skidding?: number; distance?: number }
     );
 };
 
-Live.args = {
-    placement: 'bottom',
-    trigger: 'click',
-    closeOnOverlayClick: true,
-    closeOnEsc: true,
-    isFocusTrapped: true,
-    skidding: 0,
-    distance: 6,
-};
-
-Live.argTypes = {
-    placement: {
-        options: placements,
-        control: {
-            type: 'select',
-        },
-    },
-    trigger: {
-        options: ['click', 'hover'],
-        control: {
-            type: 'select',
-        },
-    },
-    ...disableProps(['isOpen']),
-};
+Default.args = args;

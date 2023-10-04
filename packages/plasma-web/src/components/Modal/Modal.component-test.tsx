@@ -11,7 +11,7 @@ const NoAnimationStyle = createGlobalStyle`
 
 const text = `Если после применения правила Лопиталя неопределённость типа 0 / 0 осталась, мнимая единица традиционно
 развивает Наибольший Общий Делитель (НОД).`;
-const heading = 'Голосовая викторина Валдисом Пельшем';
+const heading = 'Голосовая викторина с Валдисом Пельшем';
 
 describe('plasma-web: Modal', () => {
     const ModalsProvider = getComponent('ModalsProvider');
