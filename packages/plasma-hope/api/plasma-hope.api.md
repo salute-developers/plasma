@@ -111,9 +111,6 @@ import { ParagraphText1 } from '@salutejs/plasma-core';
 import { ParagraphText2 } from '@salutejs/plasma-core';
 import { PickOptional } from '@salutejs/plasma-core';
 import { PinProps } from '@salutejs/plasma-core';
-import { Popover } from '@salutejs/plasma-core';
-import { PopoverPlacement } from '@salutejs/plasma-core';
-import { PopoverProps } from '@salutejs/plasma-core';
 import { Popup } from '@salutejs/plasma-core';
 import { PopupBase } from '@salutejs/plasma-core';
 import { PopupBasePlacement } from '@salutejs/plasma-core';
@@ -995,12 +992,6 @@ export { PinProps }
 //
 // @public (undocumented)
 export type Placement = BasePlacement | VariationPlacement;
-
-export { Popover }
-
-export { PopoverPlacement }
-
-export { PopoverProps }
 
 export { Popup }
 
