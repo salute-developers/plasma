@@ -10,7 +10,6 @@ export * from './components/ModalBase';
 export * from './components/PaginationDots';
 export * from './components/Popup';
 export * from './components/PopupBase';
-export * from './components/Popover';
 export * from './components/Price';
 export * from './components/RadioGroup';
 export * from './components/Skeleton';

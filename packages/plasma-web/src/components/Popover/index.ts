@@ -1,2 +1,2 @@
-export { Popover } from '@salutejs/plasma-hope';
-export type { PopoverProps, PopoverPlacement } from '@salutejs/plasma-hope';
+export { Popover } from './Popover';
+export type { PopoverProps, PopoverPlacement, PopoverTrigger } from '@salutejs/plasma-new-hope';
