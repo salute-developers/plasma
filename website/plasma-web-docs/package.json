@@ -27,7 +27,7 @@
     "lint": "../../node_modules/.bin/eslint ./src --ext .ts,.tsx --quiet"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-beta.6",
+    "@docusaurus/core": "2.4.3",
     "@docusaurus/preset-classic": "2.0.0-beta.6",
     "@docusaurus/theme-live-codeblock": "2.0.0-beta.6",
     "@mdx-js/react": "^1.6.21",
