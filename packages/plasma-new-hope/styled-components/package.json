@@ -1,4 +1,5 @@
 {
     "module": "es/index.js",
+    "main": "cjs/index.js",
     "types": "../types/index.d.ts"
 }
