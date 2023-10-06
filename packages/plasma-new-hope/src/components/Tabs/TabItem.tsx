@@ -1,7 +1,7 @@
 import React, { forwardRef, PropsWithChildren, useRef, useContext, useEffect } from 'react';
 import { css } from '@linaria/core';
+import { useForkRef } from '@salutejs/plasma-core';
 
-import { useForkRef } from '../../hooks';
 import { ComponentConfig } from '../../engines';
 
 import { TabsContext } from './TabsContext';
@@ -74,7 +74,6 @@ export const tabItemConfig: ComponentConfig = {
         },
         active: {
             css: active,
-            attrs: true,
         },
     },
     defaults: {
