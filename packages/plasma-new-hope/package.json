@@ -1,7 +1,7 @@
 {
     "name": "@salutejs/plasma-new-hope",
     "version": "0.5.2-dev.0",
-    "description": "Salute Design System blueprint",
+    "description": "Salute Design System blueprint.",
     "main": "cjs/index.js",
     "module": "es/index.js",
     "types": "types/index.d.ts",
