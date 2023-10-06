@@ -1,3 +1,16 @@
+# (Fri Oct 06 2023)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.236.1`
+  - fix: fix typo [#798](https://github.com/salute-developers/plasma/pull/798) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Fri Sep 29 2023)
 
 #### 🚀 Enhancement
