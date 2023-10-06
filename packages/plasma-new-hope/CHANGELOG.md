@@ -1,3 +1,25 @@
+# v0.5.1 (Fri Oct 06 2023)
+
+### Release Notes
+
+#### fix(plasma-new-hope): cjs build ([#797](https://github.com/salute-developers/plasma/pull/797))
+
+Hotfix: https://github.com/salute-developers/plasma/pull/796
+
+---
+
+#### 🐛 Bug Fix
+
+- fix(plasma-new-hope): cjs build [#797](https://github.com/salute-developers/plasma/pull/797) ([@Yeti-or](https://github.com/Yeti-or) [@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-new-hope): cjs build ([@Yeti-or](https://github.com/Yeti-or))
+
+#### Authors: 2
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v0.5.0 (Fri Sep 29 2023)
 
 #### 🚀 Enhancement
