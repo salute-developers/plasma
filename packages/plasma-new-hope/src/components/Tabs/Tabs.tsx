@@ -43,7 +43,6 @@ export const tabsConfig: ComponentConfig = {
     variations: {
         stretch: {
             css: stretch,
-            attrs: true,
         },
         disabled: {
             css: disabled,

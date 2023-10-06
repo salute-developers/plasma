@@ -9,27 +9,27 @@ export const config = {
     variations: {
         view: {
             default: css`
-                --plasma-tabs-underline-color: rgb(221, 221, 221);
+                --plasma-tabs-underline-color: var(--surface-solid-tertiary);
                 --plasma-tabs-underline-height: 2px;
                 --plasma-tabs-font-weight: 500;
-                --plasma-tabs-color: rgb(12, 114, 182);
+                --plasma-tabs-color: var(--text-accent);
             `,
         },
         disabled: {
             true: css`
                 --plasma-tabs-cursor: not-allowed;
-                --plasma-tabs-hover-color: rgb(12, 114, 182);
+                --plasma-tabs-hover-color: var(--text-accent);
             `,
             false: css`
                 --plasma-tabs-cursor: pointer;
-                --plasma-tabs-hover-color: rgba(23, 23, 23, 0.96);
+                --plasma-tabs-hover-color: var(--text-primary);
             `,
         },
         active: {
             true: css`
-                --plasma-tabs-underline-color: rgba(23, 23, 23, 0.96);
-                --plasma-tabs-color: rgba(23, 23, 23, 0.96);
-                --plasma-tabs-hover-color: rgba(23, 23, 23, 0.96);
+                --plasma-tabs-underline-color: var(--text-primary);
+                --plasma-tabs-color: var(--text-primary);
+                --plasma-tabs-hover-color: var(--text-primary);
             `,
         },
     },
