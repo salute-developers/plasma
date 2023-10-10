@@ -1,19 +1,9 @@
 import React, { ReactNode, useEffect } from 'react';
-
-export interface PopupInfo {
-    id: string;
-    info?: Object;
-}
+import { PopupContextType, PopupInfo } from './types';
 
 export const POPOVER_PORTAL_ID = 'plasma-popup-root';
 
 const items: PopupInfo[] = [];
-
-export interface PopupContextType {
-    items: PopupInfo[];
-    register: (info: PopupInfo) => void;
-    unregister: (id: string) => void;
-}
 
 const PopupBaseContext = React.createContext<PopupContextType>({
     items,
