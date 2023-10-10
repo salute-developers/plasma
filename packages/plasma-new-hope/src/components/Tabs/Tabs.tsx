@@ -1,7 +1,7 @@
 import React, { forwardRef, PropsWithChildren } from 'react';
 import { css } from '@linaria/core';
 
-import { ComponentConfig } from '../../engines';
+import { ComponentConfig, RootProps } from '../../engines';
 
 import { base as disabled } from './Tabs/_disabled/base';
 import { base as stretch } from './Tabs/_stretch/base';
@@ -25,7 +25,7 @@ export interface TabsProps extends PropsWithChildren, React.HTMLAttributes<HTMLD
     stretch?: boolean;
 }
 
-export const tabsRoot = (Root: any) =>
+export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
     forwardRef<HTMLDivElement, TabsProps>((props, ref) => {
         const { children, role = 'tablist', stretch, disabled, ...rest } = props;
         return (
