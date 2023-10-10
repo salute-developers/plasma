@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { Story, Meta } from '@storybook/react';
 import { surfaceSolid02, darkOverlayBlur, overlaySoft } from '@salutejs/plasma-tokens';
@@ -8,7 +8,7 @@ import { InSpacingDecorator } from '../../helpers';
 import { Button } from '../Button';
 import { PopupBaseProvider } from '../PopupBase';
 
-import { ModalBase } from '.';
+import { ModalBase, ModalOverlay, ModalBaseRoot, useModal } from '.';
 
 export default {
     title: 'Controls/ModalBase',
@@ -51,6 +51,28 @@ const StyledWrapper = styled.div`
     height: 1200px;
 `;
 
+const StyledModalBaseRoot = styled(ModalBaseRoot)`
+    animation: ${({ theme, hookInfo }) => (theme.lowPerformance ? 'unset' : (hookInfo.endAnimation ? 'fadeOut 1s forwards' : 'fadeIn 1s forwards'))};
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+`;
+
 // TODO: новый отдельный оверлей #778
 const ModalOverlayVariables = createGlobalStyle`
     body {
@@ -64,20 +86,65 @@ const Content = styled.div`
     padding: 1rem;
 `;
 
-export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, offsetY, ...rest }) => {
+const ModalExample: FC<ModalBaseStoryProps> = ({ placement, offsetX, offsetY, withBlur, ...rest }) => {
     const [isOpenA, setIsOpenA] = React.useState(false);
     const [isOpenB, setIsOpenB] = React.useState(false);
-    const [isOpenC, setIsOpenC] = React.useState(false);
+
+
+    const hookInfoA = useModal({ id: 'modalA', isOpen: isOpenA, offset: [offsetX, offsetY], onClose: () => setIsOpenA(false), placement, withAnimation: true, ...rest });
+    const hookInfoB = useModal({ id: 'modalB', isOpen: isOpenB, offset: [offsetX, offsetY], onClose: () => setIsOpenB(false), placement: "left", ...rest });
+
+    return (
+        <div>
+            <div style={{ display: 'flex', flexDirection: 'column', height: '1000px' }}>
+                <StyledButton text="Открыть A" onClick={() => setIsOpenA(true)} />
+            </div>
+            <ModalBase hookInfo={hookInfoA}>
+                <ModalOverlay hookInfo={hookInfoA} withBlur={withBlur} />
+                <StyledModalBaseRoot hookInfo={hookInfoA} {...rest}>
+                    <Content>
+                        <Button onClick={() => setIsOpenA(false)}>Close</Button>
+                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+                            <StyledButton text="Открыть B" onClick={() => setIsOpenB(true)} />
+                        </div>
+                        <ModalBase hookInfo={hookInfoB}>
+                            <ModalOverlay hookInfo={hookInfoB} withBlur={withBlur} />
+                            <ModalBaseRoot hookInfo={hookInfoB} {...rest}>
+                                <Content>
+                                    <Button onClick={() => setIsOpenB(false)}>Close</Button>
+                                    <>Content</>
+                                </Content>
+                            </ModalBaseRoot>
+                        </ModalBase>
+                    </Content>
+                </StyledModalBaseRoot>
+            </ModalBase>
+        </div>
+    );
+};
+
+export const ModalBaseDemo: Story<ModalBaseStoryProps> = (props) => {
+    // const [isOpenA, setIsOpenA] = React.useState(false);
+    // const [isOpenB, setIsOpenB] = React.useState(false);
+    // const [isOpenC, setIsOpenC] = React.useState(false);
+
+    // const info = useModal(
+    //     {
+    //         id: 'modalA',
+    //         isOpen: isOpenA,
+    //         placement,
+    //         offset: [offsetX, offsetY],
+    //         onClose: () => setIsOpenA(false),
+    //         ...rest
+    //     })
 
     return (
         <SSRProvider>
             <StyledWrapper>
                 <ModalOverlayVariables />
                 <PopupBaseProvider>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <StyledButton text="Открыть A" onClick={() => setIsOpenA(true)} />
-                    </div>
-                    <ModalBase
+                    <ModalExample {...props} />
+                    {/* <StyledModal
                         id="modalA"
                         onClose={() => setIsOpenA(false)}
                         isOpen={isOpenA}
@@ -95,6 +162,7 @@ export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, 
                                 onClose={() => setIsOpenB(false)}
                                 isOpen={isOpenB}
                                 placement="left"
+
                                 offset={[offsetX, offsetY]}
                                 {...rest}
                             >
@@ -123,7 +191,7 @@ export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, 
                                 </Content>
                             </ModalBase>
                         </Content>
-                    </ModalBase>
+                    </StyledModal> */}
                 </PopupBaseProvider>
             </StyledWrapper>
         </SSRProvider>

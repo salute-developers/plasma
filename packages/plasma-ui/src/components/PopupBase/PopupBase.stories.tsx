@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Story, Meta } from '@storybook/react';
 import { surfaceSolid03, surfaceSolid02 } from '@salutejs/plasma-tokens';
@@ -7,7 +7,7 @@ import { SSRProvider } from '../SSRProvider';
 import { InSpacingDecorator } from '../../helpers';
 import { Button } from '../Button';
 
-import { PopupBase, PopupBaseProvider } from '.';
+import { PopupBase, PopupBaseProvider, PopupBaseRoot, usePopup } from '.';
 
 export default {
     title: 'Controls/PopupBase',
@@ -64,35 +64,71 @@ const Content = styled.div`
     padding: 1rem;
 `;
 
-export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, offsetX, offsetY }) => {
+const StyledModalBaseRoot = styled(PopupBaseRoot)`
+    animation: ${({ theme, hookInfo }) => (theme.lowPerformance ? 'unset' : (hookInfo.endAnimation ? 'fadeOut 1s forwards' : 'fadeIn 1s forwards'))};
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+`;
+
+const PopupExample: FC<PopupBaseStoryProps> = ({ offsetX, offsetY, ...rest }) => {
     const [isOpenA, setIsOpenA] = React.useState(false);
     const [isOpenB, setIsOpenB] = React.useState(false);
 
     const ref = React.useRef<HTMLDivElement>(null);
+    const hookInfoA = usePopup({ id: 'popupA', isOpen: isOpenA, frame: "document", offset: [offsetX, offsetY], withAnimation: true, ...rest });
+    const hookInfoB = usePopup({ id: 'popupB', isOpen: isOpenB, frame: ref, offset: [offsetX, offsetY], ...rest });
 
+    return (
+        <div>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                {/* <StyledButton text="Открыть во Frame" onClick={() => setIsOpenB(true)} /> */}
+                <StyledButton text="Открыть в document" onClick={() => setIsOpenA(true)} />
+            </div>
+            <PopupBase hookInfo={hookInfoA}>
+                <StyledModalBaseRoot hookInfo={hookInfoA} {...rest}>
+                    <Content>
+                        <Button onClick={() => setIsOpenA(false)}>Close</Button>
+                        <>Content</>
+                    </Content>
+                </StyledModalBaseRoot>
+            </PopupBase>
+            {/* <OtherContent ref={ref}>
+                <>Frame</>
+            </OtherContent>
+            <PopupBase hookInfo={hookInfoB}>
+                <PopupBaseRoot hookInfo={hookInfoB} {...rest}>
+                    <Content>
+                        <Button onClick={() => setIsOpenB(false)}>Close</Button>
+                        <>Content</>
+                    </Content>
+                </PopupBaseRoot>
+            </PopupBase> */}
+        </div>
+    );
+};
+
+export const PopupBaseDemo: Story<PopupBaseStoryProps> = (props) => {
     return (
         <SSRProvider>
             <StyledWrapper>
                 <PopupBaseProvider>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <StyledButton text="Открыть во Frame" onClick={() => setIsOpenA(true)} />
-                        <StyledButton text="Открыть в document" onClick={() => setIsOpenB(true)} />
-                    </div>
-                    <PopupBase frame={ref} isOpen={isOpenA} placement={placement} offset={[offsetX, offsetY]}>
-                        <Content>
-                            <Button onClick={() => setIsOpenA(false)}>Close</Button>
-                            <>Content</>
-                        </Content>
-                    </PopupBase>
-                    <OtherContent ref={ref}>
-                        <>Frame</>
-                    </OtherContent>
-                    <PopupBase frame="document" isOpen={isOpenB} placement={placement} offset={[offsetX, offsetY]}>
-                        <Content>
-                            <Button onClick={() => setIsOpenB(false)}>Close</Button>
-                            <>Content</>
-                        </Content>
-                    </PopupBase>
+                    <PopupExample {...props} />
                 </PopupBaseProvider>
             </StyledWrapper>
         </SSRProvider>

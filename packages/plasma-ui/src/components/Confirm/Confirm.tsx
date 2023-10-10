@@ -115,13 +115,6 @@ const StyledButton = styled(Button)``;
 
 // TODO: https://github.com/salute-developers/plasma/issues/232
 const ConfirmRoot = styled.div<{ visible: boolean; stretch?: boolean }>`
-    transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'transform 0.5s')};
-
-    ${({ visible }) =>
-        !visible && {
-            transform: 'translateY(-100%)',
-        }};
-
     ${({ stretch }) =>
         stretch && {
             width: '100vw',
