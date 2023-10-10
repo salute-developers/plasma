@@ -2,7 +2,7 @@ import React, { forwardRef, PropsWithChildren, useRef, useContext, useEffect } f
 import { css } from '@linaria/core';
 import { useForkRef } from '@salutejs/plasma-core';
 
-import { ComponentConfig } from '../../engines';
+import { ComponentConfig, RootProps } from '../../engines';
 
 import { TabsContext } from './TabsContext';
 import { base as active } from './TabItem/_active/base';
@@ -26,20 +26,20 @@ const base = css`
     transition: color 0.1s ease-in-out, box-shadow 0.3s ease-in-out;
 
     :hover {
-        color: var(--plasma-tabs-hover-color);
+        color: var(--plasma-tabs-color-hover);
     }
 `;
 
-export interface TabItemProps extends PropsWithChildren {
-    isActive?: boolean;
+export interface TabItemProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
+    active?: boolean;
     disabled?: boolean;
 }
 
-export const tabItemRoot = (Root: any) =>
-    forwardRef<HTMLButtonElement, TabItemProps>((props, outerRef) => {
-        const { children, isActive, disabled, ...rest } = props;
+export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
+    forwardRef<HTMLDivElement, TabItemProps>((props, outerRef) => {
+        const { children, active, disabled, ...rest } = props;
 
-        const innerRef = useRef<HTMLButtonElement>(null);
+        const innerRef = useRef<HTMLDivElement>(null);
         const ref = useForkRef(outerRef, innerRef);
         const refs = useContext(TabsContext);
 
@@ -56,7 +56,7 @@ export const tabItemRoot = (Root: any) =>
         }, [refs]);
 
         return (
-            <Root ref={ref} active={isActive} disabled={disabled} role={role} {...rest}>
+            <Root ref={ref} active={active} disabled={disabled} role={role} {...rest}>
                 {children}
             </Root>
         );

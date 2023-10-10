@@ -28,7 +28,7 @@ export const Default: ComponentStory<typeof Tabs> = (props) => {
             {items.map((_, i) => (
                 <TabItem
                     key={`item:${i}`}
-                    isActive={i === index}
+                    active={i === index}
                     onClick={() => !disabled && setIndex(i)}
                     tabIndex={!disabled ? i : -1}
                     disabled={disabled}

@@ -13,23 +13,21 @@ export const config = {
                 --plasma-tabs-underline-height: 2px;
                 --plasma-tabs-font-weight: 500;
                 --plasma-tabs-color: var(--text-accent);
+                --plasma-tabs-cursor: pointer;
+                --plasma-tabs-color-hover: var(--text-primary);
             `,
         },
         disabled: {
             true: css`
                 --plasma-tabs-cursor: not-allowed;
-                --plasma-tabs-hover-color: var(--text-accent);
-            `,
-            false: css`
-                --plasma-tabs-cursor: pointer;
-                --plasma-tabs-hover-color: var(--text-primary);
+                --plasma-tabs-color-hover: var(--text-accent);
             `,
         },
         active: {
             true: css`
                 --plasma-tabs-underline-color: var(--text-primary);
                 --plasma-tabs-color: var(--text-primary);
-                --plasma-tabs-hover-color: var(--text-primary);
+                --plasma-tabs-color-hover: var(--text-primary);
             `,
         },
     },
