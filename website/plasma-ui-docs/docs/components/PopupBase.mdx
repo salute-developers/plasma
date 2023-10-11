@@ -1,0 +1,298 @@
+---
+id: popupBase
+title: PopupBase
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Popover
+<Description name="PopupBase" />
+<PropsTable name="PopupBase" />
+<StorybookLink name="PopupBase" />
+
+### Использование
+
+Перед использованием убедитесь, что `PopupBaseProvider` подключен.
+PopupBase можно использовать как и на всем окне, так и в отдельном фрейме - свойство `frame`.
+Само позиционирование можно указать с помощью свойста `placement`, а также определить отступы от точки с помощью `offset`.
+
+```tsx live
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { surfaceSolid03, surfaceSolid02 } from '@salutejs/plasma-tokens';
+
+import { SSRProvider, Button, PopupBase, PopupBaseProvider, usePopupAnimation } from  '@salutejs/plasma-ui';
+
+const StyledButton = styled(Button)`
+    margin-top: 1rem;
+    width: 15rem;
+`;
+
+const StyledWrapper = styled.div`
+    height: 1200px;
+`;
+
+const OtherContent = styled.div`
+    margin-top: 1rem;
+    width: 400px;
+    height: 500px;
+    background: ${surfaceSolid03};
+    position: absolute;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem;
+
+    top: 0;
+    right: 0;
+`;
+
+const Content = styled.div`
+    background: ${surfaceSolid02};
+    padding: 1rem;
+`;
+
+export const App() {
+    const [isOpenA, setIsOpenA] = React.useState(false);
+    const [isOpenB, setIsOpenB] = React.useState(false);
+
+    const ref = React.useRef<HTMLDivElement>(null);
+
+    return (
+        <SSRProvider>
+            <StyledWrapper>
+                <PopupBaseProvider>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <StyledButton text="Открыть в document" onClick={() => setIsOpenB(true)} />
+                        <StyledButton text="Открыть во Frame" onClick={() => setIsOpenA(true)} />
+                    </div>
+                    <PopupBase
+                        id="popupA"
+                        frame={ref}
+                        isOpen={isOpenA}
+                        placement="center"
+                        offset={[0, 0]}
+                    >
+                        <Content>
+                            <Button onClick={() => setIsOpenA(false)}>Close</Button>
+                            <>Content</>
+                        </Content>
+                    </PopupBase>
+                    <OtherContent ref={ref}>
+                        <>Frame</>
+                    </OtherContent>
+                    <PopupBase
+                        id="popupB"
+                        animationInfo={animationInfoB}
+                        withAnimation={withAnimation}
+                        frame="document"
+                        isOpen={isOpenB}
+                        placement="center"
+                        offset={[0, 0]}
+                    >
+                        <Content>
+                            <Button onClick={() => setIsOpenB(false)}>Close</Button>
+                            <>Content</>
+                        </Content>
+                    </PopupBase>
+                </PopupBaseProvider>
+            </StyledWrapper>
+        </SSRProvider>
+    );
+};
+```
+
+## Подключение анимации
+
+Подключение анимации происходит с помощью хука `usePopupAnimation`, который возвращает объект, необходимый для передачи в сам компонент `PopupBase`.
+Также необходимо выставить флаг `withAnimation`. 
+Сам возвращаемый объект содержит 2 флага: `endAnimation`, `endTransition`, с помощью которых и должно происходить переключение анимаций.
+Для добавления анимации необходимо использовать класс `.popup-base-root`.
+Пример:
+
+```tsx
+const StyledPopupTransition = styled(PopupBase)`
+    & > .popup-base-root {
+        ${({ animationInfo }) =>
+            animationInfo.endTransition
+                ? css`
+                      opacity: 0;
+                  `
+                : css`
+                      opacity: 1;
+                  `}
+        transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'opacity 0.5s 0.1s')};
+    }
+`;
+```
+
+или
+
+```tsx
+const StyledPopupAnimation = styled(PopupBase)`
+    & > .popup-base-root {
+        animation: ${({ theme, withAnimation, animationInfo }) =>
+            theme.lowPerformance || !withAnimation
+                ? 'unset'
+                : animationInfo.endAnimation
+                ? 'fadeOut 1s forwards'
+                : 'fadeIn 1s forwards'};
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+    }
+`;
+```
+
+```tsx live
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { surfaceSolid03, surfaceSolid02 } from '@salutejs/plasma-tokens';
+
+import { SSRProvider, Button, PopupBase, PopupBaseProvider, usePopupAnimation } from  '@salutejs/plasma-ui';
+
+const StyledButton = styled(Button)`
+    margin-top: 1rem;
+    width: 15rem;
+`;
+
+const StyledWrapper = styled.div`
+    height: 1200px;
+`;
+
+const OtherContent = styled.div`
+    margin-top: 1rem;
+    width: 400px;
+    height: 500px;
+    background: ${surfaceSolid03};
+    position: absolute;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem;
+
+    top: 0;
+    right: 0;
+`;
+
+const Content = styled.div`
+    background: ${surfaceSolid02};
+    padding: 1rem;
+`;
+
+const StyledPopupAnimation = styled(PopupBase)`
+    & > .popup-base-root {
+        /* stylelint-disable */
+        animation: ${({ theme, withAnimation, animationInfo }) =>
+            /* eslint-disable-next-line no-nested-ternary */
+            theme.lowPerformance || !withAnimation
+                ? 'unset'
+                : animationInfo.endAnimation
+                ? 'fadeOut 1s forwards'
+                : 'fadeIn 1s forwards'};
+        /* stylelint-enable */
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+    }
+`;
+
+const StyledPopupTransition = styled(PopupBase)`
+    & > .popup-base-root {
+        ${({ animationInfo }) =>
+            animationInfo.endTransition
+                ? css`
+                      opacity: 0;
+                  `
+                : css`
+                      opacity: 1;
+                  `}
+        transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'opacity 0.5s 0.1s')};
+    }
+`;
+
+export const App() {
+    const [isOpenA, setIsOpenA] = React.useState(false);
+    const [isOpenB, setIsOpenB] = React.useState(false);
+
+    const ref = React.useRef<HTMLDivElement>(null);
+
+    return (
+        <SSRProvider>
+            <StyledWrapper>
+                <PopupBaseProvider>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <StyledButton text="Открыть в document" onClick={() => setIsOpenB(true)} />
+                        <StyledButton text="Открыть во Frame" onClick={() => setIsOpenA(true)} />
+                    </div>
+                    <StyledPopupAnimation
+                        id="popupA"
+                        frame={ref}
+                        isOpen={isOpenA}
+                        placement="center"
+                        offset={[0, 0]}
+                    >
+                        <Content>
+                            <Button onClick={() => setIsOpenA(false)}>Close</Button>
+                            <>Content</>
+                        </Content>
+                    </StyledPopupAnimation>
+                    <OtherContent ref={ref}>
+                        <>Frame</>
+                    </OtherContent>
+                    <StyledPopupTransition
+                        id="popupB"
+                        animationInfo={animationInfoB}
+                        withAnimation={withAnimation}
+                        frame="document"
+                        isOpen={isOpenB}
+                        placement="center"
+                        offset={[0, 0]}
+                    >
+                        <Content>
+                            <Button onClick={() => setIsOpenB(false)}>Close</Button>
+                            <>Content</>
+                        </Content>
+                    </StyledPopupTransition>
+                </PopupBaseProvider>
+            </StyledWrapper>
+        </SSRProvider>
+    );
+};
+```

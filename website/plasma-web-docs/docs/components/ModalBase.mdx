@@ -1,46 +1,35 @@
+---
+id: modalBase
+title: ModalBase
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Popover
+<Description name="ModalBase" />
+<PropsTable name="ModalBase" />
+<StorybookLink name="ModalBase" />
+
+### Использование
+
+Перед использованием убедитесь, что `PopupBaseProvider` подключен.
+Компонент ModalBase во многом схож с PopupBase, добавляет при этом подложку(`overlay`), а также блокирует скролл и фокус.
+На данный момент для определения цвета подложки необходимо прокинуть глобальные стили:
+
+``` tsx
+const ModalOverlayVariables = createGlobalStyle`
+    body {
+        --plasma-modal-blur-overlay-color: ${darkOverlayBlur};
+        --plasma-modal-overlay-color: ${overlaySoft};
+    }
+`;
+```
+
+```tsx live
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { Story, Meta } from '@storybook/react';
 import { surfaceSolid02, darkOverlayBlur, overlaySoft } from '@salutejs/plasma-tokens-web';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-
-import { SSRProvider } from '../SSRProvider';
-import { Button } from '../Button';
-import { PopupBaseProvider } from '../PopupBase';
-
-import { ModalBase, useModalAnimation } from '.';
-
-export default {
-    title: 'Controls/ModalBase',
-    decorators: [InSpacingDecorator],
-    argTypes: {
-        placement: {
-            options: [
-                'center',
-                'top',
-                'bottom',
-                'right',
-                'left',
-                'top-right',
-                'top-left',
-                'bottom-right',
-                'bottom-left',
-            ],
-            control: {
-                type: 'select',
-            },
-        },
-    },
-} as Meta;
-
-type ModalBaseStoryProps = {
-    placement: string;
-    offsetX: number;
-    offsetY: number;
-    closeOnEsc: boolean;
-    closeOnOverlayClick: boolean;
-    withBlur: boolean;
-};
+import { SSRProvider, Button, ModalBase, useModalAnimation, PopupBaseProvider } from '@salutejs/plasma-web';
 
 const StyledButton = styled(Button)`
     margin-top: 1rem;
@@ -51,7 +40,6 @@ const StyledWrapper = styled.div`
     height: 1200px;
 `;
 
-// TODO: новый отдельный оверлей #778
 const ModalOverlayVariables = createGlobalStyle`
     body {
         --plasma-modal-blur-overlay-color: ${darkOverlayBlur};
@@ -97,7 +85,7 @@ const StyledModal = styled(ModalBase)`
     }
 `;
 
-export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, offsetY, ...rest }) => {
+export const App {
     const [isOpenA, setIsOpenA] = React.useState(false);
     const [isOpenB, setIsOpenB] = React.useState(false);
     const [isOpenC, setIsOpenC] = React.useState(false);
@@ -118,9 +106,8 @@ export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, 
                         withAnimation
                         onClose={() => setIsOpenA(false)}
                         isOpen={isOpenA}
-                        placement={placement}
-                        offset={[offsetX, offsetY]}
-                        {...rest}
+                        placement="center"
+                        offset={[0, 0]}
                     >
                         <Content>
                             <Button onClick={() => setIsOpenA(false)}>Close</Button>
@@ -132,8 +119,7 @@ export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, 
                                 onClose={() => setIsOpenB(false)}
                                 isOpen={isOpenB}
                                 placement="left"
-                                offset={[offsetX, offsetY]}
-                                {...rest}
+                                offset={[0, 0]}
                             >
                                 <Content>
                                     <Button style={{ marginRight: '1rem' }} onClick={() => setIsOpenB(false)}>
@@ -147,8 +133,7 @@ export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, 
                                         onClose={() => setIsOpenC(false)}
                                         isOpen={isOpenC}
                                         placement="top"
-                                        offset={[offsetX, offsetY]}
-                                        {...rest}
+                                        offset={[0, 0]}
                                     >
                                         <Content>
                                             <Button style={{ marginRight: '1rem' }} onClick={() => setIsOpenC(false)}>
@@ -166,12 +151,46 @@ export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, 
         </SSRProvider>
     );
 };
+```
 
-ModalBaseDemo.args = {
-    placement: 'center',
-    withBlur: false,
-    closeOnEsc: true,
-    closeOnOverlayClick: true,
-    offsetX: 0,
-    offsetY: 0,
-};
+## Подключение анимации
+
+Подключение анимации аналогично тому, как это происходит в `PopupBase`.
+Однако подключение анимации происходит с помощью хука `useModalAnimation`.
+Также необходимо выставить флаг `withAnimation`. 
+Для добавления анимации в оверлей необходимо использовать класс `.modal-base-overlay`.
+Пример:
+
+```tsx
+const StyledModal = styled(ModalBase)`
+    & > .popup-base-root,
+    .modal-base-overlay {
+        animation: ${({ theme, withAnimation, animationInfo }) =>
+            theme.lowPerformance || !withAnimation
+                ? 'unset'
+                : animationInfo?.endAnimation
+                ? 'fadeOut 1s forwards'
+                : 'fadeIn 1s forwards'};
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+    }
+`;
+```

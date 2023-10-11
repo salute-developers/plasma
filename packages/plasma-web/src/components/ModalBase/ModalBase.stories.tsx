@@ -8,7 +8,7 @@ import { InSpacingDecorator } from '../../helpers';
 import { Button } from '../Button';
 import { PopupBaseProvider } from '../PopupBase';
 
-import { ModalBase } from '.';
+import { ModalBase, useModalAnimation } from '.';
 
 export default {
     title: 'Controls/ModalBase',
@@ -64,10 +64,45 @@ const Content = styled.div`
     padding: 1rem;
 `;
 
+const StyledModal = styled(ModalBase)`
+    & > .popup-base-root,
+    .modal-base-overlay {
+        animation: ${({ theme, withAnimation, animationInfo }) =>
+            /* eslint-disable-next-line no-nested-ternary */
+            theme.lowPerformance || !withAnimation
+                ? 'unset'
+                : animationInfo?.endAnimation
+                ? 'fadeOut 1s forwards'
+                : 'fadeIn 1s forwards'};
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
+        }
+    }
+`;
+
 export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, offsetY, ...rest }) => {
     const [isOpenA, setIsOpenA] = React.useState(false);
     const [isOpenB, setIsOpenB] = React.useState(false);
     const [isOpenC, setIsOpenC] = React.useState(false);
+
+    const animationInfo = useModalAnimation();
 
     return (
         <SSRProvider>
@@ -77,8 +112,10 @@ export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, 
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <StyledButton text="Открыть A" onClick={() => setIsOpenA(true)} />
                     </div>
-                    <ModalBase
+                    <StyledModal
                         id="modalA"
+                        animationInfo={animationInfo}
+                        withAnimation
                         onClose={() => setIsOpenA(false)}
                         isOpen={isOpenA}
                         placement={placement}
@@ -123,7 +160,7 @@ export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, 
                                 </Content>
                             </ModalBase>
                         </Content>
-                    </ModalBase>
+                    </StyledModal>
                 </PopupBaseProvider>
             </StyledWrapper>
         </SSRProvider>

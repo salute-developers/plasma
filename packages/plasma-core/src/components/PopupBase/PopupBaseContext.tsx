@@ -1,4 +1,5 @@
 import React, { ReactNode, useEffect } from 'react';
+
 import { PopupContextType, PopupInfo } from './types';
 
 export const POPOVER_PORTAL_ID = 'plasma-popup-root';

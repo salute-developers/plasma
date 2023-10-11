@@ -1,6 +1,5 @@
 export { ModalBase } from './ModalBase';
-export { useModal } from './useModal';
-export { ModalBaseRoot } from './ModalBaseRoot'
-export { ModalOverlay } from './ModalOverlay'
+export { useModal, useModalAnimation } from './hooks';
+export { ModalOverlay } from './ModalOverlay';
 
-export type {ModalBaseProps, ModalAnimationInfo, ModalBaseRootProps, ModalOverlayProps, useModalProps} from './types';
+export type { ModalBaseProps, ModalAnimationInfo, ModalBaseRootProps, ModalOverlayProps, UseModalArgs } from './types';

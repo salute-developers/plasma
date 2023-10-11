@@ -14,6 +14,7 @@ import { Context } from 'react';
 import { CSSObject } from 'styled-components';
 import { CSSProperties } from 'react';
 import { DefaultTheme } from 'styled-components';
+import { Dispatch } from 'react';
 import { DraggableData } from 'react-draggable';
 import { FC } from 'react';
 import { FlattenInterpolation } from 'styled-components';
@@ -25,6 +26,7 @@ import { MutableRefObject } from 'react';
 import { default as React_2 } from 'react';
 import { ReactNode } from 'react';
 import { RefObject } from 'react';
+import { SetStateAction } from 'react';
 import { spacing } from '@salutejs/plasma-typo';
 import { SpacingProps } from '@salutejs/plasma-typo';
 import { SpacingProps as SpacingProps_2 } from '@salutejs/plasma-typo/lib/cjs/mixins/applySpacing';
@@ -754,19 +756,34 @@ export interface MaxLinesProps {
     maxLines?: number;
 }
 
+// @public (undocumented)
+export interface ModalAnimationInfo extends PopupAnimationInfo {
+}
+
 // @public
 export const ModalBase: FC<ModalBaseProps>;
 
 // @public (undocumented)
-export interface ModalBaseProps extends Omit<PopupBaseProps, 'frame'> {
+export interface ModalBaseProps extends PopupBaseProps {
     closeOnEsc?: boolean;
     closeOnOverlayClick?: boolean;
-    focusAfterRef?: React_2.RefObject<HTMLElement>;
-    initialFocusRef?: React_2.RefObject<HTMLElement>;
+    focusAfterRef?: React.RefObject<HTMLElement>;
+    initialFocusRef?: React.RefObject<HTMLElement>;
     onClose?: () => void;
     onEscKeyDown?: (event: KeyboardEvent) => void;
-    onOverlayClick?: (event: React_2.MouseEvent<HTMLDivElement>) => void;
+    onOverlayClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
     withBlur?: boolean;
+}
+
+// @public (undocumented)
+export interface ModalBaseRootProps extends PopupRootProps, Pick<ModalBaseProps, 'initialFocusRef' | 'focusAfterRef' | 'onClose'> {
+}
+
+// @public
+export const ModalOverlay: FC<ModalOverlayProps>;
+
+// @public (undocumented)
+export interface ModalOverlayProps extends Pick<PopupRootProps, 'id' | 'animationInfo' | 'zIndex'>, Pick<ModalBaseProps, 'withBlur' | 'closeOnOverlayClick' | 'onOverlayClick' | 'onClose'> {
 }
 
 // @public (undocumented)
@@ -835,6 +852,18 @@ export interface PinProps {
 // @public @deprecated
 export const Popup: React_2.NamedExoticComponent<PopupProps & React_2.RefAttributes<HTMLDivElement>>;
 
+// @public (undocumented)
+export interface PopupAnimationInfo {
+    // (undocumented)
+    endAnimation: boolean;
+    // (undocumented)
+    endTransition: boolean;
+    // (undocumented)
+    setEndAnimation: React.Dispatch<React.SetStateAction<boolean>>;
+    // (undocumented)
+    setEndTransition: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 // @public
 export const PopupBase: React_2.ForwardRefExoticComponent<PopupBaseProps & React_2.RefAttributes<HTMLDivElement>>;
 
@@ -845,16 +874,18 @@ export const PopupBase: React_2.ForwardRefExoticComponent<PopupBaseProps & React
 export type PopupBasePlacement = BasicPopupBasePlacement | MixedPopupBasePlacement;
 
 // @public (undocumented)
-export interface PopupBaseProps extends React_2.HTMLAttributes<HTMLDivElement> {
-    children?: React_2.ReactNode;
-    frame?: 'document' | React_2.RefObject<HTMLElement>;
+export interface PopupBaseProps extends React.HTMLAttributes<HTMLDivElement> {
+    animationInfo?: PopupAnimationInfo;
+    children?: React.ReactNode;
+    frame?: 'document' | React.RefObject<HTMLElement>;
     isOpen: boolean;
     // (undocumented)
     offset?: [number | string, number | string];
-    overlay?: React_2.ReactNode;
+    overlay?: React.ReactNode;
     // (undocumented)
     placement?: PopupBasePlacement;
     popupInfo?: PopupInfo;
+    withAnimation?: boolean;
     zIndex?: string;
 }
 
@@ -862,6 +893,9 @@ export interface PopupBaseProps extends React_2.HTMLAttributes<HTMLDivElement> {
 export const PopupBaseProvider: React_2.FC<{
     children: ReactNode;
 }>;
+
+// @public
+export const PopupBaseRoot: React_2.ForwardRefExoticComponent<PopupRootProps & React_2.RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export interface PopupContextType {
@@ -891,6 +925,14 @@ export interface PopupProps extends HTMLAttributes<HTMLDivElement> {
     // Warning: (ae-forgotten-export) The symbol "PopupBasicPlacement" needs to be exported by the entry point index.d.ts
     placement?: PopupPlacement | Array<PopupBasicPlacement>;
     trigger: 'hover' | 'click';
+}
+
+// @public (undocumented)
+export interface PopupRootProps extends Omit<PopupBaseProps, 'isOpen' | 'overlay' | 'withAnimation'> {
+    // (undocumented)
+    id: string;
+    // (undocumented)
+    setVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 // @public
@@ -1319,12 +1361,34 @@ export const useForkRef: UseForkRefHook;
 export const useIsomorphicLayoutEffect: typeof useEffect;
 
 // @public (undocumented)
+export const useModal: ({ id, popupInfo, closeOnEsc, onEscKeyDown, onClose }: UseModalArgs) => {
+    modalInfo: ModalInfo;
+};
+
+// Warning: (ae-forgotten-export) The symbol "UsePopupArgs" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export interface UseModalArgs extends Pick<UsePopupArgs, 'id' | 'popupInfo'>, Pick<ModalBaseProps, 'closeOnEsc' | 'onEscKeyDown' | 'onClose'> {
+}
+
+// @public (undocumented)
 export const usePaginationDots: ({ items, index, visibleItems }: SmartPaginationDotsProps) => {
     sliced: {
         id: number | string;
     }[];
     activeId: string | number;
 };
+
+// @public (undocumented)
+export const usePopup: ({ isOpen, id, withAnimation, popupInfo, animationInfo }: UsePopupArgs) => {
+    isVisible: boolean;
+    setVisible: Dispatch<SetStateAction<boolean>>;
+};
+
+// @public (undocumented)
+const usePopupAnimation: () => PopupAnimationInfo;
+export { usePopupAnimation as useModalAnimation }
+export { usePopupAnimation }
 
 // @public (undocumented)
 export const usePopupBaseContext: () => PopupContextType;
@@ -1430,6 +1494,7 @@ export interface WithSkeletonProps {
 
 // Warnings were encountered during analysis:
 //
+// components/ModalBase/hooks.d.ts:6:5 - (ae-forgotten-export) The symbol "ModalInfo" needs to be exported by the entry point index.d.ts
 // components/Toast/Toast.d.ts:4:5 - (ae-forgotten-export) The symbol "ToastRole" needs to be exported by the entry point index.d.ts
 // components/Toast/useToast.d.ts:2:5 - (ae-forgotten-export) The symbol "ShowToast" needs to be exported by the entry point index.d.ts
 
