@@ -51,15 +51,16 @@ const Loader = styled.div`
     position: absolute;
 `;
 
-export type ButtonProps = {
+type CustomButtonProps = {
     text?: string;
     contentLeft?: ReactNode;
     contentRight?: ReactNode;
 
     isLoading?: boolean;
     loader?: ReactNode;
-} & PropsWithChildren &
-    ButtonHTMLAttributes<HTMLButtonElement>;
+} & PropsWithChildren;
+
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & CustomButtonProps;
 
 export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
     forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
