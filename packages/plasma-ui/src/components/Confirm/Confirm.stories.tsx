@@ -52,7 +52,12 @@ const ExtraContentBlock = styled.div`
     padding: 0.5rem 0;
 `;
 
-export const Default: Story<ConfirmProps> = ({ visible: _visible, ...rest }) => {
+export const Default: Story<ConfirmProps & { offsetX: number; offsetY: number }> = ({
+    visible: _visible,
+    offsetX,
+    offsetY,
+    ...rest
+}) => {
     const [visible, setVisible] = useState(_visible);
 
     const btnRef = useRef<HTMLButtonElement>(null);
@@ -74,7 +79,13 @@ export const Default: Story<ConfirmProps> = ({ visible: _visible, ...rest }) => 
     return (
         <PopupBaseProvider>
             <Button ref={btnRef} text="Show Confirm" onClick={() => setVisible(true)} />
-            <Confirm visible={visible} onApprove={onApprove} onDismiss={onDismiss} {...rest} />
+            <Confirm
+                visible={visible}
+                onApprove={onApprove}
+                onDismiss={onDismiss}
+                offset={[offsetX, offsetY]}
+                {...rest}
+            />
             <Body1 mt={12}>
                 I have a dream that one day this nation will rise up and live out the true meaning of its creed. We hold
                 these truths to be self-evident that all men are created equal. I have a dream that one day on the red
@@ -119,13 +130,20 @@ Default.args = {
     approveText: 'Да',
     dismissText: 'Нет',
     placement: 'top',
+    offsetX: 0,
+    offsetY: 0,
     visible: false,
     stretch: true,
     reverseButtons: false,
     buttonsDirection: undefined,
 };
 
-export const ExtraContent: Story<ConfirmProps> = ({ visible: _visible, ...rest }) => {
+export const ExtraContent: Story<ConfirmProps & { offsetX: number; offsetY: number }> = ({
+    visible: _visible,
+    offsetX,
+    offsetY,
+    ...rest
+}) => {
     const [visible, setVisible] = useState(_visible);
 
     const hide = () => {
@@ -157,6 +175,7 @@ export const ExtraContent: Story<ConfirmProps> = ({ visible: _visible, ...rest }
                 extraContent={extraContent}
                 onApprove={onApprove}
                 onDismiss={onDismiss}
+                offset={[offsetX, offsetY]}
                 {...rest}
             />
         </>
@@ -170,6 +189,8 @@ ExtraContent.args = {
     approveText: 'Да',
     dismissText: 'Нет',
     placement: 'top',
+    offsetX: 0,
+    offsetY: 0,
     visible: false,
     stretch: true,
     reverseButtons: false,

@@ -1,4 +1,4 @@
-import { PopupInfo } from "../PopupBase";
+import { PopupInfo } from '../PopupBase';
 
 export interface ModalInfo extends PopupInfo {
     id: string;

@@ -3,6 +3,8 @@ import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-u
 import { IconHelp } from '@salutejs/plasma-icons';
 import styled from 'styled-components';
 
+import { ConfirmProps } from './Confirm';
+
 const ConfirmFooter = styled.div`
     display: flex;
     align-items: center;
@@ -26,6 +28,14 @@ describe('Confirm', () => {
         dismissText,
     };
 
+    const WrappedConfirm = (props: ConfirmProps) => {
+        return (
+            <PopupBaseProvider>
+                <Confirm {...props} />
+            </PopupBaseProvider>
+        );
+    };
+
     const extraContent = (
         <ConfirmFooter>
             <IconHelp />
@@ -36,9 +46,7 @@ describe('Confirm', () => {
     it('basic', () => {
         mount(
             <CypressTestDecorator>
-                <PopupBaseProvider>
-                    <Confirm visible view="primary" {...props} />
-                </PopupBaseProvider>
+                <WrappedConfirm visible view="primary" {...props} />
             </CypressTestDecorator>,
         );
 
@@ -48,9 +56,7 @@ describe('Confirm', () => {
     it('withExtraContent', () => {
         mount(
             <CypressTestDecorator>
-                <PopupBaseProvider>
-                    <Confirm visible extraContent={extraContent} view="primary" {...props} />
-                </PopupBaseProvider>
+                <WrappedConfirm visible extraContent={extraContent} view="primary" {...props} />
             </CypressTestDecorator>,
         );
         cy.matchImageSnapshot();
@@ -61,9 +67,12 @@ describe('Confirm', () => {
 
         mount(
             <CypressTestDecorator>
-                <PopupBaseProvider>
-                    <Confirm visible title={'Processing new line by \n and this new line'} view="primary" {...rest} />
-                </PopupBaseProvider>
+                <WrappedConfirm
+                    visible
+                    title={'Processing new line by \n and this new line'}
+                    view="primary"
+                    {...rest}
+                />
             </CypressTestDecorator>,
         );
 
@@ -75,14 +84,12 @@ describe('Confirm', () => {
 
         mount(
             <CypressTestDecorator>
-                <PopupBaseProvider>
-                    <Confirm
-                        visible
-                        subtitle={'Processing new line by \n and this new line'}
-                        view="primary"
-                        {...rest}
-                    />
-                </PopupBaseProvider>
+                <WrappedConfirm
+                    visible
+                    subtitle={'Processing new line by \n and this new line'}
+                    view="primary"
+                    {...rest}
+                />
             </CypressTestDecorator>,
         );
 
@@ -92,9 +99,7 @@ describe('Confirm', () => {
     it('button direction: default(horizontal)', () => {
         mount(
             <CypressTestDecorator>
-                <PopupBaseProvider>
-                    <Confirm visible view="primary" {...props} />
-                </PopupBaseProvider>
+                <WrappedConfirm visible view="primary" {...props} />
             </CypressTestDecorator>,
         );
 
@@ -104,9 +109,7 @@ describe('Confirm', () => {
     it('button direction: vertical', () => {
         mount(
             <CypressTestDecorator>
-                <PopupBaseProvider>
-                    <Confirm visible buttonsDirection="vertical" view="primary" {...props} />
-                </PopupBaseProvider>
+                <WrappedConfirm visible buttonsDirection="vertical" view="primary" {...props} />
             </CypressTestDecorator>,
         );
 
@@ -116,9 +119,7 @@ describe('Confirm', () => {
     it('button direction: horizontal-reverse', () => {
         mount(
             <CypressTestDecorator>
-                <PopupBaseProvider>
-                    <Confirm visible buttonsDirection="horizontal-reverse" view="primary" {...props} />
-                </PopupBaseProvider>
+                <WrappedConfirm visible buttonsDirection="horizontal-reverse" view="primary" {...props} />
             </CypressTestDecorator>,
         );
 
@@ -128,9 +129,7 @@ describe('Confirm', () => {
     it('button direction: vertical-reverse', () => {
         mount(
             <CypressTestDecorator>
-                <PopupBaseProvider>
-                    <Confirm visible buttonsDirection="vertical-reverse" view="primary" {...props} />
-                </PopupBaseProvider>
+                <WrappedConfirm visible buttonsDirection="vertical-reverse" view="primary" {...props} />
             </CypressTestDecorator>,
         );
 
@@ -140,9 +139,7 @@ describe('Confirm', () => {
     it('button direction + reverseButtons', () => {
         mount(
             <CypressTestDecorator>
-                <PopupBaseProvider>
-                    <Confirm visible reverseButtons buttonsDirection="vertical-reverse" view="primary" {...props} />
-                </PopupBaseProvider>
+                <WrappedConfirm visible reverseButtons buttonsDirection="vertical-reverse" view="primary" {...props} />
             </CypressTestDecorator>,
         );
 
@@ -153,9 +150,7 @@ describe('Confirm', () => {
         it(`_view_${view}`, () => {
             mount(
                 <CypressTestDecorator>
-                    <PopupBaseProvider>
-                        <Confirm visible view={view} {...props} />
-                    </PopupBaseProvider>
+                    <WrappedConfirm visible view={view} {...props} />
                 </CypressTestDecorator>,
             );
             cy.matchImageSnapshot();
@@ -166,9 +161,7 @@ describe('Confirm', () => {
         it('_reverse', () => {
             mount(
                 <CypressTestDecorator>
-                    <PopupBaseProvider>
-                        <Confirm reverseButtons visible view="primary" {...props} />
-                    </PopupBaseProvider>
+                    <WrappedConfirm reverseButtons visible view="primary" {...props} />
                 </CypressTestDecorator>,
             );
             cy.matchImageSnapshot();
@@ -177,9 +170,7 @@ describe('Confirm', () => {
         it('_one', () => {
             mount(
                 <CypressTestDecorator>
-                    <PopupBaseProvider>
-                        <Confirm reverseButtons visible view="primary" {...{ ...props, dismissText: null }} />
-                    </PopupBaseProvider>
+                    <WrappedConfirm reverseButtons visible view="primary" {...{ ...props, dismissText: null }} />
                 </CypressTestDecorator>,
             );
             cy.matchImageSnapshot();
@@ -192,18 +183,15 @@ describe('Confirm', () => {
         it('_yes', () => {
             mount(
                 <CypressTestDecorator>
-                    <PopupBaseProvider>
-                        <Confirm visible view="primary" {...props} />
-                        <Body1 mt={12}>
-                            I have a dream that one day this nation will rise up and live out the true meaning of its
-                            creed. We hold these truths to be self-evident that all men are created equal. I have a
-                            dream that one day on the red hills of Georgia the sons of former slaves and the sons of
-                            former slaveowners will be able to sit down together at the table of brotherhood. I have a
-                            dream that one day even the state of Mississippi, a state sweltering with the heat of
-                            injustice, sweltering with the heat of oppression, will be transformed into an oasis of
-                            freedom and justice. I have a dream...
-                        </Body1>
-                    </PopupBaseProvider>
+                    <WrappedConfirm visible view="primary" {...props} />
+                    <Body1 mt={12}>
+                        I have a dream that one day this nation will rise up and live out the true meaning of its creed.
+                        We hold these truths to be self-evident that all men are created equal. I have a dream that one
+                        day on the red hills of Georgia the sons of former slaves and the sons of former slaveowners
+                        will be able to sit down together at the table of brotherhood. I have a dream that one day even
+                        the state of Mississippi, a state sweltering with the heat of injustice, sweltering with the
+                        heat of oppression, will be transformed into an oasis of freedom and justice. I have a dream...
+                    </Body1>
                 </CypressTestDecorator>,
             );
             cy.matchImageSnapshot();
@@ -212,18 +200,15 @@ describe('Confirm', () => {
         it('_no', () => {
             mount(
                 <CypressTestDecorator>
-                    <PopupBaseProvider>
-                        <Confirm view="primary" {...props} />
-                        <Body1 mt={12}>
-                            I have a dream that one day this nation will rise up and live out the true meaning of its
-                            creed. We hold these truths to be self-evident that all men are created equal. I have a
-                            dream that one day on the red hills of Georgia the sons of former slaves and the sons of
-                            former slaveowners will be able to sit down together at the table of brotherhood. I have a
-                            dream that one day even the state of Mississippi, a state sweltering with the heat of
-                            injustice, sweltering with the heat of oppression, will be transformed into an oasis of
-                            freedom and justice. I have a dream...
-                        </Body1>
-                    </PopupBaseProvider>
+                    <WrappedConfirm view="primary" {...props} />
+                    <Body1 mt={12}>
+                        I have a dream that one day this nation will rise up and live out the true meaning of its creed.
+                        We hold these truths to be self-evident that all men are created equal. I have a dream that one
+                        day on the red hills of Georgia the sons of former slaves and the sons of former slaveowners
+                        will be able to sit down together at the table of brotherhood. I have a dream that one day even
+                        the state of Mississippi, a state sweltering with the heat of injustice, sweltering with the
+                        heat of oppression, will be transformed into an oasis of freedom and justice. I have a dream...
+                    </Body1>
                 </CypressTestDecorator>,
             );
             cy.matchImageSnapshot();
@@ -301,6 +286,55 @@ describe('Confirm', () => {
 
             cy.contains(dismissText).click();
             cy.get('@onDismissAction').should('have.been.calledTwice');
+        });
+    });
+
+    describe('', () => {
+        it('placement: center', () => {
+            mount(
+                <CypressTestDecorator>
+                    <WrappedConfirm visible placement="center" stretch={false} view="primary" {...props} />
+                </CypressTestDecorator>,
+            );
+
+            cy.matchImageSnapshot();
+        });
+
+        it('placement: bottom + left', () => {
+            mount(
+                <CypressTestDecorator>
+                    <WrappedConfirm visible placement="bottom-left" stretch={false} view="primary" {...props} />
+                </CypressTestDecorator>,
+            );
+
+            cy.matchImageSnapshot();
+        });
+
+        it('placement: top-right + offset', () => {
+            mount(
+                <CypressTestDecorator>
+                    <WrappedConfirm
+                        visible
+                        placement="top-right"
+                        offset={[1, 1]}
+                        stretch={false}
+                        view="primary"
+                        {...props}
+                    />
+                </CypressTestDecorator>,
+            );
+
+            cy.matchImageSnapshot();
+        });
+
+        it('placement: bottom + stretch', () => {
+            mount(
+                <CypressTestDecorator>
+                    <WrappedConfirm visible placement="bottom" view="primary" {...props} />
+                </CypressTestDecorator>,
+            );
+
+            cy.matchImageSnapshot();
         });
     });
 });

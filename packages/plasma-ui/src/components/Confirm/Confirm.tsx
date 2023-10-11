@@ -7,7 +7,7 @@ import { FlexDirectionProperty } from 'csstype';
 import { mediaQuery } from '../../utils';
 import { Button, ButtonProps } from '../Button';
 import { TextBox, TextBoxTitle, TextBoxSubTitle } from '../TextBox';
-import { ModalBase } from '../ModalBase';
+import { ModalBase, useModalAnimation } from '../ModalBase';
 import { PopupBasePlacement } from '../PopupBase';
 import { Cell } from '../Cell';
 
@@ -91,6 +91,12 @@ export interface ConfirmProps {
      * Расположения окна. По умолчанию top
      */
     placement?: PopupBasePlacement;
+
+    /* Смещение относительно текущей позиции.
+     * (x, y) - <number | string, number | string> или проценты.
+     * При передаче number, то расчёт в rem.
+     */
+    offset?: [number | string, number | string];
 
     /**
      * Расятнуто ли окно на весь экран. По умолчанию true
@@ -199,6 +205,20 @@ const StyledCell = styled(Cell)`
     }
 `;
 
+const StyledModal = styled(ModalBase)`
+    & > .popup-base-root, .modal-base-overlay {
+        ${({ animationInfo }) =>
+            animationInfo?.endTransition
+                ? css`
+                      opacity: 0;
+                  `
+                : css`
+                      opacity: 1;
+                  `}
+        transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'opacity 0.5s 0.1s')};
+    }
+`;
+
 /**
  * Сообщение подтверждения действия пользователя.
  */
@@ -217,6 +237,7 @@ export const Confirm = (props: ConfirmProps) => {
         onDismiss,
         buttonsDirection = 'horizontal',
         placement = 'top',
+        offset = [0, 0],
     } = props;
 
     const onApproveClick = useCallback(() => {
@@ -250,15 +271,20 @@ export const Confirm = (props: ConfirmProps) => {
         </BtnWrap>
     );
 
+    const animationInfo = useModalAnimation();
+
     return (
         <>
             <ModalOverlayVariables />
-            <ModalBase
+            <StyledModal
                 isOpen={visible}
+                animationInfo={animationInfo}
+                withAnimation
                 onOverlayClick={onDismissClick}
                 zIndex="1000"
                 initialFocusRef={btnRef}
                 placement={placement}
+                offset={offset}
             >
                 <ConfirmRoot visible stretch={stretch}>
                     <ConfirmContainer>
@@ -269,7 +295,7 @@ export const Confirm = (props: ConfirmProps) => {
                     </ConfirmContainer>
                     <ConfirmFooter>{extraContent}</ConfirmFooter>
                 </ConfirmRoot>
-            </ModalBase>
+            </StyledModal>
         </>
     );
 };

@@ -1,5 +1,6 @@
-import { css } from "styled-components";
-import { BasicPopupBasePlacement, PopupBasePlacement } from "./types";
+import { css } from 'styled-components';
+
+import { BasicPopupBasePlacement, PopupBasePlacement } from './types';
 
 export const handlePosition = (placement?: PopupBasePlacement, offset?: [number | string, number | string]) => {
     let x = '0rem';
