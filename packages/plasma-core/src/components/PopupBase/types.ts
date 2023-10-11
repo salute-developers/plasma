@@ -14,52 +14,61 @@ export interface PopupContextType {
 }
 
 export interface PopupBaseProps extends React.HTMLAttributes<HTMLDivElement> {
-    children?: React.ReactNode;
-    hookInfo: PopupAnimationInfo;
-}
-
-export interface PopupAnimationInfo {
-    id: string;
-    isVisible: boolean;
+    /**
+     * Отображение PopupBase.
+     */
     isOpen: boolean;
-    placement?: PopupBasePlacement;
-    offset?: [number | string, number | string];
-    frame: 'document' | React.RefObject<HTMLElement>;
-    setVisible: React.Dispatch<React.SetStateAction<boolean>>;
-    endAnimation: boolean;
-    setEndAnimation: React.Dispatch<React.SetStateAction<boolean>>;
-    withAnimation?: boolean;
-}
-
-export interface usePopupProps {
-    isOpen: boolean;
-    offset?: [number | string, number | string];
-    placement?: PopupBasePlacement;
-    frame?: 'document' | React.RefObject<HTMLElement>;
-    id?: string;
-    withAnimation?: boolean;
-    popupInfo?: PopupInfo;
-}
-
-export interface PopupRootProps extends React.HTMLAttributes<HTMLDivElement> {
     /* Позиция на экране
      * center - по умолчанию
      * left, right, top, bottom и их комбинации
      */
-    /* Смещение отнсительно текущей позиции налево и вверх.
+    placement?: PopupBasePlacement;
+    /* Смещение относительно текущей позиции.
      * (x, y) - <number | string, number | string> или проценты.
      * При передаче number, то расчёт в rem.
      */
+    offset?: [number | string, number | string];
     /**
      * В каком контейнере позиционируется(по умолчанию document).
      */
+    frame?: 'document' | React.RefObject<HTMLElement>;
     /**
      * Содержимое PopupBase.
      */
     children?: React.ReactNode;
     /**
+     * Соседний элемент для окна в портале.
+     */
+    overlay?: React.ReactNode;
+    /**
      * Значение z-index для PopupBase.
      */
     zIndex?: string;
-    hookInfo: PopupAnimationInfo;
+    /**
+     * Дополнительная информация для программного взаимодействия с окном через контекст.
+     */
+    popupInfo?: PopupInfo;
+    /**
+     * Используются ли анимация.
+     */
+    withAnimation?: boolean;
+    /**
+     * Данные из хука usePopupAnimation.
+     */
+    animationInfo?: PopupAnimationInfo;
+}
+export interface PopupAnimationInfo {
+    endAnimation: boolean;
+    setEndAnimation: React.Dispatch<React.SetStateAction<boolean>>;
+    endTransition: boolean;
+    setEndTransition: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface PopupRootProps extends Omit<PopupBaseProps, 'isOpen' | 'overlay' | 'withAnimation'> {
+    id: string;
+    setVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface UsePopupArgs extends Pick<PopupBaseProps, 'isOpen' | 'withAnimation' | 'popupInfo' | 'animationInfo'> {
+    id: string;
 }

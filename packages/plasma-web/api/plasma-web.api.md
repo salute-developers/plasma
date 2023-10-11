@@ -148,8 +148,12 @@ import { MaxLinesProps } from '@salutejs/plasma-core';
 import { mediaQuery } from '@salutejs/plasma-hope';
 import { MediaQueryFunction } from '@salutejs/plasma-hope';
 import { Modal } from '@salutejs/plasma-hope';
+import { ModalAnimationInfo } from '@salutejs/plasma-hope';
 import { ModalBase } from '@salutejs/plasma-hope';
 import { ModalBaseProps } from '@salutejs/plasma-hope';
+import { ModalBaseRootProps } from '@salutejs/plasma-hope';
+import { ModalOverlay } from '@salutejs/plasma-hope';
+import { ModalOverlayProps } from '@salutejs/plasma-hope';
 import { ModalProps } from '@salutejs/plasma-hope';
 import { ModalsProvider } from '@salutejs/plasma-hope';
 import { ModalView } from '@salutejs/plasma-hope';
@@ -182,6 +186,7 @@ import { PopupBaseProvider } from '@salutejs/plasma-hope';
 import { PopupContextType } from '@salutejs/plasma-hope';
 import { PopupInfo } from '@salutejs/plasma-hope';
 import { PopupProps } from '@salutejs/plasma-hope';
+import { PopupRootProps } from '@salutejs/plasma-hope';
 import { PreviewGallery } from '@salutejs/plasma-hope';
 import { PreviewGalleryItemProps } from '@salutejs/plasma-hope';
 import { PreviewGalleryProps } from '@salutejs/plasma-hope';
@@ -267,6 +272,11 @@ import { useDebouncedFunction } from '@salutejs/plasma-core';
 import { useFocusTrap } from '@salutejs/plasma-hope';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
+import { useModal } from '@salutejs/plasma-hope';
+import { useModalAnimation } from '@salutejs/plasma-hope';
+import { UseModalArgs } from '@salutejs/plasma-hope';
+import { usePopup } from '@salutejs/plasma-hope';
+import { usePopupAnimation } from '@salutejs/plasma-hope';
 import { usePopupBaseContext } from '@salutejs/plasma-hope';
 import { useToast } from '@salutejs/plasma-hope';
 import { ValidationResult } from '@salutejs/plasma-hope';
@@ -600,9 +610,17 @@ export { MediaQueryFunction }
 
 export { Modal }
 
+export { ModalAnimationInfo }
+
 export { ModalBase }
 
 export { ModalBaseProps }
+
+export { ModalBaseRootProps }
+
+export { ModalOverlay }
+
+export { ModalOverlayProps }
 
 export { ModalProps }
 
@@ -670,6 +688,8 @@ export { PopupContextType }
 export { PopupInfo }
 
 export { PopupProps }
+
+export { PopupRootProps }
 
 export { PreviewGallery }
 
@@ -882,6 +902,16 @@ export { useFocusTrap }
 export { useForkRef }
 
 export { useIsomorphicLayoutEffect }
+
+export { useModal }
+
+export { useModalAnimation }
+
+export { UseModalArgs }
+
+export { usePopup }
+
+export { usePopupAnimation }
 
 export { usePopupBaseContext }
 

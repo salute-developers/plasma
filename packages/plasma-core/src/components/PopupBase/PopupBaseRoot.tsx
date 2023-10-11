@@ -41,61 +41,59 @@ const Container = styled.div<VisibleProps>`
 
 /**
  * Корень PopupBase.
- * Управляет показом/скрытием и анимацией(?) высплывающего окна.
+ * Управляет показом/скрытием и анимацией высплывающего окна.
  */
 export const PopupBaseRoot = React.forwardRef<HTMLDivElement, PopupRootProps>(
-    (
-        { children, role, zIndex, hookInfo, ...rest },
-        ref,
-    ) => {
+    ({ id, placement, offset, frame, setVisible, children, role, zIndex, animationInfo, ...rest }, ref) => {
         // Внутренее состояние, необходимое для правильного отображения вложенных окон, а также для анимации
-        const { id, placement, offset, frame, setVisible, endAnimation, setEndAnimation, withAnimation } = hookInfo;
-
         const contentRef = useRef<HTMLDivElement | null>(null);
         const innerRef = useForkRef<HTMLDivElement>(contentRef, ref);
 
         const popupController = usePopupBaseContext();
 
-        const handleAnimationEnd = useCallback((e: React.AnimationEvent<HTMLDivElement>) => {
-            if (!contentRef || e.target !== contentRef.current) {
-                return;
-            }
-            e.stopPropagation();
-            if (endAnimation) {
-                popupController.unregister(id);
-                setVisible(false);
-                setEndAnimation(false);
-            }
-        }, [popupController.unregister, endAnimation, setEndAnimation, setVisible]);
+        const handleAnimationEnd = useCallback(
+            (e: React.AnimationEvent<HTMLDivElement>) => {
+                if (!contentRef || e.target !== contentRef.current) {
+                    return;
+                }
+                e.stopPropagation();
+                if (animationInfo?.endAnimation) {
+                    popupController.unregister(id);
+                    setVisible(false);
+                    animationInfo.setEndAnimation(false);
+                }
+            },
+            [popupController.unregister, animationInfo, setVisible],
+        );
 
-        const handleTransitionEnd = useCallback(async (e: React.TransitionEvent<HTMLDivElement>) => {
-            if (!contentRef || e.target !== contentRef.current) {
-                return;
-            }
-            e.stopPropagation();
-            if (endAnimation) {
-                popupController.unregister(id);
-                setVisible(false);
-                setEndAnimation(false);
-            }
-        }, [popupController.unregister, endAnimation, setEndAnimation, setVisible]);
+        const handleTransitionEnd = useCallback(
+            (e: React.TransitionEvent<HTMLDivElement>) => {
+                if (!contentRef || e.target !== contentRef.current) {
+                    return;
+                }
+                e.stopPropagation();
+                if (animationInfo?.endAnimation) {
+                    popupController.unregister(id);
+                    setVisible(false);
+                    animationInfo.setEndAnimation(false);
+                }
+            },
+            [popupController.unregister, animationInfo, setVisible],
+        );
 
         return (
             <Container
+                className="popup-base-root"
                 ref={innerRef}
                 placement={placement}
                 frame={frame}
                 offset={offset}
                 zIndex={zIndex}
-                withAnimation={withAnimation}
-                endAnimation={endAnimation}
                 onAnimationEnd={handleAnimationEnd}
                 onTransitionEnd={handleTransitionEnd}
                 {...rest}
             >
-                <PopupBaseView role={role}>
-                    {children}
-                </PopupBaseView>
+                <PopupBaseView role={role}>{children}</PopupBaseView>
             </Container>
         );
     },
