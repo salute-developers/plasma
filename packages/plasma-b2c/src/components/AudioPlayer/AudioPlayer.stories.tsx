@@ -1,23 +1,22 @@
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { AudioPlayer } from '.';
 import type { AudioPlayerProps } from '.';
 
-export default {
+const meta: Meta<AudioPlayerProps> = {
     title: 'Controls/AudioPlayer',
     component: AudioPlayer,
-    argTypes: {},
     decorators: [InSpacingDecorator],
-} as Meta;
+};
+
+export default meta;
 
 const StyledWrapper = styled.div`
     width: 23.75rem;
 `;
-
-interface StoryProps extends AudioPlayerProps {}
 
 const song = {
     name: 'I’m Not Okay',
@@ -28,7 +27,7 @@ const song = {
     canDelete: true,
 };
 
-export const Base: Story<StoryProps> = ({ ...rest }) => {
+const StoryAudioPlayer = (props: AudioPlayerProps) => {
     const [state, setState] = useState({
         isSelected: false,
         isPlaying: false,
@@ -68,8 +67,12 @@ export const Base: Story<StoryProps> = ({ ...rest }) => {
                     event.stopPropagation();
                     onPlay();
                 }}
-                {...rest}
+                {...props}
             />
         </StyledWrapper>
     );
+};
+
+export const Base: StoryObj<AudioPlayerProps> = {
+    render: (args) => <StoryAudioPlayer {...args} />,
 };
