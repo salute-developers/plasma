@@ -64,7 +64,10 @@ jobs:
         run: npm ci --no-progress
 
       - name: Lerna bootstrap for PR
-        run: npx lerna bootstrap --scope=@salutejs/plasma-{core,hope,new-hope,web,b2c,ui,icons}
+        run: >
+          npx lerna bootstrap
+          --scope=@salutejs/plasma-{core,hope,new-hope,web,b2c,ui,icons}
+          --scope=@salutejs/perftest-helpers
 
       - name: Restore perftool cache
         run: >
@@ -133,7 +136,10 @@ jobs:
         run: npm ci --no-progress
 
       - name: Lerna bootstrap for ${{ github.event.pull_request.base.ref }}
-        run: npx lerna bootstrap --scope=@salutejs/plasma-{core,hope,new-hope,web,b2c,ui,icons}
+        run: >
+          npx lerna bootstrap
+          --scope=@salutejs/plasma-{core,hope,new-hope,web,b2c,ui,icons}
+          --scope=@salutejs/perftest-helpers
 
       - name: Run performance test for ${{ github.event.pull_request.base.ref }}
         run: >
@@ -155,78 +161,19 @@ jobs:
           name: Component performance comparison result
           path: /home/runner/work/plasma/plasma/perftest/*.json
 
-      - name: Post result comment
-        if: always()
-        uses: actions/github-script@v3
+      - name: Update PR description
+        uses: ./actions/perftest-helpers/actions/update-description
         with:
-          github-token: ${{secrets.GH_TOKEN}}
-          script: |
-            let report = require('/home/runner/work/plasma/plasma/perftest/comparison.json');
-            let result = report.hasSignificantNegativeChanges
-                ? '🔴 Fail'
-                : '🟢 Success'
-            let commentBody = `
-            **Component performance testing**
-
-            Result: **${result}**
-
-            Check out report in job artifacts!
-            `;
-
-            const resultsByMetric = Object.entries(report.result).reduce((acc, [key, item]) => {
-                const metrics = Object.entries(item);
-
-                metrics.forEach(([metricName, metric]) => {
-                    if (!metric.mean.change || metric.mean.change.significanceRank !== 'high') {
-                        return;
-                    }
-            
-                    if (acc[metricName]) {
-                        acc[metricName].push({
-                            report: `${key}: ${metric.mean.change.percentage.toFixed(2)}%`,
-                            percentage: metric.mean.change.percentage,
-                        });
-            
-                        return;
-                    }
-            
-                    acc[metricName] = [
-                        {
-                            report: `${key}: ${metric.mean.change.percentage.toFixed(2)}%`,
-                            percentage: metric.mean.change.percentage,
-                        },
-                    ];
-                });
-
-                return acc;
-            }, {});
-
-            const metrics = Object.values(resultsByMetric);
-
-            metrics.forEach((item) => item.sort((a, b) => Math.abs(b.percentage) - Math.abs(a.percentage)).splice(5));
-
-            const metricsReport = Object.entries(resultsByMetric).reduce((acc, [name, item]) => {
-                if (item.length > 0) {
-                    acc += `\nTop 5 significant ${name} changes:\n`;
-                    acc += item.map((it) => it.report).join('\n');
-                }
-
-                return acc;
-            }, '');
-
-            commentBody += metricsReport;
-
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: commentBody,
-            });
+          token: ${{ secrets.GITHUB_TOKEN }}
+          reportPath: /home/runner/work/plasma/plasma/perftest/comparison.json
+          prId: ${{ github.event.number }}
+          owner: ${{ github.repository_owner }}
+          repo: plasma
 
       - name: Send report
-        run: >
-          ./scripts/perftool-send-report.js
-          --reportPath /home/runner/work/plasma/plasma/perftest/comparison.json
-          --referrer https://github.com/${{ github.repository }}/pull/${{ github.event.number }}
-        env:
-          GITHUB_SHA: ${{ github.sha }}
+        uses: ./actions/perftest-helpers/actions/send-report
+        with:
+          reportPath: /home/runner/work/plasma/plasma/perftest/comparison.json
+          commitHash: ${{ github.sha }}
+          subject: packages/plasma
+          referrer: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

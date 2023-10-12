@@ -1,0 +1,24 @@
+name: Send perftest report
+description: Sends perftest report to the clickhouse table
+inputs:
+  reportPath:
+    description: Path to perftest report
+    required: true
+  commitHash:
+    description: SHA hashcode of current commit
+    required: true
+  subject:
+    description: The name of a test subject (package, service, etc)
+    required: true
+  referrer:
+    description: URL of something that triggered perftest (MR, job, etc.)
+    required: true
+outputs:
+  result:
+    description: Process done with success.
+runs:
+  using: node16
+  main: '../../lib/bin/sendReport.js'
+branding:
+  icon: check-square
+  color: purple
