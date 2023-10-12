@@ -14,7 +14,6 @@ export * from './components/Marquee';
 export * from './components/ModalBase';
 export * from './components/PaginationDots';
 export * from './components/Pickers';
-export * from './components/Popover';
 export * from './components/PopupBase';
 export * from './components/Price';
 export * from './components/ProductCard';

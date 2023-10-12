@@ -7,7 +7,7 @@ import { SSRProvider } from '../SSRProvider';
 import { InSpacingDecorator } from '../../helpers';
 import { Button } from '../Button';
 
-import { PopupBase, PopupBaseProvider, usePopupAnimation } from '.';
+import { PopupBase, popupBaseRootClass, PopupBaseProvider, usePopupAnimation } from '.';
 
 export default {
     title: 'Controls/PopupBase',
@@ -65,7 +65,7 @@ const Content = styled.div`
 `;
 
 const StyledPopupAnimation = styled(PopupBase)`
-    & > .popup-base-root {
+    & > .${popupBaseRootClass} {
         animation: ${({ theme, withAnimation, animationInfo }) =>
             /* eslint-disable-next-line no-nested-ternary */
             theme.lowPerformance || !withAnimation
@@ -97,7 +97,7 @@ const StyledPopupAnimation = styled(PopupBase)`
 `;
 
 const StyledPopupTransition = styled(PopupBase)`
-    & > .popup-base-root {
+    & > .${popupBaseRootClass} {
         /* stylelint-disable */
         ${({ animationInfo }) =>
             animationInfo?.endTransition

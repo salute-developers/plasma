@@ -1,5 +1,5 @@
 export { PopupBaseProvider, usePopupBaseContext } from '@salutejs/plasma-hope';
-export { PopupBase } from '@salutejs/plasma-hope';
+export { PopupBase, popupBaseRootClass } from '@salutejs/plasma-hope';
 export { usePopup, usePopupAnimation } from '@salutejs/plasma-hope';
 
 export type {

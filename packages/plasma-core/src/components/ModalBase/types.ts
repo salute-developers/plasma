@@ -36,15 +36,12 @@ export interface ModalBaseProps extends PopupBaseProps {
      */
     onClose?: () => void;
 }
-export interface ModalAnimationInfo extends PopupAnimationInfo {}
-export interface ModalBaseRootProps
-    extends PopupRootProps,
-        Pick<ModalBaseProps, 'initialFocusRef' | 'focusAfterRef' | 'onClose'> {}
+export type ModalAnimationInfo = PopupAnimationInfo;
 
-export interface ModalOverlayProps
-    extends Pick<PopupRootProps, 'id' | 'animationInfo' | 'zIndex'>,
-        Pick<ModalBaseProps, 'withBlur' | 'closeOnOverlayClick' | 'onOverlayClick' | 'onClose'> {}
+export type ModalBaseRootProps = PopupRootProps & Pick<ModalBaseProps, 'initialFocusRef' | 'focusAfterRef' | 'onClose'>;
 
-export interface UseModalArgs
-    extends Pick<UsePopupArgs, 'id' | 'popupInfo'>,
-        Pick<ModalBaseProps, 'closeOnEsc' | 'onEscKeyDown' | 'onClose'> {}
+export type ModalOverlayProps = Pick<PopupRootProps, 'id' | 'animationInfo' | 'zIndex'> &
+    Pick<ModalBaseProps, 'withBlur' | 'closeOnOverlayClick' | 'onOverlayClick' | 'onClose'>;
+
+export type UseModalArgs = Pick<UsePopupArgs, 'id' | 'popupInfo'> &
+    Pick<ModalBaseProps, 'closeOnEsc' | 'onEscKeyDown' | 'onClose'>;

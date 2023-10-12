@@ -21,7 +21,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { surfaceSolid03, surfaceSolid02 } from '@salutejs/plasma-tokens';
 
-import { SSRProvider, Button, PopupBase, PopupBaseProvider, usePopupAnimation } from  '@salutejs/plasma-ui';
+import { SSRProvider, Button, PopupBase, PopupBaseProvider } from  '@salutejs/plasma-ui';
 
 const StyledButton = styled(Button)`
     margin-top: 1rem;
@@ -108,12 +108,12 @@ export const App() {
 Подключение анимации происходит с помощью хука `usePopupAnimation`, который возвращает объект, необходимый для передачи в сам компонент `PopupBase`.
 Также необходимо выставить флаг `withAnimation`. 
 Сам возвращаемый объект содержит 2 флага: `endAnimation`, `endTransition`, с помощью которых и должно происходить переключение анимаций.
-Для добавления анимации необходимо использовать класс `.popup-base-root`.
+Для добавления анимации необходимо использовать класс `.popup-base-root` через переменную `popupBaseRootClass` из пакета.
 Пример:
 
 ```tsx
 const StyledPopupTransition = styled(PopupBase)`
-    & > .popup-base-root {
+    & > .${popupBaseRootClass} {
         ${({ animationInfo }) =>
             animationInfo.endTransition
                 ? css`
@@ -131,7 +131,7 @@ const StyledPopupTransition = styled(PopupBase)`
 
 ```tsx
 const StyledPopupAnimation = styled(PopupBase)`
-    & > .popup-base-root {
+    & > .${popupBaseRootClass} {
         animation: ${({ theme, withAnimation, animationInfo }) =>
             theme.lowPerformance || !withAnimation
                 ? 'unset'
@@ -167,7 +167,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { surfaceSolid03, surfaceSolid02 } from '@salutejs/plasma-tokens';
 
-import { SSRProvider, Button, PopupBase, PopupBaseProvider, usePopupAnimation } from  '@salutejs/plasma-ui';
+import { SSRProvider, Button, PopupBase, PopupBaseProvider, popupBaseRootClass, usePopupAnimation } from  '@salutejs/plasma-ui';
 
 const StyledButton = styled(Button)`
     margin-top: 1rem;
@@ -200,7 +200,7 @@ const Content = styled.div`
 `;
 
 const StyledPopupAnimation = styled(PopupBase)`
-    & > .popup-base-root {
+    & > .${popupBaseRootClass} {
         /* stylelint-disable */
         animation: ${({ theme, withAnimation, animationInfo }) =>
             /* eslint-disable-next-line no-nested-ternary */
@@ -234,7 +234,7 @@ const StyledPopupAnimation = styled(PopupBase)`
 `;
 
 const StyledPopupTransition = styled(PopupBase)`
-    & > .popup-base-root {
+    & > .${popupBaseRootClass} {
         ${({ animationInfo }) =>
             animationInfo.endTransition
                 ? css`
