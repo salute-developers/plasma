@@ -112,7 +112,7 @@ export interface AudioPlayerProps {
      */
     title: string;
     /**
-     * Адрес расплололжения трека.
+     * Адрес расположения трека.
      */
     url: string;
     /**
@@ -132,21 +132,21 @@ export interface AudioPlayerProps {
      */
     canDelete: boolean;
     /**
-     * Колбэк на клик по компоненту.
+     * Callback на клик по компоненту.
      */
     onClick: () => void;
     /**
-     * Колбэк на удаление компонента.
+     * Callback на удаление компонента.
      */
     onDelete: () => void;
     /**
-     * Колбэк на воспроизведение трека.
+     * Callback на воспроизведение трека.
      */
     onPlay: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
 
 /**
- * Компоннет для воспроизведения аудио.
+ * Компонент для воспроизведения аудио.
  */
 export const AudioPlayer: FC<AudioPlayerProps> = ({
     title,
