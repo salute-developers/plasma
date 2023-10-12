@@ -7,6 +7,11 @@ import { usePopupBaseContext } from '../PopupBase';
 import { getIdFirstModal, getIdLastModal } from './ModalBaseContext';
 import { ModalOverlayProps } from './types';
 
+/*
+ * Класс компонента ModalBaseOverlay: `modal-base-overlay`
+ */
+export const modalBaseOverlayClass = 'modal-base-overlay';
+
 // TODO: новый отдельный оверлей #778
 export const Overlay = styled.div<{
     transparent?: boolean;
@@ -76,7 +81,7 @@ export const ModalOverlay: FC<ModalOverlayProps> = ({
 
     return (
         <Overlay
-            className="modal-base-overlay"
+            className={modalBaseOverlayClass}
             transparent={getIdLastModal(popupController.items) !== id}
             clickable={closeOnOverlayClick}
             endAnimation={getIdFirstModal(popupController.items) === id && animationInfo?.endAnimation}

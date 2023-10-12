@@ -289,8 +289,8 @@ describe('Confirm', () => {
         });
     });
 
-    describe('', () => {
-        it('placement: center', () => {
+    describe('_placement', () => {
+        it('center', () => {
             mount(
                 <CypressTestDecorator>
                     <WrappedConfirm visible placement="center" stretch={false} view="primary" {...props} />
@@ -300,7 +300,7 @@ describe('Confirm', () => {
             cy.matchImageSnapshot();
         });
 
-        it('placement: bottom + left', () => {
+        it('bottom-left', () => {
             mount(
                 <CypressTestDecorator>
                     <WrappedConfirm visible placement="bottom-left" stretch={false} view="primary" {...props} />
@@ -310,7 +310,7 @@ describe('Confirm', () => {
             cy.matchImageSnapshot();
         });
 
-        it('placement: top-right + offset', () => {
+        it('top-right + offset', () => {
             mount(
                 <CypressTestDecorator>
                     <WrappedConfirm
@@ -327,7 +327,7 @@ describe('Confirm', () => {
             cy.matchImageSnapshot();
         });
 
-        it('placement: bottom + stretch', () => {
+        it('bottom + stretch', () => {
             mount(
                 <CypressTestDecorator>
                     <WrappedConfirm visible placement="bottom" view="primary" {...props} />

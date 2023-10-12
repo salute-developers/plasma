@@ -150,6 +150,7 @@ import { MediaQueryFunction } from '@salutejs/plasma-hope';
 import { Modal } from '@salutejs/plasma-hope';
 import { ModalAnimationInfo } from '@salutejs/plasma-hope';
 import { ModalBase } from '@salutejs/plasma-hope';
+import { modalBaseOverlayClass } from '@salutejs/plasma-hope';
 import { ModalBaseProps } from '@salutejs/plasma-hope';
 import { ModalBaseRootProps } from '@salutejs/plasma-hope';
 import { ModalOverlay } from '@salutejs/plasma-hope';
@@ -183,6 +184,7 @@ import { PopupBase } from '@salutejs/plasma-hope';
 import { PopupBasePlacement } from '@salutejs/plasma-hope';
 import { PopupBaseProps } from '@salutejs/plasma-hope';
 import { PopupBaseProvider } from '@salutejs/plasma-hope';
+import { popupBaseRootClass } from '@salutejs/plasma-hope';
 import { PopupContextType } from '@salutejs/plasma-hope';
 import { PopupInfo } from '@salutejs/plasma-hope';
 import { PopupProps } from '@salutejs/plasma-hope';
@@ -614,6 +616,8 @@ export { ModalAnimationInfo }
 
 export { ModalBase }
 
+export { modalBaseOverlayClass }
+
 export { ModalBaseProps }
 
 export { ModalBaseRootProps }
@@ -682,6 +686,8 @@ export { PopupBasePlacement }
 export { PopupBaseProps }
 
 export { PopupBaseProvider }
+
+export { popupBaseRootClass }
 
 export { PopupContextType }
 

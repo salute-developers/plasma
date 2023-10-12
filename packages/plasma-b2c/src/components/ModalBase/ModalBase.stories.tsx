@@ -6,9 +6,9 @@ import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { SSRProvider } from '../SSRProvider';
 import { Button } from '../Button';
-import { PopupBaseProvider } from '../PopupBase';
+import { PopupBaseProvider, popupBaseRootClass } from '../PopupBase';
 
-import { ModalBase, useModalAnimation } from '.';
+import { ModalBase, modalBaseOverlayClass, useModalAnimation } from '.';
 
 export default {
     title: 'Controls/ModalBase',
@@ -65,8 +65,7 @@ const Content = styled.div`
 `;
 
 const StyledModal = styled(ModalBase)`
-    & > .popup-base-root,
-    .modal-base-overlay {
+    & > .${popupBaseRootClass}, .${modalBaseOverlayClass} {
         animation: ${({ theme, withAnimation, animationInfo }) =>
             /* eslint-disable-next-line no-nested-ternary */
             theme.lowPerformance || !withAnimation
