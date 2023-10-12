@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
+import styled from 'styled-components';
 
 import { useForkRef, useUniqId } from '../../hooks';
 
@@ -8,7 +9,7 @@ import { POPOVER_PORTAL_ID } from './PopupBaseContext';
 import { PopupBaseRoot } from './PopupBaseRoot';
 import { usePopup } from './hooks';
 
-export const DEFAULT_Z_INDEX = 9000;
+const StyledPortal = styled.div``;
 
 /**
  * Базовый копмонент PopupBase.
@@ -74,11 +75,10 @@ export const PopupBase = React.forwardRef<HTMLDivElement, PopupBaseProps>(
             <>
                 {portalRef.current &&
                     ReactDOM.createPortal(
-                        <div {...rest}>
+                        <StyledPortal {...rest}>
                             {overlay}
                             <PopupBaseRoot
                                 id={innerId}
-                                className="popup-base-root"
                                 ref={innerRef}
                                 placement={placement}
                                 frame={frame}
@@ -89,7 +89,7 @@ export const PopupBase = React.forwardRef<HTMLDivElement, PopupBaseProps>(
                             >
                                 {children}
                             </PopupBaseRoot>
-                        </div>,
+                        </StyledPortal>,
                         portalRef.current,
                     )}
             </>

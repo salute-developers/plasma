@@ -9,7 +9,7 @@ export { useModalAnimation };
 
 const ESCAPE_KEYCODE = 27;
 
-export const useModal = ({ id, popupInfo, closeOnEsc = true, onEscKeyDown, onClose }: UseModalArgs) => {
+export const useModal = ({ id, popupInfo, onEscKeyDown, onClose, closeOnEsc = true }: UseModalArgs) => {
     const popupController = usePopupBaseContext();
 
     // При ESC закрывает текущее окно, если это возможно

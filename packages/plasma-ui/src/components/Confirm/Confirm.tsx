@@ -7,8 +7,8 @@ import { FlexDirectionProperty } from 'csstype';
 import { mediaQuery } from '../../utils';
 import { Button, ButtonProps } from '../Button';
 import { TextBox, TextBoxTitle, TextBoxSubTitle } from '../TextBox';
-import { ModalBase, useModalAnimation } from '../ModalBase';
-import { PopupBasePlacement } from '../PopupBase';
+import { ModalBase, modalBaseOverlayClass, useModalAnimation } from '../ModalBase';
+import { PopupBasePlacement, popupBaseRootClass } from '../PopupBase';
 import { Cell } from '../Cell';
 
 const flexDirection: Record<Direction, FlexDirectionProperty> = {
@@ -206,7 +206,7 @@ const StyledCell = styled(Cell)`
 `;
 
 const StyledModal = styled(ModalBase)`
-    & > .popup-base-root, .modal-base-overlay {
+    & > .${popupBaseRootClass}, .${modalBaseOverlayClass} {
         ${({ animationInfo }) =>
             animationInfo?.endTransition
                 ? css`

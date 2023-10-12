@@ -5,21 +5,14 @@ import { useForkRef } from '../../hooks';
 
 import { usePopupBaseContext } from './PopupBaseContext';
 import { handlePosition } from './utils';
-import { PopupBasePlacement, PopupInfo, PopupRootProps } from './types';
-
-interface VisibleProps {
-    endTransition?: boolean;
-    endAnimation?: boolean;
-    placement?: PopupBasePlacement;
-    offset?: [number | string, number | string];
-    frame?: 'document' | React.RefObject<HTMLElement>;
-    id?: string;
-    withAnimation?: boolean;
-    popupInfo?: PopupInfo;
-    zIndex?: string;
-}
+import { PopupRootContainerProps, PopupRootProps } from './types';
 
 export const DEFAULT_Z_INDEX = 9000;
+
+/*
+ * Класс корневого компонента PopupBaseRoot: `popup-base-root`
+ */
+export const popupBaseRootClass = 'popup-base-root';
 
 const PopupBaseView = styled.div`
     position: relative;
@@ -27,7 +20,7 @@ const PopupBaseView = styled.div`
     pointer-events: all;
 `;
 
-const Container = styled.div<VisibleProps>`
+const PopupRootContainer = styled.div<PopupRootContainerProps>`
     ${({ frame }) => css`
         position: ${frame === 'document' ? 'fixed' : 'absolute'};
     `}
@@ -41,33 +34,17 @@ const Container = styled.div<VisibleProps>`
 
 /**
  * Корень PopupBase.
- * Управляет показом/скрытием и анимацией высплывающего окна.
+ * Управляет показом/скрытием и анимацией всплывающего окна.
  */
 export const PopupBaseRoot = React.forwardRef<HTMLDivElement, PopupRootProps>(
     ({ id, placement, offset, frame, setVisible, children, role, zIndex, animationInfo, ...rest }, ref) => {
-        // Внутренее состояние, необходимое для правильного отображения вложенных окон, а также для анимации
         const contentRef = useRef<HTMLDivElement | null>(null);
         const innerRef = useForkRef<HTMLDivElement>(contentRef, ref);
 
         const popupController = usePopupBaseContext();
 
         const handleAnimationEnd = useCallback(
-            (e: React.AnimationEvent<HTMLDivElement>) => {
-                if (!contentRef || e.target !== contentRef.current) {
-                    return;
-                }
-                e.stopPropagation();
-                if (animationInfo?.endAnimation) {
-                    popupController.unregister(id);
-                    setVisible(false);
-                    animationInfo.setEndAnimation(false);
-                }
-            },
-            [popupController.unregister, animationInfo, setVisible],
-        );
-
-        const handleTransitionEnd = useCallback(
-            (e: React.TransitionEvent<HTMLDivElement>) => {
+            (e: React.AnimationEvent<HTMLDivElement> | React.TransitionEvent<HTMLDivElement>) => {
                 if (!contentRef || e.target !== contentRef.current) {
                     return;
                 }
@@ -82,19 +59,19 @@ export const PopupBaseRoot = React.forwardRef<HTMLDivElement, PopupRootProps>(
         );
 
         return (
-            <Container
-                className="popup-base-root"
+            <PopupRootContainer
+                className={popupBaseRootClass}
                 ref={innerRef}
                 placement={placement}
                 frame={frame}
                 offset={offset}
                 zIndex={zIndex}
                 onAnimationEnd={handleAnimationEnd}
-                onTransitionEnd={handleTransitionEnd}
+                onTransitionEnd={handleAnimationEnd}
                 {...rest}
             >
                 <PopupBaseView role={role}>{children}</PopupBaseView>
-            </Container>
+            </PopupRootContainer>
         );
     },
 );

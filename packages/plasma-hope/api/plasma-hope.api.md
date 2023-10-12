@@ -96,6 +96,7 @@ import { LineSkeletonProps } from '@salutejs/plasma-core';
 import { MaxLinesProps } from '@salutejs/plasma-core';
 import { ModalAnimationInfo } from '@salutejs/plasma-core';
 import { ModalBase } from '@salutejs/plasma-core';
+import { modalBaseOverlayClass } from '@salutejs/plasma-core';
 import { ModalBaseProps } from '@salutejs/plasma-core';
 import { ModalBaseRootProps } from '@salutejs/plasma-core';
 import { ModalOverlay } from '@salutejs/plasma-core';
@@ -120,6 +121,7 @@ import { PopupBase } from '@salutejs/plasma-core';
 import { PopupBasePlacement } from '@salutejs/plasma-core';
 import { PopupBaseProps } from '@salutejs/plasma-core';
 import { PopupBaseProvider } from '@salutejs/plasma-core';
+import { popupBaseRootClass } from '@salutejs/plasma-core';
 import { PopupContextType } from '@salutejs/plasma-core';
 import { PopupInfo } from '@salutejs/plasma-core';
 import { PopupProps } from '@salutejs/plasma-core';
@@ -915,6 +917,8 @@ export { ModalAnimationInfo }
 
 export { ModalBase }
 
+export { modalBaseOverlayClass }
+
 export { ModalBaseProps }
 
 export { ModalBaseRootProps }
@@ -1020,6 +1024,8 @@ export { PopupBasePlacement }
 export { PopupBaseProps }
 
 export { PopupBaseProvider }
+
+export { popupBaseRootClass }
 
 export { PopupContextType }
 

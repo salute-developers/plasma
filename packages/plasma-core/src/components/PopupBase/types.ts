@@ -72,3 +72,8 @@ export interface PopupRootProps extends Omit<PopupBaseProps, 'isOpen' | 'overlay
 export interface UsePopupArgs extends Pick<PopupBaseProps, 'isOpen' | 'withAnimation' | 'popupInfo' | 'animationInfo'> {
     id: string;
 }
+
+export interface PopupRootContainerProps extends Omit<PopupBaseProps, 'isOpen' | 'overlay'> {
+    endTransition?: boolean;
+    endAnimation?: boolean;
+}

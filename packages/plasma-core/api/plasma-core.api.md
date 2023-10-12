@@ -757,11 +757,13 @@ export interface MaxLinesProps {
 }
 
 // @public (undocumented)
-export interface ModalAnimationInfo extends PopupAnimationInfo {
-}
+export type ModalAnimationInfo = PopupAnimationInfo;
 
 // @public
 export const ModalBase: FC<ModalBaseProps>;
+
+// @public (undocumented)
+export const modalBaseOverlayClass = "modal-base-overlay";
 
 // @public (undocumented)
 export interface ModalBaseProps extends PopupBaseProps {
@@ -776,15 +778,13 @@ export interface ModalBaseProps extends PopupBaseProps {
 }
 
 // @public (undocumented)
-export interface ModalBaseRootProps extends PopupRootProps, Pick<ModalBaseProps, 'initialFocusRef' | 'focusAfterRef' | 'onClose'> {
-}
+export type ModalBaseRootProps = PopupRootProps & Pick<ModalBaseProps, 'initialFocusRef' | 'focusAfterRef' | 'onClose'>;
 
 // @public
 export const ModalOverlay: FC<ModalOverlayProps>;
 
 // @public (undocumented)
-export interface ModalOverlayProps extends Pick<PopupRootProps, 'id' | 'animationInfo' | 'zIndex'>, Pick<ModalBaseProps, 'withBlur' | 'closeOnOverlayClick' | 'onOverlayClick' | 'onClose'> {
-}
+export type ModalOverlayProps = Pick<PopupRootProps, 'id' | 'animationInfo' | 'zIndex'> & Pick<ModalBaseProps, 'withBlur' | 'closeOnOverlayClick' | 'onOverlayClick' | 'onClose'>;
 
 // @public (undocumented)
 export const monthLongName: (val: number) => string;
@@ -896,6 +896,9 @@ export const PopupBaseProvider: React_2.FC<{
 
 // @public
 export const PopupBaseRoot: React_2.ForwardRefExoticComponent<PopupRootProps & React_2.RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const popupBaseRootClass = "popup-base-root";
 
 // @public (undocumented)
 export interface PopupContextType {
@@ -1361,15 +1364,14 @@ export const useForkRef: UseForkRefHook;
 export const useIsomorphicLayoutEffect: typeof useEffect;
 
 // @public (undocumented)
-export const useModal: ({ id, popupInfo, closeOnEsc, onEscKeyDown, onClose }: UseModalArgs) => {
+export const useModal: ({ id, popupInfo, onEscKeyDown, onClose, closeOnEsc }: UseModalArgs) => {
     modalInfo: ModalInfo;
 };
 
 // Warning: (ae-forgotten-export) The symbol "UsePopupArgs" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export interface UseModalArgs extends Pick<UsePopupArgs, 'id' | 'popupInfo'>, Pick<ModalBaseProps, 'closeOnEsc' | 'onEscKeyDown' | 'onClose'> {
-}
+export type UseModalArgs = Pick<UsePopupArgs, 'id' | 'popupInfo'> & Pick<ModalBaseProps, 'closeOnEsc' | 'onEscKeyDown' | 'onClose'>;
 
 // @public (undocumented)
 export const usePaginationDots: ({ items, index, visibleItems }: SmartPaginationDotsProps) => {

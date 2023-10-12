@@ -168,7 +168,7 @@ export const ExtraContent: Story<ConfirmProps & { offsetX: number; offsetY: numb
     );
 
     return (
-        <>
+        <PopupBaseProvider>
             <Button text="Show Confirm" onClick={() => setVisible(true)} />
             <Confirm
                 visible={visible}
@@ -178,7 +178,7 @@ export const ExtraContent: Story<ConfirmProps & { offsetX: number; offsetY: numb
                 offset={[offsetX, offsetY]}
                 {...rest}
             />
-        </>
+        </PopupBaseProvider>
     );
 };
 

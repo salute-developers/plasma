@@ -29,7 +29,7 @@ const ModalOverlayVariables = createGlobalStyle`
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import { surfaceSolid02, darkOverlayBlur, overlaySoft } from '@salutejs/plasma-tokens';
-import { SSRProvider, Button, ModalBase, useModalAnimation, PopupBaseProvider } from '@salutejs/plasma-ui';
+import { SSRProvider, Button, ModalBase, useModalAnimation, popupBaseRootClass, modalBaseOverlayClass, PopupBaseProvider } from '@salutejs/plasma-ui';
 
 const StyledButton = styled(Button)`
     margin-top: 1rem;
@@ -53,8 +53,8 @@ const Content = styled.div`
 `;
 
 const StyledModal = styled(ModalBase)`
-    & > .popup-base-root,
-    .modal-base-overlay {
+    & > .${popupBaseRootClass},
+    .${modalBaseOverlayClass} {
         animation: ${({ theme, withAnimation, animationInfo }) =>
             /* eslint-disable-next-line no-nested-ternary */
             theme.lowPerformance || !withAnimation
@@ -158,13 +158,13 @@ export const App {
 Подключение анимации аналогично тому, как это происходит в `PopupBase`.
 Однако подключение анимации происходит с помощью хука `useModalAnimation`.
 Также необходимо выставить флаг `withAnimation`. 
-Для добавления анимации в оверлей необходимо использовать класс `.modal-base-overlay`.
+Для добавления анимации в оверлей необходимо использовать класс `.modal-base-overlay` через переменную `modalBaseOverlayClass` из пакета.
 Пример:
 
 ```tsx
 const StyledModal = styled(ModalBase)`
-    & > .popup-base-root,
-    .modal-base-overlay {
+    & > .${popupBaseRootClass},
+    .${modalBaseOverlayClass} {
         animation: ${({ theme, withAnimation, animationInfo }) =>
             theme.lowPerformance || !withAnimation
                 ? 'unset'

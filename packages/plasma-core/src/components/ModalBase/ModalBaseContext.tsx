@@ -10,22 +10,22 @@ export interface ModalInfo extends PopupInfo {
 /**
  * Взаимодействие с модальными оконами.
  */
-const getLastModal = (items: ModalInfo[]) => {
-    const modals = items.filter((item: ModalInfo) => item?.info?.isModal);
-    const lastModal = modals && (modals[modals.length - 1] as ModalInfo);
-    return lastModal;
-};
-
-const getFirstModal = (items: ModalInfo[]) => {
-    const modals = items.filter((item: ModalInfo) => item?.info?.isModal);
-    const firstModal = modals && (modals[0] as ModalInfo);
-    return firstModal;
+const getModals = (items: ModalInfo[]) => {
+    return items.filter((item: ModalInfo) => item?.info?.isModal);
 };
 
 export const getIdLastModal = (items: ModalInfo[]) => {
-    return getLastModal(items)?.id;
+    const modals = getModals(items);
+    if (!modals.length) {
+        return;
+    }
+    return modals[modals.length - 1].id;
 };
 
 export const getIdFirstModal = (items: ModalInfo[]) => {
-    return getFirstModal(items)?.id;
+    const modals = getModals(items);
+    if (!modals.length) {
+        return;
+    }
+    return modals[0].id;
 };
