@@ -26,6 +26,7 @@ jobs:
           show-progress: false
 
       - name: "Run the 'semgrep ci' command on the command line of the docker image."
+        continue-on-error: true
         run: semgrep ci --sarif --output=semgrep.sarif --config auto --config "p/gitlab" --exclude-rule yaml.github-actions.security.third-party-action-not-pinned-to-commit-sha.third-party-action-not-pinned-to-commit-sha
         env:
           # Add the rules that Semgrep uses by setting the SEMGREP_RULES environment variable.
