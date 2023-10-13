@@ -61,7 +61,7 @@
 После создания [основы приложения](https://create-react-app.dev/docs/getting-started#quick-start):
 
 ```sh
-npm i -S styled-components @salutejs/plasma-ui @salutejs/plasma-tokens @salutejs/plasma-icons
+npm i -S styled-components@5.1.1 @salutejs/plasma-ui @salutejs/plasma-tokens @salutejs/plasma-icons
 ```
 
 _Компоненты реализованы с помощью [styled-components](http://styled-components.com/). Поэтому необходимо поставить их в зависимость._
