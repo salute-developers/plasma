@@ -1,18 +1,34 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import { Meta, Story } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { IconTrash, IconTrashFilled, Icon } from '@salutejs/plasma-icons';
 import { surfaceSolid01 } from '@salutejs/plasma-tokens-b2c';
 
-import {
-    arrayItemRemoving,
-    arrayItemSelecting,
-    arrayItemSwapping,
-    PreviewGallery,
-    PreviewGalleryItemProps,
-    PreviewGalleryProps,
-} from '.';
+import { arrayItemRemoving, arrayItemSelecting, arrayItemSwapping, PreviewGallery } from '.';
+import type { PreviewGalleryItemProps, PreviewGalleryProps } from '.';
+
+const meta: Meta = {
+    title: 'Controls/PreviewGallery',
+    component: PreviewGallery,
+    argTypes: {
+        items: {
+            table: {
+                disable: true,
+            },
+        },
+        deleteIcon: {
+            table: {
+                disable: true,
+            },
+        },
+    },
+    decorators: [InSpacingDecorator],
+};
+
+export default meta;
+
+type Story = StoryObj<PreviewGalleryProps>;
 
 const StyledAddButton = styled.div`
     width: 100%;
@@ -39,31 +55,11 @@ export const AddButton = () => {
     );
 };
 
-export default {
-    title: 'Controls/PreviewGallery',
-    component: PreviewGallery,
-    argTypes: {
-        items: {
-            table: {
-                disable: true,
-            },
-        },
-        deleteIcon: {
-            table: {
-                disable: true,
-            },
-        },
-    },
-    decorators: [InSpacingDecorator],
-} as Meta;
-
 const StyledWrapper = styled.div`
     width: 23.75rem;
 `;
 
-interface StoryProps extends PreviewGalleryProps {}
-
-const images: Array<PreviewGalleryItemProps> = [
+const images: PreviewGalleryItemProps[] = [
     {
         id: Math.random(),
         image: './images/320_320_0.jpg',
@@ -90,7 +86,7 @@ const images: Array<PreviewGalleryItemProps> = [
     },
 ];
 
-export const Selectable: Story<StoryProps> = ({ ...rest }) => {
+const StorySelectable = ({ ...rest }: PreviewGalleryProps) => {
     const [items, setItems] = useState(images);
 
     const onItemRemove = useCallback((id) => {
@@ -124,7 +120,11 @@ export const Selectable: Story<StoryProps> = ({ ...rest }) => {
     );
 };
 
-export const Draggable: Story<StoryProps> = ({ ...rest }) => {
+export const Selectable: Story = {
+    render: (args) => <StorySelectable {...args} />,
+};
+
+const StoryDraggable = (props: PreviewGalleryProps) => {
     const [items, setItems] = useState(images);
 
     const onItemRemove = useCallback((id) => {
@@ -153,8 +153,12 @@ export const Draggable: Story<StoryProps> = ({ ...rest }) => {
                 actionIcon={<IconTrash size="xs" color="inherit" />}
                 onItemAction={onItemRemove}
                 onItemsSortEnd={onItemsSortEnd}
-                {...rest}
+                {...props}
             />
         </StyledWrapper>
     );
+};
+
+export const Draggable: Story = {
+    render: (args) => <StoryDraggable {...args} />,
 };
