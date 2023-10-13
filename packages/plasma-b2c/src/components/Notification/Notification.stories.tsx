@@ -1,12 +1,20 @@
-import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import React, { useRef, useCallback, useState } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button';
 import { Modal, ModalsProvider } from '../Modal';
 import { Headline3 } from '../Typography';
 
-import { Notification, NotificationProps, addNotification, NotificationsProvider } from '.';
+import { Notification, addNotification, NotificationsProvider } from '.';
+import type { NotificationProps } from '.';
+
+const meta: Meta<NotificationProps> = {
+    title: 'Controls/Notification',
+    decorators: [InSpacingDecorator],
+};
+
+export default meta;
 
 const statuses = ['success', 'warning', 'error', ''];
 const titles = ['Выполнено', 'Внимание', 'Ошибка'];
@@ -25,43 +33,36 @@ const getNotificationProps = (i: number) => ({
     children: texts[i % 3],
 });
 
-export default {
-    title: 'Controls/Notification',
-    decorators: [InSpacingDecorator],
-} as Meta;
-
-interface DefaultStoryProps {
+export const Default: StoryObj<{
     status: string;
     title: string;
     children: string;
-}
-
-export const Default: Story<DefaultStoryProps> = ({ status, title, children }) => {
-    return (
-        <Notification title={title} status={status !== '' ? (status as 'success') : undefined}>
-            {children}
-        </Notification>
-    );
-};
-
-Default.args = {
-    status: '',
-    title: 'Title',
-    children: longText,
-};
-
-Default.argTypes = {
-    status: {
-        options: statuses,
-        control: {
-            type: 'select',
+}> = {
+    args: {
+        status: '',
+        title: 'Title',
+        children: longText,
+    },
+    argTypes: {
+        status: {
+            options: statuses,
+            control: {
+                type: 'select',
+            },
         },
+    },
+    render: ({ status, title, children }) => {
+        return (
+            <Notification title={title} status={status !== '' ? (status as 'success') : undefined}>
+                {children}
+            </Notification>
+        );
     },
 };
 
-export const LiveDemo: Story<{ timeout: number }> = ({ timeout }) => {
-    const count = React.useRef(0);
-    const handleClick = React.useCallback(() => {
+const StoryLiveDemo = ({ timeout }) => {
+    const count = useRef(0);
+    const handleClick = useCallback(() => {
         addNotification(getNotificationProps(count.current), timeout);
         count.current++;
     }, [count]);
@@ -73,14 +74,17 @@ export const LiveDemo: Story<{ timeout: number }> = ({ timeout }) => {
     );
 };
 
-LiveDemo.args = {
-    timeout: 3000,
+export const LiveDemo: StoryObj<{ timeout: number }> = {
+    args: {
+        timeout: 3000,
+    },
+    render: (args) => <StoryLiveDemo {...args} />,
 };
 
-export const WithModal: Story<{ timeout: number }> = ({ timeout }) => {
-    const [isModalOpen, setIsModalOpen] = React.useState(false);
-    const count = React.useRef(0);
-    const handleClick = React.useCallback(() => {
+const StoryWithModal = ({ timeout }) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const count = useRef(0);
+    const handleClick = useCallback(() => {
         addNotification(getNotificationProps(count.current), timeout);
         count.current++;
     }, [count]);
@@ -98,6 +102,9 @@ export const WithModal: Story<{ timeout: number }> = ({ timeout }) => {
     );
 };
 
-WithModal.args = {
-    timeout: 3500,
+export const WithModal: StoryObj<{ timeout: number }> = {
+    args: {
+        timeout: 3500,
+    },
+    render: (args) => <StoryWithModal {...args} />,
 };
