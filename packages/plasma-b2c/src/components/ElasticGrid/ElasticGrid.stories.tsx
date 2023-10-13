@@ -1,27 +1,28 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import styled from 'styled-components';
 
-import { ElasticGrid, ElasticGridProps } from '.';
+import { ElasticGrid } from '.';
+import type { ElasticGridProps } from '.';
 
-const propsToDisable = ['ref', 'theme', 'as', 'forwardedAs'];
-
-export default {
+const meta: Meta<ElasticGridProps> = {
     title: 'Layout/ElasticGrid',
     component: ElasticGrid,
     argTypes: {
-        ...disableProps(propsToDisable),
+        ...disableProps(['ref', 'theme', 'as', 'forwardedAs']),
     },
     decorators: [InSpacingDecorator],
-} as Meta;
+};
 
-interface ExtraProps {
+export default meta;
+
+type ElasticGridPropsExtend = ElasticGridProps & {
     $width: string;
     itemsNumber: number;
-}
+};
 
-const StyledElasticGrid = styled(ElasticGrid)<{ $width: string }>`
+const StyledElasticGrid = styled(ElasticGrid)<Pick<ElasticGridPropsExtend, '$width'>>`
     width: ${({ $width }) => $width};
 `;
 
@@ -32,22 +33,23 @@ const Item = styled.div`
     border-radius: 10px;
 `;
 
-export const Default: Story<ExtraProps & ElasticGridProps> = ({ itemsNumber, ...props }) => {
-    return (
-        <StyledElasticGrid {...props}>
-            {Array(itemsNumber)
-                .fill(0)
-                .map((_, k) => (
-                    <Item key={k} />
-                ))}
-        </StyledElasticGrid>
-    );
-};
-
-Default.args = {
-    $width: '600px',
-    itemsNumber: 5,
-    minColWidth: 125,
-    gapX: 8,
-    gapY: 8,
+export const Default: StoryObj<ElasticGridPropsExtend> = {
+    args: {
+        $width: '600px',
+        itemsNumber: 5,
+        minColWidth: 125,
+        gapX: 8,
+        gapY: 8,
+    },
+    render: ({ itemsNumber, ...props }) => {
+        return (
+            <StyledElasticGrid {...props}>
+                {Array(itemsNumber)
+                    .fill(0)
+                    .map((_, k) => (
+                        <Item key={k} />
+                    ))}
+            </StyledElasticGrid>
+        );
+    },
 };
