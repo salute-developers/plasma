@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button';
@@ -10,23 +10,7 @@ import { Headline4, Footnote1 } from '../Typography';
 
 import { Carousel, CarouselItem } from '.';
 
-const propsToDisable = [
-    'onScroll',
-    'index',
-    'scrollSnapType',
-    'scrollAlign',
-    'paddingStart',
-    'paddingEnd',
-    'detectActive',
-    'detectThreshold',
-    'onIndexChange',
-    'scaleCallback',
-    'scaleResetCallback',
-    'as',
-    'forwardedAs',
-];
-
-export default {
+const meta: Meta<typeof Carousel> = {
     title: 'Controls/Carousel',
     component: Carousel,
     decorators: [InSpacingDecorator],
@@ -37,8 +21,25 @@ export default {
                 type: 'inline-radio',
             },
         },
+        ...disableProps([
+            'onScroll',
+            'index',
+            'scrollSnapType',
+            'scrollAlign',
+            'paddingStart',
+            'paddingEnd',
+            'detectActive',
+            'detectThreshold',
+            'onIndexChange',
+            'scaleCallback',
+            'scaleResetCallback',
+            'as',
+            'forwardedAs',
+        ]),
     },
-} as Meta;
+};
+
+export default meta;
 
 type alignType = 'center' | 'start' | 'end';
 
@@ -59,6 +60,7 @@ const StyledWrapper = styled.div`
     display: flex;
     flex-direction: column;
 `;
+
 const StyledButtonGroup = styled.div`
     display: grid;
     grid-template-columns: repeat(3, max-content);
@@ -67,10 +69,12 @@ const StyledButtonGroup = styled.div`
     align-items: center;
     margin-top: 2rem;
 `;
+
 const StyledCard = styled.div`
     position: relative;
     border-radius: 1rem;
 `;
+
 const StyledCardContent = styled.div`
     position: absolute;
     left: 0;
@@ -81,16 +85,17 @@ const StyledCardContent = styled.div`
 `;
 
 const defaultCarouselStyle = { margin: '0 -0.5rem' };
+
 const defaultCarouselItemStyle = { width: 550, padding: '0 0.5rem' };
 
-export const Default: Story<{ align: string }> = ({ align }) => {
-    const [index, setIndex] = React.useState(0);
+const StoryDefault = ({ align }: { align: alignType }) => {
+    const [index, setIndex] = useState(0);
 
-    const changeIndexDown = React.useCallback(() => {
+    const changeIndexDown = useCallback(() => {
         setIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : items.length - 1));
     }, []);
 
-    const changeIndexUp = React.useCallback(() => {
+    const changeIndexUp = useCallback(() => {
         setIndex((prevIndex) => (prevIndex < items.length - 1 ? prevIndex + 1 : 0));
     }, []);
 
@@ -101,10 +106,10 @@ export const Default: Story<{ align: string }> = ({ align }) => {
                 index={index}
                 detectActive
                 onIndexChange={setIndex}
-                scrollAlign={align as alignType}
+                scrollAlign={align}
             >
                 {items.map((item) => (
-                    <CarouselItem key={item.id} style={defaultCarouselItemStyle} scrollSnapAlign={align as alignType}>
+                    <CarouselItem key={item.id} style={defaultCarouselItemStyle} scrollSnapAlign={align}>
                         <StyledCard>
                             <Image src={item.imageSrc} ratio="16 / 9" base="div" />
                             <StyledCardContent>
@@ -125,10 +130,9 @@ export const Default: Story<{ align: string }> = ({ align }) => {
     );
 };
 
-Default.args = {
-    align: 'center',
-};
-
-Default.argTypes = {
-    ...disableProps(propsToDisable),
+export const Default: StoryObj<{ align: alignType }> = {
+    args: {
+        align: 'center',
+    },
+    render: (args) => <StoryDefault {...args} />,
 };
