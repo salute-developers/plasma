@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Story } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { accent, success, warning, critical } from '@salutejs/plasma-core';
 import { IconEye, IconMagicWand, IconAccessibility, IconHeart, IconTrash, IconLocation } from '@salutejs/plasma-icons';
 import { action } from '@storybook/addon-actions';
@@ -8,23 +8,28 @@ import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button';
 
-import { Dropdown, DropdownProps, DropdownList, DropdownItem } from '.';
+import { Dropdown, DropdownList, DropdownItem } from '.';
+import type { DropdownProps } from '.';
 
-export default {
+const meta: Meta<DropdownProps> = {
     title: 'Controls/Dropdown',
     component: Dropdown,
     decorators: [InSpacingDecorator],
 };
 
+export default meta;
+
 const StyledWrapper = styled.div`
     width: 13.75rem;
 `;
+
 const Styled25Rem = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
     width: 25rem;
 `;
+
 const StyledDashedBorder = styled.div`
     padding: 0.25rem;
     border: 1px dashed #00000030;
@@ -122,6 +127,7 @@ export const Placement = () => {
 const StyledDropdown = styled(Dropdown)`
     --plasma-popup-width: 100%;
 `;
+
 const StyledBlockDropdown = styled(Dropdown)`
     --plasma-popup-width: 100%;
     display: block;
@@ -158,34 +164,35 @@ export const CustomAssembly = () => {
 
 const placements = ['top', 'bottom', 'left', 'right', 'auto', ['left', 'right']];
 
-export const Placements: Story<DropdownProps> = (args) => {
-    const placement = args.placement?.includes(',') ? args.placement?.split(',') : args.placement;
-    return (
-        <>
-            <Dropdown id="example-dropdown-placements1" items={items} placement={placement}>
-                <Button text="Меню" />
-            </Dropdown>
-            <Dropdown
-                id="example-dropdown-placements2"
-                style={{ marginLeft: '500px' }}
-                items={items}
-                placement={placement}
-            >
-                <Button text="Меню" />
-            </Dropdown>
-        </>
-    );
-};
-
-Placements.args = {
-    placement: 'bottom',
-};
-
-Placements.argTypes = {
-    placement: {
-        options: placements,
-        control: {
-            type: 'select',
+export const Placements: StoryObj<DropdownProps> = {
+    args: {
+        placement: 'bottom',
+    },
+    argTypes: {
+        placement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
         },
+    },
+    render: (args) => {
+        const placement = args.placement?.includes(',') ? args.placement?.split(',') : args.placement;
+
+        return (
+            <>
+                <Dropdown id="example-dropdown-placements1" items={items} placement={placement}>
+                    <Button text="Меню" />
+                </Dropdown>
+                <Dropdown
+                    id="example-dropdown-placements2"
+                    style={{ marginLeft: '500px' }}
+                    items={items}
+                    placement={placement}
+                >
+                    <Button text="Меню" />
+                </Dropdown>
+            </>
+        );
     },
 };
