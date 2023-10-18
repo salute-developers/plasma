@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC, useCallback, useMemo } from 'react';
 import styled, { css } from 'styled-components';
 
 import { DEFAULT_Z_INDEX } from '../PopupBase/PopupBaseRoot';
@@ -79,12 +79,18 @@ export const ModalOverlay: FC<ModalOverlayProps> = ({
         [closeOnOverlayClick, onOverlayClick, onClose],
     );
 
+    const transparent = useMemo(() => getIdLastModal(popupController.items) !== id, [id, popupController.items]);
+    const endAnimation = useMemo(() => getIdFirstModal(popupController.items) === id && animationInfo?.endAnimation, [
+        id,
+        popupController.items,
+    ]);
+
     return (
         <Overlay
             className={modalBaseOverlayClass}
-            transparent={getIdLastModal(popupController.items) !== id}
+            transparent={transparent}
             clickable={closeOnOverlayClick}
-            endAnimation={getIdFirstModal(popupController.items) === id && animationInfo?.endAnimation}
+            endAnimation={endAnimation}
             onClick={onModalOverlayKeyDown}
             zIndex={zIndex}
             $withBlur={withBlur}

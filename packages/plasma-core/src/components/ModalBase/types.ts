@@ -1,5 +1,5 @@
 import { PopupBaseProps, PopupRootProps } from '../PopupBase';
-import { PopupAnimationInfo, UsePopupArgs } from '../PopupBase/types';
+import { PopupAnimationInfo, PopupHookArgs } from '../PopupBase/types';
 
 export interface ModalBaseProps extends PopupBaseProps {
     /**
@@ -43,5 +43,5 @@ export type ModalBaseRootProps = PopupRootProps & Pick<ModalBaseProps, 'initialF
 export type ModalOverlayProps = Pick<PopupRootProps, 'id' | 'animationInfo' | 'zIndex'> &
     Pick<ModalBaseProps, 'withBlur' | 'closeOnOverlayClick' | 'onOverlayClick' | 'onClose'>;
 
-export type UseModalArgs = Pick<UsePopupArgs, 'id' | 'popupInfo'> &
+export type ModalHookArgs = Pick<PopupHookArgs, 'id' | 'popupInfo'> &
     Pick<ModalBaseProps, 'closeOnEsc' | 'onEscKeyDown' | 'onClose'>;

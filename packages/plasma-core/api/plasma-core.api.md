@@ -880,12 +880,11 @@ export interface PopupBaseProps extends React.HTMLAttributes<HTMLDivElement> {
     frame?: 'document' | React.RefObject<HTMLElement>;
     isOpen: boolean;
     // (undocumented)
-    offset?: [number | string, number | string];
+    offset?: [number, number] | [string, string];
     overlay?: React.ReactNode;
     // (undocumented)
     placement?: PopupBasePlacement;
     popupInfo?: PopupInfo;
-    withAnimation?: boolean;
     zIndex?: string;
 }
 
@@ -931,7 +930,7 @@ export interface PopupProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 // @public (undocumented)
-export interface PopupRootProps extends Omit<PopupBaseProps, 'isOpen' | 'overlay' | 'withAnimation'> {
+export interface PopupRootProps extends Omit<PopupBaseProps, 'isOpen' | 'overlay'> {
     // (undocumented)
     id: string;
     // (undocumented)
@@ -1363,15 +1362,12 @@ export const useForkRef: UseForkRefHook;
 // @public
 export const useIsomorphicLayoutEffect: typeof useEffect;
 
-// @public (undocumented)
-export const useModal: ({ id, popupInfo, onEscKeyDown, onClose, closeOnEsc }: UseModalArgs) => {
-    modalInfo: ModalInfo;
-};
-
-// Warning: (ae-forgotten-export) The symbol "UsePopupArgs" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "ModalHookArgs" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type UseModalArgs = Pick<UsePopupArgs, 'id' | 'popupInfo'> & Pick<ModalBaseProps, 'closeOnEsc' | 'onEscKeyDown' | 'onClose'>;
+export const useModal: ({ id, popupInfo, onEscKeyDown, onClose, closeOnEsc }: ModalHookArgs) => {
+    modalInfo: ModalInfo;
+};
 
 // @public (undocumented)
 export const usePaginationDots: ({ items, index, visibleItems }: SmartPaginationDotsProps) => {
@@ -1381,16 +1377,16 @@ export const usePaginationDots: ({ items, index, visibleItems }: SmartPagination
     activeId: string | number;
 };
 
+// Warning: (ae-forgotten-export) The symbol "PopupHookArgs" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export const usePopup: ({ isOpen, id, withAnimation, popupInfo, animationInfo }: UsePopupArgs) => {
+export const usePopup: ({ isOpen, id, popupInfo, animationInfo }: PopupHookArgs) => {
     isVisible: boolean;
     setVisible: Dispatch<SetStateAction<boolean>>;
 };
 
 // @public (undocumented)
-const usePopupAnimation: () => PopupAnimationInfo;
-export { usePopupAnimation as useModalAnimation }
-export { usePopupAnimation }
+export const usePopupAnimation: () => PopupAnimationInfo;
 
 // @public (undocumented)
 export const usePopupBaseContext: () => PopupContextType;
@@ -1496,7 +1492,7 @@ export interface WithSkeletonProps {
 
 // Warnings were encountered during analysis:
 //
-// components/ModalBase/hooks.d.ts:6:5 - (ae-forgotten-export) The symbol "ModalInfo" needs to be exported by the entry point index.d.ts
+// components/ModalBase/hooks.d.ts:4:5 - (ae-forgotten-export) The symbol "ModalInfo" needs to be exported by the entry point index.d.ts
 // components/Toast/Toast.d.ts:4:5 - (ae-forgotten-export) The symbol "ToastRole" needs to be exported by the entry point index.d.ts
 // components/Toast/useToast.d.ts:2:5 - (ae-forgotten-export) The symbol "ShowToast" needs to be exported by the entry point index.d.ts
 

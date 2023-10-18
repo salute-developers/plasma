@@ -275,8 +275,6 @@ import { useFocusTrap } from '@salutejs/plasma-hope';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { useModal } from '@salutejs/plasma-hope';
-import { useModalAnimation } from '@salutejs/plasma-hope';
-import { UseModalArgs } from '@salutejs/plasma-hope';
 import { usePopup } from '@salutejs/plasma-hope';
 import { usePopupAnimation } from '@salutejs/plasma-hope';
 import { usePopupBaseContext } from '@salutejs/plasma-hope';
@@ -910,10 +908,6 @@ export { useForkRef }
 export { useIsomorphicLayoutEffect }
 
 export { useModal }
-
-export { useModalAnimation }
-
-export { UseModalArgs }
 
 export { usePopup }
 

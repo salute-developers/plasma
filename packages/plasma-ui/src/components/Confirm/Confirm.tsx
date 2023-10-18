@@ -7,8 +7,8 @@ import { FlexDirectionProperty } from 'csstype';
 import { mediaQuery } from '../../utils';
 import { Button, ButtonProps } from '../Button';
 import { TextBox, TextBoxTitle, TextBoxSubTitle } from '../TextBox';
-import { ModalBase, modalBaseOverlayClass, useModalAnimation } from '../ModalBase';
-import { PopupBasePlacement, popupBaseRootClass } from '../PopupBase';
+import { ModalBase, modalBaseOverlayClass } from '../ModalBase';
+import { PopupBasePlacement, popupBaseRootClass, usePopupAnimation } from '../PopupBase';
 import { Cell } from '../Cell';
 
 const flexDirection: Record<Direction, FlexDirectionProperty> = {
@@ -93,10 +93,10 @@ export interface ConfirmProps {
     placement?: PopupBasePlacement;
 
     /* Смещение относительно текущей позиции.
-     * (x, y) - <number | string, number | string> или проценты.
-     * При передаче number, то расчёт в rem.
+     * (x, y) - [number, number], [string, string].
+     * При передаче number расчёт в rem.
      */
-    offset?: [number | string, number | string];
+    offset?: [number, number] | [string, string];
 
     /**
      * Расятнуто ли окно на весь экран. По умолчанию true
@@ -271,7 +271,7 @@ export const Confirm = (props: ConfirmProps) => {
         </BtnWrap>
     );
 
-    const animationInfo = useModalAnimation();
+    const animationInfo = usePopupAnimation();
 
     return (
         <>
@@ -279,7 +279,6 @@ export const Confirm = (props: ConfirmProps) => {
             <StyledModal
                 isOpen={visible}
                 animationInfo={animationInfo}
-                withAnimation
                 onOverlayClick={onDismissClick}
                 zIndex="1000"
                 initialFocusRef={btnRef}

@@ -6,9 +6,9 @@ import { surfaceSolid02, darkOverlayBlur, overlaySoft } from '@salutejs/plasma-t
 import { SSRProvider } from '../SSRProvider';
 import { InSpacingDecorator } from '../../helpers';
 import { Button } from '../Button';
-import { PopupBaseProvider, popupBaseRootClass } from '../PopupBase';
+import { PopupBaseProvider, usePopupAnimation, popupBaseRootClass } from '../PopupBase';
 
-import { ModalBase, modalBaseOverlayClass, useModalAnimation } from '.';
+import { ModalBase, modalBaseOverlayClass } from '.';
 
 export default {
     title: 'Controls/ModalBase',
@@ -66,9 +66,9 @@ const Content = styled.div`
 
 const StyledModal = styled(ModalBase)`
     & > .${popupBaseRootClass}, .${modalBaseOverlayClass} {
-        animation: ${({ theme, withAnimation, animationInfo }) =>
+        animation: ${({ theme, animationInfo }) =>
             /* eslint-disable-next-line no-nested-ternary */
-            theme.lowPerformance || !withAnimation
+            theme.lowPerformance || animationInfo === undefined
                 ? 'unset'
                 : animationInfo?.endAnimation
                 ? 'fadeOut 1s forwards'
@@ -101,7 +101,7 @@ export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, 
     const [isOpenB, setIsOpenB] = React.useState(false);
     const [isOpenC, setIsOpenC] = React.useState(false);
 
-    const animationInfo = useModalAnimation();
+    const animationInfo = usePopupAnimation();
 
     return (
         <SSRProvider>
@@ -114,7 +114,6 @@ export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, 
                     <StyledModal
                         id="modalA"
                         animationInfo={animationInfo}
-                        withAnimation
                         onClose={() => setIsOpenA(false)}
                         isOpen={isOpenA}
                         placement={placement}

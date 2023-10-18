@@ -32,7 +32,7 @@ export default {
     },
 } as Meta;
 
-type PopupBaseStoryProps = { placement: string; withAnimation: boolean; offsetX: number; offsetY: number };
+type PopupBaseStoryProps = { placement: string; offsetX: number; offsetY: number };
 
 const StyledButton = styled(Button)`
     margin-top: 1rem;
@@ -66,9 +66,9 @@ const Content = styled.div`
 
 const StyledPopupAnimation = styled(PopupBase)`
     & > .${popupBaseRootClass} {
-        animation: ${({ theme, withAnimation, animationInfo }) =>
+        animation: ${({ theme, animationInfo }) =>
             /* eslint-disable-next-line no-nested-ternary */
-            theme.lowPerformance || !withAnimation
+            theme.lowPerformance || animationInfo === undefined
                 ? 'unset'
                 : animationInfo?.endAnimation
                 ? 'fadeOut 1s forwards'
@@ -112,7 +112,7 @@ const StyledPopupTransition = styled(PopupBase)`
     }
 `;
 
-export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, withAnimation, offsetX, offsetY }) => {
+export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, offsetX, offsetY }) => {
     const [isOpenA, setIsOpenA] = React.useState(false);
     const [isOpenB, setIsOpenB] = React.useState(false);
 
@@ -131,9 +131,8 @@ export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, withAnima
                     </div>
                     <StyledPopupAnimation
                         id="popupA"
-                        animationInfo={animationInfoA}
-                        withAnimation={withAnimation}
                         frame={ref}
+                        animationInfo={animationInfoA}
                         isOpen={isOpenA}
                         placement={placement}
                         offset={[offsetX, offsetY]}
@@ -148,9 +147,8 @@ export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, withAnima
                     </OtherContent>
                     <StyledPopupTransition
                         id="popupB"
-                        animationInfo={animationInfoB}
-                        withAnimation={withAnimation}
                         frame="document"
+                        animationInfo={animationInfoB}
                         isOpen={isOpenB}
                         placement={placement}
                         offset={[offsetX, offsetY]}
@@ -168,7 +166,6 @@ export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, withAnima
 
 PopupBaseDemo.args = {
     placement: 'center',
-    withAnimation: true,
     offsetX: 0,
     offsetY: 0,
 };
