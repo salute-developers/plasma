@@ -218,7 +218,6 @@ import { StyledCard } from '@salutejs/plasma-hope';
 import { StyledComponent } from 'styled-components';
 import { StyledPreviewGallery } from '@salutejs/plasma-hope';
 import { Subtitle } from '@salutejs/plasma-hope';
-import { Switch } from '@salutejs/plasma-hope';
 import { SwitchProps } from '@salutejs/plasma-hope';
 import { syntheticFocus } from '@salutejs/plasma-core';
 import { TabItemProps } from '@salutejs/plasma-hope';
@@ -824,7 +823,21 @@ export { StyledPreviewGallery }
 
 export { Subtitle }
 
-export { Switch }
+// @public (undocumented)
+export const Switch: FunctionComponent<PropsType<    {
+size: {
+s: string;
+};
+view: {
+default: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & Filter<InputHTMLAttributes<HTMLInputElement>, "size"> & BaseboxProps & RefAttributes<HTMLInputElement>>;
 
 export { SwitchProps }
 
