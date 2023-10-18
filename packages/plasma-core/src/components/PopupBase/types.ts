@@ -24,10 +24,10 @@ export interface PopupBaseProps extends React.HTMLAttributes<HTMLDivElement> {
      */
     placement?: PopupBasePlacement;
     /* Смещение относительно текущей позиции.
-     * (x, y) - <number | string, number | string> или проценты.
-     * При передаче number, то расчёт в rem.
+     * (x, y) - [number, number], [string, string].
+     * При передаче number расчёт в rem.
      */
-    offset?: [number | string, number | string];
+    offset?: [number, number] | [string, string];
     /**
      * В каком контейнере позиционируется(по умолчанию document).
      */
@@ -49,10 +49,6 @@ export interface PopupBaseProps extends React.HTMLAttributes<HTMLDivElement> {
      */
     popupInfo?: PopupInfo;
     /**
-     * Используются ли анимация.
-     */
-    withAnimation?: boolean;
-    /**
      * Данные из хука usePopupAnimation.
      */
     animationInfo?: PopupAnimationInfo;
@@ -64,12 +60,12 @@ export interface PopupAnimationInfo {
     setEndTransition: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export interface PopupRootProps extends Omit<PopupBaseProps, 'isOpen' | 'overlay' | 'withAnimation'> {
+export interface PopupRootProps extends Omit<PopupBaseProps, 'isOpen' | 'overlay'> {
     id: string;
     setVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export interface UsePopupArgs extends Pick<PopupBaseProps, 'isOpen' | 'withAnimation' | 'popupInfo' | 'animationInfo'> {
+export interface PopupHookArgs extends Pick<PopupBaseProps, 'isOpen' | 'popupInfo' | 'animationInfo'> {
     id: string;
 }
 

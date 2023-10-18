@@ -27,7 +27,6 @@ export const PopupBase = React.forwardRef<HTMLDivElement, PopupBaseProps>(
             role,
             zIndex,
             popupInfo,
-            withAnimation = false,
             animationInfo,
             ...rest
         },
@@ -36,7 +35,7 @@ export const PopupBase = React.forwardRef<HTMLDivElement, PopupBaseProps>(
         const uniqId = useUniqId();
         const innerId = id || uniqId;
 
-        const { isVisible, setVisible } = usePopup({ isOpen, id: innerId, withAnimation, popupInfo, animationInfo });
+        const { isVisible, setVisible } = usePopup({ isOpen, id: innerId, popupInfo, animationInfo });
 
         const portalRef = useRef<HTMLElement | null>(null);
         const contentRef = useRef<HTMLDivElement | null>(null);

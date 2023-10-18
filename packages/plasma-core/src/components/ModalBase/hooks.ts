@@ -1,21 +1,22 @@
 import { useCallback, useEffect } from 'react';
 
-import { usePopupBaseContext, usePopupAnimation as useModalAnimation } from '../PopupBase';
+import { usePopupBaseContext } from '../PopupBase';
 
 import { ModalInfo, getIdLastModal } from './ModalBaseContext';
-import { UseModalArgs } from './types';
-
-export { useModalAnimation };
+import { ModalHookArgs } from './types';
 
 const ESCAPE_KEYCODE = 27;
 
-export const useModal = ({ id, popupInfo, onEscKeyDown, onClose, closeOnEsc = true }: UseModalArgs) => {
+export const useModal = ({ id, popupInfo, onEscKeyDown, onClose, closeOnEsc = true }: ModalHookArgs) => {
     const popupController = usePopupBaseContext();
 
     // При ESC закрывает текущее окно, если это возможно
     const onKeyDown = useCallback(
         (event: KeyboardEvent) => {
-            if (closeOnEsc && event.keyCode === ESCAPE_KEYCODE && getIdLastModal(popupController.items) === id) {
+            if (!closeOnEsc) {
+                return;
+            }
+            if (event.keyCode === ESCAPE_KEYCODE && getIdLastModal(popupController.items) === id) {
                 if (onEscKeyDown) {
                     onEscKeyDown(event);
                     return;

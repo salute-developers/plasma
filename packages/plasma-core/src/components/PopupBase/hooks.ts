@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { PopupAnimationInfo, UsePopupArgs } from './types';
+import { PopupAnimationInfo, PopupHookArgs } from './types';
 import { usePopupBaseContext } from './PopupBaseContext';
 
 // Хук для поключения анимации
@@ -12,28 +12,39 @@ export const usePopupAnimation = (): PopupAnimationInfo => {
 };
 
 // Хук для внутреннего состояния, необходимого для правильного отображения вложенных окон, а также для анимации
-export const usePopup = ({ isOpen, id, withAnimation = false, popupInfo, animationInfo }: UsePopupArgs) => {
+export const usePopup = ({ isOpen, id, popupInfo, animationInfo }: PopupHookArgs) => {
     const [isVisible, setVisible] = useState<boolean>(false);
     const popupController = usePopupBaseContext();
 
     // для использования transition в качестве анимации
     useEffect(() => {
-        animationInfo?.setEndTransition(withAnimation && (!isVisible || animationInfo?.endAnimation));
+        animationInfo?.setEndTransition(animationInfo && (!isVisible || animationInfo?.endAnimation));
     }, [animationInfo?.endAnimation, isVisible]);
 
+    // сначала добавление/удаление из контекста, и только после этого отображение/скрытие
     useEffect(() => {
-        // сначала добавление/удаление из контекста, и только после этого отображение/скрытие
-        if (isOpen) {
+        // при первом открытии
+        if (isOpen && !isVisible) {
             popupController.register({ id, ...popupInfo });
             setVisible(true);
             animationInfo?.setEndAnimation(false);
-        } else if (isVisible && withAnimation) {
-            animationInfo?.setEndAnimation(true);
-        } else {
-            popupController.unregister(id);
-            setVisible(false);
+            return;
         }
-    }, [isOpen]);
+
+        if (isOpen || !isVisible) {
+            return;
+        }
+
+        // если есть анимация - закрытие по окончании анимации
+        if (animationInfo) {
+            animationInfo?.setEndAnimation(true);
+            return;
+        }
+
+        // иначе обычное закрытие
+        popupController.unregister(id);
+        setVisible(false);
+    }, [isOpen, isVisible, animationInfo]);
 
     return { isVisible, setVisible };
 };

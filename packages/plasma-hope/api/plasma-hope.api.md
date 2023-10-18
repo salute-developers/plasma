@@ -181,8 +181,6 @@ import { useFocusTrap } from '@salutejs/plasma-core';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { useModal } from '@salutejs/plasma-core';
-import { useModalAnimation } from '@salutejs/plasma-core';
-import { UseModalArgs } from '@salutejs/plasma-core';
 import { usePopup } from '@salutejs/plasma-core';
 import { usePopupAnimation } from '@salutejs/plasma-core';
 import { usePopupBaseContext } from '@salutejs/plasma-core';
@@ -1373,10 +1371,6 @@ export { useForkRef }
 export { useIsomorphicLayoutEffect }
 
 export { useModal }
-
-export { useModalAnimation }
-
-export { UseModalArgs }
 
 export { usePopup }
 
