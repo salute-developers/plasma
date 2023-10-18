@@ -39,7 +39,7 @@ export default {
                 type: 'select',
             },
         },
-        ...disableProps(['onApprove', 'onDismiss', 'extraContent']),
+        ...disableProps(['onApprove', 'onDismiss', 'extraContent', 'offset']),
     },
 };
 

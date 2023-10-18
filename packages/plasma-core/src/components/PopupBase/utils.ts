@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 
 import { BasicPopupBasePlacement, PopupBasePlacement } from './types';
 
-export const handlePosition = (placement?: PopupBasePlacement, offset?: [number | string, number | string]) => {
+export const handlePosition = (placement?: PopupBasePlacement, offset?: [number, number] | [string, string]) => {
     let x = '0rem';
     let y = '0rem';
     if (offset) {
@@ -47,6 +47,7 @@ export const handlePosition = (placement?: PopupBasePlacement, offset?: [number 
     const isCenteredX = left === undefined && right === undefined;
     const isCenteredY = top === undefined && bottom === undefined;
 
+    // информация для переезда в new-hope: не забыть, что styled-component выпилит undefined свойства, а линария нет
     return css`
         left: ${left};
         right: ${right};
