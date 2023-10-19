@@ -6,7 +6,6 @@ import styled from 'styled-components';
 
 import { InSpacing } from '../../helpers/StoryDecorators';
 import { Button } from '../Button';
-import { PopupBaseProvider } from '../PopupBase';
 import { Body1, Body3 } from '../Typography';
 import { disableProps } from '../../helpers';
 
@@ -77,7 +76,7 @@ export const Default: Story<ConfirmProps & { offsetX: number; offsetY: number }>
     };
 
     return (
-        <PopupBaseProvider>
+        <>
             <Button ref={btnRef} text="Show Confirm" onClick={() => setVisible(true)} />
             <Confirm
                 visible={visible}
@@ -119,7 +118,7 @@ export const Default: Story<ConfirmProps & { offsetX: number; offsetY: number }>
                 Gentiles, Protestants and Catholics, will be able to join hands and sing in the words of the old
                 spiritual, &#34;Free at last, free at last. Thank God Almighty, we are free at last.&#34;
             </Body1>
-        </PopupBaseProvider>
+        </>
     );
 };
 
@@ -168,7 +167,7 @@ export const ExtraContent: Story<ConfirmProps & { offsetX: number; offsetY: numb
     );
 
     return (
-        <PopupBaseProvider>
+        <>
             <Button text="Show Confirm" onClick={() => setVisible(true)} />
             <Confirm
                 visible={visible}
@@ -178,7 +177,7 @@ export const ExtraContent: Story<ConfirmProps & { offsetX: number; offsetY: numb
                 offset={[offsetX, offsetY]}
                 {...rest}
             />
-        </PopupBaseProvider>
+        </>
     );
 };
 
