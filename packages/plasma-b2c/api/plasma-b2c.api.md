@@ -91,6 +91,7 @@ import { ColSizeProps } from '@salutejs/plasma-hope';
 import { Container } from '@salutejs/plasma-hope';
 import { ContainerProps } from '@salutejs/plasma-hope';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
+import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/type';
 import { defaultValidate } from '@salutejs/plasma-hope';
 import { DisabledProps } from '@salutejs/plasma-core';
 import { Dropdown } from '@salutejs/plasma-hope';
@@ -133,6 +134,7 @@ import { Headline2 } from '@salutejs/plasma-hope';
 import { Headline3 } from '@salutejs/plasma-hope';
 import { Headline4 } from '@salutejs/plasma-hope';
 import { Headline5 } from '@salutejs/plasma-hope';
+import { HTMLAttributes } from 'react';
 import { Image as Image_2 } from '@salutejs/plasma-hope';
 import { ImageBaseProps } from '@salutejs/plasma-hope';
 import { ImageProps } from '@salutejs/plasma-hope';
@@ -146,6 +148,13 @@ import { MaxLinesProps } from '@salutejs/plasma-core';
 import { mediaQuery } from '@salutejs/plasma-hope';
 import { MediaQueryFunction } from '@salutejs/plasma-hope';
 import { Modal } from '@salutejs/plasma-hope';
+import { ModalAnimationInfo } from '@salutejs/plasma-hope';
+import { ModalBase } from '@salutejs/plasma-hope';
+import { modalBaseOverlayClass } from '@salutejs/plasma-hope';
+import { ModalBaseProps } from '@salutejs/plasma-hope';
+import { ModalBaseRootProps } from '@salutejs/plasma-hope';
+import { ModalOverlay } from '@salutejs/plasma-hope';
+import { ModalOverlayProps } from '@salutejs/plasma-hope';
 import { ModalProps } from '@salutejs/plasma-hope';
 import { ModalsProvider } from '@salutejs/plasma-hope';
 import { ModalView } from '@salutejs/plasma-hope';
@@ -167,14 +176,19 @@ import { ParagraphText2 } from '@salutejs/plasma-hope';
 import { PickOptional } from '@salutejs/plasma-core';
 import { PinProps } from '@salutejs/plasma-core';
 import { Placement } from '@salutejs/plasma-hope';
-import { Popover } from '@salutejs/plasma-hope';
-import { PopoverPlacement } from '@salutejs/plasma-hope';
-import { PopoverProps } from '@salutejs/plasma-hope';
+import { PopoverPlacement } from '@salutejs/plasma-new-hope';
+import { PopoverProps } from '@salutejs/plasma-new-hope';
+import { PopoverTrigger } from '@salutejs/plasma-new-hope';
 import { Popup } from '@salutejs/plasma-hope';
 import { PopupBase } from '@salutejs/plasma-hope';
 import { PopupBasePlacement } from '@salutejs/plasma-hope';
 import { PopupBaseProps } from '@salutejs/plasma-hope';
+import { PopupBaseProvider } from '@salutejs/plasma-hope';
+import { popupBaseRootClass } from '@salutejs/plasma-hope';
+import { PopupContextType } from '@salutejs/plasma-hope';
+import { PopupInfo } from '@salutejs/plasma-hope';
 import { PopupProps } from '@salutejs/plasma-hope';
+import { PopupRootProps } from '@salutejs/plasma-hope';
 import { PreviewGallery } from '@salutejs/plasma-hope';
 import { PreviewGalleryItemProps } from '@salutejs/plasma-hope';
 import { PreviewGalleryProps } from '@salutejs/plasma-hope';
@@ -260,8 +274,13 @@ import { useDebouncedFunction } from '@salutejs/plasma-core';
 import { useFocusTrap } from '@salutejs/plasma-hope';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
+import { useModal } from '@salutejs/plasma-hope';
+import { usePopup } from '@salutejs/plasma-hope';
+import { usePopupAnimation } from '@salutejs/plasma-hope';
+import { usePopupBaseContext } from '@salutejs/plasma-hope';
 import { useToast } from '@salutejs/plasma-hope';
 import { ValidationResult } from '@salutejs/plasma-hope';
+import { Variant } from '@salutejs/plasma-new-hope';
 import { View } from '@salutejs/plasma-core';
 import { ViewProps } from '@salutejs/plasma-core';
 import { views } from '@salutejs/plasma-core';
@@ -591,6 +610,20 @@ export { MediaQueryFunction }
 
 export { Modal }
 
+export { ModalAnimationInfo }
+
+export { ModalBase }
+
+export { modalBaseOverlayClass }
+
+export { ModalBaseProps }
+
+export { ModalBaseRootProps }
+
+export { ModalOverlay }
+
+export { ModalOverlayProps }
+
 export { ModalProps }
 
 export { ModalsProvider }
@@ -633,11 +666,14 @@ export { PinProps }
 
 export { Placement }
 
-export { Popover }
+// @public
+export const Popover: FunctionComponent<PropsType<Record<string, Variant>> & HTMLAttributes<HTMLDivElement> & CustomPopoverProps & RefAttributes<HTMLDivElement>>;
 
 export { PopoverPlacement }
 
 export { PopoverProps }
+
+export { PopoverTrigger }
 
 export { Popup }
 
@@ -647,7 +683,17 @@ export { PopupBasePlacement }
 
 export { PopupBaseProps }
 
+export { PopupBaseProvider }
+
+export { popupBaseRootClass }
+
+export { PopupContextType }
+
+export { PopupInfo }
+
 export { PopupProps }
+
+export { PopupRootProps }
 
 export { PreviewGallery }
 
@@ -860,6 +906,14 @@ export { useFocusTrap }
 export { useForkRef }
 
 export { useIsomorphicLayoutEffect }
+
+export { useModal }
+
+export { usePopup }
+
+export { usePopupAnimation }
+
+export { usePopupBaseContext }
 
 export { useToast }
 

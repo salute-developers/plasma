@@ -14,6 +14,7 @@ import { Context } from 'react';
 import { CSSObject } from 'styled-components';
 import { CSSProperties } from 'react';
 import { DefaultTheme } from 'styled-components';
+import { Dispatch } from 'react';
 import { DraggableData } from 'react-draggable';
 import { FC } from 'react';
 import { FlattenInterpolation } from 'styled-components';
@@ -25,6 +26,7 @@ import { MutableRefObject } from 'react';
 import { default as React_2 } from 'react';
 import { ReactNode } from 'react';
 import { RefObject } from 'react';
+import { SetStateAction } from 'react';
 import { spacing } from '@salutejs/plasma-typo';
 import { SpacingProps } from '@salutejs/plasma-typo';
 import { SpacingProps as SpacingProps_2 } from '@salutejs/plasma-typo/lib/cjs/mixins/applySpacing';
@@ -289,7 +291,9 @@ export const buttonFocused = "var(--plasma-colors-button-focused)";
 export const buttonPrimary = "var(--plasma-colors-button-primary)";
 
 // @public
-export interface ButtonProps<T = HTMLElement> extends Partial<PinProps>, FocusProps, OutlinedProps, DisabledProps, ShiftProps, BlurProps, AsProps, Omit<React.AnchorHTMLAttributes<T>, 'type'>, React.ButtonHTMLAttributes<T> {
+export interface ButtonProps<T = HTMLElement> extends Partial<PinProps>, FocusProps, OutlinedProps, DisabledProps, ShiftProps, AsProps, Omit<React.AnchorHTMLAttributes<T>, 'type'>, React.ButtonHTMLAttributes<T> {
+    // @deprecated
+    blur?: keyof typeof blurs;
     square?: boolean;
     stretch?: boolean;
 }
@@ -753,6 +757,36 @@ export interface MaxLinesProps {
 }
 
 // @public (undocumented)
+export type ModalAnimationInfo = PopupAnimationInfo;
+
+// @public
+export const ModalBase: FC<ModalBaseProps>;
+
+// @public (undocumented)
+export const modalBaseOverlayClass = "modal-base-overlay";
+
+// @public (undocumented)
+export interface ModalBaseProps extends PopupBaseProps {
+    closeOnEsc?: boolean;
+    closeOnOverlayClick?: boolean;
+    focusAfterRef?: React.RefObject<HTMLElement>;
+    initialFocusRef?: React.RefObject<HTMLElement>;
+    onClose?: () => void;
+    onEscKeyDown?: (event: KeyboardEvent) => void;
+    onOverlayClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+    withBlur?: boolean;
+}
+
+// @public (undocumented)
+export type ModalBaseRootProps = PopupRootProps & Pick<ModalBaseProps, 'initialFocusRef' | 'focusAfterRef' | 'onClose'>;
+
+// @public
+export const ModalOverlay: FC<ModalOverlayProps>;
+
+// @public (undocumented)
+export type ModalOverlayProps = Pick<PopupRootProps, 'id' | 'animationInfo' | 'zIndex'> & Pick<ModalBaseProps, 'withBlur' | 'closeOnOverlayClick' | 'onOverlayClick' | 'onClose'>;
+
+// @public (undocumented)
 export const monthLongName: (val: number) => string;
 
 // @public (undocumented)
@@ -815,34 +849,23 @@ export interface PinProps {
     pin: Pin;
 }
 
-// @public
-export const Popover: React_2.NamedExoticComponent<PopoverProps & React_2.RefAttributes<HTMLDivElement>>;
-
-// Warning: (ae-forgotten-export) The symbol "PopoverPlacementBasic" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export type PopoverPlacement = PopoverPlacementBasic | 'auto';
-
-// @public (undocumented)
-export interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
-    arrow?: ReactNode;
-    children?: ReactNode;
-    closeOnEsc?: boolean;
-    closeOnOverlayClick?: boolean;
-    isFocusTrapped?: boolean;
-    isOpen: boolean;
-    offset?: [number, number];
-    onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
-    placement?: PopoverPlacement | Array<PopoverPlacementBasic>;
-    target?: ReactNode;
-    trigger?: 'hover' | 'click';
-}
-
 // @public @deprecated
 export const Popup: React_2.NamedExoticComponent<PopupProps & React_2.RefAttributes<HTMLDivElement>>;
 
+// @public (undocumented)
+export interface PopupAnimationInfo {
+    // (undocumented)
+    endAnimation: boolean;
+    // (undocumented)
+    endTransition: boolean;
+    // (undocumented)
+    setEndAnimation: React.Dispatch<React.SetStateAction<boolean>>;
+    // (undocumented)
+    setEndTransition: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 // @public
-export const PopupBase: FC<PopupBaseProps>;
+export const PopupBase: React_2.ForwardRefExoticComponent<PopupBaseProps & React_2.RefAttributes<HTMLDivElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "BasicPopupBasePlacement" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "MixedPopupBasePlacement" needs to be exported by the entry point index.d.ts
@@ -851,15 +874,47 @@ export const PopupBase: FC<PopupBaseProps>;
 export type PopupBasePlacement = BasicPopupBasePlacement | MixedPopupBasePlacement;
 
 // @public (undocumented)
-export interface PopupBaseProps extends React_2.HTMLAttributes<HTMLDivElement> {
-    children?: React_2.ReactNode;
-    frame?: 'document' | React_2.RefObject<HTMLElement>;
+export interface PopupBaseProps extends React.HTMLAttributes<HTMLDivElement> {
+    animationInfo?: PopupAnimationInfo;
+    children?: React.ReactNode;
+    frame?: 'document' | React.RefObject<HTMLElement>;
     isOpen: boolean;
     // (undocumented)
-    offset?: [number | string, number | string];
+    offset?: [number, number] | [string, string];
+    overlay?: React.ReactNode;
     // (undocumented)
     placement?: PopupBasePlacement;
+    popupInfo?: PopupInfo;
     zIndex?: string;
+}
+
+// @public (undocumented)
+export const PopupBaseProvider: React_2.FC<{
+    children: ReactNode;
+}>;
+
+// @public
+export const PopupBaseRoot: React_2.ForwardRefExoticComponent<PopupRootProps & React_2.RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const popupBaseRootClass = "popup-base-root";
+
+// @public (undocumented)
+export interface PopupContextType {
+    // (undocumented)
+    items: PopupInfo[];
+    // (undocumented)
+    register: (info: PopupInfo) => void;
+    // (undocumented)
+    unregister: (id: string) => void;
+}
+
+// @public (undocumented)
+export interface PopupInfo {
+    // (undocumented)
+    id: string;
+    // (undocumented)
+    info?: Object;
 }
 
 // @public (undocumented)
@@ -872,6 +927,14 @@ export interface PopupProps extends HTMLAttributes<HTMLDivElement> {
     // Warning: (ae-forgotten-export) The symbol "PopupBasicPlacement" needs to be exported by the entry point index.d.ts
     placement?: PopupPlacement | Array<PopupBasicPlacement>;
     trigger: 'hover' | 'click';
+}
+
+// @public (undocumented)
+export interface PopupRootProps extends Omit<PopupBaseProps, 'isOpen' | 'overlay'> {
+    // (undocumented)
+    id: string;
+    // (undocumented)
+    setVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 // @public
@@ -1299,6 +1362,13 @@ export const useForkRef: UseForkRefHook;
 // @public
 export const useIsomorphicLayoutEffect: typeof useEffect;
 
+// Warning: (ae-forgotten-export) The symbol "ModalHookArgs" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export const useModal: ({ id, popupInfo, onEscKeyDown, onClose, closeOnEsc }: ModalHookArgs) => {
+    modalInfo: ModalInfo;
+};
+
 // @public (undocumented)
 export const usePaginationDots: ({ items, index, visibleItems }: SmartPaginationDotsProps) => {
     sliced: {
@@ -1306,6 +1376,20 @@ export const usePaginationDots: ({ items, index, visibleItems }: SmartPagination
     }[];
     activeId: string | number;
 };
+
+// Warning: (ae-forgotten-export) The symbol "PopupHookArgs" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export const usePopup: ({ isOpen, id, popupInfo, animationInfo }: PopupHookArgs) => {
+    isVisible: boolean;
+    setVisible: Dispatch<SetStateAction<boolean>>;
+};
+
+// @public (undocumented)
+export const usePopupAnimation: () => PopupAnimationInfo;
+
+// @public (undocumented)
+export const usePopupBaseContext: () => PopupContextType;
 
 // @public
 export const useResizeObserver: <T extends HTMLElement>(ref: MutableRefObject<T | null>, callback: (element: T) => void) => void;
@@ -1408,6 +1492,7 @@ export interface WithSkeletonProps {
 
 // Warnings were encountered during analysis:
 //
+// components/ModalBase/hooks.d.ts:4:5 - (ae-forgotten-export) The symbol "ModalInfo" needs to be exported by the entry point index.d.ts
 // components/Toast/Toast.d.ts:4:5 - (ae-forgotten-export) The symbol "ToastRole" needs to be exported by the entry point index.d.ts
 // components/Toast/useToast.d.ts:2:5 - (ae-forgotten-export) The symbol "ShowToast" needs to be exported by the entry point index.d.ts
 

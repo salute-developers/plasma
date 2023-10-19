@@ -5,12 +5,7 @@
     "main": "cjs/index.js",
     "module": "es/index.js",
     "types": "types/index.d.ts",
-    "files": [
-        "cjs",
-        "es",
-        "types",
-        "styled-components"
-    ],
+    "files": ["cjs", "es", "types", "styled-components"],
     "publishConfig": {
         "access": "public"
     },
@@ -31,6 +26,7 @@
         "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -s .storybook/public -p ${PORT:-7002} -c .storybook",
         "prestorybook:sc": "npm run prebuild:styled-components",
         "storybook:sc": "USE_STYLED_COMPONENTS=true NODE_OPTIONS=--openssl-legacy-provider start-storybook -s .storybook/public -p ${PORT:-7002} -c .storybook",
+        "storybook:build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook -s .storybook/public -c .storybook -o build-sb",
         "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
     },
     "repository": {
@@ -38,11 +34,7 @@
         "url": "git+https://github.com/salute-developers/plasma.git",
         "directory": "packages/plasma-new-hope"
     },
-    "keywords": [
-        "design-system",
-        "ui-kit",
-        "react"
-    ],
+    "keywords": ["design-system", "ui-kit", "react"],
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "license": "MIT",
     "bugs": {
@@ -93,6 +85,8 @@
     "dependencies": {
         "@linaria/core": "^4.5.4",
         "@linaria/react": "^4.5.4",
-        "@salutejs/plasma-core": "1.134.0"
+        "@popperjs/core": "2.11.8",
+        "@salutejs/plasma-core": "1.134.0",
+        "react-popper": "2.3.0"
     }
 }

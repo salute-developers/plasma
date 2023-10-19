@@ -263,8 +263,50 @@ describe('Confirm', () => {
 
             cy.get('#show').click();
 
-            cy.get('#confirm > :first-child').click();
+            cy.contains(dismissText).click();
             cy.get('@onDismissAction').should('have.been.calledTwice');
+        });
+    });
+
+    describe('_placement', () => {
+        it('center', () => {
+            mount(
+                <CypressTestDecorator>
+                    <Confirm visible placement="center" stretch={false} view="primary" {...props} />
+                </CypressTestDecorator>,
+            );
+
+            cy.matchImageSnapshot();
+        });
+
+        it('bottom-left', () => {
+            mount(
+                <CypressTestDecorator>
+                    <Confirm visible placement="bottom-left" stretch={false} view="primary" {...props} />
+                </CypressTestDecorator>,
+            );
+
+            cy.matchImageSnapshot();
+        });
+
+        it('top-right + offset', () => {
+            mount(
+                <CypressTestDecorator>
+                    <Confirm visible placement="top-right" offset={[1, 1]} stretch={false} view="primary" {...props} />
+                </CypressTestDecorator>,
+            );
+
+            cy.matchImageSnapshot();
+        });
+
+        it('bottom + stretch', () => {
+            mount(
+                <CypressTestDecorator>
+                    <Confirm visible placement="bottom" view="primary" {...props} />
+                </CypressTestDecorator>,
+            );
+
+            cy.matchImageSnapshot();
         });
     });
 });

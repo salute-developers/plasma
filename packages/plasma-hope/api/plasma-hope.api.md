@@ -94,6 +94,13 @@ import { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import { LineSkeleton } from '@salutejs/plasma-core';
 import { LineSkeletonProps } from '@salutejs/plasma-core';
 import { MaxLinesProps } from '@salutejs/plasma-core';
+import { ModalAnimationInfo } from '@salutejs/plasma-core';
+import { ModalBase } from '@salutejs/plasma-core';
+import { modalBaseOverlayClass } from '@salutejs/plasma-core';
+import { ModalBaseProps } from '@salutejs/plasma-core';
+import { ModalBaseRootProps } from '@salutejs/plasma-core';
+import { ModalOverlay } from '@salutejs/plasma-core';
+import { ModalOverlayProps } from '@salutejs/plasma-core';
 import { monthLongName } from '@salutejs/plasma-core';
 import { monthShortName } from '@salutejs/plasma-core';
 import { MutableRefObject } from 'react';
@@ -109,14 +116,16 @@ import { ParagraphText1 } from '@salutejs/plasma-core';
 import { ParagraphText2 } from '@salutejs/plasma-core';
 import { PickOptional } from '@salutejs/plasma-core';
 import { PinProps } from '@salutejs/plasma-core';
-import { Popover } from '@salutejs/plasma-core';
-import { PopoverPlacement } from '@salutejs/plasma-core';
-import { PopoverProps } from '@salutejs/plasma-core';
 import { Popup } from '@salutejs/plasma-core';
 import { PopupBase } from '@salutejs/plasma-core';
 import { PopupBasePlacement } from '@salutejs/plasma-core';
 import { PopupBaseProps } from '@salutejs/plasma-core';
+import { PopupBaseProvider } from '@salutejs/plasma-core';
+import { popupBaseRootClass } from '@salutejs/plasma-core';
+import { PopupContextType } from '@salutejs/plasma-core';
+import { PopupInfo } from '@salutejs/plasma-core';
 import { PopupProps } from '@salutejs/plasma-core';
+import { PopupRootProps } from '@salutejs/plasma-core';
 import type { PriceProps as PriceProps_2 } from '@salutejs/plasma-core';
 import { PropsWithChildren } from 'react';
 import { radiuses } from '@salutejs/plasma-core';
@@ -171,6 +180,10 @@ import { useDebouncedFunction } from '@salutejs/plasma-core';
 import { useFocusTrap } from '@salutejs/plasma-core';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
+import { useModal } from '@salutejs/plasma-core';
+import { usePopup } from '@salutejs/plasma-core';
+import { usePopupAnimation } from '@salutejs/plasma-core';
+import { usePopupBaseContext } from '@salutejs/plasma-core';
 import { useResizeObserver } from '@salutejs/plasma-core';
 import { useToast } from '@salutejs/plasma-core';
 import { View } from '@salutejs/plasma-core';
@@ -898,6 +911,20 @@ export type MediaQueryFunction = (content: FlattenSimpleInterpolation | string) 
 // @public
 export const Modal: FC<ModalProps>;
 
+export { ModalAnimationInfo }
+
+export { ModalBase }
+
+export { modalBaseOverlayClass }
+
+export { ModalBaseProps }
+
+export { ModalBaseRootProps }
+
+export { ModalOverlay }
+
+export { ModalOverlayProps }
+
 // @public (undocumented)
 export interface ModalProps extends ModalViewProps {
     closeOnEsc?: boolean;
@@ -986,12 +1013,6 @@ export { PinProps }
 // @public (undocumented)
 export type Placement = BasePlacement | VariationPlacement;
 
-export { Popover }
-
-export { PopoverPlacement }
-
-export { PopoverProps }
-
 export { Popup }
 
 export { PopupBase }
@@ -1000,7 +1021,17 @@ export { PopupBasePlacement }
 
 export { PopupBaseProps }
 
+export { PopupBaseProvider }
+
+export { popupBaseRootClass }
+
+export { PopupContextType }
+
+export { PopupInfo }
+
 export { PopupProps }
+
+export { PopupRootProps }
 
 // @public
 export const PreviewGallery: FC<PreviewGalleryProps & HTMLAttributes<HTMLDivElement> & SortableContainerProps>;
@@ -1338,6 +1369,14 @@ export { useFocusTrap }
 export { useForkRef }
 
 export { useIsomorphicLayoutEffect }
+
+export { useModal }
+
+export { usePopup }
+
+export { usePopupAnimation }
+
+export { usePopupBaseContext }
 
 export { useResizeObserver }
 

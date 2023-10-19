@@ -1,4 +1,4 @@
-import React, { forwardRef, PropsWithChildren, ReactNode } from 'react';
+import React, { ButtonHTMLAttributes, forwardRef, PropsWithChildren, ReactNode } from 'react';
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 
@@ -51,18 +51,18 @@ const Loader = styled.div`
     position: absolute;
 `;
 
-export interface ButtonProps extends PropsWithChildren {
+type CustomButtonProps = {
     text?: string;
     contentLeft?: ReactNode;
     contentRight?: ReactNode;
 
     isLoading?: boolean;
     loader?: ReactNode;
-}
+} & PropsWithChildren;
 
-export const buttonRoot = (
-    Root: RootProps<HTMLButtonElement, React.ButtonHTMLAttributes<HTMLButtonElement> & ButtonProps>,
-) =>
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & CustomButtonProps;
+
+export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
     forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
         const { children, text, contentLeft, contentRight, isLoading, loader, ...rest } = props;
         // eslint-disable-next-line no-nested-ternary

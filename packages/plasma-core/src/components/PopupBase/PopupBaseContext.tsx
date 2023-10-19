@@ -1,27 +1,47 @@
 import React, { ReactNode, useEffect } from 'react';
 
-/**
- * Хранилище модальных окон.
- */
-class PopupBaseController {
-    public items: string[] = [];
-
-    public register(id: string) {
-        return this.items.push(id);
-    }
-
-    public unregister(id: string) {
-        this.items.splice(this.items.indexOf(id), 1);
-    }
-}
-
-const controller = new PopupBaseController();
+import { PopupContextType, PopupInfo } from './types';
 
 export const POPOVER_PORTAL_ID = 'plasma-popup-root';
 
-export const PopupBaseContext = React.createContext(controller);
+const items: PopupInfo[] = [];
+
+const PopupBaseContext = React.createContext<PopupContextType>({
+    items,
+    register(_info: PopupInfo): void {
+        throw new Error('Function not implemented. Add PopupBaseProvider');
+    },
+    unregister(_id: string): void {
+        throw new Error('Function not implemented. Add PopupBaseProvider');
+    },
+});
+
+export const usePopupBaseContext = () => React.useContext(PopupBaseContext);
 
 export const PopupBaseProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+    const [items, setItems] = React.useState<PopupInfo[]>([]);
+
+    const register = (info: PopupInfo) => {
+        const updatedItems = [...items];
+        updatedItems.push(info);
+        setItems(updatedItems);
+    };
+
+    const unregister = (id: string) => {
+        const index = items.findIndex((item: PopupInfo) => id === item.id);
+        if (index === -1) {
+            return;
+        }
+        items.splice(index, 1);
+        setItems([...items]);
+    };
+
+    const context = {
+        items,
+        register,
+        unregister,
+    };
+
     useEffect(() => {
         return () => {
             const portal = document.createElement('div');
@@ -31,5 +51,5 @@ export const PopupBaseProvider: React.FC<{ children: ReactNode }> = ({ children 
         };
     }, []);
 
-    return <PopupBaseContext.Provider value={controller}>{children}</PopupBaseContext.Provider>;
+    return <PopupBaseContext.Provider value={context}>{children}</PopupBaseContext.Provider>;
 };

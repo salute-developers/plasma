@@ -1,2 +1,11 @@
-export { PopupBase } from '@salutejs/plasma-hope';
-export type { PopupBaseProps, PopupBasePlacement } from '@salutejs/plasma-hope';
+export { PopupBaseProvider, usePopupBaseContext } from '@salutejs/plasma-hope';
+export { PopupBase, popupBaseRootClass } from '@salutejs/plasma-hope';
+export { usePopup, usePopupAnimation } from '@salutejs/plasma-hope';
+
+export type {
+    PopupBasePlacement,
+    PopupInfo,
+    PopupContextType,
+    PopupBaseProps,
+    PopupRootProps,
+} from '@salutejs/plasma-hope';

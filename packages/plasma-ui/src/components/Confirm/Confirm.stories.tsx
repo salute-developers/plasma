@@ -9,8 +9,6 @@ import { Button } from '../Button';
 import { Body1, Body3 } from '../Typography';
 import { disableProps } from '../../helpers';
 
-import { useAutoFocus } from './Confirm.hooks';
-
 import { Confirm, ConfirmProps } from '.';
 
 export default {
@@ -24,7 +22,23 @@ export default {
                 type: 'select',
             },
         },
-        ...disableProps(['onApprove', 'onDismiss', 'extraContent']),
+        placement: {
+            options: [
+                'center',
+                'top',
+                'bottom',
+                'right',
+                'left',
+                'top-right',
+                'top-left',
+                'bottom-right',
+                'bottom-left',
+            ],
+            control: {
+                type: 'select',
+            },
+        },
+        ...disableProps(['onApprove', 'onDismiss', 'extraContent', 'offset']),
     },
 };
 
@@ -37,11 +51,15 @@ const ExtraContentBlock = styled.div`
     padding: 0.5rem 0;
 `;
 
-export const Default: Story<ConfirmProps> = ({ visible: _visible, ...rest }) => {
+export const Default: Story<ConfirmProps & { offsetX: number; offsetY: number }> = ({
+    visible: _visible,
+    offsetX,
+    offsetY,
+    ...rest
+}) => {
     const [visible, setVisible] = useState(_visible);
 
     const btnRef = useRef<HTMLButtonElement>(null);
-    useAutoFocus(btnRef, { trigger: !visible });
 
     const hide = () => {
         setVisible(false);
@@ -60,7 +78,13 @@ export const Default: Story<ConfirmProps> = ({ visible: _visible, ...rest }) => 
     return (
         <>
             <Button ref={btnRef} text="Show Confirm" onClick={() => setVisible(true)} />
-            <Confirm visible={visible} onApprove={onApprove} onDismiss={onDismiss} {...rest} />
+            <Confirm
+                visible={visible}
+                onApprove={onApprove}
+                onDismiss={onDismiss}
+                offset={[offsetX, offsetY]}
+                {...rest}
+            />
             <Body1 mt={12}>
                 I have a dream that one day this nation will rise up and live out the true meaning of its creed. We hold
                 these truths to be self-evident that all men are created equal. I have a dream that one day on the red
@@ -104,16 +128,22 @@ Default.args = {
     view: 'primary',
     approveText: 'Да',
     dismissText: 'Нет',
+    placement: 'top',
+    offsetX: 0,
+    offsetY: 0,
     visible: false,
+    stretch: true,
     reverseButtons: false,
     buttonsDirection: undefined,
 };
 
-export const ExtraContent: Story<ConfirmProps> = ({ visible: _visible, ...rest }) => {
+export const ExtraContent: Story<ConfirmProps & { offsetX: number; offsetY: number }> = ({
+    visible: _visible,
+    offsetX,
+    offsetY,
+    ...rest
+}) => {
     const [visible, setVisible] = useState(_visible);
-
-    const btnRef = useRef<HTMLButtonElement>(null);
-    useAutoFocus(btnRef, { trigger: !visible });
 
     const hide = () => {
         setVisible(false);
@@ -138,12 +168,13 @@ export const ExtraContent: Story<ConfirmProps> = ({ visible: _visible, ...rest }
 
     return (
         <>
-            <Button ref={btnRef} text="Show Confirm" onClick={() => setVisible(true)} />
+            <Button text="Show Confirm" onClick={() => setVisible(true)} />
             <Confirm
                 visible={visible}
                 extraContent={extraContent}
                 onApprove={onApprove}
                 onDismiss={onDismiss}
+                offset={[offsetX, offsetY]}
                 {...rest}
             />
         </>
@@ -156,7 +187,11 @@ ExtraContent.args = {
     view: 'primary',
     approveText: 'Да',
     dismissText: 'Нет',
+    placement: 'top',
+    offsetX: 0,
+    offsetY: 0,
     visible: false,
+    stretch: true,
     reverseButtons: false,
     buttonsDirection: undefined,
 };
