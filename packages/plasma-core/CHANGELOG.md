@@ -1,3 +1,34 @@
+# v1.135.0 (Thu Oct 19 2023)
+
+#### 🚀 Enhancement
+
+- Release 19.10.2023 [#815](https://github.com/salute-developers/plasma/pull/815) ([@Yeti-or](https://github.com/Yeti-or) [@kayman233](https://github.com/kayman233) [@TitanKuzmich](https://github.com/TitanKuzmich) [@Yakutoc](https://github.com/Yakutoc) nikita.belyanskiy@south.rt.ru [@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-core): animation with other API ([@kayman233](https://github.com/kayman233))
+- feat(plasma-ui): add placement for Confirm ([@kayman233](https://github.com/kayman233))
+- feat(plasma-new-hope/b2c/web/core): Add Popover to new hope ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### 🐛 Bug Fix
+
+- fix(plasma-core, plasma-ui): remove withAnimation from PopupBase ([@kayman233](https://github.com/kayman233))
+- fix(plasma-core, plasma-ui): minor refactoring and types fix ([@kayman233](https://github.com/kayman233))
+- feat(plasma-core, plasma-ui): add animation for PopupBase etc ([@kayman233](https://github.com/kayman233))
+- docs(plasma-core/hope/web/b2c): generate new api ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- docs: generate new api for plasma-core ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- fix(plasma-web-docs): Make button blur prop deprecated ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- fix(plasma-core): refactor in PopupBase/ModalBase ([@kayman233](https://github.com/kayman233))
+- feat(plasma-core, plasma-web, plasma-b2c): ModalBase component ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 6
+
+- [@kayman233](https://github.com/kayman233)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Nikita Belyanskiy (nikita.belyanskiy@south.rt.ru)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.134.0 (Fri Sep 29 2023)
 
 #### 🚀 Enhancement

@@ -1,3 +1,35 @@
+# v0.6.0 (Thu Oct 19 2023)
+
+#### 🚀 Enhancement
+
+- Release 19.10.2023 [#815](https://github.com/salute-developers/plasma/pull/815) ([@Yeti-or](https://github.com/Yeti-or) [@kayman233](https://github.com/kayman233) [@TitanKuzmich](https://github.com/TitanKuzmich) [@Yakutoc](https://github.com/Yakutoc) nikita.belyanskiy@south.rt.ru [@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-new-hope): Add core Tabs component (nikita.belyanskiy@south.rt.ru)
+- feat(plasma-new-hope): extend button types ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope/b2c/web/core): Add Popover to new hope ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### 🐛 Bug Fix
+
+- chore(plasma-new-hope): resolve potential conflict by master branch ([@Yakutoc](https://github.com/Yakutoc))
+- fix(plasma-new-hope): add types to Tabs & TabItem, fix css tokens naming (nikita.belyanskiy@south.rt.ru)
+- fix(plasma-new-hope): delete unused code (nikita.belyanskiy@south.rt.ru)
+- fix(plasma-new-hope): Fixes related to Tabs component (nikita.belyanskiy@south.rt.ru)
+- ci: Enable "New hope" storybook ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-new-hope): remove plasma-old theme ([@Yeti-or](https://github.com/Yeti-or))
+- chore(plasma-new-hope): add sds_engineer theme ([@Yeti-or](https://github.com/Yeti-or))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 7
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Nikita Belyanskiy (nikita.belyanskiy@south.rt.ru)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v0.5.1 (Fri Oct 06 2023)
 
 ### Release Notes

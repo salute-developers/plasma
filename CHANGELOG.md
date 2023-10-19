@@ -1,3 +1,21 @@
+# (Thu Oct 19 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-b2c@1.237.0`, `@salutejs/plasma-core@1.135.0`, `@salutejs/plasma-hope@1.236.0`, `@salutejs/plasma-new-hope@0.6.0`, `@salutejs/plasma-ui@1.216.0`, `@salutejs/plasma-web@1.237.0`
+  - Release 19.10.2023 [#815](https://github.com/salute-developers/plasma/pull/815) ([@Yeti-or](https://github.com/Yeti-or) [@kayman233](https://github.com/kayman233) [@TitanKuzmich](https://github.com/TitanKuzmich) [@Yakutoc](https://github.com/Yakutoc) nikita.belyanskiy@south.rt.ru [@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 6
+
+- [@kayman233](https://github.com/kayman233)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Nikita Belyanskiy (nikita.belyanskiy@south.rt.ru)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Fri Oct 06 2023)
 
 ### Release Notes
