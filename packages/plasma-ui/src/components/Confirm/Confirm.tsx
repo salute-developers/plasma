@@ -8,7 +8,7 @@ import { mediaQuery } from '../../utils';
 import { Button, ButtonProps } from '../Button';
 import { TextBox, TextBoxTitle, TextBoxSubTitle } from '../TextBox';
 import { ModalBase, modalBaseOverlayClass } from '../ModalBase';
-import { PopupBasePlacement, popupBaseRootClass, usePopupAnimation } from '../PopupBase';
+import { PopupBasePlacement, PopupBaseProvider, popupBaseRootClass, usePopupAnimation } from '../PopupBase';
 import { Cell } from '../Cell';
 
 const flexDirection: Record<Direction, FlexDirectionProperty> = {
@@ -274,7 +274,7 @@ export const Confirm = (props: ConfirmProps) => {
     const animationInfo = usePopupAnimation();
 
     return (
-        <>
+        <PopupBaseProvider>
             <ModalOverlayVariables />
             <StyledModal
                 isOpen={visible}
@@ -295,6 +295,6 @@ export const Confirm = (props: ConfirmProps) => {
                     <ConfirmFooter>{extraContent}</ConfirmFooter>
                 </ConfirmRoot>
             </StyledModal>
-        </>
+        </PopupBaseProvider>
     );
 };

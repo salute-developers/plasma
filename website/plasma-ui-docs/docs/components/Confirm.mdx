@@ -11,7 +11,6 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 <StorybookLink name="Confirm" />
 
 ## Использование
-Перед использованием убедитесь, что `PopupBaseProvider` подключен.
 Компонент `Confirm` может содержать заголовок, подзаголовок, кнопки для подтверждения, footer.
 
 ```tsx live
@@ -38,10 +37,10 @@ export function App() {
     };
 
     return (
-        <PopupBaseProvider>
+        <>
             <Button text="Show Confirm" onClick={() => setVisible(true)} />
             <Confirm visible={visible} onApprove={hide} onDismiss={hide} view="primary" {...props} />
-        </PopupBaseProvider>
+        </>
     );
 }
 ```
@@ -82,10 +81,10 @@ export function App() {
     );
 
     return (
-        <PopupBaseProvider>
+        <>
             <Button text="Show Confirm" onClick={() => setVisible(true)} />
             <Confirm visible={visible} extraContent={extraContent} onApprove={hide} onDismiss={hide} view="primary" {...props} />
-        </PopupBaseProvider>
+        </>
     );
 }
 ```
@@ -124,10 +123,10 @@ export function App() {
     };
 
     return (
-        <PopupBaseProvider>
+        <>
             <Button text="Show Confirm" onClick={() => setVisible(true)} />
             <Confirm visible={visible} buttonsDirection="vertical-reverse" onApprove={hide} onDismiss={hide} view="primary" {...props} />
-        </PopupBaseProvider>
+        </>
     );
 }
 ```
@@ -162,10 +161,10 @@ export function App() {
     };
 
     return (
-        <PopupBaseProvider>
+        <>
             <Button text="Show Confirm" onClick={() => setVisible(true)} />
             <Confirm visible={visible} reverseButtons buttonsDirection="vertical-reverse" onApprove={hide} onDismiss={hide} view="primary" {...props} />
-        </PopupBaseProvider>
+        </>
     );
 }
 ```
