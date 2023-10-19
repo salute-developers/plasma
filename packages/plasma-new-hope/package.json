@@ -1,11 +1,16 @@
 {
     "name": "@salutejs/plasma-new-hope",
-    "version": "0.5.1",
+    "version": "0.6.0",
     "description": "Salute Design System blueprint",
     "main": "cjs/index.js",
     "module": "es/index.js",
     "types": "types/index.d.ts",
-    "files": ["cjs", "es", "types", "styled-components"],
+    "files": [
+        "cjs",
+        "es",
+        "types",
+        "styled-components"
+    ],
     "publishConfig": {
         "access": "public"
     },
@@ -34,7 +39,11 @@
         "url": "git+https://github.com/salute-developers/plasma.git",
         "directory": "packages/plasma-new-hope"
     },
-    "keywords": ["design-system", "ui-kit", "react"],
+    "keywords": [
+        "design-system",
+        "ui-kit",
+        "react"
+    ],
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "license": "MIT",
     "bugs": {
@@ -86,7 +95,7 @@
         "@linaria/core": "^4.5.4",
         "@linaria/react": "^4.5.4",
         "@popperjs/core": "2.11.8",
-        "@salutejs/plasma-core": "1.134.0",
+        "@salutejs/plasma-core": "1.135.0",
         "react-popper": "2.3.0"
     }
 }
