@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`perftest/sendReport getPayload should accept dict 1`] = `"{"top":"kek","wav":"123"}"`;
+
+exports[`perftest/sendReport getPayload should accept number 1`] = `"{"0":"123"}"`;
+
+exports[`perftest/sendReport getPayload should accept pair of numbers 1`] = `"{"0":"420","1":"123"}"`;
+
+exports[`perftest/sendReport transform should receive parameters and transform them the right way 1`] = `
+[
+  {
+    "commitHash": "qwrqw",
+    "componentId": "kek",
+    "kind": "old",
+    "metricId": "mean",
+    "payload": 1,
+    "referrer": "http://example.com",
+    "service": "123",
+    "taskId": "render",
+  },
+  {
+    "commitHash": "qwrqw",
+    "componentId": "kek",
+    "kind": "new",
+    "metricId": "mean",
+    "payload": 1,
+    "referrer": "http://example.com",
+    "service": "123",
+    "taskId": "render",
+  },
+  {
+    "commitHash": "qwrqw",
+    "componentId": "kek",
+    "kind": "change",
+    "metricId": "mean",
+    "payload": 1,
+    "referrer": "http://example.com",
+    "service": "123",
+    "taskId": "render",
+  },
+  {
+    "commitHash": "qwrqw",
+    "componentId": "staticTaskChange",
+    "kind": "old",
+    "metricId": "mean",
+    "payload": 1,
+    "referrer": "http://example.com",
+    "service": "123",
+    "taskId": "render",
+  },
+  {
+    "commitHash": "qwrqw",
+    "componentId": "staticTaskChange",
+    "kind": "new",
+    "metricId": "mean",
+    "payload": 1,
+    "referrer": "http://example.com",
+    "service": "123",
+    "taskId": "render",
+  },
+  {
+    "commitHash": "qwrqw",
+    "componentId": "staticTaskChange",
+    "kind": "change",
+    "metricId": "mean",
+    "payload": 1,
+    "referrer": "http://example.com",
+    "service": "123",
+    "taskId": "render",
+  },
+]
+`;
