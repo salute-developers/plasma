@@ -198,16 +198,25 @@ const light: FullColors & WebColors & ExtendedColors = {
         value: humanizeColor(ds.theme.light_button_success.color),
         comment: FullColorsList.buttonSuccess,
     },
+    buttonSuccessTransparent: {
+        value: alphenColor(humanizeColor(ds.theme.light_button_success.color), -0.7),
+    },
     buttonSuccessHover: {
         value: colors.light.buttonSuccessHover,
     },
     buttonSuccessActive: {
         value: colors.light.buttonSuccessActive,
     },
+    buttonSuccessActiveTransparent: {
+        value: alphenColor(colors.light.buttonSuccessActive, -0.65),
+    },
 
     buttonWarning: {
         value: humanizeColor(ds.theme.light_button_warning.color),
         comment: FullColorsList.buttonWarning,
+    },
+    buttonWarningTransparent: {
+        value: alphenColor(humanizeColor(ds.theme.light_button_warning.color), -0.7),
     },
     buttonWarningHover: {
         value: colors.light.buttonWarningHover,
@@ -215,16 +224,25 @@ const light: FullColors & WebColors & ExtendedColors = {
     buttonWarningActive: {
         value: colors.light.buttonWarningActive,
     },
+    buttonWarningActiveTransparent: {
+        value: alphenColor(colors.light.buttonWarningActive, -0.65),
+    },
 
     buttonCritical: {
         value: humanizeColor(ds.theme.light_button_critical.color),
         comment: FullColorsList.buttonCritical,
+    },
+    buttonCriticalTransparent: {
+        value: alphenColor(humanizeColor(ds.theme.light_button_critical.color), -0.7),
     },
     buttonCriticalHover: {
         value: colors.light.buttonCriticalHover,
     },
     buttonCriticalActive: {
         value: colors.light.buttonCriticalActive,
+    },
+    buttonCriticalActiveTransparent: {
+        value: alphenColor(colors.light.buttonCriticalActive, -0.65),
     },
 
     buttonChecked: {
@@ -474,16 +492,25 @@ const dark: FullColors & WebColors & ExtendedColors = {
         value: humanizeColor(ds.theme.dark_button_success.color),
         comment: FullColorsList.buttonSuccess,
     },
+    buttonSuccessTransparent: {
+        value: alphenColor(humanizeColor(ds.theme.dark_button_success.color), -0.7),
+    },
     buttonSuccessHover: {
         value: colors.dark.buttonSuccessHover,
     },
     buttonSuccessActive: {
         value: colors.dark.buttonSuccessActive,
     },
+    buttonSuccessActiveTransparent: {
+        value: 'rgba(97, 181, 103, 0.384)',
+    },
 
     buttonWarning: {
         value: humanizeColor(ds.theme.dark_button_warning.color),
         comment: FullColorsList.buttonWarning,
+    },
+    buttonWarningTransparent: {
+        value: alphenColor(humanizeColor(ds.theme.dark_button_warning.color), -0.7),
     },
     buttonWarningHover: {
         value: colors.dark.buttonWarningHover,
@@ -491,16 +518,25 @@ const dark: FullColors & WebColors & ExtendedColors = {
     buttonWarningActive: {
         value: colors.dark.buttonWarningActive,
     },
+    buttonWarningActiveTransparent: {
+        value: 'rgba(238, 127, 83, 0.384)',
+    },
 
     buttonCritical: {
         value: humanizeColor(ds.theme.dark_button_critical.color),
         comment: FullColorsList.buttonCritical,
+    },
+    buttonCriticalTransparent: {
+        value: alphenColor(humanizeColor(ds.theme.dark_button_critical.color), -0.7),
     },
     buttonCriticalHover: {
         value: colors.dark.buttonCriticalHover,
     },
     buttonCriticalActive: {
         value: colors.dark.buttonCriticalActive,
+    },
+    buttonCriticalActiveTransparent: {
+        value: 'rgba(255, 114, 113, 0.384)',
     },
 
     buttonChecked: {
