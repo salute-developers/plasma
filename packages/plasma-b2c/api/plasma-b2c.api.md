@@ -847,7 +847,7 @@ export { TabsControllerProps }
 export { TabsProps }
 
 // @public
-export const TextArea: React_2.ForwardRefExoticComponent<TextAreaProps & React_2.RefAttributes<HTMLTextAreaElement>>;
+export const TextArea: ForwardRefExoticComponent<TextAreaProps & RefAttributes<HTMLTextAreaElement>>;
 
 export { TextareaHTMLAttributes }
 
