@@ -20,7 +20,7 @@ const NoScroll = createGlobalStyle`
  */
 export const ModalBase: FC<ModalBaseProps> = ({
     id,
-    animationInfo,
+    withAnimation,
     onClose,
     onOverlayClick,
     onEscKeyDown,
@@ -46,7 +46,7 @@ export const ModalBase: FC<ModalBaseProps> = ({
             id={id}
             ref={trapRef}
             popupInfo={modalInfo}
-            animationInfo={animationInfo}
+            withAnimation={withAnimation}
             zIndex={zIndex}
             overlay={
                 <ModalOverlay
@@ -54,7 +54,6 @@ export const ModalBase: FC<ModalBaseProps> = ({
                     withBlur={withBlur}
                     onOverlayClick={onOverlayClick}
                     onClose={onClose}
-                    animationInfo={animationInfo}
                     zIndex={zIndex}
                     closeOnOverlayClick={closeOnOverlayClick}
                 />

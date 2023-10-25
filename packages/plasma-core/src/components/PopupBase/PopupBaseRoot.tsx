@@ -4,15 +4,10 @@ import styled, { css } from 'styled-components';
 import { useForkRef } from '../../hooks';
 
 import { usePopupBaseContext } from './PopupBaseContext';
-import { handlePosition } from './utils';
+import { handlePosition, popupBaseRootClass } from './utils';
 import { PopupRootContainerProps, PopupRootProps } from './types';
 
 export const DEFAULT_Z_INDEX = 9000;
-
-/*
- * Класс корневого компонента PopupBaseRoot: `popup-base-root`
- */
-export const popupBaseRootClass = 'popup-base-root';
 
 const PopupBaseView = styled.div`
     position: relative;

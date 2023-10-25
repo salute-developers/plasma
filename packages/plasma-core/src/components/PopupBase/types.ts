@@ -49,9 +49,9 @@ export interface PopupBaseProps extends React.HTMLAttributes<HTMLDivElement> {
      */
     popupInfo?: PopupInfo;
     /**
-     * Данные из хука usePopupAnimation.
+     * Использовать ли анимацию.
      */
-    animationInfo?: PopupAnimationInfo;
+    withAnimation?: boolean;
 }
 export interface PopupAnimationInfo {
     endAnimation: boolean;
@@ -63,9 +63,13 @@ export interface PopupAnimationInfo {
 export interface PopupRootProps extends Omit<PopupBaseProps, 'isOpen' | 'overlay'> {
     id: string;
     setVisible: React.Dispatch<React.SetStateAction<boolean>>;
+    /**
+     * Данные из хука usePopupAnimation.
+     */
+    animationInfo: PopupAnimationInfo;
 }
 
-export interface PopupHookArgs extends Pick<PopupBaseProps, 'isOpen' | 'popupInfo' | 'animationInfo'> {
+export interface PopupHookArgs extends Pick<PopupBaseProps, 'isOpen' | 'popupInfo' | 'withAnimation'> {
     id: string;
 }
 

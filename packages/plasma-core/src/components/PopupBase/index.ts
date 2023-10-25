@@ -1,7 +1,8 @@
 export { PopupBaseProvider, usePopupBaseContext } from './PopupBaseContext';
 export { PopupBase } from './PopupBase';
-export { usePopupAnimation, usePopup } from './hooks';
-export { PopupBaseRoot, popupBaseRootClass } from './PopupBaseRoot';
+export { usePopup } from './hooks';
+export { PopupBaseRoot } from './PopupBaseRoot';
+export { popupBaseRootClass, endAnimationClass, endTransitionClass } from './utils';
 
 export type {
     PopupBasePlacement,
