@@ -79,8 +79,20 @@
   --surface-solid-tertiary: rgba(54, 54, 54, 1);
   --surface-solid-card: rgba(23, 23, 23, 1);
   --surface-transparent-primary: rgba(255, 255, 255, 0.06);
+  /* добавлены вручную */
+  --surface-transparent-primary-hover: rgba(255, 255, 255, 0.08);
+  --surface-transparent-primary-active: rgba(255, 255, 255, 0.04);
+  /* добавлены вручную */
   --surface-transparent-secondary: rgba(255, 255, 255, 0.12);
+  /* добавлены вручную */
+  --surface-transparent-secondary-hover: rgba(255, 255, 255, 0.16);
+  --surface-transparent-secondary-active: rgba(255, 255, 255, 0.10);
+  /* добавлены вручную */
   --surface-transparent-tertiary: rgba(255, 255, 255, 0.2);
+  /* добавлены вручную */
+  --surface-transparent-tertiary-hover: rgba(255, 255, 255, 0.24);
+  --surface-transparent-tertiary-active: rgba(255, 255, 255, 0.18);
+  /* добавлены вручную */
   --surface-transparent-card: rgba(255, 255, 255, 0.12);
   --surface-accent: rgba(63, 129, 253, 1);
   --surface-accent-gradient: linear-gradient(93.97deg, #3E79F0 6.49%, #27C6E5 93.51%), linear-gradient(89.83deg, #5E94FF 0%, #43DBFA 100%);
@@ -89,6 +101,20 @@
   --surface-negative: rgba(255, 41, 62, 1);
   --surface-clear: rgba(255, 255, 255, 0);
   --surface-transparent-deep: rgba(255, 255, 255, 0.64);
+  /* добавлены вручную */
+  --surface-transparent-accent: rgba(63, 129, 253, 0.12);
+  --surface-transparent-accent-hover: rgba(63, 129, 253, 0.16);
+  --surface-transparent-accent-active: rgba(63, 129, 253, 0.10);
+  --surface-transparent-positive: rgba(26, 158, 50, 0.12);
+  --surface-transparent-positive-hover: rgba(26, 158, 50, 0.16);
+  --surface-transparent-positive-active: rgba(26, 158, 50, 0.10);
+  --surface-transparent-warning: rgba(250, 95, 5, 0.12);
+  --surface-transparent-warning-hover: rgba(250, 95, 5, 0.16);
+  --surface-transparent-warning-active: rgba(250, 95, 5, 0.10);
+  --surface-transparent-negative: rgba(255, 41, 62, 0.12);
+  --surface-transparent-negative-hover: rgba(255, 41, 62, 0.16);
+  --surface-transparent-negative-active: rgba(255, 41, 62, 0.10);
+  /* добавлены вручную */
   --on-dark-surface-solid-default: rgba(255, 255, 255, 1);
   --on-dark-surface-solid-primary: rgba(23, 23, 23, 1);
   --on-dark-surface-solid-secondary: rgba(38, 38, 38, 1);
@@ -252,8 +278,20 @@
   --surface-solid-tertiary: rgba(221, 221, 221, 1);
   --surface-solid-card: rgba(255, 255, 255, 1);
   --surface-transparent-primary: rgba(8, 8, 8, 0.03);
+  /* добавлены вручную */
+  --surface-transparent-primary-hover: rgba(8, 8, 8, 0.05);
+  --surface-transparent-primary-active: rgba(8, 8, 8, 0.07);
+  /* добавлены вручную */
   --surface-transparent-secondary: rgba(8, 8, 8, 0.06);
+  /* добавлены вручную */
+  --surface-transparent-secondary-hover: rgba(8, 8, 8, 0.04);
+  --surface-transparent-secondary-active: rgba(8, 8, 8, 0.08);
+  /* добавлены вручную */
   --surface-transparent-tertiary: rgba(8, 8, 8, 0.12);
+  /* добавлены вручную */
+  --surface-transparent-tertiary-hover: rgba(8, 8, 8, 0.08);
+  --surface-transparent-tertiary-active: rgba(8, 8, 8, 0.16);
+  /* добавлены вручную */
   --surface-transparent-card: rgba(255, 255, 255, 1);
   --surface-accent: rgba(42, 114, 248, 1);
   --surface-accent-gradient: linear-gradient(93.97deg, #3E79F0 6.49%, #27C6E5 93.51%);
@@ -262,6 +300,20 @@
   --surface-negative: rgba(243, 27, 49, 1);
   --surface-clear: rgba(255, 255, 255, 0);
   --surface-transparent-deep: rgba(8, 8, 8, 0.64);
+  /* добавлены вручную */
+  --surface-transparent-accent: rgba(42, 114, 248, 0.06);
+  --surface-transparent-accent-hover: rgba(42, 114, 248, 0.04);
+  --surface-transparent-accent-active: rgba(42, 114, 248, 0.08);
+  --surface-transparent-positive: rgba(26, 158, 50, 0.06);
+  --surface-transparent-positive-hover: rgba(26, 158, 50, 0.04);
+  --surface-transparent-positive-active: rgba(26, 158, 50, 0.08);
+  --surface-transparent-warning: rgba(250, 95, 5, 0.06);
+  --surface-transparent-warning-hover: rgba(250, 95, 5, 0.04);
+  --surface-transparent-warning-active: rgba(250, 95, 5, 0.08);
+  --surface-transparent-negative: rgba(243, 27, 49, 0.06);
+  --surface-transparent-negative-hover: rgba(243, 27, 49, 0.04);
+  --surface-transparent-negative-active: rgba(243, 27, 49, 0.08);
+  /* добавлены вручную */
   --on-dark-surface-solid-default: rgba(255, 255, 255, 1);
   --on-dark-surface-solid-primary: rgba(23, 23, 23, 1);
   --on-dark-surface-solid-secondary: rgba(38, 38, 38, 1);
