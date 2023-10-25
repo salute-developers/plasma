@@ -12,6 +12,7 @@ export const WithTheme = (Story: StoryType, context: StoryContext) => {
 
     return (
         <div
+            id="theme-root"
             className={themes?.[themeName]?.[themeType]}
             style={{ padding: '1rem', height: '100vh', boxSizing: 'border-box' }}
         >
