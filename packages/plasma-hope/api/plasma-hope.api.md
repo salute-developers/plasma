@@ -95,7 +95,6 @@ import { LineSkeletonProps } from '@salutejs/plasma-core';
 import { MaxLinesProps } from '@salutejs/plasma-core';
 import { monthLongName } from '@salutejs/plasma-core';
 import { monthShortName } from '@salutejs/plasma-core';
-import { MutableRefObject } from 'react';
 import { OutlinedProps } from '@salutejs/plasma-core';
 import { P } from '@salutejs/plasma-core';
 import { P1 } from '@salutejs/plasma-core';
@@ -1068,11 +1067,6 @@ export interface TabsProps extends TabsProps_2 {
     view?: 'secondary' | 'clear';
 }
 
-// Warning: (ae-forgotten-export) The symbol "Design_4" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const TextArea: ({ design }: Design_4) => React_2.ForwardRefExoticComponent<TextAreaProps & React_2.RefAttributes<HTMLTextAreaElement>>;
-
 export { TextareaHTMLAttributes }
 
 // @public (undocumented)
@@ -1091,10 +1085,10 @@ export interface TextAreaProps extends Omit<TextAreaProps_2, 'size'> {
 
 export { TextareaResize }
 
-// Warning: (ae-forgotten-export) The symbol "Design_5" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "Design_4" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const TextField: ({ design }: Design_5) => React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
+export const TextField: ({ design }: Design_4) => React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export interface TextFieldProps extends Omit<InputHTMLAttributes_2<HTMLInputElement>, 'size'> {
@@ -1202,9 +1196,6 @@ export const UploadVisual: FC<UploadVisualProps>;
 export interface UploadVisualProps extends UploadProps, PreviewGalleryProps {
     maxCount?: number;
 }
-
-// @public (undocumented)
-export const useAutoResize: <T extends HTMLTextAreaElement>(active: boolean, ref: MutableRefObject<T | null>, value?: string | number | readonly string[] | undefined, minHeight?: number | undefined, maxHeight?: number | undefined) => void;
 
 export { useDebouncedFunction }
 
