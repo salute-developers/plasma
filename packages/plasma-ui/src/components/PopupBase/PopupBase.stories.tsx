@@ -7,7 +7,7 @@ import { SSRProvider } from '../SSRProvider';
 import { InSpacingDecorator } from '../../helpers';
 import { Button } from '../Button';
 
-import { PopupBase, popupBaseRootClass, PopupBaseProvider, usePopupAnimation } from '.';
+import { PopupBase, popupBaseRootClass, PopupBaseProvider, endAnimationClass, endTransitionClass } from '.';
 
 export default {
     title: 'Controls/PopupBase',
@@ -65,50 +65,44 @@ const Content = styled.div`
 `;
 
 const StyledPopupAnimation = styled(PopupBase)`
-    & > .${popupBaseRootClass} {
-        animation: ${({ theme, animationInfo }) =>
-            /* eslint-disable-next-line no-nested-ternary */
-            theme.lowPerformance || animationInfo === undefined
-                ? 'unset'
-                : animationInfo?.endAnimation
-                ? 'fadeOut 1s forwards'
-                : 'fadeIn 1s forwards'};
+    && > .${popupBaseRootClass} {
+        animation: fadeIn 1s forwards;
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
+    &&.${endAnimationClass} > .${popupBaseRootClass} {
+        animation: fadeOut 1s forwards;
+    }
 
-            to {
-                opacity: 1;
-            }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
         }
 
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
+        to {
+            opacity: 1;
+        }
+    }
 
-            to {
-                opacity: 0;
-            }
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
         }
     }
 `;
 
 const StyledPopupTransition = styled(PopupBase)`
-    & > .${popupBaseRootClass} {
-        /* stylelint-disable */
-        ${({ animationInfo }) =>
-            animationInfo?.endTransition
-                ? css`
-                      opacity: 0;
-                  `
-                : css`
-                      opacity: 1;
-                  `}
-        /* stylelint-enable */
-        transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'opacity 0.5s 0.1s')};
+    && > .${popupBaseRootClass} {
+        opacity: 1;
+        transition: opacity 0.5s 0.1s;
+    }
+
+    &&.${endTransitionClass} > .${popupBaseRootClass} {
+        opacity: 0;
+        transition: opacity 0.5s 0.1s;
     }
 `;
 
@@ -117,9 +111,6 @@ export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, offsetX, 
     const [isOpenB, setIsOpenB] = React.useState(false);
 
     const ref = React.useRef<HTMLDivElement>(null);
-
-    const animationInfoA = usePopupAnimation();
-    const animationInfoB = usePopupAnimation();
 
     return (
         <SSRProvider>
@@ -132,7 +123,7 @@ export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, offsetX, 
                     <StyledPopupAnimation
                         id="popupA"
                         frame={ref}
-                        animationInfo={animationInfoA}
+                        withAnimation
                         isOpen={isOpenA}
                         placement={placement}
                         offset={[offsetX, offsetY]}
@@ -148,7 +139,7 @@ export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, offsetX, 
                     <StyledPopupTransition
                         id="popupB"
                         frame="document"
-                        animationInfo={animationInfoB}
+                        withAnimation
                         isOpen={isOpenB}
                         placement={placement}
                         offset={[offsetX, offsetY]}

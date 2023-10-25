@@ -6,7 +6,7 @@ import { surfaceSolid02, darkOverlayBlur, overlaySoft } from '@salutejs/plasma-t
 import { SSRProvider } from '../SSRProvider';
 import { InSpacingDecorator } from '../../helpers';
 import { Button } from '../Button';
-import { PopupBaseProvider, usePopupAnimation, popupBaseRootClass } from '../PopupBase';
+import { PopupBaseProvider, popupBaseRootClass, endAnimationClass } from '../PopupBase';
 
 import { ModalBase, modalBaseOverlayClass } from '.';
 
@@ -65,33 +65,35 @@ const Content = styled.div`
 `;
 
 const StyledModal = styled(ModalBase)`
-    & > .${popupBaseRootClass}, .${modalBaseOverlayClass} {
-        animation: ${({ theme, animationInfo }) =>
-            /* eslint-disable-next-line no-nested-ternary */
-            theme.lowPerformance || animationInfo === undefined
-                ? 'unset'
-                : animationInfo?.endAnimation
-                ? 'fadeOut 1s forwards'
-                : 'fadeIn 1s forwards'};
+    && > .${popupBaseRootClass}, .${modalBaseOverlayClass} {
+        animation: fadeIn 1s forwards;
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
+    &&.${endAnimationClass} > .${popupBaseRootClass} {
+        animation: fadeOut 1s forwards;
+    }
 
-            to {
-                opacity: 1;
-            }
+    &&.${endAnimationClass} > .${modalBaseOverlayClass} {
+        animation: fadeOut 1s forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
         }
 
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
+        to {
+            opacity: 1;
+        }
+    }
 
-            to {
-                opacity: 0;
-            }
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
         }
     }
 `;
@@ -100,8 +102,6 @@ export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, 
     const [isOpenA, setIsOpenA] = React.useState(false);
     const [isOpenB, setIsOpenB] = React.useState(false);
     const [isOpenC, setIsOpenC] = React.useState(false);
-
-    const animationInfo = usePopupAnimation();
 
     return (
         <SSRProvider>
@@ -113,7 +113,7 @@ export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, 
                     </div>
                     <StyledModal
                         id="modalA"
-                        animationInfo={animationInfo}
+                        withAnimation
                         onClose={() => setIsOpenA(false)}
                         isOpen={isOpenA}
                         placement={placement}

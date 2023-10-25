@@ -63,6 +63,8 @@ import { DisabledProps } from '@salutejs/plasma-core';
 import { DsplL } from '@salutejs/plasma-typo';
 import { DsplM } from '@salutejs/plasma-typo';
 import { DsplS } from '@salutejs/plasma-typo';
+import { endAnimationClass } from '@salutejs/plasma-core';
+import { endTransitionClass } from '@salutejs/plasma-core';
 import { extractTextFrom } from '@salutejs/plasma-core';
 import { FC } from 'react';
 import type { FieldProps as FieldProps_2 } from '@salutejs/plasma-core';
@@ -94,7 +96,6 @@ import { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import { LineSkeleton } from '@salutejs/plasma-core';
 import { LineSkeletonProps } from '@salutejs/plasma-core';
 import { MaxLinesProps } from '@salutejs/plasma-core';
-import { ModalAnimationInfo } from '@salutejs/plasma-core';
 import { ModalBase } from '@salutejs/plasma-core';
 import { modalBaseOverlayClass } from '@salutejs/plasma-core';
 import { ModalBaseProps } from '@salutejs/plasma-core';
@@ -121,6 +122,7 @@ import { PopupBase } from '@salutejs/plasma-core';
 import { PopupBasePlacement } from '@salutejs/plasma-core';
 import { PopupBaseProps } from '@salutejs/plasma-core';
 import { PopupBaseProvider } from '@salutejs/plasma-core';
+import { PopupBaseRoot } from '@salutejs/plasma-core';
 import { popupBaseRootClass } from '@salutejs/plasma-core';
 import { PopupContextType } from '@salutejs/plasma-core';
 import { PopupInfo } from '@salutejs/plasma-core';
@@ -182,7 +184,6 @@ import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { useModal } from '@salutejs/plasma-core';
 import { usePopup } from '@salutejs/plasma-core';
-import { usePopupAnimation } from '@salutejs/plasma-core';
 import { usePopupBaseContext } from '@salutejs/plasma-core';
 import { useResizeObserver } from '@salutejs/plasma-core';
 import { useToast } from '@salutejs/plasma-core';
@@ -686,6 +687,10 @@ export interface ElasticGridProps {
     minColWidth: number;
 }
 
+export { endAnimationClass }
+
+export { endTransitionClass }
+
 export { extractTextFrom }
 
 // @public (undocumented)
@@ -911,8 +916,6 @@ export type MediaQueryFunction = (content: FlattenSimpleInterpolation | string) 
 // @public
 export const Modal: FC<ModalProps>;
 
-export { ModalAnimationInfo }
-
 export { ModalBase }
 
 export { modalBaseOverlayClass }
@@ -1022,6 +1025,8 @@ export { PopupBasePlacement }
 export { PopupBaseProps }
 
 export { PopupBaseProvider }
+
+export { PopupBaseRoot }
 
 export { popupBaseRootClass }
 
@@ -1373,8 +1378,6 @@ export { useIsomorphicLayoutEffect }
 export { useModal }
 
 export { usePopup }
-
-export { usePopupAnimation }
 
 export { usePopupBaseContext }
 

@@ -111,6 +111,8 @@ import { Editable } from '@salutejs/plasma-hope';
 import { EditableProps } from '@salutejs/plasma-hope';
 import { ElasticGrid } from '@salutejs/plasma-hope';
 import { ElasticGridProps } from '@salutejs/plasma-hope';
+import { endAnimationClass } from '@salutejs/plasma-hope';
+import { endTransitionClass } from '@salutejs/plasma-hope';
 import { extractTextFrom } from '@salutejs/plasma-core';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { FocusProps } from '@salutejs/plasma-core';
@@ -148,7 +150,6 @@ import { MaxLinesProps } from '@salutejs/plasma-core';
 import { mediaQuery } from '@salutejs/plasma-hope';
 import { MediaQueryFunction } from '@salutejs/plasma-hope';
 import { Modal } from '@salutejs/plasma-hope';
-import { ModalAnimationInfo } from '@salutejs/plasma-hope';
 import { ModalBase } from '@salutejs/plasma-hope';
 import { modalBaseOverlayClass } from '@salutejs/plasma-hope';
 import { ModalBaseProps } from '@salutejs/plasma-hope';
@@ -184,6 +185,7 @@ import { PopupBase } from '@salutejs/plasma-hope';
 import { PopupBasePlacement } from '@salutejs/plasma-hope';
 import { PopupBaseProps } from '@salutejs/plasma-hope';
 import { PopupBaseProvider } from '@salutejs/plasma-hope';
+import { PopupBaseRoot } from '@salutejs/plasma-hope';
 import { popupBaseRootClass } from '@salutejs/plasma-hope';
 import { PopupContextType } from '@salutejs/plasma-hope';
 import { PopupInfo } from '@salutejs/plasma-hope';
@@ -276,7 +278,6 @@ import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { useModal } from '@salutejs/plasma-hope';
 import { usePopup } from '@salutejs/plasma-hope';
-import { usePopupAnimation } from '@salutejs/plasma-hope';
 import { usePopupBaseContext } from '@salutejs/plasma-hope';
 import { useToast } from '@salutejs/plasma-hope';
 import { ValidationResult } from '@salutejs/plasma-hope';
@@ -533,6 +534,10 @@ export { ElasticGrid }
 
 export { ElasticGridProps }
 
+export { endAnimationClass }
+
+export { endTransitionClass }
+
 export { extractTextFrom }
 
 export { FocusProps }
@@ -610,8 +615,6 @@ export { MediaQueryFunction }
 
 export { Modal }
 
-export { ModalAnimationInfo }
-
 export { ModalBase }
 
 export { modalBaseOverlayClass }
@@ -684,6 +687,8 @@ export { PopupBasePlacement }
 export { PopupBaseProps }
 
 export { PopupBaseProvider }
+
+export { PopupBaseRoot }
 
 export { popupBaseRootClass }
 
@@ -910,8 +915,6 @@ export { useIsomorphicLayoutEffect }
 export { useModal }
 
 export { usePopup }
-
-export { usePopupAnimation }
 
 export { usePopupBaseContext }
 
