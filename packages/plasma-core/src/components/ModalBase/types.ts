@@ -1,5 +1,5 @@
 import { PopupBaseProps, PopupRootProps } from '../PopupBase';
-import { PopupAnimationInfo, PopupHookArgs } from '../PopupBase/types';
+import { PopupHookArgs } from '../PopupBase/types';
 
 export interface ModalBaseProps extends PopupBaseProps {
     /**
@@ -36,11 +36,10 @@ export interface ModalBaseProps extends PopupBaseProps {
      */
     onClose?: () => void;
 }
-export type ModalAnimationInfo = PopupAnimationInfo;
 
 export type ModalBaseRootProps = PopupRootProps & Pick<ModalBaseProps, 'initialFocusRef' | 'focusAfterRef' | 'onClose'>;
 
-export type ModalOverlayProps = Pick<PopupRootProps, 'id' | 'animationInfo' | 'zIndex'> &
+export type ModalOverlayProps = Pick<PopupRootProps, 'id' | 'zIndex'> &
     Pick<ModalBaseProps, 'withBlur' | 'closeOnOverlayClick' | 'onOverlayClick' | 'onClose'>;
 
 export type ModalHookArgs = Pick<PopupHookArgs, 'id' | 'popupInfo'> &
