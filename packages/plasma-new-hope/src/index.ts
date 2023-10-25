@@ -8,6 +8,8 @@ export * from './components/Link';
 export * from './components/Spinner';
 export * from './components/Checkbox';
 export * from './components/Radiobox';
+export * from './components/Popover';
+export * from './components/TextArea';
 export * from './components/Tabs';
 export * from './components/Calendar';
 export * from './components/Typography';
