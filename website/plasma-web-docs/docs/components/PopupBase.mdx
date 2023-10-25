@@ -121,23 +121,21 @@ export function App() {
 
 ## Подключение анимации
 
-Подключение анимации происходит с помощью хука `usePopupAnimation`, который возвращает объект, необходимый для передачи в сам компонент `PopupBase`.
-Сам возвращаемый объект содержит 2 флага: `endAnimation`, `endTransition`, с помощью которых и должно происходить переключение анимаций.
+Для подключения анимации нужно добавить параметр `withAnimation`.
+Само управление происходит с помощью классов через перменные `endAnimationClass`, `endTransitionClass` для `PopupBase`.
 Для добавления анимации необходимо использовать класс `.popup-base-root` через переменную `popupBaseRootClass` из пакета.
 
 Пример:
 
 ```tsx
 const StyledPopupTransition = styled(PopupBase)`
-    & > .${popupBaseRootClass} {
-        ${({ animationInfo }) =>
-            animationInfo?.endTransition
-                ? css`
-                      opacity: 0;
-                  `
-                : css`
-                      opacity: 1;
-                  `}
+    && > .${popupBaseRootClass} {
+        opacity: 1;
+        transition: opacity 0.5s 0.1s;
+    }
+
+    &&.${endTransitionClass} > .${popupBaseRootClass} {
+        opacity: 0;
         transition: opacity 0.5s 0.1s;
     }
 `;
@@ -147,32 +145,31 @@ const StyledPopupTransition = styled(PopupBase)`
 
 ```tsx
 const StyledPopupAnimation = styled(PopupBase)`
-    & > .${popupBaseRootClass} {
-        animation: ${({ animationInfo }) =>
-            animationInfo === undefined
-                ? 'unset'
-                : animationInfo.endAnimation
-                ? 'fadeOut 1s forwards'
-                : 'fadeIn 1s forwards'};
+    && > .${popupBaseRootClass} {
+        animation: fadeIn 1s forwards;
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
+    &&.${endAnimationClass} > .${popupBaseRootClass} {
+        animation: fadeOut 1s forwards;
+    }
 
-            to {
-                opacity: 1;
-            }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
         }
 
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
+        to {
+            opacity: 1;
+        }
+    }
 
-            to {
-                opacity: 0;
-            }
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
         }
     }
 `;
@@ -183,8 +180,6 @@ const StyledPopupAnimation = styled(PopupBase)`
 ```tsx
     const [isOpen, setIsOpen] = React.useState(false);
 
-    const animationInfo = usePopupAnimation();
-
     return (
         <>
             <div>
@@ -192,7 +187,7 @@ const StyledPopupAnimation = styled(PopupBase)`
             </div>
             <StyledPopupAnimation
                 id="popup-id"
-                animationInfo={animationInfo}
+                withAnimation
                 frame="document"
                 isOpen={isOpen}
                 placement="center"
