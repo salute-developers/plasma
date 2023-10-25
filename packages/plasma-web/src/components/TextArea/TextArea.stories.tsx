@@ -11,7 +11,7 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-const statuses = ['', 'success', 'error'];
+const statuses = ['', 'success', 'warning', 'error'];
 const resizes = ['none', 'both', 'horizontal', 'vertical'];
 
 const meta: Meta<TextAreaProps> = {
@@ -31,6 +31,16 @@ const meta: Meta<TextAreaProps> = {
                 type: 'select',
             },
         },
+        cols: {
+            control: {
+                type: 'number',
+            },
+        },
+        rows: {
+            control: {
+                type: 'number',
+            },
+        },
         ...disableProps([
             '$isFocused',
             'label',
@@ -45,6 +55,9 @@ const meta: Meta<TextAreaProps> = {
             'required',
             'value',
             'wrap',
+            'theme',
+            'as',
+            'forwardedAs',
             'onChange',
             'onFocus',
             'onBlur',
