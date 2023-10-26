@@ -1,3 +1,4 @@
+import { Dictionary, File, Options, Platform } from 'style-dictionary';
 import { TokenDataGroup } from '@salutejs/plasma-tokens-utils';
 
 export type Point = {
@@ -31,3 +32,10 @@ export interface GradientToken {
 }
 
 export type ThemeTokenDataGroups = Record<string, TokenDataGroup<string> | undefined>;
+
+export interface FormatterArguments {
+    dictionary: Dictionary;
+    file: File;
+    options: Options;
+    platform: Platform;
+}
