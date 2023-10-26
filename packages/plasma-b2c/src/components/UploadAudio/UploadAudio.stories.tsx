@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { ValidationResult } from '../Upload';
@@ -9,7 +9,7 @@ import type { StatusType } from '../Upload';
 import { UploadAudio } from '.';
 import type { UploadAudioProps } from '.';
 
-export default {
+const meta: Meta = {
     title: 'Controls/UploadAudio',
     component: UploadAudio,
     argTypes: {
@@ -25,20 +25,20 @@ export default {
         },
     },
     decorators: [InSpacingDecorator],
-} as Meta;
+};
 
-const StyledWrapper = styled.div`
-    width: 23.75rem;
-`;
+export default meta;
 
 export interface ValidationState {
     status?: StatusType;
     message?: string;
 }
 
-interface StoryProps extends UploadAudioProps {}
+const StyledWrapper = styled.div`
+    width: 23.75rem;
+`;
 
-export const Audio: Story<StoryProps> = ({ ...rest }) => {
+const StoryAudio = ({ ...rest }: UploadAudioProps) => {
     const [progress, setProgress] = useState(undefined);
     const [state, setState] = useState<ValidationState>({
         status: undefined,
@@ -85,6 +85,9 @@ export const Audio: Story<StoryProps> = ({ ...rest }) => {
     );
 };
 
-Audio.args = {
-    disabled: false,
+export const Audio: StoryObj<UploadAudioProps> = {
+    args: {
+        disabled: false,
+    },
+    render: (args) => <StoryAudio {...args} />,
 };
