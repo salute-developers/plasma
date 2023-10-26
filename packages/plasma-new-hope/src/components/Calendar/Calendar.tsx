@@ -10,7 +10,7 @@ export const boundCalendar: (args: ComponentVariation) => React.FC<CalendarProps
     double: CalendarDouble,
     baseRange: CalendarBaseRange,
     doubleRange: CalendarDoubleRange,
-}) => ({ ...rest }) => {
+}) => (rest) => {
     if (!rest.isRange && !rest.isDouble) {
         return <CalendarBase {...rest} />;
     }

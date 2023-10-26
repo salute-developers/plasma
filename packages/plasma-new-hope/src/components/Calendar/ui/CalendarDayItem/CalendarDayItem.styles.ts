@@ -4,6 +4,7 @@ import { FocusProps } from '@salutejs/plasma-core';
 import type { DayProps } from '../../shared/types';
 import { flexCenter, selectedMixin } from '../../shared/mixins';
 import { addFocus, bodyS } from '../../../../mixins';
+import { classes, tokens } from '../../shared/tokens';
 
 const inRange = () => `
     &:before {
@@ -12,7 +13,7 @@ const inRange = () => `
         position: absolute;
         width: 2.5rem;
         height: 1.875rem;
-        background: var(--plasma-colors-surface-liquid02);
+        background: var(${tokens.calendarRangeBackground});
     }
 `;
 
@@ -23,34 +24,33 @@ const sideInRange = () => `
         position: absolute;
         width: 0.313rem;
         height: 1.875rem;
-        background: var(--plasma-colors-surface-liquid02);
+        background: var(${tokens.calendarRangeBackground});
     }
 `;
 
 export const StyledDay = styled.div<{ offset: number }>`
     border-radius: 0.375rem;
-    align-items: center;
 
-    ${flexCenter()};
+    ${String(flexCenter)};
 
-    &.left {
+    &.${String(classes.dayInRange)} {
+        ${inRange()};
+    }
+
+    &.${String(classes.daySideInRange)} {
+        ${sideInRange()};
+    }
+
+    &.${String(classes.daySideLeft)} {
         &:before {
             left: ${({ offset }) => `${offset}px`};
         }
     }
 
-    &.right {
+    &.${String(classes.daySideRight)} {
         &:before {
             right: ${({ offset }) => `${offset}px`};
         }
-    }
-
-    &.side-in-range {
-        ${sideInRange()};
-    }
-
-    &.in-range {
-        ${inRange()};
     }
 `;
 
@@ -59,23 +59,37 @@ const dayOfWeek = () => `
 `;
 
 const selectable = () => `
-    --add-focus-outline-offset: 0.063rem;
-    --add-focus-outline-size: 0.063rem;
-    --add-focus-outline-radius: 0.563rem;
-    --add-focus-outline-transition: box-shadow 0.2s ease-in-out;
-    --add-focus-outline-color: var(--plasma-colors-button-focused);
-    --selected-min-width: 2.25rem;
-    --selected-min-height: 1.75rem;
-    ${selectedMixin()};
-    ${addFocus()};
+    &.${String(classes.selectableItem)} {
+        --add-focus-outline-offset: -0.063rem;
+        --add-focus-outline-size: 0.063rem;
+        --add-focus-outline-radius: 0.563rem;
+        --add-focus-outline-transition: box-shadow 0.2s ease-in-out;
+        --add-focus-outline-color: var(${tokens.calendarOutlineFocusColor});
+        --selected-min-width: 2.25rem;
+        --selected-min-height: 1.75rem;
+        --selected-background: var(${tokens.calendarSelectedItemBackground});
+        --selected-color: var(${tokens.calendarSelectedItemColor});
+        --selectable-background-hover: var(${tokens.calendarSelectableItemBackgroundHover});
+        --current-border-color: var(${tokens.calendarCurrentItemBorderColor});
+        --current-background-hover: var(${tokens.calendarCurrentItemBackgroundHover});
+        --current-color-hover: var(${tokens.calendarCurrentItemColorHover});
+        --current-child-background-hover: var(${tokens.calendarCurrentItemChildBackgroundHover});
+        --active-background: var(${tokens.calendarActiveItemBackground});
+        --active-color: var(${tokens.calendarActiveItemColor});
+        --hovered-background: var(${tokens.calendarHoveredItemBackground});
+        --hovered-color: var(${tokens.calendarHoveredItemColor});
+
+        ${String(selectedMixin)};
+        ${addFocus()};
+    }
 `;
 
 const disabledDay = () => `
-    --add-focus-outline-offset: 0.063rem;
+    --add-focus-outline-offset: -0.063rem;
     --add-focus-outline-size: 0.063rem;
     --add-focus-outline-radius: 0.563rem;
     --add-focus-outline-transition: box-shadow 0.2s ease-in-out;
-    --add-focus-outline-color: var(--plasma-colors-button-focused);
+    --add-focus-outline-color: var(${tokens.calendarOutlineFocusColor});
 
     cursor: not-allowed;
     opacity: 0.4;
@@ -84,11 +98,12 @@ const disabledDay = () => `
 `;
 
 const disabledCurrentDay = () => `
+    ${disabledDay()};
     --add-focus-outline-offset: 0.125rem;
 `;
 
 export const StyledDayRoot = styled.div<DayProps & FocusProps>`
-    ${bodyS()};
+    ${String(bodyS)};
 
     position: relative;
     box-sizing: border-box;
@@ -96,25 +111,27 @@ export const StyledDayRoot = styled.div<DayProps & FocusProps>`
     min-width: 2.5rem;
     min-height: 2rem;
 
-    border-radius: 0.5rem;
+    border-radius: var(${tokens.calendarItemBorderRadius});
 
-    ${flexCenter()};
+    ${String(flexCenter)};
 
     color: ${({ isDayInCurrentMonth }) =>
-        isDayInCurrentMonth ? 'var(--plasma-colors-primary)' : 'var(--plasma-colors-secondary)'};
+        isDayInCurrentMonth
+            ? `var(${tokens.calendarContentPrimaryColor})`
+            : `var(${tokens.calendarContentSecondaryColor})`};
     visibility: ${({ isDayInCurrentMonth, isDouble }) => (!isDayInCurrentMonth && isDouble ? 'hidden' : 'visible')};
 
     ${selectable()};
 
-    &.day-of-week {
+    &.${String(classes.dayOfWeek)} {
         ${dayOfWeek()};
     }
 
-    &.disabled {
+    &.${String(classes.dayDisabled)} {
         ${disabledDay()};
     }
 
-    &.disabled-current {
+    &.${String(classes.dayDisabledCurrent)} {
         ${disabledCurrentDay()};
     }
 `;

@@ -1,4 +1,4 @@
-export const h4 = () => `
+export const h4 = `
     font-family: var(--plasma-typo-h4-font-family);
     font-size: var(--plasma-typo-h4-font-size);
     font-style: var(--plasma-typo-h4-font-style);
@@ -7,12 +7,12 @@ export const h4 = () => `
     line-height: var(--plasma-typo-h4-line-height);
 `;
 
-export const h4Bold = () => `
-    ${h4()};
+export const h4Bold = `
+    ${String(h4)};
     font-weight: var(--plasma-typo-h4-bold-font-weight);
 `;
 
-export const bodyS = () => `
+export const bodyS = `
     font-family: var(--plasma-typo-body-s-font-family);
     font-size: var(--plasma-typo-body-s-font-size);
     font-style: var(--plasma-typo-body-s-font-style);
@@ -21,7 +21,7 @@ export const bodyS = () => `
     line-height: var(--plasma-typo-body-s-line-height);
 `;
 
-export const bodySBold = () => `
-    ${bodyS()}
+export const bodySBold = `
+    ${String(bodyS)}
     font-weight: var(--plasma-typo-body-s-bold-font-weight);
 `;

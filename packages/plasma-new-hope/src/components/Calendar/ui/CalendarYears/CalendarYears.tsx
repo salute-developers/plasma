@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef } from 'react';
 
 import { cx } from '../../../../utils';
 import { useYears } from '../../shared/hooks';
+import { classes } from '../../shared/tokens';
 
 import type { CalendarYearsProps } from './CalendarYears.types';
 import { StyledCalendarYears, StyledFlex, StyledYear, StyledYearRoot } from './CalendarYears.styles';
@@ -55,12 +56,12 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
             {years.map((year, i) => (
                 <StyledFlex role="row" key={i}>
                     {year.map(({ yearValue, isSelected, isCurrent }, j) => {
-                        const selectedClass = isSelected ? 'selected' : undefined;
-                        const currentClass = !isSelected && isCurrent ? 'current' : undefined;
+                        const selectedClass = isSelected ? classes.selectedItem : undefined;
+                        const currentClass = !isSelected && isCurrent ? classes.currentItem : undefined;
 
                         return (
                             <StyledYearRoot
-                                className={cx(selectedClass, currentClass, 'selectable')}
+                                className={cx(selectedClass, currentClass, classes.selectableItem)}
                                 ref={(element: HTMLDivElement) => getRefs(element, i, j)}
                                 tabIndex={i === selectIndexes?.[0] && j === selectIndexes?.[1] ? 0 : -1}
                                 onClick={handleOnChangeYear}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
 const sizeMap = {

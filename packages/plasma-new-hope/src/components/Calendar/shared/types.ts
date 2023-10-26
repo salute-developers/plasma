@@ -108,8 +108,6 @@ export interface Calendar extends HTMLAttributes<HTMLDivElement> {
     onChangeValue: (value: Date) => void;
 }
 
-export type CalendarRootProps = HTMLAttributes<HTMLDivElement> & Omit<Calendar, 'value' | 'onChangeValue'>;
-
 export type CalendarRange<T> = Omit<T, 'value' | 'onChangeValue'> & {
     /**
      * Выбранное значение.

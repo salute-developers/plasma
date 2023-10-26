@@ -3,7 +3,7 @@ import { styled } from '@linaria/react';
 import { flexCenter } from '../../shared/mixins';
 
 export const StyledFlex = styled.div`
-    ${flexCenter()};
+    ${String(flexCenter)};
 `;
 
 export const StyledCalendarDays = styled.div`

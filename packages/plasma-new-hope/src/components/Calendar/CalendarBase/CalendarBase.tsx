@@ -9,6 +9,8 @@ import { useKeyNavigation } from '../shared/hooks';
 import { CalendarDays, CalendarHeader, CalendarMonths, CalendarYears } from '../ui';
 import { RootProps } from '../../../engines';
 
+import { base as viewCSS } from './variations/_view/base';
+import { base as sizeCSS } from './variations/_size/base';
 import { IsOutOfRange, StyledCalendar } from './CalendarBase.styles';
 
 export type CalendarBaseProps = HTMLAttributes<HTMLDivElement> &
@@ -247,6 +249,16 @@ export const calendarBaseConfig = {
     tag: 'div',
     layout: calendarBaseRoot,
     base: StyledCalendar,
-    variations: {},
-    defaults: {},
+    variations: {
+        view: {
+            css: viewCSS,
+        },
+        size: {
+            css: sizeCSS,
+        },
+    },
+    defaults: {
+        view: 'default',
+        size: 'm',
+    },
 };
