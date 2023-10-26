@@ -8,8 +8,11 @@ import {
 } from '@salutejs/plasma-new-hope/styled-components';
 import type { CalendarBaseProps, CalendarDoubleProps } from '@salutejs/plasma-new-hope/styled-components';
 
-const mergedCalendarBaseConfig = mergeConfig(calendarBaseConfig);
-const mergedCalendarDoubleConfig = mergeConfig(calendarDoubleConfig);
+import { config as baseConfig } from './CalendarBase.config';
+import { config as doubleConfig } from './CalendarDouble.config';
+
+const mergedCalendarBaseConfig = mergeConfig(calendarBaseConfig, baseConfig);
+const mergedCalendarDoubleConfig = mergeConfig(calendarDoubleConfig, doubleConfig);
 
 export const CalendarBase = component(mergedCalendarBaseConfig);
 export const CalendarDouble = component(mergedCalendarDoubleConfig);

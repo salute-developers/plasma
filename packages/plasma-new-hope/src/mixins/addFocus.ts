@@ -5,10 +5,10 @@ export const addFocus = () => `
         content: '';
 
         position: absolute;
-        top: calc(-1 * var(--add-focus-outline-offset));
-        left: calc(-1 * var(--add-focus-outline-offset));
-        right: calc(-1 * var(--add-focus-outline-offset));
-        bottom: calc(-1 * var(--add-focus-outline-offset));
+        top: var(--add-focus-outline-offset);
+        left: var(--add-focus-outline-offset);
+        right: var(--add-focus-outline-offset);
+        bottom: var(--add-focus-outline-offset);
 
         display: block;
         box-sizing: content-box;
@@ -31,6 +31,3 @@ export const addFocus = () => `
         }
     }
 `;
-
-// transition: var(--add-focus-outline-transition);
-// ${(props) => (props.lowPerformance ? 'unset' : 'box-shadow 0.2s ease-in-out')};

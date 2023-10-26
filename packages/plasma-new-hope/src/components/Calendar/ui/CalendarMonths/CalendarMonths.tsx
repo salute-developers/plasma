@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef } from 'react';
 
 import { cx } from '../../../../utils';
 import { useMonths } from '../../shared/hooks';
+import { classes } from '../../shared/tokens';
 
 import type { CalendarMonthsProps } from './CalendarMonths.types';
 import { StyledCalendarMonths, StyledFlex, StyledMonth, StyledMonthRoot } from './CalendarMonths.styles';
@@ -54,17 +55,15 @@ export const CalendarMonths: React.FC<CalendarMonthsProps> = ({
             {months.map((month, i) => (
                 <StyledFlex role="row" key={i}>
                     {month.map(({ monthName, monthIndex, isSelected, isCurrent, monthFullName }, j) => {
-                        const selectedClass = isSelected ? 'selected' : undefined;
-                        const currentClass = !isSelected && isCurrent ? 'current' : undefined;
+                        const selectedClass = isSelected ? classes.selectedItem : undefined;
+                        const currentClass = !isSelected && isCurrent ? classes.currentItem : undefined;
 
                         return (
                             <StyledMonthRoot
                                 id={`month-test-${i}-${j}`}
-                                className={cx(selectedClass, currentClass, 'selectable')}
+                                className={cx(selectedClass, currentClass, classes.selectableItem)}
                                 ref={(element: HTMLDivElement) => getRefs(element, i, j)}
                                 tabIndex={i === selectIndexes?.[0] && j === selectIndexes?.[1] ? 0 : -1}
-                                isCurrent={isCurrent}
-                                isSelected={isSelected}
                                 onClick={handleOnChangeMonth}
                                 data-month-index={monthIndex}
                                 aria-selected={isSelected}

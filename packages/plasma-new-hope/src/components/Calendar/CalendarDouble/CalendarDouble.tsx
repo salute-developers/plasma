@@ -6,6 +6,7 @@ import { useKeyNavigation } from '../shared/hooks';
 import { CalendarDays, CalendarHeader } from '../ui';
 import { RootProps } from '../../../engines/types';
 
+import { base as viewCSS } from './variations/_view/base';
 import { StyledCalendar, StyledSeparator, StyledWrapper } from './CalendarDouble.styles';
 
 export type CalendarDoubleProps = HTMLAttributes<HTMLDivElement> & Calendar;
@@ -171,6 +172,12 @@ export const calendarDoubleConfig = {
     tag: 'div',
     layout: calendarDoubleRoot,
     base: StyledCalendar,
-    variations: {},
-    defaults: {},
+    variations: {
+        view: {
+            css: viewCSS,
+        },
+    },
+    defaults: {
+        view: 'default',
+    },
 };

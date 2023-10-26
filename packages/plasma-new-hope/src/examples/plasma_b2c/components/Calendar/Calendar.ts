@@ -3,8 +3,11 @@ import { calendarBaseConfig, calendarDoubleConfig, withRange } from '../../../..
 import type { CalendarBaseProps, CalendarDoubleProps } from '../../../../components/Calendar';
 import { boundCalendar } from '../../../../components/Calendar/Calendar';
 
-const mergedCalendarBaseConfig = mergeConfig(calendarBaseConfig);
-const mergedCalendarDoubleConfig = mergeConfig(calendarDoubleConfig);
+import { config as baseConfig } from './CalendarBase.config';
+import { config as doubleConfig } from './CalendarDouble.config';
+
+const mergedCalendarBaseConfig = mergeConfig(calendarBaseConfig, baseConfig);
+const mergedCalendarDoubleConfig = mergeConfig(calendarDoubleConfig, doubleConfig);
 
 export const CalendarBase = component(mergedCalendarBaseConfig);
 export const CalendarDouble = component(mergedCalendarDoubleConfig);

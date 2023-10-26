@@ -1,6 +1,7 @@
 import React, { forwardRef, memo } from 'react';
 
 import { cx } from '../../../../utils';
+import { classes } from '../../shared/tokens';
 
 import type { CalendarDayItemProps } from './CalendarDayItem.types';
 import { StyledDay, StyledDayRoot, StyledEvent, StyledEvents } from './CalendarDayItem.styles';
@@ -35,16 +36,17 @@ export const CalendarDayItem = memo(
             },
             outerRef,
         ) => {
-            const selectableClass = !dayOfWeek && !disabled ? 'selectable' : undefined;
-            const selectedClass = isSelected ? 'selected' : undefined;
-            const hoveredClass = isHovered ? 'hovered' : undefined;
-            const dayOfWeekClass = dayOfWeek ? 'day-of-week' : undefined;
-            const disabledClass = disabled && !isCurrent ? 'disabled' : undefined;
-            const disabledCurrentClass = disabled && isCurrent ? 'disabled-current' : undefined;
-            const sideInRangeLeft = sideInRange === 'left' ? 'left' : undefined;
-            const sideInRangeRight = sideInRange === 'right' ? 'right' : undefined;
-            const sideInRangeClass = sideInRange ? 'side-in-range' : undefined;
-            const inRangeStyle = inRange ? 'in-range' : undefined;
+            const selectableClass = !dayOfWeek && !disabled ? classes.selectableItem : undefined;
+            const selectedClass = isSelected ? classes.selectedItem : undefined;
+            const currentClass = isCurrent ? classes.currentItem : undefined;
+            const hoveredClass = isHovered ? classes.hoveredItem : undefined;
+            const dayOfWeekClass = dayOfWeek ? classes.dayOfWeek : undefined;
+            const disabledClass = disabled && !isCurrent ? classes.dayDisabled : undefined;
+            const disabledCurrentClass = disabled && isCurrent ? classes.dayDisabledCurrent : undefined;
+            const sideInRangeLeft = sideInRange === 'left' ? classes.daySideLeft : undefined;
+            const sideInRangeRight = sideInRange === 'right' ? classes.daySideRight : undefined;
+            const sideInRangeClass = sideInRange ? classes.daySideInRange : undefined;
+            const inRangeStyle = inRange ? classes.dayInRange : undefined;
             const sideOffset = !isSelected && isCurrent ? -1 : 0;
 
             return (
@@ -54,6 +56,7 @@ export const CalendarDayItem = memo(
                         dayOfWeekClass,
                         selectableClass,
                         selectedClass,
+                        currentClass,
                         disabledClass,
                         disabledCurrentClass,
                         hoveredClass,
