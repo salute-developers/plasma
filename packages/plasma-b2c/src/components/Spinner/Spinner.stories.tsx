@@ -1,29 +1,29 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Spinner, SpinnerProps } from '.';
 
-const propsToDisable = ['color', 'theme', 'as', 'forwardedAs'];
-
-const sizes = [8, 16, 32, 64, 96, 128];
-
-export default {
+const meta: Meta<SpinnerProps> = {
     title: 'Content/Spinner',
+    component: Spinner,
     decorators: [InSpacingDecorator],
     argTypes: {
         size: {
-            options: sizes,
+            options: [8, 16, 32, 64, 96, 128],
             control: {
                 type: 'select',
             },
         },
-        ...disableProps(propsToDisable),
+        ...disableProps(['color', 'theme', 'as', 'forwardedAs']),
     },
-} as Meta;
+};
 
-export const Default: Story<SpinnerProps> = (args) => <Spinner {...args} />;
+export default meta;
 
-Default.args = {
-    size: 32,
+export const Default: StoryObj<SpinnerProps> = {
+    args: {
+        size: 32,
+    },
+    render: (args) => <Spinner {...args} />,
 };
