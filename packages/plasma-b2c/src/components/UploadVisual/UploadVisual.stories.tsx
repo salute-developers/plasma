@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import { Meta, Story } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import type { PreviewGalleryItemProps } from '../PreviewGallery';
@@ -11,7 +11,7 @@ import type { StatusType } from '../Upload';
 import type { UploadVisualProps } from '.';
 import { UploadVisual } from '.';
 
-export default {
+const meta: Meta = {
     title: 'Controls/UploadVisual',
     component: UploadVisual,
     argTypes: {
@@ -37,18 +37,18 @@ export default {
         },
     },
     decorators: [InSpacingDecorator],
-} as Meta;
+};
 
-const StyledWrapper = styled.div`
-    width: 23.75rem;
-`;
+export default meta;
 
 export interface ValidationState {
     status?: StatusType;
     message?: string;
 }
 
-interface StoryProps extends UploadVisualProps {}
+const StyledWrapper = styled.div`
+    width: 23.75rem;
+`;
 
 const images = [
     { id: Math.random(), image: './images/320_320_0.jpg', caption: '3:24' },
@@ -66,7 +66,7 @@ const addedErrorImage: PreviewGalleryItemProps = {
     status: 'error',
 };
 
-export const Selectabe: Story<StoryProps> = ({ ...rest }) => {
+const StorySelectable = ({ ...rest }: UploadVisualProps) => {
     const [state, setState] = useState({
         status: undefined,
         progress: undefined,
@@ -152,7 +152,11 @@ export const Selectabe: Story<StoryProps> = ({ ...rest }) => {
     );
 };
 
-export const Draggable: Story<StoryProps> = ({ ...rest }) => {
+export const Selectable: StoryObj<UploadVisualProps> = {
+    render: (args) => <StorySelectable {...args} />,
+};
+
+const StoryDraggable = ({ ...rest }: UploadVisualProps) => {
     const [state, setState] = useState({
         status: undefined,
         progress: undefined,
@@ -236,4 +240,8 @@ export const Draggable: Story<StoryProps> = ({ ...rest }) => {
             />
         </StyledWrapper>
     );
+};
+
+export const Draggable: StoryObj<UploadVisualProps> = {
+    render: (args) => <StoryDraggable {...args} />,
 };
