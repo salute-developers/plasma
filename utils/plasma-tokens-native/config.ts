@@ -11,14 +11,15 @@ import {
     typoReactNativeCustomFormatter,
     typoKotlinCustomFormatter,
     typoIosSwiftCustomFormatter,
+    shadowReactNativeCustomFormatter,
+    borderRadiusReactNativeCustomFormatter,
+    spacingReactNativeCustomFormatter,
     gradientSwiftTransformer,
     gradientKotlinTransformer,
     gradientReactNativeTransformer,
     gradientXMLTransformer,
-    shadowReactNativeCustomFormatter,
-    borderRadiusReactNativeCustomFormatter,
-    spacingReactNativeCustomFormatter,
 } from './src/generator';
+import type { CommentsType } from './src/utils';
 
 const getStyleDictionaryColorConfig = (brand: string, filesPath: string): Config => ({
     source: [path.join(filesPath, `${brand}.json`)],
@@ -31,6 +32,9 @@ const getStyleDictionaryColorConfig = (brand: string, filesPath: string): Config
                     format: 'kotlin/custom/color',
                     destination: `color/color_${brand}_kotlin.kt`,
                     className: upperFirstLetter(brand),
+                    options: {
+                        commentType: 'slashes' as CommentsType,
+                    },
                 },
             ],
         },
@@ -42,6 +46,9 @@ const getStyleDictionaryColorConfig = (brand: string, filesPath: string): Config
                     format: 'react-native/custom/color',
                     destination: `color/color_${brand}_react-native.ts`,
                     className: upperFirstLetter(brand),
+                    options: {
+                        commentType: 'slashes' as CommentsType,
+                    },
                 },
             ],
         },
@@ -62,6 +69,9 @@ const getStyleDictionaryColorConfig = (brand: string, filesPath: string): Config
                     format: 'ios-swift/custom/color',
                     destination: `color/color_${brand}_ios-swift.swift`,
                     className: upperFirstLetter(brand),
+                    options: {
+                        commentType: 'slashes' as CommentsType,
+                    },
                 },
             ],
         },
@@ -73,6 +83,9 @@ const getStyleDictionaryColorConfig = (brand: string, filesPath: string): Config
                     format: 'xml/custom/color',
                     destination: `color/color_${brand}_xml.xml`,
                     className: upperFirstLetter(brand),
+                    options: {
+                        commentType: 'arrows' as CommentsType,
+                    },
                 },
             ],
         },
@@ -89,6 +102,9 @@ const getStyleDictionaryTypoConfig = (brand: string, filesPath: string): Config 
                 {
                     format: 'kotlin/custom/typo',
                     destination: `typo/typo_${brand}_kotlin.kt`,
+                    options: {
+                        commentType: 'slashes' as CommentsType,
+                    },
                 },
             ],
         },
@@ -99,6 +115,9 @@ const getStyleDictionaryTypoConfig = (brand: string, filesPath: string): Config 
                 {
                     format: 'react-native/custom/typo',
                     destination: `typo/typo_${brand}_react-native.ts`,
+                    options: {
+                        commentType: 'slashes' as CommentsType,
+                    },
                 },
             ],
         },
@@ -109,6 +128,9 @@ const getStyleDictionaryTypoConfig = (brand: string, filesPath: string): Config 
                 {
                     format: 'ios-swift/custom/typo',
                     destination: `typo/typo_${brand}_ios-swift.swift`,
+                    options: {
+                        commentType: 'slashes' as CommentsType,
+                    },
                 },
             ],
         },
@@ -125,6 +147,9 @@ const getStyleDictionaryShadowConfig = (brand: string, filesPath: string): Confi
                 {
                     format: 'react-native/custom/shadow',
                     destination: `shadow/shadow_${brand}_react-native.ts`,
+                    options: {
+                        commentType: 'slashes' as CommentsType,
+                    },
                 },
             ],
         },
@@ -141,6 +166,9 @@ const getStyleDictionaryBorderRadiusConfig = (brand: string, filesPath: string):
                 {
                     format: 'react-native/custom/borderRadius',
                     destination: `borderRadius/borderRadius_${brand}_react-native.ts`,
+                    options: {
+                        commentType: 'slashes' as CommentsType,
+                    },
                 },
             ],
         },
@@ -157,6 +185,9 @@ const getStyleDictionarySpacingConfig = (brand: string, filesPath: string): Conf
                 {
                     format: 'react-native/custom/spacing',
                     destination: `spacing/spacing_${brand}_react-native.ts`,
+                    options: {
+                        commentType: 'slashes' as CommentsType,
+                    },
                 },
             ],
         },
