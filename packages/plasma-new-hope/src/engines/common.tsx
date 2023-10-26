@@ -45,7 +45,7 @@ export const mergeConfig = <
     LayoutPropsBase extends React.HTMLAttributes<HTMLElement>,
     LayoutPropsUser extends React.HTMLAttributes<HTMLElement> | undefined = undefined
 >(
-    baseConfig: ComponentConfig<Tag, Variants, PropsType, LayoutPropsBase>,
+    baseConfig: ComponentConfig<Tag, Variants, PropsType & LayoutPropsBase, LayoutPropsBase>,
     userConfig?: Partial<ComponentConfig<Tag, VariantList, VariantsProps, LayoutPropsUser>>,
 ) => {
     const res = { ...baseConfig, ...userConfig };

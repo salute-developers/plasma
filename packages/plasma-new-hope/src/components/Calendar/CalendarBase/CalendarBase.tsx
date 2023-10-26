@@ -22,7 +22,7 @@ export type CalendarBaseProps = HTMLAttributes<HTMLDivElement> &
 /**
  * Компонент календаря.
  */
-export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, CalendarBaseProps>) =>
+export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<HTMLDivElement>>) =>
     forwardRef<HTMLDivElement, CalendarBaseProps>(
         (
             { value: externalValue, min, max, type = 'Days', eventList, disabledList, onChangeValue, ...rest },

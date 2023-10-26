@@ -13,7 +13,7 @@ export type CalendarDoubleProps = HTMLAttributes<HTMLDivElement> & Calendar;
 /**
  * Компонент двойного календаря.
  */
-export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, CalendarDoubleProps>) =>
+export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<HTMLDivElement>>) =>
     forwardRef<HTMLDivElement, CalendarDoubleProps>(
         ({ value: externalValue, min, max, eventList, disabledList, onChangeValue, ...rest }) => {
             const [firstValue, secondValue] = useMemo(

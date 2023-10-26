@@ -161,8 +161,8 @@ Base.argTypes = {
 };
 
 Base.args = {
-    min: new Date(2023, 0, 1),
-    max: new Date(2023, 8, 15),
+    min: new Date(2022, 4, 0),
+    max: new Date(2022, 6, 15),
     type: 'Days',
 };
 
