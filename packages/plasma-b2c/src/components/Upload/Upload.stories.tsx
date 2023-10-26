@@ -1,12 +1,12 @@
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Upload, ValidationResult } from '.';
 import type { UploadProps } from '.';
 
-export default {
+const meta: Meta<UploadProps> = {
     title: 'Controls/Upload',
     component: Upload,
     argTypes: {
@@ -22,15 +22,15 @@ export default {
         },
     },
     decorators: [InSpacingDecorator],
-} as Meta;
+};
+
+export default meta;
 
 const StyledWrapper = styled.div`
     width: 23.75rem;
 `;
 
-interface StoryProps extends UploadProps {}
-
-export const Default: Story<StoryProps> = ({ ...rest }) => {
+const StoryDefault = ({ ...rest }: UploadProps) => {
     const [state, setState] = useState({
         status: undefined,
         progress: undefined,
@@ -97,7 +97,10 @@ export const Default: Story<StoryProps> = ({ ...rest }) => {
     );
 };
 
-Default.args = {
-    disabled: false,
-    content: 'Загрузите файл формата любого',
+export const Default: StoryObj<UploadProps> = {
+    args: {
+        disabled: false,
+        content: 'Загрузите файл формата любого',
+    },
+    render: (args) => <StoryDefault {...args} />,
 };
