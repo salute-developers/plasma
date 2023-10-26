@@ -397,55 +397,6 @@ export const buttonWarningActive = "var(--plasma-colors-button-warning-active)";
 // @public (undocumented)
 export const buttonWarningHover = "var(--plasma-colors-button-warning-hover)";
 
-// @public
-export const Calendar: React_2.FC<CalendarProps>;
-
-// @public
-export const CalendarBase: React_2.FC<CalendarBaseProps>;
-
-// Warning: (ae-forgotten-export) The symbol "Calendar_2" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export type CalendarBaseProps = Calendar_2 & {
-    type?: CalendarStateType;
-};
-
-// Warning: (ae-forgotten-export) The symbol "CalendarRange" needs to be exported by the entry point index.d.ts
-//
-// @public
-export const CalendarBaseRange: ({ value, disabledList, eventList, min, max, onChangeValue, ...rest }: CalendarRange<CalendarBaseProps>) => React_2.ReactElement<CalendarBaseProps, string | ((props: any) => React_2.ReactElement<any, any> | null) | (new (props: any) => React_2.Component<any, any, any>)>;
-
-// @public
-export const CalendarDouble: React_2.FC<CalendarDoubleProps>;
-
-// @public (undocumented)
-export type CalendarDoubleProps = Calendar_2;
-
-// @public
-export const CalendarDoubleRange: ({ value, disabledList, eventList, min, max, onChangeValue, ...rest }: CalendarRange<Calendar_2>) => React_2.ReactElement<Calendar_2, string | ((props: any) => React_2.ReactElement<any, any> | null) | (new (props: any) => React_2.Component<any, any, any>)>;
-
-// @public (undocumented)
-export type CalendarProps = ({
-    isDouble?: false;
-    isRange?: false;
-    value: Date;
-} & CalendarBaseProps) | ({
-    isDouble?: false;
-    isRange: true;
-} & CalendarRange<CalendarBaseProps>) | ({
-    isDouble?: true;
-    isRange?: false;
-    value: Date;
-} & CalendarDoubleProps) | ({
-    isDouble?: true;
-    isRange: true;
-} & CalendarRange<CalendarDoubleProps>);
-
-// Warning: (ae-forgotten-export) The symbol "CalendarState" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export type CalendarStateType = keyof typeof CalendarState;
-
 export { canUseDOM }
 
 export { Caption }

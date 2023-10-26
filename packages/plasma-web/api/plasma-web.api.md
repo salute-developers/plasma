@@ -54,15 +54,13 @@ import { ButtonSizes } from '@salutejs/plasma-hope';
 import { ButtonView } from '@salutejs/plasma-hope';
 import { ButtonViewProps } from '@salutejs/plasma-core';
 import { buttonViews } from '@salutejs/plasma-hope';
-import { Calendar } from '@salutejs/plasma-hope';
-import { CalendarBase } from '@salutejs/plasma-hope';
-import { CalendarBaseProps } from '@salutejs/plasma-hope';
-import { CalendarBaseRange } from '@salutejs/plasma-hope';
-import { CalendarDouble } from '@salutejs/plasma-hope';
-import { CalendarDoubleProps } from '@salutejs/plasma-hope';
-import { CalendarDoubleRange } from '@salutejs/plasma-hope';
-import { CalendarProps } from '@salutejs/plasma-hope';
-import { CalendarStateType } from '@salutejs/plasma-hope';
+import { Calendar as Calendar_2 } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
+import { CalendarBaseProps } from '@salutejs/plasma-new-hope/styled-components';
+import { CalendarDoubleProps } from '@salutejs/plasma-new-hope/styled-components';
+import { CalendarProps } from '@salutejs/plasma-new-hope/styled-components';
+import { CalendarProps as CalendarProps_2 } from '@salutejs/plasma-new-hope';
+import { CalendarRange } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
+import { CalendarStateType } from '@salutejs/plasma-new-hope/styled-components';
 import { canUseDOM } from '@salutejs/plasma-core';
 import { Caption } from '@salutejs/plasma-hope';
 import { Card } from '@salutejs/plasma-hope';
@@ -88,6 +86,7 @@ import { ColCount } from '@salutejs/plasma-hope';
 import { ColOffsetProps } from '@salutejs/plasma-hope';
 import { ColProps } from '@salutejs/plasma-hope';
 import { ColSizeProps } from '@salutejs/plasma-hope';
+import { Component } from 'react';
 import { Container } from '@salutejs/plasma-hope';
 import { ContainerProps } from '@salutejs/plasma-hope';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
@@ -114,6 +113,7 @@ import { ElasticGridProps } from '@salutejs/plasma-hope';
 import { endAnimationClass } from '@salutejs/plasma-hope';
 import { endTransitionClass } from '@salutejs/plasma-hope';
 import { extractTextFrom } from '@salutejs/plasma-core';
+import { FC } from 'react';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { FocusProps } from '@salutejs/plasma-core';
 import { Footnote1 } from '@salutejs/plasma-hope';
@@ -202,6 +202,7 @@ import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
 import { radiuses } from '@salutejs/plasma-core';
 import { Ratio } from '@salutejs/plasma-hope';
 import { default as React_2 } from 'react';
+import { ReactElement } from 'react';
 import { RectSkeleton } from '@salutejs/plasma-hope';
 import { RectSkeletonProps } from '@salutejs/plasma-hope';
 import { RefAttributes } from 'react';
@@ -398,19 +399,40 @@ export { ButtonView }
 
 export { buttonViews }
 
-export { Calendar }
+// @public (undocumented)
+export const Calendar: FC<CalendarProps_2>;
 
-export { CalendarBase }
+// @public (undocumented)
+export const CalendarBase: FunctionComponent<PropsType<    {
+view: {
+primary: string;
+};
+size: {
+m: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & Calendar_2 & {
+type?: "Days" | "Months" | "Years" | undefined;
+} & RefAttributes<HTMLDivElement>>;
 
 export { CalendarBaseProps }
 
-export { CalendarBaseRange }
+// @public (undocumented)
+export const CalendarBaseRange: ({ value, disabledList, eventList, min, max, onChangeValue, ...rest }: CalendarRange<CalendarBaseProps>) => ReactElement<CalendarBaseProps, string | ((props: any) => ReactElement<any, any> | null) | (new (props: any) => Component<any, any, any>)>;
 
-export { CalendarDouble }
+// @public (undocumented)
+export const CalendarDouble: FunctionComponent<PropsType<    {
+view: {
+primary: string;
+};
+size: {
+m: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & Calendar_2 & RefAttributes<HTMLDivElement>>;
 
 export { CalendarDoubleProps }
 
-export { CalendarDoubleRange }
+// @public (undocumented)
+export const CalendarDoubleRange: ({ value, disabledList, eventList, min, max, onChangeValue, ...rest }: CalendarRange<CalendarDoubleProps>) => ReactElement<CalendarDoubleProps, string | ((props: any) => ReactElement<any, any> | null) | (new (props: any) => Component<any, any, any>)>;
 
 export { CalendarProps }
 
