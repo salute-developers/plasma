@@ -1,38 +1,45 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import { Story } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { Slider, SliderProps, SliderProps as DoubleSliderProps } from '.';
 
-const propsToDisable = [
-    'value',
-    'onChangeCommitted',
-    'theme',
-    'as',
-    'forwardedAs',
-    'onChange',
-    'fontSizeMultiplier',
-    'gap',
-    'settings',
-    'hasHoverAnimation',
-];
-
-export default {
+const meta: Meta = {
     title: 'Controls/Slider',
     component: Slider,
     decorators: [InSpacingDecorator],
     argTypes: {
-        ...disableProps(propsToDisable),
+        ...disableProps([
+            'value',
+            'onChangeCommitted',
+            'theme',
+            'as',
+            'forwardedAs',
+            'onChange',
+            'fontSizeMultiplier',
+            'gap',
+            'settings',
+            'hasHoverAnimation',
+        ]),
+    },
+    args: {
+        min: 0,
+        max: 100,
+        disabled: false,
+        ariaLabel: ['Минимальная цена товара', 'Максимальная цена товара'],
+        multipleStepSize: 10,
     },
 };
+
+export default meta;
 
 const SliderWrapper = styled.div`
     width: 25rem;
 `;
 
-export const Default: Story<SliderProps> = (args) => {
+const StoryDefault = (args: SliderProps) => {
     const [value, setValue] = useState(30);
 
     const onChangeCommittedHandle = (values) => {
@@ -46,15 +53,11 @@ export const Default: Story<SliderProps> = (args) => {
     );
 };
 
-Default.args = {
-    min: 0,
-    max: 100,
-    disabled: false,
-    ariaLabel: 'Цена товара',
-    multipleStepSize: 10,
+export const Default: StoryObj<SliderProps> = {
+    render: (args) => <StoryDefault {...args} />,
 };
 
-export const MultipleValues: Story<DoubleSliderProps> = (args) => {
+const StoryMultipleValues = (args: DoubleSliderProps) => {
     const [value, setValue] = useState([10, 80]);
 
     const onChangeCommittedHandle = (values) => {
@@ -68,10 +71,6 @@ export const MultipleValues: Story<DoubleSliderProps> = (args) => {
     );
 };
 
-MultipleValues.args = {
-    min: 0,
-    max: 100,
-    disabled: false,
-    ariaLabel: ['Минимальная цена товара', 'Максимальная цена товара'],
-    multipleStepSize: 10,
+export const MultipleValues: StoryObj<DoubleSliderProps> = {
+    render: (args) => <StoryMultipleValues {...args} />,
 };
