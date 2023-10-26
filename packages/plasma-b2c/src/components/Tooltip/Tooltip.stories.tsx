@@ -1,25 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { IconDownload, IconApps } from '@salutejs/plasma-icons';
 import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button';
 
-import { Tooltip, TooltipProps, Placement } from '.';
+import { Tooltip, TooltipProps } from '.';
 
-const placements: Array<Placement> = [
-    'top',
-    'top-start',
-    'top-end',
+const meta: Meta<TooltipProps> = {
+    title: 'Controls/Tooltip',
+    decorators: [InSpacingDecorator],
+    component: Tooltip,
+    argTypes: {
+        placement: {
+            options: ['top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left', 'right'],
+            control: {
+                type: 'select',
+            },
+        },
+        ...disableProps(['isVisible']),
+    },
+    args: {
+        text: 'Hello',
+        placement: 'bottom',
+        animated: true,
+        arrow: true,
+    },
+};
 
-    'bottom',
-    'bottom-start',
-    'bottom-end',
+export default meta;
 
-    'left',
-    'right',
-];
+type Story = StoryObj<TooltipProps>;
 
 const StyledGrid = styled.div`
     display: grid;
@@ -28,42 +40,44 @@ const StyledGrid = styled.div`
     padding: 2.5rem;
 `;
 
-export default {
-    title: 'Controls/Tooltip',
-    decorators: [InSpacingDecorator],
-} as Meta;
+const ChangeTextWrapper = styled.div`
+    margin-left: 100px;
+    margin-bottom: 35px;
+`;
 
-export const Live = () => {
-    return (
-        <StyledGrid>
-            <Tooltip placement="top-start" isVisible arrow text="Top start" animated={false}>
-                <Tooltip placement="left" isVisible arrow text="Left" animated={false}>
+export const Live: StoryObj = {
+    render: () => {
+        return (
+            <StyledGrid>
+                <Tooltip placement="top-start" isVisible arrow text="Top start" animated={false}>
+                    <Tooltip placement="left" isVisible arrow text="Left" animated={false}>
+                        <Button contentLeft={<IconDownload />} />
+                    </Tooltip>
+                </Tooltip>
+                <Tooltip placement="top" isVisible arrow text="Top" animated={false}>
                     <Button contentLeft={<IconDownload />} />
                 </Tooltip>
-            </Tooltip>
-            <Tooltip placement="top" isVisible arrow text="Top" animated={false}>
-                <Button contentLeft={<IconDownload />} />
-            </Tooltip>
-            <Tooltip placement="top-end" isVisible arrow text="Top end" animated={false}>
-                <Tooltip placement="right" isVisible arrow text="Right" animated={false}>
+                <Tooltip placement="top-end" isVisible arrow text="Top end" animated={false}>
+                    <Tooltip placement="right" isVisible arrow text="Right" animated={false}>
+                        <Button contentLeft={<IconDownload />} />
+                    </Tooltip>
+                </Tooltip>
+                <Tooltip placement="bottom-start" isVisible arrow text="Bottom start" animated={false}>
                     <Button contentLeft={<IconDownload />} />
                 </Tooltip>
-            </Tooltip>
-            <Tooltip placement="bottom-start" isVisible arrow text="Bottom start" animated={false}>
-                <Button contentLeft={<IconDownload />} />
-            </Tooltip>
-            <Tooltip placement="bottom" isVisible arrow text="Bottom" animated={false}>
-                <Button contentLeft={<IconDownload />} />
-            </Tooltip>
-            <Tooltip placement="bottom-end" isVisible arrow text="Bottom end" animated={false}>
-                <Button contentLeft={<IconDownload />} />
-            </Tooltip>
-        </StyledGrid>
-    );
+                <Tooltip placement="bottom" isVisible arrow text="Bottom" animated={false}>
+                    <Button contentLeft={<IconDownload />} />
+                </Tooltip>
+                <Tooltip placement="bottom-end" isVisible arrow text="Bottom end" animated={false}>
+                    <Button contentLeft={<IconDownload />} />
+                </Tooltip>
+            </StyledGrid>
+        );
+    },
 };
 
-export const Default: Story<TooltipProps> = (args) => {
-    const [isVisible, setVisible] = React.useState(false);
+const StoryDefault = (args: TooltipProps) => {
+    const [isVisible, setVisible] = useState(false);
 
     return (
         <Tooltip isVisible={isVisible} {...args}>
@@ -77,48 +91,20 @@ export const Default: Story<TooltipProps> = (args) => {
     );
 };
 
-Default.args = {
-    placement: 'bottom',
-    animated: true,
-    arrow: true,
-    text: 'Hello there.',
+export const Default: Story = {
+    render: (args) => <StoryDefault {...args} />,
 };
 
-Default.argTypes = {
-    placement: {
-        options: placements,
-        control: {
-            type: 'select',
-        },
-    },
-    ...disableProps(['isVisible']),
-};
-
-export const ChangeText: Story<TooltipProps> = ({ text, ...rest }) => {
-    return (
-        <div>
-            <div style={{ marginLeft: '100px', marginBottom: '35px' }}>
-                <Tooltip text={text} isVisible {...rest}>
-                    <IconApps />
-                </Tooltip>
+export const ChangeText: Story = {
+    render: ({ text, ...rest }) => {
+        return (
+            <div>
+                <ChangeTextWrapper>
+                    <Tooltip text={text} isVisible {...rest}>
+                        <IconApps />
+                    </Tooltip>
+                </ChangeTextWrapper>
             </div>
-        </div>
-    );
-};
-
-ChangeText.args = {
-    text: 'Hello',
-    placement: 'bottom',
-    animated: true,
-    arrow: true,
-};
-
-ChangeText.argTypes = {
-    placement: {
-        options: placements,
-        control: {
-            type: 'select',
-        },
+        );
     },
-    ...disableProps(['isVisible']),
 };
