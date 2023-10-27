@@ -1,12 +1,12 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { createContext, useEffect, useState, useContext, FC, PropsWithChildren } from 'react';
 
-import { PopupContextType, PopupInfo } from './Popup.types';
+import type { PopupContextType, PopupInfo } from './Popup.types';
 
 export const POPUP_PORTAL_ID = 'plasma-popup-root';
 
 const items: PopupInfo[] = [];
 
-const PopupContext = React.createContext<PopupContextType>({
+const PopupContext = createContext<PopupContextType>({
     items,
     register(_info: PopupInfo): void {
         throw new Error('Function not implemented. Add PopupProvider');
@@ -16,22 +16,22 @@ const PopupContext = React.createContext<PopupContextType>({
     },
 });
 
-export const usePopupContext = () => React.useContext(PopupContext);
+export const usePopupContext = () => useContext(PopupContext);
 
-export const PopupProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [items, setItems] = React.useState<PopupInfo[]>([]);
+export const PopupProvider: FC<PropsWithChildren> = ({ children }) => {
+    const [items, setItems] = useState<PopupInfo[]>([]);
 
     const register = (info: PopupInfo) => {
-        const updatedItems = [...items];
-        updatedItems.push(info);
-        setItems(updatedItems);
+        setItems([...items, info]);
     };
 
     const unregister = (id: string) => {
         const index = items.findIndex((item: PopupInfo) => id === item.id);
+
         if (index === -1) {
             return;
         }
+
         items.splice(index, 1);
         setItems([...items]);
     };

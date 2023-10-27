@@ -31,7 +31,8 @@ ReactDOM.render(
 ### Использование
 
 PopupBase можно использовать как и на всем окне, так и в отдельном фрейме - свойство `frame`.
-Само позиционирование можно указать с помощью свойста `placement`(center - по умолчанию; left, right, top, bottom и их комбинации),
+Также это свойство поддержиавет передачу id элемента, в котором будет использоваться компонент.
+Само позиционирование можно указать с помощью свойства `placement`(center - по умолчанию; left, right, top, bottom и их комбинации),
  а также определить отступы от точки с помощью `offset`.
 
 ```tsx live
@@ -122,19 +123,19 @@ export function App() {
 ## Подключение анимации
 
 Для подключения анимации нужно добавить параметр `withAnimation`.
-Само управление происходит с помощью классов через перменные `endAnimationClass`, `endTransitionClass` для `PopupBase`.
-Для добавления анимации необходимо использовать класс `.popup-base-root` через переменную `popupBaseRootClass` из пакета.
+Само управление происходит с помощью классов через переменные `endAnimation`, `endTransition` из объекта `popupClasses` для `PopupBase`.
+Для добавления анимации необходимо использовать класс `.popup-base-root` через переменную `popupClasses.root` из пакета.
 
 Пример:
 
 ```tsx
 const StyledPopupTransition = styled(PopupBase)`
-    && > .${popupBaseRootClass} {
+    && > .${popupClasses.root} {
         opacity: 1;
         transition: opacity 0.5s 0.1s;
     }
 
-    &&.${endTransitionClass} > .${popupBaseRootClass} {
+    &&.${popupClasses.endTransition} > .${popupClasses.root} {
         opacity: 0;
         transition: opacity 0.5s 0.1s;
     }
@@ -145,11 +146,11 @@ const StyledPopupTransition = styled(PopupBase)`
 
 ```tsx
 const StyledPopupAnimation = styled(PopupBase)`
-    && > .${popupBaseRootClass} {
+    && > .${popupClasses.root} {
         animation: fadeIn 1s forwards;
     }
 
-    &&.${endAnimationClass} > .${popupBaseRootClass} {
+    &&.${popupClasses.endAnimation} > .${popupClasses.root} {
         animation: fadeOut 1s forwards;
     }
 
@@ -175,7 +176,7 @@ const StyledPopupAnimation = styled(PopupBase)`
 `;
 ```
 
-И в самом комопненте:
+И в самом компоненте:
 
 ```tsx
     const [isOpen, setIsOpen] = React.useState(false);

@@ -122,7 +122,6 @@ import { PopupBase } from '@salutejs/plasma-core';
 import { PopupBasePlacement } from '@salutejs/plasma-core';
 import { PopupBaseProps } from '@salutejs/plasma-core';
 import { PopupBaseProvider } from '@salutejs/plasma-core';
-import { PopupBaseRoot } from '@salutejs/plasma-core';
 import { popupBaseRootClass } from '@salutejs/plasma-core';
 import { PopupContextType } from '@salutejs/plasma-core';
 import { PopupInfo } from '@salutejs/plasma-core';
@@ -182,8 +181,6 @@ import { useDebouncedFunction } from '@salutejs/plasma-core';
 import { useFocusTrap } from '@salutejs/plasma-core';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
-import { useModal } from '@salutejs/plasma-core';
-import { usePopup } from '@salutejs/plasma-core';
 import { usePopupBaseContext } from '@salutejs/plasma-core';
 import { useResizeObserver } from '@salutejs/plasma-core';
 import { useToast } from '@salutejs/plasma-core';
@@ -1026,8 +1023,6 @@ export { PopupBaseProps }
 
 export { PopupBaseProvider }
 
-export { PopupBaseRoot }
-
 export { popupBaseRootClass }
 
 export { PopupContextType }
@@ -1374,10 +1369,6 @@ export { useFocusTrap }
 export { useForkRef }
 
 export { useIsomorphicLayoutEffect }
-
-export { useModal }
-
-export { usePopup }
 
 export { usePopupBaseContext }
 

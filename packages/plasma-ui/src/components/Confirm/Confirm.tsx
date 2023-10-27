@@ -1,14 +1,20 @@
 import React, { useCallback, useRef, ReactNode } from 'react';
 import styled, { css, createGlobalStyle } from 'styled-components';
 import { overlay, backgroundPrimary } from '@salutejs/plasma-tokens';
-import { ButtonRoot } from '@salutejs/plasma-core';
+import {
+    ButtonRoot,
+    PopupBasePlacement,
+    PopupBaseProvider,
+    endTransitionClass,
+    popupBaseRootClass,
+    ModalBase,
+    modalBaseOverlayClass,
+} from '@salutejs/plasma-core';
 import { FlexDirectionProperty } from 'csstype';
 
 import { mediaQuery } from '../../utils';
 import { Button, ButtonProps } from '../Button';
 import { TextBox, TextBoxTitle, TextBoxSubTitle } from '../TextBox';
-import { ModalBase, modalBaseOverlayClass } from '../ModalBase';
-import { PopupBasePlacement, PopupBaseProvider, popupBaseRootClass, endTransitionClass } from '../PopupBase';
 import { Cell } from '../Cell';
 
 const flexDirection: Record<Direction, FlexDirectionProperty> = {

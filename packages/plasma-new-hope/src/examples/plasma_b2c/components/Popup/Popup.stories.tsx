@@ -6,10 +6,10 @@ import { SSRProvider } from '@salutejs/plasma-core';
 import { Button } from '../Button/Button';
 import { WithTheme } from '../../../_helpers';
 
-import { Popup, popupRootClass, endAnimationClass, endTransitionClass, PopupProvider } from './Popup';
+import { Popup, popupClasses, PopupProvider } from './Popup';
 
 export default {
-    title: 'sds_engineer/Popup',
+    title: 'plasma_b2c/Popup',
     decorators: [WithTheme],
     argTypes: {
         placement: {
@@ -64,11 +64,11 @@ const Content = styled.div`
 `;
 
 const StyledPopupAnimation = styled(Popup)`
-    && > .${popupRootClass} {
+    && > .${popupClasses.root} {
         animation: fadeIn 1s forwards;
     }
 
-    &&.${endAnimationClass} > .${popupRootClass} {
+    &&.${popupClasses.endAnimation} > .${popupClasses.root} {
         animation: fadeOut 1s forwards;
     }
 
@@ -94,12 +94,12 @@ const StyledPopupAnimation = styled(Popup)`
 `;
 
 const StyledPopupTransition = styled(Popup)`
-    && > .${popupRootClass} {
+    && > .${popupClasses.root} {
         opacity: 1;
         transition: opacity 0.5s 0.1s;
     }
 
-    &&.${endTransitionClass} > .${popupRootClass} {
+    &&.${popupClasses.endTransition} > .${popupClasses.root} {
         opacity: 0;
         transition: opacity 0.5s 0.1s;
     }

@@ -1,13 +1,7 @@
 import { popupConfig } from '../../../../components/Popup';
 import { component, mergeConfig } from '../../../../engines';
 
-export {
-    PopupProvider,
-    popupRootClass,
-    endAnimationClass,
-    endTransitionClass,
-    usePopupContext,
-} from '../../../../components/Popup';
+export { PopupProvider, popupClasses, usePopupContext } from '../../../../components/Popup';
 
 const mergedConfig = mergeConfig(popupConfig);
 

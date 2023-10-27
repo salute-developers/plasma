@@ -185,7 +185,6 @@ import { PopupBase } from '@salutejs/plasma-hope';
 import { PopupBasePlacement } from '@salutejs/plasma-hope';
 import { PopupBaseProps } from '@salutejs/plasma-hope';
 import { PopupBaseProvider } from '@salutejs/plasma-hope';
-import { PopupBaseRoot } from '@salutejs/plasma-hope';
 import { popupBaseRootClass } from '@salutejs/plasma-hope';
 import { PopupContextType } from '@salutejs/plasma-hope';
 import { PopupInfo } from '@salutejs/plasma-hope';
@@ -276,8 +275,6 @@ import { useDebouncedFunction } from '@salutejs/plasma-core';
 import { useFocusTrap } from '@salutejs/plasma-hope';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
-import { useModal } from '@salutejs/plasma-hope';
-import { usePopup } from '@salutejs/plasma-hope';
 import { usePopupBaseContext } from '@salutejs/plasma-hope';
 import { useToast } from '@salutejs/plasma-hope';
 import { ValidationResult } from '@salutejs/plasma-hope';
@@ -688,8 +685,6 @@ export { PopupBaseProps }
 
 export { PopupBaseProvider }
 
-export { PopupBaseRoot }
-
 export { popupBaseRootClass }
 
 export { PopupContextType }
@@ -911,10 +906,6 @@ export { useFocusTrap }
 export { useForkRef }
 
 export { useIsomorphicLayoutEffect }
-
-export { useModal }
-
-export { usePopup }
 
 export { usePopupBaseContext }
 

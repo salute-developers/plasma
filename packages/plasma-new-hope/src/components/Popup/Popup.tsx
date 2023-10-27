@@ -1,15 +1,15 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useForkRef, useUniqId } from '@salutejs/plasma-core';
-import { cx } from '@linaria/core';
 
 import { RootProps } from '../../engines/types';
+import { cx } from '../../utils';
 
-import { BasicPopupPlacement, PopupPlacement, PopupPositionType, PopupProps } from './Popup.types';
+import type { PopupPlacementBasic, PopupPlacement, PopupPositionType, PopupProps } from './Popup.types';
 import { POPUP_PORTAL_ID } from './PopupContext';
 import { PopupRoot } from './PopupRoot';
-import { usePopup } from './Popup.hooks';
-import { endAnimationClass, endTransitionClass } from './Popup.utils';
+import { usePopup } from './hooks';
+import { classes } from './Popup.tokens';
 
 export const handlePosition = (
     placement: PopupPlacement,
@@ -17,6 +17,7 @@ export const handlePosition = (
 ): PopupPositionType => {
     let x = '0rem';
     let y = '0rem';
+
     if (offset) {
         const [_x, _y] = offset;
         x = typeof _x === 'number' ? `${_x}rem` : _x;
@@ -36,9 +37,9 @@ export const handlePosition = (
     let top;
     let bottom;
     let transform;
-    const placements = placement.split('-') as BasicPopupPlacement[];
+    const placements = placement.split('-') as PopupPlacementBasic[];
 
-    placements.forEach((placement: BasicPopupPlacement) => {
+    placements.forEach((placement: PopupPlacementBasic) => {
         switch (placement) {
             case 'left':
                 left = x;
@@ -127,6 +128,7 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                 if (!portal) {
                     portal = document.createElement('div');
                     portal.setAttribute('id', POPUP_PORTAL_ID);
+
                     if (typeof frame === 'string' && frame !== 'document') {
                         document.getElementById(frame)?.appendChild(portal);
                     } else {
@@ -149,8 +151,8 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
 
             const cls = cx(
                 className,
-                animationInfo?.endAnimation && endAnimationClass,
-                animationInfo?.endTransition && endTransitionClass,
+                animationInfo?.endAnimation ? classes.endAnimation : '',
+                animationInfo?.endTransition ? classes.endTransition : '',
             );
 
             return (

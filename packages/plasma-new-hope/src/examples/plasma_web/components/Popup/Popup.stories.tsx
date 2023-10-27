@@ -1,17 +1,16 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import { styled } from '@linaria/react';
 import { Story, Meta } from '@storybook/react';
-import { surfaceSolid03, surfaceSolid02 } from '@salutejs/plasma-tokens';
+import { SSRProvider } from '@salutejs/plasma-core';
 
-import { SSRProvider } from '../SSRProvider';
-import { InSpacingDecorator } from '../../helpers';
-import { Button } from '../Button';
+import { Button } from '../Button/Button';
+import { WithTheme } from '../../../_helpers';
 
-import { PopupBase, popupBaseRootClass, PopupBaseProvider, endAnimationClass, endTransitionClass } from '.';
+import { Popup, popupClasses, PopupProvider } from './Popup';
 
 export default {
-    title: 'Controls/PopupBase',
-    decorators: [InSpacingDecorator],
+    title: 'plasma_web/Popup',
+    decorators: [WithTheme],
     argTypes: {
         placement: {
             options: [
@@ -32,7 +31,7 @@ export default {
     },
 } as Meta;
 
-type PopupBaseStoryProps = { placement: string; offsetX: number; offsetY: number };
+type PopupStoryProps = { placement: string; offsetX: number; offsetY: number };
 
 const StyledButton = styled(Button)`
     margin-top: 1rem;
@@ -47,7 +46,7 @@ const OtherContent = styled.div`
     margin-top: 1rem;
     width: 400px;
     height: 500px;
-    background: ${surfaceSolid03};
+    background: var(--plasma-colors-surface-solid03);
     position: absolute;
 
     display: flex;
@@ -60,16 +59,16 @@ const OtherContent = styled.div`
 `;
 
 const Content = styled.div`
-    background: ${surfaceSolid02};
+    background: var(--plasma-colors-surface-solid02);
     padding: 1rem;
 `;
 
-const StyledPopupAnimation = styled(PopupBase)`
-    && > .${popupBaseRootClass} {
+const StyledPopupAnimation = styled(Popup)`
+    && > .${popupClasses.root} {
         animation: fadeIn 1s forwards;
     }
 
-    &&.${endAnimationClass} > .${popupBaseRootClass} {
+    &&.${popupClasses.endAnimation} > .${popupClasses.root} {
         animation: fadeOut 1s forwards;
     }
 
@@ -94,19 +93,19 @@ const StyledPopupAnimation = styled(PopupBase)`
     }
 `;
 
-const StyledPopupTransition = styled(PopupBase)`
-    && > .${popupBaseRootClass} {
+const StyledPopupTransition = styled(Popup)`
+    && > .${popupClasses.root} {
         opacity: 1;
         transition: opacity 0.5s 0.1s;
     }
 
-    &&.${endTransitionClass} > .${popupBaseRootClass} {
+    &&.${popupClasses.endTransition} > .${popupClasses.root} {
         opacity: 0;
         transition: opacity 0.5s 0.1s;
     }
 `;
 
-export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, offsetX, offsetY }) => {
+export const PopupDemo: Story<PopupStoryProps> = ({ placement, offsetX, offsetY }) => {
     const [isOpenA, setIsOpenA] = React.useState(false);
     const [isOpenB, setIsOpenB] = React.useState(false);
 
@@ -115,7 +114,7 @@ export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, offsetX, 
     return (
         <SSRProvider>
             <StyledWrapper>
-                <PopupBaseProvider>
+                <PopupProvider>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <StyledButton text="Открыть в document" onClick={() => setIsOpenB(true)} />
                         <StyledButton text="Открыть во Frame" onClick={() => setIsOpenA(true)} />
@@ -138,7 +137,7 @@ export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, offsetX, 
                     </OtherContent>
                     <StyledPopupTransition
                         id="popupB"
-                        frame="document"
+                        frame="theme-root"
                         withAnimation
                         isOpen={isOpenB}
                         placement={placement}
@@ -149,13 +148,13 @@ export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, offsetX, 
                             <>Content</>
                         </Content>
                     </StyledPopupTransition>
-                </PopupBaseProvider>
+                </PopupProvider>
             </StyledWrapper>
         </SSRProvider>
     );
 };
 
-PopupBaseDemo.args = {
+PopupDemo.args = {
     placement: 'center',
     offsetX: 0,
     offsetY: 0,
