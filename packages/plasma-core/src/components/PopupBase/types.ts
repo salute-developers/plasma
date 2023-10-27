@@ -4,7 +4,7 @@ export type PopupBasePlacement = BasicPopupBasePlacement | MixedPopupBasePlaceme
 
 export interface PopupInfo {
     id: string;
-    info?: Object;
+    info?: Record<string, any>;
 }
 
 export interface PopupContextType {
@@ -29,9 +29,9 @@ export interface PopupBaseProps extends React.HTMLAttributes<HTMLDivElement> {
      */
     offset?: [number, number] | [string, string];
     /**
-     * В каком контейнере позиционируется(по умолчанию document).
+     * В каком контейнере позиционируется(по умолчанию document), можно также указать id элемента или ref для него.
      */
-    frame?: 'document' | React.RefObject<HTMLElement>;
+    frame?: 'document' | string | React.RefObject<HTMLElement>;
     /**
      * Содержимое PopupBase.
      */

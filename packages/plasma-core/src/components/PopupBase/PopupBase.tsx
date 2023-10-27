@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, forwardRef } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
@@ -15,13 +15,13 @@ const StyledPortal = styled.div``;
 export const getClassName = (animationInfo: PopupAnimationInfo, className?: string) => {
     const endAnimation = animationInfo?.endAnimation ? endAnimationClass : '';
     const endTransition = animationInfo?.endTransition ? endTransitionClass : '';
-    return [className, endAnimation, endTransition].filter((item) => !!item).join(' ');
+    return [className, endAnimation, endTransition].filter(Boolean).join(' ');
 };
 
 /**
  * Базовый копмонент PopupBase.
  */
-export const PopupBase = React.forwardRef<HTMLDivElement, PopupBaseProps>(
+export const PopupBase = forwardRef<HTMLDivElement, PopupBaseProps>(
     (
         {
             id,
@@ -55,20 +55,25 @@ export const PopupBase = React.forwardRef<HTMLDivElement, PopupBaseProps>(
         useEffect(() => {
             let portal = document.getElementById(POPOVER_PORTAL_ID);
 
-            if (frame !== 'document' && frame && frame.current) {
+            if (typeof frame !== 'string' && frame && frame.current) {
                 portal = frame.current;
             }
 
             if (!portal) {
                 portal = document.createElement('div');
                 portal.setAttribute('id', POPOVER_PORTAL_ID);
-                document.body.appendChild(portal);
+
+                if (typeof frame === 'string' && frame !== 'document') {
+                    document.getElementById(frame)?.appendChild(portal);
+                } else {
+                    document.body.appendChild(portal);
+                }
             }
 
             portalRef.current = portal;
 
             /**
-             * Изменение стейта нужно для того, чтобы PopupBase
+             * Изменение стейта нужно для того, чтобы Popup
              * отобразился после записи DOM элемента в portalRef.current
              */
             forceRender(true);

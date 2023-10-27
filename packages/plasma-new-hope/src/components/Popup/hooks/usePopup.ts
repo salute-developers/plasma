@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-import { PopupAnimationInfo, PopupHookArgs } from './Popup.types';
-import { usePopupContext } from './PopupContext';
+import type { PopupAnimationInfo, PopupHookArgs } from '../Popup.types';
+import { usePopupContext } from '../PopupContext';
 
 // Хук для поключения анимации
-export const usePopupAnimation = (): PopupAnimationInfo => {
+const usePopupAnimation = (): PopupAnimationInfo => {
     const [endAnimation, setEndAnimation] = useState<boolean>(false);
     const [endTransition, setEndTransition] = useState<boolean>(false);
 
@@ -19,10 +19,10 @@ export const usePopup = ({ isOpen, id, popupInfo, withAnimation }: PopupHookArgs
 
     // для использования transition в качестве анимации
     useEffect(() => {
-        if (withAnimation) {
-            animationInfo?.setEndTransition(animationInfo && (!isVisible || animationInfo?.endAnimation));
+        if (withAnimation && animationInfo) {
+            animationInfo.setEndTransition(!isVisible || animationInfo?.endAnimation);
         }
-    }, [animationInfo?.endAnimation, isVisible]);
+    }, [animationInfo, withAnimation, isVisible]);
 
     // сначала добавление/удаление из контекста, и только после этого отображение/скрытие
     useEffect(() => {
@@ -30,7 +30,7 @@ export const usePopup = ({ isOpen, id, popupInfo, withAnimation }: PopupHookArgs
         if (isOpen && !isVisible) {
             popupController.register({ id, ...popupInfo });
             setVisible(true);
-            animationInfo?.setEndAnimation(false);
+            animationInfo.setEndAnimation(false);
             return;
         }
 
@@ -40,7 +40,7 @@ export const usePopup = ({ isOpen, id, popupInfo, withAnimation }: PopupHookArgs
 
         // если есть анимация - закрытие по окончании анимации
         if (withAnimation) {
-            animationInfo?.setEndAnimation(true);
+            animationInfo.setEndAnimation(true);
             return;
         }
 
@@ -49,5 +49,5 @@ export const usePopup = ({ isOpen, id, popupInfo, withAnimation }: PopupHookArgs
         setVisible(false);
     }, [isOpen, isVisible, animationInfo]);
 
-    return { isVisible, setVisible, animationInfo };
+    return { isVisible, setVisible, animationInfo, withAnimation };
 };

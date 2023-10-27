@@ -50,7 +50,7 @@ export const PopupBaseRoot = React.forwardRef<HTMLDivElement, PopupRootProps>(
                     animationInfo.setEndAnimation(false);
                 }
             },
-            [popupController.unregister, animationInfo, setVisible],
+            [popupController.unregister, animationInfo?.endAnimation, setVisible],
         );
 
         return (

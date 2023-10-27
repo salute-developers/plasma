@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { useEffect, useState, createContext, useContext, FC, PropsWithChildren } from 'react';
 
 import { PopupContextType, PopupInfo } from './types';
 
@@ -6,7 +6,7 @@ export const POPOVER_PORTAL_ID = 'plasma-popup-root';
 
 const items: PopupInfo[] = [];
 
-const PopupBaseContext = React.createContext<PopupContextType>({
+const PopupBaseContext = createContext<PopupContextType>({
     items,
     register(_info: PopupInfo): void {
         throw new Error('Function not implemented. Add PopupBaseProvider');
@@ -16,15 +16,13 @@ const PopupBaseContext = React.createContext<PopupContextType>({
     },
 });
 
-export const usePopupBaseContext = () => React.useContext(PopupBaseContext);
+export const usePopupBaseContext = () => useContext(PopupBaseContext);
 
-export const PopupBaseProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [items, setItems] = React.useState<PopupInfo[]>([]);
+export const PopupBaseProvider: FC<PropsWithChildren> = ({ children }) => {
+    const [items, setItems] = useState<PopupInfo[]>([]);
 
     const register = (info: PopupInfo) => {
-        const updatedItems = [...items];
-        updatedItems.push(info);
-        setItems(updatedItems);
+        setItems([...items, info]);
     };
 
     const unregister = (id: string) => {

@@ -1,10 +1,10 @@
-export type BasicPopupPlacement = 'center' | 'top' | 'bottom' | 'right' | 'left';
-export type MixedPopupPlacement = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
-export type PopupPlacement = BasicPopupPlacement | MixedPopupPlacement;
+export type PopupPlacementBasic = 'center' | 'top' | 'bottom' | 'right' | 'left';
+export type PopupPlacementMixed = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+export type PopupPlacement = PopupPlacementBasic | PopupPlacementMixed;
 
 export interface PopupInfo {
     id: string;
-    info?: Object;
+    info?: Record<string, any>;
 }
 
 export interface PopupContextType {
@@ -29,7 +29,7 @@ export interface PopupProps extends React.HTMLAttributes<HTMLDivElement> {
      */
     offset?: [number, number] | [string, string];
     /**
-     * В каком контейнере позиционируется(по умолчанию document).
+     * В каком контейнере позиционируется(по умолчанию document), можно также указать id элемента или ref для него.
      */
     frame?: 'document' | string | React.RefObject<HTMLElement>;
     /**

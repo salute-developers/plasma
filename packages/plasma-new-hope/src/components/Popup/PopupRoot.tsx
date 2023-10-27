@@ -1,16 +1,16 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, forwardRef, useRef, AnimationEvent, TransitionEvent } from 'react';
 import { useForkRef } from '@salutejs/plasma-core';
 
 import { usePopupContext } from './PopupContext';
-import { PopupRootProps } from './Popup.types';
+import type { PopupRootProps } from './Popup.types';
 import { PopupRootContainer, PopupView } from './Popup.styles';
-import { popupRootClass } from './Popup.utils';
+import { classes } from './Popup.tokens';
 
 /**
  * Корень Popup.
  * Управляет показом/скрытием и анимацией всплывающего окна.
  */
-export const PopupRoot = React.forwardRef<HTMLDivElement, PopupRootProps>(
+export const PopupRoot = forwardRef<HTMLDivElement, PopupRootProps>(
     ({ id, placement, offset, frame, setVisible, children, role, zIndex, animationInfo, className, ...rest }, ref) => {
         const contentRef = useRef<HTMLDivElement | null>(null);
         const innerRef = useForkRef<HTMLDivElement>(contentRef, ref);
@@ -18,7 +18,7 @@ export const PopupRoot = React.forwardRef<HTMLDivElement, PopupRootProps>(
         const popupController = usePopupContext();
 
         const handleAnimationEnd = useCallback(
-            (e: React.AnimationEvent<HTMLDivElement> | React.TransitionEvent<HTMLDivElement>) => {
+            (e: AnimationEvent<HTMLDivElement> | TransitionEvent<HTMLDivElement>) => {
                 if (!contentRef || e.target !== contentRef.current) {
                     return;
                 }
@@ -29,12 +29,12 @@ export const PopupRoot = React.forwardRef<HTMLDivElement, PopupRootProps>(
                     animationInfo.setEndAnimation(false);
                 }
             },
-            [popupController.unregister, animationInfo, setVisible],
+            [popupController.unregister, animationInfo?.endAnimation, setVisible],
         );
 
         return (
             <PopupRootContainer
-                className={popupRootClass}
+                className={classes.root}
                 ref={innerRef}
                 placement={placement}
                 frame={frame}

@@ -14,7 +14,6 @@ import { Context } from 'react';
 import { CSSObject } from 'styled-components';
 import { CSSProperties } from 'react';
 import { DefaultTheme } from 'styled-components';
-import { Dispatch } from 'react';
 import { DraggableData } from 'react-draggable';
 import { FC } from 'react';
 import { FlattenInterpolation } from 'styled-components';
@@ -23,10 +22,10 @@ import { FunctionComponent } from 'react';
 import { HTMLAttributes } from 'react';
 import { InterpolationFunction } from 'styled-components';
 import { MutableRefObject } from 'react';
+import { PropsWithChildren } from 'react';
 import { default as React_2 } from 'react';
 import { ReactNode } from 'react';
 import { RefObject } from 'react';
-import { SetStateAction } from 'react';
 import { spacing } from '@salutejs/plasma-typo';
 import { SpacingProps } from '@salutejs/plasma-typo';
 import { SpacingProps as SpacingProps_2 } from '@salutejs/plasma-typo/lib/cjs/mixins/applySpacing';
@@ -855,18 +854,6 @@ export interface PinProps {
 // @public @deprecated
 export const Popup: React_2.NamedExoticComponent<PopupProps & React_2.RefAttributes<HTMLDivElement>>;
 
-// @public (undocumented)
-export interface PopupAnimationInfo {
-    // (undocumented)
-    endAnimation: boolean;
-    // (undocumented)
-    endTransition: boolean;
-    // (undocumented)
-    setEndAnimation: React.Dispatch<React.SetStateAction<boolean>>;
-    // (undocumented)
-    setEndTransition: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 // @public
 export const PopupBase: React_2.ForwardRefExoticComponent<PopupBaseProps & React_2.RefAttributes<HTMLDivElement>>;
 
@@ -879,7 +866,7 @@ export type PopupBasePlacement = BasicPopupBasePlacement | MixedPopupBasePlaceme
 // @public (undocumented)
 export interface PopupBaseProps extends React.HTMLAttributes<HTMLDivElement> {
     children?: React.ReactNode;
-    frame?: 'document' | React.RefObject<HTMLElement>;
+    frame?: 'document' | string | React.RefObject<HTMLElement>;
     isOpen: boolean;
     // (undocumented)
     offset?: [number, number] | [string, string];
@@ -892,12 +879,7 @@ export interface PopupBaseProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 // @public (undocumented)
-export const PopupBaseProvider: React_2.FC<{
-    children: ReactNode;
-}>;
-
-// @public
-export const PopupBaseRoot: React_2.ForwardRefExoticComponent<PopupRootProps & React_2.RefAttributes<HTMLDivElement>>;
+export const PopupBaseProvider: FC<PropsWithChildren>;
 
 // @public (undocumented)
 export const popupBaseRootClass = "popup-base-root";
@@ -917,7 +899,7 @@ export interface PopupInfo {
     // (undocumented)
     id: string;
     // (undocumented)
-    info?: Object;
+    info?: Record<string, any>;
 }
 
 // @public (undocumented)
@@ -934,6 +916,7 @@ export interface PopupProps extends HTMLAttributes<HTMLDivElement> {
 
 // @public (undocumented)
 export interface PopupRootProps extends Omit<PopupBaseProps, 'isOpen' | 'overlay'> {
+    // Warning: (ae-forgotten-export) The symbol "PopupAnimationInfo" needs to be exported by the entry point index.d.ts
     animationInfo: PopupAnimationInfo;
     // (undocumented)
     id: string;
@@ -1366,28 +1349,12 @@ export const useForkRef: UseForkRefHook;
 // @public
 export const useIsomorphicLayoutEffect: typeof useEffect;
 
-// Warning: (ae-forgotten-export) The symbol "ModalHookArgs" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const useModal: ({ id, popupInfo, onEscKeyDown, onClose, closeOnEsc }: ModalHookArgs) => {
-    modalInfo: ModalInfo;
-};
-
 // @public (undocumented)
 export const usePaginationDots: ({ items, index, visibleItems }: SmartPaginationDotsProps) => {
     sliced: {
         id: number | string;
     }[];
     activeId: string | number;
-};
-
-// Warning: (ae-forgotten-export) The symbol "PopupHookArgs" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const usePopup: ({ isOpen, id, popupInfo, withAnimation }: PopupHookArgs) => {
-    isVisible: boolean;
-    setVisible: Dispatch<SetStateAction<boolean>>;
-    animationInfo: PopupAnimationInfo;
 };
 
 // @public (undocumented)
@@ -1494,7 +1461,6 @@ export interface WithSkeletonProps {
 
 // Warnings were encountered during analysis:
 //
-// components/ModalBase/hooks.d.ts:4:5 - (ae-forgotten-export) The symbol "ModalInfo" needs to be exported by the entry point index.d.ts
 // components/Toast/Toast.d.ts:4:5 - (ae-forgotten-export) The symbol "ToastRole" needs to be exported by the entry point index.d.ts
 // components/Toast/useToast.d.ts:2:5 - (ae-forgotten-export) The symbol "ShowToast" needs to be exported by the entry point index.d.ts
 

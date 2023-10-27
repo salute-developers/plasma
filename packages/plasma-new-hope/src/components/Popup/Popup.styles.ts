@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
 
-import { PopupRootContainerProps } from './Popup.types';
-import { DEFAULT_Z_INDEX } from './Popup.utils';
+import type { PopupRootContainerProps } from './Popup.types';
+import { DEFAULT_Z_INDEX } from './utils';
 
 export const StyledPortal = styled.div``;
 
@@ -12,11 +12,11 @@ export const PopupView = styled.div`
 `;
 
 export const PopupRootContainer = styled.div<PopupRootContainerProps>`
-    position: ${(props) => (props?.frame === 'document' ? 'fixed' : 'absolute')};
-    z-index: ${(props) => props?.zIndex || DEFAULT_Z_INDEX};
-    left: ${(props) => props?.position.left || ''};
-    right: ${(props) => props?.position.right || ''};
-    top: ${(props) => props?.position.top || ''};
-    bottom: ${(props) => props?.position.bottom || ''};
-    transform: ${(props) => props?.position.transform || ''};
+    position: ${({ frame }) => (frame === 'document' ? 'fixed' : 'absolute')};
+    z-index: ${({ zIndex }) => zIndex || DEFAULT_Z_INDEX};
+    left: ${({ position }) => position.left || ''};
+    right: ${({ position }) => position.right || ''};
+    top: ${({ position }) => position.top || ''};
+    bottom: ${({ position }) => position.bottom || ''};
+    transform: ${({ position }) => position.transform || ''};
 `;

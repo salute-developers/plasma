@@ -19,10 +19,10 @@ export const usePopup = ({ isOpen, id, popupInfo, withAnimation }: PopupHookArgs
 
     // для использования transition в качестве анимации
     useEffect(() => {
-        if (withAnimation) {
-            animationInfo?.setEndTransition(animationInfo && (!isVisible || animationInfo?.endAnimation));
+        if (withAnimation && animationInfo) {
+            animationInfo.setEndTransition(!isVisible || animationInfo?.endAnimation);
         }
-    }, [animationInfo?.endAnimation, isVisible]);
+    }, [animationInfo, withAnimation, isVisible]);
 
     // сначала добавление/удаление из контекста, и только после этого отображение/скрытие
     useEffect(() => {
@@ -30,7 +30,7 @@ export const usePopup = ({ isOpen, id, popupInfo, withAnimation }: PopupHookArgs
         if (isOpen && !isVisible) {
             popupController.register({ id, ...popupInfo });
             setVisible(true);
-            animationInfo?.setEndAnimation(false);
+            animationInfo.setEndAnimation(false);
             return;
         }
 
@@ -40,14 +40,14 @@ export const usePopup = ({ isOpen, id, popupInfo, withAnimation }: PopupHookArgs
 
         // если есть анимация - закрытие по окончании анимации
         if (withAnimation) {
-            animationInfo?.setEndAnimation(true);
+            animationInfo.setEndAnimation(true);
             return;
         }
 
         // иначе обычное закрытие
         popupController.unregister(id);
         setVisible(false);
-    }, [isOpen, isVisible, animationInfo]);
+    }, [isOpen, isVisible, animationInfo, withAnimation]);
 
     return { isVisible, setVisible, animationInfo };
 };
