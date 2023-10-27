@@ -1,31 +1,42 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { IconClock } from '@salutejs/plasma-icons';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
-import { Tabs, TabsProps, TabItem, TabsController } from '.';
+import { Tabs, TabItem, TabsController } from '.';
+import type { TabsProps } from '.';
 
-const propsToDisable = ['ref', 'theme', 'as', 'forwardedAs'];
-
-export default {
+const meta: Meta<TabsProps> = {
     title: 'Controls/Tabs',
     component: Tabs,
     argTypes: {
-        ...disableProps(propsToDisable),
+        ...disableProps(['ref', 'theme', 'as', 'forwardedAs']),
     },
     decorators: [InSpacingDecorator],
-} as Meta;
+};
 
-interface DefaultStoryProps extends TabsProps {
+export default meta;
+
+type StoryDefaultProps = TabsProps & {
     itemsNumber: number;
     label: string;
     enableContentLeft: boolean;
     autoscroll: boolean;
-}
+};
 
-export const Default: Story<DefaultStoryProps> = ({ itemsNumber, disabled, label, enableContentLeft, ...rest }) => {
+type StoryMultipleProps = StoryDefaultProps & {
+    outsideScrollLeftTab: boolean | { left?: string; right?: string };
+    outsideScrollRightTab: boolean | { left?: string; right?: string };
+};
+
+const StyledMultipleContainer = styled.div`
+    display: flex;
+    column-gap: 1rem;
+`;
+
+const StoryDefault = ({ itemsNumber, disabled, label, enableContentLeft, ...rest }: StoryDefaultProps) => {
     const items = Array(itemsNumber).fill(0);
     const [index, setIndex] = useState(0);
 
@@ -48,25 +59,21 @@ export const Default: Story<DefaultStoryProps> = ({ itemsNumber, disabled, label
     );
 };
 
-Default.args = {
-    itemsNumber: 4,
-    disabled: false,
-    stretch: false,
-    pilled: false,
-    view: 'secondary',
-    label: 'Label',
-    enableContentLeft: true,
-    outsideScroll: true,
+export const Default: StoryObj<StoryDefaultProps> = {
+    args: {
+        itemsNumber: 4,
+        disabled: false,
+        stretch: false,
+        pilled: false,
+        view: 'secondary',
+        label: 'Label',
+        enableContentLeft: true,
+        outsideScroll: true,
+    },
+    render: (args) => <StoryDefault {...args} />,
 };
 
-export const Arrows: Story<DefaultStoryProps> = ({
-    itemsNumber,
-    disabled,
-    stretch,
-    label,
-    autoscroll,
-    enableContentLeft,
-}) => {
+const StoryArrows = ({ itemsNumber, disabled, stretch, label, autoscroll, enableContentLeft }: StoryDefaultProps) => {
     const items = Array(itemsNumber).fill({
         label,
         contentLeft: enableContentLeft && <IconClock color="inherit" />,
@@ -85,26 +92,19 @@ export const Arrows: Story<DefaultStoryProps> = ({
     );
 };
 
-Arrows.args = {
-    itemsNumber: 4,
-    disabled: false,
-    stretch: true,
-    label: 'Label',
-    outsideScroll: true,
-    autoscroll: false,
+export const Arrows: StoryObj<StoryDefaultProps> = {
+    args: {
+        itemsNumber: 4,
+        disabled: false,
+        stretch: true,
+        label: 'Label',
+        outsideScroll: true,
+        autoscroll: false,
+    },
+    render: (args) => <StoryArrows {...args} />,
 };
 
-const StyledMultipleContainer = styled.div`
-    display: flex;
-    column-gap: 1rem;
-`;
-
-interface MultipleStoryProps extends DefaultStoryProps {
-    outsideScrollLeftTab: boolean | { left?: string; right?: string };
-    outsideScrollRightTab: boolean | { left?: string; right?: string };
-}
-
-export const Multiple: Story<MultipleStoryProps> = ({
+const StoryMultiple = ({
     itemsNumber,
     disabled,
     stretch,
@@ -112,11 +112,12 @@ export const Multiple: Story<MultipleStoryProps> = ({
     enableContentLeft,
     outsideScrollLeftTab,
     outsideScrollRightTab,
-}) => {
+}: StoryMultipleProps) => {
     const items = Array(itemsNumber).fill({
         label,
         contentLeft: enableContentLeft && <IconClock color="inherit" />,
     });
+
     const [index1, setIndex1] = useState(0);
     const [index2, setIndex2] = useState(0);
 
@@ -142,12 +143,15 @@ export const Multiple: Story<MultipleStoryProps> = ({
     );
 };
 
-Multiple.args = {
-    itemsNumber: 10,
-    disabled: false,
-    stretch: false,
-    pilled: true,
-    label: 'Label',
-    outsideScrollLeftTab: false,
-    outsideScrollRightTab: { right: '1rem' },
+export const Multiple: StoryObj<StoryMultipleProps> = {
+    args: {
+        itemsNumber: 10,
+        disabled: false,
+        stretch: false,
+        pilled: true,
+        label: 'Label',
+        outsideScrollLeftTab: false,
+        outsideScrollRightTab: { right: '1rem' },
+    },
+    render: (args) => <StoryMultiple {...args} />,
 };
