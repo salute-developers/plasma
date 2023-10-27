@@ -1,36 +1,36 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { surfaceSolid03 } from '@salutejs/plasma-tokens-web';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button';
 
 import { Popover } from '.';
-import type { PopoverPlacement, PopoverTrigger } from '.';
+import type { PopoverPlacement, PopoverTrigger, PopoverProps } from '.';
 
-const placements: Array<PopoverPlacement> = ['top', 'bottom', 'right', 'left', 'auto'];
-const triggers: Array<PopoverTrigger> = ['click', 'hover'];
-
-export default {
+const meta: Meta<PopoverProps> = {
     title: 'Controls/Popover',
+    component: Popover,
     decorators: [InSpacingDecorator],
     argTypes: {
         placement: {
-            options: placements,
+            options: ['top', 'bottom', 'right', 'left', 'auto'],
             control: {
                 type: 'select',
             },
         },
         trigger: {
-            options: triggers,
+            options: ['click', 'hover'],
             control: {
                 type: 'select',
             },
         },
         ...disableProps(['isOpen']),
     },
-} as Meta;
+};
+
+export default meta;
 
 type PopoverStoryProps = {
     placement?: PopoverPlacement;
@@ -40,16 +40,6 @@ type PopoverStoryProps = {
     closeOnEsc?: boolean;
     skidding?: number;
     distance?: number;
-};
-
-const args: PopoverStoryProps = {
-    placement: 'bottom',
-    trigger: 'click',
-    closeOnOverlayClick: true,
-    closeOnEsc: true,
-    isFocusTrapped: true,
-    skidding: 0,
-    distance: 6,
 };
 
 const StyledArrow = styled.div`
@@ -79,8 +69,8 @@ const StyledContent = styled.div`
     align-items: center;
 `;
 
-export const Default: Story<PopoverStoryProps> = ({ skidding = 0, distance = 0, ...args }) => {
-    const [isOpen, setIsOpen] = React.useState(false);
+const StoryDefault = ({ skidding = 0, distance = 0, ...args }: PopoverStoryProps) => {
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <>
@@ -104,4 +94,15 @@ export const Default: Story<PopoverStoryProps> = ({ skidding = 0, distance = 0, 
     );
 };
 
-Default.args = args;
+export const Default: StoryObj<PopoverStoryProps> = {
+    args: {
+        placement: 'bottom',
+        trigger: 'click',
+        closeOnOverlayClick: true,
+        closeOnEsc: true,
+        isFocusTrapped: true,
+        skidding: 0,
+        distance: 6,
+    },
+    render: (args) => <StoryDefault {...args} />,
+};
