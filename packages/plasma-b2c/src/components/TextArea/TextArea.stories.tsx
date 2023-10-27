@@ -1,64 +1,62 @@
-import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import React, { useState } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconPlaceholder, InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
-import { TextArea, TextAreaProps } from '.';
+import { TextArea } from '.';
+import type { TextAreaProps } from '.';
 
 const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-const statuses = ['', 'success', 'error'];
-const resizes = ['none', 'both', 'horizontal', 'vertical'];
-
-const propsToDisable = [
-    'helperBlock',
-    '$isFocused',
-    'label',
-    'contentRight',
-    'autoComplete',
-    'autoFocus',
-    'dirName',
-    'form',
-    'minLength',
-    'maxLength',
-    'name',
-    'required',
-    'value',
-    'wrap',
-    'onChange',
-    'onFocus',
-    'onBlur',
-];
-
-export default {
+const meta: Meta<TextAreaProps> = {
     title: 'Controls/TextArea',
     component: TextArea,
     decorators: [InSpacingDecorator],
     argTypes: {
         status: {
-            options: statuses,
+            options: ['', 'success', 'error'],
             control: {
                 type: 'select',
             },
         },
         resize: {
-            options: resizes,
+            options: ['none', 'both', 'horizontal', 'vertical'],
             control: {
                 type: 'select',
             },
         },
-        ...disableProps(propsToDisable),
+        ...disableProps([
+            'helperBlock',
+            '$isFocused',
+            'label',
+            'contentRight',
+            'autoComplete',
+            'autoFocus',
+            'dirName',
+            'form',
+            'minLength',
+            'maxLength',
+            'name',
+            'required',
+            'value',
+            'wrap',
+            'onChange',
+            'onFocus',
+            'onBlur',
+        ]),
     },
-} as Meta;
+};
 
-export const Default: Story<TextAreaProps & { enableContentRight: boolean }> = ({
-    status,
-    enableContentRight,
-    ...rest
-}) => {
-    const [value, setValue] = React.useState('');
+export default meta;
+
+type StoryProps = TextAreaProps & { enableContentRight: boolean; id?: string };
+
+type Story = StoryObj<StoryProps>;
+
+const StoryDefault = ({ status, enableContentRight, ...rest }: StoryProps) => {
+    const [value, setValue] = useState('');
 
     const handleChange = (e) => {
         setValue(e.target.value);
@@ -78,19 +76,22 @@ export const Default: Story<TextAreaProps & { enableContentRight: boolean }> = (
     );
 };
 
-Default.args = {
-    id: 'example-textarea',
-    placeholder: 'Заполните многострочное поле',
-    leftHelper: 'Подсказка к полю',
-    rightHelper: '125 слов',
-    enableContentRight: true,
-    status: '' as 'success',
-    resize: 'vertical',
-    disabled: false,
-    size: 'm',
+export const Default: Story = {
+    args: {
+        id: 'example-textarea',
+        placeholder: 'Заполните многострочное поле',
+        leftHelper: 'Подсказка к полю',
+        rightHelper: '125 слов',
+        enableContentRight: true,
+        status: '' as 'success',
+        resize: 'vertical',
+        disabled: false,
+        size: 'm',
+    },
+    render: (args) => <StoryDefault {...args} />,
 };
 
-export const Live: Story<TextAreaProps & { enableContentRight: boolean }> = ({ status, ...rest }) => {
+const StoryLive = ({ status, ...rest }: StoryProps) => {
     const [value, setValue] = React.useState('');
     const l = value.length;
     const max = 140;
@@ -111,9 +112,12 @@ export const Live: Story<TextAreaProps & { enableContentRight: boolean }> = ({ s
     );
 };
 
-Live.args = {
-    placeholder: 'Placeholder text',
-    leftHelper: 'Helper text',
-    resize: 'vertical',
-    disabled: false,
+export const Live: Story = {
+    args: {
+        placeholder: 'Placeholder text',
+        leftHelper: 'Helper text',
+        resize: 'vertical',
+        disabled: false,
+    },
+    render: (args) => <StoryLive {...args} />,
 };
