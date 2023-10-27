@@ -1,6 +1,6 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import styled from 'styled-components';
+import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { surfaceSolid03, surfaceSolid02 } from '@salutejs/plasma-tokens-web';
 
@@ -8,9 +8,11 @@ import { SSRProvider } from '../SSRProvider';
 import { Button } from '../Button';
 
 import { PopupBase, PopupBaseProvider, endAnimationClass, endTransitionClass, popupBaseRootClass } from '.';
+import type { PopupBaseProps } from '.';
 
-export default {
+const meta: Meta<PopupBaseProps> = {
     title: 'Controls/PopupBase',
+    component: PopupBase,
     decorators: [InSpacingDecorator],
     argTypes: {
         placement: {
@@ -30,9 +32,11 @@ export default {
             },
         },
     },
-} as Meta;
+};
 
-type PopupBaseStoryProps = { placement: string; offsetX: number; offsetY: number };
+export default meta;
+
+type StoryPopupBaseProps = { placement: string; offsetX: number; offsetY: number };
 
 const StyledButton = styled(Button)`
     margin-top: 1rem;
@@ -106,7 +110,7 @@ const StyledPopupTransition = styled(PopupBase)`
     }
 `;
 
-export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, offsetX, offsetY }) => {
+const StoryPopupBase = ({ placement, offsetX, offsetY }: StoryPopupBaseProps) => {
     const [isOpenA, setIsOpenA] = React.useState(false);
     const [isOpenB, setIsOpenB] = React.useState(false);
 
@@ -155,8 +159,11 @@ export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, offsetX, 
     );
 };
 
-PopupBaseDemo.args = {
-    placement: 'center',
-    offsetX: 0,
-    offsetY: 0,
+export const PopupBaseDemo: StoryObj<StoryPopupBaseProps> = {
+    args: {
+        placement: 'center',
+        offsetX: 0,
+        offsetY: 0,
+    },
+    render: (args) => <StoryPopupBase {...args} />,
 };
