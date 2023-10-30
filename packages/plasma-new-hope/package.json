@@ -96,6 +96,7 @@
     "@linaria/react": "^4.5.4",
     "@popperjs/core": "2.11.8",
     "@salutejs/plasma-core": "1.137.0",
+    "@salutejs/plasma-tokens": "1.64.0",
     "react-popper": "2.3.0"
   }
 }
