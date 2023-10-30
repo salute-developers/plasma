@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react';
+import { backgroundPrimary, surfaceSolid03 } from '@salutejs/plasma-tokens';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { styled } from '@linaria/react';
@@ -29,7 +30,7 @@ export default {
 const onChangeValue = action('onChangeValue');
 
 const StyledCalendar = styled(Calendar)`
-    background-color: var(--plasma-colors-background-primary);
+    background-color: ${backgroundPrimary};
     box-shadow: 0 0.063rem 0.25rem -0.063rem rgba(0, 0, 0, 0.04), 0 0.375rem 0.75rem -0.125rem rgba(8, 8, 8, 0.1);
     border-radius: 0.75rem;
 `;
@@ -42,7 +43,7 @@ const StyledArrow = styled.div`
         position: absolute;
         width: 0.5rem;
         height: 0.5rem;
-        background: var(--plasma-colors-surface-solid03);
+        background: ${surfaceSolid03};
     }
 
     &::before {
