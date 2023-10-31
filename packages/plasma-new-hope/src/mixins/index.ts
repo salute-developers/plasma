@@ -1,5 +1,4 @@
 export * from './applyEllipsis';
 export * from './applyNoUserSelect';
-
-// fonts
-export * from './fontStyles';
+export * from './applyHyphens';
+export * from './typography';
