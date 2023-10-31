@@ -1,8 +1,8 @@
 import React, { useState, useCallback, useMemo, forwardRef, HTMLAttributes } from 'react';
 
-import type { Calendar, DateObject } from '../shared/types';
-import { getDateFromValue, getNextDate, getPrevDate, isValueUpdate } from '../shared/utils';
-import { useKeyNavigation } from '../shared/hooks';
+import type { Calendar, DateObject } from '../Calendar.types';
+import { getDateFromValue, getNextDate, getPrevDate, isValueUpdate } from '../utils';
+import { useKeyNavigation } from '../hooks';
 import { CalendarDays, CalendarHeader } from '../ui';
 import { RootProps } from '../../../engines/types';
 
@@ -178,6 +178,7 @@ export const calendarDoubleConfig = {
         },
     },
     defaults: {
-        view: 'default',
+        view: 'primary',
+        size: 'm',
     },
 };

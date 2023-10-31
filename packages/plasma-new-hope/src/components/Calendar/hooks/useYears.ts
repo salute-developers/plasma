@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 import { YEAR_RENDER_COUNT, isCurrentYear, isSelectedYear, getMatrix } from '../utils';
-import type { DateObject, YearsItem } from '../types';
+import type { DateObject, YearsItem } from '../Calendar.types';
 
 /**
  * Хук для получения списка годов.

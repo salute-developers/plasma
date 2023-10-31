@@ -11,7 +11,7 @@ import {
     isDayInRage,
     isSelectedDay,
 } from '../utils';
-import type { CalendarValueType, DateItem, DateObject, DisabledDay, EventDay } from '../types';
+import type { CalendarValueType, DateItem, DateObject, DisabledDay, EventDay } from '../Calendar.types';
 
 /**
  * Метод возвращающий массив дней в предыдущем месяце.

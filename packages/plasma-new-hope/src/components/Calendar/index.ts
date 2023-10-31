@@ -8,3 +8,4 @@ export type { CalendarBaseProps } from './CalendarBase/CalendarBase';
 export type { CalendarDoubleProps } from './CalendarDouble/CalendarDouble';
 export type { CalendarProps } from './Calendar.types';
 export type { CalendarStateType } from './store/types';
+export { tokens as calendarBaseTokens, tokens as calendarDoubleTokens } from './Calendar.tokens';

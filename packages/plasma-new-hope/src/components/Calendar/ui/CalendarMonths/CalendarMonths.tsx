@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 
 import { cx } from '../../../../utils';
-import { useMonths } from '../../shared/hooks';
-import { classes } from '../../shared/tokens';
+import { useMonths } from '../../hooks';
+import { classes } from '../../Calendar.tokens';
 
 import type { CalendarMonthsProps } from './CalendarMonths.types';
 import { StyledCalendarMonths, StyledFlex, StyledMonth, StyledMonthRoot } from './CalendarMonths.styles';

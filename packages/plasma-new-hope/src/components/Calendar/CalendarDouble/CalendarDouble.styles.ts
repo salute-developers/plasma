@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
-import { tokens } from '../shared/tokens';
+import { tokens } from '../Calendar.tokens';
 
 export const StyledCalendar = css`
     position: relative;

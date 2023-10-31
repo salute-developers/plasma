@@ -1,4 +1,4 @@
-import type { DateObject } from '../shared/types';
+import type { DateObject } from '../Calendar.types';
 
 export enum CalendarState {
     Days = 'Days',

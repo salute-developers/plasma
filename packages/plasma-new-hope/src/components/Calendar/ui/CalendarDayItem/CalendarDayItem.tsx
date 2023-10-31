@@ -1,7 +1,7 @@
 import React, { forwardRef, memo } from 'react';
 
 import { cx } from '../../../../utils';
-import { classes } from '../../shared/tokens';
+import { classes } from '../../Calendar.tokens';
 
 import type { CalendarDayItemProps } from './CalendarDayItem.types';
 import { StyledDay, StyledDayRoot, StyledEvent, StyledEvents } from './CalendarDayItem.styles';

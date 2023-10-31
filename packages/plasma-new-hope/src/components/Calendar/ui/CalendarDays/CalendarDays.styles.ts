@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
 
-import { flexCenter } from '../../shared/mixins';
+import { flexCenter } from '../../mixins';
 
 export const StyledFlex = styled.div`
     ${String(flexCenter)};

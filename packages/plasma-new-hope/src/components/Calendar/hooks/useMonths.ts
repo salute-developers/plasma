@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import type { DateObject, MonthsItem } from '../types';
+import type { DateObject, MonthsItem } from '../Calendar.types';
 import { SHORT_MONTH_NAME, isSelectedMonth, isCurrentMonth, getMatrix, MONTH_NAMES } from '../utils';
 
 /**

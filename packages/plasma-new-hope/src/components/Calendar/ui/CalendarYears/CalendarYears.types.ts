@@ -1,6 +1,6 @@
 import { HTMLAttributes, KeyboardEvent, MutableRefObject } from 'react';
 
-import type { DateObject } from '../../shared/types';
+import type { DateObject } from '../../Calendar.types';
 
 export interface CalendarYearsProps extends HTMLAttributes<HTMLDivElement> {
     date: DateObject;

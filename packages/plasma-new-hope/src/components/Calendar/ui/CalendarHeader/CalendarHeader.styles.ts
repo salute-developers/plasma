@@ -1,28 +1,45 @@
 import { styled } from '@linaria/react';
 
-import { buttonFocus, flexCenter, flexSpaceBetween } from '../../shared/mixins';
-import { h4Bold } from '../../../../mixins';
-import { tokens } from '../../shared/tokens';
+import { buttonFocus, flexCenter, flexSpaceBetween } from '../../mixins';
+import { tokens } from '../../Calendar.tokens';
 
 export const StyledCalendarHeader = styled.div`
     padding: 1rem 1.5rem 0;
+    font-family: var(${tokens.calendarHeaderFontFamily});
+    font-size: var(${tokens.calendarHeaderFontSize});
+    font-style: var(${tokens.calendarHeaderFontStyle});
+    font-weight: var(${tokens.calendarHeaderFontWeightBold});
+    letter-spacing: var(${tokens.calendarHeaderFontLetterSpacing});
+    line-height: var(${tokens.calendarHeaderFontLineHeight});
 
-    ${String(flexSpaceBetween)};
-    ${String(h4Bold)};
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `;
 
 export const StyledHeader = styled(buttonFocus)`
     color: var(${tokens.calendarContentPrimaryColor});
     cursor: pointer;
     padding: 0.5rem 0;
+    font-family: var(${tokens.calendarHeaderFontFamily});
+    font-size: var(${tokens.calendarHeaderFontSize});
+    font-style: var(${tokens.calendarHeaderFontStyle});
+    font-weight: var(${tokens.calendarHeaderFontWeightBold});
+    letter-spacing: var(${tokens.calendarHeaderFontLetterSpacing});
+    line-height: var(${tokens.calendarHeaderFontLineHeight});
 
-    ${String(h4Bold)};
-    ${String(flexSpaceBetween)};
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `;
 
 export const StyledHeaderDouble = styled.h4`
-    ${String(h4Bold)};
-
+    font-family: var(${tokens.calendarHeaderFontFamily});
+    font-size: var(${tokens.calendarHeaderFontSize});
+    font-style: var(${tokens.calendarHeaderFontStyle});
+    font-weight: var(${tokens.calendarHeaderFontWeightBold});
+    letter-spacing: var(${tokens.calendarHeaderFontLetterSpacing});
+    line-height: var(${tokens.calendarHeaderFontLineHeight});
     margin-top: 0;
     margin-bottom: 0;
     padding: 0.5rem 0;

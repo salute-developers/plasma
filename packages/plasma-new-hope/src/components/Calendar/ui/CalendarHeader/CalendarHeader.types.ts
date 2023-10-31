@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
 
-import type { DateObject } from '../../shared/types';
+import type { DateObject } from '../../Calendar.types';
 import type { CalendarStateType } from '../../store/types';
 
 export interface CalendarHeaderProps extends HTMLAttributes<HTMLDivElement> {

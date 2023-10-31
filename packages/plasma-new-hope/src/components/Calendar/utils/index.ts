@@ -1,6 +1,5 @@
 import type { CalendarStateType } from '../store/types';
-
-import type { CalendarValueType, DateObject, DisabledDay, ItemProps } from './types';
+import type { CalendarValueType, DateObject, DisabledDay, ItemProps } from '../Calendar.types';
 
 export const ROW_STEP = 6;
 
