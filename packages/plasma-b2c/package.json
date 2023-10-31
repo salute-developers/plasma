@@ -1,6 +1,6 @@
 {
     "name": "@salutejs/plasma-b2c",
-    "version": "1.237.0",
+    "version": "1.239.0-dev.0",
     "description": "Salute Design System / React UI kit for business-related web applications.",
     "author": "Salute Frontend Team <salute.developers@gmail.com>",
     "license": "MIT",
@@ -31,17 +31,13 @@
         "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
     },
     "typeCoverage": {
-        "ignoreFiles": [
-            "src/**/*component-test.tsx",
-            "src/**/*stories.tsx",
-            "src/**/*perftest.tsx"
-        ],
+        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx", "src/**/*perftest.tsx"],
         "atLeast": 99.97
     },
     "dependencies": {
-        "@salutejs/plasma-core": "1.135.0",
-        "@salutejs/plasma-hope": "1.236.0",
-        "@salutejs/plasma-new-hope": "0.6.0",
+        "@salutejs/plasma-core": "1.136.0-dev.0",
+        "@salutejs/plasma-hope": "1.237.0-dev.0",
+        "@salutejs/plasma-new-hope": "0.8.0-dev.0",
         "@salutejs/plasma-tokens-b2c": "0.38.0",
         "@salutejs/plasma-tokens-web": "1.44.0",
         "@salutejs/plasma-typo": "0.38.0"
@@ -62,8 +58,8 @@
         "@microsoft/api-extractor": "7.34.4",
         "@salutejs/plasma-colors": "0.10.0",
         "@salutejs/plasma-cy-utils": "0.71.0",
-        "@salutejs/plasma-icons": "1.166.0",
-        "@salutejs/plasma-sb-utils": "0.133.0",
+        "@salutejs/plasma-icons": "1.167.0-dev.0",
+        "@salutejs/plasma-sb-utils": "0.134.0-dev.0",
         "@storybook/addon-docs": "6.5.16",
         "@storybook/addon-essentials": "6.5.16",
         "@storybook/addon-knobs": "6.3.1",
@@ -90,11 +86,6 @@
         "typescript-coverage-report": "0.7.0",
         "vite": "4.1.4"
     },
-    "keywords": [
-        "design-system",
-        "react-components",
-        "ui-kit",
-        "react"
-    ],
+    "keywords": ["design-system", "react-components", "ui-kit", "react"],
     "sideEffects": false
 }
