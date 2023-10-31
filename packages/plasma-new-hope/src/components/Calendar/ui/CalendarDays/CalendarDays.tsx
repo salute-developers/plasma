@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 
-import { useDays } from '../../shared/hooks';
+import { useDays } from '../../hooks';
 import {
     canSelectDate,
     FULL_DAY_NAMES,
@@ -10,9 +10,9 @@ import {
     isSelectProcess,
     ROW_STEP,
     SHORT_DAY_NAMES,
-} from '../../shared/utils';
+} from '../../utils';
 import { CalendarDayItem } from '../CalendarDayItem/CalendarDayItem';
-import { DateItem } from '../../shared/types';
+import { DateItem } from '../../Calendar.types';
 
 import { StyledCalendarDays, StyledCalendarDaysHint, StyledFlex } from './CalendarDays.styles';
 import type { CalendarDaysProps } from './CalendarDays.types';

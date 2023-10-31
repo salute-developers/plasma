@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useCallback, ReactElement } from 'react';
 
-import type { Calendar, CalendarRange } from '../shared/types';
-import { getSortedValues, isValueUpdate } from '../shared/utils';
+import type { Calendar, CalendarRange } from '../Calendar.types';
+import { getSortedValues, isValueUpdate } from '../utils';
 
 /**
  * HOC для календаря, дающий возможность выбора диапазона даты

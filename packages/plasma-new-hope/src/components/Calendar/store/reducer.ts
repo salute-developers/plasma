@@ -1,4 +1,4 @@
-import { getDateFromValue, getNextDate, getPrevDate, getStartYear } from '../shared/utils';
+import { getDateFromValue, getNextDate, getPrevDate, getStartYear } from '../utils';
 
 import { CalendarStateType, Action, ActionType, InitialState } from './types';
 

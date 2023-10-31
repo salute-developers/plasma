@@ -1,11 +1,11 @@
 import React, { useCallback, useMemo, useReducer, useState, KeyboardEvent, HTMLAttributes, forwardRef } from 'react';
 
-import type { Calendar, DateObject, UseKeyNavigationProps } from '../shared/types';
+import type { Calendar, DateObject, UseKeyNavigationProps } from '../Calendar.types';
 import type { CalendarStateType } from '../store/types';
 import { getInitialState, reducer } from '../store/reducer';
 import { ActionType, CalendarState } from '../store/types';
-import { isValueUpdate, YEAR_RENDER_COUNT } from '../shared/utils';
-import { useKeyNavigation } from '../shared/hooks';
+import { isValueUpdate, YEAR_RENDER_COUNT } from '../utils';
+import { useKeyNavigation } from '../hooks';
 import { CalendarDays, CalendarHeader, CalendarMonths, CalendarYears } from '../ui';
 import { RootProps } from '../../../engines';
 
@@ -258,7 +258,7 @@ export const calendarBaseConfig = {
         },
     },
     defaults: {
-        view: 'default',
+        view: 'primary',
         size: 'm',
     },
 };

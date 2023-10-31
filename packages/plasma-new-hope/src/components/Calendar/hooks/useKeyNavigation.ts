@@ -1,7 +1,7 @@
 import React, { KeyboardEvent, useCallback, useLayoutEffect, useRef, useState } from 'react';
 
-import type { DaysMetaDescription, KeyboardArrowKey, UseKeyNavigationProps } from '../types';
-import { Keys } from '../types';
+import type { DaysMetaDescription, KeyboardArrowKey, UseKeyNavigationProps } from '../Calendar.types';
+import { Keys } from '../Calendar.types';
 import { ROW_STEP } from '../utils';
 
 /**

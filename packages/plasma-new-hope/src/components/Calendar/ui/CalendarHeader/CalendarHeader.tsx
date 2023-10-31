@@ -2,8 +2,8 @@ import React, { useCallback, useMemo } from 'react';
 
 import { IconDisclosureLeft, IconDisclosureRight } from '../../../_Icon';
 import { CalendarState } from '../../store/types';
-import { getCalendarType, MONTH_NAMES, YEAR_RENDER_COUNT } from '../../shared/utils';
-import type { DateObject } from '../../shared/types';
+import { getCalendarType, MONTH_NAMES, YEAR_RENDER_COUNT } from '../../utils';
+import type { DateObject } from '../../Calendar.types';
 
 import type { CalendarHeaderProps } from './CalendarHeader.types';
 import {
