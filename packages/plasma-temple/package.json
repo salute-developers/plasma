@@ -1,104 +1,107 @@
 {
-    "name": "@salutejs/plasma-temple",
-    "version": "1.185.0-dev.0",
-    "description": "Salute CanvasApp Templates",
-    "main": "dist/index.js",
-    "module": "dist/es/index.js",
-    "types": "dist/index.d.ts",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/salute-developers/plasma.git"
-    },
-    "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    "license": "MIT",
-    "peerDependencies": {
-        "@salutejs/client": "^1.0.0",
-        "@salutejs/plasma-icons": "^1.0.0",
-        "@salutejs/plasma-tokens": "^1.0.0",
-        "@salutejs/plasma-ui": "^1.0.0",
-        "react": ">=16.13.1",
-        "react-dom": ">=16.13.1",
-        "styled-components": "^5.1.1"
-    },
-    "devDependencies": {
-        "@babel/cli": "7.15.4",
-        "@babel/core": "7.15.5",
-        "@babel/preset-env": "7.15.4",
-        "@babel/preset-react": "7.14.5",
-        "@babel/preset-typescript": "7.15.0",
-        "@mdx-js/mdx": "1.6.16",
-        "@salutejs/client": "1.0.0",
-        "@salutejs/plasma-cy-utils": "0.71.0",
-        "@salutejs/plasma-icons": "1.167.0-dev.0",
-        "@salutejs/plasma-tokens": "1.64.0",
-        "@salutejs/plasma-ui": "1.217.0-dev.0",
-        "@salutejs/spatial-navigation": "1.0.5",
-        "@storybook/addon-docs": "6.5.16",
-        "@storybook/addon-essentials": "6.5.16",
-        "@storybook/addons": "6.5.16",
-        "@storybook/builder-vite": "0.4.2",
-        "@storybook/preset-create-react-app": "3.2.0",
-        "@storybook/react": "6.5.16",
-        "@storybook/theming": "6.5.16",
-        "@types/jest": "26.0.20",
-        "@types/lodash": "4.14.160",
-        "@types/lodash.throttle": "4.1.6",
-        "@types/node": "12.12.30",
-        "@types/react": "18.0.28",
-        "@types/react-dom": "18.0.11",
-        "@types/styled-components": "5.1.0",
-        "@vitejs/plugin-react": "3.1.0",
-        "copyfiles": "2.4.1",
-        "default-browser-id": "1.0.4",
-        "jest": "26.6.3",
-        "jest-config": "26.6.3",
-        "react": "18.2.0",
-        "react-dom": "18.2.0",
-        "react-scripts": "4.0.3",
-        "react-test-renderer": "17.0.1",
-        "styled-components": "5.1.1",
-        "tslib": "2.2.0",
-        "typescript": "4.0.8",
-        "typescript-coverage-report": "0.7.0",
-        "vite": "4.1.4"
-    },
-    "publishConfig": {
-        "access": "public"
-    },
-    "bugs": {
-        "url": "https://github.com/salute-developers/plasma/issues"
-    },
-    "scripts": {
-        "prepare": "npm run build",
-        "clean": "rm -rf dist",
-        "prebuild": "npm run clean",
-        "build": "npm run build:cjs && npm run build:esm",
-        "build:command": "SC_NAMESPACE=plasma-temple babel src/ --out-dir $BUILD_OUT_DIR --extensions .ts,.tsx",
-        "build:cjs": "BABEL_ENV=cjs BUILD_OUT_DIR=dist/ npm run build:command",
-        "build:esm": "BABEL_ENV=esm BUILD_OUT_DIR=dist/es/ npm run build:command",
-        "postbuild": "npm run build:copy:cjs && npm run build:copy:esm && npm run build:declaration",
-        "build:copy": "copyup src/**/*.png src/**/*.svg",
-        "build:copy:cjs": "npm run build:copy -- dist/",
-        "build:copy:esm": "npm run build:copy -- dist/es/",
-        "build:declaration": "tsc --outDir dist/ --emitDeclarationOnly",
-        "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -s .storybook/public -p ${PORT:-6006} -c .storybook",
-        "storybook:build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook --quiet -s .storybook/public -c .storybook -o build-sb",
-        "test": "BABEL_ENV=test jest",
-        "typescript-coverage": "npx typescript-coverage-report > /dev/null",
-        "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
-    },
-    "typeCoverage": {
-        "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
-        "atLeast": 99.89
-    },
-    "contributors": [
-        "Vasiliy Loginevskiy",
-        "Виноградов Антон Александрович",
-        "Зубаиров Фаниль Асхатович",
-        "Sviridov Maksim"
+  "name": "@salutejs/plasma-temple",
+  "version": "1.186.0-dev.0",
+  "description": "Salute CanvasApp Templates",
+  "main": "dist/index.js",
+  "module": "dist/es/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salute-developers/plasma.git"
+  },
+  "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "@salutejs/client": "^1.0.0",
+    "@salutejs/plasma-icons": "^1.0.0",
+    "@salutejs/plasma-tokens": "^1.0.0",
+    "@salutejs/plasma-ui": "^1.0.0",
+    "react": ">=16.13.1",
+    "react-dom": ">=16.13.1",
+    "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.15.4",
+    "@babel/core": "7.15.5",
+    "@babel/preset-env": "7.15.4",
+    "@babel/preset-react": "7.14.5",
+    "@babel/preset-typescript": "7.15.0",
+    "@mdx-js/mdx": "1.6.16",
+    "@salutejs/client": "1.0.0",
+    "@salutejs/plasma-cy-utils": "0.71.0",
+    "@salutejs/plasma-icons": "1.168.0-dev.0",
+    "@salutejs/plasma-tokens": "1.64.0",
+    "@salutejs/plasma-ui": "1.218.0-dev.0",
+    "@salutejs/spatial-navigation": "1.0.5",
+    "@storybook/addon-docs": "6.5.16",
+    "@storybook/addon-essentials": "6.5.16",
+    "@storybook/addons": "6.5.16",
+    "@storybook/builder-vite": "0.4.2",
+    "@storybook/preset-create-react-app": "3.2.0",
+    "@storybook/react": "6.5.16",
+    "@storybook/theming": "6.5.16",
+    "@types/jest": "26.0.20",
+    "@types/lodash": "4.14.160",
+    "@types/lodash.throttle": "4.1.6",
+    "@types/node": "12.12.30",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@types/styled-components": "5.1.0",
+    "@vitejs/plugin-react": "3.1.0",
+    "copyfiles": "2.4.1",
+    "default-browser-id": "1.0.4",
+    "jest": "26.6.3",
+    "jest-config": "26.6.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-scripts": "4.0.3",
+    "react-test-renderer": "17.0.1",
+    "styled-components": "5.1.1",
+    "tslib": "2.2.0",
+    "typescript": "4.0.8",
+    "typescript-coverage-report": "0.7.0",
+    "vite": "4.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/salute-developers/plasma/issues"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean",
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:command": "SC_NAMESPACE=plasma-temple babel src/ --out-dir $BUILD_OUT_DIR --extensions .ts,.tsx",
+    "build:cjs": "BABEL_ENV=cjs BUILD_OUT_DIR=dist/ npm run build:command",
+    "build:esm": "BABEL_ENV=esm BUILD_OUT_DIR=dist/es/ npm run build:command",
+    "postbuild": "npm run build:copy:cjs && npm run build:copy:esm && npm run build:declaration",
+    "build:copy": "copyup src/**/*.png src/**/*.svg",
+    "build:copy:cjs": "npm run build:copy -- dist/",
+    "build:copy:esm": "npm run build:copy -- dist/es/",
+    "build:declaration": "tsc --outDir dist/ --emitDeclarationOnly",
+    "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -s .storybook/public -p ${PORT:-6006} -c .storybook",
+    "storybook:build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook --quiet -s .storybook/public -c .storybook -o build-sb",
+    "test": "BABEL_ENV=test jest",
+    "typescript-coverage": "npx typescript-coverage-report > /dev/null",
+    "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
+  },
+  "typeCoverage": {
+    "ignoreFiles": [
+      "src/**/*component-test.tsx",
+      "src/**/*stories.tsx"
     ],
-    "dependencies": {
-        "classnames": "2.3.1",
-        "lodash.throttle": "4.1.1"
-    }
+    "atLeast": 99.89
+  },
+  "contributors": [
+    "Vasiliy Loginevskiy",
+    "Виноградов Антон Александрович",
+    "Зубаиров Фаниль Асхатович",
+    "Sviridov Maksim"
+  ],
+  "dependencies": {
+    "classnames": "2.3.1",
+    "lodash.throttle": "4.1.1"
+  }
 }
