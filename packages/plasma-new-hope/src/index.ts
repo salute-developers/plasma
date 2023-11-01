@@ -7,3 +7,4 @@ export * from './components/Spinner';
 export * from './components/Checkbox';
 export * from './components/Radiobox';
 export * from './components/Popover';
+export * from './components/Tabs';
