@@ -1,3 +1,30 @@
+# (Thu Nov 02 2023)
+
+#### 🚀 Enhancement
+
+- feat(plasma-tokens-native): Add version comment in native tokens for all platfroms [#820](https://github.com/salute-developers/plasma/pull/820) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.240.0`, `@salutejs/plasma-core@1.137.0`, `@salutejs/plasma-hope@1.238.0`, `@salutejs/plasma-icons@1.168.0`, `@salutejs/plasma-new-hope@0.9.0`, `@salutejs/plasma-temple@1.186.0`, `@salutejs/plasma-ui@1.218.0`, `@salutejs/plasma-web@1.240.0`, `@salutejs/plasma-sb-utils@0.135.0`
+  - Release 02.11.2023 [#829](https://github.com/salute-developers/plasma/pull/829) ([@akhdrv](https://github.com/akhdrv) [@neretin-trike](https://github.com/neretin-trike) [@Salute-Eva](https://github.com/Salute-Eva) [@kayman233](https://github.com/kayman233) [@Yakutoc](https://github.com/Yakutoc) [@nikewht](https://github.com/nikewht))
+  - feat: manual bump versions [#826](https://github.com/salute-developers/plasma/pull/826) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.240.0`, `@salutejs/plasma-core@1.137.0`, `@salutejs/plasma-hope@1.238.0`, `@salutejs/plasma-new-hope@0.9.0`, `@salutejs/plasma-ui@1.218.0`, `@salutejs/plasma-web@1.240.0`
+  - feat(plasma-new-hope): new classes API for Popup [#819](https://github.com/salute-developers/plasma/pull/819) ([@kayman233](https://github.com/kayman233))
+
+#### 🐛 Bug Fix
+
+- fix: Update theme-builder workflows [#818](https://github.com/salute-developers/plasma/pull/818) ([@neretin-trike](https://github.com/neretin-trike))
+- ci: add perftest helper actions, use them in PR perftest workflow [#808](https://github.com/salute-developers/plasma/pull/808) ([@akhdrv](https://github.com/akhdrv))
+
+#### Authors: 6
+
+- [@kayman233](https://github.com/kayman233)
+- [@nikewht](https://github.com/nikewht)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Thu Oct 19 2023)
 
 #### 🚀 Enhancement
