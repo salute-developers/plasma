@@ -1,2 +1,4 @@
-export { ModalBase, ModalOverlay, modalBaseOverlayClass } from '@salutejs/plasma-hope';
-export type { ModalBaseProps, ModalBaseRootProps, ModalOverlayProps } from '@salutejs/plasma-hope';
+export { ModalBase } from './ModalBase';
+export { modalClasses as modalBaseClasses } from '@salutejs/plasma-new-hope/styled-components';
+
+export type { ModalProps as ModalBaseProps } from '@salutejs/plasma-new-hope/styled-components';

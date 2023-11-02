@@ -11,3 +11,7 @@ export * from './components/Tabs';
 export * from './components/Calendar';
 export * from './components/Typography';
 export * from './mixins';
+export * from './components/Popup';
+export * from './components/Popup/Popup.types';
+export * from './components/Modal';
+export * from './components/Modal/Modal.types';

@@ -1,6 +1,6 @@
 export const classes = {
     /*
-    * Класс компонента ModalOverlay
-    */
+     * Класс компонента ModalOverlay
+     */
     overlay: 'modal-overlay',
 };

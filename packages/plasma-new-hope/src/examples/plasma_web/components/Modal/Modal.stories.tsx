@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from '@linaria/react';
 import { Story, Meta } from '@storybook/react';
 import { SSRProvider } from '@salutejs/plasma-core';
 
