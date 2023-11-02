@@ -18,7 +18,7 @@ export const flexSpaceBetween = `
  * Миксин для установки синтетического фокуса на выбранной кнопке.
  */
 
-export const addFocus = () => `
+export const addFocus = `
     position: relative;
 
     &::before {
@@ -63,7 +63,7 @@ export const buttonFocus = styled.button`
     background-color: transparent;
     padding: 0;
 
-    ${addFocus()};
+    ${String(addFocus)};
 `;
 
 /**
@@ -112,11 +112,6 @@ export const selectedMixin = `
             }
         
             ${String(active)};
-        }
-        &:active {
-            background-color: var(--calendar_private-active-background);
-            color: var(--calendar_private-active-color);
-            font-weight: var(--plasma-typo-body-s-bold-font-weight);
         }
     };
 

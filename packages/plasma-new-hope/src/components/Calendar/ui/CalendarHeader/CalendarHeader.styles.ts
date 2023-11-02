@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
 
-import { buttonFocus, flexCenter, flexSpaceBetween } from '../../mixins';
+import { buttonFocus, flexCenter } from '../../mixins';
 import { tokens } from '../../Calendar.tokens';
 
 export const StyledCalendarHeader = styled.div`
@@ -60,7 +60,9 @@ export const StyledArrows = styled.div`
     padding: 0.5rem 0;
     width: var(${tokens.calendarHeaderArrowContainerWidth});
 
-    ${String(flexSpaceBetween)};
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `;
 
 export const StyledArrow = styled(buttonFocus)`

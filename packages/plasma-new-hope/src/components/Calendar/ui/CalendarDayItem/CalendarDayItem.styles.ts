@@ -67,7 +67,7 @@ const disabledDay = () => `
     cursor: not-allowed;
     opacity: 0.4;
 
-    ${addFocus()};
+    ${String(addFocus)};
 `;
 
 const disabledCurrentDay = () => `
@@ -119,7 +119,7 @@ export const StyledDayRoot = styled.div<DayProps & FocusProps>`
         --calendar_private-hovered-background: var(${tokens.calendarHoveredItemBackground});
         --calendar_private-hovered-color: var(${tokens.calendarHoveredItemColor});
 
-        ${addFocus()};
+        ${String(addFocus)};
 
         ${String(selectedMixin)};
     }
