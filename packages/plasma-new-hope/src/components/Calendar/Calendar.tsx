@@ -2,6 +2,8 @@ import React from 'react';
 
 import type { CalendarProps, ComponentVariation } from './Calendar.types';
 
+import 'focus-visible';
+
 /**
  * Компонент календаря с диапазоном.
  */

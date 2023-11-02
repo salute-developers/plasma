@@ -24,6 +24,9 @@ const selectable = `
     --calendar_private-add-focus-outline-radius: 0.563rem;
     --calendar_private-add-focus-outline-transition: box-shadow 0.2s ease-in-out;
     --calendar_private-add-focus-outline-color: var(${tokens.calendarOutlineFocusColor});
+    
+    ${String(addFocus)};
+
     --calendar_private-selected-min-width: 5.25rem;
     --calendar_private-selected-min-height: 3.25rem;
     --calendar_private-selected-background: var(${tokens.calendarSelectedItemBackground});
@@ -39,7 +42,6 @@ const selectable = `
     --calendar_private-hovered-color: var(${tokens.calendarHoveredItemColor});
 
     ${String(selectedMixin)};
-    ${addFocus()};
 `;
 
 export const StyledMonthRoot = styled.div`
