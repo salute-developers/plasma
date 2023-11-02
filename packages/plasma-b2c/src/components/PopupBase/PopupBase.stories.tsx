@@ -7,7 +7,7 @@ import { surfaceSolid03, surfaceSolid02 } from '@salutejs/plasma-tokens-web';
 import { SSRProvider } from '../SSRProvider';
 import { Button } from '../Button';
 
-import { PopupBase, PopupBaseProvider, endAnimationClass, endTransitionClass, popupBaseRootClass } from '.';
+import { PopupBase, popupBaseClasses, PopupBaseProvider } from '.';
 import type { PopupBaseProps } from '.';
 
 const meta: Meta<PopupBaseProps> = {
@@ -69,11 +69,11 @@ const Content = styled.div`
 `;
 
 const StyledPopupAnimation = styled(PopupBase)`
-    && > .${popupBaseRootClass} {
+    && .${popupBaseClasses.root} {
         animation: fadeIn 1s forwards;
     }
 
-    &&.${endAnimationClass} > .${popupBaseRootClass} {
+    &&.${popupBaseClasses.endAnimation} .${popupBaseClasses.root} {
         animation: fadeOut 1s forwards;
     }
 
@@ -99,12 +99,12 @@ const StyledPopupAnimation = styled(PopupBase)`
 `;
 
 const StyledPopupTransition = styled(PopupBase)`
-    && > .${popupBaseRootClass} {
+    && .${popupBaseClasses.root} {
         opacity: 1;
         transition: opacity 0.5s 0.1s;
     }
 
-    &&.${endTransitionClass} > .${popupBaseRootClass} {
+    &&.${popupBaseClasses.endTransition} .${popupBaseClasses.root} {
         opacity: 0;
         transition: opacity 0.5s 0.1s;
     }

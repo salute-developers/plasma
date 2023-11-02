@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react';
-import { surfaceSolid02, darkOverlayBlur, overlaySoft } from '@salutejs/plasma-tokens-web';
+import { surfaceSolid02 } from '@salutejs/plasma-tokens-web';
 
 import { SSRProvider } from '../SSRProvider';
 import { InSpacingDecorator } from '../../helpers';
 import { Button } from '../Button';
-import { PopupBaseProvider, endAnimationClass, popupBaseRootClass } from '../PopupBase';
+import { PopupBaseProvider, popupBaseClasses } from '../PopupBase';
 
-import { ModalBase, modalBaseOverlayClass } from '.';
+import { ModalBase, modalBaseClasses } from '.';
 import type { ModalBaseProps } from '.';
 
 const meta: Meta<ModalBaseProps> = {
@@ -55,29 +55,21 @@ const StyledWrapper = styled.div`
     height: 1200px;
 `;
 
-// TODO: новый отдельный оверлей #778
-const ModalOverlayVariables = createGlobalStyle`
-    body {
-        --plasma-modal-blur-overlay-color: ${darkOverlayBlur};
-        --plasma-modal-overlay-color: ${overlaySoft};
-    }
-`;
-
 const Content = styled.div`
     background: ${surfaceSolid02};
     padding: 1rem;
 `;
 
 const StyledModal = styled(ModalBase)`
-    && > .${popupBaseRootClass}, .${modalBaseOverlayClass} {
+    && > .${popupBaseClasses.root}, .${modalBaseClasses.overlay} {
         animation: fadeIn 1s forwards;
     }
 
-    &&.${endAnimationClass} > .${popupBaseRootClass} {
+    &&.${popupBaseClasses.endAnimation} .${popupBaseClasses.root} {
         animation: fadeOut 1s forwards;
     }
 
-    &&.${endAnimationClass} > .${modalBaseOverlayClass} {
+    &&.${popupBaseClasses.endAnimation} .${modalBaseClasses.overlay} {
         animation: fadeOut 1s forwards;
     }
 
@@ -110,7 +102,6 @@ const StoryModalBaseDemo = ({ placement, offsetX, offsetY, ...rest }: StoryModal
     return (
         <SSRProvider>
             <StyledWrapper>
-                <ModalOverlayVariables />
                 <PopupBaseProvider>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <StyledButton text="Открыть A" onClick={() => setIsOpenA(true)} />
