@@ -1,14 +1,20 @@
 import React, { useCallback, useRef, ReactNode } from 'react';
 import styled, { css, createGlobalStyle } from 'styled-components';
 import { overlay, backgroundPrimary } from '@salutejs/plasma-tokens';
-import { ButtonRoot } from '@salutejs/plasma-core';
+import {
+    ButtonRoot,
+    PopupBasePlacement,
+    PopupBaseProvider,
+    endTransitionClass,
+    popupBaseRootClass,
+    ModalBase,
+    modalBaseOverlayClass,
+} from '@salutejs/plasma-core';
 import { FlexDirectionProperty } from 'csstype';
 
 import { mediaQuery } from '../../utils';
 import { Button, ButtonProps } from '../Button';
 import { TextBox, TextBoxTitle, TextBoxSubTitle } from '../TextBox';
-import { ModalBase, modalBaseOverlayClass } from '../ModalBase';
-import { PopupBasePlacement, PopupBaseProvider, popupBaseRootClass, usePopupAnimation } from '../PopupBase';
 import { Cell } from '../Cell';
 
 const flexDirection: Record<Direction, FlexDirectionProperty> = {
@@ -207,15 +213,16 @@ const StyledCell = styled(Cell)`
 
 const StyledModal = styled(ModalBase)`
     & > .${popupBaseRootClass}, .${modalBaseOverlayClass} {
-        ${({ animationInfo }) =>
-            animationInfo?.endTransition
-                ? css`
-                      opacity: 0;
-                  `
-                : css`
-                      opacity: 1;
-                  `}
+        opacity: 1;
         transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'opacity 0.5s 0.1s')};
+    }
+
+    &.${endTransitionClass} > .${popupBaseRootClass} {
+        opacity: 0;
+    }
+
+    &.${endTransitionClass} > .${modalBaseOverlayClass} {
+        opacity: 0;
     }
 `;
 
@@ -271,14 +278,12 @@ export const Confirm = (props: ConfirmProps) => {
         </BtnWrap>
     );
 
-    const animationInfo = usePopupAnimation();
-
     return (
         <PopupBaseProvider>
             <ModalOverlayVariables />
             <StyledModal
                 isOpen={visible}
-                animationInfo={animationInfo}
+                withAnimation
                 onOverlayClick={onDismissClick}
                 zIndex="1000"
                 initialFocusRef={btnRef}

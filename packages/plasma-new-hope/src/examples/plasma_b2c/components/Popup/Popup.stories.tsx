@@ -1,17 +1,16 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import { styled } from '@linaria/react';
 import { Story, Meta } from '@storybook/react';
-import { surfaceSolid03, surfaceSolid02 } from '@salutejs/plasma-tokens';
+import { SSRProvider } from '@salutejs/plasma-core';
 
-import { SSRProvider } from '../SSRProvider';
-import { InSpacingDecorator } from '../../helpers';
-import { Button } from '../Button';
+import { Button } from '../Button/Button';
+import { WithTheme } from '../../../_helpers';
 
-import { PopupBase, popupBaseRootClass, PopupBaseProvider, usePopupAnimation } from '.';
+import { Popup, popupClasses, PopupProvider } from './Popup';
 
 export default {
-    title: 'Controls/PopupBase',
-    decorators: [InSpacingDecorator],
+    title: 'plasma_b2c/Popup',
+    decorators: [WithTheme],
     argTypes: {
         placement: {
             options: [
@@ -32,7 +31,7 @@ export default {
     },
 } as Meta;
 
-type PopupBaseStoryProps = { placement: string; offsetX: number; offsetY: number };
+type PopupStoryProps = { placement: string; offsetX: number; offsetY: number };
 
 const StyledButton = styled(Button)`
     margin-top: 1rem;
@@ -47,7 +46,7 @@ const OtherContent = styled.div`
     margin-top: 1rem;
     width: 400px;
     height: 500px;
-    background: ${surfaceSolid03};
+    background: var(--plasma-colors-surface-solid03);
     position: absolute;
 
     display: flex;
@@ -60,71 +59,62 @@ const OtherContent = styled.div`
 `;
 
 const Content = styled.div`
-    background: ${surfaceSolid02};
+    background: var(--plasma-colors-surface-solid02);
     padding: 1rem;
 `;
 
-const StyledPopupAnimation = styled(PopupBase)`
-    & > .${popupBaseRootClass} {
-        animation: ${({ theme, animationInfo }) =>
-            /* eslint-disable-next-line no-nested-ternary */
-            theme.lowPerformance || animationInfo === undefined
-                ? 'unset'
-                : animationInfo?.endAnimation
-                ? 'fadeOut 1s forwards'
-                : 'fadeIn 1s forwards'};
+const StyledPopupAnimation = styled(Popup)`
+    && > .${popupClasses.root} {
+        animation: fadeIn 1s forwards;
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
+    &&.${popupClasses.endAnimation} > .${popupClasses.root} {
+        animation: fadeOut 1s forwards;
+    }
 
-            to {
-                opacity: 1;
-            }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
         }
 
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
+        to {
+            opacity: 1;
+        }
+    }
 
-            to {
-                opacity: 0;
-            }
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
         }
     }
 `;
 
-const StyledPopupTransition = styled(PopupBase)`
-    & > .${popupBaseRootClass} {
-        /* stylelint-disable */
-        ${({ animationInfo }) =>
-            animationInfo?.endTransition
-                ? css`
-                      opacity: 0;
-                  `
-                : css`
-                      opacity: 1;
-                  `}
-        /* stylelint-enable */
-        transition: ${({ theme }) => (theme.lowPerformance ? 'unset' : 'opacity 0.5s 0.1s')};
+const StyledPopupTransition = styled(Popup)`
+    && > .${popupClasses.root} {
+        opacity: 1;
+        transition: opacity 0.5s 0.1s;
+    }
+
+    &&.${popupClasses.endTransition} > .${popupClasses.root} {
+        opacity: 0;
+        transition: opacity 0.5s 0.1s;
     }
 `;
 
-export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, offsetX, offsetY }) => {
+export const PopupDemo: Story<PopupStoryProps> = ({ placement, offsetX, offsetY }) => {
     const [isOpenA, setIsOpenA] = React.useState(false);
     const [isOpenB, setIsOpenB] = React.useState(false);
 
     const ref = React.useRef<HTMLDivElement>(null);
 
-    const animationInfoA = usePopupAnimation();
-    const animationInfoB = usePopupAnimation();
-
     return (
         <SSRProvider>
             <StyledWrapper>
-                <PopupBaseProvider>
+                <PopupProvider>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <StyledButton text="Открыть в document" onClick={() => setIsOpenB(true)} />
                         <StyledButton text="Открыть во Frame" onClick={() => setIsOpenA(true)} />
@@ -132,7 +122,7 @@ export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, offsetX, 
                     <StyledPopupAnimation
                         id="popupA"
                         frame={ref}
-                        animationInfo={animationInfoA}
+                        withAnimation
                         isOpen={isOpenA}
                         placement={placement}
                         offset={[offsetX, offsetY]}
@@ -147,8 +137,8 @@ export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, offsetX, 
                     </OtherContent>
                     <StyledPopupTransition
                         id="popupB"
-                        frame="document"
-                        animationInfo={animationInfoB}
+                        frame="theme-root"
+                        withAnimation
                         isOpen={isOpenB}
                         placement={placement}
                         offset={[offsetX, offsetY]}
@@ -158,13 +148,13 @@ export const PopupBaseDemo: Story<PopupBaseStoryProps> = ({ placement, offsetX, 
                             <>Content</>
                         </Content>
                     </StyledPopupTransition>
-                </PopupBaseProvider>
+                </PopupProvider>
             </StyledWrapper>
         </SSRProvider>
     );
 };
 
-PopupBaseDemo.args = {
+PopupDemo.args = {
     placement: 'center',
     offsetX: 0,
     offsetY: 0,

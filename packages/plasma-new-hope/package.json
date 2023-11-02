@@ -1,101 +1,101 @@
 {
-    "name": "@salutejs/plasma-new-hope",
-    "version": "0.6.0",
-    "description": "Salute Design System blueprint",
-    "main": "cjs/index.js",
-    "module": "es/index.js",
-    "types": "types/index.d.ts",
-    "files": [
-        "cjs",
-        "es",
-        "types",
-        "styled-components"
-    ],
-    "publishConfig": {
-        "access": "public"
-    },
-    "scripts": {
-        "prepare": "npm run build",
-        "build": "npm run build:css && npm run build:styled-components",
-        "postbuild": "npm run generate:typings",
-        "build:css": "BABEL_ENV=esm SC_NAMESPACE=plasma-new-hope rollup -c",
-        "build:css:watch": "BABEL_ENV=esm SC_NAMESPACE=plasma-new-hope rollup -c -w",
-        "prebuild:styled-components": "rm -rf src-sc && cp -R src src-sc && npm run build:replace-linaria-sc",
-        "build:replace-linaria-sc": "./scripts/replace-linaria_sc.sh",
-        "build:styled-components": "npm run build:styled-components:esm && npm run build:styled-components:cjs",
-        "build:styled-components:cjs": "rm -rf styled-components/cjs && BABEL_ENV=cjs SC_NAMESPACE=plasma-new-hope babel ./src-sc --out-dir ./styled-components/cjs --extensions .ts,.tsx --copy-files",
-        "build:styled-components:esm": "rm -rf styled-components/es && BABEL_ENV=esm SC_NAMESPACE=plasma-new-hope babel ./src-sc --out-dir ./styled-components/es --extensions .ts,.tsx --copy-files",
-        "postbuild:styled-components": "rm -rf src-sc",
-        "generate:typings:css": "tsc --outDir types --emitDeclarationOnly",
-        "generate:typings": "npm run generate:typings:css",
-        "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -s .storybook/public -p ${PORT:-7002} -c .storybook",
-        "prestorybook:sc": "npm run prebuild:styled-components",
-        "storybook:sc": "USE_STYLED_COMPONENTS=true NODE_OPTIONS=--openssl-legacy-provider start-storybook -s .storybook/public -p ${PORT:-7002} -c .storybook",
-        "storybook:build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook -s .storybook/public -c .storybook -o build-sb",
-        "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/salute-developers/plasma.git",
-        "directory": "packages/plasma-new-hope"
-    },
-    "keywords": [
-        "design-system",
-        "ui-kit",
-        "react"
-    ],
-    "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/salute-developers/plasma/issues"
-    },
-    "homepage": "https://github.com/salute-developers/plasma#readme",
-    "peerDependencies": {
-        "react": ">=16.13.1",
-        "react-dom": ">=16.13.1"
-    },
-    "devDependencies": {
-        "@babel/cli": "7.15.4",
-        "@babel/core": "7.15.5",
-        "@babel/plugin-transform-react-constant-elements": "7.17.12",
-        "@babel/preset-env": "7.15.4",
-        "@babel/preset-react": "7.14.5",
-        "@babel/preset-typescript": "7.15.0",
-        "@ironkinoko/rollup-plugin-styles": "^4.0.3",
-        "@linaria/rollup": "^4.5.4",
-        "@linaria/vite": "^4.5.4",
-        "@rollup/plugin-babel": "^6.0.3",
-        "@rollup/plugin-commonjs": "^25.0.4",
-        "@rollup/plugin-node-resolve": "^15.1.0",
-        "@storybook/addon-docs": "^6.5.16",
-        "@storybook/addon-essentials": "^6.5.16",
-        "@storybook/addons": "^6.5.16",
-        "@storybook/builder-vite": "^0.4.2",
-        "@storybook/react": "^6.5.16",
-        "@storybook/theming": "^6.5.16",
-        "@types/lodash": "^4.14.191",
-        "@types/node": "15.14.9",
-        "@types/react": "18.0.28",
-        "@types/react-dom": "18.0.11",
-        "@types/styled-components": "^5.1.26",
-        "@vitejs/plugin-react": "^3.1.0",
-        "babel-loader": "8.2.2",
-        "babel-plugin-annotate-pure-calls": "0.4.0",
-        "babel-plugin-styled-components": "1.13.2",
-        "babel-plugin-transform-class-properties": "6.24.1",
-        "default-browser-id": "1.0.4",
-        "react": "18.2.0",
-        "react-dom": "18.2.0",
-        "rollup": "^3.28.0",
-        "styled-components": "^5.3.1",
-        "typescript": "4.0.8",
-        "vite": "^4.1.4"
-    },
-    "dependencies": {
-        "@linaria/core": "^4.5.4",
-        "@linaria/react": "^4.5.4",
-        "@popperjs/core": "2.11.8",
-        "@salutejs/plasma-core": "1.135.0",
-        "react-popper": "2.3.0"
-    }
+  "name": "@salutejs/plasma-new-hope",
+  "version": "0.9.0-dev.0",
+  "description": "Salute Design System blueprint",
+  "main": "cjs/index.js",
+  "module": "es/index.js",
+  "types": "types/index.d.ts",
+  "files": [
+    "cjs",
+    "es",
+    "types",
+    "styled-components"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "npm run build:css && npm run build:styled-components",
+    "postbuild": "npm run generate:typings",
+    "build:css": "BABEL_ENV=esm SC_NAMESPACE=plasma-new-hope rollup -c",
+    "build:css:watch": "BABEL_ENV=esm SC_NAMESPACE=plasma-new-hope rollup -c -w",
+    "prebuild:styled-components": "rm -rf src-sc && cp -R src src-sc && npm run build:replace-linaria-sc",
+    "build:replace-linaria-sc": "./scripts/replace-linaria_sc.sh",
+    "build:styled-components": "npm run build:styled-components:esm && npm run build:styled-components:cjs",
+    "build:styled-components:cjs": "rm -rf styled-components/cjs && BABEL_ENV=cjs SC_NAMESPACE=plasma-new-hope babel ./src-sc --out-dir ./styled-components/cjs --extensions .ts,.tsx --copy-files",
+    "build:styled-components:esm": "rm -rf styled-components/es && BABEL_ENV=esm SC_NAMESPACE=plasma-new-hope babel ./src-sc --out-dir ./styled-components/es --extensions .ts,.tsx --copy-files",
+    "postbuild:styled-components": "rm -rf src-sc",
+    "generate:typings:css": "tsc --outDir types --emitDeclarationOnly",
+    "generate:typings": "npm run generate:typings:css",
+    "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -s .storybook/public -p ${PORT:-7002} -c .storybook",
+    "prestorybook:sc": "npm run prebuild:styled-components",
+    "storybook:sc": "USE_STYLED_COMPONENTS=true NODE_OPTIONS=--openssl-legacy-provider start-storybook -s .storybook/public -p ${PORT:-7002} -c .storybook",
+    "storybook:build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook -s .storybook/public -c .storybook -o build-sb",
+    "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salute-developers/plasma.git",
+    "directory": "packages/plasma-new-hope"
+  },
+  "keywords": [
+    "design-system",
+    "ui-kit",
+    "react"
+  ],
+  "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/salute-developers/plasma/issues"
+  },
+  "homepage": "https://github.com/salute-developers/plasma#readme",
+  "peerDependencies": {
+    "react": ">=16.13.1",
+    "react-dom": ">=16.13.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.15.4",
+    "@babel/core": "7.15.5",
+    "@babel/plugin-transform-react-constant-elements": "7.17.12",
+    "@babel/preset-env": "7.15.4",
+    "@babel/preset-react": "7.14.5",
+    "@babel/preset-typescript": "7.15.0",
+    "@ironkinoko/rollup-plugin-styles": "^4.0.3",
+    "@linaria/rollup": "^4.5.4",
+    "@linaria/vite": "^4.5.4",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@storybook/addon-docs": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addons": "^6.5.16",
+    "@storybook/builder-vite": "^0.4.2",
+    "@storybook/react": "^6.5.16",
+    "@storybook/theming": "^6.5.16",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "15.14.9",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@types/styled-components": "^5.1.26",
+    "@vitejs/plugin-react": "^3.1.0",
+    "babel-loader": "8.2.2",
+    "babel-plugin-annotate-pure-calls": "0.4.0",
+    "babel-plugin-styled-components": "1.13.2",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "default-browser-id": "1.0.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "rollup": "^3.28.0",
+    "styled-components": "^5.3.1",
+    "typescript": "4.0.8",
+    "vite": "^4.1.4"
+  },
+  "dependencies": {
+    "@linaria/core": "^4.5.4",
+    "@linaria/react": "^4.5.4",
+    "@popperjs/core": "2.11.8",
+    "@salutejs/plasma-core": "1.137.0-dev.0",
+    "react-popper": "2.3.0"
+  }
 }

@@ -12,14 +12,17 @@ export const usePopupAnimation = (): PopupAnimationInfo => {
 };
 
 // Хук для внутреннего состояния, необходимого для правильного отображения вложенных окон, а также для анимации
-export const usePopup = ({ isOpen, id, popupInfo, animationInfo }: PopupHookArgs) => {
+export const usePopup = ({ isOpen, id, popupInfo, withAnimation }: PopupHookArgs) => {
     const [isVisible, setVisible] = useState<boolean>(false);
     const popupController = usePopupBaseContext();
+    const animationInfo = usePopupAnimation();
 
     // для использования transition в качестве анимации
     useEffect(() => {
-        animationInfo?.setEndTransition(animationInfo && (!isVisible || animationInfo?.endAnimation));
-    }, [animationInfo?.endAnimation, isVisible]);
+        if (withAnimation && animationInfo) {
+            animationInfo.setEndTransition(!isVisible || animationInfo?.endAnimation);
+        }
+    }, [animationInfo, withAnimation, isVisible]);
 
     // сначала добавление/удаление из контекста, и только после этого отображение/скрытие
     useEffect(() => {
@@ -27,7 +30,7 @@ export const usePopup = ({ isOpen, id, popupInfo, animationInfo }: PopupHookArgs
         if (isOpen && !isVisible) {
             popupController.register({ id, ...popupInfo });
             setVisible(true);
-            animationInfo?.setEndAnimation(false);
+            animationInfo.setEndAnimation(false);
             return;
         }
 
@@ -36,15 +39,15 @@ export const usePopup = ({ isOpen, id, popupInfo, animationInfo }: PopupHookArgs
         }
 
         // если есть анимация - закрытие по окончании анимации
-        if (animationInfo) {
-            animationInfo?.setEndAnimation(true);
+        if (withAnimation) {
+            animationInfo.setEndAnimation(true);
             return;
         }
 
         // иначе обычное закрытие
         popupController.unregister(id);
         setVisible(false);
-    }, [isOpen, isVisible, animationInfo]);
+    }, [isOpen, isVisible, animationInfo, withAnimation]);
 
-    return { isVisible, setVisible };
+    return { isVisible, setVisible, animationInfo };
 };

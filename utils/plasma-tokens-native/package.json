@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-tokens-native",
-  "version": "1.13.0",
+  "version": "1.14.0-dev.0",
   "description": "Plasma tokens for swift, kotlin, react-native",
   "private": true,
   "files": [
@@ -19,8 +19,9 @@
   ],
   "scripts": {
     "prepare": "npm run build",
-    "prebuild": "rm -rf ./build ./properties ./data && npm run mkdir",
-    "mkdir": "mkdir -p data && cp -R node_modules/@salutejs/plasma-tokens/data/* data",
+    "prebuild": "rm -rf ./build ./properties ./data && npm run copy:data && npm run copy:package",
+    "copy:data": "mkdir -p data && cp -R node_modules/@salutejs/plasma-tokens/data/* data",
+    "copy:package": "cp -R node_modules/@salutejs/plasma-tokens/package.json data",
     "build": "npx ts-node ./src/generate.ts",
     "postbuild": "npx ts-node ./config.ts",
     "lint": "../../node_modules/.bin/eslint ./src --ext .ts,.tsx --quiet"

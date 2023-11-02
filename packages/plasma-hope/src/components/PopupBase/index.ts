@@ -1,6 +1,11 @@
-export { PopupBaseProvider, usePopupBaseContext } from '@salutejs/plasma-core';
-export { PopupBase, popupBaseRootClass } from '@salutejs/plasma-core';
-export { usePopup, usePopupAnimation } from '@salutejs/plasma-core';
+export {
+    PopupBaseProvider,
+    usePopupBaseContext,
+    PopupBase,
+    popupBaseRootClass,
+    endAnimationClass,
+    endTransitionClass,
+} from '@salutejs/plasma-core';
 
 export type {
     PopupBasePlacement,

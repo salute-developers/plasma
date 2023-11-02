@@ -2,6 +2,13 @@ import { css } from 'styled-components';
 
 import { BasicPopupBasePlacement, PopupBasePlacement } from './types';
 
+/*
+ * Класс корневого компонента PopupBaseRoot: `popup-base-root`
+ */
+export const popupBaseRootClass = 'popup-base-root';
+export const endAnimationClass = 'popup-base-end-animation';
+export const endTransitionClass = 'popup-base-end-transition';
+
 export const handlePosition = (placement?: PopupBasePlacement, offset?: [number, number] | [string, string]) => {
     let x = '0rem';
     let y = '0rem';

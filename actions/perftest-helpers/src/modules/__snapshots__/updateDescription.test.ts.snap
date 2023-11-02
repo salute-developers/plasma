@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`perftest/updateDescription getDescriptionTables should iterate through tasks, forming tables with rows 1`] = `
+"
+**taskId1:**
+
+| Компонент | Изменение | Было | Стало |
+|:-:|:-:|:-:|:-:|
+row
+row
+
+**taskId2:**
+
+| Компонент | Изменение | Было | Стало |
+|:-:|:-:|:-:|:-:|
+row
+row
+row
+
+**taskId3:**
+
+| Компонент | Изменение | Было | Стало |
+|:-:|:-:|:-:|:-:|
+row
+"
+`;
+
+exports[`perftest/updateDescription getReportDescription should return description markup with report 1`] = `
+"<details><summary>Details</summary><br/>
+report
+</details>"
+`;
+
+exports[`perftest/updateDescription getSubjectTaskResultTableRow should format the row 1`] = `"| subjectId | diff percentage | old | new1 |"`;
+
+exports[`perftest/updateDescription wrapReportContent should wrap content string 1`] = `
+"<!-- AUTO-GENERATED PERFTEST REPORT -->
+asd
+<!-- AUTO-GENERATED PERFTEST REPORT -->"
+`;

@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { DEFAULT_Z_INDEX } from '../PopupBase/PopupBaseRoot';
 import { usePopupBaseContext } from '../PopupBase';
 
-import { getIdFirstModal, getIdLastModal } from './ModalBaseContext';
+import { getIdLastModal } from './ModalBaseContext';
 import { ModalOverlayProps } from './types';
 
 /*
@@ -15,7 +15,6 @@ export const modalBaseOverlayClass = 'modal-base-overlay';
 // TODO: новый отдельный оверлей #778
 export const Overlay = styled.div<{
     transparent?: boolean;
-    endAnimation?: boolean;
     $withBlur?: boolean;
     clickable?: boolean;
     zIndex?: string;
@@ -54,7 +53,6 @@ export const ModalOverlay: FC<ModalOverlayProps> = ({
     withBlur,
     onOverlayClick,
     onClose,
-    animationInfo,
     zIndex,
     closeOnOverlayClick = true,
     ...rest
@@ -80,17 +78,12 @@ export const ModalOverlay: FC<ModalOverlayProps> = ({
     );
 
     const transparent = useMemo(() => getIdLastModal(popupController.items) !== id, [id, popupController.items]);
-    const endAnimation = useMemo(() => getIdFirstModal(popupController.items) === id && animationInfo?.endAnimation, [
-        id,
-        popupController.items,
-    ]);
 
     return (
         <Overlay
             className={modalBaseOverlayClass}
             transparent={transparent}
             clickable={closeOnOverlayClick}
-            endAnimation={endAnimation}
             onClick={onModalOverlayKeyDown}
             zIndex={zIndex}
             $withBlur={withBlur}
