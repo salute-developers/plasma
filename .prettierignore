@@ -1,10 +1,17 @@
 /node_modules/
-/package.json
-/package-lock.json
 /build
-utils/plasma-cy-utils/lib
+
+# Exclude package(-lock).json for all packages
+package.json
+package-lock.json
+
+# Exclude *.api.md
 packages/plasma-b2c/api/
 packages/plasma-web/api/
 packages/plasma-hope/api/
 packages/plasma-core/api/
+
+utils/plasma-cy-utils/lib
+
+# Exclude *.diff
 reports
