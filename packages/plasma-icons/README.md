@@ -40,11 +40,12 @@ const App = () => {
 
 ### Как добавить новую иконку
 
--   Создать React компонент с соответствующим именем, например `MessageChatFill.tsx` в директории `src/Icon.assets`
+-   Создать React компонент с соответствующим именем, например `MessageChatFill.tsx` в директории `src/Icon.assets`.
 -   Убедиться, что у тега `<svg />` **нет атрибута** `height`, `width` использует проценты и прокинуты `props`.
--   Убедиться, что свойство `fill` для тега `<path />` использует значение `currentColor`
--   Так же можно убрать атрибуты: **fillRule**, **clipRule**
--   [Проверить SVG](https://github.com/salute-developers/plasma/pull/668#discussion_r1310927087), что не сломалось после удаления атрибутов
+-   Убедиться, что свойство `fill` для тега `<path />` использует значение `currentColor`.
+-   Убедиться, что нет свойства `fillOpacity`.
+-   Так же можно убрать атрибуты: **fillRule**, **clipRule**.
+-   [Проверить SVG](https://github.com/salute-developers/plasma/pull/668#discussion_r1310927087), что не сломалось после удаления атрибутов.
 
 #### Пример правильного компонента
 
