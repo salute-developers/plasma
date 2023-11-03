@@ -65,6 +65,7 @@ export { IconShare } from './Icons/IconShare';
 export { IconCloudUpload } from './Icons/IconCloudUpload';
 export { IconRecord } from './Icons/IconRecord';
 export { IconRecording } from './Icons/IconRecording';
+export { IconRaisedHand } from './Icons/IconRaisedHand';
 // Alert
 export { IconBell } from './Icons/IconBell';
 export { IconBellActive } from './Icons/IconBellActive';
@@ -145,7 +146,6 @@ export { IconCallDash } from './Icons/IconCallDash';
 export { IconCallIncomingFill } from './Icons/IconCallIncomingFill';
 export { IconCallMissedFill } from './Icons/IconCallMissedFill';
 export { IconCallOutgoingFill } from './Icons/IconCallOutgoingFill';
-
 export { IconMessage } from './Icons/IconMessage';
 export { IconMessageChatFill } from './Icons/IconMessageChatFill';
 export { IconFeedback } from './Icons/IconFeedback';
