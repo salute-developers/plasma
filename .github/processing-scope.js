@@ -41,6 +41,7 @@ module.exports = () => {
     const HAS_PLASMA_B2C = packagesList.includes('@salutejs/plasma-b2c');
     const HAS_PLASMA_TEMPLE = packagesList.includes('@salutejs/plasma-temple');
     const HAS_PLASMA_HOPE = packagesList.includes('@salutejs/plasma-new-hope');
+    const HAS_PLASMA_ASDK = packagesList.includes('@salutejs/plasma-asdk');
 
     const HAS_DOCUMENTATION_CHANGED = HAS_PLASMA_UI_DOCS || HAS_PLASMA_WEB_DOCS || HAS_PLASMA_TEMPLE_DOCS;
 
@@ -74,5 +75,6 @@ module.exports = () => {
         HAS_PLASMA_B2C,
         HAS_PLASMA_TEMPLE,
         HAS_PLASMA_HOPE,
+        HAS_PLASMA_ASDK,
     };
 };
