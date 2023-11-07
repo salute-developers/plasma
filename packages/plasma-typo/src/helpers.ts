@@ -65,8 +65,12 @@ export const createVariablesByArcheType = ({
 }> => {
     return ({ deviceScale = 1, breakWord = true }) => css`
             :root {
-                --plasma-typo-display-font-family: '${displayFontFamily}', sans-serif;
-                --plasma-typo-text-font-family: '${textFontFamily}', sans-serif;
+                --plasma-typo-display-font-family: '${displayFontFamily}', '${displayFontFamily
+        ?.split(' ')
+        .join('')}', sans-serif;
+                --plasma-typo-text-font-family: '${textFontFamily}', '${textFontFamily
+        ?.split(' ')
+        .join('')}', sans-serif;
                 --plasma-typo-dspl-l-font-family: var(--plasma-typo-display-font-family);
                 --plasma-typo-dspl-l-font-style: normal;
                 --plasma-typo-dspl-l-letter-spacing: normal;

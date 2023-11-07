@@ -10,7 +10,7 @@ type Headline1 = {
 };
 
 export const headline1: Headline1 = {
-    fontFamily: "var(--plasma-typo-headline1-font-family, 'SB Sans Text','Helvetica','Arial',sans-serif)",
+    fontFamily: "var(--plasma-typo-headline1-font-family, 'SB Sans Text','SBSansText','Helvetica','Arial',sans-serif)",
     fontWeight: 'var(--plasma-typo-headline1-font-weight, 700)',
     fontStyle: 'var(--plasma-typo-headline1-font-style, normal)',
     fontSize: 'var(--plasma-typo-headline1-font-size, 2rem)',

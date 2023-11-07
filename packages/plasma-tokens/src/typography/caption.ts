@@ -10,7 +10,7 @@ type Caption = {
 };
 
 export const caption: Caption = {
-    fontFamily: "var(--plasma-typo-caption-font-family, 'SB Sans Text','Helvetica','Arial',sans-serif)",
+    fontFamily: "var(--plasma-typo-caption-font-family, 'SB Sans Text','SBSansText','Helvetica','Arial',sans-serif)",
     fontWeight: 'var(--plasma-typo-caption-font-weight, 500)',
     fontStyle: 'var(--plasma-typo-caption-font-style, normal)',
     fontSize: 'var(--plasma-typo-caption-font-size, 0.75rem)',

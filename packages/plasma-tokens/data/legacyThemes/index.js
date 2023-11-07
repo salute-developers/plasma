@@ -920,7 +920,7 @@ class Typography {
             font: {
                 file: { src: 'assets/PlasmaStyles.figma.contents/fonts/SBSansText-Medium.otf', type: 'font' },
                 name: 'SBSansText-Medium',
-                fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+                fallbacks: ['SBSansText', 'Helvetica', 'Arial', 'sans-serif'],
                 weight: 400,
                 style: 'normal',
             },
@@ -935,7 +935,7 @@ class Typography {
             font: {
                 file: { src: 'assets/PlasmaStyles.figma.contents/fonts/SBSansText-Medium.otf', type: 'font' },
                 name: 'SBSansText-Medium',
-                fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+                fallbacks: ['SBSansText', 'Helvetica', 'Arial', 'sans-serif'],
                 weight: 400,
                 style: 'normal',
             },
@@ -950,7 +950,7 @@ class Typography {
             font: {
                 file: { src: 'assets/PlasmaStyles.figma.contents/fonts/SBSansText-Medium.otf', type: 'font' },
                 name: 'SBSansText-Medium',
-                fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+                fallbacks: ['SBSansText', 'Helvetica', 'Arial', 'sans-serif'],
                 weight: 400,
                 style: 'normal',
             },
@@ -965,7 +965,7 @@ class Typography {
             font: {
                 file: { src: 'assets/PlasmaStyles.figma.contents/fonts/SBSansText-Bold.otf', type: 'font' },
                 name: 'SBSansText-Bold',
-                fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+                fallbacks: ['SBSansText', 'Helvetica', 'Arial', 'sans-serif'],
                 weight: 400,
                 style: 'normal',
             },
@@ -980,7 +980,7 @@ class Typography {
             font: {
                 file: { src: 'assets/PlasmaStyles.figma.contents/fonts/SBSansText-Semibold.otf', type: 'font' },
                 name: 'SBSansText-Semibold',
-                fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+                fallbacks: ['SBSansText', 'Helvetica', 'Arial', 'sans-serif'],
                 weight: 400,
                 style: 'normal',
             },
@@ -995,7 +995,7 @@ class Typography {
             font: {
                 file: { src: 'assets/PlasmaStyles.figma.contents/fonts/SBSansText-Semibold.otf', type: 'font' },
                 name: 'SBSansText-Semibold',
-                fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+                fallbacks: ['SBSansText', 'Helvetica', 'Arial', 'sans-serif'],
                 weight: 400,
                 style: 'normal',
             },
@@ -1010,7 +1010,7 @@ class Typography {
             font: {
                 file: { src: 'assets/PlasmaStyles.figma.contents/fonts/SBSansText-Bold.otf', type: 'font' },
                 name: 'SBSansText-Bold',
-                fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+                fallbacks: ['SBSansText', 'Helvetica', 'Arial', 'sans-serif'],
                 weight: 400,
                 style: 'normal',
             },
@@ -1025,7 +1025,7 @@ class Typography {
             font: {
                 file: { src: 'assets/PlasmaStyles.figma.contents/fonts/SBSansText-Medium.otf', type: 'font' },
                 name: 'SBSansText-Medium',
-                fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+                fallbacks: ['SBSansText', 'Helvetica', 'Arial', 'sans-serif'],
                 weight: 400,
                 style: 'normal',
             },
@@ -1040,7 +1040,7 @@ class Typography {
             font: {
                 file: { src: 'assets/PlasmaStyles.figma.contents/fonts/SBSansText-Semibold.otf', type: 'font' },
                 name: 'SBSansText-Semibold',
-                fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+                fallbacks: ['SBSansText', 'Helvetica', 'Arial', 'sans-serif'],
                 weight: 400,
                 style: 'normal',
             },
@@ -1055,7 +1055,7 @@ class Typography {
             font: {
                 file: { src: 'assets/PlasmaStyles.figma.contents/fonts/SBSansText-Bold.otf', type: 'font' },
                 name: 'SBSansText-Bold',
-                fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+                fallbacks: ['SBSansText', 'Helvetica', 'Arial', 'sans-serif'],
                 weight: 400,
                 style: 'normal',
             },
@@ -1070,7 +1070,7 @@ class Typography {
             font: {
                 file: { src: 'assets/PlasmaStyles.figma.contents/fonts/SBSansText-Regular.otf', type: 'font' },
                 name: 'SBSansText-Regular',
-                fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+                fallbacks: ['SBSansText', 'Helvetica', 'Arial', 'sans-serif'],
                 weight: 400,
                 style: 'normal',
             },
@@ -1085,7 +1085,7 @@ class Typography {
             font: {
                 file: { src: 'assets/PlasmaStyles.figma.contents/fonts/SBSansText-Semibold.otf', type: 'font' },
                 name: 'SBSansText-Semibold',
-                fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+                fallbacks: ['SBSansText', 'Helvetica', 'Arial', 'sans-serif'],
                 weight: 400,
                 style: 'normal',
             },
@@ -1100,7 +1100,7 @@ class Typography {
             font: {
                 file: { src: 'assets/PlasmaStyles.figma.contents/fonts/SBSansText-Medium.otf', type: 'font' },
                 name: 'SBSansText-Medium',
-                fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+                fallbacks: ['SBSansText', 'Helvetica', 'Arial', 'sans-serif'],
                 weight: 400,
                 style: 'normal',
             },
@@ -1115,7 +1115,7 @@ class Typography {
             font: {
                 file: { src: 'assets/PlasmaStyles.figma.contents/fonts/SBSansText-Semibold.otf', type: 'font' },
                 name: 'SBSansText-Semibold',
-                fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+                fallbacks: ['SBSansText', 'Helvetica', 'Arial', 'sans-serif'],
                 weight: 400,
                 style: 'normal',
             },
@@ -1130,7 +1130,7 @@ class Typography {
             font: {
                 file: { src: 'assets/PlasmaStyles.figma.contents/fonts/SBSansText-Semibold.otf', type: 'font' },
                 name: 'SBSansText-Semibold',
-                fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+                fallbacks: ['SBSansText', 'Helvetica', 'Arial', 'sans-serif'],
                 weight: 400,
                 style: 'normal',
             },
@@ -1145,7 +1145,7 @@ class Typography {
             font: {
                 file: { src: 'assets/PlasmaStyles.figma.contents/fonts/SBSansText-Semibold.otf', type: 'font' },
                 name: 'SBSansText-Semibold',
-                fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+                fallbacks: ['SBSansText', 'Helvetica', 'Arial', 'sans-serif'],
                 weight: 400,
                 style: 'normal',
             },
@@ -1160,7 +1160,7 @@ class Typography {
             font: {
                 file: { src: 'assets/PlasmaStyles.figma.contents/fonts/SBSansText-Medium.otf', type: 'font' },
                 name: 'SBSansText-Medium',
-                fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+                fallbacks: ['SBSansText', 'Helvetica', 'Arial', 'sans-serif'],
                 weight: 400,
                 style: 'normal',
             },
@@ -1175,7 +1175,7 @@ class Typography {
             font: {
                 file: { src: 'assets/PlasmaStyles.figma.contents/fonts/SBSansText-Medium.otf', type: 'font' },
                 name: 'SBSansText-Medium',
-                fallbacks: ['Helvetica', 'Arial', 'sans-serif'],
+                fallbacks: ['SBSansText', 'Helvetica', 'Arial', 'sans-serif'],
                 weight: 400,
                 style: 'normal',
             },
