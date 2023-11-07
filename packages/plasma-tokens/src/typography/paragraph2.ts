@@ -10,7 +10,7 @@ type Paragraph2 = {
 };
 
 export const paragraph2: Paragraph2 = {
-    fontFamily: "var(--plasma-typo-paragraph2-font-family, 'SB Sans Text','Helvetica','Arial',sans-serif)",
+    fontFamily: "var(--plasma-typo-paragraph2-font-family, 'SB Sans Text','SBSansText','Helvetica','Arial',sans-serif)",
     fontWeight: 'var(--plasma-typo-paragraph2-font-weight, 600)',
     fontStyle: 'var(--plasma-typo-paragraph2-font-style, normal)',
     fontSize: 'var(--plasma-typo-paragraph2-font-size, 1rem)',

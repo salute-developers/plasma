@@ -10,7 +10,7 @@ type Display1 = {
 };
 
 export const display1: Display1 = {
-    fontFamily: "var(--plasma-typo-display1-font-family, 'SB Sans Text','Helvetica','Arial',sans-serif)",
+    fontFamily: "var(--plasma-typo-display1-font-family, 'SB Sans Text','SBSansText','Helvetica','Arial',sans-serif)",
     fontWeight: 'var(--plasma-typo-display1-font-weight, 500)',
     fontStyle: 'var(--plasma-typo-display1-font-style, normal)',
     fontSize: 'var(--plasma-typo-display1-font-size, 6rem)',
