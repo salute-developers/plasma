@@ -25,8 +25,8 @@
     "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma-b2c babel ./src --out-dir . --extensions .ts,.tsx",
     "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma-b2c babel ./src --out-dir ./es --extensions .ts,.tsx",
     "generate:typings": "tsc --outDir . --emitDeclarationOnly",
-    "storybook": "NODE_OPTIONS=--openssl-legacy-provider storybook dev -s .storybook/public -p ${PORT:-7007} -c .storybook",
-    "storybook:build": "NODE_OPTIONS=--openssl-legacy-provider storybook build -s .storybook/public -c .storybook -o build-sb",
+    "storybook": "storybook dev -p ${PORT:-7007} -c .storybook",
+    "storybook:build": "storybook build -c .storybook -o build-sb",
     "typescript-coverage": "npx typescript-coverage-report > /dev/null",
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
   },
