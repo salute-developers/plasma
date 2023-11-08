@@ -41,6 +41,10 @@ export type CustomPopoverProps = {
      */
     children?: ReactNode;
     /**
+     * Предотвратить автоматическое изменение положения.
+     */
+    preventOverflow?: boolean;
+    /**
      * Блокировать ли фокус на всплывающем окне.
      * @default
      * true

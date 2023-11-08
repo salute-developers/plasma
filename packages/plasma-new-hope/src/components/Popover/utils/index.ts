@@ -1,6 +1,6 @@
 import type { Placement } from '@popperjs/core';
 
-import type { PopoverPlacement } from '../type';
+import type { PopoverPlacement } from '../Popover.types';
 
 export const ESCAPE_KEYCODE = 27;
 
