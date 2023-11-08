@@ -49,7 +49,7 @@
     "@storybook/addon-essentials": "6.5.16",
     "@storybook/addons": "6.5.16",
     "@storybook/builder-vite": "0.4.2",
-    "@storybook/react": "6.5.16",
+    "@storybook/react": "7.5.3",
     "@storybook/theming": "6.5.16",
     "@types/node": "16.7.13",
     "@types/react": "18.0.28",
