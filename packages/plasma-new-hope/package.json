@@ -99,6 +99,7 @@
     "@salutejs/plasma-core": "1.139.0",
     "@salutejs/plasma-tokens": "1.65.0",
     "focus-visible": "5.2.0",
-    "react-popper": "2.3.0"
+    "react-popper": "2.3.0",
+    "storeon": "3.1.5"
   }
 }

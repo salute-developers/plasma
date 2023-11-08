@@ -12,4 +12,5 @@ export * from './components/Calendar';
 export * from './components/Typography';
 export * from './components/Popup';
 export * from './components/Modal';
+export * from './components/Notification';
 export * from './mixins';
