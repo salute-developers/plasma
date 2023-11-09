@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentProps } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { tabsConfig } from '../../../../components/Tabs';
 import { mergeConfig } from '../../../../engines';
@@ -9,16 +10,18 @@ import { config } from './Tabs.config';
 import { Tabs } from './Tabs';
 import { TabItem } from './TabItem';
 
-export default {
+const meta: Meta<typeof Tabs> = {
     title: 'sds_engineer/Tabs',
     component: Tabs,
     decorators: [WithTheme],
     argTypes: {
         ...argTypesFromConfig(mergeConfig(tabsConfig, config)),
     },
-} as ComponentMeta<typeof Tabs>;
+};
 
-export const Default: ComponentStory<typeof Tabs> = (props) => {
+export default meta;
+
+const StoryDefault = (props: ComponentProps<typeof Tabs>) => {
     const { itemsNumber, label, disabled, stretch } = props;
     const items = Array(itemsNumber).fill(0);
     const [index, setIndex] = useState(0);
@@ -40,9 +43,12 @@ export const Default: ComponentStory<typeof Tabs> = (props) => {
     );
 };
 
-Default.args = {
-    itemsNumber: 4,
-    disabled: false,
-    stretch: false,
-    label: 'Label',
+export const Default: StoryObj<ComponentProps<typeof Tabs>> = {
+    args: {
+        itemsNumber: 4,
+        disabled: false,
+        stretch: false,
+        label: 'Label',
+    },
+    render: (args) => <StoryDefault {...args} />,
 };

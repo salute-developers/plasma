@@ -1,5 +1,6 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import React, { useState } from 'react';
+import type { ComponentProps } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { checkboxConfig } from '../../../../components/Checkbox';
@@ -10,18 +11,29 @@ import { Link } from '../Link/Link';
 import { config } from './Checkbox.config';
 import { Checkbox } from './Checkbox';
 
-export default {
-    title: 'sds_engineer/Checkbox',
-    decorators: [WithTheme],
-    component: Checkbox,
-    argTypes: argTypesFromConfig(mergeConfig(checkboxConfig, config)),
-} as ComponentMeta<typeof Checkbox>;
-
 const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
+const meta: Meta<typeof Checkbox> = {
+    title: 'sds_engineer/Checkbox',
+    decorators: [WithTheme],
+    component: Checkbox,
+    argTypes: argTypesFromConfig(mergeConfig(checkboxConfig, config)),
+    args: {
+        view: 'accent',
+        size: 'm',
+        disabled: false,
+        focused: true,
+    },
+};
+
+export default meta;
+
+type CheckboxProps = ComponentProps<typeof Checkbox>;
+
 const name = 'languages';
+
 const items = [
     {
         name,
@@ -60,6 +72,7 @@ const items = [
 ];
 
 const getChildren = (value: string) => items.filter((item) => item.parent === value);
+
 const getState = (values: Record<string, boolean | undefined>, value: string) => {
     const allChildren = getChildren(value);
 
@@ -80,7 +93,7 @@ const getState = (values: Record<string, boolean | undefined>, value: string) =>
     return { checked: true, indeterminate: false };
 };
 
-export const Default: ComponentStory<typeof Checkbox> = (props) => {
+const StoryDefault = (props: CheckboxProps) => {
     return (
         <>
             <Checkbox name="item.name" value="item.value" label="Label" description="Description" {...props} />
@@ -96,8 +109,12 @@ export const Default: ComponentStory<typeof Checkbox> = (props) => {
     );
 };
 
-export const Complex: ComponentStory<typeof Checkbox> = (props) => {
-    const [values, setValues] = React.useState({
+export const Default: StoryObj<CheckboxProps> = {
+    render: (args) => <StoryDefault {...args} />,
+};
+
+const StoryComplex = (props: CheckboxProps) => {
+    const [values, setValues] = useState({
         russian: true,
         english: true,
         french: true,
@@ -143,4 +160,8 @@ export const Complex: ComponentStory<typeof Checkbox> = (props) => {
             ))}
         </>
     );
+};
+
+export const Complex: StoryObj<CheckboxProps> = {
+    render: (args) => <StoryComplex {...args} />,
 };
