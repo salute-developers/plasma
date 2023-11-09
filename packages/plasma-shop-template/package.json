@@ -1,31 +1,31 @@
 {
-  "name": "@salutejs/cra-template-plasma-shop-template",
-  "version": "2.4.0",
-  "description": "Plasma temple E-commerce template",
-  "author": "Salute Frontend Team <salute.developers@gmail.com>",
-  "license": "MIT",
-  "keywords": [
-    "react",
-    "create-react-app",
-    "template",
-    "typescript"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/salute-developers/plasma.git",
-    "directory": "packages/plasma-shop-template"
-  },
-  "engines": {
-    "node": ">=12"
-  },
-  "bugs": {
-    "url": "https://github.com/salute-developers/plasma/issues"
-  },
-  "files": [
-    "template",
-    "template.json"
-  ],
-  "publishConfig": {
-    "access": "public"
-  }
+    "name": "@salutejs/cra-template-plasma-shop-template",
+    "version": "2.4.0",
+    "description": "Plasma temple E-commerce template",
+    "author": "Salute Frontend Team <salute.developers@gmail.com>",
+    "license": "MIT",
+    "keywords": [
+        "react",
+        "create-react-app",
+        "template",
+        "typescript"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/salute-developers/plasma.git",
+        "directory": "packages/plasma-shop-template"
+    },
+    "engines": {
+        "node": ">=12"
+    },
+    "bugs": {
+        "url": "https://github.com/salute-developers/plasma/issues"
+    },
+    "files": [
+        "template",
+        "template.json"
+    ],
+    "publishConfig": {
+        "access": "public"
+    }
 }

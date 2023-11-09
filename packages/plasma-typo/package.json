@@ -1,41 +1,41 @@
 {
-  "name": "@salutejs/plasma-typo",
-  "version": "0.38.0",
-  "description": "Plasma Typography System's tokens",
-  "author": "Salute Frontend Team <salute.developers@gmail.com>",
-  "license": "MIT",
-  "module": "lib/esm/index.js",
-  "main": "lib/cjs/index.js",
-  "types": "lib/cjs/index.d.ts",
-  "scripts": {
-    "prepare": "npm run build",
-    "prebuild": "rm -rf ./lib",
-    "build": "npm run build:cjs && npm run build:esm",
-    "build:cjs": "tsc",
-    "build:esm": "tsc -p ./tsconfig.es.json",
-    "lint": "../../node_modules/.bin/eslint ./src --ext .ts,.tsx --quiet"
-  },
-  "peerDependencies": {
-    "react": ">=16.13.1",
-    "react-dom": ">=16.13.1",
-    "styled-components": "^5.1.1"
-  },
-  "devDependencies": {
-    "@types/node": "16.7.13",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11",
-    "@types/styled-components": "5.1.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-scripts": "3.4.4",
-    "styled-components": "5.3.1",
-    "typescript": "4.0.8"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "files": [
-    "lib"
-  ],
-  "sideEffects": false
+    "name": "@salutejs/plasma-typo",
+    "version": "0.38.0",
+    "description": "Plasma Typography System's tokens",
+    "author": "Salute Frontend Team <salute.developers@gmail.com>",
+    "license": "MIT",
+    "module": "lib/esm/index.js",
+    "main": "lib/cjs/index.js",
+    "types": "lib/cjs/index.d.ts",
+    "scripts": {
+        "prepare": "npm run build",
+        "prebuild": "rm -rf ./lib",
+        "build": "npm run build:cjs && npm run build:esm",
+        "build:cjs": "tsc",
+        "build:esm": "tsc -p ./tsconfig.es.json",
+        "lint": "../../node_modules/.bin/eslint ./src --ext .ts,.tsx --quiet"
+    },
+    "peerDependencies": {
+        "react": ">=16.13.1",
+        "react-dom": ">=16.13.1",
+        "styled-components": "^5.1.1"
+    },
+    "devDependencies": {
+        "@types/node": "16.7.13",
+        "@types/react": "18.0.28",
+        "@types/react-dom": "18.0.11",
+        "@types/styled-components": "5.1.0",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-scripts": "3.4.4",
+        "styled-components": "5.3.1",
+        "typescript": "4.0.8"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "files": [
+        "lib"
+    ],
+    "sideEffects": false
 }
