@@ -1,5 +1,5 @@
-name: Update description with perftest report
-description: Updates description with perftest report summary and details
+name: Writes comment with perftest report
+description: Writes comment with perftest report summary and details
 inputs:
   token:
     description: The GitHub token used to create an authenticated client.
@@ -21,7 +21,7 @@ outputs:
     description: Process done with success.
 runs:
   using: node16
-  main: '../../lib/bin/updateDescription.js'
+  main: '../../lib/bin/writeComment.js'
 branding:
   icon: check-square
   color: purple

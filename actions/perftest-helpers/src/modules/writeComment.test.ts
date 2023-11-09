@@ -3,28 +3,27 @@ import { jest } from '@jest/globals';
 
 import * as fsUtils from '../utils/fs';
 
-import PerftestUpdateMergeRequestDescriptionApi from './updateDescription';
+import PerftestWriteCommentApi from './writeComment';
 
-describe('perftest/updateDescription', () => {
+describe('perftest/writeComment', () => {
     afterEach(() => {
         jest.clearAllMocks();
         jest.restoreAllMocks();
         jest.resetModules();
     });
 
-    describe('update', () => {
+    describe('post', () => {
         const prId = 12345;
         const reportPath = '/report/Path';
         const owner = 'salute-developers';
         const repo = 'plasma';
 
-        let getUpdatedDescriptionMock: jest.Mock;
-        let getMock: jest.Mock;
-        let updateMock: jest.Mock;
+        let getCommentBodyMock: jest.Mock;
+        let createCommentMock: jest.Mock;
         let readJsonMock: jest.SpiedClass<any>;
 
-        class ApiWithStubbedInternals extends PerftestUpdateMergeRequestDescriptionApi {
-            getUpdatedDescription = (getUpdatedDescriptionMock = jest.fn() as any);
+        class ApiWithStubbedInternals extends PerftestWriteCommentApi {
+            getCommentBody = (getCommentBodyMock = jest.fn() as any);
         }
 
         let api: ApiWithStubbedInternals;
@@ -33,9 +32,8 @@ describe('perftest/updateDescription', () => {
             api = new ApiWithStubbedInternals({
                 octokit: {
                     rest: {
-                        pulls: {
-                            get: getMock = jest.fn(),
-                            update: updateMock = jest.fn(),
+                        issues: {
+                            createComment: createCommentMock = jest.fn(),
                         },
                     },
                 } as any,
@@ -44,155 +42,58 @@ describe('perftest/updateDescription', () => {
         });
 
         it('should get current description and set new description', async () => {
-            const prData = { data: { body: 'hehe' } } as any;
+            const commentBody = 'hehe';
             const report = { result: {} };
-            const basePrArgs = {
-                owner,
-                repo,
-                pull_number: prId,
-            };
-            const updatedDescription = 'updated description';
 
-            getMock.mockResolvedValue(prData as never);
             readJsonMock.mockResolvedValue(report);
-            getUpdatedDescriptionMock.mockReturnValue(updatedDescription);
-            updateMock.mockResolvedValue(null as never);
+            getCommentBodyMock.mockReturnValue(commentBody);
+            // createCommentMock.mockResolvedValue(null as never);
 
-            await api.update({ prId, owner, repo, reportPath } as any);
-
-            expect(getMock).toHaveBeenCalledTimes(1);
-            expect(getMock).toHaveBeenCalledWith(basePrArgs);
+            await api.post({ prId, owner, repo, reportPath } as any);
 
             expect(readJsonMock).toHaveBeenCalledTimes(1);
             expect(readJsonMock).toHaveBeenCalledWith(reportPath);
 
-            expect(getUpdatedDescriptionMock).toHaveBeenCalledTimes(1);
-            expect(getUpdatedDescriptionMock).toHaveBeenCalledWith(prData.data.body, report);
+            expect(getCommentBodyMock).toHaveBeenCalledTimes(1);
+            expect(getCommentBodyMock).toHaveBeenCalledWith(report);
 
-            expect(updateMock).toHaveBeenCalledTimes(1);
-            expect(updateMock).toHaveBeenCalledWith({ ...basePrArgs, body: updatedDescription });
+            expect(createCommentMock).toHaveBeenCalledTimes(1);
+            expect(createCommentMock).toHaveBeenCalledWith({
+                owner,
+                repo,
+                issue_number: prId,
+                body: commentBody,
+            });
         });
     });
 
-    describe('getUpdatedDescription', () => {
-        const surrouningsValue = { before: 'before', after: 'after' };
-        const newReportValue = 'new report';
-        let getSurroundingsMock: jest.Mock;
-        let getVisualReportMock: jest.Mock;
-
-        class ApiWithGetUpdatedDescriptionExposed extends PerftestUpdateMergeRequestDescriptionApi {
-            public getUpdatedDescription = super.getUpdatedDescription;
-
-            getSurroundings = (getSurroundingsMock = jest.fn().mockReturnValue(surrouningsValue) as any);
-
-            getVisualReport = (getVisualReportMock = jest.fn().mockReturnValue(newReportValue) as any);
-        }
-
-        it('should get surroundings, get new report and combine them', () => {
-            const currentDescription = 'current';
-            const jsonReport = { result: {} };
-            const res = new ApiWithGetUpdatedDescriptionExposed({} as any).getUpdatedDescription(
-                currentDescription,
-                jsonReport as any,
-            );
-
-            expect(getSurroundingsMock).toHaveBeenCalledTimes(1);
-            expect(getSurroundingsMock).toHaveBeenCalledWith(currentDescription);
-            expect(getVisualReportMock).toHaveBeenCalledTimes(1);
-            expect(getVisualReportMock).toHaveBeenCalledWith(jsonReport);
-
-            expect(res).toEqual([surrouningsValue.before, newReportValue, surrouningsValue.after].join(''));
-        });
-    });
-
-    describe('getSurroundings', () => {
-        const wrapContentImplementation = (r: string) => `<div>${r}</div>`;
-        let wrapContentMock: jest.Mock;
-        class ApiWithGetSurroundingsExposed extends PerftestUpdateMergeRequestDescriptionApi {
-            public getSurroundings = super.getSurroundings;
-
-            wrapReportContent = (wrapContentMock = jest
-                .fn()
-                .mockImplementation(wrapContentImplementation as any)) as any;
-        }
-
-        it('should return exact before and after text if report exists in text', () => {
-            const api = new ApiWithGetSurroundingsExposed({} as any);
-            const realBefore = 'blabla\n\nblabla';
-            const realAfter = 'blabla\nwerwqet';
-            const realReport = wrapContentImplementation('immareport');
-            const mrDescription = `${realBefore}${realReport}${realAfter}`;
-
-            const { before, after } = api.getSurroundings(mrDescription);
-
-            expect(before).toEqual(realBefore);
-            expect(after).toEqual(realAfter);
-            expect([before, realReport, after].join('')).toEqual(mrDescription);
-
-            expect(wrapContentMock).toHaveBeenCalledTimes(1);
-        });
-
-        it('should return before canary release text and everything after if no report found', () => {
-            const api = new ApiWithGetSurroundingsExposed({} as any);
-            const realBefore = 'blabla\n\nblabla';
-            const realAfter = '<!-- GITHUB_RELEASE -->\nblabla\nwerwqet\nblabla\nkaoitwlek';
-            const mrDescription = `${realBefore}${realAfter}`;
-
-            const { before, after } = api.getSurroundings(mrDescription);
-
-            expect(before).toEqual(`${realBefore}\n\n`);
-            expect(after).toEqual(`\n\n${realAfter}`);
-
-            expect(wrapContentMock).toHaveBeenCalledTimes(1);
-        });
-
-        it('should return all the text as before if no report found and no section found', () => {
-            const api = new ApiWithGetSurroundingsExposed({} as any);
-            const mrDescription = 'blabla\n\nblabla\nblabla\nwerwqet\nblabla\nkaoitwlek';
-
-            const { before, after } = api.getSurroundings(mrDescription);
-
-            expect(before).toEqual(`${mrDescription}\n\n`);
-            expect(after).toEqual('\n\n');
-
-            expect(wrapContentMock).toHaveBeenCalledTimes(1);
-        });
-    });
-
-    describe('getVisualReport', () => {
+    describe('getCommentBody', () => {
         const descriptionResult = 'description';
         let getDescriptionMock: jest.Mock;
-        let wrapContentMock: jest.Mock;
 
-        class ApiWithGetVisualReportExposed extends PerftestUpdateMergeRequestDescriptionApi {
-            public getVisualReport = super.getVisualReport;
+        class ApiWithGetVisualReportExposed extends PerftestWriteCommentApi {
+            public getCommentBody = super.getCommentBody;
 
             getReportDescription = (getDescriptionMock = jest.fn().mockReturnValue(descriptionResult) as any);
-
-            wrapReportContent = (wrapContentMock = jest.fn().mockImplementation((r) => r) as any);
         }
 
-        it('should create report markup, add description and wrap', () => {
+        it('should create report markup, add description', () => {
             const jsonReport = { hasSignificantNegativeChanges: true };
             const api = new ApiWithGetVisualReportExposed({} as any);
 
-            const result = api.getVisualReport(jsonReport as any);
+            const result = api.getCommentBody(jsonReport as any);
 
             expect(result.includes('FAIL')).toBe(true);
 
             expect(getDescriptionMock).toHaveBeenCalledTimes(1);
             expect(getDescriptionMock).toHaveBeenCalledWith(jsonReport);
-
-            expect(wrapContentMock).toHaveBeenCalledTimes(1);
-            expect((wrapContentMock.mock.calls[0][0] as any).includes(descriptionResult)).toBe(true);
-            expect((wrapContentMock.mock.calls[0][0] as any).includes('FAIL')).toBe(true);
         });
 
         it('should create OK report if no significant negative changes', () => {
             const jsonReport = { hasSignificantNegativeChanges: false };
             const api = new ApiWithGetVisualReportExposed({} as any);
 
-            const result = api.getVisualReport(jsonReport as any);
+            const result = api.getCommentBody(jsonReport as any);
             expect(result.includes('OK')).toBe(true);
         });
     });
@@ -204,7 +105,7 @@ describe('perftest/updateDescription', () => {
         let getResultByTaskIdMock: jest.Mock;
         let getDescriptionTablesMock: jest.Mock;
 
-        class ApiWithGetReportDescriptionExposed extends PerftestUpdateMergeRequestDescriptionApi {
+        class ApiWithGetReportDescriptionExposed extends PerftestWriteCommentApi {
             public getReportDescription = super.getReportDescription;
 
             getResultByTaskId = (getResultByTaskIdMock = jest.fn().mockReturnValue(resultByTaskId) as any);
@@ -247,7 +148,7 @@ describe('perftest/updateDescription', () => {
     });
 
     describe('getResultByTaskId', () => {
-        class ApiWithGetResultByTaskIdExposed extends PerftestUpdateMergeRequestDescriptionApi {
+        class ApiWithGetResultByTaskIdExposed extends PerftestWriteCommentApi {
             public getResultByTaskId = super.getResultByTaskId;
         }
 
@@ -295,7 +196,7 @@ describe('perftest/updateDescription', () => {
     describe('getDescriptionTables', () => {
         let getSubjectTaskResultTableRowMock: jest.Mock;
 
-        class ApiWithGetMetricsReportExposed extends PerftestUpdateMergeRequestDescriptionApi {
+        class ApiWithGetMetricsReportExposed extends PerftestWriteCommentApi {
             public getDescriptionTables = super.getDescriptionTables;
 
             public getSubjectTaskResultTableRow = (getSubjectTaskResultTableRowMock = jest.fn() as any);
@@ -326,7 +227,7 @@ describe('perftest/updateDescription', () => {
     describe('getSubjectTaskResultTableRow', () => {
         let formatValueMock: jest.Mock;
 
-        class ApiWithGetSubjectTaskResultTableRowExposed extends PerftestUpdateMergeRequestDescriptionApi {
+        class ApiWithGetSubjectTaskResultTableRowExposed extends PerftestWriteCommentApi {
             public getSubjectTaskResultTableRow = super.getSubjectTaskResultTableRow;
 
             public formatValue = (formatValueMock = jest.fn().mockImplementation((r) => r) as any);
@@ -350,7 +251,7 @@ describe('perftest/updateDescription', () => {
     });
 
     describe('formatValue', () => {
-        class ApiWithWrapFormatValueExposed extends PerftestUpdateMergeRequestDescriptionApi {
+        class ApiWithWrapFormatValueExposed extends PerftestWriteCommentApi {
             public formatValue = super.formatValue;
         }
 
@@ -370,26 +271,6 @@ describe('perftest/updateDescription', () => {
             expect(formatValue(Math.PI, { sign: true })).toEqual('+3.14');
             expect(formatValue(-Math.PI, { sign: true })).toEqual('-3.14');
             expect(formatValue(0, { sign: true, fractionDigits: 0 })).toEqual('0');
-        });
-
-        it('should format number with highlighter', () => {
-            expect(formatValue(Math.PI, { highlight: true })).toEqual('{+(3.14)+}');
-            expect(formatValue(-Math.PI, { highlight: true })).toEqual('{-(-3.14)-}');
-            expect(formatValue(0, { highlight: true })).toEqual('`(0.00)`');
-        });
-    });
-
-    describe('wrapReportContent', () => {
-        class ApiWithWrapContentExposed extends PerftestUpdateMergeRequestDescriptionApi {
-            public wrapReportContent = super.wrapReportContent;
-        }
-
-        it('should wrap content string', () => {
-            const content = 'asd';
-            const res = new ApiWithWrapContentExposed({} as any).wrapReportContent(content);
-
-            expect(res.includes(content)).toBe(true);
-            expect(res).toMatchSnapshot();
         });
     });
 });

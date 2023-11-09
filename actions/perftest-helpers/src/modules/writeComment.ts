@@ -10,73 +10,33 @@ export type Dependencies = {
     octokit: ReturnType<typeof getOctokit>;
 };
 
-export type UpdateParams = {
+export type WriteCommentParams = {
     prId: number;
     owner: string;
     repo: string;
     reportPath: string;
 };
 
-class PerftestUpdatePRDescriptionApi {
+class PerftestWriteCommentApi {
     protected readonly deps: Dependencies;
 
     constructor(deps: Dependencies) {
         this.deps = deps;
     }
 
-    async update({ prId, owner, repo, reportPath }: UpdateParams): Promise<void> {
-        const basePrArgs = {
+    async post({ prId, owner, repo, reportPath }: WriteCommentParams): Promise<void> {
+        const jsonReport = await readJson<ReportType>(path.resolve(reportPath));
+        const body = this.getCommentBody(jsonReport);
+
+        await this.deps.octokit.rest.issues.createComment({
             owner,
             repo,
-            pull_number: prId,
-        };
-        const pr = await this.deps.octokit.rest.pulls.get(basePrArgs);
-        const { body: currentBody } = pr.data;
-
-        const jsonReport = await readJson<ReportType>(path.resolve(reportPath));
-
-        const newBody = this.getUpdatedDescription(currentBody, jsonReport);
-
-        await this.deps.octokit.rest.pulls.update({
-            ...basePrArgs,
-            body: newBody,
+            issue_number: prId,
+            body,
         });
     }
 
-    protected getUpdatedDescription(current: string | null, jsonReport: ReportType): string {
-        const { before, after } = this.getSurroundings(current);
-        const visualReport = this.getVisualReport(jsonReport);
-
-        return [before, visualReport, after].filter(Boolean).join('');
-    }
-
-    protected getSurroundings(prDescription: string | null): { before: string; after: string } {
-        if (!prDescription) {
-            return { before: '', after: '' };
-        }
-
-        const re = new RegExp(this.wrapReportContent('.+'), 's');
-        const currentReportMatch = prDescription.match(re);
-        const currentReport = currentReportMatch?.[0];
-
-        if (currentReport) {
-            // Если текущий отчет найден, то нужно разделить как есть
-            const [before, after = ''] = prDescription.split(currentReport);
-
-            return { before, after };
-        }
-
-        // Если отчета нет, то нужно разместить его либо до ссылок на canary пакеты, либо в конце
-        const [before, after = ''] = prDescription.split('<!-- GITHUB_RELEASE');
-
-        // Обрамляем переносами, если их нет
-        return {
-            before: before.endsWith('\n') ? `${before}\n` : `${before}\n\n`,
-            after: after ? `\n\n<!-- GITHUB_RELEASE${after}` : '\n\n',
-        };
-    }
-
-    protected getVisualReport(jsonReport: ReportType): string {
+    protected getCommentBody(jsonReport: ReportType): string {
         const result = jsonReport.hasSignificantNegativeChanges ? '🔴 FAIL' : '🟢 OK';
 
         const report = `<h3>⚡ Component performance testing</h3>
@@ -86,7 +46,7 @@ class PerftestUpdatePRDescriptionApi {
 ${this.getReportDescription(jsonReport)}
 `;
 
-        return this.wrapReportContent(report);
+        return report;
     }
 
     protected getReportDescription(jsonReport: ReportType): string {
@@ -124,7 +84,7 @@ ${this.getReportDescription(jsonReport)}
     protected getDescriptionTables(resultByTaskId: { [taskId: string]: [string, ComparableResult][] }): string {
         return Object.entries(resultByTaskId).reduce((acc, [taskId, subjects]) => {
             acc += `\n**${taskId}:**\n`;
-            acc += '\n| Компонент | Изменение | Было | Стало |\n|:-:|:-:|:-:|:-:|\n';
+            acc += '\n| Component | Diff | Base value | Current value |\n|:-:|:-:|:-:|:-:|\n';
 
             for (const [subjectId, result] of subjects) {
                 acc += `${this.getSubjectTaskResultTableRow(subjectId, result)}\n`;
@@ -139,7 +99,6 @@ ${this.getReportDescription(jsonReport)}
         const percentage = this.formatValue(result.change!.percentage!, {
             suffix: '%',
             sign: true,
-            highlight: true,
         });
         const old = this.formatValue(Array.isArray(result.old) ? result.old[0] : result.old!, {
             suffix: ' pts',
@@ -156,9 +115,8 @@ ${this.getReportDescription(jsonReport)}
         {
             fractionDigits = 2,
             suffix = '',
-            highlight = false,
             sign = false,
-        }: { fractionDigits?: number; suffix?: string; highlight?: boolean; sign?: boolean } = {},
+        }: { fractionDigits?: number; suffix?: string; sign?: boolean } = {},
     ): string {
         let result = `${value.toFixed(fractionDigits)}${suffix}`;
 
@@ -166,25 +124,8 @@ ${this.getReportDescription(jsonReport)}
             result = `${value > 0 ? '+' : ''}${result}`;
         }
 
-        if (highlight) {
-            // eslint-disable-next-line no-nested-ternary
-            const signValue = value > 0 ? '+' : value < 0 ? '-' : '';
-
-            if (signValue) {
-                result = `{${signValue}(${result})${signValue}}`;
-            } else {
-                result = `\`(${result})\``;
-            }
-        }
-
         return result;
-    }
-
-    protected wrapReportContent(content: string): string {
-        const wrapper = '<!-- AUTO-GENERATED PERFTEST REPORT -->';
-
-        return `${wrapper}\n${content}\n${wrapper}`;
     }
 }
 
-export default PerftestUpdatePRDescriptionApi;
+export default PerftestWriteCommentApi;

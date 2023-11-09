@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`perftest/writeComment getDescriptionTables should iterate through tasks, forming tables with rows 1`] = `
+"
+**taskId1:**
+
+| Component | Diff | Base value | Current value |
+|:-:|:-:|:-:|:-:|
+row
+row
+
+**taskId2:**
+
+| Component | Diff | Base value | Current value |
+|:-:|:-:|:-:|:-:|
+row
+row
+row
+
+**taskId3:**
+
+| Component | Diff | Base value | Current value |
+|:-:|:-:|:-:|:-:|
+row
+"
+`;
+
+exports[`perftest/writeComment getReportDescription should return description markup with report 1`] = `
+"<details><summary>Details</summary><br/>
+report
+</details>"
+`;
+
+exports[`perftest/writeComment getSubjectTaskResultTableRow should format the row 1`] = `"| subjectId | diff percentage | old | new1 |"`;
