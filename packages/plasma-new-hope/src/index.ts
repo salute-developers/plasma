@@ -14,4 +14,4 @@ export * from './mixins';
 export * from './components/Popup';
 export * from './components/Popup/Popup.types';
 export * from './components/Modal';
-export * from './components/Modal/Modal.types';
+export * from './components/Modal/Modal/Modal.types';

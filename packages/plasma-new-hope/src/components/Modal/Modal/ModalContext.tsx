@@ -1,4 +1,4 @@
-import { PopupInfo } from '../Popup/Popup.types';
+import { PopupInfo } from '../../Popup/Popup.types';
 
 export interface ModalInfo extends PopupInfo {
     id: string;

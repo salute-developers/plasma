@@ -2,7 +2,7 @@ import { useCallback, useEffect } from 'react';
 
 import { ModalInfo, getIdLastModal } from '../ModalContext';
 import { ModalHookArgs } from '../Modal.types';
-import { usePopupContext } from '../../Popup';
+import { usePopupContext } from '../../../Popup';
 
 const ESCAPE_KEYCODE = 27;
 
