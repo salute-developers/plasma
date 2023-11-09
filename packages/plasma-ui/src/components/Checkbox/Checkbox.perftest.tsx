@@ -32,6 +32,7 @@ const StyledGrid = styled.div`
 `;
 
 export const Default = () => {
+    window.top;
     return (
         <StyledGrid>
             {items.map((item) => (
