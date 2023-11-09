@@ -7,6 +7,7 @@ on:
     branches:
       - master
       - dev
+      - perftest-comment
 
 concurrency:
   # New commit on branch cancels running workflows of the same branch
@@ -66,100 +67,100 @@ jobs:
       - name: Lerna bootstrap for PR
         run: >
           npx lerna bootstrap
-          --scope=@salutejs/plasma-{core,hope,new-hope,web,b2c,ui,icons}
+          --scope=@salutejs/plasma-ui
           --scope=@salutejs/perftest-helpers
 
-      - name: Restore perftool cache
-        run: >
-          s3cmd
-          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
-          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          --host ${{ secrets.AWS_ENDPOINT }}
-          --host-bucket ${{ secrets.AWS_ENDPOINT }}
-          --bucket-location ${{ secrets.AWS_REGION }}
-          --signature-v2
-          --no-mime-magic
-          --no-preserve
-          sync
-          s3://${{ secrets.AWS_S3_BUCKET_2 }}/perftool-cache/
-          ./.perftool/cache/
-
-      - name: Run performance test for PR
-        run: >
-          npx perftool
-          -o perftest/pr-result.json
-          --baseBranchRef ${{ github.event.pull_request.base.sha }}
-          --currentBranchRef ${{ github.event.pull_request.head.sha }}
-
-      - name: Save perftool cache
-        run: >
-          s3cmd
-          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
-          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          --host ${{ secrets.AWS_ENDPOINT }}
-          --host-bucket ${{ secrets.AWS_ENDPOINT }}
-          --bucket-location ${{ secrets.AWS_REGION }}
-          --signature-v2
-          --no-mime-magic
-          --no-preserve
-          sync
-          ./.perftool/cache/
-          s3://${{ secrets.AWS_S3_BUCKET_2 }}/perftool-cache/
-
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.base.ref }}
-          clean: false
-
-      - name: Cache node modules
-        id: node_modules_base
-        uses: actions/cache/restore@v3
-        with:
-          path: node_modules
-          key: node-modules-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            node-modules-${{ hashFiles('package-lock.json') }}
-            node-modules-
-
-      - name: Cache dependencies
-        id: cache_base
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache
-          key: cache-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            cache-${{ hashFiles('package-lock.json') }}
-            cache-
-
-      - name: Setup packages for ${{ github.event.pull_request.base.ref }}
-        if: ${{ steps.cache_base.outputs.cache-hit != 'true' && steps.node_modules_base.outputs.cache-hit != 'true' }}
-        run: npm ci --no-progress
-
-      - name: Lerna bootstrap for ${{ github.event.pull_request.base.ref }}
-        run: >
-          npx lerna bootstrap
-          --scope=@salutejs/plasma-{core,hope,new-hope,web,b2c,ui,icons}
-          --scope=@salutejs/perftest-helpers
-
-      - name: Run performance test for ${{ github.event.pull_request.base.ref }}
-        run: >
-          npx perftool
-          -o perftest/base-result.json
-          --currentBranchRef ${{ github.event.pull_request.head.sha }}
-
-      - name: Compare test results
-        run: >
-          npx perftool-compare
-          -o perftest/comparison.json
-          perftest/pr-result.json
-          perftest/base-result.json
-
-      - name: Save comparison result
-        if: always()
-        uses: actions/upload-artifact@v2
-        with:
-          name: Component performance comparison result
-          path: /home/runner/work/plasma/plasma/perftest/*.json
+#      - name: Restore perftool cache
+#        run: >
+#          s3cmd
+#          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+#          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#          --host ${{ secrets.AWS_ENDPOINT }}
+#          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+#          --bucket-location ${{ secrets.AWS_REGION }}
+#          --signature-v2
+#          --no-mime-magic
+#          --no-preserve
+#          sync
+#          s3://${{ secrets.AWS_S3_BUCKET_2 }}/perftool-cache/
+#          ./.perftool/cache/
+#
+#      - name: Run performance test for PR
+#        run: >
+#          npx perftool
+#          -o perftest/pr-result.json
+#          --baseBranchRef ${{ github.event.pull_request.base.sha }}
+#          --currentBranchRef ${{ github.event.pull_request.head.sha }}
+#
+#      - name: Save perftool cache
+#        run: >
+#          s3cmd
+#          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+#          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#          --host ${{ secrets.AWS_ENDPOINT }}
+#          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+#          --bucket-location ${{ secrets.AWS_REGION }}
+#          --signature-v2
+#          --no-mime-magic
+#          --no-preserve
+#          sync
+#          ./.perftool/cache/
+#          s3://${{ secrets.AWS_S3_BUCKET_2 }}/perftool-cache/
+#
+#      - uses: actions/checkout@v3
+#        with:
+#          ref: ${{ github.event.pull_request.base.ref }}
+#          clean: false
+#
+#      - name: Cache node modules
+#        id: node_modules_base
+#        uses: actions/cache/restore@v3
+#        with:
+#          path: node_modules
+#          key: node-modules-${{ hashFiles('package-lock.json') }}
+#          restore-keys: |
+#            node-modules-${{ hashFiles('package-lock.json') }}
+#            node-modules-
+#
+#      - name: Cache dependencies
+#        id: cache_base
+#        uses: actions/cache@v3
+#        with:
+#          path: ~/.cache
+#          key: cache-${{ hashFiles('package-lock.json') }}
+#          restore-keys: |
+#            cache-${{ hashFiles('package-lock.json') }}
+#            cache-
+#
+#      - name: Setup packages for ${{ github.event.pull_request.base.ref }}
+#        if: ${{ steps.cache_base.outputs.cache-hit != 'true' && steps.node_modules_base.outputs.cache-hit != 'true' }}
+#        run: npm ci --no-progress
+#
+#      - name: Lerna bootstrap for ${{ github.event.pull_request.base.ref }}
+#        run: >
+#          npx lerna bootstrap
+#          --scope=@salutejs/plasma-{core,hope,new-hope,web,b2c,ui,icons}
+#          --scope=@salutejs/perftest-helpers
+#
+#      - name: Run performance test for ${{ github.event.pull_request.base.ref }}
+#        run: >
+#          npx perftool
+#          -o perftest/base-result.json
+#          --currentBranchRef ${{ github.event.pull_request.head.sha }}
+#
+#      - name: Compare test results
+#        run: >
+#          npx perftool-compare
+#          -o perftest/comparison.json
+#          perftest/pr-result.json
+#          perftest/base-result.json
+#
+#      - name: Save comparison result
+#        if: always()
+#        uses: actions/upload-artifact@v2
+#        with:
+#          name: Component performance comparison result
+#          path: /home/runner/work/plasma/plasma/perftest/*.json
 
       - name: Write report comment
         uses: ./actions/perftest-helpers/actions/write-comment
@@ -170,10 +171,10 @@ jobs:
           owner: ${{ github.repository_owner }}
           repo: plasma
 
-      - name: Send report
-        uses: ./actions/perftest-helpers/actions/send-report
-        with:
-          reportPath: /home/runner/work/plasma/plasma/perftest/comparison.json
-          commitHash: ${{ github.sha }}
-          subject: packages/plasma
-          referrer: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+#      - name: Send report
+#        uses: ./actions/perftest-helpers/actions/send-report
+#        with:
+#          reportPath: /home/runner/work/plasma/plasma/perftest/comparison.json
+#          commitHash: ${{ github.sha }}
+#          subject: packages/plasma
+#          referrer: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

@@ -1,0 +1,1537 @@
+{
+    "version": "0.18.0",
+    "isVersionChanged": false,
+    "timestamp": 1697184144417,
+    "staticTaskChange": {
+        "render": {
+            "__comparable": true,
+            "median": {
+                "old": [13.350000000093132, 0.7115648320089978],
+                "new": [12.849999999976717, 0.9033323561743334],
+                "change": {
+                    "difference": -0.5000000001164153,
+                    "percentage": -3.75,
+                    "significanceRank": "low"
+                }
+            },
+            "mean": {
+                "old": [13.627500000037253, 0.7115648320089978],
+                "new": [13.100000000034925, 0.9033323561743334],
+                "change": {
+                    "difference": -0.5275000000023287,
+                    "percentage": -3.87,
+                    "significanceRank": "low"
+                }
+            }
+        },
+        "rerender": {
+            "__comparable": true,
+            "median": {
+                "old": [2.199999999953434, 0.3006667028193837],
+                "new": [2.200000000069849, 0.24094461719569393],
+                "change": {
+                    "difference": 1.1641532182693481e-10,
+                    "percentage": 0,
+                    "significanceRank": "low"
+                }
+            },
+            "mean": {
+                "old": [2.499999999976717, 0.3006667028193841],
+                "new": [2.352500000022701, 0.24094461719569393],
+                "change": {
+                    "difference": -0.14749999995401586,
+                    "percentage": -5.9,
+                    "significanceRank": "low"
+                }
+            }
+        }
+    },
+    "hasSignificantNegativeChanges": false,
+    "stabilizers": ["staticTask"],
+    "result": {
+        "packages/plasma-b2c/src/components/Badge/Badge.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.640735031254623, 0.25842664663938236]
+                },
+                "mean": {
+                    "new": [1.6129587699295347, 0.2515794819628056]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.1491110702470877, 0.7389430679936447]
+                },
+                "mean": {
+                    "new": [1.1956003999574325, 0.6958028069596519]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Button/Button.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.8120305337109386, 0.3703978452884903]
+                },
+                "mean": {
+                    "new": [1.8676850205972026, 0.3671669321149844]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.3065007545770544, 0.7234096459012258]
+                },
+                "mean": {
+                    "new": [1.2676058568597353, 0.6725312241345776]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Button/Button.perftest.tsx#Anchor": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.7996363679780392, 0.304790730381479]
+                },
+                "mean": {
+                    "new": [1.8019248505036418, 0.29913191951880747]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.193025769773763, 0.7248831517738615]
+                },
+                "mean": {
+                    "new": [1.1894780377359662, 0.6775294907545111]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Calendar/Calendar.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [5.50693568431241, 0.6798422962106764]
+                },
+                "mean": {
+                    "new": [5.403508478301539, 0.6597362110358773]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [3.6737263541931497, 1.1712151228751886]
+                },
+                "mean": {
+                    "new": [3.6131389734718877, 1.0890861071743787]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Calendar/Calendar.perftest.tsx#Base": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [5.438207224525271, 0.6431329853354858]
+                },
+                "mean": {
+                    "new": [5.414764541569045, 0.6292429257629121]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [3.7618669735644197, 1.1459369595379882]
+                },
+                "mean": {
+                    "new": [3.6333849680937886, 1.0584927793474734]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Calendar/Calendar.perftest.tsx#Double": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [7.2181561460716095, 0.8339195112625292]
+                },
+                "mean": {
+                    "new": [7.073275240677958, 0.8080145122169424]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [6.201258418422285, 1.4226029404807918]
+                },
+                "mean": {
+                    "new": [5.714575322593962, 1.2805367893339297]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Calendar/Calendar.perftest.tsx#Range": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [4.330425083670258, 0.5490363780825195]
+                },
+                "mean": {
+                    "new": [4.265837724996593, 0.5341048555297084]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [3.8126736196024247, 1.1948055393356145]
+                },
+                "mean": {
+                    "new": [3.6816092437519847, 1.103928982244196]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Calendar/Calendar.perftest.tsx#DoubleRange": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [5.71567222349694, 0.6602089117582518]
+                },
+                "mean": {
+                    "new": [5.5079824012848295, 0.6332879068399812]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [5.81405519902889, 1.4149369354083898]
+                },
+                "mean": {
+                    "new": [5.656722084128082, 1.3070999748461787]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Carousel/Carousel.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [3.9905897391395824, 0.641046613618176]
+                },
+                "mean": {
+                    "new": [4.0641303772907165, 0.6338840170146661]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [4.08656593973987, 1.2054432716685621]
+                },
+                "mean": {
+                    "new": [3.7087324126768717, 1.0886028663925316]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Checkbox/Checkbox.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.30560249416925, 0.3619842105988876]
+                },
+                "mean": {
+                    "new": [2.2651321230629176, 0.3522854130143696]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.0961948411439262, 0.670812456714615]
+                },
+                "mean": {
+                    "new": [1.09290969574418, 0.6269908041249739]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Dropdown/Dropdown.perftest.tsx#Trigger": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [3.120790795133515, 0.4451979546335942]
+                },
+                "mean": {
+                    "new": [3.088356221379452, 0.4344652303118609]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [6.307549357100683, 1.5630504239744014]
+                },
+                "mean": {
+                    "new": [6.0793039278566585, 1.4383491711984444]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/ElasticGrid/ElasticGrid.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.6593571588368001, 0.24657534905629025]
+                },
+                "mean": {
+                    "new": [1.6440868348705109, 0.24081672195657744]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.42587444922362266, 0.568279091970508]
+                },
+                "mean": {
+                    "new": [0.45322967708035783, 0.5342423367765889]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Modal/Modal.perftest.tsx#LiveDemo": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.9943093496104753, 0.19580295244532295]
+                },
+                "mean": {
+                    "new": [0.9989533542935561, 0.1923864899697384]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.308725846065646, 0.7437263532509534]
+                },
+                "mean": {
+                    "new": [1.1890014723301299, 0.6832522991667747]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/PreviewGallery/PreviewGallery.perftest.tsx#AddButton": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.9278446184163588, 0.1912954245992441]
+                },
+                "mean": {
+                    "new": [0.9220722141357554, 0.18724670278852704]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.7070906279456711, 0.6457889926489677]
+                },
+                "mean": {
+                    "new": [0.7810146571916189, 0.6114972925769112]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/PreviewGallery/PreviewGallery.perftest.tsx#Selectable": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [4.028301365621849, 0.5132911990227984]
+                },
+                "mean": {
+                    "new": [3.968212277756265, 0.49935202214439567]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.7525177802948134, 0.6455388732541149]
+                },
+                "mean": {
+                    "new": [0.8052100624520052, 0.6090888174043988]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/PreviewGallery/PreviewGallery.perftest.tsx#Draggable": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [4.202445594947527, 0.4997340035987517]
+                },
+                "mean": {
+                    "new": [4.102027156714248, 0.48327257418342223]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.7943133139074197, 0.612129428122921]
+                },
+                "mean": {
+                    "new": [0.7854235791945144, 0.5715378568216094]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Radiobox/Radiobox.perftest.tsx#Live": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.770047961877643, 0.382047988858034]
+                },
+                "mean": {
+                    "new": [2.739628647143346, 0.3726593821031821]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.8421400190529174, 0.8413055432723557]
+                },
+                "mean": {
+                    "new": [1.7791769517606493, 0.7803194827179725]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Radiobox/Radiobox.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.2360644655341466, 0.31375869584945026]
+                },
+                "mean": {
+                    "new": [2.239368339253691, 0.3079987586014467]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.0969370102894171, 0.6775890015601503]
+                },
+                "mean": {
+                    "new": [1.1064453566181343, 0.6346383797371263]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Select/Select.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [3.9331322846738033, 0.6539673398360432]
+                },
+                "mean": {
+                    "new": [3.988774197271509, 0.64532392800491]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [10.098097300257699, 1.9332827049377406]
+                },
+                "mean": {
+                    "new": [9.32907121104795, 1.7291941569737168]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Switch/Switch.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.0099218951463853, 0.36254247990321126]
+                },
+                "mean": {
+                    "new": [2.0201821021762147, 0.3563312399791199]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.2855548399862646, 0.7396747439746458]
+                },
+                "mean": {
+                    "new": [1.2715502464438897, 0.6902912243783922]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Tabs/Tabs.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.4671258737209993, 0.3349459090088374]
+                },
+                "mean": {
+                    "new": [2.462327817856407, 0.32822295355992986]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.689259015499093, 0.8980065080959172]
+                },
+                "mean": {
+                    "new": [1.6885553107905846, 0.8397214724731433]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Tabs/Tabs.perftest.tsx#Arrows": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.1815540116323993, 0.3132502091924844]
+                },
+                "mean": {
+                    "new": [2.143143224312478, 0.3046234718391815]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.0742249761258036, 0.6777281414248839]
+                },
+                "mean": {
+                    "new": [1.1045516694007456, 0.6369007288712293]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/TextArea/TextArea.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [3.7309106903657887, 0.544874062948858]
+                },
+                "mean": {
+                    "new": [3.7641127771092684, 0.536765208252617]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.5650101745249493, 0.5935902853545911]
+                },
+                "mean": {
+                    "new": [0.5766367372302773, 0.5563018004290206]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/TextField/TextField.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.2616989635883753, 0.3463085097303705]
+                },
+                "mean": {
+                    "new": [2.2909299567443298, 0.34171524060581276]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.2644947885634794, 0.7548976900510387]
+                },
+                "mean": {
+                    "new": [1.2743210039961834, 0.7069681155642424]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Tooltip/Tooltip.perftest.tsx#Live": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [4.4737262293424145, 0.5395379049743692]
+                },
+                "mean": {
+                    "new": [4.3362225687866225, 0.5197595857417916]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.3987626396615762, 0.7357616421432134]
+                },
+                "mean": {
+                    "new": [1.4643590235797672, 0.6947845731618617]
+                }
+            }
+        },
+        "packages/plasma-b2c/src/components/Upload/Upload.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.6763407134795139, 0.2667657884669635]
+                },
+                "mean": {
+                    "new": [1.6612932848838937, 0.26063721776011617]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.9613558355717595, 0.6847334469446701]
+                },
+                "mean": {
+                    "new": [0.9979558285627819, 0.6440944334163943]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Badge/Badge.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.635918921307358, 0.24526757767165425]
+                },
+                "mean": {
+                    "new": [1.6115121843589386, 0.23890389144065347]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.1471362428392171, 0.7209114541397242]
+                },
+                "mean": {
+                    "new": [1.2003197260455662, 0.6796257059063157]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Badge/Badge.perftest.tsx#Quantity": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.4632550658595687, 0.2245326371649542]
+                },
+                "mean": {
+                    "new": [1.4548421981921604, 0.2196675398461511]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.0066485291064498, 0.6832556215217014]
+                },
+                "mean": {
+                    "new": [1.02418175165368, 0.6407595761852376]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Button/Button.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.0831158566997825, 0.2967221938986655]
+                },
+                "mean": {
+                    "new": [2.050066016362389, 0.2887805497280682]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.196533971214784, 0.7569155883575048]
+                },
+                "mean": {
+                    "new": [1.2870504126086668, 0.7171195510072974]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Button/Button.perftest.tsx#ActionButton": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.9065447182075266, 0.275756344941366]
+                },
+                "mean": {
+                    "new": [1.8533229460159089, 0.2668238231761211]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.1471678448137181, 0.7212000036874542]
+                },
+                "mean": {
+                    "new": [1.207865077657207, 0.6806651135726397]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Carousel/Carousel.perftest.tsx#Basic": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [4.508499372599745, 0.5360340903751118]
+                },
+                "mean": {
+                    "new": [4.440131102509294, 0.5210899840290945]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [4.702031894881093, 1.2221487770939994]
+                },
+                "mean": {
+                    "new": [4.380422812763939, 1.1099839883058835]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Carousel/Carousel.perftest.tsx#CarouselVirtualBasic": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.1408303951279515, 0.45351035494732483]
+                },
+                "mean": {
+                    "new": [2.179715620460106, 0.44753697276844273]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.7952013526929365, 0.6202378688771252]
+                },
+                "mean": {
+                    "new": [0.7453883596586284, 0.5749292833249411]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Carousel/Carousel.perftest.tsx#Vertical": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [3.228389690106529, 0.42598664288600707]
+                },
+                "mean": {
+                    "new": [3.187781246622724, 0.4150569038265633]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [4.33548379368694, 1.1955624896991774]
+                },
+                "mean": {
+                    "new": [4.163720273986769, 1.1004684301357597]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Carousel/Carousel.perftest.tsx#CarouselLiteBasic": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [4.611312410024848, 0.6701458932041222]
+                },
+                "mean": {
+                    "new": [4.613660916166906, 0.657518794597038]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [4.519690707539282, 1.2173733539943974]
+                },
+                "mean": {
+                    "new": [4.271275193241829, 1.1130146643356296]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Card/Card.perftest.tsx#BasicValue": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.805644992925836, 0.39026406663701907]
+                },
+                "mean": {
+                    "new": [2.722951088756339, 0.3771139829747138]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.2669857901195412, 0.7776423496781281]
+                },
+                "mean": {
+                    "new": [1.2861618902054193, 0.7291959819018679]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Card/Card.perftest.tsx#BasicDefault": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.7978184382355376, 0.44498232402224264]
+                },
+                "mean": {
+                    "new": [2.813379014277324, 0.4375633004182773]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.5608599840202624, 0.7632125884109117]
+                },
+                "mean": {
+                    "new": [1.4137474308710667, 0.6986702302819301]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Card/Card.perftest.tsx#ListCard": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.6136173888363963, 0.26012955803276605]
+                },
+                "mean": {
+                    "new": [1.6258596649336414, 0.25600944006243564]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.9141125453997585, 0.6684009045622906]
+                },
+                "mean": {
+                    "new": [0.9367336802374711, 0.6273889184881994]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Checkbox/Checkbox.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "old": [2.7822017266605954, 0.34064787934222035],
+                    "new": [2.683127180533831, 0.36330401273575336],
+                    "change": {
+                        "difference": -0.09907454612676458,
+                        "percentage": -3.56,
+                        "significanceRank": "low"
+                    }
+                },
+                "mean": {
+                    "old": [2.705161971132978, 0.3296885275023344],
+                    "new": [2.6402097596258627, 0.35341128768579455],
+                    "change": {
+                        "difference": -0.06495221150711528,
+                        "percentage": -2.4,
+                        "significanceRank": "low"
+                    }
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "old": [2.2015344575422273, 0.9757509026627528],
+                    "new": [2.186686404393132, 0.8745166928197721],
+                    "change": {
+                        "difference": -0.014848053149095097,
+                        "percentage": -0.67,
+                        "significanceRank": "low"
+                    }
+                },
+                "mean": {
+                    "old": [2.041960189853819, 0.8394693267645895],
+                    "new": [2.0375646751897505, 0.8025533034167461],
+                    "change": {
+                        "difference": -0.004395514664068401,
+                        "percentage": -0.22,
+                        "significanceRank": "low"
+                    }
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Pickers/Pickers.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [40.311491741074946, 3.268640663386569]
+                },
+                "mean": {
+                    "new": [39.644831560213966, 3.160291359724136]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.4712681217809792, 0.5677232776703763]
+                },
+                "mean": {
+                    "new": [0.48491360300174174, 0.5323183915628421]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Pickers/Pickers.perftest.tsx#DatePicker": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [33.91938457577905, 2.727779848742531]
+                },
+                "mean": {
+                    "new": [33.27207984896651, 2.6310870039810514]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.2593164959668426, 0.7076161042279604]
+                },
+                "mean": {
+                    "new": [1.0388966939812254, 0.6391695917214257]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Pickers/Pickers.perftest.tsx#TimePicker": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [36.71635138178139, 2.9945957726074552]
+                },
+                "mean": {
+                    "new": [36.11036208894926, 2.8956599955820215]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.6552162531453815, 0.5871712711347443]
+                },
+                "mean": {
+                    "new": [0.595464443056378, 0.5429882760962719]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/ProductCard/ProductCard.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [4.367194157692753, 0.518574280025559]
+                },
+                "mean": {
+                    "new": [4.328211977604152, 0.5059897430313313]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.5837736924748453, 0.7649148828066349]
+                },
+                "mean": {
+                    "new": [1.429778771684286, 0.6995572773526811]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Radiobox/Radiobox.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.561055802738157, 0.45339576562566647]
+                },
+                "mean": {
+                    "new": [2.5554505146518234, 0.444356652684708]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.6522900185888343, 0.7679691840018383]
+                },
+                "mean": {
+                    "new": [1.5818511129272832, 0.7109714472608886]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Radiobox/Radiobox.perftest.tsx#Squeeze": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.630396948503157, 0.3881193736220214]
+                },
+                "mean": {
+                    "new": [2.614919529217768, 0.379645244075581]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.964507354493251, 0.9210256806252483]
+                },
+                "mean": {
+                    "new": [2.031534373424915, 0.8681854609302571]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Stepper/Stepper.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.9995763975420597, 0.3260778893831077]
+                },
+                "mean": {
+                    "new": [1.974417421705227, 0.3181201497429475]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.8668624723435673, 0.6520064275699854]
+                },
+                "mean": {
+                    "new": [0.8991328419150431, 0.6130454888538813]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Switch/Switch.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.9541982040984007, 0.2894249506897696]
+                },
+                "mean": {
+                    "new": [1.9213290098788278, 0.2816350236402325]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.1457905717522936, 0.7086244961417333]
+                },
+                "mean": {
+                    "new": [1.2163280973374628, 0.6699126582980457]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/Tabs/Tabs.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.946502764967875, 0.4567095676306476]
+                },
+                "mean": {
+                    "new": [2.9097249095801563, 0.44545765780650404]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.7950919191738148, 0.6192386610721228]
+                },
+                "mean": {
+                    "new": [0.7882514054961861, 0.5783961187839808]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/TextArea/TextArea.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [3.8698302440192265, 0.5283975851130019]
+                },
+                "mean": {
+                    "new": [3.7381685642087596, 0.5092347109336587]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.703313961847743, 0.6113052765914991]
+                },
+                "mean": {
+                    "new": [0.6960954343834035, 0.5709382967882782]
+                }
+            }
+        },
+        "packages/plasma-ui/src/components/TextField/TextField.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.7145439572972303, 0.36740613685269013]
+                },
+                "mean": {
+                    "new": [2.700931921445292, 0.3594559287112595]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.5629298600265722, 0.7821120657407702]
+                },
+                "mean": {
+                    "new": [1.516507617754887, 0.7266573242398774]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/Badge/Badge.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.626200329473756, 0.2730714030372251]
+                },
+                "mean": {
+                    "new": [1.6356914442224384, 0.2685145923710882]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.1889819071099934, 0.6879597377373914]
+                },
+                "mean": {
+                    "new": [1.1719852968345104, 0.6416221812111789]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/Calendar/Calendar.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [5.78385004637059, 0.8551371933697985]
+                },
+                "mean": {
+                    "new": [5.769414660378189, 0.8378223651535831]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [3.666132725619169, 1.101879758593065]
+                },
+                "mean": {
+                    "new": [3.5506618546593667, 1.0186241803009233]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/Calendar/Calendar.perftest.tsx#Double": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [6.984467918821071, 0.7753655139818648]
+                },
+                "mean": {
+                    "new": [6.957087063024184, 0.7586803695909421]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [6.276819852688514, 1.489984215852236]
+                },
+                "mean": {
+                    "new": [5.992009745513347, 1.3642260627847986]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/Calendar/Calendar.perftest.tsx#DoubleRange": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [5.6086841537605565, 0.6327586650717344]
+                },
+                "mean": {
+                    "new": [5.465593121361556, 0.6108160371520086]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [5.835409892956051, 1.402404290428564]
+                },
+                "mean": {
+                    "new": [5.587622776379799, 1.286115395137986]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/Button/Button.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.8359629792319496, 0.26803455168648843]
+                },
+                "mean": {
+                    "new": [1.8289746781525653, 0.2624374985249064]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.0981565174168066, 0.6887239906359287]
+                },
+                "mean": {
+                    "new": [1.1418771428980539, 0.6485555914144793]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/Button/Button.perftest.tsx#Anchor": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.7905231811249152, 0.2858558929413783]
+                },
+                "mean": {
+                    "new": [1.7609889503173457, 0.2783640456471096]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.1466992237640883, 0.7169211514033368]
+                },
+                "mean": {
+                    "new": [1.1934943200600274, 0.6752397703233791]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/Carousel/Carousel.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [4.132544996437302, 0.557052120018459]
+                },
+                "mean": {
+                    "new": [4.0863145310858595, 0.5432334554971223]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [3.529234170158348, 1.096995557199784]
+                },
+                "mean": {
+                    "new": [3.2616697805042154, 0.998479076069317]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/Checkbox/Checkbox.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.3199696364538576, 0.34495590271750626]
+                },
+                "mean": {
+                    "new": [2.2871080995997155, 0.33610675270123846]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.0504685864941714, 0.6683315530973861]
+                },
+                "mean": {
+                    "new": [1.0652312119345353, 0.6265191889403788]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/Dropdown/Dropdown.perftest.tsx#Trigger": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [3.014974891495702, 0.3790712835671104]
+                },
+                "mean": {
+                    "new": [2.916968518168211, 0.36507890577692886]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [5.27681037886136, 1.2823811443875035]
+                },
+                "mean": {
+                    "new": [5.125491573637549, 1.1837530567974694]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/ElasticGrid/ElasticGrid.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.7676307305918808, 0.4030132270620439]
+                },
+                "mean": {
+                    "new": [1.806644079990914, 0.3980123655388442]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.46851702696888314, 0.5426037774947111]
+                },
+                "mean": {
+                    "new": [0.4384787128640388, 0.5043531308912306]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/Modal/Modal.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.345428368422165, 0.3196548116757167]
+                },
+                "mean": {
+                    "new": [2.2649412477150705, 0.3080044053148651]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.366096727535307, 0.852531188495179]
+                },
+                "mean": {
+                    "new": [1.3772034325054405, 0.7984037047856118]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/PreviewGallery/PreviewGallery.perftest.tsx#AddButton": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.9359862143871469, 0.19640927689972731]
+                },
+                "mean": {
+                    "new": [0.9344612159656083, 0.19255584944526014]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.7036985270406406, 0.6148166385944971]
+                },
+                "mean": {
+                    "new": [0.7168365833887904, 0.5763069708375158]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/PreviewGallery/PreviewGallery.perftest.tsx#Selectable": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [3.9846723756917934, 0.5015208682056095]
+                },
+                "mean": {
+                    "new": [3.9256271949969648, 0.487878300321799]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.7492472278576363, 0.6156763453181857]
+                },
+                "mean": {
+                    "new": [0.7465079532891, 0.5754847805601015]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/PreviewGallery/PreviewGallery.perftest.tsx#Draggable": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [4.066996709689638, 0.5655811130679383]
+                },
+                "mean": {
+                    "new": [4.060553911832623, 0.5543433064978586]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.7492111208188311, 0.615346661732395]
+                },
+                "mean": {
+                    "new": [0.7743995175055718, 0.5780368392937677]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/Radiobox/Radiobox.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.2871029641753067, 0.3202288588973029]
+                },
+                "mean": {
+                    "new": [2.272545481958312, 0.3131137856565578]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.1041491372941354, 0.7434409796137915]
+                },
+                "mean": {
+                    "new": [1.1782550258750968, 0.7028376493697774]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/Select/Select.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [3.7297625214055197, 0.4731906226638081]
+                },
+                "mean": {
+                    "new": [3.7396877279923992, 0.4648446764468951]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [7.765210966719148, 1.5915031925201741]
+                },
+                "mean": {
+                    "new": [7.375768609061441, 1.4484476020561288]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/Switch/Switch.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.893900543000329, 0.37264465864562174]
+                },
+                "mean": {
+                    "new": [1.893908272932988, 0.365533652387258]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.076372540448321, 0.6973369682658687]
+                },
+                "mean": {
+                    "new": [1.128980239938165, 0.6575204557848329]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/Tabs/Tabs.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.3692502838559477, 0.3264204425481351]
+                },
+                "mean": {
+                    "new": [2.3348930374675296, 0.3178218835414599]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.3102027428628553, 0.757211497645464]
+                },
+                "mean": {
+                    "new": [1.3546077994692989, 0.7126735193293626]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/Tabs/Tabs.perftest.tsx#Arrows": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.0015806016147724, 0.29923729487356054]
+                },
+                "mean": {
+                    "new": [1.9729671583874964, 0.2915535717572021]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.120540888766876, 0.6855930513885]
+                },
+                "mean": {
+                    "new": [1.111265753209571, 0.6401997530719498]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/TextField/TextField.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.1687208630801416, 0.29674912973102285]
+                },
+                "mean": {
+                    "new": [2.145151084161702, 0.2894606849695971]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.234606421023775, 0.6895116737845278]
+                },
+                "mean": {
+                    "new": [1.1974270079478482, 0.641006377431852]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/TextField/TextField.perftest.tsx#DeferredValue": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.880660501680457, 0.2950048724650877]
+                },
+                "mean": {
+                    "new": [1.8794907590825003, 0.28929434693299816]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [2.1932629238977857, 0.9345651098414258]
+                },
+                "mean": {
+                    "new": [2.1775530863701147, 0.8723732373676091]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/TextArea/TextArea.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [3.6250573823522854, 0.5335659238499881]
+                },
+                "mean": {
+                    "new": [3.725307924915517, 0.530296311470443]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.6615961853434753, 0.645424702013516]
+                },
+                "mean": {
+                    "new": [0.6708432810373082, 0.6045323623350548]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/Tooltip/Tooltip.perftest.tsx#All": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [4.448935297411534, 0.5743385234295856]
+                },
+                "mean": {
+                    "new": [4.424610859943309, 0.5617005324142288]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.655740504877592, 0.79947463893024]
+                },
+                "mean": {
+                    "new": [1.6106393204403007, 0.7430296782428003]
+                }
+            }
+        },
+        "packages/plasma-web/src/components/Upload/Upload.perftest.tsx#Default": {
+            "render": {
+                "__comparable": true,
+                "median": {
+                    "new": [1.6411624900149493, 0.2645072933871969]
+                },
+                "mean": {
+                    "new": [1.6484605122611535, 0.2599626915756732]
+                }
+            },
+            "rerender": {
+                "__comparable": true,
+                "median": {
+                    "new": [0.9833370658319099, 0.6779215356623709]
+                },
+                "mean": {
+                    "new": [1.0024332564796137, 0.6359313508334278]
+                }
+            }
+        }
+    }
+}
