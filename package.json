@@ -61,7 +61,7 @@
     "@cypress/webpack-preprocessor": "5.9.1",
     "@salutejs/eslint-config": "1.2.0",
     "@salutejs/eslint-config-base": "0.4.0",
-    "@salutejs/perftool": "0.18.0",
+    "@salutejs/perftool": "0.19.1",
     "@salutejs/prettier-config": "0.3.0",
     "@testing-library/cypress": "7.0.7",
     "@types/cypress-image-snapshot": "3.1.6",
