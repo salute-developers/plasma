@@ -2,7 +2,7 @@
 import { getInput, setFailed } from '@actions/core';
 import { getOctokit } from '@actions/github';
 
-import PerftestUpdatePRDescriptionApi from '../modules/updateDescription';
+import PerftestWriteCommentApi from '../modules/writeComment';
 
 async function main() {
     const token = getInput('token', { required: true });
@@ -13,7 +13,7 @@ async function main() {
 
     const octokit = getOctokit(token);
 
-    await new PerftestUpdatePRDescriptionApi({ octokit }).update({
+    await new PerftestWriteCommentApi({ octokit }).post({
         reportPath,
         prId,
         owner,
