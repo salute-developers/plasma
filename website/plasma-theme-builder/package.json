@@ -1,60 +1,60 @@
 {
-  "name": "@salutejs/plasma-theme-builder",
-  "version": "1.94.0-dev.0",
-  "description": "Plasma Theme Builder.",
-  "author": "Salute Frontend Team <salute.developers@gmail.com>",
-  "private": true,
-  "scripts": {
-    "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
-    "lint": "../../node_modules/.bin/eslint ./src --ext .ts,.tsx --quiet"
-  },
-  "dependencies": {
-    "@salutejs/plasma-b2c": "1.242.0-dev.0",
-    "@salutejs/plasma-colors": "0.10.0",
-    "@salutejs/plasma-icons": "1.169.0-dev.0",
-    "@salutejs/plasma-tokens-b2b": "1.29.0",
-    "@salutejs/plasma-tokens-b2c": "0.38.0",
-    "@salutejs/plasma-tokens-utils": "0.33.0",
-    "@salutejs/plasma-tokens-web": "1.44.0",
-    "@salutejs/plasma-typo": "0.38.0",
-    "octokit": "^1.7.1",
-    "prettier": "^2.6.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "4.0.0",
-    "styled-components": "^5.3.3"
-  },
-  "homepage": ".",
-  "eslintConfig": {
-    "extends": [
-      "react-app"
-    ],
-    "rules": {
-      "@typescript-eslint/no-redeclare": "off",
-      "no-redeclare": "off"
+    "name": "@salutejs/plasma-theme-builder",
+    "version": "1.94.0-dev.0",
+    "description": "Plasma Theme Builder.",
+    "author": "Salute Frontend Team <salute.developers@gmail.com>",
+    "private": true,
+    "scripts": {
+        "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
+        "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
+        "lint": "../../node_modules/.bin/eslint ./src --ext .ts,.tsx --quiet"
+    },
+    "dependencies": {
+        "@salutejs/plasma-b2c": "1.242.0-dev.0",
+        "@salutejs/plasma-colors": "0.10.0",
+        "@salutejs/plasma-icons": "1.169.0-dev.0",
+        "@salutejs/plasma-tokens-b2b": "1.29.0",
+        "@salutejs/plasma-tokens-b2c": "0.38.0",
+        "@salutejs/plasma-tokens-utils": "0.33.0",
+        "@salutejs/plasma-tokens-web": "1.44.0",
+        "@salutejs/plasma-typo": "0.38.0",
+        "octokit": "^1.7.1",
+        "prettier": "^2.6.2",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-scripts": "4.0.0",
+        "styled-components": "^5.3.3"
+    },
+    "homepage": ".",
+    "eslintConfig": {
+        "extends": [
+            "react-app"
+        ],
+        "rules": {
+            "@typescript-eslint/no-redeclare": "off",
+            "no-redeclare": "off"
+        }
+    },
+    "devDependencies": {
+        "@types/react": "^18.2.0",
+        "@types/react-dom": "^18.2.0",
+        "@types/styled-components": "^5.1.26",
+        "react-error-overlay": "6.0.9",
+        "typescript": "^4.0.8"
+    },
+    "overrides": {
+        "react-error-overlay": "6.0.9"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
     }
-  },
-  "devDependencies": {
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "@types/styled-components": "^5.1.26",
-    "react-error-overlay": "6.0.9",
-    "typescript": "^4.0.8"
-  },
-  "overrides": {
-    "react-error-overlay": "6.0.9"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
 }
