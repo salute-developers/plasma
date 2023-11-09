@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo, useState } from 'react';
+import type { ComponentProps } from 'react';
 import { backgroundPrimary, surfaceSolid03 } from '@salutejs/plasma-tokens';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { styled } from '@linaria/react';
 
@@ -10,7 +11,9 @@ import { Button } from '../Button/Button';
 
 import { Calendar, CalendarBase, CalendarBaseRange, CalendarDouble, CalendarDoubleRange } from './Calendar';
 
-export default {
+const onChangeValue = action('onChangeValue');
+
+const meta: Meta<typeof CalendarBase> = {
     title: 'sds_engineer/Calendar',
     decorators: [WithTheme],
     argTypes: {
@@ -25,9 +28,14 @@ export default {
             },
         },
     },
-} as ComponentMeta<typeof CalendarBase>;
+};
 
-const onChangeValue = action('onChangeValue');
+export default meta;
+
+type CalendarProps = ComponentProps<typeof Calendar>;
+type CalendarBaseProps = ComponentProps<typeof CalendarBase>;
+type CalendarDoubleProps = ComponentProps<typeof CalendarDouble>;
+type CalendarBaseRangeProps = ComponentProps<typeof CalendarBaseRange>;
 
 const StyledCalendar = styled(Calendar)`
     background-color: ${backgroundPrimary};
@@ -71,7 +79,7 @@ const baseEvents = [
     },
 ];
 
-export const Default: ComponentStory<typeof Calendar> = (args) => {
+const StoryDefault = (args: CalendarProps) => {
     const { isRange, isDouble, min, max, date } = args;
     const [value, setValue] = useState(new Date(2023, 10, 16));
     const [valueRange, setValueRange] = useState<[Date, Date?]>([new Date(2023, 10, 16), new Date(2023, 10, 23)]);
@@ -108,14 +116,17 @@ export const Default: ComponentStory<typeof Calendar> = (args) => {
     );
 };
 
-Default.args = {
-    min: new Date(2023, 10, 1),
-    max: new Date(2023, 11, 24),
-    isDouble: false,
-    isRange: false,
+export const Default: StoryObj<CalendarProps> = {
+    args: {
+        min: new Date(2023, 10, 1),
+        max: new Date(2023, 11, 24),
+        isDouble: false,
+        isRange: false,
+    },
+    render: (args) => <StoryDefault {...args} />,
 };
 
-export const Base: ComponentStory<typeof CalendarBase> = (args) => {
+const StoryBase = (args: CalendarBaseProps) => {
     const { min, max, type } = args;
     const [value, setValue] = useState(new Date(2023, 10, 16));
 
@@ -146,22 +157,24 @@ export const Base: ComponentStory<typeof CalendarBase> = (args) => {
     );
 };
 
-Base.argTypes = {
-    type: {
-        options: ['Days', 'Months', 'Years'],
-        control: {
-            type: 'select',
+export const Base: StoryObj<CalendarBaseProps> = {
+    argTypes: {
+        type: {
+            options: ['Days', 'Months', 'Years'],
+            control: {
+                type: 'select',
+            },
         },
     },
+    args: {
+        min: new Date(2023, 10, 1),
+        max: new Date(2023, 11, 24),
+        type: 'Days',
+    },
+    render: (args) => <StoryBase {...args} />,
 };
 
-Base.args = {
-    min: new Date(2023, 10, 1),
-    max: new Date(2023, 11, 24),
-    type: 'Days',
-};
-
-export const Double: ComponentStory<typeof CalendarDouble> = (args) => {
+const StoryDouble = (args: CalendarDoubleProps) => {
     const { min, max } = args;
     const [value, setValue] = useState(new Date(2023, 10, 16));
     const handleOnChange = useCallback((newValue: Date) => {
@@ -190,12 +203,15 @@ export const Double: ComponentStory<typeof CalendarDouble> = (args) => {
     );
 };
 
-Double.args = {
-    min: new Date(2023, 10, 1),
-    max: new Date(2023, 11, 24),
+export const Double: StoryObj<CalendarDoubleProps> = {
+    args: {
+        min: new Date(2023, 10, 1),
+        max: new Date(2023, 11, 24),
+    },
+    render: (args) => <StoryDouble {...args} />,
 };
 
-export const Range: ComponentStory<typeof CalendarBaseRange> = (args) => {
+const StoryRange = (args: CalendarBaseRangeProps) => {
     const { min, max, type } = args;
     const [values, setValue] = useState<[Date, Date?]>([new Date(2023, 10, 15), new Date(2023, 10, 24)]);
     const handleOnChange = useCallback((newValue: [Date, Date?]) => {
@@ -228,22 +244,24 @@ export const Range: ComponentStory<typeof CalendarBaseRange> = (args) => {
     );
 };
 
-Range.argTypes = {
-    type: {
-        options: ['Days', 'Months', 'Years'],
-        control: {
-            type: 'select',
+export const Range: StoryObj<CalendarBaseRangeProps> = {
+    argTypes: {
+        type: {
+            options: ['Days', 'Months', 'Years'],
+            control: {
+                type: 'select',
+            },
         },
     },
+    args: {
+        min: new Date(2023, 10, 1),
+        max: new Date(2023, 11, 24),
+        type: 'Days',
+    },
+    render: (args) => <StoryRange {...args} />,
 };
 
-Range.args = {
-    min: new Date(2023, 10, 1),
-    max: new Date(2023, 11, 24),
-    type: 'Days',
-};
-
-export const RangeDouble: ComponentStory<typeof CalendarBaseRange> = (args) => {
+const StoryRangeDouble = (args: CalendarBaseRangeProps) => {
     const { min, max } = args;
     const [values, setValue] = useState<[Date, Date?]>([new Date(2023, 10, 15), new Date(2023, 10, 24)]);
     const handleOnChange = useCallback((newValue: [Date, Date?]) => {
@@ -275,12 +293,15 @@ export const RangeDouble: ComponentStory<typeof CalendarBaseRange> = (args) => {
     );
 };
 
-RangeDouble.args = {
-    min: new Date(2023, 10, 1),
-    max: new Date(2023, 11, 24),
+export const RangeDouble: StoryObj<CalendarBaseRangeProps> = {
+    args: {
+        min: new Date(2023, 10, 1),
+        max: new Date(2023, 11, 24),
+    },
+    render: (args) => <StoryRangeDouble {...args} />,
 };
 
-export const WithPopover: ComponentStory<typeof Calendar> = (args) => {
+const StoryWithPopover = (args: CalendarProps) => {
     const { isDouble, min, max } = args;
     const [isOpen, setIsOpen] = useState(false);
     const [textValue, setTextValue] = useState('2023-10-16');
@@ -328,8 +349,11 @@ export const WithPopover: ComponentStory<typeof Calendar> = (args) => {
     );
 };
 
-WithPopover.args = {
-    min: new Date(2023, 9, 1),
-    max: new Date(2023, 11, 24),
-    isDouble: false,
+export const WithPopover: StoryObj<CalendarProps> = {
+    args: {
+        min: new Date(2023, 9, 1),
+        max: new Date(2023, 11, 24),
+        isDouble: false,
+    },
+    render: (args) => <StoryWithPopover {...args} />,
 };
