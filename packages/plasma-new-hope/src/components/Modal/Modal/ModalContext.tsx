@@ -14,6 +14,10 @@ const getModals = (items: ModalInfo[]) => {
     return items.filter((item: ModalInfo) => item?.info?.isModal);
 };
 
+export const hasModals = (items: ModalInfo[]) => {
+    return getModals(items).length > 0;
+};
+
 export const getIdLastModal = (items: ModalInfo[]) => {
     const modals = getModals(items);
     if (!modals.length) {

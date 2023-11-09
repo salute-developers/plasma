@@ -42,5 +42,5 @@ export type ModalBaseRootProps = PopupRootProps & Pick<ModalProps, 'initialFocus
 export type ModalOverlayProps = Pick<PopupRootProps, 'id' | 'zIndex'> &
     Pick<ModalProps, 'withBlur' | 'closeOnOverlayClick' | 'onOverlayClick' | 'onClose'>;
 
-export type ModalHookArgs = Pick<PopupHookArgs, 'id' | 'popupInfo'> &
+export type ModalHookArgs = Pick<PopupHookArgs, 'id' | 'popupInfo' | 'isOpen'> &
     Pick<ModalProps, 'closeOnEsc' | 'onEscKeyDown' | 'onClose'>;
