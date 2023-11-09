@@ -1,20 +1,18 @@
 import React, { forwardRef } from 'react';
-import { createGlobalStyle } from 'styled-components';
 import { useFocusTrap, useForkRef, useUniqId } from '@salutejs/plasma-core';
 
-import { RootProps, component } from '../../engines';
-import { popupConfig } from '../Popup';
+import { RootProps, component } from '../../../engines';
+import { popupConfig } from '../../Popup';
+import { ModalOverlay } from '../ModalOverlay/ModalOverlay';
 
 import { ModalProps } from './Modal.types';
-import { ModalOverlay } from './ModalOverlay';
 import { useModal } from './hooks';
 import { base as viewCSS } from './variations/_view/base';
+import { noScroll } from './Modal.styles';
 
-const NoScroll = createGlobalStyle`
-    body {
-        overflow-y: hidden;
-    }
-`;
+export const NoScroll = () => {
+    return <div className={noScroll} />;
+};
 
 // issue #823
 const Popup = component(popupConfig);
