@@ -1,5 +1,6 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { ComponentProps } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { spinnerConfig } from '../../../../components/Spinner';
 import { mergeConfig } from '../../../../engines';
@@ -8,36 +9,48 @@ import { WithTheme, argTypesFromConfig } from '../../../_helpers';
 import { config } from './Spinner.config';
 import { Spinner } from './Spinner';
 
-export default {
+const meta: Meta<typeof Spinner> = {
     title: 'plasma_web/Spinner',
     decorators: [WithTheme],
     component: Spinner,
-} as ComponentMeta<typeof Spinner>;
+    args: {
+        size: 'm',
+        view: 'accent',
+    },
+};
+
+export default meta;
+
+type Story = StoryObj<ComponentProps<typeof Spinner>>;
 
 const mergedConfig = mergeConfig(spinnerConfig, config);
 
-export const Default: ComponentStory<typeof Spinner> = ({ ...rest }) => {
-    return <Spinner {...rest} />;
+export const Default: Story = {
+    argTypes: {
+        ...argTypesFromConfig(mergedConfig),
+    },
+    args: {
+        view: 'accent',
+        size: 'm',
+    },
 };
 
-Default.argTypes = argTypesFromConfig(mergedConfig);
-
-export const CustomSize: ComponentStory<typeof Spinner> = ({ ...rest }) => {
-    return <Spinner {...rest} />;
-};
-
-CustomSize.argTypes = {
-    ...argTypesFromConfig(mergedConfig, ['size']),
-    width: {
-        defaultValue: '100px',
-        control: {
-            type: 'text',
+export const CustomSize: Story = {
+    argTypes: {
+        ...argTypesFromConfig(mergedConfig, ['size']),
+        width: {
+            control: {
+                type: 'text',
+            },
+        },
+        height: {
+            control: {
+                type: 'text',
+            },
         },
     },
-    height: {
-        defaultValue: '100px',
-        control: {
-            type: 'text',
-        },
+    args: {
+        width: '100px',
+        height: '100px',
     },
 };

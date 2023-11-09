@@ -1,5 +1,6 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import React, { useState } from 'react';
+import type { ComponentProps } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { RadioGroup, radioboxConfig } from '../../../../components/Radiobox';
@@ -10,18 +11,29 @@ import { Link } from '../Link/Link';
 import { config } from './Radiobox.config';
 import { Radiobox } from './Radiobox';
 
-export default {
-    title: 'plasma_web/Radiobox',
-    decorators: [WithTheme],
-    component: Radiobox,
-    argTypes: argTypesFromConfig(mergeConfig(radioboxConfig, config)),
-} as ComponentMeta<typeof Radiobox>;
-
 const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
+const meta: Meta<typeof Radiobox> = {
+    title: 'plasma_web/Radiobox',
+    decorators: [WithTheme],
+    component: Radiobox,
+    argTypes: argTypesFromConfig(mergeConfig(radioboxConfig, config)),
+    args: {
+        view: 'accent',
+        size: 'm',
+        disabled: false,
+        focused: true,
+    },
+};
+
+export default meta;
+
+type RadioboxProps = ComponentProps<typeof Radiobox>;
+
 const langName = 'language';
+
 const items = [
     {
         langName,
@@ -39,9 +51,9 @@ const items = [
     { langName, value: 'elixir', label: 'Elixir', disabled: true },
 ];
 
-export const Default: ComponentStory<typeof Radiobox> = (props) => {
+const StoryDefault = (props: RadioboxProps) => {
     const value = 0;
-    const [checked, setChecked] = React.useState(true);
+    const [checked, setChecked] = useState(true);
 
     return (
         <>
@@ -83,8 +95,12 @@ export const Default: ComponentStory<typeof Radiobox> = (props) => {
     );
 };
 
-export const Complex = (props) => {
-    const [value, setValue] = React.useState('c');
+export const Default: StoryObj<RadioboxProps> = {
+    render: (args) => <StoryDefault {...args} />,
+};
+
+const StoryComplex = (props: RadioboxProps) => {
+    const [value, setValue] = useState('c');
 
     return (
         <RadioGroup>
@@ -111,4 +127,8 @@ export const Complex = (props) => {
             ))}
         </RadioGroup>
     );
+};
+
+export const Complex: StoryObj<RadioboxProps> = {
+    render: (args) => <StoryComplex {...args} />,
 };

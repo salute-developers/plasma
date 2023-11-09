@@ -1,37 +1,61 @@
 import React, { useState } from 'react';
+import type { ComponentProps } from 'react';
 import { styled } from '@linaria/react';
-import { Meta, Story } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { Button } from '../Button/Button';
 import { WithTheme } from '../../../_helpers';
 
 import { Popover } from './Popover';
-import type { PopoverPlacement, PopoverTrigger } from './Popover';
 
-const placements: Array<PopoverPlacement> = ['top', 'bottom', 'right', 'left', 'auto'];
-const triggers: Array<PopoverTrigger> = ['click', 'hover'];
-
-type PopoverStoryProps = {
-    skidding?: number;
-    distance?: number;
-};
-
-export default ({
+const meta: Meta<typeof Popover> = {
     title: 'plasma_web/Popover',
     decorators: [WithTheme],
     component: Popover,
     argTypes: {
         placement: {
-            options: placements,
+            options: ['top', 'bottom', 'right', 'left', 'auto'],
             control: {
                 type: 'select',
             },
+            table: { defaultValue: { summary: 'bottom' } },
         },
         trigger: {
-            options: triggers,
+            options: ['click', 'hover'],
             control: {
                 type: 'select',
             },
+            table: { defaultValue: { summary: 'click' } },
+        },
+        closeOnOverlayClick: {
+            control: {
+                type: 'boolean',
+            },
+            table: { defaultValue: { summary: true } },
+        },
+        closeOnEsc: {
+            control: {
+                type: 'boolean',
+            },
+            table: { defaultValue: { summary: true } },
+        },
+        isFocusTrapped: {
+            control: {
+                type: 'boolean',
+            },
+            table: { defaultValue: { summary: true } },
+        },
+        skidding: {
+            control: {
+                type: 'number',
+            },
+            table: { defaultValue: { summary: 0 } },
+        },
+        distance: {
+            control: {
+                type: 'number',
+            },
+            table: { defaultValue: { summary: 6 } },
         },
     },
     args: {
@@ -43,7 +67,14 @@ export default ({
         skidding: 0,
         distance: 6,
     },
-} as unknown) as Meta<typeof Popover>;
+};
+
+export default meta;
+
+type StoryPopoverProps = ComponentProps<typeof Popover> & {
+    skidding?: number;
+    distance?: number;
+};
 
 const StyledArrow = styled.div`
     visibility: hidden;
@@ -72,7 +103,7 @@ const StyledContent = styled.div`
     align-items: center;
 `;
 
-export const Default: Story<typeof Popover & PopoverStoryProps> = (args) => {
+const StoryDefault = (args: StoryPopoverProps) => {
     const { skidding = 0, distance = 6 } = args;
 
     const [isOpen, setIsOpen] = useState(false);
@@ -94,4 +125,8 @@ export const Default: Story<typeof Popover & PopoverStoryProps> = (args) => {
             </StyledContent>
         </Popover>
     );
+};
+
+export const Default: StoryObj<StoryPopoverProps> = {
+    render: (args) => <StoryDefault {...args} />,
 };
