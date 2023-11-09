@@ -161,8 +161,8 @@ jobs:
           name: Component performance comparison result
           path: /home/runner/work/plasma/plasma/perftest/*.json
 
-      - name: Update PR description
-        uses: ./actions/perftest-helpers/actions/update-description
+      - name: Write report comment
+        uses: ./actions/perftest-helpers/actions/write-comment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           reportPath: /home/runner/work/plasma/plasma/perftest/comparison.json
