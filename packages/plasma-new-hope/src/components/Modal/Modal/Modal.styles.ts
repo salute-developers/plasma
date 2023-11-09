@@ -1,7 +1,9 @@
 import { css } from '@linaria/core';
 
 export const noScroll = css`
-    :global(body) {
-        overflow-y: hidden;
+    :global() {
+        body.disable-scroll {
+            overflow-y: hidden;
+        }
     }
 `;

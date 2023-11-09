@@ -39,6 +39,7 @@ export const modalRoot = (Root: RootProps<HTMLInputElement, ModalProps>) =>
                 popupInfo,
                 children,
                 view,
+                isOpen,
                 ...rest
             },
             outerRootRef,
@@ -50,11 +51,12 @@ export const modalRoot = (Root: RootProps<HTMLInputElement, ModalProps>) =>
             const uniqId = useUniqId();
             const innerId = id || uniqId;
 
-            const { modalInfo } = useModal({ id: innerId, closeOnEsc, onEscKeyDown, onClose, popupInfo });
+            const { modalInfo } = useModal({ id: innerId, isOpen, closeOnEsc, onEscKeyDown, onClose, popupInfo });
 
             return (
                 <Popup
                     id={id}
+                    isOpen={isOpen}
                     ref={innerRef}
                     popupInfo={modalInfo}
                     withAnimation={withAnimation}
