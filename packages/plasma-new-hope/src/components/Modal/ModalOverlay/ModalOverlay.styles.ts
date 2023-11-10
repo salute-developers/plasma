@@ -1,6 +1,7 @@
 import { styled } from '@linaria/react';
 
 import { DEFAULT_Z_INDEX } from '../../Popup/utils';
+import { tokens } from '../Modal.tokens';
 
 // TODO: новый отдельный оверлей #778
 export const Overlay = styled.div<{
@@ -20,7 +21,7 @@ export const Overlay = styled.div<{
     z-index: ${({ zIndex }) => zIndex || DEFAULT_Z_INDEX};
 
     --plasma_private-overlay-background-color: ${({ $withBlur }) =>
-        $withBlur ? 'var(--plasma-modal-overlay-with-blur-color)' : 'var(--plasma-modal-overlay-color)'};
+        $withBlur ? `var(${tokens.modalOverlayWithBlurColor})` : `var(${tokens.modalOverlayColor})`};
 
     --plasma_private-overlay-backdrop-filter: ${({ $withBlur }) => ($withBlur ? 'blur(1rem)' : 'none')};
 

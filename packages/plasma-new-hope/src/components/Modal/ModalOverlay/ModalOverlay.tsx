@@ -3,7 +3,7 @@ import React, { FC, useCallback, useMemo } from 'react';
 import { usePopupContext } from '../../Popup';
 import { getIdLastModal } from '../Modal/ModalContext';
 import { ModalOverlayProps } from '../Modal/Modal.types';
-import { classes } from '../Modal/Modal.tokens';
+import { classes } from '../Modal.tokens';
 
 import { Overlay } from './ModalOverlay.styles';
 

@@ -1,5 +1,7 @@
 import { css } from '@linaria/core';
 
+import { modalTokens } from '../../../../components/Modal';
+
 export const config = {
     defaults: {
         view: 'default',
@@ -7,8 +9,8 @@ export const config = {
     variations: {
         view: {
             default: css`
-                --plasma-modal-overlay-with-blur-color: var(--overlay-blur);
-                --plasma-modal-overlay-color: var(--overlay-soft);
+                ${modalTokens.modalOverlayWithBlurColor}: var(--overlay-blur);
+                ${modalTokens.modalOverlayColor}: var(--overlay-soft);
             `,
         },
     },

@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 import { ModalInfo, getIdLastModal, hasModals } from '../ModalContext';
 import { ModalHookArgs } from '../Modal.types';
@@ -8,6 +8,7 @@ const ESCAPE_KEYCODE = 27;
 
 export const useModal = ({ id, isOpen, popupInfo, onEscKeyDown, onClose, closeOnEsc = true }: ModalHookArgs) => {
     const popupController = usePopupContext();
+    const overflow = useRef<string>(document.body.style.overflowY);
 
     // При ESC закрывает текущее окно, если это возможно
     const onKeyDown = useCallback(
@@ -39,11 +40,16 @@ export const useModal = ({ id, isOpen, popupInfo, onEscKeyDown, onClose, closeOn
     // linaria не поддерживает динамический global
     useEffect(() => {
         if (isOpen) {
-            document.body.classList.add('disable-scroll');
-        } else if (!hasModals(popupController.items)) {
-            document.body.classList.remove('disable-scroll');
+            overflow.current = document.body.style.overflowY;
+            document.body.style.overflowY = 'hidden';
         }
-    }, [isOpen, popupController.items]);
+    }, [isOpen]);
+
+    useEffect(() => {
+        if (!isOpen && !hasModals(popupController.items)) {
+            document.body.style.overflowY = overflow.current;
+        }
+    }, [isOpen, overflow.current, popupController.items]);
 
     const modalInfo: ModalInfo = {
         id,

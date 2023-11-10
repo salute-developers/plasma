@@ -8,11 +8,6 @@ import { ModalOverlay } from '../ModalOverlay/ModalOverlay';
 import { ModalProps } from './Modal.types';
 import { useModal } from './hooks';
 import { base as viewCSS } from './variations/_view/base';
-import { noScroll } from './Modal.styles';
-
-export const NoScroll = () => {
-    return <div className={noScroll} />;
-};
 
 // issue #823
 const Popup = component(popupConfig);
@@ -75,7 +70,6 @@ export const modalRoot = (Root: RootProps<HTMLInputElement, ModalProps>) =>
                     }
                     {...rest}
                 >
-                    <NoScroll />
                     {children}
                 </Popup>
             );
