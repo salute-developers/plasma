@@ -34,7 +34,7 @@ import { BadgeSize } from '@salutejs/plasma-hope';
 import { badgeSizes } from '@salutejs/plasma-hope';
 import { BadgeView } from '@salutejs/plasma-hope';
 import { badgeViews } from '@salutejs/plasma-hope';
-import { BaseboxProps } from '@salutejs/plasma-new-hope';
+import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BlurProps } from '@salutejs/plasma-core';
 import { blurs } from '@salutejs/plasma-core';
 import { Body1 } from '@salutejs/plasma-hope';
@@ -49,16 +49,12 @@ import { BreakWordProps } from '@salutejs/plasma-core';
 import { Button1 } from '@salutejs/plasma-hope';
 import { Button2 } from '@salutejs/plasma-hope';
 import { ButtonProps } from '@salutejs/plasma-hope';
-import { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-core';
-import { ButtonSizes } from '@salutejs/plasma-hope';
 import { ButtonView } from '@salutejs/plasma-hope';
-import { ButtonViewProps } from '@salutejs/plasma-core';
 import { buttonViews } from '@salutejs/plasma-hope';
 import { Calendar as Calendar_2 } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
 import { CalendarBaseProps } from '@salutejs/plasma-new-hope/styled-components';
 import { CalendarDoubleProps } from '@salutejs/plasma-new-hope/styled-components';
 import { CalendarProps } from '@salutejs/plasma-new-hope/styled-components';
-import { CalendarProps as CalendarProps_2 } from '@salutejs/plasma-new-hope';
 import { CalendarRange } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
 import { CalendarStateType } from '@salutejs/plasma-new-hope/styled-components';
 import { canUseDOM } from '@salutejs/plasma-core';
@@ -86,7 +82,6 @@ import { ColCount } from '@salutejs/plasma-hope';
 import { ColOffsetProps } from '@salutejs/plasma-hope';
 import { ColProps } from '@salutejs/plasma-hope';
 import { ColSizeProps } from '@salutejs/plasma-hope';
-import { Component } from 'react';
 import { Container } from '@salutejs/plasma-hope';
 import { ContainerProps } from '@salutejs/plasma-hope';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
@@ -97,7 +92,6 @@ import { Dropdown } from '@salutejs/plasma-hope';
 import { DropdownItem } from '@salutejs/plasma-hope';
 import { DropdownItemProps } from '@salutejs/plasma-hope';
 import { DropdownList } from '@salutejs/plasma-hope';
-import { DropdownListCssProperties } from '@salutejs/plasma-hope';
 import { DropdownNodeType } from '@salutejs/plasma-hope';
 import { DropdownPopup } from '@salutejs/plasma-hope';
 import { DropdownPopupProps } from '@salutejs/plasma-hope';
@@ -141,6 +135,7 @@ import { Image as Image_2 } from '@salutejs/plasma-hope';
 import { ImageBaseProps } from '@salutejs/plasma-hope';
 import { ImageProps } from '@salutejs/plasma-hope';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
+import { JSXElementConstructor } from 'react';
 import { LineSkeleton } from '@salutejs/plasma-hope';
 import { LineSkeletonProps } from '@salutejs/plasma-hope';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
@@ -213,7 +208,6 @@ import { ScrollSnapProps } from '@salutejs/plasma-core';
 import { SelectGroup } from '@salutejs/plasma-hope';
 import { SelectProps } from '@salutejs/plasma-hope';
 import { selectText } from '@salutejs/plasma-hope';
-import { SelectViewProps } from '@salutejs/plasma-hope/components/Select/SelectView';
 import { setRef } from '@salutejs/plasma-core';
 import { shadows } from '@salutejs/plasma-core';
 import { ShiftProps } from '@salutejs/plasma-core';
@@ -279,7 +273,7 @@ import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { usePopupBaseContext } from '@salutejs/plasma-hope';
 import { useToast } from '@salutejs/plasma-hope';
 import { ValidationResult } from '@salutejs/plasma-hope';
-import { Variant } from '@salutejs/plasma-new-hope';
+import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
 import { View } from '@salutejs/plasma-core';
 import { ViewProps } from '@salutejs/plasma-core';
 import { views } from '@salutejs/plasma-core';
@@ -366,28 +360,7 @@ export { Breakpoint }
 export { BreakWordProps }
 
 // @public
-export const Button: React_2.ForwardRefExoticComponent<(ButtonProps_2<HTMLElement> & Partial<ButtonSizes> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
-    text?: React_2.ReactNode;
-    contentLeft?: React_2.ReactNode;
-    contentRight?: undefined;
-    children?: undefined;
-    isLoading?: boolean | undefined;
-    loader?: React_2.ReactNode;
-} & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizes> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
-    text?: React_2.ReactNode;
-    contentLeft?: undefined;
-    contentRight?: React_2.ReactNode;
-    children?: undefined;
-    isLoading?: boolean | undefined;
-    loader?: React_2.ReactNode;
-} & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizes> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
-    text?: undefined;
-    contentLeft?: undefined;
-    contentRight?: undefined;
-    children?: React_2.ReactNode;
-    isLoading?: boolean | undefined;
-    loader?: React_2.ReactNode;
-} & React_2.RefAttributes<HTMLButtonElement>)>;
+export const Button: React_2.ForwardRefExoticComponent<ButtonProps & React_2.RefAttributes<HTMLButtonElement>>;
 
 export { Button1 }
 
@@ -400,7 +373,7 @@ export { ButtonView }
 export { buttonViews }
 
 // @public (undocumented)
-export const Calendar: FC<CalendarProps_2>;
+export const Calendar: FC<CalendarProps>;
 
 // @public (undocumented)
 export const CalendarBase: FunctionComponent<PropsType<    {
@@ -417,7 +390,7 @@ type?: "Days" | "Months" | "Years" | undefined;
 export { CalendarBaseProps }
 
 // @public (undocumented)
-export const CalendarBaseRange: ({ value, disabledList, eventList, min, max, onChangeValue, ...rest }: CalendarRange<CalendarBaseProps>) => ReactElement<CalendarBaseProps, string | ((props: any) => ReactElement<any, any> | null) | (new (props: any) => Component<any, any, any>)>;
+export const CalendarBaseRange: ({ value, disabledList, eventList, min, max, onChangeValue, ...rest }: CalendarRange<CalendarBaseProps>) => ReactElement<CalendarBaseProps, string | JSXElementConstructor<any>>;
 
 // @public (undocumented)
 export const CalendarDouble: FunctionComponent<PropsType<    {
@@ -432,7 +405,7 @@ m: string;
 export { CalendarDoubleProps }
 
 // @public (undocumented)
-export const CalendarDoubleRange: ({ value, disabledList, eventList, min, max, onChangeValue, ...rest }: CalendarRange<CalendarDoubleProps>) => ReactElement<CalendarDoubleProps, string | ((props: any) => ReactElement<any, any> | null) | (new (props: any) => Component<any, any, any>)>;
+export const CalendarDoubleRange: ({ value, disabledList, eventList, min, max, onChangeValue, ...rest }: CalendarRange<CalendarDoubleProps>) => ReactElement<CalendarDoubleProps, string | JSXElementConstructor<any>>;
 
 export { CalendarProps }
 
@@ -689,7 +662,7 @@ export { PinProps }
 export { Placement }
 
 // @public
-export const Popover: FunctionComponent<PropsType<Record<string, Variant>> & HTMLAttributes<HTMLDivElement> & CustomPopoverProps & RefAttributes<HTMLDivElement>>;
+export const Popover: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & CustomPopoverProps & RefAttributes<HTMLDivElement>>;
 
 export { PopoverPlacement }
 
@@ -746,7 +719,7 @@ true: string;
 focused: {
 true: string;
 };
-}> & Filter<InputHTMLAttributes<HTMLInputElement>, "size"> & Pick<BaseboxProps, "size" | "view" | "id" | "focused" | "label" | "description" | "singleLine"> & RefAttributes<HTMLInputElement>>;
+}> & Filter<InputHTMLAttributes<HTMLInputElement>, "size"> & Omit<BaseboxProps, "indeterminate"> & RefAttributes<HTMLInputElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "RadioboxComponent" needs to be exported by the entry point index.d.ts
 //
@@ -772,19 +745,7 @@ export { Row }
 export { ScrollSnapProps }
 
 // @public
-export const Select: React_2.ForwardRefExoticComponent<({
-    multiselect?: false | undefined;
-    separator?: undefined;
-} & {
-    value: any;
-    onChange?: ((value: any) => void) | undefined;
-} & Pick<SelectViewProps, "type" | "defaultChecked" | "defaultValue" | "suppressContentEditableWarning" | "suppressHydrationWarning" | "accessKey" | "className" | "contentEditable" | "contextMenu" | "dir" | "draggable" | "hidden" | "id" | "lang" | "placeholder" | "slot" | "spellCheck" | "style" | "tabIndex" | "title" | "translate" | "radioGroup" | "role" | "about" | "datatype" | "inlist" | "prefix" | "property" | "resource" | "typeof" | "vocab" | "autoCapitalize" | "autoCorrect" | "autoSave" | "color" | "itemProp" | "itemScope" | "itemType" | "itemID" | "itemRef" | "results" | "security" | "unselectable" | "inputMode" | "is" | "aria-activedescendant" | "aria-atomic" | "aria-autocomplete" | "aria-busy" | "aria-checked" | "aria-colcount" | "aria-colindex" | "aria-colspan" | "aria-controls" | "aria-current" | "aria-describedby" | "aria-details" | "aria-disabled" | "aria-dropeffect" | "aria-errormessage" | "aria-expanded" | "aria-flowto" | "aria-grabbed" | "aria-haspopup" | "aria-hidden" | "aria-invalid" | "aria-keyshortcuts" | "aria-label" | "aria-labelledby" | "aria-level" | "aria-live" | "aria-modal" | "aria-multiline" | "aria-multiselectable" | "aria-orientation" | "aria-owns" | "aria-placeholder" | "aria-posinset" | "aria-pressed" | "aria-readonly" | "aria-relevant" | "aria-required" | "aria-roledescription" | "aria-rowcount" | "aria-rowindex" | "aria-rowspan" | "aria-selected" | "aria-setsize" | "aria-sort" | "aria-valuemax" | "aria-valuemin" | "aria-valuenow" | "aria-valuetext" | "children" | "dangerouslySetInnerHTML" | "onCopy" | "onCopyCapture" | "onCut" | "onCutCapture" | "onPaste" | "onPasteCapture" | "onCompositionEnd" | "onCompositionEndCapture" | "onCompositionStart" | "onCompositionStartCapture" | "onCompositionUpdate" | "onCompositionUpdateCapture" | "onFocus" | "onFocusCapture" | "onBlur" | "onBlurCapture" | "onChangeCapture" | "onBeforeInput" | "onBeforeInputCapture" | "onInput" | "onInputCapture" | "onReset" | "onResetCapture" | "onSubmit" | "onSubmitCapture" | "onInvalid" | "onInvalidCapture" | "onLoad" | "onLoadCapture" | "onError" | "onErrorCapture" | "onKeyDown" | "onKeyDownCapture" | "onKeyPress" | "onKeyPressCapture" | "onKeyUp" | "onKeyUpCapture" | "onAbort" | "onAbortCapture" | "onCanPlay" | "onCanPlayCapture" | "onCanPlayThrough" | "onCanPlayThroughCapture" | "onDurationChange" | "onDurationChangeCapture" | "onEmptied" | "onEmptiedCapture" | "onEncrypted" | "onEncryptedCapture" | "onEnded" | "onEndedCapture" | "onLoadedData" | "onLoadedDataCapture" | "onLoadedMetadata" | "onLoadedMetadataCapture" | "onLoadStart" | "onLoadStartCapture" | "onPause" | "onPauseCapture" | "onPlay" | "onPlayCapture" | "onPlaying" | "onPlayingCapture" | "onProgress" | "onProgressCapture" | "onRateChange" | "onRateChangeCapture" | "onSeeked" | "onSeekedCapture" | "onSeeking" | "onSeekingCapture" | "onStalled" | "onStalledCapture" | "onSuspend" | "onSuspendCapture" | "onTimeUpdate" | "onTimeUpdateCapture" | "onVolumeChange" | "onVolumeChangeCapture" | "onWaiting" | "onWaitingCapture" | "onAuxClick" | "onAuxClickCapture" | "onClick" | "onClickCapture" | "onContextMenu" | "onContextMenuCapture" | "onDoubleClick" | "onDoubleClickCapture" | "onDrag" | "onDragCapture" | "onDragEnd" | "onDragEndCapture" | "onDragEnter" | "onDragEnterCapture" | "onDragExit" | "onDragExitCapture" | "onDragLeave" | "onDragLeaveCapture" | "onDragOver" | "onDragOverCapture" | "onDragStart" | "onDragStartCapture" | "onDrop" | "onDropCapture" | "onMouseDown" | "onMouseDownCapture" | "onMouseEnter" | "onMouseLeave" | "onMouseMove" | "onMouseMoveCapture" | "onMouseOut" | "onMouseOutCapture" | "onMouseOver" | "onMouseOverCapture" | "onMouseUp" | "onMouseUpCapture" | "onSelect" | "onSelectCapture" | "onTouchCancel" | "onTouchCancelCapture" | "onTouchEnd" | "onTouchEndCapture" | "onTouchMove" | "onTouchMoveCapture" | "onTouchStart" | "onTouchStartCapture" | "onPointerDown" | "onPointerDownCapture" | "onPointerMove" | "onPointerMoveCapture" | "onPointerUp" | "onPointerUpCapture" | "onPointerCancel" | "onPointerCancelCapture" | "onPointerEnter" | "onPointerEnterCapture" | "onPointerLeave" | "onPointerLeaveCapture" | "onPointerOver" | "onPointerOverCapture" | "onPointerOut" | "onPointerOutCapture" | "onGotPointerCapture" | "onGotPointerCaptureCapture" | "onLostPointerCapture" | "onLostPointerCaptureCapture" | "onScroll" | "onScrollCapture" | "onWheel" | "onWheelCapture" | "onAnimationStart" | "onAnimationStartCapture" | "onAnimationEnd" | "onAnimationEndCapture" | "onAnimationIteration" | "onAnimationIterationCapture" | "onTransitionEnd" | "onTransitionEndCapture" | "disabled" | "autoFocus" | "form" | "formAction" | "formEncType" | "formMethod" | "formNoValidate" | "formTarget" | "name" | "status" | "helperText" | "items" | "onItemSelect" | "isOpen"> & DropdownListCssProperties & React_2.RefAttributes<HTMLButtonElement>) | ({
-    multiselect?: true | undefined;
-    separator?: string | undefined;
-} & {
-    value: any;
-    onChange?: ((value: any) => void) | undefined;
-} & Pick<SelectViewProps, "type" | "defaultChecked" | "defaultValue" | "suppressContentEditableWarning" | "suppressHydrationWarning" | "accessKey" | "className" | "contentEditable" | "contextMenu" | "dir" | "draggable" | "hidden" | "id" | "lang" | "placeholder" | "slot" | "spellCheck" | "style" | "tabIndex" | "title" | "translate" | "radioGroup" | "role" | "about" | "datatype" | "inlist" | "prefix" | "property" | "resource" | "typeof" | "vocab" | "autoCapitalize" | "autoCorrect" | "autoSave" | "color" | "itemProp" | "itemScope" | "itemType" | "itemID" | "itemRef" | "results" | "security" | "unselectable" | "inputMode" | "is" | "aria-activedescendant" | "aria-atomic" | "aria-autocomplete" | "aria-busy" | "aria-checked" | "aria-colcount" | "aria-colindex" | "aria-colspan" | "aria-controls" | "aria-current" | "aria-describedby" | "aria-details" | "aria-disabled" | "aria-dropeffect" | "aria-errormessage" | "aria-expanded" | "aria-flowto" | "aria-grabbed" | "aria-haspopup" | "aria-hidden" | "aria-invalid" | "aria-keyshortcuts" | "aria-label" | "aria-labelledby" | "aria-level" | "aria-live" | "aria-modal" | "aria-multiline" | "aria-multiselectable" | "aria-orientation" | "aria-owns" | "aria-placeholder" | "aria-posinset" | "aria-pressed" | "aria-readonly" | "aria-relevant" | "aria-required" | "aria-roledescription" | "aria-rowcount" | "aria-rowindex" | "aria-rowspan" | "aria-selected" | "aria-setsize" | "aria-sort" | "aria-valuemax" | "aria-valuemin" | "aria-valuenow" | "aria-valuetext" | "children" | "dangerouslySetInnerHTML" | "onCopy" | "onCopyCapture" | "onCut" | "onCutCapture" | "onPaste" | "onPasteCapture" | "onCompositionEnd" | "onCompositionEndCapture" | "onCompositionStart" | "onCompositionStartCapture" | "onCompositionUpdate" | "onCompositionUpdateCapture" | "onFocus" | "onFocusCapture" | "onBlur" | "onBlurCapture" | "onChangeCapture" | "onBeforeInput" | "onBeforeInputCapture" | "onInput" | "onInputCapture" | "onReset" | "onResetCapture" | "onSubmit" | "onSubmitCapture" | "onInvalid" | "onInvalidCapture" | "onLoad" | "onLoadCapture" | "onError" | "onErrorCapture" | "onKeyDown" | "onKeyDownCapture" | "onKeyPress" | "onKeyPressCapture" | "onKeyUp" | "onKeyUpCapture" | "onAbort" | "onAbortCapture" | "onCanPlay" | "onCanPlayCapture" | "onCanPlayThrough" | "onCanPlayThroughCapture" | "onDurationChange" | "onDurationChangeCapture" | "onEmptied" | "onEmptiedCapture" | "onEncrypted" | "onEncryptedCapture" | "onEnded" | "onEndedCapture" | "onLoadedData" | "onLoadedDataCapture" | "onLoadedMetadata" | "onLoadedMetadataCapture" | "onLoadStart" | "onLoadStartCapture" | "onPause" | "onPauseCapture" | "onPlay" | "onPlayCapture" | "onPlaying" | "onPlayingCapture" | "onProgress" | "onProgressCapture" | "onRateChange" | "onRateChangeCapture" | "onSeeked" | "onSeekedCapture" | "onSeeking" | "onSeekingCapture" | "onStalled" | "onStalledCapture" | "onSuspend" | "onSuspendCapture" | "onTimeUpdate" | "onTimeUpdateCapture" | "onVolumeChange" | "onVolumeChangeCapture" | "onWaiting" | "onWaitingCapture" | "onAuxClick" | "onAuxClickCapture" | "onClick" | "onClickCapture" | "onContextMenu" | "onContextMenuCapture" | "onDoubleClick" | "onDoubleClickCapture" | "onDrag" | "onDragCapture" | "onDragEnd" | "onDragEndCapture" | "onDragEnter" | "onDragEnterCapture" | "onDragExit" | "onDragExitCapture" | "onDragLeave" | "onDragLeaveCapture" | "onDragOver" | "onDragOverCapture" | "onDragStart" | "onDragStartCapture" | "onDrop" | "onDropCapture" | "onMouseDown" | "onMouseDownCapture" | "onMouseEnter" | "onMouseLeave" | "onMouseMove" | "onMouseMoveCapture" | "onMouseOut" | "onMouseOutCapture" | "onMouseOver" | "onMouseOverCapture" | "onMouseUp" | "onMouseUpCapture" | "onSelect" | "onSelectCapture" | "onTouchCancel" | "onTouchCancelCapture" | "onTouchEnd" | "onTouchEndCapture" | "onTouchMove" | "onTouchMoveCapture" | "onTouchStart" | "onTouchStartCapture" | "onPointerDown" | "onPointerDownCapture" | "onPointerMove" | "onPointerMoveCapture" | "onPointerUp" | "onPointerUpCapture" | "onPointerCancel" | "onPointerCancelCapture" | "onPointerEnter" | "onPointerEnterCapture" | "onPointerLeave" | "onPointerLeaveCapture" | "onPointerOver" | "onPointerOverCapture" | "onPointerOut" | "onPointerOutCapture" | "onGotPointerCapture" | "onGotPointerCaptureCapture" | "onLostPointerCapture" | "onLostPointerCaptureCapture" | "onScroll" | "onScrollCapture" | "onWheel" | "onWheelCapture" | "onAnimationStart" | "onAnimationStartCapture" | "onAnimationEnd" | "onAnimationEndCapture" | "onAnimationIteration" | "onAnimationIterationCapture" | "onTransitionEnd" | "onTransitionEndCapture" | "disabled" | "autoFocus" | "form" | "formAction" | "formEncType" | "formMethod" | "formNoValidate" | "formTarget" | "name" | "status" | "helperText" | "items" | "onItemSelect" | "isOpen"> & DropdownListCssProperties & React_2.RefAttributes<HTMLButtonElement>)>;
+export const Select: React_2.ForwardRefExoticComponent<SelectProps<any> & React_2.RefAttributes<HTMLButtonElement>>;
 
 export { SelectGroup }
 
