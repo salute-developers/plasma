@@ -176,7 +176,6 @@ import { PopupProps as PopupBaseProps } from '@salutejs/plasma-new-hope/styled-c
 import { PopupProvider as PopupBaseProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupInfo } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupProps } from '@salutejs/plasma-hope';
-import { PopupProps as PopupProps_2 } from '@salutejs/plasma-new-hope';
 import { PreviewGallery } from '@salutejs/plasma-hope';
 import { PreviewGalleryItemProps } from '@salutejs/plasma-hope';
 import { PreviewGalleryProps } from '@salutejs/plasma-hope';
@@ -656,7 +655,7 @@ export { PopoverTrigger }
 export { Popup }
 
 // @public
-export const PopupBase: FunctionComponent<PropsType<Record<string, Variant>> & PopupProps_2 & RefAttributes<HTMLDivElement>>;
+export const PopupBase: ForwardRefExoticComponent<PopupBaseProps & RefAttributes<HTMLDivElement>>;
 
 export { popupBaseClasses }
 

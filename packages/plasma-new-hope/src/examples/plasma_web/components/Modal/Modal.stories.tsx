@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { styled } from '@linaria/react';
-import { Story, Meta } from '@storybook/react';
+import type { ComponentProps } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { SSRProvider } from '@salutejs/plasma-core';
 
 import { PopupProvider, popupClasses } from '../Popup/Popup';
@@ -28,11 +29,42 @@ export default {
             control: {
                 type: 'select',
             },
+            table: { defaultValue: { summary: 'center' } },
+        },
+        offsetX: {
+            control: {
+                type: 'number',
+            },
+            table: { defaultValue: { summary: 0 } },
+        },
+        offsetY: {
+            control: {
+                type: 'number',
+            },
+            table: { defaultValue: { summary: 0 } },
+        },
+        closeOnEsc: {
+            control: {
+                type: 'boolean',
+            },
+            table: { defaultValue: { summary: true } },
+        },
+        closeOnOverlayClick: {
+            control: {
+                type: 'boolean',
+            },
+            table: { defaultValue: { summary: true } },
+        },
+        withBlur: {
+            control: {
+                type: 'boolean',
+            },
+            table: { defaultValue: { summary: false } },
         },
     },
 } as Meta;
 
-type ModalStoryProps = {
+type StoryModalProps = ComponentProps<typeof Modal> & {
     placement: string;
     offsetX: number;
     offsetY: number;
@@ -53,6 +85,11 @@ const StyledWrapper = styled.div`
 const Content = styled.div`
     background: var(--plasma-colors-surface-solid02);
     padding: 1rem;
+`;
+
+const ButtonWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
 `;
 
 const StyledModal = styled(Modal)`
@@ -89,18 +126,18 @@ const StyledModal = styled(Modal)`
     }
 `;
 
-export const ModalDemo: Story<ModalStoryProps> = ({ placement, offsetX, offsetY, ...rest }) => {
-    const [isOpenA, setIsOpenA] = React.useState(false);
-    const [isOpenB, setIsOpenB] = React.useState(false);
-    const [isOpenC, setIsOpenC] = React.useState(false);
+const StoryModalDemo = ({ placement, offsetX, offsetY, ...rest }: StoryModalProps) => {
+    const [isOpenA, setIsOpenA] = useState(false);
+    const [isOpenB, setIsOpenB] = useState(false);
+    const [isOpenC, setIsOpenC] = useState(false);
 
     return (
         <SSRProvider>
             <StyledWrapper>
                 <PopupProvider>
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <ButtonWrapper>
                         <StyledButton text="Открыть A" onClick={() => setIsOpenA(true)} />
-                    </div>
+                    </ButtonWrapper>
                     <StyledModal
                         id="modalA"
                         frame="theme-root"
@@ -113,9 +150,9 @@ export const ModalDemo: Story<ModalStoryProps> = ({ placement, offsetX, offsetY,
                     >
                         <Content>
                             <Button onClick={() => setIsOpenA(false)}>Close</Button>
-                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                            <ButtonWrapper>
                                 <StyledButton text="Открыть B" onClick={() => setIsOpenB(true)} />
-                            </div>
+                            </ButtonWrapper>
                             <Modal
                                 id="modalB"
                                 frame="theme-root"
@@ -129,9 +166,9 @@ export const ModalDemo: Story<ModalStoryProps> = ({ placement, offsetX, offsetY,
                                     <Button style={{ marginRight: '1rem' }} onClick={() => setIsOpenB(false)}>
                                         Close
                                     </Button>
-                                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                                    <ButtonWrapper>
                                         <StyledButton text="Открыть C" onClick={() => setIsOpenC(true)} />
-                                    </div>
+                                    </ButtonWrapper>
                                     <Modal
                                         id="modalC"
                                         frame="theme-root"
@@ -158,11 +195,14 @@ export const ModalDemo: Story<ModalStoryProps> = ({ placement, offsetX, offsetY,
     );
 };
 
-ModalDemo.args = {
-    placement: 'center',
-    withBlur: false,
-    closeOnEsc: true,
-    closeOnOverlayClick: true,
-    offsetX: 0,
-    offsetY: 0,
+export const ModalDemo: StoryObj<StoryModalProps> = {
+    args: {
+        placement: 'center',
+        withBlur: false,
+        closeOnEsc: true,
+        closeOnOverlayClick: true,
+        offsetX: 0,
+        offsetY: 0,
+    },
+    render: (args) => <StoryModalDemo {...args} />,
 };
