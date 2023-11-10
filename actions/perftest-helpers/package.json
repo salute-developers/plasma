@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/perftest-helpers",
-  "version": "0.2.0",
+  "version": "0.3.0-dev.0",
   "description": "Performance test job helpers",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
