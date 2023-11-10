@@ -1,12 +1,12 @@
-import { ArgTypes, StoryContext, Story as StoryType } from '@storybook/react';
 import React from 'react';
+import type { ArgTypes, StoryContext, Decorator } from '@storybook/react';
 
 import { ComponentConfig } from '../engines';
 import type { HTMLTagList, PropsType, Variants } from '../engines/types';
 
 import { ThemeType, themes } from './themes';
 
-export const WithTheme = (Story: StoryType, context: StoryContext) => {
+export const WithTheme: Decorator = (Story, context: StoryContext) => {
     const themeType = context.globals.theme as keyof ThemeType;
     const themeName = context.title.split('/')[0];
 
@@ -32,21 +32,28 @@ export function argTypesFromConfig<
     const filteredVariations = Object.entries(variations).filter(([key]) => !exclude.includes(key));
 
     const argTypes: ArgTypes = {};
+
     for (const [key, val] of filteredVariations) {
         const control: ArgTypes[''] = {
             control: {},
         };
+
         if (val.true) {
             control.control.type = 'boolean';
-            control.defaultValue = false;
+            control.table = { defaultValue: { summary: false } };
         } else {
             control.control.type = 'select';
             control.options = Object.keys(val).filter((name) => name !== 'css');
         }
 
         const defaultValue = defaults[key];
+
         if (defaultValue) {
-            control.defaultValue = val.true ? Boolean(defaultValue) : defaultValue;
+            control.table = {
+                defaultValue: {
+                    summary: val.true ? Boolean(defaultValue) : defaultValue,
+                },
+            };
         }
 
         argTypes[key] = control;
