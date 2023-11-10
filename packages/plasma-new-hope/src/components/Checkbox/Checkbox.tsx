@@ -95,7 +95,7 @@ export const StyledDescription = styled.div`
 
 const base = css`
     .single-line {
-        ${applyEllipsis()};
+        ${String(applyEllipsis)};
     }
 
     ${applyNoUserSelect()};

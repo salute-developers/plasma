@@ -35,7 +35,7 @@ const ButtonText = styled.span`
         margin-left: 0.375rem;
     }
 
-    ${applyEllipsis()}
+    ${String(applyEllipsis)}
 `;
 
 // TODO: #720

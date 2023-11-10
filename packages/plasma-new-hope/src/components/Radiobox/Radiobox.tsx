@@ -63,7 +63,7 @@ const base = css`
     ${mappingOverride};
 
     .single-line {
-        ${applyEllipsis()};
+        ${String(applyEllipsis)};
     }
 
     ${applyNoUserSelect()};
