@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-web",
-  "version": "1.243.0-dev.0",
+    "version": "1.243.0-dev.0",
   "description": "Salute Design System / React UI kit for web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -64,7 +64,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "styled-components": "5.3.1",
-    "typescript": "4.0.8",
+        "typescript": "4.2.4",
     "typescript-coverage-report": "0.7.0",
     "vite": "4.1.4"
   },
