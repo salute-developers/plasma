@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { WithTheme, argTypesFromConfig } from '../../../_helpers';
 import { mergeConfig } from '../../../../engines';
@@ -8,8 +8,8 @@ import { bodyConfig } from '../../../../components/Typography';
 import { Body } from './Body';
 import { config } from './Body.config';
 
-export default {
-    title: 'typograhpy/Body',
+const meta: Meta<typeof Body> = {
+    title: 'typography/Body',
     decorators: [WithTheme],
     component: Body,
     argTypes: argTypesFromConfig(mergeConfig(bodyConfig, config)),
@@ -17,13 +17,17 @@ export default {
         breakWord: true,
         bold: false,
     },
-} as ComponentMeta<typeof Body>;
+};
 
-export const Default: ComponentStory<typeof Body> = (props) => {
-    return (
-        <Body {...props}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium nesciunt nihil non ut animi distinctio
-            modi quo, provident quod.
-        </Body>
-    );
+export default meta;
+
+export const Default: StoryObj<typeof Body> = {
+    render: (args) => {
+        return (
+            <Body {...args}>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium nesciunt nihil non ut animi
+                distinctio modi quo, provident quod.
+            </Body>
+        );
+    },
 };
