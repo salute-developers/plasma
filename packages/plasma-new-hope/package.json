@@ -28,10 +28,10 @@
     "postbuild:styled-components": "rm -rf src-sc",
     "generate:typings:css": "tsc --outDir types --emitDeclarationOnly",
     "generate:typings": "npm run generate:typings:css",
-    "storybook": "NODE_OPTIONS=--openssl-legacy-provider storybook dev -s .storybook/public -p ${PORT:-7002} -c .storybook",
+    "storybook": "storybook dev -p ${PORT:-7002} -c .storybook",
     "prestorybook:sc": "npm run prebuild:styled-components",
-    "storybook:sc": "USE_STYLED_COMPONENTS=true NODE_OPTIONS=--openssl-legacy-provider storybook dev -s .storybook/public -p ${PORT:-7002} -c .storybook",
-    "storybook:build": "NODE_OPTIONS=--openssl-legacy-provider storybook build -s .storybook/public -c .storybook -o build-sb",
+    "storybook:sc": "USE_STYLED_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
+    "storybook:build": "storybook build -c .storybook -o build-sb",
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
   },
   "repository": {
