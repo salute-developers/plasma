@@ -11,6 +11,10 @@ on:
         description: 'Get scope as "[plasma-temple,plasma-core,plasma-ui]", etc'
         default: false
         type: boolean
+      ref:
+          type: string
+          description: "Manual set repo ref"
+          default: ''
     outputs:
       SCOPE:
         description: "scope collection"
@@ -70,9 +74,11 @@ jobs:
       PACKAGES_ENUMERATION: ${{ steps.set-output.outputs.PACKAGES_ENUMERATION }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
+          show-progress: false
           fetch-depth: 0
+          ref: ${{ inputs.ref }}
 
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
@@ -85,7 +91,7 @@ jobs:
         shell: bash
         id: changed-state
         run: |
-          #INFO: `jq -c` => Делаем вывод в одну JSON строку  
+          #INFO: `jq -c` => Делаем вывод в одну JSON строку
           echo "CHANGED_STATE=$(npx lerna la --json --since=$(git merge-base --fork-point origin/dev) ${{ env.EXCLUDE_DEPENDENTS }} | jq -c)" >> "$GITHUB_OUTPUT"
 
       - name: Computed scope state
@@ -97,7 +103,7 @@ jobs:
         with:
           script: |
             const processingScope = require('./.github/processing-scope.js');
-            
+
             return processingScope();
 
       - name: Set "GITHUB_OUTPUT"
