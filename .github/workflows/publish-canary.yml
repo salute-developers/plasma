@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
       - master
+  pull_request_target:
+    branches:
       - dev
 
 concurrency:
@@ -12,9 +14,16 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  authorize:
+    name: Authorize external pull request
+    uses: ./.github/workflows/authorize-external-pr.yml
+  
   publish:
     name: Publish canary version
+    needs: [ authorize ]
     uses: ./.github/workflows/publish-common.yml
+    with:
+      ref: refs/pull/${{github.event.pull_request.number}}/merge
     secrets:
       gh_token: ${{ secrets.GH_TOKEN }}
       npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
