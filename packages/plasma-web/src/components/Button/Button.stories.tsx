@@ -1,10 +1,11 @@
 import React, { useCallback, useState, useRef } from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { IconPlaceholder, disableProps, InSpacingDecorator } from '../../helpers';
 
-import { Button, ButtonProps } from '.';
+import { Button } from '.';
+import type { ButtonProps } from '.';
 
 const views = ['primary', 'secondary', 'success', 'warning', 'critical', 'checked', 'clear'];
 const sizes = ['l', 'm', 's', 'xs', 'xxs'];
@@ -24,21 +25,11 @@ const onClick = action('onClick');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-const propsToDisable = [
-    'theme',
-    'as',
-    'forwardedAs',
-    'contentLeft',
-    'contentRight',
-    'shiftLeft',
-    'shiftRight',
-    'blur',
-    'stretch',
-    'square',
-];
+type StoryButtonProps = ButtonProps & { contentType: string; isLoading?: boolean };
 
-export default {
+const meta: Meta<StoryButtonProps> = {
     title: 'Controls/Button',
+    component: Button,
     decorators: [InSpacingDecorator],
     argTypes: {
         contentType: {
@@ -70,25 +61,40 @@ export default {
                 type: 'select',
             },
         },
-        ...disableProps(propsToDisable),
+        ...disableProps([
+            'theme',
+            'as',
+            'forwardedAs',
+            'contentLeft',
+            'contentRight',
+            'shiftLeft',
+            'shiftRight',
+            'blur',
+            'stretch',
+            'square',
+        ]),
     },
-} as Meta;
+};
 
-type ButtonStoryProps = ButtonProps & { contentType: string; isLoading?: boolean };
+export default meta;
 
-const args: ButtonStoryProps = {
-    view: 'primary',
-    size: 'l',
-    pin: 'square-square',
-    disabled: false,
-    outlined: true,
-    focused: false,
-    text: 'Label',
-    contentType: 'Text',
-    isLoading: false,
-    onClick,
-    onFocus,
-    onBlur,
+type Story = StoryObj<StoryButtonProps>;
+
+const StoryBaseButton: Story = {
+    args: {
+        view: 'primary',
+        size: 'l',
+        pin: 'square-square',
+        disabled: false,
+        outlined: true,
+        focused: false,
+        text: 'Label',
+        contentType: 'Text',
+        isLoading: false,
+        onClick,
+        onFocus,
+        onBlur,
+    },
 };
 
 const iconSize = {
@@ -99,40 +105,43 @@ const iconSize = {
     xxs: 'xs',
 };
 
-export const Default: Story<ButtonStoryProps> = ({ contentType, text, ...rest }) => (
-    <Button
-        autoFocus
-        text={contentType !== 'Left' && text}
-        contentLeft={
-            (contentType === 'Left' || contentType === 'Text+Left') && <IconPlaceholder size={iconSize[rest.size]} />
-        }
-        contentRight={contentType === 'Text+Right' && <IconPlaceholder size={iconSize[rest.size]} />}
-        {...rest}
-    />
-);
-
-Default.args = args;
-
-export const Anchor: Story<ButtonStoryProps> = ({ contentType, text, ...rest }) => (
-    <Button
-        as="a"
-        text={contentType !== 'Left' && text}
-        contentLeft={
-            (contentType === 'Left' || contentType === 'Text+Left') && <IconPlaceholder size={iconSize[rest.size]} />
-        }
-        contentRight={contentType === 'Text+Right' && <IconPlaceholder size={iconSize[rest.size]} />}
-        {...rest}
-    />
-);
-
-Anchor.args = args;
-
-const argsLoading: ButtonStoryProps = {
-    ...args,
-    text: 'Start loading',
+export const Default: Story = {
+    ...StoryBaseButton,
+    render: ({ contentType, text, ...rest }) => {
+        return (
+            <Button
+                autoFocus
+                text={contentType !== 'Left' && text}
+                contentLeft={
+                    (contentType === 'Left' || contentType === 'Text+Left') && (
+                        <IconPlaceholder size={iconSize[rest.size]} />
+                    )
+                }
+                contentRight={contentType === 'Text+Right' && <IconPlaceholder size={iconSize[rest.size]} />}
+                {...rest}
+            />
+        );
+    },
 };
 
-export const Loading: Story<ButtonStoryProps> = ({ contentType, text, isLoading, onClick: _onClick, ...rest }) => {
+export const Anchor: Story = {
+    ...StoryBaseButton,
+    render: ({ contentType, text, ...rest }) => (
+        <Button
+            as="a"
+            text={contentType !== 'Left' && text}
+            contentLeft={
+                (contentType === 'Left' || contentType === 'Text+Left') && (
+                    <IconPlaceholder size={iconSize[rest.size]} />
+                )
+            }
+            contentRight={contentType === 'Text+Right' && <IconPlaceholder size={iconSize[rest.size]} />}
+            {...rest}
+        />
+    ),
+};
+
+const StoryButtonLoading = ({ contentType, isLoading, text, onClick: _onClick, ...rest }: StoryButtonProps) => {
     const [loading, setLoading] = useState(isLoading);
     const [count, setCount] = useState(0);
     const intervalId = useRef<number | undefined>();
@@ -162,7 +171,6 @@ export const Loading: Story<ButtonStoryProps> = ({ contentType, text, isLoading,
 
     return (
         <Button
-            autoFocus
             onClick={onClickHandle}
             text={contentType !== 'Left' && text}
             contentLeft={
@@ -178,4 +186,20 @@ export const Loading: Story<ButtonStoryProps> = ({ contentType, text, isLoading,
     );
 };
 
-Loading.args = argsLoading;
+export const Loading: Story = {
+    args: {
+        view: 'primary',
+        size: 'l',
+        pin: 'square-square',
+        disabled: false,
+        outlined: true,
+        focused: false,
+        contentType: 'Text',
+        text: 'Start loading',
+        isLoading: false,
+        onClick,
+        onFocus,
+        onBlur,
+    },
+    render: (args) => <StoryButtonLoading {...args} />,
+};
