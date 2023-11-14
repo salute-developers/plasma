@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, memo, useCallback } from 'react';
+import type { FC } from 'react';
 import styled from 'styled-components';
-import { Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { IconChevronLeft, IconChevronRight } from '@salutejs/plasma-icons';
 
 import { InSpacingDecorator } from '../../helpers';
@@ -10,8 +11,9 @@ import { SmartPaginationDots } from '../PaginationDots';
 import { CarouselCard } from './Carousel.examples';
 
 import { Carousel, CarouselItem } from '.';
+import type { CarouselProps } from '.';
 
-export default {
+const meta: Meta<typeof Carousel> = {
     title: 'Controls/Carousel',
     component: Carousel,
     decorators: [InSpacingDecorator],
@@ -23,7 +25,9 @@ export default {
             },
         },
     },
-} as Meta;
+};
+
+export default meta;
 
 const items = Array(25)
     .fill({
@@ -41,24 +45,27 @@ const items = Array(25)
     }));
 
 const defaultCarouselStyle = { margin: '0 -0.5rem' };
+
 const defaultCarouselItemStyle = { width: '20rem', padding: '0 0.5rem' };
 
-export const Default = () => {
-    return (
-        <Carousel index={0} style={defaultCarouselStyle}>
-            {items.map((item) => (
-                <CarouselItem key={item.id} style={defaultCarouselItemStyle}>
-                    <CarouselCard
-                        id={item.id}
-                        title={item.title}
-                        subtitle={item.subtitle}
-                        imageSrc={item.imageSrc}
-                        imageAlt={item.imageAlt}
-                    />
-                </CarouselItem>
-            ))}
-        </Carousel>
-    );
+export const Default: StoryObj<CarouselProps> = {
+    render: () => {
+        return (
+            <Carousel index={0} style={defaultCarouselStyle}>
+                {items.map((item) => (
+                    <CarouselItem key={item.id} style={defaultCarouselItemStyle}>
+                        <CarouselCard
+                            id={item.id}
+                            title={item.title}
+                            subtitle={item.subtitle}
+                            imageSrc={item.imageSrc}
+                            imageAlt={item.imageAlt}
+                        />
+                    </CarouselItem>
+                ))}
+            </Carousel>
+        );
+    },
 };
 
 const StyledWrapper = styled.div`
@@ -91,31 +98,31 @@ const StyledCarouselItem = styled(CarouselItem)`
 const enabledStateStyle = { display: 'block' };
 const disabledStateStyle = { display: 'none' };
 
-const ChevronLeft: React.FC = React.memo(() => {
+const ChevronLeft: FC = memo(() => {
     return <IconChevronLeft size="s" color="#fff" />;
 });
 
-const ChevronRight: React.FC = React.memo(() => {
+const ChevronRight: FC = memo(() => {
     return <IconChevronRight size="s" color="#fff" />;
 });
 
-export const AccessabilityDemo = () => {
+const StoryAccessibilityDemo = () => {
     const [index, setIndex] = useState(0);
     const [ariaLive, setAriaLive] = useState<'off' | 'polite'>('off');
 
-    const enableAriaLive = React.useCallback(() => {
+    const enableAriaLive = useCallback(() => {
         setAriaLive('polite');
     }, []);
 
-    const disableAriaLive = React.useCallback(() => {
+    const disableAriaLive = useCallback(() => {
         setAriaLive('off');
     }, []);
 
-    const changeIndexPrev = React.useCallback(() => {
+    const changeIndexPrev = useCallback(() => {
         setIndex((i) => (i > 0 ? i - 1 : items.length - 1));
     }, []);
 
-    const changeIndexNext = React.useCallback(() => {
+    const changeIndexNext = useCallback(() => {
         setIndex((i) => (i < items.length - 1 ? i + 1 : 0));
     }, []);
 
@@ -165,4 +172,8 @@ export const AccessabilityDemo = () => {
             </StyledCarouselWrapper>
         </StyledWrapper>
     );
+};
+
+export const AccessibilityDemo: StoryObj = {
+    render: () => <StoryAccessibilityDemo />,
 };
