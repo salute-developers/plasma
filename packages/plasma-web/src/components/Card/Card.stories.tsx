@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import styled from 'styled-components';
 import { blackPrimary, whitePrimary, whiteSecondary, secondary, surfaceCard } from '@salutejs/plasma-tokens-web';
 import { IconStarFill } from '@salutejs/plasma-icons';
@@ -9,13 +9,24 @@ import { InSpacingDecorator } from '../../helpers';
 import { BodyM, H4 } from '../Typography';
 import { Cell } from '../Cell';
 
-import { Card, CardProps, CardBody, CardBadge, CardContent, CardMedia } from '.';
+import { Card, CardBody, CardBadge, CardContent, CardMedia } from '.';
+import type { CardProps } from '.';
 
 const roundList = [250, 32, 28, 24, 20, 18, 16, 14, 12, 8, 0] as const;
 const ratios = ['1/1', '3/4', '4/3', '9/16', '16/9', '1/2', '2/1'] as const;
 
-export default {
+type StoryDefaultProps = CardProps & {
+    label: string;
+    coverGradient: boolean;
+    title: string;
+    rating: string;
+    description: string;
+    ratio: typeof ratios[number];
+};
+
+const meta: Meta<StoryDefaultProps> = {
     title: 'Content/Card',
+    component: Card,
     decorators: [InSpacingDecorator],
     argTypes: {
         ratio: {
@@ -31,16 +42,11 @@ export default {
             },
         },
     },
-} as Meta;
+};
 
-interface DefaultProps extends CardProps {
-    label: string;
-    coverGradient: boolean;
-    title: string;
-    rating: string;
-    description: string;
-    ratio: typeof ratios[number];
-}
+export default meta;
+
+type Story = StoryObj<StoryDefaultProps>;
 
 const StyledCardBadge = styled(CardBadge)`
     border-radius: 1rem;
@@ -79,149 +85,124 @@ const StyledCellRating = styled(Cell)`
     margin-right: 0.75rem;
 `;
 
-export const Default: Story<DefaultProps> = ({
-    outlined,
-    scaleOnFocus,
-    roundness,
-    label,
-    title,
-    description,
-    rating,
-    ratio,
-}) => {
-    return (
-        <Card
-            style={{ width: '22.5rem' }}
-            tabIndex={0}
-            outlined={outlined}
-            scaleOnFocus={scaleOnFocus}
-            roundness={roundness}
-        >
-            <CardBody>
-                <CardMedia src="./images/320_320_0.jpg" placeholder="./images/320_320_1.jpg" ratio={ratio} />
-                <StyledCardBadge size="l" text="60 минут" />
-                <CardContent>
-                    <Styled2BodyM>{label}</Styled2BodyM>
-                    <H4>{title}</H4>
-                    <StyledDescription>
-                        <StyledCellRating
-                            content={<StyledIconStarFill color={additional.h40[300]} />}
-                            description={rating}
-                        />
-                        <Styled2BodyM>{description}</Styled2BodyM>
-                    </StyledDescription>
-                </CardContent>
-            </CardBody>
-        </Card>
-    );
+export const Default: Story = {
+    args: {
+        ratio: '1/1',
+        roundness: 20,
+        outlined: true,
+        scaleOnFocus: true,
+        label: 'Потребительский кредит',
+        rating: '4.7',
+        title: 'до 230 000 ₽',
+        description: 'На 18 месяцев, ставка 13,9%',
+    },
+    render: ({ outlined, scaleOnFocus, roundness, label, title, description, rating, ratio }) => {
+        return (
+            <Card
+                style={{ width: '22.5rem' }}
+                tabIndex={0}
+                outlined={outlined}
+                scaleOnFocus={scaleOnFocus}
+                roundness={roundness}
+            >
+                <CardBody>
+                    <CardMedia src="./images/320_320_0.jpg" placeholder="./images/320_320_1.jpg" ratio={ratio} />
+                    <StyledCardBadge size="l" text="60 минут" />
+                    <CardContent>
+                        <Styled2BodyM>{label}</Styled2BodyM>
+                        <H4>{title}</H4>
+                        <StyledDescription>
+                            <StyledCellRating
+                                content={<StyledIconStarFill color={additional.h40[300]} />}
+                                description={rating}
+                            />
+                            <Styled2BodyM>{description}</Styled2BodyM>
+                        </StyledDescription>
+                    </CardContent>
+                </CardBody>
+            </Card>
+        );
+    },
 };
 
-Default.args = {
-    ratio: '1/1',
-    roundness: 20,
-    outlined: true,
-    scaleOnFocus: true,
-    label: 'Потребительский кредит',
-    rating: '4.7',
-    title: 'до 230 000 ₽',
-    description: 'На 18 месяцев, ставка 13,9%',
+export const WithBackground: Story = {
+    args: {
+        ratio: '1/1',
+        roundness: 20,
+        outlined: true,
+        scaleOnFocus: true,
+        label: 'Потребительский кредит',
+        rating: '4.7',
+        title: 'до 230 000 ₽',
+        description: 'На 18 месяцев, ставка 13,9%',
+    },
+    render: ({ outlined, scaleOnFocus, roundness, label, title, description, rating, ratio }) => {
+        return (
+            <Card
+                style={{ width: '22.5rem' }}
+                tabIndex={0}
+                outlined={outlined}
+                scaleOnFocus={scaleOnFocus}
+                roundness={roundness}
+                background={surfaceCard}
+            >
+                <CardBody>
+                    <CardMedia src="./images/320_320_0.jpg" placeholder="./images/320_320_1.jpg" ratio={ratio} />
+                    <StyledCardBadge size="l" text="60 минут" />
+                    <CardContent>
+                        <Styled2BodyM>{label}</Styled2BodyM>
+                        <H4>{title}</H4>
+                        <StyledDescription>
+                            <StyledCellRating
+                                content={<StyledIconStarFill color={additional.h40[300]} />}
+                                description={rating}
+                            />
+                            <Styled2BodyM>{description}</Styled2BodyM>
+                        </StyledDescription>
+                    </CardContent>
+                </CardBody>
+            </Card>
+        );
+    },
 };
 
-export const WithBackground: Story<DefaultProps> = ({
-    outlined,
-    scaleOnFocus,
-    roundness,
-    label,
-    title,
-    description,
-    rating,
-    ratio,
-}) => {
-    return (
-        <Card
-            style={{ width: '22.5rem' }}
-            tabIndex={0}
-            outlined={outlined}
-            scaleOnFocus={scaleOnFocus}
-            roundness={roundness}
-            background={surfaceCard}
-        >
-            <CardBody>
-                <CardMedia src="./images/320_320_0.jpg" placeholder="./images/320_320_1.jpg" ratio={ratio} />
-                <StyledCardBadge size="l" text="60 минут" />
-                <CardContent>
-                    <Styled2BodyM>{label}</Styled2BodyM>
-                    <H4>{title}</H4>
-                    <StyledDescription>
-                        <StyledCellRating
-                            content={<StyledIconStarFill color={additional.h40[300]} />}
-                            description={rating}
-                        />
-                        <Styled2BodyM>{description}</Styled2BodyM>
-                    </StyledDescription>
-                </CardContent>
-            </CardBody>
-        </Card>
-    );
-};
-
-WithBackground.args = {
-    ratio: '1/1',
-    roundness: 20,
-    outlined: true,
-    scaleOnFocus: true,
-    label: 'Потребительский кредит',
-    rating: '4.7',
-    title: 'до 230 000 ₽',
-    description: 'На 18 месяцев, ставка 13,9%',
-};
-
-export const WithCover: Story<DefaultProps> = ({
-    outlined,
-    scaleOnFocus,
-    label,
-    title,
-    description,
-    rating,
-    ratio,
-    roundness,
-    coverGradient,
-}) => {
-    return (
-        <Card
-            style={{ width: '22.5rem' }}
-            tabIndex={0}
-            outlined={outlined}
-            scaleOnFocus={scaleOnFocus}
-            roundness={roundness}
-        >
-            <CardBody>
-                <CardMedia src="./images/320_320_0.jpg" placeholder="./images/320_320_1.jpg" ratio={ratio} />
-                <StyledCardBadge size="l" text="60 минут" />
-                <CardContent cover coverGradient={coverGradient}>
-                    <StyledBodyM>{label}</StyledBodyM>
-                    <StyledH4>{title}</StyledH4>
-                    <StyledDescription>
-                        <StyledCellRating
-                            content={<StyledIconStarFill color={additional.h40[300]} />}
-                            description={rating}
-                        />
-                        <StyledBodyM>{description}</StyledBodyM>
-                    </StyledDescription>
-                </CardContent>
-            </CardBody>
-        </Card>
-    );
-};
-
-WithCover.args = {
-    ratio: '1/1',
-    coverGradient: true,
-    roundness: 20,
-    outlined: true,
-    scaleOnFocus: true,
-    label: 'Потребительский кредит',
-    rating: '4.7',
-    title: 'до 230 000 ₽',
-    description: 'На 18 месяцев, ставка 13,9%',
+export const WithCover: Story = {
+    args: {
+        ratio: '1/1',
+        coverGradient: true,
+        roundness: 20,
+        outlined: true,
+        scaleOnFocus: true,
+        label: 'Потребительский кредит',
+        rating: '4.7',
+        title: 'до 230 000 ₽',
+        description: 'На 18 месяцев, ставка 13,9%',
+    },
+    render: ({ outlined, scaleOnFocus, label, title, description, rating, ratio, roundness, coverGradient }) => {
+        return (
+            <Card
+                style={{ width: '22.5rem' }}
+                tabIndex={0}
+                outlined={outlined}
+                scaleOnFocus={scaleOnFocus}
+                roundness={roundness}
+            >
+                <CardBody>
+                    <CardMedia src="./images/320_320_0.jpg" placeholder="./images/320_320_1.jpg" ratio={ratio} />
+                    <StyledCardBadge size="l" text="60 минут" />
+                    <CardContent cover coverGradient={coverGradient}>
+                        <StyledBodyM>{label}</StyledBodyM>
+                        <StyledH4>{title}</StyledH4>
+                        <StyledDescription>
+                            <StyledCellRating
+                                content={<StyledIconStarFill color={additional.h40[300]} />}
+                                description={rating}
+                            />
+                            <StyledBodyM>{description}</StyledBodyM>
+                        </StyledDescription>
+                    </CardContent>
+                </CardBody>
+            </Card>
+        );
+    },
 };
