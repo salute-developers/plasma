@@ -4,7 +4,7 @@ import { NotificationProps } from './Notification.types';
 
 export type NotificationItem = {
     id: string;
-    isHiding?: boolean;
+    isHidden?: boolean;
 };
 export type NotificationsState = {
     notifications: NotificationItem[];
@@ -28,7 +28,7 @@ export const NotificationsStore = createStoreon([
 
         store.on('hide', ({ notifications }, id) => {
             return {
-                notifications: notifications.map((notif) => (id === notif.id ? { ...notif, isHiding: true } : notif)),
+                notifications: notifications.map((notif) => (id === notif.id ? { ...notif, isHidden: true } : notif)),
             };
         });
 
@@ -57,7 +57,7 @@ export function addNotification({ id: externalId, ...rest }: NotificationProps, 
     dispatch('add', {
         ...rest,
         id,
-        isHiding: false,
+        isHidden: false,
     });
 
     setTimeout(() => closeNotification(id), timeout);

@@ -14,11 +14,19 @@ export const StyledNotification = css`
     padding: 1rem 1.25rem;
 
     background: var(${tokens.background});
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05), 0px 4px 14px rgba(0, 0, 0, 0.08);
+    box-shadow: var(${tokens.boxShadow});
     border-radius: 0.5rem;
 `;
 
 export const StyledTitle = styled.div`
+    font-family: var(${tokens.titleFontFamily});
+    font-size: var(${tokens.titleFontSize});
+    font-style: var(${tokens.titleFontStyle});
+    font-weight: var(${tokens.titleFontWeight});
+    letter-spacing: var(${tokens.titleFontLetterSpacing});
+    line-height: var(${tokens.titleFontLineHeight});
+    ${String(applyHyphensNormal)};
+
     margin-bottom: 0.5rem;
 `;
 
@@ -34,7 +42,7 @@ export const StyledContent = styled.div`
     color: var(${tokens.contentColor});
 `;
 
-export const StyledItemWrapper = styled.div<{ isHiding: boolean }>`
+export const StyledItemWrapper = styled.div<{ isHidden: boolean }>`
     margin-top: 1rem;
     opacity: 1;
 

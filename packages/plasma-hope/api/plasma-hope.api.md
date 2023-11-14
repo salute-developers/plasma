@@ -174,9 +174,6 @@ import { WithSkeletonProps } from '@salutejs/plasma-core';
 
 export { addFocus }
 
-// @public
-export function addNotification({ id: externalId, ...rest }: NotificationProps, timeout?: number): string;
-
 export { animatedScrollToX }
 
 export { animatedScrollToY }
@@ -413,9 +410,6 @@ export interface CellProps {
 
 // @public (undocumented)
 export function clearSelection(): void;
-
-// @public (undocumented)
-export const closeNotification: (id: string, delay?: number) => void;
 
 // @public
 export const Col: StyledComponent<"div", any, ColProps, never>;
@@ -851,23 +845,6 @@ export { monthLongName }
 
 export { monthShortName }
 
-// @public
-const Notification_2: React_2.ForwardRefExoticComponent<NotificationProps & React_2.RefAttributes<HTMLDivElement>>;
-export { Notification_2 as Notification }
-
-// @public (undocumented)
-export interface NotificationProps extends AsProps, React_2.HTMLAttributes<HTMLDivElement> {
-    children?: React_2.ReactNode;
-    // Warning: (ae-forgotten-export) The symbol "statuses" needs to be exported by the entry point index.d.ts
-    status?: keyof typeof statuses;
-    title?: string;
-}
-
-// @public (undocumented)
-export const NotificationsProvider: React_2.FC<{
-    children: ReactNode;
-}>;
-
 // @public (undocumented)
 export const offsets: Record<Breakpoint, keyof ColOffsetProps>;
 
@@ -956,8 +933,8 @@ export const Progress: React_2.FC<ProgressProps>;
 // @public (undocumented)
 export interface ProgressProps {
     displayValue?: boolean;
-    // Warning: (ae-forgotten-export) The symbol "statuses_2" needs to be exported by the entry point index.d.ts
-    status?: keyof typeof statuses_2;
+    // Warning: (ae-forgotten-export) The symbol "statuses" needs to be exported by the entry point index.d.ts
+    status?: keyof typeof statuses;
     value: number;
 }
 
