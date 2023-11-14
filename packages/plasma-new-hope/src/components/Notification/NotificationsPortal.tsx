@@ -26,11 +26,11 @@ export const NotificationsPortal: FC<NotificationPortalProps> = ({ config, frame
             {notifications.length > 0 && (
                 <Popup isOpen frame={frame} placement="bottom-right" zIndex="9100">
                     <StyledRoot>
-                        {notifications.map(({ id, isHiding, ...rest }) => (
+                        {notifications.map(({ id, isHidden, ...rest }) => (
                             <StyledItemWrapper
                                 key={id}
-                                className={cx(isHiding ? 'hide' : 'show')}
-                                isHiding={isHiding || false}
+                                className={cx(isHidden ? 'hide' : 'show')}
+                                isHidden={isHidden || false}
                             >
                                 <Notification key={id} id={id} {...rest} />
                             </StyledItemWrapper>

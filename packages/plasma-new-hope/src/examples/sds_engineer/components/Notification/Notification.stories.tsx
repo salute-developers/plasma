@@ -7,7 +7,7 @@ import { Modal } from '../Modal/Modal';
 import { addNotification } from '../../../../../src/components/Notification';
 import { WithTheme } from '../../../_helpers';
 import { PopupProvider } from '../Popup/Popup';
-import { NotificationStatusType } from '../../../../components/Notification/Notification.types';
+import { NotificationProps, NotificationStatusType } from '../../../../components/Notification';
 
 import { Notification, NotificationsProvider } from './Notification';
 
@@ -28,18 +28,20 @@ const getNotificationProps = (i: number) => ({
     children: texts[i % 3],
 });
 
-export default {
-    title: 'plasma_b2c/Notification',
+const meta: Meta<NotificationProps> = {
+    title: 'sds_engineer/Notification',
     decorators: [WithTheme],
-} as Meta;
+};
 
-interface DefaultStoryProps {
+export default meta;
+
+interface StoryDefaultProps {
     status: string;
     title: string;
     children: string;
 }
 
-const StoryDefault = ({ status, title, children }: DefaultStoryProps) => {
+const StoryDefault = ({ status, title, children }: StoryDefaultProps) => {
     return (
         <Notification title={title} status={status !== '' ? (status as 'success') : undefined}>
             {children}
@@ -47,7 +49,7 @@ const StoryDefault = ({ status, title, children }: DefaultStoryProps) => {
     );
 };
 
-export const Default: StoryObj<DefaultStoryProps> = {
+export const Default: StoryObj<StoryDefaultProps> = {
     argTypes: {
         status: {
             options: statuses,

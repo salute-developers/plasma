@@ -7,7 +7,7 @@
 /// <reference types="react" />
 
 import { addFocus } from '@salutejs/plasma-core';
-import { addNotification } from '@salutejs/plasma-hope';
+import { addNotification } from '@salutejs/plasma-new-hope/styled-components';
 import { AnchorHTMLAttributes } from 'react';
 import { animatedScrollToX } from '@salutejs/plasma-core';
 import { animatedScrollToY } from '@salutejs/plasma-core';
@@ -76,7 +76,7 @@ import { CarouselProps } from '@salutejs/plasma-hope';
 import { Cell } from '@salutejs/plasma-hope';
 import { CellProps } from '@salutejs/plasma-hope';
 import { clearSelection } from '@salutejs/plasma-hope';
-import { closeNotification } from '@salutejs/plasma-hope';
+import { closeNotification } from '@salutejs/plasma-new-hope/styled-components';
 import { Col } from '@salutejs/plasma-hope';
 import { ColCount } from '@salutejs/plasma-hope';
 import { ColOffsetProps } from '@salutejs/plasma-hope';
@@ -150,9 +150,7 @@ import { ModalsProvider } from '@salutejs/plasma-hope';
 import { ModalView } from '@salutejs/plasma-hope';
 import { monthLongName } from '@salutejs/plasma-core';
 import { monthShortName } from '@salutejs/plasma-core';
-import { Notification as Notification_2 } from '@salutejs/plasma-hope';
-import { NotificationProps } from '@salutejs/plasma-hope';
-import { NotificationsProvider } from '@salutejs/plasma-hope';
+import { NotificationProps } from '@salutejs/plasma-new-hope/styled-components';
 import { offsets } from '@salutejs/plasma-hope';
 import { OutlinedProps } from '@salutejs/plasma-core';
 import { P1 } from '@salutejs/plasma-hope';
@@ -189,6 +187,7 @@ import { radiuses } from '@salutejs/plasma-core';
 import { Ratio } from '@salutejs/plasma-hope';
 import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 import { RectSkeleton } from '@salutejs/plasma-hope';
 import { RectSkeletonProps } from '@salutejs/plasma-hope';
 import { RefAttributes } from 'react';
@@ -611,11 +610,26 @@ export { monthLongName }
 
 export { monthShortName }
 
+// @public (undocumented)
+const Notification_2: React_2.FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+status: {
+success: string;
+warning: string;
+error: string;
+};
+}> & NotificationProps & React_2.RefAttributes<HTMLDivElement>>;
 export { Notification_2 as Notification }
 
 export { NotificationProps }
 
-export { NotificationsProvider }
+// @public (undocumented)
+export const NotificationsProvider: React_2.FC<{
+    children: ReactNode;
+    frame?: string;
+}>;
 
 export { offsets }
 
