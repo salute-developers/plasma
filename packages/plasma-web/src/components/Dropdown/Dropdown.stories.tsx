@@ -1,30 +1,35 @@
 import React from 'react';
 import styled from 'styled-components';
 import { accent, success, warning, critical } from '@salutejs/plasma-core';
-import { Story } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { IconEye, IconMagicWand, IconAccessibility, IconHeart, IconTrash, IconLocation } from '@salutejs/plasma-icons';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button';
 
-import { Dropdown, DropdownProps, DropdownList, DropdownItem, withAssistiveDropdown } from '.';
+import { Dropdown, DropdownList, DropdownItem, withAssistiveDropdown } from '.';
+import type { DropdownProps } from '.';
 
-export default {
+const meta: Meta<DropdownProps> = {
     title: 'Controls/Dropdown',
     component: Dropdown,
     decorators: [InSpacingDecorator],
 };
 
+export default meta;
+
 const StyledWrapper = styled.div`
     width: 13.75rem;
 `;
+
 const Styled25Rem = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
     width: 25rem;
 `;
+
 const StyledDashedBorder = styled.div`
     padding: 0.25rem;
     border: 1px dashed #00000030;
@@ -56,33 +61,37 @@ const items = [
     },
 ];
 
-export const Trigger = () => {
-    return (
-        <Styled25Rem>
-            <StyledDashedBorder style={{ display: 'inline-flex' }}>
-                <Dropdown
-                    id="example-dropdown-click"
-                    items={items}
-                    trigger="click"
-                    placement="bottom"
-                    onItemSelect={action('onItemSelect')}
-                >
-                    <Button text="Нажмите" />
-                </Dropdown>
-            </StyledDashedBorder>
-            <StyledDashedBorder>
-                <Dropdown
-                    id="example-dropdown-hover"
-                    items={items}
-                    trigger="hover"
-                    placement="bottom"
-                    onItemSelect={action('onItemSelect')}
-                >
-                    <Button text="Наведите" />
-                </Dropdown>
-            </StyledDashedBorder>
-        </Styled25Rem>
-    );
+const placements = ['top', 'bottom', 'left', 'right', 'auto', ['left', 'right']];
+
+export const Trigger: StoryObj = {
+    render: () => {
+        return (
+            <Styled25Rem>
+                <StyledDashedBorder style={{ display: 'inline-flex' }}>
+                    <Dropdown
+                        id="example-dropdown-click"
+                        items={items}
+                        trigger="click"
+                        placement="bottom"
+                        onItemSelect={action('onItemSelect')}
+                    >
+                        <Button text="Нажмите" />
+                    </Dropdown>
+                </StyledDashedBorder>
+                <StyledDashedBorder>
+                    <Dropdown
+                        id="example-dropdown-hover"
+                        items={items}
+                        trigger="hover"
+                        placement="bottom"
+                        onItemSelect={action('onItemSelect')}
+                    >
+                        <Button text="Наведите" />
+                    </Dropdown>
+                </StyledDashedBorder>
+            </Styled25Rem>
+        );
+    },
 };
 
 const Styled240Dropdown = styled(Dropdown)`
@@ -94,113 +103,127 @@ const Styled240Dropdown = styled(Dropdown)`
     --plasma-popup-nested-margin: calc(var(--plasma-dropdown-padding, 0) * -1) 0 0;
 `;
 
-export const Styling = () => {
-    return (
-        <Styled240Dropdown id="example-dropdown-styled" items={items} onItemSelect={action('onItemSelect')}>
-            <Button text="Нажмите" />
-        </Styled240Dropdown>
-    );
+export const Styling: StoryObj = {
+    render: () => {
+        return (
+            <Styled240Dropdown id="example-dropdown-styled" items={items} onItemSelect={action('onItemSelect')}>
+                <Button text="Нажмите" />
+            </Styled240Dropdown>
+        );
+    },
 };
 
-export const Placement = () => {
-    return (
-        <Styled25Rem style={{ flexDirection: 'row' }}>
-            <StyledDashedBorder>
-                <Dropdown id="example-dropdown-bottom" items={items}>
-                    <Button text="Снизу" />
-                </Dropdown>
-            </StyledDashedBorder>
-            <StyledDashedBorder>
-                <Dropdown id="example-dropdown-right" items={items} placement="right">
-                    <Button text="Справа" />
-                </Dropdown>
-            </StyledDashedBorder>
-        </Styled25Rem>
-    );
+export const Placement: StoryObj = {
+    render: () => {
+        return (
+            <Styled25Rem style={{ flexDirection: 'row' }}>
+                <StyledDashedBorder>
+                    <Dropdown id="example-dropdown-bottom" items={items}>
+                        <Button text="Снизу" />
+                    </Dropdown>
+                </StyledDashedBorder>
+                <StyledDashedBorder>
+                    <Dropdown id="example-dropdown-right" items={items} placement="right">
+                        <Button text="Справа" />
+                    </Dropdown>
+                </StyledDashedBorder>
+            </Styled25Rem>
+        );
+    },
 };
 
 const StyledDropdown = styled(Dropdown)`
     --plasma-popup-width: 100%;
 `;
+
 const StyledBlockDropdown = styled(Dropdown)`
     --plasma-popup-width: 100%;
     display: block;
 `;
 
-export const InlineOrBlockWrapper = () => {
-    return (
-        <Styled25Rem>
-            <StyledDashedBorder style={{ display: 'inline-flex' }}>
-                <StyledDropdown id="example-dropdown-inline" items={items} onItemSelect={action('onItemSelect')}>
-                    <Button text="Inline" />
-                </StyledDropdown>
-            </StyledDashedBorder>
-            <StyledDashedBorder>
-                <StyledBlockDropdown id="example-dropdown-block" items={items} onItemSelect={action('onItemSelect')}>
-                    <Button text="Block" stretch />
-                </StyledBlockDropdown>
-            </StyledDashedBorder>
-        </Styled25Rem>
-    );
+export const InlineOrBlockWrapper: StoryObj = {
+    render: () => {
+        return (
+            <Styled25Rem>
+                <StyledDashedBorder style={{ display: 'inline-flex' }}>
+                    <StyledDropdown id="example-dropdown-inline" items={items} onItemSelect={action('onItemSelect')}>
+                        <Button text="Inline" />
+                    </StyledDropdown>
+                </StyledDashedBorder>
+                <StyledDashedBorder>
+                    <StyledBlockDropdown
+                        id="example-dropdown-block"
+                        items={items}
+                        onItemSelect={action('onItemSelect')}
+                    >
+                        <Button text="Block" stretch />
+                    </StyledBlockDropdown>
+                </StyledDashedBorder>
+            </Styled25Rem>
+        );
+    },
 };
 
-export const CustomAssembly = () => {
-    return (
-        <StyledWrapper>
-            <DropdownList>
-                {items.map(({ items, ...rest }) => (
-                    <DropdownItem key={rest.value} {...rest} />
-                ))}
-            </DropdownList>
-        </StyledWrapper>
-    );
+export const CustomAssembly: StoryObj = {
+    render: () => {
+        return (
+            <StyledWrapper>
+                <DropdownList>
+                    {items.map(({ items, ...rest }) => (
+                        <DropdownItem key={rest.value} {...rest} />
+                    ))}
+                </DropdownList>
+            </StyledWrapper>
+        );
+    },
 };
 
 const DropdownButton = withAssistiveDropdown(Button);
 
-export const AccessibilityHOC = () => {
-    return (
-        <DropdownButton
-            id="example-dropdown-assistive"
-            text="Нажмите"
-            items={items}
-            trigger="click"
-            placement="bottom"
-            onItemSelect={action('onItemSelect')}
-        />
-    );
-};
-
-const placements = ['top', 'bottom', 'left', 'right', 'auto', ['left', 'right']];
-
-export const Placements: Story<DropdownProps> = (args) => {
-    const placement = args.placement?.includes(',') ? args.placement?.split(',') : args.placement;
-    return (
-        <>
-            <Dropdown id="example-dropdown-placements1" items={items} placement={placement}>
-                <Button text="Меню" />
-            </Dropdown>
-            <Dropdown
-                id="example-dropdown-placements2"
-                style={{ marginLeft: '500px' }}
+export const AccessibilityHOC: StoryObj = {
+    render: () => {
+        return (
+            <DropdownButton
+                id="example-dropdown-assistive"
+                text="Нажмите"
                 items={items}
-                placement={placement}
-            >
-                <Button text="Меню" />
-            </Dropdown>
-        </>
-    );
+                trigger="click"
+                placement="bottom"
+                onItemSelect={action('onItemSelect')}
+            />
+        );
+    },
 };
 
-Placements.args = {
-    placement: 'bottom',
-};
-
-Placements.argTypes = {
-    placement: {
-        options: placements,
-        control: {
-            type: 'select',
+export const Placements: StoryObj<DropdownProps> = {
+    args: {
+        placement: 'bottom',
+    },
+    argTypes: {
+        placement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
         },
+    },
+    render: (args) => {
+        const placement = args.placement?.includes(',') ? args.placement?.split(',') : args.placement;
+
+        return (
+            <>
+                <Dropdown id="example-dropdown-placements1" items={items} placement={placement}>
+                    <Button text="Меню" />
+                </Dropdown>
+                <Dropdown
+                    id="example-dropdown-placements2"
+                    style={{ marginLeft: '500px' }}
+                    items={items}
+                    placement={placement}
+                >
+                    <Button text="Меню" />
+                </Dropdown>
+            </>
+        );
     },
 };
