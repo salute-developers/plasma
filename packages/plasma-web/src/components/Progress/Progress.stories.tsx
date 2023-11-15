@@ -1,20 +1,21 @@
-import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
+import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
-import { InSpacingDecorator } from '../../helpers';
+import { Progress } from '.';
+import type { ProgressProps } from '.';
 
-import { Progress, ProgressProps } from '.';
-
-export default {
+const meta: Meta<ProgressProps> = {
     title: 'Controls/Progress',
     component: Progress,
     decorators: [InSpacingDecorator],
-} as Meta;
+};
 
-export const Default: Story<ProgressProps> = (args) => <Progress {...args} />;
+export default meta;
 
-Default.args = {
-    value: 25,
-    status: 'error',
-    displayValue: true,
+export const Default: StoryObj<ProgressProps> = {
+    args: {
+        value: 25,
+        status: 'error',
+        displayValue: true,
+    },
 };
