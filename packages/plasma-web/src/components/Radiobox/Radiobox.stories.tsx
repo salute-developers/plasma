@@ -1,5 +1,5 @@
-import React from 'react';
-import { ComponentStory, Meta } from '@storybook/react';
+import React, { useState } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { SSRProvider } from '../SSRProvider';
@@ -7,16 +7,19 @@ import { InSpacingDecorator } from '../../helpers';
 import { Headline4 } from '../Typography';
 import { List, ListItem } from '../List';
 
-import { Radiobox, RadioboxProps, RadioGroup } from '.';
-
-export default {
-    title: 'Controls/Radiobox',
-    decorators: [InSpacingDecorator],
-} as Meta;
+import { Radiobox, RadioGroup } from '.';
+import type { RadioboxProps } from '.';
 
 const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
+
+const meta: Meta<RadioboxProps> = {
+    title: 'Controls/Radiobox',
+    decorators: [InSpacingDecorator],
+};
+
+export default meta;
 
 const sizes = ['m', 's'];
 
@@ -46,8 +49,56 @@ const items = [
     { name: 'language', value: 'elixir', label: 'Elixir', disabled: true },
 ];
 
-export const Live = (props) => {
-    const [value, setValue] = React.useState('c');
+const StoryDefault = ({ name, label, description, disabled, singleLine, size }: RadioboxProps) => {
+    const value = 0;
+    const [checked, setChecked] = useState(true);
+
+    return (
+        <SSRProvider>
+            <Radiobox
+                name={name}
+                value={value}
+                label={label}
+                description={description}
+                disabled={disabled}
+                checked={checked}
+                singleLine={singleLine}
+                size={size}
+                onChange={(event) => {
+                    event.persist();
+
+                    setChecked(event.target.checked);
+                    onChange(event);
+                }}
+                onFocus={onFocus}
+                onBlur={onBlur}
+            />
+        </SSRProvider>
+    );
+};
+
+export const Default: StoryObj<RadioboxProps> = {
+    argTypes: {
+        size: {
+            options: sizes,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+    },
+    args: {
+        name: 'Radiobox',
+        label: 'Label',
+        description: 'Description',
+        disabled: false,
+        singleLine: false,
+        size: 'm',
+    },
+    render: (args) => <StoryDefault {...args} />,
+};
+
+const StoryLive = (props: RadioboxProps) => {
+    const [value, setValue] = useState('c');
 
     return (
         <SSRProvider>
@@ -84,64 +135,20 @@ export const Live = (props) => {
     );
 };
 
-Live.argTypes = {
-    size: {
-        options: sizes,
-        control: {
-            type: 'inline-radio',
+export const Live: StoryObj<RadioboxProps> = {
+    argTypes: {
+        size: {
+            options: sizes,
+            control: {
+                type: 'inline-radio',
+            },
         },
     },
-};
-
-Live.args = {
-    size: 'm',
-    view: 'accent',
-    singleLine: false,
-    focused: true,
-};
-
-export const Default: ComponentStory<RadioboxProps> = ({ name, label, description, disabled, singleLine, size }) => {
-    const value = 0;
-    const [checked, setChecked] = React.useState(true);
-
-    return (
-        <SSRProvider>
-            <Radiobox
-                name={name}
-                value={value}
-                label={label}
-                description={description}
-                disabled={disabled}
-                checked={checked}
-                singleLine={singleLine}
-                size={size}
-                onChange={(event) => {
-                    event.persist();
-
-                    setChecked(event.target.checked);
-                    onChange(event);
-                }}
-                onFocus={onFocus}
-                onBlur={onBlur}
-            />
-        </SSRProvider>
-    );
-};
-
-Default.argTypes = {
-    size: {
-        options: sizes,
-        control: {
-            type: 'inline-radio',
-        },
+    args: {
+        size: 'm',
+        view: 'accent',
+        singleLine: false,
+        focused: true,
     },
-};
-
-Default.args = {
-    name: 'Radiobox',
-    label: 'Label',
-    description: 'Description',
-    disabled: false,
-    singleLine: false,
-    size: 'm',
+    render: (args) => <StoryLive {...args} />,
 };
