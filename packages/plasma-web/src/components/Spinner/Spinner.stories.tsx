@@ -1,36 +1,36 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { surfaceLiquid01 } from '@salutejs/plasma-core';
 
 import { InSpacingDecorator, disableProps } from '../../helpers';
 import { Button } from '../Button';
 import { Body1 } from '../Typography';
 
-import { Spinner, SpinnerProps } from '.';
+import { Spinner } from '.';
+import type { SpinnerProps } from '.';
 
-const propsToDisable = ['color', 'theme', 'as', 'forwardedAs'];
-
-const sizes = [8, 16, 32, 64, 96, 128];
-
-export default {
+const meta: Meta<SpinnerProps> = {
     title: 'Content/Spinner',
+    component: Spinner,
     decorators: [InSpacingDecorator],
     argTypes: {
         size: {
-            options: sizes,
+            options: [8, 16, 32, 64, 96, 128],
             control: {
                 type: 'select',
             },
         },
-        ...disableProps(propsToDisable),
+        ...disableProps(['color', 'theme', 'as', 'forwardedAs']),
     },
-} as Meta;
+};
 
-export const Default: Story<SpinnerProps> = (args) => <Spinner {...args} />;
+export default meta;
 
-Default.args = {
-    size: 32,
+export const Default: StoryObj<SpinnerProps> = {
+    args: {
+        size: 32,
+    },
 };
 
 const StyledWrapper = styled.div<{ $loading?: boolean }>`
@@ -54,6 +54,7 @@ const StyledWrapper = styled.div<{ $loading?: boolean }>`
             }
         `}
 `;
+
 const StyledSpinner = styled(Spinner)`
     position: absolute;
     top: 0;
@@ -63,7 +64,7 @@ const StyledSpinner = styled(Spinner)`
     margin: auto;
 `;
 
-export const Live = () => {
+const StoryLive = () => {
     const [loading, setLoading] = useState(false);
     const timeoutRef = useRef(null);
 
@@ -94,4 +95,8 @@ export const Live = () => {
             {loading && <StyledSpinner size={32} />}
         </StyledWrapper>
     );
+};
+
+export const Live: StoryObj<SpinnerProps> = {
+    render: () => <StoryLive />,
 };
