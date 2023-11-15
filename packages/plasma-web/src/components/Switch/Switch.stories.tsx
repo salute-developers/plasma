@@ -1,29 +1,18 @@
-import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import React, { useState } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import styled from 'styled-components';
 
 import { InSpacingDecorator, disableProps } from '../../helpers';
 
-import { Switch, SwitchProps } from '.';
+import { Switch } from '.';
+import type { SwitchProps } from '.';
 
-const propsToDisable = [
-    'id',
-    'onFocus',
-    'onBlur',
-    'onChange',
-    'value',
-    'checked',
-    'description',
-    'focused',
-    'pressed',
-    'outlined',
-    'theme',
-    'as',
-    'forwardedAs',
-];
+const onChange = action('onChange');
+const onFocus = action('onFocus');
+const onBlur = action('onBlur');
 
-export default {
+const meta: Meta<SwitchProps> = {
     title: 'Controls/Switch',
     component: Switch,
     decorators: [InSpacingDecorator],
@@ -33,21 +22,33 @@ export default {
                 type: 'text',
             },
         },
-        ...disableProps(propsToDisable),
+        ...disableProps([
+            'id',
+            'onFocus',
+            'onBlur',
+            'onChange',
+            'value',
+            'checked',
+            'description',
+            'focused',
+            'pressed',
+            'outlined',
+            'theme',
+            'as',
+            'forwardedAs',
+        ]),
     },
-} as Meta;
+};
 
-const onChange = action('onChange');
-const onFocus = action('onFocus');
-const onBlur = action('onBlur');
+export default meta;
 
 const StyledWrapper = styled.div`
     width: 13.75rem;
 `;
 
-export const Default: Story<SwitchProps> = (args) => {
+const StoryDefault = (args: SwitchProps) => {
     const value = 0;
-    const [checked, setChecked] = React.useState(true);
+    const [checked, setChecked] = useState(true);
 
     return (
         <StyledWrapper>
@@ -66,7 +67,10 @@ export const Default: Story<SwitchProps> = (args) => {
     );
 };
 
-Default.args = {
-    label: 'Label',
-    disabled: false,
+export const Default: StoryObj<SwitchProps> = {
+    args: {
+        label: 'Label',
+        disabled: false,
+    },
+    render: (args) => <StoryDefault {...args} />,
 };
