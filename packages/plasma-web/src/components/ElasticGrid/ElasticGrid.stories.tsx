@@ -1,25 +1,25 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import styled from 'styled-components';
 
 import { ElasticGrid, ElasticGridProps } from '.';
 
-const propsToDisable = ['ref', 'theme', 'as', 'forwardedAs'];
-
-export default {
+const meta: Meta<ElasticGridProps> = {
     title: 'Layout/ElasticGrid',
     component: ElasticGrid,
-    argTypes: {
-        ...disableProps(propsToDisable),
-    },
     decorators: [InSpacingDecorator],
-} as Meta;
+    argTypes: {
+        ...disableProps(['ref', 'theme', 'as', 'forwardedAs']),
+    },
+};
 
-interface ExtraProps {
+export default meta;
+
+type StoryProps = ElasticGridProps & {
     $width: string;
     itemsNumber: number;
-}
+};
 
 const StyledElasticGrid = styled(ElasticGrid)<{ $width: string }>`
     width: ${({ $width }) => $width};
@@ -32,22 +32,23 @@ const Item = styled.div`
     border-radius: 10px;
 `;
 
-export const Default: Story<ExtraProps & ElasticGridProps> = ({ itemsNumber, ...props }) => {
-    return (
-        <StyledElasticGrid {...props}>
-            {Array(itemsNumber)
-                .fill(0)
-                .map((_, k) => (
-                    <Item key={k} />
-                ))}
-        </StyledElasticGrid>
-    );
-};
-
-Default.args = {
-    $width: '600px',
-    itemsNumber: 5,
-    minColWidth: 125,
-    gapX: 8,
-    gapY: 8,
+export const Default: StoryObj<StoryProps> = {
+    args: {
+        $width: '600px',
+        itemsNumber: 5,
+        minColWidth: 125,
+        gapX: 8,
+        gapY: 8,
+    },
+    render: ({ itemsNumber, ...props }) => {
+        return (
+            <StyledElasticGrid {...props}>
+                {Array(itemsNumber)
+                    .fill(0)
+                    .map((_, k) => (
+                        <Item key={k} />
+                    ))}
+            </StyledElasticGrid>
+        );
+    },
 };
