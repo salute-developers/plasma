@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { surfaceSolid02, darkOverlayBlur, overlaySoft } from '@salutejs/plasma-tokens-web';
 
 import { SSRProvider } from '../SSRProvider';
@@ -9,9 +9,11 @@ import { Button } from '../Button';
 import { PopupBaseProvider, endAnimationClass, popupBaseRootClass } from '../PopupBase';
 
 import { ModalBase, modalBaseOverlayClass } from '.';
+import type { ModalBaseProps } from '.';
 
-export default {
+const meta: Meta<ModalBaseProps> = {
     title: 'Controls/ModalBase',
+    component: ModalBase,
     decorators: [InSpacingDecorator],
     argTypes: {
         placement: {
@@ -31,9 +33,11 @@ export default {
             },
         },
     },
-} as Meta;
+};
 
-type ModalBaseStoryProps = {
+export default meta;
+
+type StoryModalBaseProps = {
     placement: string;
     offsetX: number;
     offsetY: number;
@@ -98,10 +102,10 @@ const StyledModal = styled(ModalBase)`
     }
 `;
 
-export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, offsetY, ...rest }) => {
-    const [isOpenA, setIsOpenA] = React.useState(false);
-    const [isOpenB, setIsOpenB] = React.useState(false);
-    const [isOpenC, setIsOpenC] = React.useState(false);
+const StoryModalBaseDemo = ({ placement, offsetX, offsetY, ...rest }: StoryModalBaseProps) => {
+    const [isOpenA, setIsOpenA] = useState(false);
+    const [isOpenB, setIsOpenB] = useState(false);
+    const [isOpenC, setIsOpenC] = useState(false);
 
     return (
         <SSRProvider>
@@ -165,11 +169,14 @@ export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, 
     );
 };
 
-ModalBaseDemo.args = {
-    placement: 'center',
-    withBlur: false,
-    closeOnEsc: true,
-    closeOnOverlayClick: true,
-    offsetX: 0,
-    offsetY: 0,
+export const ModalBaseDemo: StoryObj<StoryModalBaseProps> = {
+    args: {
+        placement: 'center',
+        withBlur: false,
+        closeOnEsc: true,
+        closeOnOverlayClick: true,
+        offsetX: 0,
+        offsetY: 0,
+    },
+    render: (args) => <StoryModalBaseDemo {...args} />,
 };
