@@ -1,10 +1,11 @@
-import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import React, { useState } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { IconPlaceholder, InSpacingDecorator, disableProps } from '../../helpers';
 
-import { TextArea, TextAreaProps } from '.';
+import { TextArea } from '.';
+import type { TextAreaProps } from '.';
 
 const onChange = action('onChange');
 const onFocus = action('onFocus');
@@ -13,28 +14,7 @@ const onBlur = action('onBlur');
 const statuses = ['', 'success', 'error'];
 const resizes = ['none', 'both', 'horizontal', 'vertical'];
 
-const propsToDisable = [
-    '$isFocused',
-    'label',
-    'contentRight',
-    'autoComplete',
-    'autoFocus',
-    'dirName',
-    'form',
-    'minLength',
-    'maxLength',
-    'name',
-    'required',
-    'value',
-    'wrap',
-    'onChange',
-    'onFocus',
-    'onBlur',
-    'helperText',
-    'helperBlock',
-];
-
-export default {
+const meta: Meta<TextAreaProps> = {
     title: 'Controls/TextArea',
     component: TextArea,
     decorators: [InSpacingDecorator],
@@ -51,16 +31,35 @@ export default {
                 type: 'select',
             },
         },
-        ...disableProps(propsToDisable),
+        ...disableProps([
+            '$isFocused',
+            'label',
+            'contentRight',
+            'autoComplete',
+            'autoFocus',
+            'dirName',
+            'form',
+            'minLength',
+            'maxLength',
+            'name',
+            'required',
+            'value',
+            'wrap',
+            'onChange',
+            'onFocus',
+            'onBlur',
+            'helperText',
+            'helperBlock',
+        ]),
     },
-} as Meta;
+};
 
-export const Default: Story<TextAreaProps & { enableContentRight: boolean }> = ({
-    enableContentRight,
-    status,
-    ...rest
-}) => {
-    const [value, setValue] = React.useState('Значение поля');
+export default meta;
+
+type StoryProps = TextAreaProps & { enableContentRight: boolean };
+
+const StoryDefault = ({ enableContentRight, status, ...rest }: StoryProps) => {
+    const [value, setValue] = useState('Значение поля');
 
     return (
         <TextArea
@@ -78,14 +77,17 @@ export const Default: Story<TextAreaProps & { enableContentRight: boolean }> = (
     );
 };
 
-Default.args = {
-    id: 'example-textarea',
-    placeholder: 'Заполните многострочное поле',
-    leftHelper: 'Подсказка к полю слева',
-    rightHelper: 'Подсказка к полю справа',
-    enableContentRight: true,
-    status: '' as 'success',
-    resize: 'vertical',
-    disabled: false,
-    readOnly: false,
+export const Default: StoryObj<StoryProps> = {
+    args: {
+        id: 'example-textarea',
+        placeholder: 'Заполните многострочное поле',
+        leftHelper: 'Подсказка к полю слева',
+        rightHelper: 'Подсказка к полю справа',
+        enableContentRight: true,
+        status: '' as 'success',
+        resize: 'vertical',
+        disabled: false,
+        readOnly: false,
+    },
+    render: (args) => <StoryDefault {...args} />,
 };
