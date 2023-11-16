@@ -1,3 +1,34 @@
+# v1.65.0 (Thu Nov 16 2023)
+
+### Release Notes
+
+#### Release 16.11.2023 ([#852](https://github.com/salute-developers/plasma/pull/852))
+
+Релиз от 16.11.2023
+
+---
+
+#### 🚀 Enhancement
+
+- Release 16.11.2023 [#852](https://github.com/salute-developers/plasma/pull/852) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@akhdrv](https://github.com/akhdrv))
+- feat(plasma-typo): add font family fallback for asdk ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore(packages): reformat package.json ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 5
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+---
+
 # v1.64.0 (Fri Sep 29 2023)
 
 #### 🚀 Enhancement

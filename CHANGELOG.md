@@ -1,3 +1,55 @@
+# (Thu Nov 16 2023)
+
+### Release Notes
+
+#### Release 16.11.2023 ([#852](https://github.com/salute-developers/plasma/pull/852))
+
+Релиз от 16.11.2023
+
+---
+
+#### 🚀 Enhancement
+
+- build: update @salutejs/perftool [#838](https://github.com/salute-developers/plasma/pull/838) ([@akhdrv](https://github.com/akhdrv))
+- `@salutejs/plasma-asdk@0.5.0`, `@salutejs/plasma-b2c@1.246.0`, `@salutejs/plasma-colors@0.11.0`, `@salutejs/plasma-core@1.139.0`, `@salutejs/plasma-hope@1.244.0`, `@salutejs/plasma-icons@1.171.0`, `@salutejs/plasma-new-hope@0.13.0`, `@salutejs/cra-template-plasma-shop-template@2.5.0`, `@salutejs/plasma-temple@1.189.0`, `@salutejs/plasma-tokens-b2b@1.30.0`, `@salutejs/plasma-tokens-b2c@0.39.0`, `@salutejs/plasma-tokens-core@0.5.0`, `@salutejs/plasma-tokens-web@1.45.0`, `@salutejs/plasma-tokens@1.65.0`, `@salutejs/plasma-typo@0.39.0`, `@salutejs/plasma-ui@1.221.0`, `@salutejs/plasma-web@1.246.0`, `@salutejs/plasma-cy-utils@0.72.0`, `@salutejs/plasma-sb-utils@0.137.0`, `@salutejs/plasma-tokens-utils@0.34.0`
+  - Release 16.11.2023 [#852](https://github.com/salute-developers/plasma/pull/852) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@akhdrv](https://github.com/akhdrv))
+- `@salutejs/plasma-b2c@1.246.0`, `@salutejs/plasma-new-hope@0.13.0`, `@salutejs/plasma-web@1.246.0`
+  - fix(plasma-web, plasma-b2c): fix NoScroll behavior in ModalBase [#828](https://github.com/salute-developers/plasma/pull/828) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-asdk@0.5.0`, `@salutejs/plasma-b2c@1.246.0`, `@salutejs/plasma-core@1.139.0`, `@salutejs/plasma-hope@1.244.0`, `@salutejs/plasma-web@1.246.0`
+  - feat: api report for ts@4.2.4 [#843](https://github.com/salute-developers/plasma/pull/843) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-asdk@0.5.0`
+  - feat(plasma-asdk): update storybook readme [#835](https://github.com/salute-developers/plasma/pull/835) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-icons@1.171.0`
+  - feat(plasma-icons): raisedHand Icon added [#830](https://github.com/salute-developers/plasma/pull/830) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-new-hope@0.13.0`
+  - feat(plasma-new-hope): add focus visible dependency [#821](https://github.com/salute-developers/plasma/pull/821) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### 🐛 Bug Fix
+
+- ci: revert HAS_PLASMA_WEBSITE flag for build documentation [#847](https://github.com/salute-developers/plasma/pull/847) ([@Yakutoc](https://github.com/Yakutoc))
+- ci(perftest): add asdk to scope [#842](https://github.com/salute-developers/plasma/pull/842) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- chore(website): reformat package.json [#837](https://github.com/salute-developers/plasma/pull/837) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.246.0`
+  - docs(web): fix typo [#850](https://github.com/salute-developers/plasma/pull/850) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-hope@1.244.0`
+  - chore(hope): fix critical several vulnerability [#846](https://github.com/salute-developers/plasma/pull/846) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-new-hope@0.13.0`
+  - chore(new-hope): bump `@linaria` deps [#845](https://github.com/salute-developers/plasma/pull/845) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.246.0`
+  - chore(plasma-b2c): migrate to CSF 3 [TextField] [#833](https://github.com/salute-developers/plasma/pull/833) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-temple@1.189.0`
+  - chore(plasma-temple): add "@storybook/addon-knobs" [#824](https://github.com/salute-developers/plasma/pull/824) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 5
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+---
+
 # (Thu Nov 02 2023)
 
 #### 🚀 Enhancement

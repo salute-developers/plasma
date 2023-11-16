@@ -1,3 +1,58 @@
+# v0.13.0 (Thu Nov 16 2023)
+
+### Release Notes
+
+#### Release 16.11.2023 ([#852](https://github.com/salute-developers/plasma/pull/852))
+
+Релиз от 16.11.2023
+
+---
+
+#### 🚀 Enhancement
+
+- Release 16.11.2023 [#852](https://github.com/salute-developers/plasma/pull/852) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@akhdrv](https://github.com/akhdrv))
+- feat: manual update package-lock.json files ([@Yakutoc](https://github.com/Yakutoc))
+- fix(plasma-web, plasma-b2c): fix NoScroll behavior in ModalBase [#828](https://github.com/salute-developers/plasma/pull/828) ([@kayman233](https://github.com/kayman233))
+- feat(plasma-new-hope): Modal added ([@kayman233](https://github.com/kayman233))
+- feat: bump TS to 4.2.4 ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-new-hope/asdk): add plasma-asdk & add typography ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): add focus visible dependency [#821](https://github.com/salute-developers/plasma/pull/821) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): separate typography tokens & refactor folder structure ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): add plasma-tokens to deps ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): separate classes & tokens ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-web/b2c): add calendar with new architecture ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): Add calendar ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### 🐛 Bug Fix
+
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- fix(plasma-new-hope): fix no scroll in Modal ([@kayman233](https://github.com/kayman233))
+- fix(plasma-new-hope): remove styled-components from Modal ([@kayman233](https://github.com/kayman233))
+- feat(plasma-web, plasma-b2c): ModalBase, PopupBase on new-hope ([@kayman233](https://github.com/kayman233))
+- chore(new-hope): bump `@linaria` deps [#845](https://github.com/salute-developers/plasma/pull/845) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(new-hope): resolved "No longer inferring default values of args" ([@Yakutoc](https://github.com/Yakutoc))
+- chore: delete unnecessary options ([@Yakutoc](https://github.com/Yakutoc))
+- chore: bump storybook to @latest (7.5.3) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(new-hope): migrate main.js for storybook@latest ([@Yakutoc](https://github.com/Yakutoc))
+- chore(new-hope): migrate `preview.ts` for storybook@latest ([@Yakutoc](https://github.com/Yakutoc))
+- chore(new-hope): migrate to CSF 3 [typography] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(new-hope): migrate to CSF 3 [sds_engineer] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(new-hope): migrate to CSF 3 [plasma-web] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(new-hope): migrate to CSF 3 [plasma-b2c] ([@Yakutoc](https://github.com/Yakutoc))
+- chore: update package-locks ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore(packages): reformat package.json ([@Yakutoc](https://github.com/Yakutoc))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 5
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+---
+
 # v0.9.0 (Thu Nov 02 2023)
 
 #### 🚀 Enhancement

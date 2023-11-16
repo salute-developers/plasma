@@ -1,3 +1,36 @@
+# v1.221.0 (Thu Nov 16 2023)
+
+### Release Notes
+
+#### Release 16.11.2023 ([#852](https://github.com/salute-developers/plasma/pull/852))
+
+Релиз от 16.11.2023
+
+---
+
+#### 🚀 Enhancement
+
+- Release 16.11.2023 [#852](https://github.com/salute-developers/plasma/pull/852) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@akhdrv](https://github.com/akhdrv))
+- feat: bump TS to 4.2.4 ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore: update package-locks ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore(packages): reformat package.json ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): add "@storybook/client-logger" ([@Yakutoc](https://github.com/Yakutoc))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 5
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+---
+
 # v1.218.0 (Thu Nov 02 2023)
 
 #### 🚀 Enhancement

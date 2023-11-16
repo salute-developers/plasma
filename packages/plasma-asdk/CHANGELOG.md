@@ -1,3 +1,38 @@
+# v0.5.0 (Thu Nov 16 2023)
+
+### Release Notes
+
+#### Release 16.11.2023 ([#852](https://github.com/salute-developers/plasma/pull/852))
+
+Релиз от 16.11.2023
+
+---
+
+#### 🚀 Enhancement
+
+- Release 16.11.2023 [#852](https://github.com/salute-developers/plasma/pull/852) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@akhdrv](https://github.com/akhdrv))
+- feat: manual update package-lock.json files ([@Yakutoc](https://github.com/Yakutoc))
+- feat: api report for ts@4.2.4 [#843](https://github.com/salute-developers/plasma/pull/843) ([@Yakutoc](https://github.com/Yakutoc))
+- feat: bump TS to 4.2.4 ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-asdk): update storybook readme [#835](https://github.com/salute-developers/plasma/pull/835) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope/asdk): add plasma-asdk & add typography ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### 🐛 Bug Fix
+
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore: update package-locks ([@Salute-Eva](https://github.com/Salute-Eva))
+- docs(plasma-asdk): generate docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### Authors: 5
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+---
+
 # v1.237.0 (Thu Oct 19 2023)
 
 #### 🚀 Enhancement

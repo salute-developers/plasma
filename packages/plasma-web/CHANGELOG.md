@@ -1,3 +1,87 @@
+# v1.246.0 (Thu Nov 16 2023)
+
+### Release Notes
+
+#### Release 16.11.2023 ([#852](https://github.com/salute-developers/plasma/pull/852))
+
+Релиз от 16.11.2023
+
+---
+
+#### 🚀 Enhancement
+
+- Release 16.11.2023 [#852](https://github.com/salute-developers/plasma/pull/852) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@akhdrv](https://github.com/akhdrv))
+- feat: manual update package-lock.json files ([@Yakutoc](https://github.com/Yakutoc))
+- fix(plasma-web, plasma-b2c): fix NoScroll behavior in ModalBase [#828](https://github.com/salute-developers/plasma/pull/828) ([@kayman233](https://github.com/kayman233))
+- feat: api report for ts@4.2.4 [#843](https://github.com/salute-developers/plasma/pull/843) ([@Yakutoc](https://github.com/Yakutoc))
+- feat: bump TS to 4.2.4 ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-new-hope): separate typography tokens & refactor folder structure ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): separate classes & tokens ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-web/b2c): add calendar with new architecture ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### 🐛 Bug Fix
+
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- feat(plasma-web, plasma-b2c): ModalBase, PopupBase on new-hope ([@kayman233](https://github.com/kayman233))
+- docs(web): fix typo [#850](https://github.com/salute-developers/plasma/pull/850) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate "Main.ts" to storybook@latest ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): add decorators: Theme, Toast, Docs ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate "Preview.ts" to storybook@latest ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): bump storybook to latest(7.5.3) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Typography] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Colors] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [UploadVisual] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [UploadAudio] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Upload] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Tooltip] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Toast] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [TextField] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [TextArea] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Tabs] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Switch] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Spinner] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Slider] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Skeleton] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Select] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Radiobox] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Progress] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Price] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [PreviewGallery] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [PopupBase] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Popover] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [PaginationDots] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Notification] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [ModalBase] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Modal] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Link] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Image] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Grid] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [ElasticGrid] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Editable] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Dropdown] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Checkbox] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Calendar] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Carousel] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Card] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Cell] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Badge] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [Button] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web): migrate to CSF 3 [AudioPlayer] ([@Yakutoc](https://github.com/Yakutoc))
+- chore: update package-locks ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore(packages): reformat package.json ([@Yakutoc](https://github.com/Yakutoc))
+- docs(plasma-web/b2c/hope): update api ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 5
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+---
+
 # v1.240.0 (Thu Nov 02 2023)
 
 #### 🚀 Enhancement
