@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/cra-template-plasma-shop-template",
-  "version": "2.5.0-dev.0",
+  "version": "2.5.0",
   "description": "Plasma temple E-commerce template",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
