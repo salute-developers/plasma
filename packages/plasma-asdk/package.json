@@ -20,7 +20,6 @@
   },
   "dependencies": {
     "@salutejs/plasma-core": "1.139.0",
-    "@salutejs/plasma-hope": "1.245.0-dev.0",
     "@salutejs/plasma-new-hope": "0.14.0-dev.0",
     "@salutejs/plasma-tokens": "1.65.0",
     "@salutejs/plasma-tokens-b2b": "1.30.0",
