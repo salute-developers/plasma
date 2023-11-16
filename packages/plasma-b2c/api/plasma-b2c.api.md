@@ -85,7 +85,7 @@ import { ColSizeProps } from '@salutejs/plasma-hope';
 import { Container } from '@salutejs/plasma-hope';
 import { ContainerProps } from '@salutejs/plasma-hope';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
-import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/type';
+import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { defaultValidate } from '@salutejs/plasma-hope';
 import { DisabledProps } from '@salutejs/plasma-core';
 import { Dropdown } from '@salutejs/plasma-hope';
