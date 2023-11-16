@@ -1,5 +1,18 @@
 # (Thu Nov 16 2023)
 
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-asdk@0.6.0`, `@salutejs/plasma-b2c@1.247.0`, `@salutejs/plasma-core@1.140.0`, `@salutejs/plasma-hope@1.245.0`, `@salutejs/plasma-icons@1.172.0`, `@salutejs/plasma-new-hope@0.14.0`, `@salutejs/plasma-temple@1.190.0`, `@salutejs/plasma-tokens-b2b@1.31.0`, `@salutejs/plasma-tokens-b2c@0.40.0`, `@salutejs/plasma-tokens-web@1.46.0`, `@salutejs/plasma-tokens@1.66.0`, `@salutejs/plasma-ui@1.222.0`, `@salutejs/plasma-web@1.247.0`, `@salutejs/plasma-cy-utils@0.73.0`, `@salutejs/plasma-sb-utils@0.138.0`, `@salutejs/plasma-tokens-utils@0.35.0`
+  - feat: Update package-lock.json files ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 1
+
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
+# (Thu Nov 16 2023)
+
 ### Release Notes
 
 #### Release 16.11.2023 ([#852](https://github.com/salute-developers/plasma/pull/852))
