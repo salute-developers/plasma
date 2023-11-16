@@ -35,7 +35,7 @@ import { ReactNode } from 'react';
 import { RefAttributes } from 'react';
 import { SpacingProps } from '@salutejs/plasma-new-hope/types/mixins/applySpacing';
 import { SpinnerProps } from '@salutejs/plasma-core';
-import { SSRProvider } from '@salutejs/plasma-hope';
+import { SSRProvider } from '@salutejs/plasma-core';
 import { StyledComponent } from 'styled-components';
 import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TouchEventHandler } from 'react';
