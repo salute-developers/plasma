@@ -37,8 +37,8 @@ import { Button1 } from '@salutejs/plasma-core';
 import { Button2 } from '@salutejs/plasma-core';
 import type { ButtonContentProps } from '@salutejs/plasma-core';
 import { ButtonHTMLAttributes } from 'react';
-import { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-core';
-import { ButtonViewProps } from '@salutejs/plasma-core';
+import type { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-core';
+import type { ButtonViewProps } from '@salutejs/plasma-core';
 import { canUseDOM } from '@salutejs/plasma-core';
 import { Caption } from '@salutejs/plasma-core';
 import { CardBodyProps } from '@salutejs/plasma-core';
@@ -54,7 +54,6 @@ import { ChangeEvent } from 'react';
 import { ClipboardEventHandler } from 'react';
 import type { ComponentType } from 'react';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
-import { CoverProps } from '@salutejs/plasma-core/components/Card/CardContent';
 import { createTabsController } from '@salutejs/plasma-core';
 import type { CSSObject } from 'styled-components';
 import { CSSProperties } from 'react';
@@ -63,8 +62,6 @@ import { DisabledProps } from '@salutejs/plasma-core';
 import { DsplL } from '@salutejs/plasma-typo';
 import { DsplM } from '@salutejs/plasma-typo';
 import { DsplS } from '@salutejs/plasma-typo';
-import { endAnimationClass } from '@salutejs/plasma-core';
-import { endTransitionClass } from '@salutejs/plasma-core';
 import { extractTextFrom } from '@salutejs/plasma-core';
 import { FC } from 'react';
 import type { FieldProps as FieldProps_2 } from '@salutejs/plasma-core';
@@ -96,17 +93,9 @@ import { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import { LineSkeleton } from '@salutejs/plasma-core';
 import { LineSkeletonProps } from '@salutejs/plasma-core';
 import { MaxLinesProps } from '@salutejs/plasma-core';
-import { ModalBase } from '@salutejs/plasma-core';
-import { modalBaseOverlayClass } from '@salutejs/plasma-core';
-import { ModalBaseProps } from '@salutejs/plasma-core';
-import { ModalBaseRootProps } from '@salutejs/plasma-core';
-import { ModalOverlay } from '@salutejs/plasma-core';
-import { ModalOverlayProps } from '@salutejs/plasma-core';
 import { monthLongName } from '@salutejs/plasma-core';
 import { monthShortName } from '@salutejs/plasma-core';
 import { MutableRefObject } from 'react';
-import { NoCoverProps } from '@salutejs/plasma-core/components/Card/CardContent';
-import { OtherProps } from '@salutejs/plasma-core/components/Card/CardContent';
 import { OutlinedProps } from '@salutejs/plasma-core';
 import { P } from '@salutejs/plasma-core';
 import { P1 } from '@salutejs/plasma-core';
@@ -118,15 +107,7 @@ import { ParagraphText2 } from '@salutejs/plasma-core';
 import { PickOptional } from '@salutejs/plasma-core';
 import { PinProps } from '@salutejs/plasma-core';
 import { Popup } from '@salutejs/plasma-core';
-import { PopupBase } from '@salutejs/plasma-core';
-import { PopupBasePlacement } from '@salutejs/plasma-core';
-import { PopupBaseProps } from '@salutejs/plasma-core';
-import { PopupBaseProvider } from '@salutejs/plasma-core';
-import { popupBaseRootClass } from '@salutejs/plasma-core';
-import { PopupContextType } from '@salutejs/plasma-core';
-import { PopupInfo } from '@salutejs/plasma-core';
 import { PopupProps } from '@salutejs/plasma-core';
-import { PopupRootProps } from '@salutejs/plasma-core';
 import type { PriceProps as PriceProps_2 } from '@salutejs/plasma-core';
 import { PropsWithChildren } from 'react';
 import { radiuses } from '@salutejs/plasma-core';
@@ -181,7 +162,6 @@ import { useDebouncedFunction } from '@salutejs/plasma-core';
 import { useFocusTrap } from '@salutejs/plasma-core';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
-import { usePopupBaseContext } from '@salutejs/plasma-core';
 import { useResizeObserver } from '@salutejs/plasma-core';
 import { useToast } from '@salutejs/plasma-core';
 import { View } from '@salutejs/plasma-core';
@@ -299,28 +279,7 @@ export { BodyXXS }
 export type Breakpoint = keyof typeof gridBreakpoints;
 
 // @public (undocumented)
-export const Button: ({ design }: Design) => React_2.ForwardRefExoticComponent<(ButtonProps_2<HTMLElement> & Partial<ButtonSizes> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
-    text?: React_2.ReactNode;
-    contentLeft?: React_2.ReactNode;
-    contentRight?: undefined;
-    children?: undefined;
-    isLoading?: boolean | undefined;
-    loader?: React_2.ReactNode;
-} & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizes> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
-    text?: React_2.ReactNode;
-    contentLeft?: undefined;
-    contentRight?: React_2.ReactNode;
-    children?: undefined;
-    isLoading?: boolean | undefined;
-    loader?: React_2.ReactNode;
-} & React_2.RefAttributes<HTMLButtonElement>) | (ButtonProps_2<HTMLElement> & Partial<ButtonSizes> & Partial<ButtonViewProps<"checked" | "primary" | "secondary" | "success" | "warning" | "critical" | "overlay" | "clear">> & {
-    text?: undefined;
-    contentLeft?: undefined;
-    contentRight?: undefined;
-    children?: React_2.ReactNode;
-    isLoading?: boolean | undefined;
-    loader?: React_2.ReactNode;
-} & React_2.RefAttributes<HTMLButtonElement>)>;
+export const Button: ({ design }: Design) => React_2.ForwardRefExoticComponent<ButtonProps & React_2.RefAttributes<HTMLButtonElement>>;
 
 export { Button1 }
 
@@ -397,61 +356,14 @@ export const buttonWarningActive = "var(--plasma-colors-button-warning-active)";
 // @public (undocumented)
 export const buttonWarningHover = "var(--plasma-colors-button-warning-hover)";
 
-// @public
-export const Calendar: React_2.FC<CalendarProps>;
-
-// @public
-export const CalendarBase: React_2.FC<CalendarBaseProps>;
-
-// Warning: (ae-forgotten-export) The symbol "Calendar_2" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export type CalendarBaseProps = Calendar_2 & {
-    type?: CalendarStateType;
-};
-
-// Warning: (ae-forgotten-export) The symbol "CalendarRange" needs to be exported by the entry point index.d.ts
-//
-// @public
-export const CalendarBaseRange: ({ value, disabledList, eventList, min, max, onChangeValue, ...rest }: CalendarRange<CalendarBaseProps>) => React_2.ReactElement<CalendarBaseProps, string | ((props: any) => React_2.ReactElement<any, any> | null) | (new (props: any) => React_2.Component<any, any, any>)>;
-
-// @public
-export const CalendarDouble: React_2.FC<CalendarDoubleProps>;
-
-// @public (undocumented)
-export type CalendarDoubleProps = Calendar_2;
-
-// @public
-export const CalendarDoubleRange: ({ value, disabledList, eventList, min, max, onChangeValue, ...rest }: CalendarRange<Calendar_2>) => React_2.ReactElement<Calendar_2, string | ((props: any) => React_2.ReactElement<any, any> | null) | (new (props: any) => React_2.Component<any, any, any>)>;
-
-// @public (undocumented)
-export type CalendarProps = ({
-    isDouble?: false;
-    isRange?: false;
-    value: Date;
-} & CalendarBaseProps) | ({
-    isDouble?: false;
-    isRange: true;
-} & CalendarRange<CalendarBaseProps>) | ({
-    isDouble?: true;
-    isRange?: false;
-    value: Date;
-} & CalendarDoubleProps) | ({
-    isDouble?: true;
-    isRange: true;
-} & CalendarRange<CalendarDoubleProps>);
-
-// Warning: (ae-forgotten-export) The symbol "CalendarState" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export type CalendarStateType = keyof typeof CalendarState;
-
 export { canUseDOM }
 
 export { Caption }
 
+// Warning: (ae-forgotten-export) The symbol "BackgroundProps" needs to be exported by the entry point index.d.ts
+//
 // @public
-export const Card: StyledComponent<ForwardRefExoticComponent<CardProps_2 & RefAttributes<HTMLDivElement>>, any, CardProps, never>;
+export const Card: StyledComponent<ForwardRefExoticComponent<CardProps_2 & RefAttributes<HTMLDivElement>>, any, CardProps_2 & RoundnessProps & BackgroundProps, never>;
 
 // @public (undocumented)
 export const CardBadge: StyledComponent<FC<BadgeProps_2>, any, BadgeProps, never>;
@@ -462,7 +374,7 @@ export const CardBody: StyledComponent<"div", any, CardBodyProps, never>;
 export { CardBodyProps }
 
 // @public
-export const CardContent: StyledComponent<"div", any, (CoverProps & OtherProps & HTMLAttributes<HTMLDivElement> & Pick<CardContentProps_2, "slot" | "style" | "title" | "className" | "color" | "id" | "lang" | "role" | "tabIndex" | "aria-activedescendant" | "aria-atomic" | "aria-autocomplete" | "aria-busy" | "aria-checked" | "aria-colcount" | "aria-colindex" | "aria-colspan" | "aria-controls" | "aria-current" | "aria-describedby" | "aria-details" | "aria-disabled" | "aria-dropeffect" | "aria-errormessage" | "aria-expanded" | "aria-flowto" | "aria-grabbed" | "aria-haspopup" | "aria-hidden" | "aria-invalid" | "aria-keyshortcuts" | "aria-label" | "aria-labelledby" | "aria-level" | "aria-live" | "aria-modal" | "aria-multiline" | "aria-multiselectable" | "aria-orientation" | "aria-owns" | "aria-placeholder" | "aria-posinset" | "aria-pressed" | "aria-readonly" | "aria-relevant" | "aria-required" | "aria-roledescription" | "aria-rowcount" | "aria-rowindex" | "aria-rowspan" | "aria-selected" | "aria-setsize" | "aria-sort" | "aria-valuemax" | "aria-valuemin" | "aria-valuenow" | "aria-valuetext" | "children" | "dangerouslySetInnerHTML" | "onCopy" | "onCopyCapture" | "onCut" | "onCutCapture" | "onPaste" | "onPasteCapture" | "onCompositionEnd" | "onCompositionEndCapture" | "onCompositionStart" | "onCompositionStartCapture" | "onCompositionUpdate" | "onCompositionUpdateCapture" | "onFocus" | "onFocusCapture" | "onBlur" | "onBlurCapture" | "onChange" | "onChangeCapture" | "onBeforeInput" | "onBeforeInputCapture" | "onInput" | "onInputCapture" | "onReset" | "onResetCapture" | "onSubmit" | "onSubmitCapture" | "onInvalid" | "onInvalidCapture" | "onLoad" | "onLoadCapture" | "onError" | "onErrorCapture" | "onKeyDown" | "onKeyDownCapture" | "onKeyPress" | "onKeyPressCapture" | "onKeyUp" | "onKeyUpCapture" | "onAbort" | "onAbortCapture" | "onCanPlay" | "onCanPlayCapture" | "onCanPlayThrough" | "onCanPlayThroughCapture" | "onDurationChange" | "onDurationChangeCapture" | "onEmptied" | "onEmptiedCapture" | "onEncrypted" | "onEncryptedCapture" | "onEnded" | "onEndedCapture" | "onLoadedData" | "onLoadedDataCapture" | "onLoadedMetadata" | "onLoadedMetadataCapture" | "onLoadStart" | "onLoadStartCapture" | "onPause" | "onPauseCapture" | "onPlay" | "onPlayCapture" | "onPlaying" | "onPlayingCapture" | "onProgress" | "onProgressCapture" | "onRateChange" | "onRateChangeCapture" | "onSeeked" | "onSeekedCapture" | "onSeeking" | "onSeekingCapture" | "onStalled" | "onStalledCapture" | "onSuspend" | "onSuspendCapture" | "onTimeUpdate" | "onTimeUpdateCapture" | "onVolumeChange" | "onVolumeChangeCapture" | "onWaiting" | "onWaitingCapture" | "onAuxClick" | "onAuxClickCapture" | "onClick" | "onClickCapture" | "onContextMenu" | "onContextMenuCapture" | "onDoubleClick" | "onDoubleClickCapture" | "onDrag" | "onDragCapture" | "onDragEnd" | "onDragEndCapture" | "onDragEnter" | "onDragEnterCapture" | "onDragExit" | "onDragExitCapture" | "onDragLeave" | "onDragLeaveCapture" | "onDragOver" | "onDragOverCapture" | "onDragStart" | "onDragStartCapture" | "onDrop" | "onDropCapture" | "onMouseDown" | "onMouseDownCapture" | "onMouseEnter" | "onMouseLeave" | "onMouseMove" | "onMouseMoveCapture" | "onMouseOut" | "onMouseOutCapture" | "onMouseOver" | "onMouseOverCapture" | "onMouseUp" | "onMouseUpCapture" | "onSelect" | "onSelectCapture" | "onTouchCancel" | "onTouchCancelCapture" | "onTouchEnd" | "onTouchEndCapture" | "onTouchMove" | "onTouchMoveCapture" | "onTouchStart" | "onTouchStartCapture" | "onPointerDown" | "onPointerDownCapture" | "onPointerMove" | "onPointerMoveCapture" | "onPointerUp" | "onPointerUpCapture" | "onPointerCancel" | "onPointerCancelCapture" | "onPointerEnter" | "onPointerEnterCapture" | "onPointerLeave" | "onPointerLeaveCapture" | "onPointerOver" | "onPointerOverCapture" | "onPointerOut" | "onPointerOutCapture" | "onGotPointerCapture" | "onGotPointerCaptureCapture" | "onLostPointerCapture" | "onLostPointerCaptureCapture" | "onScroll" | "onScrollCapture" | "onWheel" | "onWheelCapture" | "onAnimationStart" | "onAnimationStartCapture" | "onAnimationEnd" | "onAnimationEndCapture" | "onAnimationIteration" | "onAnimationIterationCapture" | "onTransitionEnd" | "onTransitionEndCapture" | "defaultChecked" | "defaultValue" | "suppressContentEditableWarning" | "suppressHydrationWarning" | "accessKey" | "contentEditable" | "contextMenu" | "dir" | "draggable" | "hidden" | "placeholder" | "spellCheck" | "translate" | "radioGroup" | "about" | "datatype" | "inlist" | "prefix" | "property" | "resource" | "typeof" | "vocab" | "autoCapitalize" | "autoCorrect" | "autoSave" | "itemProp" | "itemScope" | "itemType" | "itemID" | "itemRef" | "results" | "security" | "unselectable" | "inputMode" | "is" | "disabled" | "cover" | "coverGradient">) | (NoCoverProps & OtherProps & HTMLAttributes<HTMLDivElement> & Pick<CardContentProps_2, "slot" | "style" | "title" | "className" | "color" | "id" | "lang" | "role" | "tabIndex" | "aria-activedescendant" | "aria-atomic" | "aria-autocomplete" | "aria-busy" | "aria-checked" | "aria-colcount" | "aria-colindex" | "aria-colspan" | "aria-controls" | "aria-current" | "aria-describedby" | "aria-details" | "aria-disabled" | "aria-dropeffect" | "aria-errormessage" | "aria-expanded" | "aria-flowto" | "aria-grabbed" | "aria-haspopup" | "aria-hidden" | "aria-invalid" | "aria-keyshortcuts" | "aria-label" | "aria-labelledby" | "aria-level" | "aria-live" | "aria-modal" | "aria-multiline" | "aria-multiselectable" | "aria-orientation" | "aria-owns" | "aria-placeholder" | "aria-posinset" | "aria-pressed" | "aria-readonly" | "aria-relevant" | "aria-required" | "aria-roledescription" | "aria-rowcount" | "aria-rowindex" | "aria-rowspan" | "aria-selected" | "aria-setsize" | "aria-sort" | "aria-valuemax" | "aria-valuemin" | "aria-valuenow" | "aria-valuetext" | "children" | "dangerouslySetInnerHTML" | "onCopy" | "onCopyCapture" | "onCut" | "onCutCapture" | "onPaste" | "onPasteCapture" | "onCompositionEnd" | "onCompositionEndCapture" | "onCompositionStart" | "onCompositionStartCapture" | "onCompositionUpdate" | "onCompositionUpdateCapture" | "onFocus" | "onFocusCapture" | "onBlur" | "onBlurCapture" | "onChange" | "onChangeCapture" | "onBeforeInput" | "onBeforeInputCapture" | "onInput" | "onInputCapture" | "onReset" | "onResetCapture" | "onSubmit" | "onSubmitCapture" | "onInvalid" | "onInvalidCapture" | "onLoad" | "onLoadCapture" | "onError" | "onErrorCapture" | "onKeyDown" | "onKeyDownCapture" | "onKeyPress" | "onKeyPressCapture" | "onKeyUp" | "onKeyUpCapture" | "onAbort" | "onAbortCapture" | "onCanPlay" | "onCanPlayCapture" | "onCanPlayThrough" | "onCanPlayThroughCapture" | "onDurationChange" | "onDurationChangeCapture" | "onEmptied" | "onEmptiedCapture" | "onEncrypted" | "onEncryptedCapture" | "onEnded" | "onEndedCapture" | "onLoadedData" | "onLoadedDataCapture" | "onLoadedMetadata" | "onLoadedMetadataCapture" | "onLoadStart" | "onLoadStartCapture" | "onPause" | "onPauseCapture" | "onPlay" | "onPlayCapture" | "onPlaying" | "onPlayingCapture" | "onProgress" | "onProgressCapture" | "onRateChange" | "onRateChangeCapture" | "onSeeked" | "onSeekedCapture" | "onSeeking" | "onSeekingCapture" | "onStalled" | "onStalledCapture" | "onSuspend" | "onSuspendCapture" | "onTimeUpdate" | "onTimeUpdateCapture" | "onVolumeChange" | "onVolumeChangeCapture" | "onWaiting" | "onWaitingCapture" | "onAuxClick" | "onAuxClickCapture" | "onClick" | "onClickCapture" | "onContextMenu" | "onContextMenuCapture" | "onDoubleClick" | "onDoubleClickCapture" | "onDrag" | "onDragCapture" | "onDragEnd" | "onDragEndCapture" | "onDragEnter" | "onDragEnterCapture" | "onDragExit" | "onDragExitCapture" | "onDragLeave" | "onDragLeaveCapture" | "onDragOver" | "onDragOverCapture" | "onDragStart" | "onDragStartCapture" | "onDrop" | "onDropCapture" | "onMouseDown" | "onMouseDownCapture" | "onMouseEnter" | "onMouseLeave" | "onMouseMove" | "onMouseMoveCapture" | "onMouseOut" | "onMouseOutCapture" | "onMouseOver" | "onMouseOverCapture" | "onMouseUp" | "onMouseUpCapture" | "onSelect" | "onSelectCapture" | "onTouchCancel" | "onTouchCancelCapture" | "onTouchEnd" | "onTouchEndCapture" | "onTouchMove" | "onTouchMoveCapture" | "onTouchStart" | "onTouchStartCapture" | "onPointerDown" | "onPointerDownCapture" | "onPointerMove" | "onPointerMoveCapture" | "onPointerUp" | "onPointerUpCapture" | "onPointerCancel" | "onPointerCancelCapture" | "onPointerEnter" | "onPointerEnterCapture" | "onPointerLeave" | "onPointerLeaveCapture" | "onPointerOver" | "onPointerOverCapture" | "onPointerOut" | "onPointerOutCapture" | "onGotPointerCapture" | "onGotPointerCaptureCapture" | "onLostPointerCapture" | "onLostPointerCaptureCapture" | "onScroll" | "onScrollCapture" | "onWheel" | "onWheelCapture" | "onAnimationStart" | "onAnimationStartCapture" | "onAnimationEnd" | "onAnimationEndCapture" | "onAnimationIteration" | "onAnimationIterationCapture" | "onTransitionEnd" | "onTransitionEndCapture" | "defaultChecked" | "defaultValue" | "suppressContentEditableWarning" | "suppressHydrationWarning" | "accessKey" | "contentEditable" | "contextMenu" | "dir" | "draggable" | "hidden" | "placeholder" | "spellCheck" | "translate" | "radioGroup" | "about" | "datatype" | "inlist" | "prefix" | "property" | "resource" | "typeof" | "vocab" | "autoCapitalize" | "autoCorrect" | "autoSave" | "itemProp" | "itemScope" | "itemType" | "itemID" | "itemRef" | "results" | "security" | "unselectable" | "inputMode" | "is" | "disabled" | "cover" | "coverGradient">), never>;
+export const CardContent: StyledComponent<"div", any, ({} & CardContentProps_2) & CardContentProps, never>;
 
 // @public (undocumented)
 export type CardContentProps = Omit<CardContentProps_2, 'compact' | 'nonce' | 'onResize' | 'onResizeCapture'>;
@@ -471,13 +383,11 @@ export { CardMedia }
 
 export { CardMediaProps }
 
-// Warning: (ae-forgotten-export) The symbol "BackgroundProps" needs to be exported by the entry point index.d.ts
-//
 // @public (undocumented)
 export type CardProps = CardProps_2 & RoundnessProps & BackgroundProps;
 
 // @public
-export const Carousel: React_2.ForwardRefExoticComponent<Pick<CarouselProps_2, "slot" | "style" | "title" | "className" | "color" | "id" | "lang" | "role" | "tabIndex" | "aria-activedescendant" | "aria-atomic" | "aria-autocomplete" | "aria-busy" | "aria-checked" | "aria-colcount" | "aria-colindex" | "aria-colspan" | "aria-controls" | "aria-current" | "aria-describedby" | "aria-details" | "aria-disabled" | "aria-dropeffect" | "aria-errormessage" | "aria-expanded" | "aria-flowto" | "aria-grabbed" | "aria-haspopup" | "aria-hidden" | "aria-invalid" | "aria-keyshortcuts" | "aria-label" | "aria-labelledby" | "aria-level" | "aria-live" | "aria-modal" | "aria-multiline" | "aria-multiselectable" | "aria-orientation" | "aria-owns" | "aria-placeholder" | "aria-posinset" | "aria-pressed" | "aria-readonly" | "aria-relevant" | "aria-required" | "aria-roledescription" | "aria-rowcount" | "aria-rowindex" | "aria-rowspan" | "aria-selected" | "aria-setsize" | "aria-sort" | "aria-valuemax" | "aria-valuemin" | "aria-valuenow" | "aria-valuetext" | "children" | "dangerouslySetInnerHTML" | "onCopy" | "onCopyCapture" | "onCut" | "onCutCapture" | "onPaste" | "onPasteCapture" | "onCompositionEnd" | "onCompositionEndCapture" | "onCompositionStart" | "onCompositionStartCapture" | "onCompositionUpdate" | "onCompositionUpdateCapture" | "onFocus" | "onFocusCapture" | "onBlur" | "onBlurCapture" | "onChange" | "onChangeCapture" | "onBeforeInput" | "onBeforeInputCapture" | "onInput" | "onInputCapture" | "onReset" | "onResetCapture" | "onSubmit" | "onSubmitCapture" | "onInvalid" | "onInvalidCapture" | "onLoad" | "onLoadCapture" | "onError" | "onErrorCapture" | "onKeyDown" | "onKeyDownCapture" | "onKeyPress" | "onKeyPressCapture" | "onKeyUp" | "onKeyUpCapture" | "onAbort" | "onAbortCapture" | "onCanPlay" | "onCanPlayCapture" | "onCanPlayThrough" | "onCanPlayThroughCapture" | "onDurationChange" | "onDurationChangeCapture" | "onEmptied" | "onEmptiedCapture" | "onEncrypted" | "onEncryptedCapture" | "onEnded" | "onEndedCapture" | "onLoadedData" | "onLoadedDataCapture" | "onLoadedMetadata" | "onLoadedMetadataCapture" | "onLoadStart" | "onLoadStartCapture" | "onPause" | "onPauseCapture" | "onPlay" | "onPlayCapture" | "onPlaying" | "onPlayingCapture" | "onProgress" | "onProgressCapture" | "onRateChange" | "onRateChangeCapture" | "onResize" | "onResizeCapture" | "onSeeked" | "onSeekedCapture" | "onSeeking" | "onSeekingCapture" | "onStalled" | "onStalledCapture" | "onSuspend" | "onSuspendCapture" | "onTimeUpdate" | "onTimeUpdateCapture" | "onVolumeChange" | "onVolumeChangeCapture" | "onWaiting" | "onWaitingCapture" | "onAuxClick" | "onAuxClickCapture" | "onClick" | "onClickCapture" | "onContextMenu" | "onContextMenuCapture" | "onDoubleClick" | "onDoubleClickCapture" | "onDrag" | "onDragCapture" | "onDragEnd" | "onDragEndCapture" | "onDragEnter" | "onDragEnterCapture" | "onDragExit" | "onDragExitCapture" | "onDragLeave" | "onDragLeaveCapture" | "onDragOver" | "onDragOverCapture" | "onDragStart" | "onDragStartCapture" | "onDrop" | "onDropCapture" | "onMouseDown" | "onMouseDownCapture" | "onMouseEnter" | "onMouseLeave" | "onMouseMove" | "onMouseMoveCapture" | "onMouseOut" | "onMouseOutCapture" | "onMouseOver" | "onMouseOverCapture" | "onMouseUp" | "onMouseUpCapture" | "onSelect" | "onSelectCapture" | "onTouchCancel" | "onTouchCancelCapture" | "onTouchEnd" | "onTouchEndCapture" | "onTouchMove" | "onTouchMoveCapture" | "onTouchStart" | "onTouchStartCapture" | "onPointerDown" | "onPointerDownCapture" | "onPointerMove" | "onPointerMoveCapture" | "onPointerUp" | "onPointerUpCapture" | "onPointerCancel" | "onPointerCancelCapture" | "onPointerEnter" | "onPointerEnterCapture" | "onPointerLeave" | "onPointerLeaveCapture" | "onPointerOver" | "onPointerOverCapture" | "onPointerOut" | "onPointerOutCapture" | "onGotPointerCapture" | "onGotPointerCaptureCapture" | "onLostPointerCapture" | "onLostPointerCaptureCapture" | "onScroll" | "onScrollCapture" | "onWheel" | "onWheelCapture" | "onAnimationStart" | "onAnimationStartCapture" | "onAnimationEnd" | "onAnimationEndCapture" | "onAnimationIteration" | "onAnimationIterationCapture" | "onTransitionEnd" | "onTransitionEndCapture" | "defaultChecked" | "defaultValue" | "suppressContentEditableWarning" | "suppressHydrationWarning" | "accessKey" | "contentEditable" | "contextMenu" | "dir" | "draggable" | "hidden" | "nonce" | "placeholder" | "spellCheck" | "translate" | "radioGroup" | "about" | "datatype" | "inlist" | "prefix" | "property" | "resource" | "typeof" | "vocab" | "autoCapitalize" | "autoCorrect" | "autoSave" | "itemProp" | "itemScope" | "itemType" | "itemID" | "itemRef" | "results" | "security" | "unselectable" | "inputMode" | "is" | "as" | "forwardedAs" | "index" | "scrollSnapType" | "scrollAlign" | "paddingStart" | "paddingEnd" | "listRole" | "listAriaLabel" | "detectActive" | "detectThreshold" | "onIndexChange" | "onDetectActiveItem" | "scaleCallback" | "scaleResetCallback"> & {
+export const Carousel: React_2.ForwardRefExoticComponent<Omit<CarouselProps_2, "axis" | "animatedScrollByIndex" | "throttleMs" | "debounceMs"> & {
     ariaLive?: "off" | "polite" | undefined;
 } & React_2.RefAttributes<HTMLDivElement>>;
 
@@ -683,10 +593,6 @@ export interface ElasticGridProps {
     gapY?: number;
     minColWidth: number;
 }
-
-export { endAnimationClass }
-
-export { endTransitionClass }
 
 export { extractTextFrom }
 
@@ -913,18 +819,6 @@ export type MediaQueryFunction = (content: FlattenSimpleInterpolation | string) 
 // @public
 export const Modal: FC<ModalProps>;
 
-export { ModalBase }
-
-export { modalBaseOverlayClass }
-
-export { ModalBaseProps }
-
-export { ModalBaseRootProps }
-
-export { ModalOverlay }
-
-export { ModalOverlayProps }
-
 // @public (undocumented)
 export interface ModalProps extends ModalViewProps {
     closeOnEsc?: boolean;
@@ -1015,23 +909,7 @@ export type Placement = BasePlacement | VariationPlacement;
 
 export { Popup }
 
-export { PopupBase }
-
-export { PopupBasePlacement }
-
-export { PopupBaseProps }
-
-export { PopupBaseProvider }
-
-export { popupBaseRootClass }
-
-export { PopupContextType }
-
-export { PopupInfo }
-
 export { PopupProps }
-
-export { PopupRootProps }
 
 // @public
 export const PreviewGallery: FC<PreviewGalleryProps & HTMLAttributes<HTMLDivElement> & SortableContainerProps>;
@@ -1101,26 +979,15 @@ export const Row: StyledComponent<"div", any, {}, never>;
 export { ScrollSnapProps }
 
 // Warning: (ae-forgotten-export) The symbol "Design_2" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "SelectViewProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const Select: ({ design }: Design_2) => <T>(props: ({
-    multiselect?: false | undefined;
-    separator?: undefined;
-} & {
-    value: T;
-    onChange?: ((value: T) => void) | undefined;
-} & Pick<SelectViewProps, "name" | "form" | "slot" | "style" | "title" | "className" | "color" | "id" | "lang" | "type" | "role" | "tabIndex" | "aria-activedescendant" | "aria-atomic" | "aria-autocomplete" | "aria-busy" | "aria-checked" | "aria-colcount" | "aria-colindex" | "aria-colspan" | "aria-controls" | "aria-current" | "aria-describedby" | "aria-details" | "aria-disabled" | "aria-dropeffect" | "aria-errormessage" | "aria-expanded" | "aria-flowto" | "aria-grabbed" | "aria-haspopup" | "aria-hidden" | "aria-invalid" | "aria-keyshortcuts" | "aria-label" | "aria-labelledby" | "aria-level" | "aria-live" | "aria-modal" | "aria-multiline" | "aria-multiselectable" | "aria-orientation" | "aria-owns" | "aria-placeholder" | "aria-posinset" | "aria-pressed" | "aria-readonly" | "aria-relevant" | "aria-required" | "aria-roledescription" | "aria-rowcount" | "aria-rowindex" | "aria-rowspan" | "aria-selected" | "aria-setsize" | "aria-sort" | "aria-valuemax" | "aria-valuemin" | "aria-valuenow" | "aria-valuetext" | "children" | "dangerouslySetInnerHTML" | "onCopy" | "onCopyCapture" | "onCut" | "onCutCapture" | "onPaste" | "onPasteCapture" | "onCompositionEnd" | "onCompositionEndCapture" | "onCompositionStart" | "onCompositionStartCapture" | "onCompositionUpdate" | "onCompositionUpdateCapture" | "onFocus" | "onFocusCapture" | "onBlur" | "onBlurCapture" | "onChangeCapture" | "onBeforeInput" | "onBeforeInputCapture" | "onInput" | "onInputCapture" | "onReset" | "onResetCapture" | "onSubmit" | "onSubmitCapture" | "onInvalid" | "onInvalidCapture" | "onLoad" | "onLoadCapture" | "onError" | "onErrorCapture" | "onKeyDown" | "onKeyDownCapture" | "onKeyPress" | "onKeyPressCapture" | "onKeyUp" | "onKeyUpCapture" | "onAbort" | "onAbortCapture" | "onCanPlay" | "onCanPlayCapture" | "onCanPlayThrough" | "onCanPlayThroughCapture" | "onDurationChange" | "onDurationChangeCapture" | "onEmptied" | "onEmptiedCapture" | "onEncrypted" | "onEncryptedCapture" | "onEnded" | "onEndedCapture" | "onLoadedData" | "onLoadedDataCapture" | "onLoadedMetadata" | "onLoadedMetadataCapture" | "onLoadStart" | "onLoadStartCapture" | "onPause" | "onPauseCapture" | "onPlay" | "onPlayCapture" | "onPlaying" | "onPlayingCapture" | "onProgress" | "onProgressCapture" | "onRateChange" | "onRateChangeCapture" | "onSeeked" | "onSeekedCapture" | "onSeeking" | "onSeekingCapture" | "onStalled" | "onStalledCapture" | "onSuspend" | "onSuspendCapture" | "onTimeUpdate" | "onTimeUpdateCapture" | "onVolumeChange" | "onVolumeChangeCapture" | "onWaiting" | "onWaitingCapture" | "onAuxClick" | "onAuxClickCapture" | "onClick" | "onClickCapture" | "onContextMenu" | "onContextMenuCapture" | "onDoubleClick" | "onDoubleClickCapture" | "onDrag" | "onDragCapture" | "onDragEnd" | "onDragEndCapture" | "onDragEnter" | "onDragEnterCapture" | "onDragExit" | "onDragExitCapture" | "onDragLeave" | "onDragLeaveCapture" | "onDragOver" | "onDragOverCapture" | "onDragStart" | "onDragStartCapture" | "onDrop" | "onDropCapture" | "onMouseDown" | "onMouseDownCapture" | "onMouseEnter" | "onMouseLeave" | "onMouseMove" | "onMouseMoveCapture" | "onMouseOut" | "onMouseOutCapture" | "onMouseOver" | "onMouseOverCapture" | "onMouseUp" | "onMouseUpCapture" | "onSelect" | "onSelectCapture" | "onTouchCancel" | "onTouchCancelCapture" | "onTouchEnd" | "onTouchEndCapture" | "onTouchMove" | "onTouchMoveCapture" | "onTouchStart" | "onTouchStartCapture" | "onPointerDown" | "onPointerDownCapture" | "onPointerMove" | "onPointerMoveCapture" | "onPointerUp" | "onPointerUpCapture" | "onPointerCancel" | "onPointerCancelCapture" | "onPointerEnter" | "onPointerEnterCapture" | "onPointerLeave" | "onPointerLeaveCapture" | "onPointerOver" | "onPointerOverCapture" | "onPointerOut" | "onPointerOutCapture" | "onGotPointerCapture" | "onGotPointerCaptureCapture" | "onLostPointerCapture" | "onLostPointerCaptureCapture" | "onScroll" | "onScrollCapture" | "onWheel" | "onWheelCapture" | "onAnimationStart" | "onAnimationStartCapture" | "onAnimationEnd" | "onAnimationEndCapture" | "onAnimationIteration" | "onAnimationIterationCapture" | "onTransitionEnd" | "onTransitionEndCapture" | "status" | "defaultChecked" | "defaultValue" | "suppressContentEditableWarning" | "suppressHydrationWarning" | "accessKey" | "contentEditable" | "contextMenu" | "dir" | "draggable" | "hidden" | "placeholder" | "spellCheck" | "translate" | "radioGroup" | "about" | "datatype" | "inlist" | "prefix" | "property" | "resource" | "typeof" | "vocab" | "autoCapitalize" | "autoCorrect" | "autoSave" | "itemProp" | "itemScope" | "itemType" | "itemID" | "itemRef" | "results" | "security" | "unselectable" | "inputMode" | "is" | "autoFocus" | "disabled" | "formAction" | "formEncType" | "formMethod" | "formNoValidate" | "formTarget" | "isOpen" | "items" | "onItemSelect" | "helperText"> & DropdownListCssProperties & React_2.RefAttributes<HTMLButtonElement>) | ({
-    multiselect?: true | undefined;
-    separator?: string | undefined;
-} & {
-    value: T;
-    onChange?: ((value: T) => void) | undefined;
-} & Pick<SelectViewProps, "name" | "form" | "slot" | "style" | "title" | "className" | "color" | "id" | "lang" | "type" | "role" | "tabIndex" | "aria-activedescendant" | "aria-atomic" | "aria-autocomplete" | "aria-busy" | "aria-checked" | "aria-colcount" | "aria-colindex" | "aria-colspan" | "aria-controls" | "aria-current" | "aria-describedby" | "aria-details" | "aria-disabled" | "aria-dropeffect" | "aria-errormessage" | "aria-expanded" | "aria-flowto" | "aria-grabbed" | "aria-haspopup" | "aria-hidden" | "aria-invalid" | "aria-keyshortcuts" | "aria-label" | "aria-labelledby" | "aria-level" | "aria-live" | "aria-modal" | "aria-multiline" | "aria-multiselectable" | "aria-orientation" | "aria-owns" | "aria-placeholder" | "aria-posinset" | "aria-pressed" | "aria-readonly" | "aria-relevant" | "aria-required" | "aria-roledescription" | "aria-rowcount" | "aria-rowindex" | "aria-rowspan" | "aria-selected" | "aria-setsize" | "aria-sort" | "aria-valuemax" | "aria-valuemin" | "aria-valuenow" | "aria-valuetext" | "children" | "dangerouslySetInnerHTML" | "onCopy" | "onCopyCapture" | "onCut" | "onCutCapture" | "onPaste" | "onPasteCapture" | "onCompositionEnd" | "onCompositionEndCapture" | "onCompositionStart" | "onCompositionStartCapture" | "onCompositionUpdate" | "onCompositionUpdateCapture" | "onFocus" | "onFocusCapture" | "onBlur" | "onBlurCapture" | "onChangeCapture" | "onBeforeInput" | "onBeforeInputCapture" | "onInput" | "onInputCapture" | "onReset" | "onResetCapture" | "onSubmit" | "onSubmitCapture" | "onInvalid" | "onInvalidCapture" | "onLoad" | "onLoadCapture" | "onError" | "onErrorCapture" | "onKeyDown" | "onKeyDownCapture" | "onKeyPress" | "onKeyPressCapture" | "onKeyUp" | "onKeyUpCapture" | "onAbort" | "onAbortCapture" | "onCanPlay" | "onCanPlayCapture" | "onCanPlayThrough" | "onCanPlayThroughCapture" | "onDurationChange" | "onDurationChangeCapture" | "onEmptied" | "onEmptiedCapture" | "onEncrypted" | "onEncryptedCapture" | "onEnded" | "onEndedCapture" | "onLoadedData" | "onLoadedDataCapture" | "onLoadedMetadata" | "onLoadedMetadataCapture" | "onLoadStart" | "onLoadStartCapture" | "onPause" | "onPauseCapture" | "onPlay" | "onPlayCapture" | "onPlaying" | "onPlayingCapture" | "onProgress" | "onProgressCapture" | "onRateChange" | "onRateChangeCapture" | "onSeeked" | "onSeekedCapture" | "onSeeking" | "onSeekingCapture" | "onStalled" | "onStalledCapture" | "onSuspend" | "onSuspendCapture" | "onTimeUpdate" | "onTimeUpdateCapture" | "onVolumeChange" | "onVolumeChangeCapture" | "onWaiting" | "onWaitingCapture" | "onAuxClick" | "onAuxClickCapture" | "onClick" | "onClickCapture" | "onContextMenu" | "onContextMenuCapture" | "onDoubleClick" | "onDoubleClickCapture" | "onDrag" | "onDragCapture" | "onDragEnd" | "onDragEndCapture" | "onDragEnter" | "onDragEnterCapture" | "onDragExit" | "onDragExitCapture" | "onDragLeave" | "onDragLeaveCapture" | "onDragOver" | "onDragOverCapture" | "onDragStart" | "onDragStartCapture" | "onDrop" | "onDropCapture" | "onMouseDown" | "onMouseDownCapture" | "onMouseEnter" | "onMouseLeave" | "onMouseMove" | "onMouseMoveCapture" | "onMouseOut" | "onMouseOutCapture" | "onMouseOver" | "onMouseOverCapture" | "onMouseUp" | "onMouseUpCapture" | "onSelect" | "onSelectCapture" | "onTouchCancel" | "onTouchCancelCapture" | "onTouchEnd" | "onTouchEndCapture" | "onTouchMove" | "onTouchMoveCapture" | "onTouchStart" | "onTouchStartCapture" | "onPointerDown" | "onPointerDownCapture" | "onPointerMove" | "onPointerMoveCapture" | "onPointerUp" | "onPointerUpCapture" | "onPointerCancel" | "onPointerCancelCapture" | "onPointerEnter" | "onPointerEnterCapture" | "onPointerLeave" | "onPointerLeaveCapture" | "onPointerOver" | "onPointerOverCapture" | "onPointerOut" | "onPointerOutCapture" | "onGotPointerCapture" | "onGotPointerCaptureCapture" | "onLostPointerCapture" | "onLostPointerCaptureCapture" | "onScroll" | "onScrollCapture" | "onWheel" | "onWheelCapture" | "onAnimationStart" | "onAnimationStartCapture" | "onAnimationEnd" | "onAnimationEndCapture" | "onAnimationIteration" | "onAnimationIterationCapture" | "onTransitionEnd" | "onTransitionEndCapture" | "status" | "defaultChecked" | "defaultValue" | "suppressContentEditableWarning" | "suppressHydrationWarning" | "accessKey" | "contentEditable" | "contextMenu" | "dir" | "draggable" | "hidden" | "placeholder" | "spellCheck" | "translate" | "radioGroup" | "about" | "datatype" | "inlist" | "prefix" | "property" | "resource" | "typeof" | "vocab" | "autoCapitalize" | "autoCorrect" | "autoSave" | "itemProp" | "itemScope" | "itemType" | "itemID" | "itemRef" | "results" | "security" | "unselectable" | "inputMode" | "is" | "autoFocus" | "disabled" | "formAction" | "formEncType" | "formMethod" | "formNoValidate" | "formTarget" | "isOpen" | "items" | "onItemSelect" | "helperText"> & DropdownListCssProperties & React_2.RefAttributes<HTMLButtonElement>)) => ReactElement;
+export const Select: ({ design }: Design_2) => <T>(props: SelectProps<T> & React_2.RefAttributes<HTMLButtonElement>) => ReactElement;
 
 // @public (undocumented)
 export const SelectGroup: StyledComponent<"div", any, {}, never>;
 
+// Warning: (ae-forgotten-export) The symbol "SelectViewProps" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
 export type SelectProps<T = any> = ({
     multiselect?: false;
@@ -1370,8 +1237,6 @@ export { useForkRef }
 
 export { useIsomorphicLayoutEffect }
 
-export { usePopupBaseContext }
-
 export { useResizeObserver }
 
 export { useToast }
@@ -1395,7 +1260,7 @@ export { views }
 // Warning: (ae-forgotten-export) The symbol "WithAssistiveDropdownProps" needs to be exported by the entry point index.d.ts
 //
 // @public
-export const withAssistiveDropdown: <P extends object>(Component: React_2.ComponentClass<P, any> | React_2.FunctionComponent<P> | React_2.ForwardRefExoticComponent<P>, Dropdown?: ComponentType<DropdownUncontrolledProps>) => React_2.ForwardRefExoticComponent<React_2.PropsWithoutRef<P & WithAssistiveDropdownProps> & React_2.RefAttributes<HTMLButtonElement>>;
+export const withAssistiveDropdown: <P extends object>(Component: React_2.ComponentType<P> | React_2.ForwardRefExoticComponent<P>, Dropdown?: ComponentType<DropdownUncontrolledProps>) => React_2.ForwardRefExoticComponent<React_2.PropsWithoutRef<P & WithAssistiveDropdownProps> & React_2.RefAttributes<HTMLButtonElement>>;
 
 export { withAutoFocus }
 

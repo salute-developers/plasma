@@ -1,5 +1,5 @@
-import React from 'react';
-import { Meta, Story } from '@storybook/react';
+import React, { useState, useCallback } from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
@@ -7,9 +7,11 @@ import { Button } from '../Button';
 import { Headline3 } from '../Typography';
 
 import { ModalsProvider, Modal } from '.';
+import type { ModalProps } from '.';
 
-export default {
+const meta: Meta<ModalProps> = {
     title: 'Controls/Modal',
+    component: Modal,
     decorators: [InSpacingDecorator],
     argTypes: {
         withBlur: {
@@ -18,7 +20,11 @@ export default {
             },
         },
     },
-} as Meta;
+};
+
+export default meta;
+
+type StoryModalProps = ModalProps & { withBlur: boolean };
 
 const StyledWrapper = styled.div`
     height: 1200px;
@@ -32,14 +38,14 @@ const StyledButton = styled(Button)`
     margin-right: 1rem;
 `;
 
-export const LiveDemo: Story<{ withBlur: boolean }> = ({ withBlur, ...rest }) => {
-    const [isOpenA, setIsOpenA] = React.useState(false);
-    const [isOpenB, setIsOpenB] = React.useState(false);
-    const [isOpenC, setIsOpenC] = React.useState(false);
+const StoryLiveDemo = ({ withBlur, ...rest }: StoryModalProps) => {
+    const [isOpenA, setIsOpenA] = useState(false);
+    const [isOpenB, setIsOpenB] = useState(false);
+    const [isOpenC, setIsOpenC] = useState(false);
 
-    const onCloseA = React.useCallback(() => setIsOpenA(false), []);
-    const onCloseB = React.useCallback(() => setIsOpenB(false), []);
-    const onCloseC = React.useCallback(() => setIsOpenC(false), []);
+    const onCloseA = useCallback(() => setIsOpenA(false), []);
+    const onCloseB = useCallback(() => setIsOpenB(false), []);
+    const onCloseC = useCallback(() => setIsOpenC(false), []);
 
     return (
         <StyledWrapper>
@@ -67,9 +73,12 @@ export const LiveDemo: Story<{ withBlur: boolean }> = ({ withBlur, ...rest }) =>
     );
 };
 
-LiveDemo.args = {
-    withBlur: false,
-    closeOnEsc: true,
-    closeOnOverlayClick: true,
-    showCloseButton: true,
+export const LiveDemo: StoryObj<StoryModalProps> = {
+    args: {
+        withBlur: false,
+        closeOnEsc: true,
+        closeOnOverlayClick: true,
+        showCloseButton: true,
+    },
+    render: (args) => <StoryLiveDemo {...args} />,
 };

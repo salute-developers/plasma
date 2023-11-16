@@ -10,7 +10,7 @@ type Body1 = {
 };
 
 export const body1: Body1 = {
-    fontFamily: "var(--plasma-typo-body1-font-family, 'SB Sans Text','Helvetica','Arial',sans-serif)",
+    fontFamily: "var(--plasma-typo-body1-font-family, 'SB Sans Text','SBSansText','Helvetica','Arial',sans-serif)",
     fontWeight: 'var(--plasma-typo-body1-font-weight, 500)',
     fontStyle: 'var(--plasma-typo-body1-font-style, normal)',
     fontSize: 'var(--plasma-typo-body1-font-size, 1rem)',

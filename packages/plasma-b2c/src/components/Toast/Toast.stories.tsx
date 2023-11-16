@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconClose } from '@salutejs/plasma-icons';
 import { critical } from '@salutejs/plasma-tokens-b2c';
@@ -10,16 +10,13 @@ import { Button } from '../Button';
 
 import { Toast, useToast, ToastProps, ToastPosition } from '.';
 
-export default {
+const meta: Meta<ToastProps> = {
     title: 'Controls/Toast',
+    component: Toast,
     decorators: [InSpacingDecorator],
-} as Meta;
-
-export const ToastComponent: Story<ToastProps> = (args) => <Toast {...args} />;
-
-ToastComponent.args = {
-    text: 'Текст всплывающего уведомления',
 };
+
+export default meta;
 
 interface LiveDemoProps extends ToastProps {
     toastText: string;
@@ -35,7 +32,14 @@ const Container = styled.div`
     gap: 0.5rem;
 `;
 
-export const LiveDemo: Story<LiveDemoProps> = ({ toastText, position, timeout, fade, enableContentLeft, offset }) => {
+export const ToastComponent: StoryObj<ToastProps> = {
+    args: {
+        text: 'Текст всплывающего уведомления',
+    },
+    render: (args) => <Toast {...args} />,
+};
+
+const StoryLiveDemo = ({ toastText, position, timeout, fade, enableContentLeft, offset }: LiveDemoProps) => {
     const { showToast, hideToast } = useToast();
     const contentLeft = enableContentLeft && <IconClose size="xs" color={critical} />;
 
@@ -62,32 +66,33 @@ export const LiveDemo: Story<LiveDemoProps> = ({ toastText, position, timeout, f
     );
 };
 
-LiveDemo.args = {
-    role: 'alert',
-    toastText: 'Текст всплывающего уведомления',
-    enableContentLeft: true,
-    position: 'bottom',
-    timeout: 3000,
-    fade: false,
-    offset: 0,
-};
-
-LiveDemo.argTypes = {
-    position: {
-        options: ['top', 'bottom'],
-        control: {
-            type: 'inline-radio',
+export const LiveDemo: StoryObj<LiveDemoProps> = {
+    argTypes: {
+        position: {
+            options: ['top', 'bottom'],
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        offset: {
+            control: {
+                type: 'number',
+            },
         },
     },
-    offset: {
-        control: {
-            type: 'number',
+    args: {
+        role: 'alert',
+        toastText: 'Текст всплывающего уведомления',
+        enableContentLeft: true,
+        position: 'bottom',
+        timeout: 3000,
+        fade: false,
+        offset: 0,
+    },
+    parameters: {
+        chromatic: {
+            disable: true,
         },
     },
-};
-
-LiveDemo.parameters = {
-    chromatic: {
-        disable: true,
-    },
+    render: (args) => <StoryLiveDemo {...args} />,
 };

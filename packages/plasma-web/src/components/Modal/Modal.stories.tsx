@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import styled from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { SSRProvider } from '../SSRProvider';
 import { disableProps, InSpacingDecorator } from '../../helpers';
@@ -8,6 +8,7 @@ import { Button } from '../Button';
 import { P1, Headline1, Headline3 } from '../Typography';
 
 import { ModalView, ModalsProvider, Modal } from '.';
+import type { ModalProps } from '.';
 
 const longText = `Если после применения правила Лопиталя неопределённость типа 0 / 0 осталась, мнимая единица традиционно
 развивает Наибольший Общий Делитель (НОД). Функция многих переменных, исключая очевидный случай,
@@ -15,8 +16,11 @@ const longText = `Если после применения правила Лоп
 отметить, что эпсилон окрестность развивает разрыв функции. Собственное подмножество естественно
 соответствует экспериментальный Наибольший Общий Делитель (НОД). Постоянная величина положительна.`;
 
-export default {
+type StoryModalProps = ModalProps & { heading: string; text: string; withBlur?: boolean };
+
+const meta: Meta<StoryModalProps> = {
     title: 'Controls/Modal',
+    component: Modal,
     decorators: [InSpacingDecorator],
     argTypes: {
         withBlur: {
@@ -25,33 +29,31 @@ export default {
             },
         },
     },
-} as Meta;
+};
 
-type ModalStoryProps = { heading: string; text: string; withBlur?: boolean };
+export default meta;
 
 const StyledButton = styled(Button)`
     margin-right: 1rem;
 `;
 
-export const Default: Story<ModalStoryProps> = ({ heading, text }) => (
-    <div style={{ margin: '-1rem', padding: '1rem', background: 'rgba(8, 8, 8, 0.2)' }}>
-        {/* eslint-disable-next-line no-alert */}
-        <ModalView onClose={() => alert('Close!')}>
-            <Headline1>{heading}</Headline1>
-            <P1>{text}</P1>
-        </ModalView>
-    </div>
-);
-
-const propsToDisable = ['isOpen', 'children', 'onClose'];
-
-Default.args = {
-    heading: 'Тэги «Голосовая викторина Queez с Валдисом Пельшем»',
-    text: longText,
-};
-
-Default.argTypes = {
-    ...disableProps(propsToDisable),
+export const Default: StoryObj<StoryModalProps> = {
+    argTypes: {
+        ...disableProps(['isOpen', 'children', 'onClose']),
+    },
+    args: {
+        heading: 'Тэги «Голосовая викторина Queez с Валдисом Пельшем»',
+        text: longText,
+    },
+    render: ({ heading, text }) => (
+        <div style={{ margin: '-1rem', padding: '1rem', background: 'rgba(8, 8, 8, 0.2)' }}>
+            {/* eslint-disable-next-line no-alert */}
+            <ModalView onClose={() => alert('Close!')}>
+                <Headline1>{heading}</Headline1>
+                <P1>{text}</P1>
+            </ModalView>
+        </div>
+    ),
 };
 
 const StyledModalFullHeight = styled(Modal)`
@@ -62,23 +64,23 @@ const StyledWrapper = styled.div`
     height: 1200px;
 `;
 
-export const LiveDemo: Story<ModalStoryProps> = ({ withBlur, ...rest }) => {
-    const root = React.useRef<HTMLElement | null>(null);
-    const [isOpenA, setIsOpenA] = React.useState(false);
-    const [isOpenB, setIsOpenB] = React.useState(false);
-    const [isOpenC, setIsOpenC] = React.useState(false);
+const StoryLiveDemo = ({ withBlur, ...rest }: StoryModalProps) => {
+    const root = useRef<HTMLElement | null>(null);
+    const [isOpenA, setIsOpenA] = useState(false);
+    const [isOpenB, setIsOpenB] = useState(false);
+    const [isOpenC, setIsOpenC] = useState(false);
 
-    const [isOpenFullHeightA, setIsOpenFullHeightA] = React.useState(false);
-    const [isOpenFullHeightB, setIsOpenFullHeightB] = React.useState(false);
-    const [isOpenFullHeightC, setIsOpenFullHeightC] = React.useState(false);
+    const [isOpenFullHeightA, setIsOpenFullHeightA] = useState(false);
+    const [isOpenFullHeightB, setIsOpenFullHeightB] = useState(false);
+    const [isOpenFullHeightC, setIsOpenFullHeightC] = useState(false);
 
-    const onCloseA = React.useCallback(() => setIsOpenA(false), []);
-    const onCloseB = React.useCallback(() => setIsOpenB(false), []);
-    const onCloseC = React.useCallback(() => setIsOpenC(false), []);
+    const onCloseA = useCallback(() => setIsOpenA(false), []);
+    const onCloseB = useCallback(() => setIsOpenB(false), []);
+    const onCloseC = useCallback(() => setIsOpenC(false), []);
 
-    const onCloseFullHeightA = React.useCallback(() => setIsOpenFullHeightA(false), []);
-    const onCloseFullHeightB = React.useCallback(() => setIsOpenFullHeightB(false), []);
-    const onCloseFullHeightC = React.useCallback(() => setIsOpenFullHeightC(false), []);
+    const onCloseFullHeightA = useCallback(() => setIsOpenFullHeightA(false), []);
+    const onCloseFullHeightB = useCallback(() => setIsOpenFullHeightB(false), []);
+    const onCloseFullHeightC = useCallback(() => setIsOpenFullHeightC(false), []);
 
     useEffect(() => {
         if (!root.current) {
@@ -226,9 +228,12 @@ export const LiveDemo: Story<ModalStoryProps> = ({ withBlur, ...rest }) => {
     );
 };
 
-LiveDemo.args = {
-    withBlur: false,
-    closeOnEsc: true,
-    closeOnOverlayClick: true,
-    showCloseButton: true,
+export const LiveDemo: StoryObj<StoryModalProps> = {
+    args: {
+        withBlur: false,
+        closeOnEsc: true,
+        closeOnOverlayClick: true,
+        showCloseButton: true,
+    },
+    render: (args) => <StoryLiveDemo {...args} />,
 };

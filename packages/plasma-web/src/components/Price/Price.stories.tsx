@@ -1,35 +1,33 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
+import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
-import { InSpacingDecorator, disableProps } from '../../helpers';
+import { Price } from '.';
+import type { PriceProps } from '.';
 
-import { Price, PriceProps } from '.';
-
-const currencyOptions = ['rub', 'usd', 'eur'];
-const propsToDisable = ['children', 'theme', 'as', 'forwardedAs'];
-
-export default {
+const meta: Meta<PriceProps> = {
     title: 'Content/Price',
     component: Price,
     decorators: [InSpacingDecorator],
     argTypes: {
         currency: {
-            options: currencyOptions,
+            options: ['rub', 'usd', 'eur'],
             control: {
                 type: 'inline-radio',
             },
         },
-        ...disableProps(propsToDisable),
+        ...disableProps(['children', 'theme', 'as', 'forwardedAs']),
     },
-} as Meta;
+};
 
-export const Default: Story<PriceProps & { priceLabel: number }> = ({ priceLabel, ...rest }) => (
-    <Price {...rest}>{priceLabel}</Price>
-);
+export default meta;
 
-Default.args = {
-    currency: 'rub',
-    stroke: false,
-    minimumFractionDigits: 0,
-    priceLabel: 12345.67,
+export const Default: StoryObj<PriceProps & { priceLabel: number }> = {
+    args: {
+        currency: 'rub',
+        stroke: false,
+        minimumFractionDigits: 0,
+        priceLabel: 12345.67,
+    },
+    render: ({ priceLabel, ...rest }) => <Price {...rest}>{priceLabel}</Price>,
 };

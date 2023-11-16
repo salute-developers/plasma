@@ -66,7 +66,7 @@ jobs:
       - name: Lerna bootstrap for PR
         run: >
           npx lerna bootstrap
-          --scope=@salutejs/plasma-{core,hope,new-hope,web,b2c,ui,icons}
+          --scope=@salutejs/plasma-{core,hope,new-hope,web,b2c,asdk,ui,icons}
           --scope=@salutejs/perftest-helpers
 
       - name: Restore perftool cache
@@ -138,7 +138,7 @@ jobs:
       - name: Lerna bootstrap for ${{ github.event.pull_request.base.ref }}
         run: >
           npx lerna bootstrap
-          --scope=@salutejs/plasma-{core,hope,new-hope,web,b2c,ui,icons}
+          --scope=@salutejs/plasma-{core,hope,new-hope,web,b2c,asdk,ui,icons}
           --scope=@salutejs/perftest-helpers
 
       - name: Run performance test for ${{ github.event.pull_request.base.ref }}
@@ -161,8 +161,8 @@ jobs:
           name: Component performance comparison result
           path: /home/runner/work/plasma/plasma/perftest/*.json
 
-      - name: Update PR description
-        uses: ./actions/perftest-helpers/actions/update-description
+      - name: Write report comment
+        uses: ./actions/perftest-helpers/actions/write-comment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           reportPath: /home/runner/work/plasma/plasma/perftest/comparison.json

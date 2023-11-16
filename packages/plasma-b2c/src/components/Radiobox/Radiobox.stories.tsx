@@ -1,18 +1,23 @@
-import React from 'react';
-import { ComponentStory, Meta } from '@storybook/react';
+import React, { useState } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Radiobox, RadioboxProps } from '.';
 
-export default {
-    title: 'Controls/Radiobox',
-    decorators: [InSpacingDecorator],
-} as Meta;
-
 const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
+
+const meta: Meta<RadioboxProps> = {
+    title: 'Controls/Radiobox',
+    component: Radiobox,
+    decorators: [InSpacingDecorator],
+};
+
+export default meta;
+
+type Story = StoryObj<RadioboxProps>;
 
 const sizes = ['m', 's'];
 
@@ -24,6 +29,7 @@ const cDescription = (
 );
 
 const langName = 'language';
+
 const items = [
     {
         langName,
@@ -37,48 +43,54 @@ const items = [
     { langName, value: 'elixir', label: 'Elixir', disabled: true },
 ];
 
-export const Live = (props) => {
-    const [value, setValue] = React.useState('c');
+const StoryLive = (props: RadioboxProps) => {
+    const [value, setValue] = useState('c');
 
-    return items.map((item) => (
-        <Radiobox
-            key={item.value}
-            name={item.langName}
-            value={item.value}
-            label={item.label}
-            disabled={item.disabled}
-            checked={value[item.value]}
-            description={item.description}
-            onChange={(event) => {
-                event.persist();
+    return (
+        <>
+            {items.map((item) => (
+                <Radiobox
+                    key={item.value}
+                    name={item.langName}
+                    value={item.value}
+                    label={item.label}
+                    disabled={item.disabled}
+                    checked={value[item.value]}
+                    description={item.description}
+                    onChange={(event) => {
+                        event.persist();
 
-                setValue(item.value);
-                onChange(event);
-            }}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            {...props}
-        />
-    ));
+                        setValue(item.value);
+                        onChange(event);
+                    }}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
+                    {...props}
+                />
+            ))}
+        </>
+    );
 };
 
-Live.argTypes = {
-    size: {
-        options: sizes,
-        control: {
-            type: 'inline-radio',
+export const Live: Story = {
+    argTypes: {
+        size: {
+            options: sizes,
+            control: {
+                type: 'inline-radio',
+            },
         },
     },
+    args: {
+        size: 'm',
+        view: 'accent',
+        singleLine: false,
+        focused: true,
+    },
+    render: (args) => <StoryLive {...args} />,
 };
 
-Live.args = {
-    size: 'm',
-    view: 'accent',
-    singleLine: false,
-    focused: true,
-};
-
-export const Default: ComponentStory<RadioboxProps> = ({ name, label, description, disabled, singleLine, size }) => {
+const StoryDefault = ({ name, label, description, disabled, singleLine, size }: RadioboxProps) => {
     const value = 0;
     const [checked, setChecked] = React.useState(true);
 
@@ -104,20 +116,22 @@ export const Default: ComponentStory<RadioboxProps> = ({ name, label, descriptio
     );
 };
 
-Default.args = {
-    name: 'Radiobox',
-    label: 'Label',
-    description: 'Description',
-    disabled: false,
-    singleLine: false,
-    size: 'm',
-};
-
-Default.argTypes = {
-    size: {
-        options: sizes,
-        control: {
-            type: 'inline-radio',
+export const Default: Story = {
+    argTypes: {
+        size: {
+            options: sizes,
+            control: {
+                type: 'inline-radio',
+            },
         },
     },
+    args: {
+        name: 'Radiobox',
+        label: 'Label',
+        description: 'Description',
+        disabled: false,
+        singleLine: false,
+        size: 'm',
+    },
+    render: (args) => <StoryDefault {...args} />,
 };

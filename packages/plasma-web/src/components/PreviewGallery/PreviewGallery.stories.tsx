@@ -1,18 +1,28 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import { Meta, Story } from '@storybook/react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import type { StoryObj, Meta } from '@storybook/react';
+import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 import { IconTrash, IconTrashFilled, Icon } from '@salutejs/plasma-icons';
 import { surfaceSolid01 } from '@salutejs/plasma-tokens-web';
 
-import {
-    arrayItemRemoving,
-    arrayItemSelecting,
-    arrayItemSwapping,
-    PreviewGallery,
-    PreviewGalleryItemProps,
-    PreviewGalleryProps,
-} from '.';
+import { arrayItemRemoving, arrayItemSelecting, arrayItemSwapping, PreviewGallery } from '.';
+import type { PreviewGalleryProps, PreviewGalleryItemProps } from '.';
+
+const meta: Meta<PreviewGalleryProps> = {
+    title: 'Controls/PreviewGallery',
+    component: PreviewGallery,
+    argTypes: {
+        items: {
+            table: {
+                disable: true,
+            },
+        },
+        ...disableProps(['deleteIcon']),
+    },
+    decorators: [InSpacingDecorator],
+};
+
+export default meta;
 
 const StyledAddButton = styled.div`
     width: 100%;
@@ -31,7 +41,7 @@ const StyledIcon = styled(Icon)`
     left: calc(50% - 12px);
 `;
 
-export const AddButton = () => {
+const AddButton = () => {
     return (
         <StyledAddButton>
             <StyledIcon icon="plus" />
@@ -39,29 +49,9 @@ export const AddButton = () => {
     );
 };
 
-export default {
-    title: 'Controls/PreviewGallery',
-    component: PreviewGallery,
-    argTypes: {
-        items: {
-            table: {
-                disable: true,
-            },
-        },
-        deleteIcon: {
-            table: {
-                disable: true,
-            },
-        },
-    },
-    decorators: [InSpacingDecorator],
-} as Meta;
-
 const StyledWrapper = styled.div`
     width: 23.75rem;
 `;
-
-interface StoryProps extends PreviewGalleryProps {}
 
 const images: Array<PreviewGalleryItemProps> = [
     {
@@ -90,7 +80,7 @@ const images: Array<PreviewGalleryItemProps> = [
     },
 ];
 
-export const Selectable: Story<StoryProps> = ({ ...rest }) => {
+const StorySelectable = (props: PreviewGalleryProps) => {
     const [items, setItems] = useState(images);
 
     const onItemRemove = useCallback((id) => {
@@ -118,13 +108,17 @@ export const Selectable: Story<StoryProps> = ({ ...rest }) => {
                 onItemAction={onItemRemove}
                 actionIcon={<IconTrashFilled size="xs" color="inherit" />}
                 onItemClick={onItemClick}
-                {...rest}
+                {...props}
             />
         </StyledWrapper>
     );
 };
 
-export const Draggable: Story<StoryProps> = ({ ...rest }) => {
+export const Selectable: StoryObj<PreviewGalleryProps> = {
+    render: (args) => <StorySelectable {...args} />,
+};
+
+const StoryDraggable = (props: PreviewGalleryProps) => {
     const [items, setItems] = useState(images);
 
     const onItemRemove = useCallback((id) => {
@@ -153,8 +147,12 @@ export const Draggable: Story<StoryProps> = ({ ...rest }) => {
                 actionIcon={<IconTrash size="xs" color="inherit" />}
                 onItemAction={onItemRemove}
                 onItemsSortEnd={onItemsSortEnd}
-                {...rest}
+                {...props}
             />
         </StyledWrapper>
     );
+};
+
+export const Draggable: StoryObj<PreviewGalleryProps> = {
+    render: (args) => <StoryDraggable {...args} />,
 };

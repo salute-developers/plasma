@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
+import type { ComponentProps } from 'react';
 import { styled } from '@linaria/react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { SSRProvider } from '@salutejs/plasma-core';
 
 import { Button } from '../Button/Button';
@@ -8,7 +9,7 @@ import { WithTheme } from '../../../_helpers';
 
 import { Popup, popupClasses, PopupProvider } from './Popup';
 
-export default {
+const meta: Meta<typeof Popup> = {
     title: 'plasma_b2c/Popup',
     decorators: [WithTheme],
     argTypes: {
@@ -27,11 +28,26 @@ export default {
             control: {
                 type: 'select',
             },
+            table: { defaultValue: { summary: 'center' } },
+        },
+        offsetX: {
+            control: {
+                type: 'number',
+            },
+            table: { defaultValue: { summary: 0 } },
+        },
+        offsetY: {
+            control: {
+                type: 'number',
+            },
+            table: { defaultValue: { summary: 0 } },
         },
     },
-} as Meta;
+};
 
-type PopupStoryProps = { placement: string; offsetX: number; offsetY: number };
+export default meta;
+
+type StoryPopupProps = ComponentProps<typeof Popup> & { placement: string; offsetX: number; offsetY: number };
 
 const StyledButton = styled(Button)`
     margin-top: 1rem;
@@ -105,11 +121,11 @@ const StyledPopupTransition = styled(Popup)`
     }
 `;
 
-export const PopupDemo: Story<PopupStoryProps> = ({ placement, offsetX, offsetY }) => {
-    const [isOpenA, setIsOpenA] = React.useState(false);
-    const [isOpenB, setIsOpenB] = React.useState(false);
+const StoryPopupDemo = ({ placement, offsetX, offsetY }: StoryPopupProps) => {
+    const [isOpenA, setIsOpenA] = useState(false);
+    const [isOpenB, setIsOpenB] = useState(false);
 
-    const ref = React.useRef<HTMLDivElement>(null);
+    const ref = useRef<HTMLDivElement>(null);
 
     return (
         <SSRProvider>
@@ -154,8 +170,11 @@ export const PopupDemo: Story<PopupStoryProps> = ({ placement, offsetX, offsetY 
     );
 };
 
-PopupDemo.args = {
-    placement: 'center',
-    offsetX: 0,
-    offsetY: 0,
+export const PopupDemo: StoryObj<StoryPopupProps> = {
+    args: {
+        placement: 'center',
+        offsetX: 0,
+        offsetY: 0,
+    },
+    render: (args) => <StoryPopupDemo {...args} />,
 };

@@ -1,30 +1,37 @@
 import React, { useState } from 'react';
 import { IconClock } from '@salutejs/plasma-icons';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { InSpacingDecorator, disableProps } from '../../helpers';
 
-import { Tabs, TabsProps, TabItem, TabsController } from '.';
+import { Tabs, TabItem, TabsController } from '.';
+import type { TabsProps } from '.';
 
-const propsToDisable = ['ref', 'theme', 'as', 'forwardedAs'];
-
-export default {
-    title: 'Controls/Tabs',
-    component: Tabs,
-    argTypes: {
-        ...disableProps(propsToDisable),
-    },
-    decorators: [InSpacingDecorator],
-} as Meta;
-
-interface DefaultStoryProps extends TabsProps {
+type StoryPropsDefault = TabsProps & {
     itemsNumber: number;
     label: string;
     enableContentLeft: boolean;
-}
+};
 
-export const Default: Story<DefaultStoryProps> = ({ itemsNumber, disabled, stretch, label, enableContentLeft }) => {
+const meta: Meta<StoryPropsDefault> = {
+    title: 'Controls/Tabs',
+    component: Tabs,
+    decorators: [InSpacingDecorator],
+    argTypes: {
+        ...disableProps(['ref', 'theme', 'as', 'forwardedAs']),
+    },
+    args: {
+        itemsNumber: 4,
+        disabled: false,
+        stretch: true,
+        label: 'Label',
+    },
+};
+
+export default meta;
+
+const StoryDefault = ({ itemsNumber, disabled, stretch, label, enableContentLeft }: StoryPropsDefault) => {
     const items = Array(itemsNumber).fill(0);
     const [index, setIndex] = useState(0);
 
@@ -47,18 +54,16 @@ export const Default: Story<DefaultStoryProps> = ({ itemsNumber, disabled, stret
     );
 };
 
-Default.args = {
-    itemsNumber: 4,
-    disabled: false,
-    stretch: true,
-    label: 'Label',
+export const Default: StoryObj<StoryPropsDefault> = {
+    render: (args) => <StoryDefault {...args} />,
 };
 
-export const Arrows: Story<DefaultStoryProps> = ({ itemsNumber, disabled, stretch, label, enableContentLeft }) => {
+const StoryArrows = ({ itemsNumber, disabled, stretch, label, enableContentLeft }: StoryPropsDefault) => {
     const items = Array(itemsNumber).fill({
         label,
         contentLeft: enableContentLeft && <IconClock color="inherit" />,
     });
+
     const [index, setIndex] = useState(0);
 
     return (
@@ -72,9 +77,6 @@ export const Arrows: Story<DefaultStoryProps> = ({ itemsNumber, disabled, stretc
     );
 };
 
-Arrows.args = {
-    itemsNumber: 4,
-    disabled: false,
-    stretch: true,
-    label: 'Label',
+export const Arrows: StoryObj<StoryPropsDefault> = {
+    render: (args) => <StoryArrows {...args} />,
 };

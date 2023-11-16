@@ -153,6 +153,12 @@ jobs:
           npm run storybook:build --prefix="./packages/plasma-new-hope"
           cp -R ./packages/plasma-new-hope/build-sb ./s3_build/${PR_NAME}/new-hope-storybook
 
+      - name: Plasma "ASDK" Storybook
+        if: ${{ needs.scope.outputs.HAS_PLASMA_ASDK == 'true' }}
+        run: |
+          npm run storybook:build --prefix="./packages/plasma-asdk"
+          cp -R ./packages/plasma-asdk/build-sb ./s3_build/${PR_NAME}/asdk-storybook
+
       - name: Install s3cmd
         run: pip3 install s3cmd
 
@@ -179,10 +185,11 @@ jobs:
           HAS_PLASMA_UI: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_UI) }}
           HAS_PLASMA_TEMPLE: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_TEMPLE) }}
           HAS_PLASMA_HOPE: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_HOPE) }}
+          HAS_PLASMA_ASDK: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_ASDK) }}
         with:
           github-token: ${{secrets.GH_TOKEN}}
           script: |
-            const { HAS_PLASMA_B2C, HAS_PLASMA_WEB, HAS_PLASMA_UI, HAS_PLASMA_TEMPLE, HAS_PLASMA_HOPE } = process.env;
+            const { HAS_PLASMA_B2C, HAS_PLASMA_WEB, HAS_PLASMA_UI, HAS_PLASMA_TEMPLE, HAS_PLASMA_HOPE, HAS_PLASMA_ASDK } = process.env;
                               
             const { 
               issue: { number }, 
@@ -211,6 +218,10 @@ jobs:
             
             if (HAS_PLASMA_HOPE === 'true') {
               links.push(`new-hope storybook: http://plasma.sberdevices.ru/pr/pr-${number}/new-hope-storybook/`)
+            }
+            
+            if (HAS_PLASMA_ASDK === 'true') {
+              links.push(`asdk storybook: http://plasma.sberdevices.ru/pr/pr-${number}/asdk-storybook/`)
             }
 
             github.rest.issues.createComment({

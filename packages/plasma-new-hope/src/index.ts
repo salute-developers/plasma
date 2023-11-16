@@ -8,3 +8,8 @@ export * from './components/Checkbox';
 export * from './components/Radiobox';
 export * from './components/Popover';
 export * from './components/Tabs';
+export * from './components/Calendar';
+export * from './components/Typography';
+export * from './components/Popup';
+export * from './components/Modal';
+export * from './mixins';

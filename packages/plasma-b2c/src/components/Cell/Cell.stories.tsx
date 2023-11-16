@@ -1,17 +1,22 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import styled from 'styled-components';
 import { IconStarFill } from '@salutejs/plasma-icons';
 import { additional } from '@salutejs/plasma-colors';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
-import type { CellProps } from '.';
 import { Cell } from '.';
+import type { CellProps } from '.';
 
-export default {
+const meta: Meta<CellProps> = {
     title: 'Content/Cell',
+    component: Cell,
     decorators: [InSpacingDecorator],
-} as Meta;
+};
+
+export default meta;
+
+type Story = StoryObj<CellProps>;
 
 const StyledCellRating = styled(Cell)`
     color: ${additional.h40[300]};
@@ -22,12 +27,13 @@ const StyledIconStarFill = styled(IconStarFill)`
     transform: scale(0.75);
 `;
 
-interface DefaultProps extends CellProps {}
-
-export const Default: Story<DefaultProps> = ({ description }) => {
-    return <StyledCellRating content={<StyledIconStarFill color={additional.h40[300]} />} description={description} />;
-};
-
-Default.args = {
-    description: '4.7',
+export const Default: Story = {
+    args: {
+        description: '4.7',
+    },
+    render: ({ description }) => {
+        return (
+            <StyledCellRating content={<StyledIconStarFill color={additional.h40[300]} />} description={description} />
+        );
+    },
 };

@@ -1,0 +1,27 @@
+name: Writes comment with perftest report
+description: Writes comment with perftest report summary and details
+inputs:
+  token:
+    description: The GitHub token used to create an authenticated client.
+    required: true
+  reportPath:
+    description: Path to perftest report
+    required: true
+  prId:
+    description: PR number
+    required: true
+  owner:
+    description: Owner of the repo
+    required: true
+  repo:
+    description: Repo name
+    required: true
+outputs:
+  result:
+    description: Process done with success.
+runs:
+  using: node16
+  main: '../../lib/bin/writeComment.js'
+branding:
+  icon: check-square
+  color: purple

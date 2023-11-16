@@ -1,9 +1,10 @@
-import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import React, { useState, useEffect } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconPlaceholder, InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
-import { TextField, TextFieldView, TextFieldProps } from '.';
+import { TextField, TextFieldView } from '.';
+import type { TextFieldProps } from '.';
 
 const onChange = action('onChange');
 const onFocus = action('onFocus');
@@ -28,7 +29,7 @@ const propsToDisable = [
     'required',
 ];
 
-export default {
+const meta: Meta<TextFieldProps> = {
     title: 'Controls/TextField',
     component: TextField,
     decorators: [InSpacingDecorator],
@@ -52,15 +53,19 @@ export default {
         },
         ...disableProps(propsToDisable),
     },
-} as Meta;
+};
 
-interface DefaultStoryProps extends TextFieldProps {
+export default meta;
+
+type StoryPropsDefault = TextFieldProps & {
     enableContentLeft: boolean;
     enableContentRight: boolean;
-}
+};
 
-export const Default: Story<DefaultStoryProps> = ({ enableContentLeft, enableContentRight, status, ...rest }) => {
-    const [value, setValue] = React.useState('Значение поля');
+type StoryPropsDeferredValue = { readOnly: boolean };
+
+const StoryDefault = ({ enableContentLeft, enableContentRight, status, ...rest }: StoryPropsDefault) => {
+    const [value, setValue] = useState('Значение поля');
 
     return (
         <TextField
@@ -80,24 +85,27 @@ export const Default: Story<DefaultStoryProps> = ({ enableContentLeft, enableCon
     );
 };
 
-Default.args = {
-    id: 'example-text-field',
-    type: 'text',
-    placeholder: 'Заполните поле имя',
-    caption: 'Имя',
-    helperText: 'Допустимы только символы кириллицы',
-    enableContentLeft: true,
-    enableContentRight: true,
-    status: '' as 'success',
-    disabled: false,
-    readOnly: false,
-    size: 'm',
+export const Default: StoryObj<StoryPropsDefault> = {
+    args: {
+        id: 'example-text-field',
+        type: 'text',
+        placeholder: 'Заполните поле имя',
+        caption: 'Имя',
+        helperText: 'Допустимы только символы кириллицы',
+        enableContentLeft: true,
+        enableContentRight: true,
+        status: '' as 'success',
+        disabled: false,
+        readOnly: false,
+        size: 'm',
+    },
+    render: (args) => <StoryDefault {...args} />,
 };
 
-export const DeferredValue: Story<{ readOnly: boolean }> = ({ readOnly }) => {
-    const [asyncValue, setAsyncValue] = React.useState('');
+const StoryDeferredValue = ({ readOnly }: StoryPropsDeferredValue) => {
+    const [asyncValue, setAsyncValue] = useState('');
 
-    React.useEffect(() => {
+    useEffect(() => {
         setTimeout(() => {
             setAsyncValue("Sorry i'm late :)");
         }, 3000);
@@ -106,12 +114,12 @@ export const DeferredValue: Story<{ readOnly: boolean }> = ({ readOnly }) => {
     return <TextField placeholder="Wait three seconds..." defaultValue={asyncValue} readOnly={readOnly} />;
 };
 
-DeferredValue.args = {
-    readOnly: true,
-};
-
-const defValuePropsToDisable = [...propsToDisable, 'status', 'helperText', 'placeholder', 'disabled'];
-
-DeferredValue.argTypes = {
-    ...disableProps(defValuePropsToDisable),
+export const DeferredValue: StoryObj<StoryPropsDeferredValue> = {
+    argTypes: {
+        ...disableProps([...propsToDisable, 'status', 'helperText', 'placeholder', 'disabled']),
+    },
+    args: {
+        readOnly: true,
+    },
+    render: (args) => <StoryDeferredValue {...args} />,
 };

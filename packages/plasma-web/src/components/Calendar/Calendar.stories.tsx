@@ -1,6 +1,6 @@
 import React, { ComponentProps, MouseEvent } from 'react';
 import styled from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { backgroundPrimary } from '@salutejs/plasma-tokens-web';
 
@@ -11,7 +11,9 @@ import { TextField } from '../TextField';
 import { Calendar, CalendarBase, CalendarBaseRange, CalendarDouble, CalendarDoubleRange } from '.';
 import type { CalendarProps, CalendarBaseProps, CalendarDoubleProps } from '.';
 
-export default {
+const onChangeValue = action('onChangeValue');
+
+const meta: Meta<CalendarProps> = {
     title: 'Controls/Calendar',
     decorators: [InSpacingDecorator],
     argTypes: {
@@ -26,9 +28,9 @@ export default {
             },
         },
     },
-} as Meta;
+};
 
-const onChangeValue = action('onChangeValue');
+export default meta;
 
 const baseEvents = [
     {
@@ -62,7 +64,7 @@ const StyledCalendar = styled(Calendar)`
     border-radius: 0.75rem;
 `;
 
-export const Default: Story<CalendarProps> = ({ isRange, isDouble, min, max, date }) => {
+const StoryDefault = ({ isRange, isDouble, min, max, date }: CalendarProps) => {
     const [value, setValue] = React.useState(new Date(2022, 5, 6));
     const [valueRange, setValueRange] = React.useState<[Date, Date?]>([new Date(2022, 5, 6), new Date(2022, 5, 10)]);
 
@@ -98,14 +100,17 @@ export const Default: Story<CalendarProps> = ({ isRange, isDouble, min, max, dat
     );
 };
 
-Default.args = {
-    min: new Date(2022, 4, 0),
-    max: new Date(2022, 6, 15),
-    isDouble: false,
-    isRange: false,
+export const Default: StoryObj<CalendarProps> = {
+    args: {
+        min: new Date(2022, 4, 0),
+        max: new Date(2022, 6, 15),
+        isDouble: false,
+        isRange: false,
+    },
+    render: (args) => <StoryDefault {...args} />,
 };
 
-export const Base: Story<CalendarBaseProps> = ({ min, max, type }) => {
+const StoryBase = ({ min, max, type }: CalendarBaseProps) => {
     const [value, setValue] = React.useState(undefined);
 
     const handleOnChange = React.useCallback((newValue: Date) => {
@@ -151,22 +156,24 @@ export const Base: Story<CalendarBaseProps> = ({ min, max, type }) => {
     );
 };
 
-Base.argTypes = {
-    type: {
-        options: ['Days', 'Months', 'Years'],
-        control: {
-            type: 'select',
+export const Base: StoryObj<CalendarBaseProps> = {
+    argTypes: {
+        type: {
+            options: ['Days', 'Months', 'Years'],
+            control: {
+                type: 'select',
+            },
         },
     },
+    args: {
+        min: new Date(2022, 4, 0),
+        max: new Date(2022, 6, 15),
+        type: 'Days',
+    },
+    render: (args) => <StoryBase {...args} />,
 };
 
-Base.args = {
-    min: new Date(2023, 0, 1),
-    max: new Date(2023, 8, 15),
-    type: 'Days',
-};
-
-export const Double: Story<CalendarDoubleProps> = ({ min, max }) => {
+const StoryDouble = ({ min, max }: CalendarDoubleProps) => {
     const [value, setValue] = React.useState(new Date(2022, 5, 6));
     const handleOnChange = React.useCallback((newValue: Date) => {
         setValue(newValue);
@@ -194,12 +201,15 @@ export const Double: Story<CalendarDoubleProps> = ({ min, max }) => {
     );
 };
 
-Double.args = {
-    min: new Date(2022, 4, 0),
-    max: new Date(2022, 6, 15),
+export const Double: StoryObj<CalendarDoubleProps> = {
+    args: {
+        min: new Date(2022, 4, 0),
+        max: new Date(2022, 6, 15),
+    },
+    render: (args) => <StoryDouble {...args} />,
 };
 
-export const Range: Story<ComponentProps<typeof CalendarBaseRange>> = ({ min, max, type }) => {
+const StoryRange = ({ min, max, type }: ComponentProps<typeof CalendarBaseRange>) => {
     const [values, setValue] = React.useState<[Date, Date?]>([new Date(2022, 5, 16), new Date(2022, 5, 25)]);
     const handleOnChange = React.useCallback((newValue: [Date, Date?]) => {
         onChangeValue(newValue);
@@ -231,22 +241,24 @@ export const Range: Story<ComponentProps<typeof CalendarBaseRange>> = ({ min, ma
     );
 };
 
-Range.argTypes = {
-    type: {
-        options: ['Days', 'Months', 'Years'],
-        control: {
-            type: 'select',
+export const Range: StoryObj<ComponentProps<typeof CalendarBaseRange>> = {
+    argTypes: {
+        type: {
+            options: ['Days', 'Months', 'Years'],
+            control: {
+                type: 'select',
+            },
         },
     },
+    args: {
+        min: new Date(2022, 4, 0),
+        max: new Date(2022, 7, 15),
+        type: 'Days',
+    },
+    render: (args) => <StoryRange {...args} />,
 };
 
-Range.args = {
-    min: new Date(2022, 4, 0),
-    max: new Date(2022, 7, 15),
-    type: 'Days',
-};
-
-export const DoubleRange: Story<ComponentProps<typeof CalendarDoubleRange>> = ({ min, max }) => {
+const StoryDoubleRange = ({ min, max }: ComponentProps<typeof CalendarDoubleRange>) => {
     const [values, setValue] = React.useState<[Date, Date?]>([new Date(2022, 5, 7), new Date(2022, 6, 9)]);
     const handleOnChange = React.useCallback((newValue: [Date, Date?]) => {
         onChangeValue(newValue);
@@ -277,12 +289,15 @@ export const DoubleRange: Story<ComponentProps<typeof CalendarDoubleRange>> = ({
     );
 };
 
-DoubleRange.args = {
-    min: new Date(2022, 4, 0),
-    max: new Date(2022, 7, 15),
+export const DoubleRange: StoryObj<ComponentProps<typeof CalendarDoubleRange>> = {
+    args: {
+        min: new Date(2022, 4, 0),
+        max: new Date(2022, 7, 15),
+    },
+    render: (args) => <StoryDoubleRange {...args} />,
 };
 
-export const WithPopup: Story<CalendarProps> = ({ min, max, isDouble }) => {
+const StoryWithPopup = ({ min, max, isDouble }: CalendarProps) => {
     const [textValue, setTextValue] = React.useState('2022-06-06');
     const [value, setValue] = React.useState(new Date(textValue));
     const [isOpen, setIsOpen] = React.useState(false);
@@ -345,8 +360,11 @@ export const WithPopup: Story<CalendarProps> = ({ min, max, isDouble }) => {
     );
 };
 
-WithPopup.args = {
-    min: new Date(2022, 4, 0),
-    max: new Date(2022, 6, 15),
-    isDouble: false,
+export const WithPopup: StoryObj<CalendarProps> = {
+    args: {
+        min: new Date(2022, 4, 0),
+        max: new Date(2022, 6, 15),
+        isDouble: false,
+    },
+    render: (args) => <StoryWithPopup {...args} />,
 };

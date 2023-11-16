@@ -1,17 +1,16 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { IconSettings } from '@salutejs/plasma-icons';
 
 import { disableProps, InSpacingDecorator } from '../../helpers';
 
-import { Badge, badgeSizes, badgeViews, BadgeSize, BadgeView, BadgeProps } from '.';
+import { Badge, badgeSizes, badgeViews } from '.';
+import type { BadgeProps, BadgeSize, BadgeView } from '.';
 
 const sizeKeys = Object.keys(badgeSizes) as BadgeSize[];
 const viewKeys = Object.keys(badgeViews) as BadgeView[];
 
-const propsToDisable = ['contentLeft', 'circled', 'theme', 'as', 'forwardedAs'];
-
-export default {
+const meta: Meta<BadgeProps> = {
     title: 'Content/Badge',
     decorators: [InSpacingDecorator],
     component: Badge,
@@ -28,17 +27,20 @@ export default {
                 type: 'select',
             },
         },
-        ...disableProps(propsToDisable),
+        ...disableProps(['contentLeft', 'circled', 'theme', 'as', 'forwardedAs']),
     },
-} as Meta;
+};
 
-export const Default: Story<BadgeProps & { enableIcon: boolean }> = ({ enableIcon, ...rest }) => (
-    <Badge contentLeft={enableIcon ? <IconSettings color="inherit" size="xs" /> : undefined} {...rest} />
-);
+export default meta;
 
-Default.args = {
-    text: 'Badge',
-    size: 'l',
-    view: 'primary',
-    enableIcon: false,
+export const Default: StoryObj<BadgeProps & { enableIcon: boolean }> = {
+    args: {
+        text: 'Badge',
+        size: 'l',
+        view: 'primary',
+        enableIcon: false,
+    },
+    render: ({ enableIcon, ...rest }) => (
+        <Badge contentLeft={enableIcon ? <IconSettings color="inherit" size="xs" /> : undefined} {...rest} />
+    ),
 };

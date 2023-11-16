@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-tokens-utils",
-  "version": "0.33.0",
+  "version": "0.34.0-dev.0",
   "description": "Code shared between token libraries.",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -21,8 +21,8 @@
     "lint": "../../node_modules/.bin/eslint ./src --ext .ts --quiet"
   },
   "dependencies": {
-    "@salutejs/plasma-colors": "0.10.0",
-    "@salutejs/plasma-typo": "0.38.0",
+    "@salutejs/plasma-colors": "0.11.0-dev.0",
+    "@salutejs/plasma-typo": "0.39.0-dev.0",
     "@theme-ui/css": "0.3.1",
     "color": "^4.2.3",
     "csstype": "3.0.3",

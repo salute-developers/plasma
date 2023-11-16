@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { IconDownload, IconApps } from '@salutejs/plasma-icons';
 
 import { InSpacingDecorator, disableProps } from '../../helpers';
@@ -8,7 +8,8 @@ import { applySpacing, SpacingProps } from '../../mixins';
 import { Button } from '../Button';
 import { TextField } from '../TextField';
 
-import { Tooltip, TooltipProps, Placement } from '.';
+import { Tooltip, Placement } from '.';
+import type { TooltipProps } from '.';
 
 const placements: Array<Placement> = [
     'top',
@@ -23,6 +24,13 @@ const placements: Array<Placement> = [
     'right',
 ];
 
+const meta: Meta<TooltipProps> = {
+    title: 'Controls/Tooltip',
+    decorators: [InSpacingDecorator],
+};
+
+export default meta;
+
 const StyledGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(3, max-content);
@@ -30,38 +38,35 @@ const StyledGrid = styled.div`
     padding: 2.5rem;
 `;
 
-export default {
-    title: 'Controls/Tooltip',
-    decorators: [InSpacingDecorator],
-} as Meta;
-
-export const All = () => {
-    return (
-        <StyledGrid>
-            <Tooltip placement="top-start" isVisible arrow text="Top start" animated={false}>
-                <Tooltip placement="left" isVisible arrow text="Left" animated={false}>
+export const Default: StoryObj<TooltipProps> = {
+    render: () => {
+        return (
+            <StyledGrid>
+                <Tooltip placement="top-start" isVisible arrow text="Top start" animated={false}>
+                    <Tooltip placement="left" isVisible arrow text="Left" animated={false}>
+                        <Button contentLeft={<IconDownload />} />
+                    </Tooltip>
+                </Tooltip>
+                <Tooltip placement="top" isVisible arrow text="Top" animated={false}>
                     <Button contentLeft={<IconDownload />} />
                 </Tooltip>
-            </Tooltip>
-            <Tooltip placement="top" isVisible arrow text="Top" animated={false}>
-                <Button contentLeft={<IconDownload />} />
-            </Tooltip>
-            <Tooltip placement="top-end" isVisible arrow text="Top end" animated={false}>
-                <Tooltip placement="right" isVisible arrow text="Right" animated={false}>
+                <Tooltip placement="top-end" isVisible arrow text="Top end" animated={false}>
+                    <Tooltip placement="right" isVisible arrow text="Right" animated={false}>
+                        <Button contentLeft={<IconDownload />} />
+                    </Tooltip>
+                </Tooltip>
+                <Tooltip placement="bottom-start" isVisible arrow text="Bottom start" animated={false}>
                     <Button contentLeft={<IconDownload />} />
                 </Tooltip>
-            </Tooltip>
-            <Tooltip placement="bottom-start" isVisible arrow text="Bottom start" animated={false}>
-                <Button contentLeft={<IconDownload />} />
-            </Tooltip>
-            <Tooltip placement="bottom" isVisible arrow text="Bottom" animated={false}>
-                <Button contentLeft={<IconDownload />} />
-            </Tooltip>
-            <Tooltip placement="bottom-end" isVisible arrow text="Bottom end" animated={false}>
-                <Button contentLeft={<IconDownload />} />
-            </Tooltip>
-        </StyledGrid>
-    );
+                <Tooltip placement="bottom" isVisible arrow text="Bottom" animated={false}>
+                    <Button contentLeft={<IconDownload />} />
+                </Tooltip>
+                <Tooltip placement="bottom-end" isVisible arrow text="Bottom end" animated={false}>
+                    <Button contentLeft={<IconDownload />} />
+                </Tooltip>
+            </StyledGrid>
+        );
+    },
 };
 
 const StyledRow = styled.div<SpacingProps>`
@@ -69,9 +74,9 @@ const StyledRow = styled.div<SpacingProps>`
     display: flex;
 `;
 
-export const Live: Story<TooltipProps> = (args) => {
-    const [isVisibleA, setVisibleA] = React.useState(false);
-    const [isVisibleB, setVisibleB] = React.useState(false);
+const StoryLive = (args: TooltipProps) => {
+    const [isVisibleA, setVisibleA] = useState(false);
+    const [isVisibleB, setVisibleB] = useState(false);
 
     return (
         <>
@@ -109,23 +114,25 @@ export const Live: Story<TooltipProps> = (args) => {
     );
 };
 
-Live.args = {
-    placement: 'bottom',
-    animated: true,
-    arrow: true,
-};
-
-Live.argTypes = {
-    placement: {
-        options: placements,
-        control: {
-            type: 'select',
+export const Live: StoryObj<TooltipProps> = {
+    argTypes: {
+        placement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
         },
+        ...disableProps(['isVisible']),
     },
-    ...disableProps(['isVisible']),
+    args: {
+        placement: 'bottom',
+        animated: true,
+        arrow: true,
+    },
+    render: (args) => <StoryLive {...args} />,
 };
 
-export const ChangeText: Story<TooltipProps> = ({ text, ...rest }) => {
+const StoryChangeText = ({ text, ...rest }: TooltipProps) => {
     return (
         <div>
             <div style={{ marginLeft: '100px', marginBottom: '35px' }}>
@@ -137,19 +144,21 @@ export const ChangeText: Story<TooltipProps> = ({ text, ...rest }) => {
     );
 };
 
-ChangeText.args = {
-    text: 'Hello',
-    placement: 'bottom',
-    animated: true,
-    arrow: true,
-};
-
-ChangeText.argTypes = {
-    placement: {
-        options: placements,
-        control: {
-            type: 'select',
+export const ChangeText: StoryObj<TooltipProps> = {
+    argTypes: {
+        placement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
         },
+        ...disableProps(['isVisible']),
     },
-    ...disableProps(['isVisible']),
+    args: {
+        text: 'Hello',
+        placement: 'bottom',
+        animated: true,
+        arrow: true,
+    },
+    render: (args) => <StoryChangeText {...args} />,
 };

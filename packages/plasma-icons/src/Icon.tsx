@@ -67,6 +67,7 @@ import { Share } from './Icon.assets/Share';
 import { CloudUpload } from './Icon.assets/CloudUpload';
 import { Record } from './Icon.assets/Record';
 import { Recording } from './Icon.assets/Recording';
+import { RaisedHand } from './Icon.assets/RaisedHand';
 // Alert
 import { Bell } from './Icon.assets/Bell';
 import { BellActive } from './Icon.assets/BellActive';
@@ -253,6 +254,7 @@ export const iconSectionsSet = {
         cloudUpload: CloudUpload,
         record: Record,
         recording: Recording,
+        raisedHand: RaisedHand,
     },
     alert: {
         bell: Bell,

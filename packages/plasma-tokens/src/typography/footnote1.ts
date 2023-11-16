@@ -10,7 +10,7 @@ type Footnote1 = {
 };
 
 export const footnote1: Footnote1 = {
-    fontFamily: "var(--plasma-typo-footnote1-font-family, 'SB Sans Text','Helvetica','Arial',sans-serif)",
+    fontFamily: "var(--plasma-typo-footnote1-font-family, 'SB Sans Text','SBSansText','Helvetica','Arial',sans-serif)",
     fontWeight: 'var(--plasma-typo-footnote1-font-weight, 500)',
     fontStyle: 'var(--plasma-typo-footnote1-font-style, normal)',
     fontSize: 'var(--plasma-typo-footnote1-font-size, 0.875rem)',

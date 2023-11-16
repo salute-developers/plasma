@@ -1,27 +1,19 @@
-import React, { useState } from 'react';
-import { Story, Meta } from '@storybook/react';
+import React, { useState, useCallback } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import { useCallback } from '@storybook/client-api';
 import { IconEdit, IconSize } from '@salutejs/plasma-icons';
 
 import * as typography from '../Typography';
 
 import { Editable, EditableProps } from '.';
 
-const propsToDisable = [
-    'ref',
-    'theme',
-    'as',
-    'forwardedAs',
-    'textComponent',
-    'icon',
-    'onChange',
-    'onBlur',
-    'onPaste',
-    'value',
-];
+type StoryProps = EditableProps & {
+    iconSize: IconSize;
+    componentName: keyof typeof typography;
+    defaultValue: string;
+};
 
-export default {
+const meta: Meta<StoryProps> = {
     title: 'Controls/Editable',
     component: Editable,
     argTypes: {
@@ -33,18 +25,25 @@ export default {
             options: Object.keys(typography),
             control: { type: 'select' },
         },
-        ...disableProps(propsToDisable),
+        ...disableProps([
+            'ref',
+            'theme',
+            'as',
+            'forwardedAs',
+            'textComponent',
+            'icon',
+            'onChange',
+            'onBlur',
+            'onPaste',
+            'value',
+        ]),
     },
     decorators: [InSpacingDecorator],
-} as Meta;
+};
 
-interface ExtraProps {
-    iconSize: IconSize;
-    componentName: keyof typeof typography;
-    defaultValue: string;
-}
+export default meta;
 
-export const Default: Story<EditableProps & ExtraProps> = ({ defaultValue, componentName, iconSize, ...rest }) => {
+const StoryDefault = ({ defaultValue, componentName, iconSize, ...rest }: StoryProps) => {
     const [value, setValue] = useState<string>(defaultValue);
 
     const handleChange = useCallback((e) => {
@@ -62,9 +61,12 @@ export const Default: Story<EditableProps & ExtraProps> = ({ defaultValue, compo
     );
 };
 
-Default.args = {
-    iconSize: 's',
-    componentName: 'Headline1',
-    defaultValue: 'Document 1',
-    placeholder: 'Компонент с возможностью редактирования текста',
+export const Default: StoryObj<StoryProps> = {
+    args: {
+        iconSize: 's',
+        componentName: 'Headline1',
+        defaultValue: 'Document 1',
+        placeholder: 'Компонент с возможностью редактирования текста',
+    },
+    render: (args) => <StoryDefault {...args} />,
 };

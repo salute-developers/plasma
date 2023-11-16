@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { SSRProvider } from '../components/SSRProvider';
 import { InSpacingDecorator } from '../helpers';
@@ -8,10 +8,12 @@ import { Button } from '../components/Button';
 
 import { useFocusTrap } from '.';
 
-export default {
+const meta: Meta<typeof useFocusTrap> = {
     title: 'Hooks/useFocusTrap',
     decorators: [InSpacingDecorator],
-} as Meta;
+};
+
+export default meta;
 
 const StyledWrapper = styled.div`
     margin: 1rem 0;
@@ -20,7 +22,7 @@ const StyledWrapper = styled.div`
     align-items: center;
 `;
 
-export const Default: Story = () => {
+const StoryDefault = () => {
     const ref = useFocusTrap(true, '#focus-first');
     const ref2 = useFocusTrap(true);
 
@@ -72,4 +74,8 @@ export const Default: Story = () => {
             </>
         </SSRProvider>
     );
+};
+
+export const Default: StoryObj = {
+    render: (args) => <StoryDefault {...args} />,
 };

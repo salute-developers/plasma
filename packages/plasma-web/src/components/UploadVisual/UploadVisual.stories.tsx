@@ -1,54 +1,30 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
-import { Meta, Story } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
-import type { PreviewGalleryItemProps } from '../PreviewGallery';
+import { disableProps } from '../../helpers';
 import { arrayItemRemoving, arrayItemSelecting, arrayItemSwapping } from '../PreviewGallery';
-import { ValidationResult } from '../Upload';
-import type { StatusType } from '../Upload';
+import type { PreviewGalleryItemProps } from '../PreviewGallery';
+import type { ValidationResult } from '../Upload';
 
-import type { UploadVisualProps } from '.';
 import { UploadVisual } from '.';
+import type { UploadVisualProps } from '.';
 
-export default {
+const meta: Meta<UploadVisualProps> = {
     title: 'Controls/UploadVisual',
     component: UploadVisual,
-    argTypes: {
-        content: {
-            table: {
-                disable: true,
-            },
-        },
-        loader: {
-            table: {
-                disable: true,
-            },
-        },
-        items: {
-            table: {
-                disable: true,
-            },
-        },
-        deleteIcon: {
-            table: {
-                disable: true,
-            },
-        },
-    },
     decorators: [InSpacingDecorator],
-} as Meta;
+    argTypes: {
+        ...disableProps(['content', 'loader', 'items', 'deleteIcon']),
+    },
+};
+
+export default meta;
 
 const StyledWrapper = styled.div`
     width: 23.75rem;
 `;
-
-export interface ValidationState {
-    status?: StatusType;
-    message?: string;
-}
-
-interface StoryProps extends UploadVisualProps {}
 
 const images = [
     { id: Math.random(), image: './images/320_320_0.jpg', caption: '3:24' },
@@ -66,7 +42,7 @@ const addedErrorImage: PreviewGalleryItemProps = {
     status: 'error',
 };
 
-export const Selectabe: Story<StoryProps> = ({ ...rest }) => {
+const StorySelectable = (props: UploadVisualProps) => {
     const [state, setState] = useState({
         status: undefined,
         progress: undefined,
@@ -146,13 +122,17 @@ export const Selectabe: Story<StoryProps> = ({ ...rest }) => {
                 onItemAction={onItemRemove}
                 onItemClick={onItemSelect}
                 onValidation={onValidation}
-                {...rest}
+                {...props}
             />
         </StyledWrapper>
     );
 };
 
-export const Draggable: Story<StoryProps> = ({ ...rest }) => {
+export const Selectable: StoryObj<UploadVisualProps> = {
+    render: (args) => <StorySelectable {...args} />,
+};
+
+const StoryDraggable = (props: UploadVisualProps) => {
     const [state, setState] = useState({
         status: undefined,
         progress: undefined,
@@ -232,8 +212,12 @@ export const Draggable: Story<StoryProps> = ({ ...rest }) => {
                 onItemsSortEnd={onItemsSortEnd}
                 onValidation={onValidation}
                 interactionType="draggable"
-                {...rest}
+                {...props}
             />
         </StyledWrapper>
     );
+};
+
+export const Draggable: StoryObj<UploadVisualProps> = {
+    render: (args) => <StoryDraggable {...args} />,
 };

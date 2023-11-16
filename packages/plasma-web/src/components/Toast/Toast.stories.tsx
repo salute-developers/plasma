@@ -1,38 +1,42 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { InSpacingDecorator } from '../../helpers';
 import { Button } from '../Button';
 
-import { Toast, useToast, ToastProps, ToastPosition } from '.';
+import { Toast, useToast } from '.';
+import type { ToastProps, ToastPosition } from '.';
 
-export default {
+const meta: Meta<ToastProps> = {
     title: 'Controls/Toast',
     decorators: [InSpacingDecorator],
-} as Meta;
-
-export const ToastComponent: Story<ToastProps> = (args) => <Toast {...args} />;
-
-ToastComponent.args = {
-    text: 'Текст всплывающего уведомления',
+    component: Toast,
 };
 
-interface LiveDemoProps extends ToastProps {
+export default meta;
+
+export const Default: StoryObj<ToastProps> = {
+    args: {
+        text: 'Текст всплывающего уведомления',
+    },
+};
+
+type LiveDemoProps = ToastProps & {
     toastText: string;
     position: ToastPosition;
     timeout: number;
     fade: boolean;
     offset?: number;
-}
+};
 
 const Container = styled.div`
     display: flex;
     gap: 0.5rem;
 `;
 
-export const LiveDemo: Story<LiveDemoProps> = ({ toastText, position, timeout, fade, offset }) => {
+const StoryLiveDemo = ({ toastText, position, timeout, fade, offset }: LiveDemoProps) => {
     const { showToast, hideToast } = useToast();
 
     return (
@@ -57,31 +61,32 @@ export const LiveDemo: Story<LiveDemoProps> = ({ toastText, position, timeout, f
     );
 };
 
-LiveDemo.args = {
-    role: 'alert',
-    toastText: 'Текст всплывающего уведомления',
-    position: 'bottom',
-    timeout: 3000,
-    fade: false,
-    offset: 0,
-};
-
-LiveDemo.argTypes = {
-    position: {
-        options: ['top', 'bottom'],
-        control: {
-            type: 'inline-radio',
+export const LiveDemo: StoryObj<LiveDemoProps> = {
+    args: {
+        role: 'alert',
+        toastText: 'Текст всплывающего уведомления',
+        position: 'bottom',
+        timeout: 3000,
+        fade: false,
+        offset: 0,
+    },
+    argTypes: {
+        position: {
+            options: ['top', 'bottom'],
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        offset: {
+            control: {
+                type: 'number',
+            },
         },
     },
-    offset: {
-        control: {
-            type: 'number',
+    parameters: {
+        chromatic: {
+            disable: true,
         },
     },
-};
-
-LiveDemo.parameters = {
-    chromatic: {
-        disable: true,
-    },
+    render: (args) => <StoryLiveDemo {...args} />,
 };

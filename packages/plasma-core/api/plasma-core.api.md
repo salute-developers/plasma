@@ -224,7 +224,7 @@ export const body3: CSSObject;
 export { BreakWordProps }
 
 // @public @deprecated
-export const Button: React_2.ForwardRefExoticComponent<Pick<any, string | number | symbol> & React_2.RefAttributes<any>>;
+export const Button: React_2.ForwardRefExoticComponent<Omit<any, "ref"> & React_2.RefAttributes<any>>;
 
 // @public (undocumented)
 export const Button1: StyledComponent<"div", any, SpacingProps & BreakWordProps, never>;
@@ -396,7 +396,7 @@ export interface CardBodyProps extends React_2.HTMLAttributes<HTMLDivElement> {
 }
 
 // @public
-export const CardContent: StyledComponent<"div", any, CardContentProps, never>;
+export const CardContent: StyledComponent<"div", any, {} & CardContentProps, never>;
 
 // Warning: (ae-forgotten-export) The symbol "CoverProps" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "NoCoverProps" needs to be exported by the entry point index.d.ts
@@ -1047,7 +1047,7 @@ export interface SkeletonGradientProps {
 // Warning: (ae-forgotten-export) The symbol "SliderInternalProps" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const Slider: FC<(SingleSliderProps & SliderInternalProps) | (DoubleSliderProps & SliderInternalProps)>;
+export const Slider: FC<SliderProps & SliderInternalProps>;
 
 // @public
 export const SliderCore: React_2.FC<SliderProps & SliderInternalProps>;

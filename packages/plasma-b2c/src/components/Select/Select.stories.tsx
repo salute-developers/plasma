@@ -1,20 +1,22 @@
-import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import React, { useState } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
-import { Select, SelectProps, SelectGroup } from '.';
+import { Select, SelectGroup } from '.';
+import type { SelectProps } from '.';
 
-const statuses = ['', 'success', 'warning', 'error'];
-const propsToDisable = ['value', 'items', 'onItemClick', 'separator', 'onChange', 'onItemSelect', 'isOpen'];
+const onChange = action('onChange');
+const onFocus = action('onFocus');
+const onBlur = action('onBlur');
 
-export default {
+const meta: Meta<SelectProps> = {
     title: 'Controls/Select',
     component: Select,
     decorators: [InSpacingDecorator],
     argTypes: {
         status: {
-            options: statuses,
+            options: ['', 'success', 'warning', 'error'],
             control: {
                 type: 'select',
             },
@@ -25,13 +27,25 @@ export default {
                 type: 'select',
             },
         },
-        ...disableProps(propsToDisable),
+        ...disableProps(['value', 'items', 'onItemClick', 'separator', 'onChange', 'onItemSelect', 'isOpen']),
     },
-} as Meta;
+};
 
-const onChange = action('onChange');
-const onFocus = action('onFocus');
-const onBlur = action('onBlur');
+export default meta;
+
+type Story = StoryObj<SelectProps>;
+
+const StoryCommon: Story = {
+    args: {
+        multiselect: false,
+        placeholder: 'Выберите пример',
+        helperText: 'Заполните пример',
+        status: '' as 'success',
+        disabled: false,
+        listHeight: '',
+    },
+};
+
 const items = [
     { value: 'each', label: 'Каждый' },
     { value: 'hunter', label: 'Охотник', isDisabled: true },
@@ -51,8 +65,8 @@ const items = [
     { value: 'fullText', label: 'Каждый охотник желает знать, где сидит фазан' },
 ];
 
-export const Default: Story<SelectProps> = ({ status, ...rest }) => {
-    const [value, setValue] = React.useState<string | Array<string>>(null);
+const StoryDefault = ({ status, ...rest }: SelectProps) => {
+    const [value, setValue] = useState<string | Array<string>>(null);
 
     return (
         <div style={{ display: 'grid', gap: '1rem', width: '20rem', gridTemplateColumns: '100%' }}>
@@ -80,18 +94,16 @@ export const Default: Story<SelectProps> = ({ status, ...rest }) => {
     );
 };
 
-Default.args = {
-    id: 'example-select',
-    multiselect: false,
-    placeholder: 'Выберите пример',
-    helperText: 'Заполните пример',
-    status: '' as 'success',
-    disabled: false,
-    listHeight: '',
+export const Default: Story = {
+    args: {
+        id: 'example-select',
+        ...StoryCommon.args,
+    },
+    render: (args) => <StoryDefault {...args} />,
 };
 
-export const Group: Story<SelectProps> = ({ status, ...rest }) => {
-    const [value, setValue] = React.useState<string | Array<string>>(null);
+const StoryGroup = ({ status, ...rest }: SelectProps) => {
+    const [value, setValue] = useState<string | Array<string>>(null);
 
     return (
         <SelectGroup>
@@ -119,11 +131,7 @@ export const Group: Story<SelectProps> = ({ status, ...rest }) => {
     );
 };
 
-Group.args = {
-    multiselect: false,
-    placeholder: 'Выберите пример',
-    helperText: 'Заполните пример',
-    status: '' as 'success',
-    disabled: false,
-    listHeight: '',
+export const Group: Story = {
+    args: { ...StoryCommon.args },
+    render: (args) => <StoryGroup {...args} />,
 };

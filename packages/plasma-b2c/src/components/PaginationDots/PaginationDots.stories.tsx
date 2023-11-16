@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button';
 import { Headline4 } from '../Typography';
 
-import { SmartPaginationDots, PaginationDots, PaginationDot, SmartPaginationDotsProps } from '.';
+import { SmartPaginationDots, PaginationDots, PaginationDot } from '.';
+import type { SmartPaginationDotsProps } from '.';
+
+const meta: Meta<SmartPaginationDotsProps> = {
+    title: 'Controls/PaginationDots',
+    decorators: [InSpacingDecorator],
+};
+
+export default meta;
 
 const StyledWrapper = styled.div`
     display: flex;
     flex-direction: column;
 `;
+
 const StyledButtonGroup = styled.div`
     display: grid;
     grid-template-columns: repeat(3, max-content);
@@ -21,36 +30,33 @@ const StyledButtonGroup = styled.div`
     margin-top: 2rem;
 `;
 
-export default {
-    title: 'Controls/PaginationDots',
-    decorators: [InSpacingDecorator],
-} as Meta;
+export const Default: StoryObj<{ itemsCount: number }> = {
+    args: {
+        itemsCount: 10,
+    },
+    render: ({ itemsCount }) => {
+        const items = Array(itemsCount)
+            .fill(0)
+            .map((_, i) => ({ id: i }));
 
-export const Default: Story<{ itemsCount: number }> = ({ itemsCount }) => {
-    const items = Array(itemsCount)
-        .fill(0)
-        .map((_, i) => ({ id: i }));
-
-    return (
-        <PaginationDots>
-            {items.map((_, i) => (
-                <PaginationDot key={`item:${i}`} isActive={i === 0} />
-            ))}
-        </PaginationDots>
-    );
+        return (
+            <PaginationDots>
+                {items.map((_, i) => (
+                    <PaginationDot key={`item:${i}`} isActive={i === 0} />
+                ))}
+            </PaginationDots>
+        );
+    },
 };
 
-Default.args = {
-    itemsCount: 10,
-};
-
-interface LimitedStoryProps extends SmartPaginationDotsProps {
+type StoryLimitedProps = SmartPaginationDotsProps & {
     initialIndex: number;
     itemsCount: number;
-}
+};
 
-export const Limited: Story<LimitedStoryProps> = ({ initialIndex, itemsCount, visibleItems }) => {
-    const [index, setIndex] = React.useState(initialIndex);
+const StoryLimited = ({ initialIndex, itemsCount, visibleItems }: StoryLimitedProps) => {
+    const [index, setIndex] = useState(initialIndex);
+
     const items = Array(itemsCount)
         .fill(0)
         .map((_, i) => ({ id: i }));
@@ -72,14 +78,16 @@ export const Limited: Story<LimitedStoryProps> = ({ initialIndex, itemsCount, vi
     );
 };
 
-Limited.args = {
-    initialIndex: 0,
-    itemsCount: 10,
-    visibleItems: 7,
-};
-
-Limited.parameters = {
-    chromatic: {
-        disable: true,
+export const Limited: StoryObj<StoryLimitedProps> = {
+    args: {
+        initialIndex: 0,
+        itemsCount: 10,
+        visibleItems: 7,
     },
+    parameters: {
+        chromatic: {
+            disable: true,
+        },
+    },
+    render: (args) => <StoryLimited {...args} />,
 };

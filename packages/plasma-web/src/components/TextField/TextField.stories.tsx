@@ -1,10 +1,11 @@
-import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import React, { useState } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { IconPlaceholder, InSpacingDecorator } from '../../helpers';
 
-import { TextField, TextFieldProps } from '.';
+import { TextField } from '.';
+import type { TextFieldProps } from '.';
 
 const onChange = action('onChange');
 const onFocus = action('onFocus');
@@ -14,7 +15,7 @@ const onSearch = action('onSearch');
 const sizes = ['l', 'm', 's'];
 const statuses = ['', 'success', 'warning', 'error'];
 
-export default {
+const meta: Meta<TextFieldProps> = {
     title: 'Controls/TextField',
     component: TextField,
     decorators: [InSpacingDecorator],
@@ -37,37 +38,38 @@ export default {
             },
         },
     },
-} as Meta;
+};
 
-interface DefaultSortyProps
-    extends Omit<
-        TextFieldProps,
-        | 'helperBlock'
-        | 'contentLeft'
-        | 'htmlSize'
-        | 'contentRight'
-        | 'type'
-        | 'name'
-        | 'onFocus'
-        | 'onBlur'
-        | 'onChange'
-        | 'value'
-        | 'checked'
-        | 'maxLength'
-        | 'minLength'
-        | 'required'
-    > {
+export default meta;
+
+type StorePropsDefault = Omit<
+    TextFieldProps,
+    | 'helperBlock'
+    | 'contentLeft'
+    | 'htmlSize'
+    | 'contentRight'
+    | 'type'
+    | 'name'
+    | 'onFocus'
+    | 'onBlur'
+    | 'onChange'
+    | 'value'
+    | 'checked'
+    | 'maxLength'
+    | 'minLength'
+    | 'required'
+> & {
     'storybook:contentLeft': boolean;
     'storybook:contentRight': boolean;
-}
+};
 
-export const Default: Story<DefaultSortyProps> = ({
+const StoryDefault = ({
     'storybook:contentLeft': enableContentLeft,
     'storybook:contentRight': enableContentRight,
     status,
     ...rest
-}) => {
-    const [value, setValue] = React.useState('Значение поля');
+}: StorePropsDefault) => {
+    const [value, setValue] = useState('Значение поля');
 
     return (
         <TextField
@@ -87,30 +89,32 @@ export const Default: Story<DefaultSortyProps> = ({
     );
 };
 
-Default.args = {
-    id: 'example-text-field',
-    size: 'l',
-    label: 'Лейбл',
-    animatedHint: undefined,
-    placeholder: 'Заполните поле',
-    helperText: 'Подсказка к полю',
-    status: '' as 'success',
-    disabled: false,
-    readOnly: false,
-    'storybook:contentLeft': true,
-    'storybook:contentRight': true,
-};
-
-Default.argTypes = {
-    animatedHint: {
-        options: ['label', 'placeholder'],
-        control: {
-            type: 'inline-radio',
+export const Default: StoryObj<StorePropsDefault> = {
+    argTypes: {
+        animatedHint: {
+            options: ['label', 'placeholder'],
+            control: {
+                type: 'inline-radio',
+            },
         },
     },
+    args: {
+        id: 'example-text-field',
+        size: 'l',
+        label: 'Лейбл',
+        animatedHint: undefined,
+        placeholder: 'Заполните поле',
+        helperText: 'Подсказка к полю',
+        status: '' as 'success',
+        disabled: false,
+        readOnly: false,
+        'storybook:contentLeft': true,
+        'storybook:contentRight': true,
+    },
+    render: (args) => <StoryDefault {...args} />,
 };
 
-export const DeferredValue: Story<{ readOnly: boolean }> = ({ readOnly }) => {
+const StoryDeferredValue = ({ readOnly }: { readOnly: boolean }) => {
     const [asyncValue, setAsyncValue] = React.useState('');
 
     React.useEffect(() => {
@@ -122,6 +126,9 @@ export const DeferredValue: Story<{ readOnly: boolean }> = ({ readOnly }) => {
     return <TextField placeholder="Wait three seconds..." defaultValue={asyncValue} readOnly={readOnly} />;
 };
 
-DeferredValue.args = {
-    readOnly: true,
+export const DeferredValue: StoryObj<{ readOnly: boolean }> = {
+    args: {
+        readOnly: true,
+    },
+    render: (args) => <StoryDeferredValue {...args} />,
 };

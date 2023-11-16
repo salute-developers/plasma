@@ -1,17 +1,19 @@
-import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
-import { Story, Meta } from '@storybook/react';
-import { surfaceSolid02, darkOverlayBlur, overlaySoft } from '@salutejs/plasma-tokens-web';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import type { StoryObj, Meta } from '@storybook/react';
+import { surfaceSolid02 } from '@salutejs/plasma-tokens-web';
 
 import { SSRProvider } from '../SSRProvider';
 import { InSpacingDecorator } from '../../helpers';
 import { Button } from '../Button';
-import { PopupBaseProvider, endAnimationClass, popupBaseRootClass } from '../PopupBase';
+import { PopupBaseProvider, popupBaseClasses } from '../PopupBase';
 
-import { ModalBase, modalBaseOverlayClass } from '.';
+import { ModalBase, modalBaseClasses } from '.';
+import type { ModalBaseProps } from '.';
 
-export default {
+const meta: Meta<ModalBaseProps> = {
     title: 'Controls/ModalBase',
+    component: ModalBase,
     decorators: [InSpacingDecorator],
     argTypes: {
         placement: {
@@ -31,9 +33,11 @@ export default {
             },
         },
     },
-} as Meta;
+};
 
-type ModalBaseStoryProps = {
+export default meta;
+
+type StoryModalBaseProps = {
     placement: string;
     offsetX: number;
     offsetY: number;
@@ -51,29 +55,21 @@ const StyledWrapper = styled.div`
     height: 1200px;
 `;
 
-// TODO: новый отдельный оверлей #778
-const ModalOverlayVariables = createGlobalStyle`
-    body {
-        --plasma-modal-blur-overlay-color: ${darkOverlayBlur};
-        --plasma-modal-overlay-color: ${overlaySoft};
-    }
-`;
-
 const Content = styled.div`
     background: ${surfaceSolid02};
     padding: 1rem;
 `;
 
 const StyledModal = styled(ModalBase)`
-    && > .${popupBaseRootClass}, .${modalBaseOverlayClass} {
+    && > .${popupBaseClasses.root}, .${modalBaseClasses.overlay} {
         animation: fadeIn 1s forwards;
     }
 
-    &&.${endAnimationClass} > .${popupBaseRootClass} {
+    &&.${popupBaseClasses.endAnimation} .${popupBaseClasses.root} {
         animation: fadeOut 1s forwards;
     }
 
-    &&.${endAnimationClass} > .${modalBaseOverlayClass} {
+    &&.${popupBaseClasses.endAnimation} .${modalBaseClasses.overlay} {
         animation: fadeOut 1s forwards;
     }
 
@@ -98,15 +94,14 @@ const StyledModal = styled(ModalBase)`
     }
 `;
 
-export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, offsetY, ...rest }) => {
-    const [isOpenA, setIsOpenA] = React.useState(false);
-    const [isOpenB, setIsOpenB] = React.useState(false);
-    const [isOpenC, setIsOpenC] = React.useState(false);
+const StoryModalBaseDemo = ({ placement, offsetX, offsetY, ...rest }: StoryModalBaseProps) => {
+    const [isOpenA, setIsOpenA] = useState(false);
+    const [isOpenB, setIsOpenB] = useState(false);
+    const [isOpenC, setIsOpenC] = useState(false);
 
     return (
         <SSRProvider>
             <StyledWrapper>
-                <ModalOverlayVariables />
                 <PopupBaseProvider>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <StyledButton text="Открыть A" onClick={() => setIsOpenA(true)} />
@@ -165,11 +160,14 @@ export const ModalBaseDemo: Story<ModalBaseStoryProps> = ({ placement, offsetX, 
     );
 };
 
-ModalBaseDemo.args = {
-    placement: 'center',
-    withBlur: false,
-    closeOnEsc: true,
-    closeOnOverlayClick: true,
-    offsetX: 0,
-    offsetY: 0,
+export const ModalBaseDemo: StoryObj<StoryModalBaseProps> = {
+    args: {
+        placement: 'center',
+        withBlur: false,
+        closeOnEsc: true,
+        closeOnOverlayClick: true,
+        offsetX: 0,
+        offsetY: 0,
+    },
+    render: (args) => <StoryModalBaseDemo {...args} />,
 };

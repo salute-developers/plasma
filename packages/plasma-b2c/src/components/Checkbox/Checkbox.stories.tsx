@@ -1,11 +1,38 @@
 import React from 'react';
-import { Meta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Link } from '../Link';
 
-import { Checkbox, CheckboxProps } from '.';
+import { Checkbox } from '.';
+import type { CheckboxProps } from '.';
+
+const onChange = action('onChange');
+const onFocus = action('onFocus');
+const onBlur = action('onBlur');
+
+const meta: Meta<CheckboxProps> = {
+    title: 'Controls/Checkbox',
+    component: Checkbox,
+    decorators: [InSpacingDecorator],
+    argTypes: {
+        label: {
+            control: {
+                type: 'text',
+            },
+        },
+        description: {
+            control: {
+                type: 'text',
+            },
+        },
+    },
+};
+
+export default meta;
+
+type Story = StoryObj<CheckboxProps>;
 
 const propsToDisable = [
     'view',
@@ -26,28 +53,6 @@ const propsToDisable = [
     'onBlur',
 ];
 
-export default {
-    title: 'Controls/Checkbox',
-    component: Checkbox,
-    decorators: [InSpacingDecorator],
-    argTypes: {
-        label: {
-            control: {
-                type: 'text',
-            },
-        },
-        description: {
-            control: {
-                type: 'text',
-            },
-        },
-    },
-} as Meta;
-
-const onChange = action('onChange');
-const onFocus = action('onFocus');
-const onBlur = action('onBlur');
-
 const sizes = ['m', 's'];
 
 const englishDescription = (
@@ -63,6 +68,7 @@ const chineseLabel = (
 );
 
 const name = 'languages';
+
 const items = [
     {
         name,
@@ -93,6 +99,7 @@ const items = [
 ];
 
 const getChildren = (value: string) => items.filter((item) => item.parent === value);
+
 const getState = (values: Record<string, boolean | undefined>, value: string) => {
     const allChildren = getChildren(value);
 
@@ -113,68 +120,7 @@ const getState = (values: Record<string, boolean | undefined>, value: string) =>
     return { checked: true, indeterminate: false };
 };
 
-export const Live = (args) => {
-    const [values, setValues] = React.useState({
-        russian: true,
-        english: true,
-        french: true,
-        klingon: false,
-        elvish: true,
-        dothraki: false,
-        chinese: true,
-    });
-
-    return items.map((item) => (
-        <Checkbox
-            {...getState(values, item.value)}
-            style={{ marginLeft: item.parent ? 36 : null }}
-            key={item.value}
-            name={item.name}
-            value={item.value}
-            label={item.label}
-            disabled={item.disabled}
-            description={item.description}
-            onChange={(event) => {
-                event.persist();
-
-                const { checked } = event.target;
-
-                if (item.parent) {
-                    setValues({ ...values, [item.value]: checked });
-                } else {
-                    setValues({
-                        ...values,
-                        ...getChildren(item.value).reduce((acc, child) => ({ ...acc, [child.value]: checked }), {}),
-                    });
-                }
-
-                onChange(event);
-            }}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            {...args}
-        />
-    ));
-};
-
-Live.argTypes = {
-    ...disableProps([...propsToDisable, 'label', 'description']),
-    size: {
-        options: sizes,
-        control: {
-            type: 'inline-radio',
-        },
-    },
-};
-
-Live.args = {
-    size: 'm',
-    view: 'accent',
-    singleLine: false,
-    focused: true,
-};
-
-export const Default: ComponentStory<CheckboxProps> = (args) => {
+const StoryDefault = (args: CheckboxProps) => {
     const value = 0;
     const [checked, setChecked] = React.useState(true);
 
@@ -197,23 +143,96 @@ export const Default: ComponentStory<CheckboxProps> = (args) => {
     );
 };
 
-Default.args = {
-    name: 'checkbox',
-    label: 'Label',
-    description: 'Description',
-    disabled: false,
-    singleLine: false,
-    size: 'm',
-    view: 'accent',
-    focused: true,
-};
-
-Default.argTypes = {
-    ...disableProps(propsToDisable),
-    size: {
-        options: sizes,
-        control: {
-            type: 'inline-radio',
+export const Default: Story = {
+    args: {
+        name: 'checkbox',
+        label: 'Label',
+        description: 'Description',
+        disabled: false,
+        singleLine: false,
+        size: 'm',
+        view: 'accent',
+        focused: true,
+    },
+    argTypes: {
+        ...disableProps(propsToDisable),
+        size: {
+            options: sizes,
+            control: {
+                type: 'inline-radio',
+            },
         },
     },
+    render: (args) => <StoryDefault {...args} />,
+};
+
+const StoryLive = (args) => {
+    const [values, setValues] = React.useState({
+        russian: true,
+        english: true,
+        french: true,
+        klingon: false,
+        elvish: true,
+        dothraki: false,
+        chinese: true,
+    });
+
+    return (
+        <>
+            {items.map((item) => (
+                <Checkbox
+                    {...getState(values, item.value)}
+                    style={{ marginLeft: item.parent ? 36 : null }}
+                    key={item.value}
+                    name={item.name}
+                    value={item.value}
+                    label={item.label}
+                    disabled={item.disabled}
+                    description={item.description}
+                    onChange={(event) => {
+                        event.persist();
+
+                        const { checked } = event.target;
+
+                        if (item.parent) {
+                            setValues({ ...values, [item.value]: checked });
+                        } else {
+                            setValues({
+                                ...values,
+                                ...getChildren(item.value).reduce(
+                                    (acc, child) => ({ ...acc, [child.value]: checked }),
+                                    {},
+                                ),
+                            });
+                        }
+
+                        onChange(event);
+                    }}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
+                    {...args}
+                />
+            ))}
+        </>
+    );
+};
+
+export const Live: Story = {
+    args: {
+        size: 'm',
+        view: 'accent',
+        singleLine: false,
+        focused: true,
+        disabled: false,
+    },
+    argTypes: {
+        ...disableProps([...propsToDisable, 'label', 'description']),
+        size: {
+            options: sizes,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+    },
+    render: (args) => <StoryLive {...args} />,
 };
