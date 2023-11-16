@@ -21,7 +21,7 @@
 ```bash
 $ npm install --save react react-dom
 $ npm install --save styled-components
-$ npm install --save @salutejs/plasma-asdk @salutejs/plasma-tokens @salutejs/plasma-typo
+$ npm install --save @salutejs/plasma-asdk @salutejs/plasma-typo
 ```
 
 ## Настройка
@@ -31,7 +31,7 @@ $ npm install --save @salutejs/plasma-asdk @salutejs/plasma-tokens @salutejs/pla
 ```jsx title="GlobalStyle.tsx"
 import { createGlobalStyle } from 'styled-components';
 import { standard } from '@salutejs/plasma-typo';
-import { stylesSalute__light as stylesSaluteLight } from '@salutejs/plasma-asdk';
+import { stylesSaluteLight } from '@salutejs/plasma-asdk/themes';
 
 const ThemeStyle = createGlobalStyle(stylesSaluteLight);
 const TypoStyle = createGlobalStyle(standard);
@@ -61,7 +61,15 @@ export const GlobalStyle = () => (
 // App.tsx
 import { Button } from '@salutejs/plasma-asdk';
 
+import { tokens } from '@salutejs/plasma-asdk/tokens';
+
 export const App = () => {
-    return <Button>Hello, Plasma!</Button>;
+    return (
+        <Button>Hello, Plasma!</Button>
+
+        <p style={{color: tokens.textAccentAthena}}>
+            Token usage example
+        </p>
+    );
 };
 ```
