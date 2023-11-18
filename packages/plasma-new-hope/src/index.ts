@@ -3,6 +3,7 @@
 export * from './mixins';
 export * from './engines';
 export * from './components/Button';
+export * from './components/Chip';
 export * from './components/Link';
 export * from './components/Spinner';
 export * from './components/Checkbox';
