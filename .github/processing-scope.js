@@ -45,7 +45,7 @@ module.exports = () => {
     const HAS_PLASMA_WEBSITE = packagesList.includes('@salutejs/plasma-website');
 
     const HAS_DOCUMENTATION_CHANGED =
-        HAS_PLASMA_WEBSITE || HAS_PLASMA_UI_DOCS || HAS_PLASMA_WEB_DOCS || HAS_PLASMA_TEMPLE_DOCS;
+        HAS_PLASMA_WEBSITE || HAS_PLASMA_UI_DOCS || HAS_PLASMA_WEB_DOCS || HAS_PLASMA_TEMPLE_DOCS || HAS_PLASMA_ASDK;
 
     /**
      * List short packages name
