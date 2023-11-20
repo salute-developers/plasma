@@ -7,10 +7,13 @@
   "main": "index.js",
   "module": "es/index.js",
   "types": "index.d.ts",
-  "peerDependencies": {
-    "react": ">=16.13.1",
-    "react-dom": ">=16.13.1",
-    "styled-components": "^5.1.1"
+  "dependencies": {
+    "@popperjs/core": "2.9.2",
+    "@salutejs/plasma-typo": "0.39.0",
+    "focus-visible": "5.2.0",
+    "lodash.throttle": "4.1.1",
+    "react-draggable": "4.4.3",
+    "react-popper": "2.3.0"
   },
   "devDependencies": {
     "@babel/cli": "7.15.4",
@@ -19,7 +22,7 @@
     "@babel/preset-env": "7.15.4",
     "@babel/preset-react": "7.14.5",
     "@babel/preset-typescript": "7.15.0",
-    "@microsoft/api-extractor": "7.34.4",
+    "@microsoft/api-extractor": "7.38.3",
     "@salutejs/plasma-cy-utils": "0.72.0",
     "@types/jest": "27.0.1",
     "@types/lodash.throttle": "4.1.6",
@@ -41,6 +44,11 @@
     "ts-node": "10.2.1",
     "typescript": "4.2.4",
     "typescript-coverage-report": "0.7.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.13.1",
+    "react-dom": ">=16.13.1",
+    "styled-components": "^5.1.1"
   },
   "publishConfig": {
     "access": "public"
@@ -72,13 +80,5 @@
     "Виноградов Антон Александрович",
     "Зубаиров Фаниль Асхатович"
   ],
-  "sideEffects": false,
-  "dependencies": {
-    "@popperjs/core": "2.9.2",
-    "@salutejs/plasma-typo": "0.39.0",
-    "focus-visible": "5.2.0",
-    "lodash.throttle": "4.1.1",
-    "react-draggable": "4.4.3",
-    "react-popper": "2.3.0"
-  }
+  "sideEffects": false
 }
