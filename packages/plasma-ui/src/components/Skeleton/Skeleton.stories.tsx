@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { typography } from '@salutejs/plasma-tokens';
 import { radiuses, Roundness, TypographyTypes } from '@salutejs/plasma-core';
 
@@ -11,150 +11,145 @@ import { InSpacingDecorator } from '../../helpers';
 import { LineSkeleton, TextSkeleton, RectSkeleton } from '.';
 import type { LineSkeletonProps, TextSkeletonProps, RectSkeletonProps } from '.';
 
+const meta: Meta = {
+    title: 'Content/Skeleton',
+    decorators: [InSpacingDecorator],
+};
+
+export default meta;
+
+type InCardProps = {
+    roundness: Roundness;
+    skeleton: boolean;
+};
+
 const textSizes = Object.keys(typography) as TypographyTypes[];
+
 const roundnessKeys = Object.keys(radiuses).map((r) => Number(r));
 
 const ButtonSkeleton = withSkeleton<ButtonProps & WithSkeletonProps>(Button);
 
 const h1Style = { marginTop: '0.75rem' };
+
 const f1Style = { marginTop: '0.375rem' };
 
-export default {
-    title: 'Content/Skeleton',
-    decorators: [InSpacingDecorator],
-} as Meta;
-
-export const Line: Story<LineSkeletonProps> = (args) => <LineSkeleton {...args} />;
-
-Line.args = {
-    size: 'body1',
-    roundness: 16 as Roundness,
-};
-
-Line.argTypes = {
-    size: {
-        options: textSizes,
-        control: {
-            type: 'select',
+export const Line: StoryObj<LineSkeletonProps> = {
+    argTypes: {
+        size: {
+            options: textSizes,
+            control: {
+                type: 'select',
+            },
+        },
+        roundness: {
+            options: roundnessKeys,
+            control: {
+                type: 'select',
+            },
         },
     },
-    roundness: {
-        options: roundnessKeys,
-        control: {
-            type: 'select',
+    args: {
+        size: 'body1',
+        roundness: 16 as Roundness,
+    },
+    render: (args) => <LineSkeleton {...args} />,
+};
+
+export const Text: StoryObj<TextSkeletonProps & { variableWidth: boolean }> = {
+    argTypes: {
+        ...Line.argTypes,
+    },
+    args: {
+        lines: 4,
+        size: 'body1',
+        roundness: 16 as Roundness,
+        variableWidth: false,
+    },
+    render: ({ variableWidth, ...rest }) => <TextSkeleton width={!variableWidth && 100} {...rest} />,
+};
+
+export const Rect: StoryObj<RectSkeletonProps> = {
+    argTypes: {
+        width: {
+            control: {
+                type: 'number',
+            },
+        },
+        height: {
+            control: {
+                type: 'number',
+            },
+        },
+        roundness: {
+            options: roundnessKeys,
+            control: {
+                type: 'select',
+            },
         },
     },
+    args: {
+        width: 4,
+        height: 4,
+        roundness: 16 as Roundness,
+    },
+    render: ({ width, height, ...rest }) => <RectSkeleton width={`${width}rem`} height={`${height}rem`} {...rest} />,
 };
 
-export const Text: Story<TextSkeletonProps & { variableWidth: boolean }> = ({ variableWidth, ...rest }) => (
-    <TextSkeleton width={!variableWidth && 100} {...rest} />
-);
-
-Text.args = {
-    lines: 4,
-    size: 'body1',
-    roundness: 16 as Roundness,
-    variableWidth: false,
-};
-
-Text.argTypes = {
-    ...Line.argTypes,
-};
-
-export const Rect: Story<RectSkeletonProps> = ({ width, height, ...rest }) => (
-    <RectSkeleton width={`${width}rem`} height={`${height}rem`} {...rest} />
-);
-
-Rect.args = {
-    width: 4,
-    height: 4,
-    roundness: 16 as Roundness,
-};
-
-Rect.argTypes = {
-    width: {
-        control: {
-            type: 'number',
+export const InCard: StoryObj<InCardProps> = {
+    argTypes: {
+        roundness: {
+            options: roundnessKeys,
+            control: {
+                type: 'select',
+            },
         },
     },
-    height: {
-        control: {
-            type: 'number',
-        },
+    args: {
+        roundness: 16 as Roundness,
+        skeleton: true,
     },
-    roundness: {
-        options: roundnessKeys,
-        control: {
-            type: 'select',
-        },
-    },
-};
+    render: ({ roundness, skeleton }) => {
+        const r = roundness;
+        const s = skeleton;
 
-interface InCardProps {
-    roundness: Roundness;
-    skeleton: boolean;
-}
-
-export const InCard: Story<InCardProps> = ({ roundness, skeleton }) => {
-    const r = roundness;
-    const s = skeleton;
-    return (
-        <Card style={{ width: '20rem' }}>
-            <CardBody>
-                {s ? (
-                    <RectSkeleton width="100%" height="12rem" roundness={0} />
-                ) : (
-                    <CardMedia src="./images/320_320_2.jpg" height="12rem" />
-                )}
-                <CardContent>
+        return (
+            <Card style={{ width: '20rem' }}>
+                <CardBody>
                     {s ? (
-                        <>
-                            <LineSkeleton size="headline3" roundness={r} />
-                            <LineSkeleton size="headline1" roundness={r} style={h1Style} />
-                            <LineSkeleton size="footnote1" roundness={r} style={f1Style} />
-                        </>
+                        <RectSkeleton width="100%" height="12rem" roundness={0} />
                     ) : (
-                        <>
-                            <CardHeadline3>Потребительский кредит</CardHeadline3>
-                            <CardHeadline1 style={h1Style}>до 230 000 ₽</CardHeadline1>
-                            <CardFootnote1 style={f1Style} view="secondary">
-                                На 18 месяцев, ставка 13,9%
-                            </CardFootnote1>
-                        </>
+                        <CardMedia src="./images/320_320_2.jpg" height="12rem" />
                     )}
-                    <ButtonSkeleton
-                        fullWidth
-                        text={s ? 'Загрузка...' : 'Подробнее'}
-                        view="primary"
-                        size="s"
-                        scaleOnInteraction={false}
-                        outlined={false}
-                        style={{ marginTop: '1em' }}
-                        tabIndex={-1}
-                        skeleton={s}
-                    />
-                </CardContent>
-            </CardBody>
-        </Card>
-    );
-};
-
-InCard.args = {
-    roundness: 16 as Roundness,
-    skeleton: true,
-};
-
-InCard.argTypes = {
-    roundness: {
-        options: roundnessKeys,
-        control: {
-            type: 'select',
-        },
-    },
-};
-
-InCard.parameters = {
-    chromatic: {
-        disable: true,
+                    <CardContent>
+                        {s ? (
+                            <>
+                                <LineSkeleton size="headline3" roundness={r} />
+                                <LineSkeleton size="headline1" roundness={r} style={h1Style} />
+                                <LineSkeleton size="footnote1" roundness={r} style={f1Style} />
+                            </>
+                        ) : (
+                            <>
+                                <CardHeadline3>Потребительский кредит</CardHeadline3>
+                                <CardHeadline1 style={h1Style}>до 230 000 ₽</CardHeadline1>
+                                <CardFootnote1 style={f1Style} view="secondary">
+                                    На 18 месяцев, ставка 13,9%
+                                </CardFootnote1>
+                            </>
+                        )}
+                        <ButtonSkeleton
+                            fullWidth
+                            text={s ? 'Загрузка...' : 'Подробнее'}
+                            view="primary"
+                            size="s"
+                            scaleOnInteraction={false}
+                            outlined={false}
+                            style={{ marginTop: '1em' }}
+                            tabIndex={-1}
+                            skeleton={s}
+                        />
+                    </CardContent>
+                </CardBody>
+            </Card>
+        );
     },
 };
