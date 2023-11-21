@@ -1,5 +1,5 @@
-import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import React, { useState } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 import styled from 'styled-components';
 import { IconChevronLeft, IconChevronRight } from '@salutejs/plasma-icons';
 
@@ -7,49 +7,61 @@ import { InSpacingDecorator, ShowcaseComponentRow } from '../../helpers';
 import { ActionButton } from '../Button';
 import { Caption } from '../Typography';
 
-import { SmartPaginationDots, SmartPaginationDotsProps, PaginationDots, PaginationDot } from '.';
+import { SmartPaginationDots, PaginationDots, PaginationDot } from '.';
+import type { SmartPaginationDotsProps, PaginationDotProps } from '.';
+
+const meta: Meta<PaginationDotProps> = {
+    title: 'Controls/PaginationDots',
+    component: PaginationDots,
+    decorators: [InSpacingDecorator],
+};
+
+export default meta;
 
 const StyledWrapper = styled.div`
     display: flex;
     flex-direction: column;
 `;
+
 const StyledButtonGroup = styled.div`
     display: flex;
     align-self: center;
     align-items: center;
 `;
+
 const StyledGhostButton = styled(ActionButton).attrs(() => ({ view: 'clear', outlined: false }))`
     padding: 0;
 `;
 
 const rows = Array.from({ length: 4 }, () => [0, 0, 0, 0]);
 
-export default {
-    title: 'Controls/PaginationDots',
-    decorators: [InSpacingDecorator],
-} as Meta;
-
-export const Default = () => {
-    return (
-        <>
-            {rows.map((items, i) => (
-                <ShowcaseComponentRow key={`row:${i}`}>
-                    <PaginationDots>
-                        {items.map((_, j) => (
-                            <PaginationDot key={`item:${i}${j}`} isActive={j === i} />
-                        ))}
-                    </PaginationDots>
-                </ShowcaseComponentRow>
-            ))}
-        </>
-    );
+export const Default: StoryObj = {
+    render: () => {
+        return (
+            <>
+                {rows.map((items, i) => (
+                    <ShowcaseComponentRow key={`row:${i}`}>
+                        <PaginationDots>
+                            {items.map((_, j) => (
+                                <PaginationDot key={`item:${i}${j}`} isActive={j === i} />
+                            ))}
+                        </PaginationDots>
+                    </ShowcaseComponentRow>
+                ))}
+            </>
+        );
+    },
 };
 
-export const Limited: Story<SmartPaginationDotsProps & { itemsCount: number }> = ({ itemsCount, visibleItems }) => {
-    const [currentIndex, setIndex] = React.useState(0);
+type StorySmartPaginationDotsProps = SmartPaginationDotsProps & { itemsCount: number };
+
+const StoryLimited = ({ itemsCount, visibleItems }: StorySmartPaginationDotsProps) => {
+    const [currentIndex, setIndex] = useState(0);
+
     const items = Array(itemsCount)
         .fill(0)
         .map((_, i) => ({ id: i }));
+
     const minIndex = 0;
     const maxIndex = items.length - 1;
 
@@ -75,13 +87,10 @@ export const Limited: Story<SmartPaginationDotsProps & { itemsCount: number }> =
     );
 };
 
-Limited.args = {
-    visibleItems: 7,
-    itemsCount: 10,
-};
-
-Limited.parameters = {
-    chromatic: {
-        disable: true,
+export const Limited: StoryObj<SmartPaginationDotsProps & { itemsCount: number }> = {
+    args: {
+        visibleItems: 7,
+        itemsCount: 10,
     },
+    render: (args) => <StoryLimited {...args} />,
 };
