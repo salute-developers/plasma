@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconMic, IconPlus, IconTrash } from '@salutejs/plasma-icons';
 
@@ -10,7 +10,6 @@ import { InContainer, WithGridLines } from '../../helpers/StoryDecorators';
 
 import {
     Header,
-    HeaderProps,
     HeaderRoot,
     HeaderLogo,
     HeaderTitleWrapper,
@@ -18,10 +17,38 @@ import {
     HeaderTitle,
     HeaderContent,
     NeuHeader,
-    NeuHeaderProps,
     HeaderMinimize,
     HeaderBack,
 } from '.';
+import type { HeaderProps, NeuHeaderProps } from '.';
+
+const meta: Meta<HeaderProps> = {
+    title: 'Layout/Header',
+    decorators: [WithGridLines, InContainer],
+};
+
+export default meta;
+
+type ContentComponentProps = {
+    contentType: string;
+    contentItemsNumber: number;
+    enableIcons: boolean;
+};
+
+type HeaderPropsExtend = { enableLogo: boolean; displayGrid: boolean };
+
+type StoryHeaderProps = HeaderProps & HeaderPropsExtend & ContentComponentProps;
+
+type StoryNeuHeaderProps = NeuHeaderProps & HeaderPropsExtend & ContentComponentProps;
+
+type CustomAssemblyProps = {
+    displayGrid: boolean;
+    variant: string;
+    title: string;
+    subtitle: string;
+    label: string;
+    gradientColor: string;
+};
 
 const contentTypes = ['Buttons', 'Tabs', 'MobileButtons', ''];
 
@@ -31,14 +58,8 @@ const StyledContentGrid = styled.div<{ $colCount: number }>`
     grid-column-gap: 0.75rem;
 `;
 
-interface ContentComponentProps {
-    contentType: string;
-    contentItemsNumber: number;
-    enableIcons: boolean;
-}
-
 const Content = ({ contentType, contentItemsNumber, enableIcons }: ContentComponentProps) => {
-    const [activeTab, setActiveTab] = React.useState(0);
+    const [activeTab, setActiveTab] = useState(0);
 
     const contentItems = Array(contentItemsNumber).fill(0);
 
@@ -94,19 +115,9 @@ const Content = ({ contentType, contentItemsNumber, enableIcons }: ContentCompon
     return null;
 };
 
-export default {
-    title: 'Layout/Header',
-    decorators: [WithGridLines, InContainer],
-} as Meta;
-
-export const Default: Story<HeaderProps & { enableLogo: boolean; displayGrid: boolean } & ContentComponentProps> = ({
-    enableLogo,
-    logoAlt,
-    title,
-    subtitle,
-    ...rest
-}) => {
+const StoryDefault = ({ enableLogo, logoAlt, title, subtitle, ...rest }: StoryHeaderProps) => {
     const [isBack, setIsBack] = useState(true);
+
     const props: HeaderProps = isBack
         ? {
               back: true,
@@ -136,44 +147,37 @@ export const Default: Story<HeaderProps & { enableLogo: boolean; displayGrid: bo
     );
 };
 
-Default.args = {
-    displayGrid: true,
-    enableLogo: true,
-    logoAlt: 'Logo',
-    title: 'Header title text is very long to fit given width',
-    subtitle: 'Subtitle text is very long to fit given width even this has smaller font size',
-    gradientColor: '',
-    contentType: 'Buttons',
-    contentItemsNumber: 3,
-    enableIcons: true,
-};
-
-Default.argTypes = {
-    contentType: {
-        options: contentTypes,
-        control: {
-            type: 'select',
+export const Default: StoryObj<StoryHeaderProps> = {
+    argTypes: {
+        contentType: {
+            options: contentTypes,
+            control: {
+                type: 'select',
+            },
         },
     },
+    args: {
+        displayGrid: true,
+        enableLogo: true,
+        logoAlt: 'Logo',
+        title: 'Header title text is very long to fit given width',
+        subtitle: 'Subtitle text is very long to fit given width even this has smaller font size',
+        gradientColor: '',
+        contentType: 'Buttons',
+        contentItemsNumber: 3,
+        enableIcons: true,
+    },
+    render: (args) => <StoryDefault {...args} />,
 };
 
-interface CustomAssemblyProps {
-    displayGrid: boolean;
-    variant: string;
-    title: string;
-    subtitle: string;
-    label: string;
-    gradientColor: string;
-}
-
-export const CustomAssembly: Story<CustomAssemblyProps & ContentComponentProps> = ({
+const StoryCustomAssembly = ({
     variant,
     title,
     subtitle,
     label,
     gradientColor,
     ...rest
-}) => {
+}: CustomAssemblyProps & ContentComponentProps) => {
     const [isBack, setIsBack] = useState(true);
 
     const onBackClick = () => {
@@ -212,42 +216,36 @@ export const CustomAssembly: Story<CustomAssemblyProps & ContentComponentProps> 
     );
 };
 
-CustomAssembly.args = {
-    displayGrid: true,
-    variant: 'title+subtitle',
-    title: 'Header title text',
-    subtitle: 'Subtitle text',
-    label: 'Label text',
-    gradientColor: '',
-    contentType: 'Buttons',
-    contentItemsNumber: 3,
-    enableIcons: true,
-};
-
-CustomAssembly.argTypes = {
-    ...Default.argTypes,
-    variant: {
-        options: ['title+subtitle', 'label+title', 'title'],
-        control: {
-            type: 'inline-radio',
+export const CustomAssembly: StoryObj<CustomAssemblyProps & ContentComponentProps> = {
+    argTypes: {
+        ...Default.argTypes,
+        variant: {
+            options: ['title+subtitle', 'label+title', 'title'],
+            control: {
+                type: 'inline-radio',
+            },
+        },
+    },
+    args: {
+        displayGrid: true,
+        variant: 'title+subtitle',
+        title: 'Header title text',
+        subtitle: 'Subtitle text',
+        label: 'Label text',
+        gradientColor: '',
+        contentType: 'Buttons',
+        contentItemsNumber: 3,
+        enableIcons: true,
+    },
+    render: (args) => <StoryCustomAssembly {...args} />,
+    parameters: {
+        chromatic: {
+            disable: true,
         },
     },
 };
 
-CustomAssembly.parameters = {
-    chromatic: {
-        disable: true,
-    },
-};
-
-export const Neu: Story<NeuHeaderProps & { enableLogo: boolean; displayGrid: boolean } & ContentComponentProps> = ({
-    enableLogo,
-    logoAlt,
-    title,
-    subTitle,
-    gradientColor,
-    ...rest
-}) => {
+const StoryNeu = ({ enableLogo, logoAlt, title, subTitle, gradientColor, ...rest }: StoryNeuHeaderProps) => {
     const [arrow, setArrow] = useState<'back' | 'minimize'>('back');
 
     const onArrowClick = useCallback(
@@ -273,30 +271,30 @@ export const Neu: Story<NeuHeaderProps & { enableLogo: boolean; displayGrid: boo
     );
 };
 
-Neu.args = {
-    displayGrid: true,
-    enableLogo: true,
-    logoAlt: 'Logo',
-    title: 'Header title text is very long to fit given width',
-    subTitle: 'Subtitle text is very long to fit given width even this has smaller font size',
-    gradientColor: '',
-    contentType: 'Buttons',
-    contentItemsNumber: 3,
-    enableIcons: true,
-};
-
-Neu.argTypes = {
-    contentType: {
-        options: contentTypes,
-        control: {
-            type: 'select',
+export const Neu: StoryObj<StoryNeuHeaderProps> = {
+    argTypes: {
+        contentType: {
+            options: contentTypes,
+            control: {
+                type: 'select',
+            },
         },
     },
+    args: {
+        displayGrid: true,
+        enableLogo: true,
+        logoAlt: 'Logo',
+        title: 'Header title text is very long to fit given width',
+        subTitle: 'Subtitle text is very long to fit given width even this has smaller font size',
+        gradientColor: '',
+        contentType: 'Buttons',
+        contentItemsNumber: 3,
+        enableIcons: true,
+    },
+    render: (args) => <StoryNeu {...args} />,
 };
 
-export const Gradient: Story<
-    NeuHeaderProps & { enableLogo: boolean; displayGrid: boolean } & ContentComponentProps
-> = ({ enableLogo, logoAlt, title, subTitle, gradientColor, ...rest }) => {
+const StoryGradient = ({ enableLogo, logoAlt, title, subTitle, gradientColor, ...rest }: StoryNeuHeaderProps) => {
     const [arrow, setArrow] = useState<'back' | 'minimize'>('back');
 
     const onArrowClick = useCallback(
@@ -324,23 +322,25 @@ export const Gradient: Story<
     );
 };
 
-Gradient.args = {
-    displayGrid: false,
-    enableLogo: true,
-    logoAlt: 'Logo',
-    title: 'Header title text is very long to fit given width',
-    subTitle: 'Subtitle text is very long to fit given width even this has smaller font size',
-    gradientColor: '#FF9600',
-    contentType: 'Buttons',
-    contentItemsNumber: 3,
-    enableIcons: true,
-};
-
-Gradient.argTypes = {
-    contentType: {
-        options: contentTypes,
-        control: {
-            type: 'select',
+export const Gradient: StoryObj<StoryNeuHeaderProps> = {
+    argTypes: {
+        contentType: {
+            options: contentTypes,
+            control: {
+                type: 'select',
+            },
         },
     },
+    args: {
+        displayGrid: false,
+        enableLogo: true,
+        logoAlt: 'Logo',
+        title: 'Header title text is very long to fit given width',
+        subTitle: 'Subtitle text is very long to fit given width even this has smaller font size',
+        gradientColor: '#FF9600',
+        contentType: 'Buttons',
+        contentItemsNumber: 3,
+        enableIcons: true,
+    },
+    render: (args) => <StoryGradient {...args} />,
 };
