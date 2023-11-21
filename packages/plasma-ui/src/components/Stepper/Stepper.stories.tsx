@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconMinus, IconPlus, IconClose } from '@salutejs/plasma-icons';
 
@@ -7,12 +7,29 @@ import { actionWithPersistedEvent, InSpacingDecorator, ShowcaseComponentRow } fr
 
 import { Pin } from './StepperButton';
 
-import { Stepper, StepperRoot, StepperButton, StepperValue } from '.';
+import { Stepper, StepperRoot, StepperButton, StepperValue, StepperProps } from '.';
 
 const onChangeAction = action('onChange');
 const onRemoveAction = actionWithPersistedEvent('onRemove');
 const onFocusAction = actionWithPersistedEvent('onFocus');
 const onBlurAction = actionWithPersistedEvent('onBlur');
+
+const meta: Meta<StepperProps> = {
+    title: 'Controls/Stepper',
+    component: Stepper,
+    decorators: [InSpacingDecorator],
+};
+
+export default meta;
+
+type CustomAssemblyProps = {
+    step: number;
+    min: number;
+    max: number;
+    disabled: boolean;
+    showWarning: boolean;
+    showFormat: boolean;
+};
 
 const items = [
     { min: 0, max: 5, remover: true, pin: 'circle-circle' },
@@ -23,12 +40,7 @@ const items = [
     { min: 0, max: 3, remover: true, pin: 'square-square' },
 ];
 
-export default {
-    title: 'Controls/Stepper',
-    decorators: [InSpacingDecorator],
-} as Meta;
-
-export const Default = () => {
+const StoryDefault = () => {
     const [values, setValues] = useState<Record<number, number>>({
         0: 2,
         1: 2,
@@ -67,20 +79,15 @@ export const Default = () => {
     );
 };
 
-interface CustomAssemblyProps {
-    step: number;
-    min: number;
-    max: number;
-    disabled: boolean;
-    showWarning: boolean;
-    showFormat: boolean;
-}
+export const Default: StoryObj = {
+    render: () => <StoryDefault />,
+};
 
 const icoMinus = <IconMinus color="inherit" size="xs" />;
 const icoPlus = <IconPlus color="inherit" size="xs" />;
 const icoClose = <IconClose color="inherit" size="xs" />;
 
-export const CustomAssembly: Story<CustomAssemblyProps> = ({ step, min, max, disabled, showWarning, showFormat }) => {
+export const StoryCustomAssembly = ({ step, min, max, disabled, showWarning, showFormat }: CustomAssemblyProps) => {
     const [value, setValue] = useState(5);
     const formatter = (val: number) => `${val}$`;
 
@@ -112,17 +119,14 @@ export const CustomAssembly: Story<CustomAssemblyProps> = ({ step, min, max, dis
     );
 };
 
-CustomAssembly.args = {
-    step: 1,
-    min: 1,
-    max: 10,
-    disabled: false,
-    showWarning: false,
-    showFormat: false,
-};
-
-CustomAssembly.parameters = {
-    chromatic: {
-        disable: true,
+export const CustomAssembly: StoryObj<CustomAssemblyProps> = {
+    args: {
+        step: 1,
+        min: 1,
+        max: 10,
+        disabled: false,
+        showWarning: false,
+        showFormat: false,
     },
+    render: (args) => <StoryCustomAssembly {...args} />,
 };
