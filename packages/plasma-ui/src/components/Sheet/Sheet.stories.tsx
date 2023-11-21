@@ -1,19 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { InSpacing } from '../../helpers/StoryDecorators';
 import { Button } from '../Button';
 import { Body1 } from '../Typography';
 
 import { Sheet } from './Sheet';
+import type { SheetProps } from './Sheet';
 
-export default {
+const meta: Meta<SheetProps> = {
     title: 'Content/Sheet',
     decorators: [InSpacing],
+    component: Sheet,
     parameters: { viewport: { defaultViewport: '860' } },
 };
 
-export const Default = ({ withOverlay, withTransition }) => {
-    const [isOpen, setIsOpen] = React.useState(false);
+export default meta;
+
+const StoryDefault = ({ withOverlay, withTransition }: SheetProps) => {
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <>
@@ -55,13 +60,16 @@ export const Default = ({ withOverlay, withTransition }) => {
     );
 };
 
-Default.args = {
-    withOverlay: true,
-    withTransition: true,
+export const Default: StoryObj<SheetProps> = {
+    args: {
+        withOverlay: true,
+        withTransition: true,
+    },
+    render: (args) => <StoryDefault {...args} />,
 };
 
-export const WithoutOverlay = () => {
-    const [isOpen, setIsOpen] = React.useState(false);
+const StoryWithoutOverlay = () => {
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <>
@@ -79,8 +87,12 @@ export const WithoutOverlay = () => {
     );
 };
 
-export const WithScroll = ({ withOverlay, withTransition }) => {
-    const [isOpen, setIsOpen] = React.useState(false);
+export const WithoutOverlay: StoryObj = {
+    render: () => <StoryWithoutOverlay />,
+};
+
+const StoryWithScroll = ({ withOverlay, withTransition }: SheetProps) => {
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <>
@@ -114,8 +126,12 @@ export const WithScroll = ({ withOverlay, withTransition }) => {
     );
 };
 
-export const WithInsideScroll = ({ withOverlay, withTransition }) => {
-    const [isOpen, setIsOpen] = React.useState(false);
+export const WithScroll: StoryObj<SheetProps> = {
+    render: (args) => <StoryWithScroll {...args} />,
+};
+
+const StoryWithInsideScroll = ({ withOverlay, withTransition }: SheetProps) => {
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <>
@@ -151,13 +167,16 @@ export const WithInsideScroll = ({ withOverlay, withTransition }) => {
     );
 };
 
-WithInsideScroll.args = {
-    withOverlay: true,
-    withTransition: true,
+export const WithInsideScroll: StoryObj<SheetProps> = {
+    args: {
+        withOverlay: true,
+        withTransition: true,
+    },
+    render: (args) => <StoryWithInsideScroll {...args} />,
 };
 
-export const WithDoubleScroll = ({ withOverlay, withTransition }) => {
-    const [isOpen, setIsOpen] = React.useState(false);
+const StoryWithDoubleScroll = ({ withOverlay, withTransition }: SheetProps) => {
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <>
@@ -210,7 +229,10 @@ export const WithDoubleScroll = ({ withOverlay, withTransition }) => {
     );
 };
 
-WithScroll.args = {
-    withOverlay: true,
-    withTransition: true,
+export const WithDoubleScroll: StoryObj<SheetProps> = {
+    args: {
+        withOverlay: true,
+        withTransition: true,
+    },
+    render: (args) => <StoryWithDoubleScroll {...args} />,
 };
