@@ -16,7 +16,7 @@ const Popup = component(popupConfig);
  * Modal.
  * Управляет показом/скрытием, подложкой и анимацией визуальной части модального окна.
  */
-export const modalRoot = (Root: RootProps<HTMLInputElement, ModalProps>) =>
+export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
     forwardRef<HTMLDivElement, ModalProps>(
         (
             {
