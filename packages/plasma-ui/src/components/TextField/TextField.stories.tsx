@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconSleep, IconEye } from '@salutejs/plasma-icons';
 
@@ -7,28 +7,10 @@ import { disableProps } from '../../helpers';
 import { InSpacing } from '../../helpers/StoryDecorators';
 import { ActionButton } from '../Button';
 
-import { TextField, TextFieldProps } from '.';
+import { TextField } from '.';
+import type { TextFieldProps } from '.';
 
-const propsToDisable = [
-    'contentLeft',
-    'htmlSize',
-    '$isFocused',
-    'contentRight',
-    'type',
-    'name',
-    'onFocus',
-    'onBlur',
-    'onChange',
-    'placeholder',
-    'value',
-    'checked',
-    'minLength',
-    'required',
-];
-
-const statusOptions = ['success', 'error', ''];
-
-export default {
+const meta: Meta<TextFieldProps> = {
     title: 'Controls/TextField',
     component: TextField,
     decorators: [InSpacing],
@@ -39,7 +21,7 @@ export default {
             },
         },
         status: {
-            options: statusOptions,
+            options: ['success', 'error', ''],
             control: {
                 type: 'select',
             },
@@ -49,16 +31,34 @@ export default {
                 type: 'number',
             },
         },
-        ...disableProps(propsToDisable),
+        ...disableProps([
+            'contentLeft',
+            'htmlSize',
+            '$isFocused',
+            'contentRight',
+            'type',
+            'name',
+            'onFocus',
+            'onBlur',
+            'onChange',
+            'placeholder',
+            'value',
+            'checked',
+            'minLength',
+            'required',
+        ]),
     },
-} as Meta;
+};
 
-export const Default: Story<TextFieldProps & { enableLeftIcon: boolean; enableRightIcon: boolean }> = ({
-    status,
-    enableLeftIcon,
-    enableRightIcon,
-    ...rest
-}) => {
+export default meta;
+
+type StoryTextFieldProps = Omit<TextFieldProps, 'status'> & {
+    status: '' | TextFieldProps['status'];
+    enableLeftIcon: boolean;
+    enableRightIcon: boolean;
+};
+
+const StoryDefault = ({ status, enableLeftIcon, enableRightIcon, ...rest }: StoryTextFieldProps) => {
     const [value, setValue] = useState('Значение поля');
 
     return (
@@ -82,16 +82,19 @@ export const Default: Story<TextFieldProps & { enableLeftIcon: boolean; enableRi
     );
 };
 
-Default.args = {
-    id: 'example-text-field',
-    type: 'text',
-    placeholder: 'Заполните поле',
-    helperText: 'Подсказка к полю',
-    disabled: false,
-    readOnly: false,
-    status: '' as 'success',
-    size: 'l',
-    enableLeftIcon: true,
-    enableRightIcon: true,
-    rightTrailingSymbols: '',
+export const Default: StoryObj<StoryTextFieldProps> = {
+    args: {
+        id: 'example-text-field',
+        type: 'text',
+        placeholder: 'Заполните поле',
+        helperText: 'Подсказка к полю',
+        disabled: false,
+        readOnly: false,
+        status: '',
+        size: 'l',
+        enableLeftIcon: true,
+        enableRightIcon: true,
+        rightTrailingSymbols: '',
+    },
+    render: (args) => <StoryDefault {...args} />,
 };
