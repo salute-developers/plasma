@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import type { FC } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { SSRProvider } from '../SSRProvider';
 import { actionWithPersistedEvent, InSpacingDecorator } from '../../helpers';
 
-import { Radiobox, RadioGroup } from '.';
+import { Radiobox } from '.';
+import type { RadioboxProps } from '.';
 
-export default {
+const onChange = actionWithPersistedEvent('onChange');
+const onFocus = actionWithPersistedEvent('onFocus');
+const onBlur = actionWithPersistedEvent('onBlur');
+
+const meta: Meta<RadioboxProps> = {
     title: 'Controls/Radiobox',
     component: Radiobox,
     decorators: [
         InSpacingDecorator,
-        (Story: React.FC) => (
+        (Story: FC) => (
             <SSRProvider>
                 <Story />
             </SSRProvider>
@@ -19,9 +25,7 @@ export default {
     ],
 };
 
-const onChange = actionWithPersistedEvent('onChange');
-const onFocus = actionWithPersistedEvent('onFocus');
-const onBlur = actionWithPersistedEvent('onBlur');
+export default meta;
 
 const items = [
     {
@@ -43,20 +47,9 @@ const items = [
     { id: 'radio-2-2', name: 'radio-2', value: 4, label: 'Radiobox 4', disabled: true, checked: true },
 ];
 
-const StyledGriddyRadioGroup = styled(RadioGroup)`
-    display: inline-grid;
-    grid-template-columns: repeat(2, 30%);
-    gap: 1rem;
-    align-items: flex-start;
+const StoryDefault = () => {
+    const [value, setValue] = useState(2);
 
-    /* stylelint-disable-next-line selector-max-universal */
-    & > * + * {
-        margin-top: 0 !important;
-    }
-`;
-
-export const Default = () => {
-    const [value, setValue] = React.useState(2);
     return (
         <div style={{ overflow: 'hidden', width: 150 }}>
             <Radiobox
@@ -71,7 +64,11 @@ export const Default = () => {
     );
 };
 
-export const Squeeze = () => {
+export const Default: StoryObj = {
+    render: () => <StoryDefault />,
+};
+
+const StorySqueeze = () => {
     const [value, setValue] = useState(1);
 
     return (
@@ -104,4 +101,8 @@ export const Squeeze = () => {
             ))}
         </div>
     );
+};
+
+export const Squeeze: StoryObj = {
+    render: (args) => <StorySqueeze {...args} />,
 };
