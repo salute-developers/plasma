@@ -1,20 +1,17 @@
 import React, { useMemo, useState } from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Icon, IconClock } from '@salutejs/plasma-icons';
 import styled from 'styled-components';
 
 import { InContainerDecorator, disableProps } from '../../helpers';
 
-import { Tabs, TabItem, TabsProps, TabsController, TabsControllerProps } from '.';
+import { Tabs, TabItem, TabsController } from '.';
+import type { TabsProps, TabsControllerProps } from '.';
 
-const sizeKeys = ['l', 'm', 's'];
-const viewKeys = ['secondary', 'black', 'clear'];
 const icons = ['clock', 'settings', 'house', 'trash'];
 
-const propsToDisable = ['index', 'focused', 'shiftLeft', 'shiftRight', 'scaleOnPress', 'as', 'forwardedAs'];
-
-export default {
+const meta: Meta<TabsProps> = {
     title: 'Controls/Tabs',
     component: Tabs,
     decorators: [InContainerDecorator],
@@ -25,27 +22,29 @@ export default {
             },
         },
         size: {
-            options: sizeKeys,
+            options: ['l', 'm', 's'],
             control: {
                 type: 'inline-radio',
             },
         },
         view: {
-            options: viewKeys,
+            options: ['secondary', 'black', 'clear'],
             control: {
                 type: 'inline-radio',
             },
         },
-        ...disableProps(propsToDisable),
+        ...disableProps(['index', 'focused', 'shiftLeft', 'shiftRight', 'scaleOnPress', 'as', 'forwardedAs']),
     },
-} as Meta;
+};
 
-interface StoryProps {
+export default meta;
+
+type StoryTabsProps = {
     itemsNumber: number;
     scaleOnInteraction: boolean;
     enableContentLeft: boolean;
     text: string;
-}
+};
 
 const Icons = [
     <Icon icon={icons[0] as 'clock'} size="s" />,
@@ -58,7 +57,7 @@ const StorybookTabsWrapper = styled.div`
     margin-top: 0.5rem;
 `;
 
-export const Default: Story<StoryProps & TabsProps> = ({
+const StoryDefault = ({
     itemsNumber,
     size,
     view,
@@ -70,9 +69,9 @@ export const Default: Story<StoryProps & TabsProps> = ({
     disabled,
     outlined,
     animated,
-}) => {
+}: StoryTabsProps & TabsProps) => {
     const id = 'tabs-example';
-    const [index, setIndex] = React.useState(0);
+    const [index, setIndex] = useState(0);
 
     const items = useMemo(() => {
         type elem = {
@@ -133,27 +132,30 @@ export const Default: Story<StoryProps & TabsProps> = ({
     );
 };
 
-Default.args = {
-    itemsNumber: 4,
-    size: 'l',
-    view: 'secondary',
-    stretch: true,
-    pilled: false,
-    scaleOnInteraction: true,
-    outlined: false,
-    disabled: false,
-    animated: true,
-    enableContentLeft: true,
-    text: 'Label',
+export const Default: StoryObj<StoryTabsProps & TabsProps> = {
+    args: {
+        itemsNumber: 4,
+        size: 'l',
+        view: 'secondary',
+        stretch: true,
+        pilled: false,
+        scaleOnInteraction: true,
+        outlined: false,
+        disabled: false,
+        animated: true,
+        enableContentLeft: true,
+        text: 'Label',
+    },
+    render: (args) => <StoryDefault {...args} />,
 };
 
-export const Arrows: Story<StoryProps & TabsControllerProps> = ({
+const StoryArrows = ({
     itemsNumber,
     disabled,
     stretch,
     text,
     enableContentLeft,
-}) => {
+}: StoryTabsProps & TabsControllerProps) => {
     const items = Array(itemsNumber).fill({
         label: text,
         contentLeft: enableContentLeft && <IconClock color="inherit" />,
@@ -173,9 +175,12 @@ export const Arrows: Story<StoryProps & TabsControllerProps> = ({
     );
 };
 
-Arrows.args = {
-    itemsNumber: 4,
-    disabled: false,
-    stretch: true,
-    text: 'Label',
+export const Arrows: StoryObj<StoryTabsProps & TabsControllerProps> = {
+    args: {
+        itemsNumber: 4,
+        disabled: false,
+        stretch: true,
+        text: 'Label',
+    },
+    render: (args) => <StoryArrows {...args} />,
 };
