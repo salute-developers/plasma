@@ -1,18 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { actionWithPersistedEvent, ShowcaseComponentGrid, InSpacingDecorator } from '../../helpers';
 
 import { Switch } from '.';
+import type { SwitchProps } from '.';
 
 const onChange = actionWithPersistedEvent('onChange');
 const onFocus = actionWithPersistedEvent('onFocus');
 const onBlur = actionWithPersistedEvent('onBlur');
 
-export default {
+const meta: Meta<SwitchProps> = {
     title: 'Controls/Switch',
     component: Switch,
     decorators: [InSpacingDecorator],
 };
+
+export default meta;
 
 const rows = [
     [
@@ -38,8 +42,8 @@ const Showcase = ({ render, withLabels = true }) => (
 );
 
 /* eslint-disable prefer-rest-params */
-export function Default() {
-    const [values, setValues] = React.useState([2, 4, 6]);
+function StoryDefault() {
+    const [values, setValues] = useState([2, 4, 6]);
 
     return (
         <Showcase
@@ -69,3 +73,7 @@ export function Default() {
     );
 }
 /* eslint-enable prefer-rest-params */
+
+export const Default: StoryObj<SwitchProps> = {
+    render: StoryDefault,
+};
