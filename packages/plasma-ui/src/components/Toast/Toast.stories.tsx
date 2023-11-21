@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconClose } from '@salutejs/plasma-icons';
 import { critical } from '@salutejs/plasma-core';
@@ -8,26 +8,30 @@ import styled from 'styled-components';
 import { Button } from '../Button';
 import { InSpacingDecorator } from '../../helpers';
 
-import { Toast, useToast, ToastProps, ToastPosition } from '.';
+import { Toast, useToast, ToastPosition } from '.';
+import type { ToastProps } from '.';
 
-export default {
+const meta: Meta<ToastProps> = {
     title: 'Controls/Toast',
+    component: Toast,
     decorators: [InSpacingDecorator],
-} as Meta;
-
-export const Default: Story<ToastProps> = (args) => <Toast {...args} />;
-
-Default.args = {
-    text: 'Текст всплывающего уведомления',
 };
 
-interface LiveDemoProps extends ToastProps {
+export default meta;
+
+type LiveDemoProps = ToastProps & {
     position: ToastPosition;
     timeout: number;
     fade: boolean;
     enableContentLeft: boolean;
     offset?: number;
-}
+};
+
+export const Default: StoryObj<ToastProps> = {
+    args: {
+        text: 'Текст всплывающего уведомления',
+    },
+};
 
 const Container = styled.div`
     position: relative;
@@ -37,8 +41,9 @@ const Container = styled.div`
     padding: 1rem;
 `;
 
-export const LiveDemo: Story<LiveDemoProps> = ({ role, text, position, timeout, fade, enableContentLeft, offset }) => {
+const StoryLiveDemo = ({ role, text, position, timeout, fade, enableContentLeft, offset }: LiveDemoProps) => {
     const { showToast, hideToast } = useToast();
+
     const contentLeft = enableContentLeft && <IconClose size="xs" color={critical} />;
 
     return (
@@ -65,38 +70,34 @@ export const LiveDemo: Story<LiveDemoProps> = ({ role, text, position, timeout, 
     );
 };
 
-LiveDemo.args = {
-    role: 'alert',
-    text: 'Текст всплывающего уведомления',
-    enableContentLeft: true,
-    position: 'bottom',
-    timeout: 10000,
-    fade: true,
-    offset: 0,
-};
-
-LiveDemo.argTypes = {
-    role: {
-        options: ['alert', 'log', 'status'],
-        control: {
-            type: 'inline-radio',
+export const LiveDemo: StoryObj<LiveDemoProps> = {
+    argTypes: {
+        role: {
+            options: ['alert', 'log', 'status'],
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        position: {
+            options: ['top', 'bottom'],
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        offset: {
+            control: {
+                type: 'number',
+            },
         },
     },
-    position: {
-        options: ['top', 'bottom'],
-        control: {
-            type: 'inline-radio',
-        },
+    args: {
+        role: 'alert',
+        text: 'Текст всплывающего уведомления',
+        enableContentLeft: true,
+        position: 'bottom',
+        timeout: 10000,
+        fade: true,
+        offset: 0,
     },
-    offset: {
-        control: {
-            type: 'number',
-        },
-    },
-};
-
-LiveDemo.parameters = {
-    chromatic: {
-        disable: true,
-    },
+    render: (args) => <StoryLiveDemo {...args} />,
 };
