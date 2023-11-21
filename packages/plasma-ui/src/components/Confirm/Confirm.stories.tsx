@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Story } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconHelp } from '@salutejs/plasma-icons';
 import styled from 'styled-components';
@@ -9,9 +9,13 @@ import { Button } from '../Button';
 import { Body1, Body3 } from '../Typography';
 import { disableProps } from '../../helpers';
 
-import { Confirm, ConfirmProps } from '.';
+import { Confirm } from '.';
+import type { ConfirmProps } from '.';
 
-export default {
+const onApproveAction = action('onApprove');
+const onDismissAction = action('onDismiss');
+
+const meta: Meta<ConfirmProps> = {
     title: 'Controls/Confirm',
     decorators: [InSpacing],
     component: Confirm,
@@ -42,8 +46,9 @@ export default {
     },
 };
 
-const onApproveAction = action('onApprove');
-const onDismissAction = action('onDismiss');
+export default meta;
+
+type StoryConfirmProps = ConfirmProps & { offsetX: number; offsetY: number };
 
 const ExtraContentBlock = styled.div`
     display: flex;
@@ -51,12 +56,7 @@ const ExtraContentBlock = styled.div`
     padding: 0.5rem 0;
 `;
 
-export const Default: Story<ConfirmProps & { offsetX: number; offsetY: number }> = ({
-    visible: _visible,
-    offsetX,
-    offsetY,
-    ...rest
-}) => {
+const StoryDefault = ({ visible: _visible, offsetX, offsetY, ...rest }: StoryConfirmProps) => {
     const [visible, setVisible] = useState(_visible);
 
     const btnRef = useRef<HTMLButtonElement>(null);
@@ -122,27 +122,25 @@ export const Default: Story<ConfirmProps & { offsetX: number; offsetY: number }>
     );
 };
 
-Default.args = {
-    title: 'Использовать максимум возможностей?',
-    subtitle: 'Возможно всё.',
-    view: 'primary',
-    approveText: 'Да',
-    dismissText: 'Нет',
-    placement: 'top',
-    offsetX: 0,
-    offsetY: 0,
-    visible: false,
-    stretch: true,
-    reverseButtons: false,
-    buttonsDirection: undefined,
+export const Default: StoryObj<StoryConfirmProps> = {
+    args: {
+        title: 'Использовать максимум возможностей?',
+        subtitle: 'Возможно всё.',
+        view: 'primary',
+        approveText: 'Да',
+        dismissText: 'Нет',
+        placement: 'top',
+        offsetX: 0,
+        offsetY: 0,
+        visible: false,
+        stretch: true,
+        reverseButtons: false,
+        buttonsDirection: undefined,
+    },
+    render: (args) => <StoryDefault {...args} />,
 };
 
-export const ExtraContent: Story<ConfirmProps & { offsetX: number; offsetY: number }> = ({
-    visible: _visible,
-    offsetX,
-    offsetY,
-    ...rest
-}) => {
+const StoryExtraContent = ({ visible: _visible, offsetX, offsetY, ...rest }: StoryConfirmProps) => {
     const [visible, setVisible] = useState(_visible);
 
     const hide = () => {
@@ -181,17 +179,7 @@ export const ExtraContent: Story<ConfirmProps & { offsetX: number; offsetY: numb
     );
 };
 
-ExtraContent.args = {
-    title: 'Использовать максимум возможностей?',
-    subtitle: 'Возможно всё.',
-    view: 'primary',
-    approveText: 'Да',
-    dismissText: 'Нет',
-    placement: 'top',
-    offsetX: 0,
-    offsetY: 0,
-    visible: false,
-    stretch: true,
-    reverseButtons: false,
-    buttonsDirection: undefined,
+export const ExtraContent: StoryObj<StoryConfirmProps> = {
+    args: { ...Default.args },
+    render: (args) => <StoryExtraContent {...args} />,
 };
