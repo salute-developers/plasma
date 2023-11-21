@@ -1,29 +1,40 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { disableProps, InSpacingDecorator } from '../../helpers';
 
-import { IconSet, IconSetProps } from './IconSet';
+import { IconSet } from './IconSet';
 
-const propsToDisable = ['size', 'exclude', 'include'];
+import type { IconSetProps } from '.';
 
-export default {
+const meta: Meta<IconSetProps> = {
     title: 'Content/Icon',
     decorators: [InSpacingDecorator],
     component: IconSet,
     argTypes: {
-        ...disableProps(propsToDisable),
+        ...disableProps(['size', 'exclude', 'include']),
     },
-} as Meta;
+};
 
-export const XsSize = () => <IconSet size="xs" include={['chevronUp', 'chevronDown', 'disclosureRight']} />;
+export default meta;
 
-export const SmallSize = () => <IconSet size="s" exclude={['chevronUp', 'chevronDown']} />;
+export const XsSize: StoryObj<IconSetProps> = {
+    args: {
+        size: 'xs',
+        include: ['chevronUp', 'chevronDown', 'disclosureRight'],
+    },
+};
 
-export const CustomColor: Story<IconSetProps> = ({ color }) => (
-    <IconSet color={color} exclude={['chevronUp', 'chevronDown']} />
-);
+export const SmallSize: StoryObj<IconSetProps> = {
+    args: {
+        size: 's',
+        exclude: ['chevronUp', 'chevronDown'],
+    },
+};
 
-CustomColor.args = {
-    color: '#fc0',
+export const CustomColor: StoryObj<IconSetProps> = {
+    args: {
+        color: '#fc0',
+        exclude: ['chevronUp', 'chevronDown'],
+    },
 };
