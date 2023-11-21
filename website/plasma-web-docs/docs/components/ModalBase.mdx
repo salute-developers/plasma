@@ -5,7 +5,7 @@ title: ModalBase
 
 import { PropsTable, Description, StorybookLink } from '@site/src/components';
 
-# Popover
+# ModalBase
 <Description name="ModalBase" />
 <PropsTable name="ModalBase" />
 <StorybookLink name="ModalBase" />
@@ -14,21 +14,12 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 
 Перед использованием убедитесь, что `PopupBaseProvider` подключен.
 Компонент ModalBase во многом схож с PopupBase, добавляет при этом подложку(`overlay`), а также блокирует скролл и фокус.
-На данный момент для определения цвета подложки необходимо прокинуть глобальные стили:
 
-``` tsx
-const ModalOverlayVariables = createGlobalStyle`
-    body {
-        --plasma-modal-blur-overlay-color: ${darkOverlayBlur};
-        --plasma-modal-overlay-color: ${overlaySoft};
-    }
-`;
-```
 
 ```tsx live
 import React from 'react';
 import styled from 'styled-components';
-import { surfaceSolid02, darkOverlayBlur, overlaySoft } from '@salutejs/plasma-tokens-web';
+import { surfaceSolid02 } from '@salutejs/plasma-tokens-web';
 import { SSRProvider, Button, ModalBase, PopupBaseProvider } from '@salutejs/plasma-web';
 
 export function App() {
@@ -49,7 +40,7 @@ export function App() {
                         placement="center"
                         offset={[0, 0]}
                     >
-                        <div>
+                        <div style={{ background: `${surfaceSolid02}`, padding: "1rem" }}>
                             <Button onClick={() => setIsOpenA(false)}>Close</Button>
                             <Button text="Открыть B" onClick={() => setIsOpenB(true)} />
                             Content
@@ -61,7 +52,7 @@ export function App() {
                             placement="right"
                             offset={[0, 0]}
                         >
-                            <div>
+                            <div style={{ background: `${surfaceSolid02}`, padding: "1rem" }}>
                                 <Button onClick={() => setIsOpenB(false)}>Close</Button>
                                 Content
                             </div>
@@ -76,22 +67,22 @@ export function App() {
 
 ## Подключение анимации
 
-Подключение анимации аналогично тому, как это происходит в `PopupBase` - через свойство `withAnimation`(управление через `endAnimationClass`/`endTransitionClass`).
-Для добавления анимации в оверлей необходимо использовать класс `.modal-base-overlay` через переменную `modalBaseOverlayClass` из пакета.
+Подключение анимации аналогично тому, как это происходит в `PopupBase` - через свойство `withAnimation`(управление через `popupBaseClasses`, `modalBaseClasses`).
+Для добавления анимации в оверлей необходимо использовать класс `.modal-base-overlay` через переменную `modalBaseClasses.overlay` из пакета.
 
 Пример:
 
 ```tsx
 const StyledModal = styled(ModalBase)`
-    && > .${popupBaseRootClass}, .${modalBaseOverlayClass} {
+    && > .${popupBaseClasses.root}, .${modalBaseClasses.overlay} {
         animation: fadeIn 1s forwards;
     }
 
-    &&.${endAnimationClass} > .${popupBaseRootClass} {
+    &&.${popupBaseClasses.endAnimation} .${popupBaseClasses.root} {
         animation: fadeOut 1s forwards;
     }
 
-    &&.${endAnimationClass} > .${modalBaseOverlayClass} {
+    &&.${popupBaseClasses.endAnimation} .${modalBaseClasses.overlay} {
         animation: fadeOut 1s forwards;
     }
 
