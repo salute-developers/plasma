@@ -15,4 +15,3 @@ export * from './components/Modal';
 export * from './components/Notification';
 export * from './components/Popover';
 export * from './components/Dropdown';
-export * from './components/Popup';
