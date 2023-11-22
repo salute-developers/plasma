@@ -6,6 +6,7 @@ export * from './components/Card';
 export * from './components/Carousel';
 export * from './components/Cell';
 export * from './components/Checkbox';
+export * from './components/Chip';
 export * from './components/Dropdown';
 export * from './components/Editable';
 export * from './components/ElasticGrid';

@@ -30,7 +30,7 @@ type StoryDropdownProps = ComponentProps<typeof Chip>;
 
 const StoryBaseChip: Story = {
     args: {
-        children: 'Hello',
+        text: 'Hello',
         view: 'default',
         size: 'm',
         disabled: false,

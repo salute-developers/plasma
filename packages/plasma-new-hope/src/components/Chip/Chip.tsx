@@ -16,17 +16,19 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
     forwardRef<HTMLButtonElement, ChipProps>((props, ref) => {
         const {
             children,
+            text,
             contentLeft,
             contentRight,
-            hasClear,
             contentClear,
-            readOnly,
-            disabled,
             size,
             onClear,
+            hasClear = false,
+            readOnly = false,
+            disabled = false,
             ...rest
         } = props;
 
+        const txt = !text && typeof children === 'string' ? children : text;
         const readOnlyClass = readOnly ? classes.readOnly : undefined;
 
         const handleClick = () => {
@@ -67,7 +69,7 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
                 {...rest}
             >
                 {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
-                <StyledContentMain>{children}</StyledContentMain>
+                {txt ? <StyledContentMain>{txt}</StyledContentMain> : children}
                 {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
                 {hasClear && ClearContent}
             </Root>
