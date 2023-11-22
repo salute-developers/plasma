@@ -42,7 +42,6 @@
     "@storybook/addons": "6.5.16",
     "@storybook/builder-vite": "0.4.2",
     "@storybook/client-logger": "6.5.16",
-    "@storybook/preset-create-react-app": "3.2.0",
     "@storybook/react": "6.5.16",
     "@storybook/theming": "6.5.16",
     "@testing-library/react": "12.0.0",
