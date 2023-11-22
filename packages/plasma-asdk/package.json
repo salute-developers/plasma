@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-asdk",
-  "version": "0.8.0-dev.0",
+  "version": "0.8.1-dev.0",
   "description": "Salute Design System / React UI kit for Assistant web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -19,8 +19,8 @@
     "directory": "packages/plasma-asdk"
   },
   "dependencies": {
-    "@salutejs/plasma-core": "1.139.0",
-    "@salutejs/plasma-new-hope": "0.15.0-dev.0",
+    "@salutejs/plasma-core": "1.139.1-dev.0",
+    "@salutejs/plasma-new-hope": "0.15.1-dev.0",
     "@salutejs/plasma-tokens": "1.65.0",
     "@salutejs/plasma-tokens-b2b": "1.30.0",
     "@salutejs/plasma-typo": "0.39.0"
@@ -40,8 +40,8 @@
     "@microsoft/api-extractor": "7.38.3",
     "@salutejs/plasma-colors": "0.11.0",
     "@salutejs/plasma-cy-utils": "0.72.0",
-    "@salutejs/plasma-icons": "1.171.0",
-    "@salutejs/plasma-sb-utils": "0.137.0",
+    "@salutejs/plasma-icons": "1.171.1-dev.0",
+    "@salutejs/plasma-sb-utils": "0.137.1-dev.0",
     "@storybook/addon-docs": "7.5.3",
     "@storybook/addon-essentials": "7.5.3",
     "@storybook/addons": "7.5.3",
