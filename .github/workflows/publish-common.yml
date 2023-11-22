@@ -12,7 +12,11 @@ on:
         description: "Execute npm run cmd. For example cmd='bootstrap' => npm run bootstrap"
       commit-message:
         type: string
-        default: 'chore: update package-locks [skip ci]'
+        default: 'chore: Update package-lock.json files [skip ci]'
+      ref:
+        type: string
+        description: "Manual set repo ref"
+        default: ''
     secrets:
       gh_token:
         required: true
@@ -26,30 +30,33 @@ jobs:
       NPM_REGISTRY_TOKEN: ${{ secrets.npm_registry_token }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+          ref: ${{ inputs.ref }}
+      
       - name: Prepare repository
         run: git fetch --unshallow --tags
-
+      
       - name: Unset header
         # https://github.com/intuit/auto/issues/1030
         run: git config --local --unset http.https://github.com/.extraheader
-
+      
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
-
+      
       - name: Lerna bootstrap
         run: npm run ${{ inputs.cmd }}
-
+      
       - name: API Report
         run: npm run api:report
-
+      
       - name: Release Info
         run: npm whoami && npx lerna info && npx auto info || echo 'auto info returned 1'
-
+      
       - name: Create Release
         run: npm run release
-
+      
       - name: Update package-lock files
         if: ${{ inputs.with-update-package-lock }}
         uses: ./.github/actions/update-package-lock

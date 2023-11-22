@@ -1,5 +1,6 @@
-import React from 'react';
-import { Meta, ComponentStory } from '@storybook/react';
+import React, { useState } from 'react';
+import type { ComponentProps } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
 import { SSRProvider } from '../SSRProvider';
@@ -7,7 +8,8 @@ import { InSpacingDecorator, disableProps } from '../../helpers';
 import { Link } from '../Link';
 import { List, ListItem } from '../List';
 
-import { Checkbox, CheckboxProps } from '.';
+import { Checkbox } from '.';
+import type { CheckboxProps as Base } from '.';
 
 const propsToDisable = [
     'view',
@@ -28,7 +30,13 @@ const propsToDisable = [
     'onBlur',
 ];
 
-export default {
+const onChange = action('onChange');
+const onFocus = action('onFocus');
+const onBlur = action('onBlur');
+
+type CheckboxProps = ComponentProps<Base>;
+
+const meta: Meta<CheckboxProps> = {
     title: 'Controls/Checkbox',
     component: Checkbox,
     decorators: [InSpacingDecorator],
@@ -44,15 +52,14 @@ export default {
             },
         },
     },
-} as Meta;
+};
 
-const onChange = action('onChange');
-const onFocus = action('onFocus');
-const onBlur = action('onBlur');
+export default meta;
 
 const sizes = ['m', 's'];
 
 const name = 'languages';
+
 const items = [
     {
         name,
@@ -118,6 +125,7 @@ const items = [
 ];
 
 const getChildren = (value: string) => items.filter((item) => item.parent === value);
+
 const getState = (values: Record<string, boolean | undefined>, value: string) => {
     const allChildren = getChildren(value);
 
@@ -138,8 +146,54 @@ const getState = (values: Record<string, boolean | undefined>, value: string) =>
     return { checked: true, indeterminate: false };
 };
 
-export const Live = (args) => {
-    const [values, setValues] = React.useState({
+const StoryDefault = (args: CheckboxProps) => {
+    const value = 0;
+    const [checked, setChecked] = useState(true);
+
+    return (
+        <SSRProvider>
+            <Checkbox
+                value={value}
+                checked={checked}
+                onChange={(event) => {
+                    event.persist();
+
+                    setChecked(event.target.checked);
+                    onChange(event);
+                }}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                {...args}
+            />
+        </SSRProvider>
+    );
+};
+
+export const Default: StoryObj<CheckboxProps> = {
+    argTypes: {
+        ...disableProps(propsToDisable),
+        size: {
+            options: sizes,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+    },
+    args: {
+        name: 'checkbox',
+        label: 'Label',
+        description: 'Description',
+        disabled: false,
+        singleLine: false,
+        size: 'm',
+        view: 'accent',
+        focused: true,
+    },
+    render: (args) => <StoryDefault {...args} />,
+};
+
+const StoryLive = (args: CheckboxProps) => {
+    const [values, setValues] = useState({
         russian: true,
         english: true,
         french: true,
@@ -191,63 +245,16 @@ export const Live = (args) => {
     );
 };
 
-Live.argTypes = {
-    ...disableProps([...propsToDisable, 'label', 'description']),
-    size: {
-        options: sizes,
-        control: {
-            type: 'inline-radio',
-        },
+export const Live: StoryObj<CheckboxProps> = {
+    argTypes: {
+        ...Default.argTypes,
+        ...disableProps(['label', 'description']),
     },
-};
-
-Live.args = {
-    size: 'm',
-    view: 'accent',
-    singleLine: false,
-    focused: true,
-};
-
-export const Default: ComponentStory<CheckboxProps> = (args) => {
-    const value = 0;
-    const [checked, setChecked] = React.useState(true);
-
-    return (
-        <SSRProvider>
-            <Checkbox
-                value={value}
-                checked={checked}
-                onChange={(event) => {
-                    event.persist();
-
-                    setChecked(event.target.checked);
-                    onChange(event);
-                }}
-                onFocus={onFocus}
-                onBlur={onBlur}
-                {...args}
-            />
-        </SSRProvider>
-    );
-};
-
-Default.args = {
-    name: 'checkbox',
-    label: 'Label',
-    description: 'Description',
-    disabled: false,
-    singleLine: false,
-    size: 'm',
-    view: 'accent',
-    focused: true,
-};
-
-Default.argTypes = {
-    ...disableProps(propsToDisable),
-    size: {
-        options: sizes,
-        control: {
-            type: 'inline-radio',
-        },
+    args: {
+        size: 'm',
+        view: 'accent',
+        singleLine: false,
+        focused: true,
     },
+    render: (args) => <StoryLive {...args} />,
 };

@@ -3,8 +3,10 @@ name: PR Documentation and Storybook
 on:
   pull_request:
     branches:
-      - dev
       - master
+  pull_request_target:
+    branches:
+      - dev
 
 concurrency:
   # New commit on branch cancels running workflows of the same branch
@@ -12,15 +14,21 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  authorize:
+    name: Authorize external pull request
+    uses: ./.github/workflows/authorize-external-pr.yml
+  
   scope:
+    needs: [ authorize ]
     uses: ./.github/workflows/change-detection.yml
     with:
       as-enumeration: true
+      ref: refs/pull/${{github.event.pull_request.number}}/merge
     secrets: inherit
-
+  
   build:
     name: Build
-    needs: scope
+    needs: [ authorize, scope ]
     if: ${{ needs.scope.outputs.HAS_DOCUMENTATION_CHANGED == 'true' }}
     runs-on: ubuntu-latest
     env:
@@ -30,11 +38,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-         show-progress: false
-
+          show-progress: false
+          ref: refs/pull/${{github.event.pull_request.number}}/merge
+      
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
-
+      
       - name: Computed scope
         id: scope
         uses: actions/github-script@v6
@@ -46,7 +55,7 @@ jobs:
             const { ENUMERATION } = process.env;
             
             const enumeration = JSON.parse(JSON.parse(ENUMERATION));
-                                    
+            
             if (!enumeration.includes('plasma-core')) {
               enumeration.push('plasma-core');
             }
@@ -54,11 +63,11 @@ jobs:
             if (!enumeration.includes('plasma-hope')) {
               enumeration.push('plasma-hope');
             }
-
+            
             if (!enumeration.includes('plasma-new-hope')) {
               enumeration.push('plasma-new-hope');
             }
-
+            
             if (!enumeration.includes('plasma-tokens-utils')) {
               enumeration.push('plasma-tokens-utils');
             }
@@ -87,81 +96,81 @@ jobs:
               enumeration.push('plasma-web');
             }
             
-            return enumeration.join(',');  
-
+            return enumeration.join(',');
+      
       - name: Lerna bootstrap
         run: npx lerna bootstrap --scope=@salutejs/{${{steps.scope.outputs.result}}}
-
+      
       - name: Prepare directory
         run: mkdir -p s3_build/${PR_NAME}
-
+      
       # TODO: https://github.com/salute-developers/plasma/issues/603
       - name: Plasma Website
         run: |
           export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-website"
           cp -R ./website/plasma-website/build/. ./s3_build/${PR_NAME}
-
+      
       - name: Plasma UI Docs
         if: ${{ needs.scope.outputs.HAS_PLASMA_UI_DOCS == 'true' && needs.scope.outputs.HAS_PLASMA_UI == 'true' }}
         run: |
           export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-ui-docs"
           cp -R ./website/plasma-ui-docs/build ./s3_build/${PR_NAME}/ui
-
+      
       - name: Plasma Web Docs
         if: ${{ needs.scope.outputs.HAS_PLASMA_WEB_DOCS == 'true' }}
         run: |
           export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-web-docs"
           cp -R ./website/plasma-web-docs/build ./s3_build/${PR_NAME}/web
-
+      
       - name: Plasma Web Temple
         if: ${{ needs.scope.outputs.HAS_PLASMA_TEMPLE_DOCS == 'true' && needs.scope.outputs.HAS_PLASMA_TEMPLE == 'true' }}
         run: |
           export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-temple-docs"
           cp -R ./website/plasma-temple-docs/build ./s3_build/${PR_NAME}/temple
-
+      
       - name: Plasma UI Storybook
         if: ${{ needs.scope.outputs.HAS_PLASMA_UI == 'true' }}
         run: |
           npm run storybook:build --prefix="./packages/plasma-ui"
           cp -R ./packages/plasma-ui/build-sb ./s3_build/${PR_NAME}/ui-storybook
-
+      
       - name: Plasma Web Storybook
         if: ${{ needs.scope.outputs.HAS_PLASMA_WEB == 'true' }}
         run: |
           npm run storybook:build --prefix="./packages/plasma-web"
           cp -R ./packages/plasma-web/build-sb ./s3_build/${PR_NAME}/web-storybook
-
+      
       - name: Plasma B2C Storybook
         if: ${{ needs.scope.outputs.HAS_PLASMA_B2C == 'true' }}
         run: |
           npm run storybook:build --prefix="./packages/plasma-b2c"
           cp -R ./packages/plasma-b2c/build-sb ./s3_build/${PR_NAME}/b2c-storybook
-
+      
       - name: Plasma Temple Storybook
         if: ${{ needs.scope.outputs.HAS_PLASMA_TEMPLE == 'true' }}
         run: |
           npm run storybook:build --prefix="./packages/plasma-temple"
           cp -R ./packages/plasma-temple/build-sb ./s3_build/${PR_NAME}/temple-storybook
-
+      
       - name: Plasma "New Hope" Storybook
         if: ${{ needs.scope.outputs.HAS_PLASMA_HOPE == 'true' }}
         run: |
           npm run storybook:build --prefix="./packages/plasma-new-hope"
           cp -R ./packages/plasma-new-hope/build-sb ./s3_build/${PR_NAME}/new-hope-storybook
-
+      
       - name: Plasma "ASDK" Storybook
         if: ${{ needs.scope.outputs.HAS_PLASMA_ASDK == 'true' }}
         run: |
           npm run storybook:build --prefix="./packages/plasma-asdk"
           cp -R ./packages/plasma-asdk/build-sb ./s3_build/${PR_NAME}/asdk-storybook
-
+      
       - name: Install s3cmd
         run: pip3 install s3cmd
-
+      
       - name: s3 Upload builds
         run: >
           s3cmd
@@ -176,7 +185,7 @@ jobs:
           sync
           ./s3_build/${PR_NAME}/
           s3://${{ secrets.AWS_S3_BUCKET_2 }}/pr/${PR_NAME}/
-
+      
       - name: Post success comment
         uses: actions/github-script@v6
         env:
@@ -190,10 +199,10 @@ jobs:
           github-token: ${{secrets.GH_TOKEN}}
           script: |
             const { HAS_PLASMA_B2C, HAS_PLASMA_WEB, HAS_PLASMA_UI, HAS_PLASMA_TEMPLE, HAS_PLASMA_HOPE, HAS_PLASMA_ASDK } = process.env;
-                              
-            const { 
-              issue: { number }, 
-              repo: { owner, repo } 
+            
+            const {
+              issue: { number },
+              repo: { owner, repo }
             } = context;
             
             const links = [
@@ -223,7 +232,7 @@ jobs:
             if (HAS_PLASMA_ASDK === 'true') {
               links.push(`asdk storybook: http://plasma.sberdevices.ru/pr/pr-${number}/asdk-storybook/`)
             }
-
+            
             github.rest.issues.createComment({
               issue_number: number,
               owner,

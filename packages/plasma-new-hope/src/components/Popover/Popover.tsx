@@ -4,7 +4,7 @@ import { useFocusTrap, useForkRef } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines/types';
 
-import type { PopoverPlacement, PopoverProps } from './type';
+import type { PopoverPlacement, PopoverProps } from './Popover.types';
 import { ESCAPE_KEYCODE, getAutoPlacements, getPlacement } from './utils';
 import { StyledArrow, StyledPopover, StyledRoot } from './styles';
 
@@ -21,11 +21,13 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                 isOpen,
                 trigger,
                 arrow,
+                className,
                 placement = 'auto',
                 offset = [0, 0],
                 isFocusTrapped = true,
                 closeOnOverlayClick = true,
                 closeOnEsc = true,
+                preventOverflow = true,
                 onToggle,
                 ...rest
             },
@@ -47,6 +49,12 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             const { styles, attributes, forceUpdate } = usePopper(rootRef.current, popoverRef.current, {
                 placement: getPlacement(isAutoArray ? 'auto' : (placement as PopoverPlacement)),
                 modifiers: [
+                    {
+                        name: 'preventOverflow',
+                        options: {
+                            mainAxis: preventOverflow,
+                        },
+                    },
                     { name: 'offset', options: { offset: [offset[0], offset[1]] } },
                     {
                         name: 'flip',
@@ -166,6 +174,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                     onMouseLeave={onMouseLeave}
                     onFocus={onFocus}
                     onBlur={onBlur}
+                    className={className}
                     {...rest}
                 >
                     {target}

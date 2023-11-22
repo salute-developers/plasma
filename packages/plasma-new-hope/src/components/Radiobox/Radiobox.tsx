@@ -105,6 +105,7 @@ export const radioboxRoot = (Root: RootProps<HTMLInputElement, RadioboxProps>) =
         const isLabelAriaHidden = typeof label === 'string';
         const canFocused = focused ? 0 : -1;
         const singleLineClass = singleLine ? 'single-line' : undefined;
+        const hasContent = label || description;
 
         return (
             <Root
@@ -130,18 +131,24 @@ export const radioboxRoot = (Root: RootProps<HTMLInputElement, RadioboxProps>) =
                     <StyledTrigger className="radiobox-trigger">
                         <StyledEllipse />
                     </StyledTrigger>
-                    <StyledContent className={singleLineClass}>
-                        {label && (
-                            <StyledLabel className={singleLineClass} id={uniqLabelId} aria-hidden={isLabelAriaHidden}>
-                                {label}
-                            </StyledLabel>
-                        )}
-                        {description && (
-                            <StyledDescription className={singleLineClass} id={uniqDescriptionId}>
-                                {description}
-                            </StyledDescription>
-                        )}
-                    </StyledContent>
+                    {hasContent && (
+                        <StyledContent className={singleLineClass}>
+                            {label && (
+                                <StyledLabel
+                                    className={singleLineClass}
+                                    id={uniqLabelId}
+                                    aria-hidden={isLabelAriaHidden}
+                                >
+                                    {label}
+                                </StyledLabel>
+                            )}
+                            {description && (
+                                <StyledDescription className={singleLineClass} id={uniqDescriptionId}>
+                                    {description}
+                                </StyledDescription>
+                            )}
+                        </StyledContent>
+                    )}
                 </StyledContentWrapper>
             </Root>
         );
