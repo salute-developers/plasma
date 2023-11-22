@@ -1,0 +1,91 @@
+---
+id: chip
+title: Chip
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Chip
+Chips могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.
+
+## Chip
+<Description name="Chip" />
+<PropsTable name="Chip" exclude={['css', 'focused']} />
+<StorybookLink name="Chip" />
+
+## Использование
+Компонент `Chip` может содержать текст, который указывается в
+свойстве `text`, или любой контент напрямую через `children`.
+
+Свойство `text` можно использовать вместе со свойствами `contentLeft` и `contentRight`.
+С их помощью можно размещать **иконку** слева или справа от текста.
+
+Так же есть свойство свойство `contentClearButton`, которое позволяет прокинуть кастомную **иконку**.
+
+```tsx live
+import React from 'react';
+import { Chip } from '@salutejs/plasma-web';
+import { IconDownload } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <Chip text="Текст" />
+
+            <Chip text="Текст" contentLeft={<IconDownload color="inherit" />} />
+
+            <Chip contentLeft={<IconDownload color="inherit" />} />
+
+            <Chip text="Текст" />
+
+            <Chip text="Текст" contentLeft={<IconDownload color="inherit" />} />
+
+            <Chip>
+                Текст
+            </Chip>
+        </div>
+    );
+}
+```
+
+## Примеры
+
+### Размер Chip
+Размер Chip задается с помощью свойства `size`. Возможные значения свойства: `"l"`, `"m"`, `"s"` или `"xs"`:
+
+```tsx live
+import React from 'react';
+import { Chip } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <div>
+            <Chip text="Chip" size="l" />
+            <Chip text="Chip" size="m" />
+            <Chip text="Chip" size="s" />
+            <Chip text="Chip" size="xs" />
+        </div>
+    );
+}
+```
+
+### Вид Chip
+Вид Chip задается с помощью свойства `view`. Возможные значения свойства `view`:
++ `"default"` – основная;
++ `"secondary"` – вторичная;
++ `"positive"` – успешное завершение;
+
+```tsx live
+import React from 'react';
+import { Chip } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <div>
+            <Chip text="Chip" size="m" view="default" />
+            <Chip text="Chip" size="m" view="secondary" />
+            <Chip text="Chip" size="m" view="positive" />
+        </div>
+    );
+}
+```
