@@ -48,6 +48,7 @@ import { Breakpoint } from '@salutejs/plasma-hope';
 import { BreakWordProps } from '@salutejs/plasma-core';
 import { Button1 } from '@salutejs/plasma-hope';
 import { Button2 } from '@salutejs/plasma-hope';
+import { ButtonHTMLAttributes } from 'react';
 import { ButtonProps } from '@salutejs/plasma-hope';
 import { ButtonView } from '@salutejs/plasma-hope';
 import { buttonViews } from '@salutejs/plasma-hope';
@@ -75,6 +76,7 @@ import { CarouselItemProps } from '@salutejs/plasma-hope';
 import { CarouselProps } from '@salutejs/plasma-hope';
 import { Cell } from '@salutejs/plasma-hope';
 import { CellProps } from '@salutejs/plasma-hope';
+import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { clearSelection } from '@salutejs/plasma-hope';
 import { closeNotification } from '@salutejs/plasma-new-hope/styled-components';
 import { Col } from '@salutejs/plasma-hope';
@@ -458,6 +460,41 @@ true: string;
 //
 // @public (undocumented)
 export type CheckboxProps = typeof CheckboxComponent;
+
+// @public
+export const Chip: FunctionComponent<PropsType<    {
+view: {
+primary: string;
+secondary: string;
+positive: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & ButtonHTMLAttributes<HTMLButtonElement> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+contentClearButton?: ReactNode;
+disabled?: boolean | undefined;
+readOnly?: boolean | undefined;
+size?: "s" | "l" | "m" | "xs" | undefined;
+view?: "secondary" | "default" | "positive" | undefined;
+onClear?: (() => void) | undefined;
+} & {
+children?: ReactNode;
+} & RefAttributes<HTMLButtonElement>>;
+
+export { ChipProps }
 
 export { clearSelection }
 
