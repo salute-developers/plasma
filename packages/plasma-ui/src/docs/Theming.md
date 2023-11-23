@@ -1,7 +1,3 @@
-import { Meta } from '@storybook/addon-docs';
-
-<Meta title="Theming" />
-
 # Смена персонажа ассистента
 
 Для смены персонажа ассистента используйте токены пакета `plasma-tokens`.
