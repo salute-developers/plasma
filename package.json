@@ -121,7 +121,7 @@
     "stylelint-processor-styled-components": "1.10.0",
     "terminal-link": "3.0.0",
     "ts-loader": "9.2.3",
-    "typescript": "4.0.8",
+    "typescript": "4.2.4",
     "url-loader": "4.1.1",
     "webpack": "5.76.0",
     "webpack-dev-server": "3.11.2"
