@@ -49,7 +49,7 @@
     "jsdom-global": "3.0.2",
     "styled-components": "5.3.6",
     "ts-node": "10.2.1",
-    "typescript": "4.0.8"
+    "typescript": "4.2.4"
   },
   "contributors": [
     "Виноградов Антон Александрович",
