@@ -1,23 +1,23 @@
 import { action } from '@storybook/addon-actions';
 import { disableProps } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
-import React from 'react';
 
 import { chipConfig } from '../../../../components/Chip';
 import { mergeConfig } from '../../../../engines';
 import { WithTheme, argTypesFromConfig } from '../../../_helpers';
 
 import { config } from './Chip.config';
-import { Chip, ChipReadOnly } from './Chip';
+import { Chip } from './Chip';
 
 const onClear = action('onClear');
 
 const meta: Meta<typeof Chip> = {
     title: 'sds_engineer/Chip',
+    component: Chip,
     decorators: [WithTheme],
     argTypes: {
         ...argTypesFromConfig(mergeConfig(chipConfig, config)),
-        ...disableProps(['readOnly', 'hasClear', 'onClear']),
+        ...disableProps(['onClear', 'disabled', 'contentLeft']),
     },
 };
 
@@ -28,21 +28,9 @@ type Story = StoryObj<typeof Chip>;
 export const Default: Story = {
     args: {
         text: 'Hello',
-        view: 'default',
+        view: 'primary',
         size: 'm',
-        hasClear: true,
+        readOnly: false,
         onClear,
     },
-    render: (args) => <Chip {...args} />,
-};
-
-export const ReadOnly: Story = {
-    args: {
-        text: 'Hello',
-        view: 'default',
-        size: 'm',
-        hasClear: false,
-        readOnly: true,
-    },
-    render: (args) => <ChipReadOnly {...args} />,
 };

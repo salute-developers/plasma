@@ -2,21 +2,19 @@ import { css, chipTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
-        view: 'default',
+        view: 'primary',
         focused: 'true',
         size: 'm',
     },
     variations: {
         view: {
-            default: css`
+            primary: css`
                 ${chipTokens.color}: var(--plasma-colors-inverse);
                 ${chipTokens.background}: var(--plasma-colors-primary);
                 ${chipTokens.colorHover}: var(--plasma-colors-inverse);
-                ${chipTokens.backgroundHover}: var(--plasma-colors-button-checked-hover, #080808);
-                ${chipTokens.scaleHover}: 1.02;
+                ${chipTokens.backgroundHover}: var(--plasma-colors-button-checked-hover);
                 ${chipTokens.colorActive}: var(--plasma-colors-inverse);
-                ${chipTokens.backgroundActive}: var(--plasma-colors-button-checked-active, #080808);
-                ${chipTokens.scaleActive}: 0.98;
+                ${chipTokens.backgroundActive}: var(--plasma-colors-button-checked-active);
                 ${chipTokens.backgroundReadOnly}: var(--plasma-colors-primary);
                 ${chipTokens.colorReadOnly}: var(--plasma-colors-inverse);
                 ${chipTokens.backgroundReadOnlyHover}: var(--plasma-colors-primary);
@@ -27,10 +25,8 @@ export const config = {
                 ${chipTokens.background}: var(--plasma-colors-surface-liquid02);
                 ${chipTokens.colorHover}: var(--plasma-colors-text);
                 ${chipTokens.backgroundHover}: var(--plasma-colors-button-secondary-hover);
-                ${chipTokens.scaleHover}: 1.02;
                 ${chipTokens.colorActive}: var(--plasma-colors-text);
                 ${chipTokens.backgroundActive}: var(--plasma-colors-button-secondary-active);
-                ${chipTokens.scaleActive}: 0.98;
                 ${chipTokens.backgroundReadOnly}: var(--plasma-colors-surface-liquid02);
                 ${chipTokens.colorReadOnly}: var(--plasma-colors-text);
                 ${chipTokens.backgroundReadOnlyHover}: var(--plasma-colors-surface-liquid02);
@@ -40,11 +36,9 @@ export const config = {
                 ${chipTokens.color}: var(--plasma-colors-white-primary);
                 ${chipTokens.background}: var(--plasma-colors-success);
                 ${chipTokens.colorHover}: var(--plasma-colors-white-primary);
-                ${chipTokens.backgroundHover}: var(--plasma-colors-button-success-hover, #379740);
-                ${chipTokens.scaleHover}: 1.02;
+                ${chipTokens.backgroundHover}: var(--plasma-colors-button-success-hover);
                 ${chipTokens.colorActive}: var(--plasma-colors-white-primary);
-                ${chipTokens.backgroundActive}: var(--plasma-colors-button-success-active, #157e26);
-                ${chipTokens.scaleActive}: 0.98;
+                ${chipTokens.backgroundActive}: var(--plasma-colors-button-success-active);
                 ${chipTokens.backgroundReadOnly}: var(--plasma-colors-success);
                 ${chipTokens.colorReadOnly}: var(--plasma-colors-white-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--plasma-colors-success);
@@ -70,6 +64,11 @@ export const config = {
                 ${chipTokens.leftContentMarginRight}: 0.5rem;
                 ${chipTokens.clearContentMarginLeft}: 0.625rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
+
+                ${chipTokens.scaleHover}: 1.02;
+                ${chipTokens.scaleActive}: 0.98;
+
+                ${chipTokens.closeIconSize}: 1.5rem;
             `,
             m: css`
                 ${chipTokens.borderRadius}: 0.625rem;
@@ -89,6 +88,11 @@ export const config = {
                 ${chipTokens.leftContentMarginRight}: 0.375rem;
                 ${chipTokens.clearContentMarginLeft}: 0.5rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
+
+                ${chipTokens.scaleHover}: 1.02;
+                ${chipTokens.scaleActive}: 0.98;
+
+                ${chipTokens.closeIconSize}: 1.25rem;
             `,
             s: css`
                 ${chipTokens.borderRadius}: 0.5rem;
@@ -108,6 +112,11 @@ export const config = {
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
                 ${chipTokens.clearContentMarginLeft}: 0.375rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
+
+                ${chipTokens.scaleHover}: 1.02;
+                ${chipTokens.scaleActive}: 0.98;
+
+                ${chipTokens.closeIconSize}: 1rem;
             `,
             xs: css`
                 ${chipTokens.borderRadius}: 0.375rem;
@@ -127,6 +136,11 @@ export const config = {
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
                 ${chipTokens.clearContentMarginLeft}: 0.25rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
+
+                ${chipTokens.scaleHover}: 1.02;
+                ${chipTokens.scaleActive}: 0.98;
+
+                ${chipTokens.closeIconSize}: 1rem;
             `,
         },
         disabled: {

@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { classes, tokens } from '../../Chip.tokens';
+import { tokens } from '../../Chip.tokens';
 
 export const base = css`
     color: var(${tokens.color});
@@ -18,19 +18,5 @@ export const base = css`
         background-color: var(${tokens.backgroundActive});
 
         scale: var(${tokens.scaleActive});
-    }
-
-    &.${String(classes.readOnly)} {
-        color: var(${tokens.colorReadOnly});
-        background-color: var(${tokens.backgroundReadOnly});
-
-        :hover,
-        :active {
-            scale: none;
-            cursor: default;
-
-            color: var(${tokens.colorReadOnlyHover});
-            background-color: var(${tokens.backgroundReadOnlyHover});
-        }
     }
 `;

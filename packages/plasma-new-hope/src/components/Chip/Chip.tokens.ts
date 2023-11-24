@@ -1,7 +1,3 @@
-export const classes = {
-    readOnly: 'read-only',
-};
-
 export const tokens = {
     background: '--plasma-chip-background',
     color: '--plasma-chip-color',
@@ -25,6 +21,7 @@ export const tokens = {
     paddingRight: '--plasma-chip-padding-right',
     paddingBottom: '--plasma-chip-padding-bottom',
     paddingLeft: '--plasma-chip-padding-left',
+    closeIconSize: '--plasma-chip-close-icon-size',
 
     disabledOpacity: '--plasma-chip-disabled-opacity',
 
