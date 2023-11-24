@@ -1,17 +1,28 @@
 import React from 'react';
+import type { FC } from 'react';
+import { createGlobalStyle } from 'styled-components';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { IconDownload } from '@salutejs/plasma-icons';
 import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
 
 const Icon = () => <IconDownload color="inherit" />;
+const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 describe('plasma-web: Chip', () => {
     const Chip = getComponent('Chip');
 
+    const CypressTestDecoratorWithTypo: FC = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
+
     it('simple', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Chip>Hello Plasma</Chip>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -19,7 +30,7 @@ describe('plasma-web: Chip', () => {
 
     it('with Icon', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Chip text="with Icon" contentLeft={<Icon />} />
                 <PadMe />
                 <Chip text="with Icon" contentRight={<Icon />} />
@@ -41,7 +52,7 @@ describe('plasma-web: Chip', () => {
                 <Chip contentLeft={<Icon />} />
                 <SpaceMe />
                 <Chip contentRight={<Icon />} />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();
     });
@@ -60,7 +71,7 @@ describe('plasma-web: Chip', () => {
 
     it('fixed width', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Chip style={{ width: '10rem' }}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</Chip>
                 <PadMe />
                 <Chip
@@ -68,7 +79,7 @@ describe('plasma-web: Chip', () => {
                     text="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
                     contentLeft={<Icon />}
                 />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -76,7 +87,7 @@ describe('plasma-web: Chip', () => {
 
     it('_view', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Chip view="default" text="Chip_view_default" contentLeft={<Icon />} />
                 <SpaceMe />
                 <Chip view="default" text="_disabled" disabled contentLeft={<Icon />} />
@@ -88,14 +99,14 @@ describe('plasma-web: Chip', () => {
                 <Chip view="positive" text="Chip_view_positive" contentLeft={<Icon />} />
                 <SpaceMe />
                 <Chip view="positive" text="_disabled" disabled contentLeft={<Icon />} />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();
     });
 
     it('_size', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Chip text="Chip_size_l" size="l" contentLeft={<Icon />} />
                 <PadMe />
                 <Chip text="Chip_size_m" size="m" contentLeft={<Icon />} />
@@ -103,7 +114,7 @@ describe('plasma-web: Chip', () => {
                 <Chip text="Chip_size_s" size="s" contentLeft={<Icon />} />
                 <PadMe />
                 <Chip text="Chip_size_xs" size="xs" contentLeft={<Icon />} />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();
     });
