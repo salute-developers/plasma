@@ -4,20 +4,18 @@ import { chipTokens } from '../../../../components/Chip';
 
 export const config = {
     defaults: {
-        view: 'default',
+        view: 'primary',
         size: 'm',
     },
     variations: {
         view: {
-            default: css`
+            primary: css`
                 ${chipTokens.color}: var(--text-primary);
                 ${chipTokens.background}: var(--surface-transparent-secondary);
                 ${chipTokens.colorHover}: var(--text-primary);
                 ${chipTokens.backgroundHover}: rgba(12, 143, 230, 0.11);
-                ${chipTokens.backgroundReadOnly}: var(--surface-transparent-secondary);
-                ${chipTokens.colorReadOnly}: var(--text-accent);
-                ${chipTokens.backgroundReadOnlyHover}: rgba(12, 143, 230, 0.11);
-                ${chipTokens.colorReadOnlyHover}: var(--text-accent);
+                ${chipTokens.colorActive}: var(--text-primary);
+                ${chipTokens.backgroundActive}: rgba(12, 143, 230, 0.11);
             `,
         },
         size: {
@@ -37,6 +35,8 @@ export const config = {
 
                 ${chipTokens.clearContentMarginLeft}: 0.5rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
+
+                ${chipTokens.closeIconSize}: 1rem;
             `,
             s: css`
                 ${chipTokens.borderRadius}: 2.5rem;
@@ -54,6 +54,8 @@ export const config = {
 
                 ${chipTokens.clearContentMarginLeft}: 0.5rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
+
+                ${chipTokens.closeIconSize}: 1rem;
             `,
             xs: css`
                 ${chipTokens.borderRadius}: 2.5rem;
@@ -71,6 +73,8 @@ export const config = {
 
                 ${chipTokens.clearContentMarginLeft}: 0.25rem;
                 ${chipTokens.clearContentMarginRight}: -0.125rem;
+
+                ${chipTokens.closeIconSize}: 1rem;
             `,
             xxs: css`
                 ${chipTokens.borderRadius}: 0.375rem;
@@ -88,6 +92,20 @@ export const config = {
 
                 ${chipTokens.clearContentMarginLeft}: 0.25rem;
                 ${chipTokens.clearContentMarginRight}: -0.125rem;
+
+                ${chipTokens.closeIconSize}: 1rem;
+            `,
+        },
+        readOnly: {
+            true: css`
+                ${chipTokens.color}: var(--text-accent);
+                ${chipTokens.background}: var(--surface-transparent-secondary);
+                ${chipTokens.colorHover}: var(--text-accent);
+                ${chipTokens.backgroundHover}: rgba(12, 143, 230, 0.11);
+                ${chipTokens.backgroundReadOnly}: var(--surface-transparent-secondary);
+                ${chipTokens.colorReadOnly}: var(--text-accent);
+                ${chipTokens.backgroundReadOnlyHover}: rgba(12, 143, 230, 0.11);
+                ${chipTokens.colorReadOnlyHover}: var(--text-accent);
             `,
         },
     },

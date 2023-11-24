@@ -19,4 +19,12 @@ export const base = css`
     padding-right: var(${tokens.paddingRight});
     padding-bottom: var(${tokens.paddingBottom});
     padding-left: var(${tokens.paddingLeft});
+
+    :hover {
+        scale: var(${tokens.scaleHover});
+    }
+
+    :active {
+        scale: var(${tokens.scaleActive});
+    }
 `;

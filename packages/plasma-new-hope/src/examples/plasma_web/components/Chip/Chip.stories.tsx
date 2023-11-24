@@ -1,5 +1,4 @@
 import React from 'react';
-import type { ComponentProps } from 'react';
 import { action } from '@storybook/addon-actions';
 import { disableProps } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
@@ -19,26 +18,13 @@ const meta: Meta<typeof Chip> = {
     component: Chip,
     argTypes: {
         ...argTypesFromConfig(mergeConfig(chipConfig, config)),
-        ...disableProps(['onClear', 'contentLeft']),
+        ...disableProps(['readOnly', 'onClear', 'contentLeft']),
     },
 };
 
 export default meta;
 
 type Story = StoryObj<typeof Chip>;
-type StoryDropdownProps = ComponentProps<typeof Chip>;
-
-const StoryBaseChip: Story = {
-    args: {
-        text: 'Hello',
-        view: 'default',
-        size: 'm',
-        disabled: false,
-        readOnly: false,
-        hasClear: false,
-        onClear,
-    },
-};
 
 const TrashIcon = (props) => (
     <svg width="100%" viewBox="0 0 24 24" fill="none" {...props}>
@@ -52,14 +38,25 @@ const TrashIcon = (props) => (
 );
 
 export const Default: Story = {
-    ...StoryBaseChip,
-};
-
-const StoryWithIcon = (props: StoryDropdownProps) => {
-    return <Chip contentLeft={<TrashIcon width="1.25rem" height="1.25rem" />} {...props} />;
+    args: {
+        text: 'Hello',
+        view: 'primary',
+        size: 'm',
+        disabled: false,
+        focused: true,
+        onClear,
+    },
 };
 
 export const WithIcon: Story = {
-    ...StoryBaseChip,
-    render: (args) => <StoryWithIcon {...args} />,
+    args: { ...Default.args },
+    render: (args) => <Chip contentLeft={<TrashIcon width="1.25rem" height="1.25rem" />} {...args} />,
+};
+
+export const LongText: Story = {
+    args: {
+        ...Default.args,
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    },
+    render: (args) => <Chip style={{ width: '10rem' }} {...args} />,
 };

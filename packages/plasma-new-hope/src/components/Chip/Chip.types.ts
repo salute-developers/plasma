@@ -17,15 +17,9 @@ type CustomChipProps = {
      */
     contentRight?: ReactNode;
     /**
-     * Есть ли иконка закрытия
-     * @default
-     * false
-     */
-    hasClear?: boolean;
-    /**
      * Слот для контента Clear
      */
-    contentClear?: ReactNode;
+    contentClearButton?: ReactNode;
     /**
      * Компонент не активен
      * @default

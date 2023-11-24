@@ -46,18 +46,6 @@ describe('plasma-web: Chip', () => {
         cy.matchImageSnapshot();
     });
 
-    it('without Clear', () => {
-        mount(
-            <CypressTestDecorator>
-                <Chip hasClear={false}>Hello Plasma</Chip>
-                <PadMe />
-                <Chip hasClear={false} text="with Icon" contentLeft={<Icon />} />
-            </CypressTestDecorator>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
     it('fixed width', () => {
         mount(
             <CypressTestDecorator>
@@ -77,9 +65,9 @@ describe('plasma-web: Chip', () => {
     it('_view', () => {
         mount(
             <CypressTestDecorator>
-                <Chip view="default" text="Chip_view_default" contentLeft={<Icon />} />
+                <Chip view="primary" text="Chip_view_primary" contentLeft={<Icon />} />
                 <SpaceMe />
-                <Chip view="default" text="_disabled" disabled contentLeft={<Icon />} />
+                <Chip view="primary" text="_disabled" disabled contentLeft={<Icon />} />
                 <PadMe />
                 <Chip view="secondary" text="Chip_view_secondary" contentLeft={<Icon />} />
                 <SpaceMe />
