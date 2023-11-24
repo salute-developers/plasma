@@ -12,10 +12,10 @@ export const config = {
                 ${chipTokens.color}: var(--plasma-colors-inverse);
                 ${chipTokens.background}: var(--plasma-colors-primary);
                 ${chipTokens.colorHover}: var(--plasma-colors-inverse);
-                ${chipTokens.backgroundHover}: color-mix(in srgb, var(--plasma-colors-inverse), var(--plasma-colors-primary) 85%);
+                ${chipTokens.backgroundHover}: var(--plasma-colors-button-checked-hover, #080808);
                 ${chipTokens.scaleHover}: 1.02;
                 ${chipTokens.colorActive}: var(--plasma-colors-inverse);
-                ${chipTokens.backgroundActive}: color-mix(in srgb, var(--plasma-colors-inverse), var(--plasma-colors-primary) 80%);
+                ${chipTokens.backgroundActive}: var(--plasma-colors-button-checked-active, #080808);
                 ${chipTokens.scaleActive}: 0.98;
                 ${chipTokens.backgroundReadOnly}: var(--plasma-colors-primary);
                 ${chipTokens.colorReadOnly}: var(--plasma-colors-inverse);
@@ -26,10 +26,10 @@ export const config = {
                 ${chipTokens.color}: var(--plasma-colors-text);
                 ${chipTokens.background}: var(--plasma-colors-surface-liquid02);
                 ${chipTokens.colorHover}: var(--plasma-colors-text);
-                ${chipTokens.backgroundHover}: color-mix(in srgb, var(--plasma-colors-inverse), var(--plasma-colors-surface-liquid02) 85%);
+                ${chipTokens.backgroundHover}: var(--plasma-colors-button-secondary-hover);
                 ${chipTokens.scaleHover}: 1.02;
                 ${chipTokens.colorActive}: var(--plasma-colors-text);
-                ${chipTokens.backgroundActive}: color-mix(in srgb, var(--plasma-colors-inverse), var(--plasma-colors-surface-liquid02) 80%);
+                ${chipTokens.backgroundActive}: var(--plasma-colors-button-secondary-active);
                 ${chipTokens.scaleActive}: 0.98;
                 ${chipTokens.backgroundReadOnly}: var(--plasma-colors-surface-liquid02);
                 ${chipTokens.colorReadOnly}: var(--plasma-colors-text);
@@ -40,10 +40,10 @@ export const config = {
                 ${chipTokens.color}: var(--plasma-colors-white-primary);
                 ${chipTokens.background}: var(--plasma-colors-success);
                 ${chipTokens.colorHover}: var(--plasma-colors-white-primary);
-                ${chipTokens.backgroundHover}: color-mix(in srgb, var(--plasma-colors-inverse), var(--plasma-colors-success) 85%);
+                ${chipTokens.backgroundHover}: var(--plasma-colors-button-success-hover, #379740);
                 ${chipTokens.scaleHover}: 1.02;
                 ${chipTokens.colorActive}: var(--plasma-colors-white-primary);
-                ${chipTokens.backgroundActive}: color-mix(in srgb, var(--plasma-colors-inverse), var(--plasma-colors-success) 85%);
+                ${chipTokens.backgroundActive}: var(--plasma-colors-button-success-active, #157e26);
                 ${chipTokens.scaleActive}: 0.98;
                 ${chipTokens.backgroundReadOnly}: var(--plasma-colors-success);
                 ${chipTokens.colorReadOnly}: var(--plasma-colors-white-primary);
