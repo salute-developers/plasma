@@ -3,8 +3,8 @@ import { css } from '@linaria/core';
 
 import { ComponentConfig, RootProps } from '../../engines';
 
-import { base as disabled } from './Tabs/_disabled/base';
-import { base as stretch } from './Tabs/_stretch/base';
+import { base as disabled } from './Tabs/variations/_disabled/base';
+import { base as stretch } from './Tabs/variations/_stretch/base';
 
 const base = css`
     position: relative;

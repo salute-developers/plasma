@@ -5,8 +5,7 @@ import { useForkRef } from '@salutejs/plasma-core';
 import { ComponentConfig, RootProps } from '../../engines';
 
 import { TabsContext } from './TabsContext';
-import { base as active } from './TabItem/_active/base';
-import { base as disabled } from './TabItem/_disabled/base';
+import { base as view } from './TabItem/variations/_view/base';
 
 const base = css`
     align-items: center;
@@ -19,15 +18,8 @@ const base = css`
     text-align: center;
     padding: 1rem 1.313rem;
     height: 3.75rem;
-    box-shadow: inset 0 calc(var(--plasma-tabs-underline-height) * -1) 0 var(--plasma-tabs-underline-color);
-    font-weight: var(--plasma-tabs-font-weight);
-    color: var(--plasma-tabs-color);
     flex: 1 1 calc((100% / 4) - 0.125rem);
     transition: color 0.1s ease-in-out, box-shadow 0.3s ease-in-out;
-
-    :hover {
-        color: var(--plasma-tabs-color-hover);
-    }
 `;
 
 export interface TabItemProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
@@ -68,12 +60,8 @@ export const tabItemConfig: ComponentConfig = {
     layout: tabItemRoot,
     base,
     variations: {
-        disabled: {
-            css: disabled,
-            attrs: true,
-        },
-        active: {
-            css: active,
+        view: {
+            css: view,
         },
     },
     defaults: {

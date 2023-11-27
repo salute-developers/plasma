@@ -2,6 +2,8 @@
 
 import { css } from '@linaria/core';
 
+import { tabsTokens } from '../../../../components/Tabs';
+
 export const config = {
     defaults: {
         disabled: 'false',
@@ -9,12 +11,12 @@ export const config = {
     variations: {
         stretch: {
             true: css`
-                --plasma-tabs-container-width: 100%;
+                ${tabsTokens.containerWidth}: 100%;
             `,
         },
         disabled: {
             true: css`
-                --plasma-tabs-disabled-opacity: 0.4;
+                ${tabsTokens.disabledOpacity}: 0.4;
             `,
         },
     },
