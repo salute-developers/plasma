@@ -63,7 +63,6 @@
         "jest-styled-components": "7.0.5",
         "react": "18.2.0",
         "react-dom": "18.2.0",
-        "react-scripts": "4.0.3",
         "storybook": "7.5.3",
         "styled-components": "5.3.1",
         "ts-jest": "27.0.5",
