@@ -6,13 +6,20 @@ on:
       - dev
 
 jobs:
+  scope:
+    name: Computed changed state
+    uses: ./.github/workflows/change-detection.yml
+    secrets: inherit
+    
   publish:
     name: Publish RC version
+    needs: [ scope ]
     if: ${{ github.actor == 'github-merge-queue[bot]' }}
     uses: ./.github/workflows/publish-common.yml
     with:
       with-update-package-lock: true
       commit-message: "Update package-lock.json files"
+      upload_assets: ${{ toJSON(needs.scope.outputs.HAS_ASSETS) }}
     secrets:
       gh_token: ${{ secrets.GH_TOKEN }}
       npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}

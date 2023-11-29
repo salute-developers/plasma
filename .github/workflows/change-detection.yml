@@ -52,6 +52,9 @@ on:
       HAS_PLASMA_ASDK:
         description: ""
         value: ${{ jobs.run.outputs.HAS_PLASMA_ASDK }}
+      HAS_ASSETS:
+        description: ""
+        value: ${{ jobs.run.outputs.HAS_ASSETS }}
       PACKAGES_ENUMERATION:
         description: ""
         value: ${{ jobs.run.outputs.PACKAGES_ENUMERATION }}
@@ -71,6 +74,7 @@ jobs:
       HAS_PLASMA_UI: ${{ steps.set-output.outputs.HAS_PLASMA_UI }}
       HAS_PLASMA_HOPE: ${{ steps.set-output.outputs.HAS_PLASMA_HOPE }}
       HAS_PLASMA_ASDK: ${{ steps.set-output.outputs.HAS_PLASMA_ASDK }}
+      HAS_ASSETS: ${{ steps.set-output.outputs.HAS_ASSETS }}
       PACKAGES_ENUMERATION: ${{ steps.set-output.outputs.PACKAGES_ENUMERATION }}
 
     steps:
@@ -121,5 +125,6 @@ jobs:
           echo "HAS_PLASMA_UI=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_UI }}" >> $GITHUB_OUTPUT
           echo "HAS_PLASMA_HOPE=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_HOPE }}" >> $GITHUB_OUTPUT
           echo "HAS_PLASMA_ASDK=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_ASDK }}" >> $GITHUB_OUTPUT
+          echo "HAS_ASSETS=${{ fromJSON(steps.scope.outputs.result).HAS_ASSETS }}" >> $GITHUB_OUTPUT
           echo "PACKAGES_ENUMERATION=${{ fromJSON(steps.scope.outputs.result).PACKAGES_ENUMERATION }}" >> $GITHUB_OUTPUT
 
