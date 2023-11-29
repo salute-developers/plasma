@@ -48,7 +48,7 @@ const TrashIcon = (props) => (
 
 export const Default: Story = {
     args: {
-        text: 'This is chip',
+        text: 'This is Chip',
         view: 'primary',
         size: 'm',
         hasClear: true,

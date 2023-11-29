@@ -27,7 +27,7 @@ type Story = StoryObj<typeof Chip>;
 
 export const Default: Story = {
     args: {
-        text: 'Hello',
+        text: 'This is chip',
         view: 'primary',
         size: 'm',
         readOnly: false,

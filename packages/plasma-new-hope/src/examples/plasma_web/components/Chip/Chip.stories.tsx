@@ -39,7 +39,7 @@ const TrashIcon = (props) => (
 
 export const Default: Story = {
     args: {
-        text: 'Hello',
+        text: 'This is chip',
         view: 'primary',
         size: 'm',
         disabled: false,
