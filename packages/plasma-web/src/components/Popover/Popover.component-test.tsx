@@ -63,7 +63,7 @@ describe('plasma-web: Popover', () => {
         cy.get('p').should('be.visible');
 
         cy.get('button').contains('close').click();
-        cy.get('button + div').should('not.be.visible');
+        cy.get('p').should('not.be.visible');
     });
 
     it('close popover by overlay click', () => {
@@ -77,7 +77,7 @@ describe('plasma-web: Popover', () => {
         cy.get('p').should('be.visible');
 
         cy.get('body').click(5, 5);
-        cy.get('button + div').should('not.be.visible');
+        cy.get('p').should('not.be.visible');
     });
 
     it('close popover by ESC', () => {
@@ -91,6 +91,6 @@ describe('plasma-web: Popover', () => {
         cy.get('p').should('be.visible');
 
         cy.get('body').type('{esc}');
-        cy.get('button + div').should('not.be.visible');
+        cy.get('p').should('not.be.visible');
     });
 });

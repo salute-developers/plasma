@@ -1,12 +1,17 @@
 import React, { useRef, useCallback, useEffect, useState, forwardRef } from 'react';
+import ReactDOM from 'react-dom';
 import { usePopper } from 'react-popper';
 import { useFocusTrap, useForkRef } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines/types';
 
+import { base as viewCSS } from './variations/_view/base';
 import type { PopoverPlacement, PopoverProps } from './Popover.types';
-import { ESCAPE_KEYCODE, getAutoPlacements, getPlacement } from './utils';
-import { StyledArrow, StyledPopover, StyledRoot } from './styles';
+import { StyledArrow, StyledPopover, StyledRoot } from './Popover.styles';
+import { classes } from './Popover.tokens';
+
+export const ESCAPE_KEYCODE = 27;
+export const POPOVER_PORTAL_ID = 'plasma-popover-root';
 
 /**
  * Всплывающее окно с возможностью позиционирования
@@ -20,14 +25,18 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                 children,
                 isOpen,
                 trigger,
-                arrow,
+                hasArrow,
+                frame = 'document',
                 className,
                 placement = 'auto',
                 offset = [0, 0],
+                zIndex,
                 isFocusTrapped = true,
                 closeOnOverlayClick = true,
                 closeOnEsc = true,
                 preventOverflow = true,
+                insidePortal = true,
+                view,
                 onToggle,
                 ...rest
             },
@@ -36,6 +45,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             const rootRef = useRef<HTMLDivElement | null>(null);
             const popoverRef = useRef<HTMLDivElement | null>(null);
             const handleRef = useForkRef<HTMLDivElement>(rootRef, outerRootRef);
+            const portalRef = useRef<HTMLElement | null>(null);
 
             const trapRef = useFocusTrap(isOpen && isFocusTrapped);
 
@@ -43,11 +53,13 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
 
             const [arrowElement, setArrowElement] = useState<HTMLSpanElement | null>(null);
 
+            const [, forceRender] = useState(false);
+
             const isAutoArray = Array.isArray(placement);
-            const isAuto = isAutoArray || placement === 'auto';
+            const isAuto = isAutoArray || (placement as PopoverPlacement).startsWith('auto');
 
             const { styles, attributes, forceUpdate } = usePopper(rootRef.current, popoverRef.current, {
-                placement: getPlacement(isAutoArray ? 'auto' : (placement as PopoverPlacement)),
+                placement: isAutoArray ? 'auto' : (placement as PopoverPlacement),
                 modifiers: [
                     {
                         name: 'preventOverflow',
@@ -60,12 +72,15 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                         name: 'flip',
                         enabled: isAuto,
                         options: {
-                            allowedAutoPlacements: getAutoPlacements(
-                                isAutoArray ? (placement as PopoverPlacement[]) : [],
-                            ),
+                            allowedAutoPlacements: isAutoArray ? (placement as PopoverPlacement[]) : [],
                         },
                     },
-                    { name: 'arrow', options: { element: arrowElement } },
+                    {
+                        name: 'arrow',
+                        options: {
+                            element: arrowElement,
+                        },
+                    },
                 ],
             });
 
@@ -153,6 +168,37 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             }, [closeOnEsc, isOpen, onToggle]);
 
             useEffect(() => {
+                let portal = document.getElementById(POPOVER_PORTAL_ID);
+
+                if (typeof frame !== 'string' && frame && frame.current) {
+                    portal = frame.current;
+                }
+
+                if (!insidePortal) {
+                    portal = rootRef.current;
+                }
+
+                if (!portal) {
+                    portal = document.createElement('div');
+                    portal.setAttribute('id', POPOVER_PORTAL_ID);
+
+                    if (typeof frame === 'string' && frame !== 'document') {
+                        document.getElementById(frame)?.appendChild(portal);
+                    } else {
+                        document.body.appendChild(portal);
+                    }
+                }
+
+                portalRef.current = portal;
+
+                /**
+                 * Изменение стейта нужно для того, чтобы Popup
+                 * отобразился после записи DOM элемента в portalRef.current
+                 */
+                forceRender(true);
+            }, []);
+
+            useEffect(() => {
                 if (!isOpen || !forceUpdate) {
                     return;
                 }
@@ -164,40 +210,47 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                  * вызов метода в очередь микрозадач.
                  */
                 Promise.resolve().then(forceUpdate);
-            }, [isOpen, forceUpdate]);
+            }, [isOpen, children, forceUpdate]);
 
             return (
-                <Root
-                    ref={handleRef}
-                    onClick={onClick}
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    className={className}
-                    {...rest}
-                >
-                    {target}
-                    {children && (
-                        <StyledPopover
-                            {...attributes.popper}
-                            ref={popoverForkRef}
-                            style={{ ...styles.popper, ...{ display: isOpen ? 'block' : 'none' } }}
-                        >
-                            {arrow && (
-                                <StyledArrow
-                                    id="popover-arrow"
-                                    ref={setArrowElement}
-                                    style={styles.arrow}
-                                    {...attributes.arrow}
+                <div className={className}>
+                    <StyledRoot
+                        ref={handleRef}
+                        onClick={onClick}
+                        onMouseEnter={onMouseEnter}
+                        onMouseLeave={onMouseLeave}
+                        onFocus={onFocus}
+                        onBlur={onBlur}
+                        className={classes.target}
+                    >
+                        {target}
+                    </StyledRoot>
+                    {children &&
+                        portalRef.current &&
+                        ReactDOM.createPortal(
+                            <Root view={view}>
+                                <StyledPopover
+                                    {...attributes.popper}
+                                    className={classes.root}
+                                    ref={popoverForkRef}
+                                    style={{ ...styles.popper, ...{ display: isOpen ? 'block' : 'none' } }}
+                                    zIndex={zIndex}
+                                    {...rest}
                                 >
-                                    {arrow}
-                                </StyledArrow>
-                            )}
-                            {children}
-                        </StyledPopover>
-                    )}
-                </Root>
+                                    {hasArrow && (
+                                        <StyledArrow
+                                            className={classes.arrow}
+                                            ref={setArrowElement}
+                                            style={styles.arrow}
+                                            {...attributes.arrow}
+                                        />
+                                    )}
+                                    {children}
+                                </StyledPopover>
+                            </Root>,
+                            portalRef.current,
+                        )}
+                </div>
             );
         },
     );
@@ -206,7 +259,13 @@ export const popoverConfig = {
     name: 'Popover',
     tag: 'div',
     layout: popoverRoot,
-    base: StyledRoot,
-    variations: {},
-    defaults: {},
+    base: '',
+    variations: {
+        view: {
+            css: viewCSS,
+        },
+    },
+    defaults: {
+        view: 'default',
+    },
 };

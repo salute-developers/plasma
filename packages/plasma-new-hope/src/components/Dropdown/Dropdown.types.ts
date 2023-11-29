@@ -45,7 +45,7 @@ export type CustomDropdownProps = {
     /**
      * Стрелка над элементом.
      */
-    arrow?: ReactNode;
+    hasArrow?: boolean;
     /**
      * Контент всплывающего окна.
      */
@@ -72,6 +72,10 @@ export type CustomDropdownProps = {
      * Событие сворачивания/разворачивания дропдауна.
      */
     onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
+    /**
+     * В каком контейнере позиционируется(по умолчанию document), можно также указать id элемента или ref для него.
+     */
+    frame?: 'document' | string | React.RefObject<HTMLElement>;
 
     size?: string;
     view?: string;

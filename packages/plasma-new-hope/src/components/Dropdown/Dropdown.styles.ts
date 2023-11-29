@@ -1,13 +1,6 @@
 import { styled } from '@linaria/react';
-import { css } from '@linaria/core';
 
-import { classes, tokens } from './Dropdown.tokens';
-
-export const base = css`
-    .${String(classes.nestedDropdown)} {
-        display: block;
-    }
-`;
+import { tokens } from './Dropdown.tokens';
 
 export const StyledDropdown = styled.div`
     box-sizing: border-box;
