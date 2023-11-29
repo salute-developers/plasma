@@ -30,6 +30,10 @@ module.exports = () => {
         return { SCOPE: [], HAS_SCOPE: false };
     }
 
+    /**
+     * @example
+     * ['@salutejs/plasma-ui-docs', '@salutejs/plasma-ui', '@salutejs/plasma-core']
+     */
     const packagesList = changedState.map(({ name }) => name);
 
     const HAS_PLASMA_UI_DOCS = packagesList.includes('@salutejs/plasma-ui-docs');
@@ -46,6 +50,10 @@ module.exports = () => {
 
     const HAS_DOCUMENTATION_CHANGED =
         HAS_PLASMA_WEBSITE || HAS_PLASMA_UI_DOCS || HAS_PLASMA_WEB_DOCS || HAS_PLASMA_TEMPLE_DOCS || HAS_PLASMA_ASDK;
+
+    // Флаг для управления логикой "@auto-it" плагина upload-assets-extend
+    // Изменения в plasma-tokens или plasma-tokens-utils так же повлияют на то что в packagesList окажется plasma-tokens-native
+    const HAS_ASSETS = packagesList.includes('@salutejs/plasma-tokens-native');
 
     /**
      * List short packages name
@@ -78,5 +86,6 @@ module.exports = () => {
         HAS_PLASMA_TEMPLE,
         HAS_PLASMA_HOPE,
         HAS_PLASMA_ASDK,
+        HAS_ASSETS,
     };
 };
