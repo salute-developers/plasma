@@ -41,7 +41,7 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
             return (
                 contentClearButton || (
                     <StyledContentClear>
-                        <IconClose customSize={tokens.closeIconSize} color="inherit" />
+                        <IconClose sizeCustomProperty={tokens.closeIconSize} color="inherit" />
                     </StyledContentClear>
                 )
             );
