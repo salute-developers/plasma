@@ -1,12 +1,14 @@
-import { popoverConfig } from '../../../../components/Popover';
+import { ForwardRefExoticComponent, RefAttributes } from 'react';
+
+import { PopoverProps, popoverConfig } from '../../../../components/Popover';
 import { component, mergeConfig } from '../../../../engines';
 
-export type { PopoverPlacement, PopoverTrigger } from '../../../..';
+import { config } from './Popover.config';
 
-const mergedConfig = mergeConfig(popoverConfig);
-const PopoverComponent = component(mergedConfig);
+export type { PopoverProps, PopoverPlacement, PopoverTrigger } from '../../../..';
 
-/**
- * Всплывающее окно.
- */
-export const Popover = PopoverComponent;
+const mergedConfig = mergeConfig(popoverConfig, config);
+
+export const Popover = component(mergedConfig) as ForwardRefExoticComponent<
+    PopoverProps & RefAttributes<HTMLDivElement>
+>;

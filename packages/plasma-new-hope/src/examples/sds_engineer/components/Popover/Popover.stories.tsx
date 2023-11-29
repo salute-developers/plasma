@@ -55,7 +55,7 @@ const meta: Meta<typeof Popover> = {
             control: {
                 type: 'number',
             },
-            table: { defaultValue: { summary: 6 } },
+            table: { defaultValue: { summary: 8 } },
         },
     },
     args: {
@@ -65,7 +65,7 @@ const meta: Meta<typeof Popover> = {
         closeOnEsc: true,
         isFocusTrapped: true,
         skidding: 0,
-        distance: 6,
+        distance: 8,
     },
 };
 
@@ -76,27 +76,10 @@ type StoryPopoverProps = ComponentProps<typeof Popover> & {
     distance?: number;
 };
 
-const StyledArrow = styled.div`
-    visibility: hidden;
-
-    &,
-    &::before {
-        position: absolute;
-        width: 0.5rem;
-        height: 0.5rem;
-        background: var(--plasma-colors-surface-solid03);
-    }
-
-    &::before {
-        visibility: visible;
-        content: '';
-        transform: rotate(45deg);
-    }
-`;
-
 const StyledContent = styled.div`
     background: var(--plasma-colors-surface-solid03);
     padding: 1rem;
+    border-radius: 0.5rem;
 
     display: flex;
     flex-direction: column;
@@ -104,7 +87,7 @@ const StyledContent = styled.div`
 `;
 
 const StoryDefault = (args: StoryPopoverProps) => {
-    const { skidding = 0, distance = 6 } = args;
+    const { skidding = 0, distance = 8 } = args;
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -112,16 +95,18 @@ const StoryDefault = (args: StoryPopoverProps) => {
         <Popover
             isOpen={isOpen}
             onToggle={(is) => setIsOpen(is)}
+            frame="theme-root"
+            insidePortal={false}
             role="presentation"
             id="popover"
             target={<Button>Target</Button>}
-            arrow={<StyledArrow />}
+            hasArrow
             offset={[skidding, distance]}
             {...args}
         >
             <StyledContent>
                 <>Content</>
-                <Button onClick={() => setIsOpen(false)}>close</Button>
+                <Button onClick={() => setIsOpen(false)}>Close</Button>
             </StyledContent>
         </Popover>
     );
