@@ -1,38 +1,23 @@
 import { css } from '@linaria/core';
 
-import { tokens, classes } from '../Switch.tokens';
+import { tokens } from '../Switch.tokens';
+import { StyledInput, StyledTrigger } from '../Switch.styles';
 
-const { styledInputClass, styledContentWrapperClass, styledTriggerClass } = classes;
-
-const addFocus = (outlineOffset: string, outlineSize: string, outlineRadius: string, outlineColor = '') => {
-    return `&::before {
+// TODO: https://github.com/salute-developers/plasma/issues/885
+export const base = css`
+    ${StyledTrigger}::before {
         content: '';
         position: absolute;
-        inset: ${outlineOffset};
+        inset: -0.125rem;
         display: block;
         box-sizing: content-box;
-        border-radius: ${outlineRadius};
-        border: ${outlineSize} solid transparent;
-        box-shadow: 0 0 0 ${outlineSize} ${outlineColor};
+        border-radius: calc(0.125rem + var(${tokens.trackBorderRadius}));
+        border: 0.125rem solid transparent;
         pointer-events: none;
         transition: box-shadow 0.2s ease-in-out;
-    }`;
-};
-
-export const base = css`
-    .${styledTriggerClass} {
-        ${addFocus('-0.125rem', '0.125rem', `var(${tokens.switchTriggerBorderRadius})`, 'transparent')}
     }
 
-    .${styledInputClass}[data-focus-visible-added] + .${styledContentWrapperClass} .${styledTriggerClass},
-      // TODO: https://github.com/salute-developers/plasma/issues/849
-      /* eslint-disable-next-line prettier/prettier*/
-    .${styledInputClass}[data-focus-visible-added]:checked + .${styledContentWrapperClass} .${styledTriggerClass} {
-        ${addFocus(
-            '-0.125rem',
-            '0.125rem',
-            `var(${tokens.switchTriggerBorderRadius})`,
-            `var(${tokens.switchFocusColor})`,
-        )}
+    ${StyledInput}.focus-visible ~ ${StyledTrigger}::before {
+        box-shadow: 0 0 0 0.125rem var(${tokens.trackFocusColor});
     }
 `;
