@@ -1,8 +1,7 @@
 import { css } from '@linaria/core';
 
-import { tokens, classes } from '../Switch.tokens';
-
-const { styledTriggerClass } = classes;
+import { tokens } from '../Switch.tokens';
+import { StyledTrigger } from '../Switch.styles';
 
 export const base = css`
     font-family: var(${tokens.fontFamily});
@@ -12,16 +11,21 @@ export const base = css`
     line-height: var(${tokens.lineHeight});
     font-size: var(${tokens.fontSize});
 
-    .${styledTriggerClass} {
-        flex: 0 0 var(${tokens.switchTriggerWidth});
-        width: var(${tokens.switchTriggerWidth});
-        height: var(${tokens.switchTriggerHeight});
-        border-radius: var(${tokens.switchTriggerBorderRadius});
+    ${StyledTrigger} {
+        flex: 0 0 var(${tokens.trackWidth});
+        width: var(${tokens.trackWidth});
+        height: var(${tokens.trackHeight});
+        border-radius: var(${tokens.trackBorderRadius});
 
         &::after {
-            width: var(${tokens.switchEllipseSize});
-            height: var(${tokens.switchEllipseSize});
-            border-radius: var(${tokens.switchEllipseSize});
+            width: var(${tokens.thumbSize});
+            height: var(${tokens.thumbSize});
+            border-radius: var(${tokens.thumbBorderRadius});
+            margin: auto var(${tokens.thumbOffset});
         }
+    }
+
+    :active ${StyledTrigger}::after {
+        width: calc(var(${tokens.thumbSize}) * var(${tokens.thumbPressScale}));
     }
 `;
