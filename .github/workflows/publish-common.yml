@@ -20,6 +20,10 @@ on:
       upload_assets:
         type: boolean
         default: false
+      auto-options:
+        type: string
+        description: "@auto-it cli arguments for example --no-changelog"
+        default: ''
     secrets:
       gh_token:
         required: true
@@ -61,7 +65,7 @@ jobs:
         run: npm whoami && npx lerna info && npx auto info || echo 'auto info returned 1'
       
       - name: Create Release
-        run: upload_assets="${{ inputs.upload_assets }}" npm run release
+        run: upload_assets="${{ inputs.upload_assets }}" npm run release -- ${{ inputs.auto-options }}
       
       - name: Update package-lock files
         if: ${{ inputs.with-update-package-lock }}
