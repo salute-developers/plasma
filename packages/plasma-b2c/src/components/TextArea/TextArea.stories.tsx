@@ -16,7 +16,7 @@ const meta: Meta<TextAreaProps> = {
     decorators: [InSpacingDecorator],
     argTypes: {
         status: {
-            options: ['', 'success', 'error'],
+            options: ['', 'success', 'warning', 'error'],
             control: {
                 type: 'select',
             },
@@ -25,6 +25,16 @@ const meta: Meta<TextAreaProps> = {
             options: ['none', 'both', 'horizontal', 'vertical'],
             control: {
                 type: 'select',
+            },
+        },
+        cols: {
+            control: {
+                type: 'number',
+            },
+        },
+        rows: {
+            control: {
+                type: 'number',
             },
         },
         ...disableProps([
@@ -42,6 +52,9 @@ const meta: Meta<TextAreaProps> = {
             'required',
             'value',
             'wrap',
+            'theme',
+            'as',
+            'forwardedAs',
             'onChange',
             'onFocus',
             'onBlur',

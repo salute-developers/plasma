@@ -1,31 +1,32 @@
 import React from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { disableProps } from '../../helpers';
 import { InSpacing } from '../../helpers/StoryDecorators';
 
-import { Spinner, SpinnerProps } from './Spinner';
+import { Spinner } from './Spinner';
 
-const propsToDisable = ['color', 'theme', 'as', 'forwardedAs'];
+import type { SpinnerProps } from '.';
 
-const sizes = [8, 16, 32, 64, 96, 128];
-
-export default {
+const meta: Meta<SpinnerProps> = {
     title: 'Content/Spinner',
     decorators: [InSpacing],
+    component: Spinner,
     argTypes: {
         size: {
-            options: sizes,
+            options: [8, 16, 32, 64, 96, 128],
             control: {
                 type: 'select',
             },
         },
-        ...disableProps(propsToDisable),
+        ...disableProps(['color', 'theme', 'as', 'forwardedAs']),
     },
-} as Meta;
+};
 
-export const Default: Story<SpinnerProps> = (args) => <Spinner {...args} />;
+export default meta;
 
-Default.args = {
-    size: 32,
+export const Default: StoryObj<SpinnerProps> = {
+    args: {
+        size: 32,
+    },
 };

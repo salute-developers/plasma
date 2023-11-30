@@ -4,9 +4,11 @@ name: Component Performance Testing
 
 on:
   pull_request:
-    branches:
-      - master
-      - dev
+     branches:
+         - master
+  pull_request_target:
+     branches:
+         - dev
 
 concurrency:
   # New commit on branch cancels running workflows of the same branch
@@ -14,21 +16,30 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  authorize:
+    name: Authorize external pull request
+    uses: ./.github/workflows/authorize-external-pr.yml
+
   scope:
+    needs: [authorize]
     uses: ./.github/workflows/change-detection.yml
     with:
       exclude-dependents: true
+      ref: refs/pull/${{github.event.pull_request.number}}/merge
     secrets: inherit
 
   perftest:
-    needs: scope
+    needs: [authorize, scope]
     if: ${{ needs.scope.outputs.HAS_SCOPE == 'true' }}
     runs-on: ubuntu-latest
     env:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
       PR_NAME: pr-${{ github.event.number }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          show-progress: false
+          ref: refs/pull/${{github.event.pull_request.number}}/merge
 
       - name: Install s3cmd
         run: pip3 install s3cmd
@@ -106,8 +117,9 @@ jobs:
           ./.perftool/cache/
           s3://${{ secrets.AWS_S3_BUCKET_2 }}/perftool-cache/
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
+          show-progress: false
           ref: ${{ github.event.pull_request.base.ref }}
           clean: false
 

@@ -1,24 +1,18 @@
 name: Release
 
 on:
-  pull_request:
-    types: [closed]
+  push:
     branches:
       - dev
-
-concurrency:
-  # New commit on branch cancels running workflows of the same branch
-  group: ${{ github.workflow }}-${{ github.head_ref }}
-  cancel-in-progress: true
 
 jobs:
   publish:
     name: Publish RC version
-    if: github.event.pull_request.merged == true
+    if: ${{ github.actor == 'github-merge-queue[bot]' }}
     uses: ./.github/workflows/publish-common.yml
     with:
       with-update-package-lock: true
-      commit-message: "chore: update package-locks"
+      commit-message: "Update package-lock.json files"
     secrets:
       gh_token: ${{ secrets.GH_TOKEN }}
       npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}

@@ -4,7 +4,7 @@ import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/pl
 
 const NoAnimationStyle = createGlobalStyle`
     /* stylelint-disable-next-line selector-max-id, selector-max-universal */
-    #plasma-notifications-root * {
+    #plasma-popup-root * {
         animation: none !important;
     }
 `;
@@ -68,6 +68,6 @@ describe('plasma-web: Notification', () => {
         cy.get('button').contains('Открыть').click();
         cy.matchImageSnapshot();
         cy.get('button').contains('Закрыть').click();
-        cy.get('#plasma-notifications-root').should('be.empty');
+        cy.get('#plasma-popup-root').should('be.empty');
     });
 });

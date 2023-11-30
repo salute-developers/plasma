@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { applySpacing, SpacingProps } from '@salutejs/plasma-core';
 
 import { Headline3, Body1, Body2, Footnote2, Caption } from './Typography';
@@ -15,38 +15,44 @@ const Wrapper = styled.div`
     }
 `;
 
-export default {
+const meta: Meta<SpacingProps> = {
     title: 'Spacing',
-} as Meta;
+};
 
-export const Default = () => (
-    <Wrapper>
-        <Headline3 my="16x">Heading</Headline3>
-        <Body1 px="10x">Some text</Body1>
-        <Body2 mx={4}>Some information</Body2>
-        <Footnote2 m="8x">Description</Footnote2>
-        <Caption m={10}>Hello</Caption>
-    </Wrapper>
-);
+export default meta;
 
-export const Custom = () => {
-    const Box1 = styled.div<SpacingProps>`
-        ${applySpacing}
-        width: 5rem;
-        height: 5rem;
-        background-color: rgba(255, 100, 100, 0.3);
-    `;
-    const Box2 = styled.div<SpacingProps>`
-        ${applySpacing}
-        width: 5rem;
-        height: 5rem;
-        background-color: rgba(100, 100, 255, 0.3);
-    `;
-
-    return (
+export const Default: StoryObj = {
+    render: () => (
         <Wrapper>
-            <Box1 my={10} />
-            <Box2 mx={8} />
+            <Headline3 my="16x">Heading</Headline3>
+            <Body1 px="10x">Some text</Body1>
+            <Body2 mx={4}>Some information</Body2>
+            <Footnote2 m="8x">Description</Footnote2>
+            <Caption m={10}>Hello</Caption>
         </Wrapper>
-    );
+    ),
+};
+
+export const Custom: StoryObj<SpacingProps> = {
+    render: () => {
+        const Box1 = styled.div<SpacingProps>`
+            ${applySpacing};
+            width: 5rem;
+            height: 5rem;
+            background-color: rgba(255, 100, 100, 0.3);
+        `;
+        const Box2 = styled.div<SpacingProps>`
+            ${applySpacing};
+            width: 5rem;
+            height: 5rem;
+            background-color: rgba(100, 100, 255, 0.3);
+        `;
+
+        return (
+            <Wrapper>
+                <Box1 my={10} />
+                <Box2 mx={8} />
+            </Wrapper>
+        );
+    },
 };

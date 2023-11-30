@@ -56,10 +56,16 @@
   --surface-transparent-tertiary: rgba(255, 255, 255, 0.2);
   --surface-transparent-card: rgba(255, 255, 255, 0.12);
   --surface-accent: #FFFFFF;
+  /* добавлены вручную */
+  --surface-accent-hover: #1383cf80;
+  /* добавлены вручную */
+  --surface-accent-active: #045891;
   --surface-accent-gradient: linear-gradient(135deg, black 0%, #FFFFFF 100%);
   --surface-positive: #1A9E32;
   --surface-warning: #FA5F05;
   --surface-negative: #FF293E;
+  /* добавлены вручную */
+  --surface-transparent-negative: #e3122712;
   --surface-clear: rgba(0, 0, 0, 0);
   --on-dark-surface-solid-default: #FFFFFF;
   --on-dark-surface-solid-primary: #171717;
@@ -216,10 +222,16 @@
   --surface-transparent-tertiary: rgba(8, 8, 8, 0.12);
   --surface-transparent-card: #FFFFFF;
   --surface-accent: #0B7ECB;
+  /* добавлены вручную */
+  --surface-accent-hover: #1383cf80;
+  /* добавлены вручную */
+  --surface-accent-active: #045891;
   --surface-accent-gradient: linear-gradient(45.00deg, rgb(30, 44, 108) 0%,rgb(43, 101, 185) 100%);
   --surface-positive: #1A9E32;
   --surface-warning: #FA5F05;
   --surface-negative: #DD1428;
+  /* добавлены вручную */
+  --surface-transparent-negative: #e3122712;
   --surface-clear: rgba(0, 0, 0, 0);
   --on-dark-surface-solid-default: #FFFFFF;
   --on-dark-surface-solid-primary: #171717;

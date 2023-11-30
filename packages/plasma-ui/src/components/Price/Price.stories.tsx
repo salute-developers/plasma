@@ -1,22 +1,21 @@
 import React, { useMemo } from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { disableProps } from '../../helpers';
 import { InSpacing } from '../../helpers/StoryDecorators';
 
-import { Price, PriceProps } from '.';
+import { Price } from '.';
+import type { PriceProps } from '.';
 
-const currencyOptions = ['rub', 'usd', 'eur'];
+type StoryPriceProps = PriceProps & { priceLabel: number; withCustomPeriodicity?: boolean };
 
-const propsToDisable = ['children', 'theme', 'as', 'forwardedAs'];
-
-export default {
+const meta: Meta<StoryPriceProps> = {
     title: 'Content/Price',
     component: Price,
     decorators: [InSpacing],
     argTypes: {
         currency: {
-            options: currencyOptions,
+            options: ['rub', 'usd', 'eur'],
             control: {
                 type: 'inline-radio',
             },
@@ -36,17 +35,17 @@ export default {
         withCustomPeriodicity: {
             control: 'boolean',
         },
-        ...disableProps(propsToDisable),
+        ...disableProps(['children', 'theme', 'as', 'forwardedAs']),
     },
-} as Meta;
+};
 
-type Props = PriceProps & { priceLabel: number; withCustomPeriodicity?: boolean };
+export default meta;
 
 const CustomPeriodicity = () => {
     return <span>/ квартал</span>;
 };
 
-export const Default: Story<Props> = ({ priceLabel, withCustomPeriodicity, periodicity, ...rest }) => {
+const StoryDefault = ({ priceLabel, withCustomPeriodicity, periodicity, ...rest }: StoryPriceProps) => {
     const CustomPeriodicityMemo = useMemo(() => <CustomPeriodicity />, []);
     const currentPeriodicity = withCustomPeriodicity ? CustomPeriodicityMemo : periodicity;
 
@@ -57,10 +56,13 @@ export const Default: Story<Props> = ({ priceLabel, withCustomPeriodicity, perio
     );
 };
 
-Default.args = {
-    currency: 'rub',
-    stroke: false,
-    minimumFractionDigits: 0,
-    priceLabel: 12345.67,
-    withCustomPeriodicity: false,
+export const Default: StoryObj<StoryPriceProps> = {
+    args: {
+        currency: 'rub',
+        stroke: false,
+        minimumFractionDigits: 0,
+        priceLabel: 12345.67,
+        withCustomPeriodicity: false,
+    },
+    render: (args) => <StoryDefault {...args} />,
 };

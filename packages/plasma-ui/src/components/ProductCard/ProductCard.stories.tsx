@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Meta, Story } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import styled from 'styled-components';
 import { buttonBlack } from '@salutejs/plasma-tokens';
 
@@ -7,10 +7,10 @@ import { InSpacingDecorator } from '../../helpers';
 import { Badge } from '../Badge';
 import { CardMedia } from '../Card/CardMedia';
 
-import type { ProductCardProps as ProductCardPropsBasic } from '.';
+import type { ProductCardProps } from '.';
 import { ProductCard } from '.';
 
-export default {
+const meta: Meta<ProductCardProps> = {
     title: 'Content/ProductCard',
     decorators: [InSpacingDecorator],
     argTypes: {
@@ -27,16 +27,18 @@ export default {
             },
         },
     },
-} as Meta;
+};
+
+export default meta;
 
 // eslint-disable-next-line @typescript-eslint/naming-convention, @typescript-eslint/naming-convention
-interface ProductCardProps extends ProductCardPropsBasic {
+type StoryProductCardProps = ProductCardProps & {
     'media:src'?: string;
     'media:alt'?: string;
     'badge1:text'?: string;
     'badge2:text'?: string;
     'example:cardWidth'?: string | number;
-}
+};
 
 const CustomBadge = styled(Badge)`
     background: ${buttonBlack};
@@ -46,8 +48,7 @@ const StyledCardMedia = styled(CardMedia)`
     height: 100%;
 `;
 
-// eslint-disable-next-line @typescript-eslint/naming-convention, camelcase
-export const Product_Card: Story<ProductCardProps> = ({
+const StoryProductCard = ({
     'media:src': imageSrc,
     'media:alt': imageAlt,
     'badge1:text': badgeText,
@@ -56,7 +57,7 @@ export const Product_Card: Story<ProductCardProps> = ({
     quantity: q,
     periodicity,
     ...rest
-}) => {
+}: StoryProductCardProps) => {
     const [state, setState] = useState({
         quantity1: q,
         quantity2: 2,
@@ -148,22 +149,25 @@ export const Product_Card: Story<ProductCardProps> = ({
     );
 };
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-Product_Card.args = {
-    text: 'Молоко в деревне ультрапастеризованное Моментики 925 мл',
-    price: 69,
-    quantity: 0,
-    quantityStep: 1,
-    quantityMin: 0,
-    quantityMax: 10,
-    'media:src': './images/320_320_0.jpg',
-    'media:alt': '',
-    'badge1:text': '−20%',
-    'badge2:text': '−30%',
-    'example:cardWidth': '12.25rem',
+// eslint-disable-next-line @typescript-eslint/naming-convention, camelcase
+export const Product_Card: StoryObj<StoryProductCardProps> = {
+    args: {
+        text: 'Молоко в деревне ультрапастеризованное Моментики 925 мл',
+        price: 69,
+        quantity: 0,
+        quantityStep: 1,
+        quantityMin: 0,
+        quantityMax: 10,
+        'media:src': './images/320_320_0.jpg',
+        'media:alt': '',
+        'badge1:text': '−20%',
+        'badge2:text': '−30%',
+        'example:cardWidth': '12.25rem',
+    },
+    render: (args) => <StoryProductCard {...args} />,
 };
 
-export const ProductCardPerformance: Story<ProductCardProps> = () => {
+const StoryProductCardPerformance = () => {
     const [quantity, setQuantity] = useState(1);
 
     const badge = useMemo(() => <Badge text="−20%" size="l" />, []);
@@ -187,4 +191,8 @@ export const ProductCardPerformance: Story<ProductCardProps> = () => {
             />
         </div>
     );
+};
+
+export const ProductCardPerformance: StoryObj = {
+    render: () => <StoryProductCardPerformance />,
 };

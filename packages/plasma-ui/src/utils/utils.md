@@ -1,0 +1,94 @@
+# Утилиты
+
+## animatedScrollToX / animatedScrollToY
+
+Плавная прокрутка по оси X и Y.
+
+```tsx
+import React from 'react';
+import { animatedScrollToX } from '@salutejs/plasma-core/utils';
+
+const ScrollComponent: React.FC = ({ children }) => {
+    const ref = React.useRef(null);
+
+    React.useLayoutEffect(() => {
+        if (ref.current) {
+            // Плавный скролл на 400px после первого рендера компонента
+            animatedScrollToX(ref.current, 400);
+        }
+    }, []);
+
+    return <div ref={ref}>{children}</div>;
+};
+```
+
+## convertRoundnessMatrix
+
+По заданному шаблону-матрице выводит значения для `border-radius`.
+
+Значение символов: `r` - радиус стандартный, `h` - радиус округлый (вычисляемый из высоты).
+
+```tsx
+import styled from 'styled-components';
+import { convertRoundnessMatrix } from '@salutejs/plasma-core/utils';
+
+// Выведет значение для border-radius, равное '1em 2em 2em 1em'
+const Box = styled.div`
+    border-radius: ${convertPinsMatrix('r h h r', '1em', '2em')};
+`;
+```
+
+## detectDevice
+
+Вернет тип устройства, под которым запустилось приложение.
+
+В случае запуска в серверном окружении, возвращает "sberBox".
+
+Для детектирования устройства используется `navigator.userAgent`.
+
+```tsx
+import { detectDevice } from '@salutejs/plasma-core/utils';
+
+// Вернет "SberPortal" или "SberBox" или "mobile" (для всех остальных устройств)
+const deviceKind = detectDevice();
+```
+
+## mediaQuery(breakpoint: Breakpoint, deviceScale?: number)
+
+Обертка над css media-query с заранее определенными breakpoints.
+
+> Для корректной работы на разных поверхностях, необходимо указывать второй параметр `deviceScale`.
+
+```tsx
+import styled, { css } from 'styled-components';
+import { mediaQuery, breakpoints } from '@salutejs/plasma-core/utils';
+
+// Определяем поверхность
+const deviceScale = 2;
+
+// Блок Box примет красный цвет фона на больших экранах
+const Box = styled.div`
+    ${mediaQuery(
+        'XL',
+        deviceScale,
+    )(css`
+        background: red;
+    `)};
+`;
+
+// Возможно использование массива ``breakpoints``, в котором перечислен список разрешений
+const colors = {
+    xl: 'azure',
+    lg: 'aliceblue',
+    md: 'aquamarine',
+    sm: 'cadetblue',
+};
+
+const Text = styled.span`
+    ${breakpoints.map((breakpoint) =>
+        mediaQuery(breakpoint)(css`
+            color: ${colors[breakpoint]};
+        `),
+    )}
+`;
+```

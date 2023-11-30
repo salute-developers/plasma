@@ -40,6 +40,9 @@ packages/plasma-typo/*
 packages/**/jest.config.*
 examples/**
 
+packages/plasma-asdk/*
+!packages/plasma-asdk/src
+
 packages/plasma-b2c/*
 !packages/plasma-b2c/src
 

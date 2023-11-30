@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import type { FC } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 import styled from 'styled-components';
 
 import { SSRProvider } from '../SSRProvider';
 import { actionWithPersistedEvent, InSpacingDecorator } from '../../helpers';
 
 import { Checkbox } from '.';
+import type { CheckboxProps } from '.';
 
-export default {
+const onChange = actionWithPersistedEvent('onChange');
+const onFocus = actionWithPersistedEvent('onFocus');
+const onBlur = actionWithPersistedEvent('onBlur');
+
+const meta: Meta<CheckboxProps> = {
     title: 'Controls/Checkbox',
     component: Checkbox,
     decorators: [
         InSpacingDecorator,
-        (Story: React.FC) => (
+        (Story: FC) => (
             <SSRProvider>
                 <Story />
             </SSRProvider>
@@ -19,9 +26,7 @@ export default {
     ],
 };
 
-const onChange = actionWithPersistedEvent('onChange');
-const onFocus = actionWithPersistedEvent('onFocus');
-const onBlur = actionWithPersistedEvent('onBlur');
+export default meta;
 
 const labelWithLink = (
     <div>
@@ -49,8 +54,8 @@ const StyledGrid = styled.div`
     }
 `;
 
-export const Default = () => {
-    const [values, setValues] = React.useState([2, 4]);
+const StoryDefault = (props: CheckboxProps) => {
+    const [values, setValues] = useState([2, 4]);
 
     return (
         <StyledGrid>
@@ -75,4 +80,8 @@ export const Default = () => {
             ))}
         </StyledGrid>
     );
+};
+
+export const Default: StoryObj<CheckboxProps> = {
+    render: (args) => <StoryDefault {...args} />,
 };

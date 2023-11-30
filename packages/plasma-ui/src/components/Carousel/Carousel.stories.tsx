@@ -1,5 +1,6 @@
-import React, { useRef, useCallback } from 'react';
-import { Story, Meta } from '@storybook/react';
+import React, { useRef, useCallback, memo, useState } from 'react';
+import type { FC } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 import type { SnapType, SnapAlign, CarouselLiteProps } from '@salutejs/plasma-core';
 import { CarouselItemVirtual } from '@salutejs/plasma-core';
 import { useVirtual } from '@salutejs/use-virtual';
@@ -15,7 +16,8 @@ import { Button } from '../Button';
 import { Body3 } from '../Typography/Body';
 import { InContainer, WithGridLines } from '../../helpers/StoryDecorators';
 
-import { ScalingColCard, scaleCallback, scaleResetCallback, ScalingColCardProps } from './Carousel.examples';
+import { ScalingColCard, scaleCallback, scaleResetCallback } from './Carousel.examples';
+import type { ScalingColCardProps } from './Carousel.examples';
 
 import {
     CarouselGridWrapper,
@@ -25,43 +27,75 @@ import {
     CarouselItem,
     CarouselCol,
     useRemoteHandlers,
-    CarouselProps,
-    CarouselColProps,
 } from '.';
+import type { CarouselProps, CarouselColProps } from '.';
+
+const meta: Meta<CarouselProps> = {
+    title: 'Controls/Carousel',
+    component: Carousel,
+    decorators: [WithGridLines, InContainer],
+};
+
+export default meta;
+
+type DisplayGrid = { displayGrid: boolean };
+
+type StoryPropsBasic = CarouselProps & CarouselColProps & DisplayGrid;
+
+type StoryCarouselLitePropsBasic = CarouselLiteProps & CarouselColProps & DisplayGrid;
+
+type StoryCenterItemProps = CarouselProps & ScalingColCardProps & DisplayGrid;
+
+type MusicPageProps = {
+    scrollSnapType: SnapType;
+    scrollSnapAlign: SnapAlign;
+} & DisplayGrid;
+
+const isSberbox = isSberBox();
+
+const enabledStateStyle = { display: 'block' };
+const disabledStateStyle = { display: 'none' };
+
+const snapTypes = ['mandatory', 'proximity'] as SnapType[];
+const snapAlign = ['start', 'center', 'end'] as SnapAlign[];
 
 const StyledWrapper = styled.div`
     width: 32.5rem;
     margin-left: auto;
     margin-right: auto;
 `;
+
 const StyledCarouselWrapper = styled.section`
     position: relative;
     display: flex;
     flex-direction: column;
     margin-bottom: 0.5rem;
 `;
+
 const StyledCarousel = styled(Carousel)`
     & > div {
         display: block;
     }
 `;
+
 const StyledControls = styled.div`
     position: absolute;
     top: 1rem;
     left: 1rem;
     z-index: 1;
 `;
+
 const StyledCarouselItem = styled(CarouselItem)`
     width: 16.5rem;
     padding: 0 0.5rem;
     box-sizing: border-box;
 `;
 
-const ChevronLeft: React.FC = React.memo(() => {
+const ChevronLeft: FC = memo(() => {
     return <IconChevronLeft size="s" color="#fff" />;
 });
 
-const ChevronRight: React.FC = React.memo(() => {
+const ChevronRight: FC = memo(() => {
     return <IconChevronRight size="s" color="#fff" />;
 });
 
@@ -78,29 +112,16 @@ const items = Array(100)
         imageSrc: imageSrc.replace('n', i % 12),
     }));
 
-const enabledStateStyle = { display: 'block' };
-const disabledStateStyle = { display: 'none' };
-
-const snapTypes = ['mandatory', 'proximity'] as SnapType[];
-const snapAlign = ['start', 'center', 'end'] as SnapAlign[];
-
-const isSberbox = isSberBox();
-
-export default {
-    title: 'Controls/Carousel',
-    decorators: [WithGridLines, InContainer],
-} as Meta;
-
 const basicCarouselStyle = { paddingTop: '1.25rem', paddingBottom: '1.25rem' };
 
-export const Basic: Story<CarouselProps & CarouselColProps & { displayGrid: boolean }> = ({
+const StoryBasic = ({
     animatedScrollByIndex,
     scrollAlign,
     scrollSnapType,
     scrollSnapAlign,
     detectActive,
     detectThreshold,
-}) => {
+}: StoryPropsBasic) => {
     const axis = 'x';
     const delay = isSberbox ? 300 : 30;
     const longDelay = isSberbox ? 1500 : 150;
@@ -152,35 +173,37 @@ export const Basic: Story<CarouselProps & CarouselColProps & { displayGrid: bool
     );
 };
 
-Basic.args = {
-    displayGrid: true,
-    animatedScrollByIndex: true,
-    scrollAlign: 'start',
-    scrollSnapType: !isSberbox ? 'mandatory' : undefined,
-    scrollSnapAlign: !isSberbox ? 'start' : undefined,
-    detectActive: true,
-    detectThreshold: 0.5,
-};
-
-Basic.argTypes = {
-    scrollAlign: {
-        options: ['center', 'start', 'end', 'activeDirection'],
-        control: {
-            type: 'select',
+export const Basic: StoryObj<StoryPropsBasic> = {
+    argTypes: {
+        scrollAlign: {
+            options: ['center', 'start', 'end', 'activeDirection'],
+            control: {
+                type: 'select',
+            },
+        },
+        scrollSnapType: {
+            options: snapTypes,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        scrollSnapAlign: {
+            options: snapAlign,
+            control: {
+                type: 'inline-radio',
+            },
         },
     },
-    scrollSnapType: {
-        options: snapTypes,
-        control: {
-            type: 'inline-radio',
-        },
+    args: {
+        displayGrid: true,
+        animatedScrollByIndex: true,
+        scrollAlign: 'start',
+        scrollSnapType: !isSberbox ? 'mandatory' : undefined,
+        scrollSnapAlign: !isSberbox ? 'start' : undefined,
+        detectActive: true,
+        detectThreshold: 0.5,
     },
-    scrollSnapAlign: {
-        options: snapAlign,
-        control: {
-            type: 'inline-radio',
-        },
-    },
+    render: (args) => <StoryBasic {...args} />,
 };
 
 const CarouselVirtualBasicComponent = () => {
@@ -235,21 +258,23 @@ const CarouselVirtualBasicComponent = () => {
     );
 };
 
-export const CarouselVirtualBasic = () => {
-    /**
-     * Если вы используете виртуализацию, скорее всего также следует отключить анимацию
-     * при фокусе на текуший элемент. Что продемонстрировано в данном примере через lowPerformance режим.
-     */
-    return (
-        <DeviceThemeProvider lowPerformance>
-            <CarouselVirtualBasicComponent />
-        </DeviceThemeProvider>
-    );
+export const CarouselVirtualBasic: StoryObj = {
+    args: {
+        displayGrid: true,
+    },
+    render: () => {
+        /**
+         * Если вы используете виртуализацию, скорее всего также следует отключить анимацию
+         * при фокусе на текущий элемент. Что продемонстрировано в данном примере через lowPerformance режим.
+         */
+        return (
+            <DeviceThemeProvider lowPerformance>
+                <CarouselVirtualBasicComponent />
+            </DeviceThemeProvider>
+        );
+    },
 };
 
-CarouselVirtualBasic.args = {
-    displayGrid: true,
-};
 const verticalStyle = {
     height: '100vh',
     maxHeight: '40rem',
@@ -261,14 +286,14 @@ const verticalStyle = {
 
 const verticalCarouselItemStyle = { padding: '0.75rem 0' };
 
-export const Vertical: Story<CarouselProps & CarouselColProps & { displayGrid: boolean }> = ({
+const StoryVertical = ({
     animatedScrollByIndex,
     scrollAlign,
     scrollSnapType,
     scrollSnapAlign,
     detectActive,
     detectThreshold,
-}) => {
+}: StoryPropsBasic) => {
     const axis = 'y';
     const [index, setIndex] = useRemoteHandlers({
         initialIndex: 0,
@@ -319,24 +344,17 @@ export const Vertical: Story<CarouselProps & CarouselColProps & { displayGrid: b
     );
 };
 
-Vertical.args = {
-    ...Basic.args,
+export const Vertical: StoryObj<StoryPropsBasic> = {
+    argTypes: { ...Basic.argTypes },
+    args: { ...Basic.args },
+    render: (args) => <StoryVertical {...args} />,
 };
-
-Vertical.argTypes = {
-    ...Basic.argTypes,
-};
-
-interface MusicPageProps {
-    displayGrid: boolean;
-    scrollSnapType: SnapType;
-    scrollSnapAlign: SnapAlign;
-}
 
 const musicPageSectionStyle = { margin: '1.75rem 0' };
+
 const musicPageTitleStyle = { marginBottom: '1rem' };
 
-export const MusicPage: Story<MusicPageProps> = ({ scrollSnapType, scrollSnapAlign }) => {
+const StoryMusicPage = ({ scrollSnapType, scrollSnapAlign }: MusicPageProps) => {
     return (
         <DeviceThemeProvider>
             <section style={musicPageSectionStyle}>
@@ -379,25 +397,27 @@ export const MusicPage: Story<MusicPageProps> = ({ scrollSnapType, scrollSnapAli
     );
 };
 
-MusicPage.args = {
-    displayGrid: true,
-    scrollSnapType: 'mandatory',
-    scrollSnapAlign: 'start',
-};
-
-MusicPage.argTypes = {
-    ...Basic.argTypes,
+export const MusicPage: StoryObj<MusicPageProps> = {
+    argTypes: {
+        ...Basic.argTypes,
+    },
+    args: {
+        displayGrid: true,
+        scrollSnapType: 'mandatory',
+        scrollSnapAlign: 'start',
+    },
+    render: (args) => <StoryMusicPage {...args} />,
 };
 
 const centerItemCarouselStyle = { paddingTop: '5rem' };
 
-export const CenterItem: Story<CarouselProps & ScalingColCardProps & { displayGrid: boolean }> = ({
+const StoryCenterItem = ({
     animatedScrollByIndex,
     scrollSnapType,
     scrollSnapAlign,
     detectActive,
     detectThreshold,
-}) => {
+}: StoryCenterItemProps) => {
     const delay = isSberbox ? 300 : 30;
     const longDelay = isSberbox ? 1500 : 150;
     const [index, setIndex] = useRemoteHandlers({
@@ -445,31 +465,33 @@ export const CenterItem: Story<CarouselProps & ScalingColCardProps & { displayGr
     );
 };
 
-CenterItem.args = {
-    ...Basic.args,
+export const CenterItem: StoryObj<StoryCenterItemProps> = {
+    argTypes: {
+        ...Basic.argTypes,
+    },
+    args: {
+        ...Basic.args,
+    },
+    render: (args) => <StoryCenterItem {...args} />,
 };
 
-CenterItem.argTypes = {
-    ...Basic.argTypes,
-};
+const StoryAccessibilityDemo = () => {
+    const [index, setIndex] = useState(0);
+    const [ariaLive, setAriaLive] = useState<'off' | 'polite'>('off');
 
-export const AccessabilityDemo = () => {
-    const [index, setIndex] = React.useState(0);
-    const [ariaLive, setAriaLive] = React.useState<'off' | 'polite'>('off');
-
-    const enableAriaLive = React.useCallback(() => {
+    const enableAriaLive = useCallback(() => {
         setAriaLive('polite');
     }, []);
 
-    const disableAriaLive = React.useCallback(() => {
+    const disableAriaLive = useCallback(() => {
         setAriaLive('off');
     }, []);
 
-    const changeIndexPrev = React.useCallback(() => {
+    const changeIndexPrev = useCallback(() => {
         setIndex((i) => (i > 0 ? i - 1 : items.length - 1));
     }, []);
 
-    const changeIndexNext = React.useCallback(() => {
+    const changeIndexNext = useCallback(() => {
         setIndex((i) => (i < items.length - 1 ? i + 1 : 0));
     }, []);
 
@@ -517,11 +539,11 @@ export const AccessabilityDemo = () => {
     );
 };
 
-export const CarouselLiteBasic: Story<CarouselLiteProps & CarouselColProps & { displayGrid: boolean }> = ({
-    scrollAlign,
-    scrollSnapType,
-    scrollSnapAlign,
-}) => {
+export const AccessibilityDemo: StoryObj = {
+    render: () => <StoryAccessibilityDemo />,
+};
+
+const StoryCarouselLiteBasic = ({ scrollAlign, scrollSnapType, scrollSnapAlign }: StoryCarouselLitePropsBasic) => {
     const axis = 'x';
     const delay = 30;
     const longDelay = 150;
@@ -569,30 +591,32 @@ export const CarouselLiteBasic: Story<CarouselLiteProps & CarouselColProps & { d
     );
 };
 
-CarouselLiteBasic.args = {
-    displayGrid: true,
-    scrollAlign: 'start',
-    scrollSnapType: 'mandatory',
-    scrollSnapAlign: 'start',
-};
-
-CarouselLiteBasic.argTypes = {
-    scrollAlign: {
-        options: ['center', 'start', 'end'],
-        control: {
-            type: 'select',
+export const CarouselLiteBasic: StoryObj<StoryCarouselLitePropsBasic> = {
+    argTypes: {
+        scrollAlign: {
+            options: ['center', 'start', 'end'],
+            control: {
+                type: 'select',
+            },
+        },
+        scrollSnapType: {
+            options: snapTypes,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        scrollSnapAlign: {
+            options: snapAlign,
+            control: {
+                type: 'inline-radio',
+            },
         },
     },
-    scrollSnapType: {
-        options: snapTypes,
-        control: {
-            type: 'inline-radio',
-        },
+    args: {
+        displayGrid: true,
+        scrollAlign: 'start',
+        scrollSnapType: 'mandatory',
+        scrollSnapAlign: 'start',
     },
-    scrollSnapAlign: {
-        options: snapAlign,
-        control: {
-            type: 'inline-radio',
-        },
-    },
+    render: (args) => <StoryCarouselLiteBasic {...args} />,
 };

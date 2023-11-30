@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-tokens-b2b",
-  "version": "1.30.0",
+  "version": "1.31.0-dev.0",
   "description": "",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -8,15 +8,15 @@
   "main": "index.js",
   "types": "index.d.ts",
   "devDependencies": {
-    "@salutejs/plasma-colors": "0.11.0",
-    "@salutejs/plasma-tokens-core": "0.5.0",
-    "@salutejs/plasma-tokens-utils": "0.34.0",
+    "@salutejs/plasma-colors": "0.12.0-dev.0",
+    "@salutejs/plasma-tokens-core": "0.6.0-dev.0",
+    "@salutejs/plasma-tokens-utils": "0.35.0-dev.0",
     "@types/node": "16.7.13",
     "deepmerge": "4.2.2",
     "jsdom": "17.0.0",
     "jsdom-global": "3.0.2",
     "ts-node": "10.2.1",
-    "typescript": "4.0.8"
+    "typescript": "4.2.4"
   },
   "scripts": {
     "prepare": "npm run build",

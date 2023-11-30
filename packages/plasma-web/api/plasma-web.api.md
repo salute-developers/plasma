@@ -7,7 +7,7 @@
 /// <reference types="react" />
 
 import { addFocus } from '@salutejs/plasma-core';
-import { addNotification } from '@salutejs/plasma-hope';
+import { addNotification } from '@salutejs/plasma-new-hope/styled-components';
 import { AnchorHTMLAttributes } from 'react';
 import { animatedScrollToX } from '@salutejs/plasma-core';
 import { animatedScrollToY } from '@salutejs/plasma-core';
@@ -48,6 +48,7 @@ import { Breakpoint } from '@salutejs/plasma-hope';
 import { BreakWordProps } from '@salutejs/plasma-core';
 import { Button1 } from '@salutejs/plasma-hope';
 import { Button2 } from '@salutejs/plasma-hope';
+import { ButtonHTMLAttributes } from 'react';
 import { ButtonProps } from '@salutejs/plasma-hope';
 import { ButtonView } from '@salutejs/plasma-hope';
 import { buttonViews } from '@salutejs/plasma-hope';
@@ -75,8 +76,9 @@ import { CarouselItemProps } from '@salutejs/plasma-hope';
 import { CarouselProps } from '@salutejs/plasma-hope';
 import { Cell } from '@salutejs/plasma-hope';
 import { CellProps } from '@salutejs/plasma-hope';
+import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { clearSelection } from '@salutejs/plasma-hope';
-import { closeNotification } from '@salutejs/plasma-hope';
+import { closeNotification } from '@salutejs/plasma-new-hope/styled-components';
 import { Col } from '@salutejs/plasma-hope';
 import { ColCount } from '@salutejs/plasma-hope';
 import { ColOffsetProps } from '@salutejs/plasma-hope';
@@ -85,7 +87,7 @@ import { ColSizeProps } from '@salutejs/plasma-hope';
 import { Container } from '@salutejs/plasma-hope';
 import { ContainerProps } from '@salutejs/plasma-hope';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
-import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/type';
+import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { defaultValidate } from '@salutejs/plasma-hope';
 import { DisabledProps } from '@salutejs/plasma-core';
 import { Dropdown } from '@salutejs/plasma-hope';
@@ -150,9 +152,7 @@ import { ModalsProvider } from '@salutejs/plasma-hope';
 import { ModalView } from '@salutejs/plasma-hope';
 import { monthLongName } from '@salutejs/plasma-core';
 import { monthShortName } from '@salutejs/plasma-core';
-import { Notification as Notification_2 } from '@salutejs/plasma-hope';
-import { NotificationProps } from '@salutejs/plasma-hope';
-import { NotificationsProvider } from '@salutejs/plasma-hope';
+import { NotificationProps } from '@salutejs/plasma-new-hope/styled-components';
 import { offsets } from '@salutejs/plasma-hope';
 import { OutlinedProps } from '@salutejs/plasma-core';
 import { P1 } from '@salutejs/plasma-hope';
@@ -189,6 +189,7 @@ import { radiuses } from '@salutejs/plasma-core';
 import { Ratio } from '@salutejs/plasma-hope';
 import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 import { RectSkeleton } from '@salutejs/plasma-hope';
 import { RectSkeletonProps } from '@salutejs/plasma-hope';
 import { RefAttributes } from 'react';
@@ -460,6 +461,41 @@ true: string;
 // @public (undocumented)
 export type CheckboxProps = typeof CheckboxComponent;
 
+// @public
+export const Chip: FunctionComponent<PropsType<    {
+view: {
+primary: string;
+secondary: string;
+positive: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & ButtonHTMLAttributes<HTMLButtonElement> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+contentClearButton?: ReactNode;
+disabled?: boolean | undefined;
+readOnly?: boolean | undefined;
+size?: "s" | "l" | "m" | "xs" | undefined;
+view?: "secondary" | "default" | "positive" | undefined;
+onClear?: (() => void) | undefined;
+} & {
+children?: ReactNode;
+} & RefAttributes<HTMLButtonElement>>;
+
+export { ChipProps }
+
 export { clearSelection }
 
 export { closeNotification }
@@ -611,11 +647,26 @@ export { monthLongName }
 
 export { monthShortName }
 
+// @public (undocumented)
+const Notification_2: React_2.FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+status: {
+success: string;
+warning: string;
+error: string;
+};
+}> & NotificationProps & React_2.RefAttributes<HTMLDivElement>>;
 export { Notification_2 as Notification }
 
 export { NotificationProps }
 
-export { NotificationsProvider }
+// @public (undocumented)
+export const NotificationsProvider: React_2.FC<{
+    children: ReactNode;
+    frame?: string;
+}>;
 
 export { offsets }
 
@@ -796,7 +847,7 @@ export { TabsControllerProps }
 export { TabsProps }
 
 // @public
-export const TextArea: React_2.ForwardRefExoticComponent<TextAreaProps & React_2.RefAttributes<HTMLTextAreaElement>>;
+export const TextArea: ForwardRefExoticComponent<TextAreaProps & RefAttributes<HTMLTextAreaElement>>;
 
 export { TextareaHTMLAttributes }
 

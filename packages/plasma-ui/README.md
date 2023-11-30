@@ -2,7 +2,7 @@
 
 Реализация компонентов для создания смартаппов.
 
-<p align="center">
+<p>
   <img width="800" src="https://user-images.githubusercontent.com/1813468/98609687-ea20fc80-22fe-11eb-8d84-cd26385f01ed.png" alt="plasma-ui" />
 </p>
 
@@ -11,8 +11,10 @@
 Компоненты реализованы на [typescript](https://www.typescriptlang.org/) с помощью [react](https://reactjs.org/) и [styled-components](https://styled-components.com/);
 
 Использование данного пакета предполагает использование `react` & `react-dom`;
-Использование `styled-components` на проект не обязательно, также как и использование `typescript`.
-Но для того чтобы комопненты работали `styled-components` необходимо установить.
+
+Использование `styled-components` на проект необязательно, так же как и использование `typescript`.
+
+Но для того чтобы компоненты работали необходимо установить - `styled-components`.
 
 ### Установка пакета
 
@@ -29,7 +31,10 @@ $ npm install --save @salutejs/plasma-ui @salutejs/plasma-tokens @salutejs/plasm
 ```jsx
 // GlobalStyle.tsx
 import { createGlobalStyle } from 'styled-components';
-import { darkSber } from '@salutejs/plasma-tokens/themes'; // Или один из списка: darkEva, darkJoy, lightEva, lightJoy, lightSber
+
+// Или один из списка: darkEva, darkJoy, lightEva, lightJoy, lightSber
+import { darkSber } from '@salutejs/plasma-tokens/themes';
+
 import {
     text, // Цвет текста
     background, // Цвет подложки
@@ -44,7 +49,9 @@ const DocumentStyle = createGlobalStyle`
         background-image: ${gradient};
     }
 `;
+
 const ThemeStyle = createGlobalStyle(darkSber);
+
 export const GlobalStyle = () => (
     <>
         <DocumentStyle />
@@ -54,9 +61,10 @@ export const GlobalStyle = () => (
 ```
 
 ```jsx
-// index.tsx
-import { DeviceThemeProvider } from '@salutejs/plasma-ui/components/Device'; // Типографика, имеющая размеры, зависимые от типа устройства
-import { GlobalStyle } from './GlobalStyle'; // Тема оформления (цветовая схема)
+// Типографика, имеющая размеры, зависимые от типа устройства
+import { DeviceThemeProvider } from '@salutejs/plasma-ui/components/Device';
+// Тема оформления (цветовая схема)
+import { GlobalStyle } from './GlobalStyle';
 import { App } from './App';
 
 ReactDOM.render(

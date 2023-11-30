@@ -3,8 +3,10 @@ name: PR theme-builder
 on:
   pull_request:
     branches:
-      - dev
       - master
+  pull_request_target:
+    branches:
+      - dev
 
 concurrency:
   # New commit on branch cancels running workflows of the same branch
@@ -12,23 +14,32 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  authorize:
+    name: Authorize external pull request
+    uses: ./.github/workflows/authorize-external-pr.yml
+
   build:
     name: Build
     runs-on: ubuntu-latest
+    needs: authorize
     env:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
       PR_NAME: pr-${{ github.event.number }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          show-progress: false
+          ref: refs/pull/${{github.event.pull_request.number}}/merge
 
-      - uses: ./.github/actions/prepare-environment
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-environment
 
       - name: Prepare directory for build
         run: mkdir s3_build
 
       # TODO: https://github.com/salute-developers/plasma/issues/255
       - name: Lerna bootstrap with scope
-        run: | 
+        run: |
           npx lerna bootstrap --scope @salutejs/plasma-theme-builder --scope=@salutejs/plasma-{tokens,tokens-utils}
 
       # TODO: https://github.com/salute-developers/plasma/issues/603
@@ -67,14 +78,14 @@ jobs:
           script: |
             const branchName = context.payload.pull_request.head.ref;
             const themeName = branchName.split('theme-builder-')[1];
-            const params = themeName ? `?theme=${themeName}&branch=${branchName}` : ''; 
+            const params = themeName ? `?theme=${themeName}&branch=${branchName}` : '';
 
             github.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: `Theme Builder app deployed!
-              
+
               http://plasma.sberdevices.ru/pr/plasma-theme-builder-pr-${context.issue.number}/${params}
               `
             })

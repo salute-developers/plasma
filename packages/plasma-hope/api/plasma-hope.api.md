@@ -95,7 +95,6 @@ import { LineSkeletonProps } from '@salutejs/plasma-core';
 import { MaxLinesProps } from '@salutejs/plasma-core';
 import { monthLongName } from '@salutejs/plasma-core';
 import { monthShortName } from '@salutejs/plasma-core';
-import { MutableRefObject } from 'react';
 import { OutlinedProps } from '@salutejs/plasma-core';
 import { P } from '@salutejs/plasma-core';
 import { P1 } from '@salutejs/plasma-core';
@@ -173,9 +172,6 @@ import { withSkeleton } from '@salutejs/plasma-core';
 import { WithSkeletonProps } from '@salutejs/plasma-core';
 
 export { addFocus }
-
-// @public
-export function addNotification({ id: externalId, ...rest }: NotificationProps, timeout?: number): string;
 
 export { animatedScrollToX }
 
@@ -413,9 +409,6 @@ export interface CellProps {
 
 // @public (undocumented)
 export function clearSelection(): void;
-
-// @public (undocumented)
-export const closeNotification: (id: string, delay?: number) => void;
 
 // @public
 export const Col: StyledComponent<"div", any, ColProps, never>;
@@ -851,23 +844,6 @@ export { monthLongName }
 
 export { monthShortName }
 
-// @public
-const Notification_2: React_2.ForwardRefExoticComponent<NotificationProps & React_2.RefAttributes<HTMLDivElement>>;
-export { Notification_2 as Notification }
-
-// @public (undocumented)
-export interface NotificationProps extends AsProps, React_2.HTMLAttributes<HTMLDivElement> {
-    children?: React_2.ReactNode;
-    // Warning: (ae-forgotten-export) The symbol "statuses" needs to be exported by the entry point index.d.ts
-    status?: keyof typeof statuses;
-    title?: string;
-}
-
-// @public (undocumented)
-export const NotificationsProvider: React_2.FC<{
-    children: ReactNode;
-}>;
-
 // @public (undocumented)
 export const offsets: Record<Breakpoint, keyof ColOffsetProps>;
 
@@ -956,8 +932,8 @@ export const Progress: React_2.FC<ProgressProps>;
 // @public (undocumented)
 export interface ProgressProps {
     displayValue?: boolean;
-    // Warning: (ae-forgotten-export) The symbol "statuses_2" needs to be exported by the entry point index.d.ts
-    status?: keyof typeof statuses_2;
+    // Warning: (ae-forgotten-export) The symbol "statuses" needs to be exported by the entry point index.d.ts
+    status?: keyof typeof statuses;
     value: number;
 }
 
@@ -1091,11 +1067,6 @@ export interface TabsProps extends TabsProps_2 {
     view?: 'secondary' | 'clear';
 }
 
-// Warning: (ae-forgotten-export) The symbol "Design_4" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const TextArea: ({ design }: Design_4) => React_2.ForwardRefExoticComponent<TextAreaProps & React_2.RefAttributes<HTMLTextAreaElement>>;
-
 export { TextareaHTMLAttributes }
 
 // @public (undocumented)
@@ -1114,10 +1085,10 @@ export interface TextAreaProps extends Omit<TextAreaProps_2, 'size'> {
 
 export { TextareaResize }
 
-// Warning: (ae-forgotten-export) The symbol "Design_5" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "Design_4" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const TextField: ({ design }: Design_5) => React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
+export const TextField: ({ design }: Design_4) => React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export interface TextFieldProps extends Omit<InputHTMLAttributes_2<HTMLInputElement>, 'size'> {
@@ -1225,9 +1196,6 @@ export const UploadVisual: FC<UploadVisualProps>;
 export interface UploadVisualProps extends UploadProps, PreviewGalleryProps {
     maxCount?: number;
 }
-
-// @public (undocumented)
-export const useAutoResize: <T extends HTMLTextAreaElement>(active: boolean, ref: MutableRefObject<T | null>, value?: string | number | readonly string[] | undefined, minHeight?: number | undefined, maxHeight?: number | undefined) => void;
 
 export { useDebouncedFunction }
 

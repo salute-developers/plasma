@@ -5,7 +5,7 @@ title: PopupBase
 
 import { PropsTable, Description, StorybookLink } from '@site/src/components';
 
-# Popover
+# PopupBase
 <Description name="PopupBase" />
 <PropsTable name="PopupBase" />
 <StorybookLink name="PopupBase" />
@@ -123,19 +123,19 @@ export function App() {
 ## Подключение анимации
 
 Для подключения анимации нужно добавить параметр `withAnimation`.
-Само управление происходит с помощью классов через переменные `endAnimation`, `endTransition` из объекта `popupClasses` для `PopupBase`.
-Для добавления анимации необходимо использовать класс `.popup-base-root` через переменную `popupClasses.root` из пакета.
+Само управление происходит с помощью классов через переменные `endAnimation`, `endTransition` из объекта `popupBaseClasses` для `PopupBase`.
+Для добавления анимации необходимо использовать класс `.popup-base-root` через переменную `popupBaseClasses.root` из пакета.
 
 Пример:
 
 ```tsx
 const StyledPopupTransition = styled(PopupBase)`
-    && > .${popupClasses.root} {
+    && > .${popupBaseClasses.root} {
         opacity: 1;
         transition: opacity 0.5s 0.1s;
     }
 
-    &&.${popupClasses.endTransition} > .${popupClasses.root} {
+    &&.${popupBaseClasses.endTransition} > .${popupBaseClasses.root} {
         opacity: 0;
         transition: opacity 0.5s 0.1s;
     }
@@ -146,11 +146,11 @@ const StyledPopupTransition = styled(PopupBase)`
 
 ```tsx
 const StyledPopupAnimation = styled(PopupBase)`
-    && > .${popupClasses.root} {
+    && > .${popupBaseClasses.root} {
         animation: fadeIn 1s forwards;
     }
 
-    &&.${popupClasses.endAnimation} > .${popupClasses.root} {
+    &&.${popupBaseClasses.endAnimation} > .${popupBaseClasses.root} {
         animation: fadeOut 1s forwards;
     }
 

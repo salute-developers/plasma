@@ -1,0 +1,1 @@
+export { applyDynamicLabel } from './applyDynamicLabel';

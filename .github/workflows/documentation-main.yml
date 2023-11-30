@@ -1,6 +1,7 @@
 name: Main Documentation and Storybook
 
 on:
+  workflow_dispatch:
   workflow_run:
     workflows: ["Release"]
     branches: [master]
@@ -28,13 +29,15 @@ jobs:
       - name: Prepare repository
         run: git fetch --unshallow --tags
 
-      - uses: ./.github/actions/prepare-environment
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-environment
 
       - name: Lerna bootstrap
         run: npx lerna bootstrap
 
-      - name: Prepare directory
-        run: mkdir s3_build
+      - name: Prepare directories
+        run: |
+          mkdir -p s3_build s3_build_sb
 
       - name: Plasma Website
         run: |
@@ -63,17 +66,17 @@ jobs:
       - name: Plasma UI Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-ui"
-          cp -R ./packages/plasma-ui/build-sb ./s3_build/next-${{ github.sha }}/ui-storybook
+          cp -R ./packages/plasma-ui/build-sb ./s3_build_sb/ui-storybook
 
       - name: Plasma Web Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-web"
-          cp -R ./packages/plasma-web/build-sb ./s3_build/next-${{ github.sha }}/web-storybook
+          cp -R ./packages/plasma-web/build-sb ./s3_build_sb/web-storybook
 
       - name: Plasma B2C Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-b2c"
-          cp -R ./packages/plasma-b2c/build-sb ./s3_build/next-${{ github.sha }}/b2c-storybook
+          cp -R ./packages/plasma-b2c/build-sb ./s3_build_sb/b2c-storybook
 
       - name: Plasma Temple Storybook
         run: |
@@ -97,3 +100,48 @@ jobs:
           sync
           ./s3_build/next-${{ github.sha }}/
           s3://${{ secrets.AWS_S3_BUCKET_2 }}/current/
+
+      - name: s3 Upload storybook build ui
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/ui-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/ui-storybook/
+
+      - name: s3 Upload storybook build web
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/web-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/web-storybook/
+
+      - name: s3 Upload storybook build b2c
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/b2c-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/b2c-storybook/

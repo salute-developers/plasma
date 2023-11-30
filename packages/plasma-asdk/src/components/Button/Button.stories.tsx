@@ -1,10 +1,14 @@
 import React, { useCallback, useState, useRef } from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { ComponentProps } from 'react';
 import { action } from '@storybook/addon-actions';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { IconPlaceholder, disableProps, InSpacingDecorator } from '../../helpers';
 
-import { Button, ButtonProps } from '.';
+import { Button } from '.';
+import type { ButtonProps as Base } from '.';
+
+type ButtonProps = ComponentProps<Base>;
 
 const views = ['primary', 'secondary', 'success', 'warning', 'critical', 'clear'];
 const sizes = ['l', 'm', 's', 'xs', 'xxs'];
@@ -15,22 +19,10 @@ const onClick = action('onClick');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-const propsToDisable = [
-    'theme',
-    'as',
-    'forwardedAs',
-    'contentLeft',
-    'contentRight',
-    'shiftLeft',
-    'shiftRight',
-    'blur',
-    'stretch',
-    'square',
-];
-
-export default {
+const meta: Meta<ButtonProps> = {
     title: 'Controls/Button',
     decorators: [InSpacingDecorator],
+    component: Button,
     argTypes: {
         contentType: {
             options: contentTypes,
@@ -55,24 +47,24 @@ export default {
                 type: 'select',
             },
         },
-        ...disableProps(propsToDisable),
+        ...disableProps([
+            'theme',
+            'as',
+            'forwardedAs',
+            'contentLeft',
+            'contentRight',
+            'shiftLeft',
+            'shiftRight',
+            'blur',
+            'stretch',
+            'square',
+        ]),
     },
-} as Meta;
-
-type ButtonStoryProps = ButtonProps & { contentType: string; isLoading?: boolean };
-
-const args: ButtonStoryProps = {
-    view: 'primary',
-    size: 'l',
-    disabled: false,
-    outlined: true,
-    text: 'Label',
-    contentType: 'Text',
-    isLoading: false,
-    onClick,
-    onFocus,
-    onBlur,
 };
+
+export default meta;
+
+type StoryButtonProps = ButtonProps & { contentType: string; isLoading?: boolean };
 
 const iconSize = {
     l: 's',
@@ -82,26 +74,35 @@ const iconSize = {
     xxs: 'xs',
 };
 
-export const Default: Story<ButtonStoryProps> = ({ contentType, text, ...rest }) => (
-    <Button
-        autoFocus
-        text={contentType !== 'Left' && text}
-        contentLeft={
-            (contentType === 'Left' || contentType === 'Text+Left') && <IconPlaceholder size={iconSize[rest.size]} />
-        }
-        contentRight={contentType === 'Text+Right' && <IconPlaceholder size={iconSize[rest.size]} />}
-        {...rest}
-    />
-);
-
-Default.args = args;
-
-const argsLoading: ButtonStoryProps = {
-    ...args,
-    text: 'Start loading',
+export const Default: StoryObj<StoryButtonProps> = {
+    args: {
+        view: 'primary',
+        size: 'l',
+        disabled: false,
+        outlined: true,
+        text: 'Label',
+        contentType: 'Text',
+        isLoading: false,
+        onClick,
+        onFocus,
+        onBlur,
+    },
+    render: ({ contentType, text, ...rest }) => (
+        <Button
+            autoFocus
+            text={contentType !== 'Left' && text}
+            contentLeft={
+                (contentType === 'Left' || contentType === 'Text+Left') && (
+                    <IconPlaceholder size={iconSize[rest.size]} />
+                )
+            }
+            contentRight={contentType === 'Text+Right' && <IconPlaceholder size={iconSize[rest.size]} />}
+            {...rest}
+        />
+    ),
 };
 
-export const Loading: Story<ButtonStoryProps> = ({ contentType, text, isLoading, onClick: _onClick, ...rest }) => {
+const StoryLoading = ({ contentType, text, isLoading, onClick: _onClick, ...rest }: StoryButtonProps) => {
     const [loading, setLoading] = useState(isLoading);
     const [count, setCount] = useState(0);
     const intervalId = useRef<number | undefined>();
@@ -147,4 +148,10 @@ export const Loading: Story<ButtonStoryProps> = ({ contentType, text, isLoading,
     );
 };
 
-Loading.args = argsLoading;
+export const Loading: StoryObj<StoryButtonProps> = {
+    args: {
+        ...Default.args,
+        text: 'Start loading',
+    },
+    render: (args) => <StoryLoading {...args} />,
+};

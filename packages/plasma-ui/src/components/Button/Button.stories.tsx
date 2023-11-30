@@ -1,44 +1,17 @@
 import React, { useState, useCallback, useRef } from 'react';
-import { Story, Meta } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { IconMic } from '@salutejs/plasma-icons';
 
 import { actionWithPersistedEvent, disableProps, InSpacingDecorator } from '../../helpers';
 
-import { Button, ButtonProps, ActionButtonProps, ActionButton } from '.';
-
-const sizes = ['l', 'm', 's'];
-const views = ['primary', 'secondary', 'warning', 'critical', 'checked', 'overlay', 'clear'];
-const pins = [
-    'square-square',
-    'square-clear',
-    'clear-square',
-    'clear-clear',
-    'clear-circle',
-    'circle-clear',
-    'circle-circle',
-];
+import { Button, ActionButton } from '.';
+import type { ButtonProps, ActionButtonProps } from '.';
 
 const onClick = actionWithPersistedEvent('onClick');
 const onFocus = actionWithPersistedEvent('onFocus');
 const onBlur = actionWithPersistedEvent('onBlur');
 
-const propsToDisable = [
-    'theme',
-    'as',
-    'forwardedAs',
-    'scaleOnHover',
-    'scaleOnPress',
-    'contentLeft',
-    'contentRight',
-    'shiftLeft',
-    'shiftRight',
-    'onClick',
-    'onFocus',
-    'onBlur',
-    'blur',
-];
-
-export default {
+const meta: Meta<ButtonProps> = {
     title: 'Controls/Button',
     decorators: [InSpacingDecorator],
     argTypes: {
@@ -48,83 +21,103 @@ export default {
             },
         },
         size: {
-            options: sizes,
+            options: ['l', 'm', 's'],
             control: {
                 type: 'inline-radio',
             },
         },
         view: {
-            options: views,
+            options: ['primary', 'secondary', 'warning', 'critical', 'checked', 'overlay', 'clear'],
             control: {
                 type: 'select',
             },
         },
         pin: {
-            options: pins,
+            options: [
+                'square-square',
+                'square-clear',
+                'clear-square',
+                'clear-clear',
+                'clear-circle',
+                'circle-clear',
+                'circle-circle',
+            ],
             control: {
                 type: 'select',
             },
         },
-        ...disableProps(propsToDisable),
+        ...disableProps([
+            'theme',
+            'as',
+            'forwardedAs',
+            'scaleOnHover',
+            'scaleOnPress',
+            'contentLeft',
+            'contentRight',
+            'shiftLeft',
+            'shiftRight',
+            'onClick',
+            'onFocus',
+            'onBlur',
+            'blur',
+        ]),
     },
-} as Meta;
+};
 
-type ButtonStoryProps = Omit<ButtonProps, 'children' | 'contentLeft' | 'contentRight'> & {
+export default meta;
+
+type StoryButtonProps = Omit<ButtonProps, 'children' | 'contentLeft' | 'contentRight'> & {
     enableIcon: boolean;
     isLoading: boolean;
 };
 
-export const Default: Story<ButtonStoryProps> = ({ enableIcon, text, ...rest }) => (
-    <Button text={text} contentLeft={enableIcon ? <IconMic size="s" color="inherit" /> : undefined} {...rest} />
-);
-
-Default.args = {
-    text: 'Hello Plasma',
-    size: 'm',
-    view: 'primary',
-    pin: 'square-square',
-    enableIcon: true,
-    scaleOnInteraction: true,
-    outlined: true,
-    focused: false,
-    disabled: false,
-    square: false,
-    stretch: false,
-    isLoading: false,
-    onClick,
-    onFocus,
-    onBlur,
+export const Default: StoryObj<StoryButtonProps> = {
+    args: {
+        text: 'Hello Plasma',
+        size: 'm',
+        view: 'primary',
+        pin: 'square-square',
+        enableIcon: true,
+        scaleOnInteraction: true,
+        outlined: true,
+        focused: false,
+        disabled: false,
+        square: false,
+        stretch: false,
+        isLoading: false,
+        onClick,
+        onFocus,
+        onBlur,
+    },
+    render: ({ enableIcon, text, ...rest }) => (
+        <Button text={text} contentLeft={enableIcon ? <IconMic size="s" color="inherit" /> : undefined} {...rest} />
+    ),
 };
 
 // eslint-disable-next-line @typescript-eslint/naming-convention, camelcase
-export const Action_Button: Story<ActionButtonProps> = (args) => (
-    <ActionButton {...args}>
-        <IconMic size="xs" color="inherit" />
-    </ActionButton>
-);
-
-// eslint-disable-next-line @typescript-eslint/naming-convention
-Action_Button.args = {
-    size: 'm',
-    view: 'primary',
-    pin: 'square-square',
-    scaleOnInteraction: true,
-    disabled: false,
-    tabIndex: 0,
-    onClick,
-    onFocus,
-    onBlur,
+export const Action_Button: StoryObj<ActionButtonProps> = {
+    argTypes: {
+        ...disableProps(['text', 'tabIndex', 'square', 'focused', 'outlined', 'stretch']),
+    },
+    args: {
+        size: 'm',
+        view: 'primary',
+        pin: 'square-square',
+        scaleOnInteraction: true,
+        disabled: false,
+        tabIndex: 0,
+        onClick,
+        onFocus,
+        onBlur,
+    },
+    render: (args) => (
+        <ActionButton {...args}>
+            <IconMic size="xs" color="inherit" />
+        </ActionButton>
+    ),
 };
 
-const ActionButtonPropsToDisable = ['text', 'tabIndex', 'square', 'focused', 'outlined', 'stretch'];
-
-// eslint-disable-next-line @typescript-eslint/naming-convention
-Action_Button.argTypes = {
-    ...disableProps(ActionButtonPropsToDisable),
-};
-
-// eslint-disable-next-line @typescript-eslint/naming-convention, camelcase
-export const Loading_Button: Story<ButtonStoryProps> = ({ enableIcon, text, ...rest }) => {
+const StoryLoadingButton = ({ enableIcon, text, ...rest }: StoryButtonProps) => {
     const [loading, setLoading] = useState(false);
     const [count, setCount] = useState(0);
     const intervalId = useRef<number | undefined>();
@@ -159,19 +152,22 @@ export const Loading_Button: Story<ButtonStoryProps> = ({ enableIcon, text, ...r
     );
 };
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
-Loading_Button.args = {
-    text: 'Start loading',
-    size: 'm',
-    view: 'primary',
-    pin: 'square-square',
-    enableIcon: true,
-    scaleOnInteraction: true,
-    outlined: true,
-    focused: false,
-    disabled: false,
-    square: false,
-    stretch: false,
-    onFocus,
-    onBlur,
+// eslint-disable-next-line @typescript-eslint/naming-convention, camelcase
+export const Loading_Button: StoryObj<StoryButtonProps> = {
+    args: {
+        text: 'Start loading',
+        size: 'm',
+        view: 'primary',
+        pin: 'square-square',
+        enableIcon: true,
+        scaleOnInteraction: true,
+        outlined: true,
+        focused: false,
+        disabled: false,
+        square: false,
+        stretch: false,
+        onFocus,
+        onBlur,
+    },
+    render: (args) => <StoryLoadingButton {...args} />,
 };

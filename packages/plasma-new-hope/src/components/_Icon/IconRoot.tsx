@@ -16,6 +16,15 @@ export interface IconProps {
     size?: IconSize;
     color?: string;
     className?: string;
+    /*
+     * Прорпс, который принимает название css-переменной.
+     * В значении токена может быть как rem, так и другая единица измерения (значение задается через конфиг).
+     * @example
+     * const token = '--plasma-icon-size';
+     * ...
+     * <Icon sizeCustomPtoperty={token} {...rest}/>
+     */
+    sizeCustomProperty?: string;
 }
 
 interface IconRootProps extends IconProps {
@@ -30,10 +39,16 @@ const StyledRoot = styled.div<{ w: string }>`
     flex: 0 0 ${({ w }) => w};
 `;
 
-export const IconRoot: React.FC<IconRootProps> = ({ icon: IconComponent, size, color, className }) => {
+export const IconRoot: React.FC<IconRootProps> = ({
+    icon: IconComponent,
+    size,
+    color,
+    className,
+    sizeCustomProperty,
+}) => {
     const c = color || 'var(--plasma-colors-primary)';
 
-    const w = `${sizeMap[size]}rem`;
+    const w = sizeCustomProperty ? `var(${sizeCustomProperty})` : `${sizeMap[size]}rem`;
 
     return (
         <StyledRoot aria-hidden w={w} className={className}>

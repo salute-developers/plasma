@@ -173,6 +173,7 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
         const isLabelAriaHidden = typeof label === 'string';
         const canFocused = focused ? 0 : -1;
         const singleLineClass = singleLine ? 'single-line' : undefined;
+        const hasContent = label || description;
 
         return (
             <Root
@@ -198,18 +199,24 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
                     <StyledTrigger className="checkbox-trigger">
                         {indeterminate ? <Indeterminate /> : <Done />}
                     </StyledTrigger>
-                    <StyledContent className={singleLineClass}>
-                        {label && (
-                            <StyledLabel className={singleLineClass} id={uniqLabelId} aria-hidden={isLabelAriaHidden}>
-                                {label}
-                            </StyledLabel>
-                        )}
-                        {description && (
-                            <StyledDescription className={singleLineClass} id={uniqDescriptionId}>
-                                {description}
-                            </StyledDescription>
-                        )}
-                    </StyledContent>
+                    {hasContent && (
+                        <StyledContent className={singleLineClass}>
+                            {label && (
+                                <StyledLabel
+                                    className={singleLineClass}
+                                    id={uniqLabelId}
+                                    aria-hidden={isLabelAriaHidden}
+                                >
+                                    {label}
+                                </StyledLabel>
+                            )}
+                            {description && (
+                                <StyledDescription className={singleLineClass} id={uniqDescriptionId}>
+                                    {description}
+                                </StyledDescription>
+                            )}
+                        </StyledContent>
+                    )}
                 </StyledContentWrapper>
             </Root>
         );
