@@ -1,3 +1,30 @@
+# v0.41.0 (Thu Nov 30 2023)
+
+#### 🚀 Enhancement
+
+- Release from 30.11.2023 [#883](https://github.com/salute-developers/plasma/pull/883) ([@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@Salute-Eva](https://github.com/Salute-Eva) [@TitanKuzmich](https://github.com/TitanKuzmich) [@neretin-trike](https://github.com/neretin-trike) [@Yeti-or](https://github.com/Yeti-or))
+- feat: update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- feat(plasma-tokens-b2c): Add custom tokens for fallback ([@neretin-trike](https://github.com/neretin-trike))
+- feat: Update package-lock.json files ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore: update package locks [#880](https://github.com/salute-developers/plasma/pull/880) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- chore(plasma-tokens-b2c): npm audit fix vulnerabilities ([@Yakutoc](https://github.com/Yakutoc))
+- chore: bump TS to 4.2.4 [#869](https://github.com/salute-developers/plasma/pull/869) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 6
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v0.39.0 (Thu Nov 16 2023)
 
 ### Release Notes

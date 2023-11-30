@@ -1,3 +1,78 @@
+# v1.223.0 (Thu Nov 30 2023)
+
+#### 🚀 Enhancement
+
+- Release from 30.11.2023 [#883](https://github.com/salute-developers/plasma/pull/883) ([@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@Salute-Eva](https://github.com/Salute-Eva) [@TitanKuzmich](https://github.com/TitanKuzmich) [@neretin-trike](https://github.com/neretin-trike) [@Yeti-or](https://github.com/Yeti-or))
+- feat: update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- feat: Update package-lock.json files ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore: update package locks [#880](https://github.com/salute-developers/plasma/pull/880) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- chore(plasma-ui): bump "default-browser-id" to 2.0.0 [#875](https://github.com/salute-developers/plasma/pull/875) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): bump "vite" to 4.5.0 ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): npm audit fix vulnerabilities ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): delete unnecessary dep: "react-scripts" [#868](https://github.com/salute-developers/plasma/pull/868) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): delete unnecessary sync data for about/tokens mdx ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): refactoring environment mdx ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): refactoring tokens mdx ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): refactoring hocs mdx ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): refactoring utils mdx ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): refactoring device theme provider mdx ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): refactoring theming mdx ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): refactoring mixins mdx ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): refactoring about mdx ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): bump storybook to @latest (7.5.3) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): delete unnecessary dep: "@storybook/client-logger" ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate "{Preview,Main}.ts" after bump SB 7 ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): add decorators: Theme, Toast, Docs ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): delete unnecessary dep: "@storybook/preset-create-react-app" ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Spacing] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Colors] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Typography] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Toast] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [TextField] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [TextBox] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [TextArea] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Tabs] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Switch] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Stepper] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Spinner] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Slider] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Skeleton] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Sheet] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Radiobox] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [ProductCard] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Price] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Pickers] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [PaginationDots] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Marquee] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [MarkedList] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Image] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Icon] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Header] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Grid] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Confirm] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Checkbox] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Cell] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Carousel] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Card] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Button] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): migrate to CSF 3 [Badge] ([@Yakutoc](https://github.com/Yakutoc))
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 6
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.221.0 (Thu Nov 16 2023)
 
 ### Release Notes

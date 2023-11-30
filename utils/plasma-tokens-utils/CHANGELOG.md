@@ -1,3 +1,29 @@
+# v0.35.0 (Thu Nov 30 2023)
+
+#### 🚀 Enhancement
+
+- Release from 30.11.2023 [#883](https://github.com/salute-developers/plasma/pull/883) ([@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@Salute-Eva](https://github.com/Salute-Eva) [@TitanKuzmich](https://github.com/TitanKuzmich) [@neretin-trike](https://github.com/neretin-trike) [@Yeti-or](https://github.com/Yeti-or))
+- feat: Update package-lock.json files ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore: update package locks [#880](https://github.com/salute-developers/plasma/pull/880) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore(plasma-tokens-utils): npm audit fix vulnerabilities ([@Yakutoc](https://github.com/Yakutoc))
+- chore: bump TS to 4.2.4 [#869](https://github.com/salute-developers/plasma/pull/869) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 6
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v0.34.0 (Thu Nov 16 2023)
 
 ### Release Notes

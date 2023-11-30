@@ -1,3 +1,56 @@
+# (Thu Nov 30 2023)
+
+#### 🚀 Enhancement
+
+- feat: Update cypress-common workflow with new tokens deps [#817](https://github.com/salute-developers/plasma/pull/817) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-asdk@0.10.0`, `@salutejs/plasma-b2c@1.250.0`, `@salutejs/plasma-colors@0.12.0`, `@salutejs/plasma-core@1.141.0`, `@salutejs/plasma-hope@1.247.0`, `@salutejs/plasma-icons@1.173.0`, `@salutejs/plasma-new-hope@0.17.0`, `@salutejs/plasma-temple@1.191.0`, `@salutejs/plasma-tokens-b2b@1.31.0`, `@salutejs/plasma-tokens-b2c@0.41.0`, `@salutejs/plasma-tokens-core@0.6.0`, `@salutejs/plasma-tokens-web@1.46.0`, `@salutejs/plasma-tokens@1.66.0`, `@salutejs/plasma-typo@0.40.0`, `@salutejs/plasma-ui@1.223.0`, `@salutejs/plasma-web@1.250.0`, `@salutejs/plasma-cy-utils@0.74.0`, `@salutejs/plasma-sb-utils@0.139.0`, `@salutejs/plasma-tokens-utils@0.35.0`
+  - Release from 30.11.2023 [#883](https://github.com/salute-developers/plasma/pull/883) ([@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@Salute-Eva](https://github.com/Salute-Eva) [@TitanKuzmich](https://github.com/TitanKuzmich) [@neretin-trike](https://github.com/neretin-trike) [@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-new-hope@0.17.0`
+  - feat(plasma-new-hope-b2c/web): add close icon size token [#867](https://github.com/salute-developers/plasma/pull/867) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+  - feat(plasma-new-hope): Add Dropdown [#854](https://github.com/salute-developers/plasma/pull/854) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-asdk@0.10.0`
+  - feat(plasma-asdk): remove plasma-hope dep [#855](https://github.com/salute-developers/plasma/pull/855) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-b2c@1.250.0`, `@salutejs/plasma-hope@1.247.0`, `@salutejs/plasma-new-hope@0.17.0`, `@salutejs/plasma-web@1.250.0`
+  - fix(plasma-new-hope, plasms-web, plasma-b2c): fix title font for Notification [#848](https://github.com/salute-developers/plasma/pull/848) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-asdk@0.10.0`, `@salutejs/plasma-b2c@1.250.0`, `@salutejs/plasma-core@1.141.0`, `@salutejs/plasma-hope@1.247.0`, `@salutejs/plasma-icons@1.173.0`, `@salutejs/plasma-new-hope@0.17.0`, `@salutejs/plasma-temple@1.191.0`, `@salutejs/plasma-tokens-b2b@1.31.0`, `@salutejs/plasma-tokens-b2c@0.41.0`, `@salutejs/plasma-tokens-web@1.46.0`, `@salutejs/plasma-tokens@1.66.0`, `@salutejs/plasma-ui@1.223.0`, `@salutejs/plasma-web@1.250.0`, `@salutejs/plasma-cy-utils@0.74.0`, `@salutejs/plasma-sb-utils@0.139.0`, `@salutejs/plasma-tokens-utils@0.35.0`
+  - feat: Update package-lock.json files ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- chore(root): fix vulnerabilities: high, critical [#874](https://github.com/salute-developers/plasma/pull/874) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: changed location dirs for storybook builds [#856](https://github.com/salute-developers/plasma/pull/856) ([@Yakutoc](https://github.com/Yakutoc))
+- ci(semgrep): delete unnecessary workflow [#871](https://github.com/salute-developers/plasma/pull/871) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: clean up by close pull_request_target [no ci] [#844](https://github.com/salute-developers/plasma/pull/844) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: watch by "plasma_asdk" package [#857](https://github.com/salute-developers/plasma/pull/857) ([@Yakutoc](https://github.com/Yakutoc))
+- ci(theme-builder): handle external pull request [no ci] [#858](https://github.com/salute-developers/plasma/pull/858) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-asdk@0.10.0`, `@salutejs/plasma-b2c@1.250.0`, `@salutejs/plasma-colors@0.12.0`, `@salutejs/plasma-core@1.141.0`, `@salutejs/plasma-hope@1.247.0`, `@salutejs/plasma-icons@1.173.0`, `@salutejs/plasma-new-hope@0.17.0`, `@salutejs/plasma-temple@1.191.0`, `@salutejs/plasma-tokens-b2b@1.31.0`, `@salutejs/plasma-tokens-b2c@0.41.0`, `@salutejs/plasma-tokens-core@0.6.0`, `@salutejs/plasma-tokens-web@1.46.0`, `@salutejs/plasma-tokens@1.66.0`, `@salutejs/plasma-typo@0.40.0`, `@salutejs/plasma-ui@1.223.0`, `@salutejs/plasma-web@1.250.0`, `@salutejs/plasma-cy-utils@0.74.0`, `@salutejs/plasma-sb-utils@0.139.0`, `@salutejs/plasma-tokens-utils@0.35.0`
+  - chore: update package locks [#880](https://github.com/salute-developers/plasma/pull/880) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-typo@0.40.0`
+  - chore(plasma-typo): npm audit fix vulnerabilities [#876](https://github.com/salute-developers/plasma/pull/876) ([@Yakutoc](https://github.com/Yakutoc))
+  - chore(plasma-typo): remove react-scripts devDep [#870](https://github.com/salute-developers/plasma/pull/870) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-ui@1.223.0`
+  - chore(plasma-ui): bump "default-browser-id" to 2.0.0 [#875](https://github.com/salute-developers/plasma/pull/875) ([@Yakutoc](https://github.com/Yakutoc))
+  - chore(plasma-ui): delete unnecessary dep: "react-scripts" [#868](https://github.com/salute-developers/plasma/pull/868) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-colors@0.12.0`, `@salutejs/plasma-icons@1.173.0`, `@salutejs/plasma-tokens-b2b@1.31.0`, `@salutejs/plasma-tokens-b2c@0.41.0`, `@salutejs/plasma-tokens-core@0.6.0`, `@salutejs/plasma-tokens-web@1.46.0`, `@salutejs/plasma-tokens@1.66.0`, `@salutejs/plasma-typo@0.40.0`, `@salutejs/plasma-tokens-utils@0.35.0`
+  - chore: bump TS to 4.2.4 [#869](https://github.com/salute-developers/plasma/pull/869) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-new-hope@0.17.0`
+  - fix(plasma-new-hope): import fix [#862](https://github.com/salute-developers/plasma/pull/862) ([@kayman233](https://github.com/kayman233))
+  - chore(plasma-new-hope): downgrade "@types/styled-components" to 5.1.0 [#865](https://github.com/salute-developers/plasma/pull/865) ([@Yakutoc](https://github.com/Yakutoc))
+  - chore(plasma-new-hope): bump "default-browser-id" to 2.0.0 [#861](https://github.com/salute-developers/plasma/pull/861) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-core@1.141.0`
+  - chore(plasma-core): bump "@microsoft/api-extractor" to 7.38.3 [#860](https://github.com/salute-developers/plasma/pull/860) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 6
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Thu Nov 16 2023)
 
 #### 🚀 Enhancement

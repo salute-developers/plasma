@@ -1,3 +1,42 @@
+# v1.250.0 (Thu Nov 30 2023)
+
+#### 🚀 Enhancement
+
+- Release from 30.11.2023 [#883](https://github.com/salute-developers/plasma/pull/883) ([@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@Salute-Eva](https://github.com/Salute-Eva) [@TitanKuzmich](https://github.com/TitanKuzmich) [@neretin-trike](https://github.com/neretin-trike) [@Yeti-or](https://github.com/Yeti-or))
+- feat: update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- feat(plasma-web): Replace `TextArea` from plasma-new-hope ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-new-hope/b2c/web): add readonly as attribute & remove hasClear prop ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-web): update snapshots ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-web): add chip from new hope ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-b2c): add chip from new hope ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- fix(plasma-new-hope, plasms-web, plasma-b2c): fix title font for Notification [#848](https://github.com/salute-developers/plasma/pull/848) ([@kayman233](https://github.com/kayman233))
+- feat: Update package-lock.json files ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore: update package locks [#880](https://github.com/salute-developers/plasma/pull/880) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- docs(plasma-b2c/web): generate docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore(plasma-web): bump "default-browser-id" to 2.0.0 ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-web): bump "@microsoft/api-extractor" to 7.38.3 ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-web): fix vulnerabilities: high, critical ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-web): bump "vite" to 4.5.0 ([@Yakutoc](https://github.com/Yakutoc))
+- chore: update package-locks ([@Salute-Eva](https://github.com/Salute-Eva))
+- docs(plasma-web/b2c): generate api ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-web, plasma-b2c): Notification on new-hope ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 6
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.246.0 (Thu Nov 16 2023)
 
 ### Release Notes

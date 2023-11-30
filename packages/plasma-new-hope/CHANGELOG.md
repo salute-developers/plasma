@@ -1,3 +1,46 @@
+# v0.17.0 (Thu Nov 30 2023)
+
+#### 🚀 Enhancement
+
+- Release from 30.11.2023 [#883](https://github.com/salute-developers/plasma/pull/883) ([@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@Salute-Eva](https://github.com/Salute-Eva) [@TitanKuzmich](https://github.com/TitanKuzmich) [@neretin-trike](https://github.com/neretin-trike) [@Yeti-or](https://github.com/Yeti-or))
+- feat: update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- feat(plasma-new-hope): Add `TextArea` component with new design and tokens for sds_engineer ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-new-hope): Add `TextArea` component with new design and tokens for plasma-web ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-new-hope): Add `TextArea` component with new design and tokens for plasma-b2c ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-new-hope): Add core `TextArea` component ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-new-hope-b2c/web): add close icon size token [#867](https://github.com/salute-developers/plasma/pull/867) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope/b2c/web): add readonly as attribute & remove hasClear prop ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-b2c): add chip from new hope ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): add chip ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): Add Dropdown [#854](https://github.com/salute-developers/plasma/pull/854) ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-new-hope, plasms-web, plasma-b2c): fix title font for Notification [#848](https://github.com/salute-developers/plasma/pull/848) ([@kayman233](https://github.com/kayman233))
+- feat(plasma-new-hope): Notification added ([@kayman233](https://github.com/kayman233))
+- feat: Update package-lock.json files ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore: update package locks [#880](https://github.com/salute-developers/plasma/pull/880) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- chore(plasma-new-hope): add sb-utils package ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- fix(plasma-new-hope): import fix [#862](https://github.com/salute-developers/plasma/pull/862) ([@kayman233](https://github.com/kayman233))
+- chore(plasma-new-hope): downgrade "@types/styled-components" to 5.1.0 [#865](https://github.com/salute-developers/plasma/pull/865) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-new-hope): bump "default-browser-id" to 2.0.0 [#861](https://github.com/salute-developers/plasma/pull/861) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-new-hope): fix vulnerabilities: high, critical ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-new-hope): bump "vite" to 4.5.0 ([@Yakutoc](https://github.com/Yakutoc))
+- chore: update package-locks ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 6
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v0.13.0 (Thu Nov 16 2023)
 
 ### Release Notes

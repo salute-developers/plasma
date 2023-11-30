@@ -1,3 +1,47 @@
+# v0.10.0 (Thu Nov 30 2023)
+
+#### 🚀 Enhancement
+
+- Release from 30.11.2023 [#883](https://github.com/salute-developers/plasma/pull/883) ([@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@Salute-Eva](https://github.com/Salute-Eva) [@TitanKuzmich](https://github.com/TitanKuzmich) [@neretin-trike](https://github.com/neretin-trike) [@Yeti-or](https://github.com/Yeti-or))
+- feat: update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- feat(plasma-asdk): remove plasma-hope dep [#855](https://github.com/salute-developers/plasma/pull/855) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): export tokens from asdk ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat: Update package-lock.json files ([@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore: update package locks [#880](https://github.com/salute-developers/plasma/pull/880) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore(plasma-asdk): bump "default-browser-id" to 2.0.0 ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-asdk): fix vulnerabilities: high, critical ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-asdk): bump "@microsoft/api-extractor" to 7.38.3 ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-asdk): bump "vite" to 4.5.0 ([@Yakutoc](https://github.com/Yakutoc))
+- chore: update package-locks ([@Salute-Eva](https://github.com/Salute-Eva))
+- docs(plasma-asdk): change docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- docs(asdk): fix typo ([@Yakutoc](https://github.com/Yakutoc))
+- chore(asdk): migrate "Main.ts" to storybook@latest ([@Yakutoc](https://github.com/Yakutoc))
+- chore(asdk): migrate "Preview.ts" to storybook@latest ([@Yakutoc](https://github.com/Yakutoc))
+- chore(asdk): add decorators: Theme, Toast, DocsPage ([@Yakutoc](https://github.com/Yakutoc))
+- chore(asdk): bump Storybook to @latest (7.5.3) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(asdk): migrate to CSF 3 [Typography] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(asdk): migrate to CSF 3 [Spinner] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(asdk): migrate to CSF 3 [Radiobox] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(asdk): migrate to CSF 3 [Link] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(asdk): migrate to CSF 3 [Checkbox] ([@Yakutoc](https://github.com/Yakutoc))
+- chore(asdk): migrate to CSF 3 [Button] ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 6
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v0.5.0 (Thu Nov 16 2023)
 
 ### Release Notes
