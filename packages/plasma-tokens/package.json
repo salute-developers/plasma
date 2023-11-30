@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-tokens",
-  "version": "1.66.0-dev.0",
+  "version": "1.66.0",
   "description": "",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -41,9 +41,9 @@
   },
   "devDependencies": {
     "@diez/web-sdk-common": "10.6.0",
-    "@salutejs/plasma-colors": "0.12.0-dev.0",
-    "@salutejs/plasma-tokens-utils": "0.35.0-dev.0",
-    "@salutejs/plasma-typo": "0.40.0-dev.0",
+    "@salutejs/plasma-colors": "0.12.0",
+    "@salutejs/plasma-tokens-utils": "0.35.0",
+    "@salutejs/plasma-typo": "0.40.0",
     "@types/node": "16.7.13",
     "jsdom": "17.0.0",
     "jsdom-global": "3.0.2",
