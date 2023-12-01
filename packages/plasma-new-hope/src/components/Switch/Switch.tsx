@@ -34,6 +34,7 @@ export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
 
             label,
 
+            id,
             style,
             className,
 
@@ -49,7 +50,15 @@ export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
         // const singleLineClass = singleLine ? 'single-line' : '';
 
         return (
-            <Root view={view} size={size} disabled={disabled} focused={focused} style={style} className={className}>
+            <Root
+                view={view}
+                size={size}
+                disabled={disabled}
+                focused={focused}
+                id={id}
+                style={style}
+                className={className}
+            >
                 <StyledInput
                     {...rest}
                     ref={ref}
