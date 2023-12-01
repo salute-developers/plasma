@@ -2,12 +2,13 @@ import React from 'react';
 import { styled } from '@linaria/react';
 
 const sizeMap = {
+    xxs: 1, // 16px
     xs: 1, // 16px
     s: 1.5, // 24px
-    // m: 2.25, // 36px
-    // l: 3, // 48px
-    // xl: 3.5, // 56px
-    // xxl: 4, // 64px
+    m: 2.25, // 36px
+    l: 2.75, // 44px
+    xl: 3.5, // 56p
+    xxl: 6.25, // 100px
 };
 
 export type IconSize = keyof typeof sizeMap;
