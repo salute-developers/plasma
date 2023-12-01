@@ -1,2 +1,2 @@
-export { Switch } from '@salutejs/plasma-hope';
-export type { SwitchProps } from '@salutejs/plasma-hope';
+export { Switch } from './Switch';
+export type { SwitchProps } from './Switch';
