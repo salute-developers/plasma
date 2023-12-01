@@ -1,6 +1,8 @@
 import React, { forwardRef } from 'react';
 import { cx } from '@linaria/core';
 
+// TODO: #1008 Избавиться от импортов и переделать addFocus
+import 'focus-visible';
 import { getStaticVariants, getDynamicVariants } from './common';
 import type { ComponentConfig, HTMLAnyAttributes } from './types';
 
