@@ -205,42 +205,39 @@ const StoryLive = (args: CheckboxProps) => {
 
     return (
         <SSRProvider>
-            <List>
-                {items.map((item) => (
-                    <ListItem key={item.value} ml={item.parent ? '16x' : undefined} mb="4x">
-                        <Checkbox
-                            {...getState(values, item.value)}
-                            name={item.name}
-                            value={item.value}
-                            label={item.label}
-                            disabled={item.disabled}
-                            description={item.description}
-                            onChange={(event) => {
-                                event.persist();
+            {items.map((item) => (
+                <Checkbox
+                    {...getState(values, item.value)}
+                    style={{ marginLeft: item.parent ? 36 : 0 }}
+                    name={item.name}
+                    value={item.value}
+                    label={item.label}
+                    disabled={item.disabled}
+                    description={item.description}
+                    onChange={(event) => {
+                        event.persist();
 
-                                const { checked } = event.target;
+                        const { checked } = event.target;
 
-                                if (item.parent) {
-                                    setValues({ ...values, [item.value]: checked });
-                                } else {
-                                    setValues({
-                                        ...values,
-                                        ...getChildren(item.value).reduce(
-                                            (acc, child) => ({ ...acc, [child.value]: checked }),
-                                            {},
-                                        ),
-                                    });
-                                }
+                        if (item.parent) {
+                            setValues({ ...values, [item.value]: checked });
+                        } else {
+                            setValues({
+                                ...values,
+                                ...getChildren(item.value).reduce(
+                                    (acc, child) => ({ ...acc, [child.value]: checked }),
+                                    {},
+                                ),
+                            });
+                        }
 
-                                onChange(event);
-                            }}
-                            onFocus={onFocus}
-                            onBlur={onBlur}
-                            {...args}
-                        />
-                    </ListItem>
-                ))}
-            </List>
+                        onChange(event);
+                    }}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
+                    {...args}
+                />
+            ))}
         </SSRProvider>
     );
 };
