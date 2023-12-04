@@ -6,7 +6,6 @@ import { action } from '@storybook/addon-actions';
 import { SSRProvider } from '../SSRProvider';
 import { InSpacingDecorator, disableProps } from '../../helpers';
 import { Link } from '../Link';
-import { List, ListItem } from '../List';
 
 import { Checkbox } from '.';
 import type { CheckboxProps as Base } from '.';
