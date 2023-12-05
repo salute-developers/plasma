@@ -1,6 +1,6 @@
 import { ReactNode, RefAttributes } from 'react';
 
-import { PopoverPlacement, PopoverProps } from '../Popover';
+import { PopoverPlacement, PopoverPlacementBasic, PopoverProps } from '../Popover';
 import { ComponentConfig, PropsType, Variants } from '../../engines/types';
 
 export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -19,7 +19,7 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
     /**
      * Направление раскрытия тултипа.
      */
-    placement?: PopoverPlacement;
+    placement?: PopoverPlacement | Array<PopoverPlacementBasic>;
     /**
      * Видимость стрелки (хвоста).
      */
@@ -39,7 +39,7 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
      * @default
      * true
      */
-    insidePortal?: boolean;
+    usePortal?: boolean;
     /**
      * Минимальная ширина окна (в rem).
      */
@@ -57,7 +57,13 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
      */
     contentLeft?: ReactNode;
 
+    /**
+     * Размер тултипа.
+     */
     size?: string;
+    /**
+     * Вид тултипа.
+     */
     view?: string;
 }
 

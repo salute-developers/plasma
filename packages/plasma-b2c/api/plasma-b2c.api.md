@@ -165,10 +165,9 @@ import { ParagraphText1 } from '@salutejs/plasma-hope';
 import { ParagraphText2 } from '@salutejs/plasma-hope';
 import { PickOptional } from '@salutejs/plasma-core';
 import { PinProps } from '@salutejs/plasma-core';
-import { Placement } from '@salutejs/plasma-hope';
-import { PopoverPlacement } from '@salutejs/plasma-new-hope';
-import { PopoverProps } from '@salutejs/plasma-new-hope';
-import { PopoverTrigger } from '@salutejs/plasma-new-hope';
+import { PopoverPlacement } from '@salutejs/plasma-new-hope/styled-components';
+import { PopoverProps } from '@salutejs/plasma-new-hope/styled-components';
+import { PopoverTrigger } from '@salutejs/plasma-new-hope/styled-components';
 import { Popup } from '@salutejs/plasma-hope';
 import { popupClasses as popupBaseClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupPlacement as PopupBasePlacement } from '@salutejs/plasma-new-hope/styled-components';
@@ -245,8 +244,7 @@ import { ToastPosition } from '@salutejs/plasma-hope';
 import { ToastProps } from '@salutejs/plasma-hope';
 import { ToastProvider } from '@salutejs/plasma-hope';
 import { toCssSize } from '@salutejs/plasma-core';
-import { Tooltip } from '@salutejs/plasma-hope';
-import { TooltipProps } from '@salutejs/plasma-hope';
+import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { transformStyles } from '@salutejs/plasma-core';
 import { TypographyTypes } from '@salutejs/plasma-core';
 import { Underline } from '@salutejs/plasma-hope';
@@ -265,7 +263,6 @@ import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { usePopupContext as usePopupBaseContext } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-hope';
 import { ValidationResult } from '@salutejs/plasma-hope';
-import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
 import { View } from '@salutejs/plasma-core';
 import { ViewProps } from '@salutejs/plasma-core';
 import { views } from '@salutejs/plasma-core';
@@ -692,10 +689,8 @@ export { PickOptional }
 
 export { PinProps }
 
-export { Placement }
-
-// @public
-export const Popover: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & CustomPopoverProps & RefAttributes<HTMLDivElement>>;
+// @public (undocumented)
+export const Popover: ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & CustomPopoverProps & RefAttributes<HTMLDivElement>>;
 
 export { PopoverPlacement }
 
@@ -886,7 +881,8 @@ export { ToastProvider }
 
 export { toCssSize }
 
-export { Tooltip }
+// @public (undocumented)
+export const Tooltip: React_2.ForwardRefExoticComponent<TooltipProps & React_2.RefAttributes<HTMLDivElement>>;
 
 export { TooltipProps }
 

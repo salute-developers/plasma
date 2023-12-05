@@ -12,7 +12,7 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 
 ## Базовое применение
 
-`Tooltip` оборачивает собой любой компонент и открывается в заданную сторону.
+`Tooltip` оборачивает собой любой компонент и открывается в заданную сторону(причем можно передавать массив, тогда сторона будет определяться автоматически из переданных).
 
 Предполагается оборачивать иконки из пакета `@salutejs/plasma-icons`
 
@@ -24,9 +24,7 @@ import { IconApps } from '@salutejs/plasma-icons';
 export function App() {
     return (
         <div style={{marginLeft: '100px',marginBottom: '35px'}}>
-            <Tooltip text="Высокое качество воспроизведения" visible>
-                <IconApps />
-            </Tooltip>
+            <Tooltip target={( <IconApps />)} text="Высокое качество воспроизведения" placement="bottom" hasArrow isOpen />
         </div>
     );
 }

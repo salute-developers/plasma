@@ -83,7 +83,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) =>
                 <StyledPopover
                     role={role}
                     isOpen={isOpen}
-                    insidePortal={false}
+                    usePortal={false}
                     onToggle={(is, event) => onToggle?.(is, event)}
                     id={innerId}
                     ref={dropdownForkRef}
