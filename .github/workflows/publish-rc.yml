@@ -19,7 +19,7 @@ jobs:
     with:
       with-update-package-lock: true
       commit-message: "Update package-lock.json files"
-      upload_assets: ${{ toJSON(needs.scope.outputs.HAS_ASSETS) }}
+      upload_assets: ${{ needs.scope.outputs.HAS_ASSETS == 'true' }}
     secrets:
       gh_token: ${{ secrets.GH_TOKEN }}
       npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
