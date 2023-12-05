@@ -35,7 +35,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                 closeOnOverlayClick = true,
                 closeOnEsc = true,
                 preventOverflow = true,
-                insidePortal = true,
+                usePortal = false,
                 view,
                 onToggle,
                 ...rest
@@ -174,7 +174,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                     portal = frame.current;
                 }
 
-                if (!insidePortal) {
+                if (!usePortal) {
                     portal = rootRef.current;
                 }
 

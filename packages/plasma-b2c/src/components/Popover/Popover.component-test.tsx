@@ -1,9 +1,9 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
-import type { PopoverTrigger } from './Popover';
+import type { PopoverTrigger } from '.';
 
-const text = 'Голосовая викторина Валдисом Пельшем';
+const text = 'Голосовая викторина с Валдисом Пельшем';
 
 describe('plasma-web: Popover', () => {
     const Popover = getComponent('Popover');

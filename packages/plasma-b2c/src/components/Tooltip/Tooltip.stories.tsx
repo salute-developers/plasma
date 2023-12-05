@@ -1,110 +1,165 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { IconDisclosureRight } from '@salutejs/plasma-icons';
 import type { StoryObj, Meta } from '@storybook/react';
-import { IconDownload, IconApps } from '@salutejs/plasma-icons';
-import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
-import { Button } from '../Button';
+import { Button } from '../Button/Button';
+import { PopoverPlacement } from '../Popover';
+import { TextField } from '../TextField';
 
-import { Tooltip, TooltipProps } from '.';
+import { Tooltip } from '.';
+import type { TooltipProps } from '.';
+
+const placements: Array<PopoverPlacement> = [
+    'top',
+    'top-start',
+    'top-end',
+
+    'bottom',
+    'bottom-start',
+    'bottom-end',
+
+    'left',
+    'left-start',
+    'left-end',
+
+    'right',
+    'right-start',
+    'right-end',
+
+    'auto',
+];
 
 const meta: Meta<TooltipProps> = {
     title: 'Controls/Tooltip',
     decorators: [InSpacingDecorator],
     component: Tooltip,
-    argTypes: {
-        placement: {
-            options: ['top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left', 'right'],
-            control: {
-                type: 'select',
-            },
-        },
-        ...disableProps(['isVisible']),
-    },
-    args: {
-        text: 'Hello',
-        placement: 'bottom',
-        animated: true,
-        arrow: true,
-    },
 };
 
 export default meta;
-
-type Story = StoryObj<TooltipProps>;
 
 const StyledGrid = styled.div`
     display: grid;
     grid-template-columns: repeat(3, max-content);
     grid-gap: 1rem 3.5rem;
-    padding: 2.5rem;
+    padding: 3.5rem;
 `;
 
-const ChangeTextWrapper = styled.div`
-    margin-left: 100px;
-    margin-bottom: 35px;
-`;
-
-export const Live: StoryObj = {
-    render: () => {
-        return (
-            <StyledGrid>
-                <Tooltip placement="top-start" isVisible arrow text="Top start" animated={false}>
-                    <Tooltip placement="left" isVisible arrow text="Left" animated={false}>
-                        <Button contentLeft={<IconDownload />} />
-                    </Tooltip>
-                </Tooltip>
-                <Tooltip placement="top" isVisible arrow text="Top" animated={false}>
-                    <Button contentLeft={<IconDownload />} />
-                </Tooltip>
-                <Tooltip placement="top-end" isVisible arrow text="Top end" animated={false}>
-                    <Tooltip placement="right" isVisible arrow text="Right" animated={false}>
-                        <Button contentLeft={<IconDownload />} />
-                    </Tooltip>
-                </Tooltip>
-                <Tooltip placement="bottom-start" isVisible arrow text="Bottom start" animated={false}>
-                    <Button contentLeft={<IconDownload />} />
-                </Tooltip>
-                <Tooltip placement="bottom" isVisible arrow text="Bottom" animated={false}>
-                    <Button contentLeft={<IconDownload />} />
-                </Tooltip>
-                <Tooltip placement="bottom-end" isVisible arrow text="Bottom end" animated={false}>
-                    <Button contentLeft={<IconDownload />} />
-                </Tooltip>
-            </StyledGrid>
-        );
-    },
-};
-
-const StoryDefault = (args: TooltipProps) => {
-    const [isVisible, setVisible] = useState(false);
-
+const StoryDefault = ({ size }: TooltipProps) => {
     return (
-        <Tooltip isVisible={isVisible} {...args}>
-            <Button
-                text="Toggle"
-                onClick={() => {
-                    setVisible((isVis) => !isVis);
-                }}
+        <StyledGrid>
+            <Tooltip
+                target={
+                    <Tooltip target={<Button>Btn</Button>} placement="left" size={size} isOpen hasArrow text="left" />
+                }
+                placement="top-start"
+                size={size}
+                isOpen
+                hasArrow
+                text="top-start"
             />
-        </Tooltip>
+            <Tooltip target={<Button>Btn</Button>} placement="top" size={size} isOpen hasArrow text="top" />
+            <Tooltip
+                target={
+                    <Tooltip target={<Button>Btn</Button>} placement="right" size={size} isOpen hasArrow text="right" />
+                }
+                placement="top-end"
+                size={size}
+                isOpen
+                hasArrow
+                text="top-end"
+            />
+            <Tooltip
+                target={<Button>Btn</Button>}
+                placement="bottom-start"
+                size={size}
+                isOpen
+                hasArrow
+                text="bottom-start"
+            />
+            <Tooltip target={<Button>Btn</Button>} placement="bottom" size={size} isOpen hasArrow text="bottom" />
+            <Tooltip
+                target={<Button>Btn</Button>}
+                placement="bottom-end"
+                size={size}
+                isOpen
+                hasArrow
+                text="bottom-end"
+            />
+        </StyledGrid>
     );
 };
 
-export const Default: Story = {
+export const Default: StoryObj<TooltipProps> = {
+    argTypes: {
+        size: {
+            options: ['m', 's'],
+            control: {
+                type: 'select',
+            },
+        },
+    },
+    args: {
+        size: 'm',
+    },
     render: (args) => <StoryDefault {...args} />,
 };
 
-export const ChangeText: Story = {
-    render: ({ text, ...rest }) => {
-        return (
-            <div>
-                <ChangeTextWrapper>
-                    <Tooltip text={text} isVisible {...rest}>
-                        <IconApps />
-                    </Tooltip>
-                </ChangeTextWrapper>
-            </div>
-        );
+const StyledRow = styled.div`
+    display: flex;
+    width: 150vw;
+    height: 150vh;
+    padding: 10rem;
+`;
+
+const StoryLive = (args: TooltipProps) => {
+    const [text, setText] = useState('Type here');
+
+    return (
+        <>
+            <StyledRow>
+                <Tooltip
+                    target={
+                        <TextField
+                            label="Имя"
+                            value={text}
+                            onChange={(e) => setText(e.target.value)}
+                            aria-describedby="example-tooltip-firstname"
+                        />
+                    }
+                    contentLeft={<IconDisclosureRight size="xs" />}
+                    {...args}
+                    id="example-tooltip-firstname"
+                    text={text}
+                    isOpen
+                />
+            </StyledRow>
+        </>
+    );
+};
+
+export const Live: StoryObj<TooltipProps> = {
+    argTypes: {
+        placement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
+        },
+        size: {
+            options: ['m', 's'],
+            control: {
+                type: 'select',
+            },
+        },
     },
+    args: {
+        placement: 'bottom',
+        maxWidth: 10,
+        minWidth: 3,
+        hasArrow: true,
+        size: 'm',
+    },
+    render: (args) => <StoryLive {...args} />,
 };

@@ -80,7 +80,7 @@ export type CustomPopoverProps = {
      * @default
      * true
      */
-    insidePortal?: boolean;
+    usePortal?: boolean;
 
     view?: string;
 };

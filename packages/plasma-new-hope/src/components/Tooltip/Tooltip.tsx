@@ -32,7 +32,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 minWidth,
                 maxWidth,
                 placement = 'bottom',
-                insidePortal = true,
+                usePortal = true,
                 target,
                 onDismiss,
                 view,
@@ -55,11 +55,12 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 return () => {
                     window.removeEventListener('keydown', onKeyDown);
                 };
-            }, []);
+            }, [config]);
 
-            const Popover = useMemo(() => component(config), [config]) as ForwardRefExoticComponent<
-                PopoverProps & RefAttributes<HTMLDivElement>
-            >;
+            const Popover = useMemo(
+                () => component(config) as ForwardRefExoticComponent<PopoverProps & RefAttributes<HTMLDivElement>>,
+                [],
+            );
 
             return (
                 <Popover
@@ -68,7 +69,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                     offset={offset}
                     zIndex="9200"
                     target={target}
-                    insidePortal={insidePortal}
+                    usePortal={usePortal}
                     hasArrow={hasArrow}
                     aria-hidden={!isOpen}
                     aria-live="polite"
