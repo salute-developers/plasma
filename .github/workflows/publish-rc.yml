@@ -6,20 +6,70 @@ on:
       - dev
 
 jobs:
-  scope:
-    name: Computed changed state
-    uses: ./.github/workflows/change-detection.yml
-    secrets: inherit
-    
+  change-state:
+    if: ${{ github.actor == 'github-merge-queue[bot]' }}
+    name: Computed state of change
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+    outputs:
+      HAS_ASSETS: ${{ steps.scope.outputs.result }}
+    steps:
+      ## Получаем актуальное состояние dev branch
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+          fetch-depth: 0
+          
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-environment
+      
+      ## Получаем base sha commit из merged pull request который запустил это событие
+      ## context.sha - это последний commit в dev ветку
+      ## base.sha - это последний commit base branch до влития целевого pull request
+      - name: Get associated pull request by commit
+        id: sha
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const res = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+              commit_sha: context.sha,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+            
+            return res?.data[0]?.base?.sha || context.sha;
+      
+      ## Сохраняем вывод команды lerna ls в формате json array
+      - name: Preserve lerna ls state
+        id: lerna_ls
+        run: |
+          echo "STATE=$(npx lerna la --json --since=${{ steps.sha.outputs.result }} | jq -c)" >> "$GITHUB_OUTPUT"
+      
+      ## Высчитываем условие для загрузки assets
+      - name: Computed scope state
+        id: scope
+        uses: actions/github-script@v6
+        env:
+          CHANGED_STATE: ${{ toJSON(steps.lerna_ls.outputs.STATE) }}
+        with:
+          script: |
+            const processingScope = require('./.github/processing-scope.js');
+            
+            const state = processingScope();
+            
+            return state.HAS_ASSETS ?? false;
+
   publish:
     name: Publish RC version
-    needs: [ scope ]
+    needs: [ change-state ]
     if: ${{ github.actor == 'github-merge-queue[bot]' }}
     uses: ./.github/workflows/publish-common.yml
     with:
       with-update-package-lock: true
       commit-message: "Update package-lock.json files"
-      upload_assets: ${{ needs.scope.outputs.HAS_ASSETS == 'true' }}
+      upload_assets: ${{ needs.change-state.outputs.HAS_ASSETS == 'true' }}
     secrets:
       gh_token: ${{ secrets.GH_TOKEN }}
       npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
