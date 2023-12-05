@@ -184,6 +184,17 @@ export const config = {
                 ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
+            xss: css`
+                --plasma-button-height: 24px;
+                --plasma-button-padding: 10px;
+                --plasma-button-radius: 6px;
+                --plasma-button-font-family: var(--plasma-typo-body-xs-font-family);
+                --plasma-button-font-size: var(--plasma-typo-body-xs-font-size);
+                --plasma-button-font-style: var(--plasma-typo-body-xs-font-style);
+                --plasma-button-font-weight: var(--plasma-typo-body-xs-bold-font-weight);
+                --plasma-button-letter-spacing: var(--plasma-typo-body-xs-letter-spacing);
+                --plasma-button-line-height: var(--plasma-typo-body-xs-line-height);
+            `,
         },
         disabled: {
             true: css`
