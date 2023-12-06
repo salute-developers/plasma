@@ -165,8 +165,12 @@ contentLeft?: ReactNode;
 contentRight?: ReactNode;
 isLoading?: boolean | undefined;
 loader?: ReactNode;
-} & {
-children?: ReactNode;
+stretch?: boolean | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
 } & RefAttributes<HTMLButtonElement>>;
 
 // @public (undocumented)
