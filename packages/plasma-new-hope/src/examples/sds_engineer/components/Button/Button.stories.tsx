@@ -13,7 +13,16 @@ const meta: Meta<typeof Button> = {
     title: 'sds_engineer/Button',
     decorators: [WithTheme],
     component: Button,
-    argTypes: argTypesFromConfig(mergeConfig(buttonConfig, config)),
+    argTypes: {
+        ...argTypesFromConfig(mergeConfig(buttonConfig, config)),
+        pin: {
+            options: ['clear-clear', 'circle-circle', ''],
+            control: {
+                type: 'select',
+            },
+            table: { defaultValue: { summary: 'bottom' } },
+        },
+    },
 };
 
 export default meta;
@@ -25,6 +34,5 @@ export const Default: StoryObj<ComponentProps<typeof Button>> = {
         size: 'm',
         disabled: false,
         focused: true,
-        square: false,
     },
 };

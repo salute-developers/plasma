@@ -1,24 +1,21 @@
 import { css } from '@linaria/core';
 
+import { classes, tokens } from '../tokens';
+
 export const base = css`
-    height: var(--plasma-button-height);
-    /* TODO: #714 move these calc's to plasma-mapping | ds-generator and add Math.round() */
-    padding: 0 var(--plasma-button-padding, calc(var(--plasma-button-height) * 1.618 / 4));
+    .${String(classes.buttonRoot)} {
+        height: var(${tokens.buttonHeight});
+        /* TODO: #714 move these calc's to plasma-mapping | ds-generator and add Math.round() */
+        padding: 0 var(${tokens.buttonPadding}, calc(var(${tokens.buttonHeight}) * 1.618 / 4));
 
-    --plasma_private-btn-br: var(--plasma-button-radius, calc(var(--plasma-button-height) / 4));
-    border-radius: var(--plasma_private-btn-br);
+        font-family: var(${tokens.buttonFontFamily});
+        font-size: var(${tokens.buttonFontSize});
+        font-style: var(${tokens.buttonFontStyle});
+        font-weight: var(${tokens.buttonFontWeight});
+        letter-spacing: var(${tokens.buttonLetterSpacing});
+        line-height: var(${tokens.buttonLineHeight});
 
-    font-family: var(--plasma-button-font-family);
-    font-size: var(--plasma-button-font-size);
-    font-style: var(--plasma-button-font-style);
-    font-weight: var(--plasma-button-font-weight);
-    letter-spacing: var(--plasma-button-letter-spacing);
-    line-height: var(--plasma-button-line-height);
-
-    /* TODO: #710 make it token API ? */
-    --plasma_private-btn-outline-size: var(--plasma-button-outline-size, 0.125rem);
-
-    ::before {
-        border-radius: calc(var(--plasma_private-btn-br) + var(--plasma_private-btn-outline-size));
+        /* TODO: #710 make it token API ? */
+        --plasma_private-btn-outline-size: var(--plasma-button-outline-size, 0.125rem);
     }
 `;
