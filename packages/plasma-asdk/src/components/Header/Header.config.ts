@@ -8,8 +8,8 @@ export const config = {
     variations: {
         view: {
             primary: css`
-                --plasma-button-color: var(--text-primary);
-                --plasma-button-bg-color: var(--surface-clear);
+                ${headerTokens.headerArrowButtonColor}: var(--text-primary);
+                ${headerTokens.headerArrowButtonBackgroundColor}: var(--surface-clear);
 
                 ${headerTokens.headerArrowTransition}: transform 0.15s ease-in-out;
 
@@ -22,6 +22,26 @@ export const config = {
             `,
         },
         size: {
+            l: css`
+                ${headerTokens.headerHeight}: 2.25rem;
+                ${headerTokens.headerPaddingTop}: 1.875rem;
+                ${headerTokens.headerPaddingBottom}: 0.875rem;
+
+                ${headerTokens.headerLogoMarginRight}: 0.75rem;
+
+                ${headerTokens.headerArrowMarginRight}: 1rem;
+                ${headerTokens.headerArrowIconSize}: 1.5rem;
+
+                ${headerTokens.headerTitleMargin}: 0.125rem 0;
+                ${headerTokens.headerBigTitleMargin}: 0.5rem 0;
+                ${headerTokens.headerBiggerTitleMargin}: 0.5rem 0;
+                ${headerTokens.headerLabelMargin}: 0.375rem 0;
+                ${headerTokens.headerSubTitleMargin}: 0.125rem 0;
+                ${headerTokens.headerCaptionMargin}: 0.25rem 0;
+
+                ${headerTokens.headerArrowHeight}: 2.25rem;
+                ${headerTokens.headerArrowPadding}: 0.5rem;
+            `,
             m: css`
                 ${headerTokens.headerHeight}: 2.25rem;
                 ${headerTokens.headerPaddingTop}: 1.625rem;
@@ -39,8 +59,28 @@ export const config = {
                 ${headerTokens.headerSubTitleMargin}: 0.125rem 0;
                 ${headerTokens.headerCaptionMargin}: 0.25rem 0;
 
-                --plasma-button-height: 2.25rem;
-                --plasma-button-padding: 0.5rem;
+                ${headerTokens.headerArrowHeight}: 2.25rem;
+                ${headerTokens.headerArrowPadding}: 0.5rem;
+            `,
+            s: css`
+                ${headerTokens.headerHeight}: 2.25rem;
+                ${headerTokens.headerPaddingTop}: 0.375rem;
+                ${headerTokens.headerPaddingBottom}: 0.375rem;
+
+                ${headerTokens.headerLogoMarginRight}: 0.75rem;
+
+                ${headerTokens.headerArrowMarginRight}: 1rem;
+                ${headerTokens.headerArrowIconSize}: 1.5rem;
+
+                ${headerTokens.headerTitleMargin}: 0.125rem 0;
+                ${headerTokens.headerBigTitleMargin}: 0.5rem 0;
+                ${headerTokens.headerBiggerTitleMargin}: 0.5rem 0;
+                ${headerTokens.headerLabelMargin}: 0.375rem 0;
+                ${headerTokens.headerSubTitleMargin}: 0.125rem 0;
+                ${headerTokens.headerCaptionMargin}: 0.25rem 0;
+
+                ${headerTokens.headerArrowHeight}: 2.25rem;
+                ${headerTokens.headerArrowPadding}: 0.5rem;
             `,
         },
     },

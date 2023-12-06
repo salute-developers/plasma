@@ -10,8 +10,8 @@ export const config = {
     variations: {
         view: {
             primary: css`
-                --plasma-button-color: var(--text-primary);
-                --plasma-button-bg-color: var(--surface-clear);
+                ${headerTokens.headerArrowButtonColor}: var(--text-primary);
+                ${headerTokens.headerArrowButtonBackgroundColor}: var(--surface-clear);
 
                 ${headerTokens.headerArrowTransition}: transform 0.15s ease-in-out;
 
@@ -41,8 +41,8 @@ export const config = {
                 ${headerTokens.headerSubTitleMargin}: 0.125rem 0;
                 ${headerTokens.headerCaptionMargin}: 0.25rem 0;
 
-                --plasma-button-height: 2.25rem;
-                --plasma-button-padding: 0.5rem;
+                ${headerTokens.headerArrowHeight}: 2.25rem;
+                ${headerTokens.headerArrowPadding}: 0.5rem;
             `,
         },
     },
