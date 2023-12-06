@@ -1,23 +1,27 @@
 import { css } from '@linaria/core';
 
+import { classes, tokens } from '../tokens';
+
 export const base = css`
-    color: var(--plasma-button-color);
-    background-color: var(--plasma-button-bg-color);
+    .${String(classes.buttonRoot)} {
+        color: var(${tokens.buttonColor});
+        background-color: var(${tokens.buttonBackgroundColor});
 
-    :hover {
-        color: var(--plasma-button-color-hover, var(--plasma-button-color));
-        background-color: var(--plasma-button-bg-color-hover, var(--plasma-button-bg-color));
+        :hover {
+            color: var(${tokens.buttonColorHover}, var(${tokens.buttonColor}));
+            background-color: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
 
-        /* TODO: #706 make scale - token */
-        scale: 1.02;
-    }
+            /* TODO: #706 make scale - token */
+            scale: 1.02;
+        }
 
-    :active {
-        color: var(--plasma-button-color-active, var(--plasma-button-color));
-        background-color: var(--plasma-button-bg-color-active, var(--plasma-button-bg-color));
+        :active {
+            color: var(${tokens.buttonColorActive}, var(${tokens.buttonColor}));
+            background-color: var(${tokens.buttonBackgroundColorActive}, var(${tokens.buttonBackgroundColor}));
 
-        /* TODO: #706 make scale - token */
-        scale: 0.98;
+            /* TODO: #706 make scale - token */
+            scale: 0.98;
+        }
     }
 `;
 

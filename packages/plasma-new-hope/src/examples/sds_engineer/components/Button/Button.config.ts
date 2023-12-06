@@ -1,5 +1,7 @@
 import { css } from '@linaria/core';
 
+import { buttonTokens } from '../../../../components/Button';
+
 export const config = {
     defaults: {
         size: 'm',
@@ -9,86 +11,79 @@ export const config = {
     variations: {
         view: {
             primary: css`
-                --plasma-button-color: var(--on-dark-text-primary);
-                --plasma-button-bg-color: var(--surface-accent);
-                --plasma-button-bg-color-hover: #18a2ff;
-                --plasma-button-bg-color-active: #045891;
+                ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-accent);
+                ${buttonTokens.buttonBackgroundColorHover}: #18a2ff;
+                ${buttonTokens.buttonBackgroundColorActive}: #045891;
             `,
             secondary: css`
-                --plasma-button-color: var(--text-primary);
-                --plasma-button-bg-color: var(--surface-transparent-secondary);
-                --plasma-button-bg-color-hover: rgba(11, 126, 203, 0.12);
-                --plasma-button-bg-color-active: rgba(11, 126, 203, 0.19);
+                ${buttonTokens.buttonColor}: var(--text-primary);
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-transparent-secondary);
+                ${buttonTokens.buttonBackgroundColorHover}: rgba(11, 126, 203, 0.12);
+                ${buttonTokens.buttonBackgroundColorActive}: rgba(11, 126, 203, 0.19);
             `,
             clear: css`
-                --plasma-button-color: var(--text-accent);
-                --plasma-button-bg-color: var(--surface-clear);
-                --plasma-button-bg-color-hover: rgb(11, 126, 203, 0.12);
-                --plasma-button-bg-color-active: rgb(11, 126, 203, 0.19);
+                ${buttonTokens.buttonColor}: var(--text-accent);
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-clear);
+                ${buttonTokens.buttonBackgroundColorHover}: rgb(11, 126, 203, 0.12);
+                ${buttonTokens.buttonBackgroundColorActive}: rgb(11, 126, 203, 0.19);
             `,
             negative: css`
-                --plasma-button-color: var(--on-dark-text-primary);
-                --plasma-button-bg-color: var(--surface-negative);
-                --plasma-button-bg-color-hover: #e65260;
-                --plasma-button-bg-color-active: #c60014;
+                ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-negative);
+                ${buttonTokens.buttonBackgroundColorHover}: #e65260;
+                ${buttonTokens.buttonBackgroundColorActive}: #c60014;
             `,
             white: css`
-                --plasma-button-color: var(--text-primary);
-                --plasma-button-bg-color: var(--background-primary);
-                --plasma-button-bg-color-hover: #ffffff;
-                --plasma-button-bg-color-active: #ebeaea;
+                ${buttonTokens.buttonColor}: var(--text-primary);
+                ${buttonTokens.buttonBackgroundColor}: var(--background-primary);
+                ${buttonTokens.buttonBackgroundColorHover}: #ffffff;
+                ${buttonTokens.buttonBackgroundColorActive}: #ebeaea;
             `,
         },
         size: {
             m: css`
-                --plasma-button-height: 40px;
-                --plasma-button-padding: 20px;
-                --plasma-button-radius: 4px;
-                --plasma-button-font-family: var(--plasma-typo-body-m-font-family);
-                --plasma-button-font-size: var(--plasma-typo-body-m-font-size);
-                --plasma-button-font-style: var(--plasma-typo-body-m-font-style);
-                --plasma-button-font-weight: var(--plasma-typo-body-m-font-weight);
-                --plasma-button-letter-spacing: var(--plasma-typo-body-m-letter-spacing);
-                --plasma-button-line-height: var(--plasma-typo-body-m-line-height);
+                ${buttonTokens.buttonHeight}: 2.5rem;
+                ${buttonTokens.buttonPadding}: 1.25rem;
+                ${buttonTokens.buttonRadius}: 0.25rem;
+                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-m-font-size);
+                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             s: css`
-                --plasma-button-height: 28px;
-                --plasma-button-padding: 12px;
-                --plasma-button-radius: 4px;
-                --plasma-button-font-family: var(--plasma-typo-body-m-font-family);
-                --plasma-button-font-size: var(--plasma-typo-body-m-font-size);
-                --plasma-button-font-style: var(--plasma-typo-body-m-font-style);
-                --plasma-button-font-weight: var(--plasma-typo-body-m-font-weight);
-                --plasma-button-letter-spacing: var(--plasma-typo-body-m-letter-spacing);
-                --plasma-button-line-height: var(--plasma-typo-body-m-line-height);
+                ${buttonTokens.buttonHeight}: 1.75rem;
+                ${buttonTokens.buttonPadding}: 0.75rem;
+                ${buttonTokens.buttonRadius}: 0.25rem;
+                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-m-font-size);
+                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             xs: css`
-                --plasma-button-height: 20px;
-                --plasma-button-padding: 12px;
-                --plasma-button-radius: 4px;
-                --plasma-button-font-family: var(--plasma-typo-body-s-font-family);
-                --plasma-button-font-size: var(--plasma-typo-body-s-font-size);
-                --plasma-button-font-style: var(--plasma-typo-body-s-font-style);
-                --plasma-button-font-weight: var(--plasma-typo-body-s-font-weight);
-                --plasma-button-letter-spacing: var(--plasma-typo-body-s-letter-spacing);
-                --plasma-button-line-height: var(--plasma-typo-body-s-line-height);
+                ${buttonTokens.buttonHeight}: 1.25rem;
+                ${buttonTokens.buttonPadding}: 0.75rem;
+                ${buttonTokens.buttonRadius}: 0.25rem;
+                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-s-font-size);
+                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
         },
         disabled: {
             true: css`
-                --plasma-button-disabled-opacity: 0.4;
+                ${buttonTokens.buttonDisabledOpacity}: 0.4;
             `,
         },
         focused: {
             true: css`
-                --plasma-button-focus-color: var(--surface-accent);
-            `,
-        },
-        square: {},
-        pin: {
-            square: css``,
-            circle: css`
-                border-radius: calc(var(--plasma-button-height) / 2);
+                ${buttonTokens.buttonFocusColor}: var(--surface-accent);
             `,
         },
     },
