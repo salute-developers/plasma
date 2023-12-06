@@ -108,6 +108,12 @@ export const CustomAssembly: StoryObj<CustomAssemblyProps & ContentComponentProp
                 type: 'inline-radio',
             },
         },
+        size: {
+            options: ['l', 'm', 's'],
+            control: {
+                type: 'select',
+            },
+        },
     },
     args: {
         view: 'primary',

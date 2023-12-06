@@ -18,6 +18,10 @@ export const tokens = {
     headerArrowTransition: '--plasma-header-arrow-transition',
     headerArrowMarginRight: '--plasma-header-arrow-margin-right',
     headerArrowIconSize: '--plasma-header-arrow-icon-size',
+    headerArrowButtonColor: '--plasma-button-color',
+    headerArrowButtonBackgroundColor: '--plasma-button-bg-color',
+    headerArrowHeight: '--plasma-button-height',
+    headerArrowPadding: '--plasma-button-padding',
 
     headerTitleMargin: '--plasma-header-title-margin',
     headerBigTitleMargin: '--plasma-header-big-title-margin',
