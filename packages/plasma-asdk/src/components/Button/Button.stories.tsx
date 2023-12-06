@@ -12,6 +12,16 @@ type ButtonProps = ComponentProps<Base>;
 
 const views = ['primary', 'secondary', 'success', 'warning', 'critical', 'clear'];
 const sizes = ['l', 'm', 's', 'xs', 'xxs'];
+const pins = [
+    'square-square',
+    'square-clear',
+    'clear-square',
+    'clear-clear',
+    'clear-circle',
+    'circle-clear',
+    'circle-circle',
+    '',
+];
 
 const contentTypes = ['Text', 'Text+Left', 'Text+Right', 'Left'];
 
@@ -41,24 +51,19 @@ const meta: Meta<ButtonProps> = {
                 type: 'inline-radio',
             },
         },
+        pin: {
+            options: pins,
+            control: {
+                type: 'select',
+            },
+        },
         view: {
             options: views,
             control: {
                 type: 'select',
             },
         },
-        ...disableProps([
-            'theme',
-            'as',
-            'forwardedAs',
-            'contentLeft',
-            'contentRight',
-            'shiftLeft',
-            'shiftRight',
-            'blur',
-            'stretch',
-            'square',
-        ]),
+        ...disableProps(['theme', 'loader', 'onClick', 'onFocus', 'onBlur', 'contentLeft', 'contentRight']),
     },
 };
 
@@ -79,10 +84,12 @@ export const Default: StoryObj<StoryButtonProps> = {
         view: 'primary',
         size: 'l',
         disabled: false,
-        outlined: true,
         text: 'Label',
         contentType: 'Text',
         isLoading: false,
+        focused: true,
+        square: false,
+        stretch: false,
         onClick,
         onFocus,
         onBlur,
