@@ -2,8 +2,9 @@ import { styled } from '@linaria/react';
 import { FocusProps } from '@salutejs/plasma-core';
 
 import type { DayProps } from '../../Calendar.types';
-import { addFocus, flexCenter, selectedMixin } from '../../mixins';
+import { flexCenter, selectedMixin } from '../../mixins';
 import { classes, tokens } from '../../Calendar.tokens';
+import { addFocus } from '../../../../mixins';
 
 const inRange = () => `
     &:before {
@@ -58,16 +59,15 @@ const dayOfWeek = () => `
 `;
 
 const disabledDay = () => `
-    --calendar_private-add-focus-outline-offset: -0.063rem;
-    --calendar_private-add-focus-outline-size: 0.063rem;
-    --calendar_private-add-focus-outline-radius: 0.563rem;
-    --calendar_private-add-focus-outline-transition: box-shadow 0.2s ease-in-out;
-    --calendar_private-add-focus-outline-color: var(${tokens.calendarOutlineFocusColor});
-
     cursor: not-allowed;
     opacity: 0.4;
 
-    ${String(addFocus)};
+    ${addFocus({
+        outlineSize: '0.063rem',
+        outlineOffset: '-0.063rem',
+        outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
+        outlineRadius: '0.563rem',
+    })};
 `;
 
 const disabledCurrentDay = () => `
@@ -100,11 +100,6 @@ export const StyledDayRoot = styled.div<DayProps & FocusProps>`
     visibility: ${({ isDayInCurrentMonth, isDouble }) => (!isDayInCurrentMonth && isDouble ? 'hidden' : 'visible')};
 
     &.${String(classes.selectableItem)} {
-        --calendar_private-add-focus-outline-offset: -0.063rem;
-        --calendar_private-add-focus-outline-size: 0.063rem;
-        --calendar_private-add-focus-outline-radius: 0.563rem;
-        --calendar_private-add-focus-outline-transition: box-shadow 0.2s ease-in-out;
-        --calendar_private-add-focus-outline-color: var(${tokens.calendarOutlineFocusColor});
         --calendar_private-selected-min-width: 2.25rem;
         --calendar_private-selected-min-height: 1.75rem;
         --calendar_private-selected-background: var(${tokens.calendarSelectedItemBackground});
@@ -119,7 +114,12 @@ export const StyledDayRoot = styled.div<DayProps & FocusProps>`
         --calendar_private-hovered-background: var(${tokens.calendarHoveredItemBackground});
         --calendar_private-hovered-color: var(${tokens.calendarHoveredItemColor});
 
-        ${String(addFocus)};
+        ${addFocus({
+            outlineSize: '0.063rem',
+            outlineOffset: '-0.063rem',
+            outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
+            outlineRadius: '0.563rem',
+        })};
 
         ${String(selectedMixin)};
     }
