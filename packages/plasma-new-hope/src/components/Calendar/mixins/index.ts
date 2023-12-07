@@ -1,6 +1,7 @@
 import { styled } from '@linaria/react';
 
 import { tokens } from '../Calendar.tokens';
+import { addFocus } from '../../../mixins';
 
 export const flexCenter = `
     display: flex;
@@ -17,53 +18,18 @@ export const flexSpaceBetween = `
 /**
  * Миксин для установки синтетического фокуса на выбранной кнопке.
  */
-
-export const addFocus = `
-    position: relative;
-
-    &::before {
-        content: '';
-
-        position: absolute;
-        top: var(--calendar_private-add-focus-outline-offset);
-        left: var(--calendar_private-add-focus-outline-offset);
-        right: var(--calendar_private-add-focus-outline-offset);
-        bottom: var(--calendar_private-add-focus-outline-offset);
-
-        display: block;
-        box-sizing: content-box;
-
-        border: var(--calendar_private-add-focus-outline-size) solid transparent;
-        border-radius: var(--calendar_private-add-focus-outline-radius);
-
-        transition: var(--calendar_private-add-focus-outline-transition);
-
-        pointer-events: none;
-    }
-
-    &.focus-visible:focus,
-    &[data-focus-visible-added] {
-        outline: none;
-        z-index: 1;
-        
-        &::before {
-            box-shadow: 0 0 0 var(--calendar_private-add-focus-outline-size) var(--calendar_private-add-focus-outline-color);
-        }
-    }
-`;
-
 export const buttonFocus = styled.button`
-    --calendar_private-add-focus-outline-offset: -0.125rem;
-    --calendar_private-add-focus-outline-size: 0.063rem;
-    --calendar_private-add-focus-outline-radius: 0.563rem;
-    --calendar_private-add-focus-outline-transition: box-shadow 0.2s ease-in-out;
-    --calendar_private-add-focus-outline-color: var(${tokens.calendarOutlineFocusColor});
-
     border: none;
     background-color: transparent;
     padding: 0;
+    outline: none;
 
-    ${String(addFocus)};
+    ${addFocus({
+        outlineSize: '0.063rem',
+        outlineOffset: '-0.125rem',
+        outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
+        outlineRadius: '0.563rem',
+    })};
 `;
 
 /**
