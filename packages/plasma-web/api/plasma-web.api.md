@@ -690,7 +690,11 @@ export { PickOptional }
 export { PinProps }
 
 // @public (undocumented)
-export const Popover: ForwardRefExoticComponent<HTMLAttributes<HTMLDivElement> & CustomPopoverProps & RefAttributes<HTMLDivElement>>;
+export const Popover: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & CustomPopoverProps & RefAttributes<HTMLDivElement>>;
 
 export { PopoverPlacement }
 

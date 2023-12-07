@@ -1,42 +1,16 @@
 import React, { forwardRef, useRef } from 'react';
 import { useFocusTrap, useForkRef, useUniqId } from '@salutejs/plasma-core';
-import { styled } from '@linaria/react';
 
-import { RootProps, component } from '../../engines';
-import { popoverClasses, popoverConfig } from '../Popover';
+import { RootProps } from '../../engines';
 import { cx } from '../../utils';
-import { PopoverPlacementBasic } from '../Popover/Popover.types';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { StyledDropdown } from './Dropdown.styles';
+import { StyledDropdown, StyledPopover } from './Dropdown.styles';
 import { classes } from './Dropdown.tokens';
-import type { DropdownPlacement, DropdownPlacementBasic, DropdownProps } from './Dropdown.types';
+import { getPlacements } from './utils';
+import type { DropdownProps } from './Dropdown.types';
 
-export const getPlacement = (placement: DropdownPlacement) => {
-    return `${placement}-start` as PopoverPlacementBasic;
-};
-
-export const getPlacements = (placements?: DropdownPlacement | DropdownPlacementBasic[]) => {
-    if (!placements) {
-        return;
-    }
-    const isArray = Array.isArray(placements);
-
-    if (!isArray) {
-        return getPlacement(placements as DropdownPlacement);
-    }
-    return ((placements || []) as DropdownPlacementBasic[]).map((placement) => getPlacement(placement));
-};
-
-// issue #823
-const Popover = component(popoverConfig);
-
-const StyledPopover = styled(Popover)`
-    .${String(classes.nestedDropdown)} > .${String(popoverClasses.target)} {
-        display: block;
-    }
-`;
 /**
  * Выпадающий список без внешнего контроля видимости.
  */

@@ -64,11 +64,11 @@ export const popoverCustomConfigS = {
     variations: {
         view: {
             default: css`
-                ${popoverTokens.arrowMaskWidth}: 16px;
-                ${popoverTokens.arrowMaskHeight}: 16px;
+                ${popoverTokens.arrowMaskWidth}: 1rem;
+                ${popoverTokens.arrowMaskHeight}: 1rem;
                 ${popoverTokens.arrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMCw5Ljg1bDE2LDBjLTQuNDEsMCAtOCwyLjY5IC04LDZjMCwtMy4zMSAtMy41OSwtNiAtOCwtNnoiIGZpbGw9IiMxNzE3MTciIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9IlRhaWwiLz4KPC9zdmc+");
-                ${popoverTokens.arrowHeight}: 6px;
-                ${popoverTokens.arrowEdgeMargin}: 9px;
+                ${popoverTokens.arrowHeight}: 0.375rem;
+                ${popoverTokens.arrowEdgeMargin}: 0.5625rem;
                 ${popoverTokens.arrowBackground}: var(--surface-solid-card);
             `,
         },
@@ -82,10 +82,10 @@ export const popoverCustomConfigM = {
     variations: {
         view: {
             default: css`
-                ${popoverTokens.arrowMaskWidth}: 20px;
-                ${popoverTokens.arrowMaskHeight}: 20px;
+                ${popoverTokens.arrowMaskWidth}: 1.25rem;
+                ${popoverTokens.arrowMaskHeight}: 1.25rem;
                 ${popoverTokens.arrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMC4xNywxMS44M2wyMCwwYy01LjUyLDAgLTEwLDMuNTkgLTEwLDhjMCwtNC40MSAtNC40OCwtOCAtMTAsLTh6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJUYWlsIi8+Cjwvc3ZnPg==");
-                ${popoverTokens.arrowHeight}: 8px;
+                ${popoverTokens.arrowHeight}: 0.5rem;
                 ${popoverTokens.arrowEdgeMargin}: 0.625rem;
                 ${popoverTokens.arrowBackground}: var(--surface-solid-card);
             `,
