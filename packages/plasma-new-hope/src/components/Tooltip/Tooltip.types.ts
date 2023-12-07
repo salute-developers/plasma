@@ -56,6 +56,12 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
      * Слот для контента слева, например `Icon`.
      */
     contentLeft?: ReactNode;
+    /**
+     * Значение z-index для Tooltip.
+     * @default
+     * 9200
+     */
+    zIndex?: string;
 
     /**
      * Размер тултипа.

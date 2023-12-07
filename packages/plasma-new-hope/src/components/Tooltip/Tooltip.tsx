@@ -38,6 +38,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 view,
                 size,
                 contentLeft,
+                zIndex = '9200',
                 config,
                 ...rest
             },
@@ -57,6 +58,8 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 };
             }, [config]);
 
+            const withContentLeft = contentLeft ? classes.hasContentLeft : undefined;
+
             const Popover = useMemo(
                 () => component(config) as ForwardRefExoticComponent<PopoverProps & RefAttributes<HTMLDivElement>>,
                 [],
@@ -67,7 +70,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                     isOpen={isOpen && Boolean(text?.length)}
                     placement={placement}
                     offset={offset}
-                    zIndex="9200"
+                    zIndex={zIndex}
                     target={target}
                     usePortal={usePortal}
                     hasArrow={hasArrow}
@@ -80,7 +83,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                         <TooltipRoot
                             ref={outerRef}
                             id={id}
-                            className={cx(contentLeft ? classes.hasContentLeft : '')}
+                            className={cx(withContentLeft)}
                             maxWidth={getStringValue(maxWidth)}
                             minWidth={getStringValue(minWidth)}
                         >

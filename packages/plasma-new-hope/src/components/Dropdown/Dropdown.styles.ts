@@ -1,6 +1,18 @@
 import { styled } from '@linaria/react';
 
-import { tokens } from './Dropdown.tokens';
+import { component } from '../../engines';
+import { popoverConfig, popoverClasses } from '../Popover';
+
+import { classes, tokens } from './Dropdown.tokens';
+
+// issue #823
+const Popover = component(popoverConfig);
+
+export const StyledPopover = styled(Popover)`
+    .${String(classes.nestedDropdown)} > .${String(popoverClasses.target)} {
+        display: block;
+    }
+`;
 
 export const StyledDropdown = styled.div`
     box-sizing: border-box;

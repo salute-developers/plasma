@@ -7,7 +7,7 @@ import { RootProps } from '../../engines/types';
 
 import { base as viewCSS } from './variations/_view/base';
 import type { PopoverPlacement, PopoverProps } from './Popover.types';
-import { StyledArrow, StyledPopover, StyledRoot } from './Popover.styles';
+import { StyledArrow, StyledPopover, StyledRoot, Wrapper } from './Popover.styles';
 import { classes } from './Popover.tokens';
 
 export const ESCAPE_KEYCODE = 27;
@@ -213,7 +213,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             }, [isOpen, children, forceUpdate]);
 
             return (
-                <div className={className}>
+                <Wrapper className={className}>
                     <StyledRoot
                         ref={handleRef}
                         onClick={onClick}
@@ -228,14 +228,13 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                     {children &&
                         portalRef.current &&
                         ReactDOM.createPortal(
-                            <Root view={view}>
+                            <Root view={view} className={className} {...rest}>
                                 <StyledPopover
                                     {...attributes.popper}
                                     className={classes.root}
                                     ref={popoverForkRef}
                                     style={{ ...styles.popper, ...{ display: isOpen ? 'block' : 'none' } }}
                                     zIndex={zIndex}
-                                    {...rest}
                                 >
                                     {hasArrow && (
                                         <StyledArrow
@@ -250,7 +249,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                             </Root>,
                             portalRef.current,
                         )}
-                </div>
+                </Wrapper>
             );
         },
     );
