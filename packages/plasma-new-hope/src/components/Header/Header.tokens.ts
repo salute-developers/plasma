@@ -5,7 +5,6 @@ export const classes = {
     headerArrowIconMinimize: 'header-arrow-icon-minimize',
     headerRoot: 'header-root',
     headerWithGradient: 'header-with-gradient',
-    headerWithDefaultSizes: 'header-with-default-sizes',
 };
 
 export const tokens = {

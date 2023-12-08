@@ -16,12 +16,11 @@ export const headerRoot = (Root: RootProps<HTMLDivElement, HeaderRootProps>) =>
         const { children, size, view, gradientColor, ...rest } = props;
 
         const gradientColorClass = gradientColor ? classes.headerWithGradient : undefined;
-        const defaultSizesClass = !size ? classes.headerWithDefaultSizes : undefined;
 
         return (
             <Root ref={outerRootRef} size={size} view={view}>
                 <StyledHeaderRoot
-                    className={cx(classes.headerRoot, gradientColorClass, defaultSizesClass)}
+                    className={cx(classes.headerRoot, gradientColorClass)}
                     {...rest}
                     $gradientColor={gradientColor}
                 >

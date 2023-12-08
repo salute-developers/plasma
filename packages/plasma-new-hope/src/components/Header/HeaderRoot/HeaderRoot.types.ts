@@ -1,7 +1,5 @@
 import { HtmlHTMLAttributes } from 'react';
 
-import { sizes } from './HeaderRoot.styles';
-
 export type StyledHeaderRootProps = {
     $size?: string;
     $gradientColor?: string;
@@ -12,7 +10,7 @@ type HeaderRootCustomProps = {
      * Задать размер, зависимый от устройства.
      * Если не задан, на каждом брейкпоинте будет свой размер.
      */
-    size?: keyof typeof sizes;
+    size?: string;
     /**
      * Цвет для создания градиента сверху вниз.
      * Указаный цвет займет верхнюю точку градента,

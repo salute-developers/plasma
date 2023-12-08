@@ -37,13 +37,13 @@ const StyledContentGrid = styled.div<{ $colCount: number }>`
 `;
 
 const Content = ({ contentItemsNumber, enableIcons }: ContentComponentProps) => {
-    const contentItems = Array(contentItemsNumber).fill(0);
+    const contentItems = Array.from(Array(contentItemsNumber), (_, i) => `item:${i}`);
 
     return (
         <StyledContentGrid $colCount={contentItems.length}>
-            {contentItems.map((_, i) => (
+            {contentItems.map((value) => (
                 <Button
-                    key={`item:${i}`}
+                    key={value}
                     size="s"
                     view="clear"
                     contentLeft={enableIcons && <IconMic color="inherit" size="s" />}

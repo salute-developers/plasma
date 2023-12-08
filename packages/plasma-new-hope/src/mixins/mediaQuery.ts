@@ -34,6 +34,7 @@ export const sizes = Object.keys(breakpoints) as Breakpoint[];
 /**
  * Обертка над css-медиазапросами с заранее определенными брейкпоинтами.
  */
+// TODO: https://github.com/salute-developers/plasma/issues/906
 export const mediaQuery = (breakpoint: Breakpoint, deviceScale = 2): MediaQueryFunction => {
     const index = sizes.indexOf(breakpoint);
     const nextBreakpoint = sizes[index - 1] as Breakpoint;
