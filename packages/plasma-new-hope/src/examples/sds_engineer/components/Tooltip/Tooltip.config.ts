@@ -1,7 +1,6 @@
 import { css } from '@linaria/core';
 
 import { tooltipTokens } from '../../../../components/Tooltip';
-import { popoverTokens } from '../../../../components/Popover';
 
 export const config = {
     defaults: {
@@ -27,6 +26,13 @@ export const config = {
                 ${tooltipTokens.textFontLineHeight}: 1rem;
 
                 ${tooltipTokens.contentLeftMargin}: 0.25rem;
+
+                ${tooltipTokens.arrowMaskWidth}: 1rem;
+                ${tooltipTokens.arrowMaskHeight}: 1rem;
+                ${tooltipTokens.arrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZD0ibTgsMTUuNzhsLTIuMjQsLTQuMzRjLTAuOTIsLTEuNzkgLTEuMzgsLTIuNjggLTIuMTUsLTMuMTdjLTAuNzcsLTAuNDkgLTEuNzIsLTAuNDkgLTMuNjEsLTAuNDlsMTYsMGMtMS44OSwwIC0yLjgzLDAgLTMuNiwwLjQ5Yy0wLjc4LDAuNDkgLTEuMjQsMS4zOCAtMi4xNiwzLjE2bC0yLjI0LDQuMzV6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLW9wYWNpdHk9IjEiIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9InBvaW50ZXIiLz4KPC9zdmc+");
+                ${tooltipTokens.arrowHeight}: 0.5rem;
+                ${tooltipTokens.arrowEdgeMargin}: 0.625rem;
+                ${tooltipTokens.arrowBackground}: #475056;
             `,
         },
         view: {
@@ -34,24 +40,6 @@ export const config = {
                 ${tooltipTokens.backgroundColor}: #475056;
                 ${tooltipTokens.boxShadow}: 0px 1px 2px 0px rgba(2, 13, 76, 0.15),0px 3.6px 7.1px 0px rgba(2, 13, 76, 0.12),0px 16px 32px 0px rgba(2, 13, 76, 0.2);
                 ${tooltipTokens.color}: var(--on-dark-text-primary);
-            `,
-        },
-    },
-};
-
-export const popoverCustomConfig = {
-    defaults: {
-        view: 'default',
-    },
-    variations: {
-        view: {
-            default: css`
-                ${popoverTokens.arrowMaskWidth}: 1rem;
-                ${popoverTokens.arrowMaskHeight}: 1rem;
-                ${popoverTokens.arrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZD0ibTgsMTUuNzhsLTIuMjQsLTQuMzRjLTAuOTIsLTEuNzkgLTEuMzgsLTIuNjggLTIuMTUsLTMuMTdjLTAuNzcsLTAuNDkgLTEuNzIsLTAuNDkgLTMuNjEsLTAuNDlsMTYsMGMtMS44OSwwIC0yLjgzLDAgLTMuNiwwLjQ5Yy0wLjc4LDAuNDkgLTEuMjQsMS4zOCAtMi4xNiwzLjE2bC0yLjI0LDQuMzV6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLW9wYWNpdHk9IjEiIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9InBvaW50ZXIiLz4KPC9zdmc+");
-                ${popoverTokens.arrowHeight}: 0.5rem;
-                ${popoverTokens.arrowEdgeMargin}: 0.625rem;
-                ${popoverTokens.arrowBackground}: #475056;
             `,
         },
     },

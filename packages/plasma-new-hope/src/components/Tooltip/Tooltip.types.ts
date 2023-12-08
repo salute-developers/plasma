@@ -1,7 +1,6 @@
-import { ReactNode, RefAttributes } from 'react';
+import { ReactNode } from 'react';
 
-import { PopoverPlacement, PopoverPlacementBasic, PopoverProps } from '../Popover';
-import { ComponentConfig, PropsType, Variants } from '../../engines/types';
+import { PopoverPlacement, PopoverPlacementBasic } from '../Popover';
 
 export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
     /**
@@ -71,11 +70,4 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
      * Вид тултипа.
      */
     view?: string;
-}
-
-export interface TooltipPropsWithConfig extends TooltipProps {
-    /**
-     * Конфиг компонента Popover.
-     */
-    config: ComponentConfig<string, Variants, PropsType<Variants>, PopoverProps & RefAttributes<HTMLDivElement>>;
 }

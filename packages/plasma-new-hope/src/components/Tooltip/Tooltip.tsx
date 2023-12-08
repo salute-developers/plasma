@@ -1,14 +1,15 @@
-import React, { useEffect, forwardRef, ForwardRefExoticComponent, RefAttributes, useMemo } from 'react';
+import React, { useEffect, forwardRef, useState } from 'react';
+import { styled } from '@linaria/react';
 
 import { RootProps, component } from '../../engines';
-import { PopoverProps } from '../Popover';
+import { popoverConfig, popoverTokens } from '../Popover';
 import { cx } from '../../utils';
 
-import { TooltipProps, TooltipPropsWithConfig } from './Tooltip.types';
+import { TooltipProps } from './Tooltip.types';
 import { StyledContentLeft, TooltipRoot } from './Tooltip.styles';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { classes } from './Tooltip.tokens';
+import { classes, tokens } from './Tooltip.tokens';
 
 const ESCAPE_KEYCODE = 27;
 
@@ -16,12 +17,23 @@ const getStringValue = (value?: number | string) => {
     return typeof value === 'number' ? `${value}rem` : value;
 };
 
+const Popover = component(popoverConfig);
+
+const StyledPopover = styled(Popover)`
+    ${popoverTokens.arrowMaskWidth}: var(${tokens.arrowMaskWidth});
+    ${popoverTokens.arrowMaskHeight}: var(${tokens.arrowMaskHeight});
+    ${popoverTokens.arrowMaskImage}: var(${tokens.arrowMaskImage});
+    ${popoverTokens.arrowBackground}: var(${tokens.arrowBackground});
+    ${popoverTokens.arrowHeight}: var(${tokens.arrowHeight});
+    ${popoverTokens.arrowEdgeMargin}: var(${tokens.arrowEdgeMargin});
+`;
+
 /**
  * Компонент для текстовых подсказок. Основное предназначение — подписи к блокам.
  */
 
 export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, 'isOpen' | 'text'>>) =>
-    forwardRef<HTMLDivElement, TooltipPropsWithConfig>(
+    forwardRef<HTMLDivElement, TooltipProps>(
         (
             {
                 id,
@@ -39,11 +51,12 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 size,
                 contentLeft,
                 zIndex = '9200',
-                config,
                 ...rest
             },
             outerRef,
         ) => {
+            const [ref, setRef] = useState<HTMLDivElement | null>(null);
+
             useEffect(() => {
                 const onKeyDown = (event: KeyboardEvent) => {
                     if (event.keyCode === ESCAPE_KEYCODE) {
@@ -56,17 +69,12 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 return () => {
                     window.removeEventListener('keydown', onKeyDown);
                 };
-            }, [config]);
+            }, []);
 
             const withContentLeft = contentLeft ? classes.hasContentLeft : undefined;
 
-            const Popover = useMemo(
-                () => component(config) as ForwardRefExoticComponent<PopoverProps & RefAttributes<HTMLDivElement>>,
-                [],
-            );
-
             return (
-                <Popover
+                <StyledPopover
                     isOpen={isOpen && Boolean(text?.length)}
                     placement={placement}
                     offset={offset}
@@ -77,9 +85,10 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                     aria-hidden={!isOpen}
                     aria-live="polite"
                     role="tooltip"
+                    className={cx(ref?.classList.toString())} // прокидываем стили для Popover из Root Tooltip-а
                     {...rest}
                 >
-                    <Root view={view} size={size}>
+                    <Root view={view} size={size} ref={setRef}>
                         <TooltipRoot
                             ref={outerRef}
                             id={id}
@@ -91,7 +100,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                             {text}
                         </TooltipRoot>
                     </Root>
-                </Popover>
+                </StyledPopover>
             );
         },
     );

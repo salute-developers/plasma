@@ -886,7 +886,7 @@ export { ToastProvider }
 export { toCssSize }
 
 // @public (undocumented)
-export const Tooltip: React_2.ForwardRefExoticComponent<TooltipProps & React_2.RefAttributes<HTMLDivElement>>;
+export const Tooltip: ForwardRefExoticComponent<TooltipProps & RefAttributes<HTMLDivElement>>;
 
 export { TooltipProps }
 

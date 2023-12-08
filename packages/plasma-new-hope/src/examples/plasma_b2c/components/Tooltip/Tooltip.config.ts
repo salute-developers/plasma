@@ -1,7 +1,6 @@
 import { css } from '@linaria/core';
 
 import { tooltipTokens } from '../../../../components/Tooltip';
-import { popoverTokens } from '../../../../components/Popover';
 
 export const config = {
     defaults: {
@@ -27,6 +26,13 @@ export const config = {
                 ${tooltipTokens.textFontLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tooltipTokens.contentLeftMargin}: 0.25rem;
+
+                ${tooltipTokens.arrowMaskWidth}: 1rem;
+                ${tooltipTokens.arrowMaskHeight}: 1rem;
+                ${tooltipTokens.arrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMCw5Ljg1bDE2LDBjLTQuNDEsMCAtOCwyLjY5IC04LDZjMCwtMy4zMSAtMy41OSwtNiAtOCwtNnoiIGZpbGw9IiMxNzE3MTciIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9IlRhaWwiLz4KPC9zdmc+");
+                ${tooltipTokens.arrowHeight}: 0.375rem;
+                ${tooltipTokens.arrowEdgeMargin}: 0.5625rem;
+                ${tooltipTokens.arrowBackground}: var(--surface-solid-card);
             `,
             m: css`
                 ${tooltipTokens.paddingTop}: 0.6875rem;
@@ -45,6 +51,13 @@ export const config = {
                 ${tooltipTokens.textFontLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tooltipTokens.contentLeftMargin}: 0.375rem;
+
+                ${tooltipTokens.arrowMaskWidth}: 1.25rem;
+                ${tooltipTokens.arrowMaskHeight}: 1.25rem;
+                ${tooltipTokens.arrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMC4xNywxMS44M2wyMCwwYy01LjUyLDAgLTEwLDMuNTkgLTEwLDhjMCwtNC40MSAtNC40OCwtOCAtMTAsLTh6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJUYWlsIi8+Cjwvc3ZnPg==");
+                ${tooltipTokens.arrowHeight}: 0.5rem;
+                ${tooltipTokens.arrowEdgeMargin}: 0.625rem;
+                ${tooltipTokens.arrowBackground}: var(--surface-solid-card);
             `,
         },
         view: {
@@ -52,42 +65,6 @@ export const config = {
                 ${tooltipTokens.backgroundColor}: var(--surface-solid-card);
                 ${tooltipTokens.boxShadow}: var(--shadow-down-hard-s);
                 ${tooltipTokens.color}: var(--text-primary);
-            `,
-        },
-    },
-};
-
-export const popoverCustomConfigS = {
-    defaults: {
-        view: 'default',
-    },
-    variations: {
-        view: {
-            default: css`
-                ${popoverTokens.arrowMaskWidth}: 1rem;
-                ${popoverTokens.arrowMaskHeight}: 1rem;
-                ${popoverTokens.arrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMCw5Ljg1bDE2LDBjLTQuNDEsMCAtOCwyLjY5IC04LDZjMCwtMy4zMSAtMy41OSwtNiAtOCwtNnoiIGZpbGw9IiMxNzE3MTciIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9IlRhaWwiLz4KPC9zdmc+");
-                ${popoverTokens.arrowHeight}: 0.375rem;
-                ${popoverTokens.arrowEdgeMargin}: 0.5625rem;
-                ${popoverTokens.arrowBackground}: var(--surface-solid-card);
-            `,
-        },
-    },
-};
-
-export const popoverCustomConfigM = {
-    defaults: {
-        view: 'default',
-    },
-    variations: {
-        view: {
-            default: css`
-                ${popoverTokens.arrowMaskWidth}: 1.25rem;
-                ${popoverTokens.arrowMaskHeight}: 1.25rem;
-                ${popoverTokens.arrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMC4xNywxMS44M2wyMCwwYy01LjUyLDAgLTEwLDMuNTkgLTEwLDhjMCwtNC40MSAtNC40OCwtOCAtMTAsLTh6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJUYWlsIi8+Cjwvc3ZnPg==");
-                ${popoverTokens.arrowHeight}: 0.5rem;
-                ${popoverTokens.arrowEdgeMargin}: 0.625rem;
-                ${popoverTokens.arrowBackground}: var(--surface-solid-card);
             `,
         },
     },
