@@ -22,4 +22,11 @@ export const tokens = {
     textFontLineHeight: '--plasma-tooltip-text-font-line-height',
 
     contentLeftMargin: '--plasma-tooltip-content-left-margin',
+
+    arrowMaskWidth: '--plasma-tooltip-arrow-mask-width',
+    arrowMaskHeight: '--plasma-tooltip-arrow-mask-height',
+    arrowMaskImage: '--plasma-tooltip-arrow-mask-image',
+    arrowBackground: '--plasma-tooltip-arrow-background',
+    arrowHeight: '--plasma-tooltip-arrow-height',
+    arrowEdgeMargin: '--plasma-tooltip-arrow-edge-margin',
 };
