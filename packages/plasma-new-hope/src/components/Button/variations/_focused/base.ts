@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { classes, tokens } from '../tokens';
+import { classes, tokens } from '../../Button.tokens';
 
 // TODO: focus-visible #711
 
