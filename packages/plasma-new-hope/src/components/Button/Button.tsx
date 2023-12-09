@@ -3,13 +3,13 @@ import React, { forwardRef } from 'react';
 import type { RootProps } from '../../engines';
 import { cx } from '../../utils';
 
-import { base as viewCSS } from './_view/base';
-import { base as sizeCSS } from './_size/base';
-import { base as disabledCSS } from './_disabled/base';
-import { base as focusedCSS } from './_focused/base';
+import { base as viewCSS } from './variations/_view/base';
+import { base as sizeCSS } from './variations/_size/base';
+import { base as disabledCSS } from './variations/_disabled/base';
+import { base as focusedCSS } from './variations/_focused/base';
 import type { ButtonProps } from './Button.types';
 import { base, ButtonText, Loader, LoadWrap, StyledButton } from './Button.styles';
-import { classes } from './tokens';
+import { classes } from './Button.tokens';
 
 export const buttonRoot = (Root: RootProps<HTMLDivElement, ButtonProps>) =>
     forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {

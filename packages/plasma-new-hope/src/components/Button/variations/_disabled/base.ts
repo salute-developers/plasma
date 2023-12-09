@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { classes } from '../tokens';
+import { classes } from '../../Button.tokens';
 
 /* NOTE: check _view/base.css */
 /* we use tokens from _view */

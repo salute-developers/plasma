@@ -1,7 +1,5 @@
 import { CSSProperties } from '@linaria/core';
 
-export * from './roundness';
-
 export const cx = (...classes: (string | undefined)[]) => classes.filter((classItem) => classItem).join(' ');
 
 export const composableStyle = (s: TemplateStringsArray, ...expr: Array<string | number | CSSProperties>): string => {

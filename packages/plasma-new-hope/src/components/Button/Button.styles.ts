@@ -2,9 +2,9 @@ import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
 import { applyEllipsis } from '../../mixins';
-import { Pin, convertRoundnessMatrix } from '../../utils';
+import { Pin, convertRoundnessMatrix } from '../../utils/roundness';
 
-import { classes, tokens } from './tokens';
+import { classes, tokens } from './Button.tokens';
 
 export const base = css`
     width: fit-content;
