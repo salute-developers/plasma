@@ -1,4 +1,4 @@
-import type { MouseEvent, LabelHTMLAttributes } from 'react';
+import type { MouseEvent, ButtonHTMLAttributes } from 'react';
 
 type CustomSegmentItemProps = {
     /**
@@ -18,17 +18,21 @@ type CustomSegmentItemProps = {
      */
     pilled?: boolean;
     /**
-     * Сегмент c фоном
+     * Вид выбранного сегмента c фоном
      */
-    filledBackground?: boolean;
+    selectedView?: string;
     /**
      * Коллбек для обработки выбора сегмента
      */
-    customHandleSelect?: (e: MouseEvent<HTMLLabelElement>) => void;
-
+    customHandleSelect?: (e: MouseEvent<HTMLButtonElement>) => void;
+    /**
+     * Размер сегмента
+     */
     size?: string;
+    /**
+     * Вид сегмента
+     */
     view?: string;
-    focused?: boolean;
 };
 
-export type SegmentItemProps = LabelHTMLAttributes<HTMLLabelElement> & CustomSegmentItemProps;
+export type SegmentItemProps = ButtonHTMLAttributes<HTMLButtonElement> & CustomSegmentItemProps;

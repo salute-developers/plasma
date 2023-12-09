@@ -12,7 +12,7 @@ import { config } from './Segment.config';
 import { SegmentItem, SegmentGroup } from './Segment';
 
 const meta: Meta<typeof SegmentGroup> = {
-    title: 'plasma_b2c/Segment',
+    title: 'plasma_web/Segment',
     decorators: [WithTheme],
     component: SegmentGroup,
     argTypes: {

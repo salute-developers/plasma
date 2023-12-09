@@ -21,3 +21,4 @@ export * from './components/Popover';
 export * from './components/Dropdown';
 export * from './components/Header';
 export * from './components/Tooltip';
+export * from './components/Segment';

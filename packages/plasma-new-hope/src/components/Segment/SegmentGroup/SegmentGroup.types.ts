@@ -6,7 +6,7 @@ type CustomSegmentGroupProps = {
      */
     selectionMode?: 'multiple' | 'single';
     /**
-     * Группа сегментов неактивен
+     * Группа сегментов неактивна
      */
     disabled?: boolean;
     /**
@@ -17,8 +17,13 @@ type CustomSegmentGroupProps = {
      * Группа сегментов c фоном
      */
     filledBackground?: boolean;
-
+    /**
+     * Размер группы сегментов
+     */
     size?: string;
+    /**
+     * Вид группы сегментов
+     */
     view?: string;
 };
 
