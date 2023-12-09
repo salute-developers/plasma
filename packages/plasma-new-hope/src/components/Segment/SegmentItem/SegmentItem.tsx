@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { forwardRef, useCallback, useEffect, useMemo, useState } from 'react';
 import type { MouseEvent } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
@@ -9,8 +9,9 @@ import { useSegment } from '../SegmentProvider';
 
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
+import { base as disabledCSS } from './variations/_disabled/base';
 import { base as pilledCSS } from './variations/_pilled/base';
-import { base as filledBackgroundCSS } from './variations/_filledBackgound/base';
+import { base as selectedViewCSS } from './variations/_selectedView/base';
 import type { SegmentItemProps } from './SegmentItem.types';
 import { StyledContent, base } from './SegmentItem.styles';
 
@@ -19,48 +20,57 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
         const {
             size,
             view,
-            focused,
             id,
             label,
             value,
             pilled,
-            filledBackground,
+            selectedView,
             customHandleSelect,
             'aria-label': ariaLabelExternal,
             ...rest
         } = props;
-        const { handleSelect, selectedSegmentItems } = useSegment();
+        const { disabledGroup, handleSelect, selectedSegmentItems, isFilledBackground } = useSegment();
+
+        const [selectedViewAttr, setSelectedViewAttr] = useState(false);
 
         const uniqId = safeUseId();
         const segmentId = id || `label-${uniqId}`;
 
         const ariaLabelDefault = useMemo(() => extractTextFrom(label), [label]);
         const pilledAttr = view !== 'clear' && pilled;
-        const filledBackgroundAttr = view !== 'clear' && filledBackground;
+        const filledBackgroundAttr = view !== 'clear' && isFilledBackground;
 
         const isSelected = selectedSegmentItems.includes(value || ariaLabelDefault);
         const selectedClass = isSelected ? classes.selectedSegmentItem : undefined;
 
-        const handleSelectSegment = (event: MouseEvent<HTMLLabelElement>) => {
-            customHandleSelect?.(event);
-            handleSelect(value || ariaLabelDefault);
-        };
+        const handleSelectSegment = useCallback((event: MouseEvent<HTMLButtonElement>) => {
+            if (!disabledGroup) {
+                customHandleSelect?.(event);
+                handleSelect(value || ariaLabelDefault);
+            }
+        }, []);
+
+        useEffect(() => {
+            setSelectedViewAttr(view !== 'clear');
+        }, [view]);
 
         return (
             <Root
                 view={view}
                 size={size}
-                focused={focused}
                 id={segmentId}
                 ref={outerRef}
+                selectedView={selectedView || 'default'}
+                data-selected-view={selectedViewAttr}
                 aria-label={ariaLabelExternal || ariaLabelDefault}
                 value={value}
                 data-pilled={pilledAttr}
                 pilled={pilledAttr}
                 data-filled={filledBackgroundAttr}
-                filledBackground={filledBackgroundAttr}
                 className={cx(selectedClass)}
                 onClick={(event) => handleSelectSegment(event)}
+                tabIndex={disabledGroup ? -1 : 0}
+                disabled={disabledGroup}
                 {...rest}
             >
                 <StyledContent>{label || value}</StyledContent>
@@ -70,7 +80,7 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
 
 export const segmentItemConfig = {
     name: 'SegmentItem',
-    tag: 'label',
+    tag: 'button',
     layout: segmentItemRoot,
     base,
     variations: {
@@ -80,12 +90,15 @@ export const segmentItemConfig = {
         view: {
             css: viewCSS,
         },
-        pilled: {
-            css: pilledCSS,
+        selectedView: {
+            css: selectedViewCSS,
+        },
+        disabled: {
+            css: disabledCSS,
             attrs: true,
         },
-        filledBackground: {
-            css: filledBackgroundCSS,
+        pilled: {
+            css: pilledCSS,
             attrs: true,
         },
     },

@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import type { FC } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 
-import { SegmentContextType, SegmentProviderProps, SegmentSelectionMode } from './SegmentProvider.types';
+import { SegmentContextType, SegmentSelectionMode } from './SegmentProvider.types';
 
 const SegmentContext = createContext<SegmentContextType | undefined>(undefined);
 
@@ -13,13 +13,15 @@ export const useSegment = () => {
     return context;
 };
 
-export const SegmentProvider: FC<SegmentProviderProps> = ({ outerSelectionMode = 'single', children }) => {
+export const SegmentProvider: FC<PropsWithChildren> = ({ children }) => {
     const [selectedSegmentItems, setSelectedSegmentItems] = useState<string[]>([]);
-    const [selectionMode, setSelectionMode] = useState<SegmentSelectionMode>(outerSelectionMode);
+    const [selectionMode, setSelectionMode] = useState<SegmentSelectionMode>('single');
+    const [disabledGroup, setDisabledGroup] = useState(false);
+    const [isFilledBackground, setFilledBackground] = useState(false);
 
     const handleSelect = (label: string) => {
         if (selectionMode !== 'multiple') {
-            setSelectedSegmentItems([label]);
+            setSelectedSegmentItems((prevSelected) => (prevSelected.includes(label) ? [] : [label]));
             return;
         }
 
@@ -33,12 +35,15 @@ export const SegmentProvider: FC<SegmentProviderProps> = ({ outerSelectionMode =
         handleSelect,
         selectionMode,
         setSelectionMode,
+        disabledGroup,
+        setDisabledGroup,
+        isFilledBackground,
+        setFilledBackground,
     };
 
     useEffect(() => {
         setSelectedSegmentItems([]);
-        setSelectionMode(outerSelectionMode);
-    }, [outerSelectionMode]);
+    }, [selectionMode]);
 
     return <SegmentContext.Provider value={contextValue}>{children}</SegmentContext.Provider>;
 };

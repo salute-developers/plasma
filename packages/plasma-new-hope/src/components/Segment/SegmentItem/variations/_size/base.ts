@@ -10,6 +10,7 @@ export const base = css`
     letter-spacing: var(${tokens.letterSpacing});
     line-height: var(${tokens.lineHeight});
 
+    --plasma_private-outline-radius: var(${tokens.itemBorderRadius});
     border-radius: var(${tokens.itemBorderRadius});
 
     width: var(${tokens.itemWidth});
