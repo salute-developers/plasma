@@ -27,9 +27,6 @@ export const textPositive = 'var(--text-positive, #24B23E)';
 /** Цвет предупреждения */
 export const textWarning = 'var(--text-warning, #FF7024)';
 
-/** Цвет ошибки */
-export const textNegative = 'var(--text-negative, #FF293E)';
-
 /** Акцентный цвет Афины */
 export const textAccentAthena = 'var(--text-accent-athena, #199AF0)';
 
@@ -49,17 +46,20 @@ export const textGradientAthena =
 /** Градиент Джой */
 export const textGradientJoy = 'var(--text-gradient-joy, linear-gradient(93.97deg, #FD9C68 6.49%, #F391E2 93.51%))';
 
-/** Градиент B2E-ассистента */
-export const textGradientB2E = 'var(--text-gradient-b2-e, linear-gradient(89.83deg, #24B23E 0%, #1CC9C9 100%))';
-
 /** Градиент бренда */
 export const textGradientBrand = 'var(--text-gradient-brand, linear-gradient(89.83deg, #528EFF 0%, #04C6C9 100%))';
 
-/** Градиент */
-export const textGradientMain = 'var(--text-gradient-main, linear-gradient(89.83deg, #24B23E 0%, #1CC9C9 100%))';
-
 /** Акцентный цвет */
 export const textAccentMain = 'var(--text-accent-main, #24B23E)';
+
+/** Градиент */
+export const textGradientMain = 'var(--text-gradient-main, linear-gradient(89.83deg, #24B23E 0%, #05C1F5 100%))';
+
+/** Градиент B2E-ассистента */
+export const textGradientB2E = 'var(--text-gradient-b2-e, linear-gradient(89.83deg, #24B23E 0%, #05C1F5 100%))';
+
+/** Цвет ошибки */
+export const textNegative = 'var(--text-negative, #FF3D51)';
 
 /** Основной цвет текста на темном фоне */
 export const onDarkTextPrimary = 'var(--on-dark-text-primary, #FFFFFFF5)';
@@ -78,9 +78,6 @@ export const onDarkTextPositive = 'var(--on-dark-text-positive, #24B23E)';
 
 /** Цвет предупреждения на темном фоне */
 export const onDarkTextWarning = 'var(--on-dark-text-warning, #FF7024)';
-
-/** Цвет ошибки на темном фоне */
-export const onDarkTextNegative = 'var(--on-dark-text-negative, #FF293E)';
 
 /** Акцентный цвет Афины на темном */
 export const onDarkTextAccentAthena = 'var(--on-dark-text-accent-athena, #199AF0)';
@@ -102,20 +99,23 @@ export const onDarkTextGradientAthena =
 export const onDarkTextGradientJoy =
     'var(--on-dark-text-gradient-joy, linear-gradient(93.97deg, #FD9C68 6.49%, #F391E2 93.51%))';
 
-/** Градиент B2E-ассистента на темном фоне */
-export const onDarkTextGradientB2E =
-    'var(--on-dark-text-gradient-b2-e, linear-gradient(89.83deg, #24B23E 0%, #1CC9C9 100%))';
-
 /** Градиент бренда на темном фоне */
 export const onDarkTextGradientBrand =
     'var(--on-dark-text-gradient-brand, linear-gradient(89.83deg, #528EFF 0%, #04C6C9 100%))';
 
-/** Градиент на темном фоне */
-export const onDarkTextGradientMain =
-    'var(--on-dark-text-gradient-main, linear-gradient(89.83deg, #24B23E 0%, #1CC9C9 100%))';
-
 /** Акцентный цвет на темном фоне */
 export const onDarkTextAccentMain = 'var(--on-dark-text-accent-main, #24B23E)';
+
+/** Градиент B2E-ассистента на темном фоне */
+export const onDarkTextGradientB2E =
+    'var(--on-dark-text-gradient-b2-e, linear-gradient(89.83deg, #24B23E 0%, #05C1F5 100%))';
+
+/** Градиент на темном фоне */
+export const onDarkTextGradientMain =
+    'var(--on-dark-text-gradient-main, linear-gradient(89.83deg, #24B23E 0%, #05C1F5 100%))';
+
+/** Цвет ошибки на темном фоне */
+export const onDarkTextNegative = 'var(--on-dark-text-negative, #FF3D51)';
 
 /** Основной цвет текста на светлом фоне */
 export const onLightTextPrimary = 'var(--on-light-text-primary, rgba(8, 8, 8, 0.96))';
