@@ -30,10 +30,6 @@ Object.defineProperty(exports, "__esModule", {
 module.exports = function getWebpackConfig() {
     const babelOpts = { ...babelrc.env.cjs };
 
-    if (process.env.PACKAGE_DIR.includes('plasma-temple')) {
-        babelOpts.plugins.push('@babel/plugin-transform-regenerator', '@babel/transform-runtime');
-    }
-
     return {
         mode: 'development',
         entry: 'src/index.ts',
@@ -62,8 +58,6 @@ module.exports = function getWebpackConfig() {
                         options: babelOpts,
                     },
                 },
-                // В @salutejs/plasma-temple есть графические ассеты
-                // лоадеры для них
                 {
                     test: /\.svg$/,
                     use: 'file-loader',

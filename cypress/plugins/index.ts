@@ -24,7 +24,7 @@ const overrideConfig: Cypress.PluginConfig = (on, config) => {
         });
     }
 
-    if (process.env.PLATFORM_TESTS != null || config.env.package === 'plasma-temple') {
+    if (process.env.PLATFORM_TESTS != null) {
         on('before:browser:launch', (browser, launchOptions) => {
             if (browser.name === 'chrome' || browser.name === 'chromium') {
                 let windowSizeArg = windowSize.sberbox;
