@@ -34,7 +34,7 @@ export const config = {
                 --plasma-radiobox-trigger-border-radius 1.125rem;
                 --plasma-radiobox-ellipse-size 0.625rem;
                 --plasma-radiobox-content-top-offset: 0.25rem;
-                --plasma-radiobox-content-left-offset 0.6875rem;
+                --plasma-radiobox-content-left-offset 0.625rem;
                 --plasma-radiobox-label-font-family: var(--plasma-typo-body-m-font-family);
                 --plasma-radiobox-label-font-size: var(--plasma-typo-body-m-font-size);
                 --plasma-radiobox-label-font-style: var(--plasma-typo-body-m-font-style);
