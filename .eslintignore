@@ -67,13 +67,6 @@ packages/plasma-web/*
 packages/plasma-icons/*
 !packages/plasma-icons/src
 
-packages/plasma-temple/*
-!packages/plasma-temple/src
-
-packages/plasma-basic-template/*
-
-packages/plasma-shop-template/*
-
 utils/plasma-cy-utils/*
 !utils/plasma-cy-utils/src
 

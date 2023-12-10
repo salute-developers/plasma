@@ -15,9 +15,6 @@ if (coverageDir) {
         case 'plasma-ui':
             nycConfig.include.push('**/packages/plasma-core/**');
             break;
-        case 'plasma-temple':
-            nycConfig.exclude.push('**/packages/plasma-temple/src/testHelpers/**');
-            break;
         default:
             break;
     }
