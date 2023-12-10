@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        scope: [web,b2c,ui,temple]
+        scope: [web,b2c,ui]
 
     uses: ./.github/workflows/cypress-common.yml
     with:
@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        scope: [web,b2c,ui,temple]
+        scope: [web,b2c,ui]
 
     uses: ./.github/workflows/cypress-common.yml
     with:
