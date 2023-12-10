@@ -2,23 +2,10 @@ import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
 import { applyEllipsis } from '../../mixins';
-import { Pin, convertRoundnessMatrix } from '../../utils/roundness';
 
 import { classes, tokens } from './Button.tokens';
 
 export const base = css`
-    width: fit-content;
-
-    &.${String(classes.buttonStretch)} {
-        width: 100%;
-
-        .${String(classes.buttonRoot)} {
-            width: 100%;
-        }
-    }
-`;
-
-export const StyledButton = styled.button<{ pin?: Pin }>`
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -30,10 +17,10 @@ export const StyledButton = styled.button<{ pin?: Pin }>`
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
-    --plasma_private-btn-br: ${({ pin }) =>
-        pin
-            ? String(convertRoundnessMatrix(pin, `var(${tokens.buttonRadius})`, `var(${tokens.buttonHeight})`))
-            : `var(${tokens.buttonRadius}, calc(var(${tokens.buttonHeight}) / 4))`};
+    /* NOTE: 
+        --plasma_computed-btn-br-radius is defined in Button.tsx
+    */
+    --plasma_private-btn-br: var(--plasma_computed-btn-br);
     border-radius: var(--plasma_private-btn-br);
 
     &:before {
@@ -43,6 +30,10 @@ export const StyledButton = styled.button<{ pin?: Pin }>`
     &.${String(classes.buttonSquare)} {
         width: var(${tokens.buttonHeight});
         padding: 0;
+    }
+
+    &.${String(classes.buttonStretch)} {
+        width: 100%;
     }
 `;
 
@@ -63,7 +54,7 @@ export const ButtonText = styled.span`
 
 // TODO: #720
 export const LoadWrap = styled.div<{ isLoading?: boolean }>`
-    opacity: ${(props) => (props.isLoading ? '0' : '1')};
+    opacity: ${({ isLoading }) => (isLoading ? '0' : '1')};
     display: flex;
     width: 100%;
     align-items: inherit;

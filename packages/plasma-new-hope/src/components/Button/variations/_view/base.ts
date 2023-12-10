@@ -1,27 +1,25 @@
 import { css } from '@linaria/core';
 
-import { classes, tokens } from '../../Button.tokens';
+import { tokens } from '../../Button.tokens';
 
 export const base = css`
-    .${String(classes.buttonRoot)} {
-        color: var(${tokens.buttonColor});
-        background-color: var(${tokens.buttonBackgroundColor});
+    color: var(${tokens.buttonColor});
+    background-color: var(${tokens.buttonBackgroundColor});
 
-        :hover {
-            color: var(${tokens.buttonColorHover}, var(${tokens.buttonColor}));
-            background-color: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
+    :hover {
+        color: var(${tokens.buttonColorHover}, var(${tokens.buttonColor}));
+        background-color: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
 
-            /* TODO: #706 make scale - token */
-            scale: 1.02;
-        }
+        /* TODO: #706 make scale - token */
+        scale: 1.02;
+    }
 
-        :active {
-            color: var(${tokens.buttonColorActive}, var(${tokens.buttonColor}));
-            background-color: var(${tokens.buttonBackgroundColorActive}, var(${tokens.buttonBackgroundColor}));
+    :active {
+        color: var(${tokens.buttonColorActive}, var(${tokens.buttonColor}));
+        background-color: var(${tokens.buttonBackgroundColorActive}, var(${tokens.buttonBackgroundColor}));
 
-            /* TODO: #706 make scale - token */
-            scale: 0.98;
-        }
+        /* TODO: #706 make scale - token */
+        scale: 0.98;
     }
 `;
 
