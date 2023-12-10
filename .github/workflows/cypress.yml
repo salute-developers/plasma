@@ -33,8 +33,6 @@ jobs:
         # Важно что бы массив был со значениями, где `""` экранируются, например -> ["\"b2c\""]
         # Можно для этого использовать JSON.stringify()
         scope: ${{fromJson(needs.change-detection.outputs.SCOPE)}}
-        exclude:
-          - scope: temple
 
     uses: ./.github/workflows/cypress-common.yml
     with:
@@ -48,29 +46,9 @@ jobs:
       fail-fast: false
       matrix:
         scope: ${{fromJson(needs.change-detection.outputs.SCOPE)}}
-        exclude:
-          - scope: temple
 
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
       with-react-17: true
     secrets: inherit
-
-  cypress-temple:
-    needs: change-detection-temple
-    if: ${{ needs.change-detection-temple.outputs.HAS_PLASMA_TEMPLE == 'true' }}
-    uses: ./.github/workflows/cypress-common.yml
-    with:
-      scope: 'temple'
-    secrets: inherit
-
-  cypress-temple-react-17:
-    needs: change-detection-temple
-    if: ${{ needs.change-detection-temple.outputs.HAS_PLASMA_TEMPLE == 'true' }}
-    uses: ./.github/workflows/cypress-common.yml
-    with:
-      scope: 'temple'
-      with-react-17: true
-    secrets: inherit
-

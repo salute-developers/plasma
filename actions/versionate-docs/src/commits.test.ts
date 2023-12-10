@@ -10,9 +10,8 @@ const commits = [
     'feat(plasma-ui): Message [docs]',
     'fix!: Message [skip ci]',
     'docs(plasma-b2c): Message',
-    'docs(plasma-temple): Message',
 ];
-const unique = ['plasma-ui-docs', 'plasma-web-docs', 'plasma-temple-docs'];
+const unique = ['plasma-ui-docs', 'plasma-web-docs'];
 
 describe('commits.ts', () => {
     it('getDocPackages', () => {

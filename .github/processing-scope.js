@@ -1,9 +1,4 @@
-const CYPRESS_SCOPE = [
-    '@salutejs/plasma-web',
-    '@salutejs/plasma-b2c',
-    '@salutejs/plasma-ui',
-    '@salutejs/plasma-temple',
-];
+const CYPRESS_SCOPE = ['@salutejs/plasma-web', '@salutejs/plasma-b2c', '@salutejs/plasma-ui'];
 
 module.exports = () => {
     const { CHANGED_STATE, AS_ENUMERATION } = process.env;
@@ -38,12 +33,10 @@ module.exports = () => {
 
     const HAS_PLASMA_UI_DOCS = packagesList.includes('@salutejs/plasma-ui-docs');
     const HAS_PLASMA_WEB_DOCS = packagesList.includes('@salutejs/plasma-web-docs');
-    const HAS_PLASMA_TEMPLE_DOCS = packagesList.includes('@salutejs/plasma-temple-docs');
 
     const HAS_PLASMA_UI = packagesList.includes('@salutejs/plasma-ui');
     const HAS_PLASMA_WEB = packagesList.includes('@salutejs/plasma-web');
     const HAS_PLASMA_B2C = packagesList.includes('@salutejs/plasma-b2c');
-    const HAS_PLASMA_TEMPLE = packagesList.includes('@salutejs/plasma-temple');
     const HAS_PLASMA_HOPE = packagesList.includes('@salutejs/plasma-new-hope');
     const HAS_PLASMA_ASDK = packagesList.includes('@salutejs/plasma-asdk');
     const HAS_CALDERA = packagesList.includes('@salutejs/caldera');
@@ -55,7 +48,6 @@ module.exports = () => {
         HAS_PLASMA_WEBSITE ||
         HAS_PLASMA_UI_DOCS ||
         HAS_PLASMA_WEB_DOCS ||
-        HAS_PLASMA_TEMPLE_DOCS ||
         HAS_PLASMA_ASDK ||
         HAS_CALDERA ||
         HAS_CALDERA_ONLINE ||
@@ -89,11 +81,9 @@ module.exports = () => {
         HAS_DOCUMENTATION_CHANGED,
         HAS_PLASMA_UI_DOCS,
         HAS_PLASMA_WEB_DOCS,
-        HAS_PLASMA_TEMPLE_DOCS,
         HAS_PLASMA_UI,
         HAS_PLASMA_WEB,
         HAS_PLASMA_B2C,
-        HAS_PLASMA_TEMPLE,
         HAS_PLASMA_HOPE,
         HAS_PLASMA_ASDK,
         HAS_ASSETS,

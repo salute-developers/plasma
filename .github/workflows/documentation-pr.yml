@@ -93,7 +93,7 @@ jobs:
               enumeration.push('plasma-b2c');
             }
             
-            if (enumeration.includes('plasma-temple-docs') || enumeration.includes('plasma-ui-docs')) {
+            if (enumeration.includes('plasma-ui-docs')) {
               enumeration.push('plasma-web');
             }
             
@@ -126,13 +126,6 @@ jobs:
           npm run build --prefix="./website/plasma-web-docs"
           cp -R ./website/plasma-web-docs/build ./s3_build/${PR_NAME}/web
       
-      - name: Plasma Web Temple
-        if: ${{ needs.scope.outputs.HAS_PLASMA_TEMPLE_DOCS == 'true' && needs.scope.outputs.HAS_PLASMA_TEMPLE == 'true' }}
-        run: |
-          export NODE_OPTIONS=--openssl-legacy-provider
-          npm run build --prefix="./website/plasma-temple-docs"
-          cp -R ./website/plasma-temple-docs/build ./s3_build/${PR_NAME}/temple
-      
       - name: Plasma UI Storybook
         if: ${{ needs.scope.outputs.HAS_PLASMA_UI == 'true' }}
         run: |
@@ -150,12 +143,6 @@ jobs:
         run: |
           npm run storybook:build --prefix="./packages/plasma-b2c"
           cp -R ./packages/plasma-b2c/build-sb ./s3_build/${PR_NAME}/b2c-storybook
-      
-      - name: Plasma Temple Storybook
-        if: ${{ needs.scope.outputs.HAS_PLASMA_TEMPLE == 'true' }}
-        run: |
-          npm run storybook:build --prefix="./packages/plasma-temple"
-          cp -R ./packages/plasma-temple/build-sb ./s3_build/${PR_NAME}/temple-storybook
       
       - name: Plasma "New Hope" Storybook
         if: ${{ needs.scope.outputs.HAS_PLASMA_HOPE == 'true' }}
@@ -211,7 +198,6 @@ jobs:
           HAS_PLASMA_B2C: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_B2C) }}
           HAS_PLASMA_WEB: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_WEB) }}
           HAS_PLASMA_UI: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_UI) }}
-          HAS_PLASMA_TEMPLE: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_TEMPLE) }}
           HAS_PLASMA_HOPE: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_HOPE) }}
           HAS_PLASMA_ASDK: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_ASDK) }}
           HAS_CALDERA: ${{ fromJSON(needs.scope.outputs.HAS_CALDERA) }}
@@ -220,7 +206,7 @@ jobs:
         with:
           github-token: ${{secrets.GH_TOKEN}}
           script: |
-            const { HAS_PLASMA_B2C, HAS_PLASMA_WEB, HAS_PLASMA_UI, HAS_PLASMA_TEMPLE, HAS_PLASMA_HOPE, HAS_PLASMA_ASDK, HAS_CALDERA, HAS_CALDERA_ONLINE, HAS_SDDS_SERV } = process.env;
+            const { HAS_PLASMA_B2C, HAS_PLASMA_WEB, HAS_PLASMA_UI, HAS_PLASMA_HOPE, HAS_PLASMA_ASDK, HAS_CALDERA, HAS_CALDERA_ONLINE, HAS_SDDS_SERV } = process.env;
             
             const {
               issue: { number },
@@ -241,10 +227,6 @@ jobs:
             
             if (HAS_PLASMA_UI === 'true') {
               links.push(`ui storybook: http://plasma.sberdevices.ru/pr/pr-${number}/ui-storybook/`)
-            }
-            
-            if (HAS_PLASMA_TEMPLE === 'true') {
-              links.push(`temple storybook: http://plasma.sberdevices.ru/pr/pr-${number}/temple-storybook/`)
             }
             
             if (HAS_PLASMA_HOPE === 'true') {

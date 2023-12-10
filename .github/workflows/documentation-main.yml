@@ -57,12 +57,6 @@ jobs:
           npm run build --prefix="./website/plasma-web-docs"
           cp -R ./website/plasma-web-docs/build ./s3_build/next-${{ github.sha }}/web
 
-      - name: Plasma Temple Docs
-        run: |
-          export NODE_OPTIONS=--openssl-legacy-provider
-          npm run build --prefix="./website/plasma-temple-docs"
-          cp -R ./website/plasma-temple-docs/build ./s3_build/next-${{ github.sha }}/temple
-
       - name: Plasma UI Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-ui"
@@ -103,11 +97,6 @@ jobs:
           npm run storybook:build --prefix="./packages/sdds-serv"
           cp -R ./packages/sdds-serv/build-sb ./s3_build_sb/sdds-serv-storybook
           
-      - name: Plasma Temple Storybook
-        run: |
-          npm run storybook:build --prefix="./packages/plasma-temple"
-          cp -R ./packages/plasma-temple/build-sb ./s3_build/next-${{ github.sha }}/temple-storybook
-         
       - name: Install s3cmd
         run: pip3 install s3cmd
 
