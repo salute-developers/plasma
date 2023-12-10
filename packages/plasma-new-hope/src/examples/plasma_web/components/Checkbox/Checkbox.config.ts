@@ -14,7 +14,7 @@ export const config = {
                 --plasma-checkbox-trigger-size: 0.875rem;
                 --plasma-checkbox-trigger-border-radius: 0.25rem;
                 --plasma-checkbox-content-top-offset: 0.0625rem;
-                --plasma-checkbox-content-left-offset: 0.5625rem;
+                --plasma-checkbox-content-left-offset: 0.5rem;
                 --plasma-checkbox-label-font-family: var(--plasma-typo-body-s-font-family);
                 --plasma-checkbox-label-font-size: var(--plasma-typo-body-s-font-size);
                 --plasma-checkbox-label-font-style: var(--plasma-typo-body-s-font-style);
