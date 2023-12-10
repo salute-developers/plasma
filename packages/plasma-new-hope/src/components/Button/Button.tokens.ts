@@ -1,5 +1,4 @@
 export const classes = {
-    buttonRoot: 'button-root',
     buttonStretch: 'button-stretch',
     buttonSquare: 'button-square',
 };
