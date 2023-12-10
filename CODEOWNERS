@@ -3,8 +3,3 @@
 # @global-owner1 and @global-owner2 will be requested for
 # review when someone opens a pull request.
 * @Yeti-or @neretin-trike @Yakutoc @kayman233
-
-/packages/plasma-basic-template @LamaEats
-/packages/plasma-temple @LamaEats
-/packages/plasma-shop-template @LamaEats
-/actions/platform-test @LamaEats
