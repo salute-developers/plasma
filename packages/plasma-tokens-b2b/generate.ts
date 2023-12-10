@@ -16,7 +16,7 @@ import {
 } from '@salutejs/plasma-tokens-utils';
 import type { TypoSystem } from '@salutejs/plasma-tokens-utils';
 
-import { colorThemes, typoSystem, typo, components } from './data';
+import { colorThemes, typoSystem, typo, components, fallbackThemeDark, fallbackThemeLight } from './data';
 import type { TypographyTypes } from './data';
 
 const OUT_DIR = 'src';
@@ -43,10 +43,28 @@ writeGeneratedToFS(COLORS_DIR, [
 ]);
 
 // Генерация и запись файлов тем для создания глобальных стилей
-writeGeneratedToFS(THEMES_DIR, generateColorThemes(colorThemes, components));
+writeGeneratedToFS(
+    THEMES_DIR,
+    generateColorThemes(colorThemes, components, false, {
+        light: fallbackThemeLight,
+        dark: fallbackThemeDark,
+    }),
+);
 
 // Отдельные файлы для импорта в компонентах
-writeGeneratedToFS(THEMES_VALUES_DIR, generateColorThemeValues(colorThemes));
+writeGeneratedToFS(
+    THEMES_VALUES_DIR,
+    generateColorThemeValues({
+        light: {
+            ...colorThemes.light,
+            ...fallbackThemeLight,
+        },
+        dark: {
+            ...colorThemes.dark,
+            ...fallbackThemeDark,
+        },
+    }),
+);
 
 /** ========================================== **/
 /** ===== Генерация размеров компонентов ===== **/
