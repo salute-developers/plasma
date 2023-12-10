@@ -444,7 +444,14 @@ s: string;
 m: string;
 };
 view: {
+primary: string;
+secondary: string;
+tertiary: string;
+paragraph: string;
 accent: string;
+positive: string;
+warning: string;
+negative: string;
 };
 disabled: {
 true: string;
@@ -607,6 +614,14 @@ export { LineSkeletonProps }
 export const Link: FunctionComponent<PropsType<    {
 view: {
 primary: string;
+secondary: string;
+tertiary: string;
+paragraph: string;
+accent: string;
+positive: string;
+warning: string;
+negative: string;
+clear: string;
 };
 disabled: {
 true: string;
@@ -748,7 +763,14 @@ s: string;
 m: string;
 };
 view: {
+primary: string;
+secondary: string;
+tertiary: string;
+paragraph: string;
 accent: string;
+positive: string;
+warning: string;
+negative: string;
 };
 disabled: {
 true: string;
