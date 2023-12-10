@@ -1,1 +1,0 @@
-export { OrderSuccessPage } from './OrderSuccessPage';
