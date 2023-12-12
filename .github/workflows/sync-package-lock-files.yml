@@ -1,0 +1,21 @@
+name: Sync package-lock.json files
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          show-progress: false
+          
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-environment
+        
+      - name: Update package-lock files
+        uses: ./.github/actions/update-package-lock
+        with:
+          commit-message: 'chore: update package-locks [skip ci]'
+          token: ${{ secrets.GH_TOKEN }}
