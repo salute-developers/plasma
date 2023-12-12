@@ -1,12 +1,12 @@
-name: 'Update package-lock files'
+name: 'Update package-lock.json files'
 
-description: 'Update package-lock files after publish RC or latest version'
+description: 'Update package-lock.json files after publish RC or latest version'
 
 inputs:
   commit-message:
     description: 'Commit message when updated package-lock'
     required: false
-    default: 'chore: update package-locks [skip ci]'
+    default: 'chore: update package-locks.json files [skip ci]'
   token:
     description: 'A Github Token'
     required: true
@@ -14,22 +14,27 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Update package-lock's
-      shell: bash
+    - name: Sync package-lock files
+      uses: nick-fields/retry@v2
       env:
         options: "--no-audit --no-progress --package-lock-only --lockfile-version 2 --legacy-peer-deps"
-      run: |
-        # Sync package-lock file state (root  level)
-        npm i ${{ env.options }}
-        # Remove the node_modules directory from all packages
-        lerna clean -y
-        # Sync package-lock files state
-        lerna exec --no-private -- npm i ${{ env.options }} --ignore-scripts
-        # root deps don't update correctly on first regeneration O_o
-        npm i ${{ env.options }}
+      with:
+          shell: bash
+          timeout_minutes: 5
+          max_attempts: 3
+          retry_on: error
+          command: |
+            # (1) Sync package-lock's root  level
+            npm i ${{ env.options }}
+            # (2) Remove the node_modules directory from all packages
+            lerna clean -y
+            # (3) Sync package-lock files state
+            lerna exec --no-private -- npm i ${{ env.options }} --ignore-scripts
+            # (4) root deps don't update correctly on first regeneration
+            npm i ${{ env.options }}
 
     - name: Extract branch name
-      id: branch_name
+      id: branch
       shell: bash
       run: echo "BRANCH=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_OUTPUT
 
@@ -38,6 +43,6 @@ runs:
       with:
         github_token: ${{ inputs.token }}
         message: ${{ inputs.commit-message }}
-        branch: ${{ steps.branch_name.outputs.BRANCH }}
+        branch: ${{ steps.branch.outputs.BRANCH }}
         author_name: Salute Frontend Team
         author_email: salute.developers@gmail.com
