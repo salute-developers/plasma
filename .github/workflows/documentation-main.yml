@@ -77,7 +77,12 @@ jobs:
         run: |
           npm run storybook:build --prefix="./packages/plasma-b2c"
           cp -R ./packages/plasma-b2c/build-sb ./s3_build_sb/b2c-storybook
-
+          
+      - name: Plasma "ASDK" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/plasma-asdk"
+          cp -R ./packages/plasma-asdk/build-sb ./s3_build_sb/asdk-storybook
+          
       - name: Plasma Temple Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-temple"
@@ -101,7 +106,7 @@ jobs:
           ./s3_build/next-${{ github.sha }}/
           s3://${{ secrets.AWS_S3_BUCKET_2 }}/current/
 
-      - name: s3 Upload storybook build ui
+      - name: Upload to S3 storybook "Plasma-UI"
         run: >
           s3cmd
           --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -116,7 +121,7 @@ jobs:
           ./s3_build_sb/ui-storybook/
           s3://${{ secrets.AWS_S3_BUCKET_2 }}/ui-storybook/
 
-      - name: s3 Upload storybook build web
+      - name: Upload to S3 storybook "Plasma-Web"
         run: >
           s3cmd
           --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -131,7 +136,7 @@ jobs:
           ./s3_build_sb/web-storybook/
           s3://${{ secrets.AWS_S3_BUCKET_2 }}/web-storybook/
 
-      - name: s3 Upload storybook build b2c
+      - name: Upload to S3 storybook "Plasma-b2c"
         run: >
           s3cmd
           --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -145,3 +150,18 @@ jobs:
           sync
           ./s3_build_sb/b2c-storybook/
           s3://${{ secrets.AWS_S3_BUCKET_2 }}/b2c-storybook/
+          
+      - name: Upload to S3 storybook "Plasma-ASDK"
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/asdk-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/asdk-storybook/
