@@ -32,6 +32,9 @@ jobs:
         with:
           fromTag: ${{ env.FROM_TAG }}
           configuration: "./.github/changelog-builder-config.json"
+          
+      - name: List pull request
+        run: echo "pull_requests -->${{ steps.github_release.outputs.pull_requests}}"
       
       - name: Create "changelog_artifacts.md"
         run: |
