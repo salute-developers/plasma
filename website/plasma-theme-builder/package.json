@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-theme-builder",
-  "version": "1.105.0-dev.0",
+  "version": "1.105.1-dev.0",
   "description": "Plasma Theme Builder.",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "private": true,
