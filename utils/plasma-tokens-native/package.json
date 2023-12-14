@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-tokens-native",
-  "version": "1.17.0-dev.0",
+  "version": "1.17.0",
   "description": "Plasma tokens for swift, kotlin, react-native",
   "private": true,
   "files": [
