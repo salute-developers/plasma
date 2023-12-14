@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
 
 import { tokens } from '../Switch.tokens';
-import { StyledTrigger } from '../Switch.styles';
+import { StyledLabel, StyledTrigger } from '../Switch.styles';
 
 export const base = css`
     font-family: var(${tokens.fontFamily});
@@ -25,7 +25,12 @@ export const base = css`
         }
     }
 
+    ${StyledLabel} {
+        /* check _label_position */
+        margin: var(--plasma_private-switch__label-offset, 0);
+    }
+
     :active ${StyledTrigger}::after {
-        width: calc(var(${tokens.thumbSize}) * var(${tokens.thumbPressScale}));
+        width: calc(var(${tokens.thumbSize}) * var(${tokens.thumbPressScale}, 1));
     }
 `;

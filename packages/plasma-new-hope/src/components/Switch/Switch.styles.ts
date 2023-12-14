@@ -1,5 +1,7 @@
 import { styled } from '@linaria/react';
 
+import { applyEllipsis } from '../../mixins';
+
 export const StyledInput = styled.input`
     position: absolute;
     right: 0;
@@ -13,6 +15,9 @@ export const StyledInput = styled.input`
 
 export const StyledLabel = styled.span`
     user-select: none;
+
+    // TODO: multiline switch
+    ${applyEllipsis()}
 `;
 
 export const StyledTrigger = styled.div`
