@@ -21,6 +21,7 @@ import { FocusEventHandler } from 'react';
 import { FontProps } from '@salutejs/plasma-new-hope/types/components/Typography/types';
 import { FootnoteProps } from '@salutejs/plasma-new-hope/styled-components';
 import { FormEventHandler } from 'react';
+import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
 import { HeadlineProps } from '@salutejs/plasma-new-hope/styled-components';
 import { HTMLAttributes } from 'react';
@@ -38,6 +39,7 @@ import { SpinnerProps } from '@salutejs/plasma-core';
 import { SSRProvider } from '@salutejs/plasma-core';
 import { StyledComponent } from 'styled-components';
 import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
+import type { SwitchProps } from '@salutejs/plasma-core';
 import { TouchEventHandler } from 'react';
 import { TransitionEventHandler } from 'react';
 import { UIEventHandler } from 'react';
@@ -174,11 +176,11 @@ button1: string;
 button2: string;
 };
 }> & {
-p?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
+p?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
 slot?: string | undefined;
 style?: CSSProperties | undefined;
 title?: string | undefined;
-m?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
+m?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
 placeholder?: string | undefined;
 onChange?: FormEventHandler<HTMLDivElement> | undefined;
 onFocus?: FocusEventHandler<HTMLDivElement> | undefined;
@@ -436,18 +438,18 @@ onAnimationIterationCapture?: AnimationEventHandler<HTMLDivElement> | undefined;
 onTransitionEnd?: TransitionEventHandler<HTMLDivElement> | undefined;
 onTransitionEndCapture?: TransitionEventHandler<HTMLDivElement> | undefined;
 breakWord?: boolean | undefined;
-mt?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-mr?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-mb?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-ml?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-mx?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-my?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-pt?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-pr?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-pb?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-pl?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-px?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-py?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
+mt?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+mr?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+mb?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+ml?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+mx?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+my?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+pt?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+pr?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+pb?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+pl?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+px?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+py?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
 } & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
@@ -457,11 +459,11 @@ button1: string;
 button2: string;
 };
 }> & {
-p?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
+p?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
 slot?: string | undefined;
 style?: CSSProperties | undefined;
 title?: string | undefined;
-m?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
+m?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
 placeholder?: string | undefined;
 onChange?: FormEventHandler<HTMLDivElement> | undefined;
 onFocus?: FocusEventHandler<HTMLDivElement> | undefined;
@@ -719,18 +721,18 @@ onAnimationIterationCapture?: AnimationEventHandler<HTMLDivElement> | undefined;
 onTransitionEnd?: TransitionEventHandler<HTMLDivElement> | undefined;
 onTransitionEndCapture?: TransitionEventHandler<HTMLDivElement> | undefined;
 breakWord?: boolean | undefined;
-mt?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-mr?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-mb?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-ml?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-mx?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-my?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-pt?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-pr?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-pb?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-pl?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-px?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
-py?: 0 | 2 | 4 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 8 | 10 | 12 | 16 | 18 | 20 | 24 | 32 | undefined;
+mt?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+mr?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+mb?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+ml?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+mx?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+my?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+pt?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+pr?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+pb?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+pl?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+px?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
+py?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
 } & RefAttributes<HTMLDivElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "ButtonComponent" needs to be exported by the entry point index.d.ts
@@ -978,6 +980,11 @@ size: {
 m: string;
 };
 }> & SubtitleProps & RefAttributes<HTMLDivElement>>;
+
+// @public
+export const Switch: ForwardRefExoticComponent<SwitchProps & RefAttributes<HTMLInputElement>>;
+
+export { SwitchProps }
 
 // @public (undocumented)
 export const TextL: FunctionComponent<PropsType<    {

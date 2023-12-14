@@ -18,7 +18,7 @@ export type Variant = {
     css?: PolymorphicClassName;
     attrs?: boolean;
     true?: PolymorphicClassName;
-} & Record<string, any>;
+} & Record<any, any>;
 
 export type HTMLAnyAttributes = Record<string, any>;
 

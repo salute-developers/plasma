@@ -1,9 +1,7 @@
 import { popoverConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
 
-const mergedConfig = mergeConfig(popoverConfig);
-const PopoverComponent = component(mergedConfig);
+import { config } from './Popover.config';
 
-/**
- * Всплывающее окно.
- */
-export const Popover = PopoverComponent;
+const mergedConfig = mergeConfig(popoverConfig, config);
+
+export const Popover = component(mergedConfig);

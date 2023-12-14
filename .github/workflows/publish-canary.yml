@@ -17,13 +17,22 @@ jobs:
   authorize:
     name: Authorize external pull request
     uses: ./.github/workflows/authorize-external-pr.yml
+    
+  scope:
+    name: Computed changed state
+    needs: [ authorize ]
+    uses: ./.github/workflows/change-detection.yml
+    with:
+      ref: refs/pull/${{github.event.pull_request.number}}/merge
+    secrets: inherit
   
   publish:
     name: Publish canary version
-    needs: [ authorize ]
+    needs: [ authorize, scope ]
     uses: ./.github/workflows/publish-common.yml
     with:
       ref: refs/pull/${{github.event.pull_request.number}}/merge
+      upload_assets: ${{ needs.scope.outputs.HAS_ASSETS == 'true' }}
     secrets:
       gh_token: ${{ secrets.GH_TOKEN }}
       npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}

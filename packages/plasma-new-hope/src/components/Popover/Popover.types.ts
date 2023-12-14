@@ -1,9 +1,10 @@
+import { Placement, ComputedPlacement } from '@popperjs/core';
 import type { HTMLAttributes, ReactNode, SyntheticEvent } from 'react';
 
-export type PopoverPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
-export type PopoverPlacement = PopoverPlacementBasic | 'auto';
-
 export type PopoverTrigger = 'hover' | 'click';
+
+export type PopoverPlacementBasic = ComputedPlacement;
+export type PopoverPlacement = Placement;
 
 export type CustomPopoverProps = {
     /**
@@ -29,13 +30,21 @@ export type CustomPopoverProps = {
      */
     offset?: [number, number];
     /**
+     * В каком контейнере позиционируется(по умолчанию document), можно также указать id элемента или ref для него.
+     */
+    frame?: 'document' | string | React.RefObject<HTMLElement>;
+    /**
      * Элемент, рядом с которым произойдет вызов всплывающего окна.
      */
     target?: ReactNode;
     /**
-     * Стрелка над элементом.
+     * Есть ли стрелка над элементом.
      */
-    arrow?: ReactNode;
+    hasArrow?: boolean;
+    /**
+     * Значение z-index для Popover.
+     */
+    zIndex?: string;
     /**
      * Контент всплывающего окна.
      */
@@ -66,6 +75,14 @@ export type CustomPopoverProps = {
      * true
      */
     closeOnEsc?: boolean;
+    /**
+     * Находится ли в портале.
+     * @default
+     * true
+     */
+    usePortal?: boolean;
+
+    view?: string;
 };
 
 export type PopoverProps = HTMLAttributes<HTMLDivElement> & CustomPopoverProps;

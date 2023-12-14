@@ -1,8 +1,10 @@
 import { popoverConfig } from '../../../../components/Popover';
 import { component, mergeConfig } from '../../../../engines';
 
-export type { PopoverPlacement, PopoverTrigger } from '../../../..';
+import { config } from './Popover.config';
 
-const mergedConfig = mergeConfig(popoverConfig);
+export type { PopoverProps, PopoverPlacement, PopoverTrigger } from '../../../..';
+
+const mergedConfig = mergeConfig(popoverConfig, config);
 
 export const Popover = component(mergedConfig);

@@ -110,30 +110,28 @@ const StoryLive = (props: RadioboxProps) => {
                 <Headline4 id="example-radiogroup-title" mb="8x">
                     Выберите язык программирования
                 </Headline4>
-                <List>
+                <>
                     {items.map((item) => (
-                        <ListItem key={item.value} mb="4x">
-                            <Radiobox
-                                key={item.value}
-                                name={item.name}
-                                value={item.value}
-                                label={item.label}
-                                disabled={item.disabled}
-                                checked={value === item.value}
-                                description={item.description}
-                                onChange={(event) => {
-                                    event.persist();
+                        <Radiobox
+                            key={item.value}
+                            name={item.name}
+                            value={item.value}
+                            label={item.label}
+                            disabled={item.disabled}
+                            checked={value === item.value}
+                            description={item.description}
+                            onChange={(event) => {
+                                event.persist();
 
-                                    setValue(item.value);
-                                    onChange(event);
-                                }}
-                                onFocus={onFocus}
-                                onBlur={onBlur}
-                                {...props}
-                            />
-                        </ListItem>
+                                setValue(item.value);
+                                onChange(event);
+                            }}
+                            onFocus={onFocus}
+                            onBlur={onBlur}
+                            {...props}
+                        />
                     ))}
-                </List>
+                </>
             </RadioGroup>
         </SSRProvider>
     );

@@ -1,18 +1,15 @@
 import React, { forwardRef, useRef } from 'react';
 import { useFocusTrap, useForkRef, useUniqId } from '@salutejs/plasma-core';
 
-import { RootProps, component } from '../../engines';
-import { popoverConfig } from '../Popover';
+import { RootProps } from '../../engines';
 import { cx } from '../../utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { StyledDropdown, base } from './Dropdown.styles';
+import { StyledDropdown, StyledPopover } from './Dropdown.styles';
 import { classes } from './Dropdown.tokens';
+import { getPlacements } from './utils';
 import type { DropdownProps } from './Dropdown.types';
-
-// issue #823
-const Popover = component(popoverConfig);
 
 /**
  * Выпадающий список без внешнего контроля видимости.
@@ -24,10 +21,11 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) =>
                 id,
                 target,
                 children,
-                arrow,
+                hasArrow,
                 role,
                 view,
                 size,
+                frame,
                 onToggle,
                 isFocusTrapped = true,
                 isOpen = false,
@@ -56,27 +54,29 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) =>
             const nestedClass = isNested ? classes.nestedDropdown : undefined;
 
             return (
-                <Root ref={handleRef} view={view} size={size} {...rest}>
-                    <Popover
-                        role={role}
-                        isOpen={isOpen}
-                        onToggle={(is, event) => onToggle?.(is, event)}
-                        id={innerId}
-                        ref={dropdownForkRef}
-                        target={target}
-                        offset={offset}
-                        preventOverflow={preventOverflow}
-                        className={cx(nestedClass)}
-                        arrow={arrow}
-                        placement={placement}
-                        trigger={trigger}
-                        closeOnOverlayClick={closeOnOverlayClick}
-                        closeOnEsc={closeOnEsc}
-                        isFocusTrapped={isFocusTrapped}
-                    >
+                <StyledPopover
+                    role={role}
+                    isOpen={isOpen}
+                    usePortal={false}
+                    onToggle={(is, event) => onToggle?.(is, event)}
+                    id={innerId}
+                    ref={dropdownForkRef}
+                    target={target}
+                    offset={offset}
+                    preventOverflow={preventOverflow}
+                    className={cx(nestedClass)}
+                    hasArrow={hasArrow}
+                    placement={getPlacements(placement)}
+                    trigger={trigger}
+                    closeOnOverlayClick={closeOnOverlayClick}
+                    closeOnEsc={closeOnEsc}
+                    isFocusTrapped={isFocusTrapped}
+                    frame={frame}
+                >
+                    <Root ref={handleRef} view={view} size={size} {...rest}>
                         <StyledDropdown>{children}</StyledDropdown>
-                    </Popover>
-                </Root>
+                    </Root>
+                </StyledPopover>
             );
         },
     );
@@ -85,7 +85,7 @@ export const dropdownConfig = {
     name: 'Dropdown',
     tag: 'div',
     layout: dropdownRoot,
-    base,
+    base: '',
     variations: {
         view: {
             css: viewCSS,

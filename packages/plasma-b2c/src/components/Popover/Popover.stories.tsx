@@ -1,100 +1,63 @@
 import React, { useState } from 'react';
+import type { ComponentProps } from 'react';
+import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import styled from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react';
-import { surfaceSolid03 } from '@salutejs/plasma-tokens-web';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
-import { Button } from '../Button';
+import { Button } from '../Button/Button';
 
-import { Popover } from '.';
-import type { PopoverPlacement, PopoverTrigger, PopoverProps } from '.';
+import { Popover } from './Popover';
 
-const meta: Meta<PopoverProps> = {
+const meta: Meta<typeof Popover> = {
     title: 'Controls/Popover',
-    component: Popover,
     decorators: [InSpacingDecorator],
+    component: Popover,
     argTypes: {
         placement: {
             options: ['top', 'bottom', 'right', 'left', 'auto'],
             control: {
                 type: 'select',
             },
+            table: { defaultValue: { summary: 'bottom' } },
         },
         trigger: {
             options: ['click', 'hover'],
             control: {
                 type: 'select',
             },
+            table: { defaultValue: { summary: 'click' } },
         },
-        ...disableProps(['isOpen']),
+        closeOnOverlayClick: {
+            control: {
+                type: 'boolean',
+            },
+            table: { defaultValue: { summary: true } },
+        },
+        closeOnEsc: {
+            control: {
+                type: 'boolean',
+            },
+            table: { defaultValue: { summary: true } },
+        },
+        isFocusTrapped: {
+            control: {
+                type: 'boolean',
+            },
+            table: { defaultValue: { summary: true } },
+        },
+        skidding: {
+            control: {
+                type: 'number',
+            },
+            table: { defaultValue: { summary: 0 } },
+        },
+        distance: {
+            control: {
+                type: 'number',
+            },
+            table: { defaultValue: { summary: 6 } },
+        },
     },
-};
-
-export default meta;
-
-type PopoverStoryProps = {
-    placement?: PopoverPlacement;
-    trigger?: PopoverTrigger;
-    isFocusTrapped?: boolean;
-    closeOnOverlayClick?: boolean;
-    closeOnEsc?: boolean;
-    skidding?: number;
-    distance?: number;
-};
-
-const StyledArrow = styled.div`
-    visibility: hidden;
-
-    &,
-    &::before {
-        position: absolute;
-        width: 0.5rem;
-        height: 0.5rem;
-        background: ${surfaceSolid03};
-    }
-
-    &::before {
-        visibility: visible;
-        content: '';
-        transform: rotate(45deg);
-    }
-`;
-
-const StyledContent = styled.div`
-    background: ${surfaceSolid03};
-    padding: 1rem;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`;
-
-const StoryDefault = ({ skidding = 0, distance = 0, ...args }: PopoverStoryProps) => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    return (
-        <>
-            <Popover
-                isOpen={isOpen}
-                onToggle={(is) => setIsOpen(is)}
-                role="presentation"
-                id="popover"
-                target={<Button>Target</Button>}
-                arrow={<StyledArrow />}
-                offset={[skidding, distance]}
-                {...args}
-            >
-                <StyledContent>
-                    <>Content</>
-                    <Button onClick={() => setIsOpen(false)}>close1</Button>
-                    <Button onClick={() => setIsOpen(false)}>close2</Button>
-                </StyledContent>
-            </Popover>
-        </>
-    );
-};
-
-export const Default: StoryObj<PopoverStoryProps> = {
     args: {
         placement: 'bottom',
         trigger: 'click',
@@ -104,5 +67,50 @@ export const Default: StoryObj<PopoverStoryProps> = {
         skidding: 0,
         distance: 6,
     },
+};
+
+export default meta;
+
+type StoryPopoverProps = ComponentProps<typeof Popover> & {
+    skidding?: number;
+    distance?: number;
+};
+
+const StyledContent = styled.div`
+    background: var(--plasma-colors-surface-solid03);
+    padding: 1rem;
+    border-radius: 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
+const StoryDefault = (args: StoryPopoverProps) => {
+    const { skidding = 0, distance = 6 } = args;
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <Popover
+            isOpen={isOpen}
+            onToggle={(is) => setIsOpen(is)}
+            usePortal={false}
+            role="presentation"
+            id="popover"
+            target={<Button>Target</Button>}
+            hasArrow
+            offset={[skidding, distance]}
+            {...args}
+        >
+            <StyledContent>
+                <>Content</>
+                <Button onClick={() => setIsOpen(false)}>Close</Button>
+            </StyledContent>
+        </Popover>
+    );
+};
+
+export const Default: StoryObj<StoryPopoverProps> = {
     render: (args) => <StoryDefault {...args} />,
 };

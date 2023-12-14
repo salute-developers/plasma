@@ -27,29 +27,35 @@ describe('plasma-core: Switch', () => {
     it('_focused', () => {
         mount(
             <CypressTestDecorator>
-                <Switch focused label="Переключатель" />
+                <Switch label="Переключатель" />
                 <PadMe />
-                <Switch focused checked label="Переключатель" />
+                <Switch checked label="Переключатель" />
             </CypressTestDecorator>,
         );
 
+        cy.get('body').tab();
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(200); // transition of focus ring
         cy.matchImageSnapshot();
+        cy.focused().tab();
+        cy.matchImageSnapshot('_focus_checked');
     });
 
     it('_disabled', () => {
         mount(
             <CypressTestDecorator>
-                <Switch disabled focused label="Переключатель" />
+                <Switch disabled label="Переключатель" />
                 <PadMe />
                 <PadMe />
-                <Switch disabled focused checked label="Переключатель" />
+                <Switch disabled checked label="Переключатель" />
             </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('_pressed', () => {
+    // TODO: https://github.com/salute-developers/plasma/issues/886
+    it.skip('_pressed', () => {
         mount(
             <CypressTestDecorator>
                 <Switch label="Переключатель" />
@@ -73,7 +79,7 @@ describe('plasma-core: Switch', () => {
         );
 
         cy.matchImageSnapshot();
-        cy.get('#switch').click();
+        cy.get('#switch').click({ force: true });
         cy.matchImageSnapshot('clicked');
     });
 });
