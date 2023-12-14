@@ -41,7 +41,7 @@ export interface NotificationProps extends AsProps, HTMLAttributes<HTMLDivElemen
      */
     actions?: ReactNode;
     /**
-     * Тип направления расположения всех частей Notification.
+     * Cхема расположение блоков Notification.
      */
     layout?: NotificationLayout;
     /**

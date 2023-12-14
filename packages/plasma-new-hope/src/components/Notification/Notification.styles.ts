@@ -70,7 +70,7 @@ export const ContentBox = styled.div<IconPlacementType>`
     &.${classes.horizontal} {
         display: flex;
         align-items: center;
-        flex: 1;
+        flex-grow: 1;
     }
 `;
 

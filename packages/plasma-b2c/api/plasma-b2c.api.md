@@ -152,6 +152,8 @@ import { ModalsProvider } from '@salutejs/plasma-hope';
 import { ModalView } from '@salutejs/plasma-hope';
 import { monthLongName } from '@salutejs/plasma-core';
 import { monthShortName } from '@salutejs/plasma-core';
+import { NotificationIconPlacement } from '@salutejs/plasma-new-hope/styled-components';
+import { NotificationLayout } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationProps } from '@salutejs/plasma-new-hope/styled-components';
 import { offsets } from '@salutejs/plasma-hope';
 import { OutlinedProps } from '@salutejs/plasma-core';
@@ -648,13 +650,20 @@ const Notification_2: React_2.FunctionComponent<PropsType<    {
 view: {
 default: string;
 };
-status: {
-success: string;
-warning: string;
-error: string;
+layout: {
+horizontal: string;
+vertical: string;
+};
+size: {
+xs: string;
+xxs: string;
 };
 }> & NotificationProps & React_2.RefAttributes<HTMLDivElement>>;
 export { Notification_2 as Notification }
+
+export { NotificationIconPlacement }
+
+export { NotificationLayout }
 
 export { NotificationProps }
 
