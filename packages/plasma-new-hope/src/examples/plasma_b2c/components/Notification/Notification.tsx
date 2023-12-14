@@ -19,7 +19,7 @@ export const Notification = component(mergedConfig) as ForwardRefExoticComponent
 
 export const NotificationsProvider: React.FC<{ children: ReactNode; frame?: string }> = ({
     children,
-    frame = 'document',
+    frame = 'theme-root',
 }) => {
     return (
         <Provider config={mergedConfig} frame={frame}>
