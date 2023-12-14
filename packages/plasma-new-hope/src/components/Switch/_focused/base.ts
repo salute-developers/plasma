@@ -1,3 +1,4 @@
+import 'focus-visible';
 import { css } from '@linaria/core';
 
 import { tokens } from '../Switch.tokens';

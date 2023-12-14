@@ -1,9 +1,15 @@
-import { css, switchTokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    css,
+    switchTokens,
+    Switch_LabelPosition_Before,
+    Switch_LabelPosition_After,
+} from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
         view: 'default',
         size: 'm',
+        labelPosition: 'before',
         focused: 'true',
     },
     variations: {
@@ -23,6 +29,7 @@ export const config = {
                 ${switchTokens.thumbBorderRadius}: calc(var(${switchTokens.thumbSize}) / 2);
                 ${switchTokens.thumbOffset}: 0.125rem;
                 ${switchTokens.thumbPressScale}: 1.25;
+                ${switchTokens.labelOffset}: 0.75rem;
             `,
         },
         view: {
@@ -31,6 +38,15 @@ export const config = {
                 ${switchTokens.trackBackgroundColorOff}: var(--plasma-colors-tertiary);
                 ${switchTokens.thumbBackgroundColor}: var(--plasma-colors-white);
                 ${switchTokens.thumbBoxShadow}: 0 1px 1px rgba(0, 0, 0, 0.11);
+            `,
+        },
+        // TODO: could we not css into css ???
+        labelPosition: {
+            before: css`
+                ${Switch_LabelPosition_Before}
+            `,
+            after: css`
+                ${Switch_LabelPosition_After}
             `,
         },
         disabled: {

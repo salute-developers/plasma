@@ -6,6 +6,7 @@ import { base as sizeCSS } from '../Switch/_size/base';
 import { base as viewCSS } from '../Switch/_view/base';
 import { base as focusedCSS } from '../Switch/_focused/base';
 import { base as disabledCSS } from '../Switch/_disabled/base';
+import { base as labelPositionCSS } from '../Switch/_label-position/base';
 
 import { StyledInput, StyledLabel, StyledTrigger } from './Switch.styles';
 import { SwitchProps } from './Switch.types';
@@ -14,9 +15,8 @@ const base = css`
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
 
+    cursor: pointer;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
     &:focus {
@@ -31,6 +31,7 @@ export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
             view,
             focused,
             disabled,
+            labelPosition,
 
             label,
 
@@ -55,6 +56,7 @@ export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
                 size={size}
                 disabled={disabled}
                 focused={focused}
+                labelPosition={labelPosition}
                 id={id}
                 style={style}
                 className={className}
@@ -69,7 +71,7 @@ export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
                     defaultChecked={defaultChecked}
                     disabled={disabled}
                 />
-                {label && <StyledLabel tabIndex={-1}>{label}</StyledLabel>}
+                <StyledLabel tabIndex={-1}>{label}</StyledLabel>
                 <StyledTrigger aria-hidden />
             </Root>
         );
@@ -93,6 +95,9 @@ export const switchConfig = {
         },
         focused: {
             css: focusedCSS,
+        },
+        labelPosition: {
+            css: labelPositionCSS,
         },
     },
     defaults: {
