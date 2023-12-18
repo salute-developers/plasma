@@ -157,6 +157,11 @@ import { VideoOutline } from './VideoOutline';
 import { Wallet } from './Wallet';
 import { WalletLinesOutline } from './WalletLinesOutline';
 import { WifiOutline } from './WifiOutline';
+import { AvCable1Fill } from './AvCable1Fill';
+import { AvCable2Fill } from './AvCable2Fill';
+import { Cable2Fill } from './Cable2Fill';
+import { NoNameFill } from './NoNameFill';
+import { NoPhotoFill } from './NoPhotoFill';
 
 export const iconSet36 = {
     antennaCircle: AntennaCircle,
@@ -318,6 +323,11 @@ export const iconSet36 = {
     wallet: Wallet,
     walletLinesOutline: WalletLinesOutline,
     wifiOutline: WifiOutline,
+    avCable1Fill: AvCable1Fill,
+    avCable2Fill: AvCable2Fill,
+    cable2Fill: Cable2Fill,
+    noNameFill: NoNameFill,
+    noPhotoFill: NoPhotoFill,
 };
 
 export type IconSet36 = keyof typeof iconSet36;

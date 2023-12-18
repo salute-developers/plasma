@@ -423,6 +423,11 @@ export { IconVideoOutline } from './Icons/IconVideoOutline';
 export { IconWallet } from './Icons/IconWallet';
 export { IconWalletLinesOutline } from './Icons/IconWalletLinesOutline';
 export { IconWifiOutline } from './Icons/IconWifiOutline';
+export { IconAvCable1Fill } from './Icons/IconAvCable1Fill';
+export { IconAvCable2Fill } from './Icons/IconAvCable2Fill';
+export { IconCable2Fill } from './Icons/IconCable2Fill';
+export { IconNoNameFill } from './Icons/IconNoNameFill';
+export { IconNoPhotoFill } from './Icons/IconNoPhotoFill';
 
 export { IconRoot } from './IconRoot';
 export type { IconProps, IconSize } from './IconRoot';
