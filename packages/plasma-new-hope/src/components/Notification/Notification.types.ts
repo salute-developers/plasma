@@ -3,17 +3,19 @@ import { HTMLAttributes, ReactNode, RefAttributes } from 'react';
 
 import { ComponentConfig, PropsType, Variants } from '../../engines/types';
 
-export type NotificationLayout = 'horizontal' | 'vertical';
 export const layouts = {
     horizontal: 'horizontal',
     vertical: 'vertical',
 };
 
-export type NotificationIconPlacement = 'top' | 'left';
+export type NotificationLayout = keyof typeof layouts;
+
 export const placements = {
     top: 'top',
     left: 'left',
 };
+
+export type NotificationIconPlacement = keyof typeof placements;
 
 export type LayoutType = {
     layout?: NotificationLayout;
@@ -62,6 +64,12 @@ export interface NotificationProps extends AsProps, HTMLAttributes<HTMLDivElemen
      * Колбек при нажатии на кнопку закрытия.
      */
     onCloseButtonClick?: () => void;
+    /**
+     * @deprecated
+     * Не влияет на отображение компонента.
+     * Статус компонента Notification.
+     */
+    status?: string;
 
     /**
      * Вид Notification.

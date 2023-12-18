@@ -19,12 +19,14 @@ export const config = {
                 ${notificationTokens.contentPaddingBottom}: 0rem;
                 ${notificationTokens.contentPaddingLeft}: 0.25rem;
 
-                ${notificationTokens.textboxPaddingTop}: 0rem;
+                ${notificationTokens.contentPaddingTopWithoutIcon}: 0.25rem;
+                ${notificationTokens.horizontalLayoutRightPaddingWithoutCloseIcon}: 1rem;
+
+                ${notificationTokens.textboxPaddingTop}: 0.1875rem;
                 ${notificationTokens.textboxPaddingRight}: 0.125rem;
                 ${notificationTokens.textboxPaddingBottom}: 0.375rem;
                 ${notificationTokens.textboxPaddingLeft}: 0.125rem;
 
-                ${notificationTokens.textboxPaddingTopWithLeftIcon}: 0.1875rem;
                 ${notificationTokens.textboxPaddingRightWithCloseIcon}: 1.625rem;
                 ${notificationTokens.textboxGap}: 0.25rem;
 
@@ -33,6 +35,7 @@ export const config = {
 
                 ${notificationTokens.buttonsMarginTop}: 0.375rem;
 
+                ${notificationTokens.contentLeftIconSize}: 1.5rem;
                 ${notificationTokens.contentLeftIconMargin}: 0.375rem;
                 ${notificationTokens.contentTopIconMargin}: 0.5rem;
 
@@ -51,6 +54,7 @@ export const config = {
                 ${notificationTokens.titleFontLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${notificationTokens.closeIconColor}: var(--text-tertiary);
+                ${notificationTokens.closeIconColorOnHover}: var(--text-primary);
 
                 ${notificationTokens.horizontalLayoutGap}: 0.375rem;
                 ${notificationTokens.horizontalLayoutLeftIconMargin}: 0.75rem;
@@ -73,6 +77,7 @@ export const config = {
                 ${notificationTokens.closeIconRight}: 0.5rem;
 
                 ${notificationTokens.padding}: 0.375rem;
+                ${notificationTokens.textboxPaddingTopWithTopIcon}: 0rem;
 
                 ${notificationTokens.contentPaddingTop}: 0.125rem;
                 ${notificationTokens.contentPaddingRight}: 0.25rem;
@@ -86,6 +91,7 @@ export const config = {
                 ${notificationTokens.closeIconRight}: 1rem;
 
                 ${notificationTokens.padding}: 0.5625rem 1rem 1rem 1rem;
+                ${notificationTokens.textboxPaddingTopWithTopIcon}: 0.1875rem;
 
                 ${notificationTokens.contentPaddingTop}: 0.25rem;
                 ${notificationTokens.contentPaddingRight}: 0rem;

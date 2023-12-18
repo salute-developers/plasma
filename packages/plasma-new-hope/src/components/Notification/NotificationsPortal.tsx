@@ -8,6 +8,7 @@ import { cx } from '../../utils';
 import { NotificationsState, NotificationsEvents, closeNotification } from './NotificationsStore';
 import { NotificationPortalProps, NotificationProps } from './Notification.types';
 import { StyledItemWrapper, StyledRoot } from './Notification.styles';
+import { classes } from './Notification.tokens';
 
 // issue #823
 const Popup = component(popupConfig);
@@ -31,7 +32,9 @@ export const NotificationsPortal: FC<NotificationPortalProps> = ({ config, frame
                         {notifications.map(({ id, isHidden, ...rest }) => (
                             <StyledItemWrapper
                                 key={id}
-                                className={cx(isHidden ? 'hide' : 'show')}
+                                className={cx(
+                                    isHidden ? classes.notificationItemHidden : classes.notificationItemOpened,
+                                )}
                                 isHidden={isHidden || false}
                             >
                                 <Notification

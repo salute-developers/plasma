@@ -8,6 +8,9 @@ export const base = css`
     .${classes.contentBox}.${classes.vertical} {
         padding: var(${tokens.contentPaddingTop}) var(${tokens.contentPaddingRight}) var(${tokens.contentPaddingBottom})
             var(${tokens.contentPaddingLeft});
+        &.${classes.withoutIcon} {
+            padding-top: var(${tokens.contentPaddingTopWithoutIcon});
+        }
     }
 
     .${classes.closeIcon}.${classes.vertical} {

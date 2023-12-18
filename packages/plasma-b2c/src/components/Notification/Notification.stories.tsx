@@ -9,7 +9,14 @@ import { Button } from '../Button/Button';
 import { Modal } from '../Modal';
 import { PopupBaseProvider } from '../PopupBase';
 
-import { Notification, addNotification, NotificationsProvider, NotificationIconPlacement, NotificationProps } from '.';
+import {
+    Notification,
+    addNotification,
+    NotificationsProvider,
+    NotificationIconPlacement,
+    NotificationProps,
+    NotificationLayout,
+} from '.';
 
 const titles = ['Выполнено', 'Внимание', 'Ошибка'];
 const texts = ['SSH ключ успешно скопирован', 'Нельзя скопировать SSH ключ', 'Не удалось скопировать SSH ключ'];
@@ -41,9 +48,9 @@ interface StoryDefaultProps {
     children: string;
     showCloseIcon: boolean;
     showLeftIcon: boolean;
-    layout: 'vertical' | 'horizontal';
+    layout: NotificationLayout;
     size: 'xs' | 'xs';
-    iconPlacement: 'top' | 'left';
+    iconPlacement: NotificationIconPlacement;
 }
 
 const ButtonsWrapper = styled.div`
@@ -115,9 +122,9 @@ export const Default: StoryObj<StoryDefaultProps> = {
 
 type StoryLiveDemoProps = ComponentProps<typeof Notification> & {
     timeout: number;
-    layout: 'vertical' | 'horizontal';
+    layout: NotificationLayout;
     size: 'xs' | 'xxs';
-    iconPlacement: 'top' | 'left';
+    iconPlacement: NotificationIconPlacement;
 };
 
 const StoryLiveDemo = ({ timeout, ...rest }: StoryLiveDemoProps) => {
@@ -125,7 +132,7 @@ const StoryLiveDemo = ({ timeout, ...rest }: StoryLiveDemoProps) => {
     const handleClick = useCallback(() => {
         addNotification({ icon: <IconDisclosureRight />, ...rest, ...getNotificationProps(count.current) }, timeout);
         count.current++;
-    }, [count]);
+    }, [count, rest]);
 
     return (
         <NotificationsProvider>

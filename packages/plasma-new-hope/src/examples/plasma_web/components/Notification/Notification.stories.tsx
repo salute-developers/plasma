@@ -4,7 +4,11 @@ import type { StoryObj, Meta } from '@storybook/react';
 
 import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';
-import { NotificationIconPlacement, addNotification } from '../../../../../src/components/Notification';
+import {
+    NotificationIconPlacement,
+    NotificationLayout,
+    addNotification,
+} from '../../../../../src/components/Notification';
 import { WithTheme } from '../../../_helpers';
 import { PopupProvider } from '../Popup/Popup';
 import { NotificationProps } from '../../../../components/Notification';
@@ -42,9 +46,9 @@ interface StoryDefaultProps {
     children: string;
     showCloseIcon: boolean;
     showLeftIcon: boolean;
-    layout: 'vertical' | 'horizontal';
+    layout: NotificationLayout;
     size: 'xs' | 'xxs';
-    iconPlacement: 'top' | 'left';
+    iconPlacement: NotificationIconPlacement;
 }
 
 const StoryDefault = ({ title, children, iconPlacement, size, layout, showLeftIcon, ...rest }: StoryDefaultProps) => {
@@ -53,7 +57,13 @@ const StoryDefault = ({ title, children, iconPlacement, size, layout, showLeftIc
             title={title}
             icon={showLeftIcon ? <IconDisclosureRight /> : ''}
             iconPlacement={iconPlacement}
-            actions={<Button text="text" size={layout === 'horizontal' ? 'xs' : size} />}
+            actions={
+                <Button
+                    text="text"
+                    size={layout === 'horizontal' ? 'xs' : size}
+                    stretch={layout === 'vertical' && size === 'xs'}
+                />
+            }
             size={size}
             layout={layout}
             {...rest}
@@ -98,9 +108,9 @@ export const Default: StoryObj<StoryDefaultProps> = {
 
 type StoryLiveDemoProps = ComponentProps<typeof Notification> & {
     timeout: number;
-    layout: 'vertical' | 'horizontal';
+    layout: NotificationLayout;
     size: 'xs' | 'xxs';
-    iconPlacement: 'top' | 'left';
+    iconPlacement: NotificationIconPlacement;
 };
 
 const StoryLiveDemo = ({ timeout, ...rest }: StoryLiveDemoProps) => {
@@ -108,7 +118,7 @@ const StoryLiveDemo = ({ timeout, ...rest }: StoryLiveDemoProps) => {
     const handleClick = useCallback(() => {
         addNotification({ icon: <IconDisclosureRight />, ...rest, ...getNotificationProps(count.current) }, timeout);
         count.current++;
-    }, [count]);
+    }, [count, rest]);
 
     return (
         <NotificationsProvider>
