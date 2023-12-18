@@ -1,14 +1,10 @@
 import { classes } from '../Notification.tokens';
-import { layouts } from '../Notification.types';
+import { NotificationLayout } from '../Notification.types';
 
-export const getLayoutClass = (layout?: string) => {
+export const getLayoutClass = (layout?: NotificationLayout) => {
     if (!layout) {
         return undefined;
     }
 
-    if (layout === layouts.horizontal) {
-        return classes.horizontal;
-    }
-
-    return classes.vertical;
+    return classes[layout];
 };

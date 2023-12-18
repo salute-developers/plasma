@@ -2,6 +2,8 @@ import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
 import { applyHyphens } from '../../mixins';
+import { buttonConfig } from '../Button';
+import { component, mergeConfig } from '../../engines';
 
 import { classes, tokens } from './Notification.tokens';
 import { CloseIconType, IconPlacementType, placements } from './Notification.types';
@@ -10,12 +12,19 @@ export const StyledNotification = css`
     width: fit-content;
 `;
 
-export const CloseIconWrapper = styled.div`
+const mergedButtonConfig = mergeConfig(buttonConfig);
+const Button = component(mergedButtonConfig);
+
+export const CloseIconWrapper = styled(Button)`
     position: absolute;
     width: 1.5rem;
     height: 1.5rem;
 
     color: var(${tokens.closeIconColor});
+
+    :hover {
+        color: var(${tokens.closeIconColorOnHover});
+    }
 
     &.${classes.horizontal} {
         position: relative;
@@ -48,8 +57,8 @@ export const ButtonsWrapper = styled.div<IconPlacementType>`
 `;
 
 export const IconWrapper = styled.div<IconPlacementType>`
-    width: 1.5rem;
-    height: 1.5rem;
+    width: var(${tokens.contentLeftIconSize});
+    height: var(${tokens.contentLeftIconSize});
 
     margin-right: ${({ iconPlacement }) =>
         iconPlacement === placements.left ? `var(${tokens.contentLeftIconMargin})` : 'unset'};
@@ -67,7 +76,11 @@ export const ContentBox = styled.div<IconPlacementType>`
     // issue #909
     display: ${({ iconPlacement }) => (iconPlacement === placements.left ? 'flex' : 'block')};
 
+    padding-top: ${({ iconPlacement }) =>
+        iconPlacement ? `var(${tokens.contentPaddingTop})` : `var(${tokens.contentPaddingTopWithoutIcon})`};
+
     &.${classes.horizontal} {
+        padding: unset;
         display: flex;
         align-items: center;
         flex-grow: 1;
@@ -79,15 +92,18 @@ export const TextBox = styled.div<CloseIconType & IconPlacementType>`
         var(${tokens.textboxPaddingLeft});
 
     padding-top: ${({ iconPlacement }) =>
-        iconPlacement === placements.left
-            ? `var(${tokens.textboxPaddingTopWithLeftIcon})`
+        !iconPlacement || iconPlacement === placements.top
+            ? `var(${tokens.textboxPaddingTopWithTopIcon})`
             : `var(${tokens.textboxPaddingTop})`};
-    padding-right: ${({ showCloseIcon }) =>
-        showCloseIcon ? `var(${tokens.textboxPaddingRightWithCloseIcon})` : `var(${tokens.textboxPaddingRight})`};
+    padding-right: ${({ showCloseIcon, iconPlacement }) =>
+        showCloseIcon && iconPlacement !== placements.top
+            ? `var(${tokens.textboxPaddingRightWithCloseIcon})`
+            : `var(${tokens.textboxPaddingRight})`};
 
     display: flex;
     flex-direction: column;
     row-gap: var(${tokens.textboxGap});
+    word-break: break-word;
 
     &.${classes.horizontal} {
         padding: unset;
@@ -120,11 +136,11 @@ export const StyledItemWrapper = styled.div<{ isHidden: boolean }>`
     margin-top: 1rem;
     opacity: 1;
 
-    &&.show {
+    &&.${classes.notificationItemOpened} {
         animation: 0.4s showAnimation ease-out;
     }
 
-    &&.hide {
+    &&.${classes.notificationItemHidden} {
         animation: 0.4s hideAnimation ease-out;
     }
 

@@ -10,6 +10,9 @@ export const base = css`
 
     .${classes.wrapper}.${classes.horizontal} {
         padding: var(${tokens.horizontalLayoutPadding});
+        &.${classes.withoutCloseIcon} {
+            padding-right: var(${tokens.horizontalLayoutRightPaddingWithoutCloseIcon});
+        }
     }
 
     .${classes.wrapper}.${classes.horizontal}.${classes.oneLine} {

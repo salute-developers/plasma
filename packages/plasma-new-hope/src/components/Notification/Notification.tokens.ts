@@ -11,6 +11,11 @@ export const classes = {
     horizontal: 'notification-layout-horizontal',
     vertical: 'notification-layout-vertical',
     oneLine: 'notification-one-line-textbox',
+    withoutIcon: 'notification-without-icon',
+    withoutCloseIcon: 'notification-without-close-icon',
+
+    notificationItemOpened: 'notification-item-opened',
+    notificationItemHidden: 'notification-item-hidden',
 };
 
 export const tokens = {
@@ -23,24 +28,29 @@ export const tokens = {
     paddingOneLineTextbox: '--plasma-notification-padding-one-line-textbox',
     horizontalLayoutGap: '--plasma-notification-horizontal-layout-gap',
     horizontalLayoutLeftIconMargin: '--plasma-notification-horizontal-layout-left-icon-margin',
+    horizontalLayoutRightPaddingWithoutCloseIcon:
+        '--plasma-notification-horizontal-layout-right-padding-without-close-icon',
 
     contentPaddingTop: '--plasma-notification-content-padding-top',
     contentPaddingRight: '--plasma-notification-content-padding-right',
     contentPaddingBottom: '--plasma-notification-content-padding-bottom',
     contentPaddingLeft: '--plasma-notification-content-padding-left',
 
+    contentPaddingTopWithoutIcon: '--plasma-notification-content-padding-top-without-icon',
+
     textboxPaddingTop: '--plasma-notification-textbox-padding-top',
     textboxPaddingRight: '--plasma-notification-textbox-padding-right',
     textboxPaddingBottom: '--plasma-notification-textbox-padding-bottom',
     textboxPaddingLeft: '--plasma-notification-textbox-padding-left',
 
-    textboxPaddingTopWithLeftIcon: '--plasma-notification-textbox-padding-top-with-left-icon',
+    textboxPaddingTopWithTopIcon: '--plasma-notification-textbox-padding-top-with-top-icon',
     textboxPaddingRightWithCloseIcon: '--plasma-notification-textbox-padding-right-with-close-icon',
     textboxGap: '--plasma-notification-textbox-gap',
 
     buttonsMarginTop: '--plasma-notification-buttons-margin-top',
     buttonsMarginLeft: '--plasma-notification-buttons-margin-left',
 
+    contentLeftIconSize: '--plasma-notification-content-left-icon-size',
     contentLeftIconMargin: '--plasma-notification-content-left-icon-margin',
     contentTopIconMargin: '--plasma-notification-content-top-icon-margin',
 
@@ -65,4 +75,5 @@ export const tokens = {
     closeIconTop: '--plasma-notification-close-icon-top',
     closeIconRight: '--plasma-notification-close-icon-right',
     closeIconColor: '--plasma-notification-close-icon-color',
+    closeIconColorOnHover: '--plasma-notification-close-icon-color-on-hover',
 };

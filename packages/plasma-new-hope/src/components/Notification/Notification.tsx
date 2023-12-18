@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 
 import { RootProps } from '../../engines';
 import { cx } from '../../utils';
@@ -53,6 +53,10 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, NotificationPro
 
         const isOneLine = !content || !title;
         const oneLineClass = isOneLine ? classes.oneLine : undefined;
+        const withoutIconClass = icon ? undefined : classes.withoutIcon;
+        const withoutCloseIconClass = showCloseIcon ? undefined : classes.withoutCloseIcon;
+
+        const IconPlacementInternal = useMemo(() => (icon ? iconPlacement : undefined), [icon, iconPlacement]);
 
         return (
             <Root
@@ -65,21 +69,21 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, NotificationPro
                 aria-atomic={ariaAtomic}
                 {...rest}
             >
-                <Wrapper className={cx(classes.wrapper, getLayoutClass(layout), oneLineClass)}>
+                <Wrapper className={cx(classes.wrapper, getLayoutClass(layout), oneLineClass, withoutCloseIconClass)}>
                     <ContentBox
-                        iconPlacement={iconPlacement}
-                        className={cx(classes.contentBox, getLayoutClass(layout))}
+                        iconPlacement={IconPlacementInternal}
+                        className={cx(classes.contentBox, getLayoutClass(layout), withoutIconClass)}
                     >
                         {icon && (
                             <IconWrapper
-                                iconPlacement={iconPlacement}
+                                iconPlacement={IconPlacementInternal}
                                 className={cx(classes.icon, getLayoutClass(layout))}
                             >
                                 {icon}
                             </IconWrapper>
                         )}
                         <TextBox
-                            iconPlacement={iconPlacement}
+                            iconPlacement={IconPlacementInternal}
                             showCloseIcon={showCloseIcon}
                             className={cx(classes.textbox, getLayoutClass(layout))}
                         >
@@ -89,16 +93,19 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, NotificationPro
                     </ContentBox>
                     {actions && (
                         <ButtonsWrapper
-                            iconPlacement={iconPlacement}
+                            iconPlacement={IconPlacementInternal}
                             className={cx(classes.buttonsWrapper, getLayoutClass(layout))}
                         >
                             {actions}
                         </ButtonsWrapper>
                     )}
+
                     {showCloseIcon && (
                         <CloseIconWrapper
-                            className={cx(classes.closeIcon, getLayoutClass(layout))}
+                            view="clear"
+                            size="s"
                             onClick={onCloseButtonClick}
+                            className={cx(classes.closeIcon, getLayoutClass(layout))}
                         >
                             <IconCross size="s" color="inherit" />
                         </CloseIconWrapper>
