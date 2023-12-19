@@ -141,6 +141,7 @@ import { ModalsProvider } from '@salutejs/plasma-hope';
 import { ModalView } from '@salutejs/plasma-hope';
 import { monthLongName } from '@salutejs/plasma-core';
 import { monthShortName } from '@salutejs/plasma-core';
+import { MouseEvent as MouseEvent_2 } from 'react';
 import { MouseEventHandler } from 'react';
 import { NotificationIconPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationLayout } from '@salutejs/plasma-new-hope/styled-components';
@@ -186,6 +187,9 @@ import { Roundness } from '@salutejs/plasma-core';
 import { RoundnessProps } from '@salutejs/plasma-core';
 import { Row } from '@salutejs/plasma-hope';
 import { ScrollSnapProps } from '@salutejs/plasma-core';
+import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
+import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
+import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { SelectGroup } from '@salutejs/plasma-hope';
 import { SelectProps } from '@salutejs/plasma-hope';
 import { selectText } from '@salutejs/plasma-hope';
@@ -249,6 +253,7 @@ import { useFocusTrap } from '@salutejs/plasma-hope';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { usePopupContext as usePopupBaseContext } from '@salutejs/plasma-new-hope/styled-components';
+import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-hope';
 import { ValidationResult } from '@salutejs/plasma-hope';
 import { View } from '@salutejs/plasma-core';
@@ -1525,6 +1530,75 @@ export { Row }
 export { ScrollSnapProps }
 
 // @public
+export const SegmentGroup: FunctionComponent<PropsType<    {
+view: {
+clear: string;
+filled: string;
+};
+size: {
+xs: string;
+s: string;
+m: string;
+l: string;
+};
+disabled: {
+true: string;
+};
+pilled: {
+true: string;
+};
+filledBackground: {
+true: string;
+};
+stretch: {
+true: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+selectionMode?: "multiple" | "single" | undefined;
+disabled?: boolean | undefined;
+stretch?: boolean | undefined;
+pilled?: boolean | undefined;
+filledBackground?: boolean | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+export { SegmentGroupProps }
+
+// @public
+export const SegmentItem: FunctionComponent<PropsType<    {
+view: {
+clear: string;
+default: string;
+secondary: string;
+};
+size: {
+xs: string;
+s: string;
+m: string;
+l: string;
+};
+disabled: {
+true: string;
+};
+pilled: {
+true: string;
+};
+}> & ButtonHTMLAttributes<HTMLButtonElement> & {
+value: string;
+id?: string | undefined;
+label?: ReactNode;
+pilled?: boolean | undefined;
+customHandleSelect?: ((e: MouseEvent_2<HTMLButtonElement, MouseEvent>) => void) | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLLabelElement>>;
+
+export { SegmentItemProps }
+
+export { SegmentProvider }
+
+// @public
 export const Select: React_2.ForwardRefExoticComponent<SelectProps<any> & React_2.RefAttributes<HTMLButtonElement>>;
 
 export { SelectGroup }
@@ -1709,6 +1783,8 @@ export { useForkRef }
 export { useIsomorphicLayoutEffect }
 
 export { usePopupBaseContext }
+
+export { useSegment }
 
 export { useToast }
 
