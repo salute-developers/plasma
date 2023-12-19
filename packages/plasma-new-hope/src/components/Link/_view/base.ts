@@ -9,6 +9,8 @@ const getColor = (cssVar: string) => `
 `;
 
 export const base = css`
+    font-family: var(--plasma-link-font-family);
+
     color: var(--plasma-link-color);
 
     ::before {
