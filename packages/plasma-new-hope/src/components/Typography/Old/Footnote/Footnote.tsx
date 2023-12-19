@@ -24,7 +24,7 @@ export const Footnote = styled.div<FootnoteProps>`
 
     ${String(applyHyphensNormal)};
 
-    .${String(classes.typoWithBreakWord)} {
+    &.${String(classes.typoWithBreakWord)} {
         ${String(applyHyphens)};
     }
 `;

@@ -24,7 +24,7 @@ export const Text = styled.div<FontProps>`
 
     ${String(applyHyphensNormal)};
 
-    .${String(classes.typoWithBreakWord)} {
+    &.${String(classes.typoWithBreakWord)} {
         ${String(applyHyphens)};
     }
 `;
