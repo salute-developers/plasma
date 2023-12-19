@@ -6,18 +6,9 @@ export const config = {
         focused: 'true',
     },
     variations: {
-        size: {
-            m: css`
-                --plasma-link-font-family: var(--plasma-typo-paragraph1-font-family);
-                --plasma-link-font-size: var(--plasma-typo-paragraph1-font-size);
-                --plasma-link-font-style: var(--plasma-typo-paragraph1-font-style);
-                --plasma-link-font-weight: var(--plasma-typo-paragraph1-font-weight);
-                --plasma-link-letter-spacing: var(--plasma-typo-paragraph1-letter-spacing);
-                --plasma-link-line-height: var(--plasma-typo-paragraph1-line-height);
-            `,
-        },
         view: {
             primary: css`
+                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
                 --plasma-link-color: var(--text-primary);
                 --plasma-link-color-hover: var(--text-primary-hover);
                 --plasma-link-color-active: var(--text-primary-active);
@@ -27,6 +18,7 @@ export const config = {
                 --plasma-link-underline-border: 0;
             `,
             secondary: css`
+                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
                 --plasma-link-color: var(--text-secondary);
                 --plasma-link-color-hover: var(--text-secondary-hover);
                 --plasma-link-color-active: var(--text-secondary-active);
@@ -36,6 +28,7 @@ export const config = {
                 --plasma-link-underline-border: 0;
             `,
             tertiary: css`
+                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
                 --plasma-link-color: var(--text-tertiary);
                 --plasma-link-color-hover: var(--text-tertiary-hover);
                 --plasma-link-color-active: var(--text-tertiary-active);
@@ -45,6 +38,7 @@ export const config = {
                 --plasma-link-underline-border: 0;
             `,
             paragraph: css`
+                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
                 --plasma-link-color: var(--text-paragraph);
                 --plasma-link-color-hover: var(--text-paragraph-hover);
                 --plasma-link-color-active: var(--text-paragraph-active);
@@ -54,6 +48,7 @@ export const config = {
                 --plasma-link-underline-border: 0;
             `,
             accent: css`
+                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
                 --plasma-link-color: var(--text-accent);
                 --plasma-link-color-hover: var(--text-accent-hover);
                 --plasma-link-color-active: var(--text-accent-active);
@@ -63,6 +58,7 @@ export const config = {
                 --plasma-link-underline-border: 0;
             `,
             positive: css`
+                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
                 --plasma-link-color: var(--text-positive);
                 --plasma-link-color-hover: var(--text-positive-hover);
                 --plasma-link-color-active: var(--text-positive-active);
@@ -72,6 +68,7 @@ export const config = {
                 --plasma-link-underline-border: 0;
             `,
             warning: css`
+                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
                 --plasma-link-color: var(--text-warning);
                 --plasma-link-color-hover: var(--text-warning-hover);
                 --plasma-link-color-active: var(--text-warning-active);
@@ -81,6 +78,7 @@ export const config = {
                 --plasma-link-underline-border: 0;
             `,
             negative: css`
+                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
                 --plasma-link-color: var(--text-negative);
                 --plasma-link-color-hover: var(--text-negative-hover);
                 --plasma-link-color-active: var(--text-negative-active);
@@ -90,6 +88,7 @@ export const config = {
                 --plasma-link-underline-border: 0;
             `,
             clear: css`
+                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
                 --plasma-link-color: inherit;
                 --plasma-link-color-hover: inherit;
                 --plasma-link-color-active: inherit;

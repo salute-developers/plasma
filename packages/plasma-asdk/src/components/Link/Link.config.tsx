@@ -9,6 +9,7 @@ export const config = {
         // TODO сгенерировать корректные токены
         view: {
             primary: css`
+                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
                 --plasma-link-color: var(--text-primary);
                 --plasma-link-color-hover: var(--text-primary);
                 --plasma-link-color-active: var(--text-primary);
