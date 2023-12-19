@@ -34,7 +34,7 @@ describe('plasma-web: Card', () => {
                         <CardBadge style={{ left: '1rem', top: '1rem' }} text="Test in badge" />
                         <CardContent>
                             <BodyM>Label</BodyM>
-                            <H4>Tittle</H4>
+                            <H4 bold>Tittle</H4>
                             <BodyM>description</BodyM>
                         </CardContent>
                     </CardBody>
@@ -55,7 +55,7 @@ describe('plasma-web: Card', () => {
                         <CardBadge style={{ left: '1rem', top: '1rem' }} text="Test in badge" />
                         <CardContent>
                             <BodyM>Label</BodyM>
-                            <H4>Tittle</H4>
+                            <H4 bold>Tittle</H4>
                             <BodyM>description</BodyM>
                         </CardContent>
                     </CardBody>
@@ -76,7 +76,7 @@ describe('plasma-web: Card', () => {
                         <CardBadge style={{ left: '1rem', top: '1rem' }} text="Test in badge" />
                         <CardContent cover>
                             <BodyM>Label</BodyM>
-                            <H4>Tittle</H4>
+                            <H4 bold>Tittle</H4>
                             <BodyM>description</BodyM>
                         </CardContent>
                     </CardBody>

@@ -38,7 +38,7 @@ describe('plasma-web: Popover', () => {
         );
 
         cy.get('button').first().click();
-        cy.get('p').should('be.visible');
+        cy.get('div').contains(text).should('be.visible');
     });
 
     it('open popover by hover', () => {
@@ -49,7 +49,7 @@ describe('plasma-web: Popover', () => {
         );
 
         cy.get('button').first().trigger('mouseover');
-        cy.get('p').should('be.visible');
+        cy.get('div').contains(text).should('be.visible');
     });
 
     it('close popover', () => {
@@ -60,10 +60,10 @@ describe('plasma-web: Popover', () => {
         );
 
         cy.get('button').first().click();
-        cy.get('p').should('be.visible');
+        cy.get('div').contains(text).should('be.visible');
 
         cy.get('button').contains('close').click();
-        cy.get('p').should('not.be.visible');
+        cy.get('div').contains(text).should('not.be.visible');
     });
 
     it('close popover by overlay click', () => {
@@ -74,10 +74,10 @@ describe('plasma-web: Popover', () => {
         );
 
         cy.get('button').first().click();
-        cy.get('p').should('be.visible');
+        cy.get('div').contains(text).should('be.visible');
 
         cy.get('body').click(5, 5);
-        cy.get('p').should('not.be.visible');
+        cy.get('div').contains(text).should('not.be.visible');
     });
 
     it('close popover by ESC', () => {
@@ -88,9 +88,9 @@ describe('plasma-web: Popover', () => {
         );
 
         cy.get('button').first().click();
-        cy.get('p').should('be.visible');
+        cy.get('div').contains(text).should('be.visible');
 
         cy.get('body').type('{esc}');
-        cy.get('p').should('not.be.visible');
+        cy.get('div').contains(text).should('not.be.visible');
     });
 });
