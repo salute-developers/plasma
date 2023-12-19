@@ -16,8 +16,7 @@ export {
     TextM,
     TextS,
     TextXS,
-} from '@salutejs/plasma-typo';
-export type { TypographyTypes } from '@salutejs/plasma-core';
+} from './Typography';
 
 export {
     Body1,
@@ -34,8 +33,6 @@ export {
     Headline5,
     P1,
     P2,
-    ParagraphText1,
-    ParagraphText2,
     Subtitle,
     Underline,
-} from '@salutejs/plasma-hope';
+} from './Old';
