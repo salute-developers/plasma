@@ -33,6 +33,10 @@ export type LinkCustomProps = {
      * Вид компонента.
      */
     view?: string;
+    /**
+     * Размер компонента.
+     */
+    size?: string;
 };
 
 type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & LinkCustomProps;
@@ -75,5 +79,6 @@ export const linkConfig = {
     },
     defaults: {
         view: 'primary',
+        size: 'm',
     },
 };
