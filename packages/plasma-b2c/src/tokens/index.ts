@@ -11,4 +11,4 @@ export {
     inputBorderHover,
 } from '@salutejs/plasma-hope';
 
-export * from '@salutejs/plasma-typo';
+export * from './typography';
