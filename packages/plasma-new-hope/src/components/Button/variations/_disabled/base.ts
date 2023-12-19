@@ -7,7 +7,7 @@ import { css } from '@linaria/core';
 /* so we don't want to keep `:not(:disabled)` inside _view */
 
 export const base = css`
-    :disabled {
+    &[disabled] {
         opacity: var(--plasma-button-disabled-opacity);
         cursor: not-allowed;
 
