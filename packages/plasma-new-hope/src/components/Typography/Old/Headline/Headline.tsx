@@ -24,7 +24,7 @@ export const Headline = styled.div<HeadlineProps>`
 
     ${String(applyHyphensNormal)};
 
-    .${String(classes.typoWithBreakWord)} {
+    &.${String(classes.typoWithBreakWord)} {
         ${String(applyHyphens)};
     }
 `;

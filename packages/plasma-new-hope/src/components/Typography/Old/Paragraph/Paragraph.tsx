@@ -26,7 +26,7 @@ export const Paragraph = styled.div<ParagraphProps>`
 
     ${String(applyHyphensNormal)};
 
-    .${String(classes.typoWithBreakWord)} {
+    &.${String(classes.typoWithBreakWord)} {
         ${String(applyHyphens)};
     }
 `;
