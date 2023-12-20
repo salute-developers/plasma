@@ -157,6 +157,43 @@ import { VideoOutline } from './VideoOutline';
 import { Wallet } from './Wallet';
 import { WalletLinesOutline } from './WalletLinesOutline';
 import { WifiOutline } from './WifiOutline';
+import { AvCable1Fill } from './AvCable1Fill';
+import { AvCable2Fill } from './AvCable2Fill';
+import { Cable2Fill } from './Cable2Fill';
+import { CallEndFill1 } from './CallEndFill1';
+import { CallEndFill2 } from './CallEndFill2';
+import { CamPhotoOutline } from './CamPhotoOutline';
+import { EllipsViewfinderOutline } from './EllipsViewfinderOutline';
+import { GalleryOuline } from './GalleryOuline';
+import { GamepadOuline } from './GamepadOuline';
+import { Gest2fingFill } from './Gest2fingFill';
+import { GestHiFill } from './GestHiFill';
+import { Link } from './Link';
+import { NoNameFill } from './NoNameFill';
+import { NoPhotoFill } from './NoPhotoFill';
+import { PaymentBrend1 } from './PaymentBrend1';
+import { PaymentBrend2 } from './PaymentBrend2';
+import { PaymentBrend3 } from './PaymentBrend3';
+import { PaymentBrend4 } from './PaymentBrend4';
+import { Phone1 } from './Phone1';
+import { Phone2 } from './Phone2';
+import { Phone3 } from './Phone3';
+import { Phone4 } from './Phone4';
+import { Plasma } from './Plasma';
+import { SaluteApp } from './SaluteApp';
+import { SberBoxTime1 } from './SberBoxTime1';
+import { SberBoxTime2 } from './SberBoxTime2';
+import { SberBoxTop1 } from './SberBoxTop1';
+import { SberBoxTop2 } from './SberBoxTop2';
+import { SberBoxTop3 } from './SberBoxTop3';
+import { SberPortal1 } from './SberPortal1';
+import { SberPortal2 } from './SberPortal2';
+import { TV1 } from './TV1';
+import { TV2 } from './TV2';
+import { TV3 } from './TV3';
+import { TV4 } from './TV4';
+import { TV5 } from './TV5';
+import { TV6 } from './TV6';
 
 export const iconSet36 = {
     antennaCircle: AntennaCircle,
@@ -318,6 +355,43 @@ export const iconSet36 = {
     wallet: Wallet,
     walletLinesOutline: WalletLinesOutline,
     wifiOutline: WifiOutline,
+    avCable1Fill: AvCable1Fill,
+    avCable2Fill: AvCable2Fill,
+    cable2Fill: Cable2Fill,
+    callEndFill1: CallEndFill1,
+    callEndFill2: CallEndFill2,
+    camPhotoOutline: CamPhotoOutline,
+    ellipsViewfinderOutline: EllipsViewfinderOutline,
+    galleryOuline: GalleryOuline,
+    gamepadOuline: GamepadOuline,
+    gest2fingFill: Gest2fingFill,
+    gestHiFill: GestHiFill,
+    link: Link,
+    noNameFill: NoNameFill,
+    noPhotoFill: NoPhotoFill,
+    paymentBrend1: PaymentBrend1,
+    paymentBrend2: PaymentBrend2,
+    paymentBrend3: PaymentBrend3,
+    paymentBrend4: PaymentBrend4,
+    phone1: Phone1,
+    phone2: Phone2,
+    phone3: Phone3,
+    phone4: Phone4,
+    plasma: Plasma,
+    saluteApp: SaluteApp,
+    sberBoxTime1: SberBoxTime1,
+    sberBoxTime2: SberBoxTime2,
+    sberBoxTop1: SberBoxTop1,
+    sberBoxTop2: SberBoxTop2,
+    sberBoxTop3: SberBoxTop3,
+    sberPortal1: SberPortal1,
+    sberPortal2: SberPortal2,
+    tV1: TV1,
+    tV2: TV2,
+    tV3: TV3,
+    tV4: TV4,
+    tV5: TV5,
+    tV6: TV6,
 };
 
 export type IconSet36 = keyof typeof iconSet36;
