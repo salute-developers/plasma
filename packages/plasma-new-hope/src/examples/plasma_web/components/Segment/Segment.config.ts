@@ -122,7 +122,7 @@ export const config = {
         pilled: {
             true: css`
                 ${segmentTokens.itemPilledBorderRadius}: 1.5rem;
-                ${segmentTokens.groupPilledBorderRadius}: 1.5rem;
+                ${segmentTokens.groupPilledBorderRadius}: 1.75rem;
             `,
         },
         filledBackground: {

@@ -1,8 +1,5 @@
-export { segmentItemConfig, segmentItemRoot } from './SegmentItem';
-export type { SegmentItemProps } from './SegmentItem';
-
-export { segmentGroupConfig, segmentGroupRoot } from './SegmentGroup';
-export type { SegmentGroupProps } from './SegmentGroup';
+export { segmentItemConfig, segmentItemRoot, segmentGroupConfig, segmentGroupRoot } from './ui';
+export type { SegmentItemProps, SegmentGroupProps } from './ui';
 
 export { SegmentProvider, useSegment } from './SegmentProvider';
 

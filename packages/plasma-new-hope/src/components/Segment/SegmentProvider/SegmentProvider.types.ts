@@ -3,8 +3,8 @@ import type { SetStateAction } from 'react';
 export type SegmentSelectionMode = 'single' | 'multiple';
 
 export type SegmentContextType = {
-    isFilledBackground: boolean;
-    setFilledBackground: (value: SetStateAction<boolean>) => void;
+    viewGroup: string;
+    setViewGroup: (value: SetStateAction<string>) => void;
     disabledGroup: boolean;
     setDisabledGroup: (value: SetStateAction<boolean>) => void;
     selectedSegmentItems: string[];

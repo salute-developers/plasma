@@ -1,8 +1,8 @@
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 
-import { addFocus, applyEllipsis } from '../../../mixins';
-import { tokens } from '../tokens';
+import { addFocus, applyEllipsis } from '../../../../mixins';
+import { tokens } from '../../tokens';
 
 export const base = css`
     position: relative;
