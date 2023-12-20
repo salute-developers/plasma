@@ -2,10 +2,10 @@ import React, { forwardRef, useCallback, useMemo, useState, Children, useEffect 
 import type { SetStateAction, RefObject, MutableRefObject } from 'react';
 import { safeUseId, useCarousel } from '@salutejs/plasma-core';
 
-import type { RootProps } from '../../../engines/types';
-import { IconDisclosureLeft, IconDisclosureRight } from '../../_Icon';
-import { useSegment } from '../SegmentProvider';
-import { tokens } from '../tokens';
+import type { RootProps } from '../../../../engines/types';
+import { IconDisclosureLeft, IconDisclosureRight } from '../../../_Icon';
+import { useSegment } from '../../SegmentProvider';
+import { tokens } from '../../tokens';
 
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
@@ -29,7 +29,7 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
             ...rest
         } = props;
 
-        const { setSelectionMode, setDisabledGroup, setFilledBackground } = useSegment();
+        const { setSelectionMode, setViewGroup, setDisabledGroup } = useSegment();
 
         const uniqId = safeUseId();
         const segmentGroupId = id || uniqId;
@@ -109,8 +109,8 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
         useEffect(() => {
             selectionMode && setSelectionMode(selectionMode);
             setDisabledGroup(disabled);
-            setFilledBackground(filledBackground);
-        }, [selectionMode, disabled, filledBackground]);
+            setViewGroup(view || '');
+        }, [selectionMode, disabled, view]);
 
         useEffect(() => {
             // Intersection observer для первого сегмента
@@ -120,7 +120,7 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
                 threshold: 0.5,
             });
 
-            // Intersection observer для второго сегмента
+            // Intersection observer для последнего сегмента
             const observeLastItem = new IntersectionObserver(onIntersecting(setLastItemVisible), {
                 root: null,
                 rootMargin: '0px',

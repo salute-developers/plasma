@@ -2,10 +2,10 @@ import React, { forwardRef, useCallback, useEffect, useMemo, useState } from 're
 import type { MouseEvent } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
-import type { RootProps } from '../../../engines/types';
-import { cx, extractTextFrom } from '../../../utils';
-import { classes } from '../tokens';
-import { useSegment } from '../SegmentProvider';
+import type { RootProps } from '../../../../engines/types';
+import { cx, extractTextFrom } from '../../../../utils';
+import { classes } from '../../tokens';
+import { useSegment } from '../../SegmentProvider';
 
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
@@ -29,7 +29,7 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
             'aria-label': ariaLabelExternal,
             ...rest
         } = props;
-        const { disabledGroup, handleSelect, selectedSegmentItems, isFilledBackground } = useSegment();
+        const { selectionMode, viewGroup, disabledGroup, handleSelect, selectedSegmentItems } = useSegment();
 
         const [selectedViewAttr, setSelectedViewAttr] = useState(false);
 
@@ -38,21 +38,25 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
 
         const ariaLabelDefault = useMemo(() => extractTextFrom(label), [label]);
         const pilledAttr = view !== 'clear' && pilled;
-        const filledBackgroundAttr = view !== 'clear' && isFilledBackground;
 
         const isSelected = selectedSegmentItems.includes(value || ariaLabelDefault);
         const selectedClass = isSelected ? classes.selectedSegmentItem : undefined;
 
-        const handleSelectSegment = useCallback((event: MouseEvent<HTMLButtonElement>) => {
-            if (!disabledGroup) {
+        const handleSelectSegment = useCallback(
+            (event: MouseEvent<HTMLButtonElement>) => {
+                if (disabledGroup) {
+                    return;
+                }
+
                 customHandleSelect?.(event);
                 handleSelect(value || ariaLabelDefault);
-            }
-        }, []);
+            },
+            [selectionMode],
+        );
 
         useEffect(() => {
-            setSelectedViewAttr(view !== 'clear');
-        }, [view]);
+            setSelectedViewAttr(viewGroup !== 'clear' || view !== 'clear');
+        }, [view, viewGroup]);
 
         return (
             <Root
@@ -66,9 +70,8 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
                 value={value}
                 data-pilled={pilledAttr}
                 pilled={pilledAttr}
-                data-filled={filledBackgroundAttr}
                 className={cx(selectedClass)}
-                onClick={(event) => handleSelectSegment(event)}
+                onClick={handleSelectSegment}
                 tabIndex={disabledGroup ? -1 : 0}
                 disabled={disabledGroup}
                 {...rest}

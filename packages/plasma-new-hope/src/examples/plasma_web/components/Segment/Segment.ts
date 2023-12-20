@@ -4,7 +4,7 @@ import { component, mergeConfig } from '../../../../engines';
 import { config } from './Segment.config';
 
 const mergedSegmentGroupConfig = mergeConfig(segmentGroupConfig, config);
-const mergedSegmentItemConfig = mergeConfig(segmentItemConfig);
+const mergedSegmentItemConfig = mergeConfig(segmentItemConfig, config);
 
 export const SegmentGroup = component(mergedSegmentGroupConfig);
 export const SegmentItem = component(mergedSegmentItemConfig);

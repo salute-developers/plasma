@@ -1,8 +1,8 @@
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
-import { addFocus } from '../../../mixins';
-import { tokens } from '../tokens';
+import { addFocus } from '../../../../mixins';
+import { tokens } from '../../tokens';
 
 export const base = css`
     display: inline-flex;
