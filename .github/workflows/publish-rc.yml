@@ -14,6 +14,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
     outputs:
       HAS_ASSETS: ${{ steps.scope.outputs.result }}
+      PR: ${{ steps.pull_request.outputs.result }}
     steps:
       ## Получаем актуальное состояние dev branch
       - name: Checkout
@@ -25,27 +26,44 @@ jobs:
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
       
-      ## Получаем base sha commit из merged pull request который запустил это событие
+      ## Получаем информацию о pull request который был влит
       ## context.sha - это последний commit в dev ветку
       ## base.sha - это последний commit base branch до влития целевого pull request
       - name: Get associated pull request by commit
-        id: sha
+        id: pull_request
         uses: actions/github-script@v6
         with:
           script: |
+            const teammate = {
+              Yakutoc: "alex_czech",
+              'neretin-trike': "aaneretin",
+              'Yeti-or': "yeti-or",
+              TitanKuzmich: "aakrivonos",
+              kayman233: "ivakudryavtsev",
+              shuga2704: "shuga2704",
+            };
+            
             const res = await github.rest.repos.listPullRequestsAssociatedWithCommit({
               commit_sha: context.sha,
               owner: context.repo.owner,
               repo: context.repo.repo,
             });
             
-            return res?.data[0]?.base?.sha || context.sha;
+            const {
+              base: { sha = context.sha },
+              title,
+              user: { login }
+            } = res?.data[0] || {};
+            
+            return { sha, pr: title, user: teammate[login] || 'alex_czech' };
       
       ## Сохраняем вывод команды lerna ls в формате json array
       - name: Preserve lerna ls state
         id: lerna_ls
+        env:
+          SHA: ${{ fromJSON(steps.pull_request.outputs.result).sha }}
         run: |
-          echo "STATE=$(npx lerna la --json --since=${{ steps.sha.outputs.result }} | jq -c)" >> "$GITHUB_OUTPUT"
+          echo "STATE=$(npx lerna la --json --since=${{ env.SHA }} | jq -c)" >> "$GITHUB_OUTPUT"
       
       ## Высчитываем условие для загрузки assets
       - name: Computed scope state
@@ -74,4 +92,57 @@ jobs:
     secrets:
       gh_token: ${{ secrets.GH_TOKEN }}
       npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
+
+  catch:
+    name: Handle errors
+    runs-on: ubuntu-latest
+    needs: [ change-state, publish ]
+    if: ${{ always() && contains(needs.*.result, 'failure') }}
+    env:
+      FAILED_JOB_NAME: ${{ contains(needs.change-state.result, 'failure') && 'Save state' || 'Publish RC version / publish' }}
+    steps:
+      - name: Get failed job information
+        id: job
+        uses: actions/github-script@v6
+        env:
+          RUN_ID: ${{github.run_id}}
+          FAILED_JOB_NAME: ${{ env.FAILED_JOB_NAME }}
+        with:
+          script: |
+            const { RUN_ID, FAILED_JOB_NAME } = process.env;
+            
+            const res = await github.rest.actions.listJobsForWorkflowRun({
+              run_id: RUN_ID,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+            
+            const { data: { jobs: jobsList } } = res;
+            
+            const { html_url, steps: stepsList } = jobsList.find(({ name }) => name === FAILED_JOB_NAME ) || {};
+            
+            const { name } = stepsList.find(({ conclusion }) => conclusion === "failure" ) || { name: '' };
+            
+            return { job: html_url, name }
+      
+      - name: Create message
+        env:
+          PR: ${{ fromJSON(needs.change-state.outputs.PR).pr }}
+          USER: ${{ fromJSON(needs.change-state.outputs.PR).user }}
+          FAILURE_STEP: ${{ fromJSON(steps.job.outputs.result).name }}
+          JOB: ${{ fromJSON(steps.job.outputs.result).job }}
+        run: |
+          step="**Failure step**: ${{ env.FAILURE_STEP }}"
+          message='@${{ env.USER }}\nПосмотри пожалуйста, упала публикация твоего pull request: [${{ env.PR }}](${{ env.JOB }})'
+          
+          echo "NOTIFICATION="$step\\n\\n$message"" >> $GITHUB_ENV
+      
+      - name: Create the Mattermost Message
+        run: |
+          echo "{\"text\":\" ${{ env.NOTIFICATION }}\"}" > mattermost.json
+      
+      - name: Send notification
+        uses: mattermost/action-mattermost-notify@master
+        env:
+          MATTERMOST_WEBHOOK_URL: ${{ secrets.WEBHOOKS_NOTIFICATIONS_MM }}
 
