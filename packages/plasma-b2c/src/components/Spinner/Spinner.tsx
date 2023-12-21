@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { spinnerConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
 
 import { config } from './Spinner.config';
@@ -11,4 +10,4 @@ const SpinnerComponent = component(mergedConfig) as React.FunctionComponent<Spin
 /**
  * Компонент для отображения индикатора загрузки.
  */
-export const Spinner = styled(SpinnerComponent)``;
+export const Spinner = SpinnerComponent;
