@@ -3,9 +3,9 @@ import type { FC, PropsWithChildren } from 'react';
 
 import { SegmentContextType, SegmentSelectionMode } from './SegmentProvider.types';
 
-const SegmentContext = createContext<SegmentContextType | undefined>(undefined);
+export const SegmentContext = createContext<SegmentContextType | undefined>(undefined);
 
-export const useSegment = () => {
+export const useSegmentInner = () => {
     const context = useContext(SegmentContext);
     if (!context) {
         throw new Error('useSegment must be used within a SegmentProvider');
@@ -13,10 +13,14 @@ export const useSegment = () => {
     return context;
 };
 
+export const useSegment = () => {
+    const { selectedSegmentItems } = useSegmentInner();
+    return { selectedSegmentItems };
+};
+
 export const SegmentProvider: FC<PropsWithChildren> = ({ children }) => {
     const [selectedSegmentItems, setSelectedSegmentItems] = useState<string[]>([]);
     const [selectionMode, setSelectionMode] = useState<SegmentSelectionMode>('single');
-    const [viewGroup, setViewGroup] = useState('');
     const [disabledGroup, setDisabledGroup] = useState(false);
 
     const handleSelect = useCallback(
@@ -34,8 +38,6 @@ export const SegmentProvider: FC<PropsWithChildren> = ({ children }) => {
     );
 
     const contextValue: SegmentContextType = {
-        viewGroup,
-        setViewGroup,
         selectedSegmentItems,
         handleSelect,
         selectionMode,

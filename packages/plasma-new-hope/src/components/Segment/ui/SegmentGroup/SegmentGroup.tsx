@@ -4,9 +4,9 @@ import { safeUseId, useCarousel } from '@salutejs/plasma-core';
 
 import type { RootProps } from '../../../../engines/types';
 import { IconDisclosureLeft, IconDisclosureRight } from '../../../_Icon';
-import { useSegment } from '../../SegmentProvider';
 import { classes, tokens } from '../../tokens';
 import { cx } from '../../../../utils';
+import { useSegmentInner } from '../../SegmentProvider/SegmentProvider';
 
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
@@ -30,7 +30,7 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
             ...rest
         } = props;
 
-        const { setSelectionMode, setViewGroup, setDisabledGroup } = useSegment();
+        const { setSelectionMode, setDisabledGroup } = useSegmentInner();
 
         const uniqId = safeUseId();
         const segmentGroupId = id || uniqId;
@@ -112,8 +112,7 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
         useEffect(() => {
             selectionMode && setSelectionMode(selectionMode);
             setDisabledGroup(disabled);
-            setViewGroup(view || '');
-        }, [selectionMode, disabled, view]);
+        }, [selectionMode, disabled]);
 
         useEffect(() => {
             // Intersection observer для первого сегмента

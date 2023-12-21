@@ -41,10 +41,5 @@ export const tokens = {
     itemSelectedColorHover: '--plasma-segment-item-selected-color-hover',
     itemSelectedBackgroundColorHover: '--plasma-segment-item-selected-background-color-hover',
 
-    itemSelectedViewColor: '--plasma-segment-item-selected-view-color',
-    itemSelectedViewBackgroundColor: '--plasma-segment-item-selected-view-background-color',
-    itemSelectedViewColorHover: '--plasma-segment-item-selected-view-color-hover',
-    itemSelectedViewBackgroundColorHover: '--plasma-segment-item-selected-view-background-color-hover',
-
     disabledOpacity: '--plasma-segment-disabled-opacity',
 };

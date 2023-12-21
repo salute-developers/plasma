@@ -33,6 +33,43 @@ export const config = {
 
                 ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
             `,
+            default: css`
+                ${segmentTokens.itemColor}: var(--text-primary);
+                ${segmentTokens.itemBackgroundColor}: transparent;
+                ${segmentTokens.itemColorHover}: var(--text-primary);
+                ${segmentTokens.itemBackgroundColorHover}: transparent;
+                ${segmentTokens.itemSelectedColor}: var(--text-primary);
+                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-transparent-card);
+                ${segmentTokens.itemSelectedColorHover}: var(--text-primary);
+                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-transparent-card);
+
+                ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
+            `,
+
+            card: css`
+                ${segmentTokens.itemColor}: var(--text-primary);
+                ${segmentTokens.itemBackgroundColor}: transparent;
+                ${segmentTokens.itemColorHover}: var(--text-primary);
+                ${segmentTokens.itemBackgroundColorHover}: transparent;
+                ${segmentTokens.itemSelectedColor}: var(--text-primary);
+                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-solid-card);
+                ${segmentTokens.itemSelectedColorHover}: var(--text-primary);
+                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-card);
+
+                ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
+            `,
+            inverse: css`
+                ${segmentTokens.itemColor}: var(--text-primary);
+                ${segmentTokens.itemBackgroundColor}: transparent;
+                ${segmentTokens.itemColorHover}: var(--text-primary);
+                ${segmentTokens.itemBackgroundColorHover}: transparent;
+                ${segmentTokens.itemSelectedColor}: var(--inverse-text-primary);
+                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-solid-default);
+                ${segmentTokens.itemSelectedColorHover}: var(--inverse-text-primary);
+                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-default);
+
+                ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
+            `,
         },
         size: {
             xs: css`
@@ -100,26 +137,6 @@ export const config = {
         pilled: {
             true: css`
                 ${segmentTokens.itemPilledBorderRadius}: 1.5rem;
-            `,
-        },
-        selectedView: {
-            default: css`
-                ${segmentTokens.itemSelectedViewColor}: var(--text-primary);
-                ${segmentTokens.itemSelectedViewBackgroundColor}: var(--surface-transparent-card);
-                ${segmentTokens.itemSelectedViewColorHover}: var(--text-primary);
-                ${segmentTokens.itemSelectedViewBackgroundColorHover}: var(--surface-transparent-card);
-            `,
-            card: css`
-                ${segmentTokens.itemSelectedViewColor}: var(--text-primary);
-                ${segmentTokens.itemSelectedViewBackgroundColor}: var(--surface-solid-card);
-                ${segmentTokens.itemSelectedViewColorHover}: var(--text-primary);
-                ${segmentTokens.itemSelectedViewBackgroundColorHover}: var(--surface-solid-card);
-            `,
-            inverse: css`
-                ${segmentTokens.itemSelectedViewColor}: var(--inverse-text-primary);
-                ${segmentTokens.itemSelectedViewBackgroundColor}: var(--surface-solid-default);
-                ${segmentTokens.itemSelectedViewColorHover}: var(--inverse-text-primary);
-                ${segmentTokens.itemSelectedViewBackgroundColorHover}: var(--surface-solid-default);
             `,
         },
     },
