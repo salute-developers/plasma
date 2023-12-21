@@ -10,24 +10,19 @@ import { base as sizeCSS } from '../../variations/_size/base';
 import type { FontProps } from '../../types';
 import { cx } from '../../../../utils';
 
-export type ParagraphProps = {
+export type ParagraphTextProps = {
     resetMargin?: boolean;
 } & Omit<FontProps, 'bold'>;
 
-const base = css`
-    display: inline-block;
-    margin: 0;
-`;
+const base = css``;
 
-export const Paragraph = styled.p<ParagraphProps>`
+export const ParagraphText = styled.div<ParagraphTextProps>`
     font-family: var(${tokens.typoFontFamily});
     font-size: var(${tokens.typoFontSize});
     font-style: var(${tokens.typoFontStyle});
     letter-spacing: var(${tokens.typoFontLetterSpacing});
     line-height: var(${tokens.typoFontLineHeight});
     font-weight: var(${tokens.typoFontWeight});
-
-    margin: 0;
 
     ${String(applyHyphensNormal)};
 
@@ -36,8 +31,8 @@ export const Paragraph = styled.p<ParagraphProps>`
     }
 `;
 
-export const paragraphRoot = (Root: RootProps<HTMLDivElement, ParagraphProps>) =>
-    forwardRef<HTMLDivElement, ParagraphProps>((props, ref) => {
+export const paragraphTextRoot = (Root: RootProps<HTMLDivElement, ParagraphTextProps>) =>
+    forwardRef<HTMLDivElement, ParagraphTextProps>((props, ref) => {
         const { children, breakWord, resetMargin, ...rest } = props;
 
         const withBreakWord = breakWord ? classes.typoWithBreakWord : undefined;
@@ -49,17 +44,17 @@ export const paragraphRoot = (Root: RootProps<HTMLDivElement, ParagraphProps>) =
 
         return (
             <Root ref={ref} {...rest}>
-                <Paragraph className={cx(withBreakWord)} style={{ ...applySpacing(rest), ...withResetMargin }}>
+                <ParagraphText className={cx(withBreakWord)} style={{ ...applySpacing(rest), ...withResetMargin }}>
                     {children}
-                </Paragraph>
+                </ParagraphText>
             </Root>
         );
     });
 
-export const paragraphConfig = {
-    name: 'Paragraph',
+export const paragraphTextConfig = {
+    name: 'ParagraphText',
     tag: 'div',
-    layout: paragraphRoot,
+    layout: paragraphTextRoot,
     base,
     variations: {
         size: {
@@ -67,6 +62,6 @@ export const paragraphConfig = {
         },
     },
     defaults: {
-        size: 'paragraph1',
+        size: 'paragraphText1',
     },
 };

@@ -31,7 +31,7 @@ export const Dspl = styled.div<FontProps>`
 
 export const dsplRoot = (Root: RootProps<HTMLDivElement, DsplProps>) =>
     forwardRef<HTMLDivElement, DsplProps>((props, ref) => {
-        const { children, breakWord, bold, ...rest } = props;
+        const { children, breakWord, bold = true, ...rest } = props;
 
         const withBreakWord = breakWord ? classes.typoWithBreakWord : undefined;
 
