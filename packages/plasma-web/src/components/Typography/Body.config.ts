@@ -1,26 +1,8 @@
 import { css, typographyTokens } from '@salutejs/plasma-new-hope/styled-components';
 
-export const defaults = {
-    m: {
-        size: 'm',
-    },
-    l: {
-        size: 'l',
-    },
-    s: {
-        size: 's',
-    },
-    xs: {
-        size: 'xs',
-    },
-    xxs: {
-        size: 'xxs',
-    },
-};
-
-export const config = {
+export const configL = {
     defaults: {
-        size: 'm',
+        size: 'l',
     },
     variations: {
         size: {
@@ -33,6 +15,16 @@ export const config = {
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
+        },
+    },
+};
+
+export const configM = {
+    defaults: {
+        size: 'm',
+    },
+    variations: {
+        size: {
             m: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-body-m-font-size);
@@ -42,6 +34,16 @@ export const config = {
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
+        },
+    },
+};
+
+export const configS = {
+    defaults: {
+        size: 's',
+    },
+    variations: {
+        size: {
             s: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-body-s-font-size);
@@ -51,6 +53,16 @@ export const config = {
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
+        },
+    },
+};
+
+export const configXS = {
+    defaults: {
+        size: 'xs',
+    },
+    variations: {
+        size: {
             xs: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -60,6 +72,16 @@ export const config = {
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
+        },
+    },
+};
+
+export const configXXS = {
+    defaults: {
+        size: 'xxs',
+    },
+    variations: {
+        size: {
             xxs: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-body-xxs-font-size);

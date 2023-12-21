@@ -48,10 +48,10 @@ const BodyXSComponent = component(bodyXSConfig);
 const bodyXXSConfig = mergeConfig(bodyConfig, bodyConfigXXSCustom);
 const BodyXXSComponent = component(bodyXXSConfig);
 
-const dsplMConfig = mergeConfig(dsplConfig, dsplConfigLCustom);
+const dsplMConfig = mergeConfig(dsplConfig, dsplConfigMCustom);
 const DsplMComponent = component(dsplMConfig);
 
-const dsplLConfig = mergeConfig(dsplConfig, dsplConfigMCustom);
+const dsplLConfig = mergeConfig(dsplConfig, dsplConfigLCustom);
 const DsplLComponent = component(dsplLConfig);
 
 const dsplSConfig = mergeConfig(dsplConfig, dsplConfigSCustom);
@@ -72,10 +72,10 @@ const Heading4Component = component(heading4Config);
 const heading5Config = mergeConfig(headingConfig, headingConfigH5Custom);
 const Heading5Component = component(heading5Config);
 
-const textMConfig = mergeConfig(textConfig, textConfigLCustom);
+const textMConfig = mergeConfig(textConfig, textConfigMCustom);
 const TextMComponent = component(textMConfig);
 
-const textLConfig = mergeConfig(textConfig, textConfigMCustom);
+const textLConfig = mergeConfig(textConfig, textConfigLCustom);
 const TextLComponent = component(textLConfig);
 
 const textSConfig = mergeConfig(textConfig, textConfigSCustom);

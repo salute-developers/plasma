@@ -33,6 +33,8 @@ export {
     Headline5,
     P1,
     P2,
+    ParagraphText1,
+    ParagraphText2,
     Subtitle,
     Underline,
 } from './Old';
