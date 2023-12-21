@@ -10,10 +10,10 @@ import { SegmentProvider } from '../../../../components/Segment/SegmentProvider'
 import { config } from './SegmentGroup.config';
 import { SegmentItem, SegmentGroup } from './Segment';
 
-const selectedViews = ['default', 'card', 'inverse'];
+const segmentItemViews = ['clear', 'filled', 'default', 'card', 'inverse'];
 
 type CustomStorySegmentProps = {
-    selectedView?: string;
+    segmentItemView?: string;
     contentItemsNumber?: number;
 };
 
@@ -31,8 +31,8 @@ const meta: Meta<StorySegmentProps> = {
                 type: 'select',
             },
         },
-        selectedView: {
-            options: selectedViews,
+        segmentItemView: {
+            options: segmentItemViews,
             control: {
                 type: 'select',
             },
@@ -42,25 +42,37 @@ const meta: Meta<StorySegmentProps> = {
 
 export default meta;
 
-const StoryDefault = ({ contentItemsNumber, selectionMode, ...args }: StorySegmentProps) => {
+const StoryDefault = ({ contentItemsNumber, selectionMode, segmentItemView, view, ...args }: StorySegmentProps) => {
     const contentItems = Array(contentItemsNumber).fill(0);
 
     return (
         <>
             <h3>Segment with auto width</h3>
             <SegmentProvider>
-                <SegmentGroup selectionMode={selectionMode} {...args}>
+                <SegmentGroup view={view} selectionMode={selectionMode} {...args}>
                     {contentItems.map((_, i) => (
-                        <SegmentItem label={`Label ${i}`} value={`label_${i}`} key={`label_${i}`} {...args} />
+                        <SegmentItem
+                            view={segmentItemView}
+                            label={`Label ${i}`}
+                            value={`label_${i}`}
+                            key={`label_${i}`}
+                            {...args}
+                        />
                     ))}
                 </SegmentGroup>
             </SegmentProvider>
 
             <h3>Segment with fixed width</h3>
             <SegmentProvider>
-                <SegmentGroup style={{ width: '28.5rem' }} selectionMode={selectionMode} {...args}>
+                <SegmentGroup view={view} style={{ width: '28.5rem' }} selectionMode={selectionMode} {...args}>
                     {contentItems.map((_, i) => (
-                        <SegmentItem label={`Label ${i}`} value={`label_${i}`} key={`label_${i}`} {...args} />
+                        <SegmentItem
+                            view={segmentItemView}
+                            label={`Label ${i}`}
+                            value={`label_${i}`}
+                            key={`label_${i}`}
+                            {...args}
+                        />
                     ))}
                 </SegmentGroup>
             </SegmentProvider>
@@ -72,6 +84,7 @@ export const Default: StoryObj<StorySegmentProps> = {
     args: {
         view: 'clear',
         size: 'xs',
+        segmentItemView: 'clear',
         selectionMode: 'single',
         contentItemsNumber: 11,
         pilled: false,

@@ -18,10 +18,6 @@ type CustomSegmentItemProps = {
      */
     pilled?: boolean;
     /**
-     * Вид выбранного сегмента c фоном
-     */
-    selectedView?: string;
-    /**
      * Коллбек для обработки выбора сегмента
      */
     customHandleSelect?: (e: MouseEvent<HTMLButtonElement>) => void;
