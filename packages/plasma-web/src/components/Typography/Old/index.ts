@@ -6,68 +6,70 @@ import {
     footnoteConfig,
     headlineConfig,
     paragraphConfig,
+    paragraphTextConfig,
     underlineConfig as underlineDefaultConfig,
     subtitleConfig as subtitleDefaultConfig,
     component,
     mergeConfig,
 } from '@salutejs/plasma-new-hope/styled-components';
 
-import { config as bodyConfigCustom, defaults as bodyDefaults } from './Body.config';
-import { config as buttonConfigCustom, defaults as buttonDefaults } from './Button.config';
+import { configBody1, configBody2, configBody3 } from './Body.config';
+import { configButton1, configButton2 } from './Button.config';
 import { config as captionConfigCustom } from './Caption.config';
-import { config as displayConfigCustom, defaults as displayDefaults } from './Display.config';
-import { config as footnoteConfigCustom, defaults as footnoteDefaults } from './Footnote.config';
-import { config as headlineConfigCustom, defaults as headlineDefaults } from './Headline.config';
-import { config as paragraphConfigCustom, defaults as paragraphDefaults } from './Paragraph.config';
+import { configDisplay1, configDisplay2, configDisplay3 } from './Display.config';
+import { configFootnote1, configFootnote2 } from './Footnote.config';
+import { configHeadline1, configHeadline2, configHeadline3, configHeadline4, configHeadline5 } from './Headline.config';
+import { configParagraph1, configParagraph2 } from './Paragraph.config';
+import { configParagraphText1, configParagraphText2 } from './ParagraphText.config';
 import { config as underlineConfigCustom } from './Underline.config';
 import { config as subtitleConfigCustom } from './Subtitle.config';
 
-const body1Config = mergeConfig(bodyConfig, { ...bodyConfigCustom, defaults: bodyDefaults.body1 });
+const body1Config = mergeConfig(bodyConfig, configBody1);
 const Body1Component = component(body1Config);
 
-const body2Config = mergeConfig(bodyConfig, { ...bodyConfigCustom, defaults: bodyDefaults.body2 });
+const body2Config = mergeConfig(bodyConfig, configBody2);
 const Body2Component = component(body2Config);
 
-const body3Config = mergeConfig(bodyConfig, { ...bodyConfigCustom, defaults: bodyDefaults.body3 });
+const body3Config = mergeConfig(bodyConfig, configBody3);
 const Body3Component = component(body3Config);
 
-const button1Config = mergeConfig(buttonTypographyConfig, { ...buttonConfigCustom, defaults: buttonDefaults.button1 });
+const button1Config = mergeConfig(buttonTypographyConfig, configButton1);
 const Button1Component = component(button1Config);
 
-const button2Config = mergeConfig(buttonTypographyConfig, { ...buttonConfigCustom, defaults: buttonDefaults.button2 });
+const button2Config = mergeConfig(buttonTypographyConfig, configButton2);
 const Button2Component = component(button2Config);
 
 const captionConfig = mergeConfig(captionDefaultConfig, captionConfigCustom);
 const CaptionComponent = component(captionConfig);
 
-const display1Config = mergeConfig(displayConfig, { ...displayConfigCustom, defaults: displayDefaults.display1 });
+const display1Config = mergeConfig(displayConfig, configDisplay1);
 const Display1Component = component(display1Config);
 
-const display2Config = mergeConfig(displayConfig, { ...displayConfigCustom, defaults: displayDefaults.display2 });
+const display2Config = mergeConfig(displayConfig, configDisplay2);
 const Display2Component = component(display2Config);
 
-const display3Config = mergeConfig(displayConfig, { ...displayConfigCustom, defaults: displayDefaults.display3 });
+const display3Config = mergeConfig(displayConfig, configDisplay3);
 const Display3Component = component(display3Config);
 
-const footnote1Config = mergeConfig(footnoteConfig, { ...footnoteConfigCustom, defaults: footnoteDefaults.footnote1 });
+const footnote1Config = mergeConfig(footnoteConfig, configFootnote1);
 const Footnote1Component = component(footnote1Config);
 
-const footnote2Config = mergeConfig(footnoteConfig, { ...footnoteConfigCustom, defaults: footnoteDefaults.footnote2 });
+const footnote2Config = mergeConfig(footnoteConfig, configFootnote2);
 const Footnote2Component = component(footnote2Config);
 
-const headline1Config = mergeConfig(headlineConfig, { ...headlineConfigCustom, defaults: headlineDefaults.headline1 });
+const headline1Config = mergeConfig(headlineConfig, configHeadline1);
 const Headline1Component = component(headline1Config);
 
-const headline2Config = mergeConfig(headlineConfig, { ...headlineConfigCustom, defaults: headlineDefaults.headline2 });
+const headline2Config = mergeConfig(headlineConfig, configHeadline2);
 const Headline2Component = component(headline2Config);
 
-const headline3Config = mergeConfig(headlineConfig, { ...headlineConfigCustom, defaults: headlineDefaults.headline3 });
+const headline3Config = mergeConfig(headlineConfig, configHeadline3);
 const Headline3Component = component(headline3Config);
 
-const headline4Config = mergeConfig(headlineConfig, { ...headlineConfigCustom, defaults: headlineDefaults.headline4 });
+const headline4Config = mergeConfig(headlineConfig, configHeadline4);
 const Headline4Component = component(headline4Config);
 
-const headline5Config = mergeConfig(headlineConfig, { ...headlineConfigCustom, defaults: headlineDefaults.headline5 });
+const headline5Config = mergeConfig(headlineConfig, configHeadline5);
 const Headline5Component = component(headline5Config);
 
 const underlineConfig = mergeConfig(underlineDefaultConfig, underlineConfigCustom);
@@ -76,17 +78,17 @@ const UnderlineComponent = component(underlineConfig);
 const subtitleConfig = mergeConfig(subtitleDefaultConfig, subtitleConfigCustom);
 const SubtitleComponent = component(subtitleConfig);
 
-const paragraph1Config = mergeConfig(paragraphConfig, {
-    ...paragraphConfigCustom,
-    defaults: paragraphDefaults.paragraph1,
-});
+const paragraph1Config = mergeConfig(paragraphConfig, configParagraph1);
 const Paragraph1Component = component(paragraph1Config);
 
-const paragraph2Config = mergeConfig(paragraphConfig, {
-    ...paragraphConfigCustom,
-    defaults: paragraphDefaults.paragraph2,
-});
+const paragraph2Config = mergeConfig(paragraphConfig, configParagraph2);
 const Paragraph2Component = component(paragraph2Config);
+
+const paragraphText1Config = mergeConfig(paragraphTextConfig, configParagraphText1);
+const ParagraphText1Component = component(paragraphText1Config);
+
+const paragraphText2Config = mergeConfig(paragraphTextConfig, configParagraphText2);
+const ParagraphText2Component = component(paragraphText2Config);
 
 export const Body1 = Body1Component;
 export const Body2 = Body2Component;
@@ -112,6 +114,9 @@ export const Headline5 = Headline5Component;
 
 export const P1 = Paragraph1Component;
 export const P2 = Paragraph2Component;
+
+export const ParagraphText1 = ParagraphText1Component;
+export const ParagraphText2 = ParagraphText2Component;
 
 export const Underline = UnderlineComponent;
 

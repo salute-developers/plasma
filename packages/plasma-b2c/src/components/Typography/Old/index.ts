@@ -6,6 +6,7 @@ import {
     footnoteConfig,
     headlineConfig,
     paragraphConfig,
+    paragraphTextConfig,
     underlineConfig as underlineDefaultConfig,
     subtitleConfig as subtitleDefaultConfig,
     component,
@@ -19,6 +20,7 @@ import { configDisplay1, configDisplay2, configDisplay3 } from './Display.config
 import { configFootnote1, configFootnote2 } from './Footnote.config';
 import { configHeadline1, configHeadline2, configHeadline3, configHeadline4, configHeadline5 } from './Headline.config';
 import { configParagraph1, configParagraph2 } from './Paragraph.config';
+import { configParagraphText1, configParagraphText2 } from './ParagraphText.config';
 import { config as underlineConfigCustom } from './Underline.config';
 import { config as subtitleConfigCustom } from './Subtitle.config';
 
@@ -82,6 +84,12 @@ const Paragraph1Component = component(paragraph1Config);
 const paragraph2Config = mergeConfig(paragraphConfig, configParagraph2);
 const Paragraph2Component = component(paragraph2Config);
 
+const paragraphText1Config = mergeConfig(paragraphTextConfig, configParagraphText1);
+const ParagraphText1Component = component(paragraphText1Config);
+
+const paragraphText2Config = mergeConfig(paragraphTextConfig, configParagraphText2);
+const ParagraphText2Component = component(paragraphText2Config);
+
 export const Body1 = Body1Component;
 export const Body2 = Body2Component;
 export const Body3 = Body3Component;
@@ -106,6 +114,9 @@ export const Headline5 = Headline5Component;
 
 export const P1 = Paragraph1Component;
 export const P2 = Paragraph2Component;
+
+export const ParagraphText1 = ParagraphText1Component;
+export const ParagraphText2 = ParagraphText2Component;
 
 export const Underline = UnderlineComponent;
 

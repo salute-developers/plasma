@@ -1,18 +1,6 @@
 import { css, typographyTokens } from '@salutejs/plasma-new-hope/styled-components';
 
-export const defaults = {
-    display1: {
-        size: 'display1',
-    },
-    display2: {
-        size: 'display2',
-    },
-    display3: {
-        size: 'display3',
-    },
-};
-
-export const config = {
+export const configDisplay1 = {
     defaults: {
         size: 'display1',
     },
@@ -26,6 +14,16 @@ export const config = {
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-display1-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-display1-line-height);
             `,
+        },
+    },
+};
+
+export const configDisplay2 = {
+    defaults: {
+        size: 'display2',
+    },
+    variations: {
+        size: {
             display2: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-display2-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-display2-font-size);
@@ -34,6 +32,16 @@ export const config = {
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-display2-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-display2-line-height);
             `,
+        },
+    },
+};
+
+export const configDisplay3 = {
+    defaults: {
+        size: 'display3',
+    },
+    variations: {
+        size: {
             display3: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-display3-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-display3-font-size);

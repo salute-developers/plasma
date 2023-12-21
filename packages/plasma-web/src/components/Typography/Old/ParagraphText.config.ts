@@ -1,8 +1,8 @@
 import { css, typographyTokens } from '@salutejs/plasma-new-hope/styled-components';
 
-export const configParagraph1 = {
+export const configParagraphText1 = {
     defaults: {
-        size: 'paragraph1',
+        size: 'paragraphText1',
     },
     variations: {
         size: {
@@ -18,9 +18,9 @@ export const configParagraph1 = {
     },
 };
 
-export const configParagraph2 = {
+export const configParagraphText2 = {
     defaults: {
-        size: 'paragraph2',
+        size: 'paragraphText2',
     },
     variations: {
         size: {
