@@ -6,7 +6,7 @@ export const configParagraphText1 = {
     },
     variations: {
         size: {
-            paragraph1: css`
+            paragraphText1: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-paragraph1-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-paragraph1-font-size);
                 ${typographyTokens.typoFontStyle}: var(--plasma-typo-paragraph1-font-style);
@@ -24,7 +24,7 @@ export const configParagraphText2 = {
     },
     variations: {
         size: {
-            paragraph2: css`
+            paragraphText2: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-paragraph2-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-paragraph2-font-size);
                 ${typographyTokens.typoFontStyle}: var(--plasma-typo-paragraph2-font-style);
