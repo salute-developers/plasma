@@ -1,5 +1,7 @@
 export const classes = {
     selectedSegmentItem: 'selected-segment-item',
+    segmentPilled: 'segment-pilled',
+    segmentGroupFilledBackground: 'segment-group-filled-background',
 };
 
 export const tokens = {

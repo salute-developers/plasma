@@ -1,9 +1,9 @@
 import { css } from '@linaria/core';
 
-import { tokens } from '../../../../tokens';
+import { classes, tokens } from '../../../../tokens';
 
 export const base = css`
-    &[data-filled='true'] {
+    &.${String(classes.segmentGroupFilledBackground)} {
         background-color: var(${tokens.groupFilledBackgroundColor});
     }
 `;

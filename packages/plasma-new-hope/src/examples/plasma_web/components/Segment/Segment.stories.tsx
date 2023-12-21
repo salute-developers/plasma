@@ -1,6 +1,5 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
-import { disableProps } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { segmentGroupConfig } from '../../../../components/Segment';
@@ -8,10 +7,19 @@ import { mergeConfig } from '../../../../engines';
 import { WithTheme, argTypesFromConfig } from '../../../_helpers';
 import { SegmentProvider } from '../../../../components/Segment/SegmentProvider';
 
-import { config } from './Segment.config';
+import { config } from './SegmentGroup.config';
 import { SegmentItem, SegmentGroup } from './Segment';
 
-const meta: Meta<typeof SegmentGroup> = {
+const selectedViews = ['default', 'card', 'inverse'];
+
+type CustomStorySegmentProps = {
+    selectedView?: string;
+    contentItemsNumber?: number;
+};
+
+type StorySegmentProps = ComponentProps<typeof SegmentGroup> & CustomStorySegmentProps;
+
+const meta: Meta<StorySegmentProps> = {
     title: 'plasma_web/Segment',
     decorators: [WithTheme],
     component: SegmentGroup,
@@ -23,15 +31,16 @@ const meta: Meta<typeof SegmentGroup> = {
                 type: 'select',
             },
         },
-        ...disableProps([]),
+        selectedView: {
+            options: selectedViews,
+            control: {
+                type: 'select',
+            },
+        },
     },
 };
 
 export default meta;
-
-type StorySegmentProps = ComponentProps<typeof SegmentGroup> & {
-    contentItemsNumber?: number;
-};
 
 const StoryDefault = ({ contentItemsNumber, selectionMode, ...args }: StorySegmentProps) => {
     const contentItems = Array(contentItemsNumber).fill(0);

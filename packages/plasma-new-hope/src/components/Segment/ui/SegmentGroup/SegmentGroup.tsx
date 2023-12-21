@@ -5,7 +5,8 @@ import { safeUseId, useCarousel } from '@salutejs/plasma-core';
 import type { RootProps } from '../../../../engines/types';
 import { IconDisclosureLeft, IconDisclosureRight } from '../../../_Icon';
 import { useSegment } from '../../SegmentProvider';
-import { tokens } from '../../tokens';
+import { classes, tokens } from '../../tokens';
+import { cx } from '../../../../utils';
 
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
@@ -36,6 +37,8 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
 
         const pilledAttr = view !== 'clear' && pilled;
         const filledBackgroundAttr = view !== 'clear' && filledBackground;
+        const pilledClass = pilledAttr ? classes.segmentPilled : undefined;
+        const filledClass = filledBackgroundAttr ? classes.segmentGroupFilledBackground : undefined;
 
         const [index, setIndex] = useState(0);
         const [firstItemVisible, setFirstItemVisible] = useState(false);
@@ -148,11 +151,10 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
                 size={size}
                 id={segmentGroupId}
                 ref={outerRef}
-                data-pilled={pilledAttr}
-                pilled={pilledAttr}
-                data-filled={filledBackgroundAttr}
                 filledBackground={filledBackgroundAttr}
                 disabled={disabled}
+                pilled={pilledAttr}
+                className={cx(pilledClass, filledClass)}
                 {...rest}
             >
                 {!firstItemVisible && PreviousButton}
