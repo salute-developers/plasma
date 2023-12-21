@@ -3,14 +3,13 @@ import type { ComponentProps } from 'react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
 
-import { SegmentItem } from './SegmentItem';
-import { SegmentGroup } from './SegmentGroup';
+import { SegmentItem, SegmentGroup } from './Segment';
 
 import { SegmentProvider } from '.';
 
 const views = ['clear', 'filled'];
 const sizes = ['l', 'm', 's', 'xs'];
-const segmentItemViews = ['clear', 'filled', 'default', 'card', 'inverse'];
+const segmentItemViews = ['clear', 'default', 'secondary'];
 
 type CustomStorySegmentProps = {
     segmentItemView?: string;

@@ -10,7 +10,7 @@ import { SegmentProvider } from '../../../../components/Segment/SegmentProvider'
 import { config } from './SegmentGroup.config';
 import { SegmentItem, SegmentGroup } from './Segment';
 
-const segmentItemViews = ['clear', 'filled', 'default', 'card', 'inverse'];
+const segmentItemViews = ['clear', 'default', 'secondary'];
 
 type CustomStorySegmentProps = {
     segmentItemView?: string;
