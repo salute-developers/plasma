@@ -396,5 +396,4 @@ export const underline = {
     fontSize: 'var(--plasma-typo-underline-font-size)',
     letterSpacing: 'var(--plasma-typo-underline-letter-spacing)',
     lineHeight: 'var(--plasma-typo-underline-line-height)',
-    textTransform: 'uppercase',
 };
