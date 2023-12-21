@@ -21,32 +21,7 @@ export const config = {
 
                 ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
             `,
-            filled: css`
-                ${segmentTokens.itemColor}: var(--text-primary);
-                ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: var(--text-primary);
-                ${segmentTokens.itemBackgroundColorHover}: transparent;
-                ${segmentTokens.itemSelectedColor}: var(--text-primary);
-                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-transparent-card);
-                ${segmentTokens.itemSelectedColorHover}: var(--text-primary);
-                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-transparent-card);
-
-                ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
-            `,
-            default: css`
-                ${segmentTokens.itemColor}: var(--text-primary);
-                ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: var(--text-primary);
-                ${segmentTokens.itemBackgroundColorHover}: transparent;
-                ${segmentTokens.itemSelectedColor}: var(--text-primary);
-                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-transparent-card);
-                ${segmentTokens.itemSelectedColorHover}: var(--text-primary);
-                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-transparent-card);
-
-                ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
-            `,
-
-            card: css`
+            secondary: css`
                 ${segmentTokens.itemColor}: var(--text-primary);
                 ${segmentTokens.itemBackgroundColor}: transparent;
                 ${segmentTokens.itemColorHover}: var(--text-primary);
@@ -58,7 +33,7 @@ export const config = {
 
                 ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
             `,
-            inverse: css`
+            default: css`
                 ${segmentTokens.itemColor}: var(--text-primary);
                 ${segmentTokens.itemBackgroundColor}: transparent;
                 ${segmentTokens.itemColorHover}: var(--text-primary);

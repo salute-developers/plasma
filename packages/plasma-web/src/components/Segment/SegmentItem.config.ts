@@ -19,43 +19,7 @@ export const config = {
 
                 ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
             `,
-            filled: css`
-                ${segmentTokens.itemColor}: var(--plasma-colors-primary);
-                ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: var(--plasma-colors-primary);
-                ${segmentTokens.itemBackgroundColorHover}: transparent;
-                ${segmentTokens.itemSelectedColor}: var(--plasma-colors-primary);
-                ${segmentTokens.itemSelectedBackgroundColor}: var(--plasma-colors-background);
-                ${segmentTokens.itemSelectedColorHover}: var(--plasma-colors-primary);
-                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--plasma-colors-background);
-
-                ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
-            `,
             default: css`
-                ${segmentTokens.itemColor}: var(--plasma-colors-primary);
-                ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: var(--plasma-colors-primary);
-                ${segmentTokens.itemBackgroundColorHover}: transparent;
-                ${segmentTokens.itemSelectedColor}: var(--plasma-colors-primary);
-                ${segmentTokens.itemSelectedBackgroundColor}: var(--plasma-colors-surface-card);
-                ${segmentTokens.itemSelectedColorHover}: var(--plasma-colors-primary);
-                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--plasma-colors-surface-card);
-
-                ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
-            `,
-            card: css`
-                ${segmentTokens.itemColor}: var(--plasma-colors-primary);
-                ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: var(--plasma-colors-primary);
-                ${segmentTokens.itemBackgroundColorHover}: transparent;
-                ${segmentTokens.itemSelectedColor}: var(--plasma-colors-primary);
-                ${segmentTokens.itemSelectedBackgroundColor}: var(--plasma-colors-surface-solid01);
-                ${segmentTokens.itemSelectedColorHover}: var(--plasma-colors-primary);
-                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--plasma-colors-surface-solid01);
-
-                ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
-            `,
-            inverse: css`
                 ${segmentTokens.itemColor}: var(--plasma-colors-primary);
                 ${segmentTokens.itemBackgroundColor}: transparent;
                 ${segmentTokens.itemColorHover}: var(--plasma-colors-primary);
@@ -64,6 +28,18 @@ export const config = {
                 ${segmentTokens.itemSelectedBackgroundColor}: var(--plasma-colors-text);
                 ${segmentTokens.itemSelectedColorHover}: var(--plasma-colors-inverse);
                 ${segmentTokens.itemSelectedBackgroundColorHover}: var(--plasma-colors-text);
+
+                ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
+            `,
+            secondary: css`
+                ${segmentTokens.itemColor}: var(--plasma-colors-primary);
+                ${segmentTokens.itemBackgroundColor}: transparent;
+                ${segmentTokens.itemColorHover}: var(--plasma-colors-primary);
+                ${segmentTokens.itemBackgroundColorHover}: transparent;
+                ${segmentTokens.itemSelectedColor}: var(--plasma-colors-primary);
+                ${segmentTokens.itemSelectedBackgroundColor}: var(--plasma-colors-surface-card);
+                ${segmentTokens.itemSelectedColorHover}: var(--plasma-colors-primary);
+                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--plasma-colors-surface-card);
 
                 ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
             `,

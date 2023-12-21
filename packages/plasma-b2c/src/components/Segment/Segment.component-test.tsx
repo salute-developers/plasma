@@ -51,9 +51,9 @@ describe('plasma-web: Segment', () => {
                 <PadMe />
                 <SegmentProvider>
                     <SegmentGroup view="filled">
-                        <SegmentItem value="segment_1" label="Segment 1" view="filled" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="filled" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="filled" />
+                        <SegmentItem value="segment_1" label="Segment 1" view="default" />
+                        <SegmentItem value="segment_2" label="Segment 2" view="default" />
+                        <SegmentItem value="segment_3" label="Segment 3" view="default" />
                     </SegmentGroup>
                 </SegmentProvider>
             </CypressTestDecorator>,
@@ -74,9 +74,9 @@ describe('plasma-web: Segment', () => {
                 <PadMe />
                 <SegmentProvider>
                     <SegmentGroup view="filled" filledBackground>
-                        <SegmentItem value="segment_1" label="Segment 1" view="filled" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="filled" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="filled" />
+                        <SegmentItem value="segment_1" label="Segment 1" view="default" />
+                        <SegmentItem value="segment_2" label="Segment 2" view="default" />
+                        <SegmentItem value="segment_3" label="Segment 3" view="default" />
                     </SegmentGroup>
                 </SegmentProvider>
             </CypressTestDecorator>,
@@ -89,9 +89,9 @@ describe('plasma-web: Segment', () => {
             <CypressTestDecorator>
                 <SegmentProvider>
                     <SegmentGroup view="filled" selectionMode="multiple" size="xs" filledBackground pilled>
-                        <SegmentItem view="filled" size="xs" value="segment_1" label="Segment 1" pilled />
-                        <SegmentItem view="filled" size="xs" value="segment_2" label="Segment 2" pilled />
-                        <SegmentItem view="filled" size="xs" value="segment_3" label="Segment 3" pilled />
+                        <SegmentItem view="default" size="xs" value="segment_1" label="Segment 1" pilled />
+                        <SegmentItem view="default" size="xs" value="segment_2" label="Segment 2" pilled />
+                        <SegmentItem view="default" size="xs" value="segment_3" label="Segment 3" pilled />
                     </SegmentGroup>
                 </SegmentProvider>
                 <PadMe />
@@ -105,17 +105,17 @@ describe('plasma-web: Segment', () => {
                 <PadMe />
                 <SegmentProvider>
                     <SegmentGroup view="filled" selectionMode="multiple" size="m" filledBackground pilled>
-                        <SegmentItem view="card" size="m" value="segment_1.2" label="Segment 1.2" pilled />
-                        <SegmentItem view="card" size="m" value="segment_2.2" label="Segment 2.2" pilled />
-                        <SegmentItem view="card" size="m" value="segment_3.2" label="Segment 3.2" pilled />
+                        <SegmentItem view="secondary" size="m" value="segment_1.2" label="Segment 1.2" pilled />
+                        <SegmentItem view="secondary" size="m" value="segment_2.2" label="Segment 2.2" pilled />
+                        <SegmentItem view="secondary" size="m" value="segment_3.2" label="Segment 3.2" pilled />
                     </SegmentGroup>
                 </SegmentProvider>
                 <PadMe />
                 <SegmentProvider>
                     <SegmentGroup view="filled" selectionMode="multiple" size="l" filledBackground pilled>
-                        <SegmentItem view="inverse" size="l" value="segment_1.3" label="Segment 1.3" pilled />
-                        <SegmentItem view="inverse" size="l" value="segment_2.3" label="Segment 2.3" pilled />
-                        <SegmentItem view="inverse" size="l" value="segment_3.3" label="Segment 3.3" pilled />
+                        <SegmentItem view="secondary" size="l" value="segment_1.3" label="Segment 1.3" pilled />
+                        <SegmentItem view="secondary" size="l" value="segment_2.3" label="Segment 2.3" pilled />
+                        <SegmentItem view="secondary" size="l" value="segment_3.3" label="Segment 3.3" pilled />
                     </SegmentGroup>
                 </SegmentProvider>
                 <PadMe />
@@ -142,9 +142,9 @@ describe('plasma-web: Segment', () => {
             <CypressTestDecorator>
                 <SegmentProvider>
                     <SegmentGroup view="filled" filledBackground disabled>
-                        <SegmentItem value="segment_1" label="Segment 1" view="filled" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="filled" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="filled" />
+                        <SegmentItem value="segment_1" label="Segment 1" view="default" />
+                        <SegmentItem value="segment_2" label="Segment 2" view="default" />
+                        <SegmentItem value="segment_3" label="Segment 3" view="default" />
                     </SegmentGroup>
                 </SegmentProvider>
             </CypressTestDecorator>,
@@ -157,33 +157,33 @@ describe('plasma-web: Segment', () => {
             <CypressTestDecorator>
                 <SegmentProvider>
                     <SegmentGroup view="filled" filledBackground size="xs">
-                        <SegmentItem value="segment_1" label="Segment 1" view="filled" size="xs" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="filled" size="xs" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="filled" size="xs" />
+                        <SegmentItem value="segment_1" label="Segment 1" view="default" size="xs" />
+                        <SegmentItem value="segment_2" label="Segment 2" view="default" size="xs" />
+                        <SegmentItem value="segment_3" label="Segment 3" view="default" size="xs" />
                     </SegmentGroup>
                 </SegmentProvider>
                 <PadMe />
                 <SegmentProvider>
                     <SegmentGroup view="filled" filledBackground size="s">
-                        <SegmentItem value="segment_1" label="Segment 1" view="filled" size="s" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="filled" size="s" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="filled" size="s" />
+                        <SegmentItem value="segment_1" label="Segment 1" view="default" size="s" />
+                        <SegmentItem value="segment_2" label="Segment 2" view="default" size="s" />
+                        <SegmentItem value="segment_3" label="Segment 3" view="default" size="s" />
                     </SegmentGroup>
                 </SegmentProvider>
                 <PadMe />
                 <SegmentProvider>
                     <SegmentGroup view="filled" filledBackground size="m">
-                        <SegmentItem value="segment_1" label="Segment 1" view="filled" size="m" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="filled" size="m" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="filled" size="m" />
+                        <SegmentItem value="segment_1" label="Segment 1" view="default" size="m" />
+                        <SegmentItem value="segment_2" label="Segment 2" view="default" size="m" />
+                        <SegmentItem value="segment_3" label="Segment 3" view="default" size="m" />
                     </SegmentGroup>
                 </SegmentProvider>
                 <PadMe />
                 <SegmentProvider>
                     <SegmentGroup view="filled" filledBackground size="l">
-                        <SegmentItem value="segment_1" label="Segment 1" view="filled" size="l" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="filled" size="l" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="filled" size="l" />
+                        <SegmentItem value="segment_1" label="Segment 1" view="default" size="l" />
+                        <SegmentItem value="segment_2" label="Segment 2" view="default" size="l" />
+                        <SegmentItem value="segment_3" label="Segment 3" view="default" size="l" />
                     </SegmentGroup>
                 </SegmentProvider>
             </CypressTestDecorator>,
@@ -196,9 +196,9 @@ describe('plasma-web: Segment', () => {
             <CypressTestDecorator>
                 <SegmentProvider>
                     <SegmentGroup view="filled" filledBackground>
-                        <SegmentItem value="segment_1" label="Segment 1" view="filled" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="filled" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="filled" />
+                        <SegmentItem value="segment_1" label="Segment 1" view="default" />
+                        <SegmentItem value="segment_2" label="Segment 2" view="default" />
+                        <SegmentItem value="segment_3" label="Segment 3" view="default" />
                     </SegmentGroup>
                 </SegmentProvider>
             </CypressTestDecorator>,
@@ -214,9 +214,9 @@ describe('plasma-web: Segment', () => {
             <CypressTestDecorator>
                 <SegmentProvider>
                     <SegmentGroup selectionMode="multiple" view="filled" filledBackground>
-                        <SegmentItem value="segment_1" label="Segment 1" view="inverse" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="inverse" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="inverse" />
+                        <SegmentItem value="segment_1" label="Segment 1" view="default" />
+                        <SegmentItem value="segment_2" label="Segment 2" view="default" />
+                        <SegmentItem value="segment_3" label="Segment 3" view="default" />
                     </SegmentGroup>
                 </SegmentProvider>
             </CypressTestDecorator>,
@@ -233,9 +233,9 @@ describe('plasma-web: Segment', () => {
             <CypressTestDecorator>
                 <SegmentProvider>
                     <SegmentGroup style={{ width: '10rem' }} view="filled" filledBackground>
-                        <SegmentItem value="segment_1" label="Segment 1" view="filled" />
-                        <SegmentItem value="segment_2" label="Segment 2" view="filled" />
-                        <SegmentItem value="segment_3" label="Segment 3" view="filled" />
+                        <SegmentItem value="segment_1" label="Segment 1" view="default" />
+                        <SegmentItem value="segment_2" label="Segment 2" view="default" />
+                        <SegmentItem value="segment_3" label="Segment 3" view="default" />
                     </SegmentGroup>
                 </SegmentProvider>
             </CypressTestDecorator>,
