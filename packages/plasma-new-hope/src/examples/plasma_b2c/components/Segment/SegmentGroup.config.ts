@@ -52,6 +52,9 @@ export const config = {
                 ${segmentTokens.groupPilledBorderRadius}: 1.75rem;
             `,
         },
+        stretch: {
+            true: css``,
+        },
         filledBackground: {
             true: css`
                 ${segmentTokens.groupFilledBackgroundColor}: var(--plasma-colors-surface-liquid02);

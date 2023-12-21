@@ -13,6 +13,7 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as pilledCSS } from './variations/_pilled/base';
 import { base as filledBackgroundCSS } from './variations/_filledBackgound/base';
+import { base as stretchCSS } from './variations/_stretch/base';
 import type { SegmentGroupProps } from './SegmentGroup.types';
 import { StyledArrow, StyledContent, StyledContentWrapper, base } from './SegmentGroup.styles';
 
@@ -22,6 +23,7 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
             id,
             selectionMode,
             pilled,
+            stretch,
             filledBackground = false,
             disabled = false,
             size,
@@ -32,6 +34,10 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
 
         const { setSelectionMode, setDisabledGroup } = useSegmentInner();
 
+        const [index, setIndex] = useState(0);
+        const [firstItemVisible, setFirstItemVisible] = useState(false);
+        const [lastItemVisible, setLastItemVisible] = useState(false);
+
         const uniqId = safeUseId();
         const segmentGroupId = id || uniqId;
 
@@ -39,10 +45,7 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
         const filledBackgroundAttr = view !== 'clear' && filledBackground;
         const pilledClass = pilledAttr ? classes.segmentPilled : undefined;
         const filledClass = filledBackgroundAttr ? classes.segmentGroupFilledBackground : undefined;
-
-        const [index, setIndex] = useState(0);
-        const [firstItemVisible, setFirstItemVisible] = useState(false);
-        const [lastItemVisible, setLastItemVisible] = useState(false);
+        const stretchClass = firstItemVisible && lastItemVisible && stretch ? classes.segmentStretch : undefined;
 
         const items = Children?.map(children, (child) => child) || [];
 
@@ -153,7 +156,7 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
                 filledBackground={filledBackgroundAttr}
                 disabled={disabled}
                 pilled={pilledAttr}
-                className={cx(pilledClass, filledClass)}
+                className={cx(pilledClass, filledClass, stretchClass)}
                 {...rest}
             >
                 {!firstItemVisible && PreviousButton}
@@ -183,6 +186,10 @@ export const segmentGroupConfig = {
         },
         pilled: {
             css: pilledCSS,
+            attrs: true,
+        },
+        stretch: {
+            css: stretchCSS,
             attrs: true,
         },
         filledBackground: {

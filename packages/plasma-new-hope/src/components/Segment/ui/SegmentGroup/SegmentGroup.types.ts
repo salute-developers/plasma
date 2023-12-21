@@ -10,6 +10,10 @@ type CustomSegmentGroupProps = {
      */
     disabled?: boolean;
     /**
+     * Группа сегментов группа сегментов растянута на доступную область
+     */
+    stretch?: boolean;
+    /**
      * Группа сегментов c округлым border-radius
      */
     pilled?: boolean;
