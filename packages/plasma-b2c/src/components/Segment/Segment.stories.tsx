@@ -100,6 +100,7 @@ export const Default: StoryObj<StorySegmentProps> = {
         pilled: false,
         filledBackground: false,
         disabled: false,
+        stretch: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };

@@ -57,5 +57,8 @@ export const config = {
                 ${segmentTokens.groupFilledBackgroundColor}: var(--plasma-colors-surface-liquid01);
             `,
         },
+        stretch: {
+            true: css``,
+        },
     },
 };
