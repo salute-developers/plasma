@@ -8,9 +8,6 @@ export const config = {
     variations: {
         view: {
             clear: css`
-                ${segmentTokens.groupBackgroundColor}: tranparent;
-                ${segmentTokens.arrowColor}: var(--plasma-colors-secondary);
-
                 ${segmentTokens.itemColor}: var(--plasma-colors-secondary);
                 ${segmentTokens.itemBackgroundColor}: transparent;
                 ${segmentTokens.itemColorHover}: var(--plasma-colors-primary);
@@ -23,9 +20,6 @@ export const config = {
                 ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
             `,
             filled: css`
-                ${segmentTokens.groupBackgroundColor}: transparent;
-                ${segmentTokens.arrowColor}: var(--plasma-colors-secondary);
-
                 ${segmentTokens.itemColor}: var(--plasma-colors-primary);
                 ${segmentTokens.itemBackgroundColor}: transparent;
                 ${segmentTokens.itemColorHover}: var(--plasma-colors-primary);
@@ -76,10 +70,6 @@ export const config = {
         },
         size: {
             xs: css`
-                ${segmentTokens.groupBorderRadius}: 0.5rem;
-                ${segmentTokens.groupWidth}: auto;
-                ${segmentTokens.groupHeight}: auto;
-
                 ${segmentTokens.itemBorderRadius}: 0.375rem;
                 ${segmentTokens.itemWidth}: auto;
                 ${segmentTokens.itemHeight}: 1.5rem;
@@ -94,10 +84,6 @@ export const config = {
                 ${segmentTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             s: css`
-                ${segmentTokens.groupBorderRadius}: 0.625rem;
-                ${segmentTokens.groupWidth}: auto;
-                ${segmentTokens.groupHeight}: auto;
-
                 ${segmentTokens.itemBorderRadius}: 0.5rem;
                 ${segmentTokens.itemWidth}: auto;
                 ${segmentTokens.itemHeight}: 2rem;
@@ -112,10 +98,6 @@ export const config = {
                 ${segmentTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
             `,
             m: css`
-                ${segmentTokens.groupBorderRadius}: 0.75rem;
-                ${segmentTokens.groupWidth}: auto;
-                ${segmentTokens.groupHeight}: auto;
-
                 ${segmentTokens.itemBorderRadius}: 0.625rem;
                 ${segmentTokens.itemWidth}: auto;
                 ${segmentTokens.itemHeight}: 2.5rem;
@@ -130,10 +112,6 @@ export const config = {
                 ${segmentTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             l: css`
-                ${segmentTokens.groupBorderRadius}: 0.75rem;
-                ${segmentTokens.groupWidth}: auto;
-                ${segmentTokens.groupHeight}: auto;
-
                 ${segmentTokens.itemBorderRadius}: 0.75rem;
                 ${segmentTokens.itemWidth}: auto;
                 ${segmentTokens.itemHeight}: 3rem;
@@ -156,12 +134,6 @@ export const config = {
         pilled: {
             true: css`
                 ${segmentTokens.itemPilledBorderRadius}: 1.5rem;
-                ${segmentTokens.groupPilledBorderRadius}: 1.75rem;
-            `,
-        },
-        filledBackground: {
-            true: css`
-                ${segmentTokens.groupFilledBackgroundColor}: var(--plasma-colors-surface-liquid01);
             `,
         },
     },

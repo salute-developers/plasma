@@ -253,8 +253,11 @@ describe('plasma-web: Segment', () => {
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('body').find('[aria-label="Следующий сегмент"]').click({ waitForAnimations: true });
-        cy.get('body').find('[aria-label="Предыдущий сегмент"]', { timeout: 500 });
+        cy.get('body').find('[aria-label="Следующий сегмент"]').click();
+        cy.get('body').find('[aria-label="Предыдущий сегмент"]');
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(500);
 
         cy.matchImageSnapshot();
     });

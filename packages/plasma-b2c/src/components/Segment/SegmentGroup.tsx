@@ -1,6 +1,6 @@
 import { segmentGroupConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
 
-import { config } from './Segment.config';
+import { config } from './SegmentGroup.config';
 
 const mergedSegmentGroupConfig = mergeConfig(segmentGroupConfig, config);
 
