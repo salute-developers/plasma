@@ -28,9 +28,20 @@ const StyledItemVirtual = styled.div<CarouselItemVirtualProps>`
     position: absolute;
 `;
 
-export const CarouselItem: React.FC<CarouselItemProps> = ({ scrollSnapAlign = 'center', children, ...rest }) => {
+export const CarouselItem: React.FC<CarouselItemProps> = ({
+    scrollSnapAlign = 'center',
+    scrollSnapStop = 'always',
+    children,
+    ...rest
+}) => {
     return (
-        <StyledItem scrollSnapAlign={scrollSnapAlign} role="group" aria-roledescription="slide" {...rest}>
+        <StyledItem
+            scrollSnapAlign={scrollSnapAlign}
+            scrollSnapStop={scrollSnapStop}
+            role="group"
+            aria-roledescription="slide"
+            {...rest}
+        >
             {children}
         </StyledItem>
     );
