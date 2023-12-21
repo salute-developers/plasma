@@ -38,6 +38,7 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
 
         const ariaLabelDefault = useMemo(() => extractTextFrom(label), [label]);
         const pilledAttr = view !== 'clear' && pilled;
+        const pilledClass = pilledAttr ? classes.segmentPilled : undefined;
 
         const isSelected = selectedSegmentItems.includes(value || ariaLabelDefault);
         const selectedClass = isSelected ? classes.selectedSegmentItem : undefined;
@@ -68,9 +69,8 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
                 data-selected-view={selectedViewAttr}
                 aria-label={ariaLabelExternal || ariaLabelDefault}
                 value={value}
-                data-pilled={pilledAttr}
                 pilled={pilledAttr}
-                className={cx(selectedClass)}
+                className={cx(selectedClass, pilledClass)}
                 onClick={handleSelectSegment}
                 tabIndex={disabledGroup ? -1 : 0}
                 disabled={disabledGroup}
