@@ -43,7 +43,7 @@ const meta: Meta<SpacingProps> = {
     title: 'Content/Typography',
     component: DsplL,
     argTypes: {
-        ...disableProps(['ref', 'theme', 'as', 'forwardedAs']),
+        ...disableProps(['size']),
     },
     decorators: [InSpacingDecorator],
 };
