@@ -1,3 +1,31 @@
+# v0.19.0 (Fri Dec 22 2023)
+
+#### 🚀 Enhancement
+
+- Release by 22.12.2023 [#944](https://github.com/salute-developers/plasma/pull/944) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@neretin-trike](https://github.com/neretin-trike))
+- feat: Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- feat: bump manual package-locks [#933](https://github.com/salute-developers/plasma/pull/933) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-*): Update config for `Link` component ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-asdk): refactor button config & story ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### 🐛 Bug Fix
+
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore(vite): bump to 4.5.1 ([@Yakutoc](https://github.com/Yakutoc))
+- docs(plasma-asdk): regenerate api report ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 5
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.14.0 (Thu Dec 14 2023)
 
 ### Release Notes

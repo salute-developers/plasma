@@ -1,3 +1,49 @@
+# v0.26.0 (Fri Dec 22 2023)
+
+#### 🚀 Enhancement
+
+- Release by 22.12.2023 [#944](https://github.com/salute-developers/plasma/pull/944) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@neretin-trike](https://github.com/neretin-trike))
+- feat: Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- feat(plasma-new-hope): add stretch prop for segment ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope/web/b2c): remove extra views for SegmentItem ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): unite selectedView & view props for SegmentItem ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): separate configs for segment ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): add view control from SegmentProvider ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): add segment stories in example ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): add segment item ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat: bump manual package-locks [#933](https://github.com/salute-developers/plasma/pull/933) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): make dspl and h bold by default ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): implement addFocus mixin in button ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-*): Update config for `Link` component ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-new-hope): fix Notification layout with long text [#927](https://github.com/salute-developers/plasma/pull/927) ([@kayman233](https://github.com/kayman233))
+- feat(plasma-new-hope): Notification redesign ([@kayman233](https://github.com/kayman233))
+- feat(plasma-new-hope): revert button tag for root [#896](https://github.com/salute-developers/plasma/pull/896) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): add comments for button types ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): refactor & add stretch/pin props ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### 🐛 Bug Fix
+
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- fix(plasma-new-hope): fix underline uppercase ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- fix(plasma-new-hope): fix aply hypens selector ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- fix(plasma-new-hope): Fix `TextArea` behavior with uncontrolled value ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-*): Add sizes for `Link` component ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-b2c,plasma-web): Update configs for components with new design ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-new-hope): Add support children props to `Tooltip` component [#937](https://github.com/salute-developers/plasma/pull/937) ([@neretin-trike](https://github.com/neretin-trike))
+- chore(vite): bump to 4.5.1 ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web, plasma-b2c): redesign Notification ([@kayman233](https://github.com/kayman233))
+
+#### Authors: 5
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.21.0 (Thu Dec 14 2023)
 
 ### Release Notes

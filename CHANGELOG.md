@@ -1,3 +1,142 @@
+# (Fri Dec 22 2023)
+
+### Release Notes
+
+#### Release by 22.12.2023 ([#945](https://github.com/salute-developers/plasma/pull/945))
+
+## Components
+
+### Upload
+
+- исправлены стили для StyledButton в состоянии isGrabbing
+
+ 
+plasma-hope: fix broken style for Upload button (https://github.com/salute-developers/plasma/pull/926)
+
+### Button
+
+- вынесены токены;
+- поправлено поведение props square;
+- добавлены недостающие props: stretch и pin
+
+ 
+feat(plasma-new-hope): refactor & add stretch/pin props (https://github.com/salute-developers/plasma/pull/896)
+
+### Notification
+
+-   добавлен новый дизайн компонента
+-   добавили новый api
+
+Было:
+<img width="329" alt="Снимок экрана 2023-12-14 в 17 16 05" src="https://github.com/salute-developers/plasma/assets/46107741/9c674b80-af3d-4339-abc1-8567c3470245">
+
+Стало:
+<img width="264" alt="Снимок экрана 2023-12-14 в 17 16 25" src="https://github.com/salute-developers/plasma/assets/46107741/eefb0cb5-9c70-47c3-84c9-a2ba21ff436f">
+
+ 
+plasma-new-hope: Notification redesign (https://github.com/salute-developers/plasma/pull/927)
+
+### Tooltip
+
+- для сохранения обратной совместимости  вернули поддержку prop children
+
+ 
+fix(plasma-new-hope): Add support children props to Tooltip component (https://github.com/salute-developers/plasma/pull/937)
+
+### TextArea, Radiobox, Checkbox, Link, Spinner 
+
+- добавлены/обновлены конфигурации в библиотеках "plasma-{web, b2c}"
+- добавлены/обновлены снапшоты на компоненты
+
+### Tokens
+
+- добавлена поддержка в темах новых цветовых токенов
+- добавлены fallback в библиотеках "plasma-tokens-{b2c, web, b2b}"
+
+ 
+feat(plasma-web,plasma-b2c): Add new design to plasma (https://github.com/salute-developers/plasma/pull/902)
+
+### Typography
+
+-   добавлена типографика в виде компонент в b2c / web
+-   добавлены миксины с токенами типографики в b2c / web
+-   исправлен компонент и миксин для Underline/ Headline5
+-   скорректированы некоторые тесты
+
+ 
+feat(plasma-b2c/web): add new typograhy to packages (https://github.com/salute-developers/plasma/pull/933)
+
+### Segment
+
+-  добавлен новый компонент для plasma-b2c/web
+-  написаны тесты для компонента
+
+#### Стало
+
+![image](https://github.com/salute-developers/plasma/assets/40370966/624f9831-5aa2-4fb8-bc0d-86211e6bb51e)
+
+ 
+feat(plasma-new-hope): Segment component (https://github.com/salute-developers/plasma/pull/931)
+
+
+## Infra
+
+### Cypress
+
+- добавлена возможность запустить тест для перечисленных компонентов 
+
+Запуск команды "npm run cy:web:run-ct --components=calendar,button" даст
+
+<img width="998" alt="Screenshot 2023-12-12 at 15 57 08" src="https://github.com/salute-developers/plasma/assets/2895992/4b48f71b-7e95-4711-b716-5ad021fb8fe7">
+
+
+ 
+plasma-infra: Run cypress with `--components` (https://github.com/salute-developers/plasma/pull/907)
+
+### Vite
+
+- подняли патч версию до 4.5.1 для решения проблемы локального запуска Storybook из-за **fsevents.watch is not a function**
+- закрыли [Vite XSS vulnerability in `server.transformIndexHtml` via URL payload](https://github.com/advisories/GHSA-92r3-m2mg-pj97)
+
+ 
+plasma-infra: Bump vite@4.5.1 (https://github.com/salute-developers/plasma/pull/934)
+
+---
+
+#### 🚀 Enhancement
+
+- feat: Update cypress-common yaml with new deps [#902](https://github.com/salute-developers/plasma/pull/902) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-asdk@0.19.0`, `@salutejs/plasma-b2c@1.260.0`, `@salutejs/plasma-core@1.142.0`, `@salutejs/plasma-hope@1.250.0`, `@salutejs/plasma-icons@1.174.0`, `@salutejs/plasma-new-hope@0.26.0`, `@salutejs/plasma-temple@1.192.0`, `@salutejs/plasma-tokens-b2b@1.32.0`, `@salutejs/plasma-tokens-b2c@0.42.0`, `@salutejs/plasma-tokens-web@1.47.0`, `@salutejs/plasma-tokens@1.67.0`, `@salutejs/plasma-ui@1.224.0`, `@salutejs/plasma-web@1.260.0`, `@salutejs/plasma-cy-utils@0.75.0`, `@salutejs/plasma-sb-utils@0.140.0`, `@salutejs/plasma-tokens-utils@0.36.0`
+  - Release by 22.12.2023 [#944](https://github.com/salute-developers/plasma/pull/944) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@neretin-trike](https://github.com/neretin-trike))
+  - feat: bump manual package-locks [#933](https://github.com/salute-developers/plasma/pull/933) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-b2c@1.260.0`, `@salutejs/plasma-web@1.260.0`
+  - feat(plasma-b2c/web): add stretch prop and update test [#931](https://github.com/salute-developers/plasma/pull/931) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-b2c@1.260.0`, `@salutejs/plasma-new-hope@0.26.0`, `@salutejs/plasma-web@1.260.0`
+  - fix(plasma-new-hope): fix Notification layout with long text [#927](https://github.com/salute-developers/plasma/pull/927) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-new-hope@0.26.0`
+  - feat(plasma-new-hope): revert button tag for root [#896](https://github.com/salute-developers/plasma/pull/896) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-hope@1.250.0`
+  - feat(plasma-hope): fix broken style for Upload button [#926](https://github.com/salute-developers/plasma/pull/926) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### 🐛 Bug Fix
+
+- Release by 22.12.2023 [#945](https://github.com/salute-developers/plasma/pull/945) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(chokidar): overrides version [#938](https://github.com/salute-developers/plasma/pull/938) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): update snapshots [#934](https://github.com/salute-developers/plasma/pull/934) ([@Yakutoc](https://github.com/Yakutoc))
+- docs(contributing): add paragraph about "Run cypress with --components" [#907](https://github.com/salute-developers/plasma/pull/907) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-new-hope@0.26.0`
+  - fix(plasma-new-hope): Add support children props to `Tooltip` component [#937](https://github.com/salute-developers/plasma/pull/937) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 5
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Thu Dec 14 2023)
 
 ### Release Notes

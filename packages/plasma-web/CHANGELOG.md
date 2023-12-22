@@ -1,3 +1,45 @@
+# v1.260.0 (Fri Dec 22 2023)
+
+#### 🚀 Enhancement
+
+- Release by 22.12.2023 [#944](https://github.com/salute-developers/plasma/pull/944) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@neretin-trike](https://github.com/neretin-trike))
+- feat: Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- feat(plasma-b2c/web): add stretch prop and update test [#931](https://github.com/salute-developers/plasma/pull/931) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope/web/b2c): remove extra views for SegmentItem ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-b2c/web): separate configs for segment ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-web): add Segment component with tests ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat: bump manual package-locks [#933](https://github.com/salute-developers/plasma/pull/933) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-b2c): refactor typography configs ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-b2c/web): add paragraphText component ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-web/b2c): add typography as tokens-mixins ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-b2c/web): add typography from new-hope ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-*): Update config for `Link` component ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-tokens-utils): Add methods for handle fallback themes ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-new-hope): fix Notification layout with long text [#927](https://github.com/salute-developers/plasma/pull/927) ([@kayman233](https://github.com/kayman233))
+
+#### 🐛 Bug Fix
+
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- docs(plasma-b2c/web): generate api docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- test(plasma-b2c/web): fix tests depending on typography ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-web,plasma-b2c): Update snapshots and add test ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-new-hope): Fix `TextArea` behavior with uncontrolled value ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-b2c,plasma-web): Update configs for components with new design ([@neretin-trike](https://github.com/neretin-trike))
+- chore(vite): bump to 4.5.1 ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web, plasma-b2c): redesign Notification ([@kayman233](https://github.com/kayman233))
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 5
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.254.0 (Thu Dec 14 2023)
 
 ### Release Notes
