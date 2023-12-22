@@ -44,7 +44,7 @@ const meta: Meta = {
     title: 'Content/Typography',
     component: DsplL,
     argTypes: {
-        ...disableProps(['ref', 'theme', 'as', 'forwardedAs']),
+        ...disableProps(['size']),
     },
     decorators: [InSpacingDecorator],
 };
