@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect } from 'react';
+import React, { forwardRef } from 'react';
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 
@@ -37,10 +37,6 @@ export const paragraphTextRoot = (Root: RootProps<HTMLDivElement, ParagraphTextP
 
         const withBreakWord = breakWord ? classes.typoWithBreakWord : undefined;
         const withResetMargin = resetMargin ? { margin: 0 } : {};
-        /*
-         * Хак, который фиксит применение applySpacing для linaria
-         */
-        useEffect(() => {}, []);
 
         return (
             <Root ref={ref} {...rest}>
