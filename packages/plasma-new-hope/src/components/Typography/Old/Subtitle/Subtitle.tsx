@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect } from 'react';
+import React, { forwardRef } from 'react';
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 
@@ -26,11 +26,6 @@ export const Subtitle = styled.div<SubtitleProps>`
 export const subtitleRoot = (Root: RootProps<HTMLDivElement, SubtitleProps>) =>
     forwardRef<HTMLDivElement, SubtitleProps>((props, ref) => {
         const { children, ...rest } = props;
-
-        /*
-         * Хак, который фиксит применение applySpacing для linaria
-         */
-        useEffect(() => {}, []);
 
         return (
             <Root ref={ref} {...rest}>

@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect } from 'react';
+import React, { forwardRef } from 'react';
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 
@@ -34,11 +34,6 @@ export const oldBodyRoot = (Root: RootProps<HTMLDivElement, OldBodyProps>) =>
         const { children, breakWord, ...rest } = props;
 
         const withBreakWord = breakWord ? classes.typoWithBreakWord : undefined;
-
-        /*
-         * Хак, который фиксит применение applySpacing для linaria
-         */
-        useEffect(() => {}, []);
 
         return (
             <Root ref={ref} {...rest}>
