@@ -400,6 +400,7 @@ size: {
 button1: string;
 };
 }> & {
+size?: string | undefined;
 defaultChecked?: boolean | undefined;
 defaultValue?: string | number | readonly string[] | undefined;
 suppressContentEditableWarning?: boolean | undefined;
@@ -682,6 +683,7 @@ size: {
 button2: string;
 };
 }> & {
+size?: string | undefined;
 defaultChecked?: boolean | undefined;
 defaultValue?: string | number | readonly string[] | undefined;
 suppressContentEditableWarning?: boolean | undefined;
