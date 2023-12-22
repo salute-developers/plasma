@@ -31,13 +31,13 @@ export const OldBody = styled.div<OldBodyProps>`
 
 export const oldBodyRoot = (Root: RootProps<HTMLDivElement, OldBodyProps>) =>
     forwardRef<HTMLDivElement, OldBodyProps>((props, ref) => {
-        const { children, breakWord, ...rest } = props;
+        const { size, children, breakWord, className, style, ...rest } = props;
 
         const withBreakWord = breakWord ? classes.typoWithBreakWord : undefined;
 
         return (
-            <Root ref={ref} {...rest}>
-                <OldBody className={cx(withBreakWord)} style={applySpacing(rest)}>
+            <Root size={size} ref={ref}>
+                <OldBody className={cx(withBreakWord, className)} style={{ ...style, ...applySpacing(rest) }} {...rest}>
                     {children}
                 </OldBody>
             </Root>
