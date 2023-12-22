@@ -8,7 +8,7 @@ outputs:
   result:
     description: Process done with success.
 runs:
-  using: node12
+  using: node16
   main: 'lib/main.js'
 branding:
   icon: check-square
