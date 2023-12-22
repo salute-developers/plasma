@@ -7,31 +7,15 @@
 /// <reference types="react" />
 
 import { AnchorHTMLAttributes } from 'react';
-import { AnimationEventHandler } from 'react';
-import { AriaRole } from 'react';
 import type { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
-import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/types';
+import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
 import { ButtonHTMLAttributes } from 'react';
-import { CaptionProps } from '@salutejs/plasma-new-hope/styled-components';
-import { ClipboardEventHandler } from 'react';
-import { CompositionEventHandler } from 'react';
-import { CSSProperties } from 'react';
-import { DragEventHandler } from 'react';
-import { FocusEventHandler } from 'react';
-import { FontProps } from '@salutejs/plasma-new-hope/types/components/Typography/types';
-import { FootnoteProps } from '@salutejs/plasma-new-hope/styled-components';
-import { FormEventHandler } from 'react';
 import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
-import { HeadlineProps } from '@salutejs/plasma-new-hope/styled-components';
 import { HTMLAttributes } from 'react';
-import { KeyboardEventHandler } from 'react';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
-import { MouseEventHandler } from 'react';
-import { PointerEventHandler } from 'react';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
-import { ReactEventHandler } from 'react';
 import { ReactNode } from 'react';
 import { RefAttributes } from 'react';
 import { SpacingProps } from '@salutejs/plasma-new-hope/types/mixins/applySpacing';
@@ -40,18 +24,12 @@ import { SSRProvider } from '@salutejs/plasma-core';
 import { StyledComponent } from 'styled-components';
 import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
 import type { SwitchProps } from '@salutejs/plasma-core';
-import { TouchEventHandler } from 'react';
-import { TransitionEventHandler } from 'react';
-import { UIEventHandler } from 'react';
-import { UnderlineProps } from '@salutejs/plasma-new-hope/styled-components';
-import { WheelEventHandler } from 'react';
+import { TypographyOldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Old/TypographyOld';
 
 // @public (undocumented)
 export const Body1: FunctionComponent<PropsType<    {
 size: {
 body1: string;
-body2: string;
-body3: string;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -60,9 +38,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const Body2: FunctionComponent<PropsType<    {
 size: {
-body1: string;
 body2: string;
-body3: string;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -72,10 +48,6 @@ breakWord?: boolean | undefined;
 export const BodyL: FunctionComponent<PropsType<    {
 size: {
 l: string;
-m: string;
-s: string;
-xs: string;
-xxs: string;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -84,11 +56,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const BodyM: FunctionComponent<PropsType<    {
 size: {
-l: string;
 m: string;
-s: string;
-xs: string;
-xxs: string;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -97,11 +65,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const BodyS: FunctionComponent<PropsType<    {
 size: {
-l: string;
-m: string;
 s: string;
-xs: string;
-xxs: string;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -110,11 +74,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const BodyXS: FunctionComponent<PropsType<    {
 size: {
-l: string;
-m: string;
-s: string;
 xs: string;
-xxs: string;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -123,10 +83,6 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const BodyXXS: FunctionComponent<PropsType<    {
 size: {
-l: string;
-m: string;
-s: string;
-xs: string;
 xxs: string;
 };
 }> & {
@@ -177,567 +133,15 @@ size?: string | undefined;
 export const Button1: FunctionComponent<PropsType<    {
 size: {
 button1: string;
-button2: string;
 };
-}> & {
-p?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-slot?: string | undefined;
-style?: CSSProperties | undefined;
-title?: string | undefined;
-m?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-placeholder?: string | undefined;
-onChange?: FormEventHandler<HTMLDivElement> | undefined;
-onFocus?: FocusEventHandler<HTMLDivElement> | undefined;
-onBlur?: FocusEventHandler<HTMLDivElement> | undefined;
-defaultChecked?: boolean | undefined;
-defaultValue?: string | number | readonly string[] | undefined;
-suppressContentEditableWarning?: boolean | undefined;
-suppressHydrationWarning?: boolean | undefined;
-accessKey?: string | undefined;
-className?: string | undefined;
-contentEditable?: (boolean | "true" | "false") | "inherit" | undefined;
-contextMenu?: string | undefined;
-dir?: string | undefined;
-draggable?: (boolean | "true" | "false") | undefined;
-hidden?: boolean | undefined;
-id?: string | undefined;
-lang?: string | undefined;
-nonce?: string | undefined;
-spellCheck?: (boolean | "true" | "false") | undefined;
-tabIndex?: number | undefined;
-translate?: "yes" | "no" | undefined;
-radioGroup?: string | undefined;
-role?: AriaRole | undefined;
-about?: string | undefined;
-datatype?: string | undefined;
-inlist?: any;
-prefix?: string | undefined;
-property?: string | undefined;
-resource?: string | undefined;
-typeof?: string | undefined;
-vocab?: string | undefined;
-autoCapitalize?: string | undefined;
-autoCorrect?: string | undefined;
-autoSave?: string | undefined;
-color?: string | undefined;
-itemProp?: string | undefined;
-itemScope?: boolean | undefined;
-itemType?: string | undefined;
-itemID?: string | undefined;
-itemRef?: string | undefined;
-results?: number | undefined;
-security?: string | undefined;
-unselectable?: "on" | "off" | undefined;
-inputMode?: "text" | "none" | "search" | "tel" | "url" | "email" | "numeric" | "decimal" | undefined;
-is?: string | undefined;
-'aria-activedescendant'?: string | undefined;
-'aria-atomic'?: (boolean | "true" | "false") | undefined;
-'aria-autocomplete'?: "list" | "none" | "inline" | "both" | undefined;
-'aria-busy'?: (boolean | "true" | "false") | undefined;
-'aria-checked'?: boolean | "true" | "false" | "mixed" | undefined;
-'aria-colcount'?: number | undefined;
-'aria-colindex'?: number | undefined;
-'aria-colspan'?: number | undefined;
-'aria-controls'?: string | undefined;
-'aria-current'?: boolean | "true" | "time" | "false" | "step" | "page" | "location" | "date" | undefined;
-'aria-describedby'?: string | undefined;
-'aria-details'?: string | undefined;
-'aria-disabled'?: (boolean | "true" | "false") | undefined;
-'aria-dropeffect'?: "link" | "none" | "copy" | "execute" | "move" | "popup" | undefined;
-'aria-errormessage'?: string | undefined;
-'aria-expanded'?: (boolean | "true" | "false") | undefined;
-'aria-flowto'?: string | undefined;
-'aria-grabbed'?: (boolean | "true" | "false") | undefined;
-'aria-haspopup'?: boolean | "true" | "dialog" | "menu" | "false" | "grid" | "listbox" | "tree" | undefined;
-'aria-hidden'?: (boolean | "true" | "false") | undefined;
-'aria-invalid'?: boolean | "true" | "false" | "grammar" | "spelling" | undefined;
-'aria-keyshortcuts'?: string | undefined;
-'aria-label'?: string | undefined;
-'aria-labelledby'?: string | undefined;
-'aria-level'?: number | undefined;
-'aria-live'?: "off" | "assertive" | "polite" | undefined;
-'aria-modal'?: (boolean | "true" | "false") | undefined;
-'aria-multiline'?: (boolean | "true" | "false") | undefined;
-'aria-multiselectable'?: (boolean | "true" | "false") | undefined;
-'aria-orientation'?: "horizontal" | "vertical" | undefined;
-'aria-owns'?: string | undefined;
-'aria-placeholder'?: string | undefined;
-'aria-posinset'?: number | undefined;
-'aria-pressed'?: boolean | "true" | "false" | "mixed" | undefined;
-'aria-readonly'?: (boolean | "true" | "false") | undefined;
-'aria-relevant'?: "text" | "additions" | "additions removals" | "additions text" | "all" | "removals" | "removals additions" | "removals text" | "text additions" | "text removals" | undefined;
-'aria-required'?: (boolean | "true" | "false") | undefined;
-'aria-roledescription'?: string | undefined;
-'aria-rowcount'?: number | undefined;
-'aria-rowindex'?: number | undefined;
-'aria-rowspan'?: number | undefined;
-'aria-selected'?: (boolean | "true" | "false") | undefined;
-'aria-setsize'?: number | undefined;
-'aria-sort'?: "none" | "ascending" | "descending" | "other" | undefined;
-'aria-valuemax'?: number | undefined;
-'aria-valuemin'?: number | undefined;
-'aria-valuenow'?: number | undefined;
-'aria-valuetext'?: string | undefined;
-children?: ReactNode;
-dangerouslySetInnerHTML?: {
-__html: string;
-} | undefined;
-onCopy?: ClipboardEventHandler<HTMLDivElement> | undefined;
-onCopyCapture?: ClipboardEventHandler<HTMLDivElement> | undefined;
-onCut?: ClipboardEventHandler<HTMLDivElement> | undefined;
-onCutCapture?: ClipboardEventHandler<HTMLDivElement> | undefined;
-onPaste?: ClipboardEventHandler<HTMLDivElement> | undefined;
-onPasteCapture?: ClipboardEventHandler<HTMLDivElement> | undefined;
-onCompositionEnd?: CompositionEventHandler<HTMLDivElement> | undefined;
-onCompositionEndCapture?: CompositionEventHandler<HTMLDivElement> | undefined;
-onCompositionStart?: CompositionEventHandler<HTMLDivElement> | undefined;
-onCompositionStartCapture?: CompositionEventHandler<HTMLDivElement> | undefined;
-onCompositionUpdate?: CompositionEventHandler<HTMLDivElement> | undefined;
-onCompositionUpdateCapture?: CompositionEventHandler<HTMLDivElement> | undefined;
-onFocusCapture?: FocusEventHandler<HTMLDivElement> | undefined;
-onBlurCapture?: FocusEventHandler<HTMLDivElement> | undefined;
-onChangeCapture?: FormEventHandler<HTMLDivElement> | undefined;
-onBeforeInput?: FormEventHandler<HTMLDivElement> | undefined;
-onBeforeInputCapture?: FormEventHandler<HTMLDivElement> | undefined;
-onInput?: FormEventHandler<HTMLDivElement> | undefined;
-onInputCapture?: FormEventHandler<HTMLDivElement> | undefined;
-onReset?: FormEventHandler<HTMLDivElement> | undefined;
-onResetCapture?: FormEventHandler<HTMLDivElement> | undefined;
-onSubmit?: FormEventHandler<HTMLDivElement> | undefined;
-onSubmitCapture?: FormEventHandler<HTMLDivElement> | undefined;
-onInvalid?: FormEventHandler<HTMLDivElement> | undefined;
-onInvalidCapture?: FormEventHandler<HTMLDivElement> | undefined;
-onLoad?: ReactEventHandler<HTMLDivElement> | undefined;
-onLoadCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onError?: ReactEventHandler<HTMLDivElement> | undefined;
-onErrorCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onKeyDown?: KeyboardEventHandler<HTMLDivElement> | undefined;
-onKeyDownCapture?: KeyboardEventHandler<HTMLDivElement> | undefined;
-onKeyPress?: KeyboardEventHandler<HTMLDivElement> | undefined;
-onKeyPressCapture?: KeyboardEventHandler<HTMLDivElement> | undefined;
-onKeyUp?: KeyboardEventHandler<HTMLDivElement> | undefined;
-onKeyUpCapture?: KeyboardEventHandler<HTMLDivElement> | undefined;
-onAbort?: ReactEventHandler<HTMLDivElement> | undefined;
-onAbortCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onCanPlay?: ReactEventHandler<HTMLDivElement> | undefined;
-onCanPlayCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onCanPlayThrough?: ReactEventHandler<HTMLDivElement> | undefined;
-onCanPlayThroughCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onDurationChange?: ReactEventHandler<HTMLDivElement> | undefined;
-onDurationChangeCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onEmptied?: ReactEventHandler<HTMLDivElement> | undefined;
-onEmptiedCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onEncrypted?: ReactEventHandler<HTMLDivElement> | undefined;
-onEncryptedCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onEnded?: ReactEventHandler<HTMLDivElement> | undefined;
-onEndedCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onLoadedData?: ReactEventHandler<HTMLDivElement> | undefined;
-onLoadedDataCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onLoadedMetadata?: ReactEventHandler<HTMLDivElement> | undefined;
-onLoadedMetadataCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onLoadStart?: ReactEventHandler<HTMLDivElement> | undefined;
-onLoadStartCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onPause?: ReactEventHandler<HTMLDivElement> | undefined;
-onPauseCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onPlay?: ReactEventHandler<HTMLDivElement> | undefined;
-onPlayCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onPlaying?: ReactEventHandler<HTMLDivElement> | undefined;
-onPlayingCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onProgress?: ReactEventHandler<HTMLDivElement> | undefined;
-onProgressCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onRateChange?: ReactEventHandler<HTMLDivElement> | undefined;
-onRateChangeCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onResize?: ReactEventHandler<HTMLDivElement> | undefined;
-onResizeCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onSeeked?: ReactEventHandler<HTMLDivElement> | undefined;
-onSeekedCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onSeeking?: ReactEventHandler<HTMLDivElement> | undefined;
-onSeekingCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onStalled?: ReactEventHandler<HTMLDivElement> | undefined;
-onStalledCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onSuspend?: ReactEventHandler<HTMLDivElement> | undefined;
-onSuspendCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onTimeUpdate?: ReactEventHandler<HTMLDivElement> | undefined;
-onTimeUpdateCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onVolumeChange?: ReactEventHandler<HTMLDivElement> | undefined;
-onVolumeChangeCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onWaiting?: ReactEventHandler<HTMLDivElement> | undefined;
-onWaitingCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onAuxClick?: MouseEventHandler<HTMLDivElement> | undefined;
-onAuxClickCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-onClick?: MouseEventHandler<HTMLDivElement> | undefined;
-onClickCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-onContextMenu?: MouseEventHandler<HTMLDivElement> | undefined;
-onContextMenuCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-onDoubleClick?: MouseEventHandler<HTMLDivElement> | undefined;
-onDoubleClickCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-onDrag?: DragEventHandler<HTMLDivElement> | undefined;
-onDragCapture?: DragEventHandler<HTMLDivElement> | undefined;
-onDragEnd?: DragEventHandler<HTMLDivElement> | undefined;
-onDragEndCapture?: DragEventHandler<HTMLDivElement> | undefined;
-onDragEnter?: DragEventHandler<HTMLDivElement> | undefined;
-onDragEnterCapture?: DragEventHandler<HTMLDivElement> | undefined;
-onDragExit?: DragEventHandler<HTMLDivElement> | undefined;
-onDragExitCapture?: DragEventHandler<HTMLDivElement> | undefined;
-onDragLeave?: DragEventHandler<HTMLDivElement> | undefined;
-onDragLeaveCapture?: DragEventHandler<HTMLDivElement> | undefined;
-onDragOver?: DragEventHandler<HTMLDivElement> | undefined;
-onDragOverCapture?: DragEventHandler<HTMLDivElement> | undefined;
-onDragStart?: DragEventHandler<HTMLDivElement> | undefined;
-onDragStartCapture?: DragEventHandler<HTMLDivElement> | undefined;
-onDrop?: DragEventHandler<HTMLDivElement> | undefined;
-onDropCapture?: DragEventHandler<HTMLDivElement> | undefined;
-onMouseDown?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseDownCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseEnter?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseLeave?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseMove?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseMoveCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseOut?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseOutCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseOver?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseOverCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseUp?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseUpCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-onSelect?: ReactEventHandler<HTMLDivElement> | undefined;
-onSelectCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onTouchCancel?: TouchEventHandler<HTMLDivElement> | undefined;
-onTouchCancelCapture?: TouchEventHandler<HTMLDivElement> | undefined;
-onTouchEnd?: TouchEventHandler<HTMLDivElement> | undefined;
-onTouchEndCapture?: TouchEventHandler<HTMLDivElement> | undefined;
-onTouchMove?: TouchEventHandler<HTMLDivElement> | undefined;
-onTouchMoveCapture?: TouchEventHandler<HTMLDivElement> | undefined;
-onTouchStart?: TouchEventHandler<HTMLDivElement> | undefined;
-onTouchStartCapture?: TouchEventHandler<HTMLDivElement> | undefined;
-onPointerDown?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerDownCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerMove?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerMoveCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerUp?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerUpCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerCancel?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerCancelCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerEnter?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerEnterCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerLeave?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerLeaveCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerOver?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerOverCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerOut?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerOutCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onGotPointerCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onGotPointerCaptureCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onLostPointerCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onLostPointerCaptureCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onScroll?: UIEventHandler<HTMLDivElement> | undefined;
-onScrollCapture?: UIEventHandler<HTMLDivElement> | undefined;
-onWheel?: WheelEventHandler<HTMLDivElement> | undefined;
-onWheelCapture?: WheelEventHandler<HTMLDivElement> | undefined;
-onAnimationStart?: AnimationEventHandler<HTMLDivElement> | undefined;
-onAnimationStartCapture?: AnimationEventHandler<HTMLDivElement> | undefined;
-onAnimationEnd?: AnimationEventHandler<HTMLDivElement> | undefined;
-onAnimationEndCapture?: AnimationEventHandler<HTMLDivElement> | undefined;
-onAnimationIteration?: AnimationEventHandler<HTMLDivElement> | undefined;
-onAnimationIterationCapture?: AnimationEventHandler<HTMLDivElement> | undefined;
-onTransitionEnd?: TransitionEventHandler<HTMLDivElement> | undefined;
-onTransitionEndCapture?: TransitionEventHandler<HTMLDivElement> | undefined;
-breakWord?: boolean | undefined;
-mt?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-mr?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-mb?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-ml?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-mx?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-my?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-pt?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-pr?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-pb?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-pl?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-px?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-py?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-} & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Button2: FunctionComponent<PropsType<    {
 size: {
-button1: string;
 button2: string;
 };
-}> & {
-p?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-slot?: string | undefined;
-style?: CSSProperties | undefined;
-title?: string | undefined;
-m?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-placeholder?: string | undefined;
-onChange?: FormEventHandler<HTMLDivElement> | undefined;
-onFocus?: FocusEventHandler<HTMLDivElement> | undefined;
-onBlur?: FocusEventHandler<HTMLDivElement> | undefined;
-defaultChecked?: boolean | undefined;
-defaultValue?: string | number | readonly string[] | undefined;
-suppressContentEditableWarning?: boolean | undefined;
-suppressHydrationWarning?: boolean | undefined;
-accessKey?: string | undefined;
-className?: string | undefined;
-contentEditable?: (boolean | "true" | "false") | "inherit" | undefined;
-contextMenu?: string | undefined;
-dir?: string | undefined;
-draggable?: (boolean | "true" | "false") | undefined;
-hidden?: boolean | undefined;
-id?: string | undefined;
-lang?: string | undefined;
-nonce?: string | undefined;
-spellCheck?: (boolean | "true" | "false") | undefined;
-tabIndex?: number | undefined;
-translate?: "yes" | "no" | undefined;
-radioGroup?: string | undefined;
-role?: AriaRole | undefined;
-about?: string | undefined;
-datatype?: string | undefined;
-inlist?: any;
-prefix?: string | undefined;
-property?: string | undefined;
-resource?: string | undefined;
-typeof?: string | undefined;
-vocab?: string | undefined;
-autoCapitalize?: string | undefined;
-autoCorrect?: string | undefined;
-autoSave?: string | undefined;
-color?: string | undefined;
-itemProp?: string | undefined;
-itemScope?: boolean | undefined;
-itemType?: string | undefined;
-itemID?: string | undefined;
-itemRef?: string | undefined;
-results?: number | undefined;
-security?: string | undefined;
-unselectable?: "on" | "off" | undefined;
-inputMode?: "text" | "none" | "search" | "tel" | "url" | "email" | "numeric" | "decimal" | undefined;
-is?: string | undefined;
-'aria-activedescendant'?: string | undefined;
-'aria-atomic'?: (boolean | "true" | "false") | undefined;
-'aria-autocomplete'?: "list" | "none" | "inline" | "both" | undefined;
-'aria-busy'?: (boolean | "true" | "false") | undefined;
-'aria-checked'?: boolean | "true" | "false" | "mixed" | undefined;
-'aria-colcount'?: number | undefined;
-'aria-colindex'?: number | undefined;
-'aria-colspan'?: number | undefined;
-'aria-controls'?: string | undefined;
-'aria-current'?: boolean | "true" | "time" | "false" | "step" | "page" | "location" | "date" | undefined;
-'aria-describedby'?: string | undefined;
-'aria-details'?: string | undefined;
-'aria-disabled'?: (boolean | "true" | "false") | undefined;
-'aria-dropeffect'?: "link" | "none" | "copy" | "execute" | "move" | "popup" | undefined;
-'aria-errormessage'?: string | undefined;
-'aria-expanded'?: (boolean | "true" | "false") | undefined;
-'aria-flowto'?: string | undefined;
-'aria-grabbed'?: (boolean | "true" | "false") | undefined;
-'aria-haspopup'?: boolean | "true" | "dialog" | "menu" | "false" | "grid" | "listbox" | "tree" | undefined;
-'aria-hidden'?: (boolean | "true" | "false") | undefined;
-'aria-invalid'?: boolean | "true" | "false" | "grammar" | "spelling" | undefined;
-'aria-keyshortcuts'?: string | undefined;
-'aria-label'?: string | undefined;
-'aria-labelledby'?: string | undefined;
-'aria-level'?: number | undefined;
-'aria-live'?: "off" | "assertive" | "polite" | undefined;
-'aria-modal'?: (boolean | "true" | "false") | undefined;
-'aria-multiline'?: (boolean | "true" | "false") | undefined;
-'aria-multiselectable'?: (boolean | "true" | "false") | undefined;
-'aria-orientation'?: "horizontal" | "vertical" | undefined;
-'aria-owns'?: string | undefined;
-'aria-placeholder'?: string | undefined;
-'aria-posinset'?: number | undefined;
-'aria-pressed'?: boolean | "true" | "false" | "mixed" | undefined;
-'aria-readonly'?: (boolean | "true" | "false") | undefined;
-'aria-relevant'?: "text" | "additions" | "additions removals" | "additions text" | "all" | "removals" | "removals additions" | "removals text" | "text additions" | "text removals" | undefined;
-'aria-required'?: (boolean | "true" | "false") | undefined;
-'aria-roledescription'?: string | undefined;
-'aria-rowcount'?: number | undefined;
-'aria-rowindex'?: number | undefined;
-'aria-rowspan'?: number | undefined;
-'aria-selected'?: (boolean | "true" | "false") | undefined;
-'aria-setsize'?: number | undefined;
-'aria-sort'?: "none" | "ascending" | "descending" | "other" | undefined;
-'aria-valuemax'?: number | undefined;
-'aria-valuemin'?: number | undefined;
-'aria-valuenow'?: number | undefined;
-'aria-valuetext'?: string | undefined;
-children?: ReactNode;
-dangerouslySetInnerHTML?: {
-__html: string;
-} | undefined;
-onCopy?: ClipboardEventHandler<HTMLDivElement> | undefined;
-onCopyCapture?: ClipboardEventHandler<HTMLDivElement> | undefined;
-onCut?: ClipboardEventHandler<HTMLDivElement> | undefined;
-onCutCapture?: ClipboardEventHandler<HTMLDivElement> | undefined;
-onPaste?: ClipboardEventHandler<HTMLDivElement> | undefined;
-onPasteCapture?: ClipboardEventHandler<HTMLDivElement> | undefined;
-onCompositionEnd?: CompositionEventHandler<HTMLDivElement> | undefined;
-onCompositionEndCapture?: CompositionEventHandler<HTMLDivElement> | undefined;
-onCompositionStart?: CompositionEventHandler<HTMLDivElement> | undefined;
-onCompositionStartCapture?: CompositionEventHandler<HTMLDivElement> | undefined;
-onCompositionUpdate?: CompositionEventHandler<HTMLDivElement> | undefined;
-onCompositionUpdateCapture?: CompositionEventHandler<HTMLDivElement> | undefined;
-onFocusCapture?: FocusEventHandler<HTMLDivElement> | undefined;
-onBlurCapture?: FocusEventHandler<HTMLDivElement> | undefined;
-onChangeCapture?: FormEventHandler<HTMLDivElement> | undefined;
-onBeforeInput?: FormEventHandler<HTMLDivElement> | undefined;
-onBeforeInputCapture?: FormEventHandler<HTMLDivElement> | undefined;
-onInput?: FormEventHandler<HTMLDivElement> | undefined;
-onInputCapture?: FormEventHandler<HTMLDivElement> | undefined;
-onReset?: FormEventHandler<HTMLDivElement> | undefined;
-onResetCapture?: FormEventHandler<HTMLDivElement> | undefined;
-onSubmit?: FormEventHandler<HTMLDivElement> | undefined;
-onSubmitCapture?: FormEventHandler<HTMLDivElement> | undefined;
-onInvalid?: FormEventHandler<HTMLDivElement> | undefined;
-onInvalidCapture?: FormEventHandler<HTMLDivElement> | undefined;
-onLoad?: ReactEventHandler<HTMLDivElement> | undefined;
-onLoadCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onError?: ReactEventHandler<HTMLDivElement> | undefined;
-onErrorCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onKeyDown?: KeyboardEventHandler<HTMLDivElement> | undefined;
-onKeyDownCapture?: KeyboardEventHandler<HTMLDivElement> | undefined;
-onKeyPress?: KeyboardEventHandler<HTMLDivElement> | undefined;
-onKeyPressCapture?: KeyboardEventHandler<HTMLDivElement> | undefined;
-onKeyUp?: KeyboardEventHandler<HTMLDivElement> | undefined;
-onKeyUpCapture?: KeyboardEventHandler<HTMLDivElement> | undefined;
-onAbort?: ReactEventHandler<HTMLDivElement> | undefined;
-onAbortCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onCanPlay?: ReactEventHandler<HTMLDivElement> | undefined;
-onCanPlayCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onCanPlayThrough?: ReactEventHandler<HTMLDivElement> | undefined;
-onCanPlayThroughCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onDurationChange?: ReactEventHandler<HTMLDivElement> | undefined;
-onDurationChangeCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onEmptied?: ReactEventHandler<HTMLDivElement> | undefined;
-onEmptiedCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onEncrypted?: ReactEventHandler<HTMLDivElement> | undefined;
-onEncryptedCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onEnded?: ReactEventHandler<HTMLDivElement> | undefined;
-onEndedCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onLoadedData?: ReactEventHandler<HTMLDivElement> | undefined;
-onLoadedDataCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onLoadedMetadata?: ReactEventHandler<HTMLDivElement> | undefined;
-onLoadedMetadataCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onLoadStart?: ReactEventHandler<HTMLDivElement> | undefined;
-onLoadStartCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onPause?: ReactEventHandler<HTMLDivElement> | undefined;
-onPauseCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onPlay?: ReactEventHandler<HTMLDivElement> | undefined;
-onPlayCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onPlaying?: ReactEventHandler<HTMLDivElement> | undefined;
-onPlayingCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onProgress?: ReactEventHandler<HTMLDivElement> | undefined;
-onProgressCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onRateChange?: ReactEventHandler<HTMLDivElement> | undefined;
-onRateChangeCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onResize?: ReactEventHandler<HTMLDivElement> | undefined;
-onResizeCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onSeeked?: ReactEventHandler<HTMLDivElement> | undefined;
-onSeekedCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onSeeking?: ReactEventHandler<HTMLDivElement> | undefined;
-onSeekingCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onStalled?: ReactEventHandler<HTMLDivElement> | undefined;
-onStalledCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onSuspend?: ReactEventHandler<HTMLDivElement> | undefined;
-onSuspendCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onTimeUpdate?: ReactEventHandler<HTMLDivElement> | undefined;
-onTimeUpdateCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onVolumeChange?: ReactEventHandler<HTMLDivElement> | undefined;
-onVolumeChangeCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onWaiting?: ReactEventHandler<HTMLDivElement> | undefined;
-onWaitingCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onAuxClick?: MouseEventHandler<HTMLDivElement> | undefined;
-onAuxClickCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-onClick?: MouseEventHandler<HTMLDivElement> | undefined;
-onClickCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-onContextMenu?: MouseEventHandler<HTMLDivElement> | undefined;
-onContextMenuCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-onDoubleClick?: MouseEventHandler<HTMLDivElement> | undefined;
-onDoubleClickCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-onDrag?: DragEventHandler<HTMLDivElement> | undefined;
-onDragCapture?: DragEventHandler<HTMLDivElement> | undefined;
-onDragEnd?: DragEventHandler<HTMLDivElement> | undefined;
-onDragEndCapture?: DragEventHandler<HTMLDivElement> | undefined;
-onDragEnter?: DragEventHandler<HTMLDivElement> | undefined;
-onDragEnterCapture?: DragEventHandler<HTMLDivElement> | undefined;
-onDragExit?: DragEventHandler<HTMLDivElement> | undefined;
-onDragExitCapture?: DragEventHandler<HTMLDivElement> | undefined;
-onDragLeave?: DragEventHandler<HTMLDivElement> | undefined;
-onDragLeaveCapture?: DragEventHandler<HTMLDivElement> | undefined;
-onDragOver?: DragEventHandler<HTMLDivElement> | undefined;
-onDragOverCapture?: DragEventHandler<HTMLDivElement> | undefined;
-onDragStart?: DragEventHandler<HTMLDivElement> | undefined;
-onDragStartCapture?: DragEventHandler<HTMLDivElement> | undefined;
-onDrop?: DragEventHandler<HTMLDivElement> | undefined;
-onDropCapture?: DragEventHandler<HTMLDivElement> | undefined;
-onMouseDown?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseDownCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseEnter?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseLeave?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseMove?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseMoveCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseOut?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseOutCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseOver?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseOverCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseUp?: MouseEventHandler<HTMLDivElement> | undefined;
-onMouseUpCapture?: MouseEventHandler<HTMLDivElement> | undefined;
-onSelect?: ReactEventHandler<HTMLDivElement> | undefined;
-onSelectCapture?: ReactEventHandler<HTMLDivElement> | undefined;
-onTouchCancel?: TouchEventHandler<HTMLDivElement> | undefined;
-onTouchCancelCapture?: TouchEventHandler<HTMLDivElement> | undefined;
-onTouchEnd?: TouchEventHandler<HTMLDivElement> | undefined;
-onTouchEndCapture?: TouchEventHandler<HTMLDivElement> | undefined;
-onTouchMove?: TouchEventHandler<HTMLDivElement> | undefined;
-onTouchMoveCapture?: TouchEventHandler<HTMLDivElement> | undefined;
-onTouchStart?: TouchEventHandler<HTMLDivElement> | undefined;
-onTouchStartCapture?: TouchEventHandler<HTMLDivElement> | undefined;
-onPointerDown?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerDownCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerMove?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerMoveCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerUp?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerUpCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerCancel?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerCancelCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerEnter?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerEnterCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerLeave?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerLeaveCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerOver?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerOverCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerOut?: PointerEventHandler<HTMLDivElement> | undefined;
-onPointerOutCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onGotPointerCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onGotPointerCaptureCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onLostPointerCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onLostPointerCaptureCapture?: PointerEventHandler<HTMLDivElement> | undefined;
-onScroll?: UIEventHandler<HTMLDivElement> | undefined;
-onScrollCapture?: UIEventHandler<HTMLDivElement> | undefined;
-onWheel?: WheelEventHandler<HTMLDivElement> | undefined;
-onWheelCapture?: WheelEventHandler<HTMLDivElement> | undefined;
-onAnimationStart?: AnimationEventHandler<HTMLDivElement> | undefined;
-onAnimationStartCapture?: AnimationEventHandler<HTMLDivElement> | undefined;
-onAnimationEnd?: AnimationEventHandler<HTMLDivElement> | undefined;
-onAnimationEndCapture?: AnimationEventHandler<HTMLDivElement> | undefined;
-onAnimationIteration?: AnimationEventHandler<HTMLDivElement> | undefined;
-onAnimationIterationCapture?: AnimationEventHandler<HTMLDivElement> | undefined;
-onTransitionEnd?: TransitionEventHandler<HTMLDivElement> | undefined;
-onTransitionEndCapture?: TransitionEventHandler<HTMLDivElement> | undefined;
-breakWord?: boolean | undefined;
-mt?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-mr?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-mb?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-ml?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-mx?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-my?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-pt?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-pr?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-pb?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-pl?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-px?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-py?: 0 | 2 | 4 | 8 | 10 | 12 | 16 | "0x" | "1x" | "2x" | "4x" | "5x" | "6x" | "8x" | "9x" | "10x" | "12x" | "16x" | 18 | 20 | 24 | 32 | undefined;
-} & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "ButtonComponent" needs to be exported by the entry point index.d.ts
 //
@@ -749,7 +153,7 @@ export const Caption: FunctionComponent<PropsType<    {
 size: {
 m: string;
 };
-}> & CaptionProps & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public
 export const Checkbox: FunctionComponent<BaseboxProps>;
@@ -763,8 +167,6 @@ export type CheckboxProps = typeof CheckboxComponent;
 export const DsplL: FunctionComponent<PropsType<    {
 size: {
 l: string;
-m: string;
-s: string;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -773,9 +175,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const DsplM: FunctionComponent<PropsType<    {
 size: {
-l: string;
 m: string;
-s: string;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -784,8 +184,6 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const DsplS: FunctionComponent<PropsType<    {
 size: {
-l: string;
-m: string;
 s: string;
 };
 }> & {
@@ -796,26 +194,20 @@ breakWord?: boolean | undefined;
 export const Footnote1: FunctionComponent<PropsType<    {
 size: {
 footnote1: string;
-footnote2: string;
 };
-}> & FootnoteProps & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Footnote2: FunctionComponent<PropsType<    {
 size: {
-footnote1: string;
 footnote2: string;
 };
-}> & FootnoteProps & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const H1: FunctionComponent<PropsType<    {
 size: {
 h1: string;
-h2: string;
-h3: string;
-h4: string;
-h5: string;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -824,11 +216,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const H2: FunctionComponent<PropsType<    {
 size: {
-h1: string;
 h2: string;
-h3: string;
-h4: string;
-h5: string;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -837,11 +225,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const H3: FunctionComponent<PropsType<    {
 size: {
-h1: string;
-h2: string;
 h3: string;
-h4: string;
-h5: string;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -850,11 +234,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const H4: FunctionComponent<PropsType<    {
 size: {
-h1: string;
-h2: string;
-h3: string;
 h4: string;
-h5: string;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -863,10 +243,6 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const H5: FunctionComponent<PropsType<    {
 size: {
-h1: string;
-h2: string;
-h3: string;
-h4: string;
 h5: string;
 };
 }> & {
@@ -877,56 +253,36 @@ breakWord?: boolean | undefined;
 export const Headline1: FunctionComponent<PropsType<    {
 size: {
 headline1: string;
-headline2: string;
-headline3: string;
-headline4: string;
-headline5: string;
 };
-}> & HeadlineProps & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Headline2: FunctionComponent<PropsType<    {
 size: {
-headline1: string;
 headline2: string;
-headline3: string;
-headline4: string;
-headline5: string;
 };
-}> & HeadlineProps & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Headline3: FunctionComponent<PropsType<    {
 size: {
-headline1: string;
-headline2: string;
 headline3: string;
-headline4: string;
-headline5: string;
 };
-}> & HeadlineProps & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Headline4: FunctionComponent<PropsType<    {
 size: {
-headline1: string;
-headline2: string;
-headline3: string;
 headline4: string;
-headline5: string;
 };
-}> & HeadlineProps & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Headline5: FunctionComponent<PropsType<    {
 size: {
-headline1: string;
-headline2: string;
-headline3: string;
-headline4: string;
 headline5: string;
 };
-}> & HeadlineProps & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public
 export const Link: FunctionComponent<PropsType<    {
@@ -945,21 +301,15 @@ true: string;
 export const P1: FunctionComponent<PropsType<    {
 size: {
 paragraph1: string;
-paragraph2: string;
 };
-}> & {
-resetMargin?: boolean | undefined;
-} & Omit<FontProps, "bold"> & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const P2: FunctionComponent<PropsType<    {
 size: {
-paragraph1: string;
 paragraph2: string;
 };
-}> & {
-resetMargin?: boolean | undefined;
-} & Omit<FontProps, "bold"> & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public
 export const Radiobox: FunctionComponent<Omit<BaseboxProps, "indeterminate">>;
@@ -994,9 +344,6 @@ export { SwitchProps }
 export const TextL: FunctionComponent<PropsType<    {
 size: {
 l: string;
-m: string;
-s: string;
-xs: string;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -1005,10 +352,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const TextM: FunctionComponent<PropsType<    {
 size: {
-l: string;
 m: string;
-s: string;
-xs: string;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -1017,10 +361,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const TextS: FunctionComponent<PropsType<    {
 size: {
-l: string;
-m: string;
 s: string;
-xs: string;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -1029,9 +370,6 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const TextXS: FunctionComponent<PropsType<    {
 size: {
-l: string;
-m: string;
-s: string;
 xs: string;
 };
 }> & {
@@ -1043,7 +381,7 @@ export const Underline: FunctionComponent<PropsType<    {
 size: {
 m: string;
 };
-}> & UnderlineProps & RefAttributes<HTMLDivElement>>;
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // (No @packageDocumentation comment for this package)
 
