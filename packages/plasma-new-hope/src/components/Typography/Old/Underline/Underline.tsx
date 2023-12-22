@@ -33,13 +33,17 @@ export const Underline = styled.div<UnderlineProps>`
 
 export const underlineRoot = (Root: RootProps<HTMLDivElement, UnderlineProps>) =>
     forwardRef<HTMLDivElement, UnderlineProps>((props, ref) => {
-        const { children, breakWord, ...rest } = props;
+        const { size, children, breakWord, className, style, ...rest } = props;
 
         const withBreakWord = breakWord ? classes.typoWithBreakWord : undefined;
 
         return (
-            <Root ref={ref} {...rest}>
-                <Underline className={cx(withBreakWord)} style={applySpacing(rest)}>
+            <Root size={size} ref={ref}>
+                <Underline
+                    className={cx(withBreakWord, className)}
+                    style={{ ...style, ...applySpacing(rest) }}
+                    {...rest}
+                >
                     {children}
                 </Underline>
             </Root>

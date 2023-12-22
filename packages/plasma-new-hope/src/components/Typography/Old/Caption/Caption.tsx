@@ -31,13 +31,13 @@ export const Caption = styled.div<CaptionProps>`
 
 export const captionRoot = (Root: RootProps<HTMLDivElement, CaptionProps>) =>
     forwardRef<HTMLDivElement, CaptionProps>((props, ref) => {
-        const { children, breakWord, ...rest } = props;
+        const { size, children, breakWord, className, style, ...rest } = props;
 
         const withBreakWord = breakWord ? classes.typoWithBreakWord : undefined;
 
         return (
-            <Root ref={ref} {...rest}>
-                <Caption className={cx(withBreakWord)} style={applySpacing(rest)}>
+            <Root size={size} ref={ref}>
+                <Caption className={cx(withBreakWord, className)} style={{ ...style, ...applySpacing(rest) }} {...rest}>
                     {children}
                 </Caption>
             </Root>

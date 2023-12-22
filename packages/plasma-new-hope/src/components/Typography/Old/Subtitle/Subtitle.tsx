@@ -25,11 +25,13 @@ export const Subtitle = styled.div<SubtitleProps>`
 
 export const subtitleRoot = (Root: RootProps<HTMLDivElement, SubtitleProps>) =>
     forwardRef<HTMLDivElement, SubtitleProps>((props, ref) => {
-        const { children, ...rest } = props;
+        const { size, children, style, ...rest } = props;
 
         return (
-            <Root ref={ref} {...rest}>
-                <Subtitle style={applySpacing(rest)}>{children}</Subtitle>
+            <Root size={size} ref={ref}>
+                <Subtitle style={{ ...style, ...applySpacing(rest) }} {...rest}>
+                    {children}
+                </Subtitle>
             </Root>
         );
     });
