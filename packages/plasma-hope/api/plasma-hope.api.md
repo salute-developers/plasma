@@ -1070,6 +1070,7 @@ export interface TextAreaProps extends Omit<TextAreaProps_2, 'size'> {
     helperBlock?: React.ReactElement;
     // @deprecated (undocumented)
     helperText?: string;
+    labelPlacement?: 'inner' | 'outer';
     leftHelper?: string;
     maxAuto?: number;
     minAuto?: number;

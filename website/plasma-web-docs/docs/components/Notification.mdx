@@ -13,7 +13,8 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 ## Использование
 Компонент `Notification` может использоваться для создания собственных систем оповещения. 
 Вид компонента контролируется свойствами (props).
-Текстовая часть оповещения состоит из `title` и `children`.
+Текстовая часть оповещения состоит из `title` и `children`. Слева или сверху от нее, также можно пробросить иконку через свойство `icon`.
+Также есть часть `actions`, в которой предполагается отображение кнопок для взаимодействия.
 
 ### Провайдер контекста
 Поместите `NotificationsProvider` в [корень приложения](../../#корень-приложения) или там, где будете применять модальные окна:
@@ -44,9 +45,8 @@ import { Button, addNotification, NotificationsProvider } from '@salutejs/plasma
 export function App() {
     const handleClick = React.useCallback(() => {
         addNotification({
-            status: 'success',
             title: 'Входящий вызов',
-            children: '',
+            children: 'Принять?',
         }, 1000);
     }, []);
 

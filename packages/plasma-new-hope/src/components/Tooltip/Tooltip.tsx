@@ -46,6 +46,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 placement = 'bottom',
                 usePortal = true,
                 target,
+                children,
                 onDismiss,
                 view,
                 size,
@@ -79,13 +80,13 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                     placement={placement}
                     offset={offset}
                     zIndex={zIndex}
-                    target={target}
+                    target={target || children}
                     usePortal={usePortal}
                     hasArrow={hasArrow}
                     aria-hidden={!isOpen}
                     aria-live="polite"
                     role="tooltip"
-                    className={cx(ref?.classList.toString())} // прокидываем стили для Popover из Root Tooltip-а
+                    className={cx(ref?.classList.toString())} // INFO: Прокидываем стили для Popover из Root Tooltip-а
                     {...rest}
                 >
                     <Root view={view} size={size} ref={setRef}>

@@ -14,12 +14,14 @@ export const generateColorThemes = (
     colorThemes: Record<string, TokenDataGroup<string>>,
     mixin: DataObject = {},
     withDeprecated = false,
+    fallbackColorThemes?: Record<string, TokenDataGroup<string>>,
 ) => {
     const files: GeneratedFiles = [];
     let indexContent = '';
 
     for (const [fileName, themeItem] of Object.entries(colorThemes)) {
         const themeData = extractTokenData(themeItem);
+        const fallbackThemeData = fallbackColorThemes ? extractTokenData(fallbackColorThemes[fileName]) : {};
         const [deprecated, deprecatedThemeName] = withDeprecated ? getDeprecatedVars(fileName) : ['', ''];
 
         const fileNames = [fileName];
@@ -35,6 +37,7 @@ export const generateColorThemes = (
                 attachToRoot({
                     ...objectToCSSVariables(themeData, 'colors'),
                     ...objectToCSSVariables(mixin),
+                    ...objectToCSSVariables(fallbackThemeData, '', false, true),
                     color: themeData.text,
                     backgroundColor: themeData.background,
                 }),

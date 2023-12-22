@@ -106,11 +106,13 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
             readOnly,
             rows,
             cols,
+            onChange,
             ...rest
         } = props;
 
         const [helperWidth, setHelperWidth] = useState<string>(width ? `${width}rem` : '100%');
         const [focused, setFocused] = useState(false);
+        const [uncontrolledValue, setUncontrolledValue] = useState<string | undefined>();
 
         const outerRef = innerRef && 'current' in innerRef ? innerRef : createRef<HTMLTextAreaElement>();
         const hasHelper = Boolean(leftHelper || rightHelper || helperText);
@@ -137,8 +139,20 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
             setFocused(false);
         }, []);
 
+        const onChangeHandler = useCallback(
+            (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+                // INFO: Для крайне редких кейсов, когда value снаружи не контролируется
+                if (value === undefined) {
+                    setUncontrolledValue(event?.target.value);
+                }
+
+                onChange?.(event);
+            },
+            [value, onChange],
+        );
+
         const dynamicLabelClasses = getDynamicLabelClasses(
-            { readOnly, label, labelPlacement, autoResize, rows, value },
+            { readOnly, label, labelPlacement, autoResize, rows, value: value || uncontrolledValue },
             focused,
         );
 
@@ -177,6 +191,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                             rows={rows}
                             cols={cols}
                             resize={resize}
+                            onChange={onChangeHandler}
                             {...rest}
                         />
                     </StyledTextAreaWrapper>

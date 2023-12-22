@@ -14,9 +14,12 @@ export type ParagraphProps = {
     resetMargin?: boolean;
 } & Omit<FontProps, 'bold'>;
 
-const base = css``;
+const base = css`
+    display: inline-block;
+    margin: 0;
+`;
 
-export const Paragraph = styled.div<ParagraphProps>`
+export const Paragraph = styled.p<ParagraphProps>`
     font-family: var(${tokens.typoFontFamily});
     font-size: var(${tokens.typoFontSize});
     font-style: var(${tokens.typoFontStyle});
@@ -24,9 +27,11 @@ export const Paragraph = styled.div<ParagraphProps>`
     line-height: var(${tokens.typoFontLineHeight});
     font-weight: var(${tokens.typoFontWeight});
 
+    margin: 0;
+
     ${String(applyHyphensNormal)};
 
-    .${String(classes.typoWithBreakWord)} {
+    &.${String(classes.typoWithBreakWord)} {
         ${String(applyHyphens)};
     }
 `;

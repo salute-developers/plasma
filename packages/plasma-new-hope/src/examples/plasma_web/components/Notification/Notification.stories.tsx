@@ -4,29 +4,35 @@ import type { StoryObj, Meta } from '@storybook/react';
 
 import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';
-import { addNotification } from '../../../../../src/components/Notification';
+import {
+    NotificationIconPlacement,
+    NotificationLayout,
+    addNotification,
+} from '../../../../../src/components/Notification';
 import { WithTheme } from '../../../_helpers';
 import { PopupProvider } from '../Popup/Popup';
-import { NotificationProps, NotificationStatusType } from '../../../../components/Notification';
+import { NotificationProps } from '../../../../components/Notification';
+import { IconDisclosureRight } from '../../../../components/_Icon';
 
 import { Notification, NotificationsProvider } from './Notification';
 
-const statuses = ['success', 'warning', 'error', ''];
 const titles = ['Выполнено', 'Внимание', 'Ошибка'];
 const texts = ['SSH ключ успешно скопирован', 'Нельзя скопировать SSH ключ', 'Не удалось скопировать SSH ключ'];
+const size = ['xs', 'xxs'];
+const iconPlacement = ['top', 'left'];
 
 const longText = `JavaScript frameworks are an essential part of modern front-end web development,
 providing developers with proven tools for building scalable, interactive web applications.
-This module gives you some fundamental background knowledge about how client-side frameworks
-work and how they fit into your toolset, before moving on to tutorial series covering some of
-today's most popular ones.
 `;
 
 const getNotificationProps = (i: number) => ({
-    status: statuses[i % 3] as NotificationStatusType,
     title: titles[i % 3],
     children: texts[i % 3],
+    size: size[i % 2],
+    iconPlacement: iconPlacement[i % 2] as NotificationIconPlacement,
 });
+
+const placements = ['top', 'left'];
 
 const meta: Meta<NotificationProps> = {
     title: 'plasma_web/Notification',
@@ -36,14 +42,32 @@ const meta: Meta<NotificationProps> = {
 export default meta;
 
 interface StoryDefaultProps {
-    status: string;
     title: string;
     children: string;
+    showCloseIcon: boolean;
+    showLeftIcon: boolean;
+    layout: NotificationLayout;
+    size: 'xs' | 'xxs';
+    iconPlacement: NotificationIconPlacement;
 }
 
-const StoryDefault = ({ status, title, children }: StoryDefaultProps) => {
+const StoryDefault = ({ title, children, iconPlacement, size, layout, showLeftIcon, ...rest }: StoryDefaultProps) => {
     return (
-        <Notification title={title} status={status !== '' ? (status as 'success') : undefined}>
+        <Notification
+            title={title}
+            icon={showLeftIcon ? <IconDisclosureRight /> : ''}
+            iconPlacement={iconPlacement}
+            actions={
+                <Button
+                    text="text"
+                    size={layout === 'horizontal' ? 'xs' : size}
+                    stretch={layout === 'vertical' && size === 'xs'}
+                />
+            }
+            size={size}
+            layout={layout}
+            {...rest}
+        >
             {children}
         </Notification>
     );
@@ -51,31 +75,50 @@ const StoryDefault = ({ status, title, children }: StoryDefaultProps) => {
 
 export const Default: StoryObj<StoryDefaultProps> = {
     argTypes: {
-        status: {
-            options: statuses,
+        iconPlacement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
+        },
+        size: {
+            options: ['xs', 'xxs'],
+            control: {
+                type: 'select',
+            },
+        },
+        layout: {
+            options: ['vertical', 'horizontal'],
             control: {
                 type: 'select',
             },
         },
     },
     args: {
-        status: '',
         title: 'Title',
         children: longText,
+        showCloseIcon: true,
+        showLeftIcon: true,
+        iconPlacement: 'top',
+        layout: 'vertical',
+        size: 'xs',
     },
     render: (args) => <StoryDefault {...args} />,
 };
 
 type StoryLiveDemoProps = ComponentProps<typeof Notification> & {
     timeout: number;
+    layout: NotificationLayout;
+    size: 'xs' | 'xxs';
+    iconPlacement: NotificationIconPlacement;
 };
 
 const StoryLiveDemo = ({ timeout, ...rest }: StoryLiveDemoProps) => {
     const count = useRef(0);
     const handleClick = useCallback(() => {
-        addNotification({ ...rest, ...getNotificationProps(count.current) }, timeout);
+        addNotification({ icon: <IconDisclosureRight />, ...rest, ...getNotificationProps(count.current) }, timeout);
         count.current++;
-    }, [count]);
+    }, [count, rest]);
 
     return (
         <NotificationsProvider>
@@ -85,9 +128,18 @@ const StoryLiveDemo = ({ timeout, ...rest }: StoryLiveDemoProps) => {
 };
 
 export const LiveDemo: StoryObj<StoryLiveDemoProps> = {
+    argTypes: {
+        layout: {
+            options: ['vertical', 'horizontal'],
+            control: {
+                type: 'select',
+            },
+        },
+    },
     args: {
         timeout: 3000,
         role: 'alert',
+        layout: 'vertical',
     },
     render: (args) => <StoryLiveDemo {...args} />,
 };

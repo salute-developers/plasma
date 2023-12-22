@@ -31,7 +31,6 @@ import {
     Subtitle,
     Headline5,
     Body1,
-    ParagraphText1,
     Footnote1,
     Footnote2,
     Button1,
@@ -197,11 +196,6 @@ export const Old: StoryObj = {
             <Section>
                 <Body1>Body 1</Body1>
                 <Note>16/20 · Regular · LS -1.9</Note>
-            </Section>
-
-            <Section>
-                <ParagraphText1>Paragraph Text 1</ParagraphText1>
-                <Note>16/24 · Regular · LS -1.9</Note>
             </Section>
 
             <Section>

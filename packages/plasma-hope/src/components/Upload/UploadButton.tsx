@@ -85,11 +85,9 @@ export const StyledButton = styled.button<StyledButtonProps>`
     ${({ isGrabbing }) =>
         isGrabbing &&
         css`
-             {
-                border-color: ${buttonAccent};
-                background-color: ${surfaceLiquid02};
-                transform: scale(1.04);
-            }
+            border-color: ${buttonAccent};
+            background-color: ${surfaceLiquid02};
+            transform: scale(1.04);
         `}
     ${({ paint }) => paints[paint]}
     ${({ status }) => status && statuses[status]}

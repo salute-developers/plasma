@@ -70,4 +70,9 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
      * Вид тултипа.
      */
     view?: string;
+    /**
+     * Свойство устарело, вместо этого нужно использовать target
+     * @deprecated
+     */
+    children?: ReactNode;
 }

@@ -35,7 +35,7 @@ export const config = {
                 --plasma-radiobox-trigger-border-radius 1.125rem;
                 --plasma-radiobox-ellipse-size 0.625rem;
                 --plasma-radiobox-content-top-offset: 0.25rem;
-                --plasma-radiobox-content-left-offset 0.6875rem;
+                --plasma-radiobox-content-left-offset 0.625rem;
                 --plasma-radiobox-label-font-family: var(--plasma-typo-body1-font-family);
                 --plasma-radiobox-label-font-size: var(--plasma-typo-body1-font-size);
                 --plasma-radiobox-label-font-style: var(--plasma-typo-body1-font-style);
@@ -54,11 +54,53 @@ export const config = {
          * Вид контрола.
          */
         view: {
+            primary: css`
+                --plasma-radiobox-fill-color: var(--text-primary);
+                --plasma-radiobox-ellipse-color: var(--inverse-text-primary);
+                --plasma-radiobox-description-color: var(--text-secondary);
+                --plasma-radiobox-trigger-border-color: var(--text-secondary);
+            `,
+            secondary: css`
+                --plasma-radiobox-fill-color: var(--text-secondary);
+                --plasma-radiobox-ellipse-color: var(--inverse-text-primary);
+                --plasma-radiobox-description-color: var(--text-secondary);
+                --plasma-radiobox-trigger-border-color: var(--text-secondary);
+            `,
+            tertiary: css`
+                --plasma-radiobox-fill-color: var(--text-tertiary);
+                --plasma-radiobox-ellipse-color: var(--inverse-text-primary);
+                --plasma-radiobox-description-color: var(--text-secondary);
+                --plasma-radiobox-trigger-border-color: var(--text-secondary);
+            `,
+            paragraph: css`
+                --plasma-radiobox-fill-color: var(--text-paragraph);
+                --plasma-radiobox-ellipse-color: var(--inverse-text-primary);
+                --plasma-radiobox-description-color: var(--text-secondary);
+                --plasma-radiobox-trigger-border-color: var(--text-secondary);
+            `,
             accent: css`
-                --plasma-radiobox-fill-color: var(--plasma-colors-accent);
-                --plasma-radiobox-ellipse-color: var(--plasma-colors-white);
-                --plasma-radiobox-description-color: var(--plasma-colors-secondary);
-                --plasma-radiobox-trigger-border-color: var(--plasma-colors-secondary);
+                --plasma-radiobox-fill-color: var(--text-accent);
+                --plasma-radiobox-ellipse-color: var(--on-dark-text-primary);
+                --plasma-radiobox-description-color: var(--text-secondary);
+                --plasma-radiobox-trigger-border-color: var(--text-secondary);
+            `,
+            positive: css`
+                --plasma-radiobox-fill-color: var(--text-positive);
+                --plasma-radiobox-ellipse-color: var(--on-dark-text-primary);
+                --plasma-radiobox-description-color: var(--text-secondary);
+                --plasma-radiobox-trigger-border-color: var(--text-secondary);
+            `,
+            warning: css`
+                --plasma-radiobox-fill-color: var(--text-warning);
+                --plasma-radiobox-ellipse-color: var(--on-dark-text-primary);
+                --plasma-radiobox-description-color: var(--text-secondary);
+                --plasma-radiobox-trigger-border-color: var(--text-secondary);
+            `,
+            negative: css`
+                --plasma-radiobox-fill-color: var(--text-negative);
+                --plasma-radiobox-ellipse-color: var(--on-dark-text-primary);
+                --plasma-radiobox-description-color: var(--text-secondary);
+                --plasma-radiobox-trigger-border-color: var(--text-secondary);
             `,
         },
         disabled: {
@@ -68,7 +110,7 @@ export const config = {
         },
         focused: {
             true: css`
-                --plasma-radiobox-focus-color: var(--plasma-colors-accent);
+                --plasma-radiobox-focus-color: var(--text-accent);
             `,
         },
     },

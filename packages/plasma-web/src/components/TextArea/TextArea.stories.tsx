@@ -12,7 +12,6 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const statuses = ['', 'success', 'warning', 'error'];
-const resizes = ['none', 'both', 'horizontal', 'vertical'];
 
 const meta: Meta<TextAreaProps> = {
     title: 'Controls/TextArea',
@@ -25,12 +24,6 @@ const meta: Meta<TextAreaProps> = {
                 type: 'select',
             },
         },
-        resize: {
-            options: resizes,
-            control: {
-                type: 'select',
-            },
-        },
         cols: {
             control: {
                 type: 'number',
@@ -39,6 +32,12 @@ const meta: Meta<TextAreaProps> = {
         rows: {
             control: {
                 type: 'number',
+            },
+        },
+        labelPlacement: {
+            options: ['inner', 'outer'],
+            control: {
+                type: 'select',
             },
         },
         ...disableProps([
@@ -77,7 +76,7 @@ const StoryDefault = ({ enableContentRight, status, ...rest }: StoryProps) => {
     return (
         <TextArea
             value={value}
-            contentRight={enableContentRight && <IconPlaceholder />}
+            contentRight={enableContentRight ? <IconPlaceholder /> : undefined}
             status={status || undefined}
             onChange={(e) => {
                 setValue(e.target.value);
@@ -94,11 +93,11 @@ export const Default: StoryObj<StoryProps> = {
     args: {
         id: 'example-textarea',
         placeholder: 'Заполните многострочное поле',
+        label: 'Подпись',
         leftHelper: 'Подсказка к полю слева',
         rightHelper: 'Подсказка к полю справа',
         enableContentRight: true,
         status: '' as 'success',
-        resize: 'vertical',
         disabled: false,
         readOnly: false,
     },

@@ -21,12 +21,6 @@ const meta: Meta<TextAreaProps> = {
                 type: 'select',
             },
         },
-        resize: {
-            options: ['none', 'both', 'horizontal', 'vertical'],
-            control: {
-                type: 'select',
-            },
-        },
         cols: {
             control: {
                 type: 'number',
@@ -35,6 +29,12 @@ const meta: Meta<TextAreaProps> = {
         rows: {
             control: {
                 type: 'number',
+            },
+        },
+        labelPlacement: {
+            options: ['inner', 'outer'],
+            control: {
+                type: 'select',
             },
         },
         ...disableProps([
@@ -79,7 +79,7 @@ const StoryDefault = ({ status, enableContentRight, ...rest }: StoryProps) => {
     return (
         <TextArea
             value={value}
-            contentRight={enableContentRight && <IconPlaceholder />}
+            contentRight={enableContentRight ? <IconPlaceholder /> : undefined}
             status={status || undefined}
             onChange={handleChange}
             onFocus={onFocus}
@@ -93,11 +93,11 @@ export const Default: Story = {
     args: {
         id: 'example-textarea',
         placeholder: 'Заполните многострочное поле',
+        label: 'Label',
         leftHelper: 'Подсказка к полю',
         rightHelper: '125 слов',
         enableContentRight: true,
         status: '' as 'success',
-        resize: 'vertical',
         disabled: false,
         size: 'm',
     },
@@ -128,8 +128,8 @@ const StoryLive = ({ status, ...rest }: StoryProps) => {
 export const Live: Story = {
     args: {
         placeholder: 'Placeholder text',
+        label: 'Label',
         leftHelper: 'Helper text',
-        resize: 'vertical',
         disabled: false,
     },
     render: (args) => <StoryLive {...args} />,

@@ -9,6 +9,7 @@ export * from './Old/Display/Display';
 export * from './Old/Footnote/Footnote';
 export * from './Old/Headline/Headline';
 export * from './Old/Paragraph/Paragraph';
+export * from './Old/ParagraphText/ParagraphText';
 export * from './Old/Underline/Underline';
 export * from './Old/Subtitle/Subtitle';
 export { tokens as typographyTokens } from './tokens';

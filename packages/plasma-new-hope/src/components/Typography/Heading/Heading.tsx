@@ -24,14 +24,14 @@ export const Heading = styled.div<FontProps>`
 
     ${String(applyHyphensNormal)};
 
-    .${String(classes.typoWithBreakWord)} {
+    &.${String(classes.typoWithBreakWord)} {
         ${String(applyHyphens)};
     }
 `;
 
 export const headingRoot = (Root: RootProps<HTMLDivElement, HeadingProps>) =>
     forwardRef<HTMLDivElement, HeadingProps>((props, ref) => {
-        const { children, breakWord, bold, ...rest } = props;
+        const { children, breakWord, bold = true, ...rest } = props;
 
         const withBreakWord = breakWord ? classes.typoWithBreakWord : undefined;
 

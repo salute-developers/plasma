@@ -33,6 +33,10 @@ export interface TextAreaProps extends Omit<BaseProps, 'size'> {
      * Минимальная высота поля ввода в автоматическом режиме(в rem).
      */
     minAuto?: number;
+    /**
+     * Расположение лейбла.
+     */
+    labelPlacement?: 'inner' | 'outer';
 }
 
 export interface TextAreaPropsCommon extends TextAreaProps {
