@@ -7,6 +7,10 @@ export type BoldProps = {
      * Полужирное начертание.
      */
     bold?: boolean;
+    /**
+     * Размер текста.
+     */
+    size?: string;
 };
 export type FontProps = {
     breakWord?: boolean;

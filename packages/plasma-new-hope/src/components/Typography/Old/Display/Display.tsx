@@ -31,13 +31,13 @@ export const Display = styled.div<DisplayProps>`
 
 export const displayRoot = (Root: RootProps<HTMLDivElement, DisplayProps>) =>
     forwardRef<HTMLDivElement, DisplayProps>((props, ref) => {
-        const { children, breakWord, ...rest } = props;
+        const { size, children, breakWord, className, style, ...rest } = props;
 
         const withBreakWord = breakWord ? classes.typoWithBreakWord : undefined;
 
         return (
-            <Root ref={ref} {...rest}>
-                <Display className={cx(withBreakWord)} style={applySpacing(rest)}>
+            <Root size={size} ref={ref}>
+                <Display className={cx(withBreakWord, className)} style={{ ...style, ...applySpacing(rest) }} {...rest}>
                     {children}
                 </Display>
             </Root>

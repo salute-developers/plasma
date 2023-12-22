@@ -33,14 +33,18 @@ export const ParagraphText = styled.div<ParagraphTextProps>`
 
 export const paragraphTextRoot = (Root: RootProps<HTMLDivElement, ParagraphTextProps>) =>
     forwardRef<HTMLDivElement, ParagraphTextProps>((props, ref) => {
-        const { children, breakWord, resetMargin, ...rest } = props;
+        const { size, children, breakWord, resetMargin, className, style, ...rest } = props;
 
         const withBreakWord = breakWord ? classes.typoWithBreakWord : undefined;
         const withResetMargin = resetMargin ? { margin: 0 } : {};
 
         return (
-            <Root ref={ref} {...rest}>
-                <ParagraphText className={cx(withBreakWord)} style={{ ...applySpacing(rest), ...withResetMargin }}>
+            <Root size={size} ref={ref}>
+                <ParagraphText
+                    className={cx(withBreakWord, className)}
+                    style={{ ...style, ...applySpacing(rest), ...withResetMargin }}
+                    {...rest}
+                >
                     {children}
                 </ParagraphText>
             </Root>

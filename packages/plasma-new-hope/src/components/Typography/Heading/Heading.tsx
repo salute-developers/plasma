@@ -31,13 +31,18 @@ export const Heading = styled.div<FontProps>`
 
 export const headingRoot = (Root: RootProps<HTMLDivElement, HeadingProps>) =>
     forwardRef<HTMLDivElement, HeadingProps>((props, ref) => {
-        const { children, breakWord, bold = true, ...rest } = props;
+        const { size, children, breakWord, bold = true, className, style, ...rest } = props;
 
         const withBreakWord = breakWord ? classes.typoWithBreakWord : undefined;
 
         return (
-            <Root ref={ref} {...rest}>
-                <Heading className={cx(withBreakWord)} style={applySpacing(rest)} bold={bold}>
+            <Root size={size} ref={ref}>
+                <Heading
+                    className={cx(withBreakWord, className)}
+                    style={{ ...style, ...applySpacing(rest) }}
+                    bold={bold}
+                    {...rest}
+                >
                     {children}
                 </Heading>
             </Root>

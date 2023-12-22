@@ -31,13 +31,17 @@ export const Footnote = styled.div<FootnoteProps>`
 
 export const footnoteRoot = (Root: RootProps<HTMLDivElement, FootnoteProps>) =>
     forwardRef<HTMLDivElement, FootnoteProps>((props, ref) => {
-        const { children, breakWord, ...rest } = props;
+        const { size, children, breakWord, className, style, ...rest } = props;
 
         const withBreakWord = breakWord ? classes.typoWithBreakWord : undefined;
 
         return (
-            <Root ref={ref} {...rest}>
-                <Footnote className={cx(withBreakWord)} style={applySpacing(rest)}>
+            <Root size={size} ref={ref}>
+                <Footnote
+                    className={cx(withBreakWord, className)}
+                    style={{ ...style, ...applySpacing(rest) }}
+                    {...rest}
+                >
                     {children}
                 </Footnote>
             </Root>
