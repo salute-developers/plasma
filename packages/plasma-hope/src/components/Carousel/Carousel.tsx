@@ -17,6 +17,7 @@ export type CarouselProps = Omit<BaseProps, 'axis' | 'animatedScrollByIndex' | '
      * При значении `polite` скринридер будет объявлять переключаемые слайды.
      */
     ariaLive?: 'off' | 'polite';
+    isDragScrollDisabled?: boolean;
 };
 
 const StyledCarousel = styled(CarouselCore)`
@@ -41,6 +42,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
         paddingEnd,
         children,
         ariaLive = 'off',
+        isDragScrollDisabled = false,
         ...rest
     },
     ref,
@@ -59,7 +61,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(function
     });
     const handleRef = useForkRef(scrollRef, ref);
 
-    useDragScroll(scrollRef);
+    useDragScroll(scrollRef, isDragScrollDisabled);
 
     return (
         <StyledCarousel ref={handleRef} axis={axis} scrollSnapType={scrollSnapType} {...rest}>
