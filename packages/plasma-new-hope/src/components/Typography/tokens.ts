@@ -1,5 +1,6 @@
 export const classes = {
     typoWithBreakWord: 'with-break-word',
+    typoBold: 'typography-bold',
 };
 
 export const tokens = {
