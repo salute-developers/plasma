@@ -1,15 +1,6 @@
 import { css, typographyTokens } from '@salutejs/plasma-new-hope/styled-components';
 
-export const defaults = {
-    button1: {
-        size: 'button1',
-    },
-    button2: {
-        size: 'button2',
-    },
-};
-
-export const config = {
+export const configButton1 = {
     defaults: {
         size: 'button1',
     },
@@ -23,6 +14,16 @@ export const config = {
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-button1-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-button1-line-height);
             `,
+        },
+    },
+};
+
+export const configButton2 = {
+    defaults: {
+        size: 'button2',
+    },
+    variations: {
+        size: {
             button2: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-button2-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-button2-font-size);

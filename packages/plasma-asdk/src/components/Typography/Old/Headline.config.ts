@@ -1,24 +1,6 @@
 import { css, typographyTokens } from '@salutejs/plasma-new-hope/styled-components';
 
-export const defaults = {
-    headline1: {
-        size: 'headline1',
-    },
-    headline2: {
-        size: 'headline2',
-    },
-    headline3: {
-        size: 'headline3',
-    },
-    headline4: {
-        size: 'headline4',
-    },
-    headline5: {
-        size: 'headline4',
-    },
-};
-
-export const config = {
+export const configHeadline1 = {
     defaults: {
         size: 'headline1',
     },
@@ -32,6 +14,16 @@ export const config = {
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-headline1-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-headline1-line-height);
             `,
+        },
+    },
+};
+
+export const configHeadline2 = {
+    defaults: {
+        size: 'headline2',
+    },
+    variations: {
+        size: {
             headline2: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-headline2-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-headline2-font-size);
@@ -40,6 +32,16 @@ export const config = {
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-headline2-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-headline2-line-height);
             `,
+        },
+    },
+};
+
+export const configHeadline3 = {
+    defaults: {
+        size: 'headline3',
+    },
+    variations: {
+        size: {
             headline3: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-headline3-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-headline3-font-size);
@@ -48,6 +50,16 @@ export const config = {
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-headline3-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-headline3-line-height);
             `,
+        },
+    },
+};
+
+export const configHeadline4 = {
+    defaults: {
+        size: 'headline4',
+    },
+    variations: {
+        size: {
             headline4: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-headline4-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-headline4-font-size);
@@ -56,13 +68,23 @@ export const config = {
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-headline4-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-headline4-line-height);
             `,
+        },
+    },
+};
+
+export const configHeadline5 = {
+    defaults: {
+        size: 'headline5',
+    },
+    variations: {
+        size: {
             headline5: css`
-                ${typographyTokens.typoFontFamily}: var(--plasma-typo-headline5-font-family);
-                ${typographyTokens.typoFontSize}: var(--plasma-typo-headline5-font-size);
-                ${typographyTokens.typoFontStyle}: var(--plasma-typo-headline5-font-style);
-                ${typographyTokens.typoFontWeight}: var(--plasma-typo-headline5-font-weight);
-                ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-headline5-letter-spacing);
-                ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-headline5-line-height);
+                ${typographyTokens.typoFontFamily}: var(--plasma-typo-headline5-font-family, 'SB Sans Text',sans-serif);
+                ${typographyTokens.typoFontSize}: var(--plasma-typo-headline5-font-size, 1rem);
+                ${typographyTokens.typoFontStyle}: var(--plasma-typo-headline5-font-style, normal);
+                ${typographyTokens.typoFontWeight}: var(--plasma-typo-headline5-font-weight, 600);
+                ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-headline5-letter-spacing, -0.0190em);
+                ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-headline5-line-height, 1.25rem);
             `,
         },
     },

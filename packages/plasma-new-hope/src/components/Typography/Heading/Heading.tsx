@@ -1,11 +1,11 @@
 import { base as sizeCSS } from '../variations/_size/base';
 import type { FontProps } from '../Typography.types';
 import { base } from '../Typography.styles';
-import { typographyRootBoldDefault } from '../Typography';
+import { typographyRootCompose } from '../Typography';
 
 export type HeadingProps = FontProps;
 
-export const headingRoot = typographyRootBoldDefault;
+export const headingRoot = typographyRootCompose({ defaultBold: true });
 
 export const headingConfig = {
     name: 'Heading',
