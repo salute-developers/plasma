@@ -1,23 +1,8 @@
 import { css, typographyTokens } from '@salutejs/plasma-new-hope/styled-components';
 
-export const defaults = {
-    l: {
-        size: 'l',
-    },
-    m: {
-        size: 'm',
-    },
-    s: {
-        size: 's',
-    },
-    xs: {
-        size: 'xs',
-    },
-};
-
-export const config = {
+export const configL = {
     defaults: {
-        size: 'm',
+        size: 'l',
     },
     variations: {
         size: {
@@ -30,6 +15,16 @@ export const config = {
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-text-l-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-text-l-line-height);
             `,
+        },
+    },
+};
+
+export const configM = {
+    defaults: {
+        size: 'm',
+    },
+    variations: {
+        size: {
             m: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-text-m-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-text-m-font-size);
@@ -39,6 +34,16 @@ export const config = {
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-text-m-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-text-m-line-height);
             `,
+        },
+    },
+};
+
+export const configS = {
+    defaults: {
+        size: 's',
+    },
+    variations: {
+        size: {
             s: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-text-s-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-text-s-font-size);
@@ -48,6 +53,16 @@ export const config = {
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-text-s-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-text-s-line-height);
             `,
+        },
+    },
+};
+
+export const configXS = {
+    defaults: {
+        size: 'xs',
+    },
+    variations: {
+        size: {
             xs: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-text-xs-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-text-xs-font-size);
