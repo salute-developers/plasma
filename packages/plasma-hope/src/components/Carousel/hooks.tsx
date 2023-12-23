@@ -2,7 +2,10 @@ import { useCallback, useEffect, useState } from 'react';
 
 const SCROLL_SPEED = 2;
 
-export const useDragScroll = <T extends HTMLElement>(scrollRef: React.MutableRefObject<T | null>) => {
+export const useDragScroll = <T extends HTMLElement>(
+    scrollRef: React.MutableRefObject<T | null>,
+    isDragScrollDisabled: boolean | null = false,
+) => {
     const [isDragging, setDragging] = useState(false);
     const [startX, setStartX] = useState(0);
     const [scrollLeft, setScrollLeft] = useState(0);
@@ -40,7 +43,7 @@ export const useDragScroll = <T extends HTMLElement>(scrollRef: React.MutableRef
     );
 
     useEffect(() => {
-        if (scrollRef && scrollRef.current) {
+        if (scrollRef && scrollRef.current && !isDragScrollDisabled) {
             scrollRef.current.style.userSelect = 'none';
             scrollRef.current.addEventListener('mousedown', handleMouseDown);
             scrollRef.current.addEventListener('mouseup', handleMouseUp);
@@ -49,12 +52,12 @@ export const useDragScroll = <T extends HTMLElement>(scrollRef: React.MutableRef
         }
 
         return () => {
-            if (scrollRef && scrollRef.current) {
+            if (scrollRef && scrollRef.current && !isDragScrollDisabled) {
                 scrollRef.current.removeEventListener('mousedown', handleMouseDown);
                 scrollRef.current.removeEventListener('mouseup', handleMouseUp);
                 scrollRef.current.removeEventListener('mouseleave', handleMouseUp);
                 scrollRef.current.removeEventListener('mousemove', handleMouseMove);
             }
         };
-    }, [scrollRef, handleMouseDown, handleMouseUp, handleMouseMove]);
+    }, [scrollRef, handleMouseDown, handleMouseUp, handleMouseMove, isDragScrollDisabled]);
 };

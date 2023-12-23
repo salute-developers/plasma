@@ -88,6 +88,7 @@ const StyledControls = styled.div`
 const StyledCarousel = styled(Carousel)`
     display: flex;
     padding: 0.5rem 0;
+    overflow: hidden;
 `;
 const StyledCarouselItem = styled(CarouselItem)`
     width: 32.5rem;
@@ -152,7 +153,7 @@ const StoryAccessibilityDemo = () => {
                         view="clear"
                     />
                 </StyledControls>
-                <StyledCarousel index={index} scrollSnapType="none" ariaLive={ariaLive}>
+                <StyledCarousel index={index} scrollSnapType="none" ariaLive={ariaLive} isDragScrollDisabled>
                     {items.map((item, i) => (
                         <StyledCarouselItem key={item.id} aria-label={`${i + 1} из ${items.length}`}>
                             <CarouselCard
