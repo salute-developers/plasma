@@ -7,60 +7,81 @@ import {
     mergeConfig,
 } from '@salutejs/plasma-new-hope/styled-components';
 
-import { config as bodyConfigCustom, defaults as bodyDefaults } from './Body.config';
-import { config as dsplConfigCustom, defaults as dsplDefaults } from './Dspl.config';
-import { config as headingConfigCustom, defaults as headingDefaults } from './Heading.config';
-import { config as textConfigCustom, defaults as textDefaults } from './Text.config';
+import {
+    configL as bodyConfigLCustom,
+    configM as bodyConfigMCustom,
+    configS as bodyConfigSCustom,
+    configXS as bodyConfigXSCustom,
+    configXXS as bodyConfigXXSCustom,
+} from './Body.config';
+import {
+    configL as dsplConfigLCustom,
+    configM as dsplConfigMCustom,
+    configS as dsplConfigSCustom,
+} from './Dspl.config';
+import {
+    configH1 as headingConfigH1Custom,
+    configH2 as headingConfigH2Custom,
+    configH3 as headingConfigH3Custom,
+    configH4 as headingConfigH4Custom,
+    configH5 as headingConfigH5Custom,
+} from './Heading.config';
+import {
+    configL as textConfigLCustom,
+    configM as textConfigMCustom,
+    configS as textConfigSCustom,
+    configXS as textConfigXSCustom,
+} from './Text.config';
 
-const bodyMConfig = mergeConfig(bodyConfig, { ...bodyConfigCustom, defaults: bodyDefaults.m });
+const bodyMConfig = mergeConfig(bodyConfig, bodyConfigMCustom);
 const BodyMComponent = component(bodyMConfig);
 
-const bodyLConfig = mergeConfig(bodyConfig, { ...bodyConfigCustom, defaults: bodyDefaults.l });
+const bodyLConfig = mergeConfig(bodyConfig, bodyConfigLCustom);
 const BodyLComponent = component(bodyLConfig);
 
-const bodySConfig = mergeConfig(bodyConfig, { ...bodyConfigCustom, defaults: bodyDefaults.s });
+const bodySConfig = mergeConfig(bodyConfig, bodyConfigSCustom);
 const BodySComponent = component(bodySConfig);
 
-const bodyXSConfig = mergeConfig(bodyConfig, { ...bodyConfigCustom, defaults: bodyDefaults.xs });
+const bodyXSConfig = mergeConfig(bodyConfig, bodyConfigXSCustom);
 const BodyXSComponent = component(bodyXSConfig);
 
-const bodyXXSConfig = mergeConfig(bodyConfig, { ...bodyConfigCustom, defaults: bodyDefaults.xxs });
+const bodyXXSConfig = mergeConfig(bodyConfig, bodyConfigXXSCustom);
 const BodyXXSComponent = component(bodyXXSConfig);
 
-const dsplMConfig = mergeConfig(dsplConfig, { ...dsplConfigCustom, defaults: dsplDefaults.m });
+const dsplMConfig = mergeConfig(dsplConfig, dsplConfigMCustom);
 const DsplMComponent = component(dsplMConfig);
 
-const dsplLConfig = mergeConfig(dsplConfig, { ...dsplConfigCustom, defaults: dsplDefaults.l });
+const dsplLConfig = mergeConfig(dsplConfig, dsplConfigLCustom);
 const DsplLComponent = component(dsplLConfig);
 
-const dsplSConfig = mergeConfig(dsplConfig, { ...dsplConfigCustom, defaults: dsplDefaults.s });
+const dsplSConfig = mergeConfig(dsplConfig, dsplConfigSCustom);
 const DsplSComponent = component(dsplSConfig);
 
-const heading1Config = mergeConfig(headingConfig, { ...headingConfigCustom, defaults: headingDefaults.h1 });
+const heading1Config = mergeConfig(headingConfig, headingConfigH1Custom);
 const Heading1Component = component(heading1Config);
 
-const heading2Config = mergeConfig(headingConfig, { ...headingConfigCustom, defaults: headingDefaults.h2 });
+const heading2Config = mergeConfig(headingConfig, headingConfigH2Custom);
 const Heading2Component = component(heading2Config);
 
-const heading3Config = mergeConfig(headingConfig, { ...headingConfigCustom, defaults: headingDefaults.h3 });
+const heading3Config = mergeConfig(headingConfig, headingConfigH3Custom);
 const Heading3Component = component(heading3Config);
 
-const heading4Config = mergeConfig(headingConfig, { ...headingConfigCustom, defaults: headingDefaults.h4 });
+const heading4Config = mergeConfig(headingConfig, headingConfigH4Custom);
 const Heading4Component = component(heading4Config);
 
-const heading5Config = mergeConfig(headingConfig, { ...headingConfigCustom, defaults: headingDefaults.h5 });
+const heading5Config = mergeConfig(headingConfig, headingConfigH5Custom);
 const Heading5Component = component(heading5Config);
 
-const textMConfig = mergeConfig(textConfig, { ...textConfigCustom, defaults: textDefaults.m });
+const textMConfig = mergeConfig(textConfig, textConfigMCustom);
 const TextMComponent = component(textMConfig);
 
-const textLConfig = mergeConfig(textConfig, { ...textConfigCustom, defaults: textDefaults.l });
+const textLConfig = mergeConfig(textConfig, textConfigLCustom);
 const TextLComponent = component(textLConfig);
 
-const textSConfig = mergeConfig(textConfig, { ...textConfigCustom, defaults: textDefaults.s });
+const textSConfig = mergeConfig(textConfig, textConfigSCustom);
 const TextSComponent = component(textSConfig);
 
-const textXSConfig = mergeConfig(textConfig, { ...textConfigCustom, defaults: textDefaults.xs });
+const textXSConfig = mergeConfig(textConfig, textConfigXSCustom);
 const TextXSComponent = component(textXSConfig);
 
 export const BodyM = BodyMComponent;
