@@ -12,6 +12,7 @@ export * from './components/Checkbox';
 export * from './components/Radiobox';
 export * from './components/Popover';
 export * from './components/TextArea';
+export * from './components/TextField';
 export * from './components/Switch';
 export * from './components/Tabs';
 export * from './components/Calendar';
