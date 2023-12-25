@@ -385,6 +385,7 @@ export type CardProps = CardProps_2 & RoundnessProps & BackgroundProps;
 // @public
 export const Carousel: React_2.ForwardRefExoticComponent<Omit<CarouselProps_2, "axis" | "animatedScrollByIndex" | "throttleMs" | "debounceMs"> & {
     ariaLive?: "off" | "polite" | undefined;
+    isDragScrollDisabled?: boolean | undefined;
 } & React_2.RefAttributes<HTMLDivElement>>;
 
 export { CarouselGridWrapper }
@@ -396,6 +397,7 @@ export { CarouselItemProps }
 // @public (undocumented)
 export type CarouselProps = Omit<CarouselProps_2, 'axis' | 'animatedScrollByIndex' | 'throttleMs' | 'debounceMs'> & {
     ariaLive?: 'off' | 'polite';
+    isDragScrollDisabled?: boolean;
 };
 
 // @public
