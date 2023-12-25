@@ -1,3 +1,24 @@
+# v1.261.0 (Mon Dec 25 2023)
+
+#### 🚀 Enhancement
+
+- hot-fix(plasma-new-hope): redefining classnames for typography [#951](https://github.com/salute-developers/plasma/pull/951) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva))
+- feat(plasma-asdk/b2c/web): fix typography stories props ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### 🐛 Bug Fix
+
+- docs(plasma-asdk/b2c/web): generate api docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- chore: manual package.lock bump ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+---
+
 # v1.260.0 (Fri Dec 22 2023)
 
 #### 🚀 Enhancement

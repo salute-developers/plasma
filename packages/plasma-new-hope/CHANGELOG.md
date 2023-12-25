@@ -1,3 +1,26 @@
+# v0.27.0 (Mon Dec 25 2023)
+
+#### 🚀 Enhancement
+
+- hot-fix(plasma-new-hope): redefining classnames for typography [#951](https://github.com/salute-developers/plasma/pull/951) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva))
+- feat(plasma-asdk): fix typography configs ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): refactor typography root ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): fix typography for new-hope ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope): remove useEffect from typography [#946](https://github.com/salute-developers/plasma/pull/946) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### 🐛 Bug Fix
+
+- chore: manual package.lock bump ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+---
+
 # v0.26.0 (Fri Dec 22 2023)
 
 #### 🚀 Enhancement

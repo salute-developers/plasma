@@ -1,3 +1,19 @@
+# (Mon Dec 25 2023)
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-asdk@0.20.0`, `@salutejs/plasma-b2c@1.261.0`, `@salutejs/plasma-new-hope@0.27.0`, `@salutejs/plasma-web@1.261.0`
+  - hot-fix(plasma-new-hope): redefining classnames for typography [#951](https://github.com/salute-developers/plasma/pull/951) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva))
+- `@salutejs/plasma-new-hope@0.27.0`
+  - feat(plasma-new-hope): remove useEffect from typography [#946](https://github.com/salute-developers/plasma/pull/946) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+---
+
 # (Fri Dec 22 2023)
 
 ### Release Notes
