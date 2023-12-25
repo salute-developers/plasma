@@ -1,20 +1,8 @@
 import { css, typographyTokens } from '@salutejs/plasma-new-hope/styled-components';
 
-export const defaults = {
-    m: {
-        size: 'm',
-    },
-    l: {
-        size: 'l',
-    },
-    s: {
-        size: 's',
-    },
-};
-
-export const config = {
+export const configL = {
     defaults: {
-        size: 'm',
+        size: 'l',
     },
     variations: {
         size: {
@@ -27,6 +15,16 @@ export const config = {
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-dspl-l-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-dspl-l-line-height);
             `,
+        },
+    },
+};
+
+export const configM = {
+    defaults: {
+        size: 'm',
+    },
+    variations: {
+        size: {
             m: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-dspl-m-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-dspl-m-font-size);
@@ -36,6 +34,16 @@ export const config = {
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-dspl-m-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-dspl-m-line-height);
             `,
+        },
+    },
+};
+
+export const configS = {
+    defaults: {
+        size: 's',
+    },
+    variations: {
+        size: {
             s: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-dspl-s-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-dspl-s-font-size);

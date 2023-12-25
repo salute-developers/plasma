@@ -1,15 +1,6 @@
 import { css, typographyTokens } from '@salutejs/plasma-new-hope/styled-components';
 
-export const defaults = {
-    paragraph1: {
-        size: 'paragraph1',
-    },
-    paragraph2: {
-        size: 'paragraph2',
-    },
-};
-
-export const config = {
+export const configParagraph1 = {
     defaults: {
         size: 'paragraph1',
     },
@@ -23,6 +14,16 @@ export const config = {
                 ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-paragraph1-letter-spacing);
                 ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-paragraph1-line-height);
             `,
+        },
+    },
+};
+
+export const configParagraph2 = {
+    defaults: {
+        size: 'paragraph2',
+    },
+    variations: {
+        size: {
             paragraph2: css`
                 ${typographyTokens.typoFontFamily}: var(--plasma-typo-paragraph2-font-family);
                 ${typographyTokens.typoFontSize}: var(--plasma-typo-paragraph2-font-size);
