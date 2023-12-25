@@ -18,7 +18,7 @@ const meta: Meta<typeof Carousel> = {
     component: Carousel,
     decorators: [InSpacingDecorator],
     argTypes: {
-        align: {
+        scrollAlign: {
             options: ['center', 'start', 'end'],
             control: {
                 type: 'inline-radio',
@@ -49,11 +49,14 @@ const defaultCarouselStyle = { margin: '0 -0.5rem' };
 const defaultCarouselItemStyle = { width: '20rem', padding: '0 0.5rem' };
 
 export const Default: StoryObj<CarouselProps> = {
-    render: () => {
+    args: {
+        scrollAlign: 'start',
+    },
+    render: ({ scrollAlign }) => {
         return (
-            <Carousel index={0} style={defaultCarouselStyle}>
+            <Carousel index={0} style={defaultCarouselStyle} scrollAlign={scrollAlign}>
                 {items.map((item) => (
-                    <CarouselItem key={item.id} style={defaultCarouselItemStyle}>
+                    <CarouselItem key={item.id} style={defaultCarouselItemStyle} scrollSnapAlign={scrollAlign}>
                         <CarouselCard
                             id={item.id}
                             title={item.title}
