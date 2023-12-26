@@ -990,6 +990,73 @@ import { ZoomMinusFill } from './ZoomMinusFill';
 import { ZoomMinusOutline } from './ZoomMinusOutline';
 import { ZoomPlusFill } from './ZoomPlusFill';
 import { ZoomPlusOutline } from './ZoomPlusOutline';
+import { AttentionCircleOutline } from './AttentionCircleOutline';
+import { AttentionTriangleFill } from './AttentionTriangleFill';
+import { AttentionTriangleOutline } from './AttentionTriangleOutline';
+import { BallFill } from './BallFill';
+import { BallOutline } from './BallOutline';
+import { BikeFill } from './BikeFill';
+import { BikeOutline } from './BikeOutline';
+import { BlockFill } from './BlockFill';
+import { BlockOutline } from './BlockOutline';
+import { Close } from './Close';
+import { CloseCircleFill } from './CloseCircleFill';
+import { CloseCircleOutline } from './CloseCircleOutline';
+import { CloseSquareFill } from './CloseSquareFill';
+import { CloseSquareOutline } from './CloseSquareOutline';
+import { Done } from './Done';
+import { DoneCircleFill } from './DoneCircleFill';
+import { DoneCircleOutline } from './DoneCircleOutline';
+import { DoneSquareFill } from './DoneSquareFill';
+import { DoneSquareOutline } from './DoneSquareOutline';
+import { FootballFill } from './FootballFill';
+import { FootballOutline } from './FootballOutline';
+import { HelpCircleFill } from './HelpCircleFill';
+import { HelpCircleOutline } from './HelpCircleOutline';
+import { MinusCircleFill } from './MinusCircleFill';
+import { MinusCircleOutline } from './MinusCircleOutline';
+import { MinusSquareFill } from './MinusSquareFill';
+import { MinusSquareOutline } from './MinusSquareOutline';
+import { Plus } from './Plus';
+import { PlusCircleFill } from './PlusCircleFill';
+import { PlusCircleOutline } from './PlusCircleOutline';
+import { PlusSquareFill } from './PlusSquareFill';
+import { PlusSquareOutline } from './PlusSquareOutline';
+import { SctivityFill } from './SctivityFill';
+import { SctivityOutline } from './SctivityOutline';
+import { ShieldChildFill } from './ShieldChildFill';
+import { ShieldChildOutline } from './ShieldChildOutline';
+import { ShieldDashFill } from './ShieldDashFill';
+import { ShieldDashOutline } from './ShieldDashOutline';
+import { ShieldDoneFill } from './ShieldDoneFill';
+import { ShieldDoneOutline } from './ShieldDoneOutline';
+import { ShieldFill } from './ShieldFill';
+import { ShieldLinesCirclesFill } from './ShieldLinesCirclesFill';
+import { ShieldLinesCirclesOutline } from './ShieldLinesCirclesOutline';
+import { ShieldLinesFill } from './ShieldLinesFill';
+import { ShieldLinesOutline } from './ShieldLinesOutline';
+import { ShieldOutline } from './ShieldOutline';
+import { StarCircleFill } from './StarCircleFill';
+import { StarCircleOutline } from './StarCircleOutline';
+import { StarDashFill } from './StarDashFill';
+import { StarDashOutline } from './StarDashOutline';
+import { StarFill } from './StarFill';
+import { StarLightFill } from './StarLightFill';
+import { StarLightOutline } from './StarLightOutline';
+import { StarRecommendFill } from './StarRecommendFill';
+import { StarRecommendOutline } from './StarRecommendOutline';
+import { SwapHoriz } from './SwapHoriz';
+import { SwapHorizCircFill } from './SwapHorizCircFill';
+import { SwapHorizCircOutline } from './SwapHorizCircOutline';
+import { SwapVert } from './SwapVert';
+import { SwapVertCircFill } from './SwapVertCircFill';
+import { SwapVertCircOutline } from './SwapVertCircOutline';
+import { SyncError } from './SyncError';
+import { SyncProblem } from './SyncProblem';
+import { VerificationFill } from './VerificationFill';
+import { VerificationOutline } from './VerificationOutline';
+import { WhistleFill } from './WhistleFill';
+import { WhistleOutline } from './WhistleOutline';
 
 export const iconSet24 = {
     attentionCircle: AttentionCircle,
@@ -1984,6 +2051,73 @@ export const iconSet24 = {
     zoomMinusOutline: ZoomMinusOutline,
     zoomPlusFill: ZoomPlusFill,
     zoomPlusOutline: ZoomPlusOutline,
+    attentionCircleOutline: AttentionCircleOutline,
+    attentionTriangleFill: AttentionTriangleFill,
+    attentionTriangleOutline: AttentionTriangleOutline,
+    ballFill: BallFill,
+    ballOutline: BallOutline,
+    bikeFill: BikeFill,
+    bikeOutline: BikeOutline,
+    blockFill: BlockFill,
+    blockOutline: BlockOutline,
+    close: Close,
+    closeCircleFill: CloseCircleFill,
+    closeCircleOutline: CloseCircleOutline,
+    closeSquareFill: CloseSquareFill,
+    closeSquareOutline: CloseSquareOutline,
+    done: Done,
+    doneCircleFill: DoneCircleFill,
+    doneCircleOutline: DoneCircleOutline,
+    doneSquareFill: DoneSquareFill,
+    doneSquareOutline: DoneSquareOutline,
+    footballFill: FootballFill,
+    footballOutline: FootballOutline,
+    helpCircleFill: HelpCircleFill,
+    helpCircleOutline: HelpCircleOutline,
+    minusCircleFill: MinusCircleFill,
+    minusCircleOutline: MinusCircleOutline,
+    minusSquareFill: MinusSquareFill,
+    minusSquareOutline: MinusSquareOutline,
+    plus: Plus,
+    plusCircleFill: PlusCircleFill,
+    plusCircleOutline: PlusCircleOutline,
+    plusSquareFill: PlusSquareFill,
+    plusSquareOutline: PlusSquareOutline,
+    sctivityFill: SctivityFill,
+    sctivityOutline: SctivityOutline,
+    shieldChildFill: ShieldChildFill,
+    shieldChildOutline: ShieldChildOutline,
+    shieldDashFill: ShieldDashFill,
+    shieldDashOutline: ShieldDashOutline,
+    shieldDoneFill: ShieldDoneFill,
+    shieldDoneOutline: ShieldDoneOutline,
+    shieldFill: ShieldFill,
+    shieldLinesCirclesFill: ShieldLinesCirclesFill,
+    shieldLinesCirclesOutline: ShieldLinesCirclesOutline,
+    shieldLinesFill: ShieldLinesFill,
+    shieldLinesOutline: ShieldLinesOutline,
+    shieldOutline: ShieldOutline,
+    starCircleFill: StarCircleFill,
+    starCircleOutline: StarCircleOutline,
+    starDashFill: StarDashFill,
+    starDashOutline: StarDashOutline,
+    starFill: StarFill,
+    starLightFill: StarLightFill,
+    starLightOutline: StarLightOutline,
+    starRecommendFill: StarRecommendFill,
+    starRecommendOutline: StarRecommendOutline,
+    swapHoriz: SwapHoriz,
+    swapHorizCircFill: SwapHorizCircFill,
+    swapHorizCircOutline: SwapHorizCircOutline,
+    swapVert: SwapVert,
+    swapVertCircFill: SwapVertCircFill,
+    swapVertCircOutline: SwapVertCircOutline,
+    syncError: SyncError,
+    syncProblem: SyncProblem,
+    verificationFill: VerificationFill,
+    verificationOutline: VerificationOutline,
+    whistleFill: WhistleFill,
+    whistleOutline: WhistleOutline,
 };
 
 export type IconSet24 = keyof typeof iconSet24;
