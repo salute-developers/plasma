@@ -29,6 +29,8 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
             pin,
             disabled,
             focused,
+            className,
+            style,
             ...rest
         } = props;
 
@@ -48,8 +50,8 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                 size={size}
                 disabled={disabled}
                 focused={focused}
-                className={cx(squareClass, stretchClass)}
-                style={{ '--plasma_computed-btn-br': buttonBorderRadius } as CSSProperties}
+                className={cx(squareClass, stretchClass, className)}
+                style={{ ...style, '--plasma_computed-btn-br': buttonBorderRadius } as CSSProperties}
                 {...rest}
             >
                 <LoadWrap isLoading={isLoading}>
