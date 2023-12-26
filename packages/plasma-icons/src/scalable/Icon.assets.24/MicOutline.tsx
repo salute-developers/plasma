@@ -2,10 +2,12 @@ import React from 'react';
 
 import { IconProps } from '../IconRoot';
 
-export const MicFill: React.FC<IconProps> = (props) => (
+export const MicOutline: React.FC<IconProps> = (props) => (
     <svg width="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
         <path
-            d="M11.9989 2.25C9.9278 2.25 8.24886 3.92893 8.24886 6V12C8.24886 14.0711 9.9278 15.75 11.9989 15.75C14.0699 15.75 15.7489 14.0711 15.7489 12V6C15.7489 3.92893 14.0699 2.25 11.9989 2.25Z"
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M11.9989 2.25C9.9278 2.25 8.24886 3.92893 8.24886 6V12C8.24886 14.0711 9.9278 15.75 11.9989 15.75C14.0699 15.75 15.7489 14.0711 15.7489 12V6C15.7489 3.92893 14.0699 2.25 11.9989 2.25ZM9.74886 6C9.74886 4.75736 10.7562 3.75 11.9989 3.75C13.2415 3.75 14.2489 4.75736 14.2489 6V12C14.2489 13.2426 13.2415 14.25 11.9989 14.25C10.7562 14.25 9.74886 13.2426 9.74886 12V6Z"
             fill="currentColor"
         />
         <path
