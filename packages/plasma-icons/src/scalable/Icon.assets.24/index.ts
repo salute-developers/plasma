@@ -1057,6 +1057,60 @@ import { VerificationFill } from './VerificationFill';
 import { VerificationOutline } from './VerificationOutline';
 import { WhistleFill } from './WhistleFill';
 import { WhistleOutline } from './WhistleOutline';
+import { AlarmAddFill } from './AlarmAddFill';
+import { AlarmAddOutline } from './AlarmAddOutline';
+import { AlarmCircleFill } from './AlarmCircleFill';
+import { AlarmCircleOutline } from './AlarmCircleOutline';
+import { AlarmDoneFill } from './AlarmDoneFill';
+import { AlarmDoneOutline } from './AlarmDoneOutline';
+import { ClockCircleOutline } from './ClockCircleOutline';
+import { HourglassBotFill } from './HourglassBotFill';
+import { HourglassBotOutline } from './HourglassBotOutline';
+import { HourglassFill } from './HourglassFill';
+import { HourglassOutline } from './HourglassOutline';
+import { HourglassTopFill } from './HourglassTopFill';
+import { HourglassTopOutline } from './HourglassTopOutline';
+import { HummerFill } from './HummerFill';
+import { HummerOutline } from './HummerOutline';
+import { RegionalFill } from './RegionalFill';
+import { RegionalOutline } from './RegionalOutline';
+import { Silent } from './Silent';
+import { Silent2 } from './Silent2';
+import { TagBadgeFill } from './TagBadgeFill';
+import { TagBadgeOutline } from './TagBadgeOutline';
+import { TaskHorizFill } from './TaskHorizFill';
+import { TaskHorizOutline } from './TaskHorizOutline';
+import { TicketOutline } from './TicketOutline';
+import { Timer45Fill } from './Timer45Fill';
+import { Timer45Outline } from './Timer45Outline';
+import { TimerAddFill } from './TimerAddFill';
+import { TimerAddOutline } from './TimerAddOutline';
+import { TimerExpressFill } from './TimerExpressFill';
+import { TimerExpressOutline } from './TimerExpressOutline';
+import { TimerExpressSpeedFill } from './TimerExpressSpeedFill';
+import { TimerExpressSpeedOutline } from './TimerExpressSpeedOutline';
+import { TimerFastFill } from './TimerFastFill';
+import { TimerFastOutline } from './TimerFastOutline';
+import { TranscribeTextVoiceErrorFill } from './TranscribeTextVoiceErrorFill';
+import { TranscribeTextVoiceErrorLine } from './TranscribeTextVoiceErrorLine';
+import { TranscribeTextVoiceFill } from './TranscribeTextVoiceFill';
+import { TranscribeTextVoiceOutline } from './TranscribeTextVoiceOutline';
+import { TranscriptionVoiceTextErrorFill } from './TranscriptionVoiceTextErrorFill';
+import { TranscriptionVoiceTextErrorOutline } from './TranscriptionVoiceTextErrorOutline';
+import { TranscriptionVoiceTextFill } from './TranscriptionVoiceTextFill';
+import { TranscriptionVoiceTextOutline } from './TranscriptionVoiceTextOutline';
+import { TvBulbFill } from './TvBulbFill';
+import { TvBulbOutline } from './TvBulbOutline';
+import { TvDashFill } from './TvDashFill';
+import { TvDashOutline } from './TvDashOutline';
+import { TvModeFill } from './TvModeFill';
+import { TvModeOutline } from './TvModeOutline';
+import { TvPlayFill } from './TvPlayFill';
+import { TvPlayOutline } from './TvPlayOutline';
+import { TvSaluteFill } from './TvSaluteFill';
+import { TvSaluteOutline } from './TvSaluteOutline';
+import { WrenchFill } from './WrenchFill';
+import { WrenchOutline } from './WrenchOutline';
 
 export const iconSet24 = {
     attentionCircle: AttentionCircle,
@@ -2118,6 +2172,60 @@ export const iconSet24 = {
     verificationOutline: VerificationOutline,
     whistleFill: WhistleFill,
     whistleOutline: WhistleOutline,
+    alarmAddFill: AlarmAddFill,
+    alarmAddOutline: AlarmAddOutline,
+    alarmCircleFill: AlarmCircleFill,
+    alarmCircleOutline: AlarmCircleOutline,
+    alarmDoneFill: AlarmDoneFill,
+    alarmDoneOutline: AlarmDoneOutline,
+    clockCircleOutline: ClockCircleOutline,
+    hourglassBotFill: HourglassBotFill,
+    hourglassBotOutline: HourglassBotOutline,
+    hourglassFill: HourglassFill,
+    hourglassOutline: HourglassOutline,
+    hourglassTopFill: HourglassTopFill,
+    hourglassTopOutline: HourglassTopOutline,
+    hummerFill: HummerFill,
+    hummerOutline: HummerOutline,
+    regionalFill: RegionalFill,
+    regionalOutline: RegionalOutline,
+    silent: Silent,
+    silent2: Silent2,
+    tagBadgeFill: TagBadgeFill,
+    tagBadgeOutline: TagBadgeOutline,
+    taskHorizFill: TaskHorizFill,
+    taskHorizOutline: TaskHorizOutline,
+    ticketOutline: TicketOutline,
+    timer45Fill: Timer45Fill,
+    timer45Outline: Timer45Outline,
+    timerAddFill: TimerAddFill,
+    timerAddOutline: TimerAddOutline,
+    timerExpressFill: TimerExpressFill,
+    timerExpressOutline: TimerExpressOutline,
+    timerExpressSpeedFill: TimerExpressSpeedFill,
+    timerExpressSpeedOutline: TimerExpressSpeedOutline,
+    timerFastFill: TimerFastFill,
+    timerFastOutline: TimerFastOutline,
+    transcribeTextVoiceErrorFill: TranscribeTextVoiceErrorFill,
+    transcribeTextVoiceErrorLine: TranscribeTextVoiceErrorLine,
+    transcribeTextVoiceFill: TranscribeTextVoiceFill,
+    transcribeTextVoiceOutline: TranscribeTextVoiceOutline,
+    transcriptionVoiceTextErrorFill: TranscriptionVoiceTextErrorFill,
+    transcriptionVoiceTextErrorOutline: TranscriptionVoiceTextErrorOutline,
+    transcriptionVoiceTextFill: TranscriptionVoiceTextFill,
+    transcriptionVoiceTextOutline: TranscriptionVoiceTextOutline,
+    tvBulbFill: TvBulbFill,
+    tvBulbOutline: TvBulbOutline,
+    tvDashFill: TvDashFill,
+    tvDashOutline: TvDashOutline,
+    tvModeFill: TvModeFill,
+    tvModeOutline: TvModeOutline,
+    tvPlayFill: TvPlayFill,
+    tvPlayOutline: TvPlayOutline,
+    tvSaluteFill: TvSaluteFill,
+    tvSaluteOutline: TvSaluteOutline,
+    wrenchFill: WrenchFill,
+    wrenchOutline: WrenchOutline,
 };
 
 export type IconSet24 = keyof typeof iconSet24;
