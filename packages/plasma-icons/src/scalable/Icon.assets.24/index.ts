@@ -464,6 +464,62 @@ import { RedCrossFill } from './RedCrossFill';
 import { RedCrossOutline } from './RedCrossOutline';
 import { ShareFill } from './ShareFill';
 import { ShareOutline } from './ShareOutline';
+import { CatalogFill } from './CatalogFill';
+import { CatalogOutline } from './CatalogOutline';
+import { ConnectionError } from './ConnectionError';
+import { ConnectionSuccess } from './ConnectionSuccess';
+import { ConnectionWaiting } from './ConnectionWaiting';
+import { Curve } from './Curve';
+import { DislikeFill } from './DislikeFill';
+import { DislikeOutline } from './DislikeOutline';
+import { LightningFill } from './LightningFill';
+import { LightningOutline } from './LightningOutline';
+import { LikeFill } from './LikeFill';
+import { LikeOutline } from './LikeOutline';
+import { Line } from './Line';
+import { LineLinkFromto } from './LineLinkFromto';
+import { LineLinkToto } from './LineLinkToto';
+import { Link } from './Link';
+import { LinkError } from './LinkError';
+import { LockFill } from './LockFill';
+import { LockOpenFill } from './LockOpenFill';
+import { LockOpenOutline } from './LockOpenOutline';
+import { LockOutline } from './LockOutline';
+import { Login } from './Login';
+import { Logout } from './Logout';
+import { Mastercard } from './Mastercard';
+import { Mir } from './Mir';
+import { NetworkFill } from './NetworkFill';
+import { NetworkOutline } from './NetworkOutline';
+import { NewsFill } from './NewsFill';
+import { NewsOutline } from './NewsOutline';
+import { NewsPaperFill } from './NewsPaperFill';
+import { NewsPaperOutline } from './NewsPaperOutline';
+import { OpenFill } from './OpenFill';
+import { OpenOutline } from './OpenOutline';
+import { Plasma } from './Plasma';
+import { PostFill } from './PostFill';
+import { PostOutline } from './PostOutline';
+import { QRCode } from './QRCode';
+import { RadioFill } from './RadioFill';
+import { RadioOutline } from './RadioOutline';
+import { Refresh } from './Refresh';
+import { ResetOutline } from './ResetOutline';
+import { RotateCcw } from './RotateCcw';
+import { RotateCw } from './RotateCw';
+import { RublePlus } from './RublePlus';
+import { RublePlusDollar } from './RublePlusDollar';
+import { RulerFill } from './RulerFill';
+import { RulerOutline } from './RulerOutline';
+import { SaluteFill } from './SaluteFill';
+import { SaluteOutline } from './SaluteOutline';
+import { Sber } from './Sber';
+import { TableLampFill } from './TableLampFill';
+import { TableLampOutline } from './TableLampOutline';
+import { Visa } from './Visa';
+import { WifiDash } from './WifiDash';
+import { WifiDefault } from './WifiDefault';
+import { WifiLock } from './WifiLock';
 
 export const iconSet24 = {    addFill: AddFill,
     addOutline: AddOutline,
@@ -932,6 +988,62 @@ export const iconSet24 = {    addFill: AddFill,
     redCrossOutline: RedCrossOutline,
     shareFill: ShareFill,
     shareOutline: ShareOutline,
+    catalogFill: CatalogFill,
+    catalogOutline: CatalogOutline,
+    connectionError: ConnectionError,
+    connectionSuccess: ConnectionSuccess,
+    connectionWaiting: ConnectionWaiting,
+    curve: Curve,
+    dislikeFill: DislikeFill,
+    dislikeOutline: DislikeOutline,
+    lightningFill: LightningFill,
+    lightningOutline: LightningOutline,
+    likeFill: LikeFill,
+    likeOutline: LikeOutline,
+    line: Line,
+    lineLinkFromto: LineLinkFromto,
+    lineLinkToto: LineLinkToto,
+    link: Link,
+    linkError: LinkError,
+    lockFill: LockFill,
+    lockOpenFill: LockOpenFill,
+    lockOpenOutline: LockOpenOutline,
+    lockOutline: LockOutline,
+    login: Login,
+    logout: Logout,
+    mastercard: Mastercard,
+    mir: Mir,
+    networkFill: NetworkFill,
+    networkOutline: NetworkOutline,
+    newsFill: NewsFill,
+    newsOutline: NewsOutline,
+    newsPaperFill: NewsPaperFill,
+    newsPaperOutline: NewsPaperOutline,
+    openFill: OpenFill,
+    openOutline: OpenOutline,
+    plasma: Plasma,
+    postFill: PostFill,
+    postOutline: PostOutline,
+    qRCode: QRCode,
+    radioFill: RadioFill,
+    radioOutline: RadioOutline,
+    refresh: Refresh,
+    resetOutline: ResetOutline,
+    rotateCcw: RotateCcw,
+    rotateCw: RotateCw,
+    rublePlus: RublePlus,
+    rublePlusDollar: RublePlusDollar,
+    rulerFill: RulerFill,
+    rulerOutline: RulerOutline,
+    saluteFill: SaluteFill,
+    saluteOutline: SaluteOutline,
+    sber: Sber,
+    tableLampFill: TableLampFill,
+    tableLampOutline: TableLampOutline,
+    visa: Visa,
+    wifiDash: WifiDash,
+    wifiDefault: WifiDefault,
+    wifiLock: WifiLock,
 };
 
 export type IconSet24 = keyof typeof iconSet24;
