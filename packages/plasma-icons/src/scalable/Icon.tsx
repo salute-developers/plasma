@@ -933,6 +933,95 @@ import { TvSaluteFill } from './Icon.assets.24/TvSaluteFill';
 import { TvSaluteOutline } from './Icon.assets.24/TvSaluteOutline';
 import { WrenchFill } from './Icon.assets.24/WrenchFill';
 import { WrenchOutline } from './Icon.assets.24/WrenchOutline';
+import { BeachUmbrellaFill } from './Icon.assets.24/BeachUmbrellaFill';
+import { BeachUmbrellaOutline } from './Icon.assets.24/BeachUmbrellaOutline';
+import { EditFill } from './Icon.assets.24/EditFill';
+import { EditOutline } from './Icon.assets.24/EditOutline';
+import { EraserFill } from './Icon.assets.24/EraserFill';
+import { EraserOutline } from './Icon.assets.24/EraserOutline';
+import { LineWeight } from './Icon.assets.24/LineWeight';
+import { MarkerFill } from './Icon.assets.24/MarkerFill';
+import { MarkerOutline } from './Icon.assets.24/MarkerOutline';
+import { MessagesFill } from './Icon.assets.24/MessagesFill';
+import { MessagesOutline } from './Icon.assets.24/MessagesOutline';
+import { MoviesFill } from './Icon.assets.24/MoviesFill';
+import { MoviesOutline } from './Icon.assets.24/MoviesOutline';
+import { MuteFill } from './Icon.assets.24/MuteFill';
+import { MuteOutline } from './Icon.assets.24/MuteOutline';
+import { PowerWireCableFill } from './Icon.assets.24/PowerWireCableFill';
+import { PowerWireCableOutline } from './Icon.assets.24/PowerWireCableOutline';
+import { PowerWireDashFill } from './Icon.assets.24/PowerWireDashFill';
+import { PowerWireDashOutline } from './Icon.assets.24/PowerWireDashOutline';
+import { PowerWireFill } from './Icon.assets.24/PowerWireFill';
+import { PowerWireOutline } from './Icon.assets.24/PowerWireOutline';
+import { Snow } from './Icon.assets.24/Snow';
+import { SunFill } from './Icon.assets.24/SunFill';
+import { SunOutline } from './Icon.assets.24/SunOutline';
+import { Text } from './Icon.assets.24/Text';
+import { TextUnderline } from './Icon.assets.24/TextUnderline';
+import { UmbrellaFill } from './Icon.assets.24/UmbrellaFill';
+import { UmbrellaOutline } from './Icon.assets.24/UmbrellaOutline';
+import { VideoArchive24Fill } from './Icon.assets.24/VideoArchive24Fill';
+import { VideoArchive24Outline } from './Icon.assets.24/VideoArchive24Outline';
+import { VideoClipFill } from './Icon.assets.24/VideoClipFill';
+import { VideoClipOutline } from './Icon.assets.24/VideoClipOutline';
+import { VideoProcessFill } from './Icon.assets.24/VideoProcessFill';
+import { VideoProcessOutline } from './Icon.assets.24/VideoProcessOutline';
+import { VideoQuality4K } from './Icon.assets.24/VideoQuality4K';
+import { VideoQualityHD } from './Icon.assets.24/VideoQualityHD';
+import { VideoRecordFill } from './Icon.assets.24/VideoRecordFill';
+import { VideoRecordOutline } from './Icon.assets.24/VideoRecordOutline';
+import { ViewBeautyFill } from './Icon.assets.24/ViewBeautyFill';
+import { ViewBeautyOutline } from './Icon.assets.24/ViewBeautyOutline';
+import { ViewPersonFill } from './Icon.assets.24/ViewPersonFill';
+import { ViewPersonOutline } from './Icon.assets.24/ViewPersonOutline';
+import { ViewPersonPanelLFill } from './Icon.assets.24/ViewPersonPanelLFill';
+import { ViewPersonPanelLOutline } from './Icon.assets.24/ViewPersonPanelLOutline';
+import { ViewPersonPanelRFill } from './Icon.assets.24/ViewPersonPanelRFill';
+import { ViewPersonPanelROutline } from './Icon.assets.24/ViewPersonPanelROutline';
+import { ViewScreen4Fill } from './Icon.assets.24/ViewScreen4Fill';
+import { ViewScreen4Outline } from './Icon.assets.24/ViewScreen4Outline';
+import { ViewSplit4Fill } from './Icon.assets.24/ViewSplit4Fill';
+import { ViewSplit4Outline } from './Icon.assets.24/ViewSplit4Outline';
+import { VolumeDashFill } from './Icon.assets.24/VolumeDashFill';
+import { VolumeDashOutline } from './Icon.assets.24/VolumeDashOutline';
+import { VolumeLevel0Fill } from './Icon.assets.24/VolumeLevel0Fill';
+import { VolumeLevel0Outline } from './Icon.assets.24/VolumeLevel0Outline';
+import { VolumeLevel1Fill } from './Icon.assets.24/VolumeLevel1Fill';
+import { VolumeLevel1Outline } from './Icon.assets.24/VolumeLevel1Outline';
+import { VolumeLevel2Fill } from './Icon.assets.24/VolumeLevel2Fill';
+import { VolumeLevel2Outline } from './Icon.assets.24/VolumeLevel2Outline';
+import { VolumeLevel3Fill } from './Icon.assets.24/VolumeLevel3Fill';
+import { VolumeLevel3Outline } from './Icon.assets.24/VolumeLevel3Outline';
+import { WalletAppleFill } from './Icon.assets.24/WalletAppleFill';
+import { WalletAppleOutline } from './Icon.assets.24/WalletAppleOutline';
+import { WalletFill } from './Icon.assets.24/WalletFill';
+import { WalletOutline } from './Icon.assets.24/WalletOutline';
+import { WasherFill } from './Icon.assets.24/WasherFill';
+import { WasherOutline } from './Icon.assets.24/WasherOutline';
+import { WatchRectangleFill } from './Icon.assets.24/WatchRectangleFill';
+import { WatchRectangleOutline } from './Icon.assets.24/WatchRectangleOutline';
+import { WatchRoundClockFill } from './Icon.assets.24/WatchRoundClockFill';
+import { WatchRoundClockOutline } from './Icon.assets.24/WatchRoundClockOutline';
+import { WatchRoundFill } from './Icon.assets.24/WatchRoundFill';
+import { WatchRoundOutline } from './Icon.assets.24/WatchRoundOutline';
+import { WaveLine } from './Icon.assets.24/WaveLine';
+import { WeatherFill } from './Icon.assets.24/WeatherFill';
+import { WeatherOutline } from './Icon.assets.24/WeatherOutline';
+import { WhiteboardFill } from './Icon.assets.24/WhiteboardFill';
+import { WhiteboardOutline } from './Icon.assets.24/WhiteboardOutline';
+import { WindowFill } from './Icon.assets.24/WindowFill';
+import { WindowMaximizeLFill } from './Icon.assets.24/WindowMaximizeLFill';
+import { WindowMaximizeLOutline } from './Icon.assets.24/WindowMaximizeLOutline';
+import { WindowMaximizeRFill } from './Icon.assets.24/WindowMaximizeRFill';
+import { WindowMaximizeROutline } from './Icon.assets.24/WindowMaximizeROutline';
+import { WindowMinimizeLFill } from './Icon.assets.24/WindowMinimizeLFill';
+import { WindowMinimizeLOutline } from './Icon.assets.24/WindowMinimizeLOutline';
+import { WindowMinimizeRFill } from './Icon.assets.24/WindowMinimizeRFill';
+import { WindowMinimizeROutline } from './Icon.assets.24/WindowMinimizeROutline';
+import { WindowMultiFill } from './Icon.assets.24/WindowMultiFill';
+import { WindowMultiOutline } from './Icon.assets.24/WindowMultiOutline';
+import { WindowOutline } from './Icon.assets.24/WindowOutline';
 
 interface Props {
     icon: IconSetUnionSize;
@@ -1033,6 +1122,31 @@ export const iconSectionsSet = {
         transcriptionVoiceTextOutline: TranscriptionVoiceTextOutline,
         trashFill: TrashFill,
         trashOutline: TrashOutline,
+        editFill: EditFill,
+        editOutline: EditOutline,
+        eraserFill: EraserFill,
+        eraserOutline: EraserOutline,
+        lineWeight: LineWeight,
+        markerFill: MarkerFill,
+        markerOutline: MarkerOutline,
+        messagesFill: MessagesFill,
+        messagesOutline: MessagesOutline,
+        text: Text,
+        textUnderline: TextUnderline,
+        whiteboardFill: WhiteboardFill,
+        whiteboardOutline: WhiteboardOutline,
+        windowFill: WindowFill,
+        windowMaximizeLFill: WindowMaximizeLFill,
+        windowMaximizeLOutline: WindowMaximizeLOutline,
+        windowMaximizeRFill: WindowMaximizeRFill,
+        windowMaximizeROutline: WindowMaximizeROutline,
+        windowMinimizeLFill: WindowMinimizeLFill,
+        windowMinimizeLOutline: WindowMinimizeLOutline,
+        windowMinimizeRFill: WindowMinimizeRFill,
+        windowMinimizeROutline: WindowMinimizeROutline,
+        windowMultiFill: WindowMultiFill,
+        windowMultiOutline: WindowMultiOutline,
+        windowOutline: WindowOutline,
     },
     Animal: {
         animalFill: AnimalFill,
@@ -1336,6 +1450,10 @@ export const iconSectionsSet = {
         sctivityOutline: SctivityOutline,
         whistleFill: WhistleFill,
         whistleOutline: WhistleOutline,
+        walletAppleFill: WalletAppleFill,
+        walletAppleOutline: WalletAppleOutline,
+        walletFill: WalletFill,
+        walletOutline: WalletOutline,
     },
     Other: {
         gyroOutline: GyroOutline,
@@ -1439,6 +1557,9 @@ export const iconSectionsSet = {
         tagBadgeOutline: TagBadgeOutline,
         taskHorizFill: TaskHorizFill,
         taskHorizOutline: TaskHorizOutline,
+        washerFill: WasherFill,
+        washerOutline: WasherOutline,
+        waveLine: WaveLine,
     },
     File: {
         blankFill: BlankFill,
@@ -1794,6 +1915,42 @@ export const iconSectionsSet = {
         scenarioSyncAuto45Outline: ScenarioSyncAuto45Outline,
         scenarioSyncAuto65Fill: ScenarioSyncAuto65Fill,
         scenarioSyncAuto65Outline: ScenarioSyncAuto65Outline,
+        moviesFill: MoviesFill,
+        moviesOutline: MoviesOutline,
+        muteFill: MuteFill,
+        muteOutline: MuteOutline,
+        videoArchive24Fill: VideoArchive24Fill,
+        videoArchive24Outline: VideoArchive24Outline,
+        videoClipFill: VideoClipFill,
+        videoClipOutline: VideoClipOutline,
+        videoProcessFill: VideoProcessFill,
+        videoProcessOutline: VideoProcessOutline,
+        videoQuality4K: VideoQuality4K,
+        videoQualityHD: VideoQualityHD,
+        videoRecordFill: VideoRecordFill,
+        videoRecordOutline: VideoRecordOutline,
+        viewBeautyFill: ViewBeautyFill,
+        viewBeautyOutline: ViewBeautyOutline,
+        viewPersonFill: ViewPersonFill,
+        viewPersonOutline: ViewPersonOutline,
+        viewPersonPanelLFill: ViewPersonPanelLFill,
+        viewPersonPanelLOutline: ViewPersonPanelLOutline,
+        viewPersonPanelRFill: ViewPersonPanelRFill,
+        viewPersonPanelROutline: ViewPersonPanelROutline,
+        viewScreen4Fill: ViewScreen4Fill,
+        viewScreen4Outline: ViewScreen4Outline,
+        viewSplit4Fill: ViewSplit4Fill,
+        viewSplit4Outline: ViewSplit4Outline,
+        volumeDashFill: VolumeDashFill,
+        volumeDashOutline: VolumeDashOutline,
+        volumeLevel0Fill: VolumeLevel0Fill,
+        volumeLevel0Outline: VolumeLevel0Outline,
+        volumeLevel1Fill: VolumeLevel1Fill,
+        volumeLevel1Outline: VolumeLevel1Outline,
+        volumeLevel2Fill: VolumeLevel2Fill,
+        volumeLevel2Outline: VolumeLevel2Outline,
+        volumeLevel3Fill: VolumeLevel3Fill,
+        volumeLevel3Outline: VolumeLevel3Outline,
     },
     Devices: {
         bulbDiodeFill: BulbDiodeFill,
@@ -1873,6 +2030,18 @@ export const iconSectionsSet = {
         tvPlayOutline: TvPlayOutline,
         tvSaluteFill: TvSaluteFill,
         tvSaluteOutline: TvSaluteOutline,
+        powerWireCableFill: PowerWireCableFill,
+        powerWireCableOutline: PowerWireCableOutline,
+        powerWireDashFill: PowerWireDashFill,
+        powerWireDashOutline: PowerWireDashOutline,
+        powerWireFill: PowerWireFill,
+        powerWireOutline: PowerWireOutline,
+        watchRectangleFill: WatchRectangleFill,
+        watchRectangleOutline: WatchRectangleOutline,
+        watchRoundClockFill: WatchRoundClockFill,
+        watchRoundClockOutline: WatchRoundClockOutline,
+        watchRoundFill: WatchRoundFill,
+        watchRoundOutline: WatchRoundOutline,
     },
     Logo: {
         catalogFill: CatalogFill,
@@ -1919,6 +2088,17 @@ export const iconSectionsSet = {
         plusSquareOutline: PlusSquareOutline,
         verificationFill: VerificationFill,
         verificationOutline: VerificationOutline,
+    },
+    Weather: {
+        beachUmbrellaFill: BeachUmbrellaFill,
+        beachUmbrellaOutline: BeachUmbrellaOutline,
+        snow: Snow,
+        sunFill: SunFill,
+        sunOutline: SunOutline,
+        umbrellaFill: UmbrellaFill,
+        umbrellaOutline: UmbrellaOutline,
+        weatherFill: WeatherFill,
+        weatherOutline: WeatherOutline,
     },
 };
 
