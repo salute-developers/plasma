@@ -112,8 +112,7 @@ import { ImageBaseProps } from '@salutejs/plasma-hope';
 import { ImageProps } from '@salutejs/plasma-hope';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
 import { JSXElementConstructor } from 'react';
-import { LineSkeleton } from '@salutejs/plasma-hope';
-import { LineSkeletonProps } from '@salutejs/plasma-hope';
+import { LineSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { List } from '@salutejs/plasma-hope';
 import { ListItem } from '@salutejs/plasma-hope';
@@ -164,8 +163,8 @@ import { Ratio } from '@salutejs/plasma-hope';
 import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
 import { ReactNode } from 'react';
-import { RectSkeleton } from '@salutejs/plasma-hope';
-import { RectSkeletonProps } from '@salutejs/plasma-hope';
+import { RectSkeleton } from '@salutejs/plasma-new-hope/styled-components';
+import { RectSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { RefAttributes } from 'react';
 import { Roundness } from '@salutejs/plasma-core';
 import { RoundnessProps } from '@salutejs/plasma-core';
@@ -182,6 +181,8 @@ import { shadows } from '@salutejs/plasma-core';
 import { ShiftProps } from '@salutejs/plasma-core';
 import { sizes } from '@salutejs/plasma-hope';
 import { SkeletonGradientProps } from '@salutejs/plasma-core';
+import { SkeletonGradientProps as SkeletonGradientProps_2 } from '@salutejs/plasma-new-hope/styled-components';
+import { SkeletonSizeProps } from '@salutejs/plasma-new-hope/types/components/Skeleton/Skeleton.types';
 import { SliderProps } from '@salutejs/plasma-core';
 import { SmartPaginationDots } from '@salutejs/plasma-hope';
 import { SmartPaginationDotsProps } from '@salutejs/plasma-hope';
@@ -210,8 +211,7 @@ import { TextAreaProps } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
 import { TextFieldProps } from '@salutejs/plasma-hope';
 import { TextFieldView } from '@salutejs/plasma-hope';
-import { TextSkeleton } from '@salutejs/plasma-hope';
-import { TextSkeletonProps } from '@salutejs/plasma-hope';
+import { TextSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TimingFunction } from '@salutejs/plasma-core';
 import { Toast } from '@salutejs/plasma-hope';
 import { ToastPosition } from '@salutejs/plasma-hope';
@@ -243,8 +243,8 @@ import { views } from '@salutejs/plasma-core';
 import { withAssistiveDropdown } from '@salutejs/plasma-hope';
 import { withAutoFocus } from '@salutejs/plasma-core';
 import { WithAutoFocusProps } from '@salutejs/plasma-core';
-import { withSkeleton } from '@salutejs/plasma-core';
-import { WithSkeletonProps } from '@salutejs/plasma-core';
+import { withSkeleton } from '@salutejs/plasma-new-hope/styled-components';
+import { WithSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 
 export { addFocus }
 
@@ -734,7 +734,32 @@ export { ImageProps }
 
 export { InputHTMLAttributes }
 
-export { LineSkeleton }
+// @public
+export const LineSkeleton: FunctionComponent<PropsType<    {
+size: {
+body1: string;
+body2: string;
+body3: string;
+button1: string;
+button2: string;
+caption: string;
+display1: string;
+display2: string;
+display3: string;
+footnote1: string;
+footnote2: string;
+headline1: string;
+headline2: string;
+headline3: string;
+headline4: string;
+paragraph1: string;
+paragraph2: string;
+underline: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & SkeletonSizeProps & {
+customGradientColor?: string | undefined;
+roundness?: 0 | 8 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 250 | undefined;
+} & SkeletonGradientProps_2 & RefAttributes<HTMLDivElement>>;
 
 export { LineSkeletonProps }
 
@@ -1141,7 +1166,14 @@ s: string;
 breakWord?: boolean | undefined;
 } & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
-export { TextSkeleton }
+// @public
+export const TextSkeleton: FC<    {
+lines: number;
+width?: string | number | undefined;
+} & HTMLAttributes<HTMLDivElement> & SkeletonSizeProps & {
+customGradientColor?: string | undefined;
+roundness?: 0 | 8 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 250 | undefined;
+} & SkeletonGradientProps_2>;
 
 export { TextSkeletonProps }
 
