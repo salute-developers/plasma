@@ -1,4 +1,5 @@
-import { AddFill } from './AddFill';import { AddOutline } from './AddOutline';
+import { AddFill } from './AddFill';
+import { AddOutline } from './AddOutline';
 import { AnimalFill } from './AnimalFill';
 import { AnimalOutline } from './AnimalOutline';
 import { AppsFill } from './AppsFill';
@@ -59,8 +60,6 @@ import { GlassesFill } from './GlassesFill';
 import { GlassesOutline } from './GlassesOutline';
 import { GlobeFill } from './GlobeFill';
 import { GlobeOutline } from './GlobeOutline';
-import { GroupFill } from './GroupFill';
-import { GroupOutline } from './GroupOutline';
 import { GyroOutline } from './GyroOutline';
 import { KeyFill } from './KeyFill';
 import { KeyOutline } from './KeyOutline';
@@ -462,8 +461,6 @@ import { HousePercentFill } from './HousePercentFill';
 import { HousePercentOutline } from './HousePercentOutline';
 import { RedCrossFill } from './RedCrossFill';
 import { RedCrossOutline } from './RedCrossOutline';
-import { ShareFill } from './ShareFill';
-import { ShareOutline } from './ShareOutline';
 import { CatalogFill } from './CatalogFill';
 import { CatalogOutline } from './CatalogOutline';
 import { ConnectionError } from './ConnectionError';
@@ -695,8 +692,6 @@ import { ChoiceFill } from './ChoiceFill';
 import { ChoiceOutline } from './ChoiceOutline';
 import { EthernetFill } from './EthernetFill';
 import { EthernetOutline } from './EthernetOutline';
-import { GroupBigFill } from './GroupBigFill';
-import { GroupBigOutline } from './GroupBigOutline';
 import { HdmiFill } from './HdmiFill';
 import { HdmiOutline } from './HdmiOutline';
 import { InputsFill } from './InputsFill';
@@ -1019,7 +1014,8 @@ import { WindowMultiFill } from './WindowMultiFill';
 import { WindowMultiOutline } from './WindowMultiOutline';
 import { WindowOutline } from './WindowOutline';
 
-export const iconSet24 = {    addFill: AddFill,
+export const iconSet24 = {
+    addFill: AddFill,
     addOutline: AddOutline,
     animalFill: AnimalFill,
     animalOutline: AnimalOutline,
@@ -1081,8 +1077,6 @@ export const iconSet24 = {    addFill: AddFill,
     glassesOutline: GlassesOutline,
     globeFill: GlobeFill,
     globeOutline: GlobeOutline,
-    groupFill: GroupFill,
-    groupOutline: GroupOutline,
     gyroOutline: GyroOutline,
     keyFill: KeyFill,
     keyOutline: KeyOutline,
@@ -1484,8 +1478,6 @@ export const iconSet24 = {    addFill: AddFill,
     housePercentOutline: HousePercentOutline,
     redCrossFill: RedCrossFill,
     redCrossOutline: RedCrossOutline,
-    shareFill: ShareFill,
-    shareOutline: ShareOutline,
     catalogFill: CatalogFill,
     catalogOutline: CatalogOutline,
     connectionError: ConnectionError,
@@ -1717,8 +1709,6 @@ export const iconSet24 = {    addFill: AddFill,
     choiceOutline: ChoiceOutline,
     ethernetFill: EthernetFill,
     ethernetOutline: EthernetOutline,
-    groupBigFill: GroupBigFill,
-    groupBigOutline: GroupBigOutline,
     hdmiFill: HdmiFill,
     hdmiOutline: HdmiOutline,
     inputsFill: InputsFill,

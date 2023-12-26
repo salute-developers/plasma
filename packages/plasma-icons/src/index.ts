@@ -186,3 +186,5 @@ export type { IconProps, IconSize } from './IconRoot';
 
 export { Icon, iconSectionsSet } from './Icon';
 export type { IconName } from './Icon';
+
+export * from './scalable';
