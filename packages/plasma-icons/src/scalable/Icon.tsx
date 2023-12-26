@@ -468,6 +468,62 @@ import { SberportalBulbFill } from './Icon.assets.24/SberportalBulbFill';
 import { SberportalBulbOutline } from './Icon.assets.24/SberportalBulbOutline';
 import { SberportalFill } from './Icon.assets.24/SberportalFill';
 import { SberportalOutline } from './Icon.assets.24/SberportalOutline';
+import { CatalogFill } from './Icon.assets.24/CatalogFill';
+import { CatalogOutline } from './Icon.assets.24/CatalogOutline';
+import { ConnectionError } from './Icon.assets.24/ConnectionError';
+import { ConnectionSuccess } from './Icon.assets.24/ConnectionSuccess';
+import { ConnectionWaiting } from './Icon.assets.24/ConnectionWaiting';
+import { Curve } from './Icon.assets.24/Curve';
+import { DislikeFill } from './Icon.assets.24/DislikeFill';
+import { DislikeOutline } from './Icon.assets.24/DislikeOutline';
+import { LightningFill } from './Icon.assets.24/LightningFill';
+import { LightningOutline } from './Icon.assets.24/LightningOutline';
+import { LikeFill } from './Icon.assets.24/LikeFill';
+import { LikeOutline } from './Icon.assets.24/LikeOutline';
+import { Line } from './Icon.assets.24/Line';
+import { LineLinkFromto } from './Icon.assets.24/LineLinkFromto';
+import { LineLinkToto } from './Icon.assets.24/LineLinkToto';
+import { Link } from './Icon.assets.24/Link';
+import { LinkError } from './Icon.assets.24/LinkError';
+import { LockFill } from './Icon.assets.24/LockFill';
+import { LockOpenFill } from './Icon.assets.24/LockOpenFill';
+import { LockOpenOutline } from './Icon.assets.24/LockOpenOutline';
+import { LockOutline } from './Icon.assets.24/LockOutline';
+import { Login } from './Icon.assets.24/Login';
+import { Logout } from './Icon.assets.24/Logout';
+import { Mastercard } from './Icon.assets.24/Mastercard';
+import { Mir } from './Icon.assets.24/Mir';
+import { NetworkFill } from './Icon.assets.24/NetworkFill';
+import { NetworkOutline } from './Icon.assets.24/NetworkOutline';
+import { NewsFill } from './Icon.assets.24/NewsFill';
+import { NewsOutline } from './Icon.assets.24/NewsOutline';
+import { NewsPaperFill } from './Icon.assets.24/NewsPaperFill';
+import { NewsPaperOutline } from './Icon.assets.24/NewsPaperOutline';
+import { OpenFill } from './Icon.assets.24/OpenFill';
+import { OpenOutline } from './Icon.assets.24/OpenOutline';
+import { Plasma } from './Icon.assets.24/Plasma';
+import { PostFill } from './Icon.assets.24/PostFill';
+import { PostOutline } from './Icon.assets.24/PostOutline';
+import { QRCode } from './Icon.assets.24/QRCode';
+import { RadioFill } from './Icon.assets.24/RadioFill';
+import { RadioOutline } from './Icon.assets.24/RadioOutline';
+import { Refresh } from './Icon.assets.24/Refresh';
+import { ResetOutline } from './Icon.assets.24/ResetOutline';
+import { RotateCcw } from './Icon.assets.24/RotateCcw';
+import { RotateCw } from './Icon.assets.24/RotateCw';
+import { RublePlus } from './Icon.assets.24/RublePlus';
+import { RublePlusDollar } from './Icon.assets.24/RublePlusDollar';
+import { RulerFill } from './Icon.assets.24/RulerFill';
+import { RulerOutline } from './Icon.assets.24/RulerOutline';
+import { SaluteFill } from './Icon.assets.24/SaluteFill';
+import { SaluteOutline } from './Icon.assets.24/SaluteOutline';
+import { Sber } from './Icon.assets.24/Sber';
+import { TableLampFill } from './Icon.assets.24/TableLampFill';
+import { TableLampOutline } from './Icon.assets.24/TableLampOutline';
+import { Visa } from './Icon.assets.24/Visa';
+import { WifiDash } from './Icon.assets.24/WifiDash';
+import { WifiDefault } from './Icon.assets.24/WifiDefault';
+import { WifiLock } from './Icon.assets.24/WifiLock';
 
 interface Props {
     icon: IconSetUnionSize;
@@ -521,6 +577,16 @@ export const iconSectionsSet = {
         switchToggleOffOutline: SwitchToggleOffOutline,
         switchToggleOnFill: SwitchToggleOnFill,
         switchToggleOnOutline: SwitchToggleOnOutline,
+        link: Link,
+        linkError: LinkError,
+        login: Login,
+        logout: Logout,
+        openFill: OpenFill,
+        openOutline: OpenOutline,
+        refresh: Refresh,
+        resetOutline: ResetOutline,
+        rotateCcw: RotateCcw,
+        rotateCw: RotateCw,
     },
     Animal: {
         animalFill: AnimalFill,
@@ -578,6 +644,15 @@ export const iconSectionsSet = {
         cloudOutline: CloudOutline,
         cloudUploadFill: CloudUploadFill,
         cloudUploadOutline: CloudUploadOutline,
+        connectionError: ConnectionError,
+        connectionSuccess: ConnectionSuccess,
+        connectionWaiting: ConnectionWaiting,
+        networkFill: NetworkFill,
+        networkOutline: NetworkOutline,
+        qRCode: QRCode,
+        wifiDash: WifiDash,
+        wifiDefault: WifiDefault,
+        wifiLock: WifiLock,
     },
     Arrows: {
         arrowBarDown: ArrowBarDown,
@@ -714,6 +789,8 @@ export const iconSectionsSet = {
         cartBagOutline: CartBagOutline,
         cartFill: CartFill,
         cartOutline: CartOutline,
+        rublePlus: RublePlus,
+        rublePlusDollar: RublePlusDollar,
     },
     Other: {
         gyroOutline: GyroOutline,
@@ -763,6 +840,12 @@ export const iconSectionsSet = {
         glassOutline: GlassOutline,
         magicDailyFill: MagicDailyFill,
         magicDailyOutline: MagicDailyOutline,
+        curve: Curve,
+        line: Line,
+        lineLinkFromto: LineLinkFromto,
+        lineLinkToto: LineLinkToto,
+        tableLampFill: TableLampFill,
+        tableLampOutline: TableLampOutline,
     },
     File: {
         blankFill: BlankFill,
@@ -841,6 +924,12 @@ export const iconSectionsSet = {
         chatOutline: ChatOutline,
         chatTranscriptionFill: ChatTranscriptionFill,
         chatTranscriptionOutline: ChatTranscriptionOutline,
+        newsFill: NewsFill,
+        newsOutline: NewsOutline,
+        newsPaperFill: NewsPaperFill,
+        newsPaperOutline: NewsPaperOutline,
+        postFill: PostFill,
+        postOutline: PostOutline,
     },
     Toggle: {
         heartBoxFill: HeartBoxFill,
@@ -860,6 +949,16 @@ export const iconSectionsSet = {
         bellFill: BellFill,
         bellOutline: BellOutline,
         listView: ListView,
+        dislikeFill: DislikeFill,
+        dislikeOutline: DislikeOutline,
+        lightningFill: LightningFill,
+        lightningOutline: LightningOutline,
+        likeFill: LikeFill,
+        likeOutline: LikeOutline,
+        lockFill: LockFill,
+        lockOpenFill: LockOpenFill,
+        lockOpenOutline: LockOpenOutline,
+        lockOutline: LockOutline,
     },
     Navigation: {
         homeAltFill: HomeAltFill,
@@ -916,6 +1015,8 @@ export const iconSectionsSet = {
         caseOutline: CaseOutline,
         cursorFill: CursorFill,
         cursorOutline: CursorOutline,
+        rulerFill: RulerFill,
+        rulerOutline: RulerOutline,
     },
     Time: {
         calendarEventFill: CalendarEventFill,
@@ -985,6 +1086,19 @@ export const iconSectionsSet = {
         sberportalBulbOutline: SberportalBulbOutline,
         sberportalFill: SberportalFill,
         sberportalOutline: SberportalOutline,
+        radioFill: RadioFill,
+        radioOutline: RadioOutline,
+    },
+    Logo: {
+        catalogFill: CatalogFill,
+        catalogOutline: CatalogOutline,
+        mastercard: Mastercard,
+        mir: Mir,
+        plasma: Plasma,
+        saluteFill: SaluteFill,
+        saluteOutline: SaluteOutline,
+        sber: Sber,
+        visa: Visa,
     },
 };
 

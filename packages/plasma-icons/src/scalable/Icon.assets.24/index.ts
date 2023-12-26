@@ -698,6 +698,48 @@ import { SberboxTopFill } from './SberboxTopFill';
 import { SberboxTopOutline } from './SberboxTopOutline';
 import { SberportalBulbFill } from './SberportalBulbFill';
 import { SberportalBulbOutline } from './SberportalBulbOutline';
+import { CatalogFill } from './CatalogFill';
+import { CatalogOutline } from './CatalogOutline';
+import { Curve } from './Curve';
+import { DislikeFill } from './DislikeFill';
+import { DislikeOutline } from './DislikeOutline';
+import { LightningFill } from './LightningFill';
+import { LightningOutline } from './LightningOutline';
+import { LikeFill } from './LikeFill';
+import { LikeOutline } from './LikeOutline';
+import { Line } from './Line';
+import { LineLinkFromto } from './LineLinkFromto';
+import { LineLinkToto } from './LineLinkToto';
+import { LinkError } from './LinkError';
+import { LockOpenFill } from './LockOpenFill';
+import { LockOpenOutline } from './LockOpenOutline';
+import { LockOutline } from './LockOutline';
+import { Login } from './Login';
+import { Logout } from './Logout';
+import { Mastercard } from './Mastercard';
+import { NetworkFill } from './NetworkFill';
+import { NewsFill } from './NewsFill';
+import { NewsOutline } from './NewsOutline';
+import { NewsPaperFill } from './NewsPaperFill';
+import { NewsPaperOutline } from './NewsPaperOutline';
+import { OpenFill } from './OpenFill';
+import { OpenOutline } from './OpenOutline';
+import { Plasma } from './Plasma';
+import { PostFill } from './PostFill';
+import { PostOutline } from './PostOutline';
+import { QRCode } from './QRCode';
+import { RadioOutline } from './RadioOutline';
+import { Refresh } from './Refresh';
+import { RublePlus } from './RublePlus';
+import { RublePlusDollar } from './RublePlusDollar';
+import { RulerFill } from './RulerFill';
+import { RulerOutline } from './RulerOutline';
+import { SaluteFill } from './SaluteFill';
+import { SaluteOutline } from './SaluteOutline';
+import { TableLampFill } from './TableLampFill';
+import { TableLampOutline } from './TableLampOutline';
+import { WifiDash } from './WifiDash';
+import { WifiDefault } from './WifiDefault';
 
 export const iconSet24 = {
     attentionCircle: AttentionCircle,
@@ -1400,6 +1442,48 @@ export const iconSet24 = {
     sberboxTopOutline: SberboxTopOutline,
     sberportalBulbFill: SberportalBulbFill,
     sberportalBulbOutline: SberportalBulbOutline,
+    catalogFill: CatalogFill,
+    catalogOutline: CatalogOutline,
+    curve: Curve,
+    dislikeFill: DislikeFill,
+    dislikeOutline: DislikeOutline,
+    lightningFill: LightningFill,
+    lightningOutline: LightningOutline,
+    likeFill: LikeFill,
+    likeOutline: LikeOutline,
+    line: Line,
+    lineLinkFromto: LineLinkFromto,
+    lineLinkToto: LineLinkToto,
+    linkError: LinkError,
+    lockOpenFill: LockOpenFill,
+    lockOpenOutline: LockOpenOutline,
+    lockOutline: LockOutline,
+    login: Login,
+    logout: Logout,
+    mastercard: Mastercard,
+    networkFill: NetworkFill,
+    newsFill: NewsFill,
+    newsOutline: NewsOutline,
+    newsPaperFill: NewsPaperFill,
+    newsPaperOutline: NewsPaperOutline,
+    openFill: OpenFill,
+    openOutline: OpenOutline,
+    plasma: Plasma,
+    postFill: PostFill,
+    postOutline: PostOutline,
+    qRCode: QRCode,
+    radioOutline: RadioOutline,
+    refresh: Refresh,
+    rublePlus: RublePlus,
+    rublePlusDollar: RublePlusDollar,
+    rulerFill: RulerFill,
+    rulerOutline: RulerOutline,
+    saluteFill: SaluteFill,
+    saluteOutline: SaluteOutline,
+    tableLampFill: TableLampFill,
+    tableLampOutline: TableLampOutline,
+    wifiDash: WifiDash,
+    wifiDefault: WifiDefault,
 };
 
 export type IconSet24 = keyof typeof iconSet24;
