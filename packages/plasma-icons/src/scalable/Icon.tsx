@@ -871,6 +871,68 @@ import { VerificationFill } from './Icon.assets.24/VerificationFill';
 import { VerificationOutline } from './Icon.assets.24/VerificationOutline';
 import { WhistleFill } from './Icon.assets.24/WhistleFill';
 import { WhistleOutline } from './Icon.assets.24/WhistleOutline';
+import { AlarmAddFill } from './Icon.assets.24/AlarmAddFill';
+import { AlarmAddOutline } from './Icon.assets.24/AlarmAddOutline';
+import { AlarmCircleFill } from './Icon.assets.24/AlarmCircleFill';
+import { AlarmCircleOutline } from './Icon.assets.24/AlarmCircleOutline';
+import { AlarmDoneFill } from './Icon.assets.24/AlarmDoneFill';
+import { AlarmDoneOutline } from './Icon.assets.24/AlarmDoneOutline';
+import { ClockCircleFill } from './Icon.assets.24/ClockCircleFill';
+import { ClockCircleOutline } from './Icon.assets.24/ClockCircleOutline';
+import { HourglassBotFill } from './Icon.assets.24/HourglassBotFill';
+import { HourglassBotOutline } from './Icon.assets.24/HourglassBotOutline';
+import { HourglassFill } from './Icon.assets.24/HourglassFill';
+import { HourglassOutline } from './Icon.assets.24/HourglassOutline';
+import { HourglassTopFill } from './Icon.assets.24/HourglassTopFill';
+import { HourglassTopOutline } from './Icon.assets.24/HourglassTopOutline';
+import { HummerFill } from './Icon.assets.24/HummerFill';
+import { HummerOutline } from './Icon.assets.24/HummerOutline';
+import { RegionalFill } from './Icon.assets.24/RegionalFill';
+import { RegionalOutline } from './Icon.assets.24/RegionalOutline';
+import { Silent } from './Icon.assets.24/Silent';
+import { Silent2 } from './Icon.assets.24/Silent2';
+import { TagBadgeFill } from './Icon.assets.24/TagBadgeFill';
+import { TagBadgeOutline } from './Icon.assets.24/TagBadgeOutline';
+import { TaskHorizFill } from './Icon.assets.24/TaskHorizFill';
+import { TaskHorizOutline } from './Icon.assets.24/TaskHorizOutline';
+import { TicketFill } from './Icon.assets.24/TicketFill';
+import { TicketOutline } from './Icon.assets.24/TicketOutline';
+import { Timer45Fill } from './Icon.assets.24/Timer45Fill';
+import { Timer45Outline } from './Icon.assets.24/Timer45Outline';
+import { TimerAddFill } from './Icon.assets.24/TimerAddFill';
+import { TimerAddOutline } from './Icon.assets.24/TimerAddOutline';
+import { TimerExpressFill } from './Icon.assets.24/TimerExpressFill';
+import { TimerExpressOutline } from './Icon.assets.24/TimerExpressOutline';
+import { TimerExpressSpeedFill } from './Icon.assets.24/TimerExpressSpeedFill';
+import { TimerExpressSpeedOutline } from './Icon.assets.24/TimerExpressSpeedOutline';
+import { TimerFastFill } from './Icon.assets.24/TimerFastFill';
+import { TimerFastOutline } from './Icon.assets.24/TimerFastOutline';
+import { TimerFill } from './Icon.assets.24/TimerFill';
+import { TimerOutline } from './Icon.assets.24/TimerOutline';
+import { TranscribeTextVoiceErrorFill } from './Icon.assets.24/TranscribeTextVoiceErrorFill';
+import { TranscribeTextVoiceErrorLine } from './Icon.assets.24/TranscribeTextVoiceErrorLine';
+import { TranscribeTextVoiceFill } from './Icon.assets.24/TranscribeTextVoiceFill';
+import { TranscribeTextVoiceOutline } from './Icon.assets.24/TranscribeTextVoiceOutline';
+import { TranscriptionVoiceTextErrorFill } from './Icon.assets.24/TranscriptionVoiceTextErrorFill';
+import { TranscriptionVoiceTextErrorOutline } from './Icon.assets.24/TranscriptionVoiceTextErrorOutline';
+import { TranscriptionVoiceTextFill } from './Icon.assets.24/TranscriptionVoiceTextFill';
+import { TranscriptionVoiceTextOutline } from './Icon.assets.24/TranscriptionVoiceTextOutline';
+import { TrashFill } from './Icon.assets.24/TrashFill';
+import { TrashOutline } from './Icon.assets.24/TrashOutline';
+import { TvBulbFill } from './Icon.assets.24/TvBulbFill';
+import { TvBulbOutline } from './Icon.assets.24/TvBulbOutline';
+import { TvDashFill } from './Icon.assets.24/TvDashFill';
+import { TvDashOutline } from './Icon.assets.24/TvDashOutline';
+import { TvFill } from './Icon.assets.24/TvFill';
+import { TvModeFill } from './Icon.assets.24/TvModeFill';
+import { TvModeOutline } from './Icon.assets.24/TvModeOutline';
+import { TvOutline } from './Icon.assets.24/TvOutline';
+import { TvPlayFill } from './Icon.assets.24/TvPlayFill';
+import { TvPlayOutline } from './Icon.assets.24/TvPlayOutline';
+import { TvSaluteFill } from './Icon.assets.24/TvSaluteFill';
+import { TvSaluteOutline } from './Icon.assets.24/TvSaluteOutline';
+import { WrenchFill } from './Icon.assets.24/WrenchFill';
+import { WrenchOutline } from './Icon.assets.24/WrenchOutline';
 
 interface Props {
     icon: IconSetUnionSize;
@@ -961,6 +1023,16 @@ export const iconSectionsSet = {
         zoomPlusOutline: ZoomPlusOutline,
         syncError: SyncError,
         syncProblem: SyncProblem,
+        transcribeTextVoiceErrorFill: TranscribeTextVoiceErrorFill,
+        transcribeTextVoiceErrorLine: TranscribeTextVoiceErrorLine,
+        transcribeTextVoiceFill: TranscribeTextVoiceFill,
+        transcribeTextVoiceOutline: TranscribeTextVoiceOutline,
+        transcriptionVoiceTextErrorFill: TranscriptionVoiceTextErrorFill,
+        transcriptionVoiceTextErrorOutline: TranscriptionVoiceTextErrorOutline,
+        transcriptionVoiceTextFill: TranscriptionVoiceTextFill,
+        transcriptionVoiceTextOutline: TranscriptionVoiceTextOutline,
+        trashFill: TrashFill,
+        trashOutline: TrashOutline,
     },
     Animal: {
         animalFill: AnimalFill,
@@ -1363,6 +1435,10 @@ export const iconSectionsSet = {
         triangleFill: TriangleFill,
         triangleOutline: TriangleOutline,
         shazam: Shazam,
+        tagBadgeFill: TagBadgeFill,
+        tagBadgeOutline: TagBadgeOutline,
+        taskHorizFill: TaskHorizFill,
+        taskHorizOutline: TaskHorizOutline,
     },
     Toggle: {
         bellDashFill: BellDashFill,
@@ -1481,6 +1557,8 @@ export const iconSectionsSet = {
         folderOutline: FolderOutline,
         folderPlusFill: FolderPlusFill,
         folderPlusOutline: FolderPlusOutline,
+        ticketFill: TicketFill,
+        ticketOutline: TicketOutline,
     },
     Instruments: {
         boxFill: BoxFill,
@@ -1511,12 +1589,44 @@ export const iconSectionsSet = {
         flasherOutline: FlasherOutline,
         securityCameraFill: SecurityCameraFill,
         securityCameraOutline: SecurityCameraOutline,
+        hummerFill: HummerFill,
+        hummerOutline: HummerOutline,
+        wrenchFill: WrenchFill,
+        wrenchOutline: WrenchOutline,
     },
     Time: {
         calendarEventFill: CalendarEventFill,
         calendarEventOutline: CalendarEventOutline,
         calendarFill: CalendarFill,
         calendarOutline: CalendarOutline,
+        alarmAddFill: AlarmAddFill,
+        alarmAddOutline: AlarmAddOutline,
+        alarmCircleFill: AlarmCircleFill,
+        alarmCircleOutline: AlarmCircleOutline,
+        alarmDoneFill: AlarmDoneFill,
+        alarmDoneOutline: AlarmDoneOutline,
+        clockCircleFill: ClockCircleFill,
+        clockCircleOutline: ClockCircleOutline,
+        hourglassBotFill: HourglassBotFill,
+        hourglassBotOutline: HourglassBotOutline,
+        hourglassFill: HourglassFill,
+        hourglassOutline: HourglassOutline,
+        hourglassTopFill: HourglassTopFill,
+        hourglassTopOutline: HourglassTopOutline,
+        silent: Silent,
+        silent2: Silent2,
+        timer45Fill: Timer45Fill,
+        timer45Outline: Timer45Outline,
+        timerAddFill: TimerAddFill,
+        timerAddOutline: TimerAddOutline,
+        timerExpressFill: TimerExpressFill,
+        timerExpressOutline: TimerExpressOutline,
+        timerExpressSpeedFill: TimerExpressSpeedFill,
+        timerExpressSpeedOutline: TimerExpressSpeedOutline,
+        timerFastFill: TimerFastFill,
+        timerFastOutline: TimerFastOutline,
+        timerFill: TimerFill,
+        timerOutline: TimerOutline,
     },
     Communication: {
         callBlockFill: CallBlockFill,
@@ -1741,6 +1851,20 @@ export const iconSectionsSet = {
         usbCOutline: UsbCOutline,
         vgaFill: VgaFill,
         vgaOutline: VgaOutline,
+        regionalFill: RegionalFill,
+        regionalOutline: RegionalOutline,
+        tvBulbFill: TvBulbFill,
+        tvBulbOutline: TvBulbOutline,
+        tvDashFill: TvDashFill,
+        tvDashOutline: TvDashOutline,
+        tvFill: TvFill,
+        tvModeFill: TvModeFill,
+        tvModeOutline: TvModeOutline,
+        tvOutline: TvOutline,
+        tvPlayFill: TvPlayFill,
+        tvPlayOutline: TvPlayOutline,
+        tvSaluteFill: TvSaluteFill,
+        tvSaluteOutline: TvSaluteOutline,
     },
     Senses: {
         click: Click,
