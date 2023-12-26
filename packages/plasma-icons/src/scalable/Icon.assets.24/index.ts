@@ -929,6 +929,95 @@ import { TvSaluteFill } from './TvSaluteFill';
 import { TvSaluteOutline } from './TvSaluteOutline';
 import { WrenchFill } from './WrenchFill';
 import { WrenchOutline } from './WrenchOutline';
+import { BeachUmbrellaFill } from './BeachUmbrellaFill';
+import { BeachUmbrellaOutline } from './BeachUmbrellaOutline';
+import { EditFill } from './EditFill';
+import { EditOutline } from './EditOutline';
+import { EraserFill } from './EraserFill';
+import { EraserOutline } from './EraserOutline';
+import { LineWeight } from './LineWeight';
+import { MarkerFill } from './MarkerFill';
+import { MarkerOutline } from './MarkerOutline';
+import { MessagesFill } from './MessagesFill';
+import { MessagesOutline } from './MessagesOutline';
+import { MoviesFill } from './MoviesFill';
+import { MoviesOutline } from './MoviesOutline';
+import { MuteFill } from './MuteFill';
+import { MuteOutline } from './MuteOutline';
+import { PowerWireCableFill } from './PowerWireCableFill';
+import { PowerWireCableOutline } from './PowerWireCableOutline';
+import { PowerWireDashFill } from './PowerWireDashFill';
+import { PowerWireDashOutline } from './PowerWireDashOutline';
+import { PowerWireFill } from './PowerWireFill';
+import { PowerWireOutline } from './PowerWireOutline';
+import { Snow } from './Snow';
+import { SunFill } from './SunFill';
+import { SunOutline } from './SunOutline';
+import { Text } from './Text';
+import { TextUnderline } from './TextUnderline';
+import { UmbrellaFill } from './UmbrellaFill';
+import { UmbrellaOutline } from './UmbrellaOutline';
+import { VideoArchive24Fill } from './VideoArchive24Fill';
+import { VideoArchive24Outline } from './VideoArchive24Outline';
+import { VideoClipFill } from './VideoClipFill';
+import { VideoClipOutline } from './VideoClipOutline';
+import { VideoProcessFill } from './VideoProcessFill';
+import { VideoProcessOutline } from './VideoProcessOutline';
+import { VideoQuality4K } from './VideoQuality4K';
+import { VideoQualityHD } from './VideoQualityHD';
+import { VideoRecordFill } from './VideoRecordFill';
+import { VideoRecordOutline } from './VideoRecordOutline';
+import { ViewBeautyFill } from './ViewBeautyFill';
+import { ViewBeautyOutline } from './ViewBeautyOutline';
+import { ViewPersonFill } from './ViewPersonFill';
+import { ViewPersonOutline } from './ViewPersonOutline';
+import { ViewPersonPanelLFill } from './ViewPersonPanelLFill';
+import { ViewPersonPanelLOutline } from './ViewPersonPanelLOutline';
+import { ViewPersonPanelRFill } from './ViewPersonPanelRFill';
+import { ViewPersonPanelROutline } from './ViewPersonPanelROutline';
+import { ViewScreen4Fill } from './ViewScreen4Fill';
+import { ViewScreen4Outline } from './ViewScreen4Outline';
+import { ViewSplit4Fill } from './ViewSplit4Fill';
+import { ViewSplit4Outline } from './ViewSplit4Outline';
+import { VolumeDashFill } from './VolumeDashFill';
+import { VolumeDashOutline } from './VolumeDashOutline';
+import { VolumeLevel0Fill } from './VolumeLevel0Fill';
+import { VolumeLevel0Outline } from './VolumeLevel0Outline';
+import { VolumeLevel1Fill } from './VolumeLevel1Fill';
+import { VolumeLevel1Outline } from './VolumeLevel1Outline';
+import { VolumeLevel2Fill } from './VolumeLevel2Fill';
+import { VolumeLevel2Outline } from './VolumeLevel2Outline';
+import { VolumeLevel3Fill } from './VolumeLevel3Fill';
+import { VolumeLevel3Outline } from './VolumeLevel3Outline';
+import { WalletAppleFill } from './WalletAppleFill';
+import { WalletAppleOutline } from './WalletAppleOutline';
+import { WalletFill } from './WalletFill';
+import { WalletOutline } from './WalletOutline';
+import { WasherFill } from './WasherFill';
+import { WasherOutline } from './WasherOutline';
+import { WatchRectangleFill } from './WatchRectangleFill';
+import { WatchRectangleOutline } from './WatchRectangleOutline';
+import { WatchRoundClockFill } from './WatchRoundClockFill';
+import { WatchRoundClockOutline } from './WatchRoundClockOutline';
+import { WatchRoundFill } from './WatchRoundFill';
+import { WatchRoundOutline } from './WatchRoundOutline';
+import { WaveLine } from './WaveLine';
+import { WeatherFill } from './WeatherFill';
+import { WeatherOutline } from './WeatherOutline';
+import { WhiteboardFill } from './WhiteboardFill';
+import { WhiteboardOutline } from './WhiteboardOutline';
+import { WindowFill } from './WindowFill';
+import { WindowMaximizeLFill } from './WindowMaximizeLFill';
+import { WindowMaximizeLOutline } from './WindowMaximizeLOutline';
+import { WindowMaximizeRFill } from './WindowMaximizeRFill';
+import { WindowMaximizeROutline } from './WindowMaximizeROutline';
+import { WindowMinimizeLFill } from './WindowMinimizeLFill';
+import { WindowMinimizeLOutline } from './WindowMinimizeLOutline';
+import { WindowMinimizeRFill } from './WindowMinimizeRFill';
+import { WindowMinimizeROutline } from './WindowMinimizeROutline';
+import { WindowMultiFill } from './WindowMultiFill';
+import { WindowMultiOutline } from './WindowMultiOutline';
+import { WindowOutline } from './WindowOutline';
 
 export const iconSet24 = {    addFill: AddFill,
     addOutline: AddOutline,
@@ -1862,6 +1951,95 @@ export const iconSet24 = {    addFill: AddFill,
     tvSaluteOutline: TvSaluteOutline,
     wrenchFill: WrenchFill,
     wrenchOutline: WrenchOutline,
+    beachUmbrellaFill: BeachUmbrellaFill,
+    beachUmbrellaOutline: BeachUmbrellaOutline,
+    editFill: EditFill,
+    editOutline: EditOutline,
+    eraserFill: EraserFill,
+    eraserOutline: EraserOutline,
+    lineWeight: LineWeight,
+    markerFill: MarkerFill,
+    markerOutline: MarkerOutline,
+    messagesFill: MessagesFill,
+    messagesOutline: MessagesOutline,
+    moviesFill: MoviesFill,
+    moviesOutline: MoviesOutline,
+    muteFill: MuteFill,
+    muteOutline: MuteOutline,
+    powerWireCableFill: PowerWireCableFill,
+    powerWireCableOutline: PowerWireCableOutline,
+    powerWireDashFill: PowerWireDashFill,
+    powerWireDashOutline: PowerWireDashOutline,
+    powerWireFill: PowerWireFill,
+    powerWireOutline: PowerWireOutline,
+    snow: Snow,
+    sunFill: SunFill,
+    sunOutline: SunOutline,
+    text: Text,
+    textUnderline: TextUnderline,
+    umbrellaFill: UmbrellaFill,
+    umbrellaOutline: UmbrellaOutline,
+    videoArchive24Fill: VideoArchive24Fill,
+    videoArchive24Outline: VideoArchive24Outline,
+    videoClipFill: VideoClipFill,
+    videoClipOutline: VideoClipOutline,
+    videoProcessFill: VideoProcessFill,
+    videoProcessOutline: VideoProcessOutline,
+    videoQuality4K: VideoQuality4K,
+    videoQualityHD: VideoQualityHD,
+    videoRecordFill: VideoRecordFill,
+    videoRecordOutline: VideoRecordOutline,
+    viewBeautyFill: ViewBeautyFill,
+    viewBeautyOutline: ViewBeautyOutline,
+    viewPersonFill: ViewPersonFill,
+    viewPersonOutline: ViewPersonOutline,
+    viewPersonPanelLFill: ViewPersonPanelLFill,
+    viewPersonPanelLOutline: ViewPersonPanelLOutline,
+    viewPersonPanelRFill: ViewPersonPanelRFill,
+    viewPersonPanelROutline: ViewPersonPanelROutline,
+    viewScreen4Fill: ViewScreen4Fill,
+    viewScreen4Outline: ViewScreen4Outline,
+    viewSplit4Fill: ViewSplit4Fill,
+    viewSplit4Outline: ViewSplit4Outline,
+    volumeDashFill: VolumeDashFill,
+    volumeDashOutline: VolumeDashOutline,
+    volumeLevel0Fill: VolumeLevel0Fill,
+    volumeLevel0Outline: VolumeLevel0Outline,
+    volumeLevel1Fill: VolumeLevel1Fill,
+    volumeLevel1Outline: VolumeLevel1Outline,
+    volumeLevel2Fill: VolumeLevel2Fill,
+    volumeLevel2Outline: VolumeLevel2Outline,
+    volumeLevel3Fill: VolumeLevel3Fill,
+    volumeLevel3Outline: VolumeLevel3Outline,
+    walletAppleFill: WalletAppleFill,
+    walletAppleOutline: WalletAppleOutline,
+    walletFill: WalletFill,
+    walletOutline: WalletOutline,
+    washerFill: WasherFill,
+    washerOutline: WasherOutline,
+    watchRectangleFill: WatchRectangleFill,
+    watchRectangleOutline: WatchRectangleOutline,
+    watchRoundClockFill: WatchRoundClockFill,
+    watchRoundClockOutline: WatchRoundClockOutline,
+    watchRoundFill: WatchRoundFill,
+    watchRoundOutline: WatchRoundOutline,
+    waveLine: WaveLine,
+    weatherFill: WeatherFill,
+    weatherOutline: WeatherOutline,
+    whiteboardFill: WhiteboardFill,
+    whiteboardOutline: WhiteboardOutline,
+    windowFill: WindowFill,
+    windowMaximizeLFill: WindowMaximizeLFill,
+    windowMaximizeLOutline: WindowMaximizeLOutline,
+    windowMaximizeRFill: WindowMaximizeRFill,
+    windowMaximizeROutline: WindowMaximizeROutline,
+    windowMinimizeLFill: WindowMinimizeLFill,
+    windowMinimizeLOutline: WindowMinimizeLOutline,
+    windowMinimizeRFill: WindowMinimizeRFill,
+    windowMinimizeROutline: WindowMinimizeROutline,
+    windowMultiFill: WindowMultiFill,
+    windowMultiOutline: WindowMultiOutline,
+    windowOutline: WindowOutline,
 };
 
 export type IconSet24 = keyof typeof iconSet24;
