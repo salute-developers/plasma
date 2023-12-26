@@ -296,6 +296,89 @@ import { SwitchToggleOnFill } from './Icon.assets.24/SwitchToggleOnFill';
 import { SwitchToggleOnOutline } from './Icon.assets.24/SwitchToggleOnOutline';
 import { TravelCarFill } from './Icon.assets.24/TravelCarFill';
 import { TravelCarOutline } from './Icon.assets.24/TravelCarOutline';
+import { BulbDiodeFill } from './Icon.assets.24/BulbDiodeFill';
+import { BulbDiodeOutline } from './Icon.assets.24/BulbDiodeOutline';
+import { BulbFill } from './Icon.assets.24/BulbFill';
+import { BulbOutline } from './Icon.assets.24/BulbOutline';
+import { BulbSberFill } from './Icon.assets.24/BulbSberFill';
+import { BulbSberOutline } from './Icon.assets.24/BulbSberOutline';
+import { CalculatorFill } from './Icon.assets.24/CalculatorFill';
+import { CalculatorOutline } from './Icon.assets.24/CalculatorOutline';
+import { CertificateFill } from './Icon.assets.24/CertificateFill';
+import { CertificateOutline } from './Icon.assets.24/CertificateOutline';
+import { DeviceShareFill } from './Icon.assets.24/DeviceShareFill';
+import { DeviceShareOutline } from './Icon.assets.24/DeviceShareOutline';
+import { DevicesFill } from './Icon.assets.24/DevicesFill';
+import { DevicesOutline } from './Icon.assets.24/DevicesOutline';
+import { DishwasherBrillianceFill } from './Icon.assets.24/DishwasherBrillianceFill';
+import { DishwasherBrillianceOutline } from './Icon.assets.24/DishwasherBrillianceOutline';
+import { DishwasherFill } from './Icon.assets.24/DishwasherFill';
+import { DishwasherIntensiveFill } from './Icon.assets.24/DishwasherIntensiveFill';
+import { DishwasherIntensiveOutline } from './Icon.assets.24/DishwasherIntensiveOutline';
+import { DishwasherNormalFill } from './Icon.assets.24/DishwasherNormalFill';
+import { DishwasherNormalOutline } from './Icon.assets.24/DishwasherNormalOutline';
+import { DishwasherOutline } from './Icon.assets.24/DishwasherOutline';
+import { DishwasherSelfcleanFill } from './Icon.assets.24/DishwasherSelfcleanFill';
+import { DishwasherSelfcleanOutline } from './Icon.assets.24/DishwasherSelfcleanOutline';
+import { DishwasherSuper60Fill } from './Icon.assets.24/DishwasherSuper60Fill';
+import { DishwasherSuper60Outline } from './Icon.assets.24/DishwasherSuper60Outline';
+import { DoorLClosedFill } from './Icon.assets.24/DoorLClosedFill';
+import { DoorLClosedOutline } from './Icon.assets.24/DoorLClosedOutline';
+import { DoorLOpenFill } from './Icon.assets.24/DoorLOpenFill';
+import { DoorLOpenOutline } from './Icon.assets.24/DoorLOpenOutline';
+import { DoorRClosedFill } from './Icon.assets.24/DoorRClosedFill';
+import { DoorRClosedOutline } from './Icon.assets.24/DoorRClosedOutline';
+import { DoorROpenFill } from './Icon.assets.24/DoorROpenFill';
+import { DoorROpenOutline } from './Icon.assets.24/DoorROpenOutline';
+import { Download } from './Icon.assets.24/Download';
+import { Drag } from './Icon.assets.24/Drag';
+import { DropDashFill } from './Icon.assets.24/DropDashFill';
+import { DropDashOutline } from './Icon.assets.24/DropDashOutline';
+import { DropFill } from './Icon.assets.24/DropFill';
+import { DropOutline } from './Icon.assets.24/DropOutline';
+import { FlashDriveFill } from './Icon.assets.24/FlashDriveFill';
+import { FlashDriveOutline } from './Icon.assets.24/FlashDriveOutline';
+import { GamepadFill } from './Icon.assets.24/GamepadFill';
+import { GamepadOutline } from './Icon.assets.24/GamepadOutline';
+import { GlassCareFill } from './Icon.assets.24/GlassCareFill';
+import { GlassCareOutline } from './Icon.assets.24/GlassCareOutline';
+import { GlassFill } from './Icon.assets.24/GlassFill';
+import { GlassOutline } from './Icon.assets.24/GlassOutline';
+import { HeadphonesFill } from './Icon.assets.24/HeadphonesFill';
+import { HeadphonesOutline } from './Icon.assets.24/HeadphonesOutline';
+import { KeyboardFill } from './Icon.assets.24/KeyboardFill';
+import { KeyboardOutline } from './Icon.assets.24/KeyboardOutline';
+import { LightbulbFill } from './Icon.assets.24/LightbulbFill';
+import { LightbulbOutline } from './Icon.assets.24/LightbulbOutline';
+import { MagicDailyFill } from './Icon.assets.24/MagicDailyFill';
+import { MagicDailyOutline } from './Icon.assets.24/MagicDailyOutline';
+import { NotebookFill } from './Icon.assets.24/NotebookFill';
+import { NotebookOutline } from './Icon.assets.24/NotebookOutline';
+import { NotebookWavesFill } from './Icon.assets.24/NotebookWavesFill';
+import { NotebookWavesOutline } from './Icon.assets.24/NotebookWavesOutline';
+import { PassportFill } from './Icon.assets.24/PassportFill';
+import { PassportOutline } from './Icon.assets.24/PassportOutline';
+import { Sberbom } from './Icon.assets.24/Sberbom';
+import { SberbomCast } from './Icon.assets.24/SberbomCast';
+import { SberbomError } from './Icon.assets.24/SberbomError';
+import { SberbomMiniCastFill } from './Icon.assets.24/SberbomMiniCastFill';
+import { SberbomMiniCastOutline } from './Icon.assets.24/SberbomMiniCastOutline';
+import { SberbomMiniErrorFill } from './Icon.assets.24/SberbomMiniErrorFill';
+import { SberbomMiniErrorOutline } from './Icon.assets.24/SberbomMiniErrorOutline';
+import { SberbomMiniFill } from './Icon.assets.24/SberbomMiniFill';
+import { SberbomMiniOutline } from './Icon.assets.24/SberbomMiniOutline';
+import { SberboxFill } from './Icon.assets.24/SberboxFill';
+import { SberboxOutline } from './Icon.assets.24/SberboxOutline';
+import { SberboxPackFill } from './Icon.assets.24/SberboxPackFill';
+import { SberboxPackOutline } from './Icon.assets.24/SberboxPackOutline';
+import { SberboxTimeFill } from './Icon.assets.24/SberboxTimeFill';
+import { SberboxTimeOutline } from './Icon.assets.24/SberboxTimeOutline';
+import { SberboxTopFill } from './Icon.assets.24/SberboxTopFill';
+import { SberboxTopOutline } from './Icon.assets.24/SberboxTopOutline';
+import { SberportalBulbFill } from './Icon.assets.24/SberportalBulbFill';
+import { SberportalBulbOutline } from './Icon.assets.24/SberportalBulbOutline';
+import { SberportalFill } from './Icon.assets.24/SberportalFill';
+import { SberportalOutline } from './Icon.assets.24/SberportalOutline';
 
 interface Props {
     icon: IconSetUnionSize;
@@ -527,6 +610,36 @@ export const iconSectionsSet = {
         coatOfArmsOutline: CoatOfArmsOutline,
         crownFill: CrownFill,
         crownOutline: CrownOutline,
+        dishwasherBrillianceFill: DishwasherBrillianceFill,
+        dishwasherBrillianceOutline: DishwasherBrillianceOutline,
+        dishwasherFill: DishwasherFill,
+        dishwasherIntensiveFill: DishwasherIntensiveFill,
+        dishwasherIntensiveOutline: DishwasherIntensiveOutline,
+        dishwasherNormalFill: DishwasherNormalFill,
+        dishwasherNormalOutline: DishwasherNormalOutline,
+        dishwasherOutline: DishwasherOutline,
+        dishwasherSelfcleanFill: DishwasherSelfcleanFill,
+        dishwasherSelfcleanOutline: DishwasherSelfcleanOutline,
+        dishwasherSuper60Fill: DishwasherSuper60Fill,
+        dishwasherSuper60Outline: DishwasherSuper60Outline,
+        doorLClosedFill: DoorLClosedFill,
+        doorLClosedOutline: DoorLClosedOutline,
+        doorLOpenFill: DoorLOpenFill,
+        doorLOpenOutline: DoorLOpenOutline,
+        doorRClosedFill: DoorRClosedFill,
+        doorRClosedOutline: DoorRClosedOutline,
+        doorROpenFill: DoorROpenFill,
+        doorROpenOutline: DoorROpenOutline,
+        dropDashFill: DropDashFill,
+        dropDashOutline: DropDashOutline,
+        dropFill: DropFill,
+        dropOutline: DropOutline,
+        glassCareFill: GlassCareFill,
+        glassCareOutline: GlassCareOutline,
+        glassFill: GlassFill,
+        glassOutline: GlassOutline,
+        magicDailyFill: MagicDailyFill,
+        magicDailyOutline: MagicDailyOutline,
     },
     Toggle: {
         bellDashFill: BellDashFill,
@@ -562,6 +675,11 @@ export const iconSectionsSet = {
     File: {
         bookFill: BookFill,
         bookOutline: BookOutline,
+        certificateFill: CertificateFill,
+        certificateOutline: CertificateOutline,
+        download: Download,
+        passportFill: PassportFill,
+        passportOutline: PassportOutline,
     },
     Instruments: {
         boxFill: BoxFill,
@@ -637,6 +755,56 @@ export const iconSectionsSet = {
     },
     Navigation: {
         menu: Menu,
+        drag: Drag,
+    },
+    Devices: {
+        bulbDiodeFill: BulbDiodeFill,
+        bulbDiodeOutline: BulbDiodeOutline,
+        bulbFill: BulbFill,
+        bulbOutline: BulbOutline,
+        bulbSberFill: BulbSberFill,
+        bulbSberOutline: BulbSberOutline,
+        calculatorFill: CalculatorFill,
+        calculatorOutline: CalculatorOutline,
+        deviceShareFill: DeviceShareFill,
+        deviceShareOutline: DeviceShareOutline,
+        devicesFill: DevicesFill,
+        devicesOutline: DevicesOutline,
+        flashDriveFill: FlashDriveFill,
+        flashDriveOutline: FlashDriveOutline,
+        gamepadFill: GamepadFill,
+        gamepadOutline: GamepadOutline,
+        headphonesFill: HeadphonesFill,
+        headphonesOutline: HeadphonesOutline,
+        keyboardFill: KeyboardFill,
+        keyboardOutline: KeyboardOutline,
+        lightbulbFill: LightbulbFill,
+        lightbulbOutline: LightbulbOutline,
+        notebookFill: NotebookFill,
+        notebookOutline: NotebookOutline,
+        notebookWavesFill: NotebookWavesFill,
+        notebookWavesOutline: NotebookWavesOutline,
+        sberbom: Sberbom,
+        sberbomCast: SberbomCast,
+        sberbomError: SberbomError,
+        sberbomMiniCastFill: SberbomMiniCastFill,
+        sberbomMiniCastOutline: SberbomMiniCastOutline,
+        sberbomMiniErrorFill: SberbomMiniErrorFill,
+        sberbomMiniErrorOutline: SberbomMiniErrorOutline,
+        sberbomMiniFill: SberbomMiniFill,
+        sberbomMiniOutline: SberbomMiniOutline,
+        sberboxFill: SberboxFill,
+        sberboxOutline: SberboxOutline,
+        sberboxPackFill: SberboxPackFill,
+        sberboxPackOutline: SberboxPackOutline,
+        sberboxTimeFill: SberboxTimeFill,
+        sberboxTimeOutline: SberboxTimeOutline,
+        sberboxTopFill: SberboxTopFill,
+        sberboxTopOutline: SberboxTopOutline,
+        sberportalBulbFill: SberportalBulbFill,
+        sberportalBulbOutline: SberportalBulbOutline,
+        sberportalFill: SberportalFill,
+        sberportalOutline: SberportalOutline,
     },
 };
 
