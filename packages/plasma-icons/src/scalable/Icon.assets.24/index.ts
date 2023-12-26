@@ -520,6 +520,56 @@ import { Visa } from './Visa';
 import { WifiDash } from './WifiDash';
 import { WifiDefault } from './WifiDefault';
 import { WifiLock } from './WifiLock';
+import { CashATMFill } from './CashATMFill';
+import { CashATMOutline } from './CashATMOutline';
+import { CashFill } from './CashFill';
+import { CashOutline } from './CashOutline';
+import { CoinFallingFill } from './CoinFallingFill';
+import { CoinFallingOutline } from './CoinFallingOutline';
+import { CoinFill } from './CoinFill';
+import { CoinHeartFill } from './CoinHeartFill';
+import { CoinHeartOutline } from './CoinHeartOutline';
+import { CoinOutline } from './CoinOutline';
+import { CoinRubleFill } from './CoinRubleFill';
+import { CoinRubleOutline } from './CoinRubleOutline';
+import { DotsHorizontalOutline } from './DotsHorizontalOutline';
+import { DotsVerticalOutline } from './DotsVerticalOutline';
+import { Magic } from './Magic';
+import { MagicWand } from './MagicWand';
+import { MailClosedFill } from './MailClosedFill';
+import { MailClosedOutline } from './MailClosedOutline';
+import { MailErrorFill } from './MailErrorFill';
+import { MailErrorOutline } from './MailErrorOutline';
+import { MailFill } from './MailFill';
+import { MailOpenFill } from './MailOpenFill';
+import { MailOpenOutline } from './MailOpenOutline';
+import { MailOutline } from './MailOutline';
+import { MailPlusFill } from './MailPlusFill';
+import { MailPlusOutline } from './MailPlusOutline';
+import { MailTrayFill } from './MailTrayFill';
+import { MailTrayOutline } from './MailTrayOutline';
+import { MailWavesFill } from './MailWavesFill';
+import { MailWavesOutline } from './MailWavesOutline';
+import { MegaphoneFill } from './MegaphoneFill';
+import { MegaphoneLoudFill } from './MegaphoneLoudFill';
+import { MegaphoneLoudOutline } from './MegaphoneLoudOutline';
+import { MegaphoneOutline } from './MegaphoneOutline';
+import { MicErrorFill } from './MicErrorFill';
+import { MicErrorOutline } from './MicErrorOutline';
+import { MicFill } from './MicFill';
+import { MicOffFill } from './MicOffFill';
+import { MicOffOutline } from './MicOffOutline';
+import { MicOutline } from './MicOutline';
+import { MoneybagFill } from './MoneybagFill';
+import { MoneybagOutline } from './MoneybagOutline';
+import { RubleFill } from './RubleFill';
+import { RubleOutline } from './RubleOutline';
+import { SafeDiagramFill } from './SafeDiagramFill';
+import { SafeDiagramOutline } from './SafeDiagramOutline';
+import { SafeFill } from './SafeFill';
+import { SafeOutline } from './SafeOutline';
+import { SleepFill } from './SleepFill';
+import { SleepOutline } from './SleepOutline';
 
 export const iconSet24 = {    addFill: AddFill,
     addOutline: AddOutline,
@@ -1044,6 +1094,56 @@ export const iconSet24 = {    addFill: AddFill,
     wifiDash: WifiDash,
     wifiDefault: WifiDefault,
     wifiLock: WifiLock,
+    cashATMFill: CashATMFill,
+    cashATMOutline: CashATMOutline,
+    cashFill: CashFill,
+    cashOutline: CashOutline,
+    coinFallingFill: CoinFallingFill,
+    coinFallingOutline: CoinFallingOutline,
+    coinFill: CoinFill,
+    coinHeartFill: CoinHeartFill,
+    coinHeartOutline: CoinHeartOutline,
+    coinOutline: CoinOutline,
+    coinRubleFill: CoinRubleFill,
+    coinRubleOutline: CoinRubleOutline,
+    dotsHorizontalOutline: DotsHorizontalOutline,
+    dotsVerticalOutline: DotsVerticalOutline,
+    magic: Magic,
+    magicWand: MagicWand,
+    mailClosedFill: MailClosedFill,
+    mailClosedOutline: MailClosedOutline,
+    mailErrorFill: MailErrorFill,
+    mailErrorOutline: MailErrorOutline,
+    mailFill: MailFill,
+    mailOpenFill: MailOpenFill,
+    mailOpenOutline: MailOpenOutline,
+    mailOutline: MailOutline,
+    mailPlusFill: MailPlusFill,
+    mailPlusOutline: MailPlusOutline,
+    mailTrayFill: MailTrayFill,
+    mailTrayOutline: MailTrayOutline,
+    mailWavesFill: MailWavesFill,
+    mailWavesOutline: MailWavesOutline,
+    megaphoneFill: MegaphoneFill,
+    megaphoneLoudFill: MegaphoneLoudFill,
+    megaphoneLoudOutline: MegaphoneLoudOutline,
+    megaphoneOutline: MegaphoneOutline,
+    micErrorFill: MicErrorFill,
+    micErrorOutline: MicErrorOutline,
+    micFill: MicFill,
+    micOffFill: MicOffFill,
+    micOffOutline: MicOffOutline,
+    micOutline: MicOutline,
+    moneybagFill: MoneybagFill,
+    moneybagOutline: MoneybagOutline,
+    rubleFill: RubleFill,
+    rubleOutline: RubleOutline,
+    safeDiagramFill: SafeDiagramFill,
+    safeDiagramOutline: SafeDiagramOutline,
+    safeFill: SafeFill,
+    safeOutline: SafeOutline,
+    sleepFill: SleepFill,
+    sleepOutline: SleepOutline,
 };
 
 export type IconSet24 = keyof typeof iconSet24;

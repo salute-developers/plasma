@@ -524,6 +524,56 @@ import { Visa } from './Icon.assets.24/Visa';
 import { WifiDash } from './Icon.assets.24/WifiDash';
 import { WifiDefault } from './Icon.assets.24/WifiDefault';
 import { WifiLock } from './Icon.assets.24/WifiLock';
+import { CashATMFill } from './Icon.assets.24/CashATMFill';
+import { CashATMOutline } from './Icon.assets.24/CashATMOutline';
+import { CashFill } from './Icon.assets.24/CashFill';
+import { CashOutline } from './Icon.assets.24/CashOutline';
+import { CoinFallingFill } from './Icon.assets.24/CoinFallingFill';
+import { CoinFallingOutline } from './Icon.assets.24/CoinFallingOutline';
+import { CoinFill } from './Icon.assets.24/CoinFill';
+import { CoinHeartFill } from './Icon.assets.24/CoinHeartFill';
+import { CoinHeartOutline } from './Icon.assets.24/CoinHeartOutline';
+import { CoinOutline } from './Icon.assets.24/CoinOutline';
+import { CoinRubleFill } from './Icon.assets.24/CoinRubleFill';
+import { CoinRubleOutline } from './Icon.assets.24/CoinRubleOutline';
+import { DotsHorizontalOutline } from './Icon.assets.24/DotsHorizontalOutline';
+import { DotsVerticalOutline } from './Icon.assets.24/DotsVerticalOutline';
+import { Magic } from './Icon.assets.24/Magic';
+import { MagicWand } from './Icon.assets.24/MagicWand';
+import { MailClosedFill } from './Icon.assets.24/MailClosedFill';
+import { MailClosedOutline } from './Icon.assets.24/MailClosedOutline';
+import { MailErrorFill } from './Icon.assets.24/MailErrorFill';
+import { MailErrorOutline } from './Icon.assets.24/MailErrorOutline';
+import { MailFill } from './Icon.assets.24/MailFill';
+import { MailOpenFill } from './Icon.assets.24/MailOpenFill';
+import { MailOpenOutline } from './Icon.assets.24/MailOpenOutline';
+import { MailOutline } from './Icon.assets.24/MailOutline';
+import { MailPlusFill } from './Icon.assets.24/MailPlusFill';
+import { MailPlusOutline } from './Icon.assets.24/MailPlusOutline';
+import { MailTrayFill } from './Icon.assets.24/MailTrayFill';
+import { MailTrayOutline } from './Icon.assets.24/MailTrayOutline';
+import { MailWavesFill } from './Icon.assets.24/MailWavesFill';
+import { MailWavesOutline } from './Icon.assets.24/MailWavesOutline';
+import { MegaphoneFill } from './Icon.assets.24/MegaphoneFill';
+import { MegaphoneLoudFill } from './Icon.assets.24/MegaphoneLoudFill';
+import { MegaphoneLoudOutline } from './Icon.assets.24/MegaphoneLoudOutline';
+import { MegaphoneOutline } from './Icon.assets.24/MegaphoneOutline';
+import { MicErrorFill } from './Icon.assets.24/MicErrorFill';
+import { MicErrorOutline } from './Icon.assets.24/MicErrorOutline';
+import { MicFill } from './Icon.assets.24/MicFill';
+import { MicOffFill } from './Icon.assets.24/MicOffFill';
+import { MicOffOutline } from './Icon.assets.24/MicOffOutline';
+import { MicOutline } from './Icon.assets.24/MicOutline';
+import { MoneybagFill } from './Icon.assets.24/MoneybagFill';
+import { MoneybagOutline } from './Icon.assets.24/MoneybagOutline';
+import { RubleFill } from './Icon.assets.24/RubleFill';
+import { RubleOutline } from './Icon.assets.24/RubleOutline';
+import { SafeDiagramFill } from './Icon.assets.24/SafeDiagramFill';
+import { SafeDiagramOutline } from './Icon.assets.24/SafeDiagramOutline';
+import { SafeFill } from './Icon.assets.24/SafeFill';
+import { SafeOutline } from './Icon.assets.24/SafeOutline';
+import { SleepFill } from './Icon.assets.24/SleepFill';
+import { SleepOutline } from './Icon.assets.24/SleepOutline';
 
 interface Props {
     icon: IconSetUnionSize;
@@ -653,6 +703,20 @@ export const iconSectionsSet = {
         wifiDash: WifiDash,
         wifiDefault: WifiDefault,
         wifiLock: WifiLock,
+        mailClosedFill: MailClosedFill,
+        mailClosedOutline: MailClosedOutline,
+        mailErrorFill: MailErrorFill,
+        mailErrorOutline: MailErrorOutline,
+        mailFill: MailFill,
+        mailOpenFill: MailOpenFill,
+        mailOpenOutline: MailOpenOutline,
+        mailOutline: MailOutline,
+        mailPlusFill: MailPlusFill,
+        mailPlusOutline: MailPlusOutline,
+        mailTrayFill: MailTrayFill,
+        mailTrayOutline: MailTrayOutline,
+        mailWavesFill: MailWavesFill,
+        mailWavesOutline: MailWavesOutline,
     },
     Arrows: {
         arrowBarDown: ArrowBarDown,
@@ -791,6 +855,26 @@ export const iconSectionsSet = {
         cutlery: Cutlery,
         rublePlus: RublePlus,
         rublePlusDollar: RublePlusDollar,
+        cashATMFill: CashATMFill,
+        cashATMOutline: CashATMOutline,
+        cashFill: CashFill,
+        cashOutline: CashOutline,
+        coinFallingFill: CoinFallingFill,
+        coinFallingOutline: CoinFallingOutline,
+        coinFill: CoinFill,
+        coinHeartFill: CoinHeartFill,
+        coinHeartOutline: CoinHeartOutline,
+        coinOutline: CoinOutline,
+        coinRubleFill: CoinRubleFill,
+        coinRubleOutline: CoinRubleOutline,
+        moneybagFill: MoneybagFill,
+        moneybagOutline: MoneybagOutline,
+        rubleFill: RubleFill,
+        rubleOutline: RubleOutline,
+        safeDiagramFill: SafeDiagramFill,
+        safeDiagramOutline: SafeDiagramOutline,
+        safeFill: SafeFill,
+        safeOutline: SafeOutline,
     },
     Other: {
         gyroOutline: GyroOutline,
@@ -846,6 +930,8 @@ export const iconSectionsSet = {
         lineLinkToto: LineLinkToto,
         tableLampFill: TableLampFill,
         tableLampOutline: TableLampOutline,
+        magic: Magic,
+        magicWand: MagicWand,
     },
     Toggle: {
         bellDashFill: BellDashFill,
@@ -875,6 +961,8 @@ export const iconSectionsSet = {
         lockOpenFill: LockOpenFill,
         lockOpenOutline: LockOpenOutline,
         lockOutline: LockOutline,
+        sleepFill: SleepFill,
+        sleepOutline: SleepOutline,
     },
     Design: {
         blurFill: BlurFill,
@@ -1017,6 +1105,16 @@ export const iconSectionsSet = {
         cameraVideoOutline: CameraVideoOutline,
         cameraVideoRecFill: CameraVideoRecFill,
         cameraVideoRecOutline: CameraVideoRecOutline,
+        megaphoneFill: MegaphoneFill,
+        megaphoneLoudFill: MegaphoneLoudFill,
+        megaphoneLoudOutline: MegaphoneLoudOutline,
+        megaphoneOutline: MegaphoneOutline,
+        micErrorFill: MicErrorFill,
+        micErrorOutline: MicErrorOutline,
+        micFill: MicFill,
+        micOffFill: MicOffFill,
+        micOffOutline: MicOffOutline,
+        micOutline: MicOutline,
     },
     Navigation: {
         menu: Menu,
@@ -1029,6 +1127,8 @@ export const iconSectionsSet = {
         houseOutline: HouseOutline,
         housePercentFill: HousePercentFill,
         housePercentOutline: HousePercentOutline,
+        dotsHorizontalOutline: DotsHorizontalOutline,
+        dotsVerticalOutline: DotsVerticalOutline,
     },
     Devices: {
         bulbDiodeFill: BulbDiodeFill,
