@@ -341,6 +341,50 @@ import { Menu } from './Icon.assets.24/Menu';
 import { SettingsFilter } from './Icon.assets.24/SettingsFilter';
 import { SortBigSmall } from './Icon.assets.24/SortBigSmall';
 import { SortSmallBig } from './Icon.assets.24/SortSmallBig';
+import { BackspaceFill } from './Icon.assets.24/BackspaceFill';
+import { BackspaceOutline } from './Icon.assets.24/BackspaceOutline';
+import { BusFill } from './Icon.assets.24/BusFill';
+import { BusOutline } from './Icon.assets.24/BusOutline';
+import { CanisterFill } from './Icon.assets.24/CanisterFill';
+import { CanisterOutline } from './Icon.assets.24/CanisterOutline';
+import { CarFill } from './Icon.assets.24/CarFill';
+import { CarOutline } from './Icon.assets.24/CarOutline';
+import { CarTaxFill } from './Icon.assets.24/CarTaxFill';
+import { CarTaxOutline } from './Icon.assets.24/CarTaxOutline';
+import { CartBagFill } from './Icon.assets.24/CartBagFill';
+import { CartBagOutline } from './Icon.assets.24/CartBagOutline';
+import { CartFill } from './Icon.assets.24/CartFill';
+import { CartOutline } from './Icon.assets.24/CartOutline';
+import { CaseBusinessFill } from './Icon.assets.24/CaseBusinessFill';
+import { CaseBusinessOutline } from './Icon.assets.24/CaseBusinessOutline';
+import { CaseDiagramFill } from './Icon.assets.24/CaseDiagramFill';
+import { CaseDiagramOutline } from './Icon.assets.24/CaseDiagramOutline';
+import { CaseFill } from './Icon.assets.24/CaseFill';
+import { CaseOutline } from './Icon.assets.24/CaseOutline';
+import { CoatOfArmsFill } from './Icon.assets.24/CoatOfArmsFill';
+import { CoatOfArmsOutline } from './Icon.assets.24/CoatOfArmsOutline';
+import { CopyFill } from './Icon.assets.24/CopyFill';
+import { CopyOutline } from './Icon.assets.24/CopyOutline';
+import { CrownFill } from './Icon.assets.24/CrownFill';
+import { CrownOutline } from './Icon.assets.24/CrownOutline';
+import { CursorFill } from './Icon.assets.24/CursorFill';
+import { CursorOutline } from './Icon.assets.24/CursorOutline';
+import { GasStationFill } from './Icon.assets.24/GasStationFill';
+import { GasStationOutline } from './Icon.assets.24/GasStationOutline';
+import { ParkingFill } from './Icon.assets.24/ParkingFill';
+import { ParkingOutline } from './Icon.assets.24/ParkingOutline';
+import { SpeedometerFill } from './Icon.assets.24/SpeedometerFill';
+import { SpeedometerOutline } from './Icon.assets.24/SpeedometerOutline';
+import { SteeringWheelFill } from './Icon.assets.24/SteeringWheelFill';
+import { SteeringWheelOutline } from './Icon.assets.24/SteeringWheelOutline';
+import { SwitchSettingsFill } from './Icon.assets.24/SwitchSettingsFill';
+import { SwitchSettingsOutline } from './Icon.assets.24/SwitchSettingsOutline';
+import { SwitchToggleOffFill } from './Icon.assets.24/SwitchToggleOffFill';
+import { SwitchToggleOffOutline } from './Icon.assets.24/SwitchToggleOffOutline';
+import { SwitchToggleOnFill } from './Icon.assets.24/SwitchToggleOnFill';
+import { SwitchToggleOnOutline } from './Icon.assets.24/SwitchToggleOnOutline';
+import { TravelCarFill } from './Icon.assets.24/TravelCarFill';
+import { TravelCarOutline } from './Icon.assets.24/TravelCarOutline';
 
 interface Props {
     icon: IconSetUnionSize;
@@ -384,6 +428,16 @@ export const iconSectionsSet = {
         settingsFilter: SettingsFilter,
         sortBigSmall: SortBigSmall,
         sortSmallBig: SortSmallBig,
+        backspaceFill: BackspaceFill,
+        backspaceOutline: BackspaceOutline,
+        copyFill: CopyFill,
+        copyOutline: CopyOutline,
+        switchSettingsFill: SwitchSettingsFill,
+        switchSettingsOutline: SwitchSettingsOutline,
+        switchToggleOffFill: SwitchToggleOffFill,
+        switchToggleOffOutline: SwitchToggleOffOutline,
+        switchToggleOnFill: SwitchToggleOnFill,
+        switchToggleOnOutline: SwitchToggleOnOutline,
     },
     Animal: {
         animalFill: AnimalFill,
@@ -507,6 +561,24 @@ export const iconSectionsSet = {
         locationPointOutline: LocationPointOutline,
         mapFill: MapFill,
         mapOutline: MapOutline,
+        busFill: BusFill,
+        busOutline: BusOutline,
+        canisterFill: CanisterFill,
+        canisterOutline: CanisterOutline,
+        carFill: CarFill,
+        carOutline: CarOutline,
+        carTaxFill: CarTaxFill,
+        carTaxOutline: CarTaxOutline,
+        gasStationFill: GasStationFill,
+        gasStationOutline: GasStationOutline,
+        parkingFill: ParkingFill,
+        parkingOutline: ParkingOutline,
+        speedometerFill: SpeedometerFill,
+        speedometerOutline: SpeedometerOutline,
+        steeringWheelFill: SteeringWheelFill,
+        steeringWheelOutline: SteeringWheelOutline,
+        travelCarFill: TravelCarFill,
+        travelCarOutline: TravelCarOutline,
     },
     User: {
         educationFill: EducationFill,
@@ -555,6 +627,10 @@ export const iconSectionsSet = {
         boardingPassOutline: BoardingPassOutline,
         buildingsFill: BuildingsFill,
         buildingsOutline: BuildingsOutline,
+        cartBagFill: CartBagFill,
+        cartBagOutline: CartBagOutline,
+        cartFill: CartFill,
+        cartOutline: CartOutline,
     },
     Other: {
         gyroOutline: GyroOutline,
@@ -570,6 +646,10 @@ export const iconSectionsSet = {
         focusOutline: FocusOutline,
         redCrossFill: RedCrossFill,
         redCrossOutline: RedCrossOutline,
+        coatOfArmsFill: CoatOfArmsFill,
+        coatOfArmsOutline: CoatOfArmsOutline,
+        crownFill: CrownFill,
+        crownOutline: CrownOutline,
     },
     File: {
         blankFill: BlankFill,
@@ -709,6 +789,14 @@ export const iconSectionsSet = {
         cardstackHorizFill: CardstackHorizFill,
         cardstackHorizOutline: CardstackHorizOutline,
         cardstackOutline: CardstackOutline,
+        caseBusinessFill: CaseBusinessFill,
+        caseBusinessOutline: CaseBusinessOutline,
+        caseDiagramFill: CaseDiagramFill,
+        caseDiagramOutline: CaseDiagramOutline,
+        caseFill: CaseFill,
+        caseOutline: CaseOutline,
+        cursorFill: CursorFill,
+        cursorOutline: CursorOutline,
     },
     Time: {
         calendarEventFill: CalendarEventFill,
