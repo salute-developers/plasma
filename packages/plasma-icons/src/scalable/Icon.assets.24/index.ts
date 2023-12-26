@@ -570,6 +570,59 @@ import { SafeFill } from './SafeFill';
 import { SafeOutline } from './SafeOutline';
 import { SleepFill } from './SleepFill';
 import { SleepOutline } from './SleepOutline';
+import { ArrowsMove } from './ArrowsMove';
+import { ArrowsMoveHoriz } from './ArrowsMoveHoriz';
+import { ArrowsMoveVertical } from './ArrowsMoveVertical';
+import { MaskFill } from './MaskFill';
+import { MaskOutline } from './MaskOutline';
+import { Mention } from './Mention';
+import { MessageAltFill } from './MessageAltFill';
+import { MessageAltOutline } from './MessageAltOutline';
+import { MessageAttentionFill } from './MessageAttentionFill';
+import { MessageAttentionOutline } from './MessageAttentionOutline';
+import { MessageChatFill } from './MessageChatFill';
+import { MessageChatOutline } from './MessageChatOutline';
+import { MessageCloseFill } from './MessageCloseFill';
+import { MessageCloseOutline } from './MessageCloseOutline';
+import { MessageFill } from './MessageFill';
+import { MessageGoToFill } from './MessageGoToFill';
+import { MessageGoToOutline } from './MessageGoToOutline';
+import { MessageOutline } from './MessageOutline';
+import { MessagePersonChatFill } from './MessagePersonChatFill';
+import { MessagePersonChatOutline } from './MessagePersonChatOutline';
+import { MessagePersonFill } from './MessagePersonFill';
+import { MessagePersonOutline } from './MessagePersonOutline';
+import { MessageQuestionFill } from './MessageQuestionFill';
+import { MessageQuestionOutline } from './MessageQuestionOutline';
+import { MessageRequestFill } from './MessageRequestFill';
+import { MessageRequestOutline } from './MessageRequestOutline';
+import { MessageTranscriptionFill } from './MessageTranscriptionFill';
+import { MessageTranscriptionOutline } from './MessageTranscriptionOutline';
+import { MessageVideoFill } from './MessageVideoFill';
+import { MessageVideoOutline } from './MessageVideoOutline';
+import { Mindmap } from './Mindmap';
+import { MobileAutorotateFill } from './MobileAutorotateFill';
+import { MobileAutorotateOutline } from './MobileAutorotateOutline';
+import { MobileFrontFill } from './MobileFrontFill';
+import { MobileFrontOutline } from './MobileFrontOutline';
+import { MobilePlusFill } from './MobilePlusFill';
+import { MobilePlusOutline } from './MobilePlusOutline';
+import { MobileVibrationFill } from './MobileVibrationFill';
+import { MobileVibrationOutline } from './MobileVibrationOutline';
+import { MobileWavesFill } from './MobileWavesFill';
+import { MobileWavesOutline } from './MobileWavesOutline';
+import { MusicAlbumFill } from './MusicAlbumFill';
+import { MusicAlbumOutline } from './MusicAlbumOutline';
+import { MusicFill } from './MusicFill';
+import { MusicMicFill } from './MusicMicFill';
+import { MusicMicOutline } from './MusicMicOutline';
+import { MusicOutline } from './MusicOutline';
+import { MusicPodcastFill } from './MusicPodcastFill';
+import { MusicPodcastOutline } from './MusicPodcastOutline';
+import { MusicWithLightFill } from './MusicWithLightFill';
+import { MusicWithLightOutline } from './MusicWithLightOutline';
+import { NoteFill } from './NoteFill';
+import { NoteOutline } from './NoteOutline';
 
 export const iconSet24 = {    addFill: AddFill,
     addOutline: AddOutline,
@@ -1144,6 +1197,59 @@ export const iconSet24 = {    addFill: AddFill,
     safeOutline: SafeOutline,
     sleepFill: SleepFill,
     sleepOutline: SleepOutline,
+    arrowsMove: ArrowsMove,
+    arrowsMoveHoriz: ArrowsMoveHoriz,
+    arrowsMoveVertical: ArrowsMoveVertical,
+    maskFill: MaskFill,
+    maskOutline: MaskOutline,
+    mention: Mention,
+    messageAltFill: MessageAltFill,
+    messageAltOutline: MessageAltOutline,
+    messageAttentionFill: MessageAttentionFill,
+    messageAttentionOutline: MessageAttentionOutline,
+    messageChatFill: MessageChatFill,
+    messageChatOutline: MessageChatOutline,
+    messageCloseFill: MessageCloseFill,
+    messageCloseOutline: MessageCloseOutline,
+    messageFill: MessageFill,
+    messageGoToFill: MessageGoToFill,
+    messageGoToOutline: MessageGoToOutline,
+    messageOutline: MessageOutline,
+    messagePersonChatFill: MessagePersonChatFill,
+    messagePersonChatOutline: MessagePersonChatOutline,
+    messagePersonFill: MessagePersonFill,
+    messagePersonOutline: MessagePersonOutline,
+    messageQuestionFill: MessageQuestionFill,
+    messageQuestionOutline: MessageQuestionOutline,
+    messageRequestFill: MessageRequestFill,
+    messageRequestOutline: MessageRequestOutline,
+    messageTranscriptionFill: MessageTranscriptionFill,
+    messageTranscriptionOutline: MessageTranscriptionOutline,
+    messageVideoFill: MessageVideoFill,
+    messageVideoOutline: MessageVideoOutline,
+    mindmap: Mindmap,
+    mobileAutorotateFill: MobileAutorotateFill,
+    mobileAutorotateOutline: MobileAutorotateOutline,
+    mobileFrontFill: MobileFrontFill,
+    mobileFrontOutline: MobileFrontOutline,
+    mobilePlusFill: MobilePlusFill,
+    mobilePlusOutline: MobilePlusOutline,
+    mobileVibrationFill: MobileVibrationFill,
+    mobileVibrationOutline: MobileVibrationOutline,
+    mobileWavesFill: MobileWavesFill,
+    mobileWavesOutline: MobileWavesOutline,
+    musicAlbumFill: MusicAlbumFill,
+    musicAlbumOutline: MusicAlbumOutline,
+    musicFill: MusicFill,
+    musicMicFill: MusicMicFill,
+    musicMicOutline: MusicMicOutline,
+    musicOutline: MusicOutline,
+    musicPodcastFill: MusicPodcastFill,
+    musicPodcastOutline: MusicPodcastOutline,
+    musicWithLightFill: MusicWithLightFill,
+    musicWithLightOutline: MusicWithLightOutline,
+    noteFill: NoteFill,
+    noteOutline: NoteOutline,
 };
 
 export type IconSet24 = keyof typeof iconSet24;

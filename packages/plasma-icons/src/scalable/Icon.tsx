@@ -574,6 +574,59 @@ import { SafeFill } from './Icon.assets.24/SafeFill';
 import { SafeOutline } from './Icon.assets.24/SafeOutline';
 import { SleepFill } from './Icon.assets.24/SleepFill';
 import { SleepOutline } from './Icon.assets.24/SleepOutline';
+import { ArrowsMove } from './Icon.assets.24/ArrowsMove';
+import { ArrowsMoveHoriz } from './Icon.assets.24/ArrowsMoveHoriz';
+import { ArrowsMoveVertical } from './Icon.assets.24/ArrowsMoveVertical';
+import { MaskFill } from './Icon.assets.24/MaskFill';
+import { MaskOutline } from './Icon.assets.24/MaskOutline';
+import { Mention } from './Icon.assets.24/Mention';
+import { MessageAltFill } from './Icon.assets.24/MessageAltFill';
+import { MessageAltOutline } from './Icon.assets.24/MessageAltOutline';
+import { MessageAttentionFill } from './Icon.assets.24/MessageAttentionFill';
+import { MessageAttentionOutline } from './Icon.assets.24/MessageAttentionOutline';
+import { MessageChatFill } from './Icon.assets.24/MessageChatFill';
+import { MessageChatOutline } from './Icon.assets.24/MessageChatOutline';
+import { MessageCloseFill } from './Icon.assets.24/MessageCloseFill';
+import { MessageCloseOutline } from './Icon.assets.24/MessageCloseOutline';
+import { MessageFill } from './Icon.assets.24/MessageFill';
+import { MessageGoToFill } from './Icon.assets.24/MessageGoToFill';
+import { MessageGoToOutline } from './Icon.assets.24/MessageGoToOutline';
+import { MessageOutline } from './Icon.assets.24/MessageOutline';
+import { MessagePersonChatFill } from './Icon.assets.24/MessagePersonChatFill';
+import { MessagePersonChatOutline } from './Icon.assets.24/MessagePersonChatOutline';
+import { MessagePersonFill } from './Icon.assets.24/MessagePersonFill';
+import { MessagePersonOutline } from './Icon.assets.24/MessagePersonOutline';
+import { MessageQuestionFill } from './Icon.assets.24/MessageQuestionFill';
+import { MessageQuestionOutline } from './Icon.assets.24/MessageQuestionOutline';
+import { MessageRequestFill } from './Icon.assets.24/MessageRequestFill';
+import { MessageRequestOutline } from './Icon.assets.24/MessageRequestOutline';
+import { MessageTranscriptionFill } from './Icon.assets.24/MessageTranscriptionFill';
+import { MessageTranscriptionOutline } from './Icon.assets.24/MessageTranscriptionOutline';
+import { MessageVideoFill } from './Icon.assets.24/MessageVideoFill';
+import { MessageVideoOutline } from './Icon.assets.24/MessageVideoOutline';
+import { Mindmap } from './Icon.assets.24/Mindmap';
+import { MobileAutorotateFill } from './Icon.assets.24/MobileAutorotateFill';
+import { MobileAutorotateOutline } from './Icon.assets.24/MobileAutorotateOutline';
+import { MobileFrontFill } from './Icon.assets.24/MobileFrontFill';
+import { MobileFrontOutline } from './Icon.assets.24/MobileFrontOutline';
+import { MobilePlusFill } from './Icon.assets.24/MobilePlusFill';
+import { MobilePlusOutline } from './Icon.assets.24/MobilePlusOutline';
+import { MobileVibrationFill } from './Icon.assets.24/MobileVibrationFill';
+import { MobileVibrationOutline } from './Icon.assets.24/MobileVibrationOutline';
+import { MobileWavesFill } from './Icon.assets.24/MobileWavesFill';
+import { MobileWavesOutline } from './Icon.assets.24/MobileWavesOutline';
+import { MusicAlbumFill } from './Icon.assets.24/MusicAlbumFill';
+import { MusicAlbumOutline } from './Icon.assets.24/MusicAlbumOutline';
+import { MusicFill } from './Icon.assets.24/MusicFill';
+import { MusicMicFill } from './Icon.assets.24/MusicMicFill';
+import { MusicMicOutline } from './Icon.assets.24/MusicMicOutline';
+import { MusicOutline } from './Icon.assets.24/MusicOutline';
+import { MusicPodcastFill } from './Icon.assets.24/MusicPodcastFill';
+import { MusicPodcastOutline } from './Icon.assets.24/MusicPodcastOutline';
+import { MusicWithLightFill } from './Icon.assets.24/MusicWithLightFill';
+import { MusicWithLightOutline } from './Icon.assets.24/MusicWithLightOutline';
+import { NoteFill } from './Icon.assets.24/NoteFill';
+import { NoteOutline } from './Icon.assets.24/NoteOutline';
 
 interface Props {
     icon: IconSetUnionSize;
@@ -717,6 +770,16 @@ export const iconSectionsSet = {
         mailTrayOutline: MailTrayOutline,
         mailWavesFill: MailWavesFill,
         mailWavesOutline: MailWavesOutline,
+        mobileAutorotateFill: MobileAutorotateFill,
+        mobileAutorotateOutline: MobileAutorotateOutline,
+        mobileFrontFill: MobileFrontFill,
+        mobileFrontOutline: MobileFrontOutline,
+        mobilePlusFill: MobilePlusFill,
+        mobilePlusOutline: MobilePlusOutline,
+        mobileVibrationFill: MobileVibrationFill,
+        mobileVibrationOutline: MobileVibrationOutline,
+        mobileWavesFill: MobileWavesFill,
+        mobileWavesOutline: MobileWavesOutline,
     },
     Arrows: {
         arrowBarDown: ArrowBarDown,
@@ -769,6 +832,7 @@ export const iconSectionsSet = {
         chartDistributionOutline: ChartDistributionOutline,
         chartPieFill: ChartPieFill,
         chartPieOutline: ChartPieOutline,
+        mindmap: Mindmap,
     },
     Travel: {
         compassFill: CompassFill,
@@ -822,6 +886,8 @@ export const iconSectionsSet = {
         eyeClosedOutline: EyeClosedOutline,
         eyeFill: EyeFill,
         eyeOutline: EyeOutline,
+        maskFill: MaskFill,
+        maskOutline: MaskOutline,
     },
     Commerce: {
         giftFill: GiftFill,
@@ -1091,6 +1157,31 @@ export const iconSectionsSet = {
         newsPaperOutline: NewsPaperOutline,
         postFill: PostFill,
         postOutline: PostOutline,
+        mention: Mention,
+        messageAltFill: MessageAltFill,
+        messageAltOutline: MessageAltOutline,
+        messageAttentionFill: MessageAttentionFill,
+        messageAttentionOutline: MessageAttentionOutline,
+        messageChatFill: MessageChatFill,
+        messageChatOutline: MessageChatOutline,
+        messageCloseFill: MessageCloseFill,
+        messageCloseOutline: MessageCloseOutline,
+        messageFill: MessageFill,
+        messageGoToFill: MessageGoToFill,
+        messageGoToOutline: MessageGoToOutline,
+        messageOutline: MessageOutline,
+        messagePersonChatFill: MessagePersonChatFill,
+        messagePersonChatOutline: MessagePersonChatOutline,
+        messagePersonFill: MessagePersonFill,
+        messagePersonOutline: MessagePersonOutline,
+        messageQuestionFill: MessageQuestionFill,
+        messageQuestionOutline: MessageQuestionOutline,
+        messageRequestFill: MessageRequestFill,
+        messageRequestOutline: MessageRequestOutline,
+        messageTranscriptionFill: MessageTranscriptionFill,
+        messageTranscriptionOutline: MessageTranscriptionOutline,
+        messageVideoFill: MessageVideoFill,
+        messageVideoOutline: MessageVideoOutline,
     },
     Media: {
         cameraDashFill: CameraDashFill,
@@ -1115,6 +1206,18 @@ export const iconSectionsSet = {
         micOffFill: MicOffFill,
         micOffOutline: MicOffOutline,
         micOutline: MicOutline,
+        musicAlbumFill: MusicAlbumFill,
+        musicAlbumOutline: MusicAlbumOutline,
+        musicFill: MusicFill,
+        musicMicFill: MusicMicFill,
+        musicMicOutline: MusicMicOutline,
+        musicOutline: MusicOutline,
+        musicPodcastFill: MusicPodcastFill,
+        musicPodcastOutline: MusicPodcastOutline,
+        musicWithLightFill: MusicWithLightFill,
+        musicWithLightOutline: MusicWithLightOutline,
+        noteFill: NoteFill,
+        noteOutline: NoteOutline,
     },
     Navigation: {
         menu: Menu,
@@ -1129,6 +1232,9 @@ export const iconSectionsSet = {
         housePercentOutline: HousePercentOutline,
         dotsHorizontalOutline: DotsHorizontalOutline,
         dotsVerticalOutline: DotsVerticalOutline,
+        arrowsMove: ArrowsMove,
+        arrowsMoveHoriz: ArrowsMoveHoriz,
+        arrowsMoveVertical: ArrowsMoveVertical,
     },
     Devices: {
         bulbDiodeFill: BulbDiodeFill,
