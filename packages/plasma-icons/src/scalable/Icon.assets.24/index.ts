@@ -730,6 +730,69 @@ import { UsbCFill } from './UsbCFill';
 import { UsbCOutline } from './UsbCOutline';
 import { VgaFill } from './VgaFill';
 import { VgaOutline } from './VgaOutline';
+import { AddSmileFill } from './AddSmileFill';
+import { AddSmileOutline } from './AddSmileOutline';
+import { BeautificationFill } from './BeautificationFill';
+import { BeautificationOutline } from './BeautificationOutline';
+import { CircleFill } from './CircleFill';
+import { CircleOutline } from './CircleOutline';
+import { CubeFill } from './CubeFill';
+import { CubeOutline } from './CubeOutline';
+import { FlasherFill } from './FlasherFill';
+import { FlasherOutline } from './FlasherOutline';
+import { FullscreenOff } from './FullscreenOff';
+import { FullscreenOn } from './FullscreenOn';
+import { ObjectsSymbolsFill } from './ObjectsSymbolsFill';
+import { ObjectsSymbolsOutline } from './ObjectsSymbolsOutline';
+import { RombFill } from './RombFill';
+import { RombOutline } from './RombOutline';
+import { ScenarioAutoFill } from './ScenarioAutoFill';
+import { ScenarioAutoOutline } from './ScenarioAutoOutline';
+import { ScenarioFill } from './ScenarioFill';
+import { ScenarioOutline } from './ScenarioOutline';
+import { ScenarioSyncAuto35Fill } from './ScenarioSyncAuto35Fill';
+import { ScenarioSyncAuto35Outline } from './ScenarioSyncAuto35Outline';
+import { ScenarioSyncAuto45Fill } from './ScenarioSyncAuto45Fill';
+import { ScenarioSyncAuto45Outline } from './ScenarioSyncAuto45Outline';
+import { ScenarioSyncAuto65Fill } from './ScenarioSyncAuto65Fill';
+import { ScenarioSyncAuto65Outline } from './ScenarioSyncAuto65Outline';
+import { Scene3dFill } from './Scene3dFill';
+import { Scene3dOutline } from './Scene3dOutline';
+import { Scribble } from './Scribble';
+import { Search } from './Search';
+import { SecurityCameraFill } from './SecurityCameraFill';
+import { SecurityCameraOutline } from './SecurityCameraOutline';
+import { SendFill } from './SendFill';
+import { SendOutline } from './SendOutline';
+import { SettingsFill } from './SettingsFill';
+import { SettingsOutline } from './SettingsOutline';
+import { ShareScreenFill } from './ShareScreenFill';
+import { ShareScreenMobileFill } from './ShareScreenMobileFill';
+import { ShareScreenMobileOutline } from './ShareScreenMobileOutline';
+import { ShareScreenOutline } from './ShareScreenOutline';
+import { ShareScreenTabletFill } from './ShareScreenTabletFill';
+import { ShareScreenTabletOutline } from './ShareScreenTabletOutline';
+import { SizeExpand } from './SizeExpand';
+import { SizeMaximize } from './SizeMaximize';
+import { SizeMinimize } from './SizeMinimize';
+import { SmileFill } from './SmileFill';
+import { SmileOutline } from './SmileOutline';
+import { SquareFill } from './SquareFill';
+import { SquareOutline } from './SquareOutline';
+import { StacksFill } from './StacksFill';
+import { StacksOutline } from './StacksOutline';
+import { StickerFill } from './StickerFill';
+import { StickerOutline } from './StickerOutline';
+import { StickerSquareFill } from './StickerSquareFill';
+import { StickerSquareOutline } from './StickerSquareOutline';
+import { SymbolsFill } from './SymbolsFill';
+import { SymbolsOutline } from './SymbolsOutline';
+import { TriangleFill } from './TriangleFill';
+import { TriangleOutline } from './TriangleOutline';
+import { ZoomMinusFill } from './ZoomMinusFill';
+import { ZoomMinusOutline } from './ZoomMinusOutline';
+import { ZoomPlusFill } from './ZoomPlusFill';
+import { ZoomPlusOutline } from './ZoomPlusOutline';
 
 export const iconSet24 = {    addFill: AddFill,
     addOutline: AddOutline,
@@ -1464,6 +1527,69 @@ export const iconSet24 = {    addFill: AddFill,
     usbCOutline: UsbCOutline,
     vgaFill: VgaFill,
     vgaOutline: VgaOutline,
+    addSmileFill: AddSmileFill,
+    addSmileOutline: AddSmileOutline,
+    beautificationFill: BeautificationFill,
+    beautificationOutline: BeautificationOutline,
+    circleFill: CircleFill,
+    circleOutline: CircleOutline,
+    cubeFill: CubeFill,
+    cubeOutline: CubeOutline,
+    flasherFill: FlasherFill,
+    flasherOutline: FlasherOutline,
+    fullscreenOff: FullscreenOff,
+    fullscreenOn: FullscreenOn,
+    objectsSymbolsFill: ObjectsSymbolsFill,
+    objectsSymbolsOutline: ObjectsSymbolsOutline,
+    rombFill: RombFill,
+    rombOutline: RombOutline,
+    scenarioAutoFill: ScenarioAutoFill,
+    scenarioAutoOutline: ScenarioAutoOutline,
+    scenarioFill: ScenarioFill,
+    scenarioOutline: ScenarioOutline,
+    scenarioSyncAuto35Fill: ScenarioSyncAuto35Fill,
+    scenarioSyncAuto35Outline: ScenarioSyncAuto35Outline,
+    scenarioSyncAuto45Fill: ScenarioSyncAuto45Fill,
+    scenarioSyncAuto45Outline: ScenarioSyncAuto45Outline,
+    scenarioSyncAuto65Fill: ScenarioSyncAuto65Fill,
+    scenarioSyncAuto65Outline: ScenarioSyncAuto65Outline,
+    scene3dFill: Scene3dFill,
+    scene3dOutline: Scene3dOutline,
+    scribble: Scribble,
+    search: Search,
+    securityCameraFill: SecurityCameraFill,
+    securityCameraOutline: SecurityCameraOutline,
+    sendFill: SendFill,
+    sendOutline: SendOutline,
+    settingsFill: SettingsFill,
+    settingsOutline: SettingsOutline,
+    shareScreenFill: ShareScreenFill,
+    shareScreenMobileFill: ShareScreenMobileFill,
+    shareScreenMobileOutline: ShareScreenMobileOutline,
+    shareScreenOutline: ShareScreenOutline,
+    shareScreenTabletFill: ShareScreenTabletFill,
+    shareScreenTabletOutline: ShareScreenTabletOutline,
+    sizeExpand: SizeExpand,
+    sizeMaximize: SizeMaximize,
+    sizeMinimize: SizeMinimize,
+    smileFill: SmileFill,
+    smileOutline: SmileOutline,
+    squareFill: SquareFill,
+    squareOutline: SquareOutline,
+    stacksFill: StacksFill,
+    stacksOutline: StacksOutline,
+    stickerFill: StickerFill,
+    stickerOutline: StickerOutline,
+    stickerSquareFill: StickerSquareFill,
+    stickerSquareOutline: StickerSquareOutline,
+    symbolsFill: SymbolsFill,
+    symbolsOutline: SymbolsOutline,
+    triangleFill: TriangleFill,
+    triangleOutline: TriangleOutline,
+    zoomMinusFill: ZoomMinusFill,
+    zoomMinusOutline: ZoomMinusOutline,
+    zoomPlusFill: ZoomPlusFill,
+    zoomPlusOutline: ZoomPlusOutline,
 };
 
 export type IconSet24 = keyof typeof iconSet24;
