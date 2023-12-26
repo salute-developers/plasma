@@ -178,6 +178,89 @@ import { RedCrossFill } from './Icon.assets.24/RedCrossFill';
 import { RedCrossOutline } from './Icon.assets.24/RedCrossOutline';
 import { ShareFill } from './Icon.assets.24/ShareFill';
 import { ShareOutline } from './Icon.assets.24/ShareOutline';
+import { BankCardDoneFill } from './Icon.assets.24/BankCardDoneFill';
+import { BankCardDoneOutline } from './Icon.assets.24/BankCardDoneOutline';
+import { BankCardErrorFill } from './Icon.assets.24/BankCardErrorFill';
+import { BankCardErrorOutline } from './Icon.assets.24/BankCardErrorOutline';
+import { BankCardFill } from './Icon.assets.24/BankCardFill';
+import { BankCardForwardFill } from './Icon.assets.24/BankCardForwardFill';
+import { BankCardForwardOutline } from './Icon.assets.24/BankCardForwardOutline';
+import { BankCardLockFill } from './Icon.assets.24/BankCardLockFill';
+import { BankCardLockOutline } from './Icon.assets.24/BankCardLockOutline';
+import { BankCardOutline } from './Icon.assets.24/BankCardOutline';
+import { BankCardStackFill } from './Icon.assets.24/BankCardStackFill';
+import { BankCardStackOutline } from './Icon.assets.24/BankCardStackOutline';
+import { Battery100Fill } from './Icon.assets.24/Battery100Fill';
+import { Battery100Outline } from './Icon.assets.24/Battery100Outline';
+import { Battery10Fill } from './Icon.assets.24/Battery10Fill';
+import { Battery10Outline } from './Icon.assets.24/Battery10Outline';
+import { Battery20Fill } from './Icon.assets.24/Battery20Fill';
+import { Battery20Outline } from './Icon.assets.24/Battery20Outline';
+import { Battery40Fill } from './Icon.assets.24/Battery40Fill';
+import { Battery40Outline } from './Icon.assets.24/Battery40Outline';
+import { Battery60Fill } from './Icon.assets.24/Battery60Fill';
+import { Battery60Outline } from './Icon.assets.24/Battery60Outline';
+import { Battery80Fill } from './Icon.assets.24/Battery80Fill';
+import { Battery80Outline } from './Icon.assets.24/Battery80Outline';
+import { BatteryChargeFill } from './Icon.assets.24/BatteryChargeFill';
+import { BatteryChargeOutline } from './Icon.assets.24/BatteryChargeOutline';
+import { BatteryEmptyFill } from './Icon.assets.24/BatteryEmptyFill';
+import { BatteryEmptyOutline } from './Icon.assets.24/BatteryEmptyOutline';
+import { BatteryHoriz100Fill } from './Icon.assets.24/BatteryHoriz100Fill';
+import { BatteryHoriz100Outline } from './Icon.assets.24/BatteryHoriz100Outline';
+import { BatteryHoriz10Fill } from './Icon.assets.24/BatteryHoriz10Fill';
+import { BatteryHoriz10Outline } from './Icon.assets.24/BatteryHoriz10Outline';
+import { BatteryHoriz20Fill } from './Icon.assets.24/BatteryHoriz20Fill';
+import { BatteryHoriz20Outline } from './Icon.assets.24/BatteryHoriz20Outline';
+import { BatteryHoriz40Fill } from './Icon.assets.24/BatteryHoriz40Fill';
+import { BatteryHoriz40Outline } from './Icon.assets.24/BatteryHoriz40Outline';
+import { BatteryHoriz60Fill } from './Icon.assets.24/BatteryHoriz60Fill';
+import { BatteryHoriz60Outline } from './Icon.assets.24/BatteryHoriz60Outline';
+import { BatteryHoriz80Fill } from './Icon.assets.24/BatteryHoriz80Fill';
+import { BatteryHoriz80Outline } from './Icon.assets.24/BatteryHoriz80Outline';
+import { BatteryHorizChargeFill } from './Icon.assets.24/BatteryHorizChargeFill';
+import { BatteryHorizChargeOutline } from './Icon.assets.24/BatteryHorizChargeOutline';
+import { BatteryHorizEmptyFill } from './Icon.assets.24/BatteryHorizEmptyFill';
+import { BatteryHorizEmptyOutline } from './Icon.assets.24/BatteryHorizEmptyOutline';
+import { BellDashFill } from './Icon.assets.24/BellDashFill';
+import { BellDashOutline } from './Icon.assets.24/BellDashOutline';
+import { BellDoneFill } from './Icon.assets.24/BellDoneFill';
+import { BellDoneOutline } from './Icon.assets.24/BellDoneOutline';
+import { BellErrorFill } from './Icon.assets.24/BellErrorFill';
+import { BellErrorOutline } from './Icon.assets.24/BellErrorOutline';
+import { BellFill } from './Icon.assets.24/BellFill';
+import { BellOutline } from './Icon.assets.24/BellOutline';
+import { Bluetooth } from './Icon.assets.24/Bluetooth';
+import { BluetoothDisabled } from './Icon.assets.24/BluetoothDisabled';
+import { BluetoothLock } from './Icon.assets.24/BluetoothLock';
+import { BluetoothSearching } from './Icon.assets.24/BluetoothSearching';
+import { BluetoothSignal } from './Icon.assets.24/BluetoothSignal';
+import { BlurFill } from './Icon.assets.24/BlurFill';
+import { BlurOutline } from './Icon.assets.24/BlurOutline';
+import { BoardingPassFill } from './Icon.assets.24/BoardingPassFill';
+import { BoardingPassOutline } from './Icon.assets.24/BoardingPassOutline';
+import { BookFill } from './Icon.assets.24/BookFill';
+import { BookOutline } from './Icon.assets.24/BookOutline';
+import { BookmarkDashFill } from './Icon.assets.24/BookmarkDashFill';
+import { BookmarkDashOutline } from './Icon.assets.24/BookmarkDashOutline';
+import { BookmarkFill } from './Icon.assets.24/BookmarkFill';
+import { BookmarkOutline } from './Icon.assets.24/BookmarkOutline';
+import { BookmarkStackFill } from './Icon.assets.24/BookmarkStackFill';
+import { BookmarkStackOutline } from './Icon.assets.24/BookmarkStackOutline';
+import { BookmarkStarFill } from './Icon.assets.24/BookmarkStarFill';
+import { BookmarkStarOutline } from './Icon.assets.24/BookmarkStarOutline';
+import { BoxFill } from './Icon.assets.24/BoxFill';
+import { BoxOutline } from './Icon.assets.24/BoxOutline';
+import { Brightness0Fill } from './Icon.assets.24/Brightness0Fill';
+import { Brightness0Outline } from './Icon.assets.24/Brightness0Outline';
+import { Brightness1Fill } from './Icon.assets.24/Brightness1Fill';
+import { Brightness1Outline } from './Icon.assets.24/Brightness1Outline';
+import { Brightness2Fill } from './Icon.assets.24/Brightness2Fill';
+import { Brightness2Outline } from './Icon.assets.24/Brightness2Outline';
+import { BrightnessmaxFill } from './Icon.assets.24/BrightnessmaxFill';
+import { BrightnessmaxOutline } from './Icon.assets.24/BrightnessmaxOutline';
+import { BuildingsFill } from './Icon.assets.24/BuildingsFill';
+import { BuildingsOutline } from './Icon.assets.24/BuildingsOutline';
 
 interface Props {
     icon: IconSetUnionSize;
@@ -207,6 +290,14 @@ export const iconSectionsSet = {
         pinOutline: PinOutline,
         flagFill: FlagFill,
         flagOutline: FlagOutline,
+        bookmarkDashFill: BookmarkDashFill,
+        bookmarkDashOutline: BookmarkDashOutline,
+        bookmarkFill: BookmarkFill,
+        bookmarkOutline: BookmarkOutline,
+        bookmarkStackFill: BookmarkStackFill,
+        bookmarkStackOutline: BookmarkStackOutline,
+        bookmarkStarFill: BookmarkStarFill,
+        bookmarkStarOutline: BookmarkStarOutline,
     },
     Animal: {
         animalFill: AnimalFill,
@@ -217,6 +308,43 @@ export const iconSectionsSet = {
     Technology: {
         appsFill: AppsFill,
         appsOutline: AppsOutline,
+        battery100Fill: Battery100Fill,
+        battery100Outline: Battery100Outline,
+        battery10Fill: Battery10Fill,
+        battery10Outline: Battery10Outline,
+        battery20Fill: Battery20Fill,
+        battery20Outline: Battery20Outline,
+        battery40Fill: Battery40Fill,
+        battery40Outline: Battery40Outline,
+        battery60Fill: Battery60Fill,
+        battery60Outline: Battery60Outline,
+        battery80Fill: Battery80Fill,
+        battery80Outline: Battery80Outline,
+        batteryChargeFill: BatteryChargeFill,
+        batteryChargeOutline: BatteryChargeOutline,
+        batteryEmptyFill: BatteryEmptyFill,
+        batteryEmptyOutline: BatteryEmptyOutline,
+        batteryHoriz100Fill: BatteryHoriz100Fill,
+        batteryHoriz100Outline: BatteryHoriz100Outline,
+        batteryHoriz10Fill: BatteryHoriz10Fill,
+        batteryHoriz10Outline: BatteryHoriz10Outline,
+        batteryHoriz20Fill: BatteryHoriz20Fill,
+        batteryHoriz20Outline: BatteryHoriz20Outline,
+        batteryHoriz40Fill: BatteryHoriz40Fill,
+        batteryHoriz40Outline: BatteryHoriz40Outline,
+        batteryHoriz60Fill: BatteryHoriz60Fill,
+        batteryHoriz60Outline: BatteryHoriz60Outline,
+        batteryHoriz80Fill: BatteryHoriz80Fill,
+        batteryHoriz80Outline: BatteryHoriz80Outline,
+        batteryHorizChargeFill: BatteryHorizChargeFill,
+        batteryHorizChargeOutline: BatteryHorizChargeOutline,
+        batteryHorizEmptyFill: BatteryHorizEmptyFill,
+        batteryHorizEmptyOutline: BatteryHorizEmptyOutline,
+        bluetooth: Bluetooth,
+        bluetoothDisabled: BluetoothDisabled,
+        bluetoothLock: BluetoothLock,
+        bluetoothSearching: BluetoothSearching,
+        bluetoothSignal: BluetoothSignal,
     },
     Arrows: {
         arrowBarDown: ArrowBarDown,
@@ -315,6 +443,22 @@ export const iconSectionsSet = {
         candyFill: CandyFill,
         candyOutline: CandyOutline,
         cutlery: Cutlery,
+        bankCardDoneFill: BankCardDoneFill,
+        bankCardDoneOutline: BankCardDoneOutline,
+        bankCardErrorFill: BankCardErrorFill,
+        bankCardErrorOutline: BankCardErrorOutline,
+        bankCardFill: BankCardFill,
+        bankCardForwardFill: BankCardForwardFill,
+        bankCardForwardOutline: BankCardForwardOutline,
+        bankCardLockFill: BankCardLockFill,
+        bankCardLockOutline: BankCardLockOutline,
+        bankCardOutline: BankCardOutline,
+        bankCardStackFill: BankCardStackFill,
+        bankCardStackOutline: BankCardStackOutline,
+        boardingPassFill: BoardingPassFill,
+        boardingPassOutline: BoardingPassOutline,
+        buildingsFill: BuildingsFill,
+        buildingsOutline: BuildingsOutline,
     },
     Other: {
         gyroOutline: GyroOutline,
@@ -364,6 +508,8 @@ export const iconSectionsSet = {
         folderOutline: FolderOutline,
         folderPlusFill: FolderPlusFill,
         folderPlusOutline: FolderPlusOutline,
+        bookFill: BookFill,
+        bookOutline: BookOutline,
     },
     Senses: {
         click: Click,
@@ -385,6 +531,14 @@ export const iconSectionsSet = {
         heartDashOutline: HeartDashOutline,
         heartFill: HeartFill,
         heartOutline: HeartOutline,
+        bellDashFill: BellDashFill,
+        bellDashOutline: BellDashOutline,
+        bellDoneFill: BellDoneFill,
+        bellDoneOutline: BellDoneOutline,
+        bellErrorFill: BellErrorFill,
+        bellErrorOutline: BellErrorOutline,
+        bellFill: BellFill,
+        bellOutline: BellOutline,
     },
     Navigation: {
         homeAltFill: HomeAltFill,
@@ -395,6 +549,22 @@ export const iconSectionsSet = {
         houseOutline: HouseOutline,
         housePercentFill: HousePercentFill,
         housePercentOutline: HousePercentOutline,
+    },
+    Design: {
+        blurFill: BlurFill,
+        blurOutline: BlurOutline,
+        brightness0Fill: Brightness0Fill,
+        brightness0Outline: Brightness0Outline,
+        brightness1Fill: Brightness1Fill,
+        brightness1Outline: Brightness1Outline,
+        brightness2Fill: Brightness2Fill,
+        brightness2Outline: Brightness2Outline,
+        brightnessmaxFill: BrightnessmaxFill,
+        brightnessmaxOutline: BrightnessmaxOutline,
+    },
+    Instruments: {
+        boxFill: BoxFill,
+        boxOutline: BoxOutline,
     },
 };
 
