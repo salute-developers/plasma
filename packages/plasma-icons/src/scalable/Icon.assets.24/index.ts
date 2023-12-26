@@ -513,6 +513,76 @@ import { BrightnessmaxFill } from './BrightnessmaxFill';
 import { BrightnessmaxOutline } from './BrightnessmaxOutline';
 import { BuildingsFill } from './BuildingsFill';
 import { BuildingsOutline } from './BuildingsOutline';
+import { CalendarEventFill } from './CalendarEventFill';
+import { CalendarEventOutline } from './CalendarEventOutline';
+import { CalendarOutline } from './CalendarOutline';
+import { CallBlockFill } from './CallBlockFill';
+import { CallBlockOutline } from './CallBlockOutline';
+import { CallCircleEndFill } from './CallCircleEndFill';
+import { CallCircleEndOutline } from './CallCircleEndOutline';
+import { CallCircleFill } from './CallCircleFill';
+import { CallCircleOutline } from './CallCircleOutline';
+import { CallDashFill } from './CallDashFill';
+import { CallDashOutline } from './CallDashOutline';
+import { CallEndBlockFill } from './CallEndBlockFill';
+import { CallEndBlockOutline } from './CallEndBlockOutline';
+import { CallEndOutline } from './CallEndOutline';
+import { CallIncomingOutline } from './CallIncomingOutline';
+import { CallMissedOutline } from './CallMissedOutline';
+import { CallOutgoingOutline } from './CallOutgoingOutline';
+import { CallOutline } from './CallOutline';
+import { CameraDashFill } from './CameraDashFill';
+import { CameraDashOutline } from './CameraDashOutline';
+import { CameraPhotoFill } from './CameraPhotoFill';
+import { CameraPhotoOutline } from './CameraPhotoOutline';
+import { CameraReverseFill } from './CameraReverseFill';
+import { CameraReverseOutline } from './CameraReverseOutline';
+import { CameraVideoOffOutline } from './CameraVideoOffOutline';
+import { CameraVideoOutline } from './CameraVideoOutline';
+import { CameraVideoRecFill } from './CameraVideoRecFill';
+import { CameraVideoRecOutline } from './CameraVideoRecOutline';
+import { CardsOrderCenterHorizFill } from './CardsOrderCenterHorizFill';
+import { CardsOrderCenterHorizOutline } from './CardsOrderCenterHorizOutline';
+import { CardsOrderCenterVertFill } from './CardsOrderCenterVertFill';
+import { CardsOrderCenterVertOutline } from './CardsOrderCenterVertOutline';
+import { CardsOrderFrontHorizFill } from './CardsOrderFrontHorizFill';
+import { CardsOrderFrontHorizOutline } from './CardsOrderFrontHorizOutline';
+import { CardsOrderFrontVertFill } from './CardsOrderFrontVertFill';
+import { CardsOrderFrontVertOutline } from './CardsOrderFrontVertOutline';
+import { CardstackHorizFill } from './CardstackHorizFill';
+import { CardstackHorizOutline } from './CardstackHorizOutline';
+import { CardstackOutline } from './CardstackOutline';
+import { ChatFill } from './ChatFill';
+import { ChatHumanFill } from './ChatHumanFill';
+import { ChatHumanOutline } from './ChatHumanOutline';
+import { ChatOutline } from './ChatOutline';
+import { ChatTranscriptionFill } from './ChatTranscriptionFill';
+import { ChatTranscriptionOutline } from './ChatTranscriptionOutline';
+import { CloudDashFill } from './CloudDashFill';
+import { CloudDashOutline } from './CloudDashOutline';
+import { CloudDownloadFill } from './CloudDownloadFill';
+import { CloudDownloadOutline } from './CloudDownloadOutline';
+import { CloudErrorFill } from './CloudErrorFill';
+import { CloudErrorOutline } from './CloudErrorOutline';
+import { CloudFill } from './CloudFill';
+import { CloudOutline } from './CloudOutline';
+import { CloudUploadFill } from './CloudUploadFill';
+import { CloudUploadOutline } from './CloudUploadOutline';
+import { Contrast0Fill } from './Contrast0Fill';
+import { Contrast0Outline } from './Contrast0Outline';
+import { Contrast1Fill } from './Contrast1Fill';
+import { Contrast1Outline } from './Contrast1Outline';
+import { Contrast2Fill } from './Contrast2Fill';
+import { Contrast2Outline } from './Contrast2Outline';
+import { ContrastMaxFill } from './ContrastMaxFill';
+import { ContrastMaxOutline } from './ContrastMaxOutline';
+import { Filter } from './Filter';
+import { FilterFunnelFill } from './FilterFunnelFill';
+import { FilterFunnelOutline } from './FilterFunnelOutline';
+import { Menu } from './Menu';
+import { SettingsFilter } from './SettingsFilter';
+import { SortBigSmall } from './SortBigSmall';
+import { SortSmallBig } from './SortSmallBig';
 
 export const iconSet24 = {
     attentionCircle: AttentionCircle,
@@ -1030,6 +1100,76 @@ export const iconSet24 = {
     brightnessmaxOutline: BrightnessmaxOutline,
     buildingsFill: BuildingsFill,
     buildingsOutline: BuildingsOutline,
+    calendarEventFill: CalendarEventFill,
+    calendarEventOutline: CalendarEventOutline,
+    calendarOutline: CalendarOutline,
+    callBlockFill: CallBlockFill,
+    callBlockOutline: CallBlockOutline,
+    callCircleEndFill: CallCircleEndFill,
+    callCircleEndOutline: CallCircleEndOutline,
+    callCircleFill: CallCircleFill,
+    callCircleOutline: CallCircleOutline,
+    callDashFill: CallDashFill,
+    callDashOutline: CallDashOutline,
+    callEndBlockFill: CallEndBlockFill,
+    callEndBlockOutline: CallEndBlockOutline,
+    callEndOutline: CallEndOutline,
+    callIncomingOutline: CallIncomingOutline,
+    callMissedOutline: CallMissedOutline,
+    callOutgoingOutline: CallOutgoingOutline,
+    callOutline: CallOutline,
+    cameraDashFill: CameraDashFill,
+    cameraDashOutline: CameraDashOutline,
+    cameraPhotoFill: CameraPhotoFill,
+    cameraPhotoOutline: CameraPhotoOutline,
+    cameraReverseFill: CameraReverseFill,
+    cameraReverseOutline: CameraReverseOutline,
+    cameraVideoOffOutline: CameraVideoOffOutline,
+    cameraVideoOutline: CameraVideoOutline,
+    cameraVideoRecFill: CameraVideoRecFill,
+    cameraVideoRecOutline: CameraVideoRecOutline,
+    cardsOrderCenterHorizFill: CardsOrderCenterHorizFill,
+    cardsOrderCenterHorizOutline: CardsOrderCenterHorizOutline,
+    cardsOrderCenterVertFill: CardsOrderCenterVertFill,
+    cardsOrderCenterVertOutline: CardsOrderCenterVertOutline,
+    cardsOrderFrontHorizFill: CardsOrderFrontHorizFill,
+    cardsOrderFrontHorizOutline: CardsOrderFrontHorizOutline,
+    cardsOrderFrontVertFill: CardsOrderFrontVertFill,
+    cardsOrderFrontVertOutline: CardsOrderFrontVertOutline,
+    cardstackHorizFill: CardstackHorizFill,
+    cardstackHorizOutline: CardstackHorizOutline,
+    cardstackOutline: CardstackOutline,
+    chatFill: ChatFill,
+    chatHumanFill: ChatHumanFill,
+    chatHumanOutline: ChatHumanOutline,
+    chatOutline: ChatOutline,
+    chatTranscriptionFill: ChatTranscriptionFill,
+    chatTranscriptionOutline: ChatTranscriptionOutline,
+    cloudDashFill: CloudDashFill,
+    cloudDashOutline: CloudDashOutline,
+    cloudDownloadFill: CloudDownloadFill,
+    cloudDownloadOutline: CloudDownloadOutline,
+    cloudErrorFill: CloudErrorFill,
+    cloudErrorOutline: CloudErrorOutline,
+    cloudFill: CloudFill,
+    cloudOutline: CloudOutline,
+    cloudUploadFill: CloudUploadFill,
+    cloudUploadOutline: CloudUploadOutline,
+    contrast0Fill: Contrast0Fill,
+    contrast0Outline: Contrast0Outline,
+    contrast1Fill: Contrast1Fill,
+    contrast1Outline: Contrast1Outline,
+    contrast2Fill: Contrast2Fill,
+    contrast2Outline: Contrast2Outline,
+    contrastMaxFill: ContrastMaxFill,
+    contrastMaxOutline: ContrastMaxOutline,
+    filter: Filter,
+    filterFunnelFill: FilterFunnelFill,
+    filterFunnelOutline: FilterFunnelOutline,
+    menu: Menu,
+    settingsFilter: SettingsFilter,
+    sortBigSmall: SortBigSmall,
+    sortSmallBig: SortSmallBig,
 };
 
 export type IconSet24 = keyof typeof iconSet24;
