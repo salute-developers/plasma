@@ -623,6 +623,54 @@ import { MusicWithLightFill } from './MusicWithLightFill';
 import { MusicWithLightOutline } from './MusicWithLightOutline';
 import { NoteFill } from './NoteFill';
 import { NoteOutline } from './NoteOutline';
+import { ArrowWideForwardBack } from './ArrowWideForwardBack';
+import { ArrowWideTraceR } from './ArrowWideTraceR';
+import { NextFill } from './NextFill';
+import { NextOutline } from './NextOutline';
+import { PauseFill } from './PauseFill';
+import { PauseOutline } from './PauseOutline';
+import { PictureCopyFill } from './PictureCopyFill';
+import { PictureCopyOutline } from './PictureCopyOutline';
+import { PictureFill } from './PictureFill';
+import { PictureOutline } from './PictureOutline';
+import { PipFill } from './PipFill';
+import { PipOffFill } from './PipOffFill';
+import { PipOffOutline } from './PipOffOutline';
+import { PipOnFill } from './PipOnFill';
+import { PipOnOutline } from './PipOnOutline';
+import { PipOutline } from './PipOutline';
+import { PlaneDashFill } from './PlaneDashFill';
+import { PlaneDashOutline } from './PlaneDashOutline';
+import { PlaneFill } from './PlaneFill';
+import { PlaneFlyFill } from './PlaneFlyFill';
+import { PlaneFlyOutline } from './PlaneFlyOutline';
+import { PlaneOutline } from './PlaneOutline';
+import { PlayCircleFill } from './PlayCircleFill';
+import { PlayCircleOutline } from './PlayCircleOutline';
+import { PlayFill } from './PlayFill';
+import { PlayOutline } from './PlayOutline';
+import { Power } from './Power';
+import { PreviousFill } from './PreviousFill';
+import { PreviousOutline } from './PreviousOutline';
+import { RepeatCircleOutline } from './RepeatCircleOutline';
+import { RepeatOneOutline } from './RepeatOneOutline';
+import { RepeatOutline } from './RepeatOutline';
+import { RewindBackward10 } from './RewindBackward10';
+import { RewindBackward30 } from './RewindBackward30';
+import { RewindBackwardFill } from './RewindBackwardFill';
+import { RewindBackwardOutline } from './RewindBackwardOutline';
+import { RewindForward10 } from './RewindForward10';
+import { RewindForward30 } from './RewindForward30';
+import { RewindForwardFill } from './RewindForwardFill';
+import { RewindForwardOutline } from './RewindForwardOutline';
+import { ShuffleOutline } from './ShuffleOutline';
+import { StopFill } from './StopFill';
+import { StopOutline } from './StopOutline';
+import { ViewfinderCard } from './ViewfinderCard';
+import { ViewfinderFace } from './ViewfinderFace';
+import { ViewfinderQRCode } from './ViewfinderQRCode';
+import { Waves } from './Waves';
+import { WavesCross } from './WavesCross';
 
 export const iconSet24 = {    addFill: AddFill,
     addOutline: AddOutline,
@@ -1250,6 +1298,54 @@ export const iconSet24 = {    addFill: AddFill,
     musicWithLightOutline: MusicWithLightOutline,
     noteFill: NoteFill,
     noteOutline: NoteOutline,
+    arrowWideForwardBack: ArrowWideForwardBack,
+    arrowWideTraceR: ArrowWideTraceR,
+    nextFill: NextFill,
+    nextOutline: NextOutline,
+    pauseFill: PauseFill,
+    pauseOutline: PauseOutline,
+    pictureCopyFill: PictureCopyFill,
+    pictureCopyOutline: PictureCopyOutline,
+    pictureFill: PictureFill,
+    pictureOutline: PictureOutline,
+    pipFill: PipFill,
+    pipOffFill: PipOffFill,
+    pipOffOutline: PipOffOutline,
+    pipOnFill: PipOnFill,
+    pipOnOutline: PipOnOutline,
+    pipOutline: PipOutline,
+    planeDashFill: PlaneDashFill,
+    planeDashOutline: PlaneDashOutline,
+    planeFill: PlaneFill,
+    planeFlyFill: PlaneFlyFill,
+    planeFlyOutline: PlaneFlyOutline,
+    planeOutline: PlaneOutline,
+    playCircleFill: PlayCircleFill,
+    playCircleOutline: PlayCircleOutline,
+    playFill: PlayFill,
+    playOutline: PlayOutline,
+    power: Power,
+    previousFill: PreviousFill,
+    previousOutline: PreviousOutline,
+    repeatCircleOutline: RepeatCircleOutline,
+    repeatOneOutline: RepeatOneOutline,
+    repeatOutline: RepeatOutline,
+    rewindBackward10: RewindBackward10,
+    rewindBackward30: RewindBackward30,
+    rewindBackwardFill: RewindBackwardFill,
+    rewindBackwardOutline: RewindBackwardOutline,
+    rewindForward10: RewindForward10,
+    rewindForward30: RewindForward30,
+    rewindForwardFill: RewindForwardFill,
+    rewindForwardOutline: RewindForwardOutline,
+    shuffleOutline: ShuffleOutline,
+    stopFill: StopFill,
+    stopOutline: StopOutline,
+    viewfinderCard: ViewfinderCard,
+    viewfinderFace: ViewfinderFace,
+    viewfinderQRCode: ViewfinderQRCode,
+    waves: Waves,
+    wavesCross: WavesCross,
 };
 
 export type IconSet24 = keyof typeof iconSet24;
