@@ -675,6 +675,65 @@ import { ViewfinderFace } from './Icon.assets.24/ViewfinderFace';
 import { ViewfinderQRCode } from './Icon.assets.24/ViewfinderQRCode';
 import { Waves } from './Icon.assets.24/Waves';
 import { WavesCross } from './Icon.assets.24/WavesCross';
+import { AntennaFill } from './Icon.assets.24/AntennaFill';
+import { AntennaOutline } from './Icon.assets.24/AntennaOutline';
+import { Button2x1LFill } from './Icon.assets.24/Button2x1LFill';
+import { Button2x1LOutline } from './Icon.assets.24/Button2x1LOutline';
+import { Button2x1RFill } from './Icon.assets.24/Button2x1RFill';
+import { Button2x1ROutline } from './Icon.assets.24/Button2x1ROutline';
+import { Button2x2BotLFill } from './Icon.assets.24/Button2x2BotLFill';
+import { Button2x2BotLOutline } from './Icon.assets.24/Button2x2BotLOutline';
+import { Button2x2BotRFill } from './Icon.assets.24/Button2x2BotRFill';
+import { Button2x2BotROutline } from './Icon.assets.24/Button2x2BotROutline';
+import { Button2x2TopLFill } from './Icon.assets.24/Button2x2TopLFill';
+import { Button2x2TopLOutline } from './Icon.assets.24/Button2x2TopLOutline';
+import { Button2x2TopRFill } from './Icon.assets.24/Button2x2TopRFill';
+import { Button2x2TopROutline } from './Icon.assets.24/Button2x2TopROutline';
+import { Button3x2CFill } from './Icon.assets.24/Button3x2CFill';
+import { Button3x2COutline } from './Icon.assets.24/Button3x2COutline';
+import { Button3x2LFill } from './Icon.assets.24/Button3x2LFill';
+import { Button3x2LOutline } from './Icon.assets.24/Button3x2LOutline';
+import { Button3x2RFill } from './Icon.assets.24/Button3x2RFill';
+import { Button3x2ROutline } from './Icon.assets.24/Button3x2ROutline';
+import { ChoiceFill } from './Icon.assets.24/ChoiceFill';
+import { ChoiceOutline } from './Icon.assets.24/ChoiceOutline';
+import { EthernetFill } from './Icon.assets.24/EthernetFill';
+import { EthernetOutline } from './Icon.assets.24/EthernetOutline';
+import { GroupBigFill } from './Icon.assets.24/GroupBigFill';
+import { GroupBigOutline } from './Icon.assets.24/GroupBigOutline';
+import { HdmiFill } from './Icon.assets.24/HdmiFill';
+import { HdmiOutline } from './Icon.assets.24/HdmiOutline';
+import { InputsFill } from './Icon.assets.24/InputsFill';
+import { InputsOutline } from './Icon.assets.24/InputsOutline';
+import { PanelSidebarLFill } from './Icon.assets.24/PanelSidebarLFill';
+import { PanelSidebarLFocusFill } from './Icon.assets.24/PanelSidebarLFocusFill';
+import { PanelSidebarLFocusOutline } from './Icon.assets.24/PanelSidebarLFocusOutline';
+import { PanelSidebarLOutline } from './Icon.assets.24/PanelSidebarLOutline';
+import { PanelSidebarRFill } from './Icon.assets.24/PanelSidebarRFill';
+import { PanelSidebarRFocusFill } from './Icon.assets.24/PanelSidebarRFocusFill';
+import { PanelSidebarRFocusOutline } from './Icon.assets.24/PanelSidebarRFocusOutline';
+import { PanelSidebarROutline } from './Icon.assets.24/PanelSidebarROutline';
+import { Percent } from './Icon.assets.24/Percent';
+import { PostcardFill } from './Icon.assets.24/PostcardFill';
+import { PostcardOutline } from './Icon.assets.24/PostcardOutline';
+import { ProfileBadgeFill } from './Icon.assets.24/ProfileBadgeFill';
+import { ProfileBadgeOutline } from './Icon.assets.24/ProfileBadgeOutline';
+import { ProfileCircleFill } from './Icon.assets.24/ProfileCircleFill';
+import { ProfileCircleOutline } from './Icon.assets.24/ProfileCircleOutline';
+import { ProfileCrossFill } from './Icon.assets.24/ProfileCrossFill';
+import { ProfileCrossOutline } from './Icon.assets.24/ProfileCrossOutline';
+import { ProfileFill } from './Icon.assets.24/ProfileFill';
+import { ProfileOutline } from './Icon.assets.24/ProfileOutline';
+import { ProfilePlusFill } from './Icon.assets.24/ProfilePlusFill';
+import { ProfilePlusOutline } from './Icon.assets.24/ProfilePlusOutline';
+import { ProfileSquareFill } from './Icon.assets.24/ProfileSquareFill';
+import { ProfileSquareOutline } from './Icon.assets.24/ProfileSquareOutline';
+import { UsbAFill } from './Icon.assets.24/UsbAFill';
+import { UsbAOutline } from './Icon.assets.24/UsbAOutline';
+import { UsbCFill } from './Icon.assets.24/UsbCFill';
+import { UsbCOutline } from './Icon.assets.24/UsbCOutline';
+import { VgaFill } from './Icon.assets.24/VgaFill';
+import { VgaOutline } from './Icon.assets.24/VgaOutline';
 
 interface Props {
     icon: IconSetUnionSize;
@@ -949,6 +1008,20 @@ export const iconSectionsSet = {
         eyeOutline: EyeOutline,
         maskFill: MaskFill,
         maskOutline: MaskOutline,
+        groupBigFill: GroupBigFill,
+        groupBigOutline: GroupBigOutline,
+        profileBadgeFill: ProfileBadgeFill,
+        profileBadgeOutline: ProfileBadgeOutline,
+        profileCircleFill: ProfileCircleFill,
+        profileCircleOutline: ProfileCircleOutline,
+        profileCrossFill: ProfileCrossFill,
+        profileCrossOutline: ProfileCrossOutline,
+        profileFill: ProfileFill,
+        profileOutline: ProfileOutline,
+        profilePlusFill: ProfilePlusFill,
+        profilePlusOutline: ProfilePlusOutline,
+        profileSquareFill: ProfileSquareFill,
+        profileSquareOutline: ProfileSquareOutline,
     },
     Commerce: {
         giftFill: GiftFill,
@@ -1009,6 +1082,7 @@ export const iconSectionsSet = {
         viewfinderQRCode: ViewfinderQRCode,
         waves: Waves,
         wavesCross: WavesCross,
+        percent: Percent,
     },
     Other: {
         gyroOutline: GyroOutline,
@@ -1066,6 +1140,26 @@ export const iconSectionsSet = {
         tableLampOutline: TableLampOutline,
         magic: Magic,
         magicWand: MagicWand,
+        button2x1LFill: Button2x1LFill,
+        button2x1LOutline: Button2x1LOutline,
+        button2x1RFill: Button2x1RFill,
+        button2x1ROutline: Button2x1ROutline,
+        button2x2BotLFill: Button2x2BotLFill,
+        button2x2BotLOutline: Button2x2BotLOutline,
+        button2x2BotRFill: Button2x2BotRFill,
+        button2x2BotROutline: Button2x2BotROutline,
+        button2x2TopLFill: Button2x2TopLFill,
+        button2x2TopLOutline: Button2x2TopLOutline,
+        button2x2TopRFill: Button2x2TopRFill,
+        button2x2TopROutline: Button2x2TopROutline,
+        button3x2CFill: Button3x2CFill,
+        button3x2COutline: Button3x2COutline,
+        button3x2LFill: Button3x2LFill,
+        button3x2LOutline: Button3x2LOutline,
+        button3x2RFill: Button3x2RFill,
+        button3x2ROutline: Button3x2ROutline,
+        choiceFill: ChoiceFill,
+        choiceOutline: ChoiceOutline,
     },
     File: {
         blankFill: BlankFill,
@@ -1175,6 +1269,8 @@ export const iconSectionsSet = {
         messageTranscriptionOutline: MessageTranscriptionOutline,
         messageVideoFill: MessageVideoFill,
         messageVideoOutline: MessageVideoOutline,
+        postcardFill: PostcardFill,
+        postcardOutline: PostcardOutline,
     },
     Toggle: {
         heartBoxFill: HeartBoxFill,
@@ -1223,6 +1319,14 @@ export const iconSectionsSet = {
         arrowsMove: ArrowsMove,
         arrowsMoveHoriz: ArrowsMoveHoriz,
         arrowsMoveVertical: ArrowsMoveVertical,
+        panelSidebarLFill: PanelSidebarLFill,
+        panelSidebarLFocusFill: PanelSidebarLFocusFill,
+        panelSidebarLFocusOutline: PanelSidebarLFocusOutline,
+        panelSidebarLOutline: PanelSidebarLOutline,
+        panelSidebarRFill: PanelSidebarRFill,
+        panelSidebarRFocusFill: PanelSidebarRFocusFill,
+        panelSidebarRFocusOutline: PanelSidebarRFocusOutline,
+        panelSidebarROutline: PanelSidebarROutline,
     },
     Design: {
         blurFill: BlurFill,
@@ -1390,6 +1494,20 @@ export const iconSectionsSet = {
         sberportalOutline: SberportalOutline,
         radioFill: RadioFill,
         radioOutline: RadioOutline,
+        antennaFill: AntennaFill,
+        antennaOutline: AntennaOutline,
+        ethernetFill: EthernetFill,
+        ethernetOutline: EthernetOutline,
+        hdmiFill: HdmiFill,
+        hdmiOutline: HdmiOutline,
+        inputsFill: InputsFill,
+        inputsOutline: InputsOutline,
+        usbAFill: UsbAFill,
+        usbAOutline: UsbAOutline,
+        usbCFill: UsbCFill,
+        usbCOutline: UsbCOutline,
+        vgaFill: VgaFill,
+        vgaOutline: VgaOutline,
     },
     Logo: {
         catalogFill: CatalogFill,
