@@ -2,7 +2,7 @@ import { Fragment, useMemo, useContext } from 'react';
 import type { FC } from 'react';
 import styled, { css } from 'styled-components';
 import { Headline4, Footnote1, applyNoSelect, applyEllipsis } from '@salutejs/plasma-b2c';
-import { IconRoot, iconSectionsSet } from '@salutejs/plasma-icons';
+import { IconRoot, IconSetUnionSize, iconSectionsSet } from '@salutejs/plasma-icons/scalable';
 import { surfaceLiquid01, surfaceLiquid02, secondary, white } from '@salutejs/plasma-tokens-b2c';
 import { link, linkHover } from '@salutejs/plasma-b2c/tokens';
 
@@ -58,18 +58,22 @@ const StyledIconName = styled(Footnote1).attrs(() => ({ mt: '4x' }))`
 `;
 
 const size = 's';
-const icons = Object.entries(iconSectionsSet).reduce((acc, [groupName, group]) => {
-    acc.push({
-        name: groupName,
-        items: Object.entries(group).reduce((a, [iconName, component]) => {
-            a.push({ name: iconName, component });
+const icons = Object.entries(iconSectionsSet)
+    .sort()
+    .reduce((acc, [groupName, group]) => {
+        acc.push({
+            name: groupName,
+            items: Object.entries(group)
+                .sort()
+                .reduce((a, [iconName, component]) => {
+                    a.push({ name: iconName, component });
 
-            return a;
-        }, [] as Item[]),
-    });
+                    return a;
+                }, [] as Item[]),
+        });
 
-    return acc;
-}, [] as Data);
+        return acc;
+    }, [] as Data);
 
 export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
     const { state, dispatch } = useContext(Context);
@@ -108,7 +112,7 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
                                     dispatch(setWizardItem('icon', name));
                                 }}
                             >
-                                <IconRoot size={size} icon={Component} color="inherit" />
+                                <IconRoot size={size} iconName={name as IconSetUnionSize} color="inherit" />
                                 <StyledIconName>{name}</StyledIconName>
                             </StyledCard>
                         ))}

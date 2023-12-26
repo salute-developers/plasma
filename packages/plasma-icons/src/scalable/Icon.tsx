@@ -63,8 +63,6 @@ import { GlassesFill } from './Icon.assets.24/GlassesFill';
 import { GlassesOutline } from './Icon.assets.24/GlassesOutline';
 import { GlobeFill } from './Icon.assets.24/GlobeFill';
 import { GlobeOutline } from './Icon.assets.24/GlobeOutline';
-import { GroupFill } from './Icon.assets.24/GroupFill';
-import { GroupOutline } from './Icon.assets.24/GroupOutline';
 import { GyroOutline } from './Icon.assets.24/GyroOutline';
 import { KeyFill } from './Icon.assets.24/KeyFill';
 import { KeyOutline } from './Icon.assets.24/KeyOutline';
@@ -466,8 +464,6 @@ import { HousePercentFill } from './Icon.assets.24/HousePercentFill';
 import { HousePercentOutline } from './Icon.assets.24/HousePercentOutline';
 import { RedCrossFill } from './Icon.assets.24/RedCrossFill';
 import { RedCrossOutline } from './Icon.assets.24/RedCrossOutline';
-import { ShareFill } from './Icon.assets.24/ShareFill';
-import { ShareOutline } from './Icon.assets.24/ShareOutline';
 import { CatalogFill } from './Icon.assets.24/CatalogFill';
 import { CatalogOutline } from './Icon.assets.24/CatalogOutline';
 import { ConnectionError } from './Icon.assets.24/ConnectionError';
@@ -699,8 +695,6 @@ import { ChoiceFill } from './Icon.assets.24/ChoiceFill';
 import { ChoiceOutline } from './Icon.assets.24/ChoiceOutline';
 import { EthernetFill } from './Icon.assets.24/EthernetFill';
 import { EthernetOutline } from './Icon.assets.24/EthernetOutline';
-import { GroupBigFill } from './Icon.assets.24/GroupBigFill';
-import { GroupBigOutline } from './Icon.assets.24/GroupBigOutline';
 import { HdmiFill } from './Icon.assets.24/HdmiFill';
 import { HdmiOutline } from './Icon.assets.24/HdmiOutline';
 import { InputsFill } from './Icon.assets.24/InputsFill';
@@ -1040,8 +1034,6 @@ export const iconSectionsSet = {
         addOutline: AddOutline,
         clip: Clip,
         clipPlus: ClipPlus,
-        groupFill: GroupFill,
-        groupOutline: GroupOutline,
         nested: Nested,
         pinDashFill: PinDashFill,
         pinDashOutline: PinDashOutline,
@@ -1281,8 +1273,6 @@ export const iconSectionsSet = {
         doubleDisclosureRight: DoubleDisclosureRight,
         backwardFill: BackwardFill,
         backwardOutline: BackwardOutline,
-        shareFill: ShareFill,
-        shareOutline: ShareOutline,
         swapHoriz: SwapHoriz,
         swapHorizCircFill: SwapHorizCircFill,
         swapHorizCircOutline: SwapHorizCircOutline,
@@ -1359,8 +1349,6 @@ export const iconSectionsSet = {
         eyeOutline: EyeOutline,
         maskFill: MaskFill,
         maskOutline: MaskOutline,
-        groupBigFill: GroupBigFill,
-        groupBigOutline: GroupBigOutline,
         profileBadgeFill: ProfileBadgeFill,
         profileBadgeOutline: ProfileBadgeOutline,
         profileCircleFill: ProfileCircleFill,
@@ -2101,4 +2089,3 @@ export const iconSectionsSet = {
         weatherOutline: WeatherOutline,
     },
 };
-
