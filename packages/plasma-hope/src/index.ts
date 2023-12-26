@@ -17,7 +17,6 @@ export * from './components/Price';
 export * from './components/Progress';
 export * from './components/PreviewGallery';
 export * from './components/Select';
-export * from './components/Skeleton';
 export * from './components/SSRProvider';
 export * from './components/Switch';
 export * from './components/Slider';
