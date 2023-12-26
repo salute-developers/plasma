@@ -797,6 +797,80 @@ import { ZoomMinusFill } from './Icon.assets.24/ZoomMinusFill';
 import { ZoomMinusOutline } from './Icon.assets.24/ZoomMinusOutline';
 import { ZoomPlusFill } from './Icon.assets.24/ZoomPlusFill';
 import { ZoomPlusOutline } from './Icon.assets.24/ZoomPlusOutline';
+import { AttentionCircleFill } from './Icon.assets.24/AttentionCircleFill';
+import { AttentionCircleOutline } from './Icon.assets.24/AttentionCircleOutline';
+import { AttentionTriangleFill } from './Icon.assets.24/AttentionTriangleFill';
+import { AttentionTriangleOutline } from './Icon.assets.24/AttentionTriangleOutline';
+import { BallFill } from './Icon.assets.24/BallFill';
+import { BallOutline } from './Icon.assets.24/BallOutline';
+import { BikeFill } from './Icon.assets.24/BikeFill';
+import { BikeOutline } from './Icon.assets.24/BikeOutline';
+import { BlockFill } from './Icon.assets.24/BlockFill';
+import { BlockOutline } from './Icon.assets.24/BlockOutline';
+import { Close } from './Icon.assets.24/Close';
+import { CloseCircleFill } from './Icon.assets.24/CloseCircleFill';
+import { CloseCircleOutline } from './Icon.assets.24/CloseCircleOutline';
+import { CloseSquareFill } from './Icon.assets.24/CloseSquareFill';
+import { CloseSquareOutline } from './Icon.assets.24/CloseSquareOutline';
+import { Done } from './Icon.assets.24/Done';
+import { DoneCircleFill } from './Icon.assets.24/DoneCircleFill';
+import { DoneCircleOutline } from './Icon.assets.24/DoneCircleOutline';
+import { DoneDouble } from './Icon.assets.24/DoneDouble';
+import { DoneSquareFill } from './Icon.assets.24/DoneSquareFill';
+import { DoneSquareOutline } from './Icon.assets.24/DoneSquareOutline';
+import { FootballFill } from './Icon.assets.24/FootballFill';
+import { FootballOutline } from './Icon.assets.24/FootballOutline';
+import { HelpCircleFill } from './Icon.assets.24/HelpCircleFill';
+import { HelpCircleOutline } from './Icon.assets.24/HelpCircleOutline';
+import { InfoCircleFill } from './Icon.assets.24/InfoCircleFill';
+import { InfoCircleOutline } from './Icon.assets.24/InfoCircleOutline';
+import { Minus } from './Icon.assets.24/Minus';
+import { MinusCircleFill } from './Icon.assets.24/MinusCircleFill';
+import { MinusCircleOutline } from './Icon.assets.24/MinusCircleOutline';
+import { MinusSquareFill } from './Icon.assets.24/MinusSquareFill';
+import { MinusSquareOutline } from './Icon.assets.24/MinusSquareOutline';
+import { Plus } from './Icon.assets.24/Plus';
+import { PlusCircleFill } from './Icon.assets.24/PlusCircleFill';
+import { PlusCircleOutline } from './Icon.assets.24/PlusCircleOutline';
+import { PlusSquareFill } from './Icon.assets.24/PlusSquareFill';
+import { PlusSquareOutline } from './Icon.assets.24/PlusSquareOutline';
+import { SctivityFill } from './Icon.assets.24/SctivityFill';
+import { SctivityOutline } from './Icon.assets.24/SctivityOutline';
+import { Shazam } from './Icon.assets.24/Shazam';
+import { ShieldChildFill } from './Icon.assets.24/ShieldChildFill';
+import { ShieldChildOutline } from './Icon.assets.24/ShieldChildOutline';
+import { ShieldDashFill } from './Icon.assets.24/ShieldDashFill';
+import { ShieldDashOutline } from './Icon.assets.24/ShieldDashOutline';
+import { ShieldDoneFill } from './Icon.assets.24/ShieldDoneFill';
+import { ShieldDoneOutline } from './Icon.assets.24/ShieldDoneOutline';
+import { ShieldFill } from './Icon.assets.24/ShieldFill';
+import { ShieldLinesCirclesFill } from './Icon.assets.24/ShieldLinesCirclesFill';
+import { ShieldLinesCirclesOutline } from './Icon.assets.24/ShieldLinesCirclesOutline';
+import { ShieldLinesFill } from './Icon.assets.24/ShieldLinesFill';
+import { ShieldLinesOutline } from './Icon.assets.24/ShieldLinesOutline';
+import { ShieldOutline } from './Icon.assets.24/ShieldOutline';
+import { StarCircleFill } from './Icon.assets.24/StarCircleFill';
+import { StarCircleOutline } from './Icon.assets.24/StarCircleOutline';
+import { StarDashFill } from './Icon.assets.24/StarDashFill';
+import { StarDashOutline } from './Icon.assets.24/StarDashOutline';
+import { StarFill } from './Icon.assets.24/StarFill';
+import { StarLightFill } from './Icon.assets.24/StarLightFill';
+import { StarLightOutline } from './Icon.assets.24/StarLightOutline';
+import { StarOutline } from './Icon.assets.24/StarOutline';
+import { StarRecommendFill } from './Icon.assets.24/StarRecommendFill';
+import { StarRecommendOutline } from './Icon.assets.24/StarRecommendOutline';
+import { SwapHoriz } from './Icon.assets.24/SwapHoriz';
+import { SwapHorizCircFill } from './Icon.assets.24/SwapHorizCircFill';
+import { SwapHorizCircOutline } from './Icon.assets.24/SwapHorizCircOutline';
+import { SwapVert } from './Icon.assets.24/SwapVert';
+import { SwapVertCircFill } from './Icon.assets.24/SwapVertCircFill';
+import { SwapVertCircOutline } from './Icon.assets.24/SwapVertCircOutline';
+import { SyncError } from './Icon.assets.24/SyncError';
+import { SyncProblem } from './Icon.assets.24/SyncProblem';
+import { VerificationFill } from './Icon.assets.24/VerificationFill';
+import { VerificationOutline } from './Icon.assets.24/VerificationOutline';
+import { WhistleFill } from './Icon.assets.24/WhistleFill';
+import { WhistleOutline } from './Icon.assets.24/WhistleOutline';
 
 interface Props {
     icon: IconSetUnionSize;
@@ -885,6 +959,8 @@ export const iconSectionsSet = {
         zoomMinusOutline: ZoomMinusOutline,
         zoomPlusFill: ZoomPlusFill,
         zoomPlusOutline: ZoomPlusOutline,
+        syncError: SyncError,
+        syncProblem: SyncProblem,
     },
     Animal: {
         animalFill: AnimalFill,
@@ -1021,6 +1097,12 @@ export const iconSectionsSet = {
         backwardOutline: BackwardOutline,
         shareFill: ShareFill,
         shareOutline: ShareOutline,
+        swapHoriz: SwapHoriz,
+        swapHorizCircFill: SwapHorizCircFill,
+        swapHorizCircOutline: SwapHorizCircOutline,
+        swapVert: SwapVert,
+        swapVertCircFill: SwapVertCircFill,
+        swapVertCircOutline: SwapVertCircOutline,
     },
     Data: {
         chartBarFill: ChartBarFill,
@@ -1172,6 +1254,16 @@ export const iconSectionsSet = {
         waves: Waves,
         wavesCross: WavesCross,
         percent: Percent,
+        ballFill: BallFill,
+        ballOutline: BallOutline,
+        bikeFill: BikeFill,
+        bikeOutline: BikeOutline,
+        footballFill: FootballFill,
+        footballOutline: FootballOutline,
+        sctivityFill: SctivityFill,
+        sctivityOutline: SctivityOutline,
+        whistleFill: WhistleFill,
+        whistleOutline: WhistleOutline,
     },
     Other: {
         gyroOutline: GyroOutline,
@@ -1270,6 +1362,7 @@ export const iconSectionsSet = {
         symbolsOutline: SymbolsOutline,
         triangleFill: TriangleFill,
         triangleOutline: TriangleOutline,
+        shazam: Shazam,
     },
     Toggle: {
         bellDashFill: BellDashFill,
@@ -1301,6 +1394,28 @@ export const iconSectionsSet = {
         lockOutline: LockOutline,
         sleepFill: SleepFill,
         sleepOutline: SleepOutline,
+        shieldChildFill: ShieldChildFill,
+        shieldChildOutline: ShieldChildOutline,
+        shieldDashFill: ShieldDashFill,
+        shieldDashOutline: ShieldDashOutline,
+        shieldDoneFill: ShieldDoneFill,
+        shieldDoneOutline: ShieldDoneOutline,
+        shieldFill: ShieldFill,
+        shieldLinesCirclesFill: ShieldLinesCirclesFill,
+        shieldLinesCirclesOutline: ShieldLinesCirclesOutline,
+        shieldLinesFill: ShieldLinesFill,
+        shieldLinesOutline: ShieldLinesOutline,
+        shieldOutline: ShieldOutline,
+        starCircleFill: StarCircleFill,
+        starCircleOutline: StarCircleOutline,
+        starDashFill: StarDashFill,
+        starDashOutline: StarDashOutline,
+        starFill: StarFill,
+        starLightFill: StarLightFill,
+        starLightOutline: StarLightOutline,
+        starOutline: StarOutline,
+        starRecommendFill: StarRecommendFill,
+        starRecommendOutline: StarRecommendOutline,
     },
     Design: {
         blurFill: BlurFill,
@@ -1645,6 +1760,41 @@ export const iconSectionsSet = {
         saluteOutline: SaluteOutline,
         sber: Sber,
         visa: Visa,
+    },
+    Status: {
+        attentionCircleFill: AttentionCircleFill,
+        attentionCircleOutline: AttentionCircleOutline,
+        attentionTriangleFill: AttentionTriangleFill,
+        attentionTriangleOutline: AttentionTriangleOutline,
+        blockFill: BlockFill,
+        blockOutline: BlockOutline,
+        close: Close,
+        closeCircleFill: CloseCircleFill,
+        closeCircleOutline: CloseCircleOutline,
+        closeSquareFill: CloseSquareFill,
+        closeSquareOutline: CloseSquareOutline,
+        done: Done,
+        doneCircleFill: DoneCircleFill,
+        doneCircleOutline: DoneCircleOutline,
+        doneDouble: DoneDouble,
+        doneSquareFill: DoneSquareFill,
+        doneSquareOutline: DoneSquareOutline,
+        helpCircleFill: HelpCircleFill,
+        helpCircleOutline: HelpCircleOutline,
+        infoCircleFill: InfoCircleFill,
+        infoCircleOutline: InfoCircleOutline,
+        minus: Minus,
+        minusCircleFill: MinusCircleFill,
+        minusCircleOutline: MinusCircleOutline,
+        minusSquareFill: MinusSquareFill,
+        minusSquareOutline: MinusSquareOutline,
+        plus: Plus,
+        plusCircleFill: PlusCircleFill,
+        plusCircleOutline: PlusCircleOutline,
+        plusSquareFill: PlusSquareFill,
+        plusSquareOutline: PlusSquareOutline,
+        verificationFill: VerificationFill,
+        verificationOutline: VerificationOutline,
     },
 };
 
