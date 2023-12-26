@@ -627,6 +627,54 @@ import { MusicWithLightFill } from './Icon.assets.24/MusicWithLightFill';
 import { MusicWithLightOutline } from './Icon.assets.24/MusicWithLightOutline';
 import { NoteFill } from './Icon.assets.24/NoteFill';
 import { NoteOutline } from './Icon.assets.24/NoteOutline';
+import { ArrowWideForwardBack } from './Icon.assets.24/ArrowWideForwardBack';
+import { ArrowWideTraceR } from './Icon.assets.24/ArrowWideTraceR';
+import { NextFill } from './Icon.assets.24/NextFill';
+import { NextOutline } from './Icon.assets.24/NextOutline';
+import { PauseFill } from './Icon.assets.24/PauseFill';
+import { PauseOutline } from './Icon.assets.24/PauseOutline';
+import { PictureCopyFill } from './Icon.assets.24/PictureCopyFill';
+import { PictureCopyOutline } from './Icon.assets.24/PictureCopyOutline';
+import { PictureFill } from './Icon.assets.24/PictureFill';
+import { PictureOutline } from './Icon.assets.24/PictureOutline';
+import { PipFill } from './Icon.assets.24/PipFill';
+import { PipOffFill } from './Icon.assets.24/PipOffFill';
+import { PipOffOutline } from './Icon.assets.24/PipOffOutline';
+import { PipOnFill } from './Icon.assets.24/PipOnFill';
+import { PipOnOutline } from './Icon.assets.24/PipOnOutline';
+import { PipOutline } from './Icon.assets.24/PipOutline';
+import { PlaneDashFill } from './Icon.assets.24/PlaneDashFill';
+import { PlaneDashOutline } from './Icon.assets.24/PlaneDashOutline';
+import { PlaneFill } from './Icon.assets.24/PlaneFill';
+import { PlaneFlyFill } from './Icon.assets.24/PlaneFlyFill';
+import { PlaneFlyOutline } from './Icon.assets.24/PlaneFlyOutline';
+import { PlaneOutline } from './Icon.assets.24/PlaneOutline';
+import { PlayCircleFill } from './Icon.assets.24/PlayCircleFill';
+import { PlayCircleOutline } from './Icon.assets.24/PlayCircleOutline';
+import { PlayFill } from './Icon.assets.24/PlayFill';
+import { PlayOutline } from './Icon.assets.24/PlayOutline';
+import { Power } from './Icon.assets.24/Power';
+import { PreviousFill } from './Icon.assets.24/PreviousFill';
+import { PreviousOutline } from './Icon.assets.24/PreviousOutline';
+import { RepeatCircleOutline } from './Icon.assets.24/RepeatCircleOutline';
+import { RepeatOneOutline } from './Icon.assets.24/RepeatOneOutline';
+import { RepeatOutline } from './Icon.assets.24/RepeatOutline';
+import { RewindBackward10 } from './Icon.assets.24/RewindBackward10';
+import { RewindBackward30 } from './Icon.assets.24/RewindBackward30';
+import { RewindBackwardFill } from './Icon.assets.24/RewindBackwardFill';
+import { RewindBackwardOutline } from './Icon.assets.24/RewindBackwardOutline';
+import { RewindForward10 } from './Icon.assets.24/RewindForward10';
+import { RewindForward30 } from './Icon.assets.24/RewindForward30';
+import { RewindForwardFill } from './Icon.assets.24/RewindForwardFill';
+import { RewindForwardOutline } from './Icon.assets.24/RewindForwardOutline';
+import { ShuffleOutline } from './Icon.assets.24/ShuffleOutline';
+import { StopFill } from './Icon.assets.24/StopFill';
+import { StopOutline } from './Icon.assets.24/StopOutline';
+import { ViewfinderCard } from './Icon.assets.24/ViewfinderCard';
+import { ViewfinderFace } from './Icon.assets.24/ViewfinderFace';
+import { ViewfinderQRCode } from './Icon.assets.24/ViewfinderQRCode';
+import { Waves } from './Icon.assets.24/Waves';
+import { WavesCross } from './Icon.assets.24/WavesCross';
 
 interface Props {
     icon: IconSetUnionSize;
@@ -690,6 +738,13 @@ export const iconSectionsSet = {
         resetOutline: ResetOutline,
         rotateCcw: RotateCcw,
         rotateCw: RotateCw,
+        pipFill: PipFill,
+        pipOffFill: PipOffFill,
+        pipOffOutline: PipOffOutline,
+        pipOnFill: PipOnFill,
+        pipOnOutline: PipOnOutline,
+        pipOutline: PipOutline,
+        power: Power,
     },
     Animal: {
         animalFill: AnimalFill,
@@ -865,6 +920,12 @@ export const iconSectionsSet = {
         steeringWheelOutline: SteeringWheelOutline,
         travelCarFill: TravelCarFill,
         travelCarOutline: TravelCarOutline,
+        planeDashFill: PlaneDashFill,
+        planeDashOutline: PlaneDashOutline,
+        planeFill: PlaneFill,
+        planeFlyFill: PlaneFlyFill,
+        planeFlyOutline: PlaneFlyOutline,
+        planeOutline: PlaneOutline,
     },
     User: {
         educationFill: EducationFill,
@@ -941,6 +1002,13 @@ export const iconSectionsSet = {
         safeDiagramOutline: SafeDiagramOutline,
         safeFill: SafeFill,
         safeOutline: SafeOutline,
+        arrowWideForwardBack: ArrowWideForwardBack,
+        arrowWideTraceR: ArrowWideTraceR,
+        viewfinderCard: ViewfinderCard,
+        viewfinderFace: ViewfinderFace,
+        viewfinderQRCode: ViewfinderQRCode,
+        waves: Waves,
+        wavesCross: WavesCross,
     },
     Other: {
         gyroOutline: GyroOutline,
@@ -1049,6 +1117,10 @@ export const iconSectionsSet = {
         contrast2Outline: Contrast2Outline,
         contrastMaxFill: ContrastMaxFill,
         contrastMaxOutline: ContrastMaxOutline,
+        pictureCopyFill: PictureCopyFill,
+        pictureCopyOutline: PictureCopyOutline,
+        pictureFill: PictureFill,
+        pictureOutline: PictureOutline,
     },
     File: {
         bookFill: BookFill,
@@ -1218,6 +1290,30 @@ export const iconSectionsSet = {
         musicWithLightOutline: MusicWithLightOutline,
         noteFill: NoteFill,
         noteOutline: NoteOutline,
+        nextFill: NextFill,
+        nextOutline: NextOutline,
+        pauseFill: PauseFill,
+        pauseOutline: PauseOutline,
+        playCircleFill: PlayCircleFill,
+        playCircleOutline: PlayCircleOutline,
+        playFill: PlayFill,
+        playOutline: PlayOutline,
+        previousFill: PreviousFill,
+        previousOutline: PreviousOutline,
+        repeatCircleOutline: RepeatCircleOutline,
+        repeatOneOutline: RepeatOneOutline,
+        repeatOutline: RepeatOutline,
+        rewindBackward10: RewindBackward10,
+        rewindBackward30: RewindBackward30,
+        rewindBackwardFill: RewindBackwardFill,
+        rewindBackwardOutline: RewindBackwardOutline,
+        rewindForward10: RewindForward10,
+        rewindForward30: RewindForward30,
+        rewindForwardFill: RewindForwardFill,
+        rewindForwardOutline: RewindForwardOutline,
+        shuffleOutline: ShuffleOutline,
+        stopFill: StopFill,
+        stopOutline: StopOutline,
     },
     Navigation: {
         menu: Menu,
