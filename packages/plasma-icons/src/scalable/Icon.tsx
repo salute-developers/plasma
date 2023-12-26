@@ -89,6 +89,95 @@ import { PinListOutline } from './Icon.assets.24/PinListOutline';
 import { PinOutline } from './Icon.assets.24/PinOutline';
 import { PramFill } from './Icon.assets.24/PramFill';
 import { PramOutline } from './Icon.assets.24/PramOutline';
+import { Accessibility } from './Icon.assets.24/Accessibility';
+import { AppleFill } from './Icon.assets.24/AppleFill';
+import { AppleOutline } from './Icon.assets.24/AppleOutline';
+import { BackwardFill } from './Icon.assets.24/BackwardFill';
+import { BackwardOutline } from './Icon.assets.24/BackwardOutline';
+import { BlankFill } from './Icon.assets.24/BlankFill';
+import { BlankOutline } from './Icon.assets.24/BlankOutline';
+import { BlankPdfFill } from './Icon.assets.24/BlankPdfFill';
+import { BlankPdfOutline } from './Icon.assets.24/BlankPdfOutline';
+import { BlankPlusAltFill } from './Icon.assets.24/BlankPlusAltFill';
+import { BlankPlusAltOutline } from './Icon.assets.24/BlankPlusAltOutline';
+import { BlankPlusFill } from './Icon.assets.24/BlankPlusFill';
+import { BlankPlusOutline } from './Icon.assets.24/BlankPlusOutline';
+import { BlankTextFill } from './Icon.assets.24/BlankTextFill';
+import { BlankTextOutline } from './Icon.assets.24/BlankTextOutline';
+import { CakeFill } from './Icon.assets.24/CakeFill';
+import { CakeOutline } from './Icon.assets.24/CakeOutline';
+import { CandyFill } from './Icon.assets.24/CandyFill';
+import { CandyOutline } from './Icon.assets.24/CandyOutline';
+import { CapsuleFill } from './Icon.assets.24/CapsuleFill';
+import { CapsuleOpenFill } from './Icon.assets.24/CapsuleOpenFill';
+import { CapsuleOpenOutline } from './Icon.assets.24/CapsuleOpenOutline';
+import { CapsuleOutline } from './Icon.assets.24/CapsuleOutline';
+import { Click } from './Icon.assets.24/Click';
+import { Cutlery } from './Icon.assets.24/Cutlery';
+import { DocumentAutopayFill } from './Icon.assets.24/DocumentAutopayFill';
+import { DocumentAutopayOutline } from './Icon.assets.24/DocumentAutopayOutline';
+import { DocumentBackwardFill } from './Icon.assets.24/DocumentBackwardFill';
+import { DocumentBackwardOutline } from './Icon.assets.24/DocumentBackwardOutline';
+import { DocumentFill } from './Icon.assets.24/DocumentFill';
+import { DocumentForwardFill } from './Icon.assets.24/DocumentForwardFill';
+import { DocumentForwardOutline } from './Icon.assets.24/DocumentForwardOutline';
+import { DocumentGlassFill } from './Icon.assets.24/DocumentGlassFill';
+import { DocumentGlassOutline } from './Icon.assets.24/DocumentGlassOutline';
+import { DocumentOutline } from './Icon.assets.24/DocumentOutline';
+import { EarDashFill } from './Icon.assets.24/EarDashFill';
+import { EarDashOutline } from './Icon.assets.24/EarDashOutline';
+import { EarErrorFill } from './Icon.assets.24/EarErrorFill';
+import { EarErrorOutline } from './Icon.assets.24/EarErrorOutline';
+import { EarFill } from './Icon.assets.24/EarFill';
+import { EarOutline } from './Icon.assets.24/EarOutline';
+import { EyeClosedFill } from './Icon.assets.24/EyeClosedFill';
+import { EyeClosedOutline } from './Icon.assets.24/EyeClosedOutline';
+import { EyeFill } from './Icon.assets.24/EyeFill';
+import { EyeOutline } from './Icon.assets.24/EyeOutline';
+import { FeedbackCircleFill } from './Icon.assets.24/FeedbackCircleFill';
+import { FileCheckFill } from './Icon.assets.24/FileCheckFill';
+import { FileCheckOutline } from './Icon.assets.24/FileCheckOutline';
+import { FileGlassFill } from './Icon.assets.24/FileGlassFill';
+import { FileGlassOutline } from './Icon.assets.24/FileGlassOutline';
+import { FileStackFill } from './Icon.assets.24/FileStackFill';
+import { FileStackOutline } from './Icon.assets.24/FileStackOutline';
+import { FileTextFill } from './Icon.assets.24/FileTextFill';
+import { FileTextOutline } from './Icon.assets.24/FileTextOutline';
+import { FireFill } from './Icon.assets.24/FireFill';
+import { FireOutline } from './Icon.assets.24/FireOutline';
+import { FlagFill } from './Icon.assets.24/FlagFill';
+import { FlagOutline } from './Icon.assets.24/FlagOutline';
+import { FocusFill } from './Icon.assets.24/FocusFill';
+import { FocusOutline } from './Icon.assets.24/FocusOutline';
+import { FolderFill } from './Icon.assets.24/FolderFill';
+import { FolderOutline } from './Icon.assets.24/FolderOutline';
+import { FolderPlusFill } from './Icon.assets.24/FolderPlusFill';
+import { FolderPlusOutline } from './Icon.assets.24/FolderPlusOutline';
+import { Hand } from './Icon.assets.24/Hand';
+import { Hand24Line } from './Icon.assets.24/Hand24Line';
+import { HandAction24Line } from './Icon.assets.24/HandAction24Line';
+import { HandPointer24Line } from './Icon.assets.24/HandPointer24Line';
+import { HandTap24Line } from './Icon.assets.24/HandTap24Line';
+import { HeartBoxFill } from './Icon.assets.24/HeartBoxFill';
+import { HeartBoxOutline } from './Icon.assets.24/HeartBoxOutline';
+import { HeartCircleFill } from './Icon.assets.24/HeartCircleFill';
+import { HeartCircleOutline } from './Icon.assets.24/HeartCircleOutline';
+import { HeartDashFill } from './Icon.assets.24/HeartDashFill';
+import { HeartDashOutline } from './Icon.assets.24/HeartDashOutline';
+import { HeartFill } from './Icon.assets.24/HeartFill';
+import { HeartOutline } from './Icon.assets.24/HeartOutline';
+import { HomeAltFill } from './Icon.assets.24/HomeAltFill';
+import { HomeAltOutline } from './Icon.assets.24/HomeAltOutline';
+import { HouseFill } from './Icon.assets.24/HouseFill';
+import { HouseHandsetFill } from './Icon.assets.24/HouseHandsetFill';
+import { HouseHandsetOutline } from './Icon.assets.24/HouseHandsetOutline';
+import { HouseOutline } from './Icon.assets.24/HouseOutline';
+import { HousePercentFill } from './Icon.assets.24/HousePercentFill';
+import { HousePercentOutline } from './Icon.assets.24/HousePercentOutline';
+import { RedCrossFill } from './Icon.assets.24/RedCrossFill';
+import { RedCrossOutline } from './Icon.assets.24/RedCrossOutline';
+import { ShareFill } from './Icon.assets.24/ShareFill';
+import { ShareOutline } from './Icon.assets.24/ShareOutline';
 
 interface Props {
     icon: IconSetUnionSize;
@@ -116,6 +205,8 @@ export const iconSectionsSet = {
         pinListFill: PinListFill,
         pinListOutline: PinListOutline,
         pinOutline: PinOutline,
+        flagFill: FlagFill,
+        flagOutline: FlagOutline,
     },
     Animal: {
         animalFill: AnimalFill,
@@ -166,6 +257,10 @@ export const iconSectionsSet = {
         disclosureUpOutline: DisclosureUpOutline,
         doubleDisclosureLeft: DoubleDisclosureLeft,
         doubleDisclosureRight: DoubleDisclosureRight,
+        backwardFill: BackwardFill,
+        backwardOutline: BackwardOutline,
+        shareFill: ShareFill,
+        shareOutline: ShareOutline,
     },
     Data: {
         chartBarFill: ChartBarFill,
@@ -198,15 +293,108 @@ export const iconSectionsSet = {
         kidsOutline: KidsOutline,
         pramFill: PramFill,
         pramOutline: PramOutline,
+        accessibility: Accessibility,
+        earDashFill: EarDashFill,
+        earDashOutline: EarDashOutline,
+        earErrorFill: EarErrorFill,
+        earErrorOutline: EarErrorOutline,
+        earFill: EarFill,
+        earOutline: EarOutline,
+        eyeClosedFill: EyeClosedFill,
+        eyeClosedOutline: EyeClosedOutline,
+        eyeFill: EyeFill,
+        eyeOutline: EyeOutline,
     },
     Commerce: {
         giftFill: GiftFill,
         giftOutline: GiftOutline,
+        appleFill: AppleFill,
+        appleOutline: AppleOutline,
+        cakeFill: CakeFill,
+        cakeOutline: CakeOutline,
+        candyFill: CandyFill,
+        candyOutline: CandyOutline,
+        cutlery: Cutlery,
     },
     Other: {
         gyroOutline: GyroOutline,
         keyFill: KeyFill,
         keyOutline: KeyOutline,
+        capsuleFill: CapsuleFill,
+        capsuleOpenFill: CapsuleOpenFill,
+        capsuleOpenOutline: CapsuleOpenOutline,
+        capsuleOutline: CapsuleOutline,
+        fireFill: FireFill,
+        fireOutline: FireOutline,
+        focusFill: FocusFill,
+        focusOutline: FocusOutline,
+        redCrossFill: RedCrossFill,
+        redCrossOutline: RedCrossOutline,
+    },
+    File: {
+        blankFill: BlankFill,
+        blankOutline: BlankOutline,
+        blankPdfFill: BlankPdfFill,
+        blankPdfOutline: BlankPdfOutline,
+        blankPlusAltFill: BlankPlusAltFill,
+        blankPlusAltOutline: BlankPlusAltOutline,
+        blankPlusFill: BlankPlusFill,
+        blankPlusOutline: BlankPlusOutline,
+        blankTextFill: BlankTextFill,
+        blankTextOutline: BlankTextOutline,
+        documentAutopayFill: DocumentAutopayFill,
+        documentAutopayOutline: DocumentAutopayOutline,
+        documentBackwardFill: DocumentBackwardFill,
+        documentBackwardOutline: DocumentBackwardOutline,
+        documentFill: DocumentFill,
+        documentForwardFill: DocumentForwardFill,
+        documentForwardOutline: DocumentForwardOutline,
+        documentGlassFill: DocumentGlassFill,
+        documentGlassOutline: DocumentGlassOutline,
+        documentOutline: DocumentOutline,
+        fileCheckFill: FileCheckFill,
+        fileCheckOutline: FileCheckOutline,
+        fileGlassFill: FileGlassFill,
+        fileGlassOutline: FileGlassOutline,
+        fileStackFill: FileStackFill,
+        fileStackOutline: FileStackOutline,
+        fileTextFill: FileTextFill,
+        fileTextOutline: FileTextOutline,
+        folderFill: FolderFill,
+        folderOutline: FolderOutline,
+        folderPlusFill: FolderPlusFill,
+        folderPlusOutline: FolderPlusOutline,
+    },
+    Senses: {
+        click: Click,
+        hand: Hand,
+        hand24Line: Hand24Line,
+        handAction24Line: HandAction24Line,
+        handPointer24Line: HandPointer24Line,
+        handTap24Line: HandTap24Line,
+    },
+    Communication: {
+        feedbackCircleFill: FeedbackCircleFill,
+    },
+    Toggle: {
+        heartBoxFill: HeartBoxFill,
+        heartBoxOutline: HeartBoxOutline,
+        heartCircleFill: HeartCircleFill,
+        heartCircleOutline: HeartCircleOutline,
+        heartDashFill: HeartDashFill,
+        heartDashOutline: HeartDashOutline,
+        heartFill: HeartFill,
+        heartOutline: HeartOutline,
+    },
+    Navigation: {
+        homeAltFill: HomeAltFill,
+        homeAltOutline: HomeAltOutline,
+        houseFill: HouseFill,
+        houseHandsetFill: HouseHandsetFill,
+        houseHandsetOutline: HouseHandsetOutline,
+        houseOutline: HouseOutline,
+        housePercentFill: HousePercentFill,
+        housePercentOutline: HousePercentOutline,
     },
 };
 

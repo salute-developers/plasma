@@ -351,6 +351,88 @@ import { PinListOutline } from './PinListOutline';
 import { PinOutline } from './PinOutline';
 import { PramFill } from './PramFill';
 import { PramOutline } from './PramOutline';
+import { Accessibility } from './Accessibility';
+import { AppleFill } from './AppleFill';
+import { AppleOutline } from './AppleOutline';
+import { BackwardFill } from './BackwardFill';
+import { BackwardOutline } from './BackwardOutline';
+import { BlankFill } from './BlankFill';
+import { BlankOutline } from './BlankOutline';
+import { BlankPdfFill } from './BlankPdfFill';
+import { BlankPdfOutline } from './BlankPdfOutline';
+import { BlankPlusAltFill } from './BlankPlusAltFill';
+import { BlankPlusAltOutline } from './BlankPlusAltOutline';
+import { BlankPlusFill } from './BlankPlusFill';
+import { BlankPlusOutline } from './BlankPlusOutline';
+import { BlankTextFill } from './BlankTextFill';
+import { BlankTextOutline } from './BlankTextOutline';
+import { CakeFill } from './CakeFill';
+import { CakeOutline } from './CakeOutline';
+import { CandyFill } from './CandyFill';
+import { CandyOutline } from './CandyOutline';
+import { CapsuleFill } from './CapsuleFill';
+import { CapsuleOpenFill } from './CapsuleOpenFill';
+import { CapsuleOpenOutline } from './CapsuleOpenOutline';
+import { CapsuleOutline } from './CapsuleOutline';
+import { Cutlery } from './Cutlery';
+import { DocumentAutopayFill } from './DocumentAutopayFill';
+import { DocumentAutopayOutline } from './DocumentAutopayOutline';
+import { DocumentBackwardFill } from './DocumentBackwardFill';
+import { DocumentBackwardOutline } from './DocumentBackwardOutline';
+import { DocumentFill } from './DocumentFill';
+import { DocumentForwardFill } from './DocumentForwardFill';
+import { DocumentForwardOutline } from './DocumentForwardOutline';
+import { DocumentGlassFill } from './DocumentGlassFill';
+import { DocumentGlassOutline } from './DocumentGlassOutline';
+import { DocumentOutline } from './DocumentOutline';
+import { EarDashFill } from './EarDashFill';
+import { EarDashOutline } from './EarDashOutline';
+import { EarErrorFill } from './EarErrorFill';
+import { EarErrorOutline } from './EarErrorOutline';
+import { EarFill } from './EarFill';
+import { EarOutline } from './EarOutline';
+import { EyeClosedFill } from './EyeClosedFill';
+import { EyeClosedOutline } from './EyeClosedOutline';
+import { EyeOutline } from './EyeOutline';
+import { FileCheckFill } from './FileCheckFill';
+import { FileCheckOutline } from './FileCheckOutline';
+import { FileGlassFill } from './FileGlassFill';
+import { FileGlassOutline } from './FileGlassOutline';
+import { FileStackFill } from './FileStackFill';
+import { FileStackOutline } from './FileStackOutline';
+import { FileTextFill } from './FileTextFill';
+import { FileTextOutline } from './FileTextOutline';
+import { FireFill } from './FireFill';
+import { FireOutline } from './FireOutline';
+import { FlagFill } from './FlagFill';
+import { FlagOutline } from './FlagOutline';
+import { FocusFill } from './FocusFill';
+import { FocusOutline } from './FocusOutline';
+import { FolderFill } from './FolderFill';
+import { FolderPlusFill } from './FolderPlusFill';
+import { FolderPlusOutline } from './FolderPlusOutline';
+import { Hand24Line } from './Hand24Line';
+import { HandAction24Line } from './HandAction24Line';
+import { HandPointer24Line } from './HandPointer24Line';
+import { HandTap24Line } from './HandTap24Line';
+import { HeartBoxFill } from './HeartBoxFill';
+import { HeartBoxOutline } from './HeartBoxOutline';
+import { HeartCircleFill } from './HeartCircleFill';
+import { HeartCircleOutline } from './HeartCircleOutline';
+import { HeartDashFill } from './HeartDashFill';
+import { HeartDashOutline } from './HeartDashOutline';
+import { HomeAltFill } from './HomeAltFill';
+import { HomeAltOutline } from './HomeAltOutline';
+import { HouseFill } from './HouseFill';
+import { HouseHandsetFill } from './HouseHandsetFill';
+import { HouseHandsetOutline } from './HouseHandsetOutline';
+import { HouseOutline } from './HouseOutline';
+import { HousePercentFill } from './HousePercentFill';
+import { HousePercentOutline } from './HousePercentOutline';
+import { RedCrossFill } from './RedCrossFill';
+import { RedCrossOutline } from './RedCrossOutline';
+import { ShareFill } from './ShareFill';
+import { ShareOutline } from './ShareOutline';
 
 export const iconSet24 = {
     attentionCircle: AttentionCircle,
@@ -706,6 +788,88 @@ export const iconSet24 = {
     pinOutline: PinOutline,
     pramFill: PramFill,
     pramOutline: PramOutline,
+    accessibility: Accessibility,
+    appleFill: AppleFill,
+    appleOutline: AppleOutline,
+    backwardFill: BackwardFill,
+    backwardOutline: BackwardOutline,
+    blankFill: BlankFill,
+    blankOutline: BlankOutline,
+    blankPdfFill: BlankPdfFill,
+    blankPdfOutline: BlankPdfOutline,
+    blankPlusAltFill: BlankPlusAltFill,
+    blankPlusAltOutline: BlankPlusAltOutline,
+    blankPlusFill: BlankPlusFill,
+    blankPlusOutline: BlankPlusOutline,
+    blankTextFill: BlankTextFill,
+    blankTextOutline: BlankTextOutline,
+    cakeFill: CakeFill,
+    cakeOutline: CakeOutline,
+    candyFill: CandyFill,
+    candyOutline: CandyOutline,
+    capsuleFill: CapsuleFill,
+    capsuleOpenFill: CapsuleOpenFill,
+    capsuleOpenOutline: CapsuleOpenOutline,
+    capsuleOutline: CapsuleOutline,
+    cutlery: Cutlery,
+    documentAutopayFill: DocumentAutopayFill,
+    documentAutopayOutline: DocumentAutopayOutline,
+    documentBackwardFill: DocumentBackwardFill,
+    documentBackwardOutline: DocumentBackwardOutline,
+    documentFill: DocumentFill,
+    documentForwardFill: DocumentForwardFill,
+    documentForwardOutline: DocumentForwardOutline,
+    documentGlassFill: DocumentGlassFill,
+    documentGlassOutline: DocumentGlassOutline,
+    documentOutline: DocumentOutline,
+    earDashFill: EarDashFill,
+    earDashOutline: EarDashOutline,
+    earErrorFill: EarErrorFill,
+    earErrorOutline: EarErrorOutline,
+    earFill: EarFill,
+    earOutline: EarOutline,
+    eyeClosedFill: EyeClosedFill,
+    eyeClosedOutline: EyeClosedOutline,
+    eyeOutline: EyeOutline,
+    fileCheckFill: FileCheckFill,
+    fileCheckOutline: FileCheckOutline,
+    fileGlassFill: FileGlassFill,
+    fileGlassOutline: FileGlassOutline,
+    fileStackFill: FileStackFill,
+    fileStackOutline: FileStackOutline,
+    fileTextFill: FileTextFill,
+    fileTextOutline: FileTextOutline,
+    fireFill: FireFill,
+    fireOutline: FireOutline,
+    flagFill: FlagFill,
+    flagOutline: FlagOutline,
+    focusFill: FocusFill,
+    focusOutline: FocusOutline,
+    folderFill: FolderFill,
+    folderPlusFill: FolderPlusFill,
+    folderPlusOutline: FolderPlusOutline,
+    hand24Line: Hand24Line,
+    handAction24Line: HandAction24Line,
+    handPointer24Line: HandPointer24Line,
+    handTap24Line: HandTap24Line,
+    heartBoxFill: HeartBoxFill,
+    heartBoxOutline: HeartBoxOutline,
+    heartCircleFill: HeartCircleFill,
+    heartCircleOutline: HeartCircleOutline,
+    heartDashFill: HeartDashFill,
+    heartDashOutline: HeartDashOutline,
+    homeAltFill: HomeAltFill,
+    homeAltOutline: HomeAltOutline,
+    houseFill: HouseFill,
+    houseHandsetFill: HouseHandsetFill,
+    houseHandsetOutline: HouseHandsetOutline,
+    houseOutline: HouseOutline,
+    housePercentFill: HousePercentFill,
+    housePercentOutline: HousePercentOutline,
+    redCrossFill: RedCrossFill,
+    redCrossOutline: RedCrossOutline,
+    shareFill: ShareFill,
+    shareOutline: ShareOutline,
 };
 
 export type IconSet24 = keyof typeof iconSet24;
