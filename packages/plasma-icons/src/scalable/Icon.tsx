@@ -734,6 +734,69 @@ import { UsbCFill } from './Icon.assets.24/UsbCFill';
 import { UsbCOutline } from './Icon.assets.24/UsbCOutline';
 import { VgaFill } from './Icon.assets.24/VgaFill';
 import { VgaOutline } from './Icon.assets.24/VgaOutline';
+import { AddSmileFill } from './Icon.assets.24/AddSmileFill';
+import { AddSmileOutline } from './Icon.assets.24/AddSmileOutline';
+import { BeautificationFill } from './Icon.assets.24/BeautificationFill';
+import { BeautificationOutline } from './Icon.assets.24/BeautificationOutline';
+import { CircleFill } from './Icon.assets.24/CircleFill';
+import { CircleOutline } from './Icon.assets.24/CircleOutline';
+import { CubeFill } from './Icon.assets.24/CubeFill';
+import { CubeOutline } from './Icon.assets.24/CubeOutline';
+import { FlasherFill } from './Icon.assets.24/FlasherFill';
+import { FlasherOutline } from './Icon.assets.24/FlasherOutline';
+import { FullscreenOff } from './Icon.assets.24/FullscreenOff';
+import { FullscreenOn } from './Icon.assets.24/FullscreenOn';
+import { ObjectsSymbolsFill } from './Icon.assets.24/ObjectsSymbolsFill';
+import { ObjectsSymbolsOutline } from './Icon.assets.24/ObjectsSymbolsOutline';
+import { RombFill } from './Icon.assets.24/RombFill';
+import { RombOutline } from './Icon.assets.24/RombOutline';
+import { ScenarioAutoFill } from './Icon.assets.24/ScenarioAutoFill';
+import { ScenarioAutoOutline } from './Icon.assets.24/ScenarioAutoOutline';
+import { ScenarioFill } from './Icon.assets.24/ScenarioFill';
+import { ScenarioOutline } from './Icon.assets.24/ScenarioOutline';
+import { ScenarioSyncAuto35Fill } from './Icon.assets.24/ScenarioSyncAuto35Fill';
+import { ScenarioSyncAuto35Outline } from './Icon.assets.24/ScenarioSyncAuto35Outline';
+import { ScenarioSyncAuto45Fill } from './Icon.assets.24/ScenarioSyncAuto45Fill';
+import { ScenarioSyncAuto45Outline } from './Icon.assets.24/ScenarioSyncAuto45Outline';
+import { ScenarioSyncAuto65Fill } from './Icon.assets.24/ScenarioSyncAuto65Fill';
+import { ScenarioSyncAuto65Outline } from './Icon.assets.24/ScenarioSyncAuto65Outline';
+import { Scene3dFill } from './Icon.assets.24/Scene3dFill';
+import { Scene3dOutline } from './Icon.assets.24/Scene3dOutline';
+import { Scribble } from './Icon.assets.24/Scribble';
+import { Search } from './Icon.assets.24/Search';
+import { SecurityCameraFill } from './Icon.assets.24/SecurityCameraFill';
+import { SecurityCameraOutline } from './Icon.assets.24/SecurityCameraOutline';
+import { SendFill } from './Icon.assets.24/SendFill';
+import { SendOutline } from './Icon.assets.24/SendOutline';
+import { SettingsFill } from './Icon.assets.24/SettingsFill';
+import { SettingsOutline } from './Icon.assets.24/SettingsOutline';
+import { ShareScreenFill } from './Icon.assets.24/ShareScreenFill';
+import { ShareScreenMobileFill } from './Icon.assets.24/ShareScreenMobileFill';
+import { ShareScreenMobileOutline } from './Icon.assets.24/ShareScreenMobileOutline';
+import { ShareScreenOutline } from './Icon.assets.24/ShareScreenOutline';
+import { ShareScreenTabletFill } from './Icon.assets.24/ShareScreenTabletFill';
+import { ShareScreenTabletOutline } from './Icon.assets.24/ShareScreenTabletOutline';
+import { SizeExpand } from './Icon.assets.24/SizeExpand';
+import { SizeMaximize } from './Icon.assets.24/SizeMaximize';
+import { SizeMinimize } from './Icon.assets.24/SizeMinimize';
+import { SmileFill } from './Icon.assets.24/SmileFill';
+import { SmileOutline } from './Icon.assets.24/SmileOutline';
+import { SquareFill } from './Icon.assets.24/SquareFill';
+import { SquareOutline } from './Icon.assets.24/SquareOutline';
+import { StacksFill } from './Icon.assets.24/StacksFill';
+import { StacksOutline } from './Icon.assets.24/StacksOutline';
+import { StickerFill } from './Icon.assets.24/StickerFill';
+import { StickerOutline } from './Icon.assets.24/StickerOutline';
+import { StickerSquareFill } from './Icon.assets.24/StickerSquareFill';
+import { StickerSquareOutline } from './Icon.assets.24/StickerSquareOutline';
+import { SymbolsFill } from './Icon.assets.24/SymbolsFill';
+import { SymbolsOutline } from './Icon.assets.24/SymbolsOutline';
+import { TriangleFill } from './Icon.assets.24/TriangleFill';
+import { TriangleOutline } from './Icon.assets.24/TriangleOutline';
+import { ZoomMinusFill } from './Icon.assets.24/ZoomMinusFill';
+import { ZoomMinusOutline } from './Icon.assets.24/ZoomMinusOutline';
+import { ZoomPlusFill } from './Icon.assets.24/ZoomPlusFill';
+import { ZoomPlusOutline } from './Icon.assets.24/ZoomPlusOutline';
 
 interface Props {
     icon: IconSetUnionSize;
@@ -804,6 +867,24 @@ export const iconSectionsSet = {
         pipOnOutline: PipOnOutline,
         pipOutline: PipOutline,
         power: Power,
+        fullscreenOff: FullscreenOff,
+        fullscreenOn: FullscreenOn,
+        search: Search,
+        settingsFill: SettingsFill,
+        settingsOutline: SettingsOutline,
+        shareScreenFill: ShareScreenFill,
+        shareScreenMobileFill: ShareScreenMobileFill,
+        shareScreenMobileOutline: ShareScreenMobileOutline,
+        shareScreenOutline: ShareScreenOutline,
+        shareScreenTabletFill: ShareScreenTabletFill,
+        shareScreenTabletOutline: ShareScreenTabletOutline,
+        sizeExpand: SizeExpand,
+        sizeMaximize: SizeMaximize,
+        sizeMinimize: SizeMinimize,
+        zoomMinusFill: ZoomMinusFill,
+        zoomMinusOutline: ZoomMinusOutline,
+        zoomPlusFill: ZoomPlusFill,
+        zoomPlusOutline: ZoomPlusOutline,
     },
     Animal: {
         animalFill: AnimalFill,
@@ -894,6 +975,8 @@ export const iconSectionsSet = {
         mobileVibrationOutline: MobileVibrationOutline,
         mobileWavesFill: MobileWavesFill,
         mobileWavesOutline: MobileWavesOutline,
+        scene3dFill: Scene3dFill,
+        scene3dOutline: Scene3dOutline,
     },
     Arrows: {
         arrowBarDown: ArrowBarDown,
@@ -1022,6 +1105,12 @@ export const iconSectionsSet = {
         profilePlusOutline: ProfilePlusOutline,
         profileSquareFill: ProfileSquareFill,
         profileSquareOutline: ProfileSquareOutline,
+        addSmileFill: AddSmileFill,
+        addSmileOutline: AddSmileOutline,
+        beautificationFill: BeautificationFill,
+        beautificationOutline: BeautificationOutline,
+        smileFill: SmileFill,
+        smileOutline: SmileOutline,
     },
     Commerce: {
         giftFill: GiftFill,
@@ -1160,6 +1249,27 @@ export const iconSectionsSet = {
         button3x2ROutline: Button3x2ROutline,
         choiceFill: ChoiceFill,
         choiceOutline: ChoiceOutline,
+        circleFill: CircleFill,
+        circleOutline: CircleOutline,
+        cubeFill: CubeFill,
+        cubeOutline: CubeOutline,
+        objectsSymbolsFill: ObjectsSymbolsFill,
+        objectsSymbolsOutline: ObjectsSymbolsOutline,
+        rombFill: RombFill,
+        rombOutline: RombOutline,
+        scribble: Scribble,
+        squareFill: SquareFill,
+        squareOutline: SquareOutline,
+        stacksFill: StacksFill,
+        stacksOutline: StacksOutline,
+        stickerFill: StickerFill,
+        stickerOutline: StickerOutline,
+        stickerSquareFill: StickerSquareFill,
+        stickerSquareOutline: StickerSquareOutline,
+        symbolsFill: SymbolsFill,
+        symbolsOutline: SymbolsOutline,
+        triangleFill: TriangleFill,
+        triangleOutline: TriangleOutline,
     },
     File: {
         blankFill: BlankFill,
@@ -1271,6 +1381,8 @@ export const iconSectionsSet = {
         messageVideoOutline: MessageVideoOutline,
         postcardFill: PostcardFill,
         postcardOutline: PostcardOutline,
+        sendFill: SendFill,
+        sendOutline: SendOutline,
     },
     Toggle: {
         heartBoxFill: HeartBoxFill,
@@ -1377,6 +1489,10 @@ export const iconSectionsSet = {
         cursorOutline: CursorOutline,
         rulerFill: RulerFill,
         rulerOutline: RulerOutline,
+        flasherFill: FlasherFill,
+        flasherOutline: FlasherOutline,
+        securityCameraFill: SecurityCameraFill,
+        securityCameraOutline: SecurityCameraOutline,
     },
     Time: {
         calendarEventFill: CalendarEventFill,
@@ -1443,6 +1559,16 @@ export const iconSectionsSet = {
         shuffleOutline: ShuffleOutline,
         stopFill: StopFill,
         stopOutline: StopOutline,
+        scenarioAutoFill: ScenarioAutoFill,
+        scenarioAutoOutline: ScenarioAutoOutline,
+        scenarioFill: ScenarioFill,
+        scenarioOutline: ScenarioOutline,
+        scenarioSyncAuto35Fill: ScenarioSyncAuto35Fill,
+        scenarioSyncAuto35Outline: ScenarioSyncAuto35Outline,
+        scenarioSyncAuto45Fill: ScenarioSyncAuto45Fill,
+        scenarioSyncAuto45Outline: ScenarioSyncAuto45Outline,
+        scenarioSyncAuto65Fill: ScenarioSyncAuto65Fill,
+        scenarioSyncAuto65Outline: ScenarioSyncAuto65Outline,
     },
     Devices: {
         bulbDiodeFill: BulbDiodeFill,
