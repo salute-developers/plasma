@@ -248,6 +248,50 @@ import { Menu } from './Menu';
 import { SettingsFilter } from './SettingsFilter';
 import { SortBigSmall } from './SortBigSmall';
 import { SortSmallBig } from './SortSmallBig';
+import { BackspaceFill } from './BackspaceFill';
+import { BackspaceOutline } from './BackspaceOutline';
+import { BusFill } from './BusFill';
+import { BusOutline } from './BusOutline';
+import { CanisterFill } from './CanisterFill';
+import { CanisterOutline } from './CanisterOutline';
+import { CarFill } from './CarFill';
+import { CarOutline } from './CarOutline';
+import { CarTaxFill } from './CarTaxFill';
+import { CarTaxOutline } from './CarTaxOutline';
+import { CartBagFill } from './CartBagFill';
+import { CartBagOutline } from './CartBagOutline';
+import { CartFill } from './CartFill';
+import { CartOutline } from './CartOutline';
+import { CaseBusinessFill } from './CaseBusinessFill';
+import { CaseBusinessOutline } from './CaseBusinessOutline';
+import { CaseDiagramFill } from './CaseDiagramFill';
+import { CaseDiagramOutline } from './CaseDiagramOutline';
+import { CaseFill } from './CaseFill';
+import { CaseOutline } from './CaseOutline';
+import { CoatOfArmsFill } from './CoatOfArmsFill';
+import { CoatOfArmsOutline } from './CoatOfArmsOutline';
+import { CopyFill } from './CopyFill';
+import { CopyOutline } from './CopyOutline';
+import { CrownFill } from './CrownFill';
+import { CrownOutline } from './CrownOutline';
+import { CursorFill } from './CursorFill';
+import { CursorOutline } from './CursorOutline';
+import { GasStationFill } from './GasStationFill';
+import { GasStationOutline } from './GasStationOutline';
+import { ParkingFill } from './ParkingFill';
+import { ParkingOutline } from './ParkingOutline';
+import { SpeedometerFill } from './SpeedometerFill';
+import { SpeedometerOutline } from './SpeedometerOutline';
+import { SteeringWheelFill } from './SteeringWheelFill';
+import { SteeringWheelOutline } from './SteeringWheelOutline';
+import { SwitchSettingsFill } from './SwitchSettingsFill';
+import { SwitchSettingsOutline } from './SwitchSettingsOutline';
+import { SwitchToggleOffFill } from './SwitchToggleOffFill';
+import { SwitchToggleOffOutline } from './SwitchToggleOffOutline';
+import { SwitchToggleOnFill } from './SwitchToggleOnFill';
+import { SwitchToggleOnOutline } from './SwitchToggleOnOutline';
+import { TravelCarFill } from './TravelCarFill';
+import { TravelCarOutline } from './TravelCarOutline';
 
 export const iconSet24 = {    addFill: AddFill,
     addOutline: AddOutline,
@@ -500,6 +544,50 @@ export const iconSet24 = {    addFill: AddFill,
     settingsFilter: SettingsFilter,
     sortBigSmall: SortBigSmall,
     sortSmallBig: SortSmallBig,
+    backspaceFill: BackspaceFill,
+    backspaceOutline: BackspaceOutline,
+    busFill: BusFill,
+    busOutline: BusOutline,
+    canisterFill: CanisterFill,
+    canisterOutline: CanisterOutline,
+    carFill: CarFill,
+    carOutline: CarOutline,
+    carTaxFill: CarTaxFill,
+    carTaxOutline: CarTaxOutline,
+    cartBagFill: CartBagFill,
+    cartBagOutline: CartBagOutline,
+    cartFill: CartFill,
+    cartOutline: CartOutline,
+    caseBusinessFill: CaseBusinessFill,
+    caseBusinessOutline: CaseBusinessOutline,
+    caseDiagramFill: CaseDiagramFill,
+    caseDiagramOutline: CaseDiagramOutline,
+    caseFill: CaseFill,
+    caseOutline: CaseOutline,
+    coatOfArmsFill: CoatOfArmsFill,
+    coatOfArmsOutline: CoatOfArmsOutline,
+    copyFill: CopyFill,
+    copyOutline: CopyOutline,
+    crownFill: CrownFill,
+    crownOutline: CrownOutline,
+    cursorFill: CursorFill,
+    cursorOutline: CursorOutline,
+    gasStationFill: GasStationFill,
+    gasStationOutline: GasStationOutline,
+    parkingFill: ParkingFill,
+    parkingOutline: ParkingOutline,
+    speedometerFill: SpeedometerFill,
+    speedometerOutline: SpeedometerOutline,
+    steeringWheelFill: SteeringWheelFill,
+    steeringWheelOutline: SteeringWheelOutline,
+    switchSettingsFill: SwitchSettingsFill,
+    switchSettingsOutline: SwitchSettingsOutline,
+    switchToggleOffFill: SwitchToggleOffFill,
+    switchToggleOffOutline: SwitchToggleOffOutline,
+    switchToggleOnFill: SwitchToggleOnFill,
+    switchToggleOnOutline: SwitchToggleOnOutline,
+    travelCarFill: TravelCarFill,
+    travelCarOutline: TravelCarOutline,
 };
 
 export type IconSet24 = keyof typeof iconSet24;
