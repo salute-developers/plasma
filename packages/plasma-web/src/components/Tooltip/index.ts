@@ -1,2 +1,2 @@
-export { Tooltip } from '@salutejs/plasma-hope';
-export type { TooltipProps, Placement } from '@salutejs/plasma-hope';
+export { Tooltip } from './Tooltip';
+export type { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';

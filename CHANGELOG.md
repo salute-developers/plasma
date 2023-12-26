@@ -1,3 +1,276 @@
+# (Fri Dec 22 2023)
+
+### Release Notes
+
+#### Release by 22.12.2023 ([#945](https://github.com/salute-developers/plasma/pull/945))
+
+## Components
+
+### Upload
+
+- исправлены стили для StyledButton в состоянии isGrabbing
+
+ 
+plasma-hope: fix broken style for Upload button (https://github.com/salute-developers/plasma/pull/926)
+
+### Button
+
+- вынесены токены;
+- поправлено поведение props square;
+- добавлены недостающие props: stretch и pin
+
+ 
+feat(plasma-new-hope): refactor & add stretch/pin props (https://github.com/salute-developers/plasma/pull/896)
+
+### Notification
+
+-   добавлен новый дизайн компонента
+-   добавили новый api
+
+Было:
+<img width="329" alt="Снимок экрана 2023-12-14 в 17 16 05" src="https://github.com/salute-developers/plasma/assets/46107741/9c674b80-af3d-4339-abc1-8567c3470245">
+
+Стало:
+<img width="264" alt="Снимок экрана 2023-12-14 в 17 16 25" src="https://github.com/salute-developers/plasma/assets/46107741/eefb0cb5-9c70-47c3-84c9-a2ba21ff436f">
+
+ 
+plasma-new-hope: Notification redesign (https://github.com/salute-developers/plasma/pull/927)
+
+### Tooltip
+
+- для сохранения обратной совместимости  вернули поддержку prop children
+
+ 
+fix(plasma-new-hope): Add support children props to Tooltip component (https://github.com/salute-developers/plasma/pull/937)
+
+### TextArea, Radiobox, Checkbox, Link, Spinner 
+
+- добавлены/обновлены конфигурации в библиотеках "plasma-{web, b2c}"
+- добавлены/обновлены снапшоты на компоненты
+
+### Tokens
+
+- добавлена поддержка в темах новых цветовых токенов
+- добавлены fallback в библиотеках "plasma-tokens-{b2c, web, b2b}"
+
+ 
+feat(plasma-web,plasma-b2c): Add new design to plasma (https://github.com/salute-developers/plasma/pull/902)
+
+### Typography
+
+-   добавлена типографика в виде компонент в b2c / web
+-   добавлены миксины с токенами типографики в b2c / web
+-   исправлен компонент и миксин для Underline/ Headline5
+-   скорректированы некоторые тесты
+
+ 
+feat(plasma-b2c/web): add new typograhy to packages (https://github.com/salute-developers/plasma/pull/933)
+
+### Segment
+
+-  добавлен новый компонент для plasma-b2c/web
+-  написаны тесты для компонента
+
+#### Стало
+
+![image](https://github.com/salute-developers/plasma/assets/40370966/624f9831-5aa2-4fb8-bc0d-86211e6bb51e)
+
+ 
+feat(plasma-new-hope): Segment component (https://github.com/salute-developers/plasma/pull/931)
+
+
+## Infra
+
+### Cypress
+
+- добавлена возможность запустить тест для перечисленных компонентов 
+
+Запуск команды "npm run cy:web:run-ct --components=calendar,button" даст
+
+<img width="998" alt="Screenshot 2023-12-12 at 15 57 08" src="https://github.com/salute-developers/plasma/assets/2895992/4b48f71b-7e95-4711-b716-5ad021fb8fe7">
+
+
+ 
+plasma-infra: Run cypress with `--components` (https://github.com/salute-developers/plasma/pull/907)
+
+### Vite
+
+- подняли патч версию до 4.5.1 для решения проблемы локального запуска Storybook из-за **fsevents.watch is not a function**
+- закрыли [Vite XSS vulnerability in `server.transformIndexHtml` via URL payload](https://github.com/advisories/GHSA-92r3-m2mg-pj97)
+
+ 
+plasma-infra: Bump vite@4.5.1 (https://github.com/salute-developers/plasma/pull/934)
+
+---
+
+#### 🚀 Enhancement
+
+- feat: Update cypress-common yaml with new deps [#902](https://github.com/salute-developers/plasma/pull/902) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-asdk@0.19.0`, `@salutejs/plasma-b2c@1.260.0`, `@salutejs/plasma-core@1.142.0`, `@salutejs/plasma-hope@1.250.0`, `@salutejs/plasma-icons@1.174.0`, `@salutejs/plasma-new-hope@0.26.0`, `@salutejs/plasma-temple@1.192.0`, `@salutejs/plasma-tokens-b2b@1.32.0`, `@salutejs/plasma-tokens-b2c@0.42.0`, `@salutejs/plasma-tokens-web@1.47.0`, `@salutejs/plasma-tokens@1.67.0`, `@salutejs/plasma-ui@1.224.0`, `@salutejs/plasma-web@1.260.0`, `@salutejs/plasma-cy-utils@0.75.0`, `@salutejs/plasma-sb-utils@0.140.0`, `@salutejs/plasma-tokens-utils@0.36.0`
+  - Release by 22.12.2023 [#944](https://github.com/salute-developers/plasma/pull/944) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@neretin-trike](https://github.com/neretin-trike))
+  - feat: bump manual package-locks [#933](https://github.com/salute-developers/plasma/pull/933) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-b2c@1.260.0`, `@salutejs/plasma-web@1.260.0`
+  - feat(plasma-b2c/web): add stretch prop and update test [#931](https://github.com/salute-developers/plasma/pull/931) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-b2c@1.260.0`, `@salutejs/plasma-new-hope@0.26.0`, `@salutejs/plasma-web@1.260.0`
+  - fix(plasma-new-hope): fix Notification layout with long text [#927](https://github.com/salute-developers/plasma/pull/927) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-new-hope@0.26.0`
+  - feat(plasma-new-hope): revert button tag for root [#896](https://github.com/salute-developers/plasma/pull/896) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-hope@1.250.0`
+  - feat(plasma-hope): fix broken style for Upload button [#926](https://github.com/salute-developers/plasma/pull/926) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### 🐛 Bug Fix
+
+- Release by 22.12.2023 [#945](https://github.com/salute-developers/plasma/pull/945) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(chokidar): overrides version [#938](https://github.com/salute-developers/plasma/pull/938) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-ui): update snapshots [#934](https://github.com/salute-developers/plasma/pull/934) ([@Yakutoc](https://github.com/Yakutoc))
+- docs(contributing): add paragraph about "Run cypress with --components" [#907](https://github.com/salute-developers/plasma/pull/907) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-new-hope@0.26.0`
+  - fix(plasma-new-hope): Add support children props to `Tooltip` component [#937](https://github.com/salute-developers/plasma/pull/937) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 5
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# (Thu Dec 14 2023)
+
+### Release Notes
+
+#### Release by 14.12.2023 ([#925](https://github.com/salute-developers/plasma/pull/925))
+
+## Components
+
+### Tabs
+
+- вынесены токены в отдельный файл
+- исправлен конфиг
+- убрана вариация active
+ 
+plasma-new-hope: Refactoring tabs tokens, variations, config (https://github.com/salute-developers/plasma/pull/873)
+
+### AddFocus
+
+- добавлен общий mixin addFocus(на него переведены компоненты: **Chip, Checkbox, Radiobox, Calendar** )
+ 
+plasma-(new-hope, asdk): Add focus mixin (https://github.com/salute-developers/plasma/pull/888)
+
+### Header
+
+Для plasma-{new-hope,asdk}
+
+- добавлен компонент **Header**, в качестве составных компонента (HeaderLogo, HeaderArrow, etc.)
+- добавлен mixin **mediaQuery**
+ 
+feat(plasma-new-hope): Add header as separate components (https://github.com/salute-developers/plasma/pull/887)
+
+### Tooltip
+
+- добавлен `Tooltip` с новым дизайном и API (для `plasma-{web,b2c,new-hope}`)
+ 
+plasma-new-hope: Add tooltip (https://github.com/salute-developers/plasma/pull/879)
+
+### Switch
+
+- добавлена реализация на новой архитектуре для plasma-{new-hope, web, asdk}  
+ 
+feat(new-hope): switch (https://github.com/salute-developers/plasma/pull/816)
+
+
+## Infra
+
+### Upload assets when publish canary, latest
+
+- добавили условие при котором происходит загрузка assets 
+ 
+plasma-infra: Handling upload-assets  (https://github.com/salute-developers/plasma/pull/882)
+
+### Actions/setup-node
+
+- зафиксировали версию Node.js (18.16.1) для корректной работы в CI 
+ 
+plasma-infra: Use 18.16.1 node version (https://github.com/salute-developers/plasma/pull/904)
+
+### Upload assets when publish RC
+
+- переопределена логика получения commit для правильного условия загрузки assets в момент публикации RC
+ 
+plasma-infra: Upload assets when publish rc (https://github.com/salute-developers/plasma/pull/892)
+
+### Auto generate changelog [CI]
+
+- добавлен workflow для ручного запуска создания PR релиза 
+- автоматизирован процесс создания changelog на основе merged prs и labels  
+ 
+plasma-infra: Automation of the release process (https://github.com/salute-developers/plasma/pull/894)
+
+### Storybook
+
+- добавлен новый location в "https://plasma.sberdevices.ru/asdk-storybook/" (plasma-ASDK)
+
+ 
+plasma-infra:  Add storybook for "Plasma-ASDK" (https://github.com/salute-developers/plasma/pull/908)
+
+
+## Tokens
+
+### Theme builder
+
+- В генератор файлов темы добавлены метод, который восстанавливает значение цвета из ссылки, т.е. переведёт: **[general.red.500] => #FF293E**
+- Добавлена генерация токенов цвета в kebab нотации
+ 
+fix(plasma-theme-builder): Add restored color method for generate themes (https://github.com/salute-developers/plasma/pull/899)
+
+---
+
+#### 🚀 Enhancement
+
+- `@salutejs/plasma-asdk@0.14.0`, `@salutejs/plasma-b2c@1.254.0`, `@salutejs/plasma-core@1.142.0`, `@salutejs/plasma-hope@1.248.0`, `@salutejs/plasma-new-hope@0.21.0`, `@salutejs/plasma-web@1.254.0`
+  - Release by 14.12.2023 [#925](https://github.com/salute-developers/plasma/pull/925) ([@nikewht](https://github.com/nikewht) [@Yakutoc](https://github.com/Yakutoc) [@Salute-Eva](https://github.com/Salute-Eva) [@TitanKuzmich](https://github.com/TitanKuzmich) [@kayman233](https://github.com/kayman233) [@neretin-trike](https://github.com/neretin-trike) nikita.belyanskiy@south.rt.ru [@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-asdk@0.14.0`
+  - feat(plasma-asdk): add Switch component [#816](https://github.com/salute-developers/plasma/pull/816) ([@Yeti-or](https://github.com/Yeti-or))
+- `@salutejs/plasma-b2c@1.254.0`, `@salutejs/plasma-new-hope@0.21.0`, `@salutejs/plasma-web@1.254.0`
+  - fix(plasma-new-hope): fix tokens usage in Tooltip [#879](https://github.com/salute-developers/plasma/pull/879) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-asdk@0.14.0`, `@salutejs/plasma-new-hope@0.21.0`
+  - feat(plasma-new-hope): remove media-query from root [#887](https://github.com/salute-developers/plasma/pull/887) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-new-hope@0.21.0`
+  - feat(plasma-new-hope): replace local addFocus on general in calendar [#888](https://github.com/salute-developers/plasma/pull/888) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### 🐛 Bug Fix
+
+- fix(plasma-theme-builder): Add resoterd color methods for generate themes [#899](https://github.com/salute-developers/plasma/pull/899) ([@neretin-trike](https://github.com/neretin-trike))
+- chore: refactoring pull request template [#915](https://github.com/salute-developers/plasma/pull/915) ([@Yakutoc](https://github.com/Yakutoc))
+- ci(docs): add storybook for "Plasma-ASDK" [#908](https://github.com/salute-developers/plasma/pull/908) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: update pull request template [#894](https://github.com/salute-developers/plasma/pull/894) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(plasma-tokens-native): fix typo [#910](https://github.com/salute-developers/plasma/pull/910) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: computed condition for upload assets when publish RC [#892](https://github.com/salute-developers/plasma/pull/892) ([@Yakutoc](https://github.com/Yakutoc))
+- ci(node): freeze node version [#904](https://github.com/salute-developers/plasma/pull/904) ([@Yakutoc](https://github.com/Yakutoc))
+- fix: Fix typo [#891](https://github.com/salute-developers/plasma/pull/891) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: handling upload assets [#882](https://github.com/salute-developers/plasma/pull/882) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-asdk@0.14.0`, `@salutejs/plasma-b2c@1.254.0`, `@salutejs/plasma-new-hope@0.21.0`, `@salutejs/plasma-web@1.254.0`
+  - chore: update package locks [#916](https://github.com/salute-developers/plasma/pull/916) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-b2c@1.254.0`
+  - chore(plasma-b2c): fix typo [#889](https://github.com/salute-developers/plasma/pull/889) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-new-hope@0.21.0`
+  - refactor(new-hope): tokens, variations, config [#873](https://github.com/salute-developers/plasma/pull/873) ([@nikewht](https://github.com/nikewht))
+
+#### Authors: 8
+
+- [@kayman233](https://github.com/kayman233)
+- [@nikewht](https://github.com/nikewht)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Nikita Belyanskiy (nikita.belyanskiy@south.rt.ru)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # (Thu Nov 30 2023)
 
 #### 🚀 Enhancement

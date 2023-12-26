@@ -12,3 +12,4 @@ export { camelize } from './camelize';
 export { writeGeneratedToFS } from './writeGeneratedToFS';
 export { jsToCss } from './jsToCss';
 export { getMediaQuery } from './getMediaQuery';
+export { getFormattedTokensForFallbackTheme } from './getFormattedTokensForFallbackTheme';

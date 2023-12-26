@@ -15,7 +15,7 @@
     "cy:open": "cypress open",
     "cy:get-image": "echo trike94/cypress$(if [[ $(uname -a) == *\"ARM64\"* ]]; then echo \"-m1\"; fi):9.4.1",
     "precy:run-ct": "rm -rf {.nyc_output}",
-    "cy:run-ct": "CYPRESS_IMAGE=$(npm run cy:get-image | tail -1) && docker run --rm -v $PWD:/e2e -w /e2e --entrypoint=/bin/bash -e CYPRESS_CONFIG_FILE=$CYPRESS_CONFIG_FILE -e PACKAGE_NAME=$PACKAGE_NAME -e COVERAGE_DIR=cypress/${PACKAGE_NAME}-coverage -e COVERAGE=true -e PACKAGE_DIR=packages/$PACKAGE_NAME -e CYPRESS_updateSnapshots=$CYPRESS_updateSnapshots ${CYPRESS_IMAGE} -c 'node ./actions/platform-test/lib/index.js --config cypress/config/$CYPRESS_CONFIG_FILE --command run-ct'",
+    "cy:run-ct": "SPEC=$(node -p \"require('./cypress/cypress-get-specs.js').specs\") && CYPRESS_IMAGE=$(npm run cy:get-image | tail -1) && docker run --rm -v $PWD:/e2e -w /e2e --entrypoint=/bin/bash -e CYPRESS_CONFIG_FILE=$CYPRESS_CONFIG_FILE -e PACKAGE_NAME=$PACKAGE_NAME -e COVERAGE_DIR=cypress/${PACKAGE_NAME}-coverage -e COVERAGE=true -e PACKAGE_DIR=packages/$PACKAGE_NAME -e CYPRESS_updateSnapshots=$CYPRESS_updateSnapshots ${CYPRESS_IMAGE} -c 'node ./actions/platform-test/lib/index.js --config cypress/config/$CYPRESS_CONFIG_FILE --spec='$SPEC' --command run-ct'",
     "cy:temple:run-ct": "PACKAGE_NAME=plasma-temple CYPRESS_CONFIG_FILE=temple npm run cy:run-ct",
     "cy:ui:run-ct": "PACKAGE_NAME=plasma-ui CYPRESS_CONFIG_FILE=ui-config.json npm run cy:run-ct",
     "cy:web:run-ct": "PACKAGE_NAME=plasma-web CYPRESS_CONFIG_FILE=web-config.json npm run cy:run-ct",
@@ -130,6 +130,9 @@
   "dependencies": {
     "babel-plugin-annotate-pure-calls": "0.4.0",
     "patch-package": "8.0.0"
+  },
+  "overrides": {
+    "chokidar": "^3.3.1"
   },
   "engines": {
     "npm": "^8.19.0 || ^9.5.1"

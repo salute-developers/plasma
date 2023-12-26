@@ -877,12 +877,6 @@ export { PickOptional }
 
 export { PinProps }
 
-// Warning: (ae-forgotten-export) The symbol "BasePlacement" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "VariationPlacement" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export type Placement = BasePlacement | VariationPlacement;
-
 export { Popup }
 
 export { PopupProps }
@@ -1076,6 +1070,7 @@ export interface TextAreaProps extends Omit<TextAreaProps_2, 'size'> {
     helperBlock?: React.ReactElement;
     // @deprecated (undocumented)
     helperText?: string;
+    labelPlacement?: 'inner' | 'outer';
     leftHelper?: string;
     maxAuto?: number;
     minAuto?: number;
@@ -1139,19 +1134,6 @@ export { ToastProps }
 export { ToastProvider }
 
 export { toCssSize }
-
-// @public
-export const Tooltip: React_2.ForwardRefExoticComponent<TooltipProps & React_2.RefAttributes<HTMLSpanElement>>;
-
-// @public (undocumented)
-export interface TooltipProps extends React_2.HTMLAttributes<HTMLDivElement> {
-    animated?: boolean;
-    arrow?: boolean;
-    isVisible: boolean;
-    onDismiss?: () => void;
-    placement?: Placement;
-    text: string;
-}
 
 export { transformStyles }
 

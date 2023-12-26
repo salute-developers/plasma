@@ -1,13 +1,14 @@
-import React, { FC, ForwardRefExoticComponent, RefAttributes } from 'react';
+import React, { FC, ForwardRefExoticComponent, RefAttributes, useMemo } from 'react';
 import { useStoreon } from 'storeon/react';
 
 import { PopupProvider, popupConfig } from '../Popup';
 import { component } from '../../engines';
 import { cx } from '../../utils';
 
-import type { NotificationsState, NotificationsEvents } from './NotificationsStore';
+import { NotificationsState, NotificationsEvents, closeNotification } from './NotificationsStore';
 import { NotificationPortalProps, NotificationProps } from './Notification.types';
 import { StyledItemWrapper, StyledRoot } from './Notification.styles';
+import { classes } from './Notification.tokens';
 
 // issue #823
 const Popup = component(popupConfig);
@@ -17,9 +18,11 @@ const Popup = component(popupConfig);
  */
 export const NotificationsPortal: FC<NotificationPortalProps> = ({ config, frame }) => {
     const { notifications } = useStoreon<NotificationsState, NotificationsEvents>('notifications');
-    const Notification = component(config) as ForwardRefExoticComponent<
-        NotificationProps & RefAttributes<HTMLDivElement>
-    >;
+
+    const Notification = useMemo(
+        () => component(config) as ForwardRefExoticComponent<NotificationProps & RefAttributes<HTMLDivElement>>,
+        [],
+    );
 
     return (
         <PopupProvider>
@@ -29,10 +32,17 @@ export const NotificationsPortal: FC<NotificationPortalProps> = ({ config, frame
                         {notifications.map(({ id, isHidden, ...rest }) => (
                             <StyledItemWrapper
                                 key={id}
-                                className={cx(isHidden ? 'hide' : 'show')}
+                                className={cx(
+                                    isHidden ? classes.notificationItemHidden : classes.notificationItemOpened,
+                                )}
                                 isHidden={isHidden || false}
                             >
-                                <Notification key={id} id={id} {...rest} />
+                                <Notification
+                                    key={id}
+                                    id={id}
+                                    onCloseButtonClick={() => closeNotification(id)}
+                                    {...rest}
+                                />
                             </StyledItemWrapper>
                         ))}
                     </StyledRoot>

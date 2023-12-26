@@ -76,27 +76,10 @@ type StoryPopoverProps = ComponentProps<typeof Popover> & {
     distance?: number;
 };
 
-const StyledArrow = styled.div`
-    visibility: hidden;
-
-    &,
-    &::before {
-        position: absolute;
-        width: 0.5rem;
-        height: 0.5rem;
-        background: var(--plasma-colors-surface-solid03);
-    }
-
-    &::before {
-        visibility: visible;
-        content: '';
-        transform: rotate(45deg);
-    }
-`;
-
 const StyledContent = styled.div`
     background: var(--plasma-colors-surface-solid03);
     padding: 1rem;
+    border-radius: 0.5rem;
 
     display: flex;
     flex-direction: column;
@@ -112,16 +95,18 @@ const StoryDefault = (args: StoryPopoverProps) => {
         <Popover
             isOpen={isOpen}
             onToggle={(is) => setIsOpen(is)}
+            frame="theme-root"
+            usePortal={false}
             role="presentation"
             id="popover"
             target={<Button>Target</Button>}
-            arrow={<StyledArrow />}
+            hasArrow
             offset={[skidding, distance]}
             {...args}
         >
             <StyledContent>
                 <>Content</>
-                <Button onClick={() => setIsOpen(false)}>close</Button>
+                <Button onClick={() => setIsOpen(false)}>Close</Button>
             </StyledContent>
         </Popover>
     );

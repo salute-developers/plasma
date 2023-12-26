@@ -37,17 +37,9 @@ import { badgeViews } from '@salutejs/plasma-hope';
 import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BlurProps } from '@salutejs/plasma-core';
 import { blurs } from '@salutejs/plasma-core';
-import { Body1 } from '@salutejs/plasma-hope';
-import { Body2 } from '@salutejs/plasma-hope';
-import { BodyL } from '@salutejs/plasma-typo';
-import { BodyM } from '@salutejs/plasma-typo';
-import { BodyS } from '@salutejs/plasma-typo';
-import { BodyXS } from '@salutejs/plasma-typo';
-import { BodyXXS } from '@salutejs/plasma-typo';
+import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
 import { Breakpoint } from '@salutejs/plasma-hope';
 import { BreakWordProps } from '@salutejs/plasma-core';
-import { Button1 } from '@salutejs/plasma-hope';
-import { Button2 } from '@salutejs/plasma-hope';
 import { ButtonHTMLAttributes } from 'react';
 import { ButtonProps } from '@salutejs/plasma-hope';
 import { ButtonView } from '@salutejs/plasma-hope';
@@ -59,7 +51,6 @@ import { CalendarProps } from '@salutejs/plasma-new-hope/styled-components';
 import { CalendarRange } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
 import { CalendarStateType } from '@salutejs/plasma-new-hope/styled-components';
 import { canUseDOM } from '@salutejs/plasma-core';
-import { Caption } from '@salutejs/plasma-hope';
 import { Card } from '@salutejs/plasma-hope';
 import { CardBadge } from '@salutejs/plasma-hope';
 import { CardBody } from '@salutejs/plasma-hope';
@@ -99,9 +90,6 @@ import { DropdownPopup } from '@salutejs/plasma-hope';
 import { DropdownPopupProps } from '@salutejs/plasma-hope';
 import { DropdownProps } from '@salutejs/plasma-hope';
 import { DropdownUncontrolled } from '@salutejs/plasma-hope';
-import { DsplL } from '@salutejs/plasma-typo';
-import { DsplM } from '@salutejs/plasma-typo';
-import { DsplS } from '@salutejs/plasma-typo';
 import { Editable } from '@salutejs/plasma-hope';
 import { EditableProps } from '@salutejs/plasma-hope';
 import { ElasticGrid } from '@salutejs/plasma-hope';
@@ -110,8 +98,6 @@ import { extractTextFrom } from '@salutejs/plasma-core';
 import { FC } from 'react';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { FocusProps } from '@salutejs/plasma-core';
-import { Footnote1 } from '@salutejs/plasma-hope';
-import { Footnote2 } from '@salutejs/plasma-hope';
 import { formatCurrency } from '@salutejs/plasma-core';
 import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
@@ -120,16 +106,6 @@ import { gridColumns } from '@salutejs/plasma-hope';
 import { gridGutters } from '@salutejs/plasma-hope';
 import { gridMargins } from '@salutejs/plasma-hope';
 import { gridSizes } from '@salutejs/plasma-hope';
-import { H1 } from '@salutejs/plasma-typo';
-import { H2 } from '@salutejs/plasma-typo';
-import { H3 } from '@salutejs/plasma-typo';
-import { H4 } from '@salutejs/plasma-typo';
-import { H5 } from '@salutejs/plasma-typo';
-import { Headline1 } from '@salutejs/plasma-hope';
-import { Headline2 } from '@salutejs/plasma-hope';
-import { Headline3 } from '@salutejs/plasma-hope';
-import { Headline4 } from '@salutejs/plasma-hope';
-import { Headline5 } from '@salutejs/plasma-hope';
 import { HTMLAttributes } from 'react';
 import { Image as Image_2 } from '@salutejs/plasma-hope';
 import { ImageBaseProps } from '@salutejs/plasma-hope';
@@ -152,23 +128,21 @@ import { ModalsProvider } from '@salutejs/plasma-hope';
 import { ModalView } from '@salutejs/plasma-hope';
 import { monthLongName } from '@salutejs/plasma-core';
 import { monthShortName } from '@salutejs/plasma-core';
+import { MouseEvent as MouseEvent_2 } from 'react';
+import { NotificationIconPlacement } from '@salutejs/plasma-new-hope/styled-components';
+import { NotificationLayout } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationProps } from '@salutejs/plasma-new-hope/styled-components';
 import { offsets } from '@salutejs/plasma-hope';
 import { OutlinedProps } from '@salutejs/plasma-core';
-import { P1 } from '@salutejs/plasma-hope';
-import { P2 } from '@salutejs/plasma-hope';
 import { padZeroNumber } from '@salutejs/plasma-core';
 import { PaginationDot } from '@salutejs/plasma-hope';
 import { PaginationDotProps } from '@salutejs/plasma-hope';
 import { PaginationDots } from '@salutejs/plasma-hope';
-import { ParagraphText1 } from '@salutejs/plasma-hope';
-import { ParagraphText2 } from '@salutejs/plasma-hope';
 import { PickOptional } from '@salutejs/plasma-core';
 import { PinProps } from '@salutejs/plasma-core';
-import { Placement } from '@salutejs/plasma-hope';
-import { PopoverPlacement } from '@salutejs/plasma-new-hope';
-import { PopoverProps } from '@salutejs/plasma-new-hope';
-import { PopoverTrigger } from '@salutejs/plasma-new-hope';
+import { PopoverPlacement } from '@salutejs/plasma-new-hope/styled-components';
+import { PopoverProps } from '@salutejs/plasma-new-hope/styled-components';
+import { PopoverTrigger } from '@salutejs/plasma-new-hope/styled-components';
 import { Popup } from '@salutejs/plasma-hope';
 import { popupClasses as popupBaseClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupPlacement as PopupBasePlacement } from '@salutejs/plasma-new-hope/styled-components';
@@ -197,6 +171,9 @@ import { Roundness } from '@salutejs/plasma-core';
 import { RoundnessProps } from '@salutejs/plasma-core';
 import { Row } from '@salutejs/plasma-hope';
 import { ScrollSnapProps } from '@salutejs/plasma-core';
+import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
+import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
+import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { SelectGroup } from '@salutejs/plasma-hope';
 import { SelectProps } from '@salutejs/plasma-hope';
 import { selectText } from '@salutejs/plasma-hope';
@@ -212,15 +189,15 @@ import { SnapAlign } from '@salutejs/plasma-core';
 import { SnapType } from '@salutejs/plasma-core';
 import { spacing } from '@salutejs/plasma-core';
 import { SpacingProps } from '@salutejs/plasma-core';
+import { SpacingProps as SpacingProps_2 } from '@salutejs/plasma-new-hope/types/mixins/applySpacing';
 import { SpinnerProps } from '@salutejs/plasma-core';
 import { SSRProvider } from '@salutejs/plasma-hope';
 import { StatusType } from '@salutejs/plasma-hope';
 import { StyledCard } from '@salutejs/plasma-hope';
 import { StyledComponent } from 'styled-components';
 import { StyledPreviewGallery } from '@salutejs/plasma-hope';
-import { Subtitle } from '@salutejs/plasma-hope';
-import { Switch } from '@salutejs/plasma-hope';
-import { SwitchProps } from '@salutejs/plasma-hope';
+import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
+import type { SwitchProps } from '@salutejs/plasma-core';
 import { syntheticFocus } from '@salutejs/plasma-core';
 import { TabItemProps } from '@salutejs/plasma-hope';
 import { TabItemProps as TabItemProps_2 } from '@salutejs/plasma-core';
@@ -233,23 +210,17 @@ import { TextAreaProps } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
 import { TextFieldProps } from '@salutejs/plasma-hope';
 import { TextFieldView } from '@salutejs/plasma-hope';
-import { TextL } from '@salutejs/plasma-typo';
-import { TextM } from '@salutejs/plasma-typo';
-import { TextS } from '@salutejs/plasma-typo';
 import { TextSkeleton } from '@salutejs/plasma-hope';
 import { TextSkeletonProps } from '@salutejs/plasma-hope';
-import { TextXS } from '@salutejs/plasma-typo';
 import { TimingFunction } from '@salutejs/plasma-core';
 import { Toast } from '@salutejs/plasma-hope';
 import { ToastPosition } from '@salutejs/plasma-hope';
 import { ToastProps } from '@salutejs/plasma-hope';
 import { ToastProvider } from '@salutejs/plasma-hope';
 import { toCssSize } from '@salutejs/plasma-core';
-import { Tooltip } from '@salutejs/plasma-hope';
-import { TooltipProps } from '@salutejs/plasma-hope';
+import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { transformStyles } from '@salutejs/plasma-core';
-import { TypographyTypes } from '@salutejs/plasma-core';
-import { Underline } from '@salutejs/plasma-hope';
+import { TypographyOldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Old/TypographyOld';
 import { Upload } from '@salutejs/plasma-hope';
 import { UploadAudio } from '@salutejs/plasma-hope';
 import { UploadAudioProps } from '@salutejs/plasma-hope';
@@ -263,9 +234,9 @@ import { useFocusTrap } from '@salutejs/plasma-hope';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { usePopupContext as usePopupBaseContext } from '@salutejs/plasma-new-hope/styled-components';
+import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-hope';
 import { ValidationResult } from '@salutejs/plasma-hope';
-import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
 import { View } from '@salutejs/plasma-core';
 import { ViewProps } from '@salutejs/plasma-core';
 import { views } from '@salutejs/plasma-core';
@@ -333,19 +304,68 @@ export { BlurProps }
 
 export { blurs }
 
-export { Body1 }
+// @public (undocumented)
+export const Body1: FunctionComponent<PropsType<    {
+size: {
+body1: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
-export { Body2 }
+// @public (undocumented)
+export const Body2: FunctionComponent<PropsType<    {
+size: {
+body2: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
-export { BodyL }
+// @public (undocumented)
+export const BodyL: FunctionComponent<PropsType<    {
+size: {
+l: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
-export { BodyM }
+// @public (undocumented)
+export const BodyM: FunctionComponent<PropsType<    {
+size: {
+m: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
-export { BodyS }
+// @public (undocumented)
+export const BodyS: FunctionComponent<PropsType<    {
+size: {
+s: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
-export { BodyXS }
+// @public (undocumented)
+export const BodyXS: FunctionComponent<PropsType<    {
+size: {
+xs: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
-export { BodyXXS }
+// @public (undocumented)
+export const BodyXXS: FunctionComponent<PropsType<    {
+size: {
+xxs: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { Breakpoint }
 
@@ -354,9 +374,19 @@ export { BreakWordProps }
 // @public
 export const Button: React_2.ForwardRefExoticComponent<ButtonProps & React_2.RefAttributes<HTMLButtonElement>>;
 
-export { Button1 }
+// @public (undocumented)
+export const Button1: FunctionComponent<PropsType<    {
+size: {
+button1: string;
+};
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
-export { Button2 }
+// @public (undocumented)
+export const Button2: FunctionComponent<PropsType<    {
+size: {
+button2: string;
+};
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 export { ButtonProps }
 
@@ -405,7 +435,12 @@ export { CalendarStateType }
 
 export { canUseDOM }
 
-export { Caption }
+// @public (undocumented)
+export const Caption: FunctionComponent<PropsType<    {
+size: {
+m: string;
+};
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 export { Card }
 
@@ -446,7 +481,14 @@ s: string;
 m: string;
 };
 view: {
+primary: string;
+secondary: string;
+tertiary: string;
+paragraph: string;
 accent: string;
+positive: string;
+warning: string;
+negative: string;
 };
 disabled: {
 true: string;
@@ -539,11 +581,32 @@ export { DropdownProps }
 
 export { DropdownUncontrolled }
 
-export { DsplL }
+// @public (undocumented)
+export const DsplL: FunctionComponent<PropsType<    {
+size: {
+l: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
-export { DsplM }
+// @public (undocumented)
+export const DsplM: FunctionComponent<PropsType<    {
+size: {
+m: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
-export { DsplS }
+// @public (undocumented)
+export const DsplS: FunctionComponent<PropsType<    {
+size: {
+s: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { Editable }
 
@@ -557,9 +620,19 @@ export { extractTextFrom }
 
 export { FocusProps }
 
-export { Footnote1 }
+// @public (undocumented)
+export const Footnote1: FunctionComponent<PropsType<    {
+size: {
+footnote1: string;
+};
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
-export { Footnote2 }
+// @public (undocumented)
+export const Footnote2: FunctionComponent<PropsType<    {
+size: {
+footnote2: string;
+};
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 export { formatCurrency }
 
@@ -573,25 +646,85 @@ export { gridMargins }
 
 export { gridSizes }
 
-export { H1 }
+// @public (undocumented)
+export const H1: FunctionComponent<PropsType<    {
+size: {
+h1: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
-export { H2 }
+// @public (undocumented)
+export const H2: FunctionComponent<PropsType<    {
+size: {
+h2: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
-export { H3 }
+// @public (undocumented)
+export const H3: FunctionComponent<PropsType<    {
+size: {
+h3: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
-export { H4 }
+// @public (undocumented)
+export const H4: FunctionComponent<PropsType<    {
+size: {
+h4: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
-export { H5 }
+// @public (undocumented)
+export const H5: FunctionComponent<PropsType<    {
+size: {
+h5: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
-export { Headline1 }
+// @public (undocumented)
+export const Headline1: FunctionComponent<PropsType<    {
+size: {
+headline1: string;
+};
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
-export { Headline2 }
+// @public (undocumented)
+export const Headline2: FunctionComponent<PropsType<    {
+size: {
+headline2: string;
+};
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
-export { Headline3 }
+// @public (undocumented)
+export const Headline3: FunctionComponent<PropsType<    {
+size: {
+headline3: string;
+};
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
-export { Headline4 }
+// @public (undocumented)
+export const Headline4: FunctionComponent<PropsType<    {
+size: {
+headline4: string;
+};
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
-export { Headline5 }
+// @public (undocumented)
+export const Headline5: FunctionComponent<PropsType<    {
+size: {
+headline5: string;
+};
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 export { Image_2 as Image }
 
@@ -609,6 +742,14 @@ export { LineSkeletonProps }
 export const Link: FunctionComponent<PropsType<    {
 view: {
 primary: string;
+secondary: string;
+tertiary: string;
+paragraph: string;
+accent: string;
+positive: string;
+warning: string;
+negative: string;
+clear: string;
 };
 disabled: {
 true: string;
@@ -652,13 +793,20 @@ const Notification_2: React_2.FunctionComponent<PropsType<    {
 view: {
 default: string;
 };
-status: {
-success: string;
-warning: string;
-error: string;
+layout: {
+horizontal: string;
+vertical: string;
+};
+size: {
+xs: string;
+xxs: string;
 };
 }> & NotificationProps & React_2.RefAttributes<HTMLDivElement>>;
 export { Notification_2 as Notification }
+
+export { NotificationIconPlacement }
+
+export { NotificationLayout }
 
 export { NotificationProps }
 
@@ -672,9 +820,19 @@ export { offsets }
 
 export { OutlinedProps }
 
-export { P1 }
+// @public (undocumented)
+export const P1: FunctionComponent<PropsType<    {
+size: {
+paragraph1: string;
+};
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
-export { P2 }
+// @public (undocumented)
+export const P2: FunctionComponent<PropsType<    {
+size: {
+paragraph2: string;
+};
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 export { padZeroNumber }
 
@@ -684,18 +842,30 @@ export { PaginationDotProps }
 
 export { PaginationDots }
 
-export { ParagraphText1 }
+// @public (undocumented)
+export const ParagraphText1: FunctionComponent<PropsType<    {
+size: {
+paragraphText1: string;
+};
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
-export { ParagraphText2 }
+// @public (undocumented)
+export const ParagraphText2: FunctionComponent<PropsType<    {
+size: {
+paragraphText2: string;
+};
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 export { PickOptional }
 
 export { PinProps }
 
-export { Placement }
-
-// @public
-export const Popover: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & CustomPopoverProps & RefAttributes<HTMLDivElement>>;
+// @public (undocumented)
+export const Popover: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & CustomPopoverProps & RefAttributes<HTMLDivElement>>;
 
 export { PopoverPlacement }
 
@@ -741,7 +911,14 @@ s: string;
 m: string;
 };
 view: {
+primary: string;
+secondary: string;
+tertiary: string;
+paragraph: string;
 accent: string;
+positive: string;
+warning: string;
+negative: string;
 };
 disabled: {
 true: string;
@@ -773,6 +950,75 @@ export { RoundnessProps }
 export { Row }
 
 export { ScrollSnapProps }
+
+// @public
+export const SegmentGroup: FunctionComponent<PropsType<    {
+view: {
+clear: string;
+filled: string;
+};
+size: {
+xs: string;
+s: string;
+m: string;
+l: string;
+};
+disabled: {
+true: string;
+};
+pilled: {
+true: string;
+};
+filledBackground: {
+true: string;
+};
+stretch: {
+true: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+selectionMode?: "multiple" | "single" | undefined;
+disabled?: boolean | undefined;
+stretch?: boolean | undefined;
+pilled?: boolean | undefined;
+filledBackground?: boolean | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+export { SegmentGroupProps }
+
+// @public
+export const SegmentItem: FunctionComponent<PropsType<    {
+view: {
+clear: string;
+default: string;
+secondary: string;
+};
+size: {
+xs: string;
+s: string;
+m: string;
+l: string;
+};
+disabled: {
+true: string;
+};
+pilled: {
+true: string;
+};
+}> & ButtonHTMLAttributes<HTMLButtonElement> & {
+value: string;
+id?: string | undefined;
+label?: ReactNode;
+pilled?: boolean | undefined;
+customHandleSelect?: ((e: MouseEvent_2<HTMLButtonElement, MouseEvent>) => void) | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLLabelElement>>;
+
+export { SegmentItemProps }
+
+export { SegmentProvider }
 
 // @public
 export const Select: React_2.ForwardRefExoticComponent<SelectProps<any> & React_2.RefAttributes<HTMLButtonElement>>;
@@ -823,9 +1069,15 @@ export { StyledCard }
 
 export { StyledPreviewGallery }
 
-export { Subtitle }
+// @public (undocumented)
+export const Subtitle: FunctionComponent<PropsType<    {
+size: {
+m: string;
+};
+}> & SubtitleProps & RefAttributes<HTMLDivElement>>;
 
-export { Switch }
+// @public (undocumented)
+export const Switch: ForwardRefExoticComponent<SwitchProps & RefAttributes<HTMLInputElement>>;
 
 export { SwitchProps }
 
@@ -862,17 +1114,45 @@ export { TextFieldProps }
 
 export { TextFieldView }
 
-export { TextL }
+// @public (undocumented)
+export const TextL: FunctionComponent<PropsType<    {
+size: {
+l: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
-export { TextM }
+// @public (undocumented)
+export const TextM: FunctionComponent<PropsType<    {
+size: {
+m: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
-export { TextS }
+// @public (undocumented)
+export const TextS: FunctionComponent<PropsType<    {
+size: {
+s: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { TextSkeleton }
 
 export { TextSkeletonProps }
 
-export { TextXS }
+// @public (undocumented)
+export const TextXS: FunctionComponent<PropsType<    {
+size: {
+xs: string;
+};
+}> & {
+breakWord?: boolean | undefined;
+} & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
 export { TimingFunction }
 
@@ -886,15 +1166,19 @@ export { ToastProvider }
 
 export { toCssSize }
 
-export { Tooltip }
+// @public (undocumented)
+export const Tooltip: ForwardRefExoticComponent<TooltipProps & RefAttributes<HTMLDivElement>>;
 
 export { TooltipProps }
 
 export { transformStyles }
 
-export { TypographyTypes }
-
-export { Underline }
+// @public (undocumented)
+export const Underline: FunctionComponent<PropsType<    {
+size: {
+m: string;
+};
+}> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 export { Upload }
 
@@ -921,6 +1205,8 @@ export { useForkRef }
 export { useIsomorphicLayoutEffect }
 
 export { usePopupBaseContext }
+
+export { useSegment }
 
 export { useToast }
 

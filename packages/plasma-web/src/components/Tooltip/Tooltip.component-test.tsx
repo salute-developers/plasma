@@ -1,9 +1,21 @@
-import React from 'react';
+/* eslint-disable */
+import React, { FC } from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
+import { createGlobalStyle } from 'styled-components';
+
+const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 describe('plasma-web: Tooltip', () => {
     const Tooltip = getComponent('Tooltip');
     const Button = getComponent('Button');
+
+    const CypressTestDecoratorWithTypo: FC = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
 
     function Demo() {
         const [inputValue, setInputValue] = React.useState('');
@@ -11,9 +23,7 @@ describe('plasma-web: Tooltip', () => {
         return (
             <div>
                 <div style={{ marginLeft: '100px', marginBottom: '35px' }}>
-                    <Tooltip text={inputValue} isVisible>
-                        <Button text="hello" />
-                    </Tooltip>
+                    <Tooltip target={<Button text="hello" />} text={inputValue} isOpen />
                 </div>
                 <label
                     htmlFor="tooltip-input"
@@ -34,11 +44,14 @@ describe('plasma-web: Tooltip', () => {
 
     it('simple', () => {
         mount(
-            <CypressTestDecorator>
-                <Tooltip text="Высокое качество воспроизведения" isVisible placement="right">
-                    <Button text="hello" />
-                </Tooltip>
-            </CypressTestDecorator>,
+            <CypressTestDecoratorWithTypo>
+                <Tooltip
+                    target={<Button text="hello" />}
+                    text="Высокое качество воспроизведения"
+                    isOpen
+                    placement="right"
+                />
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -61,32 +74,44 @@ describe('plasma-web: Tooltip', () => {
         };
 
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Container>
-                    <Tooltip placement="top-start" isVisible arrow text="Top start" animated={false}>
-                        <Tooltip placement="left" isVisible arrow text="Left" animated={false}>
-                            <Button text="hello" />
-                        </Tooltip>
-                    </Tooltip>
-                    <Tooltip placement="top" isVisible arrow text="Top" animated={false}>
-                        <Button text="hello" />
-                    </Tooltip>
-                    <Tooltip placement="top-end" isVisible arrow text="Top end" animated={false}>
-                        <Tooltip placement="right" isVisible arrow text="Right" animated={false}>
-                            <Button text="hello" />
-                        </Tooltip>
-                    </Tooltip>
-                    <Tooltip placement="bottom-start" isVisible arrow text="Bottom start" animated={false}>
-                        <Button text="hello" />
-                    </Tooltip>
-                    <Tooltip placement="bottom" isVisible arrow text="Bottom" animated={false}>
-                        <Button text="hello" />
-                    </Tooltip>
-                    <Tooltip placement="bottom-end" isVisible arrow text="Bottom end" animated={false}>
-                        <Button text="hello" />
-                    </Tooltip>
+                    <Tooltip
+                        target={
+                            <Tooltip target={<Button text="hello" />} placement="left" isOpen hasArrow text="Left" />
+                        }
+                        placement="top-start"
+                        isOpen
+                        hasArrow
+                        text="Top start"
+                    />
+                    <Tooltip target={<Button text="hello" />} placement="top" isOpen hasArrow text="Top" />
+                    <Tooltip
+                        target={
+                            <Tooltip target={<Button text="hello" />} placement="right" isOpen hasArrow text="Right" />
+                        }
+                        placement="top-end"
+                        isOpen
+                        hasArrow
+                        text="Top end"
+                    />
+                    <Tooltip
+                        target={<Button text="hello" />}
+                        placement="bottom-start"
+                        isOpen
+                        hasArrow
+                        text="Bottom start"
+                    />
+                    <Tooltip target={<Button text="hello" />} placement="bottom" isOpen hasArrow text="Bottom" />
+                    <Tooltip
+                        target={<Button text="hello" />}
+                        placement="bottom-end"
+                        isOpen
+                        hasArrow
+                        text="Bottom end"
+                    />
                 </Container>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -94,26 +119,31 @@ describe('plasma-web: Tooltip', () => {
 
     it('interaction', () => {
         function Demo() {
-            const [isVisible, setVisible] = React.useState(false);
+            const [isOpen, setVisible] = React.useState(false);
 
             return (
                 <>
-                    <Tooltip isVisible={isVisible} placement="bottom" text="Hello there">
-                        <Button
-                            text="Toggle"
-                            onClick={() => {
-                                setVisible((isVis) => !isVis);
-                            }}
-                        />
-                    </Tooltip>
+                    <Tooltip
+                        target={
+                            <Button
+                                text="Toggle"
+                                onClick={() => {
+                                    setVisible((isVis) => !isVis);
+                                }}
+                            />
+                        }
+                        isOpen={isOpen}
+                        placement="bottom"
+                        text="Hello there"
+                    />
                 </>
             );
         }
 
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Demo />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').click();
@@ -121,7 +151,7 @@ describe('plasma-web: Tooltip', () => {
         cy.matchImageSnapshot();
     });
 
-    it('out of bounds', () => {
+    it('out of bounds + multiple placement', () => {
         const Container = ({ children }) => {
             return (
                 <div
@@ -136,16 +166,24 @@ describe('plasma-web: Tooltip', () => {
         };
 
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Container>
-                    <Tooltip placement="left" isVisible arrow text="Left" animated={false}>
-                        <Button text="hello" />
-                    </Tooltip>
-                    <Tooltip placement="top" isVisible arrow text="Top" animated={false}>
-                        <Button text="hello" />
-                    </Tooltip>
+                    <Tooltip
+                        target={<Button text="hello" />}
+                        placement={['left', 'right']}
+                        isOpen
+                        hasArrow
+                        text="Left"
+                    />
+                    <Tooltip
+                        target={<Button text="hello" />}
+                        placement={['top', 'bottom']}
+                        isOpen
+                        hasArrow
+                        text="Top"
+                    />
                 </Container>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -153,17 +191,16 @@ describe('plasma-web: Tooltip', () => {
 
     it('long text', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Tooltip
-                    placement="bottom-end"
-                    isVisible
-                    arrow
+                    target={<Button text="hello" />}
+                    placement="bottom"
+                    isOpen
+                    hasArrow
+                    maxWidth="10rem"
                     text="It is not very long text for example. It is not very long text for example. It is not very long text for example. It is not very long text for example."
-                    animated={false}
-                >
-                    <Button text="hello" />
-                </Tooltip>
-            </CypressTestDecorator>,
+                />
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -184,25 +221,26 @@ describe('plasma-web: Tooltip', () => {
         };
 
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Container>
-                    <Tooltip placement="bottom-end" isVisible arrow text="Toggle" animated={false}>
-                        <Button text="hello" />
-                    </Tooltip>
+                    <Tooltip target={<Button text="hello" />} placement="bottom-end" isOpen hasArrow text="Toggle" />
                 </Container>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('isVisible false', () => {
+    it('isOpen false', () => {
         mount(
-            <CypressTestDecorator>
-                <Tooltip text="Высокое качество воспроизведения" isVisible={false} animated={false} placement="right">
-                    <Button text="hello" />
-                </Tooltip>
-            </CypressTestDecorator>,
+            <CypressTestDecoratorWithTypo>
+                <Tooltip
+                    target={<Button text="hello" />}
+                    text="Высокое качество воспроизведения"
+                    isOpen={false}
+                    placement="right"
+                />
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -210,9 +248,9 @@ describe('plasma-web: Tooltip', () => {
 
     it('Text interaction', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Demo />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot('empty');

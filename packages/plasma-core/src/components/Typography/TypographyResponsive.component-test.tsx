@@ -37,7 +37,7 @@ describe('plasma-core: ResponsiveTypography', () => {
     const dspl = (
         <CypressTestDecorator>
             <DsplL bold={false}>DsplL</DsplL>
-            <DsplL>DsplL Semibold</DsplL>
+            <DsplL breakWord>DsplL Semibold</DsplL>
             <DsplM bold={false}>DsplM</DsplM>
             <DsplM>DsplM Semibold</DsplM>
             <DsplS bold={false}>DsplS</DsplS>

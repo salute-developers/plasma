@@ -2,6 +2,7 @@ import {
     ROBO_COMMENT,
     generateThemes,
     getThemeTokenDataGroups,
+    getThemesWithRestoredColors,
     generateTokenSet,
     getThemesTokensFallback,
 } from '@salutejs/plasma-tokens-utils';
@@ -45,7 +46,7 @@ const getSortedExports = (exports: string) => {
 };
 
 export const getThemesTokenSet = (content: string) => {
-    const themesTokenDataGroups = getThemeTokenDataGroups(JSON.parse(content));
+    const themesTokenDataGroups = getThemesWithRestoredColors(getThemeTokenDataGroups(JSON.parse(content)));
     return getThemesTokensFallback(themesTokenDataGroups);
 };
 
@@ -57,7 +58,7 @@ export const getThemes = async (
 ) => {
     const pathToIndex = getFilesPath().themesIndex;
     const tokensThemeIndex = await getFilesSource(undefined, owner, repo, pathToIndex, defaultBranch);
-    const themes = generateThemes(tokensSet, undefined, true);
+    const themes = generateThemes(tokensSet, undefined, true, true);
 
     const [darkTokens, lightTokens, newExports] = themes.map((item) => prettify(item.content));
 

@@ -1,3 +1,167 @@
+# v1.260.0 (Fri Dec 22 2023)
+
+#### 🚀 Enhancement
+
+- Release by 22.12.2023 [#944](https://github.com/salute-developers/plasma/pull/944) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@neretin-trike](https://github.com/neretin-trike))
+- feat: Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- feat(plasma-b2c/web): add stretch prop and update test [#931](https://github.com/salute-developers/plasma/pull/931) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-new-hope/web/b2c): remove extra views for SegmentItem ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-b2c/web): separate configs for segment ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-b2c): add Segment component with tests ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat: bump manual package-locks [#933](https://github.com/salute-developers/plasma/pull/933) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-b2c): refactor typography configs ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-b2c/web): add paragraphText component ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-web/b2c): add typography as tokens-mixins ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-b2c/web): add typography from new-hope ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-*): Update config for `Link` component ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-tokens-utils): Add methods for handle fallback themes ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-new-hope): fix Notification layout with long text [#927](https://github.com/salute-developers/plasma/pull/927) ([@kayman233](https://github.com/kayman233))
+
+#### 🐛 Bug Fix
+
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- docs(plasma-b2c/web): generate api docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- test(plasma-b2c/web): fix tests depending on typography ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-web,plasma-b2c): Update snapshots and add test ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-new-hope): Fix `TextArea` behavior with uncontrolled value ([@neretin-trike](https://github.com/neretin-trike))
+- feat(plasma-b2c,plasma-web): Update configs for components with new design ([@neretin-trike](https://github.com/neretin-trike))
+- chore(vite): bump to 4.5.1 ([@Yakutoc](https://github.com/Yakutoc))
+- feat(plasma-web, plasma-b2c): redesign Notification ([@kayman233](https://github.com/kayman233))
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 5
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
+# v1.254.0 (Thu Dec 14 2023)
+
+### Release Notes
+
+#### Release by 14.12.2023 ([#925](https://github.com/salute-developers/plasma/pull/925))
+
+## Components
+
+### Tabs
+
+- вынесены токены в отдельный файл
+- исправлен конфиг
+- убрана вариация active
+ 
+plasma-new-hope: Refactoring tabs tokens, variations, config (https://github.com/salute-developers/plasma/pull/873)
+
+### AddFocus
+
+- добавлен общий mixin addFocus(на него переведены компоненты: **Chip, Checkbox, Radiobox, Calendar** )
+ 
+plasma-(new-hope, asdk): Add focus mixin (https://github.com/salute-developers/plasma/pull/888)
+
+### Header
+
+Для plasma-{new-hope,asdk}
+
+- добавлен компонент **Header**, в качестве составных компонента (HeaderLogo, HeaderArrow, etc.)
+- добавлен mixin **mediaQuery**
+ 
+feat(plasma-new-hope): Add header as separate components (https://github.com/salute-developers/plasma/pull/887)
+
+### Tooltip
+
+- добавлен `Tooltip` с новым дизайном и API (для `plasma-{web,b2c,new-hope}`)
+ 
+plasma-new-hope: Add tooltip (https://github.com/salute-developers/plasma/pull/879)
+
+### Switch
+
+- добавлена реализация на новой архитектуре для plasma-{new-hope, web, asdk}  
+ 
+feat(new-hope): switch (https://github.com/salute-developers/plasma/pull/816)
+
+
+## Infra
+
+### Upload assets when publish canary, latest
+
+- добавили условие при котором происходит загрузка assets 
+ 
+plasma-infra: Handling upload-assets  (https://github.com/salute-developers/plasma/pull/882)
+
+### Actions/setup-node
+
+- зафиксировали версию Node.js (18.16.1) для корректной работы в CI 
+ 
+plasma-infra: Use 18.16.1 node version (https://github.com/salute-developers/plasma/pull/904)
+
+### Upload assets when publish RC
+
+- переопределена логика получения commit для правильного условия загрузки assets в момент публикации RC
+ 
+plasma-infra: Upload assets when publish rc (https://github.com/salute-developers/plasma/pull/892)
+
+### Auto generate changelog [CI]
+
+- добавлен workflow для ручного запуска создания PR релиза 
+- автоматизирован процесс создания changelog на основе merged prs и labels  
+ 
+plasma-infra: Automation of the release process (https://github.com/salute-developers/plasma/pull/894)
+
+### Storybook
+
+- добавлен новый location в "https://plasma.sberdevices.ru/asdk-storybook/" (plasma-ASDK)
+
+ 
+plasma-infra:  Add storybook for "Plasma-ASDK" (https://github.com/salute-developers/plasma/pull/908)
+
+
+## Tokens
+
+### Theme builder
+
+- В генератор файлов темы добавлены метод, который восстанавливает значение цвета из ссылки, т.е. переведёт: **[general.red.500] => #FF293E**
+- Добавлена генерация токенов цвета в kebab нотации
+ 
+fix(plasma-theme-builder): Add restored color method for generate themes (https://github.com/salute-developers/plasma/pull/899)
+
+---
+
+#### 🚀 Enhancement
+
+- Release by 14.12.2023 [#925](https://github.com/salute-developers/plasma/pull/925) ([@nikewht](https://github.com/nikewht) [@Yakutoc](https://github.com/Yakutoc) [@Salute-Eva](https://github.com/Salute-Eva) [@TitanKuzmich](https://github.com/TitanKuzmich) [@kayman233](https://github.com/kayman233) [@neretin-trike](https://github.com/neretin-trike) nikita.belyanskiy@south.rt.ru [@Yeti-or](https://github.com/Yeti-or))
+- feat: update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- feat(plasma-new-hope): Switch add labelPosition ([@Yeti-or](https://github.com/Yeti-or))
+- feat(plasma-b2c): Replace `Switch` from plasma-new-hope ([@Yeti-or](https://github.com/Yeti-or))
+- fix(plasma-new-hope): fix tokens usage in Tooltip [#879](https://github.com/salute-developers/plasma/pull/879) ([@kayman233](https://github.com/kayman233))
+- feat(plasma-new-hope): Tooltip added ([@kayman233](https://github.com/kayman233))
+
+#### 🐛 Bug Fix
+
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- fix(plasma-new-hope): Tooltip, Popover, Dropdown refactor ([@kayman233](https://github.com/kayman233))
+- feat(plasma-new-hope, plasma-web, plasma-b2c): Tooltip added ([@kayman233](https://github.com/kayman233))
+- chore: update package locks [#916](https://github.com/salute-developers/plasma/pull/916) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- chore(plasma-b2c): fix typo [#889](https://github.com/salute-developers/plasma/pull/889) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: update package-locks \[skip ci\] ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 8
+
+- [@kayman233](https://github.com/kayman233)
+- [@nikewht](https://github.com/nikewht)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+- Nikita Belyanskiy (nikita.belyanskiy@south.rt.ru)
+- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+
+---
+
 # v1.250.0 (Thu Nov 30 2023)
 
 #### 🚀 Enhancement

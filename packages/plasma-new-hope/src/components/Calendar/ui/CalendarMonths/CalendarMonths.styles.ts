@@ -1,7 +1,8 @@
 import { styled } from '@linaria/react';
 
-import { flexCenter, selectedMixin, addFocus } from '../../mixins';
+import { flexCenter, selectedMixin } from '../../mixins';
 import { tokens } from '../../Calendar.tokens';
+import { addFocus } from '../../../../mixins';
 
 export const StyledCalendarMonths = styled.div`
     padding: 0.5rem 1.5rem 1.5rem;
@@ -19,13 +20,12 @@ export const StyledMonth = styled.div`
 `;
 
 const selectable = `
-    --calendar_private-add-focus-outline-offset: -0.063rem;
-    --calendar_private-add-focus-outline-size: 0.063rem;
-    --calendar_private-add-focus-outline-radius: 0.563rem;
-    --calendar_private-add-focus-outline-transition: box-shadow 0.2s ease-in-out;
-    --calendar_private-add-focus-outline-color: var(${tokens.calendarOutlineFocusColor});
-    
-    ${String(addFocus)};
+    ${addFocus({
+        outlineSize: '0.063rem',
+        outlineOffset: '-0.063rem',
+        outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
+        outlineRadius: '0.563rem',
+    })};
 
     --calendar_private-selected-min-width: 5.25rem;
     --calendar_private-selected-min-height: 3.25rem;

@@ -1,10 +1,15 @@
 import { styled } from '@linaria/react';
-import { css } from '@linaria/core';
+
+import { component } from '../../engines';
+import { popoverConfig, popoverClasses } from '../Popover';
 
 import { classes, tokens } from './Dropdown.tokens';
 
-export const base = css`
-    .${String(classes.nestedDropdown)} {
+// issue #823
+const Popover = component(popoverConfig);
+
+export const StyledPopover = styled(Popover)`
+    .${String(classes.nestedDropdown)} > .${String(popoverClasses.target)} {
         display: block;
     }
 `;

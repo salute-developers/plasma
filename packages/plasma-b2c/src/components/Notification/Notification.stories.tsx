@@ -1,13 +1,40 @@
-import React, { useRef, useCallback, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
+import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
+import { IconDisclosureRight } from '@salutejs/plasma-icons';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import styled from 'styled-components';
 
-import { Button } from '../Button';
-import { Modal, ModalsProvider } from '../Modal';
-import { Headline3 } from '../Typography';
+import { Button } from '../Button/Button';
+import { Modal } from '../Modal';
+import { PopupBaseProvider } from '../PopupBase';
 
-import { Notification, addNotification, NotificationsProvider } from '.';
-import type { NotificationProps } from '.';
+import {
+    Notification,
+    addNotification,
+    NotificationsProvider,
+    NotificationIconPlacement,
+    NotificationProps,
+    NotificationLayout,
+} from '.';
+
+const titles = ['Выполнено', 'Внимание', 'Ошибка'];
+const texts = ['SSH ключ успешно скопирован', 'Нельзя скопировать SSH ключ', 'Не удалось скопировать SSH ключ'];
+const size = ['xs', 'xxs'];
+const iconPlacement = ['top', 'left'];
+
+const longText = `JavaScript frameworks are an essential part of modern front-end web development,
+providing developers with proven tools for building scalable, interactive web applications.
+`;
+
+const getNotificationProps = (i: number) => ({
+    title: titles[i % 3],
+    children: texts[i % 3],
+    size: size[i % 2],
+    iconPlacement: iconPlacement[i % 2] as NotificationIconPlacement,
+});
+
+const placements = ['top', 'left'];
 
 const meta: Meta<NotificationProps> = {
     title: 'Controls/Notification',
@@ -16,72 +43,126 @@ const meta: Meta<NotificationProps> = {
 
 export default meta;
 
-const statuses = ['success', 'warning', 'error', ''];
-const titles = ['Выполнено', 'Внимание', 'Ошибка'];
-const texts = ['SSH ключ успешно скопирован', 'Нельзя скопировать SSH ключ', 'Не удалось скопировать SSH ключ'];
-
-const longText = `JavaScript frameworks are an essential part of modern front-end web development,
-providing developers with proven tools for building scalable, interactive web applications.
-This module gives you some fundamental background knowledge about how client-side frameworks
-work and how they fit into your toolset, before moving on to tutorial series covering some of
-today's most popular ones.
-`;
-
-const getNotificationProps = (i: number) => ({
-    status: statuses[i % 3] as NotificationProps['status'],
-    title: titles[i % 3],
-    children: texts[i % 3],
-});
-
-export const Default: StoryObj<{
-    status: string;
+interface StoryDefaultProps {
     title: string;
     children: string;
-}> = {
-    args: {
-        status: '',
-        title: 'Title',
-        children: longText,
-    },
+    showCloseIcon: boolean;
+    showLeftIcon: boolean;
+    layout: NotificationLayout;
+    size: 'xs' | 'xs';
+    iconPlacement: NotificationIconPlacement;
+}
+
+const ButtonsWrapper = styled.div`
+    display: flex;
+    gap: 6px;
+`;
+
+const StoryDefault = ({ title, children, iconPlacement, size, layout, showLeftIcon, ...rest }: StoryDefaultProps) => {
+    return (
+        <Notification
+            title={title}
+            icon={showLeftIcon ? <IconDisclosureRight /> : ''}
+            iconPlacement={iconPlacement}
+            actions={
+                <ButtonsWrapper>
+                    <Button
+                        text="First"
+                        size={layout === 'horizontal' ? 'xxs' : size}
+                        stretch={layout === 'vertical' && size === 'xs'}
+                    />
+                    <Button
+                        text="Second"
+                        size={layout === 'horizontal' ? 'xxs' : size}
+                        stretch={layout === 'vertical' && size === 'xs'}
+                    />
+                </ButtonsWrapper>
+            }
+            size={size}
+            layout={layout}
+            {...rest}
+        >
+            {children}
+        </Notification>
+    );
+};
+
+export const Default: StoryObj<StoryDefaultProps> = {
     argTypes: {
-        status: {
-            options: statuses,
+        iconPlacement: {
+            options: placements,
+            control: {
+                type: 'select',
+            },
+        },
+        size: {
+            options: ['xs', 'xxs'],
+            control: {
+                type: 'select',
+            },
+        },
+        layout: {
+            options: ['vertical', 'horizontal'],
             control: {
                 type: 'select',
             },
         },
     },
-    render: ({ status, title, children }) => {
-        return (
-            <Notification title={title} status={status !== '' ? (status as 'success') : undefined}>
-                {children}
-            </Notification>
-        );
+    args: {
+        title: 'Title',
+        children: longText,
+        showCloseIcon: true,
+        showLeftIcon: true,
+        iconPlacement: 'top',
+        layout: 'vertical',
+        size: 'xs',
     },
+    render: (args) => <StoryDefault {...args} />,
 };
 
-const StoryLiveDemo = ({ timeout }) => {
+type StoryLiveDemoProps = ComponentProps<typeof Notification> & {
+    timeout: number;
+    layout: NotificationLayout;
+    size: 'xs' | 'xxs';
+    iconPlacement: NotificationIconPlacement;
+};
+
+const StoryLiveDemo = ({ timeout, ...rest }: StoryLiveDemoProps) => {
     const count = useRef(0);
     const handleClick = useCallback(() => {
-        addNotification(getNotificationProps(count.current), timeout);
+        addNotification({ icon: <IconDisclosureRight />, ...rest, ...getNotificationProps(count.current) }, timeout);
         count.current++;
-    }, [count]);
+    }, [count, rest]);
 
     return (
         <NotificationsProvider>
-            <Button text="Add notification" onClick={handleClick} />
+            <Button text="Добавить уведомление" onClick={handleClick} />
         </NotificationsProvider>
     );
 };
 
-export const LiveDemo: StoryObj<{ timeout: number }> = {
+export const LiveDemo: StoryObj<StoryLiveDemoProps> = {
+    argTypes: {
+        layout: {
+            options: ['vertical', 'horizontal'],
+            control: {
+                type: 'select',
+            },
+        },
+    },
     args: {
         timeout: 3000,
+        role: 'alert',
+        layout: 'vertical',
     },
     render: (args) => <StoryLiveDemo {...args} />,
 };
 
-const StoryWithModal = ({ timeout }) => {
+type StoryWithModalProps = ComponentProps<typeof Notification> & {
+    timeout: number;
+};
+
+const StoryWithModal = ({ timeout }: StoryWithModalProps) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const count = useRef(0);
     const handleClick = useCallback(() => {
@@ -90,19 +171,19 @@ const StoryWithModal = ({ timeout }) => {
     }, [count]);
 
     return (
-        <ModalsProvider>
-            <NotificationsProvider>
+        <NotificationsProvider>
+            <PopupBaseProvider>
                 <Button text="Open modal" onClick={() => setIsModalOpen(true)} />
                 <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-                    <Headline3>Hello!</Headline3>
+                    <div>Hello!</div>
                     <Button view="primary" text="Add notification" onClick={handleClick} />
                 </Modal>
-            </NotificationsProvider>
-        </ModalsProvider>
+            </PopupBaseProvider>
+        </NotificationsProvider>
     );
 };
 
-export const WithModal: StoryObj<{ timeout: number }> = {
+export const WithModal: StoryObj<StoryLiveDemoProps> = {
     args: {
         timeout: 3500,
     },

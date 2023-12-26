@@ -13,7 +13,25 @@ const meta: Meta<typeof Button> = {
     title: 'plasma_web/Button',
     decorators: [WithTheme],
     component: Button,
-    argTypes: argTypesFromConfig(mergeConfig(buttonConfig, config)),
+    argTypes: {
+        ...argTypesFromConfig(mergeConfig(buttonConfig, config)),
+        pin: {
+            options: [
+                'square-square',
+                'square-clear',
+                'clear-square',
+                'clear-clear',
+                'clear-circle',
+                'circle-clear',
+                'circle-circle',
+                '',
+            ],
+            control: {
+                type: 'select',
+            },
+            table: { defaultValue: { summary: 'bottom' } },
+        },
+    },
 };
 
 export default meta;
@@ -25,5 +43,7 @@ export const Default: StoryObj<ComponentProps<typeof Button>> = {
         size: 'm',
         disabled: false,
         focused: true,
+        square: false,
+        stretch: false,
     },
 };
