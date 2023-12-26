@@ -671,6 +671,65 @@ import { ViewfinderFace } from './ViewfinderFace';
 import { ViewfinderQRCode } from './ViewfinderQRCode';
 import { Waves } from './Waves';
 import { WavesCross } from './WavesCross';
+import { AntennaFill } from './AntennaFill';
+import { AntennaOutline } from './AntennaOutline';
+import { Button2x1LFill } from './Button2x1LFill';
+import { Button2x1LOutline } from './Button2x1LOutline';
+import { Button2x1RFill } from './Button2x1RFill';
+import { Button2x1ROutline } from './Button2x1ROutline';
+import { Button2x2BotLFill } from './Button2x2BotLFill';
+import { Button2x2BotLOutline } from './Button2x2BotLOutline';
+import { Button2x2BotRFill } from './Button2x2BotRFill';
+import { Button2x2BotROutline } from './Button2x2BotROutline';
+import { Button2x2TopLFill } from './Button2x2TopLFill';
+import { Button2x2TopLOutline } from './Button2x2TopLOutline';
+import { Button2x2TopRFill } from './Button2x2TopRFill';
+import { Button2x2TopROutline } from './Button2x2TopROutline';
+import { Button3x2CFill } from './Button3x2CFill';
+import { Button3x2COutline } from './Button3x2COutline';
+import { Button3x2LFill } from './Button3x2LFill';
+import { Button3x2LOutline } from './Button3x2LOutline';
+import { Button3x2RFill } from './Button3x2RFill';
+import { Button3x2ROutline } from './Button3x2ROutline';
+import { ChoiceFill } from './ChoiceFill';
+import { ChoiceOutline } from './ChoiceOutline';
+import { EthernetFill } from './EthernetFill';
+import { EthernetOutline } from './EthernetOutline';
+import { GroupBigFill } from './GroupBigFill';
+import { GroupBigOutline } from './GroupBigOutline';
+import { HdmiFill } from './HdmiFill';
+import { HdmiOutline } from './HdmiOutline';
+import { InputsFill } from './InputsFill';
+import { InputsOutline } from './InputsOutline';
+import { PanelSidebarLFill } from './PanelSidebarLFill';
+import { PanelSidebarLFocusFill } from './PanelSidebarLFocusFill';
+import { PanelSidebarLFocusOutline } from './PanelSidebarLFocusOutline';
+import { PanelSidebarLOutline } from './PanelSidebarLOutline';
+import { PanelSidebarRFill } from './PanelSidebarRFill';
+import { PanelSidebarRFocusFill } from './PanelSidebarRFocusFill';
+import { PanelSidebarRFocusOutline } from './PanelSidebarRFocusOutline';
+import { PanelSidebarROutline } from './PanelSidebarROutline';
+import { Percent } from './Percent';
+import { PostcardFill } from './PostcardFill';
+import { PostcardOutline } from './PostcardOutline';
+import { ProfileBadgeFill } from './ProfileBadgeFill';
+import { ProfileBadgeOutline } from './ProfileBadgeOutline';
+import { ProfileCircleFill } from './ProfileCircleFill';
+import { ProfileCircleOutline } from './ProfileCircleOutline';
+import { ProfileCrossFill } from './ProfileCrossFill';
+import { ProfileCrossOutline } from './ProfileCrossOutline';
+import { ProfileFill } from './ProfileFill';
+import { ProfileOutline } from './ProfileOutline';
+import { ProfilePlusFill } from './ProfilePlusFill';
+import { ProfilePlusOutline } from './ProfilePlusOutline';
+import { ProfileSquareFill } from './ProfileSquareFill';
+import { ProfileSquareOutline } from './ProfileSquareOutline';
+import { UsbAFill } from './UsbAFill';
+import { UsbAOutline } from './UsbAOutline';
+import { UsbCFill } from './UsbCFill';
+import { UsbCOutline } from './UsbCOutline';
+import { VgaFill } from './VgaFill';
+import { VgaOutline } from './VgaOutline';
 
 export const iconSet24 = {    addFill: AddFill,
     addOutline: AddOutline,
@@ -1346,6 +1405,65 @@ export const iconSet24 = {    addFill: AddFill,
     viewfinderQRCode: ViewfinderQRCode,
     waves: Waves,
     wavesCross: WavesCross,
+    antennaFill: AntennaFill,
+    antennaOutline: AntennaOutline,
+    button2x1LFill: Button2x1LFill,
+    button2x1LOutline: Button2x1LOutline,
+    button2x1RFill: Button2x1RFill,
+    button2x1ROutline: Button2x1ROutline,
+    button2x2BotLFill: Button2x2BotLFill,
+    button2x2BotLOutline: Button2x2BotLOutline,
+    button2x2BotRFill: Button2x2BotRFill,
+    button2x2BotROutline: Button2x2BotROutline,
+    button2x2TopLFill: Button2x2TopLFill,
+    button2x2TopLOutline: Button2x2TopLOutline,
+    button2x2TopRFill: Button2x2TopRFill,
+    button2x2TopROutline: Button2x2TopROutline,
+    button3x2CFill: Button3x2CFill,
+    button3x2COutline: Button3x2COutline,
+    button3x2LFill: Button3x2LFill,
+    button3x2LOutline: Button3x2LOutline,
+    button3x2RFill: Button3x2RFill,
+    button3x2ROutline: Button3x2ROutline,
+    choiceFill: ChoiceFill,
+    choiceOutline: ChoiceOutline,
+    ethernetFill: EthernetFill,
+    ethernetOutline: EthernetOutline,
+    groupBigFill: GroupBigFill,
+    groupBigOutline: GroupBigOutline,
+    hdmiFill: HdmiFill,
+    hdmiOutline: HdmiOutline,
+    inputsFill: InputsFill,
+    inputsOutline: InputsOutline,
+    panelSidebarLFill: PanelSidebarLFill,
+    panelSidebarLFocusFill: PanelSidebarLFocusFill,
+    panelSidebarLFocusOutline: PanelSidebarLFocusOutline,
+    panelSidebarLOutline: PanelSidebarLOutline,
+    panelSidebarRFill: PanelSidebarRFill,
+    panelSidebarRFocusFill: PanelSidebarRFocusFill,
+    panelSidebarRFocusOutline: PanelSidebarRFocusOutline,
+    panelSidebarROutline: PanelSidebarROutline,
+    percent: Percent,
+    postcardFill: PostcardFill,
+    postcardOutline: PostcardOutline,
+    profileBadgeFill: ProfileBadgeFill,
+    profileBadgeOutline: ProfileBadgeOutline,
+    profileCircleFill: ProfileCircleFill,
+    profileCircleOutline: ProfileCircleOutline,
+    profileCrossFill: ProfileCrossFill,
+    profileCrossOutline: ProfileCrossOutline,
+    profileFill: ProfileFill,
+    profileOutline: ProfileOutline,
+    profilePlusFill: ProfilePlusFill,
+    profilePlusOutline: ProfilePlusOutline,
+    profileSquareFill: ProfileSquareFill,
+    profileSquareOutline: ProfileSquareOutline,
+    usbAFill: UsbAFill,
+    usbAOutline: UsbAOutline,
+    usbCFill: UsbCFill,
+    usbCOutline: UsbCOutline,
+    vgaFill: VgaFill,
+    vgaOutline: VgaOutline,
 };
 
 export type IconSet24 = keyof typeof iconSet24;
