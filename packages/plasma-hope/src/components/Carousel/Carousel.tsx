@@ -17,6 +17,7 @@ export type CarouselProps = Omit<BaseProps, 'axis' | 'animatedScrollByIndex' | '
      * При значении `polite` скринридер будет объявлять переключаемые слайды.
      */
     ariaLive?: 'off' | 'polite';
+    // Выключает драг скролл (только для десктопа). False по дефолту.
     isDragScrollDisabled?: boolean;
 };
 
