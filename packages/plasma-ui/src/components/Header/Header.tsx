@@ -56,7 +56,9 @@ interface NoTitleProps {
     title?: undefined;
     subtitle?: never;
 }
-type AllProps = PickOptional<MinimizeProps, 'minimize' | 'onMinimizeClick'> &
+type AllProps = {
+    hideSubtitleOnMobile?: boolean;
+} & PickOptional<MinimizeProps, 'minimize' | 'onMinimizeClick'> &
     PickOptional<BackProps, 'back' | 'onBackClick'> &
     LogoProps &
     TitleProps &
@@ -65,14 +67,32 @@ type AllProps = PickOptional<MinimizeProps, 'minimize' | 'onMinimizeClick'> &
 export type HeaderProps = React.HTMLAttributes<HTMLDivElement> &
     (MinimizeProps | BackProps) &
     (LogoProps | NoLogoProps) &
-    (TitleProps | NoTitleProps);
+    (TitleProps | NoTitleProps) & {
+        /**
+         * Скрывать ли подзаголовок на размерах меньше 'S'
+         * @default
+         * true
+         */
+        hideSubtitleOnMobile?: boolean;
+    };
 
 /**
  * Сборный компонент для отрисовки шапки страницы.
  * Уже включает в себя все составные части шапки.
  */
 export const Header = forwardRef<HTMLHeadElement, HeaderProps>(({ children, ...props }, ref) => {
-    const { minimize, back, logo, logoAlt, title, subtitle, onMinimizeClick, onBackClick, ...rest } = props as AllProps;
+    const {
+        minimize,
+        back,
+        logo,
+        logoAlt,
+        title,
+        subtitle,
+        hideSubtitleOnMobile = true,
+        onMinimizeClick,
+        onBackClick,
+        ...rest
+    } = props as AllProps;
 
     return (
         <HeaderRoot ref={ref} {...rest}>
@@ -83,7 +103,7 @@ export const Header = forwardRef<HTMLHeadElement, HeaderProps>(({ children, ...p
             {title && (
                 <HeaderTitleWrapper>
                     <HeaderTitle>{title}</HeaderTitle>
-                    {subtitle && <HeaderSubtitle>{subtitle}</HeaderSubtitle>}
+                    {subtitle && <HeaderSubtitle hideOnMobile={hideSubtitleOnMobile}>{subtitle}</HeaderSubtitle>}
                 </HeaderTitleWrapper>
             )}
             {children && <HeaderContent>{children}</HeaderContent>}
