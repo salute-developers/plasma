@@ -2,12 +2,11 @@ import React, { forwardRef, useRef } from 'react';
 import { useFocusTrap, useForkRef, useUniqId } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines';
-import { cx } from '../../utils';
+// import { cx } from '../../utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { StyledDropdown, StyledPopover } from './Dropdown.styles';
-import { classes } from './Dropdown.tokens';
 import { getPlacements } from './utils';
 import type { DropdownProps } from './Dropdown.types';
 
@@ -35,7 +34,6 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) =>
                 preventOverflow = false,
                 closeOnOverlayClick = false,
                 closeOnEsc = false,
-                isNested = false,
                 ...rest
             },
             outerRootRef,
@@ -51,8 +49,6 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) =>
 
             const dropdownForkRef = useForkRef<HTMLDivElement>(dropdownRef, trapRef);
 
-            const nestedClass = isNested ? classes.nestedDropdown : undefined;
-
             return (
                 <StyledPopover
                     role={role}
@@ -64,7 +60,6 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) =>
                     target={target}
                     offset={offset}
                     preventOverflow={preventOverflow}
-                    className={cx(nestedClass)}
                     hasArrow={hasArrow}
                     placement={getPlacements(placement)}
                     trigger={trigger}

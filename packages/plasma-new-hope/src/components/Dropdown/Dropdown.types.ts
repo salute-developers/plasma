@@ -35,10 +35,6 @@ export type CustomDropdownProps = {
      */
     preventOverflow?: boolean;
     /**
-     * Является ли текущий дропдаун вложенным.
-     */
-    isNested?: boolean;
-    /**
      * Элемент, рядом с которым произойдет вызов дропдауна.
      */
     target?: ReactNode;
@@ -76,7 +72,6 @@ export type CustomDropdownProps = {
      * В каком контейнере позиционируется(по умолчанию document), можно также указать id элемента или ref для него.
      */
     frame?: 'document' | string | React.RefObject<HTMLElement>;
-
     size?: string;
     view?: string;
 };
