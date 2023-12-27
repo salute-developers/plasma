@@ -368,4 +368,31 @@ describe('plasma-ui: NeuHeader: _size', () => {
             failureThresholdType: 'percent',
         });
     });
+
+    it('_mobile: show subtitle', () => {
+        cy.viewport('iphone-6');
+
+        mount(
+            <CypressTestDecorator>
+                <Container>
+                    <Header
+                        size="mobile"
+                        minimize
+                        onMinimizeClick={noop}
+                        logo={src}
+                        title={title}
+                        subTitle={subTitle}
+                        hideSubtitleOnMobile={false}
+                    >
+                        <Button text="buy" />
+                    </Header>
+                </Container>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot({
+            failureThreshold: 0.01,
+            failureThresholdType: 'percent',
+        });
+    });
 });
