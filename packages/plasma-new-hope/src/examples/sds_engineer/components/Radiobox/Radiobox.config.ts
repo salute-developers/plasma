@@ -11,6 +11,8 @@ export const config = {
          */
         size: {
             s: css`
+                --plasma-radiobox-margin: 0 0 0.188rem 0.188rem;
+                --plasma-radiobox-trigger-margin: 0.188rem 0;
                 --plasma-radiobox-trigger-size: 1rem;
                 --plasma-radiobox-trigger-border-radius 1.125rem;
                 --plasma-radiobox-ellipse-size 0.5rem;
@@ -30,6 +32,8 @@ export const config = {
                 --plasma-radiobox-description-line-height: var(--plasma-typo-body-xs-line-height);
             `,
             m: css`
+                --plasma-radiobox-margin: 0 0 0.188rem 0.188rem;
+                --plasma-radiobox-trigger-margin: 0.188rem 0;
                 --plasma-radiobox-trigger-size: 1.375rem;
                 --plasma-radiobox-trigger-border-radius 1.125rem;
                 --plasma-radiobox-ellipse-size 0.625rem;
