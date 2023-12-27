@@ -2,7 +2,7 @@ import React, { forwardRef, useMemo } from 'react';
 
 import { RootProps } from '../../engines';
 import { cx } from '../../utils';
-import { IconCross } from '../_Icon/IconCross';
+import { IconCross } from '../_Icon/Icons/IconCross';
 
 import { classes } from './Notification.tokens';
 import { base as viewCSS } from './variations/_view/base';
