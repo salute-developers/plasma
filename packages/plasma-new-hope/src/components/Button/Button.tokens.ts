@@ -11,7 +11,10 @@ export const tokens = {
     buttonColorActive: '--plasma-button-color-active',
     buttonBackgroundColorActive: '--plasma-button-background-color-active',
 
+    buttonScaleHover: '--plasma-button-scale-hover',
+    buttonScaleActive: '---plasma-button-scale-active',
     buttonHeight: '--plasma-button-height',
+    buttonWidth: '--plasma-button-width',
     buttonPadding: '--plasma-button-padding',
     buttonRadius: '--plasma-button-radius',
     buttonRadiusCircle: '--plasma-button-radius-circle',

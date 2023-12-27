@@ -4,6 +4,8 @@ import { tokens } from '../../Button.tokens';
 
 export const base = css`
     height: var(${tokens.buttonHeight});
+    width: var(${tokens.buttonWidth});
+
     /* TODO: #714 move these calc's to plasma-mapping | ds-generator and add Math.round() */
     padding: 0 var(${tokens.buttonPadding}, calc(var(${tokens.buttonHeight}) * 1.618 / 4));
 

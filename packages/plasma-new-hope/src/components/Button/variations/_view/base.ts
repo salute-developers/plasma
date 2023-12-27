@@ -10,16 +10,14 @@ export const base = css`
         color: var(${tokens.buttonColorHover}, var(${tokens.buttonColor}));
         background-color: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
 
-        /* TODO: #706 make scale - token */
-        scale: 1.02;
+        scale: var(${tokens.buttonScaleHover});
     }
 
     :active {
         color: var(${tokens.buttonColorActive}, var(${tokens.buttonColor}));
         background-color: var(${tokens.buttonBackgroundColorActive}, var(${tokens.buttonBackgroundColor}));
 
-        /* TODO: #706 make scale - token */
-        scale: 0.98;
+        scale: var(${tokens.buttonScaleActive});
     }
 `;
 
