@@ -8,15 +8,16 @@ import { TextBoxSubTitle } from '../TextBox';
 /**
  * Компонент для размещения подзаголовка.
  */
-export const HeaderSubtitle = styled(TextBoxSubTitle)`
+export const HeaderSubtitle = styled(TextBoxSubTitle)<{ hideOnMobile?: boolean }>`
     margin: 0;
 
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 
-    ${({ theme }) => css`
-        ${mediaQuery(
+    ${({ theme, hideOnMobile = true }) => css`
+        ${hideOnMobile &&
+        mediaQuery(
             'S',
             theme.deviceScale,
         )(css`
