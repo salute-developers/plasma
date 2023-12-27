@@ -13,6 +13,7 @@ export const tokens = {
     scaleActive: '--plasma-chip-scale-active',
     focusColor: '--plasma-chip-focus-color',
     outlineSize: '--plasma-chip-outline-size',
+    closeIconColor: '--plasma-chip-close-icon-color',
 
     borderRadius: '--plasma-chip-border-radius',
     width: '--plasma-chip-width',
