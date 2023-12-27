@@ -51,10 +51,16 @@ const defaultCarouselItemStyle = { width: '20rem', padding: '0 0.5rem' };
 export const Default: StoryObj<CarouselProps> = {
     args: {
         scrollAlign: 'start',
+        isDragScrollDisabled: false,
     },
-    render: ({ scrollAlign }) => {
+    render: ({ scrollAlign, isDragScrollDisabled }) => {
         return (
-            <Carousel index={0} style={defaultCarouselStyle} scrollAlign={scrollAlign}>
+            <Carousel
+                index={0}
+                style={defaultCarouselStyle}
+                scrollAlign={scrollAlign}
+                isDragScrollDisabled={isDragScrollDisabled}
+            >
                 {items.map((item) => (
                     <CarouselItem key={item.id} style={defaultCarouselItemStyle} scrollSnapAlign={scrollAlign}>
                         <CarouselCard
