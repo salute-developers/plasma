@@ -3,13 +3,13 @@ import { styled } from '@linaria/react';
 import { component } from '../../engines';
 import { popoverConfig, popoverClasses } from '../Popover';
 
-import { classes, tokens } from './Dropdown.tokens';
+import { tokens } from './Dropdown.tokens';
 
 // issue #823
 const Popover = component(popoverConfig);
 
 export const StyledPopover = styled(Popover)`
-    .${String(classes.nestedDropdown)} > .${String(popoverClasses.target)} {
+    .${String(popoverClasses.target)} {
         display: block;
     }
 `;

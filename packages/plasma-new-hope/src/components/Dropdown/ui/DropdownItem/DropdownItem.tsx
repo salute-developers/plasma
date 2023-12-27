@@ -1,13 +1,14 @@
-import React, { forwardRef, useCallback } from 'react';
+import React, { forwardRef, useCallback, useMemo } from 'react';
 import { safeUseId } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../../../engines';
 import { classes } from '../../Dropdown.tokens';
 import { cx } from '../../../../utils';
+import { getValidComponent } from '../../utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { base } from './DropdownItem.styles';
+import { StyledContentLeft, StyledContentRight, base } from './DropdownItem.styles';
 import type { DropdownItemProps } from './DropdownItem.type';
 
 /**
@@ -41,27 +42,56 @@ export const dropdownItemRoot = (Root: RootProps<HTMLDivElement, DropdownItemPro
             const uniqId = safeUseId();
             const innerId = id || uniqId;
 
-            const withDropdownItemIsSelected = isSelected ? classes.dropdownItemIsSelected : undefined;
-            const withDropdownItemIsDisabled = disabled ? classes.dropdownItemIsDisbaled : undefined;
+            const withDropdownItemIsSelected = checked || isSelected ? classes.dropdownItemIsSelected : undefined;
+            const withDropdownItemIsDisabled = disabled ? classes.dropdownItemIsDisabled : undefined;
 
-            const onClickHandle = useCallback(
+            const handleOnClick = useCallback(
                 (event: React.MouseEvent<HTMLDivElement>) => {
-                    if (disabled) return;
+                    if (disabled) {
+                        return;
+                    }
 
                     onClick?.(event);
 
-                    onSelect?.();
+                    if (onSelect && !ContentLeftComponent) {
+                        onSelect(value, text);
+                    }
                 },
-                [isSelected, onSelect, disabled],
+                [onSelect, disabled],
+            );
+
+            const handleOnChange = useCallback(
+                (event: React.MouseEvent<HTMLInputElement>) => {
+                    if (disabled) {
+                        return;
+                    }
+
+                    onChange?.(event);
+
+                    if (onSelect && ContentLeftComponent) {
+                        onSelect(value, text);
+                    }
+                },
+                [onSelect, disabled],
             );
 
             const contentProps = {
                 name,
                 value,
-                checked,
+                checked: checked || isSelected,
                 disabled,
-                ...(!disabled && { onChange }),
+                ...(!disabled && { onChange: handleOnChange }),
             };
+
+            const ContentLeft = useMemo(() => getValidComponent(ContentLeftComponent, contentProps), [
+                ContentRightComponent,
+                contentProps,
+            ]);
+
+            const ContentRight = useMemo(() => getValidComponent(ContentRightComponent, contentProps), [
+                ContentRightComponent,
+                contentProps,
+            ]);
 
             return (
                 <Root
@@ -72,16 +102,18 @@ export const dropdownItemRoot = (Root: RootProps<HTMLDivElement, DropdownItemPro
                     isSelected={isSelected}
                     role={role}
                     ref={outerRootRef}
-                    onClick={onClickHandle}
+                    tabIndex={0}
+                    onClick={handleOnClick}
+                    data-value={value}
                     {...rest}
                 >
                     {text ? (
                         <>
-                            {ContentLeftComponent && <ContentLeftComponent {...contentProps} />}
+                            <StyledContentLeft>{ContentLeftComponent && ContentLeft}</StyledContentLeft>
                             {text}
-                            {ContentRightComponent && (
-                                <ContentRightComponent {...contentProps} style={{ marginLeft: 'auto' }} />
-                            )}
+                            <StyledContentRight style={{ marginLeft: 'auto' }}>
+                                {ContentRightComponent && ContentRight}
+                            </StyledContentRight>
                         </>
                     ) : (
                         children
