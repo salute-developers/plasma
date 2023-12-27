@@ -11,17 +11,9 @@ const config: Config = {
             renderWaitTimeout: 500,
         },
     },
-    metricConfiguration: {
-        median: {
-            failOnSignificantChanges: false,
-        },
-    },
     include: ['packages/**/*.perftest.tsx'],
     exclude: ['**/node_modules/**'],
-    outputFilePath: 'perftest/result.json',
     displayIntermediateCalculations: false,
-    failOnSignificantChanges: true,
-    stabilizers: ['staticTask'],
     absoluteError: 1,
     cache: {
         taskState: true,
