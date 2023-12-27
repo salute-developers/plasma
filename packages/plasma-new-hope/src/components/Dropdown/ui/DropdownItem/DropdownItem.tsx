@@ -110,10 +110,8 @@ export const dropdownItemRoot = (Root: RootProps<HTMLDivElement, DropdownItemPro
                     {text ? (
                         <>
                             <StyledContentLeft>{ContentLeftComponent && ContentLeft}</StyledContentLeft>
-                            {text}
-                            <StyledContentRight style={{ marginLeft: 'auto' }}>
-                                {ContentRightComponent && ContentRight}
-                            </StyledContentRight>
+                            <StyledText>{text}</StyledText>
+                            <StyledContentRight>{ContentRightComponent && ContentRight}</StyledContentRight>
                         </>
                     ) : (
                         children

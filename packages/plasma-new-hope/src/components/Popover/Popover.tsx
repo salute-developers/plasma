@@ -213,7 +213,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             }, [isOpen, children, forceUpdate]);
 
             return (
-                <Wrapper className={className}>
+                <Wrapper className={classes.wrapper}>
                     <StyledRoot
                         ref={handleRef}
                         onClick={onClick}

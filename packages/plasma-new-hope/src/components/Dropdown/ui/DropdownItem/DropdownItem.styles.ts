@@ -11,6 +11,7 @@ export const StyledContentLeft = styled.div`
 `;
 
 export const StyledContentRight = styled.div`
+    margin-left: auto;
     display: inline-flex;
 
     width: var(${tokens.itemContentRightWidth});
@@ -21,6 +22,18 @@ export const base = css`
     display: flex;
     align-items: center;
     user-select: none;
+
+    :focus {
+        outline: none;
+    }
+
+    ${addFocus({
+        outlineSize: '0.125rem',
+        outlineOffset: '0',
+        outlineColor: `var(${tokens.focusColor})`,
+        outlineRadius: `var(${tokens.itemBorderRadius})`,
+        hasTransition: false,
+    })};
 
     width: 100%;
 
