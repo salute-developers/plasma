@@ -1016,6 +1016,16 @@ import { WindowMinimizeROutline } from './Icon.assets.24/WindowMinimizeROutline'
 import { WindowMultiFill } from './Icon.assets.24/WindowMultiFill';
 import { WindowMultiOutline } from './Icon.assets.24/WindowMultiOutline';
 import { WindowOutline } from './Icon.assets.24/WindowOutline';
+import { GroupFill } from './Icon.assets.24/GroupFill';
+import { GroupOutline } from './Icon.assets.24/GroupOutline';
+import { PeopleGroupBigFill } from './Icon.assets.24/PeopleGroupBigFill';
+import { PeopleGroupBigOutline } from './Icon.assets.24/PeopleGroupBigOutline';
+import { PeopleGroupFill } from './Icon.assets.24/PeopleGroupFill';
+import { PeopleGroupOutline } from './Icon.assets.24/PeopleGroupOutline';
+import { ShareFill } from './Icon.assets.24/ShareFill';
+import { ShareOutline } from './Icon.assets.24/ShareOutline';
+import { UploadFill } from './Icon.assets.24/UploadFill';
+import { UploadOutline } from './Icon.assets.24/UploadOutline';
 
 interface Props {
     icon: IconSetUnionSize;
@@ -1139,6 +1149,10 @@ export const iconSectionsSet = {
         windowMultiFill: WindowMultiFill,
         windowMultiOutline: WindowMultiOutline,
         windowOutline: WindowOutline,
+        groupFill: GroupFill,
+        groupOutline: GroupOutline,
+        uploadFill: UploadFill,
+        uploadOutline: UploadOutline,
     },
     Animal: {
         animalFill: AnimalFill,
@@ -1279,6 +1293,8 @@ export const iconSectionsSet = {
         swapVert: SwapVert,
         swapVertCircFill: SwapVertCircFill,
         swapVertCircOutline: SwapVertCircOutline,
+        shareFill: ShareFill,
+        shareOutline: ShareOutline,
     },
     Data: {
         chartBarFill: ChartBarFill,
@@ -1367,6 +1383,10 @@ export const iconSectionsSet = {
         beautificationOutline: BeautificationOutline,
         smileFill: SmileFill,
         smileOutline: SmileOutline,
+        peopleGroupBigFill: PeopleGroupBigFill,
+        peopleGroupBigOutline: PeopleGroupBigOutline,
+        peopleGroupFill: PeopleGroupFill,
+        peopleGroupOutline: PeopleGroupOutline,
     },
     Commerce: {
         giftFill: GiftFill,

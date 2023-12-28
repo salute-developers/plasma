@@ -1013,6 +1013,16 @@ import { WindowMinimizeROutline } from './WindowMinimizeROutline';
 import { WindowMultiFill } from './WindowMultiFill';
 import { WindowMultiOutline } from './WindowMultiOutline';
 import { WindowOutline } from './WindowOutline';
+import { GroupFill } from './GroupFill';
+import { GroupOutline } from './GroupOutline';
+import { PeopleGroupBigFill } from './PeopleGroupBigFill';
+import { PeopleGroupBigOutline } from './PeopleGroupBigOutline';
+import { PeopleGroupFill } from './PeopleGroupFill';
+import { PeopleGroupOutline } from './PeopleGroupOutline';
+import { ShareFill } from './ShareFill';
+import { ShareOutline } from './ShareOutline';
+import { UploadFill } from './UploadFill';
+import { UploadOutline } from './UploadOutline';
 
 export const iconSet24 = {
     addFill: AddFill,
@@ -2030,6 +2040,16 @@ export const iconSet24 = {
     windowMultiFill: WindowMultiFill,
     windowMultiOutline: WindowMultiOutline,
     windowOutline: WindowOutline,
+    groupFill: GroupFill,
+    groupOutline: GroupOutline,
+    peopleGroupBigFill: PeopleGroupBigFill,
+    peopleGroupBigOutline: PeopleGroupBigOutline,
+    peopleGroupFill: PeopleGroupFill,
+    peopleGroupOutline: PeopleGroupOutline,
+    shareFill: ShareFill,
+    shareOutline: ShareOutline,
+    uploadFill: UploadFill,
+    uploadOutline: UploadOutline,
 };
 
 export type IconSet24 = keyof typeof iconSet24;
