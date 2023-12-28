@@ -1016,6 +1016,16 @@ export { IconWindowMinimizeROutline } from './Icons/IconWindowMinimizeROutline';
 export { IconWindowMultiFill } from './Icons/IconWindowMultiFill';
 export { IconWindowMultiOutline } from './Icons/IconWindowMultiOutline';
 export { IconWindowOutline } from './Icons/IconWindowOutline';
+export { IconGroupFill } from './Icons/IconGroupFill';
+export { IconGroupOutline } from './Icons/IconGroupOutline';
+export { IconPeopleGroupBigFill } from './Icons/IconPeopleGroupBigFill';
+export { IconPeopleGroupBigOutline } from './Icons/IconPeopleGroupBigOutline';
+export { IconPeopleGroupFill } from './Icons/IconPeopleGroupFill';
+export { IconPeopleGroupOutline } from './Icons/IconPeopleGroupOutline';
+export { IconShareFill } from './Icons/IconShareFill';
+export { IconShareOutline } from './Icons/IconShareOutline';
+export { IconUploadFill } from './Icons/IconUploadFill';
+export { IconUploadOutline } from './Icons/IconUploadOutline';
 
 export { IconRoot } from './IconRoot';
 export type { IconProps, IconSize, IconSetUnionSize } from './IconRoot';
