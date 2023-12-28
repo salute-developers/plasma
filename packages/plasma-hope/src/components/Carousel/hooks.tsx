@@ -4,7 +4,7 @@ const SCROLL_SPEED = 2;
 
 export const useDragScroll = <T extends HTMLElement>(
     scrollRef: React.MutableRefObject<T | null>,
-    isDragScrollDisabled: boolean | null = false,
+    isDragScrollDisabled?: boolean,
 ) => {
     const [isDragging, setDragging] = useState(false);
     const [startX, setStartX] = useState(0);
