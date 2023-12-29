@@ -3,5 +3,5 @@ import React from 'react';
 import { IconRoot, IconProps } from '../IconRoot';
 
 export const IconKeyboardFill: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} iconName="keyboardFill" />;
+    return <IconRoot className={className} size={size} color={color} icon="keyboardFill" />;
 };

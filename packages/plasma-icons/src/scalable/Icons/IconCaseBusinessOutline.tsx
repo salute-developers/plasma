@@ -3,5 +3,5 @@ import React from 'react';
 import { IconRoot, IconProps } from '../IconRoot';
 
 export const IconCaseBusinessOutline: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} iconName="caseBusinessOutline" />;
+    return <IconRoot className={className} size={size} color={color} icon="caseBusinessOutline" />;
 };

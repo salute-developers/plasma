@@ -3,5 +3,5 @@ import React from 'react';
 import { IconRoot, IconProps } from '../IconRoot';
 
 export const IconDropDashOutline: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} iconName="dropDashOutline" />;
+    return <IconRoot className={className} size={size} color={color} icon="dropDashOutline" />;
 };

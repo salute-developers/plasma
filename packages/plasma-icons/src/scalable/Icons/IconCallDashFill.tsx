@@ -3,5 +3,5 @@ import React from 'react';
 import { IconRoot, IconProps } from '../IconRoot';
 
 export const IconCallDashFill: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} iconName="callDashFill" />;
+    return <IconRoot className={className} size={size} color={color} icon="callDashFill" />;
 };

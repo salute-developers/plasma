@@ -3,5 +3,5 @@ import React from 'react';
 import { IconRoot, IconProps } from '../IconRoot';
 
 export const IconPictureFill: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} iconName="pictureFill" />;
+    return <IconRoot className={className} size={size} color={color} icon="pictureFill" />;
 };

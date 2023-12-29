@@ -3,5 +3,5 @@ import React from 'react';
 import { IconRoot, IconProps } from '../IconRoot';
 
 export const IconTextUnderline: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} iconName="textUnderline" />;
+    return <IconRoot className={className} size={size} color={color} icon="textUnderline" />;
 };
