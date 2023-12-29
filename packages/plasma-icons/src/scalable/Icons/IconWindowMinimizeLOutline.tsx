@@ -3,5 +3,5 @@ import React from 'react';
 import { IconRoot, IconProps } from '../IconRoot';
 
 export const IconWindowMinimizeLOutline: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} iconName="windowMinimizeLOutline" />;
+    return <IconRoot className={className} size={size} color={color} icon="windowMinimizeLOutline" />;
 };

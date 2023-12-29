@@ -3,5 +3,5 @@ import React from 'react';
 import { IconRoot, IconProps } from '../IconRoot';
 
 export const IconTagBadgeOutline: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} iconName="tagBadgeOutline" />;
+    return <IconRoot className={className} size={size} color={color} icon="tagBadgeOutline" />;
 };

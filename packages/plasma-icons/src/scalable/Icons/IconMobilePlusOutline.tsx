@@ -3,5 +3,5 @@ import React from 'react';
 import { IconRoot, IconProps } from '../IconRoot';
 
 export const IconMobilePlusOutline: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} iconName="mobilePlusOutline" />;
+    return <IconRoot className={className} size={size} color={color} icon="mobilePlusOutline" />;
 };

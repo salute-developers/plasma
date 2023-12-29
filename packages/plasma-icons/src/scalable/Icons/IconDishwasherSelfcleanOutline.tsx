@@ -3,5 +3,5 @@ import React from 'react';
 import { IconRoot, IconProps } from '../IconRoot';
 
 export const IconDishwasherSelfcleanOutline: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} iconName="dishwasherSelfcleanOutline" />;
+    return <IconRoot className={className} size={size} color={color} icon="dishwasherSelfcleanOutline" />;
 };

@@ -3,5 +3,5 @@ import React from 'react';
 import { IconRoot, IconProps } from '../IconRoot';
 
 export const IconProfileCircleOutline: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} iconName="profileCircleOutline" />;
+    return <IconRoot className={className} size={size} color={color} icon="profileCircleOutline" />;
 };
