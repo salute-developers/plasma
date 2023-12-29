@@ -3,5 +3,5 @@ import React from 'react';
 import { IconRoot, IconProps } from '../IconRoot';
 
 export const IconSettingsOutline: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} iconName="settingsOutline" />;
+    return <IconRoot className={className} size={size} color={color} icon="settingsOutline" />;
 };

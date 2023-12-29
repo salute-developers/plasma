@@ -3,5 +3,5 @@ import React from 'react';
 import { IconRoot, IconProps } from '../IconRoot';
 
 export const IconVerificationOutline: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} iconName="verificationOutline" />;
+    return <IconRoot className={className} size={size} color={color} icon="verificationOutline" />;
 };

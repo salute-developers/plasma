@@ -3,5 +3,5 @@ import React from 'react';
 import { IconRoot, IconProps } from '../IconRoot';
 
 export const IconTvPlayOutline: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} iconName="tvPlayOutline" />;
+    return <IconRoot className={className} size={size} color={color} icon="tvPlayOutline" />;
 };

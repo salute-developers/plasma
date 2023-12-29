@@ -3,5 +3,5 @@ import React from 'react';
 import { IconRoot, IconProps } from '../IconRoot';
 
 export const IconWindowMultiOutline: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} iconName="windowMultiOutline" />;
+    return <IconRoot className={className} size={size} color={color} icon="windowMultiOutline" />;
 };

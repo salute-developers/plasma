@@ -3,5 +3,5 @@ import React from 'react';
 import { IconRoot, IconProps } from '../IconRoot';
 
 export const IconPanelSidebarRFocusOutline: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} iconName="panelSidebarRFocusOutline" />;
+    return <IconRoot className={className} size={size} color={color} icon="panelSidebarRFocusOutline" />;
 };

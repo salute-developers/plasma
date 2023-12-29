@@ -1035,7 +1035,7 @@ interface Props {
 }
 
 export const Icon: React.FC<Props> = ({ icon, size, color, className }) => {
-    return <IconRoot className={className} iconName={icon} size={size || 's'} color={color} />;
+    return <IconRoot className={className} icon={icon} size={size || 's'} color={color} />;
 };
 
 export const iconSectionsSet = {

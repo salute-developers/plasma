@@ -2,7 +2,7 @@ import { Fragment, useMemo, useContext } from 'react';
 import type { FC } from 'react';
 import styled, { css } from 'styled-components';
 import { Headline4, Footnote1, applyNoSelect, applyEllipsis } from '@salutejs/plasma-b2c';
-import { IconRoot, IconSetUnionSize, iconSectionsSet } from '@salutejs/plasma-icons/scalable';
+import { IconRoot, iconSectionsSet } from '@salutejs/plasma-icons/scalable';
 import { surfaceLiquid01, surfaceLiquid02, secondary, white } from '@salutejs/plasma-tokens-b2c';
 import { link, linkHover } from '@salutejs/plasma-b2c/tokens';
 
@@ -112,7 +112,7 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
                                     dispatch(setWizardItem('icon', name));
                                 }}
                             >
-                                <IconRoot size={size} iconName={name as IconSetUnionSize} color="inherit" />
+                                <IconRoot size={size} icon={Component} color="inherit" />
                                 <StyledIconName>{name}</StyledIconName>
                             </StyledCard>
                         ))}
