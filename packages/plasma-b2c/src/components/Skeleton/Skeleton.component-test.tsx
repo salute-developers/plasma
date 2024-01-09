@@ -23,6 +23,23 @@ const textSizes = [
     'button2',
     'caption',
     'underline',
+    'bodyL',
+    'bodyM',
+    'bodyS',
+    'bodyXS',
+    'bodyXXS',
+    'dsplL',
+    'dsplM',
+    'dsplS',
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'textL',
+    'textM',
+    'textS',
+    'textXS',
 ];
 const roundnessKeys = Object.keys(radiuses).map((r) => Number(r));
 
