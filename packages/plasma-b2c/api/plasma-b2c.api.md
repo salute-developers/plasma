@@ -28,12 +28,7 @@ import { arrayItemSwapping } from '@salutejs/plasma-hope';
 import { AsProps } from '@salutejs/plasma-core';
 import { AudioPlayer } from '@salutejs/plasma-hope';
 import { AudioPlayerProps } from '@salutejs/plasma-hope';
-import { Badge } from '@salutejs/plasma-hope';
-import { BadgeProps } from '@salutejs/plasma-hope';
-import { BadgeSize } from '@salutejs/plasma-hope';
-import { badgeSizes } from '@salutejs/plasma-hope';
-import { BadgeView } from '@salutejs/plasma-hope';
-import { badgeViews } from '@salutejs/plasma-hope';
+import { BadgeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BlurProps } from '@salutejs/plasma-core';
 import { blurs } from '@salutejs/plasma-core';
@@ -288,17 +283,41 @@ export { AudioPlayer }
 
 export { AudioPlayerProps }
 
-export { Badge }
+// @public
+export const Badge: FunctionComponent<PropsType<    {
+view: {
+primary: string;
+accent: string;
+positive: string;
+warning: string;
+negative: string;
+dark: string;
+light: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+};
+pilled: {
+true: string;
+};
+transparent: {
+true: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+pilled?: boolean | undefined;
+transparent?: boolean | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & {
+children?: ReactNode;
+} & RefAttributes<HTMLDivElement>>;
 
 export { BadgeProps }
-
-export { BadgeSize }
-
-export { badgeSizes }
-
-export { BadgeView }
-
-export { badgeViews }
 
 export { BlurProps }
 
@@ -529,7 +548,7 @@ contentRight?: ReactNode;
 contentClearButton?: ReactNode;
 disabled?: boolean | undefined;
 readOnly?: boolean | undefined;
-size?: "s" | "l" | "m" | "xs" | undefined;
+size?: "m" | "s" | "l" | "xs" | undefined;
 view?: "secondary" | "default" | "positive" | undefined;
 onClear?: (() => void) | undefined;
 } & {
