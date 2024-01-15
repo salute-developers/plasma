@@ -1,3 +1,3 @@
-export { Badge, QuantityBadge } from './Badge';
+export { Badge } from './Badge';
 
-export type { BadgeProps, QuantityBadgeProps } from '@salutejs/plasma-new-hope/styled-components';
+export type { BadgeProps } from '@salutejs/plasma-new-hope/styled-components';

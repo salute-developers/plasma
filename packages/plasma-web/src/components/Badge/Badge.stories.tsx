@@ -2,10 +2,11 @@ import React from 'react';
 import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react';
 
-import { Badge, QuantityBadge } from './Badge';
+import { Badge } from './Badge';
 
 const meta: Meta<typeof Badge> = {
     title: 'Content/Badge',
+    component: Badge,
     decorators: [InSpacingDecorator],
     argTypes: {
         size: {
@@ -27,7 +28,6 @@ const meta: Meta<typeof Badge> = {
 export default meta;
 
 type Story = StoryObj<typeof Badge>;
-type StoryQuantityBadge = StoryObj<typeof QuantityBadge>;
 
 const BellIcon = (props) => (
     <svg width="100%" viewBox="0 0 24 24" fill="none" {...props}>
@@ -51,28 +51,4 @@ export const Default: Story = {
 export const WithIcon: Story = {
     args: { ...Default.args },
     render: (args) => <Badge contentLeft={<BellIcon width="1rem" height="1rem" />} {...args} />,
-};
-
-export const Quantity: StoryQuantityBadge = {
-    argTypes: {
-        size: {
-            options: ['xs', 'xxs'],
-            control: {
-                type: 'select',
-            },
-        },
-        view: {
-            options: ['default', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'],
-            control: {
-                type: 'select',
-            },
-        },
-        ...disableProps(['contentLeft', 'contentRight']),
-    },
-    args: {
-        text: '123',
-        view: 'default',
-        size: 'xs',
-    },
-    render: (args) => <QuantityBadge {...args} />,
 };

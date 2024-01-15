@@ -4,10 +4,11 @@ import type { StoryObj, Meta } from '@storybook/react';
 
 import { WithTheme } from '../../../_helpers';
 
-import { Badge, QuantityBadge } from './Badge';
+import { Badge } from './Badge';
 
 const meta: Meta<typeof Badge> = {
     title: 'sds_engineer/Badge',
+    component: Badge,
     decorators: [WithTheme],
     argTypes: {
         size: {
@@ -17,11 +18,7 @@ const meta: Meta<typeof Badge> = {
             },
         },
         view: {
-<<<<<<< HEAD
-            options: ['default', 'accent', 'positive', 'warning', 'negative', 'dark', 'light', 'custom'],
-=======
             options: ['primary', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'],
->>>>>>> 26f6c6290 (feat(plasma-new-hope): add Badge with new architecture)
             control: {
                 type: 'select',
             },
@@ -33,7 +30,6 @@ const meta: Meta<typeof Badge> = {
 export default meta;
 
 type Story = StoryObj<typeof Badge>;
-type StoryQuantityBadge = StoryObj<typeof QuantityBadge>;
 
 const BellIcon = (props) => (
     <svg width="100%" viewBox="0 0 24 24" fill="none" {...props}>
@@ -57,28 +53,4 @@ export const Default: Story = {
 export const WithIcon: Story = {
     args: { ...Default.args },
     render: (args) => <Badge contentLeft={<BellIcon width="1rem" height="1rem" />} {...args} />,
-};
-
-export const Quantity: StoryQuantityBadge = {
-    argTypes: {
-        size: {
-            options: ['xs', 'xxs'],
-            control: {
-                type: 'select',
-            },
-        },
-        view: {
-            options: ['default', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'],
-            control: {
-                type: 'select',
-            },
-        },
-        ...disableProps(['contentLeft', 'contentRight']),
-    },
-    args: {
-        text: '123',
-        view: 'default',
-        size: 'xs',
-    },
-    render: (args) => <QuantityBadge {...args} />,
 };
