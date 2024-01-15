@@ -73,6 +73,8 @@ import { ColSizeProps } from '@salutejs/plasma-hope';
 import { Container } from '@salutejs/plasma-hope';
 import { ContainerProps } from '@salutejs/plasma-hope';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
+import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
+import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { defaultValidate } from '@salutejs/plasma-hope';
 import { DisabledProps } from '@salutejs/plasma-core';
@@ -576,6 +578,32 @@ export { Container }
 export { ContainerProps }
 
 export { convertRoundnessMatrix }
+
+// @public
+export const Counter: FunctionComponent<PropsType<    {
+view: {
+primary: string;
+accent: string;
+positive: string;
+warning: string;
+negative: string;
+dark: string;
+light: string;
+};
+size: {
+xs: string;
+xxs: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+count: number;
+maxCount?: number | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+export { CounterProps }
+
+export { counterTokens }
 
 export { defaultValidate }
 
