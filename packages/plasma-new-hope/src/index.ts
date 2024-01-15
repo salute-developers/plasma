@@ -25,3 +25,4 @@ export * from './components/Segment';
 export * from './components/Skeleton';
 export * from './components/Image';
 export * from './components/Badge';
+export * from './components/Counter';
