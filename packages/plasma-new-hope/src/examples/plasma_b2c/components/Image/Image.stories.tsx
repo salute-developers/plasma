@@ -40,7 +40,7 @@ export const Default: StoryObj<ImageProps & { ratio: Ratio }> = {
         width: '200px',
         height: '200px',
     },
-    render: ({ base, ratio, ...args }) => (
+    render: (args) => (
         <div style={{ maxWidth: '10rem' }}>
             <Image style={{ position: 'relative' }} {...args} />
         </div>

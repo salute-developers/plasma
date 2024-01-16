@@ -31,17 +31,14 @@ export default meta;
 export const Default: StoryObj<ImageProps & { ratio: Ratio }> = {
     args: {
         base: 'div',
-        ratio: '1/1',
+        src: './images/320_320_9.jpg',
+        alt: 'картинка для примера фоном',
+        width: '200px',
+        height: '200px',
     },
-    render: ({ base, ratio }) => (
+    render: ({ base, ratio, ...args }) => (
         <div style={{ maxWidth: '10rem' }}>
-            <Image
-                src="./images/320_320_9.jpg"
-                ratio={ratio}
-                base={base as 'div'}
-                alt="картинка для примера фоном"
-                style={{ position: 'relative' }}
-            />
+            <Image style={{ position: 'relative' }} {...args} />
         </div>
     ),
 };
