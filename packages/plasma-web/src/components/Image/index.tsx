@@ -1,2 +1,3 @@
-export type { ImageBaseProps, Ratio, ImageProps } from '@salutejs/plasma-hope';
-export { Image } from '@salutejs/plasma-hope';
+export { Image } from './Image';
+
+export type { ImageProps, Ratio } from '@salutejs/plasma-new-hope/styled-components';
