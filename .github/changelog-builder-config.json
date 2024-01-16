@@ -21,6 +21,10 @@
             "labels": ["plasma-docs"]
         },
         {
+            "title": "## Bugs",
+            "labels": ["plasma-bugs"]
+        },
+        {
             "title": "## Misc",
             "labels": []
         }
