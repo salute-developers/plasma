@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import { Image } from '@salutejs/plasma-core';
+import type { ImageProps } from '@salutejs/plasma-core';
 
 import { addFocus } from '../../mixins';
-import { Image, ImageProps } from '../Image';
 import { Headline4, Footnote1 } from '../Typography';
 
 interface CarouselCardProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
