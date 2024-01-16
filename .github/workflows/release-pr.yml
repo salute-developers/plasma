@@ -39,7 +39,7 @@ jobs:
       - name: Create "changelog_artifacts.md"
         run: |
           cat > ${{ github.workspace }}/changelog_artifacts.md << EOL
-          ${{ steps.github_release.outputs.changelog }}
+          `${{ steps.github_release.outputs.changelog }}`
           EOL
       
       - name: Upload "changelog_artifacts.md"
