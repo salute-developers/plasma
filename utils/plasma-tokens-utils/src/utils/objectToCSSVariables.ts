@@ -45,7 +45,7 @@ export const objectToCSSVariables = (
 
             vars = {
                 ...vars,
-                ...objectToCSSVariables(value, name, withPrefixDesign),
+                ...objectToCSSVariables(value, name, withPrefixDesign, withKebabCase),
             };
 
             return vars;
