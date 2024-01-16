@@ -7,13 +7,13 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 
 # Badge
 <Description name="Badge" />
-<PropsTable name="Badge" />
+<PropsTable name="Badge"  exclude={['css']} />
 <StorybookLink name="Badge" />
 
 ## Примеры
 
 ### Размер бейджа
-Размер задается с помощью свойства `size`. Возможные значения свойтсва: `"l"` или `"s"`.
+Размер задается с помощью свойства `size`. Возможные значения свойтсва: `"l"`, `"m"`, `"s"`.
 
 ```tsx live 
 import React from 'react';
@@ -23,7 +23,26 @@ export function App() {
     return (
         <div>
             <Badge text="Бейдж" size="l" />
+            <Badge text="Бейдж" size="m" />
             <Badge text="Бейдж" size="s" />
+        </div>
+    );
+}
+```
+
+### Скругленность бейджа
+Скругленность задается с помощью свойства `pilled`:
+
+```tsx live 
+import React from 'react';
+import { Badge } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <div>
+            <Badge text="Бейдж" size="l" pilled />
+            <Badge text="Бейдж" size="m" pilled />
+            <Badge text="Бейдж" size="s" pilled />
         </div>
     );
 }
@@ -33,10 +52,12 @@ export function App() {
 Вид бейджа задается с помощью свойства `view`. Возможные значения свойства `view`:
 
 + `"primary"` – основной бейдж;
-+ `"secondary"` – вторичный бейдж;
-+ `"success"` – успешное завершение;
++ `"accent"` – бейдж акцентного цвета;
++ `"positive"` – успешное завершение;
 + `"warning"` – предупреждение;
-+ `"critical"` – ошибка.
++ `"negative"` – ошибка;
++ `"dark"` – темный бэйдж;
++ `"light"` – светлый бэйдж.
 
 ```tsx live 
 import React from 'react';
@@ -46,18 +67,40 @@ export function App() {
     return (
         <div>
             <Badge text="Бейдж" size="l" view="primary" />
-            <Badge text="Бейдж" size="l" view="secondary" />
-            <Badge text="Бейдж" size="l" view="success" />
+            <Badge text="Бейдж" size="l" view="accent" />
+            <Badge text="Бейдж" size="l" view="positive" />
             <Badge text="Бейдж" size="l" view="warning" />
-            <Badge text="Бейдж" size="l" view="critical" />
+            <Badge text="Бейдж" size="l" view="negative" />
+            <Badge text="Бейдж" size="l" view="dark" />
+            <Badge text="Бейдж" size="l" view="light" />
         </div>
     );
 }
 ```
 
-### Иконка слева
-В левой части бейджа можно отобразить иконку.
-Если не указывать текст, бейдж будет содержать только заданную иконку:
+так же на вид бейджа влияет свойство `transparent`:
+
+```tsx live 
+import React from 'react';
+import { Badge } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <div>
+            <Badge text="Бейдж" size="l" view="primary" transparent />
+            <Badge text="Бейдж" size="l" view="accent" transparent />
+            <Badge text="Бейдж" size="l" view="positive" transparent />
+            <Badge text="Бейдж" size="l" view="warning" transparent />
+            <Badge text="Бейдж" size="l" view="negative" transparent />
+            <Badge text="Бейдж" size="l" view="dark" transparent />
+            <Badge text="Бейдж" size="l" view="light" transparent />
+        </div>
+    );
+}
+```
+
+### Иконка слева / справа
+В левой и/или правой части бейджа можно отобразить иконку:
 
 ```tsx live
 import React from 'react';
@@ -75,9 +118,10 @@ export function App() {
                     <IconEye color="inherit" size="xs" />
                 } />
             <Badge 
-                size="l" 
+                text="Бейдж" 
+                size="l"   
                 view="primary" 
-                contentLeft={
+                contentRight={
                     <IconEye color="inherit" size="xs" />
                 } />
         </div>
