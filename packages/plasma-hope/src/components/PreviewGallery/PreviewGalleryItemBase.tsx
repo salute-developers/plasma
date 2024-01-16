@@ -1,10 +1,9 @@
 import React, { memo } from 'react';
 import styled, { css } from 'styled-components';
-import { whiteSecondary, whiteTertiary, buttonAccent, critical, whitePrimary } from '@salutejs/plasma-core';
+import { whiteSecondary, whiteTertiary, buttonAccent, critical, whitePrimary, Image } from '@salutejs/plasma-core';
 import { IconDone, IconDrag } from '@salutejs/plasma-icons';
 
 import { Footnote2 } from '../Typography';
-import { Image } from '../Image';
 
 import { AddionalItemProps, StatusType, TooltipItem } from './types';
 
