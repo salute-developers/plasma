@@ -25,7 +25,7 @@ type CustomStoryTabsProps = {
 type StoryTabsProps = ComponentProps<typeof Tabs> & CustomStoryTabsProps;
 
 const meta: Meta<StoryTabsProps> = {
-    title: 'sds_engineer/Tabs',
+    title: 'plasma_web/Tabs',
     component: Tabs,
     decorators: [WithTheme],
     argTypes: {

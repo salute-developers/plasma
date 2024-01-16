@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { tokens } from '../../../Tabs.tokens';
+import { tokens } from '../../../../tokens';
 
 export const base = css`
     opacity: var(${tokens.disabledOpacity});

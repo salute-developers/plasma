@@ -66,6 +66,7 @@ const meta: Meta<typeof Popover> = {
         isFocusTrapped: true,
         skidding: 0,
         distance: 6,
+        hasArrow: true,
     },
 };
 
@@ -100,7 +101,6 @@ const StoryDefault = (args: StoryPopoverProps) => {
             role="presentation"
             id="popover"
             target={<Button>Target</Button>}
-            hasArrow
             offset={[skidding, distance]}
             {...args}
         >
