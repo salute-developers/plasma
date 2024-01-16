@@ -23,9 +23,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          show-progress: false
 
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
@@ -41,15 +42,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          show-progress: false
 
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
 
       - name: Lerna bootstrap
-        run: npx lerna bootstrap --since=$(git merge-base --fork-point origin/dev) --ignore=${{env.LERNA_IGNORE_LIST}}
+        run: npx lerna bootstrap --ignore=${{env.LERNA_IGNORE_LIST}}
 
       - name: Unit tests
         run: npm run test
