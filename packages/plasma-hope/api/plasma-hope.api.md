@@ -82,9 +82,6 @@ import { Headline2 } from '@salutejs/plasma-core';
 import { Headline3 } from '@salutejs/plasma-core';
 import { Headline4 } from '@salutejs/plasma-core';
 import { HTMLAttributes } from 'react';
-import { Image as Image_2 } from '@salutejs/plasma-core';
-import { ImageBaseProps } from '@salutejs/plasma-core';
-import { ImageProps } from '@salutejs/plasma-core';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
 import { InputHTMLAttributes as InputHTMLAttributes_2 } from 'react';
 import { InterpolationFunction } from 'styled-components';
@@ -107,7 +104,6 @@ import { PopupProps } from '@salutejs/plasma-core';
 import type { PriceProps as PriceProps_2 } from '@salutejs/plasma-core';
 import { PropsWithChildren } from 'react';
 import { radiuses } from '@salutejs/plasma-core';
-import { Ratio } from '@salutejs/plasma-core';
 import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
 import { ReactNode } from 'react';
@@ -671,12 +667,6 @@ export const Headline5: StyledComponent<"div", any, {}, never>;
 // @public (undocumented)
 export const headline5: CSSObject;
 
-export { Image_2 as Image }
-
-export { ImageBaseProps }
-
-export { ImageProps }
-
 // @public (undocumented)
 export const inputBackground = "var(--plasma-input-background-color)";
 
@@ -918,8 +908,6 @@ export interface ProgressProps {
 }
 
 export { radiuses }
-
-export { Ratio }
 
 export { Roundness }
 
