@@ -107,9 +107,8 @@ import { gridGutters } from '@salutejs/plasma-hope';
 import { gridMargins } from '@salutejs/plasma-hope';
 import { gridSizes } from '@salutejs/plasma-hope';
 import { HTMLAttributes } from 'react';
-import { Image as Image_2 } from '@salutejs/plasma-hope';
-import { ImageBaseProps } from '@salutejs/plasma-hope';
-import { ImageProps } from '@salutejs/plasma-hope';
+import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
+import { ImgHTMLAttributes } from 'react';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
 import { JSXElementConstructor } from 'react';
 import { LineSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -159,7 +158,7 @@ import { ProgressProps } from '@salutejs/plasma-hope';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
 import { radiuses } from '@salutejs/plasma-core';
-import { Ratio } from '@salutejs/plasma-hope';
+import { Ratio } from '@salutejs/plasma-new-hope/styled-components';
 import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
 import { ReactNode } from 'react';
@@ -237,6 +236,7 @@ import { usePopupContext as usePopupBaseContext } from '@salutejs/plasma-new-hop
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-hope';
 import { ValidationResult } from '@salutejs/plasma-hope';
+import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
 import { View } from '@salutejs/plasma-core';
 import { ViewProps } from '@salutejs/plasma-core';
 import { views } from '@salutejs/plasma-core';
@@ -726,9 +726,13 @@ headline5: string;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
+// @public
+const Image_2: FunctionComponent<PropsType<Variants> & ImgHTMLAttributes<HTMLImageElement> & {
+base?: "div" | "img" | undefined;
+ratio?: "16 / 9" | "1 / 1" | "1/1" | "3 / 4" | "3/4" | "4 / 3" | "4/3" | "9 / 16" | "9/16" | "16/9" | "1 / 2" | "1/2" | "2 / 1" | "2/1" | undefined;
+customRatio?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
 export { Image_2 as Image }
-
-export { ImageBaseProps }
 
 export { ImageProps }
 
