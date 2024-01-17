@@ -4,7 +4,7 @@ import { tabsTokens } from '../../../../components/Tabs';
 
 export const config = {
     defaults: {
-        view: 'clear',
+        view: 'divider',
         size: 'xs',
     },
     variations: {
@@ -18,6 +18,7 @@ export const config = {
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
                 ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
+                ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
                 ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
 
@@ -38,6 +39,7 @@ export const config = {
                 ${tabsTokens.itemSelectedBackgroundColor}: var(--surface-solid-card);
                 ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
                 ${tabsTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-card);
+                ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
                 ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
 
@@ -58,6 +60,7 @@ export const config = {
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
                 ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
+                ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
                 ${tabsTokens.itemPadding}: 0 !important;
 
@@ -80,6 +83,7 @@ export const config = {
                 ${tabsTokens.itemSelectedBackgroundColor}: var(--surface-solid-default);
                 ${tabsTokens.itemSelectedColorHover}: var(--inverse-text-primary);
                 ${tabsTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-default);
+                ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
                 ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
 

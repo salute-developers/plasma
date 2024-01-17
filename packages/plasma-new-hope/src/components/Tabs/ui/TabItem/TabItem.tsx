@@ -4,8 +4,8 @@ import { safeUseId, useForkRef } from '@salutejs/plasma-core';
 import { ComponentConfig, RootProps } from '../../../../engines';
 import { classes } from '../../tokens';
 import { cx } from '../../../../utils';
+import { TabsContext } from '../../TabsContext';
 
-import { TabsContext } from './TabsContext';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as pilledCSS } from './variations/_pilled/base';
@@ -15,7 +15,20 @@ import { AdditionalContent, StyledContent, base } from './TabItem.styles';
 
 export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
     forwardRef<HTMLDivElement, TabItemProps>((props, outerRef) => {
-        const { size, view, id, active, disabled, pilled, children, leftContent, rightContent, ...rest } = props;
+        const {
+            size,
+            view,
+            id,
+            isActive,
+            selected,
+            disabled = false,
+            pilled = false,
+            children,
+            contentLeft,
+            contentRight,
+            animated = true,
+            ...rest
+        } = props;
 
         const innerRef = useRef<HTMLDivElement>(null);
         const ref = useForkRef(outerRef, innerRef);
@@ -27,8 +40,9 @@ export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
         const role = 'tab';
 
         const pilledAttr = view !== 'clear' && pilled;
+        const animatedClass = animated ? classes.tabItemAnimated : undefined;
         const pilledClass = pilledAttr ? classes.tabsPilled : undefined;
-        const selectedClass = active ? classes.selectedTabsItem : undefined;
+        const selectedClass = isActive || selected ? classes.selectedTabsItem : undefined;
 
         useEffect(() => {
             if (!refs) {
@@ -44,22 +58,21 @@ export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
             <Root
                 ref={ref}
                 id={tabItemId}
-                active={active}
                 disabled={disabled}
                 pilled={pilled}
                 role={role}
                 view={view}
                 size={size}
-                className={cx(pilledClass, selectedClass)}
+                className={cx(pilledClass, selectedClass, animatedClass)}
                 {...rest}
             >
                 <>
-                    {leftContent && (
-                        <AdditionalContent className={classes.tabLeftContent}>{leftContent}</AdditionalContent>
+                    {contentLeft && (
+                        <AdditionalContent className={classes.tabLeftContent}>{contentLeft}</AdditionalContent>
                     )}
                     <StyledContent className={classes.tabLeftContent}>{children}</StyledContent>
-                    {rightContent && (
-                        <AdditionalContent className={classes.tabRightContent}>{rightContent}</AdditionalContent>
+                    {contentRight && (
+                        <AdditionalContent className={classes.tabRightContent}>{contentRight}</AdditionalContent>
                     )}
                 </>
             </Root>
