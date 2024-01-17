@@ -4,7 +4,7 @@ import { tabsTokens } from '../../../../components/Tabs';
 
 export const config = {
     defaults: {
-        view: 'clear',
+        view: 'filled',
         size: 'xs',
         disabled: 'false',
     },
@@ -15,13 +15,27 @@ export const config = {
                 ${tabsTokens.tabsBackgroundColor}: tranparent;
                 ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
 
-                ${tabsTokens.tabsDividerHeight}: 0.125rem;
-                ${tabsTokens.tabsDividerColor}: var(--surface-transparent-secondary);
+                ${tabsTokens.tabsDividerHeight}: 0rem;
+                ${tabsTokens.tabsDividerColor}: tranparent;
+                ${tabsTokens.tabsDividerBorderRadius}: 0rem;
             `,
             filled: css`
                 ${tabsTokens.arrowColor}: var(--text-secondary);
-                ${tabsTokens.tabsBackgroundColor}: transparent;
+                ${tabsTokens.tabsBackgroundColor}: var(--surface-transparent-primary);
                 ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
+
+                ${tabsTokens.tabsDividerHeight}: 0rem;
+                ${tabsTokens.tabsDividerColor}: tranparent;
+                ${tabsTokens.tabsDividerBorderRadius}: 0rem;
+            `,
+            divider: css`
+                ${tabsTokens.arrowColor}: var(--text-secondary);
+                ${tabsTokens.tabsBackgroundColor}: tranparent;
+                ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
+
+                ${tabsTokens.tabsDividerHeight}: 0.125rem;
+                ${tabsTokens.tabsDividerColor}: var(--surface-transparent-secondary);
+                ${tabsTokens.tabsDividerBorderRadius}: 0.0625rem;
             `,
         },
         size: {
@@ -84,11 +98,6 @@ export const config = {
         pilled: {
             true: css`
                 ${tabsTokens.tabsPilledBorderRadius}: 1.75rem;
-            `,
-        },
-        filledBackground: {
-            true: css`
-                ${tabsTokens.tabsFilledBackgroundColor}: var(--surface-transparent-primary);
             `,
         },
     },

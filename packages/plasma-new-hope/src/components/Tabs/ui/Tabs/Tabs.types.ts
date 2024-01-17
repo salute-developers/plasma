@@ -1,32 +1,34 @@
+import type { AsProps } from '@salutejs/plasma-core';
 import type { HTMLAttributes } from 'react';
 
-export type TabsProps = HTMLAttributes<HTMLDivElement> & {
-    /**
-     * Табы неактивны
-     */
-    disabled?: boolean;
-    /**
-     * Табы растянуты на доступную область
-     */
-    stretch?: boolean;
-    /**
-     * Табы c округлым border-radius
-     */
-    pilled?: boolean;
-    /**
-     * Табы c фоном
-     */
-    filledBackground?: boolean;
-    /**
-     * Размер табов
-     */
-    size?: string;
-    /**
-     * Вид табов
-     */
-    view?: string;
-    /**
-     * Использовать ли разделить снизу
-     */
-    showDivider?: boolean;
-};
+export type TabsProps = AsProps &
+    HTMLAttributes<HTMLDivElement> & {
+        /**
+         * Табы неактивны
+         * @default false
+         */
+        disabled?: boolean;
+        /**
+         * Табы растянуты на доступную область
+         * @default false
+         */
+        stretch?: boolean;
+        /**
+         * Табы c округлым border-radius
+         * @default false
+         */
+        pilled?: boolean;
+        /**
+         * Размер табов
+         */
+        size?: string;
+        /**
+         * Вид табов
+         */
+        view?: string;
+        /**
+         * Уберет скругление с выбранной стороны и подвинет контейнер
+         * @deprecated
+         */
+        outsideScroll?: boolean | { left?: string; right?: string };
+    };

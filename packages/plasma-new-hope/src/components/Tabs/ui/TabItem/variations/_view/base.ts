@@ -16,6 +16,10 @@ export const base = css`
         }
     }
 
+    &.${String(classes.tabItemAnimated)} {
+        transition: var(${tokens.itemBackgroundTransition});
+    }
+
     &.${String(classes.selectedTabsItem)} {
         color: var(${tokens.itemSelectedColor});
         background-color: var(${tokens.itemSelectedBackgroundColor});

@@ -11,25 +11,13 @@ import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as pilledCSS } from './variations/_pilled/base';
-import { base as filledBackgroundCSS } from './variations/_filledBackgound/base';
 import { base as stretchCSS } from './variations/_stretch/base';
 import { StyledArrow, StyledContent, StyledContentWrapper, base } from './Tabs.styles';
 import type { TabsProps } from './Tabs.types';
 
 export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
     forwardRef<HTMLDivElement, TabsProps>((props, outerRef) => {
-        const {
-            id,
-            stretch,
-            filledBackground = false,
-            disabled = false,
-            size,
-            view,
-            children,
-            showDivider = false,
-            pilled,
-            ...rest
-        } = props;
+        const { id, stretch = false, disabled = false, size, view, children, pilled, ...rest } = props;
 
         const [index, setIndex] = useState(0);
         const [firstItemVisible, setFirstItemVisible] = useState(false);
@@ -41,10 +29,7 @@ export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
         const pilledAttr = view !== 'clear' && pilled;
         const pilledClass = pilledAttr ? classes.tabsPilled : undefined;
 
-        const filledBackgroundAttr = view !== 'clear' && filledBackground;
-        const filledClass = filledBackgroundAttr ? classes.tabsGroupFilledBackground : undefined;
         const stretchClass = firstItemVisible && lastItemVisible && stretch ? classes.tabsStretch : undefined;
-        const dividerClass = showDivider ? classes.tabsDivider : undefined;
 
         const items = Children?.map(children, (child) => child) || [];
 
@@ -77,6 +62,7 @@ export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
             axis: 'x',
             scrollAlign: 'start',
             detectActive: true,
+            detectThreshold: 0,
             debounceMs: 250,
             onIndexChange: setIndex,
         });
@@ -144,13 +130,13 @@ export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
         return (
             <Root
                 view={view}
+                role="tablist"
                 size={size}
                 pilled={pilled}
                 id={tabsId}
                 ref={outerRef}
-                filledBackground={filledBackgroundAttr}
                 disabled={disabled}
-                className={cx(pilledClass, filledClass, stretchClass, dividerClass)}
+                className={cx(pilledClass, stretchClass)}
                 {...rest}
             >
                 {!firstItemVisible && PreviousButton}
@@ -184,10 +170,6 @@ export const tabsConfig = {
         },
         pilled: {
             css: pilledCSS,
-            attrs: true,
-        },
-        filledBackground: {
-            css: filledBackgroundCSS,
             attrs: true,
         },
     },

@@ -4,7 +4,7 @@ export const classes = {
     tabsGroupFilledBackground: 'tabs-group-filled-background',
     tabsStretch: 'tabs-stretched',
     tabItemDivider: 'tab-item-divider',
-    tabsDivider: 'tabs-divider',
+    tabItemAnimated: 'tab-item-animated',
     tabContent: 'tab-item-content',
     tabRightContent: 'tab-item-right-content',
     tabLeftContent: 'tab-item-left-content',
@@ -19,6 +19,7 @@ export const tokens = {
 
     tabsDividerHeight: '--plasma-tabs-divider-height',
     tabsDividerColor: '--plasma-tabs-divider-color',
+    tabsDividerBorderRadius: '--plasma-tabs-divider-border-radius',
 
     itemSelectedDividerHeight: '--plasma-tab-item-selected-divider-height',
     itemSelectedDividerColor: '--plasma-tab-item-selected-divider-color',
@@ -51,6 +52,8 @@ export const tokens = {
     itemSelectedBackgroundColor: '--plasma-tab-item-selected-background-color',
     itemSelectedColorHover: '--plasma-tab-item-selected-color-hover',
     itemSelectedBackgroundColorHover: '--plasma-tab-item-selected-background-color-hover',
+
+    itemBackgroundTransition: '--plasma-tab-item-background-transition',
 
     additionalContentColor: '--plasma-tab-item-additional-content-color',
     additionalContentHoverColor: '--plasma-tab-item-hover-additional-content-color',
