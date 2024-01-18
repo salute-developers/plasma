@@ -14,19 +14,16 @@ export const StyledRoot = styled.div`
 `;
 
 export const StyledArrow = styled.div`
-    visibility: hidden;
+    width: var(${String(tokens.arrowMaskWidth)});
+    height: var(${String(tokens.arrowMaskHeight)});
 
-    &,
     &::before {
         position: absolute;
         width: var(${String(tokens.arrowMaskWidth)});
         height: var(${String(tokens.arrowMaskHeight)});
         mask-image: var(${String(tokens.arrowMaskImage)});
         background: var(${String(tokens.arrowBackground)});
-    }
 
-    &::before {
-        visibility: visible;
         content: '';
         transform: rotate(0deg);
     }

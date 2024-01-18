@@ -51,7 +51,15 @@ export type NeuHeaderProps = HTMLAttributes<HTMLDivElement> &
     ArrowProps &
     (LogoProps | NoLogoProps) &
     (TitleProps | NoTitleProps) &
-    Pick<HeaderRootProps, 'gradientColor'> & { children?: ReactNode };
+    Pick<HeaderRootProps, 'gradientColor'> & {
+        children?: ReactNode;
+        /**
+         * Скрывать ли подзаголовок на размерах меньше 'S'
+         * @default
+         * true
+         */
+        hideSubtitleOnMobile?: boolean;
+    };
 
 /**
  * Сборный компонент для отрисовки шапки страницы.
@@ -64,7 +72,7 @@ export type NeuHeaderProps = HTMLAttributes<HTMLDivElement> &
  * `NeuHeader` заменит собой исходный `Header` в будущих версиях.
  */
 export const NeuHeader = forwardRef<HTMLHeadElement, NeuHeaderProps>(
-    ({ arrow, onArrowClick, logo, logoAlt, title, subTitle, children, ...rest }, ref) => {
+    ({ arrow, onArrowClick, logo, logoAlt, title, subTitle, hideSubtitleOnMobile = true, children, ...rest }, ref) => {
         return (
             <HeaderRoot ref={ref} {...rest}>
                 <HeaderArrow onClick={onArrowClick} arrow={arrow} />
@@ -72,7 +80,7 @@ export const NeuHeader = forwardRef<HTMLHeadElement, NeuHeaderProps>(
                 {title && (
                     <HeaderTitleWrapper>
                         <HeaderTitle>{title}</HeaderTitle>
-                        {subTitle && <HeaderSubtitle>{subTitle}</HeaderSubtitle>}
+                        {subTitle && <HeaderSubtitle hideOnMobile={hideSubtitleOnMobile}>{subTitle}</HeaderSubtitle>}
                     </HeaderTitleWrapper>
                 )}
                 {children && <HeaderContent>{children}</HeaderContent>}

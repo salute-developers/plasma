@@ -3,5 +3,5 @@ import React from 'react';
 import { IconRoot, IconProps } from '../IconRoot';
 
 export const IconTimerOutline: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} iconName="timerOutline" />;
+    return <IconRoot className={className} size={size} color={color} icon="timerOutline" />;
 };

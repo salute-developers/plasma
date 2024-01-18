@@ -23,9 +23,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          show-progress: false
 
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
@@ -41,15 +42,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          show-progress: false
 
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
 
       - name: Lerna bootstrap
-        run: npx lerna bootstrap --since=$(git merge-base --fork-point origin/dev) --ignore=${{env.LERNA_IGNORE_LIST}}
+        run: npx lerna bootstrap --ignore=${{env.LERNA_IGNORE_LIST}}
 
       - name: Unit tests
         run: npm run test
@@ -62,7 +64,7 @@ jobs:
           npm i --no-progress --no-audit react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-web"
 
       - name: Lerna bootstrap by scope
-        run: npx lerna bootstrap --scope=@salutejs/plasma-{ui,web,b2c,temple,hope,new-hope,core}
+        run: npx lerna bootstrap --scope=@salutejs/plasma-{ui,web,b2c,temple,hope,new-hope,core,icons}
 
       - name: Unit tests for React 17
         run: npm run test -- --scope=@salutejs/plasma-{ui,web,b2c,temple}

@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
+import { createGlobalStyle } from 'styled-components';
 import { mount, CypressTestDecorator, getComponent, PadMe, Portal } from '@salutejs/plasma-cy-utils';
+
+const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const noop = () => {};
 
@@ -11,6 +16,13 @@ describe('plasma-core: Slider', () => {
     const Slider = getComponent('Slider');
     const Badge = getComponent('Badge');
     const sliderThumbSelector = 'div > div + div > div';
+
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
 
     it('default', () => {
         mount(
@@ -38,16 +50,16 @@ describe('plasma-core: Slider', () => {
         const PORTAL_ROOT_ID = 'portal-root';
 
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <>
                     <div id={PORTAL_ROOT_ID}>
-                        <Badge view="primary" text="Slider in Portal" />
+                        <Badge view="accent" transparent text="Slider in Portal" />
                     </div>
                     <Portal id={PORTAL_ROOT_ID}>
                         <Slider value={30} min={0} max={100} />
                     </Portal>
                 </>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();

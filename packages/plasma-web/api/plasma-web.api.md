@@ -28,12 +28,7 @@ import { arrayItemSwapping } from '@salutejs/plasma-hope';
 import { AsProps } from '@salutejs/plasma-core';
 import { AudioPlayer } from '@salutejs/plasma-hope';
 import { AudioPlayerProps } from '@salutejs/plasma-hope';
-import { Badge } from '@salutejs/plasma-hope';
-import { BadgeProps } from '@salutejs/plasma-hope';
-import { BadgeSize } from '@salutejs/plasma-hope';
-import { badgeSizes } from '@salutejs/plasma-hope';
-import { BadgeView } from '@salutejs/plasma-hope';
-import { badgeViews } from '@salutejs/plasma-hope';
+import { BadgeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BlurProps } from '@salutejs/plasma-core';
 import { blurs } from '@salutejs/plasma-core';
@@ -78,6 +73,8 @@ import { ColSizeProps } from '@salutejs/plasma-hope';
 import { Container } from '@salutejs/plasma-hope';
 import { ContainerProps } from '@salutejs/plasma-hope';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
+import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
+import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { defaultValidate } from '@salutejs/plasma-hope';
 import { DisabledProps } from '@salutejs/plasma-core';
@@ -107,13 +104,11 @@ import { gridGutters } from '@salutejs/plasma-hope';
 import { gridMargins } from '@salutejs/plasma-hope';
 import { gridSizes } from '@salutejs/plasma-hope';
 import { HTMLAttributes } from 'react';
-import { Image as Image_2 } from '@salutejs/plasma-hope';
-import { ImageBaseProps } from '@salutejs/plasma-hope';
-import { ImageProps } from '@salutejs/plasma-hope';
+import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
+import { ImgHTMLAttributes } from 'react';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
 import { JSXElementConstructor } from 'react';
-import { LineSkeleton } from '@salutejs/plasma-hope';
-import { LineSkeletonProps } from '@salutejs/plasma-hope';
+import { LineSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { List } from '@salutejs/plasma-hope';
 import { ListItem } from '@salutejs/plasma-hope';
@@ -160,12 +155,12 @@ import { ProgressProps } from '@salutejs/plasma-hope';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
 import { radiuses } from '@salutejs/plasma-core';
-import { Ratio } from '@salutejs/plasma-hope';
+import { Ratio } from '@salutejs/plasma-new-hope/styled-components';
 import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
 import { ReactNode } from 'react';
-import { RectSkeleton } from '@salutejs/plasma-hope';
-import { RectSkeletonProps } from '@salutejs/plasma-hope';
+import { RectSkeleton } from '@salutejs/plasma-new-hope/styled-components';
+import { RectSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { RefAttributes } from 'react';
 import { Roundness } from '@salutejs/plasma-core';
 import { RoundnessProps } from '@salutejs/plasma-core';
@@ -182,6 +177,8 @@ import { shadows } from '@salutejs/plasma-core';
 import { ShiftProps } from '@salutejs/plasma-core';
 import { sizes } from '@salutejs/plasma-hope';
 import { SkeletonGradientProps } from '@salutejs/plasma-core';
+import { SkeletonGradientProps as SkeletonGradientProps_2 } from '@salutejs/plasma-new-hope/styled-components';
+import { SkeletonSizeProps } from '@salutejs/plasma-new-hope/types/components/Skeleton/Skeleton.types';
 import { SliderProps } from '@salutejs/plasma-core';
 import { SmartPaginationDots } from '@salutejs/plasma-hope';
 import { SmartPaginationDotsProps } from '@salutejs/plasma-hope';
@@ -210,8 +207,7 @@ import { TextAreaProps } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
 import { TextFieldProps } from '@salutejs/plasma-hope';
 import { TextFieldView } from '@salutejs/plasma-hope';
-import { TextSkeleton } from '@salutejs/plasma-hope';
-import { TextSkeletonProps } from '@salutejs/plasma-hope';
+import { TextSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TimingFunction } from '@salutejs/plasma-core';
 import { Toast } from '@salutejs/plasma-hope';
 import { ToastPosition } from '@salutejs/plasma-hope';
@@ -237,14 +233,15 @@ import { usePopupContext as usePopupBaseContext } from '@salutejs/plasma-new-hop
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-hope';
 import { ValidationResult } from '@salutejs/plasma-hope';
+import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
 import { View } from '@salutejs/plasma-core';
 import { ViewProps } from '@salutejs/plasma-core';
 import { views } from '@salutejs/plasma-core';
 import { withAssistiveDropdown } from '@salutejs/plasma-hope';
 import { withAutoFocus } from '@salutejs/plasma-core';
 import { WithAutoFocusProps } from '@salutejs/plasma-core';
-import { withSkeleton } from '@salutejs/plasma-core';
-import { WithSkeletonProps } from '@salutejs/plasma-core';
+import { withSkeleton } from '@salutejs/plasma-new-hope/styled-components';
+import { WithSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 
 export { addFocus }
 
@@ -288,17 +285,41 @@ export { AudioPlayer }
 
 export { AudioPlayerProps }
 
-export { Badge }
+// @public
+export const Badge: FunctionComponent<PropsType<    {
+view: {
+primary: string;
+accent: string;
+positive: string;
+warning: string;
+negative: string;
+dark: string;
+light: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+};
+pilled: {
+true: string;
+};
+transparent: {
+true: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+pilled?: boolean | undefined;
+transparent?: boolean | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & {
+children?: ReactNode;
+} & RefAttributes<HTMLDivElement>>;
 
 export { BadgeProps }
-
-export { BadgeSize }
-
-export { badgeSizes }
-
-export { BadgeView }
-
-export { badgeViews }
 
 export { BlurProps }
 
@@ -529,7 +550,7 @@ contentRight?: ReactNode;
 contentClearButton?: ReactNode;
 disabled?: boolean | undefined;
 readOnly?: boolean | undefined;
-size?: "s" | "l" | "m" | "xs" | undefined;
+size?: "m" | "s" | "l" | "xs" | undefined;
 view?: "secondary" | "default" | "positive" | undefined;
 onClear?: (() => void) | undefined;
 } & {
@@ -557,6 +578,32 @@ export { Container }
 export { ContainerProps }
 
 export { convertRoundnessMatrix }
+
+// @public
+export const Counter: FunctionComponent<PropsType<    {
+view: {
+primary: string;
+accent: string;
+positive: string;
+warning: string;
+negative: string;
+dark: string;
+light: string;
+};
+size: {
+xs: string;
+xxs: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+count: number;
+maxCount?: number | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+export { CounterProps }
+
+export { counterTokens }
 
 export { defaultValidate }
 
@@ -726,15 +773,61 @@ headline5: string;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
+// @public
+const Image_2: FunctionComponent<PropsType<Variants> & ImgHTMLAttributes<HTMLImageElement> & {
+base?: "div" | "img" | undefined;
+ratio?: "16 / 9" | "1 / 1" | "1/1" | "3 / 4" | "3/4" | "4 / 3" | "4/3" | "9 / 16" | "9/16" | "16/9" | "1 / 2" | "1/2" | "2 / 1" | "2/1" | undefined;
+customRatio?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
 export { Image_2 as Image }
-
-export { ImageBaseProps }
 
 export { ImageProps }
 
 export { InputHTMLAttributes }
 
-export { LineSkeleton }
+// @public
+export const LineSkeleton: FunctionComponent<PropsType<    {
+size: {
+body1: string;
+body2: string;
+body3: string;
+button1: string;
+button2: string;
+caption: string;
+display1: string;
+display2: string;
+display3: string;
+footnote1: string;
+footnote2: string;
+headline1: string;
+headline2: string;
+headline3: string;
+headline4: string;
+paragraph1: string;
+paragraph2: string;
+underline: string;
+bodyL: string;
+bodyM: string;
+bodyS: string;
+bodyXS: string;
+bodyXXS: string;
+dsplL: string;
+dsplM: string;
+dsplS: string;
+h1: string;
+h2: string;
+h3: string;
+h4: string;
+h5: string;
+textL: string;
+textM: string;
+textS: string;
+textXS: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & SkeletonSizeProps & {
+customGradientColor?: string | undefined;
+roundness?: 0 | 8 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 250 | undefined;
+} & SkeletonGradientProps_2 & RefAttributes<HTMLDivElement>>;
 
 export { LineSkeletonProps }
 
@@ -1141,7 +1234,14 @@ s: string;
 breakWord?: boolean | undefined;
 } & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
 
-export { TextSkeleton }
+// @public
+export const TextSkeleton: FC<    {
+lines: number;
+width?: string | number | undefined;
+} & HTMLAttributes<HTMLDivElement> & SkeletonSizeProps & {
+customGradientColor?: string | undefined;
+roundness?: 0 | 8 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 250 | undefined;
+} & SkeletonGradientProps_2>;
 
 export { TextSkeletonProps }
 

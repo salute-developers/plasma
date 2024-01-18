@@ -70,6 +70,7 @@ jobs:
       with-update-package-lock: true
       commit-message: "Update package-lock.json files"
       upload_assets: ${{ needs.change-state.outputs.HAS_ASSETS == 'true' }}
+      auto-options: '--no-changelog'
     secrets:
       gh_token: ${{ secrets.GH_TOKEN }}
       npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}

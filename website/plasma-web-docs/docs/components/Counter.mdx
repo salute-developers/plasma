@@ -1,0 +1,77 @@
+---
+id: counter
+title: Counter
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Counter
+<Description name="Counter" />
+<PropsTable name="Counter"  exclude={['css']} />
+<StorybookLink name="Counter" />
+
+## Примеры
+
+### Максимальное значение числового бейджа
+Задается с помощью свойства `maxCount`.
+
+```tsx live 
+import React from 'react';
+import { Counter } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <div>
+            <Counter count={10} maxCount={9} />
+            <Counter count={100} maxCount={99} />
+        </div>
+    );
+}
+```
+
+### Размер числового бейджа
+Размер задается с помощью свойства `size`. Возможные значения свойтсва: `"xs"` или `"xxs"`.
+
+```tsx live 
+import React from 'react';
+import { Counter } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <div>
+            <Counter count={10} size="xs" />
+            <Counter count={10} size="xxs" />
+        </div>
+    );
+}
+```
+
+### Вид числового бейджа
+Вид задается с помощью свойства `view`. Возможные значения свойства `view`:
+
++ `"primary"` – основной бейдж;
++ `"accent"` – бейдж акцентного цвета;
++ `"positive"` – успешное завершение;
++ `"warning"` – предупреждение;
++ `"negative"` – ошибка;
++ `"dark"` – темный бэйдж;
++ `"light"` – светлый бэйдж.
+
+```tsx live 
+import React from 'react';
+import { Counter } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <div>
+            <Counter count={10} view="primary" />
+            <Counter count={10} view="accent" />
+            <Counter count={10} view="positive" />
+            <Counter count={10} view="warning" />
+            <Counter count={10} view="negative" />
+            <Counter count={10} view="dark" />
+            <Counter count={10} view="light" />
+        </div>
+    );
+}
+```

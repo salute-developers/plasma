@@ -18,6 +18,7 @@ export const generateColorThemes = (
 ) => {
     const files: GeneratedFiles = [];
     let indexContent = '';
+    const withKebabCase = true;
 
     for (const [fileName, themeItem] of Object.entries(colorThemes)) {
         const themeData = extractTokenData(themeItem);
@@ -35,9 +36,9 @@ export const generateColorThemes = (
             generateFile(
                 fileName,
                 attachToRoot({
-                    ...objectToCSSVariables(themeData, 'colors'),
-                    ...objectToCSSVariables(mixin),
-                    ...objectToCSSVariables(fallbackThemeData, '', false, true),
+                    ...objectToCSSVariables(themeData, 'colors', true, withKebabCase),
+                    ...objectToCSSVariables(mixin, '', true, withKebabCase),
+                    ...objectToCSSVariables(fallbackThemeData, '', false, withKebabCase),
                     color: themeData.text,
                     backgroundColor: themeData.background,
                 }),
