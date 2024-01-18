@@ -14,6 +14,8 @@ export const generateTypoSystem = (
     mixin: DataObject = {},
 ) => {
     const files: GeneratedFiles = [];
+    const withPrefixDesign = true;
+    const withKebabCase = true;
     let indexContent = '';
 
     for (const [fileName, { theme, scale = 1 }] of Object.entries(typoThemes)) {
@@ -23,8 +25,8 @@ export const generateTypoSystem = (
             generateFile(
                 fileName,
                 attachToRoot({
-                    ...objectToCSSVariables(theme, 'typo'),
-                    ...objectToCSSVariables(mixin),
+                    ...objectToCSSVariables(theme, 'typo', withPrefixDesign, withKebabCase),
+                    ...objectToCSSVariables(mixin, '', withPrefixDesign, withKebabCase),
                     ...{
                         '--plasma-typo-overflow-wrap': 'break-word',
                         '--plasma-typo-hyphens': 'auto',

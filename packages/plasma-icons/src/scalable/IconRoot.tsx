@@ -33,7 +33,7 @@ export interface IconProps {
 
 interface IconRootProps extends IconProps {
     size: IconSize;
-    iconName: IconSetUnionSize;
+    icon: React.FC<IconProps> | IconSetUnionSize;
 }
 
 const StyledRoot = styled.div<{ w: string }>`
@@ -70,16 +70,23 @@ const getIconComponent = (iconName: IconSetUnionSize, size: number) => {
     );
 };
 
-export const IconRoot: React.FC<IconRootProps> = ({ iconName, size, color, className }) => {
+export const IconRoot: React.FC<IconRootProps> = ({ icon: Icon, size, color, className }) => {
     const c = color || primary;
 
     const w = `${sizeMap[size].scale}rem`;
 
-    const IconComponent = getIconComponent(iconName, sizeMap[size].size);
+    if (typeof Icon === 'string') {
+        const IconComponent = getIconComponent(Icon, sizeMap[size].size);
+        return (
+            <StyledRoot w={w} className={className}>
+                {IconComponent && <IconComponent color={c} size={size} />}
+            </StyledRoot>
+        );
+    }
 
     return (
-        <StyledRoot w={w} className={className}>
-            {IconComponent && <IconComponent color={c} size={size} />}
+        <StyledRoot aria-hidden w={w} className={className}>
+            <Icon color={c} size={size} />
         </StyledRoot>
     );
 };

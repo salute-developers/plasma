@@ -1,2 +1,7 @@
-export { LineSkeleton, RectSkeleton, TextSkeleton } from '@salutejs/plasma-hope';
-export type { LineSkeletonProps, RectSkeletonProps, TextSkeletonProps } from '@salutejs/plasma-hope';
+export { LineSkeleton, TextSkeleton, RectSkeleton } from './Skeleton';
+
+export type {
+    LineSkeletonProps,
+    TextSkeletonProps,
+    RectSkeletonProps,
+} from '@salutejs/plasma-new-hope/styled-components';

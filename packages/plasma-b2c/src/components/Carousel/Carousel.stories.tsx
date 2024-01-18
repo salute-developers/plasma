@@ -21,6 +21,9 @@ const meta: Meta<typeof Carousel> = {
                 type: 'inline-radio',
             },
         },
+        isDragScrollDisabled: {
+            control: 'boolean',
+        },
         ...disableProps([
             'onScroll',
             'index',
@@ -88,7 +91,7 @@ const defaultCarouselStyle = { margin: '0 -0.5rem' };
 
 const defaultCarouselItemStyle = { width: 550, padding: '0 0.5rem' };
 
-const StoryDefault = ({ align }: { align: alignType }) => {
+const StoryDefault = ({ align, isDragScrollDisabled }: { align: alignType; isDragScrollDisabled: boolean }) => {
     const [index, setIndex] = useState(0);
 
     const changeIndexDown = useCallback(() => {
@@ -107,6 +110,7 @@ const StoryDefault = ({ align }: { align: alignType }) => {
                 detectActive
                 onIndexChange={setIndex}
                 scrollAlign={align}
+                isDragScrollDisabled={isDragScrollDisabled}
             >
                 {items.map((item) => (
                     <CarouselItem key={item.id} style={defaultCarouselItemStyle} scrollSnapAlign={align}>
@@ -130,9 +134,10 @@ const StoryDefault = ({ align }: { align: alignType }) => {
     );
 };
 
-export const Default: StoryObj<{ align: alignType }> = {
+export const Default: StoryObj<{ align: alignType; isDragScrollDisabled: boolean }> = {
     args: {
         align: 'center',
+        isDragScrollDisabled: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };

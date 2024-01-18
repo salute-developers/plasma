@@ -15,6 +15,8 @@ const base = css`
 `;
 
 const SpinnerWrapper = styled.div<{ width: string; height: string }>`
+    display: flex;
+
     width: ${(props) => props.width};
     height: ${(props) => props.height};
 

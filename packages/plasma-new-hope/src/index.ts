@@ -22,3 +22,7 @@ export * from './components/Dropdown';
 export * from './components/Header';
 export * from './components/Tooltip';
 export * from './components/Segment';
+export * from './components/Skeleton';
+export * from './components/Image';
+export * from './components/Badge';
+export * from './components/Counter';
