@@ -2,19 +2,10 @@ import React from 'react';
 
 import { IconProps, IconRoot, IconSize } from './IconRoot';
 import { Apps } from './Icon.assets/Apps';
-import { ArrowDown } from './Icon.assets/ArrowDown';
-import { ArrowLeft } from './Icon.assets/ArrowLeft';
-import { ArrowRight } from './Icon.assets/ArrowRight';
-import { ArrowUp } from './Icon.assets/ArrowUp';
 import { Avatar } from './Icon.assets/Avatar';
 import { Calendar } from './Icon.assets/Calendar';
-import { ChevronDown } from './Icon.assets/ChevronDown';
-import { ChevronLeft } from './Icon.assets/ChevronLeft';
-import { ChevronRight } from './Icon.assets/ChevronRight';
-import { ChevronUp } from './Icon.assets/ChevronUp';
 import { Clock } from './Icon.assets/Clock';
 import { ClockFilled } from './Icon.assets/ClockFilled';
-import { Close } from './Icon.assets/Close';
 import { Cross } from './Icon.assets/Cross';
 import { CrossCircle } from './Icon.assets/CrossCircle';
 import { CrossSmall } from './Icon.assets/CrossSmall';
@@ -22,30 +13,21 @@ import { DisclosureDown } from './Icon.assets/DisclosureDown';
 import { DisclosureLeft } from './Icon.assets/DisclosureLeft';
 import { DisclosureRight } from './Icon.assets/DisclosureRight';
 import { DisclosureUp } from './Icon.assets/DisclosureUp';
-import { Done } from './Icon.assets/Done';
-import { Download } from './Icon.assets/Download';
 import { Edit } from './Icon.assets/Edit';
 import { Event } from './Icon.assets/Event';
 import { House } from './Icon.assets/House';
 import { HouseSbol } from './Icon.assets/HouseSbol';
-import { Login } from './Icon.assets/Login';
-import { Logout } from './Icon.assets/Logout';
 import { Maximize } from './Icon.assets/Maximize';
-import { Minus } from './Icon.assets/Minus';
 import { MoreHorizontal } from './Icon.assets/MoreHorizontal';
 import { MoreVertical } from './Icon.assets/MoreVertical';
 import { PercentStroke } from './Icon.assets/PercentStroke';
 import { Persone } from './Icon.assets/Persone';
-import { Plus } from './Icon.assets/Plus';
 import { PlusCircle } from './Icon.assets/PlusCircle';
-import { Search } from './Icon.assets/Search';
 import { Settings } from './Icon.assets/Settings';
 import { Trash } from './Icon.assets/Trash';
 import { TrashFilled } from './Icon.assets/TrashFilled';
 import { Cart } from './Icon.assets/Cart';
 import { CartAlt } from './Icon.assets/CartAlt';
-import { Drag } from './Icon.assets/Drag';
-import { Menu } from './Icon.assets/Menu';
 // Action
 import { Alarm } from './Icon.assets/Alarm';
 import { BankCard } from './Icon.assets/BankCard';
@@ -54,14 +36,9 @@ import { Heart } from './Icon.assets/Heart';
 import { HeartStroke } from './Icon.assets/HeartStroke';
 import { Language } from './Icon.assets/Language';
 import { Lock } from './Icon.assets/Lock';
-import { Power } from './Icon.assets/Power';
-import { Refresh } from './Icon.assets/Refresh';
 import { Reset } from './Icon.assets/Reset';
 import { Star } from './Icon.assets/Star';
-import { StarFill } from './Icon.assets/StarFill';
-import { SyncProblem } from './Icon.assets/SyncProblem';
 import { TimerStroke } from './Icon.assets/TimerStroke';
-import { TimerFill } from './Icon.assets/TimerFill';
 import { Eye } from './Icon.assets/Eye';
 import { Share } from './Icon.assets/Share';
 import { CloudUpload } from './Icon.assets/CloudUpload';
@@ -77,7 +54,6 @@ import { Warning } from './Icon.assets/Warning';
 // AV
 import { CamReverse } from './Icon.assets/CamReverse';
 import { CameraVideo } from './Icon.assets/CameraVideo';
-import { CameraVideoFill } from './Icon.assets/CameraVideoFill';
 import { VideoOff } from './Icon.assets/VideoOff';
 import { Mic } from './Icon.assets/Mic';
 import { MicNone } from './Icon.assets/MicNone';
@@ -93,9 +69,6 @@ import { VideoClip } from './Icon.assets/VideoClip';
 import { MusicAlbum } from './Icon.assets/MusicAlbum';
 import { Music } from './Icon.assets/Music';
 // Connection
-import { Bluetooth } from './Icon.assets/Bluetooth';
-import { BluetoothDisabled } from './Icon.assets/BluetoothDisabled';
-import { BluetoothSearching } from './Icon.assets/BluetoothSearching';
 import { Ethernet } from './Icon.assets/Ethernet';
 import { Inputs } from './Icon.assets/Inputs';
 import { Network } from './Icon.assets/Network';
@@ -145,11 +118,7 @@ import { CallEnd } from './Icon.assets/CallEnd';
 import { CallEndCircle } from './Icon.assets/CallEndCircle';
 import { CallBlock } from './Icon.assets/CallBlock';
 import { CallDash } from './Icon.assets/CallDash';
-import { CallIncomingFill } from './Icon.assets/CallIncomingFill';
-import { CallMissedFill } from './Icon.assets/CallMissedFill';
-import { CallOutgoingFill } from './Icon.assets/CallOutgoingFill';
 import { Message } from './Icon.assets/Message';
-import { MessageChatFill } from './Icon.assets/MessageChatFill';
 import { Feedback } from './Icon.assets/Feedback';
 // Files
 import { Cardstack } from './Icon.assets/Cardstack';
@@ -167,11 +136,9 @@ import { Previous } from './Icon.assets/Previous';
 import { Repeat } from './Icon.assets/Repeat';
 import { Shuffle } from './Icon.assets/Shuffle';
 // Other
-import { Accessibility } from './Icon.assets/Accessibility';
 import { Picture } from './Icon.assets/Picture';
 import { PictureFilled } from './Icon.assets/PictureFilled';
 import { Sleep } from './Icon.assets/Sleep';
-import { MagicWand } from './Icon.assets/MagicWand';
 import { Pip1 } from './Icon.assets/Pip1';
 import { StoreGamepad } from './Icon.assets/StoreGamepad';
 import { StoreRemote } from './Icon.assets/StoreRemote';
@@ -180,27 +147,16 @@ import { SberSpasibo } from './Icon.assets/SberSpasibo';
 // Logo
 import { Salute } from './Icon.assets/Salute';
 import { SaluteCircle } from './Icon.assets/SaluteCircle';
-import { Sber } from './Icon.assets/Sber';
 import { SberAlt } from './Icon.assets/SberAlt';
 
 export const iconSectionsSet = {
     navigation: {
         apps: Apps,
-        arrowDown: ArrowDown,
-        arrowLeft: ArrowLeft,
-        arrowRight: ArrowRight,
-        arrowUp: ArrowUp,
         disclosureDown: DisclosureDown,
         disclosureLeft: DisclosureLeft,
         disclosureRight: DisclosureRight,
         disclosureUp: DisclosureUp,
-        chevronDown: ChevronDown,
-        chevronLeft: ChevronLeft,
-        chevronRight: ChevronRight,
-        chevronUp: ChevronUp,
         maximize: Maximize,
-        close: Close,
-        menu: Menu,
     },
     universal: {
         avatar: Avatar,
@@ -210,28 +166,20 @@ export const iconSectionsSet = {
         cross: Cross,
         crossCircle: CrossCircle,
         crossSmall: CrossSmall,
-        done: Done,
-        download: Download,
         edit: Edit,
         event: Event,
         house: House,
         houseSbol: HouseSbol,
-        login: Login,
-        logout: Logout,
-        minus: Minus,
         moreHorizontal: MoreHorizontal,
         moreVertical: MoreVertical,
         percentStroke: PercentStroke,
         persone: Persone,
-        plus: Plus,
         plusCircle: PlusCircle,
-        search: Search,
         settings: Settings,
         trash: Trash,
         trashFilled: TrashFilled,
         cart: Cart,
         cartAlt: CartAlt,
-        drag: Drag,
     },
     action: {
         alarm: Alarm,
@@ -241,14 +189,9 @@ export const iconSectionsSet = {
         heartStroke: HeartStroke,
         language: Language,
         lock: Lock,
-        power: Power,
-        refresh: Refresh,
         reset: Reset,
-        syncProblem: SyncProblem,
         star: Star,
-        starFill: StarFill,
         timerStroke: TimerStroke,
-        timerFill: TimerFill,
         eye: Eye,
         share: Share,
         cloudUpload: CloudUpload,
@@ -266,7 +209,6 @@ export const iconSectionsSet = {
     av: {
         camReverse: CamReverse,
         cameraVideo: CameraVideo,
-        cameraVideoFill: CameraVideoFill,
         videoOff: VideoOff,
         mic: Mic,
         micNone: MicNone,
@@ -283,9 +225,6 @@ export const iconSectionsSet = {
         music: Music,
     },
     connection: {
-        bluetooth: Bluetooth,
-        bluetoothDisabled: BluetoothDisabled,
-        bluetoothSearching: BluetoothSearching,
         ethernet: Ethernet,
         inputs: Inputs,
         network: Network,
@@ -337,11 +276,7 @@ export const iconSectionsSet = {
         callEndCircle: CallEndCircle,
         callBlock: CallBlock,
         callDash: CallDash,
-        callIncomingFill: CallIncomingFill,
-        callMissedFill: CallMissedFill,
-        callOutgoingFill: CallOutgoingFill,
         message: Message,
-        messageChatFill: MessageChatFill,
         feedback: Feedback,
     },
     files: {
@@ -363,11 +298,9 @@ export const iconSectionsSet = {
         shuffle: Shuffle,
     },
     other: {
-        accessibility: Accessibility,
         picture: Picture,
         pictureFilled: PictureFilled,
         sleep: Sleep,
-        magicWand: MagicWand,
         pip1: Pip1,
         storeGamepad: StoreGamepad,
         storeRemote: StoreRemote,
@@ -377,7 +310,6 @@ export const iconSectionsSet = {
     logo: {
         salute: Salute,
         saluteCircle: SaluteCircle,
-        sber: Sber,
         sberAlt: SberAlt,
     },
 };

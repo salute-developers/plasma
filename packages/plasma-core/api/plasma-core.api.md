@@ -1000,6 +1000,8 @@ export type ScrollAxis = 'x' | 'y';
 export interface ScrollSnapProps {
     // (undocumented)
     scrollSnapAlign?: SnapAlign;
+    // (undocumented)
+    scrollSnapStop?: SnapStop;
 }
 
 // @public (undocumented)
@@ -1077,6 +1079,9 @@ export interface SmartPaginationDotsProps {
 
 // @public (undocumented)
 export type SnapAlign = 'start' | 'center' | 'end';
+
+// @public (undocumented)
+export type SnapStop = 'normal' | 'always';
 
 // @public (undocumented)
 export type SnapType = 'mandatory' | 'proximity' | 'none';

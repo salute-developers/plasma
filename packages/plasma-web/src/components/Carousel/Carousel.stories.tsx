@@ -18,7 +18,7 @@ const meta: Meta<typeof Carousel> = {
     component: Carousel,
     decorators: [InSpacingDecorator],
     argTypes: {
-        align: {
+        scrollAlign: {
             options: ['center', 'start', 'end'],
             control: {
                 type: 'inline-radio',
@@ -49,11 +49,20 @@ const defaultCarouselStyle = { margin: '0 -0.5rem' };
 const defaultCarouselItemStyle = { width: '20rem', padding: '0 0.5rem' };
 
 export const Default: StoryObj<CarouselProps> = {
-    render: () => {
+    args: {
+        scrollAlign: 'start',
+        isDragScrollDisabled: false,
+    },
+    render: ({ scrollAlign, isDragScrollDisabled }) => {
         return (
-            <Carousel index={0} style={defaultCarouselStyle}>
+            <Carousel
+                index={0}
+                style={defaultCarouselStyle}
+                scrollAlign={scrollAlign}
+                isDragScrollDisabled={isDragScrollDisabled}
+            >
                 {items.map((item) => (
-                    <CarouselItem key={item.id} style={defaultCarouselItemStyle}>
+                    <CarouselItem key={item.id} style={defaultCarouselItemStyle} scrollSnapAlign={scrollAlign}>
                         <CarouselCard
                             id={item.id}
                             title={item.title}
@@ -88,6 +97,7 @@ const StyledControls = styled.div`
 const StyledCarousel = styled(Carousel)`
     display: flex;
     padding: 0.5rem 0;
+    overflow: hidden;
 `;
 const StyledCarouselItem = styled(CarouselItem)`
     width: 32.5rem;
@@ -152,7 +162,7 @@ const StoryAccessibilityDemo = () => {
                         view="clear"
                     />
                 </StyledControls>
-                <StyledCarousel index={index} scrollSnapType="none" ariaLive={ariaLive}>
+                <StyledCarousel index={index} scrollSnapType="none" ariaLive={ariaLive} isDragScrollDisabled>
                     {items.map((item, i) => (
                         <StyledCarouselItem key={item.id} aria-label={`${i + 1} из ${items.length}`}>
                             <CarouselCard
