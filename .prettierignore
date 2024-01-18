@@ -12,6 +12,7 @@ packages/plasma-hope/api/
 packages/plasma-core/api/
 packages/plasma-asdk/api/
 packages/sdds-srvc/api/
+packages/caldera/api/
 
 utils/plasma-cy-utils/lib
 

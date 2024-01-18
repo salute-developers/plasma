@@ -46,6 +46,9 @@ packages/plasma-asdk/*
 packages/sdds-srvc/*
 !packages/sdds-srvc/src
 
+packages/caldera/*
+!packages/caldera/src
+
 packages/plasma-b2c/*
 !packages/plasma-b2c/src
 
