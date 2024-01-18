@@ -168,6 +168,12 @@ jobs:
           npm run storybook:build --prefix="./packages/plasma-asdk"
           cp -R ./packages/plasma-asdk/build-sb ./s3_build/${PR_NAME}/asdk-storybook
       
+      - name: Plasma "Caldera" Storybook
+        if: ${{ needs.scope.outputs.HAS_CALDERA == 'true' }}
+        run: |
+          npm run storybook:build --prefix="./packages/caldera"
+          cp -R ./packages/caldera/build-sb ./s3_build/${PR_NAME}/caldera-storybook
+      
       - name: Install s3cmd
         run: pip3 install s3cmd
       
@@ -195,10 +201,11 @@ jobs:
           HAS_PLASMA_TEMPLE: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_TEMPLE) }}
           HAS_PLASMA_HOPE: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_HOPE) }}
           HAS_PLASMA_ASDK: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_ASDK) }}
+          HAS_CALDERA: ${{ fromJSON(needs.scope.outputs.HAS_CALDERA) }}
         with:
           github-token: ${{secrets.GH_TOKEN}}
           script: |
-            const { HAS_PLASMA_B2C, HAS_PLASMA_WEB, HAS_PLASMA_UI, HAS_PLASMA_TEMPLE, HAS_PLASMA_HOPE, HAS_PLASMA_ASDK } = process.env;
+            const { HAS_PLASMA_B2C, HAS_PLASMA_WEB, HAS_PLASMA_UI, HAS_PLASMA_TEMPLE, HAS_PLASMA_HOPE, HAS_PLASMA_ASDK, HAS_CALDERA } = process.env;
             
             const {
               issue: { number },
@@ -231,6 +238,10 @@ jobs:
             
             if (HAS_PLASMA_ASDK === 'true') {
               links.push(`asdk storybook: http://plasma.sberdevices.ru/pr/pr-${number}/asdk-storybook/`)
+            }
+
+            if (HAS_CALDERA === 'true') {
+              links.push(`caldera storybook: http://plasma.sberdevices.ru/pr/pr-${number}/caldera-storybook/`)
             }
             
             github.rest.issues.createComment({
