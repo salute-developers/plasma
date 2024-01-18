@@ -1,3 +1,189 @@
+# v1.196.0 (Thu Jan 18 2024)
+
+### Release Notes
+
+#### Release by 18.01.2024 ([#981](https://github.com/salute-developers/plasma/pull/981))
+
+## Components
+
+### Carousel
+
+- добавлен пропс `scrollSnapStop` в `Carousel`
+
+ 
+feat(plasma-core): Add new prop (scrollSnapStop) to the Carousel component (https://github.com/salute-developers/plasma/pull/940)
+
+
+### Skeleton
+
+- добавлен компонент в новой архитектуре
+- включен в поставку b2c/web
+- удален из plasma-hope
+- написаны тесты
+- поправлен компонент Button для использования в styled
+
+ 
+feat(plasma-new-hope/b2c/web): add skeleton with new architecture (https://github.com/salute-developers/plasma/pull/954)
+
+### Skeleton
+
+-   добавлены размеры под новую типографику
+
+ 
+feat(plasma-b2c/web): add skeleton new typography sizes (https://github.com/salute-developers/plasma/pull/960)
+
+
+### Header
+
+-  добавлен prop, который позволяет применять mediaQuery для S-viewport по условию
+-  добавлен тест на данный кейс
+
+ 
+feat(plasma-ui): add property to show/hide subtitle on S viewport (https://github.com/salute-developers/plasma/pull/958)
+
+
+### Popover arrow
+
+-   Поправлено отображение `Popover arrow` в Safari, Firefox
+
+ 
+fix(plasma-web): fix Popover arrow in Safari, Firefox (https://github.com/salute-developers/plasma/pull/963)
+
+
+### Image
+
+- добавлен в поставку `plasma-{b2c, web}`
+- добавлен UI тесты
+- удален из `plasma-hope`
+
+ 
+feat(plasma-new-hope/web/b2c): Image refactor & redesign (https://github.com/salute-developers/plasma/pull/968)
+
+### Badge
+
+-  добавлен в поставку `plasma-{b2c,web,new-hope}`
+-  дополнены тесты
+
+ 
+feat(plasma-new-hope/web/b2c): Badge refactor & redesign (https://github.com/salute-developers/plasma/pull/964)
+
+### Counter
+
+- добавлен в поставку `plasma-{b2c,web,new-hope}`
+- написаны тесты и документация
+
+ 
+feat(plasma-new-hope/web/b2c): Counter component (https://github.com/salute-developers/plasma/pull/965)
+
+
+## Icons
+
+-  добавлены **новые** иконки размера 24x24, 1025 штук
+-  добавлены **новые** категории иконок в разделе icons на сайте
+
+feat(plasma-icons): Add new 24x24 icons (https://github.com/salute-developers/plasma/pull/955)
+
+
+## Infra
+
+### Perftool
+
+- обновление версии @salutejs/perftool@0.24
+
+ 
+Update perftool (https://github.com/salute-developers/plasma/pull/932)
+
+### @Auto-it CLI 
+
+- добавлена возможность прокинуть опции/флаги для запуска - **auto shipit**;
+- выключили генерацию changelog для pubslish: canary, RC;  
+
+ 
+plasma-infra: Pass cli options for "@auto-it" (https://github.com/salute-developers/plasma/pull/890)
+
+### Changelog workflow
+
+- добавлена новая категория `Bugs`
+- экранирование спец символов 
+
+ 
+plasma-infra: Improve changelog workflow  (https://github.com/salute-developers/plasma/pull/967)
+
+
+## Tokens
+
+### Tokens naming
+
+- изменена нотация с `camelCase` на `kebab-case` для старых токенов цветов и типографики
+
+Было:
+<img width="600" alt="Screenshot 2024-01-16 at 19 09 54" src="https://github.com/salute-developers/plasma/assets/26903236/b83f776b-e4f9-43e1-9506-bff3d25f7e71">
+
+Стало:
+<img width="600" alt="Screenshot 2024-01-16 at 19 09 17" src="https://github.com/salute-developers/plasma/assets/26903236/10298375-1a54-4dd4-8fe3-8af74c3e40b1">
+
+ 
+feat(plasma-tokens-utils): Update formatting tokens name from camelCase to kebab-case  (https://github.com/salute-developers/plasma/pull/971)
+
+## Bugs
+
+### Calendar
+
+-   добавлен `ref` в `forwardRef` вторым аргументом
+
+ 
+feat(plasma-new-hope): fix CalendarDouble ref (https://github.com/salute-developers/plasma/pull/959)
+
+
+### Carousel
+
+- решен баг с пролистыванием (onDragScroll) в accessible mode - mobile & desktop.
+- control panel в карусели работает корректно (можно выбрать scrollAlign).
+
+ 
+fix(plasma-hope/plasma-web): Turn onDragScroll off by default in accessibility mode in Carousel. Fix storybook control panel in it. (https://github.com/salute-developers/plasma/pull/957)
+
+### Spinner
+
+- исправлено отображение компонента `Spinner` при размере 8px
+
+ 
+fix(plasma-new-hope): Fix size for `Spinner` component (https://github.com/salute-developers/plasma/pull/966)
+
+## Misc
+
+### Typography
+
+-  root для типографики вынесен в общий компонент
+-  className, style теперь явно задаются в компоненте
+-  исправлены конфиги для asdk поставки
+
+ 
+feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://github.com/salute-developers/plasma/pull/947)
+
+---
+
+#### 🚀 Enhancement
+
+- Release by 18.01.2024 [#981](https://github.com/salute-developers/plasma/pull/981) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@shuga2704](https://github.com/shuga2704) [@akhdrv](https://github.com/akhdrv) [@kayman233](https://github.com/kayman233) [@Yakutoc](https://github.com/Yakutoc) [@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 7
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.192.0 (Fri Dec 22 2023)
 
 #### 🚀 Enhancement
