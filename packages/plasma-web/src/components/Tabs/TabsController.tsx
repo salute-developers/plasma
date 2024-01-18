@@ -1,4 +1,4 @@
-import { createTabsController } from '@salutejs/plasma-hope';
+import { createTabsController } from '@salutejs/plasma-new-hope/styled-components';
 
 import { Tabs } from './Tabs';
 import { TabItem } from './TabItem';
