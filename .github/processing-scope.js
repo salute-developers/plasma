@@ -96,6 +96,7 @@ module.exports = () => {
         HAS_PLASMA_TEMPLE,
         HAS_PLASMA_HOPE,
         HAS_PLASMA_ASDK,
+        HAS_CALDERA,
         HAS_ASSETS,
         HAS_CALDERA,
         HAS_CALDERA_ONLINE,
