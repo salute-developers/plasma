@@ -1,0 +1,2 @@
+export { usePopupContext as usePopupBaseContext, PopupProvider as PopupBaseProvider, popupClasses as popupBaseClasses } from '@salutejs/plasma-new-hope/styled-components';
+export { PopupBase } from './PopupBase';
