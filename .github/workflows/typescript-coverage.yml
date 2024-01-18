@@ -28,11 +28,13 @@ jobs:
       # INFO: Игнорируем пакеты связанные с plasma-tokens, документацией и утилитами, т.к. в них не запускается typescript-coverage
       LERNA_IGNORE_LIST: "@salutejs/plasma-{tokens*,temple-docs,ui-docs,docs-ui,web-docs,website,theme-builder,cy-utils,sb-utils}"
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - uses: ./.github/actions/prepare-environment
+          show-progress: false
+  
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-environment
 
       - name: Computed scope
         id: scope
@@ -48,6 +50,10 @@ jobs:
             
             if (!enumeration.includes('plasma-core')) {
               enumeration.push('plasma-core')
+            }
+            
+            if (!enumeration.includes('plasma-icons')) {
+              enumeration.push('plasma-icons')
             }
             
             return enumeration.join(',');     

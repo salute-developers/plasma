@@ -1,25 +1,7 @@
 import { styled } from '@linaria/react';
+import { css } from '@linaria/core';
 
-import type { StyledRootProps } from './Image.types';
-
-export const ratios = {
-    '1 / 1': '100',
-    '1/1': '100',
-    '3 / 4': '133.3333',
-    '3/4': '133.3333',
-    '4 / 3': '75',
-    '4/3': '75',
-    '9 / 16': '177.7778',
-    '9/16': '177.7778',
-    '16 / 9': '56.25',
-    '16/9': '56.25',
-    '1 / 2': '200',
-    '1/2': '200',
-    '2 / 1': '50',
-    '2/1': '50',
-};
-
-export const StyledRoot = styled.div<StyledRootProps>`
+export const base = css`
     position: relative;
     display: block;
     box-sizing: border-box;
@@ -27,9 +9,9 @@ export const StyledRoot = styled.div<StyledRootProps>`
 
     height: inherit;
     border-radius: inherit;
-    width: ${({ $width }) => $width || '100%'};
-    height: ${({ $height }) => $height || '0'};
-    padding-bottom: ${({ $ratio, $customRatio }) => ($ratio ? `${ratios[$ratio]}%` : $customRatio)};
+    width: var(--plasma_private-image-width);
+    height: var(--plasma_private-image-height);
+    padding-bottom: var(--plasma_private-image-pading-bottom);
 `;
 
 export const StyledImg = styled.img`

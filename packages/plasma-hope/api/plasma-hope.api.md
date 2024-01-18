@@ -17,7 +17,6 @@ import { applyMaxLines } from '@salutejs/plasma-core';
 import { applyNoSelect } from '@salutejs/plasma-core';
 import { applyRoundness } from '@salutejs/plasma-core';
 import { applyScrollSnap } from '@salutejs/plasma-core';
-import { applySkeletonGradient } from '@salutejs/plasma-core';
 import { applySpacing } from '@salutejs/plasma-core';
 import { applyView } from '@salutejs/plasma-core';
 import { AsProps } from '@salutejs/plasma-core';
@@ -83,15 +82,10 @@ import { Headline2 } from '@salutejs/plasma-core';
 import { Headline3 } from '@salutejs/plasma-core';
 import { Headline4 } from '@salutejs/plasma-core';
 import { HTMLAttributes } from 'react';
-import { Image as Image_2 } from '@salutejs/plasma-core';
-import { ImageBaseProps } from '@salutejs/plasma-core';
-import { ImageProps } from '@salutejs/plasma-core';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
 import { InputHTMLAttributes as InputHTMLAttributes_2 } from 'react';
 import { InterpolationFunction } from 'styled-components';
 import { KeyboardEvent as KeyboardEvent_2 } from 'react';
-import { LineSkeleton } from '@salutejs/plasma-core';
-import { LineSkeletonProps } from '@salutejs/plasma-core';
 import { MaxLinesProps } from '@salutejs/plasma-core';
 import { monthLongName } from '@salutejs/plasma-core';
 import { monthShortName } from '@salutejs/plasma-core';
@@ -110,12 +104,9 @@ import { PopupProps } from '@salutejs/plasma-core';
 import type { PriceProps as PriceProps_2 } from '@salutejs/plasma-core';
 import { PropsWithChildren } from 'react';
 import { radiuses } from '@salutejs/plasma-core';
-import { Ratio } from '@salutejs/plasma-core';
 import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
 import { ReactNode } from 'react';
-import { RectSkeleton } from '@salutejs/plasma-core';
-import { RectSkeletonProps } from '@salutejs/plasma-core';
 import { RefAttributes } from 'react';
 import { Roundness } from '@salutejs/plasma-core';
 import { RoundnessProps } from '@salutejs/plasma-core';
@@ -123,7 +114,6 @@ import { ScrollSnapProps } from '@salutejs/plasma-core';
 import { setRef } from '@salutejs/plasma-core';
 import { shadows } from '@salutejs/plasma-core';
 import { ShiftProps } from '@salutejs/plasma-core';
-import { SkeletonGradientProps } from '@salutejs/plasma-core';
 import { SmartPaginationDotsProps as SmartPaginationDotsProps_2 } from '@salutejs/plasma-core';
 import { SnapAlign } from '@salutejs/plasma-core';
 import { SnapType } from '@salutejs/plasma-core';
@@ -145,8 +135,6 @@ import { TextareaResize } from '@salutejs/plasma-core';
 import { TextL } from '@salutejs/plasma-typo';
 import { TextM } from '@salutejs/plasma-typo';
 import { TextS } from '@salutejs/plasma-typo';
-import { TextSkeleton } from '@salutejs/plasma-core';
-import { TextSkeletonProps } from '@salutejs/plasma-core';
 import { TextXS } from '@salutejs/plasma-typo';
 import { TimingFunction } from '@salutejs/plasma-core';
 import { Toast } from '@salutejs/plasma-core';
@@ -168,8 +156,6 @@ import { ViewProps } from '@salutejs/plasma-core';
 import { views } from '@salutejs/plasma-core';
 import { withAutoFocus } from '@salutejs/plasma-core';
 import { WithAutoFocusProps } from '@salutejs/plasma-core';
-import { withSkeleton } from '@salutejs/plasma-core';
-import { WithSkeletonProps } from '@salutejs/plasma-core';
 
 export { addFocus }
 
@@ -195,8 +181,6 @@ export { applyNoSelect }
 export { applyRoundness }
 
 export { applyScrollSnap }
-
-export { applySkeletonGradient }
 
 export { applySpacing }
 
@@ -385,6 +369,7 @@ export type CardProps = CardProps_2 & RoundnessProps & BackgroundProps;
 // @public
 export const Carousel: React_2.ForwardRefExoticComponent<Omit<CarouselProps_2, "axis" | "animatedScrollByIndex" | "throttleMs" | "debounceMs"> & {
     ariaLive?: "off" | "polite" | undefined;
+    isDragScrollDisabled?: boolean | undefined;
 } & React_2.RefAttributes<HTMLDivElement>>;
 
 export { CarouselGridWrapper }
@@ -396,6 +381,7 @@ export { CarouselItemProps }
 // @public (undocumented)
 export type CarouselProps = Omit<CarouselProps_2, 'axis' | 'animatedScrollByIndex' | 'throttleMs' | 'debounceMs'> & {
     ariaLive?: 'off' | 'polite';
+    isDragScrollDisabled?: boolean;
 };
 
 // @public
@@ -681,12 +667,6 @@ export const Headline5: StyledComponent<"div", any, {}, never>;
 // @public (undocumented)
 export const headline5: CSSObject;
 
-export { Image_2 as Image }
-
-export { ImageBaseProps }
-
-export { ImageProps }
-
 // @public (undocumented)
 export const inputBackground = "var(--plasma-input-background-color)";
 
@@ -772,10 +752,6 @@ export const inputWarningCaretColor = "var(--plasma-input-warning-caret-color)";
 
 // @public (undocumented)
 export const inputWarningColor = "var(--plasma-input-warning-color)";
-
-export { LineSkeleton }
-
-export { LineSkeletonProps }
 
 // @public (undocumented)
 export const link = "var(--plasma-colors-link)";
@@ -933,12 +909,6 @@ export interface ProgressProps {
 
 export { radiuses }
 
-export { Ratio }
-
-export { RectSkeleton }
-
-export { RectSkeletonProps }
-
 export { Roundness }
 
 export { RoundnessProps }
@@ -984,8 +954,6 @@ export { ShiftProps }
 
 // @public (undocumented)
 export const sizes: Record<Breakpoint, keyof ColSizeProps>;
-
-export { SkeletonGradientProps }
 
 // @public (undocumented)
 export const SliderThumb: StyledComponent<"div", any, {
@@ -1117,10 +1085,6 @@ export { TextM }
 
 export { TextS }
 
-export { TextSkeleton }
-
-export { TextSkeletonProps }
-
 export { TextXS }
 
 export { TimingFunction }
@@ -1215,10 +1179,6 @@ export const withAssistiveDropdown: <P extends object>(Component: React_2.Compon
 export { withAutoFocus }
 
 export { WithAutoFocusProps }
-
-export { withSkeleton }
-
-export { WithSkeletonProps }
 
 // (No @packageDocumentation comment for this package)
 

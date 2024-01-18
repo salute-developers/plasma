@@ -1,14 +1,19 @@
 import React from 'react';
-import { boolean, select, number } from '@storybook/addon-knobs';
-import { typography } from '@salutejs/plasma-tokens-web';
-import { radiuses, Roundness, TypographyTypes } from '@salutejs/plasma-core';
+import type { ComponentProps } from 'react';
+import { radiuses } from '@salutejs/plasma-core';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { withSkeleton, WithSkeletonProps } from '../../hocs';
-import { Button as BasicButton, ButtonProps } from '../Button';
+import { Button as BasicButton } from '../Button/Button';
+import type { WithSkeletonProps } from '../../hocs';
+import { withSkeleton } from '../../hocs';
 
 import { LineSkeleton, TextSkeleton, RectSkeleton } from '.';
+
+type StoryLineSkeletonProps = ComponentProps<typeof LineSkeleton>;
+type StoryTextSkeletonProps = ComponentProps<typeof TextSkeleton>;
+type StoryRectSkeletonProps = ComponentProps<typeof RectSkeleton>;
+type BasicButtonProps = ComponentProps<typeof BasicButton>;
 
 const meta: Meta = {
     title: 'Content/Skeleton',
@@ -17,47 +22,114 @@ const meta: Meta = {
 
 export default meta;
 
-const textSizes = Object.keys(typography) as TypographyTypes;
-
 const roundnessKeys = Object.keys(radiuses).map((r) => String(r));
+const textSizes = [
+    'display1',
+    'display2',
+    'display3',
+    'headline1',
+    'headline2',
+    'headline3',
+    'headline4',
+    'body1',
+    'body2',
+    'body3',
+    'paragraph1',
+    'paragraph2',
+    'footnote1',
+    'footnote2',
+    'button1',
+    'button2',
+    'caption',
+    'underline',
+    'bodyL',
+    'bodyM',
+    'bodyS',
+    'bodyXS',
+    'bodyXXS',
+    'dsplL',
+    'dsplM',
+    'dsplS',
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'textL',
+    'textM',
+    'textS',
+    'textXS',
+];
 
-const useRoundnessKnob = () => Number(select('roundness', roundnessKeys, '16')) as Roundness;
-
-const ButtonSkeleton = withSkeleton<ButtonProps & WithSkeletonProps>(BasicButton);
-
-const StoryLineSkeleton = () => {
-    return <LineSkeleton size={select('size', textSizes, 'body1')} roundness={useRoundnessKnob()} />;
+const Default: StoryObj = {
+    argTypes: {
+        roundness: {
+            options: roundnessKeys,
+            control: {
+                type: 'select',
+            },
+        },
+    },
+    args: {
+        roundness: '16',
+        customGradientColor: '',
+        lighter: false,
+    },
 };
 
-export const Line: StoryObj = {
-    render: () => <StoryLineSkeleton />,
+export const Line: StoryObj<StoryLineSkeletonProps> = {
+    argTypes: {
+        size: {
+            options: textSizes,
+            control: {
+                type: 'select',
+            },
+        },
+        ...Default.argTypes,
+    },
+    args: {
+        size: 'body1',
+        ...Default.args,
+    },
+    render: (args) => <LineSkeleton {...args} />,
 };
 
-const StoryTextSkeleton = () => (
-    <TextSkeleton
-        lines={number('lines', 4)}
-        size={select('size', textSizes, 'body1')}
-        roundness={useRoundnessKnob()}
-        width={!boolean('Variable width', false) && 100}
-    />
-);
-
-export const Text: StoryObj = {
-    render: () => <StoryTextSkeleton />,
+export const Text: StoryObj<StoryTextSkeletonProps> = {
+    argTypes: {
+        size: {
+            options: textSizes,
+            control: {
+                type: 'select',
+            },
+        },
+        ...Default.argTypes,
+    },
+    args: {
+        size: 'body1',
+        lines: 5,
+        width: '',
+        ...Default.args,
+    },
+    render: (args) => <TextSkeleton {...args} />,
 };
 
-const StoryRectSkeleton = () => (
-    <RectSkeleton
-        width={`${number('width (rem)', 4)}rem`}
-        height={`${number('height (rem)', 4)}rem`}
-        roundness={useRoundnessKnob()}
-    />
-);
-
-export const Rect: StoryObj = {
-    render: () => <StoryRectSkeleton />,
+export const Rect: StoryObj<StoryRectSkeletonProps> = {
+    argTypes: {
+        ...Default.argTypes,
+    },
+    args: {
+        width: '4rem',
+        height: '4rem',
+        ...Default.args,
+    },
+    render: (args) => <RectSkeleton {...args} />,
 };
+
+const ButtonSkeleton = withSkeleton<BasicButtonProps & WithSkeletonProps>(BasicButton);
 
 export const Button: StoryObj = {
-    render: () => <ButtonSkeleton text="test" skeleton />,
+    args: {
+        skeleton: true,
+    },
+    render: (args) => <ButtonSkeleton text="test" {...args} />,
 };

@@ -115,7 +115,7 @@ const Content = ({ contentType, contentItemsNumber, enableIcons }: ContentCompon
     return null;
 };
 
-const StoryDefault = ({ enableLogo, logoAlt, title, subtitle, ...rest }: StoryHeaderProps) => {
+const StoryDefault = ({ enableLogo, logoAlt, title, subtitle, hideSubtitleOnMobile, ...rest }: StoryHeaderProps) => {
     const [isBack, setIsBack] = useState(true);
 
     const props: HeaderProps = isBack
@@ -141,6 +141,7 @@ const StoryDefault = ({ enableLogo, logoAlt, title, subtitle, ...rest }: StoryHe
             logoAlt={enableLogo && logoAlt}
             title={title}
             subtitle={subtitle}
+            hideSubtitleOnMobile={hideSubtitleOnMobile}
         >
             <Content {...rest} />
         </Header>
@@ -166,6 +167,7 @@ export const Default: StoryObj<StoryHeaderProps> = {
         contentType: 'Buttons',
         contentItemsNumber: 3,
         enableIcons: true,
+        hideSubtitleOnMobile: true,
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -245,7 +247,15 @@ export const CustomAssembly: StoryObj<CustomAssemblyProps & ContentComponentProp
     },
 };
 
-const StoryNeu = ({ enableLogo, logoAlt, title, subTitle, gradientColor, ...rest }: StoryNeuHeaderProps) => {
+const StoryNeu = ({
+    enableLogo,
+    logoAlt,
+    title,
+    subTitle,
+    gradientColor,
+    hideSubtitleOnMobile,
+    ...rest
+}: StoryNeuHeaderProps) => {
     const [arrow, setArrow] = useState<'back' | 'minimize'>('back');
 
     const onArrowClick = useCallback(
@@ -265,6 +275,7 @@ const StoryNeu = ({ enableLogo, logoAlt, title, subTitle, gradientColor, ...rest
             title={title}
             subTitle={subTitle}
             gradientColor={gradientColor}
+            hideSubtitleOnMobile={hideSubtitleOnMobile}
         >
             <Content {...rest} />
         </NeuHeader>
@@ -290,6 +301,7 @@ export const Neu: StoryObj<StoryNeuHeaderProps> = {
         contentType: 'Buttons',
         contentItemsNumber: 3,
         enableIcons: true,
+        hideSubtitleOnMobile: true,
     },
     render: (args) => <StoryNeu {...args} />,
 };
