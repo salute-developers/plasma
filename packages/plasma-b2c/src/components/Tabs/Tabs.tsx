@@ -1,8 +1,10 @@
-import { Tabs as TabsHope } from '@salutejs/plasma-hope';
+import { tabsConfig, component, mergeConfig, TabsProps } from '@salutejs/plasma-new-hope/styled-components';
+import { ForwardRefExoticComponent, RefAttributes } from 'react';
 
-const TabsBase = TabsHope({ design: 'b2c' });
+import { config } from './Tabs.config';
 
+const mergedConfig = mergeConfig(tabsConfig, config);
 /**
  * Контейнер вкладок, основной компонент для пользовательской сборки вкладок.
  */
-export const Tabs = TabsBase;
+export const Tabs = component(mergedConfig) as ForwardRefExoticComponent<TabsProps & RefAttributes<HTMLDivElement>>;

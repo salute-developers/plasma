@@ -75,6 +75,7 @@ import { ContainerProps } from '@salutejs/plasma-hope';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { createTabsController } from '@salutejs/plasma-new-hope/styled-components';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { defaultValidate } from '@salutejs/plasma-hope';
@@ -200,12 +201,12 @@ import { StyledPreviewGallery } from '@salutejs/plasma-hope';
 import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
 import type { SwitchProps } from '@salutejs/plasma-core';
 import { syntheticFocus } from '@salutejs/plasma-core';
-import { TabItemProps } from '@salutejs/plasma-hope';
-import { TabItemProps as TabItemProps_2 } from '@salutejs/plasma-core';
-import { TabsControllerProps } from '@salutejs/plasma-hope';
-import { TabsControllerProps as TabsControllerProps_2 } from '@salutejs/plasma-core';
-import { TabsProps } from '@salutejs/plasma-hope';
-import { TabsProps as TabsProps_2 } from '@salutejs/plasma-core';
+import { TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
+import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
+import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
+import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
+import { TabsControllerProps as TabsControllerProps_2 } from '@salutejs/plasma-new-hope/types/components/Tabs/createTabsController';
+import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
 import { TextAreaProps } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
@@ -607,6 +608,8 @@ view?: string | undefined;
 export { CounterProps }
 
 export { counterTokens }
+
+export { createTabsController }
 
 export { defaultValidate }
 
@@ -1186,12 +1189,37 @@ export { SwitchProps }
 export { syntheticFocus }
 
 // @public
-export const TabItem: StyledComponent<ForwardRefExoticComponent<TabItemProps_2 & RefAttributes<HTMLButtonElement>>, any, TabItemProps, never>;
+export const TabItem: ForwardRefExoticComponent<AsProps<any> & ButtonHTMLAttributes<HTMLButtonElement> & {
+    isActive?: boolean | undefined;
+    selected?: boolean | undefined;
+    disabled?: boolean | undefined;
+    pilled?: boolean | undefined;
+    animated?: boolean | undefined;
+    id?: string | undefined;
+    contentLeft?: ReactNode;
+    contentRight?: ReactNode;
+    size?: string | undefined;
+    view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
 
 export { TabItemProps }
 
+export { TabItemRefs }
+
 // @public
-export const Tabs: StyledComponent<ForwardRefExoticComponent<TabsProps_2 & RefAttributes<HTMLDivElement>>, any, TabsProps, never>;
+export const Tabs: ForwardRefExoticComponent<AsProps<any> & HTMLAttributes<HTMLDivElement> & {
+    disabled?: boolean | undefined;
+    stretch?: boolean | undefined;
+    pilled?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    outsideScroll?: boolean | {
+        left?: string | undefined;
+        right?: string | undefined;
+    } | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+export { TabsContext }
 
 // @public
 export const TabsController: ForwardRefExoticComponent<TabsControllerProps_2 & RefAttributes<HTMLDivElement>>;

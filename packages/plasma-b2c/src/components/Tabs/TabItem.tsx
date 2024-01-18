@@ -1,8 +1,13 @@
-import { TabItem as TabItemHope } from '@salutejs/plasma-hope';
+import { tabItemConfig, component, mergeConfig, TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
+import { ForwardRefExoticComponent, RefAttributes } from 'react';
 
-const TabItemBase = TabItemHope({ design: 'b2c' });
+import { config } from './TabItem.config';
+
+const mergedConfig = mergeConfig(tabItemConfig, config);
 
 /**
  * Элемент списка, недопустимо использовать вне компонента Tabs.
  */
-export const TabItem = TabItemBase;
+export const TabItem = component(mergedConfig) as ForwardRefExoticComponent<
+    TabItemProps & RefAttributes<HTMLDivElement>
+>;
