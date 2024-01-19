@@ -8,122 +8,103 @@
 
 ### Carousel
 
-- добавлен пропс `scrollSnapStop` в `Carousel`
+-   добавлен пропс `scrollSnapStop` в `Carousel`
 
- 
 feat(plasma-core): Add new prop (scrollSnapStop) to the Carousel component (https://github.com/salute-developers/plasma/pull/940)
-
 
 ### Skeleton
 
-- добавлен компонент в новой архитектуре
-- включен в поставку b2c/web
-- удален из plasma-hope
-- написаны тесты
-- поправлен компонент Button для использования в styled
+-   добавлен компонент в новой архитектуре
+-   включен в поставку b2c/web
+-   удален из plasma-hope
+-   написаны тесты
+-   поправлен компонент Button для использования в styled
 
- 
 feat(plasma-new-hope/b2c/web): add skeleton with new architecture (https://github.com/salute-developers/plasma/pull/954)
 
 ### Skeleton
 
 -   добавлены размеры под новую типографику
 
- 
 feat(plasma-b2c/web): add skeleton new typography sizes (https://github.com/salute-developers/plasma/pull/960)
-
 
 ### Header
 
--  добавлен prop, который позволяет применять mediaQuery для S-viewport по условию
--  добавлен тест на данный кейс
+-   добавлен prop, который позволяет применять mediaQuery для S-viewport по условию
+-   добавлен тест на данный кейс
 
- 
 feat(plasma-ui): add property to show/hide subtitle on S viewport (https://github.com/salute-developers/plasma/pull/958)
-
 
 ### Popover arrow
 
 -   Поправлено отображение `Popover arrow` в Safari, Firefox
 
- 
 fix(plasma-web): fix Popover arrow in Safari, Firefox (https://github.com/salute-developers/plasma/pull/963)
-
 
 ### Image
 
-- добавлен в поставку `plasma-{b2c, web}`
-- добавлен UI тесты
-- удален из `plasma-hope`
+-   добавлен в поставку `plasma-{b2c, web}`
+-   добавлен UI тесты
+-   удален из `plasma-hope`
 
- 
 feat(plasma-new-hope/web/b2c): Image refactor & redesign (https://github.com/salute-developers/plasma/pull/968)
 
 ### Badge
 
--  добавлен в поставку `plasma-{b2c,web,new-hope}`
--  дополнены тесты
+-   добавлен в поставку `plasma-{b2c,web,new-hope}`
+-   дополнены тесты
 
- 
 feat(plasma-new-hope/web/b2c): Badge refactor & redesign (https://github.com/salute-developers/plasma/pull/964)
 
 ### Counter
 
-- добавлен в поставку `plasma-{b2c,web,new-hope}`
-- написаны тесты и документация
+-   добавлен в поставку `plasma-{b2c,web,new-hope}`
+-   написаны тесты и документация
 
- 
 feat(plasma-new-hope/web/b2c): Counter component (https://github.com/salute-developers/plasma/pull/965)
-
 
 ## Icons
 
--  добавлены **новые** иконки размера 24x24, 1025 штук
--  добавлены **новые** категории иконок в разделе icons на сайте
+-   добавлены **новые** иконки размера 24x24, 1025 штук
+-   добавлены **новые** категории иконок в разделе icons на сайте
 
 feat(plasma-icons): Add new 24x24 icons (https://github.com/salute-developers/plasma/pull/955)
-
 
 ## Infra
 
 ### Perftool
 
-- обновление версии @salutejs/perftool@0.24
+-   обновление версии @salutejs/perftool@0.24
 
- 
 Update perftool (https://github.com/salute-developers/plasma/pull/932)
 
-### @Auto-it CLI 
+### @Auto-it CLI
 
-- добавлена возможность прокинуть опции/флаги для запуска - **auto shipit**;
-- выключили генерацию changelog для pubslish: canary, RC;  
+-   добавлена возможность прокинуть опции/флаги для запуска - **auto shipit**;
+-   выключили генерацию changelog для pubslish: canary, RC;
 
- 
 plasma-infra: Pass cli options for "@auto-it" (https://github.com/salute-developers/plasma/pull/890)
 
 ### Changelog workflow
 
-- добавлена новая категория `Bugs`
-- экранирование спец символов 
+-   добавлена новая категория `Bugs`
+-   экранирование спец символов
 
- 
-plasma-infra: Improve changelog workflow  (https://github.com/salute-developers/plasma/pull/967)
-
+plasma-infra: Improve changelog workflow (https://github.com/salute-developers/plasma/pull/967)
 
 ## Tokens
 
 ### Tokens naming
 
-- изменена нотация с `camelCase` на `kebab-case` для старых токенов цветов и типографики
+-   изменена нотация с `camelCase` на `kebab-case` для старых токенов цветов и типографики
 
 Было:
-<img width="600" alt="Screenshot 2024-01-16 at 19 09 54" src="https://github.com/salute-developers/plasma/assets/26903236/b83f776b-e4f9-43e1-9506-bff3d25f7e71">
+<img width="600" alt="Screenshot 2024-01-16 at 19 09 54" src="https://github.com/salute-developers/plasma/assets/26903236/b83f776b-e4f9-43e1-9506-bff3d25f7e71" />
 
 Стало:
-<img width="600" alt="Screenshot 2024-01-16 at 19 09 17" src="https://github.com/salute-developers/plasma/assets/26903236/10298375-1a54-4dd4-8fe3-8af74c3e40b1">
+<img width="600" alt="Screenshot 2024-01-16 at 19 09 17" src="https://github.com/salute-developers/plasma/assets/26903236/10298375-1a54-4dd4-8fe3-8af74c3e40b1" />
 
- 
-feat(plasma-tokens-utils): Update formatting tokens name from camelCase to kebab-case  (https://github.com/salute-developers/plasma/pull/971)
+feat(plasma-tokens-utils): Update formatting tokens name from camelCase to kebab-case (https://github.com/salute-developers/plasma/pull/971)
 
 ## Bugs
 
@@ -131,72 +112,67 @@ feat(plasma-tokens-utils): Update formatting tokens name from camelCase to kebab
 
 -   добавлен `ref` в `forwardRef` вторым аргументом
 
- 
 feat(plasma-new-hope): fix CalendarDouble ref (https://github.com/salute-developers/plasma/pull/959)
-
 
 ### Carousel
 
-- решен баг с пролистыванием (onDragScroll) в accessible mode - mobile & desktop.
-- control panel в карусели работает корректно (можно выбрать scrollAlign).
+-   решен баг с пролистыванием (onDragScroll) в accessible mode - mobile & desktop.
+-   control panel в карусели работает корректно (можно выбрать scrollAlign).
 
- 
 fix(plasma-hope/plasma-web): Turn onDragScroll off by default in accessibility mode in Carousel. Fix storybook control panel in it. (https://github.com/salute-developers/plasma/pull/957)
 
 ### Spinner
 
-- исправлено отображение компонента `Spinner` при размере 8px
+-   исправлено отображение компонента `Spinner` при размере 8px
 
- 
 fix(plasma-new-hope): Fix size for `Spinner` component (https://github.com/salute-developers/plasma/pull/966)
 
 ## Misc
 
 ### Typography
 
--  root для типографики вынесен в общий компонент
--  className, style теперь явно задаются в компоненте
--  исправлены конфиги для asdk поставки
+-   root для типографики вынесен в общий компонент
+-   className, style теперь явно задаются в компоненте
+-   исправлены конфиги для asdk поставки
 
- 
 feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://github.com/salute-developers/plasma/pull/947)
 
 ---
 
 #### 🚀 Enhancement
 
-- Release by 18.01.2024 [#981](https://github.com/salute-developers/plasma/pull/981) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@shuga2704](https://github.com/shuga2704) [@akhdrv](https://github.com/akhdrv) [@kayman233](https://github.com/kayman233) [@Yakutoc](https://github.com/Yakutoc) [@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-web/b2c): add Counter to packages ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-new-hope/web/b2c): remove QuantityBadge [#964](https://github.com/salute-developers/plasma/pull/964) ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-b2c/web/core): add Badge & QuantityBadge to packages ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-web/b2c/new-hope): add Image in new architecture ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-web): new typography sizes for Skeleton with snapshots [#960](https://github.com/salute-developers/plasma/pull/960) ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-web): add Skeleton with snapshots ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-asdk/b2c/web): fix typography stories props ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   Release by 18.01.2024 [#981](https://github.com/salute-developers/plasma/pull/981) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@shuga2704](https://github.com/shuga2704) [@akhdrv](https://github.com/akhdrv) [@kayman233](https://github.com/kayman233) [@Yakutoc](https://github.com/Yakutoc) [@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web/b2c): add Counter to packages ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-new-hope/web/b2c): remove QuantityBadge [#964](https://github.com/salute-developers/plasma/pull/964) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-b2c/web/core): add Badge & QuantityBadge to packages ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-web/b2c/new-hope): add Image in new architecture ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-web): new typography sizes for Skeleton with snapshots [#960](https://github.com/salute-developers/plasma/pull/960) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-web): add Skeleton with snapshots ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-asdk/b2c/web): fix typography stories props ([@TitanKuzmich](https://github.com/TitanKuzmich))
 
 #### 🐛 Bug Fix
 
-- Merge remote-tracking branch 'origin/dev' into t1 ([@Yakutoc](https://github.com/Yakutoc))
-- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
-- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
-- docs(plasma-b2c/web): generate api docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- docs(plasma-b2c/web/hope): generate api docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-web, plasma-b2c): Added isDragScrollDisabled property to control panel ([@shuga2704](https://github.com/shuga2704))
-- fix(plasma-web): Fix storybook control panel in Carousel ([@shuga2704](https://github.com/shuga2704))
-- fix(plasma-web,plasma-hope): Fix weird scroll in accessibility mode in Carousel ([@shuga2704](https://github.com/shuga2704))
-- docs(plasma-asdk/b2c/web): generate api docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- chore: manual package.lock bump ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Merge remote-tracking branch 'origin/dev' into t1 ([@Yakutoc](https://github.com/Yakutoc))
+-   Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+-   docs(plasma-b2c/web): generate api docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   docs(plasma-b2c/web/hope): generate api docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-web, plasma-b2c): Added isDragScrollDisabled property to control panel ([@shuga2704](https://github.com/shuga2704))
+-   fix(plasma-web): Fix storybook control panel in Carousel ([@shuga2704](https://github.com/shuga2704))
+-   fix(plasma-web,plasma-hope): Fix weird scroll in accessibility mode in Carousel ([@shuga2704](https://github.com/shuga2704))
+-   docs(plasma-asdk/b2c/web): generate api docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   chore: manual package.lock bump ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 7
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
-- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
-- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+-   Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+-   Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -204,20 +180,20 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- hot-fix(plasma-new-hope): redefining classnames for typography [#951](https://github.com/salute-developers/plasma/pull/951) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva))
-- feat(plasma-asdk/b2c/web): fix typography stories props ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   hot-fix(plasma-new-hope): redefining classnames for typography [#951](https://github.com/salute-developers/plasma/pull/951) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva))
+-   feat(plasma-asdk/b2c/web): fix typography stories props ([@TitanKuzmich](https://github.com/TitanKuzmich))
 
 #### 🐛 Bug Fix
 
-- docs(plasma-asdk/b2c/web): generate api docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- chore: manual package.lock bump ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   docs(plasma-asdk/b2c/web): generate api docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   chore: manual package.lock bump ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
 
 ---
 
@@ -225,41 +201,41 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- Release by 22.12.2023 [#944](https://github.com/salute-developers/plasma/pull/944) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@neretin-trike](https://github.com/neretin-trike))
-- feat: Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
-- feat(plasma-b2c/web): add stretch prop and update test [#931](https://github.com/salute-developers/plasma/pull/931) ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-new-hope/web/b2c): remove extra views for SegmentItem ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-b2c/web): separate configs for segment ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-web): add Segment component with tests ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat: bump manual package-locks [#933](https://github.com/salute-developers/plasma/pull/933) ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-b2c): refactor typography configs ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-b2c/web): add paragraphText component ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-web/b2c): add typography as tokens-mixins ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-b2c/web): add typography from new-hope ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-*): Update config for `Link` component ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-tokens-utils): Add methods for handle fallback themes ([@neretin-trike](https://github.com/neretin-trike))
-- fix(plasma-new-hope): fix Notification layout with long text [#927](https://github.com/salute-developers/plasma/pull/927) ([@kayman233](https://github.com/kayman233))
+-   Release by 22.12.2023 [#944](https://github.com/salute-developers/plasma/pull/944) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@neretin-trike](https://github.com/neretin-trike))
+-   feat: Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+-   feat(plasma-b2c/web): add stretch prop and update test [#931](https://github.com/salute-developers/plasma/pull/931) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-new-hope/web/b2c): remove extra views for SegmentItem ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-b2c/web): separate configs for segment ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-web): add Segment component with tests ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat: bump manual package-locks [#933](https://github.com/salute-developers/plasma/pull/933) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-b2c): refactor typography configs ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-b2c/web): add paragraphText component ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-web/b2c): add typography as tokens-mixins ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-b2c/web): add typography from new-hope ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-\*): Update config for `Link` component ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-tokens-utils): Add methods for handle fallback themes ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-new-hope): fix Notification layout with long text [#927](https://github.com/salute-developers/plasma/pull/927) ([@kayman233](https://github.com/kayman233))
 
 #### 🐛 Bug Fix
 
-- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
-- docs(plasma-b2c/web): generate api docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
-- test(plasma-b2c/web): fix tests depending on typography ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-web,plasma-b2c): Update snapshots and add test ([@neretin-trike](https://github.com/neretin-trike))
-- fix(plasma-new-hope): Fix `TextArea` behavior with uncontrolled value ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-b2c,plasma-web): Update configs for components with new design ([@neretin-trike](https://github.com/neretin-trike))
-- chore(vite): bump to 4.5.1 ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web, plasma-b2c): redesign Notification ([@kayman233](https://github.com/kayman233))
-- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+-   docs(plasma-b2c/web): generate api docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+-   test(plasma-b2c/web): fix tests depending on typography ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-web,plasma-b2c): Update snapshots and add test ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-new-hope): Fix `TextArea` behavior with uncontrolled value ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-b2c,plasma-web): Update configs for components with new design ([@neretin-trike](https://github.com/neretin-trike))
+-   chore(vite): bump to 4.5.1 ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web, plasma-b2c): redesign Notification ([@kayman233](https://github.com/kayman233))
+-   chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 5
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -273,115 +249,112 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 ### Tabs
 
-- вынесены токены в отдельный файл
-- исправлен конфиг
-- убрана вариация active
- 
+-   вынесены токены в отдельный файл
+-   исправлен конфиг
+-   убрана вариация active
+
 plasma-new-hope: Refactoring tabs tokens, variations, config (https://github.com/salute-developers/plasma/pull/873)
 
 ### AddFocus
 
-- добавлен общий mixin addFocus(на него переведены компоненты: **Chip, Checkbox, Radiobox, Calendar** )
- 
+-   добавлен общий mixin addFocus(на него переведены компоненты: **Chip, Checkbox, Radiobox, Calendar** )
+
 plasma-(new-hope, asdk): Add focus mixin (https://github.com/salute-developers/plasma/pull/888)
 
 ### Header
 
 Для plasma-{new-hope,asdk}
 
-- добавлен компонент **Header**, в качестве составных компонента (HeaderLogo, HeaderArrow, etc.)
-- добавлен mixin **mediaQuery**
- 
+-   добавлен компонент **Header**, в качестве составных компонента (HeaderLogo, HeaderArrow, etc.)
+-   добавлен mixin **mediaQuery**
+
 feat(plasma-new-hope): Add header as separate components (https://github.com/salute-developers/plasma/pull/887)
 
 ### Tooltip
 
-- добавлен `Tooltip` с новым дизайном и API (для `plasma-{web,b2c,new-hope}`)
- 
+-   добавлен `Tooltip` с новым дизайном и API (для `plasma-{web,b2c,new-hope}`)
+
 plasma-new-hope: Add tooltip (https://github.com/salute-developers/plasma/pull/879)
 
 ### Switch
 
-- добавлена реализация на новой архитектуре для plasma-{new-hope, web, asdk}  
- 
-feat(new-hope): switch (https://github.com/salute-developers/plasma/pull/816)
+-   добавлена реализация на новой архитектуре для plasma-{new-hope, web, asdk}
 
+feat(new-hope): switch (https://github.com/salute-developers/plasma/pull/816)
 
 ## Infra
 
 ### Upload assets when publish canary, latest
 
-- добавили условие при котором происходит загрузка assets 
- 
-plasma-infra: Handling upload-assets  (https://github.com/salute-developers/plasma/pull/882)
+-   добавили условие при котором происходит загрузка assets
+
+plasma-infra: Handling upload-assets (https://github.com/salute-developers/plasma/pull/882)
 
 ### Actions/setup-node
 
-- зафиксировали версию Node.js (18.16.1) для корректной работы в CI 
- 
+-   зафиксировали версию Node.js (18.16.1) для корректной работы в CI
+
 plasma-infra: Use 18.16.1 node version (https://github.com/salute-developers/plasma/pull/904)
 
 ### Upload assets when publish RC
 
-- переопределена логика получения commit для правильного условия загрузки assets в момент публикации RC
- 
+-   переопределена логика получения commit для правильного условия загрузки assets в момент публикации RC
+
 plasma-infra: Upload assets when publish rc (https://github.com/salute-developers/plasma/pull/892)
 
 ### Auto generate changelog [CI]
 
-- добавлен workflow для ручного запуска создания PR релиза 
-- автоматизирован процесс создания changelog на основе merged prs и labels  
- 
+-   добавлен workflow для ручного запуска создания PR релиза
+-   автоматизирован процесс создания changelog на основе merged prs и labels
+
 plasma-infra: Automation of the release process (https://github.com/salute-developers/plasma/pull/894)
 
 ### Storybook
 
-- добавлен новый location в "https://plasma.sberdevices.ru/asdk-storybook/" (plasma-ASDK)
+-   добавлен новый location в "https://plasma.sberdevices.ru/asdk-storybook/" (plasma-ASDK)
 
- 
-plasma-infra:  Add storybook for "Plasma-ASDK" (https://github.com/salute-developers/plasma/pull/908)
-
+plasma-infra: Add storybook for "Plasma-ASDK" (https://github.com/salute-developers/plasma/pull/908)
 
 ## Tokens
 
 ### Theme builder
 
-- В генератор файлов темы добавлены метод, который восстанавливает значение цвета из ссылки, т.е. переведёт: **[general.red.500] => #FF293E**
-- Добавлена генерация токенов цвета в kebab нотации
- 
+-   В генератор файлов темы добавлены метод, который восстанавливает значение цвета из ссылки, т.е. переведёт: **[general.red.500] => #FF293E**
+-   Добавлена генерация токенов цвета в kebab нотации
+
 fix(plasma-theme-builder): Add restored color method for generate themes (https://github.com/salute-developers/plasma/pull/899)
 
 ---
 
 #### 🚀 Enhancement
 
-- Release by 14.12.2023 [#925](https://github.com/salute-developers/plasma/pull/925) ([@nikewht](https://github.com/nikewht) [@Yakutoc](https://github.com/Yakutoc) [@Salute-Eva](https://github.com/Salute-Eva) [@TitanKuzmich](https://github.com/TitanKuzmich) [@kayman233](https://github.com/kayman233) [@neretin-trike](https://github.com/neretin-trike) nikita.belyanskiy@south.rt.ru [@Yeti-or](https://github.com/Yeti-or))
-- feat: update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
-- feat(plasma-new-hope): Switch add labelPosition ([@Yeti-or](https://github.com/Yeti-or))
-- feat(plasma-web): Replace from plasma-new-hope ([@Yeti-or](https://github.com/Yeti-or))
-- feat(plasma-new-hope): Add core Switch component (nikita.belyanskiy@south.rt.ru)
-- fix(plasma-new-hope): fix tokens usage in Tooltip [#879](https://github.com/salute-developers/plasma/pull/879) ([@kayman233](https://github.com/kayman233))
-- feat(plasma-new-hope): Tooltip added ([@kayman233](https://github.com/kayman233))
+-   Release by 14.12.2023 [#925](https://github.com/salute-developers/plasma/pull/925) ([@nikewht](https://github.com/nikewht) [@Yakutoc](https://github.com/Yakutoc) [@Salute-Eva](https://github.com/Salute-Eva) [@TitanKuzmich](https://github.com/TitanKuzmich) [@kayman233](https://github.com/kayman233) [@neretin-trike](https://github.com/neretin-trike) nikita.belyanskiy@south.rt.ru [@Yeti-or](https://github.com/Yeti-or))
+-   feat: update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+-   feat(plasma-new-hope): Switch add labelPosition ([@Yeti-or](https://github.com/Yeti-or))
+-   feat(plasma-web): Replace from plasma-new-hope ([@Yeti-or](https://github.com/Yeti-or))
+-   feat(plasma-new-hope): Add core Switch component (nikita.belyanskiy@south.rt.ru)
+-   fix(plasma-new-hope): fix tokens usage in Tooltip [#879](https://github.com/salute-developers/plasma/pull/879) ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-new-hope): Tooltip added ([@kayman233](https://github.com/kayman233))
 
 #### 🐛 Bug Fix
 
-- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
-- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
-- fix(plasma-new-hope): Tooltip, Popover, Dropdown refactor ([@kayman233](https://github.com/kayman233))
-- feat(plasma-new-hope, plasma-web, plasma-b2c): Tooltip added ([@kayman233](https://github.com/kayman233))
-- chore: update package locks [#916](https://github.com/salute-developers/plasma/pull/916) ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- chore: update package-locks \[skip ci\] ([@Yakutoc](https://github.com/Yakutoc))
+-   Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-new-hope): Tooltip, Popover, Dropdown refactor ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-new-hope, plasma-web, plasma-b2c): Tooltip added ([@kayman233](https://github.com/kayman233))
+-   chore: update package locks [#916](https://github.com/salute-developers/plasma/pull/916) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   chore: update package-locks \[skip ci\] ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 8
 
-- [@kayman233](https://github.com/kayman233)
-- [@nikewht](https://github.com/nikewht)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
-- Nikita Belyanskiy (nikita.belyanskiy@south.rt.ru)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@kayman233](https://github.com/kayman233)
+-   [@nikewht](https://github.com/nikewht)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Nikita Belyanskiy (nikita.belyanskiy@south.rt.ru)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -389,38 +362,38 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- Release from 30.11.2023 [#883](https://github.com/salute-developers/plasma/pull/883) ([@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@Salute-Eva](https://github.com/Salute-Eva) [@TitanKuzmich](https://github.com/TitanKuzmich) [@neretin-trike](https://github.com/neretin-trike) [@Yeti-or](https://github.com/Yeti-or))
-- feat: update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
-- feat(plasma-web): Replace `TextArea` from plasma-new-hope ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-new-hope/b2c/web): add readonly as attribute & remove hasClear prop ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-web): update snapshots ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-web): add chip from new hope ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-b2c): add chip from new hope ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- fix(plasma-new-hope, plasms-web, plasma-b2c): fix title font for Notification [#848](https://github.com/salute-developers/plasma/pull/848) ([@kayman233](https://github.com/kayman233))
-- feat: Update package-lock.json files ([@Yakutoc](https://github.com/Yakutoc))
+-   Release from 30.11.2023 [#883](https://github.com/salute-developers/plasma/pull/883) ([@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@Salute-Eva](https://github.com/Salute-Eva) [@TitanKuzmich](https://github.com/TitanKuzmich) [@neretin-trike](https://github.com/neretin-trike) [@Yeti-or](https://github.com/Yeti-or))
+-   feat: update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+-   feat(plasma-web): Replace `TextArea` from plasma-new-hope ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-new-hope/b2c/web): add readonly as attribute & remove hasClear prop ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-web): update snapshots ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-web): add chip from new hope ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-b2c): add chip from new hope ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   fix(plasma-new-hope, plasms-web, plasma-b2c): fix title font for Notification [#848](https://github.com/salute-developers/plasma/pull/848) ([@kayman233](https://github.com/kayman233))
+-   feat: Update package-lock.json files ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore: update package locks [#880](https://github.com/salute-developers/plasma/pull/880) ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- docs(plasma-b2c/web): generate docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore(plasma-web): bump "default-browser-id" to 2.0.0 ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-web): bump "@microsoft/api-extractor" to 7.38.3 ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-web): fix vulnerabilities: high, critical ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-web): bump "vite" to 4.5.0 ([@Yakutoc](https://github.com/Yakutoc))
-- chore: update package-locks ([@Salute-Eva](https://github.com/Salute-Eva))
-- docs(plasma-web/b2c): generate api ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-web, plasma-b2c): Notification on new-hope ([@kayman233](https://github.com/kayman233))
+-   Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package locks [#880](https://github.com/salute-developers/plasma/pull/880) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   docs(plasma-b2c/web): generate docs ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(plasma-web): bump "default-browser-id" to 2.0.0 ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-web): bump "@microsoft/api-extractor" to 7.38.3 ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-web): fix vulnerabilities: high, critical ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-web): bump "vite" to 4.5.0 ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: update package-locks ([@Salute-Eva](https://github.com/Salute-Eva))
+-   docs(plasma-web/b2c): generate api ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-web, plasma-b2c): Notification on new-hope ([@kayman233](https://github.com/kayman233))
 
 #### Authors: 6
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -436,75 +409,75 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- Release 16.11.2023 [#852](https://github.com/salute-developers/plasma/pull/852) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@akhdrv](https://github.com/akhdrv))
-- feat: manual update package-lock.json files ([@Yakutoc](https://github.com/Yakutoc))
-- fix(plasma-web, plasma-b2c): fix NoScroll behavior in ModalBase [#828](https://github.com/salute-developers/plasma/pull/828) ([@kayman233](https://github.com/kayman233))
-- feat: api report for ts@4.2.4 [#843](https://github.com/salute-developers/plasma/pull/843) ([@Yakutoc](https://github.com/Yakutoc))
-- feat: bump TS to 4.2.4 ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-new-hope): separate typography tokens & refactor folder structure ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-new-hope): separate classes & tokens ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- feat(plasma-web/b2c): add calendar with new architecture ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   Release 16.11.2023 [#852](https://github.com/salute-developers/plasma/pull/852) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@akhdrv](https://github.com/akhdrv))
+-   feat: manual update package-lock.json files ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-web, plasma-b2c): fix NoScroll behavior in ModalBase [#828](https://github.com/salute-developers/plasma/pull/828) ([@kayman233](https://github.com/kayman233))
+-   feat: api report for ts@4.2.4 [#843](https://github.com/salute-developers/plasma/pull/843) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat: bump TS to 4.2.4 ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-new-hope): separate typography tokens & refactor folder structure ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-new-hope): separate classes & tokens ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   feat(plasma-web/b2c): add calendar with new architecture ([@TitanKuzmich](https://github.com/TitanKuzmich))
 
 #### 🐛 Bug Fix
 
-- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
-- feat(plasma-web, plasma-b2c): ModalBase, PopupBase on new-hope ([@kayman233](https://github.com/kayman233))
-- docs(web): fix typo [#850](https://github.com/salute-developers/plasma/pull/850) ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate "Main.ts" to storybook@latest ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): add decorators: Theme, Toast, Docs ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate "Preview.ts" to storybook@latest ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): bump storybook to latest(7.5.3) ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Typography] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Colors] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [UploadVisual] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [UploadAudio] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Upload] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Tooltip] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Toast] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [TextField] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [TextArea] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Tabs] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Switch] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Spinner] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Slider] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Skeleton] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Select] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Radiobox] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Progress] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Price] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [PreviewGallery] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [PopupBase] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Popover] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [PaginationDots] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Notification] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [ModalBase] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Modal] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Link] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Image] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Grid] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [ElasticGrid] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Editable] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Dropdown] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Checkbox] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Calendar] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Carousel] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Card] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Cell] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Badge] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [Button] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(web): migrate to CSF 3 [AudioPlayer] ([@Yakutoc](https://github.com/Yakutoc))
-- chore: update package-locks ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore(packages): reformat package.json ([@Yakutoc](https://github.com/Yakutoc))
-- docs(plasma-web/b2c/hope): update api ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+-   feat(plasma-web, plasma-b2c): ModalBase, PopupBase on new-hope ([@kayman233](https://github.com/kayman233))
+-   docs(web): fix typo [#850](https://github.com/salute-developers/plasma/pull/850) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(web): migrate "Main.ts" to storybook@latest ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(web): add decorators: Theme, Toast, Docs ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(web): migrate "Preview.ts" to storybook@latest ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(web): bump storybook to latest(7.5.3) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(web): migrate to CSF 3 [Typography](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Colors](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [UploadVisual](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [UploadAudio](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Upload](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Tooltip](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Toast](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [TextField](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [TextArea](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Tabs](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Switch](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Spinner](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Slider](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Skeleton](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Select](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Radiobox](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Progress](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Price](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [PreviewGallery](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [PopupBase](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Popover](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [PaginationDots](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Notification](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [ModalBase](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Modal](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Link](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Image](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Grid](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [ElasticGrid](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Editable](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Dropdown](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Checkbox](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Calendar](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Carousel](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Card](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Cell](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Badge](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [Button](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(web): migrate to CSF 3 [AudioPlayer](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore: update package-locks ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(packages): reformat package.json ([@Yakutoc](https://github.com/Yakutoc))
+-   docs(plasma-web/b2c/hope): update api ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 5
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
-- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+-   Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
 
 ---
 
@@ -512,25 +485,25 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- Release 02.11.2023 [#829](https://github.com/salute-developers/plasma/pull/829) ([@akhdrv](https://github.com/akhdrv) [@neretin-trike](https://github.com/neretin-trike) [@Salute-Eva](https://github.com/Salute-Eva) [@kayman233](https://github.com/kayman233) [@Yakutoc](https://github.com/Yakutoc) [@nikewht](https://github.com/nikewht))
-- feat: manual bump versions [#826](https://github.com/salute-developers/plasma/pull/826) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-new-hope): new classes API for Popup [#819](https://github.com/salute-developers/plasma/pull/819) ([@kayman233](https://github.com/kayman233))
+-   Release 02.11.2023 [#829](https://github.com/salute-developers/plasma/pull/829) ([@akhdrv](https://github.com/akhdrv) [@neretin-trike](https://github.com/neretin-trike) [@Salute-Eva](https://github.com/Salute-Eva) [@kayman233](https://github.com/kayman233) [@Yakutoc](https://github.com/Yakutoc) [@nikewht](https://github.com/nikewht))
+-   feat: manual bump versions [#826](https://github.com/salute-developers/plasma/pull/826) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-new-hope): new classes API for Popup [#819](https://github.com/salute-developers/plasma/pull/819) ([@kayman233](https://github.com/kayman233))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks ([@Salute-Eva](https://github.com/Salute-Eva))
-- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
-- fix(plasma-ui, plasma-web, plasma-b2c): new animation API for PopupBase/ModalBase ([@kayman233](https://github.com/kayman233))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui, plasma-web, plasma-b2c): new animation API for PopupBase/ModalBase ([@kayman233](https://github.com/kayman233))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 6
 
-- [@kayman233](https://github.com/kayman233)
-- [@nikewht](https://github.com/nikewht)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@kayman233](https://github.com/kayman233)
+-   [@nikewht](https://github.com/nikewht)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -538,30 +511,30 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- Release 19.10.2023 [#815](https://github.com/salute-developers/plasma/pull/815) ([@Yeti-or](https://github.com/Yeti-or) [@kayman233](https://github.com/kayman233) [@TitanKuzmich](https://github.com/TitanKuzmich) [@Yakutoc](https://github.com/Yakutoc) nikita.belyanskiy@south.rt.ru [@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-new-hope/b2c/web/core): Add Popover to new hope ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   Release 19.10.2023 [#815](https://github.com/salute-developers/plasma/pull/815) ([@Yeti-or](https://github.com/Yeti-or) [@kayman233](https://github.com/kayman233) [@TitanKuzmich](https://github.com/TitanKuzmich) [@Yakutoc](https://github.com/Yakutoc) nikita.belyanskiy@south.rt.ru [@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-new-hope/b2c/web/core): Add Popover to new hope ([@TitanKuzmich](https://github.com/TitanKuzmich))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): PopupProvider inside Confirm added ([@kayman233](https://github.com/kayman233))
-- fix(plasma-core, plasma-ui): remove withAnimation from PopupBase ([@kayman233](https://github.com/kayman233))
-- fix(plasma-core, plasma-ui): minor refactoring and types fix ([@kayman233](https://github.com/kayman233))
-- feat(plasma-core, plasma-ui): add animation for PopupBase etc ([@kayman233](https://github.com/kayman233))
-- fix(plasma-web/b2c): move tokens from dev deps to deps ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- docs(plasma-core/hope/web/b2c): generate new api ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- fix(plasma-core): refactor in PopupBase/ModalBase ([@kayman233](https://github.com/kayman233))
-- feat(plasma-core, plasma-web, plasma-b2c): ModalBase component ([@kayman233](https://github.com/kayman233))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): PopupProvider inside Confirm added ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-core, plasma-ui): remove withAnimation from PopupBase ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-core, plasma-ui): minor refactoring and types fix ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-core, plasma-ui): add animation for PopupBase etc ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-web/b2c): move tokens from dev deps to deps ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   docs(plasma-core/hope/web/b2c): generate new api ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   fix(plasma-core): refactor in PopupBase/ModalBase ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-core, plasma-web, plasma-b2c): ModalBase component ([@kayman233](https://github.com/kayman233))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 7
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
-- Nikita Belyanskiy (nikita.belyanskiy@south.rt.ru)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Nikita Belyanskiy (nikita.belyanskiy@south.rt.ru)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -569,32 +542,32 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Replace `Radiobox` from plasma-new-hope and update snapshots [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-web): Replace `Checkbox` from plasma-new-hope and update snapshots [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-web): Replace `Spinner` from plasma-new-hope [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-web): Replace `Link` from plasma-new-hope [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-core): focusTrap, arrow and offset for Popover [#781](https://github.com/salute-developers/plasma/pull/781) ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-web): Replace `Radiobox` from plasma-new-hope and update snapshots [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web): Replace `Checkbox` from plasma-new-hope and update snapshots [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web): Replace `Spinner` from plasma-new-hope [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web): Replace `Link` from plasma-new-hope [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-core): focusTrap, arrow and offset for Popover [#781](https://github.com/salute-developers/plasma/pull/781) ([@kayman233](https://github.com/kayman233))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
-- Update versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
-- feat(plasma-b2c,plasma-web): Button size_xs/xss [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yeti-or](https://github.com/Yeti-or))
-- fix: Bump package-lock versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
-- fix(plasma-core): PopupBase refactoring [#781](https://github.com/salute-developers/plasma/pull/781) ([@kayman233](https://github.com/kayman233))
-- feat(plasma-web, plasma-b2c): PopupBase component [#781](https://github.com/salute-developers/plasma/pull/781) ([@kayman233](https://github.com/kayman233))
-- fix(plasma-core): Popover refactoring [#781](https://github.com/salute-developers/plasma/pull/781) ([@kayman233](https://github.com/kayman233))
-- feat(plasma-web, plasma-b2c): Popover component [#781](https://github.com/salute-developers/plasma/pull/781) ([@kayman233](https://github.com/kayman233))
-- chore: update version [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+-   feat(plasma-b2c,plasma-web): Button size_xs/xss [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yeti-or](https://github.com/Yeti-or))
+-   fix: Bump package-lock versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-core): PopupBase refactoring [#781](https://github.com/salute-developers/plasma/pull/781) ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-web, plasma-b2c): PopupBase component [#781](https://github.com/salute-developers/plasma/pull/781) ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-core): Popover refactoring [#781](https://github.com/salute-developers/plasma/pull/781) ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-web, plasma-b2c): Popover component [#781](https://github.com/salute-developers/plasma/pull/781) ([@kayman233](https://github.com/kayman233))
+-   chore: update version [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 5
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -602,15 +575,15 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
-- Update versions [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
-- fix(plasma-web): fix padding-left without/with content-{left,right} [TextField] [#699](https://github.com/salute-developers/plasma/pull/699) ([@Yakutoc](https://github.com/Yakutoc))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update versions [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): fix padding-left without/with content-{left,right} [TextField][#699](https://github.com/salute-developers/plasma/pull/699) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -618,15 +591,15 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks [#681](https://github.com/salute-developers/plasma/pull/681) ([@Salute-Eva](https://github.com/Salute-Eva))
-- Update versions [#681](https://github.com/salute-developers/plasma/pull/681) ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore(packages): add lint script [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks [#681](https://github.com/salute-developers/plasma/pull/681) ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update versions [#681](https://github.com/salute-developers/plasma/pull/681) ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(packages): add lint script [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -634,11 +607,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -646,25 +619,25 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-b2c, plasma-web): Modal refinement [#629](https://github.com/salute-developers/plasma/pull/629) ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-b2c, plasma-web): Modal refinement [#629](https://github.com/salute-developers/plasma/pull/629) ([@kayman233](https://github.com/kayman233))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web, plasma-b2c): Tooltip update on text change [#637](https://github.com/salute-developers/plasma/pull/637) ([@kayman233](https://github.com/kayman233))
-- feat(plasma-hope, plasma-web): Add some threshold fallbacks [#630](https://github.com/salute-developers/plasma/pull/630) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-b2c, plasma-web): autoResize for TextArea [#614](https://github.com/salute-developers/plasma/pull/614) ([@kayman233](https://github.com/kayman233))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web, plasma-b2c): Tooltip update on text change [#637](https://github.com/salute-developers/plasma/pull/637) ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-hope, plasma-web): Add some threshold fallbacks [#630](https://github.com/salute-developers/plasma/pull/630) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-b2c, plasma-web): autoResize for TextArea [#614](https://github.com/salute-developers/plasma/pull/614) ([@kayman233](https://github.com/kayman233))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### ⚠️ Pushed to `master`
 
-- Merge branch 'dev' ([@Yeti-or](https://github.com/Yeti-or))
+-   Merge branch 'dev' ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 4
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -672,15 +645,15 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore(storybook): avoid OpenSSL v3.0 breaking changes [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
-- fix(plasma-core): fix cols/rows usage in TextArea [#620](https://github.com/salute-developers/plasma/pull/620) ([@kayman233](https://github.com/kayman233))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(storybook): avoid OpenSSL v3.0 breaking changes [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-core): fix cols/rows usage in TextArea [#620](https://github.com/salute-developers/plasma/pull/620) ([@kayman233](https://github.com/kayman233))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -688,18 +661,18 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: add forgotten license [#582](https://github.com/salute-developers/plasma/pull/582) ([@Yeti-or](https://github.com/Yeti-or))
-- fix(plasma-hope): update useFocusTrap [#582](https://github.com/salute-developers/plasma/pull/582) ([@kayman233](https://github.com/kayman233))
-- fix(plasma-hope): refactor useFocusTrap [#582](https://github.com/salute-developers/plasma/pull/582) ([@kayman233](https://github.com/kayman233))
-- test: tests for focusTrap [#582](https://github.com/salute-developers/plasma/pull/582) ([@kayman233](https://github.com/kayman233))
-- feat(plasma-b2c, plasma-web): focusTrap hook added [#582](https://github.com/salute-developers/plasma/pull/582) ([@kayman233](https://github.com/kayman233))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: add forgotten license [#582](https://github.com/salute-developers/plasma/pull/582) ([@Yeti-or](https://github.com/Yeti-or))
+-   fix(plasma-hope): update useFocusTrap [#582](https://github.com/salute-developers/plasma/pull/582) ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-hope): refactor useFocusTrap [#582](https://github.com/salute-developers/plasma/pull/582) ([@kayman233](https://github.com/kayman233))
+-   test: tests for focusTrap [#582](https://github.com/salute-developers/plasma/pull/582) ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-b2c, plasma-web): focusTrap hook added [#582](https://github.com/salute-developers/plasma/pull/582) ([@kayman233](https://github.com/kayman233))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -707,20 +680,20 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- chore: add api report [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: add api report [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: use "paths" property in tsconfig.json [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
-- chore: [packages] update package-lock files [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- test(plasma-web): add more performance tests, exclude perftests from tsconfig & type coverage [#472](https://github.com/salute-developers/plasma/pull/472) ([@Troff8](https://github.com/Troff8))
+-   chore: use "paths" property in tsconfig.json [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: [packages] update package-lock files [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   test(plasma-web): add more performance tests, exclude perftests from tsconfig & type coverage [#472](https://github.com/salute-developers/plasma/pull/472) ([@Troff8](https://github.com/Troff8))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Troff ([@Troff8](https://github.com/Troff8))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Troff ([@Troff8](https://github.com/Troff8))
 
 ---
 
@@ -728,16 +701,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### ⚠️ Pushed to `master`
 
-- fix(plasma-web, plasma-b2c, plasma-ui): fix single/multiple lines in Checkbox/Radiobox ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-web, plasma-b2c, plasma-ui): fix single/multiple lines in Checkbox/Radiobox ([@kayman233](https://github.com/kayman233))
 
 #### Authors: 2
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -745,11 +718,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -757,11 +730,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -769,11 +742,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -781,13 +754,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-hope): default max-width for Grid [#501](https://github.com/salute-developers/plasma/pull/501) ([@kayman233](https://github.com/kayman233))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-hope): default max-width for Grid [#501](https://github.com/salute-developers/plasma/pull/501) ([@kayman233](https://github.com/kayman233))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -795,13 +768,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-*): update api report [#497](https://github.com/salute-developers/plasma/pull/497) ([@Yakutoc](https://github.com/Yakutoc))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-\*): update api report [#497](https://github.com/salute-developers/plasma/pull/497) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -809,17 +782,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: change api-report for Container in Grid [#495](https://github.com/salute-developers/plasma/pull/495) ([@kayman233](https://github.com/kayman233))
-- feat(plasma-hope): maxWidth for Grid ([@kayman233](https://github.com/kayman233))
+-   feat: change api-report for Container in Grid [#495](https://github.com/salute-developers/plasma/pull/495) ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-hope): maxWidth for Grid ([@kayman233](https://github.com/kayman233))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -827,11 +800,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -839,16 +812,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-b2c): Dropdown new placements ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-b2c): Dropdown new placements ([@kayman233](https://github.com/kayman233))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -856,11 +829,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -868,11 +841,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -880,11 +853,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -892,16 +865,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-hope): reAlign versions [#480](https://github.com/salute-developers/plasma/pull/480) ([@Yeti-or](https://github.com/Yeti-or))
+-   feat(plasma-hope): reAlign versions [#480](https://github.com/salute-developers/plasma/pull/480) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -909,11 +882,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -921,11 +894,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -933,11 +906,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -945,19 +918,19 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web,plasma-b2c): remove private api [#458](https://github.com/salute-developers/plasma/pull/458) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web,plasma-b2c): remove private api [#458](https://github.com/salute-developers/plasma/pull/458) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### ⚠️ Pushed to `master`
 
-- fix(plasma-web,plasma-b2c): fix various api diff between web/b2c ([@Yeti-or](https://github.com/Yeti-or))
-- refactor(plasma-web): Update `TextArea`, `TextField`, `Button` and `Container` components ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-web,plasma-b2c): fix various api diff between web/b2c ([@Yeti-or](https://github.com/Yeti-or))
+-   refactor(plasma-web): Update `TextArea`, `TextField`, `Button` and `Container` components ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -965,11 +938,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -977,19 +950,19 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: api report after merged "Select" component [#455](https://github.com/salute-developers/plasma/pull/455) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): update test symlink ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): re-export "Select" component ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-hope): export "Select" component ([@Yakutoc](https://github.com/Yakutoc))
+-   feat: api report after merged "Select" component [#455](https://github.com/salute-developers/plasma/pull/455) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): update test symlink ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): re-export "Select" component ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-hope): export "Select" component ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -997,17 +970,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: api report after merged "Dropdown" component [#447](https://github.com/salute-developers/plasma/pull/447) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): add symlink for cypress test ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): re-export "Dropdown" component from "plasma-hope" ([@Yakutoc](https://github.com/Yakutoc))
+-   feat: api report after merged "Dropdown" component [#447](https://github.com/salute-developers/plasma/pull/447) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add symlink for cypress test ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): re-export "Dropdown" component from "plasma-hope" ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): [Select] replace import path to "@salutejs/plasma-hope" ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-web): [Select] replace import path to "@salutejs/plasma-hope" ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1015,17 +988,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: api report after merged "Tabs" component [#445](https://github.com/salute-developers/plasma/pull/445) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): re-export "Tabs" component from plasma-hope [#445](https://github.com/salute-developers/plasma/pull/445) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat: api report after merged "Tabs" component [#445](https://github.com/salute-developers/plasma/pull/445) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): re-export "Tabs" component from plasma-hope [#445](https://github.com/salute-developers/plasma/pull/445) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1033,12 +1006,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-hope,plasma-web,plasma-b2c): Update Button API [#453](https://github.com/salute-developers/plasma/pull/453) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-web): Add import Button from plasma-hope ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-hope,plasma-web,plasma-b2c): Update Button API [#453](https://github.com/salute-developers/plasma/pull/453) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web): Add import Button from plasma-hope ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1046,20 +1019,20 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: api report after merged Grid component [#436](https://github.com/salute-developers/plasma/pull/436) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): add "Grid" cypress test ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): re-export "Grid" component from plasma-hope ([@Yakutoc](https://github.com/Yakutoc))
+-   feat: api report after merged Grid component [#436](https://github.com/salute-developers/plasma/pull/436) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add "Grid" cypress test ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): re-export "Grid" component from plasma-hope ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- feat(plasma-hope,plasma-web,plasma-b2c): Update API for `Container` component [#446](https://github.com/salute-developers/plasma/pull/446) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   feat(plasma-hope,plasma-web,plasma-b2c): Update API for `Container` component [#446](https://github.com/salute-developers/plasma/pull/446) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1067,16 +1040,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-hope,plasma-web,plasma-b2c): Update TextField API [#429](https://github.com/salute-developers/plasma/pull/429) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-web): Add import TextField from plasma-hope ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-hope,plasma-web,plasma-b2c): Update TextField API [#429](https://github.com/salute-developers/plasma/pull/429) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web): Add import TextField from plasma-hope ([@neretin-trike](https://github.com/neretin-trike))
 
 #### ⚠️ Pushed to `master`
 
-- feat(plasma-web,plasma-b2c): Remove Input and Field components ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web,plasma-b2c): Remove Input and Field components ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1084,12 +1057,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: api report after merged Image component [#435](https://github.com/salute-developers/plasma/pull/435) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): re-export "Image" component from plasma-hope ([@Yakutoc](https://github.com/Yakutoc))
+-   feat: api report after merged Image component [#435](https://github.com/salute-developers/plasma/pull/435) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): re-export "Image" component from plasma-hope ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1097,16 +1070,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### ⚠️ Pushed to `master`
 
-- fix(plasma-web,b2c): Remove storybook docs ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-web,b2c): Remove storybook docs ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1114,17 +1087,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Add import TextArea from plasma-hope [#405](https://github.com/salute-developers/plasma/pull/405) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web): Add import TextArea from plasma-hope [#405](https://github.com/salute-developers/plasma/pull/405) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- feat(plasma-hope,plasma-web,plasma-b2c): Update TextArea API [#405](https://github.com/salute-developers/plasma/pull/405) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   feat(plasma-hope,plasma-web,plasma-b2c): Update TextArea API [#405](https://github.com/salute-developers/plasma/pull/405) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1132,16 +1105,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Replace builder for storybook to Vite [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web): Replace builder for storybook to Vite [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1149,20 +1122,20 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: add api reports [#397](https://github.com/salute-developers/plasma/pull/397) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): [cypress] handling Select height constraint [#397](https://github.com/salute-developers/plasma/pull/397) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): apply DropdownListCssProperties for Select component [#397](https://github.com/salute-developers/plasma/pull/397) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat: add api reports [#397](https://github.com/salute-developers/plasma/pull/397) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): [cypress] handling Select height constraint [#397](https://github.com/salute-developers/plasma/pull/397) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): apply DropdownListCssProperties for Select component [#397](https://github.com/salute-developers/plasma/pull/397) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- build: update package-locks [#412](https://github.com/salute-developers/plasma/pull/412) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   build: update package-locks [#412](https://github.com/salute-developers/plasma/pull/412) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -1170,13 +1143,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: add api reports [#407](https://github.com/salute-developers/plasma/pull/407) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): [cypress] handling height constraint [#407](https://github.com/salute-developers/plasma/pull/407) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): handling height constraint [#407](https://github.com/salute-developers/plasma/pull/407) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat: add api reports [#407](https://github.com/salute-developers/plasma/pull/407) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): [cypress] handling height constraint [#407](https://github.com/salute-developers/plasma/pull/407) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): handling height constraint [#407](https://github.com/salute-developers/plasma/pull/407) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1184,12 +1157,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): processing new typography in story [#395](https://github.com/salute-developers/plasma/pull/395) (alexander.lobyntsev@virtualhealth.com)
-- feat(plasma-web): processing new typography [#395](https://github.com/salute-developers/plasma/pull/395) (alexander.lobyntsev@virtualhealth.com)
+-   feat(plasma-web): processing new typography in story [#395](https://github.com/salute-developers/plasma/pull/395) (alexander.lobyntsev@virtualhealth.com)
+-   feat(plasma-web): processing new typography [#395](https://github.com/salute-developers/plasma/pull/395) (alexander.lobyntsev@virtualhealth.com)
 
 #### Authors: 1
 
-- Alexander Lobyntsev (alexander.lobyntsev@virtualhealth.com)
+-   Alexander Lobyntsev (alexander.lobyntsev@virtualhealth.com)
 
 ---
 
@@ -1197,12 +1170,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-*): Bump react-script version to 4.0.3 [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasm-*): Bump typescript version to 4.0.8 [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-\*): Bump react-script version to 4.0.3 [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasm-\*): Bump typescript version to 4.0.8 [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1210,11 +1183,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1222,18 +1195,18 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: add api reports after re-export UploadAudio component [#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): add cypress tests symlink [UploadAudio] [#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): re-export "UploadAudio" component [#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat: add api reports after re-export UploadAudio component [#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add cypress tests symlink [UploadAudio][#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): re-export "UploadAudio" component [#382](https://github.com/salute-developers/plasma/pull/382) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1241,18 +1214,18 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: add api reports after re-export UploadVisual component [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): add cypress tests symlink [UploadVisual] [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): re-export "UploadVisual" component [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat: add api reports after re-export UploadVisual component [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add cypress tests symlink [UploadVisual][#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): re-export "UploadVisual" component [#381](https://github.com/salute-developers/plasma/pull/381) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1260,11 +1233,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1272,14 +1245,14 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- build(plasma-hope): bump react to 18x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
-- build(plasma-web): bump react to 18x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   build(plasma-hope): bump react to 18x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+-   build(plasma-web): bump react to 18x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -1287,18 +1260,18 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: add api reports after re-export ElasticGrid component [#372](https://github.com/salute-developers/plasma/pull/372) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): add cypress tests symlink [ElasticGrid] [#372](https://github.com/salute-developers/plasma/pull/372) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): re-export "ElasticGrid" component [#372](https://github.com/salute-developers/plasma/pull/372) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat: add api reports after re-export ElasticGrid component [#372](https://github.com/salute-developers/plasma/pull/372) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add cypress tests symlink [ElasticGrid][#372](https://github.com/salute-developers/plasma/pull/372) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): re-export "ElasticGrid" component [#372](https://github.com/salute-developers/plasma/pull/372) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1306,18 +1279,18 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: add api reports after re-export AudioPlayer component [#369](https://github.com/salute-developers/plasma/pull/369) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): add cypress tests symlink [AudioPlayer] [#369](https://github.com/salute-developers/plasma/pull/369) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): re-export "AudioPlayer" component [#369](https://github.com/salute-developers/plasma/pull/369) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat: add api reports after re-export AudioPlayer component [#369](https://github.com/salute-developers/plasma/pull/369) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add cypress tests symlink [AudioPlayer][#369](https://github.com/salute-developers/plasma/pull/369) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): re-export "AudioPlayer" component [#369](https://github.com/salute-developers/plasma/pull/369) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1325,18 +1298,18 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: add api reports after re-export Editable component [#368](https://github.com/salute-developers/plasma/pull/368) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): add cypress tests symlink [Editable] [#368](https://github.com/salute-developers/plasma/pull/368) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): re-export "Editable" component [#368](https://github.com/salute-developers/plasma/pull/368) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat: add api reports after re-export Editable component [#368](https://github.com/salute-developers/plasma/pull/368) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add cypress tests symlink [Editable][#368](https://github.com/salute-developers/plasma/pull/368) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): re-export "Editable" component [#368](https://github.com/salute-developers/plasma/pull/368) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1344,19 +1317,19 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: add api reports after re-export Slider component [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): add cypress tests symlink [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): re-export SliderThumb from plasma-hope [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): re-export slider component [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat: add api reports after re-export Slider component [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add cypress tests symlink [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): re-export SliderThumb from plasma-hope [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): re-export slider component [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1364,13 +1337,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: add api reports after re-export PreviewGallery component [#376](https://github.com/salute-developers/plasma/pull/376) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): add cypress tests symlink [#376](https://github.com/salute-developers/plasma/pull/376) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): re-export "PreviewGallery" component [#376](https://github.com/salute-developers/plasma/pull/376) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat: add api reports after re-export PreviewGallery component [#376](https://github.com/salute-developers/plasma/pull/376) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add cypress tests symlink [#376](https://github.com/salute-developers/plasma/pull/376) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): re-export "PreviewGallery" component [#376](https://github.com/salute-developers/plasma/pull/376) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1378,13 +1351,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: add api reports after re-export Upload component [#374](https://github.com/salute-developers/plasma/pull/374) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): add cypress tests symlink [#374](https://github.com/salute-developers/plasma/pull/374) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): re-export "Upload" component [#374](https://github.com/salute-developers/plasma/pull/374) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat: add api reports after re-export Upload component [#374](https://github.com/salute-developers/plasma/pull/374) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add cypress tests symlink [#374](https://github.com/salute-developers/plasma/pull/374) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): re-export "Upload" component [#374](https://github.com/salute-developers/plasma/pull/374) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1392,11 +1365,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1404,19 +1377,19 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: add api reports [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): add test for withBlur prop [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): processing withBlur prop [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat: add api reports [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add test for withBlur prop [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): processing withBlur prop [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): resolve import for ModalView [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): resolve import for ModalView [#347](https://github.com/salute-developers/plasma/pull/347) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1424,13 +1397,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- ci: fix package-locks [#352](https://github.com/salute-developers/plasma/pull/352) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   ci: fix package-locks [#352](https://github.com/salute-developers/plasma/pull/352) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -1438,14 +1411,14 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- build: add api reports to plasma-core & hope [#349](https://github.com/salute-developers/plasma/pull/349) ([@Yeti-or](https://github.com/Yeti-or))
-- fix(plasma-hope): export CalendarStateType [#349](https://github.com/salute-developers/plasma/pull/349) ([@Yeti-or](https://github.com/Yeti-or))
-- build: improve api-report [#349](https://github.com/salute-developers/plasma/pull/349) ([@Yeti-or](https://github.com/Yeti-or))
-- build: add api-extractor [#342](https://github.com/salute-developers/plasma/pull/342) ([@Yeti-or](https://github.com/Yeti-or))
+-   build: add api reports to plasma-core & hope [#349](https://github.com/salute-developers/plasma/pull/349) ([@Yeti-or](https://github.com/Yeti-or))
+-   fix(plasma-hope): export CalendarStateType [#349](https://github.com/salute-developers/plasma/pull/349) ([@Yeti-or](https://github.com/Yeti-or))
+-   build: improve api-report [#349](https://github.com/salute-developers/plasma/pull/349) ([@Yeti-or](https://github.com/Yeti-or))
+-   build: add api-extractor [#342](https://github.com/salute-developers/plasma/pull/342) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 1
 
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -1453,17 +1426,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): add offset prop in storybook [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add offset prop in storybook [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore(plasma-web): fix stories imports [#324](https://github.com/salute-developers/plasma/pull/324) ([@Yeti-or](https://github.com/Yeti-or))
-- refactor(plasma-web/plasma-b2c): move common code to plasma-hope [#324](https://github.com/salute-developers/plasma/pull/324) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore(plasma-web): fix stories imports [#324](https://github.com/salute-developers/plasma/pull/324) ([@Yeti-or](https://github.com/Yeti-or))
+-   refactor(plasma-web/plasma-b2c): move common code to plasma-hope [#324](https://github.com/salute-developers/plasma/pull/324) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -1471,16 +1444,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): fix lint missing/unnecessary dependency [#344](https://github.com/salute-developers/plasma/pull/344) ([@Yakutoc](https://github.com/Yakutoc))
-- fix(plasma-b2c): improve toast story [#344](https://github.com/salute-developers/plasma/pull/344) ([@Yakutoc](https://github.com/Yakutoc))
-- fix(plasma-web): resolve "Importing from '@storybook/addon-docs/blocks' is deprecated" [#344](https://github.com/salute-developers/plasma/pull/344) ([@Yakutoc](https://github.com/Yakutoc))
-- fix(plasma-web): use InSpacingDecorator [#344](https://github.com/salute-developers/plasma/pull/344) ([@Yakutoc](https://github.com/Yakutoc))
-- fix(plasma-web): resolve "control.options" warning in storybook [#344](https://github.com/salute-developers/plasma/pull/344) ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-web): delete unnecessary stories.mdx [#344](https://github.com/salute-developers/plasma/pull/344) ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-web): fix lint missing/unnecessary dependency [#344](https://github.com/salute-developers/plasma/pull/344) ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-b2c): improve toast story [#344](https://github.com/salute-developers/plasma/pull/344) ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-web): resolve "Importing from '@storybook/addon-docs/blocks' is deprecated" [#344](https://github.com/salute-developers/plasma/pull/344) ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-web): use InSpacingDecorator [#344](https://github.com/salute-developers/plasma/pull/344) ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-web): resolve "control.options" warning in storybook [#344](https://github.com/salute-developers/plasma/pull/344) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-web): delete unnecessary stories.mdx [#344](https://github.com/salute-developers/plasma/pull/344) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1488,17 +1461,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: Update using title in toolBar instead of name in preview.js [#330](https://github.com/salute-developers/plasma/pull/330) ([@neretin-trike](https://github.com/neretin-trike))
-- feat: Bump storybook version to 6.5 [#330](https://github.com/salute-developers/plasma/pull/330) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat: Update using title in toolBar instead of name in preview.js [#330](https://github.com/salute-developers/plasma/pull/330) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat: Bump storybook version to 6.5 [#330](https://github.com/salute-developers/plasma/pull/330) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1506,16 +1479,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-*): Remove declarationMap from tsconfig.json [#326](https://github.com/salute-developers/plasma/pull/326) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-\*): Remove declarationMap from tsconfig.json [#326](https://github.com/salute-developers/plasma/pull/326) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1523,11 +1496,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): add onHide action in storybook [#319](https://github.com/salute-developers/plasma/pull/319) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add onHide action in storybook [#319](https://github.com/salute-developers/plasma/pull/319) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1535,11 +1508,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-*): Add .npmignore and remove file field for test files [#322](https://github.com/salute-developers/plasma/pull/322) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-\*): Add .npmignore and remove file field for test files [#322](https://github.com/salute-developers/plasma/pull/322) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1547,11 +1520,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): set value prop outlined to true [#313](https://github.com/salute-developers/plasma/pull/313) ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-web): set value prop outlined to true [#313](https://github.com/salute-developers/plasma/pull/313) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1559,18 +1532,18 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-*): Remove source maps from bundles [#309](https://github.com/salute-developers/plasma/pull/309) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-\*): Remove source maps from bundles [#309](https://github.com/salute-developers/plasma/pull/309) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- chore(plasma-web): enable preview source code [#308](https://github.com/salute-developers/plasma/pull/308) ([@Yakutoc](https://github.com/Yakutoc))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(plasma-web): enable preview source code [#308](https://github.com/salute-developers/plasma/pull/308) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1578,17 +1551,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): update storybook example [#273](https://github.com/salute-developers/plasma/pull/273) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): add cypress tests for navigate by Shift + Arrow Left\Right\Up\Down [#273](https://github.com/salute-developers/plasma/pull/273) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): navigate by Shift + Arrow Left\Right\Up\Down [#273](https://github.com/salute-developers/plasma/pull/273) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): update storybook example [#273](https://github.com/salute-developers/plasma/pull/273) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add cypress tests for navigate by Shift + Arrow Left\Right\Up\Down [#273](https://github.com/salute-developers/plasma/pull/273) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): navigate by Shift + Arrow Left\Right\Up\Down [#273](https://github.com/salute-developers/plasma/pull/273) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): update cypress tests [#273](https://github.com/salute-developers/plasma/pull/273) ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-web): update cypress tests [#273](https://github.com/salute-developers/plasma/pull/273) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1596,16 +1569,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): add onSearch event [#294](https://github.com/salute-developers/plasma/pull/294) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add onSearch event [#294](https://github.com/salute-developers/plasma/pull/294) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1613,13 +1586,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): add storybook example for undefined case [#291](https://github.com/salute-developers/plasma/pull/291) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): add cypress tests for handling undefined cases [#291](https://github.com/salute-developers/plasma/pull/291) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): handling value as undefined [#291](https://github.com/salute-developers/plasma/pull/291) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add storybook example for undefined case [#291](https://github.com/salute-developers/plasma/pull/291) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add cypress tests for handling undefined cases [#291](https://github.com/salute-developers/plasma/pull/291) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): handling value as undefined [#291](https://github.com/salute-developers/plasma/pull/291) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1627,13 +1600,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): prevent default safari datepicker appearance [#287](https://github.com/salute-developers/plasma/pull/287) ([@Yakutoc](https://github.com/Yakutoc))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): prevent default safari datepicker appearance [#287](https://github.com/salute-developers/plasma/pull/287) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1641,13 +1614,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- ci: improve ts-coverage report [#282](https://github.com/salute-developers/plasma/pull/282) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   ci: improve ts-coverage report [#282](https://github.com/salute-developers/plasma/pull/282) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -1655,12 +1628,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): [cypress] processing disabled option [#269](https://github.com/salute-developers/plasma/pull/269) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): [a11y] processing disabled option [#269](https://github.com/salute-developers/plasma/pull/269) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): [cypress] processing disabled option [#269](https://github.com/salute-developers/plasma/pull/269) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): [a11y] processing disabled option [#269](https://github.com/salute-developers/plasma/pull/269) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1668,11 +1641,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1680,12 +1653,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): set "Button" type to calendar header [#272](https://github.com/salute-developers/plasma/pull/272) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): set "Button" type to select button from Select [#272](https://github.com/salute-developers/plasma/pull/272) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): set "Button" type to calendar header [#272](https://github.com/salute-developers/plasma/pull/272) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): set "Button" type to select button from Select [#272](https://github.com/salute-developers/plasma/pull/272) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1693,16 +1666,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): add overlay [#266](https://github.com/salute-developers/plasma/pull/266) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add overlay [#266](https://github.com/salute-developers/plasma/pull/266) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1710,22 +1683,22 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): add accent color [#260](https://github.com/salute-developers/plasma/pull/260) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): update cypress test/snapshots [#260](https://github.com/salute-developers/plasma/pull/260) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add accent color [#260](https://github.com/salute-developers/plasma/pull/260) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): update cypress test/snapshots [#260](https://github.com/salute-developers/plasma/pull/260) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### ⚠️ Pushed to `master`
 
-- Merge commit '2de734f1' into test ([@Yeti-or](https://github.com/Yeti-or))
+-   Merge commit '2de734f1' into test ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -1733,11 +1706,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1745,13 +1718,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): improve type-coverage [#235](https://github.com/salute-developers/plasma/pull/235) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): improve type-coverage [#235](https://github.com/salute-developers/plasma/pull/235) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -1759,11 +1732,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1771,17 +1744,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): [cypress] update tests [#222](https://github.com/salute-developers/plasma/pull/222) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-web): add a11y support [#222](https://github.com/salute-developers/plasma/pull/222) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): [cypress] update tests [#222](https://github.com/salute-developers/plasma/pull/222) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): add a11y support [#222](https://github.com/salute-developers/plasma/pull/222) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1789,11 +1762,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1801,14 +1774,14 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- test(plasma-web,plasma-b2c): Update snapshots and test for `Radiobox` and `Checkbox` components [#128](https://github.com/salute-developers/plasma/pull/128) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-web,plasma-b2c): Add redesign `Radiobox` and `Checkbox` components [#128](https://github.com/salute-developers/plasma/pull/128) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   test(plasma-web,plasma-b2c): Update snapshots and test for `Radiobox` and `Checkbox` components [#128](https://github.com/salute-developers/plasma/pull/128) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web,plasma-b2c): Add redesign `Radiobox` and `Checkbox` components [#128](https://github.com/salute-developers/plasma/pull/128) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1816,11 +1789,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1828,11 +1801,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): reset Tabs gap [#197](https://github.com/salute-developers/plasma/pull/197) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-web): reset Tabs gap [#197](https://github.com/salute-developers/plasma/pull/197) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1840,11 +1813,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1852,11 +1825,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-b2c): Add Calendar [#191](https://github.com/salute-developers/plasma/pull/191) ([@Yeti-or](https://github.com/Yeti-or))
+-   feat(plasma-b2c): Add Calendar [#191](https://github.com/salute-developers/plasma/pull/191) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 1
 
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -1864,13 +1837,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Fix color for header in `Calendar` component [#192](https://github.com/salute-developers/plasma/pull/192) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): Fix color for header in `Calendar` component [#192](https://github.com/salute-developers/plasma/pull/192) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1878,11 +1851,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): delete notification scrollbar [#189](https://github.com/salute-developers/plasma/pull/189) ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-web): delete notification scrollbar [#189](https://github.com/salute-developers/plasma/pull/189) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1890,11 +1863,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1902,11 +1875,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1914,17 +1887,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- docs(plasma-ui-docs,plasma-web-docs): Add example with loader for `Button` [#156](https://github.com/salute-developers/plasma/pull/156) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-core): Add loader prop for `Button` component [#156](https://github.com/salute-developers/plasma/pull/156) ([@neretin-trike](https://github.com/neretin-trike))
+-   docs(plasma-ui-docs,plasma-web-docs): Add example with loader for `Button` [#156](https://github.com/salute-developers/plasma/pull/156) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-core): Add loader prop for `Button` component [#156](https://github.com/salute-developers/plasma/pull/156) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1932,11 +1905,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1944,17 +1917,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Add keyboard navigation for `Calendar` component [#117](https://github.com/salute-developers/plasma/pull/117) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web): Add keyboard navigation for `Calendar` component [#117](https://github.com/salute-developers/plasma/pull/117) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Fix behavior for select month and year [#117](https://github.com/salute-developers/plasma/pull/117) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): Fix behavior for select month and year [#117](https://github.com/salute-developers/plasma/pull/117) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1962,11 +1935,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1974,11 +1947,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1986,11 +1959,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1998,11 +1971,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2010,11 +1983,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2022,13 +1995,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Headline5 tag h5 [#164](https://github.com/salute-developers/plasma/pull/164) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): Headline5 tag h5 [#164](https://github.com/salute-developers/plasma/pull/164) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -2036,13 +2009,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Extract document in useEffect for next.js rendering [#154](https://github.com/salute-developers/plasma/pull/154) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): Extract document in useEffect for next.js rendering [#154](https://github.com/salute-developers/plasma/pull/154) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2050,11 +2023,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Add right and left helper for `TextArea` [#148](https://github.com/salute-developers/plasma/pull/148) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web): Add right and left helper for `TextArea` [#148](https://github.com/salute-developers/plasma/pull/148) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2062,14 +2035,14 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- test(plasma-web,plasma-b2c): Add test and snapshot for `Modal` component [#150](https://github.com/salute-developers/plasma/pull/150) ([@neretin-trike](https://github.com/neretin-trike))
-- fix(plasma-web): Fix default open state for `Modal` component [#150](https://github.com/salute-developers/plasma/pull/150) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   test(plasma-web,plasma-b2c): Add test and snapshot for `Modal` component [#150](https://github.com/salute-developers/plasma/pull/150) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-web): Fix default open state for `Modal` component [#150](https://github.com/salute-developers/plasma/pull/150) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2077,16 +2050,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Add forwardRef for `Tooltip` component [#144](https://github.com/salute-developers/plasma/pull/144) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web): Add forwardRef for `Tooltip` component [#144](https://github.com/salute-developers/plasma/pull/144) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2094,11 +2067,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Add primary color for `Field` component [#133](https://github.com/salute-developers/plasma/pull/133) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-web): Add primary color for `Field` component [#133](https://github.com/salute-developers/plasma/pull/133) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2106,20 +2079,20 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Add overflow hidden if modal amount not null for `Modal` component [#130](https://github.com/salute-developers/plasma/pull/130) ([@neretin-trike](https://github.com/neretin-trike))
-- test(plasma-web,plasma-b2c): Add tests and snapshots for `Card` component [#118](https://github.com/salute-developers/plasma/pull/118) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-web,plasma-b2c): Add cover, background and coverGradient for `Card` component [#118](https://github.com/salute-developers/plasma/pull/118) ([@neretin-trike](https://github.com/neretin-trike))
-- test(plasma-web,plasma-b2c): Add test and snapshot for `Cell` component [#118](https://github.com/salute-developers/plasma/pull/118) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-web,plasma-b2c): Add `Cell` component [#118](https://github.com/salute-developers/plasma/pull/118) ([@neretin-trike](https://github.com/neretin-trike))
-- fix(plasma-web): add storybook [#126](https://github.com/salute-developers/plasma/pull/126) ([@Gerpea](https://github.com/Gerpea))
-- fix(plasma-web): fix modal height on ios safari [#126](https://github.com/salute-developers/plasma/pull/126) ([@Gerpea](https://github.com/Gerpea))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): Add overflow hidden if modal amount not null for `Modal` component [#130](https://github.com/salute-developers/plasma/pull/130) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-web,plasma-b2c): Add tests and snapshots for `Card` component [#118](https://github.com/salute-developers/plasma/pull/118) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web,plasma-b2c): Add cover, background and coverGradient for `Card` component [#118](https://github.com/salute-developers/plasma/pull/118) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-web,plasma-b2c): Add test and snapshot for `Cell` component [#118](https://github.com/salute-developers/plasma/pull/118) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web,plasma-b2c): Add `Cell` component [#118](https://github.com/salute-developers/plasma/pull/118) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-web): add storybook [#126](https://github.com/salute-developers/plasma/pull/126) ([@Gerpea](https://github.com/Gerpea))
+-   fix(plasma-web): fix modal height on ios safari [#126](https://github.com/salute-developers/plasma/pull/126) ([@Gerpea](https://github.com/Gerpea))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- German Cyganov ([@Gerpea](https://github.com/Gerpea))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   German Cyganov ([@Gerpea](https://github.com/Gerpea))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2127,11 +2100,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- feat(plasma-web,plasma-ui): Moved `Grid` component from plasma-core [#120](https://github.com/salute-developers/plasma/pull/120) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web,plasma-ui): Moved `Grid` component from plasma-core [#120](https://github.com/salute-developers/plasma/pull/120) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2139,12 +2112,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- test(plasma-web,plasma-b2c): Update test and snapshots for key navigatation in `Select` component [#110](https://github.com/salute-developers/plasma/pull/110) ([@neretin-trike](https://github.com/neretin-trike))
-- fix(plasma-web): Fix behavior for `Dropdown` component on hover item [#110](https://github.com/salute-developers/plasma/pull/110) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-web,plasma-b2c): Update test and snapshots for key navigatation in `Select` component [#110](https://github.com/salute-developers/plasma/pull/110) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-web): Fix behavior for `Dropdown` component on hover item [#110](https://github.com/salute-developers/plasma/pull/110) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2152,11 +2125,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Fix accessability story for `Carousel` component [#104](https://github.com/salute-developers/plasma/pull/104) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-web): Fix accessability story for `Carousel` component [#104](https://github.com/salute-developers/plasma/pull/104) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2164,11 +2137,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- test(plasma-core,plasma-ui,plasma-web): Update tests for `Tab` component [#106](https://github.com/salute-developers/plasma/pull/106) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-core,plasma-ui,plasma-web): Update tests for `Tab` component [#106](https://github.com/salute-developers/plasma/pull/106) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2176,13 +2149,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Fix border visible for `TextField` and `TextArea` components [#103](https://github.com/salute-developers/plasma/pull/103) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): Fix border visible for `TextField` and `TextArea` components [#103](https://github.com/salute-developers/plasma/pull/103) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2190,11 +2163,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2202,13 +2175,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Calendar inside Popup [#89](https://github.com/salute-developers/plasma/pull/89) ([@Yeti-or](https://github.com/Yeti-or))
-- fix(plasma-web): Add wrappers for click handle in CalendarMonth and CalendarYear [#89](https://github.com/salute-developers/plasma/pull/89) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-web): Calendar inside Popup [#89](https://github.com/salute-developers/plasma/pull/89) ([@Yeti-or](https://github.com/Yeti-or))
+-   fix(plasma-web): Add wrappers for click handle in CalendarMonth and CalendarYear [#89](https://github.com/salute-developers/plasma/pull/89) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 2
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -2216,11 +2189,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- docs(plasma-web,plasma-web-docs): Add comments and documentation for `Calendar` component [#90](https://github.com/salute-developers/plasma/pull/90) ([@neretin-trike](https://github.com/neretin-trike))
+-   docs(plasma-web,plasma-web-docs): Add comments and documentation for `Calendar` component [#90](https://github.com/salute-developers/plasma/pull/90) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2228,11 +2201,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore(plasma-ui): add performance addon to Carousel component [#74](https://github.com/salute-developers/plasma/pull/74) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   chore(plasma-ui): add performance addon to Carousel component [#74](https://github.com/salute-developers/plasma/pull/74) ([@arsenykruglikov](https://github.com/arsenykruglikov))
 
 #### Authors: 1
 
-- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
 
 ---
 
@@ -2240,17 +2213,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- test(plasma-web): Add tests and snapshots for `Calendar` range [#77](https://github.com/salute-developers/plasma/pull/77) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-web): Add range mode for `Calendar` component [#77](https://github.com/salute-developers/plasma/pull/77) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-web): Add tests and snapshots for `Calendar` range [#77](https://github.com/salute-developers/plasma/pull/77) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web): Add range mode for `Calendar` component [#77](https://github.com/salute-developers/plasma/pull/77) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2258,12 +2231,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- test(plasma-web): Add tests and snapshots for `Calendar` double [#64](https://github.com/salute-developers/plasma/pull/64) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-web): Add double mode for `Calendar` component [#64](https://github.com/salute-developers/plasma/pull/64) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-web): Add tests and snapshots for `Calendar` double [#64](https://github.com/salute-developers/plasma/pull/64) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web): Add double mode for `Calendar` component [#64](https://github.com/salute-developers/plasma/pull/64) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2271,12 +2244,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- test(plasma-web,plasma-b2c): Add new typography in test and update snapshots for `Card` [#78](https://github.com/salute-developers/plasma/pull/78) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-web, plasma-b2c): Add new typography components in stories for `Card` [#78](https://github.com/salute-developers/plasma/pull/78) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-web,plasma-b2c): Add new typography in test and update snapshots for `Card` [#78](https://github.com/salute-developers/plasma/pull/78) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web, plasma-b2c): Add new typography components in stories for `Card` [#78](https://github.com/salute-developers/plasma/pull/78) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2284,15 +2257,15 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- refactor(plasma-b2c,plasma-web): Update `Card` components [#70](https://github.com/salute-developers/plasma/pull/70) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- build(plasma-ui): added @babel/plugin-transform-react-constant-elements [#46](https://github.com/salute-developers/plasma/pull/46) ([@SeanSilke](https://github.com/SeanSilke))
+-   refactor(plasma-b2c,plasma-web): Update `Card` components [#70](https://github.com/salute-developers/plasma/pull/70) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   build(plasma-ui): added @babel/plugin-transform-react-constant-elements [#46](https://github.com/salute-developers/plasma/pull/46) ([@SeanSilke](https://github.com/SeanSilke))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
-- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
 
 ---
 
@@ -2300,12 +2273,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- test(plasma-web): Add test and snapshot for `Calendar` component [#62](https://github.com/salute-developers/plasma/pull/62) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-web): Add event and disabled list for `Calendar` component [#62](https://github.com/salute-developers/plasma/pull/62) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-web): Add test and snapshot for `Calendar` component [#62](https://github.com/salute-developers/plasma/pull/62) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web): Add event and disabled list for `Calendar` component [#62](https://github.com/salute-developers/plasma/pull/62) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2313,12 +2286,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- test(plasma-web): Add tests and snapshots for `Calendar` component [#51](https://github.com/salute-developers/plasma/pull/51) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-web): Add `Calendar` component [#51](https://github.com/salute-developers/plasma/pull/51) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-web): Add tests and snapshots for `Calendar` component [#51](https://github.com/salute-developers/plasma/pull/51) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web): Add `Calendar` component [#51](https://github.com/salute-developers/plasma/pull/51) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2326,17 +2299,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Add `Card` component [#67](https://github.com/salute-developers/plasma/pull/67) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web): Add `Card` component [#67](https://github.com/salute-developers/plasma/pull/67) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- test(plasma-web): Add test and snapshot for `Card` component [#67](https://github.com/salute-developers/plasma/pull/67) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   test(plasma-web): Add test and snapshot for `Card` component [#67](https://github.com/salute-developers/plasma/pull/67) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2344,11 +2317,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Remove children from DropdownProps [#60](https://github.com/salute-developers/plasma/pull/60) ([@andart71](https://github.com/andart71))
+-   fix(plasma-web): Remove children from DropdownProps [#60](https://github.com/salute-developers/plasma/pull/60) ([@andart71](https://github.com/andart71))
 
 #### Authors: 1
 
-- Andrey Loshkarev ([@andart71](https://github.com/andart71))
+-   Andrey Loshkarev ([@andart71](https://github.com/andart71))
 
 ---
 
@@ -2356,14 +2329,14 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- test(plasma-b2c,plasma-web,plasma-ui): Add test and snapshot for `TextField` component [#47](https://github.com/salute-developers/plasma/pull/47) ([@neretin-trike](https://github.com/neretin-trike))
-- fix(plasma-web,plasma-b2c,plasma-ui): Add onChange callback for maxLength check in `TextField` [#47](https://github.com/salute-developers/plasma/pull/47) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   test(plasma-b2c,plasma-web,plasma-ui): Add test and snapshot for `TextField` component [#47](https://github.com/salute-developers/plasma/pull/47) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-web,plasma-b2c,plasma-ui): Add onChange callback for maxLength check in `TextField` [#47](https://github.com/salute-developers/plasma/pull/47) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2371,11 +2344,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2383,11 +2356,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-core, plasma-ui, plasma-web): changes the refs array to html collection [#34](https://github.com/salute-developers/plasma/pull/34) (Kruglikov.A.D@sberbank.ru)
+-   fix(plasma-core, plasma-ui, plasma-web): changes the refs array to html collection [#34](https://github.com/salute-developers/plasma/pull/34) (Kruglikov.A.D@sberbank.ru)
 
 #### Authors: 1
 
-- Arseny Kruglikov (Kruglikov.A.D@sberbank.ru)
+-   Arseny Kruglikov (Kruglikov.A.D@sberbank.ru)
 
 ---
 
@@ -2395,13 +2368,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore(plasma-web): Add SansDisplay typo for storybook [#37](https://github.com/salute-developers/plasma/pull/37) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(plasma-web): Add SansDisplay typo for storybook [#37](https://github.com/salute-developers/plasma/pull/37) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2409,12 +2382,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- test(plasma-b2c,plasma-web): Add tests and snapshots for `Tooltip` component [#27](https://github.com/salute-developers/plasma/pull/27) ([@neretin-trike](https://github.com/neretin-trike))
-- fix(plasma-web): Fix `Tooltip` behavior with wrapper [#27](https://github.com/salute-developers/plasma/pull/27) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-b2c,plasma-web): Add tests and snapshots for `Tooltip` component [#27](https://github.com/salute-developers/plasma/pull/27) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-web): Fix `Tooltip` behavior with wrapper [#27](https://github.com/salute-developers/plasma/pull/27) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2422,11 +2395,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2434,11 +2407,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2446,11 +2419,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2458,13 +2431,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui, plasma-web): fix carousel context [#20](https://github.com/salute-developers/plasma/pull/20) (Kruglikov.A.D@sberbank.ru)
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui, plasma-web): fix carousel context [#20](https://github.com/salute-developers/plasma/pull/20) (Kruglikov.A.D@sberbank.ru)
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Arseny Kruglikov (Kruglikov.A.D@sberbank.ru)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Arseny Kruglikov (Kruglikov.A.D@sberbank.ru)
 
 ---
 
@@ -2472,17 +2445,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- test(plasma-web, plasma-b2c): Add test and update snapshot for `Tooltip` component [#2](https://github.com/salute-developers/plasma/pull/2) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-web): Add max-width for `Tooltip` component [#2](https://github.com/salute-developers/plasma/pull/2) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-web, plasma-b2c): Add test and update snapshot for `Tooltip` component [#2](https://github.com/salute-developers/plasma/pull/2) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web): Add max-width for `Tooltip` component [#2](https://github.com/salute-developers/plasma/pull/2) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2490,11 +2463,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2502,11 +2475,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks [#18](https://github.com/salute-developers/plasma/pull/18) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks [#18](https://github.com/salute-developers/plasma/pull/18) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 1
 
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -2514,20 +2487,20 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix: linting errs [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
-- fix: lerna & npm i [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
-- fix: monorepo deps resolved [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix: linting errs [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
+-   fix: lerna & npm i [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
+-   fix: monorepo deps resolved [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### ⚠️ Pushed to `master`
 
-- fix(plasma-web,plasma-b2c): Add useResizeObserver and fix behavior with resize ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-web,plasma-b2c): Add useResizeObserver and fix behavior with resize ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -2535,17 +2508,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Designing `TextField` for B2B theme [#1121](https://github.com/salute-developers/plasma/pull/1121) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Designing `TextField` for B2B theme [#1121](https://github.com/salute-developers/plasma/pull/1121) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- test: Added B2B `TextField` tests / new tests for legacy Web [#1121](https://github.com/salute-developers/plasma/pull/1121) ([@fanisco](https://github.com/fanisco))
-- fix: `Field` and `Input` props interfaces facelifting [#1121](https://github.com/salute-developers/plasma/pull/1121) ([@fanisco](https://github.com/fanisco))
-- chore(plasma-web): Support `plasma-typo` in Storybook [#1121](https://github.com/salute-developers/plasma/pull/1121) ([@fanisco](https://github.com/fanisco))
+-   test: Added B2B `TextField` tests / new tests for legacy Web [#1121](https://github.com/salute-developers/plasma/pull/1121) ([@fanisco](https://github.com/fanisco))
+-   fix: `Field` and `Input` props interfaces facelifting [#1121](https://github.com/salute-developers/plasma/pull/1121) ([@fanisco](https://github.com/fanisco))
+-   chore(plasma-web): Support `plasma-typo` in Storybook [#1121](https://github.com/salute-developers/plasma/pull/1121) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2553,12 +2526,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): `Modal`: a11y improvements [#1130](https://github.com/salute-developers/plasma/pull/1130) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-web): `Modal` added react-focus-lock for focus management [#1130](https://github.com/salute-developers/plasma/pull/1130) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): `Modal`: a11y improvements [#1130](https://github.com/salute-developers/plasma/pull/1130) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): `Modal` added react-focus-lock for focus management [#1130](https://github.com/salute-developers/plasma/pull/1130) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2566,21 +2539,21 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): `Select` a11y: keyboard navigation [#1157](https://github.com/salute-developers/plasma/pull/1157) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-web): `Dropdown` a11y: navigating with keyboard [#1157](https://github.com/salute-developers/plasma/pull/1157) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-web): Added `List` component [#1149](https://github.com/salute-developers/plasma/pull/1149) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): `Select` a11y: keyboard navigation [#1157](https://github.com/salute-developers/plasma/pull/1157) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): `Dropdown` a11y: navigating with keyboard [#1157](https://github.com/salute-developers/plasma/pull/1157) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Added `List` component [#1149](https://github.com/salute-developers/plasma/pull/1149) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- test(plasma-web): `Select`: tests and a11y assertions [#1157](https://github.com/salute-developers/plasma/pull/1157) ([@fanisco](https://github.com/fanisco))
-- test(plasma-web): `Radiobox`: check only for id existance [#1149](https://github.com/salute-developers/plasma/pull/1149) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-web): `Checkbox` & `Radibox` labeled and described by attrs and elems [#1149](https://github.com/salute-developers/plasma/pull/1149) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-web, plasma-ui): `Radiobox`: removed duplication of label & descr + better live example [#1149](https://github.com/salute-developers/plasma/pull/1149) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-web, plasma-ui): `Checkbox`: removed duplication of label & descr [#1149](https://github.com/salute-developers/plasma/pull/1149) ([@fanisco](https://github.com/fanisco))
+-   test(plasma-web): `Select`: tests and a11y assertions [#1157](https://github.com/salute-developers/plasma/pull/1157) ([@fanisco](https://github.com/fanisco))
+-   test(plasma-web): `Radiobox`: check only for id existance [#1149](https://github.com/salute-developers/plasma/pull/1149) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web): `Checkbox` & `Radibox` labeled and described by attrs and elems [#1149](https://github.com/salute-developers/plasma/pull/1149) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web, plasma-ui): `Radiobox`: removed duplication of label & descr + better live example [#1149](https://github.com/salute-developers/plasma/pull/1149) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web, plasma-ui): `Checkbox`: removed duplication of label & descr [#1149](https://github.com/salute-developers/plasma/pull/1149) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2588,16 +2561,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): `Tooltip` a11y & close with esc [#1135](https://github.com/salute-developers/plasma/pull/1135) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): `Tooltip` a11y & close with esc [#1135](https://github.com/salute-developers/plasma/pull/1135) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2605,11 +2578,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Add ref to carousel [#1155](https://github.com/salute-developers/plasma/pull/1155) (alisabelousova007@gmail.com)
+-   feat(plasma-web): Add ref to carousel [#1155](https://github.com/salute-developers/plasma/pull/1155) (alisabelousova007@gmail.com)
 
 #### Authors: 1
 
-- Белоусова Алиса Дмитриевна (alisabelousova007@gmail.com)
+-   Белоусова Алиса Дмитриевна (alisabelousova007@gmail.com)
 
 ---
 
@@ -2617,14 +2590,14 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- feat(plasma-web,plasma-b2c): Add focus for `Checkbox` and `Radiobox` components [#1154](https://github.com/salute-developers/plasma/pull/1154) ([@neretin-trike](https://github.com/neretin-trike))
-- docs: `withSkeleton` wraps component with a11y [#1129](https://github.com/salute-developers/plasma/pull/1129) ([@fanisco](https://github.com/fanisco))
-- docs: `Spinner` live example of a11y [#1134](https://github.com/salute-developers/plasma/pull/1134) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web,plasma-b2c): Add focus for `Checkbox` and `Radiobox` components [#1154](https://github.com/salute-developers/plasma/pull/1154) ([@neretin-trike](https://github.com/neretin-trike))
+-   docs: `withSkeleton` wraps component with a11y [#1129](https://github.com/salute-developers/plasma/pull/1129) ([@fanisco](https://github.com/fanisco))
+-   docs: `Spinner` live example of a11y [#1134](https://github.com/salute-developers/plasma/pull/1134) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 2
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2632,12 +2605,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): `TextArea`: added `aria-describedby` attr [#1133](https://github.com/salute-developers/plasma/pull/1133) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-web): `TextArea`: added `aria-describedby` attr [#1133](https://github.com/salute-developers/plasma/pull/1133) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): `TextArea`: added `aria-describedby` attr [#1133](https://github.com/salute-developers/plasma/pull/1133) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): `TextArea`: added `aria-describedby` attr [#1133](https://github.com/salute-developers/plasma/pull/1133) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2645,11 +2618,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): `TextField`: added `aria-describedby` attr [#1124](https://github.com/salute-developers/plasma/pull/1124) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): `TextField`: added `aria-describedby` attr [#1124](https://github.com/salute-developers/plasma/pull/1124) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2657,15 +2630,15 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): `Notification`: added possibility to anounce text when open [#1127](https://github.com/salute-developers/plasma/pull/1127) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): `Notification`: added possibility to anounce text when open [#1127](https://github.com/salute-developers/plasma/pull/1127) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- chore: `Toast` stories text & role [#1127](https://github.com/salute-developers/plasma/pull/1127) ([@fanisco](https://github.com/fanisco))
+-   chore: `Toast` stories text & role [#1127](https://github.com/salute-developers/plasma/pull/1127) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2673,13 +2646,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Add restrict bounds for value in `Progress` component [#1126](https://github.com/salute-developers/plasma/pull/1126) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): Add restrict bounds for value in `Progress` component [#1126](https://github.com/salute-developers/plasma/pull/1126) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2687,11 +2660,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore(plasma-web): Delete `Popup` from storybook [#1136](https://github.com/salute-developers/plasma/pull/1136) ([@fanisco](https://github.com/fanisco))
+-   chore(plasma-web): Delete `Popup` from storybook [#1136](https://github.com/salute-developers/plasma/pull/1136) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2699,19 +2672,19 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): add multiselect logic to select [#1083](https://github.com/salute-developers/plasma/pull/1083) ([@didolf](https://github.com/didolf))
-- feat(plasma-web): add keyboard navigation to Select [#1083](https://github.com/salute-developers/plasma/pull/1083) ([@didolf](https://github.com/didolf))
-- feat(plasma-web): add additional fields to DropdownItem [#1083](https://github.com/salute-developers/plasma/pull/1083) ([@didolf](https://github.com/didolf))
+-   feat(plasma-web): add multiselect logic to select [#1083](https://github.com/salute-developers/plasma/pull/1083) ([@didolf](https://github.com/didolf))
+-   feat(plasma-web): add keyboard navigation to Select [#1083](https://github.com/salute-developers/plasma/pull/1083) ([@didolf](https://github.com/didolf))
+-   feat(plasma-web): add additional fields to DropdownItem [#1083](https://github.com/salute-developers/plasma/pull/1083) ([@didolf](https://github.com/didolf))
 
 #### 🐛 Bug Fix
 
-- test(plasma-web): add tests on keyboard navigation [#1083](https://github.com/salute-developers/plasma/pull/1083) ([@didolf](https://github.com/didolf))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   test(plasma-web): add tests on keyboard navigation [#1083](https://github.com/salute-developers/plasma/pull/1083) ([@didolf](https://github.com/didolf))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Дмитрий Лекомцев ([@didolf](https://github.com/didolf))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Дмитрий Лекомцев ([@didolf](https://github.com/didolf))
 
 ---
 
@@ -2719,11 +2692,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2731,11 +2704,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2743,17 +2716,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: `Button`: colors theming [#1084](https://github.com/salute-developers/plasma/pull/1084) ([@fanisco](https://github.com/fanisco))
-- feat: Init `plasma-tokens-b2b` package [#1084](https://github.com/salute-developers/plasma/pull/1084) ([@fanisco](https://github.com/fanisco))
+-   feat: `Button`: colors theming [#1084](https://github.com/salute-developers/plasma/pull/1084) ([@fanisco](https://github.com/fanisco))
+-   feat: Init `plasma-tokens-b2b` package [#1084](https://github.com/salute-developers/plasma/pull/1084) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2761,11 +2734,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2773,11 +2746,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): `Carousel`: moved style resets to core [#1104](https://github.com/salute-developers/plasma/pull/1104) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web): `Carousel`: moved style resets to core [#1104](https://github.com/salute-developers/plasma/pull/1104) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2785,11 +2758,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): `Modal` background set to `backgroundPrimary` (01) token [#1106](https://github.com/salute-developers/plasma/pull/1106) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web): `Modal` background set to `backgroundPrimary` (01) token [#1106](https://github.com/salute-developers/plasma/pull/1106) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2797,13 +2770,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- docs(plasma-web, plasma-b2c): `Button`: using as an anchor [#1092](https://github.com/salute-developers/plasma/pull/1092) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   docs(plasma-web, plasma-b2c): `Button`: using as an anchor [#1092](https://github.com/salute-developers/plasma/pull/1092) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2811,13 +2784,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- feat(plasma-ui, plasma-web, plasma-b2c): `Button`: Added theming [#1063](https://github.com/salute-developers/plasma/pull/1063) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   feat(plasma-ui, plasma-web, plasma-b2c): `Button`: Added theming [#1063](https://github.com/salute-developers/plasma/pull/1063) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2825,11 +2798,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web, plasma-b2c): `Tooltip`: global dark [#1087](https://github.com/salute-developers/plasma/pull/1087) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web, plasma-b2c): `Tooltip`: global dark [#1087](https://github.com/salute-developers/plasma/pull/1087) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2837,14 +2810,14 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): `TextField`: fix `size:l` by providing $size to input [#1073](https://github.com/salute-developers/plasma/pull/1073) ([@fanisco](https://github.com/fanisco))
-- chore(plasma-web-docs): `TextField`: Incorrect `status` prop usage [#1069](https://github.com/salute-developers/plasma/pull/1069) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): `TextField`: fix `size:l` by providing \$size to input [#1073](https://github.com/salute-developers/plasma/pull/1073) ([@fanisco](https://github.com/fanisco))
+-   chore(plasma-web-docs): `TextField`: Incorrect `status` prop usage [#1069](https://github.com/salute-developers/plasma/pull/1069) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2852,13 +2825,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix: peer dependencies versions [#1053](https://github.com/salute-developers/plasma/pull/1053) ([@LamaEats](https://github.com/LamaEats))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix: peer dependencies versions [#1053](https://github.com/salute-developers/plasma/pull/1053) ([@LamaEats](https://github.com/LamaEats))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
 
 ---
 
@@ -2866,13 +2839,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: Storybook: Added lang to make VoiceOver read russian text properly [#1052](https://github.com/salute-developers/plasma/pull/1052) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: Storybook: Added lang to make VoiceOver read russian text properly [#1052](https://github.com/salute-developers/plasma/pull/1052) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2880,13 +2853,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web, plasma-ui): `Basebox`: Hide input properly; tabIndex={-1} on root [#1057](https://github.com/salute-developers/plasma/pull/1057) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web, plasma-ui): `Basebox`: Hide input properly; tabIndex={-1} on root [#1057](https://github.com/salute-developers/plasma/pull/1057) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2894,11 +2867,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2906,11 +2879,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- feat(plasma-b2c,plasma-web,plasma-ui): Update style for `Tabs` component [#976](https://github.com/salute-developers/plasma/pull/976) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-b2c,plasma-web,plasma-ui): Update style for `Tabs` component [#976](https://github.com/salute-developers/plasma/pull/976) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2918,18 +2891,18 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Close `Modal` with esc key [#1024](https://github.com/salute-developers/plasma/pull/1024) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Close `Modal` with esc key [#1024](https://github.com/salute-developers/plasma/pull/1024) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): `Modal`: Portal management in provider [#1024](https://github.com/salute-developers/plasma/pull/1024) ([@fanisco](https://github.com/fanisco))
-- test(plasma-web): Test `Modal` closing [#1024](https://github.com/salute-developers/plasma/pull/1024) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-web): Simplify event handler type (`onClick`) of `Modal` [#1024](https://github.com/salute-developers/plasma/pull/1024) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-web): `Modals` closing order [#1024](https://github.com/salute-developers/plasma/pull/1024) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web): `Modal`: Portal management in provider [#1024](https://github.com/salute-developers/plasma/pull/1024) ([@fanisco](https://github.com/fanisco))
+-   test(plasma-web): Test `Modal` closing [#1024](https://github.com/salute-developers/plasma/pull/1024) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web): Simplify event handler type (`onClick`) of `Modal` [#1024](https://github.com/salute-developers/plasma/pull/1024) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web): `Modals` closing order [#1024](https://github.com/salute-developers/plasma/pull/1024) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2937,13 +2910,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-b2c,plasma-web): Add re-export for `Notification` component [#1029](https://github.com/salute-developers/plasma/pull/1029) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-b2c,plasma-web): Add re-export for `Notification` component [#1029](https://github.com/salute-developers/plasma/pull/1029) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2951,13 +2924,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- test(plasma-web): `Notification` close [#1033](https://github.com/salute-developers/plasma/pull/1033) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   test(plasma-web): `Notification` close [#1033](https://github.com/salute-developers/plasma/pull/1033) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2965,14 +2938,14 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- feat(plasma-ui, plasma-web): `Carousel` a11y improvements [#973](https://github.com/salute-developers/plasma/pull/973) ([@fanisco](https://github.com/fanisco))
-- refactor: Move `Carousel`'s modules in Core/UI/Web [#973](https://github.com/salute-developers/plasma/pull/973) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   feat(plasma-ui, plasma-web): `Carousel` a11y improvements [#973](https://github.com/salute-developers/plasma/pull/973) ([@fanisco](https://github.com/fanisco))
+-   refactor: Move `Carousel`'s modules in Core/UI/Web [#973](https://github.com/salute-developers/plasma/pull/973) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2980,13 +2953,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- test: Complete tests for `Tabs` [#985](https://github.com/salute-developers/plasma/pull/985) ([@fanisco](https://github.com/fanisco))
-- test(plasma-b2c, plasma-web): Add statuses to `Notification` test [#1017](https://github.com/salute-developers/plasma/pull/1017) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-web, plasma-b2c): Added possibility to specify id for `Notification` [#1017](https://github.com/salute-developers/plasma/pull/1017) ([@fanisco](https://github.com/fanisco))
+-   test: Complete tests for `Tabs` [#985](https://github.com/salute-developers/plasma/pull/985) ([@fanisco](https://github.com/fanisco))
+-   test(plasma-b2c, plasma-web): Add statuses to `Notification` test [#1017](https://github.com/salute-developers/plasma/pull/1017) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web, plasma-b2c): Added possibility to specify id for `Notification` [#1017](https://github.com/salute-developers/plasma/pull/1017) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2994,14 +2967,14 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- test(plasma-b2c, plasma-web): Added click and multiselect tests for `Select` [#983](https://github.com/salute-developers/plasma/pull/983) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-web, plasma-b2c): Arrow and check placement in `Select` [#983](https://github.com/salute-developers/plasma/pull/983) ([@fanisco](https://github.com/fanisco))
-- test(plasma-web): add Grid component test [#1001](https://github.com/salute-developers/plasma/pull/1001) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-b2c, plasma-web): Added click and multiselect tests for `Select` [#983](https://github.com/salute-developers/plasma/pull/983) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web, plasma-b2c): Arrow and check placement in `Select` [#983](https://github.com/salute-developers/plasma/pull/983) ([@fanisco](https://github.com/fanisco))
+-   test(plasma-web): add Grid component test [#1001](https://github.com/salute-developers/plasma/pull/1001) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -3009,13 +2982,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- test(plasma-web): Add Cypress component test for `Carousel` [#968](https://github.com/salute-developers/plasma/pull/968) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   test(plasma-web): Add Cypress component test for `Carousel` [#968](https://github.com/salute-developers/plasma/pull/968) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3023,13 +2996,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- feat(plasma-web,plasma-b2c,plasma-ui): Add example for checkbox with jsx in label [#969](https://github.com/salute-developers/plasma/pull/969) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   feat(plasma-web,plasma-b2c,plasma-ui): Add example for checkbox with jsx in label [#969](https://github.com/salute-developers/plasma/pull/969) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -3037,15 +3010,15 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: add RadioGroup components [#676](https://github.com/salute-developers/plasma/pull/676) ([@OgNellis](https://github.com/OgNellis))
+-   feat: add RadioGroup components [#676](https://github.com/salute-developers/plasma/pull/676) ([@OgNellis](https://github.com/OgNellis))
 
 #### 🐛 Bug Fix
 
-- fix: accessibility of checkbox and radiobox for nvda and jaws [#676](https://github.com/salute-developers/plasma/pull/676) ([@OgNellis](https://github.com/OgNellis))
+-   fix: accessibility of checkbox and radiobox for nvda and jaws [#676](https://github.com/salute-developers/plasma/pull/676) ([@OgNellis](https://github.com/OgNellis))
 
 #### Authors: 1
 
-- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+-   Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
 
 ---
 
@@ -3053,13 +3026,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plama-web): Added possibility to specify a value type in `Select` [#932](https://github.com/salute-developers/plasma/pull/932) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plama-web): Added possibility to specify a value type in `Select` [#932](https://github.com/salute-developers/plasma/pull/932) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3067,11 +3040,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: Added `createButton` as a constructor function for `Button` [#946](https://github.com/salute-developers/plasma/pull/946) ([@fanisco](https://github.com/fanisco))
+-   feat: Added `createButton` as a constructor function for `Button` [#946](https://github.com/salute-developers/plasma/pull/946) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3079,17 +3052,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Update behavior for `Tooltip` component [#942](https://github.com/salute-developers/plasma/pull/942) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web): Update behavior for `Tooltip` component [#942](https://github.com/salute-developers/plasma/pull/942) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- test(plasma-web): Add tests for `Tooltip` component [#942](https://github.com/salute-developers/plasma/pull/942) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   test(plasma-web): Add tests for `Tooltip` component [#942](https://github.com/salute-developers/plasma/pull/942) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -3097,18 +3070,18 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: Moved `TabsController` as a creator function [#923](https://github.com/salute-developers/plasma/pull/923) ([@fanisco](https://github.com/fanisco))
+-   feat: Moved `TabsController` as a creator function [#923](https://github.com/salute-developers/plasma/pull/923) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Fix TabsController's items tabbing [#923](https://github.com/salute-developers/plasma/pull/923) ([@fanisco](https://github.com/fanisco))
-- chore(plasma-web): Delete old doc file [#923](https://github.com/salute-developers/plasma/pull/923) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): Fix TabsController's items tabbing [#923](https://github.com/salute-developers/plasma/pull/923) ([@fanisco](https://github.com/fanisco))
+-   chore(plasma-web): Delete old doc file [#923](https://github.com/salute-developers/plasma/pull/923) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3116,13 +3089,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- feat(plasma-ui, plasma-web): B2C/B2B `Input` and `TextArea` on common platform [#910](https://github.com/salute-developers/plasma/pull/910) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   feat(plasma-ui, plasma-web): B2C/B2B `Input` and `TextArea` on common platform [#910](https://github.com/salute-developers/plasma/pull/910) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3130,11 +3103,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Add `Button`'s `warning` view [#933](https://github.com/salute-developers/plasma/pull/933) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web): Add `Button`'s `warning` view [#933](https://github.com/salute-developers/plasma/pull/933) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3142,13 +3115,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): prevent disabled select from opening [#925](https://github.com/salute-developers/plasma/pull/925) (42856876+IArny@users.noreply.github.com)
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): prevent disabled select from opening [#925](https://github.com/salute-developers/plasma/pull/925) (42856876+IArny@users.noreply.github.com)
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Булах Александр Алексеевич [B] (42856876+IArny@users.noreply.github.com)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Булах Александр Алексеевич [B](42856876+IArny@users.noreply.github.com)
 
 ---
 
@@ -3156,11 +3129,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix: plasma-web grid mobile margins [#928](https://github.com/salute-developers/plasma/pull/928) ([@takovoy](https://github.com/takovoy))
+-   fix: plasma-web grid mobile margins [#928](https://github.com/salute-developers/plasma/pull/928) ([@takovoy](https://github.com/takovoy))
 
 #### Authors: 1
 
-- Aleksandr Sustavov ([@takovoy](https://github.com/takovoy))
+-   Aleksandr Sustavov ([@takovoy](https://github.com/takovoy))
 
 ---
 
@@ -3168,11 +3141,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3180,11 +3153,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix: Separate `Input`'s animation by b2b and b2c [#908](https://github.com/salute-developers/plasma/pull/908) ([@fanisco](https://github.com/fanisco))
+-   fix: Separate `Input`'s animation by b2b and b2c [#908](https://github.com/salute-developers/plasma/pull/908) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3192,11 +3165,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3204,11 +3177,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): prevent radiobox elipse shrinking [#912](https://github.com/salute-developers/plasma/pull/912) ([@IArny](https://github.com/IArny))
+-   fix(plasma-web): prevent radiobox elipse shrinking [#912](https://github.com/salute-developers/plasma/pull/912) ([@IArny](https://github.com/IArny))
 
 #### Authors: 1
 
-- [@IArny](https://github.com/IArny)
+-   [@IArny](https://github.com/IArny)
 
 ---
 
@@ -3216,14 +3189,14 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Prevent click on icons of `DropdownItem` [#883](https://github.com/salute-developers/plasma/pull/883) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-web,plasma-b2c): `Select`'s when multiselect prevent autoclose [#883](https://github.com/salute-developers/plasma/pull/883) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): Prevent click on icons of `DropdownItem` [#883](https://github.com/salute-developers/plasma/pull/883) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web,plasma-b2c): `Select`'s when multiselect prevent autoclose [#883](https://github.com/salute-developers/plasma/pull/883) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3231,11 +3204,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): `Dropdown` custom composition [#866](https://github.com/salute-developers/plasma/pull/866) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): `Dropdown` custom composition [#866](https://github.com/salute-developers/plasma/pull/866) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3243,11 +3216,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix: grid container max size [#880](https://github.com/salute-developers/plasma/pull/880) ([@takovoy](https://github.com/takovoy))
+-   fix: grid container max size [#880](https://github.com/salute-developers/plasma/pull/880) ([@takovoy](https://github.com/takovoy))
 
 #### Authors: 1
 
-- Aleksandr Sustavov ([@takovoy](https://github.com/takovoy))
+-   Aleksandr Sustavov ([@takovoy](https://github.com/takovoy))
 
 ---
 
@@ -3255,16 +3228,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Remove hover from select with empty list [#858](https://github.com/salute-developers/plasma/pull/858) ([@neretin-trike](https://github.com/neretin-trike))
-- chore(plasma-web): Bump plasma-colors version [#858](https://github.com/salute-developers/plasma/pull/858) ([@neretin-trike](https://github.com/neretin-trike))
-- fix(plasma-web): Fix open `Dropwdown` component if has not item [#858](https://github.com/salute-developers/plasma/pull/858) ([@neretin-trike](https://github.com/neretin-trike))
-- fix(plasma-b2c): Fix click to empty select [#858](https://github.com/salute-developers/plasma/pull/858) ([@neretin-trike](https://github.com/neretin-trike))
-- fix(plasma-web): Fix color for hover item in `Dropdown` component [#869](https://github.com/salute-developers/plasma/pull/869) ([@neretin-trike](https://github.com/neretin-trike))
-- chore(plasma-web): Add re-export for `Dropdown` component [#869](https://github.com/salute-developers/plasma/pull/869) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-web): Remove hover from select with empty list [#858](https://github.com/salute-developers/plasma/pull/858) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore(plasma-web): Bump plasma-colors version [#858](https://github.com/salute-developers/plasma/pull/858) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-web): Fix open `Dropwdown` component if has not item [#858](https://github.com/salute-developers/plasma/pull/858) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-b2c): Fix click to empty select [#858](https://github.com/salute-developers/plasma/pull/858) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-web): Fix color for hover item in `Dropdown` component [#869](https://github.com/salute-developers/plasma/pull/869) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore(plasma-web): Add re-export for `Dropdown` component [#869](https://github.com/salute-developers/plasma/pull/869) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -3272,11 +3245,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore(plasma-ui, plasma-web): addon knobs removed [#857](https://github.com/salute-developers/plasma/pull/857) ([@kayman233](https://github.com/kayman233))
+-   chore(plasma-ui, plasma-web): addon knobs removed [#857](https://github.com/salute-developers/plasma/pull/857) ([@kayman233](https://github.com/kayman233))
 
 #### Authors: 1
 
-- [@kayman233](https://github.com/kayman233)
+-   [@kayman233](https://github.com/kayman233)
 
 ---
 
@@ -3284,13 +3257,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Remove underline from Dropdown item [#865](https://github.com/salute-developers/plasma/pull/865) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): Remove underline from Dropdown item [#865](https://github.com/salute-developers/plasma/pull/865) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -3298,13 +3271,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web, plasma-b2c): Fix re-exporting [#864](https://github.com/salute-developers/plasma/pull/864) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web, plasma-b2c): Fix re-exporting [#864](https://github.com/salute-developers/plasma/pull/864) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -3312,14 +3285,14 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore: Manual publish for web & b2c [#854](https://github.com/salute-developers/plasma/pull/854) ([@fanisco](https://github.com/fanisco))
-- fix: Update package-locks [#853](https://github.com/salute-developers/plasma/pull/853) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: Manual publish for web & b2c [#854](https://github.com/salute-developers/plasma/pull/854) ([@fanisco](https://github.com/fanisco))
+-   fix: Update package-locks [#853](https://github.com/salute-developers/plasma/pull/853) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3327,11 +3300,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: new grid breakpoint for 16 cols [#825](https://github.com/salute-developers/plasma/pull/825) ([@takovoy](https://github.com/takovoy))
+-   feat: new grid breakpoint for 16 cols [#825](https://github.com/salute-developers/plasma/pull/825) ([@takovoy](https://github.com/takovoy))
 
 #### Authors: 1
 
-- Aleksandr Sustavov ([@takovoy](https://github.com/takovoy))
+-   Aleksandr Sustavov ([@takovoy](https://github.com/takovoy))
 
 ---
 
@@ -3339,21 +3312,21 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-core): Shared `Toast` between libraries [#812](https://github.com/salute-developers/plasma/pull/812) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-core): Shared `Toast` between libraries [#812](https://github.com/salute-developers/plasma/pull/812) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- chore: Skip Notification component test [#829](https://github.com/salute-developers/plasma/pull/829) ([@fanisco](https://github.com/fanisco))
-- test: Component test for B2C `Toast` [#812](https://github.com/salute-developers/plasma/pull/812) ([@fanisco](https://github.com/fanisco))
+-   chore: Skip Notification component test [#829](https://github.com/salute-developers/plasma/pull/829) ([@fanisco](https://github.com/fanisco))
+-   test: Component test for B2C `Toast` [#812](https://github.com/salute-developers/plasma/pull/812) ([@fanisco](https://github.com/fanisco))
 
 #### ⚠️ Pushed to `master`
 
-- build(plasma-core/ui/b2c/web): fix storybook build ([@Yeti-or](https://github.com/Yeti-or))
+-   build(plasma-core/ui/b2c/web): fix storybook build ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -3361,12 +3334,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- test: add SBSans to cypress [#832](https://github.com/salute-developers/plasma/pull/832) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-core/ui/web): fix tests [#830](https://github.com/salute-developers/plasma/pull/830) ([@Yeti-or](https://github.com/Yeti-or))
+-   test: add SBSans to cypress [#832](https://github.com/salute-developers/plasma/pull/832) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-core/ui/web): fix tests [#830](https://github.com/salute-developers/plasma/pull/830) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 1
 
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -3374,29 +3347,29 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- test(plasma-ui/web/b2c): Typography: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-web/b2c): Tooltip: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui/web/b2c): TextField: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui/web/b2c): TextArea: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui/web/b2c): Tabs: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui/web/b2c): Switch: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-web/b2c): Select: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui/web/b2c): Radiobox: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-web/b2c): Progress: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui/web/b2c): Price: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui/web/b2c): PaginationDots: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-web/b2c): Notification: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-web/b2c): Modal: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-web/b2c): Link: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui/web/b2c): Dropdown: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui/web/b2c): Checkbox: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui/web/b2c): Button: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   test(plasma-ui/web/b2c): Typography: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-web/b2c): Tooltip: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui/web/b2c): TextField: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui/web/b2c): TextArea: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui/web/b2c): Tabs: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui/web/b2c): Switch: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-web/b2c): Select: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui/web/b2c): Radiobox: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-web/b2c): Progress: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui/web/b2c): Price: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui/web/b2c): PaginationDots: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-web/b2c): Notification: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-web/b2c): Modal: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-web/b2c): Link: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui/web/b2c): Dropdown: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui/web/b2c): Checkbox: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui/web/b2c): Button: cy component test [#827](https://github.com/salute-developers/plasma/pull/827) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -3404,16 +3377,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-cy-utils): padMe [#824](https://github.com/salute-developers/plasma/pull/824) ([@Yeti-or](https://github.com/Yeti-or))
+-   feat(plasma-cy-utils): padMe [#824](https://github.com/salute-developers/plasma/pull/824) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -3421,15 +3394,15 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore: move cypress helpers to utils [#823](https://github.com/salute-developers/plasma/pull/823) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-web/plasma-ui): move cy tests to plasma-core [#823](https://github.com/salute-developers/plasma/pull/823) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-web): fix cypress comp-tests [#823](https://github.com/salute-developers/plasma/pull/823) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: move cypress helpers to utils [#823](https://github.com/salute-developers/plasma/pull/823) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-web/plasma-ui): move cy tests to plasma-core [#823](https://github.com/salute-developers/plasma/pull/823) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-web): fix cypress comp-tests [#823](https://github.com/salute-developers/plasma/pull/823) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -3437,11 +3410,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3449,11 +3422,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3461,23 +3434,23 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): `Dropdown` `onToggle` notification [#805](https://github.com/salute-developers/plasma/pull/805) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-web): Moved `SingleSelect` and `MultiSelect` functionality to hocs [#805](https://github.com/salute-developers/plasma/pull/805) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-web): Customize `Dropdown` with CSS Vars [#805](https://github.com/salute-developers/plasma/pull/805) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): `Dropdown` `onToggle` notification [#805](https://github.com/salute-developers/plasma/pull/805) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Moved `SingleSelect` and `MultiSelect` functionality to hocs [#805](https://github.com/salute-developers/plasma/pull/805) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Customize `Dropdown` with CSS Vars [#805](https://github.com/salute-developers/plasma/pull/805) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Removed `DropdownList` min-width [#805](https://github.com/salute-developers/plasma/pull/805) ([@fanisco](https://github.com/fanisco))
-- chore: make cypress work again [#573](https://github.com/salute-developers/plasma/pull/573) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: resolve cypress and jest conflicts [#573](https://github.com/salute-developers/plasma/pull/573) ([@OgNellis](https://github.com/OgNellis))
-- chore: cypress component testing [#573](https://github.com/salute-developers/plasma/pull/573) (dakhetov@outlook.com)
+-   fix(plasma-web): Removed `DropdownList` min-width [#805](https://github.com/salute-developers/plasma/pull/805) ([@fanisco](https://github.com/fanisco))
+-   chore: make cypress work again [#573](https://github.com/salute-developers/plasma/pull/573) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: resolve cypress and jest conflicts [#573](https://github.com/salute-developers/plasma/pull/573) ([@OgNellis](https://github.com/OgNellis))
+-   chore: cypress component testing [#573](https://github.com/salute-developers/plasma/pull/573) (dakhetov@outlook.com)
 
 #### Authors: 4
 
-- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
-- Daniil Akhetov (dakhetov@outlook.com)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+-   Daniil Akhetov (dakhetov@outlook.com)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -3485,13 +3458,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: Delete extract-sb-docgen-info [#801](https://github.com/salute-developers/plasma/pull/801) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: Delete extract-sb-docgen-info [#801](https://github.com/salute-developers/plasma/pull/801) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3499,11 +3472,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3511,11 +3484,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3523,17 +3496,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Added `Carousel`, `PaginationDots` and `Select` to `index.ts` [#803](https://github.com/salute-developers/plasma/pull/803) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-sb-utils): `PaletteGrid`, `disableProps`, `IconsPlaceholder`, `InSpacingDecorator` [#803](https://github.com/salute-developers/plasma/pull/803) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Added `Carousel`, `PaginationDots` and `Select` to `index.ts` [#803](https://github.com/salute-developers/plasma/pull/803) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-sb-utils): `PaletteGrid`, `disableProps`, `IconsPlaceholder`, `InSpacingDecorator` [#803](https://github.com/salute-developers/plasma/pull/803) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3541,13 +3514,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Collision of `Button` and global custom css [#703](https://github.com/salute-developers/plasma/pull/703) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): Collision of `Button` and global custom css [#703](https://github.com/salute-developers/plasma/pull/703) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3555,13 +3528,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Disabled state for `Checkbox` [#791](https://github.com/salute-developers/plasma/pull/791) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): Disabled state for `Checkbox` [#791](https://github.com/salute-developers/plasma/pull/791) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3569,15 +3542,15 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore(plasma-web): Storybook controls for Button, Carousel, Checkbox, Modal [#651](https://github.com/salute-developers/plasma/pull/651) ([@kayman233](https://github.com/kayman233))
-- chore(plasma-web): Storybook controls for Notification, PaginationDots, Progress, Radiobox [#652](https://github.com/salute-developers/plasma/pull/652) ([@kayman233](https://github.com/kayman233))
-- chore(plasma-web): Storybook controls for Tooltip, Badge, Image, Price, Spinner [#662](https://github.com/salute-developers/plasma/pull/662) ([@kayman233](https://github.com/kayman233))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(plasma-web): Storybook controls for Button, Carousel, Checkbox, Modal [#651](https://github.com/salute-developers/plasma/pull/651) ([@kayman233](https://github.com/kayman233))
+-   chore(plasma-web): Storybook controls for Notification, PaginationDots, Progress, Radiobox [#652](https://github.com/salute-developers/plasma/pull/652) ([@kayman233](https://github.com/kayman233))
+-   chore(plasma-web): Storybook controls for Tooltip, Badge, Image, Price, Spinner [#662](https://github.com/salute-developers/plasma/pull/662) ([@kayman233](https://github.com/kayman233))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3585,17 +3558,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix: Refactor `Checkbox` & `Radiobox` in order of better understanding [#698](https://github.com/salute-developers/plasma/pull/698) ([@fanisco](https://github.com/fanisco))
-- chore(plasma-ui): update ts/styled-comps deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
-- chore(plasma-web): update storybook deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
-- chore(plasma-web): update build deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix: Refactor `Checkbox` & `Radiobox` in order of better understanding [#698](https://github.com/salute-developers/plasma/pull/698) ([@fanisco](https://github.com/fanisco))
+-   chore(plasma-ui): update ts/styled-comps deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore(plasma-web): update storybook deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore(plasma-web): update build deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -3603,20 +3576,20 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Added `TabsController` in order to use keyboard arrows [#687](https://github.com/salute-developers/plasma/pull/687) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Added `TabsController` in order to use keyboard arrows [#687](https://github.com/salute-developers/plasma/pull/687) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- docs(plasma-web): Storybook controls for Select, Switch, TextField [#688](https://github.com/salute-developers/plasma/pull/688) ([@kayman233](https://github.com/kayman233))
-- docs(plasma-web): Describe `TabsController` [#687](https://github.com/salute-developers/plasma/pull/687) ([@fanisco](https://github.com/fanisco))
-- chore: Storybook docgenInfo extraction tool [#648](https://github.com/salute-developers/plasma/pull/648) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   docs(plasma-web): Storybook controls for Select, Switch, TextField [#688](https://github.com/salute-developers/plasma/pull/688) ([@kayman233](https://github.com/kayman233))
+-   docs(plasma-web): Describe `TabsController` [#687](https://github.com/salute-developers/plasma/pull/687) ([@fanisco](https://github.com/fanisco))
+-   chore: Storybook docgenInfo extraction tool [#648](https://github.com/salute-developers/plasma/pull/648) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 3
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3624,18 +3597,18 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Pass color and contentLeft to DropdownItem [#683](https://github.com/salute-developers/plasma/pull/683) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Pass color and contentLeft to DropdownItem [#683](https://github.com/salute-developers/plasma/pull/683) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Dropdown shadow black [#683](https://github.com/salute-developers/plasma/pull/683) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-web): Pass DropdownItem border radius as separate CSS Var [#683](https://github.com/salute-developers/plasma/pull/683) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): Dropdown shadow black [#683](https://github.com/salute-developers/plasma/pull/683) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web): Pass DropdownItem border radius as separate CSS Var [#683](https://github.com/salute-developers/plasma/pull/683) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3643,14 +3616,14 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- docs(plasma-web): Storybook controls for Tabs, TextArea [#661](https://github.com/salute-developers/plasma/pull/661) ([@kayman233](https://github.com/kayman233))
-- chore(plasma-web): disableProps added [#661](https://github.com/salute-developers/plasma/pull/661) ([@kayman233](https://github.com/kayman233))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   docs(plasma-web): Storybook controls for Tabs, TextArea [#661](https://github.com/salute-developers/plasma/pull/661) ([@kayman233](https://github.com/kayman233))
+-   chore(plasma-web): disableProps added [#661](https://github.com/salute-developers/plasma/pull/661) ([@kayman233](https://github.com/kayman233))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3658,11 +3631,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3670,11 +3643,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3682,11 +3655,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3694,16 +3667,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: Skeleton in core/ui/web [#628](https://github.com/salute-developers/plasma/pull/628) ([@fanisco](https://github.com/fanisco))
+-   feat: Skeleton in core/ui/web [#628](https://github.com/salute-developers/plasma/pull/628) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3711,11 +3684,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3723,11 +3696,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3735,11 +3708,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3747,11 +3720,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3759,11 +3732,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3771,13 +3744,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-core): Image: add role attr [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-core): Image: add role attr [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -3785,11 +3758,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3797,11 +3770,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3809,16 +3782,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Add `hocs`, `hooks`, `mixins`, `types` and `utils` from plasma-core [#592](https://github.com/salute-developers/plasma/pull/592) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Add `hocs`, `hooks`, `mixins`, `types` and `utils` from plasma-core [#592](https://github.com/salute-developers/plasma/pull/592) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3826,15 +3799,15 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Index imports for treeshaking [#563](https://github.com/salute-developers/plasma/pull/563) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Index imports for treeshaking [#563](https://github.com/salute-developers/plasma/pull/563) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- ci: Build plasma without rollup [#563](https://github.com/salute-developers/plasma/pull/563) ([@fanisco](https://github.com/fanisco))
+-   ci: Build plasma without rollup [#563](https://github.com/salute-developers/plasma/pull/563) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3842,11 +3815,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3854,11 +3827,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): form submit trigger inside select [#557](https://github.com/salute-developers/plasma/pull/557) ([@tsumo](https://github.com/tsumo))
+-   fix(plasma-web): form submit trigger inside select [#557](https://github.com/salute-developers/plasma/pull/557) ([@tsumo](https://github.com/tsumo))
 
 #### Authors: 1
 
-- [@tsumo](https://github.com/tsumo)
+-   [@tsumo](https://github.com/tsumo)
 
 ---
 
@@ -3866,12 +3839,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Integrate Dropdown into Select [#545](https://github.com/salute-developers/plasma/pull/545) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-web): Added Dropdown component [#545](https://github.com/salute-developers/plasma/pull/545) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Integrate Dropdown into Select [#545](https://github.com/salute-developers/plasma/pull/545) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Added Dropdown component [#545](https://github.com/salute-developers/plasma/pull/545) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3879,11 +3852,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix: remove double ampersands [#537](https://github.com/salute-developers/plasma/pull/537) ([@OgNellis](https://github.com/OgNellis))
+-   fix: remove double ampersands [#537](https://github.com/salute-developers/plasma/pull/537) ([@OgNellis](https://github.com/OgNellis))
 
 #### Authors: 1
 
-- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+-   Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
 
 ---
 
@@ -3891,11 +3864,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui, plasma-web): toolbar buttons return [#547](https://github.com/salute-developers/plasma/pull/547) ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-ui, plasma-web): toolbar buttons return [#547](https://github.com/salute-developers/plasma/pull/547) ([@kayman233](https://github.com/kayman233))
 
 #### Authors: 1
 
-- [@kayman233](https://github.com/kayman233)
+-   [@kayman233](https://github.com/kayman233)
 
 ---
 
@@ -3903,11 +3876,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3915,11 +3888,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3927,11 +3900,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- feat(plasma-ui, plasma-web, showcase): sb-essentials added [#535](https://github.com/salute-developers/plasma/pull/535) ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-ui, plasma-web, showcase): sb-essentials added [#535](https://github.com/salute-developers/plasma/pull/535) ([@kayman233](https://github.com/kayman233))
 
 #### Authors: 1
 
-- [@kayman233](https://github.com/kayman233)
+-   [@kayman233](https://github.com/kayman233)
 
 ---
 
@@ -3939,13 +3912,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): TextField can accept deferred defaultValue [#536](https://github.com/salute-developers/plasma/pull/536) ([@fanisco](https://github.com/fanisco))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): TextField can accept deferred defaultValue [#536](https://github.com/salute-developers/plasma/pull/536) ([@fanisco](https://github.com/fanisco))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3953,11 +3926,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3965,11 +3938,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3977,16 +3950,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: react17 and test job added [#496](https://github.com/salute-developers/plasma/pull/496) ([@kayman233](https://github.com/kayman233))
+-   feat: react17 and test job added [#496](https://github.com/salute-developers/plasma/pull/496) ([@kayman233](https://github.com/kayman233))
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3994,14 +3967,14 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore: Alias react, react-dom and styled-components in Storybook webpack [#518](https://github.com/salute-developers/plasma/pull/518) ([@fanisco](https://github.com/fanisco))
-- chore: Bump Storybook version [#518](https://github.com/salute-developers/plasma/pull/518) ([@fanisco](https://github.com/fanisco))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: Alias react, react-dom and styled-components in Storybook webpack [#518](https://github.com/salute-developers/plasma/pull/518) ([@fanisco](https://github.com/fanisco))
+-   chore: Bump Storybook version [#518](https://github.com/salute-developers/plasma/pull/518) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4009,11 +3982,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -4021,16 +3994,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): commas change [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
-- fix(plasma-ui): favicon to png fix [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
-- fix(plasma-ui): safari bug fix [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
-- fix(plasma-web): favicon added [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): commas change [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-ui): favicon to png fix [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-ui): safari bug fix [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-web): favicon added [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -4038,19 +4011,19 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix: TextField placeholder placement [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-web): TextField placeholder color [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
-- fix: Build components with own namespace es/cjs [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
-- fix: TextField helperText to boolean [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
-- fix: Checkbox layout with various content [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
-- fix: Input interface and props [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-web): Checkbox & Radio label for attribute [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix: TextField placeholder placement [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web): TextField placeholder color [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
+-   fix: Build components with own namespace es/cjs [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
+-   fix: TextField helperText to boolean [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
+-   fix: Checkbox layout with various content [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
+-   fix: Input interface and props [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web): Checkbox & Radio label for attribute [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4058,11 +4031,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -4070,19 +4043,19 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: Added plasma-tokens-b2c package [#468](https://github.com/salute-developers/plasma/pull/468) ([@fanisco](https://github.com/fanisco))
+-   feat: Added plasma-tokens-b2c package [#468](https://github.com/salute-developers/plasma/pull/468) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Removed tokens dependency [#468](https://github.com/salute-developers/plasma/pull/468) ([@fanisco](https://github.com/fanisco))
-- docs(plasma-web): about page with link added [#447](https://github.com/salute-developers/plasma/pull/447) ([@kayman233](https://github.com/kayman233))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): Removed tokens dependency [#468](https://github.com/salute-developers/plasma/pull/468) ([@fanisco](https://github.com/fanisco))
+-   docs(plasma-web): about page with link added [#447](https://github.com/salute-developers/plasma/pull/447) ([@kayman233](https://github.com/kayman233))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4090,18 +4063,18 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-tokens): Updated tokens from plasma-styles [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-tokens): Updated tokens from plasma-styles [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Components dark theme fixes [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
-- chore: Added favicon for storybooks [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
-- docs: ThemeColors in both libraries [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
-- docs(plasma-web): Added Grid docs [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web): Components dark theme fixes [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
+-   chore: Added favicon for storybooks [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
+-   docs: ThemeColors in both libraries [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
+-   docs(plasma-web): Added Grid docs [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4109,16 +4082,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-core): Spinner sizes [#438](https://github.com/salute-developers/plasma/pull/438) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-web): Button success [#438](https://github.com/salute-developers/plasma/pull/438) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-core): Spinner sizes [#438](https://github.com/salute-developers/plasma/pull/438) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Button success [#438](https://github.com/salute-developers/plasma/pull/438) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- feat(plasma-core, plasma-ui, plasma-web): Reassembled Field [#438](https://github.com/salute-developers/plasma/pull/438) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-core, plasma-ui, plasma-web): Reassembled Field [#438](https://github.com/salute-developers/plasma/pull/438) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4126,19 +4099,19 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Added Link component [#441](https://github.com/salute-developers/plasma/pull/441) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Added Link component [#441](https://github.com/salute-developers/plasma/pull/441) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Components dark theme fixes [#441](https://github.com/salute-developers/plasma/pull/441) ([@fanisco](https://github.com/fanisco))
-- docs: plasma-sb-utils package with a lots useful sb code [#441](https://github.com/salute-developers/plasma/pull/441) ([@fanisco](https://github.com/fanisco))
-- docs: Added switcher for plasma-web's dark theme [#441](https://github.com/salute-developers/plasma/pull/441) ([@fanisco](https://github.com/fanisco))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): Components dark theme fixes [#441](https://github.com/salute-developers/plasma/pull/441) ([@fanisco](https://github.com/fanisco))
+-   docs: plasma-sb-utils package with a lots useful sb code [#441](https://github.com/salute-developers/plasma/pull/441) ([@fanisco](https://github.com/fanisco))
+-   docs: Added switcher for plasma-web's dark theme [#441](https://github.com/salute-developers/plasma/pull/441) ([@fanisco](https://github.com/fanisco))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4146,11 +4119,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -4158,18 +4131,18 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-tokens-web): Using plasma-colors, dark theme [#398](https://github.com/salute-developers/plasma/pull/398) ([@fanisco](https://github.com/fanisco))
-- feat: Added plasma-colors package [#398](https://github.com/salute-developers/plasma/pull/398) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-tokens-web): Using plasma-colors, dark theme [#398](https://github.com/salute-developers/plasma/pull/398) ([@fanisco](https://github.com/fanisco))
+-   feat: Added plasma-colors package [#398](https://github.com/salute-developers/plasma/pull/398) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- docs(plasma-web): Added themes story [#398](https://github.com/salute-developers/plasma/pull/398) ([@fanisco](https://github.com/fanisco))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   docs(plasma-web): Added themes story [#398](https://github.com/salute-developers/plasma/pull/398) ([@fanisco](https://github.com/fanisco))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4177,11 +4150,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -4189,11 +4162,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -4201,11 +4174,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -4213,11 +4186,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -4225,11 +4198,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -4237,11 +4210,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -4249,12 +4222,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- feat(plasma-core, plasma-ui, plasma-web): Moved PaginationDots to core [#389](https://github.com/salute-developers/plasma/pull/389) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-core, plasma-ui, plasma-web): Moved Carousel to core [#389](https://github.com/salute-developers/plasma/pull/389) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-core, plasma-ui, plasma-web): Moved PaginationDots to core [#389](https://github.com/salute-developers/plasma/pull/389) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-core, plasma-ui, plasma-web): Moved Carousel to core [#389](https://github.com/salute-developers/plasma/pull/389) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4262,13 +4235,13 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web): Added Badge to index [#397](https://github.com/salute-developers/plasma/pull/397) ([@fanisco](https://github.com/fanisco))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web): Added Badge to index [#397](https://github.com/salute-developers/plasma/pull/397) ([@fanisco](https://github.com/fanisco))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4276,11 +4249,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -4288,17 +4261,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Added Spinner to web [#326](https://github.com/salute-developers/plasma/pull/326) (prokopyevviktor@yandex.ru)
+-   feat(plasma-web): Added Spinner to web [#326](https://github.com/salute-developers/plasma/pull/326) (prokopyevviktor@yandex.ru)
 
 #### 🐛 Bug Fix
 
-- docs(showcase): Added Spinner showcase web [#326](https://github.com/salute-developers/plasma/pull/326) (prokopyevviktor@yandex.ru)
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   docs(showcase): Added Spinner showcase web [#326](https://github.com/salute-developers/plasma/pull/326) (prokopyevviktor@yandex.ru)
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Viktor Prokopyev (prokopyevviktor@yandex.ru)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Viktor Prokopyev (prokopyevviktor@yandex.ru)
 
 ---
 
@@ -4306,16 +4279,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Added Tooltip component [#345](https://github.com/salute-developers/plasma/pull/345) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Added Tooltip component [#345](https://github.com/salute-developers/plasma/pull/345) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4323,14 +4296,14 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- docs: description in checkbox and radiobox storybook [#347](https://github.com/salute-developers/plasma/pull/347) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore: soft peerDependencies only [#344](https://github.com/salute-developers/plasma/pull/344) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   docs: description in checkbox and radiobox storybook [#347](https://github.com/salute-developers/plasma/pull/347) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: soft peerDependencies only [#344](https://github.com/salute-developers/plasma/pull/344) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
 
 ---
 
@@ -4338,17 +4311,17 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Added Modal component [#339](https://github.com/salute-developers/plasma/pull/339) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-web): Added Notification component [#339](https://github.com/salute-developers/plasma/pull/339) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Added Modal component [#339](https://github.com/salute-developers/plasma/pull/339) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Added Notification component [#339](https://github.com/salute-developers/plasma/pull/339) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4356,16 +4329,16 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Added Progress component [#340](https://github.com/salute-developers/plasma/pull/340) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Added Progress component [#340](https://github.com/salute-developers/plasma/pull/340) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4373,14 +4346,14 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- feat(plasma-core, plasma-ui, plasma-ui): Moved Image component [#342](https://github.com/salute-developers/plasma/pull/342) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-core, plasma-ui, plasma-ui): Moved Price component [#342](https://github.com/salute-developers/plasma/pull/342) ([@fanisco](https://github.com/fanisco))
-- build: fix package-locks [#337](https://github.com/salute-developers/plasma/pull/337) ([@Yeti-or](https://github.com/Yeti-or))
+-   feat(plasma-core, plasma-ui, plasma-ui): Moved Image component [#342](https://github.com/salute-developers/plasma/pull/342) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-core, plasma-ui, plasma-ui): Moved Price component [#342](https://github.com/salute-developers/plasma/pull/342) ([@fanisco](https://github.com/fanisco))
+-   build: fix package-locks [#337](https://github.com/salute-developers/plasma/pull/337) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -4388,11 +4361,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Added Select component [#328](https://github.com/salute-developers/plasma/pull/328) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Added Select component [#328](https://github.com/salute-developers/plasma/pull/328) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4400,11 +4373,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### ⚠️ Pushed to `master`
 
-- {chore: update package-locks} ([@github-actions[bot]](https://github.com/github-actions[bot]))
+-   {chore: update package-locks} ([@github-actions[bot]](https://github.com/github-actions[bot]))
 
 #### Authors: 1
 
-- [@github-actions[bot]](https://github.com/github-actions[bot])
+-   [@github-actions[bot]](https://github.com/github-actions[bot])
 
 ---
 
@@ -4412,12 +4385,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui, plasma-web): Badge: correct reexport & const creation [#313](https://github.com/salute-developers/plasma/pull/313) ([@fanisco](https://github.com/fanisco))
-- ci: Deploy documentation for plasma-web [#313](https://github.com/salute-developers/plasma/pull/313) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-ui, plasma-web): Badge: correct reexport & const creation [#313](https://github.com/salute-developers/plasma/pull/313) ([@fanisco](https://github.com/fanisco))
+-   ci: Deploy documentation for plasma-web [#313](https://github.com/salute-developers/plasma/pull/313) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4425,11 +4398,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(core): made reexport in ui & web, added showcase for web [#308](https://github.com/salute-developers/plasma/pull/308) (prokopyevviktor@yandex.ru)
+-   feat(core): made reexport in ui & web, added showcase for web [#308](https://github.com/salute-developers/plasma/pull/308) (prokopyevviktor@yandex.ru)
 
 #### Authors: 1
 
-- Viktor Prokopyev (prokopyevviktor@yandex.ru)
+-   Viktor Prokopyev (prokopyevviktor@yandex.ru)
 
 ---
 
@@ -4437,18 +4410,18 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat: Moved Typography to plasma-core / plasma-web [#280](https://github.com/salute-developers/plasma/pull/280) ([@fanisco](https://github.com/fanisco))
+-   feat: Moved Typography to plasma-core / plasma-web [#280](https://github.com/salute-developers/plasma/pull/280) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui, plasma-web): Fix setting props in TextField & TextArea [#299](https://github.com/salute-developers/plasma/pull/299) ([@LamaEats](https://github.com/LamaEats))
-- fix(plasma-ui, plasma-web): Added SC babel plugin to avoid classname collision [#280](https://github.com/salute-developers/plasma/pull/280) ([@fanisco](https://github.com/fanisco))
-- chore(plasma-core, plasma-web): Added components to index files [#280](https://github.com/salute-developers/plasma/pull/280) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-ui, plasma-web): Fix setting props in TextField & TextArea [#299](https://github.com/salute-developers/plasma/pull/299) ([@LamaEats](https://github.com/LamaEats))
+-   fix(plasma-ui, plasma-web): Added SC babel plugin to avoid classname collision [#280](https://github.com/salute-developers/plasma/pull/280) ([@fanisco](https://github.com/fanisco))
+-   chore(plasma-core, plasma-web): Added components to index files [#280](https://github.com/salute-developers/plasma/pull/280) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 2
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
-- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
 
 ---
 
@@ -4456,11 +4429,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- fix: bump peerDeps [#307](https://github.com/salute-developers/plasma/pull/307) ([@Yeti-or](https://github.com/Yeti-or))
+-   fix: bump peerDeps [#307](https://github.com/salute-developers/plasma/pull/307) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 1
 
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -4468,11 +4441,11 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): Added TextArea component [#290](https://github.com/salute-developers/plasma/pull/290) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Added TextArea component [#290](https://github.com/salute-developers/plasma/pull/290) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4480,12 +4453,12 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🐛 Bug Fix
 
-- Bump independent versions \[skip ci\] ([@Yeti-or](https://github.com/Yeti-or))
-- Update CHANGELOG.md \[skip ci\] ([@Yeti-or](https://github.com/Yeti-or))
+-   Bump independent versions \[skip ci\] ([@Yeti-or](https://github.com/Yeti-or))
+-   Update CHANGELOG.md \[skip ci\] ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 1
 
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -4493,23 +4466,23 @@ fix(plasma-theme-builder): Add restored color method for generate themes (https:
 
 #### 🚀 Enhancement
 
-- feat(ui): Button/Tabs: resizible => stretch / fixedWidth => stretch. BREAKING [#279](https://github.com/salute-developers/plasma/pull/279) ([@Yeti-or](https://github.com/Yeti-or))
-- feat: Moved Grid from ui to plasma-core, Grid for plasma-web [#279](https://github.com/salute-developers/plasma/pull/279) ([@fanisco](https://github.com/fanisco))
-- feat: esm build, fix package-lock after rebase [#279](https://github.com/salute-developers/plasma/pull/279) ([@KateKate](https://github.com/KateKate))
-- feat: esm build core, icons, ui, web [#279](https://github.com/salute-developers/plasma/pull/279) ([@KateKate](https://github.com/KateKate))
-- feat: Button: Code separation for easier composition and styling [#279](https://github.com/salute-developers/plasma/pull/279) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-web): Переход на токены [#279](https://github.com/salute-developers/plasma/pull/279) ([@fanisco](https://github.com/fanisco))
-- feat: Библиотека plasma-web [#279](https://github.com/salute-developers/plasma/pull/279) ([@fanisco](https://github.com/fanisco))
+-   feat(ui): Button/Tabs: resizible => stretch / fixedWidth => stretch. BREAKING [#279](https://github.com/salute-developers/plasma/pull/279) ([@Yeti-or](https://github.com/Yeti-or))
+-   feat: Moved Grid from ui to plasma-core, Grid for plasma-web [#279](https://github.com/salute-developers/plasma/pull/279) ([@fanisco](https://github.com/fanisco))
+-   feat: esm build, fix package-lock after rebase [#279](https://github.com/salute-developers/plasma/pull/279) ([@KateKate](https://github.com/KateKate))
+-   feat: esm build core, icons, ui, web [#279](https://github.com/salute-developers/plasma/pull/279) ([@KateKate](https://github.com/KateKate))
+-   feat: Button: Code separation for easier composition and styling [#279](https://github.com/salute-developers/plasma/pull/279) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): Переход на токены [#279](https://github.com/salute-developers/plasma/pull/279) ([@fanisco](https://github.com/fanisco))
+-   feat: Библиотека plasma-web [#279](https://github.com/salute-developers/plasma/pull/279) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- fix: plasma doc before major [#279](https://github.com/salute-developers/plasma/pull/279) ([@Yeti-or](https://github.com/Yeti-or))
-- chore(plasma-web): Added Grid to index [#279](https://github.com/salute-developers/plasma/pull/279) ([@fanisco](https://github.com/fanisco))
-- chore: Fix packages versions [#279](https://github.com/salute-developers/plasma/pull/279) ([@fanisco](https://github.com/fanisco))
-- chore: Bump independent versions [#279](https://github.com/salute-developers/plasma/pull/279) ([@fanisco](https://github.com/fanisco))
+-   fix: plasma doc before major [#279](https://github.com/salute-developers/plasma/pull/279) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore(plasma-web): Added Grid to index [#279](https://github.com/salute-developers/plasma/pull/279) ([@fanisco](https://github.com/fanisco))
+-   chore: Fix packages versions [#279](https://github.com/salute-developers/plasma/pull/279) ([@fanisco](https://github.com/fanisco))
+-   chore: Bump independent versions [#279](https://github.com/salute-developers/plasma/pull/279) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 3
 
-- Ekaterina Anishkina ([@KateKate](https://github.com/KateKate))
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Ekaterina Anishkina ([@KateKate](https://github.com/KateKate))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))

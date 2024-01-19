@@ -8,122 +8,103 @@
 
 ### Carousel
 
-- добавлен пропс `scrollSnapStop` в `Carousel`
+-   добавлен пропс `scrollSnapStop` в `Carousel`
 
- 
 feat(plasma-core): Add new prop (scrollSnapStop) to the Carousel component (https://github.com/salute-developers/plasma/pull/940)
-
 
 ### Skeleton
 
-- добавлен компонент в новой архитектуре
-- включен в поставку b2c/web
-- удален из plasma-hope
-- написаны тесты
-- поправлен компонент Button для использования в styled
+-   добавлен компонент в новой архитектуре
+-   включен в поставку b2c/web
+-   удален из plasma-hope
+-   написаны тесты
+-   поправлен компонент Button для использования в styled
 
- 
 feat(plasma-new-hope/b2c/web): add skeleton with new architecture (https://github.com/salute-developers/plasma/pull/954)
 
 ### Skeleton
 
 -   добавлены размеры под новую типографику
 
- 
 feat(plasma-b2c/web): add skeleton new typography sizes (https://github.com/salute-developers/plasma/pull/960)
-
 
 ### Header
 
--  добавлен prop, который позволяет применять mediaQuery для S-viewport по условию
--  добавлен тест на данный кейс
+-   добавлен prop, который позволяет применять mediaQuery для S-viewport по условию
+-   добавлен тест на данный кейс
 
- 
 feat(plasma-ui): add property to show/hide subtitle on S viewport (https://github.com/salute-developers/plasma/pull/958)
-
 
 ### Popover arrow
 
 -   Поправлено отображение `Popover arrow` в Safari, Firefox
 
- 
 fix(plasma-web): fix Popover arrow in Safari, Firefox (https://github.com/salute-developers/plasma/pull/963)
-
 
 ### Image
 
-- добавлен в поставку `plasma-{b2c, web}`
-- добавлен UI тесты
-- удален из `plasma-hope`
+-   добавлен в поставку `plasma-{b2c, web}`
+-   добавлен UI тесты
+-   удален из `plasma-hope`
 
- 
 feat(plasma-new-hope/web/b2c): Image refactor & redesign (https://github.com/salute-developers/plasma/pull/968)
 
 ### Badge
 
--  добавлен в поставку `plasma-{b2c,web,new-hope}`
--  дополнены тесты
+-   добавлен в поставку `plasma-{b2c,web,new-hope}`
+-   дополнены тесты
 
- 
 feat(plasma-new-hope/web/b2c): Badge refactor & redesign (https://github.com/salute-developers/plasma/pull/964)
 
 ### Counter
 
-- добавлен в поставку `plasma-{b2c,web,new-hope}`
-- написаны тесты и документация
+-   добавлен в поставку `plasma-{b2c,web,new-hope}`
+-   написаны тесты и документация
 
- 
 feat(plasma-new-hope/web/b2c): Counter component (https://github.com/salute-developers/plasma/pull/965)
-
 
 ## Icons
 
--  добавлены **новые** иконки размера 24x24, 1025 штук
--  добавлены **новые** категории иконок в разделе icons на сайте
+-   добавлены **новые** иконки размера 24x24, 1025 штук
+-   добавлены **новые** категории иконок в разделе icons на сайте
 
 feat(plasma-icons): Add new 24x24 icons (https://github.com/salute-developers/plasma/pull/955)
-
 
 ## Infra
 
 ### Perftool
 
-- обновление версии @salutejs/perftool@0.24
+-   обновление версии @salutejs/perftool@0.24
 
- 
 Update perftool (https://github.com/salute-developers/plasma/pull/932)
 
-### @Auto-it CLI 
+### @Auto-it CLI
 
-- добавлена возможность прокинуть опции/флаги для запуска - **auto shipit**;
-- выключили генерацию changelog для pubslish: canary, RC;  
+-   добавлена возможность прокинуть опции/флаги для запуска - **auto shipit**;
+-   выключили генерацию changelog для pubslish: canary, RC;
 
- 
 plasma-infra: Pass cli options for "@auto-it" (https://github.com/salute-developers/plasma/pull/890)
 
 ### Changelog workflow
 
-- добавлена новая категория `Bugs`
-- экранирование спец символов 
+-   добавлена новая категория `Bugs`
+-   экранирование спец символов
 
- 
-plasma-infra: Improve changelog workflow  (https://github.com/salute-developers/plasma/pull/967)
-
+plasma-infra: Improve changelog workflow (https://github.com/salute-developers/plasma/pull/967)
 
 ## Tokens
 
 ### Tokens naming
 
-- изменена нотация с `camelCase` на `kebab-case` для старых токенов цветов и типографики
+-   изменена нотация с `camelCase` на `kebab-case` для старых токенов цветов и типографики
 
 Было:
-<img width="600" alt="Screenshot 2024-01-16 at 19 09 54" src="https://github.com/salute-developers/plasma/assets/26903236/b83f776b-e4f9-43e1-9506-bff3d25f7e71">
+<img width="600" alt="Screenshot 2024-01-16 at 19 09 54" src="https://github.com/salute-developers/plasma/assets/26903236/b83f776b-e4f9-43e1-9506-bff3d25f7e71" />
 
 Стало:
-<img width="600" alt="Screenshot 2024-01-16 at 19 09 17" src="https://github.com/salute-developers/plasma/assets/26903236/10298375-1a54-4dd4-8fe3-8af74c3e40b1">
+<img width="600" alt="Screenshot 2024-01-16 at 19 09 17" src="https://github.com/salute-developers/plasma/assets/26903236/10298375-1a54-4dd4-8fe3-8af74c3e40b1" />
 
- 
-feat(plasma-tokens-utils): Update formatting tokens name from camelCase to kebab-case  (https://github.com/salute-developers/plasma/pull/971)
+feat(plasma-tokens-utils): Update formatting tokens name from camelCase to kebab-case (https://github.com/salute-developers/plasma/pull/971)
 
 ## Bugs
 
@@ -131,57 +112,52 @@ feat(plasma-tokens-utils): Update formatting tokens name from camelCase to kebab
 
 -   добавлен `ref` в `forwardRef` вторым аргументом
 
- 
 feat(plasma-new-hope): fix CalendarDouble ref (https://github.com/salute-developers/plasma/pull/959)
-
 
 ### Carousel
 
-- решен баг с пролистыванием (onDragScroll) в accessible mode - mobile & desktop.
-- control panel в карусели работает корректно (можно выбрать scrollAlign).
+-   решен баг с пролистыванием (onDragScroll) в accessible mode - mobile & desktop.
+-   control panel в карусели работает корректно (можно выбрать scrollAlign).
 
- 
 fix(plasma-hope/plasma-web): Turn onDragScroll off by default in accessibility mode in Carousel. Fix storybook control panel in it. (https://github.com/salute-developers/plasma/pull/957)
 
 ### Spinner
 
-- исправлено отображение компонента `Spinner` при размере 8px
+-   исправлено отображение компонента `Spinner` при размере 8px
 
- 
 fix(plasma-new-hope): Fix size for `Spinner` component (https://github.com/salute-developers/plasma/pull/966)
 
 ## Misc
 
 ### Typography
 
--  root для типографики вынесен в общий компонент
--  className, style теперь явно задаются в компоненте
--  исправлены конфиги для asdk поставки
+-   root для типографики вынесен в общий компонент
+-   className, style теперь явно задаются в компоненте
+-   исправлены конфиги для asdk поставки
 
- 
 feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://github.com/salute-developers/plasma/pull/947)
 
 ---
 
 #### 🚀 Enhancement
 
-- Release by 18.01.2024 [#981](https://github.com/salute-developers/plasma/pull/981) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@shuga2704](https://github.com/shuga2704) [@akhdrv](https://github.com/akhdrv) [@kayman233](https://github.com/kayman233) [@Yakutoc](https://github.com/Yakutoc) [@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-ui): add property to show/hide subtitle on S viewport [#958](https://github.com/salute-developers/plasma/pull/958) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   Release by 18.01.2024 [#981](https://github.com/salute-developers/plasma/pull/981) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@shuga2704](https://github.com/shuga2704) [@akhdrv](https://github.com/akhdrv) [@kayman233](https://github.com/kayman233) [@Yakutoc](https://github.com/Yakutoc) [@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-ui): add property to show/hide subtitle on S viewport [#958](https://github.com/salute-developers/plasma/pull/958) ([@TitanKuzmich](https://github.com/TitanKuzmich))
 
 #### 🐛 Bug Fix
 
-- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
-- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 7
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
-- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
-- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+-   Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+-   Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -189,22 +165,22 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- Release by 22.12.2023 [#944](https://github.com/salute-developers/plasma/pull/944) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@neretin-trike](https://github.com/neretin-trike))
-- feat: bump manual package-locks [#933](https://github.com/salute-developers/plasma/pull/933) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   Release by 22.12.2023 [#944](https://github.com/salute-developers/plasma/pull/944) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@neretin-trike](https://github.com/neretin-trike))
+-   feat: bump manual package-locks [#933](https://github.com/salute-developers/plasma/pull/933) ([@TitanKuzmich](https://github.com/TitanKuzmich))
 
 #### 🐛 Bug Fix
 
-- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
-- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore(vite): bump to 4.5.1 ([@Yakutoc](https://github.com/Yakutoc))
+-   Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(vite): bump to 4.5.1 ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 5
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -212,74 +188,74 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- Release from 30.11.2023 [#883](https://github.com/salute-developers/plasma/pull/883) ([@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@Salute-Eva](https://github.com/Salute-Eva) [@TitanKuzmich](https://github.com/TitanKuzmich) [@neretin-trike](https://github.com/neretin-trike) [@Yeti-or](https://github.com/Yeti-or))
-- feat: update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
-- feat: Update package-lock.json files ([@Yakutoc](https://github.com/Yakutoc))
+-   Release from 30.11.2023 [#883](https://github.com/salute-developers/plasma/pull/883) ([@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@Salute-Eva](https://github.com/Salute-Eva) [@TitanKuzmich](https://github.com/TitanKuzmich) [@neretin-trike](https://github.com/neretin-trike) [@Yeti-or](https://github.com/Yeti-or))
+-   feat: update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+-   feat: Update package-lock.json files ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore: update package locks [#880](https://github.com/salute-developers/plasma/pull/880) ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- chore(plasma-ui): bump "default-browser-id" to 2.0.0 [#875](https://github.com/salute-developers/plasma/pull/875) ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): bump "vite" to 4.5.0 ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): npm audit fix vulnerabilities ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): delete unnecessary dep: "react-scripts" [#868](https://github.com/salute-developers/plasma/pull/868) ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): delete unnecessary sync data for about/tokens mdx ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): refactoring environment mdx ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): refactoring tokens mdx ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): refactoring hocs mdx ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): refactoring utils mdx ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): refactoring device theme provider mdx ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): refactoring theming mdx ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): refactoring mixins mdx ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): refactoring about mdx ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): bump storybook to @latest (7.5.3) ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): delete unnecessary dep: "@storybook/client-logger" ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate "{Preview,Main}.ts" after bump SB 7 ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): add decorators: Theme, Toast, Docs ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): delete unnecessary dep: "@storybook/preset-create-react-app" ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Spacing] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Colors] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Typography] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Toast] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [TextField] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [TextBox] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [TextArea] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Tabs] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Switch] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Stepper] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Spinner] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Slider] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Skeleton] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Sheet] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Radiobox] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [ProductCard] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Price] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Pickers] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [PaginationDots] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Marquee] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [MarkedList] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Image] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Icon] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Header] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Grid] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Confirm] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Checkbox] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Cell] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Carousel] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Card] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Button] ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): migrate to CSF 3 [Badge] ([@Yakutoc](https://github.com/Yakutoc))
-- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package locks [#880](https://github.com/salute-developers/plasma/pull/880) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   chore(plasma-ui): bump "default-browser-id" to 2.0.0 [#875](https://github.com/salute-developers/plasma/pull/875) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): bump "vite" to 4.5.0 ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): npm audit fix vulnerabilities ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): delete unnecessary dep: "react-scripts" [#868](https://github.com/salute-developers/plasma/pull/868) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): delete unnecessary sync data for about/tokens mdx ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): refactoring environment mdx ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): refactoring tokens mdx ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): refactoring hocs mdx ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): refactoring utils mdx ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): refactoring device theme provider mdx ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): refactoring theming mdx ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): refactoring mixins mdx ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): refactoring about mdx ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): bump storybook to @latest (7.5.3) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): delete unnecessary dep: "@storybook/client-logger" ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): migrate "{Preview,Main}.ts" after bump SB 7 ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): add decorators: Theme, Toast, Docs ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): delete unnecessary dep: "@storybook/preset-create-react-app" ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): migrate to CSF 3 [Spacing](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Colors](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Typography](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Toast](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [TextField](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [TextBox](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [TextArea](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Tabs](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Switch](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Stepper](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Spinner](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Slider](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Skeleton](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Sheet](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Radiobox](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [ProductCard](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Price](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Pickers](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [PaginationDots](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Marquee](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [MarkedList](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Image](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Icon](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Header](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Grid](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Confirm](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Checkbox](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Cell](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Carousel](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Card](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Button](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   chore(plasma-ui): migrate to CSF 3 [Badge](<[@Yakutoc](https://github.com/Yakutoc)>)
+-   Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 6
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -295,24 +271,24 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- Release 16.11.2023 [#852](https://github.com/salute-developers/plasma/pull/852) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@akhdrv](https://github.com/akhdrv))
-- feat: bump TS to 4.2.4 ([@Yakutoc](https://github.com/Yakutoc))
+-   Release 16.11.2023 [#852](https://github.com/salute-developers/plasma/pull/852) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@kayman233](https://github.com/kayman233) [@akhdrv](https://github.com/akhdrv))
+-   feat: bump TS to 4.2.4 ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks ([@Salute-Eva](https://github.com/Salute-Eva))
-- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore(packages): reformat package.json ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): add "@storybook/client-logger" ([@Yakutoc](https://github.com/Yakutoc))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(packages): reformat package.json ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): add "@storybook/client-logger" ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 5
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
-- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+-   Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
 
 ---
 
@@ -320,25 +296,25 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- Release 02.11.2023 [#829](https://github.com/salute-developers/plasma/pull/829) ([@akhdrv](https://github.com/akhdrv) [@neretin-trike](https://github.com/neretin-trike) [@Salute-Eva](https://github.com/Salute-Eva) [@kayman233](https://github.com/kayman233) [@Yakutoc](https://github.com/Yakutoc) [@nikewht](https://github.com/nikewht))
-- feat: manual bump versions [#826](https://github.com/salute-developers/plasma/pull/826) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-new-hope): new classes API for Popup [#819](https://github.com/salute-developers/plasma/pull/819) ([@kayman233](https://github.com/kayman233))
+-   Release 02.11.2023 [#829](https://github.com/salute-developers/plasma/pull/829) ([@akhdrv](https://github.com/akhdrv) [@neretin-trike](https://github.com/neretin-trike) [@Salute-Eva](https://github.com/Salute-Eva) [@kayman233](https://github.com/kayman233) [@Yakutoc](https://github.com/Yakutoc) [@nikewht](https://github.com/nikewht))
+-   feat: manual bump versions [#826](https://github.com/salute-developers/plasma/pull/826) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-new-hope): new classes API for Popup [#819](https://github.com/salute-developers/plasma/pull/819) ([@kayman233](https://github.com/kayman233))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks ([@Salute-Eva](https://github.com/Salute-Eva))
-- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
-- fix(plasma-ui, plasma-web, plasma-b2c): new animation API for PopupBase/ModalBase ([@kayman233](https://github.com/kayman233))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui, plasma-web, plasma-b2c): new animation API for PopupBase/ModalBase ([@kayman233](https://github.com/kayman233))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 6
 
-- [@kayman233](https://github.com/kayman233)
-- [@nikewht](https://github.com/nikewht)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@kayman233](https://github.com/kayman233)
+-   [@nikewht](https://github.com/nikewht)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -346,27 +322,27 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- Release 19.10.2023 [#815](https://github.com/salute-developers/plasma/pull/815) ([@Yeti-or](https://github.com/Yeti-or) [@kayman233](https://github.com/kayman233) [@TitanKuzmich](https://github.com/TitanKuzmich) [@Yakutoc](https://github.com/Yakutoc) nikita.belyanskiy@south.rt.ru [@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-core): animation with other API ([@kayman233](https://github.com/kayman233))
-- feat(plasma-ui): add placement for Confirm ([@kayman233](https://github.com/kayman233))
-- feat(plasma-ui): add Popover, PopupBase, ModalBase to plasma-ui ([@kayman233](https://github.com/kayman233))
+-   Release 19.10.2023 [#815](https://github.com/salute-developers/plasma/pull/815) ([@Yeti-or](https://github.com/Yeti-or) [@kayman233](https://github.com/kayman233) [@TitanKuzmich](https://github.com/TitanKuzmich) [@Yakutoc](https://github.com/Yakutoc) nikita.belyanskiy@south.rt.ru [@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-core): animation with other API ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-ui): add placement for Confirm ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-ui): add Popover, PopupBase, ModalBase to plasma-ui ([@kayman233](https://github.com/kayman233))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): PopupProvider inside Confirm added ([@kayman233](https://github.com/kayman233))
-- fix(plasma-core, plasma-ui): remove withAnimation from PopupBase ([@kayman233](https://github.com/kayman233))
-- fix(plasma-core, plasma-ui): minor refactoring and types fix ([@kayman233](https://github.com/kayman233))
-- feat(plasma-core, plasma-ui): add animation for PopupBase etc ([@kayman233](https://github.com/kayman233))
-- fix(plasma-ui): change sheet-handler color ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   fix(plasma-ui): PopupProvider inside Confirm added ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-core, plasma-ui): remove withAnimation from PopupBase ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-core, plasma-ui): minor refactoring and types fix ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-core, plasma-ui): add animation for PopupBase etc ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-ui): change sheet-handler color ([@TitanKuzmich](https://github.com/TitanKuzmich))
 
 #### Authors: 6
 
-- [@kayman233](https://github.com/kayman233)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
-- Nikita Belyanskiy (nikita.belyanskiy@south.rt.ru)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@kayman233](https://github.com/kayman233)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Nikita Belyanskiy (nikita.belyanskiy@south.rt.ru)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -374,23 +350,23 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- Update package-locks [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
-- feat(plasma-ui): add labels for time pickers [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-ui): add prop "buttonsDirection" [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+-   Update package-locks [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+-   feat(plasma-ui): add labels for time pickers [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): add prop "buttonsDirection" [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- Update versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore: update package-locks [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
-- fix: Bump package-lock versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update version [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks [#781](https://github.com/salute-developers/plasma/pull/781) ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix: Bump package-lock versions [#781](https://github.com/salute-developers/plasma/pull/781) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update version [#781](https://github.com/salute-developers/plasma/pull/781) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -398,18 +374,18 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): processing new line for title, subtitle [#699](https://github.com/salute-developers/plasma/pull/699) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): processing new line for title, subtitle [#699](https://github.com/salute-developers/plasma/pull/699) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
-- Update versions [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update versions [#699](https://github.com/salute-developers/plasma/pull/699) ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -417,15 +393,15 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks [#681](https://github.com/salute-developers/plasma/pull/681) ([@Salute-Eva](https://github.com/Salute-Eva))
-- Update versions [#681](https://github.com/salute-developers/plasma/pull/681) ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore(packages): add lint script [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks [#681](https://github.com/salute-developers/plasma/pull/681) ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update versions [#681](https://github.com/salute-developers/plasma/pull/681) ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(packages): add lint script [#681](https://github.com/salute-developers/plasma/pull/681) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -433,18 +409,18 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): add prop "extraContent" [Confirm] [#660](https://github.com/salute-developers/plasma/pull/660) ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-ui): add prop "extraContent" [Confirm][#660](https://github.com/salute-developers/plasma/pull/660) ([@kayman233](https://github.com/kayman233))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Update behavior scroll in `Sheet` component [#660](https://github.com/salute-developers/plasma/pull/660) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): Update behavior scroll in `Sheet` component [#660](https://github.com/salute-developers/plasma/pull/660) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -452,24 +428,24 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Add some threshold fallbacks [#630](https://github.com/salute-developers/plasma/pull/630) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-ui): Add some threshold fallbacks [#630](https://github.com/salute-developers/plasma/pull/630) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Fix hide behavior in `Sheet` component on slow scroll [#635](https://github.com/salute-developers/plasma/pull/635) ([@neretin-trike](https://github.com/neretin-trike))
-- fix(plasma-ui): fix scroll TimePicker on android [#619](https://github.com/salute-developers/plasma/pull/619) ([@kayman233](https://github.com/kayman233))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): Fix hide behavior in `Sheet` component on slow scroll [#635](https://github.com/salute-developers/plasma/pull/635) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-ui): fix scroll TimePicker on android [#619](https://github.com/salute-developers/plasma/pull/619) ([@kayman233](https://github.com/kayman233))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### ⚠️ Pushed to `master`
 
-- Merge branch 'dev' ([@Yeti-or](https://github.com/Yeti-or))
+-   Merge branch 'dev' ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 4
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -477,22 +453,22 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-core): custom width/height for TextArea [#620](https://github.com/salute-developers/plasma/pull/620) ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-core): custom width/height for TextArea [#620](https://github.com/salute-developers/plasma/pull/620) ([@kayman233](https://github.com/kayman233))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Fix scrollable behavior for `Sheet` component [#620](https://github.com/salute-developers/plasma/pull/620) ([@neretin-trike](https://github.com/neretin-trike))
-- chore(storybook): avoid OpenSSL v3.0 breaking changes [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
-- fix(plasma-core): new height/width types in TextArea [#620](https://github.com/salute-developers/plasma/pull/620) ([@kayman233](https://github.com/kayman233))
-- fix(plasma-core): fix cols/rows usage in TextArea [#620](https://github.com/salute-developers/plasma/pull/620) ([@kayman233](https://github.com/kayman233))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): Fix scrollable behavior for `Sheet` component [#620](https://github.com/salute-developers/plasma/pull/620) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore(storybook): avoid OpenSSL v3.0 breaking changes [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-core): new height/width types in TextArea [#620](https://github.com/salute-developers/plasma/pull/620) ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-core): fix cols/rows usage in TextArea [#620](https://github.com/salute-developers/plasma/pull/620) ([@kayman233](https://github.com/kayman233))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 4
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -500,13 +476,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: add forgotten license [#582](https://github.com/salute-developers/plasma/pull/582) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: add forgotten license [#582](https://github.com/salute-developers/plasma/pull/582) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -514,19 +490,19 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: use "paths" property in tsconfig.json [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
-- chore: [packages] update package-lock files [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: use "paths" property in tsconfig.json [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: [packages] update package-lock files [#526](https://github.com/salute-developers/plasma/pull/526) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### ⚠️ Pushed to `master`
 
-- test(plasma-ui): add more performance tests, exclude perftests from tsconfig & type coverage ([@Troff8](https://github.com/Troff8))
+-   test(plasma-ui): add more performance tests, exclude perftests from tsconfig & type coverage ([@Troff8](https://github.com/Troff8))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Troff ([@Troff8](https://github.com/Troff8))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Troff ([@Troff8](https://github.com/Troff8))
 
 ---
 
@@ -534,16 +510,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### ⚠️ Pushed to `master`
 
-- fix(plasma-web, plasma-b2c, plasma-ui): fix single/multiple lines in Checkbox/Radiobox ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-web, plasma-b2c, plasma-ui): fix single/multiple lines in Checkbox/Radiobox ([@kayman233](https://github.com/kayman233))
 
 #### Authors: 2
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -551,11 +527,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -563,11 +539,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -575,13 +551,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): omit 'onResize', 'onResizeCapture', 'nonce' properties for ActionButtonProps [#506](https://github.com/salute-developers/plasma/pull/506) ([@Yakutoc](https://github.com/Yakutoc))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): omit 'onResize', 'onResizeCapture', 'nonce' properties for ActionButtonProps [#506](https://github.com/salute-developers/plasma/pull/506) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -589,17 +565,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): trailing symbols snapshots/test [TextField] [#484](https://github.com/salute-developers/plasma/pull/484) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-ui): handling trailing symbols ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): trailing symbols snapshots/test [TextField][#484](https://github.com/salute-developers/plasma/pull/484) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): handling trailing symbols ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -607,16 +583,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Add size tokens to `Button` component (neretinartem@Neretins-MBP.netis)
+-   feat(plasma-ui): Add size tokens to `Button` component (neretinartem@Neretins-MBP.netis)
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Neretin Artem (neretinartem@Neretins-MBP.netis)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Neretin Artem (neretinartem@Neretins-MBP.netis)
 
 ---
 
@@ -624,13 +600,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): fix jest config ([@kayman233](https://github.com/kayman233))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): fix jest config ([@kayman233](https://github.com/kayman233))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -638,11 +614,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -650,11 +626,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -662,17 +638,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Add new stories with scroll content and button [#482](https://github.com/salute-developers/plasma/pull/482) (neretinartem@Neretins-MBP.netis)
-- feat(plasma-ui): Add swipe for whole sheet (neretinartem@Neretins-MBP.netis)
+-   feat(plasma-ui): Add new stories with scroll content and button [#482](https://github.com/salute-developers/plasma/pull/482) (neretinartem@Neretins-MBP.netis)
+-   feat(plasma-ui): Add swipe for whole sheet (neretinartem@Neretins-MBP.netis)
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Neretin Artem (neretinartem@Neretins-MBP.netis)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Neretin Artem (neretinartem@Neretins-MBP.netis)
 
 ---
 
@@ -680,22 +656,22 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Add `collectPackageInfo` and custom babel config (neretinartem@Neretins-MBP.netis)
+-   feat(plasma-ui): Add `collectPackageInfo` and custom babel config (neretinartem@Neretins-MBP.netis)
 
 #### 🐛 Bug Fix
 
-- ci: perftool for whole repo, fail on bad changes [#418](https://github.com/salute-developers/plasma/pull/418) ([@akhdrv](https://github.com/akhdrv))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   ci: perftool for whole repo, fail on bad changes [#418](https://github.com/salute-developers/plasma/pull/418) ([@akhdrv](https://github.com/akhdrv))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### ⚠️ Pushed to `master`
 
-- refactor(plasma-ui,plasma-core,plasma-hope): Refactor some components for clean re-export (neretinartem@Neretins-MBP.netis)
+-   refactor(plasma-ui,plasma-core,plasma-hope): Refactor some components for clean re-export (neretinartem@Neretins-MBP.netis)
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
-- Neretin Artem (neretinartem@Neretins-MBP.netis)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+-   Neretin Artem (neretinartem@Neretins-MBP.netis)
 
 ---
 
@@ -703,11 +679,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): re-export "Image" from plasma-core ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-ui): re-export "Image" from plasma-core ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -715,11 +691,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): add offScrollSnapAlign prop ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-ui): add offScrollSnapAlign prop ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -727,13 +703,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore(docs): added CarouselLite docs and examples [#456](https://github.com/salute-developers/plasma/pull/456) ([@arsenykruglikov](https://github.com/arsenykruglikov))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(docs): added CarouselLite docs and examples [#456](https://github.com/salute-developers/plasma/pull/456) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
 
 ---
 
@@ -741,15 +717,15 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): omit 'onResize', 'onResizeCapture', 'nonce' in HeaderLogoProps [#434](https://github.com/salute-developers/plasma/pull/434) ([@Yakutoc](https://github.com/Yakutoc))
-- chore(plasma-ui): Sheet: fix storybook viewport [#433](https://github.com/salute-developers/plasma/pull/433) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): omit 'onResize', 'onResizeCapture', 'nonce' in HeaderLogoProps [#434](https://github.com/salute-developers/plasma/pull/434) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore(plasma-ui): Sheet: fix storybook viewport [#433](https://github.com/salute-developers/plasma/pull/433) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -757,14 +733,14 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-*): Fix some types by es-lint rules ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- fix(plasma-ui): Remove storybook docs ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-\*): Fix some types by es-lint rules ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): Remove storybook docs ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -772,11 +748,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -784,11 +760,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Replace builder for storybook to Vite [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-ui): Replace builder for storybook to Vite [#383](https://github.com/salute-developers/plasma/pull/383) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -796,13 +772,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-*): Rename eslint rule and add temp rules [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-*): Bump react-script version to 4.0.3 [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasm-*): Bump typescript version to 4.0.8 [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-\*): Rename eslint rule and add temp rules [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-\*): Bump react-script version to 4.0.3 [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasm-\*): Bump typescript version to 4.0.8 [#408](https://github.com/salute-developers/plasma/pull/408) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -810,13 +786,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Remove storybook-addon-performance [#406](https://github.com/salute-developers/plasma/pull/406) ([@neretin-trike](https://github.com/neretin-trike))
-- ci: update perftool [#401](https://github.com/salute-developers/plasma/pull/401) ([@akhdrv](https://github.com/akhdrv))
+-   fix(plasma-ui): Remove storybook-addon-performance [#406](https://github.com/salute-developers/plasma/pull/406) ([@neretin-trike](https://github.com/neretin-trike))
+-   ci: update perftool [#401](https://github.com/salute-developers/plasma/pull/401) ([@akhdrv](https://github.com/akhdrv))
 
 #### Authors: 2
 
-- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -824,14 +800,14 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- build(plasma-hope): bump react to 18x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
-- build(plasma-ui): bump react to 18x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   build(plasma-hope): bump react to 18x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+-   build(plasma-ui): bump react to 18x [#194](https://github.com/salute-developers/plasma/pull/194) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -839,12 +815,12 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): add cypress test symlink [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-ui): re-export slider component [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): add cypress test symlink [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): re-export slider component [#360](https://github.com/salute-developers/plasma/pull/360) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -852,11 +828,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -864,13 +840,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- ci: fix package-locks [#352](https://github.com/salute-developers/plasma/pull/352) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   ci: fix package-locks [#352](https://github.com/salute-developers/plasma/pull/352) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -878,11 +854,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -890,11 +866,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): add offset prop in storybook [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): add offset prop in storybook [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -902,11 +878,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Resolve "Importing from @storybook/addon-docs/blocks is deprecated" [#344](https://github.com/salute-developers/plasma/pull/344) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-ui): Resolve "Importing from @storybook/addon-docs/blocks is deprecated" [#344](https://github.com/salute-developers/plasma/pull/344) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -914,17 +890,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Add InSpacingDecorator in stories [#335](https://github.com/salute-developers/plasma/pull/335) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-ui): Fix control.options warning in storybook [#335](https://github.com/salute-developers/plasma/pull/335) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(palsma-ui): Remove stories.mdx from components [#335](https://github.com/salute-developers/plasma/pull/335) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-ui): Add InSpacingDecorator in stories [#335](https://github.com/salute-developers/plasma/pull/335) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-ui): Fix control.options warning in storybook [#335](https://github.com/salute-developers/plasma/pull/335) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(palsma-ui): Remove stories.mdx from components [#335](https://github.com/salute-developers/plasma/pull/335) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- feat(plasma-ui,plasma-temple): Solve warning problems in storyboook [#335](https://github.com/salute-developers/plasma/pull/335) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-ui,plasma-temple): Solve warning problems in storyboook [#335](https://github.com/salute-developers/plasma/pull/335) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -932,17 +908,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat: Update using title in toolBar instead of name in preview.js [#330](https://github.com/salute-developers/plasma/pull/330) ([@neretin-trike](https://github.com/neretin-trike))
-- feat: Bump storybook version to 6.5 [#330](https://github.com/salute-developers/plasma/pull/330) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat: Update using title in toolBar instead of name in preview.js [#330](https://github.com/salute-developers/plasma/pull/330) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat: Bump storybook version to 6.5 [#330](https://github.com/salute-developers/plasma/pull/330) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -950,16 +926,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-*): Remove declarationMap from tsconfig.json [#326](https://github.com/salute-developers/plasma/pull/326) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-\*): Remove declarationMap from tsconfig.json [#326](https://github.com/salute-developers/plasma/pull/326) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -967,18 +943,18 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): add onHide action in storybook [#319](https://github.com/salute-developers/plasma/pull/319) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): add onHide action in storybook [#319](https://github.com/salute-developers/plasma/pull/319) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore(plasma-ui): update perftool and config [#328](https://github.com/salute-developers/plasma/pull/328) ([@akhdrv](https://github.com/akhdrv))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(plasma-ui): update perftool and config [#328](https://github.com/salute-developers/plasma/pull/328) ([@akhdrv](https://github.com/akhdrv))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
 
 ---
 
@@ -986,11 +962,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-*): Add .npmignore and remove file field for test files [#322](https://github.com/salute-developers/plasma/pull/322) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-\*): Add .npmignore and remove file field for test files [#322](https://github.com/salute-developers/plasma/pull/322) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -998,12 +974,12 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- feat(plasma-ui,plasma-b2c): Add breakWord props for storybook preview [#310](https://github.com/salute-developers/plasma/pull/310) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-typo,plasma-ui): Add breakWord props for global style root [#310](https://github.com/salute-developers/plasma/pull/310) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-ui,plasma-b2c): Add breakWord props for storybook preview [#310](https://github.com/salute-developers/plasma/pull/310) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-typo,plasma-ui): Add breakWord props for global style root [#310](https://github.com/salute-developers/plasma/pull/310) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1011,18 +987,18 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-*): Remove source maps from bundles [#309](https://github.com/salute-developers/plasma/pull/309) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-\*): Remove source maps from bundles [#309](https://github.com/salute-developers/plasma/pull/309) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- chore(plasma-ui): enable preview source code [#308](https://github.com/salute-developers/plasma/pull/308) ([@Yakutoc](https://github.com/Yakutoc))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(plasma-ui): enable preview source code [#308](https://github.com/salute-developers/plasma/pull/308) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1030,16 +1006,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): add onSearch event [#294](https://github.com/salute-developers/plasma/pull/294) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): add onSearch event [#294](https://github.com/salute-developers/plasma/pull/294) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1047,11 +1023,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): add default return value [#304](https://github.com/salute-developers/plasma/pull/304) ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-ui): add default return value [#304](https://github.com/salute-developers/plasma/pull/304) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1059,17 +1035,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): use attrs in Button, add spatial class in Picker [#285](https://github.com/salute-developers/plasma/pull/285) ([@arsenykruglikov](https://github.com/arsenykruglikov))
-- feat(plasma-ui): add support of @salutejs/spatial, fix context memoization in Tabs [#285](https://github.com/salute-developers/plasma/pull/285) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   feat(plasma-ui): use attrs in Button, add spatial class in Picker [#285](https://github.com/salute-developers/plasma/pull/285) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   feat(plasma-ui): add support of @salutejs/spatial, fix context memoization in Tabs [#285](https://github.com/salute-developers/plasma/pull/285) ([@arsenykruglikov](https://github.com/arsenykruglikov))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): helpers => utils [#285](https://github.com/salute-developers/plasma/pull/285) ([@Yeti-or](https://github.com/Yeti-or))
+-   fix(plasma-ui): helpers => utils [#285](https://github.com/salute-developers/plasma/pull/285) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -1077,11 +1053,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1089,11 +1065,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- chore(plasma-ui): update perftool config [#286](https://github.com/salute-developers/plasma/pull/286) ([@akhdrv](https://github.com/akhdrv))
+-   chore(plasma-ui): update perftool config [#286](https://github.com/salute-developers/plasma/pull/286) ([@akhdrv](https://github.com/akhdrv))
 
 #### Authors: 1
 
-- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+-   Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
 
 ---
 
@@ -1101,17 +1077,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore(plasma-ui): add Stepper and Tabs perftests [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
-- chore(plasma-ui): add ProductCard perftest [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
-- chore(plasma-ui): add Carousel perftest [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
-- chore(plasma-ui): change perftest retries, add Card perftest [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
-- chore(plasma-ui): delete performance addon reports [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(plasma-ui): add Stepper and Tabs perftests [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
+-   chore(plasma-ui): add ProductCard perftest [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
+-   chore(plasma-ui): add Carousel perftest [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
+-   chore(plasma-ui): change perftest retries, add Card perftest [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
+-   chore(plasma-ui): delete performance addon reports [#278](https://github.com/salute-developers/plasma/pull/278) ([@akhdrv](https://github.com/akhdrv))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
 
 ---
 
@@ -1119,13 +1095,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- ci: improve ts-coverage report [#282](https://github.com/salute-developers/plasma/pull/282) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   ci: improve ts-coverage report [#282](https://github.com/salute-developers/plasma/pull/282) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -1133,13 +1109,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore(plasma-ui): update perftool script, config [#274](https://github.com/salute-developers/plasma/pull/274) ([@akhdrv](https://github.com/akhdrv))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(plasma-ui): update perftool script, config [#274](https://github.com/salute-developers/plasma/pull/274) ([@akhdrv](https://github.com/akhdrv))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
 
 ---
 
@@ -1147,16 +1123,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- chore(plasma-ui): add perftool to deps [#268](https://github.com/salute-developers/plasma/pull/268) ([@akhdrv](https://github.com/akhdrv))
+-   chore(plasma-ui): add perftool to deps [#268](https://github.com/salute-developers/plasma/pull/268) ([@akhdrv](https://github.com/akhdrv))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
 
 ---
 
@@ -1164,11 +1140,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1176,11 +1152,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): hidden unnecessary pseudo-placeholder [#271](https://github.com/salute-developers/plasma/pull/271) ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-ui): hidden unnecessary pseudo-placeholder [#271](https://github.com/salute-developers/plasma/pull/271) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1188,17 +1164,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-core): Toast hiding with react-18 [#261](https://github.com/salute-developers/plasma/pull/261) ([@Yeti-or](https://github.com/Yeti-or))
-- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-core): Toast hiding with react-18 [#261](https://github.com/salute-developers/plasma/pull/261) ([@Yeti-or](https://github.com/Yeti-or))
+-   Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### ⚠️ Pushed to `master`
 
-- Merge commit '2de734f1' into test ([@Yeti-or](https://github.com/Yeti-or))
+-   Merge commit '2de734f1' into test ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -1206,11 +1182,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): update sb-addon-performance version fixing measures and adding React 18 support [#249](https://github.com/salute-developers/plasma/pull/249) ([@akhdrv](https://github.com/akhdrv))
+-   feat(plasma-ui): update sb-addon-performance version fixing measures and adding React 18 support [#249](https://github.com/salute-developers/plasma/pull/249) ([@akhdrv](https://github.com/akhdrv))
 
 #### Authors: 1
 
-- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+-   Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
 
 ---
 
@@ -1218,13 +1194,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): hide controls when disabled/isSingleItem [#245](https://github.com/salute-developers/plasma/pull/245) ([@Yakutoc](https://github.com/Yakutoc))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): hide controls when disabled/isSingleItem [#245](https://github.com/salute-developers/plasma/pull/245) ([@Yakutoc](https://github.com/Yakutoc))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1232,11 +1208,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): fix using sb-addon-performance usages for future storybook versions [#248](https://github.com/salute-developers/plasma/pull/248) ([@akhdrv](https://github.com/akhdrv))
+-   fix(plasma-ui): fix using sb-addon-performance usages for future storybook versions [#248](https://github.com/salute-developers/plasma/pull/248) ([@akhdrv](https://github.com/akhdrv))
 
 #### Authors: 1
 
-- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+-   Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
 
 ---
 
@@ -1244,13 +1220,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): improve type-coverage [#234](https://github.com/salute-developers/plasma/pull/234) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): improve type-coverage [#234](https://github.com/salute-developers/plasma/pull/234) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -1258,11 +1234,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1270,12 +1246,12 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): [cypress] update tests [#229](https://github.com/salute-developers/plasma/pull/229) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-ui): processing price periodicity [#229](https://github.com/salute-developers/plasma/pull/229) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): [cypress] update tests [#229](https://github.com/salute-developers/plasma/pull/229) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): processing price periodicity [#229](https://github.com/salute-developers/plasma/pull/229) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1283,11 +1259,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1295,11 +1271,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1307,11 +1283,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): processing price periodicity [#220](https://github.com/salute-developers/plasma/pull/220) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): processing price periodicity [#220](https://github.com/salute-developers/plasma/pull/220) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1319,11 +1295,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1331,11 +1307,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): fix Pickers for React 18 [#207](https://github.com/salute-developers/plasma/pull/207) ([@akhdrv](https://github.com/akhdrv))
+-   fix(plasma-ui): fix Pickers for React 18 [#207](https://github.com/salute-developers/plasma/pull/207) ([@akhdrv](https://github.com/akhdrv))
 
 #### Authors: 1
 
-- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+-   Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
 
 ---
 
@@ -1343,11 +1319,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Increase area for touch in `Sheet` component [#208](https://github.com/salute-developers/plasma/pull/208) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-ui): Increase area for touch in `Sheet` component [#208](https://github.com/salute-developers/plasma/pull/208) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1355,11 +1331,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Add ref for `TabItem` component [#209](https://github.com/salute-developers/plasma/pull/209) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-ui): Add ref for `TabItem` component [#209](https://github.com/salute-developers/plasma/pull/209) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1367,11 +1343,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1379,15 +1355,15 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): add storybook wrapper with margin top [#197](https://github.com/salute-developers/plasma/pull/197) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): add storybook wrapper with margin top [#197](https://github.com/salute-developers/plasma/pull/197) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): handle tabs gap [#197](https://github.com/salute-developers/plasma/pull/197) ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-ui): handle tabs gap [#197](https://github.com/salute-developers/plasma/pull/197) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1395,11 +1371,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): delete unnecessary max-height property [#201](https://github.com/salute-developers/plasma/pull/201) ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-ui): delete unnecessary max-height property [#201](https://github.com/salute-developers/plasma/pull/201) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1407,12 +1383,12 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- fix(plasma-ui): handle "Spinner" size [#193](https://github.com/salute-developers/plasma/pull/193) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-ui): pass "deviceScale" prop for default spinner [#193](https://github.com/salute-developers/plasma/pull/193) ([@Yakutoc](https://github.com/Yakutoc))
+-   fix(plasma-ui): handle "Spinner" size [#193](https://github.com/salute-developers/plasma/pull/193) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): pass "deviceScale" prop for default spinner [#193](https://github.com/salute-developers/plasma/pull/193) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1420,16 +1396,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): pass product card text as ReactNode [#180](https://github.com/salute-developers/plasma/pull/180) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): pass product card text as ReactNode [#180](https://github.com/salute-developers/plasma/pull/180) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1437,11 +1413,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1449,11 +1425,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1461,11 +1437,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1473,21 +1449,21 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- docs(plasma-ui-docs,plasma-web-docs): Add example with loader for `Button` [#156](https://github.com/salute-developers/plasma/pull/156) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-core): Add loader prop for `Button` component [#156](https://github.com/salute-developers/plasma/pull/156) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-ui): processing multiple badge [#175](https://github.com/salute-developers/plasma/pull/175) ([@Yakutoc](https://github.com/Yakutoc))
+-   docs(plasma-ui-docs,plasma-web-docs): Add example with loader for `Button` [#156](https://github.com/salute-developers/plasma/pull/156) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-core): Add loader prop for `Button` component [#156](https://github.com/salute-developers/plasma/pull/156) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-ui): processing multiple badge [#175](https://github.com/salute-developers/plasma/pull/175) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1495,16 +1471,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): processing multiple badge [#175](https://github.com/salute-developers/plasma/pull/175) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): processing multiple badge [#175](https://github.com/salute-developers/plasma/pull/175) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1512,16 +1488,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): handle "Sheet" component transition [#178](https://github.com/salute-developers/plasma/pull/178) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): handle "Sheet" component transition [#178](https://github.com/salute-developers/plasma/pull/178) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1529,23 +1505,23 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): use useThemeContext hook for Carousel.stories [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-ui): use useThemeContext hook for Picker [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-ui): use useThemeContext hook for Slider [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-ui): handle focus for when device kind is "sberbox" [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-ui): handle readonly state when device kind is 'sberBox [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-ui): add useDeviceKind hook [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-ui): add useThemeContext hook [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): use useThemeContext hook for Carousel.stories [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): use useThemeContext hook for Picker [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): use useThemeContext hook for Slider [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): handle focus for when device kind is "sberbox" [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): handle readonly state when device kind is 'sberBox [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): add useDeviceKind hook [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): add useThemeContext hook [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### 🐛 Bug Fix
 
-- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1553,17 +1529,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): use useThemeContext hook for Carousel.stories [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-ui): use useThemeContext hook for Picker [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-ui): use useThemeContext hook for Slider [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-ui): handle focus for when device kind is "sberbox" [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-ui): handle readonly state when device kind is 'sberBox [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-ui): add useDeviceKind hook [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
-- feat(plasma-ui): add useThemeContext hook [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): use useThemeContext hook for Carousel.stories [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): use useThemeContext hook for Picker [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): use useThemeContext hook for Slider [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): handle focus for when device kind is "sberbox" [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): handle readonly state when device kind is 'sberBox [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): add useDeviceKind hook [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
+-   feat(plasma-ui): add useThemeContext hook [#177](https://github.com/salute-developers/plasma/pull/177) ([@Yakutoc](https://github.com/Yakutoc))
 
 #### Authors: 1
 
-- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+-   Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
 
 ---
 
@@ -1571,11 +1547,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1583,11 +1559,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1595,13 +1571,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): scroll carousel on touch devices [#169](https://github.com/salute-developers/plasma/pull/169) ([@arsenykruglikov](https://github.com/arsenykruglikov))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): scroll carousel on touch devices [#169](https://github.com/salute-developers/plasma/pull/169) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
 
 ---
 
@@ -1609,11 +1585,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1621,16 +1597,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Add b2e theme to storybook [#165](https://github.com/salute-developers/plasma/pull/165) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-ui): Add b2e theme to storybook [#165](https://github.com/salute-developers/plasma/pull/165) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1638,11 +1614,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- refactor(plasma-ui): Add addFocus mixin for `Checkbox` and `Radiobox` components [#135](https://github.com/salute-developers/plasma/pull/135) ([@neretin-trike](https://github.com/neretin-trike))
+-   refactor(plasma-ui): Add addFocus mixin for `Checkbox` and `Radiobox` components [#135](https://github.com/salute-developers/plasma/pull/135) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1650,11 +1626,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): add CarouselLite component [#155](https://github.com/salute-developers/plasma/pull/155) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   feat(plasma-ui): add CarouselLite component [#155](https://github.com/salute-developers/plasma/pull/155) ([@arsenykruglikov](https://github.com/arsenykruglikov))
 
 #### Authors: 1
 
-- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
 
 ---
 
@@ -1662,13 +1638,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Fix component Sheet [#159](https://github.com/salute-developers/plasma/pull/159) (mokazakov@sberbank.ru)
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): Fix component Sheet [#159](https://github.com/salute-developers/plasma/pull/159) (mokazakov@sberbank.ru)
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Misha Kazakov (mokazakov@sberbank.ru)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Misha Kazakov (mokazakov@sberbank.ru)
 
 ---
 
@@ -1676,11 +1652,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Add sizes style for responsive typo in `DeviceThemeProvider` [#153](https://github.com/salute-developers/plasma/pull/153) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-ui): Add sizes style for responsive typo in `DeviceThemeProvider` [#153](https://github.com/salute-developers/plasma/pull/153) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1688,11 +1664,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Replaced onChange handler to useEffect for `TimePicker` component [#151](https://github.com/salute-developers/plasma/pull/151) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-ui): Replaced onChange handler to useEffect for `TimePicker` component [#151](https://github.com/salute-developers/plasma/pull/151) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1700,12 +1676,12 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- test(plasma-ui): Add test and snapshot for `TimePicker` component [#141](https://github.com/salute-developers/plasma/pull/141) ([@neretin-trike](https://github.com/neretin-trike))
-- fix(plasma-ui): Fix deps for useIsomorphicLayoutEffect [#141](https://github.com/salute-developers/plasma/pull/141) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-ui): Add test and snapshot for `TimePicker` component [#141](https://github.com/salute-developers/plasma/pull/141) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-ui): Fix deps for useIsomorphicLayoutEffect [#141](https://github.com/salute-developers/plasma/pull/141) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1713,11 +1689,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Add options for eventListeners in useRemoteListener hook [#146](https://github.com/salute-developers/plasma/pull/146) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-ui): Add options for eventListeners in useRemoteListener hook [#146](https://github.com/salute-developers/plasma/pull/146) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1725,13 +1701,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- docs(plasma-ui-docs): Update docs and stories for `HeaderMinimize` and `HeaderBack` components [#142](https://github.com/salute-developers/plasma/pull/142) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   docs(plasma-ui-docs): Update docs and stories for `HeaderMinimize` and `HeaderBack` components [#142](https://github.com/salute-developers/plasma/pull/142) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1739,11 +1715,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Remove hover effect for touch devices [#147](https://github.com/salute-developers/plasma/pull/147) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-ui): Remove hover effect for touch devices [#147](https://github.com/salute-developers/plasma/pull/147) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1751,16 +1727,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Add forwardRef for `Header`,`NeuHeader` and `Cell` components [#143](https://github.com/salute-developers/plasma/pull/143) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-ui): Add forwardRef for `Header`,`NeuHeader` and `Cell` components [#143](https://github.com/salute-developers/plasma/pull/143) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1768,11 +1744,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Replace useLayoutEffect to useIsomorphicLayoutEffect for `Slider` and `Marquee` [#132](https://github.com/salute-developers/plasma/pull/132) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-ui): Replace useLayoutEffect to useIsomorphicLayoutEffect for `Slider` and `Marquee` [#132](https://github.com/salute-developers/plasma/pull/132) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1780,13 +1756,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Add margin for not last button [#131](https://github.com/salute-developers/plasma/pull/131) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): Add margin for not last button [#131](https://github.com/salute-developers/plasma/pull/131) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1794,11 +1770,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1806,11 +1782,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- feat(plasma-web,plasma-ui): Moved `Grid` component from plasma-core [#120](https://github.com/salute-developers/plasma/pull/120) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-web,plasma-ui): Moved `Grid` component from plasma-core [#120](https://github.com/salute-developers/plasma/pull/120) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1818,11 +1794,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Add accessability story for `Carousel` component [#104](https://github.com/salute-developers/plasma/pull/104) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-ui): Add accessability story for `Carousel` component [#104](https://github.com/salute-developers/plasma/pull/104) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1830,11 +1806,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): removed FC type [#97](https://github.com/salute-developers/plasma/pull/97) ([@SeanSilke](https://github.com/SeanSilke))
+-   fix(plasma-ui): removed FC type [#97](https://github.com/salute-developers/plasma/pull/97) ([@SeanSilke](https://github.com/SeanSilke))
 
 #### Authors: 1
 
-- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+-   Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
 
 ---
 
@@ -1842,11 +1818,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- test(plasma-core,plasma-ui,plasma-web): Update tests for `Tab` component [#106](https://github.com/salute-developers/plasma/pull/106) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-core,plasma-ui,plasma-web): Update tests for `Tab` component [#106](https://github.com/salute-developers/plasma/pull/106) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1854,13 +1830,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Fix visible border in Input for `Checkbox` and `RadioBox` [#105](https://github.com/salute-developers/plasma/pull/105) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): Fix visible border in Input for `Checkbox` and `RadioBox` [#105](https://github.com/salute-developers/plasma/pull/105) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1868,11 +1844,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -1880,11 +1856,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): fix header navigation button animation [#96](https://github.com/salute-developers/plasma/pull/96) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+-   fix(plasma-ui): fix header navigation button animation [#96](https://github.com/salute-developers/plasma/pull/96) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
 
 #### Authors: 1
 
-- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+-   [@kvpolyanskiy](https://github.com/kvpolyanskiy)
 
 ---
 
@@ -1892,17 +1868,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Performance addon for ProductCart [#83](https://github.com/salute-developers/plasma/pull/83) ([@SeanSilke](https://github.com/SeanSilke))
+-   feat(plasma-ui): Performance addon for ProductCart [#83](https://github.com/salute-developers/plasma/pull/83) ([@SeanSilke](https://github.com/SeanSilke))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- perf(plasma-ui): Performance addon for Tabs [#80](https://github.com/salute-developers/plasma/pull/80) ([@SeanSilke](https://github.com/SeanSilke))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   perf(plasma-ui): Performance addon for Tabs [#80](https://github.com/salute-developers/plasma/pull/80) ([@SeanSilke](https://github.com/SeanSilke))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
 
 ---
 
@@ -1910,22 +1886,22 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Performance addon for Card [#85](https://github.com/salute-developers/plasma/pull/85) ([@SeanSilke](https://github.com/SeanSilke))
-- feat(plasma-ui): Performance addon for Stepper [#84](https://github.com/salute-developers/plasma/pull/84) ([@SeanSilke](https://github.com/SeanSilke))
+-   feat(plasma-ui): Performance addon for Card [#85](https://github.com/salute-developers/plasma/pull/85) ([@SeanSilke](https://github.com/SeanSilke))
+-   feat(plasma-ui): Performance addon for Stepper [#84](https://github.com/salute-developers/plasma/pull/84) ([@SeanSilke](https://github.com/SeanSilke))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore(plasma-ui): add performance addon to Carousel component [#74](https://github.com/salute-developers/plasma/pull/74) ([@arsenykruglikov](https://github.com/arsenykruglikov))
-- chore(plasma-ui): add performance addon to Picker component [#81](https://github.com/salute-developers/plasma/pull/81) ([@arsenykruglikov](https://github.com/arsenykruglikov))
-- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(plasma-ui): add performance addon to Carousel component [#74](https://github.com/salute-developers/plasma/pull/74) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   chore(plasma-ui): add performance addon to Picker component [#81](https://github.com/salute-developers/plasma/pull/81) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
-- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
 
 ---
 
@@ -1933,11 +1909,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Performance addon for Stepper [#84](https://github.com/salute-developers/plasma/pull/84) ([@SeanSilke](https://github.com/SeanSilke))
+-   feat(plasma-ui): Performance addon for Stepper [#84](https://github.com/salute-developers/plasma/pull/84) ([@SeanSilke](https://github.com/SeanSilke))
 
 #### Authors: 1
 
-- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+-   Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
 
 ---
 
@@ -1945,34 +1921,34 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): update @salutejs/use-virtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
-- feat(plasma-ui): drop CarouselColVirtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
-- feat(plasma-ui): fix Carousel types [#57](https://github.com/salute-developers/plasma/pull/57) ([@arsenykruglikov](https://github.com/arsenykruglikov))
-- feat(plasma-ui): CarouselColVirtual, CarouselItemVirtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
-- feat(plasma-ui): simplify BasicVirtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
-- feat(plasma-ui): CarouselTemplate [#57](https://github.com/salute-developers/plasma/pull/57) ([@arsenykruglikov](https://github.com/arsenykruglikov))
-- feat(plasma-ui): support of the withUseVirtual in the CarouselCol [#57](https://github.com/salute-developers/plasma/pull/57) ([@arsenykruglikov](https://github.com/arsenykruglikov))
-- feat(plasma-ui): disable detectActive for useVirtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
-- feat(plasma-ui): BasiVirtual wip [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+-   feat(plasma-ui): update @salutejs/use-virtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+-   feat(plasma-ui): drop CarouselColVirtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+-   feat(plasma-ui): fix Carousel types [#57](https://github.com/salute-developers/plasma/pull/57) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   feat(plasma-ui): CarouselColVirtual, CarouselItemVirtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+-   feat(plasma-ui): simplify BasicVirtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+-   feat(plasma-ui): CarouselTemplate [#57](https://github.com/salute-developers/plasma/pull/57) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   feat(plasma-ui): support of the withUseVirtual in the CarouselCol [#57](https://github.com/salute-developers/plasma/pull/57) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   feat(plasma-ui): disable detectActive for useVirtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+-   feat(plasma-ui): BasiVirtual wip [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- docs(plasma-ui): CarouselVirtual with deviceScale [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
-- fix(plasma-ui): CarouselVirtual CR 2 [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
-- fix(plasma-ui): CarouselVirtual CR [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
-- test(plasma-ui): refactor `virtual` test [#57](https://github.com/salute-developers/plasma/pull/57) ([@arsenykruglikov](https://github.com/arsenykruglikov))
-- test(plasma-ui): Fix `virtual` test [#57](https://github.com/salute-developers/plasma/pull/57) ([@neretin-trike](https://github.com/neretin-trike))
-- docs(plasma-ui): CarouselVirtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
-- test(plasma-ui): fix export of CarouselItemVirtual, update contributing.md [#57](https://github.com/salute-developers/plasma/pull/57) ([@arsenykruglikov](https://github.com/arsenykruglikov))
-- test(plasma-ui): attempt to test CarouselVirtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   docs(plasma-ui): CarouselVirtual with deviceScale [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+-   fix(plasma-ui): CarouselVirtual CR 2 [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+-   fix(plasma-ui): CarouselVirtual CR [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+-   test(plasma-ui): refactor `virtual` test [#57](https://github.com/salute-developers/plasma/pull/57) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   test(plasma-ui): Fix `virtual` test [#57](https://github.com/salute-developers/plasma/pull/57) ([@neretin-trike](https://github.com/neretin-trike))
+-   docs(plasma-ui): CarouselVirtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
+-   test(plasma-ui): fix export of CarouselItemVirtual, update contributing.md [#57](https://github.com/salute-developers/plasma/pull/57) ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   test(plasma-ui): attempt to test CarouselVirtual [#57](https://github.com/salute-developers/plasma/pull/57) ([@KateKate](https://github.com/KateKate))
 
 #### Authors: 4
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
-- Ekaterina Anishkina ([@KateKate](https://github.com/KateKate))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Arseny Kruglikov ([@arsenykruglikov](https://github.com/arsenykruglikov))
+-   Ekaterina Anishkina ([@KateKate](https://github.com/KateKate))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -1980,11 +1956,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Tabs render optimization [#76](https://github.com/salute-developers/plasma/pull/76) ([@SeanSilke](https://github.com/SeanSilke))
+-   feat(plasma-ui): Tabs render optimization [#76](https://github.com/salute-developers/plasma/pull/76) ([@SeanSilke](https://github.com/SeanSilke))
 
 #### Authors: 1
 
-- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+-   Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
 
 ---
 
@@ -1992,16 +1968,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Stepper render optimization [#50](https://github.com/salute-developers/plasma/pull/50) ([@SeanSilke](https://github.com/SeanSilke))
+-   feat(plasma-ui): Stepper render optimization [#50](https://github.com/salute-developers/plasma/pull/50) ([@SeanSilke](https://github.com/SeanSilke))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
 
 ---
 
@@ -2009,28 +1985,28 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): ProductCard render optimization [#53](https://github.com/salute-developers/plasma/pull/53) ([@SeanSilke](https://github.com/SeanSilke))
-- feat(plasma-ui): DatePicker render optimization [#56](https://github.com/salute-developers/plasma/pull/56) ([@SeanSilke](https://github.com/SeanSilke))
-- feat(plasma-ui): TimePicker render optimisation [#55](https://github.com/salute-developers/plasma/pull/55) ([@SeanSilke](https://github.com/SeanSilke))
-- docs(plasma-ui): Confirm: simple docs [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
-- feat(plasma-ui): add Confirm [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
+-   feat(plasma-ui): ProductCard render optimization [#53](https://github.com/salute-developers/plasma/pull/53) ([@SeanSilke](https://github.com/SeanSilke))
+-   feat(plasma-ui): DatePicker render optimization [#56](https://github.com/salute-developers/plasma/pull/56) ([@SeanSilke](https://github.com/SeanSilke))
+-   feat(plasma-ui): TimePicker render optimisation [#55](https://github.com/salute-developers/plasma/pull/55) ([@SeanSilke](https://github.com/SeanSilke))
+-   docs(plasma-ui): Confirm: simple docs [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
+-   feat(plasma-ui): add Confirm [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### 🐛 Bug Fix
 
-- test(plasma-ui): Remove ui snapshots and tests; Add linked test [#70](https://github.com/salute-developers/plasma/pull/70) ([@neretin-trike](https://github.com/neretin-trike))
-- refactor(plasma-ui): Replace `Card` components to import from plasma-core [#70](https://github.com/salute-developers/plasma/pull/70) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- build(plasma-ui): added @babel/plugin-transform-react-constant-elements [#46](https://github.com/salute-developers/plasma/pull/46) ([@SeanSilke](https://github.com/SeanSilke))
-- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- test(plasma-ui): add Confirm tests [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui): Remove ui snapshots and tests; Add linked test [#70](https://github.com/salute-developers/plasma/pull/70) ([@neretin-trike](https://github.com/neretin-trike))
+-   refactor(plasma-ui): Replace `Card` components to import from plasma-core [#70](https://github.com/salute-developers/plasma/pull/70) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   build(plasma-ui): added @babel/plugin-transform-react-constant-elements [#46](https://github.com/salute-developers/plasma/pull/46) ([@SeanSilke](https://github.com/SeanSilke))
+-   Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   test(plasma-ui): add Confirm tests [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 4
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
-- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -2038,18 +2014,18 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): TimePicker render optimisation [#55](https://github.com/salute-developers/plasma/pull/55) ([@SeanSilke](https://github.com/SeanSilke))
-- docs(plasma-ui): Confirm: simple docs [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
-- feat(plasma-ui): add Confirm [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
+-   feat(plasma-ui): TimePicker render optimisation [#55](https://github.com/salute-developers/plasma/pull/55) ([@SeanSilke](https://github.com/SeanSilke))
+-   docs(plasma-ui): Confirm: simple docs [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
+-   feat(plasma-ui): add Confirm [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### 🐛 Bug Fix
 
-- test(plasma-ui): add Confirm tests [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui): add Confirm tests [#58](https://github.com/salute-developers/plasma/pull/58) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Sergey Orlov ([@SeanSilke](https://github.com/SeanSilke))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -2057,11 +2033,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Add min-height in StyledMediaSlot for `ProductCard` component [#61](https://github.com/salute-developers/plasma/pull/61) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-ui): Add min-height in StyledMediaSlot for `ProductCard` component [#61](https://github.com/salute-developers/plasma/pull/61) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2069,11 +2045,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-b2c, plasma-ui): fix scroll handle position passed to callbacks [#48](https://github.com/salute-developers/plasma/pull/48) ([@Gerpea](https://github.com/Gerpea))
+-   fix(plasma-b2c, plasma-ui): fix scroll handle position passed to callbacks [#48](https://github.com/salute-developers/plasma/pull/48) ([@Gerpea](https://github.com/Gerpea))
 
 #### Authors: 1
 
-- German Cyganov ([@Gerpea](https://github.com/Gerpea))
+-   German Cyganov ([@Gerpea](https://github.com/Gerpea))
 
 ---
 
@@ -2081,13 +2057,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web,plasma-b2c,plasma-ui): Add onChange callback for maxLength check in `TextField` [#47](https://github.com/salute-developers/plasma/pull/47) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web,plasma-b2c,plasma-ui): Add onChange callback for maxLength check in `TextField` [#47](https://github.com/salute-developers/plasma/pull/47) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2095,11 +2071,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2107,11 +2083,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-core, plasma-ui, plasma-web): changes the refs array to html collection [#34](https://github.com/salute-developers/plasma/pull/34) (Kruglikov.A.D@sberbank.ru)
+-   fix(plasma-core, plasma-ui, plasma-web): changes the refs array to html collection [#34](https://github.com/salute-developers/plasma/pull/34) (Kruglikov.A.D@sberbank.ru)
 
 #### Authors: 1
 
-- Arseny Kruglikov (Kruglikov.A.D@sberbank.ru)
+-   Arseny Kruglikov (Kruglikov.A.D@sberbank.ru)
 
 ---
 
@@ -2119,17 +2095,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- test(plasma-ui): Add test and update snapshots for `ProductCard` component [#3](https://github.com/salute-developers/plasma/pull/3) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-ui): Add new additional field and update design for `ProductCard` component; Add event to callback for `Stepper` [#3](https://github.com/salute-developers/plasma/pull/3) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-ui): Add test and update snapshots for `ProductCard` component [#3](https://github.com/salute-developers/plasma/pull/3) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-ui): Add new additional field and update design for `ProductCard` component; Add event to callback for `Stepper` [#3](https://github.com/salute-developers/plasma/pull/3) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2137,17 +2113,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- test(plasma-ui,plasma-b2c): Add test and snapshot for `Slider` component [#30](https://github.com/salute-developers/plasma/pull/30) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-ui,plasma-b2c): Add test and snapshot for `Slider` component [#30](https://github.com/salute-developers/plasma/pull/30) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-b2c,plasma-ui): Add ref.current for useEffect in SliderBase for `Slider` component [#30](https://github.com/salute-developers/plasma/pull/30) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-b2c,plasma-ui): Add ref.current for useEffect in SliderBase for `Slider` component [#30](https://github.com/salute-developers/plasma/pull/30) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2155,13 +2131,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Toast: clearTimeout after hiding [#26](https://github.com/salute-developers/plasma/pull/26) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): Toast: clearTimeout after hiding [#26](https://github.com/salute-developers/plasma/pull/26) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -2169,11 +2145,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2181,13 +2157,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui, plasma-web): fix carousel context [#20](https://github.com/salute-developers/plasma/pull/20) (Kruglikov.A.D@sberbank.ru)
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui, plasma-web): fix carousel context [#20](https://github.com/salute-developers/plasma/pull/20) (Kruglikov.A.D@sberbank.ru)
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Arseny Kruglikov (Kruglikov.A.D@sberbank.ru)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Arseny Kruglikov (Kruglikov.A.D@sberbank.ru)
 
 ---
 
@@ -2195,16 +2171,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore(plasma-ui, plasma-b2c): Add bold type for `Dspl` and `H` in stories [#7](https://github.com/salute-developers/plasma/pull/7) ([@neretin-trike](https://github.com/neretin-trike))
-- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- test(plasma-ui): Add test and snapshost for `TimePicker` and `DatePicker` components [#4](https://github.com/salute-developers/plasma/pull/4) ([@neretin-trike](https://github.com/neretin-trike))
-- fix(plasma-ui): Fix behavior if min or max changes for `Pickers` component [#4](https://github.com/salute-developers/plasma/pull/4) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore(plasma-ui, plasma-b2c): Add bold type for `Dspl` and `H` in stories [#7](https://github.com/salute-developers/plasma/pull/7) ([@neretin-trike](https://github.com/neretin-trike))
+-   Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   test(plasma-ui): Add test and snapshost for `TimePicker` and `DatePicker` components [#4](https://github.com/salute-developers/plasma/pull/4) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-ui): Fix behavior if min or max changes for `Pickers` component [#4](https://github.com/salute-developers/plasma/pull/4) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2212,12 +2188,12 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- test(plasma-ui): Add test and snapshost for `TimePicker` and `DatePicker` components [#4](https://github.com/salute-developers/plasma/pull/4) ([@neretin-trike](https://github.com/neretin-trike))
-- fix(plasma-ui): Fix behavior if min or max changes for `Pickers` component [#4](https://github.com/salute-developers/plasma/pull/4) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-ui): Add test and snapshost for `TimePicker` and `DatePicker` components [#4](https://github.com/salute-developers/plasma/pull/4) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-ui): Fix behavior if min or max changes for `Pickers` component [#4](https://github.com/salute-developers/plasma/pull/4) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2225,11 +2201,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2237,11 +2213,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks [#18](https://github.com/salute-developers/plasma/pull/18) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks [#18](https://github.com/salute-developers/plasma/pull/18) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 1
 
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -2249,11 +2225,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- test(plasma-ui): fix Card images [#5](https://github.com/salute-developers/plasma/pull/5) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui): fix Card images [#5](https://github.com/salute-developers/plasma/pull/5) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 1
 
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -2261,20 +2237,20 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix: linting errs [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
-- fix: monorepo deps resolved [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
-- fix(plasma-ui): Fix behavior with single item in `Picker` component ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix: linting errs [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
+-   fix: monorepo deps resolved [#1](https://github.com/salute-developers/plasma/pull/1) ([@Yeti-or](https://github.com/Yeti-or))
+-   fix(plasma-ui): Fix behavior with single item in `Picker` component ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### ⚠️ Pushed to `master`
 
-- test(plasma-ui): Add test and snapshots for `Pickers` component ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-ui): Add test and snapshots for `Pickers` component ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -2282,17 +2258,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): disable Pickers infinityScroll for lowPerfomance devices [#1179](https://github.com/salute-developers/plasma/pull/1179) ([@Yeti-or](https://github.com/Yeti-or))
-- feat: Added possibility to disable CSS animations via ThemeProvider [#1179](https://github.com/salute-developers/plasma/pull/1179) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): disable Pickers infinityScroll for lowPerfomance devices [#1179](https://github.com/salute-developers/plasma/pull/1179) ([@Yeti-or](https://github.com/Yeti-or))
+-   feat: Added possibility to disable CSS animations via ThemeProvider [#1179](https://github.com/salute-developers/plasma/pull/1179) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- chore: disableAnimation => lowPerformance [#1179](https://github.com/salute-developers/plasma/pull/1179) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: disableAnimation => lowPerformance [#1179](https://github.com/salute-developers/plasma/pull/1179) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -2300,16 +2276,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Add keys for `Pickers` components in stories [#1181](https://github.com/salute-developers/plasma/pull/1181) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-ui): Add keys for `Pickers` components in stories [#1181](https://github.com/salute-developers/plasma/pull/1181) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2317,11 +2293,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix: `Field` and `Input` props interfaces facelifting [#1121](https://github.com/salute-developers/plasma/pull/1121) ([@fanisco](https://github.com/fanisco))
+-   fix: `Field` and `Input` props interfaces facelifting [#1121](https://github.com/salute-developers/plasma/pull/1121) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2329,13 +2305,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Added `ProductCard` component [#1144](https://github.com/salute-developers/plasma/pull/1144) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-ui): `Stepper`: divide functionallity as `useStepper` [#1144](https://github.com/salute-developers/plasma/pull/1144) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-ui): `Badge`: Added `warning` view [#1144](https://github.com/salute-developers/plasma/pull/1144) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): Added `ProductCard` component [#1144](https://github.com/salute-developers/plasma/pull/1144) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): `Stepper`: divide functionallity as `useStepper` [#1144](https://github.com/salute-developers/plasma/pull/1144) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): `Badge`: Added `warning` view [#1144](https://github.com/salute-developers/plasma/pull/1144) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2343,12 +2319,12 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web, plasma-ui): `Radiobox`: removed duplication of label & descr + better live example [#1149](https://github.com/salute-developers/plasma/pull/1149) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-web, plasma-ui): `Checkbox`: removed duplication of label & descr [#1149](https://github.com/salute-developers/plasma/pull/1149) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web, plasma-ui): `Radiobox`: removed duplication of label & descr + better live example [#1149](https://github.com/salute-developers/plasma/pull/1149) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web, plasma-ui): `Checkbox`: removed duplication of label & descr [#1149](https://github.com/salute-developers/plasma/pull/1149) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2356,11 +2332,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): `TextArea`: added `aria-describedby` attr [#1133](https://github.com/salute-developers/plasma/pull/1133) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): `TextArea`: added `aria-describedby` attr [#1133](https://github.com/salute-developers/plasma/pull/1133) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2368,12 +2344,12 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-web): `TextField`: added `aria-describedby` attr [#1124](https://github.com/salute-developers/plasma/pull/1124) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-ui): `TextField`: added `aria-describedby` attr [#1124](https://github.com/salute-developers/plasma/pull/1124) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-web): `TextField`: added `aria-describedby` attr [#1124](https://github.com/salute-developers/plasma/pull/1124) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): `TextField`: added `aria-describedby` attr [#1124](https://github.com/salute-developers/plasma/pull/1124) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2381,11 +2357,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: `Toast` stories text & role [#1127](https://github.com/salute-developers/plasma/pull/1127) ([@fanisco](https://github.com/fanisco))
+-   chore: `Toast` stories text & role [#1127](https://github.com/salute-developers/plasma/pull/1127) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2393,11 +2369,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-core): Add onDetectActiveItem callback for `Carousel` component [#1081](https://github.com/salute-developers/plasma/pull/1081) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-core): Add onDetectActiveItem callback for `Carousel` component [#1081](https://github.com/salute-developers/plasma/pull/1081) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2405,11 +2381,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): `TimePicker` splitter size [#1120](https://github.com/salute-developers/plasma/pull/1120) ([@LamaEats](https://github.com/LamaEats))
+-   fix(plasma-ui): `TimePicker` splitter size [#1120](https://github.com/salute-developers/plasma/pull/1120) ([@LamaEats](https://github.com/LamaEats))
 
 #### Authors: 1
 
-- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+-   Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
 
 ---
 
@@ -2417,11 +2393,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2429,13 +2405,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): correct Tabs disable state [#1116](https://github.com/salute-developers/plasma/pull/1116) ([@LamaEats](https://github.com/LamaEats))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): correct Tabs disable state [#1116](https://github.com/salute-developers/plasma/pull/1116) ([@LamaEats](https://github.com/LamaEats))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
 
 ---
 
@@ -2443,11 +2419,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2455,23 +2431,23 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): `DeviceThemeProvider`: Added responsive typo support [#1044](https://github.com/salute-developers/plasma/pull/1044) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-ui): Added mixin re-exports [#1044](https://github.com/salute-developers/plasma/pull/1044) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): `DeviceThemeProvider`: Added responsive typo support [#1044](https://github.com/salute-developers/plasma/pull/1044) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): Added mixin re-exports [#1044](https://github.com/salute-developers/plasma/pull/1044) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- chore(plasma-ui): Label in `TextBox`'s stories [#1112](https://github.com/salute-developers/plasma/pull/1112) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- fix(plasma-core): Use default view for input readonly state [#1114](https://github.com/salute-developers/plasma/pull/1114) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
-- fix(plasma-ui): Fix slider when active tab size is changed [#1118](https://github.com/salute-developers/plasma/pull/1118) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
-- chore: Storybook fonts [#1044](https://github.com/salute-developers/plasma/pull/1044) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-typo, plasma-ui, plasma-b2c): Moved responsive typography to common package [#1044](https://github.com/salute-developers/plasma/pull/1044) ([@fanisco](https://github.com/fanisco))
+-   chore(plasma-ui): Label in `TextBox`'s stories [#1112](https://github.com/salute-developers/plasma/pull/1112) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-core): Use default view for input readonly state [#1114](https://github.com/salute-developers/plasma/pull/1114) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+-   fix(plasma-ui): Fix slider when active tab size is changed [#1118](https://github.com/salute-developers/plasma/pull/1118) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+-   chore: Storybook fonts [#1044](https://github.com/salute-developers/plasma/pull/1044) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-typo, plasma-ui, plasma-b2c): Moved responsive typography to common package [#1044](https://github.com/salute-developers/plasma/pull/1044) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 3
 
-- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2479,11 +2455,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2491,11 +2467,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- test(plasma-ui): Add test and snapshot for `Tabs` component [#1113](https://github.com/salute-developers/plasma/pull/1113) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-ui): Add test and snapshot for `Tabs` component [#1113](https://github.com/salute-developers/plasma/pull/1113) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2503,16 +2479,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Made overlay optional for Sheet [#1075](https://github.com/salute-developers/plasma/pull/1075) (levkus@gmail.com)
+-   feat(plasma-ui): Made overlay optional for Sheet [#1075](https://github.com/salute-developers/plasma/pull/1075) (levkus@gmail.com)
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Лев Останин (levkus@gmail.com)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Лев Останин (levkus@gmail.com)
 
 ---
 
@@ -2520,14 +2496,14 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): `HeaderArrow`: made unfocusable [#1076](https://github.com/salute-developers/plasma/pull/1076) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-ui, plasma-web, plasma-b2c): `Button`: Added theming [#1063](https://github.com/salute-developers/plasma/pull/1063) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): `HeaderArrow`: made unfocusable [#1076](https://github.com/salute-developers/plasma/pull/1076) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui, plasma-web, plasma-b2c): `Button`: Added theming [#1063](https://github.com/salute-developers/plasma/pull/1063) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2535,11 +2511,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web, plasma-b2c): `TextField`: separated helper spacing styles [#1090](https://github.com/salute-developers/plasma/pull/1090) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web, plasma-b2c): `TextField`: separated helper spacing styles [#1090](https://github.com/salute-developers/plasma/pull/1090) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2547,12 +2523,12 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- test(plasma-ui): Add test and snapshot for `Tabs` component [#1064](https://github.com/salute-developers/plasma/pull/1064) ([@neretin-trike](https://github.com/neretin-trike))
-- fix(plasma-ui): Fix outline-radius size for pilled tabs [#1064](https://github.com/salute-developers/plasma/pull/1064) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-ui): Add test and snapshot for `Tabs` component [#1064](https://github.com/salute-developers/plasma/pull/1064) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-ui): Fix outline-radius size for pilled tabs [#1064](https://github.com/salute-developers/plasma/pull/1064) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2560,16 +2536,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): `Picker`: Added `xs` size [#1055](https://github.com/salute-developers/plasma/pull/1055) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): `Picker`: Added `xs` size [#1055](https://github.com/salute-developers/plasma/pull/1055) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2577,13 +2553,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix: peer dependencies versions [#1053](https://github.com/salute-developers/plasma/pull/1053) ([@LamaEats](https://github.com/LamaEats))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix: peer dependencies versions [#1053](https://github.com/salute-developers/plasma/pull/1053) ([@LamaEats](https://github.com/LamaEats))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
 
 ---
 
@@ -2591,11 +2567,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2603,21 +2579,21 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): `Carousel`: Added possibility to specify list's role [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-ui): `Picker` a11y improvements [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-ui): Extended `Picker` keyboard control [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): `Carousel`: Added possibility to specify list's role [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): `Picker` a11y improvements [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): Extended `Picker` keyboard control [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-web, plasma-ui): `Basebox`: Hide input properly; tabIndex={-1} on root [#1057](https://github.com/salute-developers/plasma/pull/1057) ([@fanisco](https://github.com/fanisco))
-- test(plasma-ui): `DatePicker`: test for jumps - 10 up/down, home/end [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-ui): `Picker`: hide virtual items from screen reader [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-web, plasma-ui): `Basebox`: Hide input properly; tabIndex={-1} on root [#1057](https://github.com/salute-developers/plasma/pull/1057) ([@fanisco](https://github.com/fanisco))
+-   test(plasma-ui): `DatePicker`: test for jumps - 10 up/down, home/end [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-ui): `Picker`: hide virtual items from screen reader [#1031](https://github.com/salute-developers/plasma/pull/1031) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2625,11 +2601,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2637,13 +2613,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore(plasma-ui,plasma-b2c): Remove unused stories mdx for `Tabs` component [#976](https://github.com/salute-developers/plasma/pull/976) ([@neretin-trike](https://github.com/neretin-trike))
-- test(plasma-b2c,plasma-web,plasma-ui): Add test and update snapshots for `Tab` component [#976](https://github.com/salute-developers/plasma/pull/976) ([@neretin-trike](https://github.com/neretin-trike))
-- feat(plasma-b2c,plasma-web,plasma-ui): Update style for `Tabs` component [#976](https://github.com/salute-developers/plasma/pull/976) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore(plasma-ui,plasma-b2c): Remove unused stories mdx for `Tabs` component [#976](https://github.com/salute-developers/plasma/pull/976) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-b2c,plasma-web,plasma-ui): Add test and update snapshots for `Tab` component [#976](https://github.com/salute-developers/plasma/pull/976) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-b2c,plasma-web,plasma-ui): Update style for `Tabs` component [#976](https://github.com/salute-developers/plasma/pull/976) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2651,13 +2627,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): `ActionButton`: Made `pin` not required again [#1045](https://github.com/salute-developers/plasma/pull/1045) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): `ActionButton`: Made `pin` not required again [#1045](https://github.com/salute-developers/plasma/pull/1045) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2665,11 +2641,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2677,16 +2653,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- feat(plasma-ui, plasma-web): `Carousel` a11y improvements [#973](https://github.com/salute-developers/plasma/pull/973) ([@fanisco](https://github.com/fanisco))
-- refactor: Move `Carousel`'s modules in Core/UI/Web [#973](https://github.com/salute-developers/plasma/pull/973) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-ui): Keep `Picker` focused even if arrows clicked [#1014](https://github.com/salute-developers/plasma/pull/1014) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-ui): `Picker`s' controls position [#1014](https://github.com/salute-developers/plasma/pull/1014) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   feat(plasma-ui, plasma-web): `Carousel` a11y improvements [#973](https://github.com/salute-developers/plasma/pull/973) ([@fanisco](https://github.com/fanisco))
+-   refactor: Move `Carousel`'s modules in Core/UI/Web [#973](https://github.com/salute-developers/plasma/pull/973) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-ui): Keep `Picker` focused even if arrows clicked [#1014](https://github.com/salute-developers/plasma/pull/1014) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-ui): `Picker`s' controls position [#1014](https://github.com/salute-developers/plasma/pull/1014) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2694,13 +2670,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Set `HeaderArrow` full height [#1016](https://github.com/salute-developers/plasma/pull/1016) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): Set `HeaderArrow` full height [#1016](https://github.com/salute-developers/plasma/pull/1016) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2708,15 +2684,15 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- test(plasma-ui): Add tests and snapshots for `Pickers` component [#1022](https://github.com/salute-developers/plasma/pull/1022) ([@neretin-trike](https://github.com/neretin-trike))
-- test(plasma-ui): Add tests and snapshots for `Slider` component [#1021](https://github.com/salute-developers/plasma/pull/1021) ([@neretin-trike](https://github.com/neretin-trike))
-- test: Complete tests for `Tabs` [#985](https://github.com/salute-developers/plasma/pull/985) ([@fanisco](https://github.com/fanisco))
-- test(plasma-ui): Add test for `Carousel` component with scrollAlign [#996](https://github.com/salute-developers/plasma/pull/996) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-ui): Add tests and snapshots for `Pickers` component [#1022](https://github.com/salute-developers/plasma/pull/1022) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-ui): Add tests and snapshots for `Slider` component [#1021](https://github.com/salute-developers/plasma/pull/1021) ([@neretin-trike](https://github.com/neretin-trike))
+-   test: Complete tests for `Tabs` [#985](https://github.com/salute-developers/plasma/pull/985) ([@fanisco](https://github.com/fanisco))
+-   test(plasma-ui): Add test for `Carousel` component with scrollAlign [#996](https://github.com/salute-developers/plasma/pull/996) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 2
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2724,11 +2700,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Add scroll fix for `Picker` component [#1007](https://github.com/salute-developers/plasma/pull/1007) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-ui): Add scroll fix for `Picker` component [#1007](https://github.com/salute-developers/plasma/pull/1007) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2736,11 +2712,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Prevent `Radiobox`'s & `Checkbox`'s trigger from squeeze [#958](https://github.com/salute-developers/plasma/pull/958) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-ui): Prevent `Radiobox`'s & `Checkbox`'s trigger from squeeze [#958](https://github.com/salute-developers/plasma/pull/958) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2748,19 +2724,19 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- test(plasma-b2c): Add Cypress component test for `Carousel` [#968](https://github.com/salute-developers/plasma/pull/968) ([@fanisco](https://github.com/fanisco))
-- test(plasma-ui): Add Cypress component test for `Carousel` [#968](https://github.com/salute-developers/plasma/pull/968) ([@fanisco](https://github.com/fanisco))
-- test(plasma-ui): add Fade component tests [#990](https://github.com/salute-developers/plasma/pull/990) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui): add Sheet component tests [#990](https://github.com/salute-developers/plasma/pull/990) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui): add Grid component tests [#990](https://github.com/salute-developers/plasma/pull/990) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui): add Header component tests [#990](https://github.com/salute-developers/plasma/pull/990) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   test(plasma-b2c): Add Cypress component test for `Carousel` [#968](https://github.com/salute-developers/plasma/pull/968) ([@fanisco](https://github.com/fanisco))
+-   test(plasma-ui): Add Cypress component test for `Carousel` [#968](https://github.com/salute-developers/plasma/pull/968) ([@fanisco](https://github.com/fanisco))
+-   test(plasma-ui): add Fade component tests [#990](https://github.com/salute-developers/plasma/pull/990) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui): add Sheet component tests [#990](https://github.com/salute-developers/plasma/pull/990) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui): add Grid component tests [#990](https://github.com/salute-developers/plasma/pull/990) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui): add Header component tests [#990](https://github.com/salute-developers/plasma/pull/990) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -2768,13 +2744,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- feat(plasma-web,plasma-b2c,plasma-ui): Add example for checkbox with jsx in label [#969](https://github.com/salute-developers/plasma/pull/969) ([@neretin-trike](https://github.com/neretin-trike))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   feat(plasma-web,plasma-b2c,plasma-ui): Add example for checkbox with jsx in label [#969](https://github.com/salute-developers/plasma/pull/969) ([@neretin-trike](https://github.com/neretin-trike))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2782,24 +2758,24 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Add infinite scroll for `DatePicker` and `TimePicker` components [#957](https://github.com/salute-developers/plasma/pull/957) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-ui): Add infinite scroll for `DatePicker` and `TimePicker` components [#957](https://github.com/salute-developers/plasma/pull/957) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- test(plasma-ui): add Card component tests [#978](https://github.com/salute-developers/plasma/pull/978) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui): add SmartPaginationDots component tests [#978](https://github.com/salute-developers/plasma/pull/978) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui): add MarkedList component tests [#978](https://github.com/salute-developers/plasma/pull/978) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui): add Marquee component tests [#978](https://github.com/salute-developers/plasma/pull/978) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui): add Skeleton component tests [#978](https://github.com/salute-developers/plasma/pull/978) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui): add Spinner component tests [#978](https://github.com/salute-developers/plasma/pull/978) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui): add TextBox component tests [#978](https://github.com/salute-developers/plasma/pull/978) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui): add Cell component tests [#978](https://github.com/salute-developers/plasma/pull/978) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-ui): Add tests for `DatePicker` and `TimePicker` components and update snapshots [#957](https://github.com/salute-developers/plasma/pull/957) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-ui): add Card component tests [#978](https://github.com/salute-developers/plasma/pull/978) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui): add SmartPaginationDots component tests [#978](https://github.com/salute-developers/plasma/pull/978) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui): add MarkedList component tests [#978](https://github.com/salute-developers/plasma/pull/978) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui): add Marquee component tests [#978](https://github.com/salute-developers/plasma/pull/978) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui): add Skeleton component tests [#978](https://github.com/salute-developers/plasma/pull/978) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui): add Spinner component tests [#978](https://github.com/salute-developers/plasma/pull/978) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui): add TextBox component tests [#978](https://github.com/salute-developers/plasma/pull/978) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui): add Cell component tests [#978](https://github.com/salute-developers/plasma/pull/978) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-ui): Add tests for `DatePicker` and `TimePicker` components and update snapshots [#957](https://github.com/salute-developers/plasma/pull/957) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 2
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -2807,15 +2783,15 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat: add RadioGroup components [#676](https://github.com/salute-developers/plasma/pull/676) ([@OgNellis](https://github.com/OgNellis))
+-   feat: add RadioGroup components [#676](https://github.com/salute-developers/plasma/pull/676) ([@OgNellis](https://github.com/OgNellis))
 
 #### 🐛 Bug Fix
 
-- fix: accessibility of checkbox and radiobox for nvda and jaws [#676](https://github.com/salute-developers/plasma/pull/676) ([@OgNellis](https://github.com/OgNellis))
+-   fix: accessibility of checkbox and radiobox for nvda and jaws [#676](https://github.com/salute-developers/plasma/pull/676) ([@OgNellis](https://github.com/OgNellis))
 
 #### Authors: 1
 
-- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+-   Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
 
 ---
 
@@ -2823,18 +2799,18 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat: Added `createButton` as a constructor function for `Button` [#946](https://github.com/salute-developers/plasma/pull/946) ([@fanisco](https://github.com/fanisco))
+-   feat: Added `createButton` as a constructor function for `Button` [#946](https://github.com/salute-developers/plasma/pull/946) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- test(plasma-ui): Update tests for `Button` and add for `ActionButton` [#946](https://github.com/salute-developers/plasma/pull/946) ([@fanisco](https://github.com/fanisco))
-- refactor(plasma-ui,plasma-b2c): Update stories for `Slider` component [#934](https://github.com/salute-developers/plasma/pull/934) ([@neretin-trike](https://github.com/neretin-trike))
-- fix(plasma-ui,plasma-b2c): Fix intersection for multiple `Slider` component [#934](https://github.com/salute-developers/plasma/pull/934) ([@neretin-trike](https://github.com/neretin-trike))
+-   test(plasma-ui): Update tests for `Button` and add for `ActionButton` [#946](https://github.com/salute-developers/plasma/pull/946) ([@fanisco](https://github.com/fanisco))
+-   refactor(plasma-ui,plasma-b2c): Update stories for `Slider` component [#934](https://github.com/salute-developers/plasma/pull/934) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-ui,plasma-b2c): Fix intersection for multiple `Slider` component [#934](https://github.com/salute-developers/plasma/pull/934) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 2
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2842,11 +2818,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Add default value in `Slider` component if theme context is undefined [#955](https://github.com/salute-developers/plasma/pull/955) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-ui): Add default value in `Slider` component if theme context is undefined [#955](https://github.com/salute-developers/plasma/pull/955) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2854,18 +2830,18 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Added `TabsController` component [#923](https://github.com/salute-developers/plasma/pull/923) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-ui): Add a11y for `Stepper` component [#930](https://github.com/salute-developers/plasma/pull/930) ([@neretin-trike](https://github.com/neretin-trike))
+-   feat(plasma-ui): Added `TabsController` component [#923](https://github.com/salute-developers/plasma/pull/923) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): Add a11y for `Stepper` component [#930](https://github.com/salute-developers/plasma/pull/930) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2873,13 +2849,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- feat(plasma-ui, plasma-web): B2C/B2B `Input` and `TextArea` on common platform [#910](https://github.com/salute-developers/plasma/pull/910) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   feat(plasma-ui, plasma-web): B2C/B2B `Input` and `TextArea` on common platform [#910](https://github.com/salute-developers/plasma/pull/910) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2887,11 +2863,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: b2c, ui, web code coverage [#917](https://github.com/salute-developers/plasma/pull/917) ([@dakhetov](https://github.com/dakhetov))
+-   chore: b2c, ui, web code coverage [#917](https://github.com/salute-developers/plasma/pull/917) ([@dakhetov](https://github.com/dakhetov))
 
 #### Authors: 1
 
-- [@dakhetov](https://github.com/dakhetov)
+-   [@dakhetov](https://github.com/dakhetov)
 
 ---
 
@@ -2899,11 +2875,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -2911,11 +2887,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix: Separate `Input`'s animation by b2b and b2c [#908](https://github.com/salute-developers/plasma/pull/908) ([@fanisco](https://github.com/fanisco))
+-   fix: Separate `Input`'s animation by b2b and b2c [#908](https://github.com/salute-developers/plasma/pull/908) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2923,11 +2899,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore(plasma-ui): fix sb card cover control [#921](https://github.com/salute-developers/plasma/pull/921) ([@kayman233](https://github.com/kayman233))
+-   chore(plasma-ui): fix sb card cover control [#921](https://github.com/salute-developers/plasma/pull/921) ([@kayman233](https://github.com/kayman233))
 
 #### Authors: 1
 
-- [@kayman233](https://github.com/kayman233)
+-   [@kayman233](https://github.com/kayman233)
 
 ---
 
@@ -2935,16 +2911,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Added option to enable native input for Pickers [#916](https://github.com/salute-developers/plasma/pull/916) ([@jabzzy](https://github.com/jabzzy))
+-   feat(plasma-ui): Added option to enable native input for Pickers [#916](https://github.com/salute-developers/plasma/pull/916) ([@jabzzy](https://github.com/jabzzy))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Eugene Dashkevich ([@jabzzy](https://github.com/jabzzy))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Eugene Dashkevich ([@jabzzy](https://github.com/jabzzy))
 
 ---
 
@@ -2952,13 +2928,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- test(plasma-ui): Added for `Image` component [#909](https://github.com/salute-developers/plasma/pull/909) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   test(plasma-ui): Added for `Image` component [#909](https://github.com/salute-developers/plasma/pull/909) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2966,16 +2942,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): A11y for `Toast` [#710](https://github.com/salute-developers/plasma/pull/710) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): A11y for `Toast` [#710](https://github.com/salute-developers/plasma/pull/710) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- test(plasma-ui): `DatePicker` and `TimePicker` ct [#915](https://github.com/salute-developers/plasma/pull/915) ([@fanisco](https://github.com/fanisco))
-- chore(plasma-ui): Change Storybook's iframe lang [#710](https://github.com/salute-developers/plasma/pull/710) ([@fanisco](https://github.com/fanisco))
+-   test(plasma-ui): `DatePicker` and `TimePicker` ct [#915](https://github.com/salute-developers/plasma/pull/915) ([@fanisco](https://github.com/fanisco))
+-   chore(plasma-ui): Change Storybook's iframe lang [#710](https://github.com/salute-developers/plasma/pull/710) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -2983,11 +2959,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Fix scroll behavior and range values for `Picker` component [#897](https://github.com/salute-developers/plasma/pull/897) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-ui): Fix scroll behavior and range values for `Picker` component [#897](https://github.com/salute-developers/plasma/pull/897) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -2995,12 +2971,12 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Fix showing values for `TimePicker` component [#887](https://github.com/salute-developers/plasma/pull/887) ([@neretin-trike](https://github.com/neretin-trike))
-- fix(plasma-ui): Fix showing values for `DataPicker` component [#887](https://github.com/salute-developers/plasma/pull/887) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-ui): Fix showing values for `TimePicker` component [#887](https://github.com/salute-developers/plasma/pull/887) ([@neretin-trike](https://github.com/neretin-trike))
+-   fix(plasma-ui): Fix showing values for `DataPicker` component [#887](https://github.com/salute-developers/plasma/pull/887) ([@neretin-trike](https://github.com/neretin-trike))
 
 #### Authors: 1
 
-- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+-   neretinaa ([@neretin-trike](https://github.com/neretin-trike))
 
 ---
 
@@ -3008,11 +2984,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Added `gradientColor` prop to `Header` [#874](https://github.com/salute-developers/plasma/pull/874) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): Added `gradientColor` prop to `Header` [#874](https://github.com/salute-developers/plasma/pull/874) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3020,12 +2996,12 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): `Header`'s back-minimize animation" [#863](https://github.com/salute-developers/plasma/pull/863) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-ui): Added `NueHeader` to replace `Header` in major version [#863](https://github.com/salute-developers/plasma/pull/863) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): `Header`'s back-minimize animation" [#863](https://github.com/salute-developers/plasma/pull/863) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): Added `NueHeader` to replace `Header` in major version [#863](https://github.com/salute-developers/plasma/pull/863) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3033,13 +3009,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): `HeaderContent` flex in Chrome 94 [#875](https://github.com/salute-developers/plasma/pull/875) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): `HeaderContent` flex in Chrome 94 [#875](https://github.com/salute-developers/plasma/pull/875) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3047,11 +3023,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore(plasma-ui, plasma-web): addon knobs removed [#857](https://github.com/salute-developers/plasma/pull/857) ([@kayman233](https://github.com/kayman233))
+-   chore(plasma-ui, plasma-web): addon knobs removed [#857](https://github.com/salute-developers/plasma/pull/857) ([@kayman233](https://github.com/kayman233))
 
 #### Authors: 1
 
-- [@kayman233](https://github.com/kayman233)
+-   [@kayman233](https://github.com/kayman233)
 
 ---
 
@@ -3059,11 +3035,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3071,11 +3047,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix: Update package-locks [#853](https://github.com/salute-developers/plasma/pull/853) ([@fanisco](https://github.com/fanisco))
+-   fix: Update package-locks [#853](https://github.com/salute-developers/plasma/pull/853) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3083,13 +3059,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore: Remove Chromatic check [#850](https://github.com/salute-developers/plasma/pull/850) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: Remove Chromatic check [#850](https://github.com/salute-developers/plasma/pull/850) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3097,20 +3073,20 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-core): Shared `Toast` between libraries [#812](https://github.com/salute-developers/plasma/pull/812) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-core): Shared `Toast` between libraries [#812](https://github.com/salute-developers/plasma/pull/812) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- test: Component test for B2C `Toast` [#812](https://github.com/salute-developers/plasma/pull/812) ([@fanisco](https://github.com/fanisco))
+-   test: Component test for B2C `Toast` [#812](https://github.com/salute-developers/plasma/pull/812) ([@fanisco](https://github.com/fanisco))
 
 #### ⚠️ Pushed to `master`
 
-- build(plasma-core/ui/b2c/web): fix storybook build ([@Yeti-or](https://github.com/Yeti-or))
+-   build(plasma-core/ui/b2c/web): fix storybook build ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -3118,12 +3094,12 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- test: add SBSans to cypress [#832](https://github.com/salute-developers/plasma/pull/832) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-core/ui/web): fix tests [#830](https://github.com/salute-developers/plasma/pull/830) ([@Yeti-or](https://github.com/Yeti-or))
+-   test: add SBSans to cypress [#832](https://github.com/salute-developers/plasma/pull/832) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-core/ui/web): fix tests [#830](https://github.com/salute-developers/plasma/pull/830) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 1
 
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -3131,16 +3107,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-cy-utils): padMe [#824](https://github.com/salute-developers/plasma/pull/824) ([@Yeti-or](https://github.com/Yeti-or))
+-   feat(plasma-cy-utils): padMe [#824](https://github.com/salute-developers/plasma/pull/824) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -3148,14 +3124,14 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore: move cypress helpers to utils [#823](https://github.com/salute-developers/plasma/pull/823) ([@Yeti-or](https://github.com/Yeti-or))
-- test(plasma-web/plasma-ui): move cy tests to plasma-core [#823](https://github.com/salute-developers/plasma/pull/823) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: move cypress helpers to utils [#823](https://github.com/salute-developers/plasma/pull/823) ([@Yeti-or](https://github.com/Yeti-or))
+-   test(plasma-web/plasma-ui): move cy tests to plasma-core [#823](https://github.com/salute-developers/plasma/pull/823) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -3163,11 +3139,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3175,11 +3151,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3187,13 +3163,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: resolve cypress and jest conflicts [#573](https://github.com/salute-developers/plasma/pull/573) ([@OgNellis](https://github.com/OgNellis))
-- chore: cypress component testing [#573](https://github.com/salute-developers/plasma/pull/573) (dakhetov@outlook.com)
+-   chore: resolve cypress and jest conflicts [#573](https://github.com/salute-developers/plasma/pull/573) ([@OgNellis](https://github.com/OgNellis))
+-   chore: cypress component testing [#573](https://github.com/salute-developers/plasma/pull/573) (dakhetov@outlook.com)
 
 #### Authors: 2
 
-- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
-- Daniil Akhetov (dakhetov@outlook.com)
+-   Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+-   Daniil Akhetov (dakhetov@outlook.com)
 
 ---
 
@@ -3201,17 +3177,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Separate gradient masks for `Picker` [#708](https://github.com/salute-developers/plasma/pull/708) ([@fanisco](https://github.com/fanisco))
-- test(plasma-ui): `PickerItem`'s styling utils [#708](https://github.com/salute-developers/plasma/pull/708) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-ui): `PickerItem` `size="s"` text cut at the bottom [#708](https://github.com/salute-developers/plasma/pull/708) ([@fanisco](https://github.com/fanisco))
-- chore(plasma-ui): E2E test for `DatePicker` and `TimePicker` [#806](https://github.com/salute-developers/plasma/pull/806) ([@fanisco](https://github.com/fanisco))
-- chore: Delete extract-sb-docgen-info [#801](https://github.com/salute-developers/plasma/pull/801) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): Separate gradient masks for `Picker` [#708](https://github.com/salute-developers/plasma/pull/708) ([@fanisco](https://github.com/fanisco))
+-   test(plasma-ui): `PickerItem`'s styling utils [#708](https://github.com/salute-developers/plasma/pull/708) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-ui): `PickerItem` `size="s"` text cut at the bottom [#708](https://github.com/salute-developers/plasma/pull/708) ([@fanisco](https://github.com/fanisco))
+-   chore(plasma-ui): E2E test for `DatePicker` and `TimePicker` [#806](https://github.com/salute-developers/plasma/pull/806) ([@fanisco](https://github.com/fanisco))
+-   chore: Delete extract-sb-docgen-info [#801](https://github.com/salute-developers/plasma/pull/801) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3219,11 +3195,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3231,13 +3207,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Added `coverGradient` prop to `CardContent` [#716](https://github.com/salute-developers/plasma/pull/716) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): Added `coverGradient` prop to `CardContent` [#716](https://github.com/salute-developers/plasma/pull/716) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3245,11 +3221,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3257,11 +3233,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3269,13 +3245,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Disabled state for `Checkbox` and `Radiobox` [#791](https://github.com/salute-developers/plasma/pull/791) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): Disabled state for `Checkbox` and `Radiobox` [#791](https://github.com/salute-developers/plasma/pull/791) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3283,17 +3259,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- feat(plasma-ui, plasma-core): Added `forwardedAs` and `as` props to `Tabs` [#724](https://github.com/salute-developers/plasma/pull/724) ([@fanisco](https://github.com/fanisco))
-- chore(plasma-ui): Storybook controls for Card, Carousel, Cell, Header, Pickers [#647](https://github.com/salute-developers/plasma/pull/647) ([@kayman233](https://github.com/kayman233))
-- fix(plasma-ui): visibleItems for TimePicker fix [#647](https://github.com/salute-developers/plasma/pull/647) ([@kayman233](https://github.com/kayman233))
-- chore(plasma-ui): fix cell icons [#647](https://github.com/salute-developers/plasma/pull/647) ([@kayman233](https://github.com/kayman233))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   feat(plasma-ui, plasma-core): Added `forwardedAs` and `as` props to `Tabs` [#724](https://github.com/salute-developers/plasma/pull/724) ([@fanisco](https://github.com/fanisco))
+-   chore(plasma-ui): Storybook controls for Card, Carousel, Cell, Header, Pickers [#647](https://github.com/salute-developers/plasma/pull/647) ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-ui): visibleItems for TimePicker fix [#647](https://github.com/salute-developers/plasma/pull/647) ([@kayman233](https://github.com/kayman233))
+-   chore(plasma-ui): fix cell icons [#647](https://github.com/salute-developers/plasma/pull/647) ([@kayman233](https://github.com/kayman233))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3301,18 +3277,18 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix: Refactor `Checkbox` & `Radiobox` in order of better understanding [#698](https://github.com/salute-developers/plasma/pull/698) ([@fanisco](https://github.com/fanisco))
-- chore(plasma-ui): update ts/styled-comps deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
-- chore(plasma-ui): update storybook deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
-- chore(plasma-ui): update test deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
-- chore(plasma-ui): update build deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix: Refactor `Checkbox` & `Radiobox` in order of better understanding [#698](https://github.com/salute-developers/plasma/pull/698) ([@fanisco](https://github.com/fanisco))
+-   chore(plasma-ui): update ts/styled-comps deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore(plasma-ui): update storybook deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore(plasma-ui): update test deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore(plasma-ui): update build deps [#728](https://github.com/salute-developers/plasma/pull/728) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -3320,19 +3296,19 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): value format for Stepper added [#675](https://github.com/salute-developers/plasma/pull/675) ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-ui): value format for Stepper added [#675](https://github.com/salute-developers/plasma/pull/675) ([@kayman233](https://github.com/kayman233))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- docs: Writing new docs for Plasma Devices [#648](https://github.com/salute-developers/plasma/pull/648) ([@fanisco](https://github.com/fanisco))
-- chore: Storybook docgenInfo extraction tool [#648](https://github.com/salute-developers/plasma/pull/648) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   docs: Writing new docs for Plasma Devices [#648](https://github.com/salute-developers/plasma/pull/648) ([@fanisco](https://github.com/fanisco))
+-   chore: Storybook docgenInfo extraction tool [#648](https://github.com/salute-developers/plasma/pull/648) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 3
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3340,11 +3316,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3352,11 +3328,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3364,19 +3340,19 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat: A11y Tabs [#659](https://github.com/salute-developers/plasma/pull/659) ([@fanisco](https://github.com/fanisco))
+-   feat: A11y Tabs [#659](https://github.com/salute-developers/plasma/pull/659) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- chore(plasma-ui): Refactor tabs [#659](https://github.com/salute-developers/plasma/pull/659) ([@fanisco](https://github.com/fanisco))
-- chore(plasma-ui): Storybook controls for PaginationDots, Price, Spinner, TextArea, TextField [#639](https://github.com/salute-developers/plasma/pull/639) ([@kayman233](https://github.com/kayman233))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(plasma-ui): Refactor tabs [#659](https://github.com/salute-developers/plasma/pull/659) ([@fanisco](https://github.com/fanisco))
+-   chore(plasma-ui): Storybook controls for PaginationDots, Price, Spinner, TextArea, TextField [#639](https://github.com/salute-developers/plasma/pull/639) ([@kayman233](https://github.com/kayman233))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3384,19 +3360,19 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Add showcase [#660](https://github.com/salute-developers/plasma/pull/660) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
-- feat(plasma-ui): Add Sheet component [#660](https://github.com/salute-developers/plasma/pull/660) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+-   feat(plasma-ui): Add showcase [#660](https://github.com/salute-developers/plasma/pull/660) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
+-   feat(plasma-ui): Add Sheet component [#660](https://github.com/salute-developers/plasma/pull/660) ([@kvpolyanskiy](https://github.com/kvpolyanskiy))
 
 #### 🐛 Bug Fix
 
-- chore(plasma-ui): Storybook controls for Tabs [#649](https://github.com/salute-developers/plasma/pull/649) ([@kayman233](https://github.com/kayman233))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(plasma-ui): Storybook controls for Tabs [#649](https://github.com/salute-developers/plasma/pull/649) ([@kayman233](https://github.com/kayman233))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@kayman233](https://github.com/kayman233)
-- [@kvpolyanskiy](https://github.com/kvpolyanskiy)
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@kayman233](https://github.com/kayman233)
+-   [@kvpolyanskiy](https://github.com/kvpolyanskiy)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3404,11 +3380,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3416,16 +3392,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat: Skeleton in core/ui/web [#628](https://github.com/salute-developers/plasma/pull/628) ([@fanisco](https://github.com/fanisco))
+-   feat: Skeleton in core/ui/web [#628](https://github.com/salute-developers/plasma/pull/628) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3433,20 +3409,20 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat: A11y Switch [#633](https://github.com/salute-developers/plasma/pull/633) ([@fanisco](https://github.com/fanisco))
+-   feat: A11y Switch [#633](https://github.com/salute-developers/plasma/pull/633) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- chore(plasma-ui): Storybook controls for Skeleton, Stepper, Toast [#640](https://github.com/salute-developers/plasma/pull/640) ([@kayman233](https://github.com/kayman233))
-- chore(plasma-ui): Storybook controls for Badge, Button, Icon, Image [#627](https://github.com/salute-developers/plasma/pull/627) ([@kayman233](https://github.com/kayman233))
-- chore(plasma-ui): disableProps added [#627](https://github.com/salute-developers/plasma/pull/627) ([@kayman233](https://github.com/kayman233))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore(plasma-ui): Storybook controls for Skeleton, Stepper, Toast [#640](https://github.com/salute-developers/plasma/pull/640) ([@kayman233](https://github.com/kayman233))
+-   chore(plasma-ui): Storybook controls for Badge, Button, Icon, Image [#627](https://github.com/salute-developers/plasma/pull/627) ([@kayman233](https://github.com/kayman233))
+-   chore(plasma-ui): disableProps added [#627](https://github.com/salute-developers/plasma/pull/627) ([@kayman233](https://github.com/kayman233))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3454,11 +3430,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): add Slider component [#584](https://github.com/salute-developers/plasma/pull/584) ([@OgNellis](https://github.com/OgNellis))
+-   feat(plasma-ui): add Slider component [#584](https://github.com/salute-developers/plasma/pull/584) ([@OgNellis](https://github.com/OgNellis))
 
 #### Authors: 1
 
-- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+-   Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
 
 ---
 
@@ -3466,13 +3442,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): fix vertical position of HeaderBack [#634](https://github.com/salute-developers/plasma/pull/634) ([@OgNellis](https://github.com/OgNellis))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): fix vertical position of HeaderBack [#634](https://github.com/salute-developers/plasma/pull/634) ([@OgNellis](https://github.com/OgNellis))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
 
 ---
 
@@ -3480,16 +3456,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): add textAlign prop [#618](https://github.com/salute-developers/plasma/pull/618) ([@ayymkozb](https://github.com/ayymkozb))
-- fix(plasma-ui): calculate props in component [#618](https://github.com/salute-developers/plasma/pull/618) ([@ayymkozb](https://github.com/ayymkozb))
-- fix(plasma-ui): check ref commit [#618](https://github.com/salute-developers/plasma/pull/618) ([@ayymkozb](https://github.com/ayymkozb))
-- fix(plasma-ui): marquee fix [#618](https://github.com/salute-developers/plasma/pull/618) ([@ayymkozb](https://github.com/ayymkozb))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): add textAlign prop [#618](https://github.com/salute-developers/plasma/pull/618) ([@ayymkozb](https://github.com/ayymkozb))
+-   fix(plasma-ui): calculate props in component [#618](https://github.com/salute-developers/plasma/pull/618) ([@ayymkozb](https://github.com/ayymkozb))
+-   fix(plasma-ui): check ref commit [#618](https://github.com/salute-developers/plasma/pull/618) ([@ayymkozb](https://github.com/ayymkozb))
+-   fix(plasma-ui): marquee fix [#618](https://github.com/salute-developers/plasma/pull/618) ([@ayymkozb](https://github.com/ayymkozb))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@ayymkozb](https://github.com/ayymkozb)
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@ayymkozb](https://github.com/ayymkozb)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3497,17 +3473,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): tabs api changed [#593](https://github.com/salute-developers/plasma/pull/593) ([@kayman233](https://github.com/kayman233))
-- feat(plasma-ui): tabs animation added [#593](https://github.com/salute-developers/plasma/pull/593) ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-ui): tabs api changed [#593](https://github.com/salute-developers/plasma/pull/593) ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-ui): tabs animation added [#593](https://github.com/salute-developers/plasma/pull/593) ([@kayman233](https://github.com/kayman233))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3515,17 +3491,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Add mixin reexports from core [#629](https://github.com/salute-developers/plasma/pull/629) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): Add mixin reexports from core [#629](https://github.com/salute-developers/plasma/pull/629) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- docs(plasma-ui): Mixin import from plasma-ui [#629](https://github.com/salute-developers/plasma/pull/629) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   docs(plasma-ui): Mixin import from plasma-ui [#629](https://github.com/salute-developers/plasma/pull/629) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3533,13 +3509,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix: Execution layout effect on server [#607](https://github.com/salute-developers/plasma/pull/607) ([@fanisco](https://github.com/fanisco))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix: Execution layout effect on server [#607](https://github.com/salute-developers/plasma/pull/607) ([@fanisco](https://github.com/fanisco))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3547,13 +3523,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-core): Image: add role attr [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-core): Image: add role attr [#620](https://github.com/salute-developers/plasma/pull/620) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -3561,11 +3537,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3573,16 +3549,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat: Spacing mixin applySpacing [#585](https://github.com/salute-developers/plasma/pull/585) ([@fanisco](https://github.com/fanisco))
+-   feat: Spacing mixin applySpacing [#585](https://github.com/salute-developers/plasma/pull/585) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3590,11 +3566,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3602,15 +3578,15 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Added index exports for hooks and etc [#563](https://github.com/salute-developers/plasma/pull/563) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): Added index exports for hooks and etc [#563](https://github.com/salute-developers/plasma/pull/563) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- ci: Build plasma without rollup [#563](https://github.com/salute-developers/plasma/pull/563) ([@fanisco](https://github.com/fanisco))
+-   ci: Build plasma without rollup [#563](https://github.com/salute-developers/plasma/pull/563) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3618,15 +3594,15 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): huawei detection fix [#583](https://github.com/salute-developers/plasma/pull/583) (nicolai.v.95@gmail.com)
-- docs(plasma-ui): Show provider in stories [#575](https://github.com/salute-developers/plasma/pull/575) ([@fanisco](https://github.com/fanisco))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): huawei detection fix [#583](https://github.com/salute-developers/plasma/pull/583) (nicolai.v.95@gmail.com)
+-   docs(plasma-ui): Show provider in stories [#575](https://github.com/salute-developers/plasma/pull/575) ([@fanisco](https://github.com/fanisco))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 3
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
-- nsvoevodin (nicolai.v.95@gmail.com)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   nsvoevodin (nicolai.v.95@gmail.com)
 
 ---
 
@@ -3634,18 +3610,18 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Header layout [#551](https://github.com/salute-developers/plasma/pull/551) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-ui): Header minimize or back [#551](https://github.com/salute-developers/plasma/pull/551) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): Header layout [#551](https://github.com/salute-developers/plasma/pull/551) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): Header minimize or back [#551](https://github.com/salute-developers/plasma/pull/551) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Pass rest props to TextBox if only children presented [#551](https://github.com/salute-developers/plasma/pull/551) ([@fanisco](https://github.com/fanisco))
-- docs(plasma-ui): assistant usage fix [#562](https://github.com/salute-developers/plasma/pull/562) ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-ui): Pass rest props to TextBox if only children presented [#551](https://github.com/salute-developers/plasma/pull/551) ([@fanisco](https://github.com/fanisco))
+-   docs(plasma-ui): assistant usage fix [#562](https://github.com/salute-developers/plasma/pull/562) ([@kayman233](https://github.com/kayman233))
 
 #### Authors: 2
 
-- [@kayman233](https://github.com/kayman233)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@kayman233](https://github.com/kayman233)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3653,11 +3629,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix: remove double ampersands [#537](https://github.com/salute-developers/plasma/pull/537) ([@OgNellis](https://github.com/OgNellis))
+-   fix: remove double ampersands [#537](https://github.com/salute-developers/plasma/pull/537) ([@OgNellis](https://github.com/OgNellis))
 
 #### Authors: 1
 
-- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+-   Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
 
 ---
 
@@ -3665,11 +3641,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui, plasma-web): toolbar buttons return [#547](https://github.com/salute-developers/plasma/pull/547) ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-ui, plasma-web): toolbar buttons return [#547](https://github.com/salute-developers/plasma/pull/547) ([@kayman233](https://github.com/kayman233))
 
 #### Authors: 1
 
-- [@kayman233](https://github.com/kayman233)
+-   [@kayman233](https://github.com/kayman233)
 
 ---
 
@@ -3677,16 +3653,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Detect SberBoxTop [#546](https://github.com/salute-developers/plasma/pull/546) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): Detect SberBoxTop [#546](https://github.com/salute-developers/plasma/pull/546) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3694,11 +3670,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3706,11 +3682,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- feat(plasma-ui, plasma-web, showcase): sb-essentials added [#535](https://github.com/salute-developers/plasma/pull/535) ([@kayman233](https://github.com/kayman233))
+-   feat(plasma-ui, plasma-web, showcase): sb-essentials added [#535](https://github.com/salute-developers/plasma/pull/535) ([@kayman233](https://github.com/kayman233))
 
 #### Authors: 1
 
-- [@kayman233](https://github.com/kayman233)
+-   [@kayman233](https://github.com/kayman233)
 
 ---
 
@@ -3718,11 +3694,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3730,13 +3706,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Toast fade top placement [#528](https://github.com/salute-developers/plasma/pull/528) ([@fanisco](https://github.com/fanisco))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): Toast fade top placement [#528](https://github.com/salute-developers/plasma/pull/528) ([@fanisco](https://github.com/fanisco))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3744,13 +3720,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix: Pickers performance, no unnecessary rerender [#527](https://github.com/salute-developers/plasma/pull/527) ([@fanisco](https://github.com/fanisco))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix: Pickers performance, no unnecessary rerender [#527](https://github.com/salute-developers/plasma/pull/527) ([@fanisco](https://github.com/fanisco))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3758,16 +3734,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat: react17 and test job added [#496](https://github.com/salute-developers/plasma/pull/496) ([@kayman233](https://github.com/kayman233))
+-   feat: react17 and test job added [#496](https://github.com/salute-developers/plasma/pull/496) ([@kayman233](https://github.com/kayman233))
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3775,33 +3751,33 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat: TimePicker throws exception for out of range value [#516](https://github.com/salute-developers/plasma/pull/516) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   feat: TimePicker throws exception for out of range value [#516](https://github.com/salute-developers/plasma/pull/516) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Header back button position [#517](https://github.com/salute-developers/plasma/pull/517) ([@fanisco](https://github.com/fanisco))
-- docs: Documentation for hocs [#494](https://github.com/salute-developers/plasma/pull/494) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-ui): Picker focus / control remote [#494](https://github.com/salute-developers/plasma/pull/494) ([@fanisco](https://github.com/fanisco))
-- refactor(plasma-ui): Picker component refactor [#494](https://github.com/salute-developers/plasma/pull/494) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-web): Pass ids in Date&TimePicker [#494](https://github.com/salute-developers/plasma/pull/494) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-ui): Date&TimePicker rest attributes on wrapper [#494](https://github.com/salute-developers/plasma/pull/494) ([@fanisco](https://github.com/fanisco))
-- docs: plasma-ui disable autofocus for time picker [#516](https://github.com/salute-developers/plasma/pull/516) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
-- docs: fix time picker docs [#516](https://github.com/salute-developers/plasma/pull/516) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
-- docs: add documentation for environment [#480](https://github.com/salute-developers/plasma/pull/480) ([@OgNellis](https://github.com/OgNellis))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore: Alias react, react-dom and styled-components in Storybook webpack [#518](https://github.com/salute-developers/plasma/pull/518) ([@fanisco](https://github.com/fanisco))
-- chore: Bump Storybook version [#518](https://github.com/salute-developers/plasma/pull/518) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-ui): Header back button position [#517](https://github.com/salute-developers/plasma/pull/517) ([@fanisco](https://github.com/fanisco))
+-   docs: Documentation for hocs [#494](https://github.com/salute-developers/plasma/pull/494) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-ui): Picker focus / control remote [#494](https://github.com/salute-developers/plasma/pull/494) ([@fanisco](https://github.com/fanisco))
+-   refactor(plasma-ui): Picker component refactor [#494](https://github.com/salute-developers/plasma/pull/494) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-web): Pass ids in Date&TimePicker [#494](https://github.com/salute-developers/plasma/pull/494) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-ui): Date&TimePicker rest attributes on wrapper [#494](https://github.com/salute-developers/plasma/pull/494) ([@fanisco](https://github.com/fanisco))
+-   docs: plasma-ui disable autofocus for time picker [#516](https://github.com/salute-developers/plasma/pull/516) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   docs: fix time picker docs [#516](https://github.com/salute-developers/plasma/pull/516) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   docs: add documentation for environment [#480](https://github.com/salute-developers/plasma/pull/480) ([@OgNellis](https://github.com/OgNellis))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: Alias react, react-dom and styled-components in Storybook webpack [#518](https://github.com/salute-developers/plasma/pull/518) ([@fanisco](https://github.com/fanisco))
+-   chore: Bump Storybook version [#518](https://github.com/salute-developers/plasma/pull/518) ([@fanisco](https://github.com/fanisco))
 
 #### 📝 Documentation
 
-- chore(plasma-ui): Change deviceKind through get param in iframe [#500](https://github.com/salute-developers/plasma/pull/500) ([@fanisco](https://github.com/fanisco))
+-   chore(plasma-ui): Change deviceKind through get param in iframe [#500](https://github.com/salute-developers/plasma/pull/500) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 4
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
-- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+-   Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3809,11 +3785,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3821,18 +3797,18 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): commas change [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
-- fix(plasma-ui): favicon to png fix [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
-- fix(plasma-ui): safari bug fix [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
-- fix(plasma-ui): fix missed bracket [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
-- fix(plasma-ui): favicon bug fix [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
-- fix(plasma-ui): favicon added [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): commas change [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-ui): favicon to png fix [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-ui): safari bug fix [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-ui): fix missed bracket [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-ui): favicon bug fix [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-ui): favicon added [#479](https://github.com/salute-developers/plasma/pull/479) ([@kayman233](https://github.com/kayman233))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3840,18 +3816,18 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Radio type in trigger [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
-- fix: TextField placeholder placement [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
-- fix: Build components with own namespace es/cjs [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
-- fix: TextField helperText to boolean [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
-- fix: Checkbox layout with various content [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
-- fix: Input interface and props [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): Radio type in trigger [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
+-   fix: TextField placeholder placement [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
+-   fix: Build components with own namespace es/cjs [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
+-   fix: TextField helperText to boolean [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
+-   fix: Checkbox layout with various content [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
+-   fix: Input interface and props [#463](https://github.com/salute-developers/plasma/pull/463) ([@fanisco](https://github.com/fanisco))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil' Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3859,16 +3835,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): no-select mixin lint error fix [#462](https://github.com/salute-developers/plasma/pull/462) ([@kayman233](https://github.com/kayman233))
-- fix(plasma-ui): no-select mixin in plasma-core [#462](https://github.com/salute-developers/plasma/pull/462) ([@kayman233](https://github.com/kayman233))
-- fix(plasma-ui): no-select mixin added [#462](https://github.com/salute-developers/plasma/pull/462) ([@kayman233](https://github.com/kayman233))
-- fix(plasma-ui): text selection fixed [#462](https://github.com/salute-developers/plasma/pull/462) ([@kayman233](https://github.com/kayman233))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): no-select mixin lint error fix [#462](https://github.com/salute-developers/plasma/pull/462) ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-ui): no-select mixin in plasma-core [#462](https://github.com/salute-developers/plasma/pull/462) ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-ui): no-select mixin added [#462](https://github.com/salute-developers/plasma/pull/462) ([@kayman233](https://github.com/kayman233))
+-   fix(plasma-ui): text selection fixed [#462](https://github.com/salute-developers/plasma/pull/462) ([@kayman233](https://github.com/kayman233))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3876,15 +3852,15 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- docs(plasma-ui): repository link added [#447](https://github.com/salute-developers/plasma/pull/447) ([@kayman233](https://github.com/kayman233))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
-- ci: setup jest [#466](https://github.com/salute-developers/plasma/pull/466) ([@Yeti-or](https://github.com/Yeti-or))
+-   docs(plasma-ui): repository link added [#447](https://github.com/salute-developers/plasma/pull/447) ([@kayman233](https://github.com/kayman233))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   ci: setup jest [#466](https://github.com/salute-developers/plasma/pull/466) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 3
 
-- [@kayman233](https://github.com/kayman233)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@kayman233](https://github.com/kayman233)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -3892,11 +3868,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): PickerItem sizes [#458](https://github.com/salute-developers/plasma/pull/458) ([@OgNellis](https://github.com/OgNellis))
+-   fix(plasma-ui): PickerItem sizes [#458](https://github.com/salute-developers/plasma/pull/458) ([@OgNellis](https://github.com/OgNellis))
 
 #### Authors: 1
 
-- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+-   Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
 
 ---
 
@@ -3904,17 +3880,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-tokens): Updated tokens from plasma-styles [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-tokens): Updated tokens from plasma-styles [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- chore: Added favicon for storybooks [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
-- docs: ThemeColors in both libraries [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
-- docs(plasma-web): Added Grid docs [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
+-   chore: Added favicon for storybooks [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
+-   docs: ThemeColors in both libraries [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
+-   docs(plasma-web): Added Grid docs [#455](https://github.com/salute-developers/plasma/pull/455) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3922,11 +3898,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- feat(plasma-core, plasma-ui, plasma-web): Reassembled Field [#438](https://github.com/salute-developers/plasma/pull/438) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-core, plasma-ui, plasma-web): Reassembled Field [#438](https://github.com/salute-developers/plasma/pull/438) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -3934,11 +3910,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3946,11 +3922,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3958,11 +3934,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3970,11 +3946,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -3982,20 +3958,20 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat: switchable month name format in DatePicker [#392](https://github.com/salute-developers/plasma/pull/392) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
-- feat: short month name in datepicker [#392](https://github.com/salute-developers/plasma/pull/392) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   feat: switchable month name format in DatePicker [#392](https://github.com/salute-developers/plasma/pull/392) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   feat: short month name in datepicker [#392](https://github.com/salute-developers/plasma/pull/392) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
 
 #### 🐛 Bug Fix
 
-- refactor: change style of default options checking in DatePicker [#392](https://github.com/salute-developers/plasma/pull/392) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
-- refactor: remove unimportant check from getFormatterKey [#392](https://github.com/salute-developers/plasma/pull/392) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
-- refactor: unified options getting in DatePicker [#392](https://github.com/salute-developers/plasma/pull/392) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   refactor: change style of default options checking in DatePicker [#392](https://github.com/salute-developers/plasma/pull/392) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   refactor: remove unimportant check from getFormatterKey [#392](https://github.com/salute-developers/plasma/pull/392) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   refactor: unified options getting in DatePicker [#392](https://github.com/salute-developers/plasma/pull/392) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
 
 ---
 
@@ -4003,11 +3979,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -4015,11 +3991,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -4027,20 +4003,20 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat: es module build for plasma-tokens [#341](https://github.com/salute-developers/plasma/pull/341) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
-- feat: add es module exports for plasma-ui [#341](https://github.com/salute-developers/plasma/pull/341) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   feat: es module build for plasma-tokens [#341](https://github.com/salute-developers/plasma/pull/341) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   feat: add es module exports for plasma-ui [#341](https://github.com/salute-developers/plasma/pull/341) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
 
 #### 🐛 Bug Fix
 
-- fix: es module import in CarouselCol [#341](https://github.com/salute-developers/plasma/pull/341) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
-- fix: all at once exports [#341](https://github.com/salute-developers/plasma/pull/341) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
-- chore: update plasma-core version for plasma-ui [#341](https://github.com/salute-developers/plasma/pull/341) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix: es module import in CarouselCol [#341](https://github.com/salute-developers/plasma/pull/341) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   fix: all at once exports [#341](https://github.com/salute-developers/plasma/pull/341) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   chore: update plasma-core version for plasma-ui [#341](https://github.com/salute-developers/plasma/pull/341) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
 
 ---
 
@@ -4048,11 +4024,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -4060,13 +4036,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui) Add Huawei TV UA [#403](https://github.com/salute-developers/plasma/pull/403) ([@SemyonMakhaev](https://github.com/SemyonMakhaev))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui) Add Huawei TV UA [#403](https://github.com/salute-developers/plasma/pull/403) ([@SemyonMakhaev](https://github.com/SemyonMakhaev))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Махаев Семён ([@SemyonMakhaev](https://github.com/SemyonMakhaev))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Махаев Семён ([@SemyonMakhaev](https://github.com/SemyonMakhaev))
 
 ---
 
@@ -4074,17 +4050,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Increase Picker performance with preset item styles [#389](https://github.com/salute-developers/plasma/pull/389) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): Increase Picker performance with preset item styles [#389](https://github.com/salute-developers/plasma/pull/389) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): Disabled animation in Picker in first render [#389](https://github.com/salute-developers/plasma/pull/389) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-core, plasma-ui, plasma-web): Moved PaginationDots to core [#389](https://github.com/salute-developers/plasma/pull/389) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-core, plasma-ui, plasma-web): Moved Carousel to core [#389](https://github.com/salute-developers/plasma/pull/389) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-ui): Disabled animation in Picker in first render [#389](https://github.com/salute-developers/plasma/pull/389) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-core, plasma-ui, plasma-web): Moved PaginationDots to core [#389](https://github.com/salute-developers/plasma/pull/389) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-core, plasma-ui, plasma-web): Moved Carousel to core [#389](https://github.com/salute-developers/plasma/pull/389) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4092,11 +4068,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -4104,13 +4080,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): fix simultaneous src&placeholder display [#390](https://github.com/salute-developers/plasma/pull/390) ([@ayymkozb](https://github.com/ayymkozb))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   fix(plasma-ui): fix simultaneous src&placeholder display [#390](https://github.com/salute-developers/plasma/pull/390) ([@ayymkozb](https://github.com/ayymkozb))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@ayymkozb](https://github.com/ayymkozb)
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@ayymkozb](https://github.com/ayymkozb)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -4118,13 +4094,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- feat(plasma-core, plasma-ui): Moved Spinner to core [#326](https://github.com/salute-developers/plasma/pull/326) (prokopyevviktor@yandex.ru)
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   feat(plasma-core, plasma-ui): Moved Spinner to core [#326](https://github.com/salute-developers/plasma/pull/326) (prokopyevviktor@yandex.ru)
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Viktor Prokopyev (prokopyevviktor@yandex.ru)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Viktor Prokopyev (prokopyevviktor@yandex.ru)
 
 ---
 
@@ -4132,11 +4108,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -4144,15 +4120,15 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix: exclude description from Basebox in plasma-ui [#347](https://github.com/salute-developers/plasma/pull/347) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
-- chore: update package-locks [#344](https://github.com/salute-developers/plasma/pull/344) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
-- chore: soft peerDependencies only [#344](https://github.com/salute-developers/plasma/pull/344) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   fix: exclude description from Basebox in plasma-ui [#347](https://github.com/salute-developers/plasma/pull/347) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   chore: update package-locks [#344](https://github.com/salute-developers/plasma/pull/344) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   chore: soft peerDependencies only [#344](https://github.com/salute-developers/plasma/pull/344) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
 
 ---
 
@@ -4160,11 +4136,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 1
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
 
 ---
 
@@ -4172,16 +4148,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-core): Added applyEllipsis mixin [#348](https://github.com/salute-developers/plasma/pull/348) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-core): Added applyEllipsis mixin [#348](https://github.com/salute-developers/plasma/pull/348) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
+-   {chore: update package-locks \[skip ci\]} ([@Salute-Eva](https://github.com/Salute-Eva))
 
 #### Authors: 2
 
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4189,15 +4165,15 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- feat(plasma-core, plasma-ui, plasma-ui): Moved Image component [#342](https://github.com/salute-developers/plasma/pull/342) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-core, plasma-ui, plasma-ui): Moved Price component [#342](https://github.com/salute-developers/plasma/pull/342) ([@fanisco](https://github.com/fanisco))
-- build: fix package-locks [#337](https://github.com/salute-developers/plasma/pull/337) ([@Yeti-or](https://github.com/Yeti-or))
-- docs: fix grid misspell [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yeti-or](https://github.com/Yeti-or))
+-   feat(plasma-core, plasma-ui, plasma-ui): Moved Image component [#342](https://github.com/salute-developers/plasma/pull/342) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-core, plasma-ui, plasma-ui): Moved Price component [#342](https://github.com/salute-developers/plasma/pull/342) ([@fanisco](https://github.com/fanisco))
+-   build: fix package-locks [#337](https://github.com/salute-developers/plasma/pull/337) ([@Yeti-or](https://github.com/Yeti-or))
+-   docs: fix grid misspell [#336](https://github.com/salute-developers/plasma/pull/336) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -4205,11 +4181,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Add new scrollAlign values for Carousel [#317](https://github.com/salute-developers/plasma/pull/317) (nicolai.v.95@gmail.com)
+-   feat(plasma-ui): Add new scrollAlign values for Carousel [#317](https://github.com/salute-developers/plasma/pull/317) (nicolai.v.95@gmail.com)
 
 #### Authors: 1
 
-- nsvoevodin (nicolai.v.95@gmail.com)
+-   nsvoevodin (nicolai.v.95@gmail.com)
 
 ---
 
@@ -4217,16 +4193,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- docs(plasma-ui): Linked doc for plasma-tokens and added information about font [#324](https://github.com/salute-developers/plasma/pull/324) ([@fanisco](https://github.com/fanisco))
+-   docs(plasma-ui): Linked doc for plasma-tokens and added information about font [#324](https://github.com/salute-developers/plasma/pull/324) ([@fanisco](https://github.com/fanisco))
 
 #### ⚠️ Pushed to `master`
 
-- {chore: update package-locks} ([@github-actions[bot]](https://github.com/github-actions[bot]))
+-   {chore: update package-locks} ([@github-actions[bot]](https://github.com/github-actions[bot]))
 
 #### Authors: 2
 
-- [@github-actions[bot]](https://github.com/github-actions[bot])
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@github-actions[bot]](https://github.com/github-actions[bot])
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4234,11 +4210,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): DatePicker: fix 30-31 february [#322](https://github.com/salute-developers/plasma/pull/322) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-ui): DatePicker: fix 30-31 february [#322](https://github.com/salute-developers/plasma/pull/322) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4246,11 +4222,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): update @storybook/react version [#323](https://github.com/salute-developers/plasma/pull/323) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
+-   fix(plasma-ui): update @storybook/react version [#323](https://github.com/salute-developers/plasma/pull/323) ([@VladislavPetyukevich](https://github.com/VladislavPetyukevich))
 
 #### Authors: 1
 
-- [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
+-   [@VladislavPetyukevich](https://github.com/VladislavPetyukevich)
 
 ---
 
@@ -4258,21 +4234,21 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): TimePicker: values interval [#300](https://github.com/salute-developers/plasma/pull/300) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-ui): Date/TimePicker control by keyboard/remote [#300](https://github.com/salute-developers/plasma/pull/300) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-ui): TimePicker / DatePicker: l and s sizes for both components [#300](https://github.com/salute-developers/plasma/pull/300) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): TimePicker: values interval [#300](https://github.com/salute-developers/plasma/pull/300) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): Date/TimePicker control by keyboard/remote [#300](https://github.com/salute-developers/plasma/pull/300) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): TimePicker / DatePicker: l and s sizes for both components [#300](https://github.com/salute-developers/plasma/pull/300) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- docs(plasma-ui): remove docz [#304](https://github.com/salute-developers/plasma/pull/304) ([@OgNellis](https://github.com/OgNellis))
-- perf(plasma-ui): Picker: prevent form unnecessary onChange call [#300](https://github.com/salute-developers/plasma/pull/300) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-ui): Picker disabled state [#300](https://github.com/salute-developers/plasma/pull/300) ([@fanisco](https://github.com/fanisco))
-- fix(plasma-ui): Date/TimePickers controls [#300](https://github.com/salute-developers/plasma/pull/300) ([@fanisco](https://github.com/fanisco))
+-   docs(plasma-ui): remove docz [#304](https://github.com/salute-developers/plasma/pull/304) ([@OgNellis](https://github.com/OgNellis))
+-   perf(plasma-ui): Picker: prevent form unnecessary onChange call [#300](https://github.com/salute-developers/plasma/pull/300) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-ui): Picker disabled state [#300](https://github.com/salute-developers/plasma/pull/300) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-ui): Date/TimePickers controls [#300](https://github.com/salute-developers/plasma/pull/300) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 2
 
-- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4280,11 +4256,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui, plasma-web): Badge: correct reexport & const creation [#313](https://github.com/salute-developers/plasma/pull/313) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-ui, plasma-web): Badge: correct reexport & const creation [#313](https://github.com/salute-developers/plasma/pull/313) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4292,11 +4268,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): fix detection Huawei TV [#312](https://github.com/salute-developers/plasma/pull/312) ([@OgNellis](https://github.com/OgNellis))
+-   fix(plasma-ui): fix detection Huawei TV [#312](https://github.com/salute-developers/plasma/pull/312) ([@OgNellis](https://github.com/OgNellis))
 
 #### Authors: 1
 
-- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+-   Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
 
 ---
 
@@ -4304,11 +4280,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(core): made reexport in ui & web, added showcase for web [#308](https://github.com/salute-developers/plasma/pull/308) (prokopyevviktor@yandex.ru)
+-   feat(core): made reexport in ui & web, added showcase for web [#308](https://github.com/salute-developers/plasma/pull/308) (prokopyevviktor@yandex.ru)
 
 #### Authors: 1
 
-- Viktor Prokopyev (prokopyevviktor@yandex.ru)
+-   Viktor Prokopyev (prokopyevviktor@yandex.ru)
 
 ---
 
@@ -4316,17 +4292,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat: Moved Typography to plasma-core / plasma-web [#280](https://github.com/salute-developers/plasma/pull/280) ([@fanisco](https://github.com/fanisco))
+-   feat: Moved Typography to plasma-core / plasma-web [#280](https://github.com/salute-developers/plasma/pull/280) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui, plasma-web): Fix setting props in TextField & TextArea [#299](https://github.com/salute-developers/plasma/pull/299) ([@LamaEats](https://github.com/LamaEats))
-- fix(plasma-ui, plasma-web): Added SC babel plugin to avoid classname collision [#280](https://github.com/salute-developers/plasma/pull/280) ([@fanisco](https://github.com/fanisco))
+-   fix(plasma-ui, plasma-web): Fix setting props in TextField & TextArea [#299](https://github.com/salute-developers/plasma/pull/299) ([@LamaEats](https://github.com/LamaEats))
+-   fix(plasma-ui, plasma-web): Added SC babel plugin to avoid classname collision [#280](https://github.com/salute-developers/plasma/pull/280) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 2
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
-- Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Sviridov Maksim ([@LamaEats](https://github.com/LamaEats))
 
 ---
 
@@ -4334,11 +4310,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix: bump peerDeps [#307](https://github.com/salute-developers/plasma/pull/307) ([@Yeti-or](https://github.com/Yeti-or))
+-   fix: bump peerDeps [#307](https://github.com/salute-developers/plasma/pull/307) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 1
 
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -4346,11 +4322,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(ui): Add base to props in Image component [#298](https://github.com/salute-developers/plasma/pull/298) ([@ayymkozb](https://github.com/ayymkozb))
+-   feat(ui): Add base to props in Image component [#298](https://github.com/salute-developers/plasma/pull/298) ([@ayymkozb](https://github.com/ayymkozb))
 
 #### Authors: 1
 
-- [@ayymkozb](https://github.com/ayymkozb)
+-   [@ayymkozb](https://github.com/ayymkozb)
 
 ---
 
@@ -4358,11 +4334,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(plasma-ui): missing root exports for Image & Marquee [#292](https://github.com/salute-developers/plasma/pull/292) ([@OgNellis](https://github.com/OgNellis))
+-   fix(plasma-ui): missing root exports for Image & Marquee [#292](https://github.com/salute-developers/plasma/pull/292) ([@OgNellis](https://github.com/OgNellis))
 
 #### Authors: 1
 
-- Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
+-   Artem Feoktistov ([@OgNellis](https://github.com/OgNellis))
 
 ---
 
@@ -4370,23 +4346,23 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): Marquee: animation duration prop ([@ayymkozb](https://github.com/ayymkozb))
-- feat(plasma-ui): TimePicker: correct min and max behavior [#269](https://github.com/salute-developers/plasma/pull/269) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-ui): Carousel: dynamic options list refresh [#269](https://github.com/salute-developers/plasma/pull/269) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): Marquee: animation duration prop ([@ayymkozb](https://github.com/ayymkozb))
+-   feat(plasma-ui): TimePicker: correct min and max behavior [#269](https://github.com/salute-developers/plasma/pull/269) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): Carousel: dynamic options list refresh [#269](https://github.com/salute-developers/plasma/pull/269) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
-- Bump independent versions \[skip ci\] ([@Yeti-or](https://github.com/Yeti-or))
-- Update CHANGELOG.md \[skip ci\] ([@Yeti-or](https://github.com/Yeti-or))
+-   Bump independent versions \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Update CHANGELOG.md \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+-   Bump independent versions \[skip ci\] ([@Yeti-or](https://github.com/Yeti-or))
+-   Update CHANGELOG.md \[skip ci\] ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 4
 
-- [@ayymkozb](https://github.com/ayymkozb)
-- [@Salute-Eva](https://github.com/Salute-Eva)
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@ayymkozb](https://github.com/ayymkozb)
+-   [@Salute-Eva](https://github.com/Salute-Eva)
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -4394,18 +4370,18 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(plasma-ui): TimePicker: correct min and max behavior [#269](https://github.com/salute-developers/plasma/pull/269) ([@fanisco](https://github.com/fanisco))
-- feat(plasma-ui): Carousel: dynamic options list refresh [#269](https://github.com/salute-developers/plasma/pull/269) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): TimePicker: correct min and max behavior [#269](https://github.com/salute-developers/plasma/pull/269) ([@fanisco](https://github.com/fanisco))
+-   feat(plasma-ui): Carousel: dynamic options list refresh [#269](https://github.com/salute-developers/plasma/pull/269) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- Bump independent versions \[skip ci\] ([@Yeti-or](https://github.com/Yeti-or))
-- Update CHANGELOG.md \[skip ci\] ([@Yeti-or](https://github.com/Yeti-or))
+-   Bump independent versions \[skip ci\] ([@Yeti-or](https://github.com/Yeti-or))
+-   Update CHANGELOG.md \[skip ci\] ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -4413,12 +4389,12 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix: plasma doc before major [#279](https://github.com/salute-developers/plasma/pull/279) ([@Yeti-or](https://github.com/Yeti-or))
-- build(plasma-ui): move files [#279](https://github.com/salute-developers/plasma/pull/279) ([@Yeti-or](https://github.com/Yeti-or))
+-   fix: plasma doc before major [#279](https://github.com/salute-developers/plasma/pull/279) ([@Yeti-or](https://github.com/Yeti-or))
+-   build(plasma-ui): move files [#279](https://github.com/salute-developers/plasma/pull/279) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 1
 
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -4426,25 +4402,25 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(ui): Доработана докуменация по Card [#58](https://github.com/salute-developers/plasma/pull/58) ([@fanisco](https://github.com/fanisco))
-- feat(icon): Добавлены новые иконки xs:16 & s:24 [#57](https://github.com/salute-developers/plasma/pull/57) ([@Yeti-or](https://github.com/Yeti-or))
+-   feat(ui): Доработана докуменация по Card [#58](https://github.com/salute-developers/plasma/pull/58) ([@fanisco](https://github.com/fanisco))
+-   feat(icon): Добавлены новые иконки xs:16 & s:24 [#57](https://github.com/salute-developers/plasma/pull/57) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### 🐛 Bug Fix
 
-- chore: updated lock files [#62](https://github.com/salute-developers/plasma/pull/62) ([@Yeti-or](https://github.com/Yeti-or))
-- build: запускать сборку доки с ts3.5.3 [#62](https://github.com/salute-developers/plasma/pull/62) ([@Yeti-or](https://github.com/Yeti-or))
-- build(ui): ts ломает сборку доки [#57](https://github.com/salute-developers/plasma/pull/57) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: правки после рефакторинга [#57](https://github.com/salute-developers/plasma/pull/57) ([@IgorAntonov](https://github.com/IgorAntonov))
-- chore: Удалены стори и дока для Cart [#57](https://github.com/salute-developers/plasma/pull/57) ([@IgorAntonov](https://github.com/IgorAntonov))
-- fix: компонент Input [#57](https://github.com/salute-developers/plasma/pull/57) ([@IgorAntonov](https://github.com/IgorAntonov))
-- fix: remove old icons from components [#57](https://github.com/salute-developers/plasma/pull/57) ([@IgorAntonov](https://github.com/IgorAntonov))
-- refactor: new icons [#57](https://github.com/salute-developers/plasma/pull/57) ([@IgorAntonov](https://github.com/IgorAntonov))
+-   chore: updated lock files [#62](https://github.com/salute-developers/plasma/pull/62) ([@Yeti-or](https://github.com/Yeti-or))
+-   build: запускать сборку доки с ts3.5.3 [#62](https://github.com/salute-developers/plasma/pull/62) ([@Yeti-or](https://github.com/Yeti-or))
+-   build(ui): ts ломает сборку доки [#57](https://github.com/salute-developers/plasma/pull/57) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: правки после рефакторинга [#57](https://github.com/salute-developers/plasma/pull/57) ([@IgorAntonov](https://github.com/IgorAntonov))
+-   chore: Удалены стори и дока для Cart [#57](https://github.com/salute-developers/plasma/pull/57) ([@IgorAntonov](https://github.com/IgorAntonov))
+-   fix: компонент Input [#57](https://github.com/salute-developers/plasma/pull/57) ([@IgorAntonov](https://github.com/IgorAntonov))
+-   fix: remove old icons from components [#57](https://github.com/salute-developers/plasma/pull/57) ([@IgorAntonov](https://github.com/IgorAntonov))
+-   refactor: new icons [#57](https://github.com/salute-developers/plasma/pull/57) ([@IgorAntonov](https://github.com/IgorAntonov))
 
 #### Authors: 3
 
-- [@IgorAntonov](https://github.com/IgorAntonov)
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@IgorAntonov](https://github.com/IgorAntonov)
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -4452,20 +4428,20 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(ui): Добавлена карточка в сторибук и докзи [#51](https://github.com/salute-developers/plasma/pull/51) ([@fanisco](https://github.com/fanisco))
+-   feat(ui): Добавлена карточка в сторибук и докзи [#51](https://github.com/salute-developers/plasma/pull/51) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- docs(ui): fix links and stuff [#46](https://github.com/salute-developers/plasma/pull/46) ([@Yeti-or](https://github.com/Yeti-or))
-- chore(ui): more cleanup [#46](https://github.com/salute-developers/plasma/pull/46) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: cleanup [#46](https://github.com/salute-developers/plasma/pull/46) ([@Yeti-or](https://github.com/Yeti-or))
-- docs: Обновить документацию [#46](https://github.com/salute-developers/plasma/pull/46) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: storybook: поправить глобальные стили [#46](https://github.com/salute-developers/plasma/pull/46) ([@Yeti-or](https://github.com/Yeti-or))
+-   docs(ui): fix links and stuff [#46](https://github.com/salute-developers/plasma/pull/46) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore(ui): more cleanup [#46](https://github.com/salute-developers/plasma/pull/46) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: cleanup [#46](https://github.com/salute-developers/plasma/pull/46) ([@Yeti-or](https://github.com/Yeti-or))
+-   docs: Обновить документацию [#46](https://github.com/salute-developers/plasma/pull/46) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: storybook: поправить глобальные стили [#46](https://github.com/salute-developers/plasma/pull/46) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -4473,13 +4449,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(ui): Добавлены компоненты TextBox & Cell [#47](https://github.com/salute-developers/plasma/pull/47) ([@Yeti-or](https://github.com/Yeti-or))
-- feat(ui): add Cell component [#47](https://github.com/salute-developers/plasma/pull/47) ([@IgorAntonov](https://github.com/IgorAntonov))
+-   feat(ui): Добавлены компоненты TextBox & Cell [#47](https://github.com/salute-developers/plasma/pull/47) ([@Yeti-or](https://github.com/Yeti-or))
+-   feat(ui): add Cell component [#47](https://github.com/salute-developers/plasma/pull/47) ([@IgorAntonov](https://github.com/IgorAntonov))
 
 #### Authors: 2
 
-- [@IgorAntonov](https://github.com/IgorAntonov)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@IgorAntonov](https://github.com/IgorAntonov)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -4487,16 +4463,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(ui): Удален Card.stories [#45](https://github.com/salute-developers/plasma/pull/45) ([@fanisco](https://github.com/fanisco))
-- feat(ui): Скрыт ScrollList [#45](https://github.com/salute-developers/plasma/pull/45) ([@fanisco](https://github.com/fanisco))
-- feat(ui): Удален LooneyTunes [#45](https://github.com/salute-developers/plasma/pull/45) ([@fanisco](https://github.com/fanisco))
-- feat(ui): Доработаны Input, Field (TextField) [#45](https://github.com/salute-developers/plasma/pull/45) ([@fanisco](https://github.com/fanisco))
-- feat(ui): Доработан Button [#45](https://github.com/salute-developers/plasma/pull/45) ([@fanisco](https://github.com/fanisco))
-- feat(ui): Доработан Badge [#45](https://github.com/salute-developers/plasma/pull/45) ([@fanisco](https://github.com/fanisco))
+-   feat(ui): Удален Card.stories [#45](https://github.com/salute-developers/plasma/pull/45) ([@fanisco](https://github.com/fanisco))
+-   feat(ui): Скрыт ScrollList [#45](https://github.com/salute-developers/plasma/pull/45) ([@fanisco](https://github.com/fanisco))
+-   feat(ui): Удален LooneyTunes [#45](https://github.com/salute-developers/plasma/pull/45) ([@fanisco](https://github.com/fanisco))
+-   feat(ui): Доработаны Input, Field (TextField) [#45](https://github.com/salute-developers/plasma/pull/45) ([@fanisco](https://github.com/fanisco))
+-   feat(ui): Доработан Button [#45](https://github.com/salute-developers/plasma/pull/45) ([@fanisco](https://github.com/fanisco))
+-   feat(ui): Доработан Badge [#45](https://github.com/salute-developers/plasma/pull/45) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4504,12 +4480,12 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(ui): Перевел сетку на rem-ы [#43](https://github.com/salute-developers/plasma/pull/43) ([@fanisco](https://github.com/fanisco))
-- feat(ui): В сторибук заменены вьюпорты на родные для сетки [#43](https://github.com/salute-developers/plasma/pull/43) ([@fanisco](https://github.com/fanisco))
+-   feat(ui): Перевел сетку на rem-ы [#43](https://github.com/salute-developers/plasma/pull/43) ([@fanisco](https://github.com/fanisco))
+-   feat(ui): В сторибук заменены вьюпорты на родные для сетки [#43](https://github.com/salute-developers/plasma/pull/43) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4517,13 +4493,13 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix(ui): исправление storybook под rem-ы [#36](https://github.com/salute-developers/plasma/pull/36) ([@fanisco](https://github.com/fanisco))
-- chore(ui): add missing deps to useCb [#38](https://github.com/salute-developers/plasma/pull/38) ([@Yeti-or](https://github.com/Yeti-or))
+-   fix(ui): исправление storybook под rem-ы [#36](https://github.com/salute-developers/plasma/pull/36) ([@fanisco](https://github.com/fanisco))
+-   chore(ui): add missing deps to useCb [#38](https://github.com/salute-developers/plasma/pull/38) ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -4531,11 +4507,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(ui): Переход на общий фокус-миксин [#33](https://github.com/salute-developers/plasma/pull/33) ([@fanisco](https://github.com/fanisco))
+-   feat(ui): Переход на общий фокус-миксин [#33](https://github.com/salute-developers/plasma/pull/33) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4543,21 +4519,21 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(ui): Добавить шаг prepare/build в публикацию [#34](https://github.com/salute-developers/plasma/pull/34) ([@IgorAntonov](https://github.com/IgorAntonov))
+-   feat(ui): Добавить шаг prepare/build в публикацию [#34](https://github.com/salute-developers/plasma/pull/34) ([@IgorAntonov](https://github.com/IgorAntonov))
 
 #### 🐛 Bug Fix
 
-- refactor(ui): fix another lint errors [#26](https://github.com/salute-developers/plasma/pull/26) ([@IgorAntonov](https://github.com/IgorAntonov))
-- refactor(ui): fix lint errors [#26](https://github.com/salute-developers/plasma/pull/26) ([@IgorAntonov](https://github.com/IgorAntonov))
-- ci: bump locks \[skip ci\] [#34](https://github.com/salute-developers/plasma/pull/34) ([@Yeti-or](https://github.com/Yeti-or))
-- chore: change logo image for docs/storybook [#32](https://github.com/salute-developers/plasma/pull/32) ([@IgorAntonov](https://github.com/IgorAntonov))
-- refactor(ui): format currency without package i18n [#32](https://github.com/salute-developers/plasma/pull/32) ([@IgorAntonov](https://github.com/IgorAntonov))
-- build: remove private packages from deps [#32](https://github.com/salute-developers/plasma/pull/32) ([@IgorAntonov](https://github.com/IgorAntonov))
+-   refactor(ui): fix another lint errors [#26](https://github.com/salute-developers/plasma/pull/26) ([@IgorAntonov](https://github.com/IgorAntonov))
+-   refactor(ui): fix lint errors [#26](https://github.com/salute-developers/plasma/pull/26) ([@IgorAntonov](https://github.com/IgorAntonov))
+-   ci: bump locks \[skip ci\] [#34](https://github.com/salute-developers/plasma/pull/34) ([@Yeti-or](https://github.com/Yeti-or))
+-   chore: change logo image for docs/storybook [#32](https://github.com/salute-developers/plasma/pull/32) ([@IgorAntonov](https://github.com/IgorAntonov))
+-   refactor(ui): format currency without package i18n [#32](https://github.com/salute-developers/plasma/pull/32) ([@IgorAntonov](https://github.com/IgorAntonov))
+-   build: remove private packages from deps [#32](https://github.com/salute-developers/plasma/pull/32) ([@IgorAntonov](https://github.com/IgorAntonov))
 
 #### Authors: 2
 
-- [@IgorAntonov](https://github.com/IgorAntonov)
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   [@IgorAntonov](https://github.com/IgorAntonov)
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -4565,16 +4541,16 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(ui): переработаны Button и ActionButton [#29](https://github.com/salute-developers/plasma/pull/29) ([@fanisco](https://github.com/fanisco))
+-   feat(ui): переработаны Button и ActionButton [#29](https://github.com/salute-developers/plasma/pull/29) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- docs(ui): fix empty documentation [#30](https://github.com/salute-developers/plasma/pull/30) ([@IgorAntonov](https://github.com/IgorAntonov))
+-   docs(ui): fix empty documentation [#30](https://github.com/salute-developers/plasma/pull/30) ([@IgorAntonov](https://github.com/IgorAntonov))
 
 #### Authors: 2
 
-- [@IgorAntonov](https://github.com/IgorAntonov)
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   [@IgorAntonov](https://github.com/IgorAntonov)
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4582,11 +4558,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(ui): использование Button beforeFocusOutline [#22](https://github.com/salute-developers/plasma/pull/22) ([@fanisco](https://github.com/fanisco))
+-   feat(ui): использование Button beforeFocusOutline [#22](https://github.com/salute-developers/plasma/pull/22) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4594,19 +4570,19 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(ui): views вынесены в mixins [#17](https://github.com/salute-developers/plasma/pull/17) ([@fanisco](https://github.com/fanisco))
-- feat(ui): доработка Button API в рамках работы над Card [#1](https://github.com/salute-developers/plasma/pull/1) ([@fanisco](https://github.com/fanisco))
-- feat(ui): доработка Badge API в рамках работы над Card [#1](https://github.com/salute-developers/plasma/pull/1) ([@fanisco](https://github.com/fanisco))
-- feat(ui): доработка Card [#1](https://github.com/salute-developers/plasma/pull/1) ([@fanisco](https://github.com/fanisco))
+-   feat(ui): views вынесены в mixins [#17](https://github.com/salute-developers/plasma/pull/17) ([@fanisco](https://github.com/fanisco))
+-   feat(ui): доработка Button API в рамках работы над Card [#1](https://github.com/salute-developers/plasma/pull/1) ([@fanisco](https://github.com/fanisco))
+-   feat(ui): доработка Badge API в рамках работы над Card [#1](https://github.com/salute-developers/plasma/pull/1) ([@fanisco](https://github.com/fanisco))
+-   feat(ui): доработка Card [#1](https://github.com/salute-developers/plasma/pull/1) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- chore(ui): bump deps versions in lock [#1](https://github.com/salute-developers/plasma/pull/1) ([@fanisco](https://github.com/fanisco))
-- chore(ui): types, mixins [#1](https://github.com/salute-developers/plasma/pull/1) ([@fanisco](https://github.com/fanisco))
+-   chore(ui): bump deps versions in lock [#1](https://github.com/salute-developers/plasma/pull/1) ([@fanisco](https://github.com/fanisco))
+-   chore(ui): types, mixins [#1](https://github.com/salute-developers/plasma/pull/1) ([@fanisco](https://github.com/fanisco))
 
 #### Authors: 1
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
 
 ---
 
@@ -4614,11 +4590,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(ui): добавить иконки для новостей [#16](https://github.com/salute-developers/plasma/pull/16) ([@Alisa007](https://github.com/Alisa007))
+-   feat(ui): добавить иконки для новостей [#16](https://github.com/salute-developers/plasma/pull/16) ([@Alisa007](https://github.com/Alisa007))
 
 #### Authors: 1
 
-- [@Alisa007](https://github.com/Alisa007)
+-   [@Alisa007](https://github.com/Alisa007)
 
 ---
 
@@ -4626,17 +4602,17 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🚀 Enhancement
 
-- feat(ui): Размеры ячеек Col расчитываются исходя из размеров Container [#3](https://github.com/salute-developers/plasma/pull/3) ([@fanisco](https://github.com/fanisco))
+-   feat(ui): Размеры ячеек Col расчитываются исходя из размеров Container [#3](https://github.com/salute-developers/plasma/pull/3) ([@fanisco](https://github.com/fanisco))
 
 #### 🐛 Bug Fix
 
-- ci: add chromatic to ui [#9](https://github.com/salute-developers/plasma/pull/9) ([@Yeti-or](https://github.com/Yeti-or))
-- ci: add chromatic to ui ([@Yeti-or](https://github.com/Yeti-or))
+-   ci: add chromatic to ui [#9](https://github.com/salute-developers/plasma/pull/9) ([@Yeti-or](https://github.com/Yeti-or))
+-   ci: add chromatic to ui ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 2
 
-- Fanil Zubairov ([@fanisco](https://github.com/fanisco))
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Fanil Zubairov ([@fanisco](https://github.com/fanisco))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
 
 ---
 
@@ -4644,11 +4620,11 @@ feat(plasma-new-hope/b2c/web): redefining classnames for typography (https://git
 
 #### 🐛 Bug Fix
 
-- fix: license [#7](https://github.com/salute-developers/plasma/pull/7) ([@Yeti-or](https://github.com/Yeti-or))
-- fix: license ([@Yeti-or](https://github.com/Yeti-or))
-- fix(ui): url to repo [#6](https://github.com/salute-developers/plasma/pull/6) ([@Yeti-or](https://github.com/Yeti-or))
-- fix(ui): url to repo ([@Yeti-or](https://github.com/Yeti-or))
+-   fix: license [#7](https://github.com/salute-developers/plasma/pull/7) ([@Yeti-or](https://github.com/Yeti-or))
+-   fix: license ([@Yeti-or](https://github.com/Yeti-or))
+-   fix(ui): url to repo [#6](https://github.com/salute-developers/plasma/pull/6) ([@Yeti-or](https://github.com/Yeti-or))
+-   fix(ui): url to repo ([@Yeti-or](https://github.com/Yeti-or))
 
 #### Authors: 1
 
-- Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
+-   Vasiliy ([@Yeti-or](https://github.com/Yeti-or))
