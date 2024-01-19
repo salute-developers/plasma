@@ -18,7 +18,6 @@ export * from './components/PreviewGallery';
 export * from './components/Select';
 export * from './components/Switch';
 export * from './components/Slider';
-export * from './components/Tabs';
 export * from './components/TextArea';
 export * from './components/TextField';
 export * from './components/Typography';

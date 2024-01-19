@@ -53,7 +53,6 @@ import { ChangeEvent } from 'react';
 import { ClipboardEventHandler } from 'react';
 import type { ComponentType } from 'react';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
-import { createTabsController } from '@salutejs/plasma-core';
 import type { CSSObject } from 'styled-components';
 import { CSSProperties } from 'react';
 import type { DetailedHTMLProps } from 'react';
@@ -125,9 +124,6 @@ import { StyledComponent } from 'styled-components';
 import { SwitchProps } from '@salutejs/plasma-core';
 import type { SyntheticEvent } from 'react';
 import { syntheticFocus } from '@salutejs/plasma-core';
-import { TabItemProps as TabItemProps_2 } from '@salutejs/plasma-core';
-import { TabsControllerProps as TabsControllerProps_2 } from '@salutejs/plasma-core';
-import { TabsProps as TabsProps_2 } from '@salutejs/plasma-core';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
 import type { TextAreaProps as TextAreaProps_2 } from '@salutejs/plasma-core';
 import { TextareaResize } from '@salutejs/plasma-core';
@@ -432,8 +428,6 @@ export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export { convertRoundnessMatrix }
-
-export { createTabsController }
 
 // @public
 export const defaultValidate: (files: FileList | null, accept?: string | undefined) => ValidationResult;
@@ -992,35 +986,6 @@ export { SwitchProps }
 
 export { syntheticFocus }
 
-// Warning: (ae-forgotten-export) The symbol "Design_3" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const TabItem: ({ design }: Design_3) => StyledComponent<ForwardRefExoticComponent<TabItemProps_2 & RefAttributes<HTMLButtonElement>>, any, TabItemProps, never>;
-
-// @public (undocumented)
-export interface TabItemProps extends TabItemProps_2 {
-    // (undocumented)
-    animated?: boolean;
-}
-
-// @public (undocumented)
-export const Tabs: ({ design }: Design_3) => StyledComponent<ForwardRefExoticComponent<TabsProps_2 & RefAttributes<HTMLDivElement>>, any, TabsProps, never>;
-
-// @public (undocumented)
-export interface TabsControllerProps extends TabsControllerProps_2 {
-}
-
-// @public (undocumented)
-export interface TabsProps extends TabsProps_2 {
-    outsideScroll?: boolean | {
-        left?: string;
-        right?: string;
-    };
-    pilled?: boolean;
-    size?: 'l' | 's';
-    view?: 'secondary' | 'clear';
-}
-
 export { TextareaHTMLAttributes }
 
 // @public (undocumented)
@@ -1040,10 +1005,10 @@ export interface TextAreaProps extends Omit<TextAreaProps_2, 'size'> {
 
 export { TextareaResize }
 
-// Warning: (ae-forgotten-export) The symbol "Design_4" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "Design_3" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export const TextField: ({ design }: Design_4) => React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
+export const TextField: ({ design }: Design_3) => React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export interface TextFieldProps extends Omit<InputHTMLAttributes_2<HTMLInputElement>, 'size'> {
