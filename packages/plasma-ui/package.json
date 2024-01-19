@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-ui",
-  "version": "1.229.0-dev.0",
+  "version": "1.229.1-dev.0",
   "description": "Salute Design System.",
   "main": "index.js",
   "module": "es/index.js",
@@ -33,7 +33,7 @@
     "@babel/preset-react": "7.14.5",
     "@babel/preset-typescript": "7.15.0",
     "@salutejs/plasma-cy-utils": "0.77.0-dev.0",
-    "@salutejs/plasma-icons": "1.178.0-dev.0",
+    "@salutejs/plasma-icons": "1.178.1-dev.0",
     "@salutejs/plasma-sb-utils": "0.143.0-dev.0",
     "@salutejs/plasma-tokens": "1.69.0-dev.0",
     "@salutejs/use-virtual": "2.0.0",
