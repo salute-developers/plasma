@@ -75,7 +75,6 @@ import { ContainerProps } from '@salutejs/plasma-hope';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
-import { createTabsController } from '@salutejs/plasma-new-hope/styled-components';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { defaultValidate } from '@salutejs/plasma-hope';
@@ -205,7 +204,6 @@ import { TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
-import { TabsControllerProps as TabsControllerProps_2 } from '@salutejs/plasma-new-hope/types/components/Tabs/createTabsController';
 import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
 import { TextAreaProps } from '@salutejs/plasma-hope';
@@ -608,8 +606,6 @@ view?: string | undefined;
 export { CounterProps }
 
 export { counterTokens }
-
-export { createTabsController }
 
 export { defaultValidate }
 
@@ -1222,7 +1218,7 @@ export const Tabs: ForwardRefExoticComponent<AsProps<any> & HTMLAttributes<HTMLD
 export { TabsContext }
 
 // @public
-export const TabsController: ForwardRefExoticComponent<TabsControllerProps_2 & RefAttributes<HTMLDivElement>>;
+export const TabsController: ForwardRefExoticComponent<TabsControllerProps & RefAttributes<HTMLDivElement>>;
 
 export { TabsControllerProps }
 
