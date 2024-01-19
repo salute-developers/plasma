@@ -1,3 +1,18 @@
+# v1.177.1 (Fri Jan 19 2024)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-icons): fix package publish [#988](https://github.com/salute-developers/plasma/pull/988) ([@kayman233](https://github.com/kayman233))
+- fix(plasma-icons): fix package publish ([@kayman233](https://github.com/kayman233))
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.177.0 (Thu Jan 18 2024)
 
 ### Release Notes

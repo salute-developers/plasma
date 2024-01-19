@@ -1,3 +1,22 @@
+# (Fri Jan 19 2024)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-icons@1.177.1`
+  - fix(plasma-icons): fix package publish [#988](https://github.com/salute-developers/plasma/pull/988) ([@kayman233](https://github.com/kayman233))
+
+#### ⚠️ Pushed to `master`
+
+- `@salutejs/plasma-ui@1.228.1`, `@salutejs/plasma-web@1.271.1`
+  - chore: closed img tag [no ci] ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 2
+
+- [@kayman233](https://github.com/kayman233)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+
+---
+
 # (Thu Jan 18 2024)
 
 ### Release Notes
