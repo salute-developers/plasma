@@ -23,5 +23,5 @@ export default create({
     // Logo
     brandTitle: 'Plasma Caldera UI Kit',
     brandUrl: 'https://plasma.sberdevices.ru',
-    brandImage: `./images/plasma-logo.png`,
+    brandImage: `./images/caldera-logo.png`,
 });
