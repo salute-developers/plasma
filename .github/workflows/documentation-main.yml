@@ -87,6 +87,11 @@ jobs:
         run: |
           npm run storybook:build --prefix="./packages/caldera"
           cp -R ./packages/caldera/build-sb ./s3_build_sb/caldera-storybook
+
+      - name: Plasma "Classrooms" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/classrooms"
+          cp -R ./packages/classrooms/build-sb ./s3_build_sb/classrooms-storybook
           
       - name: Plasma Temple Storybook
         run: |
@@ -185,3 +190,18 @@ jobs:
           sync
           ./s3_build_sb/caldera-storybook/
           s3://${{ secrets.AWS_S3_BUCKET_2 }}/caldera-storybook/
+
+      - name: Upload to S3 storybook "Classrooms"
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/classrooms-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/classrooms-storybook/

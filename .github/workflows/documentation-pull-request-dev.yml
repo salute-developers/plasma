@@ -94,6 +94,11 @@ jobs:
           npm run storybook:build --prefix="./packages/caldera"
           cp -R ./packages/caldera/build-sb ./s3_build/${PR_NAME}/caldera-storybook
       
+      - name: Plasma "Classrooms" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/classrooms"
+          cp -R ./packages/classrooms/build-sb ./s3_build/${PR_NAME}/classrooms-storybook
+      
       - name: Install s3cmd
         run: pip3 install s3cmd
       
@@ -135,5 +140,6 @@ jobs:
               new-hope storybook: http://plasma.sberdevices.ru/pr/pr-${number}/new-hope-storybook/
               asdk storybook: http://plasma.sberdevices.ru/pr/pr-${number}/asdk-storybook/
               caldera storybook: http://plasma.sberdevices.ru/pr/pr-${number}/caldera-storybook/
+              classrooms storybook: http://plasma.sberdevices.ru/pr/pr-${number}/classrooms-storybook/
               `
             });

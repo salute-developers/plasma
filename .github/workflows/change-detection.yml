@@ -55,6 +55,9 @@ on:
       HAS_CALDERA:
         description: ""
         value: ${{ jobs.run.outputs.HAS_CALDERA }}
+      HAS_CLASSROOMS:
+        description: ""
+        value: ${{ jobs.run.outputs.HAS_CLASSROOMS }}
       HAS_ASSETS:
         description: ""
         value: ${{ jobs.run.outputs.HAS_ASSETS }}
@@ -78,6 +81,7 @@ jobs:
       HAS_PLASMA_HOPE: ${{ steps.set-output.outputs.HAS_PLASMA_HOPE }}
       HAS_PLASMA_ASDK: ${{ steps.set-output.outputs.HAS_PLASMA_ASDK }}
       HAS_CALDERA: ${{ steps.set-output.outputs.HAS_CALDERA }}
+      HAS_CLASSROOMS: ${{ steps.set-output.outputs.HAS_CLASSROOMS }}
       HAS_ASSETS: ${{ steps.set-output.outputs.HAS_ASSETS }}
       PACKAGES_ENUMERATION: ${{ steps.set-output.outputs.PACKAGES_ENUMERATION }}
 
@@ -130,6 +134,7 @@ jobs:
           echo "HAS_PLASMA_HOPE=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_HOPE }}" >> $GITHUB_OUTPUT
           echo "HAS_PLASMA_ASDK=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_ASDK }}" >> $GITHUB_OUTPUT
           echo "HAS_CALDERA=${{ fromJSON(steps.scope.outputs.result).HAS_CALDERA }}" >> $GITHUB_OUTPUT
+          echo "HAS_CLASSROOMS=${{ fromJSON(steps.scope.outputs.result).HAS_CLASSROOMS }}" >> $GITHUB_OUTPUT
           echo "HAS_ASSETS=${{ fromJSON(steps.scope.outputs.result).HAS_ASSETS }}" >> $GITHUB_OUTPUT
           echo "PACKAGES_ENUMERATION=${{ fromJSON(steps.scope.outputs.result).PACKAGES_ENUMERATION }}" >> $GITHUB_OUTPUT
 
