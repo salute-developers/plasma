@@ -44,6 +44,8 @@ const defaultComponentProps = {
 };
 
 export const Default = () => {
+    window.top;
+    // jhgj
     const args = defaultComponentProps;
     const [value, setValue] = React.useState(parseDateTime(args.initialValue));
     const min = React.useMemo(() => parseDateTime(args.minDate), [args.minDate]);
