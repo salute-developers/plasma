@@ -28,3 +28,4 @@ export * from './components/Badge';
 export * from './components/Counter';
 export * from './components/Avatar';
 export * from './components/AvatarGroup';
+export * from './components/Toast';
