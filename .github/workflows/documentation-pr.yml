@@ -174,6 +174,12 @@ jobs:
           npm run storybook:build --prefix="./packages/caldera"
           cp -R ./packages/caldera/build-sb ./s3_build/${PR_NAME}/caldera-storybook
       
+      - name: Plasma "Caldera-online" Storybook
+        if: ${{ needs.scope.outputs.HAS_CALDERA_ONLINE == 'true' }}
+        run: |
+          npm run storybook:build --prefix="./packages/caldera-online"
+          cp -R ./packages/caldera-online/build-sb ./s3_build/${PR_NAME}/caldera-online-storybook
+      
       - name: Install s3cmd
         run: pip3 install s3cmd
       
@@ -202,6 +208,7 @@ jobs:
           HAS_PLASMA_HOPE: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_HOPE) }}
           HAS_PLASMA_ASDK: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_ASDK) }}
           HAS_CALDERA: ${{ fromJSON(needs.scope.outputs.HAS_CALDERA) }}
+          HAS_CALDERA_ONLINE: ${{ fromJSON(needs.scope.outputs.HAS_CALDERA_ONLINE) }}
         with:
           github-token: ${{secrets.GH_TOKEN}}
           script: |
@@ -242,6 +249,10 @@ jobs:
 
             if (HAS_CALDERA === 'true') {
               links.push(`caldera storybook: http://plasma.sberdevices.ru/pr/pr-${number}/caldera-storybook/`)
+            }
+
+            if (HAS_CALDERA_ONLINE === 'true') {
+              links.push(`caldera-online storybook: http://plasma.sberdevices.ru/pr/pr-${number}/caldera-online-storybook/`)
             }
             
             github.rest.issues.createComment({
