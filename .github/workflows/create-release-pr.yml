@@ -1,3 +1,4 @@
+# Default based by dev branch
 name: Create release PR and generate changelog
 
 on:
@@ -25,6 +26,7 @@ jobs:
         run: |
           echo "DATE=$(date +'%d.%m.%Y')" >> $GITHUB_ENV
           echo "FROM_TAG=$(git merge-base --fork-point origin/master)" >> $GITHUB_ENV
+          echo "FILE=${{ github.workspace }}/changelog_artifacts.md" >> $GITHUB_ENV
       
       - name: Build Changelog
         id: github_release
@@ -34,22 +36,24 @@ jobs:
           configuration: "./.github/changelog-builder-config.json"
           
       - name: List pull request
-        run: echo "pull_requests -->${{ steps.github_release.outputs.pull_requests}}"
+        # List merged pull request into dev branch
+        run: echo "pull_requests --> ${{ steps.github_release.outputs.pull_requests }}"
       
       - name: Create "changelog_artifacts.md"
+        # Write multiple lines input stream
         run: |
-          cat > ${{ github.workspace }}/changelog_artifacts.md << EOL
-          `${{ steps.github_release.outputs.changelog }}`
-          EOL
-      
+          cat > ${{ env.FILE }} <<'EOF'
+          ${{ steps.github_release.outputs.changelog }}
+        
       - name: Upload "changelog_artifacts.md"
         uses: actions/upload-artifact@master
         with:
           name: release-changelog-artifacts
-          path: ${{ github.workspace }}/changelog_artifacts.md
+          path: ${{ env.FILE }}
       
       - name: Create release PR
         run: |
-          gh pr create --base master --head dev --title "Release by ${{ env.DATE }}" --body '# Release Notes
+          body='# Release Notes
           ${{ steps.github_release.outputs.changelog }}'
+          gh pr create --base master --head ${{ github.ref_name }} --title "Release by ${{ env.DATE }}" --body "$body"
 
