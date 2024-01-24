@@ -128,7 +128,7 @@ jobs:
       - name: Run performance test
         run: |
           cd current
-          npx perftool -v --baselineRefDir ../baseline -o perftest/pr-result.json --baselineOutputPath perftest/base-result.json --compareOutputPath perftest/comparison.json --baseBranchRef ${{ github.event.pull_request.base.sha }} --currentBranchRef ${{ github.event.pull_request.head.sha }}
+          npx perftool --baselineRefDir ../baseline -o perftest/pr-result.json --baselineOutputPath perftest/base-result.json --compareOutputPath perftest/comparison.json --baseBranchRef ${{ github.event.pull_request.base.sha }} --currentBranchRef ${{ github.event.pull_request.head.sha }}
 
       - name: Save perftool cache
         run: >
