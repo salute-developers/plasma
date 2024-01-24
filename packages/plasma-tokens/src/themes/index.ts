@@ -2,6 +2,8 @@
 
 export { caldera__dark, darkCaldera } from './caldera__dark';
 export { caldera__light, lightCaldera } from './caldera__light';
+export { classrooms__dark, darkClassrooms } from './classrooms__dark';
+export { classrooms__light, lightClassrooms } from './classrooms__light';
 export { plasma_b2c__dark, darkPlasma_b2c } from './plasma_b2c__dark';
 export { plasma_b2c__light, lightPlasma_b2c } from './plasma_b2c__light';
 export { plasma_web__dark, darkPlasma_web } from './plasma_web__dark';
