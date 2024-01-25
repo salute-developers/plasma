@@ -3,8 +3,7 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import styled, { createGlobalStyle } from 'styled-components';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useIsBrowser from '@docusaurus/useIsBrowser';
-import usePrismTheme from '@theme/hooks/usePrismTheme';
-import useThemeContext from '@theme/hooks/useThemeContext';
+import { usePrismTheme, useColorMode } from '@docusaurus/theme-common';
 import { PlaygroundPreview } from '@salutejs/plasma-docs-ui';
 import { light, dark } from '@salutejs/plasma-tokens-b2b/themes';
 import { standard } from '@salutejs/plasma-typo';
@@ -47,7 +46,7 @@ const Header: FC = ({ children }) => {
 };
 
 const ResultWithHeader: FC = () => {
-    const { isDarkTheme } = useThemeContext();
+    const isDarkTheme = useColorMode().colorMode === 'dark';
 
     return (
         <>
