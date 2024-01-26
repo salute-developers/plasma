@@ -76,6 +76,7 @@ import { convertRoundnessMatrix } from '@salutejs/plasma-core';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
+import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { defaultValidate } from '@salutejs/plasma-hope';
 import { DisabledProps } from '@salutejs/plasma-core';
 import { Dropdown } from '@salutejs/plasma-hope';
@@ -175,6 +176,7 @@ import { selectText } from '@salutejs/plasma-hope';
 import { setRef } from '@salutejs/plasma-core';
 import { shadows } from '@salutejs/plasma-core';
 import { ShiftProps } from '@salutejs/plasma-core';
+import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
 import { sizes } from '@salutejs/plasma-hope';
 import { SkeletonGradientProps } from '@salutejs/plasma-core';
 import { SkeletonGradientProps as SkeletonGradientProps_2 } from '@salutejs/plasma-new-hope/styled-components';
@@ -209,10 +211,9 @@ import { TextFieldProps } from '@salutejs/plasma-hope';
 import { TextFieldView } from '@salutejs/plasma-hope';
 import { TextSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TimingFunction } from '@salutejs/plasma-core';
-import { Toast } from '@salutejs/plasma-hope';
-import { ToastPosition } from '@salutejs/plasma-hope';
-import { ToastProps } from '@salutejs/plasma-hope';
-import { ToastProvider } from '@salutejs/plasma-hope';
+import { ToastPosition } from '@salutejs/plasma-new-hope/styled-components';
+import { ToastProps } from '@salutejs/plasma-new-hope/styled-components';
+import { ToastRole } from '@salutejs/plasma-new-hope/styled-components';
 import { toCssSize } from '@salutejs/plasma-core';
 import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { transformStyles } from '@salutejs/plasma-core';
@@ -231,7 +232,7 @@ import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { usePopupContext as usePopupBaseContext } from '@salutejs/plasma-new-hope/styled-components';
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
-import { useToast } from '@salutejs/plasma-hope';
+import { useToast } from '@salutejs/plasma-new-hope/styled-components';
 import { ValidationResult } from '@salutejs/plasma-hope';
 import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
 import { View } from '@salutejs/plasma-core';
@@ -1128,6 +1129,8 @@ export { shadows }
 
 export { ShiftProps }
 
+export { ShowToastArgs }
+
 export { sizes }
 
 export { SkeletonGradientProps }
@@ -1256,13 +1259,31 @@ breakWord?: boolean | undefined;
 
 export { TimingFunction }
 
-export { Toast }
+// @public (undocumented)
+export const Toast: FunctionComponent<PropsType<    {
+view: {
+primary: string;
+dark: string;
+light: string;
+};
+size: {
+m: string;
+};
+pilled: {
+true: string;
+};
+}> & HTMLAttributes<HTMLButtonElement> & CustomToastProps & RefAttributes<HTMLDivElement>>;
 
 export { ToastPosition }
 
 export { ToastProps }
 
-export { ToastProvider }
+// @public (undocumented)
+export const ToastProvider: ({ children }: {
+    children: ReactNode;
+}) => JSX.Element;
+
+export { ToastRole }
 
 export { toCssSize }
 
