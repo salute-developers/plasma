@@ -10,20 +10,6 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 <PropsTable name="Toast" />
 <StorybookLink name="Toast" />
 
-## Использование
-`showToast` имеет необязательный аргумент `timeout`, отвечающий за время отображения подсказки.
-
-```tsx live
-import React from 'react';
-import { Toast } from '@salutejs/plasma-web';
-
-export function App() {
-    return (
-        <Toast text="Short Text Message Without Action" />
-    );
-}
-```
-
 ## Система подсказок
 Существует готовая система текстовых подсказок,
 для использования которой необходимо обернуть приложение в `ToastProvider`:
@@ -39,25 +25,6 @@ export const App = () => (
 ```
 
 После этого, с помощью хука `useToast` можно получить доступ к управлению подсказками.
-
-Метод ``showToast`` имеет два вида **call signature**.
-
-Legacy вариант, где у `showToast` inline аргументы.
-
-```jsx title="MyComponent.tsx"
-import React from 'react'
-import { useToast, Button } from '@salutejs/plasma-web'
-
-export const MyComponent = () => {
-    const { showToast, hideToast } = useToast()
-    
-    return (
-        <Button onClick={() => showToast('text message')} />
-    )
-}
-```
-
-Актуальный вариант, где у `showToast` **call signature** уже объект.
 
 ```jsx title="MyComponent.tsx"
 import React from 'react'
@@ -81,40 +48,107 @@ type Position = 'top' | 'bottom';
 ```
 
 `showToast` имеет необязательный аргумент `timeout`, отвечающий за время отображения подсказки.
-Если аргумент не передается, по умолчанию подсказка отображается в течение 3 секунд.
+Если аргумент не передается, по умолчанию подсказка отображается пока пользователь ее не закроет.
 
 Скрыть текущую подсказку в любой момент можно с помощью функции `hideToast`.
 
 ## Аргументы функции `showToast`
 | Название  | Тип       | Значение | Описание           |
 |-----------|-----------|----------|--------------------|
-| `options` | `Options` |          | Конфигурация toast |
+| `args` | `ShowToastArgs` |          | Конфигурация toast |
 
 ```ts
 import type { ReactNode } from 'react';
 
-export interface Options {
-    text: string;
-    position?: 'top' | 'bottom';
-    timeout?: number;
+export interface ShowToastArgs {
+    /**
+     * Текстовая надпись
+     */
+    text?: string;
+    /**
+     * Слот для контента слева, например `Icon`
+     */
     contentLeft?: ReactNode;
+    /**
+     * Место отображения подсказки
+     */
+    position?: ToastPosition;
+    /**
+     * WAI-ARIA роль
+     */
+    role?: ToastRole;
+    /**
+     * Отображать ли подложку блока подсказки
+     */
     fade?: boolean;
-    role?: 'alert' | 'log' | 'status';
-    // callback срабатывающий в момент события hideToast
-    onHide?: () => void;
-    // callback срабатывающий в момент события showToast
-    onShow?: () => void;
-    // Значение для дополнительно отступа блока подсказки, считается в rem.
+    /**
+     * Значение для дополнительно отступа блока подсказки, считается в rem.
+     */
     offset?: number;
+    /**
+     * Блок подсказки c округлым border-radius
+     */
+    pilled?: boolean;
+    /**
+     * Отображать ли иконку закрытия
+     */
+    hasClose?: boolean;
+    /**
+     * Размер блока подсказки
+     */
+    size?: string;
+    /**
+     * Вид блока подсказки
+     */
+    view?: string;
+    /**
+     * Время отображения подсказки. Если не передать значение подсказка будет отображаться пока ее не закроют.
+     */
+    timeout?: number;
+    /**
+     * callback срабатывающий в момент события hideToast
+     */
+    onHide?: () => void;
+    /**
+     * callback срабатывающий в момент события showToast
+     */
+    onShow?: () => void;
 }
 ```
 
-## Аргументы функции `showToast` Legacy
-| Название      | Тип                        | Значение   | Описание                                       |
-|---------------|----------------------------|------------|------------------------------------------------|
-| `text`*       | `string`                   |            | Текстовое содержимое.                          |
-| `position`    | `'top', 'bottom'`          | `'bottom'` | Положение сообщения.                           |
-| `timeout`     | `number`                   | `3000`     | Задержка перед скрытием.                       |
-| `fade`        | `boolean`                  | `true`     | Отображать Градиентный оверлей на всю страницу |
-| `contentLeft` | `ReactNode`                |            | Контент слева.                                 |
-| `role`        | `'alert', 'log', 'status'` | `status`   | Значение атрибута WAI-ARIA role.               |
+## Пример использования
+
+```jsx live
+import React from 'react'
+import { useToast, ToastProvider, Button } from '@salutejs/plasma-web'
+
+export function App() {
+
+    const ToastExample = () => {
+        const { showToast, hideToast } = useToast()
+
+        const onShow = () => {}
+        const onHide = () => {}
+        const toastData = {
+            text: 'Подсказка вызванная showToast',
+            position: 'bottom',
+            role: 'status',
+            hasClose: true,
+            fade: false,
+            size: 'm',
+            view: 'dark',
+            timeout: 3000,
+            onShow,
+            onHide
+        }
+
+        return <Button onClick={() => showToast(toastData)} text="Вызвать подсказку" />
+    }
+
+    return (
+        <ToastProvider>
+            <ToastExample />
+        </ToastProvider>
+    )
+}
+```
