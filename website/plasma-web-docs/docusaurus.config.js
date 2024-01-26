@@ -1,9 +1,8 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+import { themes } from 'prism-react-renderer';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires,import/order
 const path = require('path');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const docgen = require('react-docgen-typescript');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -100,10 +99,9 @@ module.exports = {
             ],
         },
         prism: {
-            theme: lightCodeTheme,
-            darkTheme: darkCodeTheme,
+            theme: themes.github,
+            darkTheme: themes.dracula,
         },
-        // ...
         colorMode: {
             // "light" | "dark"
             defaultMode: 'light',
@@ -229,4 +227,12 @@ module.exports = {
             };
         },
     ],
+    markdown: {
+        format: 'detect',
+        mdx1Compat: {
+            comments: true,
+            admonitions: true,
+            headingIds: true,
+        },
+    },
 };
