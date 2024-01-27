@@ -13,6 +13,7 @@ packages/plasma-core/api/
 packages/plasma-asdk/api/
 packages/sdds-srvc/api/
 packages/caldera/api/
+packages/caldera-online/api/
 
 utils/plasma-cy-utils/lib
 
