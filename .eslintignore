@@ -49,6 +49,9 @@ packages/sdds-srvc/*
 packages/caldera/*
 !packages/caldera/src
 
+packages/caldera-online/*
+!packages/caldera-online/src
+
 packages/plasma-b2c/*
 !packages/plasma-b2c/src
 
