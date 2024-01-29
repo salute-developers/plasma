@@ -30,7 +30,8 @@ export const StyledSelectTarget = styled(Button)<{ target?: TargetType; isOpen?:
     ${buttonTokens.buttonFontStyle}: var(${tokens.targetFontStyle});
     ${buttonTokens.buttonFontWeight}:var(${tokens.targetFontWeight});
     ${buttonTokens.buttonLetterSpacing}: var(${tokens.targetLetterSpacing});
-    ${buttonTokens.buttonLineHeight}:  var(${tokens.targetLineHeight});
+    ${buttonTokens.buttonLineHeight}: var(${tokens.targetLineHeight});
+    ${buttonTokens.buttonFocusColor}: var(${tokens.focusColor});
 
     box-shadow: inset 0 0 0 0.0625rem
         ${({ isOpen }) => (isOpen ? `var(${tokens.targetBorderColorOpen})` : `var(${tokens.targetBorderColor})`)};
@@ -124,7 +125,7 @@ export const StyledChipsWrapper = styled.div`
 `;
 
 export const StyledChips = styled.div`
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     gap: var(${tokens.chipGap});
 

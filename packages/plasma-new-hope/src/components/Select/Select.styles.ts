@@ -18,6 +18,7 @@ export const StyledRoot = styled.div`
 
 export const StyledSelect = styled.div`
     box-sizing: border-box;
+    overflow-y: auto;
 
     background: var(${tokens.background});
     box-shadow: var(${tokens.boxShadow});
@@ -50,14 +51,19 @@ export const StyledNativeSelect = styled.select`
     color: transparent;
     border: none;
     outline: none;
-    opacity: 0;
+    opacity: 1;
     position: absolute;
-    inset: 0;
+    inset: -0.125rem;
     z-index: 1;
     cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
     font-size: 1rem;
 
     &:hover:not(:disabled) + .${String(popoverClasses.wrapper)} .${String(selectTarget)} {
         background: var(${tokens.targetBackgroundColorHover});
+    }
+
+    &:focus-visible {
+        border-radius: var(${tokens.borderRadius});
+        box-shadow: 0 0 0 0.125rem var(${tokens.focusColor});
     }
 `;

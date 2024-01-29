@@ -17,6 +17,7 @@ export const mappingOverride = css`
     ${dropdownTokens.itemContentLeftColor}: var(${tokens.itemContentLeftColor});
     ${dropdownTokens.itemContentRightColor}: var(${tokens.itemContentRightColor});
     ${dropdownTokens.disabledOpacity}: var(${tokens.disabledOpacity});
+    ${dropdownTokens.focusColor}: var(${tokens.focusColor});
     ${dropdownTokens.itemWidth}: var(${tokens.itemWidth});
     ${dropdownTokens.itemHeight}: var(${tokens.itemHeight});
     ${dropdownTokens.itemBorderRadius}: var(${tokens.itemBorderRadius});

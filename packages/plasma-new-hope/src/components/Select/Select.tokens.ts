@@ -191,4 +191,5 @@ export const tokens = {
     chipOpacityReadonly: '--plasma-select-chip-opacity-readonly',
 
     disabledOpacity: '--plasma-select-disabled-opacity',
+    focusColor: '--plasma-select-focus-color',
 };

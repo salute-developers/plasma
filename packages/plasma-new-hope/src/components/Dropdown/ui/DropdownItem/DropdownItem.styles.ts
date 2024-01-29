@@ -2,11 +2,12 @@ import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
 import { classes, tokens } from '../../Dropdown.tokens';
+import { addFocus, applyEllipsis } from '../../../../mixins';
 
 export const StyledContentLeft = styled.div`
     display: inline-flex;
 
-    width: var(${tokens.itemContentLeftWidth});
+    min-width: var(${tokens.itemContentLeftWidth});
     color: var(${tokens.itemContentLeftColor});
 `;
 
@@ -14,8 +15,12 @@ export const StyledContentRight = styled.div`
     margin-left: auto;
     display: inline-flex;
 
-    width: var(${tokens.itemContentRightWidth});
+    min-width: var(${tokens.itemContentRightWidth});
     color: var(${tokens.itemContentRightColor});
+`;
+
+export const StyledText = styled.div`
+    ${applyEllipsis()};
 `;
 
 export const base = css`

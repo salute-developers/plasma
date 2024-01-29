@@ -1,3 +1,5 @@
+import { KeyboardEvent } from 'react';
+
 import type { SelectPrimitiveValue } from '../../Select.types';
 
 export interface SelectChipProps {
@@ -10,11 +12,15 @@ export interface SelectChipProps {
      */
     value: SelectPrimitiveValue;
     /**
-     * Компонент неактивен
+     * Номер компонента.
+     */
+    index: number;
+    /**
+     * Компонент неактивен.
      */
     disabled?: boolean;
     /**
-     * Элемент формы не может изменяться пользователем
+     * Элемент формы не может изменяться пользователем.
      */
     readOnly?: boolean;
     /**
@@ -25,4 +31,13 @@ export interface SelectChipProps {
      * Обработчик клика на выбранное значение.
      */
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    /**
+     * Обработчик нажатия клавиши.
+     */
+    onKeyDown?: (
+        value: SelectPrimitiveValue,
+        text: SelectPrimitiveValue,
+        index: number,
+        event: KeyboardEvent<HTMLButtonElement>,
+    ) => void;
 }

@@ -59,15 +59,17 @@ export const getValues = (items: React.ReactElement[], value?: SelectValue, resu
             (!Array.isArray(value) && newValue === value) ||
             (Array.isArray(value) && value?.find((v) => newValue === v))
         ) {
+            const index = (Array.isArray(value) && value?.findIndex((v) => newValue === v)) || 0;
+
             if (item.props.text) {
                 const { text: newText } = item.props;
-                result.push([newValue, newText]);
+                result[index] = [newValue, newText];
 
                 return;
             }
 
             const newText = getChildrenInnerText(item.props.children);
-            result.push([newValue, newText]);
+            result[index] = [newValue, newText];
         }
 
         return result;
@@ -97,6 +99,11 @@ export const updatePropsRecursively = (
             key: `${value}$`,
             checked: getChildrenItemChecked(value, child),
             ...(hasValue && {
+                ref: (element: HTMLDivElement) => {
+                    if (externalProps.childrenRefs?.current && element) {
+                        externalProps.childrenRefs.current.push(element);
+                    }
+                },
                 onClick: (event: React.MouseEvent<HTMLDivElement>) => {
                     child.props.onClick?.(event);
                     externalProps.onClick?.(event);
@@ -112,3 +119,13 @@ export const updatePropsRecursively = (
 
         return cloneElement(child, props, updatedChild);
     });
+
+export const getChildren = (
+    children: React.ReactElement<InputHTMLAttributes<HTMLDivElement>>[],
+    externalProps: Record<string, any>,
+    value?: SelectValue,
+) => {
+    externalProps.childrenRefs.current = [];
+
+    return updatePropsRecursively(children, externalProps, value);
+};

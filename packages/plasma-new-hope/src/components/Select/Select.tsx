@@ -1,5 +1,5 @@
 import React, { Children, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { safeUseId, useFocusTrap, useForkRef } from '@salutejs/plasma-core';
+import { safeUseId, useForkRef } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines';
 import { cx } from '../../utils';
@@ -9,10 +9,11 @@ import { base as targetCSS } from './variations/_target/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { SelectTarget } from './ui';
-import { getNewSelected, getValues, updatePropsRecursively } from './utils';
+import { getChildren, getNewSelected, getValues } from './utils';
 import { classes } from './Select.tokens';
 import { StyledNativeSelect, StyledPopover, StyledRoot, StyledSelect } from './Select.styles';
 import type { SelectPrimitiveValue, SelectProps } from './Select.types';
+import { useKeyNavigation } from './hooks';
 
 /**
  * Выпадающий список без внешнего контроля видимости.
@@ -34,14 +35,9 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
                 size,
                 frame,
                 enumerationType = 'comma',
-                isFocusTrapped = true,
                 isOpen = false,
-                placement = 'auto',
-                trigger = 'click',
+                placement = 'bottom',
                 offset = [0, 4],
-                preventOverflow = false,
-                closeOnOverlayClick = true,
-                closeOnEsc = false,
                 onToggle,
                 ...rest
             },
@@ -53,15 +49,19 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
 
             const [ref, setRef] = useState<HTMLSelectElement | null>(null);
             const rootRef = useRef<HTMLSelectElement | null>(null);
-            const selectRef = useRef<HTMLDivElement | null>(null);
             const handleRef = useForkRef<HTMLSelectElement>(rootRef, outerRootRef);
-
-            const trapRef = useFocusTrap(isOpen && isFocusTrapped);
-            const selectForkRef = useForkRef<HTMLDivElement>(selectRef, trapRef);
 
             const [innerIsOpen, setInnerIsOpen] = useState(isOpen);
 
             const withNativeSelectVisible = selectType === 'native' ? classes.nativeSelectVisible : undefined;
+
+            // INFO: Из-за того, что классы передаются через ref,
+            // состояние пропсов после изменения view, size, target
+            // всегда предыдущее, поэтому нужно делать форс-ререндер
+            const [, forceRender] = useState(0);
+            useEffect(() => {
+                forceRender((prevValue) => ++prevValue);
+            }, [view, size, target]);
 
             useEffect(() => {
                 if (disabled || readOnly) {
@@ -72,22 +72,23 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
             }, [isOpen, disabled, readOnly]);
 
             const onInnerToggle = useCallback(
-                (openValue: boolean) => {
+                (openValue: boolean, event: React.SyntheticEvent | Event) => {
                     if (disabled || readOnly) {
+                        return;
+                    }
+
+                    if (onToggle) {
+                        onToggle(openValue, event);
                         return;
                     }
 
                     setInnerIsOpen(openValue);
                 },
-                [disabled, readOnly],
+                [disabled, readOnly, onToggle],
             );
 
-            const onClickChildrenItem = useCallback(
-                (event: React.MouseEvent<HTMLDivElement>) => {
-                    // INFO: Для корректной работы компонента Popper
-                    event.stopPropagation();
-
-                    const item = event.currentTarget as HTMLElement;
+            const updateValue = useCallback(
+                (item: HTMLElement, event: React.SyntheticEvent | Event) => {
                     const {
                         dataset: { value: newValue },
                     } = item;
@@ -103,14 +104,21 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
 
                     rest.onChangeValue?.(newSelected);
 
-                    if (onToggle) {
-                        onToggle?.(false, event);
-                        return;
-                    }
-
-                    onInnerToggle?.(false);
+                    onInnerToggle?.(false, event);
                 },
                 [rest.value, rest.selectType, rest.onChangeValue, onToggle, onInnerToggle],
+            );
+
+            const onClickChildrenItem = useCallback(
+                (event: React.MouseEvent<HTMLDivElement>) => {
+                    // INFO: Для корректной работы компонента Popper
+                    event.stopPropagation();
+
+                    const item = event.currentTarget as HTMLElement;
+
+                    updateValue(item, event);
+                },
+                [updateValue],
             );
 
             const onNativeSelectChange = useCallback(
@@ -144,8 +152,25 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
 
             const childrenArray = useMemo(() => Children.toArray(children), [children]) as React.ReactElement[];
 
+            const targetRef = useRef<HTMLButtonElement>(null);
+            const chipsRefs = useRef<Array<HTMLButtonElement>>([]);
+            const selectRef = useRef<HTMLDivElement>(null);
+            const itemsRefs = useRef<Array<HTMLDivElement>>([]);
+
+            const controlledRefs = { targetRef, chipsRefs, selectRef, itemsRefs };
+
+            const { onKeyDownTarget, onKeyDownSelect } = useKeyNavigation({
+                controlledRefs,
+                isOpen: innerIsOpen,
+                enumerationType,
+                selectType,
+                value,
+                updateIsOpen: onInnerToggle,
+                updateValue,
+            });
+
             const childrenMemo = useMemo(
-                () => updatePropsRecursively(childrenArray, { onClick: onClickChildrenItem }, value),
+                () => getChildren(childrenArray, { onClick: onClickChildrenItem, childrenRefs: itemsRefs }, value),
                 [childrenArray, value, innerIsOpen],
             );
 
@@ -157,28 +182,24 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
                         aria-invalid="false"
                         aria-hidden="true"
                         aria-readonly={readOnly}
-                        tabIndex={-1}
+                        tabIndex={selectType === 'native' ? 0 : -1}
                         form={form}
                         name={name}
                         ref={handleRef}
                         value={`${value}`}
                         disabled={disabled || readOnly}
                         onChange={onNativeSelectChange}
-                        className={withNativeSelectVisible}
+                        className={cx(ref?.classList.toString(), withNativeSelectVisible)}
                     >
                         {selectType === 'native' && childrenMemo}
                     </StyledNativeSelect>
                     <StyledPopover
                         role={role}
-                        isFocusTrapped={isFocusTrapped}
                         isOpen={innerIsOpen}
-                        usePortal={false}
-                        onToggle={onToggle || onInnerToggle}
-                        id={innerId}
-                        className={cx(ref?.classList.toString())} // INFO: Прокидываем стили для Popover
-                        ref={selectForkRef}
+                        onToggle={onInnerToggle}
                         target={
                             <SelectTarget
+                                tabIndex={selectType === 'native' ? -1 : 0}
                                 isOpen={innerIsOpen}
                                 target={target}
                                 values={values}
@@ -186,22 +207,31 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
                                 enumerationType={enumerationType}
                                 readOnly={readOnly}
                                 disabled={disabled}
-                                id={innerId}
                                 size={size}
+                                ref={targetRef}
+                                chipsRefs={chipsRefs}
+                                id={innerId}
                                 onChipClick={onChipClick}
                                 onChangeValue={onChangeChipValue}
+                                onKeyDown={onKeyDownTarget}
                             />
                         }
+                        className={cx(ref?.classList.toString())} // INFO: Прокидываем стили для Popover
+                        id={innerId}
                         offset={offset}
-                        preventOverflow={preventOverflow}
-                        placement={getPlacements(placement)}
-                        trigger={trigger}
-                        closeOnOverlayClick={closeOnOverlayClick}
-                        closeOnEsc={closeOnEsc}
                         frame={frame}
+                        placement={getPlacements(placement)}
+                        trigger="click"
+                        usePortal={false}
+                        isFocusTrapped={false}
+                        preventOverflow={false}
+                        closeOnEsc={false}
+                        closeOnOverlayClick
                     >
                         <Root ref={setRef} target={target} view={view} size={size} {...rest}>
-                            {selectType !== 'native' && <StyledSelect>{childrenMemo}</StyledSelect>}
+                            {selectType !== 'native' && (
+                                <StyledSelect onKeyDown={onKeyDownSelect}>{childrenMemo}</StyledSelect>
+                            )}
                         </Root>
                     </StyledPopover>
                 </StyledRoot>

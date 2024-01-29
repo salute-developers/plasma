@@ -8,7 +8,7 @@ import { getValidComponent } from '../../utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { StyledContentLeft, StyledContentRight, base } from './DropdownItem.styles';
+import { StyledContentLeft, StyledContentRight, StyledText, base } from './DropdownItem.styles';
 import type { DropdownItemProps } from './DropdownItem.type';
 
 /**
@@ -80,6 +80,7 @@ export const dropdownItemRoot = (Root: RootProps<HTMLDivElement, DropdownItemPro
                 value,
                 checked: checked || isSelected,
                 disabled,
+                tabIndex: 0,
                 ...(!disabled && { onChange: handleOnChange }),
             };
 
@@ -103,6 +104,7 @@ export const dropdownItemRoot = (Root: RootProps<HTMLDivElement, DropdownItemPro
                     role={role}
                     ref={outerRootRef}
                     tabIndex={0}
+                    aria-disabled={disabled}
                     onClick={handleOnClick}
                     data-value={value}
                     {...rest}
