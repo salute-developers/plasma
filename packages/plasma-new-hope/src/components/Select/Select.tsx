@@ -34,6 +34,7 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
                 view,
                 size,
                 frame,
+                usePortal,
                 enumerationType = 'comma',
                 isOpen = false,
                 placement = 'bottom',
@@ -51,8 +52,16 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
             const rootRef = useRef<HTMLSelectElement | null>(null);
             const handleRef = useForkRef<HTMLSelectElement>(rootRef, outerRootRef);
 
+            const targetRef = useRef<HTMLButtonElement>(null);
+            const chipsRefs = useRef<Array<HTMLButtonElement>>([]);
+            const selectRef = useRef<HTMLDivElement>(null);
+            const itemsRefs = useRef<Array<HTMLDivElement>>([]);
+            const controlledRefs = { targetRef, chipsRefs, selectRef, itemsRefs };
+
             const [innerIsOpen, setInnerIsOpen] = useState(isOpen);
 
+            // INFO: нужно высчитывать для корректной работы портала
+            const dynamicTargetWidth = targetRef.current?.offsetWidth;
             const withNativeSelectVisible = selectType === 'native' ? classes.nativeSelectVisible : undefined;
 
             // INFO: Из-за того, что классы передаются через ref,
@@ -150,15 +159,6 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
                 event.stopPropagation();
             }, []);
 
-            const childrenArray = useMemo(() => Children.toArray(children), [children]) as React.ReactElement[];
-
-            const targetRef = useRef<HTMLButtonElement>(null);
-            const chipsRefs = useRef<Array<HTMLButtonElement>>([]);
-            const selectRef = useRef<HTMLDivElement>(null);
-            const itemsRefs = useRef<Array<HTMLDivElement>>([]);
-
-            const controlledRefs = { targetRef, chipsRefs, selectRef, itemsRefs };
-
             const { onKeyDownTarget, onKeyDownSelect } = useKeyNavigation({
                 controlledRefs,
                 isOpen: innerIsOpen,
@@ -168,6 +168,8 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
                 updateIsOpen: onInnerToggle,
                 updateValue,
             });
+
+            const childrenArray = useMemo(() => Children.toArray(children), [children]) as React.ReactElement[];
 
             const childrenMemo = useMemo(
                 () => getChildren(childrenArray, { onClick: onClickChildrenItem, childrenRefs: itemsRefs }, value),
@@ -222,7 +224,8 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
                         frame={frame}
                         placement={getPlacements(placement)}
                         trigger="click"
-                        usePortal={false}
+                        usePortal={usePortal}
+                        selectWidth={dynamicTargetWidth}
                         isFocusTrapped={false}
                         preventOverflow={false}
                         closeOnEsc={false}
