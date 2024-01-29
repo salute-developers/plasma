@@ -27,6 +27,10 @@ export interface CustomSelectProps extends CustomDropdownProps {
      * Варианты: comma, chips
      */
     enumerationType?: EnumerationType;
+    /**
+     * Находится ли в портале.
+     */
+    usePortal?: boolean;
 }
 
 export type SelectTypeSeparation =

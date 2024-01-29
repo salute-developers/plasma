@@ -43,6 +43,7 @@ const meta: Meta<StorySelectProps> = {
         ...argTypesFromConfig(mergeConfig(selectConfig, config)),
     },
     args: {
+        usePortal: false,
         disabled: false,
         readOnly: false,
         label: 'Label',
@@ -79,7 +80,7 @@ const getSelectItems = (slug: string, elemCount: number) =>
     }));
 
 const StorySingle = (args: StorySelectProps) => {
-    const { placement, label, readOnly, disabled, size = 'm', view, target } = args;
+    const { usePortal, placement, label, readOnly, disabled, size = 'm', view, target } = args;
 
     const [value, setValue] = useState<SelectPrimitiveValue | undefined>('item_0');
 
@@ -89,8 +90,10 @@ const StorySingle = (args: StorySelectProps) => {
     };
 
     return (
-        <div style={{ width: '50%' }}>
+        <div style={{ width: '50%' }} id="portal-test">
             <Select
+                frame="theme-root"
+                usePortal={usePortal}
                 selectType="single"
                 value={value}
                 placement={placement}
@@ -123,7 +126,7 @@ export const Single: StoryObj<StorySelectProps> = {
 };
 
 const StoryMultiple = (args: StorySelectProps) => {
-    const { placement, label, readOnly, disabled, enumerationType, size = 'm', view, target } = args;
+    const { usePortal, placement, label, readOnly, disabled, enumerationType, size = 'm', view, target } = args;
 
     const [value, setValue] = useState<Array<SelectPrimitiveValue> | undefined>(['item_2', 'item_3']);
 
@@ -135,6 +138,8 @@ const StoryMultiple = (args: StorySelectProps) => {
     return (
         <div style={{ width: '50%' }}>
             <Select
+                frame="theme-root"
+                usePortal={usePortal}
                 selectType="multiple"
                 value={value}
                 placement={placement}
@@ -165,7 +170,7 @@ export const Multiple: StoryObj<StorySelectProps> = {
 };
 
 const StoryNative = (args: StorySelectProps) => {
-    const { placement, label, readOnly, disabled, size = 'm', view, target } = args;
+    const { usePortal, placement, label, readOnly, disabled, size = 'm', view, target } = args;
 
     const [value, setValue] = useState<SelectPrimitiveValue | undefined>('item_0');
 
@@ -177,6 +182,8 @@ const StoryNative = (args: StorySelectProps) => {
     return (
         <div style={{ width: '50%' }}>
             <Select
+                frame="theme-root"
+                usePortal={usePortal}
                 selectType="native"
                 value={value}
                 placement={placement}
@@ -203,7 +210,7 @@ export const Native: StoryObj<StorySelectProps> = {
 };
 
 const StoryControlledOpen = (args: StorySelectProps) => {
-    const { placement, label, readOnly, disabled, size = 'm', view, target } = args;
+    const { usePortal, placement, label, readOnly, disabled, size = 'm', view, target } = args;
 
     const [isOpen, setIsOpen] = useState(true);
     const [iconColor, setIconColor] = useState('green');
@@ -223,6 +230,8 @@ const StoryControlledOpen = (args: StorySelectProps) => {
             <Button onClick={onOpen}>Open select</Button>
             <div style={{ width: '50%' }}>
                 <Select
+                    frame="theme-root"
+                    usePortal={usePortal}
                     value={value}
                     isOpen={isOpen}
                     onToggle={onToggle}

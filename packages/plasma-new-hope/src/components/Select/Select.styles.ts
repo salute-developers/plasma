@@ -34,11 +34,11 @@ export const StyledSelect = styled.div`
 // issue #823
 const Popover = component(popoverConfig);
 
-export const StyledPopover = styled(Popover)`
+export const StyledPopover = styled(Popover)<{ selectWidth?: number }>`
     display: block;
 
     .${String(popoverClasses.root)}, .${String(popoverClasses.target)} {
-        width: 100%;
+        width: ${({ usePortal, selectWidth }) => (usePortal ? `${selectWidth}px` : '100%')};
     }
 `;
 

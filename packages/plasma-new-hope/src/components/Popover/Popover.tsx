@@ -4,6 +4,7 @@ import { usePopper } from 'react-popper';
 import { useFocusTrap, useForkRef } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines/types';
+import { cx } from '../../utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import type { PopoverPlacement, PopoverProps } from './Popover.types';
@@ -221,7 +222,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                         onMouseLeave={onMouseLeave}
                         onFocus={onFocus}
                         onBlur={onBlur}
-                        className={classes.target}
+                        className={cx(className, classes.target)}
                     >
                         {target}
                     </StyledRoot>
