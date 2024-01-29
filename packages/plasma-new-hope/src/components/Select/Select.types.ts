@@ -1,3 +1,4 @@
+import { MutableRefObject, SyntheticEvent } from 'react';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
 
 import { CustomDropdownProps } from '../Dropdown/Dropdown.types';
@@ -57,3 +58,20 @@ export type SelectTypeSeparation =
 export type SelectProps = Omit<InputHTMLAttributes<HTMLSelectElement>, 'value' | 'size' | 'onChange'> &
     CustomSelectProps &
     SelectTypeSeparation;
+
+export interface ControlledRefs {
+    targetRef: MutableRefObject<HTMLButtonElement | null>;
+    chipsRefs: MutableRefObject<Array<HTMLButtonElement>>;
+    selectRef: MutableRefObject<HTMLDivElement | null>;
+    itemsRefs: MutableRefObject<Array<HTMLDivElement>>;
+}
+
+export interface UseKeyNavigationProps {
+    controlledRefs: ControlledRefs;
+    isOpen: boolean;
+    selectType?: SelectType;
+    value?: SelectPrimitiveValue | SelectPrimitiveValue[];
+    enumerationType?: EnumerationType;
+    updateValue: (item: HTMLElement, event: SyntheticEvent | Event) => void;
+    updateIsOpen: (value: boolean, event: SyntheticEvent | Event) => void;
+}

@@ -310,7 +310,6 @@ export const config = {
         },
         view: {
             default: css`
-                ${selectTokens.disabledOpacity}: 0.4;
                 ${selectTokens.background}: var(--surface-solid-card);
                 ${selectTokens.boxShadow}: var(--shadow-down-soft-s);
 
@@ -332,6 +331,9 @@ export const config = {
                 ${selectTokens.chipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
                 ${selectTokens.chipColorReadOnlyHover}: var(--text-primary);
                 ${selectTokens.chipOpacityReadonly}: 0.72;
+
+                ${selectTokens.disabledOpacity}: 0.4;
+                ${selectTokens.focusColor}: var(--surface-accent);
             `,
         },
     },

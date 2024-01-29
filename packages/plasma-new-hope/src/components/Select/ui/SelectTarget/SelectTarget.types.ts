@@ -1,6 +1,12 @@
+import { KeyboardEvent } from 'react';
+
 import type { EnumerationType, SelectPrimitiveValue, TargetType } from '../../Select.types';
 
 export interface SelectTargetProps {
+    /**
+     * Номер порядка получения фокуса при переходе между элементами.
+     */
+    tabIndex?: number;
     /**
      * Уникальный идентификатор элемента.
      */
@@ -41,6 +47,10 @@ export interface SelectTargetProps {
      */
     values?: Array<Array<SelectPrimitiveValue>>;
     /**
+     * Ref для компонент чипов.
+     */
+    chipsRefs?: React.MutableRefObject<Array<HTMLButtonElement>>;
+    /**
      * Обработчик удаления выбранного значения.
      */
     onChipClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -48,4 +58,8 @@ export interface SelectTargetProps {
      * Обработчик изменения выбранного значения.
      */
     onChangeValue?: (value?: Array<SelectPrimitiveValue>) => void;
+    /**
+     * Обработчик нажатия клавиши на target.
+     */
+    onKeyDown?: (event: KeyboardEvent<HTMLButtonElement>) => void;
 }

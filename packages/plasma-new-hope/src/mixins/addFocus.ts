@@ -18,6 +18,10 @@ export type FocusProps = {
      */
     outlineRadius?: string;
     /**
+     * Применять анимации для отрисовки фокуса
+     */
+    hasTransition?: boolean;
+    /**
      * Уникальные css свойства для псевдо-элемента before при фокусе
      */
     customFocusRules?: string;
@@ -49,7 +53,8 @@ export const addFocus = (args: FocusProps) => {
         outlineSize = '0.125rem',
         outlineOffset = '-0.125rem',
         outlineColor = 'var(--plasma-colors-button-focused, var(--text-accent))',
-        outlineRadius = 0,
+        outlineRadius = '30px',
+        hasTransition = true,
     } = args;
 
     return `
@@ -70,7 +75,7 @@ export const addFocus = (args: FocusProps) => {
             border: ${outlineSize} solid transparent;
             border-radius: ${outlineRadius};
 
-            transition: box-shadow 0.2s ease-in-out;
+            transition: ${hasTransition ? 'box-shadow 0.2s ease-in-out' : 'none'};
 
             pointer-events: none;
         }

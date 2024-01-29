@@ -115,4 +115,5 @@ export const tokens = {
     groupLabelMarginLeft: '--plasma-dropdown-group-label-margin-left',
 
     disabledOpacity: '--plasma-dropdown-disabled-opacity',
+    focusColor: '--plasma-dropdown-focus-color',
 };

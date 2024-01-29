@@ -38,6 +38,7 @@ export const StyledChip = styled(Chip)`
     ${chipTokens.scaleActive}: var(${tokens.chipScaleActive});
     ${chipTokens.closeIconSize}: var(${tokens.chipCloseIconSize});
     ${chipTokens.closeIconColor}: var(${tokens.chipCloseIconColor});
+    ${chipTokens.focusColor}: var(${tokens.focusColor});
 
     ${addFocus({
         outlineOffset: '0.125rem',
