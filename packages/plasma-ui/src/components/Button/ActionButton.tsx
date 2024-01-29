@@ -29,6 +29,7 @@ type ActionButtonBaseProps = Omit<BaseProps, 'stretch' | 'pin'> &
 
 // INFO: Omit 'onResize' | 'onResizeCapture' | 'nonce'
 // because this types coming with @types/react@18 and breaks react@17.0.2 with @types/react@18
+// test
 export type ActionButtonProps = Omit<ActionButtonBaseProps, 'nonce' | 'onResize' | 'onResizeCapture'>;
 
 const buttonSizes = {
