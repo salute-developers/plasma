@@ -173,9 +173,9 @@ export const StyledRightHelper = styled(StyledLeftHelper)`
     margin-left: auto;
 `;
 
-export const StyledPlaceholder = styled.label`
-    ${applyEllipsis()}
-
+export const StyledPlaceholder = styled.label<{
+    hasContentRight: boolean;
+}>`
     box-sizing: border-box;
     position: absolute;
     pointer-events: none;
@@ -192,6 +192,8 @@ export const StyledPlaceholder = styled.label`
 
     top: var(${tokens.inputPaddingTop});
     padding-left: var(${tokens.inputPaddingLeft});
+    padding-right: ${({ hasContentRight }) =>
+        hasContentRight ? `var(${tokens.inputPaddingRightWithRightContent})` : `var(${tokens.inputPaddingRight})`};
 
     font-family: var(${tokens.inputFontFamily});
     font-size: var(${tokens.inputFontSize});
