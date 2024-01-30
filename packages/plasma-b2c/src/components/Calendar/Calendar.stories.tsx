@@ -12,6 +12,7 @@ import { Calendar, CalendarBase, CalendarBaseRange, CalendarDouble, CalendarDoub
 import type { CalendarProps, CalendarBaseProps, CalendarDoubleProps } from '.';
 
 const onChangeValue = action('onChangeValue');
+const onChangeStartOfRange = action('onChangeStartOfRange');
 
 const meta: Meta<CalendarProps> = {
     title: 'Controls/Calendar',
@@ -228,6 +229,7 @@ const StoryCalendarRange = ({ min, max, type }: ComponentProps<typeof CalendarBa
             max={max}
             type={type}
             onChangeValue={handleOnChange}
+            onChangeStartOfRange={onChangeStartOfRange}
         />
     );
 };
@@ -276,6 +278,7 @@ const StoryDoubleRange = ({ min, max }: ComponentProps<typeof CalendarDoubleRang
             min={min}
             max={max}
             onChangeValue={handleOnChange}
+            onChangeStartOfRange={onChangeStartOfRange}
         />
     );
 };
