@@ -120,6 +120,10 @@ export type CalendarRange<T> = Omit<T, 'value' | 'onChangeValue'> & {
      * Обработчик изменения значения.
      */
     onChangeValue: (values: [Date, Date?]) => void;
+    /**
+     * Обработчик для выбора стартового значения в диапазоне.
+     */
+    onChangeStartOfRange?: (value: Date) => void;
 };
 
 export interface DaysMetaDescription {
