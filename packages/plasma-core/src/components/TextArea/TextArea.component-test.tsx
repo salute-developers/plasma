@@ -173,6 +173,16 @@ describe('plasma-core: TextArea', () => {
         cy.matchImageSnapshot();
     });
 
+    it('defaultValue', () => {
+        mount(
+            <CypressTestDecorator>
+                <TextArea placeholder="Placeholder" defaultValue="Default Value" leftHelper="Helper text left" />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('placeholder with multiline', () => {
         mount(
             <CypressTestDecorator>

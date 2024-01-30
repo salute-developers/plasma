@@ -94,6 +94,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
             label,
             labelPlacement = 'inner',
             placeholder,
+            defaultValue,
             height,
             width,
             value,
@@ -152,7 +153,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
         );
 
         const dynamicLabelClasses = getDynamicLabelClasses(
-            { readOnly, label, labelPlacement, autoResize, rows, value: value || uncontrolledValue },
+            { readOnly, label, labelPlacement, autoResize, rows, value: value || uncontrolledValue || defaultValue },
             focused,
         );
 
@@ -191,6 +192,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                             rows={rows}
                             cols={cols}
                             resize={resize}
+                            defaultValue={defaultValue}
                             onChange={onChangeHandler}
                             {...rest}
                         />
