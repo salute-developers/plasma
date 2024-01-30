@@ -13,6 +13,7 @@ export const withRange = <T extends Calendar>(Component: React.FC<Calendar>) => 
     min,
     max,
     onChangeValue,
+    onChangeStartOfRange,
     ...rest
 }: CalendarRange<T>): ReactElement<T> => {
     const [startExternalValue, endExternalValue] = useMemo(() => value, [value]);
@@ -29,6 +30,9 @@ export const withRange = <T extends Calendar>(Component: React.FC<Calendar>) => 
         (newDay: Date) => {
             if (endValue) {
                 setValues([newDay, undefined]);
+
+                onChangeStartOfRange?.(newDay);
+
                 return;
             }
 
@@ -40,7 +44,7 @@ export const withRange = <T extends Calendar>(Component: React.FC<Calendar>) => 
                 onChangeValue([first, second]);
             }
         },
-        [onChangeValue, startValue, endValue],
+        [onChangeValue, onChangeStartOfRange, startValue, endValue],
     );
 
     return (
