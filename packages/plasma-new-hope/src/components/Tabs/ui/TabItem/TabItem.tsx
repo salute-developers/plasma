@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef, useContext, useEffect } from 'react';
+import React, { forwardRef, useRef, useContext, useEffect, useCallback } from 'react';
 import { safeUseId, useForkRef } from '@salutejs/plasma-core';
 
 import { ComponentConfig, RootProps } from '../../../../engines';
@@ -11,7 +11,7 @@ import { base as sizeCSS } from './variations/_size/base';
 import { base as pilledCSS } from './variations/_pilled/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { TabItemProps } from './TabItem.types';
-import { AdditionalContent, StyledContent, base } from './TabItem.styles';
+import { LeftContent, RightContent, StyledContent, base } from './TabItem.styles';
 
 export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
     forwardRef<HTMLDivElement, TabItemProps>((props, outerRef) => {
@@ -54,6 +54,14 @@ export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
             return () => refs.unregister(innerRef);
         }, [refs]);
 
+        const onFocus = useCallback<React.FocusEventHandler>((event) => {
+            event.target.scrollIntoView({
+                block: 'center',
+                inline: 'center',
+                behavior: 'smooth',
+            });
+        }, []);
+
         return (
             <Root
                 ref={ref}
@@ -63,17 +71,14 @@ export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
                 role={role}
                 view={view}
                 size={size}
+                onFocus={onFocus}
                 className={cx(pilledClass, selectedClass, animatedClass)}
                 {...rest}
             >
                 <>
-                    {contentLeft && (
-                        <AdditionalContent className={classes.tabLeftContent}>{contentLeft}</AdditionalContent>
-                    )}
-                    <StyledContent className={classes.tabLeftContent}>{children}</StyledContent>
-                    {contentRight && (
-                        <AdditionalContent className={classes.tabRightContent}>{contentRight}</AdditionalContent>
-                    )}
+                    {contentLeft && <LeftContent className={classes.tabLeftContent}>{contentLeft}</LeftContent>}
+                    <StyledContent className={classes.tabContent}>{children}</StyledContent>
+                    {contentRight && <RightContent className={classes.tabRightContent}>{contentRight}</RightContent>}
                 </>
             </Root>
         );

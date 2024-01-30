@@ -19,9 +19,9 @@ export const StyledContent = styled.div`
 export const StyledContentWrapper = styled.div`
     position: relative;
     height: 100%;
-    margin: 0;
 
     /* allows correctly display outline focus on tabs item */
+    margin: -0.125rem;
     padding: 0.25rem;
 
     /* stylelint-disable-next-line selector-max-empty-lines, selector-nested-pattern, selector-type-no-unknown */
@@ -35,7 +35,7 @@ export const StyledContentWrapper = styled.div`
     scroll-snap-type: x mandatory;
 `;
 
-export const StyledArrow = styled.button`
+export const StyledArrow = styled.button<{ isLeftArrow?: boolean; isFilled?: boolean }>`
     display: flex;
     cursor: pointer;
     border: none;
@@ -53,4 +53,11 @@ export const StyledArrow = styled.button`
     &[disabled] {
         cursor: not-allowed;
     }
+
+    --plasma_private-outer-padding: ${({ isFilled }) => (isFilled ? `var(${tokens.arrowOuterPadding})` : '')};
+
+    padding-right: ${({ isLeftArrow }) =>
+        isLeftArrow ? `var(${tokens.arrowInnerPadding})` : 'var(--plasma_private-outer-padding)'};
+    padding-left: ${({ isLeftArrow }) =>
+        isLeftArrow ? 'var(--plasma_private-outer-padding)' : `var(${tokens.arrowInnerPadding})`};
 `;

@@ -15,6 +15,4 @@ export const base = css`
 
     width: var(${tokens.itemWidth});
     height: var(${tokens.itemHeight});
-
-    padding: var(${tokens.itemPadding});
 `;
