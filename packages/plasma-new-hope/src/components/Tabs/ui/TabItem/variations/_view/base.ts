@@ -1,17 +1,19 @@
 import { css } from '@linaria/core';
 
 import { classes, tokens } from '../../../../tokens';
-import { AdditionalContent } from '../../TabItem.styles';
+import { RightContent } from '../../TabItem.styles';
 
 export const base = css`
     color: var(${tokens.itemColor});
     background-color: var(${tokens.itemBackgroundColor});
 
+    margin-left: var(${tokens.itemMarginLeft});
+
     &:hover {
         color: var(${tokens.itemColorHover});
         background-color: var(${tokens.itemBackgroundColorHover});
 
-        ${AdditionalContent} {
+        ${RightContent} {
             color: var(${tokens.additionalContentHoverColor});
         }
     }
@@ -29,7 +31,7 @@ export const base = css`
             background-color: var(${tokens.itemSelectedBackgroundColorHover});
         }
 
-        ${AdditionalContent} {
+        ${RightContent} {
             color: var(${tokens.additionalContentSelectedColor});
 
             &:hover {

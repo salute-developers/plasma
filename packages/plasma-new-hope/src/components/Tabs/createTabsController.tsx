@@ -101,6 +101,11 @@ export function createTabsController<T extends HTMLDivElement, P extends TabsCon
                 if (nextIndex !== index) {
                     event.preventDefault();
                     refs.items[nextIndex].current?.focus();
+                    refs.items[nextIndex].current?.scrollIntoView({
+                        block: 'center',
+                        inline: 'center',
+                        behavior: 'smooth',
+                    });
                 }
             },
             [index, onIndexChange, disabled],

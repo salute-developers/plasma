@@ -13,12 +13,12 @@ export const base = css`
     align-items: center;
 
     gap: var(${tokens.itemContentGap});
+    padding: var(${tokens.itemPadding});
 
     appearance: none;
     border: none;
     outline: none;
     cursor: pointer;
-    margin-left: var(${tokens.itemMarginLeft});
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
     &:first-child {
@@ -46,14 +46,26 @@ export const base = css`
 export const StyledContent = styled.div`
     display: inline-block;
     width: fit-content;
+
+    padding: 0 var(${tokens.itemContentPadding});
+
     ${applyEllipsis()};
 `;
 
-export const AdditionalContent = styled.div`
+export const RightContent = styled.div`
     display: flex;
     color: var(${tokens.additionalContentColor});
 
     &:hover {
         color: var(${tokens.additionalContentHoverColor});
+    }
+`;
+
+export const LeftContent = styled.div`
+    display: flex;
+    color: inherit;
+
+    &:hover {
+        color: inherit;
     }
 `;

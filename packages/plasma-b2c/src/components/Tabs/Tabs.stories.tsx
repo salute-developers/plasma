@@ -208,7 +208,7 @@ const StoryMultiple = ({
                 stretch={stretch}
                 disabled={disabled}
                 size={size}
-                style={{ width: '20rem' }}
+                style={{ width: '12rem' }}
                 autoscroll
             />
             <TabsController
@@ -220,7 +220,7 @@ const StoryMultiple = ({
                 stretch={stretch}
                 disabled={disabled}
                 size={size}
-                style={{ width: '20rem' }}
+                style={{ width: '12rem' }}
                 autoscroll
             />
         </StyledMultipleContainer>

@@ -4,7 +4,7 @@ import { tabsTokens } from '../../../../components/Tabs';
 
 export const config = {
     defaults: {
-        view: 'divider',
+        view: 'filled',
         size: 'xs',
         disabled: 'false',
     },
@@ -33,7 +33,7 @@ export const config = {
                 ${tabsTokens.tabsBackgroundColor}: tranparent;
                 ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
 
-                ${tabsTokens.tabsDividerHeight}: 0.125rem;
+                ${tabsTokens.tabsDividerHeight}: 0.0625rem;
                 ${tabsTokens.tabsDividerColor}: var(--surface-transparent-secondary);
                 ${tabsTokens.tabsDividerBorderRadius}: 0.0625rem;
             `,
@@ -43,46 +43,64 @@ export const config = {
                 ${tabsTokens.tabsBorderRadius}: 0.5rem;
                 ${tabsTokens.tabsWidth}: auto;
                 ${tabsTokens.tabsHeight}: auto;
+                ${tabsTokens.arrowInnerPadding}: 0rem;
+                ${tabsTokens.arrowOuterPadding}: 0.125rem;
             `,
             s: css`
                 ${tabsTokens.tabsBorderRadius}: 0.625rem;
                 ${tabsTokens.tabsWidth}: auto;
                 ${tabsTokens.tabsHeight}: auto;
+                ${tabsTokens.arrowInnerPadding}: 0rem;
+                ${tabsTokens.arrowOuterPadding}: 0.25rem;
             `,
             m: css`
                 ${tabsTokens.tabsBorderRadius}: 0.75rem;
                 ${tabsTokens.tabsWidth}: auto;
                 ${tabsTokens.tabsHeight}: auto;
+                ${tabsTokens.arrowInnerPadding}: 0rem;
+                ${tabsTokens.arrowOuterPadding}: 0.625rem;
             `,
             l: css`
                 ${tabsTokens.tabsBorderRadius}: 0.75rem;
                 ${tabsTokens.tabsWidth}: auto;
                 ${tabsTokens.tabsHeight}: auto;
+                ${tabsTokens.arrowInnerPadding}: 0rem;
+                ${tabsTokens.arrowOuterPadding}: 0.75rem;
             `,
             h5: css`
                 ${tabsTokens.tabsBorderRadius}: 0.5rem;
                 ${tabsTokens.tabsWidth}: auto;
                 ${tabsTokens.tabsHeight}: auto;
+                ${tabsTokens.arrowInnerPadding}: 0.25rem;
+                ${tabsTokens.arrowOuterPadding}: 0rem;
             `,
             h4: css`
                 ${tabsTokens.tabsBorderRadius}: 0.5rem;
                 ${tabsTokens.tabsWidth}: auto;
                 ${tabsTokens.tabsHeight}: auto;
+                ${tabsTokens.arrowInnerPadding}: 0.25rem;
+                ${tabsTokens.arrowOuterPadding}: 0rem;
             `,
             h3: css`
                 ${tabsTokens.tabsBorderRadius}: 0.625rem;
                 ${tabsTokens.tabsWidth}: auto;
                 ${tabsTokens.tabsHeight}: auto;
+                ${tabsTokens.arrowInnerPadding}: 0.375rem;
+                ${tabsTokens.arrowOuterPadding}: 0rem;
             `,
             h2: css`
                 ${tabsTokens.tabsBorderRadius}: 0.75rem;
                 ${tabsTokens.tabsWidth}: auto;
                 ${tabsTokens.tabsHeight}: auto;
+                ${tabsTokens.arrowInnerPadding}: 0.5rem;
+                ${tabsTokens.arrowOuterPadding}: 0rem;
             `,
             h1: css`
                 ${tabsTokens.tabsBorderRadius}: 0.75rem;
                 ${tabsTokens.tabsWidth}: auto;
                 ${tabsTokens.tabsHeight}: auto;
+                ${tabsTokens.arrowInnerPadding}: 1rem;
+                ${tabsTokens.arrowOuterPadding}: 0rem;
             `,
         },
         stretch: {
@@ -97,7 +115,7 @@ export const config = {
         },
         pilled: {
             true: css`
-                ${tabsTokens.tabsPilledBorderRadius}: 1.75rem;
+                ${tabsTokens.tabsPilledBorderRadius}: 1.625rem;
             `,
         },
     },

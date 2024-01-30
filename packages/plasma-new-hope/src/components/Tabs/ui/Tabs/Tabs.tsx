@@ -26,10 +26,13 @@ export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
         const uniqId = safeUseId();
         const tabsId = id || uniqId;
 
+        const isFilled = view === 'filled'; // outer padding is only for filled view
         const pilledAttr = view !== 'clear' && pilled;
         const pilledClass = pilledAttr ? classes.tabsPilled : undefined;
 
         const stretchClass = firstItemVisible && lastItemVisible && stretch ? classes.tabsStretch : undefined;
+        const hasLeftArrowClass = !firstItemVisible ? classes.tabsHasLeftArrow : undefined;
+        const hasRightArrowClass = !lastItemVisible ? classes.tabsHasRightArrow : undefined;
 
         const items = Children?.map(children, (child) => child) || [];
 
@@ -75,6 +78,8 @@ export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
                     onClick={onPrev}
                     tabIndex={disabled ? -1 : 0}
                     disabled={disabled}
+                    isFilled={isFilled}
+                    isLeftArrow
                 >
                     <IconDisclosureLeft color={`var(${tokens.arrowColor})`} />
                 </StyledArrow>
@@ -90,6 +95,7 @@ export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
                     onClick={onNext}
                     tabIndex={disabled ? -1 : 0}
                     disabled={disabled}
+                    isFilled={isFilled}
                 >
                     <IconDisclosureRight color={`var(${tokens.arrowColor})`} />
                 </StyledArrow>
@@ -102,14 +108,14 @@ export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
             const observeFirstItem = new IntersectionObserver(onIntersecting(setFirstItemVisible), {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.5,
+                threshold: 0.8,
             });
 
             // Intersection observer для последнего таба
             const observeLastItem = new IntersectionObserver(onIntersecting(setLastItemVisible), {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.5,
+                threshold: 0.8,
             });
 
             // получаем список tabItem внутри Tabs
@@ -136,7 +142,7 @@ export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
                 id={tabsId}
                 ref={outerRef}
                 disabled={disabled}
-                className={cx(pilledClass, stretchClass)}
+                className={cx(pilledClass, stretchClass, hasLeftArrowClass, hasRightArrowClass)}
                 {...rest}
             >
                 {!firstItemVisible && PreviousButton}

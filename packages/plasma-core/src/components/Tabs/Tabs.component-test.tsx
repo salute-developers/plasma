@@ -51,7 +51,7 @@ describe('plasma-core: Tabs', () => {
                             key={i}
                             isActive={i === 1}
                             forwardedAs="li"
-                            contentLeft={<IconDone size="s" color="inherit" />}
+                            contentLeft={<IconDone size="xs" color="inherit" />}
                         >
                             {item.label}
                         </TabItem>
@@ -152,7 +152,7 @@ describe('plasma-core: Tabs', () => {
 
     it('autoscroll', () => {
         const Container = ({ children }) => {
-            return <div style={{ width: '75px' }}>{children}</div>;
+            return <div style={{ width: '80px' }}>{children}</div>;
         };
 
         mount(
