@@ -204,7 +204,11 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                         </StyledHelpers>
                     )}
                     {placeLabel && (
-                        <StyledPlaceholder className={styledPlaceholder} htmlFor={id}>
+                        <StyledPlaceholder
+                            hasContentRight={Boolean(contentRight)}
+                            className={styledPlaceholder}
+                            htmlFor={id}
+                        >
                             {placeLabel}
                         </StyledPlaceholder>
                     )}
