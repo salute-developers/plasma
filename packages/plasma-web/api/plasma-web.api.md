@@ -434,7 +434,7 @@ type?: "Days" | "Months" | "Years" | undefined;
 export { CalendarBaseProps }
 
 // @public (undocumented)
-export const CalendarBaseRange: ({ value, disabledList, eventList, min, max, onChangeValue, ...rest }: CalendarRange<CalendarBaseProps>) => ReactElement<CalendarBaseProps, string | JSXElementConstructor<any>>;
+export const CalendarBaseRange: ({ value, disabledList, eventList, min, max, onChangeValue, onChangeStartOfRange, ...rest }: CalendarRange<CalendarBaseProps>) => ReactElement<CalendarBaseProps, string | JSXElementConstructor<any>>;
 
 // @public (undocumented)
 export const CalendarDouble: FunctionComponent<PropsType<    {
@@ -449,7 +449,7 @@ m: string;
 export { CalendarDoubleProps }
 
 // @public (undocumented)
-export const CalendarDoubleRange: ({ value, disabledList, eventList, min, max, onChangeValue, ...rest }: CalendarRange<CalendarDoubleProps>) => ReactElement<CalendarDoubleProps, string | JSXElementConstructor<any>>;
+export const CalendarDoubleRange: ({ value, disabledList, eventList, min, max, onChangeValue, onChangeStartOfRange, ...rest }: CalendarRange<CalendarDoubleProps>) => ReactElement<CalendarDoubleProps, string | JSXElementConstructor<any>>;
 
 export { CalendarProps }
 
