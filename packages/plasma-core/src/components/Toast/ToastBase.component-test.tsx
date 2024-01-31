@@ -1,20 +1,47 @@
 import React from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
-import { IconClose } from '@salutejs/plasma-icons';
+import { IconBell } from '@salutejs/plasma-icons';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
+import { createGlobalStyle } from 'styled-components';
 
-// import { critical } from '@salutejs/plasma-tokens-b2c';
-const critical = 'var(--plasma-colors-critical, #E31227)';
+const Icon = () => <IconBell color="inherit" size="xs" />;
+const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 describe('plasma-core: Toast', () => {
     const Toast = getComponent('Toast');
     const useToast = getComponent('useToast');
     const ToastProvider = getComponent('ToastProvider');
 
-    it.skip('default', () => {
+    const Container: FC<PropsWithChildren> = ({ children }) => (
+        <div style={{ position: 'fixed', transform: 'translateX(50%)' }}>{children}</div>
+    );
+    const CypressTestDecoratorWithToast: FC<PropsWithChildren> = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            <ToastProvider>{children}</ToastProvider>
+        </CypressTestDecorator>
+    );
+
+    it('default', () => {
         mount(
-            <CypressTestDecorator>
-                <Toast text="Short Text Message Without Action" />
-            </CypressTestDecorator>,
+            <CypressTestDecoratorWithToast>
+                <Container>
+                    <Toast text="Short Text Message Without Action" />
+                </Container>
+            </CypressTestDecoratorWithToast>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('with close', () => {
+        mount(
+            <CypressTestDecoratorWithToast>
+                <Container>
+                    <Toast text="Short Text Message Without Action" hasClose />
+                </Container>
+            </CypressTestDecoratorWithToast>,
         );
 
         cy.matchImageSnapshot();
@@ -22,24 +49,11 @@ describe('plasma-core: Toast', () => {
 
     it('with content-left', () => {
         mount(
-            <CypressTestDecorator>
-                <Toast
-                    text="Short Text Message Without Action"
-                    contentLeft={<IconClose size="xs" color={critical} />}
-                />
-            </CypressTestDecorator>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it.skip('_role', () => {
-        mount(
-            <CypressTestDecorator>
-                <Toast role="alert" text="Short Text Message Without Action" />
-                <Toast role="log" text="Short Text Message Without Action" />
-                <Toast role="status" text="Short Text Message Without Action" />
-            </CypressTestDecorator>,
+            <CypressTestDecoratorWithToast>
+                <Container>
+                    <Toast text="Short Text Message Without Action" contentLeft={<Icon />} />
+                </Container>
+            </CypressTestDecoratorWithToast>,
         );
 
         cy.matchImageSnapshot();
@@ -51,19 +65,29 @@ describe('plasma-core: Toast', () => {
             'Long Text Message Without Action Long Text Message Without Action Long Text Message Without Action';
         const Button = getComponent('Button');
 
-        const Interactive = ({ text: _text, position, timeout }) => {
+        const Interactive = ({ text: _text, position, timeout, pilled, hasClose, enableContentLeft }) => {
             const { showToast } = useToast();
+            const ContentLeft = enableContentLeft && <Icon />;
+            const onShowToast = () =>
+                showToast({
+                    text: _text,
+                    view: 'primary',
+                    size: 'm',
+                    pilled,
+                    position,
+                    timeout,
+                    hasClose,
+                    contentLeft: ContentLeft,
+                });
 
-            return <Button id="show" text="show" onClick={() => showToast(_text, position, timeout)} />;
+            return <Button id="show" text="show" onClick={onShowToast} />;
         };
 
-        it.skip('showToast', () => {
+        it('showToast', () => {
             mount(
-                <CypressTestDecorator>
-                    <ToastProvider>
-                        <Interactive text={text} />
-                    </ToastProvider>
-                </CypressTestDecorator>,
+                <CypressTestDecoratorWithToast>
+                    <Interactive text={text} />
+                </CypressTestDecoratorWithToast>,
             );
 
             cy.get('#show').click();
@@ -73,13 +97,11 @@ describe('plasma-core: Toast', () => {
             cy.matchImageSnapshot();
         });
 
-        it.skip('_position', () => {
+        it('_pilled', () => {
             mount(
-                <CypressTestDecorator>
-                    <ToastProvider>
-                        <Interactive text={text} position="top" />
-                    </ToastProvider>
-                </CypressTestDecorator>,
+                <CypressTestDecoratorWithToast>
+                    <Interactive text={text} pilled />
+                </CypressTestDecoratorWithToast>,
             );
 
             cy.get('#show').click();
@@ -89,13 +111,25 @@ describe('plasma-core: Toast', () => {
             cy.matchImageSnapshot();
         });
 
-        it.skip('dumm', () => {
+        it('_position', () => {
             mount(
-                <CypressTestDecorator>
-                    <ToastProvider>
-                        <Interactive />
-                    </ToastProvider>
-                </CypressTestDecorator>,
+                <CypressTestDecoratorWithToast>
+                    <Interactive text={text} position="top" />
+                </CypressTestDecoratorWithToast>,
+            );
+
+            cy.get('#show').click();
+
+            // eslint-disable-next-line cypress/no-unnecessary-waiting
+            cy.wait(300);
+            cy.matchImageSnapshot();
+        });
+
+        it('dumm', () => {
+            mount(
+                <CypressTestDecoratorWithToast>
+                    <Interactive />
+                </CypressTestDecoratorWithToast>,
             );
 
             cy.get('#show').click();
@@ -103,13 +137,11 @@ describe('plasma-core: Toast', () => {
             cy.matchImageSnapshot();
         });
 
-        it.skip('timeout', () => {
+        it('timeout', () => {
             mount(
-                <CypressTestDecorator>
-                    <ToastProvider>
-                        <Interactive text={text} timeout={0} />
-                    </ToastProvider>
-                </CypressTestDecorator>,
+                <CypressTestDecoratorWithToast>
+                    <Interactive text={text} timeout={0} />
+                </CypressTestDecoratorWithToast>,
             );
 
             cy.get('#show').click();
@@ -121,11 +153,23 @@ describe('plasma-core: Toast', () => {
 
         it('two lines', () => {
             mount(
-                <CypressTestDecorator>
-                    <ToastProvider>
-                        <Interactive text={textLong} />
-                    </ToastProvider>
-                </CypressTestDecorator>,
+                <CypressTestDecoratorWithToast>
+                    <Interactive text={textLong} />
+                </CypressTestDecoratorWithToast>,
+            );
+
+            cy.get('#show').click();
+
+            // eslint-disable-next-line cypress/no-unnecessary-waiting
+            cy.wait(300);
+            cy.matchImageSnapshot();
+        });
+
+        it('two lines: additional content', () => {
+            mount(
+                <CypressTestDecoratorWithToast>
+                    <Interactive text={textLong} enableContentLeft hasClose />
+                </CypressTestDecoratorWithToast>,
             );
 
             cy.get('#show').click();
@@ -142,18 +186,27 @@ describe('plasma-core: Toast', () => {
 
         const Interactive = () => {
             const { showToast, hideToast } = useToast();
+            const onShowToast = () =>
+                showToast({
+                    text: 'Short Text Message',
+                    view: 'primary',
+                    size: 'm',
+                    position: 'top',
+                    timeout: 600,
+                });
 
-            const content = <Button id="hide" text="hide" onClick={hideToast} />;
-
-            return <Button id="show" text="show" onClick={() => showToast(content, 'top', 600)} />;
+            return (
+                <>
+                    <Button id="show" text="show" onClick={onShowToast} />
+                    <Button id="hide" text="hide" onClick={hideToast} />
+                </>
+            );
         };
 
         mount(
-            <CypressTestDecorator>
-                <ToastProvider>
-                    <Interactive />
-                </ToastProvider>
-            </CypressTestDecorator>,
+            <CypressTestDecoratorWithToast>
+                <Interactive />
+            </CypressTestDecoratorWithToast>,
         );
 
         cy.get('#show').click();
@@ -175,22 +228,21 @@ describe('plasma-core: Toast', () => {
 
         const Interactive = () => {
             const { showToast } = useToast();
+            const onShowToast = () =>
+                showToast({
+                    text: 'Toast component test with offset props',
+                    view: 'primary',
+                    size: 'm',
+                    offset: 10,
+                });
 
-            return (
-                <Button
-                    id="show"
-                    text="show"
-                    onClick={() => showToast({ text: 'Toast component test with offset props', offset: 10 })}
-                />
-            );
+            return <Button id="show" text="show" onClick={onShowToast} />;
         };
 
         mount(
-            <CypressTestDecorator>
-                <ToastProvider>
-                    <Interactive />
-                </ToastProvider>
-            </CypressTestDecorator>,
+            <CypressTestDecoratorWithToast>
+                <Interactive />
+            </CypressTestDecoratorWithToast>,
         );
 
         cy.get('#show').click();

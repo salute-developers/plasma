@@ -21,7 +21,7 @@ export const base = css`
         --plasma_computed-btn-br-radius is defined in Button.tsx
     */
     --plasma_private-btn-br: var(--plasma_computed-btn-br);
-    border-radius: var(--plasma_private-btn-br);
+    border-radius: var(--plasma-button-radius, var(--plasma_private-btn-br));
 
     &:before {
         border-radius: calc(var(--plasma_private-btn-br) + var(--plasma_private-btn-outline-size));
@@ -59,6 +59,7 @@ export const LoadWrap = styled.div<{ isLoading?: boolean }>`
     width: 100%;
     align-items: inherit;
     justify-content: inherit;
+    height: 100%;
 `;
 
 export const Loader = styled.div`

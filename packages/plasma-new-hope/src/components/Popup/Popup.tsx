@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { useForkRef, useUniqId } from '@salutejs/plasma-core';
+import { useForkRef, safeUseId } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines/types';
 import { cx } from '../../utils';
@@ -101,7 +101,7 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
             },
             outerRootRef,
         ) => {
-            const uniqId = useUniqId();
+            const uniqId = safeUseId();
             const innerId = id || uniqId;
 
             const { isVisible, animationInfo, setVisible } = usePopup({

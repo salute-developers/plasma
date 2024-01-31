@@ -11,6 +11,8 @@ export const config = {
          */
         size: {
             s: css`
+                --plasma-checkbox-margin: 0 0 0.188rem 0.188rem;
+                --plasma-checkbox-trigger-margin: 0.188rem 0;
                 --plasma-checkbox-trigger-size: 0.875rem;
                 --plasma-checkbox-trigger-border-radius: 0.25rem;
                 --plasma-checkbox-content-top-offset: 0.0625rem;
@@ -29,6 +31,8 @@ export const config = {
                 --plasma-checkbox-description-line-height: var(--plasma-typo-body-xs-line-height);
             `,
             m: css`
+                --plasma-checkbox-margin: 0 0 0.188rem 0.188rem;
+                --plasma-checkbox-trigger-margin: 0.188rem 0;
                 --plasma-checkbox-trigger-size: 1.25rem;
                 --plasma-checkbox-trigger-border-radius: 0.375rem;
                 --plasma-checkbox-content-top-offset: 0.1875rem;

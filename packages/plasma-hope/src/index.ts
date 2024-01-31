@@ -22,7 +22,6 @@ export * from './components/Slider';
 export * from './components/Tabs';
 export * from './components/TextArea';
 export * from './components/TextField';
-export * from './components/Toast';
 export * from './components/Typography';
 export * from './components/Upload';
 export * from './components/UploadAudio';

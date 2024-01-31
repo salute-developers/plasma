@@ -1,7 +1,6 @@
 export const classes = {
     dropdownItemIsSelected: 'dropdown-item-is-selected',
-    dropdownItemIsDisbaled: 'dropdown-item-is-disabled',
-    nestedDropdown: 'dropdown-nested',
+    dropdownItemIsDisabled: 'dropdown-item-is-disabled',
 };
 
 export const tokens = {
@@ -39,6 +38,10 @@ export const tokens = {
     itemFontWeightBold: '--plasma-dropdown-item-letter-spacing',
     itemFontLetterSpacing: '--plasma-dropdown-item-line-height',
     itemFontLineHeight: '--plasma-dropdown-item-font-weight',
+    itemContentLeftColor: '--plasma-dropdown-item-content-left-color',
+    itemContentRightColor: '--plasma-dropdown-item-content-right-color',
+    itemContentLeftWidth: '--plasma-dropdown-item-content-left-width',
+    itemContentRightWidth: '--plasma-dropdown-item-content-right-width',
 
     footerBackground: '--plasma-dropdown-footer-background',
     footerWidth: '--plasma-dropdown-footer-width',
@@ -112,4 +115,5 @@ export const tokens = {
     groupLabelMarginLeft: '--plasma-dropdown-group-label-margin-left',
 
     disabledOpacity: '--plasma-dropdown-disabled-opacity',
+    focusColor: '--plasma-dropdown-focus-color',
 };

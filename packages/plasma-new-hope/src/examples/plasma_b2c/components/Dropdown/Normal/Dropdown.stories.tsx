@@ -145,7 +145,6 @@ const StoryNormal = (args: StoryDropdownProps) => {
                     onToggle={(is) => setIsOpenDropdown2(is)}
                     isOpen={isOpenDropdown2}
                     offset={[0, 0]}
-                    isNested
                     {...rest}
                 >
                     <DropdownItem contentRight={StyledCheckbox} value="checked" onChange={onChange} text="Checkbox" />

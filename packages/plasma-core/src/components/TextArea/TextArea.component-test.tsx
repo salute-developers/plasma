@@ -172,4 +172,31 @@ describe('plasma-core: TextArea', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('defaultValue', () => {
+        mount(
+            <CypressTestDecorator>
+                <TextArea placeholder="Placeholder" defaultValue="Default Value" leftHelper="Helper text left" />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('placeholder with multiline', () => {
+        mount(
+            <CypressTestDecorator>
+                <TextArea width={10} placeholder="Very very long placeholder" leftHelper="Helper text left" />
+                <SpaceMe />
+                <TextArea
+                    width={10}
+                    placeholder="Very very long placeholder"
+                    leftHelper="Helper text left"
+                    contentRight={<IconEye color="inherit" size="s" />}
+                />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
 });
