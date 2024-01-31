@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import type { SpacingProps } from '@salutejs/plasma-new-hope/styled-components/es/mixins/applySpacing';
+import type { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 
 import {
     DsplL,
