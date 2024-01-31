@@ -1,4 +1,5 @@
 export const classes = {
+    wrapper: 'popover-wrapper',
     root: 'popover-root',
     target: 'popover-target',
     arrow: 'popover-arrow',

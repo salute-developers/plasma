@@ -1,7 +1,7 @@
 import React, { forwardRef, useMemo } from 'react';
 
 import type { RootProps } from '../../engines';
-import { IconClose } from '../_Icon/IconClose';
+import { IconClose } from '../_Icon/Icons/IconClose';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -22,6 +22,7 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
             contentClearButton,
             size,
             onClear,
+            onClick,
             readOnly = false,
             disabled = false,
             ...rest
@@ -29,11 +30,12 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
 
         const txt = !text && typeof children === 'string' ? children : text;
 
-        const handleClick = () => {
+        const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
             if (disabled || readOnly) {
                 return;
             }
 
+            onClick?.(event);
             onClear?.();
         };
 

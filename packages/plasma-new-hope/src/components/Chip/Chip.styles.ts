@@ -37,4 +37,5 @@ export const StyledContentClear = styled.div`
     display: flex;
     margin-left: var(${tokens.clearContentMarginLeft});
     margin-right: var(${tokens.clearContentMarginRight});
+    color: var(${tokens.closeIconColor});
 `;

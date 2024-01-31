@@ -142,7 +142,6 @@ const StoryDefault = (args: StoryDropdownProps) => {
                     onToggle={(is) => setIsOpenDropdown2(is)}
                     isOpen={isOpenDropdown2}
                     offset={[0, 0]}
-                    isNested
                 >
                     <DropdownGroup label="This is radiogroup">
                         <DropdownItem

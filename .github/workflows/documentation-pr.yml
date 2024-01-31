@@ -1,9 +1,6 @@
-name: PR Documentation and Storybook
+name: PR Documentation and Storybook [PR into DEV branch]
 
 on:
-  pull_request:
-    branches:
-      - master
   pull_request_target:
     branches:
       - dev
@@ -168,6 +165,18 @@ jobs:
           npm run storybook:build --prefix="./packages/plasma-asdk"
           cp -R ./packages/plasma-asdk/build-sb ./s3_build/${PR_NAME}/asdk-storybook
       
+      - name: Plasma "Caldera" Storybook
+        if: ${{ needs.scope.outputs.HAS_CALDERA == 'true' }}
+        run: |
+          npm run storybook:build --prefix="./packages/caldera"
+          cp -R ./packages/caldera/build-sb ./s3_build/${PR_NAME}/caldera-storybook
+      
+      - name: Plasma "Caldera-online" Storybook
+        if: ${{ needs.scope.outputs.HAS_CALDERA_ONLINE == 'true' }}
+        run: |
+          npm run storybook:build --prefix="./packages/caldera-online"
+          cp -R ./packages/caldera-online/build-sb ./s3_build/${PR_NAME}/caldera-online-storybook
+      
       - name: Install s3cmd
         run: pip3 install s3cmd
       
@@ -195,10 +204,12 @@ jobs:
           HAS_PLASMA_TEMPLE: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_TEMPLE) }}
           HAS_PLASMA_HOPE: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_HOPE) }}
           HAS_PLASMA_ASDK: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_ASDK) }}
+          HAS_CALDERA: ${{ fromJSON(needs.scope.outputs.HAS_CALDERA) }}
+          HAS_CALDERA_ONLINE: ${{ fromJSON(needs.scope.outputs.HAS_CALDERA_ONLINE) }}
         with:
           github-token: ${{secrets.GH_TOKEN}}
           script: |
-            const { HAS_PLASMA_B2C, HAS_PLASMA_WEB, HAS_PLASMA_UI, HAS_PLASMA_TEMPLE, HAS_PLASMA_HOPE, HAS_PLASMA_ASDK } = process.env;
+            const { HAS_PLASMA_B2C, HAS_PLASMA_WEB, HAS_PLASMA_UI, HAS_PLASMA_TEMPLE, HAS_PLASMA_HOPE, HAS_PLASMA_ASDK, HAS_CALDERA, HAS_CALDERA_ONLINE } = process.env;
             
             const {
               issue: { number },
@@ -231,6 +242,14 @@ jobs:
             
             if (HAS_PLASMA_ASDK === 'true') {
               links.push(`asdk storybook: http://plasma.sberdevices.ru/pr/pr-${number}/asdk-storybook/`)
+            }
+
+            if (HAS_CALDERA === 'true') {
+              links.push(`caldera storybook: http://plasma.sberdevices.ru/pr/pr-${number}/caldera-storybook/`)
+            }
+
+            if (HAS_CALDERA_ONLINE === 'true') {
+              links.push(`caldera-online storybook: http://plasma.sberdevices.ru/pr/pr-${number}/caldera-online-storybook/`)
             }
             
             github.rest.issues.createComment({

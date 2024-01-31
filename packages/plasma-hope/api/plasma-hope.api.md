@@ -137,10 +137,6 @@ import { TextM } from '@salutejs/plasma-typo';
 import { TextS } from '@salutejs/plasma-typo';
 import { TextXS } from '@salutejs/plasma-typo';
 import { TimingFunction } from '@salutejs/plasma-core';
-import { Toast } from '@salutejs/plasma-core';
-import { ToastPosition } from '@salutejs/plasma-core';
-import { ToastProps } from '@salutejs/plasma-core';
-import { ToastProvider } from '@salutejs/plasma-core';
 import { toCssSize } from '@salutejs/plasma-core';
 import { transformStyles } from '@salutejs/plasma-core';
 import { TypographyTypes } from '@salutejs/plasma-core';
@@ -150,7 +146,6 @@ import { useFocusTrap } from '@salutejs/plasma-core';
 import { useForkRef } from '@salutejs/plasma-core';
 import { useIsomorphicLayoutEffect } from '@salutejs/plasma-core';
 import { useResizeObserver } from '@salutejs/plasma-core';
-import { useToast } from '@salutejs/plasma-core';
 import { View } from '@salutejs/plasma-core';
 import { ViewProps } from '@salutejs/plasma-core';
 import { views } from '@salutejs/plasma-core';
@@ -1089,14 +1084,6 @@ export { TextXS }
 
 export { TimingFunction }
 
-export { Toast }
-
-export { ToastPosition }
-
-export { ToastProps }
-
-export { ToastProvider }
-
 export { toCssSize }
 
 export { transformStyles }
@@ -1152,8 +1139,6 @@ export { useForkRef }
 export { useIsomorphicLayoutEffect }
 
 export { useResizeObserver }
-
-export { useToast }
 
 // @public (undocumented)
 export interface ValidationResult {
