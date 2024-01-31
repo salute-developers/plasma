@@ -120,7 +120,6 @@ import { SnapType } from '@salutejs/plasma-core';
 import { SortableContainerProps } from 'react-sortable-hoc';
 import { SortableElementProps } from 'react-sortable-hoc';
 import { SpacingProps } from '@salutejs/plasma-core';
-import { SSRProvider } from '@salutejs/plasma-core';
 import { StyledCard } from '@salutejs/plasma-core';
 import { StyledComponent } from 'styled-components';
 import { SwitchProps } from '@salutejs/plasma-core';
@@ -968,8 +967,6 @@ export { SnapAlign }
 export { SnapType }
 
 export { SpacingProps }
-
-export { SSRProvider }
 
 // @public (undocumented)
 export type StatusType = 'error' | 'success';
