@@ -48,6 +48,7 @@ module.exports = () => {
     const HAS_PLASMA_ASDK = packagesList.includes('@salutejs/plasma-asdk');
     const HAS_CALDERA = packagesList.includes('@salutejs/caldera');
     const HAS_CALDERA_ONLINE = packagesList.includes('@salutejs/caldera-online');
+    const HAS_SDDS_SRVC = packagesList.includes('@salutejs/sdds-srvc');
     const HAS_PLASMA_WEBSITE = packagesList.includes('@salutejs/plasma-website');
 
     const HAS_DOCUMENTATION_CHANGED =
@@ -57,7 +58,8 @@ module.exports = () => {
         HAS_PLASMA_TEMPLE_DOCS ||
         HAS_PLASMA_ASDK ||
         HAS_CALDERA ||
-        HAS_CALDERA_ONLINE;
+        HAS_CALDERA_ONLINE ||
+        HAS_SDDS_SRVC;
 
     // Флаг для управления логикой "@auto-it" плагина upload-assets-extend
     // Изменения в plasma-tokens или plasma-tokens-utils так же повлияют на то что в packagesList окажется plasma-tokens-native
@@ -97,5 +99,6 @@ module.exports = () => {
         HAS_ASSETS,
         HAS_CALDERA,
         HAS_CALDERA_ONLINE,
+        HAS_SDDS_SRVC,
     };
 };
