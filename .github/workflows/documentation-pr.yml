@@ -1,9 +1,6 @@
-name: PR Documentation and Storybook
+name: PR Documentation and Storybook [PR into DEV branch]
 
 on:
-  pull_request:
-    branches:
-      - master
   pull_request_target:
     branches:
       - dev
