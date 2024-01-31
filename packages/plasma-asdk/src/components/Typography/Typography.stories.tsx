@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import { secondary } from '@salutejs/plasma-core';
-import type { SpacingProps } from '@salutejs/plasma-core';
+import type { SpacingProps } from '@salutejs/plasma-new-hope/styled-components/es/mixins/applySpacing';
 
 import {
     DsplL,
@@ -163,7 +162,7 @@ const Section = styled.section`
 
 const Note = styled(Footnote1)`
     font-weight: normal;
-    color: ${secondary};
+    color: var(--plasma-colors-secondary);
 `;
 
 export const Old: StoryObj<SpacingProps> = {

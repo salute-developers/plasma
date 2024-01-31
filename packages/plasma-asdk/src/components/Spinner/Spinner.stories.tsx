@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react';
-import { surfaceLiquid01 } from '@salutejs/plasma-core';
 
 import { InSpacingDecorator, disableProps } from '../../helpers';
 import { Button } from '../Button';
@@ -43,7 +42,7 @@ const StyledWrapper = styled.div<{ $loading?: boolean }>`
 
         content: '';
         display: none;
-        background: ${surfaceLiquid01};
+        background: var(--plasma-colors-surface-liquid01);
     }
 
     ${({ $loading }) =>
