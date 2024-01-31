@@ -43,6 +43,9 @@ examples/**
 packages/plasma-asdk/*
 !packages/plasma-asdk/src
 
+packages/sdds-srvc/*
+!packages/sdds-srvc/src
+
 packages/plasma-b2c/*
 !packages/plasma-b2c/src
 
