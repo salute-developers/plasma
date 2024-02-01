@@ -1,3 +1,185 @@
+# v0.78.0 (Thu Feb 01 2024)
+
+### Release Notes
+
+#### Release by 31.01.2024 ([#1020](https://github.com/salute-developers/plasma/pull/1020))
+
+## Components
+
+### Modal
+
+-   поправлена генерация id для `Modal, Popup`
+-   добавлены тесты для `Modal, Popup`
+ 
+plasma-new-hope: fix id generation for Modal, Popup (https://github.com/salute-developers/plasma/pull/1001)
+
+### Avatar и Avatar Group
+
+- добавлены компоненты Avatar и AvatarGroup
+- Временно добавлен полифил `focus-visible` в linaria.tsx
+
+ 
+feat(plasma-new-hope): Avatar & AvatarGroup (https://github.com/salute-developers/plasma/pull/962)
+
+### Select
+
+- добавлен компонент `Select` c новым дизайном в библиотеку `@salutejs/plasma-new-hope` для тем plasma-b2c и plasma-web
+- добавлена клавиатурная навигация со следующими комбинациями:
+    -   Tab - переход на таргет (кнопку)
+    -   Shift + tab - выход с него (теряем фокус)
+    -   Пробел / стрелка вверх / стрелка вниз / enter - открыть выпадающий список и переместиться на первый элемент
+    -   Стрелки вверх / вниз ходим по элементам 
+    -   Пробел / enter - выбираем элемент, закрываем выпадающий список и переходим фокусом снова на таргет (кнопку)
+    -   Если мы ходим по селекту и нажимаем Tab - выпадающий список закрывается и теряем фокус
+    -   Если мы ходим по селекту и нажимаем Escape - выпадающий список закрывается и фокусом остаёмся на таргете
+    -   В мультиселекте тоже самое кроме закрытия выпадающего списка при выборе элемента
+    -   При активном состоянии у таргета, нажимаем стрелку влево / вправо - попадаем на первый чип
+    -   Когда находимся на первом чипе, нажимаем стрелку влево / вправо - переходим по чипам
+    -   Нажимаем backspace - удаляем выбранный чип и переходим на предыдущий
+    -   Если удалили последний чип, то фокусируемся на таргете
+    -   Если находимся в выборе элемента из выпадающего списка и нажимаем стрелку влево / вправо - попадаем на самый последний чип
+    -   Если находимся в режиме выбора элемента и нажимаем стрелку вниз / вверх находясь на последнем / первом элементе, то перескакиваем в начало / в конец
+
+### Icons
+
+- добавлены новые иконки и изменена структура файлов старых в библиотеку `@salutejs/plasma-new-hope`
+
+### Button
+
+- добавлены токены для компонента `Button`, регулирующие высоту и scale при hover и active состояниях #706 
+- исправлен баг, при котором у компонента `Button` будет отсутствовать бэкграунд в состоянии disabled и при hover'е
+
+### Checkbox, Radiobox
+
+- добавлены токены для компонент `Checkbox`, `Radiobox`, отвечающие за отступы
+
+### Chip
+
+- добавлен токен для компонента `Chip`, отвечающий за цвет иконки закрытия
+
+### Dropdown
+
+- добавлена поддержка react-компонент в props `contentLeft` и `contentRight`
+- убрано свойство isNested, т.к. теперь можно вкладывать Dropdown друг в друга без него
+
+ 
+feat(plasma-new-hope): Add `Select` component (https://github.com/salute-developers/plasma/pull/956)
+
+### Toast
+
+- добавлен компонент Toast в новой архитектуре
+- добавлен в поставку в b2c/web
+- обновлены тесты
+- обновлена документация
+
+ 
+feat(plasma-new-hope/web/b2c): toast refactor & redesign (https://github.com/salute-developers/plasma/pull/1010)
+
+### TextArea
+
+- добавлена поддержка переноса строки для свойства `placeholder`;
+- исправлено поведение компонента при использовании свойств `defaultValue` и `placeholder`.
+
+ 
+fix(plasma-new-hope): Fixes for `TextArea` component (https://github.com/salute-developers/plasma/pull/1017)
+
+
+## Icons
+
+### Hotfix
+
+-   поправлена публикация пакета со всем содержимым билда
+
+ 
+fix(plasma-icons): fix package publish (https://github.com/salute-developers/plasma/pull/989)
+
+
+## Infra
+
+### Workflow for `dev` branch
+
+- добавлен отдельный workflow для **безусловной** сборки документация и storybook на основе dev ветки 
+
+ 
+plasma-infra(documentation): Add documentation workflow for dev branch (https://github.com/salute-developers/plasma/pull/996)
+
+### Коллаборативный прогон [Perftool]
+
+- добавлен коллаборативный прогон (прогон одновременно двух веток в рамках одного процесса)  
+
+ 
+ci: use perftool collaborative mode (https://github.com/salute-developers/plasma/pull/991)
+
+### Override `lerna ls`
+
+- переопределили логику `ignoreChanges` для команды `lerna ls` чтобы изменения файлов `*.component-test.tsx` тоже учитывалось      
+
+ 
+plasma-infra: Override `lerna ls` config (https://github.com/salute-developers/plasma/pull/995)
+
+### Mattermost notifications
+
+- добавлено уведомление для упавшего процесса публикации релиз кандидата 
+
+ 
+plasma-infra: Add notification when publish failed (https://github.com/salute-developers/plasma/pull/935)
+
+### Release pull request 
+
+- добавлен выбор ветки для создания release pull request   
+
+ 
+plasma-infra: Refactoring release pull request workflow  (https://github.com/salute-developers/plasma/pull/1007)
+
+### Versionate docs
+
+- вынесли этот процесс в отдельный, от публикация релиза, workflow.  
+
+ 
+plasma-infra: Move the `versionate_docs` job to a separate workflow (https://github.com/salute-developers/plasma/pull/1006)
+
+### Perftool
+
+- убиран verbose loglevel в `perftool`
+
+ 
+Remove perftool max log verbosity (https://github.com/salute-developers/plasma/pull/1004)
+
+
+## Misc
+
+### Storybook
+
+-   поправлено отображение примера Popup в storybook
+
+ 
+chore: fix Popup storybook example (https://github.com/salute-developers/plasma/pull/997)
+
+---
+
+#### 🚀 Enhancement
+
+- Release by 31.01.2024 [#1020](https://github.com/salute-developers/plasma/pull/1020) ([@luizasok](https://github.com/luizasok) [@Yakutoc](https://github.com/Yakutoc) [@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@kayman233](https://github.com/kayman233) [@akhdrv](https://github.com/akhdrv) [@nikewht](https://github.com/nikewht) [@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- Merge remote-tracking branch 'origin/dev' into release_2024-01-31 ([@Yakutoc](https://github.com/Yakutoc))
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 8
+
+- [@kayman233](https://github.com/kayman233)
+- [@nikewht](https://github.com/nikewht)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- Luiza_Sok ([@luizasok](https://github.com/luizasok))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v0.76.0 (Thu Jan 18 2024)
 
 ### Release Notes
