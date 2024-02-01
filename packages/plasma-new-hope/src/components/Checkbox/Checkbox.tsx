@@ -6,6 +6,7 @@ import type { InputHTMLAttributes } from '@salutejs/plasma-core';
 
 import { applyNoUserSelect, applyEllipsis } from '../../mixins';
 import type { Filter, RootProps } from '../../engines/types';
+import { cx } from '../../utils';
 
 import { base as viewCSS } from './_view/base';
 import { base as sizeCSS } from './_size/base';
@@ -28,7 +29,7 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledTrigger = styled.div`
-    margin: 0.188rem 0; /* ToDo: Выпилить, v2.0 Привести к единому стилю с UI */
+    margin: var(--plasma-checkbox-trigger-margin);
 
     width: var(--plasma-checkbox-trigger-size);
     height: var(--plasma-checkbox-trigger-size);
@@ -98,15 +99,18 @@ const base = css`
         ${applyEllipsis()};
     }
 
+    margin: var(--plasma-checkbox-margin);
+
+    &.reset-margins {
+        margin: 0;
+    }
+
     ${applyNoUserSelect()};
 
     position: relative;
     align-items: flex-start;
     display: flex;
     cursor: pointer;
-
-    margin-left: 0.188rem; /* ToDo: Выпилить, v2.0 Привести к единому стилю с UI */
-    margin-bottom: 0.188rem; /* ToDo: Выпилить, v2.0 Привести к единому стилю с UI */
 `;
 
 export interface BaseboxProps {
@@ -172,8 +176,9 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
         const ariaLabel = useMemo(() => ariaLabelExternal || extractTextFrom(label), [ariaLabelExternal, label]);
         const isLabelAriaHidden = typeof label === 'string';
         const canFocused = focused ? 0 : -1;
-        const singleLineClass = singleLine ? 'single-line' : undefined;
         const hasContent = label || description;
+        const singleLineClass = singleLine ? 'single-line' : undefined;
+        const resetMargins = !hasContent ? 'reset-margins' : undefined;
 
         return (
             <Root
@@ -182,7 +187,7 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
                 disabled={disabled}
                 focused={focused}
                 style={style}
-                className={className}
+                className={cx(className, resetMargins)}
                 tabIndex={-1}
             >
                 <StyledInput
@@ -196,7 +201,7 @@ export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =
                     tabIndex={canFocused}
                 />
                 <StyledContentWrapper htmlFor={checkboxId}>
-                    <StyledTrigger className="checkbox-trigger">
+                    <StyledTrigger className={cx('checkbox-trigger', resetMargins)}>
                         {indeterminate ? <Indeterminate /> : <Done />}
                     </StyledTrigger>
                     {hasContent && (

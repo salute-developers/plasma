@@ -15,6 +15,7 @@ import {
     StyledTrigger,
     BaseboxProps,
 } from '../Checkbox/Checkbox';
+import { cx } from '../../utils';
 
 import { base as viewCSS } from './_view/base';
 import { base as sizeCSS } from './_size/base';
@@ -36,13 +37,13 @@ const mappingOverride = `
     --plasma-checkbox-description-letter-spacing: var(--plasma-radiobox-description-letter-spacing);
     --plasma-checkbox-description-line-height: var(--plasma-radiobox-description-line-height);
     --plasma-checkbox-fill-color: var(--plasma-radiobox-fill-color);
-    --plasma-checkbox-icon-color: var(--plasma-radiobox-ellipse-color);
     --plasma-checkbox-description-color: var(--plasma-radiobox-description-color);
     --plasma-checkbox-trigger-border-color: var(--plasma-radiobox-trigger-border-color);
     --plasma-checkbox-content-top-offset: var(--plasma-radiobox-content-top-offset);
     --plasma-checkbox-content-left-offset: var(--plasma-radiobox-content-left-offset);
     --plasma-checkbox-trigger-size: var(--plasma-radiobox-trigger-size);
     --plasma-checkbox-trigger-border-radius: var(--plasma-radiobox-trigger-border-radius);
+    --plasma-checkbox-trigger-margin: var(--plasma-radiobox-trigger-margin); 
 `;
 
 const StyledEllipse = styled.div`
@@ -50,7 +51,7 @@ const StyledEllipse = styled.div`
     height: var(--plasma-radiobox-ellipse-size);
     border-radius: var(--plasma-radiobox-ellipse-size);
 
-    background-color: var(--plasma-checkbox-icon-color);
+    background-color: var(--plasma-radiobox-ellipse-color);
     transition: transform 0.3s ease-in-out;
     transform: scale(0);
 
@@ -66,15 +67,18 @@ const base = css`
         ${applyEllipsis()};
     }
 
+    margin: var(--plasma-radiobox-margin);
+
+    &.reset-margins {
+        margin: 0;
+    }
+
     ${applyNoUserSelect()};
 
     position: relative;
     align-items: flex-start;
     display: flex;
     cursor: pointer;
-
-    margin-left: 0.188rem; /* ToDo: Выпилить, v2.0 Привести к единому стилю с UI */
-    margin-bottom: 0.188rem; /* ToDo: Выпилить, v2.0 Привести к единому стилю с UI */
 `;
 
 type RadioboxProps = Filter<InputHTMLAttributes<HTMLInputElement>, 'size'> & Omit<BaseboxProps, 'indeterminate'>;
@@ -104,8 +108,9 @@ export const radioboxRoot = (Root: RootProps<HTMLInputElement, RadioboxProps>) =
         const ariaLabel = useMemo(() => ariaLabelExternal || extractTextFrom(label), [ariaLabelExternal, label]);
         const isLabelAriaHidden = typeof label === 'string';
         const canFocused = focused ? 0 : -1;
-        const singleLineClass = singleLine ? 'single-line' : undefined;
         const hasContent = label || description;
+        const singleLineClass = singleLine ? 'single-line' : undefined;
+        const resetMargins = !hasContent ? 'reset-margins' : undefined;
 
         return (
             <Root
@@ -114,7 +119,7 @@ export const radioboxRoot = (Root: RootProps<HTMLInputElement, RadioboxProps>) =
                 disabled={disabled}
                 focused={focused}
                 style={style}
-                className={className}
+                className={cx(className, resetMargins)}
                 tabIndex={-1}
             >
                 <StyledInput
@@ -128,7 +133,7 @@ export const radioboxRoot = (Root: RootProps<HTMLInputElement, RadioboxProps>) =
                     tabIndex={canFocused}
                 />
                 <StyledContentWrapper htmlFor={radioboxId}>
-                    <StyledTrigger className="radiobox-trigger">
+                    <StyledTrigger className={cx('radiobox-trigger', resetMargins)}>
                         <StyledEllipse />
                     </StyledTrigger>
                     {hasContent && (

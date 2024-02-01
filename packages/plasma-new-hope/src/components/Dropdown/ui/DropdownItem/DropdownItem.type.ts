@@ -20,11 +20,11 @@ type DropdownItemCustomProps = {
     /**
      * Слот для контента слева
      */
-    contentLeft?: ElementType;
+    contentLeft?: ElementType | ReactNode;
     /**
      * Слот для контента справа
      */
-    contentRight?: ElementType;
+    contentRight?: ElementType | ReactNode;
     /**
      *  Название слота контента
      */
@@ -52,10 +52,9 @@ type DropdownItemCustomProps = {
     /**
      *  Коллбек при выборе элемента
      */
-    onSelect?: () => void;
-
+    onSelect?: (value?: any, text?: any) => void;
     size?: string;
     view?: string;
 };
 
-export type DropdownItemProps = HTMLAttributes<HTMLDivElement> & DropdownItemCustomProps;
+export type DropdownItemProps = Omit<HTMLAttributes<HTMLDivElement>, 'onSelect'> & DropdownItemCustomProps;

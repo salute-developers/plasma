@@ -1,0 +1,77 @@
+name: Versionate docs
+
+on:
+  workflow_dispatch:
+  
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  versionate_docs:
+    name: Versionate docs
+    runs-on: ubuntu-latest
+    
+    env:
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Unset header
+        # https://github.com/intuit/auto/issues/1030
+        run: git config --local --unset http.https://github.com/.extraheader
+      
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-environment
+      
+      - name: Lerna bootstrap
+        run: npx lerna bootstrap
+      
+      # Проверит лог коммитов, по ним забекапит нужные версии нужных сайтов документации
+      - name: Versionate script
+        id: versionate_script
+        uses: ./actions/versionate-docs
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Set env var - EVERYTHING_IS_FINE
+        run: echo "EVERYTHING_IS_FINE=${{ steps.versionate_script.outputs.result }}" >> $GITHUB_ENV
+      
+      # Предыдущий шаг проапдейдит json-файлы, их нужно закоммитить
+      - name: Extract branch name
+        id: branch_name
+        if: ${{ env.EVERYTHING_IS_FINE == 'true' }}
+        run: echo "BRANCH=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_OUTPUT
+      
+      # Коммит изменений в полученную в предыдущем шаге ветку
+      - name: Commit & Push changes
+        if: ${{ env.EVERYTHING_IS_FINE == 'true' }}
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          message: 'chore: Update `versionsArchive.json` [skip ci]'
+          branch: ${{ steps.branch_name.outputs.BRANCH }}
+          author_name: Salute Frontend Team
+          author_email: salute.developers@gmail.com
+      
+      - name: Install s3cmd
+        if: ${{ env.EVERYTHING_IS_FINE == 'true' }}
+        run: |
+          pip3 install s3cmd
+      
+      - name: s3 Upload documentation build
+        if: ${{ env.EVERYTHING_IS_FINE == 'true' }}
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --no-mime-magic
+          sync
+          ./s3_build/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/versions/

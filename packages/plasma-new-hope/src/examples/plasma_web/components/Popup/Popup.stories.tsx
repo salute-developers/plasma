@@ -59,9 +59,8 @@ const StyledWrapper = styled.div`
 `;
 
 const OtherContent = styled.div`
-    margin-top: 1rem;
-    width: 400px;
-    height: 500px;
+    width: 50%;
+    height: 50%;
     background: var(--plasma-colors-surface-solid03);
     position: absolute;
 
@@ -70,7 +69,7 @@ const OtherContent = styled.div`
     justify-content: center;
     padding: 1rem;
 
-    top: 0;
+    top: 10rem;
     right: 0;
 `;
 

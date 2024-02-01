@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { useFocusTrap, useForkRef, useUniqId } from '@salutejs/plasma-core';
+import { useFocusTrap, useForkRef, safeUseId } from '@salutejs/plasma-core';
 
 import { RootProps, component } from '../../../engines';
 import { popupConfig } from '../../Popup';
@@ -43,14 +43,14 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
 
             const innerRef = useForkRef<HTMLDivElement>(trapRef, outerRootRef);
 
-            const uniqId = useUniqId();
+            const uniqId = safeUseId();
             const innerId = id || uniqId;
 
             const { modalInfo } = useModal({ id: innerId, isOpen, closeOnEsc, onEscKeyDown, onClose, popupInfo });
 
             return (
                 <Popup
-                    id={id}
+                    id={innerId}
                     isOpen={isOpen}
                     ref={innerRef}
                     popupInfo={modalInfo}

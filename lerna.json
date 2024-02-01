@@ -10,6 +10,9 @@
         },
         "publish": {
             "verifyAccess": false
+        },
+        "list": {
+            "ignoreChanges": ["*.md", "package-lock.json"]
         }
     },
     "$schema": "node_modules/lerna/schemas/lerna-schema.json"

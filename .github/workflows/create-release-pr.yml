@@ -1,0 +1,59 @@
+# Default based by dev branch
+name: Create release PR and generate changelog
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  release-pr:
+    name: Create release PR with changelog
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      
+    permissions:
+      contents: read
+      pull-requests: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+          fetch-depth: 0
+      
+      - name: Computed envs
+        run: |
+          echo "DATE=$(date +'%d.%m.%Y')" >> $GITHUB_ENV
+          echo "FROM_TAG=$(git merge-base --fork-point origin/master)" >> $GITHUB_ENV
+          echo "FILE=${{ github.workspace }}/changelog_artifacts.md" >> $GITHUB_ENV
+      
+      - name: Build Changelog
+        id: github_release
+        uses: mikepenz/release-changelog-builder-action@v4.1.0
+        with:
+          fromTag: ${{ env.FROM_TAG }}
+          configuration: "./.github/changelog-builder-config.json"
+          
+      - name: List pull request
+        # List merged pull request into dev branch
+        run: echo "pull_requests --> ${{ steps.github_release.outputs.pull_requests }}"
+      
+      - name: Create "changelog_artifacts.md"
+        # Write multiple lines input stream
+        run: |
+          cat > ${{ env.FILE }} <<'EOF'
+          ${{ steps.github_release.outputs.changelog }}
+        
+      - name: Upload "changelog_artifacts.md"
+        uses: actions/upload-artifact@master
+        with:
+          name: release-changelog-artifacts
+          path: ${{ env.FILE }}
+      
+      - name: Create release PR
+        run: |
+          body=`# Release Notes
+          ${{ steps.github_release.outputs.changelog }}`
+          gh pr create --base master --head ${{ github.ref_name }} --title "Release by ${{ env.DATE }}" --body "$body"
+

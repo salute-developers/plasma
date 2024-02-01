@@ -1,5 +1,7 @@
 import { css } from '@linaria/core';
 
+import { tokens } from '../../Button.tokens';
+
 /* NOTE: check _view/base.css */
 /* we use tokens from _view */
 /* I don't like this but it's better to kepp disabled separtly */
@@ -8,15 +10,15 @@ import { css } from '@linaria/core';
 
 export const base = css`
     &[disabled] {
-        opacity: var(--plasma-button-disabled-opacity);
+        opacity: var(${tokens.buttonDisabledOpacity});
         cursor: not-allowed;
 
         :hover,
         :active {
             scale: none;
 
-            color: var(--plasma-button-color);
-            background-color: var(--plasma-button-bg-color);
+            color: var(${tokens.buttonColor});
+            background-color: var(${tokens.buttonBackgroundColor});
         }
     }
 `;
