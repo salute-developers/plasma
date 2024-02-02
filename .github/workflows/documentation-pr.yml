@@ -1,6 +1,9 @@
 name: PR Documentation and Storybook [PR into DEV branch]
 
 on:
+  pull_request:
+    branches:
+      - master
   pull_request_target:
     branches:
       - dev
@@ -13,6 +16,7 @@ concurrency:
 jobs:
   authorize:
     name: Authorize external pull request
+    if: ${{ !startsWith(github.head_ref, 'release') }}
     uses: ./.github/workflows/authorize-external-pr.yml
   
   scope:
