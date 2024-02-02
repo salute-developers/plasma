@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-srvc",
-  "version": "0.1.0",
+  "version": "0.2.0-dev.0",
   "description": "Salute Design System / React UI kit for SDDS SRVC web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
