@@ -1,4 +1,4 @@
-# Отдельный workflow для pull request из ветки dev в мастер.
+# Отдельный workflow для pull request из ветки release_**-**-** в master.
 # Собирает storybook для всех пакетов (plasma-{web,b2c,ui,asdk,etc}) без каких либо условий.
 # Мотивация - нужен стенд для проведения регрессионного тестирования релизных изменений.
 name: Documentation and Storybook [DEV => MASTER]
@@ -15,7 +15,9 @@ concurrency:
 
 jobs:
   documentation:
-    name: Build
+    name: Deploy documentation
+    if: ${{ startsWith(github.head_ref, 'release') }}
+    
     runs-on: ubuntu-latest
     env:
       PR_NAME: pr-${{ github.event.number }}
