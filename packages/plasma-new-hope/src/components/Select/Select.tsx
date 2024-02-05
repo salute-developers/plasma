@@ -4,6 +4,7 @@ import { safeUseId, useForkRef } from '@salutejs/plasma-core';
 import { RootProps } from '../../engines';
 import { cx } from '../../utils';
 import { getPlacements } from '../Dropdown/utils';
+import { useDidMountEffect, useForceUpdate } from '../../hooks';
 
 import { base as targetCSS } from './variations/_target/base';
 import { base as viewCSS } from './variations/_view/base';
@@ -36,17 +37,18 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
                 frame,
                 usePortal,
                 enumerationType = 'comma',
-                isOpen = false,
+                opened = false,
                 placement = 'bottom',
-                offset = [0, 4],
                 onToggle,
                 ...rest
             },
             outerRootRef,
         ) => {
+            const forceUpdate = useForceUpdate();
             const uniqId = safeUseId();
             const innerId = id || uniqId;
-            const { selectType = 'single', value } = rest;
+            const { valueType = 'single', value } = rest;
+            const offset = [0, 4] as [number, number];
 
             const [ref, setRef] = useState<HTMLSelectElement | null>(null);
             const rootRef = useRef<HTMLSelectElement | null>(null);
@@ -58,18 +60,17 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
             const itemsRefs = useRef<Array<HTMLDivElement>>([]);
             const controlledRefs = { targetRef, chipsRefs, selectRef, itemsRefs };
 
-            const [innerIsOpen, setInnerIsOpen] = useState(isOpen);
+            const [innerOpened, setOpened] = useState(opened);
 
             // INFO: нужно высчитывать для корректной работы портала
             const dynamicTargetWidth = targetRef.current?.offsetWidth;
-            const withNativeSelectVisible = selectType === 'native' ? classes.nativeSelectVisible : undefined;
+            const withNativeSelectVisible = valueType === 'native' ? classes.nativeSelectVisible : undefined;
 
             // INFO: Из-за того, что классы передаются через ref,
             // состояние пропсов после изменения view, size, target
             // всегда предыдущее, поэтому нужно делать форс-ререндер
-            const [, forceRender] = useState(0);
-            useEffect(() => {
-                forceRender((prevValue) => ++prevValue);
+            useDidMountEffect(() => {
+                forceUpdate();
             }, [view, size, target]);
 
             useEffect(() => {
@@ -77,8 +78,8 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
                     return;
                 }
 
-                setInnerIsOpen(isOpen);
-            }, [isOpen, disabled, readOnly]);
+                setOpened(opened);
+            }, [opened, disabled, readOnly]);
 
             const onInnerToggle = useCallback(
                 (openValue: boolean, event: React.SyntheticEvent | Event) => {
@@ -91,7 +92,7 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
                         return;
                     }
 
-                    setInnerIsOpen(openValue);
+                    setOpened(openValue);
                 },
                 [disabled, readOnly, onToggle],
             );
@@ -102,8 +103,8 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
                         dataset: { value: newValue },
                     } = item;
 
-                    if (rest.selectType === 'multiple') {
-                        const newSelected = getNewSelected(rest.value, newValue, rest.selectType);
+                    if (rest.valueType === 'multiple') {
+                        const newSelected = getNewSelected(rest.value, newValue, rest.valueType);
                         rest.onChangeValue?.(newSelected);
 
                         return;
@@ -115,7 +116,7 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
 
                     onInnerToggle?.(false, event);
                 },
-                [rest.value, rest.selectType, rest.onChangeValue, onToggle, onInnerToggle],
+                [rest.value, rest.valueType, rest.onChangeValue, onToggle, onInnerToggle],
             );
 
             const onClickChildrenItem = useCallback(
@@ -132,7 +133,7 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
 
             const onNativeSelectChange = useCallback(
                 (event: React.ChangeEvent<HTMLSelectElement>) => {
-                    if (rest.selectType === 'multiple') {
+                    if (rest.valueType === 'multiple') {
                         return;
                     }
 
@@ -141,31 +142,27 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
 
                     rest.onChangeValue?.(newSelected);
                 },
-                [rest.value, rest.selectType, rest.onChangeValue],
+                [rest.value, rest.valueType, rest.onChangeValue],
             );
 
             const onChangeChipValue = useCallback(
                 (newValue?: Array<SelectPrimitiveValue>) => {
-                    if (rest.selectType !== 'multiple') {
+                    if (rest.valueType !== 'multiple') {
                         return;
                     }
 
                     rest.onChangeValue?.(newValue);
                 },
-                [rest.selectType],
+                [rest.valueType],
             );
-
-            const onChipClick = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
-                event.stopPropagation();
-            }, []);
 
             const { onKeyDownTarget, onKeyDownSelect } = useKeyNavigation({
                 controlledRefs,
-                isOpen: innerIsOpen,
+                opened: innerOpened,
                 enumerationType,
-                selectType,
+                valueType,
                 value,
-                updateIsOpen: onInnerToggle,
+                updateOpened: onInnerToggle,
                 updateValue,
             });
 
@@ -173,7 +170,7 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
 
             const childrenMemo = useMemo(
                 () => getChildren(childrenArray, { onClick: onClickChildrenItem, childrenRefs: itemsRefs }, value),
-                [childrenArray, value, innerIsOpen],
+                [childrenArray, value, innerOpened],
             );
 
             const values = useMemo(() => getValues(childrenArray, value), [childrenArray, value]);
@@ -184,7 +181,7 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
                         aria-invalid="false"
                         aria-hidden="true"
                         aria-readonly={readOnly}
-                        tabIndex={selectType === 'native' ? 0 : -1}
+                        tabIndex={valueType === 'native' ? 0 : -1}
                         form={form}
                         name={name}
                         ref={handleRef}
@@ -193,16 +190,16 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
                         onChange={onNativeSelectChange}
                         className={cx(ref?.classList.toString(), withNativeSelectVisible)}
                     >
-                        {selectType === 'native' && childrenMemo}
+                        {valueType === 'native' && childrenMemo}
                     </StyledNativeSelect>
                     <StyledPopover
                         role={role}
-                        isOpen={innerIsOpen}
+                        isOpen={innerOpened}
                         onToggle={onInnerToggle}
                         target={
                             <SelectTarget
-                                tabIndex={selectType === 'native' ? -1 : 0}
-                                isOpen={innerIsOpen}
+                                tabIndex={valueType === 'native' ? -1 : 0}
+                                opened={innerOpened}
                                 target={target}
                                 values={values}
                                 label={label}
@@ -213,8 +210,7 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
                                 ref={targetRef}
                                 chipsRefs={chipsRefs}
                                 id={innerId}
-                                onChipClick={onChipClick}
-                                onChangeValue={onChangeChipValue}
+                                onChange={onChangeChipValue}
                                 onKeyDown={onKeyDownTarget}
                             />
                         }
@@ -232,7 +228,7 @@ export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
                         closeOnOverlayClick
                     >
                         <Root ref={setRef} target={target} view={view} size={size} {...rest}>
-                            {selectType !== 'native' && (
+                            {valueType !== 'native' && (
                                 <StyledSelect onKeyDown={onKeyDownSelect}>{childrenMemo}</StyledSelect>
                             )}
                         </Root>

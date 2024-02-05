@@ -1,12 +1,11 @@
 import { css } from '@linaria/core';
 
-import { cx } from '../../../../utils';
 import { tokens } from '../../Select.tokens';
 import { dropdownTokens } from '../../../Dropdown';
-import { base as dropdownItemBase } from '../../../Dropdown/ui/DropdownItem/DropdownItem.styles';
+import { baseContent as dropdownItemBase } from '../../../Dropdown/ui/DropdownItem/DropdownItem.styles';
 
 // NOTE: Необходимое переопределение токенов из компонента DropdownItem т.к. используются его части
-export const mappingOverride = css`
+export const mappingOverride = `
     ${dropdownTokens.itemBackground}: var(${tokens.itemBackground});
     ${dropdownTokens.itemColor}: var(${tokens.itemColor});
     ${dropdownTokens.itemBackgroundHover}: var(${tokens.itemBackgroundHover});
@@ -39,4 +38,7 @@ export const mappingOverride = css`
     ${dropdownTokens.itemContentRightWidth}: var(${tokens.itemContentRightWidth});
 `;
 
-export const base = cx(mappingOverride, dropdownItemBase);
+export const base = css`
+    ${dropdownItemBase};
+    ${mappingOverride};
+`;

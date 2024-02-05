@@ -1,27 +1,35 @@
 import { styled } from '@linaria/react';
 
 import { IconChevronDown } from '../../../_Icon';
-import { applyEllipsis } from '../../../../mixins';
+import { addFocus, applyEllipsis } from '../../../../mixins';
 import { component, mergeConfig } from '../../../../engines';
 import { buttonConfig, buttonTokens } from '../../../Button';
 import { classes, tokens } from '../../Select.tokens';
 import type { TargetType } from '../../Select.types';
 
-const { hasChips, innerLabelUp, arrowInverse, selectTargetArrow, selectTargeText, selectTargetLabel } = classes;
+const {
+    hasChips,
+    hasNoFocus,
+    innerLabelUp,
+    arrowInverse,
+    selectTargetArrow,
+    selectTargeText,
+    selectTargetLabel,
+} = classes;
 
 const mergedButtonConfig = mergeConfig(buttonConfig);
 const Button = component(mergedButtonConfig);
 
 // NOTE: Необходимое переопределение токенов из компонента Button т.к. используются его части
-export const StyledSelectTarget = styled(Button)<{ target?: TargetType; isOpen?: boolean }>`
+export const StyledSelectTarget = styled(Button)<{ target?: TargetType; opened?: boolean }>`
     ${buttonTokens.buttonDisabledOpacity}: var(${tokens.disabledOpacity});
     ${buttonTokens.buttonColor}: var(${tokens.targetColor});
-    ${buttonTokens.buttonBackgroundColor}: ${({ isOpen }) =>
-    isOpen ? `var(${tokens.targetBackgroundColorOpen})` : `var(${tokens.targetBackgroundColor})`};
-    ${buttonTokens.buttonBackgroundColorHover}: ${({ isOpen }) =>
-    isOpen ? `var(${tokens.targetBackgroundColorOpen})` : `var(${tokens.targetBackgroundColorHover})`};
-    ${buttonTokens.buttonBackgroundColorActive}: ${({ isOpen }) =>
-    isOpen ? `var(${tokens.targetBackgroundColorOpen})` : `var(${tokens.targetBackgroundColorActive})`};
+    ${buttonTokens.buttonBackgroundColor}: ${({ opened }) =>
+    opened ? `var(${tokens.targetBackgroundColorOpen})` : `var(${tokens.targetBackgroundColor})`};
+    ${buttonTokens.buttonBackgroundColorHover}: ${({ opened }) =>
+    opened ? `var(${tokens.targetBackgroundColorOpen})` : `var(${tokens.targetBackgroundColorHover})`};
+    ${buttonTokens.buttonBackgroundColorActive}: ${({ opened }) =>
+    opened ? `var(${tokens.targetBackgroundColorOpen})` : `var(${tokens.targetBackgroundColorActive})`};
     ${buttonTokens.buttonHeight}: var(${tokens.targetHeight});
     ${buttonTokens.buttonWidth}: var(${tokens.targetWidth});
     ${buttonTokens.buttonRadius}: var(${tokens.targetRadius});
@@ -34,18 +42,18 @@ export const StyledSelectTarget = styled(Button)<{ target?: TargetType; isOpen?:
     ${buttonTokens.buttonFocusColor}: var(${tokens.focusColor});
 
     box-shadow: inset 0 0 0 0.0625rem
-        ${({ isOpen }) => (isOpen ? `var(${tokens.targetBorderColorOpen})` : `var(${tokens.targetBorderColor})`)};
+        ${({ opened }) => (opened ? `var(${tokens.targetBorderColorOpen})` : `var(${tokens.targetBorderColor})`)};
 
     &:hover:not([disabled]):not([readonly]) {
         box-shadow: inset 0 0 0 0.0625rem
-            ${({ isOpen }) =>
-                isOpen ? `var(${tokens.targetBorderColorOpen})` : `var(${tokens.targetBorderColorHover})`};
+            ${({ opened }) =>
+                opened ? `var(${tokens.targetBorderColorOpen})` : `var(${tokens.targetBorderColorHover})`};
     }
 
     &:active:not([disabled]):not([readonly]) {
         box-shadow: inset 0 0 0 0.0625rem
-            ${({ isOpen }) =>
-                isOpen ? `var(${tokens.targetBorderColorOpen})` : `var(${tokens.targetBorderColorActive})`};
+            ${({ opened }) =>
+                opened ? `var(${tokens.targetBorderColorOpen})` : `var(${tokens.targetBorderColorActive})`};
     }
 
     padding: ${({ target }) =>
@@ -85,6 +93,27 @@ export const StyledSelectTarget = styled(Button)<{ target?: TargetType; isOpen?:
             line-height: var(${tokens.targetLabelInnerLineHeight});
         }
     }
+
+    &.${String(hasNoFocus)} {
+        --plasma_private-combobox-focus-size: 0.0625rem;
+
+        ${addFocus({
+            hasTransition: false,
+            outlineOffset: 'calc(-1 * var(--plasma_private-combobox-focus-size))',
+            outlineRadius: `calc(var(${tokens.targetRadius}) + var(--plasma_private-combobox-focus-size))`,
+            outlineSize: 'var(--plasma_private-combobox-focus-size)',
+            customFocusRules: `
+                &:focus-within {
+                    box-shadow: none;
+                    background-color: var(${tokens.targetBackgroundColorOpen});
+
+                    &::before {
+                        box-shadow: inset 0 0 0 var(--plasma_private-combobox-focus-size) var(${tokens.targetBorderColorOpen});
+                    }
+                }
+            `,
+        })}
+    }
 `;
 
 export const StyledArrow = styled(IconChevronDown)`
@@ -120,6 +149,8 @@ export const StyledChipsWrapper = styled.div`
     ::-webkit-scrollbar {
         display: none;
     }
+
+    scrollbar-width: none;
 
     overscroll-behavior: contain;
 `;

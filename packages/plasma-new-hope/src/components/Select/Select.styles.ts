@@ -64,6 +64,6 @@ export const StyledNativeSelect = styled.select`
 
     &:focus-visible {
         border-radius: var(${tokens.borderRadius});
-        box-shadow: 0 0 0 0.125rem var(${tokens.focusColor});
+        box-shadow: 0 0 0 0.0625rem var(${tokens.focusColor});
     }
 `;
