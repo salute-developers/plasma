@@ -32,3 +32,4 @@ export * from './components/AvatarGroup';
 export * from './components/Toast';
 export * from './components/Overlay';
 export * from './components/SSRProvider';
+export * from './components/Combobox';
