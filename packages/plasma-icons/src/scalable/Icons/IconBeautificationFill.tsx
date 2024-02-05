@@ -1,7 +1,14 @@
 import React from 'react';
 
-import { IconRoot, IconProps } from '../IconRoot';
+import { BeautificationFill as Icon16 } from '../Icon.assets.16/BeautificationFill';
+import { BeautificationFill as Icon24 } from '../Icon.assets.24/BeautificationFill';
+import { BeautificationFill as Icon36 } from '../Icon.assets.36/BeautificationFill';
+import { IconProps, IconRoot, getIconComponent, sizeMap } from '../IconRoot';
 
 export const IconBeautificationFill: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} icon="beautificationFill" />;
+    const IconComponent = getIconComponent(Icon16, Icon24, Icon36, sizeMap[size].size);
+    if (!IconComponent) {
+        return null;
+    }
+    return <IconRoot className={className} size={size} color={color} icon={IconComponent} />;
 };

@@ -1,0 +1,1 @@
+export const CapsuleOpenFill = null;

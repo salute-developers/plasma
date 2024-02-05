@@ -1,0 +1,1 @@
+export const DoneSquareOutline = null;

@@ -1,0 +1,1 @@
+export const ChevronUp = null;

@@ -1,7 +1,14 @@
 import React from 'react';
 
-import { IconRoot, IconProps } from '../IconRoot';
+import { TvDashFill as Icon16 } from '../Icon.assets.16/TvDashFill';
+import { TvDashFill as Icon24 } from '../Icon.assets.24/TvDashFill';
+import { TvDashFill as Icon36 } from '../Icon.assets.36/TvDashFill';
+import { IconProps, IconRoot, getIconComponent, sizeMap } from '../IconRoot';
 
 export const IconTvDashFill: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} icon="tvDashFill" />;
+    const IconComponent = getIconComponent(Icon16, Icon24, Icon36, sizeMap[size].size);
+    if (!IconComponent) {
+        return null;
+    }
+    return <IconRoot className={className} size={size} color={color} icon={IconComponent} />;
 };

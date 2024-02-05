@@ -1,6 +1,3 @@
-import React from 'react';
-
-import { IconRoot, IconSetUnionSize, IconSize } from './IconRoot';
 import { AddFill } from './Icon.assets.24/AddFill';
 import { AddOutline } from './Icon.assets.24/AddOutline';
 import { AnimalFill } from './Icon.assets.24/AnimalFill';
@@ -1026,17 +1023,6 @@ import { ShareFill } from './Icon.assets.24/ShareFill';
 import { ShareOutline } from './Icon.assets.24/ShareOutline';
 import { UploadFill } from './Icon.assets.24/UploadFill';
 import { UploadOutline } from './Icon.assets.24/UploadOutline';
-
-interface Props {
-    icon: IconSetUnionSize;
-    size?: IconSize;
-    color?: string;
-    className?: string;
-}
-
-export const Icon: React.FC<Props> = ({ icon, size, color, className }) => {
-    return <IconRoot className={className} icon={icon} size={size || 's'} color={color} />;
-};
 
 export const iconSectionsSet = {
     Operation: {

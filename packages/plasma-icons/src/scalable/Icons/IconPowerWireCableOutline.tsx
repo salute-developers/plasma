@@ -1,7 +1,14 @@
 import React from 'react';
 
-import { IconRoot, IconProps } from '../IconRoot';
+import { PowerWireCableOutline as Icon16 } from '../Icon.assets.16/PowerWireCableOutline';
+import { PowerWireCableOutline as Icon24 } from '../Icon.assets.24/PowerWireCableOutline';
+import { PowerWireCableOutline as Icon36 } from '../Icon.assets.36/PowerWireCableOutline';
+import { IconProps, IconRoot, getIconComponent, sizeMap } from '../IconRoot';
 
 export const IconPowerWireCableOutline: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} icon="powerWireCableOutline" />;
+    const IconComponent = getIconComponent(Icon16, Icon24, Icon36, sizeMap[size].size);
+    if (!IconComponent) {
+        return null;
+    }
+    return <IconRoot className={className} size={size} color={color} icon={IconComponent} />;
 };

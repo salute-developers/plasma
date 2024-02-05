@@ -1,7 +1,14 @@
 import React from 'react';
 
-import { IconRoot, IconProps } from '../IconRoot';
+import { CapsuleOpenOutline as Icon16 } from '../Icon.assets.16/CapsuleOpenOutline';
+import { CapsuleOpenOutline as Icon24 } from '../Icon.assets.24/CapsuleOpenOutline';
+import { CapsuleOpenOutline as Icon36 } from '../Icon.assets.36/CapsuleOpenOutline';
+import { IconProps, IconRoot, getIconComponent, sizeMap } from '../IconRoot';
 
 export const IconCapsuleOpenOutline: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} icon="capsuleOpenOutline" />;
+    const IconComponent = getIconComponent(Icon16, Icon24, Icon36, sizeMap[size].size);
+    if (!IconComponent) {
+        return null;
+    }
+    return <IconRoot className={className} size={size} color={color} icon={IconComponent} />;
 };
