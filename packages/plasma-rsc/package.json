@@ -15,7 +15,9 @@
     },
     "dependencies": {
         "@linaria/core": "5.0.2",
-        "@linaria/react": "5.0.3"
+        "@linaria/react": "5.0.3",
+        "@salutejs/plasma-core": "1.147.0-dev.0",
+        "@salutejs/plasma-tokens": "1.71.0-dev.0"
     },
     "devDependencies": {
         "@ironkinoko/rollup-plugin-styles": "^4.0.3",
