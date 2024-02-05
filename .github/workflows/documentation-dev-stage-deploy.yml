@@ -1,0 +1,135 @@
+name: Deploy documentation and storybook to DEV stage
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          show-progress: false
+          
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-environment
+
+      - name: Lerna bootstrap
+        run: npx lerna bootstrap
+
+      - name: Prepare directories
+        run: |
+          mkdir -p s3_build s3_build_sb
+
+      - name: Plasma Website
+        run: |
+          npm run build --prefix="./website/plasma-website"
+          cp -R ./website/plasma-website/build ./s3_build/next-${{ github.sha }}
+
+      - name: Plasma UI Docs
+        run: |
+          npm run build --prefix="./website/plasma-ui-docs"
+          cp -R ./website/plasma-ui-docs/build ./s3_build/next-${{ github.sha }}/ui
+
+      - name: Plasma Web Docs
+        run: |
+          npm run build --prefix="./website/plasma-web-docs"
+          cp -R ./website/plasma-web-docs/build ./s3_build/next-${{ github.sha }}/web
+
+      - name: Plasma UI Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/plasma-ui"
+          cp -R ./packages/plasma-ui/build-sb ./s3_build_sb/ui-storybook
+
+      - name: Plasma Web Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/plasma-web"
+          cp -R ./packages/plasma-web/build-sb ./s3_build_sb/web-storybook
+
+      - name: Plasma B2C Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/plasma-b2c"
+          cp -R ./packages/plasma-b2c/build-sb ./s3_build_sb/b2c-storybook
+          
+      - name: Plasma "ASDK" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/plasma-asdk"
+          cp -R ./packages/plasma-asdk/build-sb ./s3_build_sb/asdk-storybook
+
+      - name: Install s3cmd
+        run: pip3 install s3cmd
+
+      - name: Upload documentation build
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build/next-${{ github.sha }}/
+          s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/current/
+
+      - name: Upload to S3 storybook "Plasma-UI"
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/ui-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/ui-storybook/
+
+      - name: Upload to S3 storybook "Plasma-Web"
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/web-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/web-storybook/
+
+      - name: Upload to S3 storybook "Plasma-b2c"
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/b2c-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/b2c-storybook/
+          
+      - name: Upload to S3 storybook "Plasma-ASDK"
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/asdk-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/asdk-storybook/
