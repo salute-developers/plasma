@@ -12,99 +12,124 @@ export const Keys = {
     ArrowUp: 'ArrowUp',
     ArrowDown: 'ArrowDown',
     Backspace: 'Backspace',
+    ShiftLeft: 'ShiftLeft',
+    ShiftRight: 'ShiftRight',
 };
 
 export const useKeyNavigation = ({
-    controlledRefs: { targetRef, chipsRefs, selectRef, itemsRefs },
-    isOpen,
+    controlledRefs: { targetRef, chipsRefs, selectRef, itemsRefs, inputRef },
+    opened,
     enumerationType,
-    selectType,
+    valueType,
+    componentType = 'select',
     value,
+    search,
     updateValue,
-    updateIsOpen,
+    updateOpened,
 }: UseKeyNavigationProps) => {
     const [selectItemIndex, setSelectItemIndex] = useState(-1);
     const [selectChipIndex, setSelectChipIndex] = useState(-1);
 
     useEffect(() => {
-        if (!isOpen) {
+        if (!opened) {
             setSelectItemIndex(-1);
             setSelectChipIndex(-1);
+
             return;
         }
 
         itemsRefs?.current?.[selectItemIndex]?.focus();
-    }, [isOpen]);
+    }, [opened]);
 
     useEffect(() => {
         itemsRefs?.current?.[selectItemIndex]?.focus();
-    }, [value]);
+    }, [value, search]);
 
     const onKeyDownTarget = useCallback(
-        (event: KeyboardEvent<HTMLButtonElement>) => {
-            const { code, shiftKey } = event;
+        (event: KeyboardEvent<HTMLButtonElement | HTMLInputElement>) => {
+            const { code } = event;
 
             const chipsRefsCount = chipsRefs.current.length;
-            let newIsOpen = isOpen;
+            let scrollIntoView = false;
+            let newOpened = opened;
             let newSelectItemIndex = selectItemIndex;
             let newSelectChipIndex = selectChipIndex;
-            let focusedItem: HTMLElement | null = null;
+            let focusedItem: HTMLElement | HTMLInputElement | null = null;
 
-            if (code === Keys.Enter || code === Keys.Space) {
+            if (code === Keys.Enter || (code === Keys.Space && componentType !== 'combobox')) {
                 event.preventDefault();
             }
 
             if (code === Keys.Escape) {
-                newIsOpen = false;
+                newOpened = false;
                 newSelectItemIndex = -1;
                 newSelectChipIndex = -1;
                 focusedItem = targetRef.current;
             }
 
-            if (code === Keys.Tab) {
-                newIsOpen = false;
-                newSelectItemIndex = -1;
-                newSelectChipIndex = -1;
-                focusedItem = (shiftKey
-                    ? selectRef.current?.previousSibling
-                    : selectRef.current?.nextSibling) as HTMLElement;
-            }
-
-            if (code === Keys.ArrowLeft && selectType === 'multiple' && enumerationType === 'chip') {
+            if (code === Keys.ArrowLeft && valueType === 'multiple' && enumerationType === 'chip') {
                 const index = selectChipIndex - 1 <= 0 ? 0 : selectChipIndex - 1;
 
                 newSelectChipIndex = document.activeElement === targetRef.current ? 0 : index;
+                newSelectChipIndex =
+                    document.activeElement === inputRef?.current ? chipsRefsCount - 1 : newSelectChipIndex;
+
                 focusedItem = chipsRefs.current?.[newSelectChipIndex];
+
+                scrollIntoView = true;
             }
 
-            if (code === Keys.ArrowRight && selectType === 'multiple' && enumerationType === 'chip') {
+            if (code === Keys.ArrowRight && valueType === 'multiple' && enumerationType === 'chip') {
                 const index = selectChipIndex + 1 === chipsRefsCount ? selectChipIndex : selectChipIndex + 1;
 
                 newSelectChipIndex = document.activeElement === targetRef.current ? 0 : index;
-                focusedItem = chipsRefs.current?.[newSelectChipIndex];
+                focusedItem =
+                    index === selectChipIndex
+                        ? (inputRef?.current as HTMLInputElement)
+                        : chipsRefs.current?.[newSelectChipIndex];
+
+                scrollIntoView = true;
             }
 
-            if (code === Keys.Backspace) {
+            if (code === Keys.Backspace && document.activeElement !== inputRef?.current) {
                 const index = selectChipIndex - 1 <= 0 ? 0 : selectChipIndex - 1;
 
                 newSelectChipIndex = chipsRefsCount === 0 ? -1 : index;
-                focusedItem = chipsRefsCount === 0 ? targetRef.current : chipsRefs?.current?.[index];
+                focusedItem = chipsRefsCount === 0 ? (inputRef || targetRef)?.current : chipsRefs?.current?.[index];
+
+                scrollIntoView = true;
             }
 
-            if (code === Keys.ArrowUp || code === Keys.ArrowDown || code === Keys.Enter || code === Keys.Space) {
-                newIsOpen = true;
+            if (
+                code === Keys.ArrowUp ||
+                code === Keys.ArrowDown ||
+                (code === Keys.Enter && componentType !== 'combobox') ||
+                (code === Keys.Space && componentType !== 'combobox')
+            ) {
+                newOpened = true;
                 newSelectItemIndex = selectItemIndex === -1 ? 0 : selectItemIndex;
-
                 focusedItem = itemsRefs.current?.[newSelectItemIndex];
             }
 
-            updateIsOpen(newIsOpen, event);
+            // INFO: Для кейсов, когда поведение закрытия может контролироваться снаружи
+            if (code !== Keys.Enter || componentType !== 'combobox') {
+                updateOpened(newOpened, event);
+            }
+
             setSelectItemIndex(newSelectItemIndex);
             setSelectChipIndex(newSelectChipIndex);
 
             focusedItem?.focus();
+
+            if (scrollIntoView) {
+                focusedItem?.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
+                    inline: 'center',
+                });
+            }
         },
-        [isOpen, selectItemIndex, selectChipIndex, selectType, enumerationType, updateIsOpen],
+        [opened, selectItemIndex, selectChipIndex, valueType, enumerationType, componentType, updateOpened],
     );
 
     const onKeyDownSelect = useCallback(
@@ -113,24 +138,25 @@ export const useKeyNavigation = ({
 
             const itemsRefsCount = itemsRefs.current.length;
             const chipsRefsCount = chipsRefs.current.length;
-            let newIsOpen = isOpen;
+            let scrollIntoView = false;
+            let newOpened = opened;
             let newSelectItemIndex = selectItemIndex;
             let newSelectChipIndex = selectChipIndex;
-            let focusedItem: HTMLElement | null = null;
+            let focusedItem: HTMLElement | HTMLInputElement | null = null;
 
-            if (code === Keys.Enter || code === Keys.Tab || (code === Keys.Tab && shiftKey)) {
+            if (code === Keys.Enter || code === Keys.Tab) {
                 event.preventDefault();
             }
 
             if (code === Keys.Escape) {
-                newIsOpen = false;
+                newOpened = false;
                 newSelectItemIndex = -1;
                 newSelectChipIndex = -1;
-                focusedItem = targetRef.current;
+                focusedItem = (inputRef || targetRef).current;
             }
 
             if (code === Keys.Tab) {
-                newIsOpen = false;
+                newOpened = false;
                 newSelectItemIndex = -1;
                 newSelectChipIndex = -1;
                 focusedItem = (shiftKey
@@ -150,16 +176,18 @@ export const useKeyNavigation = ({
 
             if (
                 (code === Keys.ArrowRight || code === Keys.ArrowLeft) &&
-                selectType === 'multiple' &&
+                valueType === 'multiple' &&
                 enumerationType === 'chip' &&
                 chipsRefsCount
             ) {
                 newSelectChipIndex = chipsRefsCount - 1;
                 newSelectItemIndex = -1;
                 focusedItem = chipsRefs?.current?.[newSelectChipIndex];
+
+                scrollIntoView = true;
             }
 
-            if (code === Keys.Enter || code === Keys.Space) {
+            if (code === Keys.Enter || (code === Keys.Space && componentType !== 'combobox')) {
                 const item = itemsRefs.current[newSelectItemIndex] as HTMLElement;
 
                 // TODO: #1016
@@ -171,17 +199,54 @@ export const useKeyNavigation = ({
 
                 updateValue(item, event);
 
-                newIsOpen = selectType === 'single' ? false : isOpen;
-                focusedItem = selectType === 'single' ? targetRef.current : focusedItem;
+                newOpened = valueType === 'single' ? false : opened;
+                focusedItem = valueType === 'single' ? targetRef.current : focusedItem;
             }
 
-            updateIsOpen(newIsOpen, event);
+            const isValidKeyCode = [
+                Keys.ShiftLeft,
+                Keys.ShiftRight,
+                Keys.ArrowDown,
+                Keys.ArrowLeft,
+                Keys.ArrowRight,
+                Keys.ArrowUp,
+                Keys.Enter,
+                Keys.Escape,
+                Keys.Tab,
+            ].includes(code);
+
+            if (componentType === 'combobox' && !isValidKeyCode) {
+                event.stopPropagation();
+
+                focusedItem = inputRef?.current as HTMLInputElement;
+                newSelectItemIndex = -1;
+                newSelectChipIndex = -1;
+            }
+
+            updateOpened(newOpened, event);
             setSelectItemIndex(newSelectItemIndex);
             setSelectChipIndex(newSelectChipIndex);
 
             focusedItem?.focus();
+
+            if (scrollIntoView) {
+                focusedItem?.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
+                    inline: 'center',
+                });
+            }
         },
-        [isOpen, selectItemIndex, selectChipIndex, selectType, enumerationType, updateIsOpen, updateValue],
+        [
+            opened,
+            selectItemIndex,
+            selectChipIndex,
+            valueType,
+            enumerationType,
+            componentType,
+            updateOpened,
+            updateValue,
+        ],
     );
 
     return { onKeyDownTarget, onKeyDownSelect } as const;

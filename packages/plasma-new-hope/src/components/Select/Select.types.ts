@@ -1,19 +1,21 @@
 import { MutableRefObject, SyntheticEvent } from 'react';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
 
-import { CustomDropdownProps } from '../Dropdown/Dropdown.types';
+import { DropdownPlacement, DropdownPlacementBasic } from '../Dropdown/Dropdown.types';
 
 export type SelectPrimitiveValue = string | number | boolean;
 
 export type SelectValue = SelectPrimitiveValue | Array<SelectPrimitiveValue>;
 
-export type SelectType = 'single' | 'multiple' | 'native';
+export type ValueType = 'single' | 'multiple' | 'native';
 
 export type EnumerationType = 'comma' | 'chip';
 
 export type TargetType = 'button-like' | 'textField-like';
 
-export interface CustomSelectProps extends CustomDropdownProps {
+export type ComponentType = 'select' | 'combobox';
+
+export interface CustomSelectProps {
     /**
      * Вид элемента, рядом с которым появляется список.
      */
@@ -31,15 +33,43 @@ export interface CustomSelectProps extends CustomDropdownProps {
      * Находится ли в портале.
      */
     usePortal?: boolean;
+    /**
+     * Дропдаун открыт или нет.
+     * @default
+     *  false
+     */
+    opened?: boolean;
+    /**
+     * Сторона открытия дропдауна относительно target элемента.
+     * @default
+     *  auto
+     */
+    placement?: DropdownPlacement | Array<DropdownPlacementBasic>;
+    /**
+     * В каком контейнере позиционируется(по умолчанию document), можно также указать id элемента или ref для него.
+     */
+    frame?: 'document' | string | React.RefObject<HTMLElement>;
+    /**
+     * Размер компонента.
+     */
+    size?: string;
+    /**
+     * Вид компонента.
+     */
+    view?: string;
+    /**
+     * Событие сворачивания/разворачивания дропдауна.
+     */
+    onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
 }
 
-export type SelectTypeSeparation =
+export type valueTypeSeparation =
     | {
           /**
            * Тип селекта.
            * Варианты: single, multiple, native
            */
-          selectType?: 'single' | 'native';
+          valueType?: 'single' | 'native';
           value?: SelectPrimitiveValue;
           /**
            * Обработчик изменения выбранного значения.
@@ -51,7 +81,7 @@ export type SelectTypeSeparation =
            * Тип селекта.
            * Варианты: single, multiple, native
            */
-          selectType: 'multiple';
+          valueType: 'multiple';
           value?: Array<SelectPrimitiveValue>;
           /**
            * Обработчик изменения выбранного значения.
@@ -61,21 +91,24 @@ export type SelectTypeSeparation =
 
 export type SelectProps = Omit<InputHTMLAttributes<HTMLSelectElement>, 'value' | 'size' | 'onChange'> &
     CustomSelectProps &
-    SelectTypeSeparation;
+    valueTypeSeparation;
 
 export interface ControlledRefs {
-    targetRef: MutableRefObject<HTMLButtonElement | null>;
+    targetRef: MutableRefObject<HTMLButtonElement | HTMLInputElement | null>;
     chipsRefs: MutableRefObject<Array<HTMLButtonElement>>;
     selectRef: MutableRefObject<HTMLDivElement | null>;
     itemsRefs: MutableRefObject<Array<HTMLDivElement>>;
+    inputRef?: MutableRefObject<HTMLInputElement | null>;
 }
 
 export interface UseKeyNavigationProps {
     controlledRefs: ControlledRefs;
-    isOpen: boolean;
-    selectType?: SelectType;
+    opened: boolean;
+    valueType?: ValueType;
+    componentType?: ComponentType;
     value?: SelectPrimitiveValue | SelectPrimitiveValue[];
+    search?: string;
     enumerationType?: EnumerationType;
     updateValue: (item: HTMLElement, event: SyntheticEvent | Event) => void;
-    updateIsOpen: (value: boolean, event: SyntheticEvent | Event) => void;
+    updateOpened: (value: boolean, event: SyntheticEvent | Event) => void;
 }

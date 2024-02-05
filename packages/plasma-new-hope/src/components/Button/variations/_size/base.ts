@@ -17,5 +17,5 @@ export const base = css`
     line-height: var(${tokens.buttonLineHeight});
 
     /* TODO: #710 make it token API ? */
-    --plasma_private-btn-outline-size: var(--plasma-button-outline-size, 0.125rem);
+    --plasma_private-btn-outline-size: var(--plasma-button-outline-size, 0.0625rem);
 `;

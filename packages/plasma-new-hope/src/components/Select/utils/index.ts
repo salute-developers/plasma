@@ -1,11 +1,12 @@
-import { Children, InputHTMLAttributes, cloneElement, isValidElement } from 'react';
+import { Children, MouseEvent, ReactElement, ReactNode, cloneElement, isValidElement } from 'react';
 
-import { SelectPrimitiveValue, SelectType, SelectValue } from '../Select.types';
+import { SelectPrimitiveValue, ValueType, SelectValue } from '../Select.types';
+import { SelectItemProps } from '../ui/SelectItem/SelectItem.type';
 
 type NewSelectedFunc = {
     (selected?: undefined | null, newValue?: undefined | null, type?: undefined | null): undefined;
-    (selected?: SelectPrimitiveValue, newValue?: SelectPrimitiveValue, type?: SelectType): SelectPrimitiveValue;
-    (selected?: Array<SelectPrimitiveValue>, newValue?: SelectPrimitiveValue, type?: SelectType): Array<
+    (selected?: SelectPrimitiveValue, newValue?: SelectPrimitiveValue, type?: ValueType): SelectPrimitiveValue;
+    (selected?: Array<SelectPrimitiveValue>, newValue?: SelectPrimitiveValue, type?: ValueType): Array<
         SelectPrimitiveValue
     >;
 };
@@ -35,7 +36,7 @@ export const getNewSelected: NewSelectedFunc = (selected: any, newValue: any, ty
     return Array.from(set);
 };
 
-const getChildrenInnerText = (children: React.ReactElement): string => {
+const getChildrenInnerText = (children: ReactElement): string => {
     if (!children || typeof children === 'string') {
         return children;
     }
@@ -43,7 +44,7 @@ const getChildrenInnerText = (children: React.ReactElement): string => {
     return getChildrenInnerText(children.props.children);
 };
 
-export const getValues = (items: React.ReactElement[], value?: SelectValue, result: Array<Array<string>> = []) => {
+export const getValues = (items: ReactElement[], value?: SelectValue, result: Array<Array<string>> = []) => {
     items.forEach((item) => {
         if (item.props === undefined) {
             return result;
@@ -78,17 +79,19 @@ export const getValues = (items: React.ReactElement[], value?: SelectValue, resu
     return result;
 };
 
-const getChildrenItemChecked = (value?: SelectValue, child?: React.ReactElement<InputHTMLAttributes<HTMLDivElement>>) =>
+const getChildrenItemChecked = (value?: SelectValue, child?: ReactElement<SelectItemProps>) =>
     (!Array.isArray(value) && child?.props.value === value) ||
     (Array.isArray(value) && Boolean(value?.find((v) => child?.props.value === v)));
 
 // INFO: Функция для рекурсивного обновления пропсов
 export const updatePropsRecursively = (
-    children: React.ReactElement<InputHTMLAttributes<HTMLDivElement>>[],
-    externalProps: Record<string, any>,
+    children?: ReactElement<SelectItemProps>[],
+    externalProps?: Record<string, any>,
     value?: SelectValue,
-): React.ReactNode =>
-    Children.map(children, (child) => {
+    search?: string,
+    filterFunction?: (childText: string, filterValue?: string) => boolean,
+): ReactNode[] =>
+    Children.map(children || [], (child) => {
         if (!isValidElement(child)) {
             return child;
         }
@@ -100,32 +103,46 @@ export const updatePropsRecursively = (
             checked: getChildrenItemChecked(value, child),
             ...(hasValue && {
                 ref: (element: HTMLDivElement) => {
-                    if (externalProps.childrenRefs?.current && element) {
+                    if (externalProps?.childrenRefs?.current && element) {
                         externalProps.childrenRefs.current.push(element);
                     }
                 },
-                onClick: (event: React.MouseEvent<HTMLDivElement>) => {
+                onClick: (event: MouseEvent<HTMLDivElement>) => {
                     child.props.onClick?.(event);
-                    externalProps.onClick?.(event);
+                    externalProps?.onClick?.(event);
                 },
             }),
         };
 
         const updatedChild = updatePropsRecursively(
-            child.props.children as React.ReactElement<InputHTMLAttributes<HTMLDivElement>>[],
+            child.props.children as ReactElement<SelectItemProps>[],
             externalProps,
             value,
+            search,
+            filterFunction,
         );
+
+        if (filterFunction) {
+            const text = child.props?.text || '';
+
+            return filterFunction(text, search) ? cloneElement(child, props, updatedChild) : null;
+        }
 
         return cloneElement(child, props, updatedChild);
     });
 
+const defaultFilterFunction = (text: string, filterValue = '') => text.includes(filterValue);
+
 export const getChildren = (
-    children: React.ReactElement<InputHTMLAttributes<HTMLDivElement>>[],
+    children: ReactElement<SelectItemProps>[],
     externalProps: Record<string, any>,
     value?: SelectValue,
+    search?: string,
+    filterFunction = defaultFilterFunction,
 ) => {
-    externalProps.childrenRefs.current = [];
+    if (externalProps.childrenRefs) {
+        externalProps.childrenRefs.current = [];
+    }
 
-    return updatePropsRecursively(children, externalProps, value);
+    return updatePropsRecursively(children, externalProps, value, search, filterFunction);
 };
