@@ -2,11 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { primary } from '@salutejs/plasma-core';
 
-import { iconSet16, IconSet16 } from './Icon.assets.16';
-import { iconSet24, IconSet24 } from './Icon.assets.24';
-import { iconSet36, IconSet36 } from './Icon.assets.36';
-
-const sizeMap = {
+export const sizeMap = {
     xs: {
         scale: 1,
         size: 16,
@@ -21,8 +17,6 @@ const sizeMap = {
     }, // 36px
 };
 
-export type IconSetUnionSize = IconSet16 | IconSet24 | IconSet36;
-
 export type IconSize = keyof typeof sizeMap;
 
 export interface IconProps {
@@ -33,7 +27,7 @@ export interface IconProps {
 
 interface IconRootProps extends IconProps {
     size: IconSize;
-    icon: React.FC<IconProps> | IconSetUnionSize;
+    icon: React.FC<IconProps>;
 }
 
 const StyledRoot = styled.div<{ w: string }>`
@@ -45,44 +39,31 @@ const StyledRoot = styled.div<{ w: string }>`
     `}
 `;
 
-const hasOwnProperty = <T extends {}, Y extends PropertyKey>(
-    obj: T,
-    prop: Y,
-): obj is T & Record<Y, React.FC<IconProps>> => Object.prototype.hasOwnProperty.call(obj, prop);
-
-const getIconComponent = (iconName: IconSetUnionSize, size: number) => {
-    if (size === 16 && hasOwnProperty(iconSet16, iconName)) {
-        return iconSet16[iconName];
+export const getIconComponent = (
+    icon16: React.FC<IconProps> | null,
+    icon24: React.FC<IconProps> | null,
+    icon36: React.FC<IconProps> | null,
+    size: number,
+) => {
+    if (size === 16 && icon16 !== null) {
+        return icon16;
     }
 
-    if (size === 24 && hasOwnProperty(iconSet24, iconName)) {
-        return iconSet24[iconName];
+    if (size === 24 && icon24 !== null) {
+        return icon24;
     }
 
-    if (size === 36 && hasOwnProperty(iconSet36, iconName)) {
-        return iconSet36[iconName];
+    if (size === 36 && icon36 !== null) {
+        return icon36;
     }
 
-    return (
-        (hasOwnProperty(iconSet16, iconName) && iconSet16[iconName]) ||
-        (hasOwnProperty(iconSet24, iconName) && iconSet24[iconName]) ||
-        (hasOwnProperty(iconSet36, iconName) && iconSet36[iconName])
-    );
+    return icon16 || icon24 || icon36;
 };
 
 export const IconRoot: React.FC<IconRootProps> = ({ icon: Icon, size, color, className }) => {
     const c = color || primary;
 
     const w = `${sizeMap[size].scale}rem`;
-
-    if (typeof Icon === 'string') {
-        const IconComponent = getIconComponent(Icon, sizeMap[size].size);
-        return (
-            <StyledRoot w={w} className={className}>
-                {IconComponent && <IconComponent color={c} size={size} />}
-            </StyledRoot>
-        );
-    }
 
     return (
         <StyledRoot aria-hidden w={w} className={className}>

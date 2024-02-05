@@ -1,7 +1,14 @@
 import React from 'react';
 
-import { IconRoot, IconProps } from '../IconRoot';
+import { VolumeLevel2Outline as Icon16 } from '../Icon.assets.16/VolumeLevel2Outline';
+import { VolumeLevel2Outline as Icon24 } from '../Icon.assets.24/VolumeLevel2Outline';
+import { VolumeLevel2Outline as Icon36 } from '../Icon.assets.36/VolumeLevel2Outline';
+import { IconProps, IconRoot, getIconComponent, sizeMap } from '../IconRoot';
 
 export const IconVolumeLevel2Outline: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} icon="volumeLevel2Outline" />;
+    const IconComponent = getIconComponent(Icon16, Icon24, Icon36, sizeMap[size].size);
+    if (!IconComponent) {
+        return null;
+    }
+    return <IconRoot className={className} size={size} color={color} icon={IconComponent} />;
 };

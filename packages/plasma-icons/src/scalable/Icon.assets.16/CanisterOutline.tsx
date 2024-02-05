@@ -1,0 +1,1 @@
+export const CanisterOutline = null;

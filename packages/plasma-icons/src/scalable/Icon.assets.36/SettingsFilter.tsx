@@ -1,0 +1,1 @@
+export const SettingsFilter = null;

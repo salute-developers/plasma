@@ -1,0 +1,1 @@
+export const SberbomMiniErrorFill = null;

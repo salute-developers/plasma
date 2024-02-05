@@ -1,7 +1,14 @@
 import React from 'react';
 
-import { IconRoot, IconProps } from '../IconRoot';
+import { GasStationFill as Icon16 } from '../Icon.assets.16/GasStationFill';
+import { GasStationFill as Icon24 } from '../Icon.assets.24/GasStationFill';
+import { GasStationFill as Icon36 } from '../Icon.assets.36/GasStationFill';
+import { IconProps, IconRoot, getIconComponent, sizeMap } from '../IconRoot';
 
 export const IconGasStationFill: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} icon="gasStationFill" />;
+    const IconComponent = getIconComponent(Icon16, Icon24, Icon36, sizeMap[size].size);
+    if (!IconComponent) {
+        return null;
+    }
+    return <IconRoot className={className} size={size} color={color} icon={IconComponent} />;
 };

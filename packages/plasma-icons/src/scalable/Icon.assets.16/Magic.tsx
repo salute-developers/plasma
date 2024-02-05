@@ -1,0 +1,1 @@
+export const Magic = null;

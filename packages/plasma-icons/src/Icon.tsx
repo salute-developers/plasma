@@ -333,6 +333,10 @@ interface Props {
     className?: string;
 }
 
+/**
+ * @depracted
+ * Используйте иконки отдельно, иначе не работает tree shaking иконок
+ */
 export const Icon: React.FC<Props> = ({ icon, size, color, className }) => {
     return <IconRoot className={className} icon={iconSet[icon]} size={size || 's'} color={color} />;
 };

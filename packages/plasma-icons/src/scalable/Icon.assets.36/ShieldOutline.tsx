@@ -1,0 +1,1 @@
+export const ShieldOutline = null;
