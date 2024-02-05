@@ -88,3 +88,6 @@ utils/plasma-tokens-utils/*
 !utils/plasma-tokens-utils/src
 
 utils/plasma-tokens-native/data
+
+packages/plasma-rsc/*
+!packages/plasma-rsc/src

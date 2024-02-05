@@ -1,0 +1,39 @@
+{
+    "name": "@salutejs/plasma-rsc",
+    "version": "0.1.0",
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:salute-developers/plasma.git",
+        "directory": "packages/plasma-rsc"
+    },
+    "scripts": {
+        "dev": "next dev",
+        "build next": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "build": "BABEL_ENV=esm rollup -c"
+    },
+    "dependencies": {
+        "@linaria/core": "5.0.2",
+        "@linaria/react": "5.0.3"
+    },
+    "devDependencies": {
+        "typescript": "^5",
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "eslint": "^8",
+        "eslint-config-next": "14.1.0",
+        "react": "^18",
+        "react-dom": "^18",
+        "next": "14.1.0",
+        "@rollup/plugin-babel": "^6.0.3",
+        "@rollup/plugin-commonjs": "^25.0.4",
+        "@rollup/plugin-node-resolve": "^15.1.0",
+        "@linaria/rollup": "5.0.4",
+        "@ironkinoko/rollup-plugin-styles": "^4.0.3"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
