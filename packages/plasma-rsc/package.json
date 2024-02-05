@@ -8,7 +8,7 @@
     },
     "scripts": {
         "dev": "next dev",
-        "build next": "next build",
+        "build:next": "next build",
         "start": "next start",
         "lint": "next lint",
         "build": "BABEL_ENV=esm rollup -c"
@@ -18,20 +18,22 @@
         "@linaria/react": "5.0.3"
     },
     "devDependencies": {
-        "typescript": "^5",
+        "@ironkinoko/rollup-plugin-styles": "^4.0.3",
+        "@linaria/rollup": "5.0.4",
+        "@rollup/plugin-babel": "^6.0.3",
+        "@rollup/plugin-commonjs": "^25.0.4",
+        "@rollup/plugin-node-resolve": "^15.1.0",
+        "@rollup/rollup-darwin-x64": "^4.9.6",
         "@types/node": "^20",
         "@types/react": "^18",
         "@types/react-dom": "^18",
         "eslint": "^8",
         "eslint-config-next": "14.1.0",
+        "next": "14.1.0",
         "react": "^18",
         "react-dom": "^18",
-        "next": "14.1.0",
-        "@rollup/plugin-babel": "^6.0.3",
-        "@rollup/plugin-commonjs": "^25.0.4",
-        "@rollup/plugin-node-resolve": "^15.1.0",
-        "@linaria/rollup": "5.0.4",
-        "@ironkinoko/rollup-plugin-styles": "^4.0.3"
+        "rollup": "^3.28.0",
+        "typescript": "^5"
     },
     "publishConfig": {
         "access": "public"
