@@ -1,4 +1,4 @@
-import { PopupHookArgs, PopupProps, PopupRootProps } from '../../Popup/Popup.types';
+import { PopupHookArgs, PopupProps, PopupRootProps } from '../Popup/Popup.types';
 
 export interface ModalProps extends PopupProps {
     /**

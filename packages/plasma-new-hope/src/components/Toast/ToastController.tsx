@@ -3,8 +3,9 @@ import type { FC } from 'react';
 
 import { classes } from './Toast.tokens';
 import { ToastControllerProps, ToastProps } from './Toast.types';
-import { StyledFade, StyledRoot } from './Toast.styles';
+import { StyledOverlay, StyledRoot } from './Toast.styles';
 import { useToastInner } from './ToastProvider';
+import { FADE_Z_INDEX, gradients } from './utils';
 
 export const ToastControllerHoc = <T extends ToastProps>(ToastComponent: FC<T>) =>
     function ToastController(props: ToastControllerProps) {
@@ -39,7 +40,14 @@ export const ToastControllerHoc = <T extends ToastProps>(ToastComponent: FC<T>) 
 
         return (
             <>
-                {fade && <StyledFade className={showedFadeClass} isVisible={isVisible} placement={position} />}
+                {fade && (
+                    <StyledOverlay
+                        className={showedFadeClass}
+                        zIndex={FADE_Z_INDEX}
+                        backgroundColorProperty={gradients[position]}
+                        isClickable={false}
+                    />
+                )}
                 <StyledRoot
                     key={toastKey}
                     position={position}

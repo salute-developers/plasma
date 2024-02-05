@@ -1,13 +1,16 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useCallback, useMemo } from 'react';
 import { useFocusTrap, useForkRef, safeUseId } from '@salutejs/plasma-core';
 
-import { RootProps, component } from '../../../engines';
-import { popupConfig } from '../../Popup';
-import { ModalOverlay } from '../ModalOverlay/ModalOverlay';
+import { RootProps, component } from '../../engines';
+import { popupConfig, usePopupContext } from '../Popup';
+import { Overlay } from '../Overlay';
+import { DEFAULT_Z_INDEX } from '../Popup/utils';
 
+import { classes, tokens } from './Modal.tokens';
 import { ModalProps } from './Modal.types';
 import { useModal } from './hooks';
 import { base as viewCSS } from './variations/_view/base';
+import { getIdLastModal } from './ModalContext';
 
 // issue #823
 const Popup = component(popupConfig);
@@ -40,13 +43,35 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
             outerRootRef,
         ) => {
             const trapRef = useFocusTrap(true, initialFocusRef, focusAfterRef);
+            const popupController = usePopupContext();
 
             const innerRef = useForkRef<HTMLDivElement>(trapRef, outerRootRef);
 
             const uniqId = safeUseId();
             const innerId = id || uniqId;
+            const overlayBackgroundToken = withBlur
+                ? `var(${tokens.modalOverlayWithBlurColor})`
+                : `var(${tokens.modalOverlayColor})`;
 
             const { modalInfo } = useModal({ id: innerId, isOpen, closeOnEsc, onEscKeyDown, onClose, popupInfo });
+            const transparent = useMemo(() => getIdLastModal(popupController.items) !== innerId, [
+                innerId,
+                popupController.items,
+            ]);
+
+            const onModalOverlayKeyDown = useCallback(
+                (event: React.MouseEvent<HTMLDivElement>) => {
+                    if (onOverlayClick) {
+                        onOverlayClick(event);
+                        return;
+                    }
+
+                    if (onClose) {
+                        onClose();
+                    }
+                },
+                [closeOnOverlayClick, onOverlayClick, onClose],
+            );
 
             return (
                 <Popup
@@ -58,13 +83,14 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                     zIndex={zIndex}
                     overlay={
                         <Root view={view}>
-                            <ModalOverlay
-                                id={innerId}
+                            <Overlay
+                                className={classes.overlay}
+                                zIndex={zIndex || DEFAULT_Z_INDEX}
+                                backgroundColorProperty={overlayBackgroundToken}
                                 withBlur={withBlur}
-                                onOverlayClick={onOverlayClick}
-                                onClose={onClose}
-                                zIndex={zIndex}
-                                closeOnOverlayClick={closeOnOverlayClick}
+                                transparent={transparent}
+                                isClickable={closeOnOverlayClick}
+                                onOverlayClick={onModalOverlayKeyDown}
                             />
                         </Root>
                     }
