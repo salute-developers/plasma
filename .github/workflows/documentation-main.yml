@@ -82,12 +82,17 @@ jobs:
         run: |
           npm run storybook:build --prefix="./packages/plasma-asdk"
           cp -R ./packages/plasma-asdk/build-sb ./s3_build_sb/asdk-storybook
+          
+      - name: Plasma "New-hope" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/plasma-new-hope"
+          cp -R ./packages/plasma-new-hope/build-sb ./s3_build_sb/new-hope-storybook
 
       - name: Plasma Temple Storybook
         run: |
           npm run storybook:build --prefix="./packages/plasma-temple"
           cp -R ./packages/plasma-temple/build-sb ./s3_build/next-${{ github.sha }}/temple-storybook
-
+         
       - name: Install s3cmd
         run: pip3 install s3cmd
 
@@ -165,3 +170,18 @@ jobs:
           sync
           ./s3_build_sb/asdk-storybook/
           s3://${{ secrets.AWS_S3_BUCKET_2 }}/asdk-storybook/
+          
+      - name: Upload to S3 storybook "Plasma-new-hope"
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/new-hope-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/new-hope-storybook/
