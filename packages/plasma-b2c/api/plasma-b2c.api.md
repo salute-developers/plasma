@@ -130,6 +130,8 @@ import { NotificationLayout } from '@salutejs/plasma-new-hope/styled-components'
 import { NotificationProps } from '@salutejs/plasma-new-hope/styled-components';
 import { offsets } from '@salutejs/plasma-hope';
 import { OutlinedProps } from '@salutejs/plasma-core';
+import { Overlay } from '@salutejs/plasma-new-hope/styled-components';
+import { OverlayProps } from '@salutejs/plasma-new-hope/styled-components';
 import { padZeroNumber } from '@salutejs/plasma-core';
 import { PaginationDot } from '@salutejs/plasma-hope';
 import { PaginationDotProps } from '@salutejs/plasma-hope';
@@ -913,6 +915,10 @@ export const NotificationsProvider: React_2.FC<{
 export { offsets }
 
 export { OutlinedProps }
+
+export { Overlay }
+
+export { OverlayProps }
 
 // @public (undocumented)
 export const P1: FunctionComponent<PropsType<    {
