@@ -4,7 +4,7 @@ import { tabsTokens } from '../../../../components/Tabs';
 
 export const config = {
     defaults: {
-        view: 'filled',
+        view: 'divider',
         size: 'xs',
         disabled: 'false',
     },
@@ -29,7 +29,7 @@ export const config = {
                 ${tabsTokens.tabsDividerBorderRadius}: 0rem;
             `,
             divider: css`
-                ${tabsTokens.arrowColor}: var(--text-secondary);
+                ${tabsTokens.arrowColor}: var(--text-accent);
                 ${tabsTokens.tabsBackgroundColor}: tranparent;
                 ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
 
@@ -41,63 +41,63 @@ export const config = {
         size: {
             xs: css`
                 ${tabsTokens.tabsBorderRadius}: 0.5rem;
-                ${tabsTokens.tabsWidth}: auto;
+                ${tabsTokens.tabsWidth}: fit-content;
                 ${tabsTokens.tabsHeight}: auto;
                 ${tabsTokens.arrowInnerPadding}: 0rem;
                 ${tabsTokens.arrowOuterPadding}: 0.125rem;
             `,
             s: css`
                 ${tabsTokens.tabsBorderRadius}: 0.625rem;
-                ${tabsTokens.tabsWidth}: auto;
+                ${tabsTokens.tabsWidth}: fit-content;
                 ${tabsTokens.tabsHeight}: auto;
                 ${tabsTokens.arrowInnerPadding}: 0rem;
                 ${tabsTokens.arrowOuterPadding}: 0.25rem;
             `,
             m: css`
                 ${tabsTokens.tabsBorderRadius}: 0.75rem;
-                ${tabsTokens.tabsWidth}: auto;
+                ${tabsTokens.tabsWidth}: fit-content;
                 ${tabsTokens.tabsHeight}: auto;
                 ${tabsTokens.arrowInnerPadding}: 0rem;
                 ${tabsTokens.arrowOuterPadding}: 0.625rem;
             `,
             l: css`
                 ${tabsTokens.tabsBorderRadius}: 0.75rem;
-                ${tabsTokens.tabsWidth}: auto;
+                ${tabsTokens.tabsWidth}: fit-content;
                 ${tabsTokens.tabsHeight}: auto;
                 ${tabsTokens.arrowInnerPadding}: 0rem;
                 ${tabsTokens.arrowOuterPadding}: 0.75rem;
             `,
             h5: css`
                 ${tabsTokens.tabsBorderRadius}: 0.5rem;
-                ${tabsTokens.tabsWidth}: auto;
+                ${tabsTokens.tabsWidth}: fit-content;
                 ${tabsTokens.tabsHeight}: auto;
                 ${tabsTokens.arrowInnerPadding}: 0.25rem;
                 ${tabsTokens.arrowOuterPadding}: 0rem;
             `,
             h4: css`
                 ${tabsTokens.tabsBorderRadius}: 0.5rem;
-                ${tabsTokens.tabsWidth}: auto;
+                ${tabsTokens.tabsWidth}: fit-content;
                 ${tabsTokens.tabsHeight}: auto;
                 ${tabsTokens.arrowInnerPadding}: 0.25rem;
                 ${tabsTokens.arrowOuterPadding}: 0rem;
             `,
             h3: css`
                 ${tabsTokens.tabsBorderRadius}: 0.625rem;
-                ${tabsTokens.tabsWidth}: auto;
+                ${tabsTokens.tabsWidth}: fit-content;
                 ${tabsTokens.tabsHeight}: auto;
                 ${tabsTokens.arrowInnerPadding}: 0.375rem;
                 ${tabsTokens.arrowOuterPadding}: 0rem;
             `,
             h2: css`
                 ${tabsTokens.tabsBorderRadius}: 0.75rem;
-                ${tabsTokens.tabsWidth}: auto;
+                ${tabsTokens.tabsWidth}: fit-content;
                 ${tabsTokens.tabsHeight}: auto;
                 ${tabsTokens.arrowInnerPadding}: 0.5rem;
                 ${tabsTokens.arrowOuterPadding}: 0rem;
             `,
             h1: css`
                 ${tabsTokens.tabsBorderRadius}: 0.75rem;
-                ${tabsTokens.tabsWidth}: auto;
+                ${tabsTokens.tabsWidth}: fit-content;
                 ${tabsTokens.tabsHeight}: auto;
                 ${tabsTokens.arrowInnerPadding}: 1rem;
                 ${tabsTokens.arrowOuterPadding}: 0rem;

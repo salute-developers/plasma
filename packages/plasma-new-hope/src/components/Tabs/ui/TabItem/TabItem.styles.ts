@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 
-import { addFocus, applyEllipsis } from '../../../../mixins';
+import { addFocus } from '../../../../mixins';
 import { tokens } from '../../tokens';
 
 export const base = css`
@@ -13,7 +13,7 @@ export const base = css`
     align-items: center;
 
     gap: var(${tokens.itemContentGap});
-    padding: var(${tokens.itemPadding});
+    padding: var(${tokens.itemPaddingClear}, var(${tokens.itemPadding}));
 
     appearance: none;
     border: none;
@@ -47,9 +47,7 @@ export const StyledContent = styled.div`
     display: inline-block;
     width: fit-content;
 
-    padding: 0 var(${tokens.itemContentPadding});
-
-    ${applyEllipsis()};
+    padding: 0 var(${tokens.itemContentPaddingClear}, var(${tokens.itemContentPadding}));
 `;
 
 export const RightContent = styled.div`

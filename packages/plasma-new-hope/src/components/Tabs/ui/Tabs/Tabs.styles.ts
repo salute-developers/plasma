@@ -5,7 +5,7 @@ import { addFocus } from '../../../../mixins';
 import { tokens } from '../../tokens';
 
 export const base = css`
-    display: inline-flex;
+    display: flex;
     align-items: center;
     position: relative;
 `;
@@ -17,22 +17,22 @@ export const StyledContent = styled.div`
 `;
 
 export const StyledContentWrapper = styled.div`
-    position: relative;
-    height: 100%;
-
     /* allows correctly display outline focus on tabs item */
     margin: -0.125rem;
     padding: 0.25rem;
 
-    /* stylelint-disable-next-line selector-max-empty-lines, selector-nested-pattern, selector-type-no-unknown */
+    overflow: scroll;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
     ::-webkit-scrollbar {
         display: none;
     }
 
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
+    overscroll-behavior: contain;
 `;
 
 export const StyledArrow = styled.button<{ isLeftArrow?: boolean; isFilled?: boolean }>`
