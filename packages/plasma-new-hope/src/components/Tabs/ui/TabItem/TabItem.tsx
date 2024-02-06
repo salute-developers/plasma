@@ -102,7 +102,6 @@ export const tabItemConfig: ComponentConfig = {
         },
         pilled: {
             css: pilledCSS,
-            attrs: true,
         },
     },
     defaults: {

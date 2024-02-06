@@ -1,6 +1,6 @@
-import React, { forwardRef, useCallback, useMemo, useState, Children, useEffect } from 'react';
-import type { SetStateAction, RefObject, MutableRefObject } from 'react';
-import { safeUseId, useCarousel } from '@salutejs/plasma-core';
+import React, { forwardRef, useCallback, useMemo, useState, useEffect, useRef } from 'react';
+import type { MutableRefObject } from 'react';
+import { animatedScrollToX, safeUseId } from '@salutejs/plasma-core';
 
 import type { RootProps } from '../../../../engines/types';
 import { IconDisclosureLeft, IconDisclosureRight } from '../../../_Icon';
@@ -19,9 +19,8 @@ export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
     forwardRef<HTMLDivElement, TabsProps>((props, outerRef) => {
         const { id, stretch = false, disabled = false, size, view, children, pilled, ...rest } = props;
 
-        const [index, setIndex] = useState(0);
-        const [firstItemVisible, setFirstItemVisible] = useState(false);
-        const [lastItemVisible, setLastItemVisible] = useState(false);
+        const [firstItemVisible, setFirstItemVisible] = useState(true);
+        const [lastItemVisible, setLastItemVisible] = useState(true);
 
         const uniqId = safeUseId();
         const tabsId = id || uniqId;
@@ -34,41 +33,20 @@ export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
         const hasLeftArrowClass = !firstItemVisible ? classes.tabsHasLeftArrow : undefined;
         const hasRightArrowClass = !lastItemVisible ? classes.tabsHasRightArrow : undefined;
 
-        const items = Children?.map(children, (child) => child) || [];
+        const scrollRef = useRef<HTMLElement | null>(null);
+        const trackRef = useRef<HTMLElement | null>(null);
 
         const onPrev = useCallback(() => {
-            !disabled && setIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : 0));
-        }, [disabled]);
+            !disabled &&
+                scrollRef.current &&
+                animatedScrollToX(scrollRef.current, scrollRef.current.scrollLeft - scrollRef.current.offsetWidth / 2);
+        }, [disabled, scrollRef]);
 
         const onNext = useCallback(() => {
-            !disabled && setIndex((prevIndex) => (prevIndex < items.length - 1 ? prevIndex + 1 : prevIndex));
-        }, [disabled]);
-
-        const onIntersecting = (setVisible: (value: SetStateAction<boolean>) => void) => (
-            entries: IntersectionObserverEntry[],
-        ) => {
-            /*
-             * Пробегаемся по элементам на которых есть слушатель события появления.
-             * Если элемент находится в зоне видимости или выходит из нее, меняем значение флага видимости
-             */
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    setVisible(true);
-                } else {
-                    setVisible(false);
-                }
-            });
-        };
-
-        const { scrollRef, trackRef } = useCarousel({
-            index,
-            axis: 'x',
-            scrollAlign: 'start',
-            detectActive: true,
-            detectThreshold: 0,
-            debounceMs: 250,
-            onIndexChange: setIndex,
-        });
+            !disabled &&
+                scrollRef.current &&
+                animatedScrollToX(scrollRef.current, scrollRef.current.scrollLeft + scrollRef.current.offsetWidth / 2);
+        }, [disabled, scrollRef]);
 
         const PreviousButton = useMemo(
             () => (
@@ -103,35 +81,20 @@ export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
             [onNext],
         );
 
+        const handleScroll = useCallback(
+            (event: React.UIEvent<HTMLElement>): void => {
+                event.stopPropagation();
+                const maxScrollLeft = event.currentTarget.scrollWidth - event.currentTarget.clientWidth;
+
+                setFirstItemVisible(event.currentTarget.scrollLeft <= 0);
+                setLastItemVisible(event.currentTarget.scrollLeft >= maxScrollLeft);
+            },
+            [setFirstItemVisible, setLastItemVisible],
+        );
+
         useEffect(() => {
-            // Intersection observer для первого таба
-            const observeFirstItem = new IntersectionObserver(onIntersecting(setFirstItemVisible), {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.8,
-            });
-
-            // Intersection observer для последнего таба
-            const observeLastItem = new IntersectionObserver(onIntersecting(setLastItemVisible), {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.8,
-            });
-
-            // получаем список tabItem внутри Tabs
-            const childrenArray = Array.from(trackRef.current?.children || []) as Array<Element>;
-            if (childrenArray.length) {
-                // подписываемся на событие появление внутри Tabs
-                observeFirstItem.observe(childrenArray[0]);
-                observeLastItem.observe(childrenArray[childrenArray.length - 1]);
-            }
-
-            return () => {
-                // отписываемся от события появления внутри Tabs
-                observeFirstItem.disconnect();
-                observeLastItem.disconnect();
-            };
-        }, [children]);
+            setLastItemVisible(scrollRef.current?.scrollWidth === scrollRef.current?.clientWidth);
+        }, []);
 
         return (
             <Root
@@ -146,7 +109,10 @@ export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
                 {...rest}
             >
                 {!firstItemVisible && PreviousButton}
-                <StyledContentWrapper ref={scrollRef as RefObject<HTMLDivElement>}>
+                <StyledContentWrapper
+                    ref={scrollRef as MutableRefObject<HTMLDivElement | null>}
+                    onScroll={handleScroll}
+                >
                     <StyledContent ref={trackRef as MutableRefObject<HTMLDivElement | null>}>{children}</StyledContent>
                 </StyledContentWrapper>
                 {!lastItemVisible && NextButton}
@@ -176,7 +142,6 @@ export const tabsConfig = {
         },
         pilled: {
             css: pilledCSS,
-            attrs: true,
         },
     },
     defaults: {

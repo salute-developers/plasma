@@ -7,7 +7,7 @@ export const base = css`
     color: var(${tokens.itemColor});
     background-color: var(${tokens.itemBackgroundColor});
 
-    margin-left: var(${tokens.itemMarginLeft});
+    margin-left: var(${tokens.itemMarginLeftFilled}, var(${tokens.itemMarginLeft}));
 
     &:hover {
         color: var(${tokens.itemColorHover});
@@ -29,6 +29,10 @@ export const base = css`
         &:hover {
             color: var(${tokens.itemSelectedColorHover});
             background-color: var(${tokens.itemSelectedBackgroundColorHover});
+
+            &::after {
+                background: var(${tokens.itemSelectedDividerColorHover});
+            }
         }
 
         ${RightContent} {

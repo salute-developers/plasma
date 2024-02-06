@@ -4,7 +4,7 @@ import { tabsTokens } from '../../../../components/Tabs';
 
 export const config = {
     defaults: {
-        view: 'default',
+        view: 'divider',
         size: 'xs',
     },
     variations: {
@@ -20,13 +20,14 @@ export const config = {
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
-                ${tabsTokens.itemPadding}: 0 !important;
-                ${tabsTokens.itemContentPadding}: 0 !important;
+                ${tabsTokens.itemPaddingClear}: 0;
+                ${tabsTokens.itemContentPaddingClear}: 0;
 
                 ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
-                ${tabsTokens.itemSelectedDividerColor}: var(--text-secondary);
+                ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
+                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
 
                 ${tabsTokens.additionalContentColor}: var(--text-tertiary);
                 ${tabsTokens.additionalContentHoverColor}: var(--text-secondary);
@@ -44,12 +45,13 @@ export const config = {
                 ${tabsTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-card);
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
-                ${tabsTokens.itemMarginLeft}: 0.125rem !important;
+                ${tabsTokens.itemMarginLeftFilled}: 0.125rem;
 
                 ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
+                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
 
                 ${tabsTokens.additionalContentColor}: var(--text-secondary);
                 ${tabsTokens.additionalContentHoverColor}: var(--text-secondary);
@@ -57,28 +59,29 @@ export const config = {
                 ${tabsTokens.additionalContentSelectedHoverColor}: var(--text-secondary);
             `,
             divider: css`
-                ${tabsTokens.itemColor}: var(--text-secondary);
+                ${tabsTokens.itemColor}: var(--text-accent);
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: var(--text-primary);
+                ${tabsTokens.itemColorHover}: rgb(19, 131, 207);
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
                 ${tabsTokens.itemSelectedColor}: var(--text-primary);
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
-                ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedColorHover}: rgb(19, 131, 207);
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
-                ${tabsTokens.itemPadding}: 0 !important;
-                ${tabsTokens.itemContentPadding}: 0 !important;
+                ${tabsTokens.itemPaddingClear}: 0;
+                ${tabsTokens.itemContentPaddingClear}: 0;
 
                 ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
+                ${tabsTokens.itemSelectedDividerColorHover}: rgba(19, 131, 207, 0.5);
 
                 ${tabsTokens.additionalContentColor}: var(--text-tertiary);
-                ${tabsTokens.additionalContentHoverColor}: var(--text-secondary);
-                ${tabsTokens.additionalContentSelectedColor}: var(--text-secondary);
-                ${tabsTokens.additionalContentSelectedHoverColor}: var(--text-secondary);
+                ${tabsTokens.additionalContentHoverColor}: var(--text-accent);
+                ${tabsTokens.additionalContentSelectedColor}: var(--text-accent);
+                ${tabsTokens.additionalContentSelectedHoverColor}: var(--text-accent);
             `,
             default: css`
                 ${tabsTokens.itemColor}: var(--text-primary);
@@ -91,12 +94,13 @@ export const config = {
                 ${tabsTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-default);
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
-                ${tabsTokens.itemMarginLeft}: 0.125rem !important;
+                ${tabsTokens.itemMarginLeftFilled}: 0.125rem;
 
                 ${tabsTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
                 ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
+                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
 
                 ${tabsTokens.additionalContentColor}: var(--text-secondary);
                 ${tabsTokens.additionalContentHoverColor}: var(--text-secondary);

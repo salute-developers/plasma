@@ -25,6 +25,7 @@ export const tokens = {
 
     itemSelectedDividerHeight: '--plasma-tab-item-selected-divider-height',
     itemSelectedDividerColor: '--plasma-tab-item-selected-divider-color',
+    itemSelectedDividerColorHover: '--plasma-tab-item-selected-hover-divider-color',
 
     outlineFocusColor: '--plasma-tabs-outline-focus-color',
     arrowColor: '--plasma-tabs-arrow-color',
@@ -42,11 +43,14 @@ export const tokens = {
     itemWidth: '--plasma-tab-item-width',
     itemHeight: '--plasma-tab-item-height',
     itemPadding: '--plasma-tab-item-padding',
+    itemPaddingClear: '--plasma-tab-item-padding-clear',
     itemPaddingPilled: '--plasma-tab-item-padding-pilled',
     itemMarginLeft: '--plasma-tab-item-margin-left',
+    itemMarginLeftFilled: '--plasma-tab-item-margin-left-filled',
     itemContentGap: '--plasma-tab-item-content-gap',
 
     itemContentPadding: '--plasma-tab-item-content-padding',
+    itemContentPaddingClear: '--plasma-tab-item-content-padding-clear',
 
     arrowInnerPadding: '--plasma-tab-arrow-inner-padding',
     arrowOuterPadding: '--plasma-tab-arrow-outer-padding',
