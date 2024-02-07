@@ -83,7 +83,7 @@ values={[
 }>
 <TabItem value="cra">
 
-```jsx {2,3,7,9,10} title="index.tsx"
+```jsx title="index.tsx"
 import { SSRProvider } from '@salutejs/plasma-web';
 import { GlobalStyle } from './GlobalStyle';
 import { App } from './App';
@@ -100,7 +100,7 @@ ReactDOM.render(
 </TabItem>
 <TabItem value="next">
 
-```tsx {2,3,7,9,10} title="pages/_app.tsx"
+```tsx title="pages/_app.tsx"
 import type { AppProps } from 'next/app';
 import { SSRProvider } from '@salutejs/plasma-web';
 import { GlobalStyle } from './GlobalStyle';
@@ -121,11 +121,11 @@ export default MyApp;
 </Tabs>
 
 ## Использование
-Не смотря на то, что все компоненты доступны из папки `components`,
+Несмотря на то, что все компоненты доступны из папки `components`,
 **рекомендуется** использовать их напрямую из пакета.
 Таким образом, обеспечивается работа [tree shaking](https://webpack.js.org/guides/tree-shaking/).
 
-```jsx {2-3} title="App.tsx"
+```jsx title="App.tsx"
 import { Container } from '@salutejs/plasma-web/components/Grid';
 import { Button } from '@salutejs/plasma-web';
 
