@@ -14,8 +14,8 @@
     "access": "restricted"
   },
   "scripts": {
-    "docusaurus": "docusaurus",
     "start": "docusaurus start",
+    "start:dev": "npm run start --dev --no-minify",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
