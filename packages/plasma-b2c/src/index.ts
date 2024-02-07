@@ -47,3 +47,4 @@ export * from './hooks';
 export * from './mixins';
 export * from './types';
 export * from './utils';
+export * from './components/Avatar';

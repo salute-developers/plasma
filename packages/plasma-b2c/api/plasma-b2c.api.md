@@ -28,6 +28,7 @@ import { arrayItemSwapping } from '@salutejs/plasma-hope';
 import { AsProps } from '@salutejs/plasma-core';
 import { AudioPlayer } from '@salutejs/plasma-hope';
 import { AudioPlayerProps } from '@salutejs/plasma-hope';
+import { AvatarProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BadgeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BlurProps } from '@salutejs/plasma-core';
@@ -285,6 +286,32 @@ export { AsProps }
 export { AudioPlayer }
 
 export { AudioPlayerProps }
+
+// @public (undocumented)
+export const Avatar: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+xxl: string;
+l: string;
+m: string;
+s: string;
+fit: string;
+};
+focused: {
+true: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+size: "m" | "s" | "l" | "xxl" | "fit";
+name?: string | undefined;
+url?: string | undefined;
+customText?: string | undefined;
+status?: "active" | "inactive" | undefined;
+isScalable?: boolean | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+export { AvatarProps }
 
 // @public
 export const Badge: FunctionComponent<PropsType<    {

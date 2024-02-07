@@ -1,6 +1,4 @@
-import { css } from '@linaria/core';
-
-import { tokens } from '../../../../components/Avatar/Avatar.tokens';
+import { css, avatarTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
@@ -11,7 +9,6 @@ export const config = {
         view: {
             default: css`
                 ${tokens.color}: var(--text-accent-gradient);
-                // TODO: #1005 заменить на токен
                 ${tokens.backgroundColor}: linear-gradient(94deg, rgba(62, 121, 240, 0.2) 6.49%, rgba(39, 198, 229, 0.2) 93.51%);
                 ${tokens.statusOnlineColor}: var(--surface-positive);
                 ${tokens.statusOfflineColor}: var(--surface-solid-tertiary);
