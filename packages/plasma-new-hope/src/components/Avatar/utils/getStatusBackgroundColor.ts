@@ -3,9 +3,9 @@ import { tokens } from '../Avatar.tokens';
 
 export const getStatusBackgroundColor = (status: AvatarProps['status']) => {
     switch (status) {
-        case 'online':
+        case 'active':
             return `var(${tokens.statusOnlineColor})`;
-        case 'offline':
+        case 'inactive':
             return `var(${tokens.statusOfflineColor})`;
         default:
             return 'transparent';
