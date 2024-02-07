@@ -1,10 +1,5 @@
 import { HTMLAttributes } from 'react';
 
-export enum ActionTypes {
-    SCALE = 'scale',
-    HOVER = 'hover',
-}
-
 type CustomAvatarProps = {
     // Размер аватара
     size: 'xxl' | 'l' | 'm' | 's' | 'fit';
@@ -15,18 +10,9 @@ type CustomAvatarProps = {
     // Кастомный текст вместо фотографии
     customText?: string;
     // Статус профиля
-    status?: 'online' | 'offline';
+    status?: 'active' | 'inactive';
+    // Скейл при наведении
+    isScalable?: boolean;
 };
 
-type AdditionProps =
-    | {
-          // Тип экшена при наведении
-          actionType?: ActionTypes.SCALE;
-      }
-    | {
-          actionType: ActionTypes.HOVER;
-          // Иконка при наведении
-          actionIcon?: string;
-      };
-
-export type AvatarProps = HTMLAttributes<HTMLDivElement> & CustomAvatarProps & AdditionProps;
+export type AvatarProps = HTMLAttributes<HTMLDivElement> & CustomAvatarProps;
