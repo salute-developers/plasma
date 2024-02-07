@@ -28,10 +28,6 @@ export type TabItemProps = AsProps &
          */
         animated?: boolean;
         /**
-         * Уникальный идентификатор
-         */
-        id?: string;
-        /**
          * Контент слева
          */
         contentLeft?: React.ReactNode;

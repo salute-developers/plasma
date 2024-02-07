@@ -150,7 +150,7 @@ const StoryDefault = (props: StoryTabsProps) => {
 
 export const Default: StoryObj<StoryTabsProps> = {
     args: {
-        size: 'xs',
+        size: 'l',
         itemsNumber: 4,
         tabItemView: 'secondary',
         disabled: false,
@@ -229,7 +229,7 @@ const StoryMultiple = ({
 
 export const Multiple: StoryObj<StoryTabsProps> = {
     args: {
-        size: 'xs',
+        size: 'l',
         itemsNumber: 4,
         tabItemView: 'divider',
         disabled: false,

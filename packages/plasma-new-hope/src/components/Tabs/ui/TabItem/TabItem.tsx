@@ -1,5 +1,5 @@
 import React, { forwardRef, useRef, useContext, useEffect, useCallback } from 'react';
-import { safeUseId, useForkRef } from '@salutejs/plasma-core';
+import { useForkRef } from '@salutejs/plasma-core';
 
 import { ComponentConfig, RootProps } from '../../../../engines';
 import { classes } from '../../tokens';
@@ -18,7 +18,6 @@ export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
         const {
             size,
             view,
-            id,
             isActive,
             selected,
             disabled = false,
@@ -33,9 +32,6 @@ export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
         const innerRef = useRef<HTMLDivElement>(null);
         const ref = useForkRef(outerRef, innerRef);
         const refs = useContext(TabsContext);
-
-        const uniqId = safeUseId();
-        const tabItemId = id || `item-${uniqId}`;
 
         const role = 'tab';
 
@@ -65,7 +61,6 @@ export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
         return (
             <Root
                 ref={ref}
-                id={tabItemId}
                 disabled={disabled}
                 pilled={pilled}
                 role={role}
