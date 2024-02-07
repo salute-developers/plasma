@@ -28,6 +28,7 @@ import { arrayItemSwapping } from '@salutejs/plasma-hope';
 import { AsProps } from '@salutejs/plasma-core';
 import { AudioPlayer } from '@salutejs/plasma-hope';
 import { AudioPlayerProps } from '@salutejs/plasma-hope';
+import { AvatarGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { AvatarProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BadgeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -311,6 +312,13 @@ customText?: string | undefined;
 status?: "active" | "inactive" | undefined;
 isScalable?: boolean | undefined;
 } & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const AvatarGroup: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
+children: ReactNode;
+} & RefAttributes<HTMLDivElement>>;
+
+export { AvatarGroupProps }
 
 export { AvatarProps }
 
