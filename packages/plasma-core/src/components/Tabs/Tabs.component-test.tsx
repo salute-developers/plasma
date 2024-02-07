@@ -22,8 +22,18 @@ describe('plasma-core: Tabs', () => {
 
     const ControlledTabsController = (props) => {
         const [index, setIndex] = useState(0);
+        const { size = 'l' } = props;
 
-        return <TabsController items={items} index={index} onIndexChange={(i) => setIndex(i)} {...props} />;
+        return (
+            <TabsController
+                items={items.map((item) => {
+                    return { ...item, size };
+                })}
+                index={index}
+                onIndexChange={(i) => setIndex(i)}
+                {...props}
+            />
+        );
     };
 
     it('simple', () => {
@@ -158,7 +168,7 @@ describe('plasma-core: Tabs', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Container>
-                    <ControlledTabsController autoscroll style={{ width: 'inherit' }} />
+                    <ControlledTabsController autoscroll size="xs" style={{ width: 'inherit' }} />
                 </Container>
             </CypressTestDecoratorWithTypo>,
         );

@@ -1191,7 +1191,6 @@ export const TabItem: ForwardRefExoticComponent<AsProps<any> & ButtonHTMLAttribu
     disabled?: boolean | undefined;
     pilled?: boolean | undefined;
     animated?: boolean | undefined;
-    id?: string | undefined;
     contentLeft?: ReactNode;
     contentRight?: ReactNode;
     size?: string | undefined;

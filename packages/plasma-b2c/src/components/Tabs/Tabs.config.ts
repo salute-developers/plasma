@@ -3,7 +3,7 @@ import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 export const config = {
     defaults: {
         view: 'filled',
-        size: 'xs',
+        size: 'l',
         disabled: 'false',
     },
     variations: {
