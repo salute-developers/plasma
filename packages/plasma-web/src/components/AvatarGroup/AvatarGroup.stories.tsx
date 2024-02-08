@@ -39,11 +39,11 @@ export const DynamicSize: Story = {
                 {Array(args.visibleCount)
                     .fill(true)
                     .map((_, index) => (
-                        <Avatar className="avatar-item" size="xxl" customText={index + 1} />
+                        <Avatar size="xxl" customText={index + 1} />
                     ))}
 
                 {itemLength > args.visibleCount && (
-                    <Avatar className="avatar-item" size="xxl" customText={`+${itemLength - args.visibleCount}`} />
+                    <Avatar size="xxl" customText={`+${itemLength - args.visibleCount}`} />
                 )}
             </AvatarGroup>
         );
