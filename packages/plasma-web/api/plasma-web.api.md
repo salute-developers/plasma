@@ -310,6 +310,7 @@ url?: string | undefined;
 customText?: string | undefined;
 status?: "active" | "inactive" | undefined;
 isScalable?: boolean | undefined;
+focused?: boolean | undefined;
 } & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)

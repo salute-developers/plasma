@@ -1,14 +1,27 @@
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
-import React from 'react';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
+import React, { FC, PropsWithChildren } from 'react';
+import { createGlobalStyle } from 'styled-components';
+
+const StandardTypoStyle = createGlobalStyle(standardTypo);
+
+const AvatarImage = 'images/avatar.png';
 
 describe('plasma-web: Avatar', () => {
     const Avatar = getComponent('Avatar');
 
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
+
     it('simple', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Avatar name="Иван Фадеев" />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -16,21 +29,22 @@ describe('plasma-web: Avatar', () => {
 
     it('with Avatar url', () => {
         mount(
-            <CypressTestDecorator>
-                <Avatar url="https://avatars.githubusercontent.com/u/1813468?v=4" />
-            </CypressTestDecorator>,
+            <CypressTestDecoratorWithTypo>
+                <Avatar url={AvatarImage} />
+            </CypressTestDecoratorWithTypo>,
         );
 
+        cy.mockImage('img', AvatarImage);
         cy.matchImageSnapshot();
     });
 
     it('with status', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Avatar status="active" name="Иван Фадеев" />
                 <PadMe />
                 <Avatar status="inactive" name="Иван Фадеев" />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -38,7 +52,7 @@ describe('plasma-web: Avatar', () => {
 
     it('_size', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Avatar size="xxl" name="Иван Фадеев" />
                 <PadMe />
                 <Avatar size="l" name="Иван Фадеев" />
@@ -49,7 +63,7 @@ describe('plasma-web: Avatar', () => {
                 <PadMe />
                 <Avatar size="fit" name="Иван Фадеев" />
                 <PadMe />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();

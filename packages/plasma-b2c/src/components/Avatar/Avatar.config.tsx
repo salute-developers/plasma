@@ -13,9 +13,11 @@ export const config = {
                 ${tokens.statusOnlineColor}: var(--surface-positive);
                 ${tokens.statusOfflineColor}: var(--surface-solid-tertiary);
                 ${tokens.scaleHover}: 1.02;
+                ${tokens.fontFamily}: var(--plasma-typo-text-font-family);
             `,
         },
         size: {
+            // TODO: #1044 токены типографики в Avatar
             xxl: css`
                 ${tokens.avatarSize}: 6.25rem;
                 ${tokens.fontSize}: 2rem;

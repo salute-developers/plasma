@@ -39,6 +39,5 @@ export const Accessibility: Story = {
         size: 'xxl',
         name: 'Иван Фадеев',
         status: 'active',
-        focused: true,
     },
 };
