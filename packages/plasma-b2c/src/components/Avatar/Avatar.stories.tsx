@@ -1,11 +1,16 @@
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
+import { disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Avatar } from './Avatar';
 
 const meta: Meta<typeof Avatar> = {
     title: 'Content/Avatar',
     component: Avatar,
+    argTypes: {
+        size: { control: 'select', options: ['xxl', 'l', 'm', 's', 'fit'] },
+        status: { control: 'select', options: ['active', 'inactive'] },
+    },
 };
 
 export default meta;
@@ -21,6 +26,9 @@ export const Default: Story = {
         status: 'active',
         isScalable: false,
     },
+    argTypes: {
+        ...disableProps(['focused']),
+    },
 };
 
 export const Accessibility: Story = {
@@ -30,6 +38,7 @@ export const Accessibility: Story = {
         view: 'default',
         size: 'xxl',
         name: 'Иван Фадеев',
+        status: 'active',
         focused: true,
     },
 };
