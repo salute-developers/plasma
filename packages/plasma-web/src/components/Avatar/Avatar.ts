@@ -5,4 +5,4 @@ import { config } from './Avatar.config';
 const mergedConfig = mergeConfig(avatarConfig, config);
 const AvatarComponent = component(mergedConfig);
 
-export const Avatar = AvatarComponent;
+export { AvatarComponent as Avatar, mergedConfig };
