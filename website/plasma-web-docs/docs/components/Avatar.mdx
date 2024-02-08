@@ -1,0 +1,97 @@
+---
+id: avatar
+title: Avatar
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Avatar
+<Description name="Avatar" />
+<PropsTable name="Avatar" exclude={['css']} />
+<StorybookLink name="Avatar" />
+
+## Примеры
+
+### Размер аватара
+Размер задается с помощью свойства `size`. Возможные значения свойства: `"xxl"`, `"l"`, `"m"`, `"s"`, `"fit"`.
+
+```tsx live
+import React from 'react';
+import { Avatar } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <>
+            <Avatar size="xxl" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
+            <Avatar size="l" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
+            <Avatar size="m" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
+            <Avatar size="s" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
+        </>
+    );
+}
+```
+
+### Инициалы вместо фотографии
+Инициалы можно задать с помощью свойства `name`. Желательный формат строки - "Имя Фамилия". Также не должно быть свойства url.
+
+```tsx live
+import React from 'react';
+import { Avatar } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <>
+            <Avatar name="Иван Фадеев" />
+        </>
+    );
+}
+```
+
+### Статус аватара
+Статус задается с помощью свойства `status`. Возможные значения: `"active"`, `"inactive"`.
+
+```tsx live
+import React from 'react';
+import { Avatar } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <>
+            <Avatar status="active" name="Иван Фадеев" />
+            <Avatar status="inactive" name="Иван Фадеев" />
+        </>
+    );
+}
+```
+
+### Увеличение при наведении
+Опциональное свойство `"isScalable"`.
+
+```tsx live
+import React from 'react';
+import { Avatar } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <>
+            <Avatar isScalable name="Иван Фадеев" />
+        </>
+    );
+}
+```
+
+### Доступность
+Добавляем `"role"` и `"tabIndex"`.
+
+```tsx live
+import React from 'react';
+import { Avatar } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <>
+            <Avatar role="button" tabIndex="0" name="Иван Фадеев" />
+        </>
+    );
+}
+```

@@ -13,6 +13,8 @@ type CustomAvatarProps = {
     status?: 'active' | 'inactive';
     // Скейл при наведении
     isScalable?: boolean;
+    // Фокус
+    focused?: boolean;
 };
 
 export type AvatarProps = HTMLAttributes<HTMLDivElement> & CustomAvatarProps;

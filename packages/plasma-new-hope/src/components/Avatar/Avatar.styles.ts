@@ -18,8 +18,7 @@ export const Wrapper = styled.div<{ isScalable?: AvatarProps['isScalable'] }>`
     background: var(${tokens.backgroundColor});
     overflow: hidden;
 
-    &:hover,
-    &:focus {
+    &:hover {
         scale: ${({ isScalable }) => (isScalable ? `var(${tokens.scaleHover})` : '1')};
         cursor: ${({ isScalable }) => (isScalable ? 'pointer' : 'inherit')};
     }
@@ -43,11 +42,12 @@ export const Image = styled.img`
 
 export const Text = styled.span`
     font-size: var(${tokens.fontSize});
+    font-family: var(${tokens.fontFamily});
     font-weight: var(${tokens.fontWeight});
     line-height: var(${tokens.lineHeight});
     background-image: var(${tokens.color});
     background-color: var(${tokens.color});
     background-size: 100%;
-    background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 `;
