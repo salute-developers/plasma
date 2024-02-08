@@ -72,11 +72,15 @@ import { ColCount } from '@salutejs/plasma-hope';
 import { ColOffsetProps } from '@salutejs/plasma-hope';
 import { ColProps } from '@salutejs/plasma-hope';
 import { ColSizeProps } from '@salutejs/plasma-hope';
+import { ComboboxPrimitiveValue } from '@salutejs/plasma-new-hope/styled-components';
+import { ComboboxProps } from '@salutejs/plasma-new-hope/styled-components';
+import { ComponentClass } from 'react';
 import { Container } from '@salutejs/plasma-hope';
 import { ContainerProps } from '@salutejs/plasma-hope';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { CustomComboboxProps } from '@salutejs/plasma-new-hope/types/components/Combobox/Combobox.types';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { defaultValidate } from '@salutejs/plasma-hope';
@@ -163,7 +167,9 @@ import { radiuses } from '@salutejs/plasma-core';
 import { Ratio } from '@salutejs/plasma-new-hope/styled-components';
 import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
+import { ReactFragment } from 'react';
 import { ReactNode } from 'react';
+import { ReactPortal } from 'react';
 import { RectSkeleton } from '@salutejs/plasma-new-hope/styled-components';
 import { RectSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { RefAttributes } from 'react';
@@ -610,6 +616,80 @@ export { ColOffsetProps }
 export { ColProps }
 
 export { ColSizeProps }
+
+// @public (undocumented)
+export const Combobox: FunctionComponent<PropsType<    {
+size: {
+xs: string;
+s: string;
+m: string;
+l: string;
+};
+view: {
+default: string;
+};
+}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "checked" | "type" | "target" | "onChange" | "value" | "minLength" | "maxLength"> & CustomComboboxProps & {
+valueType?: "single" | undefined;
+value?: ComboboxPrimitiveValue | undefined;
+onChangeValue?: ((value?: ComboboxPrimitiveValue | undefined) => void) | undefined;
+} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "checked" | "type" | "target" | "onChange" | "value" | "minLength" | "maxLength"> & CustomComboboxProps & {
+valueType: "multiple";
+value?: ComboboxPrimitiveValue[] | undefined;
+onChangeValue?: ((value?: ComboboxPrimitiveValue[] | undefined) => void) | undefined;
+} & RefAttributes<HTMLInputElement>))>;
+
+// @public (undocumented)
+export const ComboboxDivider: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
+id?: string | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const ComboboxFooter: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
+id?: string | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const ComboboxGroup: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
+id?: string | undefined;
+labelClassName?: string | undefined;
+groupClassName?: string | undefined;
+label?: ReactNode;
+role?: string | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const ComboboxHeader: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
+id?: string | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const ComboboxItem: FunctionComponent<PropsType<Variants> & Omit<HTMLAttributes<HTMLDivElement>, "onSelect"> & {
+id?: string | undefined;
+disabled?: boolean | undefined;
+label?: ReactNode;
+role?: string | undefined;
+contentLeft?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
+contentRight?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
+name?: string | undefined;
+checked?: boolean | undefined;
+text?: string | undefined;
+value?: string | number | boolean | undefined;
+isSelected?: boolean | undefined;
+onClick?: ((event: MouseEvent_2<HTMLDivElement, MouseEvent>) => void) | undefined;
+onSelect?: ((value?: any, text?: any) => void) | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+export { ComboboxProps }
 
 export { Container }
 
