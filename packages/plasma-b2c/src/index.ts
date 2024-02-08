@@ -8,6 +8,7 @@ export * from './components/Cell';
 export * from './components/Checkbox';
 export * from './components/Chip';
 export * from './components/Counter';
+export * from './components/Combobox';
 export * from './components/Dropdown';
 export * from './components/Editable';
 export * from './components/ElasticGrid';
