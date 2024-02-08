@@ -1,6 +1,5 @@
 export const classes = {
     avatarItem: 'avatar-item',
-    avatarItemWrapper: 'avatar-item__wrapper',
 };
 
 export const tokens = {

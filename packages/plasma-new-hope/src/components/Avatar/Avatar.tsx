@@ -35,9 +35,7 @@ export const avatarRoot = (Root: RootProps<HTMLDivElement, AvatarProps>) => {
 
         return (
             <Root ref={ref} size={avatarSize} className={cx(classes.avatarItem, className)} {...rest}>
-                <Wrapper className={classes.avatarItemWrapper} isScalable={isScalable}>
-                    {getAvatarContent({ customText, url, initials, name })}
-                </Wrapper>
+                <Wrapper isScalable={isScalable}>{getAvatarContent({ customText, url, initials, name })}</Wrapper>
 
                 {status && <StatusIcon backgroundColor={getStatusBackgroundColor(status)} />}
             </Root>
