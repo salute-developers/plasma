@@ -1,4 +1,4 @@
-name: Release
+name: Release RC
 
 on:
   push:
@@ -92,7 +92,7 @@ jobs:
     secrets:
       gh_token: ${{ secrets.GH_TOKEN }}
       npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
-
+    
   catch:
     name: Handle errors
     runs-on: ubuntu-latest
@@ -145,4 +145,5 @@ jobs:
         uses: mattermost/action-mattermost-notify@master
         env:
           MATTERMOST_WEBHOOK_URL: ${{ secrets.WEBHOOKS_NOTIFICATIONS_MM }}
+  
 
