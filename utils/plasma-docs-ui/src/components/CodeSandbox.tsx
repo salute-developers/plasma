@@ -3,7 +3,7 @@ import { getParameters } from 'codesandbox/lib/api/define';
 import styled from 'styled-components';
 import qs from 'qs';
 
-const style = `@import "https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.1.0.css";
+const style = `@import "https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css";
 
 body {
   font-family: "SB Sans Text", system-ui, -apple-system, Segoe UI,
