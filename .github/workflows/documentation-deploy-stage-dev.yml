@@ -1,10 +1,14 @@
-name: Deploy documentation and storybook to DEV stage
+name: Deploy documentation and storybook artifacts to DEV stage
 
 on:
   workflow_dispatch:
-
+  workflow_run:
+    workflows: [Release RC]
+    types: [completed]
+  
 jobs:
   deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -55,6 +59,26 @@ jobs:
         run: |
           npm run storybook:build --prefix="./packages/plasma-asdk"
           cp -R ./packages/plasma-asdk/build-sb ./s3_build_sb/asdk-storybook
+          
+      - name: Plasma "New-hope" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/plasma-new-hope"
+          cp -R ./packages/plasma-new-hope/build-sb ./s3_build_sb/new-hope-storybook
+        
+      - name: Plasma "Caldera" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/caldera"
+          cp -R ./packages/caldera/build-sb ./s3_build_sb/caldera-storybook
+      
+      - name: Plasma "Caldera-online" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/caldera-online"
+          cp -R ./packages/caldera-online/build-sb ./s3_build_sb/caldera-online-storybook
+      
+      - name: Plasma "SDDS SRVC" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/sdds-srvc"
+          cp -R ./packages/sdds-srvc/build-sb ./s3_build_sb/sdds-srvc-storybook
 
       - name: Install s3cmd
         run: pip3 install s3cmd
@@ -133,3 +157,63 @@ jobs:
           sync
           ./s3_build_sb/asdk-storybook/
           s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/asdk-storybook/
+
+      - name: Upload to S3 storybook "Plasma-New-Hope"
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/new-hope-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/new-hope-storybook/
+          
+      - name: Upload to S3 storybook "Caldera"
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/caldera-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/caldera-storybook/
+      
+      - name: Upload to S3 storybook "Caldera-online"
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/caldera-online-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/caldera-online-storybook/
+      
+      - name: Upload to S3 storybook "SDDS SRVC"
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/sdds-srvc-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_DEV_STAGE }}/sdds-srvc-storybook/
