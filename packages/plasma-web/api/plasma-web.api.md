@@ -1193,6 +1193,8 @@ export const TabItem: ForwardRefExoticComponent<AsProps<any> & ButtonHTMLAttribu
     animated?: boolean | undefined;
     contentLeft?: ReactNode;
     contentRight?: ReactNode;
+    onIndexChange?: ((index: number) => void) | undefined;
+    itemIndex?: number | undefined;
     size?: string | undefined;
     view?: string | undefined;
 } & RefAttributes<HTMLDivElement>>;
@@ -1212,11 +1214,12 @@ export const Tabs: ForwardRefExoticComponent<AsProps<any> & HTMLAttributes<HTMLD
         left?: string | undefined;
         right?: string | undefined;
     } | undefined;
+    index?: number | undefined;
 } & RefAttributes<HTMLDivElement>>;
 
 export { TabsContext }
 
-// @public
+// @public @deprecated (undocumented)
 export const TabsController: ForwardRefExoticComponent<TabsControllerProps & RefAttributes<HTMLDivElement>>;
 
 export { TabsControllerProps }

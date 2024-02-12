@@ -31,4 +31,9 @@ export type TabsProps = AsProps &
          * @deprecated
          */
         outsideScroll?: boolean | { left?: string; right?: string };
+        /**
+         *
+         * Индекс активного элемента, необходим для клавиатурной навигации
+         */
+        index?: number;
     };

@@ -36,6 +36,16 @@ export type TabItemProps = AsProps &
          */
         contentRight?: React.ReactNode;
         /**
+         *
+         * Колбек, необходимый для клавиатурной навигации
+         */
+        onIndexChange?: (index: number) => void;
+        /**
+         *
+         * Индекс TabItem внутри Tabs - необходим для клавиатурной навигации
+         */
+        itemIndex?: number;
+        /**
          * Размер TabItem
          */
         size?: string;
