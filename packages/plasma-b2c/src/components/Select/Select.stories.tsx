@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
@@ -68,16 +68,18 @@ const items = [
 const StoryDefault = ({ status, ...rest }: SelectProps) => {
     const [value, setValue] = useState<string | Array<string>>(null);
 
+    const onChangeHandle = useCallback((v) => {
+        setValue(v);
+        onChange(v);
+    }, []);
+
     return (
         <div style={{ display: 'grid', gap: '1rem', width: '20rem', gridTemplateColumns: '100%' }}>
             <Select
                 value={value as string}
                 items={items}
                 status={status || undefined}
-                onChange={(v) => {
-                    setValue(v);
-                    onChange(v);
-                }}
+                onChange={onChangeHandle}
                 onFocus={onFocus}
                 onBlur={onBlur}
                 {...rest}
@@ -105,16 +107,18 @@ export const Default: Story = {
 const StoryGroup = ({ status, ...rest }: SelectProps) => {
     const [value, setValue] = useState<string | Array<string>>(null);
 
+    const onChangeHandle = useCallback((v) => {
+        setValue(v);
+        onChange(v);
+    }, []);
+
     return (
         <SelectGroup>
             <Select
                 value={value as string}
                 items={items}
                 status={status || undefined}
-                onChange={(v) => {
-                    setValue(v);
-                    onChange(v);
-                }}
+                onChange={onChangeHandle}
                 onFocus={onFocus}
                 onBlur={onBlur}
                 {...rest}
