@@ -1,0 +1,98 @@
+name: Theme builder reusable workflow
+
+on:
+  workflow_call:
+    inputs:
+      s3-bucket:
+        type: string
+        default: ''
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      IS_PR: ${{ github.event_name == 'pull_request' }}
+      S3_BUCKET: ${{ inputs.s3-bucket || secrets.AWS_S3_BUCKET_2 }}
+  
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        env:
+          REF: ${{ fromJSON(env.IS_PR) && refs/pull/${{github.event.number}}/merge || '' }}
+        with:
+          show-progress: false
+          ref: ${{ env.REF }}
+      
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-environment
+      
+      - name: Prepare directory for build
+        run: mkdir s3_build
+      
+      # TODO: https://github.com/salute-developers/plasma/issues/255
+      - name: Lerna bootstrap with scope
+        run: |
+          npx lerna bootstrap --scope="@salutejs/plasma-{theme-builder,tokens,tokens-utils}"
+        
+      - name: Build path
+        env:
+          PR_NAME: pr-${{ github.event.number }}
+        ## PR context -> plasma-theme-builder-pr-1022
+        ## !PR context -> plasma-theme-builder-next
+        run: |
+          echo "BUILD_PATH=plasma-theme-builder-${{ fromJSON(env.IS_PR) && env.PR_NAME || 'next' }}" >> "$GITHUB_ENV"
+          
+      - name: S3 path
+        env:
+          PR_S3_PATH: pr/${{ env.BUILD_PATH }}/
+        run: |
+          echo "S3_PATH=${{ env.S3_BUCKET }}/${{ fromJSON(env.IS_PR) && env.PR_S3_PATH  || 'plasma-theme-builder/' }}" >> "$GITHUB_ENV"
+
+      # TODO: https://github.com/salute-developers/plasma/issues/603
+      - name: Build Theme Builder
+        env:
+          REACT_APP_APPLICATION_CLIENT_ID: ${{ secrets.REACT_APP_APPLICATION_CLIENT_ID }}
+          REACT_APP_AUTH_SERVER_URL: ${{ secrets.REACT_APP_AUTH_SERVER_URL }}
+        run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
+          npm run build --prefix="./website/plasma-theme-builder"
+          cp -R ./website/plasma-theme-builder/build ./s3_build/${{ env.BUILD_PATH }}
+      
+      - name: Install s3cmd
+        run: |
+          pip3 install s3cmd
+      
+      - name: s3 Upload build
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build/${{ env.BUILD_PATH }}/
+          s3://${{ env.S3_PATH }}
+      
+      - name: Post success comment
+        if: ${{ fromJSON(env.IS_PR) }}
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GH_TOKEN }}
+          script: |
+            const branchName = context.payload.pull_request.head.ref;
+            const themeName = branchName.split('theme-builder-')[1];
+            const params = themeName ? `?theme=${themeName}&branch=${branchName}` : '';
+            
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Theme Builder app deployed!
+            
+              http://plasma.sberdevices.ru/pr/plasma-theme-builder-pr-${context.issue.number}/${params}
+              `
+            })
