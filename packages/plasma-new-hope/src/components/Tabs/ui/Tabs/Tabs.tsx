@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useMemo, useState, useEffect, useRef } from 'react';
+import React, { forwardRef, useCallback, useMemo, useState, useEffect, useRef, KeyboardEvent } from 'react';
 import type { MutableRefObject } from 'react';
 import { animatedScrollToX, safeUseId } from '@salutejs/plasma-core';
 
@@ -6,6 +6,7 @@ import type { RootProps } from '../../../../engines/types';
 import { IconDisclosureLeft, IconDisclosureRight } from '../../../_Icon';
 import { classes, tokens } from '../../tokens';
 import { cx } from '../../../../utils';
+import { TabItemRefs, TabsContext } from '../../TabsContext';
 
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
@@ -15,12 +16,21 @@ import { base as stretchCSS } from './variations/_stretch/base';
 import { StyledArrow, StyledContent, StyledContentWrapper, base } from './Tabs.styles';
 import type { TabsProps } from './Tabs.types';
 
+enum Keys {
+    end = 35,
+    home = 36,
+    left = 37,
+    right = 39,
+}
+
 export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
     forwardRef<HTMLDivElement, TabsProps>((props, outerRef) => {
-        const { id, stretch = false, disabled = false, size, view, children, pilled, ...rest } = props;
+        const { id, stretch = false, disabled = false, size, view, children, pilled, index, ...rest } = props;
 
         const [firstItemVisible, setFirstItemVisible] = useState(true);
         const [lastItemVisible, setLastItemVisible] = useState(true);
+
+        const refs = useMemo(() => new TabItemRefs(index), []);
 
         const uniqId = safeUseId();
         const tabsId = id || uniqId;
@@ -62,7 +72,7 @@ export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
                     <IconDisclosureLeft color={`var(${tokens.arrowColor})`} />
                 </StyledArrow>
             ),
-            [onPrev],
+            [onPrev, disabled, isFilled],
         );
 
         const NextButton = useMemo(
@@ -78,7 +88,7 @@ export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
                     <IconDisclosureRight color={`var(${tokens.arrowColor})`} />
                 </StyledArrow>
             ),
-            [onNext],
+            [onNext, disabled, isFilled],
         );
 
         const handleScroll = useCallback(
@@ -92,31 +102,76 @@ export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
             [setFirstItemVisible, setLastItemVisible],
         );
 
+        const onKeyDown = useCallback(
+            (event: KeyboardEvent<HTMLDivElement>) => {
+                if (index === undefined) {
+                    return;
+                }
+
+                const minIndex = 0;
+                const maxIndex = refs.items.length - 1;
+                let nextIndex: number;
+
+                switch (event.keyCode) {
+                    case Keys.end:
+                        nextIndex = maxIndex;
+                        break;
+                    case Keys.left:
+                        nextIndex = index > minIndex ? index - 1 : index;
+                        break;
+                    case Keys.right:
+                        nextIndex = index < maxIndex ? index + 1 : index;
+                        break;
+                    case Keys.home:
+                        nextIndex = minIndex;
+                        break;
+                    default:
+                        return;
+                }
+
+                if (nextIndex !== index) {
+                    event.preventDefault();
+                    refs.items[nextIndex].current?.focus();
+                    refs.items[nextIndex].current?.scrollIntoView({
+                        block: 'center',
+                        inline: 'center',
+                        behavior: 'smooth',
+                    });
+                }
+            },
+            [index],
+        );
+
         useEffect(() => {
             setLastItemVisible(scrollRef.current?.scrollWidth === scrollRef.current?.clientWidth);
         }, []);
 
         return (
-            <Root
-                view={view}
-                role="tablist"
-                size={size}
-                pilled={pilled}
-                id={tabsId}
-                ref={outerRef}
-                disabled={disabled}
-                className={cx(pilledClass, stretchClass, hasLeftArrowClass, hasRightArrowClass)}
-                {...rest}
-            >
-                {!firstItemVisible && PreviousButton}
-                <StyledContentWrapper
-                    ref={scrollRef as MutableRefObject<HTMLDivElement | null>}
-                    onScroll={handleScroll}
+            <TabsContext.Provider value={refs}>
+                <Root
+                    view={view}
+                    role="tablist"
+                    size={size}
+                    pilled={pilled}
+                    id={tabsId}
+                    ref={outerRef}
+                    disabled={disabled}
+                    className={cx(pilledClass, stretchClass, hasLeftArrowClass, hasRightArrowClass)}
+                    onKeyDown={onKeyDown}
+                    {...rest}
                 >
-                    <StyledContent ref={trackRef as MutableRefObject<HTMLDivElement | null>}>{children}</StyledContent>
-                </StyledContentWrapper>
-                {!lastItemVisible && NextButton}
-            </Root>
+                    {!firstItemVisible && PreviousButton}
+                    <StyledContentWrapper
+                        ref={scrollRef as MutableRefObject<HTMLDivElement | null>}
+                        onScroll={handleScroll}
+                    >
+                        <StyledContent ref={trackRef as MutableRefObject<HTMLDivElement | null>}>
+                            {children}
+                        </StyledContent>
+                    </StyledContentWrapper>
+                    {!lastItemVisible && NextButton}
+                </Root>
+            </TabsContext.Provider>
         );
     });
 

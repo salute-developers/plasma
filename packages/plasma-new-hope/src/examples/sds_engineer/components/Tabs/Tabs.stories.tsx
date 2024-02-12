@@ -11,7 +11,6 @@ import { IconMic } from '../../../../components/_Icon';
 import { config } from './Tabs.config';
 import { Tabs } from './Tabs';
 import { TabItem } from './TabItem';
-import { TabsController } from './TabsController';
 
 const tabItemViews = ['clear', 'default', 'divider', 'secondary'];
 
@@ -61,17 +60,7 @@ const StoryDefault = (props: StoryTabsProps) => {
     const secondItems = Array(10).fill(0);
     const [index, setIndex] = useState(0);
     const [secondIndex, setSecondIndex] = useState(0);
-    const [controllerIndex, setControllerIndex] = useState(0);
-
-    const itemsController = Array(itemsNumber).fill({
-        label,
-        view: tabItemView,
-        contentLeft: showLeftContent && <IconMic size="xs" color="inherit" />,
-        contentRight: showRightContent && <div>Text</div>,
-        animated,
-        pilled,
-        size,
-    });
+    const [thirdIndex, setThirdIndex] = useState(0);
 
     return (
         <>
@@ -125,16 +114,27 @@ const StoryDefault = (props: StoryTabsProps) => {
             </Tabs>
 
             <h3>Tabs with arrow navigation</h3>
-            <TabsController
-                items={itemsController}
-                index={controllerIndex}
-                onIndexChange={(i) => setControllerIndex(i)}
-                view={view}
-                pilled={pilled}
-                stretch={stretch}
-                disabled={disabled}
-                size={size}
-            />
+            <Tabs view={view} index={thirdIndex} stretch={stretch} pilled={pilled} disabled={disabled} size={size}>
+                {items.map((_, i) => (
+                    <TabItem
+                        key={`item:${i}`}
+                        view={tabItemView}
+                        selected={i === thirdIndex}
+                        itemIndex={i}
+                        onIndexChange={(i) => setThirdIndex(i)}
+                        onClick={() => !disabled && setThirdIndex(i)}
+                        tabIndex={!disabled ? 0 : -1}
+                        disabled={disabled}
+                        pilled={pilled}
+                        animated={animated}
+                        contentLeft={showLeftContent && <IconMic size="xs" color="inherit" />}
+                        contentRight={showRightContent && <div>Text</div>}
+                        size={size}
+                    >
+                        {label}
+                    </TabItem>
+                ))}
+            </Tabs>
         </>
     );
 };
@@ -175,45 +175,71 @@ const StoryMultiple = ({
     showLeftContent,
     showRightContent,
 }: StoryTabsProps) => {
-    const items = Array(itemsNumber).fill({
-        label,
-        view: tabItemView,
-        contentLeft: showLeftContent && <IconMic size="xs" color="inherit" />,
-        contentRight: showRightContent && <div>Text</div>,
-        animated,
-        pilled,
-        size,
-    });
+    const items = Array(itemsNumber).fill(0);
 
     const [index1, setIndex1] = useState(0);
     const [index2, setIndex2] = useState(0);
 
     return (
         <StyledMultipleContainer>
-            <TabsController
-                items={items}
+            <Tabs
+                view={view}
                 index={index1}
-                onIndexChange={(i) => setIndex1(i)}
-                view={view}
-                pilled={pilled}
                 stretch={stretch}
+                pilled={pilled}
                 disabled={disabled}
                 size={size}
                 style={{ width: '12rem' }}
-                autoscroll
-            />
-            <TabsController
-                items={items}
+            >
+                {items.map((_, i) => (
+                    <TabItem
+                        key={`item:${i}`}
+                        view={tabItemView}
+                        selected={i === index1}
+                        itemIndex={i}
+                        onIndexChange={(i) => setIndex1(i)}
+                        onClick={() => !disabled && setIndex1(i)}
+                        tabIndex={!disabled ? 0 : -1}
+                        disabled={disabled}
+                        pilled={pilled}
+                        animated={animated}
+                        contentLeft={showLeftContent && <IconMic size="xs" color="inherit" />}
+                        contentRight={showRightContent && <div>Text</div>}
+                        size={size}
+                    >
+                        {label}
+                    </TabItem>
+                ))}
+            </Tabs>
+            <Tabs
+                view={view}
                 index={index2}
-                onIndexChange={(i) => setIndex2(i)}
-                view={view}
-                pilled={pilled}
                 stretch={stretch}
+                pilled={pilled}
                 disabled={disabled}
                 size={size}
                 style={{ width: '12rem' }}
-                autoscroll
-            />
+            >
+                {items.map((_, i) => (
+                    <TabItem
+                        key={`item:${i}`}
+                        view={tabItemView}
+                        selected={i === index2}
+                        itemIndex={i}
+                        onIndexChange={(i) => setIndex2(i)}
+                        onClick={() => !disabled && setIndex2(i)}
+                        tabIndex={!disabled ? 0 : -1}
+                        disabled={disabled}
+                        pilled={pilled}
+                        animated={animated}
+                        contentLeft={showLeftContent && <IconMic size="xs" color="inherit" />}
+                        contentRight={showRightContent && <div>Text</div>}
+                        size={size}
+                    >
+                        {label}
+                    </TabItem>
+                ))}
+            </Tabs>
         </StyledMultipleContainer>
     );
 };

@@ -26,6 +26,9 @@ export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
             contentLeft,
             contentRight,
             animated = true,
+            onIndexChange,
+            itemIndex,
+            tabIndex,
             ...rest
         } = props;
 
@@ -39,6 +42,8 @@ export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
         const animatedClass = animated ? classes.tabItemAnimated : undefined;
         const pilledClass = pilledAttr ? classes.tabsPilled : undefined;
         const selectedClass = isActive || selected ? classes.selectedTabsItem : undefined;
+        const hasKeyNavigation = itemIndex !== undefined && onIndexChange !== undefined;
+        const navigationTabIndex = !disabled && refs?.current === itemIndex ? 0 : -1;
 
         useEffect(() => {
             if (!refs) {
@@ -50,13 +55,33 @@ export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
             return () => refs.unregister(innerRef);
         }, [refs]);
 
-        const onFocus = useCallback<React.FocusEventHandler>((event) => {
-            event.target.scrollIntoView({
-                block: 'center',
-                inline: 'center',
-                behavior: 'smooth',
-            });
-        }, []);
+        const onItemFocus = useCallback<React.FocusEventHandler>(
+            (event) => {
+                if (!hasKeyNavigation) {
+                    event.target.scrollIntoView({
+                        block: 'center',
+                        inline: 'center',
+                        behavior: 'smooth',
+                    });
+
+                    return;
+                }
+
+                if (disabled || !refs) {
+                    return;
+                }
+
+                const focusIndex = refs.items.findIndex((itemRef) => itemRef.current === event.target);
+
+                if (focusIndex === refs.current) {
+                    return;
+                }
+
+                onIndexChange?.(focusIndex);
+                refs.setCurrent(focusIndex);
+            },
+            [refs, innerRef, onIndexChange, disabled],
+        );
 
         return (
             <Root
@@ -66,7 +91,8 @@ export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
                 role={role}
                 view={view}
                 size={size}
-                onFocus={onFocus}
+                onFocus={onItemFocus}
+                tabIndex={hasKeyNavigation ? navigationTabIndex : tabIndex}
                 className={cx(pilledClass, selectedClass, animatedClass)}
                 {...rest}
             >
