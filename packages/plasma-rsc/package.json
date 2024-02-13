@@ -40,5 +40,8 @@
     },
     "publishConfig": {
         "access": "public"
+    },
+    "optionalDependencies": {
+        "@rollup/rollup-darwin-arm64": "^4.10.0"
     }
 }
