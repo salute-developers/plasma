@@ -1,0 +1,4 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.SddsSandbox" parent="Theme.AppCompat.Light.NoActionBar" />
+</resources>
