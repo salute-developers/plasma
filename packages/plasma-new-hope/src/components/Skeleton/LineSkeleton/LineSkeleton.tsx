@@ -14,7 +14,7 @@ export const lineSkeletonRoot = (Root: RootProps<HTMLDivElement, LineSkeletonPro
     forwardRef<HTMLDivElement, LineSkeletonProps>(
         ({ size, lighter, customGradientColor, roundness = '16', ...rest }, outerRootRef) => {
             const roundnessValue = getRoundness({ roundness });
-            const skeletonGradientColor = { lighter, customGradientColor };
+            const skeletonGradientColor = getSkeletonColor({ lighter, customGradientColor });
 
             return (
                 <Root ref={outerRootRef} size={size} {...rest}>

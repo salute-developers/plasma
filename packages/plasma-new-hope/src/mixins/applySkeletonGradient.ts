@@ -14,7 +14,7 @@ export const getSkeletonColor = ({ lighter, customGradientColor }: SkeletonGradi
     }
 
     if (lighter) {
-        return 'var(--plasma-colors-skeleton-gradiengetSkeletonColort-lighter)';
+        return 'var(--plasma-colors-skeleton-gradient-lighter)';
     }
 
     return 'var(--plasma-colors-skeleton-gradient)';
