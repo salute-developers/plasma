@@ -11,7 +11,8 @@
         "build:next": "next build",
         "start": "next start",
         "lint": "next lint",
-        "build": "BABEL_ENV=esm rollup -c"
+        "build": "BABEL_ENV=esm rollup -c",
+        "prepare": "npm run build"
     },
     "dependencies": {
         "@linaria/core": "5.0.2",
