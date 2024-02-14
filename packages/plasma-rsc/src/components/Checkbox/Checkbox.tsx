@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useMemo, useRef } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 // import type { InputHTMLAttributes } from '@salutejs/plasma-core';
@@ -141,7 +141,7 @@ export interface BaseboxProps {
 type CheckboxProps = Filter<any> & BaseboxProps;
 
 export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =>
-    forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
+    forwardRef<HTMLInputElement, CheckboxProps>((props) => {
         const {
             size,
             view,

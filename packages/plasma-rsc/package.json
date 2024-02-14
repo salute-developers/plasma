@@ -12,7 +12,8 @@
         "start": "next start",
         "lint": "next lint",
         "build": "BABEL_ENV=esm rollup -c",
-        "prepare": "npm run build"
+        "prepare": "npm run build",
+        "generate:typings": "tsc --outDir types --emitDeclarationOnly"
     },
     "dependencies": {
         "@linaria/core": "5.0.2",
@@ -31,8 +32,6 @@
         "@types/react": "^18",
         "@types/react-dom": "^18",
         "eslint": "^8",
-        "eslint-config-next": "14.1.0",
-        "next": "14.1.0",
         "react": "^18",
         "react-dom": "^18",
         "rollup": "^3.28.0",
