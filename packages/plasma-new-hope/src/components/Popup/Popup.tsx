@@ -128,6 +128,11 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                 if (!portal) {
                     portal = document.createElement('div');
                     portal.setAttribute('id', POPUP_PORTAL_ID);
+                    /**
+                     * Нужно для того, чтобы во фрейме не происходило скачков контента
+                     * при анимации через transform, если есть элемент с шириной/высотой в 100% (Overlay)
+                     */
+                    portal.style.width = '0';
 
                     if (typeof frame === 'string' && frame !== 'document') {
                         document.getElementById(frame)?.appendChild(portal);
