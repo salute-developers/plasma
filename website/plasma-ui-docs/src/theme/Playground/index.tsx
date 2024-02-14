@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useIsBrowser from '@docusaurus/useIsBrowser';
-import usePrismTheme from '@theme/hooks/usePrismTheme';
+import { usePrismTheme } from '@docusaurus/theme-common';
 import { DeviceThemeProvider } from '@salutejs/plasma-ui';
 import { gradient } from '@salutejs/plasma-tokens';
 import { darkSber } from '@salutejs/plasma-tokens/themes';
@@ -18,7 +18,7 @@ import styles from './styles.module.css';
 const darkSberTheme = darkSber[':root'];
 
 const StyledPreview = styled(PlaygroundPreview)`
-    ${darkSberTheme}
+    ${darkSberTheme};
 
     background-image: ${gradient};
 `;

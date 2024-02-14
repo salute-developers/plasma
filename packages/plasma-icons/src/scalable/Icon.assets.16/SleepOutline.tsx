@@ -1,0 +1,1 @@
+export const SleepOutline = null;

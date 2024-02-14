@@ -1,7 +1,14 @@
 import React from 'react';
 
-import { IconRoot, IconProps } from '../IconRoot';
+import { DoubleDisclosureRight as Icon16 } from '../Icon.assets.16/DoubleDisclosureRight';
+import { DoubleDisclosureRight as Icon24 } from '../Icon.assets.24/DoubleDisclosureRight';
+import { DoubleDisclosureRight as Icon36 } from '../Icon.assets.36/DoubleDisclosureRight';
+import { IconProps, IconRoot, getIconComponent, sizeMap } from '../IconRoot';
 
 export const IconDoubleDisclosureRight: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} icon="doubleDisclosureRight" />;
+    const IconComponent = getIconComponent(Icon16, Icon24, Icon36, sizeMap[size].size);
+    if (!IconComponent) {
+        return null;
+    }
+    return <IconRoot className={className} size={size} color={color} icon={IconComponent} />;
 };

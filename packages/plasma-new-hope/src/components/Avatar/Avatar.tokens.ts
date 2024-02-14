@@ -1,10 +1,10 @@
 export const classes = {
     avatarItem: 'avatar-item',
-    avatarItemWrapper: 'avatar-item__wrapper',
 };
 
 export const tokens = {
     avatarSize: '--plasma-avatar-size',
+    fontFamily: '--plasma-avatar-font-family',
     fontSize: '--plasma-avatar-font-size',
     color: '--plasma-avatar-color',
     fontWeight: '--plasma-avatar-font-weight',

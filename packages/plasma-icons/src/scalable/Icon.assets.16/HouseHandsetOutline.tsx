@@ -1,0 +1,1 @@
+export const HouseHandsetOutline = null;

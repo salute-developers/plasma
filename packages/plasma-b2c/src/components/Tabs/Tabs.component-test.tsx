@@ -15,14 +15,14 @@ describe('plasma-b2c: Tabs', () => {
             <CypressTestDecorator>
                 <Tabs size="s" forwardedAs="ul">
                     {items.map((item, i) => (
-                        <TabItem key={i} isActive={i === 1} forwardedAs="li">
+                        <TabItem size="s" key={i} isActive={i === 1} forwardedAs="li">
                             {item.label}
                         </TabItem>
                     ))}
                 </Tabs>
                 <Tabs size="l" forwardedAs="ul">
                     {items.map((item, i) => (
-                        <TabItem key={i} isActive={i === 1} forwardedAs="li">
+                        <TabItem size="l" key={i} isActive={i === 1} forwardedAs="li">
                             {item.label}
                         </TabItem>
                     ))}
@@ -38,23 +38,7 @@ describe('plasma-b2c: Tabs', () => {
             <CypressTestDecorator>
                 <Tabs pilled forwardedAs="ul">
                     {items.map((item, i) => (
-                        <TabItem key={i} isActive={i === 1} forwardedAs="li">
-                            {item.label}
-                        </TabItem>
-                    ))}
-                </Tabs>
-            </CypressTestDecorator>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it('_outsideScroll', () => {
-        mount(
-            <CypressTestDecorator>
-                <Tabs pilled outsideScroll={{ right: '1rem', left: '2rem' }} forwardedAs="ul">
-                    {items.map((item, i) => (
-                        <TabItem key={i} isActive={i === 1} forwardedAs="li">
+                        <TabItem pilled key={i} isActive={i === 1} forwardedAs="li">
                             {item.label}
                         </TabItem>
                     ))}
@@ -78,7 +62,7 @@ describe('plasma-b2c: Tabs', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('div > div:nth-child(2)').focus();
+        cy.get('div > button:nth-child(2)').focus();
         cy.matchImageSnapshot();
     });
 
@@ -87,7 +71,7 @@ describe('plasma-b2c: Tabs', () => {
             <CypressTestDecorator>
                 <Tabs pilled>
                     {items.map((item, i) => (
-                        <TabAutoFocus key={i} isActive={i === 1} autoFocus={i === 1}>
+                        <TabAutoFocus pilled key={i} isActive={i === 1} autoFocus={i === 1}>
                             {item.label}
                         </TabAutoFocus>
                     ))}
@@ -95,7 +79,7 @@ describe('plasma-b2c: Tabs', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('div > div:nth-child(2)').focus();
+        cy.get('div > button:nth-child(2)').focus();
         cy.matchImageSnapshot();
     });
 
@@ -122,8 +106,8 @@ describe('plasma-b2c: Tabs', () => {
             </CypressTestDecorator>,
         );
 
-        cy.get('div > div:nth-child(2)').focus();
-        cy.get('div > div:nth-child(1)').last().focus().click({ force: true });
+        cy.get('div > button:nth-child(2)').focus();
+        cy.get('div > button:nth-child(1)').last().focus().click({ force: true });
 
         cy.matchImageSnapshot();
     });

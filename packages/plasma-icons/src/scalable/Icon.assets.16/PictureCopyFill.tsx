@@ -1,0 +1,1 @@
+export const PictureCopyFill = null;

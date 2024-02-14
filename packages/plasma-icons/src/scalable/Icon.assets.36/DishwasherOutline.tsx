@@ -1,0 +1,1 @@
+export const DishwasherOutline = null;

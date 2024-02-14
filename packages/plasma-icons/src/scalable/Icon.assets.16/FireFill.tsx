@@ -1,0 +1,1 @@
+export const FireFill = null;

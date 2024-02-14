@@ -1,7 +1,14 @@
 import React from 'react';
 
-import { IconRoot, IconProps } from '../IconRoot';
+import { AlarmCircleOutline as Icon16 } from '../Icon.assets.16/AlarmCircleOutline';
+import { AlarmCircleOutline as Icon24 } from '../Icon.assets.24/AlarmCircleOutline';
+import { AlarmCircleOutline as Icon36 } from '../Icon.assets.36/AlarmCircleOutline';
+import { IconProps, IconRoot, getIconComponent, sizeMap } from '../IconRoot';
 
 export const IconAlarmCircleOutline: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} icon="alarmCircleOutline" />;
+    const IconComponent = getIconComponent(Icon16, Icon24, Icon36, sizeMap[size].size);
+    if (!IconComponent) {
+        return null;
+    }
+    return <IconRoot className={className} size={size} color={color} icon={IconComponent} />;
 };

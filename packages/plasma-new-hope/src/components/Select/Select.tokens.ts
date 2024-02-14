@@ -7,7 +7,7 @@ export const classes = {
     selectItemIsSelected: 'select-item-is-selected',
     selectItemIsDisabled: 'select-item-is-disabled',
     nativeSelectVisible: 'native-select-visible',
-    nestedSelect: 'select-nested',
+    hasNoFocus: 'has-no-focus',
     hasChips: 'has-chips',
     innerLabelUp: 'inner-label-up',
 };

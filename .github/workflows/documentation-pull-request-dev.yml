@@ -1,4 +1,4 @@
-# Отдельный workflow для pull request из ветки dev в мастер.
+# Отдельный workflow для pull request из ветки release_**-**-** в master.
 # Собирает storybook для всех пакетов (plasma-{web,b2c,ui,asdk,etc}) без каких либо условий.
 # Мотивация - нужен стенд для проведения регрессионного тестирования релизных изменений.
 name: Documentation and Storybook [DEV => MASTER]
@@ -15,7 +15,9 @@ concurrency:
 
 jobs:
   documentation:
-    name: Build
+    name: Deploy documentation
+    if: ${{ startsWith(github.head_ref, 'release') }}
+    
     runs-on: ubuntu-latest
     env:
       PR_NAME: pr-${{ github.event.number }}
@@ -89,6 +91,11 @@ jobs:
           npm run storybook:build --prefix="./packages/plasma-asdk"
           cp -R ./packages/plasma-asdk/build-sb ./s3_build/${PR_NAME}/asdk-storybook
       
+      - name: Plasma "SDDS SRVC" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/sdds-srvc"
+          cp -R ./packages/sdds-srvc/build-sb ./s3_build/${PR_NAME}/sdds-srvc-storybook
+      
       - name: Install s3cmd
         run: pip3 install s3cmd
       
@@ -129,5 +136,6 @@ jobs:
               temple storybook: http://plasma.sberdevices.ru/pr/pr-${number}/temple-storybook/
               new-hope storybook: http://plasma.sberdevices.ru/pr/pr-${number}/new-hope-storybook/
               asdk storybook: http://plasma.sberdevices.ru/pr/pr-${number}/asdk-storybook/
+              sdds-srvc storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-srvc-storybook/
               `
             });

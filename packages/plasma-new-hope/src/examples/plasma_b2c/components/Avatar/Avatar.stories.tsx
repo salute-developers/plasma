@@ -1,14 +1,19 @@
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
+import { disableProps } from '@salutejs/plasma-sb-utils';
 
-import { WithTheme } from '../../../_helpers';
+import { argTypesFromConfig, WithTheme } from '../../../_helpers';
 
-import { Avatar } from './Avatar';
+import { Avatar, mergedConfig } from './Avatar';
 
 const meta: Meta<typeof Avatar> = {
     title: 'plasma_b2c/Avatar',
     decorators: [WithTheme],
     component: Avatar,
+    argTypes: {
+        ...argTypesFromConfig(mergedConfig),
+        status: { control: 'select', options: ['active', 'inactive'] },
+    },
 };
 
 export default meta;
@@ -21,9 +26,11 @@ export const Default: Story = {
         size: 'xxl',
         name: 'Иван Фадеев',
         url: 'https://avatars.githubusercontent.com/u/1813468?v=4',
-        status: undefined,
-        actionType: undefined,
-        actionIcon: 'https://www.svgrepo.com/show/475150/chat.svg',
+        status: 'active',
+        isScalable: false,
+    },
+    argTypes: {
+        ...disableProps(['focused']),
     },
 };
 
@@ -34,6 +41,7 @@ export const Accessibility: Story = {
         view: 'default',
         size: 'xxl',
         name: 'Иван Фадеев',
+        status: 'active',
         focused: true,
     },
 };

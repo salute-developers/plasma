@@ -1,157 +1,271 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import { IconClock } from '@salutejs/plasma-icons';
+import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import styled from 'styled-components';
+import { IconAlarm } from '@salutejs/plasma-icons';
+import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
-import { Tabs, TabItem, TabsController } from '.';
-import type { TabsProps } from '.';
+import { Tabs } from './Tabs';
+import { TabItem } from './TabItem';
 
-const meta: Meta<TabsProps> = {
+const tabItemViews = ['clear', 'default', 'divider', 'secondary'];
+const tabViews = ['clear', 'filled', 'divider'];
+const tabSizes = ['xs', 's', 'm', 'l', 'h5', 'h4', 'h3', 'h2', 'h1'];
+
+type CustomStoryTabsProps = {
+    tabItemView: string;
+    itemsNumber?: number;
+    animated?: boolean;
+    label?: string;
+    showLeftContent: boolean;
+    showRightContent: boolean;
+};
+
+type StoryTabsProps = ComponentProps<typeof Tabs> & CustomStoryTabsProps;
+
+const meta: Meta<StoryTabsProps> = {
     title: 'Controls/Tabs',
     component: Tabs,
-    argTypes: {
-        ...disableProps(['ref', 'theme', 'as', 'forwardedAs']),
-    },
     decorators: [InSpacingDecorator],
+    argTypes: {
+        tabItemView: {
+            options: tabItemViews,
+            control: {
+                type: 'select',
+            },
+        },
+        size: {
+            options: tabSizes,
+            control: {
+                type: 'select',
+            },
+        },
+        view: {
+            options: tabViews,
+            control: {
+                type: 'select',
+            },
+        },
+    },
 };
 
 export default meta;
 
-type StoryDefaultProps = TabsProps & {
-    itemsNumber: number;
-    label: string;
-    enableContentLeft: boolean;
-    autoscroll: boolean;
-};
-
-type StoryMultipleProps = StoryDefaultProps & {
-    outsideScrollLeftTab: boolean | { left?: string; right?: string };
-    outsideScrollRightTab: boolean | { left?: string; right?: string };
-};
-
-const StyledMultipleContainer = styled.div`
-    display: flex;
-    column-gap: 1rem;
-`;
-
-const StoryDefault = ({ itemsNumber, disabled, label, enableContentLeft, ...rest }: StoryDefaultProps) => {
+const StoryDefault = (props: StoryTabsProps) => {
+    const {
+        itemsNumber,
+        label,
+        view,
+        disabled,
+        stretch,
+        pilled,
+        animated,
+        tabItemView,
+        size,
+        showLeftContent,
+        showRightContent,
+    } = props;
     const items = Array(itemsNumber).fill(0);
+    const secondItems = Array(10).fill(0);
     const [index, setIndex] = useState(0);
+    const [secondIndex, setSecondIndex] = useState(0);
+    const [thirdIndex, setThirdIndex] = useState(0);
 
     return (
-        <Tabs disabled={disabled} {...rest}>
-            {items.map((_, i) => (
-                <TabItem
-                    key={`item:${i}`}
-                    isActive={i === index}
-                    tabIndex={disabled ? -1 : 0}
-                    contentLeft={enableContentLeft && <IconClock color="inherit" />}
-                    onClick={() => !disabled && setIndex(i)}
-                    onFocus={action(`onFocus item #${i}`)}
-                    onBlur={action(`onBlur item #${i}`)}
-                >
-                    {label}
-                </TabItem>
-            ))}
-        </Tabs>
+        <>
+            <h3>Tabs with auto width</h3>
+            <Tabs view={view} stretch={stretch} pilled={pilled} disabled={disabled} size={size}>
+                {items.map((_, i) => (
+                    <TabItem
+                        key={`item:${i}`}
+                        view={tabItemView}
+                        selected={i === index}
+                        onClick={() => !disabled && setIndex(i)}
+                        tabIndex={!disabled ? 0 : -1}
+                        disabled={disabled}
+                        pilled={pilled}
+                        animated={animated}
+                        contentLeft={showLeftContent && <IconAlarm size="xs" color="inherit" />}
+                        contentRight={showRightContent && <div>Text</div>}
+                        size={size}
+                    >
+                        {label}
+                    </TabItem>
+                ))}
+            </Tabs>
+
+            <h3>Tabs with fixed width</h3>
+            <Tabs
+                view={view}
+                stretch={stretch}
+                pilled={pilled}
+                disabled={disabled}
+                size={size}
+                style={{ width: '28.5rem' }}
+            >
+                {secondItems.map((_, i) => (
+                    <TabItem
+                        key={`item:${i}`}
+                        view={tabItemView}
+                        selected={i === secondIndex}
+                        onClick={() => !disabled && setSecondIndex(i)}
+                        tabIndex={!disabled ? 0 : -1}
+                        disabled={disabled}
+                        pilled={pilled}
+                        animated={animated}
+                        contentLeft={showLeftContent && <IconAlarm size="xs" color="inherit" />}
+                        contentRight={showRightContent && <div>Text</div>}
+                        size={size}
+                    >
+                        {label}
+                    </TabItem>
+                ))}
+            </Tabs>
+
+            <h3>Tabs with arrow navigation</h3>
+            <Tabs view={view} index={thirdIndex} stretch={stretch} pilled={pilled} disabled={disabled} size={size}>
+                {items.map((_, i) => (
+                    <TabItem
+                        key={`item:${i}`}
+                        view={tabItemView}
+                        selected={i === thirdIndex}
+                        itemIndex={i}
+                        onIndexChange={(i) => setThirdIndex(i)}
+                        onClick={() => !disabled && setThirdIndex(i)}
+                        tabIndex={!disabled ? 0 : -1}
+                        disabled={disabled}
+                        pilled={pilled}
+                        animated={animated}
+                        contentLeft={showLeftContent && <IconAlarm size="xs" color="inherit" />}
+                        contentRight={showRightContent && <div>Text</div>}
+                        size={size}
+                    >
+                        {label}
+                    </TabItem>
+                ))}
+            </Tabs>
+        </>
     );
 };
 
-export const Default: StoryObj<StoryDefaultProps> = {
+export const Default: StoryObj<StoryTabsProps> = {
     args: {
+        size: 'l',
         itemsNumber: 4,
+        tabItemView: 'secondary',
         disabled: false,
         stretch: false,
         pilled: false,
-        view: 'secondary',
+        animated: true,
+        view: 'filled',
         label: 'Label',
-        enableContentLeft: true,
-        outsideScroll: true,
+        showLeftContent: false,
+        showRightContent: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };
 
-const StoryArrows = ({ itemsNumber, disabled, stretch, label, autoscroll, enableContentLeft }: StoryDefaultProps) => {
-    const items = Array(itemsNumber).fill({
-        label,
-        contentLeft: enableContentLeft && <IconClock color="inherit" />,
-    });
-    const [index, setIndex] = useState(0);
-
-    return (
-        <TabsController
-            items={items}
-            index={index}
-            onIndexChange={(i) => setIndex(i)}
-            stretch={stretch}
-            disabled={disabled}
-            autoscroll={autoscroll}
-        />
-    );
-};
-
-export const Arrows: StoryObj<StoryDefaultProps> = {
-    args: {
-        itemsNumber: 4,
-        disabled: false,
-        stretch: true,
-        label: 'Label',
-        outsideScroll: true,
-        autoscroll: false,
-    },
-    render: (args) => <StoryArrows {...args} />,
-};
+const StyledMultipleContainer = styled.div`
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+`;
 
 const StoryMultiple = ({
     itemsNumber,
+    label,
+    view,
     disabled,
     stretch,
-    label,
-    enableContentLeft,
-    outsideScrollLeftTab,
-    outsideScrollRightTab,
-}: StoryMultipleProps) => {
-    const items = Array(itemsNumber).fill({
-        label,
-        contentLeft: enableContentLeft && <IconClock color="inherit" />,
-    });
+    pilled,
+    animated,
+    tabItemView,
+    size,
+    showLeftContent,
+    showRightContent,
+}: StoryTabsProps) => {
+    const items = Array(itemsNumber).fill(0);
 
     const [index1, setIndex1] = useState(0);
     const [index2, setIndex2] = useState(0);
 
     return (
         <StyledMultipleContainer>
-            <TabsController
-                items={items}
+            <Tabs
+                view={view}
                 index={index1}
-                onIndexChange={(i) => setIndex1(i)}
                 stretch={stretch}
+                pilled={pilled}
                 disabled={disabled}
-                outsideScroll={outsideScrollLeftTab}
-            />
-            <TabsController
-                items={items}
+                size={size}
+                style={{ width: '12rem' }}
+            >
+                {items.map((_, i) => (
+                    <TabItem
+                        key={`item:${i}`}
+                        view={tabItemView}
+                        selected={i === index1}
+                        itemIndex={i}
+                        onIndexChange={(i) => setIndex1(i)}
+                        onClick={() => !disabled && setIndex1(i)}
+                        tabIndex={!disabled ? 0 : -1}
+                        disabled={disabled}
+                        pilled={pilled}
+                        animated={animated}
+                        contentLeft={showLeftContent && <IconAlarm size="xs" color="inherit" />}
+                        contentRight={showRightContent && <div>Text</div>}
+                        size={size}
+                    >
+                        {label}
+                    </TabItem>
+                ))}
+            </Tabs>
+            <Tabs
+                view={view}
                 index={index2}
-                onIndexChange={(i) => setIndex2(i)}
                 stretch={stretch}
+                pilled={pilled}
                 disabled={disabled}
-                outsideScroll={outsideScrollRightTab}
-            />
+                size={size}
+                style={{ width: '12rem' }}
+            >
+                {items.map((_, i) => (
+                    <TabItem
+                        key={`item:${i}`}
+                        view={tabItemView}
+                        selected={i === index2}
+                        itemIndex={i}
+                        onIndexChange={(i) => setIndex2(i)}
+                        onClick={() => !disabled && setIndex2(i)}
+                        tabIndex={!disabled ? 0 : -1}
+                        disabled={disabled}
+                        pilled={pilled}
+                        animated={animated}
+                        contentLeft={showLeftContent && <IconAlarm size="xs" color="inherit" />}
+                        contentRight={showRightContent && <div>Text</div>}
+                        size={size}
+                    >
+                        {label}
+                    </TabItem>
+                ))}
+            </Tabs>
         </StyledMultipleContainer>
     );
 };
 
-export const Multiple: StoryObj<StoryMultipleProps> = {
+export const Multiple: StoryObj<StoryTabsProps> = {
     args: {
-        itemsNumber: 10,
+        size: 'l',
+        itemsNumber: 4,
+        tabItemView: 'divider',
         disabled: false,
         stretch: false,
-        pilled: true,
+        pilled: false,
+        animated: true,
+        view: 'divider',
         label: 'Label',
-        outsideScrollLeftTab: false,
-        outsideScrollRightTab: { right: '1rem' },
+        showLeftContent: false,
+        showRightContent: false,
     },
     render: (args) => <StoryMultiple {...args} />,
 };

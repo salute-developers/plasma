@@ -1,4 +1,5 @@
 export * from './applyEllipsis';
+export * from './applySpacing';
 export * from './mediaQuery';
 export * from './applyNoUserSelect';
 export * from './applyHyphens';

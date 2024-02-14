@@ -1,0 +1,1 @@
+export const AddSmileOutline = null;

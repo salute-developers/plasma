@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { CodeSandbox as CodeSandboxView } from '@salutejs/plasma-docs-ui';
-import IconExternalLink from '@theme/IconExternalLink';
+import IconExternalLink from '@theme/Icon/ExternalLink';
 import styled from 'styled-components';
 
 import packageJson from '../../package.json';

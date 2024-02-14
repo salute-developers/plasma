@@ -1,0 +1,1 @@
+export const MuteFill = null;

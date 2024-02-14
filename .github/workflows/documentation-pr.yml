@@ -1,6 +1,9 @@
 name: PR Documentation and Storybook [PR into DEV branch]
 
 on:
+  pull_request:
+    branches:
+      - master
   pull_request_target:
     branches:
       - dev
@@ -13,6 +16,7 @@ concurrency:
 jobs:
   authorize:
     name: Authorize external pull request
+    if: ${{ !startsWith(github.head_ref, 'release') }}
     uses: ./.github/workflows/authorize-external-pr.yml
   
   scope:
@@ -177,6 +181,12 @@ jobs:
           npm run storybook:build --prefix="./packages/caldera-online"
           cp -R ./packages/caldera-online/build-sb ./s3_build/${PR_NAME}/caldera-online-storybook
       
+      - name: Plasma "SDDS SRVC" Storybook
+        if: ${{ needs.scope.outputs.HAS_SDDS_SRVC == 'true' }}
+        run: |
+          npm run storybook:build --prefix="./packages/sdds-srvc"
+          cp -R ./packages/sdds-srvc/build-sb ./s3_build/${PR_NAME}/sdds-srvc-storybook
+      
       - name: Install s3cmd
         run: pip3 install s3cmd
       
@@ -206,10 +216,11 @@ jobs:
           HAS_PLASMA_ASDK: ${{ fromJSON(needs.scope.outputs.HAS_PLASMA_ASDK) }}
           HAS_CALDERA: ${{ fromJSON(needs.scope.outputs.HAS_CALDERA) }}
           HAS_CALDERA_ONLINE: ${{ fromJSON(needs.scope.outputs.HAS_CALDERA_ONLINE) }}
+          HAS_SDDS_SRVC: ${{ fromJSON(needs.scope.outputs.HAS_SDDS_SRVC) }}
         with:
           github-token: ${{secrets.GH_TOKEN}}
           script: |
-            const { HAS_PLASMA_B2C, HAS_PLASMA_WEB, HAS_PLASMA_UI, HAS_PLASMA_TEMPLE, HAS_PLASMA_HOPE, HAS_PLASMA_ASDK, HAS_CALDERA, HAS_CALDERA_ONLINE } = process.env;
+            const { HAS_PLASMA_B2C, HAS_PLASMA_WEB, HAS_PLASMA_UI, HAS_PLASMA_TEMPLE, HAS_PLASMA_HOPE, HAS_PLASMA_ASDK, HAS_CALDERA, HAS_CALDERA_ONLINE, HAS_SDDS_SRVC } = process.env;
             
             const {
               issue: { number },
@@ -250,6 +261,10 @@ jobs:
 
             if (HAS_CALDERA_ONLINE === 'true') {
               links.push(`caldera-online storybook: http://plasma.sberdevices.ru/pr/pr-${number}/caldera-online-storybook/`)
+            }
+
+            if (HAS_SDDS_SRVC === 'true') {
+              links.push(`sdds-srvc storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-srvc-storybook/`)
             }
             
             github.rest.issues.createComment({

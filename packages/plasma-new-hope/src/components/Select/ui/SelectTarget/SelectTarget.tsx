@@ -17,6 +17,7 @@ import {
 import type { SelectTargetProps } from './SelectTarget.types';
 
 const {
+    hasNoFocus,
     hasChips,
     innerLabelUp,
     arrowInverse,
@@ -35,15 +36,14 @@ export const SelectTarget = forwardRef<HTMLButtonElement, SelectTargetProps>(
             values,
             target = 'textField-like',
             label,
-            isOpen,
+            opened,
             readOnly,
             disabled,
             enumerationType,
             size,
             id,
             chipsRefs,
-            onChipClick,
-            onChangeValue,
+            onChange,
             onKeyDown,
             ...rest
         },
@@ -51,14 +51,22 @@ export const SelectTarget = forwardRef<HTMLButtonElement, SelectTargetProps>(
     ) => {
         const hasText = Boolean(values?.some(([value]) => value));
 
-        const showLabel = label && size !== 'xs' && target === 'textField-like';
+        const hasLabel = label && size !== 'xs' && target === 'textField-like';
         const textContent = values?.map(([, text]) => text).join(', ');
         const contentRef = useRef<HTMLDivElement>(null);
 
-        const withArrowInverse = isOpen ? arrowInverse : undefined;
-        const withInnerLabelUp = showLabel && hasText ? innerLabelUp : undefined;
+        const withArrowInverse = opened ? arrowInverse : undefined;
+        const withInnerLabelUp = hasLabel && hasText ? innerLabelUp : undefined;
         const withHasChips =
             hasText && enumerationType === 'chip' && target === 'textField-like' ? hasChips : undefined;
+
+        const withNoFocus = target === 'textField-like' ? hasNoFocus : undefined;
+
+        const isLabelVisible = !hasText || (hasLabel && enumerationType === 'comma');
+
+        const onChipClick = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
+            event.stopPropagation();
+        }, []);
 
         const onChipClear = useCallback(
             (value: SelectPrimitiveValue, text: SelectPrimitiveValue, index: number) => {
@@ -67,9 +75,9 @@ export const SelectTarget = forwardRef<HTMLButtonElement, SelectTargetProps>(
                     .map(([itemValue]) => itemValue);
 
                 chipsRefs?.current.splice(index, 1);
-                onChangeValue?.(newValue);
+                onChange?.(newValue);
             },
-            [values, onChangeValue],
+            [values, onChange],
         );
 
         const onChipKeyDown = useCallback(
@@ -115,13 +123,13 @@ export const SelectTarget = forwardRef<HTMLButtonElement, SelectTargetProps>(
             <StyledSelectTarget
                 {...rest}
                 ref={ref}
-                isOpen={isOpen}
+                opened={opened}
                 target={target}
                 readOnly={readOnly}
                 disabled={disabled}
                 title={textContent}
                 aria-label={label}
-                className={cx(withInnerLabelUp, withHasChips, selectTarget)}
+                className={cx(withInnerLabelUp, withHasChips, withNoFocus, selectTarget)}
                 onWheel={onWheel}
                 onKeyDown={onKeyDown}
             >
@@ -148,7 +156,7 @@ export const SelectTarget = forwardRef<HTMLButtonElement, SelectTargetProps>(
                             </StyledChips>
                         </StyledChipsWrapper>
                     ))}
-                {(!hasText || (showLabel && enumerationType === 'comma')) && (
+                {isLabelVisible && (
                     <StyledLabel className={selectTargetLabel} htmlFor={id}>
                         {label}
                     </StyledLabel>

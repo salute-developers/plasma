@@ -1,0 +1,234 @@
+---
+id: combobox
+title: Combobox
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Combobox
+Компонент, отвечающий за выпадающий список с возможностью фильтрации элементов и их выбора. Доступен в двух режимах: единичный и множественный выбор.  
+
+## Combobox
+<Description name="Combobox" />
+<PropsTable name="Combobox" exclude={['css', 'focused']} />
+<StorybookLink name="Combobox" />
+
+## Использование
+Компонент `Combobox` должен содержать компоненты из следующего списка: `ComboboxDivider`, `ComboboxFooter`, `ComboboxGroup`, `ComboboxHeader`, `ComboboxItem`.
+Для управления режимом, необходимо установить свойство `valueType = 'single'` для единичного выбора и `valueType='multiple'` для множественного. 
+Так же для выбора отобржаения множественого режима свойство `enumerationType = 'comma'` для перечисления выбранных значений через запятую, и `enumerationType = 'chip'` для перечисления выбранных значений с помощью компонента `Chip`.
+
+## Клавиатурная навигация
+
+Данный компонент может полностью управляться с помощью клавиатуры, используя следующие клавиши:
+-  `Tab` - переход на таргет (инпут)
+-  `Shift` + `tab` - выход с него (теряем фокус)
+-  `Стрелка вверх` / `стрелка вниз` - открыть выпадающий список и переместиться на первый элемент
+-  `Стрелка вверх` / `стрелка вниз` ходим по элементам с зацикливанием
+-  `Enter` - выбираем элемент, закрываем выпадающий список и переходим фокусом снова на таргет (инпут)
+-  Если мы ходим по селекту и нажимаем `Tab` - выпадающий список закрывается и теряем фокус
+-  Если мы ходим по селекту и нажимаем `Escape` - выпадающий список закрывается и фокусом остаёмся на таргете
+-  В мультиселекте тоже самое кроме закрытия выпадающего списка при выборе элемента
+-  Когда находимся на первом чипе, нажимаем `стрелку влево` / `стрелку вправо` - переходим по чипам
+-  Когда оказываемся на последнем чипе и нажимаем `стрелку вправо` - переходим на таргет (инпут)  
+-  Когда находимся на таргете (инпуте) и нажимаем `Backspace` - удаляется последний чип
+-  Когда находимся на таргете (инпуте) и нажимаем `стрелку влево` - переходим на последний чип
+-  Нажимаем `Backspace` - удаляем выбранный чип и переходим на предыдущий
+-  Если удалили последний чип, то фокусируемся на таргете
+-  Если находимся в выборе элемента из выпадающего списка и нажимаем `стрелку влево` / `стрелку вправо` - попадаем на самый последний чип
+-  Если находимся в режиме выбора элемента и нажимаем `стрелку вниз` / `стрелку вверх` находясь на последнем / первом элементе, то перескакиваем в начало / в конец
+-  Если находимся в режиме выбора элемента и нажимаем любую клавишу **кроме** `стрелки вниз` / `вверх` / `влево` / `вправо` / `Escape` / `Tab` / `Enter`, то переходим на таргет (инпут) и вводим значения
+-  Ввод значение в таргет (инпут) приводит к фильтрации элементов в выпадающем списке. Если значение не соответствует ни одному элементу, то отобразится сообщение "Элементы не найдены"
+
+### Single 
+
+```tsx live
+import React from 'react';
+import { Combobox, ComboboxItem } from '@salutejs/plasma-web';
+import { IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    const [value, setValue] = React.useState(undefined);
+    const handleOnChange = React.useCallback((newValue) => {
+        setValue(newValue);
+    }, []);
+
+    return (
+        <div>
+            <Combobox value={value} onChangeValue={handleOnChange} frame="document" usePortal placeholder="Placeholder">
+                <ComboboxItem value={undefined} text="Clear" />
+                <ComboboxItem
+                    value="item_0"
+                    text="item 0"
+                    contentLeft={"item_0" === value ? <IconDone size="s" color="inherit" /> : undefined}
+                />
+                <ComboboxItem
+                    value="item_1"
+                    text="item 1"
+                    contentLeft={"item_1" === value ? <IconDone size="s" color="inherit" /> : undefined}
+                />
+                <ComboboxItem
+                    value="extra_item_0"
+                    text="extra item 0"
+                    contentLeft={"extra_item_0" === value ? <IconDone size="s" color="inherit" /> : undefined}
+                />
+                <ComboboxItem
+                    value="extra_item_1"
+                    text="extra item 1"
+                    contentLeft={"extra_item_1" === value ? <IconDone size="s" color="inherit" /> : undefined}
+                />
+                <ComboboxItem
+                    value="extra_item_2"
+                    text="extra item 2"
+                    contentLeft={"extra_item_2" === value ? <IconDone size="s" color="inherit" /> : undefined}
+                />
+            </Combobox>
+        </div>
+    );
+}
+```
+
+### Multiple
+
+```tsx live
+import React from 'react';
+import { Combobox, ComboboxItem, Checkbox } from '@salutejs/plasma-web';
+
+export function App() {
+    const [value, setValue] = React.useState(['item_0']);
+    const handleOnChange = React.useCallback((newValue) => {
+        setValue(newValue);
+    }, []);
+
+    return (
+        <div>
+            <Combobox 
+                    value={value} 
+                    onChangeValue={handleOnChange} 
+                    frame="document" 
+                    usePortal 
+                    valueType="multiple"
+                    enumerationType="chip"
+                    label="Label">
+                <ComboboxItem value={undefined} text="Clear" />
+                <ComboboxItem
+                    value="item_0"
+                    text="item 0"
+                    contentLeft={Checkbox}
+                />
+                <ComboboxItem
+                    value="item_1"
+                    text="item 1"
+                    contentLeft={Checkbox}
+                />
+                <ComboboxItem
+                    value="extra_item_0"
+                    text="extra item 0"
+                    contentLeft={Checkbox}
+                />
+                <ComboboxItem
+                    value="extra_item_1"
+                    text="extra item 1"
+                    contentLeft={Checkbox}
+                />
+                <ComboboxItem
+                    value="extra_item_2"
+                    text="extra item 2"
+                    contentLeft={Checkbox}
+                />
+            </Combobox>
+        </div>
+    );
+}
+```
+
+## Примеры
+
+### Размер Combobx
+Размер `Combobx` задается с помощью свойства `size`. Возможные значения свойства: `"l"`, `"m"`, `"s"` или `"xs"`, а также соответствующие размеры компонент `Checkbox` и `IconDone`:
+
+Для иконок верно такое соответствие размеров (`Icon = Combobox`): 
+- xs = xs,
+- s = s,
+- m = s,
+- l = s,
+
+Для `Checkbox` / `Radiobox` верно такое соответствие размеров (`Checkbox / Radiobox = Combobox`): 
+- xs = s,
+- s = m,
+- m = m,
+- l = m,
+
+```tsx live
+import React from 'react';
+import { Combobox } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <div style={{flexDirection: 'column'}}>
+            <Combobox usePortal frame="document" label="Label" size="xs" />
+            <Combobox usePortal frame="document" label="Label" size="s" />
+            <Combobox usePortal frame="document" label="Label" size="m" />
+            <Combobox usePortal frame="document" label="Label" size="l" />
+        </div>
+    );
+}
+```
+
+### Применение пользовательского фильтра 
+`Combobox` поддверживает возможность создавать собственные правила для фильтрации списка элементов с помощью функции колбэка `filterFunction`, которая срабатывает на каждый элемент и если возвращает `true`, то элемент рендерится, иначе нет.
+
+```tsx live
+import React from 'react';
+import { Combobox } from '@salutejs/plasma-web';
+
+export function App() {
+    const [value, setValue] = React.useState(['item_0']);
+    const handleOnChange = React.useCallback((newValue) => {
+        setValue(newValue);
+    }, []);
+
+    const customFilterFunction = React.useCallback((childText, filterValue) => {
+        return childText.startWith(filterValue);
+    }, []);
+
+    return (
+        <div style={{flexDirection: 'column'}}>
+             <Combobox 
+                    value={value} 
+                    onChangeValue={handleOnChange} 
+                    frame="document" 
+                    usePortal 
+                    valueType="multiple"
+                    label="Label">
+                <ComboboxItem value={undefined} text="Clear" />
+                <ComboboxItem
+                    value="item_0"
+                    text="item 0"
+                    contentLeft={Checkbox}
+                />
+                <ComboboxItem
+                    value="item_1"
+                    text="item 1"
+                    contentLeft={Checkbox}
+                />
+                <ComboboxItem
+                    value="extra_item_0"
+                    text="extra item 0"
+                    contentLeft={Checkbox}
+                />
+                <ComboboxItem
+                    value="extra_item_1"
+                    text="extra item 1"
+                    contentLeft={Checkbox}
+                />
+                <ComboboxItem
+                    value="extra_item_2"
+                    text="extra item 2"
+                    contentLeft={Checkbox}
+                />
+            </Combobox>
+        </div>
+    );
+}
+```

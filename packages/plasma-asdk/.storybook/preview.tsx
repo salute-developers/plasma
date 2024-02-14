@@ -3,7 +3,6 @@ import type { Preview } from '@storybook/react';
 import storybookTheme from './theme';
 import { docsPage } from './docsPage';
 import { withTheme, ASDK_LIGHT_THEME, ASDK_DARK_THEME } from './decoratorThemes';
-import { withToast } from './decoratorToast';
 
 // Workaround: to make VoiceOver read russian text properly
 if (typeof document !== 'undefined') {
@@ -11,7 +10,7 @@ if (typeof document !== 'undefined') {
 }
 
 const preview: Preview = {
-    decorators: [withTheme, withToast],
+    decorators: [withTheme],
     globalTypes: {
         theme: {
             description: 'Global theme for components',

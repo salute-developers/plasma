@@ -2,6 +2,7 @@
 
 export * from './mixins';
 export * from './engines';
+export * from './hooks';
 export * from './components/Button';
 export * from './components/Chip';
 export * from './components/Link';
@@ -29,3 +30,6 @@ export * from './components/Counter';
 export * from './components/Avatar';
 export * from './components/AvatarGroup';
 export * from './components/Toast';
+export * from './components/Overlay';
+export * from './components/SSRProvider';
+export * from './components/Combobox';

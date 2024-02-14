@@ -94,7 +94,7 @@ const StorySingle = (args: StorySelectProps) => {
             <Select
                 frame="theme-root"
                 usePortal={usePortal}
-                selectType="single"
+                valueType="single"
                 value={value}
                 placement={placement}
                 label={label}
@@ -140,7 +140,7 @@ const StoryMultiple = (args: StorySelectProps) => {
             <Select
                 frame="theme-root"
                 usePortal={usePortal}
-                selectType="multiple"
+                valueType="multiple"
                 value={value}
                 placement={placement}
                 label={label}
@@ -184,7 +184,7 @@ const StoryNative = (args: StorySelectProps) => {
             <Select
                 frame="theme-root"
                 usePortal={usePortal}
-                selectType="native"
+                valueType="native"
                 value={value}
                 placement={placement}
                 label={label}
@@ -212,7 +212,7 @@ export const Native: StoryObj<StorySelectProps> = {
 const StoryControlledOpen = (args: StorySelectProps) => {
     const { usePortal, placement, label, readOnly, disabled, size = 'm', view, target } = args;
 
-    const [isOpen, setIsOpen] = useState(true);
+    const [opened, setOpened] = useState(true);
     const [iconColor, setIconColor] = useState('green');
     const [value, setV] = useState<string | number | boolean | undefined>('item_0');
 
@@ -220,8 +220,8 @@ const StoryControlledOpen = (args: StorySelectProps) => {
         setV(newValue);
         onChangeAction(newValue);
     };
-    const onToggle = (openValue: boolean) => setIsOpen(openValue);
-    const onOpen = () => setIsOpen((v) => !v);
+    const onToggle = (openValue: boolean) => setOpened(openValue);
+    const onOpen = () => setOpened((v) => !v);
     const onMouseEnter = () => setIconColor('red');
     const onMouseLeave = () => setIconColor('green');
 
@@ -233,7 +233,7 @@ const StoryControlledOpen = (args: StorySelectProps) => {
                     frame="theme-root"
                     usePortal={usePortal}
                     value={value}
-                    isOpen={isOpen}
+                    opened={opened}
                     onToggle={onToggle}
                     placement={placement}
                     label={label}

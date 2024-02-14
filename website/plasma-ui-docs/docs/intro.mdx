@@ -82,7 +82,7 @@ export const GlobalStyle = () => (
 }>
 <TabItem value="cra">
 
-```jsx {2,3,7,9,10} title="index.tsx"
+```jsx title="index.tsx"
 import { DeviceThemeProvider, SSRProvider } from '@salutejs/plasma-ui';
 import { GlobalStyle } from './GlobalStyle';
 import { App } from './App';
@@ -100,7 +100,7 @@ ReactDOM.render(
 </TabItem>
 <TabItem value="next">
 
-```tsx {2,3,7,9,10} title="pages/_app.tsx"
+```tsx title="pages/_app.tsx"
 import type { AppProps } from 'next/app';
 import { DeviceThemeProvider, SSRProvider } from '@salutejs/plasma-ui';
 import { GlobalStyle } from './GlobalStyle';
@@ -128,7 +128,7 @@ export default MyApp;
 **рекомендуется** использовать их напрямую из пакета.
 Таким образом, обеспечивается работа [tree shaking](https://webpack.js.org/guides/tree-shaking/).
 
-```jsx {1,2} title="App.tsx"
+```jsx title="App.tsx"
 import { Container } from '@salutejs/plasma-ui/components/Grid';
 import { Button } from '@salutejs/plasma-ui';
 
