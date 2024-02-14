@@ -1,10 +1,6 @@
-# Библиотека компонентов SDDS SRVC
+# Библиотека компонентов SDDS SERV
 
 Реализация компонентов для создания веб-приложений.
-
-<p align="center">
-  <img width="800" src="https://user-images.githubusercontent.com/1813468/98609687-ea20fc80-22fe-11eb-8d84-cd26385f01ed.png" alt="sdds-srvc" />
-</p>
 
 ## Использование
 
@@ -14,14 +10,12 @@
 
 Использование `styled-components` на проект необязательно, так же как и использование `typescript`.
 
-**Но** для того чтобы компоненты работали корректно необходимо установить `styled-components`.
-
 ### Установка пакета
 
 ```bash
 $ npm install --save react react-dom
-$ npm install --save styled-components
-$ npm install --save @salutejs/sdds-srvc @salutejs/plasma-typo @salutejs/plasma-tokens
+$ npm install --save styled-components@5.1.1
+$ npm install --save @salutejs/sdds-serv @salutejs/plasma-typo @salutejs/plasma-tokens
 ```
 
 ## Настройка
@@ -31,9 +25,9 @@ $ npm install --save @salutejs/sdds-srvc @salutejs/plasma-typo @salutejs/plasma-
 ```jsx title="GlobalStyle.tsx"
 import { createGlobalStyle } from 'styled-components';
 import { standard } from '@salutejs/plasma-typo';
-import { sdds_srvc__light } from '@salutejs/plasma-tokens';
+import { sdds_serv__light } from '@salutejs/plasma-tokens';
 
-const ThemeStyle = createGlobalStyle(sdds_srvc__light);
+const ThemeStyle = createGlobalStyle(sdds_serv__light);
 const TypoStyle = createGlobalStyle(standard);
 
 export const GlobalStyle = () => (
@@ -51,7 +45,8 @@ export const GlobalStyle = () => (
 -   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
 -   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
 
-Для корректной работы server side rendering приложение нужно обернуть `SSRProvider` (доступен в sdds-srvc);
+При использовании react ниже 18
+Для корректной работы server side rendering приложение нужно обернуть `SSRProvider` (доступен в sdds-serv);
 
 ### Использование компонентов
 
@@ -59,12 +54,12 @@ export const GlobalStyle = () => (
 
 ```jsx
 // App.tsx
-import { Button } from '@salutejs/sdds-srvc';
-import { textAccent } from '@salutejs/plasma-tokens/brands/sdds-srvc';
+import { Button } from '@salutejs/sdds-serv';
+import { textAccent } from '@salutejs/plasma-tokens/brands/sdds-serv';
 
 export const App = () => {
     return (
-        <Button>Hello, Plasma!</Button>
+        <Button>Hello, SDDS!</Button>
 
         <p style={{color: textAccent}}>
             Token usage example

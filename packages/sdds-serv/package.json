@@ -1,7 +1,7 @@
 {
-  "name": "@salutejs/sdds-srvc",
+  "name": "@salutejs/sdds-serv",
   "version": "0.9.0-dev.0",
-  "description": "Salute Design System / React UI kit for SDDS SRVC web applications",
+  "description": "Salute Design System / React UI kit for SDDS SERV web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
   "keywords": [
@@ -16,7 +16,7 @@
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:salute-developers/plasma.git",
-    "directory": "packages/sdds-srvc"
+    "directory": "packages/sdds-serv"
   },
   "dependencies": {
     "@salutejs/plasma-new-hope": "0.49.0-dev.0",
@@ -74,8 +74,8 @@
     "prebuild": "rm -rf ./components ./es ./helpers ./hocs ./hooks ./mixins ./tokens ./types ./utils index.d.ts index.d.ts.map index.js index.js.map",
     "build": "npm run build:cjs && npm run build:esm",
     "postbuild": "npm run generate:typings",
-    "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=sdds-srvc babel ./src --out-dir . --extensions .ts,.tsx",
-    "build:esm": "BABEL_ENV=esm SC_NAMESPACE=sdds-srvc babel ./src --out-dir ./es --extensions .ts,.tsx",
+    "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=sdds-serv babel ./src --out-dir . --extensions .ts,.tsx",
+    "build:esm": "BABEL_ENV=esm SC_NAMESPACE=sdds-serv babel ./src --out-dir ./es --extensions .ts,.tsx",
     "generate:typings": "tsc --outDir . --emitDeclarationOnly",
     "storybook": "storybook dev -p ${PORT:-7007} -c .storybook",
     "storybook:build": "storybook build -c .storybook -o build-sb",
@@ -92,8 +92,7 @@
   },
   "contributors": [
     "Vasiliy Loginevskiy",
-    "Anton Vinogradov",
-    "Fanil Zubairov"
+    "Anton Vinogradov"
   ],
   "sideEffects": false
 }
