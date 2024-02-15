@@ -21,7 +21,7 @@ export default create({
     barBg: '#FFFFFF',
 
     // Logo
-    brandTitle: 'Plasma SDDS SRVC UI Kit',
+    brandTitle: 'Plasma SDDS SERV UI Kit',
     brandUrl: 'https://plasma.sberdevices.ru',
     brandImage: `./images/plasma-logo.png`,
 });
