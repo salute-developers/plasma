@@ -1,7 +1,6 @@
-import React, { forwardRef, useMemo } from 'react';
+import React from 'react';
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
-// import type { InputHTMLAttributes } from '@salutejs/plasma-core';
 
 import { applyNoUserSelect, applyEllipsis } from '../../mixins';
 import type { Filter, RootProps } from '../../engines/types';
@@ -140,89 +139,59 @@ export interface BaseboxProps {
 
 type CheckboxProps = Filter<any> & BaseboxProps;
 
-export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) =>
-    forwardRef<HTMLInputElement, CheckboxProps>((props) => {
-        const {
-            size,
-            view,
-            focused,
-            disabled,
-            id,
-            label,
-            description,
-            indeterminate,
-            style,
-            className,
-            singleLine = false,
-            'aria-label': ariaLabelExternal,
-            ...rest
-        } = props;
+export const checkboxRoot = (Root: RootProps<HTMLInputElement, CheckboxProps>) => (
+    props: HTMLInputElement & CheckboxProps,
+) => {
+    const {
+        size,
+        view,
+        focused,
+        disabled,
+        label,
+        description,
+        indeterminate,
+        style,
+        className,
+        singleLine = false,
+    } = props;
 
-        // const inputRef = useRef<HTMLInputElement | null>(null);
-        // const forkRef = useForkRef(inputRef, ref);
+    const isLabelAriaHidden = typeof label === 'string';
+    const canFocused = focused ? 0 : -1;
+    const hasContent = label || description;
+    const singleLineClass = singleLine ? 'single-line' : undefined;
+    const resetMargins = !hasContent ? 'reset-margins' : undefined;
 
-        // useEffect(() => {
-        //     if (inputRef.current) {
-        //         inputRef.current.indeterminate = Boolean(indeterminate);
-        //     }
-        // }, [inputRef, indeterminate]);
-
-        // const uniqId = safeUseId();
-        // const uniqLabelId = `label-${uniqId}`;
-        // const uniqDescriptionId = `description-${uniqId}`;
-        // const checkboxId = id || `input-${uniqId}`;
-
-        const ariaLabel = useMemo(() => ariaLabelExternal, [ariaLabelExternal, label]);
-        const isLabelAriaHidden = typeof label === 'string';
-        const canFocused = focused ? 0 : -1;
-        const hasContent = label || description;
-        const singleLineClass = singleLine ? 'single-line' : undefined;
-        const resetMargins = !hasContent ? 'reset-margins' : undefined;
-
-        return (
-            <Root
-                view={view}
-                size={size}
-                disabled={disabled}
-                focused={focused}
-                style={style}
-                className={cx(className, resetMargins)}
-                tabIndex={-1}
-            >
-                <StyledInput
-                    {...rest}
-                    // id={checkboxId}
-                    // ref={forkRef}
-                    type="checkbox"
-                    disabled={disabled}
-                    aria-label={ariaLabel}
-                    // aria-describedby={uniqDescriptionId}
-                    tabIndex={canFocused}
-                />
-                <StyledContentWrapper>
-                    <StyledTrigger className={cx('checkbox-trigger', resetMargins)}>
-                        {indeterminate ? <Indeterminate /> : <Done />}
-                    </StyledTrigger>
-                    {hasContent && (
-                        <StyledContent className={singleLineClass}>
-                            {label && (
-                                <StyledLabel
-                                    className={singleLineClass}
-                                    // id={uniqLabelId}
-                                    aria-hidden={isLabelAriaHidden}
-                                >
-                                    {label}
-                                </StyledLabel>
-                            )}
-                            {description && (
-                                <StyledDescription className={singleLineClass}>{description}</StyledDescription>
-                            )}
-                        </StyledContent>
-                    )}
-                </StyledContentWrapper>
-            </Root>
-        );
-    });
+    return (
+        <Root
+            view={view}
+            size={size}
+            disabled={disabled}
+            focused={focused}
+            style={style}
+            className={cx(className, resetMargins)}
+            tabIndex={-1}
+        >
+            <StyledInput type="checkbox" disabled={disabled} tabIndex={canFocused} />
+            <StyledContentWrapper>
+                <StyledTrigger className={cx('checkbox-trigger', resetMargins)}>
+                    {indeterminate ? <Indeterminate /> : <Done />}
+                </StyledTrigger>
+                {hasContent && (
+                    <StyledContent className={singleLineClass}>
+                        {label && (
+                            <StyledLabel className={singleLineClass} aria-hidden={isLabelAriaHidden}>
+                                {label}
+                            </StyledLabel>
+                        )}
+                        {description && (
+                            <StyledDescription className={singleLineClass}>{description}</StyledDescription>
+                        )}
+                    </StyledContent>
+                )}
+            </StyledContentWrapper>
+        </Root>
+    );
+};
 
 export const checkboxConfig = {
     name: 'Checkbox',

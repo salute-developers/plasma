@@ -5,7 +5,7 @@ import { checkboxConfig } from './Checkbox';
 
 export type { BaseboxProps } from './Checkbox';
 
-const mergedConfig = mergeConfig(checkboxConfig, config);
+const mergedConfig = mergeConfig(checkboxConfig as any, config);
 const CheckboxComponent = component(mergedConfig);
 
 export type CheckboxProps = typeof CheckboxComponent;

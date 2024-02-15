@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import { cx } from '@linaria/core';
 
 // TODO: #1008 Избавиться от импортов и переделать addFocus
@@ -13,7 +13,7 @@ export const _component = (componentConfig: ComponentConfig) => {
     const dynamicVariants = getDynamicVariants(componentConfig);
     const Root = tag as React.ElementType;
 
-    const component = forwardRef<HTMLElement, HTMLAnyAttributes>((props, ref) => {
+    const component = (props: HTMLAnyAttributes) => {
         const { className, ...rest } = props;
         const variants = dynamicVariants(rest);
         const cls = cx(className, base, ...staticVariants, ...variants);
@@ -26,8 +26,6 @@ export const _component = (componentConfig: ComponentConfig) => {
                 baseProps[key] = rest[key];
             }
         }
-
-        baseProps.ref = ref;
 
         // styled-components do it inside
         // add props that should be attr( disabled for example)
@@ -44,7 +42,7 @@ export const _component = (componentConfig: ComponentConfig) => {
         }
 
         return <Root className={cls} {...htmlAttrs} {...baseProps} />;
-    });
+    };
     if (name) {
         component.displayName = name;
     }
