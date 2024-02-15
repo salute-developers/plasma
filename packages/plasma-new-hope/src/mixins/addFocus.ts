@@ -68,6 +68,7 @@ export const addFocus = (args: FocusProps) => {
             left: ${outlineOffset};
             right: ${outlineOffset};
             bottom: ${outlineOffset};
+            z-index: 1;
 
             display: block;
             box-sizing: content-box;

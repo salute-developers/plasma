@@ -1,6 +1,7 @@
 export const classes = {
     buttonStretch: 'button-stretch',
     buttonSquare: 'button-square',
+    buttonItem: 'button-item',
 };
 
 export const tokens = {

@@ -4,13 +4,13 @@ import { buttonTokens } from '../../../../components/Button';
 
 export const config = {
     defaults: {
-        view: 'default',
+        view: 'primary',
         focused: 'true',
         size: 'm',
     },
     variations: {
         view: {
-            default: css`
+            primary: css`
                 ${buttonTokens.buttonColor}: var(--inverse-text-primary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-default);
                 ${buttonTokens.buttonColorHover}: var(--inverse-text-primary);
@@ -26,7 +26,7 @@ export const config = {
                     var(--surface-solid-default) 80%
                 );
             `,
-            primary: css`
+            accent: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-accent);
                 ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary);

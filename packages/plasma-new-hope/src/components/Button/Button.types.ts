@@ -1,6 +1,9 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
+import type { AsProps } from '@salutejs/plasma-core';
 
 import type { Pin } from '../../utils/roundness';
+
+type Stretching = 'fixed' | 'filled' | 'auto';
 
 type CustomButtonProps = {
     /**
@@ -25,8 +28,19 @@ type CustomButtonProps = {
     loader?: ReactNode;
     /**
      * Кнопка растягивается на всю доступную ширину
+     * @deprecated
+     * Использовать stretching
      */
     stretch?: boolean;
+    /**
+     * Ширина кнопки
+     * @description
+     * Может принимать три значения:
+     * fixed - кнопка фиксированной ширины;
+     * filled - кнопка занимает всю доступную ширину
+     * auto - кнопка растягивается в зависимости от контента
+     */
+    stretching?: Stretching;
     /**
      * Кнопка принимает соотношение сторон 1:1
      */
@@ -49,4 +63,8 @@ type CustomButtonProps = {
     size?: string;
 };
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & CustomButtonProps;
+export interface ButtonProps<T = HTMLElement>
+    extends ButtonHTMLAttributes<T>,
+        Omit<AnchorHTMLAttributes<T>, 'type'>,
+        AsProps,
+        CustomButtonProps {}
