@@ -1,6 +1,11 @@
-# Библиотека компонентов SDDS SRVC
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="About" />
+
+# Библиотека компонентов SDDS SERV
 
 Реализация компонентов для создания веб-приложений.
+
 
 ## Использование
 
@@ -15,7 +20,7 @@
 ```bash
 $ npm install --save react react-dom
 $ npm install --save styled-components@5.1.1
-$ npm install --save @salutejs/sdds-serv @salutejs/plasma-typo @salutejs/plasma-tokens
+$ npm install --save @salutejs/sdds-serv @salutejs/plasma-typo
 ```
 
 ## Настройка
@@ -25,9 +30,9 @@ $ npm install --save @salutejs/sdds-serv @salutejs/plasma-typo @salutejs/plasma-
 ```jsx title="GlobalStyle.tsx"
 import { createGlobalStyle } from 'styled-components';
 import { standard } from '@salutejs/plasma-typo';
-import { sdds_srvc__light } from '@salutejs/plasma-tokens';
+import { sdds_serv__light } from '@salutejs/sdds-serv/themes';
 
-const ThemeStyle = createGlobalStyle(sdds_srvc__light);
+const ThemeStyle = createGlobalStyle(sdds_serv__light);
 const TypoStyle = createGlobalStyle(standard);
 
 export const GlobalStyle = () => (
@@ -54,8 +59,8 @@ export const GlobalStyle = () => (
 
 ```jsx
 // App.tsx
-import { Button } from '@salutejs/sdds-srvc';
-import { textAccent } from '@salutejs/plasma-tokens/brands/sdds-srvc';
+import { Button } from '@salutejs/sdds-serv';
+import { textAccent } from '@salutejs/sdds-serv/tokens';
 
 export const App = () => {
     return (

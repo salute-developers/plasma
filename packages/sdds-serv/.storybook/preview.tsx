@@ -2,7 +2,7 @@ import type { Preview } from '@storybook/react';
 
 import storybookTheme from './theme';
 import { docsPage } from './docsPage';
-import { withTheme, SDDS_SRVC_LIGHT_THEME, SDDS_SRVC_DARK_THEME } from './decoratorThemes';
+import { withTheme, SDDS_SERV_LIGHT_THEME, SDDS_SERV_DARK_THEME } from './decoratorThemes';
 import { withToast } from './decoratorToast';
 
 // Workaround: to make VoiceOver read russian text properly
@@ -15,10 +15,10 @@ const preview: Preview = {
     globalTypes: {
         theme: {
             description: 'Global theme for components',
-            defaultValue: SDDS_SRVC_LIGHT_THEME,
+            defaultValue: SDDS_SERV_LIGHT_THEME,
             toolbar: {
                 title: 'Theme',
-                items: [SDDS_SRVC_LIGHT_THEME, SDDS_SRVC_DARK_THEME],
+                items: [SDDS_SERV_LIGHT_THEME, SDDS_SERV_DARK_THEME],
             },
         },
         typoVersion: {
