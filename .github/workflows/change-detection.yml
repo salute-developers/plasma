@@ -58,9 +58,9 @@ on:
       HAS_CALDERA_ONLINE:
         description: ""
         value: ${{ jobs.run.outputs.HAS_CALDERA_ONLINE }}
-      HAS_SDDS_SRVC:
+      HAS_SDDS_SERV:
         description: ""
-        value: ${{ jobs.run.outputs.HAS_SDDS_SRVC }}
+        value: ${{ jobs.run.outputs.HAS_SDDS_SERV }}
       HAS_ASSETS:
         description: ""
         value: ${{ jobs.run.outputs.HAS_ASSETS }}
@@ -85,7 +85,7 @@ jobs:
       HAS_PLASMA_ASDK: ${{ steps.set-output.outputs.HAS_PLASMA_ASDK }}
       HAS_CALDERA: ${{ steps.set-output.outputs.HAS_CALDERA }}
       HAS_CALDERA_ONLINE: ${{ steps.set-output.outputs.HAS_CALDERA_ONLINE }}
-      HAS_SDDS_SRVC: ${{ steps.set-output.outputs.HAS_SDDS_SRVC }}
+      HAS_SDDS_SERV: ${{ steps.set-output.outputs.HAS_SDDS_SERV }}
       HAS_ASSETS: ${{ steps.set-output.outputs.HAS_ASSETS }}
       PACKAGES_ENUMERATION: ${{ steps.set-output.outputs.PACKAGES_ENUMERATION }}
 
@@ -139,7 +139,7 @@ jobs:
           echo "HAS_PLASMA_ASDK=${{ fromJSON(steps.scope.outputs.result).HAS_PLASMA_ASDK }}" >> $GITHUB_OUTPUT
           echo "HAS_CALDERA=${{ fromJSON(steps.scope.outputs.result).HAS_CALDERA }}" >> $GITHUB_OUTPUT
           echo "HAS_CALDERA_ONLINE=${{ fromJSON(steps.scope.outputs.result).HAS_CALDERA_ONLINE }}" >> $GITHUB_OUTPUT
-          echo "HAS_SDDS_SRVC=${{ fromJSON(steps.scope.outputs.result).HAS_SDDS_SRVC }}" >> $GITHUB_OUTPUT
+          echo "HAS_SDDS_SERV=${{ fromJSON(steps.scope.outputs.result).HAS_SDDS_SERV }}" >> $GITHUB_OUTPUT
           echo "HAS_ASSETS=${{ fromJSON(steps.scope.outputs.result).HAS_ASSETS }}" >> $GITHUB_OUTPUT
           echo "PACKAGES_ENUMERATION=${{ fromJSON(steps.scope.outputs.result).PACKAGES_ENUMERATION }}" >> $GITHUB_OUTPUT
 

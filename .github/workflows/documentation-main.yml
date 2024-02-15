@@ -98,10 +98,10 @@ jobs:
           npm run storybook:build --prefix="./packages/caldera-online"
           cp -R ./packages/caldera-online/build-sb ./s3_build_sb/caldera-online-storybook
 
-      - name: Plasma "SDDS SRVC" Storybook
+      - name: Plasma "SDDS SERV" Storybook
         run: |
-          npm run storybook:build --prefix="./packages/sdds-srvc"
-          cp -R ./packages/sdds-srvc/build-sb ./s3_build_sb/sdds-srvc-storybook
+          npm run storybook:build --prefix="./packages/sdds-serv"
+          cp -R ./packages/sdds-serv/build-sb ./s3_build_sb/sdds-serv-storybook
           
       - name: Plasma Temple Storybook
         run: |
@@ -231,7 +231,7 @@ jobs:
           ./s3_build_sb/caldera-online-storybook/
           s3://${{ secrets.AWS_S3_BUCKET_2 }}/caldera-online-storybook/
 
-      - name: Upload to S3 storybook "SDDS SRVC"
+      - name: Upload to S3 storybook "SDDS SERV"
         run: >
           s3cmd
           --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -243,5 +243,5 @@ jobs:
           --delete-removed
           --no-mime-magic
           sync
-          ./s3_build_sb/sdds-srvc-storybook/
-          s3://${{ secrets.AWS_S3_BUCKET_2 }}/sdds-srvc-storybook/
+          ./s3_build_sb/sdds-serv-storybook/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/sdds-serv-storybook/
