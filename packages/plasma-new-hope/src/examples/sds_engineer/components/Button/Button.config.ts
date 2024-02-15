@@ -4,13 +4,29 @@ import { buttonTokens } from '../../../../components/Button';
 
 export const config = {
     defaults: {
-        size: 'm',
+        view: 'primary',
         focused: 'true',
-        view: 'secondary',
+        size: 'm',
     },
     variations: {
         view: {
             primary: css`
+                ${buttonTokens.buttonColor}: var(--inverse-text-primary);
+                ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-default);
+                ${buttonTokens.buttonColorHover}: var(--inverse-text-primary);
+                ${buttonTokens.buttonBackgroundColorHover}: color-mix(
+                    in srgb,
+                    var(--inverse-text-primary),
+                    var(--surface-solid-default) 85%
+                );
+                ${buttonTokens.buttonColorActive}: var(--inverse-text-primary);
+                ${buttonTokens.buttonBackgroundColorActive}: color-mix(
+                    in srgb,
+                    var(--inverse-text-primary),
+                    var(--surface-solid-default) 80%
+                );
+            `,
+            accent: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-accent);
                 ${buttonTokens.buttonBackgroundColorHover}: #18a2ff;

@@ -50,7 +50,7 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                 size={size}
                 disabled={disabled}
                 focused={focused}
-                className={cx(squareClass, stretchClass, className)}
+                className={cx(squareClass, stretchClass, classes.buttonItem, className)}
                 style={{ ...style, '--plasma_computed-btn-br': buttonBorderRadius } as CSSProperties}
                 {...rest}
             >

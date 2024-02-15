@@ -38,7 +38,7 @@ export default meta;
 export const Default: StoryObj<ComponentProps<typeof Button>> = {
     args: {
         children: 'Hello',
-        view: 'default',
+        view: 'primary',
         size: 'm',
         disabled: false,
         focused: true,
