@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo } from 'react';
+import React from 'react';
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
@@ -73,22 +73,20 @@ const getFallbackProps = (props: SpinnerProps, initialInnerProps: SpinnerInnerPr
 };
 
 const useInnerProps = (props: SpinnerProps, initialInnerProps: SpinnerInnerProps) => {
-    return useMemo(() => {
-        const { width, height } = props;
-        let innerProps = initialInnerProps;
+    const { width, height } = props;
+    let innerProps = initialInnerProps;
 
-        if (width && height) {
-            innerProps = {
-                wrapperWidth: sizeFormatting(width),
-                wrapperHeight: sizeFormatting(height),
-                svgWidth: height,
-                svgHeight: width,
-                color: initialInnerProps.color,
-            };
-        }
+    if (width && height) {
+        innerProps = {
+            wrapperWidth: sizeFormatting(width),
+            wrapperHeight: sizeFormatting(height),
+            svgWidth: height,
+            svgHeight: width,
+            color: initialInnerProps.color,
+        };
+    }
 
-        return getFallbackProps(props, innerProps);
-    }, [props.width, props.height, props.view, props.size]);
+    return getFallbackProps(props, innerProps);
 };
 
 type SpinnerProps = React.HTMLAttributes<HTMLDivElement> &
@@ -137,29 +135,25 @@ type SpinnerProps = React.HTMLAttributes<HTMLDivElement> &
           }
     );
 
-export const spinnerRoot = (Root: RootProps<HTMLDivElement, SpinnerProps>) =>
-    forwardRef<HTMLDivElement, SpinnerProps>((props, ref) => {
-        const { id, ...rest } = props;
+export const spinnerRoot = (Root: RootProps<HTMLDivElement, SpinnerProps>) => (props: SpinnerProps) => {
+    const { id, ...rest } = props;
 
-        const innerProps = useInnerProps(props, {
-            wrapperWidth: 'auto',
-            wrapperHeight: 'auto',
-            svgWidth: 'var(--plasma-spinner-size)',
-            svgHeight: 'var(--plasma-spinner-size)',
-            color: 'currentColor',
-        });
-
-        // const uniqId = safeUseId;
-        // const innerId = id || uniqId();
-
-        return (
-            <Root ref={ref} {...rest}>
-                <SpinnerWrapper width={innerProps.wrapperWidth} height={innerProps.wrapperHeight}>
-                    <SpinnerSvg width={innerProps.svgWidth} height={innerProps.svgHeight} color={innerProps.color} />
-                </SpinnerWrapper>
-            </Root>
-        );
+    const innerProps = useInnerProps(props, {
+        wrapperWidth: 'auto',
+        wrapperHeight: 'auto',
+        svgWidth: 'var(--plasma-spinner-size)',
+        svgHeight: 'var(--plasma-spinner-size)',
+        color: 'currentColor',
     });
+
+    return (
+        <Root {...rest}>
+            <SpinnerWrapper width={innerProps.wrapperWidth} height={innerProps.wrapperHeight}>
+                <SpinnerSvg width={innerProps.svgWidth} height={innerProps.svgHeight} color={innerProps.color} />
+            </SpinnerWrapper>
+        </Root>
+    );
+};
 
 export const spinnerConfig = {
     name: 'Spinner',

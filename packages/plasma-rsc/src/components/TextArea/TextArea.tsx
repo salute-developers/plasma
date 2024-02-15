@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import { css } from '@linaria/core';
 
 import { cx } from '../../utils';
@@ -77,98 +77,95 @@ export const getDynamicLabelClasses = (props: TextAreaProps, focused: boolean) =
     return [withFocusedOuterUpPlaceholder, withInnerPlaceholderUp, withHidePlaceholder];
 };
 
-export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>) =>
-    forwardRef<HTMLTextAreaElement, TextAreaProps>((props) => {
-        const {
-            helperText,
-            status,
-            resize,
-            rightHelper,
-            leftHelper,
-            contentRight,
-            autoResize = false,
-            minAuto = 0,
-            maxAuto,
-            label,
-            labelPlacement = 'inner',
-            placeholder,
-            defaultValue,
-            height,
-            width,
-            value,
-            disabled,
-            size,
-            view,
-            id,
-            style,
-            className,
-            readOnly,
-            rows,
-            cols,
-            onChange,
-            ...rest
-        } = props;
+export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>) => (props: TextAreaProps) => {
+    const {
+        helperText,
+        status,
+        resize,
+        rightHelper,
+        leftHelper,
+        contentRight,
+        autoResize = false,
+        minAuto = 0,
+        maxAuto,
+        label,
+        labelPlacement = 'inner',
+        placeholder,
+        defaultValue,
+        height,
+        width,
+        value,
+        disabled,
+        size,
+        view,
+        id,
+        style,
+        className,
+        readOnly,
+        rows,
+        cols,
+        onChange,
+        ...rest
+    } = props;
 
-        const hasHelper = Boolean(leftHelper || rightHelper || helperText);
-        const overriddenView = status !== undefined ? fallbackStatusMap[status] : view;
-        const textareaHelperId = id ? `${id}-helper` : undefined;
-        const applyCustomWidth = resize !== 'horizontal' && resize !== 'both' && !cols;
-        const placeLabel = labelPlacement === 'inner' && label ? label : placeholder;
+    const hasHelper = Boolean(leftHelper || rightHelper || helperText);
+    const overriddenView = status !== undefined ? fallbackStatusMap[status] : view;
+    const textareaHelperId = id ? `${id}-helper` : undefined;
+    const applyCustomWidth = resize !== 'horizontal' && resize !== 'both' && !cols;
+    const placeLabel = labelPlacement === 'inner' && label ? label : placeholder;
 
-        return (
-            <Root
-                view={overriddenView}
-                size={size}
-                disabled={disabled}
-                readOnly={readOnly}
-                style={style}
-                className={className}
-            >
-                {label && labelPlacement === 'outer' && <StyledLabel>{label}</StyledLabel>}
-                <StyledContainer className={cx(styledContainer)}>
-                    {contentRight && <StyledContent>{contentRight}</StyledContent>}
-                    <StyledTextAreaWrapper className={styledTextAreaWrapper} hasHelper={hasHelper}>
-                        <StyledTextArea
-                            className={styledTextArea}
-                            id={id}
-                            hasContentRight={Boolean(contentRight)}
-                            hasHelper={hasHelper}
-                            applyCustomWidth={applyCustomWidth}
-                            disabled={disabled}
-                            height={autoResize ? minAuto : height}
-                            width={width}
-                            placeholder={placeLabel}
-                            aria-describedby={textareaHelperId}
-                            value={value}
-                            readOnly={readOnly}
-                            rows={rows}
-                            cols={cols}
-                            resize={resize}
-                            defaultValue={defaultValue}
-                            {...rest}
-                        />
-                    </StyledTextAreaWrapper>
-                    {hasHelper && (
-                        <StyledHelpers className={styledHelpers} id={textareaHelperId}>
-                            {(leftHelper || helperText) && (
-                                <StyledLeftHelper>{leftHelper || helperText}</StyledLeftHelper>
-                            )}
-                            {rightHelper && <StyledRightHelper>{rightHelper}</StyledRightHelper>}
-                        </StyledHelpers>
-                    )}
-                    {placeLabel && (
-                        <StyledPlaceholder
-                            hasContentRight={Boolean(contentRight)}
-                            className={styledPlaceholder}
-                            htmlFor={id}
-                        >
-                            {placeLabel}
-                        </StyledPlaceholder>
-                    )}
-                </StyledContainer>
-            </Root>
-        );
-    });
+    return (
+        <Root
+            view={overriddenView}
+            size={size}
+            disabled={disabled}
+            readOnly={readOnly}
+            style={style}
+            className={className}
+        >
+            {label && labelPlacement === 'outer' && <StyledLabel>{label}</StyledLabel>}
+            <StyledContainer className={cx(styledContainer)}>
+                {contentRight && <StyledContent>{contentRight}</StyledContent>}
+                <StyledTextAreaWrapper className={styledTextAreaWrapper} hasHelper={hasHelper}>
+                    <StyledTextArea
+                        className={styledTextArea}
+                        id={id}
+                        hasContentRight={Boolean(contentRight)}
+                        hasHelper={hasHelper}
+                        applyCustomWidth={applyCustomWidth}
+                        disabled={disabled}
+                        height={autoResize ? minAuto : height}
+                        width={width}
+                        placeholder={placeLabel}
+                        aria-describedby={textareaHelperId}
+                        value={value}
+                        readOnly={readOnly}
+                        rows={rows}
+                        cols={cols}
+                        resize={resize}
+                        defaultValue={defaultValue}
+                        {...rest}
+                    />
+                </StyledTextAreaWrapper>
+                {hasHelper && (
+                    <StyledHelpers className={styledHelpers} id={textareaHelperId}>
+                        {(leftHelper || helperText) && <StyledLeftHelper>{leftHelper || helperText}</StyledLeftHelper>}
+                        {rightHelper && <StyledRightHelper>{rightHelper}</StyledRightHelper>}
+                    </StyledHelpers>
+                )}
+                {placeLabel && (
+                    <StyledPlaceholder
+                        hasContentRight={Boolean(contentRight)}
+                        className={styledPlaceholder}
+                        htmlFor={id}
+                    >
+                        {placeLabel}
+                    </StyledPlaceholder>
+                )}
+            </StyledContainer>
+        </Root>
+    );
+};
 
 export const textAreaConfig = {
     name: 'TextArea',

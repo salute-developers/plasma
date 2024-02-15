@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 
 import type { RootProps } from '../../../engines';
 import { getRoundness, getSkeletonColor } from '../../../mixins';
@@ -10,19 +10,22 @@ import type { LineSkeletonProps } from './LineSkeleton.types';
 /**
  * Копонент-составляющая Скелетона
  */
-export const lineSkeletonRoot = (Root: RootProps<HTMLDivElement, LineSkeletonProps>) =>
-    forwardRef<HTMLDivElement, LineSkeletonProps>(
-        ({ size, lighter, customGradientColor, roundness = '16', ...rest }, outerRootRef) => {
-            const roundnessValue = getRoundness({ roundness });
-            const skeletonGradientColor = getSkeletonColor({ lighter, customGradientColor });
+export const lineSkeletonRoot = (Root: RootProps<HTMLDivElement, LineSkeletonProps>) => ({
+    size,
+    lighter,
+    customGradientColor,
+    roundness = 16,
+    ...rest
+}: LineSkeletonProps) => {
+    const roundnessValue = getRoundness({ roundness });
+    const skeletonGradientColor = getSkeletonColor({ lighter, customGradientColor });
 
-            return (
-                <Root ref={outerRootRef} size={size} {...rest}>
-                    <StyledVisibleLine roundness={roundnessValue} gradientColor={skeletonGradientColor} />
-                </Root>
-            );
-        },
+    return (
+        <Root size={size} {...rest}>
+            <StyledVisibleLine roundness={roundnessValue} gradientColor={skeletonGradientColor} />
+        </Root>
     );
+};
 
 export const lineSkeletonConfig = {
     name: 'LineSkeleton',
