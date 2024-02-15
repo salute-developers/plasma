@@ -91,10 +91,10 @@ jobs:
           npm run storybook:build --prefix="./packages/plasma-asdk"
           cp -R ./packages/plasma-asdk/build-sb ./s3_build/${PR_NAME}/asdk-storybook
       
-      - name: Plasma "SDDS SRVC" Storybook
+      - name: Plasma "SDDS SERV" Storybook
         run: |
-          npm run storybook:build --prefix="./packages/sdds-srvc"
-          cp -R ./packages/sdds-srvc/build-sb ./s3_build/${PR_NAME}/sdds-srvc-storybook
+          npm run storybook:build --prefix="./packages/sdds-serv"
+          cp -R ./packages/sdds-serv/build-sb ./s3_build/${PR_NAME}/sdds-serv-storybook
       
       - name: Install s3cmd
         run: pip3 install s3cmd
@@ -136,6 +136,6 @@ jobs:
               temple storybook: http://plasma.sberdevices.ru/pr/pr-${number}/temple-storybook/
               new-hope storybook: http://plasma.sberdevices.ru/pr/pr-${number}/new-hope-storybook/
               asdk storybook: http://plasma.sberdevices.ru/pr/pr-${number}/asdk-storybook/
-              sdds-srvc storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-srvc-storybook/
+              sdds-serv storybook: http://plasma.sberdevices.ru/pr/pr-${number}/sdds-serv-storybook/
               `
             });
