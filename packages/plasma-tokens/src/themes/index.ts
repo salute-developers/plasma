@@ -26,6 +26,8 @@ export { sberonline__dark, darkSberonline } from './sberonline__dark';
 export { sberonline__light, lightSberonline } from './sberonline__light';
 export { sberprime__dark, darkSberprime } from './sberprime__dark';
 export { sberprime__light, lightSberprime } from './sberprime__light';
+export { sdds_serv__dark, darkSdds_serv } from './sdds_serv__dark';
+export { sdds_serv__light, lightSdds_serv } from './sdds_serv__light';
 export { sdds_srvc__dark, darkSdds_srvc } from './sdds_srvc__dark';
 export { sdds_srvc__light, lightSdds_srvc } from './sdds_srvc__light';
 export { stylesSalute__dark, darkStylesSalute } from './stylesSalute__dark';
