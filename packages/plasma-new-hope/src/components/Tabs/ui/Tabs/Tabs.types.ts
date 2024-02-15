@@ -1,5 +1,6 @@
-import type { AsProps } from '@salutejs/plasma-core';
 import type { HTMLAttributes } from 'react';
+
+import type { AsProps } from '../../../../types';
 
 export type TabsProps = AsProps &
     HTMLAttributes<HTMLDivElement> & {

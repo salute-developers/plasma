@@ -26,6 +26,7 @@ import { arrayItemRemoving } from '@salutejs/plasma-hope';
 import { arrayItemSelecting } from '@salutejs/plasma-hope';
 import { arrayItemSwapping } from '@salutejs/plasma-hope';
 import { AsProps } from '@salutejs/plasma-core';
+import { AsProps as AsProps_2 } from '@salutejs/plasma-new-hope/types/types';
 import { AudioPlayer } from '@salutejs/plasma-hope';
 import { AudioPlayerProps } from '@salutejs/plasma-hope';
 import { AvatarGroupProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -1320,7 +1321,7 @@ export { TabItemProps }
 export { TabItemRefs }
 
 // @public
-export const Tabs: ForwardRefExoticComponent<AsProps<any> & HTMLAttributes<HTMLDivElement> & {
+export const Tabs: ForwardRefExoticComponent<AsProps_2<any> & HTMLAttributes<HTMLDivElement> & {
     disabled?: boolean | undefined;
     stretch?: boolean | undefined;
     pilled?: boolean | undefined;

@@ -43,8 +43,8 @@ examples/**
 packages/plasma-asdk/*
 !packages/plasma-asdk/src
 
-packages/sdds-srvc/*
-!packages/sdds-srvc/src
+packages/sdds-serv/*
+!packages/sdds-serv/src
 
 packages/caldera/*
 !packages/caldera/src
