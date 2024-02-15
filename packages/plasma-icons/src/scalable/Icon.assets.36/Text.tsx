@@ -1,0 +1,1 @@
+export const Text = null;

@@ -10,20 +10,21 @@ import { AnchorHTMLAttributes } from 'react';
 import type { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
 import { ButtonHTMLAttributes } from 'react';
-import { ForwardRefExoticComponent } from 'react';
+import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
+import { FocusProps } from '@salutejs/plasma-new-hope/styled-components';
 import { FunctionComponent } from 'react';
 import { HTMLAttributes } from 'react';
+import type { InputHTMLAttributes } from 'react';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
 import { ReactNode } from 'react';
 import { RefAttributes } from 'react';
-import { SpacingProps } from '@salutejs/plasma-new-hope/types/mixins/applySpacing';
-import { SpinnerProps } from '@salutejs/plasma-core';
-import { SSRProvider } from '@salutejs/plasma-core';
+import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
+import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { StyledComponent } from 'styled-components';
 import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
-import type { SwitchProps } from '@salutejs/plasma-core';
+import { SwitchPropsVariations } from '@salutejs/plasma-new-hope/types/components/Switch/Switch.types';
 import { TypographyOldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Old/TypographyOld';
 
 // @public (undocumented)
@@ -322,9 +323,34 @@ export type RadioboxProps = typeof RadioboxComponent;
 export { RadioGroup }
 
 // @public
-export const Spinner: StyledComponent<FunctionComponent<SpinnerProps>, any, {}, never>;
+export const Spinner: StyledComponent<FunctionComponent<PropsType<    {
+view: {
+accent: string;
+};
+}> & ((HTMLAttributes<HTMLDivElement> & {
+width?: undefined;
+height?: undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+width: number;
+height: number;
+size?: undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
+width: string;
+height: string;
+size?: undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>))>, any, {}, never>;
 
-export { SpinnerProps }
+// @public (undocumented)
+export type SpinnerProps = HTMLAttributes<HTMLDivElement> & {
+    size?: string | number;
+    view?: string;
+    color?: string;
+    deviceScale?: number;
+};
 
 export { SSRProvider }
 
@@ -336,9 +362,38 @@ m: string;
 }> & SubtitleProps & RefAttributes<HTMLDivElement>>;
 
 // @public
-export const Switch: ForwardRefExoticComponent<SwitchProps & RefAttributes<HTMLInputElement>>;
+export const Switch: FunctionComponent<PropsType<    {
+size: {
+m: string;
+};
+view: {
+default: string;
+};
+labelPosition: {
+before: string;
+after: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & Filter<InputHTMLAttributes<HTMLInputElement>, "size"> & SwitchPropsVariations & RefAttributes<HTMLInputElement>>;
 
-export { SwitchProps }
+// @public (undocumented)
+export type SwitchProps = {
+    id?: string;
+    label?: React.ReactNode;
+    size?: string;
+    view?: string;
+    labelPosition?: 'before' | 'after';
+    description?: React.ReactNode;
+    disabled?: boolean;
+    pressed?: boolean;
+    focused?: boolean;
+    outlined?: boolean;
+} & FocusProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'onChange' | 'onFocus' | 'onBlur'> & Pick<InputHTMLAttributes<HTMLInputElement>, 'name' | 'value' | 'checked' | 'disabled' | 'readOnly' | 'onChange' | 'onFocus' | 'onBlur'>;
 
 // @public (undocumented)
 export const TextL: FunctionComponent<PropsType<    {

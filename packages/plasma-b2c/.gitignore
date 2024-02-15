@@ -10,3 +10,8 @@
 /index.*
 /__helpers
 build-sb
+
+# linaria build
+src-css
+css/*
+!css/package.json

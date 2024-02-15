@@ -21,7 +21,7 @@ export interface SelectTargetProps {
      * @default
      *  false
      */
-    isOpen?: boolean;
+    opened?: boolean;
     /**
      * Вид элемента, рядом с которым появляется список.
      */
@@ -51,13 +51,9 @@ export interface SelectTargetProps {
      */
     chipsRefs?: React.MutableRefObject<Array<HTMLButtonElement>>;
     /**
-     * Обработчик удаления выбранного значения.
-     */
-    onChipClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-    /**
      * Обработчик изменения выбранного значения.
      */
-    onChangeValue?: (value?: Array<SelectPrimitiveValue>) => void;
+    onChange?: (value?: Array<SelectPrimitiveValue>) => void;
     /**
      * Обработчик нажатия клавиши на target.
      */

@@ -1,7 +1,6 @@
 import { HTMLAttributes, ReactNode } from 'react';
 
 type CustomAvatarGroupProps = {
-    // Параметры отдельного аватара
     children: ReactNode;
 };
 

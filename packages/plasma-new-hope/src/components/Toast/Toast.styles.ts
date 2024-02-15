@@ -1,7 +1,9 @@
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
-import { Button, FADE_Z_INDEX, TOAST_Z_INDEX, gradients } from './utils';
+import { Overlay } from '../Overlay';
+
+import { Button, TOAST_Z_INDEX } from './utils';
 import { classes, tokens } from './Toast.tokens';
 
 export const base = css`
@@ -80,12 +82,7 @@ export const CloseIconWrapper = styled(Button)`
     }
 `;
 
-export const StyledFade = styled.div<{ isVisible: boolean; placement?: 'top' | 'bottom' }>`
-    position: fixed;
-    inset: 0;
-    z-index: ${FADE_Z_INDEX};
-    background: ${({ placement = 'bottom' }) => gradients[placement]};
-
+export const StyledOverlay = styled(Overlay)`
     &&.${String(classes.toastFadeShowed)} {
         animation: 0.3s showFadeAnimation ease-out forwards;
     }

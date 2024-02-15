@@ -28,6 +28,8 @@ import { arrayItemSwapping } from '@salutejs/plasma-hope';
 import { AsProps } from '@salutejs/plasma-core';
 import { AudioPlayer } from '@salutejs/plasma-hope';
 import { AudioPlayerProps } from '@salutejs/plasma-hope';
+import { AvatarGroupProps } from '@salutejs/plasma-new-hope/styled-components';
+import { AvatarProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BadgeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BlurProps } from '@salutejs/plasma-core';
@@ -70,11 +72,15 @@ import { ColCount } from '@salutejs/plasma-hope';
 import { ColOffsetProps } from '@salutejs/plasma-hope';
 import { ColProps } from '@salutejs/plasma-hope';
 import { ColSizeProps } from '@salutejs/plasma-hope';
+import { ComboboxPrimitiveValue } from '@salutejs/plasma-new-hope/styled-components';
+import { ComboboxProps } from '@salutejs/plasma-new-hope/styled-components';
+import { ComponentClass } from 'react';
 import { Container } from '@salutejs/plasma-hope';
 import { ContainerProps } from '@salutejs/plasma-hope';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { CustomComboboxProps } from '@salutejs/plasma-new-hope/types/components/Combobox/Combobox.types';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { defaultValidate } from '@salutejs/plasma-hope';
@@ -130,6 +136,8 @@ import { NotificationLayout } from '@salutejs/plasma-new-hope/styled-components'
 import { NotificationProps } from '@salutejs/plasma-new-hope/styled-components';
 import { offsets } from '@salutejs/plasma-hope';
 import { OutlinedProps } from '@salutejs/plasma-core';
+import { Overlay } from '@salutejs/plasma-new-hope/styled-components';
+import { OverlayProps } from '@salutejs/plasma-new-hope/styled-components';
 import { padZeroNumber } from '@salutejs/plasma-core';
 import { PaginationDot } from '@salutejs/plasma-hope';
 import { PaginationDotProps } from '@salutejs/plasma-hope';
@@ -159,7 +167,9 @@ import { radiuses } from '@salutejs/plasma-core';
 import { Ratio } from '@salutejs/plasma-new-hope/styled-components';
 import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
+import { ReactFragment } from 'react';
 import { ReactNode } from 'react';
+import { ReactPortal } from 'react';
 import { RectSkeleton } from '@salutejs/plasma-new-hope/styled-components';
 import { RectSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { RefAttributes } from 'react';
@@ -188,9 +198,9 @@ import { SnapAlign } from '@salutejs/plasma-core';
 import { SnapType } from '@salutejs/plasma-core';
 import { spacing } from '@salutejs/plasma-core';
 import { SpacingProps } from '@salutejs/plasma-core';
-import { SpacingProps as SpacingProps_2 } from '@salutejs/plasma-new-hope/types/mixins/applySpacing';
+import { SpacingProps as SpacingProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { SpinnerProps } from '@salutejs/plasma-core';
-import { SSRProvider } from '@salutejs/plasma-hope';
+import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { StatusType } from '@salutejs/plasma-hope';
 import { StyledCard } from '@salutejs/plasma-hope';
 import { StyledComponent } from 'styled-components';
@@ -198,12 +208,11 @@ import { StyledPreviewGallery } from '@salutejs/plasma-hope';
 import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
 import type { SwitchProps } from '@salutejs/plasma-core';
 import { syntheticFocus } from '@salutejs/plasma-core';
-import { TabItemProps } from '@salutejs/plasma-hope';
-import { TabItemProps as TabItemProps_2 } from '@salutejs/plasma-core';
-import { TabsControllerProps } from '@salutejs/plasma-hope';
-import { TabsControllerProps as TabsControllerProps_2 } from '@salutejs/plasma-core';
-import { TabsProps } from '@salutejs/plasma-hope';
-import { TabsProps as TabsProps_2 } from '@salutejs/plasma-core';
+import { TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
+import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
+import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
+import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
+import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
 import { TextAreaProps } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
@@ -285,6 +294,40 @@ export { AsProps }
 export { AudioPlayer }
 
 export { AudioPlayerProps }
+
+// @public (undocumented)
+export const Avatar: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+xxl: string;
+l: string;
+m: string;
+s: string;
+fit: string;
+};
+focused: {
+true: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+size: "m" | "s" | "l" | "xxl" | "fit";
+name?: string | undefined;
+url?: string | undefined;
+customText?: string | undefined;
+status?: "active" | "inactive" | undefined;
+isScalable?: boolean | undefined;
+focused?: boolean | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const AvatarGroup: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
+children: ReactNode;
+} & RefAttributes<HTMLDivElement>>;
+
+export { AvatarGroupProps }
+
+export { AvatarProps }
 
 // @public
 export const Badge: FunctionComponent<PropsType<    {
@@ -434,7 +477,7 @@ type?: "Days" | "Months" | "Years" | undefined;
 export { CalendarBaseProps }
 
 // @public (undocumented)
-export const CalendarBaseRange: ({ value, disabledList, eventList, min, max, onChangeValue, ...rest }: CalendarRange<CalendarBaseProps>) => ReactElement<CalendarBaseProps, string | JSXElementConstructor<any>>;
+export const CalendarBaseRange: ({ value, disabledList, eventList, min, max, onChangeValue, onChangeStartOfRange, ...rest }: CalendarRange<CalendarBaseProps>) => ReactElement<CalendarBaseProps, string | JSXElementConstructor<any>>;
 
 // @public (undocumented)
 export const CalendarDouble: FunctionComponent<PropsType<    {
@@ -449,7 +492,7 @@ m: string;
 export { CalendarDoubleProps }
 
 // @public (undocumented)
-export const CalendarDoubleRange: ({ value, disabledList, eventList, min, max, onChangeValue, ...rest }: CalendarRange<CalendarDoubleProps>) => ReactElement<CalendarDoubleProps, string | JSXElementConstructor<any>>;
+export const CalendarDoubleRange: ({ value, disabledList, eventList, min, max, onChangeValue, onChangeStartOfRange, ...rest }: CalendarRange<CalendarDoubleProps>) => ReactElement<CalendarDoubleProps, string | JSXElementConstructor<any>>;
 
 export { CalendarProps }
 
@@ -573,6 +616,80 @@ export { ColOffsetProps }
 export { ColProps }
 
 export { ColSizeProps }
+
+// @public (undocumented)
+export const Combobox: FunctionComponent<PropsType<    {
+size: {
+xs: string;
+s: string;
+m: string;
+l: string;
+};
+view: {
+default: string;
+};
+}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "checked" | "type" | "target" | "onChange" | "value" | "minLength" | "maxLength"> & CustomComboboxProps & {
+valueType?: "single" | undefined;
+value?: ComboboxPrimitiveValue | undefined;
+onChangeValue?: ((value?: ComboboxPrimitiveValue | undefined) => void) | undefined;
+} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "checked" | "type" | "target" | "onChange" | "value" | "minLength" | "maxLength"> & CustomComboboxProps & {
+valueType: "multiple";
+value?: ComboboxPrimitiveValue[] | undefined;
+onChangeValue?: ((value?: ComboboxPrimitiveValue[] | undefined) => void) | undefined;
+} & RefAttributes<HTMLInputElement>))>;
+
+// @public (undocumented)
+export const ComboboxDivider: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
+id?: string | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const ComboboxFooter: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
+id?: string | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const ComboboxGroup: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
+id?: string | undefined;
+labelClassName?: string | undefined;
+groupClassName?: string | undefined;
+label?: ReactNode;
+role?: string | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const ComboboxHeader: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
+id?: string | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const ComboboxItem: FunctionComponent<PropsType<Variants> & Omit<HTMLAttributes<HTMLDivElement>, "onSelect"> & {
+id?: string | undefined;
+disabled?: boolean | undefined;
+label?: ReactNode;
+role?: string | undefined;
+contentLeft?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
+contentRight?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
+name?: string | undefined;
+checked?: boolean | undefined;
+text?: string | undefined;
+value?: string | number | boolean | undefined;
+isSelected?: boolean | undefined;
+onClick?: ((event: MouseEvent_2<HTMLDivElement, MouseEvent>) => void) | undefined;
+onSelect?: ((value?: any, text?: any) => void) | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+export { ComboboxProps }
 
 export { Container }
 
@@ -914,6 +1031,10 @@ export { offsets }
 
 export { OutlinedProps }
 
+export { Overlay }
+
+export { OverlayProps }
+
 // @public (undocumented)
 export const P1: FunctionComponent<PropsType<    {
 size: {
@@ -1180,15 +1301,42 @@ export { SwitchProps }
 export { syntheticFocus }
 
 // @public
-export const TabItem: StyledComponent<ForwardRefExoticComponent<TabItemProps_2 & RefAttributes<HTMLButtonElement>>, any, TabItemProps, never>;
+export const TabItem: ForwardRefExoticComponent<AsProps<any> & ButtonHTMLAttributes<HTMLButtonElement> & {
+    isActive?: boolean | undefined;
+    selected?: boolean | undefined;
+    disabled?: boolean | undefined;
+    pilled?: boolean | undefined;
+    animated?: boolean | undefined;
+    contentLeft?: ReactNode;
+    contentRight?: ReactNode;
+    onIndexChange?: ((index: number) => void) | undefined;
+    itemIndex?: number | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
 
 export { TabItemProps }
 
-// @public
-export const Tabs: StyledComponent<ForwardRefExoticComponent<TabsProps_2 & RefAttributes<HTMLDivElement>>, any, TabsProps, never>;
+export { TabItemRefs }
 
 // @public
-export const TabsController: ForwardRefExoticComponent<TabsControllerProps_2 & RefAttributes<HTMLDivElement>>;
+export const Tabs: ForwardRefExoticComponent<AsProps<any> & HTMLAttributes<HTMLDivElement> & {
+    disabled?: boolean | undefined;
+    stretch?: boolean | undefined;
+    pilled?: boolean | undefined;
+    size?: string | undefined;
+    view?: string | undefined;
+    outsideScroll?: boolean | {
+        left?: string | undefined;
+        right?: string | undefined;
+    } | undefined;
+    index?: number | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+export { TabsContext }
+
+// @public @deprecated (undocumented)
+export const TabsController: ForwardRefExoticComponent<TabsControllerProps & RefAttributes<HTMLDivElement>>;
 
 export { TabsControllerProps }
 

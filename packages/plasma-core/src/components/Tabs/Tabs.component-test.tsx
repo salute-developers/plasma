@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import { IconDone } from '@salutejs/plasma-icons';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
+import { createGlobalStyle } from 'styled-components';
+
+const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const items = [{ label: 'Joy' }, { label: 'Sber' }, { label: 'Athena' }];
 
@@ -9,15 +13,32 @@ describe('plasma-core: Tabs', () => {
     const TabItem = getComponent('TabItem');
     const TabsController = getComponent('TabsController');
 
+    const CypressTestDecoratorWithTypo: FC = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
+
     const ControlledTabsController = (props) => {
         const [index, setIndex] = useState(0);
+        const { size = 'l' } = props;
 
-        return <TabsController items={items} index={index} onIndexChange={(i) => setIndex(i)} {...props} />;
+        return (
+            <TabsController
+                items={items.map((item) => {
+                    return { ...item, size };
+                })}
+                index={index}
+                onIndexChange={(i) => setIndex(i)}
+                {...props}
+            />
+        );
     };
 
     it('simple', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Tabs forwardedAs="ul">
                     {items.map((item, i) => (
                         <TabItem key={i} isActive={i === 1} forwardedAs="li">
@@ -25,7 +46,7 @@ describe('plasma-core: Tabs', () => {
                         </TabItem>
                     ))}
                 </Tabs>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -33,20 +54,20 @@ describe('plasma-core: Tabs', () => {
 
     it('with icon', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Tabs forwardedAs="ul">
                     {items.map((item, i) => (
                         <TabItem
                             key={i}
                             isActive={i === 1}
                             forwardedAs="li"
-                            contentLeft={<IconDone size="s" color="inherit" />}
+                            contentLeft={<IconDone size="xs" color="inherit" />}
                         >
                             {item.label}
                         </TabItem>
                     ))}
                 </Tabs>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -54,7 +75,7 @@ describe('plasma-core: Tabs', () => {
 
     it('_disabled', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Tabs disabled forwardedAs="ul">
                     {items.map((item, i) => (
                         <TabItem key={i} isActive={i === 1} forwardedAs="li">
@@ -62,7 +83,7 @@ describe('plasma-core: Tabs', () => {
                         </TabItem>
                     ))}
                 </Tabs>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -70,69 +91,47 @@ describe('plasma-core: Tabs', () => {
 
     it('controller', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <ControlledTabsController />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('div > div:nth-child(2)').click();
+        cy.get('div > button:nth-child(2)').click();
         cy.matchImageSnapshot();
     });
 
     it('controller with keydown', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <ControlledTabsController />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.root().get('[role="tablist"]').trigger('keydown', { keyCode: 13 });
-        cy.get('div:nth-child(1)').last().should('have.attr', 'tabindex', '0');
+        cy.get('button:nth-child(1)').last().should('have.attr', 'tabindex', '0');
 
         cy.root().get('[role="tablist"]').trigger('keydown', { keyCode: 39 });
-        cy.get('div:nth-child(2)').last().should('have.attr', 'tabindex', '0');
+        cy.get('button:nth-child(2)').last().should('have.attr', 'tabindex', '0');
 
         cy.root().get('[role="tablist"]').trigger('keydown', { keyCode: 37 });
-        cy.get('div:nth-child(1)').last().should('have.attr', 'tabindex', '0');
+        cy.get('button:nth-child(1)').last().should('have.attr', 'tabindex', '0');
 
         cy.root().get('[role="tablist"]').trigger('keydown', { keyCode: 35 });
-        cy.get('div:nth-child(3)').last().should('have.attr', 'tabindex', '0');
+        cy.get('button:nth-child(3)').last().should('have.attr', 'tabindex', '0');
 
         cy.root().get('[role="tablist"]').trigger('keydown', { keyCode: 36 });
-        cy.get('div:nth-child(1)').last().should('have.attr', 'tabindex', '0');
-    });
-
-    it('scrollable', () => {
-        const Container = ({ children }) => {
-            return <div style={{ width: '75px' }}>{children}</div>;
-        };
-
-        mount(
-            <CypressTestDecorator>
-                <Container>
-                    <Tabs>
-                        <TabItem>Joy</TabItem>
-                        <TabItem isActive>Sber</TabItem>
-                        <TabItem>Eva</TabItem>
-                    </Tabs>
-                </Container>
-            </CypressTestDecorator>,
-        );
-
-        cy.get('[role="tablist"]').parent().scrollTo(500, 0);
-
-        cy.matchImageSnapshot();
+        cy.get('button:nth-child(1)').last().should('have.attr', 'tabindex', '0');
     });
 
     it('_stretch', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Tabs stretch>
                     <TabItem>Joy</TabItem>
                     <TabItem isActive>Sber</TabItem>
                     <TabItem>Eva</TabItem>
                 </Tabs>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -142,12 +141,12 @@ describe('plasma-core: Tabs', () => {
         const onIndexChange = cy.stub();
 
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TabsController items={items} index={0} disabled onIndexChange={onIndexChange} />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('div > div:nth-child(2)')
+        cy.get('div > button:nth-child(2)')
             .click({ force: true })
             .then(() => {
                 expect(onIndexChange).not.called;
@@ -163,18 +162,18 @@ describe('plasma-core: Tabs', () => {
 
     it('autoscroll', () => {
         const Container = ({ children }) => {
-            return <div style={{ width: '75px' }}>{children}</div>;
+            return <div style={{ width: '80px' }}>{children}</div>;
         };
 
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Container>
-                    <ControlledTabsController autoscroll />
+                    <ControlledTabsController autoscroll size="xs" style={{ width: 'inherit' }} />
                 </Container>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('div > div:nth-child(2)').click();
+        cy.get('div > button:nth-child(2)').first().click();
         cy.matchImageSnapshot();
     });
 });

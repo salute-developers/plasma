@@ -42,7 +42,7 @@ export const StyledChip = styled(Chip)`
 
     ${addFocus({
         outlineOffset: '0.125rem',
-        outlineSize: '0.125rem',
+        outlineSize: '0.0625rem',
         outlineRadius: `calc(var(${tokens.chipBorderRadius}) - 0.1rem)`,
         outlineColor: `var(${tokens.focusColor})`,
     })}

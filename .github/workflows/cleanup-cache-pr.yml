@@ -3,11 +3,13 @@ name: Cleanup caches by a branch
 
 on:
   pull_request:
-    types:
-      - closed
+    branches:
+      - master
+    types: [closed]
   pull_request_target:
-    types:
-      - closed
+    branches:
+      - dev
+    types: [closed]
 
 jobs:
   cleanup:

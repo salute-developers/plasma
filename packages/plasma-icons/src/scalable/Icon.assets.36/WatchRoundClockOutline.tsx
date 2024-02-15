@@ -1,0 +1,1 @@
+export const WatchRoundClockOutline = null;

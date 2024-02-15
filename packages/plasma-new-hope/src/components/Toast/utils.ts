@@ -4,7 +4,7 @@ import { component, mergeConfig } from '../../engines';
 export const DEFAULT_FADE = true;
 export const DEFAULT_POSITION = 'bottom';
 export const TIMER_DELAY = 300;
-export const FADE_Z_INDEX = 9900;
+export const FADE_Z_INDEX = '9900';
 export const TOAST_Z_INDEX = '9901';
 
 export const gradients = {

@@ -1,7 +1,14 @@
 import React from 'react';
 
-import { IconRoot, IconProps } from '../IconRoot';
+import { HeartBoxFill as Icon16 } from '../Icon.assets.16/HeartBoxFill';
+import { HeartBoxFill as Icon24 } from '../Icon.assets.24/HeartBoxFill';
+import { HeartBoxFill as Icon36 } from '../Icon.assets.36/HeartBoxFill';
+import { IconProps, IconRoot, getIconComponent, sizeMap } from '../IconRoot';
 
 export const IconHeartBoxFill: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} icon="heartBoxFill" />;
+    const IconComponent = getIconComponent(Icon16, Icon24, Icon36, sizeMap[size].size);
+    if (!IconComponent) {
+        return null;
+    }
+    return <IconRoot className={className} size={size} color={color} icon={IconComponent} />;
 };

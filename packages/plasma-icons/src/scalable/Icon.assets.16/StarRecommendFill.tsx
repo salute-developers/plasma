@@ -1,0 +1,1 @@
+export const StarRecommendFill = null;

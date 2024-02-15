@@ -1,0 +1,1 @@
+export const MicErrorFill = null;

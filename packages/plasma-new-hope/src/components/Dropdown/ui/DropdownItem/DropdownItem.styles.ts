@@ -23,7 +23,9 @@ export const StyledText = styled.div`
     ${applyEllipsis()};
 `;
 
-export const base = css`
+// INFO: Для возможности переиспользования стилей в других компонентах
+export const baseContent = `
+    box-sizing: content-box;
     display: flex;
     align-items: center;
     user-select: none;
@@ -33,7 +35,7 @@ export const base = css`
     }
 
     ${addFocus({
-        outlineSize: '0.125rem',
+        outlineSize: '0.0625rem',
         outlineOffset: '0',
         outlineColor: `var(${tokens.focusColor})`,
         outlineRadius: `var(${tokens.itemBorderRadius})`,
@@ -80,4 +82,8 @@ export const base = css`
         opacity: var(${tokens.disabledOpacity});
         cursor: not-allowed;
     }
+`;
+
+export const base = css`
+    ${baseContent};
 `;

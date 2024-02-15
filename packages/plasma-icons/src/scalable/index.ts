@@ -1028,6 +1028,6 @@ export { IconUploadFill } from './Icons/IconUploadFill';
 export { IconUploadOutline } from './Icons/IconUploadOutline';
 
 export { IconRoot } from './IconRoot';
-export type { IconProps, IconSize, IconSetUnionSize } from './IconRoot';
+export type { IconProps, IconSize } from './IconRoot';
 
-export { Icon, iconSectionsSet } from './Icon';
+export { iconSectionsSet } from './Icon';

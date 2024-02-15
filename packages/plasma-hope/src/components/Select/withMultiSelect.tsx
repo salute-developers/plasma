@@ -54,7 +54,7 @@ export const withMultiSelect = (View: ComponentType<SelectViewProps & RefAttribu
 
                     onChange?.(Array.from(set));
                 },
-                [onChange],
+                [value, onChange],
             );
 
             return <View {...rest} ref={ref} value={viewValue} items={viewItems} onItemSelect={onItemSelect} />;

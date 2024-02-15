@@ -1,1 +1,1 @@
-export { SSRProvider } from '@salutejs/plasma-hope';
+export { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
