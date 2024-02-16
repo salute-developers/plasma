@@ -17,11 +17,17 @@ const uploadAssetsPluginOptions = {
 
 /** Auto configuration */
 module.exports = function rc() {
-    const { upload_assets: uploadAssets = 'false' } = process.env || {};
+    const { upload_assets: uploadAssets = 'false', upload_assets_targets = [] } = process.env || {};
     const plugins = [['released', releasedOptions], ['npm', npmOptions], 'conventional-commits'];
 
     if (uploadAssets === 'true') {
-        plugins.unshift(['./auto-plugins/dist/upload-assets-extend.js', uploadAssetsPluginOptions]);
+        plugins.unshift([
+            './auto-plugins/dist/upload-assets-extend.js',
+            {
+                ...uploadAssetsPluginOptions,
+                uploadAssetsTargets: JSON.parse(upload_assets_targets),
+            },
+        ]);
     }
 
     return {
