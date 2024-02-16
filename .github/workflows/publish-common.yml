@@ -65,7 +65,7 @@ jobs:
         run: npm whoami && npx lerna info && npx auto info || echo 'auto info returned 1'
       
       - name: Create Release
-        run: upload_assets="${{ inputs.upload_assets }}" upload_assets_targets=${{ toJSON(vars.UPLOAD_ASSETS_TARGET) }} npm run release -- ${{ inputs.auto-options }}
+        run: upload_assets="${{ inputs.upload_assets }}" upload_assets_targets=${{ toJSON(vars.UPLOAD_ASSETS_TARGETS) }} npm run release -- ${{ inputs.auto-options }}
       
       - name: Update package-lock files
         if: ${{ inputs.with-update-package-lock }}
