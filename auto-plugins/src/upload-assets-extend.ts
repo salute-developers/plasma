@@ -62,7 +62,7 @@ export default class UploadAssetsExtendPlugin extends UploadAssetsPlugin impleme
 
     // @ts-ignore
     apply(auto: Auto) {
-        const { headerMessage, filter, includeBotPrs, group, compact } = this.options;
+        const { headerMessage, filter, includeBotPrs, group, compact, uploadAssetsTargets } = this.options;
 
         auto.hooks.validateConfig.tapPromise(this.name, async (name, options) => {
             if (name === this.name || name === `@auto-it/${this.name}`) {
@@ -115,12 +115,14 @@ export default class UploadAssetsExtendPlugin extends UploadAssetsPlugin impleme
 
             let releases = response;
 
-            if (!!this.options.uploadAssetsTargets.length && Array.isArray(response)) {
-                releases = response.filter((releaseData: any) =>
-                    this.options.uploadAssetsTargets.some((uploadAssetsTarget) =>
-                        releaseData.data.name.includes(uploadAssetsTarget),
-                    ),
-                );
+            if (uploadAssetsTargets.length && Array.isArray(response)) {
+                releases = response.filter((releaseData: any) => {
+                    // name ==> @salutejs/plasma-tokens@1.72.0
+                    // after split ==> ['', 'salutejs/plasma-tokens', '1.72.0']
+                    const [, name, version] = releaseData.data.name.split('@');
+
+                    return uploadAssetsTargets.includes(`@${name}`);
+                });
             }
 
             // @ts-ignore
