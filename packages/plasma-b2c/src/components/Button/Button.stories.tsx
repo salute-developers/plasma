@@ -1,25 +1,24 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef, ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconPlaceholder, disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
-import { Button } from '.';
-import type { ButtonProps } from '.';
+import { Button } from './Button';
 
-type StoryButtonProps = ButtonProps & { contentType: string; isLoading: boolean };
+type StoryButtonProps = ComponentProps<typeof Button> & { contentType: string; isLoading: boolean };
 
-const views = ['primary', 'secondary', 'success', 'critical'];
-
+const views = ['accent', 'primary', 'secondary', 'success', 'warning', 'critical', 'clear'];
 const sizes = ['l', 'm', 's', 'xs', 'xxs'];
-
+const stretching = ['auto', 'filled', 'fixed'];
 const pins = [
     'square-square',
-    'circle-circle',
-    'circle-clear',
-    'clear-circle',
-    'clear-clear',
     'square-clear',
     'clear-square',
+    'clear-clear',
+    'clear-circle',
+    'circle-clear',
+    'circle-circle',
+    '',
 ];
 
 const contentTypes = ['Text', 'Text+Left', 'Text+Right', 'Left'];
@@ -64,21 +63,13 @@ const meta: Meta<StoryButtonProps> = {
                 type: 'select',
             },
         },
-        ...disableProps([
-            'theme',
-            'as',
-            'forwardedAs',
-            'contentLeft',
-            'contentRight',
-            'shiftLeft',
-            'shiftRight',
-            'blur',
-            'stretch',
-            'square',
-            'onClick',
-            'onFocus',
-            'onBlur',
-        ]),
+        stretching: {
+            options: stretching,
+            control: {
+                type: 'select',
+            },
+        },
+        ...disableProps(['theme', 'loader', 'onClick', 'onFocus', 'onBlur', 'contentLeft', 'contentRight']),
     },
 };
 
@@ -90,13 +81,13 @@ const StoryBaseButton: Story = {
     args: {
         view: 'primary',
         size: 'l',
-        pin: 'square-square',
         disabled: false,
-        outlined: true,
-        focused: false,
         text: 'Label',
         contentType: 'Text',
         isLoading: false,
+        focused: true,
+        square: false,
+        stretching: 'auto',
         onClick,
         onFocus,
         onBlur,
