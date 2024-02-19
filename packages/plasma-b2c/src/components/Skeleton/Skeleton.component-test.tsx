@@ -199,9 +199,9 @@ describe('plasma-core: Skeleton', () => {
         it('simple', () => {
             mount(
                 <CypressTestDecorator>
-                    <Btn view="primary" text="Loading" skeleton />
+                    <Btn view="accent" text="Loading" skeleton />
                     <PadMe />
-                    <Btn view="primary" text="Done" />
+                    <Btn view="accent" text="Done" />
                 </CypressTestDecorator>,
             );
             cy.matchImageSnapshot();

@@ -99,8 +99,8 @@ describe('plasma-web: Notification', () => {
                                     layout: 'vertical',
                                     actions: (
                                         <ButtonsWrapper>
-                                            <Button text="First" size="xs" stretch />
-                                            <Button text="Second" size="xs" stretch />
+                                            <Button text="First" size="xs" stretching="filled" />
+                                            <Button text="Second" size="xs" stretching="filled" />
                                         </ButtonsWrapper>
                                     ),
                                 },
@@ -156,8 +156,8 @@ describe('plasma-web: Notification', () => {
                                     icon: <IconDisclosureRight />,
                                     actions: (
                                         <ButtonsWrapper>
-                                            <Button text="First" size="xs" stretch />
-                                            <Button text="Second" size="xs" stretch />
+                                            <Button text="First" size="xs" stretching="filled" />
+                                            <Button text="Second" size="xs" stretching="filled" />
                                         </ButtonsWrapper>
                                     ),
                                 },
@@ -172,8 +172,8 @@ describe('plasma-web: Notification', () => {
                                     icon: <IconDisclosureRight />,
                                     actions: (
                                         <ButtonsWrapper>
-                                            <Button text="First" size="xs" stretch />
-                                            <Button text="Second" size="xs" stretch />
+                                            <Button text="First" size="xs" stretching="filled" />
+                                            <Button text="Second" size="xs" stretching="filled" />
                                         </ButtonsWrapper>
                                     ),
                                 },
@@ -228,8 +228,8 @@ describe('plasma-web: Notification', () => {
                                     children: 'longlonglonglonglonglonglonglongText!',
                                     actions: (
                                         <ButtonsWrapper>
-                                            <Button text="First" size="xs" stretch />
-                                            <Button text="Second" size="xs" stretch />
+                                            <Button text="First" size="xs" stretching="filled" />
+                                            <Button text="Second" size="xs" stretching="filled" />
                                         </ButtonsWrapper>
                                     ),
                                 },
