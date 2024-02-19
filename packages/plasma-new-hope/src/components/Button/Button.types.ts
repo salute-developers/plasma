@@ -1,7 +1,8 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
-import type { AsProps } from '@salutejs/plasma-core';
 
 import type { Pin } from '../../utils/roundness';
+import { Blur } from '../../mixins';
+import type { AsProps } from '../../types';
 
 type Stretching = 'fixed' | 'filled' | 'auto';
 
@@ -50,6 +51,10 @@ type CustomButtonProps = {
      */
     focused?: boolean;
     /**
+     * кнопка неактивна
+     */
+    disabled?: boolean;
+    /**
      * Свойство задает скругление border-radius
      */
     pin?: Pin;
@@ -61,6 +66,28 @@ type CustomButtonProps = {
      * Размер кнопки
      */
     size?: string;
+    /**
+     * Добавить рамку при фокусе
+     * @deprecated
+     * использовать focused
+     */
+    outlined?: boolean;
+    /**
+     * Отрицательный сдвиг влево на величину, равную паддингу компонента
+     * @deprecated
+     */
+    shiftLeft?: boolean;
+    /**
+     * Отрицательный сдвиг вправо на величину, равную паддингу компонента
+     * @deprecated
+     */
+    shiftRight?: boolean;
+    /**
+     * Степень размытия фона
+     * @deprecated
+     * для кнопок без прозрачности не работает
+     */
+    blur?: Blur;
 };
 
 export interface ButtonProps<T = HTMLElement>

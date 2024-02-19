@@ -1,4 +1,4 @@
-export interface AsProps<T = any> {
+export type AsProps<T = any> = {
     /**
      * Сменить рендер на другой тип компонента.
      */
@@ -8,4 +8,4 @@ export interface AsProps<T = any> {
      * не применяются родительские стили styled-components.
      */
     forwardedAs?: keyof JSX.IntrinsicElements | React.ComponentType<T>;
-}
+};
