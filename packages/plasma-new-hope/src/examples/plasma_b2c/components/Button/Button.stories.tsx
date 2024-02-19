@@ -30,6 +30,12 @@ const meta: Meta<typeof Button> = {
             },
             table: { defaultValue: { summary: 'bottom' } },
         },
+        stretching: {
+            options: ['auto', 'filled', 'fixed'],
+            control: {
+                type: 'select',
+            },
+        },
     },
 };
 
@@ -43,6 +49,7 @@ export const Default: StoryObj<ComponentProps<typeof Button>> = {
         disabled: false,
         focused: true,
         square: false,
-        stretch: false,
+        stretching: 'auto',
+        isLoading: false,
     },
 };
