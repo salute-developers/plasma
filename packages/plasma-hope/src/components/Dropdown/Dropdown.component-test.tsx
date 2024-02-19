@@ -1,9 +1,14 @@
 /* eslint-disable */
 import React from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import { createGlobalStyle } from 'styled-components';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { accent, success, warning, critical } from '@salutejs/plasma-core';
 import { IconEye, IconMagicWand, IconAccessibility, IconHeart, IconTrash, IconLocation } from '@salutejs/plasma-icons';
 
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+
+const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const items = [
     { value: 'each', label: 'Каждый' },
@@ -34,13 +39,20 @@ describe('plasma-hope: Dropdown', () => {
     const Dropdown = getComponent('Dropdown');
     const Button = getComponent('Button');
 
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
+
     it('simple', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Dropdown items={items}>
                     <Button text="Open" />
                 </Dropdown>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').click();
@@ -49,7 +61,7 @@ describe('plasma-hope: Dropdown', () => {
 
     it('radius and padding', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Dropdown
                     items={items}
                     style={{
@@ -60,7 +72,7 @@ describe('plasma-hope: Dropdown', () => {
                 >
                     <Button text="Open" />
                 </Dropdown>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').click();
@@ -69,11 +81,11 @@ describe('plasma-hope: Dropdown', () => {
 
     it("block and popup's width", () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Dropdown items={items} style={{ display: 'block', '--plasma-popup-width': '100%' }}>
-                    <Button text="Open" stretch />
+                    <Button text="Open" stretching="filled" />
                 </Dropdown>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').click();
@@ -82,11 +94,11 @@ describe('plasma-hope: Dropdown', () => {
 
     it('handling dropdown menu height', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Dropdown items={items} listOverflow="scroll" listHeight={6}>
-                    <Button text="Open" stretch />
+                    <Button text="Open" stretching="filled" />
                 </Dropdown>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').click();
@@ -95,16 +107,16 @@ describe('plasma-hope: Dropdown', () => {
 
     it('auto placement bottom', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                     <Dropdown placement={['top', 'bottom']} style={{ margin: '0 0 350px 0' }} items={items}>
-                        <Button id="first" text="Open" stretch />
+                        <Button id="first" text="Open" stretching="filled" />
                     </Dropdown>
                     <Dropdown placement={['top', 'bottom']} items={items}>
-                        <Button id="second" text="Open" stretch />
+                        <Button id="second" text="Open" stretching="filled" />
                     </Dropdown>
                 </div>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
         cy.get('#first').click();
         cy.matchImageSnapshot();
@@ -112,16 +124,16 @@ describe('plasma-hope: Dropdown', () => {
 
     it('auto placement top', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                     <Dropdown placement={['top', 'bottom']} style={{ margin: '0 0 350px 0' }} items={items}>
-                        <Button id="first" text="Open" stretch />
+                        <Button id="first" text="Open" stretching="filled" />
                     </Dropdown>
                     <Dropdown placement={['top', 'bottom']} items={items}>
-                        <Button id="second" text="Open" stretch />
+                        <Button id="second" text="Open" stretching="filled" />
                     </Dropdown>
                 </div>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
         cy.get('#second').click();
         cy.matchImageSnapshot();

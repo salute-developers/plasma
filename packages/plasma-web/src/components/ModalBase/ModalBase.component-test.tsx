@@ -1,7 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import type { FC, PropsWithChildren } from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import { surfaceSolid02 } from '@salutejs/plasma-tokens-web';
+
+const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const Content = styled.div`
     background: ${surfaceSolid02};
@@ -13,6 +17,13 @@ describe('plasma-web: ModalBase', () => {
     const ModalBase = getComponent('ModalBase');
     const Button = getComponent('Button');
     const Headline3 = getComponent('Headline3');
+
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
 
     function Demo({
         open = false,
@@ -64,9 +75,9 @@ describe('plasma-web: ModalBase', () => {
 
     it('simple', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Demo />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').click();
@@ -76,9 +87,9 @@ describe('plasma-web: ModalBase', () => {
 
     it('close', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Demo />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').click();
@@ -89,9 +100,9 @@ describe('plasma-web: ModalBase', () => {
 
     it('close overlay', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Demo />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').click();
@@ -102,9 +113,9 @@ describe('plasma-web: ModalBase', () => {
 
     it('double close', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Double />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').contains('Open modal A').click();
@@ -119,9 +130,9 @@ describe('plasma-web: ModalBase', () => {
 
     it('withBlur', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Demo withBlur />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').click();
@@ -131,9 +142,9 @@ describe('plasma-web: ModalBase', () => {
 
     it('check focus trap', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Double />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').contains('Open modal A').type('{enter}');

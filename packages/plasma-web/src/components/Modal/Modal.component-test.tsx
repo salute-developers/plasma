@@ -1,6 +1,10 @@
 import React from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+
+const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const NoAnimationStyle = createGlobalStyle`
     /* stylelint-disable-next-line selector-max-id, selector-max-universal */
@@ -19,6 +23,13 @@ describe('plasma-web: Modal', () => {
     const Button = getComponent('Button');
     const P1 = getComponent('P1');
     const Headline3 = getComponent('Headline1');
+
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
 
     function Demo({ open = false, withBlur = false }: { open?: boolean; withBlur?: boolean }) {
         const [isOpen, setIsOpen] = React.useState(open);
@@ -102,12 +113,12 @@ describe('plasma-web: Modal', () => {
 
     it('simple', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <NoAnimationStyle />
                 <ModalsProvider>
                     <Demo />
                 </ModalsProvider>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').click();
@@ -117,12 +128,12 @@ describe('plasma-web: Modal', () => {
 
     it('open', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <NoAnimationStyle />
                 <ModalsProvider>
                     <Demo open />
                 </ModalsProvider>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -130,12 +141,12 @@ describe('plasma-web: Modal', () => {
 
     it('close', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <NoAnimationStyle />
                 <ModalsProvider>
                     <Demo />
                 </ModalsProvider>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').click();
@@ -146,12 +157,12 @@ describe('plasma-web: Modal', () => {
 
     it('close overlay', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <NoAnimationStyle />
                 <ModalsProvider>
                     <Demo />
                 </ModalsProvider>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').click();
@@ -162,12 +173,12 @@ describe('plasma-web: Modal', () => {
 
     it('close X', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <NoAnimationStyle />
                 <ModalsProvider>
                     <Demo />
                 </ModalsProvider>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').click();
@@ -178,12 +189,12 @@ describe('plasma-web: Modal', () => {
 
     it('double close', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <NoAnimationStyle />
                 <ModalsProvider>
                     <Double />
                 </ModalsProvider>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').contains('Open modal A').click();
@@ -197,12 +208,12 @@ describe('plasma-web: Modal', () => {
 
     it('withBlur', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <NoAnimationStyle />
                 <ModalsProvider>
                     <Demo withBlur />
                 </ModalsProvider>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').click();
@@ -212,12 +223,12 @@ describe('plasma-web: Modal', () => {
 
     it('check focus trap', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <NoAnimationStyle />
                 <ModalsProvider>
                     <Double />
                 </ModalsProvider>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').contains('Open modal A').type('{enter}');
@@ -242,12 +253,12 @@ describe('plasma-web: Modal', () => {
 
     it('focus initial - later', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <NoAnimationStyle />
                 <ModalsProvider>
                     <Custom />
                 </ModalsProvider>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').contains('Open modal A').type('{enter}');
@@ -262,12 +273,12 @@ describe('plasma-web: Modal', () => {
 
     it('forbidden close', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <NoAnimationStyle />
                 <ModalsProvider>
                     <Custom closeOnEsc={false} closeOnOverlayClick={false} />
                 </ModalsProvider>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').contains('Open modal A').type('{enter}');
@@ -284,12 +295,12 @@ describe('plasma-web: Modal', () => {
 
     it('without close icon', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <NoAnimationStyle />
                 <ModalsProvider>
                     <Custom showCloseButton={false} />
                 </ModalsProvider>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').contains('Open modal A').type('{enter}');

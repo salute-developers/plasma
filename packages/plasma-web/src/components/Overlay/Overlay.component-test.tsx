@@ -1,11 +1,22 @@
 import React from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import { createGlobalStyle } from 'styled-components';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
+const StandardTypoStyle = createGlobalStyle(standardTypo);
 const text = 'Голосовая викторина с Валдисом Пельшем';
 
 describe('plasma-web: Overlay', () => {
     const Overlay = getComponent('Overlay');
     const Button = getComponent('Button');
+
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
 
     function Demo(props: { withBlur?: boolean; transparent?: boolean }) {
         return (
@@ -23,9 +34,9 @@ describe('plasma-web: Overlay', () => {
 
     it('simple', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Demo />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -33,9 +44,9 @@ describe('plasma-web: Overlay', () => {
 
     it('withBlur', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Demo withBlur />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -43,9 +54,9 @@ describe('plasma-web: Overlay', () => {
 
     it('transparent', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Demo transparent />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();

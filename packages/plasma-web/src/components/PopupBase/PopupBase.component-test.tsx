@@ -1,7 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import type { FC, PropsWithChildren } from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import { surfaceSolid02, surfaceSolid03 } from '@salutejs/plasma-tokens-web';
+
+const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const Content = styled.div`
     background: ${surfaceSolid02};
@@ -28,6 +32,13 @@ describe('plasma-web: PopupBase', () => {
     const PopupBase = getComponent('PopupBase');
     const Button = getComponent('Button');
     const Headline3 = getComponent('Headline3');
+
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
 
     function Demo({ open = false, placement }: { open?: boolean; placement?: string }) {
         const [isOpen, setIsOpen] = React.useState(open);
@@ -88,11 +99,11 @@ describe('plasma-web: PopupBase', () => {
 
     it('simple', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <PopupBaseProvider>
                     <Demo />
                 </PopupBaseProvider>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').click();
@@ -102,11 +113,11 @@ describe('plasma-web: PopupBase', () => {
 
     it('close', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <PopupBaseProvider>
                     <Demo />
                 </PopupBaseProvider>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').click();
@@ -117,7 +128,7 @@ describe('plasma-web: PopupBase', () => {
 
     it('placement basic', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <PopupBaseProvider>
                     <Placement placement="center" />
                     <Placement placement="right" />
@@ -125,7 +136,7 @@ describe('plasma-web: PopupBase', () => {
                     <Placement placement="bottom" />
                     <Placement placement="top" />
                 </PopupBaseProvider>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -133,14 +144,14 @@ describe('plasma-web: PopupBase', () => {
 
     it('placement combination', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <PopupBaseProvider>
                     <Placement placement="bottom-right" />
                     <Placement placement="bottom-left" />
                     <Placement placement="top-right" />
                     <Placement placement="top-left" />
                 </PopupBaseProvider>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -148,14 +159,14 @@ describe('plasma-web: PopupBase', () => {
 
     it('placement combination + offset', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <PopupBaseProvider>
                     <Placement placement="bottom-right" offset={[1, 1]} />
                     <Placement placement="bottom-left" offset={[1, 1]} />
                     <Placement placement="top-right" offset={[1, 1]} />
                     <Placement placement="top-left" offset={[1, 1]} />
                 </PopupBaseProvider>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -163,11 +174,11 @@ describe('plasma-web: PopupBase', () => {
 
     it('frame', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <PopupBaseProvider>
                     <Frame />
                 </PopupBaseProvider>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').contains('Open popup A').click();
