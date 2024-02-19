@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { IconPlaceholder } from '../../helpers';
+import { IconPlaceholder } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '.';
 
@@ -21,8 +20,14 @@ const text = 'Label' as const;
 
 export const Default = () => {
     return (
+        <Button text={text} contentLeft={<IconPlaceholder />} contentRight={<IconPlaceholder />} {...defaultProps} />
+    );
+};
+
+export const Anchor = () => {
+    return (
         <Button
-            autoFocus
+            as="a"
             text={text}
             contentLeft={<IconPlaceholder />}
             contentRight={<IconPlaceholder />}
@@ -30,7 +35,3 @@ export const Default = () => {
         />
     );
 };
-
-export const Anchor = () => (
-    <Button as="a" text={text} contentLeft={<IconPlaceholder />} contentRight={<IconPlaceholder />} {...defaultProps} />
-);
