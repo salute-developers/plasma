@@ -124,13 +124,13 @@ npm run cy:ui:open-ct
 Это поведение можно изменить указав что именно нужно запускать.
 
 ```sh
-npm run cy:ui::run-ct --components='component1, component2'
+npm run cy:ui:run-ct --components='component1, component2'
 ```
 
 или
 
 ```sh
-npm run cy:web:run-ct-update-diff --components='component1, component2'
+npm run cy:web:run-ct-update-diffs --components='component1, component2'
 ```
 
 ## Commit step
