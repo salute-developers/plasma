@@ -1,7 +1,7 @@
 export const blurs = {
-    small: '27px',
-    medium: '37px',
-    large: '50px',
+    small: '1.6875rem',
+    medium: '2.3125rem',
+    large: '3.125rem',
 };
 
 /**

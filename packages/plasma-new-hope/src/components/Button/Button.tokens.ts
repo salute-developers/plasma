@@ -1,5 +1,8 @@
 export const classes = {
     buttonStretch: 'button-stretch',
+    autoStretching: 'button-stretching-auto',
+    filledStretching: 'button-stretching-filled',
+    fixedStretching: 'button-stretching-fixed',
     buttonSquare: 'button-square',
     buttonItem: 'button-item',
 };
@@ -29,4 +32,7 @@ export const tokens = {
 
     buttonDisabledOpacity: '--plasma-button-disabled-opacity',
     buttonFocusColor: '--plasma-button-focus-color',
+
+    buttonSpinnerColor: '--plasma-button-spinner-color',
+    buttonSpinnerSize: '--plasma-button-spinner-size',
 };

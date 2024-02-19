@@ -1,3 +1,6 @@
+/**
+ * Работает только со styled-components
+ */
 export type AsProps<T = any> = {
     /**
      * Сменить рендер на другой тип компонента.

@@ -1,6 +1,5 @@
-import React, { ComponentProps } from 'react';
-import type { Meta } from '@storybook/react';
-import { StoryObj } from '@storybook/react';
+import { ComponentProps } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
 
 import { buttonConfig } from '../../../../components/Button';
 import { mergeConfig } from '../../../../engines';
@@ -31,6 +30,12 @@ const meta: Meta<typeof Button> = {
             },
             table: { defaultValue: { summary: 'bottom' } },
         },
+        stretching: {
+            options: ['auto', 'filled', 'fixed'],
+            control: {
+                type: 'select',
+            },
+        },
     },
 };
 
@@ -44,7 +49,7 @@ export const Default: StoryObj<ComponentProps<typeof Button>> = {
         disabled: false,
         focused: true,
         square: false,
-        stretch: false,
-        blur: '',
+        stretching: 'auto',
+        isLoading: false,
     },
 };

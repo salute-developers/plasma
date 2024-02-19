@@ -9,9 +9,10 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as focusedCSS } from './variations/_focused/base';
+import { base as stretchingCSS } from './variations/_stretching/base';
 import { base as blurredCSS } from './variations/_blurred/base';
 import type { ButtonProps } from './Button.types';
-import { base, ButtonText, Loader, LoadWrap } from './Button.styles';
+import { base, ButtonText, Loader, LoadWrap, StyledSpinner } from './Button.styles';
 import { classes, tokens } from './Button.tokens';
 
 export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
@@ -30,15 +31,19 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
             pin,
             disabled,
             focused,
+            outlined,
             className,
             blur,
             style,
+            stretching = 'auto',
             ...rest
         } = props;
 
         const txt = typeof children === 'string' ? children : text;
 
-        const stretchClass = stretch ? classes.buttonStretch : undefined;
+        const stretchingClass = stretch
+            ? classes.filledStretching
+            : classes[`${stretching}Stretching` as keyof typeof classes];
         const squareClass = square ? classes.buttonSquare : undefined;
         const buttonBorderRadius = pin
             ? convertRoundnessMatrix(pin, `var(${tokens.buttonRadius})`, `var(${tokens.buttonHeight})`)
@@ -51,8 +56,8 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                 view={view}
                 size={size}
                 disabled={disabled}
-                focused={focused}
-                className={cx(squareClass, stretchClass, classes.buttonItem, className)}
+                focused={focused || outlined}
+                className={cx(squareClass, stretchingClass, classes.buttonItem, className)}
                 style={
                     {
                         ...style,
@@ -67,7 +72,7 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                     {txt ? <ButtonText>{txt}</ButtonText> : children}
                     {contentRight}
                 </LoadWrap>
-                {isLoading && <Loader>{loader || '♻️'}</Loader>}
+                {isLoading && <Loader>{loader || <StyledSpinner />}</Loader>}
             </Root>
         );
     });
@@ -95,9 +100,13 @@ export const buttonConfig = {
         blurred: {
             css: blurredCSS,
         },
+        stretching: {
+            css: stretchingCSS,
+        },
     },
     defaults: {
         view: 'secondary',
         size: 'm',
+        stretching: 'auto',
     },
 };
