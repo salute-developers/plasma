@@ -17,6 +17,10 @@ export const base = css`
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
+    a& {
+        text-decoration: none;
+    }
+
     /* NOTE: 
         --plasma_computed-btn-br-radius is defined in Button.tsx
     */

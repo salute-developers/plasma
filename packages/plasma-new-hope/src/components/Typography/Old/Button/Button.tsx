@@ -3,7 +3,7 @@ import { base } from '../TypographyOld.styles';
 import { typographyOldRoot } from '../TypographyOld';
 import type { TypographyOldProps } from '../TypographyOld';
 
-export type ButtonProps = TypographyOldProps;
+export type ButtonTypographyProps = TypographyOldProps;
 
 export const buttonTypographyRoot = typographyOldRoot;
 

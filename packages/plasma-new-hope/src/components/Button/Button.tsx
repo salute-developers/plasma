@@ -9,6 +9,7 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as focusedCSS } from './variations/_focused/base';
+import { base as blurredCSS } from './variations/_blurred/base';
 import type { ButtonProps } from './Button.types';
 import { base, ButtonText, Loader, LoadWrap } from './Button.styles';
 import { classes, tokens } from './Button.tokens';
@@ -30,6 +31,7 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
             disabled,
             focused,
             className,
+            blur,
             style,
             ...rest
         } = props;
@@ -51,7 +53,13 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                 disabled={disabled}
                 focused={focused}
                 className={cx(squareClass, stretchClass, classes.buttonItem, className)}
-                style={{ ...style, '--plasma_computed-btn-br': buttonBorderRadius } as CSSProperties}
+                style={
+                    {
+                        ...style,
+                        '--plasma_computed-btn-br': buttonBorderRadius,
+                        '--plasma_private-blur': blur,
+                    } as CSSProperties
+                }
                 {...rest}
             >
                 <LoadWrap isLoading={isLoading}>
@@ -83,6 +91,9 @@ export const buttonConfig = {
         focused: {
             css: focusedCSS,
             // TODO: isLoading => disabled
+        },
+        blurred: {
+            css: blurredCSS,
         },
     },
     defaults: {

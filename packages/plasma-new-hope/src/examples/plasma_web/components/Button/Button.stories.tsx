@@ -45,5 +45,6 @@ export const Default: StoryObj<ComponentProps<typeof Button>> = {
         focused: true,
         square: false,
         stretch: false,
+        blur: '',
     },
 };
