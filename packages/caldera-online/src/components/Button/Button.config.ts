@@ -2,13 +2,13 @@ import { css, buttonTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
-        view: 'default',
+        view: 'primary',
         focused: 'true',
         size: 'm',
     },
     variations: {
         view: {
-            default: css`
+            primary: css`
                 ${buttonTokens.buttonColor}: var(--inverse-text-primary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-default);
                 ${buttonTokens.buttonColorHover}: var(--inverse-text-primary);
@@ -24,7 +24,7 @@ export const config = {
                     var(--surface-solid-default) 80%
                 );
             `,
-            primary: css`
+            accent: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-accent);
                 ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary);
@@ -96,9 +96,11 @@ export const config = {
         size: {
             l: css`
                 ${buttonTokens.buttonHeight}: 3.5rem;
+                ${buttonTokens.buttonWidth}: 12.5rem;
                 ${buttonTokens.buttonPadding}: 1.5rem;
                 ${buttonTokens.buttonRadius}: 0.875rem;
-
+                ${buttonTokens.buttonScaleActive}: 0.98;
+                ${buttonTokens.buttonScaleHover}: 1.02;
                 ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-l-font-size);
                 ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -111,7 +113,9 @@ export const config = {
             `,
             lr: css`
                 ${buttonTokens.buttonHeight}: 3.5rem;
-
+                ${buttonTokens.buttonWidth}: 12.5rem;
+                ${buttonTokens.buttonScaleActive}: 0.98;
+                ${buttonTokens.buttonScaleHover}: 1.02;
                 ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-l-font-size);
                 ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -124,9 +128,11 @@ export const config = {
             `,
             m: css`
                 ${buttonTokens.buttonHeight}: 3rem;
+                ${buttonTokens.buttonWidth}: 11.25rem;
                 ${buttonTokens.buttonPadding}: 1.25rem;
                 ${buttonTokens.buttonRadius}: 0.75rem;
-
+                ${buttonTokens.buttonScaleActive}: 0.98;
+                ${buttonTokens.buttonScaleHover}: 1.02;
                 ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-m-font-size);
                 ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -139,7 +145,9 @@ export const config = {
             `,
             mr: css`
                 ${buttonTokens.buttonHeight}: 3rem;
-
+                ${buttonTokens.buttonScaleActive}: 0.98;
+                ${buttonTokens.buttonWidth}: 11.25rem;
+                ${buttonTokens.buttonScaleHover}: 1.02;
                 ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-m-font-size);
                 ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -152,9 +160,11 @@ export const config = {
             `,
             s: css`
                 ${buttonTokens.buttonHeight}: 2.5rem;
+                ${buttonTokens.buttonWidth}: 11.25rem;
                 ${buttonTokens.buttonPadding}: 1rem;
                 ${buttonTokens.buttonRadius}: 0.625rem;
-
+                ${buttonTokens.buttonScaleActive}: 0.98;
+                ${buttonTokens.buttonScaleHover}: 1.02;
                 ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-s-font-size);
                 ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -167,7 +177,9 @@ export const config = {
             `,
             sr: css`
                 ${buttonTokens.buttonHeight}: 2.5rem;
-
+                ${buttonTokens.buttonWidth}: 11.25rem;
+                ${buttonTokens.buttonScaleActive}: 0.98;
+                ${buttonTokens.buttonScaleHover}: 1.02;
                 ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-s-font-size);
                 ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -180,9 +192,11 @@ export const config = {
             `,
             xs: css`
                 ${buttonTokens.buttonHeight}: 2rem;
+                ${buttonTokens.buttonWidth}: 10rem;
                 ${buttonTokens.buttonPadding}: 0.75rem;
                 ${buttonTokens.buttonRadius}: 0.5rem;
-
+                ${buttonTokens.buttonScaleActive}: 0.98;
+                ${buttonTokens.buttonScaleHover}: 1.02;
                 ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -195,7 +209,9 @@ export const config = {
             `,
             xsr: css`
                 ${buttonTokens.buttonHeight}: 2rem;
-
+                ${buttonTokens.buttonWidth}: 10rem;
+                ${buttonTokens.buttonScaleActive}: 0.98;
+                ${buttonTokens.buttonScaleHover}: 1.02;
                 ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -208,9 +224,11 @@ export const config = {
             `,
             xxs: css`
                 ${buttonTokens.buttonHeight}: 1.5rem;
+                ${buttonTokens.buttonWidth}: 8.75rem;
                 ${buttonTokens.buttonPadding}: 0.625rem;
                 ${buttonTokens.buttonRadius}: 0.375rem;
-
+                ${buttonTokens.buttonScaleActive}: 0.98;
+                ${buttonTokens.buttonScaleHover}: 1.02;
                 ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -231,6 +249,11 @@ export const config = {
             true: css`
                 ${buttonTokens.buttonFocusColor}: var(--surface-accent);
             `,
+        },
+        stretching: {
+            auto: css``,
+            filled: css``,
+            fixed: css``,
         },
     },
 };
