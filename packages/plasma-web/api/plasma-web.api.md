@@ -38,10 +38,9 @@ import { blurs } from '@salutejs/plasma-core';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
 import { Breakpoint } from '@salutejs/plasma-hope';
 import { BreakWordProps } from '@salutejs/plasma-core';
+import { ButtonGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonHTMLAttributes } from 'react';
-import { ButtonProps } from '@salutejs/plasma-hope';
-import { ButtonView } from '@salutejs/plasma-hope';
-import { buttonViews } from '@salutejs/plasma-hope';
+import { ButtonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { Calendar as Calendar_2 } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
 import { CalendarBaseProps } from '@salutejs/plasma-new-hope/styled-components';
 import { CalendarDoubleProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -439,7 +438,39 @@ export { Breakpoint }
 export { BreakWordProps }
 
 // @public
-export const Button: React_2.ForwardRefExoticComponent<ButtonProps & React_2.RefAttributes<HTMLButtonElement>>;
+export const Button: FunctionComponent<PropsType<    {
+view: {
+primary: string;
+accent: string;
+secondary: string;
+clear: string;
+success: string;
+warning: string;
+critical: string;
+};
+size: {
+l: string;
+lr: string;
+m: string;
+mr: string;
+s: string;
+sr: string;
+xs: string;
+xsr: string;
+xxs: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+stretching: {
+auto: string;
+filled: string;
+fixed: string;
+};
+}> & ButtonProps<HTMLElement> & RefAttributes<HTMLButtonElement>>;
 
 // @public (undocumented)
 export const Button1: FunctionComponent<PropsType<    {
@@ -455,11 +486,50 @@ button2: string;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
+// @public
+export const ButtonGroup: FunctionComponent<PropsType<    {
+view: {
+primary: string;
+accent: string;
+secondary: string;
+clear: string;
+success: string;
+warning: string;
+critical: string;
+};
+size: {
+l: string;
+lr: string;
+m: string;
+mr: string;
+s: string;
+sr: string;
+xs: string;
+xsr: string;
+xxs: string;
+};
+orientation: {
+horizontal: string;
+vertical: string;
+};
+gap: {
+none: string;
+dense: string;
+wide: string;
+};
+shape: {
+segmented: string;
+default: string;
+};
+stretching: {
+auto: string;
+filled: string;
+};
+}> & ButtonGroupProps & RefAttributes<HTMLDivElement>>;
+
+export { ButtonGroupProps }
+
 export { ButtonProps }
-
-export { ButtonView }
-
-export { buttonViews }
 
 // @public (undocumented)
 export const Calendar: FC<CalendarProps>;
@@ -596,8 +666,8 @@ contentRight?: ReactNode;
 contentClearButton?: ReactNode;
 disabled?: boolean | undefined;
 readOnly?: boolean | undefined;
-size?: "m" | "s" | "l" | "xs" | undefined;
-view?: "secondary" | "default" | "positive" | undefined;
+size?: "m" | "s" | "xs" | "l" | undefined;
+view?: "default" | "secondary" | "positive" | undefined;
 onClear?: (() => void) | undefined;
 } & {
 children?: ReactNode;
@@ -630,11 +700,11 @@ l: string;
 view: {
 default: string;
 };
-}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "checked" | "type" | "target" | "onChange" | "value" | "minLength" | "maxLength"> & CustomComboboxProps & {
+}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "target" | "onChange" | "size" | "value" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
 valueType?: "single" | undefined;
 value?: ComboboxPrimitiveValue | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue | undefined) => void) | undefined;
-} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "checked" | "type" | "target" | "onChange" | "value" | "minLength" | "maxLength"> & CustomComboboxProps & {
+} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "target" | "onChange" | "size" | "value" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
 valueType: "multiple";
 value?: ComboboxPrimitiveValue[] | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue[] | undefined) => void) | undefined;
@@ -922,7 +992,7 @@ s: string;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
 size: "m" | "s" | "l";
-view: "warning" | "accent" | "default" | "positive" | "negative" | "inactive" | "black" | "white";
+view: "accent" | "default" | "warning" | "positive" | "negative" | "inactive" | "black" | "white";
 } & RefAttributes<HTMLDivElement>>;
 
 export { IndicatorProps }

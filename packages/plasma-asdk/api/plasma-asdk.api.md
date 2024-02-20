@@ -9,7 +9,7 @@
 import { AnchorHTMLAttributes } from 'react';
 import type { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { FocusProps } from '@salutejs/plasma-new-hope/styled-components';
 import { FunctionComponent } from 'react';
@@ -18,7 +18,6 @@ import type { InputHTMLAttributes } from 'react';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
-import { ReactNode } from 'react';
 import { RefAttributes } from 'react';
 import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
@@ -108,6 +107,7 @@ mr: string;
 s: string;
 sr: string;
 xs: string;
+xsr: string;
 xxs: string;
 };
 disabled: {
@@ -116,19 +116,12 @@ true: string;
 focused: {
 true: string;
 };
-}> & ButtonHTMLAttributes<HTMLButtonElement> & {
-text?: string | undefined;
-contentLeft?: ReactNode;
-contentRight?: ReactNode;
-isLoading?: boolean | undefined;
-loader?: ReactNode;
-stretch?: boolean | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-} & RefAttributes<HTMLButtonElement>>;
+stretching: {
+auto: string;
+filled: string;
+fixed: string;
+};
+}> & ButtonProps_2<HTMLElement> & RefAttributes<HTMLButtonElement>>;
 
 // @public (undocumented)
 export const Button1: FunctionComponent<PropsType<    {
@@ -335,7 +328,9 @@ view?: string | undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 width: number;
 height: number;
-size?: undefined;
+size?: undefined; /**
+* @deprecated
+*/
 view?: string | undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 width: string;

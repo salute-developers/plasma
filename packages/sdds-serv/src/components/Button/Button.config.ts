@@ -105,6 +105,9 @@ export const config = {
                 ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
                 ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${buttonTokens.buttonSpinnerSize}: 22px;
+                ${buttonTokens.buttonSpinnerColor}: inherit;
             `,
             lr: css`
                 ${buttonTokens.buttonHeight}: 3.5rem;
@@ -115,6 +118,9 @@ export const config = {
                 ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
                 ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${buttonTokens.buttonSpinnerSize}: 22px;
+                ${buttonTokens.buttonSpinnerColor}: inherit;
             `,
             m: css`
                 ${buttonTokens.buttonHeight}: 3rem;
@@ -127,6 +133,9 @@ export const config = {
                 ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
                 ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${buttonTokens.buttonSpinnerSize}: 22px;
+                ${buttonTokens.buttonSpinnerColor}: inherit;
             `,
             mr: css`
                 ${buttonTokens.buttonHeight}: 3rem;
@@ -137,6 +146,9 @@ export const config = {
                 ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
                 ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${buttonTokens.buttonSpinnerSize}: 22px;
+                ${buttonTokens.buttonSpinnerColor}: inherit;
             `,
             s: css`
                 ${buttonTokens.buttonHeight}: 2.5rem;
@@ -149,6 +161,9 @@ export const config = {
                 ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
                 ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${buttonTokens.buttonSpinnerSize}: 22px;
+                ${buttonTokens.buttonSpinnerColor}: inherit;
             `,
             sr: css`
                 ${buttonTokens.buttonHeight}: 2.5rem;
@@ -159,6 +174,9 @@ export const config = {
                 ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
                 ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${buttonTokens.buttonSpinnerSize}: 22px;
+                ${buttonTokens.buttonSpinnerColor}: inherit;
             `,
             xs: css`
                 ${buttonTokens.buttonHeight}: 2rem;
@@ -171,6 +189,9 @@ export const config = {
                 ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
                 ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${buttonTokens.buttonSpinnerSize}: 16px;
+                ${buttonTokens.buttonSpinnerColor}: inherit;
             `,
             xsr: css`
                 ${buttonTokens.buttonHeight}: 2rem;
@@ -181,6 +202,9 @@ export const config = {
                 ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
                 ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${buttonTokens.buttonSpinnerSize}: 16px;
+                ${buttonTokens.buttonSpinnerColor}: inherit;
             `,
             xxs: css`
                 ${buttonTokens.buttonHeight}: 1.5rem;
@@ -193,6 +217,9 @@ export const config = {
                 ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
                 ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${buttonTokens.buttonSpinnerSize}: 12px;
+                ${buttonTokens.buttonSpinnerColor}: inherit;
             `,
         },
         disabled: {
