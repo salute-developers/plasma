@@ -10,8 +10,9 @@ import type { ButtonProps as Base } from '.';
 
 type ButtonProps = ComponentProps<Base>;
 
-const views = ['default', 'primary', 'secondary', 'success', 'warning', 'critical', 'clear'];
+const views = ['accent', 'primary', 'secondary', 'success', 'warning', 'critical', 'clear'];
 const sizes = ['l', 'm', 's', 'xs', 'xxs'];
+const stretching = ['auto', 'filled', 'fixed'];
 const pins = [
     'square-square',
     'square-clear',
@@ -57,6 +58,12 @@ const meta: Meta<ButtonProps> = {
                 type: 'select',
             },
         },
+        stretching: {
+            options: stretching,
+            control: {
+                type: 'select',
+            },
+        },
         view: {
             options: views,
             control: {
@@ -81,7 +88,7 @@ const iconSize = {
 
 export const Default: StoryObj<StoryButtonProps> = {
     args: {
-        view: 'default',
+        view: 'primary',
         size: 'l',
         disabled: false,
         text: 'Label',
@@ -89,7 +96,7 @@ export const Default: StoryObj<StoryButtonProps> = {
         isLoading: false,
         focused: true,
         square: false,
-        stretch: false,
+        stretching: 'auto',
         onClick,
         onFocus,
         onBlur,
