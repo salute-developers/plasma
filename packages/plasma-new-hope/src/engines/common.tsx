@@ -30,7 +30,7 @@ export const getDynamicVariants = (config: ComponentConfig) => {
 
                 const css = variant[props[key]];
                 // no css for { modifier: true }
-                css && res.push(variant[props[key]]);
+                css && Array.isArray(css) ? res.push(...css) : res.push(css);
             }
         }
 
