@@ -26,7 +26,6 @@ export const Default: Story = {
         size: 'xxl',
         name: 'Иван Фадеев',
         url: 'https://avatars.githubusercontent.com/u/1813468?v=4',
-        status: 'active',
         isScalable: false,
     },
     argTypes: {

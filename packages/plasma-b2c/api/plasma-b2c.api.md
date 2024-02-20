@@ -113,6 +113,7 @@ import { gridSizes } from '@salutejs/plasma-hope';
 import { HTMLAttributes } from 'react';
 import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImgHTMLAttributes } from 'react';
+import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
 import { JSXElementConstructor } from 'react';
 import { LineSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -900,6 +901,30 @@ customRatio?: string | undefined;
 export { Image_2 as Image }
 
 export { ImageProps }
+
+// @public (undocumented)
+export const Indicator: FunctionComponent<PropsType<    {
+view: {
+default: string;
+accent: string;
+inactive: string;
+positive: string;
+warning: string;
+negative: string;
+black: string;
+white: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+size: "m" | "s" | "l";
+view: "warning" | "accent" | "default" | "positive" | "negative" | "inactive" | "black" | "white";
+} & RefAttributes<HTMLDivElement>>;
+
+export { IndicatorProps }
 
 export { InputHTMLAttributes }
 
