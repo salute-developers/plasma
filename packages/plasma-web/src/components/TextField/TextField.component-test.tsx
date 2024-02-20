@@ -2,8 +2,10 @@ import React from 'react';
 import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
 import { IconSleep, IconEye } from '@salutejs/plasma-icons';
 
+import { TextField as TextFieldWeb } from '.';
+
 describe('plasma-web: TextField', () => {
-    const TextField = getComponent('TextField');
+    const TextField = getComponent('TextField') as typeof TextFieldWeb;
 
     function Demo({ maxLength }) {
         const [value, setValue] = React.useState('');
@@ -220,9 +222,21 @@ describe('plasma-web: TextField', () => {
     it('_animatedHint:placeholder', () => {
         mount(
             <CypressTestDecorator>
+                {/* for backward comp  */}
+                <div
+                    style={{
+                        marginBottom: '8px',
+                        lineHeight: '20px',
+                        letterSpacing: '-0.32px',
+                        fontFamily: '"SB Sans Text", SBSansText, sans-serif',
+                        fontSize: '16px',
+                    }}
+                >
+                    Label
+                </div>
                 <TextField
                     size="l"
-                    label="Label"
+                    label="" /** no more label & placeholder together */
                     value="Value"
                     placeholder="Placeholder"
                     helperText="Helper text"
