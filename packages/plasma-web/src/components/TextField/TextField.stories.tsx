@@ -75,8 +75,8 @@ const StoryDefault = ({
         <TextField
             {...rest}
             value={value}
-            contentLeft={enableContentLeft && <IconPlaceholder />}
-            contentRight={enableContentRight && <IconPlaceholder />}
+            contentLeft={enableContentLeft ? <IconPlaceholder /> : undefined}
+            contentRight={enableContentRight ? <IconPlaceholder /> : undefined}
             status={status || undefined}
             onChange={(e) => {
                 setValue(e.target.value);
