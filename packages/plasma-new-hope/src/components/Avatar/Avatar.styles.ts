@@ -24,14 +24,10 @@ export const Wrapper = styled.div<{ isScalable?: AvatarProps['isScalable'] }>`
     }
 `;
 
-export const StatusIcon = styled.div<{ backgroundColor: string; isScalable?: AvatarProps['isScalable'] }>`
+export const StatusIcon = styled.div`
     position: absolute;
     top: calc(1.02 * 0.85 * var(${tokens.avatarSize}) - var(${tokens.statusIconSize}) / 2);
     left: calc(1.02 * 0.85 * var(${tokens.avatarSize}) - var(${tokens.statusIconSize}) / 2);
-    width: var(${tokens.statusIconSize});
-    height: var(${tokens.statusIconSize});
-    border-radius: 50%;
-    background-color: ${({ backgroundColor }) => backgroundColor};
 `;
 
 export const Image = styled.img`
