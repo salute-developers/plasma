@@ -26,12 +26,17 @@ import { bodyXXSBold } from '@salutejs/sdds-themes/tokens';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
 import { ButtonHTMLAttributes } from 'react';
 import { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-new-hope/styled-components';
+import { ClosePlacementType } from '@salutejs/plasma-new-hope/styled-components';
 import { ComboboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ComponentClass } from 'react';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { CustomDropdownProps } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
+import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DrawerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DropdownPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { DropdownProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DropdownTrigger } from '@salutejs/plasma-new-hope/styled-components';
@@ -67,6 +72,7 @@ import { ModalProps } from '@salutejs/plasma-new-hope/styled-components';
 import { MouseEvent as MouseEvent_2 } from 'react';
 import { Overlay } from '@salutejs/plasma-new-hope/styled-components';
 import { OverlayProps } from '@salutejs/plasma-new-hope/styled-components';
+import { PanelProps } from '@salutejs/plasma-new-hope/types/components/Panel';
 import { popupClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupInfo } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupPlacement } from '@salutejs/plasma-new-hope/styled-components';
@@ -80,6 +86,7 @@ import { ReactFragment } from 'react';
 import { ReactNode } from 'react';
 import { ReactPortal } from 'react';
 import { RefAttributes } from 'react';
+import { RefObject } from 'react';
 import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
@@ -294,6 +301,8 @@ export const Checkbox: FunctionComponent<BaseboxProps>;
 // @public (undocumented)
 export type CheckboxProps = typeof CheckboxComponent;
 
+export { ClosePlacementType }
+
 // @public (undocumented)
 export const Combobox: ForwardRefExoticComponent<ComboboxProps & RefAttributes<HTMLDivElement>>;
 
@@ -375,6 +384,58 @@ view?: string | undefined;
 export { CounterProps }
 
 export { counterTokens }
+
+// @public
+export const Drawer: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+m: string;
+};
+borderRadius: {
+none: string;
+default: string;
+};
+}> & PopupProps & PanelProps & {
+placement?: "top" | "bottom" | "right" | "left" | undefined;
+asModal?: boolean | undefined;
+withBlur?: boolean | undefined;
+closeOnEsc?: boolean | undefined;
+closeOnOverlayClick?: boolean | undefined;
+onEscKeyDown?: ((event: KeyboardEvent) => void) | undefined;
+onOverlayClick?: ((event: MouseEvent_2<HTMLDivElement, MouseEvent>) => void) | undefined;
+initialFocusRef?: RefObject<HTMLElement> | undefined;
+focusAfterRef?: RefObject<HTMLElement> | undefined;
+onClose?: (() => void) | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public
+export const DrawerContent: FunctionComponent<PropsType<Variants> & {
+view?: string | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+
+export { DrawerContentProps }
+
+// @public
+export const DrawerFooter: FunctionComponent<PropsType<Variants> & {
+view?: string | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+
+export { DrawerFooterProps }
+
+// @public
+export const DrawerHeader: FunctionComponent<PropsType<Variants> & {
+hasClose?: boolean | undefined;
+closePlacement?: "right" | "left" | undefined;
+actions?: ReactNode;
+onClose?: (() => void) | undefined;
+view?: string | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+
+export { DrawerHeaderProps }
+
+export { DrawerProps }
 
 // @public
 export const Dropdown: FunctionComponent<PropsType<    {

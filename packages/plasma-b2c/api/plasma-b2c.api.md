@@ -67,6 +67,7 @@ import { CellProps } from '@salutejs/plasma-hope';
 import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { clearSelection } from '@salutejs/plasma-hope';
 import { closeNotification } from '@salutejs/plasma-new-hope/styled-components';
+import { ClosePlacementType } from '@salutejs/plasma-new-hope/styled-components';
 import { Col } from '@salutejs/plasma-hope';
 import { ColCount } from '@salutejs/plasma-hope';
 import { ColOffsetProps } from '@salutejs/plasma-hope';
@@ -85,6 +86,10 @@ import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/P
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { defaultValidate } from '@salutejs/plasma-hope';
 import { DisabledProps } from '@salutejs/plasma-core';
+import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DrawerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { Dropdown } from '@salutejs/plasma-hope';
 import { DropdownItem } from '@salutejs/plasma-hope';
 import { DropdownItemProps } from '@salutejs/plasma-hope';
@@ -143,6 +148,7 @@ import { padZeroNumber } from '@salutejs/plasma-core';
 import { PaginationDot } from '@salutejs/plasma-hope';
 import { PaginationDotProps } from '@salutejs/plasma-hope';
 import { PaginationDots } from '@salutejs/plasma-hope';
+import { PanelProps } from '@salutejs/plasma-new-hope/types/components/Panel';
 import { PickOptional } from '@salutejs/plasma-core';
 import { PinProps } from '@salutejs/plasma-core';
 import { PopoverPlacement } from '@salutejs/plasma-new-hope/styled-components';
@@ -174,6 +180,7 @@ import { ReactPortal } from 'react';
 import { RectSkeleton } from '@salutejs/plasma-new-hope/styled-components';
 import { RectSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { RefAttributes } from 'react';
+import { RefObject } from 'react';
 import { Roundness } from '@salutejs/plasma-core';
 import { RoundnessProps } from '@salutejs/plasma-core';
 import { Row } from '@salutejs/plasma-hope';
@@ -679,6 +686,8 @@ export { clearSelection }
 
 export { closeNotification }
 
+export { ClosePlacementType }
+
 export { Col }
 
 export { ColCount }
@@ -798,6 +807,58 @@ export { counterTokens }
 export { defaultValidate }
 
 export { DisabledProps }
+
+// @public
+export const Drawer: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+m: string;
+};
+borderRadius: {
+none: string;
+default: string;
+};
+}> & PopupBaseProps & PanelProps & {
+placement?: "top" | "bottom" | "right" | "left" | undefined;
+asModal?: boolean | undefined;
+withBlur?: boolean | undefined;
+closeOnEsc?: boolean | undefined;
+closeOnOverlayClick?: boolean | undefined;
+onEscKeyDown?: ((event: KeyboardEvent) => void) | undefined;
+onOverlayClick?: ((event: MouseEvent_2<HTMLDivElement, MouseEvent>) => void) | undefined;
+initialFocusRef?: RefObject<HTMLElement> | undefined;
+focusAfterRef?: RefObject<HTMLElement> | undefined;
+onClose?: (() => void) | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public
+export const DrawerContent: FunctionComponent<PropsType<Variants> & {
+view?: string | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+
+export { DrawerContentProps }
+
+// @public
+export const DrawerFooter: FunctionComponent<PropsType<Variants> & {
+view?: string | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+
+export { DrawerFooterProps }
+
+// @public
+export const DrawerHeader: FunctionComponent<PropsType<Variants> & {
+hasClose?: boolean | undefined;
+closePlacement?: "right" | "left" | undefined;
+actions?: ReactNode;
+onClose?: (() => void) | undefined;
+view?: string | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+
+export { DrawerHeaderProps }
+
+export { DrawerProps }
 
 export { Dropdown }
 
