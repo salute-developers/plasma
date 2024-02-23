@@ -1,13 +1,12 @@
 import { css } from '@linaria/core';
 
 import { tokens } from '../TextField.tokens';
-import { Input, InputLabelWrapper, InputWrapper, Label, LeftHelper, _tokenBorderWidth } from '../TextField.styles';
+import { Input, InputLabelWrapper, InputWrapper, Label, LeftHelper } from '../TextField.styles';
 
 export const base = css`
---plasma_private-textfield-br: var(${tokens.borderRadius}, calc(var(${tokens.height}) / 4));
---plasma_private-textfield-padding: var(${tokens.padding}, calc(var(${tokens.height}) * 1.618 / 4));
-/* import { _tokenBorderWidth } from '../TextField.styles'; */
---plasma_private-textfield-border-width: var(${tokens.borderWidth});
+    --plasma_private-textfield-br: var(${tokens.borderRadius}, calc(var(${tokens.height}) / 4));
+    --plasma_private-textfield-padding: var(${tokens.padding}, calc(var(${tokens.height}) * 1.618 / 4));
+    --plasma_private-textfield-border-width: var(${tokens.borderWidth});
 
     ${Input} {
         height: var(${tokens.height});

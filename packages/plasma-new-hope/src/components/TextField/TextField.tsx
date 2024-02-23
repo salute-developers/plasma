@@ -1,4 +1,4 @@
-import React, { useCallback, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import type { ChangeEventHandler, KeyboardEventHandler, LabelHTMLAttributes } from 'react';
 import { css } from '@linaria/core';
 import { safeUseId } from '@salutejs/plasma-core';
@@ -40,27 +40,21 @@ export const textFieldRoot = (
             ...rest
         } = props;
 
-        const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
-            (event) => {
-                const { maxLength, value } = event.target;
+        const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+            const { maxLength, value } = event.target;
 
-                if (!onChange || (maxLength !== -1 && value.length > maxLength)) {
-                    return;
-                }
+            if (!onChange || (maxLength !== -1 && value.length > maxLength)) {
+                return;
+            }
 
-                onChange(event);
-            },
-            [onChange],
-        );
+            onChange(event);
+        };
 
-        const handleKeyUp = useCallback<KeyboardEventHandler<HTMLInputElement>>(
-            (event) => {
-                if (event.keyCode === 13 && onSearch) {
-                    onSearch((event.target as HTMLInputElement).value, event);
-                }
-            },
-            [onSearch],
-        );
+        const handleKeyUp: KeyboardEventHandler<HTMLInputElement> = (event) => {
+            if (event.key === 'Enter' && onSearch) {
+                onSearch((event.target as HTMLInputElement).value, event);
+            }
+        };
 
         const labelInside = labelPlacement === 'inner';
         const lableId = safeUseId();
@@ -113,6 +107,5 @@ export const textFieldConfig = {
     },
     defaults: {
         size: 'm',
-        labelPlacement: 'outer',
     },
 };

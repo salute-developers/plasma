@@ -14,16 +14,14 @@ export const InputLabelWrapper = styled.div`
         width: 100%;
     }
 `;
-// eslint-disable-next-line no-underscore-dangle
-export const _tokenBorderColor = '--plasma_private-textfield-border-color';
-// eslint-disable-next-line no-underscore-dangle
-export const _tokenBorderWidth = '--plasma_private-textfield-border-width';
+
+// NOTE: border-width is used in size border-color is used in view
 export const InputWrapper = styled.div`
     position: relative;
     display: flex;
     align-items: center;
 
-    box-shadow: inset 0 0 0 var(${_tokenBorderWidth}) var(${_tokenBorderColor});
+    box-shadow: inset 0 0 0 var(--plasma_private-textfield-border-width) var(--plasma_private-textfield-border-color);
 
     ${InputLabelWrapper} {
         flex-grow: 1;

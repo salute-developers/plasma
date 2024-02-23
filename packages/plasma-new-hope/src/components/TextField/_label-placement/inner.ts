@@ -43,9 +43,9 @@ export const labelPlacement_inner = css`
 
         transition: all 0.1s ease-in-out 0s;
 
-        height: var(--plasma-textfield-height);
+        height: var(${tokens.height});
 
-        padding-top: calc(var(--plasma-textfield-height) / 4);
-        padding-bottom: calc(var(--plasma-textfield-height) / 4);
+        padding-top: calc(var(${tokens.height}) / 4);
+        padding-bottom: calc(var(${tokens.height}) / 4);
     }
 `;
