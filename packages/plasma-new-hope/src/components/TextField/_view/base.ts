@@ -17,10 +17,12 @@ export const base = css`
     ${InputWrapper}:hover {
         --plasma_private-textfield-hack: var(${tokens.borderColorHover});
         ${_tokenBorderColor}: var(--plasma_private-textfield-hack);
+        background-color: var(${tokens.backgroundColorHover}, var(${tokens.backgroundColor}));
     }
     ${InputWrapper}:focus-within {
         --plasma_private-textfield-hack: var(${tokens.borderColorFocus});
         ${_tokenBorderColor}: var(--plasma_private-textfield-hack);
+        background-color: var(${tokens.backgroundColorFocus}, var(${tokens.backgroundColor}));
     }
     ${Input}::placeholder {
         color: var(${tokens.placeholderColor});
