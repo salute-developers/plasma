@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
 
 import { tokens } from '../TextField.tokens';
-import { Input, InputWrapper, LeftHelper, _tokenBorderColor, _tokenBorderWidth } from '../TextField.styles';
+import { Input, InputWrapper, LeftHelper } from '../TextField.styles';
 
 export const base = css`
     ${InputWrapper} {
@@ -9,19 +9,15 @@ export const base = css`
         background-color: var(${tokens.backgroundColor});
         caret-color: var(${tokens.caretColor});
 
-        --plasma_private-textfield-border-color-hack: var(${tokens.borderColor});
-        ${_tokenBorderColor}: var(--plasma_private-textfield-border-color-hack);
-
+        --plasma_private-textfield-border-color: var(${tokens.borderColor});
         transition: box-shadow 0.1s ease-in, background-color 0.1s ease-in, color 0.1s ease-in;
     }
     ${InputWrapper}:hover {
-        --plasma_private-textfield-hack: var(${tokens.borderColorHover});
-        ${_tokenBorderColor}: var(--plasma_private-textfield-hack);
+        --plasma_private-textfield-border-color: var(${tokens.borderColorHover});
         background-color: var(${tokens.backgroundColorHover}, var(${tokens.backgroundColor}));
     }
     ${InputWrapper}:focus-within {
-        --plasma_private-textfield-hack: var(${tokens.borderColorFocus});
-        ${_tokenBorderColor}: var(--plasma_private-textfield-hack);
+        --plasma_private-textfield-border-color: var(${tokens.borderColorFocus});
         background-color: var(${tokens.backgroundColorFocus}, var(${tokens.backgroundColor}));
     }
     ${Input}::placeholder {
