@@ -67,11 +67,12 @@ type StoryPropsDeferredValue = { readOnly: boolean };
 const StoryDefault = ({ enableContentLeft, enableContentRight, status, ...rest }: StoryPropsDefault) => {
     const [value, setValue] = useState('Значение поля');
 
+    const iconSize = rest.size === 'xs' ? 'xs' : undefined;
     return (
         <TextField
             value={value}
-            contentLeft={enableContentLeft && <IconPlaceholder />}
-            contentRight={enableContentRight && <IconPlaceholder />}
+            contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
+            contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
             status={status || undefined}
             onChange={(e) => {
                 setValue(e.target.value);

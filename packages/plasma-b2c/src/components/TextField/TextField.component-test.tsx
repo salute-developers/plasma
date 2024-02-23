@@ -2,8 +2,10 @@ import React from 'react';
 import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
 import { IconSleep, IconEye } from '@salutejs/plasma-icons';
 
+import { TextField as TextFieldB2C } from './TextField';
+
 describe('plasma-b2c: TextField', () => {
-    const TextField = getComponent('TextField');
+    const TextField = getComponent('TextField') as typeof TextFieldB2C;
 
     const propsDefault = {
         caption: 'Имя [label]',
@@ -49,7 +51,7 @@ describe('plasma-b2c: TextField', () => {
     });
 
     it('_view_innerLabel :empty', () => {
-        const props = {
+        const props: React.ComponentProps<typeof TextFieldB2C> = {
             view: 'innerLabel',
             ...propsDefault,
         };
@@ -70,7 +72,7 @@ describe('plasma-b2c: TextField', () => {
     });
 
     it('_view_innerLabel', () => {
-        const props = {
+        const props: React.ComponentProps<typeof TextFieldB2C> = {
             value: 'Кирилл',
             view: 'innerLabel',
             ...propsDefault,
@@ -107,7 +109,12 @@ describe('plasma-b2c: TextField', () => {
                 <SpaceMe />
                 <TextField size="s" {...props} />
                 <SpaceMe />
-                <TextField size="xs" {...props} />
+                <TextField
+                    size="xs"
+                    {...props}
+                    contentLeft={<IconSleep color="inherit" size="xs" />}
+                    contentRight={<IconEye color="inherit" size="xs" />}
+                />
             </CypressTestDecorator>,
         );
 
