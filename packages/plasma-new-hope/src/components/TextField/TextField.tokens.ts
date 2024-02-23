@@ -1,6 +1,8 @@
 export const tokens = {
     color: '--plasma-textfield-color',
     backgroundColor: '--plasma-textfield-bg-color',
+    backgroundColorHover: '--plasma-textfield-bg-color-hover',
+    backgroundColorFocus: '--plasma-textfield-bg-color-focus',
     /** Цвет каретки */
     caretColor: '--plasma-textfield__caret-color',
     placeholderColor: '--plasma-textfield__placeholder-color',
