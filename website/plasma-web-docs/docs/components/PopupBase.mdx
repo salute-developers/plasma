@@ -43,36 +43,6 @@ import { surfaceSolid03, surfaceSolid02 } from '@salutejs/plasma-tokens-web';
 import { SSRProvider, Button, PopupBase, PopupBaseProvider } from  '@salutejs/plasma-web';
 
 export function App() {
-    const StyledButton = styled(Button)`
-        margin-top: 1rem;
-        width: 15rem;
-    `;
-
-    const StyledWrapper = styled.div`
-        height: 500px;
-    `;
-
-    const OtherContent = styled.div`
-        margin-top: 1rem;
-        width: 400px;
-        height: 500px;
-        background: ${surfaceSolid03};
-        position: absolute;
-
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        padding: 1rem;
-
-        bottom: 0;
-        right: 0;
-    `;
-
-    const Content = styled.div`
-        background: ${surfaceSolid02};
-        padding: 1rem;
-    `;
-
     const [isOpenA, setIsOpenA] = React.useState(false);
     const [isOpenB, setIsOpenB] = React.useState(false);
 
@@ -81,10 +51,24 @@ export function App() {
     return (
         <SSRProvider>
             <PopupBaseProvider>
-                <StyledWrapper>
+                <div style={{height: "500px"}}>
                     <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <StyledButton text="Открыть в document" onClick={() => setIsOpenB(true)} />
-                        <StyledButton text="Открыть во Frame" onClick={() => setIsOpenA(true)} />
+                        <Button 
+                            style={{
+                                marginTop: "1rem",
+                                width: "15rem"
+                            }} 
+                            text="Открыть в document" 
+                            onClick={() => setIsOpenB(true)} 
+                        />
+                        <Button 
+                            style={{
+                                marginTop: "1rem",
+                                width: "15rem"
+                            }} 
+                            text="Открыть во Frame" 
+                            onClick={() => setIsOpenA(true)} 
+                        />
                     </div>
                     <PopupBase
                         id="popupA"
@@ -93,14 +77,31 @@ export function App() {
                         placement="center"
                         offset={[0, 0]}
                     >
-                        <Content>
+                        <div style={{ background: surfaceSolid02, padding: "1rem" }}>
                             <Button onClick={() => setIsOpenA(false)}>Close</Button>
                             <>Content</>
-                        </Content>
+                        </div>
                     </PopupBase>
-                    <OtherContent ref={ref}>
+                    <div 
+                        ref={ref} 
+                        style={{
+                            marginTop: "1rem",
+                            width: "400px",
+                            height: "500px",
+                            background: surfaceSolid03,
+                            position: "absolute",
+
+                            display: "flex",
+                            alignItems: "flex-start",
+                            justifyContent: "center",
+                            padding: "1rem",
+
+                            bottom: 0,
+                            right: 0
+                        }}
+                    >
                         <>Frame</>
-                    </OtherContent>
+                    </div>
                     <PopupBase
                         id="popupB"
                         frame="document"
@@ -113,7 +114,7 @@ export function App() {
                             <>Content</>
                         </Content>
                     </PopupBase>
-                </StyledWrapper>
+                </div>
             </PopupBaseProvider>
         </SSRProvider>
     );
@@ -184,7 +185,14 @@ const StyledPopupAnimation = styled(PopupBase)`
     return (
         <>
             <div>
-                <StyledButton text="Открыть" onClick={() => setIsOpen(true)} />
+                <Button 
+                    style={{
+                        marginTop: "1rem",
+                        width: "15rem"
+                    }} 
+                    text="Открыть" 
+                    onClick={() => setIsOpen(true)} 
+                />
             </div>
             <StyledPopupAnimation
                 id="popup-id"
