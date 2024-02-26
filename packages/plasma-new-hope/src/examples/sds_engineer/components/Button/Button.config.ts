@@ -27,22 +27,6 @@ export const config = {
                 );
             `,
             accent: css`
-                ${buttonTokens.buttonColor}: var(--inverse-text-primary);
-                ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-default);
-                ${buttonTokens.buttonColorHover}: var(--inverse-text-primary);
-                ${buttonTokens.buttonBackgroundColorHover}: color-mix(
-                    in srgb,
-                    var(--inverse-text-primary),
-                    var(--surface-solid-default) 85%
-                );
-                ${buttonTokens.buttonColorActive}: var(--inverse-text-primary);
-                ${buttonTokens.buttonBackgroundColorActive}: color-mix(
-                    in srgb,
-                    var(--inverse-text-primary),
-                    var(--surface-solid-default) 80%
-                );
-            `,
-            accent: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-accent);
                 ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary);

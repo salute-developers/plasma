@@ -31,7 +31,7 @@ export const buttonGroupRoot = (Root: RootProps<HTMLDivElement, ButtonGroupProps
         const orientationClass = classes[orientation];
         const gapClass = classes[gap];
         const shapeClass = classes[shape];
-        const stretchingClass = classes[`${stretching}Stretching`];
+        const stretchingClass = classes[`${stretching}Stretching` as keyof typeof classes];
         const overrideStylesClass = isCommonButtonStyles ? classes.buttonGroupOverrideStyles : undefined;
 
         return (

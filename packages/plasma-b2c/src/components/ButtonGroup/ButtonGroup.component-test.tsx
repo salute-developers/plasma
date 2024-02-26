@@ -87,11 +87,11 @@ describe('plasma-b2c: ButtonGroup', () => {
     it('_orientation: stretching - filled', () => {
         mount(
             <CypressTestDecorator>
-                <ButtonGroup orientation="horizontal" strething="filled">
+                <ButtonGroup orientation="horizontal" stretching="filled">
                     {getButtons()}
                 </ButtonGroup>
                 <PadMe />
-                <ButtonGroup orientation="vertical" strething="filled">
+                <ButtonGroup orientation="vertical" stretching="filled">
                     {getButtons()}
                 </ButtonGroup>
             </CypressTestDecorator>,
