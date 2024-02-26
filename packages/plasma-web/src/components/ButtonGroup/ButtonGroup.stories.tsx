@@ -80,7 +80,6 @@ export const Default: Story = {
                     .map((_, i) => (
                         <Button text={`Button ${i}`} />
                     ))}
-                <Button text="Eeeeeeextra looooong text" />
             </ButtonGroup>
         );
     },
