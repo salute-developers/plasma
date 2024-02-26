@@ -2,6 +2,7 @@ import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
 import { Overlay } from '../Overlay';
+import { buttonTokens } from '../Button';
 
 import { Button, TOAST_Z_INDEX } from './utils';
 import { classes, tokens } from './Toast.tokens';
@@ -14,6 +15,8 @@ export const base = css`
 
     user-select: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    ${buttonTokens.buttonWidth}: 1rem;
 `;
 
 export const StyledRoot = styled.div<{ position: string; isVisible: boolean; offset?: number }>`
@@ -70,7 +73,6 @@ export const StyledRoot = styled.div<{ position: string; isVisible: boolean; off
 `;
 
 export const CloseIconWrapper = styled(Button)`
-    width: 1rem;
     height: 1rem;
     --plasma_private-close-icon-margin: var(${tokens.closeIconMargin});
     margin: var(--plasma_private-close-icon-margin);

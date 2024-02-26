@@ -62,6 +62,7 @@ export const toastRoot = (Root: RootProps<HTMLDivElement, ToastProps>) =>
                         size="s"
                         onClick={onCloseButtonClick}
                         className={cx(classes.closeIcon)}
+                        stretching="fixed"
                     >
                         <IconCross size="s" color="inherit" />
                     </CloseIconWrapper>
