@@ -25,6 +25,7 @@ import { bodyXXS } from '@salutejs/plasma-new-hope';
 import { bodyXXSBold } from '@salutejs/plasma-new-hope';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
 import { ButtonHTMLAttributes } from 'react';
+import { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { ComboboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ComponentClass } from 'react';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -248,8 +249,8 @@ export { bodyXXSBold }
 // @public
 export const Button: FunctionComponent<PropsType<    {
 view: {
-default: string;
 primary: string;
+accent: string;
 secondary: string;
 clear: string;
 success: string;
@@ -273,19 +274,12 @@ true: string;
 focused: {
 true: string;
 };
-}> & ButtonHTMLAttributes<HTMLButtonElement> & {
-text?: string | undefined;
-contentLeft?: ReactNode;
-contentRight?: ReactNode;
-isLoading?: boolean | undefined;
-loader?: ReactNode;
-stretch?: boolean | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-} & RefAttributes<HTMLButtonElement>>;
+stretching: {
+auto: string;
+filled: string;
+fixed: string;
+};
+}> & ButtonProps_2<HTMLElement> & RefAttributes<HTMLButtonElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "ButtonComponent" needs to be exported by the entry point index.d.ts
 //
@@ -670,7 +664,9 @@ view?: string | undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 width: number;
 height: number;
-size?: undefined;
+size?: undefined; /**
+* @deprecated
+*/
 view?: string | undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 width: string;
