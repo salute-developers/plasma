@@ -1,18 +1,16 @@
 import { css } from '@linaria/core';
 
-import { Label } from '../TextField.styles';
+import { Input, Label } from '../TextField.styles';
 import { tokens } from '../TextField.tokens';
 
 export const labelPlacement_inner = css`
-    input {
-        padding-top: calc(var(${tokens.height}) / 2 - var(${tokens.labelOffset}) * 2);
+    ${Input} {
+        padding-top: calc(var(${tokens.labelOffset}) + var(${tokens.labelInnerLineHeight}));
+        padding-bottom: var(${tokens.labelOffset});
     }
 
-    input:focus ~ ${Label}, input:not(:placeholder-shown) ~ ${Label} {
-        /* NOTE: like height: auto, but better animation */
-        height: calc(
-            var(${tokens.labelOffset}) + var(${tokens.labelInnerLineHeight}) + calc(var(${tokens.height}) / 4)
-        );
+    ${Input}:focus ~ ${Label}, ${Input}:not(:placeholder-shown) ~ ${Label} {
+        height: auto;
         padding-top: var(${tokens.labelOffset});
 
         font-family: var(${tokens.labelInnerFontFamily});
@@ -23,12 +21,11 @@ export const labelPlacement_inner = css`
         line-height: var(${tokens.labelInnerLineHeight});
     }
 
-    input:not(:focus)::placeholder {
+    ${Input}:not(:focus)::placeholder {
         color: transparent;
     }
 
-    /* TODO: do we need to animate placeholder??? */
-    input:focus::placeholder {
+    ${Input}:focus::placeholder {
         color: transparent;
     }
 
