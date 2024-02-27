@@ -1,0 +1,79 @@
+[versions]
+global-gradle = "7.4.2"
+global-jvmTarget = "1.8"
+global-kotlin = "1.7.10"
+global-compileSdk = "33"
+global-targetSdk = "33"
+global-minSdk = "28"
+
+staticAnalysis-detekt = "1.22.0"
+staticAnalysis-ktlint = "0.50.0"
+staticAnalysis-lint = "30.4.2"
+staticAnalysis-spotless = "6.20.0"
+
+androidX-core = "1.7.0"
+androidX-appcompat = "1.3.1"
+androidX-composeBom = "2022.11.00"
+
+test-espresso = "3.4.0"
+test-jUnit = "4.13.2"
+test-jUnitIntegration = "1.1.5"
+test-mockk = "1.12.2"
+test-paparazzi = "1.2.0"
+test-robolectric = "4.9"
+test-androidX-rules = "1.5.0"
+test-androidX-runner = "1.5.2"
+
+plugin-androidCacheFix = "3.0.1"
+
+[libraries]
+base-androidX-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidX-appcompat" }
+base-androidX-core = { module = "androidx.core:core-ktx", version.ref = "androidX-core" }
+base-androidX-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "androidX-composeBom" }
+base-androidX-compose-foundation = { module = "androidx.compose.foundation:foundation" }
+base-androidX-compose-uiTooling = { module = "androidx.compose.ui:ui-tooling" }
+base-androidX-compose-uiTooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+
+base-kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "global-kotlin" }
+
+base-staticAnalysis-ktlint = { module = "com.pinterest:ktlint", version.ref = "staticAnalysis-ktlint" }
+base-staticAnalysis-detekt-api = { module = "io.gitlab.arturbosch.detekt:detekt-api", version.ref = "staticAnalysis-detekt" }
+base-staticAnalysis-detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "staticAnalysis-detekt" }
+base-staticAnalysis-detekt-test = { module = "io.gitlab.arturbosch.detekt:detekt-test", version.ref = "staticAnalysis-detekt" }
+
+base-staticAnalysis-lint-api = { module = "com.android.tools.lint:lint-api", version.ref = "staticAnalysis-lint" }
+base-staticAnalysis-lint-checks = { module = "com.android.tools.lint:lint-checks", version.ref = "staticAnalysis-lint" }
+
+base-test-unit-jUnit = { module = "junit:junit", version.ref = "test-jUnit"}
+base-test-unit-mockk = { module = "io.mockk:mockk", version.ref = "test-mockk"}
+base-test-unit-robolectric = { module = "org.robolectric:robolectric", version.ref = "test-robolectric"}
+
+base-test-integration-jUnit = { module = "androidx.test.ext:junit", version.ref = "test-jUnitIntegration" }
+base-test-integration-rules = { module = "androidx.test:rules", version.ref = "test-androidX-rules" }
+base-test-integration-runner = { module = "androidx.test:runner", version.ref = "test-androidX-runner" }
+
+base-test-ui-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "test-espresso" }
+base-test-ui-compose-jUnit4 = { module = "androidx.compose.ui:ui-test-junit4"}
+base-test-ui-compose-uiTestManifest = { module = "androidx.compose.ui:ui-test-manifest"}
+
+base-gradle-android = { module = "com.android.tools.build:gradle", version.ref = "global-gradle" }
+base-gradle-detekt = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "staticAnalysis-detekt" }
+base-gradle-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "global-kotlin" }
+base-gradle-paparazzi = { module = "app.cash.paparazzi:paparazzi-gradle-plugin", version.ref = "test-paparazzi" }
+base-gradle-spotless= { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "staticAnalysis-spotless" }
+base-gradle-cacheFix= { module = "org.gradle.android.cache-fix:org.gradle.android.cache-fix.gradle.plugin", version.ref = "plugin-androidCacheFix" }
+
+
+[plugins]
+android-lib = { id = "com.android.library", version.ref = "global-gradle" }
+android-app = { id = "com.android.application", version.ref = "global-gradle" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "global-kotlin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "global-kotlin" }
+paparazzi = { id = "app.cash.paparazzi", version.ref = "test-paparazzi" }
+jgp = { id = "java-gradle-plugin" }
+android-cache-fix = { id = "org.gradle.android.cache-fix", version.ref= "plugin-androidCacheFix" }
+
+convention-detekt = { id = "convention.detekt" }
+convention-android-app = { id = "convention.android-app" }
+convention-android-lib = { id = "convention.android-lib" }
+convention-spotless= { id = "convention.spotless" }
