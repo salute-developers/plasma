@@ -2,6 +2,7 @@ export * from './components/Avatar';
 export * from './components/AvatarGroup';
 export * from './components/Badge';
 export * from './components/Button';
+export * from './components/Drawer';
 export * from './components/Checkbox';
 export * from './components/Combobox';
 export * from './components/Counter';
