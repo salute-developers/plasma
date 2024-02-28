@@ -289,6 +289,19 @@ export interface Theme {
     spacing?: Record<string, string>;
 }
 
+export interface ThemeContent {
+    [themeName: string]: {
+        light: CSSRootTheme;
+        dark: CSSRootTheme;
+        typo: (string | undefined)[];
+    };
+}
+
+export const ColorMode = {
+    LIGHT: 'light',
+    DARK: 'dark',
+};
+
 export type ThemeTokenDataGroups = Record<string, TokenDataGroup<string> | undefined>;
 
 export type GeneratedTokenType = 'value' | 'css';
