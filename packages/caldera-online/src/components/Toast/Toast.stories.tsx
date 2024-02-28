@@ -6,7 +6,7 @@ import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button';
 
-import { ToastController } from './Toast';
+import { ToastController, ToastProvider } from './Toast';
 
 import { Toast, useToast } from '.';
 
@@ -143,5 +143,9 @@ export const LiveDemo: Story = {
             disable: true,
         },
     },
-    render: (args) => <StoryLiveDemo {...args} />,
+    render: (args) => (
+        <ToastProvider>
+            <StoryLiveDemo {...args} />
+        </ToastProvider>
+    ),
 };

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import type { Meta, StoryObj } from '@storybook/react';
-import { surfaceSolid02 } from '@salutejs/plasma-tokens';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { SSRProvider } from '../SSRProvider';
@@ -55,7 +54,7 @@ const StyledWrapper = styled.div`
 `;
 
 const Content = styled.div`
-    background: ${surfaceSolid02};
+    background: var(--surface-solid-secondary);
     padding: 1rem;
 `;
 
