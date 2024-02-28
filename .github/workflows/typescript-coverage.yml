@@ -59,7 +59,7 @@ jobs:
             return enumeration.join(',');     
 
       - name: Lerna bootstrap
-        run: npx lerna bootstrap --scope=@salutejs/{${{steps.scope.outputs.result}}} --no-private --ignore=${{env.LERNA_IGNORE_LIST}}
+        run: npx lerna bootstrap --no-private
 
       - name: Run Typescript Coverage
         if: ${{ always() }}

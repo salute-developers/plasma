@@ -96,6 +96,10 @@ jobs:
             if (enumeration.includes('plasma-ui-docs')) {
               enumeration.push('plasma-web');
             }
+
+            if(!enumeration.includes('plasma-typo')) {
+              enumeration.push('plasma-typo');
+            }
             
             if (!enumeration.includes('plasma-typo')) {
               enumeration.push('plasma-typo');
