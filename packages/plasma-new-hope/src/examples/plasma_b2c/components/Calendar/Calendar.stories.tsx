@@ -1,6 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import type { ComponentProps } from 'react';
-import { backgroundPrimary, surfaceSolid03 } from '@salutejs/plasma-tokens';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { styled } from '@linaria/react';
@@ -38,7 +37,7 @@ type CalendarDoubleProps = ComponentProps<typeof CalendarDouble>;
 type CalendarBaseRangeProps = ComponentProps<typeof CalendarBaseRange>;
 
 const StyledCalendar = styled(Calendar)`
-    background-color: ${backgroundPrimary};
+    background-color: var(--background-primary);
     box-shadow: 0 0.063rem 0.25rem -0.063rem rgba(0, 0, 0, 0.04), 0 0.375rem 0.75rem -0.125rem rgba(8, 8, 8, 0.1);
     border-radius: 0.75rem;
 `;
@@ -51,7 +50,7 @@ const StyledArrow = styled.div`
         position: absolute;
         width: 0.5rem;
         height: 0.5rem;
-        background: ${surfaceSolid03};
+        background: var(--surface-solid-tertiary);
     }
 
     &::before {
