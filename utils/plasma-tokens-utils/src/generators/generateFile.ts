@@ -1,5 +1,12 @@
 import { jsToCss } from '../utils';
 
+export const generateCommonFile = (name: string, extension: string, content: any) => {
+    return {
+        file: `${name}.${extension}`,
+        content,
+    };
+};
+
 export const generateCSSThemeRootFile = (name: string, content: object) => {
     return {
         file: `${name}.css`,

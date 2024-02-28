@@ -155,11 +155,12 @@ const getDeprecatedTokens = (tokens: TokenDataGroup<string>) => {
 
 export const getThemesTokensFallback = (
     themesTokenDataGroups: Record<string, Record<string, ThemeTokenDataGroups>>,
+    withDeprecated = true,
 ): Record<string, ThemeTokenDataGroups> => {
     const themeTokenDataGroupsByName = getThemeTokenDataGroupsByName(themesTokenDataGroups);
 
     return Object.entries(themeTokenDataGroupsByName).reduce((tokensWithDeprecated, [themeName, tokens]) => {
-        const deprecatedTokens = getDeprecatedTokens(tokens.color || {});
+        const deprecatedTokens = withDeprecated ? getDeprecatedTokens(tokens.color || {}) : undefined;
 
         const { skeletonGradient, skeletonGradientLighter } = gradientColors[
             themeName.endsWith('dark') ? 'dark' : 'light'
