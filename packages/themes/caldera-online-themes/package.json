@@ -1,0 +1,49 @@
+{
+  "name": "@salutejs/caldera-online-themes",
+  "version": "0.5.0",
+  "description": "Caldera-online-themes package",
+  "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "license": "MIT",
+  "module": "es/index.js",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "prepare": "npm run build",
+    "prebuild": "rm -rf ./es ./src ./tokens ./themes ./css ./index.*",
+    "build": "npm run generate && npm run build:cjs && npm run build:esm && npm run lint -- --fix",
+    "copy-css-files": "mkdir -p ${CSS_BUILD_PATH} && cp -R src/css/* ${CSS_BUILD_PATH}",
+    "build:cjs": "tsc && CSS_BUILD_PATH=css npm run copy-css-files",
+    "build:esm": "tsc -p ./tsconfig.es.json",
+    "generate": "npx ts-node ./lib/index.ts",
+    "lint": "../../../node_modules/.bin/eslint ./src ./lib --ext .ts --quiet"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "css",
+    "tokens",
+    "es",
+    "themes",
+    "index.d.ts",
+    "index.d.ts.map",
+    "index.js",
+    "index.js.map"
+  ],
+  "dependencies": {
+    "@salutejs/plasma-typo": "0.40.0",
+    "styled-components": "5.3.6"
+  },
+  "devDependencies": {
+    "@salutejs/data-themes": "0.5.0",
+    "@types/node": "16.7.13",
+    "ts-node": "10.2.1",
+    "typescript": "4.2.4"
+  },
+  "contributors": [
+    "Виноградов Антон Александрович",
+    "Неретин Артём Андреевич",
+    "Vasiliy Loginevskiy"
+  ],
+  "sideEffects": false
+}
