@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import { surfaceSolid03, surfaceSolid02 } from '@salutejs/plasma-tokens';
 
 import { SSRProvider } from '../SSRProvider';
 import { Button } from '../Button';
@@ -51,7 +50,7 @@ const OtherContent = styled.div`
     margin-top: 1rem;
     width: 400px;
     height: 500px;
-    background: ${surfaceSolid03};
+    background: var(--surface-solid-tertiary);
     position: absolute;
 
     display: flex;
@@ -64,7 +63,7 @@ const OtherContent = styled.div`
 `;
 
 const Content = styled.div`
-    background: ${surfaceSolid02};
+    background: var(--surface-solid-secondary);
     padding: 1rem;
 `;
 

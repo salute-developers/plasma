@@ -25,7 +25,7 @@ import { Meta } from "@storybook/addon-docs";
 ```bash
 $ npm install --save react react-dom
 $ npm install --save styled-components
-$ npm install --save @salutejs/plasma-caldera @salutejs/plasma-typo @salutejs/plasma-tokens
+$ npm install --save @salutejs/caldera @salutejs/caldera-online-themes
 ```
 
 ## Настройка
@@ -33,21 +33,19 @@ $ npm install --save @salutejs/plasma-caldera @salutejs/plasma-typo @salutejs/pl
 
 ```jsx title="GlobalStyle.tsx"
 import { createGlobalStyle } from 'styled-components';
-import { standard } from '@salutejs/plasma-typo';
-import { caldera__light } from '@salutejs/plasma-tokens';
+import { caldera__light } from '@salutejs/caldera-online-themes';
 
 const ThemeStyle = createGlobalStyle(caldera__light);
-const TypoStyle = createGlobalStyle(standard);
 
 export const GlobalStyle = () => (
     <>
         <ThemeStyle />
-        <TypoStyle />
     </>
 );
 ```
 
 ### Корень приложения
+
 В корне приложения вызовите компонент глобальных стилей `GlobalStyle`:
 
 + Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
@@ -62,11 +60,11 @@ export const GlobalStyle = () => (
 ```jsx
 // App.tsx
 import { Button } from '@salutejs/caldera';
-import { textAccent } from '@salutejs/plasma-tokens/brands/caldera';
+import { textAccent } from '@salutejs/caldera-online-themes/tokens';
 
 export const App = () => {
     return (
-        <Button>Hello, Plasma!</Button>
+        <Button>Hello, Caldera!</Button>
 
         <p style={{color: textAccent}}>
             Token usage example
