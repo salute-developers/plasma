@@ -8,16 +8,16 @@ export const config = {
     variations: {
         view: {
             clear: css`
-                ${segmentTokens.groupBackgroundColor}: tranparent;
-                ${segmentTokens.arrowColor}: var(--plasma-colors-secondary);
+                ${segmentTokens.groupBackgroundColor}: transparent;
+                ${segmentTokens.arrowColor}: var(--text-secondary);
 
-                ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
+                ${segmentTokens.outlineFocusColor}: var(--text-accent);
             `,
             filled: css`
                 ${segmentTokens.groupBackgroundColor}: transparent;
-                ${segmentTokens.arrowColor}: var(--plasma-colors-secondary);
+                ${segmentTokens.arrowColor}: var(--text-secondary);
 
-                ${segmentTokens.outlineFocusColor}: var(--plasma-colors-button-focused);
+                ${segmentTokens.outlineFocusColor}: var(--text-accent);
             `,
         },
         size: {
@@ -54,7 +54,7 @@ export const config = {
         },
         filledBackground: {
             true: css`
-                ${segmentTokens.groupFilledBackgroundColor}: var(--plasma-colors-surface-liquid01);
+                ${segmentTokens.groupFilledBackgroundColor}: var(--surface-transparent-primary);
             `,
         },
         stretch: {

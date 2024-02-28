@@ -8,38 +8,38 @@ export const config = {
     variations: {
         view: {
             clear: css`
-                ${segmentTokens.itemColor}: var(--plasma-colors-secondary);
+                ${segmentTokens.itemColor}: var(--text-secondary);
                 ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: var(--plasma-colors-primary);
+                ${segmentTokens.itemColorHover}: var(--text-primary);
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
-                ${segmentTokens.itemSelectedColor}: var(--plasma-colors-primary);
+                ${segmentTokens.itemSelectedColor}: var(--text-primary);
                 ${segmentTokens.itemSelectedBackgroundColor}: transparent;
-                ${segmentTokens.itemSelectedColorHover}: var(--plasma-colors-primary);
+                ${segmentTokens.itemSelectedColorHover}: var(--text-primary);
                 ${segmentTokens.itemSelectedBackgroundColorHover}: transparent;
 
                 ${segmentTokens.outlineFocusColor}: var(--surface-accent);
             `,
             default: css`
-                ${segmentTokens.itemColor}: var(--plasma-colors-primary);
+                ${segmentTokens.itemColor}: var(--text-primary);
                 ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: var(--plasma-colors-primary);
+                ${segmentTokens.itemColorHover}: var(--text-primary);
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
                 ${segmentTokens.itemSelectedColor}: var(--inverse-text-primary);
-                ${segmentTokens.itemSelectedBackgroundColor}: var(--plasma-colors-text);
+                ${segmentTokens.itemSelectedBackgroundColor}: var(--text-primary);
                 ${segmentTokens.itemSelectedColorHover}: var(--inverse-text-primary);
-                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--plasma-colors-text);
+                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--text-primary);
 
                 ${segmentTokens.outlineFocusColor}: var(--surface-accent);
             `,
             secondary: css`
-                ${segmentTokens.itemColor}: var(--plasma-colors-primary);
+                ${segmentTokens.itemColor}: var(--text-primary);
                 ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: var(--plasma-colors-primary);
+                ${segmentTokens.itemColorHover}: var(--text-primary);
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
-                ${segmentTokens.itemSelectedColor}: var(--plasma-colors-primary);
-                ${segmentTokens.itemSelectedBackgroundColor}: var(--plasma-colors-surface-card);
-                ${segmentTokens.itemSelectedColorHover}: var(--plasma-colors-primary);
-                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--plasma-colors-surface-card);
+                ${segmentTokens.itemSelectedColor}: var(--text-primary);
+                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-transparent-card);
+                ${segmentTokens.itemSelectedColorHover}: var(--text-primary);
+                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-transparent-card);
 
                 ${segmentTokens.outlineFocusColor}: var(--surface-accent);
             `,

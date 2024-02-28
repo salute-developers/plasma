@@ -15,7 +15,7 @@
 ```bash
 $ npm install --save react react-dom
 $ npm install --save styled-components@5.1.1
-$ npm install --save @salutejs/sdds-serv @salutejs/plasma-typo
+$ npm install --save @salutejs/sdds-serv @salutejs/sdds-themes
 ```
 
 ## Настройка
@@ -24,16 +24,13 @@ $ npm install --save @salutejs/sdds-serv @salutejs/plasma-typo
 
 ```jsx title="GlobalStyle.tsx"
 import { createGlobalStyle } from 'styled-components';
-import { standard } from '@salutejs/plasma-typo';
-import { sdds_serv__light } from '@salutejs/sdds-serv/themes';
+import { sdds_serv__light } from '@salutejs/sdds-themes';
 
 const ThemeStyle = createGlobalStyle(sdds_serv__light);
-const TypoStyle = createGlobalStyle(standard);
 
 export const GlobalStyle = () => (
     <>
         <ThemeStyle />
-        <TypoStyle />
     </>
 );
 ```
@@ -45,8 +42,7 @@ export const GlobalStyle = () => (
 -   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
 -   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
 
-При использовании react ниже 18
-Для корректной работы server side rendering приложение нужно обернуть `SSRProvider` (доступен в sdds-srvc);
+Для корректной работы server side rendering приложение нужно обернуть `SSRProvider` (доступен в sdds-serv);
 
 ### Использование компонентов
 
@@ -55,11 +51,11 @@ export const GlobalStyle = () => (
 ```jsx
 // App.tsx
 import { Button } from '@salutejs/sdds-serv';
-import { textAccent } from '@salutejs/sdds-serv/tokens';
+import { textAccent } from '@salutejs/sdds-themes/tokens/sdds-serv';
 
 export const App = () => {
     return (
-        <Button>Hello, SDDS!</Button>
+        <Button>Hello, SDDS SERV!</Button>
 
         <p style={{color: textAccent}}>
             Token usage example
