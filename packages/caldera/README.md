@@ -3,7 +3,7 @@
 Реализация компонентов для создания веб-приложений.
 
 <p align="center">
-  <img width="800" src="https://user-images.githubusercontent.com/1813468/98609687-ea20fc80-22fe-11eb-8d84-cd26385f01ed.png" alt="caldera" />
+  <img width="800" src="https://github.com/salute-developers/plasma/assets/1813468/8a672284-f470-4b9e-9234-877ae8daf7a4" alt="caldera" />
 </p>
 
 ## Использование
@@ -21,7 +21,7 @@
 ```bash
 $ npm install --save react react-dom
 $ npm install --save styled-components
-$ npm install --save @salutejs/caldera @salutejs/plasma-typo @salutejs/plasma-tokens
+$ npm install --save @salutejs/caldera @salutejs/caldera-online-themes
 ```
 
 ## Настройка
@@ -30,16 +30,13 @@ $ npm install --save @salutejs/caldera @salutejs/plasma-typo @salutejs/plasma-to
 
 ```jsx title="GlobalStyle.tsx"
 import { createGlobalStyle } from 'styled-components';
-import { standard } from '@salutejs/plasma-typo';
-import { caldera__light } from '@salutejs/plasma-tokens';
+import { caldera__light } from '@salutejs/caldera-online-themes';
 
 const ThemeStyle = createGlobalStyle(caldera__light);
-const TypoStyle = createGlobalStyle(standard);
 
 export const GlobalStyle = () => (
     <>
         <ThemeStyle />
-        <TypoStyle />
     </>
 );
 ```
@@ -60,11 +57,11 @@ export const GlobalStyle = () => (
 ```jsx
 // App.tsx
 import { Button } from '@salutejs/caldera';
-import { textAccent } from '@salutejs/plasma-tokens/brands/caldera';
+import { textAccent } from '@salutejs/caldera-online-themes/tokens';
 
 export const App = () => {
     return (
-        <Button>Hello, Plasma!</Button>
+        <Button>Hello, Caldera!</Button>
 
         <p style={{color: textAccent}}>
             Token usage example
