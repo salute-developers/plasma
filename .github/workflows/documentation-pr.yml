@@ -97,6 +97,10 @@ jobs:
               enumeration.push('plasma-web');
             }
             
+            if (!enumeration.includes('plasma-typo')) {
+              enumeration.push('plasma-typo');
+            }
+            
             return enumeration.join(',');
       
       - name: Lerna bootstrap
