@@ -126,12 +126,6 @@ jobs:
           npm run build --prefix="./website/plasma-web-docs"
           cp -R ./website/plasma-web-docs/build ./s3_build/${PR_NAME}/web
           
-      - name: Plasma "SDDS SERV" Docs
-        if: ${{ needs.scope.outputs.HAS_SDDS_SERV == 'true' }}
-        run: |
-          npm run build --prefix="./website/sdds-serv-docs"
-          cp -R ./website/sdds-serv-docs/build ./s3_build/${PR_NAME}/sdds-serv
-      
       - name: Plasma UI Storybook
         if: ${{ needs.scope.outputs.HAS_PLASMA_UI == 'true' }}
         run: |
