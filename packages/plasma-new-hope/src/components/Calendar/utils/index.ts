@@ -116,7 +116,7 @@ export const isDayInRage = (
     }
 
     const day = new Date(year, monthIndex, currentDay);
-    return startValue && startValue <= day && day <= endValue;
+    return startValue && startValue < day && day <= endValue;
 };
 
 export const isSameDay = (firstDate: DateObject, secondDate?: DateObject) =>
@@ -243,9 +243,11 @@ export const canSelectDate = (
     const hoverDate = new Date(year, monthIndex, day);
     const [startDate] = value;
 
-    if (hoverDate?.getTime() === startDate?.getTime()) {
-        return false;
-    }
+    // if (hoverDate?.getTime() === startDate?.getTime()) {
+    //     return false;
+    // }
+
+    // Закоментировано, для возможности в Range режиме выбрать один и тот же день
 
     if (!disabledList?.length) {
         return true;
