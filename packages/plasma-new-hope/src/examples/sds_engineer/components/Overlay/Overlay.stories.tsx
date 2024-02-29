@@ -11,7 +11,9 @@ import { Overlay } from '../../../../components/Overlay';
 
 const onOverlayClick = action('onOverlayClick');
 
-export default {
+type StoryOverlayProps = ComponentProps<typeof Overlay>;
+
+const meta: Meta<StoryOverlayProps> = {
     title: 'sds_engineer/Overlay',
     decorators: [WithTheme],
     argTypes: {
@@ -29,9 +31,10 @@ export default {
         },
         ...disableProps(['onOverlayClick', 'zIndex']),
     },
-} as Meta;
+    component: Overlay,
+};
 
-type StoryOverlayProps = ComponentProps<typeof Overlay>;
+export default meta;
 
 const StyledButton = styled(Button)`
     margin: 1rem;
