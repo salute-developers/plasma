@@ -37,9 +37,9 @@ fs.existsSync(OUT_DIR) || fs.mkdirSync(OUT_DIR);
 // Генерация цветов
 writeGeneratedToFS(COLORS_DIR, [
     // Файл с токенами CSS-Variables (с дефолтными значениями)
-    { file: 'index.ts', content: generateTokens(colorThemes.light, 'css', 'colors') },
+    { file: 'index.ts', content: generateTokens({ ...colorThemes.light, ...fallbackThemeLight }, 'css', 'colors') },
     // Файл с токенами (JS-переменными) для инъекции значения напрямую
-    { file: 'values.ts', content: generateTokens(colorThemes.light) },
+    { file: 'values.ts', content: generateTokens({ ...colorThemes.light, ...fallbackThemeLight }) },
 ]);
 
 // Генерация и запись файлов тем для создания глобальных стилей
