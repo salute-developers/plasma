@@ -1,0 +1,105 @@
+name: Deploy documentation and storybook artefacts to "/dev"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          show-progress: false
+          
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-environment
+
+      - name: Lerna bootstrap
+        run: npx lerna bootstrap
+
+      - name: Prepare directories
+        run: |
+          mkdir -p s3_build s3_build_sb
+
+      - name: Plasma Website
+        run: |
+          npm run build --prefix="./website/plasma-website"
+          cp -R ./website/plasma-website/build ./s3_build/next-${{ github.sha }}
+
+      - name: Plasma UI Docs
+        run: |
+          npm run build --prefix="./website/plasma-ui-docs"
+          cp -R ./website/plasma-ui-docs/build ./s3_build/next-${{ github.sha }}/ui
+
+      - name: Plasma Web Docs
+        run: |
+          npm run build --prefix="./website/plasma-web-docs"
+          cp -R ./website/plasma-web-docs/build ./s3_build/next-${{ github.sha }}/web
+
+      - name: Plasma UI Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/plasma-ui"
+          cp -R ./packages/plasma-ui/build-sb ./s3_build_sb/dev/ui-storybook
+
+      - name: Plasma Web Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/plasma-web"
+          cp -R ./packages/plasma-web/build-sb ./s3_build_sb/dev/web-storybook
+
+      - name: Plasma B2C Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/plasma-b2c"
+          cp -R ./packages/plasma-b2c/build-sb ./s3_build_sb/dev/b2c-storybook
+          
+      - name: Plasma "ASDK" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/plasma-asdk"
+          cp -R ./packages/plasma-asdk/build-sb ./s3_build_sb/dev/asdk-storybook
+          
+      - name: Plasma "New-hope" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/plasma-new-hope"
+          cp -R ./packages/plasma-new-hope/build-sb ./s3_build_sb/dev/new-hope-storybook
+        
+      - name: Plasma "Caldera-online" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/caldera-online"
+          cp -R ./packages/caldera-online/build-sb ./s3_build_sb/dev/caldera-online-storybook
+      
+      - name: Plasma "SDDS SERV" Storybook
+        run: |
+          npm run storybook:build --prefix="./packages/sdds-serv"
+          cp -R ./packages/sdds-serv/build-sb ./s3_build_sb/dev/sdds-serv-storybook
+
+      - name: Install s3cmd
+        run: pip3 install s3cmd
+
+      - name: Upload to S3 documentation artefacts
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build/next-${{ github.sha }}/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/current/
+
+      - name: Upload to S3 storybook artefacts
+        run: >
+          s3cmd
+          --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+          --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          --host ${{ secrets.AWS_ENDPOINT }}
+          --host-bucket ${{ secrets.AWS_ENDPOINT }}
+          --bucket-location ${{ secrets.AWS_REGION }}
+          --signature-v2
+          --delete-removed
+          --no-mime-magic
+          sync
+          ./s3_build_sb/dev/
+          s3://${{ secrets.AWS_S3_BUCKET_2 }}/dev/
