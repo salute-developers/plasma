@@ -38,6 +38,7 @@ import { blurs } from '@salutejs/plasma-core';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
 import { Breakpoint } from '@salutejs/plasma-hope';
 import { BreakWordProps } from '@salutejs/plasma-core';
+import { ButtonBase } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonHTMLAttributes } from 'react';
 import { ButtonProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -492,6 +493,8 @@ size: {
 button2: string;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
+
+export { ButtonBase }
 
 // @public
 export const ButtonGroup: FunctionComponent<PropsType<    {
