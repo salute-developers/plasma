@@ -243,12 +243,6 @@ export const canSelectDate = (
     const hoverDate = new Date(year, monthIndex, day);
     const [startDate] = value;
 
-    // if (hoverDate?.getTime() === startDate?.getTime()) {
-    //     return false;
-    // }
-
-    // Закоментировано, для возможности в Range режиме выбрать один и тот же день
-
     if (!disabledList?.length) {
         return true;
     }
