@@ -29,18 +29,12 @@ jobs:
       - uses: ./.github/actions/prepare-environment
 
       - name: Set default scope
-        if: ${{ inputs.scope != 'temple' }}
-        run: echo "SCOPE={b2c,web,core,hope,new-hope,icons,typo,tokens,tokens-b2c,tokens-b2b,tokens-web,tokens-utils,tokens-native,cy-utils,ui}" >> $GITHUB_ENV
-
-      - name: Set scope from "Plasma-temple"
-        if: ${{ inputs.scope == 'temple' }}
-        run: echo "SCOPE={b2c,web,core,hope,new-hope,icons,typo,tokens,tokens-b2c,tokens-b2b,tokens-web,tokens-utils,tokens-native,cy-utils,ui,temple}" >> $GITHUB_ENV
+        run: echo "SCOPE={b2c,web,core,hope,new-hope,icons,typo,tokens,tokens-b2c,tokens-utils,tokens-native,cy-utils,ui}" >> $GITHUB_ENV
 
       - name: Install React 17
         if:  ${{ inputs.with-react-17 }}
         run: |
           npm i --no-progress react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-ui"
-          npm i --no-progress react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-temple"
           npm i --no-progress react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-b2c"
           npm i --no-progress react@17 react-dom@17 @types/react@17.0.40 @types/react-dom@17 --prefix="./packages/plasma-web"
 

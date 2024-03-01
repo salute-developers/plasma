@@ -1,43 +1,43 @@
 {
-    "name": "@salutejs/versionate-docs",
-    "version": "0.11.0",
-    "description": "Versionate documentation action",
-    "author": "Salute Frontend Team <salute.developers@gmail.com>",
-    "license": "MIT",
-    "main": "lib/index.js",
-    "types": "lib/index.d.ts",
-    "repository": {
-        "type": "git",
-        "url": "ssh://git@github.com:salute-developers/plasma.git",
-        "directory": "actions/versionate-docs"
-    },
-    "dependencies": {
-        "@actions/core": "1.6.0",
-        "@actions/github": "5.0.0",
-        "semver": "7.3.5"
-    },
-    "devDependencies": {
-        "@types/jest": "^26.0.20",
-        "@types/semver": "7.3.9",
-        "jest": "^26.6.3",
-        "ts-jest": "^26.5.3",
-        "typescript": "4.0.8"
-    },
-    "scripts": {
-        "prepare": "npm run build",
-        "prebuild": "npm run clean",
-        "build": "tsc",
-        "clean": "rm -rf lib",
-        "test": "jest",
-        "test:watch": "jest --watch",
-        "lint": "../../node_modules/.bin/eslint ./src --ext .ts --quiet"
-    },
-    "private": true,
-    "publishConfig": {
-        "access": "restricted"
-    },
-    "files": [
-        "lib",
-        "action.yml"
-    ]
+  "name": "@salutejs/versionate-docs",
+  "version": "0.11.1-dev.0",
+  "description": "Versionate documentation action",
+  "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:salute-developers/plasma.git",
+    "directory": "actions/versionate-docs"
+  },
+  "dependencies": {
+    "@actions/core": "1.6.0",
+    "@actions/github": "5.0.0",
+    "semver": "7.3.5"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.20",
+    "@types/semver": "7.3.9",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.3",
+    "typescript": "4.0.8"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "clean": "rm -rf lib",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "../../node_modules/.bin/eslint ./src --ext .ts --quiet"
+  },
+  "private": true,
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "files": [
+    "lib",
+    "action.yml"
+  ]
 }

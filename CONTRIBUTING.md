@@ -48,7 +48,7 @@ npx lerna bootstrap
 
 ## Запуск Storybook
 
-Для разработки компонент используется `Storybook`, который запускается и собирается с помощью `Vite`. Для локальной разработки необходимо из корня проекта перейти в нужную директорию (`plasma-web`, `plasma-b2c`, `plasma-ui`, `plasma-temple`) и выполнить команду запуска:
+Для разработки компонент используется `Storybook`, который запускается и собирается с помощью `Vite`. Для локальной разработки необходимо из корня проекта перейти в нужную директорию (`plasma-web`, `plasma-b2c`, `plasma-ui`) и выполнить команду запуска:
 
 ```sh
 cd plasma-web/
@@ -75,11 +75,23 @@ npm run api:report
 // TODO: https://github.com/salute-developers/plasma/issues/438
 ```
 
-## Тесты
+## Cypress тесты
 
 Хорошим тоном является добавление новых тест-кейсов, если был обновлён / исправлен функционал компонента или его визуальная составляющая.
 
-Для этого необходимо наличие установленных приложений `Cypress` (из команды `npm ci`) и `Docker`.
+Для этого необходимо наличие установленных приложений:
+
+-   `Cypress` (из команды `npm ci`)
+-   `Docker`
+-   `chromium`
+
+#### Примечание
+
+Все UI тесты запускаются в `chromium`. Поэтому убедитесь в его локальном наличии.
+
+```bash
+brew install chromium --no-quarantine
+```
 
 На примере пакета `@salutejs/plasma-ui` работа с тестами выглядит следующим образом:
 
@@ -124,13 +136,13 @@ npm run cy:ui:open-ct
 Это поведение можно изменить указав что именно нужно запускать.
 
 ```sh
-npm run cy:ui::run-ct --components='component1, component2'
+npm run cy:ui:run-ct --components='component1, component2'
 ```
 
 или
 
 ```sh
-npm run cy:web:run-ct-update-diff --components='component1, component2'
+npm run cy:web:run-ct-update-diffs --components='component1, component2'
 ```
 
 ## Commit step

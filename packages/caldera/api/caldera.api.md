@@ -9,43 +9,44 @@
 import { addFocus } from '@salutejs/plasma-new-hope/styled-components';
 import { AnchorHTMLAttributes } from 'react';
 import type { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
-import { bodyL } from '@salutejs/plasma-new-hope';
-import { bodyLBold } from '@salutejs/plasma-new-hope';
-import { bodyM } from '@salutejs/plasma-new-hope';
-import { bodyMBold } from '@salutejs/plasma-new-hope';
-import { bodyS } from '@salutejs/plasma-new-hope';
-import { bodySBold } from '@salutejs/plasma-new-hope';
-import { bodyXS } from '@salutejs/plasma-new-hope';
-import { bodyXSBold } from '@salutejs/plasma-new-hope';
-import { bodyXXS } from '@salutejs/plasma-new-hope';
-import { bodyXXSBold } from '@salutejs/plasma-new-hope';
+import { bodyL } from '@salutejs/caldera-online-themes/tokens';
+import { bodyLBold } from '@salutejs/caldera-online-themes/tokens';
+import { bodyM } from '@salutejs/caldera-online-themes/tokens';
+import { bodyMBold } from '@salutejs/caldera-online-themes/tokens';
+import { bodyS } from '@salutejs/caldera-online-themes/tokens';
+import { bodySBold } from '@salutejs/caldera-online-themes/tokens';
+import { bodyXS } from '@salutejs/caldera-online-themes/tokens';
+import { bodyXSBold } from '@salutejs/caldera-online-themes/tokens';
+import { bodyXXS } from '@salutejs/caldera-online-themes/tokens';
+import { bodyXXSBold } from '@salutejs/caldera-online-themes/tokens';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
 import { ButtonHTMLAttributes } from 'react';
+import { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { CustomDropdownProps } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { DropdownPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { DropdownProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DropdownTrigger } from '@salutejs/plasma-new-hope/styled-components';
-import { dsplL } from '@salutejs/plasma-new-hope';
-import { dsplLBold } from '@salutejs/plasma-new-hope';
-import { dsplM } from '@salutejs/plasma-new-hope';
-import { dsplMBold } from '@salutejs/plasma-new-hope';
-import { dsplS } from '@salutejs/plasma-new-hope';
-import { dsplSBold } from '@salutejs/plasma-new-hope';
+import { dsplL } from '@salutejs/caldera-online-themes/tokens';
+import { dsplLBold } from '@salutejs/caldera-online-themes/tokens';
+import { dsplM } from '@salutejs/caldera-online-themes/tokens';
+import { dsplMBold } from '@salutejs/caldera-online-themes/tokens';
+import { dsplS } from '@salutejs/caldera-online-themes/tokens';
+import { dsplSBold } from '@salutejs/caldera-online-themes/tokens';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { FocusProps } from '@salutejs/plasma-new-hope/styled-components';
 import type { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
-import { h1 } from '@salutejs/plasma-new-hope';
-import { h1Bold } from '@salutejs/plasma-new-hope';
-import { h2 } from '@salutejs/plasma-new-hope';
-import { h2Bold } from '@salutejs/plasma-new-hope';
-import { h3 } from '@salutejs/plasma-new-hope';
-import { h3Bold } from '@salutejs/plasma-new-hope';
-import { h4 } from '@salutejs/plasma-new-hope';
-import { h4Bold } from '@salutejs/plasma-new-hope';
-import { h5 } from '@salutejs/plasma-new-hope';
-import { h5Bold } from '@salutejs/plasma-new-hope';
+import { h1 } from '@salutejs/caldera-online-themes/tokens';
+import { h1Bold } from '@salutejs/caldera-online-themes/tokens';
+import { h2 } from '@salutejs/caldera-online-themes/tokens';
+import { h2Bold } from '@salutejs/caldera-online-themes/tokens';
+import { h3 } from '@salutejs/caldera-online-themes/tokens';
+import { h3Bold } from '@salutejs/caldera-online-themes/tokens';
+import { h4 } from '@salutejs/caldera-online-themes/tokens';
+import { h4Bold } from '@salutejs/caldera-online-themes/tokens';
+import { h5 } from '@salutejs/caldera-online-themes/tokens';
+import { h5Bold } from '@salutejs/caldera-online-themes/tokens';
 import { HTMLAttributes } from 'react';
 import type { InputHTMLAttributes } from 'react';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
@@ -70,14 +71,14 @@ import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { StyledComponent } from 'styled-components';
 import { SwitchPropsVariations } from '@salutejs/plasma-new-hope/types/components/Switch/Switch.types';
-import { textL } from '@salutejs/plasma-new-hope';
-import { textLBold } from '@salutejs/plasma-new-hope';
-import { textM } from '@salutejs/plasma-new-hope';
-import { textMBold } from '@salutejs/plasma-new-hope';
-import { textS } from '@salutejs/plasma-new-hope';
-import { textSBold } from '@salutejs/plasma-new-hope';
-import { textXS } from '@salutejs/plasma-new-hope';
-import { textXSBold } from '@salutejs/plasma-new-hope';
+import { textL } from '@salutejs/caldera-online-themes/tokens';
+import { textLBold } from '@salutejs/caldera-online-themes/tokens';
+import { textM } from '@salutejs/caldera-online-themes/tokens';
+import { textMBold } from '@salutejs/caldera-online-themes/tokens';
+import { textS } from '@salutejs/caldera-online-themes/tokens';
+import { textSBold } from '@salutejs/caldera-online-themes/tokens';
+import { textXS } from '@salutejs/caldera-online-themes/tokens';
+import { textXSBold } from '@salutejs/caldera-online-themes/tokens';
 import { ToastPosition } from '@salutejs/plasma-new-hope/styled-components';
 import { ToastProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ToastRole } from '@salutejs/plasma-new-hope/styled-components';
@@ -155,8 +156,8 @@ export { bodyXXSBold }
 // @public
 export const Button: FunctionComponent<PropsType<    {
 view: {
-default: string;
 primary: string;
+accent: string;
 secondary: string;
 clear: string;
 success: string;
@@ -180,19 +181,12 @@ true: string;
 focused: {
 true: string;
 };
-}> & ButtonHTMLAttributes<HTMLButtonElement> & {
-text?: string | undefined;
-contentLeft?: ReactNode;
-contentRight?: ReactNode;
-isLoading?: boolean | undefined;
-loader?: ReactNode;
-stretch?: boolean | undefined;
-square?: boolean | undefined;
-focused?: boolean | undefined;
-pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
-view?: string | undefined;
-size?: string | undefined;
-} & RefAttributes<HTMLButtonElement>>;
+stretching: {
+auto: string;
+filled: string;
+fixed: string;
+};
+}> & ButtonProps_2<HTMLElement> & RefAttributes<HTMLButtonElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "ButtonComponent" needs to be exported by the entry point index.d.ts
 //
@@ -479,7 +473,9 @@ view?: string | undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 width: number;
 height: number;
-size?: undefined;
+size?: undefined; /**
+* @deprecated
+*/
 view?: string | undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 width: string;

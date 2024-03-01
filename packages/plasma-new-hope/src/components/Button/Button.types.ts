@@ -1,6 +1,10 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react';
 
 import type { Pin } from '../../utils/roundness';
+import { Blur } from '../../mixins';
+import type { AsProps } from '../../types';
+
+type Stretching = 'fixed' | 'filled' | 'auto';
 
 type CustomButtonProps = {
     /**
@@ -25,8 +29,19 @@ type CustomButtonProps = {
     loader?: ReactNode;
     /**
      * Кнопка растягивается на всю доступную ширину
+     * @deprecated
+     * Использовать stretching
      */
     stretch?: boolean;
+    /**
+     * Ширина кнопки
+     * @description
+     * Может принимать три значения:
+     * fixed - кнопка фиксированной ширины;
+     * filled - кнопка занимает всю доступную ширину
+     * auto - кнопка растягивается в зависимости от контента
+     */
+    stretching?: Stretching;
     /**
      * Кнопка принимает соотношение сторон 1:1
      */
@@ -35,6 +50,10 @@ type CustomButtonProps = {
      * Кнопка сфокусирована
      */
     focused?: boolean;
+    /**
+     * кнопка неактивна
+     */
+    disabled?: boolean;
     /**
      * Свойство задает скругление border-radius
      */
@@ -47,6 +66,32 @@ type CustomButtonProps = {
      * Размер кнопки
      */
     size?: string;
+    /**
+     * Добавить рамку при фокусе
+     * @deprecated
+     * использовать focused
+     */
+    outlined?: boolean;
+    /**
+     * Отрицательный сдвиг влево на величину, равную паддингу компонента
+     * @deprecated
+     */
+    shiftLeft?: boolean;
+    /**
+     * Отрицательный сдвиг вправо на величину, равную паддингу компонента
+     * @deprecated
+     */
+    shiftRight?: boolean;
+    /**
+     * Степень размытия фона
+     * @deprecated
+     * для кнопок без прозрачности не работает
+     */
+    blur?: Blur;
 };
 
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & CustomButtonProps;
+export interface ButtonProps<T = HTMLElement>
+    extends ButtonHTMLAttributes<T>,
+        Omit<AnchorHTMLAttributes<T>, 'type'>,
+        AsProps,
+        CustomButtonProps {}

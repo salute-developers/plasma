@@ -25,6 +25,8 @@ const optionalPluginOptions = t.partial({
     group: t.string,
     /** Compact view for PRs comment */
     compact: t.boolean,
+    /** which packages assets to attach  */
+    uploadAssetsTargets: t.array(t.string),
 });
 
 const pluginOptions = t.intersection([requiredPluginOptions, optionalPluginOptions]);
@@ -45,6 +47,7 @@ export default class UploadAssetsExtendPlugin extends UploadAssetsPlugin impleme
         super(options);
 
         const normalizedOptions = normalizeOptions(options);
+
         this.options = {
             ...normalizedOptions,
             maxCanaryAssets: normalizedOptions.maxCanaryAssets || 300,
@@ -53,12 +56,13 @@ export default class UploadAssetsExtendPlugin extends UploadAssetsPlugin impleme
             includeBotPrs: normalizedOptions.includeBotPrs === undefined ? true : normalizedOptions.includeBotPrs,
             group: normalizedOptions.group || '',
             compact: normalizedOptions.compact || false,
+            uploadAssetsTargets: normalizedOptions.uploadAssetsTargets || ['@salutejs/plasma-tokens'],
         };
     }
 
     // @ts-ignore
     apply(auto: Auto) {
-        const { headerMessage, filter, includeBotPrs, group, compact } = this.options;
+        const { headerMessage, filter, includeBotPrs, group, compact, uploadAssetsTargets } = this.options;
 
         auto.hooks.validateConfig.tapPromise(this.name, async (name, options) => {
             if (name === this.name || name === `@auto-it/${this.name}`) {
@@ -109,8 +113,21 @@ export default class UploadAssetsExtendPlugin extends UploadAssetsPlugin impleme
                 return;
             }
 
+            let releases = response;
+
+            if (uploadAssetsTargets.length && Array.isArray(response)) {
+                releases = response.filter((releaseData: any) => {
+                    // name ==> @salutejs/plasma-tokens@1.72.0
+                    // after split ==> ['', 'salutejs/plasma-tokens', '1.72.0']
+                    const [, name, version] = releaseData.data.name.split('@');
+
+                    return uploadAssetsTargets.includes(`@${name}`);
+                });
+            }
+
             // @ts-ignore
-            await this.uploadAssets(auto, response);
+            await this.uploadAssets(auto, releases);
+
             // @ts-ignore
             await this.cleanupCanaryAssets(auto);
         });

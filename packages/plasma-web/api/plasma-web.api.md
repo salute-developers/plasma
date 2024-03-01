@@ -26,6 +26,7 @@ import { arrayItemRemoving } from '@salutejs/plasma-hope';
 import { arrayItemSelecting } from '@salutejs/plasma-hope';
 import { arrayItemSwapping } from '@salutejs/plasma-hope';
 import { AsProps } from '@salutejs/plasma-core';
+import { AsProps as AsProps_2 } from '@salutejs/plasma-new-hope/types/types';
 import { AudioPlayer } from '@salutejs/plasma-hope';
 import { AudioPlayerProps } from '@salutejs/plasma-hope';
 import { AvatarGroupProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -37,10 +38,9 @@ import { blurs } from '@salutejs/plasma-core';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
 import { Breakpoint } from '@salutejs/plasma-hope';
 import { BreakWordProps } from '@salutejs/plasma-core';
+import { ButtonGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonHTMLAttributes } from 'react';
-import { ButtonProps } from '@salutejs/plasma-hope';
-import { ButtonView } from '@salutejs/plasma-hope';
-import { buttonViews } from '@salutejs/plasma-hope';
+import { ButtonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { Calendar as Calendar_2 } from '@salutejs/plasma-new-hope/types/components/Calendar/Calendar.types';
 import { CalendarBaseProps } from '@salutejs/plasma-new-hope/styled-components';
 import { CalendarDoubleProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -67,6 +67,7 @@ import { CellProps } from '@salutejs/plasma-hope';
 import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { clearSelection } from '@salutejs/plasma-hope';
 import { closeNotification } from '@salutejs/plasma-new-hope/styled-components';
+import { ClosePlacementType } from '@salutejs/plasma-new-hope/styled-components';
 import { Col } from '@salutejs/plasma-hope';
 import { ColCount } from '@salutejs/plasma-hope';
 import { ColOffsetProps } from '@salutejs/plasma-hope';
@@ -85,6 +86,10 @@ import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/P
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { defaultValidate } from '@salutejs/plasma-hope';
 import { DisabledProps } from '@salutejs/plasma-core';
+import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DrawerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { Dropdown } from '@salutejs/plasma-hope';
 import { DropdownItem } from '@salutejs/plasma-hope';
 import { DropdownItemProps } from '@salutejs/plasma-hope';
@@ -113,6 +118,7 @@ import { gridSizes } from '@salutejs/plasma-hope';
 import { HTMLAttributes } from 'react';
 import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImgHTMLAttributes } from 'react';
+import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
 import { JSXElementConstructor } from 'react';
 import { LineSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -142,6 +148,7 @@ import { padZeroNumber } from '@salutejs/plasma-core';
 import { PaginationDot } from '@salutejs/plasma-hope';
 import { PaginationDotProps } from '@salutejs/plasma-hope';
 import { PaginationDots } from '@salutejs/plasma-hope';
+import { PanelProps } from '@salutejs/plasma-new-hope/types/components/Panel';
 import { PickOptional } from '@salutejs/plasma-core';
 import { PinProps } from '@salutejs/plasma-core';
 import { PopoverPlacement } from '@salutejs/plasma-new-hope/styled-components';
@@ -173,6 +180,7 @@ import { ReactPortal } from 'react';
 import { RectSkeleton } from '@salutejs/plasma-new-hope/styled-components';
 import { RectSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { RefAttributes } from 'react';
+import { RefObject } from 'react';
 import { Roundness } from '@salutejs/plasma-core';
 import { RoundnessProps } from '@salutejs/plasma-core';
 import { Row } from '@salutejs/plasma-hope';
@@ -437,7 +445,39 @@ export { Breakpoint }
 export { BreakWordProps }
 
 // @public
-export const Button: React_2.ForwardRefExoticComponent<ButtonProps & React_2.RefAttributes<HTMLButtonElement>>;
+export const Button: FunctionComponent<PropsType<    {
+view: {
+primary: string;
+accent: string;
+secondary: string;
+clear: string;
+success: string;
+warning: string;
+critical: string;
+};
+size: {
+l: string;
+lr: string;
+m: string;
+mr: string;
+s: string;
+sr: string;
+xs: string;
+xsr: string;
+xxs: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+stretching: {
+auto: string;
+filled: string;
+fixed: string;
+};
+}> & ButtonProps<HTMLElement> & RefAttributes<HTMLButtonElement>>;
 
 // @public (undocumented)
 export const Button1: FunctionComponent<PropsType<    {
@@ -453,11 +493,50 @@ button2: string;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
+// @public
+export const ButtonGroup: FunctionComponent<PropsType<    {
+view: {
+primary: string;
+accent: string;
+secondary: string;
+clear: string;
+success: string;
+warning: string;
+critical: string;
+};
+size: {
+l: string;
+lr: string;
+m: string;
+mr: string;
+s: string;
+sr: string;
+xs: string;
+xsr: string;
+xxs: string;
+};
+orientation: {
+horizontal: string;
+vertical: string;
+};
+gap: {
+none: string;
+dense: string;
+wide: string;
+};
+shape: {
+segmented: string;
+default: string;
+};
+stretching: {
+auto: string;
+filled: string;
+};
+}> & ButtonGroupProps & RefAttributes<HTMLDivElement>>;
+
+export { ButtonGroupProps }
+
 export { ButtonProps }
-
-export { ButtonView }
-
-export { buttonViews }
 
 // @public (undocumented)
 export const Calendar: FC<CalendarProps>;
@@ -594,8 +673,8 @@ contentRight?: ReactNode;
 contentClearButton?: ReactNode;
 disabled?: boolean | undefined;
 readOnly?: boolean | undefined;
-size?: "m" | "s" | "l" | "xs" | undefined;
-view?: "secondary" | "default" | "positive" | undefined;
+size?: "m" | "s" | "xs" | "l" | undefined;
+view?: "default" | "secondary" | "positive" | undefined;
 onClear?: (() => void) | undefined;
 } & {
 children?: ReactNode;
@@ -606,6 +685,8 @@ export { ChipProps }
 export { clearSelection }
 
 export { closeNotification }
+
+export { ClosePlacementType }
 
 export { Col }
 
@@ -628,11 +709,11 @@ l: string;
 view: {
 default: string;
 };
-}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "checked" | "type" | "target" | "onChange" | "value" | "minLength" | "maxLength"> & CustomComboboxProps & {
+}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "target" | "onChange" | "size" | "value" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
 valueType?: "single" | undefined;
 value?: ComboboxPrimitiveValue | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue | undefined) => void) | undefined;
-} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "checked" | "type" | "target" | "onChange" | "value" | "minLength" | "maxLength"> & CustomComboboxProps & {
+} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "target" | "onChange" | "size" | "value" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
 valueType: "multiple";
 value?: ComboboxPrimitiveValue[] | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue[] | undefined) => void) | undefined;
@@ -726,6 +807,58 @@ export { counterTokens }
 export { defaultValidate }
 
 export { DisabledProps }
+
+// @public
+export const Drawer: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+m: string;
+};
+borderRadius: {
+none: string;
+default: string;
+};
+}> & PopupBaseProps & PanelProps & {
+placement?: "top" | "bottom" | "right" | "left" | undefined;
+asModal?: boolean | undefined;
+withBlur?: boolean | undefined;
+closeOnEsc?: boolean | undefined;
+closeOnOverlayClick?: boolean | undefined;
+onEscKeyDown?: ((event: KeyboardEvent) => void) | undefined;
+onOverlayClick?: ((event: MouseEvent_2<HTMLDivElement, MouseEvent>) => void) | undefined;
+initialFocusRef?: RefObject<HTMLElement> | undefined;
+focusAfterRef?: RefObject<HTMLElement> | undefined;
+onClose?: (() => void) | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public
+export const DrawerContent: FunctionComponent<PropsType<Variants> & {
+view?: string | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+
+export { DrawerContentProps }
+
+// @public
+export const DrawerFooter: FunctionComponent<PropsType<Variants> & {
+view?: string | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+
+export { DrawerFooterProps }
+
+// @public
+export const DrawerHeader: FunctionComponent<PropsType<Variants> & {
+hasClose?: boolean | undefined;
+closePlacement?: "right" | "left" | undefined;
+actions?: ReactNode;
+onClose?: (() => void) | undefined;
+view?: string | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+
+export { DrawerHeaderProps }
+
+export { DrawerProps }
 
 export { Dropdown }
 
@@ -900,6 +1033,30 @@ customRatio?: string | undefined;
 export { Image_2 as Image }
 
 export { ImageProps }
+
+// @public (undocumented)
+export const Indicator: FunctionComponent<PropsType<    {
+view: {
+default: string;
+accent: string;
+inactive: string;
+positive: string;
+warning: string;
+negative: string;
+black: string;
+white: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+size: "m" | "s" | "l";
+view: "accent" | "default" | "warning" | "positive" | "negative" | "inactive" | "black" | "white";
+} & RefAttributes<HTMLDivElement>>;
+
+export { IndicatorProps }
 
 export { InputHTMLAttributes }
 
@@ -1320,7 +1477,7 @@ export { TabItemProps }
 export { TabItemRefs }
 
 // @public
-export const Tabs: ForwardRefExoticComponent<AsProps<any> & HTMLAttributes<HTMLDivElement> & {
+export const Tabs: ForwardRefExoticComponent<AsProps_2<any> & HTMLAttributes<HTMLDivElement> & {
     disabled?: boolean | undefined;
     stretch?: boolean | undefined;
     pilled?: boolean | undefined;

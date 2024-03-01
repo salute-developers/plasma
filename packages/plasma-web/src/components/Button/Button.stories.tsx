@@ -1,22 +1,24 @@
-import React, { useCallback, useState, useRef } from 'react';
+import React, { useState, useCallback, useRef, ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { IconPlaceholder, disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
-import { IconPlaceholder, disableProps, InSpacingDecorator } from '../../helpers';
+import { Button } from './Button';
 
-import { Button } from '.';
-import type { ButtonProps } from '.';
+type StoryButtonProps = ComponentProps<typeof Button> & { contentType: string; isLoading: boolean };
 
-const views = ['primary', 'secondary', 'success', 'warning', 'critical', 'checked', 'clear'];
+const views = ['accent', 'primary', 'secondary', 'success', 'warning', 'critical', 'clear'];
 const sizes = ['l', 'm', 's', 'xs', 'xxs'];
+const stretching = ['auto', 'filled', 'fixed'];
 const pins = [
     'square-square',
-    'circle-circle',
-    'circle-clear',
-    'clear-circle',
-    'clear-clear',
     'square-clear',
     'clear-square',
+    'clear-clear',
+    'clear-circle',
+    'circle-clear',
+    'circle-circle',
+    '',
 ];
 
 const contentTypes = ['Text', 'Text+Left', 'Text+Right', 'Left'];
@@ -25,22 +27,22 @@ const onClick = action('onClick');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-type StoryButtonProps = ButtonProps & { contentType: string; isLoading?: boolean };
+const iconSize = {
+    l: 's',
+    m: 's',
+    s: 's',
+    xs: 'xs',
+    xxs: 'xs',
+};
 
 const meta: Meta<StoryButtonProps> = {
     title: 'Controls/Button',
-    component: Button,
     decorators: [InSpacingDecorator],
     argTypes: {
         contentType: {
             options: contentTypes,
             control: {
                 type: 'select',
-            },
-        },
-        text: {
-            control: {
-                type: 'text',
             },
         },
         size: {
@@ -61,18 +63,13 @@ const meta: Meta<StoryButtonProps> = {
                 type: 'select',
             },
         },
-        ...disableProps([
-            'theme',
-            'as',
-            'forwardedAs',
-            'contentLeft',
-            'contentRight',
-            'shiftLeft',
-            'shiftRight',
-            'blur',
-            'stretch',
-            'square',
-        ]),
+        stretching: {
+            options: stretching,
+            control: {
+                type: 'select',
+            },
+        },
+        ...disableProps(['theme', 'loader', 'onClick', 'onFocus', 'onBlur', 'contentLeft', 'contentRight']),
     },
 };
 
@@ -84,25 +81,17 @@ const StoryBaseButton: Story = {
     args: {
         view: 'primary',
         size: 'l',
-        pin: 'square-square',
         disabled: false,
-        outlined: true,
-        focused: false,
         text: 'Label',
         contentType: 'Text',
         isLoading: false,
+        focused: true,
+        square: false,
+        stretching: 'auto',
         onClick,
         onFocus,
         onBlur,
     },
-};
-
-const iconSize = {
-    l: 's',
-    m: 's',
-    s: 's',
-    xs: 'xs',
-    xxs: 'xs',
 };
 
 export const Default: Story = {
@@ -110,7 +99,6 @@ export const Default: Story = {
     render: ({ contentType, text, ...rest }) => {
         return (
             <Button
-                autoFocus
                 text={contentType !== 'Left' && text}
                 contentLeft={
                     (contentType === 'Left' || contentType === 'Text+Left') && (

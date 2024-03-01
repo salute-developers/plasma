@@ -1,18 +1,14 @@
 import React from 'react';
 import type { Decorator } from '@storybook/react';
 import { createGlobalStyle } from 'styled-components';
-import { caldera__light, caldera__dark } from '@salutejs/plasma-tokens';
-import { standard as standardTypo, compatible as compatibleTypo } from '@salutejs/plasma-typo';
-
-/* stylelint-disable */
-const TypoStyle = createGlobalStyle(standardTypo);
-const CompatibleTypoStyle = createGlobalStyle(compatibleTypo);
+import { caldera__light, caldera__dark } from '@salutejs/caldera-online-themes';
 
 const DocumentStyle = createGlobalStyle`
     html:root {
         min-height: 100vh;
         background-color: var(--surface-solid-primary);
     }
+
     a {
         color: var(--text-primary);
         text-decoration: underline;
@@ -20,6 +16,7 @@ const DocumentStyle = createGlobalStyle`
         &:hover {
             color: lighten(var(--text-primary), 30%);
         }
+
         &:active {
             color: darken(var(--text-primary), 30%);
         }
@@ -42,8 +39,6 @@ export const withTheme: Decorator = (Story, context) => {
 
     return (
         <>
-            <TypoStyle />
-            <CompatibleTypoStyle />
             <Theme />
             <DocumentStyle />
             <Story {...context} />

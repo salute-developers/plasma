@@ -118,15 +118,6 @@ const products = [
             { text: 'Сторибук', href: `${basePath}/ui-storybook/` },
         ],
     },
-    {
-        title: 'Canvas Temple',
-        name: '@salutejs/plasma-temple',
-        support: 'https://t.me/+cd3wk0JEA90zMzI6',
-        links: [
-            { text: 'Документация', href: `${basePath}/temple/` },
-            { text: 'Сторибук', href: `${basePath}/temple-storybook/` },
-        ],
-    },
 ];
 
 const siteName = 'Плазма';

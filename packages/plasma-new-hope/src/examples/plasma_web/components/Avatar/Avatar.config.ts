@@ -12,7 +12,7 @@ export const config = {
             default: css`
                 ${tokens.color}: var(--text-accent-gradient);
                 // TODO: #1005 заменить на токен
-                ${tokens.backgroundColor}: linear-gradient(94deg, rgba(62, 121, 240, 0.20) 6.49%, rgba(39, 198, 229, 0.20) 93.51%);
+                ${tokens.backgroundColor}: linear-gradient(94deg, rgba(62, 121, 240, 0.2) 6.49%, rgba(39, 198, 229, 0.2) 93.51%);
                 ${tokens.statusOnlineColor}: var(--surface-positive);
                 ${tokens.statusOfflineColor}: var(--surface-solid-tertiary);
                 ${tokens.scaleHover}: 1.02;
@@ -58,7 +58,7 @@ export const config = {
         focused: {
             true: css`
                 ${tokens.outlineSize}: 0.1rem;
-                ${tokens.outlineOffset}: 0.2rem;
+                ${tokens.outlineOffset}: -0.2rem;
                 ${tokens.outlineColor}: var(--surface-accent);
             `,
         },

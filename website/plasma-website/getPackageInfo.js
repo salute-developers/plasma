@@ -29,5 +29,4 @@ module.exports = {
     '@salutejs/plasma-b2c': getLatestReleaseVersion('plasma-b2c'),
     '@salutejs/plasma-web': getLatestReleaseVersion('plasma-web'),
     '@salutejs/plasma-ui': getLatestReleaseVersion('plasma-ui'),
-    '@salutejs/plasma-temple': getLatestReleaseVersion('plasma-temple'),
 };

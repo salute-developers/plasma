@@ -3,6 +3,6 @@ import { avatarConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/
 import { config } from './Avatar.config';
 
 const mergedConfig = mergeConfig(avatarConfig, config);
-const AvatarComponent = component(mergedConfig);
+const Avatar = component(mergedConfig);
 
-export { AvatarComponent as Avatar, mergedConfig };
+export { Avatar, mergedConfig };

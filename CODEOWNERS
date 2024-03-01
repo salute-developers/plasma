@@ -4,7 +4,6 @@
 # review when someone opens a pull request.
 * @Yeti-or @neretin-trike @Yakutoc @kayman233
 
-/packages/plasma-basic-template @LamaEats
-/packages/plasma-temple @LamaEats
-/packages/plasma-shop-template @LamaEats
-/actions/platform-test @LamaEats
+native/* @malilex @Yeti-or
+
+.github/* @Yakutoc @Yeti-or @malilex

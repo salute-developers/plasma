@@ -2,8 +2,14 @@ import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
 import { applyEllipsis } from '../../mixins';
+import { component, mergeConfig } from '../../engines';
+import { spinnerConfig, spinnerTokens } from '../Spinner';
 
 import { classes, tokens } from './Button.tokens';
+
+// issue #823
+const mergedConfig = mergeConfig(spinnerConfig);
+const Spinner = component(mergedConfig);
 
 export const base = css`
     position: relative;
@@ -17,23 +23,23 @@ export const base = css`
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
+    a& {
+        text-decoration: none;
+    }
+
     /* NOTE: 
         --plasma_computed-btn-br-radius is defined in Button.tsx
     */
     --plasma_private-btn-br: var(--plasma_computed-btn-br);
-    border-radius: var(--plasma-button-radius, var(--plasma_private-btn-br));
+    border-radius: var(--plasma_private-btn-br);
 
     &:before {
         border-radius: calc(var(--plasma_private-btn-br) + var(--plasma_private-btn-outline-size));
     }
 
-    &.${String(classes.buttonSquare)} {
+    &&.${String(classes.buttonSquare)} {
         width: var(${tokens.buttonHeight});
         padding: 0;
-    }
-
-    &.${String(classes.buttonStretch)} {
-        width: 100%;
     }
 `;
 
@@ -64,4 +70,9 @@ export const LoadWrap = styled.div<{ isLoading?: boolean }>`
 
 export const Loader = styled.div`
     position: absolute;
+`;
+
+export const StyledSpinner = styled(Spinner)`
+    ${spinnerTokens.size}: var(${tokens.buttonSpinnerSize});
+    ${spinnerTokens.color}: var(${tokens.buttonSpinnerColor});
 `;
