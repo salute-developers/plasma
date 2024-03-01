@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/versionate-docs",
-  "version": "0.11.1-dev.0",
+  "version": "0.12.0",
   "description": "Versionate documentation action",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
