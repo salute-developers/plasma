@@ -12,7 +12,9 @@ import { base as disabled } from './_disabled/base';
 import { base as labelPlacement } from './_label-placement/base';
 import { Input, LeftHelper, Label, InputWrapper, InputLabelWrapper } from './TextField.styles';
 
-const base = css``;
+const base = css`
+    display: block;
+`;
 
 export const textFieldRoot = (
     Root: RootProps<HTMLInputElement, TextFieldProps & LabelHTMLAttributes<HTMLLabelElement>>,
