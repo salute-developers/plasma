@@ -89,7 +89,7 @@ jobs:
               enumeration.push('plasma-website');
             }
             
-            if(enumeration.includes('plasma-website') && !enumeration.includes('plasma-b2c')) {
+            if (enumeration.includes('plasma-website') && !enumeration.includes('plasma-b2c')) {
               enumeration.push('plasma-b2c');
             }
             
@@ -97,10 +97,6 @@ jobs:
               enumeration.push('plasma-web');
             }
 
-            if(!enumeration.includes('plasma-typo')) {
-              enumeration.push('plasma-typo');
-            }
-            
             if (!enumeration.includes('plasma-typo')) {
               enumeration.push('plasma-typo');
             }
@@ -134,6 +130,14 @@ jobs:
           npm run build --prefix="./website/plasma-web-docs"
           cp -R ./website/plasma-web-docs/build ./s3_build/${PR_NAME}/web
           
+      - name: Plasma SDDS-SERV Docs
+        if: ${{ needs.scope.outputs.HAS_SDDS_SERV == 'true' }}
+        run: |
+          if [ -d "./website/sdds-serv-docs" ]; then
+             npm run build --prefix="./website/sdds-serv-docs"
+             cp -R ./website/sdds-serv-docs/build ./s3_build/${PR_NAME}/sdds-serv
+          fi
+      
       - name: Plasma UI Storybook
         if: ${{ needs.scope.outputs.HAS_PLASMA_UI == 'true' }}
         run: |
