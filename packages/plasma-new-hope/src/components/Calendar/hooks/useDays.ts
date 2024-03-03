@@ -8,7 +8,7 @@ import {
     getOffsetDayInWeek,
     getPrevDate,
     IsCurrentDay,
-    isDayInRage,
+    isDayInRange,
     isSelectedDay,
 } from '../utils';
 import type { CalendarValueType, DateItem, DateObject, DisabledDay, EventDay } from '../Calendar.types';
@@ -25,7 +25,7 @@ const getDaysInPrevMonth = (date: DateObject, offsetDayInWeek: number, value: Ca
         isSelected: false,
         isDayInCurrentMonth: false,
         inRange: Array.isArray(value)
-            ? isDayInRage(prevYear, prevMonth, daysInPrevMonth - (offsetDayInWeek - i) + 1, value)
+            ? isDayInRange(prevYear, prevMonth, daysInPrevMonth - (offsetDayInWeek - i) + 1, value)
             : false,
         date: {
             day: daysInPrevMonth - (offsetDayInWeek - i) + 1,
@@ -45,7 +45,7 @@ const getDaysInCurrentMonth = (date: DateObject, daysInMonth: number, value: Cal
             ? Boolean(value.find((v) => isSelectedDay(date, i + 1, v)))
             : isSelectedDay(date, i + 1, value),
         isDayInCurrentMonth: true,
-        inRange: Array.isArray(value) ? isDayInRage(date.year, date.monthIndex, i + 1, value) : false,
+        inRange: Array.isArray(value) ? isDayInRange(date.year, date.monthIndex, i + 1, value) : false,
         date: {
             day: i + 1,
             monthIndex: date.monthIndex,
@@ -71,7 +71,7 @@ const getDaysInNextMonth = (
         isCurrent: false,
         isSelected: false,
         isDayInCurrentMonth: false,
-        inRange: Array.isArray(value) ? isDayInRage(nextYear, nextMonthIndex, i + 1, value) : false,
+        inRange: Array.isArray(value) ? isDayInRange(nextYear, nextMonthIndex, i + 1, value) : false,
         date: {
             day: i + 1,
             monthIndex: nextMonthIndex,
