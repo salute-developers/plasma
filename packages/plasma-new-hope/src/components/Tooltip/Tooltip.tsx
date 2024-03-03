@@ -52,6 +52,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 size,
                 contentLeft,
                 zIndex = '9200',
+                className,
                 ...rest
             },
             outerRef,
@@ -86,7 +87,9 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                     aria-hidden={!isOpen}
                     aria-live="polite"
                     role="tooltip"
-                    className={cx(ref?.classList.toString())} // INFO: Прокидываем стили для Popover из Root Tooltip-а
+                    className={cx(ref?.classList.toString(), className)}
+                    // INFO: Прокидываем стили для Popover из Root Tooltip-а
+
                     {...rest}
                 >
                     <Root view={view} size={size} ref={setRef}>
