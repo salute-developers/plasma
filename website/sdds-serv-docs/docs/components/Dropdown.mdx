@@ -8,13 +8,73 @@ import { PropsTable, Description } from '@site/src/components';
 # Dropdown
 Набор компонентов для создания выпадающих списков. 
 
-Обладают возможностью управления с клавиатуры (только 1‑й уровень).
-
-## Dropdown
 <Description name="Dropdown" />
-<PropsTable name="Dropdown" />
+<PropsTable name="Dropdown" exclude={['css']} />
+
+# DropdownItem
+
+<Description name="DropdownItem" />
+<PropsTable name="DropdownItem" exclude={['css']} />
 
 ## Использование
-Перед использованием выпадающих списков необходимо создать массив с элементами `items: DropdownItemType[]`.
 
-Каждый элемент в списке компонента `Dropdown` может иметь надпись, иконку и цвет. Значение поля `value` должно быть уникальным:
+```tsx live
+import React, { useState } from 'react';
+import { Dropdown, DropdownItem } from '@salutejs/sdds-serv';
+import { surfaceSolidSecondary } from '@salutejs/sdds-themes';
+
+export function App() {
+    const [selected, setSelected] = useState('');
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleSelect = (value: string, text: string) => {
+        setSelected(value);
+        setIsOpen(false);
+    };
+
+    const getDropdownItems = (slug: string, elemCount: number) =>
+    [...Array(elemCount).keys()].map((num) => ({
+        value: `${slug}_${num}`,
+        child: `${slug} ${num}`,
+    }));
+
+    return (
+        <div style={{height: "400px", background: surfaceSolidSecondary, padding: "1rem" }}>
+            <Dropdown
+                    target={<Button>Target</Button>}
+                    isOpen={isOpen}
+                    onToggle={() => {
+                        setIsOpen(!isOpen);
+                    }}
+                    offset={[10, 15]}
+                    view="primary"
+                    size="m"
+                    placement="right"
+                    trigger="click"
+                    closeOnOverlayClick={false}
+                    closeOnEsc
+                    isFocusTrapped
+                >
+                    {getDropdownItems('item', 6).map((item) => (
+                        <DropdownItem
+                            key={item.value}
+                            isSelected={Boolean(item.value === selected)}
+                            onSelect={() => handleSelect(item.value, item.child)}
+                            value={item.value}
+                        >
+                            {item.child}
+                        </DropdownItem>
+                    ))}
+                    <DropdownItem
+                        isSelected={selected === 'disabled'}
+                        onSelect={() => handleSelect('disabled', 'disabled')}
+                        value="disabled"
+                        disabled
+                    >
+                        disabled
+                    </DropdownItem>
+                </Dropdown>
+            </div>
+    );
+}
+```
