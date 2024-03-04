@@ -10,15 +10,13 @@ const comment: Record<keyof TokensByType, string> = {
 };
 
 export const getTextPrimaryTokens = (config: ThemeConfig) => {
-    const {
-        opacity: { textIcons: opacity },
-        grayscale,
-    } = config;
-    const opacityValue = opacity ? 0.96 : null;
+    const { grayscale } = config;
+
+    const opacityValue = 0.96;
 
     const darkValue = getGreyTokenData({ saturation: 100, grayscale: grayscale.dark, opacity: opacityValue });
     const lightValue = getGreyTokenData({
-        saturation: opacity ? 1000 : 950,
+        saturation: 1000,
         grayscale: grayscale.light,
         opacity: opacityValue,
     });

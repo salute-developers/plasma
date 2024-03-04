@@ -149,10 +149,6 @@ export interface ThemeConfig {
         light: Grayscale;
         dark: Grayscale;
     };
-    opacity: {
-        textIcons: boolean;
-        surfaces: boolean;
-    };
 }
 
 export type TextIconsTokenName =

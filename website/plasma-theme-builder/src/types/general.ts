@@ -20,8 +20,6 @@ export interface ThemeData {
     darkSaturations: PlasmaSaturation;
     lightGrayscale: Grayscale;
     darkGrayscale: Grayscale;
-    opacityIcons: boolean;
-    opacitySurfaces: boolean;
 }
 
 export interface MultiplatformValue {

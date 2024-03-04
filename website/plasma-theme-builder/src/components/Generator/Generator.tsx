@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import styled from 'styled-components';
-import { Button, Select, Switch, TextField } from '@salutejs/plasma-b2c';
+import { Button, Select, TextField } from '@salutejs/plasma-b2c';
 import { Grayscale } from '@salutejs/plasma-tokens-utils';
 
 import { FormField } from '../FormField/FormField';
@@ -89,8 +89,6 @@ export const Generator = ({ onPreviewTheme, onMain }: GeneratorProps) => {
         darkSaturations: getSaturations()[0].value,
         lightGrayscale: getGrayscale()[0].value,
         darkGrayscale: getGrayscale()[0].value,
-        opacityIcons: false,
-        opacitySurfaces: true,
     });
 
     const onBackwardClick = useCallback(() => {
@@ -123,33 +121,12 @@ export const Generator = ({ onPreviewTheme, onMain }: GeneratorProps) => {
         [],
     );
 
-    const onChangeSwitch = useCallback(
-        (name: string) => (arg: any) => {
-            const value = arg.target.checked;
-
-            setData((prevState) => ({
-                ...prevState,
-                [name]: value,
-            }));
-        },
-        [],
-    );
-
     const onSubmit = useCallback((event: React.SyntheticEvent) => {
         event.preventDefault();
     }, []);
 
     const onGenerateTheme = useCallback(() => {
-        const {
-            themeName,
-            accentColors,
-            lightSaturations,
-            darkSaturations,
-            lightGrayscale,
-            darkGrayscale,
-            opacityIcons,
-            opacitySurfaces,
-        } = data;
+        const { themeName, accentColors, lightSaturations, darkSaturations, lightGrayscale, darkGrayscale } = data;
 
         if (savedThemes.some((savedTheme) => themeName === savedTheme.value)) {
             setInputState({
@@ -177,10 +154,6 @@ export const Generator = ({ onPreviewTheme, onMain }: GeneratorProps) => {
             grayscale: {
                 light: lightGrayscale,
                 dark: darkGrayscale,
-            },
-            opacity: {
-                textIcons: opacityIcons,
-                surfaces: opacitySurfaces,
             },
         });
 
@@ -287,9 +260,6 @@ export const Generator = ({ onPreviewTheme, onMain }: GeneratorProps) => {
                         items={grayscale}
                         onChange={onChangeSelect('darkGrayscale')}
                     />
-                </FormField>
-                <FormField label="Текст и иконки с прозрачностью">
-                    <Switch checked={data.opacityIcons} onChange={onChangeSwitch('opacityIcons')} />
                 </FormField>
                 <StyledButtons>
                     <StyledButton text="Сгенеририовать тему" view="primary" onClick={onGenerateTheme} />

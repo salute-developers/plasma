@@ -15,10 +15,6 @@ const defaultConfig: ThemeConfig = {
         dark: Grayscale.coolGray,
         light: Grayscale.coolGray,
     },
-    opacity: {
-        textIcons: false,
-        surfaces: true,
-    },
 };
 
 export const useDefaultThemeData = () => {
