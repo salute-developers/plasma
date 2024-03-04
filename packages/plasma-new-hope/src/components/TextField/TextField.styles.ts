@@ -1,5 +1,7 @@
 import { styled } from '@linaria/react';
 
+import { applyEllipsis } from '../../mixins';
+
 export const Input = styled.input`
     box-sizing: border-box;
     appearance: none;
@@ -7,6 +9,8 @@ export const Input = styled.input`
     padding: 0;
     background-color: transparent;
     outline: none;
+
+    ${applyEllipsis()};
 `;
 
 export const InputLabelWrapper = styled.div`
