@@ -9,20 +9,8 @@ import { getTextPrimaryTokens } from './getTextPrimaryTokens';
 import { getTextSecondaryTokens } from './getTextSecondaryTokens';
 import { getTextTertiaryTokens } from './getTextTertiaryTokens';
 import { getTextWarningTokens } from './getTextWarningTokens';
-import { getTextTransparentAccentTokens } from './getTextTransparentAccentTokens';
-import { getTextTransparentAccentGradientTokens } from './getTextTransparentAccentGradientTokens';
-import { getTextTransparentNegativeTokens } from './getTextTransparentNegativeTokens';
-import { getTextTransparentPositiveTokens } from './getTextTransparentPositiveTokens';
-import { getTextTransparentWarningTokens } from './getTextTransparentWarningTokens';
 
-// TODO: Удалить после релиза пакета plasma-tokens-utils
-type NewTokens =
-    | 'textTransparentAccent'
-    | 'textTransparentAccentGradient'
-    | 'textTransparentPositive'
-    | 'textTransparentWarning'
-    | 'textTransparentNegative';
-type TextIconsTokenNameExtend = TextIconsTokenName | NewTokens;
+type TextIconsTokenNameExtend = TextIconsTokenName;
 
 export const textIconsTokenGetters: Record<TextIconsTokenNameExtend, TokensGetterFn> = {
     textAccent: getTextAccentTokens,
@@ -34,9 +22,4 @@ export const textIconsTokenGetters: Record<TextIconsTokenNameExtend, TokensGette
     textSecondary: getTextSecondaryTokens,
     textTertiary: getTextTertiaryTokens,
     textWarning: getTextWarningTokens,
-    textTransparentAccent: getTextTransparentAccentTokens,
-    textTransparentAccentGradient: getTextTransparentAccentGradientTokens,
-    textTransparentNegative: getTextTransparentNegativeTokens,
-    textTransparentPositive: getTextTransparentPositiveTokens,
-    textTransparentWarning: getTextTransparentWarningTokens,
 };

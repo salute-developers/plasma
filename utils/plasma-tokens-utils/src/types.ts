@@ -164,12 +164,7 @@ export type TextIconsTokenName =
     | 'textAccentGradient'
     | 'textPositive'
     | 'textWarning'
-    | 'textNegative'
-    | 'textTransparentAccent'
-    | 'textTransparentAccentGradient'
-    | 'textTransparentPositive'
-    | 'textTransparentWarning'
-    | 'textTransparentNegative';
+    | 'textNegative';
 
 export type ControlsSurfacesName =
     | 'surfaceSolidDefault'
