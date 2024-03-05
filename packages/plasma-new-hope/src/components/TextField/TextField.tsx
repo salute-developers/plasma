@@ -13,6 +13,7 @@ import { base as labelPlacement } from './_label-placement/base';
 import { Input, LeftHelper, Label, InputWrapper, InputLabelWrapper } from './TextField.styles';
 
 const base = css`
+    /* NOTE: Webkit не применяет opacity к inline тегам */
     display: block;
 `;
 
