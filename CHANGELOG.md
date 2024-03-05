@@ -1,3 +1,16 @@
+# (Tue Mar 05 2024)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-tokens-b2b@1.35.1`, `@salutejs/plasma-tokens-b2c@0.45.1`, `@salutejs/plasma-tokens-web@1.50.1`
+  - fix(plasma-tokens-*): Add `new` directory for for new tokens [Hotfix] [#1093](https://github.com/salute-developers/plasma/pull/1093) ([@neretin-trike](https://github.com/neretin-trike))
+
+#### Authors: 1
+
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Fri Mar 01 2024)
 
 ### Release Notes

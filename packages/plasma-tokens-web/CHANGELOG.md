@@ -1,3 +1,18 @@
+# v1.50.1 (Tue Mar 05 2024)
+
+#### 🐛 Bug Fix
+
+- fix(plasma-tokens-*): Add `new` directory for for new tokens [Hotfix] [#1093](https://github.com/salute-developers/plasma/pull/1093) ([@neretin-trike](https://github.com/neretin-trike))
+- fix(plasma-tokens-*): Add `new` directory for for new tokens ([@neretin-trike](https://github.com/neretin-trike))
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.50.0 (Fri Mar 01 2024)
 
 ### Release Notes
