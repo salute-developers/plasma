@@ -20,7 +20,7 @@
   },
   "scripts": {
     "prepare": "npm run build",
-    "prebuild": "rm -rf ./colors ./es ./src ./themes ./themesValues ./typo ./typography ./typographyValues ./index.* ./theme.json",
+    "prebuild": "rm -rf ./colors ./new ./es ./src ./themes ./themesValues ./typo ./typography ./typographyValues ./index.* ./theme.json",
     "build": "npm run build:ds && npm run build:tokens",
     "prebuild:tokens": "npm run generate",
     "build:tokens": "npm run build:cjs && npm run build:esm",
@@ -36,6 +36,7 @@
   },
   "files": [
     "colors",
+    "new",
     "es",
     "themes",
     "themesValues",
