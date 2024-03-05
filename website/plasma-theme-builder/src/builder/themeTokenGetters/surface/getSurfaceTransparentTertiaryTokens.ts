@@ -2,7 +2,7 @@ import { alphenColor } from '@salutejs/plasma-tokens-utils';
 import type { TokensByType, ThemeConfig } from '@salutejs/plasma-tokens-utils';
 
 import { getGreyTokenData } from '../../../utils';
-import { baseColors } from '../../../types/';
+import { baseColors } from '../../../types';
 
 const comment: Record<keyof TokensByType, string> = {
     default: 'Третичный прозрачный фон поверхности/контрола',

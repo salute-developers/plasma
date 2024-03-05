@@ -1,6 +1,6 @@
 import type { TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { warningTokensCreator } from '../textIconsTokenGetters/getTextWarningTokens';
+import { warningTokensCreator } from '../text/getTextWarningTokens';
 
 const comment: Record<keyof TokensByType, string> = {
     default: 'Цвет фона поверхности/контрола предупреждение',
