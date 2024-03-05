@@ -1,6 +1,6 @@
 import type { TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { negativeTokensCreator } from '../textIconsTokenGetters/getTextNegativeTokens';
+import { negativeTokensCreator } from '../text/getTextNegativeTokens';
 
 const comment: Record<keyof TokensByType, string> = {
     default: 'Цвет фона поверхности/контрола ошибка',

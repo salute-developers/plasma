@@ -1,6 +1,6 @@
 import type { TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { accentTokenCreator } from '../textIconsTokenGetters/getTextAccentTokens';
+import { accentTokenCreator } from '../text/getTextAccentTokens';
 
 const comment: Record<keyof TokensByType, string> = {
     default: 'Акцентный фон поверхности/контрола',

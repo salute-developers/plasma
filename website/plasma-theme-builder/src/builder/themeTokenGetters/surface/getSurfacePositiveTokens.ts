@@ -1,6 +1,6 @@
 import type { TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { positiveTokensCreator } from '../textIconsTokenGetters/getTextPositiveTokens';
+import { positiveTokensCreator } from '../text/getTextPositiveTokens';
 
 const comment: Record<keyof TokensByType, string> = {
     default: 'Цвет фона поверхности/контрола успех',
