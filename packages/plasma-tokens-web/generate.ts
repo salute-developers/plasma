@@ -13,6 +13,7 @@ import {
     generateTypoSystem,
     generateThemeJSON,
     generateThemeFromData,
+    generateTokenSet,
 } from '@salutejs/plasma-tokens-utils';
 import type { TypoSystem } from '@salutejs/plasma-tokens-utils';
 
@@ -21,6 +22,7 @@ import type { TypographyTypes } from './data';
 
 const OUT_DIR = 'src';
 const COLORS_DIR = path.join(OUT_DIR, 'colors');
+const NEW_DIR = path.join(OUT_DIR, 'new');
 const THEMES_DIR = path.join(OUT_DIR, 'themes');
 const THEMES_VALUES_DIR = path.join(OUT_DIR, 'themesValues');
 const TYPOGRAPHY_DIR = path.join(OUT_DIR, 'typography');
@@ -37,9 +39,27 @@ fs.existsSync(OUT_DIR) || fs.mkdirSync(OUT_DIR);
 // Генерация цветов
 writeGeneratedToFS(COLORS_DIR, [
     // Файл с токенами CSS-Variables (с дефолтными значениями)
-    { file: 'index.ts', content: generateTokens({ ...colorThemes.light, ...fallbackThemeLight }, 'css', 'colors') },
+    {
+        file: 'index.ts',
+        content: generateTokens(colorThemes.light, 'css', 'colors'),
+    },
     // Файл с токенами (JS-переменными) для инъекции значения напрямую
-    { file: 'values.ts', content: generateTokens({ ...colorThemes.light, ...fallbackThemeLight }) },
+    { file: 'values.ts', content: generateTokens(colorThemes.light) },
+]);
+
+// Генерация новых цветов
+writeGeneratedToFS(NEW_DIR, [
+    // Файл с токенами CSS-Variables (с дефолтными значениями)
+    {
+        file: 'index.ts',
+        content: generateTokenSet({
+            tokens: fallbackThemeLight,
+            type: 'css',
+            mode: 'color',
+        }),
+    },
+    // Файл с токенами (JS-переменными) для инъекции значения напрямую
+    { file: 'values.ts', content: generateTokens(fallbackThemeLight) },
 ]);
 
 // Генерация и запись файлов тем для создания глобальных стилей
