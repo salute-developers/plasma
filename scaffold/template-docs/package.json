@@ -1,0 +1,69 @@
+{
+  "name": "@salutejs/{{name}}-docs",
+  "version": "0.1.0",
+  "description": "{{ upperCase name }} documentation",
+  "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:salute-developers/plasma.git",
+    "directory": "website/{{name}}-docs"
+  },
+  "private": true,
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "scripts": {
+    "start": "docusaurus start",
+    "start:dev": "npm run start --dev --no-minify",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "lint": "../../node_modules/.bin/eslint ./src --ext .ts,.tsx --quiet"
+  },
+  "dependencies": {
+    "@docusaurus/core": "3.1.1",
+    "@docusaurus/preset-classic": "3.1.1",
+    "@docusaurus/theme-live-codeblock": "3.1.1",
+    "@mdx-js/react": "3.0.0",
+    "@salutejs/plasma-docs-ui": "file:../../utils/plasma-docs-ui",
+    "@salutejs/plasma-icons": "1.182.0",
+    "@salutejs/plasma-typo": "0.40.0",
+    "@svgr/webpack": "8.1.0",
+    "clsx": "^1.1.1",
+    "file-loader": "^6.2.0",
+    "prism-react-renderer": "2.3.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "styled-components": "5.3.1",
+    "url-loader": "^4.1.1"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "3.1.1",
+    "@docusaurus/types": "3.1.1",
+    "@tsconfig/docusaurus": "2.0.2",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@types/react-router-dom": "^5.1.8",
+    "@types/styled-components": "5.1.0",
+    "fast-glob": "3.2.12",
+    "react-docgen-typescript": "2.2.2",
+    "typescript": "5.2.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

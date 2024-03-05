@@ -1,0 +1,4 @@
+{
+    "label": "{{ upperCase name }}",
+    "position": 2
+}
