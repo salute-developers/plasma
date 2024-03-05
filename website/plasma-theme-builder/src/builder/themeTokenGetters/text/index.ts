@@ -10,9 +10,7 @@ import { getTextSecondaryTokens } from './getTextSecondaryTokens';
 import { getTextTertiaryTokens } from './getTextTertiaryTokens';
 import { getTextWarningTokens } from './getTextWarningTokens';
 
-type TextIconsTokenNameExtend = TextIconsTokenName;
-
-export const textIconsTokenGetters: Record<TextIconsTokenNameExtend, TokensGetterFn> = {
+export const textTokenGetters: Record<TextIconsTokenName, TokensGetterFn> = {
     textAccent: getTextAccentTokens,
     textAccentGradient: getTextAccentGradientTokens,
     textNegative: getTextNegativeTokens,

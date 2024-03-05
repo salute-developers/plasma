@@ -22,17 +22,7 @@ import { getSurfaceTransparentSecondaryTokens } from './getSurfaceTransparentSec
 import { getSurfaceTransparentTertiaryTokens } from './getSurfaceTransparentTertiaryTokens';
 import { getSurfaceTransparentWarningTokens } from './getSurfaceTransparentWarningTokens';
 
-// TODO: Удалить после релиза пакета plasma-tokens-utils
-type NewTokens =
-    | 'surfaceTransparentDeep'
-    | 'surfaceTransparentAccent'
-    | 'surfaceTransparentAccentGradient'
-    | 'surfaceTransparentPositive'
-    | 'surfaceTransparentWarning'
-    | 'surfaceTransparentNegative';
-type ControlsSurfacesNameExtend = Exclude<ControlsSurfacesName, 'surfaceTransparentDefault'> | NewTokens;
-
-export const controlsSurfacesTokenGetters: Record<ControlsSurfacesNameExtend, TokensGetterFn> = {
+export const surfaceTokenGetters: Record<ControlsSurfacesName, TokensGetterFn> = {
     surfaceAccent: getSurfaceAccentTokens,
     surfaceAccentGradient: getSurfaceAccentGradientTokens,
     surfaceClear: getSurfaceClearTokens,

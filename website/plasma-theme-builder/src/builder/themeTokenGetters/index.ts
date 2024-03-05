@@ -1,6 +1,6 @@
-export { textIconsTokenGetters } from './textIconsTokenGetters';
-export { controlsSurfacesTokenGetters } from './controlsSurfacesTokenGetters';
-export { backgroundTokenGetters } from './backgrounds';
+export { textTokenGetters } from './text';
+export { surfaceTokenGetters } from './surface';
+export { backgroundTokenGetters } from './background';
 export { overlayTokenGetters } from './overlay';
 
 export type { TextIconsTokenName } from '@salutejs/plasma-tokens-utils';

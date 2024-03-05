@@ -3,23 +3,19 @@ import { Grayscale } from '@salutejs/plasma-tokens-utils';
 import type { ThemeConfig } from '@salutejs/plasma-tokens-utils';
 
 import { createTheme } from '../builder/createTheme';
-import { getNormalizeThemeSections } from '../utils';
 
 const defaultConfig: ThemeConfig = {
     name: 'default',
     accentColor: {
-        dark: 'black',
-        light: 'white',
+        dark: '[general.green.500]',
+        light: '[general.green.600]',
     },
     grayscale: {
-        dark: Grayscale.coolGray,
-        light: Grayscale.coolGray,
+        dark: Grayscale.gray,
+        light: Grayscale.gray,
     },
 };
 
 export const useDefaultThemeData = () => {
-    const defaultThemeData = useMemo(() => createTheme(defaultConfig), []);
-    const normalizedThemeData = useMemo(() => getNormalizeThemeSections(defaultThemeData), [defaultThemeData]);
-
-    return normalizedThemeData;
+    return useMemo(() => createTheme(defaultConfig), []);
 };

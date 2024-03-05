@@ -1,6 +1,6 @@
 import type { TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { accentGradientCreator } from '../textIconsTokenGetters/getTextAccentGradientTokens';
+import { accentGradientCreator } from '../text/getTextAccentGradientTokens';
 
 const comment: Record<keyof TokensByType, string> = {
     default: 'Акцентный фон поверхности/контрола с градиентом',
