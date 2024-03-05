@@ -1,0 +1,25 @@
+---
+id: {{name}}
+title: {{name}}
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# {{name}}
+<Description name="{{name}}" />
+<PropsTable name="{{name}}" exclude={['css', 'focused']} />
+
+## Примеры
+
+```tsx live
+import React from 'react';
+import { {{name}} } from '@salutejs/{{package}}';
+
+export function App() {
+    return (
+        <>
+            <{{name}} size="xxl" />
+        </>
+    );
+}
+```
