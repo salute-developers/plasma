@@ -43,11 +43,12 @@
   },
   "scripts": {
     "prepare": "npm run build",
-    "prebuild": "rm -rf ./es ./Icon.assets ./Icons index.js ./Icon* ./index.* ./scalable",
-    "build": "npm run build:cjs && npm run build:esm",
+    "prebuild": "rm -rf ./es ./Icon* ./index.* ./old ./scalable ./scripts-build ./src-build && cp -r ./src ./src-build",
+    "build": "npm run generate:react && npm run build:cjs && npm run build:esm",
     "postbuild": "tsc --outDir . --emitDeclarationOnly",
-    "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma babel ./src --out-dir . --extensions .ts,.tsx",
-    "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma babel ./src --out-dir ./es --extensions .ts,.tsx",
+    "generate:react": "BABEL_ENV=cjs SC_NAMESPACE=plasma babel ./scripts --out-dir ./scripts-build --extensions .ts,.tsx && node ./scripts-build/generateReactComponents.js",
+    "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma babel ./src-build --out-dir . --extensions .ts,.tsx",
+    "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma babel ./src-build --out-dir ./es --extensions .ts,.tsx",
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
   },
   "files": [
