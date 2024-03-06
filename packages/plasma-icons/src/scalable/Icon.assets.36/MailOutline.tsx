@@ -1,1 +1,0 @@
-export const MailOutline = null;

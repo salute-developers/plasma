@@ -1,1 +1,0 @@
-export const NewsFill = null;
