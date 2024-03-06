@@ -1,1 +1,0 @@
-export const AlarmCircleFill = null;

@@ -1,1 +1,0 @@
-export const CallIncomingOutline = null;

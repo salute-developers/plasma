@@ -1,1 +1,0 @@
-export const ChevronCircleUpOutline = null;
