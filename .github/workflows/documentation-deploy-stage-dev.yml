@@ -43,7 +43,7 @@ jobs:
       - name: Plasma SDDS SERV Docs
         run: |
           npm run build --prefix="./website/sdds-serv-docs"
-          cp -R ./website/plasma-sdds-serv-docs/build ./s3_build/next-${{ github.sha }}/sdds-serv          
+          cp -R ./website/sdds-serv-docs/build ./s3_build/next-${{ github.sha }}/sdds-serv
 
       - name: Plasma UI Storybook
         run: |
