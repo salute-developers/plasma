@@ -4,6 +4,7 @@
 /types
 /utils
 /helpers
+/old
 /scalable
 /index.js*
 /index.d.ts*
@@ -16,5 +17,7 @@
 /Icons
 /.docz
 /es
+/scripts-build
+/src-build
 build-sb
 build-storybook.log
