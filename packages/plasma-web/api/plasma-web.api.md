@@ -92,15 +92,11 @@ import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components'
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerProps } from '@salutejs/plasma-new-hope/styled-components';
-import { Dropdown } from '@salutejs/plasma-hope';
-import { DropdownItem } from '@salutejs/plasma-hope';
 import { DropdownItemProps } from '@salutejs/plasma-hope';
-import { DropdownList } from '@salutejs/plasma-hope';
+import { DropdownItem as DropdownItemType } from '@salutejs/plasma-hope';
 import { DropdownNodeType } from '@salutejs/plasma-hope';
-import { DropdownPopup } from '@salutejs/plasma-hope';
 import { DropdownPopupProps } from '@salutejs/plasma-hope';
 import { DropdownProps } from '@salutejs/plasma-hope';
-import { DropdownUncontrolled } from '@salutejs/plasma-hope';
 import { Editable } from '@salutejs/plasma-hope';
 import { EditableProps } from '@salutejs/plasma-hope';
 import { ElasticGrid } from '@salutejs/plasma-hope';
@@ -218,6 +214,7 @@ import { StyledComponent } from 'styled-components';
 import { StyledPreviewGallery } from '@salutejs/plasma-hope';
 import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
 import type { SwitchProps } from '@salutejs/plasma-core';
+import { SyntheticEvent } from 'react';
 import { syntheticFocus } from '@salutejs/plasma-core';
 import { TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
@@ -894,24 +891,32 @@ export { DrawerHeaderProps }
 
 export { DrawerProps }
 
-export { Dropdown }
+// @public (undocumented)
+export const Dropdown: React_2.ForwardRefExoticComponent<DropdownProps & React_2.RefAttributes<HTMLDivElement>>;
 
-export { DropdownItem }
-export { DropdownItem as DropdownItemType }
+// @public (undocumented)
+export const DropdownItem: React_2.ForwardRefExoticComponent<DropdownItemProps & React_2.RefAttributes<HTMLDivElement>>;
 
 export { DropdownItemProps }
 
-export { DropdownList }
+export { DropdownItemType }
+
+// @public (undocumented)
+export const DropdownList: StyledComponent<"ul", any, {}, never>;
 
 export { DropdownNodeType }
 
-export { DropdownPopup }
+// @public (undocumented)
+export const DropdownPopup: React_2.ForwardRefExoticComponent<DropdownPopupProps & React_2.RefAttributes<HTMLDivElement>>;
 
 export { DropdownPopupProps }
 
 export { DropdownProps }
 
-export { DropdownUncontrolled }
+// Warning: (ae-forgotten-export) The symbol "AdditionalProps" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export const DropdownUncontrolled: React_2.ForwardRefExoticComponent<DropdownProps & AdditionalProps & React_2.RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const DsplL: FunctionComponent<PropsType<    {
@@ -1087,7 +1092,7 @@ s: string;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
 size: "m" | "s" | "l";
-view: "accent" | "default" | "warning" | "positive" | "negative" | "inactive" | "black" | "white";
+view: "accent" | "default" | "black" | "white" | "inactive" | "warning" | "positive" | "negative";
 } & RefAttributes<HTMLDivElement>>;
 
 export { IndicatorProps }
@@ -1295,7 +1300,13 @@ export const Popover: FunctionComponent<PropsType<    {
 view: {
 default: string;
 };
-}> & HTMLAttributes<HTMLDivElement> & CustomPopoverProps & RefAttributes<HTMLDivElement>>;
+}> & ((HTMLAttributes<HTMLDivElement> & CustomPopoverProps & {
+trigger?: "click" | undefined;
+closeOnOverlayClick?: boolean | undefined;
+} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & CustomPopoverProps & {
+trigger?: "hover" | undefined;
+closeOnBeyondTargetHover?: boolean | undefined;
+} & RefAttributes<HTMLDivElement>))>;
 
 export { PopoverPlacement }
 
