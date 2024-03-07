@@ -10,7 +10,12 @@ describe('plasma-web: Popover', () => {
     const Button = getComponent('Button');
     const P1 = getComponent('P1');
 
-    function Demo(props: { trigger?: PopoverTrigger; closeOnOverlayClick?: boolean; closeOnEsc?: boolean }) {
+    function Demo(props: {
+        trigger?: PopoverTrigger;
+        closeOnOverlayClick?: boolean;
+        closeOnBeyondTargetHover?: boolean;
+        closeOnEsc?: boolean;
+    }) {
         const [isOpen, setIsOpen] = React.useState(false);
 
         return (
@@ -50,6 +55,20 @@ describe('plasma-web: Popover', () => {
 
         cy.get('button').first().trigger('mouseover');
         cy.get('div').contains(text).should('be.visible');
+    });
+
+    it('close popover by mouseleave a target', () => {
+        mount(
+            <CypressTestDecorator>
+                <Demo trigger="hover" />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').first().trigger('mouseover');
+        cy.get('div').contains(text).should('be.visible');
+
+        cy.get('button').first().trigger('mouseout');
+        cy.get('div').contains(text).should('not.be.visible');
     });
 
     it('close popover', () => {

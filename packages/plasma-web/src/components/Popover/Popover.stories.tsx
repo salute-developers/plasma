@@ -33,6 +33,12 @@ const meta: Meta<typeof Popover> = {
             },
             table: { defaultValue: { summary: true } },
         },
+        closeOnBeyondTargetHover: {
+            control: {
+                type: 'boolean',
+            },
+            table: { defaultValue: { summary: true } },
+        },
         closeOnEsc: {
             control: {
                 type: 'boolean',
@@ -62,6 +68,7 @@ const meta: Meta<typeof Popover> = {
         placement: 'bottom',
         trigger: 'click',
         closeOnOverlayClick: true,
+        closeOnBeyondTargetHover: true,
         closeOnEsc: true,
         isFocusTrapped: true,
         skidding: 0,
