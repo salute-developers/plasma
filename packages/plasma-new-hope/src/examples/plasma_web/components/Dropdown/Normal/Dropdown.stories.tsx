@@ -51,7 +51,7 @@ const meta: Meta<StoryDropdownProps> = {
         closeOnEsc: true,
         isFocusTrapped: true,
         skidding: 0,
-        distance: 6,
+        distance: 0,
     },
 };
 

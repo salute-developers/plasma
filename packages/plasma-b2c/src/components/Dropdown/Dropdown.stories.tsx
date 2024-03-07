@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react';
 import { accent, success, warning, critical } from '@salutejs/plasma-core';
@@ -8,7 +8,7 @@ import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button';
 
-import { Dropdown, DropdownList, DropdownItem } from '.';
+import { Dropdown, DropdownList, DropdownItem, DropdownPopup } from '.';
 import type { DropdownProps } from '.';
 
 const meta: Meta<DropdownProps> = {
@@ -18,10 +18,6 @@ const meta: Meta<DropdownProps> = {
 };
 
 export default meta;
-
-const StyledWrapper = styled.div`
-    width: 13.75rem;
-`;
 
 const Styled25Rem = styled.div`
     display: flex;
@@ -64,7 +60,7 @@ const items = [
 export const Trigger = () => {
     return (
         <Styled25Rem>
-            <StyledDashedBorder style={{ display: 'inline-flex' }}>
+            <StyledDashedBorder>
                 <Dropdown
                     id="example-dropdown-click"
                     items={items}
@@ -72,93 +68,22 @@ export const Trigger = () => {
                     placement="bottom"
                     onItemSelect={action('onItemSelect')}
                 >
-                    <Button text="Нажмите" />
+                    <Button text="Нажмите" stretching="filled" />
                 </Dropdown>
             </StyledDashedBorder>
+
             <StyledDashedBorder>
                 <Dropdown
                     id="example-dropdown-hover"
                     items={items}
                     trigger="hover"
-                    placement="bottom"
+                    placement={['top', 'bottom']}
                     onItemSelect={action('onItemSelect')}
                 >
-                    <Button text="Наведите" />
+                    <Button text="Наведите" stretching="filled" />
                 </Dropdown>
             </StyledDashedBorder>
         </Styled25Rem>
-    );
-};
-
-const Styled240Dropdown = styled(Dropdown)`
-    --plasma-dropdown-padding: 0.25rem;
-    --plasma-dropdown-border-radius: 1rem;
-    --plasma-dropdown-item-border-radius: 0.75rem;
-    --plasma-popup-width: 240px;
-    --plasma-popup-nested-padding: 0 var(--plasma-dropdown-padding, 0);
-    --plasma-popup-nested-margin: calc(var(--plasma-dropdown-padding, 0) * -1) 0 0;
-`;
-
-export const Styling = () => {
-    return (
-        <Styled240Dropdown id="example-dropdown-styled" items={items} onItemSelect={action('onItemSelect')}>
-            <Button text="Нажмите" />
-        </Styled240Dropdown>
-    );
-};
-
-export const Placement = () => {
-    return (
-        <Styled25Rem style={{ flexDirection: 'row' }}>
-            <StyledDashedBorder>
-                <Dropdown id="example-dropdown-bottom" items={items} placement="left">
-                    <Button text="Снизу" />
-                </Dropdown>
-            </StyledDashedBorder>
-            <StyledDashedBorder>
-                <Dropdown id="example-dropdown-right" items={items} placement="right">
-                    <Button text="Справа" />
-                </Dropdown>
-            </StyledDashedBorder>
-        </Styled25Rem>
-    );
-};
-
-const StyledDropdown = styled(Dropdown)`
-    --plasma-popup-width: 100%;
-`;
-
-const StyledBlockDropdown = styled(Dropdown)`
-    --plasma-popup-width: 100%;
-    display: block;
-`;
-
-export const InlineOrBlockWrapper = () => {
-    return (
-        <Styled25Rem>
-            <StyledDashedBorder style={{ display: 'inline-flex' }}>
-                <StyledDropdown id="example-dropdown-inline" items={items} onItemSelect={action('onItemSelect')}>
-                    <Button text="Inline" />
-                </StyledDropdown>
-            </StyledDashedBorder>
-            <StyledDashedBorder>
-                <StyledBlockDropdown id="example-dropdown-block" items={items} onItemSelect={action('onItemSelect')}>
-                    <Button text="Block" stretch />
-                </StyledBlockDropdown>
-            </StyledDashedBorder>
-        </Styled25Rem>
-    );
-};
-
-export const CustomAssembly = () => {
-    return (
-        <StyledWrapper>
-            <DropdownList>
-                {items.map(({ items, ...rest }) => (
-                    <DropdownItem key={rest.value} {...rest} />
-                ))}
-            </DropdownList>
-        </StyledWrapper>
     );
 };
 
@@ -180,19 +105,50 @@ export const Placements: StoryObj<DropdownProps> = {
         const placement = args.placement?.includes(',') ? args.placement?.split(',') : args.placement;
 
         return (
-            <>
+            <div style={{ width: '300px' }}>
                 <Dropdown id="example-dropdown-placements1" items={items} placement={placement}>
-                    <Button text="Меню" />
+                    <Button text="Меню" stretching="filled" />
                 </Dropdown>
-                <Dropdown
-                    id="example-dropdown-placements2"
-                    style={{ marginLeft: '500px' }}
-                    items={items}
-                    placement={placement}
-                >
-                    <Button text="Меню" />
-                </Dropdown>
-            </>
+            </div>
         );
     },
+};
+
+export const Composition = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <div
+            style={{
+                height: '350px',
+                display: 'block',
+            }}
+        >
+            <DropdownPopup
+                isOpen={isOpen}
+                trigger="click"
+                placement="bottom"
+                onToggle={(is) => setIsOpen(is)}
+                disclosure={<Button text="Меню" />}
+            >
+                <DropdownList>
+                    <DropdownItem
+                        index={5}
+                        value={100001}
+                        label="Новости"
+                        onHover={(index) => console.log(index)}
+                        isActive
+                    />
+                    <DropdownItem value={100002} label="Каталог" color="var(--plasma-colors-accent)" />
+                    <DropdownItem
+                        value={100003}
+                        label="О нас"
+                        color="var(--plasma-colors-critical)"
+                        contentLeft={<IconHeart color="inherit" />}
+                    />
+                    <DropdownItem value={100004} label="Недоступно" isDisabled />
+                </DropdownList>
+            </DropdownPopup>
+        </div>
+    );
 };

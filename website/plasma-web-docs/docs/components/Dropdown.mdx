@@ -99,43 +99,6 @@ export function App() {
 }
 ```
 
-### Стилизация
-Компонент `Dropdown` можно подвергать стилизации. Достаточно обернуть в конструктор `styled`:
-
-```tsx live
-import React from 'react';
-import styled from 'styled-components';
-import { IconEdit, IconTrash, IconCopy } from '@salutejs/plasma-icons';
-import { Button, Dropdown } from '@salutejs/plasma-web';
-
-export function App() {
-    const StyledDropdown = styled(Dropdown)`
-        --plasma-dropdown-padding: 0.25rem;
-        --plasma-dropdown-border-radius: 1rem;
-        --plasma-dropdown-item-border-radius: 0.75rem;
-        --plasma-popup-width: 240px;
-        --plasma-popup-nested-padding: 0 var(--plasma-dropdown-padding, 0);
-        --plasma-popup-nested-margin: calc(var(--plasma-dropdown-padding, 0) * -1) 0 0;
-    `;
-
-    return (
-        <div style={{ height:"350px", display: 'block' }}>
-            <StyledDropdown
-                id="example-dropdown-styled"
-                items={[
-                    { value: 'edit', label: 'Редактировать', contentLeft: <IconEdit color="inherit" /> },
-                    { value: 'copy', label: 'Копировать', contentLeft: <IconCopy color="inherit" />, isDisabled: true },
-                    { value: 'delete', label: 'Удалить', contentLeft: <IconTrash color="inherit" />, color: 'critical' }
-                ]}
-                onItemSelect={(item) => console.log(item)}
-            >
-                <Button text="Опции" />
-            </StyledDropdown>
-        </div>
-    );
-}
-```
-
 ### Управление высотой выпадающего меню
 Что бы задать высоту и `scroll` для выпадающего меню можно использовать **props** для компонента `Dropdown`:
 - **listOverflow**
@@ -167,53 +130,6 @@ export function App() {
                 <Button text="Опции" />
             </Dropdown>
         </section>
-    );
-}
-```
-
-Или переопределить в компоненте `DropdownList` значения для css custom properties:
-- **--plasma-dropdown-height**
-- **--plasma-dropdown-overflow**
-
-Достаточно обернуть в `styled`:
-
-#### Пример
-```tsx live
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { DropdownPopup, DropdownList, DropdownItem, Button } from '@salutejs/plasma-web';
-import { IconHeart } from '@salutejs/plasma-icons';
-
-export function App() {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const StyledDropdownList = styled(DropdownList)`
-        --plasma-dropdown-height: 6rem;
-        --plasma-dropdown-overflow: scroll
-    `
-
-    return (
-        <div style={{ height:"350px", display: 'block' }}>
-            <DropdownPopup
-                isOpen={isOpen}
-                trigger="click"
-                placement="bottom"
-                onToggle={(is) => setIsOpen(is)}
-                disclosure={<Button text="Меню" />}
-            >
-                <StyledDropdownList>
-                    <DropdownItem value={100001} label="Новости" />
-                    <DropdownItem value={100002} label="Каталог" color="var(--plasma-colors-accent)" />
-                    <DropdownItem
-                        value={100003}
-                        label="О нас"
-                        color="var(--plasma-colors-critical)"
-                        contentLeft={<IconHeart color="inherit" />}
-                    />
-                    <DropdownItem value={100004} label="Недоступно" isDisabled />
-                </StyledDropdownList>
-            </DropdownPopup>
-        </div>
     );
 }
 ```
