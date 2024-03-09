@@ -37,3 +37,4 @@ export * from './components/Overlay';
 export * from './components/SSRProvider';
 export * from './components/Combobox';
 export * from './components/Indicator';
+export * from './components/Grid';
