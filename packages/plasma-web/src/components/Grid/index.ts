@@ -1,2 +1,12 @@
-export { Row, Col, sizes, offsets, Container } from '@salutejs/plasma-hope';
-export type { ColProps, ColCount, ColSizeProps, ColOffsetProps, ContainerProps } from '@salutejs/plasma-hope';
+export { Grid as Container, Col, Row } from './Grid';
+
+export type {
+    GridProps as ContainerProps,
+    ColCount,
+    ColProps,
+    ColSizeProps,
+    ColOffsetProps,
+    ScreenMap,
+    ScreenConfig,
+    ScreenVariant,
+} from '@salutejs/plasma-new-hope/styled-components';
