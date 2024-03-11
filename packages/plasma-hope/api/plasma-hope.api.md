@@ -386,47 +386,6 @@ export interface CellProps {
 // @public (undocumented)
 export function clearSelection(): void;
 
-// @public
-export const Col: StyledComponent<"div", any, ColProps, never>;
-
-// Warning: (ae-forgotten-export) The symbol "IntCount" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "FltCount" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export type ColCount = IntCount | FltCount;
-
-// @public (undocumented)
-export interface ColOffsetProps {
-    offsetL?: ColCount;
-    offsetM?: ColCount;
-    offsetS?: ColCount;
-    offsetXL?: ColCount;
-    offsetXXL?: ColCount;
-}
-
-// @public (undocumented)
-export interface ColProps extends ColSizeProps, ColOffsetProps, React.HTMLAttributes<HTMLDivElement> {
-    offset?: ColCount;
-    size?: ColCount;
-}
-
-// @public (undocumented)
-export interface ColSizeProps {
-    sizeL?: ColCount;
-    sizeM?: ColCount;
-    sizeS?: ColCount;
-    sizeXL?: ColCount;
-    sizeXXL?: ColCount;
-}
-
-// @public
-export const Container: StyledComponent<"div", any, ContainerProps, never>;
-
-// @public (undocumented)
-export interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
-    maxWidth?: string;
-}
-
 export { convertRoundnessMatrix }
 
 // @public
@@ -808,9 +767,6 @@ export { monthLongName }
 
 export { monthShortName }
 
-// @public (undocumented)
-export const offsets: Record<Breakpoint, keyof ColOffsetProps>;
-
 export { OutlinedProps }
 
 export { P }
@@ -901,9 +857,6 @@ export { Roundness }
 
 export { RoundnessProps }
 
-// @public
-export const Row: StyledComponent<"div", any, {}, never>;
-
 export { ScrollSnapProps }
 
 // Warning: (ae-forgotten-export) The symbol "Design_2" needs to be exported by the entry point index.d.ts
@@ -939,9 +892,6 @@ export { setRef }
 export { shadows }
 
 export { ShiftProps }
-
-// @public (undocumented)
-export const sizes: Record<Breakpoint, keyof ColSizeProps>;
 
 // @public (undocumented)
 export const SliderThumb: StyledComponent<"div", any, {

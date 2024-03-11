@@ -28,6 +28,11 @@ import { ButtonGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonHTMLAttributes } from 'react';
 import { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { ClosePlacementType } from '@salutejs/plasma-new-hope/styled-components';
+import { Col } from '@salutejs/plasma-new-hope/styled-components';
+import { ColCount } from '@salutejs/plasma-new-hope/styled-components';
+import { ColOffsetProps } from '@salutejs/plasma-new-hope/styled-components';
+import { ColProps } from '@salutejs/plasma-new-hope/styled-components';
+import { ColSizeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ComboboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ComponentClass } from 'react';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -51,6 +56,7 @@ import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { FocusProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
+import { GridProps } from '@salutejs/plasma-new-hope/styled-components';
 import { h1 } from '@salutejs/sdds-themes/tokens';
 import { h1Bold } from '@salutejs/sdds-themes/tokens';
 import { h2 } from '@salutejs/sdds-themes/tokens';
@@ -88,6 +94,10 @@ import { ReactNode } from 'react';
 import { ReactPortal } from 'react';
 import { RefAttributes } from 'react';
 import { RefObject } from 'react';
+import { Row } from '@salutejs/plasma-new-hope/styled-components';
+import { ScreenConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { ScreenMap } from '@salutejs/plasma-new-hope/styled-components';
+import { ScreenVariant } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
@@ -347,6 +357,16 @@ export type CheckboxProps = typeof CheckboxComponent;
 
 export { ClosePlacementType }
 
+export { Col }
+
+export { ColCount }
+
+export { ColOffsetProps }
+
+export { ColProps }
+
+export { ColSizeProps }
+
 // @public (undocumented)
 export const Combobox: ForwardRefExoticComponent<ComboboxProps & RefAttributes<HTMLDivElement>>;
 
@@ -559,6 +579,15 @@ export { dsplS }
 export { dsplSBold }
 
 // @public (undocumented)
+export const Grid: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+}> & GridProps & RefAttributes<HTMLDivElement>>;
+
+export { GridProps }
+
+// @public (undocumented)
 export const H1: FunctionComponent<PropsType<    {
 size: {
 h1: string;
@@ -696,6 +725,14 @@ export type RadioboxProps = typeof RadioboxComponent;
 export { RadioGroup }
 
 export { Ratio }
+
+export { Row }
+
+export { ScreenConfig }
+
+export { ScreenMap }
+
+export { ScreenVariant }
 
 // @public
 export const SegmentGroup: FunctionComponent<PropsType<    {
