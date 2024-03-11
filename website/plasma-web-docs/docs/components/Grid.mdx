@@ -13,16 +13,17 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 ## Брейкпоинты
 Каждый брейкпоинт разрешения содержит собственное максимальное количество колонок:
 
-| Поверхность        | Обозначение | Ширина от, пикс | Ширина до, пикс | Кол-во колонок |
-| ------------------ |-------------| --------------- | --------------- | -------------- |
-| Desktop large      | XXL         | 1200            | -               | 16             |
-| Desktop            | XL          | 960             | 1199            | 12             |
-| Tablet (landscape) | L           | 769             | 959             | 8              |
-| Tablet (portrait)  | M           | 560             | 768             | 6              |
-| Mobile             | S           | 0               | 559             | 4              |
+| Обозначение | Ширина от, пикс | Ширина до, пикс | Кол-во колонок |
+|-------------| --------------- | --------------- | -------------- |
+| largeM      | 1200            | -               | 30             |
+| largeS      | 960             | 1199            | 24             |
+| mediumM     | 786             | 959             | 18             |
+| mediumS     | 560             | 785             | 12             |
+| smallS      | 0               | 559             | 6              |
 
 ## Container
 <Description name="Container" />
+<PropsTable name="Container" />
 
 ## Row
 Блок с отрицательными отступами для размещения колонок (`Col`) по горизонтали.
@@ -40,24 +41,31 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 
 ```tsx live
 import React from 'react';
-import styled from 'styled-components';
 import { Container, Row, Col } from '@salutejs/plasma-web';
 
 export function App() {
-    const Filler = styled.div`
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        padding: 0.5rem 1rem;
-        background-color: #f0f0f0;
-    `;
+    const Filler = ({children}) => {
+        return (
+            <div 
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '100%',
+                    padding: '0.5rem 1rem',
+                    backgroundColor: '#f0f0f0',
+                }}
+            >
+                {children}
+            </div>
+        )
+    };
 
     return (
         <Container>
             <Row>
-                <Col size={1}>
-                    <Filler>1</Filler>
+                <Col size={3}>
+                    <Filler>3</Filler>
                 </Col>
                 <Col size={2}>
                     <Filler>2</Filler>
@@ -68,13 +76,13 @@ export function App() {
                 <Col size={4}>
                     <Filler>4</Filler>
                 </Col>
-                <Col size={2}>
-                    <Filler>2</Filler>
+                <Col size={6}>
+                    <Filler>6</Filler>
                 </Col>
             </Row>
             <Row>
-                <Col size={3} offset={1}>
-                    <Filler>3 offset 1</Filler>
+                <Col size={4} offset={1}>
+                    <Filler>4 offset 1</Filler>
                 </Col>
                 <Col size={6} offset={2}>
                     <Filler>6 offset 2</Filler>
@@ -92,34 +100,41 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import styled from 'styled-components';
 import { Container, Row, Col } from '@salutejs/plasma-web';
 
 export function App() {
-    const Filler = styled.div`
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        padding: 0.5rem 1rem;
-        background-color: #f0f0f0;
-    `;
+    const Filler = ({children}) => {
+        return (
+            <div 
+                style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '100%',
+                    padding: '0.5rem 1rem',
+                    backgroundColor: '#f0f0f0',
+                }}
+            >
+                {children}
+            </div>
+        )
+    };
 
     return (
         <Container>
             <Row>
-                <Col sizeS={1} sizeM={2} sizeL={3} sizeXL={4}>
+                <Col smallM={{ size: 1 }} mediumS={{ size: 2 }} mediumM={{ size: 3 }} largeM={{ size: 4 }}>
                     <Filler>1</Filler>
                 </Col>
-                <Col size={2} sizeXL={4}>
+                <Col size={2} largeM={{ size: 4 }}>
                     <Filler>2</Filler>
                 </Col>
             </Row>
             <Row>
-                <Col size={3} offsetS={1} offsetM={2} offsetL={3} offsetXL={4}>
-                    <Filler>3 offset 1</Filler>
+                <Col size={4} smallM={{ offset: 1 }} mediumS={{ offset: 2 }} mediumM={{ offset: 3 }} largeM={{ offset: 4 }}>
+                    <Filler>4 offset 1</Filler>
                 </Col>
-                <Col size={6} offset={2} offsetXL={4}>
+                <Col size={6} offset={2} largeM={{ offset: 4 }}>
                     <Filler>6 offset 2</Filler>
                 </Col>
             </Row>
