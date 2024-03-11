@@ -4,6 +4,7 @@ export * from './components/Badge';
 export * from './components/Button';
 export * from './components/ButtonGroup';
 export * from './components/Drawer';
+export * from './components/Grid';
 export * from './components/Checkbox';
 export * from './components/Combobox';
 export * from './components/Counter';
