@@ -232,6 +232,8 @@ import { ToastPosition } from '@salutejs/plasma-new-hope/styled-components';
 import { ToastProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ToastRole } from '@salutejs/plasma-new-hope/styled-components';
 import { toCssSize } from '@salutejs/plasma-core';
+import { ToolbarProps } from '@salutejs/plasma-new-hope/styled-components';
+import { toolbarTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { transformStyles } from '@salutejs/plasma-core';
 import { TypographyOldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Old/TypographyOld';
@@ -1615,6 +1617,34 @@ export const ToastProvider: ({ children }: {
 export { ToastRole }
 
 export { toCssSize }
+
+// @public
+export const Toolbar: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+xs: string;
+s: string;
+m: string;
+l: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+children: ReactNode;
+placement?: "horizontal" | "vertical" | undefined;
+hasShadow?: boolean | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const ToolbarDivider: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+export { ToolbarProps }
+
+export { toolbarTokens }
 
 // @public (undocumented)
 export const Tooltip: ForwardRefExoticComponent<TooltipProps & RefAttributes<HTMLDivElement>>;
