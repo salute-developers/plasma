@@ -36,6 +36,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.1",
+    "svg2vectordrawable": "^2.9.1",
     "typescript": "4.2.4"
   },
   "publishConfig": {
@@ -43,10 +44,12 @@
   },
   "scripts": {
     "prepare": "npm run build",
-    "prebuild": "rm -rf ./es ./Icon* ./index.* ./old ./scalable ./scripts-build ./src-build && cp -r ./src ./src-build",
+    "prebuild": "rm -rf ./es ./Icon* ./index.* ./old ./scalable ./scripts-build ./src-build ./android-icons && cp -r ./src ./src-build",
     "build": "npm run generate:react && npm run build:cjs && npm run build:esm",
     "postbuild": "tsc --outDir . --emitDeclarationOnly",
-    "generate:react": "BABEL_ENV=cjs SC_NAMESPACE=plasma babel ./scripts --out-dir ./scripts-build --extensions .ts,.tsx && node ./scripts-build/generateReactComponents.js",
+    "generate:android": "npm run build:scripts && node ./scripts-build/generateAndroidArchive.js && zip -r ./archives/android-icons.zip android-icons",
+    "generate:react": "npm run build:scripts && node ./scripts-build/generateReactComponents.js",
+    "build:scripts": "BABEL_ENV=cjs SC_NAMESPACE=plasma babel ./scripts --out-dir ./scripts-build --extensions .ts,.tsx",
     "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma babel ./src-build --out-dir . --extensions .ts,.tsx",
     "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma babel ./src-build --out-dir ./es --extensions .ts,.tsx",
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
