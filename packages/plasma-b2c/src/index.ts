@@ -57,3 +57,4 @@ export * from './components/Avatar';
 export * from './components/AvatarGroup';
 export * from './components/Indicator';
 export * from './components/ButtonBase';
+export * from './components/Toolbar';
