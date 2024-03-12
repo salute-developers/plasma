@@ -1,0 +1,51 @@
+{
+    "name": "@salutejs/plasma-rsc",
+    "version": "0.1.0",
+    "main": "cjs/index.js",
+    "module": "es/index.js",
+    "types": "types/index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@github.com:salute-developers/plasma.git",
+        "directory": "packages/plasma-rsc"
+    },
+    "scripts": {
+        "dev": "next dev",
+        "build:next": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "build": "BABEL_ENV=esm rollup -c",
+        "prepare": "npm run build",
+        "prebuild": "rm -rf ./components ./es ./helpers ./hocs ./hooks ./mixins ./tokens ./types ./utils index.d.ts index.d.ts.map index.js index.js.map",
+        "postbuild": "npm run generate:typings",
+        "generate:typings": "tsc --outDir types --emitDeclarationOnly"
+    },
+    "dependencies": {
+        "@linaria/core": "5.0.2",
+        "@linaria/react": "5.0.3",
+        "@salutejs/plasma-core": "1.147.0-dev.0",
+        "@salutejs/plasma-tokens": "^1.71.0-dev.0"
+    },
+    "devDependencies": {
+        "@ironkinoko/rollup-plugin-styles": "^4.0.3",
+        "@linaria/rollup": "5.0.4",
+        "@rollup/plugin-babel": "^6.0.3",
+        "@rollup/plugin-commonjs": "^25.0.4",
+        "@rollup/plugin-node-resolve": "^15.1.0",
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "eslint": "^8",
+        "react": "^18",
+        "react-dom": "^18",
+        "rollup": "^3.28.0",
+        "typescript": "4.2.4",
+        "vite": "4.5.1"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "optionalDependencies": {
+        "@rollup/rollup-darwin-arm64": "^4.10.0"
+    }
+}
