@@ -125,6 +125,8 @@ import { textXSBold } from '@salutejs/sdds-themes/tokens';
 import { ToastPosition } from '@salutejs/plasma-new-hope/styled-components';
 import { ToastProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ToastRole } from '@salutejs/plasma-new-hope/styled-components';
+import { ToolbarProps } from '@salutejs/plasma-new-hope/styled-components';
+import { toolbarTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { usePopupContext } from '@salutejs/plasma-new-hope/styled-components';
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
@@ -1054,6 +1056,32 @@ export const ToastProvider: ({ children }: {
 }) => JSX.Element;
 
 export { ToastRole }
+
+// @public
+export const Toolbar: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+xs: string;
+s: string;
+m: string;
+l: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+children: ReactNode;
+orientation?: "horizontal" | "vertical" | undefined;
+hasShadow?: boolean | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const ToolbarDivider: FunctionComponent<PropsType<Variants> & DividerProps & RefAttributes<HTMLDivElement>>;
+
+export { ToolbarProps }
+
+export { toolbarTokens }
 
 // @public (undocumented)
 export const Tooltip: ForwardRefExoticComponent<TooltipProps & RefAttributes<HTMLDivElement>>;
