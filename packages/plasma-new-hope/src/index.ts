@@ -42,3 +42,4 @@ export * from './components/ButtonBase';
 export * from './components/Grid';
 export * from './components/Progress';
 export * from './components/Divider';
+export * from './components/Toolbar';
