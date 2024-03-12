@@ -40,3 +40,4 @@ export * from './components/Indicator';
 export * from './components/ButtonBase';
 export * from './components/Grid';
 export * from './components/Progress';
+export * from './components/Toolbar';
