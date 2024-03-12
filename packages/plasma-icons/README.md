@@ -27,7 +27,7 @@ const App = () => {
 };
 ```
 
-Также имеется возможность использовать иконки через переиспользуемый компонент. В этом случае все иконки попадут в бандл при сборке.
+Также имеется возможность (не рекомендуется) использовать иконки через переиспользуемый компонент. В этом случае все иконки попадут в бандл при сборке (из-за чего может сильно увеличится размер сборки).
 Пример:
 
 ```jsx
@@ -40,44 +40,9 @@ const App = () => {
 
 ### Как добавить новую иконку
 
--   Создать React компонент с соответствующим именем, например `MessageChatFill.tsx` в директории `src/Icon.assets`.
--   Убедиться, что у тега `<svg />` **нет атрибута** `height`, `width` использует проценты и прокинуты `props`.
--   Убедиться, что свойство `fill` для тега `<path />` использует значение `currentColor`.
--   Убедиться, что нет свойства `fillOpacity`.
--   Так же можно убрать атрибуты: **fillRule**, **clipRule**.
--   [Проверить SVG](https://github.com/salute-developers/plasma/pull/668#discussion_r1310927087), что не сломалось после удаления атрибутов.
-
-#### Пример правильного компонента
-
-```tsx
-import React from 'react';
-
-import { IconProps } from '../IconRoot';
-
-export const MessageChatFill: React.FC<IconProps> = (props) => (
-    <svg width="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <path d="..." fill="currentColor" />
-    </svg>
-);
-```
-
--   Создать React компонент с соответствующим именем, например `IconMessageChatFill.tsx` в директории `src/Icon`
-    -   префикс `Icon` обязателен
--   Убедиться, что все необходимые свойства прокидываются, см. пример ниже
-
-```tsx
-import React from 'react';
-
-import { MessageChatFill } from '../Icon.assets/MessageChatFill';
-import { IconRoot, IconProps } from '../IconRoot';
-
-export const IconMessageChatFill: React.FC<IconProps> = ({ size = 's', color, className }) => {
-    return <IconRoot className={className} size={size} color={color} icon={MessageChatFill} />;
-};
-```
-
--   Сделать import в файле `Icon.tsx` по аналогии с импортами в самом файле
--   Сделать import в файле `index.ts` по аналогии с импортами в самом файле
+-   Добавить иконку в `svg` формате в нужную папку по размеру(на данный момент только 24) `src/scalable/Icon.svg.24` (вручную или через плагин фигмы). Если вручную, то также стоит внести название иконки в соотвествующую категорию в файле `src/scalable/Icon.tsx`.
+-   React-компоненты автоматически создадутся после выполнения `npm run build`.
+-   Для обновления архива с иконками под android необходимо запустить `npm run generate:android`.
 
 ## Полезные ссылки:
 
