@@ -1,19 +1,19 @@
 import type { HTMLAttributes } from 'react';
 
 export type PaginationSelectPerPageRoot = {
-    //
-    // Текущее значение
-    //
+    /*
+     * Текущее значение
+     */
     value?: number;
 
-    //
-    // Список значений
-    //
+    /*
+     * Список значений
+     */
     valuesList?: number[];
 
-    //
-    // Функция которая исполнятеся при изменении
-    //
+    /*
+     * Функция которая исполнятеся при изменении
+     */
     onChangeValue?: (page: number) => void;
 };
 

@@ -13,97 +13,95 @@ type NumericRange<
 > = START_ARR['length'] extends END ? ACC | END : NumericRange<[...START_ARR, 1], END, ACC | START_ARR['length']>;
 
 export type CustomPaginationProps = {
-    //
-    //  Вид
-    //
+    /*
+     * Вид
+     */
     view?: 'clear' | 'disabled' | 'secondary';
 
-    //
-    //  Вид выбранной кнопки
-    //
+    /*
+     *  Вид выбранной кнопки
+     */
     viewCurrentPage?: 'secondary' | 'primary' | 'clear';
 
-    //
-    //  Левый контент
-    //
+    /*
+     *  Левый контент
+     */
     leftContent?: ReactNode;
 
-    //
-    //  Правый контент
-    //
+    /*
+     *  Правый контент
+     */
     rightContent?: ReactNode;
 
-    //
-    //  Тип обычный или компактный
-    //
+    /*
+     *  Тип обычный или компактный
+     */
     type?: 'compact' | 'default';
 
-    //
-    // Размер
-    //
+    /*
+     * Размер
+     */
     size?: 'xs' | 's' | 'm' | 'l';
 
-    //
-    // Количество страниц
-    //
+    /*
+     * Количество страниц
+     */
     pages?: number;
 
-    //
-    // Выбранная страница
-    //
+    /*
+     * Выбранная страница
+     */
     value?: number;
 
-    //
-    // Выбор страницы через Input
-    //
-    isQuickJump?: boolean;
+    /*
+     * Выбор страницы через Input
+     */
+    hasQuickJump?: boolean;
 
-    //
-    // Выбор количества результатов на странице
-    //
-    isPerPage?: boolean;
+    /*
+     * Выбор количества результатов на странице
+     */
+    hasPerPage?: boolean;
 
-    //
-    // Выбренное количество результатов на странице
-    //
+    /*
+     * Выбренное количество результатов на странице
+     */
     perPage?: number;
 
-    //
-    // Выбренное количество результатов на странице
-    //
+    /*
+     * Выбренное количество результатов на странице
+     */
     perPageList?: number[];
 
-    //
-    // Заблокированные страницы
-    //
+    /*
+     * Заблокированные страницы
+     */
     disabled?: number[];
 
-    //
-    // Количество PageButtons
-    //
+    /*
+     * Количество PageButtons
+     */
     slots?: NumericRange<CreateArrayWithLengthX<7>, 15>;
 
-    //
-    // Скругление кнопки
-    //
+    /*
+     * Скругление кнопки
+     */
     pilled?: boolean;
 
-    //
-    // Размер кнопки
-    //
+    /*
+     * Размер кнопки
+     */
     stretching?: boolean;
 
-    //
-    // Авто изменение стиля кнопок в ButtonGroup
-    //
+    /*
+     * Авто изменение стиля кнопок в ButtonGroup
+     */
     isCommonButtonStyles?: boolean;
 
-    //
-    // Функция которая исполнятеся при изменении
-    //
+    /*
+     * Функция которая исполнятеся при изменении
+     */
     onChangeValue?: (page: number, perPage: number) => void;
 };
-
-// export type PaginationProps = HTMLAttributes<HTMLDivElement> & CustomPaginationProps;
 
 export interface PaginationProps extends HTMLAttributes<HTMLDivElement>, AsProps, CustomPaginationProps {}

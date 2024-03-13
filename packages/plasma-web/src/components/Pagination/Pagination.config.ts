@@ -1,6 +1,4 @@
-import { css } from '@linaria/core';
-
-import { paginationTokens } from '../../../../components/Pagination';
+import { css, paginationTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {

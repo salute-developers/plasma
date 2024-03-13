@@ -12,7 +12,7 @@ import {
     PaginationRoot,
 } from './Pagination.styles';
 import type { PaginationProps } from './Pagination.types';
-import { getSections } from './utils';
+import { getSections, defaultValues } from './utils';
 import { base as viewCSS } from './variations/_view/base';
 import { base as typeCSS } from './variations/_type/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -23,24 +23,24 @@ import { PaginationSelectPerPage } from './ui/PaginationSelectPerPage/Pagination
 export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>) =>
     forwardRef<HTMLDivElement, PaginationProps>((props, ref) => {
         const {
-            value = 1,
-            perPage = 20,
-            slots = 9,
+            value = defaultValues.value,
+            perPage = defaultValues.perPage,
+            slots = defaultValues.slots,
 
-            view = 'clear',
-            viewCurrentPage = 'secondary',
-            type = 'defalut',
-            size = 'xs',
-            pilled = false,
-            stretching = true,
-            disabled = [],
+            view,
+            viewCurrentPage,
+            type = defaultValues.type,
+            size,
+            pilled = defaultValues.pilled,
+            stretching = defaultValues.stretching,
+            disabled = defaultValues.disabled,
 
-            pages = 10,
+            pages = defaultValues.value,
 
-            isQuickJump = true,
-            isPerPage = true,
-            perPageList = [20, 50, 100, 200],
-            isCommonButtonStyles = true,
+            hasQuickJump = defaultValues.hasQuickJump,
+            hasPerPage = defaultValues.hasPerPage,
+            perPageList = defaultValues.perPageList,
+            isCommonButtonStyles = defaultValues.isCommonButtonStyles,
 
             leftContent,
             rightContent,
@@ -56,12 +56,19 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
         const typeClass = classes[`${type}Type` as keyof typeof classes];
 
         const setPage = useCallback(
-            (pageValue: number) => {
-                if (pageValue > pages) pageValue = pages;
-                if (pageValue < 1) pageValue = 1;
-                if (disabled.includes(pageValue)) return;
+            (pageValue: number | null) => {
+                pageValue = pageValue ?? defaultValues.value;
+                if (pageValue > pages) {
+                    pageValue = pages;
+                }
+                if (pageValue < 1) {
+                    pageValue = 1;
+                }
+                if (disabled.includes(pageValue)) {
+                    return;
+                }
                 setPageValue(pageValue);
-                onChangeValue && onChangeValue(pageValue, perPageValue);
+                onChangeValue?.(pageValue, perPageValue);
             },
             [perPageValue, disabled, setPageValue, onChangeValue],
         );
@@ -70,13 +77,13 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
             (newPerPageValue: number) => {
                 setPageValue(1);
                 setPerPageValue(newPerPageValue);
-                onChangeValue && onChangeValue(1, newPerPageValue);
+                onChangeValue?.(1, newPerPageValue);
             },
             [setPageValue, setPerPageValue, onChangeValue],
         );
 
         useEffect(() => {
-            setPageValue(value);
+            setPage(value);
         }, [value, setPageValue]);
 
         useEffect(() => {
@@ -94,16 +101,18 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
             >
                 <PaginationRoot className={cx(typeClass)}>
                     <PaginationPages>
-                        <PaginationButtonGroup isCommonButtonStyles={isCommonButtonStyles}>
-                            {leftContent}
-                        </PaginationButtonGroup>
+                        {leftContent && (
+                            <PaginationButtonGroup isCommonButtonStyles={isCommonButtonStyles}>
+                                {leftContent}
+                            </PaginationButtonGroup>
+                        )}
 
                         {sections &&
                             sections.map((section, indexSection) => {
                                 return (
                                     <>
                                         {indexSection !== 0 && (
-                                            <PaginationButton square disabled>
+                                            <PaginationButton square={!stretching} disabled>
                                                 ...
                                             </PaginationButton>
                                         )}
@@ -111,7 +120,7 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
                                             {section.map((pageValue, indexPage) => {
                                                 return (
                                                     <PaginationButton
-                                                        square={stretching}
+                                                        square={!stretching}
                                                         pin={pilled ? 'circle-circle' : 'square-square'}
                                                         key={indexPage}
                                                         onClick={() => setPage(pageValue)}
@@ -132,20 +141,22 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
                                 );
                             })}
 
-                        <PaginationButtonGroup isCommonButtonStyles={isCommonButtonStyles}>
-                            {rightContent}
-                        </PaginationButtonGroup>
+                        {rightContent && (
+                            <PaginationButtonGroup isCommonButtonStyles={isCommonButtonStyles}>
+                                {rightContent}
+                            </PaginationButtonGroup>
+                        )}
                     </PaginationPages>
                     <PaginationActions
                         className={cx(
                             classes.actions,
                             typeClass,
-                            isPerPage ? classes.isPerPageSelect : '',
-                            isQuickJump ? classes.isQuickJump : '',
+                            hasPerPage ? classes.isPerPageSelect : '',
+                            hasQuickJump ? classes.isQuickJump : '',
                         )}
                     >
-                        {isQuickJump && <PaginationQuickJumpToPage onChangeValue={(event) => setPage(event)} />}
-                        {isPerPage && (
+                        {hasQuickJump && <PaginationQuickJumpToPage onChangeValue={(event) => setPage(event)} />}
+                        {hasPerPage && (
                             <PaginationSelectPerPage
                                 value={perPageValue}
                                 valuesList={perPageList}

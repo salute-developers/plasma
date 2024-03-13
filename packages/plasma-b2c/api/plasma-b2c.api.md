@@ -149,6 +149,7 @@ import { padZeroNumber } from '@salutejs/plasma-core';
 import { PaginationDot } from '@salutejs/plasma-hope';
 import { PaginationDotProps } from '@salutejs/plasma-hope';
 import { PaginationDots } from '@salutejs/plasma-hope';
+import { PaginationProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PanelProps } from '@salutejs/plasma-new-hope/types/components/Panel';
 import { PickOptional } from '@salutejs/plasma-core';
 import { PinProps } from '@salutejs/plasma-core';
@@ -1237,11 +1238,37 @@ paragraph2: string;
 
 export { padZeroNumber }
 
+// @public
+export const Pagination: FunctionComponent<PropsType<    {
+view: {
+secondary: string;
+clear: string;
+primary: string;
+};
+viewCurrentPage: {
+primary: string;
+secondary: string;
+clear: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+type: {
+compact: string;
+default: string;
+};
+}> & PaginationProps & RefAttributes<HTMLDivElement>>;
+
 export { PaginationDot }
 
 export { PaginationDotProps }
 
 export { PaginationDots }
+
+export { PaginationProps }
 
 // @public (undocumented)
 export const ParagraphText1: FunctionComponent<PropsType<    {

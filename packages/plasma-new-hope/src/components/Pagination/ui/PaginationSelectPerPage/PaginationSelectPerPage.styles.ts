@@ -10,13 +10,13 @@ const Select = component(mergedSelectConfig);
 const mergedItemConfig = mergeConfig(selectItemConfig);
 export const SelectItem = component(mergedItemConfig);
 
-export const PaginationSelectPerPageRoot = styled.div`
+export const SelectPerPageRoot = styled.div`
     display: flex;
     align-items: center;
     gap: 0.5rem;
 `;
 
-export const PaginationSelectPerPageSelect = styled(Select)`
+export const SelectPerPageSelect = styled(Select)`
     ${selectTokens.targetColor}: var(${tokens.paginationButtonColor});
     ${selectTokens.targetLabelColor}: var(${tokens.paginationButtonColor});
     ${selectTokens.targetArrowColor}: var(${tokens.paginationButtonColor});
@@ -52,11 +52,11 @@ export const PaginationSelectPerPageSelect = styled(Select)`
     ${selectTokens.paddingBottom}: var(${tokens.paginationSelectPaddingBottom});
     ${selectTokens.paddingLeft}: var(${tokens.paginationSelectPaddingLeft});
 
-    ${selectTokens.background}: var(--surface-solid-card);
+    ${selectTokens.background}: var(${tokens.paginationButtonBackgroundColor});;
     ${selectTokens.boxShadow}: var(--shadow-down-soft-s);
 `;
 
-export const PaginationSelectPerPageSelectItem = styled(SelectItem)`
+export const SelectPerPageSelectItem = styled(SelectItem)`
     ${selectTokens.itemWidth}: var(${tokens.paginationSelectItemWidth});
     ${selectTokens.itemHeight}: var(${tokens.paginationSelectItemHeight});
     ${selectTokens.itemPaddingTop}: var(${tokens.paginationSelectItemPaddingTop});
@@ -75,9 +75,12 @@ export const PaginationSelectPerPageSelectItem = styled(SelectItem)`
     ${selectTokens.itemBackgroundSelectedHover}: var(${tokens.paginationButtonActiveBackgroundColor});
     ${selectTokens.itemColor}: var(${tokens.paginationButtonColor});
     ${selectTokens.itemContentLeftColor}: var(${tokens.paginationButtonColor});
+
+    ${selectTokens.itemBackgroundSelected}: var(${tokens.paginationButtonHoverBackgroundColor});
+    ${selectTokens.itemColorSelected}: var(${tokens.paginationButtonColor});
 `;
 
-export const PaginationSelectPerPageTypography = styled.div`
+export const SelectPerPageTypography = styled.div`
     font-family: var(${tokens.paginationFontFamily});
     font-size: var(${tokens.paginationFontSize});
     font-style: var(${tokens.paginationFontStyle});

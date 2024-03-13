@@ -32,7 +32,7 @@ export const PaginationRoot = styled.div`
 export const PaginationPages = styled.div`
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 0.25rem;
     margin: 0 auto;
 `;
 
@@ -40,7 +40,7 @@ export const PaginationActions = styled.div`
     display: flex;
     justify-content: space-between;
     flex-grow: 1;
-    gap: 10px;
+    gap: 0.625rem;
     &.${classes.compactType} {
         flex-direction: row !important;
     }
@@ -56,7 +56,7 @@ export const PaginationActions = styled.div`
 
 export const PaginationSection = styled.div`
     display: flex;
-    gap: 3px;
+    gap: 0.125rem;
 `;
 
 export const PaginationButtonGroup = styled(ButtonGroup)`

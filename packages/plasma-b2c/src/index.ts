@@ -24,6 +24,7 @@ export * from './components/ModalBase';
 export * from './components/Notification';
 export * from './components/Overlay';
 export * from './components/PaginationDots';
+export * from './components/Pagination';
 export * from './components/Popup';
 export * from './components/PopupBase';
 export * from './components/Popover';

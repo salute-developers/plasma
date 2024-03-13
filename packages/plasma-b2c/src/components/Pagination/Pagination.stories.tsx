@@ -1,16 +1,14 @@
-import { disableProps } from '@salutejs/plasma-sb-utils';
-import type { StoryObj, Meta } from '@storybook/react';
 import React, { useState, useCallback } from 'react';
+import type { StoryObj, Meta } from '@storybook/react';
+import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
-import { WithTheme } from '../../../_helpers';
-import { Button } from '../Button/Button';
+import { Button } from '../Button';
 
 import { Pagination } from './Pagination';
 
 const meta: Meta<typeof Pagination> = {
-    title: 'plasma_web/Pagination',
-    component: Pagination,
-    decorators: [WithTheme],
+    title: 'Controls/Pagination',
+    decorators: [InSpacingDecorator],
     argTypes: {
         size: {
             options: ['xs', 's', 'm', 'l'],
