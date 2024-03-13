@@ -2,18 +2,19 @@ import React, { useCallback, useState } from 'react';
 
 import { IconDone } from '../../../../components/_Icon';
 import { SelectPrimitiveValue } from '../../../Select';
+import { defaultValues } from '../../utils';
 
 import type { PaginationSelectPerPageProps } from './PaginationSelectPerPage.types';
 import {
-    PaginationSelectPerPageRoot,
-    PaginationSelectPerPageTypography,
-    PaginationSelectPerPageSelect,
-    PaginationSelectPerPageSelectItem,
+    SelectPerPageRoot,
+    SelectPerPageTypography,
+    SelectPerPageSelect,
+    SelectPerPageSelectItem,
 } from './PaginationSelectPerPage.styles';
 
 export const PaginationSelectPerPage: React.FC<PaginationSelectPerPageProps> = ({
-    value = 20,
-    valuesList = [20, 50, 100, 200],
+    value = defaultValues.perPage,
+    valuesList = defaultValues.perPageList,
     onChangeValue,
     ...rest
 }) => {
@@ -22,27 +23,27 @@ export const PaginationSelectPerPage: React.FC<PaginationSelectPerPageProps> = (
     const handleSelectChange = useCallback(
         (newValue: SelectPrimitiveValue | undefined) => {
             setSelectedValue(Number(newValue));
-            onChangeValue && onChangeValue(Number(newValue));
+            onChangeValue?.(Number(newValue));
         },
         [onChangeValue, setSelectedValue],
     );
 
     return (
-        <PaginationSelectPerPageRoot {...rest}>
-            <PaginationSelectPerPageTypography>Show</PaginationSelectPerPageTypography>
-            <PaginationSelectPerPageSelect
+        <SelectPerPageRoot {...rest}>
+            <SelectPerPageTypography>Show</SelectPerPageTypography>
+            <SelectPerPageSelect
                 value={selectedValue}
                 onChangeValue={(event: SelectPrimitiveValue | undefined) => handleSelectChange(event)}
             >
                 {valuesList?.map((item) => (
-                    <PaginationSelectPerPageSelectItem
-                        contentLeft={item === selectedValue ? <IconDone size="xs" /> : undefined}
+                    <SelectPerPageSelectItem
+                        contentLeft={item === selectedValue ? <IconDone size="xs" color="inherit" /> : undefined}
                         key={item}
                         value={item}
                         text={String(item)}
                     />
                 ))}
-            </PaginationSelectPerPageSelect>
-        </PaginationSelectPerPageRoot>
+            </SelectPerPageSelect>
+        </SelectPerPageRoot>
     );
 };

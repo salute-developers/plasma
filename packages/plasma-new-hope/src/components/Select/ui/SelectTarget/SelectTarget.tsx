@@ -1,6 +1,6 @@
 import React, { forwardRef, useCallback, useRef } from 'react';
 
-import { classes, tokens } from '../../Select.tokens';
+import { classes } from '../../Select.tokens';
 import { cx } from '../../../../utils';
 import { SelectChip } from '../SelectChip/SelectChip';
 import type { SelectPrimitiveValue } from '../../Select.types';
@@ -161,11 +161,7 @@ export const SelectTarget = forwardRef<HTMLButtonElement, SelectTargetProps>(
                         {label}
                     </StyledLabel>
                 )}
-                <StyledArrow
-                    size="s"
-                    color={tokens.targetArrowColor}
-                    className={cx(selectTargetArrow, withArrowInverse)}
-                />
+                <StyledArrow size="s" color="inherit" className={cx(selectTargetArrow, withArrowInverse)} />
             </StyledSelectTarget>
         );
     },

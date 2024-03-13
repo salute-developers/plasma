@@ -2,7 +2,7 @@ import { styled } from '@linaria/react';
 
 import { tokens } from '../../Pagination.tokens';
 
-export const PaginationQuickJumpToPageRoot = styled.div`
+export const QuickJumpToPageRoot = styled.div`
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -13,9 +13,9 @@ export const PaginationQuickJumpToPageRoot = styled.div`
     font-weight: var(${tokens.paginationFontWeight});
 `;
 
-export const PaginationQuickJumpToPageTypography = styled.div``;
+export const QuickJumpToPageTypography = styled.div``;
 
-export const PaginationQuickJumpToPageInput = styled.input`
+export const QuickJumpToPageInput = styled.input`
     background: var(${tokens.paginationButtonHoverBackgroundColor});
     color: var(${tokens.paginationButtonHoverColor});
 
@@ -26,7 +26,7 @@ export const PaginationQuickJumpToPageInput = styled.input`
     box-sizing: border-box;
     outline: none;
     border-radius: var(${tokens.paginationButtonRadius});
-    padding: 0 10px;
+    padding: 0 0.625rem;
 
     font-family: var(${tokens.paginationFontFamily});
     font-size: var(${tokens.paginationFontSize});
