@@ -24,9 +24,15 @@ import { bodyXSBold } from '@salutejs/sdds-themes/tokens';
 import { bodyXXS } from '@salutejs/sdds-themes/tokens';
 import { bodyXXSBold } from '@salutejs/sdds-themes/tokens';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
+import { ButtonGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonHTMLAttributes } from 'react';
 import { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { ClosePlacementType } from '@salutejs/plasma-new-hope/styled-components';
+import { Col } from '@salutejs/plasma-new-hope/styled-components';
+import { ColCount } from '@salutejs/plasma-new-hope/styled-components';
+import { ColOffsetProps } from '@salutejs/plasma-new-hope/styled-components';
+import { ColProps } from '@salutejs/plasma-new-hope/styled-components';
+import { ColSizeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ComboboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ComponentClass } from 'react';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -50,6 +56,7 @@ import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { FocusProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
+import { GridProps } from '@salutejs/plasma-new-hope/styled-components';
 import { h1 } from '@salutejs/sdds-themes/tokens';
 import { h1Bold } from '@salutejs/sdds-themes/tokens';
 import { h2 } from '@salutejs/sdds-themes/tokens';
@@ -87,6 +94,10 @@ import { ReactNode } from 'react';
 import { ReactPortal } from 'react';
 import { RefAttributes } from 'react';
 import { RefObject } from 'react';
+import { Row } from '@salutejs/plasma-new-hope/styled-components';
+import { ScreenConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { ScreenMap } from '@salutejs/plasma-new-hope/styled-components';
+import { ScreenVariant } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
@@ -288,6 +299,49 @@ fixed: string;
 };
 }> & ButtonProps_2<HTMLElement> & RefAttributes<HTMLButtonElement>>;
 
+// @public
+export const ButtonGroup: FunctionComponent<PropsType<    {
+view: {
+primary: string;
+accent: string;
+secondary: string;
+clear: string;
+success: string;
+warning: string;
+critical: string;
+};
+size: {
+l: string;
+lr: string;
+m: string;
+mr: string;
+s: string;
+sr: string;
+xs: string;
+xsr: string;
+xxs: string;
+};
+orientation: {
+horizontal: string;
+vertical: string;
+};
+gap: {
+none: string;
+dense: string;
+wide: string;
+};
+shape: {
+segmented: string;
+default: string;
+};
+stretching: {
+auto: string;
+filled: string;
+};
+}> & ButtonGroupProps & RefAttributes<HTMLDivElement>>;
+
+export { ButtonGroupProps }
+
 // Warning: (ae-forgotten-export) The symbol "ButtonComponent" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
@@ -302,6 +356,16 @@ export const Checkbox: FunctionComponent<BaseboxProps>;
 export type CheckboxProps = typeof CheckboxComponent;
 
 export { ClosePlacementType }
+
+export { Col }
+
+export { ColCount }
+
+export { ColOffsetProps }
+
+export { ColProps }
+
+export { ColSizeProps }
 
 // @public (undocumented)
 export const Combobox: ForwardRefExoticComponent<ComboboxProps & RefAttributes<HTMLDivElement>>;
@@ -450,6 +514,25 @@ primary: string;
 };
 }> & HTMLAttributes<HTMLDivElement> & CustomDropdownProps & RefAttributes<HTMLDivElement>>;
 
+// @public
+export const DropdownItem: FunctionComponent<PropsType<Variants> & Omit<HTMLAttributes<HTMLDivElement>, "onSelect"> & {
+id?: string | undefined;
+disabled?: boolean | undefined;
+label?: ReactNode;
+role?: string | undefined;
+contentLeft?: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ReactFragment | ReactPortal | ComponentClass<any, any> | null | undefined;
+contentRight?: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ReactFragment | ReactPortal | ComponentClass<any, any> | null | undefined;
+name?: string | undefined;
+checked?: boolean | undefined;
+text?: string | undefined;
+value?: string | number | boolean | undefined;
+isSelected?: boolean | undefined;
+onClick?: ((event: MouseEvent_2<HTMLDivElement, MouseEvent>) => void) | undefined;
+onSelect?: ((value?: any, text?: any) => void) | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
 export { DropdownPlacement }
 
 export { DropdownProps }
@@ -494,6 +577,15 @@ breakWord?: boolean | undefined;
 export { dsplS }
 
 export { dsplSBold }
+
+// @public (undocumented)
+export const Grid: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+}> & GridProps & RefAttributes<HTMLDivElement>>;
+
+export { GridProps }
 
 // @public (undocumented)
 export const H1: FunctionComponent<PropsType<    {
@@ -633,6 +725,14 @@ export type RadioboxProps = typeof RadioboxComponent;
 export { RadioGroup }
 
 export { Ratio }
+
+export { Row }
+
+export { ScreenConfig }
+
+export { ScreenMap }
+
+export { ScreenVariant }
 
 // @public
 export const SegmentGroup: FunctionComponent<PropsType<    {

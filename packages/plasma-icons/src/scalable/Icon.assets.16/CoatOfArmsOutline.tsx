@@ -1,1 +1,0 @@
-export const CoatOfArmsOutline = null;

@@ -8,7 +8,7 @@ import { cx } from '../../utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import type { PopoverPlacement, PopoverProps } from './Popover.types';
-import { StyledArrow, StyledPopover, StyledRoot, Wrapper } from './Popover.styles';
+import { StyledArrow, StyledPopover, StyledRoot, StyledWrapper } from './Popover.styles';
 import { classes } from './Popover.tokens';
 
 export const ESCAPE_KEYCODE = 27;
@@ -214,7 +214,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             }, [isOpen, children, forceUpdate]);
 
             return (
-                <Wrapper className={classes.wrapper}>
+                <StyledWrapper className={classes.wrapper}>
                     <StyledRoot
                         ref={handleRef}
                         onClick={onClick}
@@ -250,7 +250,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                             </Root>,
                             portalRef.current,
                         )}
-                </Wrapper>
+                </StyledWrapper>
             );
         },
     );

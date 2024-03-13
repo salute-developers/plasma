@@ -1,0 +1,131 @@
+---
+id: badge
+title: Badge
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Badge
+<Description name="Badge" />
+<PropsTable name="Badge"  exclude={['css']} />
+
+## Примеры
+
+### Размер бейджа
+Размер задается с помощью свойства `size`.
+
+Возможные значения свойства: `"l"`, `"m"`, `"s"`.
+
+```tsx live 
+import React from 'react';
+import { Badge } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <div>
+            <Badge text="Бейдж" size="l" />
+            <Badge text="Бейдж" size="m" />
+            <Badge text="Бейдж" size="s" />
+        </div>
+    );
+}
+```
+
+### Скругленность бейджа
+Скругленность задается с помощью свойства `pilled`:
+
+```tsx live 
+import React from 'react';
+import { Badge } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <div>
+            <Badge text="Бейдж" size="l" pilled />
+            <Badge text="Бейдж" size="m" pilled />
+            <Badge text="Бейдж" size="s" pilled />
+        </div>
+    );
+}
+```
+
+### Вид бейджа
+Вид бейджа задается с помощью свойства `view`. Возможные значения свойства `view`:
+
++ `"primary"` – основной бейдж;
++ `"accent"` – бейдж акцентного цвета;
++ `"positive"` – успешное завершение;
++ `"warning"` – предупреждение;
++ `"negative"` – ошибка;
++ `"dark"` – темный бэйдж;
++ `"light"` – светлый бэйдж.
+
+```tsx live 
+import React from 'react';
+import { Badge } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <div>
+            <Badge text="Бейдж" size="l" view="primary" />
+            <Badge text="Бейдж" size="l" view="accent" />
+            <Badge text="Бейдж" size="l" view="positive" />
+            <Badge text="Бейдж" size="l" view="warning" />
+            <Badge text="Бейдж" size="l" view="negative" />
+            <Badge text="Бейдж" size="l" view="dark" />
+            <Badge text="Бейдж" size="l" view="light" />
+        </div>
+    );
+}
+```
+
+так же на вид бейджа влияет свойство `transparent`:
+
+```tsx live 
+import React from 'react';
+import { Badge } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <div>
+            <Badge text="Бейдж" size="l" view="primary" transparent />
+            <Badge text="Бейдж" size="l" view="accent" transparent />
+            <Badge text="Бейдж" size="l" view="positive" transparent />
+            <Badge text="Бейдж" size="l" view="warning" transparent />
+            <Badge text="Бейдж" size="l" view="negative" transparent />
+            <Badge text="Бейдж" size="l" view="dark" transparent />
+            <Badge text="Бейдж" size="l" view="light" transparent />
+        </div>
+    );
+}
+```
+
+### Иконка слева / справа
+В левой и/или правой части бейджа можно отобразить иконку:
+
+```tsx live
+import React from 'react';
+import { Badge } from '@salutejs/sdds-serv';
+import { IconEye } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <Badge 
+                text="Бейдж" 
+                size="l"   
+                view="primary" 
+                contentLeft={
+                    <IconEye color="inherit" size="xs" />
+                } />
+            <Badge 
+                text="Бейдж" 
+                size="l"   
+                view="primary" 
+                contentRight={
+                    <IconEye color="inherit" size="xs" />
+                } />
+        </div>
+    );
+}
+```

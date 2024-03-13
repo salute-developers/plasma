@@ -1,1 +1,0 @@
-export const MessagePersonChatFill = null;

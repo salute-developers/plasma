@@ -1,1 +1,0 @@
-export const CashATMOutline = null;

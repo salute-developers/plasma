@@ -1,0 +1,94 @@
+---
+id: tabs
+title: Tabs
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Tabs
+Набор компонентов для создания вкладок.
+Структура для вкладок похожа на структуру маркированных списков.
+
+## TabsController
+
+<Description name="TabsController" />
+<PropsTable name="TabsController" />
+
+## Tabs
+
+<Description name="Tabs" />
+<PropsTable name="Tabs" />
+
+## TabItem
+
+<Description name="TabItem" />
+<PropsTable name="TabItem" />
+
+
+## Использование
+
+### Cтандартное подключение, без клавиатурной навигации
+
+```tsx live
+import React, { useState } from 'react';
+import { Tabs, TabItem } from '@salutejs/sdds-serv';
+import { IconClock } from '@salutejs/plasma-icons';
+
+export function App() {
+    const items = Array(4).fill(0);
+    const [index, setIndex] = useState(0);
+
+    return (
+        <Tabs view="filled" stretch size="xs">
+            {items.map((_, i) => (
+                <TabItem
+                    view="secondary"
+                    key={`item:${i}`}
+                    size="xs"
+                    selected={i === index}
+                    tabIndex={0}
+                    contentLeft={<IconClock size="xs" color="inherit" />}
+                    onClick={() => setIndex(i)}
+                >
+                    Label
+                </TabItem>
+            ))}
+        </Tabs>
+    );
+}
+```
+
+### Подключение клавиатурной навигации
+Для этого необходимо дополнительно прокинуть свойства `index, itemIndex, onIndexChange`.
+Клавиши ArrowLeft, ArrowRight, Home, End для навигации по вкладкам.
+
+```tsx live
+import React, { useState } from 'react';
+import { Tabs, TabItem } from '@salutejs/sdds-serv';
+import { IconClock } from '@salutejs/plasma-icons';
+
+export function App() {
+    const items = Array(4).fill(0);
+    const [index, setIndex] = useState(0);
+
+    return (
+        <Tabs view="filled" stretch size="xs" index={index}>
+            {items.map((_, i) => (
+                <TabItem
+                    view="secondary"
+                    key={`item:${i}`}
+                    size="xs"
+                    itemIndex={i}
+                    onIndexChange={(i) => setIndex(i)}
+                    selected={i === index}
+                    tabIndex={0}
+                    contentLeft={<IconClock size="xs" color="inherit" />}
+                    onClick={() => setIndex(i)}
+                >
+                    Label
+                </TabItem>
+            ))}
+        </Tabs>
+    );
+}
+```

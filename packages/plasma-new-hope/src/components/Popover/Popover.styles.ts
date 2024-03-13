@@ -5,12 +5,11 @@ import { DEFAULT_Z_INDEX } from '../Popup/utils';
 import { classes, tokens } from './Popover.tokens';
 import { PopoverProps } from './Popover.types';
 
-export const Wrapper = styled.div``;
-
+export const StyledWrapper = styled.div``;
 export const StyledRoot = styled.div`
-    position: relative;
-    box-sizing: border-box;
     display: inline-flex;
+    box-sizing: border-box;
+    position: relative;
 `;
 
 export const StyledArrow = styled.div`

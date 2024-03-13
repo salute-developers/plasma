@@ -89,7 +89,7 @@ jobs:
               enumeration.push('plasma-website');
             }
             
-            if(enumeration.includes('plasma-website') && !enumeration.includes('plasma-b2c')) {
+            if (enumeration.includes('plasma-website') && !enumeration.includes('plasma-b2c')) {
               enumeration.push('plasma-b2c');
             }
             
@@ -97,10 +97,6 @@ jobs:
               enumeration.push('plasma-web');
             }
 
-            if(!enumeration.includes('plasma-typo')) {
-              enumeration.push('plasma-typo');
-            }
-            
             if (!enumeration.includes('plasma-typo')) {
               enumeration.push('plasma-typo');
             }
@@ -123,17 +119,21 @@ jobs:
       - name: Plasma UI Docs
         if: ${{ needs.scope.outputs.HAS_PLASMA_UI_DOCS == 'true' && needs.scope.outputs.HAS_PLASMA_UI == 'true' }}
         run: |
-          export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-ui-docs"
           cp -R ./website/plasma-ui-docs/build ./s3_build/${PR_NAME}/ui
       
       - name: Plasma Web Docs
         if: ${{ needs.scope.outputs.HAS_PLASMA_WEB_DOCS == 'true' }}
         run: |
-          export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-web-docs"
           cp -R ./website/plasma-web-docs/build ./s3_build/${PR_NAME}/web
           
+      - name: Plasma SDDS-SERV Docs
+        if: ${{ needs.scope.outputs.HAS_SDDS_SERV == 'true' }}
+        run: |
+          npm run build --prefix="./website/sdds-serv-docs"
+          cp -R ./website/sdds-serv-docs/build ./s3_build/${PR_NAME}/sdds-serv
+      
       - name: Plasma UI Storybook
         if: ${{ needs.scope.outputs.HAS_PLASMA_UI == 'true' }}
         run: |
