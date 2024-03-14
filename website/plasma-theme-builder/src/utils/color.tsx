@@ -132,3 +132,9 @@ export const getGreyTokenData = ({ saturation, grayscale, opacity }: GetGreyToke
         ? `[general.${grayscale}.${saturation}][${(opacity - 1).toPrecision(3)}]`
         : `[general.${grayscale}.${saturation}]`;
 };
+
+export const updateColorSaturation = (value: string, saturation: PlasmaSaturation) => {
+    const [palette, shade] = value.replace(/\[|\]/g, '').split('.');
+
+    return `[${palette}.${shade}.${saturation}]`;
+};
