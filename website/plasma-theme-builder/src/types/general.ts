@@ -1,5 +1,5 @@
 import { general as generalColors, PlasmaSaturation } from '@salutejs/plasma-colors';
-import { Grayscale } from '@salutejs/plasma-tokens-utils';
+import { Grayscale, TokensByType } from '@salutejs/plasma-tokens-utils';
 
 import type { Swift, XML, Theme as ThemeType } from '.';
 
@@ -69,4 +69,11 @@ export interface SavedTheme {
     themeData: ThemeType;
     date: string;
     branchName?: string;
+}
+
+export interface TokensCreator {
+    comment: Record<keyof TokensByType, string>;
+    darkValue: string;
+    lightValue: string;
+    enabledAll?: boolean;
 }

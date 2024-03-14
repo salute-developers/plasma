@@ -11,7 +11,7 @@ export const baseColors = {
         comment: 'Базовый черный цвет',
     },
     clear: {
-        value: 'rgba(0, 0, 0, 0)',
+        value: '#FFFFFF00',
         comment: 'Базовый прозрачный цвет',
     },
 };

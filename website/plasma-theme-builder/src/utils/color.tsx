@@ -23,7 +23,7 @@ export const getPaletteColorByHEX = (inputColor: string) => {
             const hexPaletteColor = getHEXAColor(color);
 
             if (!excludeColors.includes(hexInputColor) && hexInputColor === hexPaletteColor) {
-                return ([shade, saturation] as unknown) as [GeneralColor, PlasmaSaturation];
+                return [shade, saturation] as unknown as [GeneralColor, PlasmaSaturation];
             }
         }
     }
@@ -36,7 +36,7 @@ export const getPaletteColorByValue = (value: ComplexValue) => {
         const [, color] = extractColors(value);
         const [, shade, saturation] = color.split('.');
 
-        return ([shade, saturation] as unknown) as [GeneralColor, PlasmaSaturation];
+        return [shade, saturation] as unknown as [GeneralColor, PlasmaSaturation];
     }
 
     return [undefined, undefined];
@@ -131,4 +131,14 @@ export const getGreyTokenData = ({ saturation, grayscale, opacity }: GetGreyToke
     return opacity
         ? `[general.${grayscale}.${saturation}][${(opacity - 1).toPrecision(3)}]`
         : `[general.${grayscale}.${saturation}]`;
+};
+
+/**
+ * Метод возвращает цвет в формате [general.shade.saturation] с обновлённым значением светлости.
+ * @example value:`[general.red.500]`, saturation: `150` => `[general.red.150]`
+ */
+export const updateColorSaturation = (value: string, saturation: PlasmaSaturation) => {
+    const [palette, shade] = value.replace(/\[|\]/g, '').split('.');
+
+    return `[${palette}.${shade}.${saturation}]`;
 };

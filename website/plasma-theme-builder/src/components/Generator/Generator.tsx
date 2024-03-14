@@ -84,9 +84,9 @@ export const Generator = ({ onPreviewTheme, onMain }: GeneratorProps) => {
     const [data, setData] = useState<ThemeData & { savedTheme?: string }>({
         savedTheme: getSavedThemes()[0]?.value || '',
         themeName: '',
-        accentColors: getAccentColors()[0].value,
-        lightSaturations: getSaturations()[0].value,
-        darkSaturations: getSaturations()[0].value,
+        accentColors: getAccentColors()[7].value,
+        lightSaturations: getSaturations()[8].value,
+        darkSaturations: getSaturations()[7].value,
         lightGrayscale: getGrayscale()[0].value,
         darkGrayscale: getGrayscale()[0].value,
     });
