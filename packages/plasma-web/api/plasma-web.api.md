@@ -38,6 +38,7 @@ import { blurs } from '@salutejs/plasma-core';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
 import { Breakpoint } from '@salutejs/plasma-hope';
 import { BreakWordProps } from '@salutejs/plasma-core';
+import { ButtonBase } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonHTMLAttributes } from 'react';
 import { ButtonProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -68,16 +69,15 @@ import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { clearSelection } from '@salutejs/plasma-hope';
 import { closeNotification } from '@salutejs/plasma-new-hope/styled-components';
 import { ClosePlacementType } from '@salutejs/plasma-new-hope/styled-components';
-import { Col } from '@salutejs/plasma-hope';
-import { ColCount } from '@salutejs/plasma-hope';
-import { ColOffsetProps } from '@salutejs/plasma-hope';
-import { ColProps } from '@salutejs/plasma-hope';
-import { ColSizeProps } from '@salutejs/plasma-hope';
+import { Col } from '@salutejs/plasma-new-hope/styled-components';
+import { ColCount } from '@salutejs/plasma-new-hope/styled-components';
+import { ColOffsetProps } from '@salutejs/plasma-new-hope/styled-components';
+import { ColProps } from '@salutejs/plasma-new-hope/styled-components';
+import { ColSizeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ComboboxPrimitiveValue } from '@salutejs/plasma-new-hope/styled-components';
 import { ComboboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ComponentClass } from 'react';
-import { Container } from '@salutejs/plasma-hope';
-import { ContainerProps } from '@salutejs/plasma-hope';
+import { GridProps as ContainerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
@@ -140,7 +140,6 @@ import { MouseEvent as MouseEvent_2 } from 'react';
 import { NotificationIconPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationLayout } from '@salutejs/plasma-new-hope/styled-components';
 import { NotificationProps } from '@salutejs/plasma-new-hope/styled-components';
-import { offsets } from '@salutejs/plasma-hope';
 import { OutlinedProps } from '@salutejs/plasma-core';
 import { Overlay } from '@salutejs/plasma-new-hope/styled-components';
 import { OverlayProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -183,7 +182,10 @@ import { RefAttributes } from 'react';
 import { RefObject } from 'react';
 import { Roundness } from '@salutejs/plasma-core';
 import { RoundnessProps } from '@salutejs/plasma-core';
-import { Row } from '@salutejs/plasma-hope';
+import { Row } from '@salutejs/plasma-new-hope/styled-components';
+import { ScreenConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { ScreenMap } from '@salutejs/plasma-new-hope/styled-components';
+import { ScreenVariant } from '@salutejs/plasma-new-hope/styled-components';
 import { ScrollSnapProps } from '@salutejs/plasma-core';
 import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -195,7 +197,6 @@ import { setRef } from '@salutejs/plasma-core';
 import { shadows } from '@salutejs/plasma-core';
 import { ShiftProps } from '@salutejs/plasma-core';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
-import { sizes } from '@salutejs/plasma-hope';
 import { SkeletonGradientProps } from '@salutejs/plasma-core';
 import { SkeletonGradientProps as SkeletonGradientProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { SkeletonSizeProps } from '@salutejs/plasma-new-hope/types/components/Skeleton/Skeleton.types';
@@ -493,6 +494,8 @@ button2: string;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
+export { ButtonBase }
+
 // @public
 export const ButtonGroup: FunctionComponent<PropsType<    {
 view: {
@@ -772,7 +775,13 @@ view?: string | undefined;
 
 export { ComboboxProps }
 
-export { Container }
+// @public (undocumented)
+export const Container: FunctionComponent<PropsType<    {
+view: {
+default: string;
+legacy: string;
+};
+}> & ContainerProps & RefAttributes<HTMLDivElement>>;
 
 export { ContainerProps }
 
@@ -1184,8 +1193,6 @@ export const NotificationsProvider: React_2.FC<{
     frame?: string;
 }>;
 
-export { offsets }
-
 export { OutlinedProps }
 
 export { Overlay }
@@ -1321,6 +1328,12 @@ export { RoundnessProps }
 
 export { Row }
 
+export { ScreenConfig }
+
+export { ScreenMap }
+
+export { ScreenVariant }
+
 export { ScrollSnapProps }
 
 // @public
@@ -1408,8 +1421,6 @@ export { shadows }
 export { ShiftProps }
 
 export { ShowToastArgs }
-
-export { sizes }
 
 export { SkeletonGradientProps }
 

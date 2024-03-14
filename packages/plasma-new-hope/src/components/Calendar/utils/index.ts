@@ -103,7 +103,7 @@ export const getSortedValues = (values: [Date | undefined, (Date | undefined)?])
         return start.getTime() - end.getTime();
     });
 
-export const isDayInRage = (
+export const isDayInRange = (
     year: number,
     monthIndex: number,
     currentDay: number,
@@ -111,12 +111,12 @@ export const isDayInRage = (
 ) => {
     const [startValue, endValue] = getSortedValues(values);
 
-    if (!endValue) {
+    if (!endValue || !startValue) {
         return false;
     }
 
     const day = new Date(year, monthIndex, currentDay);
-    return startValue && startValue <= day && day <= endValue;
+    return startValue < day && day <= endValue;
 };
 
 export const isSameDay = (firstDate: DateObject, secondDate?: DateObject) =>
@@ -242,10 +242,6 @@ export const canSelectDate = (
 
     const hoverDate = new Date(year, monthIndex, day);
     const [startDate] = value;
-
-    if (hoverDate?.getTime() === startDate?.getTime()) {
-        return false;
-    }
 
     if (!disabledList?.length) {
         return true;

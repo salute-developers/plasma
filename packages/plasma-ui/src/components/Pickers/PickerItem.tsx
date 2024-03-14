@@ -34,7 +34,6 @@ interface StyledSizeProps {
 export const StyledPickerItem = styled.div<StyledSizeProps>`
     position: relative;
     box-sizing: border-box;
-    overflow: hidden;
     display: flex;
     align-items: center;
     text-align: center;

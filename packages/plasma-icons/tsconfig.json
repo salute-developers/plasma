@@ -33,8 +33,8 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "outDir": "./",
-        "rootDir": "./src"
+        "rootDir": "./src-build"
     },
-    "include": ["./src"],
-    "exclude": ["./src/helpers", "./src/**/*.stories.tsx"]
+    "include": ["./src-build"],
+    "exclude": ["./src-build/helpers", "./src-build/**/*.stories.tsx"]
 }
