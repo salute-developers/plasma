@@ -115,7 +115,7 @@ const StyledContentWrapper = styled.div`
 `;
 
 const StyledContent = styled.div`
-    background: #f5f5dc;
+    background: #a8a875;
     flex-grow: 1;
     height: 100%;
 `;
@@ -189,7 +189,7 @@ export const DrawerDemo: StoryObj<StoryDrawerProps> = {
         asModal: true,
         closePlacement: 'right',
         width: '25vw',
-        height: '100vh',
+        height: '100dvh',
         borderRadius: 'none',
     },
     render: (args) => <StoryDrawerDemo {...args} />,
