@@ -1,3 +1,138 @@
+# (Thu Mar 14 2024)
+
+### Release Notes
+
+#### Release by 13.03.2024 ([#1112](https://github.com/salute-developers/plasma/pull/1112))
+
+## Components
+
+### Calendar
+
+-   добавлено возможность выбора одного дня для `range`
+
+ 
+feat(new-hope): edit calendar range logic and fix name (https://github.com/salute-developers/plasma/pull/1084)
+
+### TextField
+
+- исправлен ошибка связанная с прозрачностью в `Safari`
+
+ 
+feat(plasma-new-hope): TextField issue with opacity (https://github.com/salute-developers/plasma/pull/1082)
+
+### Button
+
+- удалены токены `scale` из кнопки и группы кнопок в пакетах `plasma-{b2c, web, sdds-serv}, caldera/-online`
+- удалены токены `scale` из `example` для `plasma-new-hope`
+
+ 
+feat: remove scale tokens from Button & ButtonGroup (https://github.com/salute-developers/plasma/pull/1110)
+
+### Grid
+
+- добавлен в поставку в `plasma-{b2c, web, new-hope}, sdds-serv`
+- написаны тесты и обновлена документация
+
+feat(plasma-new-hope): Grid refactor redesign (https://github.com/salute-developers/plasma/pull/1105)
+
+### ButtonBase
+
+-   добавлен базовый компонент для создания `custom` кнопок для библиотек `plasma-{b2c,new-hope}`
+
+ 
+feat(plasma-new-hope, b2c): ButtonBase (https://github.com/salute-developers/plasma/pull/1080)
+
+
+## Icons
+
+### SVG
+
+-   добавлен svg формат иконок (не попадают в итоговой билд)
+
+ 
+feat(plasma-icons): Add svg icons (https://github.com/salute-developers/plasma/pull/1095)
+
+### Icons generation
+
+-  добавлена генерация компонентов иконок на основе svg во время билда
+-  удалены компоненты и их assets из git
+ 
+plasma-icons: build-time generate Icon components (https://github.com/salute-developers/plasma/pull/1101)
+
+
+## Docs
+
+### SDDS SERV DOCS
+
+- добавлена новый пакет документации
+ 
+plasma-docs: Setup `sdds-serv` package docs (https://github.com/salute-developers/plasma/pull/1062)
+
+
+## Misc
+
+### Tooltip
+
+-   исправлена логика работы classname, теперь все наследуется корректно
+
+ 
+fix(new-hope): remove wrapper from popover (https://github.com/salute-developers/plasma/pull/1083)
+
+### Pickers
+
+-  исправлена ошибка UI в документации 
+
+ 
+fix(ui): fix pickers documentation bug with overflow (https://github.com/salute-developers/plasma/pull/1089)
+
+---
+
+#### 🚀 Enhancement
+
+- `@salutejs/caldera-online@0.21.0`, `@salutejs/caldera@0.21.0`, `@salutejs/plasma-asdk@0.57.0`, `@salutejs/plasma-b2c@1.299.0`, `@salutejs/plasma-core@1.154.0`, `@salutejs/plasma-hope@1.270.0`, `@salutejs/plasma-icons@1.188.0`, `@salutejs/plasma-new-hope@0.61.0`, `@salutejs/plasma-tokens-b2b@1.36.0`, `@salutejs/plasma-tokens-b2c@0.46.0`, `@salutejs/plasma-tokens-web@1.51.0`, `@salutejs/plasma-ui@1.239.0`, `@salutejs/plasma-web@1.299.0`, `@salutejs/sdds-serv@0.24.0`, `@salutejs/plasma-cy-utils@0.86.0`, `@salutejs/plasma-sb-utils@0.152.0`
+  - Release by 13.03.2024 [#1112](https://github.com/salute-developers/plasma/pull/1112) ([@Yakutoc](https://github.com/Yakutoc) [@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@iljs](https://github.com/iljs) [@neretin-trike](https://github.com/neretin-trike) [@shuga2704](https://github.com/shuga2704) [@kayman233](https://github.com/kayman233))
+- `@salutejs/sdds-serv@0.24.0`
+  - feat(sdds-serv): add grid component [#1105](https://github.com/salute-developers/plasma/pull/1105) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/caldera-online@0.21.0`, `@salutejs/caldera@0.21.0`, `@salutejs/plasma-b2c@1.299.0`, `@salutejs/plasma-new-hope@0.61.0`, `@salutejs/plasma-web@1.299.0`, `@salutejs/sdds-serv@0.24.0`
+  - feat: remove scale tokens from bButton & ButtonGroup [#1110](https://github.com/salute-developers/plasma/pull/1110) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-icons@1.188.0`
+  - feat(plasma-icons): build-time generate Icon components [#1101](https://github.com/salute-developers/plasma/pull/1101) ([@kayman233](https://github.com/kayman233))
+  - feat(plasma-icons): Add svg icons T, V, W [#1095](https://github.com/salute-developers/plasma/pull/1095) ([@kayman233](https://github.com/kayman233))
+- `@salutejs/plasma-new-hope@0.61.0`
+  - feat(plasma-new-hope): Update note in TextField [#1082](https://github.com/salute-developers/plasma/pull/1082) ([@shuga2704](https://github.com/shuga2704))
+  - feat(new-hope): edit calendar range logic and fix name [#1084](https://github.com/salute-developers/plasma/pull/1084) ([@iljs](https://github.com/iljs))
+
+#### 🐛 Bug Fix
+
+- chore: remove sdds-srvc dir [#1108](https://github.com/salute-developers/plasma/pull/1108) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- ci: enable build sdds-serv docs [#1098](https://github.com/salute-developers/plasma/pull/1098) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(sdds-serv-docs): Update versions [#1097](https://github.com/salute-developers/plasma/pull/1097) ([@Yakutoc](https://github.com/Yakutoc))
+- docs(sdds-serv-docs): add dropdown docs & update Drawer/ButtonGroup [#1062](https://github.com/salute-developers/plasma/pull/1062) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-b2c@1.299.0`, `@salutejs/plasma-new-hope@0.61.0`, `@salutejs/plasma-web@1.299.0`
+  - feat(plasma-web, b2c, new-hope): Added ButtonBase [#1080](https://github.com/salute-developers/plasma/pull/1080) ([@shuga2704](https://github.com/shuga2704))
+- `@salutejs/caldera-online@0.21.0`, `@salutejs/caldera@0.21.0`, `@salutejs/plasma-asdk@0.57.0`, `@salutejs/plasma-b2c@1.299.0`, `@salutejs/plasma-new-hope@0.61.0`, `@salutejs/plasma-web@1.299.0`, `@salutejs/sdds-serv@0.24.0`
+  - chore: bump manual package-locks [#1111](https://github.com/salute-developers/plasma/pull/1111) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-ui@1.239.0`
+  - fix(ui): fix pickers documentation bug with overflow [#1089](https://github.com/salute-developers/plasma/pull/1089) ([@iljs](https://github.com/iljs))
+- `@salutejs/caldera-online@0.21.0`, `@salutejs/caldera@0.21.0`, `@salutejs/plasma-asdk@0.57.0`, `@salutejs/plasma-b2c@1.299.0`, `@salutejs/plasma-new-hope@0.61.0`, `@salutejs/plasma-ui@1.239.0`, `@salutejs/plasma-web@1.299.0`, `@salutejs/sdds-serv@0.24.0`
+  - chore(storybook): bump storybook to "@latest" [#1096](https://github.com/salute-developers/plasma/pull/1096) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-tokens-b2b@1.36.0`, `@salutejs/plasma-tokens-b2c@0.46.0`, `@salutejs/plasma-tokens-web@1.51.0`
+  - fix(plasma-tokens-*): Add `new` directory for for new tokens [#1094](https://github.com/salute-developers/plasma/pull/1094) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-new-hope@0.61.0`
+  - fix(new-hope): tooltip classname fix [#1083](https://github.com/salute-developers/plasma/pull/1083) ([@iljs](https://github.com/iljs))
+
+#### Authors: 7
+
+- [@iljs](https://github.com/iljs)
+- [@kayman233](https://github.com/kayman233)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Tue Mar 05 2024)
 
 #### 🐛 Bug Fix
