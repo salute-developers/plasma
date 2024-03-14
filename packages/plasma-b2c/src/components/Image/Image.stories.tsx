@@ -2,7 +2,7 @@ import React from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
-import { Image, Ratio } from '.';
+import { Image } from '.';
 import type { ImageProps } from '.';
 
 const meta: Meta<ImageProps> = {
@@ -22,13 +22,13 @@ const meta: Meta<ImageProps> = {
                 type: 'select',
             },
         },
-        ...disableProps(['height', 'customRatio']),
+        ...disableProps(['src', 'alt', 'customRatio']),
     },
 };
 
 export default meta;
 
-export const Default: StoryObj<ImageProps & { ratio: Ratio }> = {
+export const Default: StoryObj<ImageProps> = {
     args: {
         base: 'div',
         src: './images/320_320_9.jpg',
@@ -36,9 +36,9 @@ export const Default: StoryObj<ImageProps & { ratio: Ratio }> = {
         width: '200px',
         height: '200px',
     },
-    render: ({ base, ratio, ...args }) => (
+    render: (args) => (
         <div style={{ maxWidth: '10rem' }}>
-            <Image style={{ position: 'relative' }} {...args} />
+            <Image {...args} />
         </div>
     ),
 };
