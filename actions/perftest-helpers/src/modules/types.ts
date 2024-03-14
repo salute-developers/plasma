@@ -13,8 +13,18 @@ export type ComparableResult = {
     change?: CompareResult;
 };
 
+type Comparable = { [statKey: string]: ComparableResult };
+type SingleResultMap = { [statKey: string]: MetricResult };
+
 export type SubjectResult = {
-    [taskId: string]: { [statKey: string]: ComparableResult };
+    [taskId: string]: Comparable & {
+        modes?:
+            | Comparable[]
+            | {
+                  new: SingleResultMap[];
+                  old?: SingleResultMap[];
+              };
+    };
 };
 
 export type ReportType = {

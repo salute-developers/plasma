@@ -62,15 +62,34 @@ ${this.getReportDescription(jsonReport)}
 
     protected getResultByTaskId(jsonReport: ReportType): { [taskId: string]: [string, ComparableResult][] } {
         const resultByTaskId: { [taskId: string]: [string, ComparableResult][] } = {};
+        const modeCountChangeByTaskId: { [taskId: string]: [string, ComparableResult][] } = {};
 
         for (const [subjectId, subjectResult] of Object.entries(jsonReport.result)) {
-            const filteredSubjectResult = Object.entries(subjectResult).filter(
-                ([, taskResult]) => taskResult.mean.change?.significanceRank === 'high',
-            );
+            const filteredSubjectResult = Object.entries(subjectResult).filter(([, taskResult]) => {
+                if (taskResult.modes) {
+                    return true;
+                }
+
+                return taskResult.mean.change?.significanceRank === 'high';
+            });
 
             for (const [taskId, taskResult] of filteredSubjectResult) {
                 resultByTaskId[taskId] = resultByTaskId[taskId] || [];
-                resultByTaskId[taskId].push([subjectId, taskResult.mean]);
+
+                if (Array.isArray(taskResult.modes)) {
+                    taskResult.modes.forEach((mode, i) => {
+                        if (mode.mean.change?.significanceRank === 'high') {
+                            resultByTaskId[taskId].push([`${subjectId}_mode${i + 1}`, mode.mean]);
+                        }
+                    });
+                } else if (taskResult.modes) {
+                    modeCountChangeByTaskId[taskId].push([
+                        `${subjectId}_modeCount`,
+                        { old: taskResult.modes.old?.length, new: taskResult.modes.new.length },
+                    ]);
+                } else {
+                    resultByTaskId[taskId].push([subjectId, taskResult.mean]);
+                }
             }
         }
 
@@ -78,7 +97,12 @@ ${this.getReportDescription(jsonReport)}
             item.sort(([, a], [, b]) => Math.abs(b.change!.percentage) - Math.abs(a.change!.percentage)).splice(5),
         );
 
-        return resultByTaskId;
+        Object.entries(modeCountChangeByTaskId).forEach(([taskId, res]) => {
+            resultByTaskId[taskId] = resultByTaskId[taskId] || [];
+            resultByTaskId[taskId].push(...res);
+        });
+
+        return Object.fromEntries(Object.entries(resultByTaskId).filter(([, res]) => res.length));
     }
 
     protected getDescriptionTables(resultByTaskId: { [taskId: string]: [string, ComparableResult][] }): string {
@@ -95,19 +119,20 @@ ${this.getReportDescription(jsonReport)}
     }
 
     protected getSubjectTaskResultTableRow(subjectId: string, result: ComparableResult): string {
-        const change = this.formatValue(result.change!.difference!, { suffix: ' pts' });
-        const percentage = this.formatValue(result.change!.percentage!, {
-            suffix: '%',
-            sign: true,
-        });
-        const old = this.formatValue(Array.isArray(result.old) ? result.old[0] : result.old!, {
-            suffix: ' pts',
-        });
-        const now = this.formatValue(Array.isArray(result.new) ? result.new[0] : result.new!, {
+        const change = result.change ? this.formatValue(result.change.difference, { suffix: ' pts' }) : '';
+        const percentage = result.change
+            ? ` (${this.formatValue(result.change.percentage, { suffix: '%', sign: true })})`
+            : '';
+        const old = result.old
+            ? this.formatValue(Array.isArray(result.old) ? result.old[0] : result.old, {
+                  suffix: ' pts',
+              })
+            : '';
+        const now = this.formatValue(Array.isArray(result.new) ? result.new[0] : result.new, {
             suffix: ' pts',
         });
 
-        return `| ${subjectId} | ${change} (${percentage}) | ${old} | ${now} |`;
+        return `| ${subjectId} | ${change}${percentage} | ${old} | ${now} |`;
     }
 
     protected formatValue(
