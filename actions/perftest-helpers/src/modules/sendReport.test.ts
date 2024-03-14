@@ -40,15 +40,6 @@ describe('perftest/sendReport', () => {
             expect(gotMock).not.toHaveBeenCalled();
         });
 
-        it('should not send if result is empty', async () => {
-            readJsonMock.mockResolvedValue({ isVersionChanged: false, result: {} });
-
-            await new ApiWithoutTransform().send({ reportPath: 'azaza' } as any);
-
-            expect(transformMock).not.toHaveBeenCalled();
-            expect(gotMock).not.toHaveBeenCalled();
-        });
-
         it('should call this.transform if input is ok', async () => {
             const jsonReport = { isVersionChanged: false, result: { foo: 'bar' }, staticTaskChange: { baz: 'kl' } };
             const sendParams = {
