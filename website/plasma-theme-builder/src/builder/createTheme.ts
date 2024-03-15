@@ -1,4 +1,5 @@
 import type {
+    OutlineName,
     ThemeConfig,
     ThemeMode,
     TokensBackgroundByType,
@@ -11,6 +12,7 @@ import {
     surfaceTokenGetters,
     backgroundTokenGetters,
     overlayTokenGetters,
+    outlineTokenGetters,
 } from './themeTokenGetters';
 
 import type { TextIconsTokenName, ControlsSurfacesName, BackgroundName, OverlayName } from './themeTokenGetters';
@@ -96,6 +98,7 @@ const getThemeModeTokens = <T extends ThemeMode>(config: ThemeConfig, mode: T): 
         surface: getTokensByGroups<ControlsSurfacesName>(surfaceTokenGetters, config, mode),
         background: getTokensBackgroundByGroups<BackgroundName>(backgroundTokenGetters, config, mode),
         overlay: getTokensByGroups<OverlayName>(overlayTokenGetters, config, mode),
+        outline: getTokensByGroups<OutlineName>(outlineTokenGetters, config, mode),
     };
 };
 
