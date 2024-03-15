@@ -1,18 +1,25 @@
 import type { TokensCreator } from '../types';
 
-export const tokensCreator = ({ comment, darkValue, lightValue, enabledAll }: TokensCreator) => ({
+export const tokensCreator = ({
+    comment,
+    darkValue,
+    lightValue,
+    darkSubGroup = 'onDark',
+    lightSubGroup = 'onLight',
+    enabledAll,
+}: TokensCreator) => ({
     dark: {
         default: {
             value: darkValue,
             comment: comment.default,
             enabled: enabledAll,
         },
-        onDark: {
+        [darkSubGroup]: {
             value: darkValue,
             comment: comment.onDark,
             enabled: enabledAll,
         },
-        onLight: {
+        [lightSubGroup]: {
             value: lightValue,
             comment: comment.onLight,
             enabled: enabledAll,
@@ -29,12 +36,12 @@ export const tokensCreator = ({ comment, darkValue, lightValue, enabledAll }: To
             comment: comment.default,
             enabled: enabledAll,
         },
-        onDark: {
+        [darkSubGroup]: {
             value: darkValue,
             comment: comment.onDark,
             enabled: enabledAll,
         },
-        onLight: {
+        [lightSubGroup]: {
             value: lightValue,
             comment: comment.onLight,
             enabled: enabledAll,

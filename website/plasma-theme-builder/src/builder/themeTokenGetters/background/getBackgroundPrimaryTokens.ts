@@ -1,51 +1,24 @@
-import type { TokensBackgroundByType } from '@salutejs/plasma-tokens-utils';
+import type { ThemeConfig, TokensByType } from '@salutejs/plasma-tokens-utils';
+import { getGreyTokenData, tokensCreator } from '../../../utils';
 
-import { baseColors } from '../../../types/constants';
+export const getBackgroundPrimaryTokens = (config: ThemeConfig) => {
+    const { grayscale } = config;
 
-const comment: Record<keyof TokensBackgroundByType, string> = {
-    default: 'Основной фон',
-    dark: 'Основной фон на темном фоне',
-    light: 'Основной фон на светлом фоне',
-    inverse: 'Инвертированный основной фон',
-};
+    const darkValue = getGreyTokenData({
+        saturation: 1000,
+        grayscale: grayscale.dark,
+    });
+    const lightValue = getGreyTokenData({
+        saturation: 50,
+        grayscale: grayscale.light,
+    });
 
-export const getBackgroundPrimaryTokens = () => {
-    return {
-        dark: {
-            default: {
-                value: baseColors.black.value,
-                comment: comment.default,
-            },
-            dark: {
-                value: baseColors.black.value,
-                comment: comment.dark,
-            },
-            light: {
-                value: baseColors.white.value,
-                comment: comment.light,
-            },
-            inverse: {
-                value: baseColors.white.value,
-                comment: comment.inverse,
-            },
-        },
-        light: {
-            default: {
-                value: baseColors.white.value,
-                comment: comment.default,
-            },
-            dark: {
-                value: baseColors.black.value,
-                comment: comment.dark,
-            },
-            light: {
-                value: baseColors.white.value,
-                comment: comment.light,
-            },
-            inverse: {
-                value: baseColors.black.value,
-                comment: comment.inverse,
-            },
-        },
+    const comment: Record<keyof TokensByType, string> = {
+        default: 'Основной фон',
+        onDark: 'Основной фон на темном фоне',
+        onLight: 'Основной фон на светлом фоне',
+        inverse: 'Инвертированный основной фон',
     };
+
+    return tokensCreator({ darkValue, lightValue, darkSubGroup: 'dark', lightSubGroup: 'light', comment });
 };
