@@ -1,56 +1,27 @@
-import { alphenColor } from '@salutejs/plasma-tokens-utils';
-import type { TokensByType } from '@salutejs/plasma-tokens-utils';
+import type { ThemeConfig, TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { baseColors } from '../../../types';
+import { getGreyTokenData, tokensCreator } from '../../../utils';
 
-const comment: Record<keyof TokensByType, string> = {
-    default: 'Непрозрачный фон поверхности/контрола',
-    onDark: 'Непрозрачный фон поверхности/контрола на темном фоне',
-    onLight: 'Непрозрачный фон поверхности/контрола на светлом фоне',
-    inverse: 'Инвертированный непрозрачный фон поверхности/контрола',
-};
+export const getSurfaceTransparentDeepTokens = (config: ThemeConfig) => {
+    const { grayscale } = config;
 
-export const getSurfaceTransparentDeepTokens = () => {
-    const opacityDegrees = -0.36;
-    const lightValue = alphenColor(baseColors.white.value, opacityDegrees);
-    const darkValue = alphenColor(baseColors.black.value, opacityDegrees);
+    const darkValue = getGreyTokenData({
+        saturation: 50,
+        grayscale: grayscale.dark,
+        opacity: 0.64,
+    });
+    const lightValue = getGreyTokenData({
+        saturation: 1000,
+        grayscale: grayscale.light,
+        opacity: 0.64,
+    });
 
-    return {
-        dark: {
-            default: {
-                value: lightValue,
-                comment: comment.default,
-            },
-            onDark: {
-                value: lightValue,
-                comment: comment.onDark,
-            },
-            onLight: {
-                value: darkValue,
-                comment: comment.onLight,
-            },
-            inverse: {
-                value: darkValue,
-                comment: comment.inverse,
-            },
-        },
-        light: {
-            default: {
-                value: darkValue,
-                comment: comment.default,
-            },
-            onDark: {
-                value: lightValue,
-                comment: comment.onDark,
-            },
-            onLight: {
-                value: darkValue,
-                comment: comment.onLight,
-            },
-            inverse: {
-                value: lightValue,
-                comment: comment.inverse,
-            },
-        },
+    const comment: Record<keyof TokensByType, string> = {
+        default: 'Глубокий прозрачный фон поверхности/контрола',
+        onDark: 'Глубокий прозрачный фон поверхности/контрола на темном фоне',
+        onLight: 'Глубокий прозрачный фон поверхности/контрола на светлом фоне',
+        inverse: 'Инвертированный глубокий прозрачный фон поверхности/контрола',
     };
+
+    return tokensCreator({ darkValue, lightValue, comment });
 };

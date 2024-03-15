@@ -194,7 +194,21 @@ export type ControlsSurfacesName =
     | 'surfaceTransparentAccentGradient'
     | 'surfaceTransparentPositive'
     | 'surfaceTransparentWarning'
-    | 'surfaceTransparentNegative';
+    | 'surfaceTransparentNegative'
+    | 'surfaceAccentMinor'
+    | 'surfaceAccentMinorGradient'
+    | 'surfacePromo'
+    | 'surfacePromoGradient'
+    | 'surfacePromoMinor'
+    | 'surfacePromoMinorGradient'
+    | 'surfaceTransparentPromo'
+    | 'surfaceTransparentPromoGradient'
+    | 'surfaceInfo'
+    | 'surfacePositiveMinor'
+    | 'surfaceWarningMinor'
+    | 'surfaceNegativeMinor'
+    | 'surfaceInfoMinor'
+    | 'surfaceTransparentInfo';
 
 export type BackgroundName = 'backgroundPrimary' | 'backgroundSecondary' | 'backgroundTertiary';
 
