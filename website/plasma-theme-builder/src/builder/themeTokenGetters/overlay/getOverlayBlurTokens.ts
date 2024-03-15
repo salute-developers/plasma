@@ -1,11 +1,10 @@
 import type { ThemeConfig, TokensByType } from '@salutejs/plasma-tokens-utils';
-
 import { getGreyTokenData, tokensCreator } from '../../../utils';
 
-export const getOverlaySoftTokens = (config: ThemeConfig) => {
+export const getOverlayBlurTokens = (config: ThemeConfig) => {
     const { grayscale } = config;
 
-    const opacityValue = 0.56;
+    const opacityValue = 0.2;
 
     const darkValue = getGreyTokenData({
         saturation: 1000,
@@ -19,10 +18,10 @@ export const getOverlaySoftTokens = (config: ThemeConfig) => {
     });
 
     const comment: Record<keyof TokensByType, string> = {
-        default: 'Цвет фона паранжи светлый',
-        onDark: 'Цвет фона паранжи светлый на темном фоне',
-        onLight: 'Цвет фона паранжи светлый на светлом фоне',
-        inverse: 'Инвертированный цвет фона паранжи светлый',
+        default: 'Цвет фона паранжи размытый',
+        onDark: 'Цвет фона паранжи размытый на темном фоне',
+        onLight: 'Цвет фона паранжи размытый на светлом фоне',
+        inverse: 'Инвертированный цвет фона паранжи размытый',
     };
 
     return tokensCreator({ darkValue, lightValue, comment });
