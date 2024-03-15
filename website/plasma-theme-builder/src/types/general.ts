@@ -76,4 +76,6 @@ export interface TokensCreator {
     darkValue: string;
     lightValue: string;
     enabledAll?: boolean;
+    darkSubGroup?: string;
+    lightSubGroup?: string;
 }
