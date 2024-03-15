@@ -29,12 +29,7 @@ export const PaginationQuickJumpToPage: React.FC<PaginationQuickJumpToPageProps>
     return (
         <QuickJumpToPageRoot {...rest}>
             <QuickJumpToPageTypography>Go to</QuickJumpToPageTypography>
-            <QuickJumpToPageInput
-                type="number"
-                placeholder="Page"
-                onKeyUp={handleKeyPress}
-                onChange={handleChangeInput}
-            />
+            <QuickJumpToPageInput type="number" placeholder="#" onKeyUp={handleKeyPress} onChange={handleChangeInput} />
         </QuickJumpToPageRoot>
     );
 };
