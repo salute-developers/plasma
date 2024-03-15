@@ -12,12 +12,13 @@ const config: Config = {
     },
     include: ['packages/**/*.perftest.tsx'],
     modifyWebpackConfig(config) {
+
         const babelLoaderOpts = config.module?.rules?.find(
             (rule) => typeof rule === 'object' && rule.loader?.includes('babel-loader'),
         );
 
         if (typeof babelLoaderOpts === 'object' && typeof babelLoaderOpts?.options === 'object') {
-            babelLoaderOpts?.options?.plugins?.push('babel-plugin-styled-components');
+            // babelLoaderOpts?.options?.plugins?.push('babel-plugin-styled-components');
             babelLoaderOpts?.options?.plugins?.push(['const-enum', { transform: 'constObject' }]);
         }
 
