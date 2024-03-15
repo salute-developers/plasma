@@ -3,6 +3,7 @@ import React, { useCallback, useState } from 'react';
 import { IconDone } from '../../../../components/_Icon';
 import { SelectPrimitiveValue } from '../../../Select';
 import { defaultValues } from '../../utils';
+import { classes } from '../../Pagination.tokens';
 
 import type { PaginationSelectPerPageProps } from './PaginationSelectPerPage.types';
 import {
@@ -32,6 +33,7 @@ export const PaginationSelectPerPage: React.FC<PaginationSelectPerPageProps> = (
         <SelectPerPageRoot {...rest}>
             <SelectPerPageTypography>Show</SelectPerPageTypography>
             <SelectPerPageSelect
+                className={classes.selectWrapper}
                 value={selectedValue}
                 onChangeValue={(event: SelectPrimitiveValue | undefined) => handleSelectChange(event)}
             >

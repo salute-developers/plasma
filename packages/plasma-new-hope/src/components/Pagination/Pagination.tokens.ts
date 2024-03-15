@@ -5,6 +5,8 @@ export const classes = {
     perPage: 'pagination-perPageSelect',
     quickJump: 'pagination-quickJumpPage',
 
+    selectWrapper: 'pagination-selectWrapper',
+
     paginationStretch: 'pagination-stretch',
     autoStretching: 'pagination-stretching-auto',
     filledStretching: 'pagination-stretching-filled',
