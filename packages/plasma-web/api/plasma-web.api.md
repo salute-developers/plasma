@@ -165,8 +165,7 @@ import { PreviewGalleryItemProps } from '@salutejs/plasma-hope';
 import { PreviewGalleryProps } from '@salutejs/plasma-hope';
 import { Price } from '@salutejs/plasma-hope';
 import { PriceProps } from '@salutejs/plasma-hope';
-import { Progress } from '@salutejs/plasma-hope';
-import { ProgressProps } from '@salutejs/plasma-hope';
+import { ProgressProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
 import { radiuses } from '@salutejs/plasma-core';
@@ -1279,7 +1278,21 @@ export { Price }
 
 export { PriceProps }
 
-export { Progress }
+// @public (undocumented)
+export const Progress: FunctionComponent<PropsType<    {
+view: {
+default: string;
+secondary: string;
+primary: string;
+accent: string;
+success: string;
+warning: string;
+error: string;
+};
+size: {
+m: string;
+};
+}> & ProgressProps & RefAttributes<HTMLDivElement>>;
 
 export { ProgressProps }
 

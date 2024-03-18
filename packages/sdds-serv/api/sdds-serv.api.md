@@ -85,6 +85,7 @@ import { PopupInfo } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupProvider } from '@salutejs/plasma-new-hope/styled-components';
+import { ProgressProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
 import { Ratio } from '@salutejs/plasma-new-hope/styled-components';
@@ -713,6 +714,24 @@ export { PopupPlacement }
 export { PopupProps }
 
 export { PopupProvider }
+
+// @public (undocumented)
+export const Progress: FunctionComponent<PropsType<    {
+view: {
+default: string;
+secondary: string;
+primary: string;
+accent: string;
+success: string;
+warning: string;
+error: string;
+};
+size: {
+m: string;
+};
+}> & ProgressProps & RefAttributes<HTMLDivElement>>;
+
+export { ProgressProps }
 
 // @public
 export const Radiobox: FunctionComponent<Omit<BaseboxProps, "indeterminate">>;
