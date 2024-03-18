@@ -840,17 +840,6 @@ export const Price: StyledComponent<FC<PriceProps_2>, any, {}, never>;
 export interface PriceProps extends PriceProps_2 {
 }
 
-// @public
-export const Progress: React_2.FC<ProgressProps>;
-
-// @public (undocumented)
-export interface ProgressProps {
-    displayValue?: boolean;
-    // Warning: (ae-forgotten-export) The symbol "statuses" needs to be exported by the entry point index.d.ts
-    status?: keyof typeof statuses;
-    value: number;
-}
-
 export { radiuses }
 
 export { Roundness }
