@@ -39,3 +39,4 @@ export * from './components/Combobox';
 export * from './components/Indicator';
 export * from './components/ButtonBase';
 export * from './components/Grid';
+export * from './components/Progress';
