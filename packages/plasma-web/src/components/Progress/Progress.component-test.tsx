@@ -7,7 +7,7 @@ describe('plasma-web: Progress', () => {
     it('simple', () => {
         mount(
             <CypressTestDecorator>
-                <Progress value={25} status="success" />
+                <Progress value={25} view="success" />
             </CypressTestDecorator>,
         );
 
@@ -17,9 +17,9 @@ describe('plasma-web: Progress', () => {
     it('over min and max', () => {
         mount(
             <CypressTestDecorator>
-                <Progress value={-25} status="success" />
+                <Progress value={-25} view="success" />
                 <PadMe />
-                <Progress value={125} status="success" />
+                <Progress value={125} view="success" />
             </CypressTestDecorator>,
         );
 
@@ -29,14 +29,14 @@ describe('plasma-web: Progress', () => {
     it('__displayValue', () => {
         mount(
             <CypressTestDecorator>
-                <Progress value={25} displayValue={false} status="success" />
+                <Progress value={25} displayValue={false} view="success" />
             </CypressTestDecorator>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('_status', () => {
+    it('_status (legacy)', () => {
         mount(
             <CypressTestDecorator>
                 <Progress value={25} status="success" />
@@ -46,6 +46,29 @@ describe('plasma-web: Progress', () => {
                 <Progress value={75} status="error" />
                 <PadMe />
                 <Progress value={100} status="accent" />
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('_view', () => {
+        mount(
+            <CypressTestDecorator>
+                <Progress value={25} status="default" />
+                <PadMe />
+                <Progress value={25} status="secondary" />
+                <PadMe />
+                <Progress value={25} status="primary" />
+                <PadMe />
+                <Progress value={25} status="accent" />
+                <PadMe />
+                <Progress value={25} status="success" />
+                <PadMe />
+                <Progress value={25} status="warning" />
+                <PadMe />
+                <Progress value={25} status="error" />
+                <PadMe />
             </CypressTestDecorator>,
         );
 
