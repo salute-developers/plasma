@@ -13,50 +13,18 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  scope:
-    uses: ./.github/workflows/change-detection.yml
-    with:
-      as-enumeration: true
-    secrets: inherit
-
   typescript-coverage:
-    needs: scope
-    if: ${{ needs.scope.outputs.HAS_SCOPE == 'true' }}
     runs-on: ubuntu-latest
     env:
-      NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
       # INFO: Игнорируем пакеты связанные с plasma-tokens, документацией и утилитами, т.к. в них не запускается typescript-coverage
       LERNA_IGNORE_LIST: "@salutejs/plasma-{tokens*,cy-utils,sb-utils}"
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
           show-progress: false
-  
+
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
-
-      - name: Computed scope
-        id: scope
-        uses: actions/github-script@v6
-        env:
-          ENUMERATION: ${{ toJSON(needs.scope.outputs.PACKAGES_ENUMERATION) }}
-        with:
-          result-encoding: string
-          script: |
-            const { ENUMERATION } = process.env;
-            
-            const enumeration = JSON.parse(JSON.parse(ENUMERATION));
-            
-            if (!enumeration.includes('plasma-core')) {
-              enumeration.push('plasma-core')
-            }
-            
-            if (!enumeration.includes('plasma-icons')) {
-              enumeration.push('plasma-icons')
-            }
-            
-            return enumeration.join(',');     
 
       - name: Lerna bootstrap
         run: npx lerna bootstrap --no-private
@@ -64,11 +32,11 @@ jobs:
       - name: Run Typescript Coverage
         if: ${{ always() }}
         run: |
-          npm run typescript-coverage -- --ignore=${{env.LERNA_IGNORE_LIST}}
+          npm run typescript-coverage -- --no-private --ignore=${{env.LERNA_IGNORE_LIST}}
 
       - name: Save artifacts
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@master
         with:
           name: Typescript Coverage Report Artifacts
-          path: /home/runner/work/plasma/plasma/packages/*/coverage-ts/
+          path: packages/*/coverage-ts/
