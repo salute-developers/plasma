@@ -14,6 +14,7 @@ export * from './components/Link';
 export * from './components/Modal';
 export * from './components/Overlay';
 export * from './components/Popup';
+export * from './components/Progress';
 export * from './components/Radiobox';
 export * from './components/Segment';
 export * from './components/Spinner';
