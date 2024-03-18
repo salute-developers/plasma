@@ -14,7 +14,6 @@ concurrency:
 
 env:
   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-  NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
   LERNA_IGNORE_LIST: "@salutejs/plasma-{cy-utils,sb-utils}"
 
 jobs:
@@ -25,7 +24,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
           show-progress: false
 
       - name: Prepare environment
@@ -44,7 +42,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
           show-progress: false
 
       - name: Prepare environment
