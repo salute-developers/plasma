@@ -12,8 +12,6 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    env:
-      NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
     steps:
       # [NOTE]: В проекте default branch - dev, что бы правильно собрать
       # актуальную версию для branch master, нужно указать ref = 'master'
