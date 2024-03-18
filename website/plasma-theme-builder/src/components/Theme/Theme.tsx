@@ -16,7 +16,7 @@ import { emptyInputData } from '../../types';
 import type { InputData, Theme as ThemeType } from '../../types';
 
 const StyledTheme = styled.div`
-    width: 70rem;
+    width: 86rem;
 `;
 
 const Description = styled.div`

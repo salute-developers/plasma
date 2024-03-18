@@ -19,7 +19,7 @@ import {
 
 const StyledPullRequest = styled.div`
     margin: 2rem 0;
-    width: 70rem;
+    width: 86rem;
 `;
 
 const ProgressGroup = styled.div`
