@@ -22,18 +22,16 @@ const StyledHeader = styled(H3)`
     ${SBSansTextMono}
 `;
 
-const StyledTokenName = styled(TextField)`
-    input {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
+const StyledTokenName = styled(TextField)``;
+
+/* TODO: Убрать это когда появится возможность стилизовать компонент */
+const StyledCommentWrapper = styled.div`
+    label {
+        width: 35rem;
     }
-
-    width: 100%;
 `;
 
-const StyledTextField = styled(TextField)`
-    width: 35rem;
-`;
+const StyledTextField = styled(TextField)``;
 
 const StyledButtons = styled.div`
     display: flex;
@@ -59,6 +57,16 @@ const StyledTokenPrefix = styled.span`
 const TokenName = styled.div`
     width: 35rem;
     display: flex;
+
+    /* TODO: Убрать это когда появится возможность стилизовать компонент */
+    label {
+        width: 100% !important;
+    }
+
+    div {
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+    }
 `;
 
 const TokenValue = styled.div`
@@ -249,15 +257,17 @@ export const TokenForm = ({
                     </TokenValue>
                 </FormField>
                 <FormField label="Комментарий">
-                    <StyledTextField
-                        size="s"
-                        name="comment"
-                        readOnly={canRename}
-                        value={comment?.value}
-                        status={comment?.status}
-                        helperText={comment?.helpText}
-                        onChange={onChangeComment}
-                    />
+                    <StyledCommentWrapper>
+                        <StyledTextField
+                            size="s"
+                            name="comment"
+                            readOnly={canRename}
+                            value={comment?.value}
+                            status={comment?.status}
+                            helperText={comment?.helpText}
+                            onChange={onChangeComment}
+                        />
+                    </StyledCommentWrapper>
                 </FormField>
                 <FormField label="Отображать токен">
                     <Switch

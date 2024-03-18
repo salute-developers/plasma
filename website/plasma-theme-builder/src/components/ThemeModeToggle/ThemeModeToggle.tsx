@@ -11,7 +11,6 @@ const StyledThemeModeToggle = styled.div`
 `;
 
 const StyledThemeTypeButton = styled(Button)<{ isSelected: boolean }>`
-    padding: 0.75rem 0;
     cursor: pointer;
     color: ${({ isSelected }) => (isSelected ? accent : tertiary)};
 `;
