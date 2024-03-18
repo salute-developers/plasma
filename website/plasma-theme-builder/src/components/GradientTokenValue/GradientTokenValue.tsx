@@ -16,7 +16,6 @@ const Root = styled.div``;
 const GradientTokenWrapper = styled.div`
     display: flex;
     gap: 1rem;
-    height: 5rem;
 
     margin-top: 1rem;
 `;
@@ -33,10 +32,6 @@ const GradientTokenLayers = styled.div`
 
 const StyledTextArea = styled(TextArea)`
     flex: 1;
-
-    textarea {
-        height: 5rem;
-    }
 `;
 
 interface GradientTokenValueProps {
