@@ -1,0 +1,21 @@
+---
+id: spinner
+title: Spinner
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Spinner
+<Description name="Spinner" />
+<PropsTable name="Spinner" exclude={['css', 'focused']}/>
+
+```tsx live
+import React from 'react';
+import { Spinner } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <Spinner size={32} />
+    );
+}
+```

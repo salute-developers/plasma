@@ -1,0 +1,123 @@
+---
+id: buttonGroup
+title: ButtonGroup
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# ButtonGroup
+<Description name="ButtonGroup" />
+<PropsTable name="ButtonGroup" exclude={['css']} />
+
+## Использование
+Компонент `ButtonGroup` - это обертка для Button. Принимает в себя группу кнопок.
+
+```tsx live
+import React from 'react';
+import { ButtonGroup, Button } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <ButtonGroup>
+            {Array(5)
+                .fill(true)
+                .map((_, i) => (
+                    <Button text={`Button ${i}`} />
+                ))}
+        </ButtonGroup>
+    );
+}
+```
+
+## Примеры
+
+### Размер и вид группы кнопок
+Размер и вид группы кнопок задается с помощью свойств `size` и `view` соответственно.
+С помощью свойства `isCommonButtonStyles` можно отключить переопределение стилей для всех кнопок внутри группы. 
+Тогда каждая кнопка будет иметь настраиваемый размер и вид. 
+
+```tsx live
+import React from 'react';
+import { ButtonGroup, Button } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <ButtonGroup size="s" view="secondary">
+                {Array(5)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Button text={`Button ${i}`} />
+                    ))}
+            </ButtonGroup>
+            
+            <ButtonGroup isCommonButtonStyles={false}>
+                <Button size="m" text="Default" />
+                <Button size="s" text="Primary" view="primary" />
+                <Button size="xs" text="Success" view="success" />
+            </ButtonGroup>
+        </div>
+    );
+}
+```
+
+### Ориентация группы кнопок и отступы между кнопками
+
+Группа кнопок может располагаться вертикально или горизонтально и иметь три вида отступов:
+
+```tsx live
+import React from 'react';
+import { ButtonGroup, Button } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <ButtonGroup size="xs" orientation="vertical" gap="none">
+                {Array(5)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Button text={`Button ${i}`} />
+                    ))}
+            </ButtonGroup>
+
+            <ButtonGroup size="xs" orientation="horizontal" gap="wide">
+                {Array(4)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Button text={`Button ${i}`} />
+                    ))}
+            </ButtonGroup>
+        </div>
+    );
+}
+```
+
+### Границы кнопки
+Границы кнопки задаются с помощью свойства `shape`.
+
+```tsx live
+import React from 'react';
+import { ButtonGroup, Button } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <ButtonGroup size="xs" shape="segmented">
+                {Array(3)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Button text={`Button ${i}`} />
+                    ))}
+            </ButtonGroup>
+
+            <ButtonGroup size="xs" shape="default">
+                {Array(3)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Button text={`Button ${i}`} />
+                    ))}
+            </ButtonGroup>
+        </div>
+    );
+}
+```

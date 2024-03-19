@@ -1,0 +1,115 @@
+---
+id: select
+title: Select
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Select
+<Description name="Select" />
+<PropsTable name="Select" />
+
+```tsx live
+import React, { useState } from 'react';
+import { Select } from '@salutejs/{{ package }}';
+
+export function App() {
+    const items = [
+        { value: 'each', label: 'Каждый' },
+        { value: 'hunter', label: 'Охотник', isDisabled: true },
+        { value: 'wants', label: 'Желает' },
+        {
+            value: 'toKnow',
+            label: 'Знать',
+            items: [
+                { value: '_fullText', label: 'Каждый охотник желает знать, где сидит фазан' },
+                { value: '_thePheasant', label: 'Фазан' },
+                { value: '_is', label: 'Сидит' },
+            ],
+        },
+        { value: 'where', label: 'Где' },
+        { value: 'is', label: 'Сидит' },
+        { value: 'thePheasant', label: 'Фазан' },
+        { value: 'fullText', label: 'Каждый охотник желает знать, где сидит фазан' },
+    ];
+
+    const [value, setValue] = useState(null);
+
+    return (
+        <div style=\{{ maxWidth: '20rem' }}>
+            <div style=\{{ marginBottom: '1rem' }}>
+                <Select
+                    value={value}
+                    items={items}
+                    onChange={(v) => {
+                        setValue(v);
+                    }}
+                    placeholder="Выберите пример"
+                    helperText="Заполните пример"
+                    status="success"
+                />
+            </div>
+            <div>
+                <Select value={null} items={[]} placeholder="Another select" />
+            </div>
+        </div>
+    );
+}
+```
+
+### Управление высотой выпадающего меню
+Что бы задать высоту и `scroll` для выпадающего меню можно использовать **props** для компонента `Select`:
+- **listOverflow**
+- **listHeight**
+
+> Эти **props** необязательные, если их не указать будет использовано значение - [initial](https://developer.mozilla.org/en-US/docs/Web/CSS/initial)
+
+```tsx live
+import React, { useState, useCallback } from 'react';
+import { Select, Modal, ModalsProvider, H3, Button } from '@salutejs/{{ package }}';
+
+export function App() {
+    const [value, setValue] = useState(null);
+    const [isOpenA, setIsOpenA] = useState(false);
+
+    const onCloseA = useCallback(() => setIsOpenA(false), []);
+
+    const items = [
+        { value: 'each', label: 'Каждый' },
+        { value: 'hunter', label: 'Охотник', isDisabled: true },
+        { value: 'wants', label: 'Желает' },
+        {
+            value: 'toKnow',
+            label: 'Знать',
+            items: [
+                { value: '_fullText', label: 'Каждый охотник желает знать, где сидит фазан' },
+                { value: '_thePheasant', label: 'Фазан' },
+                { value: '_is', label: 'Сидит' },
+            ],
+        },
+        { value: 'where', label: 'Где' },
+        { value: 'is', label: 'Сидит' },
+        { value: 'thePheasant', label: 'Фазан' },
+        { value: 'fullText', label: 'Каждый охотник желает знать, где сидит фазан' },
+    ];
+
+    return (
+        <section>
+            <ModalsProvider>
+                <Button text="Open modal" onClick={() => setIsOpenA(true)} />
+
+                <Modal style=\{{ "height": "20rem" }} id="modalA" isOpen={isOpenA} onClose={onCloseA}>
+                    <H3>Фильтр</H3>
+                    <Select
+                        value={value}
+                        onChange={setValue}
+                        items={items}
+                        listHeight={11}
+                        listOverflow="scroll"
+                    />
+                </Modal>
+            </ModalsProvider>
+        </section>
+    );
+}
+```

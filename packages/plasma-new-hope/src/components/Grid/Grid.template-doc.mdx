@@ -1,0 +1,142 @@
+---
+id: grid
+title: Grid
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Grid
+Набор компонентов для создания сетки.
+
+## Breakpoints
+Каждый breakpoints разрешения содержит собственное максимальное количество колонок:
+
+| Обозначение | Ширина от, px | Ширина до, px | Кол-во колонок |
+|-------------|---------------|---------------|----------------|
+| largeM      | 1200          | -             | 30             |
+| largeS      | 960           | 1199          | 24             |
+| mediumM     | 786           | 959           | 18             |
+| mediumS     | 560           | 785           | 12             |
+| smallS      | 0             | 559           | 6              |
+
+## Grid
+<Description name="Grid" />
+<PropsTable name="Grid" />
+
+## Row
+Блок с отрицательными отступами для размещения колонок (`Col`) по горизонтали.
+Блок нельзя вкладывать сам в себя, но можно чередовать далее по дереву с использованием `Col`.
+Стилизованный компонент, обладающий всеми свойствами `div`.
+
+## Col
+<Description name="Col" />
+<PropsTable name="Col" />
+
+## Примеры
+
+### Базовое применение
+Размеры колонок указываются свойством `size`, отступ — свойством `offset`.
+
+```tsx live
+import React from 'react';
+import { Grid, Row, Col } from '@salutejs/{{ package }}';
+
+export function App() {
+    const Filler = ({children}) => {
+        return (
+            <div 
+                style=\{{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '100%',
+                    padding: '0.5rem 1rem',
+                    backgroundColor: '#f0f0f0',
+                }}
+            >
+                {children}
+            </div>
+        )
+    };
+
+    return (
+        <Grid>
+            <Row>
+                <Col size={3}>
+                    <Filler>3</Filler>
+                </Col>
+                <Col size={2}>
+                    <Filler>2</Filler>
+                </Col>
+                <Col size={3}>
+                    <Filler>3</Filler>
+                </Col>
+                <Col size={4}>
+                    <Filler>4</Filler>
+                </Col>
+                <Col size={6}>
+                    <Filler>6</Filler>
+                </Col>
+            </Row>
+            <Row>
+                <Col size={4} offset={1}>
+                    <Filler>4 offset 1</Filler>
+                </Col>
+                <Col size={6} offset={2}>
+                    <Filler>6 offset 2</Filler>
+                </Col>
+            </Row>
+        </Grid>
+    );
+}
+```
+
+### Адаптивные размеры и отступы колонок
+Свойства `size` и `offset` могут быть адаптивными.
+Для этого добавьте соответствующие свойства с нужными [breakpoints](#Breakpoints).
+При этом, `size` и `offset` могут выступать как fallback-значения для остальных разрешений.
+
+```tsx live
+import React from 'react';
+import { Grid, Row, Col } from '@salutejs/{{ package }}';
+
+export function App() {
+    const Filler = ({children}) => {
+        return (
+            <div 
+                style=\{{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '100%',
+                    padding: '0.5rem 1rem',
+                    backgroundColor: '#f0f0f0',
+                }}
+            >
+                {children}
+            </div>
+        )
+    };
+
+    return (
+        <Grid>
+            <Row>
+                <Col smallM=\{{ size: 1 }} mediumS=\{{ size: 2 }} mediumM=\{{ size: 3 }} largeM=\{{ size: 4 }}>
+                    <Filler>1</Filler>
+                </Col>
+                <Col size={2} largeM=\{{ size: 4 }}>
+                    <Filler>2</Filler>
+                </Col>
+            </Row>
+            <Row>
+                <Col size={4} smallM=\{{ offset: 1 }} mediumS=\{{ offset: 2 }} mediumM=\{{ offset: 3 }} largeM=\{{ offset: 4 }}>
+                    <Filler>4 offset 1</Filler>
+                </Col>
+                <Col size={6} offset={2} largeM=\{{ offset: 4 }}>
+                    <Filler>6 offset 2</Filler>
+                </Col>
+            </Row>
+        </Grid>
+    );
+}
+```

@@ -1,0 +1,30 @@
+---
+id: Tooltip
+title: Tooltip
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Tooltip
+<Description name="Tooltip" />
+<PropsTable name="Tooltip" />
+
+## Базовое применение
+
+`Tooltip` оборачивает собой любой компонент и открывается в заданную сторону(причем можно передавать массив, тогда сторона будет определяться автоматически из переданных).
+
+Предполагается оборачивать иконки из пакета `@salutejs/plasma-icons`
+
+```tsx live
+import React from 'react';
+import { Tooltip } from '@salutejs/{{ package }}';
+import { IconApps } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div style=\{{marginLeft: '100px',marginBottom: '35px'}}>
+            <Tooltip target={( <IconApps />)} text="Высокое качество воспроизведения" placement="bottom" hasArrow isOpen />
+        </div>
+    );
+}
+```
