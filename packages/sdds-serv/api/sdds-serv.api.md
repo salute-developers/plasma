@@ -39,6 +39,8 @@ import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { CustomDropdownProps } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
+import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
+import { dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -448,6 +450,24 @@ view?: string | undefined;
 export { CounterProps }
 
 export { counterTokens }
+
+// @public
+export const Divider: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+m: string;
+};
+orientation: {
+horizontal: string;
+vertical: string;
+};
+}> & DividerProps & RefAttributes<HTMLDivElement>>;
+
+export { DividerProps }
+
+export { dividerTokens }
 
 // @public
 export const Drawer: FunctionComponent<PropsType<    {
