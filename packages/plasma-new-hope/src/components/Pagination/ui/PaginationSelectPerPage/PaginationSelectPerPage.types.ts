@@ -12,6 +12,11 @@ export type PaginationSelectPerPageRoot = {
     valuesList?: number[];
 
     /*
+     * Текст для выбора кол-ва результатов на странице
+     */
+    textPerPage?: string;
+
+    /*
      * Функция которая исполнятеся при изменении
      */
     onChangeValue?: (page: number) => void;

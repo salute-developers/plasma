@@ -8,7 +8,7 @@ import type { FC } from 'react';
 const id = 'test-pagination';
 const slots = [7, 9, 13];
 const values = [1, 10, 20];
-const pages = 20;
+const count = 20;
 const views = ['clear', 'secondary', 'primary'];
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
@@ -26,7 +26,7 @@ describe('plasma-new-hope: Pagination Styled', () => {
     const ControlledPagination = () => {
         const [value, setValue] = useState(values[1]);
 
-        return <Pagination id={id} value={value} pages={pages} slots={slots[1]} onChange={(v) => setValue(v)} />;
+        return <Pagination id={id} value={value} count={count} slots={slots[1]} onChange={(v) => setValue(v)} />;
     };
 
     it('default', () => {
@@ -42,13 +42,13 @@ describe('plasma-new-hope: Pagination Styled', () => {
     it('_size', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Pagination size="xs" value={values[1]} slots={slots[1]} pages={pages} />
+                <Pagination size="xs" value={values[1]} slots={slots[1]} count={count} />
                 <SpaceMe />
-                <Pagination size="s" value={values[1]} slots={slots[1]} pages={pages} />
+                <Pagination size="s" value={values[1]} slots={slots[1]} count={count} />
                 <SpaceMe />
-                <Pagination size="m" value={values[1]} slots={slots[1]} pages={pages} />
+                <Pagination size="m" value={values[1]} slots={slots[1]} count={count} />
                 <SpaceMe />
-                <Pagination size="l" value={values[1]} slots={slots[1]} pages={pages} />
+                <Pagination size="l" value={values[1]} slots={slots[1]} count={count} />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -58,11 +58,11 @@ describe('plasma-new-hope: Pagination Styled', () => {
     it('_view', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Pagination view={views[0]} value={values[1]} slots={slots[1]} pages={pages} />
+                <Pagination view={views[0]} value={values[1]} slots={slots[1]} count={count} />
                 <SpaceMe />
-                <Pagination view={views[1]} value={values[1]} slots={slots[1]} pages={pages} />
+                <Pagination view={views[1]} value={values[1]} slots={slots[1]} count={count} />
                 <SpaceMe />
-                <Pagination view={views[2]} value={values[1]} slots={slots[1]} pages={pages} />
+                <Pagination view={views[2]} value={values[1]} slots={slots[1]} count={count} />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -72,11 +72,11 @@ describe('plasma-new-hope: Pagination Styled', () => {
     it('_viewCurrentPage', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Pagination viewCurrentPage={views[0]} value={values[1]} slots={slots[1]} pages={pages} />
+                <Pagination viewCurrentPage={views[0]} value={values[1]} slots={slots[1]} count={count} />
                 <SpaceMe />
-                <Pagination viewCurrentPage={views[1]} value={values[1]} slots={slots[1]} pages={pages} />
+                <Pagination viewCurrentPage={views[1]} value={values[1]} slots={slots[1]} count={count} />
                 <SpaceMe />
-                <Pagination viewCurrentPage={views[2]} value={values[1]} slots={slots[1]} pages={pages} />
+                <Pagination viewCurrentPage={views[2]} value={values[1]} slots={slots[1]} count={count} />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -86,7 +86,7 @@ describe('plasma-new-hope: Pagination Styled', () => {
     it('type', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Pagination type="default" hasQuickJump hasPerPage value={values[1]} slots={slots[1]} pages={pages} />
+                <Pagination type="default" hasQuickJump hasPerPage value={values[1]} slots={slots[1]} count={count} />
                 <SpaceMe />
                 <Pagination
                     type="default"
@@ -94,7 +94,7 @@ describe('plasma-new-hope: Pagination Styled', () => {
                     hasPerPage={false}
                     value={values[1]}
                     slots={slots[1]}
-                    pages={pages}
+                    count={count}
                 />
                 <SpaceMe />
                 <Pagination
@@ -103,7 +103,7 @@ describe('plasma-new-hope: Pagination Styled', () => {
                     hasPerPage
                     value={values[1]}
                     slots={slots[1]}
-                    pages={pages}
+                    count={count}
                 />
                 <SpaceMe />
                 <Pagination
@@ -112,10 +112,10 @@ describe('plasma-new-hope: Pagination Styled', () => {
                     hasPerPage={false}
                     value={values[1]}
                     slots={slots[1]}
-                    pages={pages}
+                    count={count}
                 />
                 <SpaceMe />
-                <Pagination type="compact" hasQuickJump hasPerPage value={values[1]} slots={slots[1]} pages={pages} />
+                <Pagination type="compact" hasQuickJump hasPerPage value={values[1]} slots={slots[1]} count={count} />
                 <SpaceMe />
                 <Pagination
                     type="compact"
@@ -123,7 +123,7 @@ describe('plasma-new-hope: Pagination Styled', () => {
                     hasPerPage={false}
                     value={values[1]}
                     slots={slots[1]}
-                    pages={pages}
+                    count={count}
                 />
                 <SpaceMe />
                 <Pagination
@@ -132,7 +132,7 @@ describe('plasma-new-hope: Pagination Styled', () => {
                     hasPerPage
                     value={values[1]}
                     slots={slots[1]}
-                    pages={pages}
+                    count={count}
                 />
                 <SpaceMe />
                 <Pagination
@@ -141,7 +141,7 @@ describe('plasma-new-hope: Pagination Styled', () => {
                     hasPerPage={false}
                     value={values[1]}
                     slots={slots[1]}
-                    pages={pages}
+                    count={count}
                 />
             </CypressTestDecoratorWithTypo>,
         );
@@ -163,11 +163,11 @@ describe('plasma-new-hope: Pagination Slots', () => {
     it('minSlots', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Pagination slots={slots[0]} value={values[0]} pages={pages} />
+                <Pagination slots={slots[0]} value={values[0]} count={count} />
                 <SpaceMe />
-                <Pagination slots={slots[0]} value={values[1]} pages={pages} />
+                <Pagination slots={slots[0]} value={values[1]} count={count} />
                 <SpaceMe />
-                <Pagination slots={slots[0]} value={values[2]} pages={pages} />
+                <Pagination slots={slots[0]} value={values[2]} count={count} />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -176,11 +176,11 @@ describe('plasma-new-hope: Pagination Slots', () => {
     it('avrSlots', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Pagination slots={slots[1]} value={values[0]} pages={pages} />
+                <Pagination slots={slots[1]} value={values[0]} count={count} />
                 <SpaceMe />
-                <Pagination slots={slots[1]} value={values[1]} pages={pages} />
+                <Pagination slots={slots[1]} value={values[1]} count={count} />
                 <SpaceMe />
-                <Pagination slots={slots[1]} value={values[2]} pages={pages} />
+                <Pagination slots={slots[1]} value={values[2]} count={count} />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -189,11 +189,11 @@ describe('plasma-new-hope: Pagination Slots', () => {
     it('maxSlots', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Pagination slots={slots[2]} value={values[0]} pages={pages} />
+                <Pagination slots={slots[2]} value={values[0]} count={count} />
                 <SpaceMe />
-                <Pagination slots={slots[2]} value={values[1]} pages={pages} />
+                <Pagination slots={slots[2]} value={values[1]} count={count} />
                 <SpaceMe />
-                <Pagination slots={slots[2]} value={values[2]} pages={pages} />
+                <Pagination slots={slots[2]} value={values[2]} count={count} />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -259,7 +259,7 @@ describe('plasma-new-hope: Pagination Content', () => {
     it('clickOnContent', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <PaginationContent value={values[0]} pages={pages} />
+                <PaginationContent value={values[0]} count={count} />
             </CypressTestDecoratorWithTypo>,
         );
 
@@ -272,7 +272,7 @@ describe('plasma-new-hope: Pagination Content', () => {
     it('setInput', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Pagination slots={slots[1]} value={values[0]} pages={pages} />
+                <Pagination slots={slots[1]} value={values[0]} count={count} />
             </CypressTestDecoratorWithTypo>,
         );
         cy.get('input:first').focus().type('10').type('{enter}');
@@ -282,7 +282,7 @@ describe('plasma-new-hope: Pagination Content', () => {
     it('setSelect', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Pagination slots={slots[2]} value={values[0]} pages={pages} />
+                <Pagination slots={slots[2]} value={values[0]} count={count} />
             </CypressTestDecoratorWithTypo>,
         );
         cy.get('button').last().click();

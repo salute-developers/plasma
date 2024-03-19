@@ -28,6 +28,13 @@ const meta: Meta<typeof Pagination> = {
                 type: 'select',
             },
         },
+        slots: {
+            control: {
+                type: 'range',
+                min: 7,
+                max: 15,
+            },
+        },
         viewCurrentPage: {
             options: ['clear', 'primary', 'secondary'],
             control: {
@@ -44,17 +51,17 @@ type Story = StoryObj<typeof Pagination>;
 
 export const Default: Story = {
     args: {
-        pages: 20,
+        count: 20,
         value: 1,
         slots: 9,
         type: 'default',
         view: 'clear',
         viewCurrentPage: 'secondary',
         size: 'xs',
-        isQuickJump: true,
-        isPerPage: true,
+        hasQuickJump: true,
+        hasPerPage: true,
         pilled: false,
-        stretching: true,
+        square: true,
     },
     render: (args) => <Pagination {...args} />,
 };
@@ -103,17 +110,17 @@ const PaginationContent = (agrs) => {
 
 export const Content: Story = {
     args: {
-        pages: 20,
+        count: 20,
         value: 1,
         slots: 9,
         type: 'default',
         view: 'clear',
         viewCurrentPage: 'secondary',
         size: 'xs',
-        isQuickJump: true,
-        isPerPage: true,
+        hasQuickJump: true,
+        hasPerPage: true,
         pilled: false,
-        stretching: true,
+        square: true,
     },
     render: (args) => <PaginationContent {...args} />,
 };

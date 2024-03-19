@@ -1,27 +1,23 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 
 import type { AsProps } from '../../types';
+import type { NumericRange, CreateArrayWithLengthX } from '../../types/Range';
+/*
+ * Тип создания диапозона чисел
+ */
 
-type CreateArrayWithLengthX<LENGTH extends number, ACC extends unknown[] = []> = ACC['length'] extends LENGTH
-    ? ACC
-    : CreateArrayWithLengthX<LENGTH, [...ACC, 1]>;
-
-type NumericRange<
-    START_ARR extends number[],
-    END extends number,
-    ACC extends number = never
-> = START_ARR['length'] extends END ? ACC | END : NumericRange<[...START_ARR, 1], END, ACC | START_ARR['length']>;
+export type PaginationTypes = 'compact' | 'default';
 
 export type CustomPaginationProps = {
     /*
      * Вид
      */
-    view?: 'clear' | 'disabled' | 'secondary';
+    view?: string;
 
     /*
      *  Вид выбранной кнопки
      */
-    viewCurrentPage?: 'secondary' | 'primary' | 'clear';
+    viewCurrentPage?: string;
 
     /*
      *  Левый контент
@@ -36,17 +32,17 @@ export type CustomPaginationProps = {
     /*
      *  Тип обычный или компактный
      */
-    type?: 'compact' | 'default';
+    type?: PaginationTypes;
 
     /*
      * Размер
      */
-    size?: 'xs' | 's' | 'm' | 'l';
+    size?: string;
 
     /*
      * Количество страниц
      */
-    pages?: number;
+    count?: number;
 
     /*
      * Выбранная страница
@@ -64,19 +60,19 @@ export type CustomPaginationProps = {
     hasPerPage?: boolean;
 
     /*
-     * Выбренное количество результатов на странице
+     * Выбранное количество результатов на странице
      */
     perPage?: number;
 
     /*
-     * Выбренное количество результатов на странице
+     * Список результатов на странице
      */
     perPageList?: number[];
 
     /*
      * Заблокированные страницы
      */
-    disabled?: number[];
+    disabled?: string[];
 
     /*
      * Количество PageButtons
@@ -89,9 +85,9 @@ export type CustomPaginationProps = {
     pilled?: boolean;
 
     /*
-     * Размер кнопки
+     * Равная ширина и высота кнопки
      */
-    stretching?: boolean;
+    square?: boolean;
 
     /*
      * Авто изменение стиля кнопок в ButtonGroup
@@ -99,9 +95,25 @@ export type CustomPaginationProps = {
     isCommonButtonStyles?: boolean;
 
     /*
-     * Функция которая исполнятеся при изменении
+     * Placeholder TextField'a для быстрого прыжка на страницу
      */
-    onChangeValue?: (page: number, perPage: number) => void;
+    placeholderQuickJump?: string;
+
+    /*
+     * Текст для быстрого прыжка на страницу
+     */
+    textQuickJump?: string;
+
+    /*
+     * Текст для выбора кол-ва результатов на странице
+     */
+    textPerPage?: string;
+
+    /*
+     * Функция которая исполняeтся при изменении
+     */
+    onChangePageValue?: (page: number) => void;
+    onChangePerPageValue?: (perpage: number) => void;
 };
 
 export interface PaginationProps extends HTMLAttributes<HTMLDivElement>, AsProps, CustomPaginationProps {}
