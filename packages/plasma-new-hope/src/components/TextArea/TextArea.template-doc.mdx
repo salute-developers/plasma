@@ -1,0 +1,88 @@
+---
+id: textarea
+title: TextArea
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# TextArea
+<Description name="TextArea" />
+<PropsTable name="TextArea" exclude={['$isFocused']} />
+
+## Использование
+Компонент `TextArea` может содержать иконку (или кнопку) справа.
+Для этого используйте свойство и `contentRight`:
+
+```tsx live
+import React from 'react';
+import { TextArea } from '@salutejs/{{ package }}';
+import { IconDownload } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <TextArea
+                placeholder="Положение иконки"
+                defaultValue="Справа"
+                contentRight={<IconDownload />}
+            />
+        </div>
+    );
+}
+```
+
+Также можно регулировать высоту и ширину, используя свойства `height` и `width`, 
+указав значения в `rem` или соответствующие свойствам css значения.
+
+## Autoresize
+Также можно включить автоматическое регулирование высоты поля ввода по длине контента внутри (параметра `value`).
+Для этого необходимо использовать свойство `autoResize`. 
+При этом, если пользователь вручную регулирует высоту(`resize`), то она так и остается пользовательской.
+
+В этом режиме можно указать крайние значения высоты поля ввода, используя свойства `autoMin`, `autoMax`,
+указав их в `rem`.
+
+```tsx live
+import React from 'react';
+import { TextArea } from '@salutejs/{{ package }}';
+
+export function App() {
+    const [value, setValue] = React.useState('Значение');
+
+    return (
+        <div>
+            <TextArea
+                placeholder="Введите значение"
+                value={value}
+                onChange={(e) => {
+                    setValue(e.target.value);
+                }}
+                autoResize
+                minAuto={3}
+                maxAuto={5}
+            />
+        </div>
+    );
+}
+```
+
+### Подсказка
+Для вывода подсказки снизу от поля используйте свойство `leftHelper` и/или `rightHelper`.
+
+```tsx live
+import React from 'react';
+import { TextArea } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <TextArea
+                placeholder="Введите значение"
+                defaultValue="Значение"
+                leftHelper="Подсказка снизу слева"
+                rightHelper="Подсказка снизу справа"
+            />
+        </div>
+    );
+}
+```

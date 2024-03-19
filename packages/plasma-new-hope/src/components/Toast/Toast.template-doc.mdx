@@ -1,0 +1,153 @@
+---
+id: toast
+title: Toast
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Toast
+<Description name="Toast" />
+<PropsTable name="Toast" />
+
+## Система подсказок
+Существует готовая система текстовых подсказок, для использования которой необходимо обернуть приложение в `ToastProvider`:
+
+```jsx title="App.tsx"
+import React from 'react';
+import { ToastProvider } from '@salutejs/{{ package }}';
+
+export const App = () => (
+    <ToastProvider>
+        <div className="App">Hello, world!</div>
+    </ToastProvider>
+);
+```
+
+После этого, с помощью хука `useToast` можно получить доступ к управлению подсказками.
+
+```jsx title="MyComponent.tsx"
+import React from 'react'
+import { useToast, Button } from '@salutejs/{{ package }}'
+
+export const MyComponent = () => {
+    const { showToast, hideToast } = useToast()
+
+    const onHide = () => {}
+
+    return (
+        <Button onClick={() => showToast({ text, position, timeout, fade, contentLeft, role, onHide })} />
+    )
+}
+```
+
+`showToast` имеет необязательный аргумент `position`, отвечающий за позиционирование подсказки.
+
+```ts
+type Position = 'top' | 'bottom';
+```
+
+`showToast` имеет необязательный аргумент `timeout`, отвечающий за время отображения подсказки.
+Если аргумент не передается, по умолчанию подсказка отображается пока пользователь ее не закроет.
+
+Скрыть текущую подсказку в любой момент можно с помощью функции `hideToast`.
+
+## Аргументы функции `showToast`
+| Название | Тип             | Значение | Описание           |
+|----------|-----------------|----------|--------------------|
+| `args`   | `ShowToastArgs` |          | Конфигурация toast |
+
+```ts
+import type { ReactNode } from 'react';
+
+export interface ShowToastArgs {
+    /**
+     * Текстовая надпись
+     */
+    text?: string;
+    /**
+     * Слот для контента слева, например `Icon`
+     */
+    contentLeft?: ReactNode;
+    /**
+     * Место отображения подсказки
+     */
+    position?: ToastPosition;
+    /**
+     * WAI-ARIA роль
+     */
+    role?: ToastRole;
+    /**
+     * Отображать ли подложку блока подсказки
+     */
+    fade?: boolean;
+    /**
+     * Значение для дополнительно отступа блока подсказки, считается в rem.
+     */
+    offset?: number;
+    /**
+     * Блок подсказки c округлым border-radius
+     */
+    pilled?: boolean;
+    /**
+     * Отображать ли иконку закрытия
+     */
+    hasClose?: boolean;
+    /**
+     * Размер блока подсказки
+     */
+    size?: string;
+    /**
+     * Вид блока подсказки
+     */
+    view?: string;
+    /**
+     * Время отображения подсказки. Если не передать значение, подсказка будет отображаться пока ее не закроют.
+     */
+    timeout?: number;
+    /**
+     * callback срабатывающий в момент события hideToast
+     */
+    onHide?: () => void;
+    /**
+     * callback срабатывающий в момент события showToast
+     */
+    onShow?: () => void;
+}
+```
+
+## Пример использования
+
+```jsx live
+import React from 'react'
+import { useToast, ToastProvider, Button } from '@salutejs/{{ package }}'
+
+export function App() {
+
+    const ToastExample = () => {
+        const { showToast, hideToast } = useToast()
+
+        const onShow = () => {}
+        const onHide = () => {}
+        const toastData = {
+            text: 'Подсказка вызванная showToast',
+            position: 'bottom',
+            role: 'status',
+            hasClose: true,
+            fade: false,
+            size: 'm',
+            view: 'dark',
+            timeout: 3000,
+            onShow,
+            onHide
+        }
+
+        return <Button onClick={() => showToast(toastData)} text="Вызвать подсказку" />
+    }
+
+    return (
+        <ToastProvider>
+            <ToastExample />
+        </ToastProvider>
+    )
+}
+```

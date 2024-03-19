@@ -1,0 +1,76 @@
+---
+id: indicator
+title: Indicator
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Indicator
+Индикаторы могут отображаться в нескольких размерах и цветах.
+
+## Indicator
+<Description name="Indicator" />
+<PropsTable name="Indicator" exclude={['css']} />
+
+## Примеры
+
+### Базовое использование
+
+```tsx live
+import React from 'react';
+import { Indicator } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <div style=\{{ display: 'flex' }}>
+                <Indicator size="s" view="default" />
+                <Indicator size="m" view="default" />
+                <Indicator size="l" view="default" />
+            </div>
+
+            <div style=\{{ display: 'flex' }}>
+                <Indicator size="s" view="accent" />
+                <Indicator size="m" view="accent" />
+                <Indicator size="l" view="accent" />
+            </div>
+
+            <div style=\{{ display: 'flex' }}>
+                <Indicator size="s" view="inactive" />
+                <Indicator size="m" view="inactive" />
+                <Indicator size="l" view="inactive" />
+            </div>
+
+            <div style=\{{ display: 'flex' }}>
+                <Indicator size="s" view="positive" />
+                <Indicator size="m" view="positive" />
+                <Indicator size="l" view="positive" />
+            </div>
+
+            <div style=\{{ display: 'flex' }}>
+                <Indicator size="s" view="warning" />
+                <Indicator size="m" view="warning" />
+                <Indicator size="l" view="warning" />
+            </div>
+
+            <div style=\{{ display: 'flex' }}>
+                <Indicator size="s" view="negative" />
+                <Indicator size="m" view="negative" />
+                <Indicator size="l" view="negative" />
+            </div>
+
+            <div style=\{{ display: 'flex' }}>
+                <Indicator size="s" view="black" />
+                <Indicator size="m" view="black" />
+                <Indicator size="l" view="black" />
+            </div>
+
+            <div style=\{{ display: 'flex' }}>
+                <Indicator size="s" view="white" />
+                <Indicator size="m" view="white" />
+                <Indicator size="l" view="white" />
+            </div>
+        </div>
+    );
+}
+```

@@ -1,0 +1,208 @@
+---
+id: calendar
+title: Calendar
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Calendar
+Компоненты календарей для выбора даты или диапазона дат.
+
+## Calendar
+
+<Description name="Calendar" />
+<PropsTable name="Calendar" />
+
+Представляет собой универсальный компонент `Calendar`, в котором можно настроить любое доступное представление: базовый, двойной, базовый с диапазоном, двойной с диапазоном.
+
+```tsx live
+import React from 'react';
+import { Calendar } from '@salutejs/{{ package }}';
+
+export function App() {
+    const isRange = false;
+    const isDouble = false;
+    const min = new Date(2022, 4, 0);
+    const max = new Date(2022, 6, 15);
+    const date = {
+        day: 6,
+        monthIndex: 5,
+        year: 2022,
+    }
+
+    const [value, setValue] = React.useState(new Date(2022, 5, 6));
+    const [valueRange, setValueRange] = React.useState([new Date(2022, 5, 6), new Date(2022, 5, 10)]);
+
+    const handleOnChange = React.useCallback((newValue) => {
+        setValue(newValue);
+    }, []);
+    const handleOnRangeChange = React.useCallback((newValue) => {
+        setValueRange(newValue);
+    }, []);
+
+    const baseEvents = [
+        {
+            date: new Date(2022, 5, 6),
+        },
+        {
+            date: new Date(2022, 5, 10),
+            color: 'red',
+        },
+        {
+            date: new Date(2022, 5, 10),
+            color: 'green',
+        },
+        {
+            date: new Date(2022, 5, 10),
+            color: 'blue',
+        },
+    ];
+
+    const eventsRange = Array.from(Array(10),((_, day) => ({
+        date: new Date(2022, 5, 15 + day),
+        color: 'purple',
+    })));
+
+    const disabledDays = Array.from(Array(5),((_, day) => ({
+        date: new Date(2022, 5, 11 + day),
+
+    })));
+
+    return (
+        <div>
+            <Calendar
+                isRange={isRange}
+                isDouble={isDouble}
+                value={(isRange ? valueRange : value)}
+                eventList={[...baseEvents, ...eventsRange]}
+                disabledList={disabledDays}
+                date={date}
+                min={min}
+                max={max}
+                onChangeValue={(isRange ? handleOnRangeChange : handleOnChange)}
+            />
+        </div>
+    );
+}
+```
+
+## CalendarBase
+<Description name="CalendarBase" />
+<PropsTable name="CalendarBase" />
+
+```tsx live
+import React from 'react';
+import { CalendarBase } from '@salutejs/{{ package }}';
+
+export function App() {
+    const min = new Date(2022, 4, 0);
+    const max = new Date(2022, 7, 15);
+
+    const [value, setValue] = React.useState(new Date(2022, 5, 6));
+    const handleOnChange = React.useCallback((newValue) => {
+        setValue(newValue);
+    }, []);
+
+    return (
+        <div>
+            <CalendarBase
+                value={value}
+                min={min}
+                max={max}
+                onChangeValue={handleOnChange}
+            />
+        </div>
+    );
+}
+```
+
+## CalendarDouble
+<Description name="CalendarDouble" />
+<PropsTable name="CalendarDouble" />
+
+```tsx live
+import React from 'react';
+import { CalendarDouble } from '@salutejs/{{ package }}';
+
+export function App() {
+    const min = new Date(2022, 4, 0);
+    const max = new Date(2022, 7, 15);
+
+    const [value, setValue] = React.useState(new Date(2022, 5, 6));
+    const handleOnChange = React.useCallback((newValue) => {
+        setValue(newValue);
+    }, []);
+
+    return (
+        <div>
+            <CalendarDouble
+                value={value}
+                min={min}
+                max={max}
+                onChangeValue={handleOnChange}
+            />
+        </div>
+    );
+}
+```
+
+## CalendarBaseRange
+<Description name="CalendarBaseRange" />
+<PropsTable name="CalendarBaseRange" />
+
+```tsx live
+import React from 'react';
+import { CalendarBaseRange } from '@salutejs/{{ package }}';
+
+export function App() {
+    const min = new Date(2022, 4, 0);
+    const max = new Date(2022, 7, 15);
+
+    const [value, setValue] = React.useState([new Date(2022, 5, 6), new Date(2022, 5, 16)]);
+    const handleOnChange = React.useCallback((newValue) => {
+        setValue(newValue);
+    }, []);
+
+    return (
+        <div>
+            <CalendarBaseRange
+                value={value}
+                min={min}
+                max={max}
+                onChangeValue={handleOnChange}
+            />
+        </div>
+    );
+}
+```
+
+## CalendarDoubleRange
+<Description name="CalendarDoubleRange" />
+<PropsTable name="CalendarDoubleRange" />
+
+```tsx live
+import React from 'react';
+import { CalendarDoubleRange } from '@salutejs/{{ package }}';
+
+export function App() {
+    const min = new Date(2022, 4, 0);
+    const max = new Date(2022, 7, 15);
+
+    const [value, setValue] = React.useState([new Date(2022, 5, 6), new Date(2022, 6, 16)]);
+    const handleOnChange = React.useCallback((newValue) => {
+        setValue(newValue);
+    }, []);
+
+    return (
+        <div>
+            <CalendarDoubleRange
+                value={value}
+                min={min}
+                max={max}
+                onChangeValue={handleOnChange}
+            />
+        </div>
+    );
+}
+```
+

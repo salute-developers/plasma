@@ -1,0 +1,127 @@
+---
+id: typography
+title: Typography
+---
+
+# Typography
+В состав Plasma Web входят компоненты, реализующие типографическую систему [типографическую систему Plasma](../../design/typography).
+Они заменяют обычные HTML-теги, такие, как `h1`, `h2`, `h3`, `h4`, `p`, etc.
+
+## Установка шрифта
+Компоненты типографики используют фирменный шрифт **SB Sans Text**.
+О том, как установить данный шрифт, смотрите на странице [Типографическая система](../../design/typography#установка-шрифта).
+
+## Отступы
+По умолчанию типографика поддерживает стандартные отступы.
+О том, как использовать отступы, читайте на странице [Стандартные отступы](../../design/spacing#встроенные-отступы-в-типографике).
+
+## Переносы
+По умолчанию в типографике слова переносятся по слогам.
+Чтобы отключить данный функционал, необходимо установить свойство `breakWord` в значении `false`.
+
+## Состав
+
+### Hero unit
+
+```tsx live
+import React from 'react';
+import { DsplL, DsplM, DsplS } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{ display: 'block' }}>
+            <DsplL bold={false}>DsplL</DsplL>
+            <DsplL>DsplL Bold</DsplL>
+
+            <DsplM bold={false}>DsplM</DsplM>
+            <DsplM>DsplM Bold</DsplM>
+
+            <DsplS bold={false}>DsplS</DsplS>
+            <DsplS>DsplS Bold</DsplS>
+        </div>
+    );
+}
+```
+
+### Заголовки
+
+```tsx live
+import React from 'react';
+import { H1, H2, H3, H4, H5 } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{ display: 'block' }}>
+            <H1 bold={false}>H1</H1>
+            <H1>H1 Bold</H1>
+
+            <H2 bold={false}>H2</H2>
+            <H2>H2 Bold</H2>
+
+            <H3 bold={false}>H3</H3>
+            <H3>H3 Bold</H3>
+
+            <H4 bold={false}>H4</H4>
+            <H4>H4 Bold</H4>
+
+            <H5 bold={false}>H5</H5>
+            <H5>H5 Bold</H5>
+        </div>
+    );
+}
+```
+
+### Интерфейсы
+Типографика для таких частей интерфейса, как button, label, подписи, и т.п.
+
+```tsx live
+import React from 'react';
+import { BodyL, BodyM, BodyS, BodyXS, BodyXXS } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{ display: 'block' }}>
+            <BodyL>BodyL</BodyL>
+            <BodyL bold>BodyL полужирный</BodyL>
+
+            <BodyM>BodyM</BodyM>
+            <BodyM bold>BodyM полужирный</BodyM>
+
+            <BodyS>BodyS</BodyS>
+            <BodyS bold>BodyS полужирный</BodyS>
+
+            <BodyXS>BodyXS</BodyXS>
+            <BodyXS bold>BodyXS полужирный</BodyXS>
+
+            <BodyXXS>BodyXXS</BodyXXS>
+            <BodyXXS bold>BodyXXS полужирный</BodyXXS>
+        </div>
+    );
+}
+```
+
+### Текст
+Типографические элементы для описаний к статьям, дополнительной информации и т.д.
+
+```tsx live
+import React from 'react';
+import { TextL, TextM, TextS, TextXS } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{ display: 'block' }}>
+            <TextL>TextL</TextL>
+            <TextL bold>TextL полужирный</TextL>
+
+            <TextM>TextM</TextM>
+            <TextM bold>TextM полужирный</TextM>
+
+            <TextS>TextS</TextS>
+            <TextS bold>TextS полужирный</TextS>
+
+            <TextXS>TextXS</TextXS>
+            <TextXS bold>TextXS полужирный</TextXS>
+        </div>
+    );
+}
+```
