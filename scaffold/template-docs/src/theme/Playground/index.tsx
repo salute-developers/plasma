@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import styled, { createGlobalStyle } from 'styled-components';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -36,7 +36,6 @@ const StandardTypo = createGlobalStyle(standard);
  * @example
  * import React from 'react';
  * import { Button } from '@salutejs/sdds-serv';
- * import { IconDownload } from '@salutejs/plasma-icons';
  * // этот строки с import будет заменены на пустую строку
  * // будет взять только блок с function App
  *
@@ -59,7 +58,7 @@ const getSourceWithoutImports = (source: string) => {
         .trimStart();
 };
 
-const Header: FC = ({ children }) => {
+const Header = ({ children }: PropsWithChildren) => {
     return <div className={clsx(styles.playgroundHeader)}>{children}</div>;
 };
 
@@ -75,7 +74,7 @@ const ResultWithHeader: FC = () => {
                     Result
                 </Translate>
             </Header>
-            <LivePreview theme={colorMode} />
+            <LivePreview Component={PlaygroundPreview} theme={colorMode} />
             <LiveError />
         </>
     );
