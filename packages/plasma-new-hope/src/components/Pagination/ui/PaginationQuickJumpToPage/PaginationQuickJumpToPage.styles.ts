@@ -11,27 +11,34 @@ export const QuickJumpToPageRoot = styled.div`
     font-size: var(${tokens.paginationFontSize});
     font-style: var(${tokens.paginationFontStyle});
     font-weight: var(${tokens.paginationFontWeight});
+    letter-spacing: var(${tokens.paginationLetterSpacing});
+    line-height: var(${tokens.paginationLineHeight});
 `;
 
 export const QuickJumpToPageTypography = styled.div``;
 
 export const QuickJumpToPageInput = styled.input`
-    background: var(${tokens.paginationButtonHoverBackgroundColor});
-    color: var(${tokens.paginationButtonHoverColor});
+    background: var(${tokens.inputBackgroundColor});
+    color: var(${tokens.inputColor});
 
-    width: var(${tokens.paginationInputWidth});
-    height: var(${tokens.paginationButtonHeight});
+    width: var(${tokens.inputWidth});
+    height: var(${tokens.inputHeight});
 
-    border: none;
     box-sizing: border-box;
     outline: none;
-    border-radius: var(${tokens.paginationButtonRadius});
-    padding: 0 0.625rem;
+    border-radius: var(${tokens.inputBorderRadius});
+    padding: var(${tokens.inputPadding});
+
+    border-color: var(${tokens.inputBorderColor});
+    border-width: var(${tokens.inputBorderWidth});
+    border-style: solid;
 
     font-family: var(${tokens.paginationFontFamily});
     font-size: var(${tokens.paginationFontSize});
     font-style: var(${tokens.paginationFontStyle});
     font-weight: var(${tokens.paginationFontWeight});
+    letter-spacing: var(${tokens.paginationLetterSpacing});
+    line-height: var(${tokens.paginationLineHeight});
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {

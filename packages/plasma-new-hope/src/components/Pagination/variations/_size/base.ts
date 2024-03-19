@@ -7,4 +7,6 @@ export const base = css`
     font-size: var(${tokens.paginationFontSize});
     font-style: var(${tokens.paginationFontStyle});
     font-weight: var(${tokens.paginationFontWeight});
+    letter-spacing: var(${tokens.paginationLetterSpacing});
+    line-height: var(${tokens.paginationLineHeight});
 `;

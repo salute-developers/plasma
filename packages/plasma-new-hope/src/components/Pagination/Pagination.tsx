@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState, forwardRef } from 'react';
+import React, { useEffect, useState, forwardRef } from 'react';
 
 import { cx } from '../../utils';
 import { RootProps } from '../../engines';
@@ -12,7 +12,7 @@ import {
     PaginationRoot,
 } from './Pagination.styles';
 import type { PaginationProps } from './Pagination.types';
-import { getSections, defaultValues } from './utils';
+import { getSections, defaultValues, isNumber } from './utils';
 import { base as viewCSS } from './variations/_view/base';
 import { base as typeCSS } from './variations/_type/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -24,7 +24,7 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
     forwardRef<HTMLDivElement, PaginationProps>((props, ref) => {
         const {
             value = defaultValues.value,
-            perPage = defaultValues.perPage,
+            perPage,
             slots = defaultValues.slots,
 
             view,
@@ -32,63 +32,80 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
             type = defaultValues.type,
             size,
             pilled = defaultValues.pilled,
-            stretching = defaultValues.stretching,
+            square = defaultValues.square,
             disabled = defaultValues.disabled,
 
-            pages = defaultValues.value,
+            count = defaultValues.value,
 
             hasQuickJump = defaultValues.hasQuickJump,
             hasPerPage = defaultValues.hasPerPage,
             perPageList = defaultValues.perPageList,
             isCommonButtonStyles = defaultValues.isCommonButtonStyles,
 
+            placeholderQuickJump = defaultValues.placeholderQuickJump,
+            textQuickJump = defaultValues.textQuickJump,
+            textPerPage = defaultValues.textPerPage,
+
             leftContent,
             rightContent,
 
-            onChangeValue,
+            onChangePageValue,
+            onChangePerPageValue,
             ...rest
         } = props;
 
-        const [page, setPageValue] = useState(value);
+        const [page, setPageValue] = useState<number>(value ?? defaultValues.value);
         const [perPageValue, setPerPageValue] = useState(perPage);
+        const [pages, setPagesValue] = useState<number>(value);
         const [sections, setSections] = useState<number[][] | null>(null);
 
         const typeClass = classes[`${type}Type` as keyof typeof classes];
+        const roundedClass = pilled ? 'circle-circle' : 'square-square';
 
-        const setPage = useCallback(
-            (pageValue: number | null) => {
-                pageValue = pageValue ?? defaultValues.value;
-                if (pageValue > pages) {
-                    pageValue = pages;
-                }
-                if (pageValue < 1) {
-                    pageValue = 1;
-                }
-                if (disabled.includes(pageValue)) {
-                    return;
-                }
-                setPageValue(pageValue);
-                onChangeValue?.(pageValue, perPageValue);
-            },
-            [perPageValue, disabled, setPageValue, onChangeValue],
-        );
+        const withHasPerPageSelect = hasPerPage ? classes.withHasPerPageSelect : undefined;
+        const withHasQuickJump = hasQuickJump ? classes.withHasQuickJump : undefined;
 
-        const setPerPage = useCallback(
-            (newPerPageValue: number) => {
-                setPageValue(1);
-                setPerPageValue(newPerPageValue);
-                onChangeValue?.(1, newPerPageValue);
-            },
-            [setPageValue, setPerPageValue, onChangeValue],
-        );
+        const disabledPages = disabled.map((el) => (isNumber(el) ? Number(el) : null));
+
+        const handlerSetPages = (newPerPage: number | undefined) => {
+            setPagesValue(Math.ceil(count / (newPerPage || (hasPerPage ? defaultValues.perPage : 1))));
+        };
+
+        const handlerSetPage = (newPageValue: number | null | undefined) => {
+            newPageValue = newPageValue ?? defaultValues.value;
+            if (newPageValue > pages) {
+                newPageValue = pages;
+            }
+            if (newPageValue < 1) {
+                newPageValue = 1;
+            }
+            if (disabledPages.includes(newPageValue)) {
+                return;
+            }
+            setPageValue(newPageValue);
+            onChangePageValue?.(newPageValue);
+        };
+
+        const handlerSetPerPage = (newPerPageValue: number) => {
+            setPageValue(1);
+            setPerPageValue(newPerPageValue);
+            onChangePageValue?.(1);
+            onChangePerPageValue?.(newPerPageValue);
+
+            handlerSetPages(newPerPageValue);
+        };
+
+        const isActiveButton = (checkPage: number) => {
+            return page === checkPage ? classes.paginationPageButtonActive : '';
+        };
 
         useEffect(() => {
-            setPage(value);
-        }, [value, setPageValue]);
+            handlerSetPages(perPage);
+        }, [count, perPage, hasPerPage, setPagesValue]);
 
         useEffect(() => {
             setSections(getSections(page, pages, slots));
-        }, [page, slots, pages, perPageValue, setSections, getSections]);
+        }, [page, slots, pages, setSections, getSections]);
 
         return (
             <Root
@@ -99,48 +116,37 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
                 ref={ref}
                 {...rest}
             >
-                <PaginationRoot className={cx(typeClass)}>
+                <PaginationRoot className={typeClass}>
                     <PaginationPages>
                         {leftContent && (
                             <PaginationButtonGroup isCommonButtonStyles={isCommonButtonStyles}>
                                 {leftContent}
                             </PaginationButtonGroup>
                         )}
-
                         {sections &&
-                            sections.map((section, indexSection) => {
-                                return (
-                                    <>
-                                        {indexSection !== 0 && (
-                                            <PaginationButton square={!stretching} disabled>
-                                                ...
+                            sections.map((section, indexSection) => (
+                                <>
+                                    {indexSection !== 0 && (
+                                        <PaginationButton square={square} disabled>
+                                            ...
+                                        </PaginationButton>
+                                    )}
+                                    <PaginationSection key={indexSection}>
+                                        {section.map((pageValue) => (
+                                            <PaginationButton
+                                                square={square}
+                                                pin={roundedClass}
+                                                key={pageValue}
+                                                onClick={() => handlerSetPage(pageValue)}
+                                                disabled={disabledPages.includes(pageValue)}
+                                                className={cx(classes.paginationPageButton, isActiveButton(pageValue))}
+                                            >
+                                                {pageValue}
                                             </PaginationButton>
-                                        )}
-                                        <PaginationSection key={indexSection}>
-                                            {section.map((pageValue, indexPage) => {
-                                                return (
-                                                    <PaginationButton
-                                                        square={!stretching}
-                                                        pin={pilled ? 'circle-circle' : 'square-square'}
-                                                        key={indexPage}
-                                                        onClick={() => setPage(pageValue)}
-                                                        disabled={disabled.includes(pageValue)}
-                                                        className={cx(
-                                                            classes.paginationPageButton,
-                                                            page === pageValue
-                                                                ? classes.paginationPageButtonActive
-                                                                : '',
-                                                        )}
-                                                    >
-                                                        {pageValue}
-                                                    </PaginationButton>
-                                                );
-                                            })}
-                                        </PaginationSection>
-                                    </>
-                                );
-                            })}
-
+                                        ))}
+                                    </PaginationSection>
+                                </>
+                            ))}
                         {rightContent && (
                             <PaginationButtonGroup isCommonButtonStyles={isCommonButtonStyles}>
                                 {rightContent}
@@ -148,19 +154,21 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
                         )}
                     </PaginationPages>
                     <PaginationActions
-                        className={cx(
-                            classes.actions,
-                            typeClass,
-                            hasPerPage ? classes.isPerPageSelect : '',
-                            hasQuickJump ? classes.isQuickJump : '',
-                        )}
+                        className={cx(classes.actions, typeClass, withHasPerPageSelect, withHasQuickJump)}
                     >
-                        {hasQuickJump && <PaginationQuickJumpToPage onChangeValue={(event) => setPage(event)} />}
+                        {hasQuickJump && (
+                            <PaginationQuickJumpToPage
+                                placeholderQuickJump={placeholderQuickJump}
+                                textQuickJump={textQuickJump}
+                                onChangeValue={handlerSetPage}
+                            />
+                        )}
                         {hasPerPage && (
                             <PaginationSelectPerPage
+                                textPerPage={textPerPage}
                                 value={perPageValue}
                                 valuesList={perPageList}
-                                onChangeValue={(event) => setPerPage(event)}
+                                onChangeValue={handlerSetPerPage}
                             />
                         )}
                     </PaginationActions>

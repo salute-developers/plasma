@@ -17,24 +17,24 @@ export const SelectPerPageRoot = styled.div`
 `;
 
 export const SelectPerPageSelect = styled(Select)`
-    ${selectTokens.targetColor}: var(${tokens.paginationButtonColor});
-    ${selectTokens.targetLabelColor}: var(${tokens.paginationButtonColor});
-    ${selectTokens.targetArrowColor}: var(${tokens.paginationButtonColor});
-    ${selectTokens.targetBackgroundColor}: var(${tokens.paginationButtonBackgroundColor});
-    ${selectTokens.targetBackgroundColorHover}: var(${tokens.paginationButtonHoverBackgroundColor});
-    ${selectTokens.targetBackgroundColorActive}: var(${tokens.paginationButtonActiveBackgroundColor});
-    ${selectTokens.targetBackgroundColorOpen}: var(${tokens.paginationButtonHoverBackgroundColor});
+    ${selectTokens.targetColor}: var(${tokens.buttonColor});
+    ${selectTokens.targetLabelColor}: var(${tokens.buttonColor});
+    ${selectTokens.targetArrowColor}: var(${tokens.buttonColor});
+    ${selectTokens.targetBackgroundColor}: var(${tokens.buttonBackgroundColor});
+    ${selectTokens.targetBackgroundColorHover}: var(${tokens.buttonHoverBackgroundColor});
+    ${selectTokens.targetBackgroundColorActive}: var(${tokens.buttonActiveBackgroundColor});
+    ${selectTokens.targetBackgroundColorOpen}: var(${tokens.buttonHoverBackgroundColor});
     ${selectTokens.targetFontWeight}: var(${tokens.paginationFontWeight}) !important; /* TODO: Переделать когда появится возможность пересечения свойств */
 
-    ${selectTokens.targetArrowRight}: var(${tokens.paginationSelectTargetArrowRight});
-    ${selectTokens.targetHeight}: var(${tokens.paginationButtonHeight});
-    ${selectTokens.targetWidth}: var(${tokens.paginationSelectTargetWidth});
-    ${selectTokens.targetRadius}: var(${tokens.paginationButtonRadius});
-    ${selectTokens.targetPadding}: var(${tokens.paginationSelectTargetPadding});
-    ${selectTokens.targetPaddingHasChips}: var(${tokens.paginationSelectTargetPaddingHasChips});
-    ${selectTokens.targetPaddingWithInput}: var(${tokens.paginationSelectTargetPaddingWithInput});
-    ${selectTokens.targetInnerTop}: var(${tokens.paginationSelectTargetInnerTop});
-    ${selectTokens.targetLabelInnerTop}: var(${tokens.paginationSelectTargetLabelInnerTop});
+    ${selectTokens.targetArrowRight}: var(${tokens.selectTargetArrowRight});
+    ${selectTokens.targetHeight}: var(${tokens.buttonHeight});
+    ${selectTokens.targetWidth}: var(${tokens.selectTargetWidth});
+    ${selectTokens.targetRadius}: var(${tokens.buttonRadius});
+    ${selectTokens.targetPadding}: var(${tokens.selectTargetPadding});
+    ${selectTokens.targetPaddingHasChips}: var(${tokens.selectTargetPaddingHasChips});
+    ${selectTokens.targetPaddingWithInput}: var(${tokens.selectTargetPaddingWithInput});
+    ${selectTokens.targetInnerTop}: var(${tokens.selectTargetInnerTop});
+    ${selectTokens.targetLabelInnerTop}: var(${tokens.selectTargetLabelInnerTop});
     ${selectTokens.targetFontFamily}: var(${tokens.paginationFontFamily});
     ${selectTokens.targetFontSize}: var(${tokens.paginationFontSize});
     ${selectTokens.targetFontStyle}: var(${tokens.paginationFontStyle});
@@ -44,40 +44,42 @@ export const SelectPerPageSelect = styled(Select)`
     ${selectTokens.targetLabelInnerFontStyle}: var(${tokens.paginationFontStyle});
     ${selectTokens.targetLabelInnerFontWeight}: var(${tokens.paginationFontWeight});
 
-    ${selectTokens.width}: var(${tokens.paginationSelectWidth});
-    ${selectTokens.height}: var(${tokens.paginationSelectHeight});
-    ${selectTokens.borderRadius}: var(${tokens.paginationButtonRadius});
-    ${selectTokens.paddingTop}: var(${tokens.paginationSelectPaddingTop});
-    ${selectTokens.paddingRight}: var(${tokens.paginationSelectPaddingRight});
-    ${selectTokens.paddingBottom}: var(${tokens.paginationSelectPaddingBottom});
-    ${selectTokens.paddingLeft}: var(${tokens.paginationSelectPaddingLeft});
+    ${selectTokens.width}: var(${tokens.selectWidth});
+    ${selectTokens.height}: var(${tokens.selectHeight});
+    ${selectTokens.borderRadius}: var(${tokens.buttonRadius});
+    ${selectTokens.paddingTop}: var(${tokens.selectPaddingTop});
+    ${selectTokens.paddingRight}: var(${tokens.selectPaddingRight});
+    ${selectTokens.paddingBottom}: var(${tokens.selectPaddingBottom});
+    ${selectTokens.paddingLeft}: var(${tokens.selectPaddingLeft});
 
-    ${selectTokens.background}: var(${tokens.paginationButtonBackgroundColor});;
+    ${selectTokens.background}: var(${tokens.selectBackgroundColor});
     ${selectTokens.boxShadow}: var(--shadow-down-soft-s);
 `;
 
 export const SelectPerPageSelectItem = styled(SelectItem)`
-    ${selectTokens.itemWidth}: var(${tokens.paginationSelectItemWidth});
-    ${selectTokens.itemHeight}: var(${tokens.paginationSelectItemHeight});
-    ${selectTokens.itemPaddingTop}: var(${tokens.paginationSelectItemPaddingTop});
-    ${selectTokens.itemPaddingRight}: var(${tokens.paginationSelectItemPaddingRight});
-    ${selectTokens.itemPaddingBottom}: var(${tokens.paginationSelectItemPaddingBottom});
-    ${selectTokens.itemPaddingLeft}: var(${tokens.paginationSelectItemPaddingLeft});
-    ${selectTokens.itemBorderRadius}: var(${tokens.paginationButtonRadius});
-    ${selectTokens.itemContentLeftWidth}: var(${tokens.paginationSelectItemContentLeftWidth});
+    ${selectTokens.itemWidth}: var(${tokens.selectItemWidth});
+    ${selectTokens.itemHeight}: var(${tokens.selectItemHeight});
+    ${selectTokens.itemPaddingTop}: var(${tokens.selectItemPaddingTop});
+    ${selectTokens.itemPaddingRight}: var(${tokens.selectItemPaddingRight});
+    ${selectTokens.itemPaddingBottom}: var(${tokens.selectItemPaddingBottom});
+    ${selectTokens.itemPaddingLeft}: var(${tokens.selectItemPaddingLeft});
+    ${selectTokens.itemBorderRadius}: var(${tokens.buttonRadius});
+    ${selectTokens.itemContentLeftWidth}: var(${tokens.selectItemContentLeftWidth});
     ${selectTokens.itemFontFamily}: var(${tokens.paginationFontFamily});
     ${selectTokens.itemFontSize}: var(${tokens.paginationFontSize});
     ${selectTokens.itemFontStyle}: var(${tokens.paginationFontStyle});
     ${selectTokens.itemFontWeightBold}: var(${tokens.paginationFontWeight});
+    ${selectTokens.itemFontLetterSpacing}: var(${tokens.paginationLetterSpacing});
+    ${selectTokens.itemFontLineHeight}: var(${tokens.paginationLineHeight});
 
-    ${selectTokens.itemBackground}: var(${tokens.paginationSelectItemBackground});
-    ${selectTokens.itemBackgroundHover}: var(${tokens.paginationButtonHoverBackgroundColor});
-    ${selectTokens.itemBackgroundSelectedHover}: var(${tokens.paginationButtonActiveBackgroundColor});
-    ${selectTokens.itemColor}: var(${tokens.paginationButtonColor});
-    ${selectTokens.itemContentLeftColor}: var(${tokens.paginationButtonColor});
+    ${selectTokens.itemBackground}: var(${tokens.selectItemBackground});
+    ${selectTokens.itemBackgroundHover}: var(${tokens.buttonHoverBackgroundColor});
+    ${selectTokens.itemBackgroundSelectedHover}: var(${tokens.buttonActiveBackgroundColor});
+    ${selectTokens.itemColor}: var(${tokens.buttonColor});
+    ${selectTokens.itemContentLeftColor}: var(${tokens.buttonColor});
 
-    ${selectTokens.itemBackgroundSelected}: var(${tokens.paginationButtonHoverBackgroundColor});
-    ${selectTokens.itemColorSelected}: var(${tokens.paginationButtonColor});
+    ${selectTokens.itemBackgroundSelected}: var(${tokens.buttonHoverBackgroundColor});
+    ${selectTokens.itemColorSelected}: var(${tokens.buttonColor});
 `;
 
 export const SelectPerPageTypography = styled.div`
@@ -85,4 +87,6 @@ export const SelectPerPageTypography = styled.div`
     font-size: var(${tokens.paginationFontSize});
     font-style: var(${tokens.paginationFontStyle});
     font-weight: var(${tokens.paginationFontWeight});
+    letter-spacing: var(${tokens.paginationLetterSpacing});
+    line-height: var(${tokens.paginationLineHeight});
 `;

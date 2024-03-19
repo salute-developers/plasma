@@ -42,14 +42,14 @@ export const PaginationActions = styled.div`
     flex-grow: 1;
     gap: 0.625rem;
     &.${classes.compactType} {
-        flex-direction: row !important;
+        flex-direction: row;
     }
 
-    &.${classes.isPerPageSelect} {
+    &.${classes.withHasPerPageSelect} {
         flex-direction: row-reverse;
     }
 
-    &.${classes.isQuickJump} {
+    &.${classes.withHasQuickJump} {
         flex-direction: row;
     }
 `;
@@ -60,51 +60,54 @@ export const PaginationSection = styled.div`
 `;
 
 export const PaginationButtonGroup = styled(ButtonGroup)`
-    ${buttonGroupTokens.buttonColor}: var(${tokens.paginationButtonColor});
-    ${buttonGroupTokens.buttonBackgroundColor}: var(${tokens.paginationButtonBackgroundColor});
+    ${buttonGroupTokens.buttonColor}: var(${tokens.buttonColor});
+    ${buttonGroupTokens.buttonBackgroundColor}: var(${tokens.buttonBackgroundColor});
 
-    ${buttonGroupTokens.buttonColorHover}: var(${tokens.paginationButtonHoverColor});
-    ${buttonGroupTokens.buttonBackgroundColorHover}: var(${tokens.paginationButtonHoverBackgroundColor});
+    ${buttonGroupTokens.buttonColorHover}: var(${tokens.buttonHoverColor});
+    ${buttonGroupTokens.buttonBackgroundColorHover}: var(${tokens.buttonHoverBackgroundColor});
 
-    ${buttonGroupTokens.buttonColorActive}: var(${tokens.paginationButtonActiveColor});
-    ${buttonGroupTokens.buttonBackgroundColorActive}: var(${tokens.paginationButtonActiveBackgroundColor});
+    ${buttonGroupTokens.buttonColorActive}: var(${tokens.buttonActiveColor});
+    ${buttonGroupTokens.buttonBackgroundColorActive}: var(${tokens.buttonActiveBackgroundColor});
 
     ${buttonGroupTokens.buttonFontFamily}: var(${tokens.paginationFontFamily});
     ${buttonGroupTokens.buttonFontSize}: var(${tokens.paginationFontSize});
     ${buttonGroupTokens.buttonFontStyle}: var(${tokens.paginationFontStyle});
     ${buttonGroupTokens.buttonFontWeight}:var(${tokens.paginationFontWeight});
+    ${buttonGroupTokens.buttonLetterSpacing}: var(${tokens.paginationLetterSpacing});
+    ${buttonGroupTokens.buttonLineHeight}: var(${tokens.paginationLineHeight});
 
-    ${buttonGroupTokens.buttonWidth}: var(${tokens.paginationButtonWidth});
-    ${buttonGroupTokens.buttonHeight}: var(${tokens.paginationButtonHeight});
+    ${buttonGroupTokens.buttonWidth}: var(${tokens.buttonWidth});
+    ${buttonGroupTokens.buttonHeight}: var(${tokens.buttonHeight});
 
-    ${buttonGroupTokens.buttonDefaultRadius}: var(${tokens.paginationButtonRadius});
-    ${buttonGroupTokens.buttonSideRadius}: var(${tokens.paginationButtonRadius});
-    ${buttonGroupTokens.buttonSegmentedRadius}: var(${tokens.paginationButtonRadius});
-    ${buttonGroupTokens.buttonRadiusCircle}: var(${tokens.paginationButtonRadius});
-    
+    ${buttonGroupTokens.buttonDefaultRadius}: var(${tokens.buttonRadius});
+    ${buttonGroupTokens.buttonSideRadius}: var(${tokens.buttonRadius});
+    ${buttonGroupTokens.buttonSegmentedRadius}: var(${tokens.buttonRadius});
+    ${buttonGroupTokens.buttonRadiusCircle}: var(${tokens.buttonRadius});
 `;
 
 export const PaginationButton = styled(Button)`
-    ${buttonTokens.buttonColor}: var(${tokens.paginationButtonColor});
-    ${buttonTokens.buttonBackgroundColor}: var(${tokens.paginationButtonBackgroundColor});
+    ${buttonTokens.buttonColor}: var(${tokens.buttonColor});
+    ${buttonTokens.buttonBackgroundColor}: var(${tokens.buttonBackgroundColor});
 
-    ${buttonTokens.buttonColorHover}: var(${tokens.paginationButtonHoverColor});
-    ${buttonTokens.buttonBackgroundColorHover}: var(${tokens.paginationButtonHoverBackgroundColor});
+    ${buttonTokens.buttonColorHover}: var(${tokens.buttonHoverColor});
+    ${buttonTokens.buttonBackgroundColorHover}: var(${tokens.buttonHoverBackgroundColor});
 
-    ${buttonTokens.buttonColorActive}: var(${tokens.paginationButtonActiveColor});
-    ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.paginationButtonActiveBackgroundColor});
+    ${buttonTokens.buttonColorActive}: var(${tokens.buttonActiveColor});
+    ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.buttonActiveBackgroundColor});
 
 
     ${buttonTokens.buttonFontFamily}: var(${tokens.paginationFontFamily});
     ${buttonTokens.buttonFontSize}: var(${tokens.paginationFontSize});
     ${buttonTokens.buttonFontStyle}: var(${tokens.paginationFontStyle});
     ${buttonTokens.buttonFontWeight}:var(${tokens.paginationFontWeight});
+    ${buttonTokens.buttonLetterSpacing}: var(${tokens.paginationLetterSpacing});
+    ${buttonTokens.buttonLineHeight}: var(${tokens.paginationLineHeight});
 
-    ${buttonTokens.buttonWidth}: var(${tokens.paginationButtonWidth});
-    ${buttonTokens.buttonHeight}: var(${tokens.paginationButtonHeight});
-    ${buttonTokens.buttonRadius}: var(${tokens.paginationButtonRadius});
+    ${buttonTokens.buttonWidth}: var(${tokens.buttonWidth});
+    ${buttonTokens.buttonHeight}: var(${tokens.buttonHeight});
+    ${buttonTokens.buttonRadius}: var(${tokens.buttonRadius});
 
-    ${buttonTokens.buttonDisabledOpacity}: var(${tokens.paginationButtonDisabledOpacity});
+    ${buttonTokens.buttonDisabledOpacity}: var(${tokens.buttonDisabledOpacity});
 
     &.${classes.paginationPageButtonActive} {
         ${buttonTokens.buttonColor}: var(${tokens.paginationCurrentButtonColor});

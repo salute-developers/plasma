@@ -9,50 +9,66 @@ export const config = {
     variations: {
         view: {
             secondary: css`
-                ${paginationTokens.paginationButtonColor}: var(--text-primary);
-                ${paginationTokens.paginationButtonBackgroundColor}: var(--surface-transparent-secondary);
-                ${paginationTokens.paginationButtonHoverColor}: var(--text-primary);
-                ${paginationTokens.paginationButtonHoverBackgroundColor}: color-mix(
+                ${paginationTokens.buttonColor}: var(--text-primary);
+                ${paginationTokens.buttonBackgroundColor}: var(--surface-transparent-secondary);
+                ${paginationTokens.buttonHoverColor}: var(--text-primary);
+                ${paginationTokens.buttonHoverBackgroundColor}: color-mix(
                     in srgb,
                     var(--inverse-text-primary),
                     var(--surface-transparent-secondary) 85%
                 );
-                ${paginationTokens.paginationButtonActiveColor}: var(--text-primary);
-                ${paginationTokens.paginationButtonActiveBackgroundColor}: color-mix(
+                ${paginationTokens.buttonActiveColor}: var(--text-primary);
+                ${paginationTokens.buttonActiveBackgroundColor}: color-mix(
                     in srgb,
                     var(--inverse-text-primary),
                     var(--surface-transparent-secondary) 80%
                 );
 
-                ${paginationTokens.paginationButtonDisabledOpacity}: 0.4;
+                ${paginationTokens.buttonDisabledOpacity}: 0.4;
+
+                ${paginationTokens.inputBackgroundColor}: var(--surface-transparent-secondary);
+                ${paginationTokens.selectBackgroundColor}: var(--surface-solid-secondary);
+                ${paginationTokens.inputBorderColor}: transparent;
             `,
             clear: css`
-                ${paginationTokens.paginationButtonColor}: var(--text-primary);
-                ${paginationTokens.paginationButtonBackgroundColor}: var(--surface-clear);
-                ${paginationTokens.paginationButtonHoverColor}: var(--text-primary);
-                ${paginationTokens.paginationButtonHoverBackgroundColor}: color-mix(in srgb, var(--text-primary), var(--surface-clear) 95%);
-                ${paginationTokens.paginationButtonActiveColor}: var(--text-primary);
-                ${paginationTokens.paginationButtonActiveBackgroundColor}: color-mix(in srgb, var(--text-primary), var(--surface-clear) 90%);
+                ${paginationTokens.buttonColor}: var(--text-primary);
+                ${paginationTokens.buttonBackgroundColor}: var(--surface-clear);
+                ${paginationTokens.buttonHoverColor}: var(--text-primary);
+                ${paginationTokens.buttonHoverBackgroundColor}: color-mix(in srgb, var(--text-primary), var(--surface-clear) 95%);
+                ${paginationTokens.buttonActiveColor}: var(--text-primary);
+                ${paginationTokens.buttonActiveBackgroundColor}: color-mix(in srgb, var(--text-primary), var(--surface-clear) 90%);
 
-                ${paginationTokens.paginationButtonDisabledOpacity}: 0.4;
+                ${paginationTokens.buttonDisabledOpacity}: 0.4;
+
+                ${paginationTokens.inputBackgroundColor}: var(--surface-transparent-secondary);
+                ${paginationTokens.selectBackgroundColor}: var(--surface-solid-card);
+                ${paginationTokens.inputBorderColor}: transparent;
             `,
             primary: css`
-                ${paginationTokens.paginationButtonColor}: var(--inverse-text-primary);
-                ${paginationTokens.paginationButtonBackgroundColor}: var(--surface-solid-default);
-                ${paginationTokens.paginationButtonHoverColor}: var(--inverse-text-primary);
-                ${paginationTokens.paginationButtonHoverBackgroundColor}: color-mix(
+                ${paginationTokens.buttonColor}: var(--inverse-text-primary);
+                ${paginationTokens.buttonBackgroundColor}: var(--surface-solid-default);
+                ${paginationTokens.buttonHoverColor}: var(--inverse-text-primary);
+                ${paginationTokens.buttonHoverBackgroundColor}: color-mix(
                     in srgb,
                     var(--inverse-text-primary),
                     var(--surface-solid-default) 85%
                 );
-                ${paginationTokens.paginationButtonActiveColor}: var(--inverse-text-primary);
-                ${paginationTokens.paginationButtonActiveBackgroundColor}: color-mix(
+                ${paginationTokens.buttonActiveColor}: var(--inverse-text-primary);
+                ${paginationTokens.buttonActiveBackgroundColor}: color-mix(
                     in srgb,
                     var(--inverse-text-primary),
                     var(--surface-solid-default) 80%
                 );
 
-                ${paginationTokens.paginationButtonDisabledOpacity}: 0.4;
+                ${paginationTokens.buttonDisabledOpacity}: 0.4;
+
+                ${paginationTokens.inputBackgroundColor}: var(--surface-transparent-secondary);
+                ${paginationTokens.selectBackgroundColor}: color-mix(
+                    in srgb,
+                    var(--inverse-text-primary),
+                    var(--surface-solid-default) 85%
+                );
+                ${paginationTokens.inputBorderColor}:transparent;
             `,
         },
         viewCurrentPage: {
@@ -103,144 +119,179 @@ export const config = {
                 ${paginationTokens.paginationFontSize}: var(--plasma-typo-body-l-font-size);
                 ${paginationTokens.paginationFontStyle}: var(--plasma-typo-body-l-font-style);
                 ${paginationTokens.paginationFontWeight}: var(--plasma-typo-body-l-bold-font-weight);
-                ${paginationTokens.paginationButtonHeight}: 3.5rem;
-                ${paginationTokens.paginationButtonWidth}: 3.5rem;
+                ${paginationTokens.buttonHeight}: 3.5rem;
+                ${paginationTokens.buttonWidth}: 3.5rem;
                 ${paginationTokens.paginationInputWidth}: 4rem;
-                ${paginationTokens.paginationButtonRadius}: 0.875rem;
+                ${paginationTokens.buttonRadius}: 0.875rem;
                 ${paginationTokens.paginationIconSize}: 1.2rem;
                 ${paginationTokens.paginationIconDoubleSize}: 1.45rem;
+                ${paginationTokens.paginationLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${paginationTokens.paginationLineHeight}: var(--plasma-typo-body-l-line-height);
 
-                ${paginationTokens.paginationSelectWidth}: 100%;
-                ${paginationTokens.paginationSelectHeight}: auto;
-                ${paginationTokens.paginationSelectPaddingTop}: 0.125rem;
-                ${paginationTokens.paginationSelectPaddingRight}: 0.125rem;
-                ${paginationTokens.paginationSelectPaddingBottom}: 0.125rem;
-                ${paginationTokens.paginationSelectPaddingLeft}: 0.125rem;
+                ${paginationTokens.selectWidth}: 100%;
+                ${paginationTokens.selectHeight}: auto;
+                ${paginationTokens.selectPaddingTop}: 0.125rem;
+                ${paginationTokens.selectPaddingRight}: 0.125rem;
+                ${paginationTokens.selectPaddingBottom}: 0.125rem;
+                ${paginationTokens.selectPaddingLeft}: 0.125rem;
 
-                ${paginationTokens.paginationSelectItemWidth}: auto;
-                ${paginationTokens.paginationSelectItemHeight}: 1.5rem;
-                ${paginationTokens.paginationSelectItemPaddingTop}: 1rem;
-                ${paginationTokens.paginationSelectItemPaddingRight}: 1rem;
-                ${paginationTokens.paginationSelectItemPaddingBottom}: 1rem;
-                ${paginationTokens.paginationSelectItemPaddingLeft}: 1rem;
-                ${paginationTokens.paginationSelectItemContentLeftWidth}: 1.875rem;
-                ${paginationTokens.paginationSelectItemBackground}: transparent;
+                ${paginationTokens.selectItemWidth}: auto;
+                ${paginationTokens.selectItemHeight}: 1.5rem;
+                ${paginationTokens.selectItemPaddingTop}: 1rem;
+                ${paginationTokens.selectItemPaddingRight}: 1rem;
+                ${paginationTokens.selectItemPaddingBottom}: 1rem;
+                ${paginationTokens.selectItemPaddingLeft}: 1rem;
+                ${paginationTokens.selectItemContentLeftWidth}: 1.875rem;
+                ${paginationTokens.selectItemBackground}: transparent;
 
-                ${paginationTokens.paginationSelectTargetArrowRight}: 1rem;
-                ${paginationTokens.paginationSelectTargetWidth}: 100%;
-                ${paginationTokens.paginationSelectTargetPadding}: 0 3.5rem 0 1.5rem;
-                ${paginationTokens.paginationSelectTargetPaddingHasChips}: 0 3.625rem 0 0.375rem;
-                ${paginationTokens.paginationSelectTargetPaddingWithInput}: 0 3.625rem 0 0.625rem;
-                ${paginationTokens.paginationSelectTargetInnerTop}: 0.5rem;
-                ${paginationTokens.paginationSelectTargetLabelInnerTop}: 0.375rem;
+                ${paginationTokens.selectTargetArrowRight}: 1rem;
+                ${paginationTokens.selectTargetWidth}: 100%;
+                ${paginationTokens.selectTargetPadding}: 0 3.5rem 0 1.5rem;
+                ${paginationTokens.selectTargetPaddingHasChips}: 0 3.625rem 0 0.375rem;
+                ${paginationTokens.selectTargetPaddingWithInput}: 0 3.625rem 0 0.625rem;
+                ${paginationTokens.selectTargetInnerTop}: 0.5rem;
+                ${paginationTokens.selectTargetLabelInnerTop}: 0.375rem;
+
+                ${paginationTokens.inputBorderRadius}: 0.875rem;
+                ${paginationTokens.inputWidth}: 4rem;
+                ${paginationTokens.inputHeight}: 3.5rem;
+                ${paginationTokens.inputPadding}: 0 0.625rem;
+                ${paginationTokens.inputBorderWidth}: 0.125rem;
             `,
             m: css`
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${paginationTokens.paginationFontSize}: var(--plasma-typo-body-m-font-size);
                 ${paginationTokens.paginationFontStyle}: var(--plasma-typo-body-m-font-style);
                 ${paginationTokens.paginationFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${paginationTokens.paginationButtonHeight}: 3rem;
-                ${paginationTokens.paginationButtonWidth}: 3rem;
+                ${paginationTokens.paginationLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${paginationTokens.paginationLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${paginationTokens.buttonHeight}: 3rem;
+                ${paginationTokens.buttonWidth}: 3rem;
                 ${paginationTokens.paginationInputWidth}: 3.5rem;
-                ${paginationTokens.paginationButtonRadius}: 0.75rem;
+                ${paginationTokens.buttonRadius}: 0.75rem;
                 ${paginationTokens.paginationIconSize}: 1.05rem;
                 ${paginationTokens.paginationIconDoubleSize}: 1.3rem;
 
-                ${paginationTokens.paginationSelectWidth}: 100%;
-                ${paginationTokens.paginationSelectHeight}: auto;
-                ${paginationTokens.paginationSelectPaddingTop}: 0.125rem;
-                ${paginationTokens.paginationSelectPaddingRight}: 0.125rem;
-                ${paginationTokens.paginationSelectPaddingBottom}: 0.125rem;
-                ${paginationTokens.paginationSelectPaddingLeft}: 0.125rem;
+                ${paginationTokens.selectWidth}: 100%;
+                ${paginationTokens.selectHeight}: auto;
+                ${paginationTokens.selectPaddingTop}: 0.125rem;
+                ${paginationTokens.selectPaddingRight}: 0.125rem;
+                ${paginationTokens.selectPaddingBottom}: 0.125rem;
+                ${paginationTokens.selectPaddingLeft}: 0.125rem;
 
-                ${paginationTokens.paginationSelectItemWidth}: auto;
-                ${paginationTokens.paginationSelectItemHeight}: 1.5rem;
-                ${paginationTokens.paginationSelectItemPaddingTop}: 0.75rem;
-                ${paginationTokens.paginationSelectItemPaddingRight}: 0.75rem;
-                ${paginationTokens.paginationSelectItemPaddingBottom}: 0.75rem;
-                ${paginationTokens.paginationSelectItemPaddingLeft}: 0.75rem;
-                ${paginationTokens.paginationSelectItemContentLeftWidth}: 1.75rem;
-                ${paginationTokens.paginationSelectItemBackground}: transparent;
+                ${paginationTokens.selectItemWidth}: auto;
+                ${paginationTokens.selectItemHeight}: 1.5rem;
+                ${paginationTokens.selectItemPaddingTop}: 0.75rem;
+                ${paginationTokens.selectItemPaddingRight}: 0.75rem;
+                ${paginationTokens.selectItemPaddingBottom}: 0.75rem;
+                ${paginationTokens.selectItemPaddingLeft}: 0.75rem;
+                ${paginationTokens.selectItemContentLeftWidth}: 1.75rem;
+                ${paginationTokens.selectItemBackground}: transparent;
 
-                ${paginationTokens.paginationSelectTargetArrowRight}: 0.875rem;
-                ${paginationTokens.paginationSelectTargetWidth}: 100%;
-                ${paginationTokens.paginationSelectTargetPadding}: 0 3.25rem 0 1.25rem;
-                ${paginationTokens.paginationSelectTargetPaddingHasChips}: 0 3.375rem 0 0.375rem;
-                ${paginationTokens.paginationSelectTargetPaddingWithInput}: 0 3.375rem 0 0.625rem;
-                ${paginationTokens.paginationSelectTargetInnerTop}: 0.5rem;
-                ${paginationTokens.paginationSelectTargetLabelInnerTop}: 0.375rem;
+                ${paginationTokens.selectTargetArrowRight}: 0.875rem;
+                ${paginationTokens.selectTargetWidth}: 100%;
+                ${paginationTokens.selectTargetPadding}: 0 3.25rem 0 1.25rem;
+                ${paginationTokens.selectTargetPaddingHasChips}: 0 3.375rem 0 0.375rem;
+                ${paginationTokens.selectTargetPaddingWithInput}: 0 3.375rem 0 0.625rem;
+                ${paginationTokens.selectTargetInnerTop}: 0.5rem;
+                ${paginationTokens.selectTargetLabelInnerTop}: 0.375rem;
+
+                ${paginationTokens.inputBorderRadius}: 0.75rem;
+                ${paginationTokens.inputWidth}: 3.5rem;
+                ${paginationTokens.inputHeight}: 3rem;
+                ${paginationTokens.inputPadding}: 0 0.625rem;
+                ${paginationTokens.inputBorderWidth}: 0.125rem;
             `,
             s: css`
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${paginationTokens.paginationFontSize}: var(--plasma-typo-body-s-font-size);
                 ${paginationTokens.paginationFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${paginationTokens.paginationFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${paginationTokens.paginationButtonHeight}: 2.5rem;
-                ${paginationTokens.paginationButtonWidth}: 2.5rem;
+                ${paginationTokens.paginationLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${paginationTokens.paginationLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${paginationTokens.buttonHeight}: 2.5rem;
+                ${paginationTokens.buttonWidth}: 2.5rem;
                 ${paginationTokens.paginationInputWidth}: 3rem;
-                ${paginationTokens.paginationButtonRadius}: 0.625rem;
+                ${paginationTokens.buttonRadius}: 0.625rem;
                 ${paginationTokens.paginationIconSize}: 0.9rem;
                 ${paginationTokens.paginationIconDoubleSize}: 1.15rem;
 
-                ${paginationTokens.paginationSelectWidth}: 100%;
-                ${paginationTokens.paginationSelectHeight}: auto;
-                ${paginationTokens.paginationSelectPaddingTop}: 0.125rem;
-                ${paginationTokens.paginationSelectPaddingRight}: 0.125rem;
-                ${paginationTokens.paginationSelectPaddingBottom}: 0.125rem;
-                ${paginationTokens.paginationSelectPaddingLeft}: 0.125rem;
+                ${paginationTokens.selectWidth}: 100%;
+                ${paginationTokens.selectHeight}: auto;
+                ${paginationTokens.selectPaddingTop}: 0.125rem;
+                ${paginationTokens.selectPaddingRight}: 0.125rem;
+                ${paginationTokens.selectPaddingBottom}: 0.125rem;
+                ${paginationTokens.selectPaddingLeft}: 0.125rem;
 
-                ${paginationTokens.paginationSelectItemWidth}: auto;
-                ${paginationTokens.paginationSelectItemHeight}: 1.5rem;
-                ${paginationTokens.paginationSelectItemPaddingTop}: 0.5rem;
-                ${paginationTokens.paginationSelectItemPaddingRight}: 0.75rem;
-                ${paginationTokens.paginationSelectItemPaddingBottom}: 0.5rem;
-                ${paginationTokens.paginationSelectItemPaddingLeft}: 0.75rem;
-                ${paginationTokens.paginationSelectItemContentLeftWidth}: 1.75rem;
-                ${paginationTokens.paginationSelectItemBackground}: transparent;
+                ${paginationTokens.selectItemWidth}: auto;
+                ${paginationTokens.selectItemHeight}: 1.5rem;
+                ${paginationTokens.selectItemPaddingTop}: 0.5rem;
+                ${paginationTokens.selectItemPaddingRight}: 0.75rem;
+                ${paginationTokens.selectItemPaddingBottom}: 0.5rem;
+                ${paginationTokens.selectItemPaddingLeft}: 0.75rem;
+                ${paginationTokens.selectItemContentLeftWidth}: 1.75rem;
+                ${paginationTokens.selectItemBackground}: transparent;
 
-                ${paginationTokens.paginationSelectTargetArrowRight}: 0.75rem;
-                ${paginationTokens.paginationSelectTargetWidth}: 100%;
-                ${paginationTokens.paginationSelectTargetPadding}: 0 3rem 0 1rem;
-                ${paginationTokens.paginationSelectTargetPaddingHasChips}: 0 3.125rem 0 0.375rem;
-                ${paginationTokens.paginationSelectTargetPaddingWithInput}: 0 3.125rem 0 0.625rem;
-                ${paginationTokens.paginationSelectTargetInnerTop}: 0.5rem;
-                ${paginationTokens.paginationSelectTargetLabelInnerTop}: 0.375rem;
+                ${paginationTokens.selectTargetArrowRight}: 0.75rem;
+                ${paginationTokens.selectTargetWidth}: 100%;
+                ${paginationTokens.selectTargetPadding}: 0 3rem 0 1rem;
+                ${paginationTokens.selectTargetPaddingHasChips}: 0 3.125rem 0 0.375rem;
+                ${paginationTokens.selectTargetPaddingWithInput}: 0 3.125rem 0 0.625rem;
+                ${paginationTokens.selectTargetInnerTop}: 0.5rem;
+                ${paginationTokens.selectTargetLabelInnerTop}: 0.375rem;
+
+                ${paginationTokens.inputBorderRadius}: 0.625rem;
+                ${paginationTokens.inputWidth}: 3rem;
+                ${paginationTokens.inputHeight}: 2.5rem;
+                ${paginationTokens.inputPadding}: 0 0.625rem;
+                ${paginationTokens.inputBorderWidth}: 0.125rem;
             `,
             xs: css`
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${paginationTokens.paginationFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${paginationTokens.paginationFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${paginationTokens.paginationFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${paginationTokens.paginationButtonHeight}: 2rem;
+                ${paginationTokens.paginationLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${paginationTokens.paginationLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${paginationTokens.buttonHeight}: 2rem;
                 ${paginationTokens.paginationInputWidth}: 2.5rem;
-                ${paginationTokens.paginationButtonRadius}: 0.5rem;
-                ${paginationTokens.paginationButtonWidth}: 2rem;
+                ${paginationTokens.buttonRadius}: 0.5rem;
+                ${paginationTokens.buttonWidth}: 2rem;
                 ${paginationTokens.paginationIconSize}: 0.75rem;
                 ${paginationTokens.paginationIconDoubleSize}: 1rem;
 
-                ${paginationTokens.paginationSelectWidth}: 100%;
-                ${paginationTokens.paginationSelectHeight}: auto;
-                ${paginationTokens.paginationSelectPaddingTop}: 0.125rem;
-                ${paginationTokens.paginationSelectPaddingRight}: 0.125rem;
-                ${paginationTokens.paginationSelectPaddingBottom}: 0.125rem;
-                ${paginationTokens.paginationSelectPaddingLeft}: 0.125rem;
+                ${paginationTokens.selectWidth}: 100%;
+                ${paginationTokens.selectHeight}: auto;
+                ${paginationTokens.selectPaddingTop}: 0.125rem;
+                ${paginationTokens.selectPaddingRight}: 0.125rem;
+                ${paginationTokens.selectPaddingBottom}: 0.125rem;
+                ${paginationTokens.selectPaddingLeft}: 0.125rem;
 
-                ${paginationTokens.paginationSelectItemWidth}: auto;
-                ${paginationTokens.paginationSelectItemHeight}: 1rem;
-                ${paginationTokens.paginationSelectItemPaddingTop}: 0.5rem;
-                ${paginationTokens.paginationSelectItemPaddingRight}: 0.5rem;
-                ${paginationTokens.paginationSelectItemPaddingBottom}: 0.5rem;
-                ${paginationTokens.paginationSelectItemPaddingLeft}: 0.5rem;
-                ${paginationTokens.paginationSelectItemContentLeftWidth}: 1.25rem;
-                ${paginationTokens.paginationSelectItemBackground}: transparent;
+                ${paginationTokens.selectItemWidth}: auto;
+                ${paginationTokens.selectItemHeight}: 1rem;
+                ${paginationTokens.selectItemPaddingTop}: 0.5rem;
+                ${paginationTokens.selectItemPaddingRight}: 0.5rem;
+                ${paginationTokens.selectItemPaddingBottom}: 0.5rem;
+                ${paginationTokens.selectItemPaddingLeft}: 0.5rem;
+                ${paginationTokens.selectItemContentLeftWidth}: 1.25rem;
+                ${paginationTokens.selectItemBackground}: transparent;
 
-                ${paginationTokens.paginationSelectTargetArrowRight}: 0.5rem;
-                ${paginationTokens.paginationSelectTargetWidth}: 100%;
-                ${paginationTokens.paginationSelectTargetPadding}: 0 2.5rem 0 0.75rem;
-                ${paginationTokens.paginationSelectTargetPaddingHasChips}: 0 2.625rem 0 0.375rem;
-                ${paginationTokens.paginationSelectTargetPaddingWithInput}: 0 2.625rem 0 0.625rem;
-                ${paginationTokens.paginationSelectTargetInnerTop}: 0.5rem;
-                ${paginationTokens.paginationSelectTargetLabelInnerTop}: 0.375rem;
+                ${paginationTokens.selectTargetArrowRight}: 0.5rem;
+                ${paginationTokens.selectTargetWidth}: 100%;
+                ${paginationTokens.selectTargetPadding}: 0 2.5rem 0 0.75rem;
+                ${paginationTokens.selectTargetPaddingHasChips}: 0 2.625rem 0 0.375rem;
+                ${paginationTokens.selectTargetPaddingWithInput}: 0 2.625rem 0 0.625rem;
+                ${paginationTokens.selectTargetInnerTop}: 0.5rem;
+                ${paginationTokens.selectTargetLabelInnerTop}: 0.375rem;
+
+                ${paginationTokens.inputBorderRadius}: 0.5rem;
+                ${paginationTokens.inputWidth}: 2.5rem;
+                ${paginationTokens.inputHeight}: 2rem;
+                ${paginationTokens.inputPadding}: 0 0.625rem;
+                ${paginationTokens.inputBorderWidth}: 0.125rem;
             `,
         },
         type: {
