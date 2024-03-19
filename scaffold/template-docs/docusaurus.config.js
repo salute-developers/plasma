@@ -9,7 +9,8 @@ const pckgJson = require('./package.json');
 const versionsArchived = require('./versionsArchived.json');
 
 const { VERSION_NAME, PREFIX } = process.env;
-const baseUrl = VERSION_NAME ? `/versions/${VERSION_NAME}/` : `/${PREFIX}/{{url}}/`;
+const defaultUrl = PREFIX ? `/${PREFIX}/{{url}}/` : '/{{url}}/';
+const baseUrl = VERSION_NAME ? `/versions/${VERSION_NAME}/` : defaultUrl;
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 const config = {
