@@ -1,4 +1,16 @@
-import type { TokensCreator } from '../types';
+import { ThemeMode, getRestoredColorFromPalette } from '@salutejs/plasma-tokens-utils';
+import type { FormulaMode, OperationKind, TokenData, TokensCreator } from '../types';
+import { getStateColor } from './color';
+
+export const getStateToken = (section: FormulaMode, mode: ThemeMode, data: TokenData) => {
+    const newData = { ...data };
+    const restoredValue = getRestoredColorFromPalette(newData.value as string);
+
+    return (state: OperationKind) => {
+        newData.value = getStateColor(restoredValue, section, mode)(state);
+        return { ...newData };
+    };
+};
 
 export const tokensCreator = ({
     comment,

@@ -24,3 +24,5 @@ export const getFormatDate = (date: string) => {
 
     return formatter.format(newDate).replace(/,/, '');
 };
+
+export const inRange = (x: number, [from, to]: number[]) => x >= from && x <= to;

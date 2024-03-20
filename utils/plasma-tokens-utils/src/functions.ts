@@ -30,6 +30,13 @@ export const getHEXAColor = (clr: string) => {
     }
 };
 
+export const getHSLARawColor = (clr: string) => {
+    const alpha = Math.round(Color(clr).hsl().alpha() * 100) / 100;
+    const rounded = Number(alpha.toFixed(2));
+
+    return Color(clr).hsl().alpha(rounded).round();
+};
+
 /**
  * Осветлить/затемнить на x процентных пунктов.
  */
