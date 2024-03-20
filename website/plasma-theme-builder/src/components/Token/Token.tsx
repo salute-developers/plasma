@@ -4,7 +4,7 @@ import { Button, TextM, Tooltip } from '@salutejs/plasma-b2c';
 import { IconTrashFilled, IconEye, IconEdit } from '@salutejs/plasma-icons';
 
 import { iconButtonFade } from '../mixins';
-import { normalizeValue, getHEXAColor, getRGBAColor, TokenContext, getBackgroundColor } from '../../utils';
+import { normalizeValue, getHEXAColor, TokenContext, getBackgroundColor, getHSLARawColor } from '../../utils';
 import type { TokenValue } from '../../types';
 import { PreviewColor } from '../PreviewColor/PreviewColor';
 
@@ -136,13 +136,16 @@ export const Token = ({ section, subsection, name, data }: TokenProps) => {
                     onClick={onTokenEditClick}
                     onMouseLeave={onMouseLeave}
                     onMouseEnter={onMouseEnter}
+                    // INFO: Верну как было после дизайн-ревью
+                    style={{ color: name.includes('Hover') || name.includes('Active') ? 'coral' : undefined }}
                 >
                     {name}
                 </TokenName>
             </Tooltip>
             <PreviewColor background={getBackgroundColor(value)} borderRadius="50%" size="1rem" />
             <TokenHEXAValue>{getHEXAColor(normalizedValue)}</TokenHEXAValue>
-            <TokenRGBAValue>{getRGBAColor(normalizedValue)}</TokenRGBAValue>
+            {/* INFO: Верну как было после дизайн-ревью */}
+            <TokenRGBAValue>{getHSLARawColor(normalizedValue).toString()}</TokenRGBAValue>
             <IconButtons>
                 <IconButton view="clear" onClick={onTokenEditClick} contentLeft={<IconEdit />} />
                 {canDelete && (
