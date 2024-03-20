@@ -36,7 +36,7 @@ jobs:
 
       - name: Save artifacts
         if: ${{ failure() }}
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v4.1.0
         with:
           name: Typescript Coverage Report Artifacts
           path: packages/*/coverage-ts/
