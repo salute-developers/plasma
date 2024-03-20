@@ -2,7 +2,7 @@ import React, { ChangeEvent, useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { Button, H3, Modal, Switch, TextField } from '@salutejs/plasma-b2c';
 import { surfaceLiquid01 } from '@salutejs/plasma-tokens-b2c';
-import type { ThemeMode } from '@salutejs/plasma-tokens-utils';
+import { ThemeMode } from '@salutejs/plasma-tokens-utils';
 
 import { FormField } from '../FormField/FormField';
 import { SolidTokenValue } from '../SolidTokenValue/SolidTokenValue';
@@ -10,7 +10,8 @@ import { TypeTabs } from '../TypeTabs/TypeTabs';
 import { GradientTokenValue } from '../GradientTokenValue/GradientTokenValue';
 
 import { SBSansTextMono } from '../mixins';
-import type { MultiplatformValue, InputData, Theme as ThemeType } from '../../types';
+import type { MultiplatformValue, InputData, Theme as ThemeType, TokenData } from '../../types';
+import { sectionToFormulaMap, getStateToken } from '../../utils';
 
 const Form = styled.form``;
 
@@ -149,8 +150,31 @@ export const TokenForm = ({
         const hasToken = themeData[themeMode][section.value][subsection.value][tokenName];
         const cleanedValue = typeof value.value === 'string' ? value.value.replace(/[\s;]*/gm, '') : value.value;
 
+        const getStateTokens = (section: string, themeMode: ThemeMode): Record<string, TokenData> | undefined => {
+            const sectionName = sectionToFormulaMap[section];
+
+            if (!sectionName) {
+                return undefined;
+            }
+
+            const data = {
+                value: cleanedValue,
+                comment: comment?.value,
+                enabled: enabled?.value,
+            };
+
+            const getStateTokenFunc = getStateToken(sectionName, themeMode, data);
+
+            return {
+                [`${tokenName}Hover`]: getStateTokenFunc('hover'),
+                [`${tokenName}Active`]: getStateTokenFunc('active'),
+            };
+        };
+
         const getDataByThemeMode = (themeMode: ThemeMode) => {
             delete themeData[themeMode][section.value][subsection.value][prevName.value];
+
+            const stateTokens = getStateTokens(section.value, themeMode);
 
             return {
                 ...themeData[themeMode],
@@ -163,6 +187,7 @@ export const TokenForm = ({
                             comment: comment?.value,
                             enabled: enabled?.value,
                         },
+                        ...stateTokens,
                     },
                 },
             };
