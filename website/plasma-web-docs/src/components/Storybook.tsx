@@ -25,6 +25,7 @@ const storyLinks = {
     Toast: 'controls-toast--default',
     Tooltip: 'controls-tooltip--live',
     Typography: 'content-typography--default',
+    Toolbar: 'controls-toolbar--default',
 };
 
 export const StorybookLink: FC<{ name: keyof typeof storyLinks }> = ({ name }) => {
