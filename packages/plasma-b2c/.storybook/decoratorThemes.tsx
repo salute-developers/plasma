@@ -2,14 +2,15 @@ import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 import { b2c, dark, light } from '@salutejs/plasma-tokens-b2c';
-import { link, linkHover, linkActive, surfaceSolid01 } from '@salutejs/plasma-tokens-web';
+import { link, linkHover, linkActive } from '@salutejs/plasma-tokens-web';
+import { backgroundPrimary } from '@salutejs/plasma-tokens-web/new';
 import { standard as standardTypo, compatible as compatibleTypo } from '@salutejs/plasma-typo';
 
 /* stylelint-disable */
 const DocumentStyle = createGlobalStyle`
     html:root {
         min-height: 100vh;
-        background-color: ${surfaceSolid01};
+        background-color: ${backgroundPrimary};
     }
     a {
         color: ${link};
