@@ -149,10 +149,6 @@ export interface ThemeConfig {
         light: Grayscale;
         dark: Grayscale;
     };
-    opacity: {
-        textIcons: boolean;
-        surfaces: boolean;
-    };
 }
 
 export type TextIconsTokenName =
@@ -165,11 +161,17 @@ export type TextIconsTokenName =
     | 'textPositive'
     | 'textWarning'
     | 'textNegative'
-    | 'textTransparentAccent'
-    | 'textTransparentAccentGradient'
-    | 'textTransparentPositive'
-    | 'textTransparentWarning'
-    | 'textTransparentNegative';
+    | 'textAccentMinor'
+    | 'textAccentMinorGradient'
+    | 'textPromo'
+    | 'textPromoGradient'
+    | 'textPromoMinor'
+    | 'textPromoMinorGradient'
+    | 'textInfo'
+    | 'textPositiveMinor'
+    | 'textWarningMinor'
+    | 'textNegativeMinor'
+    | 'textInfoMinor';
 
 export type ControlsSurfacesName =
     | 'surfaceSolidDefault'
@@ -192,7 +194,53 @@ export type ControlsSurfacesName =
     | 'surfaceTransparentAccentGradient'
     | 'surfaceTransparentPositive'
     | 'surfaceTransparentWarning'
-    | 'surfaceTransparentNegative';
+    | 'surfaceTransparentNegative'
+    | 'surfaceAccentMinor'
+    | 'surfaceAccentMinorGradient'
+    | 'surfacePromo'
+    | 'surfacePromoGradient'
+    | 'surfacePromoMinor'
+    | 'surfacePromoMinorGradient'
+    | 'surfaceTransparentPromo'
+    | 'surfaceTransparentPromoGradient'
+    | 'surfaceInfo'
+    | 'surfacePositiveMinor'
+    | 'surfaceWarningMinor'
+    | 'surfaceNegativeMinor'
+    | 'surfaceInfoMinor'
+    | 'surfaceTransparentInfo';
+
+export type OutlineName =
+    | 'outlineSolidPrimary'
+    | 'outlineSolidSecondary'
+    | 'outlineSolidTertiary'
+    | 'outlineTransparentDefault'
+    | 'outlineTransparentPrimary'
+    | 'outlineTransparentSecondary'
+    | 'outlineTransparentTertiary'
+    | 'outlineAccent'
+    | 'outlineAccentGradient'
+    | 'outlinePositive'
+    | 'outlineWarning'
+    | 'outlineNegative'
+    | 'outlineClear'
+    | 'outlineTransparentAccent'
+    | 'outlineTransparentAccentGradient'
+    | 'outlineTransparentPositive'
+    | 'outlineTransparentWarning'
+    | 'outlineTransparentNegative'
+    | 'outlineAccentMinor'
+    | 'outlineAccentMinorGradient'
+    | 'outlinePromo'
+    | 'outlinePromoGradient'
+    | 'outlinePromoMinor'
+    | 'outlinePromoMinorGradient'
+    | 'outlineInfo'
+    | 'outlinePositiveMinor'
+    | 'outlineWarningMinor'
+    | 'outlineNegativeMinor'
+    | 'outlineInfoMinor'
+    | 'outlineTransparentInfo';
 
 export type BackgroundName = 'backgroundPrimary' | 'backgroundSecondary' | 'backgroundTertiary';
 
@@ -277,12 +325,14 @@ export interface Theme {
         controlsSurfaces: TokensByType<ControlsSurfacesName>;
         backgrounds: TokensBackgroundByType<BackgroundName>;
         overlay: TokensByType<OverlayName>;
+        outline: TokensByType<OutlineName>;
     };
     light: {
         textIcons: TokensByType<TextIconsTokenName>;
         controlsSurfaces: TokensByType<ControlsSurfacesName>;
         backgrounds: TokensBackgroundByType<BackgroundName>;
         overlay: TokensByType<OverlayName>;
+        outline: TokensByType<OutlineName>;
     };
     shadow?: Record<string, string>;
     borderRadius?: Record<string, string>;
@@ -313,6 +363,7 @@ export type ActualTokenNames =
     | ControlsSurfacesName
     | BackgroundName
     | OverlayName
+    | OutlineName
     | 'white'
     | 'black'
     | 'clear'

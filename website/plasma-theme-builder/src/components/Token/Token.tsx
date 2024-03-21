@@ -4,13 +4,13 @@ import { Button, TextM, Tooltip } from '@salutejs/plasma-b2c';
 import { IconTrashFilled, IconEye, IconEdit } from '@salutejs/plasma-icons';
 
 import { iconButtonFade } from '../mixins';
-import { normalizeValue, getHEXAColor, getRGBAColor, TokenContext, getBackgroundColor } from '../../utils';
+import { normalizeValue, getHEXAColor, TokenContext, getBackgroundColor, getHSLARawColor } from '../../utils';
 import type { TokenValue } from '../../types';
 import { PreviewColor } from '../PreviewColor/PreviewColor';
 
 const IconButtons = styled.div`
     display: flex;
-    min-width: 9rem;
+    min-width: 12rem;
     justify-content: end;
 `;
 
@@ -28,7 +28,7 @@ const StyledToken = styled(TextM)<{ enabled?: boolean }>`
     align-items: center;
     justify-content: space-between;
 
-    width: 67rem;
+    width: 83rem;
 
     margin: 1rem 0;
     margin-left: 2rem;
@@ -130,25 +130,22 @@ export const Token = ({ section, subsection, name, data }: TokenProps) => {
 
     return (
         <StyledToken enabled={enabled}>
-            <Tooltip
-                placement="top-start"
-                isVisible={Boolean(comment) && visible}
-                arrow={false}
-                text={comment}
-                animated
-            >
+            <Tooltip placement="top-start" isOpen={Boolean(comment) && visible} hasArrow text={comment}>
                 <TokenName
                     disable={enabled === false}
                     onClick={onTokenEditClick}
                     onMouseLeave={onMouseLeave}
                     onMouseEnter={onMouseEnter}
+                    // INFO: Верну как было после дизайн-ревью
+                    style={{ color: name.includes('Hover') || name.includes('Active') ? 'coral' : undefined }}
                 >
                     {name}
                 </TokenName>
             </Tooltip>
             <PreviewColor background={getBackgroundColor(value)} borderRadius="50%" size="1rem" />
             <TokenHEXAValue>{getHEXAColor(normalizedValue)}</TokenHEXAValue>
-            <TokenRGBAValue>{getRGBAColor(normalizedValue)}</TokenRGBAValue>
+            {/* INFO: Верну как было после дизайн-ревью */}
+            <TokenRGBAValue>{getHSLARawColor(normalizedValue).toString()}</TokenRGBAValue>
             <IconButtons>
                 <IconButton view="clear" onClick={onTokenEditClick} contentLeft={<IconEdit />} />
                 {canDelete && (
