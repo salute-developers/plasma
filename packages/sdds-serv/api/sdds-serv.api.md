@@ -123,6 +123,7 @@ import { textXSBold } from '@salutejs/sdds-themes/tokens';
 import { ToastPosition } from '@salutejs/plasma-new-hope/styled-components';
 import { ToastProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ToastRole } from '@salutejs/plasma-new-hope/styled-components';
+import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { usePopupContext } from '@salutejs/plasma-new-hope/styled-components';
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-new-hope/styled-components';
@@ -1030,6 +1031,11 @@ export const ToastProvider: ({ children }: {
 }) => JSX.Element;
 
 export { ToastRole }
+
+// @public (undocumented)
+export const Tooltip: ForwardRefExoticComponent<TooltipProps & RefAttributes<HTMLDivElement>>;
+
+export { TooltipProps }
 
 export { usePopupContext }
 
