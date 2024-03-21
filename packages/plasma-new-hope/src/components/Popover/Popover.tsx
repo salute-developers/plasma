@@ -1,9 +1,10 @@
 import React, { useRef, useCallback, useEffect, useState, forwardRef } from 'react';
+import type { CSSProperties } from 'react';
 import ReactDOM from 'react-dom';
 import { usePopper } from 'react-popper';
 import { useFocusTrap, useForkRef } from '@salutejs/plasma-core';
 
-import { RootProps } from '../../engines/types';
+import type { RootProps } from '../../engines/types';
 import { cx } from '../../utils';
 
 import { base as viewCSS } from './variations/_view/base';
@@ -58,6 +59,11 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
 
             const isAutoArray = Array.isArray(placement);
             const isAuto = isAutoArray || (placement as PopoverPlacement).startsWith('auto');
+
+            const initialStyles = {
+                visibility: isOpen ? 'visible' : 'hidden',
+                opacity: isOpen ? 1 : 0,
+            } as CSSProperties;
 
             const { styles, attributes, forceUpdate } = usePopper(rootRef.current, popoverRef.current, {
                 placement: isAutoArray ? 'auto' : (placement as PopoverPlacement),
@@ -234,7 +240,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                                     {...attributes.popper}
                                     className={classes.root}
                                     ref={popoverForkRef}
-                                    style={{ ...styles.popper, ...{ display: isOpen ? 'block' : 'none' } }}
+                                    style={{ ...styles.popper, ...initialStyles }}
                                     zIndex={zIndex}
                                 >
                                     {hasArrow && (

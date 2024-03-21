@@ -12,6 +12,11 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
      */
     isOpen: boolean;
     /**
+     * Видимость тултипа.
+     * @deprecated
+     */
+    isVisible?: boolean;
+    /**
      * Элемент, рядом с которым произойдет вызов всплывающего окна.
      */
     target?: ReactNode;
@@ -23,6 +28,15 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLDivElement> {
      * Видимость стрелки (хвоста).
      */
     hasArrow?: boolean;
+    /**
+     * Видимость стрелки (хвоста).
+     * @deprecated
+     */
+    arrow?: boolean;
+    /**
+     * Анимированное появление/сокрытие.
+     */
+    animated?: boolean;
     /**
      * Отступ окна относительно элемента, у которого оно вызвано.
      * @default
