@@ -39,6 +39,7 @@ jobs:
         steps:
             -   uses: actions/checkout@v4
                 with:
+                    ref: refs/pull/${{github.event.pull_request.number}}/merge
                     show-progress: false
 
             -   name: Prepare environment
@@ -126,6 +127,7 @@ jobs:
             -   uses: actions/checkout@v4
                 with:
                     show-progress: false
+                    ref: refs/pull/${{github.event.pull_request.number}}/merge
 
             -   name: Prepare environment
                 uses: ./.github/actions/prepare-environment
