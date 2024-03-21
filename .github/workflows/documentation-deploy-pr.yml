@@ -156,6 +156,7 @@ jobs:
 
                         const packages = [
                           'plasma-hope',
+                          'plasma-new-hope',
                           'plasma-tokens',
                           'plasma-tokens-native',
                           'plasma-tokens-utils',
