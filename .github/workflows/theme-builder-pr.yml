@@ -86,4 +86,5 @@ jobs:
       -   name: Attach comment
           uses: marocchino/sticky-pull-request-comment@v2
           with:
+              header: Theme Builder
               message: ${{ steps.success-comment.outputs.result }}

@@ -268,4 +268,5 @@ jobs:
             -   name: Attach comment
                 uses: marocchino/sticky-pull-request-comment@v2
                 with:
+                    header: Links
                     message: ${{ steps.comment-link.outputs.result }}
