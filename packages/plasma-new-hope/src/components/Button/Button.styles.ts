@@ -33,10 +33,6 @@ export const base = css`
     --plasma_private-btn-br: var(--plasma_computed-btn-br);
     border-radius: var(--plasma_private-btn-br);
 
-    &:before {
-        border-radius: calc(var(--plasma_private-btn-br) + var(--plasma_private-btn-outline-size));
-    }
-
     &&.${String(classes.buttonSquare)} {
         width: var(${tokens.buttonHeight});
         padding: 0;
