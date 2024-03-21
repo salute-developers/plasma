@@ -156,6 +156,7 @@ jobs:
 
                         const packages = [
                           'plasma-hope',
+                          'plasma-new-hope',
                           'plasma-tokens',
                           'plasma-tokens-native',
                           'plasma-tokens-utils',
@@ -268,4 +269,5 @@ jobs:
             -   name: Attach comment
                 uses: marocchino/sticky-pull-request-comment@v2
                 with:
+                    header: Links
                     message: ${{ steps.comment-link.outputs.result }}
