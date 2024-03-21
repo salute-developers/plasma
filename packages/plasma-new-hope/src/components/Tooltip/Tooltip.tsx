@@ -2,7 +2,7 @@ import React, { useEffect, forwardRef, useState } from 'react';
 import { styled } from '@linaria/react';
 
 import { RootProps, component } from '../../engines';
-import { popoverConfig, popoverTokens } from '../Popover';
+import { popoverClasses, popoverConfig, popoverTokens } from '../Popover';
 import { cx } from '../../utils';
 
 import { TooltipProps } from './Tooltip.types';
@@ -26,6 +26,10 @@ const StyledPopover = styled(Popover)`
     ${popoverTokens.arrowBackground}: var(${tokens.arrowBackground});
     ${popoverTokens.arrowHeight}: var(${tokens.arrowHeight});
     ${popoverTokens.arrowEdgeMargin}: var(${tokens.arrowEdgeMargin});
+
+    &.${classes.animated} .${popoverClasses.root} {
+        transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
+    }
 `;
 
 /**
@@ -39,7 +43,10 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 id,
                 text,
                 isOpen,
+                isVisible,
                 hasArrow = true,
+                arrow,
+                animated,
                 offset = [0, 8],
                 minWidth,
                 maxWidth,
@@ -59,6 +66,13 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
         ) => {
             const [ref, setRef] = useState<HTMLDivElement | null>(null);
 
+            // TODO убрать после отказа от старого API
+            const innerIsOpen = isVisible || isOpen;
+            const innerHasArrow = arrow || hasArrow;
+            const showTooltip = innerIsOpen && Boolean(text?.length);
+
+            const animatedClass = animated ? classes.animated : undefined;
+
             useEffect(() => {
                 const onKeyDown = (event: KeyboardEvent) => {
                     if (event.keyCode === ESCAPE_KEYCODE) {
@@ -77,17 +91,17 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
 
             return (
                 <StyledPopover
-                    isOpen={isOpen && Boolean(text?.length)}
+                    isOpen={showTooltip}
                     placement={placement}
                     offset={offset}
                     zIndex={zIndex}
                     target={target || children}
                     usePortal={usePortal}
-                    hasArrow={hasArrow}
-                    aria-hidden={!isOpen}
+                    hasArrow={innerHasArrow}
+                    aria-hidden={!innerIsOpen}
                     aria-live="polite"
                     role="tooltip"
-                    className={cx(ref?.classList.toString(), className)}
+                    className={cx(ref?.classList.toString(), animatedClass, className)}
                     // INFO: Прокидываем стили для Popover из Root Tooltip-а
 
                     {...rest}
