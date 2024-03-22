@@ -14,7 +14,7 @@ export type PaginationQuickJumpToPageRoot = {
     /*
      * Функция которая исполнятеся при изменении
      */
-    onChangeValue?: (page: number | null) => void;
+    onChangeValue?: (page?: number) => void;
 };
 
 export type PaginationQuickJumpToPageProps = HTMLAttributes<HTMLDivElement> & PaginationQuickJumpToPageRoot;

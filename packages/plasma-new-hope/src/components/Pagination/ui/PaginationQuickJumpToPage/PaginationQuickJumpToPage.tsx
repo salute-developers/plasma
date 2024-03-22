@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { defaultValues, isNumber } from '../../utils';
+import { defaultValues } from '../../utils';
 
 import type { PaginationQuickJumpToPageProps } from './PaginationQuickJumpToPage.types';
 import {
@@ -15,26 +15,26 @@ export const PaginationQuickJumpToPage: React.FC<PaginationQuickJumpToPageProps>
     onChangeValue,
     ...rest
 }) => {
-    const [pageValue, setPageValue] = useState<null | number>(null);
+    const [pageValue, setPageValue] = useState<number | string | undefined>();
 
     const handleKeyPress = (event: React.KeyboardEvent<HTMLElement>) => {
         if (event.key === 'Enter') {
-            onChangeValue?.(pageValue);
+            onChangeValue?.(Number(pageValue));
+            setPageValue('');
         }
     };
 
     const handleChangeInput = (event: React.FormEvent<HTMLInputElement>) => {
-        if (!isNumber(event.currentTarget.value)) {
-            return;
-        }
-        setPageValue(Number(event.currentTarget.value ?? 1));
+        const result = event.currentTarget.value.replace(/\D/g, '');
+        if (result === '') return setPageValue('');
+        setPageValue(Number(result));
     };
 
     return (
         <QuickJumpToPageRoot {...rest}>
             <QuickJumpToPageTypography>{textQuickJump}</QuickJumpToPageTypography>
             <QuickJumpToPageInput
-                type="number"
+                value={pageValue}
                 placeholder={placeholderQuickJump}
                 onKeyUp={handleKeyPress}
                 onChange={handleChangeInput}

@@ -11,7 +11,7 @@ export const classes = {
     compactType: 'pagination-type-compact',
 
     withHasQuickJump: 'pagination-has-quick-jump',
-    withHasPerPageSelect: 'pagination-has-per-page-select',
+    withHasPerPageSelect: 'pagination-has-perpage-select',
 
     paginationPageButton: 'pagination-page-button',
     paginationPageButtonActive: 'pagination-page-button-active',
@@ -21,6 +21,7 @@ export const classes = {
 
 export const tokens = {
     paginationWidth: '--plasma-pagination-width',
+    paginationColor: '--plasma-pagination-color',
 
     buttonBackgroundColor: '--plasma-pagination-button-bg-color',
     buttonColor: '--plasma-pagination-button-color',
@@ -28,6 +29,7 @@ export const tokens = {
     buttonHoverColor: '--plasma-pagination-button-color-hover',
     buttonActiveBackgroundColor: '--plasma-pagination-button-bg-color-active',
     buttonActiveColor: '--plasma-pagination--button-color-active',
+    buttonFocusColor: '--plasma-pagination--button-color-focus',
 
     paginationCurrentButtonBackgroundColor: '--plasma-pagination-button-current-bg-color',
     paginationCurrentButtonColor: '--plasma-pagination-button-current-color',
@@ -39,6 +41,7 @@ export const tokens = {
     buttonDisabledOpacity: '--plasma-pagination-button-disabled-opacity',
 
     buttonHeight: '--plasma-pagination-button-height',
+    buttonWidthShorter: '--plasma-pagination-button-width-shorter',
     buttonWidth: '--plasma-pagination-button-width',
     paginationInputWidth: '--plasma-pagination-input-width',
     buttonRadius: '--plasma-pagination-button-radius',

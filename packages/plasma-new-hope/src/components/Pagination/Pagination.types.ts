@@ -1,7 +1,6 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 
-import type { AsProps } from '../../types';
-import type { NumericRange, CreateArrayWithLengthX } from '../../types/Range';
+import type { AsProps, NumericRange, CreateArrayWithLengthX } from '../../types';
 /*
  * Тип создания диапозона чисел
  */
@@ -72,7 +71,7 @@ export type CustomPaginationProps = {
     /*
      * Заблокированные страницы
      */
-    disabled?: string[];
+    disabledPages?: string[];
 
     /*
      * Количество PageButtons
@@ -112,8 +111,8 @@ export type CustomPaginationProps = {
     /*
      * Функция которая исполняeтся при изменении
      */
-    onChangePageValue?: (page: number) => void;
-    onChangePerPageValue?: (perpage: number) => void;
+    onChangePageValue?: (page?: number) => void;
+    onChangePerPageValue?: (perpage?: number) => void;
 };
 
 export interface PaginationProps extends HTMLAttributes<HTMLDivElement>, AsProps, CustomPaginationProps {}

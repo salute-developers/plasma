@@ -19,7 +19,7 @@ export type PaginationSelectPerPageRoot = {
     /*
      * Функция которая исполнятеся при изменении
      */
-    onChangeValue?: (page: number) => void;
+    onChangeValue?: (page?: number) => void;
 };
 
 export type PaginationSelectPerPageProps = HTMLAttributes<HTMLDivElement> & PaginationSelectPerPageRoot;

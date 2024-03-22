@@ -22,9 +22,11 @@ export const PaginationSelectPerPage: React.FC<PaginationSelectPerPageProps> = (
 }) => {
     const [selectedValue, setSelectedValue] = useState(value);
 
-    const handleSelectChange = (newValue: SelectPrimitiveValue | undefined) => {
-        setSelectedValue(Number(newValue));
-        onChangeValue?.(Number(newValue));
+    const handleSelectChange = (newValue?: SelectPrimitiveValue) => {
+        if (newValue) {
+            setSelectedValue(Number(newValue));
+            onChangeValue?.(Number(newValue));
+        }
     };
 
     return (

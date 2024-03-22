@@ -29,6 +29,9 @@ export const config = {
                 ${paginationTokens.selectBackgroundColor}: var(--surface-solid-secondary);
                 ${paginationTokens.inputBackgroundColor}: var(--surface-clear);
                 ${paginationTokens.inputBorderColor}: var(--surface-transparent-secondary);
+
+                ${paginationTokens.paginationColor}: var(--text-primary);
+                ${paginationTokens.buttonFocusColor}: var(--surface-accent);
             `,
             clear: css`
                 ${paginationTokens.buttonColor}: var(--text-primary);
@@ -43,6 +46,9 @@ export const config = {
                 ${paginationTokens.selectBackgroundColor}: var(--surface-solid-card);
                 ${paginationTokens.inputBackgroundColor}: var(--surface-clear);
                 ${paginationTokens.inputBorderColor}: var(--surface-transparent-secondary);
+
+                ${paginationTokens.paginationColor}: var(--text-primary);
+                ${paginationTokens.buttonFocusColor}: var(--surface-accent);
             `,
             primary: css`
                 ${paginationTokens.buttonColor}: var(--inverse-text-primary);
@@ -69,6 +75,9 @@ export const config = {
                 );
                 ${paginationTokens.inputBackgroundColor}: var(--surface-clear);
                 ${paginationTokens.inputBorderColor}: var(--surface-transparent-secondary);
+
+                ${paginationTokens.paginationColor}: var(--text-primary);
+                ${paginationTokens.buttonFocusColor}: var(--surface-accent);
             `,
         },
         viewCurrentPage: {
@@ -123,7 +132,8 @@ export const config = {
                 ${paginationTokens.paginationLineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${paginationTokens.buttonHeight}: 3.5rem;
-                ${paginationTokens.buttonWidth}: 3.5rem;
+                ${paginationTokens.buttonWidth}: 3rem;
+                ${paginationTokens.buttonWidthShorter}: 2.25rem;
                 ${paginationTokens.paginationInputWidth}: 4rem;
                 ${paginationTokens.buttonRadius}: 0.875rem;
                 ${paginationTokens.paginationIconSize}: 1.2rem;
@@ -169,6 +179,7 @@ export const config = {
 
                 ${paginationTokens.buttonHeight}: 3rem;
                 ${paginationTokens.buttonWidth}: 3rem;
+                ${paginationTokens.buttonWidthShorter}: 2rem;
                 ${paginationTokens.paginationInputWidth}: 3.5rem;
                 ${paginationTokens.buttonRadius}: 0.75rem;
                 ${paginationTokens.paginationIconSize}: 1.05rem;
@@ -214,6 +225,7 @@ export const config = {
 
                 ${paginationTokens.buttonHeight}: 2.5rem;
                 ${paginationTokens.buttonWidth}: 2.5rem;
+                ${paginationTokens.buttonWidthShorter}: 1.75rem;
                 ${paginationTokens.paginationInputWidth}: 3rem;
                 ${paginationTokens.buttonRadius}: 0.625rem;
                 ${paginationTokens.paginationIconSize}: 0.9rem;
@@ -261,6 +273,7 @@ export const config = {
                 ${paginationTokens.paginationInputWidth}: 2.5rem;
                 ${paginationTokens.buttonRadius}: 0.5rem;
                 ${paginationTokens.buttonWidth}: 2rem;
+                ${paginationTokens.buttonWidthShorter}: 1.5rem;
                 ${paginationTokens.paginationIconSize}: 0.75rem;
                 ${paginationTokens.paginationIconDoubleSize}: 1rem;
 
