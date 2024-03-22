@@ -3,6 +3,7 @@ import { styled } from '@linaria/react';
 import { buttonConfig, buttonTokens } from '../Button';
 import { buttonGroupConfig, buttonGroupTokens } from '../ButtonGroup';
 import { component, mergeConfig } from '../../engines';
+import { addFocus } from '../../mixins';
 
 import { classes, tokens } from './Pagination.tokens';
 
@@ -14,6 +15,7 @@ const ButtonGroup = component(mergedButtonGroupConfig);
 
 export const PaginationRoot = styled.div`
     display: flex;
+    color: var(${tokens.paginationColor});
 
     &.${classes.compactType} {
         display: flex;
@@ -108,6 +110,7 @@ export const PaginationButton = styled(Button)`
     ${buttonTokens.buttonRadius}: var(${tokens.buttonRadius});
 
     ${buttonTokens.buttonDisabledOpacity}: var(${tokens.buttonDisabledOpacity});
+    ${buttonTokens.buttonFocusColor}: var(${tokens.buttonFocusColor});
 
     &.${classes.paginationPageButtonActive} {
         ${buttonTokens.buttonColor}: var(${tokens.paginationCurrentButtonColor});
@@ -119,4 +122,20 @@ export const PaginationButton = styled(Button)`
         ${buttonTokens.buttonColorActive}: var(${tokens.paginationCurrentButtonActiveColor});
         ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.paginationCurrentButtonActiveBackgroundColor});
     }
+
+    :focus {
+        outline: none;
+    }
+
+    ${addFocus({
+        outlineOffset: 'calc(-1 * var(--plasma_private-btn-outline-size))',
+        outlineSize: 'var(--plasma_private-btn-outline-size)',
+        outlineRadius: 'var(--plasma_private-btn-br)',
+        outlineColor: `var(${tokens.buttonFocusColor})`,
+    })}
+`;
+
+export const PaginationShorter = styled(PaginationButton)`
+    ${buttonTokens.buttonWidth}: var(${tokens.buttonWidthShorter});
+    ${buttonTokens.buttonPadding}: 0;
 `;
