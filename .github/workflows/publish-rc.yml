@@ -6,9 +6,9 @@ on:
       - dev
 
 jobs:
-  change-state:
+  state:
     if: ${{ github.actor == 'github-merge-queue[bot]' }}
-    name: Computed state of change
+    name: State
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -22,7 +22,7 @@ jobs:
         with:
           show-progress: false
           fetch-depth: 0
-          
+      
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
       
@@ -63,14 +63,14 @@ jobs:
         env:
           SHA: ${{ fromJSON(steps.pull_request.outputs.result).sha }}
         run: |
-          echo "STATE=$(npx lerna la --json --since=${{ env.SHA }} | jq -c)" >> "$GITHUB_OUTPUT"
+          echo "RAW_DATA=$(npx lerna la --json --since=${{ env.SHA }} | jq -c)" >> "$GITHUB_OUTPUT"
       
       ## Высчитываем условие для загрузки assets
       - name: Computed scope state
         id: scope
         uses: actions/github-script@v6
         env:
-          CHANGED_STATE: ${{ toJSON(steps.lerna_ls.outputs.STATE) }}
+          RAW_DATA: ${{ steps.lerna_ls.outputs.RAW_DATA }}
         with:
           script: |
             const processingScope = require('./.github/processing-scope.js');
@@ -78,28 +78,28 @@ jobs:
             const state = processingScope();
             
             return state.HAS_ASSETS ?? false;
-
+  
   publish:
     name: Publish RC version
-    needs: [ change-state ]
+    needs: [ state ]
     if: ${{ github.actor == 'github-merge-queue[bot]' }}
     uses: ./.github/workflows/publish-common.yml
     with:
       with-update-package-lock: true
       commit-message: "Update package-lock.json files"
-      upload_assets: ${{ needs.change-state.outputs.HAS_ASSETS == 'true' }}
+      upload_assets: ${{ needs.state.outputs.HAS_ASSETS == 'true' }}
       auto-options: '--no-changelog'
     secrets:
       gh_token: ${{ secrets.GH_TOKEN }}
       npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
-    
+  
   catch:
     name: Handle errors
     runs-on: ubuntu-latest
-    needs: [ change-state, publish ]
+    needs: [ state, publish ]
     if: ${{ always() && contains(needs.*.result, 'failure') }}
     env:
-      FAILED_JOB_NAME: ${{ contains(needs.change-state.result, 'failure') && 'Save state' || 'Publish RC version / publish' }}
+      FAILED_JOB_NAME: ${{ contains(needs.change-state.result, 'failure') && 'State' || 'Publish RC version / publish' }}
     steps:
       - name: Get failed job information
         id: job
@@ -127,8 +127,8 @@ jobs:
       
       - name: Create message
         env:
-          PR: ${{ fromJSON(needs.change-state.outputs.PR).pr }}
-          USER: ${{ fromJSON(needs.change-state.outputs.PR).user }}
+          PR: ${{ fromJSON(needs.state.outputs.PR).pr }}
+          USER: ${{ fromJSON(needs.state.outputs.PR).user }}
           FAILURE_STEP: ${{ fromJSON(steps.job.outputs.result).name }}
           JOB: ${{ fromJSON(steps.job.outputs.result).job }}
         run: |
@@ -145,5 +145,5 @@ jobs:
         uses: mattermost/action-mattermost-notify@master
         env:
           MATTERMOST_WEBHOOK_URL: ${{ secrets.WEBHOOKS_NOTIFICATIONS_MM }}
-  
+
 
