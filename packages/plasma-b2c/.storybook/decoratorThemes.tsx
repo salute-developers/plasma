@@ -3,14 +3,13 @@ import { createGlobalStyle } from 'styled-components';
 
 import { b2c, dark, light } from '@salutejs/plasma-tokens-b2c';
 import { link, linkHover, linkActive } from '@salutejs/plasma-tokens-web';
-import { backgroundPrimary } from '@salutejs/plasma-tokens-web/new';
 import { standard as standardTypo, compatible as compatibleTypo } from '@salutejs/plasma-typo';
 
 /* stylelint-disable */
 const DocumentStyle = createGlobalStyle`
     html:root {
         min-height: 100vh;
-        background-color: ${backgroundPrimary};
+        background-color: var(--background-primary);
     }
     a {
         color: ${link};
