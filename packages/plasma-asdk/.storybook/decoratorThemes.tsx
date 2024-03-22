@@ -6,7 +6,6 @@ import {
     stylesSalute__light as stylesSaluteLight,
 } from '@salutejs/plasma-tokens';
 import { link, linkHover, linkActive } from '@salutejs/plasma-tokens-b2b';
-import { backgroundPrimary } from '@salutejs/plasma-tokens-b2b/new';
 
 import { standard as standardTypo, compatible as compatibleTypo } from '@salutejs/plasma-typo';
 import { b2b as b2bTypo } from '@salutejs/plasma-tokens-b2b';
@@ -19,7 +18,7 @@ const CompatibleTypoStyle = createGlobalStyle(compatibleTypo);
 const DocumentStyle = createGlobalStyle`
     html:root {
         min-height: 100vh;
-        background-color: ${backgroundPrimary};
+        background-color: var(--background-primary);
     }
     a {
         color: ${link};
