@@ -12,8 +12,6 @@
 -   @salutejs/plasma-web
 -   @salutejs/plasma-b2c
 -   @salutejs/plasma-tokens
--   @salutejs/plasma-tokens-web
--   @salutejs/plasma-tokens-b2c
 -   @salutejs/plasma-icons
 
 ### plasma-ui
