@@ -29,7 +29,7 @@ export const spacing = {
     '16x': baseSpacing[32],
 };
 
-type Spacing = keyof typeof spacing;
+export type Spacing = keyof typeof spacing;
 
 const createSpacingFn = (params: string[]) => (value: Spacing) => {
     return params.reduce((acc, cur) => ({ ...acc, [cur]: spacing[value] }), {});
