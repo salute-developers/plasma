@@ -8,6 +8,7 @@
 
 import { addFocus } from '@salutejs/plasma-core';
 import { addNotification } from '@salutejs/plasma-new-hope/styled-components';
+import { AlignProp } from '@salutejs/plasma-new-hope/types/components/Cell/Cell.types';
 import { AnchorHTMLAttributes } from 'react';
 import { animatedScrollToX } from '@salutejs/plasma-core';
 import { animatedScrollToY } from '@salutejs/plasma-core';
@@ -63,8 +64,11 @@ import { CarouselGridWrapper } from '@salutejs/plasma-hope';
 import { CarouselItem } from '@salutejs/plasma-hope';
 import { CarouselItemProps } from '@salutejs/plasma-hope';
 import { CarouselProps } from '@salutejs/plasma-hope';
-import { Cell } from '@salutejs/plasma-hope';
-import { CellProps } from '@salutejs/plasma-hope';
+import { CellProps } from '@salutejs/plasma-new-hope/styled-components';
+import { CellTextbox } from '@salutejs/plasma-new-hope/styled-components';
+import { CellTextboxLabel } from '@salutejs/plasma-new-hope/styled-components';
+import { CellTextboxSubtitle } from '@salutejs/plasma-new-hope/styled-components';
+import { CellTextboxTitle } from '@salutejs/plasma-new-hope/styled-components';
 import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { clearSelection } from '@salutejs/plasma-hope';
 import { closeNotification } from '@salutejs/plasma-new-hope/styled-components';
@@ -618,9 +622,58 @@ export { CarouselItemProps }
 
 export { CarouselProps }
 
-export { Cell }
+// @public
+export const Cell: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+}> & (({
+size?: string | undefined;
+view: string;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+alignContentLeft?: AlignProp | undefined;
+alignContentRight?: AlignProp | undefined;
+stretching?: "auto" | "fixed" | "filled" | undefined;
+content?: ReactNode;
+description?: string | undefined;
+} & {
+title?: string | undefined;
+subtitle?: string | undefined;
+label?: string | undefined;
+children?: undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>) | ({
+size?: string | undefined;
+view: string;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+alignContentLeft?: AlignProp | undefined;
+alignContentRight?: AlignProp | undefined;
+stretching?: "auto" | "fixed" | "filled" | undefined;
+content?: ReactNode;
+description?: string | undefined;
+} & {
+title?: undefined;
+subtitle?: undefined;
+label?: undefined;
+children?: ReactNode;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>))>;
 
 export { CellProps }
+
+export { CellTextbox }
+
+export { CellTextboxLabel }
+
+export { CellTextboxSubtitle }
+
+export { CellTextboxTitle }
 
 // @public
 export const Checkbox: FunctionComponent<PropsType<    {

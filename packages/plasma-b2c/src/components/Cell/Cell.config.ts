@@ -1,6 +1,4 @@
-import { css } from '@linaria/core';
-
-import { cellTokens } from '../../../../components/Cell';
+import { css, cellTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     variations: {
@@ -120,7 +118,6 @@ export const config = {
 
                 ${cellTokens.cellTextboxGap}: 0.125rem;
                 ${cellTokens.cellGap}: 0.25rem;
-                ${cellTokens.cellGap}: 0.375rem;
 
                 ${cellTokens.cellLabelFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${cellTokens.cellLabelFontSize}: var(--plasma-typo-body-xs-font-size);

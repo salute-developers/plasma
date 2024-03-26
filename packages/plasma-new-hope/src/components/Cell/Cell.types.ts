@@ -1,14 +1,19 @@
-import type { HTMLAttributes, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-export type AlignLeftProp = 'center' | 'top' | 'bottom';
-export type AlignRightProp = 'center' | 'top';
-export type Sizes = 'l' | 'm' | 's' | 'xs';
+import type { CellTextboxProps } from './ui/CellTextbox/CellTextbox.types';
+
+export type AlignProp = 'center' | 'top' | 'bottom';
 
 type CustomCellProps = {
     /**
      * Размер
      */
-    size: Sizes;
+    size?: string;
+
+    /**
+     * Размер
+     */
+    view: string;
 
     /**
      * Слот для контента слева, например `Icon`
@@ -21,26 +26,14 @@ type CustomCellProps = {
     contentRight?: ReactNode;
 
     /**
-     * Слот для контента спарва, например `Icon`
-     */
-    content?: ReactNode;
-
-    /**
      * Вертикальное выравнивание контента слева.
      */
-    alignLeft?: AlignLeftProp;
+    alignContentLeft?: AlignProp;
 
     /**
      * Вертикальное выравнивание контента справа.
      */
-    alignRight?: AlignRightProp;
-
-    /**
-     * Кнопка растягивается на всю доступную ширину
-     * @deprecated
-     * Использовать stretching
-     */
-    stretch?: boolean;
+    alignContentRight?: AlignProp;
 
     /**
      * Ширина cell
@@ -53,19 +46,16 @@ type CustomCellProps = {
     stretching?: 'fixed' | 'filled' | 'auto';
 
     /**
-     * Слот для Title
+     * Свойство устарело, вместо этого нужно использовать contentLeft
+     * @deprecated
      */
-    title?: ReactNode;
+    content?: ReactNode;
 
     /**
-     * Слот для Subtitle
+     * Свойство устарело, вместо этого нужно использовать title
+     * @deprecated
      */
-    subtitle?: ReactNode;
-
-    /**
-     * Слот для Label
-     */
-    label?: ReactNode;
+    description?: string;
 };
 
-export type CellProps = HTMLAttributes<HTMLDivElement> & CustomCellProps;
+export type CellProps = CustomCellProps & CellTextboxProps;
