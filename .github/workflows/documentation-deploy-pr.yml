@@ -106,7 +106,6 @@ jobs:
                     --host-bucket ${{ secrets.AWS_ENDPOINT }}
                     --bucket-location ${{ secrets.AWS_REGION }}
                     --signature-v2
-                    --delete-removed
                     --no-mime-magic
                     sync
                     ./s3_build/${PR_NAME}/
@@ -134,7 +133,7 @@ jobs:
 
             -   name: Set job environment variables
                 run: |
-                    echo "SHORT_NAME=$(echo ${{ matrix.package }} | sed -r 's/@salutejs\///g' | sed -r 's/plasma-//g')" >> $GITHUB_ENV
+                    echo "SHORT_NAME=$(echo ${{ matrix.package }} | sed -r 's/plasma-//g')" >> $GITHUB_ENV
                     echo "HAS_PACKAGE_DOCS=$([ -d "./website/${{ matrix.package }}-docs" ] && echo true || echo false)" >> $GITHUB_ENV
 
             -   name: Get lerna scope
@@ -208,6 +207,7 @@ jobs:
         steps:
             -   uses: actions/checkout@v4
                 with:
+                    ref: refs/pull/${{github.event.pull_request.number}}/merge
                     show-progress: false
 
             -   name: Create comment
