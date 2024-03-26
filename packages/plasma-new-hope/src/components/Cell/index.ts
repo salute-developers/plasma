@@ -1,10 +1,10 @@
-export { TextLabel } from './Textbox/ui/TextLabel';
-export { TextTitle } from './Textbox/ui/TextTitle';
-export { TextSubtitle } from './Textbox/ui/TextSubtitle';
+export { CellTextboxLabel } from './ui/CellTextboxLabel/CellTextboxLabel';
+export { CellTextboxTitle } from './ui/CellTextboxTitle/CellTextboxTitle';
+export { CellTextboxSubtitle } from './ui/CellTextboxSubtitle/CellTextboxSubtitle';
 
 export { cellRoot, cellConfig } from './Cell';
 export type { CellProps } from './Cell.types';
 export { tokens as cellTokens, classes as cellClasses } from './Cell.tokens';
 
-export { Textbox } from './Textbox/Textbox';
-export type { TextboxProps } from './Textbox/Textbox.types';
+export { CellTextbox } from './ui/CellTextbox/CellTextbox';
+export type { CellTextboxProps } from './ui/CellTextbox/CellTextbox.types';

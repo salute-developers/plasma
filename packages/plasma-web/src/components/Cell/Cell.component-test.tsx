@@ -1,27 +1,121 @@
-import React, { FC } from 'react';
+import React from 'react';
+import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
-import { IconHelp } from '@salutejs/plasma-icons';
+import type { FC, PropsWithChildren } from 'react';
+import { IconChevronRight } from '@salutejs/plasma-icons';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
-describe('plasma-web: Cell', () => {
+describe('plasma-web: Cell Styled', () => {
     const Cell = getComponent('Cell');
+    const Avatar = getComponent('Avatar');
 
-    // TODO: Перетащить подключение StandardTypoStyle в @salutejs/plasma-cy-utils
-    // после переезда на новую типографику для @salutejs/plasma-web - https://github.com/salute-developers/plasma/issues/69
-    const CypressTestDecoratorWithTypo: FC = ({ children }) => (
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
         <CypressTestDecorator>
             <StandardTypoStyle />
             {children}
         </CypressTestDecorator>
     );
 
+    it('default', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Cell
+                    size="m"
+                    contentLeft={<Avatar size="m" name="Иван Фадеев" />}
+                    contentRight={<IconChevronRight color="inheart" size="xs" />}
+                    title="Title"
+                    subtitle="Subtitle"
+                    label="Label"
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('simple', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Cell content={<IconHelp />} description="Тестовый контент для ячейки" />
+                <Cell size="m" title="Title" subtitle="Subtitle" label="Label" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('_size', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Cell
+                    size="l"
+                    contentLeft={<Avatar size="l" name="Иван Фадеев" />}
+                    contentRight={<IconChevronRight color="inheart" size="xs" />}
+                    title="Title"
+                    subtitle="Subtitle"
+                    label="Label"
+                />
+                <SpaceMe />
+                <Cell
+                    size="m"
+                    contentLeft={<Avatar size="m" name="Иван Фадеев" />}
+                    contentRight={<IconChevronRight color="inheart" size="xs" />}
+                    title="Title"
+                    subtitle="Subtitle"
+                    label="Label"
+                />
+                <SpaceMe />
+                <Cell
+                    size="s"
+                    contentLeft={<Avatar size="s" name="Иван Фадеев" />}
+                    contentRight={<IconChevronRight color="inheart" size="xs" />}
+                    title="Title"
+                    subtitle="Subtitle"
+                    label="Label"
+                />
+                <SpaceMe />
+                <Cell
+                    size="xs"
+                    contentLeft={<Avatar size="s" name="Иван Фадеев" />}
+                    contentRight={<IconChevronRight color="inheart" size="xs" />}
+                    title="Title"
+                    subtitle="Subtitle"
+                    label="Label"
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+    });
+
+    it('_align', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Cell
+                    alignContentLeft="top"
+                    contentLeft={<Avatar size="m" name="Иван Фадеев" />}
+                    contentRight={<IconChevronRight color="inheart" size="xs" />}
+                    title="Title"
+                    subtitle="Subtitle"
+                    label="Label"
+                />
+                <SpaceMe />
+                <Cell
+                    alignContentRight="top"
+                    contentLeft={<Avatar size="m" name="Иван Фадеев" />}
+                    contentRight={<IconChevronRight color="inheart" size="xs" />}
+                    title="Title"
+                    subtitle="Subtitle"
+                    label="Label"
+                />
+                <SpaceMe />
+                <Cell
+                    alignContentLeft="bottom"
+                    contentLeft={<Avatar size="m" name="Иван Фадеев" />}
+                    contentRight={<IconChevronRight color="inheart" size="xs" />}
+                    title="Title"
+                    subtitle="Subtitle"
+                    label="Label"
+                />
             </CypressTestDecoratorWithTypo>,
         );
 

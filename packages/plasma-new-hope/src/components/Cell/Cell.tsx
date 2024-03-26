@@ -4,66 +4,65 @@ import { RootProps } from '../../engines';
 import { cx } from '../../utils';
 
 import type { CellProps } from './Cell.types';
-import { CellRoot, CellLeft, CellRight, CellContentWrapper, CellContent } from './Cell.styles';
+import { base, CellLeft, CellRight, CellContentWrapper, CellContent } from './Cell.styles';
 import { classes } from './Cell.tokens';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { base as stretchingCSS } from './variations/_stretching/base';
-import { Textbox } from './Textbox/Textbox';
+import { CellTextbox } from './ui/CellTextbox/CellTextbox';
 
-export const cellRoot = (Root: RootProps<HTMLSelectElement, CellProps>) =>
-    forwardRef<HTMLSelectElement, CellProps>((props, outerRootRef) => {
-        const {
-            size = 'm',
-            contentLeft: left,
-            contentRight: right,
-            alignLeft = 'center',
-            alignRight = 'center',
-            stretch,
-            stretching = 'auto',
-            children,
-            title,
-            subtitle,
-            label,
-        } = props;
+export const cellRoot = (Root: RootProps<HTMLDivElement, CellProps>) =>
+    forwardRef<HTMLDivElement, CellProps>(
+        (
+            {
+                size,
+                view,
+                contentLeft,
+                contentRight,
+                alignContentLeft = 'center',
+                alignContentRight = 'center',
+                children,
+                title,
+                subtitle,
+                label,
+                description,
+                content,
+                stretching = 'filled',
+            },
+            outerRootRef,
+        ) => {
+            const stretchingClass = classes[`${stretching}Stretching` as keyof typeof classes];
+            const titleText = title || description;
+            const contentLeftDeprecated = contentLeft || content;
 
-        const stretchingClass = stretch
-            ? classes.filledStretching
-            : classes[`${stretching}Stretching` as keyof typeof classes];
-
-        return (
-            <Root ref={outerRootRef} {...props} size={size} className={cx(stretchingClass)}>
-                <CellRoot className={classes.cellRoot}>
-                    {left && <CellLeft align={alignLeft}>{left}</CellLeft>}
+            return (
+                <Root ref={outerRootRef} size={size} view={view} className={cx(stretchingClass, classes.cellRoot)}>
+                    {contentLeftDeprecated && <CellLeft align={alignContentLeft}>{contentLeftDeprecated}</CellLeft>}
                     <CellContentWrapper>
                         <CellContent>
-                            {title || subtitle || label ? (
-                                <Textbox title={title} subtitle={subtitle} label={label} />
+                            {titleText || subtitle || label ? (
+                                <CellTextbox label={label} title={titleText} subtitle={subtitle} />
                             ) : (
-                                children && children
+                                children
                             )}
                         </CellContent>
-                        {right && <CellRight align={alignRight}>{right}</CellRight>}
+                        {contentRight && <CellRight align={alignContentRight}>{contentRight}</CellRight>}
                     </CellContentWrapper>
-                </CellRoot>
-            </Root>
-        );
-    });
+                </Root>
+            );
+        },
+    );
 
 export const cellConfig = {
     name: 'Cell',
     tag: 'div',
     layout: cellRoot,
-    base: '',
+    base,
     variations: {
         view: {
             css: viewCSS,
         },
         size: {
             css: sizeCSS,
-        },
-        stretching: {
-            css: stretchingCSS,
         },
     },
     defaults: {
