@@ -62,7 +62,8 @@
     "IconRoot.d.ts",
     "IconRoot.js",
     "es",
-    "scalable"
+    "scalable",
+    "old"
   ],
   "contributors": [
     "Vasiliy Loginevskiy",
