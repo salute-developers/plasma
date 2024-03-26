@@ -1,2 +1,4 @@
-export { Cell } from '@salutejs/plasma-hope';
-export type { CellProps } from '@salutejs/plasma-hope';
+export { Textbox, TextLabel, TextTitle, TextSubtitle } from '@salutejs/plasma-new-hope/styled-components';
+export { Cell } from './Cell';
+
+export type { CellProps } from '@salutejs/plasma-new-hope/styled-components';

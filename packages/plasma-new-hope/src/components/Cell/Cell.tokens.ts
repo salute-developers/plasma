@@ -3,11 +3,12 @@ export const tokens = {
     cellBackgroundColor: '--plasma-cell-background-color',
 
     cellPadding: '--plasma-cell-padding',
-    cellPaddingLeftContent: '--plasma-cell-padding',
-    cellPaddingContent: '--plasma-cell-padding',
-    cellPaddingRightContent: '--plasma-cell-padding',
+    cellPaddingLeftContent: '--plasma-cell-padding-left-content',
+    cellPaddingContent: '--plasma-cell-padding-content',
+    cellPaddingRightContent: '--plasma-cell-padding-right-content',
 
     cellTextboxGap: '--plasma-cell-textbox-gap',
+    cellGap: '--plasma-cell-gap',
 
     cellWidth: '--plasma-cell-width',
 
@@ -37,10 +38,9 @@ export const tokens = {
 };
 
 export const classes = {
-    cellStretch: 'button-stretch',
-    autoStretching: 'button-stretching-auto',
-    filledStretching: 'button-stretching-filled',
-    fixedStretching: 'button-stretching-fixed',
+    autoStretching: 'cell-stretching-auto',
+    filledStretching: 'cell-stretching-filled',
+    fixedStretching: 'cell-stretching-fixed',
 
     cellWrapper: 'cell-wrapper',
     cellRoot: 'cell-root',

@@ -1,6 +1,4 @@
-import { css } from '@linaria/core';
-
-import { cellTokens } from '../../../../components/Cell';
+import { css, cellTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {

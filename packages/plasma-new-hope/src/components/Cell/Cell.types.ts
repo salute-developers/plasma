@@ -1,14 +1,19 @@
-import type { HTMLAttributes, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
-export type AlignLeftProp = 'center' | 'top' | 'bottom';
-export type AlignRightProp = 'center' | 'top';
-export type Sizes = 'l' | 'm' | 's' | 'xs';
+import type { TextboxProps } from './Textbox/Textbox.types';
+
+export type AlignProp = 'center' | 'top' | 'bottom';
 
 type CustomCellProps = {
     /**
      * Размер
      */
-    size: Sizes;
+    size?: string;
+
+    /**
+     * Размер
+     */
+    view: string;
 
     /**
      * Слот для контента слева, например `Icon`
@@ -28,19 +33,12 @@ type CustomCellProps = {
     /**
      * Вертикальное выравнивание контента слева.
      */
-    alignLeft?: AlignLeftProp;
+    alignLeft?: AlignProp;
 
     /**
      * Вертикальное выравнивание контента справа.
      */
-    alignRight?: AlignRightProp;
-
-    /**
-     * Кнопка растягивается на всю доступную ширину
-     * @deprecated
-     * Использовать stretching
-     */
-    stretch?: boolean;
+    alignRight?: AlignProp;
 
     /**
      * Ширина cell
@@ -51,21 +49,6 @@ type CustomCellProps = {
      * auto - кнопка растягивается в зависимости от контента
      */
     stretching?: 'fixed' | 'filled' | 'auto';
-
-    /**
-     * Слот для Title
-     */
-    title?: ReactNode;
-
-    /**
-     * Слот для Subtitle
-     */
-    subtitle?: ReactNode;
-
-    /**
-     * Слот для Label
-     */
-    label?: ReactNode;
 };
 
-export type CellProps = HTMLAttributes<HTMLDivElement> & CustomCellProps;
+export type CellProps = CustomCellProps & TextboxProps;

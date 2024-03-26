@@ -1,14 +1,20 @@
 import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
 
-import { cellTextboxSubtitle } from '../../Cell.styles';
+import { tokens } from '../../Cell.tokens';
 
-const StyledTextSubtitle = styled.div``;
+const StyledTextSubtitle = styled.div`
+    color: var(${tokens.cellSubtitleColor});
+    font-size: var(${tokens.cellSubtitleFontSize});
+    font-weight: var(${tokens.cellSubtitleFontWeight});
+    font-family: var(${tokens.cellSubtitleFontFamily});
+    font-style: var(${tokens.cellSubtitleFontStyle});
+    line-height: var(${tokens.cellSubtitleLineHeight});
+    letter-spacing: var(${tokens.cellSubtitleLetterSpacing});
+`;
 
-type TextSubtitleProps = {
-    text?: string;
-};
+type TextSubtitleProps = {};
 
 export const TextSubtitle: React.FC<HTMLAttributes<HTMLDivElement> & TextSubtitleProps> = (props) => {
-    return <StyledTextSubtitle className={cellTextboxSubtitle}>{props.children}</StyledTextSubtitle>;
+    return <StyledTextSubtitle>{props.children}</StyledTextSubtitle>;
 };

@@ -6,6 +6,7 @@ export * from './hooks';
 export * from './components/Button';
 export * from './components/ButtonGroup';
 export * from './components/Chip';
+export * from './components/Cell';
 export * from './components/Link';
 export * from './components/Spinner';
 export * from './components/Checkbox';
