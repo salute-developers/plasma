@@ -1,14 +1,13 @@
-import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 
 import { tokens } from '../../Toolbar.tokens';
+import { dividerTokens } from '../../../Divider';
 
-export const base = css`
-    display: flex;
-    align-items: center;
-    justify-content: center;
+// NOTE: Необходимое переопределение токенов из компонента Divider
+export const mappingOverride = css`
+    align-self: center;
+    ${dividerTokens.background}: var(${tokens.dividerColor});
+    ${dividerTokens.borderRadius}: var(${tokens.dividerBorderRadius});
 `;
 
-export const StyledToolbarDivider = styled.div`
-    background: var(${tokens.dividerColor});
-`;
+export const base = mappingOverride;

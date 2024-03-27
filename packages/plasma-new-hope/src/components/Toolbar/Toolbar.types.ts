@@ -6,7 +6,7 @@ type CustomToolbarProps = {
      * Позиция тулбара.
      * @default 'vertical'
      */
-    placement?: 'vertical' | 'horizontal';
+    orientation?: 'vertical' | 'horizontal';
     /**
      * Включить/выключить тень.
      * @default true
@@ -14,7 +14,7 @@ type CustomToolbarProps = {
     hasShadow?: boolean;
     /**
      * Размер тулбара.
-     * Ширина когда placement равен vertical или высота когда placement равен horizontal.
+     * Ширина когда orientation равен vertical или высота когда orientation равен horizontal.
      * @default 'm'
      */
     size?: string;

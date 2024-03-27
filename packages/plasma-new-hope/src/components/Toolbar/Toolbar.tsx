@@ -11,16 +11,16 @@ import { base } from './Toolbar.styles';
 
 export const toolbarRoot = (Root: RootProps<HTMLDivElement, ToolbarProps>) =>
     forwardRef<HTMLDivElement, ToolbarProps>((props, ref) => {
-        const { children, placement = 'vertical', hasShadow = true, className, ...rest } = props;
-        const placementClassName = placement === 'horizontal' ? classes.horizontal : classes.vertical;
+        const { children, orientation = 'vertical', hasShadow = true, className, ...rest } = props;
+        const orientationClassName = orientation === 'horizontal' ? classes.horizontal : classes.vertical;
         const shadowClassName = hasShadow ? classes.shadow : undefined;
 
         return (
             <Root
                 ref={ref}
-                placement={placement}
+                orientation={orientation}
                 hasShadow={hasShadow}
-                className={cx(className, placementClassName, shadowClassName)}
+                className={cx(className, orientationClassName, shadowClassName)}
                 {...rest}
             >
                 {children}

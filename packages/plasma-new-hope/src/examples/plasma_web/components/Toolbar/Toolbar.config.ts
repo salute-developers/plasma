@@ -24,6 +24,7 @@ export const config = {
 
                 ${toolbarTokens.dividerSize}: 1.25rem;
                 ${toolbarTokens.dividerOffset}: 0.5rem;
+                ${toolbarTokens.dividerBorderRadius}: 0.0625rem;
             `,
             s: css`
                 ${toolbarTokens.size}: 3rem;
@@ -32,6 +33,7 @@ export const config = {
 
                 ${toolbarTokens.dividerSize}: 1.5rem;
                 ${toolbarTokens.dividerOffset}: 0.5rem;
+                ${toolbarTokens.dividerBorderRadius}: 0.0625rem;
             `,
             m: css`
                 ${toolbarTokens.size}: 3.75rem;
@@ -40,6 +42,7 @@ export const config = {
 
                 ${toolbarTokens.dividerSize}: 1.75rem;
                 ${toolbarTokens.dividerOffset}: 0.625rem;
+                ${toolbarTokens.dividerBorderRadius}: 0.0625rem;
             `,
             l: css`
                 ${toolbarTokens.size}: 4.5rem;
@@ -48,6 +51,7 @@ export const config = {
 
                 ${toolbarTokens.dividerSize}: 2rem;
                 ${toolbarTokens.dividerOffset}: 0.75rem;
+                ${toolbarTokens.dividerBorderRadius}: 0.0625rem;
             `,
         },
     },

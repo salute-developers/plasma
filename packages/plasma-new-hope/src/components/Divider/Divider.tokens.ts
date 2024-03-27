@@ -1,4 +1,5 @@
 export const classes = {
+    divider: 'plasma-divider',
     horizontal: 'plasma-divider-horizontal',
     vertical: 'plasma-divider-vertical',
 };
