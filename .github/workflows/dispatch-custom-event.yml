@@ -32,7 +32,7 @@ jobs:
   
   dispatch-published:
     name: "Dispatch event after release published"
-    if: ${{ github.event_name == 'release' && contains(github.event.release.name, 'plasma-icons@') }}
+    if: ${{ github.event_name == 'release' && !github.event.release.prerelease && contains(github.event.release.name, 'plasma-icons@') }}
     runs-on: ubuntu-latest
     steps:
       - name: Get package version
