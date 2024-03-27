@@ -21,7 +21,7 @@ export const dividerRoot = (Root: RootProps<HTMLDivElement, DividerProps>) =>
             return (
                 <Root
                     ref={ref}
-                    className={cx(orientationClass, className)}
+                    className={cx(orientationClass, classes.divider, className)}
                     orientation={orientation}
                     view={view}
                     style={{

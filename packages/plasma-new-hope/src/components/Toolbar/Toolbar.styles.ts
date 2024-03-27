@@ -1,5 +1,7 @@
 import { css } from '@linaria/core';
 
+import { dividerClasses } from '../Divider';
+
 import { classes, tokens } from './Toolbar.tokens';
 
 export const base = css`
@@ -23,17 +25,17 @@ export const base = css`
         height: var(${tokens.size});
     }
 
-    &.${classes.vertical} .${classes.divider} {
+    &.${classes.vertical} .${dividerClasses.divider} {
         width: var(${tokens.dividerSize});
         height: 0.063rem;
 
-        margin: var(${tokens.dividerOffset}) 0 var(${tokens.dividerOffset}) 0;
+        margin: var(${tokens.dividerOffset}) 0;
     }
 
-    &.${classes.horizontal} .${classes.divider} {
+    &.${classes.horizontal} .${dividerClasses.divider} {
         width: 0.063rem;
         height: var(${tokens.dividerSize});
 
-        margin: 0 var(${tokens.dividerOffset}) 0 var(${tokens.dividerOffset});
+        margin: 0 var(${tokens.dividerOffset});
     }
 `;

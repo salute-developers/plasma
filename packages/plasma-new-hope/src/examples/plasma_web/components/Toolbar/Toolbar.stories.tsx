@@ -1,25 +1,25 @@
 import React from 'react';
+import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 
 import { IconDone } from '../../../../components/_Icon';
-import { ToolbarProps } from '../../../../components/Toolbar';
 import { Button } from '../Button/Button';
 import { WithTheme } from '../../../_helpers';
 
 import { Toolbar, ToolbarDivider } from './Toolbar';
 
-const placements: Array<string> = ['vertical', 'horizontal'];
+const orientations: Array<string> = ['vertical', 'horizontal'];
 const size: Array<string> = ['xs', 's', 'm', 'l'];
 
-const ToolbarWrapper = (props: ToolbarProps) => {
+const ToolbarWrapper = (props: ComponentProps<typeof Toolbar>) => {
     return (
         <Toolbar {...props}>
-            <Button square size={props.size} view="clear" contentType="Left" contentLeft={<IconDone />} />
-            <Button square size={props.size} view="clear" contentType="Left" contentLeft={<IconDone />} />
-            <Button square size={props.size} view="clear" contentType="Left" contentLeft={<IconDone />} />
+            <Button square size={props.size} view="clear" contentLeft={<IconDone />} />
+            <Button square size={props.size} view="clear" contentLeft={<IconDone />} />
+            <Button square size={props.size} view="clear" contentLeft={<IconDone />} />
             <ToolbarDivider />
-            <Button square size={props.size} view="clear" contentType="Left" contentLeft={<IconDone />} />
-            <Button square size={props.size} view="clear" contentType="Left" contentLeft={<IconDone />} />
+            <Button square size={props.size} view="clear" contentLeft={<IconDone />} />
+            <Button square size={props.size} view="clear" contentLeft={<IconDone />} />
         </Toolbar>
     );
 };
@@ -29,8 +29,8 @@ const meta: Meta<typeof Toolbar> = {
     component: ToolbarWrapper,
     decorators: [WithTheme],
     argTypes: {
-        placement: {
-            options: placements,
+        orientation: {
+            options: orientations,
             control: {
                 type: 'select',
             },
@@ -48,7 +48,7 @@ const meta: Meta<typeof Toolbar> = {
         },
     },
     args: {
-        placement: 'vertical',
+        orientation: 'vertical',
         hasShadow: true,
         size: 'm',
     },

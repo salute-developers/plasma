@@ -25,7 +25,7 @@ const ToolbarWrapper = (props: ComponentProps<typeof Toolbar>) => {
 };
 
 const meta: Meta<typeof Toolbar> = {
-    title: 'plasma_b2c/Toolbar',
+    title: 'sds_engineer/Toolbar',
     component: ToolbarWrapper,
     decorators: [WithTheme],
     argTypes: {
@@ -51,6 +51,7 @@ const meta: Meta<typeof Toolbar> = {
         orientation: 'vertical',
         hasShadow: true,
         size: 'm',
+        view: 'default',
     },
 };
 

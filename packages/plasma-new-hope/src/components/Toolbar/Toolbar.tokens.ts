@@ -17,4 +17,5 @@ export const tokens = {
     dividerColor: '--plasma-toolbar-divider-color',
     dividerOffset: '--plasma-toolbar-divider-offset',
     dividerSize: '--plasma-toolbar-divider-size',
+    dividerBorderRadius: '--plasma-toolbar-divider-border-radius',
 };
