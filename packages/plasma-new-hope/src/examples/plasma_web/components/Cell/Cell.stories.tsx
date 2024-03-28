@@ -1,12 +1,13 @@
 import React from 'react';
-import type { StoryObj, Meta } from '@storybook/react';
 import type { ComponentProps } from 'react';
-import { IconChevronRight } from '@salutejs/plasma-icons';
-import styled from 'styled-components';
+import type { StoryObj, Meta } from '@storybook/react';
+import { styled } from '@linaria/react';
 
-import { Avatar } from '../Avatar';
+import { WithTheme } from '../../../_helpers';
+import { Avatar } from '../Avatar/Avatar';
+import { IconChevronLeft } from '../../../../components/_Icon';
 
-import { Cell, Textbox, TextTitle } from '.';
+import { Cell, Textbox, TextTitle } from './Cell';
 
 type StoryProps = ComponentProps<typeof Cell> & {
     itemsCount?: number;
@@ -31,12 +32,9 @@ const getSize = (size: SizesCell): SizesAvatar => {
     return size;
 };
 
-const ChevronRight = styled(IconChevronRight)`
-    color: var(--text-secondary);
-`;
-
 const meta: Meta<typeof Cell> = {
-    title: 'Content/Cell',
+    title: 'plasma_web/Cell',
+    decorators: [WithTheme],
     argTypes: {
         size: {
             options: sizes,
@@ -66,6 +64,11 @@ const meta: Meta<typeof Cell> = {
 };
 
 export default meta;
+
+const ChevronRight = styled(IconChevronLeft)`
+    transform: rotate(180deg);
+    color: var(--text-secondary);
+`;
 
 export const Default: Story = {
     args: {
@@ -115,7 +118,7 @@ export const WithContentTextboxCustom: Story = {
                 contentLeft={
                     <Avatar size={getSize(args.size)} url="https://avatars.githubusercontent.com/u/1813468?v=4" />
                 }
-                contentRight={<ChevronRight color="inheart" size="xs" />}
+                contentRight={<ChevronRight color="inherit" size="xs" />}
                 {...args}
             >
                 <Textbox>

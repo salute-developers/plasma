@@ -8,6 +8,7 @@
 
 import { addFocus } from '@salutejs/plasma-core';
 import { addNotification } from '@salutejs/plasma-new-hope/styled-components';
+import { AlignProp } from '@salutejs/plasma-new-hope/types/components/Cell/Cell.types';
 import { AnchorHTMLAttributes } from 'react';
 import { animatedScrollToX } from '@salutejs/plasma-core';
 import { animatedScrollToY } from '@salutejs/plasma-core';
@@ -63,8 +64,7 @@ import { CarouselGridWrapper } from '@salutejs/plasma-hope';
 import { CarouselItem } from '@salutejs/plasma-hope';
 import { CarouselItemProps } from '@salutejs/plasma-hope';
 import { CarouselProps } from '@salutejs/plasma-hope';
-import { Cell } from '@salutejs/plasma-hope';
-import { CellProps } from '@salutejs/plasma-hope';
+import { CellProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { clearSelection } from '@salutejs/plasma-hope';
 import { closeNotification } from '@salutejs/plasma-new-hope/styled-components';
@@ -227,9 +227,13 @@ import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
 import { TextAreaProps } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
+import { Textbox } from '@salutejs/plasma-new-hope/styled-components';
 import { TextFieldProps } from '@salutejs/plasma-hope';
 import { TextFieldView } from '@salutejs/plasma-hope';
+import { TextLabel } from '@salutejs/plasma-new-hope/styled-components';
 import { TextSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
+import { TextSubtitle } from '@salutejs/plasma-new-hope/styled-components';
+import { TextTitle } from '@salutejs/plasma-new-hope/styled-components';
 import { TimingFunction } from '@salutejs/plasma-core';
 import { ToastPosition } from '@salutejs/plasma-new-hope/styled-components';
 import { ToastProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -621,7 +625,46 @@ export { CarouselItemProps }
 
 export { CarouselProps }
 
-export { Cell }
+// @public
+export const Cell: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+}> & (({
+size?: string | undefined;
+view: string;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+content?: ReactNode;
+alignLeft?: AlignProp | undefined;
+alignRight?: AlignProp | undefined;
+stretching?: "filled" | "auto" | "fixed" | undefined;
+} & HTMLAttributes<HTMLDivElement> & {
+title?: ReactNode;
+subtitle?: ReactNode;
+label?: ReactNode;
+children?: undefined;
+} & RefAttributes<HTMLSelectElement>) | ({
+size?: string | undefined;
+view: string;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+content?: ReactNode;
+alignLeft?: AlignProp | undefined;
+alignRight?: AlignProp | undefined;
+stretching?: "filled" | "auto" | "fixed" | undefined;
+} & HTMLAttributes<HTMLDivElement> & {
+title?: undefined;
+subtitle?: undefined;
+label?: undefined;
+children?: ReactNode;
+} & RefAttributes<HTMLSelectElement>))>;
 
 export { CellProps }
 
@@ -1087,7 +1130,7 @@ s: string;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
 size: "m" | "s" | "l";
-view: "accent" | "default" | "warning" | "positive" | "negative" | "inactive" | "black" | "white";
+view: "default" | "accent" | "warning" | "positive" | "negative" | "inactive" | "black" | "white";
 } & RefAttributes<HTMLDivElement>>;
 
 export { IndicatorProps }
@@ -1584,6 +1627,8 @@ export { TextAreaProps }
 
 export { TextareaResize }
 
+export { Textbox }
+
 // @public
 export const TextField: React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
 
@@ -1599,6 +1644,8 @@ l: string;
 }> & {
 breakWord?: boolean | undefined;
 } & SpacingProps_2 & BoldProps & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>>;
+
+export { TextLabel }
 
 // @public (undocumented)
 export const TextM: FunctionComponent<PropsType<    {
@@ -1628,6 +1675,10 @@ roundness?: 0 | 8 | 12 | 14 | 16 | 18 | 20 | 24 | 28 | 32 | 250 | undefined;
 } & SkeletonGradientProps_2>;
 
 export { TextSkeletonProps }
+
+export { TextSubtitle }
+
+export { TextTitle }
 
 // @public (undocumented)
 export const TextXS: FunctionComponent<PropsType<    {
