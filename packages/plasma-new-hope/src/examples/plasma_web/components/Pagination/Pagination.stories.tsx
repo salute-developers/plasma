@@ -72,12 +72,18 @@ const PaginationContent = (agrs) => {
     const [pageValue, setPageValue] = useState(agrs.value);
     const [perPageValue, setPerPageValue] = useState(agrs.perPage);
 
-    const handleChange = useCallback(
-        (page: number, perPage: number) => {
-            setPerPageValue(perPage);
+    const handleChangePage = useCallback(
+        (page: number) => {
             setPageValue(page);
         },
-        [pageValue, perPageValue, setPageValue, setPerPageValue],
+        [pageValue, setPageValue],
+    );
+
+    const handleChangePerpage = useCallback(
+        (perPage: number) => {
+            setPerPageValue(perPage);
+        },
+        [perPageValue, setPerPageValue],
     );
 
     return (
@@ -104,7 +110,8 @@ const PaginationContent = (agrs) => {
                         Next
                     </Button>
                 }
-                onChangeValue={handleChange}
+                onChangePageValue={handleChangePage}
+                onChangePerPageValue={handleChangePerpage}
             />
         </>
     );
