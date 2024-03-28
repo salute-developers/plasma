@@ -59,6 +59,7 @@ export const config = {
             `,
         },
         view: {
+            // TODO заменить тень на токен https://github.com/salute-developers/plasma/issues/1131
             default: css`
                 ${tooltipTokens.backgroundColor}: var(--plasma-colors-background-primary);
                 ${tooltipTokens.boxShadow}: 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08);

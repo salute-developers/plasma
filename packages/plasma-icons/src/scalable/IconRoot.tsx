@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { primary } from '@salutejs/plasma-core';
 
 export const sizeMap = {
     xs: {
@@ -61,7 +60,7 @@ export const getIconComponent = (
 };
 
 export const IconRoot: React.FC<IconRootProps> = ({ icon: Icon, size, color, className }) => {
-    const c = color || primary;
+    const c = color || 'var(--plasma-colors-primary)';
 
     const w = `${sizeMap[size].scale}rem`;
 

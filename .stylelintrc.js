@@ -2,6 +2,7 @@ module.exports = {
     plugins: ['stylelint-order', 'stylelint-prettier'],
     processors: ['stylelint-processor-styled-components'],
     extends: ['stylelint-config-styled-components'],
+    ignoreFiles: ['scaffold/template-docs/src/theme/Playground/index.tsx'],
     rules: {
         'prettier/prettier': true,
         'max-nesting-depth': 4,

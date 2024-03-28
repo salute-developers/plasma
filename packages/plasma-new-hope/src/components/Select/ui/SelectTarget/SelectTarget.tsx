@@ -161,7 +161,7 @@ export const SelectTarget = forwardRef<HTMLButtonElement, SelectTargetProps>(
                         {label}
                     </StyledLabel>
                 )}
-                <StyledArrow size="s" className={cx(selectTargetArrow, withArrowInverse)} />
+                <StyledArrow size="s" color="inherit" className={cx(selectTargetArrow, withArrowInverse)} />
             </StyledSelectTarget>
         );
     },

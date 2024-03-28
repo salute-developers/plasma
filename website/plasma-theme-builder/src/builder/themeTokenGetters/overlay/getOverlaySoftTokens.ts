@@ -1,54 +1,29 @@
-import { alphenColor } from '@salutejs/plasma-tokens-utils';
-import type { TokensByType } from '@salutejs/plasma-tokens-utils';
+import type { ThemeConfig, TokensByType } from '@salutejs/plasma-tokens-utils';
 
-import { baseColors } from '../../../types';
+import { getGreyTokenData, tokensCreator } from '../../../utils';
 
-const comment: Record<keyof TokensByType, string> = {
-    default: 'Цвет фона паранжи светлый',
-    onDark: 'Цвет фона паранжи светлый на темном фоне',
-    onLight: 'Цвет фона паранжи светлый на светлом фоне',
-    inverse: 'Инвертированный цвет фона паранжи светлый',
-};
+export const getOverlaySoftTokens = (config: ThemeConfig) => {
+    const { grayscale } = config;
 
-export const getOverlaySoftTokens = () => {
-    const value = alphenColor(baseColors.black.value, -0.44);
+    const opacityValue = 0.56;
 
-    return {
-        dark: {
-            default: {
-                value,
-                comment: comment.default,
-            },
-            onDark: {
-                value,
-                comment: comment.onDark,
-            },
-            onLight: {
-                value,
-                comment: comment.onLight,
-            },
-            inverse: {
-                value,
-                comment: comment.inverse,
-            },
-        },
-        light: {
-            default: {
-                value,
-                comment: comment.default,
-            },
-            onDark: {
-                value,
-                comment: comment.onDark,
-            },
-            onLight: {
-                value,
-                comment: comment.onLight,
-            },
-            inverse: {
-                value,
-                comment: comment.inverse,
-            },
-        },
+    const darkValue = getGreyTokenData({
+        saturation: 1000,
+        grayscale: grayscale.dark,
+        opacity: opacityValue,
+    });
+    const lightValue = getGreyTokenData({
+        saturation: 50,
+        grayscale: grayscale.light,
+        opacity: opacityValue,
+    });
+
+    const comment: Record<keyof TokensByType, string> = {
+        default: 'Цвет фона паранжи светлый',
+        onDark: 'Цвет фона паранжи светлый на темном фоне',
+        onLight: 'Цвет фона паранжи светлый на светлом фоне',
+        inverse: 'Инвертированный цвет фона паранжи светлый',
     };
+
+    return tokensCreator({ darkValue, lightValue, comment });
 };

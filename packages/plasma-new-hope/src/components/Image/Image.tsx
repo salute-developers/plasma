@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'react';
 
 import type { RootProps } from '../../engines';
 
-import { StyledDivImg, StyledImg, base } from './Image.styles';
+import { StyledDivImg, StyledImg, base as baseCSS } from './Image.styles';
 import type { ImageProps } from './Image.types';
 import { ratios } from './Image.utils';
 
@@ -51,7 +51,7 @@ export const imageConfig = {
     name: 'Image',
     tag: 'div',
     layout: imageRoot,
-    base,
+    base: baseCSS,
     variations: {},
     defaults: {},
 };

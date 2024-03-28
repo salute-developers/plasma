@@ -1,0 +1,24 @@
+---
+id: switch
+title: Switch
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Switch
+<Description name="Switch" />
+<PropsTable name="Switch" />
+
+## Использование
+Компонент `Switch` может содержать лейбл.
+
+```tsx live
+import React from 'react';
+import { Switch } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <Switch label="Переключатель" defaultChecked />
+    );
+}
+```

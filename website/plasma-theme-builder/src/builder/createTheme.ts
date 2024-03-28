@@ -1,4 +1,5 @@
 import type {
+    OutlineName,
     ThemeConfig,
     ThemeMode,
     TokensBackgroundByType,
@@ -7,10 +8,11 @@ import type {
 } from '@salutejs/plasma-tokens-utils';
 
 import {
-    textIconsTokenGetters,
-    controlsSurfacesTokenGetters,
+    textTokenGetters,
+    surfaceTokenGetters,
     backgroundTokenGetters,
     overlayTokenGetters,
+    outlineTokenGetters,
 } from './themeTokenGetters';
 
 import type { TextIconsTokenName, ControlsSurfacesName, BackgroundName, OverlayName } from './themeTokenGetters';
@@ -92,10 +94,11 @@ const getTokensBackgroundByGroups = <T extends string>(
 
 const getThemeModeTokens = <T extends ThemeMode>(config: ThemeConfig, mode: T): Theme[T] => {
     return {
-        textIcons: getTokensByGroups<TextIconsTokenName>(textIconsTokenGetters, config, mode),
-        controlsSurfaces: getTokensByGroups<ControlsSurfacesName>(controlsSurfacesTokenGetters, config, mode),
-        backgrounds: getTokensBackgroundByGroups<BackgroundName>(backgroundTokenGetters, config, mode),
+        text: getTokensByGroups<TextIconsTokenName>(textTokenGetters, config, mode),
+        surface: getTokensByGroups<ControlsSurfacesName>(surfaceTokenGetters, config, mode),
+        background: getTokensBackgroundByGroups<BackgroundName>(backgroundTokenGetters, config, mode),
         overlay: getTokensByGroups<OverlayName>(overlayTokenGetters, config, mode),
+        outline: getTokensByGroups<OutlineName>(outlineTokenGetters, config, mode),
     };
 };
 

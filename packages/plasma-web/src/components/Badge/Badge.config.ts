@@ -19,7 +19,7 @@ export const config = {
                 ${badgeTokens.background}: var(--surface-accent);
 
                 ${badgeTokens.colorTransparent}: var(--text-accent);
-                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-secondary);
+                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-accent);
             `,
             positive: css`
                 ${badgeTokens.color}: var(--on-dark-text-primary);
@@ -53,8 +53,8 @@ export const config = {
                 ${badgeTokens.color}: var(--on-light-text-primary);
                 ${badgeTokens.background}: var(--on-dark-surface-solid-default);
 
-                ${badgeTokens.colorTransparent}: var(--on-light-text-primary);
-                ${badgeTokens.backgroundTransparent}: var(--on-dark-surface-transparent-deep);
+                ${badgeTokens.colorTransparent}: var(--on-dark-text-primary);
+                ${badgeTokens.backgroundTransparent}: var(--on-dark-surface-transparent-card);
             `,
         },
         size: {

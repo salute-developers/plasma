@@ -1,0 +1,29 @@
+---
+id: avatarGroup
+title: AvatarGroup
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# AvatarGroup
+<Description name="AvatarGroup" />
+<PropsTable name="AvatarGroup" exclude={['css']} />
+
+AvatarGroup это обертка для Avatar. Принимает в себя группу из avatar's.
+
+```tsx live
+import React from 'react';
+import { Avatar, AvatarGroup } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <AvatarGroup>
+                {
+                    Array(5).fill(true).map(() => (
+                        <Avatar size="xxl" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
+                    ))
+                }
+            </AvatarGroup>
+    );
+}
+```

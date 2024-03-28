@@ -19,3 +19,6 @@ utils/plasma-cy-utils/lib
 
 # Exclude *.diff
 reports
+
+scaffold/template-docs
+scaffold/template-component

@@ -8,7 +8,6 @@ import {
     link,
     linkHover,
     linkActive,
-    surfaceSolid01,
 } from '@salutejs/plasma-tokens-b2b';
 import { light as b2cLight, dark as b2cDark } from '@salutejs/plasma-tokens-b2c';
 import { light as legacyLight, dark as legacyDark } from '@salutejs/plasma-tokens-web';
@@ -18,7 +17,7 @@ import { standard as standardTypo, compatible as compatibleTypo } from '@salutej
 const DocumentStyle = createGlobalStyle`
     html:root {
         min-height: 100vh;
-        background-color: ${surfaceSolid01};
+        background-color: var(--background-primary);
     }
     a {
         color: ${link};

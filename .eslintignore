@@ -86,3 +86,7 @@ utils/plasma-tokens-utils/*
 !utils/plasma-tokens-utils/src
 
 utils/plasma-tokens-native/data
+
+scaffold
+!scaffold/template-docs
+!scaffold/template-component

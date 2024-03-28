@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { IconDisclosureRight } from '@salutejs/plasma-icons';
 import type { StoryObj, Meta } from '@storybook/react';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button/Button';
 import { PopoverPlacement } from '../Popover';
@@ -46,47 +46,28 @@ const StyledGrid = styled.div`
     padding: 3.5rem;
 `;
 
-const StoryDefault = ({ size }: TooltipProps) => {
+const StoryDefault = (props: Pick<TooltipProps, 'hasArrow' | 'size' | 'usePortal'>) => {
     return (
         <StyledGrid>
             <Tooltip
-                target={
-                    <Tooltip target={<Button>Btn</Button>} placement="left" size={size} isOpen hasArrow text="left" />
-                }
+                target={<Tooltip target={<Button>Btn</Button>} placement="left" isOpen text="left" {...props} />}
                 placement="top-start"
-                size={size}
                 isOpen
-                hasArrow
                 text="top-start"
+                view="default"
+                {...props}
             />
-            <Tooltip target={<Button>Btn</Button>} placement="top" size={size} isOpen hasArrow text="top" />
+            <Tooltip target={<Button>Btn</Button>} placement="top" isOpen text="top" {...props} />
             <Tooltip
-                target={
-                    <Tooltip target={<Button>Btn</Button>} placement="right" size={size} isOpen hasArrow text="right" />
-                }
+                target={<Tooltip target={<Button>Btn</Button>} placement="right" isOpen text="right" {...props} />}
                 placement="top-end"
-                size={size}
                 isOpen
-                hasArrow
                 text="top-end"
+                {...props}
             />
-            <Tooltip
-                target={<Button>Btn</Button>}
-                placement="bottom-start"
-                size={size}
-                isOpen
-                hasArrow
-                text="bottom-start"
-            />
-            <Tooltip target={<Button>Btn</Button>} placement="bottom" size={size} isOpen hasArrow text="bottom" />
-            <Tooltip
-                target={<Button>Btn</Button>}
-                placement="bottom-end"
-                size={size}
-                isOpen
-                hasArrow
-                text="bottom-end"
-            />
+            <Tooltip target={<Button>Btn</Button>} placement="bottom-start" isOpen text="bottom-start" {...props} />
+            <Tooltip target={<Button>Btn</Button>} placement="bottom" isOpen text="bottom" {...props} />
+            <Tooltip target={<Button>Btn</Button>} placement="bottom-end" isOpen text="bottom-end" {...props} />
         </StyledGrid>
     );
 };
@@ -99,9 +80,27 @@ export const Default: StoryObj<TooltipProps> = {
                 type: 'select',
             },
         },
+        ...disableProps([
+            'target',
+            'children',
+            'text',
+            'isOpen',
+            'isVisible',
+            'placement',
+            'offset',
+            'frame',
+            'view',
+            'zIndex',
+            'minWidth',
+            'maxWidth',
+            'contentLeft',
+            'onDismiss',
+        ]),
     },
     args: {
         size: 'm',
+        hasArrow: true,
+        usePortal: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -153,12 +152,27 @@ export const Live: StoryObj<TooltipProps> = {
                 type: 'select',
             },
         },
+        ...disableProps([
+            'target',
+            'children',
+            'text',
+            'isOpen',
+            'isVisible',
+            'offset',
+            'frame',
+            'view',
+            'zIndex',
+            'contentLeft',
+            'onDismiss',
+        ]),
     },
     args: {
         placement: 'bottom',
         maxWidth: 10,
         minWidth: 3,
         hasArrow: true,
+        usePortal: false,
+        animated: true,
         size: 'm',
     },
     render: (args) => <StoryLive {...args} />,

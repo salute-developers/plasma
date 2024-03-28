@@ -1,12 +1,12 @@
-name: 'Update package-lock files'
+name: 'Update package-lock.json files'
 
-description: 'Update package-lock files after publish RC or latest version'
+description: 'Update package-lock.json files after publish RC or latest version'
 
 inputs:
   commit-message:
     description: 'Commit message when updated package-lock'
     required: false
-    default: 'chore: update package-locks [skip ci]'
+    default: 'chore: update package-locks.json files [skip ci]'
   token:
     description: 'A Github Token'
     required: true
@@ -14,30 +14,46 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Update package-lock's
+    - name: Set options
       shell: bash
-      env:
-        options: "--no-audit --no-progress --package-lock-only --lockfile-version 2 --legacy-peer-deps"
       run: |
-        # Sync package-lock file state (root  level)
-        npm i ${{ env.options }}
-        # Remove the node_modules directory from all packages
-        lerna clean -y
-        # Sync package-lock files state
-        lerna exec --no-private -- npm i ${{ env.options }} --ignore-scripts
-        # root deps don't update correctly on first regeneration O_o
-        npm i ${{ env.options }}
-
+        echo "OPTIONS=--no-audit --no-progress --package-lock-only --lockfile-version 2 --legacy-peer-deps" >> "$GITHUB_ENV"
+    
+    - name: Sync package-lock's root  level
+      shell: bash
+      run: npm i --silent ${{ env.OPTIONS }}
+    
+    - name: Remove the node_modules directory from all packages
+      shell: bash
+      run: npx lerna clean -y
+    
+    - name: Sync package-lock files
+      uses: nick-fields/retry@v2.9.0
+      with:
+        shell: bash
+        timeout_minutes: 5
+        max_attempts: 3
+        on_retry_command: |
+          git reset --hard
+          npm i --silent ${{ env.OPTIONS }}
+        command: |
+          npx lerna exec --no-private -- npm i --silent ${{ env.OPTIONS }} --ignore-scripts
+    
+    - name: Root deps don't update correctly on first regeneration
+      shell: bash
+      run: |
+        npm i ${{ env.OPTIONS }}
+    
     - name: Extract branch name
-      id: branch_name
+      id: branch
       shell: bash
       run: echo "BRANCH=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_OUTPUT
-
+    
     - name: Commit & Push package-lock's
       uses: actions-js/push@master
       with:
         github_token: ${{ inputs.token }}
         message: ${{ inputs.commit-message }}
-        branch: ${{ steps.branch_name.outputs.BRANCH }}
+        branch: ${{ steps.branch.outputs.BRANCH }}
         author_name: Salute Frontend Team
         author_email: salute.developers@gmail.com

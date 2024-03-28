@@ -26,7 +26,7 @@ const meta: Meta<ImageProps> = {
                 type: 'select',
             },
         },
-        ...disableProps(['view', 'src', 'alt', 'customRatio']),
+        ...disableProps(['src', 'alt', 'customRatio']),
     },
 };
 
@@ -42,7 +42,7 @@ export const Default: StoryObj<ImageProps & { ratio: Ratio }> = {
     },
     render: (args) => (
         <div style={{ maxWidth: '10rem' }}>
-            <Image style={{ position: 'relative' }} {...args} />
+            <Image {...args} />
         </div>
     ),
 };

@@ -86,6 +86,8 @@ import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/P
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { defaultValidate } from '@salutejs/plasma-hope';
 import { DisabledProps } from '@salutejs/plasma-core';
+import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
+import { dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -147,6 +149,7 @@ import { padZeroNumber } from '@salutejs/plasma-core';
 import { PaginationDot } from '@salutejs/plasma-hope';
 import { PaginationDotProps } from '@salutejs/plasma-hope';
 import { PaginationDots } from '@salutejs/plasma-hope';
+import { PaginationProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PanelProps } from '@salutejs/plasma-new-hope/types/components/Panel';
 import { PickOptional } from '@salutejs/plasma-core';
 import { PinProps } from '@salutejs/plasma-core';
@@ -165,8 +168,7 @@ import { PreviewGalleryItemProps } from '@salutejs/plasma-hope';
 import { PreviewGalleryProps } from '@salutejs/plasma-hope';
 import { Price } from '@salutejs/plasma-hope';
 import { PriceProps } from '@salutejs/plasma-hope';
-import { Progress } from '@salutejs/plasma-hope';
-import { ProgressProps } from '@salutejs/plasma-hope';
+import { ProgressProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
 import { radiuses } from '@salutejs/plasma-core';
@@ -233,6 +235,8 @@ import { ToastPosition } from '@salutejs/plasma-new-hope/styled-components';
 import { ToastProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ToastRole } from '@salutejs/plasma-new-hope/styled-components';
 import { toCssSize } from '@salutejs/plasma-core';
+import { ToolbarProps } from '@salutejs/plasma-new-hope/styled-components';
+import { toolbarTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { transformStyles } from '@salutejs/plasma-core';
 import { TypographyOldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Old/TypographyOld';
@@ -818,6 +822,27 @@ export { defaultValidate }
 export { DisabledProps }
 
 // @public
+export const Divider: FunctionComponent<PropsType<    {
+view: {
+default: string;
+dark: string;
+light: string;
+inverse: string;
+};
+size: {
+m: string;
+};
+orientation: {
+horizontal: string;
+vertical: string;
+};
+}> & DividerProps & RefAttributes<HTMLDivElement>>;
+
+export { DividerProps }
+
+export { dividerTokens }
+
+// @public
 export const Drawer: FunctionComponent<PropsType<    {
 view: {
 default: string;
@@ -1215,11 +1240,37 @@ paragraph2: string;
 
 export { padZeroNumber }
 
+// @public
+export const Pagination: FunctionComponent<PropsType<    {
+view: {
+secondary: string;
+clear: string;
+primary: string;
+};
+viewCurrentPage: {
+primary: string;
+secondary: string;
+clear: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+type: {
+compact: string;
+default: string;
+};
+}> & PaginationProps & RefAttributes<HTMLDivElement>>;
+
 export { PaginationDot }
 
 export { PaginationDotProps }
 
 export { PaginationDots }
+
+export { PaginationProps }
 
 // @public (undocumented)
 export const ParagraphText1: FunctionComponent<PropsType<    {
@@ -1279,7 +1330,21 @@ export { Price }
 
 export { PriceProps }
 
-export { Progress }
+// @public (undocumented)
+export const Progress: FunctionComponent<PropsType<    {
+view: {
+default: string;
+secondary: string;
+primary: string;
+accent: string;
+success: string;
+warning: string;
+error: string;
+};
+size: {
+m: string;
+};
+}> & ProgressProps & RefAttributes<HTMLDivElement>>;
 
 export { ProgressProps }
 
@@ -1602,6 +1667,32 @@ export const ToastProvider: ({ children }: {
 export { ToastRole }
 
 export { toCssSize }
+
+// @public
+export const Toolbar: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+xs: string;
+s: string;
+m: string;
+l: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+children: ReactNode;
+orientation?: "horizontal" | "vertical" | undefined;
+hasShadow?: boolean | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const ToolbarDivider: FunctionComponent<PropsType<Variants> & DividerProps & RefAttributes<HTMLDivElement>>;
+
+export { ToolbarProps }
+
+export { toolbarTokens }
 
 // @public (undocumented)
 export const Tooltip: ForwardRefExoticComponent<TooltipProps & RefAttributes<HTMLDivElement>>;

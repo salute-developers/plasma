@@ -10,7 +10,7 @@ import { PreviewColor } from '../PreviewColor/PreviewColor';
 
 const IconButtons = styled.div`
     display: flex;
-    min-width: 9rem;
+    min-width: 12rem;
     justify-content: end;
 `;
 
@@ -28,7 +28,7 @@ const StyledToken = styled(TextM)<{ enabled?: boolean }>`
     align-items: center;
     justify-content: space-between;
 
-    width: 67rem;
+    width: 83rem;
 
     margin: 1rem 0;
     margin-left: 2rem;
@@ -130,13 +130,7 @@ export const Token = ({ section, subsection, name, data }: TokenProps) => {
 
     return (
         <StyledToken enabled={enabled}>
-            <Tooltip
-                placement="top-start"
-                isVisible={Boolean(comment) && visible}
-                arrow={false}
-                text={comment}
-                animated
-            >
+            <Tooltip placement="top-start" isOpen={Boolean(comment) && visible} hasArrow text={comment}>
                 <TokenName
                     disable={enabled === false}
                     onClick={onTokenEditClick}

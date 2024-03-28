@@ -16,7 +16,7 @@ import { emptyInputData } from '../../types';
 import type { InputData, Theme as ThemeType } from '../../types';
 
 const StyledTheme = styled.div`
-    width: 70rem;
+    width: 86rem;
 `;
 
 const Description = styled.div`
@@ -213,7 +213,7 @@ export const Theme = ({
         return null;
     }
 
-    const { accentColor, grayscale, name, opacity } = themeData.config;
+    const { accentColor, grayscale, name } = themeData.config;
 
     return (
         <StyledTheme>
@@ -226,10 +226,6 @@ export const Theme = ({
                         value={`dark: ${accentColor.dark} | light: ${accentColor.light}`}
                     />
                     <ThemeInfo label="Оттенок серого" value={`dark: ${grayscale.dark} | light: ${grayscale.light}`} />
-                </Column>
-                <Column>
-                    <ThemeInfo label="Текст и иконки с прозрачностью" value={`${opacity.textIcons}`} />
-                    <ThemeInfo label="Поверхности с прозрачностью" value={`${opacity.surfaces}`} />
                 </Column>
             </Description>
             <Content>

@@ -11,9 +11,9 @@ export const base = css`
     }
 
     ${addFocus({
-        outlineOffset: 'calc(-1 * var(--plasma_private-btn-outline-size))',
+        outlineOffset: '-0.125rem',
         outlineSize: 'var(--plasma_private-btn-outline-size)',
-        outlineRadius: 'var(--plasma_private-btn-br)',
+        outlineRadius: 'calc(0.125rem + var(--plasma_private-btn-br))',
         outlineColor: `var(${tokens.buttonFocusColor})`,
     })}
 `;

@@ -39,6 +39,8 @@ import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { CustomDropdownProps } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
+import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
+import { dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -85,6 +87,7 @@ import { PopupInfo } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupProvider } from '@salutejs/plasma-new-hope/styled-components';
+import { ProgressProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
 import { Ratio } from '@salutejs/plasma-new-hope/styled-components';
@@ -122,6 +125,9 @@ import { textXSBold } from '@salutejs/sdds-themes/tokens';
 import { ToastPosition } from '@salutejs/plasma-new-hope/styled-components';
 import { ToastProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ToastRole } from '@salutejs/plasma-new-hope/styled-components';
+import { ToolbarProps } from '@salutejs/plasma-new-hope/styled-components';
+import { toolbarTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { TooltipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { usePopupContext } from '@salutejs/plasma-new-hope/styled-components';
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-new-hope/styled-components';
@@ -450,6 +456,27 @@ export { CounterProps }
 export { counterTokens }
 
 // @public
+export const Divider: FunctionComponent<PropsType<    {
+view: {
+default: string;
+dark: string;
+light: string;
+inverse: string;
+};
+size: {
+m: string;
+};
+orientation: {
+horizontal: string;
+vertical: string;
+};
+}> & DividerProps & RefAttributes<HTMLDivElement>>;
+
+export { DividerProps }
+
+export { dividerTokens }
+
+// @public
 export const Drawer: FunctionComponent<PropsType<    {
 view: {
 default: string;
@@ -713,6 +740,24 @@ export { PopupPlacement }
 export { PopupProps }
 
 export { PopupProvider }
+
+// @public (undocumented)
+export const Progress: FunctionComponent<PropsType<    {
+view: {
+default: string;
+secondary: string;
+primary: string;
+accent: string;
+success: string;
+warning: string;
+error: string;
+};
+size: {
+m: string;
+};
+}> & ProgressProps & RefAttributes<HTMLDivElement>>;
+
+export { ProgressProps }
 
 // @public
 export const Radiobox: FunctionComponent<Omit<BaseboxProps, "indeterminate">>;
@@ -1011,6 +1056,37 @@ export const ToastProvider: ({ children }: {
 }) => JSX.Element;
 
 export { ToastRole }
+
+// @public
+export const Toolbar: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+xs: string;
+s: string;
+m: string;
+l: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+children: ReactNode;
+orientation?: "horizontal" | "vertical" | undefined;
+hasShadow?: boolean | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const ToolbarDivider: FunctionComponent<PropsType<Variants> & DividerProps & RefAttributes<HTMLDivElement>>;
+
+export { ToolbarProps }
+
+export { toolbarTokens }
+
+// @public (undocumented)
+export const Tooltip: ForwardRefExoticComponent<TooltipProps & RefAttributes<HTMLDivElement>>;
+
+export { TooltipProps }
 
 export { usePopupContext }
 
