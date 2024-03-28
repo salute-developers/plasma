@@ -216,12 +216,18 @@ describe('plasma-new-hope: Pagination Content', () => {
         const [pageValue, setPageValue] = useState(agrs.value);
         const [perPageValue, setPerPageValue] = useState(agrs.perPage);
 
-        const handleChange = useCallback(
-            (page: number, perPage: number) => {
+        const handleChangePerpage = useCallback(
+            (perPage: number) => {
                 setPerPageValue(perPage);
+            },
+            [perPageValue, setPerPageValue],
+        );
+
+        const handleChangePage = useCallback(
+            (page: number) => {
                 setPageValue(page);
             },
-            [pageValue, perPageValue, setPageValue, setPerPageValue],
+            [pageValue, setPageValue],
         );
 
         return (
@@ -234,7 +240,7 @@ describe('plasma-new-hope: Pagination Content', () => {
                         <Button
                             id="pagination-button-prev"
                             onClick={() => {
-                                setPageValue(pageValue - 1);
+                                handleChangePage(pageValue - 1);
                             }}
                         >
                             Prev
@@ -244,13 +250,14 @@ describe('plasma-new-hope: Pagination Content', () => {
                         <Button
                             id="pagination-button-next"
                             onClick={() => {
-                                setPageValue(pageValue + 1);
+                                handleChangePage(pageValue + 1);
                             }}
                         >
                             Next
                         </Button>
                     }
-                    onChangeValue={handleChange}
+                    onChangePageValue={handleChangePage}
+                    onChangePerageValue={handleChangePerpage}
                 />
             </>
         );
