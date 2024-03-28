@@ -168,7 +168,7 @@ export const config = {
                 ${paginationTokens.inputWidth}: 4rem;
                 ${paginationTokens.inputHeight}: 3.5rem;
                 ${paginationTokens.inputPadding}: 0 0.625rem;
-                ${paginationTokens.inputBorderWidth}: 0.125rem;
+                ${paginationTokens.inputBorderWidth}: 0.0625rem;
             `,
             m: css`
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -213,7 +213,7 @@ export const config = {
                 ${paginationTokens.inputWidth}: 3.5rem;
                 ${paginationTokens.inputHeight}: 3rem;
                 ${paginationTokens.inputPadding}: 0 0.625rem;
-                ${paginationTokens.inputBorderWidth}: 0.125rem;
+                ${paginationTokens.inputBorderWidth}: 0.0625rem;
             `,
             s: css`
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -259,7 +259,7 @@ export const config = {
                 ${paginationTokens.inputWidth}: 3rem;
                 ${paginationTokens.inputHeight}: 2.5rem;
                 ${paginationTokens.inputPadding}: 0 0.625rem;
-                ${paginationTokens.inputBorderWidth}: 0.125rem;
+                ${paginationTokens.inputBorderWidth}: 0.0625rem;
             `,
             xs: css`
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -305,7 +305,7 @@ export const config = {
                 ${paginationTokens.inputWidth}: 2.5rem;
                 ${paginationTokens.inputHeight}: 2rem;
                 ${paginationTokens.inputPadding}: 0 0.625rem;
-                ${paginationTokens.inputBorderWidth}: 0.125rem;
+                ${paginationTokens.inputBorderWidth}: 0.0625rem;
             `,
         },
         type: {
