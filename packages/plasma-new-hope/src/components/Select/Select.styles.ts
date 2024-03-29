@@ -14,6 +14,10 @@ export const StyledRoot = styled.div`
     .${String(nativeSelectVisible)} {
         display: block;
     }
+
+    & .${popoverClasses.wrapper} {
+        display: block;
+    }
 `;
 
 export const StyledSelect = styled.div`

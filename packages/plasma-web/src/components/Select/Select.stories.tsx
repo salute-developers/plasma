@@ -97,3 +97,133 @@ export const Default: StoryObj<SelectProps> = {
     },
     render: (args) => <StoryDefault {...args} />,
 };
+
+// import React, { useState } from 'react';
+// import type { StoryObj, Meta } from '@storybook/react';
+// import { action } from '@storybook/addon-actions';
+// import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+//
+// import { Select } from '.';
+// import type { SelectProps } from '.';
+//
+// const onChange = action('onChange');
+// const onFocus = action('onFocus');
+// const onBlur = action('onBlur');
+//
+// const meta: Meta<SelectProps> = {
+//     title: 'Controls/Select',
+//     component: Select,
+//     decorators: [InSpacingDecorator],
+//     argTypes: {
+//         status: {
+//             options: ['success', 'warning', 'error'],
+//             control: {
+//                 type: 'select',
+//             },
+//         },
+//         disabled: {
+//             control: 'boolean',
+//         },
+//         ...disableProps([
+//             'value',
+//             'items',
+//             'onItemClick',
+//             'separator',
+//             'onChange',
+//             'onItemSelect',
+//             'isOpen',
+//             'listOverflow',
+//         ]),
+//     },
+//     args: {
+//         multiselect: false,
+//         disabled: false,
+//         placeholder: 'Выберите пример',
+//         helperText: 'Заполните пример',
+//         listHeight: '',
+//     },
+// };
+//
+// export default meta;
+//
+// const items = [
+//     { value: 'each', label: 'Каждый' },
+//     { value: 'hunter', label: 'Охотник', isDisabled: true },
+//     { value: 'wants', label: 'Желает' },
+//     { value: 'toKnow', label: 'Знать' },
+//     { value: 'where', label: 'Где' },
+//     { value: 'is', label: 'Сидит' },
+//     { value: 'thePheasant', label: 'Фазан' },
+//     { value: 'fullText', label: 'Каждый охотник желает знать, где сидит фазан' },
+// ];
+//
+// const StoryDefault = ({ status, ...rest }: SelectProps) => {
+//     const [value, setValue] = useState<string>(null);
+//
+//     const onChangeHandle = (value) => {
+//         setValue(value);
+//         onChange(value);
+//     };
+//
+//     return (
+//         <div style={{ width: '20rem' }}>
+//             <Select
+//                 value={value}
+//                 items={items}
+//                 status={status}
+//                 onChange={onChangeHandle}
+//                 onFocus={onFocus}
+//                 onBlur={onBlur}
+//                 {...rest}
+//             />
+//         </div>
+//     );
+// };
+//
+// export const Default: StoryObj<SelectProps> = {
+//     render: (args) => <StoryDefault {...args} />,
+// };
+//
+// const StoryMultiple = ({ status, ...rest }: SelectProps) => {
+//     const [value, setValue] = useState<Array<string>>([]);
+//
+//     const onChangeHandle = (value) => {
+//         setValue(value);
+//         onChange(value);
+//     };
+//
+//     return (
+//         <div style={{ width: '20rem' }}>
+//             <Select
+//                 value={value}
+//                 items={items}
+//                 status={status}
+//                 onChange={onChangeHandle}
+//                 onFocus={onFocus}
+//                 onBlur={onBlur}
+//                 {...rest}
+//             />
+//         </div>
+//     );
+// };
+//
+// export const Multiple: StoryObj<SelectProps> = {
+//     args: {
+//         multiselect: true,
+//     },
+//     render: (args) => <StoryMultiple {...args} />,
+// };
+//
+// export const Disabled: StoryObj<SelectProps> = {
+//     args: {
+//         disabled: true,
+//     },
+//     render: (args) => <StoryDefault {...args} />,
+// };
+//
+// export const CustomHeight: StoryObj<SelectProps> = {
+//     args: {
+//         listHeight: '10rem',
+//     },
+//     render: (args) => <StoryDefault {...args} />,
+// };

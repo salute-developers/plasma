@@ -132,6 +132,7 @@ export const SelectTarget = forwardRef<HTMLButtonElement, SelectTargetProps>(
                 className={cx(withInnerLabelUp, withHasChips, withNoFocus, selectTarget)}
                 onWheel={onWheel}
                 onKeyDown={onKeyDown}
+                stretching="filled"
             >
                 {hasText &&
                     (enumerationType === 'comma' || target === 'button-like' ? (

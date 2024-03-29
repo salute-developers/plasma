@@ -1345,13 +1345,7 @@ export const Popover: FunctionComponent<PropsType<    {
 view: {
 default: string;
 };
-}> & ((HTMLAttributes<HTMLDivElement> & CustomPopoverProps & {
-trigger?: "click" | undefined;
-closeOnOverlayClick?: boolean | undefined;
-} & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & CustomPopoverProps & {
-trigger?: "hover" | undefined;
-closeOnBeyondTargetHover?: boolean | undefined;
-} & RefAttributes<HTMLDivElement>))>;
+}> & HTMLAttributes<HTMLDivElement> & CustomPopoverProps & RefAttributes<HTMLDivElement>>;
 
 export { PopoverPlacement }
 
