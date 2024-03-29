@@ -7,6 +7,7 @@ export * from './components/Divider';
 export * from './components/Drawer';
 export * from './components/Grid';
 export * from './components/Checkbox';
+export * from './components/Chip';
 export * from './components/Combobox';
 export * from './components/Counter';
 export * from './components/Dropdown';
