@@ -3,6 +3,7 @@
 export * from './mixins';
 export * from './engines';
 export * from './hooks';
+export * from './utils';
 export * from './components/Button';
 export * from './components/ButtonGroup';
 export * from './components/Chip';
@@ -42,5 +43,6 @@ export * from './components/Indicator';
 export * from './components/ButtonBase';
 export * from './components/Grid';
 export * from './components/Progress';
+export * from './components/Select';
 export * from './components/Divider';
 export * from './components/Toolbar';

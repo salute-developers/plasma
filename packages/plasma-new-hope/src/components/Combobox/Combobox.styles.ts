@@ -8,6 +8,10 @@ import { tokens } from './Combobox.tokens';
 export const StyledRoot = styled.div`
     width: 100%;
     position: relative;
+
+    & .${popoverClasses.wrapper} {
+        display: block;
+    }
 `;
 
 export const StyledCombobox = styled.div`

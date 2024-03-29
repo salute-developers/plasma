@@ -4,11 +4,19 @@ import type { HTMLAttributes, ReactNode, SyntheticEvent } from 'react';
 export type PopoverPlacementBasic = ComputedPlacement;
 export type PopoverPlacement = Placement;
 
+export type PopoverTrigger = 'hover' | 'click';
+
 export type CustomPopoverProps = {
     /**
      * Всплывающее окно раскрыто или нет.
      */
     isOpen?: boolean;
+    /**
+     * Способ открытия всплывающего окна - наведение или клик мышью.
+     * @default
+     *  click
+     */
+    trigger?: PopoverTrigger;
     /**
      * Сторона открытия окна относительно target элемента.
      * @default
@@ -62,6 +70,10 @@ export type CustomPopoverProps = {
      */
     closeOnEsc?: boolean;
     /**
+     * Закрывать окно при нажатии вне области окна. (Если trigger === 'click')
+     */
+    closeOnOverlayClick?: boolean;
+    /**
      * Находится ли в портале.
      * @default
      * true
@@ -71,25 +83,4 @@ export type CustomPopoverProps = {
     view?: string;
 };
 
-export type PopoverTrigger =
-    | {
-          /**
-           * Способ открытия всплывающего окна - наведение или клик мышью.
-           * @default
-           *  click
-           */
-          trigger?: 'click';
-          /**
-           * Закрывать окно при нажатии вне области окна. (Если trigger === 'click')
-           */
-          closeOnOverlayClick?: boolean;
-      }
-    | {
-          trigger?: 'hover';
-          /**
-           * Закрывать окно при наведении вне области target-элемента. (Если trigger === 'hover')
-           */
-          closeOnBeyondTargetHover?: boolean;
-      };
-
-export type PopoverProps = HTMLAttributes<HTMLDivElement> & CustomPopoverProps & PopoverTrigger;
+export type PopoverProps = HTMLAttributes<HTMLDivElement> & CustomPopoverProps;

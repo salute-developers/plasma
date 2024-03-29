@@ -19,6 +19,13 @@ const meta: Meta<typeof Popover> = {
                 type: 'select',
             },
             table: { defaultValue: { summary: 'bottom' } },
+            mapping: {
+                top: 'top',
+                bottom: 'bottom',
+                right: 'right',
+                left: 'left',
+                auto: 'auto',
+            },
         },
         trigger: {
             options: ['click', 'hover'],
@@ -28,12 +35,6 @@ const meta: Meta<typeof Popover> = {
             table: { defaultValue: { summary: 'click' } },
         },
         closeOnOverlayClick: {
-            control: {
-                type: 'boolean',
-            },
-            table: { defaultValue: { summary: true } },
-        },
-        closeOnBeyondTargetHover: {
             control: {
                 type: 'boolean',
             },
@@ -68,7 +69,6 @@ const meta: Meta<typeof Popover> = {
         placement: 'bottom',
         trigger: 'click',
         closeOnOverlayClick: true,
-        closeOnBeyondTargetHover: true,
         closeOnEsc: true,
         isFocusTrapped: true,
         skidding: 0,

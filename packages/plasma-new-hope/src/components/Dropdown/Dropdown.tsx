@@ -63,7 +63,6 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) =>
                     placement={getPlacements(placement)}
                     trigger={trigger}
                     closeOnOverlayClick={closeOnOverlayClick}
-                    closeOnBeyondTargetHover={false}
                     closeOnEsc={closeOnEsc}
                     isFocusTrapped={isFocusTrapped}
                     frame={frame}
