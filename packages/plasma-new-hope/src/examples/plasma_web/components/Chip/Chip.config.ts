@@ -4,13 +4,13 @@ import { chipTokens } from '../../../../components/Chip';
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         focused: 'true',
         size: 'm',
     },
     variations: {
         view: {
-            primary: css`
+            default: css`
                 ${chipTokens.color}: var(--inverse-text-primary);
                 ${chipTokens.background}: var(--surface-solid-default);
                 ${chipTokens.colorHover}: var(--inverse-text-primary);

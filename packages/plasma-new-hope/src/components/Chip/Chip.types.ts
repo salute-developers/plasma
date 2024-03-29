@@ -1,8 +1,5 @@
 import type { ButtonHTMLAttributes, PropsWithChildren, ReactNode } from 'react';
 
-type ChipSize = 'l' | 'm' | 's' | 'xs';
-type ChipView = 'default' | 'secondary' | 'positive';
-
 type CustomChipProps = {
     /**
      * Текстовая надпись
@@ -37,17 +34,17 @@ type CustomChipProps = {
      * @default
      * m
      */
-    size?: ChipSize;
+    size?: string;
     /**
      * Вид Chip
      * @default
-     * default
+     * primary
      */
-    view?: ChipView;
+    view?: string;
     /**
      *  Коллбек при взаимодействии с элементом
      */
     onClear?: () => void;
 } & PropsWithChildren;
 
-export type ChipProps = ButtonHTMLAttributes<HTMLButtonElement> & CustomChipProps;
+export interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement>, CustomChipProps {}
