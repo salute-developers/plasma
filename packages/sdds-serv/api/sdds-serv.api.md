@@ -27,6 +27,7 @@ import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography
 import { ButtonGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonHTMLAttributes } from 'react';
 import { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-new-hope/styled-components';
+import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ClosePlacementType } from '@salutejs/plasma-new-hope/styled-components';
 import { Col } from '@salutejs/plasma-new-hope/styled-components';
 import { ColCount } from '@salutejs/plasma-new-hope/styled-components';
@@ -360,6 +361,29 @@ export const Checkbox: FunctionComponent<BaseboxProps>;
 //
 // @public (undocumented)
 export type CheckboxProps = typeof CheckboxComponent;
+
+// @public
+export const Chip: FunctionComponent<PropsType<    {
+view: {
+primary: string;
+secondary: string;
+positive: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & ChipProps & RefAttributes<HTMLButtonElement>>;
+
+export { ChipProps }
 
 export { ClosePlacementType }
 

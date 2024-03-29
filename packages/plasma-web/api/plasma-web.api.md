@@ -723,19 +723,7 @@ true: string;
 focused: {
 true: string;
 };
-}> & ButtonHTMLAttributes<HTMLButtonElement> & {
-text?: string | undefined;
-contentLeft?: ReactNode;
-contentRight?: ReactNode;
-contentClearButton?: ReactNode;
-disabled?: boolean | undefined;
-readOnly?: boolean | undefined;
-size?: "m" | "s" | "xs" | "l" | undefined;
-view?: "default" | "secondary" | "positive" | undefined;
-onClear?: (() => void) | undefined;
-} & {
-children?: ReactNode;
-} & RefAttributes<HTMLButtonElement>>;
+}> & ChipProps & RefAttributes<HTMLButtonElement>>;
 
 export { ChipProps }
 
