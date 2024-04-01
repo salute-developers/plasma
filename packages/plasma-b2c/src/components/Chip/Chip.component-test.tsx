@@ -65,9 +65,9 @@ describe('plasma-web: Chip', () => {
     it('_view', () => {
         mount(
             <CypressTestDecorator>
-                <Chip view="primary" text="Chip_view_primary" contentLeft={<Icon />} />
+                <Chip view="default" text="Chip_view_default" contentLeft={<Icon />} />
                 <SpaceMe />
-                <Chip view="primary" text="_disabled" disabled contentLeft={<Icon />} />
+                <Chip view="default" text="_disabled" disabled contentLeft={<Icon />} />
                 <PadMe />
                 <Chip view="secondary" text="Chip_view_secondary" contentLeft={<Icon />} />
                 <SpaceMe />
