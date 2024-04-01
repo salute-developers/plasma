@@ -707,6 +707,7 @@ export type CheckboxProps = typeof CheckboxComponent;
 // @public
 export const Chip: FunctionComponent<PropsType<    {
 view: {
+default: string;
 primary: string;
 secondary: string;
 positive: string;
