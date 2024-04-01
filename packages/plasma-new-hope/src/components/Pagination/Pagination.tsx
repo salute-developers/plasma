@@ -57,7 +57,7 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
             },
             ref,
         ) => {
-            const [page, setPageValue] = useState<number>(value ?? defaultValues.value);
+            const [page, setPageValue] = useState<number>();
             const [perPageValue, setPerPageValue] = useState(perPage);
             const [pages, setPagesValue] = useState<number>(value);
             const [sections, setSections] = useState<number[][] | null>(null);
@@ -75,22 +75,22 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
             };
 
             const handlerSetPage = (newPageValue?: number) => {
-                newPageValue = newPageValue ?? defaultValues.value;
-                if (newPageValue > pages) {
-                    newPageValue = pages;
+                let pageValue = newPageValue ?? defaultValues.value;
+                if (pageValue > pages) {
+                    pageValue = pages;
                 }
-                if (newPageValue < 1) {
-                    newPageValue = 1;
+                if (pageValue < 1) {
+                    pageValue = 1;
                 }
-                if (disabled.includes(newPageValue)) {
+                if (disabled.includes(pageValue)) {
                     return;
                 }
-                setPageValue(newPageValue);
-                onChangePageValue?.(newPageValue);
+                setPageValue(pageValue);
+                onChangePageValue?.(pageValue);
             };
 
             const handlerSetPerPage = (newPerPageValue?: number) => {
-                setPageValue(1);
+                handlerSetPage(1);
                 setPerPageValue(newPerPageValue);
                 onChangePageValue?.(1);
                 onChangePerPageValue?.(newPerPageValue);
@@ -104,7 +104,11 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
 
             useEffect(() => {
                 handlerSetPages(perPage);
-            }, [perPage, handlerSetPages]);
+            }, [perPage, count, handlerSetPages]);
+
+            useEffect(() => {
+                handlerSetPage(value);
+            }, [value]);
 
             useEffect(() => {
                 setSections(getSections(page, pages, slots));
