@@ -1,3 +1,18 @@
+# v1.306.1 (Tue Apr 02 2024)
+
+#### 🐛 Bug Fix
+
+- fix(new-hope): Edit core and storybook [#1157](https://github.com/salute-developers/plasma/pull/1157) ([@iljs](https://github.com/iljs))
+- fix(new-hope): Edit core and storybook ([@iljs](https://github.com/iljs))
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 2
+
+- [@iljs](https://github.com/iljs)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v1.306.0 (Thu Mar 28 2024)
 
 ### Release Notes

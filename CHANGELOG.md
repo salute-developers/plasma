@@ -1,3 +1,16 @@
+# (Tue Apr 02 2024)
+
+#### 🐛 Bug Fix
+
+- `@salutejs/plasma-b2c@1.306.1`, `@salutejs/plasma-new-hope@0.67.1`, `@salutejs/plasma-web@1.306.1`, `@salutejs/sdds-serv@0.31.1`
+  - fix(new-hope): Edit core and storybook [#1157](https://github.com/salute-developers/plasma/pull/1157) ([@iljs](https://github.com/iljs))
+
+#### Authors: 1
+
+- [@iljs](https://github.com/iljs)
+
+---
+
 # (Thu Mar 28 2024)
 
 ### Release Notes

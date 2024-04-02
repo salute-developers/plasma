@@ -1,3 +1,15 @@
+# v0.27.1 (Tue Apr 02 2024)
+
+#### 🐛 Bug Fix
+
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 1
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+
+---
+
 # v0.27.0 (Thu Mar 28 2024)
 
 ### Release Notes
