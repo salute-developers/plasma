@@ -125,9 +125,16 @@ jobs:
                     ./current/.perftool/cache/
 
             -   name: Run performance test
-                run: |
-                    cd current
-                    npx perftool --baselineRefDir ../baseline -o perftest/pr-result.json --baselineOutputPath perftest/base-result.json --compareOutputPath perftest/comparison.json --baseBranchRef ${{ github.event.pull_request.base.sha }} --currentBranchRef ${{ github.event.pull_request.head.sha }}
+                run: >
+                    cd current &&
+                    npx perftool
+                    --baselineRefDir ../baseline
+                    -o perftest/pr-result.json
+                    --baselineOutputPath perftest/base-result.json
+                    --compareOutputPath perftest/comparison.json
+                    --visualReportPath perftest/report.html
+                    --baseBranchRef ${{ github.event.pull_request.base.sha }}
+                    --currentBranchRef ${{ github.event.pull_request.head.sha }}
 
             -   name: Save perftool cache
                 run: >
@@ -149,7 +156,7 @@ jobs:
                 uses: actions/upload-artifact@v2
                 with:
                     name: Component performance comparison result
-                    path: ${{ github.workspace }}/current/perftest/*.json
+                    path: ${{ github.workspace }}/current/perftest/*
 
             -   name: Write report comment
                 if: always()
