@@ -110,3 +110,27 @@ export function App() {
     );
 }
 ```
+
+### Режим ввода
+С помощью свойства `enumarationType` можно вводить элементы как теги. 
+По нажатию Enter, после ввода нужного текста, он преобразуется в Chip:
+
+```tsx live
+import React from 'react';
+import { TextField } from '@salutejs/{{ package }};
+
+export function App() {
+    return (
+        <div>
+            <TextField
+                placeholder="Введите значение"
+                defaultValue="Значение"
+                size="l"
+                enumerationType="chip"
+                helperText="Подсказка снизу"
+                values={["Значение 1"]}
+            />
+        </div>
+    );
+}
+```
