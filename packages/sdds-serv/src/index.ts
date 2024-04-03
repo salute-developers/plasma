@@ -25,6 +25,7 @@ export * from './components/Spinner';
 export * from './components/SSRProvider';
 export * from './components/Switch';
 export * from './components/Tabs';
+export * from './components/TextField';
 export * from './components/Toast';
 export * from './components/Toolbar';
 export * from './components/Tooltip';
