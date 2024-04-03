@@ -8,6 +8,8 @@ const mergedConfig = mergeConfig(textFieldConfig, config);
 const TextFieldComponent = component(mergedConfig);
 
 type newHopeTextFieldProps = React.ComponentProps<typeof TextFieldComponent>;
+export type CustomTextFieldProps = TextFieldProps &
+    Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'onChangeChips'>;
 const statusToView: Record<NonNullable<TextFieldProps['status']>, NonNullable<newHopeTextFieldProps['view']>> = {
     success: 'positive',
     warning: 'warning',
@@ -24,7 +26,7 @@ const animatedHintToLabelPlacement: Record<
 /**
  * Поле ввода текста.
  */
-export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
+export const TextField = forwardRef<HTMLDivElement, CustomTextFieldProps>((props, ref) => {
     const {
         size,
         status,
@@ -33,6 +35,11 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, re
         placeholder,
         animatedHint,
         helperText,
+
+        enumerationType,
+        chips,
+        onSearch,
+        onChangeChips,
 
         ...rest
     } = props;
@@ -52,6 +59,24 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, re
     }
     const _size = size === 'xs' ? 's' : size;
 
+    if (enumerationType === 'chip') {
+        return (
+            <TextFieldComponent
+                {...rest}
+                view={_view}
+                size={_size}
+                labelPlacement={_labelPlacement}
+                label={_label}
+                placeholder={placeholder}
+                leftHelper={helperText}
+                ref={ref}
+                enumerationType="chip"
+                chips={chips}
+                onChangeChips={onChangeChips}
+            />
+        );
+    }
+
     return (
         <TextFieldComponent
             {...rest}
@@ -62,6 +87,8 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, re
             placeholder={placeholder}
             leftHelper={helperText}
             ref={ref}
+            enumerationType="plain"
+            onSearch={onSearch}
         />
     );
 });
