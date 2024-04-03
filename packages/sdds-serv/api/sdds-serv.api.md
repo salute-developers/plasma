@@ -80,8 +80,9 @@ import { HTMLAttributes } from 'react';
 import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImgHTMLAttributes } from 'react';
 import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
-import type { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes } from 'react';
 import { JSXElementConstructor } from 'react';
+import { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { mediaQuery } from '@salutejs/plasma-new-hope/styled-components';
 import { modalClasses } from '@salutejs/plasma-new-hope/styled-components';
@@ -124,6 +125,9 @@ import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
+import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
+import { TextFieldProps } from '@salutejs/plasma-new-hope/styled-components';
+import { textFieldTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { textL } from '@salutejs/sdds-themes/tokens';
 import { textLBold } from '@salutejs/sdds-themes/tokens';
 import { textM } from '@salutejs/sdds-themes/tokens';
@@ -1124,6 +1128,70 @@ export const TabsController: ForwardRefExoticComponent<TabsControllerProps & Ref
 export { TabsControllerProps }
 
 export { TabsProps }
+
+// @public
+export const TextField: FunctionComponent<PropsType<    {
+view: {
+default: string;
+positive: string;
+warning: string;
+negative: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+labelPlacement: {
+inner: string[];
+outer: string[];
+};
+disabled: {
+true: string;
+};
+readOnly: {
+true: string;
+};
+}> & (({
+size?: string | undefined;
+view?: string | undefined;
+readOnly?: boolean | undefined;
+disabled?: boolean | undefined;
+} & {
+label?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & {
+chips?: undefined;
+onChangeChips?: undefined;
+enumerationType?: "plain" | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & RefAttributes<HTMLDivElement>) | ({
+size?: string | undefined;
+view?: string | undefined;
+readOnly?: boolean | undefined;
+disabled?: boolean | undefined;
+} & {
+label?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & {
+enumerationType: "chip";
+onSearch?: undefined;
+chips?: TextFieldPrimitiveValue[] | undefined;
+onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & RefAttributes<HTMLDivElement>))>;
+
+export { TextFieldProps }
+
+export { textFieldTokens }
 
 // @public (undocumented)
 export const TextL: FunctionComponent<PropsType<    {
