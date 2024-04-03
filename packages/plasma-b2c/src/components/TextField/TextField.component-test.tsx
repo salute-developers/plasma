@@ -1,122 +1,371 @@
 import React from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import { createGlobalStyle } from 'styled-components';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
 import { IconSleep, IconEye } from '@salutejs/plasma-icons';
 
-import { TextField as TextFieldB2C } from './TextField';
+import { TextField as TextFieldB2C } from '.';
 
-describe('plasma-b2c: TextField', () => {
+const StandardTypoStyle = createGlobalStyle(standardTypo);
+
+describe('plasma-web: TextField', () => {
     const TextField = getComponent('TextField') as typeof TextFieldB2C;
 
-    const propsDefault = {
-        caption: 'Имя [label]',
-        placeholder: 'Введите имя [placeholder]',
-        helperText: 'Используйте только кириллицу',
-    };
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
 
-    it('_size :empty', () => {
+    function Demo({ maxLength }) {
+        const [value, setValue] = React.useState('');
+
+        return (
+            <TextField
+                size="m"
+                maxLength={maxLength}
+                placeholder="Placeholder"
+                onChange={(e) => {
+                    setValue(e.target.value);
+                }}
+                value={value}
+                helperText="Helper text"
+            />
+        );
+    }
+
+    it('default', () => {
         mount(
-            <CypressTestDecorator>
-                <TextField size="l" {...propsDefault} />
-                <SpaceMe />
-                <TextField size="m" {...propsDefault} />
-                <SpaceMe />
-                <TextField size="s" {...propsDefault} />
-                <SpaceMe />
-                <TextField size="xs" {...propsDefault} />
-            </CypressTestDecorator>,
+            <CypressTestDecoratorWithTypo>
+                <TextField size="m" value="Value" placeholder="Placeholder" helperText="Helper text" />
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
     it('_size', () => {
-        const props = {
-            value: 'Кирилл',
-            ...propsDefault,
-        };
-
         mount(
-            <CypressTestDecorator>
-                <TextField size="l" {...props} />
+            <CypressTestDecoratorWithTypo>
+                <TextField size="s" value="Small s" label="Label" placeholder="Placeholder" helperText="Helper text" />
                 <SpaceMe />
-                <TextField size="m" {...props} />
+                <TextField size="m" value="Medium m" label="Label" placeholder="Placeholder" helperText="Helper text" />
                 <SpaceMe />
-                <TextField size="s" {...props} />
-                <SpaceMe />
-                <TextField size="xs" {...props} />
-            </CypressTestDecorator>,
+                <TextField size="l" value="Medium l" label="Label" placeholder="Placeholder" helperText="Helper text" />
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('_view_innerLabel :empty', () => {
-        const props: React.ComponentProps<typeof TextFieldB2C> = {
-            view: 'innerLabel',
-            ...propsDefault,
-        };
-
+    it('_status', () => {
         mount(
-            <CypressTestDecorator>
-                <TextField size="l" {...props} />
+            <CypressTestDecoratorWithTypo>
+                <TextField size="m" value="Value" placeholder="Placeholder" helperText="Helper text" status="success" />
                 <SpaceMe />
-                <TextField size="m" {...props} />
+                <TextField size="m" value="Value" placeholder="Placeholder" helperText="Helper text" status="warning" />
                 <SpaceMe />
-                <TextField size="s" {...props} />
+                <TextField size="m" value="Value" placeholder="Placeholder" helperText="Helper text" status="error" />
                 <SpaceMe />
-                <TextField size="xs" {...props} />
-            </CypressTestDecorator>,
+                <TextField size="m" placeholder="Placeholder" status="success" />
+                <SpaceMe />
+                <TextField size="m" placeholder="Placeholder" status="warning" />
+                <SpaceMe />
+                <TextField size="m" placeholder="Placeholder" status="error" />
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('_view_innerLabel', () => {
-        const props: React.ComponentProps<typeof TextFieldB2C> = {
-            value: 'Кирилл',
-            view: 'innerLabel',
-            ...propsDefault,
-        };
-
+    it('_maxLength', () => {
         mount(
-            <CypressTestDecorator>
-                <TextField size="l" {...props} />
-                <SpaceMe />
-                <TextField size="m" {...props} />
-                <SpaceMe />
-                <TextField size="s" {...props} />
-                <SpaceMe />
-                <TextField size="xs" {...props} />
-            </CypressTestDecorator>,
+            <CypressTestDecoratorWithTypo>
+                <Demo maxLength={10} />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input').type('More then ten symbols');
+
+        cy.matchImageSnapshot();
+    });
+
+    it(':empty', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <TextField size="m" placeholder="Placeholder" />
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
-    it('_size with content', () => {
-        const props = {
-            value: 'Кирилл',
-            contentLeft: <IconSleep color="inherit" size="s" />,
-            contentRight: <IconEye color="inherit" size="s" />,
-            ...propsDefault,
-        };
-
+    it(':focused', () => {
         mount(
-            <CypressTestDecorator>
-                <TextField size="l" {...props} />
-                <SpaceMe />
-                <TextField size="m" {...props} />
-                <SpaceMe />
-                <TextField size="s" {...props} />
+            <CypressTestDecoratorWithTypo>
+                <TextField size="m" value="Value" placeholder="Placeholder" helperText="Helper text" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('input:first').focus();
+        cy.matchImageSnapshot();
+    });
+
+    it(':disabled', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <TextField size="m" value="Value" placeholder="Placeholder" helperText="Helper text" disabled />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it(':readOnly', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <TextField size="m" value="Value" placeholder="Placeholder" helperText="Helper text" readOnly />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('content', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <TextField
+                    size="m"
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    contentLeft={<IconSleep color="inherit" size="s" />}
+                />
                 <SpaceMe />
                 <TextField
-                    size="xs"
-                    {...props}
-                    contentLeft={<IconSleep color="inherit" size="xs" />}
-                    contentRight={<IconEye color="inherit" size="xs" />}
+                    size="m"
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    contentLeft={<IconSleep color="inherit" size="s" />}
+                    contentRight={<IconEye color="inherit" size="s" />}
                 />
-            </CypressTestDecorator>,
+                <SpaceMe />
+                <TextField
+                    size="m"
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    contentRight={<IconEye color="inherit" size="s" />}
+                />
+            </CypressTestDecoratorWithTypo>,
         );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('content: with label', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <TextField
+                    size="l"
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                    label="Label"
+                />
+                <TextField
+                    size="l"
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                    label="Label"
+                    contentLeft={<IconSleep color="inherit" size="s" />}
+                />
+                <SpaceMe />
+                <TextField
+                    size="l"
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                    label="Label"
+                    contentLeft={<IconSleep color="inherit" size="s" />}
+                    contentRight={<IconEye color="inherit" size="s" />}
+                />
+                <SpaceMe />
+                <TextField
+                    size="l"
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                    label="Label"
+                    contentRight={<IconEye color="inherit" size="s" />}
+                />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('_animatedHint:label', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <TextField
+                    size="l"
+                    label="Label"
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    view="innerLabel"
+                />
+                <SpaceMe />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('_animatedHint:placeholder', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                {/* for backward comp  */}
+                <div
+                    style={{
+                        marginBottom: '8px',
+                        lineHeight: '20px',
+                        letterSpacing: '-0.32px',
+                        fontFamily: '"SB Sans Text", SBSansText, sans-serif',
+                        fontSize: '16px',
+                    }}
+                >
+                    Label
+                </div>
+                <TextField
+                    size="l"
+                    label="" /** no more label & placeholder together */
+                    value="Value"
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="placeholder"
+                />
+                <SpaceMe />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('_enumerationType:chip', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <TextField
+                    size="l"
+                    label="Label"
+                    enumerationType="chip"
+                    chips={['Value 1', 'Value 2']}
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                />
+                <SpaceMe />
+                <TextField
+                    size="l"
+                    label="Label"
+                    value="place values"
+                    enumerationType="chip"
+                    chips={['Value 1', 'Value 2']}
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                />
+                <SpaceMe />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+});
+
+describe('plasma-web: TextField keyboard navigation', () => {
+    const TextField = getComponent('TextField') as typeof TextFieldB2C;
+
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
+
+    it('chips', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <TextField size="m" placeholder="Placeholder" enumerationType="chip" helperText="Helper text" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('body').tab();
+
+        // добавляем chips
+        cy.get('input').type('Hello,{enter} Plasma!{enter} Have fun{enter}');
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(200);
+        cy.get('.has-chips').find('button').should('have.length', 3);
+
+        // фокус на первом чипе слева от инпута по ArrowLeft
+        cy.get('input').type('{leftarrow}');
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(100);
+        cy.get('.has-chips').find('button').eq(2).should('be.focused');
+
+        // фокус на первом чипе по ArrowLeft
+        cy.focused()
+            .trigger('keydown', { key: 'ArrowLeft' })
+            .trigger('keydown', { key: 'ArrowLeft' })
+            .trigger('keydown', { key: 'ArrowLeft' });
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(200);
+        cy.get('.has-chips').find('button').eq(0).should('be.focused');
+
+        // фокус на инпуте по ArrowRight до конца
+        cy.focused()
+            .trigger('keydown', { key: 'ArrowRight' })
+            .trigger('keydown', { key: 'ArrowRight' })
+            .trigger('keydown', { key: 'ArrowRight' });
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(200);
+        cy.get('input').should('be.focused');
+
+        // удалён последний чип по Backspace из фокуса на инпуте
+        cy.focused().trigger('keydown', { key: 'Backspace' });
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(200);
+        cy.get('.has-chips').find('button').should('have.length', 2);
+
+        // фокус на первом чипе по ArrowLeft
+        cy.focused().trigger('keydown', { key: 'ArrowLeft' }).trigger('keydown', { key: 'ArrowLeft' });
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(200);
+        cy.get('.has-chips').find('button').eq(0).should('be.focused');
+
+        // удалён первый чип по Backspace
+        cy.focused().trigger('keydown', { key: 'Backspace' });
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(200);
+        cy.get('.has-chips').find('button').should('have.length', 1);
+
+        // фокус на инпуте и ввод текста
+        cy.get('input').focus().type('Hello!!!');
+
+        // удаление части текста
+        cy.focused().type('{backspace}{backspace}{backspace}');
+        cy.get('input').should('have.value', 'Hello');
 
         cy.matchImageSnapshot();
     });
