@@ -228,7 +228,8 @@ import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
 import { TextAreaProps } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
-import { TextFieldProps } from '@salutejs/plasma-hope';
+import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
+import type { TextFieldProps as TextFieldProps_2 } from '@salutejs/plasma-hope';
 import { TextFieldView } from '@salutejs/plasma-hope';
 import { TextSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TimingFunction } from '@salutejs/plasma-core';
@@ -1635,9 +1636,69 @@ export { TextAreaProps }
 export { TextareaResize }
 
 // @public
-export const TextField: React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
+export const TextField: React_2.ForwardRefExoticComponent<TextFieldProps_2 & Pick<PropsType<    {
+view: {
+default: string;
+positive: string;
+warning: string;
+negative: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+labelPlacement: {
+inner: string[];
+outer: string[];
+};
+disabled: {
+true: string;
+};
+readOnly: {
+true: string;
+};
+}> & (({
+    size?: string | undefined;
+    view?: string | undefined;
+    readOnly?: boolean | undefined;
+    disabled?: boolean | undefined;
+} & {
+    label?: string | undefined;
+    labelPlacement?: "inner" | "outer" | undefined;
+    leftHelper?: string | undefined;
+    contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
+    contentRight?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
+    onSearch?: ((value: string, event?: React_2.KeyboardEvent<HTMLInputElement> | undefined) => void) | undefined;
+} & {
+    chips?: undefined;
+    onChangeChips?: undefined;
+    enumerationType?: "plain" | undefined;
+    onSearch?: ((value: string, event?: React_2.KeyboardEvent<HTMLInputElement> | undefined) => void) | undefined;
+} & Omit<React_2.InputHTMLAttributes<HTMLInputElement>, "size"> & React_2.RefAttributes<HTMLDivElement>) | ({
+    size?: string | undefined;
+    view?: string | undefined;
+    readOnly?: boolean | undefined;
+    disabled?: boolean | undefined;
+} & {
+    label?: string | undefined;
+    labelPlacement?: "inner" | "outer" | undefined;
+    leftHelper?: string | undefined;
+    contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
+    contentRight?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
+    onSearch?: ((value: string, event?: React_2.KeyboardEvent<HTMLInputElement> | undefined) => void) | undefined;
+} & {
+    enumerationType: "chip";
+    onSearch?: undefined;
+    chips?: TextFieldPrimitiveValue[] | undefined;
+    onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+} & Omit<React_2.InputHTMLAttributes<HTMLInputElement>, "size"> & React_2.RefAttributes<HTMLDivElement>)), "enumerationType" | "chips" | "onChangeChips"> & React_2.RefAttributes<HTMLInputElement>>;
 
-export { TextFieldProps }
+// Warning: (ae-forgotten-export) The symbol "newHopeTextFieldProps" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type TextFieldProps = TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'onChangeChips'>;
 
 export { TextFieldView }
 
