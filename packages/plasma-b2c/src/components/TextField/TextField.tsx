@@ -8,6 +8,8 @@ const mergedConfig = mergeConfig(textFieldConfig, config);
 const TextFieldComponent = component(mergedConfig);
 
 type newHopeTextFieldProps = React.ComponentProps<typeof TextFieldComponent>;
+export type CustomTextFieldProps = TextFieldProps &
+    Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'onChangeChips'>;
 const statusToView: Record<NonNullable<TextFieldProps['status']>, NonNullable<newHopeTextFieldProps['view']>> = {
     success: 'positive',
     warning: 'warning',
@@ -25,7 +27,7 @@ const viewToLabelPlacement: Record<
 /**
  * Поле ввода текста.
  */
-export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, ref) => {
+export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((props, ref) => {
     const {
         view,
         status,
@@ -35,6 +37,11 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, re
         placeholder,
 
         helperText,
+
+        enumerationType,
+        chips,
+        onSearch,
+        onChangeChips,
 
         ...rest
     } = props;
@@ -53,6 +60,23 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, re
         _labelPlacement = 'outer';
     }
 
+    if (enumerationType === 'chip') {
+        return (
+            <TextFieldComponent
+                {...rest}
+                view={_view}
+                labelPlacement={_labelPlacement}
+                label={_label}
+                placeholder={_placeholder}
+                leftHelper={helperText}
+                ref={ref}
+                enumerationType="chip"
+                chips={chips}
+                onChangeChips={onChangeChips}
+            />
+        );
+    }
+
     return (
         <TextFieldComponent
             {...rest}
@@ -62,6 +86,8 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>((props, re
             placeholder={_placeholder}
             leftHelper={helperText}
             ref={ref}
+            enumerationType="plain"
+            onSearch={onSearch}
         />
     );
 });
