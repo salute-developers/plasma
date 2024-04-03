@@ -1,17 +1,16 @@
 import { css } from '@linaria/core';
 
-import { Input, Label } from '../TextField.styles';
-import { tokens } from '../TextField.tokens';
+import { Input, Label } from '../../TextField.styles';
+import { tokens } from '../../TextField.tokens';
 
 export const labelPlacement_inner = css`
     ${Input} {
-        padding-top: calc(var(${tokens.labelOffset}) + var(${tokens.labelInnerLineHeight}));
-        padding-bottom: var(${tokens.labelOffset});
+        padding: var(${tokens.contentLabelInnerPadding});
     }
 
     ${Input}:focus ~ ${Label}, ${Input}:not(:placeholder-shown) ~ ${Label} {
         height: auto;
-        padding-top: var(${tokens.labelOffset});
+        padding: var(${tokens.labelInnerPadding});
 
         font-family: var(${tokens.labelInnerFontFamily});
         font-size: var(${tokens.labelInnerFontSize});
@@ -41,7 +40,7 @@ export const labelPlacement_inner = css`
 
         box-sizing: border-box;
 
-        transition: all 0.1s ease-in-out 0s;
+        transition: padding 0.1s ease-in-out, height 0s;
 
         height: var(${tokens.height});
 
