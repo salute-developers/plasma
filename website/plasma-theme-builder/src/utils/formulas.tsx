@@ -162,7 +162,7 @@ export const formulas: Formula = {
             dark: [
                 {
                     condition: {
-                        lightness: [0, 19],
+                        lightness: [0, 29],
                         hue: [0, 360],
                         saturation: [0, 24],
                     },
@@ -173,7 +173,7 @@ export const formulas: Formula = {
                 },
                 {
                     condition: {
-                        lightness: [0, 19],
+                        lightness: [0, 29],
                         hue: [0, 360],
                         saturation: [25, 100],
                     },
