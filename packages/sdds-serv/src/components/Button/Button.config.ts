@@ -12,85 +12,81 @@ export const config = {
                 ${buttonTokens.buttonColor}: var(--inverse-text-primary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-default);
                 ${buttonTokens.buttonColorHover}: var(--inverse-text-primary);
-                ${buttonTokens.buttonBackgroundColorHover}: color-mix(
-                    in srgb,
-                    var(--inverse-text-primary),
-                    var(--surface-solid-default) 85%
-                );
+                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-solid-default-hover);
                 ${buttonTokens.buttonColorActive}: var(--inverse-text-primary);
-                ${buttonTokens.buttonBackgroundColorActive}: color-mix(
-                    in srgb,
-                    var(--inverse-text-primary),
-                    var(--surface-solid-default) 80%
-                );
+                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-solid-default-active);
             `,
             accent: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-accent);
                 ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonBackgroundColorHover}: color-mix(in srgb, var(--text-primary), var(--surface-accent) 85%);
+                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
                 ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonBackgroundColorActive}: color-mix(in srgb, var(--text-primary), var(--surface-accent) 80%);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-accent-active);
             `,
             secondary: css`
                 ${buttonTokens.buttonColor}: var(--text-primary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-transparent-secondary);
                 ${buttonTokens.buttonColorHover}: var(--text-primary);
-                ${buttonTokens.buttonBackgroundColorHover}: color-mix(
-                    in srgb,
-                    var(--inverse-text-primary),
-                    var(--surface-transparent-secondary) 85%
-                );
+                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${buttonTokens.buttonColorActive}: var(--text-primary);
-                ${buttonTokens.buttonBackgroundColorActive}: color-mix(
-                    in srgb,
-                    var(--inverse-text-primary),
-                    var(--surface-transparent-secondary) 80%
-                );
+                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
             `,
             clear: css`
                 ${buttonTokens.buttonColor}: var(--text-primary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-clear);
-                ${buttonTokens.buttonColorHover}: var(--text-primary);
-                ${buttonTokens.buttonBackgroundColorHover}: color-mix(in srgb, var(--text-primary), var(--surface-clear) 95%);
-                ${buttonTokens.buttonColorActive}: var(--text-primary);
-                ${buttonTokens.buttonBackgroundColorActive}: color-mix(in srgb, var(--text-primary), var(--surface-clear) 90%);
+                ${buttonTokens.buttonColorHover}: var(--text-primary-hover);
+                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-clear);
+                ${buttonTokens.buttonColorActive}: var(--text-primary-active);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-clear);
             `,
             success: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-positive);
                 ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonBackgroundColorHover}: color-mix(
-                    in srgb,
-                    var(--inverse-text-primary),
-                    var(--surface-positive) 85%
-                );
+                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-positive-hover);
                 ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonBackgroundColorActive}: color-mix(in srgb, var(--text-primary), var(--surface-positive) 85%);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-positive-active);
             `,
             warning: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-warning);
                 ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonBackgroundColorHover}: color-mix(
-                    in srgb,
-                    var(--inverse-text-primary),
-                    var(--surface-warning) 85%
-                );
+                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-warning-hover);
                 ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonBackgroundColorActive}: color-mix(in srgb, var(--text-primary), var(--surface-warning) 85%);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-warning-active);
             `,
             critical: css`
                 ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-negative);
                 ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonBackgroundColorHover}: color-mix(
-                    in srgb,
-                    var(--inverse-text-primary),
-                    var(--surface-negative) 85%
-                );
+                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-negative-hover);
                 ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonBackgroundColorActive}: color-mix(in srgb, var(--text-primary), var(--surface-negative) 85%);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-negative-active);
+            `,
+            dark: css`
+                ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonBackgroundColor}: var(--on-light-surface-transparent-deep);
+                ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonBackgroundColorHover}: var(--on-light-surface-transparent-deep-hover);
+                ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--on-light-surface-transparent-deep-active);
+            `,
+            black: css`
+                ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonBackgroundColor}: var(--on-light-surface-solid-default);
+                ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonBackgroundColorHover}: var(--on-light-surface-solid-default-hover);
+                ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--on-light-surface-solid-default-active);
+            `,
+            white: css`
+                ${buttonTokens.buttonColor}: var(--on-light-text-primary);
+                ${buttonTokens.buttonBackgroundColor}: var(--on-dark-surface-solid-default);
+                ${buttonTokens.buttonColorHover}: var(--on-light-text-primary);
+                ${buttonTokens.buttonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
+                ${buttonTokens.buttonColorActive}: var(--on-light-text-primary);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
             `,
         },
         size: {
