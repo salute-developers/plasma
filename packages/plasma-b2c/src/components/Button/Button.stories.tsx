@@ -7,7 +7,7 @@ import { Button } from './Button';
 
 type StoryButtonProps = ComponentProps<typeof Button> & { contentType: string; isLoading: boolean };
 
-const views = ['accent', 'primary', 'secondary', 'success', 'warning', 'critical', 'clear'];
+const views = ['accent', 'primary', 'secondary', 'success', 'warning', 'critical', 'clear', 'dark', 'black', 'white'];
 const sizes = ['l', 'm', 's', 'xs', 'xxs'];
 const stretching = ['auto', 'filled', 'fixed'];
 const pins = [
