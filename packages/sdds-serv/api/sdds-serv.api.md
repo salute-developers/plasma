@@ -281,6 +281,9 @@ clear: string;
 success: string;
 warning: string;
 critical: string;
+dark: string;
+black: string;
+white: string;
 };
 size: {
 l: string;
