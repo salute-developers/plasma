@@ -52,6 +52,7 @@ const extraComponentStyles: CSSProperties = {
     marginRight: '-1rem',
     paddingRight: '1rem',
     outline: 'none',
+    caretColor: 'var(--plasma-colors-accent)',
 };
 
 type RefElement = HTMLDivElement | HTMLSpanElement;
