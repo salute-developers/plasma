@@ -31,6 +31,8 @@ export const cellRoot = (Root: RootProps<HTMLDivElement, CellProps>) =>
             outerRootRef,
         ) => {
             const stretchingClass = classes[`${stretching}Stretching` as keyof typeof classes];
+
+            // Импорт  старых свойств
             const titleText = title || description;
             const contentLeftDeprecated = contentLeft || content;
 

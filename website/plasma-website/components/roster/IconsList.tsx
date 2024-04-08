@@ -82,7 +82,7 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
         if (!searchQuery) {
             return icons;
         }
-        const regExp = new RegExp(searchQuery.toLocaleLowerCase());
+        const regExp = new RegExp(searchQuery.toLocaleLowerCase().replace(/\W/g, ''));
         return icons
             .map((group) => ({
                 ...group,
