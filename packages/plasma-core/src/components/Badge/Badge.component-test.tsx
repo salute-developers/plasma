@@ -64,7 +64,7 @@ describe('plasma-core: Badge', () => {
     it('_view', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Badge text="Badge" view="primary" />
+                <Badge text="Badge" view="default" />
                 <PadMe />
                 <Badge text="Badge" view="accent" />
                 <PadMe />
@@ -86,7 +86,7 @@ describe('plasma-core: Badge', () => {
     it('_view: transparent', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Badge text="Badge" view="primary" transparent />
+                <Badge text="Badge" view="default" transparent />
                 <PadMe />
                 <Badge text="Badge" view="accent" transparent />
                 <PadMe />
