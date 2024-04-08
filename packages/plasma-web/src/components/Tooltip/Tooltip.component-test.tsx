@@ -117,6 +117,62 @@ describe('plasma-web: Tooltip', () => {
         cy.matchImageSnapshot();
     });
 
+    it('multiple lines placement', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div
+                    style={{
+                        margin: '10rem',
+                        marginBottom: '15rem',
+                    }}
+                >
+                    <Tooltip
+                        target={
+                            <Tooltip
+                                target={<Button text="hello" />}
+                                placement="right-start"
+                                maxWidth="7rem"
+                                text="Right start: very long looong text, really long"
+                                isOpen
+                                hasArrow
+                            />
+                        }
+                        placement="left-start"
+                        maxWidth="7rem"
+                        text="Left start: very long looong text, really long"
+                        isOpen
+                        hasArrow
+                    />
+                </div>
+                <div
+                    style={{
+                        margin: '10rem',
+                    }}
+                >
+                    <Tooltip
+                        target={
+                            <Tooltip
+                                target={<Button text="hello" />}
+                                placement="right-end"
+                                text="Right end: very long looong text, really long"
+                                maxWidth="7rem"
+                                isOpen
+                                hasArrow
+                            />
+                        }
+                        placement="left-end"
+                        text="Left end: very long looong text, really long"
+                        maxWidth="7rem"
+                        isOpen
+                        hasArrow
+                    />
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('interaction', () => {
         function Demo() {
             const [isOpen, setVisible] = React.useState(false);
