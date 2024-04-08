@@ -23,7 +23,7 @@ const meta: Meta<typeof Pagination> = {
             },
         },
         view: {
-            options: ['clear', 'primary', 'secondary'],
+            options: ['clear', 'default', 'secondary'],
             control: {
                 type: 'select',
             },
@@ -36,7 +36,7 @@ const meta: Meta<typeof Pagination> = {
             },
         },
         viewCurrentPage: {
-            options: ['clear', 'primary', 'secondary'],
+            options: ['clear', 'default', 'secondary'],
             control: {
                 type: 'select',
             },
