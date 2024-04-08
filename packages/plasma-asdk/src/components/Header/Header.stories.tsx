@@ -116,7 +116,7 @@ export const CustomAssembly: StoryObj<CustomAssemblyProps & ContentComponentProp
         },
     },
     args: {
-        view: 'primary',
+        view: 'default',
         size: 'm',
         variant: 'title+subtitle',
         title: 'Header title text',

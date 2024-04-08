@@ -2,11 +2,28 @@ import { css, headerTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         size: 's',
     },
     variations: {
         view: {
+            default: css`
+                ${headerTokens.headerArrowButtonColor}: var(--text-primary);
+                ${headerTokens.headerArrowButtonBackgroundColor}: var(--surface-clear);
+
+                ${headerTokens.headerArrowTransition}: transform 0.15s ease-in-out;
+
+                ${headerTokens.headerTitleColor}: var(--plasma-colors-primary);
+                ${headerTokens.headerBigTitleColor}: var(--plasma-colors-primary);
+                ${headerTokens.headerBiggerTitleColor}: var(--plasma-colors-primary);
+                ${headerTokens.headerLabelColor}: var(--plasma-colors-secondary);
+                ${headerTokens.headerSubTitleColor}: var(--plasma-colors-secondary);
+                ${headerTokens.headerCaptionColor}: var(--plasma-colors-secondary);
+            `,
+            /**
+             * @deprecated
+             * использовать `default`
+             */
             primary: css`
                 ${headerTokens.headerArrowButtonColor}: var(--text-primary);
                 ${headerTokens.headerArrowButtonBackgroundColor}: var(--surface-clear);

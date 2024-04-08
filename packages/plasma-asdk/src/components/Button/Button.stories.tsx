@@ -10,7 +10,7 @@ import type { ButtonProps as Base } from '.';
 
 type ButtonProps = ComponentProps<Base>;
 
-const views = ['primary', 'secondary', 'accent', 'success', 'warning', 'critical', 'clear', 'dark', 'black', 'white'];
+const views = ['accent', 'default', 'secondary', 'success', 'warning', 'critical', 'clear', 'dark', 'black', 'white'];
 const sizes = ['l', 'm', 's', 'xs', 'xxs'];
 const stretching = ['auto', 'filled', 'fixed'];
 const pins = [

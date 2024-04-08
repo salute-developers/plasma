@@ -8,6 +8,20 @@ export const config = {
     variations: {
         // TODO сгенерировать корректные токены
         view: {
+            default: css`
+                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
+                --plasma-link-color: var(--text-primary);
+                --plasma-link-color-hover: var(--text-primary);
+                --plasma-link-color-active: var(--text-primary);
+                --plasma-link-color-visited: var(--text-primary);
+                --plasma-link-color-visited-hover: var(--text-primary);
+                --plasma-link-color-visited-active: var(--text-primary);
+                --plasma-link-underline-border: 0.063rem;
+            `,
+            /**
+             * @deprecated
+             * использовать `default`
+             */
             primary: css`
                 --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
                 --plasma-link-color: var(--text-primary);
