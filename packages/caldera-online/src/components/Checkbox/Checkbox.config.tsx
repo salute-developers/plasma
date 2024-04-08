@@ -46,6 +46,16 @@ export const config = {
             `,
         },
         view: {
+            default: css`
+                --plasma-checkbox-fill-color: var(--text-primary);
+                --plasma-checkbox-icon-color: var(--inverse-text-primary);
+                --plasma-checkbox-description-color: var(--text-secondary);
+                --plasma-checkbox-trigger-border-color: var(--text-secondary);
+            `,
+            /**
+             * @deprecated
+             * использовать `default`
+             */
             primary: css`
                 --plasma-checkbox-fill-color: var(--text-primary);
                 --plasma-checkbox-icon-color: var(--inverse-text-primary);

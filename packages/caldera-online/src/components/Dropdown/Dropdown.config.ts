@@ -21,7 +21,7 @@ const dropdownItemSizeCommon = `
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         size: 'm',
     },
     variations: {
@@ -96,6 +96,23 @@ export const config = {
             `,
         },
         view: {
+            default: css`
+                ${dropdownTokens.disabledOpacity}: 0.4;
+                ${dropdownTokens.background}: var(--surface-solid-card);
+                ${dropdownTokens.boxShadow}: var(--shadow-down-soft-s);
+
+                ${dropdownTokens.itemBackground}: var(--plasma-colors-transparent);
+                ${dropdownTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${dropdownTokens.itemBackgroundSelected}: inherit;
+                ${dropdownTokens.itemColorSelected}: inherit;
+                ${dropdownTokens.itemBackgroundSelectedHover}: inherit;
+                ${dropdownTokens.itemColorSelectedHover}: inherit;
+                ${dropdownTokens.itemColor}: var(--text-primary);
+            `,
+            /**
+             * @deprecated
+             * использовать `default`
+             */
             primary: css`
                 ${dropdownTokens.disabledOpacity}: 0.4;
                 ${dropdownTokens.background}: var(--surface-solid-card);
