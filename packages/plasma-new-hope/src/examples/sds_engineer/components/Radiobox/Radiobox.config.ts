@@ -57,7 +57,7 @@ export const config = {
          * Вид контрола.
          */
         view: {
-            primary: css`
+            default: css`
                 --plasma-radiobox-fill-color: var(--text-primary);
                 --plasma-radiobox-ellipse-color: var(--inverse-text-primary);
                 --plasma-radiobox-description-color: var(--text-secondary);

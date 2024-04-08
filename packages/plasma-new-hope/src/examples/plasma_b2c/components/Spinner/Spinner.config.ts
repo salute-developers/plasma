@@ -20,7 +20,7 @@ export const config = {
             `,
         },
         view: {
-            primary: css`
+            default: css`
                 ${spinnerTokens.color}: var(--text-primary);
             `,
             secondary: css`

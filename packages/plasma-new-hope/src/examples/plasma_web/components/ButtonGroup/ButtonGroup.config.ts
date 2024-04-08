@@ -4,12 +4,12 @@ import { buttonGroupTokens } from '../../../../components/ButtonGroup';
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         size: 'm',
     },
     variations: {
         view: {
-            primary: css`
+            default: css`
                 ${buttonGroupTokens.buttonColor}: var(--inverse-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-solid-default);
                 ${buttonGroupTokens.buttonColorHover}: var(--inverse-text-primary);

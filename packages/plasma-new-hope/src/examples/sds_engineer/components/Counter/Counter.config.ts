@@ -4,12 +4,12 @@ import { counterTokens } from '../../../../components/Counter';
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         size: 'xs',
     },
     variations: {
         view: {
-            primary: css`
+            default: css`
                 ${counterTokens.color}: var(--inverse-text-primary);
                 ${counterTokens.background}: var(--surface-solid-default);
             `,

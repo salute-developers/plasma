@@ -1,10 +1,18 @@
 import { HTMLAttributes } from 'react';
 
 type CustomIndicatorProps = {
-    // Размер индикатора
-    size: 'l' | 'm' | 's';
-    // Цвет индикатора
-    view: 'default' | 'accent' | 'inactive' | 'positive' | 'warning' | 'negative' | 'black' | 'white';
+    /**
+     * Размер индикатора
+     * @default
+     * m
+     */
+    size: string;
+    /**
+     * Вид индикатора
+     * @default
+     * default
+     */
+    view: string;
 };
 
 export type IndicatorProps = HTMLAttributes<HTMLDivElement> & CustomIndicatorProps;

@@ -52,7 +52,7 @@ export const config = {
                 ${paginationTokens.paginationColor}: var(--text-primary);
                 ${paginationTokens.buttonFocusColor}: var(--surface-accent);
             `,
-            primary: css`
+            default: css`
                 ${paginationTokens.buttonColor}: var(--inverse-text-primary);
                 ${paginationTokens.buttonBackgroundColor}: var(--surface-solid-default);
                 ${paginationTokens.buttonHoverColor}: var(--inverse-text-primary);
@@ -83,7 +83,7 @@ export const config = {
             `,
         },
         viewCurrentPage: {
-            primary: css`
+            default: css`
                 ${paginationTokens.paginationCurrentButtonColor}: var(--inverse-text-primary);
                 ${paginationTokens.paginationCurrentButtonBackgroundColor}: var(--surface-solid-default);
                 ${paginationTokens.paginationCurrentButtonHoverColor}: var(--inverse-text-primary);

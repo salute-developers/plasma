@@ -4,12 +4,12 @@ import { tokens as calendarDoubleTokens } from '../../../../components/Calendar/
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         size: 'm',
     },
     variations: {
         view: {
-            primary: css`
+            default: css`
                 ${calendarDoubleTokens.calendarBackgroundColor}: transparent;
                 ${calendarDoubleTokens.calendarSelectedItemBackground}: var(--plasma-colors-primary);
                 ${calendarDoubleTokens.calendarSelectedItemColor}: var(--plasma-colors-background-primary);

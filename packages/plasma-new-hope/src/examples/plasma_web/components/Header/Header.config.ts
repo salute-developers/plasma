@@ -4,12 +4,12 @@ import { headerTokens } from '../../../../components/Header';
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         size: 'm',
     },
     variations: {
         view: {
-            primary: css`
+            default: css`
                 ${headerTokens.headerArrowButtonColor}: var(--text-primary);
                 ${headerTokens.headerArrowButtonBackgroundColor}: var(--surface-clear);
 
