@@ -13,7 +13,7 @@ import { Dropdown, DropdownItem } from './Dropdown';
 
 import type { DropdownPlacement, DropdownTrigger } from '.';
 
-const views = ['primary'];
+const views = ['default'];
 const sizes = ['xs', 's', 'm', 'l'];
 const placements: Array<DropdownPlacement> = ['top', 'bottom', 'right', 'left', 'auto'];
 const triggers: Array<DropdownTrigger> = ['click', 'hover'];
@@ -56,7 +56,7 @@ const meta: Meta<StoryDropdownProps> = {
         },
     },
     args: {
-        view: 'primary',
+        view: 'default',
         size: 'm',
         placement: 'auto',
         trigger: 'click',

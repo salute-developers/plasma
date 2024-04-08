@@ -2,11 +2,22 @@ import { css } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         focused: 'true',
     },
     variations: {
         view: {
+            default: css`
+                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
+                --plasma-link-color: var(--text-primary);
+                --plasma-link-color-hover: var(--text-primary-hover);
+                --plasma-link-color-active: var(--text-primary-active);
+                --plasma-link-color-visited: var(--text-primary);
+                --plasma-link-color-visited-hover: var(--text-primary-hover);
+                --plasma-link-color-visited-active: var(--text-primary-active);
+                --plasma-link-underline-border: 0;
+            `,
+            // @deprecated
             primary: css`
                 --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
                 --plasma-link-color: var(--text-primary);
