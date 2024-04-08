@@ -12,10 +12,12 @@
   },
   "scripts": {
     "prepare": "npm run build",
-    "build": "npm run build:colors",
-    "build:colors": "npm run build:cjs && npm run build:esm",
+    "prebuild": "rm -rf ./dist ./es ./src",
+    "build": "npm run generate && npm run build:colors",
+    "build:colors": "npm run build:cjs && npm run build:esm && npm run lint -- --fix",
     "build:cjs": "tsc",
     "build:esm": "tsc -p ./tsconfig.es.json",
+    "generate": "npx ts-node ./lib/generate.ts",
     "lint": "../../node_modules/.bin/eslint ./src --ext .ts --quiet"
   },
   "files": [
