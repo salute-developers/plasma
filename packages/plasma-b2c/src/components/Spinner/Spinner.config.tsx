@@ -18,6 +18,13 @@ export const config = {
             `,
         },
         view: {
+            default: css`
+                --plasma-spinner-color: var(--text-primary);
+            `,
+            /**
+             * @deprecated
+             * использовать `default`
+             */
             primary: css`
                 --plasma-spinner-color: var(--text-primary);
             `,

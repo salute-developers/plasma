@@ -10,7 +10,7 @@ import { ButtonGroup } from './ButtonGroup';
 type StoryProps = ComponentProps<typeof ButtonGroup> & { itemsCount?: number };
 type Story = StoryObj<StoryProps>;
 
-const views = ['accent', 'primary', 'secondary', 'success', 'warning', 'critical', 'clear'];
+const views = ['accent', 'default', 'secondary', 'success', 'warning', 'critical', 'clear'];
 const sizes = ['l', 'm', 's', 'xs', 'xxs'];
 const orientationValues = ['horizontal', 'vertical'];
 const gapValues = ['none', 'dense', 'wide'];
@@ -64,7 +64,7 @@ export default meta;
 
 export const Default: Story = {
     args: {
-        view: 'primary',
+        view: 'default',
         size: 'm',
         gap: 'dense',
         orientation: 'horizontal',
@@ -98,7 +98,7 @@ export const CustomButtons: Story = {
             <>
                 <h3>Группа кнопок с разными темами</h3>
                 <ButtonGroup {...args}>
-                    <Button text="Primary" view="primary" />
+                    <Button text="Primary" view="default" />
                     <Button text="Negative" view="success" />
                     <Button text="Positive" view="warning" />
                     <Button text="Clear" view="clear" />
@@ -106,7 +106,7 @@ export const CustomButtons: Story = {
 
                 <h3>Группа кнопок с разными размерами</h3>
                 <ButtonGroup {...args}>
-                    <Button text="Primary" view="primary" size="l" />
+                    <Button text="Primary" view="default" size="l" />
                     <Button text="Negative" view="success" size="m" />
                     <Button text="Positive" view="warning" size="s" />
                     <Button text="Clear" view="clear" size="l" />

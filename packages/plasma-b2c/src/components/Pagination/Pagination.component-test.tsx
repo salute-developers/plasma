@@ -9,7 +9,7 @@ const id = 'test-pagination';
 const slots = [7, 9, 13];
 const values = [1, 10, 20];
 const count = 2000;
-const views = ['clear', 'secondary', 'primary'];
+const views = ['clear', 'secondary', 'default'];
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 

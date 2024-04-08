@@ -48,17 +48,17 @@ describe('plasma-b2c: Button', () => {
     it('with Loader', () => {
         mount(
             <CypressTestDecorator>
-                <Button size="l" view="primary" text="Button_view_primary" contentLeft={<Icon />} isLoading />
+                <Button size="l" view="default" text="Button_view_default" contentLeft={<Icon />} isLoading />
                 <PadMe />
-                <Button size="m" view="primary" text="Button_view_primary" contentLeft={<Icon />} isLoading />
+                <Button size="m" view="default" text="Button_view_default" contentLeft={<Icon />} isLoading />
                 <PadMe />
-                <Button size="s" view="primary" text="Button_view_primary" contentLeft={<Icon />} isLoading />
+                <Button size="s" view="default" text="Button_view_default" contentLeft={<Icon />} isLoading />
                 <PadMe />
-                <Button size="xs" view="primary" text="Button_view_primary" contentLeft={<Icon />} isLoading />
+                <Button size="xs" view="default" text="Button_view_default" contentLeft={<Icon />} isLoading />
                 <PadMe />
-                <Button size="xxs" view="primary" text="Button_view_primary" contentLeft={<Icon />} isLoading />
+                <Button size="xxs" view="default" text="Button_view_default" contentLeft={<Icon />} isLoading />
                 <PadMe />
-                <Button view="primary" isLoading />
+                <Button view="default" isLoading />
             </CypressTestDecorator>,
         );
         cy.matchImageSnapshot();
@@ -67,9 +67,9 @@ describe('plasma-b2c: Button', () => {
     it('_view', () => {
         mount(
             <CypressTestDecorator>
-                <Button view="primary" text="Button_view_primary" contentLeft={<Icon />} />
+                <Button view="default" text="Button_view_default" contentLeft={<Icon />} />
                 <SpaceMe />
-                <Button view="primary" text="_disabled" disabled contentLeft={<Icon />} />
+                <Button view="default" text="_disabled" disabled contentLeft={<Icon />} />
                 <PadMe />
                 <Button view="accent" text="Button_view_accent" contentLeft={<Icon />} />
                 <SpaceMe />
