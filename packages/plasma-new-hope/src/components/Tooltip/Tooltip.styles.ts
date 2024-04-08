@@ -37,6 +37,7 @@ export const TooltipRoot = styled.div<Pick<TooltipProps, 'minWidth' | 'maxWidth'
 `;
 
 export const StyledContentLeft = styled.div`
+    align-self: center;
     margin-right: var(${tokens.contentLeftMargin});
     height: var(${tokens.textFontLineHeight});
 `;

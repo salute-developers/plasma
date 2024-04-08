@@ -93,4 +93,21 @@ export const StyledPopover = styled.div<Pick<PopoverProps, 'zIndex'>>`
             transform: rotate(180deg);
         }
     }
+
+    &[data-popper-placement^='left-start']
+        > .${classes.arrow},
+        &[data-popper-placement^='right-start']
+        > .${classes.arrow} {
+        top: var(${String(tokens.arrowEdgeMargin)}) !important;
+        transform: unset !important;
+    }
+
+    &[data-popper-placement^='left-end']
+        > .${classes.arrow},
+        &[data-popper-placement^='right-end']
+        > .${classes.arrow} {
+        top: unset !important;
+        bottom: var(${String(tokens.arrowEdgeMargin)}) !important;
+        transform: unset !important;
+    }
 `;
