@@ -20,7 +20,10 @@ export const config = {
                 ${chipTokens.backgroundReadOnlyHover}: var(--plasma-colors-primary);
                 ${chipTokens.colorReadOnlyHover}: var(--plasma-colors-inverse);
             `,
-            // @deprecated
+            /**
+             * @deprecated
+             * использовать `default`
+             */
             primary: css`
                 ${chipTokens.color}: var(--plasma-colors-inverse);
                 ${chipTokens.background}: var(--plasma-colors-primary);

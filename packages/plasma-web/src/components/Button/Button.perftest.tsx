@@ -4,7 +4,7 @@ import { IconPlaceholder } from '@salutejs/plasma-sb-utils';
 import { Button } from '.';
 
 const defaultProps = {
-    view: 'primary' as const,
+    view: 'default' as const,
     size: 'l' as const,
     pin: 'square-square' as const,
     disabled: false,

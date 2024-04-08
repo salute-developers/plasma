@@ -2,11 +2,31 @@ import { css, buttonGroupTokens, buttonGroupClasses } from '@salutejs/plasma-new
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         size: 'm',
     },
     variations: {
         view: {
+            default: css`
+                ${buttonGroupTokens.buttonColor}: var(--inverse-text-primary);
+                ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-solid-default);
+                ${buttonGroupTokens.buttonColorHover}: var(--inverse-text-primary);
+                ${buttonGroupTokens.buttonBackgroundColorHover}: color-mix(
+                    in srgb,
+                    var(--inverse-text-primary),
+                    var(--surface-solid-default) 85%
+                );
+                ${buttonGroupTokens.buttonColorActive}: var(--inverse-text-primary);
+                ${buttonGroupTokens.buttonBackgroundColorActive}: color-mix(
+                    in srgb,
+                    var(--inverse-text-primary),
+                    var(--surface-solid-default) 80%
+                );
+            `,
+            /**
+             * @deprecated
+             * использовать `default`
+             */
             primary: css`
                 ${buttonGroupTokens.buttonColor}: var(--inverse-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-solid-default);

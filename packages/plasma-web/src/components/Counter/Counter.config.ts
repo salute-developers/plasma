@@ -2,11 +2,19 @@ import { css, counterTokens } from '@salutejs/plasma-new-hope/styled-components'
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         size: 'xs',
     },
     variations: {
         view: {
+            default: css`
+                ${counterTokens.color}: var(--inverse-text-primary);
+                ${counterTokens.background}: var(--surface-solid-default);
+            `,
+            /**
+             * @deprecated
+             * использовать `default`
+             */
             primary: css`
                 ${counterTokens.color}: var(--inverse-text-primary);
                 ${counterTokens.background}: var(--surface-solid-default);

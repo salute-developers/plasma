@@ -2,11 +2,22 @@ import { css, badgeTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         size: 'm',
     },
     variations: {
         view: {
+            default: css`
+                ${badgeTokens.color}: var(--inverse-text-primary);
+                ${badgeTokens.background}: var(--surface-solid-default);
+
+                ${badgeTokens.colorTransparent}: var(--text-primary);
+                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-secondary);
+            `,
+            /**
+             * @deprecated
+             * использовать `default`
+             */
             primary: css`
                 ${badgeTokens.color}: var(--inverse-text-primary);
                 ${badgeTokens.background}: var(--surface-solid-default);

@@ -16,7 +16,7 @@ const meta: Meta<typeof Counter> = {
             },
         },
         view: {
-            options: ['primary', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'],
+            options: ['default', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'],
             control: {
                 type: 'select',
             },
@@ -33,7 +33,7 @@ export const Default: Story = {
     args: {
         count: 25,
         maxCount: 100,
-        view: 'primary',
+        view: 'default',
         size: 'xs',
     },
 };
