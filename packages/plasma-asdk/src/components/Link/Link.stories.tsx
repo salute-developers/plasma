@@ -6,7 +6,7 @@ import { P1 } from '../Typography';
 
 import { Link } from '.';
 
-const views = ['primary'] as const;
+const views = ['default'] as const;
 
 const meta: Meta<typeof Link> = {
     title: 'Content/Link',
@@ -45,7 +45,7 @@ export const Default: StoryObj<StoryLinkProps> = {
     args: {
         text: 'приложение',
         href: 'https://google.com',
-        view: 'primary',
+        view: 'default',
         disabled: false,
         focused: true,
     },

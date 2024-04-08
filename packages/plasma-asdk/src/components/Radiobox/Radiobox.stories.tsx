@@ -6,7 +6,6 @@ import { action } from '@storybook/addon-actions';
 import { SSRProvider } from '../SSRProvider';
 import { InSpacingDecorator } from '../../helpers';
 import { Headline4 } from '../Typography';
-import { List, ListItem } from '../List';
 
 import { Radiobox, RadioGroup } from '.';
 import type { RadioboxProps as Base } from '.';

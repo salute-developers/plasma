@@ -5,7 +5,7 @@ import { IconPlaceholder } from '../../helpers';
 import { Button } from '.';
 
 const defaultProps = {
-    view: 'primary' as const,
+    view: 'default' as const,
     size: 'l' as const,
     disabled: false,
     outlined: true,
