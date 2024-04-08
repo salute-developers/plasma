@@ -9,17 +9,32 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
+const sizes = ['m', 's'];
+const views = ['default', 'secondary', 'tertiary', 'paragraph', 'accent', 'positive', 'warning', 'negative'];
+
 const meta: Meta<RadioboxProps> = {
     title: 'Controls/Radiobox',
     component: Radiobox,
     decorators: [InSpacingDecorator],
+    argTypes: {
+        view: {
+            options: views,
+            control: {
+                type: 'select',
+            },
+        },
+        size: {
+            options: sizes,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+    },
 };
 
 export default meta;
 
 type Story = StoryObj<RadioboxProps>;
-
-const sizes = ['m', 's'];
 
 const cDescription = (
     <div>
@@ -73,14 +88,6 @@ const StoryLive = (props: RadioboxProps) => {
 };
 
 export const Live: Story = {
-    argTypes: {
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
-            },
-        },
-    },
     args: {
         size: 'm',
         view: 'accent',
@@ -117,14 +124,6 @@ const StoryDefault = ({ name, label, description, disabled, singleLine, size }: 
 };
 
 export const Default: Story = {
-    argTypes: {
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
-            },
-        },
-    },
     args: {
         name: 'Radiobox',
         label: 'Label',

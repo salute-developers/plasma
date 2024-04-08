@@ -2,7 +2,7 @@ import { css, textAreaTokens } from '@salutejs/plasma-new-hope/styled-components
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         focused: 'true',
     },
     variations: {
@@ -165,6 +165,27 @@ export const config = {
             `,
         },
         view: {
+            default: css`
+                ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-primary);
+                ${textAreaTokens.inputBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${textAreaTokens.inputBackgroundColorActive}: var(--surface-transparent-primary-active);
+                ${textAreaTokens.inputBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${textAreaTokens.helpersBackgroundColor}: var(--surface-transparent-primary);
+                ${textAreaTokens.helpersBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${textAreaTokens.helpersBackgroundColorActive}: var(--surface-transparent-primary-active);
+                ${textAreaTokens.helpersBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.inputColorFocus}: var(--text-primary);
+                ${textAreaTokens.inputCaretColor}: var(--text-accent);
+                ${textAreaTokens.placeholderColor}: var(--text-secondary);
+                ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
+                ${textAreaTokens.leftHelperColor}: var(--text-secondary);
+                ${textAreaTokens.rightHelperColor}: var(--text-secondary);
+            `,
+            /**
+             * @deprecated
+             * использовать `default`
+             */
             primary: css`
                 ${textAreaTokens.inputBackgroundColor}: var(--surface-transparent-primary);
                 ${textAreaTokens.inputBackgroundColorHover}: var(--surface-transparent-primary-hover);

@@ -19,7 +19,7 @@ describe('plasma-web: Counter', () => {
     it('_view', () => {
         mount(
             <CypressTestDecorator>
-                <Counter count={10} view="primary" />
+                <Counter count={10} view="default" />
                 <PadMe />
                 <Counter count={10} view="accent" />
                 <PadMe />
