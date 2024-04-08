@@ -20,7 +20,7 @@ const meta: Meta<typeof Spinner> = {
             },
         },
         view: {
-            options: ['primary', 'secondary', 'tertiary', 'paragraph', 'accent', 'positive', 'warning', 'negative'],
+            options: ['default', 'secondary', 'tertiary', 'paragraph', 'accent', 'positive', 'warning', 'negative'],
             control: {
                 type: 'select',
             },
@@ -36,7 +36,7 @@ type StorySpinnerProps = ComponentProps<typeof Spinner>;
 export const Default: StoryObj<StorySpinnerProps> = {
     args: {
         size: 32,
-        view: 'primary',
+        view: 'default',
     },
 };
 

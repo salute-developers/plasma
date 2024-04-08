@@ -8,6 +8,7 @@ const meta: Meta<typeof Avatar> = {
     title: 'Content/Avatar',
     component: Avatar,
     argTypes: {
+        view: { control: 'inline-radio', options: ['default'] },
         size: { control: 'select', options: ['xxl', 'l', 'm', 's', 'fit'] },
         status: { control: 'select', options: ['active', 'inactive'] },
     },

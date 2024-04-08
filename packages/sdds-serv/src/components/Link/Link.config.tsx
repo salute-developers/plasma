@@ -2,12 +2,12 @@ import { css } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         focused: 'true',
     },
     variations: {
         view: {
-            primary: css`
+            default: css`
                 --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
                 --plasma-link-color: var(--text-primary);
                 --plasma-link-color-hover: var(--text-primary-hover);

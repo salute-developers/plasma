@@ -13,7 +13,7 @@ const meta: Meta<typeof Link> = {
     argTypes: {
         view: {
             options: [
-                'primary',
+                'default',
                 'secondary',
                 'tertiary',
                 'paragraph',
@@ -41,7 +41,7 @@ export const Default: StoryObj<StoryLinkProps> = {
     args: {
         text: 'приложение',
         href: 'https://google.com',
-        view: 'primary',
+        view: 'default',
         disabled: false,
         focused: true,
     },
