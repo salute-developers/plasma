@@ -4,7 +4,7 @@ import { textAreaTokens } from '../../../../components/TextArea';
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         focused: 'true',
     },
     variations: {
@@ -171,7 +171,7 @@ export const config = {
             `,
         },
         view: {
-            primary: css`
+            default: css`
                 ${textAreaTokens.inputBorderColor}: var(--text-tertiary);
                 ${textAreaTokens.inputBorderColorHover}: var(--text-tertiary-hover);
                 ${textAreaTokens.inputBorderColorActive}: var(--text-tertiary-hover);

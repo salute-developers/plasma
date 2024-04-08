@@ -4,7 +4,7 @@ import { textAreaTokens } from '../../../../components/TextArea';
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         focused: 'true',
     },
     variations: {
@@ -62,7 +62,7 @@ export const config = {
             `,
         },
         view: {
-            primary: css`
+            default: css`
                 ${textAreaTokens.inputBorderColor}: var(--surface-transparent-tertiary);
                 ${textAreaTokens.inputBorderColorHover}: var(--surface-accent-hover);
                 ${textAreaTokens.inputBorderColorActive}: var(--surface-accent-active);

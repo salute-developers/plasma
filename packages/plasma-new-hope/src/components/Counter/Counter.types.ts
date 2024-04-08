@@ -18,7 +18,7 @@ type CustomCounterProps = {
     /**
      * Вид Counter
      * @default
-     * primary
+     * default
      */
     view?: string;
 };
