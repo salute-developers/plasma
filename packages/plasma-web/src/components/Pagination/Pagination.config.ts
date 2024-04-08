@@ -50,6 +50,39 @@ export const config = {
                 ${paginationTokens.paginationColor}: var(--text-primary);
                 ${paginationTokens.buttonFocusColor}: var(--surface-accent);
             `,
+            default: css`
+                ${paginationTokens.buttonColor}: var(--inverse-text-primary);
+                ${paginationTokens.buttonBackgroundColor}: var(--surface-solid-default);
+                ${paginationTokens.buttonHoverColor}: var(--inverse-text-primary);
+                ${paginationTokens.buttonHoverBackgroundColor}: color-mix(
+                    in srgb,
+                    var(--inverse-text-primary),
+                    var(--surface-solid-default) 85%
+                );
+                ${paginationTokens.buttonActiveColor}: var(--inverse-text-primary);
+                ${paginationTokens.buttonActiveBackgroundColor}: color-mix(
+                    in srgb,
+                    var(--inverse-text-primary),
+                    var(--surface-solid-default) 80%
+                );
+
+                ${paginationTokens.buttonDisabledOpacity}: 0.4;
+
+                ${paginationTokens.selectBackgroundColor}: color-mix(
+                    in srgb,
+                    var(--inverse-text-primary),
+                    var(--surface-solid-default) 85%
+                );
+                ${paginationTokens.inputBackgroundColor}: var(--surface-clear);
+                ${paginationTokens.inputBorderColor}: var(--surface-transparent-secondary);
+
+                ${paginationTokens.paginationColor}: var(--text-primary);
+                ${paginationTokens.buttonFocusColor}: var(--surface-accent);
+            `,
+            /**
+             * @deprecated
+             * использовать `default`
+             */
             primary: css`
                 ${paginationTokens.buttonColor}: var(--inverse-text-primary);
                 ${paginationTokens.buttonBackgroundColor}: var(--surface-solid-default);
@@ -81,6 +114,26 @@ export const config = {
             `,
         },
         viewCurrentPage: {
+            default: css`
+                ${paginationTokens.paginationCurrentButtonColor}: var(--inverse-text-primary);
+                ${paginationTokens.paginationCurrentButtonBackgroundColor}: var(--surface-solid-default);
+                ${paginationTokens.paginationCurrentButtonHoverColor}: var(--inverse-text-primary);
+                ${paginationTokens.paginationCurrentButtonHoverBackgroundColor}: color-mix(
+                    in srgb,
+                    var(--inverse-text-primary),
+                    var(--surface-solid-default) 85%
+                );
+                ${paginationTokens.paginationCurrentButtonActiveColor}: var(--inverse-text-primary);
+                ${paginationTokens.paginationCurrentButtonActiveBackgroundColor}: color-mix(
+                    in srgb,
+                    var(--inverse-text-primary),
+                    var(--surface-solid-default) 80%
+                );
+            `,
+            /**
+             * @deprecated
+             * использовать `default`
+             */
             primary: css`
                 ${paginationTokens.paginationCurrentButtonColor}: var(--inverse-text-primary);
                 ${paginationTokens.paginationCurrentButtonBackgroundColor}: var(--surface-solid-default);

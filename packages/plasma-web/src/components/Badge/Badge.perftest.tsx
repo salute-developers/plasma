@@ -6,7 +6,7 @@ import { Badge } from '.';
 const defaultProps = {
     text: 'Badge' as const,
     size: 'l' as const,
-    view: 'primary' as const,
+    view: 'default' as const,
 };
 export const Default = () => {
     return <Badge contentLeft={<IconSettings color="inherit" size="xs" />} {...defaultProps} />;

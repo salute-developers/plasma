@@ -7,7 +7,7 @@ import { Button } from './Button';
 
 type StoryButtonProps = ComponentProps<typeof Button> & { contentType: string; isLoading: boolean };
 
-const views = ['accent', 'primary', 'secondary', 'success', 'warning', 'critical', 'clear', 'dark', 'black', 'white'];
+const views = ['accent', 'default', 'secondary', 'success', 'warning', 'critical', 'clear', 'dark', 'black', 'white'];
 const sizes = ['l', 'm', 's', 'xs', 'xxs'];
 const stretching = ['auto', 'filled', 'fixed'];
 const pins = [
@@ -79,7 +79,7 @@ type Story = StoryObj<StoryButtonProps>;
 
 const StoryBaseButton: Story = {
     args: {
-        view: 'primary',
+        view: 'default',
         size: 'l',
         disabled: false,
         text: 'Label',
@@ -176,7 +176,7 @@ const StoryButtonLoading = ({ contentType, isLoading, text, onClick: _onClick, .
 
 export const Loading: Story = {
     args: {
-        view: 'primary',
+        view: 'default',
         size: 'l',
         pin: 'square-square',
         disabled: false,

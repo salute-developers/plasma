@@ -23,9 +23,9 @@ describe('plasma-web: Badge', () => {
     it('_view', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Badge view="primary" text="Badge_view_default" contentLeft={<Icon />} />
+                <Badge view="default" text="Badge_view_default" contentLeft={<Icon />} />
                 <SpaceMe />
-                <Badge view="primary" contentLeft={<Icon />} />
+                <Badge view="default" contentLeft={<Icon />} />
                 <PadMe />
                 <Badge view="accent" text="Badge_view_accent" contentLeft={<Icon />} />
                 <SpaceMe />

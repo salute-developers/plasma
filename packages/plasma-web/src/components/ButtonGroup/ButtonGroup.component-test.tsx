@@ -18,7 +18,7 @@ describe('plasma-web: ButtonGroup', () => {
     );
 
     const getButtons = () => [
-        <Button view="primary" size="l" text="Button_view_primary" />,
+        <Button view="default" size="l" text="Button_view_default" />,
         <Button view="accent" text="Button_view_accent" />,
         <Button view="secondary" text="Button_view_secondary" />,
         <Button view="success" size="s" text="Button_view_success" />,
@@ -28,7 +28,7 @@ describe('plasma-web: ButtonGroup', () => {
     it('_view', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <ButtonGroup view="primary">{getButtons()}</ButtonGroup>
+                <ButtonGroup view="default">{getButtons()}</ButtonGroup>
                 <PadMe />
                 <ButtonGroup view="accent">{getButtons()}</ButtonGroup>
                 <PadMe />
@@ -85,11 +85,11 @@ describe('plasma-web: ButtonGroup', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <ButtonGroup orientation="horizontal">
-                    <Button view="primary" text="Button_view_primary" />
+                    <Button view="default" text="Button_view_default" />
                 </ButtonGroup>
                 <PadMe />
                 <ButtonGroup orientation="vertical">
-                    <Button view="primary" text="Button_view_primary" />
+                    <Button view="default" text="Button_view_default" />
                 </ButtonGroup>
             </CypressTestDecoratorWithTypo>,
         );
