@@ -162,6 +162,7 @@ export { bodyXXSBold }
 // @public
 export const Button: FunctionComponent<PropsType<    {
 view: {
+default: string;
 primary: string;
 accent: string;
 secondary: string;
@@ -219,6 +220,7 @@ m: string;
 l: string;
 };
 view: {
+default: string;
 primary: string;
 };
 }> & HTMLAttributes<HTMLDivElement> & CustomDropdownProps & RefAttributes<HTMLDivElement>>;
@@ -355,6 +357,7 @@ export { h5Bold }
 // @public
 export const Link: FunctionComponent<PropsType<    {
 view: {
+default: string;
 primary: string;
 secondary: string;
 tertiary: string;
@@ -484,6 +487,7 @@ export { ShowToastArgs }
 // @public
 export const Spinner: StyledComponent<FunctionComponent<PropsType<    {
 view: {
+default: string;
 primary: string;
 secondary: string;
 tertiary: string;
@@ -611,6 +615,7 @@ export { textXSBold }
 // @public (undocumented)
 export const Toast: FunctionComponent<PropsType<    {
 view: {
+default: string;
 primary: string;
 dark: string;
 light: string;

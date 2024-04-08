@@ -347,7 +347,7 @@ export { AvatarProps }
 // @public
 export const Badge: FunctionComponent<PropsType<    {
 view: {
-primary: string;
+default: string;
 accent: string;
 positive: string;
 warning: string;
@@ -454,6 +454,7 @@ export { BreakWordProps }
 // @public
 export const Button: FunctionComponent<PropsType<    {
 view: {
+default: string;
 primary: string;
 accent: string;
 secondary: string;
@@ -508,6 +509,7 @@ export { ButtonBase }
 // @public
 export const ButtonGroup: FunctionComponent<PropsType<    {
 view: {
+default: string;
 primary: string;
 accent: string;
 secondary: string;
@@ -515,6 +517,9 @@ clear: string;
 success: string;
 warning: string;
 critical: string;
+dark: string;
+black: string;
+white: string;
 };
 size: {
 l: string;
@@ -556,6 +561,7 @@ export const Calendar: FC<CalendarProps>;
 // @public (undocumented)
 export const CalendarBase: FunctionComponent<PropsType<    {
 view: {
+default: string;
 primary: string;
 };
 size: {
@@ -573,6 +579,7 @@ export const CalendarBaseRange: ({ value, disabledList, eventList, min, max, onC
 // @public (undocumented)
 export const CalendarDouble: FunctionComponent<PropsType<    {
 view: {
+default: string;
 primary: string;
 };
 size: {
@@ -686,6 +693,7 @@ s: string;
 m: string;
 };
 view: {
+default: string;
 primary: string;
 secondary: string;
 tertiary: string;
@@ -837,7 +845,7 @@ export { convertRoundnessMatrix }
 // @public
 export const Counter: FunctionComponent<PropsType<    {
 view: {
-primary: string;
+default: string;
 accent: string;
 positive: string;
 warning: string;
@@ -1137,8 +1145,8 @@ m: string;
 s: string;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
-size: "m" | "s" | "l";
-view: "accent" | "default" | "black" | "white" | "inactive" | "warning" | "positive" | "negative";
+size: string;
+view: string;
 } & RefAttributes<HTMLDivElement>>;
 
 export { IndicatorProps }
@@ -1194,6 +1202,7 @@ export { LineSkeletonProps }
 // @public
 export const Link: FunctionComponent<PropsType<    {
 view: {
+default: string;
 primary: string;
 secondary: string;
 tertiary: string;
@@ -1296,9 +1305,11 @@ export const Pagination: FunctionComponent<PropsType<    {
 view: {
 secondary: string;
 clear: string;
+default: string;
 primary: string;
 };
 viewCurrentPage: {
+default: string;
 primary: string;
 secondary: string;
 clear: string;
@@ -1406,6 +1417,7 @@ s: string;
 m: string;
 };
 view: {
+default: string;
 primary: string;
 secondary: string;
 tertiary: string;
@@ -1754,6 +1766,7 @@ export { TimingFunction }
 // @public (undocumented)
 export const Toast: FunctionComponent<PropsType<    {
 view: {
+default: string;
 primary: string;
 dark: string;
 light: string;

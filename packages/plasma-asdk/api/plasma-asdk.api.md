@@ -92,6 +92,7 @@ breakWord?: boolean | undefined;
 // @public
 export const Button: FunctionComponent<PropsType<    {
 view: {
+default: string;
 primary: string;
 secondary: string;
 accent: string;
@@ -285,6 +286,7 @@ headline5: string;
 // @public
 export const Link: FunctionComponent<PropsType<    {
 view: {
+default: string;
 primary: string;
 };
 disabled: {

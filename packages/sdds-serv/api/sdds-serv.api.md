@@ -186,7 +186,7 @@ export { AvatarProps }
 // @public
 export const Badge: FunctionComponent<PropsType<    {
 view: {
-primary: string;
+default: string;
 accent: string;
 positive: string;
 warning: string;
@@ -287,7 +287,7 @@ export { bodyXXSBold }
 // @public
 export const Button: FunctionComponent<PropsType<    {
 view: {
-primary: string;
+default: string;
 accent: string;
 secondary: string;
 clear: string;
@@ -325,13 +325,16 @@ fixed: string;
 // @public
 export const ButtonGroup: FunctionComponent<PropsType<    {
 view: {
-primary: string;
+default: string;
 accent: string;
 secondary: string;
 clear: string;
 success: string;
 warning: string;
 critical: string;
+dark: string;
+black: string;
+white: string;
 };
 size: {
 l: string;
@@ -525,7 +528,7 @@ export { ComboboxProps }
 // @public
 export const Counter: FunctionComponent<PropsType<    {
 view: {
-primary: string;
+default: string;
 accent: string;
 positive: string;
 warning: string;
@@ -630,7 +633,7 @@ m: string;
 l: string;
 };
 view: {
-primary: string;
+default: string;
 };
 }> & HTMLAttributes<HTMLDivElement> & CustomDropdownProps & RefAttributes<HTMLDivElement>>;
 
@@ -800,8 +803,8 @@ m: string;
 s: string;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
-size: "s" | "m" | "l";
-view: "default" | "accent" | "positive" | "warning" | "negative" | "inactive" | "black" | "white";
+size: string;
+view: string;
 } & RefAttributes<HTMLDivElement>>;
 
 export { IndicatorProps }
@@ -809,7 +812,7 @@ export { IndicatorProps }
 // @public
 export const Link: FunctionComponent<PropsType<    {
 view: {
-primary: string;
+default: string;
 secondary: string;
 tertiary: string;
 paragraph: string;
@@ -1003,7 +1006,7 @@ export { ShowToastArgs }
 // @public
 export const Spinner: StyledComponent<FunctionComponent<PropsType<    {
 view: {
-primary: string;
+default: string;
 secondary: string;
 tertiary: string;
 paragraph: string;
@@ -1248,7 +1251,7 @@ export { textXSBold }
 // @public (undocumented)
 export const Toast: FunctionComponent<PropsType<    {
 view: {
-primary: string;
+default: string;
 dark: string;
 light: string;
 };
