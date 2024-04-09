@@ -1,4 +1,4 @@
-name: Deploy documentation and storybook artefacts to "/dev"
+name: Deploy documentation artefacts to "demo" stage [dev branch]
 
 on:
   workflow_dispatch:
