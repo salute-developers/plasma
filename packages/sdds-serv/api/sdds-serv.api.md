@@ -7,6 +7,7 @@
 /// <reference types="react" />
 
 import { addFocus } from '@salutejs/plasma-new-hope/styled-components';
+import { AlignProp } from '@salutejs/plasma-new-hope/types/components/Cell/Cell.types';
 import { AnchorHTMLAttributes } from 'react';
 import { AsProps } from '@salutejs/plasma-new-hope/types/types';
 import { AvatarGroupProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -27,6 +28,11 @@ import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography
 import { ButtonGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonHTMLAttributes } from 'react';
 import { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-new-hope/styled-components';
+import { CellProps } from '@salutejs/plasma-new-hope/styled-components';
+import { CellTextbox } from '@salutejs/plasma-new-hope/styled-components';
+import { CellTextboxLabel } from '@salutejs/plasma-new-hope/styled-components';
+import { CellTextboxSubtitle } from '@salutejs/plasma-new-hope/styled-components';
+import { CellTextboxTitle } from '@salutejs/plasma-new-hope/styled-components';
 import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ClosePlacementType } from '@salutejs/plasma-new-hope/styled-components';
 import { Col } from '@salutejs/plasma-new-hope/styled-components';
@@ -73,6 +79,7 @@ import { h5Bold } from '@salutejs/sdds-themes/tokens';
 import { HTMLAttributes } from 'react';
 import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImgHTMLAttributes } from 'react';
+import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
 import type { InputHTMLAttributes } from 'react';
 import { JSXElementConstructor } from 'react';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
@@ -356,6 +363,59 @@ export { ButtonGroupProps }
 //
 // @public (undocumented)
 export type ButtonProps = typeof ButtonComponent;
+
+// @public
+export const Cell: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+}> & (({
+size?: string | undefined;
+view: string;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+alignContentLeft?: AlignProp | undefined;
+alignContentRight?: AlignProp | undefined;
+stretching?: "auto" | "filled" | "fixed" | undefined;
+content?: ReactNode;
+description?: string | undefined;
+} & {
+title?: string | undefined;
+subtitle?: string | undefined;
+label?: string | undefined;
+children?: undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>) | ({
+size?: string | undefined;
+view: string;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+alignContentLeft?: AlignProp | undefined;
+alignContentRight?: AlignProp | undefined;
+stretching?: "auto" | "filled" | "fixed" | undefined;
+content?: ReactNode;
+description?: string | undefined;
+} & {
+title?: undefined;
+subtitle?: undefined;
+label?: undefined;
+children?: ReactNode;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>))>;
+
+export { CellProps }
+
+export { CellTextbox }
+
+export { CellTextboxLabel }
+
+export { CellTextboxSubtitle }
+
+export { CellTextboxTitle }
 
 // @public
 export const Checkbox: FunctionComponent<BaseboxProps>;
@@ -715,6 +775,30 @@ customRatio?: string | undefined;
 export { Image_2 as Image }
 
 export { ImageProps }
+
+// @public (undocumented)
+export const Indicator: FunctionComponent<PropsType<    {
+view: {
+default: string;
+accent: string;
+inactive: string;
+positive: string;
+warning: string;
+negative: string;
+black: string;
+white: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+size: "s" | "m" | "l";
+view: "default" | "accent" | "positive" | "warning" | "negative" | "inactive" | "black" | "white";
+} & RefAttributes<HTMLDivElement>>;
+
+export { IndicatorProps }
 
 // @public
 export const Link: FunctionComponent<PropsType<    {
