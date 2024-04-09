@@ -32,5 +32,7 @@ module.exports = () => {
         scope.add('plasma-typo');
     }
 
-    return `@salutejs/{${Array.from(scope).join(',')}}`;
+    const scopeList = Array.from(scope);
+
+    return scopeList.length === 1 ? `@salutejs/${scopeList[0]}` : `@salutejs/{${scopeList.join(',')}}`;
 };
