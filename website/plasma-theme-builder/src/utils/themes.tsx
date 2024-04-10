@@ -5,7 +5,7 @@ import { createTheme } from '../builder/createTheme';
 import { getFilesSource } from '../api';
 import { getFormatDate, loadTheme } from '.';
 import { THEME_BUILDER_PREFIX, BASE_PREFIX } from '../types';
-import type { Theme as ThemeType } from '../types';
+import type { FormulaMode, Theme as ThemeType } from '../types';
 
 const StyledDate = styled.div`
     opacity: 0.5;
@@ -144,3 +144,11 @@ export const getPrefix = (themeName?: string, branchName?: string) => {
 
 export const getFullThemeName = (themeName?: string, branchName?: string) =>
     `${getPrefix(themeName, branchName)}${themeName}`;
+
+// TODO: Подумать как сделать этот список динамическим, либо добавить механизм к группе
+// который будет указывать как применять формулы для генерации active и hover состояний
+export const sectionToFormulaMap: Record<string, FormulaMode> = {
+    text: 'stroke',
+    outline: 'stroke',
+    surface: 'fill',
+};

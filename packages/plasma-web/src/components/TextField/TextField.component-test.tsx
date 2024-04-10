@@ -1,11 +1,23 @@
 import React from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import { createGlobalStyle } from 'styled-components';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { mount, CypressTestDecorator, getComponent, SpaceMe } from '@salutejs/plasma-cy-utils';
 import { IconSleep, IconEye } from '@salutejs/plasma-icons';
 
 import { TextField as TextFieldWeb } from '.';
 
+const StandardTypoStyle = createGlobalStyle(standardTypo);
+
 describe('plasma-web: TextField', () => {
     const TextField = getComponent('TextField') as typeof TextFieldWeb;
+
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
 
     function Demo({ maxLength }) {
         const [value, setValue] = React.useState('');
@@ -26,9 +38,9 @@ describe('plasma-web: TextField', () => {
 
     it('default', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextField size="m" value="Value" placeholder="Placeholder" helperText="Helper text" />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -36,13 +48,13 @@ describe('plasma-web: TextField', () => {
 
     it('_size', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextField size="s" value="Small s" label="Label" placeholder="Placeholder" helperText="Helper text" />
                 <SpaceMe />
                 <TextField size="m" value="Medium m" label="Label" placeholder="Placeholder" helperText="Helper text" />
                 <SpaceMe />
                 <TextField size="l" value="Medium l" label="Label" placeholder="Placeholder" helperText="Helper text" />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -50,7 +62,7 @@ describe('plasma-web: TextField', () => {
 
     it('_status', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextField size="m" value="Value" placeholder="Placeholder" helperText="Helper text" status="success" />
                 <SpaceMe />
                 <TextField size="m" value="Value" placeholder="Placeholder" helperText="Helper text" status="warning" />
@@ -62,7 +74,7 @@ describe('plasma-web: TextField', () => {
                 <TextField size="m" placeholder="Placeholder" status="warning" />
                 <SpaceMe />
                 <TextField size="m" placeholder="Placeholder" status="error" />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -70,9 +82,9 @@ describe('plasma-web: TextField', () => {
 
     it('_maxLength', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Demo maxLength={10} />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('input').type('More then ten symbols');
@@ -82,9 +94,9 @@ describe('plasma-web: TextField', () => {
 
     it(':empty', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextField size="m" placeholder="Placeholder" />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -92,9 +104,9 @@ describe('plasma-web: TextField', () => {
 
     it(':focused', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextField size="m" value="Value" placeholder="Placeholder" helperText="Helper text" />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('input:first').focus();
@@ -103,9 +115,9 @@ describe('plasma-web: TextField', () => {
 
     it(':disabled', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextField size="m" value="Value" placeholder="Placeholder" helperText="Helper text" disabled />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -113,9 +125,9 @@ describe('plasma-web: TextField', () => {
 
     it(':readOnly', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextField size="m" value="Value" placeholder="Placeholder" helperText="Helper text" readOnly />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -123,7 +135,7 @@ describe('plasma-web: TextField', () => {
 
     it('content', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextField
                     size="m"
                     value="Value"
@@ -148,7 +160,7 @@ describe('plasma-web: TextField', () => {
                     helperText="Helper text"
                     contentRight={<IconEye color="inherit" size="s" />}
                 />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -156,7 +168,7 @@ describe('plasma-web: TextField', () => {
 
     it('content: with label', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextField
                     size="l"
                     value="Value"
@@ -195,7 +207,7 @@ describe('plasma-web: TextField', () => {
                     label="Label"
                     contentRight={<IconEye color="inherit" size="s" />}
                 />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -203,7 +215,7 @@ describe('plasma-web: TextField', () => {
 
     it('_animatedHint:label', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <TextField
                     size="l"
                     label="Label"
@@ -213,7 +225,7 @@ describe('plasma-web: TextField', () => {
                     animatedHint="label"
                 />
                 <SpaceMe />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -221,7 +233,7 @@ describe('plasma-web: TextField', () => {
 
     it('_animatedHint:placeholder', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 {/* for backward comp  */}
                 <div
                     style={{
@@ -243,8 +255,117 @@ describe('plasma-web: TextField', () => {
                     animatedHint="placeholder"
                 />
                 <SpaceMe />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('_enumerationType:chip', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <TextField
+                    size="l"
+                    label="Label"
+                    enumerationType="chip"
+                    chips={['Value 1', 'Value 2']}
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                />
+                <SpaceMe />
+                <TextField
+                    size="l"
+                    label="Label"
+                    value="place values"
+                    enumerationType="chip"
+                    chips={['Value 1', 'Value 2']}
+                    placeholder="Placeholder"
+                    helperText="Helper text"
+                    animatedHint="label"
+                />
+                <SpaceMe />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+});
+
+describe('plasma-web: TextField keyboard navigation', () => {
+    const TextField = getComponent('TextField') as typeof TextFieldWeb;
+
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
+
+    it('chips', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <TextField size="m" placeholder="Placeholder" enumerationType="chip" helperText="Helper text" />
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('body').tab();
+
+        // добавляем chips
+        cy.get('input').type('Hello,{enter} Plasma!{enter} Have fun{enter}');
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(200);
+        cy.get('.has-chips').find('button').should('have.length', 3);
+
+        // фокус на первом чипе слева от инпута по ArrowLeft
+        cy.get('input').type('{leftarrow}');
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(100);
+        cy.get('.has-chips').find('button').eq(2).should('be.focused');
+
+        // фокус на первом чипе по ArrowLeft
+        cy.focused()
+            .trigger('keydown', { key: 'ArrowLeft' })
+            .trigger('keydown', { key: 'ArrowLeft' })
+            .trigger('keydown', { key: 'ArrowLeft' });
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(200);
+        cy.get('.has-chips').find('button').eq(0).should('be.focused');
+
+        // фокус на инпуте по ArrowRight до конца
+        cy.focused()
+            .trigger('keydown', { key: 'ArrowRight' })
+            .trigger('keydown', { key: 'ArrowRight' })
+            .trigger('keydown', { key: 'ArrowRight' });
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(200);
+        cy.get('input').should('be.focused');
+
+        // удалён последний чип по Backspace из фокуса на инпуте
+        cy.focused().trigger('keydown', { key: 'Backspace' });
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(200);
+        cy.get('.has-chips').find('button').should('have.length', 2);
+
+        // фокус на первом чипе по ArrowLeft
+        cy.focused().trigger('keydown', { key: 'ArrowLeft' }).trigger('keydown', { key: 'ArrowLeft' });
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(200);
+        cy.get('.has-chips').find('button').eq(0).should('be.focused');
+
+        // удалён первый чип по Backspace
+        cy.focused().trigger('keydown', { key: 'Backspace' });
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(200);
+        cy.get('.has-chips').find('button').should('have.length', 1);
+
+        // фокус на инпуте и ввод текста
+        cy.get('input').focus().type('Hello!!!');
+
+        // удаление части текста
+        cy.focused().type('{backspace}{backspace}{backspace}');
+        cy.get('input').should('have.value', 'Hello');
 
         cy.matchImageSnapshot();
     });

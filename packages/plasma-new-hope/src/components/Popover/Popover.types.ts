@@ -1,10 +1,10 @@
 import { Placement, ComputedPlacement } from '@popperjs/core';
 import type { HTMLAttributes, ReactNode, SyntheticEvent } from 'react';
 
-export type PopoverTrigger = 'hover' | 'click';
-
 export type PopoverPlacementBasic = ComputedPlacement;
 export type PopoverPlacement = Placement;
+
+export type PopoverTrigger = 'hover' | 'click';
 
 export type CustomPopoverProps = {
     /**
@@ -64,17 +64,15 @@ export type CustomPopoverProps = {
      */
     onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
     /**
-     * Закрывать окно при нажатии вне области окна.
-     * @default
-     * true
-     */
-    closeOnOverlayClick?: boolean;
-    /**
      * Закрывать окно при нажатии ESC.
      * @default
      * true
      */
     closeOnEsc?: boolean;
+    /**
+     * Закрывать окно при нажатии вне области окна. (Если trigger === 'click')
+     */
+    closeOnOverlayClick?: boolean;
     /**
      * Находится ли в портале.
      * @default

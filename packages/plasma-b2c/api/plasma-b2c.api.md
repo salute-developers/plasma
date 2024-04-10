@@ -8,6 +8,7 @@
 
 import { addFocus } from '@salutejs/plasma-core';
 import { addNotification } from '@salutejs/plasma-new-hope/styled-components';
+import { AlignProp } from '@salutejs/plasma-new-hope/types/components/Cell/Cell.types';
 import { AnchorHTMLAttributes } from 'react';
 import { animatedScrollToX } from '@salutejs/plasma-core';
 import { animatedScrollToY } from '@salutejs/plasma-core';
@@ -63,8 +64,11 @@ import { CarouselGridWrapper } from '@salutejs/plasma-hope';
 import { CarouselItem } from '@salutejs/plasma-hope';
 import { CarouselItemProps } from '@salutejs/plasma-hope';
 import { CarouselProps } from '@salutejs/plasma-hope';
-import { Cell } from '@salutejs/plasma-hope';
-import { CellProps } from '@salutejs/plasma-hope';
+import { CellProps } from '@salutejs/plasma-new-hope/styled-components';
+import { CellTextbox } from '@salutejs/plasma-new-hope/styled-components';
+import { CellTextboxLabel } from '@salutejs/plasma-new-hope/styled-components';
+import { CellTextboxSubtitle } from '@salutejs/plasma-new-hope/styled-components';
+import { CellTextboxTitle } from '@salutejs/plasma-new-hope/styled-components';
 import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { clearSelection } from '@salutejs/plasma-hope';
 import { closeNotification } from '@salutejs/plasma-new-hope/styled-components';
@@ -92,15 +96,11 @@ import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components'
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerProps } from '@salutejs/plasma-new-hope/styled-components';
-import { Dropdown } from '@salutejs/plasma-hope';
-import { DropdownItem } from '@salutejs/plasma-hope';
 import { DropdownItemProps } from '@salutejs/plasma-hope';
-import { DropdownList } from '@salutejs/plasma-hope';
+import { DropdownItem as DropdownItemType } from '@salutejs/plasma-hope';
 import { DropdownNodeType } from '@salutejs/plasma-hope';
-import { DropdownPopup } from '@salutejs/plasma-hope';
 import { DropdownPopupProps } from '@salutejs/plasma-hope';
 import { DropdownProps } from '@salutejs/plasma-hope';
-import { DropdownUncontrolled } from '@salutejs/plasma-hope';
 import { Editable } from '@salutejs/plasma-hope';
 import { EditableProps } from '@salutejs/plasma-hope';
 import { ElasticGrid } from '@salutejs/plasma-hope';
@@ -218,6 +218,7 @@ import { StyledComponent } from 'styled-components';
 import { StyledPreviewGallery } from '@salutejs/plasma-hope';
 import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
 import type { SwitchProps } from '@salutejs/plasma-core';
+import { SyntheticEvent } from 'react';
 import { syntheticFocus } from '@salutejs/plasma-core';
 import { TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
@@ -227,7 +228,8 @@ import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
 import { TextAreaProps } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
-import { TextFieldProps } from '@salutejs/plasma-hope';
+import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
+import type { TextFieldProps as TextFieldProps_2 } from '@salutejs/plasma-hope';
 import { TextFieldView } from '@salutejs/plasma-hope';
 import { TextSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TimingFunction } from '@salutejs/plasma-core';
@@ -459,6 +461,9 @@ clear: string;
 success: string;
 warning: string;
 critical: string;
+dark: string;
+black: string;
+white: string;
 };
 size: {
 l: string;
@@ -621,9 +626,58 @@ export { CarouselItemProps }
 
 export { CarouselProps }
 
-export { Cell }
+// @public
+export const Cell: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+}> & (({
+size?: string | undefined;
+view: string;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+alignContentLeft?: AlignProp | undefined;
+alignContentRight?: AlignProp | undefined;
+stretching?: "auto" | "fixed" | "filled" | undefined;
+content?: ReactNode;
+description?: string | undefined;
+} & {
+title?: string | undefined;
+subtitle?: string | undefined;
+label?: string | undefined;
+children?: undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>) | ({
+size?: string | undefined;
+view: string;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+alignContentLeft?: AlignProp | undefined;
+alignContentRight?: AlignProp | undefined;
+stretching?: "auto" | "fixed" | "filled" | undefined;
+content?: ReactNode;
+description?: string | undefined;
+} & {
+title?: undefined;
+subtitle?: undefined;
+label?: undefined;
+children?: ReactNode;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>))>;
 
 export { CellProps }
+
+export { CellTextbox }
+
+export { CellTextboxLabel }
+
+export { CellTextboxSubtitle }
+
+export { CellTextboxTitle }
 
 // @public
 export const Checkbox: FunctionComponent<PropsType<    {
@@ -657,6 +711,7 @@ export type CheckboxProps = typeof CheckboxComponent;
 // @public
 export const Chip: FunctionComponent<PropsType<    {
 view: {
+default: string;
 primary: string;
 secondary: string;
 positive: string;
@@ -673,19 +728,7 @@ true: string;
 focused: {
 true: string;
 };
-}> & ButtonHTMLAttributes<HTMLButtonElement> & {
-text?: string | undefined;
-contentLeft?: ReactNode;
-contentRight?: ReactNode;
-contentClearButton?: ReactNode;
-disabled?: boolean | undefined;
-readOnly?: boolean | undefined;
-size?: "m" | "s" | "xs" | "l" | undefined;
-view?: "default" | "secondary" | "positive" | undefined;
-onClear?: (() => void) | undefined;
-} & {
-children?: ReactNode;
-} & RefAttributes<HTMLButtonElement>>;
+}> & ChipProps & RefAttributes<HTMLButtonElement>>;
 
 export { ChipProps }
 
@@ -894,24 +937,32 @@ export { DrawerHeaderProps }
 
 export { DrawerProps }
 
-export { Dropdown }
+// @public (undocumented)
+export const Dropdown: React_2.ForwardRefExoticComponent<DropdownProps & React_2.RefAttributes<HTMLDivElement>>;
 
-export { DropdownItem }
-export { DropdownItem as DropdownItemType }
+// @public (undocumented)
+export const DropdownItem: React_2.ForwardRefExoticComponent<DropdownItemProps & React_2.RefAttributes<HTMLDivElement>>;
 
 export { DropdownItemProps }
 
-export { DropdownList }
+export { DropdownItemType }
+
+// @public (undocumented)
+export const DropdownList: StyledComponent<"ul", any, {}, never>;
 
 export { DropdownNodeType }
 
-export { DropdownPopup }
+// @public (undocumented)
+export const DropdownPopup: React_2.ForwardRefExoticComponent<DropdownPopupProps & React_2.RefAttributes<HTMLDivElement>>;
 
 export { DropdownPopupProps }
 
 export { DropdownProps }
 
-export { DropdownUncontrolled }
+// Warning: (ae-forgotten-export) The symbol "AdditionalProps" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export const DropdownUncontrolled: React_2.ForwardRefExoticComponent<DropdownProps & AdditionalProps & React_2.RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const DsplL: FunctionComponent<PropsType<    {
@@ -1087,7 +1138,7 @@ s: string;
 };
 }> & HTMLAttributes<HTMLDivElement> & {
 size: "m" | "s" | "l";
-view: "accent" | "default" | "warning" | "positive" | "negative" | "inactive" | "black" | "white";
+view: "accent" | "default" | "black" | "white" | "inactive" | "warning" | "positive" | "negative";
 } & RefAttributes<HTMLDivElement>>;
 
 export { IndicatorProps }
@@ -1585,9 +1636,69 @@ export { TextAreaProps }
 export { TextareaResize }
 
 // @public
-export const TextField: React_2.ForwardRefExoticComponent<TextFieldProps & React_2.RefAttributes<HTMLInputElement>>;
+export const TextField: React_2.ForwardRefExoticComponent<TextFieldProps_2 & Pick<PropsType<    {
+view: {
+default: string;
+positive: string;
+warning: string;
+negative: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+labelPlacement: {
+inner: string[];
+outer: string[];
+};
+disabled: {
+true: string;
+};
+readOnly: {
+true: string;
+};
+}> & (({
+    size?: string | undefined;
+    view?: string | undefined;
+    readOnly?: boolean | undefined;
+    disabled?: boolean | undefined;
+} & {
+    label?: string | undefined;
+    labelPlacement?: "inner" | "outer" | undefined;
+    leftHelper?: string | undefined;
+    contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
+    contentRight?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
+    onSearch?: ((value: string, event?: React_2.KeyboardEvent<HTMLInputElement> | undefined) => void) | undefined;
+} & {
+    chips?: undefined;
+    onChangeChips?: undefined;
+    enumerationType?: "plain" | undefined;
+    onSearch?: ((value: string, event?: React_2.KeyboardEvent<HTMLInputElement> | undefined) => void) | undefined;
+} & Omit<React_2.InputHTMLAttributes<HTMLInputElement>, "size"> & React_2.RefAttributes<HTMLDivElement>) | ({
+    size?: string | undefined;
+    view?: string | undefined;
+    readOnly?: boolean | undefined;
+    disabled?: boolean | undefined;
+} & {
+    label?: string | undefined;
+    labelPlacement?: "inner" | "outer" | undefined;
+    leftHelper?: string | undefined;
+    contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
+    contentRight?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
+    onSearch?: ((value: string, event?: React_2.KeyboardEvent<HTMLInputElement> | undefined) => void) | undefined;
+} & {
+    enumerationType: "chip";
+    onSearch?: undefined;
+    chips?: TextFieldPrimitiveValue[] | undefined;
+    onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+} & Omit<React_2.InputHTMLAttributes<HTMLInputElement>, "size"> & React_2.RefAttributes<HTMLDivElement>)), "enumerationType" | "chips" | "onChangeChips"> & React_2.RefAttributes<HTMLInputElement>>;
 
-export { TextFieldProps }
+// Warning: (ae-forgotten-export) The symbol "newHopeTextFieldProps" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type TextFieldProps = TextFieldProps_2 & Pick<newHopeTextFieldProps, 'enumerationType' | 'chips' | 'onChangeChips'>;
 
 export { TextFieldView }
 

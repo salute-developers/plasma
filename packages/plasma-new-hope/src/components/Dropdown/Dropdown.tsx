@@ -89,7 +89,7 @@ export const dropdownConfig = {
         },
     },
     defaults: {
-        view: 'primary',
+        view: 'default',
         size: 'm',
     },
 };

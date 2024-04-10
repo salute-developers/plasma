@@ -26,7 +26,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                 target,
                 children,
                 isOpen,
-                trigger,
+                trigger = 'click',
                 hasArrow,
                 frame = 'document',
                 className,
@@ -34,12 +34,12 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                 offset = [0, 0],
                 zIndex,
                 isFocusTrapped = true,
-                closeOnOverlayClick = true,
                 closeOnEsc = true,
                 preventOverflow = true,
                 usePortal = false,
                 view,
                 onToggle,
+                closeOnOverlayClick,
                 ...rest
             },
             outerRootRef,
@@ -66,7 +66,13 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             } as CSSProperties;
 
             const { styles, attributes, forceUpdate } = usePopper(rootRef.current, popoverRef.current, {
-                placement: isAutoArray ? 'auto' : (placement as PopoverPlacement),
+                // TODO: #1121
+                // eslint-disable-next-line no-nested-ternary
+                placement: isAutoArray
+                    ? placement[0]?.endsWith('start')
+                        ? 'auto-start'
+                        : 'auto'
+                    : (placement as PopoverPlacement),
                 modifiers: [
                     {
                         name: 'preventOverflow',
@@ -167,7 +173,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             useEffect(() => {
                 document.addEventListener('click', onDocumentClick);
                 return () => document.removeEventListener('click', onDocumentClick);
-            }, [closeOnOverlayClick, isOpen, onToggle]);
+            }, [isOpen, onToggle]);
 
             useEffect(() => {
                 window.addEventListener('keydown', onEscape);
@@ -220,12 +226,10 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             }, [isOpen, children, forceUpdate]);
 
             return (
-                <StyledWrapper className={classes.wrapper}>
+                <StyledWrapper className={classes.wrapper} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
                     <StyledRoot
                         ref={handleRef}
                         onClick={onClick}
-                        onMouseEnter={onMouseEnter}
-                        onMouseLeave={onMouseLeave}
                         onFocus={onFocus}
                         onBlur={onBlur}
                         className={cx(className, classes.target)}
@@ -240,7 +244,11 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                                     {...attributes.popper}
                                     className={classes.root}
                                     ref={popoverForkRef}
-                                    style={{ ...styles.popper, ...initialStyles }}
+                                    style={{
+                                        ...styles.popper,
+                                        ...{ display: isOpen ? 'block' : 'none' },
+                                        ...initialStyles,
+                                    }}
                                     zIndex={zIndex}
                                 >
                                     {hasArrow && (

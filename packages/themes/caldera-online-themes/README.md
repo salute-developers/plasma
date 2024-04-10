@@ -6,7 +6,6 @@
 
 | Тема             | Библиотека                 | Шрифты                                                                                                                                                                                               |
 | ---------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `caldera`        | `@salutejs/caldera`        | [SB Sans Display](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css), [SB Sans Text](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css) |
 | `caldera_online` | `@salutejs/caldera-online` | [SB Sans Display](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css), [SB Sans Text](https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css) |
 
 ## Установка и подключение
@@ -118,7 +117,7 @@ export const backgroundPrimary = 'var(--background-primary, #000000)';
 
 Так же в пакете есть типографические токены, для случаев, когда необходимо точечно применить типографику к контейнеру.
 
-```js
+```ts
 /** Токены типографики для компонента DsplL */
 export const dsplL = ({
     fontFamily: 'var(--plasma-typo-dspl-l-font-family)',

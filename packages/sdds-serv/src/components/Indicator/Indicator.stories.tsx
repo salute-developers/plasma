@@ -1,16 +1,34 @@
-import React from 'react';
+import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 
-import { InSpacingDecorator } from '../../helpers';
-import { H3 } from '../Typography';
+import { Indicator } from './Indicator';
 
-const meta: Meta = {
+const meta: Meta<typeof Indicator> = {
     title: 'Content/Indicator',
-    decorators: [InSpacingDecorator],
+    component: Indicator,
+    argTypes: {
+        view: {
+            options: ['default', 'accent', 'inactive', 'positive', 'warning', 'negative', 'black', 'white'],
+            control: {
+                type: 'select',
+            },
+        },
+        size: {
+            options: ['l', 'm', 's'],
+            control: {
+                type: 'select',
+            },
+        },
+    },
 };
 
 export default meta;
 
-export const Default: StoryObj = {
-    render: () => <H3>Компонент в разработке; Срок — 2024:Q1</H3>,
+type Story = StoryObj<ComponentProps<typeof Indicator>>;
+
+export const Default: Story = {
+    args: {
+        size: 's',
+        view: 'default',
+    },
 };

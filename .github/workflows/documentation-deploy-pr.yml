@@ -106,7 +106,6 @@ jobs:
                     --host-bucket ${{ secrets.AWS_ENDPOINT }}
                     --bucket-location ${{ secrets.AWS_REGION }}
                     --signature-v2
-                    --delete-removed
                     --no-mime-magic
                     sync
                     ./s3_build/${PR_NAME}/
@@ -134,7 +133,7 @@ jobs:
 
             -   name: Set job environment variables
                 run: |
-                    echo "SHORT_NAME=$(echo ${{ matrix.package }} | sed -r 's/@salutejs\///g' | sed -r 's/plasma-//g')" >> $GITHUB_ENV
+                    echo "SHORT_NAME=$(echo ${{ matrix.package }} | sed -r 's/plasma-//g')" >> $GITHUB_ENV
                     echo "HAS_PACKAGE_DOCS=$([ -d "./website/${{ matrix.package }}-docs" ] && echo true || echo false)" >> $GITHUB_ENV
 
             -   name: Get lerna scope
@@ -146,54 +145,9 @@ jobs:
                 with:
                     result-encoding: string
                     script: |
-                        const { PROCESSED_DATA, PACKAGE } = process.env;
+                        const getLernaScope = require('./.github/get-lerna-scope.js');
 
-                        const processedData = JSON.parse(PROCESSED_DATA);
-
-                        const [scopeDSName] = PACKAGE.split('-');
-
-                        // INFO: Пока нет устойчивого правила для формирования пакетов `themes`
-                        // и где то используется одно слово, типа `plasma`, а где-то два `caldera-online`
-                        const themes = ['caldera-online'].includes(PACKAGE) ? `${PACKAGE}-themes` : `${scopeDSName}-themes`;
-
-                        const packages = [
-                          'plasma-hope',
-                          'plasma-new-hope',
-                          'plasma-tokens',
-                          'plasma-tokens-native',
-                          'plasma-tokens-utils',
-                          'plasma-typo',
-                          themes,
-                          `${PACKAGE}-docs`,
-                        ];
-
-                        // TODO: рефакторинг - использовать объект для resolve required deps
-                        const result = [
-                            ...processedData.filter((package) => packages.includes(package)),
-                            PACKAGE,
-                            'plasma-core',
-                            'plasma-docs-ui',
-                            'plasma-icons',
-                        ];
-
-                        // INFO: Пока не починили медленный css build for b2c/web ставим plasma-new-hope
-                        if (processedData.includes('plasma-b2c') || processedData.includes('plasma-web')) {
-                            result.push('plasma-new-hope');
-                        }
-
-                        if (result.includes('plasma-tokens-native')) {
-                            result.push('plasma-tokens');
-                            result.push('plasma-tokens-utils');
-                        }
-
-                        if (result.includes(themes)) {
-                            result.push('plasma-typo');
-                            result.push('data-themes');
-                        }
-
-                        console.log('Result =>', result);
-
-                        return `@salutejs/{${result.join(',')}}`;
+                        return getLernaScope();
 
             -   name: Lerna bootstrap
                 run: npx lerna bootstrap --scope="${{ steps.lerna-scope.outputs.result }}"
@@ -253,6 +207,7 @@ jobs:
         steps:
             -   uses: actions/checkout@v4
                 with:
+                    ref: refs/pull/${{github.event.pull_request.number}}/merge
                     show-progress: false
 
             -   name: Create comment

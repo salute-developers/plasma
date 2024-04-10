@@ -57,7 +57,7 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
             },
             ref,
         ) => {
-            const [page, setPageValue] = useState<number>();
+            const [page, setPageValue] = useState<number>(1);
             const [perPageValue, setPerPageValue] = useState(perPage);
             const [pages, setPagesValue] = useState<number>(value);
             const [sections, setSections] = useState<number[][] | null>(null);
@@ -92,7 +92,6 @@ export const paginationRoot = (Root: RootProps<HTMLDivElement, PaginationProps>)
             const handlerSetPerPage = (newPerPageValue?: number) => {
                 handlerSetPage(1);
                 setPerPageValue(newPerPageValue);
-                onChangePageValue?.(1);
                 onChangePerPageValue?.(newPerPageValue);
 
                 handlerSetPages(newPerPageValue);
