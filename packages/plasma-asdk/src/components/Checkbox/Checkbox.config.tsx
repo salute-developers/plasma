@@ -1,4 +1,4 @@
-import { css } from '@salutejs/plasma-new-hope/styled-components';
+import { css, checkboxTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
@@ -12,44 +12,46 @@ export const config = {
          */
         size: {
             s: css`
-                --plasma-checkbox-margin: 0 0 0.188rem 0.188rem;
-                --plasma-checkbox-trigger-margin: 0.188rem 0;
-                --plasma-checkbox-trigger-size: 0.875rem;
-                --plasma-checkbox-trigger-border-radius: 0.25rem;
-                --plasma-checkbox-content-top-offset: 0.063rem;
-                --plasma-checkbox-content-left-offset: 0.563rem;
-                --plasma-checkbox-label-font-family: var(--plasma-typo-footnote1-font-family);
-                --plasma-checkbox-label-font-size: var(--plasma-typo-footnote1-font-size);
-                --plasma-checkbox-label-font-style: var(--plasma-typo-footnote1-font-style);
-                --plasma-checkbox-label-font-weight: var(--plasma-typo-footnote1-font-weight);
-                --plasma-checkbox-label-letter-spacing: var(--plasma-typo-footnote1-letter-spacing);
-                --plasma-checkbox-label-line-height: var(--plasma-typo-footnote1-line-height);
-                --plasma-checkbox-description-font-family: var(--plasma-typo-caption-font-family);
-                --plasma-checkbox-description-font-size: var(--plasma-typo-caption-font-size);
-                --plasma-checkbox-description-font-style: var(--plasma-typo-caption-font-style);
-                --plasma-checkbox-description-font-weight: var(--plasma-typo-caption-font-weight);
-                --plasma-checkbox-description-letter-spacing: var(--plasma-typo-caption-letter-spacing);
-                --plasma-checkbox-description-line-height: var(--plasma-typo-caption-line-height);
+                ${checkboxTokens.margin}: 0;
+                ${checkboxTokens.triggerMargin}: 0.063rem 0;
+                ${checkboxTokens.triggerSize}: 0.875rem;
+                ${checkboxTokens.triggerBorderRadius}: 0.25rem;
+                ${checkboxTokens.contentTopOffset}: 0;
+                ${checkboxTokens.contentLeftOffset}: 0.5rem;
+                ${checkboxTokens.descriptionMarginTop}: 0.125rem;
+                ${checkboxTokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${checkboxTokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
+                ${checkboxTokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${checkboxTokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${checkboxTokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${checkboxTokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${checkboxTokens.descriptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${checkboxTokens.descriptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${checkboxTokens.descriptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${checkboxTokens.descriptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${checkboxTokens.descriptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${checkboxTokens.descriptionLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             m: css`
-                --plasma-checkbox-margin: 0 0 0.188rem 0.188rem;
-                --plasma-checkbox-trigger-margin: 0.188rem 0;
-                --plasma-checkbox-trigger-size: 1.25rem;
-                --plasma-checkbox-trigger-border-radius: 0.375rem;
-                --plasma-checkbox-content-top-offset: 0.188rem;
-                --plasma-checkbox-content-left-offset: 0.75rem;
-                --plasma-checkbox-label-font-family: var(--plasma-typo-body1-font-family);
-                --plasma-checkbox-label-font-size: var(--plasma-typo-body1-font-size);
-                --plasma-checkbox-label-font-style: var(--plasma-typo-body1-font-style);
-                --plasma-checkbox-label-font-weight: var(--plasma-typo-body1-font-weight);
-                --plasma-checkbox-label-letter-spacing: var(--plasma-typo-body1-letter-spacing);
-                --plasma-checkbox-label-line-height: var(--plasma-typo-body1-line-height);
-                --plasma-checkbox-description-font-family: var(--plasma-typo-footnote1-font-family);
-                --plasma-checkbox-description-font-size: var(--plasma-typo-footnote1-font-size);
-                --plasma-checkbox-description-font-style: var(--plasma-typo-footnote1-font-style);
-                --plasma-checkbox-description-font-weight: var(--plasma-typo-footnote1-font-weight);
-                --plasma-checkbox-description-letter-spacing: var(--plasma-typo-footnote1-letter-spacing);
-                --plasma-checkbox-description-line-height: var(--plasma-typo-footnote1-line-height);
+                ${checkboxTokens.margin}: 0;
+                ${checkboxTokens.triggerMargin}: 0.125rem 0;
+                ${checkboxTokens.triggerSize}: 1.25rem;
+                ${checkboxTokens.triggerBorderRadius}: 0.375rem;
+                ${checkboxTokens.contentTopOffset}: 0.125rem;
+                ${checkboxTokens.contentLeftOffset}: 0.75rem;
+                ${checkboxTokens.descriptionMarginTop}: 0.125rem;
+                ${checkboxTokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${checkboxTokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
+                ${checkboxTokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${checkboxTokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${checkboxTokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${checkboxTokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${checkboxTokens.descriptionFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${checkboxTokens.descriptionFontSize}: var(--plasma-typo-body-s-font-size);
+                ${checkboxTokens.descriptionFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${checkboxTokens.descriptionFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${checkboxTokens.descriptionLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${checkboxTokens.descriptionLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
         },
         /**
@@ -57,20 +59,20 @@ export const config = {
          */
         view: {
             accent: css`
-                --plasma-checkbox-fill-color: var(--surface-accent-main);
-                --plasma-checkbox-icon-color: var(--on-dark-text-primary);
-                --plasma-checkbox-description-color: var(--surface-solid-default);
-                --plasma-checkbox-trigger-border-color: var(--surface-solid-default);
+                ${checkboxTokens.fillColor}: var(--surface-accent-main);
+                ${checkboxTokens.iconColor}: var(--on-dark-text-primary);
+                ${checkboxTokens.descriptionColor}: var(--surface-solid-default);
+                ${checkboxTokens.triggerBorderColor}: var(--surface-solid-default);
             `,
         },
         disabled: {
             true: css`
-                --plasma-checkbox-disabled-opacity: 0.4;
+                ${checkboxTokens.disabledOpacity}: 0.4;
             `,
         },
         focused: {
             true: css`
-                --plasma-checkbox-focus-color: var(--surface-accent-main);
+                ${checkboxTokens.focusColor}: var(--surface-accent-main);
             `,
         },
     },
