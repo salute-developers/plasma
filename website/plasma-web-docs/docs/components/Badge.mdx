@@ -51,7 +51,7 @@ export function App() {
 ### Вид бейджа
 Вид бейджа задается с помощью свойства `view`. Возможные значения свойства `view`:
 
-+ `"primary"` – основной бейдж;
++ `"default"` – основной бейдж;
 + `"accent"` – бейдж акцентного цвета;
 + `"positive"` – успешное завершение;
 + `"warning"` – предупреждение;
@@ -66,7 +66,7 @@ import { Badge } from '@salutejs/plasma-web';
 export function App() {
     return (
         <div>
-            <Badge text="Бейдж" size="l" view="primary" />
+            <Badge text="Бейдж" size="l" view="default" />
             <Badge text="Бейдж" size="l" view="accent" />
             <Badge text="Бейдж" size="l" view="positive" />
             <Badge text="Бейдж" size="l" view="warning" />
@@ -87,7 +87,7 @@ import { Badge } from '@salutejs/plasma-web';
 export function App() {
     return (
         <div>
-            <Badge text="Бейдж" size="l" view="primary" transparent />
+            <Badge text="Бейдж" size="l" view="default" transparent />
             <Badge text="Бейдж" size="l" view="accent" transparent />
             <Badge text="Бейдж" size="l" view="positive" transparent />
             <Badge text="Бейдж" size="l" view="warning" transparent />
@@ -113,14 +113,14 @@ export function App() {
             <Badge 
                 text="Бейдж" 
                 size="l"   
-                view="primary" 
+                view="default" 
                 contentLeft={
                     <IconEye color="inherit" size="xs" />
                 } />
             <Badge 
                 text="Бейдж" 
                 size="l"   
-                view="primary" 
+                view="default" 
                 contentRight={
                     <IconEye color="inherit" size="xs" />
                 } />
