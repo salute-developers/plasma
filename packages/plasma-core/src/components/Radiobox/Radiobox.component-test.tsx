@@ -1,14 +1,26 @@
 import React from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { createGlobalStyle } from 'styled-components';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
+
+const StandardTypoStyle = createGlobalStyle(standardTypo);
+
+const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
+    <CypressTestDecorator>
+        <StandardTypoStyle />
+        {children}
+    </CypressTestDecorator>
+);
 
 describe('plasma-core: Radiobox', () => {
     const Radiobox = getComponent('Radiobox');
 
     it('simple', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Radiobox />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
@@ -16,9 +28,9 @@ describe('plasma-core: Radiobox', () => {
 
     it('with focus', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Radiobox label="checkbox with focus" />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('input').focus();
@@ -28,7 +40,7 @@ describe('plasma-core: Radiobox', () => {
 
     it('__label', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Radiobox name="robots" label="simple radiobox" />
                 <Radiobox
                     name="robots"
@@ -38,14 +50,14 @@ describe('plasma-core: Radiobox', () => {
                         </span>
                     }
                 />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();
     });
 
     it('__description', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Radiobox name="robots" label="simple radiobox" description="О чём мечтают роботы?" />
                 <Radiobox
                     name="robots"
@@ -56,46 +68,46 @@ describe('plasma-core: Radiobox', () => {
                         </span>
                     }
                 />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();
     });
 
     it('_checked', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Radiobox name="robots" checked label="radiobox checked" description="О чём мечтают роботы?" />
                 <Radiobox name="robots" label="radiobox" description="О чём мечтают роботы?" />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();
     });
 
     it('_focused', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Radiobox name="robots" focused label="radiobox checked" description="О чём мечтают роботы?" />
                 <Radiobox name="robots" focused checked label="radiobox" description="О чём мечтают роботы?" />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();
     });
 
     it('_disabled', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Radiobox checked disabled label="radiobox checked" description="О чём мечтают роботы?" />
                 <Radiobox disabled label="radiobox" description="О чём мечтают роботы?" />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();
     });
 
     it(':id', () => {
         mount(
-            <CypressTestDecorator noSSR>
+            <CypressTestDecoratorWithTypo noSSR>
                 <Radiobox name="uniqId" label="radiobox" description="О чём мечтают роботы?" />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('[name="uniqId"]').should('have.attr', 'id');
@@ -103,7 +115,7 @@ describe('plasma-core: Radiobox', () => {
 
     it('squeezes', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <div style={{ overflow: 'hidden', width: 150 }}>
                     <Radiobox
                         checked
@@ -114,7 +126,7 @@ describe('plasma-core: Radiobox', () => {
                     />
                     <Radiobox disabled label="Radiobox 2" description="Radiobox 2 description" />
                 </div>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();
     });
@@ -127,13 +139,13 @@ describe('plasma-core: RadioGroup', () => {
 
     it('simple', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <RadioGroup aria-labelledby="radiogroup-title-id">
                     <H3 id="radiogroup-title-id">Заголовок</H3>
                     <Radiobox name="radio-1" label="Радиокнопка 1" description="Описание 1" defaultChecked />
                     <Radiobox name="radio-1" label="Радиокнопка 2" description="Описание 2" />
                 </RadioGroup>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();

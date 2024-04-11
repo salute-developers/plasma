@@ -1,5 +1,10 @@
 import React from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { createGlobalStyle } from 'styled-components';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
+
+const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 describe('plasma-web: Checkbox', () => {
     const Checkbox = getComponent('Checkbox');
@@ -80,9 +85,16 @@ describe('plasma-web: Checkbox', () => {
         },
     ];
 
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
+
     it('default size s', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <List>
                     {items.map((item) => (
                         <ListItem key={item.value} ml={item.parent ? '16x' : undefined} mb="4x">
@@ -90,7 +102,7 @@ describe('plasma-web: Checkbox', () => {
                         </ListItem>
                     ))}
                 </List>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('input[type="checkbox"]').first().focus();
@@ -99,7 +111,7 @@ describe('plasma-web: Checkbox', () => {
 
     it('default size m', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <List>
                     {items.map((item) => (
                         <ListItem key={item.value} ml={item.parent ? '16x' : undefined} mb="4x">
@@ -107,7 +119,7 @@ describe('plasma-web: Checkbox', () => {
                         </ListItem>
                     ))}
                 </List>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('input[type="checkbox"]').first().focus();
