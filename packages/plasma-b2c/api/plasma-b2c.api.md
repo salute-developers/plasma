@@ -69,6 +69,7 @@ import { CellTextbox } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxLabel } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxSubtitle } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxTitle } from '@salutejs/plasma-new-hope/styled-components';
+import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
 import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { clearSelection } from '@salutejs/plasma-hope';
 import { closeNotification } from '@salutejs/plasma-new-hope/styled-components';
@@ -710,7 +711,7 @@ true: string;
 focused: {
 true: string;
 };
-}> & Filter<InputHTMLAttributes<HTMLInputElement>, "size"> & BaseboxProps & RefAttributes<HTMLInputElement>>;
+}> & CheckboxProps_2 & RefAttributes<HTMLInputElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "CheckboxComponent" needs to be exported by the entry point index.d.ts
 //
@@ -772,11 +773,11 @@ l: string;
 view: {
 default: string;
 };
-}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "target" | "onChange" | "size" | "value" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
+}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "target" | "onChange" | "size" | "value" | "checked" | "maxLength" | "minLength"> & CustomComboboxProps & {
 valueType?: "single" | undefined;
 value?: ComboboxPrimitiveValue | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue | undefined) => void) | undefined;
-} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "target" | "onChange" | "size" | "value" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
+} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "target" | "onChange" | "size" | "value" | "checked" | "maxLength" | "minLength"> & CustomComboboxProps & {
 valueType: "multiple";
 value?: ComboboxPrimitiveValue[] | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue[] | undefined) => void) | undefined;
