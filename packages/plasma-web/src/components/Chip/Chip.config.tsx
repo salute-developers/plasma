@@ -2,12 +2,25 @@ import { css, chipTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         focused: 'true',
         size: 'm',
     },
     variations: {
         view: {
+            default: css`
+                ${chipTokens.color}: var(--plasma-colors-inverse);
+                ${chipTokens.background}: var(--plasma-colors-primary);
+                ${chipTokens.colorHover}: var(--plasma-colors-inverse);
+                ${chipTokens.backgroundHover}: var(--plasma-colors-button-checked-hover);
+                ${chipTokens.colorActive}: var(--plasma-colors-inverse);
+                ${chipTokens.backgroundActive}: var(--plasma-colors-button-checked-active);
+                ${chipTokens.backgroundReadOnly}: var(--plasma-colors-primary);
+                ${chipTokens.colorReadOnly}: var(--plasma-colors-inverse);
+                ${chipTokens.backgroundReadOnlyHover}: var(--plasma-colors-primary);
+                ${chipTokens.colorReadOnlyHover}: var(--plasma-colors-inverse);
+            `,
+            // @deprecated
             primary: css`
                 ${chipTokens.color}: var(--plasma-colors-inverse);
                 ${chipTokens.background}: var(--plasma-colors-primary);

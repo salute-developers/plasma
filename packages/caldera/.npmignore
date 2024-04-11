@@ -1,9 +1,0 @@
-/components/**/*.component-test*
-/es/components/**/*.component-test*
-src
-.storybook
-/package-lock.json
-/index.d.ts.map
-/index.js.map
-/jest.config.js
-/tsconfig.json

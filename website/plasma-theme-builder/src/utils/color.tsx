@@ -1,13 +1,21 @@
 import React from 'react';
 import { general as generalColors } from '@salutejs/plasma-colors';
-import { extractColors, getHEXAColor, getRestoredColorFromPalette } from '@salutejs/plasma-tokens-utils';
+import {
+    ThemeMode,
+    extractColors,
+    getHEXAColor,
+    getHSLARawColor,
+    getRestoredColorFromPalette,
+} from '@salutejs/plasma-tokens-utils';
 import type { PlasmaSaturation } from '@salutejs/plasma-colors';
 
 import { PreviewColor } from '../components/PreviewColor/PreviewColor';
 
-import type { ComplexValue, GeneralColor, GetGreyTokenDataParams } from '../types';
+import type { ComplexValue, FormulaMode, GeneralColor, GetGreyTokenDataParams, OperationKind } from '../types';
+import { formulas } from './formulas';
+import { inRange } from './other';
 
-export { getHEXAColor };
+export { getHEXAColor, getHSLARawColor };
 
 const DEFAULT_WHITE_COLOR = '#FFFFFFFF';
 const DEFAULT_BLACK_COLOR = '#000000FF';
@@ -23,7 +31,7 @@ export const getPaletteColorByHEX = (inputColor: string) => {
             const hexPaletteColor = getHEXAColor(color);
 
             if (!excludeColors.includes(hexInputColor) && hexInputColor === hexPaletteColor) {
-                return [shade, saturation] as unknown as [GeneralColor, PlasmaSaturation];
+                return ([shade, saturation] as unknown) as [GeneralColor, PlasmaSaturation];
             }
         }
     }
@@ -36,7 +44,7 @@ export const getPaletteColorByValue = (value: ComplexValue) => {
         const [, color] = extractColors(value);
         const [, shade, saturation] = color.split('.');
 
-        return [shade, saturation] as unknown as [GeneralColor, PlasmaSaturation];
+        return ([shade, saturation] as unknown) as [GeneralColor, PlasmaSaturation];
     }
 
     return [undefined, undefined];
@@ -141,4 +149,54 @@ export const updateColorSaturation = (value: string, saturation: PlasmaSaturatio
     const [palette, shade] = value.replace(/\[|\]/g, '').split('.');
 
     return `[${palette}.${shade}.${saturation}]`;
+};
+
+export const getTransparentColor = (color: string, type: FormulaMode, mode: ThemeMode) => {
+    const hsl = getHSLARawColor(color);
+    const a = hsl.alpha();
+
+    const result = formulas[type].transparent[mode].find(({ condition }) => {
+        const { alpha } = condition;
+
+        return inRange(a, alpha);
+    });
+
+    return (state: OperationKind) => {
+        if (!result) {
+            return '#FFFFFFFF';
+        }
+
+        const newAlpha = result.operation[state](a);
+
+        return hsl.alpha(newAlpha).round().hexa();
+    };
+};
+
+export const getSolidColor = (color: string, type: FormulaMode, mode: ThemeMode) => {
+    const hsl = getHSLARawColor(color);
+    const l = hsl.lightness();
+    const h = hsl.hue();
+    const s = hsl.saturationl();
+
+    const result = formulas[type].solid[mode].find(({ condition }) => {
+        const { lightness, hue, saturation } = condition;
+
+        return inRange(l, lightness) && inRange(h, hue) && inRange(s, saturation);
+    });
+
+    return (state: OperationKind) => {
+        if (!result) {
+            return '#FFFFFFFF';
+        }
+
+        const newLightness = result.operation[state](l);
+
+        return hsl.lightness(newLightness).round().hexa();
+    };
+};
+
+export const getStateColor = (color: string, type: FormulaMode, mode: ThemeMode) => {
+    const hsl = getHSLARawColor(color);
+
+    return hsl.alpha() === 1 ? getSolidColor(color, type, mode) : getTransparentColor(color, type, mode);
 };

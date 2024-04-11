@@ -1,1 +1,1 @@
-../../../packages/plasma-ui/CHANGELOG.md
+../../../packages/plasma-web/CHANGELOG.md

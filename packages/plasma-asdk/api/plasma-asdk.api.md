@@ -94,10 +94,14 @@ export const Button: FunctionComponent<PropsType<    {
 view: {
 primary: string;
 secondary: string;
+accent: string;
 success: string;
 warning: string;
 critical: string;
 clear: string;
+dark: string;
+black: string;
+white: string;
 };
 size: {
 l: string;

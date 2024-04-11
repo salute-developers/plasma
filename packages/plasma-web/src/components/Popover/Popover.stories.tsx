@@ -19,6 +19,13 @@ const meta: Meta<typeof Popover> = {
                 type: 'select',
             },
             table: { defaultValue: { summary: 'bottom' } },
+            mapping: {
+                top: 'top',
+                bottom: 'bottom',
+                right: 'right',
+                left: 'left',
+                auto: 'auto',
+            },
         },
         trigger: {
             options: ['click', 'hover'],

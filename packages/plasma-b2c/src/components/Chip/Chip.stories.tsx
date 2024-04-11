@@ -5,7 +5,7 @@ import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Chip } from '.';
 
-const views = ['primary', 'secondary', 'positive'];
+const views = ['default', 'secondary', 'positive'];
 const sizes = ['l', 'm', 's', 'xs'];
 
 const onClear = action('onClear');
@@ -49,7 +49,7 @@ const TrashIcon = (props) => (
 export const Default: Story = {
     args: {
         text: 'This is chip',
-        view: 'primary',
+        view: 'default',
         size: 'm',
         hasClear: true,
         disabled: false,

@@ -240,7 +240,7 @@ describe('plasma-new-hope: Pagination Content', () => {
                         <Button
                             id="pagination-button-prev"
                             onClick={() => {
-                                setPageValue(pageValue - 1);
+                                handleChangePage(pageValue - 1);
                             }}
                         >
                             Prev
@@ -250,7 +250,7 @@ describe('plasma-new-hope: Pagination Content', () => {
                         <Button
                             id="pagination-button-next"
                             onClick={() => {
-                                setPageValue(pageValue + 1);
+                                handleChangePage(pageValue + 1);
                             }}
                         >
                             Next

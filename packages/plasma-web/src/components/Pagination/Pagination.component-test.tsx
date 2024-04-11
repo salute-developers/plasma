@@ -236,6 +236,7 @@ describe('plasma-new-hope: Pagination Content', () => {
                     {...agrs}
                     value={pageValue}
                     perPage={perPageValue}
+                    count={count}
                     leftContent={
                         <Button
                             id="pagination-button-prev"

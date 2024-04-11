@@ -7,6 +7,7 @@
 /// <reference types="react" />
 
 import { addFocus } from '@salutejs/plasma-new-hope/styled-components';
+import { AlignProp } from '@salutejs/plasma-new-hope/types/components/Cell/Cell.types';
 import { AnchorHTMLAttributes } from 'react';
 import { AsProps } from '@salutejs/plasma-new-hope/types/types';
 import { AvatarGroupProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -27,6 +28,12 @@ import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography
 import { ButtonGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ButtonHTMLAttributes } from 'react';
 import { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-new-hope/styled-components';
+import { CellProps } from '@salutejs/plasma-new-hope/styled-components';
+import { CellTextbox } from '@salutejs/plasma-new-hope/styled-components';
+import { CellTextboxLabel } from '@salutejs/plasma-new-hope/styled-components';
+import { CellTextboxSubtitle } from '@salutejs/plasma-new-hope/styled-components';
+import { CellTextboxTitle } from '@salutejs/plasma-new-hope/styled-components';
+import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ClosePlacementType } from '@salutejs/plasma-new-hope/styled-components';
 import { Col } from '@salutejs/plasma-new-hope/styled-components';
 import { ColCount } from '@salutejs/plasma-new-hope/styled-components';
@@ -72,8 +79,10 @@ import { h5Bold } from '@salutejs/sdds-themes/tokens';
 import { HTMLAttributes } from 'react';
 import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImgHTMLAttributes } from 'react';
-import type { InputHTMLAttributes } from 'react';
+import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
+import { InputHTMLAttributes } from 'react';
 import { JSXElementConstructor } from 'react';
+import { KeyboardEvent as KeyboardEvent_2 } from 'react';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { mediaQuery } from '@salutejs/plasma-new-hope/styled-components';
 import { modalClasses } from '@salutejs/plasma-new-hope/styled-components';
@@ -104,6 +113,8 @@ import { ScreenVariant } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
+import { SelectPrimitiveValue } from '@salutejs/plasma-new-hope/styled-components';
+import { SelectProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
 import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
@@ -114,6 +125,9 @@ import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
+import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
+import { TextFieldProps } from '@salutejs/plasma-new-hope/styled-components';
+import { textFieldTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { textL } from '@salutejs/sdds-themes/tokens';
 import { textLBold } from '@salutejs/sdds-themes/tokens';
 import { textM } from '@salutejs/sdds-themes/tokens';
@@ -280,6 +294,9 @@ clear: string;
 success: string;
 warning: string;
 critical: string;
+dark: string;
+black: string;
+white: string;
 };
 size: {
 l: string;
@@ -354,12 +371,88 @@ export { ButtonGroupProps }
 export type ButtonProps = typeof ButtonComponent;
 
 // @public
+export const Cell: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+}> & (({
+size?: string | undefined;
+view: string;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+alignContentLeft?: AlignProp | undefined;
+alignContentRight?: AlignProp | undefined;
+stretching?: "auto" | "filled" | "fixed" | undefined;
+content?: ReactNode;
+description?: string | undefined;
+} & {
+title?: string | undefined;
+subtitle?: string | undefined;
+label?: string | undefined;
+children?: undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>) | ({
+size?: string | undefined;
+view: string;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+alignContentLeft?: AlignProp | undefined;
+alignContentRight?: AlignProp | undefined;
+stretching?: "auto" | "filled" | "fixed" | undefined;
+content?: ReactNode;
+description?: string | undefined;
+} & {
+title?: undefined;
+subtitle?: undefined;
+label?: undefined;
+children?: ReactNode;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLDivElement>))>;
+
+export { CellProps }
+
+export { CellTextbox }
+
+export { CellTextboxLabel }
+
+export { CellTextboxSubtitle }
+
+export { CellTextboxTitle }
+
+// @public
 export const Checkbox: FunctionComponent<BaseboxProps>;
 
 // Warning: (ae-forgotten-export) The symbol "CheckboxComponent" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
 export type CheckboxProps = typeof CheckboxComponent;
+
+// @public
+export const Chip: FunctionComponent<PropsType<    {
+view: {
+default: string;
+secondary: string;
+positive: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & ChipProps & RefAttributes<HTMLButtonElement>>;
+
+export { ChipProps }
 
 export { ClosePlacementType }
 
@@ -689,6 +782,30 @@ export { Image_2 as Image }
 
 export { ImageProps }
 
+// @public (undocumented)
+export const Indicator: FunctionComponent<PropsType<    {
+view: {
+default: string;
+accent: string;
+inactive: string;
+positive: string;
+warning: string;
+negative: string;
+black: string;
+white: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & {
+size: "s" | "m" | "l";
+view: "default" | "accent" | "positive" | "warning" | "negative" | "inactive" | "black" | "white";
+} & RefAttributes<HTMLDivElement>>;
+
+export { IndicatorProps }
+
 // @public
 export const Link: FunctionComponent<PropsType<    {
 view: {
@@ -848,6 +965,39 @@ export { SegmentItemProps }
 
 export { SegmentProvider }
 
+// @public (undocumented)
+export const Select: ForwardRefExoticComponent<SelectProps & RefAttributes<HTMLSelectElement>>;
+
+// @public (undocumented)
+export const SelectDivider: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
+id?: string | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+// @public (undocumented)
+export const SelectItem: FunctionComponent<PropsType<Variants> & Omit<HTMLAttributes<HTMLDivElement>, "onSelect"> & {
+id?: string | undefined;
+disabled?: boolean | undefined;
+label?: ReactNode;
+role?: string | undefined;
+contentLeft?: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ReactFragment | ReactPortal | ComponentClass<any, any> | null | undefined;
+contentRight?: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ReactFragment | ReactPortal | ComponentClass<any, any> | null | undefined;
+name?: string | undefined;
+checked?: boolean | undefined;
+text?: string | undefined;
+value?: string | number | boolean | undefined;
+isSelected?: boolean | undefined;
+onClick?: ((event: MouseEvent_2<HTMLDivElement, MouseEvent>) => void) | undefined;
+onSelect?: ((value?: any, text?: any) => void) | undefined;
+size?: string | undefined;
+view?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+export { SelectPrimitiveValue }
+
+export { SelectProps }
+
 export { ShowToastArgs }
 
 // @public
@@ -978,6 +1128,70 @@ export const TabsController: ForwardRefExoticComponent<TabsControllerProps & Ref
 export { TabsControllerProps }
 
 export { TabsProps }
+
+// @public
+export const TextField: FunctionComponent<PropsType<    {
+view: {
+default: string;
+positive: string;
+warning: string;
+negative: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+labelPlacement: {
+inner: string[];
+outer: string[];
+};
+disabled: {
+true: string;
+};
+readOnly: {
+true: string;
+};
+}> & (({
+size?: string | undefined;
+view?: string | undefined;
+readOnly?: boolean | undefined;
+disabled?: boolean | undefined;
+} & {
+label?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & {
+chips?: undefined;
+onChangeChips?: undefined;
+enumerationType?: "plain" | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & RefAttributes<HTMLDivElement>) | ({
+size?: string | undefined;
+view?: string | undefined;
+readOnly?: boolean | undefined;
+disabled?: boolean | undefined;
+} & {
+label?: string | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
+} & {
+enumerationType: "chip";
+onSearch?: undefined;
+chips?: TextFieldPrimitiveValue[] | undefined;
+onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & RefAttributes<HTMLDivElement>))>;
+
+export { TextFieldProps }
+
+export { textFieldTokens }
 
 // @public (undocumented)
 export const TextL: FunctionComponent<PropsType<    {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { IconPlaceholder, InSpacingDecorator } from '../../helpers';
+import { IconPlaceholder, InSpacingDecorator, disableProps } from '../../helpers';
 
 import { TextField } from '.';
 import type { TextFieldProps } from '.';
@@ -11,9 +11,35 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 const onSearch = action('onSearch');
+const onChipsChange = action('onChipsChange');
 
-const sizes = ['l', 'm', 's'];
+const sizes = ['l', 'm', 's', 'xs'];
 const statuses = ['', 'success', 'warning', 'error'];
+const labelPlacements = ['label', 'placeholder'];
+
+const propsToDisable = [
+    'helperBlock',
+    'contentLeft',
+    'htmlSize',
+    '$isFocused',
+    'label',
+    'contentRight',
+    'onChangeChips',
+    'onSearch',
+    'type',
+    'name',
+    'onFocus',
+    'onBlur',
+    'onChange',
+    'value',
+    'checked',
+    'minLength',
+    'required',
+    'caption',
+    'values',
+    'enumerationType',
+    'chips',
+];
 
 const meta: Meta<TextFieldProps> = {
     title: 'Controls/TextField',
@@ -26,17 +52,19 @@ const meta: Meta<TextFieldProps> = {
                 type: 'select',
             },
         },
-        maxLength: {
-            control: {
-                type: 'number',
-            },
-        },
         size: {
             options: sizes,
             control: {
                 type: 'inline-radio',
             },
         },
+        animatedHint: {
+            options: labelPlacements,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        ...disableProps(propsToDisable),
     },
 };
 
@@ -63,7 +91,7 @@ type StorePropsDefault = Omit<
     'storybook:contentRight': boolean;
 };
 
-const StoryDefault = ({
+const StoryDemo = ({
     'storybook:contentLeft': enableContentLeft,
     'storybook:contentRight': enableContentRight,
     status,
@@ -71,12 +99,14 @@ const StoryDefault = ({
 }: StorePropsDefault) => {
     const [value, setValue] = useState('Значение поля');
 
+    const iconSize = rest.size === 'xs' ? 'xs' : 's';
+
     return (
         <TextField
             {...rest}
             value={value}
-            contentLeft={enableContentLeft ? <IconPlaceholder /> : undefined}
-            contentRight={enableContentRight ? <IconPlaceholder /> : undefined}
+            contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
+            contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
             status={status || undefined}
             onChange={(e) => {
                 setValue(e.target.value);
@@ -85,19 +115,12 @@ const StoryDefault = ({
             onFocus={onFocus}
             onBlur={onBlur}
             onSearch={onSearch}
+            onChangeChips={onChipsChange}
         />
     );
 };
 
 export const Default: StoryObj<StorePropsDefault> = {
-    argTypes: {
-        animatedHint: {
-            options: ['label', 'placeholder'],
-            control: {
-                type: 'inline-radio',
-            },
-        },
-    },
     args: {
         id: 'example-text-field',
         size: 'l',
@@ -105,30 +128,21 @@ export const Default: StoryObj<StorePropsDefault> = {
         animatedHint: undefined,
         placeholder: 'Заполните поле',
         helperText: 'Подсказка к полю',
+        enumerationType: 'plain',
         status: '' as 'success',
         disabled: false,
         readOnly: false,
         'storybook:contentLeft': true,
         'storybook:contentRight': true,
     },
-    render: (args) => <StoryDefault {...args} />,
+    render: (args) => <StoryDemo {...args} />,
 };
 
-const StoryDeferredValue = ({ readOnly }: { readOnly: boolean }) => {
-    const [asyncValue, setAsyncValue] = React.useState('');
-
-    React.useEffect(() => {
-        setTimeout(() => {
-            setAsyncValue("Sorry i'm late :)");
-        }, 3000);
-    }, []);
-
-    return <TextField placeholder="Wait three seconds..." defaultValue={asyncValue} readOnly={readOnly} />;
-};
-
-export const DeferredValue: StoryObj<{ readOnly: boolean }> = {
+export const Chips: StoryObj<StorePropsDefault> = {
     args: {
-        readOnly: true,
+        ...Default.args,
+        enumerationType: 'chip',
+        chips: ['1 value', '2 value', '3 value', '4 value'],
     },
-    render: (args) => <StoryDeferredValue {...args} />,
+    render: (args) => <StoryDemo {...args} />,
 };

@@ -234,6 +234,7 @@ describe('plasma-new-hope: Pagination Content', () => {
             <>
                 <Pagination
                     {...agrs}
+                    count={count}
                     value={pageValue}
                     perPage={perPageValue}
                     count={count}
