@@ -1,3 +1,162 @@
+# (Thu Apr 11 2024)
+
+### Release Notes
+
+#### Release by 10.04.2024 ([#1175](https://github.com/salute-developers/plasma/pull/1175))
+
+## Components
+
+### Dropdown
+
+- добавлена прослойка для dropdown в `b2c` и `web` (работает на старом api и с dropdown из new-hope)
+
+ 
+feat(plasma-new-hope, b2c, web): Dropdown interlayer (https://github.com/salute-developers/plasma/pull/1104)
+
+### Cell
+
+- добавлен в поставку `plasma-{web,b2c}`
+
+ 
+feat(new-hope): Add cell (https://github.com/salute-developers/plasma/pull/1148)
+
+### Chip
+
+- поправлена типизация
+- компонент добавлен в поставку для `sdds-serv`, включая документацию 
+
+ 
+feat(plasma-new-hope): fix Chip types (https://github.com/salute-developers/plasma/pull/1155)
+
+### Button
+
+- добавлены токены состояний (active / hover) для конфигов компонента  в библиотеках `@salutejs/plasma-{b2c,web,asdk}`, `@salutejs/sdds-serv`, `@salutejs/caldera-online` .
+
+ 
+fix(plasma-web,plasma-b2c,plasma-asdk,sdds-serv,calder-online): Update state tokens for `Button` component (https://github.com/salute-developers/plasma/pull/1167)
+
+### Select
+
+- убрана поддержка вложенности
+- добавлена прослойка для компонента в `plasma-{b2c,web}` и `sdds-serv` (* работает на старом api и с select из new-hope).
+- переделаны тесты и обновлена документация
+
+ 
+feat(plasma-new-hope, b2c, web, sdds-serv): Select interlayer (https://github.com/salute-developers/plasma/pull/1161)
+
+### TextField
+
+- проведен рефакторинг и редизайн
+- обновлены тесты и документация
+- добавлен в поставку в sdds-serv
+
+ 
+feat(plasma-new-hope): TextField redesign (https://github.com/salute-developers/plasma/pull/1160)
+
+
+## Icons
+
+### iOS
+
+- добавлен конвертор SVG в PNG для iOS app  
+
+ 
+plasma-icons: Convert SVG to PNG for iOS   (https://github.com/salute-developers/plasma/pull/1163)
+
+
+## Tokens
+
+### Tokens
+
+* исправлена формула для расчёта `hover / active` состояний
+* добавлены новые токены (но в выключенном состоянии) в существующие темы и схемы для библиотек `@salutejs/plasma-tokens`, `@salutejs/data-themes`, `@salutejs/caldera-online-themes`, `@salutejs/sdds-serv-themes`, `@salutejs/plasma-themes`, `@salutejs/flamingo-themes`
+*  добавлены недостающие токены для обратной совместимости у библиотек `@salutejs/plasma-tokens-web`, `@salutejs/plasma-tokens-b2c`, `@salutejs/plasma-tokens-b2b`,
+* добавлены недостающие токены в темы `plasma_b2c`, `plasma_web`, `sds_engineer` для библиотеки `@salutejs/plasma-new-hope`
+
+ 
+feat(plasma-tokens,plasma-theme-builder): Add tokens to existed themes (https://github.com/salute-developers/plasma/pull/1165)
+
+
+## Docs
+
+### Popup
+
+- исправлена ошибка в документации
+
+ 
+fix(new-hope): Fix popup doc (https://github.com/salute-developers/plasma/pull/1168)
+
+
+## Misc
+
+### Plasma Theme Builder
+
+* Добавлена генерация hover / active состояний для групп токенов.
+
+ 
+feat(plasma-theme-builder): Add generate hover / active state for tokens (https://github.com/salute-developers/plasma/pull/1134)
+
+### Pagination
+
+- исправлена ошибка навигации с помощью кнопок `next` \ `pre`
+
+ 
+fix(new-hope): Edit storybook content (https://github.com/salute-developers/plasma/pull/1154)
+
+### Website icons grid
+
+- исправлен поиск иконок по названию
+- исправлен grid для набора иконок 
+
+ 
+fix(plasma-website): Fix Icons (https://github.com/salute-developers/plasma/pull/1169)
+
+---
+
+#### 🚀 Enhancement
+
+- `@salutejs/caldera-online@0.33.0`, `@salutejs/plasma-asdk@0.71.0`, `@salutejs/plasma-b2c@1.313.0`, `@salutejs/plasma-core@1.157.0`, `@salutejs/plasma-hope@1.276.0`, `@salutejs/plasma-icons@1.191.0`, `@salutejs/plasma-new-hope@0.73.0`, `@salutejs/plasma-tokens-b2b@1.39.0`, `@salutejs/plasma-tokens-b2c@0.49.0`, `@salutejs/plasma-tokens-web@1.54.0`, `@salutejs/plasma-tokens@1.78.0`, `@salutejs/plasma-ui@1.245.0`, `@salutejs/plasma-web@1.313.0`, `@salutejs/sdds-serv@0.39.0`, `@salutejs/caldera-online-themes@0.9.0`, `@salutejs/data-themes@0.9.0`, `@salutejs/flamingo-themes@0.9.0`, `@salutejs/plasma-themes@0.9.0`, `@salutejs/sdds-themes@0.9.0`, `@salutejs/plasma-cy-utils@0.89.0`, `@salutejs/plasma-sb-utils@0.155.0`, `@salutejs/plasma-tokens-utils@0.41.0`
+  - Release by 10.04.2024 [#1175](https://github.com/salute-developers/plasma/pull/1175) ([@shuga2704](https://github.com/shuga2704) [@Salute-Eva](https://github.com/Salute-Eva) [@neretin-trike](https://github.com/neretin-trike) [@Yakutoc](https://github.com/Yakutoc) [@iljs](https://github.com/iljs) [@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/sdds-serv@0.39.0`
+  - feat(sdds-serv): add TextField from new-hope [#1160](https://github.com/salute-developers/plasma/pull/1160) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+  - feat(sdds-serv): update components actual list [#1174](https://github.com/salute-developers/plasma/pull/1174) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-icons@1.191.0`
+  - feat: add generateIconsIos script [#1163](https://github.com/salute-developers/plasma/pull/1163) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-web@1.313.0`
+  - feat(plasma-web): fix Chip config & test [#1155](https://github.com/salute-developers/plasma/pull/1155) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-new-hope@0.73.0`
+  - feat(plasma-new-hope): Add state tokens for css themes in examples [#1165](https://github.com/salute-developers/plasma/pull/1165) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.313.0`, `@salutejs/plasma-new-hope@0.73.0`, `@salutejs/plasma-web@1.313.0`
+  - feat(new-hope): Cell web, b2c and docs [#1148](https://github.com/salute-developers/plasma/pull/1148) ([@iljs](https://github.com/iljs))
+
+#### 🐛 Bug Fix
+
+- ci(deploy-docs): refactoring common logic [#1147](https://github.com/salute-developers/plasma/pull/1147) ([@Yakutoc](https://github.com/Yakutoc))
+- chore(web-docs): fix symlink to changelog [#1173](https://github.com/salute-developers/plasma/pull/1173) ([@Yakutoc](https://github.com/Yakutoc))
+- ci: dispatch build-icons event to iOS repo [#1164](https://github.com/salute-developers/plasma/pull/1164) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.313.0`, `@salutejs/plasma-new-hope@0.73.0`, `@salutejs/plasma-web@1.313.0`, `@salutejs/sdds-serv@0.39.0`
+  - feat(plasma-hope, b2c, web, new-hope, sdds-serv): Select interlayer [#1161](https://github.com/salute-developers/plasma/pull/1161) ([@shuga2704](https://github.com/shuga2704))
+  - fix(new-hope): Edit storybook content [#1154](https://github.com/salute-developers/plasma/pull/1154) ([@iljs](https://github.com/iljs))
+- `@salutejs/plasma-new-hope@0.73.0`
+  - fix(plasma-website): Fix Icons [#1169](https://github.com/salute-developers/plasma/pull/1169) ([@iljs](https://github.com/iljs))
+- `@salutejs/caldera-online@0.33.0`, `@salutejs/plasma-asdk@0.71.0`, `@salutejs/plasma-b2c@1.313.0`, `@salutejs/plasma-web@1.313.0`, `@salutejs/sdds-serv@0.39.0`
+  - fix(plasma-web,plasma-b2c,plasma-asdk,sdds-serv,calder-online): Update API report [#1167](https://github.com/salute-developers/plasma/pull/1167) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-hope@1.276.0`
+  - fix(new-hope): Fix popup doc [#1168](https://github.com/salute-developers/plasma/pull/1168) ([@iljs](https://github.com/iljs))
+- `@salutejs/plasma-tokens@1.78.0`, `@salutejs/caldera-online-themes@0.9.0`, `@salutejs/data-themes@0.9.0`
+  - chore: delete unnecessary caldera themes [#1158](https://github.com/salute-developers/plasma/pull/1158) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 6
+
+- [@iljs](https://github.com/iljs)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Tue Apr 02 2024)
 
 #### 🐛 Bug Fix

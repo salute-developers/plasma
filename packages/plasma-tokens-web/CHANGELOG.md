@@ -1,3 +1,139 @@
+# v1.54.0 (Thu Apr 11 2024)
+
+### Release Notes
+
+#### Release by 10.04.2024 ([#1175](https://github.com/salute-developers/plasma/pull/1175))
+
+## Components
+
+### Dropdown
+
+- добавлена прослойка для dropdown в `b2c` и `web` (работает на старом api и с dropdown из new-hope)
+
+ 
+feat(plasma-new-hope, b2c, web): Dropdown interlayer (https://github.com/salute-developers/plasma/pull/1104)
+
+### Cell
+
+- добавлен в поставку `plasma-{web,b2c}`
+
+ 
+feat(new-hope): Add cell (https://github.com/salute-developers/plasma/pull/1148)
+
+### Chip
+
+- поправлена типизация
+- компонент добавлен в поставку для `sdds-serv`, включая документацию 
+
+ 
+feat(plasma-new-hope): fix Chip types (https://github.com/salute-developers/plasma/pull/1155)
+
+### Button
+
+- добавлены токены состояний (active / hover) для конфигов компонента  в библиотеках `@salutejs/plasma-{b2c,web,asdk}`, `@salutejs/sdds-serv`, `@salutejs/caldera-online` .
+
+ 
+fix(plasma-web,plasma-b2c,plasma-asdk,sdds-serv,calder-online): Update state tokens for `Button` component (https://github.com/salute-developers/plasma/pull/1167)
+
+### Select
+
+- убрана поддержка вложенности
+- добавлена прослойка для компонента в `plasma-{b2c,web}` и `sdds-serv` (* работает на старом api и с select из new-hope).
+- переделаны тесты и обновлена документация
+
+ 
+feat(plasma-new-hope, b2c, web, sdds-serv): Select interlayer (https://github.com/salute-developers/plasma/pull/1161)
+
+### TextField
+
+- проведен рефакторинг и редизайн
+- обновлены тесты и документация
+- добавлен в поставку в sdds-serv
+
+ 
+feat(plasma-new-hope): TextField redesign (https://github.com/salute-developers/plasma/pull/1160)
+
+
+## Icons
+
+### iOS
+
+- добавлен конвертор SVG в PNG для iOS app  
+
+ 
+plasma-icons: Convert SVG to PNG for iOS   (https://github.com/salute-developers/plasma/pull/1163)
+
+
+## Tokens
+
+### Tokens
+
+* исправлена формула для расчёта `hover / active` состояний
+* добавлены новые токены (но в выключенном состоянии) в существующие темы и схемы для библиотек `@salutejs/plasma-tokens`, `@salutejs/data-themes`, `@salutejs/caldera-online-themes`, `@salutejs/sdds-serv-themes`, `@salutejs/plasma-themes`, `@salutejs/flamingo-themes`
+*  добавлены недостающие токены для обратной совместимости у библиотек `@salutejs/plasma-tokens-web`, `@salutejs/plasma-tokens-b2c`, `@salutejs/plasma-tokens-b2b`,
+* добавлены недостающие токены в темы `plasma_b2c`, `plasma_web`, `sds_engineer` для библиотеки `@salutejs/plasma-new-hope`
+
+ 
+feat(plasma-tokens,plasma-theme-builder): Add tokens to existed themes (https://github.com/salute-developers/plasma/pull/1165)
+
+
+## Docs
+
+### Popup
+
+- исправлена ошибка в документации
+
+ 
+fix(new-hope): Fix popup doc (https://github.com/salute-developers/plasma/pull/1168)
+
+
+## Misc
+
+### Plasma Theme Builder
+
+* Добавлена генерация hover / active состояний для групп токенов.
+
+ 
+feat(plasma-theme-builder): Add generate hover / active state for tokens (https://github.com/salute-developers/plasma/pull/1134)
+
+### Pagination
+
+- исправлена ошибка навигации с помощью кнопок `next` \ `pre`
+
+ 
+fix(new-hope): Edit storybook content (https://github.com/salute-developers/plasma/pull/1154)
+
+### Website icons grid
+
+- исправлен поиск иконок по названию
+- исправлен grid для набора иконок 
+
+ 
+fix(plasma-website): Fix Icons (https://github.com/salute-developers/plasma/pull/1169)
+
+---
+
+#### 🚀 Enhancement
+
+- Release by 10.04.2024 [#1175](https://github.com/salute-developers/plasma/pull/1175) ([@shuga2704](https://github.com/shuga2704) [@Salute-Eva](https://github.com/Salute-Eva) [@neretin-trike](https://github.com/neretin-trike) [@Yakutoc](https://github.com/Yakutoc) [@iljs](https://github.com/iljs) [@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-tokens-*): Add fallback tokens for legacy token packages ([@neretin-trike](https://github.com/neretin-trike))
+
+#### 🐛 Bug Fix
+
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 6
+
+- [@iljs](https://github.com/iljs)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.52.0 (Thu Mar 28 2024)
 
 ### Release Notes
