@@ -124,7 +124,9 @@ const StoryLive = (args: TooltipProps) => {
                             label="Имя"
                             value={text}
                             onChange={(e) => setText(e.target.value)}
+                            view="default"
                             aria-describedby="example-tooltip-firstname"
+                            size="l"
                         />
                     }
                     contentLeft={<IconDisclosureRight size="xs" />}
