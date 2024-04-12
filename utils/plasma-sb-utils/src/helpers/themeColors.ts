@@ -29,7 +29,7 @@ const extractCanvasColors = (theme: Theme<string>, suffix: string) =>
         .reduce((acc, [key, value]) => ({ ...acc, [clearTokenName(key, suffix)]: value }), {});
 
 /**
- * Преобразует темы в одну, дополнив ее соответствующими акцетентными цветами из каждой.
+ * Преобразует темы в одну, дополнив ее соответствующими акцентными цветами из каждой.
  * @param {object} darkThemes Объект с темными темами
  * @param {object} lightThemes Объект со светлыми темами
  */
