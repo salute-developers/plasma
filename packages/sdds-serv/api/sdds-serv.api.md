@@ -439,7 +439,7 @@ export const Chip: FunctionComponent<PropsType<    {
 view: {
 default: string;
 secondary: string;
-positive: string;
+accent: string;
 };
 size: {
 l: string;
@@ -451,6 +451,9 @@ disabled: {
 true: string;
 };
 focused: {
+true: string;
+};
+pilled: {
 true: string;
 };
 }> & ChipProps & RefAttributes<HTMLButtonElement>>;
