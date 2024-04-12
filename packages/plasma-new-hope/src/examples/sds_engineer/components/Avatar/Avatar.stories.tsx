@@ -30,10 +30,36 @@ export const Default: Story = {
 export const Accessibility: Story = {
     args: {
         role: 'button',
+        name: 'Геннадий Силуянович',
         tabIndex: 0,
         view: 'default',
         size: 'xxl',
-        name: 'Иван Фадеев',
+        status: 'active',
         focused: true,
+    },
+};
+
+export const AccessibilityWithURL: Story = {
+    args: {
+        role: 'button',
+        tabIndex: 0,
+        view: 'default',
+        size: 'xxl',
+        status: 'active',
+        focused: true,
+        name: 'Микула Селянинович',
+        url: 'https://avatars.githubusercontent.com/u/1813468?v=4',
+    },
+};
+
+export const AccessibilityWithCustomText: Story = {
+    args: {
+        role: 'button',
+        tabIndex: 0,
+        view: 'default',
+        size: 'xxl',
+        status: 'inactive',
+        focused: true,
+        customText: 'ФИО',
     },
 };
