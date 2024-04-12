@@ -40,7 +40,7 @@ const TrashIcon = (props) => (
 export const Default: Story = {
     args: {
         text: 'Hello',
-        view: 'primary',
+        view: 'default',
         size: 'm',
         disabled: false,
         focused: true,
