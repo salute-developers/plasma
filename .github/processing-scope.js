@@ -44,7 +44,7 @@ module.exports = () => {
     /**
      * Processed data - packages name without "@salutejs/"
      * @example
-     * ["plasma-web", "plasma-ui", "caldera"]
+     * ["plasma-web", "plasma-ui", "caldera-online"]
      */
     const PROCESSED_DATA = rawData.map((item) => item.replace('@salutejs/', ''));
 
@@ -60,7 +60,7 @@ module.exports = () => {
     /**
      * List packages who has a documentations artifacts: storybook, docusaurus
      * @example
-     * ["plasma-web", "caldera", "sdds-serv"]
+     * ["plasma-web", "caldera-online", "sdds-serv"]
      */
     const PACKAGES_DOCUMENTATIONS_RUN = PROCESSED_DATA.filter((item) => CONFIG.PACKAGES_DS.includes(item));
 
