@@ -722,6 +722,7 @@ view: {
 default: string;
 primary: string;
 secondary: string;
+accent: string;
 positive: string;
 };
 size: {
@@ -734,6 +735,9 @@ disabled: {
 true: string;
 };
 focused: {
+true: string;
+};
+pilled: {
 true: string;
 };
 }> & ChipProps & RefAttributes<HTMLButtonElement>>;
