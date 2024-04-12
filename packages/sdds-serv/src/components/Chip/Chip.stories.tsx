@@ -5,7 +5,7 @@ import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
 import { Chip } from '.';
 
-const views = ['default', 'secondary', 'positive'];
+const views = ['default', 'secondary', 'positive', 'accent'];
 const sizes = ['l', 'm', 's', 'xs'];
 
 const onClear = action('onClear');
@@ -59,5 +59,28 @@ export const Default: Story = {
 
 export const WithIcon: Story = {
     args: { ...Default.args },
-    render: (args) => <Chip contentLeft={<TrashIcon width="1.25rem" height="1.25rem" />} {...args} />,
+    render: (args) => {
+        const iconSizeMapper = {
+            l: '1.5rem',
+            m: '1.25rem',
+            s: '1rem',
+            xs: '0.75rem',
+        };
+        const iconSize = args.size || 'm';
+
+        return (
+            <Chip
+                contentLeft={<TrashIcon width={iconSizeMapper[iconSize]} height={iconSizeMapper[iconSize]} />}
+                {...args}
+            />
+        );
+    },
+};
+
+export const LongText: Story = {
+    args: {
+        ...Default.args,
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    },
+    render: (args) => <Chip style={{ width: '10rem' }} {...args} />,
 };
