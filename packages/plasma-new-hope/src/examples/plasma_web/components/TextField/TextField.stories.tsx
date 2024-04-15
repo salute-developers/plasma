@@ -70,16 +70,11 @@ type StoryPropsDefault = Omit<
     | 'chips'
     | 'onChangeChips'
 > & {
-    'storybook:contentLeft': boolean;
-    'storybook:contentRight': boolean;
+    enableContentLeft: boolean;
+    enableContentRight: boolean;
 };
 
-const StoryDemo = ({
-    'storybook:contentLeft': enableContentLeft,
-    'storybook:contentRight': enableContentRight,
-    view,
-    ...rest
-}: StoryPropsDefault) => {
+const StoryDemo = ({ enableContentLeft, enableContentRight, view, ...rest }: StoryPropsDefault) => {
     const [text, setText] = useState('Значение поля');
 
     const iconSize = rest.size === 'xs' ? 'xs' : 's';
@@ -114,8 +109,8 @@ export const Default: StoryObj<StoryPropsDefault> = {
         leftHelper: 'Подсказка к полю',
         disabled: false,
         readOnly: false,
-        'storybook:contentLeft': true,
-        'storybook:contentRight': true,
+        enableContentLeft: true,
+        enableContentRight: true,
     },
     render: (args) => <StoryDemo {...args} />,
 };
@@ -139,16 +134,11 @@ type StoryPropsChips = Omit<
     | 'required'
     | 'enumerationType'
 > & {
-    'storybook:contentLeft': boolean;
-    'storybook:contentRight': boolean;
+    enableContentLeft: boolean;
+    enableContentRight: boolean;
 };
 
-const StoryChips = ({
-    'storybook:contentLeft': enableContentLeft,
-    'storybook:contentRight': enableContentRight,
-    view,
-    ...rest
-}: StoryPropsChips) => {
+const StoryChips = ({ enableContentLeft, enableContentRight, view, ...rest }: StoryPropsChips) => {
     const [text, setText] = useState('Значение поля');
 
     const iconSize = rest.size === 'xs' ? 'xs' : 's';

@@ -99,6 +99,13 @@ export const Placements: StoryObj<DropdownProps> = {
             control: {
                 type: 'select',
             },
+            mapping: {
+                top: 'top',
+                bottom: 'bottom',
+                right: 'right',
+                left: 'left',
+                auto: 'auto',
+            },
         },
     },
     render: (args) => {
