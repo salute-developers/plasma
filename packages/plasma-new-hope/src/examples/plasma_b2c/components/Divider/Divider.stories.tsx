@@ -26,6 +26,7 @@ const meta: Meta<typeof Divider> = {
             },
             table: { defaultValue: { summary: 'default' } },
         },
+        length: { control: 'text' },
     },
 };
 

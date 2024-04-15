@@ -135,6 +135,7 @@ export const Live: StoryObj<TooltipProps> = {
             control: {
                 type: 'select',
             },
+            mapping: placements,
         },
         size: {
             options: ['m', 's'],
