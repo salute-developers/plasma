@@ -71,9 +71,9 @@ export function App() {
 
 ### Вид Chip
 Вид Chip задается с помощью свойства `view`. Возможные значения свойства `view`:
-+ `"default"` – основная;
-+ `"secondary"` – вторичная;
-+ `"positive"` – успешное завершение;
++ `"default"` – основной;
++ `"secondary"` – вторичный;
++ `"accent"` – акцентый.
 
 ```tsx live
 import React from 'react';
@@ -84,7 +84,7 @@ export function App() {
         <div>
             <Chip text="Chip" size="m" view="default" />
             <Chip text="Chip" size="m" view="secondary" />
-            <Chip text="Chip" size="m" view="positive" />
+            <Chip text="Chip" size="m" view="accent" />
         </div>
     );
 }
