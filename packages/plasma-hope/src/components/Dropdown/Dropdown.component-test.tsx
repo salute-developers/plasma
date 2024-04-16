@@ -1,76 +1,227 @@
-/* eslint-disable */
 import React from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { standard as standardTypo } from '@salutejs/plasma-typo';
-import { accent, success, warning, critical } from '@salutejs/plasma-core';
-import { IconEye, IconMagicWand, IconAccessibility, IconHeart, IconTrash, IconLocation } from '@salutejs/plasma-icons';
-
+import { IconLocation } from '@salutejs/plasma-icons';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const items = [
     {
-        value: 'each',
-        label: 'Каждый',
+        value: 'north_america',
+        label: 'Северная Америка',
+        contentLeft: <IconLocation color="inherit" />,
+        contentRight: <IconLocation color="inherit" />,
     },
     {
-        value: 'hunter',
-        label: 'Охотник',
-    },
-    {
-        value: 'wants',
-        label: 'Желает',
-        contentLeft: <IconHeart color="inherit" />,
+        value: 'south_america',
+        label: 'Южная Америка',
         items: [
             {
-                value: '_fulllabel',
-                label: 'Каждый охотник желает знать, где сидит фазан',
+                value: 'brazil',
+                label: 'Бразилия',
+                items: [
+                    {
+                        value: 'rio_de_janeiro',
+                        label: 'Рио-де-Жанейро',
+                    },
+                    {
+                        value: 'sao_paulo',
+                        label: 'Сан-Паулу',
+                    },
+                ],
             },
             {
-                value: '_thePheasant',
-                label: 'Фазан',
+                value: 'argentina',
+                label: 'Аргентина',
+                items: [
+                    {
+                        value: 'buenos_aires',
+                        label: 'Буэнос-Айрес',
+                    },
+                    {
+                        value: 'cordoba',
+                        label: 'Кордова',
+                    },
+                ],
             },
             {
-                value: '_is',
-                label: 'Сидит',
+                value: 'colombia',
+                label: 'Колумбия',
+                items: [
+                    {
+                        value: 'bogota',
+                        label: 'Богота',
+                    },
+                    {
+                        value: 'medellin',
+                        label: 'Медельин',
+                    },
+                ],
             },
         ],
     },
     {
-        value: 'toKnow',
-        label: 'Знать',
-        isDisabled: true,
-        contentLeft: <IconEye color="inherit" />,
+        value: 'europe',
+        label: 'Европа',
+        items: [
+            {
+                value: 'france',
+                label: 'Франция',
+                items: [
+                    {
+                        value: 'paris',
+                        label: 'Париж',
+                    },
+                    {
+                        value: 'lyon',
+                        label: 'Лион',
+                    },
+                ],
+            },
+            {
+                value: 'germany',
+                label: 'Германия',
+                items: [
+                    {
+                        value: 'berlin',
+                        label: 'Берлин',
+                    },
+                    {
+                        value: 'munich',
+                        label: 'Мюнхен',
+                    },
+                ],
+            },
+            {
+                value: 'italy',
+                label: 'Италия',
+                items: [
+                    {
+                        value: 'rome',
+                        label: 'Рим',
+                    },
+                    {
+                        value: 'milan',
+                        label: 'Милан',
+                    },
+                ],
+            },
+            {
+                value: 'spain',
+                label: 'Испания',
+                items: [
+                    {
+                        value: 'madrid',
+                        label: 'Мадрид',
+                    },
+                    {
+                        value: 'barcelona',
+                        label: 'Барселона',
+                    },
+                ],
+            },
+            {
+                value: 'united_kingdom',
+                label: 'Великобритания',
+                items: [
+                    {
+                        value: 'london',
+                        label: 'Лондон',
+                    },
+                    {
+                        value: 'manchester',
+                        label: 'Манчестер',
+                    },
+                ],
+            },
+        ],
     },
     {
-        value: 'where',
-        label: 'Где',
-        color: accent,
-        contentLeft: <IconLocation color="inherit" />,
+        value: 'asia',
+        label: 'Азия',
+        items: [
+            {
+                value: 'china',
+                label: 'Китай',
+                items: [
+                    {
+                        value: 'beijing',
+                        label: 'Пекин',
+                    },
+                    {
+                        value: 'shanghai',
+                        label: 'Шанхай',
+                    },
+                ],
+            },
+            {
+                value: 'japan',
+                label: 'Япония',
+                items: [
+                    {
+                        value: 'tokyo',
+                        label: 'Токио',
+                    },
+                    {
+                        value: 'osaka',
+                        label: 'Осака',
+                    },
+                ],
+            },
+            {
+                value: 'india',
+                label: 'Индия',
+                items: [
+                    {
+                        value: 'delhi',
+                        label: 'Дели',
+                    },
+                    {
+                        value: 'mumbai',
+                        label: 'Мумбаи',
+                    },
+                ],
+            },
+            {
+                value: 'south_korea',
+                label: 'Южная Корея',
+                items: [
+                    {
+                        value: 'seoul',
+                        label: 'Сеул',
+                    },
+                    {
+                        value: 'busan',
+                        label: 'Пусан',
+                    },
+                ],
+            },
+            {
+                value: 'thailand',
+                label: 'Таиланд',
+                items: [
+                    {
+                        value: 'bangkok',
+                        label: 'Бангкок',
+                    },
+                    {
+                        value: 'phuket',
+                        label: 'Пхукет',
+                    },
+                ],
+            },
+        ],
     },
     {
-        value: 'is',
-        label: 'Сидит',
-        color: success,
-        contentLeft: <IconAccessibility color="inherit" />,
-    },
-    {
-        value: 'thePheasant',
-        label: 'Фазан',
-        color: warning,
-        contentLeft: <IconMagicWand color="inherit" />,
-    },
-    {
-        value: 'fulllabel',
-        label: 'Каждый охотник желает знать, где сидит фазан',
-        contentLeft: <IconTrash color="inherit" />,
-        color: critical,
+        value: 'africa',
+        label: 'Африка',
+        disabled: true,
     },
 ];
 
-describe('plasma-hope: Dropdown', () => {
+describe('plasma-b2c: Dropdown', () => {
     const Dropdown = getComponent('Dropdown');
     const Button = getComponent('Button');
 
@@ -81,24 +232,291 @@ describe('plasma-hope: Dropdown', () => {
         </CypressTestDecorator>
     );
 
-    it('simple', () => {
+    it('default', () => {
+        cy.viewport(1000, 500);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <Dropdown items={items}>
-                    <Button text="Open" />
+                    <Button text="Список стран" />
                 </Dropdown>
             </CypressTestDecoratorWithTypo>,
         );
 
         cy.get('button').click();
+        cy.get('#south_america').click();
+        cy.get('#argentina').click();
         cy.matchImageSnapshot();
     });
 
-    it('handling dropdown menu height', () => {
+    it('prop: size', () => {
+        cy.viewport(1500, 500);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ display: 'flex', gap: '200px' }}>
+                    <Dropdown items={items} size="xs" closeOnOverlayClick={false}>
+                        <Button id="xs" text="Список стран XS" />
+                    </Dropdown>
+
+                    <Dropdown items={items} size="s" closeOnOverlayClick={false}>
+                        <Button id="s" text="Список стран S" />
+                    </Dropdown>
+
+                    <Dropdown items={items} size="m" closeOnOverlayClick={false}>
+                        <Button id="m" text="Список стран M" />
+                    </Dropdown>
+
+                    <Dropdown items={items} size="l" closeOnOverlayClick={false}>
+                        <Button id="l" text="Список стран L" />
+                    </Dropdown>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#xs').click();
+        cy.get('#s').click();
+        cy.get('#m').click();
+        cy.get('#l').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: size, variant', () => {
+        cy.viewport(1500, 500);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <div style={{ display: 'flex', gap: '200px' }}>
+                    <Dropdown items={items} size="xs" closeOnOverlayClick={false} variant="tight">
+                        <Button id="xs" text="Список стран XS" />
+                    </Dropdown>
+
+                    <Dropdown items={items} size="s" closeOnOverlayClick={false} variant="tight">
+                        <Button id="s" text="Список стран S" />
+                    </Dropdown>
+
+                    <Dropdown items={items} size="m" closeOnOverlayClick={false} variant="tight">
+                        <Button id="m" text="Список стран M" />
+                    </Dropdown>
+
+                    <Dropdown items={items} size="l" closeOnOverlayClick={false} variant="tight">
+                        <Button id="l" text="Список стран L" />
+                    </Dropdown>
+                </div>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#xs').click();
+        cy.get('#s').click();
+        cy.get('#m').click();
+        cy.get('#l').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: onHover', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Dropdown
+                    items={items}
+                    onHover={(index) => {
+                        expect(index).to.eq(0);
+                    }}
+                >
+                    <Button text="Список стран" />
+                </Dropdown>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+        cy.get('#north_america').trigger('mouseover');
+    });
+
+    it('prop: onItemSelect', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Dropdown
+                    items={items}
+                    onItemSelect={(item, event) => {
+                        expect(item).to.eq(items[0]);
+                        expect(event.type).to.eq('click');
+                    }}
+                >
+                    <Button text="Список стран" />
+                </Dropdown>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+        cy.get('#north_america').click();
+    });
+
+    it('prop: trigger', () => {
+        cy.viewport(1000, 500);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Dropdown items={items} trigger="hover">
+                    <Button text="Список стран" />
+                </Dropdown>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').trigger('mouseover');
+        cy.get('#asia').trigger('mouseover');
+        cy.get('#india').trigger('mouseover');
+        cy.get('#delhi').should('be.visible');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: placement', () => {
+        cy.viewport(500, 800);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Dropdown placement={['top', 'bottom']} items={items} closeOnOverlayClick={false}>
+                    <Button id="top" text="Список стран" />
+                </Dropdown>
+
+                <div style={{ height: '600px' }} />
+
+                <Dropdown placement={['top', 'bottom']} items={items} closeOnOverlayClick={false}>
+                    <Button id="bottom" text="Список стран" />
+                </Dropdown>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('#top').click();
+        cy.get('#bottom').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: offset', () => {
+        cy.viewport(1000, 500);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Dropdown items={items} offset={[20, 20]}>
+                    <Button text="Список стран" />
+                </Dropdown>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+        cy.get('#south_america').click();
+        cy.get('#argentina').click();
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: listWidth', () => {
+        cy.viewport(1000, 500);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Dropdown items={items} listWidth="300px">
+                    <Button text="Список стран" />
+                </Dropdown>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+        cy.get('#south_america').click();
+        cy.get('#argentina').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: hasArrow', () => {
+        cy.viewport(1000, 500);
+
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Dropdown items={items} hasArrow={false}>
+                    <Button text="Список стран" />
+                </Dropdown>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+        cy.get('#south_america').click();
+        cy.get('#argentina').click();
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: closeOnSelect', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Dropdown items={items} closeOnSelect={false}>
+                    <Button text="Список стран" />
+                </Dropdown>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+        cy.get('#north_america').click();
+        cy.get('#north_america').should('be.visible');
+    });
+
+    it('prop: closeOnOverlayClick', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <span id="outer">outer text</span>
+
+                <Dropdown items={items} closeOnOverlayClick={false}>
+                    <Button text="Список стран" />
+                </Dropdown>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+        cy.get('#outer').click();
+        cy.get('#north_america').should('be.visible');
+    });
+
+    it('prop: onToggle', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Dropdown
+                    items={items}
+                    onToggle={(isOpen, event) => {
+                        expect(isOpen).to.be.oneOf([true, false]);
+                        expect(event.type).to.eq('click');
+                    }}
+                >
+                    <Button text="Список стран" />
+                </Dropdown>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+        cy.get('button').click();
+    });
+
+    it('prop: onItemClick', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Dropdown
+                    items={items}
+                    onItemClick={(item, event) => {
+                        expect(item).to.eq(items[0]);
+                        expect(event.type).to.eq('click');
+                    }}
+                >
+                    <Button text="Список стран" />
+                </Dropdown>
+            </CypressTestDecoratorWithTypo>,
+        );
+
+        cy.get('button').click();
+        cy.get('#north_america').click();
+    });
+
+    it('prop: listHeight, listOverflow', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Dropdown items={items} listOverflow="scroll" listHeight={6}>
-                    <Button text="Open" />
+                    <Button text="Список стран" />
                 </Dropdown>
             </CypressTestDecoratorWithTypo>,
         );
@@ -107,31 +525,134 @@ describe('plasma-hope: Dropdown', () => {
         cy.matchImageSnapshot();
     });
 
-    it('auto placement bottom', () => {
+    it('keyboard interactions', () => {
+        cy.viewport(1000, 500);
+
         mount(
             <CypressTestDecoratorWithTypo>
-                <Dropdown placement={['top', 'bottom']} items={items}>
-                    <Button id="button" text="Open" stretching="filled" />
+                <Dropdown
+                    items={items}
+                    onItemSelect={(item, event) => {
+                        expect(item).to.eq(items[0]);
+                        expect(event.type).to.eq('keydown');
+                    }}
+                >
+                    <Button text="Список стран" />
                 </Dropdown>
             </CypressTestDecoratorWithTypo>,
         );
 
-        cy.get('#button').click();
-        cy.matchImageSnapshot();
-    });
+        cy.get('body').realClick();
+        cy.realPress('Tab');
 
-    it('auto placement top', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <div style={{ height: '450px' }}></div>
+        // Arrow Down
+        cy.realPress('ArrowDown');
+        cy.get('#listbox1').should('be.visible');
+        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.get('button').should('have.focus');
+        cy.realPress('ArrowDown')
+            .realPress('ArrowDown')
+            .realPress('ArrowDown')
+            .realPress('ArrowDown')
+            .realPress('ArrowDown')
+            .realPress('ArrowDown')
+            .realPress('ArrowDown');
+        cy.get('#europe').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('Escape');
 
-                <Dropdown placement={['top', 'bottom']} items={items}>
-                    <Button id="button" text="Open" stretching="filled" />
-                </Dropdown>
-            </CypressTestDecoratorWithTypo>,
-        );
+        // Arrow Up
+        cy.realPress('ArrowUp');
+        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('ArrowUp');
+        cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('Escape');
 
-        cy.get('#button').click();
-        cy.matchImageSnapshot();
+        // Arrows Right and Left
+        cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight');
+        cy.get('#listbox1').should('be.visible');
+        cy.get('#listbox2').should('be.visible');
+        cy.get('#brazil').should('have.class', 'dropdown-item-is-focused');
+        cy.get('button').should('have.focus');
+        cy.get('#south_america').should('have.class', 'dropdown-item-is-active');
+        cy.realPress('ArrowLeft');
+        cy.get('#listbox1').should('be.visible');
+        cy.get('#listbox2').should('not.be.visible');
+        cy.get('#south_america').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('ArrowDown').realPress('ArrowRight');
+        cy.get('#france').should('have.class', 'dropdown-item-is-focused');
+        cy.get('button').should('have.focus');
+        cy.get('#europe').should('have.class', 'dropdown-item-is-active');
+        cy.realPress('ArrowRight');
+        cy.get('#europe').should('have.class', 'dropdown-item-is-active');
+        cy.get('#france').should('have.class', 'dropdown-item-is-active');
+        cy.get('#paris').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('ArrowLeft').realPress('ArrowLeft').realPress('ArrowLeft');
+        cy.get('#listbox1').should('not.be.visible');
+        cy.get('button').should('have.focus');
+
+        // Escape
+        cy.realPress('Escape');
+        cy.get('#listbox1').should('not.be.visible');
+        cy.get('button').should('have.focus');
+
+        // Home
+        cy.realPress('Home');
+        cy.get('#listbox1').should('be.visible');
+        cy.get('button').should('have.focus');
+        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('Escape');
+
+        // End
+        cy.realPress('End');
+        cy.get('#listbox1').should('be.visible');
+        cy.get('button').should('have.focus');
+        cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('Escape');
+
+        // Page Down
+        cy.realPress('PageDown');
+        cy.get('#listbox1').should('not.be.visible');
+        cy.get('button').should('have.focus');
+        cy.realPress('ArrowDown');
+        cy.realPress('PageDown');
+        cy.get('button').should('have.focus');
+        cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('Escape');
+
+        // Page Up
+        cy.realPress('PageUp');
+        cy.get('#listbox1').should('not.be.visible');
+        cy.get('button').should('have.focus');
+        cy.realPress('ArrowDown');
+        cy.realPress('ArrowDown');
+        cy.realPress('PageUp');
+        cy.get('button').should('have.focus');
+        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('Escape');
+
+        // Space
+        cy.realPress('ArrowDown')
+            .realPress('ArrowDown')
+            .realPress('Space')
+            .realPress('ArrowLeft')
+            .realPress('ArrowUp')
+            .realPress('Space');
+        cy.get('#listbox1').should('not.be.visible');
+        cy.get('button').should('have.focus');
+
+        // Enter
+        cy.realPress('Enter')
+            .realPress('ArrowDown')
+            .realPress('Enter')
+            .realPress('ArrowLeft')
+            .realPress('ArrowUp')
+            .realPress('Enter');
+        cy.get('#listbox1').should('not.be.visible');
+        cy.get('button').should('have.focus');
+
+        // Tab
+        cy.realPress('ArrowDown').realPress('Tab');
+        cy.get('#listbox1').should('not.be.visible');
+        cy.get('button').should('not.have.focus');
     });
 });

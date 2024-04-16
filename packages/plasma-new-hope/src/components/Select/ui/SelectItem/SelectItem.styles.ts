@@ -2,7 +2,7 @@ import { css } from '@linaria/core';
 
 import { tokens } from '../../Select.tokens';
 import { dropdownTokens } from '../../../Dropdown';
-import { baseContent as dropdownItemBase } from '../../../Dropdown/ui/DropdownItem/DropdownItem.styles';
+import { baseContent as dropdownItemBase } from '../../../Dropdown/ui/DropdownItemOld/DropdownItem.styles';
 
 // NOTE: Необходимое переопределение токенов из компонента DropdownItem т.к. используются его части
 export const mappingOverride = `

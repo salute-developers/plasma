@@ -1,143 +1,108 @@
-import React, { forwardRef, useCallback, useMemo } from 'react';
-import { safeUseId } from '@salutejs/plasma-core';
+import React, { useEffect, useRef, FC } from 'react';
 
-import { RootProps } from '../../../../engines';
 import { classes } from '../../Dropdown.tokens';
 import { cx } from '../../../../utils';
-import { getValidComponent } from '../../utils';
+import { IconDisclosureRight } from '../../../_Icon';
 
-import { base as viewCSS } from './variations/_view/base';
-import { base as sizeCSS } from './variations/_size/base';
-import { StyledContentLeft, StyledContentRight, StyledText, base } from './DropdownItem.styles';
+import {
+    StyledContentLeft,
+    StyledContentRight,
+    StyledText,
+    Wrapper,
+    DisclosureIconWrapper,
+} from './DropdownItem.styles';
 import type { DropdownItemProps } from './DropdownItem.type';
 
-/**
- * Элемент выпадающего списка
- */
-export const dropdownItemRoot = (Root: RootProps<HTMLDivElement, DropdownItemProps>) =>
-    forwardRef<HTMLDivElement, DropdownItemProps>(
-        (
-            {
-                id,
-                className,
-                children,
-                text,
-                isSelected,
-                name,
-                checked,
-                value,
-                role,
-                view,
-                size,
-                disabled,
-                contentLeft: ContentLeftComponent,
-                contentRight: ContentRightComponent,
-                onSelect,
-                onClick,
-                onChange,
-                ...rest
-            },
-            outerRootRef,
-        ) => {
-            const uniqId = safeUseId();
-            const innerId = id || uniqId;
+export const DropdownItem: FC<DropdownItemProps> = ({
+    item,
+    path,
+    focusedPath,
+    currentLevel,
+    index,
+    itemRole,
+    closeOnSelect,
+    handleGlobalToggle,
+    onHover,
+    onItemSelect,
+    onItemClick,
+    ariaControls,
+    ariaExpanded,
+    ariaHasPopup,
+    ariaLevel,
+    ariaLabel,
+    variant,
+    hasArrow,
+}) => {
+    const { value, label, disabled, isDisabled, contentLeft, contentRight } = item;
 
-            const withDropdownItemIsSelected = checked || isSelected ? classes.dropdownItemIsSelected : undefined;
-            const withDropdownItemIsDisabled = disabled ? classes.dropdownItemIsDisabled : undefined;
+    const ref = useRef<HTMLLIElement | null>(null);
 
-            const handleOnClick = useCallback(
-                (event: React.MouseEvent<HTMLDivElement>) => {
-                    if (disabled) {
-                        return;
-                    }
+    const isDisabledClassName = disabled || isDisabled ? classes.dropdownItemIsDisabled : undefined;
+    const focusedClass =
+        currentLevel === focusedPath.length - 1 && index === focusedPath?.[currentLevel]
+            ? classes.dropdownItemIsFocused
+            : undefined;
+    const activeClass = value === path?.[currentLevel + 1] ? classes.dropdownItemIsActive : undefined;
 
-                    onClick?.(event);
+    useEffect(() => {
+        if (focusedClass && ref?.current) {
+            ref.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center',
+                inline: 'center',
+            });
+        }
+    }, [focusedClass]);
 
-                    if (onSelect && !ContentLeftComponent) {
-                        onSelect(value, text);
-                    }
-                },
-                [onSelect, disabled],
-            );
+    const handleClick = (event: React.MouseEvent<HTMLLIElement>): void => {
+        if (disabled || isDisabled) {
+            return;
+        }
 
-            const handleOnChange = useCallback(
-                (event: React.MouseEvent<HTMLInputElement>) => {
-                    if (disabled) {
-                        return;
-                    }
+        if (onItemSelect) {
+            onItemSelect(item, event);
+        }
 
-                    onChange?.(event);
+        if (onItemClick) {
+            onItemClick(item, event);
+        }
 
-                    if (onSelect && ContentLeftComponent) {
-                        onSelect(value, text);
-                    }
-                },
-                [onSelect, disabled],
-            );
+        if (handleGlobalToggle && closeOnSelect) {
+            handleGlobalToggle(false, event);
+        }
+    };
 
-            const contentProps = {
-                name,
-                value,
-                checked: checked || isSelected,
-                disabled,
-                tabIndex: 0,
-                ...(!disabled && { onChange: handleOnChange }),
-            };
+    const handleHover = () => {
+        if (onHover) {
+            onHover(index);
+        }
+    };
 
-            const ContentLeft = useMemo(() => getValidComponent(ContentLeftComponent, contentProps), [
-                ContentRightComponent,
-                contentProps,
-            ]);
+    return (
+        <Wrapper
+            className={cx(isDisabledClassName, focusedClass, activeClass)}
+            id={value.toString()}
+            role={itemRole}
+            ref={ref}
+            aria-disabled={disabled || isDisabled}
+            onClick={handleClick}
+            onMouseEnter={handleHover}
+            variant={variant}
+            aria-controls={ariaControls}
+            aria-expanded={ariaExpanded}
+            aria-haspopup={ariaHasPopup}
+            aria-level={ariaLevel}
+            aria-label={ariaLabel}
+        >
+            {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
+            <StyledText>{label}</StyledText>
+            {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
 
-            const ContentRight = useMemo(() => getValidComponent(ContentRightComponent, contentProps), [
-                ContentRightComponent,
-                contentProps,
-            ]);
-
-            return (
-                <Root
-                    className={cx(withDropdownItemIsSelected, withDropdownItemIsDisabled, className)}
-                    view={view}
-                    size={size}
-                    id={innerId}
-                    isSelected={isSelected}
-                    role={role}
-                    ref={outerRootRef}
-                    tabIndex={0}
-                    aria-disabled={disabled}
-                    onClick={handleOnClick}
-                    data-value={value}
-                    {...rest}
-                >
-                    {text ? (
-                        <>
-                            <StyledContentLeft>{ContentLeftComponent && ContentLeft}</StyledContentLeft>
-                            <StyledText>{text}</StyledText>
-                            <StyledContentRight>{ContentRightComponent && ContentRight}</StyledContentRight>
-                        </>
-                    ) : (
-                        children
-                    )}
-                </Root>
-            );
-        },
+            {item.items && hasArrow && (
+                <DisclosureIconWrapper>
+                    <IconDisclosureRight size="xs" color="inherit" />
+                </DisclosureIconWrapper>
+            )}
+        </Wrapper>
     );
-
-export const dropdownItemConfig = {
-    name: 'DropdownItem',
-    tag: 'div',
-    layout: dropdownItemRoot,
-    base,
-    variations: {
-        view: {
-            css: viewCSS,
-        },
-        size: {
-            css: sizeCSS,
-        },
-    },
-    defaults: {
-        view: 'primary',
-        size: 'm',
-    },
 };

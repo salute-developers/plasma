@@ -22,12 +22,8 @@ import { bodyXXSBold } from '@salutejs/caldera-online-themes/tokens';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
 import { ButtonHTMLAttributes } from 'react';
 import { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-new-hope/styled-components';
-import { ComponentClass } from 'react';
-import { CustomDropdownProps } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
-import { DropdownPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { DropdownProps } from '@salutejs/plasma-new-hope/styled-components';
-import { DropdownTrigger } from '@salutejs/plasma-new-hope/styled-components';
 import { dsplL } from '@salutejs/caldera-online-themes/tokens';
 import { dsplLBold } from '@salutejs/caldera-online-themes/tokens';
 import { dsplM } from '@salutejs/caldera-online-themes/tokens';
@@ -50,7 +46,6 @@ import { h5 } from '@salutejs/caldera-online-themes/tokens';
 import { h5Bold } from '@salutejs/caldera-online-themes/tokens';
 import { HTMLAttributes } from 'react';
 import type { InputHTMLAttributes } from 'react';
-import { JSXElementConstructor } from 'react';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { mediaQuery } from '@salutejs/plasma-new-hope/styled-components';
 import { modalClasses } from '@salutejs/plasma-new-hope/styled-components';
@@ -63,10 +58,7 @@ import { PopupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
-import { ReactElement } from 'react';
-import { ReactFragment } from 'react';
 import { ReactNode } from 'react';
-import { ReactPortal } from 'react';
 import { RefAttributes } from 'react';
 import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -90,7 +82,6 @@ import { ToastRole } from '@salutejs/plasma-new-hope/styled-components';
 import { usePopupContext } from '@salutejs/plasma-new-hope/styled-components';
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-new-hope/styled-components';
-import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
 
 export { addFocus }
 
@@ -211,7 +202,7 @@ export const Checkbox: FunctionComponent<BaseboxProps>;
 // @public (undocumented)
 export type CheckboxProps = typeof CheckboxComponent;
 
-// @public
+// @public (undocumented)
 export const Dropdown: FunctionComponent<PropsType<    {
 size: {
 xs: string;
@@ -221,34 +212,10 @@ l: string;
 };
 view: {
 default: string;
-primary: string;
 };
-}> & HTMLAttributes<HTMLDivElement> & CustomDropdownProps & RefAttributes<HTMLDivElement>>;
-
-// @public
-export const DropdownItem: FunctionComponent<PropsType<Variants> & Omit<HTMLAttributes<HTMLDivElement>, "onSelect"> & {
-id?: string | undefined;
-disabled?: boolean | undefined;
-label?: ReactNode;
-role?: string | undefined;
-contentLeft?: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ReactFragment | ReactPortal | ComponentClass<any, any> | null | undefined;
-contentRight?: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ReactFragment | ReactPortal | ComponentClass<any, any> | null | undefined;
-name?: string | undefined;
-checked?: boolean | undefined;
-text?: string | undefined;
-value?: string | number | boolean | undefined;
-isSelected?: boolean | undefined;
-onClick?: ((event: MouseEvent_2<HTMLDivElement, MouseEvent>) => void) | undefined;
-onSelect?: ((value?: any, text?: any) => void) | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
-
-export { DropdownPlacement }
+}> & DropdownProps & RefAttributes<HTMLDivElement>>;
 
 export { DropdownProps }
-
-export { DropdownTrigger }
 
 // @public (undocumented)
 export const DsplL: FunctionComponent<PropsType<    {
