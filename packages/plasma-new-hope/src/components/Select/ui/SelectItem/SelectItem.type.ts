@@ -1,3 +1,3 @@
-import { DropdownItemProps } from '../../../Dropdown/ui/DropdownItem/DropdownItem.type';
+import { ComboboxItemProps } from '../../../Combobox/ui/ComboboxItem/ComboboxItem.type';
 
-export type SelectItemProps = DropdownItemProps;
+export type SelectItemProps = ComboboxItemProps;
