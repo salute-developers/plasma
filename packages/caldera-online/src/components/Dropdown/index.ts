@@ -1,2 +1,3 @@
-export { Dropdown, DropdownItem } from './Dropdown';
-export type { DropdownProps, DropdownPlacement, DropdownTrigger } from '@salutejs/plasma-new-hope/styled-components';
+export { Dropdown } from './Dropdown';
+
+export type { DropdownProps } from '@salutejs/plasma-new-hope/styled-components';

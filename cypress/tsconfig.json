@@ -2,7 +2,14 @@
     "compilerOptions": {
         "target": "es5",
         "lib": ["esnext", "dom"],
-        "types": ["cypress", "@testing-library/cypress", "@types/cypress-image-snapshot", "node", "cypress-axe"],
+        "types": [
+            "cypress",
+            "@testing-library/cypress",
+            "@types/cypress-image-snapshot",
+            "node",
+            "cypress-axe",
+            "cypress-real-events"
+        ],
         "typeRoots": ["./@types"],
         "resolveJsonModule": true
     },

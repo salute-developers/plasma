@@ -1,5 +1,6 @@
 import './commands';
 import '@cypress/code-coverage/support';
+import 'cypress-real-events';
 // по какой-то причине axe подключается только через require
 // иначе не поднимается dev-server webpack'а
 require('cypress-axe');
