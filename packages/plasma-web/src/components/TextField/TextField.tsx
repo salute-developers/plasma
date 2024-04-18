@@ -28,7 +28,6 @@ const animatedHintToLabelPlacement: Record<
  */
 export const TextField = forwardRef<HTMLDivElement, CustomTextFieldProps>((props, ref) => {
     const {
-        size,
         status,
 
         label,
@@ -40,6 +39,8 @@ export const TextField = forwardRef<HTMLDivElement, CustomTextFieldProps>((props
         chips,
         onSearch,
         onChangeChips,
+
+        size = 'l',
 
         ...rest
     } = props;
