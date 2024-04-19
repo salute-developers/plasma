@@ -212,6 +212,7 @@ import { SpacingProps } from '@salutejs/plasma-core';
 import { SpacingProps as SpacingProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { SpinnerProps } from '@salutejs/plasma-core';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
+import { StatusLabels } from '@salutejs/plasma-new-hope/types/components/Avatar/Avatar.types';
 import { StatusType } from '@salutejs/plasma-hope';
 import { StyledCard } from '@salutejs/plasma-hope';
 import { StyledComponent } from 'styled-components';
@@ -333,6 +334,7 @@ customText?: string | undefined;
 status?: "active" | "inactive" | undefined;
 isScalable?: boolean | undefined;
 focused?: boolean | undefined;
+statusLabels?: StatusLabels | undefined;
 } & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
