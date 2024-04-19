@@ -51,61 +51,56 @@ const items = [
     { langName, value: 'elixir', label: 'Elixir', disabled: true },
 ];
 
-const StoryDefault = (props: RadioboxProps) => {
+const StoryDefault = ({ label, description, name, ...props }: RadioboxProps) => {
     const value = 0;
     const [checked, setChecked] = useState(true);
 
     return (
-        <>
-            <Radiobox
-                name="item.name"
-                value={value}
-                singleLine
-                label="Label"
-                description="Description"
-                checked={checked}
-                onChange={(event) => {
-                    event.persist();
+        <Radiobox
+            name={name}
+            value={value}
+            singleLine
+            label={label}
+            description={description}
+            checked={checked}
+            onChange={(event) => {
+                event.persist();
 
-                    setChecked(event.target.checked);
-                    onChange(event);
-                }}
-                onFocus={onFocus}
-                onBlur={onBlur}
-                {...props}
-            />
-            <Radiobox
-                name="item.name"
-                value={value}
-                singleLine
-                label="Label looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooonger"
-                description="Description looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooonger"
-                checked={checked}
-                onChange={(event) => {
-                    event.persist();
-
-                    setChecked(event.target.checked);
-                    onChange(event);
-                }}
-                onFocus={onFocus}
-                onBlur={onBlur}
-                {...props}
-            />
-        </>
+                setChecked(event.target.checked);
+                onChange(event);
+            }}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            {...props}
+        />
     );
 };
 
 export const Default: StoryObj<RadioboxProps> = {
+    args: {
+        label: 'Это label',
+        description: 'Это описание',
+        name: 'default',
+    },
     render: (args) => <StoryDefault {...args} />,
 };
 
-const StoryComplex = (props: RadioboxProps) => {
+export const LongText: StoryObj<RadioboxProps> = {
+    args: {
+        label: 'Ооооооооооооооооооооочень длинный label',
+        description: 'Ооооооооооооооооооооочень длинный description',
+        name: 'long',
+    },
+    render: (args) => <StoryDefault {...args} />,
+};
+
+const StoryRadioGroup = () => {
     const [value, setValue] = useState('c');
 
     return (
-        <RadioGroup>
+        <RadioGroup aria-labelledby="radiogroup-title-id">
             <div id="radiogroup-title-id" style={{ margin: '1rem 0', fontWeight: '600' }}>
-                Radiogroup Title
+                Выберите язык программирования для изучения.
             </div>
             {items.map((item) => (
                 <Radiobox
@@ -122,13 +117,12 @@ const StoryComplex = (props: RadioboxProps) => {
                     }}
                     onFocus={onFocus}
                     onBlur={onBlur}
-                    {...props}
                 />
             ))}
         </RadioGroup>
     );
 };
 
-export const Complex: StoryObj<RadioboxProps> = {
-    render: (args) => <StoryComplex {...args} />,
+export const ExampleRadioGroup: StoryObj<RadioboxProps> = {
+    render: () => <StoryRadioGroup />,
 };
