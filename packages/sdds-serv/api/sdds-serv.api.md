@@ -118,6 +118,7 @@ import { SelectProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
 import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
+import { StatusLabels } from '@salutejs/plasma-new-hope/types/components/Avatar/Avatar.types';
 import { StyledComponent } from 'styled-components';
 import { SwitchPropsVariations } from '@salutejs/plasma-new-hope/types/components/Switch/Switch.types';
 import { TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -172,6 +173,7 @@ customText?: string | undefined;
 status?: "active" | "inactive" | undefined;
 isScalable?: boolean | undefined;
 focused?: boolean | undefined;
+statusLabels?: StatusLabels | undefined;
 } & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
