@@ -32,7 +32,7 @@
   ],
   "dependencies": {
     "@salutejs/plasma-typo": "0.40.0",
-    "styled-components": "5.3.6"
+    "styled-components": "5.3.1"
   },
   "devDependencies": {
     "@salutejs/data-themes": "0.10.0-dev.0",
