@@ -1,6 +1,3 @@
-// INFO: HAS_ASSETS - это флаг для управления логикой "@auto-it" плагина upload-assets-extend
-// INFO: Изменения в plasma-tokens или plasma-tokens-utils так же повлияют на то что в packagesList окажется plasma-tokens-native
-
 /**
  * Define CI config
  * @typedef {object} json
@@ -37,6 +34,7 @@ module.exports = () => {
             PROCESSED_DATA: [],
             HAS_PACKAGES_CYPRESS_RUN: false,
             HAS_PACKAGES_DS_CHANGES: false,
+            HAS_DEPLOY_WEBSITE: false,
             HAS_ASSETS: false,
         };
     }
@@ -61,8 +59,29 @@ module.exports = () => {
      * List packages who has a documentations artifacts: storybook, docusaurus
      * @example
      * ["plasma-web", "caldera-online", "sdds-serv"]
+     * item - project package,
+     * @example
+     * "plasma-web-docs" or "sdds-serv"
      */
-    const PACKAGES_DOCUMENTATIONS_RUN = PROCESSED_DATA.filter((item) => CONFIG.PACKAGES_DS.includes(item));
+    const PACKAGES_DOCUMENTATIONS_RUN = PROCESSED_DATA.reduce((acc, item) => {
+        // INFO: When `lerna la` return only docs package then need get client package
+        // INFO: @example get 'plasma-web-docs' -> 'plasma-web'
+        const packageDS = item.endsWith('-docs') ? item.replace('-docs', '') : item;
+
+        if (CONFIG.PACKAGES_DS.includes(packageDS) && !acc.includes(packageDS)) {
+            acc.push(packageDS);
+        }
+
+        return acc;
+    }, []);
+
+    const HAS_PACKAGES_DS_CHANGES = Boolean(PACKAGES_DOCUMENTATIONS_RUN.length);
+
+    const HAS_DEPLOY_WEBSITE = HAS_PACKAGES_DS_CHANGES || PROCESSED_DATA.includes('plasma-website');
+
+    // INFO: HAS_ASSETS - это флаг для управления логикой "@auto-it" плагина upload-assets-extend
+    // INFO: Изменения в plasma-tokens или plasma-tokens-utils так же повлияют на то что в packagesList окажется plasma-tokens-native
+    const HAS_ASSETS = PROCESSED_DATA.includes('plasma-tokens-native');
 
     return {
         RAW_DATA: JSON.stringify(rawData),
@@ -70,7 +89,8 @@ module.exports = () => {
         PACKAGES_CYPRESS_RUN: JSON.stringify(PACKAGES_CYPRESS_RUN),
         PROCESSED_DATA: JSON.stringify(PROCESSED_DATA),
         HAS_PACKAGES_CYPRESS_RUN: Boolean(PACKAGES_CYPRESS_RUN.length),
-        HAS_PACKAGES_DS_CHANGES: Boolean(PACKAGES_DOCUMENTATIONS_RUN.length),
-        HAS_ASSETS: PROCESSED_DATA.includes('plasma-tokens-native'),
+        HAS_ASSETS,
+        HAS_DEPLOY_WEBSITE,
+        HAS_PACKAGES_DS_CHANGES,
     };
 };
