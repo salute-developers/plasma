@@ -1,7 +1,6 @@
 name: Typescript coverage
 
 on:
-  merge_group:
   pull_request:
     branches:
       - master
@@ -21,6 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           show-progress: false
 
       - name: Prepare environment
