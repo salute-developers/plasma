@@ -39,4 +39,7 @@ export const IconButtonStyled = styled(Button)`
 
     ${buttonTokens.buttonDisabledOpacity}: var(${tokens.iconButtonDisabledOpacity});
     ${buttonTokens.buttonFocusColor}: var(${tokens.iconButtonFocusColor});
+
+    ${buttonTokens.buttonSpinnerSize}: var(${tokens.iconButtonSpinnerSize});
+    ${buttonTokens.buttonSpinnerColor}: var(${tokens.iconButtonSpinnerColor});
 `;

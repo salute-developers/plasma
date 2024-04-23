@@ -118,6 +118,7 @@ import { gridGutters } from '@salutejs/plasma-hope';
 import { gridMargins } from '@salutejs/plasma-hope';
 import { gridSizes } from '@salutejs/plasma-hope';
 import { HTMLAttributes } from 'react';
+import { IconButtonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImgHTMLAttributes } from 'react';
 import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -1128,6 +1129,41 @@ size: {
 headline5: string;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
+
+// @public
+export const IconButton: FunctionComponent<PropsType<    {
+view: {
+default: string;
+primary: string;
+accent: string;
+secondary: string;
+clear: string;
+success: string;
+warning: string;
+critical: string;
+dark: string;
+black: string;
+white: string;
+};
+size: {
+l: string;
+lr: string;
+m: string;
+mr: string;
+s: string;
+sr: string;
+xs: string;
+xsr: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & IconButtonProps & RefAttributes<HTMLButtonElement>>;
+
+export { IconButtonProps }
 
 // @public
 const Image_2: FunctionComponent<PropsType<Variants> & ImgHTMLAttributes<HTMLImageElement> & {

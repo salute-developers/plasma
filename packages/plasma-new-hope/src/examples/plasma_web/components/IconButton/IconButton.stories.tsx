@@ -55,7 +55,7 @@ const getSizeForIcon = (size) => {
 export const Default: StoryObj<ComponentProps<typeof IconButton>> = {
     args: {
         children: <IconChevronLeft />,
-        view: 'primary',
+        view: 'default',
         size: 'm',
         disabled: false,
         focused: true,

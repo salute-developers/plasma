@@ -1,23 +1,13 @@
-import { css } from '@linaria/core';
-
-import { iconButtonTokens } from '../../../../components/IconButton';
+import { css, iconButtonTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
-        view: 'default',
+        view: 'primary',
         focused: 'true',
         size: 'm',
     },
     variations: {
         view: {
-            default: css`
-                ${iconButtonTokens.iconButtonColor}: var(--inverse-text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-default);
-                ${iconButtonTokens.iconButtonColorHover}: var(--inverse-text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-solid-default-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--inverse-text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-solid-default-active);
-            `,
             primary: css`
                 ${iconButtonTokens.iconButtonColor}: var(--inverse-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-default);
