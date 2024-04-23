@@ -41,6 +41,7 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
 
         const txt = typeof children === 'string' ? children : text;
 
+        console.log(stretching);
         const stretchingClass = stretch
             ? classes.filledStretching
             : classes[`${stretching}Stretching` as keyof typeof classes];
