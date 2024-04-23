@@ -5,6 +5,7 @@ export * from './engines';
 export * from './hooks';
 export * from './utils';
 export * from './components/Button';
+export * from './components/IconButton';
 export * from './components/ButtonGroup';
 export * from './components/Chip';
 export * from './components/Cell';

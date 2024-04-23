@@ -2,12 +2,20 @@ import { css, iconButtonTokens } from '@salutejs/plasma-new-hope/styled-componen
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         focused: 'true',
         size: 'm',
     },
     variations: {
         view: {
+            default: css`
+                ${iconButtonTokens.iconButtonColor}: var(--inverse-text-primary);
+                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-default);
+                ${iconButtonTokens.iconButtonColorHover}: var(--inverse-text-primary);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-solid-default-hover);
+                ${iconButtonTokens.iconButtonColorActive}: var(--inverse-text-primary);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-solid-default-active);
+            `,
             primary: css`
                 ${iconButtonTokens.iconButtonColor}: var(--inverse-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-default);
@@ -40,7 +48,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonColorActive}: var(--text-primary-active);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-clear);
             `,
-            positive: css`
+            success: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-positive);
                 ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary);
@@ -56,7 +64,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-warning-active);
             `,
-            negative: css`
+            critical: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-negative);
                 ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary);
@@ -83,9 +91,9 @@ export const config = {
             white: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-light-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-dark-surface-solid-default);
-                ${iconButtonTokens.iconButtonColorHover}: var(--on-light-text-primary);
+                ${iconButtonTokens.iconButtonColorHover}: var(--on-light-text-primary-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--on-light-text-primary);
+                ${iconButtonTokens.iconButtonColorActive}: var(--on-light-text-primary-active);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
             `,
         },
@@ -200,21 +208,6 @@ export const config = {
                 ${iconButtonTokens.iconButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${iconButtonTokens.iconButtonSpinnerSize}: 1rem;
-                ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
-            `,
-            xxs: css`
-                ${iconButtonTokens.iconButtonHeight}: 1.5rem;
-                ${iconButtonTokens.iconButtonWidth}: 1.5rem;
-                ${iconButtonTokens.iconButtonPadding}: 0.625rem;
-                ${iconButtonTokens.iconButtonRadius}: 0.375rem;
-                ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${iconButtonTokens.iconButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${iconButtonTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${iconButtonTokens.iconButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
-
-                ${iconButtonTokens.iconButtonSpinnerSize}: 0.75rem;
                 ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
             `,
         },
