@@ -17,6 +17,7 @@ export * from './components/Editable';
 export * from './components/ElasticGrid';
 export * from './components/Grid';
 export * from './components/Image';
+export * from './components/IconButton';
 export * from './components/Link';
 export * from './components/List';
 export * from './components/Modal';
