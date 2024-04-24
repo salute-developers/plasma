@@ -2,13 +2,13 @@ import { css, iconButtonTokens } from '@salutejs/plasma-new-hope/styled-componen
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         focused: 'true',
         size: 'm',
     },
     variations: {
         view: {
-            primary: css`
+            default: css`
                 ${iconButtonTokens.iconButtonColor}: var(--inverse-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-default);
                 ${iconButtonTokens.iconButtonColorHover}: var(--inverse-text-primary);
@@ -83,9 +83,9 @@ export const config = {
             white: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-light-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-dark-surface-solid-default);
-                ${iconButtonTokens.iconButtonColorHover}: var(--on-light-text-primary);
+                ${iconButtonTokens.iconButtonColorHover}: var(--on-light-text-primary-hover);
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--on-light-text-primary);
+                ${iconButtonTokens.iconButtonColorActive}: var(--on-light-text-primary-active);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
             `,
         },
@@ -148,7 +148,7 @@ export const config = {
             `,
             s: css`
                 ${iconButtonTokens.iconButtonHeight}: 2.5rem;
-                ${iconButtonTokens.iconButtonWidth}: 2.5remm;
+                ${iconButtonTokens.iconButtonWidth}: 2.5rem;
                 ${iconButtonTokens.iconButtonPadding}: 1rem;
                 ${iconButtonTokens.iconButtonRadius}: 0.625rem;
                 ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-s-font-family);

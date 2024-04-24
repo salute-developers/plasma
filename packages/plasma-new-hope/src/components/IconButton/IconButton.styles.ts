@@ -1,21 +1,13 @@
-import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 
-import { component, mergeConfig } from '../../engines';
-import { buttonConfig, buttonTokens } from '../Button';
+import { buttonTokens } from '../Button';
+import { baseContent as buttonBase } from '../Button/Button.styles';
 
-import { tokens, classes } from './IconButton.tokens';
+import { tokens } from './IconButton.tokens';
 
-const mergedConfig = mergeConfig(buttonConfig);
-const Button = component(mergedConfig);
+export const mappingOverride = `
+    ${buttonTokens.buttonPadding}: 0;
 
-export const base = css`
-    &&.${classes.iconButtonItem} {
-        display: inline-flex;
-    }
-`;
-
-export const IconButtonStyled = styled(Button)`
     ${buttonTokens.buttonColor}: var(${tokens.iconButtonColor});
     ${buttonTokens.buttonBackgroundColor}: var(${tokens.iconButtonBackgroundColor});
 
@@ -42,4 +34,9 @@ export const IconButtonStyled = styled(Button)`
 
     ${buttonTokens.buttonSpinnerSize}: var(${tokens.iconButtonSpinnerSize});
     ${buttonTokens.buttonSpinnerColor}: var(${tokens.iconButtonSpinnerColor});
+`;
+
+export const base = css`
+    ${buttonBase};
+    ${mappingOverride};
 `;

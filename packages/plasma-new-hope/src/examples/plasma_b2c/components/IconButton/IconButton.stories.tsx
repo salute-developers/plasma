@@ -1,5 +1,6 @@
 import React, { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
+import { disableProps } from '@salutejs/plasma-sb-utils';
 
 import { iconButtonConfig } from '../../../../components/IconButton';
 import { mergeConfig } from '../../../../engines';
@@ -37,18 +38,18 @@ const meta: Meta<typeof IconButton> = {
 export default meta;
 
 const getSizeForIcon = (size) => {
-    if (size === 'mr') {
-        return 'm';
+    const map = {
+        mr: 's',
+        lr: 's',
+        m: 's',
+        l: 's',
+        sr: 's',
+        xsr: 'xs',
+    };
+    if (map[size]) {
+        return map[size];
     }
-    if (size === 'lr') {
-        return 'l';
-    }
-    if (size === 'sr') {
-        return 's';
-    }
-    if (size === 'xsr') {
-        return 'xs';
-    }
+
     return size;
 };
 
@@ -61,5 +62,10 @@ export const Default: StoryObj<ComponentProps<typeof IconButton>> = {
         focused: true,
         isLoading: false,
     },
-    render: (args) => <IconButton {...args} icon={<IconChevronLeft size={getSizeForIcon(args.size)} />} />,
+    argTypes: { ...disableProps(['children']) },
+    render: (args) => (
+        <IconButton {...args}>
+            <IconChevronLeft size={getSizeForIcon(args.size)} />
+        </IconButton>
+    ),
 };
