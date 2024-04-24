@@ -16,14 +16,6 @@ export const config = {
                 ${iconButtonTokens.iconButtonColorActive}: var(--inverse-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-solid-default-active);
             `,
-            primary: css`
-                ${iconButtonTokens.iconButtonColor}: var(--inverse-text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-default);
-                ${iconButtonTokens.iconButtonColorHover}: var(--inverse-text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-solid-default-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--inverse-text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-solid-default-active);
-            `,
             accent: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-accent);
@@ -156,7 +148,7 @@ export const config = {
             `,
             s: css`
                 ${iconButtonTokens.iconButtonHeight}: 2.5rem;
-                ${iconButtonTokens.iconButtonWidth}: 2.5remm;
+                ${iconButtonTokens.iconButtonWidth}: 2.5rem;
                 ${iconButtonTokens.iconButtonPadding}: 1rem;
                 ${iconButtonTokens.iconButtonRadius}: 0.625rem;
                 ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-s-font-family);

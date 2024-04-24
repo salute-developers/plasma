@@ -6,6 +6,6 @@ const mergedConfig = mergeConfig(iconButtonConfig, config);
 const IconButtonComponent = component(mergedConfig);
 
 /**
- * Кнопка.
+ * Кнопка с иконкой.
  */
 export const IconButton = IconButtonComponent;

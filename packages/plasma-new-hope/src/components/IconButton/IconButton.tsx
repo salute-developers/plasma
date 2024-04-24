@@ -1,61 +1,18 @@
-import React, { forwardRef } from 'react';
+import { buttonRoot } from '../Button';
+import { base as viewCSS } from '../Button/variations/_view/base';
+import { base as sizeCSS } from '../Button/variations/_size/base';
+import { base as disabledCSS } from '../Button/variations/_disabled/base';
+import { base as focusedCSS } from '../Button/variations/_focused/base';
+import { base as blurredCSS } from '../Button/variations/_blurred/base';
+import { base as stretchingCSS } from '../Button/variations/_stretching/base';
 
-import type { RootProps } from '../../engines';
-import { cx } from '../../utils';
+import { base } from './IconButton.styles';
 
-import { base, IconButtonStyled } from './IconButton.styles';
-import type { IconButtonProps } from './IconButton.types';
-import { classes } from './IconButton.tokens';
-import { base as viewCSS } from './variations/_view/base';
-import { base as sizeCSS } from './variations/_size/base';
-import { base as disabledCSS } from './variations/_disabled/base';
-import { base as focusedCSS } from './variations/_focused/base';
-
-export const iconButtonRoot = (Root: RootProps<HTMLButtonElement, IconButtonProps>) =>
-    forwardRef<HTMLButtonElement, IconButtonProps>((props, ref) => {
-        const {
-            children,
-            view,
-            size,
-            icon,
-            isLoading,
-            loader,
-            pin,
-            disabled,
-            focused,
-            outlined,
-            className,
-            style,
-            ...rest
-        } = props;
-
-        return (
-            <Root view={view} size={size} focused={focused} disabled={disabled} className={classes.iconButtonItem}>
-                <IconButtonStyled
-                    view={view}
-                    size={size}
-                    loader={loader}
-                    isLoading={isLoading}
-                    pin={pin}
-                    disabled={disabled}
-                    focused={focused}
-                    outlined={outlined}
-                    ref={ref}
-                    square // Временное решение
-                    stretching="fixed" // Не работает не понятное почему
-                    className={cx(className)}
-                    style={style}
-                    {...rest}
-                >
-                    {icon || children}
-                </IconButtonStyled>
-            </Root>
-        );
-    });
+export const iconButtonRoot = buttonRoot;
 
 export const iconButtonConfig = {
-    name: 'Button',
-    tag: 'div',
+    name: 'IconButton',
+    tag: 'button',
     layout: iconButtonRoot,
     base,
     variations: {
@@ -72,9 +29,16 @@ export const iconButtonConfig = {
         focused: {
             css: focusedCSS,
         },
+        blurred: {
+            css: blurredCSS,
+        },
+        stretching: {
+            css: stretchingCSS,
+        },
     },
     defaults: {
         view: 'secondary',
         size: 'm',
+        stretching: 'fixed',
     },
 };

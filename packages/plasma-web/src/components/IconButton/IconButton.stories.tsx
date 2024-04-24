@@ -7,19 +7,7 @@ import { IconButton } from './IconButton';
 
 type StoryButtonProps = ComponentProps<typeof IconButton> & { contentType: string; isLoading: boolean };
 
-const views = [
-    'default',
-    'accent',
-    'primary',
-    'secondary',
-    'success',
-    'warning',
-    'critical',
-    'clear',
-    'dark',
-    'black',
-    'white',
-];
+const views = ['default', 'accent', 'secondary', 'success', 'warning', 'critical', 'clear', 'dark', 'black', 'white'];
 const sizes = ['l', 'm', 's', 'xs'];
 const pins = [
     'square-square',
@@ -55,31 +43,25 @@ const meta: Meta<StoryButtonProps> = {
             },
             table: { defaultValue: { summary: 'bottom' } },
         },
-        ...disableProps(['theme', 'loader', 'onClick', 'onFocus', 'onBlur', 'contentLeft', 'contentRight']),
+        ...disableProps(['children', 'theme', 'loader', 'onClick', 'onFocus', 'onBlur', 'contentLeft', 'contentRight']),
     },
 };
 
 export default meta;
 
 const getSizeForIcon = (size) => {
-    if (size === 'mr') {
-        return 's';
+    const map = {
+        mr: 's',
+        lr: 's',
+        m: 's',
+        l: 's',
+        sr: 's',
+        xsr: 'xs',
+    };
+    if (map[size]) {
+        return map[size];
     }
-    if (size === 'lr') {
-        return 's';
-    }
-    if (size === 'm') {
-        return 's';
-    }
-    if (size === 'l') {
-        return 's';
-    }
-    if (size === 'sr') {
-        return 's';
-    }
-    if (size === 'xsr') {
-        return 'xs';
-    }
+
     return size;
 };
 
@@ -92,5 +74,10 @@ export const Default: StoryObj<ComponentProps<typeof IconButton>> = {
         focused: true,
         isLoading: false,
     },
-    render: (args) => <IconButton {...args} icon={<IconClose color="inhert" size={getSizeForIcon(args.size)} />} />,
+    argTypes: { ...disableProps(['children']) },
+    render: (args) => (
+        <IconButton {...args}>
+            <IconClose color="inhert" size={getSizeForIcon(args.size)} />
+        </IconButton>
+    ),
 };

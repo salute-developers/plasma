@@ -1,7 +1,3 @@
-export const classes = {
-    iconButtonItem: 'icon-button-item',
-};
-
 export const tokens = {
     iconButtonColor: '--plasma-icon-button-color',
     iconButtonBackgroundColor: '--plasma-icon-button-background-color',
