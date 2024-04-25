@@ -26,7 +26,7 @@ const animatedHintToLabelPlacement: Record<
 /**
  * Поле ввода текста.
  */
-export const TextField = forwardRef<HTMLDivElement, CustomTextFieldProps>((props, ref) => {
+export const TextField = forwardRef<HTMLInputElement, CustomTextFieldProps>((props, ref) => {
     const {
         status,
 
