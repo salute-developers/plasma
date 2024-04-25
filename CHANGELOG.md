@@ -1,3 +1,130 @@
+# (Thu Apr 25 2024)
+
+### Release Notes
+
+#### Release by 24.04.2024 ([#1196](https://github.com/salute-developers/plasma/pull/1196))
+
+## Components
+
+### Tooltip
+
+- исправлено позиционирование стрелочки
+- добавлен тест на много-строчный сценарий
+
+#### Before: 
+
+![image](https://github.com/salute-developers/plasma/assets/40370966/230bbda5-2c2f-4628-b5b4-7a7a14ffc2c9)
+
+#### After: 
+
+![image](https://github.com/salute-developers/plasma/assets/40370966/6c142730-0b4b-47de-a64d-1c6ad2c4fc77)
+
+fix(plasma-new-hope): fix tooltip arrow placing (https://github.com/salute-developers/plasma/pull/1171)
+
+### Radiobox
+
+- расширен пример в `stories` с учетом `a11y` возможностей  
+
+plasma-new-hope(radiobox): Improved a11y (https://github.com/salute-developers/plasma/pull/1188)
+
+### Storybook 
+
+- исправлено некорректное поведение свойства `placement`
+- исправлено свойство `enableContentLeft` и `enableContentRight` в TextField
+
+feat(plasma-new-hope, b2c, web, sdds): Fix storybook argTypes (https://github.com/salute-developers/plasma/pull/1182)
+
+### Avatar
+
+- добавлен `aria-label`
+- расширены примеры с доступностью
+
+plasma-new-hope(avatar): Refactoring + a11y (https://github.com/salute-developers/plasma/pull/1180)
+
+### Chip
+
+- удален лишнее свойство `hasClear` из примера в `story` 
+- заменены со старого формата на новый токены в конфигурации (без приставки `--plasma-colors`)
+- добавлена недостающие свойство `view=accent`
+- обновлены `cypress snapshots` 
+
+fix: remove extra chip prop in stories (https://github.com/salute-developers/plasma/pull/1179)
+
+## Colors
+
+- добавлены файлы фирменной палитры в формате `.json`
+- добавлена директория `src` в gitignore, т.к. теперь его содержимое генерируется автоматически на основе `.json`
+
+feat(plasma-color): Add generate color palette from json (https://github.com/salute-developers/plasma/pull/1172)
+
+## Infra
+
+### Audit vulnerabilities
+
+- исправлены все уязвимости в клиентских пакетах (аля `plasma-web`)
+- обновлен до `vite@4.5.3`
+- обновлен `@babel` и его зависимости до latest 
+- заменен `babel-plugin-transform-class-properties` на `@babel/plugin-transform-class-properties` 
+
+### `@salutejs/plasma-sb-utils`
+
+- обновлены `TS` до 4.2.4
+- обновлен `@storybook/react` до 7.6.17
+- исправлены все уязвимости
+- поправлены мелкие ошибки в типах      
+
+plasma-infra(sb-utils): Update dependencies versions (https://github.com/salute-developers/plasma/pull/1178)
+
+---
+
+#### 🚀 Enhancement
+
+- `@salutejs/caldera-online@0.37.0`, `@salutejs/plasma-asdk@0.75.0`, `@salutejs/plasma-b2c@1.317.0`, `@salutejs/plasma-colors@0.13.0`, `@salutejs/plasma-core@1.159.0`, `@salutejs/plasma-hope@1.278.0`, `@salutejs/plasma-icons@1.192.0`, `@salutejs/plasma-new-hope@0.77.0`, `@salutejs/plasma-tokens-b2b@1.40.0`, `@salutejs/plasma-tokens-b2c@0.50.0`, `@salutejs/plasma-tokens-web@1.55.0`, `@salutejs/plasma-tokens@1.80.0`, `@salutejs/plasma-ui@1.247.0`, `@salutejs/plasma-web@1.318.0`, `@salutejs/sdds-serv@0.43.0`, `@salutejs/caldera-online-themes@0.11.0`, `@salutejs/data-themes@0.10.0`, `@salutejs/flamingo-themes@0.11.0`, `@salutejs/plasma-themes@0.11.0`, `@salutejs/sdds-themes@0.11.0`, `@salutejs/plasma-cy-utils@0.91.0`, `@salutejs/plasma-sb-utils@0.157.0`, `@salutejs/plasma-tokens-utils@0.42.0`
+  - Release by 24.04.2024 [#1196](https://github.com/salute-developers/plasma/pull/1196) ([@Yakutoc](https://github.com/Yakutoc) [@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@neretin-trike](https://github.com/neretin-trike) [@shuga2704](https://github.com/shuga2704))
+- `@salutejs/plasma-web@1.318.0`
+  - feat(plasma-web): add default size to Textfield interlayer [#1187](https://github.com/salute-developers/plasma/pull/1187) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-colors@0.13.0`
+  - feat(plasma-color): Add generate color palette from json [#1172](https://github.com/salute-developers/plasma/pull/1172) ([@neretin-trike](https://github.com/neretin-trike))
+- `@salutejs/plasma-b2c@1.317.0`, `@salutejs/plasma-web@1.318.0`, `@salutejs/sdds-serv@0.43.0`
+  - feat(plasma-web/b2c,sdds-serv): add new button views to ButtonGroup [#1170](https://github.com/salute-developers/plasma/pull/1170) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-b2c@1.317.0`, `@salutejs/plasma-web@1.318.0`
+  - feat(plasma-web/b2c): fix tooltip live story [#1171](https://github.com/salute-developers/plasma/pull/1171) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+#### 🐛 Bug Fix
+
+- ci(deploy-docs): delete old workflow [#1192](https://github.com/salute-developers/plasma/pull/1192) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: delete native/android source [#1189](https://github.com/salute-developers/plasma/pull/1189) ([@Yakutoc](https://github.com/Yakutoc))
+- chore: delete caldera package remains [#1177](https://github.com/salute-developers/plasma/pull/1177) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-new-hope@0.77.0`
+  - fix: extend stories examples [#1188](https://github.com/salute-developers/plasma/pull/1188) ([@Yakutoc](https://github.com/Yakutoc))
+  - chore: add complex accessibility story [#1183](https://github.com/salute-developers/plasma/pull/1183) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-tokens@1.80.0`, `@salutejs/caldera-online-themes@0.11.0`, `@salutejs/flamingo-themes@0.11.0`, `@salutejs/plasma-themes@0.11.0`, `@salutejs/sdds-themes@0.11.0`
+  - fix: use styled-components@5.3.1 [#1190](https://github.com/salute-developers/plasma/pull/1190) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.317.0`, `@salutejs/plasma-web@1.318.0`, `@salutejs/sdds-serv@0.43.0`
+  - fix: update api-report [#1180](https://github.com/salute-developers/plasma/pull/1180) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/caldera-online@0.37.0`, `@salutejs/plasma-asdk@0.75.0`, `@salutejs/plasma-b2c@1.317.0`, `@salutejs/plasma-new-hope@0.77.0`, `@salutejs/plasma-ui@1.247.0`, `@salutejs/plasma-web@1.318.0`, `@salutejs/sdds-serv@0.43.0`
+  - fix: audit fix [#1184](https://github.com/salute-developers/plasma/pull/1184) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-sb-utils@0.157.0`
+  - fix: use correct type Decorator [#1178](https://github.com/salute-developers/plasma/pull/1178) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-b2c@1.317.0`, `@salutejs/plasma-new-hope@0.77.0`, `@salutejs/plasma-web@1.318.0`, `@salutejs/sdds-serv@0.43.0`
+  - feat(plasma-new-hope/web/b2c,sdds-serv): update tokens for Chip configs [#1179](https://github.com/salute-developers/plasma/pull/1179) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+  - feat(plasma-new-hope, b2c, web, sdds): Fix storybook argTypes [#1182](https://github.com/salute-developers/plasma/pull/1182) ([@shuga2704](https://github.com/shuga2704))
+
+#### ⚠️ Pushed to `master`
+
+- ci(sdds-serv-docs): revert prefix logic for base url [no ci] ([@Yakutoc](https://github.com/Yakutoc))
+- ci: delete caldera package [no ci] ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 5
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # (Thu Apr 11 2024)
 
 ### Release Notes

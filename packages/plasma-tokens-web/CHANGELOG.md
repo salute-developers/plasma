@@ -1,3 +1,102 @@
+# v1.55.0 (Thu Apr 25 2024)
+
+### Release Notes
+
+#### Release by 24.04.2024 ([#1196](https://github.com/salute-developers/plasma/pull/1196))
+
+## Components
+
+### Tooltip
+
+- исправлено позиционирование стрелочки
+- добавлен тест на много-строчный сценарий
+
+#### Before: 
+
+![image](https://github.com/salute-developers/plasma/assets/40370966/230bbda5-2c2f-4628-b5b4-7a7a14ffc2c9)
+
+#### After: 
+
+![image](https://github.com/salute-developers/plasma/assets/40370966/6c142730-0b4b-47de-a64d-1c6ad2c4fc77)
+
+fix(plasma-new-hope): fix tooltip arrow placing (https://github.com/salute-developers/plasma/pull/1171)
+
+### Radiobox
+
+- расширен пример в `stories` с учетом `a11y` возможностей  
+
+plasma-new-hope(radiobox): Improved a11y (https://github.com/salute-developers/plasma/pull/1188)
+
+### Storybook 
+
+- исправлено некорректное поведение свойства `placement`
+- исправлено свойство `enableContentLeft` и `enableContentRight` в TextField
+
+feat(plasma-new-hope, b2c, web, sdds): Fix storybook argTypes (https://github.com/salute-developers/plasma/pull/1182)
+
+### Avatar
+
+- добавлен `aria-label`
+- расширены примеры с доступностью
+
+plasma-new-hope(avatar): Refactoring + a11y (https://github.com/salute-developers/plasma/pull/1180)
+
+### Chip
+
+- удален лишнее свойство `hasClear` из примера в `story` 
+- заменены со старого формата на новый токены в конфигурации (без приставки `--plasma-colors`)
+- добавлена недостающие свойство `view=accent`
+- обновлены `cypress snapshots` 
+
+fix: remove extra chip prop in stories (https://github.com/salute-developers/plasma/pull/1179)
+
+## Colors
+
+- добавлены файлы фирменной палитры в формате `.json`
+- добавлена директория `src` в gitignore, т.к. теперь его содержимое генерируется автоматически на основе `.json`
+
+feat(plasma-color): Add generate color palette from json (https://github.com/salute-developers/plasma/pull/1172)
+
+## Infra
+
+### Audit vulnerabilities
+
+- исправлены все уязвимости в клиентских пакетах (аля `plasma-web`)
+- обновлен до `vite@4.5.3`
+- обновлен `@babel` и его зависимости до latest 
+- заменен `babel-plugin-transform-class-properties` на `@babel/plugin-transform-class-properties` 
+
+### `@salutejs/plasma-sb-utils`
+
+- обновлены `TS` до 4.2.4
+- обновлен `@storybook/react` до 7.6.17
+- исправлены все уязвимости
+- поправлены мелкие ошибки в типах      
+
+plasma-infra(sb-utils): Update dependencies versions (https://github.com/salute-developers/plasma/pull/1178)
+
+---
+
+#### 🚀 Enhancement
+
+- Release by 24.04.2024 [#1196](https://github.com/salute-developers/plasma/pull/1196) ([@Yakutoc](https://github.com/Yakutoc) [@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@neretin-trike](https://github.com/neretin-trike) [@shuga2704](https://github.com/shuga2704))
+
+#### 🐛 Bug Fix
+
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 5
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.54.0 (Thu Apr 11 2024)
 
 ### Release Notes
