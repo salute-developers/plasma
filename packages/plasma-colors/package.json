@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-colors",
-  "version": "0.12.0",
+  "version": "0.13.0-dev.0",
   "description": "All color palettes for Salute Ecosystem",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -12,10 +12,12 @@
   },
   "scripts": {
     "prepare": "npm run build",
-    "build": "npm run build:colors",
-    "build:colors": "npm run build:cjs && npm run build:esm",
+    "prebuild": "rm -rf ./dist ./es ./src",
+    "build": "npm run generate && npm run build:colors",
+    "build:colors": "npm run build:cjs && npm run build:esm && npm run lint -- --fix",
     "build:cjs": "tsc",
     "build:esm": "tsc -p ./tsconfig.es.json",
+    "generate": "npx ts-node ./lib/generate.ts",
     "lint": "../../node_modules/.bin/eslint ./src --ext .ts --quiet"
   },
   "files": [

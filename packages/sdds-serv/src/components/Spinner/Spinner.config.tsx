@@ -7,7 +7,7 @@ export const config = {
     },
     variations: {
         view: {
-            primary: css`
+            default: css`
                 --plasma-spinner-color: var(--text-primary);
             `,
             secondary: css`

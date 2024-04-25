@@ -40,17 +40,33 @@ const TrashIcon = (props) => (
 export const Default: Story = {
     args: {
         text: 'Hello',
-        view: 'primary',
+        view: 'default',
         size: 'm',
         disabled: false,
         focused: true,
+        pilled: false,
         onClear,
     },
 };
 
 export const WithIcon: Story = {
     args: { ...Default.args },
-    render: (args) => <Chip contentLeft={<TrashIcon width="1.25rem" height="1.25rem" />} {...args} />,
+    render: (args) => {
+        const iconSizeMapper = {
+            l: '1.5rem',
+            m: '1.25rem',
+            s: '1rem',
+            xs: '0.75rem',
+        };
+        const iconSize = args.size || 'm';
+
+        return (
+            <Chip
+                contentLeft={<TrashIcon width={iconSizeMapper[iconSize]} height={iconSizeMapper[iconSize]} />}
+                {...args}
+            />
+        );
+    },
 };
 
 export const LongText: Story = {

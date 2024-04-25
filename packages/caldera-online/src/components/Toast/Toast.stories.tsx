@@ -15,7 +15,7 @@ const meta: Meta<typeof ToastController> = {
     decorators: [InSpacingDecorator],
     argTypes: {
         view: {
-            options: ['primary', 'dark', 'light'],
+            options: ['default', 'dark', 'light'],
             control: {
                 type: 'select',
             },
@@ -66,7 +66,7 @@ const Container = styled.div`
 export const ToastComponent: StoryComponent = {
     args: {
         text: 'Текст всплывающего уведомления',
-        view: 'primary',
+        view: 'default',
         size: 'm',
         hasClose: true,
         enableContentLeft: true,

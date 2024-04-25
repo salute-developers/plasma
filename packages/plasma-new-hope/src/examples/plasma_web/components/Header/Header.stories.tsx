@@ -114,7 +114,7 @@ export const CustomAssembly: StoryObj<CustomAssemblyProps & ContentComponentProp
         ...argTypesFromConfig(mergeConfig(headerRootConfig, config)),
     },
     args: {
-        view: 'primary',
+        view: 'default',
         size: 'm',
         variant: 'title+subtitle',
         title: 'Header title text',

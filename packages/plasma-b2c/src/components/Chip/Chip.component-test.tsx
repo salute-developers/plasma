@@ -73,9 +73,9 @@ describe('plasma-web: Chip', () => {
                 <SpaceMe />
                 <Chip view="secondary" text="_disabled" disabled contentLeft={<Icon />} />
                 <PadMe />
-                <Chip view="positive" text="Chip_view_positive" contentLeft={<Icon />} />
+                <Chip view="accent" text="Chip_view_accent" contentLeft={<Icon />} />
                 <SpaceMe />
-                <Chip view="positive" text="_disabled" disabled contentLeft={<Icon />} />
+                <Chip view="accent" text="_disabled" disabled contentLeft={<Icon />} />
             </CypressTestDecorator>,
         );
         cy.matchImageSnapshot();

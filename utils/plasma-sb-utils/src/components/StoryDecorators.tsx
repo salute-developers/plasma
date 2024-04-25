@@ -1,7 +1,7 @@
 import React from 'react';
-import { Story as StoryType } from '@storybook/react';
+import { Decorator } from '@storybook/react';
 
-export const InSpacing = (Story: StoryType) => (
+export const InSpacing: Decorator = (Story) => (
     <div style={{ padding: '1rem' }}>
         <Story />
     </div>

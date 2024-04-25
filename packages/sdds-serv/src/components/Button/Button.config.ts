@@ -2,13 +2,13 @@ import { css, buttonTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         focused: 'true',
         size: 'm',
     },
     variations: {
         view: {
-            primary: css`
+            default: css`
                 ${buttonTokens.buttonColor}: var(--inverse-text-primary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-default);
                 ${buttonTokens.buttonColorHover}: var(--inverse-text-primary);

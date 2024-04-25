@@ -7,7 +7,7 @@ export const config = {
     },
     variations: {
         view: {
-            primary: css`
+            default: css`
                 --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
                 --plasma-link-color: var(--text-primary);
                 --plasma-link-color-hover: var(--text-primary-hover);

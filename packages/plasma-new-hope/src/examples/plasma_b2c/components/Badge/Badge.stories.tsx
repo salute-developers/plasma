@@ -18,7 +18,7 @@ const meta: Meta<typeof Badge> = {
             },
         },
         view: {
-            options: ['primary', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'],
+            options: ['default', 'accent', 'positive', 'warning', 'negative', 'dark', 'light'],
             control: {
                 type: 'select',
             },
@@ -43,7 +43,7 @@ const BellIcon = (props) => (
 export const Default: Story = {
     args: {
         text: 'Hello',
-        view: 'primary',
+        view: 'default',
         size: 'm',
         pilled: false,
         transparent: false,

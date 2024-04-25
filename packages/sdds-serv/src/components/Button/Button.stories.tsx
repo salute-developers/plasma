@@ -10,7 +10,7 @@ import type { ButtonProps as Base } from '.';
 
 type ButtonProps = ComponentProps<Base>;
 
-const views = ['accent', 'primary', 'secondary', 'success', 'warning', 'critical', 'clear', 'dark', 'black', 'white'];
+const views = ['accent', 'default', 'secondary', 'success', 'warning', 'critical', 'clear', 'dark', 'black', 'white'];
 const sizes = ['l', 'm', 's', 'xs', 'xxs'];
 const stretching = ['auto', 'filled', 'fixed'];
 const pins = [
@@ -88,7 +88,7 @@ const iconSize = {
 
 export const Default: StoryObj<StoryButtonProps> = {
     args: {
-        view: 'primary',
+        view: 'default',
         size: 'l',
         disabled: false,
         text: 'Label',

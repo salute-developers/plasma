@@ -18,6 +18,12 @@ type CustomChipProps = {
      */
     contentClearButton?: ReactNode;
     /**
+     * Компонент c округлым border-radius
+     * @default
+     * false
+     */
+    pilled?: boolean;
+    /**
      * Компонент не активен
      * @default
      * false

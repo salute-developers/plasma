@@ -1,6 +1,9 @@
-import { ComponentProps } from 'react';
+import * as React from 'react';
+import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
+import { disableProps } from '@salutejs/plasma-sb-utils';
 
+import { IconMic } from '../../../../components/_Icon';
 import { buttonConfig } from '../../../../components/Button';
 import { mergeConfig } from '../../../../engines';
 import { WithTheme, argTypesFromConfig } from '../../../_helpers';
@@ -12,6 +15,16 @@ const meta: Meta<typeof Button> = {
     title: 'plasma_b2c/Button',
     decorators: [WithTheme],
     component: Button,
+    args: {
+        text: 'Hello',
+        view: 'default',
+        size: 'm',
+        disabled: false,
+        focused: true,
+        square: false,
+        stretching: 'auto',
+        isLoading: false,
+    },
     argTypes: {
         ...argTypesFromConfig(mergeConfig(buttonConfig, config)),
         pin: {
@@ -41,15 +54,18 @@ const meta: Meta<typeof Button> = {
 
 export default meta;
 
-export const Default: StoryObj<ComponentProps<typeof Button>> = {
-    args: {
-        children: 'Hello',
-        view: 'primary',
-        size: 'm',
-        disabled: false,
-        focused: true,
-        square: false,
-        stretching: 'auto',
-        isLoading: false,
+export const Default: StoryObj<ComponentProps<typeof Button>> = {};
+
+export const AccessibilityWithChildren: StoryObj<ComponentProps<typeof Button>> = {
+    argTypes: { ...disableProps(['text']) },
+    render: (props: ComponentProps<typeof Button>) => {
+        const args = { ...props, text: undefined };
+
+        return (
+            <Button {...args}>
+                <IconMic color="inherit" />
+                <span>Включить микрофон</span>
+            </Button>
+        );
     },
 };

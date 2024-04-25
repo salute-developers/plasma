@@ -2,11 +2,34 @@ import { css, calendarDoubleTokens } from '@salutejs/plasma-new-hope/styled-comp
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         size: 'm',
     },
     variations: {
         view: {
+            default: css`
+                ${calendarDoubleTokens.calendarBackgroundColor}: transparent;
+                ${calendarDoubleTokens.calendarSelectedItemBackground}: var(--plasma-colors-primary);
+                ${calendarDoubleTokens.calendarSelectedItemColor}: var(--plasma-colors-background-primary);
+                ${calendarDoubleTokens.calendarSelectableItemBackgroundHover}: var(--plasma-colors-surface-liquid02);
+                ${calendarDoubleTokens.calendarCurrentItemBorderColor}: var(--plasma-colors-primary);
+                ${calendarDoubleTokens.calendarCurrentItemBackgroundHover}: transparent;
+                ${calendarDoubleTokens.calendarCurrentItemColorHover}: var(--plasma-colors-primary);
+                ${calendarDoubleTokens.calendarCurrentItemChildBackgroundHover}: var(--plasma-colors-surface-liquid02);
+                ${calendarDoubleTokens.calendarActiveItemBackground}: var(--plasma-colors-primary);
+                ${calendarDoubleTokens.calendarActiveItemColor}: var(--plasma-colors-surface-solid03);
+                ${calendarDoubleTokens.calendarHoveredItemBackground}: var(--plasma-colors-accent);
+                ${calendarDoubleTokens.calendarHoveredItemColor}: var(--plasma-colors-background-primary);
+                ${calendarDoubleTokens.calendarSeparatorBackground}: var(--plasma-colors-surface-liquid02);
+                ${calendarDoubleTokens.calendarRangeBackground}: var(--plasma-colors-surface-liquid02);
+                ${calendarDoubleTokens.calendarOutlineFocusColor}: var(--plasma-colors-button-focused);
+                ${calendarDoubleTokens.calendarContentPrimaryColor}: var(--plasma-colors-primary);
+                ${calendarDoubleTokens.calendarContentSecondaryColor}: var(--plasma-colors-secondary);
+            `,
+            /**
+             * @deprecated
+             * использовать `default`
+             */
             primary: css`
                 ${calendarDoubleTokens.calendarBackgroundColor}: transparent;
                 ${calendarDoubleTokens.calendarSelectedItemBackground}: var(--plasma-colors-primary);

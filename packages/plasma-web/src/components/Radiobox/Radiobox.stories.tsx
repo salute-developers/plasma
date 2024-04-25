@@ -14,14 +14,29 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
+const sizes = ['m', 's'];
+const views = ['default', 'secondary', 'tertiary', 'paragraph', 'accent', 'positive', 'warning', 'negative'];
+
 const meta: Meta<RadioboxProps> = {
     title: 'Controls/Radiobox',
     decorators: [InSpacingDecorator],
+    argTypes: {
+        view: {
+            options: views,
+            control: {
+                type: 'select',
+            },
+        },
+        size: {
+            options: sizes,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+    },
 };
 
 export default meta;
-
-const sizes = ['m', 's'];
 
 const items = [
     {
@@ -49,7 +64,7 @@ const items = [
     { name: 'language', value: 'elixir', label: 'Elixir', disabled: true },
 ];
 
-const StoryDefault = ({ name, label, description, disabled, singleLine, size }: RadioboxProps) => {
+const StoryDefault = ({ name, label, description, disabled, singleLine, size, view }: RadioboxProps) => {
     const value = 0;
     const [checked, setChecked] = useState(true);
 
@@ -64,6 +79,7 @@ const StoryDefault = ({ name, label, description, disabled, singleLine, size }: 
                 checked={checked}
                 singleLine={singleLine}
                 size={size}
+                view={view}
                 onChange={(event) => {
                     event.persist();
 
@@ -78,14 +94,6 @@ const StoryDefault = ({ name, label, description, disabled, singleLine, size }: 
 };
 
 export const Default: StoryObj<RadioboxProps> = {
-    argTypes: {
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
-            },
-        },
-    },
     args: {
         name: 'Radiobox',
         label: 'Label',
@@ -93,6 +101,7 @@ export const Default: StoryObj<RadioboxProps> = {
         disabled: false,
         singleLine: false,
         size: 'm',
+        view: 'accent',
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -136,14 +145,6 @@ const StoryLive = (props: RadioboxProps) => {
 };
 
 export const Live: StoryObj<RadioboxProps> = {
-    argTypes: {
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
-            },
-        },
-    },
     args: {
         size: 'm',
         view: 'accent',

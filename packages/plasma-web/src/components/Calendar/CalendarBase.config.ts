@@ -2,11 +2,33 @@ import { css, calendarBaseTokens } from '@salutejs/plasma-new-hope/styled-compon
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         size: 'm',
     },
     variations: {
         view: {
+            default: css`
+                ${calendarBaseTokens.calendarBackgroundColor}: transparent;
+                ${calendarBaseTokens.calendarSelectedItemBackground}: var(--plasma-colors-primary);
+                ${calendarBaseTokens.calendarSelectedItemColor}: var(--plasma-colors-background-primary);
+                ${calendarBaseTokens.calendarSelectableItemBackgroundHover}: var(--plasma-colors-surface-liquid02);
+                ${calendarBaseTokens.calendarCurrentItemBorderColor}: var(--plasma-colors-primary);
+                ${calendarBaseTokens.calendarCurrentItemBackgroundHover}: transparent;
+                ${calendarBaseTokens.calendarCurrentItemColorHover}: var(--plasma-colors-primary);
+                ${calendarBaseTokens.calendarCurrentItemChildBackgroundHover}: var(--plasma-colors-surface-liquid02);
+                ${calendarBaseTokens.calendarActiveItemBackground}: var(--plasma-colors-primary);
+                ${calendarBaseTokens.calendarActiveItemColor}: var(--plasma-colors-surface-solid03);
+                ${calendarBaseTokens.calendarHoveredItemBackground}: var(--plasma-colors-accent);
+                ${calendarBaseTokens.calendarHoveredItemColor}: var(--plasma-colors-background-primary);
+                ${calendarBaseTokens.calendarRangeBackground}: var(--plasma-colors-surface-liquid02);
+                ${calendarBaseTokens.calendarOutlineFocusColor}: var(--plasma-colors-button-focused);
+                ${calendarBaseTokens.calendarContentPrimaryColor}: var(--plasma-colors-primary);
+                ${calendarBaseTokens.calendarContentSecondaryColor}: var(--plasma-colors-secondary);
+            `,
+            /**
+             * @deprecated
+             * использовать `default`
+             */
             primary: css`
                 ${calendarBaseTokens.calendarBackgroundColor}: transparent;
                 ${calendarBaseTokens.calendarSelectedItemBackground}: var(--plasma-colors-primary);

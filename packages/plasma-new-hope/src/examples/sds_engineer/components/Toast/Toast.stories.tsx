@@ -57,7 +57,7 @@ const Container = styled.div`
 export const ToastComponent: StoryComponent = {
     args: {
         text: 'Текст всплывающего уведомления',
-        view: 'primary',
+        view: 'default',
         size: 'm',
         hasClose: true,
         enableContentLeft: true,
@@ -196,7 +196,7 @@ const StoryComplex = ({
                 <Button text="Открыть модальное окно" onClick={() => setIsModalOpen(true)} />
                 <Modal frame="theme-root" isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
                     <div>Hello!</div>
-                    <Button view="primary" text="Add notification" onClick={handleShowNotification} />
+                    <Button view="default" text="Add notification" onClick={handleShowNotification} />
                 </Modal>
             </PopupProvider>
         </NotificationsProvider>

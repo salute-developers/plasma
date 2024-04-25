@@ -79,7 +79,10 @@ export function App() {
 + `"success"` – успешное завершение;
 + `"warning"` – предупреждение;
 + `"critical"` – ошибка;
-+ `"clear"` – без цветового сопровождения.
++ `"clear"` – без цветового сопровождения;
++ `"dark"` – темная;
++ `"black"` – черная;
++ `"white"` – белая.
 
 ```tsx live
 import React from 'react';
@@ -95,6 +98,9 @@ export function App() {
             <Button text="Кнопка" size="s" view="warning" />
             <Button text="Кнопка" size="s" view="critical" />
             <Button text="Кнопка" size="s" view="clear" />
+            <Button text="Кнопка" size="s" view="dark" />
+            <Button text="Кнопка" size="s" view="black" />
+            <Button text="Кнопка" size="s" view="white" />
         </div>
     );
 }

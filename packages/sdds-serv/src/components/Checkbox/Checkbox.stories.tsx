@@ -54,7 +54,7 @@ const propsToDisable = [
 ];
 
 const sizes = ['m', 's'];
-const views = ['primary', 'secondary', 'tertiary', 'paragraph', 'accent', 'positive', 'warning', 'negative'];
+const views = ['default', 'secondary', 'tertiary', 'paragraph', 'accent', 'positive', 'warning', 'negative'];
 
 const englishDescription = (
     <div>

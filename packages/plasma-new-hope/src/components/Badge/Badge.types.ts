@@ -34,7 +34,7 @@ type CustomBadgeProps = {
     /**
      * Вид Badge
      * @default
-     * primary
+     * default
      */
     view?: string;
 } & PropsWithChildren;

@@ -11,10 +11,18 @@ type CustomAvatarProps = {
     customText?: string;
     // Статус профиля
     status?: 'active' | 'inactive';
-    // Скейл при наведении
+    // Масштабируемый при наведении
     isScalable?: boolean;
     // Фокус
     focused?: boolean;
+    /**
+     * Словарь для озвучивания значений свойства status [a11y]
+     * @default
+     * { active: 'Активен', inactive: 'Неактивен' }
+     */
+    statusLabels?: StatusLabels;
 };
+
+export type StatusLabels = Record<'active' | 'inactive', string>;
 
 export type AvatarProps = HTMLAttributes<HTMLDivElement> & CustomAvatarProps;

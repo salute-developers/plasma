@@ -4,6 +4,7 @@ module.exports = {
     'caldera-online': {
         scope: [...commonScope, 'caldera-online-themes', 'plasma-new-hope'],
         themes: 'caldera-online-themes',
+        required: ['plasma-core'],
     },
     'plasma-asdk': {
         scope: [...commonScope, 'plasma-tokens-b2b', 'plasma-typo', 'plasma-themes', 'plasma-new-hope'],
@@ -20,16 +21,16 @@ module.exports = {
             'plasma-tokens-web',
             'plasma-typo',
         ],
-        required: ['plasma-new-hope'],
+        required: ['plasma-new-hope', 'plasma-core'],
         themes: '',
     },
     'plasma-new-hope': {
         scope: [...commonScope, 'plasma-core'],
-        required: [],
+        required: ['plasma-core'],
     },
     'plasma-ui': {
         scope: [...commonScope, 'plasma-core', 'plasma-typo'],
-        required: ['plasma-icons'],
+        required: ['plasma-icons', 'plasma-core'],
         themes: '',
     },
     'plasma-web': {
@@ -43,12 +44,12 @@ module.exports = {
             'plasma-tokens-web',
             'plasma-typo',
         ],
-        required: ['plasma-new-hope'],
+        required: ['plasma-new-hope', 'plasma-core'],
         themes: '',
     },
     'sdds-serv': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: [],
+        required: ['plasma-core'],
         themes: 'sdds-themes',
     },
 };

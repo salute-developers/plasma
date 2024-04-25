@@ -21,7 +21,7 @@ const dropdownItemSizeCommon = `
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         size: 'm',
     },
     variations: {
@@ -96,7 +96,7 @@ export const config = {
             `,
         },
         view: {
-            primary: css`
+            default: css`
                 ${dropdownTokens.disabledOpacity}: 0.4;
                 ${dropdownTokens.background}: var(--surface-solid-card);
                 ${dropdownTokens.boxShadow}: var(--shadow-down-soft-s);

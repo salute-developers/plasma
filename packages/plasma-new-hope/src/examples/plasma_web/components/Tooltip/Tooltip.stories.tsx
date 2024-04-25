@@ -34,6 +34,9 @@ const meta: Meta<TooltipProps> = {
     title: 'plasma_web/Tooltip',
     decorators: [WithTheme],
     component: Tooltip,
+    parameters: {
+        docs: { story: { inline: false, iframeHeight: '20rem' } },
+    },
 };
 
 export default meta;
@@ -182,6 +185,7 @@ export const Live: StoryObj<TooltipProps> = {
             control: {
                 type: 'select',
             },
+            mapping: placements,
         },
         size: {
             options: ['m', 's'],

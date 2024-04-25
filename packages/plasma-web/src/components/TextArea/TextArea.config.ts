@@ -169,6 +169,23 @@ export const config = {
             `,
         },
         view: {
+            default: css`
+                ${textAreaTokens.inputBorderColor}: var(--text-tertiary);
+                ${textAreaTokens.inputBorderColorHover}: var(--text-tertiary-hover);
+                ${textAreaTokens.inputBorderColorActive}: var(--text-tertiary-hover);
+                ${textAreaTokens.inputBorderColorFocus}: var(--text-accent);
+                ${textAreaTokens.inputColor}: var(--text-primary);
+                ${textAreaTokens.inputColorFocus}: var(--text-primary);
+                ${textAreaTokens.inputCaretColor}: var(--text-accent);
+                ${textAreaTokens.placeholderColor}: var(--text-secondary);
+                ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
+                ${textAreaTokens.leftHelperColor}: var(--text-secondary);
+                ${textAreaTokens.rightHelperColor}: var(--text-secondary);
+            `,
+            /**
+             * @deprecated
+             * использовать `default`
+             */
             primary: css`
                 ${textAreaTokens.inputBorderColor}: var(--text-tertiary);
                 ${textAreaTokens.inputBorderColorHover}: var(--text-tertiary-hover);

@@ -7,7 +7,7 @@ export const config = {
     },
     variations: {
         view: {
-            primary: css`
+            default: css`
                 --plasma-link-color: var(--text-primary);
                 --plasma-link-color-hover: var(--text-primary-hover);
                 --plasma-link-color-active: var(--text-primary-active);

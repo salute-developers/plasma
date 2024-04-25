@@ -2,12 +2,12 @@ import { css, toastTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
-        view: 'primary',
+        view: 'default',
         size: 'm',
     },
     variations: {
         view: {
-            primary: css`
+            default: css`
                 ${toastTokens.color}: var(--text-primary);
                 ${toastTokens.background}: var(--surface-solid-card);
 

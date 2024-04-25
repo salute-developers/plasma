@@ -66,7 +66,7 @@ export function App() {
 
 ### Вид Pagination
 Вид Pagination задается с помощью свойства `view`. Возможные значения свойства `view`:
-+ `"primary"` – основная;
++ `"default"` – основная;
 + `"secondary"` – вторичная;
 + `"clear"` – чистая;
 
@@ -77,7 +77,7 @@ import { Pagination } from '@salutejs/plasma-web';
 export function App() {
     return (
         <div style={{display: "flex", "flex-direction": "column"}}>
-            <Pagination size="xs" view="primary" slots={9} count={200} hasPerPage={true} />
+            <Pagination size="xs" view="default" slots={9} count={200} hasPerPage={true} />
             <Pagination size="xs" view="secondary" slots={9} count={200} hasPerPage={true} />
             <Pagination size="xs" view="clear" slots={9} count={200} hasPerPage={true} />
         </div>
@@ -87,7 +87,7 @@ export function App() {
 
 ### Вид активной кнопки Pagination
 Вид Pagination задается с помощью свойства `viewCurrentPage`. Возможные значения свойства `viewCurrentPage`:
-+ `"primary"` – основная;
++ `"default"` – основная;
 + `"secondary"` – вторичная;
 + `"clear"` – чистая;
 
@@ -98,7 +98,7 @@ import { Pagination } from '@salutejs/plasma-web';
 export function App() {
     return (
         <div style={{display: "flex", "flex-direction": "column"}}>
-            <Pagination size="xs" viewCurrentPage="primary" slots={9} count={200} hasPerPage={true} />
+            <Pagination size="xs" viewCurrentPage="default" slots={9} count={200} hasPerPage={true} />
             <Pagination size="xs" viewCurrentPage="secondary" slots={9} count={200} hasPerPage={true} />
             <Pagination size="xs" viewCurrentPage="clear" slots={9} count={200} hasPerPage={true} />
         </div>

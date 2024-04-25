@@ -1,3 +1,7 @@
+export const classes = {
+    pilled: 'chip-pilled',
+};
+
 export const tokens = {
     background: '--plasma-chip-background',
     color: '--plasma-chip-color',
@@ -16,6 +20,7 @@ export const tokens = {
     closeIconColor: '--plasma-chip-close-icon-color',
 
     borderRadius: '--plasma-chip-border-radius',
+    pilledBorderRadius: '--plasma-chip-pilled-border-radius',
     width: '--plasma-chip-width',
     height: '--plasma-chip-height',
     paddingTop: '--plasma-chip-padding-top',

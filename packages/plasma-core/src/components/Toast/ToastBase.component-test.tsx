@@ -71,7 +71,7 @@ describe('plasma-core: Toast', () => {
             const onShowToast = () =>
                 showToast({
                     text: _text,
-                    view: 'primary',
+                    view: 'default',
                     size: 'm',
                     pilled,
                     position,
@@ -189,7 +189,7 @@ describe('plasma-core: Toast', () => {
             const onShowToast = () =>
                 showToast({
                     text: 'Short Text Message',
-                    view: 'primary',
+                    view: 'default',
                     size: 'm',
                     position: 'top',
                     timeout: 600,
@@ -231,7 +231,7 @@ describe('plasma-core: Toast', () => {
             const onShowToast = () =>
                 showToast({
                     text: 'Toast component test with offset props',
-                    view: 'primary',
+                    view: 'default',
                     size: 'm',
                     offset: 10,
                 });

@@ -92,16 +92,11 @@ type StorePropsDefault = Omit<
     | 'minLength'
     | 'required'
 > & {
-    'storybook:contentLeft': boolean;
-    'storybook:contentRight': boolean;
+    enableContentLeft: boolean;
+    enableContentRight: boolean;
 };
 
-const StoryDemo = ({
-    'storybook:contentLeft': enableContentLeft,
-    'storybook:contentRight': enableContentRight,
-    status,
-    ...rest
-}: StorePropsDefault) => {
+const StoryDemo = ({ enableContentLeft, enableContentRight, status, ...rest }: StorePropsDefault) => {
     const [value, setValue] = useState('Значение поля');
 
     const iconSize = rest.size === 'xs' ? 'xs' : 's';
@@ -137,8 +132,8 @@ export const Default: StoryObj<StorePropsDefault> = {
         status: '' as 'success',
         disabled: false,
         readOnly: false,
-        'storybook:contentLeft': true,
-        'storybook:contentRight': true,
+        enableContentLeft: true,
+        enableContentRight: true,
     },
     render: (args) => <StoryDemo {...args} />,
 };
