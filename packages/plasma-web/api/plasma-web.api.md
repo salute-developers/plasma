@@ -1696,7 +1696,7 @@ true: string;
     onChangeChips?: undefined;
     enumerationType?: "plain" | undefined;
     onSearch?: ((value: string, event?: React_2.KeyboardEvent<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<React_2.InputHTMLAttributes<HTMLInputElement>, "size"> & React_2.RefAttributes<HTMLDivElement>) | ({
+} & Omit<React_2.InputHTMLAttributes<HTMLInputElement>, "size"> & React_2.RefAttributes<HTMLInputElement>) | ({
     size?: string | undefined;
     view?: string | undefined;
     readOnly?: boolean | undefined;
@@ -1713,7 +1713,7 @@ true: string;
     onSearch?: undefined;
     chips?: TextFieldPrimitiveValue[] | undefined;
     onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<React_2.InputHTMLAttributes<HTMLInputElement>, "size"> & React_2.RefAttributes<HTMLDivElement>)), "enumerationType" | "chips" | "onChangeChips"> & React_2.RefAttributes<HTMLDivElement>>;
+} & Omit<React_2.InputHTMLAttributes<HTMLInputElement>, "size"> & React_2.RefAttributes<HTMLInputElement>)), "enumerationType" | "chips" | "onChangeChips"> & React_2.RefAttributes<HTMLInputElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "newHopeTextFieldProps" needs to be exported by the entry point index.d.ts
 //
