@@ -1,0 +1,130 @@
+---
+id: pagination
+title: Pagination
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Pagination
+
+Pagination может отображаться в разных размерах и может содержать select с выбором количества элементов на странице 
+и быстрый выбор страницы.
+
+## Pagination
+<Description name="Pagination" />
+<PropsTable name="Pagination" exclude={['css', 'focused']} />
+
+## Использование
+Компонент `Pagination` должен содержать параметр slots. Он обозначает количество кнопок в Pagination.
+
+Также компонент имеет параметр hasPerPage, логика работы такова:
+
+- если указан только параметр count, то он равен кол-ву страниц
+- если указан параметр hasPerPage или perPage, то count делится на perPage
+
+```tsx live
+import React from 'react';
+import { Pagination } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{display: "flex", "flex-direction": "column"}}>
+            <div>
+                <Pagination slots={7} count={200} />
+            </div>
+            <div>
+                <Pagination slots={9} count={200} hasPerPage={true} perPage={20} />
+            </div>
+            <div>
+                <Pagination slots={9} count={200} hasPerPage={true} />
+            </div>
+            <div>
+                <Pagination slots={9} count={200} hasPerPage={false} />
+            </div>
+        </div>
+    );
+}
+```
+
+## Примеры
+
+### Размер Pagination
+Размер Pagination задается с помощью свойства `size`.
+Возможные значения свойства: `"l"`, `"m"`, `"s"` или `"xs"`:
+
+```tsx live
+import React from 'react';
+import { Pagination } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{display: "flex", "flex-direction": "column"}}>
+            <Pagination size="l" slots={9} count={200} hasPerPage={true} />
+            <Pagination size="m" slots={9} count={200} hasPerPage={true} />
+            <Pagination size="s" slots={9} count={200} hasPerPage={true} />
+            <Pagination size="xs" slots={9} count={200} hasPerPage={true} />
+        </div>
+    );
+}
+```
+
+### Вид Pagination
+Вид Pagination задается с помощью свойства `view`. Возможные значения свойства `view`:
++ `"default"` – основная;
++ `"secondary"` – вторичная;
++ `"clear"` – чистая;
+
+```tsx live
+import React from 'react';
+import { Pagination } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{display: "flex", "flex-direction": "column"}}>
+            <Pagination size="xs" view="default" slots={9} count={200} hasPerPage={true} />
+            <Pagination size="xs" view="secondary" slots={9} count={200} hasPerPage={true} />
+            <Pagination size="xs" view="clear" slots={9} count={200} hasPerPage={true} />
+        </div>
+    );
+}
+```
+
+### Вид активной кнопки Pagination
+Вид Pagination задается с помощью свойства `viewCurrentPage`. Возможные значения свойства `viewCurrentPage`:
++ `"default"` – основная;
++ `"secondary"` – вторичная;
++ `"clear"` – чистая;
+
+```tsx live
+import React from 'react';
+import { Pagination } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{display: "flex", "flex-direction": "column"}}>
+            <Pagination size="xs" viewCurrentPage="default" slots={9} count={200} hasPerPage={true} />
+            <Pagination size="xs" viewCurrentPage="secondary" slots={9} count={200} hasPerPage={true} />
+            <Pagination size="xs" viewCurrentPage="clear" slots={9} count={200} hasPerPage={true} />
+        </div>
+    );
+}
+```
+
+### Типы Pagination
+Тип Pagination задается с помощью свойства `type`. Возможные значения свойства `type`:
++ `"default"` – обычная;
++ `"compact"` – компактная;
+
+```tsx live
+import React from 'react';
+import { Pagination } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{display: "flex", "flex-direction": "column"}}>
+            <Pagination size="xs" type="default" slots={9} count={200} hasPerPage={true} />
+            <Pagination size="xs" type="compact" slots={9} count={200} hasPerPage={true} />
+        </div>
+    );
+}
+```
