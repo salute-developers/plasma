@@ -5,7 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import { usePrismTheme, useColorMode } from '@docusaurus/theme-common';
 import { PlaygroundPreview } from '@salutejs/plasma-docs-ui';
-import { {{ theme }}__dark, {{ theme }}__light } from '@salutejs/{{ vertical }}-themes';
+import { {{ theme }}__dark, {{ theme }}__light } from '@salutejs/{{ vertical }}';
 import { standard } from '@salutejs/plasma-typo';
 import Translate from '@docusaurus/Translate';
 import clsx from 'clsx';
