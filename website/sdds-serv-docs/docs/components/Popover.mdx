@@ -12,7 +12,7 @@ import { PropsTable, Description } from '@site/src/components';
 ```tsx live
 import React from 'react';
 import styled from "styled-components";
-import { surfaceSolid03 } from "@salutejs/plasma-tokens/brands/sdds-serv";
+import { surfaceSolidTertiary } from "@salutejs/sdds-themes/tokens";
 import { Popover, Button } from '@salutejs/sdds-serv';
 
 export function App() {
@@ -26,7 +26,7 @@ export function App() {
             position: absolute;
             width: 0.5rem;
             height: 0.5rem;
-            background: ${surfaceSolid03};
+            background: ${surfaceSolidTertiary};
         }
 
         &::before {
@@ -37,7 +37,7 @@ export function App() {
     `;
 
     const StyledContent = styled.div`
-        background: ${surfaceSolid03};
+        background: ${surfaceSolidTertiary};
         padding: 1rem;
 
         display: flex;
