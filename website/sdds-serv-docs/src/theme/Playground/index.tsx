@@ -15,12 +15,8 @@ import { CodeSandbox } from '../../components';
 import styles from './styles.module.css';
 
 // Именно в этом файле подключаются/управляются темы/токены
-const lightTheme = sdds_serv__light[':root'];
-const darkTheme = sdds_serv__dark[':root'];
-
-const StyledPreview = styled(PlaygroundPreview)<{ theme?: 'light' | 'dark' }>`
-    ${({ theme = 'light' }) => (theme === 'light' ? lightTheme : darkTheme)}
-`;
+const LightTheme = createGlobalStyle(sdds_serv__light);
+const DarkTheme = createGlobalStyle(sdds_serv__dark);
 
 const StyledWrap = styled.div`
     width: fit-content;
@@ -48,17 +44,18 @@ const Header = ({ children }: PropsWithChildren) => {
 };
 
 const ResultWithHeader: FC = () => {
-    const isDarkTheme = useColorMode().colorMode === 'dark';
+    const { colorMode } = useColorMode();
 
     return (
         <>
+            {colorMode === 'dark' ? <DarkTheme /> : <LightTheme />}
             <StandardTypo />
             <Header>
                 <Translate id="theme.Playground.result" description="The result label of the live codeblocks">
                     Result
                 </Translate>
             </Header>
-            <LivePreview Component={StyledPreview} theme={isDarkTheme ? 'dark' : 'light'} />
+            <LivePreview Component={PlaygroundPreview} theme={colorMode} />
             <LiveError />
         </>
     );
