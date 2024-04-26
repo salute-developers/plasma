@@ -21,7 +21,7 @@ import { PropsTable, Description } from '@site/src/components';
 ```tsx live
 import React, { useState } from 'react';
 import { Dropdown, DropdownItem } from '@salutejs/sdds-serv';
-import { surfaceSolidSecondary } from '@salutejs/sdds-themes';
+import { surfaceSolidSecondary } from '@salutejs/sdds-themes/tokens';
 
 export function App() {
     const [selected, setSelected] = useState('');
@@ -47,7 +47,6 @@ export function App() {
                         setIsOpen(!isOpen);
                     }}
                     offset={[10, 15]}
-                    view="primary"
                     size="m"
                     placement="right"
                     trigger="click"

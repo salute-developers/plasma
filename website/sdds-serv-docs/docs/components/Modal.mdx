@@ -11,46 +11,98 @@ import { PropsTable, Description } from '@site/src/components';
 
 ## Использование
 
-### Провайдер контекста
-Поместите `ModalsProvider` в [корень приложения](../../#корень-приложения) или там, где будете применять модальные окна:
-
-```tsx title="index.ts"
-import ReactDOM from 'react-dom';
-import { ModalsProvider } from '@salutejs/sdds-serv';
-
-import { App } from './App';
-
-ReactDOM.render(
-    <ModalsProvider>
-        <App />
-    </ModalsProvider>,
-    document.getElementById('root')
-);
-```
-
-### Вызов модального окна
-После подключения `ModalsProvider` поместите компонент `Modal` туда, где необходимо применить модальное окно:
+Перед использованием убедитесь, что `PopupProvider` подключен.
+Компонент Modal во многом схож с Popup, добавляет при этом подложку(`overlay`), а также блокирует scroll и focus.
 
 ```tsx live
-import React from 'react';
-import { Modal, Headline3, P1, Button } from '@salutejs/sdds-serv';
+import React, { useState } from 'react';
+import { surfaceSolidSecondary } from '@salutejs/sdds-themes/tokens';
+import { SSRProvider, Button, Modal, PopupProvider } from '@salutejs/sdds-serv';
 
 export function App() {
-    const [isOpen, setIsOpen] = React.useState(false);
-
-    const close = React.useCallback(() => {
-      setIsOpen(false);
-    }, []);
+    const [isOpenA, setIsOpenA] = useState(false);
+    const [isOpenB, setIsOpenB] = useState(false);
 
     return (
-        <div>
-            <Button text="Открыть модальное окно" onClick={() => setIsOpen(!isOpen)} />
-            <Modal isOpen={isOpen} onClose={close}>
-                <Headline3 mb={10}>Модальное окно</Headline3>
-                <P1>Содержимое модального окна.</P1>
-                <Button text="Закрыть" onClick={close} />
-            </Modal>
-        </div>
+        <SSRProvider>
+            <PopupProvider>
+                <div style={{ height: "300px" }}>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <Button text="Открыть A" onClick={() => setIsOpenA(true)} />
+                    </div>
+                    <Modal
+                        id="modalA"
+                        onClose={() => setIsOpenA(false)}
+                        isOpen={isOpenA}
+                        placement="center"
+                        offset={[0, 0]}
+                    >
+                        <div style={{ background: `${surfaceSolidSecondary}`, padding: "1rem" }}>
+                            <Button onClick={() => setIsOpenA(false)}>Close</Button>
+                            <Button text="Открыть B" onClick={() => setIsOpenB(true)} />
+                            Content
+                        </div>
+                        <Modal
+                            id="modalB"
+                            onClose={() => setIsOpenB(false)}
+                            isOpen={isOpenB}
+                            placement="right"
+                            offset={[0, 0]}
+                        >
+                            <div style={{ background: `${surfaceSolidSecondary}`, padding: "1rem" }}>
+                                <Button onClick={() => setIsOpenB(false)}>Close</Button>
+                                Content
+                            </div>
+                        </Modal>
+                    </Modal>
+                </div>
+            </PopupProvider>
+        </SSRProvider>
     );
 }
+```
+
+## Подключение анимации
+Подключение анимации аналогично тому, как это происходит в `Popup` - через свойство `withAnimation`(управление через `popupClasses`, `modalClasses`).
+Для добавления анимации в оверлей необходимо использовать класс `.modal-overlay` через переменную `modalClasses.overlay` из пакета.
+
+Пример:
+
+```tsx
+import styled from 'styled-components';
+import { Modal } from '@salutejs/sdds-serv';
+
+const StyledModal = styled(Modal)`
+    && > .${popupClasses.root}, .${modalClasses.overlay} {
+        animation: fadeIn 1s forwards;
+    }
+
+    &&.${popupClasses.endAnimation} .${popupClasses.root} {
+        animation: fadeOut 1s forwards;
+    }
+
+    &&.${popupClasses.endAnimation} .${modalClasses.overlay} {
+        animation: fadeOut 1s forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+`;
 ```

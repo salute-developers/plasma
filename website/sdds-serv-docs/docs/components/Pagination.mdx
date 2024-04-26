@@ -6,14 +6,15 @@ title: Pagination
 import { PropsTable, Description } from '@site/src/components';
 
 # Pagination
-Pagination может отображаться в разных размерах и может содержать селект с выбором количеста элементов на странице и быстрый выбор страницы
+
+Pagination может отображаться в разных размерах и может содержать select с выбором количества элементов на странице и быстрый выбор страницы
 
 ## Pagination
 <Description name="Pagination" />
 <PropsTable name="Pagination" exclude={['css', 'focused']} />
 
 ## Использование
-Компонент `Pagination` должен содержать параметр slots. Он обозначает количество кнопок в пагинции
+Компонент `Pagination` должен содержать параметр slots. Он обозначает количество кнопок в Pagination
 
 Также компонент имеет параметр hasPerPage, логика работы такова:
 Если указан только параметр count, то он равен кол-ву страниц
@@ -21,7 +22,7 @@ Pagination может отображаться в разных размерах 
 
 ```tsx live
 import React from 'react';
-import { Pagination } from '@salutejs/plasma-web';
+import { Pagination } from '@salutejs/sdds-serv';
 
 export function App() {
     return (
@@ -50,7 +51,7 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { Pagination } from '@salutejs/plasma-web';
+import { Pagination } from '@salutejs/sdds-serv';
 
 export function App() {
     return (
@@ -72,7 +73,7 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { Pagination } from '@salutejs/plasma-web';
+import { Pagination } from '@salutejs/sdds-serv';
 
 export function App() {
     return (
@@ -93,7 +94,7 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { Pagination } from '@salutejs/plasma-web';
+import { Pagination } from '@salutejs/sdds-serv';
 
 export function App() {
     return (
@@ -106,7 +107,6 @@ export function App() {
 }
 ```
 
-
 ### Типы Pagination
 Тип Pagination задается с помощью свойства `type`. Возможные значения свойства `type`:
 + `"default"` – обычная;
@@ -114,7 +114,7 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { Pagination } from '@salutejs/plasma-web';
+import { Pagination } from '@salutejs/sdds-serv';
 
 export function App() {
     return (
