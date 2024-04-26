@@ -3,7 +3,7 @@
 Для развертывания нового пакета документации, например для пакета `"@salutejs/plasma-asdk"`, выполните команду в корне проекта:
 
 ```bash
-npm run scaffold:docs --package="plasma-asdk" --vertical="plasma" --theme="stylesSalute" --url="asdk"
+npm run scaffold:docs --package="plasma-asdk" --vertical="plasma-themes" --theme="stylesSalute" --url="asdk"
 ```
 
 #### `--package`
@@ -18,11 +18,26 @@ npm run scaffold:docs --package="plasma-asdk" --vertical="plasma" --theme="style
 
 Например, пакет `plasma-themes` содержит в себе темы для `plasma-{web,b2c}` и `plasma-askd` aka `stylesSalute`.
 
+##### Список доступных вертикалей:
+
+-   plasma-themes
+-   caldera-online-themes
+-   sdds-themes
+-   flamingo-themes
+
 #### `--theme`
 
 Тема которая должна применятся/использоваться.
 
-**Примечание:** Название `themes` не консистентны, поэтому нужен аргумент `--theme` чтобы указать, что **именно** использовать.
+Например, для:
+
+-   `plasma-asdk`: `stylesSalute__light/__dark`
+-   `sdds-serv`: `sdds_serv__dark/__light`
+
+**Примечание:**
+
+-   Название `themes` не консистентны, поэтому нужен аргумент `--theme` чтобы указать, что **именно** использовать;
+-   Постфикс `__dark/__light` указывать не нужно;
 
 #### `--url`
 

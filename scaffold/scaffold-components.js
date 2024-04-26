@@ -7,7 +7,7 @@ const fg = require('fast-glob');
 // INFO: Генерация компонентов по шаблону и на основе списка компонентов на основе пакета
 // INFO: для которого делается документация
 async function main() {
-    const { npm_config_package: npmConfigPackage, npm_config_theme: npmConfigTheme } = process.env || {};
+    const { npm_config_package: npmConfigPackage, npm_config_vertical: npmConfigVertical } = process.env || {};
 
     if (!npmConfigPackage) {
         return;
@@ -55,7 +55,7 @@ async function main() {
             name: '',
             templates: Object.values(data),
             output: outputDir,
-            data: { package: npmConfigPackage, theme: npmConfigTheme },
+            data: { package: npmConfigPackage, vertical: npmConfigVertical },
         });
 
         for (const component of Object.keys(data)) {
