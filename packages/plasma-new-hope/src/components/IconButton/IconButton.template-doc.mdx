@@ -1,0 +1,156 @@
+---
+id: IconButton
+title: IconButton
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# IconButton
+Кнопки могут отображаться в нескольких размерах и цветах, могут содержать иконку.
+
+## IconButton
+<Description name="IconButton" />
+<PropsTable name="IconButton" exclude={['css']} />
+
+## Использование
+Компонент `IconButton` может содержать иконку, которая указывается напрямую через `children`.
+
+```tsx live
+import React from 'react';
+import { IconButton } from '@salutejs/{{ package }}';
+import { IconClose } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <IconButton>
+                <IconClose color="inherit" />
+            </IconButton>
+        </div>
+    );
+}
+```
+
+## Примеры
+
+### Размер кнопки
+Размер кнопки задается с помощью свойства `size`.
+
+```tsx live
+import React from 'react';
+import { IconButton } from '@salutejs/{{ package }}';
+import { IconClose } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <IconButton size="l">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton size="m">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton size="s">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton size="xs">
+                <IconClose color="inherit" size="xs" />
+            </IconButton>
+        </div>
+    );
+}
+```
+
+### Вид кнопки
+Вид кнопки задается с помощью свойства `view`.
+
+Возможные значения свойства `view`:
++ `"default"` – по умолчанию;
++ `"secondary"` – вторичная;
++ `"success"` – успешное завершение;
++ `"warning"` – предупреждение;
++ `"critical"` – ошибка;
++ `"clear"` – без цветового сопровождения;
++ `"dark"` – темная;
++ `"black"` – черная;
++ `"white"` – белая.
+
+```tsx live
+import React from 'react';
+import { IconButton } from '@salutejs/{{ package }}';
+import { IconClose } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <IconButton size="s" view="default">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton size="s" view="secondary">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton size="s" view="success">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton size="s" view="warning">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton size="s" view="critical">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton size="s" view="clear">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton size="s" view="dark">
+                <IconClose  color="inherit" />
+            </IconButton>
+            <IconButton size="s" view="black">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton size="s" view="white">
+                <IconClose color="inherit" />
+            </IconButton>
+        </div>
+    );
+}
+```
+
+### Границы кнопки
+Границы кнопки задаются с помощью свойства `pin`. Возможные значения свойства `pin`:
++ `square` – обычное скругление;
++ `circle` – сильное скругление;
++ `clear` – нет скругления.
+
+```tsx live
+import React from 'react';
+import { IconButton } from '@salutejs/{{ package }}';
+import { IconClose } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <IconButton pin="square-square">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton pin="square-clear">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton pin="clear-square">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton pin="clear-clear">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton pin="clear-circle">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton pin="circle-clear">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton pin="circle-circle">
+                <IconClose color="inherit" />
+            </IconButton>
+        </div>
+    );
+}
+```

@@ -6,7 +6,7 @@ title: Skeleton
 import { PropsTable, Description } from '@site/src/components';
 
 # Skeleton
-Набор компонентов для создания скелетов загрузки (плейсхолдеров).
+Набор компонентов для создания скелетов загрузки (placeholders).
 
 ## LineSkeleton
 <Description name="LineSkeleton" />
@@ -77,13 +77,13 @@ export function App() {
 ```
 
 ## Доступность
-При использование хока `withSkeleton` необходимо воспользоваться атрибутами WAI ARIA. Пример с кнопкой:
+При использовании hook `withSkeleton` необходимо воспользоваться атрибутами WAI ARIA. Пример с кнопкой:
 
 ```tsx
 import React, { useState } from 'react';
 import { Button } from '@salutejs/{{ package }}';
 
-const ButtonSkeleton = withSkeleton<ButtonProps & WithSkeletonProps>(BasicButton);
+const ButtonSkeleton = withSkeleton<ButtonProps & WithSkeletonProps>(Button);
 
 export default function App () {
     const [skeleton, setSkeleton] = useState(false);
@@ -100,4 +100,4 @@ export default function App () {
 }
 ```
 
-Таким образом, при `skeleton=true` и `aria-busy=true` скринридер будет оповещать о соответствующем статусе компонента.
+Таким образом, при `skeleton=true` и `aria-busy=true` screen-reader будет оповещать о соответствующем статусе компонента.

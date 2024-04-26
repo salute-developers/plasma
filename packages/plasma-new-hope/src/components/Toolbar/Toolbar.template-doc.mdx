@@ -1,0 +1,120 @@
+---
+id: toolbar
+title: Toolbar
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Toolbar
+Toolbar может отображаться в горизонтальном и вертикальном положении с разными размерами.
+
+## Toolbar
+<Description name="Toolbar" />
+<PropsTable name="Toolbar" exclude={['css', 'focused']} />
+
+## Использование
+Компонент `Toolbar` должен содержать контент передаваемый в `children`.
+Для разделения элементов можно использовать ToolbarDivider.
+
+```tsx live
+import React from 'react';
+import { Toolbar, Button, ToolbarDivider } from '@salutejs/{{ package }}';
+import { IconEdit } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <Toolbar>
+            <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+            <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+            <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+            <ToolbarDivider />
+            <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+            <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+        </Toolbar>
+    );
+}
+```
+
+## Примеры
+
+### Размер Toolbar
+Размер Toolbar задается с помощью свойства `size`.
+
+Возможные значения свойства: `"l"`, `"m"`, `"s"` или `"xs"`:
+
+```tsx live
+import React from 'react';
+import { Toolbar, Button, ToolbarDivider } from '@salutejs/{{ package }}';
+import { IconEdit } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <Toolbar size="l">
+                <Button square size="l" view="clear" contentLeft={<IconEdit />} />
+                <Button square size="l" view="clear" contentLeft={<IconEdit />} />
+                <ToolbarDivider />
+                <Button square size="l" view="clear" contentLeft={<IconEdit />} />
+                <Button square size="l" view="clear" contentLeft={<IconEdit />} />
+            </Toolbar>
+
+            <Toolbar size="m">
+                <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+                <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+                <ToolbarDivider />
+                <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+                <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+            </Toolbar>
+
+            <Toolbar size="m">
+                <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+                <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+                <ToolbarDivider />
+                <Button square size="s" view="clear" contentLeft={<IconEdit />} />
+                <Button square size="s" view="clear" contentLeft={<IconEdit />} />
+            </Toolbar>
+
+            <Toolbar size="xs">
+                <Button square size="xs" view="clear" contentLeft={<IconEdit />} />
+                <Button square size="xs" view="clear" contentLeft={<IconEdit />} />
+                <ToolbarDivider />
+                <Button square size="xs" view="clear" contentLeft={<IconEdit />} />
+                <Button square size="xs" view="clear" contentLeft={<IconEdit />} />
+            </Toolbar>
+        </div>
+    );
+}
+```
+
+### Положение Toolbar
+Положение Toolbar задается с помощью свойства `orientation`. Возможные значения свойства `orientation`:
++ `"vertical"` – вертикальное положение;
++ `"horizontal"` – горизонтальное положение;
+
+```tsx live
+import React from 'react';
+import { Toolbar, Button, ToolbarDivider } from '@salutejs/{{ package }}';
+import { IconEdit } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <Toolbar orientation="vertical">
+                <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+                <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+                <ToolbarDivider />
+                <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+                <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+            </Toolbar>
+
+            <Toolbar orientation="horizontal">
+                <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+                <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+                <ToolbarDivider />
+                <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+                <Button square size="m" view="clear" contentLeft={<IconEdit />} />
+            </Toolbar>
+        </div>
+    );
+}
+```

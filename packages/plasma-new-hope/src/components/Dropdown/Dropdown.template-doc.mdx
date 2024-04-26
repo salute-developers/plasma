@@ -3,20 +3,21 @@ id: dropdown
 title: Dropdown
 ---
 
-import { PropsTable, Description, StorybookLink } from '@site/src/components';
+import { PropsTable, Description } from '@site/src/components';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Dropdown
 Выпадающий многоуровневый список.
 
-<StorybookLink name="Dropdown" />
-
 <Description name="Dropdown" />
 <PropsTable name="Dropdown" />
 
 ## Использование
-Обязательным параметром является только массив `items`. Внутри items может быть такой же вложенный массив items. Формат следующий:
+Обязательным параметром является только массив `items`.
+Внутри items может быть такой же вложенный массив items.
+
+Формат следующий:
 
 ```tsx
 type Items = Array<{
@@ -68,272 +69,272 @@ type Items = Array<{
     <TabItem value="default" label="Default" default>
         ```tsx live
         import React from 'react';
-        import { Button, Dropdown } from '@salutejs/plasma-web';
+        import { Button, Dropdown } from '@salutejs/{{ package }}';
 
         export function App() {
-            const items = [
-                {
-                    value: 'north_america',
-                    label: 'Северная Америка',
-                },
-                {
-                    value: 'south_america',
-                    label: 'Южная Америка',
-                    items: [
-                        {
-                            value: 'brazil',
-                            label: 'Бразилия',
-                            items: [
-                                {
-                                    value: 'rio_de_janeiro',
-                                    label: 'Рио-де-Жанейро',
-                                },
-                                {
-                                    value: 'sao_paulo',
-                                    label: 'Сан-Паулу',
-                                },
-                            ],
-                        },
-                        {
-                            value: 'argentina',
-                            label: 'Аргентина',
-                        },
-                    ],
-                },
-            ];
+        const items = [
+    {
+        value: 'north_america',
+        label: 'Северная Америка',
+    },
+    {
+        value: 'south_america',
+        label: 'Южная Америка',
+        items: [
+    {
+        value: 'brazil',
+        label: 'Бразилия',
+        items: [
+    {
+        value: 'rio_de_janeiro',
+        label: 'Рио-де-Жанейро',
+    },
+    {
+        value: 'sao_paulo',
+        label: 'Сан-Паулу',
+    },
+        ],
+    },
+    {
+        value: 'argentina',
+        label: 'Аргентина',
+    },
+        ],
+    },
+        ];
 
 
-            return (
-                <div style={{ height:"300px" }}>
-                    <Dropdown
-                        items={items}
-                    >
-                        <Button text="Список стран" />
-                    </Dropdown>
-                </div>
-            );
-        }
-        ```
-    </TabItem>
+        return (
+        <div style=\{{ height:"300px" }}>
+        <Dropdown
+            items={items}
+        >
+            <Button text="Список стран" />
+        </Dropdown>
+    </div>
+    );
+    }
+    ```
+</TabItem>
 
-    <TabItem value="size" label="Size">
-        Размер `Dropdown` задается с помощью свойства `size`.<br />
-        Возможные значения свойства: `"l"`, `"m"`, `"s"` или `"xs"`.
+<TabItem value="size" label="Size">
+    Размер `Dropdown` задается с помощью свойства `size`.<br />
+    Возможные значения свойства: `"l"`, `"m"`, `"s"` или `"xs"`.
 
-        ```tsx live
-        import React from 'react';
-        import { Button, Dropdown } from '@salutejs/plasma-web';
+    ```tsx live
+    import React from 'react';
+    import { Button, Dropdown } from '@salutejs/{{ package }}';
 
-        export function App() {
-            const items = [
-                {
-                    value: 'north_america',
-                    label: 'Северная Америка',
-                },
-                {
-                    value: 'south_america',
-                    label: 'Южная Америка',
-                    items: [
-                        {
-                            value: 'brazil',
-                            label: 'Бразилия',
-                            items: [
-                                {
-                                    value: 'rio_de_janeiro',
-                                    label: 'Рио-де-Жанейро',
-                                },
-                                {
-                                    value: 'sao_paulo',
-                                    label: 'Сан-Паулу',
-                                },
-                            ],
-                        },
-                        {
-                            value: 'argentina',
-                            label: 'Аргентина',
-                        },
-                    ],
-                },
-            ];
+    export function App() {
+    const items = [
+{
+    value: 'north_america',
+    label: 'Северная Америка',
+},
+{
+    value: 'south_america',
+    label: 'Южная Америка',
+    items: [
+{
+    value: 'brazil',
+    label: 'Бразилия',
+    items: [
+{
+    value: 'rio_de_janeiro',
+    label: 'Рио-де-Жанейро',
+},
+{
+    value: 'sao_paulo',
+    label: 'Сан-Паулу',
+},
+    ],
+},
+{
+    value: 'argentina',
+    label: 'Аргентина',
+},
+    ],
+},
+    ];
 
-            return (
-                <div style={{ height: "300px", display: "flex", gap: "50px" }}>
-                    <Dropdown
-                        items={items}
-                        size="l"
-                    >
-                        <Button text="Список стран" />
-                    </Dropdown>
+    return (
+    <div style=\{{ height: "300px", display: "flex", gap: "50px" }}>
+    <Dropdown
+        items={items}
+        size="l"
+    >
+        <Button text="Список стран" />
+    </Dropdown>
 
-                    <Dropdown
-                        items={items}
-                        size="m" // default
-                    >
-                        <Button text="Список стран" />
-                    </Dropdown>
+    <Dropdown
+        items={items}
+        size="m" // default
+    >
+        <Button text="Список стран" />
+    </Dropdown>
 
-                    <Dropdown
-                        items={items}
-                        size="s"
-                    >
-                        <Button text="Список стран" />
-                    </Dropdown>
+    <Dropdown
+        items={items}
+        size="s"
+    >
+        <Button text="Список стран" />
+    </Dropdown>
 
-                    <Dropdown
-                        items={items}
-                        size="xs"
-                    >
-                        <Button text="Список стран" />
-                    </Dropdown>
-                </div>
-            );
-        }
-        ```
-    </TabItem>
+    <Dropdown
+        items={items}
+        size="xs"
+    >
+        <Button text="Список стран" />
+    </Dropdown>
+</div>
+);
+}
+```
+</TabItem>
 
-    <TabItem value="placement" label="Placement">
-        Параметр `placement` принимает либо строку: `"top"`,  `"right"`, `"bottom"`, `"left"`, `"auto"`, либо массив этих же значений, например: `["top", "bottom"]`.<br />
-        Default value для placement - `"bottom"`.
+<TabItem value="placement" label="Placement">
+    Параметр `placement` принимает либо строку: `"top"`,  `"right"`, `"bottom"`, `"left"`, `"auto"`, либо массив этих же значений, например: `["top", "bottom"]`.<br />
+    Default value для placement - `"bottom"`.
 
-        ```tsx live
-        import React from 'react';
-        import { Button, Dropdown } from '@salutejs/plasma-web';
+    ```tsx live
+    import React from 'react';
+    import { Button, Dropdown } from '@salutejs/{{ package }}';
 
-        export function App() {
-            const items = [
-                {
-                    value: 'north_america',
-                    label: 'Северная Америка',
-                },
-                {
-                    value: 'south_america',
-                    label: 'Южная Америка',
-                    items: [
-                        {
-                            value: 'brazil',
-                            label: 'Бразилия',
-                            items: [
-                                {
-                                    value: 'rio_de_janeiro',
-                                    label: 'Рио-де-Жанейро',
-                                },
-                                {
-                                    value: 'sao_paulo',
-                                    label: 'Сан-Паулу',
-                                },
-                            ],
-                        },
-                        {
-                            value: 'argentina',
-                            label: 'Аргентина',
-                        },
-                    ],
-                },
-            ];
+    export function App() {
+    const items = [
+{
+    value: 'north_america',
+    label: 'Северная Америка',
+},
+{
+    value: 'south_america',
+    label: 'Южная Америка',
+    items: [
+{
+    value: 'brazil',
+    label: 'Бразилия',
+    items: [
+{
+    value: 'rio_de_janeiro',
+    label: 'Рио-де-Жанейро',
+},
+{
+    value: 'sao_paulo',
+    label: 'Сан-Паулу',
+},
+    ],
+},
+{
+    value: 'argentina',
+    label: 'Аргентина',
+},
+    ],
+},
+    ];
 
-            return (
-                <div style={{ height: "300px", display: "flex", gap: "50px" }}>
-                    <Dropdown
-                        items={items}
-                    >
-                        <Button text="Список стран" />
-                    </Dropdown>
+    return (
+    <div style=\{{ height: "300px", display: "flex", gap: "50px" }}>
+    <Dropdown
+        items={items}
+    >
+        <Button text="Список стран" />
+    </Dropdown>
 
-                    <Dropdown
-                        items={items}
-                        placement="right"
-                    >
-                        <Button text="Список стран" />
-                    </Dropdown>
+    <Dropdown
+        items={items}
+        placement="right"
+    >
+        <Button text="Список стран" />
+    </Dropdown>
 
-                    <Dropdown
-                        items={items}
-                        placement="left"
-                    >
-                        <Button text="Список стран" />
-                    </Dropdown>
+    <Dropdown
+        items={items}
+        placement="left"
+    >
+        <Button text="Список стран" />
+    </Dropdown>
 
-                    <Dropdown
-                        items={items}
-                        placement={['top', 'bottom']}
-                    >
-                        <Button text="Список стран" />
-                    </Dropdown>
-                </div>
-            );
-        }
-        ```
-    </TabItem>
+    <Dropdown
+        items={items}
+        placement={['top', 'bottom']}
+    >
+        <Button text="Список стран" />
+    </Dropdown>
+</div>
+);
+}
+```
+</TabItem>
 
-    <TabItem value="trigger" label="Trigger">
-        Параметр `trigger` принимает строку: `"click"` или `"hover"`.<br />
-        Default value - `"click"`.<br />
-        Для примера показано значение `"hover"`.
+<TabItem value="trigger" label="Trigger">
+    Параметр `trigger` принимает строку: `"click"` или `"hover"`.<br />
+    Default value - `"click"`.<br />
+    Для примера показано значение `"hover"`.
 
-        ```tsx live
-        import React from 'react';
-        import { Button, Dropdown } from '@salutejs/plasma-web';
+    ```tsx live
+    import React from 'react';
+    import { Button, Dropdown } from '@salutejs/{{ package }}';
 
-        export function App() {
-            const items = [
-                {
-                    value: 'north_america',
-                    label: 'Северная Америка',
-                },
-                {
-                    value: 'south_america',
-                    label: 'Южная Америка',
-                    items: [
-                        {
-                            value: 'brazil',
-                            label: 'Бразилия',
-                            items: [
-                                {
-                                    value: 'rio_de_janeiro',
-                                    label: 'Рио-де-Жанейро',
-                                },
-                                {
-                                    value: 'sao_paulo',
-                                    label: 'Сан-Паулу',
-                                },
-                            ],
-                        },
-                        {
-                            value: 'argentina',
-                            label: 'Аргентина',
-                        },
-                    ],
-                },
-            ];
+    export function App() {
+    const items = [
+{
+    value: 'north_america',
+    label: 'Северная Америка',
+},
+{
+    value: 'south_america',
+    label: 'Южная Америка',
+    items: [
+{
+    value: 'brazil',
+    label: 'Бразилия',
+    items: [
+{
+    value: 'rio_de_janeiro',
+    label: 'Рио-де-Жанейро',
+},
+{
+    value: 'sao_paulo',
+    label: 'Сан-Паулу',
+},
+    ],
+},
+{
+    value: 'argentina',
+    label: 'Аргентина',
+},
+    ],
+},
+    ];
 
 
-            return (
-                <div style={{ height:"300px" }}>
-                    <Dropdown
-                        items={items}
-                        trigger="hover"
-                    >
-                        <Button text="Список стран" />
-                    </Dropdown>
-                </div>
-            );
-        }
-        ```
-    </TabItem>
+    return (
+    <div style=\{{ height:"300px" }}>
+    <Dropdown
+        items={items}
+        trigger="hover"
+    >
+        <Button text="Список стран" />
+    </Dropdown>
+</div>
+);
+}
+```
+</TabItem>
 </Tabs>
 
 ## Клавиатурная навигация
 
 Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) и частично [TreeView](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
 
-- `Tab` - закрывает дропдаун. Перемещает фокус на следующий элемент на странице;
-- `Enter` - открывает/закрывает дропдаун. Если на элементе - выбирает его;
-- `Space` - открывает/закрывает дропдаун. Если на элементе - выбирает его;
-- `Home` - открывает дропдаун и перемещает фокус на первый элемент;
-- `End` - открывает дропдаун и перемещает фокус на последний элемент;
+- `Tab` - закрывает dropdown. Перемещает фокус на следующий элемент на странице;
+- `Enter` - открывает/закрывает dropdown. Если на элементе - выбирает его;
+- `Space` - открывает/закрывает dropdown. Если на элементе - выбирает его;
+- `Home` - открывает dropdown и перемещает фокус на первый элемент;
+- `End` - открывает dropdown и перемещает фокус на последний элемент;
 - `PageUp` - перемещает фокус на 10 элементов выше либо в начало списка;
 - `PageDown` - перемещает фокус на 10 элементов ниже либо в конце списка;
-- `ArrowUp` - открывает дропдаун и перемещает фокус на первый элемент. Перемещает фокус на один элемент выше;
-- `ArrowDown` - открывает дропдаун и перемещает фокус на первый элемент. Перемещает фокус на один элемент ниже;
+- `ArrowUp` - открывает dropdown и перемещает фокус на первый элемент. Перемещает фокус на один элемент выше;
+- `ArrowDown` - открывает dropdown и перемещает фокус на первый элемент. Перемещает фокус на один элемент ниже;
 - `ArrowRight` - если фокус на элементе вложенного списка - открывает его и перемещает фокус на первый элемент;
 - `ArrowLeft` - закрывает текущий список и перемещает фокус на предыдущий;
