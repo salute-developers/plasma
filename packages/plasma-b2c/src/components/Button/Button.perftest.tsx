@@ -19,6 +19,8 @@ const defaultProps = {
 const text = 'Label' as const;
 
 export const Default = () => {
+    window.top;
+
     return (
         <Button text={text} contentLeft={<IconPlaceholder />} contentRight={<IconPlaceholder />} {...defaultProps} />
     );
