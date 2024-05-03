@@ -11,7 +11,11 @@ export const config = {
         view: {
             default: css`
                 ${toolbarTokens.boxShadow}: var(--shadow-down-soft-s);
-                ${toolbarTokens.background}: var(--surface-solid-card);
+                ${toolbarTokens.background}: color-mix(
+                    in srgb,
+                    var(--surface-solid-card),
+                    #FFFFFF 6%
+                );
 
                 ${toolbarTokens.dividerColor}: var(--surface-transparent-tertiary);
             `,

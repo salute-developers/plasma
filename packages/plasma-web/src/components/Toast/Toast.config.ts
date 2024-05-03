@@ -9,7 +9,11 @@ export const config = {
         view: {
             default: css`
                 ${toastTokens.color}: var(--text-primary);
-                ${toastTokens.background}: var(--surface-solid-card);
+                ${toastTokens.background}: color-mix(
+                    in srgb,
+                    var(--surface-solid-card),
+                    #FFFFFF 6%
+                );
 
                 ${toastTokens.closeIconColor}: var(--text-secondary);
                 ${toastTokens.closeIconColorOnHover}: var(--text-secondary);
@@ -20,20 +24,32 @@ export const config = {
              */
             primary: css`
                 ${toastTokens.color}: var(--text-primary);
-                ${toastTokens.background}: var(--surface-solid-card);
+                ${toastTokens.background}: color-mix(
+                    in srgb,
+                    var(--surface-solid-card),
+                    #FFFFFF 6%
+                );
 
                 ${toastTokens.closeIconColor}: var(--text-secondary);
                 ${toastTokens.closeIconColorOnHover}: var(--text-secondary);
             `,
             dark: css`
                 ${toastTokens.color}: var(--on-dark-text-primary);
-                ${toastTokens.background}: var(--on-dark-surface-solid-primary);
+                ${toastTokens.background}: color-mix(
+                    in srgb,
+                    var(--on-dark-surface-solid-primary),
+                    #FFFFFF 6%
+                );
 
                 ${toastTokens.closeIconColor}: var(--on-dark-text-secondary);
                 ${toastTokens.closeIconColorOnHover}: var(--on-dark-text-secondary);
             `,
             light: css`
-                ${toastTokens.color}: var(--on-light-text-primary);
+                ${toastTokens.color}: color-mix(
+                    in srgb,
+                    var(--on-light-text-primary),
+                    #FFFFFF 6%
+                );
                 ${toastTokens.background}: var(--on-light-surface-solid-primary);
 
                 ${toastTokens.closeIconColor}: var(--on-light-text-secondary);

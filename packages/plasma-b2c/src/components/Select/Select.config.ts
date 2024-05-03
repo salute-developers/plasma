@@ -308,7 +308,11 @@ export const config = {
         },
         view: {
             default: css`
-                ${selectTokens.background}: var(--surface-solid-card);
+                ${selectTokens.background}: color-mix(
+                    in srgb,
+                    var(--surface-solid-card),
+                    #FFFFFF 6%
+                );
                 ${selectTokens.boxShadow}: var(--shadow-down-soft-s);
 
                 ${selectTokens.itemBackground}: var(--plasma-colors-transparent);
