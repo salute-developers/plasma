@@ -7,6 +7,23 @@ import { HandleGlobalToggleType, DropdownProps } from '../Dropdown.types';
 
 import { PathMapType, FocusedToValueMapType } from './useHashMaps';
 
+const JUMP_SIZE = 10;
+
+export const keys = {
+    Enter: 'Enter',
+    Space: 'Space',
+    Tab: 'Tab',
+    Escape: 'Escape',
+    ArrowLeft: 'ArrowLeft',
+    ArrowRight: 'ArrowRight',
+    ArrowUp: 'ArrowUp',
+    ArrowDown: 'ArrowDown',
+    Home: 'Home',
+    End: 'End',
+    PageUp: 'PageUp',
+    PageDown: 'PageDown',
+};
+
 const getFurtherPath = (focusedPath: FocusedPathState, focusedToValueMap: FocusedToValueMapType) => {
     const focusedPathAsString = focusedPath.reduce((acc, n) => `${acc}/${n}`, '').replace(/^(\/)/, '');
 
@@ -48,10 +65,13 @@ export const useKeyNavigation = ({
     const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
         const { code } = event;
 
-        if (code === 'ArrowUp') {
+        if (code === keys.ArrowUp) {
             if (focusedPath.length) {
-                const newIndex = currentIndex <= 0 ? currentLength - 1 : currentIndex - 1;
-                dispatchFocusedPath({ type: 'change_last_focus', value: newIndex });
+                if (currentIndex <= 0) {
+                    return;
+                }
+
+                dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex - 1 });
             } else {
                 dispatchPath({ type: 'opened_first_level' });
                 dispatchFocusedPath({ type: 'set_initial_focus' });
@@ -59,10 +79,13 @@ export const useKeyNavigation = ({
             }
         }
 
-        if (code === 'ArrowDown') {
+        if (code === keys.ArrowDown) {
             if (focusedPath.length) {
-                const newIndex = currentIndex + 1 >= currentLength ? 0 : currentIndex + 1;
-                dispatchFocusedPath({ type: 'change_last_focus', value: newIndex });
+                if (currentIndex + 1 >= currentLength) {
+                    return;
+                }
+
+                dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex + 1 });
             } else {
                 dispatchPath({ type: 'opened_first_level' });
                 dispatchFocusedPath({ type: 'set_initial_focus' });
@@ -70,7 +93,7 @@ export const useKeyNavigation = ({
             }
         }
 
-        if (code === 'ArrowLeft') {
+        if (code === keys.ArrowLeft) {
             if (focusedPath.length) {
                 dispatchPath({ type: 'removed_last_level' });
                 dispatchFocusedPath({ type: 'return_prev_focus' });
@@ -81,7 +104,7 @@ export const useKeyNavigation = ({
             }
         }
 
-        if (code === 'ArrowRight') {
+        if (code === keys.ArrowRight) {
             if (focusedPath.length) {
                 const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
 
@@ -92,13 +115,15 @@ export const useKeyNavigation = ({
             }
         }
 
-        if (code === 'Enter' || code === 'Space') {
+        if (code === keys.Enter || code === keys.Space) {
             event.preventDefault();
 
             if (path[0]) {
                 const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
 
-                if (currentItem?.disabled || currentItem?.isDisabled) return;
+                if (currentItem?.disabled || currentItem?.isDisabled) {
+                    return;
+                }
 
                 if (currentItem?.items) {
                     dispatchPath({ type: 'added_next_level', value: currentItem.value.toString() });
@@ -122,14 +147,14 @@ export const useKeyNavigation = ({
             }
         }
 
-        if (code === 'Tab' || code === 'Escape') {
+        if (code === keys.Tab || code === keys.Escape) {
             dispatchFocusedPath({ type: 'reset' });
             dispatchPath({ type: 'reset' });
 
             handleGlobalToggle(false, event);
         }
 
-        if (code === 'Home') {
+        if (code === keys.Home) {
             if (path[0]) {
                 dispatchFocusedPath({ type: 'change_last_focus', value: 0 });
             } else {
@@ -140,7 +165,7 @@ export const useKeyNavigation = ({
             }
         }
 
-        if (code === 'End') {
+        if (code === keys.End) {
             if (path[0]) {
                 dispatchFocusedPath({ type: 'change_last_focus', value: currentLength - 1 });
             } else {
@@ -151,22 +176,22 @@ export const useKeyNavigation = ({
             }
         }
 
-        if (code === 'PageUp') {
+        if (code === keys.PageUp) {
             if (path[0]) {
-                if (currentIndex <= 10) {
-                    dispatchFocusedPath({ type: 'set_initial_focus' });
+                if (currentIndex <= JUMP_SIZE) {
+                    dispatchFocusedPath({ type: 'change_last_focus', value: 0 });
                 } else {
-                    dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex - 10 });
+                    dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex - JUMP_SIZE });
                 }
             }
         }
 
-        if (code === 'PageDown') {
+        if (code === keys.PageDown) {
             if (path[0]) {
-                if (currentLength - currentIndex <= 10) {
+                if (currentLength - currentIndex <= JUMP_SIZE) {
                     dispatchFocusedPath({ type: 'change_last_focus', value: currentLength - 1 });
                 } else {
-                    dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex + 10 });
+                    dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex + JUMP_SIZE });
                 }
             }
         }
