@@ -30,7 +30,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) =>
                 onToggle,
                 size,
                 view,
-                itemRole = 'option',
+                itemRole = 'treeitem',
                 className,
                 listWidth,
                 listHeight,
@@ -114,7 +114,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) =>
                         <Ul
                             listHeight={listHeight}
                             listOverflow={listOverflow}
-                            role="listbox"
+                            role="tree"
                             id="listbox1"
                             listWidth={listWidth}
                         >

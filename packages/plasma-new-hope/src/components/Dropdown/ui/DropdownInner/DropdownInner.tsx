@@ -50,6 +50,7 @@ const DropdownInner: FC<DropdownInnerProps> = ({
                         path={path}
                         focusedPath={focusedPath}
                         currentLevel={currentLevel}
+                        itemRole={itemRole}
                         onHover={onHover}
                         onItemSelect={onItemSelect}
                         onItemClick={onItemClick}
@@ -68,7 +69,7 @@ const DropdownInner: FC<DropdownInnerProps> = ({
                 <Ul
                     listHeight={listHeight}
                     listOverflow={listOverflow}
-                    role="listbox"
+                    role="group"
                     id={`listbox${currentLevel + 2}`}
                     listWidth={listWidth}
                     isInnerUl
