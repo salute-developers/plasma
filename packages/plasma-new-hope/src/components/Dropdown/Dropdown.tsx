@@ -106,10 +106,10 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) =>
                             role: 'combobox',
                             'aria-controls': 'listbox1',
                             'aria-expanded': isCurrentListOpen,
-                            'aria-haspopup': 'listbox',
                             'aria-activedescendant': getActiveDescendant(),
                             onKeyDown,
                         })}
+                        preventOverflow={false}
                     >
                         <Ul
                             listHeight={listHeight}

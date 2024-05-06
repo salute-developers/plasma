@@ -36,6 +36,9 @@ const DropdownInner: FC<DropdownInnerProps> = ({
 
     const isCurrentListOpen = path[currentLevel + 1] === item.value.toString();
 
+    const listId = `listbox${currentLevel + 2}`;
+    const nextLevel = currentLevel + 1;
+
     if (item?.items) {
         return (
             <StyledPopover
@@ -56,29 +59,29 @@ const DropdownInner: FC<DropdownInnerProps> = ({
                         onItemClick={onItemClick}
                         variant={variant}
                         hasArrow={hasArrow}
-                        ariaControls={`listbox${currentLevel + 2}`}
+                        ariaControls={listId}
                         ariaExpanded={isCurrentListOpen}
-                        ariaHasPopup="listbox"
-                        ariaLevel={currentLevel + 1}
+                        ariaLevel={nextLevel}
                         ariaLabel={item.label}
                     />
                 }
                 onToggle={handleToggle}
                 isFocusTrapped={false}
+                preventOverflow={false}
             >
                 <Ul
                     listHeight={listHeight}
                     listOverflow={listOverflow}
                     role="group"
-                    id={`listbox${currentLevel + 2}`}
+                    id={listId}
                     listWidth={listWidth}
                     isInnerUl
                 >
                     {item.items.map((innerItem, innerIndex) => (
                         <DropdownInner
-                            key={`${innerIndex}/currentLevel`}
+                            key={`${innerIndex}/${currentLevel}`}
                             item={innerItem}
-                            currentLevel={currentLevel + 1}
+                            currentLevel={nextLevel}
                             focusedPath={focusedPath}
                             path={path}
                             dispatchPath={dispatchPath}

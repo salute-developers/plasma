@@ -23,65 +23,6 @@ export const StyledText = styled.div`
     flex: 1;
 `;
 
-// TODO: Remove baseContent after refactoring a Select component
-// export const baseContent = `
-//     box-sizing: content-box;
-//     display: flex;
-//     align-items: center;
-//     user-select: none;
-//
-//     :focus {
-//         outline: none;
-//     }
-//
-//     ${addFocus({
-//         outlineSize: '0.0625rem',
-//         outlineOffset: '0',
-//         outlineColor: `var(${tokens.focusColor})`,
-//         outlineRadius: `var(${tokens.itemBorderRadius})`,
-//         hasTransition: false,
-//         customFocusRules: `
-//             &.${classes.dropdownItemIsFocused}:before {
-//                 outline: none;
-//                 box-shadow: 0 0 0 0.0625rem var(${tokens.focusColor});
-//             }
-//         `,
-//     })};
-//
-//     width: 100%;
-//
-//     font-family: var(${tokens.itemFontFamily});
-//     font-size: var(${tokens.itemFontSize});
-//     font-style: var(${tokens.itemFontStyle});
-//     font-weight: var(${tokens.itemFontWeightBold});
-//     letter-spacing: var(${tokens.itemFontLetterSpacing});
-//     line-height: var(${tokens.itemFontLineHeight});
-//
-//     background: var(${tokens.itemBackground});
-//     color: var(${tokens.itemColor});
-//     border-radius: var(${tokens.itemBorderRadius});
-//
-//     padding: var(${tokens.itemPaddingTop}) var(${tokens.itemPaddingRight}) var(${tokens.itemPaddingBottom}) var(${
-//     tokens.itemPaddingLeft
-// });
-//
-//     margin: 0;
-//
-//     &:hover:not(.${classes.dropdownItemIsDisabled}) {
-//         cursor: pointer;
-//         background: var(${tokens.itemBackgroundHover});
-//     }
-//
-//     &.${classes.dropdownItemIsActive} {
-//         background: var(${tokens.itemBackgroundHover});
-//     }
-//
-//     &.${classes.dropdownItemIsDisabled} {
-//         opacity: var(${tokens.disabledOpacity});
-//         cursor: not-allowed;
-//     }
-// `;
-
 export const Wrapper = styled.li<{ variant: DropdownProps['variant'] }>`
     display: flex;
     align-items: center;

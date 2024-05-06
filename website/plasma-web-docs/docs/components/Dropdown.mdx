@@ -320,61 +320,11 @@ type Items = Array<{
         }
         ```
     </TabItem>
-
-    <TabItem value="dimensions" label="Width and height">
-        Выпадающему списку можно задать кастомную ширину и высоту. За это отвечают параметры `"listWidth"` и `"listHeight"`.<br />
-        Если задан параметр `"listHeight"`, то в дополнение к нему нужно еще установить `"listOverflow"` для корректного отображения.<br />
-        Параметр `"listWidth"` установит указанную ширину для всех вложенных списков.
-
-        ```tsx live
-        import React from 'react';
-        import { Button, Dropdown } from '@salutejs/plasma-web';
-
-        export function App() {
-            const items = [
-                {
-                    value: 'north_america',
-                    label: 'Северная Америка',
-                },
-                {
-                    value: 'south_america',
-                    label: 'Южная Америка',
-                },
-                {
-                    value: 'europe',
-                    label: 'Европа',
-                },
-                {
-                    value: 'asia',
-                    label: 'Азия',
-                },
-                {
-                    value: 'africa',
-                    label: 'Africa',
-                }
-            ];
-
-
-            return (
-                <div style={{ height:"300px" }}>
-                    <Dropdown
-                        items={items}
-                        listWidth="500px"
-                        listHeight="150px"
-                        listOverflow="auto"
-                    >
-                        <Button text="Список стран" />
-                    </Dropdown>
-                </div>
-            );
-        }
-        ```
-    </TabItem>
 </Tabs>
 
 ## Клавиатурная навигация
 
-Данный компонент соответствует требования [W3C](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/).
+Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) и частично [TreeView](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
 
 - `Tab` - закрывает дропдаун. Перемещает фокус на следующий элемент на странице;
 - `Enter` - открывает/закрывает дропдаун. Если на элементе - выбирает его;
