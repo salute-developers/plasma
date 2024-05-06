@@ -557,14 +557,14 @@ describe('plasma-web: Dropdown', () => {
             .realPress('ArrowDown')
             .realPress('ArrowDown')
             .realPress('ArrowDown');
-        cy.get('#europe').should('have.class', 'dropdown-item-is-focused');
+        cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('Escape');
 
         // Arrow Up
         cy.realPress('ArrowUp');
         cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('ArrowUp');
-        cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
+        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('Escape');
 
         // Arrows Right and Left
