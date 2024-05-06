@@ -27,7 +27,17 @@ export type CalendarBaseProps = HTMLAttributes<HTMLDivElement> &
 export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<HTMLDivElement>>) =>
     forwardRef<HTMLDivElement, CalendarBaseProps>(
         (
-            { value: externalValue, min, max, type = 'Days', eventList, disabledList, onChangeValue, ...rest },
+            {
+                value: externalValue,
+                min,
+                max,
+                includeEdgeDates,
+                type = 'Days',
+                eventList,
+                disabledList,
+                onChangeValue,
+                ...rest
+            },
             outerRootRef,
         ) => {
             const [firstValue, secondValue] = useMemo(
@@ -207,6 +217,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                             disabledList={disabledList}
                             min={min}
                             max={max}
+                            includeEdgeDates={includeEdgeDates}
                             value={externalValue}
                             date={date}
                             hoveredDay={hoveredDay}
