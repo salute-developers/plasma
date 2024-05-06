@@ -7,6 +7,7 @@ export interface CalendarDaysProps extends HTMLAttributes<HTMLDivElement> {
     value: CalendarValueType;
     min?: Date;
     max?: Date;
+    includeEdgeDates?: boolean;
     eventList?: EventDay[];
     disabledList?: DisabledDay[];
     isDouble?: boolean;

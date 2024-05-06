@@ -212,6 +212,7 @@ const getDaysWithModifications = (
     disabledList: DisabledDay[] = [],
     min?: Date,
     max?: Date,
+    includeEdgeDates?: boolean,
 ) => {
     const eventsMap = getPropsMap(eventList);
     const disabledDaysMap = getPropsMap(disabledList);
@@ -227,7 +228,9 @@ const getDaysWithModifications = (
         const keyDay = `${year}-${monthIndex}-${day}`;
         const currentDate = new Date(year, monthIndex, day);
 
-        const isOutOfMinMaxRange = (min && min >= currentDate) || (max && max <= currentDate);
+        const minValue = min && (includeEdgeDates ? min > currentDate : min >= currentDate);
+        const maxValue = max && (includeEdgeDates ? max < currentDate : max <= currentDate);
+        const isOutOfMinMaxRange = minValue || maxValue;
 
         dayItem.events = eventsMap.get(keyDay);
         dayItem.disabled = disabledDaysMap.has(keyDay) || isOutOfMinMaxRange;
@@ -250,6 +253,7 @@ export const useDays = (
     disabledList?: DisabledDay[],
     min?: Date,
     max?: Date,
+    includeEdgeDates?: boolean,
 ) =>
     useMemo(() => {
         const { monthIndex, year } = date;
@@ -263,7 +267,7 @@ export const useDays = (
         ];
 
         if (eventList?.length || disabledList?.length || max || min) {
-            const modifiedDays = getDaysWithModifications(days, eventList, disabledList, min, max);
+            const modifiedDays = getDaysWithModifications(days, eventList, disabledList, min, max, includeEdgeDates);
             return getMatrix<DateItem>(modifiedDays);
         }
 
