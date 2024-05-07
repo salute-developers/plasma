@@ -98,7 +98,11 @@ export const config = {
         view: {
             default: css`
                 ${dropdownTokens.disabledOpacity}: 0.4;
-                ${dropdownTokens.background}: var(--surface-solid-card);
+                ${dropdownTokens.background}: color-mix(
+                    in srgb,
+                    var(--surface-solid-card),
+                    #FFFFFF 6%
+                );
                 // TODO: #1131 Вернуть токен --shadow-down-soft-s
                 ${dropdownTokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
 

@@ -296,7 +296,11 @@ export const config = {
                 ${comboboxTokens.targetBorderColorActive}: var(--text-tertiary-active);
                 ${comboboxTokens.targetBorderColorOpen}: var(--text-accent);
 
-                ${comboboxTokens.background}: var(--surface-solid-card);
+                ${comboboxTokens.background}: color-mix(
+                    in srgb,
+                    var(--surface-solid-card),
+                    #FFFFFF 6%
+                );
                 ${comboboxTokens.boxShadow}: var(--shadow-down-soft-s);
 
                 ${comboboxTokens.itemBackground}: var(--plasma-colors-transparent);

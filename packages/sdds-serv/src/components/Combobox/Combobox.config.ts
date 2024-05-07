@@ -294,7 +294,11 @@ export const config = {
                 ${comboboxTokens.targetBorderColorActive}: var(--text-tertiary);
                 ${comboboxTokens.targetBorderColorOpen}: var(--text-accent);
 
-                ${comboboxTokens.background}: var(--surface-solid-card);
+                ${comboboxTokens.background}: color-mix(
+                    in srgb,
+                    var(--surface-solid-card),
+                    #FFFFFF 6%
+                );
                 ${comboboxTokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04); /* TODO: Забирать из токена --shadow-down-soft-s */
 
                 ${comboboxTokens.itemBackground}: var(--plasma-colors-transparent);

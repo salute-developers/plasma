@@ -98,7 +98,11 @@ export const config = {
         view: {
             default: css`
                 ${dropdownTokens.disabledOpacity}: 0.4;
-                ${dropdownTokens.background}: var(--surface-solid-card);
+                ${dropdownTokens.background}: color-mix(
+                    in srgb,
+                    var(--surface-solid-card),
+                    #FFFFFF 6%
+                );
                 ${dropdownTokens.boxShadow}: var(--shadow-down-soft-s);
 
                 ${dropdownTokens.itemBackground}: var(--plasma-colors-transparent);
@@ -115,7 +119,11 @@ export const config = {
              */
             primary: css`
                 ${dropdownTokens.disabledOpacity}: 0.4;
-                ${dropdownTokens.background}: var(--surface-solid-card);
+                ${dropdownTokens.background}: color-mix(
+                    in srgb,
+                    var(--surface-solid-card),
+                    #FFFFFF 6%
+                );
                 ${dropdownTokens.boxShadow}: var(--shadow-down-soft-s);
 
                 ${dropdownTokens.itemBackground}: var(--plasma-colors-transparent);
