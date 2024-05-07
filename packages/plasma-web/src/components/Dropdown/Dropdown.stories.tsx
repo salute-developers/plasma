@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import type { DropdownPlacement, DropdownTrigger } from '@salutejs/plasma-new-hope';
@@ -7,7 +7,7 @@ import { IconLocation } from '@salutejs/plasma-icons';
 import { Button } from '../Button';
 
 import type { DropdownProps } from '.';
-import { Dropdown } from '.';
+import { Dropdown, DropdownList, DropdownItem, DropdownPopup } from '.';
 
 const placements: Array<DropdownPlacement> = ['top', 'bottom', 'right', 'left', 'auto'];
 const triggers: Array<DropdownTrigger> = ['click', 'hover'];
@@ -284,4 +284,38 @@ const StoryNormal = (args: DropdownProps) => {
 
 export const Default: StoryObj<DropdownProps> = {
     render: (args) => <StoryNormal {...args} />,
+};
+
+export const CompositionDeprecated = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <div
+            style={{
+                height: '350px',
+                display: 'block',
+            }}
+        >
+            <DropdownPopup
+                isOpen={isOpen}
+                trigger="click"
+                placement="bottom"
+                onToggle={(is) => setIsOpen(is)}
+                disclosure={<Button text="Меню" />}
+            >
+                <DropdownList>
+                    <DropdownItem
+                        index={5}
+                        value={100001}
+                        label="Новости"
+                        onHover={(index) => console.log(index)}
+                        isActive
+                    />
+                    <DropdownItem index={0} value={100002} label="Каталог" color="var(--plasma-colors-accent)" />
+                    <DropdownItem index={1} value={100003} label="О нас" color="var(--plasma-colors-critical)" />
+                    <DropdownItem index={2} value={100004} label="Недоступно" isDisabled />
+                </DropdownList>
+            </DropdownPopup>
+        </div>
+    );
 };
