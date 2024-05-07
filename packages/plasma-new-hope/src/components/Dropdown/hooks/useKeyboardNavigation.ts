@@ -63,136 +63,161 @@ export const useKeyNavigation = ({
     const currentIndex: number = focusedPath?.[focusedPath.length - 1] || 0;
 
     const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
-        const { code } = event;
-
-        if (code === keys.ArrowUp) {
-            if (focusedPath.length) {
-                if (currentIndex <= 0) {
-                    return;
-                }
-
-                dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex - 1 });
-            } else {
-                dispatchPath({ type: 'opened_first_level' });
-                dispatchFocusedPath({ type: 'set_initial_focus' });
-                handleGlobalToggle(true, event);
-            }
-        }
-
-        if (code === keys.ArrowDown) {
-            if (focusedPath.length) {
-                if (currentIndex + 1 >= currentLength) {
-                    return;
-                }
-
-                dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex + 1 });
-            } else {
-                dispatchPath({ type: 'opened_first_level' });
-                dispatchFocusedPath({ type: 'set_initial_focus' });
-                handleGlobalToggle(true, event);
-            }
-        }
-
-        if (code === keys.ArrowLeft) {
-            if (focusedPath.length) {
-                dispatchPath({ type: 'removed_last_level' });
-                dispatchFocusedPath({ type: 'return_prev_focus' });
-            }
-
-            if (focusedPath.length === 1) {
-                handleGlobalToggle(false, event);
-            }
-        }
-
-        if (code === keys.ArrowRight) {
-            if (focusedPath.length) {
-                const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
-
-                if (currentItem?.items) {
-                    dispatchPath({ type: 'added_next_level', value: currentItem.value.toString() });
-                    dispatchFocusedPath({ type: 'add_focus', value: 0 });
-                }
-            }
-        }
-
-        if (code === keys.Enter || code === keys.Space) {
-            event.preventDefault();
-
-            if (path[0]) {
-                const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
-
-                if (currentItem?.disabled || currentItem?.isDisabled) {
-                    return;
-                }
-
-                if (currentItem?.items) {
-                    dispatchPath({ type: 'added_next_level', value: currentItem.value.toString() });
-                    dispatchFocusedPath({ type: 'add_focus', value: 0 });
+        switch (event.code) {
+            case keys.ArrowUp: {
+                if (focusedPath.length) {
+                    if (currentIndex > 0) {
+                        dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex - 1 });
+                    }
                 } else {
-                    if (closeOnSelect) {
-                        handleGlobalToggle(false, event);
-                    }
+                    dispatchPath({ type: 'opened_first_level' });
+                    dispatchFocusedPath({ type: 'set_initial_focus' });
+                    handleGlobalToggle(true, event);
+                }
 
-                    if (onItemSelect && currentItem) {
-                        onItemSelect(currentItem, event);
-                    }
+                break;
+            }
 
-                    if (onItemClick && currentItem) {
-                        onItemClick(currentItem, event);
+            case keys.ArrowDown: {
+                if (focusedPath.length) {
+                    if (currentIndex + 1 < currentLength) {
+                        dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex + 1 });
+                    }
+                } else {
+                    dispatchPath({ type: 'opened_first_level' });
+                    dispatchFocusedPath({ type: 'set_initial_focus' });
+                    handleGlobalToggle(true, event);
+                }
+
+                break;
+            }
+
+            case keys.ArrowLeft: {
+                if (focusedPath.length) {
+                    dispatchPath({ type: 'removed_last_level' });
+                    dispatchFocusedPath({ type: 'return_prev_focus' });
+                }
+
+                if (focusedPath.length === 1) {
+                    handleGlobalToggle(false, event);
+                }
+
+                break;
+            }
+
+            case keys.ArrowRight: {
+                if (focusedPath.length) {
+                    const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
+
+                    if (currentItem?.items) {
+                        dispatchPath({ type: 'added_next_level', value: currentItem.value.toString() });
+                        dispatchFocusedPath({ type: 'add_focus', value: 0 });
                     }
                 }
-            } else {
-                dispatchPath({ type: 'opened_first_level' });
-                dispatchFocusedPath({ type: 'set_initial_focus' });
+
+                break;
             }
-        }
 
-        if (code === keys.Tab || code === keys.Escape) {
-            dispatchFocusedPath({ type: 'reset' });
-            dispatchPath({ type: 'reset' });
+            case keys.Enter:
+            case keys.Space: {
+                event.preventDefault();
 
-            handleGlobalToggle(false, event);
-        }
+                if (path[0]) {
+                    const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
 
-        if (code === keys.Home) {
-            if (path[0]) {
-                dispatchFocusedPath({ type: 'change_last_focus', value: 0 });
-            } else {
-                dispatchPath({ type: 'opened_first_level' });
-                dispatchFocusedPath({ type: 'set_initial_focus' });
+                    if (currentItem?.disabled || currentItem?.isDisabled) {
+                        break;
+                    }
 
-                handleGlobalToggle(true, event);
+                    if (currentItem?.items) {
+                        dispatchPath({ type: 'added_next_level', value: currentItem.value.toString() });
+                        dispatchFocusedPath({ type: 'add_focus', value: 0 });
+                    } else {
+                        if (closeOnSelect) {
+                            handleGlobalToggle(false, event);
+                        }
+
+                        if (onItemSelect && currentItem) {
+                            onItemSelect(currentItem, event);
+                        }
+
+                        if (onItemClick && currentItem) {
+                            onItemClick(currentItem, event);
+                        }
+                    }
+                } else {
+                    dispatchPath({ type: 'opened_first_level' });
+                    dispatchFocusedPath({ type: 'set_initial_focus' });
+                }
+
+                break;
             }
-        }
 
-        if (code === keys.End) {
-            if (path[0]) {
-                dispatchFocusedPath({ type: 'change_last_focus', value: currentLength - 1 });
-            } else {
-                dispatchPath({ type: 'opened_first_level' });
-                dispatchFocusedPath({ type: 'change_last_focus', value: (pathMap.get('root') || 0) - 1 });
+            case keys.Tab:
+            case keys.Escape: {
+                dispatchFocusedPath({ type: 'reset' });
+                dispatchPath({ type: 'reset' });
+                handleGlobalToggle(false, event);
 
-                handleGlobalToggle(true, event);
+                break;
             }
-        }
 
-        if (code === keys.PageUp) {
-            if (path[0]) {
+            case keys.Home: {
+                if (path[0]) {
+                    dispatchFocusedPath({ type: 'change_last_focus', value: 0 });
+                } else {
+                    dispatchPath({ type: 'opened_first_level' });
+                    dispatchFocusedPath({ type: 'set_initial_focus' });
+
+                    handleGlobalToggle(true, event);
+                }
+
+                break;
+            }
+
+            case keys.End: {
+                if (path[0]) {
+                    dispatchFocusedPath({ type: 'change_last_focus', value: currentLength - 1 });
+                } else {
+                    dispatchPath({ type: 'opened_first_level' });
+                    dispatchFocusedPath({ type: 'change_last_focus', value: (pathMap.get('root') || 0) - 1 });
+
+                    handleGlobalToggle(true, event);
+                }
+
+                break;
+            }
+
+            case keys.PageUp: {
+                if (!path[0]) {
+                    break;
+                }
+
                 if (currentIndex <= JUMP_SIZE) {
                     dispatchFocusedPath({ type: 'change_last_focus', value: 0 });
                 } else {
                     dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex - JUMP_SIZE });
                 }
-            }
-        }
 
-        if (code === keys.PageDown) {
-            if (path[0]) {
+                break;
+            }
+
+            case keys.PageDown: {
+                if (!path[0]) {
+                    break;
+                }
+
                 if (currentLength - currentIndex <= JUMP_SIZE) {
                     dispatchFocusedPath({ type: 'change_last_focus', value: currentLength - 1 });
                 } else {
                     dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex + JUMP_SIZE });
                 }
+
+                break;
+            }
+
+            default: {
+                break;
             }
         }
     };

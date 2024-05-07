@@ -36,7 +36,7 @@ const DropdownInner: FC<DropdownInnerProps> = ({
 
     const isCurrentListOpen = path[currentLevel + 1] === item.value.toString();
 
-    const listId = `listbox${currentLevel + 2}`;
+    const listId = `tree_level_${currentLevel + 2}`;
     const nextLevel = currentLevel + 1;
 
     if (item?.items) {

@@ -104,7 +104,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) =>
                         isFocusTrapped={false}
                         target={childrenWithProps(children, {
                             role: 'combobox',
-                            'aria-controls': 'listbox1',
+                            'aria-controls': 'tree_level_1',
                             'aria-expanded': isCurrentListOpen,
                             'aria-activedescendant': getActiveDescendant(),
                             onKeyDown,
@@ -115,7 +115,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) =>
                             listHeight={listHeight}
                             listOverflow={listOverflow}
                             role="tree"
-                            id="listbox1"
+                            id="tree_level_1"
                             listWidth={listWidth}
                         >
                             {items.map((item, index) => (
