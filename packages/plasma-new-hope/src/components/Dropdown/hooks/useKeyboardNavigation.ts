@@ -106,13 +106,15 @@ export const useKeyNavigation = ({
             }
 
             case keys.ArrowRight: {
-                if (focusedPath.length) {
-                    const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
+                if (!focusedPath.length) {
+                    break;
+                }
 
-                    if (currentItem?.items) {
-                        dispatchPath({ type: 'added_next_level', value: currentItem.value.toString() });
-                        dispatchFocusedPath({ type: 'add_focus', value: 0 });
-                    }
+                const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
+
+                if (currentItem?.items) {
+                    dispatchPath({ type: 'added_next_level', value: currentItem.value.toString() });
+                    dispatchFocusedPath({ type: 'add_focus', value: 0 });
                 }
 
                 break;
@@ -122,32 +124,33 @@ export const useKeyNavigation = ({
             case keys.Space: {
                 event.preventDefault();
 
-                if (path[0]) {
-                    const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
-
-                    if (currentItem?.disabled || currentItem?.isDisabled) {
-                        break;
-                    }
-
-                    if (currentItem?.items) {
-                        dispatchPath({ type: 'added_next_level', value: currentItem.value.toString() });
-                        dispatchFocusedPath({ type: 'add_focus', value: 0 });
-                    } else {
-                        if (closeOnSelect) {
-                            handleGlobalToggle(false, event);
-                        }
-
-                        if (onItemSelect && currentItem) {
-                            onItemSelect(currentItem, event);
-                        }
-
-                        if (onItemClick && currentItem) {
-                            onItemClick(currentItem, event);
-                        }
-                    }
-                } else {
+                if (!path[0]) {
                     dispatchPath({ type: 'opened_first_level' });
                     dispatchFocusedPath({ type: 'set_initial_focus' });
+                    break;
+                }
+
+                const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
+
+                if (currentItem?.disabled || currentItem?.isDisabled) {
+                    break;
+                }
+
+                if (currentItem?.items) {
+                    dispatchPath({ type: 'added_next_level', value: currentItem.value.toString() });
+                    dispatchFocusedPath({ type: 'add_focus', value: 0 });
+                } else {
+                    if (closeOnSelect) {
+                        handleGlobalToggle(false, event);
+                    }
+
+                    if (onItemSelect && currentItem) {
+                        onItemSelect(currentItem, event);
+                    }
+
+                    if (onItemClick && currentItem) {
+                        onItemClick(currentItem, event);
+                    }
                 }
 
                 break;
