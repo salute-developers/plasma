@@ -6,8 +6,8 @@ import { DropdownItemOption } from '../ui/DropdownItem/DropdownItem.type';
 export type PathMapType = Map<string | number, number>;
 export type FocusedToValueMapType = Map<string, DropdownItemOption>;
 
-// Данный хук рекурсивно проходится по дереву items и создаем 2 мапы: мапу путей и мапу фокусов.
-// Нужно для получения информации всей об item, зная только путь до нее.
+// Данный хук рекурсивно проходится по дереву items и создает 2 мапы: мапу путей и мапу фокусов.
+// Нужно для получения всей информации об item, зная только путь до него.
 
 export const useHashMaps = (items: DropdownProps['items']) => {
     return useMemo(() => {
