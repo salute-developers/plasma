@@ -547,7 +547,7 @@ describe('plasma-b2c: Dropdown', () => {
 
         // Arrow Down
         cy.realPress('ArrowDown');
-        cy.get('#listbox1').should('be.visible');
+        cy.get('#tree_level_1').should('be.visible');
         cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowDown')
@@ -569,14 +569,14 @@ describe('plasma-b2c: Dropdown', () => {
 
         // Arrows Right and Left
         cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight');
-        cy.get('#listbox1').should('be.visible');
-        cy.get('#listbox2').should('be.visible');
+        cy.get('#tree_level_1').should('be.visible');
+        cy.get('#tree_level_2').should('be.visible');
         cy.get('#brazil').should('have.class', 'dropdown-item-is-focused');
         cy.get('button').should('have.focus');
         cy.get('#south_america').should('have.class', 'dropdown-item-is-active');
         cy.realPress('ArrowLeft');
-        cy.get('#listbox1').should('be.visible');
-        cy.get('#listbox2').should('not.be.visible');
+        cy.get('#tree_level_1').should('be.visible');
+        cy.get('#tree_level_2').should('not.be.visible');
         cy.get('#south_america').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('ArrowDown').realPress('ArrowRight');
         cy.get('#france').should('have.class', 'dropdown-item-is-focused');
@@ -587,34 +587,34 @@ describe('plasma-b2c: Dropdown', () => {
         cy.get('#france').should('have.class', 'dropdown-item-is-active');
         cy.get('#paris').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('ArrowLeft').realPress('ArrowLeft').realPress('ArrowLeft');
-        cy.get('#listbox1').should('not.be.visible');
+        cy.get('#tree_level_1').should('not.be.visible');
         cy.get('button').should('have.focus');
 
         // Escape
         cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight').realPress('ArrowRight');
         cy.realPress('Escape');
-        cy.get('#listbox1').should('not.be.visible');
-        cy.get('#listbox2').should('not.be.visible');
-        cy.get('#listbox3').should('not.be.visible');
+        cy.get('#tree_level_1').should('not.be.visible');
+        cy.get('#tree_level_2').should('not.be.visible');
+        cy.get('#tree_level_3').should('not.be.visible');
         cy.get('button').should('have.focus');
 
         // Home
         cy.realPress('Home');
-        cy.get('#listbox1').should('be.visible');
+        cy.get('#tree_level_1').should('be.visible');
         cy.get('button').should('have.focus');
         cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('Escape');
 
         // End
         cy.realPress('End');
-        cy.get('#listbox1').should('be.visible');
+        cy.get('#tree_level_1').should('be.visible');
         cy.get('button').should('have.focus');
         cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
         cy.realPress('Escape');
 
         // Page Down
         cy.realPress('PageDown');
-        cy.get('#listbox1').should('not.be.visible');
+        cy.get('#tree_level_1').should('not.be.visible');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowDown');
         cy.realPress('PageDown');
@@ -624,7 +624,7 @@ describe('plasma-b2c: Dropdown', () => {
 
         // Page Up
         cy.realPress('PageUp');
-        cy.get('#listbox1').should('not.be.visible');
+        cy.get('#tree_level_1').should('not.be.visible');
         cy.get('button').should('have.focus');
         cy.realPress('ArrowDown');
         cy.realPress('ArrowDown');
@@ -640,7 +640,7 @@ describe('plasma-b2c: Dropdown', () => {
             .realPress('ArrowLeft')
             .realPress('ArrowUp')
             .realPress('Space');
-        cy.get('#listbox1').should('not.be.visible');
+        cy.get('#tree_level_1').should('not.be.visible');
         cy.get('button').should('have.focus');
 
         // Enter
@@ -650,12 +650,12 @@ describe('plasma-b2c: Dropdown', () => {
             .realPress('ArrowLeft')
             .realPress('ArrowUp')
             .realPress('Enter');
-        cy.get('#listbox1').should('not.be.visible');
+        cy.get('#tree_level_1').should('not.be.visible');
         cy.get('button').should('have.focus');
 
         // Tab
         cy.realPress('ArrowDown').realPress('Tab');
-        cy.get('#listbox1').should('not.be.visible');
+        cy.get('#tree_level_1').should('not.be.visible');
         cy.get('button').should('not.have.focus');
     });
 });
