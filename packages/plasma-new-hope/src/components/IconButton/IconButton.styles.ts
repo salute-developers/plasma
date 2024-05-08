@@ -5,6 +5,7 @@ import { baseContent as buttonBase } from '../Button/Button.styles';
 
 import { tokens } from './IconButton.tokens';
 
+// Переопределние токенов из Button
 export const mappingOverride = `
     ${buttonTokens.buttonPadding}: 0;
 
