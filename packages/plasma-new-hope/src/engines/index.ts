@@ -5,4 +5,4 @@ import type { CSS } from './types';
 export const css = cssLibrary as CSS;
 export { mergeConfig, component } from './common';
 
-export type { Variant, ComponentConfig, RootProps, CSS } from './types';
+export type { Variant, ComponentConfig, RootProps, CSS, RootPropsOmitOnChange } from './types';
