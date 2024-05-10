@@ -93,6 +93,7 @@ import { defaultValidate } from '@salutejs/plasma-hope';
 import { DisabledProps } from '@salutejs/plasma-core';
 import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { DoubleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -200,10 +201,11 @@ import { setRef } from '@salutejs/plasma-core';
 import { shadows } from '@salutejs/plasma-core';
 import { ShiftProps } from '@salutejs/plasma-core';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
+import { SingleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SkeletonGradientProps } from '@salutejs/plasma-core';
 import { SkeletonGradientProps as SkeletonGradientProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { SkeletonSizeProps } from '@salutejs/plasma-new-hope/types/components/Skeleton/Skeleton.types';
-import { SliderProps } from '@salutejs/plasma-core';
+import { SliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SmartPaginationDots } from '@salutejs/plasma-hope';
 import { SmartPaginationDotsProps } from '@salutejs/plasma-hope';
 import { SnapAlign } from '@salutejs/plasma-core';
@@ -774,11 +776,19 @@ l: string;
 view: {
 default: string;
 };
+<<<<<<< HEAD
 }> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "target" | "onChange" | "size" | "value" | "checked" | "maxLength" | "minLength"> & CustomComboboxProps & {
 valueType?: "single" | undefined;
 value?: ComboboxPrimitiveValue | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue | undefined) => void) | undefined;
 } & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "target" | "onChange" | "size" | "value" | "checked" | "maxLength" | "minLength"> & CustomComboboxProps & {
+=======
+}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "type" | "target" | "size" | "value" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
+valueType?: "single" | undefined;
+value?: ComboboxPrimitiveValue | undefined;
+onChangeValue?: ((value?: ComboboxPrimitiveValue | undefined) => void) | undefined;
+} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "type" | "target" | "size" | "value" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
+>>>>>>> a61c59f64 (Update package-lock.json files)
 valueType: "multiple";
 value?: ComboboxPrimitiveValue[] | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue[] | undefined) => void) | undefined;
@@ -1164,7 +1174,7 @@ true: string;
 
 // @public
 const Image_2: FunctionComponent<PropsType<Variants> & ImgHTMLAttributes<HTMLImageElement> & {
-base?: "div" | "img" | undefined;
+base?: "img" | "div" | undefined;
 ratio?: "16 / 9" | "1 / 1" | "1/1" | "3 / 4" | "3/4" | "4 / 3" | "4/3" | "9 / 16" | "9/16" | "16/9" | "1 / 2" | "1/2" | "2 / 1" | "2/1" | undefined;
 customRatio?: string | undefined;
 } & RefAttributes<HTMLDivElement>>;
@@ -1597,8 +1607,22 @@ export { ShowToastArgs }
 
 export { SkeletonGradientProps }
 
-// @public (undocumented)
-export const Slider: (props: SliderProps) => JSX.Element;
+// @public
+export const Slider: FunctionComponent<PropsType<    {
+view: {
+default: string;
+accent: string;
+gradient: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+};
+disabled: {
+true: string;
+};
+}> & ((SingleSliderProps & RefAttributes<HTMLDivElement>) | (DoubleSliderProps & RefAttributes<HTMLDivElement>))>;
 
 export { SliderProps }
 

@@ -1,5 +1,5 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
-import type { ChangeEventHandler } from 'react';
+import type { ChangeEventHandler, KeyboardEvent, ChangeEvent } from 'react';
 import { safeUseId, useForkRef } from '@salutejs/plasma-core';
 import { css } from '@linaria/core';
 
@@ -37,6 +37,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
         (
             {
                 id,
+                className,
+                style,
 
                 // layout
                 contentLeft,
@@ -60,6 +62,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                 onChange,
                 onChangeChips,
                 onSearch,
+                onKeyDown,
 
                 ...rest
             },
@@ -144,6 +147,11 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                 }
             };
 
+            const handleOnKeyDown = (event: ChangeEvent<HTMLInputElement> & KeyboardEvent<HTMLInputElement>) => {
+                handleInputKeydown(event);
+                onKeyDown && onKeyDown(event);
+            };
+
             useEffect(() => {
                 if (!isChipEnumeration && !values?.length) {
                     return;
@@ -166,6 +174,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                     readOnly={!disabled && readOnly}
                     labelPlacement={innerLabelPlacementValue}
                     onClick={handleInputFocus}
+                    className={className}
+                    style={style}
                 >
                     {labelInside ||
                         (innerLabelValue && (
@@ -211,7 +221,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                                 disabled={disabled}
                                 readOnly={!disabled && readOnly}
                                 onChange={handleChange}
-                                onKeyDown={handleInputKeydown}
+                                onKeyDown={handleOnKeyDown}
                             />
                             {labelInside && (
                                 <Label id={labelId} htmlFor={innerId}>

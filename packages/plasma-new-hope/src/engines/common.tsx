@@ -1,7 +1,18 @@
 import React from 'react';
 
 import { _component } from './linaria';
-import type { ComponentConfig, HTMLAnyAttributes, HTMLTagList, PropsType, Variants } from './types';
+import type {
+    ComponentConfig,
+    HTMLAnyAttributes,
+    HTMLTagList,
+    PropsType,
+    Variants,
+    HTMLAttributesOmitOnChange,
+} from './types';
+
+//
+// Тип HTMLAttributesOmitOnChange требуется чтобы использовать компонент с кастомным пропсом onChange
+//
 
 export const getStaticVariants = (config: ComponentConfig) => {
     if (!config.variations) {
@@ -42,8 +53,8 @@ export const mergeConfig = <
     Tag extends HTMLTagList,
     VariantList extends Variants,
     VariantsProps extends PropsType<VariantList>,
-    LayoutPropsBase extends React.HTMLAttributes<HTMLElement>,
-    LayoutPropsUser extends React.HTMLAttributes<HTMLElement> | undefined = undefined
+    LayoutPropsBase extends React.HTMLAttributes<HTMLElement> | HTMLAttributesOmitOnChange,
+    LayoutPropsUser extends React.HTMLAttributes<HTMLElement> | HTMLAttributesOmitOnChange | undefined = undefined
 >(
     baseConfig: ComponentConfig<Tag, Variants, PropsType & LayoutPropsBase, LayoutPropsBase>,
     userConfig?: Partial<ComponentConfig<Tag, VariantList, VariantsProps, LayoutPropsUser>>,
@@ -87,7 +98,7 @@ export function component<
     Tag extends HTMLTagList,
     VariantList extends Variants,
     VariantsProps extends PropsType<VariantList>,
-    LayoutProps extends React.HTMLAttributes<HTMLElement>
+    LayoutProps extends React.HTMLAttributes<HTMLElement> | HTMLAttributesOmitOnChange
 >(
     config: ComponentConfig<Tag, VariantList, VariantsProps, LayoutProps>,
 ): React.FunctionComponent<VariantsProps & LayoutProps> {
