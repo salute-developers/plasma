@@ -1,6 +1,6 @@
 import type { DraggableData } from 'react-draggable';
 
-export interface HandleProps {
+export interface HandlerProps {
     stepSize: number;
     min: number;
     max: number;

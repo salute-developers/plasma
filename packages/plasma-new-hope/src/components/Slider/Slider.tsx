@@ -13,16 +13,10 @@ const isSingleValueProps = (props: SliderProps): props is SingleSliderProps => t
 
 export const sliderRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, SliderProps>) =>
     forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
-        if (isSingleValueProps(props)) {
-            return (
-                <Root ref={ref} {...props}>
-                    <SingleSlider {...props} />
-                </Root>
-            );
-        }
         return (
             <Root ref={ref} {...props}>
-                <DoubleSlider {...props} />
+                {isSingleValueProps(props) && <SingleSlider {...props} />}
+                {!isSingleValueProps(props) && <DoubleSlider {...props} />}
             </Root>
         );
     });

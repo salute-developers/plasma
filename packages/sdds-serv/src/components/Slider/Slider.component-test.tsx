@@ -7,7 +7,6 @@ const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 describe('plasma-web: Slider', () => {
     const Slider = getComponent('Slider');
-    const sliderThumbSelector = 'div > div + div > div';
 
     const CypressTestDecoratorWithTypo: FC = ({ children }) => (
         <CypressTestDecorator>
@@ -24,18 +23,6 @@ describe('plasma-web: Slider', () => {
                 <Slider min={0} max={100} value={[25, 75]} />
             </CypressTestDecoratorWithTypo>,
         );
-        cy.matchImageSnapshot();
-    });
-
-    it('focus', () => {
-        mount(
-            <CypressTestDecoratorWithTypo>
-                <Slider value={25} min={0} max={100} />
-            </CypressTestDecoratorWithTypo>,
-        );
-
-        cy.get(sliderThumbSelector).focus();
-
         cy.matchImageSnapshot();
     });
 

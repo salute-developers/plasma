@@ -2,7 +2,7 @@ import { styled } from '@linaria/react';
 
 import { tokens } from '../../Slider.tokens';
 
-export const HandleStyled = styled.div`
+export const HandlerStyled = styled.div`
     cursor: pointer;
     position: absolute;
     z-index: 1;

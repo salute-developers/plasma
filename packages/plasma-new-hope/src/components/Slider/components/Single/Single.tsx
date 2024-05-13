@@ -2,9 +2,9 @@ import React, { useCallback, useEffect, useState, useRef } from 'react';
 import type { FC } from 'react';
 
 import { SliderBase } from '../SliderBase/SliderBase';
-import { Handle } from '../../ui';
+import { Handler } from '../../ui';
 import { sizeData } from '../../utils';
-import type { HandleProps } from '../../ui';
+import type { HandlerProps } from '../../ui';
 import { cx, isNumber } from '../../../../utils';
 import { classes } from '../../Slider.tokens';
 
@@ -44,6 +44,11 @@ export const SingleSlider: FC<SingleSliderProps> = ({
         railFillWidth: 0,
     });
 
+    const [startOffset, setStartOffset] = useState(0);
+    const [endOffset, setEndOffset] = useState(0);
+
+    const [dragValue, setDragValue] = useState(value);
+
     const { stepSize } = state;
 
     const hasLabelContent = label || labelContentLeft;
@@ -55,11 +60,6 @@ export const SingleSlider: FC<SingleSliderProps> = ({
 
     const startLabelRef = useRef<HTMLDivElement>(null);
     const endLabelRef = useRef<HTMLDivElement>(null);
-
-    const [startOffset, setStartOffset] = useState(0);
-    const [endOffset, setEndOffset] = useState(0);
-
-    const [dragValue, setDragValue] = useState(value);
 
     const activeFirstValue = dragValue === min ? classes.activeRangeValue : undefined;
     const activeSecondValue = dragValue === max ? classes.activeRangeValue : undefined;
@@ -89,43 +89,47 @@ export const SingleSlider: FC<SingleSliderProps> = ({
         }));
     }, [value, labelPlacement, stepSize, rangeValuesPlacement, min, max, setStartOffset, setEndOffset]);
 
-    const setStepSize = useCallback((newStepSize: number) => {
+    const setStepSize = useCallback(
+        (newStepSize: number) => {
+            setState((prevState) => ({
+                ...prevState,
+                stepSize: newStepSize,
+            }));
+        },
+        [setState],
+    );
+
+    const onHandleChange: NonNullable<HandlerProps['onChange']> = (handleValue, data) => {
+        const newHandleXPosition = data.x;
+        const newValue = Math.round(handleValue);
+
         setState((prevState) => ({
             ...prevState,
-            stepSize: newStepSize,
+            railFillWidth: newHandleXPosition,
         }));
-    }, []);
 
-    const onHandleChange = useCallback<NonNullable<HandleProps['onChange']>>(
-        (handleValue, data) => {
-            const newHandleXPosition = data.x;
-            setState((prevState) => ({
-                ...prevState,
-                railFillWidth: newHandleXPosition,
-            }));
+        if (onChange) {
+            onChange(newValue);
+        }
 
-            if (onChange) {
-                onChange(handleValue);
-            }
+        setDragValue(newValue);
+    };
 
-            setDragValue(handleValue);
-        },
-        [onChange, setDragValue],
-    );
+    const onHandleChangeCommitted: NonNullable<HandlerProps['onChangeCommitted']> = (handleValue, data) => {
+        const newValue = Math.round(handleValue);
 
-    const onHandleChangeCommitted = useCallback<NonNullable<HandleProps['onChangeCommitted']>>(
-        (handleValue, data) => {
-            onChangeCommitted && onChangeCommitted(handleValue);
-            setState((prevState) => ({
-                ...prevState,
-                xHandle: data.lastX,
-                railFillWidth: data.lastX,
-            }));
+        if (onChangeCommitted) {
+            onChangeCommitted(newValue);
+        }
 
-            setDragValue(handleValue);
-        },
-        [onChangeCommitted, setDragValue],
-    );
+        setState((prevState) => ({
+            ...prevState,
+            xHandle: data.lastX,
+            railFillWidth: data.lastX,
+        }));
+
+        setDragValue(newValue);
+    };
 
     return (
         <SingleWrapper className={labelPlacementClass}>
@@ -153,7 +157,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                     rangeValuesPlacement={rangeValuesPlacement}
                     {...rest}
                 >
-                    <Handle
+                    <Handler
                         stepSize={state.stepSize}
                         onChangeCommitted={onHandleChangeCommitted}
                         onChange={onHandleChange}
@@ -162,7 +166,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                         max={max}
                         startOffset={startOffset}
                         endOffset={endOffset}
-                        value={value}
+                        value={dragValue}
                         disabled={disabled}
                         ariaLabel={ariaLabel}
                         multipleStepSize={multipleStepSize}

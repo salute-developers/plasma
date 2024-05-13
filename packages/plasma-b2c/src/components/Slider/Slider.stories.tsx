@@ -61,9 +61,13 @@ const StoryDefault = (args: StorySingleProps) => {
         setValue(values);
     };
 
+    const onChangeHandle = (values) => {
+        setValue(values);
+    };
+
     return (
         <SliderWrapper>
-            <Slider value={value} onChangeCommitted={onChangeCommittedHandle} onChange={action('onChange')} {...args} />
+            <Slider value={value} onChangeCommitted={onChangeCommittedHandle} onChange={onChangeHandle} {...args} />
         </SliderWrapper>
     );
 };
@@ -103,10 +107,24 @@ export const Default: StorySingle = {
 const StoryMultipleValues = (args: StoryProps) => {
     const [value, setValue] = useState([10, 80]);
     const sortValues = (values) => {
-        return values.sort((a, b) => a - b);
+        return values
+            .map((val) => {
+                if (val < args.min) {
+                    return args.min;
+                }
+                if (val > args.max) {
+                    return args.max;
+                }
+                return val;
+            })
+            .sort((a, b) => a - b);
     };
 
     const onChangeHandle = (values) => {
+        setValue(sortValues(values));
+    };
+
+    const onChangeCommitedHandle = (values) => {
         setValue(sortValues(values));
     };
 
@@ -126,6 +144,7 @@ const StoryMultipleValues = (args: StoryProps) => {
                 value={value}
                 onKeyDownTextField={onKeyDownTextField}
                 onBlurTextField={onBlurTextField}
+                onChangeCommitted={onChangeCommitedHandle}
                 onChange={onChangeHandle}
                 {...args}
             />

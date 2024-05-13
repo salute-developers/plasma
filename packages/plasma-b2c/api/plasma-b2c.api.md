@@ -775,19 +775,11 @@ l: string;
 view: {
 default: string;
 };
-<<<<<<< HEAD
-}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "target" | "onChange" | "size" | "value" | "checked" | "maxLength" | "minLength"> & CustomComboboxProps & {
+}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "type" | "target" | "size" | "value" | "checked" | "maxLength" | "minLength"> & CustomComboboxProps & {
 valueType?: "single" | undefined;
 value?: ComboboxPrimitiveValue | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue | undefined) => void) | undefined;
-} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "target" | "onChange" | "size" | "value" | "checked" | "maxLength" | "minLength"> & CustomComboboxProps & {
-=======
-}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "type" | "target" | "size" | "value" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
-valueType?: "single" | undefined;
-value?: ComboboxPrimitiveValue | undefined;
-onChangeValue?: ((value?: ComboboxPrimitiveValue | undefined) => void) | undefined;
-} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "type" | "target" | "size" | "value" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
->>>>>>> a61c59f64 (Update package-lock.json files)
+} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "type" | "target" | "size" | "value" | "checked" | "maxLength" | "minLength"> & CustomComboboxProps & {
 valueType: "multiple";
 value?: ComboboxPrimitiveValue[] | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue[] | undefined) => void) | undefined;
