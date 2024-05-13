@@ -17,6 +17,7 @@ export * from './components/Indicator';
 export * from './components/Link';
 export * from './components/Modal';
 export * from './components/Overlay';
+export * from './components/Popover';
 export * from './components/Popup';
 export * from './components/Progress';
 export * from './components/Pagination';
