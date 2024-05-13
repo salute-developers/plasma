@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import type { FC, ChangeEvent, KeyboardEvent, FocusEvent } from 'react';
 
 import { SliderBase } from '../SliderBase/SliderBase';
-import { Handle } from '../../ui';
-import type { HandleProps } from '../../ui';
+import { Handler } from '../../ui';
+import type { HandlerProps } from '../../ui';
 import { sizeData } from '../../utils';
 import { cx, isNumber } from '../../../../utils';
 import { classes } from '../../Slider.tokens';
@@ -57,14 +57,14 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     const [firstInputActive, setFirstInputActive] = useState(false);
     const [secondInputActive, setSecondInputActive] = useState(false);
 
+    const [firstValue, setFirstValue] = useState<number>(value[0]);
+    const [secondValue, setSecondValue] = useState<number>(value[1]);
+
     const firstHandleRef = useRef<HTMLDivElement | null>(null);
     const secondHandleRef = useRef<HTMLDivElement | null>(null);
 
     const firstHandleValue = useRef<number>(value[0]);
     const secondHandleValue = useRef<number>(value[1]);
-
-    const [firstValue, setFirstValue] = useState<number>(value[0]);
-    const [secondValue, setSecondValue] = useState<number>(value[1]);
 
     const { stepSize } = state;
 
@@ -98,148 +98,159 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
         [setState],
     );
 
-    const onFirstHandleChange = useCallback<NonNullable<HandleProps['onChange']>>(
-        (handleValue, data) => {
-            if (!secondHandleRef?.current) {
-                return;
-            }
-            const newHandleXPosition = data.x;
-            const secondHandleXPosition = getXCenterHandle(secondHandleRef.current);
-            const fillWidth = secondHandleXPosition - newHandleXPosition;
+    const onFirstHandleChange: NonNullable<HandlerProps['onChange']> = (handleValue, data) => {
+        if (!secondHandleRef?.current) {
+            return;
+        }
+        const newHandleXPosition = data.x;
+        const secondHandleXPosition = getXCenterHandle(secondHandleRef.current);
+        const fillWidth = secondHandleXPosition - newHandleXPosition;
 
-            firstHandleValue.current = handleValue;
+        firstHandleValue.current = handleValue;
 
-            setFirstValue(handleValue);
+        setFirstValue(handleValue);
 
-            setState((prevState) => ({
-                ...prevState,
-                firstHandleZIndex: 101,
-                secondHandleZIndex: 100,
-                railFillWidth: fillWidth < 0 ? 0 : fillWidth,
-                railFillXPosition: newHandleXPosition,
-            }));
-            if (onChange) {
-                onChange([handleValue, value[1]]);
-            }
-        },
-        [onChange, value],
-    );
+        setState((prevState) => ({
+            ...prevState,
+            firstHandleZIndex: 101,
+            secondHandleZIndex: 100,
+            railFillWidth: fillWidth < 0 ? 0 : fillWidth,
+            railFillXPosition: newHandleXPosition,
+        }));
+        if (onChange) {
+            onChange([handleValue, value[1]]);
+        }
+    };
 
-    const onFirstHandleChangeCommitted = useCallback<NonNullable<HandleProps['onChangeCommitted']>>(
-        (handleValue, data) => {
-            setFirstValue(handleValue);
-            onChangeCommitted && onChangeCommitted([handleValue, value[1]]);
+    const onFirstHandleChangeCommitted: NonNullable<HandlerProps['onChangeCommitted']> = (handleValue, data) => {
+        if (!secondHandleRef?.current) {
+            return;
+        }
+        const newHandleXPosition = data.x;
+        const secondHandleXPosition = getXCenterHandle(secondHandleRef.current);
+        const fillWidth = secondHandleXPosition - newHandleXPosition;
 
-            setState((prevState) => ({
-                ...prevState,
-                firstValue: handleValue,
-                xFirstHandle: data.lastX,
-            }));
-        },
-        [onChangeCommitted, value],
-    );
+        firstHandleValue.current = handleValue;
 
-    const onFirstTextfieldChange = useCallback(
-        (event: ChangeEvent<HTMLInputElement>) => {
-            if (!isNumber(event.target.value)) {
-                return;
-            }
+        setFirstValue(handleValue);
+        if (onChangeCommitted) {
+            onChangeCommitted([handleValue, value[1]]);
+        }
 
-            const handleValue = Number(event.target.value);
+        setState((prevState) => ({
+            ...prevState,
+            firstValue: handleValue,
+            xFirstHandle: data.x,
+            railFillWidth: fillWidth < 0 ? 0 : fillWidth,
+            railFillXPosition: newHandleXPosition,
+        }));
+    };
 
-            setFirstValue(handleValue);
-            onChangeTextField && onChangeTextField([handleValue, secondValue], event);
-        },
-        [isNumber, setFirstValue, secondValue],
-    );
+    const onFirstTextfieldChange = (event: ChangeEvent<HTMLInputElement>) => {
+        if (!isNumber(event.target.value)) {
+            return;
+        }
 
-    const onFirstTextfieldBlur = useCallback(
-        (event: FocusEvent<HTMLInputElement>) => {
-            if (!isNumber(event.target.value)) {
-                return;
-            }
+        const handleValue = Number(event.target.value);
 
-            const handleValue = Number(event.target.value);
+        setFirstValue(handleValue);
+        if (onChangeTextField) {
+            onChangeTextField([handleValue, secondValue], event);
+        }
+    };
 
-            setFirstValue(handleValue);
+    const onFirstTextfieldBlur = (event: FocusEvent<HTMLInputElement>) => {
+        if (!isNumber(event.target.value)) {
+            return;
+        }
+
+        const handleValue = Number(event.target.value);
+
+        setFirstValue(handleValue);
+        if (onBlurTextField) {
             onBlurTextField && onBlurTextField([handleValue, secondValue], event);
-        },
-        [isNumber, setSecondValue, onBlurTextField, secondValue],
-    );
+        }
+    };
 
-    const onSecondHandleChange = useCallback<NonNullable<HandleProps['onChange']>>(
-        (handleValue, data) => {
-            if (!firstHandleRef?.current) {
-                return;
-            }
-            const firstXHandleXPosition = getXCenterHandle(firstHandleRef.current);
+    const onSecondHandleChange: NonNullable<HandlerProps['onChange']> = (handleValue, data) => {
+        if (!firstHandleRef?.current) {
+            return;
+        }
+        const firstXHandleXPosition = getXCenterHandle(firstHandleRef.current);
 
-            const newHandleXPosition = data.x;
-            const fillWidth = newHandleXPosition - firstXHandleXPosition;
+        const newHandleXPosition = data.x;
+        const fillWidth = newHandleXPosition - firstXHandleXPosition;
 
-            secondHandleValue.current = handleValue;
+        secondHandleValue.current = handleValue;
 
-            setSecondValue(handleValue);
-            setState((prevState) => ({
-                ...prevState,
-                firstHandleZIndex: 100,
-                secondHandleZIndex: 101,
-                railFillWidth: fillWidth < 0 ? 0 : fillWidth,
-                railFillXPosition: firstXHandleXPosition,
-            }));
-            if (onChange) {
-                onChange([value[0], handleValue]);
-            }
-        },
-        [onChange, value],
-    );
+        setSecondValue(handleValue);
+        setState((prevState) => ({
+            ...prevState,
+            firstHandleZIndex: 100,
+            secondHandleZIndex: 101,
+            railFillWidth: fillWidth < 0 ? 0 : fillWidth,
+            railFillXPosition: firstXHandleXPosition,
+        }));
+        if (onChange) {
+            onChange([value[0], handleValue]);
+        }
+    };
 
-    const onSecondHandleChangeCommitted = useCallback<NonNullable<HandleProps['onChangeCommitted']>>(
-        (handleValue, data) => {
-            onChangeCommitted && onChangeCommitted([value[0], handleValue]);
-            setSecondValue(handleValue);
-            setState((prevState) => ({
-                ...prevState,
-                secondValue: handleValue,
-                xSecondHandle: data.lastX,
-            }));
-        },
-        [onChangeCommitted, value],
-    );
+    const onSecondHandleChangeCommitted: NonNullable<HandlerProps['onChangeCommitted']> = (handleValue, data) => {
+        if (!firstHandleRef?.current) {
+            return;
+        }
+        const firstXHandleXPosition = getXCenterHandle(firstHandleRef.current);
 
-    const onSecondTextfieldChange = useCallback(
-        (event: ChangeEvent<HTMLInputElement>) => {
-            if (!isNumber(event.target.value)) {
-                return;
-            }
-            const handleValue = Number(event.target.value);
+        const newHandleXPosition = data.x;
+        const fillWidth = newHandleXPosition - firstXHandleXPosition;
 
-            setSecondValue(handleValue);
-            onChangeTextField && onChangeTextField([firstValue, handleValue], event);
-        },
-        [isNumber, setSecondValue, onChangeTextField, firstValue],
-    );
+        secondHandleValue.current = handleValue;
 
-    const onSecondTextfieldBlur = useCallback(
-        (event: FocusEvent<HTMLInputElement>) => {
-            if (!isNumber(event.target.value)) {
-                return;
-            }
+        if (onChangeCommitted) {
+            onChangeCommitted([value[0], handleValue]);
+        }
 
-            const handleValue = Number(event.target.value);
+        setSecondValue(handleValue);
+        setState((prevState) => ({
+            ...prevState,
+            secondValue: handleValue,
+            xSecondHandle: data.x,
+            railFillWidth: fillWidth < 0 ? 0 : fillWidth,
+            railFillXPosition: firstXHandleXPosition,
+        }));
+    };
 
-            setSecondValue(handleValue);
-            onBlurTextField && onBlurTextField([firstValue, handleValue], event);
-        },
-        [isNumber, setSecondValue, onBlurTextField, firstValue],
-    );
+    const onSecondTextfieldChange = (event: ChangeEvent<HTMLInputElement>) => {
+        if (!isNumber(event.target.value)) {
+            return;
+        }
+        const handleValue = Number(event.target.value);
 
-    const onTextfieldKeyDown = useCallback(
-        (event: ChangeEvent<HTMLInputElement> & KeyboardEvent<HTMLInputElement>) => {
-            onKeyDownTextField && onKeyDownTextField([firstValue, secondValue], event);
-        },
-        [[isNumber, setSecondValue, onKeyDownTextField], firstValue, secondValue],
-    );
+        setSecondValue(handleValue);
+        if (onChangeTextField) {
+            onChangeTextField([firstValue, handleValue], event);
+        }
+    };
+
+    const onSecondTextfieldBlur = (event: FocusEvent<HTMLInputElement>) => {
+        if (!isNumber(event.target.value)) {
+            return;
+        }
+
+        const handleValue = Number(event.target.value);
+
+        setSecondValue(handleValue);
+        if (onBlurTextField) {
+            onBlurTextField([firstValue, handleValue], event);
+        }
+    };
+
+    const onTextfieldKeyDown = (event: ChangeEvent<HTMLInputElement> & KeyboardEvent<HTMLInputElement>) => {
+        if (onKeyDownTextField) {
+            onKeyDownTextField([firstValue, secondValue], event);
+        }
+    };
 
     const [ariaLabelLeft, ariaLabelRight] = ariaLabel || [];
     const currentFirstSliderValue = Math.max(state.firstValue, min);
@@ -263,7 +274,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                     railFillXPosition={state.railFillXPosition}
                     {...rest}
                 >
-                    <Handle
+                    <Handler
                         ref={firstHandleRef}
                         stepSize={state.stepSize}
                         multipleStepSize={multipleStepSize}
@@ -281,7 +292,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
                         onMouseEnter={() => setFirstInputActive(true)}
                         onMouseLeave={() => setFirstInputActive(false)}
                     />
-                    <Handle
+                    <Handler
                         ref={secondHandleRef}
                         stepSize={state.stepSize}
                         multipleStepSize={multipleStepSize}

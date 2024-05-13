@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useCallback, useRef, MouseEventHandler, useEffect } from 'react';
+import React, { PropsWithChildren, useRef, MouseEventHandler, useEffect } from 'react';
 import { DraggableData } from 'react-draggable';
 
 import { useIsomorphicLayoutEffect } from '../../../../hooks';
@@ -37,23 +37,20 @@ export const SliderBase: React.FC<PropsWithChildren<SliderViewProps>> = ({
         resizeHandler();
     }, [labelPlacement, rangeValuesPlacement, ref.current]);
 
-    const onHandleChange: MouseEventHandler<HTMLDivElement> = useCallback(
-        (e) => {
-            if (!onChange || disabled) {
-                return;
-            }
+    const onHandleChange: MouseEventHandler<HTMLDivElement> = (e) => {
+        if (!onChange || disabled) {
+            return;
+        }
 
-            const { x, width } = e.currentTarget.getBoundingClientRect();
+        const { x, width } = e.currentTarget.getBoundingClientRect();
 
-            const lastX = e.clientX - x;
+        const lastX = e.clientX - x;
 
-            const position = min + (lastX / (width - gap)) * (max - min);
-            const result = Math.max(min, Math.min(max, position));
+        const position = min + (lastX / (width - gap)) * (max - min);
+        const result = Math.max(min, Math.min(max, position));
 
-            onChange(result, { lastX } as DraggableData);
-        },
-        [onChange, disabled, min, gap, max, settings],
-    );
+        onChange(result, { lastX } as DraggableData);
+    };
 
     useIsomorphicLayoutEffect(() => {
         const resizeHandler = () => {

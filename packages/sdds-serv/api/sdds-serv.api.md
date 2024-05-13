@@ -48,6 +48,7 @@ import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/P
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { DoubleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -118,6 +119,8 @@ import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { SelectPrimitiveValue } from '@salutejs/plasma-new-hope/styled-components';
 import { SelectProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
+import { SingleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
+import { SliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { StatusLabels } from '@salutejs/plasma-new-hope/types/components/Avatar/Avatar.types';
@@ -1027,6 +1030,25 @@ export { SelectProps }
 export { ShowToastArgs }
 
 // @public
+export const Slider: FunctionComponent<PropsType<    {
+view: {
+default: string;
+accent: string;
+gradient: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+};
+disabled: {
+true: string;
+};
+}> & ((SingleSliderProps & RefAttributes<HTMLDivElement>) | (DoubleSliderProps & RefAttributes<HTMLDivElement>))>;
+
+export { SliderProps }
+
+// @public
 export const Spinner: StyledComponent<FunctionComponent<PropsType<    {
 view: {
 default: string;
@@ -1186,7 +1208,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+labelPlacement?: "inner" | "outer" | undefined;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
@@ -1203,7 +1225,7 @@ readOnly?: boolean | undefined;
 disabled?: boolean | undefined;
 } & {
 label?: string | undefined;
-labelPlacement?: "outer" | "inner" | undefined;
+labelPlacement?: "inner" | "outer" | undefined;
 leftHelper?: string | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 contentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
