@@ -1,0 +1,35 @@
+export const classes = {
+    dropdownRoot: 'dropdown-root',
+    dropdownItemIsFocused: 'dropdown-item-is-focused',
+    dropdownItemIsDisabled: 'dropdown-item-is-disabled',
+    dropdownItemIsActive: 'dropdown-item-is-active',
+    dropdownItemIsSelected: 'dropdownItemIsSelected',
+};
+
+export const tokens = {
+    background: '--plasma-dropdown-background',
+    boxShadow: '--plasma-dropdown-box-shadow',
+    width: '--plasma-dropdown-width',
+    borderRadius: '--plasma-dropdown-border-radius',
+    padding: '--plasma-dropdown-padding',
+    disclosureIconColor: '--plasma-dropdown-disclosure-icon-color',
+    disabledOpacity: '--plasma-dropdown-disabled-opacity',
+    focusColor: '--plasma-dropdown-focus-color',
+
+    itemBackground: '--plasma-dropdown-item-background',
+    itemBackgroundHover: '--plasma-dropdown-item-background-hover',
+    itemColor: '--plasma-dropdown-item-color',
+    itemBorderRadius: '--plasma-dropdown-item-border-radius',
+    itemPaddingTop: '--plasma-dropdown-item-padding-top',
+    itemPaddingTopTight: '--plasma-dropdown-item-padding-top-tight',
+    itemPaddingRight: '--plasma-dropdown-item-padding-right',
+    itemPaddingBottom: '--plasma-dropdown-item-padding-bottom',
+    itemPaddingBottomTight: '--plasma-dropdown-item-padding-bottom-tight',
+    itemPaddingLeft: '--plasma-dropdown-item-padding-left',
+    itemFontFamily: '--plasma-dropdown-item-font-family',
+    itemFontSize: '--plasma-dropdown-item-font-size',
+    itemFontStyle: '--plasma-dropdown-item-font-style',
+    itemFontWeightBold: '--plasma-dropdown-item-letter-spacing',
+    itemFontLetterSpacing: '--plasma-dropdown-item-line-height',
+    itemFontLineHeight: '--plasma-dropdown-item-font-weight',
+};

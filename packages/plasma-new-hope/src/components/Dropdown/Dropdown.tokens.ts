@@ -13,27 +13,39 @@ export const tokens = {
     borderRadius: '--plasma-dropdown-border-radius',
     padding: '--plasma-dropdown-padding',
     disclosureIconColor: '--plasma-dropdown-disclosure-icon-color',
+    disabledOpacity: '--plasma-dropdown-disabled-opacity',
+    focusColor: '--plasma-dropdown-focus-color',
 
     itemBackground: '--plasma-dropdown-item-background',
-    itemColor: '--plasma-dropdown-item-color',
     itemBackgroundHover: '--plasma-dropdown-item-background-hover',
+    itemBackgroundSelected: '--plasma-dropdown-item-background-selected', // Old
+    itemBackgroundSelectedHover: '--plasma-dropdown-item-background-selected-hover', // Old
+    itemColor: '--plasma-dropdown-item-color',
+    itemColorSelected: '--plasma-dropdown-item-color-selected', // Old
+    itemColorSelectedHover: '--plasma-dropdown-item-color-selected-hover', // Old
     itemBorderRadius: '--plasma-dropdown-item-border-radius',
+    itemWidth: '--plasma-dropdown-item-width', // Old
+    itemHeight: '--plasma-dropdown-item-height', // Old
+    itemMarginTop: '--plasma-dropdown-item-margin-top', // Old
+    itemMarginRight: '--plasma-dropdown-item-margin-right', // Old
+    itemMarginBottom: '--plasma-dropdown-item-margin-bottom', // Old
+    itemMarginLeft: '--plasma-dropdown-item-margin-left', // Old
     itemPaddingTop: '--plasma-dropdown-item-padding-top',
     itemPaddingTopTight: '--plasma-dropdown-item-padding-top-tight',
     itemPaddingRight: '--plasma-dropdown-item-padding-right',
     itemPaddingBottom: '--plasma-dropdown-item-padding-bottom',
     itemPaddingBottomTight: '--plasma-dropdown-item-padding-bottom-tight',
     itemPaddingLeft: '--plasma-dropdown-item-padding-left',
-
+    itemContentLeftWidth: '--plasma-dropdown-item-content-left-width', // Old
+    itemContentLeftColor: '--plasma-dropdown-item-content-left-color', // Old
+    itemContentRightWidth: '--plasma-dropdown-item-content-right-width', // Old
+    itemContentRightColor: '--plasma-dropdown-item-content-right-color', // Old
     itemFontFamily: '--plasma-dropdown-item-font-family',
     itemFontSize: '--plasma-dropdown-item-font-size',
     itemFontStyle: '--plasma-dropdown-item-font-style',
     itemFontWeightBold: '--plasma-dropdown-item-letter-spacing',
     itemFontLetterSpacing: '--plasma-dropdown-item-line-height',
     itemFontLineHeight: '--plasma-dropdown-item-font-weight',
-
-    disabledOpacity: '--plasma-dropdown-disabled-opacity',
-    focusColor: '--plasma-dropdown-focus-color',
 
     // TODO: Remove below tokens as soon as they are no longer needed
     footerBackground: '--plasma-dropdown-footer-background',
@@ -106,19 +118,4 @@ export const tokens = {
     groupLabelMarginRight: '--plasma-dropdown-group-label-margin-right',
     groupLabelMarginBottom: '--plasma-dropdown-group-label-margin-bottom',
     groupLabelMarginLeft: '--plasma-dropdown-group-label-margin-left',
-
-    itemBackgroundSelected: '--plasma-dropdown-item-background-selected',
-    itemColorSelected: '--plasma-dropdown-item-color-selected',
-    itemBackgroundSelectedHover: '--plasma-dropdown-item-background-selected-hover',
-    itemColorSelectedHover: '--plasma-dropdown-item-color-selected-hover',
-    itemContentLeftColor: '--plasma-dropdown-item-content-left-color',
-    itemContentRightColor: '--plasma-dropdown-item-content-right-color',
-    itemWidth: '--plasma-dropdown-item-width',
-    itemHeight: '--plasma-dropdown-item-height',
-    itemMarginTop: '--plasma-dropdown-item-margin-top',
-    itemMarginRight: '--plasma-dropdown-item-margin-right',
-    itemMarginBottom: '--plasma-dropdown-item-margin-bottom',
-    itemMarginLeft: '--plasma-dropdown-item-margin-left',
-    itemContentLeftWidth: '--plasma-dropdown-item-content-left-width',
-    itemContentRightWidth: '--plasma-dropdown-item-content-right-width',
 };
