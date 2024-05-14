@@ -2,12 +2,11 @@ import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 
 import { component } from '../../engines';
-import { popoverConfig, popoverClasses } from '../Popover';
+import { popoverClasses, popoverConfig } from '../Popover';
 
 import { tokens } from './SelectNew.tokens';
 
 const Popover = component(popoverConfig);
-
 export const StyledPopover = styled(Popover)`
     .${String(popoverClasses.wrapper)}, .${String(popoverClasses.target)} {
         display: block;

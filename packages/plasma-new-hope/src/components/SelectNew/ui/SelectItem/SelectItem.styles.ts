@@ -2,6 +2,22 @@ import { styled } from '@linaria/react';
 
 import { classes, tokens } from '../../SelectNew.tokens';
 import { addFocus, applyEllipsis } from '../../../../mixins';
+import { component, mergeConfig } from '../../../../engines';
+import { checkboxConfig } from '../../../Checkbox';
+import { selectNewTokens } from '../../index';
+
+const mergedConfig = mergeConfig(checkboxConfig);
+const Checkbox = component(mergedConfig);
+
+export const StyledCheckbox = styled(Checkbox)`
+    --plasma-checkbox-margin: var(${selectNewTokens.checkboxMargin});
+    --plasma-checkbox-trigger-margin: var(${selectNewTokens.checkboxTriggerMargin});
+    --plasma-checkbox-trigger-size: var(${selectNewTokens.checkboxTriggerSize});
+    --plasma-checkbox-trigger-border-radius: var(${selectNewTokens.checkboxTriggerBorderRadius});
+    --plasma-checkbox-fill-color: var(${selectNewTokens.checkboxFillColor});
+    --plasma-checkbox-icon-color: var(${selectNewTokens.checkboxIconColor});
+    --plasma-checkbox-trigger-border-color: var(${selectNewTokens.checkboxTriggerBorderColor});
+`;
 
 export const StyledContentLeft = styled.div`
     display: inline-flex;
