@@ -60,3 +60,7 @@ export const StyledContentRight = styled.div`
 `;
 
 export const LeftHelper = styled.div``;
+
+export const StyledTextBefore = styled.div``;
+
+export const StyledTextAfter = styled.div``;

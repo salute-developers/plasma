@@ -21,6 +21,8 @@ import {
     StyledContentLeft,
     StyledContentRight,
     StyledChips,
+    StyledTextBefore,
+    StyledTextAfter,
 } from './TextField.styles';
 import { classes } from './TextField.tokens';
 import { TextFieldChip } from './ui';
@@ -45,6 +47,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                 contentRight,
                 label,
                 labelPlacement,
+                textBefore,
+                textAfter,
                 placeholder,
                 leftHelper,
                 enumerationType = 'plain',
@@ -132,13 +136,13 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                     return;
                 }
 
-                inputRef.current.scrollIntoView({
+                inputRef.current.scrollTo({
+                    top: 0,
+                    left: inputRef.current.offsetLeft,
                     behavior: 'smooth',
-                    block: 'center',
-                    inline: 'center',
                 });
 
-                inputRef.current.focus({ preventScroll: true });
+                inputRef.current.focus();
             };
 
             const getRef = (element: HTMLButtonElement | null, index: number) => {
@@ -191,6 +195,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                             onKeyDown={handleContentKeyDown}
                             className={withHasChips}
                         >
+                            {textBefore && <StyledTextBefore>{textBefore}</StyledTextBefore>}
                             {isChipEnumeration && Boolean(chips?.length) && (
                                 <StyledChips>
                                     {chips?.map(({ id: chipId, text }, index) => {
@@ -228,6 +233,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                                     {innerLabelValue}
                                 </Label>
                             )}
+                            {textAfter && <StyledTextAfter>{textAfter}</StyledTextAfter>}
                         </InputLabelWrapper>
                         {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
                     </InputWrapper>

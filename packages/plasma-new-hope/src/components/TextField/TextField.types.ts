@@ -71,6 +71,14 @@ export type TextFieldPropsBase = {
      */
     contentRight?: React.ReactElement;
     /**
+     * Слот для вспомогательного текста справа.
+     */
+    textBefore?: string;
+    /**
+     * Слот для вспомогательного текста слева.
+     */
+    textAfter?: string;
+    /**
      * Callback по нажатию Enter
      */
     onSearch?: (value: string, event?: KeyboardEvent<HTMLInputElement>) => void;
