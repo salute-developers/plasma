@@ -1,6 +1,6 @@
 export { getEnv } from './getEnv';
 export { getAuthToken } from './getAuthToken';
-export { getFilesSource } from './getFilesSource';
+export { getFileSource } from './getFilesSource';
 export {
     createBlob,
     createBranch,
