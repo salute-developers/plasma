@@ -16,9 +16,6 @@ import { base as sizeCSS } from './variations/_size/base';
 const transform = (items: any, parent: any = null): any => {
     items.forEach((item) => {
         item.parent = parent;
-        item.checked = false;
-        item.indeterminate = false;
-        item.RANDOM = 123;
         item.items = item.items ? transform(item.items, item) : null;
     });
 
@@ -30,16 +27,14 @@ const transform = (items: any, parent: any = null): any => {
  */
 export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
     forwardRef<HTMLDivElement, SelectNewProps>(({ items, ...rest }, ref) => {
-        const [data, setData] = useState(transform(items));
-        console.dir(data);
-
-        // data[1].items[0].parent.RANDOM = 'STRING';
-        // console.log('modified data', data);
+        items = transform(items);
 
         const [path, dispatchPath] = useReducer(pathReducer, []);
         const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
 
-        const [pathMap, focusedToValueMap] = useHashMaps(items);
+        const [pathMap, focusedToValueMap, checkedMap] = useHashMaps(items);
+
+        const [checked, setChecked] = useState(checkedMap);
 
         const handleGlobalToggle: HandleGlobalToggleType = (opened, event) => {
             if (opened) {
@@ -66,7 +61,7 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
                     closeOnOverlayClick
                 >
                     <Ul role="tree" id="tree_level_1">
-                        {data.map((item, index) => (
+                        {items.map((item, index) => (
                             <SelectInner
                                 key={`${index}/0`}
                                 item={item}
@@ -76,8 +71,8 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
                                 dispatchPath={dispatchPath}
                                 index={index}
                                 handleGlobalToggle={handleGlobalToggle}
-                                data={data}
-                                setData={setData}
+                                checked={checked}
+                                setChecked={setChecked}
                             />
                         ))}
                     </Ul>

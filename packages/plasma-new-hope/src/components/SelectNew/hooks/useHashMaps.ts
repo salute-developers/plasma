@@ -13,6 +13,7 @@ export const useHashMaps = (items: SelectNewProps['items']) => {
     return useMemo(() => {
         const pathMap: PathMapType = new Map();
         const focusedToValueMap: FocusedToValueMapType = new Map();
+        const checkedMap: any = {};
 
         pathMap.set('root', items.length);
 
@@ -23,6 +24,8 @@ export const useHashMaps = (items: SelectNewProps['items']) => {
                 const currIndex = `${prevIndex}/${index}`.replace(/^(\/)/, '');
                 focusedToValueMap.set(currIndex, item);
 
+                checkedMap[value] = false;
+
                 if (innerItems) {
                     pathMap.set(value, innerItems.length);
                     rec(innerItems, currIndex);
@@ -31,6 +34,6 @@ export const useHashMaps = (items: SelectNewProps['items']) => {
         };
         rec(items);
 
-        return [pathMap, focusedToValueMap] as [PathMapType, FocusedToValueMapType];
+        return [pathMap, focusedToValueMap, checkedMap] as [PathMapType, FocusedToValueMapType, any];
     }, [items]);
 };
