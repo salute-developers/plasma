@@ -40,4 +40,6 @@ export const tokens = {
     checkboxFillColor: '--plasma-select-checkbox-fill-color',
     checkboxIconColor: '--plasma-select-checkbox-icon-color',
     checkboxTriggerBorderColor: '--plasma-select-checkbox-trigger-border-color',
+
+    indicatorSize: '--plasma-select-indicator-size',
 };

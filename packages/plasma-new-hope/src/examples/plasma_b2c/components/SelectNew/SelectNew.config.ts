@@ -36,6 +36,8 @@ export const config = {
                 ${selectNewTokens.checkboxFillColor}: var(--text-accent);
                 ${selectNewTokens.checkboxIconColor}: var(--on-dark-text-primary);
                 ${selectNewTokens.checkboxTriggerBorderColor}: var(--text-secondary);
+
+                ${selectNewTokens.indicatorSize}: 0.375rem;
             `,
             s: css`
                 ${selectNewTokens.padding}: 0.125rem;
@@ -64,6 +66,8 @@ export const config = {
                 ${selectNewTokens.checkboxFillColor}: var(--text-accent);
                 ${selectNewTokens.checkboxIconColor}: var(--on-dark-text-primary);
                 ${selectNewTokens.checkboxTriggerBorderColor}: var(--text-secondary);
+
+                ${selectNewTokens.indicatorSize}: 0.375rem;
             `,
             m: css`
                 ${selectNewTokens.padding}: 0.125rem;
@@ -92,6 +96,8 @@ export const config = {
                 ${selectNewTokens.checkboxFillColor}: var(--text-accent);
                 ${selectNewTokens.checkboxIconColor}: var(--on-dark-text-primary);
                 ${selectNewTokens.checkboxTriggerBorderColor}: var(--text-secondary);
+
+                ${selectNewTokens.indicatorSize}: 0.375rem;
             `,
             l: css`
                 ${selectNewTokens.padding}: 0.125rem;
@@ -120,6 +126,8 @@ export const config = {
                 ${selectNewTokens.checkboxFillColor}: var(--text-accent);
                 ${selectNewTokens.checkboxIconColor}: var(--on-dark-text-primary);
                 ${selectNewTokens.checkboxTriggerBorderColor}: var(--text-secondary);
+
+                ${selectNewTokens.indicatorSize}: 0.375rem;
             `,
         },
         view: {

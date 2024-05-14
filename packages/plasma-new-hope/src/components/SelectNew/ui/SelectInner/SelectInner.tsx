@@ -16,6 +16,7 @@ const SelectInner: FC<SelectInnerProps> = ({
     handleGlobalToggle,
     checked,
     setChecked,
+    multiselect,
 }) => {
     const handleToggle = (opened: boolean): void => {
         if (opened) {
@@ -50,6 +51,7 @@ const SelectInner: FC<SelectInnerProps> = ({
                         ariaLabel={item.label}
                         checked={checked}
                         setChecked={setChecked}
+                        multiselect={multiselect}
                     />
                 }
                 onToggle={handleToggle}
@@ -69,6 +71,7 @@ const SelectInner: FC<SelectInnerProps> = ({
                             handleGlobalToggle={handleGlobalToggle}
                             checked={checked}
                             setChecked={setChecked}
+                            multiselect={multiselect}
                         />
                     ))}
                 </Ul>
@@ -85,6 +88,7 @@ const SelectInner: FC<SelectInnerProps> = ({
             handleGlobalToggle={handleGlobalToggle}
             checked={checked}
             setChecked={setChecked}
+            multiselect={multiselect}
         />
     );
 };
