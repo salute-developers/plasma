@@ -1,251 +1,300 @@
-import React, { Children, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { safeUseId, useForkRef } from '@salutejs/plasma-core';
+import React, { forwardRef, useState, useReducer, useMemo, createContext, useLayoutEffect } from 'react';
 
 import { RootProps } from '../../engines';
-import { cx, getPlacements } from '../../utils';
-import { useDidMountEffect, useForceUpdate } from '../../hooks';
+import { isEmpty, getPlacements } from '../../utils';
+import { useOutsideClick } from '../../hooks';
 
-import { base as targetCSS } from './variations/_target/base';
+import { useKeyNavigation } from './hooks/useKeyboardNavigation';
+import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors } from './utils';
+import { Inner, Target } from './ui';
+import { pathReducer, focusedPathReducer, focusedChipIndexReducer } from './reducers';
+import { usePathMaps } from './hooks/usePathMaps';
+import { StyledPopover, Ul, base, OuterLabel, HelperText } from './Select.styles';
+import type { SelectProps, ItemContext } from './Select.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { SelectTarget } from './ui';
-import { getChildren, getNewSelected, getValues } from './utils';
-import { classes } from './Select.tokens';
-import { StyledNativeSelect, StyledPopover, StyledRoot, StyledSelect } from './Select.styles';
-import type { SelectPrimitiveValue, SelectProps } from './Select.types';
-import { useKeyNavigation } from './hooks';
+import type { ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
+
+export const Context = createContext<ItemContext>({} as ItemContext);
 
 /**
- * Выпадающий список без внешнего контроля видимости.
+ * Выпадающий список. Поддерживает выбор одного или нескольких значений.
  */
-export const selectRoot = (Root: RootProps<HTMLSelectElement, SelectProps>) =>
-    forwardRef<HTMLSelectElement, SelectProps>(
-        (
-            {
-                name,
-                form,
-                readOnly,
-                disabled,
-                label,
-                id,
-                children,
-                role,
-                target,
-                view,
-                size,
-                frame,
-                usePortal,
-                enumerationType = 'comma',
-                opened = false,
-                placement = 'bottom',
-                onToggle,
-                ...rest
-            },
-            outerRootRef,
-        ) => {
-            const forceUpdate = useForceUpdate();
-            const uniqId = safeUseId();
-            const innerId = id || uniqId;
-            const { valueType = 'single', value } = rest;
-            const offset = [0, 4] as [number, number];
+export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 'items'>>) =>
+    forwardRef<HTMLButtonElement, SelectProps>((props, ref) => {
+        const {
+            multiselect = false,
+            value: outerValue,
+            onChange: outerOnChange,
+            target = 'textfield-like',
+            items,
+            placement = 'bottom',
+            label,
+            labelPlacement = 'outer',
+            placeholder,
+            helperText,
+            isTargetAmount = false,
+            disabled = false,
+            view,
+            size,
+            listOverflow,
+            listHeight,
+            listWidth,
+            contentLeft,
+            onScrollBottom,
+            chipView,
+            variant = 'normal',
+            portal,
+            renderValue,
+            renderItem,
+            ...rest
+        } = props;
 
-            const [ref, setRef] = useState<HTMLSelectElement | null>(null);
-            const rootRef = useRef<HTMLSelectElement | null>(null);
-            const handleRef = useForkRef<HTMLSelectElement>(rootRef, outerRootRef);
+        const [internalValue, setInternalValue] = useState<string | string[]>(outerValue || multiselect ? [] : '');
 
-            const targetRef = useRef<HTMLButtonElement>(null);
-            const chipsRefs = useRef<Array<HTMLButtonElement>>([]);
-            const selectRef = useRef<HTMLDivElement>(null);
-            const itemsRefs = useRef<Array<HTMLDivElement>>([]);
-            const controlledRefs = { targetRef, chipsRefs, selectRef, itemsRefs };
+        const value = outerValue || internalValue;
 
-            const [innerOpened, setOpened] = useState(opened);
+        const onChange = (e: string | string[]) => {
+            if (outerOnChange) {
+                outerOnChange(e as any);
+            }
 
-            // INFO: нужно высчитывать для корректной работы портала
-            const dynamicTargetWidth = targetRef.current?.offsetWidth;
-            const withNativeSelectVisible = valueType === 'native' ? classes.nativeSelectVisible : undefined;
+            setInternalValue(e);
+        };
 
-            // INFO: Из-за того, что классы передаются через ref,
-            // состояние пропсов после изменения view, size, target
-            // всегда предыдущее, поэтому нужно делать форс-ререндер
-            useDidMountEffect(() => {
-                forceUpdate();
-            }, [view, size, target]);
+        const transformedItems = useMemo(() => initialItemsTransform(items), [items]);
 
-            useEffect(() => {
-                if (disabled || readOnly) {
-                    return;
+        const [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap] = usePathMaps(transformedItems);
+
+        const [path, dispatchPath] = useReducer(pathReducer, []);
+        const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
+        const [focusedChipIndex, dispatchFocusedChipIndex] = useReducer(focusedChipIndexReducer, null);
+        const [checked, setChecked] = useState(valueToCheckedMap);
+
+        const targetRef = useOutsideClick<HTMLDivElement>(() => {
+            if (focusedChipIndex != null) {
+                dispatchFocusedChipIndex({ type: 'reset' });
+            }
+        });
+
+        const handleToggle = (opened: boolean) => {
+            if (opened) {
+                dispatchPath({ type: 'opened_first_level' });
+            } else {
+                dispatchFocusedPath({ type: 'reset' });
+                dispatchPath({ type: 'reset' });
+                dispatchFocusedChipIndex({ type: 'reset' });
+            }
+        };
+
+        const handleCheckboxChange = (item: ItemOptionTransformed) => {
+            const checkedCopy = new Map(checked);
+
+            if (!checkedCopy.get(item.value.toString())) {
+                checkedCopy.set(item.value.toString(), true);
+                updateDescendants(item, checkedCopy, true);
+            } else {
+                checkedCopy.set(item.value.toString(), false);
+                updateDescendants(item, checkedCopy, false);
+            }
+
+            updateAncestors(item, checkedCopy);
+
+            const newValues: Array<string> = [];
+
+            valueToItemMap.forEach((item, key) => {
+                if (checkedCopy.get(key)) {
+                    newValues.push(item.value.toString());
                 }
-
-                setOpened(opened);
-            }, [opened, disabled, readOnly]);
-
-            const onInnerToggle = useCallback(
-                (openValue: boolean, event: React.SyntheticEvent | Event) => {
-                    if (disabled || readOnly) {
-                        return;
-                    }
-
-                    if (onToggle) {
-                        onToggle(openValue, event);
-                        return;
-                    }
-
-                    setOpened(openValue);
-                },
-                [disabled, readOnly, onToggle],
-            );
-
-            const updateValue = useCallback(
-                (item: HTMLElement, event: React.SyntheticEvent | Event) => {
-                    const {
-                        dataset: { value: newValue },
-                    } = item;
-
-                    if (rest.valueType === 'multiple') {
-                        const newSelected = getNewSelected(rest.value, newValue, rest.valueType);
-                        rest.onChangeValue?.(newSelected);
-
-                        return;
-                    }
-
-                    const newSelected = getNewSelected(rest.value, newValue, 'single');
-
-                    rest.onChangeValue?.(newSelected);
-
-                    onInnerToggle?.(false, event);
-                },
-                [rest.value, rest.valueType, rest.onChangeValue, onToggle, onInnerToggle],
-            );
-
-            const onClickChildrenItem = useCallback(
-                (event: React.MouseEvent<HTMLDivElement>) => {
-                    // INFO: Для корректной работы компонента Popper
-                    event.stopPropagation();
-
-                    const item = event.currentTarget as HTMLElement;
-
-                    updateValue(item, event);
-                },
-                [updateValue],
-            );
-
-            const onNativeSelectChange = useCallback(
-                (event: React.ChangeEvent<HTMLSelectElement>) => {
-                    if (rest.valueType === 'multiple') {
-                        return;
-                    }
-
-                    const { value: newValue } = event.target;
-                    const newSelected = getNewSelected(rest.value, newValue, 'native');
-
-                    rest.onChangeValue?.(newSelected);
-                },
-                [rest.value, rest.valueType, rest.onChangeValue],
-            );
-
-            const onChangeChipValue = useCallback(
-                (newValue?: Array<SelectPrimitiveValue>) => {
-                    if (rest.valueType !== 'multiple') {
-                        return;
-                    }
-
-                    rest.onChangeValue?.(newValue);
-                },
-                [rest.valueType],
-            );
-
-            const { onKeyDownTarget, onKeyDownSelect } = useKeyNavigation({
-                controlledRefs,
-                opened: innerOpened,
-                enumerationType,
-                valueType,
-                value,
-                updateOpened: onInnerToggle,
-                updateValue,
             });
 
-            const childrenArray = useMemo(() => Children.toArray(children), [children]) as React.ReactElement[];
+            if (onChange) {
+                onChange(newValues as any);
+            }
+        };
 
-            const childrenMemo = useMemo(
-                () => getChildren(childrenArray, { onClick: onClickChildrenItem, childrenRefs: itemsRefs }, value),
-                [childrenArray, value, innerOpened],
-            );
+        const handleItemClick = (item: ItemOptionTransformed, e?: React.MouseEvent<HTMLElement>) => {
+            if (!isEmpty(item?.items)) {
+                return;
+            }
 
-            const values = useMemo(() => getValues(childrenArray, value), [childrenArray, value]);
+            if (multiselect) {
+                handleCheckboxChange(item);
+            } else {
+                if (e) {
+                    e.stopPropagation();
+                }
 
-            return (
-                <StyledRoot ref={selectRef}>
-                    <StyledNativeSelect
-                        aria-invalid="false"
-                        aria-hidden="true"
-                        aria-readonly={readOnly}
-                        tabIndex={valueType === 'native' ? 0 : -1}
-                        form={form}
-                        name={name}
-                        ref={handleRef}
-                        value={`${value}`}
-                        disabled={disabled || readOnly}
-                        onChange={onNativeSelectChange}
-                        className={cx(ref?.classList.toString(), withNativeSelectVisible)}
-                    >
-                        {valueType === 'native' && childrenMemo}
-                    </StyledNativeSelect>
+                const checkedCopy = new Map(checked);
+
+                const isCurrentChecked = checkedCopy.get(item.value);
+
+                checkedCopy.forEach((_, key) => {
+                    checkedCopy.set(key, false);
+                });
+
+                if (!isCurrentChecked) {
+                    checkedCopy.set(item.value, 'done');
+                    updateSingleAncestors(item, checkedCopy, 'dot');
+                }
+
+                if (onChange) {
+                    onChange((isCurrentChecked ? '' : item.value) as any);
+                }
+            }
+        };
+
+        const handleChipClick = (currentValue: string) => {
+            handleCheckboxChange(valueToItemMap.get(currentValue)!);
+        };
+
+        const handlePressDown = (item: ItemOptionTransformed, e?: React.MouseEvent<HTMLElement>) => {
+            if (isEmpty(item.items)) {
+                handleItemClick(item, e);
+            } else if (multiselect) {
+                handleCheckboxChange(item);
+            }
+        };
+
+        const handleScroll = (e: React.UIEvent<HTMLUListElement>) => {
+            if (!onScrollBottom) return;
+
+            const { target } = e;
+
+            if (
+                (target as HTMLElement).scrollHeight - (target as HTMLElement).scrollTop ===
+                (target as HTMLElement).clientHeight
+            ) {
+                onScrollBottom(e);
+            }
+        };
+
+        const { onKeyDown } = useKeyNavigation({
+            focusedPath,
+            dispatchFocusedPath,
+            path,
+            dispatchPath,
+            pathMap,
+            focusedToValueMap,
+            handleToggle,
+            handlePressDown,
+            focusedChipIndex,
+            dispatchFocusedChipIndex,
+            value,
+            valueToItemMap,
+            multiselect,
+            isTargetAmount,
+        });
+
+        const isCurrentListOpen = Boolean(path[0]);
+
+        // В данном эффекте мы следим за изменениями value и вносим коррективы в дерево чекбоксов.
+        useLayoutEffect(() => {
+            const checkedCopy = new Map(checked);
+
+            checkedCopy.forEach((_, key) => {
+                checkedCopy.set(key, false);
+            });
+
+            if (!isEmpty(value)) {
+                if (Array.isArray(value)) {
+                    value.forEach((val) => {
+                        checkedCopy.set(val, true);
+                        updateDescendants(valueToItemMap.get(val)!, checkedCopy, true);
+                        updateAncestors(valueToItemMap.get(val)!, checkedCopy);
+                    });
+                } else {
+                    checkedCopy.set(value as string, 'done');
+                    updateSingleAncestors(valueToItemMap.get(value as string)!, checkedCopy, 'dot');
+                }
+            }
+
+            setChecked(checkedCopy);
+        }, [value]);
+
+        return (
+            <Root ref={ref} size={size} view={view} chipView={chipView} {...(rest as any)}>
+                {label && labelPlacement === 'outer' && target !== 'button-like' && <OuterLabel>{label}</OuterLabel>}
+                <Context.Provider
+                    value={{
+                        focusedPath,
+                        checked,
+                        multiselect,
+                        size,
+                        handleCheckboxChange,
+                        handleItemClick,
+                        variant,
+                        renderItem,
+                    }}
+                >
                     <StyledPopover
-                        role={role}
-                        isOpen={innerOpened}
-                        onToggle={onInnerToggle}
+                        ref={targetRef}
+                        isOpen={isCurrentListOpen}
+                        placement={getPlacements(placement)}
+                        usePortal={Boolean(portal)}
+                        frame={portal}
+                        onToggle={handleToggle}
+                        trigger="click"
                         target={
-                            <SelectTarget
-                                tabIndex={valueType === 'native' ? -1 : 0}
-                                opened={innerOpened}
+                            <Target
+                                opened={isCurrentListOpen}
                                 target={target}
-                                values={values}
+                                value={value}
+                                isTargetAmount={isTargetAmount}
+                                multiselect={multiselect}
+                                valueToItemMap={valueToItemMap}
+                                focusedPath={focusedPath}
+                                focusedToValueMap={focusedToValueMap}
+                                onChipClick={handleChipClick}
                                 label={label}
-                                enumerationType={enumerationType}
-                                readOnly={readOnly}
-                                disabled={disabled}
+                                placeholder={placeholder}
+                                onKeyDown={onKeyDown}
+                                focusedChipIndex={focusedChipIndex}
+                                labelPlacement={labelPlacement}
                                 size={size}
-                                ref={targetRef}
-                                chipsRefs={chipsRefs}
-                                id={innerId}
-                                onChange={onChangeChipValue}
-                                onKeyDown={onKeyDownTarget}
+                                contentLeft={contentLeft}
+                                disabled={disabled}
+                                renderValue={renderValue}
                             />
                         }
-                        className={cx(ref?.classList.toString())} // INFO: Прокидываем стили для Popover
-                        id={innerId}
-                        offset={offset}
-                        frame={frame}
-                        placement={getPlacements(placement)}
-                        trigger="click"
-                        usePortal={usePortal}
-                        selectWidth={dynamicTargetWidth}
-                        isFocusTrapped={false}
                         preventOverflow={false}
-                        closeOnEsc={false}
                         closeOnOverlayClick
                     >
-                        <Root ref={setRef} target={target} view={view} size={size} {...rest}>
-                            {valueType !== 'native' && (
-                                <StyledSelect onKeyDown={onKeyDownSelect}>{childrenMemo}</StyledSelect>
-                            )}
+                        <Root size={size} {...(rest as any)}>
+                            <Ul
+                                role="tree"
+                                id="tree_level_1"
+                                listHeight={listHeight}
+                                listOverflow={listOverflow}
+                                onScroll={handleScroll}
+                                listWidth={listWidth}
+                            >
+                                {transformedItems.map((item, index) => (
+                                    <Inner
+                                        key={`${index}/0`}
+                                        item={item}
+                                        currentLevel={0}
+                                        path={path}
+                                        dispatchPath={dispatchPath}
+                                        index={index}
+                                        listWidth={listWidth}
+                                    />
+                                ))}
+                            </Ul>
                         </Root>
                     </StyledPopover>
-                </StyledRoot>
-            );
-        },
-    );
+                </Context.Provider>
+                {helperText && target === 'textfield-like' && <HelperText>{helperText}</HelperText>}
+            </Root>
+        );
+    });
 
 export const selectConfig = {
     name: 'Select',
     tag: 'div',
     layout: selectRoot,
-    base: '',
+    base,
     variations: {
-        target: {
-            css: targetCSS,
-        },
         view: {
             css: viewCSS,
         },
@@ -255,6 +304,7 @@ export const selectConfig = {
     },
     defaults: {
         view: 'default',
+        chipView: 'default',
         size: 'm',
     },
 };

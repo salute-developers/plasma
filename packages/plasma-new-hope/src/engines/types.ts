@@ -17,15 +17,16 @@ export type CSS = (
     ...exprs: Array<string | number | CSSProperties>
 ) => PolymorphicClassName;
 
+export type HTMLAttributesWithoutOnChange<T = HTMLElement> = Omit<React.HTMLAttributes<T>, 'onChange'>;
+
 export type RootProps<
     RefElement extends HTMLElement,
-    Element extends React.HTMLAttributes<HTMLElement>
+    Element extends React.HTMLAttributes<HTMLElement> | HTMLAttributesWithoutOnChange<HTMLElement>
 > = React.FunctionComponent<{ children?: React.ReactNode } & Element & React.RefAttributes<RefElement>>;
 
-export type HTMLAttributesOmitOnChange = Omit<React.HTMLAttributes<HTMLElement>, 'onChange'>;
 export type RootPropsOmitOnChange<
     RefElement extends HTMLElement,
-    Element extends HTMLAttributesOmitOnChange
+    Element extends HTMLAttributesWithoutOnChange<HTMLElement>
 > = React.FunctionComponent<{ children?: React.ReactNode } & React.RefAttributes<RefElement> & Element>;
 
 export type Variant = {
