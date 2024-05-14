@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 
 import { convertRoundnessMatrix } from '../../../../utils/roundness';
 import { classes, tokens } from '../../Accordion.tokens';
-import { HTMLAttributesOmitOnChange } from '../../../../engines/types';
+import { HTMLAttributesWithoutOnChange } from '../../../../engines/types';
 
 import {
     StyledAccordionItem,
@@ -19,7 +19,7 @@ import {
 } from './AccordionItem.styles';
 import type { AccordionItemProps } from './AccordionItem.types';
 
-export const AccordionItem: React.FC<HTMLAttributesOmitOnChange & AccordionItemProps> = ({
+export const AccordionItem: React.FC<HTMLAttributesWithoutOnChange<HTMLElement> & AccordionItemProps> = ({
     value,
     contentRight,
     contentLeft,
