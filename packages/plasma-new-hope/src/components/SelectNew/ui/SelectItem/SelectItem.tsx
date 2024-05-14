@@ -2,7 +2,7 @@ import React, { useEffect, useRef, FC } from 'react';
 
 import { classes } from '../../SelectNew.tokens';
 import { cx } from '../../../../utils';
-import { IconDisclosureRight } from '../../../_Icon';
+import { IconDisclosureRight, IconDone } from '../../../_Icon';
 
 import {
     StyledContentLeft,
@@ -11,11 +11,21 @@ import {
     Wrapper,
     DisclosureIconWrapper,
     StyledCheckbox,
+    IconDoneWrapper,
+    StyledIndicator,
 } from './SelectItem.styles';
 
-export const SelectItem: FC<any> = ({ item, path, focusedPath, currentLevel, index, checked, setChecked }) => {
+export const SelectItem: FC<any> = ({
+    item,
+    path,
+    focusedPath,
+    currentLevel,
+    index,
+    checked,
+    setChecked,
+    multiselect,
+}) => {
     const { value, label, disabled, isDisabled, contentLeft, contentRight } = item;
-
     const ref = useRef<HTMLLIElement | null>(null);
 
     const isDisabledClassName = disabled || isDisabled ? classes.dropdownItemIsDisabled : undefined;
@@ -90,19 +100,64 @@ export const SelectItem: FC<any> = ({ item, path, focusedPath, currentLevel, ind
             oldChecked[item.value] = false;
             updateDescendants(item, false);
         }
+        updateAncestors(item);
 
         setChecked(oldChecked);
+    };
 
-        updateAncestors(item);
+    const updateSingleAncestors = (node: any, type) => {
+        if (!node.parent) return;
+
+        const { parent } = node;
+
+        oldChecked[parent.value] = type;
+
+        updateSingleAncestors(parent, type);
+    };
+
+    const handleClick = () => {
+        if (item.items || multiselect) {
+            return;
+        }
+
+        const isCurrentChecked = oldChecked[item.value];
+
+        Object.keys(oldChecked).forEach((key) => {
+            oldChecked[key] = false;
+        });
+
+        if (!isCurrentChecked) {
+            oldChecked[item.value] = 'done';
+            updateSingleAncestors(item, 'dot');
+        }
+
+        setChecked(oldChecked);
     };
 
     return (
-        <Wrapper className={cx(isDisabledClassName, focusedClass, activeClass)} id={value.toString()} ref={ref}>
-            <StyledCheckbox
-                checked={Boolean(checked[item.value])}
-                indeterminate={checked[item.value] === 'indeterminate'}
-                onChange={handleChange}
-            />
+        <Wrapper
+            className={cx(isDisabledClassName, focusedClass, activeClass)}
+            id={value.toString()}
+            ref={ref}
+            onClick={handleClick}
+        >
+            {/* eslint-disable-next-line no-nested-ternary */}
+            {multiselect ? (
+                <StyledCheckbox
+                    checked={Boolean(checked[item.value])}
+                    indeterminate={checked[item.value] === 'indeterminate'}
+                    onChange={handleChange}
+                />
+            ) : // eslint-disable-next-line no-nested-ternary
+            checked[item.value] ? (
+                checked[item.value] === 'dot' ? (
+                    <StyledIndicator size="s" view="default" />
+                ) : (
+                    <IconDoneWrapper>
+                        <IconDone size="s" color="inherit" />
+                    </IconDoneWrapper>
+                )
+            ) : null}
 
             {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
             <StyledText>{label}</StyledText>

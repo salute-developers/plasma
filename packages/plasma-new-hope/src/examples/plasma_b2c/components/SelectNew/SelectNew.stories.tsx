@@ -46,6 +46,7 @@ const meta: Meta<StorySelectNewProps> = {
         },
     },
     args: {
+        multiselect: false,
         trigger: 'click',
         offset: [0, 0],
         listWidth: 'auto',

@@ -26,7 +26,7 @@ const transform = (items: any, parent: any = null): any => {
  * Выпадающий список. Поддерживает выбор одного или нескольких значений.
  */
 export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
-    forwardRef<HTMLDivElement, SelectNewProps>(({ items, ...rest }, ref) => {
+    forwardRef<HTMLDivElement, SelectNewProps>(({ items, multiselect, ...rest }, ref) => {
         items = transform(items);
 
         const [path, dispatchPath] = useReducer(pathReducer, []);
@@ -35,6 +35,8 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
         const [pathMap, focusedToValueMap, checkedMap] = useHashMaps(items);
 
         const [checked, setChecked] = useState(checkedMap);
+
+        console.log('checked', checked);
 
         const handleGlobalToggle: HandleGlobalToggleType = (opened, event) => {
             if (opened) {
@@ -73,6 +75,7 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
                                 handleGlobalToggle={handleGlobalToggle}
                                 checked={checked}
                                 setChecked={setChecked}
+                                multiselect={multiselect}
                             />
                         ))}
                     </Ul>

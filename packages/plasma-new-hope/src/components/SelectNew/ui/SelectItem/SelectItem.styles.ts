@@ -4,10 +4,11 @@ import { classes, tokens } from '../../SelectNew.tokens';
 import { addFocus, applyEllipsis } from '../../../../mixins';
 import { component, mergeConfig } from '../../../../engines';
 import { checkboxConfig } from '../../../Checkbox';
+import { indicatorConfig, indicatorTokens } from '../../../Indicator';
 import { selectNewTokens } from '../../index';
 
-const mergedConfig = mergeConfig(checkboxConfig);
-const Checkbox = component(mergedConfig);
+const mergedCheckboxConfig = mergeConfig(checkboxConfig);
+const Checkbox = component(mergedCheckboxConfig);
 
 export const StyledCheckbox = styled(Checkbox)`
     --plasma-checkbox-margin: var(${selectNewTokens.checkboxMargin});
@@ -17,6 +18,14 @@ export const StyledCheckbox = styled(Checkbox)`
     --plasma-checkbox-fill-color: var(${selectNewTokens.checkboxFillColor});
     --plasma-checkbox-icon-color: var(${selectNewTokens.checkboxIconColor});
     --plasma-checkbox-trigger-border-color: var(${selectNewTokens.checkboxTriggerBorderColor});
+`;
+
+const mergedIndicatorConfig = mergeConfig(indicatorConfig);
+const Indicator = component(mergedIndicatorConfig);
+
+export const StyledIndicator = styled(Indicator)`
+    ${indicatorTokens.size}: var(${selectNewTokens.indicatorSize});
+    ${indicatorTokens.color}: var(${selectNewTokens.checkboxFillColor});
 `;
 
 export const StyledContentLeft = styled.div`
@@ -31,6 +40,11 @@ export const StyledContentRight = styled.div`
 export const DisclosureIconWrapper = styled.div`
     line-height: 0;
     color: var(${tokens.disclosureIconColor});
+`;
+
+export const IconDoneWrapper = styled.div`
+    line-height: 0;
+    color: var(${tokens.checkboxFillColor});
 `;
 
 export const StyledText = styled.div`
