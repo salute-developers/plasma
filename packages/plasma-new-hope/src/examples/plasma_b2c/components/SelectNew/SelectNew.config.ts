@@ -28,6 +28,14 @@ export const config = {
                 ${selectNewTokens.itemFontWeightBold}: var(--plasma-typo-body-xs-font-weight);
                 ${selectNewTokens.itemFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${selectNewTokens.itemFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${selectNewTokens.checkboxMargin}: 0 0 0.188rem 0.188rem;
+                ${selectNewTokens.checkboxTriggerMargin}: 0.188rem 0;
+                ${selectNewTokens.checkboxTriggerSize}: 0.875rem;
+                ${selectNewTokens.checkboxTriggerBorderRadius}: 0.25rem;
+                ${selectNewTokens.checkboxFillColor}: var(--text-accent);
+                ${selectNewTokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${selectNewTokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
             s: css`
                 ${selectNewTokens.padding}: 0.125rem;
@@ -48,6 +56,14 @@ export const config = {
                 ${selectNewTokens.itemFontWeightBold}: var(--plasma-typo-body-s-font-weight);
                 ${selectNewTokens.itemFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${selectNewTokens.itemFontLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${selectNewTokens.checkboxMargin}: 0 0 0.188rem 0.188rem;
+                ${selectNewTokens.checkboxTriggerMargin}: 0.188rem 0;
+                ${selectNewTokens.checkboxTriggerSize}: 1.25rem;
+                ${selectNewTokens.checkboxTriggerBorderRadius}: 0.375rem;
+                ${selectNewTokens.checkboxFillColor}: var(--text-accent);
+                ${selectNewTokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${selectNewTokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
             m: css`
                 ${selectNewTokens.padding}: 0.125rem;
@@ -68,6 +84,14 @@ export const config = {
                 ${selectNewTokens.itemFontWeightBold}: var(--plasma-typo-body-m-font-weight);
                 ${selectNewTokens.itemFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${selectNewTokens.itemFontLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${selectNewTokens.checkboxMargin}: 0 0 0.188rem 0.188rem;
+                ${selectNewTokens.checkboxTriggerMargin}: 0.188rem 0;
+                ${selectNewTokens.checkboxTriggerSize}: 1.25rem;
+                ${selectNewTokens.checkboxTriggerBorderRadius}: 0.375rem;
+                ${selectNewTokens.checkboxFillColor}: var(--text-accent);
+                ${selectNewTokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${selectNewTokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
             l: css`
                 ${selectNewTokens.padding}: 0.125rem;
@@ -88,6 +112,14 @@ export const config = {
                 ${selectNewTokens.itemFontWeightBold}: var(--plasma-typo-body-l-font-weight);
                 ${selectNewTokens.itemFontLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${selectNewTokens.itemFontLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${selectNewTokens.checkboxMargin}: 0 0 0.188rem 0.188rem;
+                ${selectNewTokens.checkboxTriggerMargin}: 0.188rem 0;
+                ${selectNewTokens.checkboxTriggerSize}: 1.25rem;
+                ${selectNewTokens.checkboxTriggerBorderRadius}: 0.375rem;
+                ${selectNewTokens.checkboxFillColor}: var(--text-accent);
+                ${selectNewTokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${selectNewTokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
         },
         view: {

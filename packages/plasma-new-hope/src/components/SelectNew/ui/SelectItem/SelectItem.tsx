@@ -3,9 +3,15 @@ import React, { useEffect, useRef, FC } from 'react';
 import { classes } from '../../SelectNew.tokens';
 import { cx } from '../../../../utils';
 import { IconDisclosureRight } from '../../../_Icon';
-import { Checkbox as CheckboxWeb } from '../../../../examples/plasma_web/components/Checkbox/Checkbox';
 
-import { StyledContentLeft, StyledContentRight, StyledText, Wrapper, DisclosureIconWrapper } from './SelectItem.styles';
+import {
+    StyledContentLeft,
+    StyledContentRight,
+    StyledText,
+    Wrapper,
+    DisclosureIconWrapper,
+    StyledCheckbox,
+} from './SelectItem.styles';
 
 export const SelectItem: FC<any> = ({ item, path, focusedPath, currentLevel, index, checked, setChecked }) => {
     const { value, label, disabled, isDisabled, contentLeft, contentRight } = item;
@@ -92,7 +98,7 @@ export const SelectItem: FC<any> = ({ item, path, focusedPath, currentLevel, ind
 
     return (
         <Wrapper className={cx(isDisabledClassName, focusedClass, activeClass)} id={value.toString()} ref={ref}>
-            <CheckboxWeb
+            <StyledCheckbox
                 checked={Boolean(checked[item.value])}
                 indeterminate={checked[item.value] === 'indeterminate'}
                 onChange={handleChange}

@@ -32,4 +32,12 @@ export const tokens = {
     itemFontWeightBold: '--plasma-dropdown-item-letter-spacing',
     itemFontLetterSpacing: '--plasma-dropdown-item-line-height',
     itemFontLineHeight: '--plasma-dropdown-item-font-weight',
+
+    checkboxMargin: '--plasma-select-checkbox-margin',
+    checkboxTriggerMargin: '--plasma-select-checkbox-trigger-margin',
+    checkboxTriggerSize: '--plasma-select-checkbox-trigger-size',
+    checkboxTriggerBorderRadius: '--plasma-select-checkbox-trigger-border-radius',
+    checkboxFillColor: '--plasma-select-checkbox-fill-color',
+    checkboxIconColor: '--plasma-select-checkbox-icon-color',
+    checkboxTriggerBorderColor: '--plasma-select-checkbox-trigger-border-color',
 };
