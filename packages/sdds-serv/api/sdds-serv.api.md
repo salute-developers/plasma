@@ -44,6 +44,7 @@ import { ComboboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ComponentClass } from 'react';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
@@ -87,7 +88,11 @@ import { ModalProps } from '@salutejs/plasma-new-hope/styled-components';
 import { MouseEvent as MouseEvent_2 } from 'react';
 import { Overlay } from '@salutejs/plasma-new-hope/styled-components';
 import { OverlayProps } from '@salutejs/plasma-new-hope/styled-components';
+import { PaginationProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PanelProps } from '@salutejs/plasma-new-hope/types/components/Panel';
+import { PopoverPlacement } from '@salutejs/plasma-new-hope/styled-components';
+import { PopoverProps } from '@salutejs/plasma-new-hope/styled-components';
+import { PopoverTrigger } from '@salutejs/plasma-new-hope/styled-components';
 import { popupClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupInfo } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupPlacement } from '@salutejs/plasma-new-hope/styled-components';
@@ -826,6 +831,45 @@ export { ModalProps }
 export { Overlay }
 
 export { OverlayProps }
+
+// @public
+export const Pagination: FunctionComponent<PropsType<    {
+view: {
+secondary: string;
+clear: string;
+default: string;
+};
+viewCurrentPage: {
+default: string;
+secondary: string;
+clear: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+type: {
+compact: string;
+default: string;
+};
+}> & PaginationProps & RefAttributes<HTMLDivElement>>;
+
+export { PaginationProps }
+
+// @public (undocumented)
+export const Popover: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & CustomPopoverProps & RefAttributes<HTMLDivElement>>;
+
+export { PopoverPlacement }
+
+export { PopoverProps }
+
+export { PopoverTrigger }
 
 // @public
 export const Popup: ForwardRefExoticComponent<PopupProps & RefAttributes<HTMLDivElement>>;
