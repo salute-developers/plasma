@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { createTheme } from '../builder/createTheme';
-import { getFilesSource } from '../api';
-import { getFormatDate, loadTheme } from '.';
+import { getFormatDate, isString, loadTheme } from '.';
 import { THEME_BUILDER_PREFIX, BASE_PREFIX } from '../types';
 import type { FormulaMode, Theme as ThemeType } from '../types';
+import { getFileSource } from '../api';
 
 const StyledDate = styled.div`
     opacity: 0.5;
@@ -28,7 +28,7 @@ export const getNormalizeThemeSections = (data?: ThemeType): ThemeType | undefin
     };
 
     const legacySections = Object.keys(legacySectionMap);
-    const themeSections = Object.keys(data.light).filter((key) => legacySections.includes(key)) as Array<
+    const themeSections = Object.keys(data.light).filter((key) => legacySections.includes(key as string)) as Array<
         keyof ThemeType['dark' | 'light']
     >;
 
@@ -62,7 +62,7 @@ export const getThemeData = async (
     repo = 'plasma',
     token?: string,
 ): Promise<ThemeType> => {
-    const response = await getFilesSource(
+    const filesSource = await getFileSource(
         undefined,
         owner,
         repo,
@@ -70,6 +70,7 @@ export const getThemeData = async (
         branchName,
         token,
     );
+    const response = isString(filesSource) ? filesSource : '';
 
     return JSON.parse(response);
 };
@@ -111,7 +112,7 @@ export const createThemeURLParams = (name: string) => {
 };
 
 export const loadAllThemeNames = (): (readonly [string, string])[] => {
-    const themes = Object.keys(localStorage)
+    const themes = Object.keys((localStorage as unknown) as Array<string>[number])
         .filter((key) => key.startsWith('$'))
         .map((item) => {
             const name = item.replace(`$`, '');
