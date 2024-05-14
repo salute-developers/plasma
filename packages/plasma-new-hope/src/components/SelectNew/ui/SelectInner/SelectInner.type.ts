@@ -13,6 +13,6 @@ export interface SelectInnerProps {
     index: number;
     handleGlobalToggle: (opened: boolean, event: Event | SyntheticEvent<Element, Event>) => void;
 
-    data: any;
-    setData: any;
+    checked: any;
+    setChecked: any;
 }

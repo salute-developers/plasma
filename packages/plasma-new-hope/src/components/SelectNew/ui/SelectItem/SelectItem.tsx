@@ -7,7 +7,7 @@ import { Checkbox as CheckboxWeb } from '../../../../examples/plasma_web/compone
 
 import { StyledContentLeft, StyledContentRight, StyledText, Wrapper, DisclosureIconWrapper } from './SelectItem.styles';
 
-export const SelectItem: FC<any> = ({ item, path, focusedPath, currentLevel, index, data, setData }) => {
+export const SelectItem: FC<any> = ({ item, path, focusedPath, currentLevel, index, checked, setChecked }) => {
     const { value, label, disabled, isDisabled, contentLeft, contentRight } = item;
 
     const ref = useRef<HTMLLIElement | null>(null);
@@ -18,6 +18,8 @@ export const SelectItem: FC<any> = ({ item, path, focusedPath, currentLevel, ind
             ? classes.dropdownItemIsFocused
             : undefined;
     const activeClass = value === path?.[currentLevel + 1] ? classes.dropdownItemIsActive : undefined;
+
+    const oldChecked = { ...checked };
 
     useEffect(() => {
         if (focusedClass && ref?.current) {
@@ -30,7 +32,6 @@ export const SelectItem: FC<any> = ({ item, path, focusedPath, currentLevel, ind
     }, [focusedClass]);
 
     const updateAncestors = (node: any) => {
-        // console.log('node', node);
         if (!node.parent) return;
 
         const { parent } = node;
@@ -40,46 +41,32 @@ export const SelectItem: FC<any> = ({ item, path, focusedPath, currentLevel, ind
         let isParentIndeterminate = false;
 
         siblings.forEach((sib) => {
-            // console.log('sib', sib);
-
-            if (sib.indeterminate) {
+            if (oldChecked[sib.value] === 'indeterminate') {
                 isParentIndeterminate = true;
                 return;
             }
 
-            if (sib.checked) {
+            if (oldChecked[sib.value]) {
                 checkedFromAllSiblings += 1;
             }
         });
 
-        console.log(isParentIndeterminate, checkedFromAllSiblings, siblingsLength);
-
         if (isParentIndeterminate || (checkedFromAllSiblings > 0 && checkedFromAllSiblings < siblingsLength)) {
-            console.log('1', parent);
-            // parent.checked = false;
-            // parent.indeterminate = true;
-            // parent.RANDOM = 'STRING';
-            node.parent = null;
-            console.log('parent', parent);
+            oldChecked[parent.value] = 'indeterminate';
         } else if (checkedFromAllSiblings === 0) {
-            console.log('2');
-            parent.checked = false;
-            parent.indeterminate = false;
+            oldChecked[parent.value] = false;
         } else {
-            console.log('3');
-            parent.checked = true;
-            parent.indeterminate = false;
+            oldChecked[parent.value] = true;
         }
 
-        // updateAncestors(parent);
+        updateAncestors(parent);
     };
 
     const updateDescendants = (node: any, isChecked: boolean) => {
         if (!node.items) return;
 
         node.items.forEach((item) => {
-            item.checked = isChecked;
-            item.indeterminate = false;
+            oldChecked[item.value] = isChecked;
 
             if (item.items) {
                 updateDescendants(item, isChecked);
@@ -87,24 +74,29 @@ export const SelectItem: FC<any> = ({ item, path, focusedPath, currentLevel, ind
         });
     };
 
-    const onClick = () => {
-        // console.log('onclick item', item);
-        if (!item.checked || item.indeterminate) {
-            item.checked = true;
+    const handleChange = (e) => {
+        e.stopPropagation();
+
+        if (!oldChecked[item.value]) {
+            oldChecked[item.value] = true;
             updateDescendants(item, true);
         } else {
-            item.checked = false;
+            oldChecked[item.value] = false;
             updateDescendants(item, false);
         }
 
-        updateAncestors(item);
+        setChecked(oldChecked);
 
-        setData([...data]);
+        updateAncestors(item);
     };
 
     return (
         <Wrapper className={cx(isDisabledClassName, focusedClass, activeClass)} id={value.toString()} ref={ref}>
-            <CheckboxWeb checked={item.checked} indeterminate={item.indeterminate} onChange={onClick} />
+            <CheckboxWeb
+                checked={Boolean(checked[item.value])}
+                indeterminate={checked[item.value] === 'indeterminate'}
+                onChange={handleChange}
+            />
 
             {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
             <StyledText>{label}</StyledText>

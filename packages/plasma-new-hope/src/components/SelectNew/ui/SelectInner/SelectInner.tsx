@@ -14,8 +14,8 @@ const SelectInner: FC<SelectInnerProps> = ({
     dispatchPath,
     index,
     handleGlobalToggle,
-    data,
-    setData,
+    checked,
+    setChecked,
 }) => {
     const handleToggle = (opened: boolean): void => {
         if (opened) {
@@ -48,8 +48,8 @@ const SelectInner: FC<SelectInnerProps> = ({
                         ariaExpanded={isCurrentListOpen}
                         ariaLevel={nextLevel}
                         ariaLabel={item.label}
-                        data={data}
-                        setData={setData}
+                        checked={checked}
+                        setChecked={setChecked}
                     />
                 }
                 onToggle={handleToggle}
@@ -67,8 +67,8 @@ const SelectInner: FC<SelectInnerProps> = ({
                             dispatchPath={dispatchPath}
                             index={innerIndex}
                             handleGlobalToggle={handleGlobalToggle}
-                            data={data}
-                            setData={setData}
+                            checked={checked}
+                            setChecked={setChecked}
                         />
                     ))}
                 </Ul>
@@ -83,8 +83,8 @@ const SelectInner: FC<SelectInnerProps> = ({
             focusedPath={focusedPath}
             currentLevel={currentLevel}
             handleGlobalToggle={handleGlobalToggle}
-            data={data}
-            setData={setData}
+            checked={checked}
+            setChecked={setChecked}
         />
     );
 };
