@@ -1,30 +1,29 @@
 import { useMemo } from 'react';
 
 import { SelectNewProps } from '../SelectNew.types';
-import { SelectItemOption } from '../ui/SelectItem/SelectItem.type';
+import { ItemOptionTransformed } from '../elements/Item/Item.types';
 
 export type PathMapType = Map<string | number, number>;
-export type FocusedToValueMapType = Map<string, SelectItemOption>;
+export type FocusedToValueMapType = Map<string, ItemOptionTransformed>;
 
-// Данный хук рекурсивно проходится по дереву items и создает 2 мапы: мапу путей и мапу фокусов.
-// Нужно для получения всей информации об item, зная только путь до него.
+// Рекурсивно проходим по дереву items и создаем 3 мапы: мапу открытых путей, мапу фокусов и мапу выбранных элементов.
 
-export const useHashMaps = (items: SelectNewProps['items']) => {
+export const useHashMaps = (items: any) => {
     return useMemo(() => {
         const pathMap: PathMapType = new Map();
         const focusedToValueMap: FocusedToValueMapType = new Map();
-        const checkedMap: any = {};
+        const checkedMap: any = new Map();
 
         pathMap.set('root', items.length);
 
         const rec = (items: SelectNewProps['items'], prevIndex = '') => {
-            items.forEach((item: SelectItemOption, index: number) => {
+            items.forEach((item: ItemOptionTransformed, index: number) => {
                 const { value, items: innerItems } = item;
 
                 const currIndex = `${prevIndex}/${index}`.replace(/^(\/)/, '');
                 focusedToValueMap.set(currIndex, item);
 
-                checkedMap[value] = false;
+                checkedMap.set(value, false);
 
                 if (innerItems) {
                     pathMap.set(value, innerItems.length);

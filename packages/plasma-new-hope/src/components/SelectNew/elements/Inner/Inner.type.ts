@@ -16,4 +16,5 @@ export interface SelectInnerProps {
     checked: any;
     setChecked: any;
     multiselect: boolean;
+    size: any;
 }

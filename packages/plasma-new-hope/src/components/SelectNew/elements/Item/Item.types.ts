@@ -1,9 +1,10 @@
 import type { HTMLAttributes, ReactNode, SyntheticEvent } from 'react';
 
 import type { FocusedPathState } from '../../reducers/focusedPathReducer';
+import { SelectNewProps } from '../..';
 import type { PathState } from '../../reducers/pathReducer';
 
-export type SelectItemOption = {
+export type ItemOption = {
     /**
      *  Значение у item
      */
@@ -15,7 +16,7 @@ export type SelectItemOption = {
     /**
      * Список дочерних items.
      */
-    items?: Array<SelectItemOption>;
+    items?: Array<ItemOption>;
     /**
      * Item не активен
      */
@@ -45,13 +46,16 @@ export type SelectItemOption = {
     isDisabled?: boolean;
 };
 
-export interface SelectItemProps extends HTMLAttributes<HTMLLIElement> {
-    item: SelectItemOption;
+export type ItemOptionTransformed = ItemOption & { parent?: ItemOption | null };
+
+export interface ItemProps extends HTMLAttributes<HTMLLIElement> {
+    item: ItemOption;
     focusedPath: FocusedPathState;
     currentLevel: number;
     index: number;
     path?: PathState;
     handleGlobalToggle?: (opened: boolean, event: Event | SyntheticEvent<Element, Event>) => void;
+    onItemSelect?: SelectNewProps['onItemSelect'];
     ariaControls?: string;
     ariaExpanded?: boolean;
     ariaHasPopup?: React.AriaAttributes['aria-haspopup'];
