@@ -1,12 +1,12 @@
 import React from 'react';
 import type { FC } from 'react';
 
-import { SelectItem } from '../SelectItem/SelectItem';
+import { Item } from '../Item/Item';
 import { Ul, StyledPopover } from '../../SelectNew.styles';
 
-import { SelectInnerProps } from './SelectInner.type';
+import { SelectInnerProps } from './Inner.type';
 
-const SelectInner: FC<SelectInnerProps> = ({
+export const Inner: FC<SelectInnerProps> = ({
     item,
     currentLevel,
     focusedPath,
@@ -17,6 +17,7 @@ const SelectInner: FC<SelectInnerProps> = ({
     checked,
     setChecked,
     multiselect,
+    size,
 }) => {
     const handleToggle = (opened: boolean): void => {
         if (opened) {
@@ -39,7 +40,7 @@ const SelectInner: FC<SelectInnerProps> = ({
                 placement="right-start"
                 trigger="click"
                 target={
-                    <SelectItem
+                    <Item
                         item={item}
                         index={index}
                         path={path}
@@ -52,6 +53,7 @@ const SelectInner: FC<SelectInnerProps> = ({
                         checked={checked}
                         setChecked={setChecked}
                         multiselect={multiselect}
+                        size={size}
                     />
                 }
                 onToggle={handleToggle}
@@ -60,7 +62,7 @@ const SelectInner: FC<SelectInnerProps> = ({
             >
                 <Ul role="group" id={listId} isInnerUl>
                     {item.items.map((innerItem: any, innerIndex: any) => (
-                        <SelectInner
+                        <Inner
                             key={`${innerIndex}/${currentLevel}`}
                             item={innerItem}
                             currentLevel={nextLevel}
@@ -72,6 +74,7 @@ const SelectInner: FC<SelectInnerProps> = ({
                             checked={checked}
                             setChecked={setChecked}
                             multiselect={multiselect}
+                            size={size}
                         />
                     ))}
                 </Ul>
@@ -80,7 +83,7 @@ const SelectInner: FC<SelectInnerProps> = ({
     }
 
     return (
-        <SelectItem
+        <Item
             item={item}
             index={index}
             focusedPath={focusedPath}
@@ -89,8 +92,7 @@ const SelectInner: FC<SelectInnerProps> = ({
             checked={checked}
             setChecked={setChecked}
             multiselect={multiselect}
+            size={size}
         />
     );
 };
-
-export { SelectInner };

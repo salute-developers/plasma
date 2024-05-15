@@ -42,7 +42,13 @@ export const DisclosureIconWrapper = styled.div`
     color: var(${tokens.disclosureIconColor});
 `;
 
-export const IconDoneWrapper = styled.div`
+export const IconWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(${tokens.itemIconSize});
+    height: var(${tokens.itemIconSize});
+    margin: var(${tokens.itemIconMargin});
     line-height: 0;
     color: var(${tokens.checkboxFillColor});
 `;
@@ -55,6 +61,7 @@ export const StyledText = styled.div`
 export const Wrapper = styled.li`
     display: flex;
     align-items: center;
+    min-height: var(${tokens.itemHeight});
     margin: 0;
     box-sizing: content-box;
     padding-top: var(${tokens.itemPaddingTop});

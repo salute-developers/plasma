@@ -1,10 +1,11 @@
-import React, { forwardRef, useReducer, useState } from 'react';
+import React, { forwardRef, useReducer, useState, useMemo } from 'react';
 
 import { RootProps } from '../../engines';
 import type { HandleGlobalToggleType } from '../Dropdown/Dropdown.types';
 import { Button } from '../../examples/plasma_b2c/components/Button/Button';
 
-import { SelectInner } from './ui/SelectInner/SelectInner';
+import { initialItemsTransform } from './utils';
+import { Inner } from './elements/Inner/Inner';
 import { pathReducer } from './reducers/pathReducer';
 import { focusedPathReducer } from './reducers/focusedPathReducer';
 import { useHashMaps } from './hooks/useHashMaps';
@@ -13,32 +14,22 @@ import type { SelectNewProps } from './SelectNew.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 
-const transform = (items: any, parent: any = null): any => {
-    items.forEach((item) => {
-        item.parent = parent;
-        item.items = item.items ? transform(item.items, item) : null;
-    });
-
-    return items;
-};
-
 /**
  * Выпадающий список. Поддерживает выбор одного или нескольких значений.
  */
 export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
-    forwardRef<HTMLDivElement, SelectNewProps>(({ items, multiselect, ...rest }, ref) => {
-        items = transform(items);
-
+    forwardRef<HTMLDivElement, SelectNewProps>(({ items, multiselect = false, size, ...rest }, ref) => {
         const [path, dispatchPath] = useReducer(pathReducer, []);
         const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
 
-        const [pathMap, focusedToValueMap, checkedMap] = useHashMaps(items);
+        const transformedItems = useMemo(() => initialItemsTransform(items), [items]);
+        const [pathMap, focusedToValueMap, checkedMap] = useHashMaps(transformedItems);
 
         const [checked, setChecked] = useState(checkedMap);
 
         console.log('checked', checked);
 
-        const handleGlobalToggle: HandleGlobalToggleType = (opened, event) => {
+        const handleGlobalToggle: HandleGlobalToggleType = (opened) => {
             if (opened) {
                 dispatchPath({ type: 'opened_first_level' });
             } else {
@@ -50,7 +41,7 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
         const isCurrentListOpen = Boolean(path[0]);
 
         return (
-            <Root ref={ref} {...rest}>
+            <Root ref={ref} size={size} {...rest}>
                 <StyledPopover
                     isOpen={isCurrentListOpen}
                     usePortal={false}
@@ -63,8 +54,8 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
                     closeOnOverlayClick
                 >
                     <Ul role="tree" id="tree_level_1">
-                        {items.map((item, index) => (
-                            <SelectInner
+                        {transformedItems.map((item, index) => (
+                            <Inner
                                 key={`${index}/0`}
                                 item={item}
                                 currentLevel={0}
@@ -76,6 +67,7 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
                                 checked={checked}
                                 setChecked={setChecked}
                                 multiselect={multiselect}
+                                size={size}
                             />
                         ))}
                     </Ul>

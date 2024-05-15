@@ -11,11 +11,17 @@ import {
     Wrapper,
     DisclosureIconWrapper,
     StyledCheckbox,
-    IconDoneWrapper,
+    IconWrapper,
     StyledIndicator,
-} from './SelectItem.styles';
+} from './Item.styles';
 
-export const SelectItem: FC<any> = ({
+const sizeToIconSize = (size: string) => {
+    if (size === 'xs') return 'xs';
+
+    return 's';
+};
+
+export const Item: FC<any> = ({
     item,
     path,
     focusedPath,
@@ -24,6 +30,7 @@ export const SelectItem: FC<any> = ({
     checked,
     setChecked,
     multiselect,
+    size,
 }) => {
     const { value, label, disabled, isDisabled, contentLeft, contentRight } = item;
     const ref = useRef<HTMLLIElement | null>(null);
@@ -35,7 +42,7 @@ export const SelectItem: FC<any> = ({
             : undefined;
     const activeClass = value === path?.[currentLevel + 1] ? classes.dropdownItemIsActive : undefined;
 
-    const oldChecked = { ...checked };
+    const oldChecked = new Map(checked);
 
     useEffect(() => {
         if (focusedClass && ref?.current) {
@@ -57,22 +64,22 @@ export const SelectItem: FC<any> = ({
         let isParentIndeterminate = false;
 
         siblings.forEach((sib) => {
-            if (oldChecked[sib.value] === 'indeterminate') {
+            if (oldChecked.get(sib.value) === 'indeterminate') {
                 isParentIndeterminate = true;
                 return;
             }
 
-            if (oldChecked[sib.value]) {
+            if (oldChecked.get(sib.value)) {
                 checkedFromAllSiblings += 1;
             }
         });
 
         if (isParentIndeterminate || (checkedFromAllSiblings > 0 && checkedFromAllSiblings < siblingsLength)) {
-            oldChecked[parent.value] = 'indeterminate';
+            oldChecked.set(parent.value, 'indeterminate');
         } else if (checkedFromAllSiblings === 0) {
-            oldChecked[parent.value] = false;
+            oldChecked.set(parent.value, false);
         } else {
-            oldChecked[parent.value] = true;
+            oldChecked.set(parent.value, true);
         }
 
         updateAncestors(parent);
@@ -82,7 +89,7 @@ export const SelectItem: FC<any> = ({
         if (!node.items) return;
 
         node.items.forEach((item) => {
-            oldChecked[item.value] = isChecked;
+            oldChecked.set(item.value, isChecked);
 
             if (item.items) {
                 updateDescendants(item, isChecked);
@@ -93,11 +100,11 @@ export const SelectItem: FC<any> = ({
     const handleChange = (e) => {
         e.stopPropagation();
 
-        if (!oldChecked[item.value]) {
-            oldChecked[item.value] = true;
+        if (!oldChecked.get(item.value)) {
+            oldChecked.set(item.value, true);
             updateDescendants(item, true);
         } else {
-            oldChecked[item.value] = false;
+            oldChecked.set(item.value, false);
             updateDescendants(item, false);
         }
         updateAncestors(item);
@@ -110,24 +117,30 @@ export const SelectItem: FC<any> = ({
 
         const { parent } = node;
 
-        oldChecked[parent.value] = type;
+        oldChecked.set(parent.value, type);
 
         updateSingleAncestors(parent, type);
     };
 
-    const handleClick = () => {
+    const handleClick = (e) => {
+        if (multiselect && !item.items) {
+            handleChange(e);
+        }
+
         if (item.items || multiselect) {
             return;
         }
 
-        const isCurrentChecked = oldChecked[item.value];
+        e.stopPropagation();
 
-        Object.keys(oldChecked).forEach((key) => {
-            oldChecked[key] = false;
+        const isCurrentChecked = oldChecked.get(item.value);
+
+        oldChecked.forEach((_, key) => {
+            oldChecked.set(key, false);
         });
 
         if (!isCurrentChecked) {
-            oldChecked[item.value] = 'done';
+            oldChecked.set(item.value, 'done');
             updateSingleAncestors(item, 'dot');
         }
 
@@ -141,26 +154,28 @@ export const SelectItem: FC<any> = ({
             ref={ref}
             onClick={handleClick}
         >
-            {/* eslint-disable-next-line no-nested-ternary */}
-            {multiselect ? (
-                <StyledCheckbox
-                    checked={Boolean(checked[item.value])}
-                    indeterminate={checked[item.value] === 'indeterminate'}
-                    onChange={handleChange}
-                />
-            ) : // eslint-disable-next-line no-nested-ternary
-            checked[item.value] ? (
-                checked[item.value] === 'dot' ? (
+            <IconWrapper>
+                {multiselect && (
+                    <StyledCheckbox
+                        checked={Boolean(checked.get(item.value))}
+                        indeterminate={checked.get(item.value) === 'indeterminate'}
+                        onChange={handleChange}
+                    />
+                )}
+
+                {!multiselect && checked.get(item.value) && checked.get(item.value) === 'dot' && (
                     <StyledIndicator size="s" view="default" />
-                ) : (
-                    <IconDoneWrapper>
-                        <IconDone size="s" color="inherit" />
-                    </IconDoneWrapper>
-                )
-            ) : null}
+                )}
+
+                {!multiselect && checked.get(item.value) && checked.get(item.value) === 'done' && (
+                    <IconDone size={sizeToIconSize(size)} color="inherit" />
+                )}
+            </IconWrapper>
 
             {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
+
             <StyledText>{label}</StyledText>
+
             {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
 
             {item.items && (

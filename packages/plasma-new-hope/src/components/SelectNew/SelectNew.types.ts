@@ -1,6 +1,6 @@
 import type { CSSProperties, SyntheticEvent, ButtonHTMLAttributes } from 'react';
 
-import { DropdownItemOption } from '../Dropdown';
+import { ItemOption } from './elements/Item/Item.props';
 
 type IsMultiselect =
     | {
@@ -25,7 +25,7 @@ type IsMultiselect =
       };
 
 type BasicProps = {
-    items: Array<DropdownItemOption>;
+    items: Array<ItemOption>;
     /**
      * Значение control.
      */
@@ -39,7 +39,7 @@ type BasicProps = {
     placeholder?: string;
     helperText?: string;
     disabled?: boolean;
-    onItemSelect?: (item: DropdownItemOption, event: SyntheticEvent) => void;
+    onItemSelect?: (item: ItemOption, event: SyntheticEvent) => void;
     isOpen?: boolean; // ????
     children?: never;
 
@@ -57,6 +57,14 @@ type BasicProps = {
      * @example listHeight="11", listHeight="auto", listHeight={11}
      */
     listHeight?: number | CSSProperties['height'];
+    /**
+     * Размер компонента.
+     */
+    size?: string;
+    /**
+     * Вид компонента.
+     */
+    view?: string;
 };
 
 export type SelectNewProps = BasicProps &
