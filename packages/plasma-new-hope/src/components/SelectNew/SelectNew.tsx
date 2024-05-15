@@ -1,4 +1,4 @@
-import React, { forwardRef, useReducer, useState, useMemo } from 'react';
+import React, { forwardRef, useReducer, useState, useMemo, createContext } from 'react';
 
 import { RootProps } from '../../engines';
 import type { HandleGlobalToggleType } from '../Dropdown/Dropdown.types';
@@ -6,75 +6,93 @@ import { Button } from '../../examples/plasma_b2c/components/Button/Button';
 
 import { initialItemsTransform } from './utils';
 import { Inner } from './elements/Inner/Inner';
-import { pathReducer } from './reducers/pathReducer';
-import { focusedPathReducer } from './reducers/focusedPathReducer';
+import { pathReducer, focusedPathReducer } from './reducers';
 import { useHashMaps } from './hooks/useHashMaps';
 import { StyledPopover, Ul } from './SelectNew.styles';
 import type { SelectNewProps } from './SelectNew.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 
+export const Context = createContext<any>(null);
+
 /**
  * Выпадающий список. Поддерживает выбор одного или нескольких значений.
  */
 export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
-    forwardRef<HTMLDivElement, SelectNewProps>(({ items, multiselect = false, size, ...rest }, ref) => {
-        const [path, dispatchPath] = useReducer(pathReducer, []);
-        const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
+    forwardRef<HTMLDivElement, SelectNewProps>(
+        (
+            {
+                multiselect = false,
+                separator,
+                value,
+                onChange,
+                status,
+                placeholder,
+                helperText,
+                disabled,
+                onItemSelect,
+                isOpen,
+                listOverflow,
+                listHeight,
+                items,
+                size,
+                ...rest
+            },
+            ref,
+        ) => {
+            const [path, dispatchPath] = useReducer(pathReducer, []);
+            const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
 
-        const transformedItems = useMemo(() => initialItemsTransform(items), [items]);
-        const [pathMap, focusedToValueMap, checkedMap] = useHashMaps(transformedItems);
+            const transformedItems = useMemo(() => initialItemsTransform(items), [items]);
+            const [pathMap, focusedToValueMap, checkedMap] = useHashMaps(transformedItems);
 
-        const [checked, setChecked] = useState(checkedMap);
+            const [checked, setChecked] = useState(checkedMap);
 
-        console.log('checked', checked);
+            console.log('checked', checked);
 
-        const handleGlobalToggle: HandleGlobalToggleType = (opened) => {
-            if (opened) {
-                dispatchPath({ type: 'opened_first_level' });
-            } else {
-                dispatchFocusedPath({ type: 'reset' });
-                dispatchPath({ type: 'reset' });
-            }
-        };
+            const handleToggle: HandleGlobalToggleType = (opened) => {
+                if (opened) {
+                    dispatchPath({ type: 'opened_first_level' });
+                } else {
+                    dispatchFocusedPath({ type: 'reset' });
+                    dispatchPath({ type: 'reset' });
+                }
+            };
 
-        const isCurrentListOpen = Boolean(path[0]);
+            const isCurrentListOpen = Boolean(path[0]);
 
-        return (
-            <Root ref={ref} size={size} {...rest}>
-                <StyledPopover
-                    isOpen={isCurrentListOpen}
-                    usePortal={false}
-                    placement="bottom-start"
-                    onToggle={handleGlobalToggle}
-                    trigger="click"
-                    isFocusTrapped={false}
-                    target={<Button text="Список стран" />}
-                    preventOverflow={false}
-                    closeOnOverlayClick
-                >
-                    <Ul role="tree" id="tree_level_1">
-                        {transformedItems.map((item, index) => (
-                            <Inner
-                                key={`${index}/0`}
-                                item={item}
-                                currentLevel={0}
-                                focusedPath={focusedPath}
-                                path={path}
-                                dispatchPath={dispatchPath}
-                                index={index}
-                                handleGlobalToggle={handleGlobalToggle}
-                                checked={checked}
-                                setChecked={setChecked}
-                                multiselect={multiselect}
-                                size={size}
-                            />
-                        ))}
-                    </Ul>
-                </StyledPopover>
-            </Root>
-        );
-    });
+            return (
+                <Root ref={ref} size={size} {...rest}>
+                    <Context.Provider value={{ focusedPath, checked, setChecked, multiselect, size }}>
+                        <StyledPopover
+                            isOpen={isCurrentListOpen}
+                            usePortal={false}
+                            placement="bottom-start"
+                            onToggle={handleToggle}
+                            trigger="click"
+                            isFocusTrapped={false}
+                            target={<Button text="Список стран" />}
+                            preventOverflow={false}
+                            closeOnOverlayClick
+                        >
+                            <Ul role="tree" id="tree_level_1">
+                                {transformedItems.map((item, index) => (
+                                    <Inner
+                                        key={`${index}/0`}
+                                        item={item}
+                                        currentLevel={0}
+                                        path={path}
+                                        dispatchPath={dispatchPath}
+                                        index={index}
+                                    />
+                                ))}
+                            </Ul>
+                        </StyledPopover>
+                    </Context.Provider>
+                </Root>
+            );
+        },
+    );
 
 export const selectNewConfig = {
     name: 'SelectNew',

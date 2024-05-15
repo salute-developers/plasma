@@ -1,20 +1,12 @@
-import type { SyntheticEvent, Dispatch } from 'react';
+import type { Dispatch } from 'react';
 
-import type { SelectItemOption } from '../SelectItem/SelectItem.type';
-import type { FocusedPathState } from '../../reducers/focusedPathReducer';
-import type { PathState, PathAction } from '../../reducers/pathReducer';
+import type { ItemOptionTransformed } from '../Item/Item.types';
+import type { PathAction, PathState } from '../../reducers';
 
 export interface SelectInnerProps {
-    item: SelectItemOption;
+    item: ItemOptionTransformed;
     currentLevel: number;
-    focusedPath: FocusedPathState;
     path: PathState;
     dispatchPath: Dispatch<PathAction>;
     index: number;
-    handleGlobalToggle: (opened: boolean, event: Event | SyntheticEvent<Element, Event>) => void;
-
-    checked: any;
-    setChecked: any;
-    multiselect: boolean;
-    size: any;
 }
