@@ -21,6 +21,7 @@ export * from './components/Popover';
 export * from './components/Popup';
 export * from './components/Progress';
 export * from './components/Pagination';
+export * from './components/Range';
 export * from './components/Radiobox';
 export * from './components/Segment';
 export * from './components/Spinner';
