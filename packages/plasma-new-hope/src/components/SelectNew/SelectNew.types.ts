@@ -1,6 +1,6 @@
 import type { CSSProperties, SyntheticEvent, ButtonHTMLAttributes } from 'react';
 
-import { ItemOption } from './elements/Item/Item.props';
+import { ItemOption } from './elements/Item/Item.types';
 
 type IsMultiselect =
     | {

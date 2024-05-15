@@ -6,19 +6,7 @@ import { Ul, StyledPopover } from '../../SelectNew.styles';
 
 import { SelectInnerProps } from './Inner.type';
 
-export const Inner: FC<SelectInnerProps> = ({
-    item,
-    currentLevel,
-    focusedPath,
-    path,
-    dispatchPath,
-    index,
-    handleGlobalToggle,
-    checked,
-    setChecked,
-    multiselect,
-    size,
-}) => {
+export const Inner: FC<SelectInnerProps> = ({ item, currentLevel, path, dispatchPath, index }) => {
     const handleToggle = (opened: boolean): void => {
         if (opened) {
             dispatchPath({ type: 'changed_on_level', value: item.value.toString(), level: currentLevel + 1 });
@@ -44,16 +32,11 @@ export const Inner: FC<SelectInnerProps> = ({
                         item={item}
                         index={index}
                         path={path}
-                        focusedPath={focusedPath}
                         currentLevel={currentLevel}
                         ariaControls={listId}
                         ariaExpanded={isCurrentListOpen}
                         ariaLevel={nextLevel}
                         ariaLabel={item.label}
-                        checked={checked}
-                        setChecked={setChecked}
-                        multiselect={multiselect}
-                        size={size}
                     />
                 }
                 onToggle={handleToggle}
@@ -66,15 +49,9 @@ export const Inner: FC<SelectInnerProps> = ({
                             key={`${innerIndex}/${currentLevel}`}
                             item={innerItem}
                             currentLevel={nextLevel}
-                            focusedPath={focusedPath}
                             path={path}
                             dispatchPath={dispatchPath}
                             index={innerIndex}
-                            handleGlobalToggle={handleGlobalToggle}
-                            checked={checked}
-                            setChecked={setChecked}
-                            multiselect={multiselect}
-                            size={size}
                         />
                     ))}
                 </Ul>
@@ -82,17 +59,5 @@ export const Inner: FC<SelectInnerProps> = ({
         );
     }
 
-    return (
-        <Item
-            item={item}
-            index={index}
-            focusedPath={focusedPath}
-            currentLevel={currentLevel}
-            handleGlobalToggle={handleGlobalToggle}
-            checked={checked}
-            setChecked={setChecked}
-            multiselect={multiselect}
-            size={size}
-        />
-    );
+    return <Item item={item} index={index} currentLevel={currentLevel} />;
 };

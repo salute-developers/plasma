@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, FC } from 'react';
+import React, { useEffect, useRef, FC, useContext } from 'react';
 
 import { classes } from '../../SelectNew.tokens';
 import { cx } from '../../../../utils';
 import { IconDisclosureRight, IconDone } from '../../../_Icon';
+import { useTreeControls } from '../../hooks/useTreeControls';
+import { Context } from '../../SelectNew';
 
 import {
     StyledContentLeft,
@@ -21,19 +23,11 @@ const sizeToIconSize = (size: string) => {
     return 's';
 };
 
-export const Item: FC<any> = ({
-    item,
-    path,
-    focusedPath,
-    currentLevel,
-    index,
-    checked,
-    setChecked,
-    multiselect,
-    size,
-}) => {
+export const Item: FC<any> = ({ item, path, currentLevel, index }) => {
     const { value, label, disabled, isDisabled, contentLeft, contentRight } = item;
     const ref = useRef<HTMLLIElement | null>(null);
+
+    const { focusedPath, checked, setChecked, multiselect, size } = useContext(Context);
 
     const isDisabledClassName = disabled || isDisabled ? classes.dropdownItemIsDisabled : undefined;
     const focusedClass =
@@ -42,7 +36,10 @@ export const Item: FC<any> = ({
             : undefined;
     const activeClass = value === path?.[currentLevel + 1] ? classes.dropdownItemIsActive : undefined;
 
-    const oldChecked = new Map(checked);
+    // Создаем копию, чтобы в нее вносить изменения и в конце сеттить финальный вариант
+    const checkedCopy = new Map(checked);
+
+    const { updateAncestors, updateDescendants, updateSingleAncestors } = useTreeControls(item, checkedCopy);
 
     useEffect(() => {
         if (focusedClass && ref?.current) {
@@ -54,77 +51,24 @@ export const Item: FC<any> = ({
         }
     }, [focusedClass]);
 
-    const updateAncestors = (node: any) => {
-        if (!node.parent) return;
-
-        const { parent } = node;
-        const siblings = parent.items;
-        const siblingsLength = siblings.length;
-        let checkedFromAllSiblings = 0;
-        let isParentIndeterminate = false;
-
-        siblings.forEach((sib) => {
-            if (oldChecked.get(sib.value) === 'indeterminate') {
-                isParentIndeterminate = true;
-                return;
-            }
-
-            if (oldChecked.get(sib.value)) {
-                checkedFromAllSiblings += 1;
-            }
-        });
-
-        if (isParentIndeterminate || (checkedFromAllSiblings > 0 && checkedFromAllSiblings < siblingsLength)) {
-            oldChecked.set(parent.value, 'indeterminate');
-        } else if (checkedFromAllSiblings === 0) {
-            oldChecked.set(parent.value, false);
-        } else {
-            oldChecked.set(parent.value, true);
-        }
-
-        updateAncestors(parent);
-    };
-
-    const updateDescendants = (node: any, isChecked: boolean) => {
-        if (!node.items) return;
-
-        node.items.forEach((item) => {
-            oldChecked.set(item.value, isChecked);
-
-            if (item.items) {
-                updateDescendants(item, isChecked);
-            }
-        });
-    };
-
-    const handleChange = (e) => {
+    const handleCheckboxChange = (e) => {
         e.stopPropagation();
 
-        if (!oldChecked.get(item.value)) {
-            oldChecked.set(item.value, true);
+        if (!checkedCopy.get(item.value)) {
+            checkedCopy.set(item.value, true);
             updateDescendants(item, true);
         } else {
-            oldChecked.set(item.value, false);
+            checkedCopy.set(item.value, false);
             updateDescendants(item, false);
         }
         updateAncestors(item);
 
-        setChecked(oldChecked);
-    };
-
-    const updateSingleAncestors = (node: any, type) => {
-        if (!node.parent) return;
-
-        const { parent } = node;
-
-        oldChecked.set(parent.value, type);
-
-        updateSingleAncestors(parent, type);
+        setChecked(checkedCopy);
     };
 
     const handleClick = (e) => {
         if (multiselect && !item.items) {
-            handleChange(e);
+            handleCheckboxChange(e);
         }
 
         if (item.items || multiselect) {
@@ -133,18 +77,18 @@ export const Item: FC<any> = ({
 
         e.stopPropagation();
 
-        const isCurrentChecked = oldChecked.get(item.value);
+        const isCurrentChecked = checkedCopy.get(item.value);
 
-        oldChecked.forEach((_, key) => {
-            oldChecked.set(key, false);
+        checkedCopy.forEach((_, key) => {
+            checkedCopy.set(key, false);
         });
 
         if (!isCurrentChecked) {
-            oldChecked.set(item.value, 'done');
+            checkedCopy.set(item.value, 'done');
             updateSingleAncestors(item, 'dot');
         }
 
-        setChecked(oldChecked);
+        setChecked(checkedCopy);
     };
 
     return (
@@ -159,15 +103,13 @@ export const Item: FC<any> = ({
                     <StyledCheckbox
                         checked={Boolean(checked.get(item.value))}
                         indeterminate={checked.get(item.value) === 'indeterminate'}
-                        onChange={handleChange}
+                        onChange={handleCheckboxChange}
                     />
                 )}
 
-                {!multiselect && checked.get(item.value) && checked.get(item.value) === 'dot' && (
-                    <StyledIndicator size="s" view="default" />
-                )}
+                {!multiselect && checked.get(item.value) === 'dot' && <StyledIndicator size="s" view="default" />}
 
-                {!multiselect && checked.get(item.value) && checked.get(item.value) === 'done' && (
+                {!multiselect && checked.get(item.value) === 'done' && (
                     <IconDone size={sizeToIconSize(size)} color="inherit" />
                 )}
             </IconWrapper>
