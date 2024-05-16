@@ -34,6 +34,8 @@ import { AvatarGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { AvatarProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BadgeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
+import { BaseCallbackChangeInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
+import { BaseCallbackKeyboardInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BlurProps } from '@salutejs/plasma-core';
 import { blurs } from '@salutejs/plasma-core';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
@@ -69,6 +71,7 @@ import { CellTextbox } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxLabel } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxSubtitle } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxTitle } from '@salutejs/plasma-new-hope/styled-components';
+import { ChangeEvent } from 'react';
 import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
 import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { clearSelection } from '@salutejs/plasma-hope';
@@ -174,6 +177,8 @@ import { ProgressProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
 import { radiuses } from '@salutejs/plasma-core';
+import { RangeProps } from '@salutejs/plasma-new-hope/styled-components';
+import { rangeTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { Ratio } from '@salutejs/plasma-new-hope/styled-components';
 import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
@@ -232,6 +237,7 @@ import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
 import { TextAreaProps } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
 import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
+import { TextfieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import type { TextFieldProps as TextFieldProps_2 } from '@salutejs/plasma-hope';
 import { TextFieldView } from '@salutejs/plasma-hope';
 import { TextSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -1489,6 +1495,138 @@ export { RadioGroup }
 
 export { radiuses }
 
+// @public
+const Range_2: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+disabled: {
+true: string;
+};
+readOnly: {
+true: string;
+};
+}> & (({
+label?: string | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+firstValue?: TextfieldPrimitiveValue | undefined;
+secondValue?: TextfieldPrimitiveValue | undefined;
+firstValueError?: boolean | undefined;
+secondValueError?: boolean | undefined;
+firstValueSuccess?: boolean | undefined;
+secondValueSuccess?: boolean | undefined;
+firstPlaceholder?: string | undefined;
+secondPlaceholder?: string | undefined;
+firstTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+firstTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+firstTextfieldTextAfter?: string | undefined;
+secondTextfieldTextAfter?: string | undefined;
+view?: string | undefined;
+size?: string | undefined;
+readOnly?: boolean | undefined;
+disabled?: boolean | undefined;
+onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
+onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
+onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
+onSearchSecondValue?: BaseCallbackKeyboardInstance | undefined;
+onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onBlurSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+} & {
+firstTextfieldTextBefore: string;
+secondTextfieldTextBefore: string;
+dividerVariant?: "none" | undefined;
+dividerIcon?: undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLInputElement>) | ({
+label?: string | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+firstValue?: TextfieldPrimitiveValue | undefined;
+secondValue?: TextfieldPrimitiveValue | undefined;
+firstValueError?: boolean | undefined;
+secondValueError?: boolean | undefined;
+firstValueSuccess?: boolean | undefined;
+secondValueSuccess?: boolean | undefined;
+firstPlaceholder?: string | undefined;
+secondPlaceholder?: string | undefined;
+firstTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+firstTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+firstTextfieldTextAfter?: string | undefined;
+secondTextfieldTextAfter?: string | undefined;
+view?: string | undefined;
+size?: string | undefined;
+readOnly?: boolean | undefined;
+disabled?: boolean | undefined;
+onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
+onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
+onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
+onSearchSecondValue?: BaseCallbackKeyboardInstance | undefined;
+onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onBlurSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+} & {
+dividerVariant?: "dash" | undefined;
+dividerIcon?: undefined;
+firstTextfieldTextBefore?: string | undefined;
+secondTextfieldTextBefore?: string | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLInputElement>) | ({
+label?: string | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+firstValue?: TextfieldPrimitiveValue | undefined;
+secondValue?: TextfieldPrimitiveValue | undefined;
+firstValueError?: boolean | undefined;
+secondValueError?: boolean | undefined;
+firstValueSuccess?: boolean | undefined;
+secondValueSuccess?: boolean | undefined;
+firstPlaceholder?: string | undefined;
+secondPlaceholder?: string | undefined;
+firstTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+firstTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+firstTextfieldTextAfter?: string | undefined;
+secondTextfieldTextAfter?: string | undefined;
+view?: string | undefined;
+size?: string | undefined;
+readOnly?: boolean | undefined;
+disabled?: boolean | undefined;
+onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
+onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
+onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
+onSearchSecondValue?: BaseCallbackKeyboardInstance | undefined;
+onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onBlurSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+} & {
+dividerIcon?: ReactNode;
+dividerVariant?: "icon" | undefined;
+firstTextfieldTextBefore?: string | undefined;
+secondTextfieldTextBefore?: string | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLInputElement>))>;
+export { Range_2 as Range }
+
+export { RangeProps }
+
+export { rangeTokens }
+
 export { Ratio }
 
 export { RectSkeleton }
@@ -1741,6 +1879,8 @@ true: string;
     leftHelper?: string | undefined;
     contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
     contentRight?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
     onSearch?: ((value: string, event?: React_2.KeyboardEvent<HTMLInputElement> | undefined) => void) | undefined;
 } & {
     chips?: undefined;
@@ -1758,6 +1898,8 @@ true: string;
     leftHelper?: string | undefined;
     contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
     contentRight?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
     onSearch?: ((value: string, event?: React_2.KeyboardEvent<HTMLInputElement> | undefined) => void) | undefined;
 } & {
     enumerationType: "chip";
