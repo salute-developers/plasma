@@ -1,11 +1,11 @@
 import { styled } from '@linaria/react';
 
-import { classes, tokens } from '../../SelectNew.tokens';
-import { addFocus, applyEllipsis } from '../../../../mixins';
-import { component, mergeConfig } from '../../../../engines';
-import { checkboxConfig } from '../../../Checkbox';
-import { indicatorConfig, indicatorTokens } from '../../../Indicator';
-import { selectNewTokens } from '../../index';
+import { classes, tokens } from '../../../../SelectNew.tokens';
+import { addFocus, applyEllipsis } from '../../../../../../mixins';
+import { component, mergeConfig } from '../../../../../../engines';
+import { checkboxConfig } from '../../../../../Checkbox';
+import { indicatorConfig, indicatorTokens } from '../../../../../Indicator';
+import { selectNewTokens } from '../../../../index';
 
 const mergedCheckboxConfig = mergeConfig(checkboxConfig);
 const Checkbox = component(mergedCheckboxConfig);

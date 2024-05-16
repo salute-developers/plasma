@@ -2,12 +2,12 @@ import React, { forwardRef, useReducer, useState, useMemo, createContext } from 
 
 import { RootProps } from '../../engines';
 import type { HandleGlobalToggleType } from '../Dropdown/Dropdown.types';
-import { Button } from '../../examples/plasma_b2c/components/Button/Button';
 
 import { initialItemsTransform } from './utils';
 import { Inner } from './elements/Inner/Inner';
+import { Target } from './elements/Target/Target';
 import { pathReducer, focusedPathReducer } from './reducers';
-import { useHashMaps } from './hooks/useHashMaps';
+import { usePathMaps } from './hooks/usePathMaps';
 import { StyledPopover, Ul } from './SelectNew.styles';
 import type { SelectNewProps } from './SelectNew.types';
 import { base as viewCSS } from './variations/_view/base';
@@ -23,6 +23,7 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
         (
             {
                 multiselect = false,
+                target = 'button',
                 separator,
                 value,
                 onChange,
@@ -44,11 +45,14 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
             const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
 
             const transformedItems = useMemo(() => initialItemsTransform(items), [items]);
-            const [pathMap, focusedToValueMap, checkedMap] = useHashMaps(transformedItems);
+            const [pathMap, focusedToValueMap, checkedMap, valueToItemMap] = usePathMaps(transformedItems);
 
             const [checked, setChecked] = useState(checkedMap);
 
-            console.log('checked', checked);
+            const [values, setValues] = useState<Array<any>>([]);
+
+            // console.log('checked', checked);
+            console.log('values', values);
 
             const handleToggle: HandleGlobalToggleType = (opened) => {
                 if (opened) {
@@ -63,7 +67,9 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
 
             return (
                 <Root ref={ref} size={size} {...rest}>
-                    <Context.Provider value={{ focusedPath, checked, setChecked, multiselect, size }}>
+                    <Context.Provider
+                        value={{ focusedPath, checked, setChecked, multiselect, size, setValues, valueToItemMap }}
+                    >
                         <StyledPopover
                             isOpen={isCurrentListOpen}
                             usePortal={false}
@@ -71,7 +77,19 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
                             onToggle={handleToggle}
                             trigger="click"
                             isFocusTrapped={false}
-                            target={<Button text="Список стран" />}
+                            target={
+                                <Target
+                                    opened={isCurrentListOpen}
+                                    target={target}
+                                    values={values}
+                                    label="Label"
+                                    disabled={disabled}
+                                    size={size}
+                                    id="custom_id"
+                                    onChange={() => {}}
+                                    onKeyDown={() => {}}
+                                />
+                            }
                             preventOverflow={false}
                             closeOnOverlayClick
                         >

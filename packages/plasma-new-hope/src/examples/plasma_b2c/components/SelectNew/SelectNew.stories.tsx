@@ -20,6 +20,12 @@ const meta: Meta<StorySelectNewProps> = {
     decorators: [WithTheme],
     component: SelectNew,
     argTypes: {
+        target: {
+            options: ['button', 'textfield'],
+            control: {
+                type: 'select',
+            },
+        },
         placement: {
             options: placements,
             control: {
@@ -46,6 +52,7 @@ const meta: Meta<StorySelectNewProps> = {
         },
     },
     args: {
+        target: 'button',
         multiselect: false,
         trigger: 'click',
         offset: [0, 0],

@@ -1,6 +1,8 @@
 import { KeyboardEvent } from 'react';
 
-import type { SelectPrimitiveValue, TargetType } from '../../Select.types';
+import { SelectNewProps } from '../../SelectNew.types';
+
+export type SelectPrimitiveValue = string | number | boolean;
 
 export interface SelectTargetProps {
     /**
@@ -20,7 +22,7 @@ export interface SelectTargetProps {
     /**
      * Вид элемента, рядом с которым появляется список.
      */
-    target?: TargetType;
+    target?: SelectNewProps['target'];
     /**
      * Текст лейбла.
      */
@@ -40,7 +42,7 @@ export interface SelectTargetProps {
     /**
      * Выбранные значения.
      */
-    values?: Array<Array<SelectPrimitiveValue>>;
+    values?: any;
     /**
      * Ref для компонент чипов.
      */

@@ -4,8 +4,8 @@ import { IconChevronDown } from '../../../_Icon';
 import { addFocus, applyEllipsis } from '../../../../mixins';
 import { component, mergeConfig } from '../../../../engines';
 import { buttonConfig, buttonTokens } from '../../../Button';
-import { classes, tokens } from '../../Select.tokens';
-import type { TargetType } from '../../Select.types';
+import { classes } from '../Target/Target';
+import { tokens } from '../../SelectNew.tokens';
 
 const {
     hasChips,
@@ -21,7 +21,7 @@ const mergedButtonConfig = mergeConfig(buttonConfig);
 const Button = component(mergedButtonConfig);
 
 // NOTE: Необходимое переопределение токенов из компонента Button т.к. используются его части
-export const StyledSelectTarget = styled(Button)<{ target?: TargetType; opened?: boolean }>`
+export const StyledSelectTarget = styled(Button)<{ target?: any; opened?: boolean }>`
     ${buttonTokens.buttonDisabledOpacity}: var(${tokens.disabledOpacity});
     ${buttonTokens.buttonColor}: var(${tokens.targetColor});
     ${buttonTokens.buttonBackgroundColor}: ${({ opened }) =>

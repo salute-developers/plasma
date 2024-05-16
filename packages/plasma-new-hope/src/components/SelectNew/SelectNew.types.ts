@@ -1,6 +1,27 @@
 import type { CSSProperties, SyntheticEvent, ButtonHTMLAttributes } from 'react';
 
-import { ItemOption } from './elements/Item/Item.types';
+import { ItemOption } from './elements/Inner/elements/Item/Item.types';
+
+type Target =
+    | {
+          target: 'button';
+          view:
+              | 'default'
+              | 'accent'
+              | 'secondary'
+              | 'clear'
+              | 'positive'
+              | 'warning'
+              | 'negative'
+              | 'dark'
+              | 'black'
+              | 'white';
+      }
+    | {
+          target: 'textfield';
+          view: 'default' | 'positive' | 'warning' | 'negative';
+          isLabelInner?: boolean;
+      };
 
 type IsMultiselect =
     | {
@@ -65,8 +86,12 @@ type BasicProps = {
      * Вид компонента.
      */
     view?: string;
+
+    target?: 'button' | 'textfield';
+    label?: string;
 };
 
-export type SelectNewProps = BasicProps &
+export type SelectNewProps = Target &
+    BasicProps &
     IsMultiselect &
     Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onResize' | 'onResizeCapture' | 'nonce'>;

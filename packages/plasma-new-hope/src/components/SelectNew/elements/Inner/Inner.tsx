@@ -1,9 +1,9 @@
 import React from 'react';
 import type { FC } from 'react';
 
-import { Item } from '../Item/Item';
 import { Ul, StyledPopover } from '../../SelectNew.styles';
 
+import { Item } from './elements/Item/Item';
 import { SelectInnerProps } from './Inner.type';
 
 export const Inner: FC<SelectInnerProps> = ({ item, currentLevel, path, dispatchPath, index }) => {
