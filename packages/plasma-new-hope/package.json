@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-new-hope",
-  "version": "0.77.0",
+  "version": "0.80.0-dev.0",
   "description": "Salute Design System blueprint",
   "main": "cjs/index.js",
   "module": "es/index.js",
@@ -65,7 +65,7 @@
     "@ironkinoko/rollup-plugin-styles": "^4.0.3",
     "@linaria/rollup": "5.0.4",
     "@linaria/vite": "5.0.4",
-    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@salutejs/plasma-sb-utils": "0.157.0",

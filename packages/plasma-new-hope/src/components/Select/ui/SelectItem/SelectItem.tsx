@@ -1,10 +1,10 @@
-import { dropdownItemRoot } from '../../../Dropdown';
+import { dropdownItemOldRoot } from '../../../Dropdown';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base } from './SelectItem.styles';
 
-export const selectItemRoot = dropdownItemRoot;
+export const selectItemRoot = dropdownItemOldRoot;
 
 export const selectItemConfig = {
     name: 'SelectItem',

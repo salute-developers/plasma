@@ -44,7 +44,7 @@ import { ComboboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ComponentClass } from 'react';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
-import { CustomDropdownProps } from '@salutejs/plasma-new-hope/types/components/Dropdown/Dropdown.types';
+import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
@@ -52,9 +52,7 @@ import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components'
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerProps } from '@salutejs/plasma-new-hope/styled-components';
-import { DropdownPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { DropdownProps } from '@salutejs/plasma-new-hope/styled-components';
-import { DropdownTrigger } from '@salutejs/plasma-new-hope/styled-components';
 import { dsplL } from '@salutejs/sdds-themes/tokens';
 import { dsplLBold } from '@salutejs/sdds-themes/tokens';
 import { dsplM } from '@salutejs/sdds-themes/tokens';
@@ -90,7 +88,11 @@ import { ModalProps } from '@salutejs/plasma-new-hope/styled-components';
 import { MouseEvent as MouseEvent_2 } from 'react';
 import { Overlay } from '@salutejs/plasma-new-hope/styled-components';
 import { OverlayProps } from '@salutejs/plasma-new-hope/styled-components';
+import { PaginationProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PanelProps } from '@salutejs/plasma-new-hope/types/components/Panel';
+import { PopoverPlacement } from '@salutejs/plasma-new-hope/styled-components';
+import { PopoverProps } from '@salutejs/plasma-new-hope/styled-components';
+import { PopoverTrigger } from '@salutejs/plasma-new-hope/styled-components';
 import { popupClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupInfo } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupPlacement } from '@salutejs/plasma-new-hope/styled-components';
@@ -629,7 +631,7 @@ export { DrawerHeaderProps }
 
 export { DrawerProps }
 
-// @public
+// @public (undocumented)
 export const Dropdown: FunctionComponent<PropsType<    {
 size: {
 xs: string;
@@ -640,32 +642,9 @@ l: string;
 view: {
 default: string;
 };
-}> & HTMLAttributes<HTMLDivElement> & CustomDropdownProps & RefAttributes<HTMLDivElement>>;
-
-// @public
-export const DropdownItem: FunctionComponent<PropsType<Variants> & Omit<HTMLAttributes<HTMLDivElement>, "onSelect"> & {
-id?: string | undefined;
-disabled?: boolean | undefined;
-label?: ReactNode;
-role?: string | undefined;
-contentLeft?: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ReactFragment | ReactPortal | ComponentClass<any, any> | null | undefined;
-contentRight?: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ReactFragment | ReactPortal | ComponentClass<any, any> | null | undefined;
-name?: string | undefined;
-checked?: boolean | undefined;
-text?: string | undefined;
-value?: string | number | boolean | undefined;
-isSelected?: boolean | undefined;
-onClick?: ((event: MouseEvent_2<HTMLDivElement, MouseEvent>) => void) | undefined;
-onSelect?: ((value?: any, text?: any) => void) | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
-
-export { DropdownPlacement }
+}> & DropdownProps & RefAttributes<HTMLDivElement>>;
 
 export { DropdownProps }
-
-export { DropdownTrigger }
 
 // @public (undocumented)
 export const DsplL: FunctionComponent<PropsType<    {
@@ -852,6 +831,45 @@ export { ModalProps }
 export { Overlay }
 
 export { OverlayProps }
+
+// @public
+export const Pagination: FunctionComponent<PropsType<    {
+view: {
+secondary: string;
+clear: string;
+default: string;
+};
+viewCurrentPage: {
+default: string;
+secondary: string;
+clear: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+type: {
+compact: string;
+default: string;
+};
+}> & PaginationProps & RefAttributes<HTMLDivElement>>;
+
+export { PaginationProps }
+
+// @public (undocumented)
+export const Popover: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+}> & HTMLAttributes<HTMLDivElement> & CustomPopoverProps & RefAttributes<HTMLDivElement>>;
+
+export { PopoverPlacement }
+
+export { PopoverProps }
+
+export { PopoverTrigger }
 
 // @public
 export const Popup: ForwardRefExoticComponent<PopupProps & RefAttributes<HTMLDivElement>>;
@@ -1178,7 +1196,7 @@ chips?: undefined;
 onChangeChips?: undefined;
 enumerationType?: "plain" | undefined;
 onSearch?: ((value: string, event?: KeyboardEvent_2<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & RefAttributes<HTMLDivElement>) | ({
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & RefAttributes<HTMLInputElement>) | ({
 size?: string | undefined;
 view?: string | undefined;
 readOnly?: boolean | undefined;
@@ -1195,7 +1213,7 @@ enumerationType: "chip";
 onSearch?: undefined;
 chips?: TextFieldPrimitiveValue[] | undefined;
 onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & RefAttributes<HTMLDivElement>))>;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & RefAttributes<HTMLInputElement>))>;
 
 export { TextFieldProps }
 

@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import type { ChangeEventHandler } from 'react';
-import { safeUseId } from '@salutejs/plasma-core';
+import { safeUseId, useForkRef } from '@salutejs/plasma-core';
 import { css } from '@linaria/core';
 
 import type { RootProps } from '../../engines';
@@ -24,7 +24,7 @@ import {
 } from './TextField.styles';
 import { classes } from './TextField.tokens';
 import { TextFieldChip } from './ui';
-import { useKeyNavigation } from './hooks/useKeyNavigation';
+import { useKeyNavigation } from './hooks';
 
 export const base = css`
     /* NOTE: Webkit не применяет opacity к inline тегам */
@@ -33,7 +33,7 @@ export const base = css`
 `;
 
 export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =>
-    forwardRef<HTMLDivElement, TextFieldProps>(
+    forwardRef<HTMLInputElement, TextFieldProps>(
         (
             {
                 id,
@@ -67,6 +67,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
         ) => {
             const contentRef = useRef<HTMLDivElement>(null);
             const inputRef = useRef<HTMLInputElement>(null);
+            const inputForkRef = useForkRef(inputRef, ref);
             const chipsRefs = useRef<Array<HTMLButtonElement>>([]);
 
             const controlledRefs = { contentRef, inputRef, chipsRefs };
@@ -133,6 +134,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                     block: 'center',
                     inline: 'center',
                 });
+
                 inputRef.current.focus({ preventScroll: true });
             };
 
@@ -158,7 +160,6 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
 
             return (
                 <Root
-                    ref={ref}
                     view={view}
                     size={size}
                     disabled={disabled}
@@ -202,7 +203,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldProps>) =
                             )}
                             <Input
                                 {...rest}
-                                ref={inputRef}
+                                ref={inputForkRef}
                                 id={innerId}
                                 aria-labelledby={labelId}
                                 aria-describedby={helperTextId}

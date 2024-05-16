@@ -96,6 +96,7 @@ const getState = (values: Record<string, boolean | undefined>, value: string) =>
 const StoryDefault = (props: CheckboxProps) => {
     return (
         <>
+            <Checkbox {...props} />
             <Checkbox name="item.name" value="item.value" label="Label" description="Description" {...props} />
             <Checkbox
                 name="item.name"

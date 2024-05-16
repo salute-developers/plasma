@@ -69,6 +69,7 @@ import { CellTextbox } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxLabel } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxSubtitle } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxTitle } from '@salutejs/plasma-new-hope/styled-components';
+import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
 import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { clearSelection } from '@salutejs/plasma-hope';
 import { closeNotification } from '@salutejs/plasma-new-hope/styled-components';
@@ -100,7 +101,7 @@ import { DropdownItemProps } from '@salutejs/plasma-hope';
 import { DropdownItem as DropdownItemType } from '@salutejs/plasma-hope';
 import { DropdownNodeType } from '@salutejs/plasma-hope';
 import { DropdownPopupProps } from '@salutejs/plasma-hope';
-import { DropdownProps } from '@salutejs/plasma-hope';
+import { DropdownProps } from '@salutejs/plasma-new-hope/styled-components';
 import { Editable } from '@salutejs/plasma-hope';
 import { EditableProps } from '@salutejs/plasma-hope';
 import { ElasticGrid } from '@salutejs/plasma-hope';
@@ -219,7 +220,6 @@ import { StyledComponent } from 'styled-components';
 import { StyledPreviewGallery } from '@salutejs/plasma-hope';
 import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
 import type { SwitchProps } from '@salutejs/plasma-core';
-import { SyntheticEvent } from 'react';
 import { syntheticFocus } from '@salutejs/plasma-core';
 import { TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
@@ -711,7 +711,7 @@ true: string;
 focused: {
 true: string;
 };
-}> & Filter<InputHTMLAttributes<HTMLInputElement>, "size"> & BaseboxProps & RefAttributes<HTMLInputElement>>;
+}> & CheckboxProps_2 & RefAttributes<HTMLInputElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "CheckboxComponent" needs to be exported by the entry point index.d.ts
 //
@@ -773,11 +773,11 @@ l: string;
 view: {
 default: string;
 };
-}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "target" | "onChange" | "size" | "value" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
+}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "target" | "onChange" | "size" | "value" | "checked" | "maxLength" | "minLength"> & CustomComboboxProps & {
 valueType?: "single" | undefined;
 value?: ComboboxPrimitiveValue | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue | undefined) => void) | undefined;
-} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "target" | "onChange" | "size" | "value" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
+} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "target" | "onChange" | "size" | "value" | "checked" | "maxLength" | "minLength"> & CustomComboboxProps & {
 valueType: "multiple";
 value?: ComboboxPrimitiveValue[] | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue[] | undefined) => void) | undefined;
@@ -952,7 +952,17 @@ export { DrawerHeaderProps }
 export { DrawerProps }
 
 // @public (undocumented)
-export const Dropdown: React_2.ForwardRefExoticComponent<DropdownProps & React_2.RefAttributes<HTMLDivElement>>;
+export const Dropdown: FunctionComponent<PropsType<    {
+size: {
+xs: string;
+s: string;
+m: string;
+l: string;
+};
+view: {
+default: string;
+};
+}> & DropdownProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const DropdownItem: React_2.ForwardRefExoticComponent<DropdownItemProps & React_2.RefAttributes<HTMLDivElement>>;
@@ -972,11 +982,6 @@ export const DropdownPopup: React_2.ForwardRefExoticComponent<DropdownPopupProps
 export { DropdownPopupProps }
 
 export { DropdownProps }
-
-// Warning: (ae-forgotten-export) The symbol "AdditionalProps" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export const DropdownUncontrolled: React_2.ForwardRefExoticComponent<DropdownProps & AdditionalProps & React_2.RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const DsplL: FunctionComponent<PropsType<    {
@@ -1122,6 +1127,38 @@ size: {
 headline5: string;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
+
+// @public
+export const IconButton: FunctionComponent<PropsType<    {
+view: {
+default: string;
+accent: string;
+secondary: string;
+clear: string;
+success: string;
+warning: string;
+critical: string;
+dark: string;
+black: string;
+white: string;
+};
+size: {
+l: string;
+lr: string;
+m: string;
+mr: string;
+s: string;
+sr: string;
+xs: string;
+xsr: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & ButtonProps<HTMLElement> & RefAttributes<HTMLButtonElement>>;
 
 // @public
 const Image_2: FunctionComponent<PropsType<Variants> & ImgHTMLAttributes<HTMLImageElement> & {
@@ -1694,7 +1731,7 @@ true: string;
     onChangeChips?: undefined;
     enumerationType?: "plain" | undefined;
     onSearch?: ((value: string, event?: React_2.KeyboardEvent<HTMLInputElement> | undefined) => void) | undefined;
-} & Omit<React_2.InputHTMLAttributes<HTMLInputElement>, "size"> & React_2.RefAttributes<HTMLDivElement>) | ({
+} & Omit<React_2.InputHTMLAttributes<HTMLInputElement>, "size"> & React_2.RefAttributes<HTMLInputElement>) | ({
     size?: string | undefined;
     view?: string | undefined;
     readOnly?: boolean | undefined;
@@ -1711,7 +1748,7 @@ true: string;
     onSearch?: undefined;
     chips?: TextFieldPrimitiveValue[] | undefined;
     onChangeChips?: ((value: TextFieldPrimitiveValue[]) => void) | undefined;
-} & Omit<React_2.InputHTMLAttributes<HTMLInputElement>, "size"> & React_2.RefAttributes<HTMLDivElement>)), "enumerationType" | "chips" | "onChangeChips"> & React_2.RefAttributes<HTMLInputElement>>;
+} & Omit<React_2.InputHTMLAttributes<HTMLInputElement>, "size"> & React_2.RefAttributes<HTMLInputElement>)), "enumerationType" | "chips" | "onChangeChips"> & React_2.RefAttributes<HTMLInputElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "newHopeTextFieldProps" needs to be exported by the entry point index.d.ts
 //

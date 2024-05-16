@@ -1,11 +1,11 @@
 import React, { forwardRef, SyntheticEvent } from 'react';
 import { DropdownItemProps } from '@salutejs/plasma-hope';
-import { component, dropdownItemConfig, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { component, dropdownItemOldConfig, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
 import styled from 'styled-components';
 import { IconDone } from '@salutejs/plasma-icons';
 import { accent } from '@salutejs/plasma-core';
 
-const mergedItemConfig = mergeConfig(dropdownItemConfig);
+const mergedItemConfig = mergeConfig(dropdownItemOldConfig);
 export const DropdownNewHopeItem = component(mergedItemConfig);
 
 const StyledCheck = styled(IconDone)`

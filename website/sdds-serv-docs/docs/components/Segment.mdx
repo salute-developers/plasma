@@ -25,8 +25,8 @@ import { PropsTable, Description } from '@site/src/components';
 Внутри данного провайдера есть доступ к хуку `useSegment`.
 
 ```tsx live
-import React, { useState } from 'react';
-import { SegmentGroup, SegmentItem, SegmentProvider } from '@salutejs/sdds-serv';
+import React from 'react';
+import { SegmentGroup, SegmentItem, SegmentProvider, useSegment } from '@salutejs/sdds-serv';
 
 export function App() {
     const items = Array(8).fill(0);

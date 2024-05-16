@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
 import { DropdownPopupProps } from '@salutejs/plasma-hope';
-import { component, dropdownConfig, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { component, dropdownOldConfig, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
 
-import { config } from '../Dropdown.config';
+import { config } from './DropdownOld.config';
 
-const mergedConfig = mergeConfig(dropdownConfig, config);
+const mergedConfig = mergeConfig(dropdownOldConfig, config);
 const DropdownNewHope = component(mergedConfig);
 
 export const DropdownPopup = forwardRef<HTMLDivElement, DropdownPopupProps>((props, ref) => {

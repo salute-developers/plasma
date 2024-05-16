@@ -1,34 +1,62 @@
-import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
 import { classes, tokens } from '../../Dropdown.tokens';
 import { addFocus, applyEllipsis } from '../../../../mixins';
+import { DropdownProps } from '../../Dropdown.types';
 
 export const StyledContentLeft = styled.div`
     display: inline-flex;
-
-    min-width: var(${tokens.itemContentLeftWidth});
-    color: var(${tokens.itemContentLeftColor});
 `;
 
 export const StyledContentRight = styled.div`
     margin-left: auto;
     display: inline-flex;
+`;
 
-    min-width: var(${tokens.itemContentRightWidth});
-    color: var(${tokens.itemContentRightColor});
+export const DisclosureIconWrapper = styled.div`
+    line-height: 0;
+    color: var(${tokens.disclosureIconColor});
 `;
 
 export const StyledText = styled.div`
     ${applyEllipsis()};
+    flex: 1;
 `;
 
-// INFO: Для возможности переиспользования стилей в других компонентах
-export const baseContent = `
-    box-sizing: content-box;
+export const Wrapper = styled.li<{ variant: DropdownProps['variant'] }>`
     display: flex;
     align-items: center;
+    margin: 0;
+    box-sizing: content-box;
+    padding-top: ${({ variant }) => `var(${variant === 'tight' ? tokens.itemPaddingTopTight : tokens.itemPaddingTop})`};
+    padding-right: var(${tokens.itemPaddingRight});
+    padding-bottom: ${({ variant }) =>
+        `var(${variant === 'tight' ? tokens.itemPaddingBottomTight : tokens.itemPaddingBottom})`};
+    padding-left: var(${tokens.itemPaddingLeft});
+    font-family: var(${tokens.itemFontFamily});
+    font-size: var(${tokens.itemFontSize});
+    font-style: var(${tokens.itemFontStyle});
+    font-weight: var(${tokens.itemFontWeightBold});
+    letter-spacing: var(${tokens.itemFontLetterSpacing});
+    line-height: var(${tokens.itemFontLineHeight});
+    background: var(${tokens.itemBackground});
+    color: var(${tokens.itemColor});
+    border-radius: var(${tokens.itemBorderRadius});
     user-select: none;
+
+    &:hover:not(.${classes.dropdownItemIsDisabled}) {
+        cursor: pointer;
+        background: var(${tokens.itemBackgroundHover});
+    }
+
+    &.${classes.dropdownItemIsActive} {
+        background: var(${tokens.itemBackgroundHover});
+    }
+
+    &.${classes.dropdownItemIsDisabled} {
+        opacity: var(${tokens.disabledOpacity});
+        cursor: not-allowed;
+    }
 
     :focus {
         outline: none;
@@ -40,50 +68,11 @@ export const baseContent = `
         outlineColor: `var(${tokens.focusColor})`,
         outlineRadius: `var(${tokens.itemBorderRadius})`,
         hasTransition: false,
+        customFocusRules: `
+            &.${classes.dropdownItemIsFocused}:before {
+                outline: none;
+                box-shadow: 0 0 0 0.0625rem var(${tokens.focusColor});
+            }
+        `,
     })};
-
-    width: 100%;
-
-    font-family: var(${tokens.itemFontFamily});
-    font-size: var(${tokens.itemFontSize});
-    font-style: var(${tokens.itemFontStyle});
-    font-weight: var(${tokens.itemFontWeightBold});
-    letter-spacing: var(${tokens.itemFontLetterSpacing});
-    line-height: var(${tokens.itemFontLineHeight});
-
-    background: var(${tokens.itemBackground});
-    color: var(${tokens.itemColor});
-    border-radius: var(${tokens.itemBorderRadius});
-
-    width: var(${tokens.itemWidth});
-    height: var(${tokens.itemHeight});
-
-    padding: var(${tokens.itemPaddingTop}) var(${tokens.itemPaddingRight}) var(${tokens.itemPaddingBottom})
-        var(${tokens.itemPaddingLeft});
-
-    margin: var(${tokens.itemMarginTop}) var(${tokens.itemMarginRight}) var(${tokens.itemMarginBottom})
-        var(${tokens.itemMarginLeft});
-
-    &:hover:not(.${classes.dropdownItemIsDisabled}) {
-        cursor: pointer;
-        background: var(${tokens.itemBackgroundHover});
-    }
-
-    &.${String(classes.dropdownItemIsSelected)} {
-        color: var(${tokens.itemColorSelected});
-        background: var(${tokens.itemBackgroundSelected});
-
-        &:hover:not(.${classes.dropdownItemIsDisabled}) {
-            background: var(${tokens.itemBackgroundSelectedHover});
-        }
-    }
-
-    &.${classes.dropdownItemIsDisabled} {
-        opacity: var(${tokens.disabledOpacity});
-        cursor: not-allowed;
-    }
-`;
-
-export const base = css`
-    ${baseContent};
 `;

@@ -1,60 +1,68 @@
-import type { HTMLAttributes, ReactNode, MouseEvent, ElementType } from 'react';
+import type { HTMLAttributes, ReactNode, SyntheticEvent } from 'react';
 
-type DropdownItemCustomProps = {
+import { DropdownProps } from '../../Dropdown.types';
+import type { FocusedPathState } from '../../reducers/focusedPathReducer';
+import type { PathState } from '../../reducers/pathReducer';
+
+export type DropdownItemOption = {
     /**
-     * Уникальный идентификатор элемента
+     *  Значение у item
      */
-    id?: string;
+    value: string | number;
     /**
-     * Компонент не активен
+     * Метка-подпись к item
+     */
+    label: string;
+    /**
+     * Список дочерних items.
+     */
+    items?: Array<DropdownItemOption>;
+    /**
+     * Item не активен
      */
     disabled?: boolean;
     /**
-     * Метка-подпись к элементу
-     */
-    label?: ReactNode;
-    /**
-     * WAI-ARIA role элемента меню
-     */
-    role?: string;
-    /**
      * Слот для контента слева
      */
-    contentLeft?: ElementType | ReactNode;
+    contentLeft?: ReactNode;
     /**
      * Слот для контента справа
      */
-    contentRight?: ElementType | ReactNode;
+    contentRight?: ReactNode;
     /**
-     *  Название слота контента
+     * Выбранный item.
+     * @deprecated использовать ContentLeft || ContentRight
      */
-    name?: string;
+    isActive?: boolean;
     /**
-     *  Отмечен ли данный элемент
+     * Кастомный цвет текста
+     * @deprecated
      */
-    checked?: boolean;
+    color?: string;
     /**
-     *  Содержимое контента
+     * Айтем не активен
+     * @deprecated использовать disabled
      */
-    text?: string;
-    /**
-     *  Значение контента
-     */
-    value?: string | number | boolean;
-    /**
-     *  Значение контента
-     */
-    isSelected?: boolean;
-    /**
-     *  Коллбек при клике на элемент
-     */
-    onClick?: (event: MouseEvent<HTMLDivElement>) => void;
-    /**
-     *  Коллбек при выборе элемента
-     */
-    onSelect?: (value?: any, text?: any) => void;
-    size?: string;
-    view?: string;
+    isDisabled?: boolean;
 };
 
-export type DropdownItemProps = Omit<HTMLAttributes<HTMLDivElement>, 'onSelect'> & DropdownItemCustomProps;
+export interface DropdownItemProps extends HTMLAttributes<HTMLLIElement> {
+    item: DropdownItemOption;
+    focusedPath: FocusedPathState;
+    currentLevel: number;
+    index: number;
+    variant: DropdownProps['variant'];
+    path?: PathState;
+    itemRole?: DropdownProps['itemRole'];
+    closeOnSelect?: DropdownProps['closeOnSelect'];
+    handleGlobalToggle?: (opened: boolean, event: Event | SyntheticEvent<Element, Event>) => void;
+    onHover?: DropdownProps['onHover'];
+    onItemSelect?: DropdownProps['onItemSelect'];
+    onItemClick?: DropdownProps['onItemClick'];
+    hasArrow?: DropdownProps['hasArrow'];
+    ariaControls?: string;
+    ariaExpanded?: boolean;
+    ariaHasPopup?: React.AriaAttributes['aria-haspopup'];
+    ariaLevel?: React.AriaAttributes['aria-level'];
+    ariaLabel?: React.AriaAttributes['aria-label'];
+}

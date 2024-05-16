@@ -1,10 +1,7 @@
 import React, { forwardRef, useMemo } from 'react';
-import { css } from '@linaria/core';
-import { styled } from '@linaria/react';
 import { safeUseId, extractTextFrom } from '@salutejs/plasma-core';
 import type { InputHTMLAttributes } from '@salutejs/plasma-core';
 
-import { applyNoUserSelect, applyEllipsis } from '../../mixins';
 import type { Filter, RootProps } from '../../engines/types';
 import {
     StyledContentWrapper,
@@ -13,73 +10,16 @@ import {
     StyledLabel,
     StyledContent,
     StyledTrigger,
-    BaseboxProps,
-} from '../Checkbox/Checkbox';
+} from '../Checkbox/Checkbox.styles';
+import { BaseboxProps } from '../Checkbox/Checkbox.types';
 import { cx } from '../../utils';
 
-import { base as viewCSS } from './_view/base';
-import { base as sizeCSS } from './_size/base';
-import { base as disabledCSS } from './_disabled/base';
-import { base as focusedCSS } from './_focused/base';
-
-// NOTE: Необходимое переопределение токенов из компонента Checkbox т.к. используются его части
-const mappingOverride = `
-    --plasma-checkbox-label-font-family: var(--plasma-radiobox-label-font-family);
-    --plasma-checkbox-label-font-size: var(--plasma-radiobox-label-font-size);
-    --plasma-checkbox-label-font-style: var(--plasma-radiobox-label-font-style);
-    --plasma-checkbox-label-font-weight: var(--plasma-radiobox-label-font-weight);
-    --plasma-checkbox-label-letter-spacing: var(--plasma-radiobox-label-letter-spacing);
-    --plasma-checkbox-label-line-height: var(--plasma-radiobox-label-line-height);
-    --plasma-checkbox-description-font-family: var(--plasma-radiobox-description-font-family);
-    --plasma-checkbox-description-font-size: var(--plasma-radiobox-description-font-size);
-    --plasma-checkbox-description-font-style: var(--plasma-radiobox-description-font-style);
-    --plasma-checkbox-description-font-weight: var(--plasma-radiobox-description-font-weight);
-    --plasma-checkbox-description-letter-spacing: var(--plasma-radiobox-description-letter-spacing);
-    --plasma-checkbox-description-line-height: var(--plasma-radiobox-description-line-height);
-    --plasma-checkbox-fill-color: var(--plasma-radiobox-fill-color);
-    --plasma-checkbox-description-color: var(--plasma-radiobox-description-color);
-    --plasma-checkbox-trigger-border-color: var(--plasma-radiobox-trigger-border-color);
-    --plasma-checkbox-content-top-offset: var(--plasma-radiobox-content-top-offset);
-    --plasma-checkbox-content-left-offset: var(--plasma-radiobox-content-left-offset);
-    --plasma-checkbox-trigger-size: var(--plasma-radiobox-trigger-size);
-    --plasma-checkbox-trigger-border-radius: var(--plasma-radiobox-trigger-border-radius);
-    --plasma-checkbox-trigger-margin: var(--plasma-radiobox-trigger-margin); 
-`;
-
-const StyledEllipse = styled.div`
-    width: var(--plasma-radiobox-ellipse-size);
-    height: var(--plasma-radiobox-ellipse-size);
-    border-radius: var(--plasma-radiobox-ellipse-size);
-
-    background-color: var(--plasma-radiobox-ellipse-color);
-    transition: transform 0.3s ease-in-out;
-    transform: scale(0);
-
-    input:checked + label & {
-        transform: scale(1);
-    }
-`;
-
-const base = css`
-    ${mappingOverride};
-
-    .single-line {
-        ${applyEllipsis()};
-    }
-
-    margin: var(--plasma-radiobox-margin);
-
-    &.reset-margins {
-        margin: 0;
-    }
-
-    ${applyNoUserSelect()};
-
-    position: relative;
-    align-items: flex-start;
-    display: flex;
-    cursor: pointer;
-`;
+import { base as viewCSS } from './variations/_view/base';
+import { base as sizeCSS } from './variations/_size/base';
+import { base as disabledCSS } from './variations/_disabled/base';
+import { base as focusedCSS } from './variations/_focused/base';
+import { StyledEllipse, base } from './Radiobox.styles';
+import { classes } from './Radiobox.tokens';
 
 type RadioboxProps = Filter<InputHTMLAttributes<HTMLInputElement>, 'size'> & Omit<BaseboxProps, 'indeterminate'>;
 
@@ -109,8 +49,8 @@ export const radioboxRoot = (Root: RootProps<HTMLInputElement, RadioboxProps>) =
         const isLabelAriaHidden = typeof label === 'string';
         const canFocused = focused ? 0 : -1;
         const hasContent = label || description;
-        const singleLineClass = singleLine ? 'single-line' : undefined;
-        const resetMargins = !hasContent ? 'reset-margins' : undefined;
+        const singleLineClass = singleLine ? classes.singleLine : undefined;
+        const onlyDescriptionClass = !label && description ? classes.onlyDescription : undefined;
 
         return (
             <Root
@@ -119,7 +59,7 @@ export const radioboxRoot = (Root: RootProps<HTMLInputElement, RadioboxProps>) =
                 disabled={disabled}
                 focused={focused}
                 style={style}
-                className={cx(className, resetMargins)}
+                className={className}
                 tabIndex={-1}
             >
                 <StyledInput
@@ -133,14 +73,14 @@ export const radioboxRoot = (Root: RootProps<HTMLInputElement, RadioboxProps>) =
                     tabIndex={canFocused}
                 />
                 <StyledContentWrapper htmlFor={radioboxId}>
-                    <StyledTrigger className={cx('radiobox-trigger', resetMargins)}>
+                    <StyledTrigger className={classes.radioboxTrigger}>
                         <StyledEllipse />
                     </StyledTrigger>
                     {hasContent && (
                         <StyledContent className={singleLineClass}>
                             {label && (
                                 <StyledLabel
-                                    className={singleLineClass}
+                                    className={cx(singleLineClass, onlyDescriptionClass)}
                                     id={uniqLabelId}
                                     aria-hidden={isLabelAriaHidden}
                                 >

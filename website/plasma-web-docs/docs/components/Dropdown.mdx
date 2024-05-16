@@ -4,297 +4,336 @@ title: Dropdown
 ---
 
 import { PropsTable, Description, StorybookLink } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Dropdown
-Набор компонентов для создания выпадающих списков. Обладают возможностью управления с клавиатуры (только 1‑й уровень).
+Выпадающий многоуровневый список.
 
 <StorybookLink name="Dropdown" />
 
-## Dropdown
 <Description name="Dropdown" />
 <PropsTable name="Dropdown" />
 
 ## Использование
-Перед использованием выпадающих списков необходимо создать массив с элементами `items: DropdownItemType[]`. Каждый элемент в списке компонента `Dropdown` может иметь надпись, иконку и цвет. Значение поля `value` должно быть уникальным:
+Обязательным параметром является только массив `items`. Внутри items может быть такой же вложенный массив items. Формат следующий:
 
 ```tsx
-const items = [
-    {
+type Items = Array<{
         /**
-         * @type string|number
+         *  Значение у item
          */
-        value: 0,
+        value: string | number;
         /**
-         * @type string
+         * Метка-подпись к item
          */
-        label: 'Надпись',
+        label: string;
         /**
-         * @type ReactNode
+         * Список дочерних items.
          */
-        contentLeft: <IconHeart color="inherit" />,
+        items?: Items;
         /**
-         * @type string
+         * Item не активен
          */
-        color: accent,
+        disabled?: boolean;
         /**
-         * @type boolean
+         * Слот для контента слева
          */
-        isDisabled: false
-    },
-];
+        contentLeft?: ReactNode;
+        /**
+         * Слот для контента справа
+         */
+        contentRight?: ReactNode;
+        /**
+         * Выбранный item.
+         * @deprecated использовать ContentLeft || ContentRight
+         */
+        isActive?: boolean;
+        /**
+         * Кастомный цвет текста
+         * @deprecated
+         */
+        color?: string;
+        /**
+         * Айтем не активен
+         * @deprecated использовать disabled
+         */
+        isDisabled?: boolean;
+    }>;
 ```
 
-### Вызов по клику
-```tsx live
-import React from 'react';
-import { IconEdit, IconTrash, IconCopy } from '@salutejs/plasma-icons';
-import { Button, Dropdown } from '@salutejs/plasma-web';
+## Примеры
 
-export function App() {
-    return (
-        <div style={{ height:"350px", display: 'block' }}>
-            <Dropdown
-                id="example-dropdown-click"
-                items={[
-                    { value: 'edit', label: 'Редактировать', contentLeft: <IconEdit color="inherit" /> },
-                    { value: 'copy', label: 'Копировать', contentLeft: <IconCopy color="inherit" />, isDisabled: true },
-                    { value: 'delete', label: 'Удалить', contentLeft: <IconTrash color="inherit" />, color: "critical" }
-                ]}
-                trigger="click"
-                onItemSelect={(item) => console.log(item)}
-            >
-                <Button text="Опции" />
-            </Dropdown>
-        </div>
-    );
-}
-```
+<Tabs>
+    <TabItem value="default" label="Default" default>
+        ```tsx live
+        import React from 'react';
+        import { Button, Dropdown } from '@salutejs/plasma-web';
 
-> Для обработки выбора элемента используйте callback - `onItemSelect`.
-
-### Вызов по наведению
-
-```tsx live
-import React from 'react';
-import { Button, Dropdown } from '@salutejs/plasma-web';
-
-export function App() {
-    return (
-        <div style={{ height:"350px", display: 'block' }}>
-            <Dropdown
-                id="example-dropdown-hover"
-                items={[
-                    { value: 100001, label: 'Новости'},
-                    { value: 100002, label: 'Каталог' },
-                    { value: 100003, label: 'О нас' },
-                    { value: 100004, label: 'Недоступно' }
-                ]}
-                trigger="hover"
-                onItemSelect={(item) => console.log(item)}
-            >
-                <Button text="Меню" />
-            </Dropdown>
-        </div>
-    );
-}
-```
-
-### Управление высотой выпадающего меню
-Что бы задать высоту и `scroll` для выпадающего меню можно использовать **props** для компонента `Dropdown`:
-- **listOverflow**
-- **listHeight**
-
-> Эти **props** необязательные, если их не указать будет использовано значение - [initial](https://developer.mozilla.org/en-US/docs/Web/CSS/initial)
-
-#### Пример
-```tsx live
-import React from 'react';
-import { IconEdit, IconTrash, IconCopy } from '@salutejs/plasma-icons';
-import { Button, Dropdown } from '@salutejs/plasma-web';
-
-export function App() {
-    return (
-        <section style={{ height:"350px" }}>
-            <Dropdown
-                id="example-dropdown-click"
-                items={[
-                    { value: 'edit', label: 'Редактировать', contentLeft: <IconEdit color="inherit" /> },
-                    { value: 'copy', label: 'Копировать', contentLeft: <IconCopy color="inherit" />, isDisabled: true },
-                    { value: 'delete', label: 'Удалить', contentLeft: <IconTrash color="inherit" />, color: "critical" }
-                ]}
-                trigger="click"
-                onItemSelect={(item) => console.log(item)}
-                listHeight={6}
-                listOverflow="scroll"
-            >
-                <Button text="Опции" />
-            </Dropdown>
-        </section>
-    );
-}
-```
-
-## Пользовательская сборка
-Выпадающие списки допустимо собирать вручную с помощью составных компонентов. Для это этого используйте следующие компоненты:
-
-### DropdownPopup
-<Description name="DropdownPopup" />
-<PropsTable name="DropdownPopup" />
-
-### DropdownList
-<Description name="DropdownList" />
-
-### DropdownItem
-<Description name="DropdownItem" />
-<PropsTable name="DropdownItem" />
-
-### Пример
-```tsx live
-import React, { useState } from 'react';
-import { DropdownPopup, DropdownList, DropdownItem, Button } from '@salutejs/plasma-web';
-import { IconHeart } from '@salutejs/plasma-icons';
-
-export function App() {
-    const [isOpen, setIsOpen] = useState(false);
-
-    return (
-        <div style={{ height:"350px", display: 'block' }}>
-            <DropdownPopup
-                isOpen={isOpen}
-                trigger="click"
-                placement="bottom"
-                onToggle={(is) => setIsOpen(is)}
-                disclosure={<Button text="Меню" />}
-            >
-                <DropdownList>
-                    <DropdownItem value={100001} label="Новости" />
-                    <DropdownItem value={100002} label="Каталог" color="var(--plasma-colors-accent)" />
-                    <DropdownItem
-                        value={100003}
-                        label="О нас"
-                        color="var(--plasma-colors-critical)"
-                        contentLeft={<IconHeart color="inherit" />}
-                    />
-                    <DropdownItem value={100004} label="Недоступно" isDisabled />
-                </DropdownList>
-            </DropdownPopup>
-        </div>
-    );
-}
-```
-
-## Позиционирование
-Помимо стандартных способов расположения, можно также указать значение `auto`, которое будет автоматически определять нужное расположение.
-
-Если необходимо автоматически использовать лишь определенные расположения, то нужно передать массив расположений. Например:
-
-```tsx live
-import React from 'react';
-import { Button, Dropdown } from "@salutejs/plasma-web";
-
-export function App() {
-    return (
-        <div style={{ height:"200px", display: 'flex', flexDirection: 'column' }}>
-            <Dropdown
-                id="example-dropdown-hover-1"
-                items={[
-                { value: 100001, label: "Новости" },
-                { value: 100002, label: "Каталог" }
-                ]}
-                trigger="hover"
-                onItemSelect={(item) => console.log(item)}
-                style={{ margin: '0 0 100px 0' }}
-                placement={['top', 'bottom']}
-            >
-                <Button text="Меню" />
-            </Dropdown>
-            <Dropdown
-                id="example-dropdown-hover-2"
-                items={[
-                { value: 100001, label: "Новости" },
-                { value: 100002, label: "Каталог" }
-                ]}
-                trigger="hover"
-                onItemSelect={(item) => console.log(item)}
-                placement={['top', 'bottom']}
-            >
-                <Button text="Меню" />
-            </Dropdown>
-        </div>
-    );
-}
-```
-
-## Доступность
-Для обеспечения доступности модуль `Dropdown` предлагает компонент высшего порядка `withAssistiveDropdown`, в который можно обернуть компонент-вызыватель, например, кнопку.
-
-Данный хок добавляет к компоненту API выпадающего списка, а также позволяет осуществлять навигацию с помощью клавиатуры.
-
-```tsx live
-import React from 'react';
-import { IconEdit, IconTrash, IconCopy } from '@salutejs/plasma-icons';
-import { withAssistiveDropdown, Button } from '@salutejs/plasma-web';
-
-export function App() {
-    const DropdownButton = withAssistiveDropdown(Button);
-
-    return (
-        <div style={{ height:"350px", display: 'block' }}>
-            <DropdownButton
-                id="example-dropdown-assistive"
-                text="Нажмите"
-                items={[
-                    { value: 'edit', label: 'Редактировать', contentLeft: <IconEdit color="inherit" /> },
-                    { value: 'copy', label: 'Копировать', contentLeft: <IconCopy color="inherit" />, isDisabled: true },
-                    { value: 'delete', label: 'Удалить', contentLeft: <IconTrash color="inherit" />, color: 'critical' }
-                ]}
-            />
-        </div>
-    );
-}
-```
-
-:::caution
-Для обеспечения корректной работы навигации с помощью клавиатуры необходимо указать свойство `id`.
-:::
+        export function App() {
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                            items: [
+                                {
+                                    value: 'rio_de_janeiro',
+                                    label: 'Рио-де-Жанейро',
+                                },
+                                {
+                                    value: 'sao_paulo',
+                                    label: 'Сан-Паулу',
+                                },
+                            ],
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
 
 
-## Ref для DropdownItem
+            return (
+                <div style={{ height:"300px" }}>
+                    <Dropdown
+                        items={items}
+                    >
+                        <Button text="Список стран" />
+                    </Dropdown>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 
-Достаточно указать свойство `ref` на компоненте.
+    <TabItem value="size" label="Size">
+        Размер `Dropdown` задается с помощью свойства `size`.<br />
+        Возможные значения свойства: `"l"`, `"m"`, `"s"` или `"xs"`.
 
-```tsx live
-import React, { useState, useRef } from 'react';
-import { DropdownPopup, DropdownList, DropdownItem, Button } from '@salutejs/plasma-web';
-import { IconHeart } from '@salutejs/plasma-icons';
+        ```tsx live
+        import React from 'react';
+        import { Button, Dropdown } from '@salutejs/plasma-web';
 
-export function App() {
-    const [isOpen, setIsOpen] = useState(false);
-    const dropDownItemRef = useRef<HTMLLIElement | null>(null);
+        export function App() {
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                            items: [
+                                {
+                                    value: 'rio_de_janeiro',
+                                    label: 'Рио-де-Жанейро',
+                                },
+                                {
+                                    value: 'sao_paulo',
+                                    label: 'Сан-Паулу',
+                                },
+                            ],
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
 
-    return (
-        <div style={{ height:"350px", display: 'block' }}>
-            <DropdownPopup
-                isOpen={isOpen}
-                trigger="click"
-                placement="bottom"
-                onToggle={(is) => setIsOpen(is)}
-                disclosure={<Button text="Меню" />}
-            >
-                <DropdownList>
-                    <DropdownItem value={100001} label="Новости" />
-                    <DropdownItem value={100002} label="Каталог" color="var(--plasma-colors-accent)" />
-                    <DropdownItem
-                        value={100003}
-                        label="О нас"
-                        color="var(--plasma-colors-critical)"
-                        contentLeft={<IconHeart color="inherit" />}
-                        ref={dropDownItemRef}
-                    />
-                    <DropdownItem value={100004} label="Недоступно" isDisabled />
-                </DropdownList>
-            </DropdownPopup>
-        </div>
-    );
-}
-```
+            return (
+                <div style={{ height: "300px", display: "flex", gap: "50px" }}>
+                    <Dropdown
+                        items={items}
+                        size="l"
+                    >
+                        <Button text="Список стран" />
+                    </Dropdown>
+
+                    <Dropdown
+                        items={items}
+                        size="m" // default
+                    >
+                        <Button text="Список стран" />
+                    </Dropdown>
+
+                    <Dropdown
+                        items={items}
+                        size="s"
+                    >
+                        <Button text="Список стран" />
+                    </Dropdown>
+
+                    <Dropdown
+                        items={items}
+                        size="xs"
+                    >
+                        <Button text="Список стран" />
+                    </Dropdown>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+
+    <TabItem value="placement" label="Placement">
+        Параметр `placement` принимает либо строку: `"top"`,  `"right"`, `"bottom"`, `"left"`, `"auto"`, либо массив этих же значений, например: `["top", "bottom"]`.<br />
+        Default value для placement - `"bottom"`.
+
+        ```tsx live
+        import React from 'react';
+        import { Button, Dropdown } from '@salutejs/plasma-web';
+
+        export function App() {
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                            items: [
+                                {
+                                    value: 'rio_de_janeiro',
+                                    label: 'Рио-де-Жанейро',
+                                },
+                                {
+                                    value: 'sao_paulo',
+                                    label: 'Сан-Паулу',
+                                },
+                            ],
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ height: "300px", display: "flex", gap: "50px" }}>
+                    <Dropdown
+                        items={items}
+                    >
+                        <Button text="Список стран" />
+                    </Dropdown>
+
+                    <Dropdown
+                        items={items}
+                        placement="right"
+                    >
+                        <Button text="Список стран" />
+                    </Dropdown>
+
+                    <Dropdown
+                        items={items}
+                        placement="left"
+                    >
+                        <Button text="Список стран" />
+                    </Dropdown>
+
+                    <Dropdown
+                        items={items}
+                        placement={['top', 'bottom']}
+                    >
+                        <Button text="Список стран" />
+                    </Dropdown>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+
+    <TabItem value="trigger" label="Trigger">
+        Параметр `trigger` принимает строку: `"click"` или `"hover"`.<br />
+        Default value - `"click"`.<br />
+        Для примера показано значение `"hover"`.
+
+        ```tsx live
+        import React from 'react';
+        import { Button, Dropdown } from '@salutejs/plasma-web';
+
+        export function App() {
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                            items: [
+                                {
+                                    value: 'rio_de_janeiro',
+                                    label: 'Рио-де-Жанейро',
+                                },
+                                {
+                                    value: 'sao_paulo',
+                                    label: 'Сан-Паулу',
+                                },
+                            ],
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+
+            return (
+                <div style={{ height:"300px" }}>
+                    <Dropdown
+                        items={items}
+                        trigger="hover"
+                    >
+                        <Button text="Список стран" />
+                    </Dropdown>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Клавиатурная навигация
+
+Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) и частично [TreeView](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
+
+- `Tab` - закрывает дропдаун. Перемещает фокус на следующий элемент на странице;
+- `Enter` - открывает/закрывает дропдаун. Если на элементе - выбирает его;
+- `Space` - открывает/закрывает дропдаун. Если на элементе - выбирает его;
+- `Home` - открывает дропдаун и перемещает фокус на первый элемент;
+- `End` - открывает дропдаун и перемещает фокус на последний элемент;
+- `PageUp` - перемещает фокус на 10 элементов выше либо в начало списка;
+- `PageDown` - перемещает фокус на 10 элементов ниже либо в конце списка;
+- `ArrowUp` - открывает дропдаун и перемещает фокус на первый элемент. Перемещает фокус на один элемент выше;
+- `ArrowDown` - открывает дропдаун и перемещает фокус на первый элемент. Перемещает фокус на один элемент ниже;
+- `ArrowRight` - если фокус на элементе вложенного списка - открывает его и перемещает фокус на первый элемент;
+- `ArrowLeft` - закрывает текущий список и перемещает фокус на предыдущий;

@@ -1,79 +1,104 @@
-import type { HTMLAttributes, ReactNode, SyntheticEvent } from 'react';
+import type { CSSProperties, HTMLAttributes, ReactNode, SyntheticEvent } from 'react';
+
+import { DropdownItemOption } from './ui/DropdownItem/DropdownItem.type';
 
 export type DropdownPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
 export type DropdownPlacement = DropdownPlacementBasic | 'auto';
 
 export type DropdownTrigger = 'hover' | 'click';
 
-export type CustomDropdownProps = {
+export interface DropdownProps extends HTMLAttributes<HTMLDivElement> {
     /**
-     * Дропдаун открыт или нет.
-     * @default
-     *  false
+     * Список элементов.
      */
-    isOpen?: boolean;
+    items: Array<DropdownItemOption>;
+    /**
+     * Target для открытия.
+     */
+    children?: ReactNode;
+    /**
+     * WAI-ARIA role элемента меню.
+     * @default option
+     */
+    itemRole?: string;
+    /**
+     * Обработчик наведения на item.
+     */
+    onHover?: (index: number) => void;
+    /**
+     * Обработчик выбора item.
+     */
+    onItemSelect?: (item: DropdownItemOption, event: SyntheticEvent) => void;
     /**
      * Способ открытия дропдауна окна - наведение или клик мышью.
-     * @default
-     *  click
+     * @default click
      */
     trigger?: DropdownTrigger;
     /**
      * Сторона открытия дропдауна относительно target элемента.
-     * @default
-     *  auto
+     * @default bottom
      */
     placement?: DropdownPlacement | Array<DropdownPlacementBasic>;
     /**
      * Отступ дропдауна относительно элемента, у которого оно вызвано.
-     * @default
-     * [0, 0]
+     * @default [0, 0]
      */
     offset?: [number, number];
     /**
-     * Предотвратить автоматическое изменение положения при ресайзе.
+     * Значение css width для выпадающего списка.
+     * @example width="200px"
      */
-    preventOverflow?: boolean;
+    listWidth?: CSSProperties['width'];
     /**
-     * Элемент, рядом с которым произойдет вызов дропдауна.
-     */
-    target?: ReactNode;
-    /**
-     * Стрелка над элементом.
+     * Стрелка у выпадающего списка.
+     * @default true
      */
     hasArrow?: boolean;
     /**
-     * Контент всплывающего окна.
+     * Закрыть выпадающий список после выбора.
+     * @default true
      */
-    children?: ReactNode;
-    /**
-     * Блокировать ли фокус на дропдауне.
-     * @default
-     * true
-     */
-    isFocusTrapped?: boolean;
+    closeOnSelect?: boolean;
     /**
      * Закрывать окно при нажатии вне области дропдауна.
-     * @default
-     * true
+     * @default true
      */
     closeOnOverlayClick?: boolean;
-    /**
-     * Закрывать окно при нажатии ESC.
-     * @default
-     * true
-     */
-    closeOnEsc?: boolean;
     /**
      * Событие сворачивания/разворачивания дропдауна.
      */
     onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
-    /**
-     * В каком контейнере позиционируется(по умолчанию document), можно также указать id элемента или ref для него.
-     */
-    frame?: 'document' | string | React.RefObject<HTMLElement>;
     size?: string;
     view?: string;
-};
+    /**
+     * Вариант: обычный или сжатый
+     * @default normal
+     */
+    variant?: 'normal' | 'tight';
+    /**
+     * Обработчик клика по item.
+     * @deprecated использовать onItemSelect.
+     */
+    onItemClick?: (item: DropdownItemOption, event: SyntheticEvent) => void;
+    /**
+     * Значение css overflow для выпадающего меню.
+     * @default initial
+     * @deprecated
+     * @example listOverflow="scroll"
+     */
+    listOverflow?: CSSProperties['overflow'];
+    /**
+     * Значение css height для выпадающего меню.
+     * @default initial
+     * @deprecated
+     * @example listHeight="11", listHeight="auto", listHeight={11}
+     */
+    listHeight?: number | CSSProperties['height'];
+    /**
+     * Индекс элемента при наведении
+     * @deprecated использовать onHover
+     */
+    hoverIndex?: number;
+}
 
-export type DropdownProps = HTMLAttributes<HTMLDivElement> & CustomDropdownProps;
+export type HandleGlobalToggleType = (opened: boolean, event: Event | SyntheticEvent<Element, Event>) => void;

@@ -11,7 +11,6 @@ export const DisclosureRight: React.FC<IconProps> = (props) => {
                     clipRule="evenodd"
                     d="M9.883 4.707a1 1 0 011.414-1.414L16.004 8l-4.707 4.707a1 1 0 01-1.414-1.414L13.176 8 9.883 4.707z"
                     fill="currentColor"
-                    fillOpacity={0.56}
                 />
             </svg>
         );

@@ -1,44 +1,89 @@
 import { css } from '@linaria/core';
+import { styled } from '@linaria/react';
 
-import { tokens } from '../../Combobox.tokens';
-import { dropdownTokens } from '../../../Dropdown';
-import { baseContent as dropdownItemBase } from '../../../Dropdown/ui/DropdownItem/DropdownItem.styles';
+import { classes, tokens } from '../../Combobox.tokens';
+import { addFocus, applyEllipsis } from '../../../../mixins';
 
-// NOTE: Необходимое переопределение токенов из компонента DropdownItem т.к. используются его части
-export const mappingOverride = `
-    ${dropdownTokens.itemBackground}: var(${tokens.itemBackground});
-    ${dropdownTokens.itemColor}: var(${tokens.itemColor});
-    ${dropdownTokens.itemBackgroundHover}: var(${tokens.itemBackgroundHover});
-    ${dropdownTokens.itemBackgroundSelected}: var(${tokens.itemBackgroundSelected});
-    ${dropdownTokens.itemColorSelected}: var(${tokens.itemColorSelected});
-    ${dropdownTokens.itemBackgroundSelectedHover}: var(${tokens.itemBackgroundSelectedHover});
-    ${dropdownTokens.itemColorSelectedHover}: var(${tokens.itemColorSelectedHover});
-    ${dropdownTokens.itemContentLeftColor}: var(${tokens.itemContentLeftColor});
-    ${dropdownTokens.itemContentRightColor}: var(${tokens.itemContentRightColor});
-    ${dropdownTokens.disabledOpacity}: var(${tokens.disabledOpacity});
-    ${dropdownTokens.focusColor}: var(${tokens.focusColor});
-    ${dropdownTokens.itemWidth}: var(${tokens.itemWidth});
-    ${dropdownTokens.itemHeight}: var(${tokens.itemHeight});
-    ${dropdownTokens.itemBorderRadius}: var(${tokens.itemBorderRadius});
-    ${dropdownTokens.itemPaddingTop}: var(${tokens.itemPaddingTop});
-    ${dropdownTokens.itemPaddingRight}: var(${tokens.itemPaddingRight});
-    ${dropdownTokens.itemPaddingBottom}: var(${tokens.itemPaddingBottom});
-    ${dropdownTokens.itemPaddingLeft}: var(${tokens.itemPaddingLeft});
-    ${dropdownTokens.itemMarginTop}: var(${tokens.itemMarginTop});
-    ${dropdownTokens.itemMarginRight}: var(${tokens.itemMarginRight});
-    ${dropdownTokens.itemMarginBottom}: var(${tokens.itemMarginBottom});
-    ${dropdownTokens.itemMarginLeft}: var(${tokens.itemMarginLeft});
-    ${dropdownTokens.itemFontFamily}: var(${tokens.itemFontFamily});
-    ${dropdownTokens.itemFontSize}: var(${tokens.itemFontSize});
-    ${dropdownTokens.itemFontStyle}: var(${tokens.itemFontStyle});
-    ${dropdownTokens.itemFontWeightBold}: var(${tokens.itemFontWeightBold});
-    ${dropdownTokens.itemFontLetterSpacing}: var(${tokens.itemFontLetterSpacing});
-    ${dropdownTokens.itemFontLineHeight}: var(${tokens.itemFontLineHeight});
-    ${dropdownTokens.itemContentLeftWidth}: var(${tokens.itemContentLeftWidth});
-    ${dropdownTokens.itemContentRightWidth}: var(${tokens.itemContentRightWidth});
+export const StyledContentLeft = styled.div`
+    display: inline-flex;
+
+    min-width: var(${tokens.itemContentLeftWidth});
+    color: var(${tokens.itemContentLeftColor});
+`;
+
+export const StyledContentRight = styled.div`
+    margin-left: auto;
+    display: inline-flex;
+
+    min-width: var(${tokens.itemContentRightWidth});
+    color: var(${tokens.itemContentRightColor});
+`;
+
+export const StyledText = styled.div`
+    ${applyEllipsis()};
+`;
+
+// INFO: Для возможности переиспользования стилей в других компонентах
+export const baseContent = `
+    box-sizing: content-box;
+    display: flex;
+    align-items: center;
+    user-select: none;
+
+    :focus {
+        outline: none;
+    }
+
+    ${addFocus({
+        outlineSize: '0.0625rem',
+        outlineOffset: '0',
+        outlineColor: `var(${tokens.focusColor})`,
+        outlineRadius: `var(${tokens.itemBorderRadius})`,
+        hasTransition: false,
+    })};
+
+    width: 100%;
+
+    font-family: var(${tokens.itemFontFamily});
+    font-size: var(${tokens.itemFontSize});
+    font-style: var(${tokens.itemFontStyle});
+    font-weight: var(${tokens.itemFontWeightBold});
+    letter-spacing: var(${tokens.itemFontLetterSpacing});
+    line-height: var(${tokens.itemFontLineHeight});
+
+    background: var(${tokens.itemBackground});
+    color: var(${tokens.itemColor});
+    border-radius: var(${tokens.itemBorderRadius});
+
+    width: var(${tokens.itemWidth});
+    height: var(${tokens.itemHeight});
+
+    padding: var(${tokens.itemPaddingTop}) var(${tokens.itemPaddingRight}) var(${tokens.itemPaddingBottom})
+        var(${tokens.itemPaddingLeft});
+
+    margin: var(${tokens.itemMarginTop}) var(${tokens.itemMarginRight}) var(${tokens.itemMarginBottom})
+        var(${tokens.itemMarginLeft});
+
+    &:hover:not(.${classes.comboboxItemIsDisabled}) {
+        cursor: pointer;
+        background: var(${tokens.itemBackgroundHover});
+    }
+
+    &.${String(classes.comboboxItemIsSelected)} {
+        color: var(${tokens.itemColorSelected});
+        background: var(${tokens.itemBackgroundSelected});
+
+        &:hover:not(.${classes.comboboxItemIsDisabled}) {
+            background: var(${tokens.itemBackgroundSelectedHover});
+        }
+    }
+
+    &.${classes.comboboxItemIsDisabled} {
+        opacity: var(${tokens.disabledOpacity});
+        cursor: not-allowed;
+    }
 `;
 
 export const base = css`
-    ${dropdownItemBase};
-    ${mappingOverride};
+    ${baseContent};
 `;
