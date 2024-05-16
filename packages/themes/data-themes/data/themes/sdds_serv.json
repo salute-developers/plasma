@@ -1585,49 +1585,49 @@
                     "enabled": false
                 },
                 "surfaceTransparentPositiveHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1A9E323D",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPositiveActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1A9E320F",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPositive": {
-                    "value": "#FFFFFF",
+                    "value": "rgba(26,158,50,0.12)",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentWarningHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FA5F053D",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentWarningActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FA5F050F",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentWarning": {
-                    "value": "#FFFFFF",
+                    "value": "rgba(250,95,5,0.12)",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentNegativeHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FF293E3D",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentNegativeActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FF293E0F",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentNegative": {
-                    "value": "#FFFFFF",
+                    "value": "rgba(255,41,62,0.12)",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentInfoHover": {
                     "value": "#FFFFFFFF",
@@ -6733,49 +6733,49 @@
                     "enabled": false
                 },
                 "surfaceTransparentPositiveHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1A9E3205",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPositiveActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#1A9E321A",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPositive": {
-                    "value": "#FFFFFF",
+                    "value": "rgba(26,158,50,0.06)",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentWarningHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FA5F0505",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentWarningActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FA5F051A",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentWarning": {
-                    "value": "#FFFFFF",
+                    "value": "rgba(250,95,5,0.06)",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentNegativeHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#F31B3105",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentNegativeActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#F31B311A",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentNegative": {
-                    "value": "#FFFFFF",
+                    "value": "rgba(243,27,49,0.06)",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentInfoHover": {
                     "value": "#FFFFFFFF",
