@@ -1,3 +1,40 @@
+# (Thu May 16 2024)
+
+#### 🚀 Enhancement
+
+- `@salutejs/caldera-online@0.40.0`, `@salutejs/plasma-asdk@0.78.0`, `@salutejs/plasma-b2c@1.320.0`, `@salutejs/plasma-core@1.160.0`, `@salutejs/plasma-hope@1.279.0`, `@salutejs/plasma-icons@1.193.0`, `@salutejs/plasma-new-hope@0.80.0`, `@salutejs/plasma-ui@1.248.0`, `@salutejs/plasma-web@1.321.0`, `@salutejs/sdds-serv@0.47.0`
+  - Release by 15.05.2024 [#1205](https://github.com/salute-developers/plasma/pull/1205) ([@renovate[bot]](https://github.com/renovate[bot]) [@iljs](https://github.com/iljs) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@TitanKuzmich](https://github.com/TitanKuzmich) [@shuga2704](https://github.com/shuga2704) [@akhdrv](https://github.com/akhdrv))
+- `@salutejs/sdds-serv@0.47.0`
+  - fix(sdds-serv): update api report [#1198](https://github.com/salute-developers/plasma/pull/1198) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/caldera-online@0.40.0`, `@salutejs/plasma-asdk@0.78.0`, `@salutejs/sdds-serv@0.47.0`
+  - feat(plasma-asdk,caldera-online,sdds-serv): refactor Checkbox & Radiobox configs [#1176](https://github.com/salute-developers/plasma/pull/1176) ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- `@salutejs/plasma-new-hope@0.80.0`
+  - feat(new-hope): fix [#1195](https://github.com/salute-developers/plasma/pull/1195) ([@iljs](https://github.com/iljs))
+- `@salutejs/plasma-b2c@1.320.0`, `@salutejs/plasma-new-hope@0.80.0`, `@salutejs/plasma-web@1.321.0`
+  - feat(plasma-docs): fix [#1201](https://github.com/salute-developers/plasma/pull/1201) ([@shuga2704](https://github.com/shuga2704))
+
+#### 🐛 Bug Fix
+
+- test: add perftest visual report in job artifacts [#1159](https://github.com/salute-developers/plasma/pull/1159) ([@akhdrv](https://github.com/akhdrv))
+- `@salutejs/plasma-b2c@1.320.0`, `@salutejs/plasma-web@1.321.0`, `@salutejs/sdds-serv@0.47.0`
+  - fix(plasma-*): update api report [#1197](https://github.com/salute-developers/plasma/pull/1197) ([@Yakutoc](https://github.com/Yakutoc))
+- `@salutejs/plasma-icons@1.193.0`
+  - fix(icons): Fix dislike and like [#1202](https://github.com/salute-developers/plasma/pull/1202) ([@iljs](https://github.com/iljs))
+- `@salutejs/plasma-new-hope@0.80.0`
+  - chore(deps): update dependency @rollup/plugin-babel to v6.0.4 [#1085](https://github.com/salute-developers/plasma/pull/1085) ([@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 7
+
+- [@iljs](https://github.com/iljs)
+- [@renovate[bot]](https://github.com/renovate[bot])
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- Dima Shugaev ([@shuga2704](https://github.com/shuga2704))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+---
+
 # (Thu Apr 25 2024)
 
 ### Release Notes
