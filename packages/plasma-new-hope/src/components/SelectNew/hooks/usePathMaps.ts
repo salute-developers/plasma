@@ -7,12 +7,12 @@ export type PathMapType = Map<string | number, number>;
 export type FocusedToValueMapType = Map<string, ItemOptionTransformed>;
 
 // Рекурсивно проходим по дереву items и создаем 3 мапы: мапу открытых путей, мапу фокусов и мапу выбранных элементов.
-
-export const useHashMaps = (items: any) => {
+export const usePathMaps = (items: any) => {
     return useMemo(() => {
         const pathMap: PathMapType = new Map();
         const focusedToValueMap: FocusedToValueMapType = new Map();
         const checkedMap: any = new Map();
+        const valueToItemMap: any = new Map();
 
         pathMap.set('root', items.length);
 
@@ -28,11 +28,18 @@ export const useHashMaps = (items: any) => {
                 if (innerItems) {
                     pathMap.set(value, innerItems.length);
                     rec(innerItems, currIndex);
+                } else {
+                    valueToItemMap.set(value, item);
                 }
             });
         };
         rec(items);
 
-        return [pathMap, focusedToValueMap, checkedMap] as [PathMapType, FocusedToValueMapType, any];
+        return [pathMap, focusedToValueMap, checkedMap, valueToItemMap] as [
+            PathMapType,
+            FocusedToValueMapType,
+            any,
+            any,
+        ];
     }, [items]);
 };

@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, FC, useContext } from 'react';
 
-import { classes } from '../../SelectNew.tokens';
-import { cx } from '../../../../utils';
-import { IconDisclosureRight, IconDone } from '../../../_Icon';
-import { useTreeControls } from '../../hooks/useTreeControls';
-import { Context } from '../../SelectNew';
+import { classes } from '../../../../SelectNew.tokens';
+import { cx } from '../../../../../../utils';
+import { IconDisclosureRight, IconDone } from '../../../../../_Icon';
+import { useTreeControls } from '../../../../hooks/useTreeControls';
+import { Context } from '../../../../SelectNew';
 
 import {
     StyledContentLeft,
@@ -27,7 +27,7 @@ export const Item: FC<any> = ({ item, path, currentLevel, index }) => {
     const { value, label, disabled, isDisabled, contentLeft, contentRight } = item;
     const ref = useRef<HTMLLIElement | null>(null);
 
-    const { focusedPath, checked, setChecked, multiselect, size } = useContext(Context);
+    const { focusedPath, checked, setChecked, multiselect, size, setValues, valueToItemMap } = useContext(Context);
 
     const isDisabledClassName = disabled || isDisabled ? classes.dropdownItemIsDisabled : undefined;
     const focusedClass =
@@ -51,7 +51,7 @@ export const Item: FC<any> = ({ item, path, currentLevel, index }) => {
         }
     }, [focusedClass]);
 
-    const handleCheckboxChange = (e) => {
+    const handleCheckboxChange = (e: any) => {
         e.stopPropagation();
 
         if (!checkedCopy.get(item.value)) {
@@ -64,9 +64,19 @@ export const Item: FC<any> = ({ item, path, currentLevel, index }) => {
         updateAncestors(item);
 
         setChecked(checkedCopy);
+
+        const newValues = [];
+
+        valueToItemMap.forEach((value, key) => {
+            if (checkedCopy.get(key)) {
+                newValues.push(value);
+            }
+        });
+
+        setValues(newValues);
     };
 
-    const handleClick = (e) => {
+    const handleClick = (e: any) => {
         if (multiselect && !item.items) {
             handleCheckboxChange(e);
         }
