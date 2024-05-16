@@ -4,6 +4,8 @@ export const classes = {
     dropdownItemIsDisabled: 'dropdown-item-is-disabled',
     dropdownItemIsActive: 'dropdown-item-is-active',
     dropdownItemIsSelected: 'dropdownItemIsSelected',
+    selectTargetArrow: 'select-target-arrow',
+    arrowInverse: 'arrow-inverse',
 };
 
 export const tokens = {

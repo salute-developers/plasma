@@ -3,15 +3,9 @@ import React, { forwardRef, useRef } from 'react';
 import { cx } from '../../../../utils';
 
 import { Chip } from './elements/Chip/Chip';
-import {
-    StyledArrow,
-    StyledChips,
-    StyledChipsWrapper,
-    StyledLabel,
-    StyledSelectTarget,
-    StyledText,
-} from './Target.styles';
+import { StyledArrow, StyledChips, StyledChipsWrapper, StyledLabel, StyledText } from './Target.styles';
 import type { SelectTargetProps } from './Target.types';
+import { Button } from './elements/Button/Button';
 
 export const classes = {
     selectTarget: 'select-target',
@@ -39,7 +33,10 @@ const {
 } = classes;
 
 export const Target = forwardRef<HTMLButtonElement, SelectTargetProps>(
-    ({ values, target, label, opened, readOnly, disabled, size, id, onChange, onKeyDown, ...rest }, ref) => {
+    (
+        { values, targetView, target, label, opened, readOnly, disabled, size, id, onChange, onKeyDown, ...rest },
+        ref,
+    ) => {
         const hasLabel = label && target === 'textfield';
         const textContent = values.map(({ label }) => label).join(', ');
         const contentRef = useRef<HTMLDivElement>(null);
@@ -64,48 +61,6 @@ export const Target = forwardRef<HTMLButtonElement, SelectTargetProps>(
             onChange?.(newValue);
         };
 
-        return (
-            <StyledSelectTarget
-                {...rest}
-                ref={ref}
-                opened={opened}
-                target={target}
-                readOnly={readOnly}
-                disabled={disabled}
-                title={textContent}
-                aria-label={label}
-                className={cx(withInnerLabelUp, withHasChips, withNoFocus, selectTarget)}
-                onKeyDown={onKeyDown}
-                stretching="filled"
-            >
-                {target === 'button' ? (
-                    <StyledText className={selectTargeText}>{textContent}</StyledText>
-                ) : (
-                    <StyledChipsWrapper ref={contentRef}>
-                        <StyledChips>
-                            {values?.map(({ value, label: text }, index) => (
-                                <Chip
-                                    index={index}
-                                    key={`${value}_${text}`}
-                                    disabled={disabled}
-                                    readOnly={readOnly}
-                                    value={value}
-                                    text={text}
-                                    onClear={(v, t) => onChipClear(v, t)}
-                                    onClick={onChipClick}
-                                />
-                            ))}
-                        </StyledChips>
-                    </StyledChipsWrapper>
-                )}
-
-                {isLabelVisible && (
-                    <StyledLabel className={selectTargetLabel} htmlFor={id}>
-                        {label}
-                    </StyledLabel>
-                )}
-                <StyledArrow size="s" color="inherit" className={cx(selectTargetArrow, withArrowInverse)} />
-            </StyledSelectTarget>
-        );
+        return target === 'button' ? <Button opened={opened} values={values} targetView={targetView} /> : 'textfield';
     },
 );
