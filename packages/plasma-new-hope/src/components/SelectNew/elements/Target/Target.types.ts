@@ -55,4 +55,5 @@ export interface SelectTargetProps {
      * Обработчик нажатия клавиши на target.
      */
     onKeyDown?: (event: KeyboardEvent<HTMLButtonElement>) => void;
+    targetView?: SelectNewProps['targetView'];
 }

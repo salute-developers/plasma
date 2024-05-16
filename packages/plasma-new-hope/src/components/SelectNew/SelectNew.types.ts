@@ -89,6 +89,7 @@ type BasicProps = {
 
     target?: 'button' | 'textfield';
     label?: string;
+    targetView?: 'amount' | 'secondaryLabel';
 };
 
 export type SelectNewProps = Target &

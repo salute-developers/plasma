@@ -8,7 +8,7 @@ import { Inner } from './elements/Inner/Inner';
 import { Target } from './elements/Target/Target';
 import { pathReducer, focusedPathReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
-import { StyledPopover, Ul } from './SelectNew.styles';
+import { StyledPopover, Ul, base } from './SelectNew.styles';
 import type { SelectNewProps } from './SelectNew.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -37,6 +37,7 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
                 listHeight,
                 items,
                 size,
+                targetView,
                 ...rest
             },
             ref,
@@ -88,6 +89,7 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
                                     id="custom_id"
                                     onChange={() => {}}
                                     onKeyDown={() => {}}
+                                    targetView={targetView}
                                 />
                             }
                             preventOverflow={false}
@@ -116,7 +118,7 @@ export const selectNewConfig = {
     name: 'SelectNew',
     tag: 'div',
     layout: selectNewRoot,
-    base: '',
+    base,
     variations: {
         view: {
             css: viewCSS,

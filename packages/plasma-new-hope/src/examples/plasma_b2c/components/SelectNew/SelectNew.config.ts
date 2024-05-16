@@ -62,7 +62,7 @@ export const config = {
                 ${selectNewTokens.targetHeight}: 2rem;
                 ${selectNewTokens.targetWidth}: 100%;
                 ${selectNewTokens.targetRadius}: 0.5rem;
-                ${selectNewTokens.targetPadding}: 0 2.5rem 0 0.75rem;
+                ${selectNewTokens.targetPadding}: 0.75rem;
                 ${selectNewTokens.targetPaddingHasChips}: 0 2.625rem 0 0.375rem;
                 ${selectNewTokens.targetPaddingWithInput}: 0 2.625rem 0 0.625rem;
                 ${selectNewTokens.targetInnerTop}: 0.5rem;
@@ -133,7 +133,7 @@ export const config = {
                 ${selectNewTokens.targetHeight}: 2.5rem;
                 ${selectNewTokens.targetWidth}: 100%;
                 ${selectNewTokens.targetRadius}: 0.625rem;
-                ${selectNewTokens.targetPadding}: 0 3rem 0 1rem;
+                ${selectNewTokens.targetPadding}: 1rem;
                 ${selectNewTokens.targetPaddingHasChips}: 0 3.125rem 0 0.375rem;
                 ${selectNewTokens.targetPaddingWithInput}: 0 3.125rem 0 0.625rem;
                 ${selectNewTokens.targetInnerTop}: 0.5rem;
@@ -204,7 +204,7 @@ export const config = {
                 ${selectNewTokens.targetHeight}: 3rem;
                 ${selectNewTokens.targetWidth}: 100%;
                 ${selectNewTokens.targetRadius}: 0.75rem;
-                ${selectNewTokens.targetPadding}: 0 3.25rem 0 1.25rem;
+                ${selectNewTokens.targetPadding}: 1.25rem;
                 ${selectNewTokens.targetPaddingHasChips}: 0 3.375rem 0 0.375rem;
                 ${selectNewTokens.targetPaddingWithInput}: 0 3.375rem 0 0.625rem;
                 ${selectNewTokens.targetInnerTop}: 0.5rem;
@@ -275,7 +275,7 @@ export const config = {
                 ${selectNewTokens.targetHeight}: 3.5rem;
                 ${selectNewTokens.targetWidth}: 100%;
                 ${selectNewTokens.targetRadius}: 0.875rem;
-                ${selectNewTokens.targetPadding}: 0 3.5rem 0 1.5rem;
+                ${selectNewTokens.targetPadding}: 1.5rem;
                 ${selectNewTokens.targetPaddingHasChips}: 0 3.625rem 0 0.375rem;
                 ${selectNewTokens.targetPaddingWithInput}: 0 3.625rem 0 0.625rem;
                 ${selectNewTokens.targetInnerTop}: 0.5rem;
@@ -317,6 +317,15 @@ export const config = {
                 ${selectNewTokens.chipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
                 ${selectNewTokens.chipColorReadOnlyHover}: var(--text-primary);
                 ${selectNewTokens.chipOpacityReadonly}: 0.72;
+
+                ${selectNewTokens.targetColor}: var(--text-primary);
+                ${selectNewTokens.targetLabelColor}: var(--text-primary);
+                ${selectNewTokens.targetArrowColor}: var(--text-secondary);
+                ${selectNewTokens.targetBackgroundColor}: var(--surface-transparent-secondary);
+                ${selectNewTokens.targetBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+                ${selectNewTokens.targetBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${selectNewTokens.targetBackgroundColorOpen}: var(--surface-transparent-secondary);
+                ${selectNewTokens.targetFontWeight}: 600 !important; /* TODO: Переделать когда появится возможность пересечения свойств */
             `,
         },
     },

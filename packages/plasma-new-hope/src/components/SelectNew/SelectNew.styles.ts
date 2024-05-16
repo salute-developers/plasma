@@ -7,10 +7,13 @@ import { popoverClasses, popoverConfig } from '../Popover';
 import { tokens } from './SelectNew.tokens';
 
 const Popover = component(popoverConfig);
+
 export const StyledPopover = styled(Popover)`
-    .${String(popoverClasses.wrapper)}, .${String(popoverClasses.target)} {
-        display: block;
-    }
+    // color: red;
+    //
+    // .${popoverClasses.wrapper}, .${popoverClasses.target} {
+    //     display: none;
+    // }
 `;
 
 export const Ul = styled.ul<{
@@ -30,5 +33,7 @@ export const Ul = styled.ul<{
 `;
 
 export const base = css`
-    display: inline-block;
+    .${popoverClasses.wrapper}, .${popoverClasses.target} {
+        display: block;
+    }
 `;
