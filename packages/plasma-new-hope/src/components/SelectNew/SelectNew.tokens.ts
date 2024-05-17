@@ -6,6 +6,7 @@ export const classes = {
     dropdownItemIsSelected: 'dropdownItemIsSelected',
     selectTargetArrow: 'select-target-arrow',
     arrowInverse: 'arrow-inverse',
+    textfieldTarget: 'select-textfield-target',
 };
 
 export const tokens = {
@@ -56,14 +57,15 @@ export const tokens = {
     targetBackgroundColorHover: '--plasma-select-target-background-color-hover',
     targetBackgroundColorActive: '--plasma-select-target-background-color-active',
     targetBackgroundColorOpen: '--plasma-select-target-background-color-open',
+    targetTextfieldBackgroundColor: '--plasma-select-target-textfield-background-color',
+    targetTextfieldBackgroundColorOpened: '--plasma-select-target-textfield-background-color-opened',
     targetBorderColor: '--plasma-select-target-border-color',
     targetBorderColorHover: '--plasma-select-target-border-color-hover',
     targetBorderColorActive: '--plasma-select-target-border-color-active',
     targetBorderColorOpen: '--plasma-select-target-border-color-open',
     targetInnerTop: '--plasma-select-target-inner-top',
-    targetPadding: '--plasma-select-target-padding',
-    targetPaddingWithInput: '--plasma-select-target-with-input',
-    targetPaddingHasChips: '--plasma-select-target-padding-has-chips',
+    targetButtonPadding: '--plasma-select-target-button-padding',
+    targetTextfieldPadding: '--plasma-select-target-textfield-padding',
     targetHeight: '--plasma-select-target-height',
     targetWidth: '--plasma-select-target-width',
     targetRadius: '--plasma-select-target-radius',

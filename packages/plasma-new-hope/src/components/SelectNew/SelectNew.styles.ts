@@ -8,13 +8,7 @@ import { tokens } from './SelectNew.tokens';
 
 const Popover = component(popoverConfig);
 
-export const StyledPopover = styled(Popover)`
-    // color: red;
-    //
-    // .${popoverClasses.wrapper}, .${popoverClasses.target} {
-    //     display: none;
-    // }
-`;
+export const StyledPopover = styled(Popover)``;
 
 export const Ul = styled.ul<{
     isInnerUl?: boolean;

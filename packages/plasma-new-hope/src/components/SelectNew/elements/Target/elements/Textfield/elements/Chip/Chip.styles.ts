@@ -1,14 +1,13 @@
 import { styled } from '@linaria/react';
 
-import { chipConfig, chipTokens } from '../../../../../Chip';
-import { component, mergeConfig } from '../../../../../../engines';
-import { tokens } from '../../../../SelectNew.tokens';
-import { addFocus } from '../../../../../../mixins';
+import { chipConfig, chipTokens } from '../../../../../../../Chip';
+import { component, mergeConfig } from '../../../../../../../../engines';
+import { tokens } from '../../../../../../SelectNew.tokens';
+import { addFocus } from '../../../../../../../../mixins';
 
 const mergedConfig = mergeConfig(chipConfig);
 const Chip = component(mergedConfig);
 
-// NOTE: Необходимое переопределение токенов из компонента Chip т.к. используются его части
 export const StyledChip = styled(Chip)`
     ${chipTokens.color}: var(${tokens.chipColor});
     ${chipTokens.background}: var(${tokens.chipBackground});

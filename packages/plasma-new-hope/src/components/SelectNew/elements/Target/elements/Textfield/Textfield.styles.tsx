@@ -1,6 +1,5 @@
 import { styled } from '@linaria/react';
 
-import { applyEllipsis } from '../../../../../../mixins';
 import { IconChevronDown } from '../../../../../_Icon';
 import { component, mergeConfig } from '../../../../../../engines';
 import { buttonConfig, buttonTokens } from '../../../../../Button';
@@ -11,14 +10,12 @@ const Button = component(mergedButtonConfig);
 
 export const StyledButton = styled(Button)`
     ${buttonTokens.buttonColor}: var(${tokens.targetColor});
-    ${buttonTokens.buttonBackgroundColor}: var(${tokens.targetBackgroundColor});
+    ${buttonTokens.buttonBackgroundColor}: var(${tokens.targetTextfieldBackgroundColor});
     ${buttonTokens.buttonColorHover}: var(${tokens.targetColor});
-    ${buttonTokens.buttonBackgroundColorHover}: var(${tokens.targetBackgroundColorHover});
     ${buttonTokens.buttonColorActive}: var(${tokens.targetColor});
-    ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.targetBackgroundColorActive});
     ${buttonTokens.buttonHeight}: var(${tokens.targetHeight});
     ${buttonTokens.buttonWidth}: var(${tokens.targetWidth});
-    ${buttonTokens.buttonPadding}: var(${tokens.targetButtonPadding});
+    ${buttonTokens.buttonPadding}: var(${tokens.targetTextfieldPadding});
     ${buttonTokens.buttonRadius}: var(${tokens.targetRadius});
     ${buttonTokens.buttonFontFamily}: var(${tokens.targetFontFamily});
     ${buttonTokens.buttonFontSize}: var(${tokens.targetFontSize});
@@ -49,9 +46,20 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const Label = styled.div`
+export const ChipWrapper = styled.div`
     width: 100%;
-    text-align: left;
+    display: flex;
+    gap: 0.25rem;
+    overflow-x: scroll;
+`;
 
-    ${applyEllipsis()}
+export const TextfieldWrapper = styled.div<any>`
+    display: inline;
+
+    .${classes.textfieldTarget} {
+        background: ${({ opened }) =>
+            opened
+                ? `var(${tokens.targetTextfieldBackgroundColorOpened})`
+                : `var(${tokens.targetTextfieldBackgroundColor})`};
+    }
 `;
