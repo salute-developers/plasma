@@ -12,17 +12,14 @@ const getLabel = (values, targetView) => {
     switch (targetView) {
         case 'amount': {
             return `Выбрано: ${values.length}`;
-            break;
         }
 
         case 'secondaryLabel': {
             return values.map(({ secondaryLabel }) => secondaryLabel).join(', ');
-            break;
         }
 
         default: {
             return values.map(({ label }) => label).join(', ');
-            break;
         }
     }
 };

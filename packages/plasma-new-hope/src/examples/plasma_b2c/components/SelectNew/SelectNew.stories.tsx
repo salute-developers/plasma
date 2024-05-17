@@ -282,7 +282,7 @@ const items = [
 const StoryNormal = (args: StorySelectNewProps) => {
     return (
         <div style={{ width: '300px' }}>
-            <SelectNew {...args} items={items} />
+            <SelectNew {...args} items={items} targetView="amount" />
         </div>
     );
 };

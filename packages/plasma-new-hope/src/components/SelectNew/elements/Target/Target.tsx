@@ -6,6 +6,7 @@ import { Chip } from './elements/Chip/Chip';
 import { StyledArrow, StyledChips, StyledChipsWrapper, StyledLabel, StyledText } from './Target.styles';
 import type { SelectTargetProps } from './Target.types';
 import { Button } from './elements/Button/Button';
+import { Textfield } from './elements/Textfield/Textfield';
 
 export const classes = {
     selectTarget: 'select-target',
@@ -61,6 +62,10 @@ export const Target = forwardRef<HTMLButtonElement, SelectTargetProps>(
             onChange?.(newValue);
         };
 
-        return target === 'button' ? <Button opened={opened} values={values} targetView={targetView} /> : 'textfield';
+        return target === 'button' ? (
+            <Button opened={opened} values={values} targetView={targetView} />
+        ) : (
+            <Textfield opened={opened} values={values} targetView={targetView} />
+        );
     },
 );

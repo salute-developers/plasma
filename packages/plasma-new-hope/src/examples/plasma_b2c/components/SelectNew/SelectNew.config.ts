@@ -62,9 +62,8 @@ export const config = {
                 ${selectNewTokens.targetHeight}: 2rem;
                 ${selectNewTokens.targetWidth}: 100%;
                 ${selectNewTokens.targetRadius}: 0.5rem;
-                ${selectNewTokens.targetPadding}: 0.75rem;
-                ${selectNewTokens.targetPaddingHasChips}: 0 2.625rem 0 0.375rem;
-                ${selectNewTokens.targetPaddingWithInput}: 0 2.625rem 0 0.625rem;
+                ${selectNewTokens.targetButtonPadding}: 0.625rem 0 0.75rem;
+                ${selectNewTokens.targetTextfieldPadding}: 0.5rem 0 0.375rem;
                 ${selectNewTokens.targetInnerTop}: 0.5rem;
                 ${selectNewTokens.targetLabelInnerTop}: 0.375rem;
                 ${selectNewTokens.targetFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -133,9 +132,8 @@ export const config = {
                 ${selectNewTokens.targetHeight}: 2.5rem;
                 ${selectNewTokens.targetWidth}: 100%;
                 ${selectNewTokens.targetRadius}: 0.625rem;
-                ${selectNewTokens.targetPadding}: 1rem;
-                ${selectNewTokens.targetPaddingHasChips}: 0 3.125rem 0 0.375rem;
-                ${selectNewTokens.targetPaddingWithInput}: 0 3.125rem 0 0.625rem;
+                ${selectNewTokens.targetButtonPadding}: 0.875rem 0 1rem;
+                ${selectNewTokens.targetTextfieldPadding}: 0.75rem 0 0.375rem;
                 ${selectNewTokens.targetInnerTop}: 0.5rem;
                 ${selectNewTokens.targetLabelInnerTop}: 0.375rem;
                 ${selectNewTokens.targetFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -204,9 +202,8 @@ export const config = {
                 ${selectNewTokens.targetHeight}: 3rem;
                 ${selectNewTokens.targetWidth}: 100%;
                 ${selectNewTokens.targetRadius}: 0.75rem;
-                ${selectNewTokens.targetPadding}: 1.25rem;
-                ${selectNewTokens.targetPaddingHasChips}: 0 3.375rem 0 0.375rem;
-                ${selectNewTokens.targetPaddingWithInput}: 0 3.375rem 0 0.625rem;
+                ${selectNewTokens.targetButtonPadding}: 1.125rem 0 1.25rem;
+                ${selectNewTokens.targetTextfieldPadding}: 0.875rem 0 0.375rem;
                 ${selectNewTokens.targetInnerTop}: 0.5rem;
                 ${selectNewTokens.targetLabelInnerTop}: 0.375rem;
                 ${selectNewTokens.targetFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -275,9 +272,8 @@ export const config = {
                 ${selectNewTokens.targetHeight}: 3.5rem;
                 ${selectNewTokens.targetWidth}: 100%;
                 ${selectNewTokens.targetRadius}: 0.875rem;
-                ${selectNewTokens.targetPadding}: 1.5rem;
-                ${selectNewTokens.targetPaddingHasChips}: 0 3.625rem 0 0.375rem;
-                ${selectNewTokens.targetPaddingWithInput}: 0 3.625rem 0 0.625rem;
+                ${selectNewTokens.targetButtonPadding}: 1.38rem 0 1.5rem;
+                ${selectNewTokens.targetTextfieldPadding}: 1rem 0 0.375rem;
                 ${selectNewTokens.targetInnerTop}: 0.5rem;
                 ${selectNewTokens.targetLabelInnerTop}: 0.375rem;
                 ${selectNewTokens.targetFontFamily}: var(--plasma-typo-body-l-font-family);
@@ -325,6 +321,8 @@ export const config = {
                 ${selectNewTokens.targetBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${selectNewTokens.targetBackgroundColorActive}: var(--surface-transparent-secondary-active);
                 ${selectNewTokens.targetBackgroundColorOpen}: var(--surface-transparent-secondary);
+                ${selectNewTokens.targetTextfieldBackgroundColor}: var(--surface-transparent-primary);
+                ${selectNewTokens.targetTextfieldBackgroundColorOpened}: var(--surface-transparent-secondary);
                 ${selectNewTokens.targetFontWeight}: 600 !important; /* TODO: Переделать когда появится возможность пересечения свойств */
             `,
         },
