@@ -6,9 +6,11 @@ on:
   pull_request:
      branches:
          - master
+         - SPEED-1472-broken-perftests
   pull_request_target:
      branches:
          - dev
+         - SPEED-1472-broken-perftests
 
 concurrency:
     # New commit on branch cancels running workflows of the same branch

@@ -11,7 +11,7 @@ const config: Config = {
         },
     },
     include: ['packages/**/*.perftest.tsx'],
-    modifyWebpackConfig(config) {
+    modifyWebpackConfig(config) {v
         const babelLoaderOpts = config.module?.rules?.find(
             (rule) => typeof rule === 'object' && rule.loader?.includes('babel-loader'),
         );

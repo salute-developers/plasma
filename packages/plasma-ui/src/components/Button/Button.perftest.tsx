@@ -37,8 +37,12 @@ const actionButton = {
     onBlur: () => {},
 } as const;
 
-export const ActionButton = () => (
-    <ActionButtonComponent {...actionButton}>
-        <IconMic size="xs" color="inherit" />
-    </ActionButtonComponent>
-);
+export const ActionButton = () => {
+    window.top;
+
+    return (
+        <ActionButtonComponent {...actionButton}>
+            <IconMic size='xs' color='inherit' />
+        </ActionButtonComponent>
+    );
+};
