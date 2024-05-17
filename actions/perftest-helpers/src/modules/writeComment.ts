@@ -25,7 +25,7 @@ class PerftestWriteCommentApi {
     }
 
     async post({ prId, owner, repo, reportPath }: WriteCommentParams): Promise<void> {
-        const jsonReport = await readJson<ReportType>(path.resolve(reportPath));
+        const jsonReport = await readJson<ReportType>(path.resolve(reportPath)).catch(() => null);
         const body = this.getCommentBody(jsonReport);
 
         await this.deps.octokit.rest.issues.createComment({
@@ -36,7 +36,11 @@ class PerftestWriteCommentApi {
         });
     }
 
-    protected getCommentBody(jsonReport: ReportType): string {
+    protected getCommentBody(jsonReport: ReportType | null): string {
+        if (!jsonReport) {
+            return this.getErrorMessage();
+        }
+
         const result = jsonReport.hasSignificantNegativeChanges ? '🔴 FAIL' : '🟢 OK';
 
         const report = `<h3>⚡ Component performance testing</h3>
@@ -47,6 +51,17 @@ ${this.getReportDescription(jsonReport)}
 `;
 
         return report;
+    }
+
+    protected getErrorMessage(): string {
+        return `<h3>⚡ Component performance testing</h3>
+
+**Result:** 💀 WASTED
+
+Performance tests are broken.
+If the current changes are the cause, please fix it immediately in this PR. If not, please schedule their repair.
+For any questions, come to the Speed team.
+`;
     }
 
     protected getReportDescription(jsonReport: ReportType): string {

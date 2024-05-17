@@ -68,12 +68,16 @@ describe('perftest/writeComment', () => {
 
     describe('getCommentBody', () => {
         const descriptionResult = 'description';
+        const errorMessage = 'description';
         let getDescriptionMock: jest.Mock;
+        let getErrorMessageMock: jest.Mock;
 
         class ApiWithGetVisualReportExposed extends PerftestWriteCommentApi {
             public getCommentBody = super.getCommentBody;
 
             getReportDescription = (getDescriptionMock = jest.fn().mockReturnValue(descriptionResult) as any);
+
+            getErrorMessage = (getErrorMessageMock = jest.fn().mockReturnValue(errorMessage) as any);
         }
 
         it('should create report markup, add description', () => {
@@ -94,6 +98,16 @@ describe('perftest/writeComment', () => {
 
             const result = api.getCommentBody(jsonReport as any);
             expect(result.includes('OK')).toBe(true);
+        });
+
+        it('should write fallback message if no json report presented', () => {
+            const jsonReport = null;
+            const api = new ApiWithGetVisualReportExposed({} as any);
+
+            const result = api.getCommentBody(jsonReport);
+            expect(result).toEqual(errorMessage);
+
+            expect(getErrorMessageMock).toHaveBeenCalledTimes(1);
         });
     });
 
