@@ -5,7 +5,7 @@ title: Popup
 
 import { PropsTable, Description } from '@site/src/components';
 
-# PopupBase
+# Popup
 <Description name="Popup" />
 <PropsTable name="Popup" />
 
@@ -29,7 +29,7 @@ ReactDOM.render(
 
 ### Использование
 
-PopupBase можно использовать как и на всем окне, так и в отдельном фрейме - свойство `frame`.
+Popup можно использовать как и на всем окне, так и в отдельном фрейме - свойство `frame`.
 
 Также это свойство поддерживает передачу id элемента, в котором будет использоваться компонент.
 
@@ -124,19 +124,19 @@ export function App() {
 ## Подключение анимации
 
 Для подключения анимации нужно добавить параметр `withAnimation`.
-Само управление происходит с помощью классов через переменные `endAnimation`, `endTransition` из объекта `popupBaseClasses` для `PopupBase`.
-Для добавления анимации необходимо использовать класс `.popup-base-root` через переменную `popupBaseClasses.root` из пакета.
+Само управление происходит с помощью классов через переменные `endAnimation`, `endTransition` из объекта `PopupClasses` для `Popup`.
+Для добавления анимации необходимо использовать класс `.popup-root` через переменную `PopupClasses.root` из пакета.
 
 Пример:
 
 ```tsx
-const StyledPopupTransition = styled(PopupBase)`
-    && > .${popupBaseClasses.root} {
+const StyledPopupTransition = styled(Popup)`
+    && > .${PopupClasses.root} {
         opacity: 1;
         transition: opacity 0.5s 0.1s;
     }
 
-    &&.${popupBaseClasses.endTransition} > .${popupBaseClasses.root} {
+    &&.${PopupClasses.endTransition} > .${PopupClasses.root} {
         opacity: 0;
         transition: opacity 0.5s 0.1s;
     }
@@ -146,12 +146,12 @@ const StyledPopupTransition = styled(PopupBase)`
 или
 
 ```tsx
-const StyledPopupAnimation = styled(PopupBase)`
-    && > .${popupBaseClasses.root} {
+const StyledPopupAnimation = styled(Popup)`
+    && > .${PopupClasses.root} {
         animation: fadeIn 1s forwards;
     }
 
-    &&.${popupBaseClasses.endAnimation} > .${popupBaseClasses.root} {
+    &&.${PopupClasses.endAnimation} > .${PopupClasses.root} {
         animation: fadeOut 1s forwards;
     }
 
