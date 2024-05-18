@@ -1,6 +1,7 @@
 import React from 'react';
 import type { FC } from 'react';
 
+import { isEmpty } from '../../../../utils';
 import { Ul, StyledPopover } from '../../SelectNew.styles';
 
 import { Item } from './elements/Item/Item';
@@ -20,7 +21,7 @@ export const Inner: FC<SelectInnerProps> = ({ item, currentLevel, path, dispatch
     const listId = `tree_level_${currentLevel + 2}`;
     const nextLevel = currentLevel + 1;
 
-    if (item?.items) {
+    if (!isEmpty(item?.items)) {
         return (
             <StyledPopover
                 isOpen={isCurrentListOpen}

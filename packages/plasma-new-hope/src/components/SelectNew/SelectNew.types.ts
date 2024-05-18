@@ -45,16 +45,17 @@ type IsMultiselect =
           separator?: string;
       };
 
-type BasicProps = {
+type BasicProps<T extends string | Array<string>> = {
+    // ???
     items: Array<ItemOption>;
     /**
      * Значение control.
      */
-    value: any;
+    value: T;
     /**
      * Обработчик изменения значения.
      */
-    onChange?: (value: any) => void;
+    onChange?: (value: T) => void;
 
     status?: 'warning' | 'success' | 'error';
     placeholder?: string;
@@ -89,7 +90,7 @@ type BasicProps = {
 
     target?: 'button' | 'textfield';
     label?: string;
-    targetView?: 'amount' | 'secondaryLabel';
+    targetView?: 'default' | 'amount';
 };
 
 export type SelectNewProps = Target &
