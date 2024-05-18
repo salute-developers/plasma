@@ -37,7 +37,7 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
                 listHeight,
                 items,
                 size,
-                targetView,
+                targetView = 'default',
                 ...rest
             },
             ref,
@@ -46,14 +46,14 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
             const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
 
             const transformedItems = useMemo(() => initialItemsTransform(items), [items]);
-            const [pathMap, focusedToValueMap, checkedMap, valueToItemMap] = usePathMaps(transformedItems);
+
+            const [pathMap, focusedToValueMap, checkedMap, valueToItemMap] = usePathMaps(
+                transformedItems,
+                value,
+                multiselect,
+            );
 
             const [checked, setChecked] = useState(checkedMap);
-
-            const [values, setValues] = useState<Array<any>>([]);
-
-            // console.log('checked', checked);
-            console.log('values', values);
 
             const handleToggle: HandleGlobalToggleType = (opened) => {
                 if (opened) {
@@ -69,7 +69,7 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
             return (
                 <Root ref={ref} size={size} {...rest}>
                     <Context.Provider
-                        value={{ focusedPath, checked, setChecked, multiselect, size, setValues, valueToItemMap }}
+                        value={{ focusedPath, checked, setChecked, multiselect, size, onChange, valueToItemMap }}
                     >
                         <StyledPopover
                             isOpen={isCurrentListOpen}
@@ -82,7 +82,7 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
                                 <Target
                                     opened={isCurrentListOpen}
                                     target={target}
-                                    values={values}
+                                    value={value}
                                     label="Label"
                                     disabled={disabled}
                                     size={size}
@@ -90,6 +90,8 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
                                     onChange={() => {}}
                                     onKeyDown={() => {}}
                                     targetView={targetView}
+                                    multiselect={multiselect}
+                                    valueToItemMap={valueToItemMap}
                                 />
                             }
                             preventOverflow={false}

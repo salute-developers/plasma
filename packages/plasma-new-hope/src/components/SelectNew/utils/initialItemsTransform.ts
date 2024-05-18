@@ -1,4 +1,4 @@
-import { ItemOptionTransformed } from '../elements/Item/Item.types';
+import { ItemOptionTransformed } from '../elements/Inner/elements/Item/Item.types';
 
 // Проходимся по массиву items и добавляем в каждый item ключ parent, который ссылается на item родителя.
 // Дает возможность прохода к корневому элементу (снизу вверх).

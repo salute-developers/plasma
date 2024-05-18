@@ -42,7 +42,7 @@ export interface SelectTargetProps {
     /**
      * Выбранные значения.
      */
-    values?: any;
+    value?: any;
     /**
      * Ref для компонент чипов.
      */
@@ -56,4 +56,6 @@ export interface SelectTargetProps {
      */
     onKeyDown?: (event: KeyboardEvent<HTMLButtonElement>) => void;
     targetView?: SelectNewProps['targetView'];
+    multiselect?: SelectNewProps['multiselect'];
+    valueToItemMap: any;
 }

@@ -1,6 +1,6 @@
 export const useTreeControls = (node: any, checkedMap: any) => {
     const updateAncestors = (node: any) => {
-        if (!node.parent) return;
+        if (!node?.parent) return;
 
         const { parent } = node;
         const siblings = parent.items;
@@ -31,7 +31,7 @@ export const useTreeControls = (node: any, checkedMap: any) => {
     };
 
     const updateDescendants = (node: any, isChecked: boolean) => {
-        if (!node.items) return;
+        if (!node?.items) return;
 
         node.items.forEach((item) => {
             checkedMap.set(item.value, isChecked);

@@ -5,32 +5,35 @@ import { classes } from '../../../../SelectNew.tokens';
 
 import { StyledButton, StyledArrow, Wrapper, Label } from './Button.styles';
 
-const getLabel = (values, targetView) => {
-    if (!values.length) {
+const getLabel = (value, targetView, multiselect, valueToItemMap) => {
+    if (!value || !value.length) {
         return 'Ничего не выбрано';
     }
+
+    if (!multiselect) {
+        value = [value];
+    }
+
     switch (targetView) {
         case 'amount': {
-            return `Выбрано: ${values.length}`;
-        }
-
-        case 'secondaryLabel': {
-            return values.map(({ secondaryLabel }) => secondaryLabel).join(', ');
+            return `Выбрано: ${value.length}`;
         }
 
         default: {
-            return values.map(({ label }) => label).join(', ');
+            return value
+                .map((value) => valueToItemMap.get(value)?.secondaryLabel || valueToItemMap.get(value)?.label)
+                .join(', ');
         }
     }
 };
 
-export const Button: React.FC<any> = ({ opened, values, targetView }) => {
+export const Button: React.FC<any> = ({ opened, value, targetView, multiselect, valueToItemMap }) => {
     const withArrowInverse = opened ? classes.arrowInverse : undefined;
 
     return (
         <StyledButton stretching="filled">
             <Wrapper>
-                <Label>{getLabel(values, targetView)}</Label>
+                <Label>{getLabel(value, targetView, multiselect, valueToItemMap)}</Label>
 
                 <StyledArrow size="s" color="inherit" className={cx(classes.selectTargetArrow, withArrowInverse)} />
             </Wrapper>

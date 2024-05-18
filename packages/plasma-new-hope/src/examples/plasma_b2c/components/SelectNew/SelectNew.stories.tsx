@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { WithTheme } from '../../../_helpers';
-import { Button } from '../Button/Button';
 import type { DropdownPlacement, DropdownTrigger } from '../../../../components/Dropdown/Dropdown.types';
 
 import { SelectNew } from './SelectNew';
@@ -280,13 +279,64 @@ const items = [
 ];
 
 const StoryNormal = (args: StorySelectNewProps) => {
+    const [value, setValue] = useState(null);
+
+    const onChange = (e) => {
+        setValue(e);
+    };
+
     return (
         <div style={{ width: '300px' }}>
-            <SelectNew {...args} items={items} targetView="amount" />
+            <SelectNew {...args} items={items} value={value} onChange={onChange} />
         </div>
     );
 };
 
 export const Default: StoryObj<StorySelectNewProps> = {
+    args: {
+        multiselect: false,
+    },
     render: (args) => <StoryNormal {...args} />,
+};
+
+const MultiselectStory = (args: StorySelectNewProps) => {
+    const [value, setValue] = useState(null);
+
+    const onChange = (e) => {
+        setValue(e);
+    };
+
+    return (
+        <div style={{ width: '300px' }}>
+            <SelectNew {...args} items={items} value={value} onChange={onChange} />
+        </div>
+    );
+};
+
+export const Multiselect: StoryObj<StorySelectNewProps> = {
+    args: {
+        multiselect: true,
+    },
+    render: (args) => <MultiselectStory {...args} />,
+};
+
+const PredefinedStory = (args: StorySelectNewProps) => {
+    const [value, setValue] = useState('paris');
+
+    const onChange = (e) => {
+        setValue(e);
+    };
+
+    return (
+        <div style={{ width: '300px' }}>
+            <SelectNew {...args} items={items} value={value} onChange={onChange} />
+        </div>
+    );
+};
+
+export const Predefined: StoryObj<StorySelectNewProps> = {
+    args: {
+        multiselect: false,
+    },
+    render: (args) => <PredefinedStory {...args} />,
 };

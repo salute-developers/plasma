@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, FC, useContext } from 'react';
 
 import { classes } from '../../../../SelectNew.tokens';
-import { cx } from '../../../../../../utils';
+import { cx, isEmpty } from '../../../../../../utils';
 import { IconDisclosureRight, IconDone } from '../../../../../_Icon';
 import { useTreeControls } from '../../../../hooks/useTreeControls';
 import { Context } from '../../../../SelectNew';
@@ -27,7 +27,9 @@ export const Item: FC<any> = ({ item, path, currentLevel, index }) => {
     const { value, label, disabled, isDisabled, contentLeft, contentRight } = item;
     const ref = useRef<HTMLLIElement | null>(null);
 
-    const { focusedPath, checked, setChecked, multiselect, size, setValues, valueToItemMap } = useContext(Context);
+    const { focusedPath, checked, setChecked, multiselect, size, onChange: setValues, valueToItemMap } = useContext(
+        Context,
+    );
 
     const isDisabledClassName = disabled || isDisabled ? classes.dropdownItemIsDisabled : undefined;
     const focusedClass =
@@ -61,6 +63,7 @@ export const Item: FC<any> = ({ item, path, currentLevel, index }) => {
             checkedCopy.set(item.value, false);
             updateDescendants(item, false);
         }
+
         updateAncestors(item);
 
         setChecked(checkedCopy);
@@ -69,7 +72,7 @@ export const Item: FC<any> = ({ item, path, currentLevel, index }) => {
 
         valueToItemMap.forEach((value, key) => {
             if (checkedCopy.get(key)) {
-                newValues.push(value);
+                newValues.push(value.value);
             }
         });
 
@@ -77,28 +80,28 @@ export const Item: FC<any> = ({ item, path, currentLevel, index }) => {
     };
 
     const handleClick = (e: any) => {
-        if (multiselect && !item.items) {
-            handleCheckboxChange(e);
+        if (isEmpty(item.items)) {
+            if (multiselect) {
+                handleCheckboxChange(e);
+            } else {
+                e.stopPropagation();
+
+                const isCurrentChecked = checkedCopy.get(item.value);
+
+                checkedCopy.forEach((_, key) => {
+                    checkedCopy.set(key, false);
+                });
+
+                if (!isCurrentChecked) {
+                    checkedCopy.set(item.value, 'done');
+                    updateSingleAncestors(item, 'dot');
+                }
+
+                setChecked(checkedCopy);
+
+                setValues(isCurrentChecked ? null : item.value);
+            }
         }
-
-        if (item.items || multiselect) {
-            return;
-        }
-
-        e.stopPropagation();
-
-        const isCurrentChecked = checkedCopy.get(item.value);
-
-        checkedCopy.forEach((_, key) => {
-            checkedCopy.set(key, false);
-        });
-
-        if (!isCurrentChecked) {
-            checkedCopy.set(item.value, 'done');
-            updateSingleAncestors(item, 'dot');
-        }
-
-        setChecked(checkedCopy);
     };
 
     return (
@@ -130,7 +133,7 @@ export const Item: FC<any> = ({ item, path, currentLevel, index }) => {
 
             {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
 
-            {item.items && (
+            {!isEmpty(item.items) && (
                 <DisclosureIconWrapper>
                     <IconDisclosureRight size="xs" color="inherit" />
                 </DisclosureIconWrapper>
