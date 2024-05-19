@@ -321,22 +321,20 @@ export const Multiselect: StoryObj<StorySelectNewProps> = {
 };
 
 const PredefinedStory = (args: StorySelectNewProps) => {
-    const [value, setValue] = useState('paris');
-
-    const onChange = (e) => {
-        setValue(e);
-    };
+    const [valueSingle, setValueSingle] = useState('paris');
+    const [valueMultiple, setValueMultiple] = useState(['paris', 'north_america']);
 
     return (
         <div style={{ width: '300px' }}>
-            <SelectNew {...args} items={items} value={value} onChange={onChange} />
+            <SelectNew {...args} items={items} value={valueSingle} onChange={setValueSingle} />
+
+            <br />
+
+            <SelectNew {...args} items={items} value={valueMultiple} onChange={setValueMultiple} multiselect />
         </div>
     );
 };
 
 export const Predefined: StoryObj<StorySelectNewProps> = {
-    args: {
-        multiselect: false,
-    },
     render: (args) => <PredefinedStory {...args} />,
 };

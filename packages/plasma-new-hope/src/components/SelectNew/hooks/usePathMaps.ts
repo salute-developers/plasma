@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 
+import { updateDescendants, updateSingleAncestors, updateAncestors } from '../utils';
 import { isEmpty } from '../../../utils';
 import { SelectNewProps } from '../SelectNew.types';
 import { ItemOptionTransformed } from '../elements/Inner/elements/Item/Item.types';
@@ -36,77 +37,17 @@ export const usePathMaps = (items: any, value: string | Array<string>, multisele
         };
         rec(items);
 
+        // Сюда заходим, если пользователь передал value изначально. Надо определить какие из items будут выделены.
         if (!isEmpty(value)) {
-            // Сюда заходим, если пользователь передал value изначально. Надо определить какие из items будут выделены.
-
             if (multiselect && Array.isArray(value)) {
-                // Проставляем чекбоксы в режиме мультиселекта
-
-                const updateAncestors = (node: any) => {
-                    if (!node?.parent) return;
-
-                    const { parent } = node;
-                    const siblings = parent.items;
-                    const siblingsLength = siblings.length;
-                    let checkedFromAllSiblings = 0;
-                    let isParentIndeterminate = false;
-
-                    siblings.forEach((sib) => {
-                        if (checkedMap.get(sib.value) === 'indeterminate') {
-                            isParentIndeterminate = true;
-                            return;
-                        }
-
-                        if (checkedMap.get(sib.value)) {
-                            checkedFromAllSiblings += 1;
-                        }
-                    });
-
-                    if (
-                        isParentIndeterminate ||
-                        (checkedFromAllSiblings > 0 && checkedFromAllSiblings < siblingsLength)
-                    ) {
-                        checkedMap.set(parent.value, 'indeterminate');
-                    } else if (checkedFromAllSiblings === 0) {
-                        checkedMap.set(parent.value, false);
-                    } else {
-                        checkedMap.set(parent.value, true);
-                    }
-
-                    updateAncestors(parent);
-                };
-
-                const updateDescendants = (node: any, isChecked: boolean) => {
-                    if (!node?.items) return;
-
-                    node.items.forEach((item) => {
-                        checkedMap.set(item.value, isChecked);
-
-                        if (item.items) {
-                            updateDescendants(item, isChecked);
-                        }
-                    });
-                };
-
                 value.forEach((val) => {
                     checkedMap.set(val, true);
-                    updateDescendants(valueToItemMap.get(val), true);
+                    updateDescendants(valueToItemMap.get(val), checkedMap, true);
+                    updateAncestors(valueToItemMap.get(val), checkedMap);
                 });
             } else {
-                // Проставляем галочки в режиме single
-
-                const updateSingleAncestors = (node: any, type) => {
-                    if (!node.parent) return;
-
-                    const { parent } = node;
-
-                    checkedMap.set(parent.value, type);
-
-                    updateSingleAncestors(parent, type);
-                };
-
                 checkedMap.set(value, 'done');
-                updateSingleAncestors(valueToItemMap.get(value), 'dot');
+                updateSingleAncestors(valueToItemMap.get(value), checkedMap, 'dot');
             }
         }
 

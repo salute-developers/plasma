@@ -3,7 +3,6 @@ import React, { useEffect, useRef, FC, useContext } from 'react';
 import { classes } from '../../../../SelectNew.tokens';
 import { cx, isEmpty } from '../../../../../../utils';
 import { IconDisclosureRight, IconDone } from '../../../../../_Icon';
-import { useTreeControls } from '../../../../hooks/useTreeControls';
 import { Context } from '../../../../SelectNew';
 
 import {
@@ -27,9 +26,7 @@ export const Item: FC<any> = ({ item, path, currentLevel, index }) => {
     const { value, label, disabled, isDisabled, contentLeft, contentRight } = item;
     const ref = useRef<HTMLLIElement | null>(null);
 
-    const { focusedPath, checked, setChecked, multiselect, size, onChange: setValues, valueToItemMap } = useContext(
-        Context,
-    );
+    const { focusedPath, checked, multiselect, size, handleCheckboxChange, handleItemClick } = useContext(Context);
 
     const isDisabledClassName = disabled || isDisabled ? classes.dropdownItemIsDisabled : undefined;
     const focusedClass =
@@ -37,11 +34,6 @@ export const Item: FC<any> = ({ item, path, currentLevel, index }) => {
             ? classes.dropdownItemIsFocused
             : undefined;
     const activeClass = value === path?.[currentLevel + 1] ? classes.dropdownItemIsActive : undefined;
-
-    // Создаем копию, чтобы в нее вносить изменения и в конце сеттить финальный вариант
-    const checkedCopy = new Map(checked);
-
-    const { updateAncestors, updateDescendants, updateSingleAncestors } = useTreeControls(item, checkedCopy);
 
     useEffect(() => {
         if (focusedClass && ref?.current) {
@@ -53,55 +45,12 @@ export const Item: FC<any> = ({ item, path, currentLevel, index }) => {
         }
     }, [focusedClass]);
 
-    const handleCheckboxChange = (e: any) => {
-        e.stopPropagation();
-
-        if (!checkedCopy.get(item.value)) {
-            checkedCopy.set(item.value, true);
-            updateDescendants(item, true);
-        } else {
-            checkedCopy.set(item.value, false);
-            updateDescendants(item, false);
-        }
-
-        updateAncestors(item);
-
-        setChecked(checkedCopy);
-
-        const newValues = [];
-
-        valueToItemMap.forEach((value, key) => {
-            if (checkedCopy.get(key)) {
-                newValues.push(value.value);
-            }
-        });
-
-        setValues(newValues);
+    const handleChange = (e) => {
+        handleCheckboxChange(e, item);
     };
 
-    const handleClick = (e: any) => {
-        if (isEmpty(item.items)) {
-            if (multiselect) {
-                handleCheckboxChange(e);
-            } else {
-                e.stopPropagation();
-
-                const isCurrentChecked = checkedCopy.get(item.value);
-
-                checkedCopy.forEach((_, key) => {
-                    checkedCopy.set(key, false);
-                });
-
-                if (!isCurrentChecked) {
-                    checkedCopy.set(item.value, 'done');
-                    updateSingleAncestors(item, 'dot');
-                }
-
-                setChecked(checkedCopy);
-
-                setValues(isCurrentChecked ? null : item.value);
-            }
-        }
+    const handleClick = (e) => {
+        handleItemClick(e, item);
     };
 
     return (
@@ -116,7 +65,7 @@ export const Item: FC<any> = ({ item, path, currentLevel, index }) => {
                     <StyledCheckbox
                         checked={Boolean(checked.get(item.value))}
                         indeterminate={checked.get(item.value) === 'indeterminate'}
-                        onChange={handleCheckboxChange}
+                        onChange={handleChange}
                     />
                 )}
 
