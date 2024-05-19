@@ -1,12 +1,13 @@
-import React, { forwardRef, useReducer, useState, useMemo, createContext } from 'react';
+import React, { forwardRef, useReducer, useMemo, createContext } from 'react';
 
 import { RootProps } from '../../engines';
 import type { HandleGlobalToggleType } from '../Dropdown/Dropdown.types';
+import { isEmpty } from '../../utils';
 
 import { initialItemsTransform } from './utils';
 import { Inner } from './elements/Inner/Inner';
 import { Target } from './elements/Target/Target';
-import { pathReducer, focusedPathReducer } from './reducers';
+import { pathReducer, focusedPathReducer, checkedReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
 import { StyledPopover, Ul, base } from './SelectNew.styles';
 import type { SelectNewProps } from './SelectNew.types';
@@ -42,9 +43,6 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
             },
             ref,
         ) => {
-            const [path, dispatchPath] = useReducer(pathReducer, []);
-            const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
-
             const transformedItems = useMemo(() => initialItemsTransform(items), [items]);
 
             const [pathMap, focusedToValueMap, checkedMap, valueToItemMap] = usePathMaps(
@@ -53,7 +51,9 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
                 multiselect,
             );
 
-            const [checked, setChecked] = useState(checkedMap);
+            const [path, dispatchPath] = useReducer(pathReducer, []);
+            const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
+            const [checked, dispatchChecked] = useReducer(checkedReducer, checkedMap);
 
             const handleToggle: HandleGlobalToggleType = (opened) => {
                 if (opened) {
@@ -64,12 +64,37 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
                 }
             };
 
+            const handleCheckboxChange = (e: any, item) => {
+                e.stopPropagation();
+
+                dispatchChecked({ type: 'checkbox_changed', item, setValues: onChange, valueToItemMap });
+            };
+
+            const handleItemClick = (e: any, item) => {
+                if (isEmpty(item.items)) {
+                    if (multiselect) {
+                        handleCheckboxChange(e, item);
+                    } else {
+                        e.stopPropagation();
+
+                        dispatchChecked({ type: 'item_clicked', item, setValues: onChange });
+                    }
+                }
+            };
+
             const isCurrentListOpen = Boolean(path[0]);
 
             return (
                 <Root ref={ref} size={size} {...rest}>
                     <Context.Provider
-                        value={{ focusedPath, checked, setChecked, multiselect, size, onChange, valueToItemMap }}
+                        value={{
+                            focusedPath,
+                            checked,
+                            multiselect,
+                            size,
+                            handleCheckboxChange,
+                            handleItemClick,
+                        }}
                     >
                         <StyledPopover
                             isOpen={isCurrentListOpen}
