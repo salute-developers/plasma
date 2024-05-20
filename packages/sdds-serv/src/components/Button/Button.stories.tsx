@@ -2,18 +2,20 @@ import React, { useCallback, useState, useRef } from 'react';
 import type { ComponentProps } from 'react';
 import { action } from '@storybook/addon-actions';
 import type { StoryObj, Meta } from '@storybook/react';
+import { IconMic } from '@salutejs/plasma-icons';
 
-import { IconPlaceholder, disableProps, InSpacingDecorator } from '../../helpers';
+import { InSpacingDecorator, disableProps } from '../../helpers';
 
 import { Button } from '.';
 import type { ButtonProps as Base } from '.';
 
 type ButtonProps = ComponentProps<Base>;
 
-const views = ['accent', 'default', 'secondary', 'success', 'warning', 'critical', 'clear', 'dark', 'black', 'white'];
+const views = ['default', 'accent', 'success', 'warning', 'critical', 'dark', 'light'];
 const sizes = ['l', 'm', 's', 'xs', 'xxs'];
-const stretching = ['auto', 'filled', 'fixed'];
-const pins = [
+const stretchingValues = ['auto', 'filled', 'fixed'];
+const pinValues = [
+    '',
     'square-square',
     'square-clear',
     'clear-square',
@@ -21,10 +23,8 @@ const pins = [
     'clear-circle',
     'circle-clear',
     'circle-circle',
-    '',
 ];
-
-const contentTypes = ['Text', 'Text+Left', 'Text+Right', 'Left'];
+const contentPlacinValues = ['default', 'relaxed'];
 
 const onClick = action('onClick');
 const onFocus = action('onFocus');
@@ -34,92 +34,128 @@ const meta: Meta<ButtonProps> = {
     title: 'Controls/Button',
     decorators: [InSpacingDecorator],
     component: Button,
+    args: {
+        view: 'default',
+        size: 'm',
+        contentPlacing: 'default',
+        stretching: 'auto',
+        text: 'Hello',
+        value: 'Value',
+        disabled: false,
+        focused: true,
+        square: false,
+        isLoading: false,
+    },
     argTypes: {
-        contentType: {
-            options: contentTypes,
-            control: {
-                type: 'select',
-            },
-        },
-        text: {
-            control: {
-                type: 'text',
-            },
-        },
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        pin: {
-            options: pins,
-            control: {
-                type: 'select',
-            },
-        },
-        stretching: {
-            options: stretching,
-            control: {
-                type: 'select',
-            },
-        },
         view: {
             options: views,
             control: {
                 type: 'select',
             },
         },
-        ...disableProps(['theme', 'loader', 'onClick', 'onFocus', 'onBlur', 'contentLeft', 'contentRight']),
+        size: {
+            options: sizes,
+            control: {
+                type: 'select',
+            },
+        },
+        value: {
+            control: {
+                type: 'text',
+            },
+        },
+        contentPlacing: {
+            options: contentPlacinValues,
+            control: {
+                type: 'select',
+            },
+        },
+        stretching: {
+            options: stretchingValues,
+            control: {
+                type: 'select',
+            },
+        },
+        pin: {
+            options: pinValues,
+            control: {
+                type: 'select',
+            },
+            table: { defaultValue: { summary: 'bottom' } },
+        },
+        ...disableProps([
+            'theme',
+            'loader',
+            'onClick',
+            'onFocus',
+            'onBlur',
+            'outlined',
+            'contentLeft',
+            'contentRight',
+            'shiftLeft',
+            'shiftRight',
+            'stretch',
+            'as',
+            'forwardedAs',
+        ]),
     },
 };
 
 export default meta;
 
-type StoryButtonProps = ButtonProps & { contentType: string; isLoading?: boolean };
-
-const iconSize = {
-    l: 's',
-    m: 's',
-    s: 's',
-    xs: 'xs',
-    xxs: 'xs',
+type StoryPropsDefault = ComponentProps<typeof Button> & {
+    enableContentLeft: boolean;
+    enableContentRight: boolean;
 };
 
-export const Default: StoryObj<StoryButtonProps> = {
-    args: {
-        view: 'default',
-        size: 'l',
-        disabled: false,
-        text: 'Label',
-        contentType: 'Text',
-        isLoading: false,
-        focused: true,
-        square: false,
-        stretching: 'auto',
-        onClick,
-        onFocus,
-        onBlur,
-    },
-    render: ({ contentType, text, ...rest }) => (
+const StoryDefault = ({ enableContentLeft, enableContentRight, size, ...rest }: StoryPropsDefault) => {
+    const iconSize = size === 'xs' || size === 'xxs' ? 'xs' : 's';
+
+    return (
         <Button
-            autoFocus
-            text={contentType !== 'Left' && text}
-            contentLeft={
-                (contentType === 'Left' || contentType === 'Text+Left') && (
-                    <IconPlaceholder size={iconSize[rest.size]} />
-                )
-            }
-            contentRight={contentType === 'Text+Right' && <IconPlaceholder size={iconSize[rest.size]} />}
+            contentLeft={enableContentLeft ? <IconMic size={iconSize} color="inherit" /> : undefined}
+            contentRight={enableContentRight ? <IconMic size={iconSize} color="inherit" /> : undefined}
+            size={size}
+            onClick={onClick}
+            onFocus={onFocus}
+            onBlur={onBlur}
             {...rest}
         />
-    ),
+    );
 };
 
-const StoryLoading = ({ contentType, text, isLoading, onClick: _onClick, ...rest }: StoryButtonProps) => {
+export const Default: StoryObj<StoryPropsDefault> = {
+    args: {
+        enableContentLeft: false,
+        enableContentRight: false,
+        value: '',
+    },
+    argTypes: {
+        ...disableProps(['value']),
+    },
+    render: (args) => <StoryDefault {...args} />,
+};
+
+export const WithValue: StoryObj<StoryPropsDefault> = {
+    args: {
+        enableContentLeft: false,
+    },
+    render: (args) => <StoryDefault {...args} />,
+};
+
+const StoryLoading = ({
+    enableContentLeft,
+    enableContentRight,
+    size,
+    isLoading,
+    onClick: _onClick,
+    ...rest
+}: StoryPropsDefault) => {
     const [loading, setLoading] = useState(isLoading);
     const [count, setCount] = useState(0);
     const intervalId = useRef<number | undefined>();
+
+    const iconSize = size === 'xs' || size === 'xxs' ? 'xs' : 's';
 
     const onClickHandle = useCallback(
         (event) => {
@@ -148,24 +184,24 @@ const StoryLoading = ({ contentType, text, isLoading, onClick: _onClick, ...rest
         <Button
             autoFocus
             onClick={onClickHandle}
-            text={contentType !== 'Left' && text}
-            contentLeft={
-                (contentType === 'Left' || contentType === 'Text+Left') && (
-                    <IconPlaceholder size={iconSize[rest.size]} />
-                )
-            }
-            contentRight={contentType === 'Text+Right' && <IconPlaceholder size={iconSize[rest.size]} />}
+            contentLeft={enableContentLeft ? <IconMic size={iconSize} color="inherit" /> : undefined}
+            contentRight={enableContentRight ? <IconMic size={iconSize} color="inherit" /> : undefined}
             isLoading={loading}
+            size={size}
             loader={<div>Loading - {count}</div>}
             {...rest}
         />
     );
 };
 
-export const Loading: StoryObj<StoryButtonProps> = {
+export const Loading: StoryObj<StoryPropsDefault> = {
     args: {
         ...Default.args,
         text: 'Start loading',
+        value: '',
+    },
+    argTypes: {
+        ...disableProps(['text', 'value']),
     },
     render: (args) => <StoryLoading {...args} />,
 };
