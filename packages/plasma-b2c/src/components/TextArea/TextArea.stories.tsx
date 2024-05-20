@@ -40,7 +40,6 @@ const meta: Meta<TextAreaProps> = {
         ...disableProps([
             'helperBlock',
             '$isFocused',
-            'label',
             'contentRight',
             'autoComplete',
             'autoFocus',
