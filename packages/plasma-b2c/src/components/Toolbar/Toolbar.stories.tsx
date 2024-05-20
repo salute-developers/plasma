@@ -14,12 +14,22 @@ const size: Array<string> = ['xs', 's', 'm', 'l'];
 const ToolbarWrapper = (props: ComponentProps<typeof Toolbar>) => {
     return (
         <Toolbar {...props}>
-            <Button square size={props.size} view="clear" contentLeft={<IconEdit />} />
-            <Button square size={props.size} view="clear" contentLeft={<IconEdit />} />
-            <Button square size={props.size} view="clear" contentLeft={<IconEdit />} />
+            <Button square size={props.size} view="clear">
+                <IconEdit />
+            </Button>
+            <Button square size={props.size} view="clear">
+                <IconEdit />
+            </Button>
+            <Button square size={props.size} view="clear">
+                <IconEdit />
+            </Button>
             <ToolbarDivider />
-            <Button square size={props.size} view="clear" contentLeft={<IconEdit />} />
-            <Button square size={props.size} view="clear" contentLeft={<IconEdit />} />
+            <Button square size={props.size} view="clear">
+                <IconEdit />
+            </Button>
+            <Button square size={props.size} view="clear">
+                <IconEdit />
+            </Button>
         </Toolbar>
     );
 };
