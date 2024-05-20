@@ -46,7 +46,9 @@ export const Item: FC<any> = ({ item, path, currentLevel, index }) => {
     }, [focusedClass]);
 
     const handleChange = (e) => {
-        handleCheckboxChange(e, item);
+        e.stopPropagation();
+
+        handleCheckboxChange(item);
     };
 
     const handleClick = (e) => {
@@ -62,11 +64,13 @@ export const Item: FC<any> = ({ item, path, currentLevel, index }) => {
         >
             <IconWrapper>
                 {multiselect && (
-                    <StyledCheckbox
-                        checked={Boolean(checked.get(item.value))}
-                        indeterminate={checked.get(item.value) === 'indeterminate'}
-                        onChange={handleChange}
-                    />
+                    <span onClick={(e) => e.stopPropagation()}>
+                        <StyledCheckbox
+                            checked={Boolean(checked.get(item.value))}
+                            indeterminate={checked.get(item.value) === 'indeterminate'}
+                            onChange={handleChange}
+                        />
+                    </span>
                 )}
 
                 {!multiselect && checked.get(item.value) === 'dot' && <StyledIndicator size="s" view="default" />}
