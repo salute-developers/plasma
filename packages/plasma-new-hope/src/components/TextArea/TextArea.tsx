@@ -52,7 +52,7 @@ const fallbackStatusMap = {
 
 // TODO: Перенести этот метод в файл applyDynamicLabel.ts
 export const getDynamicLabelClasses = (props: TextAreaProps, focused: boolean) => {
-    const { readOnly, label, labelPlacement, autoResize, rows, value } = props;
+    const { readOnly, label, labelPlacement, autoResize, rows, value, size } = props;
 
     // Добавить класс отвечающий за изменение цвета плейсхолдера при фокусе
     const withFocusedOuterUpPlaceholder =
@@ -64,6 +64,7 @@ export const getDynamicLabelClasses = (props: TextAreaProps, focused: boolean) =
         label &&
         !autoResize &&
         !rows &&
+        size !== 'xs' &&
         ((!readOnly && (value || focused)) || (readOnly && value))
             ? innerPlaceholderUp
             : undefined;
@@ -72,7 +73,8 @@ export const getDynamicLabelClasses = (props: TextAreaProps, focused: boolean) =
     const withHidePlaceholder =
         (value && !label) ||
         (labelPlacement === 'inner' && ((focused && !readOnly) || value) && label && (rows || autoResize)) ||
-        (labelPlacement === 'outer' && value)
+        (labelPlacement === 'outer' && value) ||
+        (labelPlacement === 'inner' && size === 'xs' && value)
             ? hidePlaceHolder
             : undefined;
 
@@ -120,7 +122,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
         const overriddenView = status !== undefined ? fallbackStatusMap[status] : view;
         const textareaHelperId = id ? `${id}-helper` : undefined;
         const applyCustomWidth = resize !== 'horizontal' && resize !== 'both' && !cols;
-        const placeLabel = labelPlacement === 'inner' && label ? label : placeholder;
+        const placeLabel = labelPlacement === 'inner' && label && size !== 'xs' ? label : placeholder;
 
         useResizeObserver(outerRef, (currentElement) => {
             const { width: inlineWidth, height: inlineHeight } = currentElement.style;
@@ -153,7 +155,15 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
         );
 
         const dynamicLabelClasses = getDynamicLabelClasses(
-            { readOnly, label, labelPlacement, autoResize, rows, value: value || uncontrolledValue || defaultValue },
+            {
+                size,
+                readOnly,
+                label,
+                labelPlacement,
+                autoResize,
+                rows,
+                value: value || uncontrolledValue || defaultValue,
+            },
             focused,
         );
 

@@ -12,11 +12,13 @@ const {
 export const applyDynamicLabel = `
     .${String(innerPlaceholderUp)} {
         .${String(styledTextArea)} {
-            height: calc(var(--plasma_private-textarea-input-actual-height) - 1rem);
+            height: calc(var(--plasma_private-textarea-input-actual-height) - var(${tokens.labelInnerTop}));
         }
 
         .${String(styledTextAreaWrapper)} {
-            padding-top: calc(var(${tokens.inputPaddingTop}) + 1rem);
+            padding-top: calc(calc(var(${tokens.labelInnerTop}) + var(${tokens.labelInnerFontSize})) + var(${
+    tokens.labelInnerMarginBottom
+}));
         }
 
         .${String(styledPlaceholder)} {
@@ -26,6 +28,7 @@ export const applyDynamicLabel = `
             font-weight: var(${tokens.labelInnerFontWeight});
             letter-spacing: var(${tokens.labelInnerLetterSpacing});
             line-height: var(${tokens.labelInnerLineHeight});
+            top: var(${tokens.labelInnerTop});
         }
     }
 
