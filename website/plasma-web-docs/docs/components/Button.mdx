@@ -13,6 +13,11 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 <PropsTable name="Button" exclude={['css']} />
 <StorybookLink name="Button" />
 
+:::caution Взаимоисключающие свойства
+Свойство `value` - это значение кнопки. Оно отображается справа от основного текста.<br/>
+`value` и `contentRight` взаимоисключающие: если передано одно, второе передать нельзя.
+:::
+
 ## Использование
 Компонент `Button` может содержать текст, который указывается в
 свойстве `text`, или любой контент напрямую через `children`.
@@ -66,6 +71,48 @@ export function App() {
             <Button text="Button" size="s" />
             <Button text="Button" size="xs" />
             <Button text="Button" size="xxs" />
+        </div>
+    );
+}
+```
+
+### Ширина кнопки
+Ширина кнопки регулируется с помощью свойства `stretching`.
+Возможные значения свойства `contentPlacing`:
++ `auto` – ширина подстраивается под контент;
++ `filled` – кнопка растягивается на всю доступную ширину;
++ `fixed` – кнопка фиксированной ширины.
+
+```tsx live
+import React from 'react';
+import { Button } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <Button text="Button" stretching="fixed" />
+            <Button text="Button" stretching="auto" />
+            <Button text="Button" stretching="filled" />
+        </div>
+    );
+}
+```
+
+### Позиционирование контента внутри
+Позиционирование контента внутри кнопки регулируется с помощью свойства `contentPlacing`.
+Возможные значения свойства `contentPlacing`:
++ `default` – контент центрируется;
++ `relaxed` – контент распологается по краям.
+
+```tsx live
+import React from 'react';
+import { Button } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <Button text="Hello" value="Plasma" stretching="filled" contentPlacing="default" />
+            <Button text="Hello" value="Plasma" stretching="filled" contentPlacing="relaxed" />
         </div>
     );
 }
