@@ -500,7 +500,49 @@ auto: string;
 filled: string;
 fixed: string;
 };
-}> & ButtonProps<HTMLElement> & RefAttributes<HTMLButtonElement>>;
+}> & ((Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps_2<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: string | number | undefined;
+contentRight?: undefined;
+} & RefAttributes<HTMLButtonElement>) | (Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps_2<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: undefined;
+contentRight?: ReactNode;
+} & RefAttributes<HTMLButtonElement>))>;
 
 // @public (undocumented)
 export const Button1: FunctionComponent<PropsType<    {
@@ -783,11 +825,11 @@ l: string;
 view: {
 default: string;
 };
-}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "type" | "target" | "size" | "value" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
+}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "value" | "type" | "target" | "size" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
 valueType?: "single" | undefined;
 value?: ComboboxPrimitiveValue | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue | undefined) => void) | undefined;
-} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "type" | "target" | "size" | "value" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
+} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "value" | "type" | "target" | "size" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
 valueType: "multiple";
 value?: ComboboxPrimitiveValue[] | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue[] | undefined) => void) | undefined;
@@ -1168,7 +1210,49 @@ true: string;
 focused: {
 true: string;
 };
-}> & ButtonProps<HTMLElement> & RefAttributes<HTMLButtonElement>>;
+}> & ((Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps_2<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: string | number | undefined;
+contentRight?: undefined;
+} & RefAttributes<HTMLButtonElement>) | (Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps_2<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: undefined;
+contentRight?: ReactNode;
+} & RefAttributes<HTMLButtonElement>))>;
 
 // @public
 const Image_2: FunctionComponent<PropsType<Variants> & ImgHTMLAttributes<HTMLImageElement> & {
