@@ -11,8 +11,17 @@ import { base as disabledCSS } from './variations/_disabled/base';
 import { base as focusedCSS } from './variations/_focused/base';
 import { base as stretchingCSS } from './variations/_stretching/base';
 import { base as blurredCSS } from './variations/_blurred/base';
-import type { ButtonProps } from './Button.types';
-import { base, ButtonText, Loader, LoadWrap, StyledSpinner } from './Button.styles';
+import type { ButtonProps, ContentPlacementMapper } from './Button.types';
+import {
+    base,
+    ButtonText,
+    ButtonValue,
+    Loader,
+    LoadWrap,
+    StyledContentLeft,
+    StyledContentRight,
+    StyledSpinner,
+} from './Button.styles';
 import { classes, tokens } from './Button.tokens';
 
 export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
@@ -22,8 +31,10 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
             view,
             size,
             text,
+            value,
             contentLeft,
             contentRight,
+            contentPlacing = 'default',
             isLoading,
             loader,
             stretch,
@@ -44,10 +55,18 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
         const stretchingClass = stretch
             ? classes.filledStretching
             : classes[`${stretching}Stretching` as keyof typeof classes];
+        const contentRelaxedClass = contentPlacing === 'relaxed' ? classes.contentRelaxed : undefined;
         const squareClass = square ? classes.buttonSquare : undefined;
         const buttonBorderRadius = pin
             ? convertRoundnessMatrix(pin, `var(${tokens.buttonRadius})`, `var(${tokens.buttonHeight})`)
             : `var(${tokens.buttonRadius}, calc(var(${tokens.buttonHeight}) / 4))`;
+
+        const contentPlacingMapper: ContentPlacementMapper = {
+            default: 'center',
+            relaxed: 'space-between',
+        };
+
+        const contentPlacementValue = contentPlacing ? contentPlacingMapper[contentPlacing] : 'center';
 
         return (
             <Root
@@ -55,8 +74,10 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                 ref={ref}
                 view={view}
                 size={size}
+                value={value}
                 disabled={disabled}
                 focused={focused || outlined}
+                contentPlacing={contentPlacing}
                 className={cx(squareClass, stretchingClass, classes.buttonItem, className)}
                 style={
                     {
@@ -67,10 +88,11 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                 }
                 {...rest}
             >
-                <LoadWrap isLoading={isLoading}>
-                    {contentLeft}
-                    {txt ? <ButtonText>{txt}</ButtonText> : children}
-                    {contentRight}
+                <LoadWrap contentPlacing={contentPlacementValue} isLoading={isLoading}>
+                    {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
+                    {txt ? <ButtonText className={contentRelaxedClass}>{txt}</ButtonText> : children}
+                    {value && <ButtonValue>{value}</ButtonValue>}
+                    {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
                 </LoadWrap>
                 {isLoading && <Loader>{loader || <StyledSpinner />}</Loader>}
             </Root>

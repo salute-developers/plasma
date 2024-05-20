@@ -10,6 +10,6 @@ export const base = css`
         width: 100%;
     }
     &.${classes.autoStretching} {
-        width: auto;
+        width: fit-content;
     }
 `;

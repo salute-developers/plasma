@@ -11,6 +11,58 @@ import { classes, tokens } from './Button.tokens';
 const mergedConfig = mergeConfig(spinnerConfig);
 const Spinner = component(mergedConfig);
 
+export const ButtonText = styled.span`
+    min-width: 4ch;
+    flex-shrink: 2;
+    
+    ${applyEllipsis()}
+    
+
+    &.${String(classes.contentRelaxed)} {
+        text-align: start;
+        flex-grow: 2;
+    }
+`;
+
+export const ButtonValue = styled.span`
+    color: var(${tokens.buttonValueColor});
+
+    margin: var(${tokens.buttonValueMargin});
+
+    min-width: 4ch;
+
+    ${applyEllipsis()}
+`;
+
+// TODO: #720
+export const LoadWrap = styled.div<{ contentPlacing: string; isLoading?: boolean }>`
+    opacity: ${({ isLoading }) => (isLoading ? '0' : '1')};
+    display: flex;
+    align-items: inherit;
+    justify-content: ${({ contentPlacing }) => contentPlacing};
+    height: 100%;
+    width: 100%;
+`;
+
+export const Loader = styled.div`
+    position: absolute;
+`;
+
+export const StyledSpinner = styled(Spinner)`
+    ${spinnerTokens.size}: var(${tokens.buttonSpinnerSize});
+    ${spinnerTokens.color}: var(${tokens.buttonSpinnerColor});
+`;
+
+export const StyledContentLeft = styled.div`
+    display: flex;
+    margin: var(${tokens.buttonLeftContentMargin});
+`;
+
+export const StyledContentRight = styled.div`
+    display: flex;
+    margin: var(${tokens.buttonRightContentMargin});
+`;
+
 export const base = css`
     position: relative;
     display: inline-flex;
@@ -37,40 +89,6 @@ export const base = css`
         width: var(${tokens.buttonHeight});
         padding: 0;
     }
-`;
-
-// TODO: PLASMA-2164
-// WHY do we need applyEllipsis ??
-// Если внутри кнопки тескт и на нее решили повесить square пропс
-export const ButtonText = styled.span`
-    :not(:last-child) {
-        margin-right: 0.375rem;
-    }
-
-    :not(:first-child) {
-        margin-left: 0.375rem;
-    }
-
-    ${applyEllipsis()}
-`;
-
-// TODO: #720
-export const LoadWrap = styled.div<{ isLoading?: boolean }>`
-    opacity: ${({ isLoading }) => (isLoading ? '0' : '1')};
-    display: flex;
-    width: 100%;
-    align-items: inherit;
-    justify-content: inherit;
-    height: 100%;
-`;
-
-export const Loader = styled.div`
-    position: absolute;
-`;
-
-export const StyledSpinner = styled(Spinner)`
-    ${spinnerTokens.size}: var(${tokens.buttonSpinnerSize});
-    ${spinnerTokens.color}: var(${tokens.buttonSpinnerColor});
 `;
 
 // INFO: Для возможности переиспользования стилей в других компонентах
@@ -165,6 +183,6 @@ export const baseContent = `
         width: 100%;
     }
     &.${classes.autoStretching} {
-        width: auto;
+        width: fit-content;
     }
 `;
