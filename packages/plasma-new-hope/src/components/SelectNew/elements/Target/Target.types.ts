@@ -58,4 +58,5 @@ export interface SelectTargetProps {
     targetView?: SelectNewProps['targetView'];
     multiselect?: SelectNewProps['multiselect'];
     valueToItemMap: any;
+    onChipClick: any;
 }

@@ -1,13 +1,13 @@
-import React, { forwardRef, useReducer, useMemo, createContext } from 'react';
+import React, { forwardRef, useState, useReducer, useMemo, createContext } from 'react';
 
 import { RootProps } from '../../engines';
 import type { HandleGlobalToggleType } from '../Dropdown/Dropdown.types';
 import { isEmpty } from '../../utils';
 
-import { initialItemsTransform } from './utils';
+import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors } from './utils';
 import { Inner } from './elements/Inner/Inner';
 import { Target } from './elements/Target/Target';
-import { pathReducer, focusedPathReducer, checkedReducer } from './reducers';
+import { pathReducer, focusedPathReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
 import { StyledPopover, Ul, base } from './SelectNew.styles';
 import type { SelectNewProps } from './SelectNew.types';
@@ -51,9 +51,13 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
                 multiselect,
             );
 
+            console.log('render', value);
+
             const [path, dispatchPath] = useReducer(pathReducer, []);
             const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
-            const [checked, dispatchChecked] = useReducer(checkedReducer, checkedMap);
+            const [checked, setChecked] = useState(checkedMap);
+
+            // console.log('checked', checked, performance.now());
 
             const handleToggle: HandleGlobalToggleType = (opened) => {
                 if (opened) {
@@ -64,21 +68,71 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
                 }
             };
 
-            const handleCheckboxChange = (e: any, item) => {
-                e.stopPropagation();
+            const handleCheckboxChange = (item) => {
+                const checkedCopy = new Map(checked);
 
-                dispatchChecked({ type: 'checkbox_changed', item, setValues: onChange, valueToItemMap });
+                if (!checkedCopy.get(item.value)) {
+                    checkedCopy.set(item.value, true);
+                    updateDescendants(item, checkedCopy, true);
+                } else {
+                    checkedCopy.set(item.value, false);
+                    updateDescendants(item, checkedCopy, false);
+                }
+
+                updateAncestors(item, checkedCopy);
+
+                const newValues = [];
+
+                valueToItemMap.forEach((value, key) => {
+                    if (checkedCopy.get(key)) {
+                        newValues.push(value.value);
+                    }
+                });
+
+                onChange(newValues);
+
+                setChecked(checkedCopy);
             };
 
             const handleItemClick = (e: any, item) => {
                 if (isEmpty(item.items)) {
                     if (multiselect) {
-                        handleCheckboxChange(e, item);
+                        handleCheckboxChange(item);
                     } else {
                         e.stopPropagation();
 
-                        dispatchChecked({ type: 'item_clicked', item, setValues: onChange });
+                        const checkedCopy = new Map(checked);
+
+                        const isCurrentChecked = checkedCopy.get(item.value);
+
+                        checkedCopy.forEach((_, key) => {
+                            checkedCopy.set(key, false);
+                        });
+
+                        if (!isCurrentChecked) {
+                            checkedCopy.set(item.value, 'done');
+                            updateSingleAncestors(item, checkedCopy, 'dot');
+                        }
+
+                        onChange(isCurrentChecked ? '' : item.value);
+
+                        setChecked(checkedCopy);
                     }
+                }
+            };
+
+            const handleChipClick = (currentValue) => {
+                if (multiselect) {
+                    handleCheckboxChange(valueToItemMap.get(currentValue));
+                } else {
+                    const checkedCopy = new Map(checked);
+
+                    checkedCopy.forEach((_, key) => {
+                        checkedCopy.set(key, false);
+                    });
+
+                    onChange('');
+                    setChecked(checkedCopy);
                 }
             };
 
@@ -117,6 +171,7 @@ export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
                                     targetView={targetView}
                                     multiselect={multiselect}
                                     valueToItemMap={valueToItemMap}
+                                    onChipClick={handleChipClick}
                                 />
                             }
                             preventOverflow={false}
