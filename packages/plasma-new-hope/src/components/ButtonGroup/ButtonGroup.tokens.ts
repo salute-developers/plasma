@@ -20,6 +20,7 @@ export const tokens = {
     buttonGroupOrientation: '--plasma-button-group-orientation',
 
     buttonColor: '--plasma-button-group-item-color',
+    buttonValueColor: '--plasma-button-group-item-value-color',
     buttonBackgroundColor: '--plasma-button-group-item-background-color',
     buttonColorHover: '--plasma-button-group-item-color-hover',
     buttonBackgroundColorHover: '--plasma-button-group-item-background-color-hover',
