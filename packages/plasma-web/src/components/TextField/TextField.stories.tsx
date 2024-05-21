@@ -22,7 +22,6 @@ const propsToDisable = [
     'contentLeft',
     'htmlSize',
     '$isFocused',
-    'label',
     'contentRight',
     'onChangeChips',
     'onSearch',
@@ -63,6 +62,9 @@ const meta: Meta<TextFieldProps> = {
             control: {
                 type: 'inline-radio',
             },
+        },
+        label: {
+            control: 'text',
         },
         ...disableProps(propsToDisable),
     },
