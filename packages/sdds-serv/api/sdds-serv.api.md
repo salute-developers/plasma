@@ -769,6 +769,38 @@ export { h5 }
 export { h5Bold }
 
 // @public
+export const IconButton: FunctionComponent<PropsType<    {
+view: {
+default: string;
+accent: string;
+secondary: string;
+clear: string;
+success: string;
+warning: string;
+critical: string;
+dark: string;
+black: string;
+white: string;
+};
+size: {
+l: string;
+lr: string;
+m: string;
+mr: string;
+s: string;
+sr: string;
+xs: string;
+xsr: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & ButtonProps_2<HTMLElement> & RefAttributes<HTMLButtonElement>>;
+
+// @public
 const Image_2: FunctionComponent<PropsType<Variants> & ImgHTMLAttributes<HTMLImageElement> & {
 base?: "img" | "div" | undefined;
 ratio?: "1 / 1" | "1/1" | "3 / 4" | "3/4" | "4 / 3" | "4/3" | "9 / 16" | "9/16" | "16 / 9" | "16/9" | "1 / 2" | "1/2" | "2 / 1" | "2/1" | undefined;
