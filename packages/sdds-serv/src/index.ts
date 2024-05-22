@@ -12,6 +12,7 @@ export * from './components/Cell';
 export * from './components/Combobox';
 export * from './components/Counter';
 export * from './components/Dropdown';
+export * from './components/IconButton';
 export * from './components/Image';
 export * from './components/Indicator';
 export * from './components/Link';
