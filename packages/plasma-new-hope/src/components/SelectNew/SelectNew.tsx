@@ -10,191 +10,182 @@ import { Target } from './elements/Target/Target';
 import { pathReducer, focusedPathReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
 import { StyledPopover, Ul, base } from './SelectNew.styles';
-import type { SelectNewProps } from './SelectNew.types';
+import type { SelectNewProps, ItemContext } from './SelectNew.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
+import type { ItemOptionTransformed } from './elements/Inner/elements/Item/Item.types';
 
-export const Context = createContext<any>(null);
+export const Context = createContext<ItemContext>({} as ItemContext);
 
 /**
  * Выпадающий список. Поддерживает выбор одного или нескольких значений.
  */
-export const selectNewRoot = (Root: RootProps<HTMLDivElement, any>) =>
-    forwardRef<HTMLDivElement, SelectNewProps>(
-        (
-            {
-                multiselect = false,
-                target = 'button',
-                separator,
-                value,
-                onChange,
-                status,
-                placeholder,
-                helperText,
-                disabled,
-                onItemSelect,
-                isOpen,
-                listOverflow,
-                listHeight,
-                items,
-                size,
-                targetView = 'default',
-                ...rest
-            },
-            ref,
-        ) => {
-            const transformedItems = useMemo(() => initialItemsTransform(items), [items]);
+export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>) =>
+    forwardRef<HTMLButtonElement, SelectNewProps>((props, ref) => {
+        const {
+            value,
+            onChange,
+            target = 'button',
+            multiselect = false,
+            separator,
+            asNative = false,
+            items,
+            label,
+            placeholder,
+            helperText,
+            isTargetAmount = false,
+            disabled = false,
+            view,
+            size,
+            isOpen,
+            listOverflow,
+            listHeight,
+            status,
+            ...rest
+        } = props;
 
-            const [pathMap, focusedToValueMap, checkedMap, valueToItemMap] = usePathMaps(
-                transformedItems,
-                value,
-                multiselect,
-            );
+        const transformedItems = useMemo(() => initialItemsTransform(items), [items]);
 
-            console.log('render', value);
+        const [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap] = usePathMaps(
+            transformedItems,
+            value,
+            multiselect,
+        );
 
-            const [path, dispatchPath] = useReducer(pathReducer, []);
-            const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
-            const [checked, setChecked] = useState(checkedMap);
+        const [path, dispatchPath] = useReducer(pathReducer, []);
+        const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
+        const [checked, setChecked] = useState(valueToCheckedMap);
 
-            // console.log('checked', checked, performance.now());
+        const handleToggle: HandleGlobalToggleType = (opened) => {
+            if (opened) {
+                dispatchPath({ type: 'opened_first_level' });
+            } else {
+                dispatchFocusedPath({ type: 'reset' });
+                dispatchPath({ type: 'reset' });
+            }
+        };
 
-            const handleToggle: HandleGlobalToggleType = (opened) => {
-                if (opened) {
-                    dispatchPath({ type: 'opened_first_level' });
-                } else {
-                    dispatchFocusedPath({ type: 'reset' });
-                    dispatchPath({ type: 'reset' });
+        const handleCheckboxChange = (item: ItemOptionTransformed) => {
+            const checkedCopy = new Map(checked);
+
+            if (!checkedCopy.get(item.value.toString())) {
+                checkedCopy.set(item.value.toString(), true);
+                updateDescendants(item, checkedCopy, true);
+            } else {
+                checkedCopy.set(item.value.toString(), false);
+                updateDescendants(item, checkedCopy, false);
+            }
+
+            updateAncestors(item, checkedCopy);
+
+            const newValues: Array<string> = [];
+
+            valueToItemMap.forEach((item, key) => {
+                if (checkedCopy.get(key)) {
+                    newValues.push(item.value.toString());
                 }
-            };
+            });
 
-            const handleCheckboxChange = (item) => {
-                const checkedCopy = new Map(checked);
+            onChange(newValues as any);
 
-                if (!checkedCopy.get(item.value)) {
-                    checkedCopy.set(item.value, true);
-                    updateDescendants(item, checkedCopy, true);
-                } else {
-                    checkedCopy.set(item.value, false);
-                    updateDescendants(item, checkedCopy, false);
-                }
+            setChecked(checkedCopy);
+        };
 
-                updateAncestors(item, checkedCopy);
-
-                const newValues = [];
-
-                valueToItemMap.forEach((value, key) => {
-                    if (checkedCopy.get(key)) {
-                        newValues.push(value.value);
-                    }
-                });
-
-                onChange(newValues);
-
-                setChecked(checkedCopy);
-            };
-
-            const handleItemClick = (e: any, item) => {
-                if (isEmpty(item.items)) {
-                    if (multiselect) {
-                        handleCheckboxChange(item);
-                    } else {
-                        e.stopPropagation();
-
-                        const checkedCopy = new Map(checked);
-
-                        const isCurrentChecked = checkedCopy.get(item.value);
-
-                        checkedCopy.forEach((_, key) => {
-                            checkedCopy.set(key, false);
-                        });
-
-                        if (!isCurrentChecked) {
-                            checkedCopy.set(item.value, 'done');
-                            updateSingleAncestors(item, checkedCopy, 'dot');
-                        }
-
-                        onChange(isCurrentChecked ? '' : item.value);
-
-                        setChecked(checkedCopy);
-                    }
-                }
-            };
-
-            const handleChipClick = (currentValue) => {
+        const handleItemClick = (e: React.MouseEvent<HTMLElement>, item: ItemOptionTransformed) => {
+            if (isEmpty(item.items)) {
                 if (multiselect) {
-                    handleCheckboxChange(valueToItemMap.get(currentValue));
+                    handleCheckboxChange(item);
                 } else {
+                    e.stopPropagation();
+
                     const checkedCopy = new Map(checked);
+
+                    const isCurrentChecked = checkedCopy.get(item.value);
 
                     checkedCopy.forEach((_, key) => {
                         checkedCopy.set(key, false);
                     });
 
-                    onChange('');
+                    if (!isCurrentChecked) {
+                        checkedCopy.set(item.value, 'done');
+                        updateSingleAncestors(item, checkedCopy, 'dot');
+                    }
+
+                    onChange((isCurrentChecked ? '' : item.value) as any);
+
                     setChecked(checkedCopy);
                 }
-            };
+            }
+        };
 
-            const isCurrentListOpen = Boolean(path[0]);
+        const handleChipClick = (currentValue: string) => {
+            if (!multiselect) {
+                handleCheckboxChange(valueToItemMap.get(currentValue) as ItemOptionTransformed);
+            } else {
+                const checkedCopy = new Map(checked);
 
-            return (
-                <Root ref={ref} size={size} {...rest}>
-                    <Context.Provider
-                        value={{
-                            focusedPath,
-                            checked,
-                            multiselect,
-                            size,
-                            handleCheckboxChange,
-                            handleItemClick,
-                        }}
+                checkedCopy.forEach((_, key) => {
+                    checkedCopy.set(key, false);
+                });
+
+                onChange('' as any);
+                setChecked(checkedCopy);
+            }
+        };
+
+        const isCurrentListOpen = Boolean(path[0]);
+
+        return (
+            <Root ref={ref} size={size} view={view} items={items} {...(rest as any)}>
+                <Context.Provider
+                    value={{
+                        focusedPath,
+                        checked,
+                        multiselect,
+                        size,
+                        handleCheckboxChange,
+                        handleItemClick,
+                    }}
+                >
+                    <StyledPopover
+                        isOpen={isCurrentListOpen}
+                        usePortal={false}
+                        placement="bottom-start"
+                        onToggle={handleToggle}
+                        trigger="click"
+                        isFocusTrapped={false}
+                        target={
+                            <Target
+                                opened={isCurrentListOpen}
+                                target={target}
+                                value={value}
+                                isTargetAmount={isTargetAmount}
+                                multiselect={multiselect}
+                                valueToItemMap={valueToItemMap}
+                                onChipClick={handleChipClick}
+                                label={label}
+                            />
+                        }
+                        preventOverflow={false}
+                        closeOnOverlayClick
                     >
-                        <StyledPopover
-                            isOpen={isCurrentListOpen}
-                            usePortal={false}
-                            placement="bottom-start"
-                            onToggle={handleToggle}
-                            trigger="click"
-                            isFocusTrapped={false}
-                            target={
-                                <Target
-                                    opened={isCurrentListOpen}
-                                    target={target}
-                                    value={value}
-                                    label="Label"
-                                    disabled={disabled}
-                                    size={size}
-                                    id="custom_id"
-                                    onChange={() => {}}
-                                    onKeyDown={() => {}}
-                                    targetView={targetView}
-                                    multiselect={multiselect}
-                                    valueToItemMap={valueToItemMap}
-                                    onChipClick={handleChipClick}
+                        <Ul role="tree" id="tree_level_1">
+                            {transformedItems.map((item, index) => (
+                                <Inner
+                                    key={`${index}/0`}
+                                    item={item}
+                                    currentLevel={0}
+                                    path={path}
+                                    dispatchPath={dispatchPath}
+                                    index={index}
                                 />
-                            }
-                            preventOverflow={false}
-                            closeOnOverlayClick
-                        >
-                            <Ul role="tree" id="tree_level_1">
-                                {transformedItems.map((item, index) => (
-                                    <Inner
-                                        key={`${index}/0`}
-                                        item={item}
-                                        currentLevel={0}
-                                        path={path}
-                                        dispatchPath={dispatchPath}
-                                        index={index}
-                                    />
-                                ))}
-                            </Ul>
-                        </StyledPopover>
-                    </Context.Provider>
-                </Root>
-            );
-        },
-    );
+                            ))}
+                        </Ul>
+                    </StyledPopover>
+                </Context.Provider>
+            </Root>
+        );
+    });
 
 export const selectNewConfig = {
     name: 'SelectNew',

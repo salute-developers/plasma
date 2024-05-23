@@ -3,16 +3,12 @@ import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { WithTheme } from '../../../_helpers';
-import type { DropdownPlacement, DropdownTrigger } from '../../../../components/Dropdown/Dropdown.types';
 
 import { SelectNew } from './SelectNew';
 
 type StorySelectNewProps = ComponentProps<typeof SelectNew>;
 
-const placements: Array<DropdownPlacement> = ['top', 'bottom', 'right', 'left', 'auto'];
-const triggers: Array<DropdownTrigger> = ['click', 'hover'];
 const size = ['xs', 's', 'm', 'l'];
-const variant = ['normal', 'tight'];
 
 const meta: Meta<StorySelectNewProps> = {
     title: 'plasma_b2c/SelectNew',
@@ -25,26 +21,8 @@ const meta: Meta<StorySelectNewProps> = {
                 type: 'select',
             },
         },
-        placement: {
-            options: placements,
-            control: {
-                type: 'select',
-            },
-        },
-        trigger: {
-            options: triggers,
-            control: {
-                type: 'select',
-            },
-        },
         size: {
             options: size,
-            control: {
-                type: 'select',
-            },
-        },
-        variant: {
-            options: variant,
             control: {
                 type: 'select',
             },
@@ -52,15 +30,7 @@ const meta: Meta<StorySelectNewProps> = {
     },
     args: {
         target: 'button',
-        multiselect: false,
-        trigger: 'click',
-        offset: [0, 0],
-        listWidth: 'auto',
-        hasArrow: true,
-        closeOnOverlayClick: true,
-        closeOnSelect: true,
-        size: 'm',
-        variant: 'normal',
+        label: 'Label',
     },
 };
 
@@ -279,44 +249,30 @@ const items = [
 ];
 
 const StoryNormal = (args: StorySelectNewProps) => {
-    const [value, setValue] = useState(null);
-
-    const onChange = (e) => {
-        setValue(e);
-    };
+    const [value, setValue] = useState('');
 
     return (
         <div style={{ width: '300px' }}>
-            <SelectNew {...args} items={items} value={value} onChange={onChange} />
+            <SelectNew {...args} multiselect={false} items={items} value={value} onChange={setValue} />
         </div>
     );
 };
 
-export const Default: StoryObj<StorySelectNewProps> = {
-    args: {
-        multiselect: false,
-    },
+export const Single: StoryObj<StorySelectNewProps> = {
     render: (args) => <StoryNormal {...args} />,
 };
 
 const MultiselectStory = (args: StorySelectNewProps) => {
-    const [value, setValue] = useState(null);
-
-    const onChange = (e) => {
-        setValue(e);
-    };
+    const [value, setValue] = useState<Array<string>>([]);
 
     return (
         <div style={{ width: '300px' }}>
-            <SelectNew {...args} items={items} value={value} onChange={onChange} />
+            <SelectNew {...args} multiselect items={items} value={value} onChange={setValue} />
         </div>
     );
 };
 
 export const Multiselect: StoryObj<StorySelectNewProps> = {
-    args: {
-        multiselect: true,
-    },
     render: (args) => <MultiselectStory {...args} />,
 };
 
@@ -326,11 +282,18 @@ const PredefinedStory = (args: StorySelectNewProps) => {
 
     return (
         <div style={{ width: '300px' }}>
-            <SelectNew {...args} items={items} value={valueSingle} onChange={setValueSingle} />
+            <SelectNew items={items} value={valueSingle} onChange={setValueSingle} multiselect={false} />
 
             <br />
 
-            <SelectNew {...args} items={items} value={valueMultiple} onChange={setValueMultiple} multiselect />
+            <SelectNew
+                items={items}
+                value={valueMultiple}
+                onChange={setValueMultiple}
+                multiselect
+                isNative={false}
+                separator="asd"
+            />
         </div>
     );
 };

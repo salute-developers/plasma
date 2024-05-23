@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, FC, useContext } from 'react';
 
+import { sizeToIconSize } from '../../../../utils';
 import { classes } from '../../../../SelectNew.tokens';
 import { cx, isEmpty } from '../../../../../../utils';
 import { IconDisclosureRight, IconDone } from '../../../../../_Icon';
 import { Context } from '../../../../SelectNew';
 
+import { ItemProps } from './Item.types';
 import {
     StyledContentLeft,
     StyledContentRight,
@@ -16,13 +18,7 @@ import {
     StyledIndicator,
 } from './Item.styles';
 
-const sizeToIconSize = (size: string) => {
-    if (size === 'xs') return 'xs';
-
-    return 's';
-};
-
-export const Item: FC<any> = ({ item, path, currentLevel, index }) => {
+export const Item: FC<ItemProps> = ({ item, path, currentLevel, index }) => {
     const { value, label, disabled, isDisabled, contentLeft, contentRight } = item;
     const ref = useRef<HTMLLIElement | null>(null);
 
@@ -45,13 +41,13 @@ export const Item: FC<any> = ({ item, path, currentLevel, index }) => {
         }
     }, [focusedClass]);
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.stopPropagation();
 
         handleCheckboxChange(item);
     };
 
-    const handleClick = (e) => {
+    const handleClick = (e: React.MouseEvent<HTMLElement>) => {
         handleItemClick(e, item);
     };
 

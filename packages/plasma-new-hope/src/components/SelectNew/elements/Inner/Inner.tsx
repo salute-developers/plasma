@@ -5,9 +5,9 @@ import { isEmpty } from '../../../../utils';
 import { Ul, StyledPopover } from '../../SelectNew.styles';
 
 import { Item } from './elements/Item/Item';
-import { SelectInnerProps } from './Inner.type';
+import { InnerProps } from './Inner.type';
 
-export const Inner: FC<SelectInnerProps> = ({ item, currentLevel, path, dispatchPath, index }) => {
+export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, index }) => {
     const handleToggle = (opened: boolean): void => {
         if (opened) {
             dispatchPath({ type: 'changed_on_level', value: item.value.toString(), level: currentLevel + 1 });
@@ -28,24 +28,13 @@ export const Inner: FC<SelectInnerProps> = ({ item, currentLevel, path, dispatch
                 usePortal={false}
                 placement="right-start"
                 trigger="click"
-                target={
-                    <Item
-                        item={item}
-                        index={index}
-                        path={path}
-                        currentLevel={currentLevel}
-                        ariaControls={listId}
-                        ariaExpanded={isCurrentListOpen}
-                        ariaLevel={nextLevel}
-                        ariaLabel={item.label}
-                    />
-                }
+                target={<Item item={item} path={path} currentLevel={currentLevel} index={index} />}
                 onToggle={handleToggle}
                 isFocusTrapped={false}
                 preventOverflow={false}
             >
                 <Ul role="group" id={listId} isInnerUl>
-                    {item.items.map((innerItem: any, innerIndex: any) => (
+                    {item.items?.map((innerItem: any, innerIndex: any) => (
                         <Inner
                             key={`${innerIndex}/${currentLevel}`}
                             item={innerItem}
@@ -60,5 +49,5 @@ export const Inner: FC<SelectInnerProps> = ({ item, currentLevel, path, dispatch
         );
     }
 
-    return <Item item={item} index={index} currentLevel={currentLevel} />;
+    return <Item item={item} path={path} index={index} currentLevel={currentLevel} />;
 };

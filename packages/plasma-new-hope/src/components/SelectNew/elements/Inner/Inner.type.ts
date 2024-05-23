@@ -1,9 +1,10 @@
 import type { Dispatch } from 'react';
 
-import type { ItemOptionTransformed } from '../Item/Item.types';
 import type { PathAction, PathState } from '../../reducers';
 
-export interface SelectInnerProps {
+import type { ItemOptionTransformed } from './elements/Item/Item.types';
+
+export interface InnerProps {
     item: ItemOptionTransformed;
     currentLevel: number;
     path: PathState;
