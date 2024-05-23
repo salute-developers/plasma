@@ -1,7 +1,10 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 
 import { StyledChip } from './Chip.styles';
 
-export const Chip: React.FC<any> = ({ value, text, index, disabled, readOnly, onClick, onClear, onKeyDown }) => {
-    return <StyledChip tabIndex={-1} disabled={disabled} readOnly={readOnly} onClick={onClick} text={`${text}`} />;
+export const Chip: React.FC<{ text: string; onClick: (e: React.MouseEvent<HTMLElement>) => void }> = ({
+    text,
+    onClick,
+}) => {
+    return <StyledChip tabIndex={-1} onClick={onClick} text={`${text}`} />;
 };

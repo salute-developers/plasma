@@ -11,7 +11,7 @@ export type CSS = (
 
 export type RootProps<
     RefElement extends HTMLElement,
-    Element extends React.HTMLAttributes<HTMLElement>
+    Element extends Omit<React.HTMLAttributes<HTMLElement>, 'onChange'>
 > = React.FunctionComponent<{ children?: React.ReactNode } & Element & React.RefAttributes<RefElement>>;
 
 export type HTMLAttributesOmitOnChange = Omit<React.HTMLAttributes<HTMLElement>, 'onChange'>;

@@ -1,11 +1,18 @@
-import type { CSSProperties, SyntheticEvent, ButtonHTMLAttributes } from 'react';
+import type { CSSProperties, ButtonHTMLAttributes } from 'react';
+import React from 'react';
 
-import { ItemOption } from './elements/Inner/elements/Item/Item.types';
+import { FocusedPathState } from './reducers';
+import { ItemOption, ItemOptionTransformed } from './elements/Inner/elements/Item/Item.types';
+import type { ValueToCheckedMapType } from './hooks/usePathMaps';
 
 type Target =
     | {
-          target: 'button';
-          view:
+          /**
+           * Стиль селекта: button или textfield.
+           * @default button
+           */
+          target?: 'button';
+          view?:
               | 'default'
               | 'accent'
               | 'secondary'
@@ -18,53 +25,67 @@ type Target =
               | 'white';
       }
     | {
-          target: 'textfield';
-          view: 'default' | 'positive' | 'warning' | 'negative';
-          isLabelInner?: boolean;
+          target?: 'textfield';
+          view?: 'default' | 'positive' | 'warning' | 'negative';
       };
 
 type IsMultiselect =
     | {
+          value: string;
+          onChange: (value: string) => void;
           /**
            * Выбор нескольких значений.
+           * @default false
            */
           multiselect?: false;
           /**
            * Разделитель выбранных значений.
            */
           separator?: never;
+          /**
+           * Нативный селект. Поддерживает только один уровень вложенности.
+           * @default false
+           */
+          asNative?: true;
       }
     | {
-          /**
-           * Выбор нескольких значений.
-           */
+          value: Array<string>;
+          onChange: (value: Array<string>) => void;
           multiselect?: true;
-          /**
-           * Разделитель выбранных значений.
-           */
           separator?: string;
+          asNative?: false;
       };
 
-type BasicProps<T extends string | Array<string>> = {
-    // ???
+type BasicProps = {
     items: Array<ItemOption>;
-    /**
-     * Значение control.
-     */
-    value: T;
-    /**
-     * Обработчик изменения значения.
-     */
-    onChange?: (value: T) => void;
-
-    status?: 'warning' | 'success' | 'error';
+    label?: string;
     placeholder?: string;
     helperText?: string;
+    /**
+     * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
+     * @default false
+     */
+    isTargetAmount?: boolean;
+    /**
+     * Компонент неактивен.
+     * @default false
+     */
     disabled?: boolean;
-    onItemSelect?: (item: ItemOption, event: SyntheticEvent) => void;
-    isOpen?: boolean; // ????
-    children?: never;
 
+    /**
+     * Размер компонента.
+     */
+    size?: string;
+    /**
+     * Вид компонента.
+     */
+    view?: string;
+
+    /**
+     * @default false
+     * @deprecated
+     */
+    isOpen?: boolean;
     /**
      * Значение css overflow для выпадающего меню.
      * @default initial
@@ -80,20 +101,22 @@ type BasicProps<T extends string | Array<string>> = {
      */
     listHeight?: number | CSSProperties['height'];
     /**
-     * Размер компонента.
+     * Статус селекта.
+     * @deprecated
      */
-    size?: string;
-    /**
-     * Вид компонента.
-     */
-    view?: string;
-
-    target?: 'button' | 'textfield';
-    label?: string;
-    targetView?: 'default' | 'amount';
+    status?: 'warning' | 'success' | 'error';
 };
 
-export type SelectNewProps = Target &
-    BasicProps &
+export type SelectNewProps = BasicProps &
     IsMultiselect &
-    Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onResize' | 'onResizeCapture' | 'nonce'>;
+    Target &
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce'>;
+
+export type ItemContext = {
+    focusedPath: FocusedPathState;
+    checked: ValueToCheckedMapType;
+    multiselect: SelectNewProps['multiselect'];
+    size: SelectNewProps['size'];
+    handleCheckboxChange: (item: ItemOptionTransformed) => void;
+    handleItemClick: (e: React.MouseEvent<HTMLElement>, item: ItemOptionTransformed) => void;
+};

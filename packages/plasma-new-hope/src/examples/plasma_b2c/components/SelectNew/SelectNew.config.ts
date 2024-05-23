@@ -325,6 +325,8 @@ export const config = {
                 ${selectNewTokens.targetTextfieldBackgroundColorOpened}: var(--surface-transparent-secondary);
                 ${selectNewTokens.targetFontWeight}: 600 !important; /* TODO: Переделать когда появится возможность пересечения свойств */
             `,
+            accent: css``,
+            positive: css``,
         },
     },
 };

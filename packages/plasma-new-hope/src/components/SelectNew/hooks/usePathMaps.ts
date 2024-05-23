@@ -7,14 +7,16 @@ import { ItemOptionTransformed } from '../elements/Inner/elements/Item/Item.type
 
 export type PathMapType = Map<string | number, number>;
 export type FocusedToValueMapType = Map<string, ItemOptionTransformed>;
+export type ValueToCheckedMapType = Map<ItemOptionTransformed['value'], boolean | 'done' | 'dot' | 'indeterminate'>;
+export type ValueToItemMapType = Map<ItemOptionTransformed['value'], ItemOptionTransformed>;
 
 // Рекурсивно проходим по дереву items и создаем 3 мапы: мапу открытых путей, мапу фокусов и мапу выбранных элементов.
 export const usePathMaps = (items: any, value: string | Array<string>, multiselect: boolean) => {
     return useMemo(() => {
         const pathMap: PathMapType = new Map();
         const focusedToValueMap: FocusedToValueMapType = new Map();
-        const checkedMap: any = new Map();
-        const valueToItemMap: any = new Map();
+        const valueToCheckedMap: ValueToCheckedMapType = new Map();
+        const valueToItemMap: ValueToItemMapType = new Map();
 
         pathMap.set('root', items.length);
 
@@ -25,9 +27,9 @@ export const usePathMaps = (items: any, value: string | Array<string>, multisele
                 const currIndex = `${prevIndex}/${index}`.replace(/^(\/)/, '');
                 focusedToValueMap.set(currIndex, item);
 
-                checkedMap.set(value, false);
+                valueToCheckedMap.set(value, false);
 
-                if (isEmpty(innerItems)) {
+                if (isEmpty(innerItems) || !innerItems) {
                     valueToItemMap.set(value, item);
                 } else {
                     pathMap.set(value, innerItems.length);
@@ -41,21 +43,21 @@ export const usePathMaps = (items: any, value: string | Array<string>, multisele
         if (!isEmpty(value)) {
             if (multiselect && Array.isArray(value)) {
                 value.forEach((val) => {
-                    checkedMap.set(val, true);
-                    updateDescendants(valueToItemMap.get(val), checkedMap, true);
-                    updateAncestors(valueToItemMap.get(val), checkedMap);
+                    valueToCheckedMap.set(val, true);
+                    updateDescendants(valueToItemMap.get(val), valueToCheckedMap, true);
+                    updateAncestors(valueToItemMap.get(val), valueToCheckedMap);
                 });
             } else {
-                checkedMap.set(value, 'done');
-                updateSingleAncestors(valueToItemMap.get(value), checkedMap, 'dot');
+                valueToCheckedMap.set(value as string, 'done');
+                updateSingleAncestors(valueToItemMap.get(value as string), valueToCheckedMap, 'dot');
             }
         }
 
-        return [pathMap, focusedToValueMap, checkedMap, valueToItemMap] as [
+        return [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap] as [
             PathMapType,
             FocusedToValueMapType,
-            any,
-            any,
+            ValueToCheckedMapType,
+            ValueToItemMapType,
         ];
     }, [items]);
 };
