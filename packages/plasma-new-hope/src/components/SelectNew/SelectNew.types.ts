@@ -9,7 +9,7 @@ type Target =
     | {
           /**
            * Стиль селекта: button или textfield.
-           * @default button
+           * @default textfield
            */
           target?: 'button';
           view?:
@@ -71,6 +71,11 @@ type BasicProps = {
      * @default false
      */
     disabled?: boolean;
+    /**
+     * Находится ли label внутри target.
+     * @default false
+     */
+    isLabelInside?: boolean;
 
     /**
      * Размер компонента.

@@ -25,7 +25,7 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
         const {
             value,
             onChange,
-            target = 'button',
+            target = 'textfield',
             multiselect = false,
             separator,
             asNative = false,
@@ -41,6 +41,7 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
             listOverflow,
             listHeight,
             status,
+            isLabelInside,
             ...rest
         } = props;
 
@@ -164,6 +165,8 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
                                 valueToItemMap={valueToItemMap}
                                 onChipClick={handleChipClick}
                                 label={label}
+                                placeholder={placeholder}
+                                isLabelInside={isLabelInside}
                             />
                         }
                         preventOverflow={false}
