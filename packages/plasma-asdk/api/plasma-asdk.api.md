@@ -7,14 +7,17 @@
 /// <reference types="react" />
 
 import { AnchorHTMLAttributes } from 'react';
-import type { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
+import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
 import { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-new-hope/styled-components';
+import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
+import { ComponentProps } from 'react';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { FocusProps } from '@salutejs/plasma-new-hope/styled-components';
 import { FunctionComponent } from 'react';
 import { HTMLAttributes } from 'react';
-import type { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
+import type { InputHTMLAttributes as InputHTMLAttributes_2 } from 'react';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
@@ -155,12 +158,26 @@ m: string;
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public
-export const Checkbox: FunctionComponent<BaseboxProps>;
+export const Checkbox: FunctionComponent<PropsType<    {
+size: {
+s: string;
+m: string;
+};
+view: {
+accent: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & CheckboxProps_2 & RefAttributes<HTMLInputElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "CheckboxComponent" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type CheckboxProps = typeof CheckboxComponent;
+export type CheckboxProps = ComponentProps<typeof CheckboxComponent>;
 
 // @public (undocumented)
 export const DsplL: FunctionComponent<PropsType<    {
@@ -312,12 +329,26 @@ paragraph2: string;
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public
-export const Radiobox: FunctionComponent<Omit<BaseboxProps, "indeterminate">>;
+export const Radiobox: FunctionComponent<PropsType<    {
+size: {
+s: string;
+m: string;
+};
+view: {
+accent: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & Filter<InputHTMLAttributes<HTMLInputElement>, "size"> & Omit<BaseboxProps, "indeterminate"> & RefAttributes<HTMLInputElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "RadioboxComponent" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type RadioboxProps = typeof RadioboxComponent;
+export type RadioboxProps = ComponentProps<typeof RadioboxComponent>;
 
 export { RadioGroup }
 
@@ -380,7 +411,7 @@ true: string;
 focused: {
 true: string;
 };
-}> & Filter<InputHTMLAttributes<HTMLInputElement>, "size"> & SwitchPropsVariations & RefAttributes<HTMLInputElement>>;
+}> & Filter<InputHTMLAttributes_2<HTMLInputElement>, "size"> & SwitchPropsVariations & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export type SwitchProps = {
@@ -394,7 +425,7 @@ export type SwitchProps = {
     pressed?: boolean;
     focused?: boolean;
     outlined?: boolean;
-} & FocusProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'onChange' | 'onFocus' | 'onBlur'> & Pick<InputHTMLAttributes<HTMLInputElement>, 'name' | 'value' | 'checked' | 'disabled' | 'readOnly' | 'onChange' | 'onFocus' | 'onBlur'>;
+} & FocusProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'onChange' | 'onFocus' | 'onBlur'> & Pick<InputHTMLAttributes_2<HTMLInputElement>, 'name' | 'value' | 'checked' | 'disabled' | 'readOnly' | 'onChange' | 'onFocus' | 'onBlur'>;
 
 // @public (undocumented)
 export const TextL: FunctionComponent<PropsType<    {

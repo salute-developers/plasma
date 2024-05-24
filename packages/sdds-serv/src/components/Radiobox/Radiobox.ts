@@ -1,13 +1,12 @@
 import { radioboxConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
-import type { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
+import { ComponentProps } from 'react';
 
 import { config } from './Radiobox.config';
 
 const mergedConfig = mergeConfig(radioboxConfig, config);
-const RadioboxComponent = component(mergedConfig) as React.FunctionComponent<Omit<BaseboxProps, 'indeterminate'>>;
+const RadioboxComponent = component(mergedConfig);
 
-export type RadioboxProps = typeof RadioboxComponent;
-
+export type RadioboxProps = ComponentProps<typeof RadioboxComponent>;
 /**
  * Переключатель, или *радиокнопка*.
  */
