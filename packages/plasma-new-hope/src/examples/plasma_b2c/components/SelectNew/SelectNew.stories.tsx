@@ -29,8 +29,9 @@ const meta: Meta<StorySelectNewProps> = {
         },
     },
     args: {
-        target: 'button',
+        target: 'textfield',
         label: 'Label',
+        placeholder: 'Placeholder',
     },
 };
 

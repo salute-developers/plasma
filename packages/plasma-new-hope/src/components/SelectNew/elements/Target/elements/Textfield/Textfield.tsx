@@ -7,12 +7,18 @@ import { TextfieldProps, GetLabelProps } from './Textfield.types';
 import { Chip } from './elements/Chip/Chip';
 import { StyledButton, StyledArrow, Wrapper, ChipWrapper, TextfieldWrapper } from './Textfield.styles';
 
-const getLabel = ({ value, isTargetAmount, multiselect, valueToItemMap, onChipClick }: GetLabelProps) => {
+const getLabel = ({
+    value,
+    isTargetAmount,
+    multiselect,
+    valueToItemMap,
+    onChipClick,
+    label,
+    placeholder,
+}: GetLabelProps) => {
     if (multiselect && Array.isArray(value)) {
         if (!value.length) {
-            return (
-                <Chip text="Ничего не выбрано" onClick={(e: React.MouseEvent<HTMLElement>) => e.stopPropagation()} />
-            );
+            return placeholder;
         }
 
         if (isTargetAmount) {
@@ -36,11 +42,7 @@ const getLabel = ({ value, isTargetAmount, multiselect, valueToItemMap, onChipCl
     }
 
     if (!value) {
-        return 'Ничего не выбрано';
-    }
-
-    if (isTargetAmount) {
-        return 'Выбрано: 1';
+        return placeholder;
     }
 
     return valueToItemMap.get(value)?.secondaryLabel || valueToItemMap.get(value)?.label;
@@ -54,6 +56,8 @@ export const Textfield: React.FC<TextfieldProps> = ({
     valueToItemMap,
     onChipClick,
     label,
+    placeholder,
+    isLabelInside,
 }) => {
     const withArrowInverse = opened ? classes.arrowInverse : undefined;
 
@@ -62,7 +66,7 @@ export const Textfield: React.FC<TextfieldProps> = ({
             <StyledButton stretching="filled" className={classes.textfieldTarget}>
                 <Wrapper>
                     <ChipWrapper>
-                        {!multiselect && label}
+                        {/* {!multiselect && label} */}
 
                         {getLabel({
                             value,
@@ -70,6 +74,8 @@ export const Textfield: React.FC<TextfieldProps> = ({
                             multiselect,
                             valueToItemMap,
                             onChipClick,
+                            label,
+                            placeholder,
                         })}
                     </ChipWrapper>
 
