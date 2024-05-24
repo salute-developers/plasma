@@ -85,6 +85,7 @@ import { ColSizeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ComboboxPrimitiveValue } from '@salutejs/plasma-new-hope/styled-components';
 import { ComboboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ComponentClass } from 'react';
+import { ComponentProps } from 'react';
 import { GridProps as ContainerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -127,6 +128,7 @@ import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImgHTMLAttributes } from 'react';
 import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
+import { InputHTMLAttributes as InputHTMLAttributes_2 } from '@salutejs/plasma-new-hope/types/types';
 import { JSXElementConstructor } from 'react';
 import { LineSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
@@ -725,7 +727,7 @@ true: string;
 // Warning: (ae-forgotten-export) The symbol "CheckboxComponent" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type CheckboxProps = typeof CheckboxComponent;
+export type CheckboxProps = ComponentProps<typeof CheckboxComponent>;
 
 // @public
 export const Chip: FunctionComponent<PropsType<    {
@@ -782,11 +784,11 @@ l: string;
 view: {
 default: string;
 };
-}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "type" | "target" | "size" | "value" | "checked" | "maxLength" | "minLength"> & CustomComboboxProps & {
+}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "type" | "target" | "size" | "value" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
 valueType?: "single" | undefined;
 value?: ComboboxPrimitiveValue | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue | undefined) => void) | undefined;
-} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "type" | "target" | "size" | "value" | "checked" | "maxLength" | "minLength"> & CustomComboboxProps & {
+} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "type" | "target" | "size" | "value" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
 valueType: "multiple";
 value?: ComboboxPrimitiveValue[] | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue[] | undefined) => void) | undefined;
@@ -1486,12 +1488,12 @@ true: string;
 focused: {
 true: string;
 };
-}> & Filter<InputHTMLAttributes<HTMLInputElement>, "size"> & Omit<BaseboxProps, "indeterminate"> & RefAttributes<HTMLInputElement>>;
+}> & Filter<InputHTMLAttributes_2<HTMLInputElement>, "size"> & Omit<BaseboxProps, "indeterminate"> & RefAttributes<HTMLInputElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "RadioboxComponent" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type RadioboxProps = typeof RadioboxComponent;
+export type RadioboxProps = ComponentProps<typeof RadioboxComponent>;
 
 export { RadioGroup }
 

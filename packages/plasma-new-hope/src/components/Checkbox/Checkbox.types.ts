@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes } from 'react';
+import type { InputHTMLAttributes } from '../../types';
 
 export interface BaseboxProps {
     /**

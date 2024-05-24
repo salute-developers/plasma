@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
@@ -14,7 +13,7 @@ const onChange = action('onChange');
 const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
-type RadioboxProps = ComponentProps<Base>;
+type RadioboxProps = Base;
 
 const meta: Meta<RadioboxProps> = {
     title: 'Controls/Radiobox',
