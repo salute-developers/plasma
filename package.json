@@ -65,7 +65,7 @@
     "@cypress/webpack-preprocessor": "5.9.1",
     "@salutejs/eslint-config": "1.2.0",
     "@salutejs/eslint-config-base": "0.4.0",
-    "@salutejs/perftool": "0.28.0",
+    "@salutejs/perftool": "0.29.0",
     "@salutejs/prettier-config": "0.3.0",
     "@testing-library/cypress": "7.0.7",
     "@types/cypress-image-snapshot": "3.1.6",
@@ -133,8 +133,8 @@
     "webpack-dev-server": "3.11.2"
   },
   "dependencies": {
-    "cypress-real-events": "1.12.0",
     "babel-plugin-annotate-pure-calls": "0.4.0",
+    "cypress-real-events": "1.12.0",
     "patch-package": "8.0.0"
   },
   "overrides": {
