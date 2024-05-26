@@ -15,6 +15,7 @@ const getLabel = ({
     onChipClick,
     label,
     placeholder,
+    focusedChipIndex,
 }: GetLabelProps) => {
     if (multiselect && Array.isArray(value)) {
         if (!value.length) {
@@ -30,13 +31,14 @@ const getLabel = ({
             );
         }
 
-        return value.map((currentValue) => (
+        return value.map((currentValue, index) => (
             <Chip
                 text={valueToItemMap.get(currentValue)?.secondaryLabel || valueToItemMap.get(currentValue)?.label}
                 onClick={(e: React.MouseEvent<HTMLElement>) => {
                     e.stopPropagation();
                     onChipClick(currentValue);
                 }}
+                focused={focusedChipIndex === index}
             />
         ));
     }
@@ -58,12 +60,21 @@ export const Textfield: React.FC<TextfieldProps> = ({
     label,
     placeholder,
     isLabelInside,
+    onKeyDown,
+    focusedChipIndex,
 }) => {
     const withArrowInverse = opened ? classes.arrowInverse : undefined;
 
     return (
         <TextfieldWrapper opened={opened}>
-            <StyledButton stretching="filled" className={classes.textfieldTarget}>
+            <StyledButton
+                stretching="filled"
+                className={cx(
+                    classes.textfieldTarget,
+                    opened || focusedChipIndex !== null ? classes.selectWithoutBoxShadow : undefined,
+                )}
+                onKeyDown={onKeyDown}
+            >
                 <Wrapper>
                     <ChipWrapper>
                         {/* {!multiselect && label} */}
@@ -76,6 +87,7 @@ export const Textfield: React.FC<TextfieldProps> = ({
                             onChipClick,
                             label,
                             placeholder,
+                            focusedChipIndex,
                         })}
                     </ChipWrapper>
 

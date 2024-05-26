@@ -7,6 +7,8 @@ export const classes = {
     selectTargetArrow: 'select-target-arrow',
     arrowInverse: 'arrow-inverse',
     textfieldTarget: 'select-textfield-target',
+    selectChipIsFocused: 'select-chip-is-focused',
+    selectWithoutBoxShadow: 'select-without-box-shadow',
 };
 
 export const tokens = {

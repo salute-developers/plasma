@@ -1,13 +1,13 @@
 import React, { forwardRef, useState, useReducer, useMemo, createContext } from 'react';
 
 import { RootProps } from '../../engines';
-import type { HandleGlobalToggleType } from '../Dropdown/Dropdown.types';
 import { isEmpty } from '../../utils';
 
+import { useKeyNavigation } from './hooks/useKeyboardNavigation';
 import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors } from './utils';
 import { Inner } from './elements/Inner/Inner';
 import { Target } from './elements/Target/Target';
-import { pathReducer, focusedPathReducer } from './reducers';
+import { pathReducer, focusedPathReducer, focusedChipIndexReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
 import { StyledPopover, Ul, base } from './SelectNew.styles';
 import type { SelectNewProps, ItemContext } from './SelectNew.types';
@@ -55,9 +55,10 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
 
         const [path, dispatchPath] = useReducer(pathReducer, []);
         const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
+        const [focusedChipIndex, dispatchFocusedChipIndex] = useReducer(focusedChipIndexReducer, null);
         const [checked, setChecked] = useState(valueToCheckedMap);
 
-        const handleToggle: HandleGlobalToggleType = (opened) => {
+        const handleToggle = (opened: boolean) => {
             if (opened) {
                 dispatchPath({ type: 'opened_first_level' });
             } else {
@@ -92,7 +93,7 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
             setChecked(checkedCopy);
         };
 
-        const handleItemClick = (e: React.MouseEvent<HTMLElement>, item: ItemOptionTransformed) => {
+        const handleItemClick = (item: ItemOptionTransformed, e: React.MouseEvent<HTMLElement>) => {
             if (isEmpty(item.items)) {
                 if (multiselect) {
                     handleCheckboxChange(item);
@@ -134,6 +135,27 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
             }
         };
 
+        const handlePressDown = (item: ItemOptionTransformed, e: React.MouseEvent<HTMLElement>) => {
+            if (isEmpty(item.items)) {
+                handleItemClick(item, e);
+            } else if (multiselect) {
+                handleCheckboxChange(item);
+            }
+        };
+
+        const { onKeyDown } = useKeyNavigation({
+            focusedPath,
+            dispatchFocusedPath,
+            path,
+            dispatchPath,
+            pathMap,
+            focusedToValueMap,
+            handleToggle,
+            handlePressDown,
+            dispatchFocusedChipIndex,
+            value,
+        });
+
         const isCurrentListOpen = Boolean(path[0]);
 
         return (
@@ -167,6 +189,8 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
                                 label={label}
                                 placeholder={placeholder}
                                 isLabelInside={isLabelInside}
+                                onKeyDown={onKeyDown}
+                                focusedChipIndex={focusedChipIndex}
                             />
                         }
                         preventOverflow={false}

@@ -1,3 +1,6 @@
+import type { KeyboardEvent } from 'react';
+
+import { FocusedChipIndexState } from '../../reducers';
 import { SelectNewProps } from '../../SelectNew.types';
 
 export type TargetProps = Pick<
@@ -7,4 +10,6 @@ export type TargetProps = Pick<
     opened: boolean;
     valueToItemMap: any;
     onChipClick: (value: string) => void;
+    onKeyDown: (event: KeyboardEvent<HTMLElement>) => void;
+    focusedChipIndex: FocusedChipIndexState;
 };
