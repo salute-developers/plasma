@@ -37,7 +37,15 @@ export const StyledArrow = styled(IconChevronDown)`
     color: var(${tokens.targetArrowColor});
 `;
 
-export const Wrapper = styled.div`
+export const ButtonWrapper = styled.div`
+    display: inline;
+
+    .${classes.selectWithoutBoxShadow}::before {
+        box-shadow: none !important;
+    }
+`;
+
+export const InnerWrapper = styled.div`
     width: 100%;
     height: 100%;
     display: flex;

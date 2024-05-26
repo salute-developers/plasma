@@ -48,7 +48,7 @@ export const Item: FC<ItemProps> = ({ item, path, currentLevel, index }) => {
     };
 
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-        handleItemClick(e, item);
+        handleItemClick(item, e);
     };
 
     return (

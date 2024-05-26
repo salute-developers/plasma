@@ -123,5 +123,5 @@ export type ItemContext = {
     multiselect: SelectNewProps['multiselect'];
     size: SelectNewProps['size'];
     handleCheckboxChange: (item: ItemOptionTransformed) => void;
-    handleItemClick: (e: React.MouseEvent<HTMLElement>, item: ItemOptionTransformed) => void;
+    handleItemClick: (item: ItemOptionTransformed, e: React.MouseEvent<HTMLElement>) => void;
 };

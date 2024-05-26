@@ -4,7 +4,7 @@ import { cx } from '../../../../../../utils';
 import { classes } from '../../../../SelectNew.tokens';
 
 import { ButtonProps, GetLabelProps } from './Button.types';
-import { StyledButton, StyledArrow, Wrapper, Label } from './Button.styles';
+import { StyledButton, StyledArrow, InnerWrapper, Label, ButtonWrapper } from './Button.styles';
 
 const getLabel = ({ value, isTargetAmount, multiselect, valueToItemMap }: GetLabelProps) => {
     if (multiselect && Array.isArray(value)) {
@@ -32,23 +32,36 @@ const getLabel = ({ value, isTargetAmount, multiselect, valueToItemMap }: GetLab
     return valueToItemMap.get(value)?.secondaryLabel || valueToItemMap.get(value)?.label;
 };
 
-export const Button: React.FC<ButtonProps> = ({ opened, value, isTargetAmount, multiselect, valueToItemMap }) => {
+export const Button: React.FC<ButtonProps> = ({
+    opened,
+    value,
+    isTargetAmount,
+    multiselect,
+    valueToItemMap,
+    onKeyDown,
+}) => {
     const withArrowInverse = opened ? classes.arrowInverse : undefined;
 
     return (
-        <StyledButton stretching="filled">
-            <Wrapper>
-                <Label>
-                    {getLabel({
-                        value,
-                        isTargetAmount,
-                        multiselect,
-                        valueToItemMap,
-                    })}
-                </Label>
+        <ButtonWrapper>
+            <StyledButton
+                stretching="filled"
+                onKeyDown={onKeyDown}
+                className={opened ? classes.selectWithoutBoxShadow : undefined}
+            >
+                <InnerWrapper>
+                    <Label>
+                        {getLabel({
+                            value,
+                            isTargetAmount,
+                            multiselect,
+                            valueToItemMap,
+                        })}
+                    </Label>
 
-                <StyledArrow size="s" color="inherit" className={cx(classes.selectTargetArrow, withArrowInverse)} />
-            </Wrapper>
-        </StyledButton>
+                    <StyledArrow size="s" color="inherit" className={cx(classes.selectTargetArrow, withArrowInverse)} />
+                </InnerWrapper>
+            </StyledButton>
+        </ButtonWrapper>
     );
 };

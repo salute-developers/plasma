@@ -13,6 +13,8 @@ export const Target: React.FC<TargetProps> = ({
     valueToItemMap,
     onChipClick,
     label,
+    onKeyDown,
+    focusedChipIndex,
 }) => {
     return target === 'button' ? (
         <Button
@@ -21,6 +23,7 @@ export const Target: React.FC<TargetProps> = ({
             isTargetAmount={isTargetAmount}
             multiselect={multiselect}
             valueToItemMap={valueToItemMap}
+            onKeyDown={onKeyDown}
         />
     ) : (
         <Textfield
@@ -31,6 +34,8 @@ export const Target: React.FC<TargetProps> = ({
             valueToItemMap={valueToItemMap}
             onChipClick={onChipClick}
             label={label}
+            onKeyDown={onKeyDown}
+            focusedChipIndex={focusedChipIndex}
         />
     );
 };

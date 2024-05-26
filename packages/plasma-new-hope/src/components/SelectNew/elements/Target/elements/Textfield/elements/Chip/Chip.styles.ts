@@ -2,7 +2,7 @@ import { styled } from '@linaria/react';
 
 import { chipConfig, chipTokens } from '../../../../../../../Chip';
 import { component, mergeConfig } from '../../../../../../../../engines';
-import { tokens } from '../../../../../../SelectNew.tokens';
+import { tokens, classes } from '../../../../../../SelectNew.tokens';
 import { addFocus } from '../../../../../../../../mixins';
 
 const mergedConfig = mergeConfig(chipConfig);
@@ -39,11 +39,18 @@ export const StyledChip = styled(Chip)`
     ${chipTokens.focusColor}: var(${tokens.focusColor});
 
     ${addFocus({
-        outlineOffset: '0.125rem',
         outlineSize: '0.0625rem',
-        outlineRadius: `calc(var(${tokens.chipBorderRadius}) - 0.1rem)`,
+        outlineOffset: '0',
         outlineColor: `var(${tokens.focusColor})`,
-    })}
+        outlineRadius: `var(${tokens.itemBorderRadius})`,
+        hasTransition: false,
+        customFocusRules: `
+            &.${classes.selectChipIsFocused}:before {
+                outline: none;
+                box-shadow: 0 0 0 0.0625rem var(${tokens.focusColor});
+            }
+        `,
+    })};
 
     &[readonly] {
         opacity: var(${tokens.chipOpacityReadonly});

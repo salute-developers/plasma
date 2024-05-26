@@ -51,6 +51,14 @@ export const ChipWrapper = styled.div`
     display: flex;
     gap: 0.25rem;
     overflow-x: scroll;
+    padding: 1px;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `;
 
 export const TextfieldWrapper = styled.div<any>`
@@ -61,5 +69,9 @@ export const TextfieldWrapper = styled.div<any>`
             opened
                 ? `var(${tokens.targetTextfieldBackgroundColorOpened})`
                 : `var(${tokens.targetTextfieldBackgroundColor})`};
+    }
+
+    .${classes.selectWithoutBoxShadow}::before {
+        box-shadow: none !important;
     }
 `;
