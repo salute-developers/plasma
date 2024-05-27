@@ -29,6 +29,7 @@ export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
             onIndexChange,
             itemIndex,
             tabIndex,
+            className,
             ...rest
         } = props;
 
@@ -57,10 +58,10 @@ export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
 
         const onItemFocus = useCallback<React.FocusEventHandler>(
             (event) => {
-                if (!hasKeyNavigation) {
-                    event.target.scrollIntoView({
-                        block: 'center',
-                        inline: 'center',
+                if (!hasKeyNavigation && innerRef?.current) {
+                    innerRef.current.scrollTo({
+                        top: 0,
+                        left: innerRef.current.offsetLeft,
                         behavior: 'smooth',
                     });
 
@@ -93,7 +94,7 @@ export const tabItemRoot = (Root: RootProps<HTMLDivElement, TabItemProps>) =>
                 size={size}
                 onFocus={onItemFocus}
                 tabIndex={hasKeyNavigation ? navigationTabIndex : tabIndex}
-                className={cx(pilledClass, selectedClass, animatedClass)}
+                className={cx(pilledClass, selectedClass, animatedClass, className)}
                 {...rest}
             >
                 <>

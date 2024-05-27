@@ -21,6 +21,7 @@ export const StyledContentWrapper = styled.div`
     margin: -0.125rem;
     padding: 0.25rem;
 
+    box-sizing: content-box;
     overflow: scroll;
     position: relative;
     height: 100%;
@@ -28,6 +29,7 @@ export const StyledContentWrapper = styled.div`
     display: flex;
     align-items: center;
 
+    scrollbar-width: none;
     ::-webkit-scrollbar {
         display: none;
     }

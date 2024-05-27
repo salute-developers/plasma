@@ -25,7 +25,18 @@ enum Keys {
 
 export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
     forwardRef<HTMLDivElement, TabsProps>((props, outerRef) => {
-        const { id, stretch = false, disabled = false, size, view, children, pilled, index, ...rest } = props;
+        const {
+            id,
+            stretch = false,
+            disabled = false,
+            size,
+            view,
+            children,
+            pilled,
+            index,
+            className,
+            ...rest
+        } = props;
 
         const [firstItemVisible, setFirstItemVisible] = useState(true);
         const [lastItemVisible, setLastItemVisible] = useState(true);
@@ -156,7 +167,7 @@ export const tabsRoot = (Root: RootProps<HTMLDivElement, TabsProps>) =>
                     id={tabsId}
                     ref={outerRef}
                     disabled={disabled}
-                    className={cx(pilledClass, stretchClass, hasLeftArrowClass, hasRightArrowClass)}
+                    className={cx(pilledClass, stretchClass, hasLeftArrowClass, hasRightArrowClass, className)}
                     onKeyDown={onKeyDown}
                     {...rest}
                 >
