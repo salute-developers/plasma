@@ -57,6 +57,7 @@ export const config = {
                 ${selectNewTokens.chipFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${selectNewTokens.chipLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${selectNewTokens.chipLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${selectNewTokens.chipFocusSize}: 0.0625rem;
 
                 ${selectNewTokens.targetArrowRight}: 0.5rem;
                 ${selectNewTokens.targetHeight}: 2rem;
@@ -127,6 +128,7 @@ export const config = {
                 ${selectNewTokens.chipFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${selectNewTokens.chipLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${selectNewTokens.chipLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${selectNewTokens.chipFocusSize}: 0.0625rem;
 
                 ${selectNewTokens.targetArrowRight}: 0.75rem;
                 ${selectNewTokens.targetHeight}: 2.5rem;
@@ -197,6 +199,7 @@ export const config = {
                 ${selectNewTokens.chipFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${selectNewTokens.chipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${selectNewTokens.chipLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${selectNewTokens.chipFocusSize}: 0.0625rem;
 
                 ${selectNewTokens.targetArrowRight}: 0.875rem;
                 ${selectNewTokens.targetHeight}: 3rem;
@@ -267,6 +270,7 @@ export const config = {
                 ${selectNewTokens.chipFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${selectNewTokens.chipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${selectNewTokens.chipLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${selectNewTokens.chipFocusSize}: 0.0625rem;
 
                 ${selectNewTokens.targetArrowRight}: 1rem;
                 ${selectNewTokens.targetHeight}: 3.5rem;
@@ -315,7 +319,6 @@ export const config = {
                 ${selectNewTokens.chipOpacityReadonly}: 0.72;
 
                 ${selectNewTokens.targetColor}: var(--text-primary);
-                ${selectNewTokens.targetLabelColor}: var(--text-primary);
                 ${selectNewTokens.targetArrowColor}: var(--text-secondary);
                 ${selectNewTokens.targetBackgroundColor}: var(--surface-transparent-secondary);
                 ${selectNewTokens.targetBackgroundColorHover}: var(--surface-transparent-secondary-hover);
@@ -325,8 +328,69 @@ export const config = {
                 ${selectNewTokens.targetTextfieldBackgroundColorOpened}: var(--surface-transparent-secondary);
                 ${selectNewTokens.targetFontWeight}: 600 !important; /* TODO: Переделать когда появится возможность пересечения свойств */
             `,
-            accent: css``,
-            positive: css``,
+            accent: css`
+                ${selectNewTokens.targetColor}: var(--on-dark-text-primary);
+                ${selectNewTokens.targetArrowColor}: var(--on-dark-text-primary);
+                ${selectNewTokens.targetBackgroundColor}: var(--surface-accent);
+                ${selectNewTokens.targetBackgroundColorHover}: var(--surface-accent-hover);
+                ${selectNewTokens.targetBackgroundColorActive}: var(--surface-accent-active);
+            `,
+            secondary: css`
+                ${selectNewTokens.targetColor}: var(--text-primary);
+                ${selectNewTokens.targetArrowColor}: var(--text-primary);
+                ${selectNewTokens.targetBackgroundColor}: var(--surface-transparent-secondary);
+                ${selectNewTokens.targetBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+                ${selectNewTokens.targetBackgroundColorActive}: var(--surface-transparent-secondary-active);
+            `,
+            clear: css`
+                ${selectNewTokens.targetColor}: var(--text-primary);
+                ${selectNewTokens.targetArrowColor}: var(--text-primary);
+                ${selectNewTokens.targetBackgroundColor}: var(--surface-clear);
+                ${selectNewTokens.targetBackgroundColorHover}: var(--surface-clear);
+                ${selectNewTokens.targetBackgroundColorActive}: var(--surface-clear);
+            `,
+            positive: css`
+                ${selectNewTokens.targetColor}: var(--on-dark-text-primary);
+                ${selectNewTokens.targetArrowColor}: var(--on-dark-text-primary);
+                ${selectNewTokens.targetBackgroundColor}:var(--surface-positive);
+                ${selectNewTokens.targetBackgroundColorHover}:var(--surface-positive-hover);
+                ${selectNewTokens.targetBackgroundColorActive}:var(--surface-positive-active);
+            `,
+            warning: css`
+                ${selectNewTokens.targetColor}:var(--on-dark-text-primary);
+                ${selectNewTokens.targetArrowColor}:var(--on-dark-text-primary);
+                ${selectNewTokens.targetBackgroundColor}:var(--surface-warning);
+                ${selectNewTokens.targetBackgroundColorHover}:var(--surface-warning-hover);
+                ${selectNewTokens.targetBackgroundColorActive}:var(--surface-warning-active);
+            `,
+            negative: css`
+                ${selectNewTokens.targetColor}:var(--on-dark-text-primary);
+                ${selectNewTokens.targetArrowColor}:var(--on-dark-text-primary);
+                ${selectNewTokens.targetBackgroundColor}:var(--surface-negative);
+                ${selectNewTokens.targetBackgroundColorHover}: var(--surface-negative-hover);
+                ${selectNewTokens.targetBackgroundColorActive}:var(--surface-negative-active);
+            `,
+            dark: css`
+                ${selectNewTokens.targetColor}:var(--on-dark-text-primary);
+                ${selectNewTokens.targetArrowColor}:var(--on-dark-text-primary);
+                ${selectNewTokens.targetBackgroundColor}:var(--on-light-surface-transparent-deep);
+                ${selectNewTokens.targetBackgroundColorHover}:var(--on-light-surface-transparent-deep-hover);
+                ${selectNewTokens.targetBackgroundColorActive}:var(--on-light-surface-transparent-deep-active);
+            `,
+            black: css`
+                ${selectNewTokens.targetColor}:var(--on-dark-text-primary);
+                ${selectNewTokens.targetArrowColor}:var(--on-dark-text-primary);
+                ${selectNewTokens.targetBackgroundColor}:var(--on-light-surface-solid-default);
+                ${selectNewTokens.targetBackgroundColorHover}:var(--on-light-surface-solid-default-hover);
+                ${selectNewTokens.targetBackgroundColorActive}: var(--on-light-surface-solid-default-active);
+            `,
+            white: css`
+                ${selectNewTokens.targetColor}: var(--on-light-text-primary);
+                ${selectNewTokens.targetArrowColor}: var(--on-light-text-primary);
+                ${selectNewTokens.targetBackgroundColor}:var(--on-dark-surface-solid-default);
+                ${selectNewTokens.targetBackgroundColorHover}:var(--on-dark-surface-solid-default-hover);
+                ${selectNewTokens.targetBackgroundColorActive}:var(--on-dark-surface-solid-default-active);
+            `,
         },
     },
 };

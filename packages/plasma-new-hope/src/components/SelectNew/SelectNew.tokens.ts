@@ -118,4 +118,5 @@ export const tokens = {
     chipClearContentMarginLeft: '--plasma-select-chip-clear-content-margin-left',
     chipClearContentMarginRight: '--plasma-select-chip-clear-content-margin-right',
     chipOpacityReadonly: '--plasma-select-chip-opacity-readonly',
+    chipFocusSize: '--plasma-select-chip-focus-size',
 };

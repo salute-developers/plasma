@@ -39,15 +39,15 @@ export const StyledChip = styled(Chip)`
     ${chipTokens.focusColor}: var(${tokens.focusColor});
 
     ${addFocus({
-        outlineSize: '0.0625rem',
+        outlineSize: '0',
         outlineOffset: '0',
         outlineColor: `var(${tokens.focusColor})`,
-        outlineRadius: `var(${tokens.itemBorderRadius})`,
+        outlineRadius: `var(${tokens.chipBorderRadius})`,
         hasTransition: false,
         customFocusRules: `
             &.${classes.selectChipIsFocused}:before {
                 outline: none;
-                box-shadow: 0 0 0 0.0625rem var(${tokens.focusColor});
+                box-shadow: 0 0 0 var(${tokens.chipFocusSize}) var(${tokens.focusColor});
             }
         `,
     })};

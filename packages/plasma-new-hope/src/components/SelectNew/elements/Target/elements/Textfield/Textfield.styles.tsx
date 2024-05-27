@@ -51,7 +51,8 @@ export const ChipWrapper = styled.div`
     display: flex;
     gap: 0.25rem;
     overflow-x: scroll;
-    padding: 1px;
+    padding: var(${tokens.chipFocusSize});
+    margin: calc(var(${tokens.chipFocusSize}) * -1);
 
     -ms-overflow-style: none;
     scrollbar-width: none;
