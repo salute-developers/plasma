@@ -41,21 +41,23 @@ export function App() {
     const [index, setIndex] = useState(0);
 
     return (
-        <Tabs view="filled" stretch size="xs">
-            {items.map((_, i) => (
-                <TabItem
-                    view="secondary"
-                    key={`item:${i}`}
-                    size="xs"
-                    selected={i === index}
-                    tabIndex={0}
-                    contentLeft={<IconClock size="xs" color="inherit" />}
-                    onClick={() => setIndex(i)}
-                >
-                    Label
-                </TabItem>
-            ))}
-        </Tabs>
+        <div>
+            <Tabs view="filled" stretch size="xs">
+                {items.map((_, i) => (
+                    <TabItem
+                        view="secondary"
+                        key={`item:${i}`}
+                        size="xs"
+                        selected={i === index}
+                        tabIndex={0}
+                        contentLeft={<IconClock size="xs" color="inherit" />}
+                        onClick={() => setIndex(i)}
+                    >
+                        Label
+                    </TabItem>
+                ))}
+            </Tabs>
+        </div>
     );
 }
 ```
@@ -74,23 +76,25 @@ export function App() {
     const [index, setIndex] = useState(0);
 
     return (
-        <Tabs view="filled" stretch size="xs" index={index}>
-            {items.map((_, i) => (
-                <TabItem
-                    view="secondary"
-                    key={`item:${i}`}
-                    size="xs"
-                    itemIndex={i}
-                    onIndexChange={(i) => setIndex(i)}
-                    selected={i === index}
-                    tabIndex={0}
-                    contentLeft={<IconClock size="xs" color="inherit" />}
-                    onClick={() => setIndex(i)}
-                >
-                    Label
-                </TabItem>
-            ))}
-        </Tabs>
+        <div>
+            <Tabs view="filled" stretch size="xs" index={index}>
+                {items.map((_, i) => (
+                    <TabItem
+                        view="secondary"
+                        key={`item:${i}`}
+                        size="xs"
+                        itemIndex={i}
+                        onIndexChange={(i) => setIndex(i)}
+                        selected={i === index}
+                        tabIndex={0}
+                        contentLeft={<IconClock size="xs" color="inherit" />}
+                        onClick={() => setIndex(i)}
+                    >
+                        Label
+                    </TabItem>
+                ))}
+            </Tabs>
+        </div>
     );
 }
 ```
