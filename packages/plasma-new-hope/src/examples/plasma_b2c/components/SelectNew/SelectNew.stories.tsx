@@ -8,6 +8,7 @@ import { SelectNew } from './SelectNew';
 
 type StorySelectNewProps = ComponentProps<typeof SelectNew>;
 
+const view = ['default', 'accent', 'secondary', 'clear', 'positive', 'warning', 'negative', 'dark', 'black', 'white'];
 const size = ['xs', 's', 'm', 'l'];
 
 const meta: Meta<StorySelectNewProps> = {
@@ -27,11 +28,19 @@ const meta: Meta<StorySelectNewProps> = {
                 type: 'select',
             },
         },
+        view: {
+            options: view,
+            control: {
+                type: 'select',
+            },
+        },
     },
     args: {
         target: 'button',
         label: 'Label',
         placeholder: 'Placeholder',
+        size: 'm',
+        view: 'default',
     },
 };
 
@@ -249,7 +258,7 @@ const items = [
     },
 ];
 
-const StoryNormal = (args: StorySelectNewProps) => {
+const SingleStory = (args: StorySelectNewProps) => {
     const [value, setValue] = useState('');
 
     return (
@@ -260,7 +269,7 @@ const StoryNormal = (args: StorySelectNewProps) => {
 };
 
 export const Single: StoryObj<StorySelectNewProps> = {
-    render: (args) => <StoryNormal {...args} />,
+    render: (args) => <SingleStory {...args} />,
 };
 
 const MultiselectStory = (args: StorySelectNewProps) => {

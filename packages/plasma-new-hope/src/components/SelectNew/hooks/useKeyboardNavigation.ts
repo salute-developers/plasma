@@ -19,6 +19,7 @@ export const keys = {
     Space: 'Space',
     Tab: 'Tab',
     Escape: 'Escape',
+    Backspace: 'Backspace',
     ArrowLeft: 'ArrowLeft',
     ArrowRight: 'ArrowRight',
     ArrowUp: 'ArrowUp',
@@ -44,8 +45,11 @@ interface Props {
     focusedToValueMap: FocusedToValueMapType;
     handleToggle: any;
     handlePressDown: any;
+    focusedChipIndex: any;
     dispatchFocusedChipIndex: Dispatch<FocusedChipIndexAction>;
     value: SelectNewProps['value'];
+    valueToItemMap: any;
+    multiselect: any;
 }
 
 interface ReturnedProps {
@@ -61,8 +65,11 @@ export const useKeyNavigation = ({
     focusedToValueMap,
     handleToggle,
     handlePressDown,
+    focusedChipIndex,
     dispatchFocusedChipIndex,
     value,
+    valueToItemMap,
+    multiselect,
 }: Props): ReturnedProps => {
     const currentLength: number = pathMap.get(path?.[path.length - 1]) || 0;
     const currentIndex: number = focusedPath?.[focusedPath.length - 1] || 0;
@@ -141,12 +148,36 @@ export const useKeyNavigation = ({
                 break;
             }
 
+            case keys.Backspace: {
+                if (!multiselect) break;
+
+                if (focusedChipIndex !== null) {
+                    const currentItem = valueToItemMap.get(value[focusedChipIndex]);
+
+                    handlePressDown(currentItem, event);
+
+                    if (value.length === 1) {
+                        dispatchFocusedChipIndex({ type: 'reset' });
+
+                        break;
+                    }
+
+                    if (focusedChipIndex === value.length - 1) {
+                        dispatchFocusedChipIndex({ type: 'moveLeft' });
+
+                        break;
+                    }
+                }
+
+                break;
+            }
+
             case keys.Space: {
                 event.preventDefault();
 
                 const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
 
-                if (currentItem?.disabled || currentItem?.isDisabled) {
+                if (!currentItem || currentItem?.disabled || currentItem?.isDisabled) {
                     break;
                 }
 

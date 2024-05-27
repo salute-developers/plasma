@@ -2,6 +2,7 @@ import React, { forwardRef, useState, useReducer, useMemo, createContext } from 
 
 import { RootProps } from '../../engines';
 import { isEmpty } from '../../utils';
+import { useOutsideClick } from '../../hooks';
 
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
 import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors } from './utils';
@@ -58,12 +59,17 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
         const [focusedChipIndex, dispatchFocusedChipIndex] = useReducer(focusedChipIndexReducer, null);
         const [checked, setChecked] = useState(valueToCheckedMap);
 
+        const targetRef = useOutsideClick(() => {
+            dispatchFocusedChipIndex({ type: 'reset' });
+        });
+
         const handleToggle = (opened: boolean) => {
             if (opened) {
                 dispatchPath({ type: 'opened_first_level' });
             } else {
                 dispatchFocusedPath({ type: 'reset' });
                 dispatchPath({ type: 'reset' });
+                dispatchFocusedChipIndex({ type: 'reset' });
             }
         };
 
@@ -152,8 +158,11 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
             focusedToValueMap,
             handleToggle,
             handlePressDown,
+            focusedChipIndex,
             dispatchFocusedChipIndex,
             value,
+            valueToItemMap,
+            multiselect,
         });
 
         const isCurrentListOpen = Boolean(path[0]);
@@ -171,12 +180,14 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
                     }}
                 >
                     <StyledPopover
+                        ref={targetRef}
                         isOpen={isCurrentListOpen}
                         usePortal={false}
                         placement="bottom-start"
                         onToggle={handleToggle}
                         trigger="click"
                         isFocusTrapped={false}
+                        frame="document"
                         target={
                             <Target
                                 opened={isCurrentListOpen}
