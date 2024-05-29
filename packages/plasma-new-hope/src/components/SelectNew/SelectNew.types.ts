@@ -42,24 +42,32 @@ type IsMultiselect =
            * Разделитель выбранных значений.
            */
           separator?: never;
-          /**
-           * Нативный селект. Поддерживает только один уровень вложенности.
-           * @default false
-           */
-          asNative?: true;
       }
     | {
           value: Array<string>;
           onChange: (value: Array<string>) => void;
           multiselect?: true;
           separator?: string;
-          asNative?: false;
       };
 
 type BasicProps = {
     items: Array<ItemOption>;
+    /**
+     * Метка-подпись к элементу
+     */
     label?: string;
+    /**
+     * Расположение лейбла.
+     * @default outer
+     */
+    labelPlacement?: 'outer' | 'inner';
+    /**
+     * Placeholder.
+     */
     placeholder?: string;
+    /**
+     * Вспомогательный текст снизу слева для поля ввода.
+     */
     helperText?: string;
     /**
      * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
@@ -71,11 +79,6 @@ type BasicProps = {
      * @default false
      */
     disabled?: boolean;
-    /**
-     * Находится ли label внутри target.
-     * @default false
-     */
-    isLabelInside?: boolean;
 
     /**
      * Размер компонента.

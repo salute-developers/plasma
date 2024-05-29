@@ -10,7 +10,7 @@ import { Inner } from './elements/Inner/Inner';
 import { Target } from './elements/Target/Target';
 import { pathReducer, focusedPathReducer, focusedChipIndexReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
-import { StyledPopover, Ul, base } from './SelectNew.styles';
+import { StyledPopover, Ul, base, OuterLabel, HelperText } from './SelectNew.styles';
 import type { SelectNewProps, ItemContext } from './SelectNew.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -29,9 +29,9 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
             target = 'textfield',
             multiselect = false,
             separator,
-            asNative = false,
             items,
             label,
+            labelPlacement = 'outer',
             placeholder,
             helperText,
             isTargetAmount = false,
@@ -42,7 +42,6 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
             listOverflow,
             listHeight,
             status,
-            isLabelInside,
             ...rest
         } = props;
 
@@ -127,18 +126,7 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
         };
 
         const handleChipClick = (currentValue: string) => {
-            if (!multiselect) {
-                handleCheckboxChange(valueToItemMap.get(currentValue) as ItemOptionTransformed);
-            } else {
-                const checkedCopy = new Map(checked);
-
-                checkedCopy.forEach((_, key) => {
-                    checkedCopy.set(key, false);
-                });
-
-                onChange('' as any);
-                setChecked(checkedCopy);
-            }
+            handleCheckboxChange(valueToItemMap.get(currentValue)!);
         };
 
         const handlePressDown = (item: ItemOptionTransformed, e: React.MouseEvent<HTMLElement>) => {
@@ -169,6 +157,8 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
 
         return (
             <Root ref={ref} size={size} view={view} items={items} {...(rest as any)}>
+                {label && labelPlacement === 'outer' && target !== 'button' && <OuterLabel>{label}</OuterLabel>}
+
                 <Context.Provider
                     value={{
                         focusedPath,
@@ -199,9 +189,10 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
                                 onChipClick={handleChipClick}
                                 label={label}
                                 placeholder={placeholder}
-                                isLabelInside={isLabelInside}
                                 onKeyDown={onKeyDown}
                                 focusedChipIndex={focusedChipIndex}
+                                labelPlacement={labelPlacement}
+                                size={size}
                             />
                         }
                         preventOverflow={false}
@@ -221,6 +212,8 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
                         </Ul>
                     </StyledPopover>
                 </Context.Provider>
+
+                {helperText && <HelperText>{helperText}</HelperText>}
             </Root>
         );
     });

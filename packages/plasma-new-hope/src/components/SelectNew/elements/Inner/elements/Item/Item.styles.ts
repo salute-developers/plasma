@@ -40,6 +40,10 @@ export const StyledContentRight = styled.div`
 export const DisclosureIconWrapper = styled.div`
     line-height: 0;
     color: var(${tokens.disclosureIconColor});
+
+    &:hover {
+        color: var(${tokens.disclosureIconColorHover});
+    }
 `;
 
 export const IconWrapper = styled.div`

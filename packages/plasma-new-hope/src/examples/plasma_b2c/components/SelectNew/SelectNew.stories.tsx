@@ -10,6 +10,7 @@ type StorySelectNewProps = ComponentProps<typeof SelectNew>;
 
 const view = ['default', 'accent', 'secondary', 'clear', 'positive', 'warning', 'negative', 'dark', 'black', 'white'];
 const size = ['xs', 's', 'm', 'l'];
+const labelPlacement = ['inner', 'outer'];
 
 const meta: Meta<StorySelectNewProps> = {
     title: 'plasma_b2c/SelectNew',
@@ -34,11 +35,19 @@ const meta: Meta<StorySelectNewProps> = {
                 type: 'select',
             },
         },
+        labelPlacement: {
+            options: labelPlacement,
+            control: {
+                type: 'select',
+            },
+        },
     },
     args: {
         target: 'button',
         label: 'Label',
+        labelPlacement: 'outer',
         placeholder: 'Placeholder',
+        helperText: 'Helper text',
         size: 'm',
         view: 'default',
     },
@@ -296,14 +305,7 @@ const PredefinedStory = (args: StorySelectNewProps) => {
 
             <br />
 
-            <SelectNew
-                items={items}
-                value={valueMultiple}
-                onChange={setValueMultiple}
-                multiselect
-                isNative={false}
-                separator="asd"
-            />
+            <SelectNew items={items} value={valueMultiple} onChange={setValueMultiple} multiselect separator="asd" />
         </div>
     );
 };

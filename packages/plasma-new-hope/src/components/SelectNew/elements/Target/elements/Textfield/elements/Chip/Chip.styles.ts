@@ -47,7 +47,7 @@ export const StyledChip = styled(Chip)`
         customFocusRules: `
             &.${classes.selectChipIsFocused}:before {
                 outline: none;
-                box-shadow: 0 0 0 var(${tokens.chipFocusSize}) var(${tokens.focusColor});
+                box-shadow: inset 0 0 0 var(${tokens.chipFocusSize}) var(${tokens.focusColor});
             }
         `,
     })};

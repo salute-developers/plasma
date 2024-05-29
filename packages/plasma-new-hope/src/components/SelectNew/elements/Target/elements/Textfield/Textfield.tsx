@@ -1,11 +1,22 @@
 import React from 'react';
 
-import { cx } from '../../../../../../utils';
+import { cx, isEmpty } from '../../../../../../utils';
 import { classes } from '../../../../SelectNew.tokens';
 
 import { TextfieldProps, GetLabelProps } from './Textfield.types';
 import { Chip } from './elements/Chip/Chip';
-import { StyledButton, StyledArrow, Wrapper, ChipWrapper, TextfieldWrapper } from './Textfield.styles';
+import {
+    StyledButton,
+    StyledArrow,
+    Wrapper,
+    ChipWrapper,
+    TextfieldWrapper,
+    IconArrowWrapper,
+    Label,
+    Placeholder,
+    InnerLabel,
+    InnerLabelWrapper,
+} from './Textfield.styles';
 
 const getLabel = ({
     value,
@@ -16,21 +27,50 @@ const getLabel = ({
     label,
     placeholder,
     focusedChipIndex,
+    labelPlacement,
+    size,
 }: GetLabelProps) => {
-    if (multiselect && Array.isArray(value)) {
-        if (!value.length) {
-            return placeholder;
+    // if (multiselect && Array.isArray(value)) {
+    //     if (!value.length) {
+    //         return placeholder;
+    //     }
+    //
+    //     if (isTargetAmount) {
+    //         return (
+    //             <Chip
+    //                 text={`Выбрано: ${value.length}`}
+    //                 onClick={(e: React.MouseEvent<HTMLElement>) => e.stopPropagation()}
+    //             />
+    //         );
+    //     }
+    //
+    //     return value.map((currentValue, index) => (
+    //         <Chip
+    //             text={valueToItemMap.get(currentValue)?.secondaryLabel || valueToItemMap.get(currentValue)?.label}
+    //             onClick={(e: React.MouseEvent<HTMLElement>) => {
+    //                 e.stopPropagation();
+    //                 onChipClick(currentValue);
+    //             }}
+    //             focused={focusedChipIndex === index}
+    //         />
+    //     ));
+    // }
+    //
+    // if (!value) {
+    //     return placeholder;
+    // }
+    //
+    // return valueToItemMap.get(value)?.secondaryLabel || valueToItemMap.get(value)?.label;
+
+    if (isEmpty(value)) {
+        if (!label || labelPlacement === 'outer') {
+            return <Placeholder>{placeholder}</Placeholder>;
         }
 
-        if (isTargetAmount) {
-            return (
-                <Chip
-                    text={`Выбрано: ${value.length}`}
-                    onClick={(e: React.MouseEvent<HTMLElement>) => e.stopPropagation()}
-                />
-            );
-        }
+        return <Label>{label}</Label>;
+    }
 
+    if (multiselect) {
         return value.map((currentValue, index) => (
             <Chip
                 text={valueToItemMap.get(currentValue)?.secondaryLabel || valueToItemMap.get(currentValue)?.label}
@@ -43,11 +83,16 @@ const getLabel = ({
         ));
     }
 
-    if (!value) {
-        return placeholder;
+    if (!label || labelPlacement === 'outer') {
+        return valueToItemMap.get(value).label;
     }
 
-    return valueToItemMap.get(value)?.secondaryLabel || valueToItemMap.get(value)?.label;
+    return (
+        <InnerLabelWrapper>
+            {size !== 'xs' && <InnerLabel>{label}</InnerLabel>}
+            {valueToItemMap.get(value).label}
+        </InnerLabelWrapper>
+    );
 };
 
 export const Textfield: React.FC<TextfieldProps> = ({
@@ -59,9 +104,10 @@ export const Textfield: React.FC<TextfieldProps> = ({
     onChipClick,
     label,
     placeholder,
-    isLabelInside,
     onKeyDown,
     focusedChipIndex,
+    labelPlacement,
+    size,
 }) => {
     const withArrowInverse = opened ? classes.arrowInverse : undefined;
 
@@ -77,8 +123,6 @@ export const Textfield: React.FC<TextfieldProps> = ({
             >
                 <Wrapper>
                     <ChipWrapper>
-                        {/* {!multiselect && label} */}
-
                         {getLabel({
                             value,
                             isTargetAmount,
@@ -88,10 +132,18 @@ export const Textfield: React.FC<TextfieldProps> = ({
                             label,
                             placeholder,
                             focusedChipIndex,
+                            labelPlacement,
+                            size,
                         })}
                     </ChipWrapper>
 
-                    <StyledArrow size="s" color="inherit" className={cx(classes.selectTargetArrow, withArrowInverse)} />
+                    <IconArrowWrapper>
+                        <StyledArrow
+                            size="s"
+                            color="inherit"
+                            className={cx(classes.selectTargetArrow, withArrowInverse)}
+                        />
+                    </IconArrowWrapper>
                 </Wrapper>
             </StyledButton>
         </TextfieldWrapper>
