@@ -11,15 +11,6 @@ export const StyledArrow = styled(IconChevronDown)`
     color: var(${tokens.targetArrowColor});
 `;
 
-export const Wrapper = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(${tokens.targetPadding});
-`;
-
 export const StyledText = styled.span`
     ${applyEllipsis()};
 

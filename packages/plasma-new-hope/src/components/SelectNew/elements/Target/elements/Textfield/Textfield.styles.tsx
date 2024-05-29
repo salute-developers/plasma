@@ -1,5 +1,6 @@
 import { styled } from '@linaria/react';
 
+import { applyEllipsis } from '../../../../../../mixins';
 import { IconChevronDown } from '../../../../../_Icon';
 import { component, mergeConfig } from '../../../../../../engines';
 import { buttonConfig, buttonTokens } from '../../../../../Button';
@@ -27,11 +28,16 @@ export const StyledButton = styled(Button)`
     ${buttonTokens.buttonFocusColor}: var(${tokens.focusColor});
 `;
 
-export const StyledArrow = styled(IconChevronDown)`
-    transition: color 0.3s ease-in, transform 0.15s ease-in;
-    pointer-events: none;
-    user-select: none;
+export const StyledArrow = styled(IconChevronDown)``;
+
+export const IconArrowWrapper = styled.div`
+    line-height: 0;
+    margin: 0 0 0 var(${tokens.targetArrowMarginLeft});
     color: var(${tokens.targetArrowColor});
+
+    &:hover {
+        color: var(${tokens.targetArrowColorHover});
+    }
 `;
 
 export const Wrapper = styled.div`
@@ -47,12 +53,14 @@ export const Wrapper = styled.div`
 `;
 
 export const ChipWrapper = styled.div`
+    ${applyEllipsis()};
+
     width: 100%;
     display: flex;
     gap: 0.25rem;
     overflow-x: scroll;
-    padding: var(${tokens.chipFocusSize});
-    margin: calc(var(${tokens.chipFocusSize}) * -1);
+    border-top-right-radius: var(${tokens.chipBorderRadius});
+    border-bottom-right-radius: var(${tokens.chipBorderRadius});
 
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -75,4 +83,48 @@ export const TextfieldWrapper = styled.div<any>`
     .${classes.selectWithoutBoxShadow}::before {
         box-shadow: none !important;
     }
+`;
+
+export const Label = styled.label`
+    color: var(${tokens.innerLabelColor});
+    font-family: var(${tokens.labelFontFamily});
+    font-size: var(${tokens.labelFontSize});
+    font-style: var(${tokens.labelFontStyle});
+    font-weight: var(${tokens.labelFontWeight});
+    letter-spacing: var(${tokens.labelLetterSpacing});
+    line-height: var(${tokens.labelLineHeight});
+`;
+
+export const Placeholder = styled.div`
+    color: var(${tokens.placeholderColor});
+    font-family: var(${tokens.placeholderFontFamily});
+    font-size: var(${tokens.placeholderFontSize});
+    font-style: var(${tokens.placeholderFontStyle});
+    font-weight: var(${tokens.placeholderFontWeight});
+    letter-spacing: var(${tokens.placeholderLetterSpacing});
+    line-height: var(${tokens.placeholderLineHeight});
+`;
+
+export const InnerLabelWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: var(${tokens.innerLabelGap});
+    font-family: var(${tokens.targetFontFamily});
+    font-size: var(${tokens.targetFontSize});
+    font-style: var(${tokens.targetFontStyle});
+    font-weight: var(${tokens.targetFontWeight});
+    letter-spacing: var(${tokens.targetLetterSpacing});
+    line-height: var(${tokens.targetLineHeight});
+`;
+
+export const InnerLabel = styled.label`
+    color: var(${tokens.innerLabelColor});
+    font-family: var(${tokens.innerLabelFontFamily});
+    font-size: var(${tokens.innerLabelFontSize});
+    font-style: var(${tokens.innerLabelFontStyle});
+    font-weight: var(${tokens.innerLabelFontWeight});
+    letter-spacing: var(${tokens.innerLabelLetterSpacing});
+    line-height: var(${tokens.innerLabelLineHeight});
+    text-align: left;
 `;

@@ -208,6 +208,7 @@ export const useKeyNavigation = ({
                 if (currentItem?.items) {
                     dispatchPath({ type: 'added_next_level', value: currentItem.value.toString() });
                     dispatchFocusedPath({ type: 'add_focus', value: 0 });
+                    break;
                 }
 
                 handlePressDown(currentItem, event);

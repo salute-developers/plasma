@@ -31,3 +31,27 @@ export const base = css`
         display: block;
     }
 `;
+
+export const OuterLabel = styled.label`
+    display: block;
+    margin-bottom: var(${tokens.labelOffset});
+    color: var(${tokens.labelColor});
+
+    font-family: var(${tokens.labelFontFamily});
+    font-size: var(${tokens.labelFontSize});
+    font-style: var(${tokens.labelFontStyle});
+    font-weight: var(${tokens.labelFontWeight});
+    letter-spacing: var(${tokens.labelLetterSpacing});
+    line-height: var(${tokens.labelLineHeight});
+`;
+
+export const HelperText = styled.div`
+    margin-top: var(${tokens.helperTextOffset});
+    color: var(${tokens.helperTextColor});
+    font-family: var(${tokens.helperTextFontFamily});
+    font-size: var(${tokens.helperTextFontSize});
+    font-style: var(${tokens.helperTextFontStyle});
+    font-weight: var(${tokens.helperTextFontWeight});
+    letter-spacing: var(${tokens.helperTextLetterSpacing});
+    line-height: var(${tokens.helperTextLineHeight});
+`;

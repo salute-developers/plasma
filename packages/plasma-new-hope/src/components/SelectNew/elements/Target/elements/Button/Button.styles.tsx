@@ -11,11 +11,11 @@ const Button = component(mergedButtonConfig);
 
 export const StyledButton = styled(Button)`
     ${buttonTokens.buttonColor}: var(${tokens.targetColor});
-    ${buttonTokens.buttonBackgroundColor}: var(${tokens.targetBackgroundColor});
+    ${buttonTokens.buttonBackgroundColor}: var(${tokens.targetButtonBackgroundColor});
     ${buttonTokens.buttonColorHover}: var(${tokens.targetColor});
-    ${buttonTokens.buttonBackgroundColorHover}: var(${tokens.targetBackgroundColorHover});
+    ${buttonTokens.buttonBackgroundColorHover}: var(${tokens.targetButtonBackgroundColorHover});
     ${buttonTokens.buttonColorActive}: var(${tokens.targetColor});
-    ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.targetBackgroundColorActive});
+    ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.targetButtonBackgroundColorActive});
     ${buttonTokens.buttonHeight}: var(${tokens.targetHeight});
     ${buttonTokens.buttonWidth}: var(${tokens.targetWidth});
     ${buttonTokens.buttonPadding}: var(${tokens.targetButtonPadding});
@@ -23,18 +23,26 @@ export const StyledButton = styled(Button)`
     ${buttonTokens.buttonFontFamily}: var(${tokens.targetFontFamily});
     ${buttonTokens.buttonFontSize}: var(${tokens.targetFontSize});
     ${buttonTokens.buttonFontStyle}: var(${tokens.targetFontStyle});
-    ${buttonTokens.buttonFontWeight}:var(${tokens.targetFontWeight});
+    ${buttonTokens.buttonFontWeight}: 600;
     ${buttonTokens.buttonLetterSpacing}: var(${tokens.targetLetterSpacing});
     ${buttonTokens.buttonLineHeight}: var(${tokens.targetLineHeight});
     ${buttonTokens.buttonDisabledOpacity}: var(${tokens.disabledOpacity});
     ${buttonTokens.buttonFocusColor}: var(${tokens.focusColor});
 `;
 
+export const IconArrowWrapper = styled.div`
+    line-height: 0;
+    color: var(${tokens.targetArrowColor});
+
+    &:hover {
+        color: var(${tokens.targetArrowColorHover});
+    }
+`;
+
 export const StyledArrow = styled(IconChevronDown)`
     transition: color 0.3s ease-in, transform 0.15s ease-in;
     pointer-events: none;
     user-select: none;
-    color: var(${tokens.targetArrowColor});
 `;
 
 export const ButtonWrapper = styled.div`

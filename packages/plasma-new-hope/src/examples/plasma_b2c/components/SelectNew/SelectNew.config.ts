@@ -59,26 +59,50 @@ export const config = {
                 ${selectNewTokens.chipLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${selectNewTokens.chipFocusSize}: 0.0625rem;
 
-                ${selectNewTokens.targetArrowRight}: 0.5rem;
+                ${selectNewTokens.targetArrowMarginLeft}: 0.75rem;
                 ${selectNewTokens.targetHeight}: 2rem;
                 ${selectNewTokens.targetWidth}: 100%;
                 ${selectNewTokens.targetRadius}: 0.5rem;
                 ${selectNewTokens.targetButtonPadding}: 0.625rem 0 0.75rem;
                 ${selectNewTokens.targetTextfieldPadding}: 0.5rem 0 0.375rem;
                 ${selectNewTokens.targetInnerTop}: 0.5rem;
-                ${selectNewTokens.targetLabelInnerTop}: 0.375rem;
                 ${selectNewTokens.targetFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${selectNewTokens.targetFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${selectNewTokens.targetFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${selectNewTokens.targetFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${selectNewTokens.targetLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${selectNewTokens.targetLineHeight}: var(--plasma-typo-body-xs-line-height);
-                ${selectNewTokens.targetLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${selectNewTokens.targetLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${selectNewTokens.targetLabelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${selectNewTokens.targetLabelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${selectNewTokens.targetLabelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${selectNewTokens.targetLabelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${selectNewTokens.labelOffset}: 0.375rem;
+                ${selectNewTokens.labelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${selectNewTokens.labelFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${selectNewTokens.labelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${selectNewTokens.labelFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${selectNewTokens.labelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${selectNewTokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${selectNewTokens.innerLabelGap}: 0;
+                ${selectNewTokens.innerLabelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${selectNewTokens.innerLabelFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${selectNewTokens.innerLabelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${selectNewTokens.innerLabelFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${selectNewTokens.innerLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${selectNewTokens.innerLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${selectNewTokens.helperTextOffset}: 0.25rem;
+                ${selectNewTokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${selectNewTokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${selectNewTokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${selectNewTokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${selectNewTokens.helperTextLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${selectNewTokens.helperTextLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${selectNewTokens.placeholderFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${selectNewTokens.placeholderFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${selectNewTokens.placeholderFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${selectNewTokens.placeholderFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${selectNewTokens.placeholderLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${selectNewTokens.placeholderLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             s: css`
                 ${selectNewTokens.padding}: 0.125rem;
@@ -130,26 +154,50 @@ export const config = {
                 ${selectNewTokens.chipLineHeight}: var(--plasma-typo-body-s-line-height);
                 ${selectNewTokens.chipFocusSize}: 0.0625rem;
 
-                ${selectNewTokens.targetArrowRight}: 0.75rem;
+                ${selectNewTokens.targetArrowMarginLeft}: 0.75rem;
                 ${selectNewTokens.targetHeight}: 2.5rem;
                 ${selectNewTokens.targetWidth}: 100%;
                 ${selectNewTokens.targetRadius}: 0.625rem;
                 ${selectNewTokens.targetButtonPadding}: 0.875rem 0 1rem;
                 ${selectNewTokens.targetTextfieldPadding}: 0.75rem 0 0.375rem;
                 ${selectNewTokens.targetInnerTop}: 0.5rem;
-                ${selectNewTokens.targetLabelInnerTop}: 0.375rem;
                 ${selectNewTokens.targetFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${selectNewTokens.targetFontSize}: var(--plasma-typo-body-s-font-size);
                 ${selectNewTokens.targetFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${selectNewTokens.targetFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${selectNewTokens.targetLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${selectNewTokens.targetLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${selectNewTokens.targetLabelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${selectNewTokens.targetLabelInnerFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${selectNewTokens.targetLabelInnerFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${selectNewTokens.targetLabelInnerFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${selectNewTokens.targetLabelInnerLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${selectNewTokens.targetLabelInnerLineHeight}: var(--plasma-typo-body-xxs-line-height);
+
+                ${selectNewTokens.labelOffset}: 0.5rem;
+                ${selectNewTokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${selectNewTokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
+                ${selectNewTokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${selectNewTokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${selectNewTokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${selectNewTokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${selectNewTokens.innerLabelGap}: 0;
+                ${selectNewTokens.innerLabelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${selectNewTokens.innerLabelFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${selectNewTokens.innerLabelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${selectNewTokens.innerLabelFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${selectNewTokens.innerLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${selectNewTokens.innerLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${selectNewTokens.helperTextOffset}: 0.25rem;
+                ${selectNewTokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${selectNewTokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${selectNewTokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${selectNewTokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${selectNewTokens.helperTextLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${selectNewTokens.helperTextLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${selectNewTokens.placeholderFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${selectNewTokens.placeholderFontSize}: var(--plasma-typo-body-s-font-size);
+                ${selectNewTokens.placeholderFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${selectNewTokens.placeholderFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${selectNewTokens.placeholderLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${selectNewTokens.placeholderLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
             m: css`
                 ${selectNewTokens.padding}: 0.125rem;
@@ -201,26 +249,50 @@ export const config = {
                 ${selectNewTokens.chipLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${selectNewTokens.chipFocusSize}: 0.0625rem;
 
-                ${selectNewTokens.targetArrowRight}: 0.875rem;
+                ${selectNewTokens.targetArrowMarginLeft}: 0.75rem;
                 ${selectNewTokens.targetHeight}: 3rem;
                 ${selectNewTokens.targetWidth}: 100%;
                 ${selectNewTokens.targetRadius}: 0.75rem;
                 ${selectNewTokens.targetButtonPadding}: 1.125rem 0 1.25rem;
                 ${selectNewTokens.targetTextfieldPadding}: 0.875rem 0 0.375rem;
                 ${selectNewTokens.targetInnerTop}: 0.5rem;
-                ${selectNewTokens.targetLabelInnerTop}: 0.375rem;
                 ${selectNewTokens.targetFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${selectNewTokens.targetFontSize}: var(--plasma-typo-body-m-font-size);
                 ${selectNewTokens.targetFontStyle}: var(--plasma-typo-body-m-font-style);
                 ${selectNewTokens.targetFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${selectNewTokens.targetLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${selectNewTokens.targetLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${selectNewTokens.targetLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${selectNewTokens.targetLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${selectNewTokens.targetLabelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${selectNewTokens.targetLabelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${selectNewTokens.targetLabelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${selectNewTokens.targetLabelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${selectNewTokens.labelOffset}: 0.625rem;
+                ${selectNewTokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${selectNewTokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
+                ${selectNewTokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${selectNewTokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${selectNewTokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${selectNewTokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${selectNewTokens.innerLabelGap}: 0.125rem;
+                ${selectNewTokens.innerLabelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${selectNewTokens.innerLabelFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${selectNewTokens.innerLabelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${selectNewTokens.innerLabelFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${selectNewTokens.innerLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${selectNewTokens.innerLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${selectNewTokens.helperTextOffset}: 0.25rem;
+                ${selectNewTokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${selectNewTokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${selectNewTokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${selectNewTokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${selectNewTokens.helperTextLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${selectNewTokens.helperTextLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${selectNewTokens.placeholderFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${selectNewTokens.placeholderFontSize}: var(--plasma-typo-body-m-font-size);
+                ${selectNewTokens.placeholderFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${selectNewTokens.placeholderFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${selectNewTokens.placeholderLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${selectNewTokens.placeholderLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             l: css`
                 ${selectNewTokens.padding}: 0.125rem;
@@ -272,26 +344,50 @@ export const config = {
                 ${selectNewTokens.chipLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${selectNewTokens.chipFocusSize}: 0.0625rem;
 
-                ${selectNewTokens.targetArrowRight}: 1rem;
+                ${selectNewTokens.targetArrowMarginLeft}: 0.75rem;
                 ${selectNewTokens.targetHeight}: 3.5rem;
                 ${selectNewTokens.targetWidth}: 100%;
                 ${selectNewTokens.targetRadius}: 0.875rem;
                 ${selectNewTokens.targetButtonPadding}: 1.38rem 0 1.5rem;
                 ${selectNewTokens.targetTextfieldPadding}: 1rem 0 0.375rem;
                 ${selectNewTokens.targetInnerTop}: 0.5rem;
-                ${selectNewTokens.targetLabelInnerTop}: 0.375rem;
                 ${selectNewTokens.targetFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${selectNewTokens.targetFontSize}: var(--plasma-typo-body-l-font-size);
                 ${selectNewTokens.targetFontStyle}: var(--plasma-typo-body-l-font-style);
                 ${selectNewTokens.targetFontWeight}: var(--plasma-typo-body-l-font-weight);
                 ${selectNewTokens.targetLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${selectNewTokens.targetLineHeight}: var(--plasma-typo-body-l-line-height);
-                ${selectNewTokens.targetLabelInnerFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${selectNewTokens.targetLabelInnerFontSize}: var(--plasma-typo-body-s-font-size);
-                ${selectNewTokens.targetLabelInnerFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${selectNewTokens.targetLabelInnerFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${selectNewTokens.targetLabelInnerLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${selectNewTokens.targetLabelInnerLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${selectNewTokens.labelOffset}: 0.75rem;
+                ${selectNewTokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${selectNewTokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
+                ${selectNewTokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${selectNewTokens.labelFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${selectNewTokens.labelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${selectNewTokens.labelLineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${selectNewTokens.innerLabelGap}: 0.125rem;
+                ${selectNewTokens.innerLabelFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${selectNewTokens.innerLabelFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${selectNewTokens.innerLabelFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${selectNewTokens.innerLabelFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${selectNewTokens.innerLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${selectNewTokens.innerLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${selectNewTokens.helperTextOffset}: 0.25rem;
+                ${selectNewTokens.helperTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${selectNewTokens.helperTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${selectNewTokens.helperTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${selectNewTokens.helperTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${selectNewTokens.helperTextLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${selectNewTokens.helperTextLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${selectNewTokens.placeholderFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${selectNewTokens.placeholderFontSize}: var(--plasma-typo-body-l-font-size);
+                ${selectNewTokens.placeholderFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${selectNewTokens.placeholderFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${selectNewTokens.placeholderLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${selectNewTokens.placeholderLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
         },
         view: {
@@ -301,6 +397,7 @@ export const config = {
                 ${selectNewTokens.background}: var(--surface-solid-card);
                 ${selectNewTokens.boxShadow}: var(--shadow-down-soft-s);
                 ${selectNewTokens.disclosureIconColor}: var(--text-secondary);
+                ${selectNewTokens.disclosureIconColorHover}: var(--text-secondary-hover);
                 ${selectNewTokens.itemBackground}: var(--plasma-colors-transparent);
                 ${selectNewTokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${selectNewTokens.itemColor}: var(--text-primary);
@@ -318,78 +415,115 @@ export const config = {
                 ${selectNewTokens.chipColorReadOnlyHover}: var(--text-primary);
                 ${selectNewTokens.chipOpacityReadonly}: 0.72;
 
+                ${selectNewTokens.labelColor}: var(--text-primary);
+                ${selectNewTokens.innerLabelColor}: var(--text-secondary);
+                ${selectNewTokens.helperTextColor}: var(--text-secondary);
+                ${selectNewTokens.placeholderColor}: var(--text-secondary);
+
                 ${selectNewTokens.targetColor}: var(--text-primary);
                 ${selectNewTokens.targetArrowColor}: var(--text-secondary);
-                ${selectNewTokens.targetBackgroundColor}: var(--surface-transparent-secondary);
-                ${selectNewTokens.targetBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${selectNewTokens.targetBackgroundColorActive}: var(--surface-transparent-secondary-active);
-                ${selectNewTokens.targetBackgroundColorOpen}: var(--surface-transparent-secondary);
+                ${selectNewTokens.targetArrowColorHover}: var(--text-secondary-hover);
+                ${selectNewTokens.targetButtonBackgroundColor}: var(--surface-transparent-secondary);
+                ${selectNewTokens.targetButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+                ${selectNewTokens.targetButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
                 ${selectNewTokens.targetTextfieldBackgroundColor}: var(--surface-transparent-primary);
                 ${selectNewTokens.targetTextfieldBackgroundColorOpened}: var(--surface-transparent-secondary);
-                ${selectNewTokens.targetFontWeight}: 600 !important; /* TODO: Переделать когда появится возможность пересечения свойств */
             `,
             accent: css`
                 ${selectNewTokens.targetColor}: var(--on-dark-text-primary);
-                ${selectNewTokens.targetArrowColor}: var(--on-dark-text-primary);
-                ${selectNewTokens.targetBackgroundColor}: var(--surface-accent);
-                ${selectNewTokens.targetBackgroundColorHover}: var(--surface-accent-hover);
-                ${selectNewTokens.targetBackgroundColorActive}: var(--surface-accent-active);
+                ${selectNewTokens.targetArrowColor}: var(--on-dark-text-secondary);
+                ${selectNewTokens.targetArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectNewTokens.targetButtonBackgroundColor}: var(--surface-accent);
+                ${selectNewTokens.targetButtonBackgroundColorHover}: var(--surface-accent-hover);
+                ${selectNewTokens.targetButtonBackgroundColorActive}: var(--surface-accent-active);
             `,
             secondary: css`
                 ${selectNewTokens.targetColor}: var(--text-primary);
-                ${selectNewTokens.targetArrowColor}: var(--text-primary);
-                ${selectNewTokens.targetBackgroundColor}: var(--surface-transparent-secondary);
-                ${selectNewTokens.targetBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${selectNewTokens.targetBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${selectNewTokens.targetArrowColor}: var(--text-secondary);
+                ${selectNewTokens.targetArrowColorHover}: var(--text-secondary-hover);
+                ${selectNewTokens.targetButtonBackgroundColor}: var(--surface-transparent-secondary);
+                ${selectNewTokens.targetButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+                ${selectNewTokens.targetButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
             `,
             clear: css`
                 ${selectNewTokens.targetColor}: var(--text-primary);
-                ${selectNewTokens.targetArrowColor}: var(--text-primary);
-                ${selectNewTokens.targetBackgroundColor}: var(--surface-clear);
-                ${selectNewTokens.targetBackgroundColorHover}: var(--surface-clear);
-                ${selectNewTokens.targetBackgroundColorActive}: var(--surface-clear);
+                ${selectNewTokens.targetArrowColor}: var(--text-secondary);
+                ${selectNewTokens.targetArrowColorHover}: var(--text-secondary-hover);
+                ${selectNewTokens.targetButtonBackgroundColor}: var(--surface-clear);
+                ${selectNewTokens.targetButtonBackgroundColorHover}: var(--surface-clear);
+                ${selectNewTokens.targetButtonBackgroundColorActive}: var(--surface-clear);
             `,
             positive: css`
                 ${selectNewTokens.targetColor}: var(--on-dark-text-primary);
-                ${selectNewTokens.targetArrowColor}: var(--on-dark-text-primary);
-                ${selectNewTokens.targetBackgroundColor}:var(--surface-positive);
-                ${selectNewTokens.targetBackgroundColorHover}:var(--surface-positive-hover);
-                ${selectNewTokens.targetBackgroundColorActive}:var(--surface-positive-active);
+                ${selectNewTokens.targetArrowColor}: var(--on-dark-text-secondary);
+                ${selectNewTokens.targetArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectNewTokens.targetButtonBackgroundColor}:var(--surface-positive);
+                ${selectNewTokens.targetButtonBackgroundColorHover}:var(--surface-positive-hover);
+                ${selectNewTokens.targetButtonBackgroundColorActive}:var(--surface-positive-active);
+
+                ${selectNewTokens.labelColor}: var(--text-primary);
+                ${selectNewTokens.innerLabelColor}: var(--text-secondary);
+                ${selectNewTokens.helperTextColor}: var(--text-positive);
+                ${selectNewTokens.placeholderColor}: var(--text-secondary);
+
+                ${selectNewTokens.targetTextfieldBackgroundColor}: var(--surface-transparent-positive);
+                ${selectNewTokens.targetTextfieldBackgroundColorOpened}: var(--surface-transparent-positive-active);
             `,
             warning: css`
                 ${selectNewTokens.targetColor}:var(--on-dark-text-primary);
-                ${selectNewTokens.targetArrowColor}:var(--on-dark-text-primary);
-                ${selectNewTokens.targetBackgroundColor}:var(--surface-warning);
-                ${selectNewTokens.targetBackgroundColorHover}:var(--surface-warning-hover);
-                ${selectNewTokens.targetBackgroundColorActive}:var(--surface-warning-active);
+                ${selectNewTokens.targetArrowColor}:var(--on-dark-text-secondary);
+                ${selectNewTokens.targetArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectNewTokens.targetButtonBackgroundColor}:var(--surface-warning);
+                ${selectNewTokens.targetButtonBackgroundColorHover}:var(--surface-warning-hover);
+                ${selectNewTokens.targetButtonBackgroundColorActive}:var(--surface-warning-active);
+
+                ${selectNewTokens.labelColor}: var(--text-primary);
+                ${selectNewTokens.innerLabelColor}: var(--text-secondary);
+                ${selectNewTokens.helperTextColor}: var(--text-warning);
+                ${selectNewTokens.placeholderColor}: var(--text-secondary);
+
+                ${selectNewTokens.targetTextfieldBackgroundColor}: var(--surface-transparent-warning);
+                ${selectNewTokens.targetTextfieldBackgroundColorOpened}: var(--surface-transparent-warning-active);
             `,
             negative: css`
                 ${selectNewTokens.targetColor}:var(--on-dark-text-primary);
-                ${selectNewTokens.targetArrowColor}:var(--on-dark-text-primary);
-                ${selectNewTokens.targetBackgroundColor}:var(--surface-negative);
-                ${selectNewTokens.targetBackgroundColorHover}: var(--surface-negative-hover);
-                ${selectNewTokens.targetBackgroundColorActive}:var(--surface-negative-active);
+                ${selectNewTokens.targetArrowColor}:var(--on-dark-text-secondary);
+                ${selectNewTokens.targetArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectNewTokens.targetButtonBackgroundColor}:var(--surface-negative);
+                ${selectNewTokens.targetButtonBackgroundColorHover}: var(--surface-negative-hover);
+                ${selectNewTokens.targetButtonBackgroundColorActive}:var(--surface-negative-active);
+
+                ${selectNewTokens.labelColor}: var(--text-primary);
+                ${selectNewTokens.innerLabelColor}: var(--text-secondary);
+                ${selectNewTokens.helperTextColor}: var(--text-negative);
+                ${selectNewTokens.placeholderColor}: var(--text-secondary);
+
+                ${selectNewTokens.targetTextfieldBackgroundColor}: var(--surface-transparent-negative);
+                ${selectNewTokens.targetTextfieldBackgroundColorOpened}: var(--surface-transparent-negative-active);
             `,
             dark: css`
                 ${selectNewTokens.targetColor}:var(--on-dark-text-primary);
-                ${selectNewTokens.targetArrowColor}:var(--on-dark-text-primary);
-                ${selectNewTokens.targetBackgroundColor}:var(--on-light-surface-transparent-deep);
-                ${selectNewTokens.targetBackgroundColorHover}:var(--on-light-surface-transparent-deep-hover);
-                ${selectNewTokens.targetBackgroundColorActive}:var(--on-light-surface-transparent-deep-active);
+                ${selectNewTokens.targetArrowColor}:var(--on-dark-text-secondary);
+                ${selectNewTokens.targetArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectNewTokens.targetButtonBackgroundColor}:var(--on-light-surface-transparent-deep);
+                ${selectNewTokens.targetButtonBackgroundColorHover}:var(--on-light-surface-transparent-deep-hover);
+                ${selectNewTokens.targetButtonBackgroundColorActive}:var(--on-light-surface-transparent-deep-active);
             `,
             black: css`
                 ${selectNewTokens.targetColor}:var(--on-dark-text-primary);
-                ${selectNewTokens.targetArrowColor}:var(--on-dark-text-primary);
-                ${selectNewTokens.targetBackgroundColor}:var(--on-light-surface-solid-default);
-                ${selectNewTokens.targetBackgroundColorHover}:var(--on-light-surface-solid-default-hover);
-                ${selectNewTokens.targetBackgroundColorActive}: var(--on-light-surface-solid-default-active);
+                ${selectNewTokens.targetArrowColor}:var(--on-dark-text-secondary);
+                ${selectNewTokens.targetArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectNewTokens.targetButtonBackgroundColor}:var(--on-light-surface-solid-default);
+                ${selectNewTokens.targetButtonBackgroundColorHover}:var(--on-light-surface-solid-default-hover);
+                ${selectNewTokens.targetButtonBackgroundColorActive}: var(--on-light-surface-solid-default-active);
             `,
             white: css`
                 ${selectNewTokens.targetColor}: var(--on-light-text-primary);
-                ${selectNewTokens.targetArrowColor}: var(--on-light-text-primary);
-                ${selectNewTokens.targetBackgroundColor}:var(--on-dark-surface-solid-default);
-                ${selectNewTokens.targetBackgroundColorHover}:var(--on-dark-surface-solid-default-hover);
-                ${selectNewTokens.targetBackgroundColorActive}:var(--on-dark-surface-solid-default-active);
+                ${selectNewTokens.targetArrowColor}: var(--on-light-text-secondary);
+                ${selectNewTokens.targetArrowColorHover}: var(--on-light-text-secondary-hover);
+                ${selectNewTokens.targetButtonBackgroundColor}:var(--on-dark-surface-solid-default);
+                ${selectNewTokens.targetButtonBackgroundColorHover}:var(--on-dark-surface-solid-default-hover);
+                ${selectNewTokens.targetButtonBackgroundColorActive}:var(--on-dark-surface-solid-default-active);
             `,
         },
     },
