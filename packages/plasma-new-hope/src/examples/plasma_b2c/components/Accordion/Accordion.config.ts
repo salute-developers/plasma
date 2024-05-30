@@ -4,12 +4,12 @@ import { accordionTokens } from '../../../../components/Accordion';
 
 export const config = {
     defaults: {
-        view: 'secondary',
+        view: 'default',
         size: 'm',
     },
     variations: {
         view: {
-            secondary: css`
+            default: css`
                 ${accordionTokens.accordionGap}: 0.125rem;
                 ${accordionTokens.accordionWidth}: 20rem;
                 ${accordionTokens.accordionItemBackground}: var(--surface-solid-card);
