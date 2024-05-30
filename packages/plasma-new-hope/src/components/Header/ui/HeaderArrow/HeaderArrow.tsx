@@ -21,13 +21,20 @@ const Button = component(mergedButtonConfig);
  */
 export const headerArrowRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<HTMLDivElement>>) =>
     forwardRef<HTMLDivElement, HeaderArrowProps>((props, outerRootRef) => {
-        const { arrow, iconSize = 's', ...rest } = props;
+        const { arrow, iconSize = 's', value, ...rest } = props;
 
         const minimizeClass = arrow === 'minimize' ? classes.headerArrowIconMinimize : undefined;
 
         return (
             <Root ref={outerRootRef}>
-                <Button view="clear" size="s" tabIndex={-1} className={classes.headerArrow} {...rest}>
+                <Button
+                    view="clear"
+                    size="s"
+                    tabIndex={-1}
+                    className={classes.headerArrow}
+                    value={String(value)}
+                    {...rest}
+                >
                     <IconChevronLeft
                         size={iconSize}
                         sizeCustomProperty={tokens.headerArrowIconSize}

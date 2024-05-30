@@ -11,7 +11,7 @@ import { ButtonGroup } from './ButtonGroup';
 type StoryProps = ComponentProps<typeof ButtonGroup> & { itemsCount?: number };
 type Story = StoryObj<StoryProps>;
 
-const views = ['accent', 'default', 'secondary', 'success', 'warning', 'critical', 'clear'];
+const views = ['accent', 'default', 'secondary', 'positive', 'warning', 'negative', 'clear'];
 const sizes = ['l', 'm', 's', 'xs', 'xxs'];
 const orientationValues = ['horizontal', 'vertical'];
 const gapValues = ['none', 'dense', 'wide'];

@@ -2,10 +2,12 @@ import React from 'react';
 import { IconDownload } from '@salutejs/plasma-icons';
 import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
 
+import { Button as ButtonWeb } from '.';
+
 const Icon = () => <IconDownload color="inherit" />;
 
 describe('plasma-b2c: Button', () => {
-    const Button = getComponent('Button');
+    const Button = getComponent('Button') as typeof ButtonWeb;
 
     it('simple', () => {
         mount(
@@ -40,6 +42,32 @@ describe('plasma-b2c: Button', () => {
                 <Button contentLeft={<Icon />} />
                 <SpaceMe />
                 <Button contentRight={<Icon />} />
+            </CypressTestDecorator>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('with Value', () => {
+        mount(
+            <CypressTestDecorator>
+                <Button text="Hello" value="Plasma" />
+                <PadMe />
+                <Button value="Plasma">text as children</Button>
+            </CypressTestDecorator>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('contentPlacing', () => {
+        mount(
+            <CypressTestDecorator>
+                <Button text="Hello" value="Plasma" contentPlacing="default" />
+                <PadMe />
+                <Button text="Hello" value="Plasma" contentPlacing="relaxed" />
+                <PadMe />
+                <Button text="Hello" value="Plasma" contentPlacing="default" stretching="filled" />
+                <PadMe />
+                <Button text="Hello" value="Plasma" contentPlacing="relaxed" stretching="filled" />
             </CypressTestDecorator>,
         );
         cy.matchImageSnapshot();

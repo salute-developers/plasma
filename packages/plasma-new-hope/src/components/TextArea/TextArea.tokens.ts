@@ -117,6 +117,10 @@ export const tokens = {
     labelInnerLetterSpacing: '--plasma-textarea-label-inner-letter-spacing',
     /** Высота строки для элемента label, когда он внутри и уменьшен */
     labelInnerLineHeight: '--plasma-textarea-label-inner-line-height',
+    /** Отступ сверху для элемента textarea при фокусе */
+    labelInnerTop: '--plasma-textarea-label-inner-top',
+    /** Отступ между Label и TextArea */
+    labelInnerMarginBottom: '--plasma-textarea-label-inner-margin-bottom',
     /** Шрифт для элемента textarea */
     inputFontFamily: '--plasma-textarea-input-font-family',
     /** Размер шрифта для элемента textarea */

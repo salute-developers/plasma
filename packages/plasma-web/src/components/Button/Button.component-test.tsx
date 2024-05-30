@@ -5,11 +5,13 @@ import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { createGlobalStyle } from 'styled-components';
 import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
 
+import { Button as ButtonWeb } from '.';
+
 const Icon = () => <IconDownload color="inherit" />;
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 describe('plasma-web: Button', () => {
-    const Button = getComponent('Button');
+    const Button = getComponent('Button') as typeof ButtonWeb;
 
     const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
         <CypressTestDecorator>
@@ -51,6 +53,32 @@ describe('plasma-web: Button', () => {
                 <Button contentLeft={<Icon />} />
                 <SpaceMe />
                 <Button contentRight={<Icon />} />
+            </CypressTestDecoratorWithTypo>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('with Value', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Button text="Hello" value="Plasma" />
+                <PadMe />
+                <Button value="Plasma">text as children</Button>
+            </CypressTestDecoratorWithTypo>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('contentPlacing', () => {
+        mount(
+            <CypressTestDecoratorWithTypo>
+                <Button text="Hello" value="Plasma" contentPlacing="default" />
+                <PadMe />
+                <Button text="Hello" value="Plasma" contentPlacing="relaxed" />
+                <PadMe />
+                <Button text="Hello" value="Plasma" contentPlacing="default" stretching="filled" />
+                <PadMe />
+                <Button text="Hello" value="Plasma" contentPlacing="relaxed" stretching="filled" />
             </CypressTestDecoratorWithTypo>,
         );
         cy.matchImageSnapshot();

@@ -1,1 +1,1 @@
-../../../../plasma-core/src/components/Slider/Slider.component-test.tsx
+../../../../plasma-web/src/components/Slider/Slider.component-test.tsx

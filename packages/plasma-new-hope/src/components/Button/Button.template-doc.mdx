@@ -12,6 +12,11 @@ import { PropsTable, Description } from '@site/src/components';
 <Description name="Button" />
 <PropsTable name="Button" />
 
+:::caution Взаимоисключающие свойства
+Свойство `value` - это значение кнопки. Оно отображается справа от основного текста.<br/>
+`value` и `contentRight` взаимоисключающие: если передано одно, второе передать нельзя.
+:::
+
 ## Использование
 Компонент `Button` может содержать текст, который указывается в
 свойстве `text`, или любой контент напрямую через `children`.
@@ -21,7 +26,7 @@ import { PropsTable, Description } from '@site/src/components';
 
 ```tsx live
 import React from 'react';
-import { Button } from '@salutejs/{{package}}';
+import { Button } from '@salutejs/{{ package }}';
 import { IconDownload } from '@salutejs/plasma-icons';
 
 export function App() {
@@ -55,7 +60,7 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { Button } from '@salutejs/{{package}}';
+import { Button } from '@salutejs/{{ package }}';
 
 export function App() {
     return (
@@ -63,6 +68,48 @@ export function App() {
             <Button text="Button" size="l" />
             <Button text="Button" size="m" />
             <Button text="Button" size="s" />
+        </div>
+    );
+}
+```
+
+### Ширина кнопки
+Ширина кнопки регулируется с помощью свойства `stretching`.
+Возможные значения свойства `contentPlacing`:
++ `auto` – ширина подстраивается под контент;
++ `filled` – кнопка растягивается на всю доступную ширину;
++ `fixed` – кнопка фиксированной ширины.
+
+```tsx live
+import React from 'react';
+import { Button } from '@salutejs/{{package}}';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <Button text="Button" stretching="fixed" />
+            <Button text="Button" stretching="auto" />
+            <Button text="Button" stretching="filled" />
+        </div>
+    );
+}
+```
+
+### Позиционирование контента внутри
+Позиционирование контента внутри кнопки регулируется с помощью свойства `contentPlacing`.
+Возможные значения свойства `contentPlacing`:
++ `default` – контент центрируется;
++ `relaxed` – контент распологается по краям.
+
+```tsx live
+import React from 'react';
+import { Button } from '@salutejs/{{package}}';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <Button text="Hello" value="Plasma" stretching="filled" contentPlacing="default" />
+            <Button text="Hello" value="Plasma" stretching="filled" contentPlacing="relaxed" />
         </div>
     );
 }
@@ -80,7 +127,7 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { Button } from '@salutejs/{{package}}';
+import { Button } from '@salutejs/{{ package }}';
 
 export function App() {
     return (
@@ -106,7 +153,7 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { Button } from '@salutejs/{{package}}';
+import { Button } from '@salutejs/{{ package }}';
 
 export function App() {
     return (
@@ -132,15 +179,15 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { Button } from '@salutejs/{{package}}';
+import { Button } from '@salutejs/{{ package }}';
 import { IconDownload } from '@salutejs/plasma-icons';
 
 export function App() {
     return (
         <div>
-            <Button contentLeft={<IconDownload />} />
+            <Button contentLeft={<IconDownload color="inherit" />} />
 
-            <Button contentLeft={<IconDownload />} pin="circle-circle" />
+            <Button contentLeft={<IconDownload color="inherit" />} pin="circle-circle" />
         </div>
     );
 }
@@ -151,8 +198,7 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { Button } from '@salutejs/{{package}}';
-import { IconDownload } from '@salutejs/plasma-icons';
+import { Button } from '@salutejs/{{ package }}';
 
 export function App() {
     return (

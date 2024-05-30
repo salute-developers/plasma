@@ -1,7 +1,7 @@
 import React, { forwardRef, useMemo } from 'react';
 import { safeUseId, extractTextFrom } from '@salutejs/plasma-core';
-import type { InputHTMLAttributes } from '@salutejs/plasma-core';
 
+import type { InputHTMLAttributes } from '../../types';
 import type { Filter, RootProps } from '../../engines/types';
 import {
     StyledContentWrapper,

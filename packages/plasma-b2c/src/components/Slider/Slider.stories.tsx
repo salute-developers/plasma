@@ -1,22 +1,38 @@
 import React, { useState } from 'react';
+import type { ComponentProps } from 'react';
 import styled from 'styled-components';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { Slider, SliderProps, SliderProps as DoubleSliderProps } from '.';
+import { Slider } from './Slider';
 
-const meta: Meta = {
+const sizes = ['l', 'm', 's'];
+const views = ['default', 'accent', 'gradient'];
+const labelPlacements = ['outer', 'inner'];
+const rangeValuesPlacement = ['outer', 'inner'];
+
+const meta: Meta<typeof Slider> = {
     title: 'Controls/Slider',
     component: Slider,
     decorators: [InSpacingDecorator],
     argTypes: {
+        view: {
+            options: views,
+            control: {
+                type: 'select',
+            },
+        },
+        size: {
+            options: sizes,
+            control: {
+                type: 'inline-radio',
+            },
+        },
         ...disableProps([
             'value',
             'onChangeCommitted',
-            'theme',
-            'as',
-            'forwardedAs',
+            'ariaLabel',
             'onChange',
             'fontSizeMultiplier',
             'gap',
@@ -24,53 +40,128 @@ const meta: Meta = {
             'hasHoverAnimation',
         ]),
     },
-    args: {
-        min: 0,
-        max: 100,
-        disabled: false,
-        ariaLabel: ['Минимальная цена товара', 'Максимальная цена товара'],
-        multipleStepSize: 10,
-    },
 };
 
 export default meta;
+
+type StoryProps = Omit<ComponentProps<typeof Slider>, 'value' | 'onChangeCommitted'>;
+type StorySingleProps = StoryProps;
+
+type StorySingle = StoryObj<StorySingleProps>;
+type StoryDouble = StoryObj<StoryProps>;
 
 const SliderWrapper = styled.div`
     width: 25rem;
 `;
 
-const StoryDefault = (args: SliderProps) => {
+const StoryDefault = (args: StorySingleProps) => {
     const [value, setValue] = useState(30);
 
     const onChangeCommittedHandle = (values) => {
         setValue(values);
     };
 
-    return (
-        <SliderWrapper>
-            <Slider value={value} onChange={action('onChange')} onChangeCommitted={onChangeCommittedHandle} {...args} />
-        </SliderWrapper>
-    );
-};
-
-export const Default: StoryObj<SliderProps> = {
-    render: (args) => <StoryDefault {...args} />,
-};
-
-const StoryMultipleValues = (args: DoubleSliderProps) => {
-    const [value, setValue] = useState([10, 80]);
-
-    const onChangeCommittedHandle = (values) => {
+    const onChangeHandle = (values) => {
         setValue(values);
     };
 
     return (
         <SliderWrapper>
-            <Slider value={value} onChange={action('onChange')} onChangeCommitted={onChangeCommittedHandle} {...args} />
+            <Slider value={value} onChangeCommitted={onChangeCommittedHandle} onChange={onChangeHandle} {...args} />
         </SliderWrapper>
     );
 };
 
-export const MultipleValues: StoryObj<DoubleSliderProps> = {
+export const Default: StorySingle = {
+    argTypes: {
+        labelPlacement: {
+            options: labelPlacements,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+        rangeValuesPlacement: {
+            options: rangeValuesPlacement,
+            control: {
+                type: 'inline-radio',
+            },
+        },
+    },
+    args: {
+        view: 'default',
+        size: 'm',
+        min: 0,
+        max: 100,
+        disabled: false,
+        ariaLabel: 'Цена товара',
+        multipleStepSize: 10,
+        label: 'Цена товара',
+        labelPlacement: 'outer',
+        rangeValuesPlacement: 'outer',
+        showRangeValues: true,
+        showCurrentValue: false,
+    },
+    render: (args) => <StoryDefault {...args} />,
+};
+
+const StoryMultipleValues = (args: StoryProps) => {
+    const [value, setValue] = useState([10, 80]);
+    const sortValues = (values) => {
+        return values
+            .map((val) => {
+                if (val < args.min) {
+                    return args.min;
+                }
+                if (val > args.max) {
+                    return args.max;
+                }
+                return val;
+            })
+            .sort((a, b) => a - b);
+    };
+
+    const onChangeHandle = (values) => {
+        setValue(sortValues(values));
+    };
+
+    const onChangeCommitedHandle = (values) => {
+        setValue(sortValues(values));
+    };
+
+    const onBlurTextField = (values) => {
+        setValue(sortValues(values));
+    };
+
+    const onKeyDownTextField = (values, event) => {
+        if (event.key === 'Enter') {
+            setValue(sortValues(values));
+        }
+    };
+
+    return (
+        <SliderWrapper>
+            <Slider
+                value={value}
+                onKeyDownTextField={onKeyDownTextField}
+                onBlurTextField={onBlurTextField}
+                onChangeCommitted={onChangeCommitedHandle}
+                onChange={onChangeHandle}
+                {...args}
+            />
+        </SliderWrapper>
+    );
+};
+
+export const MultipleValues: StoryDouble = {
+    args: {
+        view: 'default',
+        size: 'm',
+        min: 0,
+        max: 100,
+        disabled: false,
+        label: 'Цена товара',
+        ariaLabel: ['Минимальная цена товара', 'Максимальная цена товара'],
+        multipleStepSize: 10,
+    },
     render: (args) => <StoryMultipleValues {...args} />,
 };

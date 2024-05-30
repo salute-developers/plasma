@@ -1,22 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import { SliderCore, SliderProps, SliderSettings } from '@salutejs/plasma-core';
-import { SliderThumb } from '@salutejs/plasma-hope';
-import { accent, white, surfaceLiquid03, buttonAccent as fillColor } from '@salutejs/plasma-tokens-web';
+import { sliderConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
 
-const sliderSettings: SliderSettings = {
-    backgroundColor: surfaceLiquid03,
-    fillColor,
-};
+import { config } from './Slider.config';
 
-const StyledThumb = styled(SliderThumb)`
-    border-color: ${surfaceLiquid03};
+const mergedConfig = mergeConfig(sliderConfig, config);
+const SliderComponent = component(mergedConfig);
 
-    background-color: ${white};
-
-    color: ${accent};
-`;
-
-export const Slider = (props: SliderProps) => {
-    return <SliderCore {...props} settings={sliderSettings} thumb={StyledThumb} />;
-};
+/**
+ * Слайдер позволяет определить числовое значение в пределах указанного промежутка.
+ * Можно указать два значения.
+ */
+export const Slider = SliderComponent;

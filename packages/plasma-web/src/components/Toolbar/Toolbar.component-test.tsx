@@ -4,14 +4,16 @@ import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { mount, CypressTestDecorator, getComponent, PadMe, SpaceMe } from '@salutejs/plasma-cy-utils';
 import { IconEdit } from '@salutejs/plasma-icons';
 
-import { Button } from '../Button';
+import { IconButton } from '../IconButton';
 
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 const sizes = ['xs', 's', 'm', 'l'];
 
-const ExampleButton = (props: ComponentProps<typeof Button>) => (
-    <Button {...props} view="clear" contentLeft={<IconEdit />} />
+const ExampleButton = (props: ComponentProps<typeof IconButton>) => (
+    <IconButton {...props} view="clear">
+        <IconEdit />
+    </IconButton>
 );
 
 describe('plasma-web: Toolbar', () => {

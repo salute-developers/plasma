@@ -1,0 +1,57 @@
+---
+id: divider
+title: Divider
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+## Divider
+<Description name="Divider" />
+<PropsTable name="Divider" exclude={['css']} />
+
+## Использование
+Компонент `Divider` используется для визуального разделения компонент.
+
+### Ориентация разделителя
+Ориентация разделителя задается с помощью свойства orientation.
+
+Возможные значения свойства orientation:
++ "horizontal" – горизонтальная (по умолчанию);
++ "vertical" – вертикальная;
+
+```tsx live
+import React from 'react';
+import { BodyS, Divider } from '@salutejs/{{ package }}';
+
+export function App() {
+    const Demo = ({
+        orientation = 'horizontal',
+        length = '100%',
+        beforeText = 'Before',
+        afterText = 'After',
+    }) => {
+        const wrapperStyle = {
+            display: "inline-flex",
+            gap: "0.5rem",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: orientation === "horizontal" ? "column" : "row"
+        }
+
+        return (
+            <div style={wrapperStyle}>
+                <BodyS>{beforeText}</BodyS>
+                <Divider orientation={orientation} length={length} />
+                <BodyS>{afterText}</BodyS>
+            </div>
+        );
+    };
+
+    return (
+        <div style=\{{ display: "flex", gap: "2rem" }}>
+            <Demo />
+            <Demo orientation="vertical" />
+        </div>
+    );
+}
+```

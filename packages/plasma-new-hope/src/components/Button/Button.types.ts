@@ -5,6 +5,34 @@ import { Blur } from '../../mixins';
 import type { AsProps } from '../../types';
 
 type Stretching = 'fixed' | 'filled' | 'auto';
+type ContentPlacing = 'default' | 'relaxed';
+type ContentPlacingValue = 'center' | 'space-between';
+
+export type ContentPlacementMapper = {
+    [K in ContentPlacing]: ContentPlacingValue;
+};
+
+type RightContent =
+    | {
+          /**
+           * Значение кнопки
+           */
+          value?: string | number;
+          /**
+           * Слот для контента справа, например `Icon`
+           */
+          contentRight?: never;
+      }
+    | {
+          /**
+           * Значение кнопки
+           */
+          value?: never;
+          /**
+           * Слот для контента справа, например `Icon`
+           */
+          contentRight?: ReactNode;
+      };
 
 type CustomButtonProps = {
     /**
@@ -16,9 +44,10 @@ type CustomButtonProps = {
      */
     contentLeft?: ReactNode;
     /**
-     * Слот для контента справа, например `Icon`
+     * Положение контента по ширине кнопки.
+     * @default 'default'
      */
-    contentRight?: ReactNode;
+    contentPlacing?: ContentPlacing;
     /**
      * У кнопки состояние загрузки
      */
@@ -90,8 +119,8 @@ type CustomButtonProps = {
     blur?: Blur;
 };
 
-export interface ButtonProps<T = HTMLElement>
-    extends ButtonHTMLAttributes<T>,
-        Omit<AnchorHTMLAttributes<T>, 'type'>,
-        AsProps,
-        CustomButtonProps {}
+export type ButtonProps<T = HTMLElement> = {} & Omit<ButtonHTMLAttributes<T>, 'value'> &
+    Omit<AnchorHTMLAttributes<T>, 'type'> &
+    AsProps &
+    CustomButtonProps &
+    RightContent;

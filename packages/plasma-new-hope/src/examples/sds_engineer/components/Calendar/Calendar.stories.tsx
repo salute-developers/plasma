@@ -79,7 +79,7 @@ const baseEvents = [
 ];
 
 const StoryDefault = (args: CalendarProps) => {
-    const { isRange, isDouble, min, max, date } = args;
+    const { isRange, isDouble, min, max, date, includeEdgeDates } = args;
     const [value, setValue] = useState(new Date(2023, 10, 16));
     const [valueRange, setValueRange] = useState<[Date, Date?]>([new Date(2023, 10, 16), new Date(2023, 10, 23)]);
 
@@ -110,6 +110,7 @@ const StoryDefault = (args: CalendarProps) => {
             disabledList={disabledDays}
             min={min}
             max={max}
+            includeEdgeDates={includeEdgeDates}
             onChangeValue={(isRange ? handleOnRangeChange : handleOnChange) as (value: Date | [Date, Date?]) => void}
         />
     );
@@ -121,12 +122,13 @@ export const Default: StoryObj<CalendarProps> = {
         max: new Date(2023, 11, 24),
         isDouble: false,
         isRange: false,
+        includeEdgeDates: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };
 
 const StoryBase = (args: CalendarBaseProps) => {
-    const { min, max, type } = args;
+    const { min, max, type, includeEdgeDates } = args;
     const [value, setValue] = useState(new Date(2023, 10, 16));
 
     const handleOnChange = useCallback((newValue: Date) => {
@@ -150,6 +152,7 @@ const StoryBase = (args: CalendarBaseProps) => {
             disabledList={disabledDays}
             min={min}
             max={max}
+            includeEdgeDates={includeEdgeDates}
             type={type}
             onChangeValue={handleOnChange}
         />
@@ -168,13 +171,14 @@ export const Base: StoryObj<CalendarBaseProps> = {
     args: {
         min: new Date(2023, 10, 1),
         max: new Date(2023, 11, 24),
+        includeEdgeDates: false,
         type: 'Days',
     },
     render: (args) => <StoryBase {...args} />,
 };
 
 const StoryDouble = (args: CalendarDoubleProps) => {
-    const { min, max } = args;
+    const { min, max, includeEdgeDates } = args;
     const [value, setValue] = useState(new Date(2023, 10, 16));
     const handleOnChange = useCallback((newValue: Date) => {
         setValue(newValue);
@@ -197,6 +201,7 @@ const StoryDouble = (args: CalendarDoubleProps) => {
             disabledList={disabledDays}
             min={min}
             max={max}
+            includeEdgeDates={includeEdgeDates}
             onChangeValue={handleOnChange}
         />
     );
@@ -206,12 +211,13 @@ export const Double: StoryObj<CalendarDoubleProps> = {
     args: {
         min: new Date(2023, 10, 1),
         max: new Date(2023, 11, 24),
+        includeEdgeDates: false,
     },
     render: (args) => <StoryDouble {...args} />,
 };
 
 const StoryRange = (args: CalendarBaseRangeProps) => {
-    const { min, max, type } = args;
+    const { min, max, type, includeEdgeDates } = args;
     const [values, setValue] = useState<[Date, Date?]>([new Date(2023, 10, 15), new Date(2023, 10, 24)]);
     const handleOnChange = useCallback((newValue: [Date, Date?]) => {
         onChangeValue(newValue);
@@ -237,6 +243,7 @@ const StoryRange = (args: CalendarBaseRangeProps) => {
             disabledList={disabledList}
             min={min}
             max={max}
+            includeEdgeDates={includeEdgeDates}
             type={type}
             onChangeValue={handleOnChange}
         />
@@ -255,13 +262,14 @@ export const Range: StoryObj<CalendarBaseRangeProps> = {
     args: {
         min: new Date(2023, 10, 1),
         max: new Date(2023, 11, 24),
+        includeEdgeDates: false,
         type: 'Days',
     },
     render: (args) => <StoryRange {...args} />,
 };
 
 const StoryRangeDouble = (args: CalendarBaseRangeProps) => {
-    const { min, max } = args;
+    const { min, max, includeEdgeDates } = args;
     const [values, setValue] = useState<[Date, Date?]>([new Date(2023, 10, 15), new Date(2023, 10, 24)]);
     const handleOnChange = useCallback((newValue: [Date, Date?]) => {
         onChangeValue(newValue);
@@ -287,6 +295,7 @@ const StoryRangeDouble = (args: CalendarBaseRangeProps) => {
             disabledList={disabledList}
             min={min}
             max={max}
+            includeEdgeDates={includeEdgeDates}
             onChangeValue={handleOnChange}
         />
     );
@@ -296,12 +305,13 @@ export const RangeDouble: StoryObj<CalendarBaseRangeProps> = {
     args: {
         min: new Date(2023, 10, 1),
         max: new Date(2023, 11, 24),
+        includeEdgeDates: false,
     },
     render: (args) => <StoryRangeDouble {...args} />,
 };
 
 const StoryWithPopover = (args: CalendarProps) => {
-    const { isDouble, min, max } = args;
+    const { isDouble, min, max, includeEdgeDates } = args;
     const [isOpen, setIsOpen] = useState(false);
     const [textValue, setTextValue] = useState('2023-10-16');
     const [value, setValue] = useState(new Date(textValue));
@@ -340,6 +350,7 @@ const StoryWithPopover = (args: CalendarProps) => {
                 disabledList={disabledDays}
                 min={min}
                 max={max}
+                includeEdgeDates={includeEdgeDates}
                 isDouble={isDouble}
                 isRange={false}
                 onChangeValue={handleOnChange}
@@ -353,6 +364,7 @@ export const WithPopover: StoryObj<CalendarProps> = {
         min: new Date(2023, 9, 1),
         max: new Date(2023, 11, 24),
         isDouble: false,
+        includeEdgeDates: false,
     },
     render: (args) => <StoryWithPopover {...args} />,
 };

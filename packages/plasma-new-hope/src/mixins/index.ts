@@ -8,3 +8,4 @@ export * from './addFocus';
 export * from './typography';
 export * from './applyRoundness';
 export * from './applySkeletonGradient';
+export * from './applyDisabled';

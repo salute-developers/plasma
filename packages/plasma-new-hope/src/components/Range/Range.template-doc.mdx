@@ -1,0 +1,323 @@
+---
+id: range
+title: Range
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Range
+<Description name="Range" />
+<PropsTable name="Range" exclude={['css']} />
+
+## Использование
+Компонент `Range` представляет собой два поля ввода какого-либо диапазона. К примеру диапазон цен или дат.
+
+```tsx live
+import React, {useState} from 'react';
+import { Range, Button } from '@salutejs/{{ package }}';
+import { IconSearch } from '@salutejs/plasma-icons';
+
+export function App() {
+    const [firstValue, setFirstValue] = useState('');
+    const [secondValue, setSecondValue] = useState('');
+
+    const ActionButton = () => {
+        return (
+            <Button view="clear" size="l">
+                <IconSearch size="s" />
+            </Button>
+        );
+    };
+
+    return (
+        <div>
+            <Range
+                firstValue={firstValue}
+                secondValue={secondValue}
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                firstPlaceholder="Заполните поле 1"
+                secondPlaceholder="Заполните поле 2"
+                contentRight={<ActionButton />}
+                dividerVariant="dash"
+                onChangeFirstValue={(e) => {
+                    setFirstValue(e.target.value);
+                }}
+                onChangeSecondValue={(e) => {
+                    setSecondValue(e.target.value);
+                }}
+            />
+        </div>
+    );
+}
+```
+
+### Размер Range
+Размер Range задаётся с помощью свойства `size`:
+
+```tsx live
+import React from 'react';
+import { Range } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+            <Range
+                view="default"
+                size="l"
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                firstPlaceholder="Заполните поле 1"
+                secondPlaceholder="Заполните поле 2"
+                dividerVariant="dash"
+            />
+            
+            <Range
+                view="default"
+                size="m"
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                firstPlaceholder="Заполните поле 1"
+                secondPlaceholder="Заполните поле 2"
+                dividerVariant="dash"
+            />
+
+            <Range
+                view="default"
+                size="s"
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                firstPlaceholder="Заполните поле 1"
+                secondPlaceholder="Заполните поле 2"
+                dividerVariant="dash"
+            />
+
+            <Range
+                view="default"
+                size="xs"
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                firstPlaceholder="Заполните поле 1"
+                secondPlaceholder="Заполните поле 2"
+                dividerVariant="dash"
+            />
+        </div>
+    );
+}
+```
+
+### Вид разделителя
+Вид разделителя задается с помощью свойства `dividerVariant`:
+
+<Tabs>
+    <TabItem value="dash" label="Dash" default>
+        ```tsx live
+            import React from 'react';
+            import { Range } from '@salutejs/{{ package }}';
+
+            export function App() {
+                return (
+                    <div>
+                        <Range
+                            view="default"
+                            size="l"
+                            label="Лейбл"
+                            leftHelper="Подсказка к полю"
+                            firstPlaceholder="Заполните поле 1"
+                            secondPlaceholder="Заполните поле 2"
+                            dividerVariant="dash"
+                        />
+                    </div>
+                );
+            }
+        ```
+    </TabItem>
+
+    <TabItem value="none" label="None">
+        При таком варианте свойства `firstTextfieldTextBefore` и `secondTextfieldTextBefore` становятся обязательными:
+
+        ```tsx live
+            import React from 'react';
+            import { Range } from '@salutejs/{{ package }}';
+
+            export function App() {
+                return (
+                    <div>
+                        <Range
+                            view="default"
+                            size="l"
+                            label="Лейбл"
+                            firstValue="10:00"
+                            secondValue="15:45"
+                            leftHelper="Подсказка к полю"
+                            firstTextfieldTextBefore="С"
+                            secondTextfieldTextBefore="ДО"
+                            dividerVariant="none"
+                        />
+                    </div>
+                );
+            }
+        ```
+    </TabItem>
+
+    <TabItem value="icon" label="Icon">
+        При таком варианте свойства `dividerIcon` становится обязательным:
+
+        ```tsx live
+            import React from 'react';
+            import { Range } from '@salutejs/{{ package }}';
+            import { IconSber } from '@salutejs/plasma-icons';
+
+            export function App() {
+                return (
+                    <div>
+                        <Range
+                            view="default"
+                            size="l"
+                            label="Лейбл"
+                            firstValue="10:00"
+                            secondValue="15:45"
+                            leftHelper="Подсказка к полю"
+                            firstTextfieldTextBefore="С"
+                            secondTextfieldTextBefore="ДО"
+                            dividerVariant="icon"
+                            dividerIcon={<IconSber size="s" />}
+                        />
+                    </div>
+                );
+            }
+        ```
+    </TabItem>
+</Tabs>
+
+### Валидация и индикация успешного ввода
+За индикацию ошибки или успешного ввода отвечают `firstValueError`, `secondValueError`, `firstValueSuccess`, `secondValueSuccess`.
+В данном примере валидация происходит при нажатии клавиши `Enter` после ввода значений:
+
+```tsx live
+import React, {useState, ChangeEvent, Dispatch, SetStateAction} from 'react';
+import { Range, Button } from '@salutejs/{{ package }}';
+import { IconSearch } from '@salutejs/plasma-icons';
+
+export function App() {
+    const [firstValue, setFirstValue] = useState('');
+    const [secondValue, setSecondValue] = useState('');
+
+    const [firstValueError, setFirstValueError] = useState(false);
+    const [secondValueError, setSecondValueError] = useState(false);
+
+    const [firstValueSuccess, setFirstValueSuccess] = useState(false);
+    const [secondValueSuccess, setSecondValueSuccess] = useState(false);
+
+    const checkValue = (value: string) => /^([1-9][0-9]*|)$/.test(value);
+
+    const handleChangeValue = (
+        e: ChangeEvent<HTMLInputElement>,
+        setter: Dispatch<SetStateAction<string>>,
+        error: boolean,
+        errorSetter: Dispatch<SetStateAction<boolean>>,
+        success: boolean,
+        successSetter: Dispatch<SetStateAction<boolean>>,
+    ) => {
+        const { value } = e.target;
+        if (!checkValue(value)) {
+            return;
+        }
+
+        if (error) {
+            errorSetter(false);
+        }
+
+        if (success) {
+            successSetter(false);
+        }
+
+        setter(value);
+    };
+
+    const firstValueConstraint = (value: number) =>
+        value <= 0 || value >= 9 || (secondValue && value >= Number(secondValue) && !secondValueError);
+    const secondValueConstraint = (value: number) =>
+        value <= 0 || value > 10 || (firstValue && value <= Number(firstValue) && !firstValueError);
+
+    const handleCommitValue = (
+        value: string,
+        constraint: (currentValue: number) => boolean,
+        errorSetter: Dispatch<SetStateAction<boolean>>,
+        successSetter: Dispatch<SetStateAction<boolean>>,
+    ) => {
+        if (!value) {
+            return;
+        }
+
+        if (!checkValue(value)) {
+            return errorSetter(true);
+        }
+
+        if (constraint(Number(value))) {
+            return errorSetter(true);
+        }
+
+        successSetter(true);
+    };
+
+    const ActionButton = () => {
+        return (
+            <Button view="clear" size="l">
+                <IconSearch size="s" />
+            </Button>
+        );
+    };
+
+    return (
+        <div>
+            <Range
+                size="l"
+                view="default"
+                firstValue={firstValue}
+                secondValue={secondValue}
+                label="Введите кол-во товара"
+                leftHelper="Кол-во товара не может быть меньше 1 и превышать 10"
+                firstPlaceholder="1"
+                secondPlaceholder="5"
+                contentRight={<ActionButton />}
+                dividerVariant="dash"
+                firstValueError={firstValueError}
+                secondValueError={secondValueError}
+                firstValueSuccess={firstValueSuccess}
+                secondValueSuccess={secondValueSuccess}
+                onChangeFirstValue={(e) => {
+                    handleChangeValue(
+                        e,
+                        setFirstValue,
+                        firstValueError,
+                        setFirstValueError,
+                        firstValueSuccess,
+                        setFirstValueSuccess,
+                    );
+                }}
+                onChangeSecondValue={(e) => {
+                    handleChangeValue(
+                        e,
+                        setSecondValue,
+                        secondValueError,
+                        setSecondValueError,
+                        secondValueSuccess,
+                        setSecondValueSuccess,
+                    );
+                }}
+                onSearchFirstValue={(e) => {
+                    const { value } = e.target as HTMLInputElement;
+                    handleCommitValue(value, firstValueConstraint, setFirstValueError, setFirstValueSuccess);
+                }}
+                onSearchSecondValue={(e) => {
+                    const { value } = e.target as HTMLInputElement;
+                    handleCommitValue(value, secondValueConstraint, setSecondValueError, setSecondValueSuccess);
+                }}
+            />
+        </div>
+    );
+}
+```

@@ -78,6 +78,12 @@ export const tokens = {
     leftHelperLetterSpacing: '--plasma-textfield__left-helper-letter-spacing',
     leftHelperLineHeight: '--plasma-textfield__left-helper-line-height',
 
+    /** Токены вспомогательного текста */
+    textBeforeColor: '--plasma-textfield__before-text-color',
+    textAfterColor: '--plasma-textfield__after-text-color',
+    textBeforeMargin: '--plasma-textfield__before-text-margin',
+    textAfterMargin: '--plasma-textfield__after-text-margin',
+
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-textfield-disabled-opacity',
 

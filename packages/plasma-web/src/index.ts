@@ -33,6 +33,7 @@ export * from './components/Price';
 export * from './components/Progress';
 export * from './components/PreviewGallery';
 export * from './components/Radiobox';
+export * from './components/Range';
 export * from './components/Segment';
 export * from './components/Select';
 export * from './components/Skeleton';

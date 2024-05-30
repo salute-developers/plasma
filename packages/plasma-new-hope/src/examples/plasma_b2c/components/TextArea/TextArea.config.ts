@@ -35,6 +35,8 @@ export const config = {
                 ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xxs-font-weight);
                 ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
                 ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${textAreaTokens.labelInnerTop}: 0rem;
+                ${textAreaTokens.labelInnerMarginBottom}: 0rem;
                 ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -74,6 +76,8 @@ export const config = {
                 ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.labelInnerTop}: 0.375rem;
+                ${textAreaTokens.labelInnerMarginBottom}: 0.125rem;
                 ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-s-font-size);
                 ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -113,6 +117,8 @@ export const config = {
                 ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.labelInnerTop}: 0.375rem;
+                ${textAreaTokens.labelInnerMarginBottom}: 0.125rem;
                 ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-m-font-size);
                 ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -152,6 +158,8 @@ export const config = {
                 ${textAreaTokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${textAreaTokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${textAreaTokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${textAreaTokens.labelInnerTop}: 0.5625rem;
+                ${textAreaTokens.labelInnerMarginBottom}: 0.125rem;
                 ${textAreaTokens.inputFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${textAreaTokens.inputFontSize}: var(--plasma-typo-body-l-font-size);
                 ${textAreaTokens.inputFontStyle}: var(--plasma-typo-body-l-font-style);

@@ -27,6 +27,7 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
     disabledList,
     min,
     max,
+    includeEdgeDates,
     hoveredDay,
     selectIndexes,
     isDouble,
@@ -37,7 +38,7 @@ export const CalendarDays: React.FC<CalendarDaysProps> = ({
     onSetSelected,
     onKeyDown,
 }) => {
-    const [days, selected] = useDays(currentDate, value, eventList, disabledList, min, max);
+    const [days, selected] = useDays(currentDate, value, eventList, disabledList, min, max, includeEdgeDates);
     const selectedRef = useRef(selected);
     const onSetSelectedRef = useRef(onSetSelected);
 

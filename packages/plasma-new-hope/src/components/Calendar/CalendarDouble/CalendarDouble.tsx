@@ -16,7 +16,10 @@ export type CalendarDoubleProps = HTMLAttributes<HTMLDivElement> & Calendar;
  */
 export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<HTMLDivElement>>) =>
     forwardRef<HTMLDivElement, CalendarDoubleProps>(
-        ({ value: externalValue, min, max, eventList, disabledList, onChangeValue, ...rest }, outerRootRef) => {
+        (
+            { value: externalValue, min, max, includeEdgeDates, eventList, disabledList, onChangeValue, ...rest },
+            outerRootRef,
+        ) => {
             const [firstValue, secondValue] = useMemo(
                 () => (Array.isArray(externalValue) ? externalValue : [externalValue]),
                 [externalValue],
@@ -133,6 +136,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                             disabledList={disabledList}
                             min={min}
                             max={max}
+                            includeEdgeDates={includeEdgeDates}
                             value={externalValue}
                             date={firstDate}
                             hoveredDay={hoveredDay}
@@ -151,6 +155,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                             disabledList={disabledList}
                             min={min}
                             max={max}
+                            includeEdgeDates={includeEdgeDates}
                             value={externalValue}
                             date={secondDate}
                             hoveredDay={hoveredDay}

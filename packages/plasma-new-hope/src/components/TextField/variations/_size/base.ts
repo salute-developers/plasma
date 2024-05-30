@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
 
 import { classes, tokens } from '../../TextField.tokens';
-import { Input, InputWrapper, Label, LeftHelper } from '../../TextField.styles';
+import { Input, InputWrapper, Label, LeftHelper, StyledTextAfter, StyledTextBefore } from '../../TextField.styles';
 
 export const base = css`
     ${Input} {
@@ -50,5 +50,22 @@ export const base = css`
         font-weight: var(${tokens.leftHelperFontWeight});
         letter-spacing: var(${tokens.leftHelperLetterSpacing});
         line-height: var(${tokens.leftHelperLineHeight});
+    }
+
+    ${StyledTextBefore}, ${StyledTextAfter} {
+        font-family: var(${tokens.fontFamily});
+        font-size: var(${tokens.fontSize});
+        font-style: var(${tokens.fontStyle});
+        font-weight: var(${tokens.fontWeight});
+        letter-spacing: var(${tokens.letterSpacing});
+        line-height: var(${tokens.lineHeight});
+    }
+
+    ${StyledTextBefore} {
+        margin: var(${tokens.textBeforeMargin});
+    }
+
+    ${StyledTextAfter} {
+        margin: var(${tokens.textAfterMargin});
     }
 `;

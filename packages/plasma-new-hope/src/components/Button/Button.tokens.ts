@@ -3,12 +3,14 @@ export const classes = {
     autoStretching: 'button-stretching-auto',
     filledStretching: 'button-stretching-filled',
     fixedStretching: 'button-stretching-fixed',
+    contentRelaxed: 'button-content-relaxed',
     buttonSquare: 'button-square',
     buttonItem: 'button-item',
 };
 
 export const tokens = {
     buttonColor: '--plasma-button-color',
+    buttonValueColor: '--plasma-button-value-color',
     buttonBackgroundColor: '--plasma-button-background-color',
     buttonColorHover: '--plasma-button-color-hover',
     buttonBackgroundColorHover: '--plasma-button-background-color-hover',
@@ -29,6 +31,10 @@ export const tokens = {
     buttonFontWeight: '--plasma-button-font-weight',
     buttonLetterSpacing: '--plasma-button-letter-spacing',
     buttonLineHeight: '--plasma-button-line-height',
+
+    buttonLeftContentMargin: '--plasma-button-left-content-margin',
+    buttonRightContentMargin: '--plasma-button-right-content-margin',
+    buttonValueMargin: '--plasma-button-value-margin',
 
     buttonDisabledOpacity: '--plasma-button-disabled-opacity',
     buttonFocusColor: '--plasma-button-focus-color',

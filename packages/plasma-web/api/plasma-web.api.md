@@ -34,6 +34,8 @@ import { AvatarGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { AvatarProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BadgeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
+import { BaseCallbackChangeInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
+import { BaseCallbackKeyboardInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BlurProps } from '@salutejs/plasma-core';
 import { blurs } from '@salutejs/plasma-core';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
@@ -69,6 +71,7 @@ import { CellTextbox } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxLabel } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxSubtitle } from '@salutejs/plasma-new-hope/styled-components';
 import { CellTextboxTitle } from '@salutejs/plasma-new-hope/styled-components';
+import { ChangeEvent } from 'react';
 import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
 import { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
 import { clearSelection } from '@salutejs/plasma-hope';
@@ -82,6 +85,7 @@ import { ColSizeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ComboboxPrimitiveValue } from '@salutejs/plasma-new-hope/styled-components';
 import { ComboboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ComponentClass } from 'react';
+import { ComponentProps } from 'react';
 import { GridProps as ContainerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { convertRoundnessMatrix } from '@salutejs/plasma-core';
 import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -93,6 +97,7 @@ import { defaultValidate } from '@salutejs/plasma-hope';
 import { DisabledProps } from '@salutejs/plasma-core';
 import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { DoubleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerContentProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerFooterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { DrawerHeaderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -123,6 +128,7 @@ import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImgHTMLAttributes } from 'react';
 import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
+import { InputHTMLAttributes as InputHTMLAttributes_2 } from '@salutejs/plasma-new-hope/types/types';
 import { JSXElementConstructor } from 'react';
 import { LineSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
@@ -173,6 +179,8 @@ import { ProgressProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
 import { radiuses } from '@salutejs/plasma-core';
+import { RangeProps } from '@salutejs/plasma-new-hope/styled-components';
+import { rangeTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { Ratio } from '@salutejs/plasma-new-hope/styled-components';
 import { default as React_2 } from 'react';
 import { ReactElement } from 'react';
@@ -200,10 +208,11 @@ import { setRef } from '@salutejs/plasma-core';
 import { shadows } from '@salutejs/plasma-core';
 import { ShiftProps } from '@salutejs/plasma-core';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
+import { SingleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SkeletonGradientProps } from '@salutejs/plasma-core';
 import { SkeletonGradientProps as SkeletonGradientProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { SkeletonSizeProps } from '@salutejs/plasma-new-hope/types/components/Skeleton/Skeleton.types';
-import { SliderProps } from '@salutejs/plasma-core';
+import { SliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SmartPaginationDots } from '@salutejs/plasma-hope';
 import { SmartPaginationDotsProps } from '@salutejs/plasma-hope';
 import { SnapAlign } from '@salutejs/plasma-core';
@@ -230,6 +239,7 @@ import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
 import { TextAreaProps } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
 import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
+import { TextfieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import type { TextFieldProps as TextFieldProps_2 } from '@salutejs/plasma-hope';
 import { TextFieldView } from '@salutejs/plasma-hope';
 import { TextSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -491,7 +501,49 @@ auto: string;
 filled: string;
 fixed: string;
 };
-}> & ButtonProps<HTMLElement> & RefAttributes<HTMLButtonElement>>;
+}> & ((Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps_2<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: string | number | undefined;
+contentRight?: undefined;
+} & RefAttributes<HTMLButtonElement>) | (Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps_2<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: undefined;
+contentRight?: ReactNode;
+} & RefAttributes<HTMLButtonElement>))>;
 
 // @public (undocumented)
 export const Button1: FunctionComponent<PropsType<    {
@@ -717,7 +769,7 @@ true: string;
 // Warning: (ae-forgotten-export) The symbol "CheckboxComponent" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type CheckboxProps = typeof CheckboxComponent;
+export type CheckboxProps = ComponentProps<typeof CheckboxComponent>;
 
 // @public
 export const Chip: FunctionComponent<PropsType<    {
@@ -774,11 +826,11 @@ l: string;
 view: {
 default: string;
 };
-}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "target" | "onChange" | "size" | "value" | "checked" | "maxLength" | "minLength"> & CustomComboboxProps & {
+}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "value" | "type" | "target" | "size" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
 valueType?: "single" | undefined;
 value?: ComboboxPrimitiveValue | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue | undefined) => void) | undefined;
-} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "target" | "onChange" | "size" | "value" | "checked" | "maxLength" | "minLength"> & CustomComboboxProps & {
+} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "value" | "type" | "target" | "size" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
 valueType: "multiple";
 value?: ComboboxPrimitiveValue[] | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue[] | undefined) => void) | undefined;
@@ -1160,11 +1212,53 @@ true: string;
 focused: {
 true: string;
 };
-}> & ButtonProps<HTMLElement> & RefAttributes<HTMLButtonElement>>;
+}> & ((Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps_2<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: string | number | undefined;
+contentRight?: undefined;
+} & RefAttributes<HTMLButtonElement>) | (Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps_2<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "fixed" | "filled") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: undefined;
+contentRight?: ReactNode;
+} & RefAttributes<HTMLButtonElement>))>;
 
 // @public
 const Image_2: FunctionComponent<PropsType<Variants> & ImgHTMLAttributes<HTMLImageElement> & {
-base?: "div" | "img" | undefined;
+base?: "img" | "div" | undefined;
 ratio?: "16 / 9" | "1 / 1" | "1/1" | "3 / 4" | "3/4" | "4 / 3" | "4/3" | "9 / 16" | "9/16" | "16/9" | "1 / 2" | "1/2" | "2 / 1" | "2/1" | undefined;
 customRatio?: string | undefined;
 } & RefAttributes<HTMLDivElement>>;
@@ -1478,16 +1572,148 @@ true: string;
 focused: {
 true: string;
 };
-}> & Filter<InputHTMLAttributes<HTMLInputElement>, "size"> & Omit<BaseboxProps, "indeterminate"> & RefAttributes<HTMLInputElement>>;
+}> & Filter<InputHTMLAttributes_2<HTMLInputElement>, "size"> & Omit<BaseboxProps, "indeterminate"> & RefAttributes<HTMLInputElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "RadioboxComponent" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type RadioboxProps = typeof RadioboxComponent;
+export type RadioboxProps = ComponentProps<typeof RadioboxComponent>;
 
 export { RadioGroup }
 
 export { radiuses }
+
+// @public
+const Range_2: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+disabled: {
+true: string;
+};
+readOnly: {
+true: string;
+};
+}> & (({
+label?: string | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+firstValue?: TextfieldPrimitiveValue | undefined;
+secondValue?: TextfieldPrimitiveValue | undefined;
+firstValueError?: boolean | undefined;
+secondValueError?: boolean | undefined;
+firstValueSuccess?: boolean | undefined;
+secondValueSuccess?: boolean | undefined;
+firstPlaceholder?: string | undefined;
+secondPlaceholder?: string | undefined;
+firstTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+firstTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+firstTextfieldTextAfter?: string | undefined;
+secondTextfieldTextAfter?: string | undefined;
+view?: string | undefined;
+size?: string | undefined;
+readOnly?: boolean | undefined;
+disabled?: boolean | undefined;
+onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
+onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
+onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
+onSearchSecondValue?: BaseCallbackKeyboardInstance | undefined;
+onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onBlurSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+} & {
+firstTextfieldTextBefore: string;
+secondTextfieldTextBefore: string;
+dividerVariant?: "none" | undefined;
+dividerIcon?: undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLInputElement>) | ({
+label?: string | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+firstValue?: TextfieldPrimitiveValue | undefined;
+secondValue?: TextfieldPrimitiveValue | undefined;
+firstValueError?: boolean | undefined;
+secondValueError?: boolean | undefined;
+firstValueSuccess?: boolean | undefined;
+secondValueSuccess?: boolean | undefined;
+firstPlaceholder?: string | undefined;
+secondPlaceholder?: string | undefined;
+firstTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+firstTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+firstTextfieldTextAfter?: string | undefined;
+secondTextfieldTextAfter?: string | undefined;
+view?: string | undefined;
+size?: string | undefined;
+readOnly?: boolean | undefined;
+disabled?: boolean | undefined;
+onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
+onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
+onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
+onSearchSecondValue?: BaseCallbackKeyboardInstance | undefined;
+onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onBlurSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+} & {
+dividerVariant?: "dash" | undefined;
+dividerIcon?: undefined;
+firstTextfieldTextBefore?: string | undefined;
+secondTextfieldTextBefore?: string | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLInputElement>) | ({
+label?: string | undefined;
+leftHelper?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+firstValue?: TextfieldPrimitiveValue | undefined;
+secondValue?: TextfieldPrimitiveValue | undefined;
+firstValueError?: boolean | undefined;
+secondValueError?: boolean | undefined;
+firstValueSuccess?: boolean | undefined;
+secondValueSuccess?: boolean | undefined;
+firstPlaceholder?: string | undefined;
+secondPlaceholder?: string | undefined;
+firstTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+firstTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+firstTextfieldTextAfter?: string | undefined;
+secondTextfieldTextAfter?: string | undefined;
+view?: string | undefined;
+size?: string | undefined;
+readOnly?: boolean | undefined;
+disabled?: boolean | undefined;
+onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
+onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
+onSearchFirstValue?: BaseCallbackKeyboardInstance | undefined;
+onSearchSecondValue?: BaseCallbackKeyboardInstance | undefined;
+onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onBlurSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+} & {
+dividerIcon?: ReactNode;
+dividerVariant?: "icon" | undefined;
+firstTextfieldTextBefore?: string | undefined;
+secondTextfieldTextBefore?: string | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLInputElement>))>;
+export { Range_2 as Range }
+
+export { RangeProps }
+
+export { rangeTokens }
 
 export { Ratio }
 
@@ -1597,8 +1823,22 @@ export { ShowToastArgs }
 
 export { SkeletonGradientProps }
 
-// @public (undocumented)
-export const Slider: (props: SliderProps) => JSX.Element;
+// @public
+export const Slider: FunctionComponent<PropsType<    {
+view: {
+default: string;
+accent: string;
+gradient: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+};
+disabled: {
+true: string;
+};
+}> & ((SingleSliderProps & RefAttributes<HTMLDivElement>) | (DoubleSliderProps & RefAttributes<HTMLDivElement>))>;
 
 export { SliderProps }
 
@@ -1727,6 +1967,8 @@ true: string;
     leftHelper?: string | undefined;
     contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
     contentRight?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
     onSearch?: ((value: string, event?: React_2.KeyboardEvent<HTMLInputElement> | undefined) => void) | undefined;
 } & {
     chips?: undefined;
@@ -1744,6 +1986,8 @@ true: string;
     leftHelper?: string | undefined;
     contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
     contentRight?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
+    textBefore?: string | undefined;
+    textAfter?: string | undefined;
     onSearch?: ((value: string, event?: React_2.KeyboardEvent<HTMLInputElement> | undefined) => void) | undefined;
 } & {
     enumerationType: "chip";

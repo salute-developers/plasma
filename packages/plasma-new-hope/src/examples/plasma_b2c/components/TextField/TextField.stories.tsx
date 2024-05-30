@@ -105,6 +105,8 @@ export const Default: StoryObj<StoryPropsDefault> = {
         view: 'default',
         label: 'Лейбл',
         labelPlacement: 'outer',
+        textBefore: '',
+        textAfter: '',
         placeholder: 'Заполните поле',
         leftHelper: 'Подсказка к полю',
         disabled: false,

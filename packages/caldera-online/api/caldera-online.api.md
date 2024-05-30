@@ -8,7 +8,8 @@
 
 import { addFocus } from '@salutejs/plasma-new-hope/styled-components';
 import { AnchorHTMLAttributes } from 'react';
-import type { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
+import { AsProps } from '@salutejs/plasma-new-hope/types/types';
+import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { bodyL } from '@salutejs/caldera-online-themes/tokens';
 import { bodyLBold } from '@salutejs/caldera-online-themes/tokens';
 import { bodyM } from '@salutejs/caldera-online-themes/tokens';
@@ -21,7 +22,8 @@ import { bodyXXS } from '@salutejs/caldera-online-themes/tokens';
 import { bodyXXSBold } from '@salutejs/caldera-online-themes/tokens';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
 import { ButtonHTMLAttributes } from 'react';
-import { ButtonProps as ButtonProps_2 } from '@salutejs/plasma-new-hope/styled-components';
+import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
+import { ComponentProps } from 'react';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
 import { DropdownProps } from '@salutejs/plasma-new-hope/styled-components';
 import { dsplL } from '@salutejs/caldera-online-themes/tokens';
@@ -45,7 +47,8 @@ import { h4Bold } from '@salutejs/caldera-online-themes/tokens';
 import { h5 } from '@salutejs/caldera-online-themes/tokens';
 import { h5Bold } from '@salutejs/caldera-online-themes/tokens';
 import { HTMLAttributes } from 'react';
-import type { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
+import type { InputHTMLAttributes as InputHTMLAttributes_2 } from 'react';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { mediaQuery } from '@salutejs/plasma-new-hope/styled-components';
 import { modalClasses } from '@salutejs/plasma-new-hope/styled-components';
@@ -187,7 +190,49 @@ auto: string;
 filled: string;
 fixed: string;
 };
-}> & ButtonProps_2<HTMLElement> & RefAttributes<HTMLButtonElement>>;
+}> & ((Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: string | number | undefined;
+contentRight?: undefined;
+} & RefAttributes<HTMLButtonElement>) | (Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
+text?: string | undefined;
+contentLeft?: ReactNode;
+contentPlacing?: ("default" | "relaxed") | undefined;
+isLoading?: boolean | undefined;
+loader?: ReactNode;
+stretch?: boolean | undefined;
+stretching?: ("auto" | "filled" | "fixed") | undefined;
+square?: boolean | undefined;
+focused?: boolean | undefined;
+disabled?: boolean | undefined;
+pin?: "square-square" | "square-clear" | "clear-square" | "clear-clear" | "clear-circle" | "circle-clear" | "circle-circle" | undefined;
+view?: string | undefined;
+size?: string | undefined;
+outlined?: boolean | undefined;
+shiftLeft?: boolean | undefined;
+shiftRight?: boolean | undefined;
+blur?: "small" | "medium" | "large" | undefined;
+} & {
+value?: undefined;
+contentRight?: ReactNode;
+} & RefAttributes<HTMLButtonElement>))>;
 
 // Warning: (ae-forgotten-export) The symbol "ButtonComponent" needs to be exported by the entry point index.d.ts
 //
@@ -195,12 +240,34 @@ fixed: string;
 export type ButtonProps = typeof ButtonComponent;
 
 // @public
-export const Checkbox: FunctionComponent<BaseboxProps>;
+export const Checkbox: FunctionComponent<PropsType<    {
+size: {
+s: string;
+m: string;
+};
+view: {
+default: string;
+primary: string;
+secondary: string;
+tertiary: string;
+paragraph: string;
+accent: string;
+positive: string;
+warning: string;
+negative: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & CheckboxProps_2 & RefAttributes<HTMLInputElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "CheckboxComponent" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type CheckboxProps = typeof CheckboxComponent;
+export type CheckboxProps = ComponentProps<typeof CheckboxComponent>;
 
 // @public (undocumented)
 export const Dropdown: FunctionComponent<PropsType<    {
@@ -371,12 +438,34 @@ export { PopupProps }
 export { PopupProvider }
 
 // @public
-export const Radiobox: FunctionComponent<Omit<BaseboxProps, "indeterminate">>;
+export const Radiobox: FunctionComponent<PropsType<    {
+size: {
+s: string;
+m: string;
+};
+view: {
+default: string;
+primary: string;
+secondary: string;
+tertiary: string;
+paragraph: string;
+accent: string;
+positive: string;
+warning: string;
+negative: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & Filter<InputHTMLAttributes<HTMLInputElement>, "size"> & Omit<BaseboxProps, "indeterminate"> & RefAttributes<HTMLInputElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "RadioboxComponent" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type RadioboxProps = typeof RadioboxComponent;
+export type RadioboxProps = ComponentProps<typeof RadioboxComponent>;
 
 export { RadioGroup }
 
@@ -511,7 +600,7 @@ true: string;
 focused: {
 true: string;
 };
-}> & Filter<InputHTMLAttributes<HTMLInputElement>, "size"> & SwitchPropsVariations & RefAttributes<HTMLInputElement>>;
+}> & Filter<InputHTMLAttributes_2<HTMLInputElement>, "size"> & SwitchPropsVariations & RefAttributes<HTMLInputElement>>;
 
 // @public (undocumented)
 export type SwitchProps = {
@@ -525,7 +614,7 @@ export type SwitchProps = {
     pressed?: boolean;
     focused?: boolean;
     outlined?: boolean;
-} & FocusProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'onChange' | 'onFocus' | 'onBlur'> & Pick<InputHTMLAttributes<HTMLInputElement>, 'name' | 'value' | 'checked' | 'disabled' | 'readOnly' | 'onChange' | 'onFocus' | 'onBlur'>;
+} & FocusProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'onChange' | 'onFocus' | 'onBlur'> & Pick<InputHTMLAttributes_2<HTMLInputElement>, 'name' | 'value' | 'checked' | 'disabled' | 'readOnly' | 'onChange' | 'onFocus' | 'onBlur'>;
 
 // @public (undocumented)
 export const TextL: FunctionComponent<PropsType<    {
