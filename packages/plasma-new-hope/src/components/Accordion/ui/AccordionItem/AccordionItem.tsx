@@ -12,7 +12,8 @@ import {
     StyledAccordionHeaderLeft,
     StyledAccordionContentRight,
     StyledArrow,
-    StyledClose,
+    StyledMinus,
+    StyledPlus,
     StyledAccordionBodyAnimate,
 } from './AccordionItem.styles';
 import type { AccordionItemProps } from './AccordionItem.types';
@@ -29,16 +30,6 @@ export const AccordionItem: React.FC<HTMLAttributes<HTMLDivElement> & AccordionI
 }) => {
     const [show, setShow] = useState(value);
     const [leftPadding, setLeftPadding] = useState<string | number | null>();
-
-    const accordionBorderRadius = convertRoundnessMatrix(pin, `var(${tokens.accordionItemBorderRadius})`);
-
-    const leftContent = contentLeft ?? (type === 'arrow' ? <StyledArrow size="s" color="inhert" /> : undefined);
-    const leftContentRotate = type === 'arrow' && show ? classes.accordionItemShowBody : undefined;
-
-    const rightContent = contentRight ?? (type === 'sign' ? <StyledClose size="xs" color="inhert" /> : undefined);
-    const rightContentRotate = type === 'sign' && show ? classes.accordionItemShowBody : undefined;
-
-    const showedBody = show ? classes.accordionItemShowBody : undefined;
 
     const showHandler = () => {
         setShow(!show);
@@ -59,6 +50,23 @@ export const AccordionItem: React.FC<HTMLAttributes<HTMLDivElement> & AccordionI
         const leftPaddingBody = leftContentWidth ? `calc(${leftContentWidth}px + var(${tokens.accordionItemGap}))` : 0;
         setLeftPadding(leftPaddingBody);
     }, [type, leftContentRef, setLeftPadding]);
+
+    const showedBody = show ? classes.accordionItemShowBody : undefined;
+
+    const StyledAnimationPLus = () => (
+        <StyledPlus>
+            <StyledMinus size="xs" color="inhert" />
+            <StyledMinus size="xs" color="inhert" className={showedBody ?? classes.accordionPlusAnimationElement} />
+        </StyledPlus>
+    );
+
+    const accordionBorderRadius = convertRoundnessMatrix(pin, `var(${tokens.accordionItemBorderRadius})`);
+
+    const leftContent = contentLeft ?? (type === 'arrow' ? <StyledArrow size="xs" color="inhert" /> : undefined);
+    const leftContentRotate = type === 'arrow' && show ? classes.accordionItemShowBody : undefined;
+
+    const rightContent = contentRight ?? (type === 'sign' ? <StyledAnimationPLus /> : undefined);
+    const rightContentRotate = type === 'sign' && show ? classes.accordionItemShowBody : undefined;
 
     return (
         <StyledAccordionItem

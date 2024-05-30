@@ -41,7 +41,7 @@ export const accordionConfig = {
         },
     },
     defaults: {
-        view: 'secondary',
+        view: 'default',
         size: 'm',
     },
 };
