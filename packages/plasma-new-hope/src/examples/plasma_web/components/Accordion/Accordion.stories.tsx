@@ -15,7 +15,7 @@ const meta: Meta<typeof Accordion> = {
     decorators: [WithTheme],
     component: Accordion,
     args: {
-        view: 'secondary',
+        view: 'default',
         size: 'm',
         stretching: 'filled',
         pin: 'square-square',
@@ -66,24 +66,9 @@ export const Default: StoryObj<ComponentProps<typeof Accordion>> = {
 
         return (
             <Accordion {...args}>
-                <AccordionItem
-                    type={args.type}
-                    pin={args.pin}
-                    title="Как оплатить заправку бонусами СберСпасибо?"
-                    body="После указания деталей заправки нажмите кнопку «К оплате». Откроется окно оплаты, где вы сможете списать бонусы и оплатить ими до 99% стоимости топлива"
-                />
-                <AccordionItem
-                    type={args.type}
-                    pin={args.pin}
-                    title="Как оплатить заправку бонусами СберСпасибо?"
-                    body="После указания деталей заправки нажмите кнопку «К оплате». Откроется окно оплаты, где вы сможете списать бонусы и оплатить ими до 99% стоимости топлива"
-                />
-                <AccordionItem
-                    type={args.type}
-                    pin={args.pin}
-                    title="Как оплатить заправку бонусами СберСпасибо?"
-                    body="После указания деталей заправки нажмите кнопку «К оплате». Откроется окно оплаты, где вы сможете списать бонусы и оплатить ими до 99% стоимости топлива"
-                />
+                <AccordionItem type={args.type} pin={args.pin} title={args.title} body={args.body} />
+                <AccordionItem type={args.type} pin={args.pin} title={args.title} body={args.body} />
+                <AccordionItem type={args.type} pin={args.pin} title={args.title} body={args.body} />
             </Accordion>
         );
     },

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { IconChevronDown, IconClose } from '../../../_Icon';
+import { IconChevronDownFill, IconMinus } from '../../../_Icon';
 import { classes, tokens } from '../../Accordion.tokens';
 import { addFocus } from '../../../../mixins';
 
@@ -40,10 +40,11 @@ export const StyledAccordionHeaderLeft = styled.div`
 
 export const StyledAccordionContentRight = styled.div`
     transition: 0.2s;
+    transform: rotate(90deg);
 
     &&.${classes.accordionItemShowBody} {
         transition: 0.2s;
-        transform: rotate(45deg);
+        transform: rotate(0deg);
     }
 `;
 
@@ -77,6 +78,11 @@ export const StyledAccordionBodyAnimate = styled.div`
     &&.${classes.accordionItemShowBody} {
         grid-template-rows: 1fr;
         padding-bottom: var(${tokens.accordionItemPaddingBottom});
+
+        &.${classes.accordionPlusAnimationElement} {
+            transition: 0.2s;
+            transform: rotate(0deg);
+        }
     }
 `;
 
@@ -93,17 +99,38 @@ export const StyledAccordionBody = styled.div`
     padding-left: var(${tokens.accordionItemPaddingLeft});
 `;
 
-export const StyledArrow = styled(IconChevronDown)`
+export const StyledArrow = styled(IconChevronDownFill)`
     pointer-events: none;
     user-select: none;
     color: var(${tokens.accordionItemTextColor});
 `;
 
-export const StyledClose = styled(IconClose)`
+export const StyledMinus = styled(IconMinus)`
     pointer-events: none;
     user-select: none;
     color: var(${tokens.accordionItemTextColor});
-    transform: rotate(45deg);
     display: flex;
     align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &&.${classes.accordionPlusAnimationElement} {
+        transition: 0.2s;
+        transform: rotate(90deg);
+    }
+
+    &&.${classes.accordionItemShowBody} {
+        transition: 0.2s;
+        transform: rotate(0deg);
+    }
+`;
+
+export const StyledPlus = styled.div`
+    position: relative;
+    height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
 `;

@@ -15,7 +15,7 @@ const meta: Meta<typeof Accordion> = {
     decorators: [WithTheme],
     component: Accordion,
     args: {
-        view: 'secondary',
+        view: 'default',
         size: 'm',
         stretching: 'filled',
         pin: 'square-square',
