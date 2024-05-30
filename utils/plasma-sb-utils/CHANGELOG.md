@@ -1,3 +1,110 @@
+# v0.158.0 (Thu May 30 2024)
+
+### Release Notes
+
+#### Release by 29.05.2024 ([#1222](https://github.com/salute-developers/plasma/pull/1222))
+
+## Components
+
+### Calendar
+
+- добавлен пропс для включения/исключения минимума и максимума диапазона дат
+ 
+feat: add calendar edge dates control (https://github.com/salute-developers/plasma/pull/1203)
+
+### Slider
+
+- добавлен компонент Slider
+ 
+feat(plasma-new-hope): add slider component (https://github.com/salute-developers/plasma/pull/1194)
+
+### Textarea
+
+- изменен `padding` для `label`
+ 
+fix(plasma-*): Fix padding on textarea (https://github.com/salute-developers/plasma/pull/1209)
+
+### Range
+
+- включен в поставку `plasma-{b2c,web} / sdds-serv`
+- написаны тесты и документация
+ 
+feat: Add range component (https://github.com/salute-developers/plasma/pull/1208)
+
+### IconButton
+
+- включен в поставку `sdds-serv`
+- добавлена документация в `sdds-serv-docs`
+ 
+feat(sdds-serv): add icon button (https://github.com/salute-developers/plasma/pull/1214)
+
+### Tabs
+
+- добавлен корректный проброс `className` в `Tab` и `TabItem`
+- поправлена документация для `Tab` и `Segment`
+
+#### ДО:
+
+![image](https://github.com/salute-developers/plasma/assets/40370966/797f897d-95cc-4114-b54a-8629b281b2c7)
+![image](https://github.com/salute-developers/plasma/assets/40370966/8a0e6de3-f6cd-4e7b-b87b-a1a26b5dd4e7)
+
+#### ПОСЛЕ:
+
+![image](https://github.com/salute-developers/plasma/assets/40370966/9dd690cc-e8ed-4623-baa0-52e1f22cf71c)
+![image](https://github.com/salute-developers/plasma/assets/40370966/0c8bb69e-b2d3-4ae9-aed4-2fd4c4b5bd9b)
+ 
+feat(plasma-new-hope): fix tabs styles (https://github.com/salute-developers/plasma/pull/1220)
+
+### Button
+
+- добавлено отображение `value`
+- исправлены внутренние отступы от `contentLeft`, `contentRight`
+- дополнены тесты и документация
+- исправлены тесты, зависящие от `Button: Notification, Pagination, Toast, Toolbar`
+- добавлен токен переопределения цвета `value` в `ButtonGroup`
+ 
+feat: add button value (https://github.com/salute-developers/plasma/pull/1213)
+
+
+## Tokens
+
+### Tokens
+
+- добавлены токены прозрачности для positive, warning, negative цветов
+- добавлены токены с active, hover модификаторами
+ 
+tokens: add surface transparent tokens to sdds (https://github.com/salute-developers/plasma/pull/1206)
+
+
+## Misc
+
+### Checkbox/Radiobox
+
+-  исправлен types компонентов для библиотек `plasma-asdk`, `sdds-serv` и `caldera-online`  
+ 
+Fix checkbox types (https://github.com/salute-developers/plasma/pull/1217)
+
+---
+
+#### 🚀 Enhancement
+
+- Release by 29.05.2024 [#1222](https://github.com/salute-developers/plasma/pull/1222) ([@TitanKuzmich](https://github.com/TitanKuzmich) [@Salute-Eva](https://github.com/Salute-Eva) [@akhdrv](https://github.com/akhdrv) [@Yakutoc](https://github.com/Yakutoc) [@iljs](https://github.com/iljs))
+
+#### 🐛 Bug Fix
+
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 5
+
+- [@iljs](https://github.com/iljs)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alex Czech ([@Yakutoc](https://github.com/Yakutoc))
+- Artem Khaydarov ([@akhdrv](https://github.com/akhdrv))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+
+---
+
 # v0.157.0 (Thu Apr 25 2024)
 
 ### Release Notes
