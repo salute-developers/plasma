@@ -316,5 +316,25 @@ export const config = {
                 ${selectNewTokens.targetButtonBackgroundColorActive}:var(--on-dark-surface-solid-default-active);
             `,
         },
+        chipView: {
+            default: css`
+                ${selectNewTokens.chipColor}: var(--inverse-text-primary);
+                ${selectNewTokens.chipBackground}: var(--surface-solid-default);
+                ${selectNewTokens.chipBackgroundHover}: var(--surface-solid-default-hover);
+                ${selectNewTokens.chipBackgroundActive}: var(--surface-solid-default-active);
+            `,
+            secondary: css`
+                ${selectNewTokens.chipColor}: var(--text-primary);
+                ${selectNewTokens.chipBackground}: var(--surface-transparent-secondary);
+                ${selectNewTokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
+                ${selectNewTokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
+            `,
+            accent: css`
+                ${selectNewTokens.chipColor}: var(--on-dark-text-primary);
+                ${selectNewTokens.chipBackground}: var(--surface-accent);
+                ${selectNewTokens.chipBackgroundHover}: var(--surface-accent-hover);
+                ${selectNewTokens.chipBackgroundActive}: var(--surface-accent-active);
+            `,
+        },
     },
 };
