@@ -1,18 +1,20 @@
-import { useState, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
+import styled from 'styled-components';
 import Head from 'next/head';
 
-import { Header, Main, SearchForm, IconsList, Panel, IconForm } from '../components/roster';
+import { Header, Main, SearchForm, IconsList, Footer } from '../components/roster';
+
+const StyledMain = styled(Main)`
+    max-width: 100%;
+`;
 
 export default function Home() {
     const [searchQuery, setSearchQuery] = useState('');
-    const [isPanelOpen, setIsPanelOpen] = useState(false);
 
     const onSearchInput = useCallback<React.FormEventHandler<HTMLInputElement>>(
         (e) => setSearchQuery(e.currentTarget.value),
         [setSearchQuery],
     );
-    const onItemClick = useCallback(() => setIsPanelOpen(true), [setIsPanelOpen]);
-    const onPanelClose = useCallback(() => setIsPanelOpen(false), [setIsPanelOpen]);
 
     return (
         <>
@@ -20,13 +22,11 @@ export default function Home() {
                 <title>Plasma Icons</title>
             </Head>
             <Header />
-            <Main>
+            <StyledMain>
                 <SearchForm onInput={onSearchInput} />
-                <IconsList searchQuery={searchQuery} onItemClick={onItemClick} />
-                <Panel isOpen={isPanelOpen} onClose={onPanelClose}>
-                    <IconForm />
-                </Panel>
-            </Main>
+                <IconsList searchQuery={searchQuery} />
+                <Footer />
+            </StyledMain>
         </>
     );
 }
