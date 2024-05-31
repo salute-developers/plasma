@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+import { IconPlaceholder } from '@salutejs/plasma-sb-utils';
 
 import { WithTheme } from '../../../_helpers';
 
-import { SelectNew } from './SelectNew';
+import { SelectNew, SelectNotFoundContent } from './SelectNew';
 
 type StorySelectNewProps = ComponentProps<typeof SelectNew>;
 
@@ -266,13 +267,34 @@ const items = [
         disabled: true,
     },
 ];
+const loadingItems = [
+    { value: '1', label: 'Item 1' },
+    { value: '2', label: 'Item 2' },
+    { value: '3', label: 'Item 3' },
+    { value: '4', label: 'Item 4' },
+    { value: '5', label: 'Item 5' },
+    { value: '6', label: 'Item 6' },
+    { value: '7', label: 'Item 7' },
+    { value: '8', label: 'Item 8' },
+    { value: '9', label: 'Item 9' },
+    { value: '10', label: 'Item 10' },
+];
 
 const SingleStory = (args: StorySelectNewProps) => {
     const [value, setValue] = useState('');
 
+    const iconSize = args.size === 'xs' ? 'xs' : 's';
+
     return (
-        <div style={{ width: '300px' }}>
-            <SelectNew {...args} multiselect={false} items={items} value={value} onChange={setValue} />
+        <div style={{ width: '500px' }}>
+            <SelectNew
+                {...args}
+                multiselect={false}
+                items={items}
+                value={value}
+                onChange={setValue}
+                contentLeft={<IconPlaceholder size={iconSize} />}
+            />
         </div>
     );
 };
@@ -284,9 +306,18 @@ export const Single: StoryObj<StorySelectNewProps> = {
 const MultiselectStory = (args: StorySelectNewProps) => {
     const [value, setValue] = useState<Array<string>>([]);
 
+    const iconSize = args.size === 'xs' ? 'xs' : 's';
+
     return (
         <div style={{ width: '300px' }}>
-            <SelectNew {...args} multiselect items={items} value={value} onChange={setValue} />
+            <SelectNew
+                {...args}
+                multiselect
+                items={items}
+                value={value}
+                onChange={setValue}
+                contentLeft={<IconPlaceholder size={iconSize} />}
+            />
         </div>
     );
 };
@@ -312,4 +343,37 @@ const PredefinedStory = (args: StorySelectNewProps) => {
 
 export const Predefined: StoryObj<StorySelectNewProps> = {
     render: (args) => <PredefinedStory {...args} />,
+};
+
+const LoadingStory = (args: StorySelectNewProps) => {
+    const [value, setValue] = useState('');
+
+    return (
+        <div style={{ width: '300px' }}>
+            <SelectNew
+                {...args}
+                multiselect={false}
+                items={[]}
+                value={value}
+                onChange={setValue}
+                listHeight="300px"
+                listOverflow="scroll"
+            />
+        </div>
+    );
+};
+
+export const Loading: StoryObj<StorySelectNewProps> = {
+    render: (args) => (
+        <LoadingStory
+            {...args}
+            notFoundContent={
+                <SelectNotFoundContent
+                    icon={<IconPlaceholder size="m" />}
+                    description="Description"
+                    buttonText="click"
+                />
+            }
+        />
+    ),
 };

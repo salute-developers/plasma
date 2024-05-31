@@ -5,7 +5,15 @@ import { SelectNewProps } from '../../SelectNew.types';
 
 export type TargetProps = Pick<
     SelectNewProps,
-    'value' | 'size' | 'multiselect' | 'isTargetAmount' | 'target' | 'label' | 'labelPlacement' | 'placeholder'
+    | 'value'
+    | 'size'
+    | 'multiselect'
+    | 'isTargetAmount'
+    | 'target'
+    | 'label'
+    | 'labelPlacement'
+    | 'placeholder'
+    | 'contentLeft'
 > & {
     opened: boolean;
     valueToItemMap: any;

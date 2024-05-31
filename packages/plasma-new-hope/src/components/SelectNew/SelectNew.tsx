@@ -7,7 +7,9 @@ import { useOutsideClick } from '../../hooks';
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
 import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors } from './utils';
 import { Inner } from './elements/Inner/Inner';
+import { SelectNotFoundContent } from './elements/SelectNotFoundContent/SelectNotFoundContent';
 import { Target } from './elements/Target/Target';
+import { InfiniteLoader } from './elements/InfiniteLoader/InfiniteLoader';
 import { pathReducer, focusedPathReducer, focusedChipIndexReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
 import { StyledPopover, Ul, base, OuterLabel, HelperText } from './SelectNew.styles';
@@ -42,6 +44,10 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
             listOverflow,
             listHeight,
             status,
+            contentLeft,
+            onScrollBottom,
+            isInfiniteLoading,
+            notFoundContent,
             ...rest
         } = props;
 
@@ -137,6 +143,19 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
             }
         };
 
+        const handleScroll = (e: React.UIEvent<HTMLUListElement>) => {
+            if (!onScrollBottom) return;
+
+            const { target } = e;
+
+            if (
+                (target as HTMLElement).scrollHeight - (target as HTMLElement).scrollTop ===
+                (target as HTMLElement).clientHeight
+            ) {
+                onScrollBottom(e);
+            }
+        };
+
         const { onKeyDown } = useKeyNavigation({
             focusedPath,
             dispatchFocusedPath,
@@ -193,23 +212,36 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
                                 focusedChipIndex={focusedChipIndex}
                                 labelPlacement={labelPlacement}
                                 size={size}
+                                contentLeft={contentLeft}
                             />
                         }
                         preventOverflow={false}
                         closeOnOverlayClick
                     >
-                        <Ul role="tree" id="tree_level_1">
-                            {transformedItems.map((item, index) => (
-                                <Inner
-                                    key={`${index}/0`}
-                                    item={item}
-                                    currentLevel={0}
-                                    path={path}
-                                    dispatchPath={dispatchPath}
-                                    index={index}
-                                />
-                            ))}
-                        </Ul>
+                        {isEmpty(items) ? (
+                            notFoundContent || <SelectNotFoundContent description="Доделать" />
+                        ) : (
+                            <Ul
+                                role="tree"
+                                id="tree_level_1"
+                                listHeight={listHeight}
+                                listOverflow={listOverflow}
+                                onScroll={handleScroll}
+                            >
+                                {transformedItems.map((item, index) => (
+                                    <Inner
+                                        key={`${index}/0`}
+                                        item={item}
+                                        currentLevel={0}
+                                        path={path}
+                                        dispatchPath={dispatchPath}
+                                        index={index}
+                                    />
+                                ))}
+
+                                {!isInfiniteLoading && <InfiniteLoader />}
+                            </Ul>
+                        )}
                     </StyledPopover>
                 </Context.Provider>
 

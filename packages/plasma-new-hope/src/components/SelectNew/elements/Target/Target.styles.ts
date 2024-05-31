@@ -66,10 +66,10 @@ export const StyledLabel = styled.label`
 
     color: var(${tokens.targetLabelColor});
 
-    font-family: var(${tokens.targetFontFamily});
-    font-size: var(${tokens.targetFontSize});
-    font-style: var(${tokens.targetFontStyle});
-    font-weight: var(${tokens.targetFontWeight});
-    letter-spacing: var(${tokens.targetLetterSpacing});
-    line-height: var(${tokens.targetLineHeight});
+    font-family: var(${tokens.fontFamily});
+    font-size: var(${tokens.fontSize});
+    font-style: var(${tokens.fontStyle});
+    font-weight: var(${tokens.fontWeight});
+    letter-spacing: var(${tokens.fontLetterSpacing});
+    line-height: var(${tokens.fontLineHeight});
 `;

@@ -2,7 +2,7 @@ import { TargetProps } from '../../Target.types';
 
 export type ButtonProps = Omit<
     TargetProps,
-    'size' | 'target' | 'onChipClick' | 'labelPlacement' | 'helperText' | 'focusedChipIndex'
+    'target' | 'onChipClick' | 'labelPlacement' | 'helperText' | 'focusedChipIndex' | 'contentLeft'
 >;
 
-export type GetLabelProps = Omit<ButtonProps, 'opened' | 'onKeyDown'>;
+export type GetLabelProps = Omit<ButtonProps, 'opened' | 'onKeyDown' | 'size'>;

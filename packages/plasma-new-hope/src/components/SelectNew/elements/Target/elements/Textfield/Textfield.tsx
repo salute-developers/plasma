@@ -16,6 +16,7 @@ import {
     Placeholder,
     InnerLabel,
     InnerLabelWrapper,
+    ContentLeftWrapper,
 } from './Textfield.styles';
 
 const getLabel = ({
@@ -30,38 +31,6 @@ const getLabel = ({
     labelPlacement,
     size,
 }: GetLabelProps) => {
-    // if (multiselect && Array.isArray(value)) {
-    //     if (!value.length) {
-    //         return placeholder;
-    //     }
-    //
-    //     if (isTargetAmount) {
-    //         return (
-    //             <Chip
-    //                 text={`Выбрано: ${value.length}`}
-    //                 onClick={(e: React.MouseEvent<HTMLElement>) => e.stopPropagation()}
-    //             />
-    //         );
-    //     }
-    //
-    //     return value.map((currentValue, index) => (
-    //         <Chip
-    //             text={valueToItemMap.get(currentValue)?.secondaryLabel || valueToItemMap.get(currentValue)?.label}
-    //             onClick={(e: React.MouseEvent<HTMLElement>) => {
-    //                 e.stopPropagation();
-    //                 onChipClick(currentValue);
-    //             }}
-    //             focused={focusedChipIndex === index}
-    //         />
-    //     ));
-    // }
-    //
-    // if (!value) {
-    //     return placeholder;
-    // }
-    //
-    // return valueToItemMap.get(value)?.secondaryLabel || valueToItemMap.get(value)?.label;
-
     if (isEmpty(value)) {
         if (!label || labelPlacement === 'outer') {
             return <Placeholder>{placeholder}</Placeholder>;
@@ -108,8 +77,11 @@ export const Textfield: React.FC<TextfieldProps> = ({
     focusedChipIndex,
     labelPlacement,
     size,
+    contentLeft,
 }) => {
     const withArrowInverse = opened ? classes.arrowInverse : undefined;
+
+    const iconSize = size === 'xs' ? 'xs' : 's';
 
     return (
         <TextfieldWrapper opened={opened}>
@@ -122,6 +94,8 @@ export const Textfield: React.FC<TextfieldProps> = ({
                 onKeyDown={onKeyDown}
             >
                 <Wrapper>
+                    {contentLeft && !multiselect && <ContentLeftWrapper>{contentLeft}</ContentLeftWrapper>}
+
                     <ChipWrapper>
                         {getLabel({
                             value,
@@ -139,7 +113,7 @@ export const Textfield: React.FC<TextfieldProps> = ({
 
                     <IconArrowWrapper>
                         <StyledArrow
-                            size="s"
+                            size={iconSize}
                             color="inherit"
                             className={cx(classes.selectTargetArrow, withArrowInverse)}
                         />

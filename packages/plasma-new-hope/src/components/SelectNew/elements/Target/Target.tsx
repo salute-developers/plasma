@@ -18,6 +18,7 @@ export const Target: React.FC<TargetProps> = ({
     focusedChipIndex,
     labelPlacement,
     size,
+    contentLeft,
 }) => {
     return target === 'button' ? (
         <Button
@@ -28,6 +29,7 @@ export const Target: React.FC<TargetProps> = ({
             valueToItemMap={valueToItemMap}
             onKeyDown={onKeyDown}
             label={label}
+            size={size}
         />
     ) : (
         <Textfield
@@ -43,6 +45,7 @@ export const Target: React.FC<TargetProps> = ({
             focusedChipIndex={focusedChipIndex}
             labelPlacement={labelPlacement}
             size={size}
+            contentLeft={contentLeft}
         />
     );
 };
