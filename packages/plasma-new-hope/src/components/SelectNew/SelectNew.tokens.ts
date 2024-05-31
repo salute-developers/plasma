@@ -47,6 +47,10 @@ export const tokens = {
     targetTextfieldPadding: '--plasma-select-target-textfield-padding',
     targetHeight: '--plasma-select-target-height',
 
+    chipColor: '--plasma-select-chip-color',
+    chipBackground: '--plasma-select-chip-background',
+    chipBackgroundHover: '--plasma-select-chip-background-hover',
+    chipBackgroundActive: '--plasma-select-chip-background-active',
     chipGap: '--plasma-select-chip-gap',
     chipBorderRadius: '--plasma-select-chip-border-radius',
     chipHeight: '--plasma-select-chip-height',

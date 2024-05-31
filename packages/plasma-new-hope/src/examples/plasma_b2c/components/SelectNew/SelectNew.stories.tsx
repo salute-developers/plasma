@@ -12,6 +12,7 @@ type StorySelectNewProps = ComponentProps<typeof SelectNew>;
 const view = ['default', 'accent', 'secondary', 'clear', 'positive', 'warning', 'negative', 'dark', 'black', 'white'];
 const size = ['xs', 's', 'm', 'l'];
 const labelPlacement = ['inner', 'outer'];
+const chip = ['default', 'secondary', 'accent'];
 
 const meta: Meta<StorySelectNewProps> = {
     title: 'plasma_b2c/SelectNew',
@@ -42,6 +43,12 @@ const meta: Meta<StorySelectNewProps> = {
                 type: 'select',
             },
         },
+        chipView: {
+            options: chip,
+            control: {
+                type: 'select',
+            },
+        },
     },
     args: {
         target: 'button',
@@ -51,6 +58,7 @@ const meta: Meta<StorySelectNewProps> = {
         helperText: 'Helper text',
         size: 'm',
         view: 'default',
+        chipView: 'default',
     },
 };
 

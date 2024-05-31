@@ -42,18 +42,24 @@ type IsMultiselect =
            * Разделитель выбранных значений.
            */
           separator?: never;
+          /**
+           * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
+           * @default false
+           */
+          isTargetAmount?: false;
       }
     | {
           value: Array<string>;
           onChange: (value: Array<string>) => void;
           multiselect?: true;
           separator?: string;
+          isTargetAmount?: true;
       };
 
 type BasicProps = {
     items: Array<ItemOption>;
     /**
-     * Метка-подпись к элементу
+     * Метка-подпись к элементу.
      */
     label?: string;
     /**
@@ -70,11 +76,6 @@ type BasicProps = {
      */
     helperText?: string;
     /**
-     * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
-     * @default false
-     */
-    isTargetAmount?: boolean;
-    /**
      * Компонент неактивен.
      * @default false
      */
@@ -88,11 +89,11 @@ type BasicProps = {
      */
     onScrollBottom?: (e: React.UIEvent<HTMLUListElement>) => void;
     /**
-     * Флаг лоадинга в конце списка
+     * Флаг лоадинга в конце списка.
      */
     isInfiniteLoading?: boolean;
     /**
-     * Компонент выпадающего списка при пустом массиве items
+     * Компонент выпадающего списка при пустом массиве items.
      */
     notFoundContent?: React.ReactElement;
 
@@ -104,6 +105,10 @@ type BasicProps = {
      * Вид компонента.
      */
     view?: string;
+    /**
+     * Внешний вид чипа в варианте textfield multiselect.
+     */
+    chipView?: string;
 
     /**
      * @default false

@@ -9,10 +9,12 @@ const mergedConfig = mergeConfig(chipConfig);
 const Chip = component(mergedConfig);
 
 export const StyledChip = styled(Chip)`
-    ${chipTokens.color}: var(--text-primary);
-    ${chipTokens.background}: var(--surface-transparent-secondary);
-    ${chipTokens.backgroundHover}: var(--surface-transparent-secondary-hover);
-    ${chipTokens.backgroundActive}: var(--surface-transparent-secondary-active);
+    ${chipTokens.color}: var(${tokens.chipColor});
+    ${chipTokens.colorHover}: var(${tokens.chipColor});
+    ${chipTokens.colorActive}: var(${tokens.chipColor});
+    ${chipTokens.background}: var(${tokens.chipBackground});
+    ${chipTokens.backgroundHover}: var(${tokens.chipBackgroundHover});
+    ${chipTokens.backgroundActive}: var(${tokens.chipBackgroundActive});
     ${chipTokens.borderRadius}: var(${tokens.chipBorderRadius});
     ${chipTokens.height}: var(${tokens.chipHeight});
     ${chipTokens.paddingRight}: var(${tokens.chipPaddingRight});
@@ -26,7 +28,7 @@ export const StyledChip = styled(Chip)`
     ${chipTokens.clearContentMarginLeft}: var(${tokens.chipClearContentMarginLeft});
     ${chipTokens.clearContentMarginRight}: var(${tokens.chipClearContentMarginRight});
     ${chipTokens.closeIconSize}: var(${tokens.chipCloseIconSize});
-    ${chipTokens.closeIconColor}: var(--text-secondary);
+    ${chipTokens.closeIconColor}: var(${tokens.chipColor});
     ${chipTokens.focusColor}: var(${constants.focusColor});
 
     ${addFocus({

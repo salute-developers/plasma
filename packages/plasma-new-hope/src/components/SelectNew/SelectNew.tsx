@@ -48,6 +48,7 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
             onScrollBottom,
             isInfiniteLoading,
             notFoundContent,
+            chipView,
             ...rest
         } = props;
 
@@ -175,7 +176,7 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
         const isCurrentListOpen = Boolean(path[0]);
 
         return (
-            <Root ref={ref} size={size} view={view} items={items} {...(rest as any)}>
+            <Root ref={ref} size={size} view={view} chipView={chipView} items={items} {...(rest as any)}>
                 {label && labelPlacement === 'outer' && target !== 'button' && <OuterLabel>{label}</OuterLabel>}
 
                 <Context.Provider
