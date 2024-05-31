@@ -5,4 +5,5 @@ export interface State {
     theme: Theme;
     wizardItemType?: WizardItemType;
     wizardItemName?: string;
+    color?: { value: string; label: string };
 }
