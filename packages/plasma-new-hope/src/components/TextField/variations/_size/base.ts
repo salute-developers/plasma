@@ -5,6 +5,7 @@ import { Input, InputWrapper, Label, LeftHelper, StyledTextAfter, StyledTextBefo
 
 export const base = css`
     ${Input} {
+        width: 100%;
         font-family: var(${tokens.fontFamily});
         font-size: var(${tokens.fontSize});
         font-style: var(${tokens.fontStyle});

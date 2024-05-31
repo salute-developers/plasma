@@ -125,7 +125,7 @@ export const isSameDay = (firstDate: DateObject, secondDate?: DateObject) =>
     firstDate.monthIndex === secondDate.monthIndex &&
     firstDate.year === secondDate.year;
 
-export const isValueUpdate = (value: Date | [Date, Date?], prevValue: Date | [Date, Date?]) => {
+export const isValueUpdate = (value: Date | [Date?, Date?], prevValue: Date | [Date?, Date?]) => {
     if (!Array.isArray(value) && !Array.isArray(prevValue)) {
         return prevValue?.getTime() !== value?.getTime();
     }

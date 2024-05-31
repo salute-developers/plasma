@@ -50,3 +50,4 @@ export * from './components/Sheet';
 export * from './components/Slider';
 export * from './components/Range';
 export * from './components/Accordion';
+export * from './components/DatePicker';

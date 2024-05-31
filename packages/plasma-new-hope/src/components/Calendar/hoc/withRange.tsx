@@ -17,7 +17,7 @@ export const withRange = <T extends Calendar>(Component: React.FC<Calendar>) => 
     ...rest
 }: CalendarRange<T>): ReactElement<T> => {
     const [startExternalValue, endExternalValue] = useMemo(() => value, [value]);
-    const [[startValue, endValue], setValues] = useState<[Date, Date?]>([startExternalValue, endExternalValue]);
+    const [[startValue, endValue], setValues] = useState<[Date?, Date?]>([startExternalValue, endExternalValue]);
     const [prevValue, setPrevValue] = useState(value);
 
     if (isValueUpdate(value, prevValue)) {

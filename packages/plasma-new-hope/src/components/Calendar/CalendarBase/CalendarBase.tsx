@@ -1,4 +1,13 @@
-import React, { useCallback, useMemo, useReducer, useState, KeyboardEvent, HTMLAttributes, forwardRef } from 'react';
+import React, {
+    useCallback,
+    useMemo,
+    useReducer,
+    useState,
+    KeyboardEvent,
+    HTMLAttributes,
+    forwardRef,
+    useEffect,
+} from 'react';
 
 import type { Calendar, DateObject, UseKeyNavigationProps } from '../Calendar.types';
 import type { CalendarStateType } from '../store/types';
@@ -189,6 +198,12 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                 },
                 [onKeyDown],
             );
+
+            useEffect(() => {
+                if (!prevValue) {
+                    setPrevValue(value);
+                }
+            }, [value, prevValue]);
 
             return (
                 <Root ref={outerRootRef} aria-label="Выбор даты" {...rest}>
