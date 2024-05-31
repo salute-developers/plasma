@@ -4,23 +4,32 @@ import { css } from '@linaria/core';
 import { component } from '../../engines';
 import { popoverClasses, popoverConfig } from '../Popover';
 
-import { tokens } from './SelectNew.tokens';
+import { getCorrectHeight } from './utils';
+import { SelectNewProps } from './SelectNew.types';
+import { tokens, constants } from './SelectNew.tokens';
 
 const Popover = component(popoverConfig);
 
-export const StyledPopover = styled(Popover)``;
+export const StyledPopover = styled(Popover)`
+    .${String(popoverClasses.root)}, .${String(popoverClasses.target)} {
+        width: 100%;
+    }
+`;
 
 export const Ul = styled.ul<{
+    listOverflow?: SelectNewProps['listOverflow'];
+    listHeight?: SelectNewProps['listHeight'];
     isInnerUl?: boolean;
 }>`
     box-sizing: border-box;
 
-    background: var(${tokens.background});
-    box-shadow: var(${tokens.boxShadow});
+    background: var(${constants.background});
+    box-shadow: var(${constants.boxShadow});
 
     border-radius: var(${tokens.borderRadius});
-    width: 200px;
-    height: auto;
+    width: 100%;
+    height: ${({ listHeight }) => (listHeight ? getCorrectHeight(listHeight) : 'auto')};
+    overflow: ${({ listOverflow }) => listOverflow || 'initial'};
 
     margin: ${({ isInnerUl }) => (isInnerUl ? `calc(var(${tokens.padding}) * -1) 0 0 var(${tokens.padding})` : 0)};
     padding: var(${tokens.padding});
@@ -35,23 +44,23 @@ export const base = css`
 export const OuterLabel = styled.label`
     display: block;
     margin-bottom: var(${tokens.labelOffset});
-    color: var(${tokens.labelColor});
+    color: var(${constants.outerLabelColor});
 
-    font-family: var(${tokens.labelFontFamily});
-    font-size: var(${tokens.labelFontSize});
-    font-style: var(${tokens.labelFontStyle});
-    font-weight: var(${tokens.labelFontWeight});
-    letter-spacing: var(${tokens.labelLetterSpacing});
-    line-height: var(${tokens.labelLineHeight});
+    font-family: var(${tokens.fontFamily});
+    font-size: var(${tokens.fontSize});
+    font-style: var(${tokens.fontStyle});
+    font-weight: var(${tokens.fontWeight});
+    letter-spacing: var(${tokens.fontLetterSpacing});
+    line-height: var(${tokens.fontLineHeight});
 `;
 
 export const HelperText = styled.div`
     margin-top: var(${tokens.helperTextOffset});
     color: var(${tokens.helperTextColor});
-    font-family: var(${tokens.helperTextFontFamily});
-    font-size: var(${tokens.helperTextFontSize});
-    font-style: var(${tokens.helperTextFontStyle});
-    font-weight: var(${tokens.helperTextFontWeight});
-    letter-spacing: var(${tokens.helperTextLetterSpacing});
-    line-height: var(${tokens.helperTextLineHeight});
+    font-family: var(--plasma-typo-body-xs-font-family);
+    font-size: var(--plasma-typo-body-xs-font-size);
+    font-style: var(--plasma-typo-body-xs-font-style);
+    font-weight: var(--plasma-typo-body-xs-font-weight);
+    letter-spacing: var(--plasma-typo-body-xs-letter-spacing);
+    line-height: var(--plasma-typo-body-xs-line-height);
 `;

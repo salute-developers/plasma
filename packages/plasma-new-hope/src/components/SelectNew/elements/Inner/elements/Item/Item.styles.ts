@@ -1,31 +1,28 @@
 import { styled } from '@linaria/react';
 
-import { classes, tokens } from '../../../../SelectNew.tokens';
+import { classes, tokens, constants } from '../../../../SelectNew.tokens';
 import { addFocus, applyEllipsis } from '../../../../../../mixins';
 import { component, mergeConfig } from '../../../../../../engines';
 import { checkboxConfig } from '../../../../../Checkbox';
 import { indicatorConfig, indicatorTokens } from '../../../../../Indicator';
-import { selectNewTokens } from '../../../../index';
 
 const mergedCheckboxConfig = mergeConfig(checkboxConfig);
 const Checkbox = component(mergedCheckboxConfig);
 
 export const StyledCheckbox = styled(Checkbox)`
-    --plasma-checkbox-margin: var(${selectNewTokens.checkboxMargin});
-    --plasma-checkbox-trigger-margin: var(${selectNewTokens.checkboxTriggerMargin});
-    --plasma-checkbox-trigger-size: var(${selectNewTokens.checkboxTriggerSize});
-    --plasma-checkbox-trigger-border-radius: var(${selectNewTokens.checkboxTriggerBorderRadius});
-    --plasma-checkbox-fill-color: var(${selectNewTokens.checkboxFillColor});
-    --plasma-checkbox-icon-color: var(${selectNewTokens.checkboxIconColor});
-    --plasma-checkbox-trigger-border-color: var(${selectNewTokens.checkboxTriggerBorderColor});
+    --plasma-checkbox-trigger-size: var(${tokens.checkboxTriggerSize});
+    --plasma-checkbox-trigger-border-radius: var(${tokens.checkboxTriggerBorderRadius});
+    --plasma-checkbox-fill-color: var(${tokens.checkboxFillColor});
+    --plasma-checkbox-icon-color: var(${tokens.checkboxIconColor});
+    --plasma-checkbox-trigger-border-color: var(${tokens.checkboxTriggerBorderColor});
 `;
 
 const mergedIndicatorConfig = mergeConfig(indicatorConfig);
 const Indicator = component(mergedIndicatorConfig);
 
 export const StyledIndicator = styled(Indicator)`
-    ${indicatorTokens.size}: var(${selectNewTokens.indicatorSize});
-    ${indicatorTokens.color}: var(${selectNewTokens.checkboxFillColor});
+    ${indicatorTokens.size}: var(${tokens.indicatorSize});
+    ${indicatorTokens.color}: var(${tokens.checkboxFillColor});
 `;
 
 export const StyledContentLeft = styled.div`
@@ -39,10 +36,10 @@ export const StyledContentRight = styled.div`
 
 export const DisclosureIconWrapper = styled.div`
     line-height: 0;
-    color: var(${tokens.disclosureIconColor});
+    color: var(${constants.disclosureIconColor});
 
     &:hover {
-        color: var(${tokens.disclosureIconColorHover});
+        color: var(${constants.disclosureIconColorHover});
     }
 `;
 
@@ -68,32 +65,29 @@ export const Wrapper = styled.li`
     min-height: var(${tokens.itemHeight});
     margin: 0;
     box-sizing: content-box;
-    padding-top: var(${tokens.itemPaddingTop});
-    padding-right: var(${tokens.itemPaddingRight});
-    padding-bottom: var(${tokens.itemPaddingBottom});
-    padding-left: var(${tokens.itemPaddingLeft});
-    font-family: var(${tokens.itemFontFamily});
-    font-size: var(${tokens.itemFontSize});
-    font-style: var(${tokens.itemFontStyle});
-    font-weight: var(${tokens.itemFontWeightBold});
-    letter-spacing: var(${tokens.itemFontLetterSpacing});
-    line-height: var(${tokens.itemFontLineHeight});
-    background: var(${tokens.itemBackground});
-    color: var(${tokens.itemColor});
+    padding: var(${tokens.itemPadding});
+    font-family: var(${tokens.fontFamily});
+    font-size: var(${tokens.fontSize});
+    font-style: var(${tokens.fontStyle});
+    font-weight: var(${tokens.fontWeight});
+    letter-spacing: var(${tokens.fontLetterSpacing});
+    line-height: var(${tokens.fontLineHeight});
+    background: var(${constants.itemBackground});
+    color: var(--text-primary);
     border-radius: var(${tokens.itemBorderRadius});
     user-select: none;
 
     &:hover:not(.${classes.dropdownItemIsDisabled}) {
         cursor: pointer;
-        background: var(${tokens.itemBackgroundHover});
+        background: var(${constants.itemBackgroundHover});
     }
 
     &.${classes.dropdownItemIsActive} {
-        background: var(${tokens.itemBackgroundHover});
+        background: var(${constants.itemBackgroundHover});
     }
 
     &.${classes.dropdownItemIsDisabled} {
-        opacity: var(${tokens.disabledOpacity});
+        opacity: 0.4;
         cursor: not-allowed;
     }
 
@@ -104,13 +98,13 @@ export const Wrapper = styled.li`
     ${addFocus({
         outlineSize: '0.0625rem',
         outlineOffset: '0',
-        outlineColor: `var(${tokens.focusColor})`,
+        outlineColor: `var(${constants.focusColor})`,
         outlineRadius: `var(${tokens.itemBorderRadius})`,
         hasTransition: false,
         customFocusRules: `
             &.${classes.dropdownItemIsFocused}:before {
                 outline: none;
-                box-shadow: 0 0 0 0.0625rem var(${tokens.focusColor});
+                box-shadow: 0 0 0 0.0625rem var(${constants.focusColor});
             }
         `,
     })};

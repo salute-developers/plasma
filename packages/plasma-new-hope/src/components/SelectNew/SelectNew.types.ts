@@ -79,6 +79,22 @@ type BasicProps = {
      * @default false
      */
     disabled?: boolean;
+    /**
+     * Слот для контента слева.
+     */
+    contentLeft?: React.ReactElement;
+    /**
+     * Коллбэк для определения достижения скроллом конца списка.
+     */
+    onScrollBottom?: (e: React.UIEvent<HTMLUListElement>) => void;
+    /**
+     * Флаг лоадинга в конце списка
+     */
+    isInfiniteLoading?: boolean;
+    /**
+     * Компонент выпадающего списка при пустом массиве items
+     */
+    notFoundContent?: React.ReactElement;
 
     /**
      * Размер компонента.

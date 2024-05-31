@@ -4,7 +4,7 @@ import { applyEllipsis } from '../../../../../../mixins';
 import { IconChevronDown } from '../../../../../_Icon';
 import { component, mergeConfig } from '../../../../../../engines';
 import { buttonConfig, buttonTokens } from '../../../../../Button';
-import { tokens, classes } from '../../../../SelectNew.tokens';
+import { tokens, classes, constants } from '../../../../SelectNew.tokens';
 
 const mergedButtonConfig = mergeConfig(buttonConfig);
 const Button = component(mergedButtonConfig);
@@ -17,17 +17,17 @@ export const StyledButton = styled(Button)`
     ${buttonTokens.buttonColorActive}: var(${tokens.targetColor});
     ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.targetButtonBackgroundColorActive});
     ${buttonTokens.buttonHeight}: var(${tokens.targetHeight});
-    ${buttonTokens.buttonWidth}: var(${tokens.targetWidth});
+    ${buttonTokens.buttonWidth}: 100%;
     ${buttonTokens.buttonPadding}: var(${tokens.targetButtonPadding});
-    ${buttonTokens.buttonRadius}: var(${tokens.targetRadius});
-    ${buttonTokens.buttonFontFamily}: var(${tokens.targetFontFamily});
-    ${buttonTokens.buttonFontSize}: var(${tokens.targetFontSize});
-    ${buttonTokens.buttonFontStyle}: var(${tokens.targetFontStyle});
+    ${buttonTokens.buttonRadius}: var(${tokens.borderRadius});
+    ${buttonTokens.buttonFontFamily}: var(${tokens.fontFamily});
+    ${buttonTokens.buttonFontSize}: var(${tokens.fontSize});
+    ${buttonTokens.buttonFontStyle}: var(${tokens.fontStyle});
     ${buttonTokens.buttonFontWeight}: 600;
-    ${buttonTokens.buttonLetterSpacing}: var(${tokens.targetLetterSpacing});
-    ${buttonTokens.buttonLineHeight}: var(${tokens.targetLineHeight});
-    ${buttonTokens.buttonDisabledOpacity}: var(${tokens.disabledOpacity});
-    ${buttonTokens.buttonFocusColor}: var(${tokens.focusColor});
+    ${buttonTokens.buttonLetterSpacing}: var(${tokens.fontLetterSpacing});
+    ${buttonTokens.buttonLineHeight}: var(${tokens.fontLineHeight});
+    ${buttonTokens.buttonDisabledOpacity}: 0.4;
+    ${buttonTokens.buttonFocusColor}: var(${constants.focusColor});
 `;
 
 export const IconArrowWrapper = styled.div`
