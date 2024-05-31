@@ -15,12 +15,12 @@ export const tokens = {
 
     accordionItemBackground: '--plasma-accordion-item-background',
     accordionItemBorderRadius: '--plasma-accordion-item-border-radius',
-    accordionItemPaddingTop: '--plasma-accordion-item-padding-top',
-    accordionItemPaddingRight: '--plasma-accordion-item-padding-right',
-    accordionItemPaddingBottom: '--plasma-accordion-item-padding-bottom',
-    accordionItemPaddingLeft: '--plasma-accordion-item-padding-left',
+    accordionItemPadding: '--plasma-accordion-item-padding',
+    accordionItemPaddingVertical: '--plasma-accordion-item-padding-vertical',
+    accordionItemPaddingHorizontal: '--plasma-accordion-item-padding-horizontal',
     accordionItemGap: '--plasma-accordion-item-gap',
     accordionItemFocus: '--plasma-accordion-item-focus',
+    accordionItemBorderBottom: '--plasma-accordion-item-border-bottom',
 
     accordionItemTitleColor: '--plasma-accordion-item-title-color',
     accordionItemTitleFontFamily: '--plasma-accordion-item-title-font-family',

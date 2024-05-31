@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 type CustomAccordionProps = {
     /**
-     * Тип аккардиона
+     * Тип аккордиона
      */
     view: string;
 
@@ -10,6 +10,11 @@ type CustomAccordionProps = {
      * Размер
      */
     size?: string;
+
+    /**
+     * Возможность раскрытия всех элементов или только одного
+     */
+    once?: boolean;
 
     /**
      * Ширина

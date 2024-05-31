@@ -26,6 +26,9 @@ export const AccordionItem: React.FC<HTMLAttributes<HTMLDivElement> & AccordionI
     pin = 'square-square',
     body,
     type = 'sign',
+    index,
+    eventKey,
+    updateValue,
     onChangeValue,
 }) => {
     const [show, setShow] = useState(value);
@@ -33,7 +36,8 @@ export const AccordionItem: React.FC<HTMLAttributes<HTMLDivElement> & AccordionI
 
     const showHandler = () => {
         setShow(!show);
-        onChangeValue && onChangeValue(!show);
+        updateValue && updateValue(index, !show);
+        onChangeValue && onChangeValue(!show, eventKey);
     };
 
     const onKeyPress = (event: KeyboardEvent<HTMLDivElement>) => {
@@ -46,10 +50,11 @@ export const AccordionItem: React.FC<HTMLAttributes<HTMLDivElement> & AccordionI
     const leftContentRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        setShow(value);
         const leftContentWidth = leftContentRef?.current?.offsetWidth ?? 0;
         const leftPaddingBody = leftContentWidth ? `calc(${leftContentWidth}px + var(${tokens.accordionItemGap}))` : 0;
         setLeftPadding(leftPaddingBody);
-    }, [type, leftContentRef, setLeftPadding]);
+    }, [value, type, leftContentRef, setLeftPadding]);
 
     const showedBody = show ? classes.accordionItemShowBody : undefined;
 
@@ -60,7 +65,7 @@ export const AccordionItem: React.FC<HTMLAttributes<HTMLDivElement> & AccordionI
         </StyledPlus>
     );
 
-    const accordionBorderRadius = convertRoundnessMatrix(pin, `var(${tokens.accordionItemBorderRadius})`);
+    const accordionBorderRadius = convertRoundnessMatrix(pin, `var(${tokens.accordionItemBorderRadius})`, '1.5rem');
 
     const leftContent = contentLeft ?? (type === 'arrow' ? <StyledArrow size="xs" color="inhert" /> : undefined);
     const leftContentRotate = type === 'arrow' && show ? classes.accordionItemShowBody : undefined;
@@ -71,7 +76,9 @@ export const AccordionItem: React.FC<HTMLAttributes<HTMLDivElement> & AccordionI
     return (
         <StyledAccordionItem
             role="tab"
+            className={classes.accordionItem}
             tabIndex={0}
+            key={eventKey}
             style={{ borderRadius: accordionBorderRadius }}
             onKeyDown={onKeyPress}
         >
