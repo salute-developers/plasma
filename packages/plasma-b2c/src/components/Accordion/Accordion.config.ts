@@ -1,6 +1,4 @@
-import { css } from '@linaria/core';
-
-import { accordionTokens } from '../../../../components/Accordion';
+import { css, accordionTokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {

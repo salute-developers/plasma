@@ -1,0 +1,1 @@
+../../../../plasma-web/src/components/Accordion/Accordion.component-test.tsx

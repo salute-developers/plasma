@@ -4,6 +4,10 @@ import type { Pin } from '../../../../utils/roundness';
 
 type CustomAccordionItemProps = {
     /**
+     * Ключ аккордиона
+     */
+    eventKey?: string | number;
+    /**
      * Значение раскрытия аккардиона
      */
     value?: boolean;
@@ -24,24 +28,38 @@ type CustomAccordionItemProps = {
     contentRight?: ReactNode;
 
     /**
-     * Скругление аккардиона
+     * Скругление аккордиона
      */
     pin?: Pin;
 
     /**
-     * Заголовок аккардиона
+     * Заголовок аккордиона
      */
     title: ReactNode;
 
     /**
-     * Контент аккардиона
+     * Контент аккордиона
      */
     body: ReactNode;
 
     /**
      * Функция при открытии аккардиона
      */
-    onChangeValue?: (value: boolean) => void;
+    onChangeValue?: (value: boolean, eventKey?: string | number) => void;
+
+    //
+    // Свойства которые автоматически добавляется Accordion'ом
+    //
+
+    /**
+     * Индекс элемента
+     */
+    index?: number;
+
+    /**
+     * Функция, которая позволяет родительскому компоненту понять, что элемент открылся и закрыть другой элемент
+     */
+    updateValue?: (index?: number, value?: boolean) => void;
 };
 
 export type AccordionItemProps = CustomAccordionItemProps;

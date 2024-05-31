@@ -12,31 +12,31 @@ export const config = {
             default: css`
                 ${accordionTokens.accordionGap}: 0.125rem;
                 ${accordionTokens.accordionWidth}: 20rem;
+                ${accordionTokens.accordionItemPadding}: var(${accordionTokens.accordionItemPaddingVertical}) var(${accordionTokens.accordionItemPaddingHorizontal});
                 ${accordionTokens.accordionItemBackground}: var(--surface-solid-card);
                 ${accordionTokens.accordionItemTitleColor}: var(--text-primary);
                 ${accordionTokens.accordionItemTextColor}: var(--text-primary);
                 ${accordionTokens.accordionItemFocus}: var(--surface-accent);
                 ${accordionTokens.accordionBackground}: var(--surface-clear);
+                ${accordionTokens.accordionItemBorderBottom}: 0;
             `,
             clear: css`
-                ${accordionTokens.accordionGap}: 0.125rem;
+                ${accordionTokens.accordionGap}: 0;
                 ${accordionTokens.accordionWidth}: 20rem;
-                ${accordionTokens.accordionItemPaddingRight}: 0rem !important;
-                ${accordionTokens.accordionItemPaddingLeft}: 0rem !important;
-                ${accordionTokens.accordionItemBackground}: var(--background-primary);
+                ${accordionTokens.accordionItemPadding}: var(${accordionTokens.accordionItemPaddingVertical}) 0rem;
+                ${accordionTokens.accordionItemBackground}: var(--surface-clear);
                 ${accordionTokens.accordionItemTitleColor}: var(--text-primary);
                 ${accordionTokens.accordionItemTextColor}: var(--text-primary);
                 ${accordionTokens.accordionItemFocus}: var(--surface-accent);
                 ${accordionTokens.accordionItemBorderRadius}: 0rem !important;
-                ${accordionTokens.accordionBackground}: var(--surface-solid-tertiary);
+                ${accordionTokens.accordionBackground}: var(--surface-clear);
+                ${accordionTokens.accordionItemBorderBottom}: 0.125rem solid var(--surface-solid-tertiary);
             `,
         },
         size: {
             l: css`
-                ${accordionTokens.accordionItemPaddingTop}: 1.0625rem;
-                ${accordionTokens.accordionItemPaddingRight}: 1.25rem;
-                ${accordionTokens.accordionItemPaddingBottom}: 1.0625rem;
-                ${accordionTokens.accordionItemPaddingLeft}: 1.25rem;
+                ${accordionTokens.accordionItemPaddingVertical}: 1.0625rem;
+                ${accordionTokens.accordionItemPaddingHorizontal}: 1.25rem;
                 ${accordionTokens.accordionItemGap}: 0.5rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.875rem;
 
@@ -55,10 +55,9 @@ export const config = {
                 ${accordionTokens.accordionItemTextLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
             m: css`
-                ${accordionTokens.accordionItemPaddingTop}: 0.875rem;
-                ${accordionTokens.accordionItemPaddingRight}: 1.125rem;
-                ${accordionTokens.accordionItemPaddingBottom}: 0.875rem;
-                ${accordionTokens.accordionItemPaddingLeft}: 1.125rem;
+                ${accordionTokens.accordionItemPaddingVertical}: 0.875rem;
+                ${accordionTokens.accordionItemPaddingHorizontal}: 1.125rem;
+
                 ${accordionTokens.accordionItemGap}: 0.375rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.75rem;
 
@@ -77,10 +76,9 @@ export const config = {
                 ${accordionTokens.accordionItemTextLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             s: css`
-                ${accordionTokens.accordionItemPaddingTop}: 0.6875rem;
-                ${accordionTokens.accordionItemPaddingRight}: 0.875rem;
-                ${accordionTokens.accordionItemPaddingBottom}: 0.6875rem;
-                ${accordionTokens.accordionItemPaddingLeft}: 0.875rem;
+                ${accordionTokens.accordionItemPaddingVertical}: 0.6875rem;
+                ${accordionTokens.accordionItemPaddingHorizontal}: 0.875rem;
+
                 ${accordionTokens.accordionItemGap}: 0.375rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.625rem;
 
@@ -99,10 +97,9 @@ export const config = {
                 ${accordionTokens.accordionItemTextLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
             xs: css`
-                ${accordionTokens.accordionItemPaddingTop}: 0.5rem;
-                ${accordionTokens.accordionItemPaddingRight}: 0.75rem;
-                ${accordionTokens.accordionItemPaddingBottom}: 0.5rem;
-                ${accordionTokens.accordionItemPaddingLeft}: 0.75rem;
+                ${accordionTokens.accordionItemPaddingVertical}: 0.5rem;
+                ${accordionTokens.accordionItemPaddingHorizontal}: 0.75rem;
+
                 ${accordionTokens.accordionItemGap}: 0.25rem;
                 ${accordionTokens.accordionItemBorderRadius}: 0.5rem;
 

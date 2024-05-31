@@ -1,0 +1,47 @@
+---
+id: accordion
+title: Accordion
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Accordion
+Компонент выпадающей информации
+<StorybookLink name="Accordion" />
+<PropsTable name="Accordion" />
+
+# AccordionItem
+Компонент выпадающей информации
+<StorybookLink name="AccordionItem" />
+<PropsTable name="AccordionItem" />
+
+Компонент представляет собой заголовок и контент, который раскрывается при нажатии. 
+
+## Примеры
+
+### Использование с разными type у AccorionItem
+
+```tsx live
+import React from 'react';
+import { Accordion, AccordionItem } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <div>
+            <Accordion size="s" stretching="fixed">
+                <AccordionItem type="arrow" title="Как оплатить заправку бонусами СберСпасибо?" body="После указания деталей заправки нажмите кнопку «К оплате». Откроется окно оплаты, где вы сможете списать бонусы и оплатить ими до 99% стоимости топлива" />
+                <AccordionItem type="sign" title="Как оплатить заправку бонусами СберСпасибо?" body="После указания деталей заправки нажмите кнопку «К оплате». Откроется окно оплаты, где вы сможете списать бонусы и оплатить ими до 99% стоимости топлива" />
+                <AccordionItem type="clear" title="Как оплатить заправку бонусами СберСпасибо?" body="После указания деталей заправки нажмите кнопку «К оплате». Откроется окно оплаты, где вы сможете списать бонусы и оплатить ими до 99% стоимости топлива" />
+            </Accordion>
+        </div>
+    );
+}
+```
+
+Arrow - Используется contentLeft с анимированной стрелкой
+
+Sign - Используется contentRight с анимированным плюсом и минусом
+
+Clear - Чистый компонент 
+
+Все анимации длятся 0.2 секунды

@@ -3,16 +3,10 @@ import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { disableProps } from '@salutejs/plasma-sb-utils';
 
-import { mergeConfig } from '../../../../engines';
-import { WithTheme, argTypesFromConfig } from '../../../_helpers';
-import { accordionConfig } from '../../../../components/Accordion';
-
-import { config } from './Accordion.config';
-import { Accordion, AccordionItem } from './Accordion';
+import { Accordion, AccordionItem } from '.';
 
 const meta: Meta<typeof Accordion> = {
-    title: 'plasma_b2c/Accordion',
-    decorators: [WithTheme],
+    title: 'Content/Accordion',
     component: Accordion,
     args: {
         once: true,
@@ -26,7 +20,6 @@ const meta: Meta<typeof Accordion> = {
             'После указания деталей заправки нажмите кнопку «К оплате». Откроется окно оплаты, где вы сможете списать бонусы и оплатить ими до 99% стоимости топлива',
     },
     argTypes: {
-        ...argTypesFromConfig(mergeConfig(accordionConfig, config)),
         ...disableProps(['text']),
         pin: {
             options: [
