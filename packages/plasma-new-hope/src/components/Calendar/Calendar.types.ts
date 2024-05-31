@@ -119,7 +119,7 @@ export type CalendarRange<T> = Omit<T, 'value' | 'onChangeValue'> & {
     /**
      * Выбранное значение.
      */
-    value: [Date, Date?];
+    value: [Date?, Date?];
     /**
      * Обработчик изменения значения.
      */

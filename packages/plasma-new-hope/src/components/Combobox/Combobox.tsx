@@ -2,8 +2,7 @@ import React, { Children, forwardRef, useEffect, useRef, useState } from 'react'
 import { safeUseId, useForkRef } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines';
-import { cx } from '../../utils';
-import { getPlacements } from '../Dropdown/utils';
+import { cx, getPlacements } from '../../utils';
 import { getChildren, getNewSelected, getValues } from '../Select/utils';
 import { useKeyNavigation } from '../Select/hooks';
 import { useDidMountEffect, useForceUpdate } from '../../hooks';

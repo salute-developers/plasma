@@ -2,8 +2,7 @@ import React, { Children, forwardRef, useCallback, useEffect, useMemo, useRef, u
 import { safeUseId, useForkRef } from '@salutejs/plasma-core';
 
 import { RootProps } from '../../engines';
-import { cx } from '../../utils';
-import { getPlacements } from '../Dropdown/utils';
+import { cx, getPlacements } from '../../utils';
 import { useDidMountEffect, useForceUpdate } from '../../hooks';
 
 import { base as targetCSS } from './variations/_target/base';

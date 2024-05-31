@@ -1,7 +1,7 @@
 import React, { forwardRef, useReducer } from 'react';
 
 import { RootProps } from '../../engines';
-import { cx } from '../../utils';
+import { cx, getPlacements } from '../../utils';
 
 import { pathReducer } from './reducers/pathReducer';
 import { focusedPathReducer } from './reducers/focusedPathReducer';
@@ -9,7 +9,7 @@ import { DropdownInner } from './ui';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { Ul, StyledPopover, base } from './Dropdown.styles';
-import { getPlacements, childrenWithProps } from './utils';
+import { childrenWithProps } from './utils';
 import type { DropdownProps, HandleGlobalToggleType } from './Dropdown.types';
 import { classes } from './Dropdown.tokens';
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
