@@ -15,6 +15,7 @@ const meta: Meta<typeof Accordion> = {
     decorators: [WithTheme],
     component: Accordion,
     args: {
+        once: true,
         view: 'default',
         size: 'm',
         stretching: 'filled',
@@ -26,6 +27,7 @@ const meta: Meta<typeof Accordion> = {
     },
     argTypes: {
         ...argTypesFromConfig(mergeConfig(accordionConfig, config)),
+        ...disableProps(['text']),
         pin: {
             options: [
                 'square-square',
@@ -60,7 +62,6 @@ const meta: Meta<typeof Accordion> = {
 export default meta;
 
 export const Default: StoryObj<ComponentProps<typeof Accordion>> = {
-    argTypes: { ...disableProps(['text']) },
     render: (props: ComponentProps<typeof Accordion>) => {
         const args = { ...props, text: undefined };
 
