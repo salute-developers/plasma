@@ -6,7 +6,6 @@ export type ItemOption = {
     value: string | number;
     label: string;
     items?: Array<ItemOption>;
-    disabled?: boolean;
     contentLeft?: ReactNode;
     contentRight?: ReactNode;
     isActive?: boolean;

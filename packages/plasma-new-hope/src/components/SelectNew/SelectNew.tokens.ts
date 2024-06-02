@@ -45,6 +45,7 @@ export const tokens = {
     targetTextfieldBackgroundColorOpened: '--plasma-select-target-textfield-background-color-opened',
     targetButtonPadding: '--plasma-select-target-button-padding',
     targetTextfieldPadding: '--plasma-select-target-textfield-padding',
+    targetTextfieldChipPadding: '--plasma-select-target-textfield-chip-padding',
     targetHeight: '--plasma-select-target-height',
 
     chipColor: '--plasma-select-chip-color',

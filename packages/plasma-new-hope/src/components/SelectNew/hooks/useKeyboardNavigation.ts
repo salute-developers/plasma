@@ -50,6 +50,7 @@ interface Props {
     value: SelectNewProps['value'];
     valueToItemMap: any;
     multiselect: any;
+    isTargetAmount: SelectNewProps['isTargetAmount'];
 }
 
 interface ReturnedProps {
@@ -70,6 +71,7 @@ export const useKeyNavigation = ({
     value,
     valueToItemMap,
     multiselect,
+    isTargetAmount,
 }: Props): ReturnedProps => {
     const currentLength: number = pathMap.get(path?.[path.length - 1]) || 0;
     const currentIndex: number = focusedPath?.[focusedPath.length - 1] || 0;
@@ -122,7 +124,7 @@ export const useKeyNavigation = ({
                     if (focusedPath.length === 1) {
                         handleToggle(false);
                     }
-                } else if (Array.isArray(value)) {
+                } else if (Array.isArray(value) && !isTargetAmount) {
                     dispatchFocusedChipIndex({ type: 'moveLeft' });
                 }
 
@@ -141,7 +143,7 @@ export const useKeyNavigation = ({
                         dispatchPath({ type: 'added_next_level', value: currentItem.value.toString() });
                         dispatchFocusedPath({ type: 'add_focus', value: 0 });
                     }
-                } else if (Array.isArray(value)) {
+                } else if (Array.isArray(value) && !isTargetAmount) {
                     dispatchFocusedChipIndex({ type: 'moveRight', total: value.length });
                 }
 

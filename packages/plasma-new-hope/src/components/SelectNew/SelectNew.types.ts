@@ -11,7 +11,15 @@ type Target =
            * Стиль селекта: button или textfield.
            * @default textfield
            */
-          target?: 'button';
+          target?: 'textfield' | never;
+          view?: 'default' | 'positive' | 'warning' | 'negative';
+          /**
+           * Слот для контента слева.
+           */
+          contentLeft?: React.ReactElement;
+      }
+    | {
+          target?: 'button' | never;
           view?:
               | 'default'
               | 'accent'
@@ -23,10 +31,7 @@ type Target =
               | 'dark'
               | 'black'
               | 'white';
-      }
-    | {
-          target?: 'textfield';
-          view?: 'default' | 'positive' | 'warning' | 'negative';
+          contentLeft?: never;
       };
 
 type IsMultiselect =
@@ -46,14 +51,14 @@ type IsMultiselect =
            * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
            * @default false
            */
-          isTargetAmount?: false;
+          isTargetAmount?: never | false;
       }
     | {
           value: Array<string>;
           onChange: (value: Array<string>) => void;
           multiselect?: true;
           separator?: string;
-          isTargetAmount?: true;
+          isTargetAmount?: boolean;
       };
 
 type BasicProps = {
@@ -80,10 +85,6 @@ type BasicProps = {
      * @default false
      */
     disabled?: boolean;
-    /**
-     * Слот для контента слева.
-     */
-    contentLeft?: React.ReactElement;
     /**
      * Коллбэк для определения достижения скроллом конца списка.
      */

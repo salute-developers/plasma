@@ -39,6 +39,10 @@ const getLabel = ({
         return <Label>{label}</Label>;
     }
 
+    if (multiselect && isTargetAmount) {
+        return <Chip text={`Выбрано: ${value.length}`} />;
+    }
+
     if (multiselect) {
         return value.map((currentValue, index) => (
             <Chip
@@ -84,7 +88,7 @@ export const Textfield: React.FC<TextfieldProps> = ({
     const iconSize = size === 'xs' ? 'xs' : 's';
 
     return (
-        <TextfieldWrapper opened={opened}>
+        <TextfieldWrapper opened={opened} value={value}>
             <StyledButton
                 stretching="filled"
                 className={cx(
@@ -94,7 +98,9 @@ export const Textfield: React.FC<TextfieldProps> = ({
                 onKeyDown={onKeyDown}
             >
                 <Wrapper>
-                    {contentLeft && !multiselect && <ContentLeftWrapper>{contentLeft}</ContentLeftWrapper>}
+                    {contentLeft && (!multiselect || isEmpty(value)) && (
+                        <ContentLeftWrapper>{contentLeft}</ContentLeftWrapper>
+                    )}
 
                     <ChipWrapper>
                         {getLabel({

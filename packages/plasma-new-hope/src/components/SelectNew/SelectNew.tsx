@@ -171,6 +171,7 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
             value,
             valueToItemMap,
             multiselect,
+            isTargetAmount,
         });
 
         const isCurrentListOpen = Boolean(path[0]);

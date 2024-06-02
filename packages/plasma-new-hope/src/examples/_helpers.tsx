@@ -14,7 +14,7 @@ export const WithTheme: Decorator = (Story, context: StoryContext) => {
         <div
             id="theme-root"
             className={themes?.[themeName]?.[themeType]}
-            style={{ padding: '1rem', height: '100vh', boxSizing: 'border-box' }}
+            style={{ padding: '1rem', minHeight: '100vh', boxSizing: 'border-box' }}
         >
             <Story />
         </div>
