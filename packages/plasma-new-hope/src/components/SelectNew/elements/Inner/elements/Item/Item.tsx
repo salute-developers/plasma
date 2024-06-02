@@ -42,12 +42,16 @@ export const Item: FC<ItemProps> = ({ item, path, currentLevel, index }) => {
     }, [focusedClass]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (isDisabled) return;
+
         e.stopPropagation();
 
         handleCheckboxChange(item);
     };
 
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {
+        if (isDisabled) return;
+
         handleItemClick(item, e);
     };
 

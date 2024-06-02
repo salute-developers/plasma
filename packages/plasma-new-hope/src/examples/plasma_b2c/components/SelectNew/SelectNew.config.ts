@@ -48,6 +48,7 @@ export const config = {
                 ${selectNewTokens.targetHeight}: 2rem;
                 ${selectNewTokens.targetButtonPadding}: 0.625rem 0 0.75rem;
                 ${selectNewTokens.targetTextfieldPadding}: 0.5rem 0 0.625rem;
+                ${selectNewTokens.targetTextfieldChipPadding}: 0.5rem 0 0.25rem;
 
                 ${selectNewTokens.labelOffset}: 0.375rem;
 
@@ -99,6 +100,7 @@ export const config = {
                 ${selectNewTokens.targetHeight}: 2.5rem;
                 ${selectNewTokens.targetButtonPadding}: 0.875rem 0 1rem;
                 ${selectNewTokens.targetTextfieldPadding}: 0.75rem 0 0.875rem;
+                ${selectNewTokens.targetTextfieldChipPadding}: 0.75rem 0 0.25rem;
 
                 ${selectNewTokens.labelOffset}: 0.5rem;
 
@@ -150,6 +152,7 @@ export const config = {
                 ${selectNewTokens.targetHeight}: 3rem;
                 ${selectNewTokens.targetButtonPadding}: 1.125rem 0 1.25rem;
                 ${selectNewTokens.targetTextfieldPadding}: 0.875rem 0 1rem;
+                ${selectNewTokens.targetTextfieldChipPadding}: 0.875rem 0 0.25rem;
 
                 ${selectNewTokens.labelOffset}: 0.625rem;
 
@@ -201,6 +204,7 @@ export const config = {
                 ${selectNewTokens.targetHeight}: 3.5rem;
                 ${selectNewTokens.targetButtonPadding}: 1.38rem 0 1.5rem;
                 ${selectNewTokens.targetTextfieldPadding}: 1rem 0 1.125rem;
+                ${selectNewTokens.targetTextfieldChipPadding}: 1rem 0 0.25rem;
 
                 ${selectNewTokens.labelOffset}: 0.75rem;
 

@@ -6,7 +6,7 @@ import { StyledChip } from './Chip.styles';
 
 export const Chip: React.FC<{
     text: string;
-    onClick: (e: React.MouseEvent<HTMLElement>) => void;
+    onClick?: (e: React.MouseEvent<HTMLElement>) => void;
     focused?: boolean;
 }> = ({ text, onClick, focused }) => {
     const ref = useRef<HTMLButtonElement | null>(null);
@@ -23,6 +23,7 @@ export const Chip: React.FC<{
 
     return (
         <StyledChip
+            contentClearButton={<div />}
             tabIndex={-1}
             onClick={onClick}
             text={`${text}`}

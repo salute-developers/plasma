@@ -1,5 +1,6 @@
 import { styled } from '@linaria/react';
 
+import { isEmpty } from '../../../../../../utils';
 import { applyEllipsis } from '../../../../../../mixins';
 import { IconChevronDown } from '../../../../../_Icon';
 import { component, mergeConfig } from '../../../../../../engines';
@@ -8,6 +9,25 @@ import { tokens, classes, constants } from '../../../../SelectNew.tokens';
 
 const mergedButtonConfig = mergeConfig(buttonConfig);
 const Button = component(mergedButtonConfig);
+
+export const TextfieldWrapper = styled.div<any>`
+    display: inline;
+
+    .${classes.textfieldTarget} {
+        background: ${({ opened }) =>
+            opened
+                ? `var(${tokens.targetTextfieldBackgroundColorOpened})`
+                : `var(${tokens.targetTextfieldBackgroundColor})`};
+        padding: ${({ value }) =>
+            Array.isArray(value) && !isEmpty(value)
+                ? `0 var(${tokens.targetTextfieldChipPadding})`
+                : `0 var(${tokens.targetTextfieldPadding})`};
+    }
+
+    .${classes.selectWithoutBoxShadow}::before {
+        box-shadow: none !important;
+    }
+`;
 
 export const StyledButton = styled(Button)`
     ${buttonTokens.buttonColor}: var(${tokens.targetColor});
@@ -58,6 +78,7 @@ export const ChipWrapper = styled.div`
     width: 100%;
     display: flex;
     min-width: 0;
+    padding: calc(var(${tokens.chipFocusSize}) * 2);
     gap: 0.25rem;
     overflow-x: scroll;
     border-top-right-radius: var(${tokens.chipBorderRadius});
@@ -68,21 +89,6 @@ export const ChipWrapper = styled.div`
 
     &::-webkit-scrollbar {
         display: none;
-    }
-`;
-
-export const TextfieldWrapper = styled.div<any>`
-    display: inline;
-
-    .${classes.textfieldTarget} {
-        background: ${({ opened }) =>
-            opened
-                ? `var(${tokens.targetTextfieldBackgroundColorOpened})`
-                : `var(${tokens.targetTextfieldBackgroundColor})`};
-    }
-
-    .${classes.selectWithoutBoxShadow}::before {
-        box-shadow: none !important;
     }
 `;
 

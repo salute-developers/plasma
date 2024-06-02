@@ -3,11 +3,15 @@ import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { IconPlaceholder } from '@salutejs/plasma-sb-utils';
 
+import './style.css';
+
 import { WithTheme } from '../../../_helpers';
 
 import { SelectNew, SelectNotFoundContent } from './SelectNew';
 
-type StorySelectNewProps = ComponentProps<typeof SelectNew>;
+type StorySelectNewProps = ComponentProps<typeof SelectNew> & {
+    enableContentLeft?: boolean;
+};
 
 const view = ['default', 'accent', 'secondary', 'clear', 'positive', 'warning', 'negative', 'dark', 'black', 'white'];
 const size = ['xs', 's', 'm', 'l'];
@@ -59,6 +63,8 @@ const meta: Meta<StorySelectNewProps> = {
         size: 'm',
         view: 'default',
         chipView: 'default',
+        enableContentLeft: false,
+        isTargetAmount: false,
     },
 };
 
@@ -272,7 +278,7 @@ const items = [
     {
         value: 'africa',
         label: 'Африка',
-        disabled: true,
+        isDisabled: true,
     },
 ];
 const loadingItems = [
@@ -384,4 +390,454 @@ export const Loading: StoryObj<StorySelectNewProps> = {
             }
         />
     ),
+};
+
+const CommonStory = (args: StorySelectNewProps) => {
+    const [value, setValue] = useState('');
+    const [valueMultiple, setValueMultiple] = useState<Array<string>>([]);
+
+    const { enableContentLeft } = args;
+
+    return (
+        <div className="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>View &#8595;</th>
+                        <th>Single Button</th>
+                        <th>Multiple Button</th>
+                        <th>Single Textfield</th>
+                        <th>Multiple Textfield</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Default</td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect={false}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="default"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="default"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect={false}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="default"
+                                    target="textfield"
+                                    contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="default"
+                                    target="textfield"
+                                    contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
+                                />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Accent</td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect={false}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="accent"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="accent"
+                                />
+                            </div>
+                        </td>
+                        <td />
+                        <td />
+                    </tr>
+                    <tr>
+                        <td>Secondary</td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect={false}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="secondary"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="secondary"
+                                />
+                            </div>
+                        </td>
+                        <td />
+                        <td />
+                    </tr>
+                    <tr>
+                        <td>Clear</td>
+
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect={false}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="clear"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="clear"
+                                />
+                            </div>
+                        </td>
+                        <td />
+                        <td />
+                    </tr>
+                    <tr>
+                        <td>Positive</td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect={false}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="positive"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="positive"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect={false}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="positive"
+                                    target="textfield"
+                                    contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="positive"
+                                    target="textfield"
+                                    contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
+                                />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Warning</td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect={false}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="warning"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="warning"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect={false}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="warning"
+                                    target="textfield"
+                                    contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="warning"
+                                    target="textfield"
+                                    contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
+                                />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Negative</td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect={false}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="negative"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="negative"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect={false}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="negative"
+                                    target="textfield"
+                                    contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="negative"
+                                    target="textfield"
+                                    contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
+                                />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Dark</td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect={false}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="dark"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="dark"
+                                />
+                            </div>
+                        </td>
+                        <td />
+                        <td />
+                    </tr>
+                    <tr>
+                        <td>Black</td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect={false}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="black"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="black"
+                                />
+                            </div>
+                        </td>
+                        <td />
+                        <td />
+                    </tr>
+                    <tr>
+                        <td>White</td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect={false}
+                                    items={items}
+                                    value={value}
+                                    onChange={setValue}
+                                    view="white"
+                                />
+                            </div>
+                        </td>
+                        <td>
+                            <div style={{ width: '200px' }}>
+                                <SelectNew
+                                    {...args}
+                                    multiselect
+                                    items={items}
+                                    value={valueMultiple}
+                                    onChange={setValueMultiple}
+                                    view="white"
+                                />
+                            </div>
+                        </td>
+                        <td />
+                        <td />
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    );
+};
+
+export const Common: StoryObj<StorySelectNewProps> = {
+    parameters: {
+        controls: {
+            include: [
+                'size',
+                'enableContentLeft',
+                'chipView',
+                'label',
+                'labelPlacement',
+                'placeholder',
+                'helperText',
+                'isTargetAmount',
+            ],
+        },
+    },
+    argTypes: {
+        size: {
+            options: size,
+            control: {
+                type: 'select',
+            },
+        },
+    },
+    args: {
+        size: 'm',
+    },
+    render: (args) => <CommonStory {...args} />,
 };

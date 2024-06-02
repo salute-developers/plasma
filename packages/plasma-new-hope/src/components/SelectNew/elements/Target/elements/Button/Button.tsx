@@ -11,11 +11,16 @@ const getLabel = ({ value, label, isTargetAmount, multiselect, valueToItemMap }:
         return label;
     }
 
+    if (multiselect && isTargetAmount) {
+        return `Выбрано: ${value.length}`;
+    }
+
     if (multiselect && Array.isArray(value)) {
         return value
             .map((value) => valueToItemMap.get(value)?.secondaryLabel || valueToItemMap.get(value)?.label)
             .join(', ');
     }
+
     return valueToItemMap.get(value)?.label;
 };
 
