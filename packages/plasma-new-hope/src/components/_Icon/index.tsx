@@ -7,3 +7,5 @@ export { IconChevronDown } from './Icons/IconChevronDown';
 export { IconClose } from './Icons/IconClose';
 export { IconCross } from './Icons/IconCross';
 export { IconDone } from './Icons/IconDone';
+export { IconDisclosureRightCentered } from './Icons/IconDisclosureRightCentered';
+export { IconDisclosureDownCentered } from './Icons/IconDisclosureDownCentered';

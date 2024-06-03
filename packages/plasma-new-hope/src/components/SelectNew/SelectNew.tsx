@@ -5,7 +5,7 @@ import { isEmpty } from '../../utils';
 import { useOutsideClick } from '../../hooks';
 
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
-import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors } from './utils';
+import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors, getView } from './utils';
 import { Inner } from './elements/Inner/Inner';
 import { SelectNotFoundContent } from './elements/SelectNotFoundContent/SelectNotFoundContent';
 import { Target } from './elements/Target/Target';
@@ -49,6 +49,7 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
             isInfiniteLoading,
             notFoundContent,
             chipView,
+            variant = 'normal',
             ...rest
         } = props;
 
@@ -177,7 +178,14 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
         const isCurrentListOpen = Boolean(path[0]);
 
         return (
-            <Root ref={ref} size={size} view={view} chipView={chipView} items={items} {...(rest as any)}>
+            <Root
+                ref={ref}
+                size={size}
+                view={getView(view, status)}
+                chipView={chipView}
+                items={items}
+                {...(rest as any)}
+            >
                 {label && labelPlacement === 'outer' && target !== 'button' && <OuterLabel>{label}</OuterLabel>}
 
                 <Context.Provider
@@ -188,6 +196,7 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
                         size,
                         handleCheckboxChange,
                         handleItemClick,
+                        variant,
                     }}
                 >
                     <StyledPopover
@@ -241,7 +250,7 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
                                     />
                                 ))}
 
-                                {!isInfiniteLoading && <InfiniteLoader />}
+                                {!isInfiniteLoading && <InfiniteLoader variant={variant} />}
                             </Ul>
                         )}
                     </StyledPopover>

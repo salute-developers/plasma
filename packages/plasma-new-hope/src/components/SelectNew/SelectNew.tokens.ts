@@ -7,6 +7,8 @@ export const classes = {
     textfieldTarget: 'select-textfield-target',
     selectChipIsFocused: 'select-chip-is-focused',
     selectWithoutBoxShadow: 'select-without-box-shadow',
+    selectItemCheckbox: 'select-item-checkbox',
+    selectSpinner: 'select-spinner',
 };
 
 export const tokens = {
@@ -23,11 +25,15 @@ export const tokens = {
     itemHeight: '--plasma-select-item-height',
     itemBorderRadius: '--plasma-select-item-border-radius',
     itemPadding: '--plasma-select-item-padding',
+    itemPaddingTight: '--plasma-select-item-padding-tight',
     itemIconSize: '--plasma-select-item-icon-size',
+    itemIconSizeTight: '--plasma-select-item-icon-size-tight',
     itemIconMargin: '--plasma-select-item-icon-margin',
 
     checkboxTriggerSize: '--plasma-select-checkbox-trigger-size',
+    checkboxTriggerSizeTight: '--plasma-select-checkbox-trigger-size-tight',
     checkboxTriggerBorderRadius: '--plasma-select-checkbox-trigger-border-radius',
+    checkboxTriggerBorderRadiusTight: '--plasma-select-checkbox-trigger-border-radius-tight',
     checkboxFillColor: '--plasma-select-checkbox-fill-color',
     checkboxIconColor: '--plasma-select-checkbox-icon-color',
     checkboxTriggerBorderColor: '--plasma-select-checkbox-trigger-border-color',
@@ -70,6 +76,7 @@ export const tokens = {
     helperTextOffset: '--plasma-select-helper-text-offset',
 
     spinnerSize: '--plasma-select-spinner-size',
+    spinnerSizeTight: '--plasma-select-spinner-size-tight',
 
     notFoundContentPadding: '--plasma-select-not-found-content-padding',
     notFoundContentGap: '--plasma-select-not-found-content-gap',

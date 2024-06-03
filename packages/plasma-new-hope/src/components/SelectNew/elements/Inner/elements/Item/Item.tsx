@@ -3,7 +3,7 @@ import React, { useEffect, useRef, FC, useContext } from 'react';
 import { sizeToIconSize } from '../../../../utils';
 import { classes } from '../../../../SelectNew.tokens';
 import { cx, isEmpty } from '../../../../../../utils';
-import { IconDisclosureRight, IconDone } from '../../../../../_Icon';
+import { IconDisclosureRightCentered, IconDone } from '../../../../../_Icon';
 import { Context } from '../../../../SelectNew';
 
 import { ItemProps } from './Item.types';
@@ -19,12 +19,14 @@ import {
 } from './Item.styles';
 
 export const Item: FC<ItemProps> = ({ item, path, currentLevel, index }) => {
-    const { value, label, disabled, isDisabled, contentLeft, contentRight } = item;
+    const { value, label, isDisabled, contentLeft, contentRight } = item;
     const ref = useRef<HTMLLIElement | null>(null);
 
-    const { focusedPath, checked, multiselect, size, handleCheckboxChange, handleItemClick } = useContext(Context);
+    const { focusedPath, checked, multiselect, size, handleCheckboxChange, handleItemClick, variant } = useContext(
+        Context,
+    );
 
-    const isDisabledClassName = disabled || isDisabled ? classes.dropdownItemIsDisabled : undefined;
+    const isDisabledClassName = isDisabled ? classes.dropdownItemIsDisabled : undefined;
     const focusedClass =
         currentLevel === focusedPath.length - 1 && index === focusedPath?.[currentLevel]
             ? classes.dropdownItemIsFocused
@@ -61,14 +63,16 @@ export const Item: FC<ItemProps> = ({ item, path, currentLevel, index }) => {
             id={value.toString()}
             ref={ref}
             onClick={handleClick}
+            variant={variant}
         >
-            <IconWrapper>
+            <IconWrapper variant={variant}>
                 {multiselect && (
                     <span onClick={(e) => e.stopPropagation()}>
                         <StyledCheckbox
                             checked={Boolean(checked.get(item.value))}
                             indeterminate={checked.get(item.value) === 'indeterminate'}
                             onChange={handleChange}
+                            className={classes.selectItemCheckbox}
                         />
                     </span>
                 )}
@@ -76,7 +80,7 @@ export const Item: FC<ItemProps> = ({ item, path, currentLevel, index }) => {
                 {!multiselect && checked.get(item.value) === 'dot' && <StyledIndicator size="s" view="default" />}
 
                 {!multiselect && checked.get(item.value) === 'done' && (
-                    <IconDone size={sizeToIconSize(size)} color="inherit" />
+                    <IconDone size={sizeToIconSize(size, variant)} color="inherit" />
                 )}
             </IconWrapper>
 
@@ -88,7 +92,7 @@ export const Item: FC<ItemProps> = ({ item, path, currentLevel, index }) => {
 
             {!isEmpty(item.items) && (
                 <DisclosureIconWrapper>
-                    <IconDisclosureRight size="xs" color="inherit" />
+                    <IconDisclosureRightCentered size={sizeToIconSize(size, variant)} color="inherit" />
                 </DisclosureIconWrapper>
             )}
         </Wrapper>

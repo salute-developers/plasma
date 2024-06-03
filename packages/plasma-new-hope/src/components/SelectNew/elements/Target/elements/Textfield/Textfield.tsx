@@ -17,6 +17,7 @@ import {
     InnerLabel,
     InnerLabelWrapper,
     ContentLeftWrapper,
+    Value,
 } from './Textfield.styles';
 
 const getLabel = ({
@@ -40,7 +41,7 @@ const getLabel = ({
     }
 
     if (multiselect && isTargetAmount) {
-        return <Chip text={`Выбрано: ${value.length}`} />;
+        return <Chip text={`Выбрано: ${value.length}`} isTargetAmount={isTargetAmount} />;
     }
 
     if (multiselect) {
@@ -57,13 +58,13 @@ const getLabel = ({
     }
 
     if (!label || labelPlacement === 'outer') {
-        return valueToItemMap.get(value).label;
+        return <Value>{valueToItemMap.get(value).label}</Value>;
     }
 
     return (
         <InnerLabelWrapper>
             {size !== 'xs' && <InnerLabel>{label}</InnerLabel>}
-            {valueToItemMap.get(value).label}
+            <Value>{valueToItemMap.get(value).label}</Value>
         </InnerLabelWrapper>
     );
 };

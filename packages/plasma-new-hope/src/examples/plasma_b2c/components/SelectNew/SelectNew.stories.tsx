@@ -17,6 +17,7 @@ const view = ['default', 'accent', 'secondary', 'clear', 'positive', 'warning', 
 const size = ['xs', 's', 'm', 'l'];
 const labelPlacement = ['inner', 'outer'];
 const chip = ['default', 'secondary', 'accent'];
+const variant = ['normal', 'tight'];
 
 const meta: Meta<StorySelectNewProps> = {
     title: 'plasma_b2c/SelectNew',
@@ -53,6 +54,12 @@ const meta: Meta<StorySelectNewProps> = {
                 type: 'select',
             },
         },
+        variant: {
+            options: variant,
+            control: {
+                type: 'select',
+            },
+        },
     },
     args: {
         target: 'button',
@@ -65,6 +72,7 @@ const meta: Meta<StorySelectNewProps> = {
         chipView: 'default',
         enableContentLeft: false,
         isTargetAmount: false,
+        variant: 'normal',
     },
 };
 
@@ -825,6 +833,7 @@ export const Common: StoryObj<StorySelectNewProps> = {
                 'placeholder',
                 'helperText',
                 'isTargetAmount',
+                'variant',
             ],
         },
     },

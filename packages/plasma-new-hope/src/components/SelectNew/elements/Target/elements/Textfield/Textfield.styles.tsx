@@ -1,8 +1,8 @@
 import { styled } from '@linaria/react';
 
 import { isEmpty } from '../../../../../../utils';
-import { applyEllipsis } from '../../../../../../mixins';
-import { IconChevronDown } from '../../../../../_Icon';
+import { applyEllipsis, addFocus } from '../../../../../../mixins';
+import { IconDisclosureDownCentered } from '../../../../../_Icon';
 import { component, mergeConfig } from '../../../../../../engines';
 import { buttonConfig, buttonTokens } from '../../../../../Button';
 import { tokens, classes, constants } from '../../../../SelectNew.tokens';
@@ -46,9 +46,16 @@ export const StyledButton = styled(Button)`
     ${buttonTokens.buttonLineHeight}: var(${tokens.fontLineHeight});
     ${buttonTokens.buttonDisabledOpacity}: 0.4;
     ${buttonTokens.buttonFocusColor}: var(${constants.focusColor});
+
+    ${addFocus({
+        outlineOffset: '0.0625rem',
+        outlineSize: `var(${tokens.chipFocusSize})`,
+        outlineRadius: `var(${tokens.borderRadius})`,
+        outlineColor: `var(${constants.focusColor})`,
+    })}
 `;
 
-export const StyledArrow = styled(IconChevronDown)``;
+export const StyledArrow = styled(IconDisclosureDownCentered)``;
 
 export const IconArrowWrapper = styled.div`
     line-height: 0;
@@ -73,8 +80,6 @@ export const Wrapper = styled.div`
 `;
 
 export const ChipWrapper = styled.div`
-    ${applyEllipsis()};
-
     width: 100%;
     display: flex;
     min-width: 0;
@@ -140,4 +145,8 @@ export const ContentLeftWrapper = styled.div`
     flex: none;
     margin-left: -2px;
     margin-right: 6px;
+`;
+
+export const Value = styled.span`
+    ${applyEllipsis()}
 `;
