@@ -10,6 +10,8 @@ const removeFillOpacity = (source: string) => source.replace(/fill-opacity="(.*?
 
 const setFillCurrentColor = (source: string) => source.replace(/fill="(.*?)"/gm, 'fill="currentColor"');
 
+const setStrokeCurrentColor = (source: string) => source.replace(/stroke="(.*?)"/gm, 'stroke="currentColor"');
+
 const convertCSSProperty = (source: string) =>
     source.replace(
         /([a-zA-Z-]*):(.*)/g,
@@ -33,6 +35,7 @@ export const getIconAsset = (source: string, iconName: string) => {
         removeLineBreak,
         getSvgContent,
         setFillCurrentColor,
+        setStrokeCurrentColor,
         removeFillOpacity,
         convertInlineStyleToObject,
         camelizeAttributes,
