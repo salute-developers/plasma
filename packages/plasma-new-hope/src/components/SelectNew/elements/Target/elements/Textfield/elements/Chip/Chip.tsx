@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
+import { SelectNewProps } from '../../../../../../SelectNew.types';
 import { classes } from '../../../../../../SelectNew.tokens';
 
 import { StyledChip } from './Chip.styles';
@@ -8,7 +9,8 @@ export const Chip: React.FC<{
     text: string;
     onClick?: (e: React.MouseEvent<HTMLElement>) => void;
     focused?: boolean;
-}> = ({ text, onClick, focused }) => {
+    isTargetAmount?: SelectNewProps['isTargetAmount'];
+}> = ({ text, onClick, focused, isTargetAmount }) => {
     const ref = useRef<HTMLButtonElement | null>(null);
 
     useEffect(() => {
@@ -23,7 +25,7 @@ export const Chip: React.FC<{
 
     return (
         <StyledChip
-            contentClearButton={<div />}
+            contentClearButton={isTargetAmount && <div />}
             tabIndex={-1}
             onClick={onClick}
             text={`${text}`}

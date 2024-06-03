@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
 
-import { tokens } from '../../SelectNew.tokens';
+import { tokens, classes } from '../../SelectNew.tokens';
 import { component } from '../../../../engines';
 import { spinnerConfig, spinnerTokens } from '../../../Spinner';
 
@@ -11,13 +11,13 @@ export const StyledSpinner = styled(Spinner)`
     ${spinnerTokens.size}: var(${tokens.spinnerSize});
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<any>`
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 4px;
     height: var(${tokens.itemHeight});
-    padding: var(${tokens.itemPadding});
+    padding: ${({ variant }) => `var(${variant === 'tight' ? tokens.itemPaddingTight : tokens.itemPadding})`};
     font-family: var(${tokens.fontFamily});
     font-size: var(${tokens.fontSize});
     font-style: var(${tokens.fontStyle});
@@ -25,4 +25,9 @@ export const Wrapper = styled.div`
     letter-spacing: var(${tokens.fontLetterSpacing});
     line-height: var(${tokens.fontLineHeight});
     user-select: none;
+
+    & .${classes.selectSpinner} {
+        ${spinnerTokens.size}: ${({ variant }) =>
+            `var(${variant === 'tight' ? tokens.spinnerSizeTight : tokens.spinnerSize})`};
+    }
 `;

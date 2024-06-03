@@ -97,6 +97,11 @@ type BasicProps = {
      * Компонент выпадающего списка при пустом массиве items.
      */
     notFoundContent?: React.ReactElement;
+    /**
+     * Вариант: обычный или сжатый
+     * @default normal
+     */
+    variant?: 'normal' | 'tight';
 
     /**
      * Размер компонента.
@@ -149,4 +154,5 @@ export type ItemContext = {
     size: SelectNewProps['size'];
     handleCheckboxChange: (item: ItemOptionTransformed) => void;
     handleItemClick: (item: ItemOptionTransformed, e: React.MouseEvent<HTMLElement>) => void;
+    variant: SelectNewProps['variant'];
 };

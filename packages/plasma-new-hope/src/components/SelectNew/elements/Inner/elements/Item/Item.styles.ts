@@ -43,15 +43,24 @@ export const DisclosureIconWrapper = styled.div`
     }
 `;
 
-export const IconWrapper = styled.div`
+export const IconWrapper = styled.div<any>`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(${tokens.itemIconSize});
-    height: var(${tokens.itemIconSize});
+    width: ${({ variant }) => `var(${variant === 'tight' ? tokens.itemIconSizeTight : tokens.itemIconSize})`};
+    height: ${({ variant }) => `var(${variant === 'tight' ? tokens.itemIconSizeTight : tokens.itemIconSize})`};
     margin: var(${tokens.itemIconMargin});
     line-height: 0;
     color: var(${tokens.checkboxFillColor});
+
+    & .${classes.selectItemCheckbox} {
+        --plasma-checkbox-trigger-size: ${({ variant }) =>
+            `var(${variant === 'tight' ? tokens.checkboxTriggerSizeTight : tokens.checkboxTriggerSize})`};
+        --plasma-checkbox-trigger-border-radius: ${({ variant }) =>
+            `var(${
+                variant === 'tight' ? tokens.checkboxTriggerBorderRadiusTight : tokens.checkboxTriggerBorderRadius
+            })`};
+    }
 `;
 
 export const StyledText = styled.div`
@@ -59,13 +68,13 @@ export const StyledText = styled.div`
     flex: 1;
 `;
 
-export const Wrapper = styled.li`
+export const Wrapper = styled.li<any>`
     display: flex;
     align-items: center;
     min-height: var(${tokens.itemHeight});
     margin: 0;
     box-sizing: content-box;
-    padding: var(${tokens.itemPadding});
+    padding: ${({ variant }) => `var(${variant === 'tight' ? tokens.itemPaddingTight : tokens.itemPadding})`};
     font-family: var(${tokens.fontFamily});
     font-size: var(${tokens.fontSize});
     font-style: var(${tokens.fontStyle});

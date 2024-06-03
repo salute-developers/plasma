@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react';
 
 import { applyEllipsis } from '../../../../../../mixins';
-import { IconChevronDown } from '../../../../../_Icon';
+import { IconDisclosureDownCentered } from '../../../../../_Icon';
 import { component, mergeConfig } from '../../../../../../engines';
 import { buttonConfig, buttonTokens } from '../../../../../Button';
 import { tokens, classes, constants } from '../../../../SelectNew.tokens';
@@ -39,7 +39,7 @@ export const IconArrowWrapper = styled.div`
     }
 `;
 
-export const StyledArrow = styled(IconChevronDown)`
+export const StyledArrow = styled(IconDisclosureDownCentered)`
     transition: color 0.3s ease-in, transform 0.15s ease-in;
     pointer-events: none;
     user-select: none;

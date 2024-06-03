@@ -4,3 +4,4 @@ export { updateAncestors } from './updateAncestors';
 export { updateSingleAncestors } from './updateSingleAncestors';
 export { sizeToIconSize } from './sizeToIconSize';
 export { getCorrectHeight } from './getCorrectHeight';
+export { getView } from './getView';
