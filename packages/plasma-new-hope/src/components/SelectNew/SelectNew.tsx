@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useReducer, useMemo, createContext } from 'react';
+import React, { forwardRef, useState, useReducer, useMemo, createContext, useEffect } from 'react';
 
 import { RootProps } from '../../engines';
 import { isEmpty } from '../../utils';
@@ -52,6 +52,10 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
             variant = 'normal',
             ...rest
         } = props;
+
+        useEffect(() => {
+            console.log('value changed');
+        }, [value]);
 
         const transformedItems = useMemo(() => initialItemsTransform(items), [items]);
 
@@ -224,6 +228,7 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
                                 labelPlacement={labelPlacement}
                                 size={size}
                                 contentLeft={contentLeft}
+                                disabled={disabled}
                             />
                         }
                         preventOverflow={false}

@@ -14,6 +14,7 @@ export type TargetProps = Pick<
     | 'labelPlacement'
     | 'placeholder'
     | 'contentLeft'
+    | 'disabled'
 > & {
     opened: boolean;
     valueToItemMap: any;

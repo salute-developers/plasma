@@ -83,6 +83,7 @@ export const Textfield: React.FC<TextfieldProps> = ({
     labelPlacement,
     size,
     contentLeft,
+    disabled,
 }) => {
     const withArrowInverse = opened ? classes.arrowInverse : undefined;
 
@@ -97,6 +98,7 @@ export const Textfield: React.FC<TextfieldProps> = ({
                     opened || focusedChipIndex !== null ? classes.selectWithoutBoxShadow : undefined,
                 )}
                 onKeyDown={onKeyDown}
+                disabled={disabled}
             >
                 <Wrapper>
                     {contentLeft && (!multiselect || isEmpty(value)) && (
