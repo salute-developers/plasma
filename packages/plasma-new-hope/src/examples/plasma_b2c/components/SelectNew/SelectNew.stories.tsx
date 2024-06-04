@@ -73,6 +73,7 @@ const meta: Meta<StorySelectNewProps> = {
         enableContentLeft: false,
         isTargetAmount: false,
         variant: 'normal',
+        disabled: false,
     },
 };
 
@@ -834,6 +835,7 @@ export const Common: StoryObj<StorySelectNewProps> = {
                 'helperText',
                 'isTargetAmount',
                 'variant',
+                'disabled',
             ],
         },
     },

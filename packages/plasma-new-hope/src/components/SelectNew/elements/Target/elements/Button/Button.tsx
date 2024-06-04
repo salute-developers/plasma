@@ -33,6 +33,7 @@ export const Button: React.FC<ButtonProps> = ({
     onKeyDown,
     label,
     size,
+    disabled,
 }) => {
     const withArrowInverse = opened ? classes.arrowInverse : undefined;
 
@@ -44,6 +45,7 @@ export const Button: React.FC<ButtonProps> = ({
                 stretching="filled"
                 onKeyDown={onKeyDown}
                 className={opened ? classes.selectWithoutBoxShadow : undefined}
+                disabled={disabled}
             >
                 <InnerWrapper>
                     <Label>
