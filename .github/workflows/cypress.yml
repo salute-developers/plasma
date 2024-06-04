@@ -13,6 +13,8 @@ concurrency:
 
 jobs:
   state:
+    # cypress checks for "release branch" run in cypress-release-branch.yml file
+    if: ${{ !startsWith(github.head_ref, 'release') }}
     uses: ./.github/workflows/change-detection.yml
     secrets: inherit
 
