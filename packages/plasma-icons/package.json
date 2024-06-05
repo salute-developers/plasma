@@ -45,11 +45,12 @@
   "scripts": {
     "prepare": "npm run build",
     "prebuild": "rm -rf ./es ./Icon* ./index.* ./old ./scalable ./scripts-build ./src-build ./android-icons && cp -r ./src ./src-build",
-    "build": "npm run generate:react && npm run build:cjs && npm run build:esm",
+    "build": "npm run generate:react && npm run build:cjs && npm run build:esm && npm run generate:meta",
     "postbuild": "tsc --outDir . --emitDeclarationOnly",
     "generate:android": "npm run build:scripts && node ./scripts-build/generateAndroidArchive.js && zip -r ./archives/android-icons.zip android-icons",
     "generate:react": "npm run build:scripts && node ./scripts-build/generateReactComponents.js",
     "generate:ios": "node ./scripts/generateIconsIos.mjs",
+    "generate:meta": "node ./scripts/generateMetaJSON.mjs",
     "build:scripts": "BABEL_ENV=cjs SC_NAMESPACE=plasma babel ./scripts --out-dir ./scripts-build --extensions .ts,.tsx",
     "build:cjs": "BABEL_ENV=cjs SC_NAMESPACE=plasma babel ./src-build --out-dir . --extensions .ts,.tsx",
     "build:esm": "BABEL_ENV=esm SC_NAMESPACE=plasma babel ./src-build --out-dir ./es --extensions .ts,.tsx",
@@ -66,7 +67,8 @@
     "IconRoot.js",
     "es",
     "scalable",
-    "old"
+    "old",
+    "meta.json"
   ],
   "contributors": [
     "Vasiliy Loginevskiy",
