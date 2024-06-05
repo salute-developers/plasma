@@ -41,9 +41,13 @@ export const tokens = {
 
     indicatorSize: '--plasma-select-indicator-size',
 
-    targetColor: '--plasma-select-target-color',
-    targetArrowColor: '--plasma-select-target-arrow-color',
-    targetArrowColorHover: '--plasma-select-target-arrow-color-hover',
+    buttonTargetColor: '--plasma-select-button-target-color',
+    targetButtonArrowColor: '--plasma-select-target-button-arrow-color',
+    targetButtonArrowColorHover: '--plasma-select-target-button-arrow-color-hover',
+    targetButtonArrowColorActive: '--plasma-select-target-button-arrow-color-active',
+    targetTextfieldArrowColor: '--plasma-select-target-textfield-arrow-color',
+    targetTextfieldArrowColorHover: '--plasma-select-target-textfield-arrow-color-hover',
+    targetTextfieldArrowColorActive: '--plasma-select-target-textfield-arrow-color-active',
     targetArrowMarginLeft: '--plasma-select-target-arrow-margin-left',
     targetButtonBackgroundColor: '--plasma-select-target-button-background-color',
     targetButtonBackgroundColorHover: '--plasma-select-target-button-background-color-hover',
@@ -91,7 +95,8 @@ export const constants = {
     disclosureIconColorHover: '--text-secondary-hover',
     itemBackground: '--plasma-colors-transparent',
     itemBackgroundHover: '--surface-transparent-secondary',
-    outerLabelColor: '--text-primary',
-    innerLabelColor: '--text-secondary',
-    placeholderColor: '--text-secondary',
+    textfieldTargetColor: '--text-primary',
+    textfieldOuterLabelColor: '--text-primary',
+    textfieldInnerLabelColor: '--text-secondary',
+    textfieldPlaceholderColor: '--text-secondary',
 };

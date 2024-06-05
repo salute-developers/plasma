@@ -44,7 +44,7 @@ export const base = css`
 export const OuterLabel = styled.label`
     display: block;
     margin-bottom: var(${tokens.labelOffset});
-    color: var(${constants.outerLabelColor});
+    color: var(${constants.textfieldOuterLabelColor});
 
     font-family: var(${tokens.fontFamily});
     font-size: var(${tokens.fontSize});

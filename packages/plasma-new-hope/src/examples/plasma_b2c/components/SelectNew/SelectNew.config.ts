@@ -241,100 +241,114 @@ export const config = {
         view: {
             default: css`
                 ${selectNewTokens.helperTextColor}: var(--text-secondary);
-
-                ${selectNewTokens.targetColor}: var(--inverse-text-primary);
-                ${selectNewTokens.targetArrowColor}: var(--inverse-text-secondary);
-                ${selectNewTokens.targetArrowColorHover}: var(--inverse-text-secondary-hover);
+                ${selectNewTokens.buttonTargetColor}: var(--inverse-text-primary);
+                ${selectNewTokens.targetButtonArrowColor}: var(--inverse-text-secondary);
+                ${selectNewTokens.targetButtonArrowColorHover}: var(--inverse-text-secondary-hover);
+                ${selectNewTokens.targetButtonArrowColorActive}: var(--inverse-text-secondary-hover);
+                ${selectNewTokens.targetTextfieldArrowColor}: var(--text-secondary);
+                ${selectNewTokens.targetTextfieldArrowColorHover}: var(--text-secondary-hover);
+                ${selectNewTokens.targetTextfieldArrowColorActive}: var(--text-secondary-hover);
                 ${selectNewTokens.targetButtonBackgroundColor}: var(--surface-solid-default);
                 ${selectNewTokens.targetButtonBackgroundColorHover}: var(--surface-solid-default-hover);
                 ${selectNewTokens.targetButtonBackgroundColorActive}: var(--surface-solid-default-hover);
-
                 ${selectNewTokens.targetTextfieldBackgroundColor}: var(--surface-transparent-primary);
                 ${selectNewTokens.targetTextfieldBackgroundColorOpened}: var(--surface-transparent-secondary);
             `,
             positive: css`
                 ${selectNewTokens.helperTextColor}: var(--text-positive);
-
-                ${selectNewTokens.targetColor}: var(--plasma-colors-primary);
-                ${selectNewTokens.targetArrowColor}: var(--text-secondary);
-                ${selectNewTokens.targetArrowColorHover}: var(--text-secondary-hover);
+                ${selectNewTokens.buttonTargetColor}: var(--on-dark-text-primary);
+                ${selectNewTokens.targetButtonArrowColor}: var(--on-dark-text-secondary);
+                ${selectNewTokens.targetButtonArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectNewTokens.targetButtonArrowColorActive}: var(--on-dark-text-secondary-hover);
+                ${selectNewTokens.targetTextfieldArrowColor}: var(--text-secondary);
+                ${selectNewTokens.targetTextfieldArrowColorHover}: var(--text-secondary-hover);
+                ${selectNewTokens.targetTextfieldArrowColorActive}: var(--text-secondary-hover);
                 ${selectNewTokens.targetButtonBackgroundColor}:var(--surface-positive);
                 ${selectNewTokens.targetButtonBackgroundColorHover}:var(--surface-positive-hover);
                 ${selectNewTokens.targetButtonBackgroundColorActive}:var(--surface-positive-active);
-
                 ${selectNewTokens.targetTextfieldBackgroundColor}: var(--surface-transparent-positive);
                 ${selectNewTokens.targetTextfieldBackgroundColorOpened}: var(--surface-transparent-positive-active);
             `,
             warning: css`
                 ${selectNewTokens.helperTextColor}: var(--text-warning);
-
-                ${selectNewTokens.targetColor}:var(--plasma-colors-primary);
-                ${selectNewTokens.targetArrowColor}: var(--text-secondary);
-                ${selectNewTokens.targetArrowColorHover}: var(--text-secondary-hover);
+                ${selectNewTokens.buttonTargetColor}: var(--on-dark-text-primary);
+                ${selectNewTokens.targetButtonArrowColor}: var(--on-dark-text-secondary);
+                ${selectNewTokens.targetButtonArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectNewTokens.targetButtonArrowColorActive}: var(--on-dark-text-secondary-hover);
+                ${selectNewTokens.targetTextfieldArrowColor}: var(--text-secondary);
+                ${selectNewTokens.targetTextfieldArrowColorHover}: var(--text-secondary-hover);
+                ${selectNewTokens.targetTextfieldArrowColorActive}: var(--text-secondary-hover);
                 ${selectNewTokens.targetButtonBackgroundColor}:var(--surface-warning);
                 ${selectNewTokens.targetButtonBackgroundColorHover}:var(--surface-warning-hover);
                 ${selectNewTokens.targetButtonBackgroundColorActive}:var(--surface-warning-active);
-
                 ${selectNewTokens.targetTextfieldBackgroundColor}: var(--surface-transparent-warning);
                 ${selectNewTokens.targetTextfieldBackgroundColorOpened}: var(--surface-transparent-warning-active);
             `,
             negative: css`
                 ${selectNewTokens.helperTextColor}: var(--text-negative);
-
-                ${selectNewTokens.targetColor}:var(--plasma-colors-primary);
-                ${selectNewTokens.targetArrowColor}: var(--text-secondary);
-                ${selectNewTokens.targetArrowColorHover}: var(--text-secondary-hover);
+                ${selectNewTokens.buttonTargetColor}: var(--on-dark-text-primary);
+                ${selectNewTokens.targetButtonArrowColor}: var(--on-dark-text-secondary);
+                ${selectNewTokens.targetButtonArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectNewTokens.targetButtonArrowColorActive}: var(--on-dark-text-secondary-hover);
+                ${selectNewTokens.targetTextfieldArrowColor}: var(--text-secondary);
+                ${selectNewTokens.targetTextfieldArrowColorHover}: var(--text-secondary-hover);
+                ${selectNewTokens.targetTextfieldArrowColorActive}: var(--text-secondary-hover);
                 ${selectNewTokens.targetButtonBackgroundColor}:var(--surface-negative);
                 ${selectNewTokens.targetButtonBackgroundColorHover}: var(--surface-negative-hover);
                 ${selectNewTokens.targetButtonBackgroundColorActive}:var(--surface-negative-active);
-
                 ${selectNewTokens.targetTextfieldBackgroundColor}: var(--surface-transparent-negative);
                 ${selectNewTokens.targetTextfieldBackgroundColorOpened}: var(--surface-transparent-negative-active);
             `,
             accent: css`
-                ${selectNewTokens.targetColor}: var(--on-dark-text-primary);
-                ${selectNewTokens.targetArrowColor}: var(--on-dark-text-secondary);
-                ${selectNewTokens.targetArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectNewTokens.buttonTargetColor}: var(--on-dark-text-primary);
+                ${selectNewTokens.targetButtonArrowColor}: var(--on-dark-text-secondary);
+                ${selectNewTokens.targetButtonArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectNewTokens.targetButtonArrowColorActive}: var(--on-dark-text-secondary-hover);
                 ${selectNewTokens.targetButtonBackgroundColor}: var(--surface-accent);
                 ${selectNewTokens.targetButtonBackgroundColorHover}: var(--surface-accent-hover);
                 ${selectNewTokens.targetButtonBackgroundColorActive}: var(--surface-accent-active);
             `,
             secondary: css`
-                ${selectNewTokens.targetColor}: var(--text-primary);
-                ${selectNewTokens.targetArrowColor}: var(--text-secondary);
-                ${selectNewTokens.targetArrowColorHover}: var(--text-secondary-hover);
+                ${selectNewTokens.buttonTargetColor}: var(--text-primary);
+                ${selectNewTokens.targetButtonArrowColor}: var(--text-secondary);
+                ${selectNewTokens.targetButtonArrowColorHover}: var(--text-secondary-hover);
+                ${selectNewTokens.targetButtonArrowColorActive}: var(--text-secondary-hover);
                 ${selectNewTokens.targetButtonBackgroundColor}: var(--surface-transparent-secondary);
                 ${selectNewTokens.targetButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
                 ${selectNewTokens.targetButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
             `,
             clear: css`
-                ${selectNewTokens.targetColor}: var(--text-primary);
-                ${selectNewTokens.targetArrowColor}: var(--text-secondary);
-                ${selectNewTokens.targetArrowColorHover}: var(--text-secondary-hover);
+                ${selectNewTokens.buttonTargetColor}: var(--text-primary);
+                ${selectNewTokens.targetButtonArrowColor}: var(--text-secondary);
+                ${selectNewTokens.targetButtonArrowColorHover}: var(--text-secondary-hover);
+                ${selectNewTokens.targetButtonArrowColorActive}: var(--text-secondary-active);
                 ${selectNewTokens.targetButtonBackgroundColor}: var(--surface-clear);
                 ${selectNewTokens.targetButtonBackgroundColorHover}: var(--surface-clear);
                 ${selectNewTokens.targetButtonBackgroundColorActive}: var(--surface-clear);
             `,
             dark: css`
-                ${selectNewTokens.targetColor}:var(--on-dark-text-primary);
-                ${selectNewTokens.targetArrowColor}:var(--on-dark-text-secondary);
-                ${selectNewTokens.targetArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectNewTokens.buttonTargetColor}: var(--on-dark-text-primary);
+                ${selectNewTokens.targetButtonArrowColor}: var(--on-dark-text-secondary);
+                ${selectNewTokens.targetButtonArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectNewTokens.targetButtonArrowColorActive}: var(--on-dark-text-secondary-active);
                 ${selectNewTokens.targetButtonBackgroundColor}:var(--on-light-surface-transparent-deep);
                 ${selectNewTokens.targetButtonBackgroundColorHover}:var(--on-light-surface-transparent-deep-hover);
                 ${selectNewTokens.targetButtonBackgroundColorActive}:var(--on-light-surface-transparent-deep-active);
             `,
             black: css`
-                ${selectNewTokens.targetColor}:var(--on-dark-text-primary);
-                ${selectNewTokens.targetArrowColor}:var(--on-dark-text-secondary);
-                ${selectNewTokens.targetArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectNewTokens.buttonTargetColor}: var(--on-dark-text-primary);
+                ${selectNewTokens.targetButtonArrowColor}: var(--on-dark-text-secondary);
+                ${selectNewTokens.targetButtonArrowColorHover}: var(--on-dark-text-secondary-hover);
+                ${selectNewTokens.targetButtonArrowColorActive}: var(--on-dark-text-secondary-active);
                 ${selectNewTokens.targetButtonBackgroundColor}:var(--on-light-surface-solid-default);
                 ${selectNewTokens.targetButtonBackgroundColorHover}:var(--on-light-surface-solid-default-hover);
                 ${selectNewTokens.targetButtonBackgroundColorActive}: var(--on-light-surface-solid-default-active);
             `,
             white: css`
-                ${selectNewTokens.targetColor}: var(--on-light-text-primary);
-                ${selectNewTokens.targetArrowColor}: var(--on-light-text-secondary);
-                ${selectNewTokens.targetArrowColorHover}: var(--on-light-text-secondary-hover);
+                ${selectNewTokens.buttonTargetColor}: var(--on-light-text-primary);
+                ${selectNewTokens.targetButtonArrowColor}: var(--on-light-text-secondary);
+                ${selectNewTokens.targetButtonArrowColorHover}: var(--on-light-text-secondary-hover);
+                ${selectNewTokens.targetButtonArrowColorActive}: var(--on-light-text-secondary-active);
                 ${selectNewTokens.targetButtonBackgroundColor}:var(--on-dark-surface-solid-default);
                 ${selectNewTokens.targetButtonBackgroundColorHover}:var(--on-dark-surface-solid-default-hover);
                 ${selectNewTokens.targetButtonBackgroundColorActive}:var(--on-dark-surface-solid-default-active);

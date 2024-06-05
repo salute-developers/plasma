@@ -276,7 +276,7 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
                     </StyledPopover>
                 </Context.Provider>
 
-                {helperText && <HelperText>{helperText}</HelperText>}
+                {helperText && target === 'textfield' && <HelperText>{helperText}</HelperText>}
             </Root>
         );
     });

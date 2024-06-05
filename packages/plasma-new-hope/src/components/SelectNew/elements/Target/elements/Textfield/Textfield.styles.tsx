@@ -34,10 +34,10 @@ export const c2 = {
 };
 
 export const StyledButton = styled(Button)`
-    ${buttonTokens.buttonColor}: var(${tokens.targetColor});
+    ${buttonTokens.buttonColor}: var(${constants.textfieldTargetColor});
     ${buttonTokens.buttonBackgroundColor}: var(${tokens.targetTextfieldBackgroundColor});
-    ${buttonTokens.buttonColorHover}: var(${tokens.targetColor});
-    ${buttonTokens.buttonColorActive}: var(${tokens.targetColor});
+    ${buttonTokens.buttonColorHover}: var(${constants.textfieldTargetColor});
+    ${buttonTokens.buttonColorActive}: var(${constants.textfieldTargetColor});
     ${buttonTokens.buttonHeight}: var(${tokens.targetHeight});
     ${buttonTokens.buttonWidth}: 100%;
     ${buttonTokens.buttonPadding}: var(${tokens.targetTextfieldPadding});
@@ -64,10 +64,14 @@ export const StyledArrow = styled(IconDisclosureDownCentered)``;
 export const IconArrowWrapper = styled.div`
     line-height: 0;
     margin: 0 0 0 var(${tokens.targetArrowMarginLeft});
-    color: var(${tokens.targetArrowColor});
+    color: var(${tokens.targetTextfieldArrowColor});
 
     &:hover {
-        color: var(${tokens.targetArrowColorHover});
+        color: var(${tokens.targetTextfieldArrowColorHover});
+    }
+
+    &:active {
+        color: var(${tokens.targetTextfieldArrowColorActive});
     }
 `;
 
@@ -102,7 +106,7 @@ export const ChipWrapper = styled.div`
 `;
 
 export const Label = styled.label`
-    color: var(${constants.innerLabelColor});
+    color: var(${constants.textfieldInnerLabelColor});
     font-family: var(${tokens.fontFamily});
     font-size: var(${tokens.fontSize});
     font-style: var(${tokens.fontStyle});
@@ -112,7 +116,7 @@ export const Label = styled.label`
 `;
 
 export const Placeholder = styled.div`
-    color: var(${constants.placeholderColor});
+    color: var(${constants.textfieldPlaceholderColor});
     font-family: var(${tokens.fontFamily});
     font-size: var(${tokens.fontSize});
     font-style: var(${tokens.fontStyle});
@@ -135,7 +139,7 @@ export const InnerLabelWrapper = styled.div`
 `;
 
 export const InnerLabel = styled.label`
-    color: var(${constants.innerLabelColor});
+    color: var(${constants.textfieldInnerLabelColor});
     font-family: var(--plasma-typo-body-xs-font-family);
     font-size: var(--plasma-typo-body-xs-font-size);
     font-style: var(--plasma-typo-body-xs-font-style);
