@@ -1,6 +1,6 @@
-import React, { Children, forwardRef, useMemo, useState } from 'react';
+import React, { Children, forwardRef, useState } from 'react';
 
-import { RootProps } from '../../engines';
+import { RootPropsOmitOnChange } from '../../engines';
 import { cx } from '../../utils';
 
 import type { AccordionProps } from './Accordion.types';
@@ -10,25 +10,45 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { getChildren } from './utils';
 
-export const accordionRoot = (Root: RootProps<HTMLDivElement, AccordionProps>) =>
+export const accordionRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, AccordionProps>) =>
     forwardRef<HTMLDivElement, AccordionProps>(
-        ({ size, view, stretching = 'filled', children, className, once }, outerRootRef) => {
+        (
+            {
+                size,
+                view,
+                stretching = 'filled',
+                defaultActiveEventKey = [],
+                children,
+                disabled,
+                className,
+                singleActive,
+                onChange,
+            },
+            outerRootRef,
+        ) => {
             const stretchingClass = classes[`${stretching}Stretching` as keyof typeof classes];
 
-            const [activeIndex, setActiveIndex] = useState<number | undefined>();
+            const [activeIndex, setActiveIndex] = useState<number[]>(defaultActiveEventKey);
 
-            const updateValue = (index?: number, value?: boolean) => {
-                value && setActiveIndex(index);
+            const updateValue = (index: number, value?: boolean) => {
+                if (onChange) {
+                    onChange(index, value);
+                }
+                if (singleActive) {
+                    if (value) {
+                        setActiveIndex([index]);
+                    } else {
+                        setActiveIndex([]);
+                    }
+                } else if (value) {
+                    setActiveIndex([index, ...activeIndex]);
+                } else {
+                    const updatedActiveIndex = activeIndex.filter((i) => i !== index);
+                    setActiveIndex(updatedActiveIndex);
+                }
             };
 
-            const childrenArray = useMemo(() => Children.toArray(children), [children]) as React.ReactElement[];
-
-            const childrenMemo = useMemo(() => getChildren(childrenArray, activeIndex, updateValue), [
-                activeIndex,
-                updateValue,
-                childrenArray,
-            ]);
-
+            const childrenArray = Children.toArray(children) as React.ReactElement[];
             return (
                 <Root
                     ref={outerRootRef}
@@ -36,7 +56,7 @@ export const accordionRoot = (Root: RootProps<HTMLDivElement, AccordionProps>) =
                     view={view}
                     className={cx(stretchingClass, classes.accordionRoot, className)}
                 >
-                    {once ? childrenMemo : children}
+                    {getChildren(childrenArray, activeIndex, disabled, updateValue)}
                 </Root>
             );
         },

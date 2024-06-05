@@ -118,9 +118,5 @@ export const config = {
                 ${accordionTokens.accordionItemTextLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
         },
-        stretching: {
-            filled: css``,
-            fixed: css``,
-        },
     },
 };

@@ -6,6 +6,6 @@ const mergedConfig = mergeConfig(accordionConfig, config);
 const AccordionComponent = component(mergedConfig);
 
 /**
- * Cell
+ * Accordion
  */
 export const Accordion = AccordionComponent;

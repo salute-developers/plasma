@@ -300,8 +300,11 @@ fixed: string;
 }> & {
 view: string;
 size?: string | undefined;
-once?: boolean | undefined;
+singleActive?: boolean | undefined;
+defaultActiveEventKey?: number[] | undefined;
+disabled?: boolean | undefined;
 stretching?: "fixed" | "filled" | undefined;
+onChange?: ((index?: number | undefined, value?: boolean | undefined) => void) | undefined;
 children?: ReactNode;
 className?: string | undefined;
 } & RefAttributes<HTMLDivElement>>;

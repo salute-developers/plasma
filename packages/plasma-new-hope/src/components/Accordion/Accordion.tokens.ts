@@ -6,6 +6,7 @@ export const classes = {
     clearAccordionItem: 'clear-accordion-item',
     accordionItemShowBody: 'accordion-item-show-body',
     accordionPlusAnimationElement: 'accordion-plus-animation-element',
+    accordionDisabled: 'accordion-disabled',
 };
 
 export const tokens = {

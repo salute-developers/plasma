@@ -15,12 +15,12 @@ const meta: Meta<typeof Accordion> = {
     decorators: [WithTheme],
     component: Accordion,
     args: {
-        once: true,
+        singleActive: false,
         view: 'default',
         size: 'm',
         stretching: 'filled',
-        pin: 'square-square',
         type: 'arrow',
+        disabled: false,
         title: 'Как оплатить заправку бонусами СберСпасибо?',
         body:
             'После указания деталей заправки нажмите кнопку «К оплате». Откроется окно оплаты, где вы сможете списать бонусы и оплатить ими до 99% стоимости топлива',
@@ -28,22 +28,6 @@ const meta: Meta<typeof Accordion> = {
     argTypes: {
         ...argTypesFromConfig(mergeConfig(accordionConfig, config)),
         ...disableProps(['text']),
-        pin: {
-            options: [
-                'square-square',
-                'square-clear',
-                'clear-square',
-                'clear-clear',
-                'clear-circle',
-                'circle-clear',
-                'circle-circle',
-                '',
-            ],
-            control: {
-                type: 'select',
-            },
-            table: { defaultValue: { summary: 'bottom' } },
-        },
         stretching: {
             options: ['filled', 'fixed'],
             control: {
@@ -67,9 +51,15 @@ export const Default: StoryObj<ComponentProps<typeof Accordion>> = {
 
         return (
             <Accordion {...args}>
-                <AccordionItem type={args.type} pin={args.pin} title={args.title} body={args.body} />
-                <AccordionItem type={args.type} pin={args.pin} title={args.title} body={args.body} />
-                <AccordionItem type={args.type} pin={args.pin} title={args.title} body={args.body} />
+                <AccordionItem type={args.type} pin={args.pin} title={args.title}>
+                    {args.body}
+                </AccordionItem>
+                <AccordionItem type={args.type} pin={args.pin} title={args.title}>
+                    {args.body}
+                </AccordionItem>
+                <AccordionItem type={args.type} pin={args.pin} title={args.title}>
+                    {args.body}
+                </AccordionItem>
             </Accordion>
         );
     },
