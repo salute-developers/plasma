@@ -102,6 +102,23 @@ type BasicProps = {
      * @default normal
      */
     variant?: 'normal' | 'tight';
+    /**
+     * Значение css overflow для выпадающего меню.
+     * @default initial
+     * @example listOverflow="scroll"
+     */
+    listOverflow?: CSSProperties['overflow'];
+    /**
+     * Значение css height для выпадающего меню.
+     * @default initial
+     * @example listHeight="11", listHeight="auto", listHeight={11}
+     */
+    listHeight?: number | CSSProperties['height'];
+    /**
+     * Портал для выпадающего списка. Принимает id контейнера или ref.
+     */
+    portal?: string | React.RefObject<HTMLElement>;
+    renderTargetLabel?: any;
 
     /**
      * Размер компонента.
@@ -121,20 +138,6 @@ type BasicProps = {
      * @deprecated
      */
     isOpen?: boolean;
-    /**
-     * Значение css overflow для выпадающего меню.
-     * @default initial
-     * @deprecated
-     * @example listOverflow="scroll"
-     */
-    listOverflow?: CSSProperties['overflow'];
-    /**
-     * Значение css height для выпадающего меню.
-     * @default initial
-     * @deprecated
-     * @example listHeight="11", listHeight="auto", listHeight={11}
-     */
-    listHeight?: number | CSSProperties['height'];
     /**
      * Статус селекта.
      * @deprecated

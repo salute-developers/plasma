@@ -47,7 +47,7 @@ const getLabel = ({
     if (multiselect) {
         return value.map((currentValue, index) => (
             <Chip
-                text={valueToItemMap.get(currentValue)?.secondaryLabel || valueToItemMap.get(currentValue)?.label}
+                text={valueToItemMap.get(currentValue)?.label}
                 onClick={(e: React.MouseEvent<HTMLElement>) => {
                     e.stopPropagation();
                     onChipClick(currentValue);

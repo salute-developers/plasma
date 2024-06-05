@@ -38,4 +38,8 @@ export const StyledContentClear = styled.div`
     margin-left: var(${tokens.clearContentMarginLeft});
     margin-right: var(${tokens.clearContentMarginRight});
     color: var(${tokens.closeIconColor});
+
+    :hover {
+        color: red;
+    }
 `;
