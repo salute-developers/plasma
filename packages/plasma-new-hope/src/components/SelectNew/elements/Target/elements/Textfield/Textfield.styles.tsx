@@ -29,6 +29,10 @@ export const TextfieldWrapper = styled.div<any>`
     }
 `;
 
+export const c2 = {
+    focusSize: '6.25rem',
+};
+
 export const StyledButton = styled(Button)`
     ${buttonTokens.buttonColor}: var(${tokens.targetColor});
     ${buttonTokens.buttonBackgroundColor}: var(${tokens.targetTextfieldBackgroundColor});
@@ -48,10 +52,10 @@ export const StyledButton = styled(Button)`
     ${buttonTokens.buttonFocusColor}: var(${constants.focusColor});
 
     ${addFocus({
-        outlineOffset: '0.0625rem',
-        outlineSize: `var(${tokens.chipFocusSize})`,
-        outlineRadius: `var(${tokens.borderRadius})`,
-        outlineColor: `var(${constants.focusColor})`,
+        outlineOffset: `calc(var(${tokens.focusOffset}) * -1)`,
+        outlineSize: constants.focusSize,
+        outlineRadius: `calc(var(${tokens.borderRadius}) + var(${tokens.focusOffset}))`,
+        outlineColor: constants.focusColor,
     })}
 `;
 
@@ -83,7 +87,7 @@ export const ChipWrapper = styled.div`
     width: 100%;
     display: flex;
     min-width: 0;
-    padding: calc(var(${tokens.chipFocusSize}) * 2);
+    padding: calc(${constants.focusSize} + var(${tokens.focusOffset}));
     gap: 0.25rem;
     overflow-x: scroll;
     border-top-right-radius: var(${tokens.chipBorderRadius});

@@ -18,6 +18,8 @@ export const tokens = {
     focusColor: '--plasma-chip-focus-color',
     outlineSize: '--plasma-chip-outline-size',
     closeIconColor: '--plasma-chip-close-icon-color',
+    closeIconColorHover: '--plasma-chip-close-icon-color-hover',
+    closeIconColorActive: '--plasma-chip-close-icon-color-active',
 
     borderRadius: '--plasma-chip-border-radius',
     pilledBorderRadius: '--plasma-chip-pilled-border-radius',

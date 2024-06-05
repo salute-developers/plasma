@@ -14,6 +14,7 @@ export const classes = {
 export const tokens = {
     borderRadius: '--plasma-select-border-radius',
     padding: '--plasma-select-padding',
+    focusOffset: '--plasma-select-focus-offset',
 
     fontFamily: '--plasma-select-font-family',
     fontSize: '--plasma-select-font-size',
@@ -66,7 +67,6 @@ export const tokens = {
     chipCloseIconSize: '--plasma-select-chip-close-icon-size',
     chipClearContentMarginLeft: '--plasma-select-chip-clear-content-margin-left',
     chipClearContentMarginRight: '--plasma-select-chip-clear-content-margin-right',
-    chipFocusSize: '--plasma-select-chip-focus-size',
 
     labelOffset: '--plasma-select-label-offset',
 
@@ -84,6 +84,7 @@ export const tokens = {
 
 export const constants = {
     focusColor: '--surface-accent',
+    focusSize: '0.0625rem',
     background: '--surface-solid-card',
     boxShadow: '--shadow-down-soft-s',
     disclosureIconColor: '--text-secondary',

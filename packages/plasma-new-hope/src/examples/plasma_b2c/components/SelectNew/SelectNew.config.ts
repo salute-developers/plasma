@@ -12,6 +12,7 @@ export const config = {
             xs: css`
                 ${selectNewTokens.padding}: 0.125rem;
                 ${selectNewTokens.borderRadius}: 0.5rem;
+                ${selectNewTokens.focusOffset}: 0.125rem;
 
                 ${selectNewTokens.itemHeight}: 1rem;
                 ${selectNewTokens.itemPadding}: 0.5rem 0.5rem 0.5rem 0.375rem;
@@ -46,7 +47,6 @@ export const config = {
                 ${selectNewTokens.chipClearContentMarginLeft}: 0.25rem;
                 ${selectNewTokens.chipClearContentMarginRight}: 0rem;
                 ${selectNewTokens.chipCloseIconSize}: 0.75rem;
-                ${selectNewTokens.chipFocusSize}: 0.0625rem;
 
                 ${selectNewTokens.targetArrowMarginLeft}: 0.375rem;
                 ${selectNewTokens.targetHeight}: 2rem;
@@ -69,6 +69,7 @@ export const config = {
             s: css`
                 ${selectNewTokens.padding}: 0.125rem;
                 ${selectNewTokens.borderRadius}: 0.625rem;
+                ${selectNewTokens.focusOffset}: 0.125rem;
 
                 ${selectNewTokens.itemHeight}: 1.5rem;
                 ${selectNewTokens.itemPadding}: 0.5rem 0.75rem 0.5rem 0.675rem;
@@ -103,7 +104,6 @@ export const config = {
                 ${selectNewTokens.chipClearContentMarginLeft}: 0.375rem;
                 ${selectNewTokens.chipClearContentMarginRight}: 0rem;
                 ${selectNewTokens.chipCloseIconSize}: 0.75rem;
-                ${selectNewTokens.chipFocusSize}: 0.0625rem;
 
                 ${selectNewTokens.targetArrowMarginLeft}: 0.375rem;
                 ${selectNewTokens.targetHeight}: 2.5rem;
@@ -126,6 +126,7 @@ export const config = {
             m: css`
                 ${selectNewTokens.padding}: 0.125rem;
                 ${selectNewTokens.borderRadius}: 0.75rem;
+                ${selectNewTokens.focusOffset}: 0.125rem;
 
                 ${selectNewTokens.itemHeight}: 1.5rem;
                 ${selectNewTokens.itemPadding}: 0.75rem 0.75rem 0.75rem 0.75rem;
@@ -160,7 +161,6 @@ export const config = {
                 ${selectNewTokens.chipClearContentMarginLeft}: 0.5rem;
                 ${selectNewTokens.chipClearContentMarginRight}: 0rem;
                 ${selectNewTokens.chipCloseIconSize}: 1rem;
-                ${selectNewTokens.chipFocusSize}: 0.0625rem;
 
                 ${selectNewTokens.targetArrowMarginLeft}: 0.625rem;
                 ${selectNewTokens.targetHeight}: 3rem;
@@ -183,6 +183,7 @@ export const config = {
             l: css`
                 ${selectNewTokens.padding}: 0.125rem;
                 ${selectNewTokens.borderRadius}: 0.875rem;
+                ${selectNewTokens.focusOffset}: 0.125rem;
 
                 ${selectNewTokens.itemHeight}: 1.5rem;
                 ${selectNewTokens.itemPadding}: 1rem 1rem 1rem 0.875rem;
@@ -217,7 +218,6 @@ export const config = {
                 ${selectNewTokens.chipClearContentMarginLeft}: 0.625rem;
                 ${selectNewTokens.chipClearContentMarginRight}: 0rem;
                 ${selectNewTokens.chipCloseIconSize}: 1rem;
-                ${selectNewTokens.chipFocusSize}: 0.0625rem;
 
                 ${selectNewTokens.targetArrowMarginLeft}: 0.75rem;
                 ${selectNewTokens.targetHeight}: 3.5rem;
@@ -242,12 +242,12 @@ export const config = {
             default: css`
                 ${selectNewTokens.helperTextColor}: var(--text-secondary);
 
-                ${selectNewTokens.targetColor}: var(--text-primary);
-                ${selectNewTokens.targetArrowColor}: var(--text-secondary);
-                ${selectNewTokens.targetArrowColorHover}: var(--text-secondary-hover);
-                ${selectNewTokens.targetButtonBackgroundColor}: var(--surface-transparent-secondary);
-                ${selectNewTokens.targetButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${selectNewTokens.targetButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${selectNewTokens.targetColor}: var(--inverse-text-primary);
+                ${selectNewTokens.targetArrowColor}: var(--inverse-text-secondary);
+                ${selectNewTokens.targetArrowColorHover}: var(--inverse-text-secondary-hover);
+                ${selectNewTokens.targetButtonBackgroundColor}: var(--surface-solid-default);
+                ${selectNewTokens.targetButtonBackgroundColorHover}: var(--surface-solid-default-hover);
+                ${selectNewTokens.targetButtonBackgroundColorActive}: var(--surface-solid-default-hover);
 
                 ${selectNewTokens.targetTextfieldBackgroundColor}: var(--surface-transparent-primary);
                 ${selectNewTokens.targetTextfieldBackgroundColorOpened}: var(--surface-transparent-secondary);

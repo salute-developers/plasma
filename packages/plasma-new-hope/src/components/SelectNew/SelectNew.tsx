@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useReducer, useMemo, createContext, useEffect } from 'react';
+import React, { forwardRef, useState, useReducer, useMemo, createContext, useLayoutEffect } from 'react';
 
 import { RootProps } from '../../engines';
 import { isEmpty } from '../../utils';
@@ -9,7 +9,6 @@ import { initialItemsTransform, updateAncestors, updateDescendants, updateSingle
 import { Inner } from './elements/Inner/Inner';
 import { SelectNotFoundContent } from './elements/SelectNotFoundContent/SelectNotFoundContent';
 import { Target } from './elements/Target/Target';
-import { InfiniteLoader } from './elements/InfiniteLoader/InfiniteLoader';
 import { pathReducer, focusedPathReducer, focusedChipIndexReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
 import { StyledPopover, Ul, base, OuterLabel, HelperText } from './SelectNew.styles';
@@ -50,20 +49,14 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
             notFoundContent,
             chipView,
             variant = 'normal',
+            portal,
+            renderTargetLabel,
             ...rest
         } = props;
 
-        useEffect(() => {
-            console.log('value changed');
-        }, [value]);
-
         const transformedItems = useMemo(() => initialItemsTransform(items), [items]);
 
-        const [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap] = usePathMaps(
-            transformedItems,
-            value,
-            multiselect,
-        );
+        const [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap] = usePathMaps(transformedItems);
 
         const [path, dispatchPath] = useReducer(pathReducer, []);
         const [focusedPath, dispatchFocusedPath] = useReducer(focusedPathReducer, []);
@@ -71,7 +64,9 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
         const [checked, setChecked] = useState(valueToCheckedMap);
 
         const targetRef = useOutsideClick(() => {
-            dispatchFocusedChipIndex({ type: 'reset' });
+            if (focusedChipIndex != null) {
+                dispatchFocusedChipIndex({ type: 'reset' });
+            }
         });
 
         const handleToggle = (opened: boolean) => {
@@ -106,16 +101,16 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
             });
 
             onChange(newValues as any);
-
-            setChecked(checkedCopy);
         };
 
-        const handleItemClick = (item: ItemOptionTransformed, e: React.MouseEvent<HTMLElement>) => {
-            if (isEmpty(item.items)) {
+        const handleItemClick = (item: ItemOptionTransformed, e?: React.MouseEvent<HTMLElement>) => {
+            if (isEmpty(item?.items)) {
                 if (multiselect) {
                     handleCheckboxChange(item);
                 } else {
-                    e.stopPropagation();
+                    if (e) {
+                        e.stopPropagation();
+                    }
 
                     const checkedCopy = new Map(checked);
 
@@ -131,8 +126,6 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
                     }
 
                     onChange((isCurrentChecked ? '' : item.value) as any);
-
-                    setChecked(checkedCopy);
                 }
             }
         };
@@ -181,6 +174,30 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
 
         const isCurrentListOpen = Boolean(path[0]);
 
+        // В данном эффекте мы следим за изменениями value и вносим коррективы в дерево чекбоксов.
+        useLayoutEffect(() => {
+            const checkedCopy = new Map(checked);
+
+            checkedCopy.forEach((_, key) => {
+                checkedCopy.set(key, false);
+            });
+
+            if (!isEmpty(value)) {
+                if (multiselect && Array.isArray(value)) {
+                    value.forEach((val) => {
+                        checkedCopy.set(val, true);
+                        updateDescendants(valueToItemMap.get(val), checkedCopy, true);
+                        updateAncestors(valueToItemMap.get(val), checkedCopy);
+                    });
+                } else {
+                    checkedCopy.set(value as string, 'done');
+                    updateSingleAncestors(valueToItemMap.get(value as string), checkedCopy, 'dot');
+                }
+            }
+
+            setChecked(checkedCopy);
+        }, [value]);
+
         return (
             <Root
                 ref={ref}
@@ -206,12 +223,11 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
                     <StyledPopover
                         ref={targetRef}
                         isOpen={isCurrentListOpen}
-                        usePortal={false}
+                        usePortal={Boolean(portal)}
+                        frame={portal}
                         placement="bottom-start"
                         onToggle={handleToggle}
                         trigger="click"
-                        isFocusTrapped={false}
-                        frame="document"
                         target={
                             <Target
                                 opened={isCurrentListOpen}
@@ -229,6 +245,7 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
                                 size={size}
                                 contentLeft={contentLeft}
                                 disabled={disabled}
+                                renderTargetLabel={renderTargetLabel}
                             />
                         }
                         preventOverflow={false}
@@ -254,8 +271,6 @@ export const selectNewRoot = (Root: RootProps<HTMLButtonElement, SelectNewProps>
                                         index={index}
                                     />
                                 ))}
-
-                                {!isInfiniteLoading && <InfiniteLoader variant={variant} />}
                             </Ul>
                         )}
                     </StyledPopover>
