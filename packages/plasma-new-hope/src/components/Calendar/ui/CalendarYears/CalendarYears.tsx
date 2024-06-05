@@ -57,7 +57,7 @@ export const CalendarYears: React.FC<CalendarYearsProps> = ({
                 <StyledFlex role="row" key={i}>
                     {year.map(({ yearValue, isSelected, isCurrent }, j) => {
                         const selectedClass = isSelected ? classes.selectedItem : undefined;
-                        const currentClass = !isSelected && isCurrent ? classes.currentItem : undefined;
+                        const currentClass = isCurrent ? classes.currentItem : undefined;
 
                         return (
                             <StyledYearRoot

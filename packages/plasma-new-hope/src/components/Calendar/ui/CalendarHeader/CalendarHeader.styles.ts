@@ -1,36 +1,92 @@
 import { styled } from '@linaria/react';
 
-import { buttonFocus, flexCenter } from '../../mixins';
-import { tokens } from '../../Calendar.tokens';
+import { classes, tokens } from '../../Calendar.tokens';
+import { component, mergeConfig } from '../../../../engines';
+import { iconButtonConfig, iconButtonTokens } from '../../../IconButton';
+import { flexCenter } from '../../mixins';
+import { addFocus } from '../../../../mixins';
+
+const mergedIconButtonConfig = mergeConfig(iconButtonConfig);
+const IconButton = component(mergedIconButtonConfig);
 
 export const StyledCalendarHeader = styled.div`
-    padding: 1rem 1.5rem 0;
-    font-family: var(${tokens.calendarHeaderFontFamily});
-    font-size: var(${tokens.calendarHeaderFontSize});
-    font-style: var(${tokens.calendarHeaderFontStyle});
-    font-weight: var(${tokens.calendarHeaderFontWeightBold});
-    letter-spacing: var(${tokens.calendarHeaderFontLetterSpacing});
-    line-height: var(${tokens.calendarHeaderFontLineHeight});
-
     display: flex;
     justify-content: space-between;
     align-items: center;
 `;
 
-export const StyledHeader = styled(buttonFocus)`
+export const StyledHeader = styled.button`
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    outline: none;
     color: var(${tokens.calendarContentPrimaryColor});
-    cursor: pointer;
-    padding: 0.5rem 0;
     font-family: var(${tokens.calendarHeaderFontFamily});
     font-size: var(${tokens.calendarHeaderFontSize});
     font-style: var(${tokens.calendarHeaderFontStyle});
     font-weight: var(${tokens.calendarHeaderFontWeightBold});
     letter-spacing: var(${tokens.calendarHeaderFontLetterSpacing});
     line-height: var(${tokens.calendarHeaderFontLineHeight});
+    padding: var(${tokens.calendarHeaderPadding});
 
+    cursor: pointer;
     display: flex;
+    gap: var(${tokens.calendarHeaderDateGap});
     justify-content: space-between;
     align-items: center;
+
+    ${addFocus({
+        outlineSize: '0.063rem',
+        outlineOffset: '-0.125rem',
+        outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
+        outlineRadius: '0.563rem',
+    })};
+`;
+
+export const StyledHeaderDate = styled.span`
+    ${flexCenter};
+    pointer-events: none;
+`;
+
+export const StyledArrows = styled.div`
+    display: flex;
+    gap: var(${tokens.calendarHeaderArrowGap});
+    padding: var(${tokens.calendarHeaderArrowPadding});
+`;
+
+// NOTE: переопределение токенов IconButton
+export const StyledArrow = styled(IconButton)`
+    ${iconButtonTokens.iconButtonColor}: var(${tokens.iconButtonColor});
+    ${iconButtonTokens.iconButtonBackgroundColor}: var(${tokens.iconButtonBackgroundColor});
+    ${iconButtonTokens.iconButtonColorHover}: var(${tokens.iconButtonColorHover});
+    ${iconButtonTokens.iconButtonBackgroundColorHover}: var(${tokens.iconButtonBackgroundColorHover});
+    ${iconButtonTokens.iconButtonColorActive}: var(${tokens.iconButtonColorActive});
+    ${iconButtonTokens.iconButtonBackgroundColorActive}: var(${tokens.iconButtonBackgroundColorActive});
+    ${iconButtonTokens.iconButtonHeight}: var(${tokens.iconButtonHeight});
+    ${iconButtonTokens.iconButtonWidth}: var(${tokens.iconButtonWidth});
+    ${iconButtonTokens.iconButtonPadding}: var(${tokens.iconButtonPadding});
+    ${iconButtonTokens.iconButtonRadius}: var(${tokens.iconButtonRadius});
+    ${iconButtonTokens.iconButtonFocusColor}: var(${tokens.iconButtonFocusColor});
+`;
+
+export const StyledNavigation = styled.div`
+    width: 100%;
+    ${flexCenter};
+`;
+
+export const StyledDoubleHeaderWrapper = styled.div`
+    width: 100%;
+    display: grid;
+    grid-template-columns: var(${tokens.iconButtonWidth}) 1fr var(${tokens.iconButtonWidth});
+    grid-template-areas: 'a b c';
+
+    ${StyledArrow} {
+        grid-area: a;
+    }
+
+    &.${classes.doubleHeaderLastDateWrapper} ${StyledArrow} {
+        grid-area: c;
+    }
 `;
 
 export const StyledHeaderDouble = styled.h4`
@@ -40,38 +96,15 @@ export const StyledHeaderDouble = styled.h4`
     font-weight: var(${tokens.calendarHeaderFontWeightBold});
     letter-spacing: var(${tokens.calendarHeaderFontLetterSpacing});
     line-height: var(${tokens.calendarHeaderFontLineHeight});
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 0.5rem 0;
-    flex: 1;
 
-    ${String(flexCenter)};
-
-    &:first-of-type {
-        margin-right: 3rem;
-    }
-
-    &:last-of-type {
-        margin-left: 3rem;
-    }
-`;
-
-export const StyledArrows = styled.div`
-    padding: 0.5rem 0;
-    width: var(${tokens.calendarHeaderArrowContainerWidth});
-
+    grid-area: b;
+    justify-self: center;
+    cursor: pointer;
     display: flex;
+    gap: var(${tokens.calendarHeaderDateGap});
     justify-content: space-between;
     align-items: center;
-`;
-
-export const StyledArrow = styled(buttonFocus)`
-    display: flex;
-    cursor: pointer;
-`;
-
-export const StyledNavigation = styled.div`
-    width: 100%;
+    margin: 0;
 
     ${String(flexCenter)};
 `;

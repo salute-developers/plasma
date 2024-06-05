@@ -1,5 +1,6 @@
 export { IconDisclosureLeft } from './Icons/IconDisclosureLeft';
 export { IconDisclosureRight } from './Icons/IconDisclosureRight';
+export { IconDisclosureDownFill } from './Icons/IconDisclosureDownFill';
 export { IconMic } from './Icons/IconMic';
 export { IconChevronLeft } from './Icons/IconChevronLeft';
 export { IconChevronDoubleLeft } from './Icons/IconChevronDoubleLeft';

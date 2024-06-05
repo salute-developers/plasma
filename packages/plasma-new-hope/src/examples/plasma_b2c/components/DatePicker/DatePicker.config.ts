@@ -35,12 +35,13 @@ export const config = {
                 ${tokens.focusColor}: var(--text-accent);
 
                 ${tokens.calendarShadow}: var(--shadow-down-soft-s);
+                ${tokens.calendarSeparatorBackground}: var(--surface-transparent-secondary);
                 ${tokens.calendarBackgroundColor}: var(--background-primary);
                 ${tokens.calendarSelectedItemBackground}: var(--surface-solid-default);
                 ${tokens.calendarSelectedItemColor}: var(--inverse-text-primary);
                 ${tokens.calendarSelectableItemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.calendarCurrentItemBorderColor}: var(--surface-solid-default);
-                ${tokens.calendarCurrentItemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.calendarCurrentItemBackgroundHover}: transparent;
                 ${tokens.calendarCurrentItemColorHover}: var(--text-primary);
                 ${tokens.calendarCurrentItemChildBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.calendarActiveItemBackground}: var(--surface-solid-default);

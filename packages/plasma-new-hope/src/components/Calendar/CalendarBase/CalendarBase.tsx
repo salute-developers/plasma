@@ -22,13 +22,20 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { IsOutOfRange, StyledCalendar } from './CalendarBase.styles';
 
-export type CalendarBaseProps = HTMLAttributes<HTMLDivElement> &
-    Calendar & {
-        /**
-         * Тип отображения календаря: дни, месяца, года.
-         */
-        type?: CalendarStateType;
-    };
+export type CalendarBaseProps = Calendar & {
+    /**
+     * Тип отображения календаря: дни, месяца, года.
+     */
+    type?: CalendarStateType;
+    /**
+     * Размер календаря.
+     */
+    size?: string;
+    /**
+     * Вид календаря.
+     */
+    view?: string;
+};
 
 /**
  * Компонент календаря.
@@ -219,6 +226,7 @@ export const calendarBaseRoot = (Root: RootProps<HTMLDivElement, HTMLAttributes<
                         </IsOutOfRange>
                     )}
                     <CalendarHeader
+                        size={rest.size}
                         firstDate={date}
                         startYear={startYear}
                         type={calendarState}

@@ -11,14 +11,14 @@ export const StyledCalendar = css`
     display: flex;
     flex-direction: column;
 
-    width: 39rem;
-    height: 19.5rem;
+    width: var(${tokens.calendarWidth});
+    height: var(${tokens.calendarHeight});
 `;
 
 export const StyledSeparator = styled.div`
     background-color: var(${tokens.calendarSeparatorBackground});
     min-width: 0.063rem;
-    margin: 0.5rem 0 1.5rem;
+    margin: 0.5rem 1rem 0 1rem;
 `;
 
 export const StyledWrapper = styled.div`
