@@ -1909,7 +1909,9 @@ m: string;
 }> & SubtitleProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
-export const Switch: ForwardRefExoticComponent<SwitchProps & RefAttributes<HTMLInputElement>>;
+export const Switch: ForwardRefExoticComponent<    {
+defaultChecked: boolean;
+} & SwitchProps & RefAttributes<HTMLInputElement>>;
 
 export { SwitchProps }
 

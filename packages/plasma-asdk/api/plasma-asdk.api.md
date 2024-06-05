@@ -14,11 +14,10 @@ import { ButtonHTMLAttributes } from 'react';
 import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
 import { ComponentProps } from 'react';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
-import { FocusProps } from '@salutejs/plasma-new-hope/styled-components';
+import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
 import { HTMLAttributes } from 'react';
 import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
-import type { InputHTMLAttributes as InputHTMLAttributes_2 } from 'react';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
@@ -28,7 +27,7 @@ import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { StyledComponent } from 'styled-components';
 import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
-import { SwitchPropsVariations } from '@salutejs/plasma-new-hope/types/components/Switch/Switch.types';
+import type { SwitchProps } from '@salutejs/plasma-core';
 import { TypographyOldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Old/TypographyOld';
 
 // @public (undocumented)
@@ -437,39 +436,12 @@ m: string;
 };
 }> & SubtitleProps & RefAttributes<HTMLDivElement>>;
 
-// @public
-export const Switch: FunctionComponent<PropsType<    {
-size: {
-m: string;
-};
-view: {
-default: string;
-};
-labelPosition: {
-before: string;
-after: string;
-};
-disabled: {
-true: string;
-};
-focused: {
-true: string;
-};
-}> & Filter<InputHTMLAttributes_2<HTMLInputElement>, "size"> & SwitchPropsVariations & RefAttributes<HTMLInputElement>>;
-
 // @public (undocumented)
-export type SwitchProps = {
-    id?: string;
-    label?: React.ReactNode;
-    size?: string;
-    view?: string;
-    labelPosition?: 'before' | 'after';
-    description?: React.ReactNode;
-    disabled?: boolean;
-    pressed?: boolean;
-    focused?: boolean;
-    outlined?: boolean;
-} & FocusProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'onChange' | 'onFocus' | 'onBlur'> & Pick<InputHTMLAttributes_2<HTMLInputElement>, 'name' | 'value' | 'checked' | 'disabled' | 'readOnly' | 'onChange' | 'onFocus' | 'onBlur'>;
+export const Switch: ForwardRefExoticComponent<    {
+defaultChecked: boolean;
+} & SwitchProps & RefAttributes<HTMLInputElement>>;
+
+export { SwitchProps }
 
 // @public (undocumented)
 export const TextL: FunctionComponent<PropsType<    {

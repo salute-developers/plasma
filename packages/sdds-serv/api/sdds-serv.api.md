@@ -65,7 +65,6 @@ import { dsplMBold } from '@salutejs/sdds-themes/tokens';
 import { dsplS } from '@salutejs/sdds-themes/tokens';
 import { dsplSBold } from '@salutejs/sdds-themes/tokens';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
-import { FocusProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
 import { GridProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -132,7 +131,7 @@ import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { StatusLabels } from '@salutejs/plasma-new-hope/types/components/Avatar/Avatar.types';
 import { StyledComponent } from 'styled-components';
-import { SwitchPropsVariations } from '@salutejs/plasma-new-hope/types/components/Switch/Switch.types';
+import type { SwitchProps } from '@salutejs/plasma-core';
 import { TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
@@ -1387,39 +1386,12 @@ export type SpinnerProps = HTMLAttributes<HTMLDivElement> & {
 
 export { SSRProvider }
 
-// @public
-export const Switch: FunctionComponent<PropsType<    {
-size: {
-m: string;
-};
-view: {
-default: string;
-};
-labelPosition: {
-before: string;
-after: string;
-};
-disabled: {
-true: string;
-};
-focused: {
-true: string;
-};
-}> & Filter<InputHTMLAttributes_2<HTMLInputElement>, "size"> & SwitchPropsVariations & RefAttributes<HTMLInputElement>>;
-
 // @public (undocumented)
-export type SwitchProps = {
-    id?: string;
-    label?: React.ReactNode;
-    size?: string;
-    view?: string;
-    labelPosition?: 'before' | 'after';
-    description?: React.ReactNode;
-    disabled?: boolean;
-    pressed?: boolean;
-    focused?: boolean;
-    outlined?: boolean;
-} & FocusProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'onChange' | 'onFocus' | 'onBlur'> & Pick<InputHTMLAttributes_2<HTMLInputElement>, 'name' | 'value' | 'checked' | 'disabled' | 'readOnly' | 'onChange' | 'onFocus' | 'onBlur'>;
+export const Switch: ForwardRefExoticComponent<    {
+defaultChecked: boolean;
+} & SwitchProps & RefAttributes<HTMLInputElement>>;
+
+export { SwitchProps }
 
 // @public
 export const TabItem: FunctionComponent<PropsType<    {
