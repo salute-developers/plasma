@@ -7,6 +7,29 @@ import { addFocus } from '../../../../mixins';
 export const StyledAccordionItem = styled.div`
     background: var(${tokens.accordionItemBackground});
     border-bottom: var(${tokens.accordionItemBorderBottom});
+
+    &:last-child {
+        border-bottom: none;
+    }
+`;
+
+export const StyledAccordionHeader = styled.button`
+    width: 100%;
+    border: none;
+    padding: var(${tokens.accordionItemPadding});
+    display: flex;
+    gap: var(${tokens.accordionItemGap});
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &.${classes.accordionDisabled} {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+
     &:focus {
         outline: none;
     }
@@ -17,19 +40,6 @@ export const StyledAccordionItem = styled.div`
         outlineRadius: '0',
         outlineColor: `var(${tokens.accordionItemFocus})`,
     })}
-
-    &:last-child {
-        border-bottom: none;
-    }
-`;
-
-export const StyledAccordionHeader = styled.div`
-    padding: var(${tokens.accordionItemPadding});
-    display: flex;
-    gap: var(${tokens.accordionItemGap});
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
 `;
 
 export const StyledAccordionHeaderLeft = styled.div`
@@ -43,7 +53,7 @@ export const StyledAccordionContentRight = styled.div`
     transition: 0.2s;
     transform: rotate(90deg);
 
-    &&.${classes.accordionItemShowBody} {
+    &.${classes.accordionItemShowBody} {
         transition: 0.2s;
         transform: rotate(0deg);
     }
@@ -54,7 +64,7 @@ export const StyledAccordionContentLeft = styled.div`
     display: flex;
     align-items: center;
 
-    &&.${classes.accordionItemShowBody} {
+    &.${classes.accordionItemShowBody} {
         transition: 0.2s;
         transform: rotate(180deg);
     }
@@ -76,7 +86,7 @@ export const StyledAccordionBodyAnimate = styled.div`
     transition: grid-template-rows 0.2s ease-out;
     overflow: hidden;
 
-    &&.${classes.accordionItemShowBody} {
+    &.${classes.accordionItemShowBody} {
         grid-template-rows: 1fr;
         padding-bottom: var(${tokens.accordionItemPaddingVertical});
 
@@ -116,12 +126,12 @@ export const StyledMinus = styled(IconMinus)`
     top: 0;
     left: 0;
 
-    &&.${classes.accordionPlusAnimationElement} {
+    &.${classes.accordionPlusAnimationElement} {
         transition: 0.2s;
         transform: rotate(90deg);
     }
 
-    &&.${classes.accordionItemShowBody} {
+    &.${classes.accordionItemShowBody} {
         transition: 0.2s;
         transform: rotate(0deg);
     }
