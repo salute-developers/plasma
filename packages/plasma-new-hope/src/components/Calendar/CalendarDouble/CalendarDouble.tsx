@@ -9,7 +9,17 @@ import { RootProps } from '../../../engines/types';
 import { base as viewCSS } from './variations/_view/base';
 import { StyledCalendar, StyledSeparator, StyledWrapper } from './CalendarDouble.styles';
 
-export type CalendarDoubleProps = HTMLAttributes<HTMLDivElement> & Calendar;
+export type CalendarDoubleProps = HTMLAttributes<HTMLDivElement> &
+    Calendar & {
+        /**
+         * Размер календаря.
+         */
+        size?: string;
+        /**
+         * Вид календаря.
+         */
+        view?: string;
+    };
 
 /**
  * Компонент двойного календаря.
@@ -123,6 +133,7 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
                 <Root ref={outerRootRef} aria-label="Выбор даты" {...rest}>
                     <CalendarHeader
                         isDouble
+                        size={rest.size}
                         firstDate={firstDate}
                         secondDate={secondDate}
                         onPrev={handlePrev}

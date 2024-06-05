@@ -5,6 +5,7 @@ import type { CalendarStateType } from '../../store/types';
 
 export interface CalendarHeaderProps extends HTMLAttributes<HTMLDivElement> {
     firstDate: DateObject;
+    size?: string;
     secondDate?: DateObject;
     startYear?: number;
     type?: CalendarStateType;

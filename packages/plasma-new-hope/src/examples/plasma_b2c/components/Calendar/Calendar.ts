@@ -1,3 +1,5 @@
+import type { FC } from 'react';
+
 import { component, mergeConfig } from '../../../../engines';
 import { calendarBaseConfig, calendarDoubleConfig, withRange } from '../../../../components/Calendar';
 import type { CalendarBaseProps, CalendarDoubleProps } from '../../../../components/Calendar';
@@ -15,8 +17,8 @@ export const CalendarBaseRange = withRange<CalendarBaseProps>(CalendarBase);
 export const CalendarDoubleRange = withRange<CalendarDoubleProps>(CalendarDouble);
 
 export const Calendar = boundCalendar({
-    base: CalendarBase,
+    base: CalendarBase as FC<CalendarBaseProps>,
     baseRange: CalendarBaseRange,
-    double: CalendarDouble,
+    double: CalendarDouble as FC<CalendarDoubleProps>,
     doubleRange: CalendarDoubleRange,
 });

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { getPlacements } from '../../../../utils';
 import { StyledPopover } from '../DatePicker.styles';
