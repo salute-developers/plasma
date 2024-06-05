@@ -167,13 +167,12 @@ type Story = StoryObj<SelectProps>;
 
 const StoryCommon: Story = {
     args: {
-        multiselect: true,
+        multiselect: false,
         placeholder: 'Выберите пример',
         helperText: 'Заполните пример',
         status: '' as 'success',
         disabled: false,
         listHeight: '',
-        // separator: 'asdasd',
     },
 };
 
