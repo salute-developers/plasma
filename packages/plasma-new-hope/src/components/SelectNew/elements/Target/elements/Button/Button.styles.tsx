@@ -10,11 +10,11 @@ const mergedButtonConfig = mergeConfig(buttonConfig);
 const Button = component(mergedButtonConfig);
 
 export const StyledButton = styled(Button)`
-    ${buttonTokens.buttonColor}: var(${tokens.targetColor});
+    ${buttonTokens.buttonColor}: var(${tokens.buttonTargetColor});
     ${buttonTokens.buttonBackgroundColor}: var(${tokens.targetButtonBackgroundColor});
-    ${buttonTokens.buttonColorHover}: var(${tokens.targetColor});
+    ${buttonTokens.buttonColorHover}: var(${tokens.buttonTargetColor});
     ${buttonTokens.buttonBackgroundColorHover}: var(${tokens.targetButtonBackgroundColorHover});
-    ${buttonTokens.buttonColorActive}: var(${tokens.targetColor});
+    ${buttonTokens.buttonColorActive}: var(${tokens.buttonTargetColor});
     ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.targetButtonBackgroundColorActive});
     ${buttonTokens.buttonHeight}: var(${tokens.targetHeight});
     ${buttonTokens.buttonWidth}: 100%;
@@ -32,10 +32,14 @@ export const StyledButton = styled(Button)`
 
 export const IconArrowWrapper = styled.div`
     line-height: 0;
-    color: var(${tokens.targetArrowColor});
+    color: var(${tokens.targetButtonArrowColor});
 
     &:hover {
-        color: var(${tokens.targetArrowColorHover});
+        color: var(${tokens.targetButtonArrowColorHover});
+    }
+
+    &:active {
+        color: var(${tokens.targetButtonArrowColorActive});
     }
 `;
 
