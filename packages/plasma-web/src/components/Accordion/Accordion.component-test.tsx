@@ -25,7 +25,7 @@ describe('plasma-web: Accordion', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Accordion>
-                    <AccordionItem title={title} body={body} />
+                    <AccordionItem title={title}>{body}</AccordionItem>
                 </Accordion>
             </CypressTestDecoratorWithTypo>,
         );
@@ -36,8 +36,8 @@ describe('plasma-web: Accordion', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Accordion view="clear">
-                    <AccordionItem title={title} body={body} />
-                    <AccordionItem title={title} body={body} />
+                    <AccordionItem title={title}>{body}</AccordionItem>
+                    <AccordionItem title={title}>{body}</AccordionItem>
                 </Accordion>
             </CypressTestDecoratorWithTypo>,
         );
@@ -48,23 +48,31 @@ describe('plasma-web: Accordion', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Accordion size="xs">
-                    <AccordionItem title={title} body={body} />
-                    <AccordionItem size="s" title={title} body={body} />
+                    <AccordionItem title={title}>{body}</AccordionItem>
+                    <AccordionItem size="s" title={title}>
+                        {body}
+                    </AccordionItem>
                 </Accordion>
                 <PadMe />
                 <Accordion size="s">
-                    <AccordionItem title={title} body={body} />
-                    <AccordionItem size="s" title={title} body={body} />
+                    <AccordionItem title={title}>{body}</AccordionItem>
+                    <AccordionItem size="s" title={title}>
+                        {body}
+                    </AccordionItem>
                 </Accordion>
                 <PadMe />
                 <Accordion size="m">
-                    <AccordionItem title={title} body={body} />
-                    <AccordionItem size="s" title={title} body={body} />
+                    <AccordionItem title={title}>{body}</AccordionItem>
+                    <AccordionItem size="s" title={title}>
+                        {body}
+                    </AccordionItem>
                 </Accordion>
                 <PadMe />
                 <Accordion size="l">
-                    <AccordionItem title={title} body={body} />
-                    <AccordionItem size="s" title={title} body={body} />
+                    <AccordionItem title={title}>{body}</AccordionItem>
+                    <AccordionItem size="s" title={title}>
+                        {body}
+                    </AccordionItem>
                 </Accordion>
                 <PadMe />
             </CypressTestDecoratorWithTypo>,
@@ -76,9 +84,15 @@ describe('plasma-web: Accordion', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Accordion>
-                    <AccordionItem type="arrow" title={title} body={body} />
-                    <AccordionItem type="sign" title={title} body={body} />
-                    <AccordionItem type="clear" title={title} body={body} />
+                    <AccordionItem type="arrow" title={title}>
+                        {body}
+                    </AccordionItem>
+                    <AccordionItem type="sign" title={title}>
+                        {body}
+                    </AccordionItem>
+                    <AccordionItem type="clear" title={title}>
+                        {body}
+                    </AccordionItem>
                 </Accordion>
             </CypressTestDecoratorWithTypo>,
         );
@@ -89,7 +103,7 @@ describe('plasma-web: Accordion', () => {
         mount(
             <CypressTestDecoratorWithTypo>
                 <Accordion>
-                    <AccordionItem title={title} body={body} />
+                    <AccordionItem title={title}>{body}</AccordionItem>
                 </Accordion>
             </CypressTestDecoratorWithTypo>,
         );

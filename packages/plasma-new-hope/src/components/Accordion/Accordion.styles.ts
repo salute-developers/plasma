@@ -10,10 +10,10 @@ export const base = css`
     height: auto;
     background: var(${tokens.accordionBackground});
 
-    &&.${classes.fixedStretching} {
+    &.${classes.fixedStretching} {
         width: var(${tokens.accordionWidth});
     }
-    &&.${classes.filledStretching} {
+    &.${classes.filledStretching} {
         width: 100%;
     }
 `;
