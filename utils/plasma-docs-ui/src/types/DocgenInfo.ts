@@ -7,6 +7,10 @@ export interface ComponentProp {
     defaultValue?: any;
     description?: string;
     required?: boolean;
+    parent?: {
+        name?: string;
+        fileName?: string;
+    };
 }
 export type ComponentProps = Record<string, ComponentProp>;
 export interface ComponentDocgenInfo {

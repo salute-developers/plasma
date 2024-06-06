@@ -33,7 +33,7 @@ import { dsplMBold } from '@salutejs/caldera-online-themes/tokens';
 import { dsplS } from '@salutejs/caldera-online-themes/tokens';
 import { dsplSBold } from '@salutejs/caldera-online-themes/tokens';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
-import { ForwardRefExoticComponent } from 'react';
+import type { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
 import { h1 } from '@salutejs/caldera-online-themes/tokens';
 import { h1Bold } from '@salutejs/caldera-online-themes/tokens';
@@ -68,7 +68,7 @@ import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
 import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { StyledComponent } from 'styled-components';
-import type { SwitchProps } from '@salutejs/plasma-core';
+import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { textL } from '@salutejs/caldera-online-themes/tokens';
 import { textLBold } from '@salutejs/caldera-online-themes/tokens';
 import { textM } from '@salutejs/caldera-online-themes/tokens';
@@ -581,11 +581,29 @@ export type SpinnerProps = HTMLAttributes<HTMLDivElement> & {
 export { SSRProvider }
 
 // @public (undocumented)
-export const Switch: ForwardRefExoticComponent<    {
-defaultChecked: boolean;
-} & SwitchProps & RefAttributes<HTMLInputElement>>;
+export const Switch: FunctionComponent<PropsType<    {
+size: {
+m: string;
+};
+view: {
+default: string;
+};
+labelPosition: {
+before: string;
+after: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & SwitchProps_2 & RefAttributes<HTMLInputElement>>;
 
-export { SwitchProps }
+// Warning: (ae-forgotten-export) The symbol "SwitchComponent" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type SwitchProps = ComponentProps<typeof SwitchComponent>;
 
 // @public (undocumented)
 export const TextL: FunctionComponent<PropsType<    {

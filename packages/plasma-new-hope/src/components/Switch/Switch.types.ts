@@ -1,6 +1,4 @@
-import { InputHTMLAttributes } from 'react';
-
-import { Filter } from '../../engines/types';
+import type { InputHTMLAttributes } from '../../types';
 
 export interface SwitchPropsPropsBase {
     /**
@@ -23,7 +21,22 @@ export interface SwitchPropsVariations extends SwitchPropsPropsBase {
      */
     labelPosition?: 'before' | 'after';
 
+    /**
+     * Добавить рамку при фокусе
+     */
     focused?: boolean;
+
+    /**
+     * Нажатие на компонент
+     * @deprecated
+     */
+    pressed?: boolean;
+
+    /**
+     * Добавить рамку при фокусе
+     * @deprecated
+     */
+    outlined?: boolean;
 }
 
-export type SwitchProps = Filter<InputHTMLAttributes<HTMLInputElement>, 'size'> & SwitchPropsVariations;
+export interface SwitchProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>, SwitchPropsVariations {}

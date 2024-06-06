@@ -14,7 +14,6 @@ import { ButtonHTMLAttributes } from 'react';
 import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
 import { ComponentProps } from 'react';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
-import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
 import { HTMLAttributes } from 'react';
 import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
@@ -27,7 +26,7 @@ import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { StyledComponent } from 'styled-components';
 import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
-import type { SwitchProps } from '@salutejs/plasma-core';
+import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { TypographyOldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Old/TypographyOld';
 
 // @public (undocumented)
@@ -437,11 +436,29 @@ m: string;
 }> & SubtitleProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
-export const Switch: ForwardRefExoticComponent<    {
-defaultChecked: boolean;
-} & SwitchProps & RefAttributes<HTMLInputElement>>;
+export const Switch: FunctionComponent<PropsType<    {
+size: {
+m: string;
+};
+view: {
+default: string;
+};
+labelPosition: {
+before: string;
+after: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & SwitchProps_2 & RefAttributes<HTMLInputElement>>;
 
-export { SwitchProps }
+// Warning: (ae-forgotten-export) The symbol "SwitchComponent" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type SwitchProps = ComponentProps<typeof SwitchComponent>;
 
 // @public (undocumented)
 export const TextL: FunctionComponent<PropsType<    {
