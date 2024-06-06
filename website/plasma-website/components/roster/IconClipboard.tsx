@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { IconCopyOutline } from '@salutejs/plasma-icons';
+import { useToast } from '@salutejs/plasma-b2c';
+import type { ShowToastArgs } from '@salutejs/plasma-b2c';
 
 const StyledClipboardIcon = styled(IconCopyOutline)`
     margin-left: -1.375rem;
@@ -45,13 +47,31 @@ const StyledSource = styled.div`
     display: inline-flex;
 `;
 
+const toastData: ShowToastArgs = {
+    text: '',
+    position: 'bottom',
+    role: 'status',
+    size: 'm',
+    view: 'dark',
+    timeout: 250,
+};
+
 export const IconClipboard = ({ source, title }: { source: string; title: string }) => {
+    const { showToast } = useToast();
+
     const copyToClipboard = async () => {
         try {
             await navigator.clipboard.writeText(source);
+
+            showToast({
+                ...toastData,
+                text: 'Скопировано',
+            });
         } catch (err) {
-            // eslint-disable-next-line no-console
-            console.warn('Ошибка при копировании текста');
+            showToast({
+                ...toastData,
+                text: 'Ошибка при копировании текста',
+            });
         }
     };
 
