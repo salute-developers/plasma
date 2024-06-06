@@ -230,7 +230,7 @@ import { StyledCard } from '@salutejs/plasma-hope';
 import { StyledComponent } from 'styled-components';
 import { StyledPreviewGallery } from '@salutejs/plasma-hope';
 import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
-import type { SwitchProps } from '@salutejs/plasma-core';
+import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { syntheticFocus } from '@salutejs/plasma-core';
 import { TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
@@ -1907,11 +1907,29 @@ m: string;
 }> & SubtitleProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
-export const Switch: ForwardRefExoticComponent<    {
-defaultChecked: boolean;
-} & SwitchProps & RefAttributes<HTMLInputElement>>;
+export const Switch: FunctionComponent<PropsType<    {
+size: {
+m: string;
+};
+view: {
+default: string;
+};
+labelPosition: {
+before: string;
+after: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & SwitchProps_2 & RefAttributes<HTMLInputElement>>;
 
-export { SwitchProps }
+// Warning: (ae-forgotten-export) The symbol "SwitchComponent" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type SwitchProps = ComponentProps<typeof SwitchComponent>;
 
 export { syntheticFocus }
 

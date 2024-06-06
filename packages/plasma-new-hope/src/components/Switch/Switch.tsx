@@ -30,6 +30,7 @@ export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
             size,
             view,
             focused,
+            outlined,
             disabled,
             labelPosition,
 
@@ -42,20 +43,20 @@ export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
             // singleLine,
 
             checked,
+            pressed,
             defaultChecked,
 
             ...rest
         } = props;
 
-        const exactChecked = Boolean(checked !== undefined ? checked : defaultChecked);
-        // const singleLineClass = singleLine ? 'single-line' : '';
+        const exactChecked = Boolean((checked ?? pressed) !== undefined ? checked ?? pressed : defaultChecked);
 
         return (
             <Root
                 view={view}
                 size={size}
                 disabled={disabled}
-                focused={focused}
+                focused={focused ?? outlined}
                 labelPosition={labelPosition}
                 id={id}
                 style={style}
@@ -67,7 +68,7 @@ export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
                     role="switch"
                     aria-checked={exactChecked}
                     type="checkbox"
-                    checked={checked}
+                    checked={checked ?? pressed}
                     defaultChecked={defaultChecked}
                     disabled={disabled}
                 />

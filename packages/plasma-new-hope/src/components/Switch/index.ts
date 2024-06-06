@@ -3,6 +3,7 @@ import { labelPosition_Before } from './_label-position/before';
 
 export { switchRoot, switchConfig } from './Switch';
 export { tokens as switchTokens } from './Switch.tokens';
+export type { SwitchProps } from './Switch.types';
 
 // TODO: Think how we could name such things
 export { labelPosition_Before as Switch_LabelPosition_Before };
