@@ -66,10 +66,10 @@ export const PaginationButtonGroup = styled(ButtonGroup)`
     ${buttonGroupTokens.buttonBackgroundColor}: var(${tokens.buttonBackgroundColor});
 
     ${buttonGroupTokens.buttonColorHover}: var(${tokens.buttonHoverColor});
-    ${buttonGroupTokens.buttonBackgroundColorHover}: var(${tokens.buttonHoverBackgroundColor});
+    ${buttonGroupTokens.buttonBackgroundColorHover}: var(${tokens.buttonBackgroundColorHover});
 
     ${buttonGroupTokens.buttonColorActive}: var(${tokens.buttonActiveColor});
-    ${buttonGroupTokens.buttonBackgroundColorActive}: var(${tokens.buttonActiveBackgroundColor});
+    ${buttonGroupTokens.buttonBackgroundColorActive}: var(${tokens.buttonBackgroundColorActive});
 
     ${buttonGroupTokens.buttonFontFamily}: var(${tokens.paginationFontFamily});
     ${buttonGroupTokens.buttonFontSize}: var(${tokens.paginationFontSize});
@@ -92,10 +92,10 @@ export const PaginationButton = styled(Button)`
     ${buttonTokens.buttonBackgroundColor}: var(${tokens.buttonBackgroundColor});
 
     ${buttonTokens.buttonColorHover}: var(${tokens.buttonHoverColor});
-    ${buttonTokens.buttonBackgroundColorHover}: var(${tokens.buttonHoverBackgroundColor});
+    ${buttonTokens.buttonBackgroundColorHover}: var(${tokens.buttonBackgroundColorHover});
 
     ${buttonTokens.buttonColorActive}: var(${tokens.buttonActiveColor});
-    ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.buttonActiveBackgroundColor});
+    ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.buttonBackgroundColorActive});
 
 
     ${buttonTokens.buttonFontFamily}: var(${tokens.paginationFontFamily});

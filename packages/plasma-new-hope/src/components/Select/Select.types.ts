@@ -1,54 +1,125 @@
-import { MutableRefObject, SyntheticEvent } from 'react';
-import { InputHTMLAttributes } from '@salutejs/plasma-core';
+import type { CSSProperties, ButtonHTMLAttributes } from 'react';
+import React from 'react';
 
-import { DropdownPlacement, DropdownPlacementBasic } from '../Dropdown/Dropdown.types';
+import { FocusedPathState } from './reducers';
+import { ItemOption, ItemOptionTransformed } from './elements/Inner/elements/Item/Item.types';
+import type { ValueToCheckedMapType } from './hooks/usePathMaps';
 
-export type SelectPrimitiveValue = string | number | boolean;
+type Target =
+    | {
+          /**
+           * Стиль селекта: button или textfield.
+           * @default textfield
+           */
+          target?: 'textfield' | never;
+          view?: 'default' | 'positive' | 'warning' | 'negative';
+          /**
+           * Слот для контента слева.
+           */
+          contentLeft?: React.ReactElement;
+      }
+    | {
+          target?: 'button' | never;
+          view?:
+              | 'default'
+              | 'accent'
+              | 'secondary'
+              | 'clear'
+              | 'positive'
+              | 'warning'
+              | 'negative'
+              | 'dark'
+              | 'black'
+              | 'white';
+          contentLeft?: never;
+      };
 
-export type SelectValue = SelectPrimitiveValue | Array<SelectPrimitiveValue>;
+type IsMultiselect =
+    | {
+          value: string;
+          onChange: (value: string) => void;
+          /**
+           * Выбор нескольких значений.
+           * @default false
+           */
+          multiselect?: false;
+          /**
+           * Разделитель выбранных значений.
+           */
+          separator?: never;
+          /**
+           * Если включено - будет выведено общее количество выбранных элементов вместо перечисления.
+           * @default false
+           */
+          isTargetAmount?: never | false;
+      }
+    | {
+          value: Array<string>;
+          onChange: (value: Array<string>) => void;
+          multiselect?: true;
+          separator?: string;
+          isTargetAmount?: boolean;
+      };
 
-export type ValueType = 'single' | 'multiple' | 'native';
-
-export type EnumerationType = 'comma' | 'chip';
-
-export type TargetType = 'button-like' | 'textField-like';
-
-export type ComponentType = 'select' | 'combobox';
-
-export interface CustomSelectProps {
+type BasicProps = {
+    items: Array<ItemOption>;
     /**
-     * Вид элемента, рядом с которым появляется список.
-     */
-    target?: TargetType;
-    /**
-     * Текст лейбла.
+     * Метка-подпись к элементу.
      */
     label?: string;
     /**
-     * Тип перечисления выбранных значений.
-     * Варианты: comma, chips
+     * Расположение лейбла.
+     * @default outer
      */
-    enumerationType?: EnumerationType;
+    labelPlacement?: 'outer' | 'inner';
     /**
-     * Находится ли в портале.
+     * Placeholder.
      */
-    usePortal?: boolean;
+    placeholder?: string;
     /**
-     * Дропдаун открыт или нет.
-     * @default
-     *  false
+     * Вспомогательный текст снизу слева для поля ввода.
      */
-    opened?: boolean;
+    helperText?: string;
     /**
-     * Сторона открытия дропдауна относительно target элемента.
-     * @default
-     *  auto
+     * Компонент неактивен.
+     * @default false
      */
-    placement?: DropdownPlacement | Array<DropdownPlacementBasic>;
+    disabled?: boolean;
     /**
-     * В каком контейнере позиционируется(по умолчанию document), можно также указать id элемента или ref для него.
+     * Коллбэк для определения достижения скроллом конца списка.
      */
-    frame?: 'document' | string | React.RefObject<HTMLElement>;
+    onScrollBottom?: (e: React.UIEvent<HTMLUListElement>) => void;
+    /**
+     * Флаг лоадинга в конце списка.
+     */
+    isInfiniteLoading?: boolean;
+    /**
+     * Компонент выпадающего списка при пустом массиве items.
+     */
+    notFoundContent?: React.ReactElement;
+    /**
+     * Вариант: обычный или сжатый
+     * @default normal
+     */
+    variant?: 'normal' | 'tight';
+    /**
+     * Значение css overflow для выпадающего меню.
+     * @default initial
+     * @example listOverflow="scroll"
+     */
+    listOverflow?: CSSProperties['overflow'];
+    /**
+     * Значение css height для выпадающего меню.
+     * @default initial
+     * @example listHeight="11", listHeight="auto", listHeight={11}
+     */
+    listHeight?: number | CSSProperties['height'];
+    /**
+     * Портал для выпадающего списка. Принимает id контейнера или ref.
+     */
+    portal?: string | React.RefObject<HTMLElement>;
+    renderTargetLabel?: any;
+
     /**
      * Размер компонента.
      */
@@ -58,57 +129,33 @@ export interface CustomSelectProps {
      */
     view?: string;
     /**
-     * Событие сворачивания/разворачивания дропдауна.
+     * Внешний вид чипа в варианте textfield multiselect.
      */
-    onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
-}
+    chipView?: string;
 
-export type valueTypeSeparation =
-    | {
-          /**
-           * Тип селекта.
-           * Варианты: single, multiple, native
-           */
-          valueType?: 'single' | 'native';
-          value?: SelectPrimitiveValue;
-          /**
-           * Обработчик изменения выбранного значения.
-           */
-          onChangeValue?: (value?: SelectPrimitiveValue) => void;
-      }
-    | {
-          /**
-           * Тип селекта.
-           * Варианты: single, multiple, native
-           */
-          valueType: 'multiple';
-          value?: Array<SelectPrimitiveValue>;
-          /**
-           * Обработчик изменения выбранного значения.
-           */
-          onChangeValue?: (value?: Array<SelectPrimitiveValue>) => void;
-      };
+    /**
+     * @default false
+     * @deprecated
+     */
+    isOpen?: boolean;
+    /**
+     * Статус селекта.
+     * @deprecated
+     */
+    status?: 'warning' | 'success' | 'error';
+};
 
-export type SelectProps = Omit<InputHTMLAttributes<HTMLSelectElement>, 'value' | 'size' | 'onChange'> &
-    CustomSelectProps &
-    valueTypeSeparation;
+export type SelectProps = BasicProps &
+    IsMultiselect &
+    Target &
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'value' | 'onChange' | 'onResize' | 'onResizeCapture' | 'nonce'>;
 
-export interface ControlledRefs {
-    targetRef: MutableRefObject<HTMLButtonElement | HTMLInputElement | null>;
-    chipsRefs: MutableRefObject<Array<HTMLButtonElement>>;
-    selectRef: MutableRefObject<HTMLDivElement | null>;
-    itemsRefs: MutableRefObject<Array<HTMLDivElement>>;
-    inputRef?: MutableRefObject<HTMLInputElement | null>;
-}
-
-export interface UseKeyNavigationProps {
-    controlledRefs: ControlledRefs;
-    opened: boolean;
-    valueType?: ValueType;
-    componentType?: ComponentType;
-    value?: SelectPrimitiveValue | SelectPrimitiveValue[];
-    search?: string;
-    enumerationType?: EnumerationType;
-    updateValue: (item: HTMLElement, event: SyntheticEvent | Event) => void;
-    updateOpened: (value: boolean, event: SyntheticEvent | Event) => void;
-}
+export type ItemContext = {
+    focusedPath: FocusedPathState;
+    checked: ValueToCheckedMapType;
+    multiselect: SelectProps['multiselect'];
+    size: SelectProps['size'];
+    handleCheckboxChange: (item: ItemOptionTransformed) => void;
+    handleItemClick: (item: ItemOptionTransformed, e: React.MouseEvent<HTMLElement>) => void;
+    variant: SelectProps['variant'];
+};

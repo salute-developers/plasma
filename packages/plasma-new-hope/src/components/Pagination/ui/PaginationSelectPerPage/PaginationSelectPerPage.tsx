@@ -1,17 +1,10 @@
 import React, { useState } from 'react';
 
-import { IconDone } from '../../../../components/_Icon';
-import { SelectPrimitiveValue } from '../../../Select';
 import { defaultValues } from '../../utils';
 import { classes } from '../../Pagination.tokens';
 
 import type { PaginationSelectPerPageProps } from './PaginationSelectPerPage.types';
-import {
-    SelectPerPageRoot,
-    SelectPerPageTypography,
-    SelectPerPageSelect,
-    SelectPerPageSelectItem,
-} from './PaginationSelectPerPage.styles';
+import { SelectPerPageRoot, SelectPerPageTypography, SelectPerPageSelect } from './PaginationSelectPerPage.styles';
 
 export const PaginationSelectPerPage: React.FC<PaginationSelectPerPageProps> = ({
     value = defaultValues.perPage,
@@ -22,30 +15,28 @@ export const PaginationSelectPerPage: React.FC<PaginationSelectPerPageProps> = (
 }) => {
     const [selectedValue, setSelectedValue] = useState(value);
 
-    const handleSelectChange = (newValue?: SelectPrimitiveValue) => {
+    const handleSelectChange = (newValue?: string) => {
         if (newValue) {
             setSelectedValue(Number(newValue));
             onChangeValue?.(Number(newValue));
         }
     };
 
+    const transformedList = valuesList.map((num) => ({ label: num.toString(), value: num.toString() }));
+
     return (
         <SelectPerPageRoot {...rest}>
             <SelectPerPageTypography>{textPerPage}</SelectPerPageTypography>
-            <SelectPerPageSelect
-                className={classes.selectWrapper}
-                value={selectedValue}
-                onChangeValue={handleSelectChange}
-            >
-                {valuesList?.map((item) => (
-                    <SelectPerPageSelectItem
-                        contentLeft={item === selectedValue ? <IconDone size="xs" color="inherit" /> : undefined}
-                        key={item}
-                        value={item}
-                        text={String(item)}
-                    />
-                ))}
-            </SelectPerPageSelect>
+
+            <div>
+                <SelectPerPageSelect
+                    className={classes.selectWrapper}
+                    items={transformedList}
+                    value={selectedValue.toString()}
+                    onChange={handleSelectChange}
+                    target="button"
+                />
+            </div>
         </SelectPerPageRoot>
     );
 };
