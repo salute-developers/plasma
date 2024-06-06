@@ -85,7 +85,6 @@ export const config = {
                 ${calendarDoubleTokens.calendarDaysPadding}: 0.5rem 0 0 0;
                 ${calendarDoubleTokens.calendarHeaderPadding}: 0 0 0 1rem;
                 ${calendarDoubleTokens.calendarHeaderDateGap}: 0.5rem;
-                ${calendarDoubleTokens.calendarHeaderDateSideMargin}: 1.905rem;
 
                 ${calendarDoubleTokens.calendarHeaderFontFamily}: var(--plasma-typo-h4-font-family);
                 ${calendarDoubleTokens.calendarHeaderFontSize}: var(--plasma-typo-h4-font-size);
@@ -148,7 +147,6 @@ export const config = {
                 ${calendarDoubleTokens.calendarDaysPadding}: 0.5rem 0 0 0;
                 ${calendarDoubleTokens.calendarHeaderPadding}: 0 0 0 0.75rem;
                 ${calendarDoubleTokens.calendarHeaderDateGap}: 0.375rem;
-                ${calendarDoubleTokens.calendarHeaderDateSideMargin}: 1.905rem;
 
                 ${calendarDoubleTokens.calendarHeaderFontFamily}: var(--plasma-typo-h4-font-family);
                 ${calendarDoubleTokens.calendarHeaderFontSize}: var(--plasma-typo-h4-font-size);
@@ -210,7 +208,6 @@ export const config = {
                 ${calendarDoubleTokens.calendarDaysPadding}: 0.5rem 0 0 0;
                 ${calendarDoubleTokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${calendarDoubleTokens.calendarHeaderDateGap}: 0.25rem;
-                ${calendarDoubleTokens.calendarHeaderDateSideMargin}: 0.969rem;
 
                 ${calendarDoubleTokens.calendarHeaderFontFamily}: var(--plasma-typo-h4-font-family);
                 ${calendarDoubleTokens.calendarHeaderFontSize}: var(--plasma-typo-h4-font-size);
@@ -256,7 +253,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
 
                 ${calendarDoubleTokens.calendarDaysPadding}: 0.375rem 0 0 0;
-                ${calendarDoubleTokens.calendarDayItemBorderRadius}: 0.5rem;
+                ${calendarDoubleTokens.calendarDayItemBorderRadius}: 0.375rem;
                 ${calendarDoubleTokens.calendarDayItemWidth}: 2.5rem;
                 ${calendarDoubleTokens.calendarDayItemHeight}: 1.875rem;
 
@@ -272,7 +269,6 @@ export const config = {
 
                 ${calendarDoubleTokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${calendarDoubleTokens.calendarHeaderDateGap}: 0.25rem;
-                ${calendarDoubleTokens.calendarHeaderDateSideMargin}: 1.906rem;
 
                 ${calendarDoubleTokens.calendarHeaderFontFamily}: var(--plasma-typo-h5-font-family);
                 ${calendarDoubleTokens.calendarHeaderFontSize}: var(--plasma-typo-h5-font-size);

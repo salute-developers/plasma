@@ -134,14 +134,13 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                         {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
                         <StyledPopover
                             isOpen={isOpenFirst}
-                            usePortal
+                            usePortal={false}
                             onToggle={onToggleFirst}
                             offset={offset}
                             placement={getPlacements(placement)}
                             trigger="click"
                             closeOnOverlayClick={closeOnOverlayClick}
                             isFocusTrapped={false}
-                            frame={rangeRef}
                             target={
                                 <StyledInput
                                     ref={firstTextFieldRef}
@@ -167,14 +166,13 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                         {Divider}
                         <StyledPopover
                             isOpen={isOpenSecond}
-                            usePortal
+                            usePortal={false}
                             onToggle={onToggleSecond}
                             offset={offset}
                             placement={getPlacements(placement)}
                             trigger="click"
                             closeOnOverlayClick={closeOnOverlayClick}
                             isFocusTrapped={false}
-                            frame={rangeRef}
                             target={
                                 <StyledInput
                                     ref={secondTextFieldRef}

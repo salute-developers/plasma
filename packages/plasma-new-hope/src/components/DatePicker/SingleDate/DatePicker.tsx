@@ -5,13 +5,14 @@ import { cx, getPlacements } from '../../../utils';
 import { formatCalendarValue, formatInputValue, getDateFormatDelimiter } from '../utils/dateHelper';
 import { useDatePicker } from '../hooks/useDatePicker';
 import { classes } from '../DatePicker.tokens';
+import { StyledCalendar } from '../DatePickerBase.styles';
 
 import type { DatePickerProps } from './DatePicker.types';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readOnlyCSS } from './variations/_readonly/base';
-import { LeftHelper, StyledCalendar, StyledInput, StyledLabel, StyledPopover, base } from './DatePicker.styles';
+import { LeftHelper, StyledInput, StyledLabel, StyledPopover, base } from './DatePicker.styles';
 
 export const datePickerRoot = (
     Root: RootProps<HTMLDivElement, Omit<DatePickerProps, 'isOpen' | 'defaultValue' | 'onChangeValue'>>,
@@ -92,10 +93,6 @@ export const datePickerRoot = (
                 onCommitDate,
             });
 
-            useEffect(() => {
-                setIsInnerOpen(isOpen);
-            }, [isOpen]);
-
             const DatePickerInput = (
                 <StyledInput
                     ref={inputRef}
@@ -127,7 +124,7 @@ export const datePickerRoot = (
                 >
                     {label && <StyledLabel>{label}</StyledLabel>}
                     <StyledPopover
-                        isOpen={isInnerOpen}
+                        isOpen={isOpen || isInnerOpen}
                         usePortal={false}
                         onToggle={handleToggle}
                         offset={offset}
@@ -139,6 +136,7 @@ export const datePickerRoot = (
                         preventOverflow={false}
                     >
                         <StyledCalendar
+                            size={size}
                             value={calendarValue}
                             type={type}
                             eventList={eventList}
