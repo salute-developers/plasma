@@ -48,4 +48,3 @@ export * from './components/Divider';
 export * from './components/Toolbar';
 export * from './components/Slider';
 export * from './components/Range';
-export * from './components/SelectNew';

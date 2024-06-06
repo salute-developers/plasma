@@ -4,8 +4,7 @@ import { classes } from '../../Combobox.tokens';
 import { cx } from '../../../../utils';
 import { ComboboxChip } from '../ComboboxChip/ComboboxChip';
 import type { ComboboxPrimitiveValue } from '../../Combobox.types';
-import { useFocusController } from '../../hooks';
-import { Keys } from '../../../Select/hooks/useKeyNavigation';
+import { useFocusController, Keys } from '../../hooks';
 
 import {
     StyledArrow,

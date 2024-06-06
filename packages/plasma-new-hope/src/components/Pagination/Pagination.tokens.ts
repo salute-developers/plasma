@@ -24,12 +24,17 @@ export const tokens = {
     paginationColor: '--plasma-pagination-color',
 
     buttonBackgroundColor: '--plasma-pagination-button-bg-color',
+    buttonBackgroundColorHover: '--plasma-pagination-button-bg-color-hover',
+    buttonBackgroundColorActive: '--plasma-pagination-button-bg-color-active',
     buttonColor: '--plasma-pagination-button-color',
-    buttonHoverBackgroundColor: '--plasma-pagination-button-bg-color-hover',
+    buttonColorHover: '--plasma-pagination-button-color-hover',
+    buttonColorActive: '--plasma-pagination-button-color-active',
     buttonHoverColor: '--plasma-pagination-button-color-hover',
-    buttonActiveBackgroundColor: '--plasma-pagination-button-bg-color-active',
     buttonActiveColor: '--plasma-pagination--button-color-active',
     buttonFocusColor: '--plasma-pagination--button-color-focus',
+    buttonArrowColor: '--plasma-pagination--button-arrow-color',
+    buttonArrowColorHover: '--plasma-pagination--button-arrow-color-hover',
+    buttonArrowColorActive: '--plasma-pagination--button-arrow-color-active',
 
     paginationCurrentButtonBackgroundColor: '--plasma-pagination-button-current-bg-color',
     paginationCurrentButtonColor: '--plasma-pagination-button-current-color',
@@ -65,10 +70,7 @@ export const tokens = {
 
     selectItemWidth: '--plasma-pagination-select-item-width',
     selectItemHeight: '--plasma-pagination-select-item-height',
-    selectItemPaddingTop: '--plasma-pagination-select-item-padding-top',
-    selectItemPaddingRight: '--plasma-pagination-select-item-padding-right',
-    selectItemPaddingBottom: '--plasma-pagination-select-item-padding-bottom',
-    selectItemPaddingLeft: '--plasma-pagination-select-item-padding-left',
+    selectItemPadding: '--plasma-pagination-select-item-padding',
     selectItemContentLeftWidth: '--plasma-pagination-select-item-content-left-width',
     selectItemBackground: '--plasma-pagination-select-item-bg-color',
 

@@ -1,73 +1,66 @@
 import { styled } from '@linaria/react';
+import { css } from '@linaria/core';
 
 import { component } from '../../engines';
 import { popoverClasses, popoverConfig } from '../Popover';
 
-import { tokens, classes } from './Select.tokens';
+import { getCorrectHeight } from './utils';
+import { SelectProps } from './Select.types';
+import { tokens, constants } from './Select.tokens';
 
-const { nativeSelectVisible, selectTarget } = classes;
-
-export const StyledRoot = styled.div`
-    width: 100%;
-    position: relative;
-
-    .${String(nativeSelectVisible)} {
-        display: block;
-    }
-
-    & .${popoverClasses.wrapper} {
-        display: block;
-    }
-`;
-
-export const StyledSelect = styled.div`
-    box-sizing: border-box;
-    overflow-y: auto;
-
-    background: var(${tokens.background});
-    box-shadow: var(${tokens.boxShadow});
-
-    border-radius: var(${tokens.borderRadius});
-    width: var(${tokens.width});
-    height: var(${tokens.height});
-
-    padding: var(${tokens.paddingTop}) var(${tokens.paddingRight}) var(${tokens.paddingBottom})
-        var(${tokens.paddingLeft});
-`;
-
-// issue #823
 const Popover = component(popoverConfig);
 
-export const StyledPopover = styled(Popover)<{ selectWidth?: number }>`
-    display: block;
-
+export const StyledPopover = styled(Popover)`
     .${String(popoverClasses.root)}, .${String(popoverClasses.target)} {
-        width: ${({ usePortal, selectWidth }) => (usePortal ? `${selectWidth}px` : '100%')};
+        width: 100%;
     }
 `;
 
-export const StyledNativeSelect = styled.select`
-    display: none;
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background: transparent;
-    color: transparent;
-    border: none;
-    outline: none;
-    opacity: 1;
-    position: absolute;
-    inset: -0.125rem;
-    z-index: 1;
-    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
-    font-size: 1rem;
+export const Ul = styled.ul<{
+    listOverflow?: SelectProps['listOverflow'];
+    listHeight?: SelectProps['listHeight'];
+    isInnerUl?: boolean;
+}>`
+    box-sizing: border-box;
 
-    &:hover:not(:disabled) + .${String(popoverClasses.wrapper)} .${String(selectTarget)} {
-        background: var(${tokens.targetBackgroundColorHover});
-    }
+    background: var(${constants.background});
+    box-shadow: var(${constants.boxShadow});
 
-    &:focus-visible {
-        border-radius: var(${tokens.borderRadius});
-        box-shadow: 0 0 0 0.0625rem var(${tokens.focusColor});
+    border-radius: var(${tokens.borderRadius});
+    width: 100%;
+    height: ${({ listHeight }) => (listHeight ? getCorrectHeight(listHeight) : 'auto')};
+    overflow: ${({ listOverflow }) => listOverflow || 'initial'};
+
+    margin: ${({ isInnerUl }) => (isInnerUl ? `calc(var(${tokens.padding}) * -1) 0 0 var(${tokens.padding})` : 0)};
+    padding: var(${tokens.padding});
+`;
+
+export const base = css`
+    .${popoverClasses.wrapper}, .${popoverClasses.target} {
+        display: block;
     }
+`;
+
+export const OuterLabel = styled.label`
+    display: block;
+    margin-bottom: var(${tokens.labelOffset});
+    color: var(${constants.textfieldOuterLabelColor});
+
+    font-family: var(${tokens.fontFamily});
+    font-size: var(${tokens.fontSize});
+    font-style: var(${tokens.fontStyle});
+    font-weight: var(${tokens.fontWeight});
+    letter-spacing: var(${tokens.fontLetterSpacing});
+    line-height: var(${tokens.fontLineHeight});
+`;
+
+export const HelperText = styled.div`
+    margin-top: var(${tokens.helperTextOffset});
+    color: var(${tokens.helperTextColor});
+    font-family: var(--plasma-typo-body-xs-font-family);
+    font-size: var(--plasma-typo-body-xs-font-size);
+    font-style: var(--plasma-typo-body-xs-font-style);
+    font-weight: var(--plasma-typo-body-xs-font-weight);
+    letter-spacing: var(--plasma-typo-body-xs-letter-spacing);
+    line-height: var(--plasma-typo-body-xs-line-height);
 `;

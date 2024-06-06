@@ -10,21 +10,44 @@ export const config = {
     },
     variations: {
         view: {
+            default: css`
+                ${paginationTokens.buttonColor}: var(--inverse-text-primary);
+                ${paginationTokens.buttonColorHover}: var(--inverse-text-primary-hover);
+                ${paginationTokens.buttonColorActive}: var(--inverse-text-primary-active);
+                ${paginationTokens.buttonHoverColor}: var(--inverse-text-primary);
+                ${paginationTokens.buttonBackgroundColor}: var(--surface-solid-default);
+                ${paginationTokens.buttonBackgroundColorHover}: var(--surface-solid-default-hover);
+                ${paginationTokens.buttonBackgroundColorActive}: var(--surface-solid-default-active);
+                ${paginationTokens.buttonActiveColor}: var(--inverse-text-primary);
+                ${paginationTokens.buttonArrowColor}: var(--inverse-text-secondary);
+                ${paginationTokens.buttonArrowColorHover}: var(--inverse-text-secondary-hover);
+                ${paginationTokens.buttonArrowColorActive}: var(--inverse-text-secondary-hover);
+
+                ${paginationTokens.buttonDisabledOpacity}: 0.4;
+
+                ${paginationTokens.inputBackgroundColor}: var(--surface-transparent-secondary);
+                ${paginationTokens.inputBorderColor}:transparent;
+                ${paginationTokens.selectBackgroundColor}: color-mix(
+                    in srgb,
+                    var(--inverse-text-primary),
+                    var(--surface-solid-default) 85%
+                );
+
+                ${paginationTokens.paginationColor}: var(--text-primary);
+                ${paginationTokens.buttonFocusColor}: var(--surface-accent);
+            `,
             secondary: css`
                 ${paginationTokens.buttonColor}: var(--text-primary);
+                ${paginationTokens.buttonColorHover}: var(--text-primary-hover);
+                ${paginationTokens.buttonColorActive}: var(--text-primary-active);
                 ${paginationTokens.buttonBackgroundColor}: var(--surface-transparent-secondary);
+                ${paginationTokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+                ${paginationTokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
                 ${paginationTokens.buttonHoverColor}: var(--text-primary);
-                ${paginationTokens.buttonHoverBackgroundColor}: color-mix(
-                    in srgb,
-                    var(--inverse-text-primary),
-                    var(--surface-transparent-secondary) 85%
-                );
                 ${paginationTokens.buttonActiveColor}: var(--text-primary);
-                ${paginationTokens.buttonActiveBackgroundColor}: color-mix(
-                    in srgb,
-                    var(--inverse-text-primary),
-                    var(--surface-transparent-secondary) 80%
-                );
+                ${paginationTokens.buttonArrowColor}: var(--text-secondary);
+                ${paginationTokens.buttonArrowColorHover}: var(--text-secondary-hover);
+                ${paginationTokens.buttonArrowColorActive}: var(--text-secondary-hover);
 
                 ${paginationTokens.buttonDisabledOpacity}: 0.4;
 
@@ -37,46 +60,22 @@ export const config = {
             `,
             clear: css`
                 ${paginationTokens.buttonColor}: var(--text-primary);
+                ${paginationTokens.buttonColorHover}: var(--text-primary-hover);
+                ${paginationTokens.buttonColorActive}: var(--text-primary-active);
                 ${paginationTokens.buttonBackgroundColor}: var(--surface-clear);
+                ${paginationTokens.buttonBackgroundColorHover}: var(--surface-clear);
+                ${paginationTokens.buttonBackgroundColorActive}: var(--surface-clear);
                 ${paginationTokens.buttonHoverColor}: var(--text-primary);
-                ${paginationTokens.buttonHoverBackgroundColor}: color-mix(in srgb, var(--text-primary), var(--surface-clear) 95%);
                 ${paginationTokens.buttonActiveColor}: var(--text-primary);
-                ${paginationTokens.buttonActiveBackgroundColor}: color-mix(in srgb, var(--text-primary), var(--surface-clear) 90%);
+                ${paginationTokens.buttonArrowColor}: var(--text-secondary);
+                ${paginationTokens.buttonArrowColorHover}: var(--text-secondary-hover);
+                ${paginationTokens.buttonArrowColorActive}: var(--text-secondary-hover);
 
                 ${paginationTokens.buttonDisabledOpacity}: 0.4;
 
                 ${paginationTokens.inputBackgroundColor}: var(--surface-transparent-secondary);
                 ${paginationTokens.selectBackgroundColor}: var(--surface-solid-card);
                 ${paginationTokens.inputBorderColor}: transparent;
-
-                ${paginationTokens.paginationColor}: var(--text-primary);
-                ${paginationTokens.buttonFocusColor}: var(--surface-accent);
-            `,
-            default: css`
-                ${paginationTokens.buttonColor}: var(--inverse-text-primary);
-                ${paginationTokens.buttonBackgroundColor}: var(--surface-solid-default);
-                ${paginationTokens.buttonHoverColor}: var(--inverse-text-primary);
-                ${paginationTokens.buttonHoverBackgroundColor}: color-mix(
-                    in srgb,
-                    var(--inverse-text-primary),
-                    var(--surface-solid-default) 85%
-                );
-                ${paginationTokens.buttonActiveColor}: var(--inverse-text-primary);
-                ${paginationTokens.buttonActiveBackgroundColor}: color-mix(
-                    in srgb,
-                    var(--inverse-text-primary),
-                    var(--surface-solid-default) 80%
-                );
-
-                ${paginationTokens.buttonDisabledOpacity}: 0.4;
-
-                ${paginationTokens.inputBackgroundColor}: var(--surface-transparent-secondary);
-                ${paginationTokens.inputBorderColor}:transparent;
-                ${paginationTokens.selectBackgroundColor}: color-mix(
-                    in srgb,
-                    var(--inverse-text-primary),
-                    var(--surface-solid-default) 85%
-                );
 
                 ${paginationTokens.paginationColor}: var(--text-primary);
                 ${paginationTokens.buttonFocusColor}: var(--surface-accent);
@@ -150,10 +149,7 @@ export const config = {
 
                 ${paginationTokens.selectItemWidth}: auto;
                 ${paginationTokens.selectItemHeight}: 1.5rem;
-                ${paginationTokens.selectItemPaddingTop}: 1rem;
-                ${paginationTokens.selectItemPaddingRight}: 1rem;
-                ${paginationTokens.selectItemPaddingBottom}: 1rem;
-                ${paginationTokens.selectItemPaddingLeft}: 1rem;
+                ${paginationTokens.selectItemPadding}: 1rem 1rem 1rem 1rem;
                 ${paginationTokens.selectItemContentLeftWidth}: 1.875rem;
                 ${paginationTokens.selectItemBackground}: transparent;
 
@@ -196,16 +192,13 @@ export const config = {
 
                 ${paginationTokens.selectItemWidth}: auto;
                 ${paginationTokens.selectItemHeight}: 1.5rem;
-                ${paginationTokens.selectItemPaddingTop}: 0.75rem;
-                ${paginationTokens.selectItemPaddingRight}: 0.75rem;
-                ${paginationTokens.selectItemPaddingBottom}: 0.75rem;
-                ${paginationTokens.selectItemPaddingLeft}: 0.75rem;
+                ${paginationTokens.selectItemPadding}: 0.75rem 0.75rem 0.75rem 0.75rem;
                 ${paginationTokens.selectItemContentLeftWidth}: 1.75rem;
                 ${paginationTokens.selectItemBackground}: transparent;
 
                 ${paginationTokens.selectTargetArrowRight}: 0.875rem;
                 ${paginationTokens.selectTargetWidth}: 100%;
-                ${paginationTokens.selectTargetPadding}: 0 3.25rem 0 1.25rem;
+                ${paginationTokens.selectTargetPadding}: 1.125rem 0 1.25rem;
                 ${paginationTokens.selectTargetPaddingHasChips}: 0 3.375rem 0 0.375rem;
                 ${paginationTokens.selectTargetPaddingWithInput}: 0 3.375rem 0 0.625rem;
                 ${paginationTokens.selectTargetInnerTop}: 0.5rem;
@@ -242,10 +235,7 @@ export const config = {
 
                 ${paginationTokens.selectItemWidth}: auto;
                 ${paginationTokens.selectItemHeight}: 1.5rem;
-                ${paginationTokens.selectItemPaddingTop}: 0.5rem;
-                ${paginationTokens.selectItemPaddingRight}: 0.75rem;
-                ${paginationTokens.selectItemPaddingBottom}: 0.5rem;
-                ${paginationTokens.selectItemPaddingLeft}: 0.75rem;
+                ${paginationTokens.selectItemPadding}: 0.5rem 0.75rem 0.5rem 0.75rem;
                 ${paginationTokens.selectItemContentLeftWidth}: 1.75rem;
                 ${paginationTokens.selectItemBackground}: transparent;
 
@@ -288,10 +278,7 @@ export const config = {
 
                 ${paginationTokens.selectItemWidth}: auto;
                 ${paginationTokens.selectItemHeight}: 1rem;
-                ${paginationTokens.selectItemPaddingTop}: 0.5rem;
-                ${paginationTokens.selectItemPaddingRight}: 0.5rem;
-                ${paginationTokens.selectItemPaddingBottom}: 0.5rem;
-                ${paginationTokens.selectItemPaddingLeft}: 0.5rem;
+                ${paginationTokens.selectItemPadding}: 0.5rem 0.5rem 0.5rem 0.5rem;
                 ${paginationTokens.selectItemContentLeftWidth}: 1.25rem;
                 ${paginationTokens.selectItemBackground}: transparent;
 
