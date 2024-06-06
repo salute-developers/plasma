@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
+import { ToastProvider } from '@salutejs/plasma-b2c';
 import Head from 'next/head';
 
 import { Header, Main, SearchForm, IconsList, Footer } from '../components/roster';
@@ -17,7 +18,7 @@ export default function Home() {
     );
 
     return (
-        <>
+        <ToastProvider>
             <Head>
                 <title>Plasma Icons</title>
             </Head>
@@ -27,6 +28,6 @@ export default function Home() {
                 <IconsList searchQuery={searchQuery} />
                 <Footer />
             </StyledMain>
-        </>
+        </ToastProvider>
     );
 }
