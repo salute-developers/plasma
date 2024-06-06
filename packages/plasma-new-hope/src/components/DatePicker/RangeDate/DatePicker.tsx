@@ -15,13 +15,14 @@ import { formatCalendarValue, formatInputValue, getDateFormatDelimiter } from '.
 import { useDatePicker } from '../hooks/useDatePicker';
 import type { RangeInputRefs } from '../../Range/Range.types';
 import { classes } from '../DatePicker.tokens';
+import { StyledCalendar } from '../DatePickerBase.styles';
 
 import type { DatePickerRangeProps } from './DatePicker.types';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readOnlyCSS } from './variations/_readonly/base';
-import { StyledCalendar, StyledRange, base } from './DatePicker.styles';
+import { StyledRange, base } from './DatePicker.styles';
 import { RangeDoubleDate } from './RangeDoubleDate/RangeDoubleDate';
 
 export const datePickerRangeRoot = (
@@ -266,8 +267,8 @@ export const datePickerRangeRoot = (
                         onBlurFirstTextfield={onBlurFirstTextfield}
                         onBlurSecondTextfield={onBlurSecondTextfield}
                         {...(!isDoubleCalendar && {
-                            isOpenFirst: isInnerOpenFirst,
-                            isOpenSecond: isInnerOpenSecond,
+                            isOpenFirst: isOpenFirst || isInnerOpenFirst,
+                            isOpenSecond: isOpenSecond || isInnerOpenSecond,
                             onToggleFirst: handleToggleFirst,
                             onToggleSecond: handleToggleSecond,
                             firstInputPopoverContent: FirstCalendar,
@@ -279,18 +280,6 @@ export const datePickerRangeRoot = (
                     />
                 </>
             );
-
-            useEffect(() => {
-                setIsInnerOpenFirst(isOpenFirst);
-            }, [isOpenFirst]);
-
-            useEffect(() => {
-                setIsInnerOpenSecond(isOpenSecond);
-            }, [isOpenSecond]);
-
-            useEffect(() => {
-                setIsInnerOpenDouble(isOpenDouble);
-            }, [isOpenDouble]);
 
             useEffect(() => {
                 setFirstInputRef(rangeRef.current?.firstTextField());
@@ -311,7 +300,7 @@ export const datePickerRangeRoot = (
                         <RangeDoubleDate
                             calendarValue={[calendarFirstValue, calendarSecondValue]}
                             target={RangeComponent}
-                            isOpen={isInnerOpenDouble}
+                            isOpen={isOpenDouble || isInnerOpenDouble}
                             onToggle={handleToggleDouble}
                             onChangeStartOfRange={(firstDate) => {
                                 handleCommitFirstDate(firstDate, false, true);

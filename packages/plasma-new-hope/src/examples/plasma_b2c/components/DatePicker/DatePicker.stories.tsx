@@ -69,8 +69,7 @@ const StoryDefault = ({
     const [error, setError] = useState<boolean>(false);
     const [success, setSuccess] = useState<boolean>(false);
 
-    const iconSize = 's';
-    // size === 'xs' ? 'xs' : 's';
+    const iconSize = size === 'xs' ? 'xs' : 's';
 
     const handleCommitDate = (newDate: Date | string, dateError?: boolean, dateSuccess?: boolean) => {
         if (dateError) {
@@ -148,8 +147,7 @@ type StoryPropsRange = ComponentProps<typeof DatePickerRange> & {
 };
 
 const ActionButton = ({ size }) => {
-    const iconSize = 's';
-    // size === 'xs' ? 'xs' : 's';
+    const iconSize = size === 'xs' ? 'xs' : 's';
     return (
         <IconButton view="clear" size={size}>
             <IconPlaceholder size={iconSize} />
@@ -185,8 +183,7 @@ const StoryRange = ({
     const [firstValueInnerSuccess, setFirstValueSuccess] = useState(false);
     const [secondValueInnerSuccess, setSecondValueSuccess] = useState(false);
 
-    const iconSize = 's';
-    // const iconSize = size === 'xs' ? 'xs' : 's';
+    const iconSize = size === 'xs' ? 'xs' : 's';
     const showDividerIcon = dividerVariant === 'icon';
     const showDefaultTextBefore = dividerVariant === 'none';
 

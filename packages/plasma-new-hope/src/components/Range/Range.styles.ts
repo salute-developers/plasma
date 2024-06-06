@@ -81,12 +81,12 @@ export const StyledInput = styled(TextField)`
 
 export const base = css`
     .${String(popoverClasses.wrapper)} {
-        flex: 1;
         display: block;
     }
 
     .${String(popoverClasses.target)} {
         display: flex;
+        flex-direction: column;
     }
 `;
 

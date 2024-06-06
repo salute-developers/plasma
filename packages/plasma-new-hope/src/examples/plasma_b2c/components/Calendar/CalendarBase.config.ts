@@ -84,7 +84,6 @@ export const config = {
 
                 ${calendarBaseTokens.calendarHeaderPadding}: 0 0 0 1rem;
                 ${calendarBaseTokens.calendarHeaderDateGap}: 0.5rem;
-                ${calendarBaseTokens.calendarHeaderDateSideMargin}: 1.905rem;
 
                 ${calendarBaseTokens.calendarHeaderFontFamily}: var(--plasma-typo-h4-font-family);
                 ${calendarBaseTokens.calendarHeaderFontSize}: var(--plasma-typo-h4-font-size);
@@ -146,7 +145,6 @@ export const config = {
 
                 ${calendarBaseTokens.calendarHeaderPadding}: 0 0 0 0.75rem;
                 ${calendarBaseTokens.calendarHeaderDateGap}: 0.375rem;
-                ${calendarBaseTokens.calendarHeaderDateSideMargin}: 1.905rem;
 
                 ${calendarBaseTokens.calendarHeaderFontFamily}: var(--plasma-typo-h4-font-family);
                 ${calendarBaseTokens.calendarHeaderFontSize}: var(--plasma-typo-h4-font-size);
@@ -208,7 +206,6 @@ export const config = {
 
                 ${calendarBaseTokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${calendarBaseTokens.calendarHeaderDateGap}: 0.25rem;
-                ${calendarBaseTokens.calendarHeaderDateSideMargin}: 0.969rem;
 
                 ${calendarBaseTokens.calendarHeaderFontFamily}: var(--plasma-typo-h4-font-family);
                 ${calendarBaseTokens.calendarHeaderFontSize}: var(--plasma-typo-h4-font-size);
@@ -270,7 +267,6 @@ export const config = {
 
                 ${calendarBaseTokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${calendarBaseTokens.calendarHeaderDateGap}: 0.25rem;
-                ${calendarBaseTokens.calendarHeaderDateSideMargin}: 1.906rem;
 
                 ${calendarBaseTokens.calendarHeaderFontFamily}: var(--plasma-typo-h5-font-family);
                 ${calendarBaseTokens.calendarHeaderFontSize}: var(--plasma-typo-h5-font-size);
