@@ -19,6 +19,7 @@ export const StyledPopover = styled(Popover)`
 export const Ul = styled.ul<{
     listOverflow?: SelectProps['listOverflow'];
     listHeight?: SelectProps['listHeight'];
+    listWidth?: SelectProps['listWidth'];
     isInnerUl?: boolean;
 }>`
     box-sizing: border-box;
@@ -27,7 +28,7 @@ export const Ul = styled.ul<{
     box-shadow: var(${constants.boxShadow});
 
     border-radius: var(${tokens.borderRadius});
-    width: 100%;
+    width: ${({ listWidth }) => listWidth || '100%'};
     height: ${({ listHeight }) => (listHeight ? getCorrectHeight(listHeight) : 'auto')};
     overflow: ${({ listOverflow }) => listOverflow || 'initial'};
 

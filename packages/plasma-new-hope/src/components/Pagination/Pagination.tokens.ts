@@ -35,6 +35,7 @@ export const tokens = {
     buttonArrowColor: '--plasma-pagination--button-arrow-color',
     buttonArrowColorHover: '--plasma-pagination--button-arrow-color-hover',
     buttonArrowColorActive: '--plasma-pagination--button-arrow-color-active',
+    buttonArrowMargin: '--plasma-pagination--button-arrow-margin',
 
     paginationCurrentButtonBackgroundColor: '--plasma-pagination-button-current-bg-color',
     paginationCurrentButtonColor: '--plasma-pagination-button-current-color',
@@ -60,7 +61,6 @@ export const tokens = {
     paginationLetterSpacing: '--plasma-pagination-letter-spacing',
     paginationLineHeight: '--plasma-pagination-line-height',
 
-    selectWidth: '--plasma-pagination-select-width',
     selectHeight: '--plasma-pagination-select-height',
     selectPaddingTop: '--plasma-pagination-select-padding-top',
     selectPaddingRight: '--plasma-pagination-select-padding-right',
@@ -68,17 +68,13 @@ export const tokens = {
     selectPaddingLeft: '--plasma-pagination-select-padding-left',
     selectBackgroundColor: '--plasma-pagination-select-bg-color',
 
-    selectItemWidth: '--plasma-pagination-select-item-width',
     selectItemHeight: '--plasma-pagination-select-item-height',
     selectItemPadding: '--plasma-pagination-select-item-padding',
     selectItemContentLeftWidth: '--plasma-pagination-select-item-content-left-width',
     selectItemBackground: '--plasma-pagination-select-item-bg-color',
 
     selectTargetArrowRight: '--plasma-pagination-select-target-arrow-right',
-    selectTargetWidth: '--plasma-pagination-select-target-width',
     selectTargetPadding: '--plasma-pagination-select-target-padding',
-    selectTargetPaddingHasChips: '--plasma-pagination-select-target-padding-has-chips',
-    selectTargetPaddingWithInput: '--plasma-pagination-select-target-padding-with-input',
     selectTargetInnerTop: '--plasma-pagination-select-target-inner-top',
     selectTargetLabelInnerTop: '--plasma-pagination-select-target-label-inner-top',
 

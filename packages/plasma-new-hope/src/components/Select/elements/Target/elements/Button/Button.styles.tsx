@@ -16,6 +16,7 @@ export const StyledButton = styled(Button)`
     ${buttonTokens.buttonBackgroundColor}: var(${tokens.targetButtonBackgroundColor});
     ${buttonTokens.buttonBackgroundColorHover}: var(${tokens.targetButtonBackgroundColorHover});
     ${buttonTokens.buttonBackgroundColorActive}: var(${tokens.targetButtonBackgroundColorActive});
+    ${buttonTokens.buttonRightContentMargin}: var(${tokens.targetButtonArrowMargin});
     ${buttonTokens.buttonHeight}: var(${tokens.targetHeight});
     ${buttonTokens.buttonWidth}: 100%;
     ${buttonTokens.buttonPadding}: var(${tokens.targetButtonPadding});

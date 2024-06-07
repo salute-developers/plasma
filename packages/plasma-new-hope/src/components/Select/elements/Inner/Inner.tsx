@@ -8,7 +8,7 @@ import type { ItemOptionTransformed } from './elements/Item/Item.types';
 import { Item } from './elements/Item/Item';
 import { InnerProps } from './Inner.type';
 
-export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, index }) => {
+export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, index, listWidth }) => {
     const handleToggle = (opened: boolean): void => {
         if (opened) {
             dispatchPath({ type: 'changed_on_level', value: item.value.toString(), level: currentLevel + 1 });
@@ -34,7 +34,7 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
                 isFocusTrapped={false}
                 preventOverflow={false}
             >
-                <Ul role="group" id={listId} isInnerUl>
+                <Ul role="group" id={listId} isInnerUl listWidth={listWidth}>
                     {item.items?.map((innerItem: ItemOptionTransformed, innerIndex: number) => (
                         <Inner
                             key={`${innerIndex}/${currentLevel}`}
@@ -43,6 +43,7 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
                             path={path}
                             dispatchPath={dispatchPath}
                             index={innerIndex}
+                            listWidth={listWidth}
                         />
                     ))}
                 </Ul>

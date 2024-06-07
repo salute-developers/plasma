@@ -1,4 +1,4 @@
-import type { HTMLAttributes, ReactNode } from 'react';
+import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
 
 import type { AsProps, NumericRange, CreateArrayWithLengthX } from '../../types';
 /*
@@ -107,6 +107,12 @@ export type CustomPaginationProps = {
      * Текст для выбора кол-ва результатов на странице
      */
     textPerPage?: string;
+
+    /**
+     * Значение css width для выпадающего списка.
+     * @example width="200px"
+     */
+    listWidth?: CSSProperties['width'];
 
     /*
      * Функция которая исполняeтся при изменении

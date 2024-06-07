@@ -139,25 +139,21 @@ export const config = {
                 ${paginationTokens.buttonRadius}: 0.875rem;
                 ${paginationTokens.paginationIconSize}: 1.2rem;
                 ${paginationTokens.paginationIconDoubleSize}: 1.45rem;
+                ${paginationTokens.buttonArrowMargin}: 0 -0.125rem 0 0.5rem;
 
-                ${paginationTokens.selectWidth}: 100%;
                 ${paginationTokens.selectHeight}: auto;
                 ${paginationTokens.selectPaddingTop}: 0.125rem;
                 ${paginationTokens.selectPaddingRight}: 0.125rem;
                 ${paginationTokens.selectPaddingBottom}: 0.125rem;
                 ${paginationTokens.selectPaddingLeft}: 0.125rem;
 
-                ${paginationTokens.selectItemWidth}: auto;
                 ${paginationTokens.selectItemHeight}: 1.5rem;
                 ${paginationTokens.selectItemPadding}: 1rem 1rem 1rem 1rem;
                 ${paginationTokens.selectItemContentLeftWidth}: 1.875rem;
                 ${paginationTokens.selectItemBackground}: transparent;
 
                 ${paginationTokens.selectTargetArrowRight}: 1rem;
-                ${paginationTokens.selectTargetWidth}: 100%;
-                ${paginationTokens.selectTargetPadding}: 0 3.5rem 0 1.5rem;
-                ${paginationTokens.selectTargetPaddingHasChips}: 0 3.625rem 0 0.375rem;
-                ${paginationTokens.selectTargetPaddingWithInput}: 0 3.625rem 0 0.625rem;
+                ${paginationTokens.selectTargetPadding}: 1.5rem 0 1.5rem;
                 ${paginationTokens.selectTargetInnerTop}: 0.5rem;
                 ${paginationTokens.selectTargetLabelInnerTop}: 0.375rem;
 
@@ -182,25 +178,21 @@ export const config = {
                 ${paginationTokens.buttonRadius}: 0.75rem;
                 ${paginationTokens.paginationIconSize}: 1.05rem;
                 ${paginationTokens.paginationIconDoubleSize}: 1.3rem;
+                ${paginationTokens.buttonArrowMargin}: 0 -0.125rem 0 0.375rem;
 
-                ${paginationTokens.selectWidth}: 100%;
                 ${paginationTokens.selectHeight}: auto;
                 ${paginationTokens.selectPaddingTop}: 0.125rem;
                 ${paginationTokens.selectPaddingRight}: 0.125rem;
                 ${paginationTokens.selectPaddingBottom}: 0.125rem;
                 ${paginationTokens.selectPaddingLeft}: 0.125rem;
 
-                ${paginationTokens.selectItemWidth}: auto;
                 ${paginationTokens.selectItemHeight}: 1.5rem;
                 ${paginationTokens.selectItemPadding}: 0.75rem 0.75rem 0.75rem 0.75rem;
                 ${paginationTokens.selectItemContentLeftWidth}: 1.75rem;
                 ${paginationTokens.selectItemBackground}: transparent;
 
                 ${paginationTokens.selectTargetArrowRight}: 0.875rem;
-                ${paginationTokens.selectTargetWidth}: 100%;
-                ${paginationTokens.selectTargetPadding}: 1.125rem 0 1.25rem;
-                ${paginationTokens.selectTargetPaddingHasChips}: 0 3.375rem 0 0.375rem;
-                ${paginationTokens.selectTargetPaddingWithInput}: 0 3.375rem 0 0.625rem;
+                ${paginationTokens.selectTargetPadding}: 1.25rem 0 1.25rem;
                 ${paginationTokens.selectTargetInnerTop}: 0.5rem;
                 ${paginationTokens.selectTargetLabelInnerTop}: 0.375rem;
 
@@ -225,25 +217,21 @@ export const config = {
                 ${paginationTokens.buttonRadius}: 0.625rem;
                 ${paginationTokens.paginationIconSize}: 0.9rem;
                 ${paginationTokens.paginationIconDoubleSize}: 1.15rem;
+                ${paginationTokens.buttonArrowMargin}: 0 -0.125rem 0 0.25rem;
 
-                ${paginationTokens.selectWidth}: 100%;
                 ${paginationTokens.selectHeight}: auto;
                 ${paginationTokens.selectPaddingTop}: 0.125rem;
                 ${paginationTokens.selectPaddingRight}: 0.125rem;
                 ${paginationTokens.selectPaddingBottom}: 0.125rem;
                 ${paginationTokens.selectPaddingLeft}: 0.125rem;
 
-                ${paginationTokens.selectItemWidth}: auto;
                 ${paginationTokens.selectItemHeight}: 1.5rem;
                 ${paginationTokens.selectItemPadding}: 0.5rem 0.75rem 0.5rem 0.75rem;
                 ${paginationTokens.selectItemContentLeftWidth}: 1.75rem;
                 ${paginationTokens.selectItemBackground}: transparent;
 
                 ${paginationTokens.selectTargetArrowRight}: 0.75rem;
-                ${paginationTokens.selectTargetWidth}: 100%;
-                ${paginationTokens.selectTargetPadding}: 0 3rem 0 1rem;
-                ${paginationTokens.selectTargetPaddingHasChips}: 0 3.125rem 0 0.375rem;
-                ${paginationTokens.selectTargetPaddingWithInput}: 0 3.125rem 0 0.625rem;
+                ${paginationTokens.selectTargetPadding}: 1rem 0 1rem;
                 ${paginationTokens.selectTargetInnerTop}: 0.5rem;
                 ${paginationTokens.selectTargetLabelInnerTop}: 0.375rem;
 
@@ -268,25 +256,21 @@ export const config = {
                 ${paginationTokens.buttonWidthShorter}: 1.5rem;
                 ${paginationTokens.paginationIconSize}: 0.75rem;
                 ${paginationTokens.paginationIconDoubleSize}: 1rem;
+                ${paginationTokens.buttonArrowMargin}: 0 -0.125rem 0 0.25rem;
 
-                ${paginationTokens.selectWidth}: 100%;
                 ${paginationTokens.selectHeight}: auto;
                 ${paginationTokens.selectPaddingTop}: 0.125rem;
                 ${paginationTokens.selectPaddingRight}: 0.125rem;
                 ${paginationTokens.selectPaddingBottom}: 0.125rem;
                 ${paginationTokens.selectPaddingLeft}: 0.125rem;
 
-                ${paginationTokens.selectItemWidth}: auto;
                 ${paginationTokens.selectItemHeight}: 1rem;
                 ${paginationTokens.selectItemPadding}: 0.5rem 0.5rem 0.5rem 0.5rem;
                 ${paginationTokens.selectItemContentLeftWidth}: 1.25rem;
                 ${paginationTokens.selectItemBackground}: transparent;
 
                 ${paginationTokens.selectTargetArrowRight}: 0.5rem;
-                ${paginationTokens.selectTargetWidth}: 100%;
-                ${paginationTokens.selectTargetPadding}: 0 2.5rem 0 0.75rem;
-                ${paginationTokens.selectTargetPaddingHasChips}: 0 2.625rem 0 0.375rem;
-                ${paginationTokens.selectTargetPaddingWithInput}: 0 2.625rem 0 0.625rem;
+                ${paginationTokens.selectTargetPadding}: 0.75rem 0 0.75rem;
                 ${paginationTokens.selectTargetInnerTop}: 0.5rem;
                 ${paginationTokens.selectTargetLabelInnerTop}: 0.375rem;
 
