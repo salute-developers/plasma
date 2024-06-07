@@ -50,6 +50,18 @@ import { CounterProps } from '@salutejs/plasma-new-hope/styled-components';
 import { counterTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { CustomPopoverProps } from '@salutejs/plasma-new-hope/types/components/Popover/Popover.types';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
+import { DatePickerCalendarProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/SingleDate/SingleDate.types';
+import { DatePickerCalendarProps as DatePickerCalendarProps_2 } from '@salutejs/plasma-new-hope/types/components/DatePicker/RangeDate/RangeDate.types';
+import { datePickerClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { DatePickerdVariationProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/DatePickerBase.types';
+import { DatePickerPlacement } from '@salutejs/plasma-new-hope/styled-components';
+import { DatePickerPlacementBasic } from '@salutejs/plasma-new-hope/styled-components';
+import { DatePickerPopoverProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/SingleDate/SingleDate.types';
+import { DatePickerProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DatePickerRangePlacement } from '@salutejs/plasma-new-hope/styled-components';
+import { DatePickerRangeProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DatePickerTextFieldProps } from '@salutejs/plasma-new-hope/types/components/DatePicker/SingleDate/SingleDate.types';
+import { datePickerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DividerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { DoubleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -106,6 +118,7 @@ import { PopupProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { ProgressProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
+import { RangeInputRefs } from '@salutejs/plasma-new-hope/styled-components';
 import { RangeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { rangeTokens } from '@salutejs/plasma-new-hope/styled-components';
 import { Ratio } from '@salutejs/plasma-new-hope/styled-components';
@@ -636,6 +649,97 @@ export { CounterProps }
 
 export { counterTokens }
 
+// @public (undocumented)
+export const DatePicker: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+disabled: {
+true: string;
+};
+readOnly: {
+true: string;
+};
+}> & DatePickerdVariationProps & DatePickerTextFieldProps & DatePickerCalendarProps & DatePickerPopoverProps & Omit<HTMLAttributes<HTMLDivElement>, "defaultValue"> & RefAttributes<HTMLInputElement>>;
+
+export { datePickerClasses }
+
+export { DatePickerPlacement }
+
+export { DatePickerPlacementBasic }
+
+export { DatePickerProps }
+
+// @public (undocumented)
+export const DatePickerRange: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+disabled: {
+true: string;
+};
+readOnly: {
+true: string;
+};
+}> & DatePickerdVariationProps & {
+defaultFirstDate?: Date | undefined;
+defaultSecondDate?: Date | undefined;
+onCommitFirstDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined) => void) | undefined;
+onCommitSecondDate?: ((value: string | Date, error?: boolean | undefined, success?: boolean | undefined) => void) | undefined;
+} & {
+label?: string | undefined;
+view?: string | undefined;
+disabled?: boolean | undefined;
+readOnly?: boolean | undefined;
+size?: string | undefined;
+contentLeft?: ReactNode;
+contentRight?: ReactNode;
+leftHelper?: string | undefined;
+dividerVariant?: "none" | "dash" | "icon" | undefined;
+dividerIcon?: ReactNode;
+firstValueError?: boolean | undefined;
+secondValueError?: boolean | undefined;
+firstValueSuccess?: boolean | undefined;
+secondValueSuccess?: boolean | undefined;
+firstPlaceholder?: string | undefined;
+secondPlaceholder?: string | undefined;
+firstTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+firstTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+secondTextfieldContentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+secondTextfieldContentRight?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+firstTextfieldTextBefore?: string | undefined;
+secondTextfieldTextBefore?: string | undefined;
+firstTextfieldTextAfter?: string | undefined;
+secondTextfieldTextAfter?: string | undefined;
+onChangeFirstValue?: BaseCallbackChangeInstance | undefined;
+onChangeSecondValue?: BaseCallbackChangeInstance | undefined;
+onFocusFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onFocusSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onBlurFirstTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+onBlurSecondTextfield?: ((event: ChangeEvent<HTMLInputElement>) => void) | undefined;
+} & DatePickerCalendarProps_2 & Omit<DatePickerPopoverProps, "placement"> & {
+placement?: DatePickerRangePlacement | DatePickerRangePlacement[] | undefined;
+isDoubleCalendar?: boolean | undefined;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<RangeInputRefs>>;
+
+export { DatePickerRangePlacement }
+
+export { DatePickerRangeProps }
+
+export { datePickerTokens }
+
 // @public
 export const Divider: FunctionComponent<PropsType<    {
 view: {
@@ -1138,7 +1242,7 @@ firstTextfieldTextBefore: string;
 secondTextfieldTextBefore: string;
 dividerVariant?: "none" | undefined;
 dividerIcon?: undefined;
-} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLInputElement>) | ({
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<RangeInputRefs>) | ({
 label?: string | undefined;
 leftHelper?: string | undefined;
 contentLeft?: ReactNode;
@@ -1174,7 +1278,7 @@ dividerVariant?: "dash" | undefined;
 dividerIcon?: undefined;
 firstTextfieldTextBefore?: string | undefined;
 secondTextfieldTextBefore?: string | undefined;
-} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLInputElement>) | ({
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<RangeInputRefs>) | ({
 label?: string | undefined;
 leftHelper?: string | undefined;
 contentLeft?: ReactNode;
@@ -1210,7 +1314,7 @@ dividerIcon?: ReactNode;
 dividerVariant?: "icon" | undefined;
 firstTextfieldTextBefore?: string | undefined;
 secondTextfieldTextBefore?: string | undefined;
-} & HTMLAttributes<HTMLDivElement> & RefAttributes<HTMLInputElement>))>;
+} & HTMLAttributes<HTMLDivElement> & RefAttributes<RangeInputRefs>))>;
 export { Range_2 as Range }
 
 export { RangeProps }
