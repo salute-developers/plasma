@@ -19,6 +19,12 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.background}: var(${tokens.background});
     ${rangeTokens.backgroundError}: var(${tokens.backgroundError});
     ${rangeTokens.backgroundSuccess}: var(${tokens.backgroundSuccess});
+    
+    ${rangeTokens.borderColor}: var(${tokens.borderColor});
+    ${rangeTokens.borderColorError}: var(${tokens.borderColorError});
+    ${rangeTokens.borderColorSuccess}: var(${tokens.borderColorSuccess});
+    
+    ${rangeTokens.borderWidth}: var(${tokens.textFieldBorderWidth});
 
     ${rangeTokens.dividerColor}: var(${tokens.dividerColor});
     ${rangeTokens.labelColor}: var(${tokens.labelColor});
@@ -33,6 +39,13 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.textFieldBackgroundErrorColorFocus}: var(${tokens.textFieldBackgroundErrorColorFocus});
     ${rangeTokens.textFieldBackgroundSuccessColor}: var(${tokens.textFieldBackgroundSuccessColor});
     ${rangeTokens.textFieldBackgroundSuccessColorFocus}: var(${tokens.textFieldBackgroundSuccessColorFocus});
+
+    ${rangeTokens.textFieldBorderWidth}: var(${tokens.textFieldBorderWidth});
+    ${rangeTokens.textFieldBorderColorFocus}: var(${tokens.textFieldBorderColorFocus});
+    ${rangeTokens.textFieldBorderColorError}: var(${tokens.textFieldBorderColorError});
+    ${rangeTokens.textFieldBorderColorErrorFocus}: var(${tokens.textFieldBorderColorErrorFocus});
+    ${rangeTokens.textFieldBorderColorSuccess}: var(${tokens.textFieldBorderColorSuccess});
+    ${rangeTokens.textFieldBorderColorSuccessFocus}: var(${tokens.textFieldBorderColorSuccessFocus});
 
     ${rangeTokens.textFieldTextBeforeColor}: var(${tokens.textFieldTextBeforeColor});
     ${rangeTokens.textFieldTextAfterColor}: var(${tokens.textFieldTextAfterColor});

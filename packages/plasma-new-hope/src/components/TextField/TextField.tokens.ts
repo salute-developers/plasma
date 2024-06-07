@@ -26,7 +26,7 @@ export const tokens = {
     placeholderColor: '--plasma-textfield__placeholder-color',
 
     height: '--plasma-textfield-height',
-    borderWidth: '--plasmas-textfield-border-width',
+    borderWidth: '--plasma-textfield-border-width',
     borderRadius: '--plasma-textfield-border-radius',
 
     /** Отступ от границы ТextField */

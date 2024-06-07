@@ -82,6 +82,7 @@ export const StyledInput = styled(TextField)`
 export const base = css`
     .${String(popoverClasses.wrapper)} {
         display: block;
+        flex: 1;
     }
 
     .${String(popoverClasses.target)} {
