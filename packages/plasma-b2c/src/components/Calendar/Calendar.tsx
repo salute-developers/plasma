@@ -7,6 +7,7 @@ import {
     mergeConfig,
 } from '@salutejs/plasma-new-hope/styled-components';
 import type { CalendarBaseProps, CalendarDoubleProps } from '@salutejs/plasma-new-hope/styled-components';
+import type { FC } from 'react';
 
 import { config as baseConfig } from './CalendarBase.config';
 import { config as doubleConfig } from './CalendarDouble.config';
@@ -20,8 +21,8 @@ export const CalendarBaseRange = withRange<CalendarBaseProps>(CalendarBase);
 export const CalendarDoubleRange = withRange<CalendarDoubleProps>(CalendarDouble);
 
 export const Calendar = boundCalendar({
-    base: CalendarBase,
+    base: CalendarBase as FC<CalendarBaseProps>,
     baseRange: CalendarBaseRange,
-    double: CalendarDouble,
+    double: CalendarDouble as FC<CalendarDoubleProps>,
     doubleRange: CalendarDoubleRange,
 });
