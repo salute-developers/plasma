@@ -124,6 +124,8 @@ import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { SelectPrimitiveValue } from '@salutejs/plasma-new-hope/styled-components';
 import { SelectProps } from '@salutejs/plasma-new-hope/styled-components';
+import { sheetClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { SheetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
 import { SingleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SliderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -1323,6 +1325,17 @@ view?: string | undefined;
 export { SelectPrimitiveValue }
 
 export { SelectProps }
+
+// @public
+export const Sheet: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+}> & SheetProps & RefAttributes<HTMLDivElement>>;
+
+export { sheetClasses }
+
+export { SheetProps }
 
 export { ShowToastArgs }
 
