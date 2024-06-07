@@ -123,8 +123,6 @@ import { ScreenVariant } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
-import { SelectPrimitiveValue } from '@salutejs/plasma-new-hope/styled-components';
-import { SelectProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
 import { SingleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SliderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -591,8 +589,8 @@ id?: string | undefined;
 disabled?: boolean | undefined;
 label?: ReactNode;
 role?: string | undefined;
-contentLeft?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
-contentRight?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
+contentLeft?: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ReactFragment | ReactPortal | ComponentClass<any, any> | null | undefined;
+contentRight?: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ReactFragment | ReactPortal | ComponentClass<any, any> | null | undefined;
 name?: string | undefined;
 checked?: boolean | undefined;
 text?: string | undefined;
@@ -909,7 +907,7 @@ contentRight?: ReactNode;
 
 // @public
 const Image_2: FunctionComponent<PropsType<Variants> & ImgHTMLAttributes<HTMLImageElement> & {
-base?: "img" | "div" | undefined;
+base?: "div" | "img" | undefined;
 ratio?: "1 / 1" | "1/1" | "3 / 4" | "3/4" | "4 / 3" | "4/3" | "9 / 16" | "9/16" | "16 / 9" | "16/9" | "1 / 2" | "1/2" | "2 / 1" | "2/1" | undefined;
 customRatio?: string | undefined;
 } & RefAttributes<HTMLDivElement>>;
@@ -983,9 +981,9 @@ export { OverlayProps }
 // @public
 export const Pagination: FunctionComponent<PropsType<    {
 view: {
+default: string;
 secondary: string;
 clear: string;
-default: string;
 };
 viewCurrentPage: {
 default: string;
@@ -1291,39 +1289,6 @@ view?: string | undefined;
 export { SegmentItemProps }
 
 export { SegmentProvider }
-
-// @public (undocumented)
-export const Select: ForwardRefExoticComponent<SelectProps & RefAttributes<HTMLSelectElement>>;
-
-// @public (undocumented)
-export const SelectDivider: FunctionComponent<PropsType<Variants> & HTMLAttributes<HTMLDivElement> & {
-id?: string | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
-
-// @public (undocumented)
-export const SelectItem: FunctionComponent<PropsType<Variants> & Omit<HTMLAttributes<HTMLDivElement>, "onSelect"> & {
-id?: string | undefined;
-disabled?: boolean | undefined;
-label?: ReactNode;
-role?: string | undefined;
-contentLeft?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
-contentRight?: string | number | boolean | ReactFragment | ReactPortal | ReactElement<any, string | JSXElementConstructor<any>> | FunctionComponent<any> | ComponentClass<any, any> | null | undefined;
-name?: string | undefined;
-checked?: boolean | undefined;
-text?: string | undefined;
-value?: string | number | boolean | undefined;
-isSelected?: boolean | undefined;
-onClick?: ((event: MouseEvent_2<HTMLDivElement, MouseEvent>) => void) | undefined;
-onSelect?: ((value?: any, text?: any) => void) | undefined;
-size?: string | undefined;
-view?: string | undefined;
-} & RefAttributes<HTMLDivElement>>;
-
-export { SelectPrimitiveValue }
-
-export { SelectProps }
 
 export { ShowToastArgs }
 

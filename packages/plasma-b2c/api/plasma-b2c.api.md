@@ -1256,7 +1256,7 @@ contentRight?: ReactNode;
 
 // @public
 const Image_2: FunctionComponent<PropsType<Variants> & ImgHTMLAttributes<HTMLImageElement> & {
-base?: "img" | "div" | undefined;
+base?: "div" | "img" | undefined;
 ratio?: "16 / 9" | "1 / 1" | "1/1" | "3 / 4" | "3/4" | "4 / 3" | "4/3" | "9 / 16" | "9/16" | "16/9" | "1 / 2" | "1/2" | "2 / 1" | "2/1" | undefined;
 customRatio?: string | undefined;
 } & RefAttributes<HTMLDivElement>>;
@@ -1440,16 +1440,16 @@ export { padZeroNumber }
 // @public
 export const Pagination: FunctionComponent<PropsType<    {
 view: {
+default: string;
 secondary: string;
 clear: string;
-default: string;
 primary: string;
 };
 viewCurrentPage: {
 default: string;
-primary: string;
 secondary: string;
 clear: string;
+primary: string;
 };
 size: {
 l: string;
