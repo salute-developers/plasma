@@ -25,6 +25,7 @@ export * from './components/Pagination';
 export * from './components/Range';
 export * from './components/Radiobox';
 export * from './components/Segment';
+export * from './components/Sheet';
 export * from './components/Spinner';
 export * from './components/Slider';
 export * from './components/SSRProvider';

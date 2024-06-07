@@ -6,6 +6,7 @@ export * from './components/Modal';
 export * from './components/Popup';
 export * from './components/Radiobox';
 export * from './components/Segment';
+export * from './components/Sheet';
 export * from './components/Spinner';
 export * from './components/Switch';
 export * from './components/Typography';
