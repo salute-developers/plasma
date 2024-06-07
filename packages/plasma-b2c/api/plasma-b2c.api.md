@@ -208,6 +208,8 @@ import { SelectProps } from '@salutejs/plasma-hope';
 import { selectText } from '@salutejs/plasma-hope';
 import { setRef } from '@salutejs/plasma-core';
 import { shadows } from '@salutejs/plasma-core';
+import { sheetClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { SheetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShiftProps } from '@salutejs/plasma-core';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
 import { SingleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -1848,6 +1850,17 @@ export { selectText }
 export { setRef }
 
 export { shadows }
+
+// @public
+export const Sheet: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+}> & SheetProps & RefAttributes<HTMLDivElement>>;
+
+export { sheetClasses }
+
+export { SheetProps }
 
 export { ShiftProps }
 
