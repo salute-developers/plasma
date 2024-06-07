@@ -1,3 +1,10 @@
 import { css } from '@linaria/core';
 
-export const base = css``;
+import { tokens } from '../../../DatePicker.tokens';
+
+export const base = css`
+    &[disabled] {
+        opacity: var(${tokens.disabledOpacity});
+        cursor: not-allowed;
+    }
+`;

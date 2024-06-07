@@ -1,4 +1,4 @@
-import React, { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useCallback, useRef, useState } from 'react';
 
 import type { RootProps } from '../../../engines';
 import { cx, getPlacements } from '../../../utils';

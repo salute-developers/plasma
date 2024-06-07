@@ -15,6 +15,8 @@ export const tokens = {
     borderRadius: '--plasma-date-picker_range-border-radius',
     borderWidth: '--plasma-date-picker_range-border-width',
     borderColor: '--plasma-date-picker_range-border-color',
+    borderColorHover: '--plasma-date-picker_range-border-color-hover',
+    borderColorFocus: '--plasma-date-picker_range-border-color-focus',
     borderColorError: '--plasma-date-picker_range-border-color-error',
     borderColorSuccess: '--plasma-date-picker_range-border-color-success',
     borderColorReadOnly: '--plasma-date-picker_range-border-color-readonly',

@@ -24,10 +24,10 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundColor});
     ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundColorHover});
     ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundColorFocus});
-
-    ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColor});
-    ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorHover});
-    ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorFocus});
+    
+    ${textFieldTokens.borderColor}: var(${tokens.borderColor});
+    ${textFieldTokens.borderColorHover}: var(${tokens.borderColorHover});
+    ${textFieldTokens.borderColorFocus}: var(${tokens.borderColorFocus});
 
     ${textFieldTokens.colorReadOnly}: var(${tokens.textFieldColorReadOnly});
     ${textFieldTokens.backgroundColorReadOnly}: var(${tokens.textFieldBackgroundColorReadOnly});
