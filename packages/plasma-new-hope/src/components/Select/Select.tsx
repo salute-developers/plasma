@@ -42,6 +42,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, SelectProps>) =>
             isOpen,
             listOverflow,
             listHeight,
+            listWidth,
             status,
             contentLeft,
             onScrollBottom,
@@ -260,6 +261,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, SelectProps>) =>
                                 listHeight={listHeight}
                                 listOverflow={listOverflow}
                                 onScroll={handleScroll}
+                                listWidth={listWidth}
                             >
                                 {transformedItems.map((item, index) => (
                                     <Inner
@@ -269,6 +271,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, SelectProps>) =>
                                         path={path}
                                         dispatchPath={dispatchPath}
                                         index={index}
+                                        listWidth={listWidth}
                                     />
                                 ))}
                             </Ul>

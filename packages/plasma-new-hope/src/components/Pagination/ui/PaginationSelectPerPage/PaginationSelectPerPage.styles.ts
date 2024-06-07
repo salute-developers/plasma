@@ -26,6 +26,7 @@ export const SelectPerPageSelect = styled(Select)`
     ${selectTokens.targetButtonArrowColor}: var(${tokens.buttonArrowColor});
     ${selectTokens.targetButtonArrowColorHover}: var(${tokens.buttonArrowColorHover});
     ${selectTokens.targetButtonArrowColorActive}: var(${tokens.buttonArrowColorActive});
+    ${selectTokens.targetButtonArrowMargin}: var(${tokens.buttonArrowMargin});
 
     ${selectTokens.padding}: 0.125rem;
     ${selectTokens.focusOffset}: 0.125rem;

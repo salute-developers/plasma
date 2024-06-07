@@ -115,6 +115,11 @@ type BasicProps = {
      */
     listHeight?: number | CSSProperties['height'];
     /**
+     * Значение css width для выпадающего списка.
+     * @example width="200px"
+     */
+    listWidth?: CSSProperties['width'];
+    /**
      * Портал для выпадающего списка. Принимает id контейнера или ref.
      */
     portal?: string | React.RefObject<HTMLElement>;

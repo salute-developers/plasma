@@ -53,7 +53,7 @@ export const mergeConfig = <
     Tag extends HTMLTagList,
     VariantList extends Variants,
     VariantsProps extends PropsType<VariantList>,
-    LayoutPropsBase extends React.HTMLAttributes<HTMLElement>,
+    LayoutPropsBase extends Omit<React.HTMLAttributes<HTMLElement>, 'onChange'>,
     LayoutPropsUser extends React.HTMLAttributes<HTMLElement> | undefined = undefined
 >(
     baseConfig: ComponentConfig<Tag, Variants, PropsType & LayoutPropsBase, LayoutPropsBase>,

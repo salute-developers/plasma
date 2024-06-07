@@ -16,12 +16,10 @@ const getLabel = ({ value, label, isTargetAmount, multiselect, valueToItemMap }:
     }
 
     if (multiselect && Array.isArray(value)) {
-        return value
-            .map((value) => valueToItemMap.get(value)?.secondaryLabel || valueToItemMap.get(value)?.label)
-            .join(', ');
+        return value.map((value) => valueToItemMap.get(value)!.label).join(', ');
     }
 
-    return valueToItemMap.get(value)?.label;
+    return valueToItemMap.get(value.toString())!.label;
 };
 
 export const Button: React.FC<ButtonProps> = ({
