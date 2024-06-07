@@ -290,7 +290,7 @@ describe('plasma-new-hope: Pagination Content', () => {
     it('setSelect', () => {
         mount(
             <CypressTestDecoratorWithTypo>
-                <Pagination slots={slots[2]} value={values[0]} count={count} />
+                <Pagination slots={slots[2]} value={values[0]} count={count} listWidth="5rem" />
             </CypressTestDecoratorWithTypo>,
         );
         cy.get('button').last().click();

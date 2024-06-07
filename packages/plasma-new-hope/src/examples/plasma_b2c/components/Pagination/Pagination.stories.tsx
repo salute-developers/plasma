@@ -64,6 +64,7 @@ export const Default: Story = {
         hasPerPage: true,
         pilled: false,
         square: true,
+        listWidth: '5rem',
     },
 };
 

@@ -22,7 +22,7 @@ export const PaginationSelectPerPage: React.FC<PaginationSelectPerPageProps> = (
     };
 
     const transformedList = perPageList.map((num) => ({ label: num.toString(), value: num.toString() }));
-
+    console.log('listWidth', listWidth);
     return (
         <SelectPerPageRoot {...rest}>
             <SelectPerPageTypography>{textPerPage}</SelectPerPageTypography>
