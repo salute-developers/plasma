@@ -181,6 +181,12 @@ export const useKeyNavigation = ({
 
                 const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
 
+                if (!path[0]) {
+                    dispatchPath({ type: 'opened_first_level' });
+                    dispatchFocusedPath({ type: 'set_initial_focus' });
+                    break;
+                }
+
                 if (!currentItem || currentItem?.isDisabled || currentItem?.disabled) {
                     break;
                 }

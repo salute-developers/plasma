@@ -5,6 +5,7 @@ import { selectTokens } from '../../../../components/Select';
 export const config = {
     defaults: {
         view: 'default',
+        chipView: 'default',
         size: 'm',
     },
     variations: {

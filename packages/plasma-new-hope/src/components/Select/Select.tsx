@@ -258,7 +258,13 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, SelectProps>) =>
                         closeOnOverlayClick
                     >
                         {isEmpty(items) ? (
-                            notFoundContent || <SelectNotFoundContent description="Доделать" />
+                            notFoundContent || (
+                                <SelectNotFoundContent
+                                    description="Доделать"
+                                    buttonAction={() => {}}
+                                    buttonText="Label"
+                                />
+                            )
                         ) : (
                             <Ul
                                 role="tree"
@@ -304,6 +310,7 @@ export const selectConfig = {
     },
     defaults: {
         view: 'default',
+        chipView: 'default',
         size: 'm',
     },
 };

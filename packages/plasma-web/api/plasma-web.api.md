@@ -38,6 +38,7 @@ import { BadgeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseCallbackChangeInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseCallbackKeyboardInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
+import { BasicProps } from '@salutejs/plasma-new-hope/types/components/Select/Select.types';
 import { BlurProps } from '@salutejs/plasma-core';
 import { blurs } from '@salutejs/plasma-core';
 import { BoldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Typography.types';
@@ -218,9 +219,7 @@ import { ScrollSnapProps } from '@salutejs/plasma-core';
 import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
-import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
-import { SelectGroup } from '@salutejs/plasma-hope';
-import { SelectProps } from '@salutejs/plasma-hope';
+import { SelectNotFoundContent } from '@salutejs/plasma-new-hope/styled-components';
 import { selectText } from '@salutejs/plasma-hope';
 import { setRef } from '@salutejs/plasma-core';
 import { shadows } from '@salutejs/plasma-core';
@@ -256,7 +255,7 @@ import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
-import type { TextAreaProps as TextAreaProps_2 } from '@salutejs/plasma-hope';
+import { TextAreaProps } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
 import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { TextfieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
@@ -1961,14 +1960,70 @@ export { SegmentItemProps }
 
 export { SegmentProvider }
 
-export { SegmentProviderProps }
+// @public (undocumented)
+export const Select: FunctionComponent<PropsType<    {
+size: {
+xs: string;
+s: string;
+m: string;
+l: string;
+};
+view: {
+default: string;
+positive: string;
+warning: string;
+negative: string;
+accent: string;
+secondary: string;
+clear: string;
+dark: string;
+black: string;
+white: string;
+};
+chipView: {
+default: string;
+secondary: string;
+accent: string;
+};
+}> & ((BasicProps & {
+value: string;
+onChange: (value: string) => void;
+separator?: undefined;
+isTargetAmount?: false | undefined;
+} & {
+target?: "textfield" | undefined;
+view?: "default" | "positive" | "warning" | "negative" | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+value: string;
+onChange: (value: string) => void;
+separator?: undefined;
+isTargetAmount?: false | undefined;
+} & {
+target?: "button" | undefined;
+view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "black" | "white" | "dark" | "clear" | undefined;
+contentLeft?: undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+value: string[];
+onChange: (value: string[]) => void;
+separator?: string | undefined;
+isTargetAmount?: boolean | undefined;
+} & {
+target?: "textfield" | undefined;
+view?: "default" | "positive" | "warning" | "negative" | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+value: string[];
+onChange: (value: string[]) => void;
+separator?: string | undefined;
+isTargetAmount?: boolean | undefined;
+} & {
+target?: "button" | undefined;
+view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "black" | "white" | "dark" | "clear" | undefined;
+contentLeft?: undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>))>;
 
-// @public
-export const Select: React_2.ForwardRefExoticComponent<SelectProps<any> & React_2.RefAttributes<HTMLButtonElement>>;
-
-export { SelectGroup }
-
-export { SelectProps }
+export { SelectNotFoundContent }
 
 export { selectText }
 
@@ -2118,11 +2173,7 @@ export const TextArea: ForwardRefExoticComponent<TextAreaProps & RefAttributes<H
 
 export { TextareaHTMLAttributes }
 
-// @public (undocumented)
-export interface TextAreaProps extends TextAreaProps_2 {
-    // @deprecated (undocumented)
-    resize?: 'none' | 'both' | 'horizontal' | 'vertical';
-}
+export { TextAreaProps }
 
 export { TextareaResize }
 

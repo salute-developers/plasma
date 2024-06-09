@@ -313,7 +313,7 @@ describe('plasma-hope: Select a11y - keyboard control', () => {
 //     { value: 'fullText', label: 'Каждый охотник желает знать, где сидит фазан' },
 // ];
 //
-// describe('plasma-b2c: Select', () => {
+// describe('plasma-web: Select', () => {
 //     const Select = getComponent('Select');
 //
 //     const ControlledSelect = () => {
@@ -419,7 +419,7 @@ describe('plasma-hope: Select a11y - keyboard control', () => {
 //     });
 // });
 //
-// describe('plasma-hope: Select a11y - keyboard control', () => {
+// describe('plasma-web: Select a11y - keyboard control', () => {
 //     const Select = getComponent('Select');
 //
 //     const ControlledSelect = () => {

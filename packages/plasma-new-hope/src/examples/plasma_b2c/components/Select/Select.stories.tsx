@@ -290,41 +290,14 @@ const items = [
         isDisabled: true,
     },
 ];
-const loadingItems = [
-    { value: '1', label: 'Item 1' },
-    { value: '2', label: 'Item 2' },
-    { value: '3', label: 'Item 3' },
-    { value: '4', label: 'Item 4' },
-    { value: '5', label: 'Item 5' },
-    { value: '6', label: 'Item 6' },
-    { value: '7', label: 'Item 7' },
-    { value: '8', label: 'Item 8' },
-    { value: '9', label: 'Item 9' },
-    { value: '10', label: 'Item 10' },
-];
 
 const SingleStory = (args: StorySelectProps) => {
     const [value, setValue] = useState('');
 
-    const iconSize = args.size === 'xs' ? 'xs' : 's';
-
     return (
-        <>
-            <button type="button" onClick={() => setValue('')}>
-                clear
-            </button>
-
-            <div style={{ width: '300px' }}>
-                <Select
-                    {...args}
-                    multiselect={false}
-                    items={items}
-                    value={value}
-                    onChange={setValue}
-                    contentLeft={<IconPlaceholder size={iconSize} />}
-                />
-            </div>
-        </>
+        <div style={{ width: '300px' }}>
+            <Select {...args} items={items} value={value} onChange={setValue} />
+        </div>
     );
 };
 
@@ -335,25 +308,10 @@ export const Single: StoryObj<StorySelectProps> = {
 const MultiselectStory = (args: StorySelectProps) => {
     const [value, setValue] = useState<Array<string>>([]);
 
-    const iconSize = args.size === 'xs' ? 'xs' : 's';
-
     return (
-        <>
-            <button type="button" onClick={() => setValue([])}>
-                clear
-            </button>
-
-            <div style={{ width: '300px' }}>
-                <Select
-                    {...args}
-                    multiselect
-                    items={items}
-                    value={value}
-                    onChange={setValue}
-                    contentLeft={<IconPlaceholder size={iconSize} />}
-                />
-            </div>
-        </>
+        <div style={{ width: '300px' }}>
+            <Select {...args} items={items} value={value} onChange={setValue} />
+        </div>
     );
 };
 
@@ -378,6 +336,20 @@ const PredefinedStory = (args: StorySelectProps) => {
 
 export const Predefined: StoryObj<StorySelectProps> = {
     render: (args) => <PredefinedStory {...args} />,
+};
+
+const EmptyListStory = (args: StorySelectProps) => {
+    const [valueSingle, setValueSingle] = useState('');
+
+    return (
+        <div style={{ width: '300px' }}>
+            <Select {...args} items={[]} value={valueSingle} onChange={setValueSingle} />
+        </div>
+    );
+};
+
+export const EmptyList: StoryObj<StorySelectProps> = {
+    render: (args) => <EmptyListStory {...args} />,
 };
 
 const CommonStory = (args: StorySelectProps) => {
