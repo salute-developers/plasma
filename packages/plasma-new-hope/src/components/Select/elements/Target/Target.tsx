@@ -20,7 +20,9 @@ export const Target: React.FC<TargetProps> = ({
     size,
     contentLeft,
     disabled,
-    renderTargetLabel,
+    renderValue,
+    focusedPath,
+    focusedToValueMap,
 }) => {
     return target === 'button' ? (
         <Button
@@ -33,7 +35,9 @@ export const Target: React.FC<TargetProps> = ({
             label={label}
             size={size}
             disabled={disabled}
-            renderTargetLabel={renderTargetLabel}
+            renderValue={renderValue}
+            focusedPath={focusedPath}
+            focusedToValueMap={focusedToValueMap}
         />
     ) : (
         <Textfield
@@ -51,7 +55,9 @@ export const Target: React.FC<TargetProps> = ({
             size={size}
             contentLeft={contentLeft}
             disabled={disabled}
-            renderTargetLabel={renderTargetLabel}
+            renderValue={renderValue}
+            focusedPath={focusedPath}
+            focusedToValueMap={focusedToValueMap}
         />
     );
 };

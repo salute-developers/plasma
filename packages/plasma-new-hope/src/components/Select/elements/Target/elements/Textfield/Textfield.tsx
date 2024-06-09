@@ -3,7 +3,7 @@ import React from 'react';
 import { cx, isEmpty } from '../../../../../../utils';
 import { classes } from '../../../../Select.tokens';
 
-import { TextfieldProps, GetLabelProps } from './Textfield.types';
+import { TextfieldProps, GetTextfieldLabelProps } from './Textfield.types';
 import { Chip } from './elements/Chip/Chip';
 import {
     StyledButton,
@@ -30,7 +30,8 @@ const getLabel = ({
     focusedChipIndex,
     labelPlacement,
     size,
-}: GetLabelProps) => {
+    renderValue,
+}: GetTextfieldLabelProps) => {
     if (isEmpty(value)) {
         if (!label || labelPlacement === 'outer') {
             return <Placeholder>{placeholder}</Placeholder>;
@@ -44,26 +45,32 @@ const getLabel = ({
     }
 
     if (Array.isArray(value)) {
-        return value.map((currentValue, index) => (
-            <Chip
-                text={valueToItemMap.get(currentValue)!.label}
-                onClick={(e: React.MouseEvent<HTMLElement>) => {
-                    e.stopPropagation();
-                    onChipClick(currentValue);
-                }}
-                focused={focusedChipIndex === index}
-            />
-        ));
+        return value.map((currentValue, index) => {
+            const itemLabel = valueToItemMap.get(currentValue)!.label;
+
+            return (
+                <Chip
+                    text={renderValue ? renderValue(currentValue, itemLabel) : itemLabel}
+                    onClick={(e: React.MouseEvent<HTMLElement>) => {
+                        e.stopPropagation();
+                        onChipClick(currentValue);
+                    }}
+                    focused={focusedChipIndex === index}
+                />
+            );
+        });
     }
 
+    const itemLabel = valueToItemMap.get(value)!.label;
+
     if (!label || labelPlacement === 'outer') {
-        return <Value>{valueToItemMap.get(value)!.label}</Value>;
+        return <Value>{renderValue ? renderValue(value, itemLabel) : itemLabel}</Value>;
     }
 
     return (
         <InnerLabelWrapper>
             {size !== 'xs' && <InnerLabel>{label}</InnerLabel>}
-            <Value>{valueToItemMap.get(value)!.label}</Value>
+            <Value>{renderValue ? renderValue(value, itemLabel) : itemLabel}</Value>
         </InnerLabelWrapper>
     );
 };
@@ -83,10 +90,18 @@ export const Textfield: React.FC<TextfieldProps> = ({
     size,
     contentLeft,
     disabled,
+    renderValue,
+    focusedPath,
+    focusedToValueMap,
 }) => {
     const withArrowInverse = opened ? classes.arrowInverse : undefined;
 
     const iconSize = size === 'xs' ? 'xs' : 's';
+
+    const getActiveDescendant = () => {
+        const focusedPathAsString = focusedPath.reduce((acc, n) => `${acc}/${n}`, '').replace(/^(\/)/, '');
+        return focusedToValueMap?.get(focusedPathAsString)?.value.toString();
+    };
 
     return (
         <TextfieldWrapper opened={opened} value={value}>
@@ -98,6 +113,10 @@ export const Textfield: React.FC<TextfieldProps> = ({
                 )}
                 onKeyDown={onKeyDown}
                 disabled={disabled}
+                role="combobox"
+                aria-controls="tree_level_1"
+                aria-expanded={opened}
+                aria-activedescendant={getActiveDescendant()}
             >
                 <Wrapper>
                     {contentLeft && (!multiselect || isEmpty(value)) && (
@@ -115,6 +134,7 @@ export const Textfield: React.FC<TextfieldProps> = ({
                             focusedChipIndex,
                             labelPlacement,
                             size,
+                            renderValue,
                         })}
                     </ChipWrapper>
 

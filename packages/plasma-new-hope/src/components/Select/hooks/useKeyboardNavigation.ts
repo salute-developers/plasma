@@ -181,7 +181,7 @@ export const useKeyNavigation = ({
 
                 const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
 
-                if (!currentItem || currentItem?.isDisabled) {
+                if (!currentItem || currentItem?.isDisabled || currentItem?.disabled) {
                     break;
                 }
 
@@ -199,7 +199,7 @@ export const useKeyNavigation = ({
 
                 const currentItem = getFurtherPath(focusedPath, focusedToValueMap)!;
 
-                if (currentItem?.isDisabled) {
+                if (currentItem?.isDisabled || currentItem?.disabled) {
                     break;
                 }
 

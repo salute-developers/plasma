@@ -18,15 +18,25 @@ import {
     StyledIndicator,
 } from './Item.styles';
 
-export const Item: FC<ItemProps> = ({ item, path, currentLevel, index }) => {
-    const { value, label, isDisabled, contentLeft, contentRight } = item;
+export const Item: FC<ItemProps> = ({
+    item,
+    path,
+    currentLevel,
+    index,
+    ariaControls,
+    ariaExpanded,
+    ariaLevel,
+    ariaLabel,
+    itemRole,
+}) => {
+    const { value, label, disabled, isDisabled, contentLeft, contentRight } = item;
     const ref = useRef<HTMLLIElement | null>(null);
 
     const { focusedPath, checked, multiselect, size, handleCheckboxChange, handleItemClick, variant } = useContext(
         Context,
     );
 
-    const isDisabledClassName = isDisabled ? classes.dropdownItemIsDisabled : undefined;
+    const isDisabledClassName = disabled || isDisabled ? classes.dropdownItemIsDisabled : undefined;
     const focusedClass =
         currentLevel === focusedPath.length - 1 && index === focusedPath?.[currentLevel]
             ? classes.dropdownItemIsFocused
@@ -44,7 +54,7 @@ export const Item: FC<ItemProps> = ({ item, path, currentLevel, index }) => {
     }, [focusedClass]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (isDisabled) return;
+        if (disabled || isDisabled) return;
 
         e.stopPropagation();
 
@@ -52,7 +62,7 @@ export const Item: FC<ItemProps> = ({ item, path, currentLevel, index }) => {
     };
 
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-        if (isDisabled) return;
+        if (disabled || isDisabled) return;
 
         handleItemClick(item, e);
     };
@@ -64,6 +74,11 @@ export const Item: FC<ItemProps> = ({ item, path, currentLevel, index }) => {
             ref={ref}
             onClick={handleClick}
             variant={variant}
+            aria-controls={ariaControls}
+            aria-expanded={ariaExpanded}
+            aria-level={ariaLevel}
+            aria-label={ariaLabel}
+            role={itemRole}
         >
             <IconWrapper variant={variant}>
                 {multiselect && (

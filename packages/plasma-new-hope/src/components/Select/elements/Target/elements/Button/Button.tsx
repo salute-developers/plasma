@@ -1,26 +1,11 @@
 import React from 'react';
 
-import { cx, isEmpty } from '../../../../../../utils';
+import { cx } from '../../../../../../utils';
 import { classes } from '../../../../Select.tokens';
+import { getButtonLabel } from '../../../../utils';
 
-import { ButtonProps, GetLabelProps } from './Button.types';
-import { StyledButton, StyledArrow, InnerWrapper, Label, ButtonWrapper, IconArrowWrapper } from './Button.styles';
-
-const getLabel = ({ value, label, isTargetAmount, multiselect, valueToItemMap }: GetLabelProps) => {
-    if (isEmpty(value)) {
-        return label;
-    }
-
-    if (multiselect && isTargetAmount) {
-        return `Выбрано: ${value.length}`;
-    }
-
-    if (multiselect && Array.isArray(value)) {
-        return value.map((value) => valueToItemMap.get(value)!.label).join(', ');
-    }
-
-    return valueToItemMap.get(value.toString())!.label;
-};
+import { ButtonProps } from './Button.types';
+import { StyledButton, StyledArrow, Label, ButtonWrapper, IconArrowWrapper } from './Button.styles';
 
 export const Button: React.FC<ButtonProps> = ({
     opened,
@@ -32,10 +17,18 @@ export const Button: React.FC<ButtonProps> = ({
     label,
     size,
     disabled,
+    renderValue,
+    focusedPath,
+    focusedToValueMap,
 }) => {
     const withArrowInverse = opened ? classes.arrowInverse : undefined;
 
     const iconSize = size === 'xs' ? 'xs' : 's';
+
+    const getActiveDescendant = () => {
+        const focusedPathAsString = focusedPath.reduce((acc, n) => `${acc}/${n}`, '').replace(/^(\/)/, '');
+        return focusedToValueMap?.get(focusedPathAsString)?.value.toString();
+    };
 
     return (
         <ButtonWrapper>
@@ -53,18 +46,21 @@ export const Button: React.FC<ButtonProps> = ({
                         />
                     </IconArrowWrapper>
                 }
+                role="combobox"
+                aria-controls="tree_level_1"
+                aria-expanded={opened}
+                aria-activedescendant={getActiveDescendant()}
             >
-                <InnerWrapper>
-                    <Label>
-                        {getLabel({
-                            value,
-                            isTargetAmount,
-                            multiselect,
-                            valueToItemMap,
-                            label,
-                        })}
-                    </Label>
-                </InnerWrapper>
+                <Label>
+                    {getButtonLabel({
+                        value,
+                        isTargetAmount,
+                        multiselect,
+                        valueToItemMap,
+                        label,
+                        renderValue,
+                    })}
+                </Label>
             </StyledButton>
         </ButtonWrapper>
     );

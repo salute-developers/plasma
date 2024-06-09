@@ -1,8 +1,8 @@
 import type { KeyboardEvent } from 'react';
 
-import type { ValueToItemMapType } from '../../hooks/usePathMaps';
+import type { ValueToItemMapType, FocusedToValueMapType } from '../../hooks/usePathMaps';
 import type { SelectProps } from '../../Select.types';
-import { FocusedChipIndexState } from '../../reducers';
+import { FocusedChipIndexState, FocusedPathState } from '../../reducers';
 
 export type TargetProps = Pick<
     SelectProps,
@@ -16,11 +16,13 @@ export type TargetProps = Pick<
     | 'placeholder'
     | 'contentLeft'
     | 'disabled'
-    | 'renderTargetLabel'
+    | 'renderValue'
 > & {
     opened: boolean;
     valueToItemMap: ValueToItemMapType;
     onChipClick: (value: string) => void;
     onKeyDown: (event: KeyboardEvent<HTMLElement>) => void;
     focusedChipIndex: FocusedChipIndexState;
+    focusedPath: FocusedPathState;
+    focusedToValueMap: FocusedToValueMapType;
 };

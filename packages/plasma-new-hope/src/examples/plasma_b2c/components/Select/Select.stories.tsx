@@ -517,7 +517,7 @@ const CommonStory = (args: StorySelectProps) => {
                         <td>Clear</td>
 
                         <td>
-                            <div style={{ display: 'flex' }}>
+                            <div style={{ width: '200px' }}>
                                 <Select
                                     {...args}
                                     multiselect={false}
@@ -529,7 +529,7 @@ const CommonStory = (args: StorySelectProps) => {
                             </div>
                         </td>
                         <td>
-                            <div style={{ display: 'flex' }}>
+                            <div style={{ width: '200px' }}>
                                 <Select
                                     {...args}
                                     multiselect

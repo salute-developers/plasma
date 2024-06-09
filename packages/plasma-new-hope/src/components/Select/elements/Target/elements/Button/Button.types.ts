@@ -5,4 +5,7 @@ export type ButtonProps = Omit<
     'target' | 'onChipClick' | 'labelPlacement' | 'helperText' | 'focusedChipIndex' | 'contentLeft'
 >;
 
-export type GetLabelProps = Omit<ButtonProps, 'opened' | 'onKeyDown' | 'size'>;
+export type GetButtonLabelProps = Omit<
+    ButtonProps,
+    'opened' | 'onKeyDown' | 'size' | 'focusedToValueMap' | 'focusedPath'
+>;
