@@ -76,24 +76,21 @@ export interface DropdownProps extends HTMLAttributes<HTMLDivElement> {
      */
     variant?: 'normal' | 'tight';
     /**
-     * Обработчик клика по item.
-     * @deprecated использовать onItemSelect.
-     */
-    onItemClick?: (item: DropdownItemOption, event: SyntheticEvent) => void;
-    /**
      * Значение css overflow для выпадающего меню.
-     * @default initial
-     * @deprecated
      * @example listOverflow="scroll"
      */
     listOverflow?: CSSProperties['overflow'];
     /**
      * Значение css height для выпадающего меню.
-     * @default initial
-     * @deprecated
      * @example listHeight="11", listHeight="auto", listHeight={11}
      */
     listHeight?: number | CSSProperties['height'];
+
+    /**
+     * Обработчик клика по item.
+     * @deprecated использовать onItemSelect.
+     */
+    onItemClick?: (item: DropdownItemOption, event: SyntheticEvent) => void;
     /**
      * Индекс элемента при наведении
      * @deprecated использовать onHover

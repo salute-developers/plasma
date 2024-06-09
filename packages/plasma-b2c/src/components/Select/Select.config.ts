@@ -3,6 +3,7 @@ import { css, selectTokens } from '@salutejs/plasma-new-hope/styled-components';
 export const config = {
     defaults: {
         view: 'default',
+        chipView: 'default',
         size: 'm',
     },
     variations: {

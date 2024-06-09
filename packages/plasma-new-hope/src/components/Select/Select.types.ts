@@ -58,7 +58,7 @@ type IsMultiselect =
           isTargetAmount?: boolean;
       };
 
-type BasicProps = {
+export interface BasicProps {
     /**
      * Список элементов.
      */
@@ -109,13 +109,11 @@ type BasicProps = {
     variant?: 'normal' | 'tight';
     /**
      * Значение css overflow для выпадающего меню.
-     * @default initial
      * @example listOverflow="scroll"
      */
     listOverflow?: CSSProperties['overflow'];
     /**
      * Значение css height для выпадающего меню.
-     * @default initial
      * @example listHeight="11", listHeight="auto", listHeight={11}
      */
     listHeight?: number | CSSProperties['height'];
@@ -161,7 +159,7 @@ type BasicProps = {
      * @deprecated
      */
     status?: 'warning' | 'success' | 'error';
-};
+}
 
 export type SelectProps = BasicProps &
     IsMultiselect &
