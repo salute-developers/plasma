@@ -5,6 +5,9 @@ import { FocusedPathState } from './reducers';
 import { ItemOption, ItemOptionTransformed } from './elements/Inner/elements/Item/Item.types';
 import type { ValueToCheckedMapType } from './hooks/usePathMaps';
 
+export type SelectPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
+export type SelectPlacement = SelectPlacementBasic | 'auto';
+
 type Target =
     | {
           /**
@@ -39,11 +42,6 @@ type IsMultiselect =
           value: string;
           onChange: (value: string) => void;
           /**
-           * Выбор нескольких значений.
-           * @default false
-           */
-          multiselect?: false;
-          /**
            * Разделитель выбранных значений.
            */
           separator?: never;
@@ -56,13 +54,20 @@ type IsMultiselect =
     | {
           value: Array<string>;
           onChange: (value: Array<string>) => void;
-          multiselect?: true;
           separator?: string;
           isTargetAmount?: boolean;
       };
 
 type BasicProps = {
+    /**
+     * Список элементов.
+     */
     items: Array<ItemOption>;
+    /**
+     * Сторона открытия дропдауна относительно target элемента.
+     * @default bottom
+     */
+    placement?: SelectPlacement | Array<SelectPlacementBasic>;
     /**
      * Метка-подпись к элементу.
      */
@@ -123,7 +128,10 @@ type BasicProps = {
      * Портал для выпадающего списка. Принимает id контейнера или ref.
      */
     portal?: string | React.RefObject<HTMLElement>;
-    renderTargetLabel?: any;
+    /**
+     * Callback для кастомной настройки значения в селекте
+     */
+    renderValue?: (value: ItemOption['value'], label: ItemOption['label']) => string;
 
     /**
      * Размер компонента.
@@ -138,6 +146,11 @@ type BasicProps = {
      */
     chipView?: string;
 
+    /**
+     * Выбор нескольких значений.
+     * @deprecated Множественны выбор зависит от типа value и onChange.
+     */
+    multiselect?: boolean;
     /**
      * @default false
      * @deprecated
@@ -158,7 +171,7 @@ export type SelectProps = BasicProps &
 export type ItemContext = {
     focusedPath: FocusedPathState;
     checked: ValueToCheckedMapType;
-    multiselect: SelectProps['multiselect'];
+    multiselect: boolean;
     size: SelectProps['size'];
     handleCheckboxChange: (item: ItemOptionTransformed) => void;
     handleItemClick: (item: ItemOptionTransformed, e: React.MouseEvent<HTMLElement>) => void;

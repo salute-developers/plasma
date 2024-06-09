@@ -29,7 +29,18 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
                 usePortal={false}
                 placement="right-start"
                 trigger="click"
-                target={<Item item={item} path={path} currentLevel={currentLevel} index={index} />}
+                target={
+                    <Item
+                        item={item}
+                        path={path}
+                        currentLevel={currentLevel}
+                        index={index}
+                        ariaControls={listId}
+                        ariaExpanded={isCurrentListOpen}
+                        ariaLevel={nextLevel}
+                        ariaLabel={item.label}
+                    />
+                }
                 onToggle={handleToggle}
                 isFocusTrapped={false}
                 preventOverflow={false}
@@ -51,5 +62,5 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
         );
     }
 
-    return <Item item={item} path={path} index={index} currentLevel={currentLevel} />;
+    return <Item item={item} path={path} index={index} currentLevel={currentLevel} itemRole="option" />;
 };

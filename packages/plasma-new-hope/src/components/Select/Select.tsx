@@ -3,6 +3,7 @@ import React, { forwardRef, useState, useReducer, useMemo, createContext, useLay
 import { RootProps } from '../../engines';
 import { isEmpty } from '../../utils';
 import { useOutsideClick } from '../../hooks';
+import { getPlacements } from '../Dropdown/utils';
 
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
 import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors, getView } from './utils';
@@ -28,9 +29,9 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, SelectProps>) =>
             value,
             onChange,
             target = 'textfield',
-            multiselect = false,
             separator,
             items,
+            placement = 'bottom',
             label,
             labelPlacement = 'outer',
             placeholder,
@@ -51,9 +52,11 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, SelectProps>) =>
             chipView,
             variant = 'normal',
             portal,
-            renderTargetLabel,
+            renderValue,
             ...rest
         } = props;
+
+        const multiselect = Array.isArray(value);
 
         const transformedItems = useMemo(() => initialItemsTransform(items), [items]);
 
@@ -224,9 +227,9 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, SelectProps>) =>
                     <StyledPopover
                         ref={targetRef}
                         isOpen={isCurrentListOpen}
+                        placement={getPlacements(placement)}
                         usePortal={Boolean(portal)}
                         frame={portal}
-                        placement="bottom-start"
                         onToggle={handleToggle}
                         trigger="click"
                         target={
@@ -237,6 +240,8 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, SelectProps>) =>
                                 isTargetAmount={isTargetAmount}
                                 multiselect={multiselect}
                                 valueToItemMap={valueToItemMap}
+                                focusedPath={focusedPath}
+                                focusedToValueMap={focusedToValueMap}
                                 onChipClick={handleChipClick}
                                 label={label}
                                 placeholder={placeholder}
@@ -246,7 +251,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, SelectProps>) =>
                                 size={size}
                                 contentLeft={contentLeft}
                                 disabled={disabled}
-                                renderTargetLabel={renderTargetLabel}
+                                renderValue={renderValue}
                             />
                         }
                         preventOverflow={false}

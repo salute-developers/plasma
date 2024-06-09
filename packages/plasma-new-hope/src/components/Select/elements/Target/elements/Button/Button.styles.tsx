@@ -58,21 +58,14 @@ export const ButtonWrapper = styled.div`
     }
 `;
 
-export const InnerWrapper = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    .${classes.arrowInverse} {
-        transform: rotate(-180deg);
-    }
-`;
-
 export const Label = styled.div`
+    display: inline;
     width: 100%;
     text-align: left;
 
     ${applyEllipsis()}
+
+    .${classes.arrowInverse} {
+        transform: rotate(-180deg);
+    }
 `;
