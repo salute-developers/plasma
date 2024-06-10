@@ -5,7 +5,7 @@ import { IconPlaceholder, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import './style.css';
 
-import { Select } from './Select';
+import { Select, SelectNotFoundContent } from './Select';
 
 type StorySelectProps = ComponentProps<typeof Select> & {
     enableContentLeft?: boolean;
@@ -341,7 +341,19 @@ const EmptyListStory = (args: StorySelectProps) => {
 
     return (
         <div style={{ width: '300px' }}>
-            <Select {...args} items={[]} value={valueSingle} onChange={setValueSingle} />
+            <Select
+                {...args}
+                items={[]}
+                value={valueSingle}
+                onChange={setValueSingle}
+                notFoundContent={
+                    <SelectNotFoundContent
+                        icon={<IconPlaceholder size="s" />}
+                        description="Description"
+                        buttonText="Label"
+                    />
+                }
+            />
         </div>
     );
 };

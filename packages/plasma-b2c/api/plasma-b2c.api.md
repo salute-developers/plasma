@@ -1992,6 +1992,10 @@ isTargetAmount?: false | undefined;
 target?: "textfield" | undefined;
 view?: "default" | "positive" | "warning" | "negative" | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+label?: string | undefined;
+labelPlacement?: "inner" | "outer" | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
 value: string;
 onChange: (value: string) => void;
@@ -2001,6 +2005,10 @@ isTargetAmount?: false | undefined;
 target?: "button" | undefined;
 view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "black" | "white" | "dark" | "clear" | undefined;
 contentLeft?: undefined;
+label?: undefined;
+labelPlacement?: undefined;
+placeholder?: undefined;
+helperText?: undefined;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
 value: string[];
 onChange: (value: string[]) => void;
@@ -2010,6 +2018,10 @@ isTargetAmount?: boolean | undefined;
 target?: "textfield" | undefined;
 view?: "default" | "positive" | "warning" | "negative" | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+label?: string | undefined;
+labelPlacement?: "inner" | "outer" | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
 value: string[];
 onChange: (value: string[]) => void;
@@ -2019,6 +2031,10 @@ isTargetAmount?: boolean | undefined;
 target?: "button" | undefined;
 view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "black" | "white" | "dark" | "clear" | undefined;
 contentLeft?: undefined;
+label?: undefined;
+labelPlacement?: undefined;
+placeholder?: undefined;
+helperText?: undefined;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>))>;
 
 export { SelectNotFoundContent }
