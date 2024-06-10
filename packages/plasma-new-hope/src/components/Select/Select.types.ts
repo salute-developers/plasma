@@ -20,6 +20,23 @@ type Target =
            * Слот для контента слева.
            */
           contentLeft?: React.ReactElement;
+          /**
+           * Метка-подпись к элементу.
+           */
+          label?: string;
+          /**
+           * Расположение лейбла.
+           * @default outer
+           */
+          labelPlacement?: 'outer' | 'inner';
+          /**
+           * Placeholder.
+           */
+          placeholder?: string;
+          /**
+           * Вспомогательный текст снизу слева для поля ввода.
+           */
+          helperText?: string;
       }
     | {
           target?: 'button' | never;
@@ -35,6 +52,10 @@ type Target =
               | 'black'
               | 'white';
           contentLeft?: never;
+          label?: never;
+          labelPlacement?: never;
+          placeholder?: never;
+          helperText?: never;
       };
 
 type IsMultiselect =
@@ -68,23 +89,6 @@ export interface BasicProps {
      * @default bottom
      */
     placement?: SelectPlacement | Array<SelectPlacementBasic>;
-    /**
-     * Метка-подпись к элементу.
-     */
-    label?: string;
-    /**
-     * Расположение лейбла.
-     * @default outer
-     */
-    labelPlacement?: 'outer' | 'inner';
-    /**
-     * Placeholder.
-     */
-    placeholder?: string;
-    /**
-     * Вспомогательный текст снизу слева для поля ввода.
-     */
-    helperText?: string;
     /**
      * Компонент неактивен.
      * @default false

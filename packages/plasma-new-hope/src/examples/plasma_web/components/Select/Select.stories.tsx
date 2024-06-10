@@ -20,7 +20,7 @@ const chip = ['default', 'secondary', 'accent'];
 const variant = ['normal', 'tight'];
 
 const meta: Meta<StorySelectProps> = {
-    title: 'plasma_b2c/Select',
+    title: 'plasma_web/Select',
     decorators: [WithTheme],
     component: Select,
     argTypes: {

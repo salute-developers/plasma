@@ -8,7 +8,6 @@ import { getPlacements } from '../Dropdown/utils';
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
 import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors, getView } from './utils';
 import { Inner } from './elements/Inner/Inner';
-import { SelectNotFoundContent } from './elements/SelectNotFoundContent/SelectNotFoundContent';
 import { Target } from './elements/Target/Target';
 import { pathReducer, focusedPathReducer, focusedChipIndexReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
@@ -257,15 +256,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, SelectProps>) =>
                         preventOverflow={false}
                         closeOnOverlayClick
                     >
-                        {isEmpty(items) ? (
-                            notFoundContent || (
-                                <SelectNotFoundContent
-                                    description="Доделать"
-                                    buttonAction={() => {}}
-                                    buttonText="Label"
-                                />
-                            )
-                        ) : (
+                        {notFoundContent || (
                             <Ul
                                 role="tree"
                                 id="tree_level_1"
