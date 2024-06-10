@@ -14,7 +14,7 @@ type Target =
            * Стиль селекта: button или textfield.
            * @default textfield
            */
-          target?: 'textfield' | never;
+          target?: 'textfield';
           view?: 'default' | 'positive' | 'warning' | 'negative';
           /**
            * Слот для контента слева.
@@ -39,7 +39,7 @@ type Target =
           helperText?: string;
       }
     | {
-          target?: 'button' | never;
+          target?: 'button';
           view?:
               | 'default'
               | 'accent'

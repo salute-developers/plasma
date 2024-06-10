@@ -16,6 +16,7 @@ import { BadgeProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
 import { BaseCallbackChangeInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { BaseCallbackKeyboardInstance } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
+import { BasicProps } from '@salutejs/plasma-new-hope/types/components/Select/Select.types';
 import { bodyL } from '@salutejs/sdds-themes/tokens';
 import { bodyLBold } from '@salutejs/sdds-themes/tokens';
 import { bodyM } from '@salutejs/sdds-themes/tokens';
@@ -123,6 +124,7 @@ import { ScreenVariant } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
+import { SelectNotFoundContent } from '@salutejs/plasma-new-hope/styled-components';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
 import { SingleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SliderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -1289,6 +1291,87 @@ view?: string | undefined;
 export { SegmentItemProps }
 
 export { SegmentProvider }
+
+// @public (undocumented)
+export const Select: FunctionComponent<PropsType<    {
+size: {
+xs: string;
+s: string;
+m: string;
+l: string;
+};
+view: {
+default: string;
+positive: string;
+warning: string;
+negative: string;
+accent: string;
+secondary: string;
+clear: string;
+dark: string;
+black: string;
+white: string;
+};
+chipView: {
+default: string;
+secondary: string;
+accent: string;
+};
+}> & ((BasicProps & {
+value: string;
+onChange: (value: string) => void;
+separator?: undefined;
+isTargetAmount?: false | undefined;
+} & {
+target?: "textfield" | undefined;
+view?: "default" | "positive" | "warning" | "negative" | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+label?: string | undefined;
+labelPlacement?: "inner" | "outer" | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+value: string;
+onChange: (value: string) => void;
+separator?: undefined;
+isTargetAmount?: false | undefined;
+} & {
+target?: "button" | undefined;
+view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "clear" | "dark" | "black" | "white" | undefined;
+contentLeft?: undefined;
+label?: undefined;
+labelPlacement?: undefined;
+placeholder?: undefined;
+helperText?: undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+value: string[];
+onChange: (value: string[]) => void;
+separator?: string | undefined;
+isTargetAmount?: boolean | undefined;
+} & {
+target?: "textfield" | undefined;
+view?: "default" | "positive" | "warning" | "negative" | undefined;
+contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
+label?: string | undefined;
+labelPlacement?: "inner" | "outer" | undefined;
+placeholder?: string | undefined;
+helperText?: string | undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
+value: string[];
+onChange: (value: string[]) => void;
+separator?: string | undefined;
+isTargetAmount?: boolean | undefined;
+} & {
+target?: "button" | undefined;
+view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "clear" | "dark" | "black" | "white" | undefined;
+contentLeft?: undefined;
+label?: undefined;
+labelPlacement?: undefined;
+placeholder?: undefined;
+helperText?: undefined;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>))>;
+
+export { SelectNotFoundContent }
 
 export { ShowToastArgs }
 

@@ -35,6 +35,7 @@ export * from './components/Toast';
 export * from './components/Toolbar';
 export * from './components/Tooltip';
 export * from './components/Typography';
+export * from './components/Select';
 
 export * from './mixins';
 export * from './tokens';
