@@ -1,11 +1,11 @@
 import React, { forwardRef } from 'react';
 
-import { cx } from '../../utils';
 import { RootProps } from '../../engines';
 import { Overlay } from '../Overlay';
+import { cx } from '../../utils';
 
 import { SheetProps } from './Sheet.types';
-import { useSheet, useSheetSwipe } from './hooks';
+import { useOverflow, useSheetSwipe } from './hooks';
 import { classes, tokens } from './Sheet.tokens';
 import {
     StyledContentWrapper,
@@ -14,13 +14,11 @@ import {
     StyledSheetFooter,
     StyledSheetHandle,
     StyledSheetHeader,
-    StyledWrapper,
 } from './Sheet.styles';
 import { base as viewCSS } from './variations/_view/base';
 import { DEFAULT_Z_INDEX } from './utils';
 
 /**
- * Sheet
  * Открывает окно-шторку поверх основного экрана.
  */
 
@@ -28,7 +26,7 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
     forwardRef<HTMLDivElement, SheetProps>(
         (
             {
-                isOpen,
+                opened,
                 children,
                 onClose,
                 hasHandle = true,
@@ -50,49 +48,48 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
             const contentRef = React.useRef<HTMLDivElement>(null);
             const handleRef = React.useRef<HTMLDivElement>(null);
 
-            useSheet({ isOpen });
+            useOverflow({ opened });
             useSheetSwipe({ contentWrapperRef, contentRef, handleRef, throttleMs, onClose });
 
-            const hasHeader = !!contentHeader;
-            const hasFooter = !!contentFooter;
+            const hasHeader = Boolean(contentHeader);
+            const hasFooter = Boolean(contentFooter);
 
-            const isClosedClass = isOpen ? undefined : `${classes.isClosed}`;
+            const closedClass = opened ? undefined : `${classes.closed}`;
 
             const overlayBackgroundToken = withBlur
                 ? `var(${tokens.sheetOverlayWithBlurColor})`
                 : `var(${tokens.sheetOverlayColor})`;
 
             return (
-                <StyledWrapper
-                    isOpen={isOpen}
-                    withTransition={withTransition}
-                    className={cx(isClosedClass, className)}
-                    {...restProps}
-                >
-                    <Root isOpen={isOpen} onClose={onClose} view={view} ref={rootRef}>
-                        <StyledContentWrapper isOpen={isOpen} withTransition={withTransition} ref={contentWrapperRef}>
-                            {hasHandle && <StyledSheetHandle ref={handleRef} />}
-                            <StyledSheetContent hasHeader={hasHeader} hasFooter={hasFooter} ref={contentRef}>
-                                {hasHeader && (
-                                    <StyledSheetHeader isHeaderFixed={isHeaderFixed}>{contentHeader}</StyledSheetHeader>
-                                )}
-                                <StyledSheetBody>{children}</StyledSheetBody>
-                                {hasFooter && (
-                                    <StyledSheetFooter isFooterFixed={isFooterFixed}>{contentFooter}</StyledSheetFooter>
-                                )}
-                            </StyledSheetContent>
-                        </StyledContentWrapper>
-                        {withOverlay && (
-                            <Overlay
-                                zIndex={DEFAULT_Z_INDEX}
-                                backgroundColorProperty={overlayBackgroundToken}
-                                withBlur={withBlur}
-                                isClickable
-                                onOverlayClick={onClose}
-                            />
-                        )}
-                    </Root>
-                </StyledWrapper>
+                <Root opened={opened} onClose={onClose} view={view} ref={rootRef}>
+                    <StyledContentWrapper
+                        opened={opened}
+                        withTransition={withTransition}
+                        className={cx(closedClass, className)}
+                        ref={contentWrapperRef}
+                        {...restProps}
+                    >
+                        {hasHandle && <StyledSheetHandle ref={handleRef} />}
+                        <StyledSheetContent hasHeader={hasHeader} hasFooter={hasFooter} ref={contentRef}>
+                            {hasHeader && (
+                                <StyledSheetHeader isHeaderFixed={isHeaderFixed}>{contentHeader}</StyledSheetHeader>
+                            )}
+                            <StyledSheetBody>{children}</StyledSheetBody>
+                            {hasFooter && (
+                                <StyledSheetFooter isFooterFixed={isFooterFixed}>{contentFooter}</StyledSheetFooter>
+                            )}
+                        </StyledSheetContent>
+                    </StyledContentWrapper>
+                    {withOverlay && opened && (
+                        <Overlay
+                            zIndex={DEFAULT_Z_INDEX}
+                            backgroundColorProperty={overlayBackgroundToken}
+                            withBlur={withBlur}
+                            isClickable
+                            onOverlayClick={onClose}
+                        />
+                    )}
+                </Root>
             );
         },
     );
