@@ -17,6 +17,7 @@ import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
 import { FunctionComponent } from 'react';
 import { HTMLAttributes } from 'react';
 import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
+import { InputHTMLAttributes as InputHTMLAttributes_2 } from 'react';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { PolymorphicClassName } from '@salutejs/plasma-new-hope/types/engines/types';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
@@ -27,7 +28,7 @@ import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { StyledComponent } from 'styled-components';
 import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
-import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/styled-components';
+import { SwitchPropsVariations } from '@salutejs/plasma-new-hope/types/components/Switch/Switch.types';
 import { TypographyOldProps } from '@salutejs/plasma-new-hope/types/components/Typography/Old/TypographyOld';
 
 // @public (undocumented)
@@ -454,7 +455,7 @@ true: PolymorphicClassName;
 focused: {
 true: PolymorphicClassName;
 };
-}> & SwitchProps_2 & RefAttributes<HTMLInputElement>>;
+}> & Filter<InputHTMLAttributes_2<HTMLInputElement>, "size"> & SwitchPropsVariations & RefAttributes<HTMLInputElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "SwitchComponent" needs to be exported by the entry point index.d.ts
 //
