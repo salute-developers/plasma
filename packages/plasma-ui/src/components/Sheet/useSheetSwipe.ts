@@ -1,5 +1,5 @@
 import throttle from 'lodash.throttle';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, RefObject } from 'react';
 
 const SWIPE_THRESHOLD = 0.2;
 const THROTTLE_DEFAULT_MS = 0;
@@ -20,9 +20,9 @@ const isScrollable = (element: HTMLElement | null) => {
 };
 
 export const useSheetSwipe = (args: {
-    contentWrapperRef: React.RefObject<HTMLDivElement>;
-    contentRef: React.RefObject<HTMLDivElement>;
-    handleRef: React.RefObject<HTMLDivElement>;
+    contentWrapperRef: RefObject<HTMLDivElement>;
+    contentRef: RefObject<HTMLDivElement>;
+    handleRef: RefObject<HTMLDivElement>;
     throttleMs?: number;
     onClose: () => void;
 }) => {

@@ -12,7 +12,7 @@ export const config = {
                 ${sheetTokens.sheetOverlayColor}: var(--overlay-soft);
                 ${sheetTokens.sheetOverlayWithBlurColor}: var(--overlay-blur);
                 ${sheetTokens.contentBackgroundColor}: var(--surface-solid-card);
-                ${sheetTokens.handleColor}: var(--surface-solid-tertiary);
+                ${sheetTokens.handleBackgroundColor}: var(--surface-solid-tertiary);
             `,
         },
     },

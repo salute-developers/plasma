@@ -1,55 +1,62 @@
 import React, { useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import type { ComponentProps } from 'react';
-import { Body1 } from '@salutejs/plasma-core';
 import { styled } from '@linaria/react';
 
 import { Button } from '../Button/Button';
 import { WithTheme } from '../../../_helpers';
+import { Body } from '../../../typograpy/components/Body/Body';
 
 import { Sheet } from './Sheet';
 
 const meta: Meta<typeof Sheet> = {
     title: 'plasma_web/Sheet',
     decorators: [WithTheme],
-    parameters: { viewport: { defaultViewport: '860' } },
+    args: {
+        withBlur: false,
+        withOverlay: true,
+        withTransition: true,
+        hasHandle: true,
+        isHeaderFixed: false,
+        isFooterFixed: false,
+    },
 };
 
 export default meta;
 
 type StorySheetProps = ComponentProps<typeof Sheet> & {
-    hasHeader: boolean;
-    hasFooter: boolean;
+    storyHasHeader: boolean;
+    storyHasFooter: boolean;
 };
 
-const StyledBody = styled(Body1)`
+const StyledBody = styled(Body)`
     padding-bottom: 300px;
 `;
 
 const StoryDefault = ({
     withOverlay,
     withTransition,
-    hasFooter,
+    storyHasFooter,
     isFooterFixed,
-    hasHeader,
+    storyHasHeader,
     isHeaderFixed,
     hasHandle,
     withBlur,
 }: StorySheetProps) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [opened, setOpened] = useState(false);
 
     return (
         <>
-            <Button onClick={() => setIsOpen(true)}>Открыть</Button>
+            <Button onClick={() => setOpened(true)}>Открыть</Button>
             <Sheet
-                isOpen={isOpen}
+                opened={opened}
                 withOverlay={withOverlay}
                 withTransition={withTransition}
-                onClose={() => setIsOpen(false)}
+                onClose={() => setOpened(false)}
                 hasHandle={hasHandle}
                 withBlur={withBlur}
                 contentHeader={
-                    hasHeader ? (
+                    storyHasHeader ? (
                         <div>
                             <h4>header</h4>
                         </div>
@@ -57,7 +64,7 @@ const StoryDefault = ({
                 }
                 isHeaderFixed={isHeaderFixed}
                 contentFooter={
-                    hasFooter ? (
+                    storyHasFooter ? (
                         <div>
                             <p>footer</p>
                         </div>
@@ -73,19 +80,19 @@ const StoryDefault = ({
 
 export const Default: StoryObj<StorySheetProps> = {
     args: {
-        hasHeader: true,
-        hasFooter: true,
+        storyHasHeader: true,
+        storyHasFooter: true,
     },
     render: (args) => <StoryDefault {...args} />,
 };
 
 const StoryWithoutOverlay = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [opened, setOpened] = useState(false);
 
     return (
         <>
-            <Button onClick={() => setIsOpen(true)}>Открыть</Button>
-            <Sheet isOpen={isOpen} withOverlay={false} onClose={() => setIsOpen(false)}>
+            <Button onClick={() => setOpened(true)}>Открыть</Button>
+            <Sheet opened={opened} withOverlay={false} onClose={() => setOpened(false)}>
                 <StyledBody>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae tempore vitae porro laboriosam
                     consectetur fugiat assumenda, earum nesciunt. Distinctio minima nesciunt dicta rem quae vel illum ea
@@ -105,27 +112,27 @@ export const WithoutOverlay: StoryObj = {
 const StoryWithScroll = ({
     withOverlay,
     withTransition,
-    hasFooter,
+    storyHasFooter,
     isFooterFixed,
-    hasHeader,
+    storyHasHeader,
     isHeaderFixed,
     hasHandle,
     withBlur,
 }: StorySheetProps) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [opened, setOpened] = useState(false);
 
     return (
         <>
-            <Button onClick={() => setIsOpen(true)}>Открыть</Button>
+            <Button onClick={() => setOpened(true)}>Открыть</Button>
             <Sheet
-                isOpen={isOpen}
+                opened={opened}
                 withOverlay={withOverlay}
                 withTransition={withTransition}
-                onClose={() => setIsOpen(false)}
+                onClose={() => setOpened(false)}
                 hasHandle={hasHandle}
                 withBlur={withBlur}
                 contentHeader={
-                    hasHeader ? (
+                    storyHasHeader ? (
                         <div>
                             <h4>header</h4>
                         </div>
@@ -133,7 +140,7 @@ const StoryWithScroll = ({
                 }
                 isHeaderFixed={isHeaderFixed}
                 contentFooter={
-                    hasFooter ? (
+                    storyHasFooter ? (
                         <div>
                             <p>footer</p>
                         </div>
@@ -141,8 +148,8 @@ const StoryWithScroll = ({
                 }
                 isFooterFixed={isFooterFixed}
             >
-                <Body1>
-                    <Button onClick={() => setIsOpen(false)}>Закрыть</Button>
+                <Body>
+                    <Button onClick={() => setOpened(false)}>Закрыть</Button>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae tempore vitae porro laboriosam
                         consectetur fugiat assumenda, earum nesciunt. Distinctio minima nesciunt dicta rem quae vel
@@ -150,7 +157,7 @@ const StoryWithScroll = ({
                         nostrum placeat, neque repudiandae consectetur voluptates soluta et sint eum obcaecati nesciunt
                         ullam, dolorem labore quaerat vero maxime ab ipsa nihil.
                     </p>
-                    <Button onClick={() => setIsOpen(false)}>Закрыть</Button>
+                    <Button onClick={() => setOpened(false)}>Закрыть</Button>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae tempore vitae porro laboriosam
                         consectetur fugiat assumenda, earum nesciunt. Distinctio minima nesciunt dicta rem quae vel
@@ -158,7 +165,7 @@ const StoryWithScroll = ({
                         nostrum placeat, neque repudiandae consectetur voluptates soluta et sint eum obcaecati nesciunt
                         ullam, dolorem labore quaerat vero maxime ab ipsa nihil.
                     </p>
-                </Body1>
+                </Body>
             </Sheet>
         </>
     );
@@ -166,8 +173,8 @@ const StoryWithScroll = ({
 
 export const WithScroll: StoryObj<StorySheetProps> = {
     args: {
-        hasHeader: true,
-        hasFooter: true,
+        storyHasHeader: true,
+        storyHasFooter: true,
     },
     render: (args) => <StoryWithScroll {...args} />,
 };
@@ -175,27 +182,27 @@ export const WithScroll: StoryObj<StorySheetProps> = {
 const StoryWithInsideScroll = ({
     withOverlay,
     withTransition,
-    hasFooter,
+    storyHasFooter,
     isFooterFixed,
-    hasHeader,
+    storyHasHeader,
     isHeaderFixed,
     hasHandle,
     withBlur,
 }: StorySheetProps) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [opened, setOpened] = useState(false);
 
     return (
         <>
-            <Button onClick={() => setIsOpen(true)}>Открыть</Button>
+            <Button onClick={() => setOpened(true)}>Открыть</Button>
             <Sheet
-                isOpen={isOpen}
+                opened={opened}
                 withOverlay={withOverlay}
                 withTransition={withTransition}
-                onClose={() => setIsOpen(false)}
+                onClose={() => setOpened(false)}
                 hasHandle={hasHandle}
                 withBlur={withBlur}
                 contentHeader={
-                    hasHeader ? (
+                    storyHasHeader ? (
                         <div>
                             <h4>header</h4>
                         </div>
@@ -203,7 +210,7 @@ const StoryWithInsideScroll = ({
                 }
                 isHeaderFixed={isHeaderFixed}
                 contentFooter={
-                    hasFooter ? (
+                    storyHasFooter ? (
                         <div>
                             <p>footer</p>
                         </div>
@@ -230,7 +237,7 @@ const StoryWithInsideScroll = ({
                     <Button>Кнопка 7</Button>
                     <Button>Кнопка 8</Button>
                 </div>
-                <Body1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Body1>
+                <Body>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Body>
             </Sheet>
         </>
     );
@@ -238,8 +245,8 @@ const StoryWithInsideScroll = ({
 
 export const WithInsideScroll: StoryObj<StorySheetProps> = {
     args: {
-        hasHeader: true,
-        hasFooter: true,
+        storyHasHeader: true,
+        storyHasFooter: true,
     },
     render: (args) => <StoryWithInsideScroll {...args} />,
 };
@@ -247,27 +254,27 @@ export const WithInsideScroll: StoryObj<StorySheetProps> = {
 const StoryWithDoubleScroll = ({
     withOverlay,
     withTransition,
-    hasFooter,
+    storyHasFooter,
     isFooterFixed,
-    hasHeader,
+    storyHasHeader,
     isHeaderFixed,
     hasHandle,
     withBlur,
 }: StorySheetProps) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [opened, setOpened] = useState(false);
 
     return (
         <>
-            <Button onClick={() => setIsOpen(true)}>Открыть</Button>
+            <Button onClick={() => setOpened(true)}>Открыть</Button>
             <Sheet
-                isOpen={isOpen}
+                opened={opened}
                 withOverlay={withOverlay}
                 withTransition={withTransition}
-                onClose={() => setIsOpen(false)}
+                onClose={() => setOpened(false)}
                 hasHandle={hasHandle}
                 withBlur={withBlur}
                 contentHeader={
-                    hasHeader ? (
+                    storyHasHeader ? (
                         <div>
                             <h4>header</h4>
                         </div>
@@ -275,7 +282,7 @@ const StoryWithDoubleScroll = ({
                 }
                 isHeaderFixed={isHeaderFixed}
                 contentFooter={
-                    hasFooter ? (
+                    storyHasFooter ? (
                         <div>
                             <p>footer</p>
                         </div>
@@ -283,8 +290,8 @@ const StoryWithDoubleScroll = ({
                 }
                 isFooterFixed={isFooterFixed}
             >
-                <Body1>
-                    <Button onClick={() => setIsOpen(false)}>Закрыть</Button>
+                <Body>
+                    <Button onClick={() => setOpened(false)}>Закрыть</Button>
                     <p>Вложенные кнопки</p>
                     <div
                         style={{
@@ -311,7 +318,7 @@ const StoryWithDoubleScroll = ({
                         nostrum placeat, neque repudiandae consectetur voluptates soluta et sint eum obcaecati nesciunt
                         ullam, dolorem labore quaerat vero maxime ab ipsa nihil.
                     </p>
-                    <Button onClick={() => setIsOpen(false)}>Закрыть</Button>
+                    <Button onClick={() => setOpened(false)}>Закрыть</Button>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae tempore vitae porro laboriosam
                         consectetur fugiat assumenda, earum nesciunt. Distinctio minima nesciunt dicta rem quae vel
@@ -319,7 +326,7 @@ const StoryWithDoubleScroll = ({
                         nostrum placeat, neque repudiandae consectetur voluptates soluta et sint eum obcaecati nesciunt
                         ullam, dolorem labore quaerat vero maxime ab ipsa nihil.
                     </p>
-                </Body1>
+                </Body>
             </Sheet>
         </>
     );
@@ -327,8 +334,8 @@ const StoryWithDoubleScroll = ({
 
 export const WithDoubleScroll: StoryObj<StorySheetProps> = {
     args: {
-        hasHeader: true,
-        hasFooter: true,
+        storyHasHeader: true,
+        storyHasFooter: true,
     },
     render: (args) => <StoryWithDoubleScroll {...args} />,
 };

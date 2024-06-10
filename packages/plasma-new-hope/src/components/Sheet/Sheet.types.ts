@@ -1,10 +1,10 @@
-import { ReactNode } from 'react';
+import { ReactNode, HTMLAttributes } from 'react';
 
-export interface SheetProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface SheetProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * Состояние шторки, открыта или скрыта
      */
-    isOpen: boolean;
+    opened: boolean;
 
     /**
      * Обработчик закрытия шторки. Вызывается при клике по оверлею или смахиванию шторки вниз
@@ -18,6 +18,8 @@ export interface SheetProps extends React.HTMLAttributes<HTMLDivElement> {
 
     /**
      * Является ли заголовок фиксированным
+     * @default
+     * false
      */
     isHeaderFixed?: boolean;
 
@@ -28,29 +30,39 @@ export interface SheetProps extends React.HTMLAttributes<HTMLDivElement> {
 
     /**
      * Является ли нижняя часть фиксированной
+     * @default
+     * false
      */
     isFooterFixed?: boolean;
 
     /**
      * Наличие ручки у шторки
+     * @default
+     * true
      */
     hasHandle?: boolean;
 
     /**
      * Наличие оверлея шторки. Если включен, то контент под шторкой перекрывается оверлеем, при нажатии на
      * который шторка закрывается.
+     * @default
+     * true
      */
     withOverlay?: boolean;
 
     /**
      * Нужно ли применять blur для подложки.
+     * @default
+     * false
      */
     withBlur?: boolean;
 
     children?: ReactNode;
 
     /**
-     * Наличие состояния анимации/перехода, по-умолчанию true.
+     * Наличие состояния анимации/перехода
+     * @default
+     * true
      */
     withTransition?: boolean;
 
@@ -61,6 +73,6 @@ export interface SheetProps extends React.HTMLAttributes<HTMLDivElement> {
     view?: string;
 }
 
-export type CommonProps = Pick<SheetProps, 'withTransition' | 'isOpen'>;
+export type CommonProps = Pick<SheetProps, 'withTransition' | 'opened'>;
 
-export type SheetHookArgs = Pick<SheetProps, 'isOpen'>;
+export type SheetHookArgs = Pick<SheetProps, 'opened'>;

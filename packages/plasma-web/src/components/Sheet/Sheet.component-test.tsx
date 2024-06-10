@@ -1,44 +1,55 @@
-import React, { useState } from 'react';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
+import React, { FC, PropsWithChildren, useState } from 'react';
+import { createGlobalStyle } from 'styled-components';
 
 import { SheetProps } from '.';
 
-describe('plasma-new-hope: Sheet', () => {
+const StandardTypoStyle = createGlobalStyle(standardTypo);
+
+describe('plasma-web: Sheet', () => {
     const Sheet = getComponent('Sheet');
-    const Body1 = getComponent('Body1');
+    const BodyM = getComponent('BodyM');
+
+    const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
+    );
 
     it('simple', () => {
         mount(
-            <CypressTestDecorator>
-                <Sheet isOpen>
-                    <Body1>
+            <CypressTestDecoratorWithTypo>
+                <Sheet opened>
+                    <BodyM>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae tempore vitae porro laboriosam
                         consectetur fugiat assumenda, earum nesciunt. Distinctio minima nesciunt dicta rem quae vel
                         illum ea fugit molestiae dolorem? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos
                         nostrum placeat, neque repudiandae consectetur voluptates soluta et sint eum obcaecati nesciunt
                         ullam, dolorem labore quaerat vero maxime ab ipsa nihil.
-                    </Body1>
+                    </BodyM>
                 </Sheet>
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
     });
 
     const Interactive = ({ withOverlay }: Pick<SheetProps, 'withOverlay'>) => {
-        const [open, setOpen] = useState(true);
+        const [opened, setOpened] = useState(true);
 
         return (
             <>
                 <div>Content</div>
-                <Sheet id="sheet" isOpen={open} withOverlay={withOverlay} onClose={() => setOpen(false)}>
-                    <Body1>
+                <Sheet id="sheet" opened={opened} withOverlay={withOverlay} onClose={() => setOpened(false)}>
+                    <BodyM>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae tempore vitae porro laboriosam
                         consectetur fugiat assumenda, earum nesciunt. Distinctio minima nesciunt dicta rem quae vel
                         illum ea fugit molestiae dolorem? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos
                         nostrum placeat, neque repudiandae consectetur voluptates soluta et sint eum obcaecati nesciunt
                         ullam, dolorem labore quaerat vero maxime ab ipsa nihil.
-                    </Body1>
+                    </BodyM>
                 </Sheet>
             </>
         );
@@ -46,9 +57,9 @@ describe('plasma-new-hope: Sheet', () => {
 
     it('onClose', () => {
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Interactive />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.root().click();
@@ -60,9 +71,9 @@ describe('plasma-new-hope: Sheet', () => {
         cy.viewport('iphone-6');
 
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Interactive />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         const touchEvent = ({ clientX, clientY }) => ({
@@ -75,7 +86,7 @@ describe('plasma-new-hope: Sheet', () => {
         });
 
         // Handle
-        cy.get('#sheet > div > div:first-child')
+        cy.get('#sheet > div:first-child')
             .trigger('touchstart', touchEvent({ clientX: 180, clientY: 409 }))
             .trigger('touchmove', touchEvent({ clientX: 180, clientY: 420 }))
             .trigger('touchmove', touchEvent({ clientX: 180, clientY: 450 }))
@@ -83,7 +94,7 @@ describe('plasma-new-hope: Sheet', () => {
 
         cy.matchImageSnapshot(':opened');
 
-        cy.get('#sheet > div > div:first-child')
+        cy.get('#sheet > div:first-child')
             .trigger('touchstart', touchEvent({ clientX: 180, clientY: 409 }))
             .trigger('touchmove', touchEvent({ clientX: 180, clientY: 450 }))
             .trigger('touchmove', touchEvent({ clientX: 180, clientY: 500 }))
@@ -96,9 +107,9 @@ describe('plasma-new-hope: Sheet', () => {
         cy.viewport('iphone-6');
 
         mount(
-            <CypressTestDecorator>
+            <CypressTestDecoratorWithTypo>
                 <Interactive withOverlay={false} />
-            </CypressTestDecorator>,
+            </CypressTestDecoratorWithTypo>,
         );
 
         cy.matchImageSnapshot();
