@@ -108,3 +108,7 @@ export const StyledRange = styled(Range)`
 `;
 
 export const base = css``;
+
+export const StyledLabel = styled.label``;
+
+export const LeftHelper = styled.div``;

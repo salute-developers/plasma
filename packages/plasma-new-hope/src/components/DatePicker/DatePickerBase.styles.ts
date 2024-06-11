@@ -72,7 +72,9 @@ export const baseCalendarTokens = `
     ${calendarBaseTokens.calendarDayFontLineHeight}: var(${tokens.calendarDayFontLineHeight});
     ${calendarBaseTokens.calendarDayFontWeight}: var(${tokens.calendarDayFontWeight});
     ${calendarBaseTokens.calendarDaySelectedFontWeight}: var(${tokens.calendarDaySelectedFontWeight});
+    ${calendarBaseTokens.calendarHeaderWrapperPadding}: var(${tokens.calendarHeaderWrapperPadding});
     ${calendarBaseTokens.calendarHeaderArrowGap}: var(${tokens.calendarHeaderArrowGap});
+    ${calendarBaseTokens.calendarHeaderArrowPadding}: var(${tokens.calendarHeaderArrowPadding});
     ${calendarBaseTokens.calendarHeaderPadding}: var(${tokens.calendarHeaderPadding});
     ${calendarBaseTokens.calendarHeaderDateGap}: var(${tokens.calendarHeaderDateGap});
     ${calendarBaseTokens.calendarHeaderFontFamily}: var(${tokens.calendarHeaderFontFamily});
@@ -86,6 +88,7 @@ export const baseCalendarTokens = `
     ${calendarBaseTokens.iconButtonWidth}: var(${tokens.iconButtonWidth});
     ${calendarBaseTokens.iconButtonPadding}: var(${tokens.iconButtonPadding});
     ${calendarBaseTokens.iconButtonRadius}: var(${tokens.iconButtonRadius});
+    ${calendarBaseTokens.iconButtonFocusColor}: var(${tokens.iconButtonFocusColor});
 `;
 
 // NOTE: переопределение токенов Calendar

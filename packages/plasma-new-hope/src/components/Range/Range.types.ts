@@ -126,46 +126,6 @@ export type RangeProps = {
      */
     disabled?: boolean;
     /**
-     * Открыт ли поповер под первым полем ввода.
-     */
-    isOpenFirst?: boolean;
-    /**
-     * Открыт ли поповер под вторым полем ввода.
-     */
-    isOpenSecond?: boolean;
-    /**
-     * Сторона открытия календаря относительно поля ввода.
-     * @default
-     * ["bottom", "top"]
-     */
-    placement?: Placement | Array<PlacementBasic>;
-    /**
-     * Отступ календаря относительно поля ввода.
-     * @default [0, 0]
-     */
-    offset?: [number, number];
-    /**
-     * Закрывать календарь при нажатии вне области элемента.
-     * @default true
-     */
-    closeOnOverlayClick?: boolean;
-    /**
-     * Слот для контента первого поповера.
-     */
-    firstInputPopoverContent?: ReactNode;
-    /**
-     * Слот для контента второго поповера.
-     */
-    secondInputPopoverContent?: ReactNode;
-    /**
-     * Событие сворачивания/разворачивания первого поповера.
-     */
-    onToggleFirst?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
-    /**
-     * Событие сворачивания/разворачивания второго поповера.
-     */
-    onToggleSecond?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
-    /**
      * Коллбэк, вызываемый при изменении первого поля ввода
      */
     onChangeFirstValue?: BaseCallbackChangeInstance;

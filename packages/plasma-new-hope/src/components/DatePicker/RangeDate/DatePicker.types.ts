@@ -1,9 +1,10 @@
-import type { HTMLAttributes, SyntheticEvent } from 'react';
+import type { HTMLAttributes } from 'react';
 
 import type { CalendarStateType } from '../../Calendar';
 import type { DisabledDay, EventDay } from '../../Calendar/Calendar.types';
 import type { RangeProps } from '../../Range';
 import type { DatePickerdVariationProps } from '../DatePickerBase.types';
+import { DatePickerPopoverProps } from '../SingleDate/DatePicker.types';
 
 export type DatePickerRangePlacement = 'top' | 'bottom';
 
@@ -64,45 +65,7 @@ export type DatePickerCalendarProps = {
     type?: CalendarStateType;
 };
 
-type DatePickerDoubleRangeProps =
-    | {
-          /**
-           * Видимость первого календаря.
-           */
-          isOpenFirst?: boolean;
-          /**
-           * Видимость второго календаря.
-           */
-          isOpenSecond?: boolean;
-          /**
-           * Отобразить двойной календарь
-           */
-          isDoubleCalendar?: never;
-          /**
-           * Видимость двойного календаря.
-           */
-          isOpenDouble?: never;
-      }
-    | {
-          /**
-           * Видимость первого календаря.
-           */
-          isOpenFirst?: never;
-          /**
-           * Видимость второго календаря.
-           */
-          isOpenSecond?: never;
-          /**
-           * Видимость двойного календаря.
-           */
-          isOpenDouble?: boolean;
-          /**
-           * Отобразить двойной календарь
-           */
-          isDoubleCalendar?: true;
-      };
-
-export type DatePickerPopoverProps = {
+export type DatePickerDoublePopoverProps = DatePickerPopoverProps & {
     /**
      * Сторона открытия календаря относительно поля ввода.
      * @default
@@ -110,31 +73,13 @@ export type DatePickerPopoverProps = {
      */
     placement?: DatePickerRangePlacement | Array<DatePickerRangePlacement>;
     /**
-     * Отступ календаря относительно поля ввода.
-     * @default [0, 0]
+     * Отобразить двойной календарь
      */
-    offset?: [number, number];
-    /**
-     * Закрывать календарь при нажатии вне области элемента.
-     * @default true
-     */
-    closeOnOverlayClick?: boolean;
-    /**
-     * Событие сворачивания/разворачивания двойного календаря.
-     */
-    onToggleDouble?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
-    /**
-     * Событие сворачивания/разворачивания первого календаря.
-     */
-    onToggleFirst?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
-    /**
-     * Событие сворачивания/разворачивания второго календаря.
-     */
-    onToggleSecond?: (isOpen: boolean, event: SyntheticEvent | Event) => void;
-} & DatePickerDoubleRangeProps;
+    isDoubleCalendar?: boolean;
+};
 
 export type DatePickerRangeProps = DatePickerdVariationProps &
     DatePickerRangeFieldProps &
     DatePickerCalendarProps &
-    DatePickerPopoverProps &
+    DatePickerDoublePopoverProps &
     Omit<HTMLAttributes<HTMLDivElement>, 'defaultValue'>;

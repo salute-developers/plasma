@@ -13,6 +13,7 @@ export const StyledCalendarHeader = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: var(${tokens.calendarHeaderWrapperPadding});
 `;
 
 export const StyledHeader = styled.button`
@@ -20,7 +21,6 @@ export const StyledHeader = styled.button`
     background-color: transparent;
     padding: 0;
     outline: none;
-    color: var(${tokens.calendarContentPrimaryColor});
     font-family: var(${tokens.calendarHeaderFontFamily});
     font-size: var(${tokens.calendarHeaderFontSize});
     font-style: var(${tokens.calendarHeaderFontStyle});
@@ -29,11 +29,18 @@ export const StyledHeader = styled.button`
     line-height: var(${tokens.calendarHeaderFontLineHeight});
     padding: var(${tokens.calendarHeaderPadding});
 
+    color: var(${tokens.calendarContentPrimaryColor});
+
     cursor: pointer;
     display: flex;
     gap: var(${tokens.calendarHeaderDateGap});
     justify-content: space-between;
     align-items: center;
+
+    &:hover,
+    &:active {
+        color: var(${tokens.calendarContentSecondaryColor});
+    }
 
     ${addFocus({
         outlineSize: '0.063rem',
