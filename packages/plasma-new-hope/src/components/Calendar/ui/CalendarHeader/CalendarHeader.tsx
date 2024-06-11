@@ -54,7 +54,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                         <StyledHeaderDate>{MONTH_NAMES[date.monthIndex]}</StyledHeaderDate>
                         <StyledHeaderDate>
                             {date.year}
-                            <IconDisclosureDownFill size={size === 'xs' ? 'xs' : 's'} />
+                            <IconDisclosureDownFill color="inherit" size={size === 'xs' ? 'xs' : 's'} />
                         </StyledHeaderDate>
                     </>
                 );
@@ -64,7 +64,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                 return (
                     <StyledHeaderDate>
                         {date.year}
-                        <IconDisclosureDownFill size={size === 'xs' ? 'xs' : 's'} />
+                        <IconDisclosureDownFill color="inherit" size={size === 'xs' ? 'xs' : 's'} />
                     </StyledHeaderDate>
                 );
             }
@@ -73,7 +73,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                 return (
                     <StyledHeaderDate>
                         {startYear}—{startYear + YEAR_RENDER_COUNT - 1}
-                        <IconDisclosureDownFill size={size === 'xs' ? 'xs' : 's'} />
+                        <IconDisclosureDownFill color="inherit" size={size === 'xs' ? 'xs' : 's'} />
                     </StyledHeaderDate>
                 );
             }
@@ -88,7 +88,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
     const PreviousButton = useMemo(
         () => (
             <StyledArrow aria-label={`Предыдущий ${currentCalendarType}`} onClick={() => onPrev()}>
-                <IconDisclosureLeft size={size === 'xs' ? 'xs' : 's'} />
+                <IconDisclosureLeft color="inherit" size={size === 'xs' ? 'xs' : 's'} />
             </StyledArrow>
         ),
         [currentCalendarType, size, onPrev],
@@ -97,7 +97,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
     const NextButton = useMemo(
         () => (
             <StyledArrow aria-label={`Следующий ${currentCalendarType}`} onClick={() => onNext()}>
-                <IconDisclosureRight size={size === 'xs' ? 'xs' : 's'} />
+                <IconDisclosureRight color="inherit" size={size === 'xs' ? 'xs' : 's'} />
             </StyledArrow>
         ),
         [currentCalendarType, size, onNext],

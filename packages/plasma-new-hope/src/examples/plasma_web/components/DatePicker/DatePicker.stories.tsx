@@ -1,4 +1,4 @@
-import React, { ComponentProps, Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
+import React, { ComponentProps, useRef, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconPlaceholder } from '@salutejs/plasma-sb-utils';
@@ -10,7 +10,6 @@ import { RangeInputRefs } from '../../../../components/Range/Range.types';
 import { DatePicker, DatePickerRange } from './DatePicker';
 
 const onChangeValue = action('onChangeValue');
-const onCommitValue = action('onCommitValue');
 const onBlur = action('onBlur');
 const onFocus = action('onFocus');
 
@@ -66,43 +65,24 @@ const StoryDefault = ({
     ...rest
 }: StoryPropsDefault) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [error, setError] = useState<boolean>(false);
-    const [success, setSuccess] = useState<boolean>(false);
 
     const iconSize = size === 'xs' ? 'xs' : 's';
-
-    const handleCommitDate = (newDate: Date | string, dateError?: boolean, dateSuccess?: boolean) => {
-        if (dateError) {
-            setError(true);
-            onCommitValue(newDate);
-            return;
-        }
-
-        if (dateSuccess) {
-            setSuccess(true);
-        }
-
-        onCommitValue(newDate);
-        setIsOpen(false);
-    };
 
     return (
         <DatePicker
             isOpen={isOpen}
             size={size}
-            valueError={error || valueError}
-            valueSuccess={success || valueSuccess}
+            valueError={valueError}
+            valueSuccess={valueSuccess}
             contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
             contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
             onBlur={onBlur}
             onFocus={onFocus}
             onToggle={(is) => setIsOpen(is)}
             onChangeValue={(e, currentValue) => {
-                setError(false);
-                setSuccess(false);
                 onChangeValue(e, currentValue);
             }}
-            onCommitDate={handleCommitDate}
+            onCommitDate={() => setIsOpen(false)}
             {...rest}
         />
     );
@@ -174,53 +154,26 @@ const StoryRange = ({
 }: StoryPropsRange) => {
     const rangeRef = useRef<RangeInputRefs>(null);
 
-    const [isFirstOpen, setIsFirstOpen] = useState(false);
-    const [isSecondOpen, setIsSecondOpen] = useState(false);
-
-    const [firstValueInnerError, setFirstValueError] = useState(false);
-    const [secondValueInnerError, setSecondValueError] = useState(false);
-
-    const [firstValueInnerSuccess, setFirstValueSuccess] = useState(false);
-    const [secondValueInnerSuccess, setSecondValueSuccess] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const iconSize = size === 'xs' ? 'xs' : 's';
     const showDividerIcon = dividerVariant === 'icon';
     const showDefaultTextBefore = dividerVariant === 'none';
 
     const dividerIconProps = {
-        dividerIcon: showDividerIcon ? <IconPlaceholder size="s" /> : null,
+        dividerIcon: showDividerIcon ? <IconPlaceholder size={iconSize} /> : null,
         dividerVariant,
-    };
-
-    const handleCommitDate = (
-        errorSetter: Dispatch<SetStateAction<boolean>>,
-        successSetter: Dispatch<SetStateAction<boolean>>,
-        openSetter: Dispatch<SetStateAction<boolean>>,
-    ) => (newDate: Date | string, dateError?: boolean, dateSuccess?: boolean) => {
-        if (dateError) {
-            errorSetter(true);
-            onCommitValue(newDate);
-            return;
-        }
-
-        if (dateSuccess) {
-            successSetter(true);
-        }
-
-        onCommitValue(newDate);
-        openSetter(false);
     };
 
     return (
         <DatePickerRange
             size={size}
             ref={rangeRef}
-            isOpenFirst={isFirstOpen}
-            isOpenSecond={isSecondOpen}
-            firstValueError={firstValueError || firstValueInnerError}
-            firstValueSuccess={firstValueSuccess || firstValueInnerSuccess}
-            secondValueError={secondValueError || secondValueInnerError}
-            secondValueSuccess={secondValueSuccess || secondValueInnerSuccess}
+            isOpen={isOpen}
+            firstValueError={firstValueError}
+            firstValueSuccess={firstValueSuccess}
+            secondValueError={secondValueError}
+            secondValueSuccess={secondValueSuccess}
             contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
             contentRight={enableContentRight ? <ActionButton size={size} /> : undefined}
             firstTextfieldContentLeft={
@@ -241,20 +194,14 @@ const StoryRange = ({
             secondTextfieldTextBefore={
                 showDefaultTextBefore ? secondTextfieldTextBefore || 'ПО' : secondTextfieldTextBefore
             }
-            onToggleFirst={(is) => setIsFirstOpen(is)}
-            onToggleSecond={(is) => setIsSecondOpen(is)}
+            onToggle={(is) => setIsOpen(is)}
             onChangeFirstValue={(e, currentValue) => {
-                setFirstValueError(false);
-                setFirstValueSuccess(false);
                 onChangeFirstValue(e, currentValue);
             }}
             onChangeSecondValue={(e, currentValue) => {
-                setSecondValueError(false);
-                setSecondValueSuccess(false);
                 onChangeSecondValue(e, currentValue);
             }}
-            onCommitFirstDate={handleCommitDate(setFirstValueError, setFirstValueSuccess, setIsFirstOpen)}
-            onCommitSecondDate={handleCommitDate(setSecondValueError, setSecondValueSuccess, setIsSecondOpen)}
+            onCommitSecondDate={() => setIsOpen(false)}
             {...dividerIconProps}
             {...rest}
         />
@@ -277,6 +224,8 @@ export const Range: StoryObj<StoryPropsRange> = {
         secondPlaceholder: '04.06.2024',
         firstTextfieldTextBefore: '',
         secondTextfieldTextBefore: '',
+        firstTextfieldTextAfter: '',
+        secondTextfieldTextAfter: '',
         size: 'l',
         view: 'default',
         isDoubleCalendar: false,

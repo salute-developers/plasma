@@ -3,17 +3,12 @@ import { css } from '@linaria/core';
 
 import { component, mergeConfig } from '../../engines';
 import { textFieldConfig, textFieldTokens } from '../TextField';
-import { popoverClasses, popoverConfig } from '../Popover';
+import { popoverClasses } from '../Popover';
 
 import { classes, tokens } from './Range.tokens';
 
 const mergedConfig = mergeConfig(textFieldConfig);
 const TextField = component(mergedConfig);
-
-const mergedPopoverConfig = mergeConfig(popoverConfig);
-const Popover = component(mergedPopoverConfig);
-
-export const StyledPopover = styled(Popover)``;
 
 // NOTE: переопределение токенов TextField
 export const StyledInput = styled(TextField)`

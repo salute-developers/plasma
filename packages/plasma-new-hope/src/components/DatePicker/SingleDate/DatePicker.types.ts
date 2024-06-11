@@ -112,6 +112,11 @@ export type DatePickerPopoverProps = {
      */
     closeOnOverlayClick?: boolean;
     /**
+     * Закрывать календарь при нажатии Escape.
+     * @default true
+     */
+    closeOnEsc?: boolean;
+    /**
      * Событие сворачивания/разворачивания календаря.
      */
     onToggle?: (isOpen: boolean, event: SyntheticEvent | Event) => void;

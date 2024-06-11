@@ -32,7 +32,7 @@ export const config = {
                 ${calendarDoubleTokens.iconButtonBackgroundColor}: var(--surface-clear);
                 ${calendarDoubleTokens.iconButtonColorHover}: var(--text-primary-hover);
                 ${calendarDoubleTokens.iconButtonBackgroundColorHover}: var(--surface-clear);
-                ${calendarDoubleTokens.iconButtonColorActive}: var(--text-primary-active);
+                ${calendarDoubleTokens.iconButtonColorActive}: var(--text-primary-hover);
                 ${calendarDoubleTokens.iconButtonBackgroundColorActive}: var(--surface-clear);
                 ${calendarDoubleTokens.iconButtonFocusColor}: var(--surface-accent);
             `,

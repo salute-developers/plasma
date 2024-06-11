@@ -31,7 +31,7 @@ export const config = {
                 ${calendarBaseTokens.iconButtonBackgroundColor}: var(--surface-clear);
                 ${calendarBaseTokens.iconButtonColorHover}: var(--text-primary-hover);
                 ${calendarBaseTokens.iconButtonBackgroundColorHover}: var(--surface-clear);
-                ${calendarBaseTokens.iconButtonColorActive}: var(--text-primary-active);
+                ${calendarBaseTokens.iconButtonColorActive}: var(--text-primary-hover);
                 ${calendarBaseTokens.iconButtonBackgroundColorActive}: var(--surface-clear);
                 ${calendarBaseTokens.iconButtonFocusColor}: var(--surface-accent);
             `,

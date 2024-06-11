@@ -1,7 +1,7 @@
 import React, { forwardRef, useImperativeHandle, useMemo, useRef } from 'react';
 
 import type { RootProps } from '../../engines';
-import { cx, getPlacements } from '../../utils';
+import { cx } from '../../utils';
 
 import type { RangeInputRefs, RangeProps } from './Range.types';
 import { base as sizeCSS } from './variations/_size/base';
@@ -17,7 +17,6 @@ import {
     StyledDivider,
     StyledInput,
     StyledLabel,
-    StyledPopover,
     base,
 } from './Range.styles';
 import { classes } from './Range.tokens';
@@ -54,16 +53,6 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                 secondTextfieldTextBefore,
                 firstTextfieldTextAfter,
                 secondTextfieldTextAfter,
-
-                isOpenFirst,
-                onToggleFirst,
-                firstInputPopoverContent,
-                isOpenSecond,
-                onToggleSecond,
-                secondInputPopoverContent,
-                offset,
-                placement,
-                closeOnOverlayClick,
 
                 onChangeFirstValue,
                 onChangeSecondValue,
@@ -132,69 +121,39 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeProps>) =>
                     {label && <StyledLabel>{label}</StyledLabel>}
                     <ContentWrapper className={cx(rangeErrorClass, rangeSuccessClass)}>
                         {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
-                        <StyledPopover
-                            isOpen={isOpenFirst}
-                            usePortal={false}
-                            onToggle={onToggleFirst}
-                            offset={offset}
-                            placement={getPlacements(placement)}
-                            trigger="click"
-                            closeOnOverlayClick={closeOnOverlayClick}
-                            isFocusTrapped={false}
-                            target={
-                                <StyledInput
-                                    ref={firstTextFieldRef}
-                                    className={cx(firstValueErrorClass, firstValueSuccessClass)}
-                                    value={firstValue}
-                                    readOnly={readOnly}
-                                    disabled={disabled}
-                                    placeholder={firstPlaceholder}
-                                    contentLeft={firstTextfieldContentLeft}
-                                    contentRight={firstTextfieldContentRight}
-                                    textBefore={firstTextfieldTextBefore}
-                                    textAfter={firstTextfieldTextAfter}
-                                    onChange={handleChangeFirstValue}
-                                    onSearch={handleSearchFirstValue}
-                                    onFocus={onFocusFirstTextfield}
-                                    onBlur={onBlurFirstTextfield}
-                                />
-                            }
-                            preventOverflow={false}
-                        >
-                            {firstInputPopoverContent}
-                        </StyledPopover>
+                        <StyledInput
+                            ref={firstTextFieldRef}
+                            className={cx(firstValueErrorClass, firstValueSuccessClass)}
+                            value={firstValue}
+                            readOnly={readOnly}
+                            disabled={disabled}
+                            placeholder={firstPlaceholder}
+                            contentLeft={firstTextfieldContentLeft}
+                            contentRight={firstTextfieldContentRight}
+                            textBefore={firstTextfieldTextBefore}
+                            textAfter={firstTextfieldTextAfter}
+                            onChange={handleChangeFirstValue}
+                            onSearch={handleSearchFirstValue}
+                            onFocus={onFocusFirstTextfield}
+                            onBlur={onBlurFirstTextfield}
+                        />
                         {Divider}
-                        <StyledPopover
-                            isOpen={isOpenSecond}
-                            usePortal={false}
-                            onToggle={onToggleSecond}
-                            offset={offset}
-                            placement={getPlacements(placement)}
-                            trigger="click"
-                            closeOnOverlayClick={closeOnOverlayClick}
-                            isFocusTrapped={false}
-                            target={
-                                <StyledInput
-                                    ref={secondTextFieldRef}
-                                    className={cx(secondValueErrorClass, secondValueSuccessClass)}
-                                    value={secondValue}
-                                    readOnly={readOnly}
-                                    disabled={disabled}
-                                    placeholder={secondPlaceholder}
-                                    contentLeft={secondTextfieldContentLeft}
-                                    contentRight={secondTextfieldContentRight}
-                                    textBefore={secondTextfieldTextBefore}
-                                    textAfter={secondTextfieldTextAfter}
-                                    onChange={handleChangeSecondValue}
-                                    onSearch={handleSearchSecondValue}
-                                    onFocus={onFocusSecondTextfield}
-                                    onBlur={onBlurSecondTextfield}
-                                />
-                            }
-                            preventOverflow={false}
-                        >
-                            {secondInputPopoverContent}
-                        </StyledPopover>
+                        <StyledInput
+                            ref={secondTextFieldRef}
+                            className={cx(secondValueErrorClass, secondValueSuccessClass)}
+                            value={secondValue}
+                            readOnly={readOnly}
+                            disabled={disabled}
+                            placeholder={secondPlaceholder}
+                            contentLeft={secondTextfieldContentLeft}
+                            contentRight={secondTextfieldContentRight}
+                            textBefore={secondTextfieldTextBefore}
+                            textAfter={secondTextfieldTextAfter}
+                            onChange={handleChangeSecondValue}
+                            onSearch={handleSearchSecondValue}
+                            onFocus={onFocusSecondTextfield}
+                            onBlur={onBlurSecondTextfield}
+                        />
                         {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
                     </ContentWrapper>
                     {leftHelper && <LeftHelper>{leftHelper}</LeftHelper>}
