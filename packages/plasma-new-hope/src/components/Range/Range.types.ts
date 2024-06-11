@@ -1,14 +1,4 @@
-import type {
-    KeyboardEvent,
-    ChangeEvent,
-    ReactNode,
-    HTMLAttributes,
-    ReactElement,
-    MutableRefObject,
-    SyntheticEvent,
-} from 'react';
-
-import type { Placement, PlacementBasic } from '../../utils';
+import type { KeyboardEvent, ChangeEvent, ReactNode, HTMLAttributes, ReactElement, MutableRefObject } from 'react';
 
 export type TextfieldPrimitiveValue = string | number;
 
