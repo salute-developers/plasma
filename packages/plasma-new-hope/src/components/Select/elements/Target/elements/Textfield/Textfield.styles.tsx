@@ -30,10 +30,6 @@ export const TextfieldWrapper = styled.div<{ opened: boolean; value: SelectProps
     }
 `;
 
-export const c2 = {
-    focusSize: '6.25rem',
-};
-
 export const StyledButton = styled(Button)`
     ${buttonTokens.buttonColor}: var(${constants.textfieldTargetColor});
     ${buttonTokens.buttonColorHover}: var(${constants.textfieldTargetColor});

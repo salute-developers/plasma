@@ -296,7 +296,13 @@ const SingleStory = (args: StorySelectProps) => {
 
     return (
         <div style={{ width: '300px' }}>
-            <Select {...args} items={items} value={value} onChange={setValue} />
+            <Select
+                {...args}
+                items={items}
+                value={value}
+                onChange={setValue}
+                contentLeft={args.enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
+            />
         </div>
     );
 };
@@ -310,7 +316,13 @@ const MultiselectStory = (args: StorySelectProps) => {
 
     return (
         <div style={{ width: '300px' }}>
-            <Select {...args} items={items} value={value} onChange={setValue} />
+            <Select
+                {...args}
+                items={items}
+                value={value}
+                onChange={setValue}
+                contentLeft={args.enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
+            />
         </div>
     );
 };
@@ -325,11 +337,23 @@ const PredefinedStory = (args: StorySelectProps) => {
 
     return (
         <div style={{ width: '300px' }}>
-            <Select {...args} items={items} value={valueSingle} onChange={setValueSingle} multiselect={false} />
+            <Select
+                {...args}
+                items={items}
+                value={valueSingle}
+                onChange={setValueSingle}
+                contentLeft={args.enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
+            />
 
             <br />
 
-            <Select {...args} items={items} value={valueMultiple} onChange={setValueMultiple} multiselect />
+            <Select
+                {...args}
+                items={items}
+                value={valueMultiple}
+                onChange={setValueMultiple}
+                contentLeft={args.enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
+            />
         </div>
     );
 };
@@ -355,6 +379,7 @@ const EmptyListStory = (args: StorySelectProps) => {
                         buttonText="Label"
                     />
                 }
+                contentLeft={args.enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
             />
         </div>
     );
