@@ -5,7 +5,7 @@ import { Headline4, applyNoSelect } from '@salutejs/plasma-b2c';
 import { IconRoot } from '@salutejs/plasma-icons';
 import { secondary } from '@salutejs/plasma-tokens-b2c';
 
-import { Context, setWizardItem, setIconColor, initColorState } from '../../store';
+import { Context, setWizardItem, setIconColor, setIconSize, initColorState, initSizeState } from '../../store';
 import { iconsList } from '../../utils';
 
 import { IconGroupHeading } from './IconGroupHeading';
@@ -81,13 +81,12 @@ const StyledIconHoverDetails = styled.div`
     ${AnimationSlideUp};
 `;
 
-const StyledIcon = styled.div<{ isActive?: boolean; color?: string; hasOpacity?: boolean }>`
+const StyledIcon = styled.div<{ isActive?: boolean; hasOpacity?: boolean }>`
     ${applyNoSelect};
 
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.125rem;
     height: 3.75rem;
     width: 3.75rem;
     border-radius: 50%;
@@ -108,11 +107,10 @@ const StyledIcon = styled.div<{ isActive?: boolean; color?: string; hasOpacity?:
         }
     }
 
-    ${({ isActive, color = 'inherit' }) =>
+    ${({ isActive }) =>
         isActive &&
         css`
             box-shadow: 0 0 0 1px rgba(255, 255, 255, 1);
-            color: ${color};
 
             &:hover {
                 box-shadow: 0 0 0 1px rgba(255, 255, 255, 1);
@@ -188,6 +186,8 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
 
         dispatch(setIconColor(initColorState));
 
+        dispatch(setIconSize(initSizeState));
+
         setCurrentGridRow('');
     };
 
@@ -205,7 +205,7 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
                         count={group.items.length}
                     />
                     <Grid ref={gridRef}>
-                        {group.items.map(({ name, component: Component, groupName }, index) => (
+                        {group.items.map(({ name, component: Component, groupName, version }, index) => (
                             <StyledCell key={name}>
                                 <StyledIcon
                                     key={name}
@@ -222,20 +222,30 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
 
                                         dispatch(setIconColor(initColorState));
 
-                                        const currentIndex = index + 1;
+                                        dispatch(setIconSize(initSizeState));
 
-                                        setCellIndex(currentIndex);
+                                        setCellIndex(index + 1);
 
-                                        setOffset(getGridCellPosition(gridRef, currentIndex));
+                                        setOffset(getGridCellPosition(gridRef, index + 1));
 
                                         // Info: Close by double click
                                         if (name === state.wizardItemName) {
                                             handleCloseExtendInfo();
                                         }
                                     }}
-                                    color={state.color?.value}
                                 >
-                                    <IconRoot size={size} icon={Component} color="inherit" />
+                                    {version === 'legacy' ? (
+                                        <IconRoot
+                                            icon={Component}
+                                            size={name === state.wizardItemName ? state.size.value : size}
+                                            color={name === state.wizardItemName ? state.color.value : 'inherit'}
+                                        />
+                                    ) : (
+                                        <Component
+                                            size={name === state.wizardItemName ? state.size.value : size}
+                                            color={name === state.wizardItemName ? state.color.value : 'inherit'}
+                                        />
+                                    )}
                                 </StyledIcon>
                                 <StyledIconHoverDetails>
                                     <IconHoverDetails name={name} sizes={{ 36: false, 24: true, 16: false }} />

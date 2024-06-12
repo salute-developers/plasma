@@ -4,7 +4,7 @@ import { Action, ActionTypes } from './actions';
 import type { State } from './types';
 
 export const initColorState: State['color'] = { value: 'inherit', label: 'inherit' };
-export const initSizeState: State['size'] = { value: 'xs', label: '16' };
+export const initSizeState: State['size'] = { value: 's', label: '24' };
 
 export const initialState: State = {
     theme: 'dark',
