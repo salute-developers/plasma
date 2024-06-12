@@ -3,7 +3,7 @@ import { styled } from '@linaria/react';
 import { classes, tokens, constants } from '../../../../Select.tokens';
 import { addFocus, applyEllipsis } from '../../../../../../mixins';
 import { component, mergeConfig } from '../../../../../../engines';
-import { checkboxConfig } from '../../../../../Checkbox';
+import { checkboxConfig, checkboxTokens } from '../../../../../Checkbox';
 import { indicatorConfig, indicatorTokens } from '../../../../../Indicator';
 import type { SelectProps } from '../../../../Select.types';
 
@@ -11,11 +11,11 @@ const mergedCheckboxConfig = mergeConfig(checkboxConfig);
 const Checkbox = component(mergedCheckboxConfig);
 
 export const StyledCheckbox = styled(Checkbox)`
-    --plasma-checkbox-trigger-size: var(${tokens.checkboxTriggerSize});
-    --plasma-checkbox-trigger-border-radius: var(${tokens.checkboxTriggerBorderRadius});
-    --plasma-checkbox-fill-color: var(${tokens.checkboxFillColor});
-    --plasma-checkbox-icon-color: var(${tokens.checkboxIconColor});
-    --plasma-checkbox-trigger-border-color: var(${tokens.checkboxTriggerBorderColor});
+    ${checkboxTokens.triggerSize}: var(${tokens.checkboxTriggerSize});
+    ${checkboxTokens.triggerBorderRadius}: var(${tokens.checkboxTriggerBorderRadius});
+    ${checkboxTokens.fillColor}: var(${tokens.checkboxFillColor});
+    ${checkboxTokens.iconColor}: var(${tokens.checkboxIconColor});
+   ${checkboxTokens.triggerBorderColor}: var(${tokens.checkboxTriggerBorderColor});
 `;
 
 const mergedIndicatorConfig = mergeConfig(indicatorConfig);
