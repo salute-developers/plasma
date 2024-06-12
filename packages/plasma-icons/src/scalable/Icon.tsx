@@ -1023,6 +1023,10 @@ export const iconSectionsSet = {
         handAction24Line: 'HandAction24Line',
         handPointer24Line: 'HandPointer24Line',
         handTap24Line: 'HandTap24Line',
+        hand24Fill: 'Hand24Fill',
+        handAction24Fill: 'HandAction24Fill',
+        handPointer24Fill: 'HandPointer24Fill',
+        handTap24Fill: 'HandTap24Fill',
     },
     Logo: {
         catalogFill: 'CatalogFill',
