@@ -422,6 +422,12 @@ export const iconSectionsSet = {
         wavesCross: 'WavesCross',
         whistleFill: 'WhistleFill',
         whistleOutline: 'WhistleOutline',
+        coinRupiahFallingFill: 'CoinRupiahFallingFill',
+        coinRupiahFallingOutline: 'CoinRupiahFallingOutline',
+        coinRupiahFill: 'CoinRupiahFill',
+        coinRupiahOutline: 'CoinRupiahOutline',
+        rupiahFill: 'RupiahFill',
+        rupiahOutline: 'RupiahOutline',
     },
     Other: {
         button2x1LFill: 'Button2x1LFill',
