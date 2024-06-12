@@ -648,6 +648,8 @@ export const iconSectionsSet = {
         passportOutline: 'PassportOutline',
         ticketFill: 'TicketFill',
         ticketOutline: 'TicketOutline',
+        fileErrorFill: 'FileErrorFill',
+        fileErrorOutline: 'FileErrorOutline',
     },
     Instruments: {
         boxFill: 'BoxFill',
