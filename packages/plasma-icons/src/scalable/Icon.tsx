@@ -534,6 +534,7 @@ export const iconSectionsSet = {
         washerFill: 'WasherFill',
         washerOutline: 'WasherOutline',
         waveLine: 'WaveLine',
+        scribbleDiagonal: 'ScribbleDiagonal',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
