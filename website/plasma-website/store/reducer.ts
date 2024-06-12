@@ -3,11 +3,13 @@ import type { Reducer } from 'react';
 import { Action, ActionTypes } from './actions';
 import type { State } from './types';
 
-export const initColorState = { value: 'inherit', label: 'inherit' };
+export const initColorState: State['color'] = { value: 'inherit', label: 'inherit' };
+export const initSizeState: State['size'] = { value: 'xs', label: '16' };
 
 export const initialState: State = {
     theme: 'dark',
     color: { ...initColorState },
+    size: { ...initSizeState },
 };
 
 export const reducer: Reducer<State, Action> = (state, action) => {
@@ -24,6 +26,11 @@ export const reducer: Reducer<State, Action> = (state, action) => {
             return {
                 ...state,
                 color: { ...action.payload },
+            };
+        case ActionTypes.SET_ITEM_SIZE:
+            return {
+                ...state,
+                size: { ...action.payload },
             };
         default:
             return state;
