@@ -134,6 +134,10 @@ export interface BasicProps {
      * Callback для кастомной настройки значения в селекте
      */
     renderValue?: (value: ItemOption['value'], label: ItemOption['label']) => string;
+    /**
+     * Callback для кастомной настройки айтема в выпадающем списке
+     */
+    renderItem?: (value: ItemOption['value'], label: ItemOption['label']) => React.ReactNode;
 
     /**
      * Размер компонента.
@@ -178,4 +182,5 @@ export type ItemContext = {
     handleCheckboxChange: (item: ItemOptionTransformed) => void;
     handleItemClick: (item: ItemOptionTransformed, e: React.MouseEvent<HTMLElement>) => void;
     variant: SelectProps['variant'];
+    renderItem: SelectProps['renderItem'];
 };

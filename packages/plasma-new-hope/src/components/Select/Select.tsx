@@ -52,6 +52,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, SelectProps>) =>
             variant = 'normal',
             portal,
             renderValue,
+            renderItem,
             ...rest
         } = props;
 
@@ -221,6 +222,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, SelectProps>) =>
                         handleCheckboxChange,
                         handleItemClick,
                         variant,
+                        renderItem,
                     }}
                 >
                     <StyledPopover
