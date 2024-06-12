@@ -32,9 +32,16 @@ export const Item: FC<ItemProps> = ({
     const { value, label, disabled, isDisabled, contentLeft, contentRight } = item;
     const ref = useRef<HTMLLIElement | null>(null);
 
-    const { focusedPath, checked, multiselect, size, handleCheckboxChange, handleItemClick, variant } = useContext(
-        Context,
-    );
+    const {
+        focusedPath,
+        checked,
+        multiselect,
+        size,
+        handleCheckboxChange,
+        handleItemClick,
+        variant,
+        renderItem,
+    } = useContext(Context);
 
     const isDisabledClassName = disabled || isDisabled ? classes.dropdownItemIsDisabled : undefined;
     const focusedClass =
@@ -101,7 +108,7 @@ export const Item: FC<ItemProps> = ({
 
             {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
 
-            <StyledText>{label}</StyledText>
+            <StyledText>{(renderItem && renderItem(value, label)) || label}</StyledText>
 
             {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
 

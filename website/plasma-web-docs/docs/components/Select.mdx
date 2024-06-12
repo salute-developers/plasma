@@ -232,8 +232,7 @@ type Items = Array<{
 
         ```tsx live
         import React from 'react';
-        import { Select, SelectNotFoundContent } from '@salutejs/plasma-web';
-        import { IconEdit } from '@salutejs/plasma-icons';
+        import { Select } from '@salutejs/plasma-web';
 
         export function App() {
             const [multipleValue, setMultipleValue] = useState([]);
@@ -273,6 +272,50 @@ type Items = Array<{
         }
         ```
     </TabItem>
+    <TabItem value="renderItem" label="Render item">
+        Пропс `renderItem` для кастомной настройки айтема в выпадающем списке. Принимает коллбэк с двумя параметрами: `value` и `label`.
+        В примере использован другой наш компонент - Cell.
+
+        ```tsx live
+        import React from 'react';
+        import { Select, Cell } from '@salutejs/plasma-web';
+
+        export function App() {
+            const [multipleValue, setMultipleValue] = useState([]);
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                        },
+                    ],
+                },
+            ];
+
+            const renderItem = (value, label) => <Cell title={value} label={label} />;
+
+            return (
+                <div style={{ height: '300px' }}>
+                    <div style={{width: '300px'}}>
+                        <Select items={items} label="Label" placeholder="Placeholder" value={multipleValue} onChange={setMultipleValue} renderItem={renderItem} />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 ## Клавиатурная навигация
@@ -291,3 +334,4 @@ type Items = Array<{
 - `ArrowRight` - если фокус на элементе вложенного списка - открывает его и перемещает фокус на первый элемент; Если фокус на таргете - переходит в режим выбора чипа.
 - `ArrowLeft` - закрывает текущий список и перемещает фокус на предыдущий; Если фокус на таргете - переходит в режим выбора чипа.
 - `Backspace` - только если фокус на чипе - снимает выбор с текущего значения;
+
