@@ -8,9 +8,12 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.background}: var(--surface-transparent-primary);
-                ${tokens.backgroundError}: var(--surface-transparent-negative);
-                ${tokens.backgroundSuccess}: var(--surface-transparent-positive);
+                ${tokens.background}: var(--surface-clear);
+                ${tokens.borderColor}: var(--surface-transparent-tertiary);
+                ${tokens.borderColorError}: var(--surface-negative);
+                ${tokens.borderColorSuccess}: var(--surface-positive);
+                ${tokens.borderColorHover}: var(--plasma-colors-secondary);
+                ${tokens.borderColorFocus}: var(--surface-accent);
 
                 ${tokens.dividerColor}: var(--text-primary);
                 ${tokens.labelColor}: var(--text-primary);
@@ -20,12 +23,11 @@ export const config = {
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-secondary);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
-                ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-negative);
-                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-negative-active);
-                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-positive);
-                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-positive-active);
+                ${tokens.textFieldBorderColorFocus}: var(--surface-accent);
+                ${tokens.textFieldBorderColorError}: var(--surface-negative);
+                ${tokens.textFieldBorderColorErrorFocus}: var(--surface-accent);
+                ${tokens.textFieldBorderColorSuccess}: var(--surface-positive);
+                ${tokens.textFieldBorderColorSuccessFocus}: var(--surface-accent);
 
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
@@ -64,6 +66,7 @@ export const config = {
             l: css`
                 ${tokens.width}: 26.5rem;
                 ${tokens.borderRadius}: 0.875rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-l-font-family);
@@ -87,6 +90,7 @@ export const config = {
 
                 ${tokens.textFieldHeight}: 3.5rem;
                 ${tokens.textFieldBorderRadius}: 0.875rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldPadding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-l-font-style);
@@ -109,6 +113,7 @@ export const config = {
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.calendarBorderRadius}: 0.875rem;
+                ${tokens.calendarPaddingTop}: 0.875rem
                 ${tokens.calendarWidth}: 26.5rem;
 
                 ${tokens.calendarYearsPadding}: 0.5rem 1rem 1.125rem 1rem;
@@ -172,6 +177,7 @@ export const config = {
             m: css`
                 ${tokens.width}: 23rem;
                 ${tokens.borderRadius}: 0.75rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -195,6 +201,7 @@ export const config = {
 
                 ${tokens.textFieldHeight}: 3rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -280,6 +287,7 @@ export const config = {
             s: css`
                 ${tokens.width}: 19.5rem;
                 ${tokens.borderRadius}: 0.625rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -289,7 +297,7 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.leftContentMargin}: 0 0 0 0.75rem;
+                ${tokens.leftContentMargin}: 0 0.375rem 0 0.75rem;
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.labelOffset}: 0 0 0.5rem 0;
@@ -303,6 +311,7 @@ export const config = {
 
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -388,6 +397,7 @@ export const config = {
             xs: css`
                 ${tokens.width}: 19rem;
                 ${tokens.borderRadius}: 0.5rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -411,6 +421,7 @@ export const config = {
 
                 ${tokens.textFieldHeight}: 2rem;
                 ${tokens.textFieldBorderRadius}: 0.5rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldPadding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -434,6 +445,7 @@ export const config = {
 
                 ${tokens.calendarWidth}: 19rem;
                 ${tokens.calendarBorderRadius}: 0.5rem;
+                ${tokens.calendarPaddingTop}: 0.5rem
 
                 ${tokens.calendarYearsPadding}: 0.5rem 0.75rem 0.625rem 0.75rem;
                 ${tokens.calendarYearItemBorderRadius}: 0.375rem;
@@ -501,13 +513,14 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.backgroundReadOnly}: var(--surface-transparent-primary);
+                ${tokens.backgroundReadOnly}: var(--surface-clear);
+                ${tokens.borderColorReadOnly}: var(--surface-transparent-tertiary);
                 ${tokens.labelColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.dividerColorReadOnly}: var(--text-secondary);
 
                 ${tokens.textFieldColorReadOnly}: var(--text-secondary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-clear);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
             `,
         },
