@@ -19,7 +19,7 @@ const sberdevicesDependencies = Object.entries(packageJson.dependencies)
 const indexSource = `import React from "react";
 import ReactDOM from "react-dom";
 import styled, { createGlobalStyle } from "styled-components";
-import { {{ theme }}__light } from "@salutejs/{{ vertical }}-themes";
+import { {{ theme }}__light } from "@salutejs/{{ vertical }}";
 
 import { App } from "./App";
 import "./style.css";
