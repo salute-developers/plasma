@@ -1,6 +1,5 @@
 export { FlatButton } from './FlatButton';
 export { Header } from './Header';
-export { IconForm } from './IconForm';
 export { IconsList } from './IconsList';
 export { Main } from './Main';
 export { Panel } from './Panel';
