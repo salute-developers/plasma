@@ -1,3 +1,78 @@
+# v1.194.0 (Thu Jun 13 2024)
+
+### Release Notes
+
+#### Release by 11.06.2024 ([#1238](https://github.com/salute-developers/plasma/pull/1238))
+
+## Icons
+
+### Stroke
+
+- заменили значение свойства `stroke` на `currentColor`
+
+#### Before
+
+<img width="1919" alt="Screenshot 2024-06-03 at 18 35 35" src="https://github.com/salute-developers/plasma/assets/2895992/85e34f50-5ed6-4d92-93b9-f430f36d5b2d" />
+
+
+#### After
+
+<img width="1909" alt="Screenshot 2024-06-03 at 18 33 57" src="https://github.com/salute-developers/plasma/assets/2895992/ec5e440e-bd71-474a-b971-883f83b7bf9c" />
+
+ 
+plasma-icons: Replace stroke value to "currentColor" (https://github.com/salute-developers/plasma/pull/1226)
+
+
+## Tokens
+
+### Theme
+
+- добавлены классы для более гибкого и удобного управления темами, созданных в новом формате. 
+- добавлена возможность генерации базовой темы в новом формате.
+- добавлена возможность считывать темы в новом формате и конвертировать их в экземпляры созданных классов.
+- добавлена возможность записывать темы в новом формате на основе созданного экземпляра класса.
+
+ 
+feat(plasma-tokens): Add write / read and generation new format of theme.json  (https://github.com/salute-developers/plasma/pull/1207)
+
+## Website
+### Icons page
+
+- редизайн grid
+- редизайн cell grid
+- редизайн меню расширенной информации об иконки    
+
+#### Before
+
+<img width="1911" alt="Screenshot 2024-06-11 at 14 53 26" src="https://github.com/salute-developers/plasma/assets/2895992/6d10a1e2-5722-4e5f-a69b-de595eb64019" />
+
+#### After
+
+<img width="1920" alt="Screenshot 2024-06-11 at 15 05 21" src="https://github.com/salute-developers/plasma/assets/2895992/d2481ef5-229d-48d2-b0f2-2b4ba3e1a550" />
+
+
+plasma-website: Redesign Icons page [Part I] (https://github.com/salute-developers/plasma/pull/1228)
+
+---
+
+#### 🚀 Enhancement
+
+- Release by 11.06.2024 [#1238](https://github.com/salute-developers/plasma/pull/1238) ([@neretin-trike](https://github.com/neretin-trike) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc))
+
+#### 🐛 Bug Fix
+
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- fix(plasma-icons): replace stroke value to "currentColor" [#1226](https://github.com/salute-developers/plasma/pull/1226) ([@Yakutoc](https://github.com/Yakutoc))
+
+#### Authors: 3
+
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alexander Lobyntsev ([@Yakutoc](https://github.com/Yakutoc))
+- neretinaa ([@neretin-trike](https://github.com/neretin-trike))
+
+---
+
 # v1.193.0 (Thu May 16 2024)
 
 #### 🚀 Enhancement
