@@ -205,8 +205,18 @@ export const datePickerRangeRoot = (
                         secondValueSuccess={secondValueSuccess}
                         onChangeFirstValue={handleChangeFirstValue}
                         onChangeSecondValue={handleChangeSecondValue}
-                        onSearchFirstValue={(_, date) => handleCommitFirstDate(String(date), true, false)}
-                        onSearchSecondValue={(_, date) => handleCommitSecondDate(String(date), true, false)}
+                        onSearchFirstValue={(_, date) => {
+                            handleCommitFirstDate(String(date), true, false);
+                            if (!calendarSecondValue || secondValueError) {
+                                rangeRef?.current?.secondTextField()?.current?.focus();
+                            }
+                        }}
+                        onSearchSecondValue={(_, date) => {
+                            handleCommitSecondDate(String(date), true, false);
+                            if (!calendarFirstValue || firstValueError) {
+                                rangeRef?.current?.firstTextField()?.current?.focus();
+                            }
+                        }}
                         onFocusFirstTextfield={onFocusFirstTextfield}
                         onFocusSecondTextfield={onFocusSecondTextfield}
                         onBlurFirstTextfield={onBlurFirstTextfield}

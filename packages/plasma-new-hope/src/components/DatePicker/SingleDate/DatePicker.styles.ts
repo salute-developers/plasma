@@ -4,7 +4,7 @@ import { css } from '@linaria/core';
 import { component, mergeConfig } from '../../../engines';
 import { textFieldConfig, textFieldTokens } from '../../TextField';
 import { classes, tokens } from '../DatePicker.tokens';
-import { popoverClasses, popoverConfig } from '../../Popover';
+import { popoverConfig } from '../../Popover';
 
 const mergedTextFieldConfig = mergeConfig(textFieldConfig);
 const TextField = component(mergedTextFieldConfig);
@@ -79,14 +79,7 @@ export const StyledInput = styled(TextField)`
 `;
 
 export const base = css`
-    .${String(popoverClasses.wrapper)} {
-        display: block;
-    }
-
-    .${String(popoverClasses.target)} {
-        display: flex;
-        flex-direction: column;
-    }
+    display: inline-block;
 `;
 
 export const StyledLabel = styled.label``;

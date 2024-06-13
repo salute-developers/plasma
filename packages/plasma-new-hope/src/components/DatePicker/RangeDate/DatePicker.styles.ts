@@ -107,7 +107,9 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.textFieldPlaceholderColorReadOnly}: var(${tokens.textFieldPlaceholderColorReadOnly});
 `;
 
-export const base = css``;
+export const base = css`
+    display: inline-block;
+`;
 
 export const StyledLabel = styled.label``;
 
