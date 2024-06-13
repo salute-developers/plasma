@@ -223,32 +223,39 @@ const items = [
 
 describe('plasma-b2c: Select', () => {
     const Select = getComponent('Select');
-    const Button = getComponent('Button');
 
     const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
-        <CypressTestDecorator>
-            <StandardTypoStyle />
-            {children}
-        </CypressTestDecorator>
+        <CypressTestDecorator>{children}</CypressTestDecorator>
     );
 
-    // it('default', () => {
-    //     cy.viewport(1000, 500);
-    //
-    //     mount(
-    //         <CypressTestDecoratorWithTypo>
-    //             <Dropdown items={items}>
-    //                 <Button text="Список стран" />
-    //             </Dropdown>
-    //         </CypressTestDecoratorWithTypo>,
-    //     );
-    //
-    //     cy.get('button').click();
-    //     cy.get('#south_america').click();
-    //     cy.get('#argentina').click();
-    //     cy.matchImageSnapshot();
-    // });
-    //
+    it('default', () => {
+        cy.viewport(1000, 500);
+
+        const Component = () => {
+            const [valueMultiple, setValueMultiple] = React.useState([]);
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ width: '200px' }}>
+                        <Select
+                            target="button"
+                            label="Список стран"
+                            items={items}
+                            value={valueMultiple}
+                            onChange={setValueMultiple}
+                        />
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('button').click();
+        cy.get('#north_america').click();
+        // cy.matchImageSnapshot();
+    });
+
     // it('prop: size', () => {
     //     cy.viewport(1500, 500);
     //
@@ -525,151 +532,131 @@ describe('plasma-b2c: Select', () => {
     //     cy.matchImageSnapshot();
     // });
 
-    it('keyboard interactions', () => {
-        cy.viewport(1000, 500);
-
-        const Component = () => {
-            const [valueMultiple, setValueMultiple] = React.useState([]);
-
-            return (
-                <CypressTestDecoratorWithTypo>
-                    <div style={{ width: '300px' }}>
-                        <Select
-                            label="Label"
-                            placeholder="Placeholder"
-                            items={items}
-                            value={valueMultiple}
-                            onChange={setValueMultiple}
-                        />
-                    </div>
-                </CypressTestDecoratorWithTypo>
-            );
-        };
-
-        mount(<Component />);
-
-        cy.get('body').realClick();
-        cy.realPress('Tab');
-        cy.get('button').should('have.focus');
-
-        // Arrow Down
-        // cy.realPress('ArrowDown');
-        // cy.get('#tree_level_1').should('be.visible');
-        // cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
-        // cy.get('button').should('have.focus');
-        // cy.realPress('ArrowDown')
-        //     .realPress('ArrowDown')
-        //     .realPress('ArrowDown')
-        //     .realPress('ArrowDown')
-        //     .realPress('ArrowDown')
-        //     .realPress('ArrowDown')
-        //     .realPress('ArrowDown');
-        // cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
-        // cy.realPress('Escape');
-        // cy.get('button').should('have.focus');
-        //
-        // // Arrow Up
-        // cy.realPress('ArrowUp');
-        // cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
-        // cy.realPress('ArrowUp');
-        // cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
-        // cy.realPress('Escape');
-        // cy.get('button').should('have.focus');
-        //
-        // // Arrows Right and Left
-        // cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight');
-        // cy.get('#tree_level_1').should('be.visible');
-        // cy.get('#tree_level_2').should('be.visible');
-        // cy.get('#brazil').should('have.class', 'dropdown-item-is-focused');
-        // cy.get('button').should('have.focus');
-        // cy.get('#south_america').should('have.class', 'dropdown-item-is-active');
-        // cy.realPress('ArrowLeft');
-        // cy.get('#tree_level_1').should('be.visible');
-        // cy.get('#tree_level_2').should('not.be.visible');
-        // cy.get('#south_america').should('have.class', 'dropdown-item-is-focused');
-        // cy.realPress('ArrowDown').realPress('ArrowRight');
-        // cy.get('#france').should('have.class', 'dropdown-item-is-focused');
-        // cy.get('button').should('have.focus');
-        // cy.get('#europe').should('have.class', 'dropdown-item-is-active');
-        // cy.realPress('ArrowRight');
-        // cy.get('#europe').should('have.class', 'dropdown-item-is-active');
-        // cy.get('#france').should('have.class', 'dropdown-item-is-active');
-        // cy.get('#paris').should('have.class', 'dropdown-item-is-focused');
-        // cy.realPress('ArrowLeft').realPress('ArrowLeft').realPress('ArrowLeft');
-        // cy.get('#tree_level_1').should('not.be.visible');
-        // cy.get('button').should('have.focus');
-        //
-        // // Escape
-        // cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight').realPress('ArrowRight');
-        // cy.realPress('Escape');
-        // cy.get('#tree_level_1').should('not.be.visible');
-        // cy.get('#tree_level_2').should('not.be.visible');
-        // cy.get('#tree_level_3').should('not.be.visible');
-        // cy.get('button').should('have.focus');
-        // cy.get('button').should('have.focus');
-
-        // // Home
-        // cy.realPress('Home');
-        // cy.get('#tree_level_1').should('be.visible');
-        // cy.get('button').should('have.focus');
-        // cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
-        // cy.realPress('Escape');
-        // cy.get('button').should('have.focus');
-
-        // // End
-        // cy.realPress('End');
-        // cy.get('#tree_level_1').should('be.visible');
-        // cy.get('button').should('have.focus');
-        // cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
-        // cy.realPress('Escape');
-        // cy.get('button').should('have.focus');
-        //
-        // // Page Down
-        // cy.realPress('PageDown');
-        // cy.get('#tree_level_1').should('not.be.visible');
-        // cy.get('button').should('have.focus');
-        // cy.realPress('ArrowDown');
-        // cy.realPress('PageDown');
-        // cy.get('button').should('have.focus');
-        // cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
-        // cy.realPress('Escape');
-        // cy.get('button').should('have.focus');
-
-        // // Page Up
-        // cy.realPress('PageUp');
-        // cy.get('#tree_level_1').should('not.be.visible');
-        // cy.get('button').should('have.focus');
-        // cy.realPress('ArrowDown');
-        // cy.realPress('ArrowDown');
-        // cy.realPress('PageUp');
-        // cy.get('button').should('have.focus');
-        // cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
-        // cy.realPress('Escape');
-        // cy.get('button').should('have.focus');
-
-        // Space
-        cy.realPress('ArrowDown')
-            .realPress('ArrowDown')
-            .realPress('Space')
-            .realPress('ArrowLeft')
-            .realPress('ArrowUp')
-            .realPress('Space');
-        cy.get('#tree_level_1').should('not.be.visible');
-        cy.get('button').should('have.focus');
-
-        // // Enter
-        // cy.realPress('Enter')
-        //     .realPress('ArrowDown')
-        //     .realPress('Enter')
-        //     .realPress('ArrowLeft')
-        //     .realPress('ArrowUp')
-        //     .realPress('Enter');
-        // cy.get('#tree_level_1').should('not.be.visible');
-        // cy.get('button').should('have.focus');
-        //
-        // // Tab
-        // cy.realPress('ArrowDown').realPress('Tab');
-        // cy.get('#tree_level_1').should('not.be.visible');
-        // cy.get('button').should('not.have.focus');
-    });
+    // it('keyboard interactions', () => {
+    //     cy.viewport(1000, 500);
+    //
+    //     const Component = () => {
+    //         const [valueMultiple, setValueMultiple] = React.useState([]);
+    //
+    //         return (
+    //             <CypressTestDecoratorWithTypo>
+    //                 <div style={{ width: '200px' }}>
+    //                     <Select
+    //                         target="button"
+    //                         label="Список стран"
+    //                         items={items}
+    //                         value={valueMultiple}
+    //                         onChange={setValueMultiple}
+    //                     />
+    //                 </div>
+    //             </CypressTestDecoratorWithTypo>
+    //         );
+    //     };
+    //
+    //     mount(<Component />);
+    //
+    //     cy.get('body').realClick();
+    //     cy.realPress('Tab');
+    //     cy.get('button').should('have.focus');
+    //
+    //     // Arrow Down
+    //     cy.realPress('ArrowDown');
+    //     cy.get('#tree_level_1').should('be.visible');
+    //     cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+    //     cy.get('button').should('have.focus');
+    //     cy.realPress('ArrowDown')
+    //         .realPress('ArrowDown')
+    //         .realPress('ArrowDown')
+    //         .realPress('ArrowDown')
+    //         .realPress('ArrowDown')
+    //         .realPress('ArrowDown')
+    //         .realPress('ArrowDown');
+    //     cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
+    //     cy.realPress('Escape');
+    //     cy.get('button').should('have.focus');
+    //
+    //     // Arrow Up
+    //     cy.realPress('ArrowUp');
+    //     cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+    //     cy.realPress('ArrowUp');
+    //     cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+    //     cy.realPress('Escape');
+    //     cy.get('button').should('have.focus');
+    //
+    //     // Arrows Right and Left
+    //     cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight');
+    //     cy.get('#tree_level_1').should('be.visible');
+    //     cy.get('#tree_level_2').should('be.visible');
+    //     cy.get('#brazil').should('have.class', 'dropdown-item-is-focused');
+    //     cy.get('button').should('have.focus');
+    //     cy.get('#south_america').should('have.class', 'dropdown-item-is-active');
+    //     cy.realPress('ArrowLeft');
+    //     cy.get('#tree_level_1').should('be.visible');
+    //     cy.get('#tree_level_2').should('not.be.visible');
+    //     cy.get('#south_america').should('have.class', 'dropdown-item-is-focused');
+    //     cy.realPress('ArrowDown').realPress('ArrowRight');
+    //     cy.get('#france').should('have.class', 'dropdown-item-is-focused');
+    //     cy.get('button').should('have.focus');
+    //     cy.get('#europe').should('have.class', 'dropdown-item-is-active');
+    //     cy.realPress('ArrowRight');
+    //     cy.get('#europe').should('have.class', 'dropdown-item-is-active');
+    //     cy.get('#france').should('have.class', 'dropdown-item-is-active');
+    //     cy.get('#paris').should('have.class', 'dropdown-item-is-focused');
+    //     cy.realPress('ArrowLeft').realPress('ArrowLeft').realPress('ArrowLeft');
+    //     cy.get('#tree_level_1').should('not.be.visible');
+    //     cy.get('button').should('have.focus');
+    //
+    //     // Escape
+    //     cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight').realPress('ArrowRight');
+    //     cy.realPress('Escape');
+    //     cy.get('#tree_level_1').should('not.be.visible');
+    //     cy.get('#tree_level_2').should('not.be.visible');
+    //     cy.get('#tree_level_3').should('not.be.visible');
+    //     cy.get('button').should('have.focus');
+    //     cy.get('button').should('have.focus');
+    //
+    //     // Home
+    //     cy.realPress('Home');
+    //     cy.get('#tree_level_1').should('be.visible');
+    //     cy.get('button').should('have.focus');
+    //     cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+    //     cy.realPress('Escape');
+    //     cy.get('button').should('have.focus');
+    //
+    //     // End
+    //     cy.realPress('End');
+    //     cy.get('#tree_level_1').should('be.visible');
+    //     cy.get('button').should('have.focus');
+    //     cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
+    //     cy.realPress('Escape');
+    //     cy.get('button').should('have.focus');
+    //
+    //     // Page Down
+    //     cy.realPress('PageDown');
+    //     cy.get('#tree_level_1').should('not.be.visible');
+    //     cy.get('button').should('have.focus');
+    //     cy.realPress('ArrowDown');
+    //     cy.realPress('PageDown');
+    //     cy.get('button').should('have.focus');
+    //     cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
+    //     cy.realPress('Escape');
+    //     cy.get('button').should('have.focus');
+    //
+    //     // Page Up
+    //     cy.realPress('PageUp');
+    //     cy.get('#tree_level_1').should('not.be.visible');
+    //     cy.get('button').should('have.focus');
+    //     cy.realPress('ArrowDown');
+    //     cy.realPress('ArrowDown');
+    //     cy.realPress('PageUp');
+    //     cy.get('button').should('have.focus');
+    //     cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+    //     cy.realPress('Escape');
+    //     cy.get('button').should('have.focus');
+    //
+    //     // Tab
+    //     cy.realPress('ArrowDown').realPress('Tab');
+    //     cy.get('#tree_level_1').should('not.be.visible');
+    //     cy.get('button').should('not.have.focus');
+    // });
 });

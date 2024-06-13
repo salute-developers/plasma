@@ -50,6 +50,7 @@ export const Button: React.FC<ButtonProps> = ({
                 aria-controls="tree_level_1"
                 aria-expanded={opened}
                 aria-activedescendant={getActiveDescendant()}
+                aria-label={label}
             >
                 <Label>
                     {getButtonLabel({

@@ -117,6 +117,7 @@ export const Textfield: React.FC<TextfieldProps> = ({
                 aria-controls="tree_level_1"
                 aria-expanded={opened}
                 aria-activedescendant={getActiveDescendant()}
+                aria-label={label}
             >
                 <Wrapper>
                     {contentLeft && (!multiselect || isEmpty(value)) && (
