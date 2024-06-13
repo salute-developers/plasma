@@ -394,7 +394,10 @@ describe('plasma-web: Calendar keyboard navigation', () => {
             .should('have.attr', 'tabindex', '0')
             .should('have.attr', 'data-year', date.getFullYear() - 1);
 
-        cy.get('[id="id-grid-label"]').contains(`${getMonth()} ${date.getFullYear() - 1}`);
+        cy.get('[id="id-grid-label"] span').first().contains(`${getMonth()}`);
+        cy.get('[id="id-grid-label"] span')
+            .last()
+            .contains(`${date.getFullYear() - 1}`);
 
         cy.get('body').type('{shift}{pagedown}'.repeat(2));
         cy.get('body')
@@ -403,7 +406,10 @@ describe('plasma-web: Calendar keyboard navigation', () => {
             .should('have.attr', 'tabindex', '0')
             .should('have.attr', 'data-year', date.getFullYear() + 1);
 
-        cy.get('[id="id-grid-label"]').contains(`${getMonth()} ${date.getFullYear() + 1}`);
+        cy.get('[id="id-grid-label"] span').first().contains(`${getMonth()}`);
+        cy.get('[id="id-grid-label"] span')
+            .last()
+            .contains(`${date.getFullYear() + 1}`);
     });
 
     it('navigate with arrow abroad bounds', () => {
