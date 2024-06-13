@@ -9,8 +9,8 @@ import {
 
 import type { ThemeTokenDataGroups } from '@salutejs/plasma-tokens-utils';
 
-import { prettify } from '.';
-import { getFilesSource } from '../api';
+import { isString, prettify } from '.';
+import { getFileSource } from '../api';
 
 const getFilesPath = (name?: string) => ({
     theme: `packages/plasma-tokens/data/themes/${name}.json`,
@@ -57,7 +57,8 @@ export const getThemes = async (
     defaultBranch: string,
 ) => {
     const pathToIndex = getFilesPath().themesIndex;
-    const tokensThemeIndex = await getFilesSource(undefined, owner, repo, pathToIndex, defaultBranch);
+    const filesSource = await getFileSource(undefined, owner, repo, pathToIndex, defaultBranch);
+    const tokensThemeIndex = isString(filesSource) ? filesSource : '';
     const themes = generateThemes(tokensSet, undefined, true, true);
 
     const [darkTokens, lightTokens, newExports] = themes.map((item) => prettify(item.content));

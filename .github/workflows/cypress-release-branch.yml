@@ -1,0 +1,40 @@
+# Run cypress tests in release branch without conditions for all packages
+name: Cypress component testing on release branch
+
+on:
+  pull_request:
+    branches:
+      - master
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  cypress:
+    if: ${{ startsWith(github.head_ref, 'release') }}
+    strategy:
+      fail-fast: false
+      matrix:
+        scope: [web,b2c,ui]
+    
+    uses: ./.github/workflows/cypress-common.yml
+    with:
+      scope: ${{ matrix.scope }}
+      with-artifacts: true
+    secrets: inherit
+  
+  cypress-react-17:
+    if: ${{ startsWith(github.head_ref, 'release') }}
+    strategy:
+      fail-fast: false
+      matrix:
+        scope: [web,b2c,ui]
+    
+    uses: ./.github/workflows/cypress-common.yml
+    with:
+      scope: ${{ matrix.scope }}
+      with-react-17: true
+      with-artifacts: true
+    secrets: inherit
