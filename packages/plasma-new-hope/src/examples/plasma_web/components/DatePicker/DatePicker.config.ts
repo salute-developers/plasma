@@ -38,7 +38,7 @@ export const config = {
 
                 ${tokens.calendarShadow}: var(--shadow-down-soft-s);
                 ${tokens.calendarSeparatorBackground}: var(--surface-transparent-secondary);
-                ${tokens.calendarBackgroundColor}: var(--background-primary);
+                ${tokens.calendarBackgroundColor}: var(--surface-solid-card);
                 ${tokens.calendarSelectedItemBackground}: var(--surface-solid-default);
                 ${tokens.calendarSelectedItemColor}: var(--inverse-text-primary);
                 ${tokens.calendarSelectableItemBackgroundHover}: var(--surface-transparent-secondary);

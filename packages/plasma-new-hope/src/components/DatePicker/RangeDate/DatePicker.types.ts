@@ -65,7 +65,7 @@ export type DatePickerCalendarProps = {
     type?: CalendarStateType;
 };
 
-export type DatePickerDoublePopoverProps = DatePickerPopoverProps & {
+export type DatePickerDoublePopoverProps = Omit<DatePickerPopoverProps, 'placement'> & {
     /**
      * Сторона открытия календаря относительно поля ввода.
      * @default

@@ -1,0 +1,147 @@
+---
+id: datepicker
+title: DatePicker
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# DatePicker
+<Description name="DatePicker" />
+<PropsTable name="DatePicker" exclude={['css']} />
+<StorybookLink name="DatePicker" />
+
+## Использование
+Компонент `DatePicker` представляет собой поле ввода даты с выпадающим календарем.
+
+Размер `DatePicker` задаётся с помощью свойства `size`. 
+Возможные значения свойтсва: `"l"`, `"m"`, `"s"`, `"xs"`.
+
+```tsx live
+import React, {useState} from 'react';
+import { DatePicker, IconButton } from '@salutejs/plasma-web';
+import { IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    const ActionButton = () => {
+        return (
+            <IconButton view="clear" size="l">
+                <IconDone size="s" />
+            </IconButton>
+        );
+    };
+
+    return (
+        <div style={{ height: "450px" }}>
+            <DatePicker
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                placeholder="Введите дату"
+                secondPlaceholder="Заполните поле 2"
+                contentRight={<ActionButton />}
+                size="l"
+            />
+        </div>
+    );
+}
+```
+
+### Формат даты
+Формат даты задается с помощью свойства `format`. 
+При выборе даты в календаре или вводе даты через поле ввода, дата будет приводиться к заданному формату. 
+Свойство `maskWithFormat` позволяет маскировать ввод:
+
+```tsx live
+import React, {useState} from 'react';
+import { DatePicker, IconButton } from '@salutejs/plasma-web';
+import { IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    const ActionButton = () => {
+        return (
+            <IconButton view="clear" size="l">
+                <IconDone size="s" />
+            </IconButton>
+        );
+    };
+
+    return (
+        <div style={{ height: "450px" }}>
+            <DatePicker
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                placeholder="Введите дату"
+                secondPlaceholder="Заполните поле 2"
+                format="DD-MM-YYYY"
+                maskWithFormat
+                contentRight={<ActionButton />}
+            />
+        </div>
+    );
+}
+```
+
+### Валидация и индикация успешного ввода даты.
+За индикацию ошибки или успешного ввода отвечают `valueError`, `valueSuccess`.
+В данном примере валидация происходит при нажатии клавиши `Enter` после ввода значений:
+
+```tsx live
+import React, {useState} from 'react';
+import { DatePicker, IconButton } from '@salutejs/plasma-web';
+import { IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(false);
+    const [error, setError] = useState(false);
+    const [success, setSuccess] = useState(false);
+
+    const handleCommitDate = (newDate: Date | string, dateError?: boolean, dateSuccess?: boolean) => {
+        if (dateError) {
+            setError(true);
+            return;
+        }
+
+        if (dateSuccess) {
+            setSuccess(true);
+        }
+
+        setIsOpen(false);
+    };
+
+
+    const ActionButton = () => {
+        return (
+            <IconButton view="clear" size="l">
+                <IconDone size="s" />
+            </IconButton>
+        );
+    };
+
+    return (
+        <div style={{ height: "450px" }}>
+            <DatePicker
+                isOpen={isOpen}
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                placeholder="Введите дату"
+                secondPlaceholder="Заполните поле 2"
+                format="DD-MM-YYYY"
+                maskWithFormat
+                valueError={error}
+                valueSuccess={success}
+                contentRight={<ActionButton />}
+                onChangeValue={() => {
+                    setError(false);
+                    setSuccess(false);
+                }}
+                onCommitDate={handleCommitDate}
+            />
+        </div>
+    );
+}
+```
+
+## DatePickerRange
+<Description name="DatePickerRange" />
+<PropsTable name="DatePickerRange" exclude={['css']} />
