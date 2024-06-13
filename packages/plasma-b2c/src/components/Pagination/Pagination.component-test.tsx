@@ -289,6 +289,8 @@ describe('plasma-new-hope: Pagination Content', () => {
         cy.matchImageSnapshot();
     });
     it('setSelect', () => {
+        cy.viewport(1000, 500);
+
         mount(
             <CypressTestDecoratorWithTypo>
                 <Pagination slots={slots[2]} value={values[0]} count={count} listWidth="5rem" />

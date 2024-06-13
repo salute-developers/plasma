@@ -150,6 +150,7 @@ export const ContentLeftWrapper = styled.div`
     flex: none;
     margin-left: -2px;
     margin-right: 6px;
+    line-height: 0;
 `;
 
 export const Value = styled.span`

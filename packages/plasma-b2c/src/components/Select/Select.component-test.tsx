@@ -1,9 +1,9 @@
 import React from 'react';
 import type { FC, PropsWithChildren } from 'react';
-import { createGlobalStyle } from 'styled-components';
-import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { IconLocation } from '@salutejs/plasma-icons';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
+import { createGlobalStyle } from 'styled-components';
+import { standard as standardTypo } from '@salutejs/plasma-typo';
 
 const items = [
     {
@@ -219,316 +219,485 @@ const items = [
     },
 ];
 
+const StandardTypoStyle = createGlobalStyle(standardTypo);
+
 describe('plasma-b2c: Select', () => {
     const Select = getComponent('Select');
 
     const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (
-        <CypressTestDecorator>{children}</CypressTestDecorator>
+        <CypressTestDecorator>
+            <StandardTypoStyle />
+            {children}
+        </CypressTestDecorator>
     );
 
-    // it('default', () => {
-    //     cy.viewport(1000, 500);
-    //
-    //     const Component = () => {
-    //         const [valueMultiple, setValueMultiple] = React.useState([]);
-    //
-    //         return (
-    //             <CypressTestDecoratorWithTypo>
-    //                 <div style={{ width: '200px' }}>
-    //                     <Select
-    //                         target="button"
-    //                         label="Список стран"
-    //                         items={items}
-    //                         value={valueMultiple}
-    //                         onChange={setValueMultiple}
-    //                     />
-    //                 </div>
-    //             </CypressTestDecoratorWithTypo>
-    //         );
-    //     };
-    //
-    //     mount(<Component />);
-    //
-    //     cy.get('button').click();
-    //     cy.get('#north_america').click();
-    //     // cy.matchImageSnapshot();
-    // });
+    const CommonComponent = (props: any) => {
+        const [singleValue, setSingleValue] = React.useState(props.initialSingleValue || '');
+        const [valueMultiple, setValueMultiple] = React.useState<Array<string>>(props.initialMultipleValue || []);
 
-    // it('prop: size', () => {
-    //     cy.viewport(1500, 500);
-    //
-    //     mount(
-    //         <CypressTestDecoratorWithTypo>
-    //             <div style={{ display: 'flex', gap: '100px' }}>
-    //                 <Dropdown items={items} size="xs" closeOnOverlayClick={false}>
-    //                     <Button id="xs" text="Список стран XS" />
-    //                 </Dropdown>
-    //
-    //                 <Dropdown items={items} size="s" closeOnOverlayClick={false}>
-    //                     <Button id="s" text="Список стран S" />
-    //                 </Dropdown>
-    //
-    //                 <Dropdown items={items} size="m" closeOnOverlayClick={false}>
-    //                     <Button id="m" text="Список стран M" />
-    //                 </Dropdown>
-    //
-    //                 <Dropdown items={items} size="l" closeOnOverlayClick={false}>
-    //                     <Button id="l" text="Список стран L" />
-    //                 </Dropdown>
-    //             </div>
-    //         </CypressTestDecoratorWithTypo>,
-    //     );
-    //
-    //     cy.get('#xs').click();
-    //     cy.get('#s').click();
-    //     cy.get('#m').click();
-    //     cy.get('#l').click();
-    //     cy.matchImageSnapshot();
-    // });
-    //
-    // it('prop: size, variant', () => {
-    //     cy.viewport(1500, 500);
-    //
-    //     mount(
-    //         <CypressTestDecoratorWithTypo>
-    //             <div style={{ display: 'flex', gap: '100px' }}>
-    //                 <Dropdown items={items} size="xs" closeOnOverlayClick={false} variant="tight">
-    //                     <Button id="xs" text="Список стран XS" />
-    //                 </Dropdown>
-    //
-    //                 <Dropdown items={items} size="s" closeOnOverlayClick={false} variant="tight">
-    //                     <Button id="s" text="Список стран S" />
-    //                 </Dropdown>
-    //
-    //                 <Dropdown items={items} size="m" closeOnOverlayClick={false} variant="tight">
-    //                     <Button id="m" text="Список стран M" />
-    //                 </Dropdown>
-    //
-    //                 <Dropdown items={items} size="l" closeOnOverlayClick={false} variant="tight">
-    //                     <Button id="l" text="Список стран L" />
-    //                 </Dropdown>
-    //             </div>
-    //         </CypressTestDecoratorWithTypo>,
-    //     );
-    //
-    //     cy.get('#xs').click();
-    //     cy.get('#s').click();
-    //     cy.get('#m').click();
-    //     cy.get('#l').click();
-    //     cy.matchImageSnapshot();
-    // });
-    //
-    // it('prop: onHover', () => {
-    //     mount(
-    //         <CypressTestDecoratorWithTypo>
-    //             <Dropdown
-    //                 items={items}
-    //                 onHover={(index) => {
-    //                     expect(index).to.eq(0);
-    //                 }}
-    //             >
-    //                 <Button text="Список стран" />
-    //             </Dropdown>
-    //         </CypressTestDecoratorWithTypo>,
-    //     );
-    //
-    //     cy.get('button').click();
-    //     cy.get('#north_america').trigger('mouseover');
-    // });
-    //
-    // it('prop: onItemSelect', () => {
-    //     mount(
-    //         <CypressTestDecoratorWithTypo>
-    //             <Dropdown
-    //                 items={items}
-    //                 onItemSelect={(item, event) => {
-    //                     expect(item).to.eq(items[0]);
-    //                     expect(event.type).to.eq('click');
-    //                 }}
-    //             >
-    //                 <Button text="Список стран" />
-    //             </Dropdown>
-    //         </CypressTestDecoratorWithTypo>,
-    //     );
-    //
-    //     cy.get('button').click();
-    //     cy.get('#north_america').click();
-    // });
-    //
-    // it('prop: trigger', () => {
-    //     cy.viewport(1000, 500);
-    //
-    //     mount(
-    //         <CypressTestDecoratorWithTypo>
-    //             <Dropdown items={items} trigger="hover">
-    //                 <Button text="Список стран" />
-    //             </Dropdown>
-    //         </CypressTestDecoratorWithTypo>,
-    //     );
-    //
-    //     cy.get('button').trigger('mouseover');
-    //     cy.get('#asia').trigger('mouseover');
-    //     cy.get('#india').trigger('mouseover');
-    //     cy.get('#delhi').should('be.visible');
-    //
-    //     cy.matchImageSnapshot();
-    // });
-    //
-    // it('prop: placement', () => {
-    //     cy.viewport(500, 800);
-    //
-    //     mount(
-    //         <CypressTestDecoratorWithTypo>
-    //             <Dropdown placement={['top', 'bottom']} items={items} closeOnOverlayClick={false}>
-    //                 <Button id="top" text="Список стран" />
-    //             </Dropdown>
-    //
-    //             <div style={{ height: '600px' }} />
-    //
-    //             <Dropdown placement={['top', 'bottom']} items={items} closeOnOverlayClick={false}>
-    //                 <Button id="bottom" text="Список стран" />
-    //             </Dropdown>
-    //         </CypressTestDecoratorWithTypo>,
-    //     );
-    //
-    //     cy.get('#top').click();
-    //     cy.get('#bottom').click();
-    //     cy.matchImageSnapshot();
-    // });
-    //
-    // it('prop: offset', () => {
-    //     cy.viewport(1000, 500);
-    //
-    //     mount(
-    //         <CypressTestDecoratorWithTypo>
-    //             <Dropdown items={items} offset={[20, 20]}>
-    //                 <Button text="Список стран" />
-    //             </Dropdown>
-    //         </CypressTestDecoratorWithTypo>,
-    //     );
-    //
-    //     cy.get('button').click();
-    //     cy.get('#south_america').click();
-    //     cy.get('#argentina').click();
-    //     cy.matchImageSnapshot();
-    // });
-    //
-    // it('prop: listWidth', () => {
-    //     cy.viewport(1000, 500);
-    //
-    //     mount(
-    //         <CypressTestDecoratorWithTypo>
-    //             <Dropdown items={items} listWidth="300px">
-    //                 <Button text="Список стран" />
-    //             </Dropdown>
-    //         </CypressTestDecoratorWithTypo>,
-    //     );
-    //
-    //     cy.get('button').click();
-    //     cy.get('#south_america').click();
-    //     cy.get('#argentina').click();
-    //
-    //     cy.matchImageSnapshot();
-    // });
-    //
-    // it('prop: hasArrow', () => {
-    //     cy.viewport(1000, 500);
-    //
-    //     mount(
-    //         <CypressTestDecoratorWithTypo>
-    //             <Dropdown items={items} hasArrow={false}>
-    //                 <Button text="Список стран" />
-    //             </Dropdown>
-    //         </CypressTestDecoratorWithTypo>,
-    //     );
-    //
-    //     cy.get('button').click();
-    //     cy.get('#south_america').click();
-    //     cy.get('#argentina').click();
-    //
-    //     cy.matchImageSnapshot();
-    // });
-    //
-    // it('prop: closeOnSelect', () => {
-    //     mount(
-    //         <CypressTestDecoratorWithTypo>
-    //             <Dropdown items={items} closeOnSelect={false}>
-    //                 <Button text="Список стран" />
-    //             </Dropdown>
-    //         </CypressTestDecoratorWithTypo>,
-    //     );
-    //
-    //     cy.get('button').click();
-    //     cy.get('#north_america').click();
-    //     cy.get('#north_america').should('be.visible');
-    // });
-    //
-    // it('prop: closeOnOverlayClick', () => {
-    //     mount(
-    //         <CypressTestDecoratorWithTypo>
-    //             <span id="outer">outer text</span>
-    //
-    //             <Dropdown items={items} closeOnOverlayClick={false}>
-    //                 <Button text="Список стран" />
-    //             </Dropdown>
-    //         </CypressTestDecoratorWithTypo>,
-    //     );
-    //
-    //     cy.get('button').click();
-    //     cy.get('#outer').click();
-    //     cy.get('#north_america').should('be.visible');
-    // });
-    //
-    // it('prop: onToggle', () => {
-    //     mount(
-    //         <CypressTestDecoratorWithTypo>
-    //             <Dropdown
-    //                 items={items}
-    //                 onToggle={(isOpen, event) => {
-    //                     expect(isOpen).to.be.oneOf([true, false]);
-    //                     expect(event.type).to.eq('click');
-    //                 }}
-    //             >
-    //                 <Button text="Список стран" />
-    //             </Dropdown>
-    //         </CypressTestDecoratorWithTypo>,
-    //     );
-    //
-    //     cy.get('button').click();
-    //     cy.get('button').click();
-    // });
-    //
-    // it('prop: onItemClick', () => {
-    //     mount(
-    //         <CypressTestDecoratorWithTypo>
-    //             <Dropdown
-    //                 items={items}
-    //                 onItemClick={(item, event) => {
-    //                     expect(item).to.eq(items[0]);
-    //                     expect(event.type).to.eq('click');
-    //                 }}
-    //             >
-    //                 <Button text="Список стран" />
-    //             </Dropdown>
-    //         </CypressTestDecoratorWithTypo>,
-    //     );
-    //
-    //     cy.get('button').click();
-    //     cy.get('#north_america').click();
-    // });
-    //
-    // it('prop: listHeight, listOverflow', () => {
-    //     mount(
-    //         <CypressTestDecoratorWithTypo>
-    //             <Dropdown items={items} listOverflow="scroll" listHeight={6}>
-    //                 <Button text="Список стран" />
-    //             </Dropdown>
-    //         </CypressTestDecoratorWithTypo>,
-    //     );
-    //
-    //     cy.get('button').click();
-    //     cy.matchImageSnapshot();
-    // });
+        return (
+            <CypressTestDecoratorWithTypo>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: '30px' }}>
+                    <Select
+                        target="button"
+                        view="default"
+                        items={items}
+                        value={singleValue}
+                        onChange={setSingleValue}
+                        label="Label"
+                        {...props}
+                    />
+                    <Select
+                        target="button"
+                        view="default"
+                        items={items}
+                        value={valueMultiple}
+                        onChange={setValueMultiple}
+                        label="Label"
+                        {...props}
+                    />
+                    <Select
+                        view="default"
+                        items={items}
+                        value={singleValue}
+                        onChange={setSingleValue}
+                        label="Label"
+                        placeholder="Placeholder"
+                        helperText="Helper text"
+                        {...props}
+                    />
+                    <Select
+                        view="default"
+                        items={items}
+                        value={valueMultiple}
+                        onChange={setValueMultiple}
+                        label="Label"
+                        placeholder="Placeholder"
+                        helperText="Helper text"
+                        {...props}
+                    />
+
+                    <Select
+                        target="button"
+                        view="accent"
+                        items={items}
+                        value={singleValue}
+                        onChange={setSingleValue}
+                        label="Label"
+                        {...props}
+                    />
+                    <Select
+                        target="button"
+                        view="accent"
+                        items={items}
+                        value={valueMultiple}
+                        onChange={setValueMultiple}
+                        label="Label"
+                        {...props}
+                    />
+                    <div />
+                    <div />
+
+                    <Select
+                        target="button"
+                        view="secondary"
+                        items={items}
+                        value={singleValue}
+                        onChange={setSingleValue}
+                        label="Label"
+                        {...props}
+                    />
+                    <Select
+                        target="button"
+                        view="secondary"
+                        items={items}
+                        value={valueMultiple}
+                        onChange={setValueMultiple}
+                        label="Label"
+                        {...props}
+                    />
+                    <div />
+                    <div />
+
+                    <Select
+                        target="button"
+                        view="clear"
+                        items={items}
+                        value={singleValue}
+                        onChange={setSingleValue}
+                        label="Label"
+                        {...props}
+                    />
+                    <Select
+                        target="button"
+                        view="clear"
+                        items={items}
+                        value={valueMultiple}
+                        onChange={setValueMultiple}
+                        label="Label"
+                        {...props}
+                    />
+                    <div />
+                    <div />
+
+                    <Select
+                        target="button"
+                        view="positive"
+                        items={items}
+                        value={singleValue}
+                        onChange={setSingleValue}
+                        label="Label"
+                        {...props}
+                    />
+                    <Select
+                        target="button"
+                        view="positive"
+                        items={items}
+                        value={valueMultiple}
+                        onChange={setValueMultiple}
+                        label="Label"
+                        {...props}
+                    />
+                    <Select
+                        view="positive"
+                        items={items}
+                        value={singleValue}
+                        onChange={setSingleValue}
+                        label="Label"
+                        placeholder="Placeholder"
+                        helperText="Helper text"
+                        {...props}
+                    />
+                    <Select
+                        view="positive"
+                        items={items}
+                        value={valueMultiple}
+                        onChange={setValueMultiple}
+                        label="Label"
+                        placeholder="Placeholder"
+                        helperText="Helper text"
+                        {...props}
+                    />
+
+                    <Select
+                        target="button"
+                        view="warning"
+                        items={items}
+                        value={singleValue}
+                        onChange={setSingleValue}
+                        label="Label"
+                        {...props}
+                    />
+                    <Select
+                        target="button"
+                        view="warning"
+                        items={items}
+                        value={valueMultiple}
+                        onChange={setValueMultiple}
+                        label="Label"
+                        {...props}
+                    />
+                    <Select
+                        view="warning"
+                        items={items}
+                        value={singleValue}
+                        onChange={setSingleValue}
+                        label="Label"
+                        placeholder="Placeholder"
+                        helperText="Helper text"
+                        {...props}
+                    />
+                    <Select
+                        view="warning"
+                        items={items}
+                        value={valueMultiple}
+                        onChange={setValueMultiple}
+                        label="Label"
+                        placeholder="Placeholder"
+                        helperText="Helper text"
+                        {...props}
+                    />
+
+                    <Select
+                        target="button"
+                        view="negative"
+                        items={items}
+                        value={singleValue}
+                        onChange={setSingleValue}
+                        label="Label"
+                        {...props}
+                    />
+                    <Select
+                        target="button"
+                        view="negative"
+                        items={items}
+                        value={valueMultiple}
+                        onChange={setValueMultiple}
+                        label="Label"
+                        {...props}
+                    />
+                    <Select
+                        view="negative"
+                        items={items}
+                        value={singleValue}
+                        onChange={setSingleValue}
+                        label="Label"
+                        placeholder="Placeholder"
+                        helperText="Helper text"
+                        {...props}
+                    />
+                    <Select
+                        view="negative"
+                        items={items}
+                        value={valueMultiple}
+                        onChange={setValueMultiple}
+                        label="Label"
+                        placeholder="Placeholder"
+                        helperText="Helper text"
+                        {...props}
+                    />
+
+                    <Select
+                        target="button"
+                        view="dark"
+                        items={items}
+                        value={singleValue}
+                        onChange={setSingleValue}
+                        label="Label"
+                        {...props}
+                    />
+                    <Select
+                        target="button"
+                        view="dark"
+                        items={items}
+                        value={valueMultiple}
+                        onChange={setValueMultiple}
+                        label="Label"
+                        {...props}
+                    />
+                    <div />
+                    <div />
+
+                    <Select
+                        target="button"
+                        view="black"
+                        items={items}
+                        value={singleValue}
+                        onChange={setSingleValue}
+                        label="Label"
+                        {...props}
+                    />
+                    <Select
+                        target="button"
+                        view="black"
+                        items={items}
+                        value={valueMultiple}
+                        onChange={setValueMultiple}
+                        label="Label"
+                        {...props}
+                    />
+                    <div />
+                    <div />
+
+                    <Select
+                        target="button"
+                        view="white"
+                        items={items}
+                        value={singleValue}
+                        onChange={setSingleValue}
+                        label="Label"
+                        {...props}
+                    />
+                    <Select
+                        target="button"
+                        view="white"
+                        items={items}
+                        value={valueMultiple}
+                        onChange={setValueMultiple}
+                        label="Label"
+                        {...props}
+                    />
+                    <div />
+                    <div />
+                </div>
+            </CypressTestDecoratorWithTypo>
+        );
+    };
+
+    it('default', () => {
+        cy.viewport(1000, 1000);
+
+        mount(<CommonComponent />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: size l', () => {
+        cy.viewport(1000, 1200);
+
+        mount(<CommonComponent size="l" />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: size m', () => {
+        cy.viewport(1000, 1000);
+
+        mount(<CommonComponent size="m" />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: size s', () => {
+        cy.viewport(1000, 1000);
+
+        mount(<CommonComponent size="s" />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: size xs', () => {
+        cy.viewport(1000, 1000);
+
+        mount(<CommonComponent size="xs" />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: size xs', () => {
+        cy.viewport(1000, 1000);
+
+        mount(<CommonComponent size="xs" />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: labelPlacement', () => {
+        cy.viewport(1000, 1000);
+
+        mount(
+            <CommonComponent
+                labelPlacement="inner"
+                initialSingleValue="paris"
+                initialMultipleValue={['paris', 'rome']}
+            />,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: chipView secondary', () => {
+        cy.viewport(1000, 1000);
+
+        mount(
+            <CommonComponent
+                labelPlacement="inner"
+                initialSingleValue="paris"
+                initialMultipleValue={['paris', 'rome']}
+                chipView="secondary"
+            />,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: chipView accent', () => {
+        cy.viewport(1000, 1000);
+
+        mount(
+            <CommonComponent
+                labelPlacement="inner"
+                initialSingleValue="paris"
+                initialMultipleValue={['paris', 'rome']}
+                chipView="accent"
+            />,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: contentLeft', () => {
+        cy.viewport(1000, 1000);
+
+        mount(
+            <CommonComponent
+                initialSingleValue="paris"
+                initialMultipleValue={['paris', 'rome']}
+                contentLeft={<IconLocation size="s" />}
+            />,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: isTargetAmount', () => {
+        cy.viewport(1000, 1000);
+
+        mount(<CommonComponent initialSingleValue="paris" initialMultipleValue={['paris', 'rome']} isTargetAmount />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('basic logic', () => {
+        cy.viewport(1000, 500);
+
+        const Component = () => {
+            const [valueSingle, setValueSingle] = React.useState('paris');
+            const [valueMultiple, setValueMultiple] = React.useState(['paris', 'lyon']);
+
+            return (
+                <CypressTestDecoratorWithTypo>
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="single"
+                            target="button"
+                            label="Список стран single"
+                            items={items}
+                            value={valueSingle}
+                            onChange={setValueSingle}
+                        />
+                    </div>
+
+                    <br />
+
+                    <div style={{ width: '300px' }}>
+                        <Select
+                            id="multiple"
+                            target="button"
+                            label="Список стран multiple"
+                            items={items}
+                            value={valueMultiple}
+                            onChange={setValueMultiple}
+                        />
+                    </div>
+                </CypressTestDecoratorWithTypo>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#single').should('include.text', 'Париж');
+        cy.get('#multiple').should('include.text', 'Париж').should('include.text', 'Лион');
+
+        cy.get('#single').realClick();
+        cy.get('#single #europe').realClick();
+        cy.get('#single #france').realClick();
+
+        cy.get('#single #paris').realClick();
+
+        cy.get('#single').realClick();
+
+        cy.get('#multiple').realClick();
+        cy.get('#multiple #europe').realClick();
+        cy.get('#multiple #france').realClick();
+
+        cy.get('#multiple #lyon .select-item-checkbox').realClick();
+
+        cy.get('#multiple #germany .select-item-checkbox').realClick();
+        cy.get('#multiple #germany').realClick();
+
+        cy.matchImageSnapshot();
+    });
 
     it('keyboard interactions', () => {
         cy.viewport(1000, 500);
@@ -557,112 +726,152 @@ describe('plasma-b2c: Select', () => {
         cy.realPress('Tab');
         cy.get('button').should('have.focus');
 
-        //     // Arrow Down
-        //     cy.realPress('ArrowDown');
-        //     cy.get('#tree_level_1').should('be.visible');
-        //     cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
-        //     cy.get('button').should('have.focus');
-        //     cy.realPress('ArrowDown')
-        //         .realPress('ArrowDown')
-        //         .realPress('ArrowDown')
-        //         .realPress('ArrowDown')
-        //         .realPress('ArrowDown')
-        //         .realPress('ArrowDown')
-        //         .realPress('ArrowDown');
-        //     cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
-        //     cy.realPress('Escape');
-        //     cy.get('button').should('have.focus');
-        //
-        //     // Arrow Up
-        //     cy.realPress('ArrowUp');
-        //     cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
-        //     cy.realPress('ArrowUp');
-        //     cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
-        //     cy.realPress('Escape');
-        //     cy.get('button').should('have.focus');
-        //
-        //     // Arrows Right and Left
-        //     cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight');
-        //     cy.get('#tree_level_1').should('be.visible');
-        //     cy.get('#tree_level_2').should('be.visible');
-        //     cy.get('#brazil').should('have.class', 'dropdown-item-is-focused');
-        //     cy.get('button').should('have.focus');
-        //     cy.get('#south_america').should('have.class', 'dropdown-item-is-active');
-        //     cy.realPress('ArrowLeft');
-        //     cy.get('#tree_level_1').should('be.visible');
-        //     cy.get('#tree_level_2').should('not.be.visible');
-        //     cy.get('#south_america').should('have.class', 'dropdown-item-is-focused');
-        //     cy.realPress('ArrowDown').realPress('ArrowRight');
-        //     cy.get('#france').should('have.class', 'dropdown-item-is-focused');
-        //     cy.get('button').should('have.focus');
-        //     cy.get('#europe').should('have.class', 'dropdown-item-is-active');
-        //     cy.realPress('ArrowRight');
-        //     cy.get('#europe').should('have.class', 'dropdown-item-is-active');
-        //     cy.get('#france').should('have.class', 'dropdown-item-is-active');
-        //     cy.get('#paris').should('have.class', 'dropdown-item-is-focused');
-        //     cy.realPress('ArrowLeft').realPress('ArrowLeft').realPress('ArrowLeft');
-        //     cy.get('#tree_level_1').should('not.be.visible');
-        //     cy.get('button').should('have.focus');
-        //
-        //     // Escape
-        //     cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight').realPress('ArrowRight');
-        //     cy.realPress('Escape');
-        //     cy.get('#tree_level_1').should('not.be.visible');
-        //     cy.get('#tree_level_2').should('not.be.visible');
-        //     cy.get('#tree_level_3').should('not.be.visible');
-        //     cy.get('button').should('have.focus');
-        //     cy.get('button').should('have.focus');
-        //
-        //     // Home
-        //     cy.realPress('Home');
-        //     cy.get('#tree_level_1').should('be.visible');
-        //     cy.get('button').should('have.focus');
-        //     cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
-        //     cy.realPress('Escape');
-        //     cy.get('button').should('have.focus');
-        //
-        //     // End
-        //     cy.realPress('End');
-        //     cy.get('#tree_level_1').should('be.visible');
-        //     cy.get('button').should('have.focus');
-        //     cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
-        //     cy.realPress('Escape');
-        //     cy.get('button').should('have.focus');
-        //
-        //     // Page Down
-        //     cy.realPress('PageDown');
-        //     cy.get('#tree_level_1').should('not.be.visible');
-        //     cy.get('button').should('have.focus');
-        //     cy.realPress('ArrowDown');
-        //     cy.realPress('PageDown');
-        //     cy.get('button').should('have.focus');
-        //     cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
-        //     cy.realPress('Escape');
-        //     cy.get('button').should('have.focus');
-        //
-        //     // Page Up
-        //     cy.realPress('PageUp');
-        //     cy.get('#tree_level_1').should('not.be.visible');
-        //     cy.get('button').should('have.focus');
-        //     cy.realPress('ArrowDown');
-        //     cy.realPress('ArrowDown');
-        //     cy.realPress('PageUp');
-        //     cy.get('button').should('have.focus');
-        //     cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
-        //     cy.realPress('Escape');
-        //     cy.get('button').should('have.focus');
+        // Arrow Down
+        cy.realPress('ArrowDown');
+        cy.get('#tree_level_1').should('be.visible');
+        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.get('button').should('have.focus');
+        cy.realPress('ArrowDown')
+            .realPress('ArrowDown')
+            .realPress('ArrowDown')
+            .realPress('ArrowDown')
+            .realPress('ArrowDown')
+            .realPress('ArrowDown')
+            .realPress('ArrowDown');
+        cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('Escape');
+        cy.get('button').should('have.focus');
 
-        // Space
+        // Arrow Up
+        cy.realPress('ArrowUp');
+        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('ArrowUp');
+        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('Escape');
+        cy.get('button').should('have.focus');
+
+        // Arrows Right and Left
+        cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight');
+        cy.get('#tree_level_1').should('be.visible');
+        cy.get('#tree_level_2').should('be.visible');
+        cy.get('#brazil').should('have.class', 'dropdown-item-is-focused');
+        cy.get('button').should('have.focus');
+        cy.get('#south_america').should('have.class', 'dropdown-item-is-active');
+        cy.realPress('ArrowLeft');
+        cy.get('#tree_level_1').should('be.visible');
+        cy.get('#tree_level_2').should('not.be.visible');
+        cy.get('#south_america').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('ArrowDown').realPress('ArrowRight');
+        cy.get('#france').should('have.class', 'dropdown-item-is-focused');
+        cy.get('button').should('have.focus');
+        cy.get('#europe').should('have.class', 'dropdown-item-is-active');
+        cy.realPress('ArrowRight');
+        cy.get('#europe').should('have.class', 'dropdown-item-is-active');
+        cy.get('#france').should('have.class', 'dropdown-item-is-active');
+        cy.get('#paris').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('ArrowLeft').realPress('ArrowLeft').realPress('ArrowLeft');
+        cy.get('#tree_level_1').should('not.be.visible');
+        cy.get('button').should('have.focus');
+
+        // Escape
+        cy.realPress('ArrowDown').realPress('ArrowDown').realPress('ArrowRight').realPress('ArrowRight');
+        cy.realPress('Escape');
+        cy.get('#tree_level_1').should('not.be.visible');
+        cy.get('#tree_level_2').should('not.be.visible');
+        cy.get('#tree_level_3').should('not.be.visible');
+        cy.get('button').should('have.focus');
+        cy.get('button').should('have.focus');
+
+        // Home
+        cy.realPress('Home');
+        cy.get('#tree_level_1').should('be.visible');
+        cy.get('button').should('have.focus');
+        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('Escape');
+        cy.get('button').should('have.focus');
+
+        // End
+        cy.realPress('End');
+        cy.get('#tree_level_1').should('be.visible');
+        cy.get('button').should('have.focus');
+        cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('Escape');
+        cy.get('button').should('have.focus');
+
+        // Page Down
+        cy.realPress('PageDown');
+        cy.get('#tree_level_1').should('not.be.visible');
+        cy.get('button').should('have.focus');
+        cy.realPress('ArrowDown');
+        cy.realPress('PageDown');
+        cy.get('button').should('have.focus');
+        cy.get('#africa').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('Escape');
+        cy.get('button').should('have.focus');
+
+        // Page Up
+        cy.realPress('PageUp');
+        cy.get('#tree_level_1').should('not.be.visible');
+        cy.get('button').should('have.focus');
+        cy.realPress('ArrowDown');
+        cy.realPress('ArrowDown');
+        cy.realPress('PageUp');
+        cy.get('button').should('have.focus');
+        cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('Escape');
+        cy.get('button').should('have.focus');
+
+        // Space;
         cy.realPress('Space');
         cy.get('button').should('have.class', 'select-without-box-shadow');
         cy.realPress('Space');
         cy.get('button').should('include.text', 'Северная Америка');
         cy.get('#north_america').should('have.class', 'dropdown-item-is-focused');
         cy.get('button').should('have.class', 'select-without-box-shadow');
+        cy.realPress('Space');
+        cy.get('button').should('not.include.text', 'Северная Америка');
+        cy.realPress('ArrowDown');
+        cy.realPress('Space');
+        cy.get('button')
+            .should('include.text', 'Рио-де-Жанейро')
+            .should('include.text', 'Кордова')
+            .should('include.text', 'Медельин');
+        cy.realPress('ArrowRight');
+        cy.realPress('ArrowDown');
+        cy.realPress('Space');
+        cy.get('button').should('not.include.text', 'Буэнос-Айрес').should('not.include.text', 'Кордова');
+        cy.realPress('ArrowLeft');
+        cy.realPress('Space');
+        cy.get('button').should('include.text', 'Список стран');
+        cy.realPress('Escape');
+        cy.get('button').should('have.focus');
+        cy.get('button').should('not.have.class', 'select-without-box-shadow');
 
-        //     // Tab
-        //     cy.realPress('ArrowDown').realPress('Tab');
-        //     cy.get('#tree_level_1').should('not.be.visible');
-        //     cy.get('button').should('not.have.focus');
+        // Enter
+        cy.realPress('Enter');
+        cy.get('button').should('have.class', 'select-without-box-shadow');
+        cy.realPress('Enter');
+        cy.get('button').should('include.text', 'Северная Америка');
+        cy.realPress('Enter');
+        cy.get('button').should('include.text', 'Список стран');
+        cy.realPress('ArrowDown');
+        cy.realPress('Enter');
+        cy.get('button').should('include.text', 'Список стран');
+        cy.get('#brazil').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('Enter');
+        cy.get('#rio_de_janeiro').should('have.class', 'dropdown-item-is-focused');
+        cy.realPress('Enter');
+        cy.get('button').should('include.text', 'Рио-де-Жанейро');
+        cy.get('button').should('not.include.text', 'Сан-Паулу');
+        cy.realPress('Enter');
+        cy.get('button').should('include.text', 'Список стран');
+        cy.realPress('Escape');
+        cy.get('button').should('have.focus');
+        cy.get('button').should('not.have.class', 'select-without-box-shadow');
+
+        // Tab
+        cy.realPress('ArrowDown').realPress('Tab');
+        cy.get('#tree_level_1').should('not.be.visible');
+        cy.get('button').should('not.have.focus');
     });
 });
