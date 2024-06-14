@@ -64,6 +64,7 @@ import { RefAttributes } from 'react';
 import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
+import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { sheetClasses } from '@salutejs/plasma-new-hope/styled-components';
 import { SheetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
@@ -537,6 +538,8 @@ view?: string | undefined;
 export { SegmentItemProps }
 
 export { SegmentProvider }
+
+export { SegmentProviderProps }
 
 // @public
 export const Sheet: FunctionComponent<PropsType<    {

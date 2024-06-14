@@ -203,6 +203,7 @@ import { ScrollSnapProps } from '@salutejs/plasma-core';
 import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
+import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SelectGroup } from '@salutejs/plasma-hope';
 import { SelectProps } from '@salutejs/plasma-hope';
 import { selectText } from '@salutejs/plasma-hope';
@@ -1837,6 +1838,8 @@ view?: string | undefined;
 export { SegmentItemProps }
 
 export { SegmentProvider }
+
+export { SegmentProviderProps }
 
 // @public
 export const Select: React_2.ForwardRefExoticComponent<SelectProps<any> & React_2.RefAttributes<HTMLButtonElement>>;
