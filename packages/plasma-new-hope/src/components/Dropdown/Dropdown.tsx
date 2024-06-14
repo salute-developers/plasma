@@ -139,6 +139,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) =>
                                     listWidth={listWidth}
                                     variant={variant}
                                     hasArrow={hasArrow}
+                                    size={size}
                                 />
                             ))}
                         </Ul>
