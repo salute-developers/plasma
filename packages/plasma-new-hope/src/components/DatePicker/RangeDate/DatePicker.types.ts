@@ -2,13 +2,16 @@ import type { HTMLAttributes } from 'react';
 
 import type { CalendarStateType } from '../../Calendar';
 import type { DisabledDay, EventDay } from '../../Calendar/Calendar.types';
-import type { RangeProps } from '../../Range';
+import type { RangeInnerProps } from '../../Range/Range.types';
 import type { DatePickerdVariationProps } from '../DatePickerBase.types';
 import { DatePickerPopoverProps } from '../SingleDate/DatePicker.types';
 
 export type DatePickerRangePlacement = 'top' | 'bottom';
 
-type BaseRangeProps = Omit<RangeProps, 'firstValue' | 'secondValue' | 'onSearchFirstValue' | 'onSearchSecondValue'>;
+type BaseRangeProps = Omit<
+    RangeInnerProps,
+    'firstValue' | 'secondValue' | 'onSearchFirstValue' | 'onSearchSecondValue'
+>;
 
 export type DatePickerRangeFieldProps = {
     /**
@@ -82,4 +85,4 @@ export type DatePickerRangeProps = DatePickerdVariationProps &
     DatePickerRangeFieldProps &
     DatePickerCalendarProps &
     DatePickerDoublePopoverProps &
-    Omit<HTMLAttributes<HTMLDivElement>, 'defaultValue'>;
+    HTMLAttributes<HTMLDivElement>;
