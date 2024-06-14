@@ -53,10 +53,12 @@ export const Label = styled.label``;
 
 export const StyledContentLeft = styled.div`
     margin: var(${tokens.leftContentMargin});
+    line-height: 0;
 `;
 
 export const StyledContentRight = styled.div`
     margin: var(${tokens.rightContentMargin});
+    line-height: 0;
 `;
 
 export const LeftHelper = styled.div``;
