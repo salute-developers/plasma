@@ -122,6 +122,7 @@ import { ScreenVariant } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
+import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SelectPrimitiveValue } from '@salutejs/plasma-new-hope/styled-components';
 import { SelectProps } from '@salutejs/plasma-new-hope/styled-components';
 import { sheetClasses } from '@salutejs/plasma-new-hope/styled-components';
@@ -1294,6 +1295,8 @@ view?: string | undefined;
 export { SegmentItemProps }
 
 export { SegmentProvider }
+
+export { SegmentProviderProps }
 
 // @public (undocumented)
 export const Select: ForwardRefExoticComponent<SelectProps & RefAttributes<HTMLSelectElement>>;
