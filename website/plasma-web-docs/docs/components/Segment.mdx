@@ -26,6 +26,11 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 Оберните в `SegmentProvider` компонент, в котором будут использованы SegmentGroup с SegmentItem. 
 Внутри данного провайдера есть доступ к хуку `useSegment`.
 
+### Выбранные по умолчанию SegmentItem
+
+Можно задать выбранные по умолчанию сегменты с помощью свойства `defaultSelected`. 
+Оно передается в `SegmentProvider`, в виде массива `value` элеметов.
+
 ```tsx live
 import React, { useState } from 'react';
 import { SegmentGroup, SegmentItem, SegmentProvider } from '@salutejs/plasma-web';
@@ -39,7 +44,7 @@ export function App() {
         return (
             <>
                 <div>Выбранные элементы: {selectedSegmentItems.join(', ')}</div>
-                <SegmentGroup  view='filled' selectionMode='multiple' filledBackground pilled>
+                <SegmentGroup view='filled' selectionMode='multiple' filledBackground pilled>
                     {items.map((_, i) => (
                         <SegmentItem
                             label={`Label ${i}`}
@@ -56,7 +61,7 @@ export function App() {
 
     return (
         <div style={{ display: "block" }} >
-            <SegmentProvider>
+            <SegmentProvider defaultSelected={['label_1']}>
                 <SegmentTemplate/>
             </SegmentProvider>
         </div>
