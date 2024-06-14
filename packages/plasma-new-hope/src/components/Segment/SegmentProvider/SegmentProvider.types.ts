@@ -1,12 +1,13 @@
-import type { SetStateAction } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 
 export type SegmentSelectionMode = 'single' | 'multiple';
 
 export type SegmentContextType = {
     disabledGroup: boolean;
-    setDisabledGroup: (value: SetStateAction<boolean>) => void;
+    setDisabledGroup: Dispatch<SetStateAction<boolean>>;
     selectedSegmentItems: string[];
+    setSelectedSegmentItems: Dispatch<SetStateAction<string[]>>;
     handleSelect: (label: string) => void;
     selectionMode: SegmentSelectionMode;
-    setSelectionMode: (mode: SegmentSelectionMode) => void;
+    setSelectionMode: Dispatch<SetStateAction<SegmentSelectionMode>>;
 };
