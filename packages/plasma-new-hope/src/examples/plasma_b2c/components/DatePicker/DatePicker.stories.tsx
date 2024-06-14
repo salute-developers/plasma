@@ -155,6 +155,7 @@ const StoryRange = ({
     const rangeRef = useRef<RangeInputRefs>(null);
 
     const [isOpen, setIsOpen] = useState(false);
+    const [firstDate, setFirstDate] = useState<string | Date>('');
 
     const iconSize = size === 'xs' ? 'xs' : 's';
     const showDividerIcon = dividerVariant === 'icon';
@@ -201,7 +202,12 @@ const StoryRange = ({
             onChangeSecondValue={(e, currentValue) => {
                 onChangeSecondValue(e, currentValue);
             }}
-            onCommitSecondDate={() => setIsOpen(false)}
+            onCommitFirstDate={(currentValue) => {
+                setFirstDate(currentValue);
+            }}
+            onCommitSecondDate={(currentValue) => {
+                firstDate && currentValue && setIsOpen(false);
+            }}
             {...dividerIconProps}
             {...rest}
         />

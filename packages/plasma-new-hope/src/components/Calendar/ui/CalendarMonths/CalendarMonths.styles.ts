@@ -60,7 +60,7 @@ export const StyledMonthRoot = styled.div`
             outlineSize: '0.063rem',
             outlineOffset: '-0.1875rem',
             outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
-            outlineRadius: `calc(var(${tokens.calendarMonthItemBorderRadius}) - 0.125rem)`,
+            outlineRadius: `calc(var(${tokens.calendarMonthItemBorderRadius}) + 0.125rem)`,
         })};
     }
 `;

@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
 
 import { tokens } from '../../../DatePicker.tokens';
-import { StyledLabel, LeftHelper } from '../../DatePicker.styles';
+import { StyledLabel, LeftHelper } from '../../SingleDate.styles';
 
 export const base = css`
     width: var(${tokens.width});

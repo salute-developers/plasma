@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo, forwardRef, HTMLAttributes } from 'react';
+import React, { useState, useCallback, useMemo, forwardRef, HTMLAttributes, useEffect } from 'react';
 
 import type { Calendar, DateObject } from '../Calendar.types';
 import { getDateFromValue, getNextDate, getPrevDate, isValueUpdate } from '../utils';
@@ -128,6 +128,12 @@ export const calendarDoubleRoot = (Root: RootProps<HTMLDivElement, HTMLAttribute
 
                 setPrevValue(value);
             }
+
+            useEffect(() => {
+                if (!prevValue) {
+                    setPrevValue(value);
+                }
+            }, [value, prevValue]);
 
             return (
                 <Root ref={outerRootRef} aria-label="Выбор даты" {...rest}>

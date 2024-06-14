@@ -4,7 +4,7 @@ import type { CalendarStateType } from '../../Calendar';
 import type { DisabledDay, EventDay } from '../../Calendar/Calendar.types';
 import type { RangeInnerProps } from '../../Range/Range.types';
 import type { DatePickerdVariationProps } from '../DatePickerBase.types';
-import { DatePickerPopoverProps } from '../SingleDate/DatePicker.types';
+import { DatePickerPopoverProps } from '../SingleDate/SingleDate.types';
 
 export type DatePickerRangePlacement = 'top' | 'bottom';
 
