@@ -6,6 +6,11 @@ type CustomSegmentGroupProps = {
      */
     selectionMode?: 'multiple' | 'single';
     /**
+     * Выбранные по умолчанию сегменты.
+     * Передается массив value сегментов, выбранных по умолчанию
+     */
+    defaultSelected?: Array<string>;
+    /**
      * Группа сегментов неактивна
      */
     disabled?: boolean;

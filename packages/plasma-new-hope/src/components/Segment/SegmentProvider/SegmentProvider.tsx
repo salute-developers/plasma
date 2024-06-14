@@ -39,16 +39,13 @@ export const SegmentProvider: FC<PropsWithChildren> = ({ children }) => {
 
     const contextValue: SegmentContextType = {
         selectedSegmentItems,
+        setSelectedSegmentItems,
         handleSelect,
         selectionMode,
         setSelectionMode,
         disabledGroup,
         setDisabledGroup,
     };
-
-    useEffect(() => {
-        setSelectedSegmentItems([]);
-    }, [selectionMode]);
 
     return <SegmentContext.Provider value={contextValue}>{children}</SegmentContext.Provider>;
 };
