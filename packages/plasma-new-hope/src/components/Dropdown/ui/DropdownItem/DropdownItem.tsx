@@ -32,11 +32,13 @@ export const DropdownItem: FC<DropdownItemProps> = ({
     ariaLabel,
     variant,
     hasArrow,
+    size,
 }) => {
     const { value, label, disabled, isDisabled, contentLeft, contentRight } = item;
 
     const ref = useRef<HTMLLIElement | null>(null);
 
+    const disclosureIconSize = size === 'xs' ? 'xs' : 's';
     const isDisabledClassName = disabled || isDisabled ? classes.dropdownItemIsDisabled : undefined;
     const focusedClass =
         currentLevel === focusedPath.length - 1 && index === focusedPath?.[currentLevel]
@@ -100,7 +102,7 @@ export const DropdownItem: FC<DropdownItemProps> = ({
 
             {item.items && hasArrow && (
                 <DisclosureIconWrapper>
-                    <IconDisclosureRight size="xs" color="inherit" />
+                    <IconDisclosureRight size={disclosureIconSize} color="inherit" />
                 </DisclosureIconWrapper>
             )}
         </Wrapper>

@@ -24,4 +24,5 @@ export interface DropdownInnerProps {
     listWidth: DropdownProps['listWidth'];
     variant: DropdownProps['variant'];
     hasArrow: DropdownProps['hasArrow'];
+    size?: string;
 }
