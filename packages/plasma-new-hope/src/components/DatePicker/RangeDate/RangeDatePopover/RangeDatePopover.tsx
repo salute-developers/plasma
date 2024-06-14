@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { getPlacements } from '../../../../utils';
-import { StyledPopover } from '../DatePicker.styles';
+import { StyledPopover } from '../RangeDate.styles';
 
 import type { RangeDatePopoverProps } from './RangeDatePopover.types';
 import { StyledCalendar, StyledCalendarDouble } from './RangeDatePopover.styles';

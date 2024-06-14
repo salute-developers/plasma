@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import type { DatePickerCalendarProps, DatePickerPopoverProps } from '../../SingleDate/DatePicker.types';
+import type { DatePickerCalendarProps, DatePickerPopoverProps } from '../../SingleDate/SingleDate.types';
 
 export type RangeDatePopoverProps = DatePickerCalendarProps &
     DatePickerPopoverProps & {

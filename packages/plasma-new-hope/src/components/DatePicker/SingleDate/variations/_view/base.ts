@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { LeftHelper, StyledLabel } from '../../DatePicker.styles';
+import { LeftHelper, StyledLabel } from '../../SingleDate.styles';
 import { tokens } from '../../../DatePicker.tokens';
 
 export const base = css`

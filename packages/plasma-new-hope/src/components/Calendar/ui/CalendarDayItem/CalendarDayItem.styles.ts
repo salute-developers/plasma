@@ -112,7 +112,7 @@ export const StyledDayRoot = styled.div<DayProps & FocusProps>`
                 outlineSize: '0.063rem',
                 outlineOffset: '-0.1875rem',
                 outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
-                outlineRadius: `calc(var(${tokens.calendarDayItemBorderRadius}) - 0.125rem)`,
+                outlineRadius: `calc(var(${tokens.calendarDayItemBorderRadius}) + 0.125rem)`,
             })};
         }
     }
