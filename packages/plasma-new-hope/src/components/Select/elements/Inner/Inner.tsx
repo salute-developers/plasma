@@ -62,5 +62,5 @@ export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, 
         );
     }
 
-    return <Item item={item} path={path} index={index} currentLevel={currentLevel} itemRole="option" />;
+    return <Item item={item} path={path} index={index} currentLevel={currentLevel} ariaLevel={nextLevel} />;
 };

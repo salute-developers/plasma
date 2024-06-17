@@ -27,7 +27,6 @@ export const Item: FC<ItemProps> = ({
     ariaExpanded,
     ariaLevel,
     ariaLabel,
-    itemRole,
 }) => {
     const { value, label, disabled, isDisabled, contentLeft, contentRight } = item;
     const ref = useRef<HTMLLIElement | null>(null);
@@ -85,7 +84,7 @@ export const Item: FC<ItemProps> = ({
             aria-expanded={ariaExpanded}
             aria-level={ariaLevel}
             aria-label={ariaLabel}
-            role={itemRole}
+            role="treeitem"
         >
             <IconWrapper variant={variant}>
                 {multiselect && (

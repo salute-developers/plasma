@@ -55,5 +55,4 @@ export interface ItemProps {
     ariaExpanded?: boolean;
     ariaLevel?: React.AriaAttributes['aria-level'];
     ariaLabel?: React.AriaAttributes['aria-label'];
-    itemRole?: string;
 }
