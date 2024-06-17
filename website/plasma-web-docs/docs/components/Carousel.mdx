@@ -83,8 +83,8 @@ export const MyGallery = () = (
 
 | Название               | Описание | Аргументы | Возвращаемое значение |
 | ---------------------- | -------- | --------- | --------------------- |
-| `stylingCallback`      | Обработчик для элементов внутри `viewport`. Коллбек вызывается для видимого элемента, к нему применяется необходимая стилизация. | `itemEl: HTMLElement`, `slot: number` | `void` |
-| `stylingResetCallback` | Обработчик для элементов вне `viewport`. Элемент невидим, стилизация сбрасывается. | `itemEl: HTMLElement` | `void` |
+| `scaleCallback`        | Обработчик для элементов внутри `viewport`. Коллбек вызывается для видимого элемента, к нему применяется необходимая стилизация. | `itemEl: HTMLElement`, `slot: number` | `void` |
+| `scaleResetCallback`   | Обработчик для элементов вне `viewport`. Элемент невидим, стилизация сбрасывается. | `itemEl: HTMLElement` | `void` |
 
 Для обозначения позиции элемента внутри `viewport`, карусель использует значение `slot`:
 * `0` равен центральному элементу;
@@ -101,19 +101,19 @@ import { Carousel } from '@salutejs/plasma-web';
  * Тогда ряд slots будет таким: -2 -1 0 1 2.
  * Центральный элемент примет opacity = 1, боковые - opacity = 0.5, а крайние слева и справа - opacity = 0
  */
-const stylingCallback = (itemEl: HTMLDivElement, slot: number) => {
+const scaleCallback = (itemEl: HTMLElement, slot: number) => {
     itemEl.style.opacity = `${1 - Math.abs(slot) / 2}`;
 };
 
 /**
  * Функция сброса стилей элементов вне `viewport`.
  */
-const stylingResetCallback = (itemEl: HTMLDivElement) => {
+const scaleResetCallback = (itemEl: HTMLElement) => {
     itemEl.style.opacity = '';
 };
 
 export const MyGallery = () = (
-    <Carousel stylingCallback={stylingCallback} stylingResetCallback={stylingResetCallback}>
+    <Carousel scaleCallback={stylingCallback} scaleResetCallback={stylingResetCallback}>
         // Элементы карусели помещаются здесь
     </Carousel>
 );
