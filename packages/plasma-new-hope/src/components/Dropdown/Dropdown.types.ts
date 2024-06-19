@@ -76,6 +76,11 @@ export interface DropdownProps extends HTMLAttributes<HTMLDivElement> {
      */
     variant?: 'normal' | 'tight';
     /**
+     * Портал для выпадающего списка. Принимает id контейнера или ref.
+     */
+    portal?: string | React.RefObject<HTMLElement>;
+
+    /**
      * Обработчик клика по item.
      * @deprecated использовать onItemSelect.
      */
