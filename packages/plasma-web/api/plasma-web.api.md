@@ -1995,7 +1995,7 @@ target?: "textfield" | undefined;
 view?: "default" | "positive" | "warning" | "negative" | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 placeholder?: string | undefined;
 helperText?: string | undefined;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
@@ -2021,7 +2021,7 @@ target?: "textfield" | undefined;
 view?: "default" | "positive" | "warning" | "negative" | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 label?: string | undefined;
-labelPlacement?: "inner" | "outer" | undefined;
+labelPlacement?: "outer" | "inner" | undefined;
 placeholder?: string | undefined;
 helperText?: string | undefined;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>) | (BasicProps & {
@@ -2224,7 +2224,7 @@ true: PolymorphicClassName;
     disabled?: boolean | undefined;
 } & {
     label?: string | undefined;
-    labelPlacement?: "inner" | "outer" | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
     leftHelper?: string | undefined;
     contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
     contentRight?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
@@ -2243,7 +2243,7 @@ true: PolymorphicClassName;
     disabled?: boolean | undefined;
 } & {
     label?: string | undefined;
-    labelPlacement?: "inner" | "outer" | undefined;
+    labelPlacement?: "outer" | "inner" | undefined;
     leftHelper?: string | undefined;
     contentLeft?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
     contentRight?: React_2.ReactElement<any, string | React_2.JSXElementConstructor<any>> | undefined;
