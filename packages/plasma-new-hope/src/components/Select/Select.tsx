@@ -22,7 +22,7 @@ export const Context = createContext<ItemContext>({} as ItemContext);
 /**
  * Выпадающий список. Поддерживает выбор одного или нескольких значений.
  */
-export const selectRoot = (Root: RootProps<HTMLButtonElement, SelectProps>) =>
+export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 'items'>>) =>
     forwardRef<HTMLButtonElement, SelectProps>((props, ref) => {
         const {
             value,
@@ -203,16 +203,8 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, SelectProps>) =>
         }, [value]);
 
         return (
-            <Root
-                ref={ref}
-                size={size}
-                view={getView(view, status)}
-                chipView={chipView}
-                items={items}
-                {...(rest as any)}
-            >
+            <Root ref={ref} size={size} view={getView(view, status)} chipView={chipView} {...(rest as any)}>
                 {label && labelPlacement === 'outer' && target !== 'button' && <OuterLabel>{label}</OuterLabel>}
-
                 <Context.Provider
                     value={{
                         focusedPath,
@@ -258,31 +250,32 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, SelectProps>) =>
                         preventOverflow={false}
                         closeOnOverlayClick
                     >
-                        {notFoundContent || (
-                            <Ul
-                                role="tree"
-                                id="tree_level_1"
-                                listHeight={listHeight}
-                                listOverflow={listOverflow}
-                                onScroll={handleScroll}
-                                listWidth={listWidth}
-                            >
-                                {transformedItems.map((item, index) => (
-                                    <Inner
-                                        key={`${index}/0`}
-                                        item={item}
-                                        currentLevel={0}
-                                        path={path}
-                                        dispatchPath={dispatchPath}
-                                        index={index}
-                                        listWidth={listWidth}
-                                    />
-                                ))}
-                            </Ul>
-                        )}
+                        <Root size={size} {...(rest as any)}>
+                            {notFoundContent || (
+                                <Ul
+                                    role="tree"
+                                    id="tree_level_1"
+                                    listHeight={listHeight}
+                                    listOverflow={listOverflow}
+                                    onScroll={handleScroll}
+                                    listWidth={listWidth}
+                                >
+                                    {transformedItems.map((item, index) => (
+                                        <Inner
+                                            key={`${index}/0`}
+                                            item={item}
+                                            currentLevel={0}
+                                            path={path}
+                                            dispatchPath={dispatchPath}
+                                            index={index}
+                                            listWidth={listWidth}
+                                        />
+                                    ))}
+                                </Ul>
+                            )}
+                        </Root>
                     </StyledPopover>
                 </Context.Provider>
-
                 {helperText && target === 'textfield' && <HelperText>{helperText}</HelperText>}
             </Root>
         );
