@@ -2,12 +2,15 @@ import fs from 'fs';
 import path from 'path';
 import svg2vectordrawable from 'svg2vectordrawable';
 
-const sourceDirectory = `./src/scalable/Icon.svg.24`;
+const sourceDirectorySVG16 = `./src/scalable/Icon.svg.16`;
+const sourceDirectorySVG24 = `./src/scalable/Icon.svg.24`;
+const sourceDirectorySVG36 = `./src/scalable/Icon.svg.36`;
+
 const androidIconsDirectory = `./android-icons`;
 
 const destinations = [androidIconsDirectory];
 
-const files = fs.readdirSync(sourceDirectory);
+const files = fs.readdirSync(sourceDirectorySVG24);
 
 // Создаем директории, если нет
 destinations.forEach((destination) => {
@@ -16,8 +19,6 @@ destinations.forEach((destination) => {
     }
 });
 
-const names: Array<string> = [];
-
 const camelToSnakeCase = (str: string) => str.replace(/[A-Z]/g, (letter) => `_${letter.toLowerCase()}`);
 
 const options = {
@@ -25,25 +26,30 @@ const options = {
     fillBlack: true, // заполняем черным
 };
 
+const getPath = (dir: string, name: string, size: string) => {
+    // INFO: по соглашению имя файла в camel_case
+    return path.join(dir, `ic${camelToSnakeCase(name)}_${size}.xml`);
+};
+
 files.forEach((file) => {
-    const sourceFilePath = path.join(sourceDirectory, file);
     const extension = path.extname(file);
 
     if (extension !== '.svg') {
         return;
     }
 
-    const data = fs.readFileSync(sourceFilePath, 'utf8');
-
-    const componentName = path.parse(file).name;
-    names.push(componentName);
-
-    const getPath = (dir: string, name: string) => {
-        return path.join(dir, `ic${camelToSnakeCase(name)}_24.xml`); // по соглашению имя файла в camel_case
+    const data = {
+        16: fs.readFileSync(path.join(sourceDirectorySVG16, file), 'utf8'),
+        24: fs.readFileSync(path.join(sourceDirectorySVG24, file), 'utf8'),
+        36: fs.readFileSync(path.join(sourceDirectorySVG36, file), 'utf8'),
     };
 
-    // генерируем xml файлы
-    svg2vectordrawable(data, options).then((xmlCode: string) => {
-        fs.writeFileSync(getPath(androidIconsDirectory, componentName), xmlCode, 'utf8');
+    const componentName = path.parse(file).name;
+
+    Object.entries(data).forEach(([size, data]) => {
+        // INFO: генерируем xml файлы
+        svg2vectordrawable(data, options).then((xmlCode: string) => {
+            fs.writeFileSync(getPath(androidIconsDirectory, componentName, size), xmlCode, 'utf8');
+        });
     });
 });
