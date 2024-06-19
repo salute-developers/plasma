@@ -115,8 +115,9 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                     if (isOpen && closeOnOverlayClick && onToggle) {
                         const targetIsRoot = event.target === rootRef.current;
                         const rootHasTarget = rootRef.current?.contains(event.target as Element);
+                        const popoverRootHasTarget = popoverRef.current?.contains(event.target as Element);
 
-                        if (!targetIsRoot && !rootHasTarget) {
+                        if (!targetIsRoot && !rootHasTarget && !popoverRootHasTarget) {
                             onToggle(false, event);
                         }
                     }

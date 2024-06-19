@@ -18,7 +18,7 @@ import { useHashMaps } from './hooks/useHashMaps';
 /**
  * Выпадающий список.
  */
-export const dropdownRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) =>
+export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps, 'items'>>) =>
     forwardRef<HTMLDivElement, DropdownProps>(
         (
             {
@@ -42,6 +42,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) =>
                 trigger = 'click',
                 variant = 'normal',
                 hasArrow = true,
+                portal,
                 ...rest
             },
             ref,
@@ -85,32 +86,26 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) =>
             };
 
             return (
-                <Root
-                    className={cx(className, classes.dropdownRoot)}
-                    ref={ref}
-                    view={view}
-                    size={size}
-                    items={items}
-                    {...rest}
+                <StyledPopover
+                    isOpen={isCurrentListOpen}
+                    onToggle={handleGlobalToggle}
+                    offset={offset}
+                    placement={getPlacements(placement)}
+                    trigger={trigger}
+                    closeOnOverlayClick={closeOnOverlayClick}
+                    isFocusTrapped={false}
+                    target={childrenWithProps(children, {
+                        role: 'combobox',
+                        'aria-controls': 'tree_level_1',
+                        'aria-expanded': isCurrentListOpen,
+                        'aria-activedescendant': getActiveDescendant(),
+                        onKeyDown,
+                    })}
+                    preventOverflow={false}
+                    usePortal={Boolean(portal)}
+                    frame={portal}
                 >
-                    <StyledPopover
-                        isOpen={isCurrentListOpen}
-                        usePortal={false}
-                        onToggle={handleGlobalToggle}
-                        offset={offset}
-                        placement={getPlacements(placement)}
-                        trigger={trigger}
-                        closeOnOverlayClick={closeOnOverlayClick}
-                        isFocusTrapped={false}
-                        target={childrenWithProps(children, {
-                            role: 'combobox',
-                            'aria-controls': 'tree_level_1',
-                            'aria-expanded': isCurrentListOpen,
-                            'aria-activedescendant': getActiveDescendant(),
-                            onKeyDown,
-                        })}
-                        preventOverflow={false}
-                    >
+                    <Root className={cx(className, classes.dropdownRoot)} ref={ref} view={view} size={size} {...rest}>
                         <Ul
                             listHeight={listHeight}
                             listOverflow={listOverflow}
@@ -143,8 +138,8 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, DropdownProps>) =>
                                 />
                             ))}
                         </Ul>
-                    </StyledPopover>
-                </Root>
+                    </Root>
+                </StyledPopover>
             );
         },
     );
