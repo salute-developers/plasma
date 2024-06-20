@@ -49,7 +49,7 @@ const StyledOptionCommon = styled.div<{ isActive?: boolean }>`
     border-radius: 0.75rem;
     color: rgba(255, 255, 255, 0.56);
 
-    transition: color 120ms ease-in, background-color 120ms ease-in;
+    transition: var(--color-transition), background-color var(--background-color-transition);
 
     cursor: pointer;
 

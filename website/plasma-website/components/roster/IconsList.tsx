@@ -24,18 +24,12 @@ export interface IconsListProps {
 
 const size = 's';
 
-const getGridCellPosition = (ref: MutableRefObject<null>, index: number) => {
-    if (!ref || !ref?.current) {
+const getGridCellPosition = (grid: any, index: number) => {
+    if (!grid) {
         return 1;
     }
 
-    const gridContainer = ref?.current;
-
-    if (!gridContainer) {
-        return 1;
-    }
-
-    const gridContainerStyle = window.getComputedStyle(gridContainer);
+    const gridContainerStyle = window.getComputedStyle(grid);
 
     const columns = gridContainerStyle.getPropertyValue('grid-template-columns').split(' ').length;
 
@@ -88,19 +82,29 @@ const StyledIcon = styled.div<{ isActive?: boolean; hasOpacity?: boolean }>`
     align-items: center;
     justify-content: center;
     height: 3.75rem;
-    width: 3.75rem;
-    border-radius: 50%;
-
     background-color: transparent;
 
     box-sizing: border-box;
     cursor: pointer;
 
-    transition: box-shadow 120ms ease-in, opacity 120ms ease-in, color 120ms ease-in;
+    transition: var(--box-shadow-transition), var(--opacity-transition), var(--color-transition);
+
+    &::before {
+        content: '';
+        position: absolute;
+        height: inherit;
+        width: 3.75rem;
+        border-radius: 50%;
+
+        transition: var(--box-shadow-transition), var(--opacity-transition), var(--color-transition);
+    }
 
     &:hover {
-        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.28);
         opacity: 1;
+
+        &::before {
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.28);
+        }
 
         & + ${StyledIconHoverDetails} {
             display: flex;
@@ -110,10 +114,14 @@ const StyledIcon = styled.div<{ isActive?: boolean; hasOpacity?: boolean }>`
     ${({ isActive }) =>
         isActive &&
         css`
-            box-shadow: 0 0 0 1px rgba(255, 255, 255, 1);
+            &::before {
+                box-shadow: 0 0 0 1px rgba(255, 255, 255, 1);
+            }
 
             &:hover {
-                box-shadow: 0 0 0 1px rgba(255, 255, 255, 1);
+                &::before {
+                    box-shadow: 0 0 0 1px rgba(255, 255, 255, 1);
+                }
             }
         `}
 
@@ -129,8 +137,9 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
     const { state, dispatch } = useContext(Context);
     const [offset, setOffset] = useState(0);
     const [cellIndex, setCellIndex] = useState(1);
-    const [currentGridRow, setCurrentGridRow] = useState('');
-    const gridRef = useRef(null);
+    const [currentGridRowLabel, setCurrentGridRowLabel] = useState('');
+    const [currentGridIndex, setCurrentGridIndex] = useState(0);
+    const gridRefs = useRef<HTMLDivElement[]>([]);
 
     const items = useMemo(() => {
         if (!searchQuery) {
@@ -147,23 +156,30 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
                 }),
             }))
             .filter((group) => {
-                const currentIndex = group.items.findIndex(({ name }) => name === state.wizardItemName);
-
-                if (currentIndex !== -1) {
-                    setOffset(getGridCellPosition(gridRef, currentIndex + 1));
-                }
-
                 return group.items.length;
             });
-    }, [searchQuery, offset]);
+    }, [searchQuery]);
 
     useEffect(() => {
-        const container = gridRef?.current;
+        // INFO: Определить смещение для grid cell после фильтра поиска
+        items.forEach((group, gridIndex) => {
+            const currentCellIndex = group.items.findIndex(({ name }) => name === state.wizardItemName);
+
+            if (currentCellIndex === -1) {
+                return;
+            }
+
+            setOffset(getGridCellPosition(gridRefs.current[gridIndex], currentCellIndex + 1));
+        });
+    }, [items, offset]);
+
+    useEffect(() => {
+        const container = gridRefs.current[currentGridIndex];
 
         const observer = new window.ResizeObserver((entries) => {
             for (const entry of entries) {
                 if (entry.target === container) {
-                    setOffset(getGridCellPosition(gridRef, cellIndex));
+                    setOffset(getGridCellPosition(container, cellIndex));
                 }
             }
         });
@@ -179,7 +195,7 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
                 observer.unobserve(container);
             }
         };
-    }, [cellIndex, items]);
+    }, [cellIndex, items, currentGridIndex, gridRefs.current]);
 
     const handleCloseExtendInfo = () => {
         dispatch(setWizardItem('icon', ''));
@@ -188,7 +204,11 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
 
         dispatch(setIconSize(initSizeState));
 
-        setCurrentGridRow('');
+        setCurrentGridRowLabel('');
+    };
+
+    const handleRefInit = (el: HTMLDivElement, indexGroup: number) => {
+        gridRefs.current[indexGroup] = el;
     };
 
     if (!items.length) {
@@ -197,19 +217,19 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
 
     return (
         <StyledIconList>
-            {items.map((group) => (
+            {items.map((group, indexGroup) => (
                 <StyledGridWrapper key={group.iconGroup.subtitle}>
                     <IconGroupHeading
                         title={group.iconGroup.title}
                         subtitle={group.iconGroup.subtitle}
                         count={group.items.length}
                     />
-                    <Grid ref={gridRef}>
+                    <Grid ref={(el) => el && handleRefInit(el, indexGroup)}>
                         {group.items.map(({ name, component: Component, groupName, version }, index) => (
                             <StyledCell key={name}>
                                 <StyledIcon
                                     key={name}
-                                    hasOpacity={groupName === currentGridRow && name !== state.wizardItemName}
+                                    hasOpacity={groupName === currentGridRowLabel && name !== state.wizardItemName}
                                     isActive={name === state.wizardItemName}
                                     onClick={(event) => {
                                         event.stopPropagation();
@@ -218,15 +238,19 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
 
                                         dispatch(setWizardItem('icon', name));
 
-                                        setCurrentGridRow(group.iconGroup.subtitle);
+                                        setCurrentGridRowLabel(group.iconGroup.subtitle);
 
                                         dispatch(setIconColor(initColorState));
 
                                         dispatch(setIconSize(initSizeState));
 
-                                        setCellIndex(index + 1);
+                                        const currentIndex = index + 1;
 
-                                        setOffset(getGridCellPosition(gridRef, index + 1));
+                                        setCellIndex(currentIndex);
+
+                                        setCurrentGridIndex(indexGroup);
+
+                                        setOffset(getGridCellPosition(gridRefs.current[indexGroup], currentIndex));
 
                                         // Info: Close by double click
                                         if (name === state.wizardItemName) {

@@ -36,11 +36,16 @@ const StyledExtendInfo = styled.div<{ offset?: number }>`
     display: block;
     padding-top: 3rem;
     margin-bottom: 1.5rem;
-    width: 60rem;
+    width: calc(100vw - var(--plasma-grid-largeM-margin) * 2);
+    max-width: 60rem;
     box-sizing: border-box;
 
     ${multipleMediaQuery(['M', 'S'])(css`
         padding-top: 2rem;
+    `)}
+
+    ${multipleMediaQuery(['S'])(css`
+        width: calc(100vw - 16px * 2);
     `)}
 `;
 
