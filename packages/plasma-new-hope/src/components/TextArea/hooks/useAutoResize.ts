@@ -6,8 +6,8 @@ export const useAutoResize = <T extends HTMLTextAreaElement>(
     active: boolean,
     ref: MutableRefObject<T | null>,
     value?: string | ReadonlyArray<string> | number,
-    minHeight?: number,
-    maxHeight?: number,
+    minAuto?: number,
+    maxAuto?: number,
 ) => {
     const isManualResize = useRef<boolean>(false);
     const previousHeight = useRef<number | undefined>();
@@ -21,9 +21,19 @@ export const useAutoResize = <T extends HTMLTextAreaElement>(
                 return;
             }
 
-            ref.current.style.height = `${minHeight ? minHeight + 1 : '0'}rem`;
-            const scrollHeight = ref.current.scrollHeight / ROOT_FONT_SIZE;
-            const newHeight = Math.min(scrollHeight, maxHeight ? maxHeight + 1 : scrollHeight);
+            const style = getComputedStyle(ref.current);
+            const lineHeight = parseInt(style.lineHeight, 10);
+            const lineHeightInRem = lineHeight / ROOT_FONT_SIZE;
+
+            const minAutoHeight = minAuto ? minAuto * lineHeightInRem : 0;
+            ref.current.style.height = `${minAutoHeight}rem`;
+
+            const lines = Math.floor(ref.current.scrollHeight / lineHeight);
+            const newScrollHeight = lines * lineHeightInRem;
+
+            const maxAutoHeight = maxAuto ? maxAuto * lineHeightInRem : newScrollHeight;
+
+            const newHeight = Math.min(newScrollHeight, maxAutoHeight);
 
             ref.current.style.height = `${newHeight}rem`;
             previousHeight.current = newHeight;
