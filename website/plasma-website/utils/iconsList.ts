@@ -48,7 +48,11 @@ const getIconGroupTitles = (group: string): IconGroup => {
     return { title, subtitle };
 };
 
-const transformIconsSet = (iconSet: Record<string, Record<string, FC<IconProps>>>) => {
+type IconSectionsSet = Record<string, Record<string, FC<IconProps>>>;
+
+const iconsGroupListLegacy = Object.keys(iconSectionsSet);
+
+const transformIconsSet = (iconSet: IconSectionsSet) => {
     return Object.entries(iconSet)
         .sort()
         .reduce((acc, [groupName, group]) => {
@@ -56,8 +60,8 @@ const transformIconsSet = (iconSet: Record<string, Record<string, FC<IconProps>>
             const key = groupName.toLowerCase();
             const IconsLegacyList: Item[] = [];
 
-            if (Object.keys(iconSectionsSet).includes(key)) {
-                Object.entries(iconSectionsSet[key])
+            if (iconsGroupListLegacy.includes(key)) {
+                Object.entries((iconSectionsSet as IconSectionsSet)[key])
                     .sort()
                     .reduce((a, [iconName, component]) => {
                         a.push({ name: iconName, component, groupName: iconGroup.subtitle, version: 'legacy' });

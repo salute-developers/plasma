@@ -6,6 +6,14 @@ import Head from 'next/head';
 import { Header, Main, SearchForm, IconsList, Footer } from '../components/roster';
 
 const StyledMain = styled(Main)`
+    --common-transition-config: 120ms ease-in;
+
+    --color-transition: color var(--common-transition-config);
+    --opacity-transition: opacity var(--common-transition-config);
+    --box-shadow-transition: box-shadow var(--common-transition-config);
+    --background-color-transition: background-color var(--common-transition-config);
+    --border-radius-transition: border-radius var(--common-transition-config);
+
     max-width: 100%;
 `;
 

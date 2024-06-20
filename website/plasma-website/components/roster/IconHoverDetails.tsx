@@ -17,7 +17,7 @@ const StyleSizeItem = styled.span<{ isDisable?: boolean }>`
         isDisable &&
         css`
             color: rgba(255, 255, 255, 0.28);
-            transition: color 120ms ease-in;
+            transition: var(--color-transition);
         `}
 `;
 

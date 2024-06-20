@@ -52,7 +52,7 @@ const StyledOption = styled.div<{ isActive?: boolean; isXS?: boolean }>`
 
     cursor: pointer;
 
-    transition: color 120ms ease-in, background-color 120ms ease-in, border-radius 120ms ease-in;
+    transition: var(--color-transition), var(--background-color-transition), var(--border-radius-transition);
 
     &:hover {
         color: rgba(255, 255, 255, 0.96);
