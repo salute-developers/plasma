@@ -30,8 +30,8 @@
     "@docusaurus/preset-classic": "3.1.1",
     "@docusaurus/theme-live-codeblock": "3.1.1",
     "@mdx-js/react": "3.0.0",
-    "@salutejs/plasma-docs-ui": "0.240.0",
-    "@salutejs/plasma-icons": "1.194.0",
+    "@salutejs/plasma-docs-ui": "0.245.1-dev.0",
+    "@salutejs/plasma-icons": "1.197.1-dev.0",
     "@salutejs/plasma-typo": "0.40.0",
     "@svgr/webpack": "8.1.0",
     "clsx": "^1.1.1",
@@ -41,7 +41,7 @@
     "react-dom": "18.2.0",
     "styled-components": "5.3.1",
     "url-loader": "^4.1.1",
-    "@salutejs/caldera-online": "0.47.0",
+    "@salutejs/caldera-online": "0.49.1-dev.0",
     "@salutejs/caldera-online-themes": "0.12.0"
   },
   "devDependencies": {
