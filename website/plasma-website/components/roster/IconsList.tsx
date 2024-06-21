@@ -1,5 +1,5 @@
 import React, { useMemo, useContext, useRef, useState, useEffect } from 'react';
-import type { FC, MutableRefObject } from 'react';
+import type { FC } from 'react';
 import styled, { css } from 'styled-components';
 import { Headline4, applyNoSelect } from '@salutejs/plasma-b2c';
 import { IconRoot } from '@salutejs/plasma-icons';
@@ -24,7 +24,7 @@ export interface IconsListProps {
 
 const size = 's';
 
-const getGridCellPosition = (grid: any, index: number) => {
+const getGridCellPosition = (grid: HTMLDivElement, index: number) => {
     if (!grid) {
         return 1;
     }
@@ -41,7 +41,7 @@ const getGridCellPosition = (grid: any, index: number) => {
 
 const StyledGridWrapper = styled.div`
     &:not(:last-child) {
-        margin-bottom: 3.5rem;
+        margin-bottom: 2.5rem;
     }
 `;
 
@@ -75,7 +75,7 @@ const StyledIconHoverDetails = styled.div`
     ${AnimationSlideUp};
 `;
 
-const StyledIcon = styled.div<{ isActive?: boolean; hasOpacity?: boolean }>`
+const StyledIcon = styled.div<{ isActive?: boolean; hasOpacity?: boolean; isDeprecate: boolean }>`
     ${applyNoSelect};
 
     display: flex;
@@ -86,7 +86,6 @@ const StyledIcon = styled.div<{ isActive?: boolean; hasOpacity?: boolean }>`
 
     box-sizing: border-box;
     cursor: pointer;
-
     transition: var(--box-shadow-transition), var(--opacity-transition), var(--color-transition);
 
     &::before {
@@ -110,6 +109,21 @@ const StyledIcon = styled.div<{ isActive?: boolean; hasOpacity?: boolean }>`
             display: flex;
         }
     }
+
+    ${({ isDeprecate }) =>
+        isDeprecate &&
+        css`
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+                width: 0.5rem;
+                height: 0.5rem;
+                border-radius: 50%;
+                background-color: var(--text-negative);
+            }
+        `}
 
     ${({ isActive }) =>
         isActive &&
@@ -231,6 +245,7 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
                                     key={name}
                                     hasOpacity={groupName === currentGridRowLabel && name !== state.wizardItemName}
                                     isActive={name === state.wizardItemName}
+                                    isDeprecate={version === 'legacy'}
                                     onClick={(event) => {
                                         event.stopPropagation();
 
@@ -275,7 +290,11 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
                                     <IconHoverDetails name={name} sizes={{ 36: false, 24: true, 16: false }} />
                                 </StyledIconHoverDetails>
                                 {name === state.wizardItemName && (
-                                    <IconExtendedInfo onClose={handleCloseExtendInfo} offset={offset} />
+                                    <IconExtendedInfo
+                                        onClose={handleCloseExtendInfo}
+                                        isDeprecate={version === 'legacy'}
+                                        offset={offset}
+                                    />
                                 )}
                             </StyledCell>
                         ))}
