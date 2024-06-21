@@ -1,8 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { IconCopyOutline } from '@salutejs/plasma-icons';
 import { useToast } from '@salutejs/plasma-b2c';
 import type { ShowToastArgs } from '@salutejs/plasma-b2c';
+
+import { multipleMediaQuery } from '../../mixins';
 
 const StyledClipboardIcon = styled(IconCopyOutline)`
     margin-left: -1.375rem;
@@ -37,6 +39,10 @@ const StyledHeading = styled.span`
     font-size: 0.75rem;
     line-height: 0.875rem;
     color: rgba(255, 255, 255, 0.8);
+
+    ${multipleMediaQuery(['S'])(css`
+        line-height: 1.25rem;
+    `)}
 `;
 
 const StyledTitle = styled(StyledHeading)`

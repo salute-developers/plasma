@@ -67,10 +67,18 @@ const StyledIconClose = styled.span`
     &:hover {
         color: rgba(255, 255, 255, 1);
     }
+
+    ${multipleMediaQuery(['S'])(css`
+        margin-right: 0.5rem;
+    `)}
 `;
 
 const StyledContent = styled.div`
     padding-left: 3.75rem;
+
+    ${multipleMediaQuery(['S'])(css`
+        padding-left: 0;
+    `)}
 `;
 
 const StyledClipboardWrapper = styled.div`
