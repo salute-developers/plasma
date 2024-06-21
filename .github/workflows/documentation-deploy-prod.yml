@@ -45,20 +45,23 @@ jobs:
 
       - name: Plasma UI Docs
         run: |
-          export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-ui-docs"
           cp -R ./website/plasma-ui-docs/build ./s3_build/next-${{ github.sha }}/ui
 
       - name: Plasma Web Docs
         run: |
-          export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-web-docs"
           cp -R ./website/plasma-web-docs/build ./s3_build/next-${{ github.sha }}/web
       
-      - name: Plasma SDDS-SERV Docs
+      - name: SDDS-SERV Docs
         run: |
           npm run build --prefix="./website/sdds-serv-docs"
-          cp -R ./website/sdds-serv-docs/build ./s3_build/next-${{ github.sha }}/sdds-serv      
+          cp -R ./website/sdds-serv-docs/build ./s3_build/next-${{ github.sha }}/sdds-serv
+          
+      - name: CALDERA-ONLINE Docs
+        run: |
+          npm run build --prefix="./website/caldera-online-docs"
+          cp -R ./website/caldera-online-docs/build ./s3_build/next-${{ github.sha }}/caldera-online
 
       - name: Plasma UI Storybook
         run: |
