@@ -14,6 +14,7 @@ import { IconOptionsColors } from './IconOptionsColors';
 type IconInfoProps = {
     onClose: () => void;
     offset: number;
+    isDeprecate: boolean;
 };
 
 const StyledHeader = styled.header`
@@ -35,7 +36,7 @@ const StyledExtendInfo = styled.div<{ offset?: number }>`
     }}px;
     display: block;
     padding-top: 3rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 4rem;
     width: calc(100vw - var(--plasma-grid-largeM-margin) * 2);
     max-width: 60rem;
     box-sizing: border-box;
@@ -45,7 +46,7 @@ const StyledExtendInfo = styled.div<{ offset?: number }>`
     `)}
 
     ${multipleMediaQuery(['S'])(css`
-        width: calc(100vw - 16px * 2);
+        width: calc(100vw - 1rem * 2);
     `)}
 `;
 
@@ -86,7 +87,12 @@ const StyledClipboardWrapper = styled.div`
     flex-direction: column;
 `;
 
-export const IconExtendedInfo = ({ offset, onClose }: IconInfoProps) => {
+const StyledDeprecateIcon = styled.span`
+    margin-left: 1rem;
+    color: var(--text-negative);
+`;
+
+export const IconExtendedInfo = ({ offset, onClose, isDeprecate }: IconInfoProps) => {
     const { state } = useContext(Context);
 
     if (!state.wizardItemName) {
@@ -103,7 +109,10 @@ export const IconExtendedInfo = ({ offset, onClose }: IconInfoProps) => {
                 <StyledIconClose onClick={onClose}>
                     <IconClose size="m" color="inherit" />
                 </StyledIconClose>
-                <H2 bold={false}>{state.wizardItemName}</H2>
+                <H2 bold={false}>
+                    {state.wizardItemName}
+                    {isDeprecate && <StyledDeprecateIcon>[deprecate]</StyledDeprecateIcon>}
+                </H2>
             </StyledHeader>
             <StyledContent>
                 <StyledIconOptions>
