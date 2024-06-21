@@ -19,10 +19,12 @@ export type TextAreaPropsAutoResize = {
     autoResize?: boolean;
     /**
      * Максимальная высота поля ввода в автоматическом режиме (в абсолютных единицах).
+     * @example maxAuto="5", maxAuto={5}
      */
     maxAuto?: number;
     /**
      * Минимальная высота поля ввода в автоматическом режиме (в абсолютных единицах).
+     * @example minAuto="5", minAuto={5}
      */
     minAuto?: number;
 };
