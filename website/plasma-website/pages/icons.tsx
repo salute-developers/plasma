@@ -5,6 +5,14 @@ import Head from 'next/head';
 
 import { Header, Main, SearchForm, IconsList, Footer } from '../components/roster';
 
+const StyledSection = styled.section`
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+
+    min-height: 100vh;
+`;
+
 const StyledMain = styled(Main)`
     --common-transition-config: 120ms ease-in;
 
@@ -30,12 +38,14 @@ export default function Home() {
             <Head>
                 <title>Plasma Icons</title>
             </Head>
-            <Header />
-            <StyledMain>
-                <SearchForm onInput={onSearchInput} />
-                <IconsList searchQuery={searchQuery} />
+            <StyledSection>
+                <Header />
+                <StyledMain>
+                    <SearchForm onInput={onSearchInput} />
+                    <IconsList searchQuery={searchQuery} />
+                </StyledMain>
                 <Footer />
-            </StyledMain>
+            </StyledSection>
         </ToastProvider>
     );
 }
