@@ -1,2 +1,10 @@
+import type { TextAreaProps as TextAreaPropsBase } from '@salutejs/plasma-hope';
+
 export { TextArea } from './TextArea';
-export type { TextAreaProps } from '@salutejs/plasma-hope';
+
+export interface TextAreaProps extends TextAreaPropsBase {
+    /**
+     * @deprecated не используется в компоненте
+     */
+    resize?: 'none' | 'both' | 'horizontal' | 'vertical';
+}

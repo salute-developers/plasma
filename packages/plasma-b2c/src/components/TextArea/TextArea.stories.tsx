@@ -77,6 +77,7 @@ const StoryDefault = ({ status, enableContentRight, ...rest }: StoryProps) => {
 
     return (
         <TextArea
+            resize="none"
             value={value}
             contentRight={enableContentRight ? <IconPlaceholder /> : undefined}
             status={status || undefined}
