@@ -1,4 +1,4 @@
-import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
+import { TextareaHTMLAttributes } from '../../types';
 
 export interface TextAreaPropsBase {
     /**
