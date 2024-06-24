@@ -29,7 +29,7 @@ import TabItem from '@theme/TabItem';
 ```bash
 $ npm install --save react react-dom
 $ npm install --save styled-components
-$ npm install --save @salutejs/caldera-online @salutejs/plasma-typo @salutejs/plasma-tokens
+$ npm install --save @salutejs/caldera-online @salutejs/plasma-typo @salutejs/caldera-online-themes
 ```
 
 ## Настройка
@@ -39,7 +39,7 @@ $ npm install --save @salutejs/caldera-online @salutejs/plasma-typo @salutejs/pl
 ```jsx title="GlobalStyle.tsx"
 import { createGlobalStyle } from 'styled-components';
 import { standard } from '@salutejs/plasma-typo';
-import { caldera_online__light } from '@salutejs/plasma-tokens';
+import { caldera_online__light } from '@salutejs/caldera-online-themes';
 
 const ThemeStyle = createGlobalStyle(caldera_online__light);
 const TypoStyle = createGlobalStyle(standard);
