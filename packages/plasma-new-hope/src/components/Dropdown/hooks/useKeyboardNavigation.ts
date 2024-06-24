@@ -59,14 +59,18 @@ export const useKeyNavigation = ({
     onItemSelect,
     onItemClick,
 }: Props): ReturnedProps => {
-    const currentLength: number = pathMap.get(path?.[path.length - 1]) || 0;
     const currentIndex: number = focusedPath?.[focusedPath.length - 1] || 0;
+    const currentLength: number = pathMap.get(path?.[focusedPath.length - 1]) || 0;
 
     const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
         switch (event.code) {
             case keys.ArrowUp: {
                 if (focusedPath.length) {
                     if (currentIndex > 0) {
+                        if (path.length > focusedPath.length) {
+                            dispatchPath({ type: 'removed_last_level' });
+                        }
+
                         dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex - 1 });
                     }
                 } else {
@@ -81,6 +85,10 @@ export const useKeyNavigation = ({
             case keys.ArrowDown: {
                 if (focusedPath.length) {
                     if (currentIndex + 1 < currentLength) {
+                        if (path.length > focusedPath.length) {
+                            dispatchPath({ type: 'removed_last_level' });
+                        }
+
                         dispatchFocusedPath({ type: 'change_last_focus', value: currentIndex + 1 });
                     }
                 } else {
@@ -113,8 +121,11 @@ export const useKeyNavigation = ({
                 const currentItem = getFurtherPath(focusedPath, focusedToValueMap);
 
                 if (currentItem?.items) {
-                    dispatchPath({ type: 'added_next_level', value: currentItem.value.toString() });
-                    dispatchFocusedPath({ type: 'add_focus', value: 0 });
+                    if (path.length > focusedPath.length) {
+                        dispatchFocusedPath({ type: 'add_focus', value: 0 });
+                    } else {
+                        dispatchPath({ type: 'added_next_level', value: currentItem.value.toString() });
+                    }
                 }
 
                 break;
@@ -137,8 +148,11 @@ export const useKeyNavigation = ({
                 }
 
                 if (currentItem?.items) {
-                    dispatchPath({ type: 'added_next_level', value: currentItem.value.toString() });
-                    dispatchFocusedPath({ type: 'add_focus', value: 0 });
+                    if (path.length > focusedPath.length) {
+                        dispatchFocusedPath({ type: 'add_focus', value: 0 });
+                    } else {
+                        dispatchPath({ type: 'added_next_level', value: currentItem.value.toString() });
+                    }
                 } else {
                     if (closeOnSelect) {
                         handleGlobalToggle(false, event);
@@ -167,6 +181,10 @@ export const useKeyNavigation = ({
 
             case keys.Home: {
                 if (path[0]) {
+                    if (path.length > focusedPath.length) {
+                        dispatchPath({ type: 'removed_last_level' });
+                    }
+
                     dispatchFocusedPath({ type: 'change_last_focus', value: 0 });
                 } else {
                     dispatchPath({ type: 'opened_first_level' });
@@ -180,6 +198,10 @@ export const useKeyNavigation = ({
 
             case keys.End: {
                 if (path[0]) {
+                    if (path.length > focusedPath.length) {
+                        dispatchPath({ type: 'removed_last_level' });
+                    }
+
                     dispatchFocusedPath({ type: 'change_last_focus', value: currentLength - 1 });
                 } else {
                     dispatchPath({ type: 'opened_first_level' });
@@ -196,6 +218,10 @@ export const useKeyNavigation = ({
                     break;
                 }
 
+                if (path.length > focusedPath.length) {
+                    dispatchPath({ type: 'removed_last_level' });
+                }
+
                 if (currentIndex <= JUMP_SIZE) {
                     dispatchFocusedPath({ type: 'change_last_focus', value: 0 });
                 } else {
@@ -208,6 +234,10 @@ export const useKeyNavigation = ({
             case keys.PageDown: {
                 if (!path[0]) {
                     break;
+                }
+
+                if (path.length > focusedPath.length) {
+                    dispatchPath({ type: 'removed_last_level' });
                 }
 
                 if (currentLength - currentIndex <= JUMP_SIZE) {
