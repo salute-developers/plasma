@@ -139,6 +139,8 @@ import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
+import { TextareaHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
+import { TextAreaPropsExtends } from '@salutejs/plasma-new-hope/types/components/TextArea/TextArea.types';
 import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { TextfieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { TextFieldProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -1477,6 +1479,26 @@ export const TabsController: ForwardRefExoticComponent<TabsControllerProps & Ref
 export { TabsControllerProps }
 
 export { TabsProps }
+
+// @public
+export const TextArea: FunctionComponent<PropsType<    {
+size: {
+xs: string;
+s: string;
+m: string;
+l: string;
+};
+view: {
+default: string;
+primary: string;
+positive: string;
+warning: string;
+negative: string;
+};
+disabled: {
+true: string;
+};
+}> & TextareaHTMLAttributes<HTMLTextAreaElement> & TextAreaPropsExtends & RefAttributes<HTMLTextAreaElement>>;
 
 // @public
 export const TextField: FunctionComponent<PropsType<    {
