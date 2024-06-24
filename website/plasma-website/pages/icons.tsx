@@ -1,16 +1,31 @@
 import React, { useState, useCallback } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ToastProvider } from '@salutejs/plasma-b2c';
 import Head from 'next/head';
 
-import { Header, Main, SearchForm, IconsList, Footer } from '../components/roster';
+import { multipleMediaQuery } from '../mixins';
+import { Header, Main, SearchForm, IconsList, Footer, IconFilterMenu } from '../components/roster';
 
 const StyledSection = styled.section`
+    position: relative;
     display: grid;
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 100%;
 
     min-height: 100vh;
+`;
+
+const StyledFilterWrapper = styled.div`
+    position: absolute;
+    top: 7.125rem;
+    right: 1.375rem;
+
+    min-height: calc(100% - 7.125rem);
+    max-width: 1.25rem;
+
+    ${multipleMediaQuery(['S'])(css`
+        right: 0;
+    `)}
 `;
 
 const StyledMain = styled(Main)`
@@ -40,6 +55,9 @@ export default function Home() {
             </Head>
             <StyledSection>
                 <Header />
+                <StyledFilterWrapper>
+                    <IconFilterMenu />
+                </StyledFilterWrapper>
                 <StyledMain>
                     <SearchForm onInput={onSearchInput} />
                     <IconsList searchQuery={searchQuery} />

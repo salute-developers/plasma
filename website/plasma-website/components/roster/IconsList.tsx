@@ -2,7 +2,6 @@ import React, { useMemo, useContext, useRef, useState, useEffect } from 'react';
 import type { FC } from 'react';
 import styled, { css } from 'styled-components';
 import { Headline4, applyNoSelect } from '@salutejs/plasma-b2c';
-import { IconRoot } from '@salutejs/plasma-icons';
 import { secondary } from '@salutejs/plasma-tokens-b2c';
 
 import { Context, setWizardItem, setIconColor, setIconSize, initColorState, initSizeState } from '../../store';
@@ -12,6 +11,7 @@ import { IconGroupHeading } from './IconGroupHeading';
 import { IconHoverDetails } from './IconHoverDetails';
 import { IconExtendedInfo } from './IconExtendedInfo';
 import { AnimationSlideUp } from './AnimationSlideUp';
+import { AbstractIcon } from './AbstractIcon';
 import { Grid } from './Grid';
 
 export interface IconsListProps {
@@ -21,8 +21,6 @@ export interface IconsListProps {
      */
     onItemClick?: React.HTMLAttributes<HTMLElement>['onClick'];
 }
-
-const size = 's';
 
 const getGridCellPosition = (grid: HTMLDivElement, index: number) => {
     if (!grid) {
@@ -75,7 +73,7 @@ const StyledIconHoverDetails = styled.div`
     ${AnimationSlideUp};
 `;
 
-const StyledIcon = styled.div<{ isActive?: boolean; hasOpacity?: boolean; isDeprecate: boolean }>`
+const StyledIcon = styled.div<{ isDeprecate: boolean; isActive?: boolean; hasOpacity?: boolean }>`
     ${applyNoSelect};
 
     display: flex;
@@ -216,7 +214,7 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
 
         dispatch(setIconColor(initColorState));
 
-        dispatch(setIconSize(initSizeState));
+        dispatch(setIconSize({ ...state.gridItemsSize }));
 
         setCurrentGridRowLabel('');
     };
@@ -239,13 +237,12 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
                         count={group.items.length}
                     />
                     <Grid ref={(el) => el && handleRefInit(el, indexGroup)}>
-                        {group.items.map(({ name, component: Component, groupName, version }, index) => (
+                        {group.items.map(({ name, component, groupName, isDeprecate = false }, index) => (
                             <StyledCell key={name}>
                                 <StyledIcon
-                                    key={name}
                                     hasOpacity={groupName === currentGridRowLabel && name !== state.wizardItemName}
                                     isActive={name === state.wizardItemName}
-                                    isDeprecate={version === 'legacy'}
+                                    isDeprecate={isDeprecate}
                                     onClick={(event) => {
                                         event.stopPropagation();
 
@@ -257,7 +254,7 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
 
                                         dispatch(setIconColor(initColorState));
 
-                                        dispatch(setIconSize(initSizeState));
+                                        dispatch(setIconSize({ ...state.gridItemsSize }));
 
                                         const currentIndex = index + 1;
 
@@ -273,26 +270,15 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
                                         }
                                     }}
                                 >
-                                    {version === 'legacy' ? (
-                                        <IconRoot
-                                            icon={Component}
-                                            size={name === state.wizardItemName ? state.size.value : size}
-                                            color={name === state.wizardItemName ? state.color.value : 'inherit'}
-                                        />
-                                    ) : (
-                                        <Component
-                                            size={name === state.wizardItemName ? state.size.value : size}
-                                            color={name === state.wizardItemName ? state.color.value : 'inherit'}
-                                        />
-                                    )}
+                                    <AbstractIcon isDeprecate={isDeprecate} component={component} name={name} />
                                 </StyledIcon>
                                 <StyledIconHoverDetails>
-                                    <IconHoverDetails name={name} sizes={{ 36: false, 24: true, 16: false }} />
+                                    <IconHoverDetails name={name} sizes={{ 36: true, 24: true, 16: true }} />
                                 </StyledIconHoverDetails>
                                 {name === state.wizardItemName && (
                                     <IconExtendedInfo
                                         onClose={handleCloseExtendInfo}
-                                        isDeprecate={version === 'legacy'}
+                                        isDeprecate={isDeprecate}
                                         offset={offset}
                                     />
                                 )}

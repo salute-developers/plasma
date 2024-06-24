@@ -7,3 +7,4 @@ export { RadioGroup } from './RadioGroup';
 export { SearchForm } from './SearchForm';
 export { ThemeSwitcher } from './ThemeSwitcher';
 export { Footer } from './Footer';
+export { IconFilterMenu } from './IconFilterMenu';

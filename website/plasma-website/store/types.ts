@@ -10,4 +10,8 @@ export interface State {
         value: 'xs' | 's' | 'm';
         label: '16' | '24' | '36';
     };
+    gridItemsSize: {
+        value: 'xs' | 's' | 'm';
+        label: '16' | '24' | '36';
+    };
 }

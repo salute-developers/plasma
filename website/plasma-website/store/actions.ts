@@ -5,6 +5,7 @@ export enum ActionTypes {
     SET_ITEM = 'SET_ITEM',
     SET_ITEM_COLOR = 'SET_ITEM_COLOR',
     SET_ITEM_SIZE = 'SET_ITEM_SIZE',
+    SET_GRID_ITEM_SIZE = 'SET_GRID_ITEM_SIZE',
 }
 
 export type Action =
@@ -23,6 +24,10 @@ export type Action =
     | {
           type: ActionTypes.SET_ITEM_SIZE;
           payload: State['size'];
+      }
+    | {
+          type: ActionTypes.SET_GRID_ITEM_SIZE;
+          payload: State['size'];
       };
 
 export const setTheme = (theme: Theme): Action => ({ type: ActionTypes.SET_THEME, payload: { theme } });
@@ -39,5 +44,10 @@ export const setIconColor = (payload: State['color']): Action => ({
 
 export const setIconSize = (payload: State['size']): Action => ({
     type: ActionTypes.SET_ITEM_SIZE,
+    payload,
+});
+
+export const setIconGridSize = (payload: State['size']): Action => ({
+    type: ActionTypes.SET_GRID_ITEM_SIZE,
     payload,
 });
