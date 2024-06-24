@@ -29,7 +29,7 @@ import TabItem from '@theme/TabItem';
 ```bash
 $ npm install --save react react-dom
 $ npm install --save styled-components
-$ npm install --save @salutejs/{{ name }} @salutejs/plasma-typo @salutejs/plasma-tokens
+$ npm install --save @salutejs/{{ name }} @salutejs/plasma-typo @salutejs/{{ vertical }}
 ```
 
 ## Настройка
@@ -39,7 +39,7 @@ $ npm install --save @salutejs/{{ name }} @salutejs/plasma-typo @salutejs/plasma
 ```jsx title="GlobalStyle.tsx"
 import { createGlobalStyle } from 'styled-components';
 import { standard } from '@salutejs/plasma-typo';
-import { {{ theme }}__light } from '@salutejs/plasma-tokens';
+import { {{ theme }}__light } from '@salutejs/{{ vertical }}';
 
 const ThemeStyle = createGlobalStyle({{ theme }}__light);
 const TypoStyle = createGlobalStyle(standard);
