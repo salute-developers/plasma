@@ -2,15 +2,9 @@ import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
 
 import { Context, setIconSize } from '../../store';
-import type { State } from '../../store';
+import { listSizes } from '../../utils/listSizes';
 
 import { AnimationSlideUp } from './AnimationSlideUp';
-
-const options: Array<State['size']> = [
-    { value: 'xs', label: '16' },
-    { value: 's', label: '24' },
-    { value: 'm', label: '36' },
-];
 
 const StyledOptions = styled.div`
     display: flex;
@@ -94,7 +88,7 @@ export const IconOptionsSize = () => {
 
     return (
         <StyledOptions>
-            {options.map(({ value, label }) => {
+            {listSizes.map(({ value, label }) => {
                 return (
                     <StyledOption
                         key={label}

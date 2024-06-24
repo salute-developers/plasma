@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import type { IconProps } from '@salutejs/plasma-icons';
 
-export type Item = { name: string; component: FC<IconProps>; groupName?: string; version?: 'legacy' | 'new' };
+export type Item = { name: string; component: FC<IconProps>; groupName?: string; isDeprecate?: boolean };
 
 export type IconGroup = {
     title: string;

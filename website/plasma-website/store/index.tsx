@@ -18,6 +18,6 @@ export const ContextProvider: FC<{ children: React.ReactNode }> = ({ children })
     return <Context.Provider value={{ state, dispatch }}>{children}</Context.Provider>;
 };
 
-export { setTheme, setWizardItem, setIconColor, setIconSize } from './actions';
+export { setTheme, setWizardItem, setIconColor, setIconSize, setIconGridSize } from './actions';
 
 export type { State };

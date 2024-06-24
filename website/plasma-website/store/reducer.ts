@@ -10,6 +10,7 @@ export const initialState: State = {
     theme: 'dark',
     color: { ...initColorState },
     size: { ...initSizeState },
+    gridItemsSize: { ...initSizeState },
 };
 
 export const reducer: Reducer<State, Action> = (state, action) => {
@@ -31,6 +32,11 @@ export const reducer: Reducer<State, Action> = (state, action) => {
             return {
                 ...state,
                 size: { ...action.payload },
+            };
+        case ActionTypes.SET_GRID_ITEM_SIZE:
+            return {
+                ...state,
+                gridItemsSize: { ...action.payload },
             };
         default:
             return state;

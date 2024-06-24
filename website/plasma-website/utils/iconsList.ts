@@ -64,7 +64,7 @@ const transformIconsSet = (iconSet: IconSectionsSet) => {
                 Object.entries((iconSectionsSet as IconSectionsSet)[key])
                     .sort()
                     .reduce((a, [iconName, component]) => {
-                        a.push({ name: iconName, component, groupName: iconGroup.subtitle, version: 'legacy' });
+                        a.push({ name: iconName, component, groupName: iconGroup.subtitle, isDeprecate: true });
 
                         return a;
                     }, IconsLegacyList);
@@ -73,7 +73,7 @@ const transformIconsSet = (iconSet: IconSectionsSet) => {
             const icons = Object.entries(group)
                 .sort()
                 .reduce((a, [iconName, component]) => {
-                    a.push({ name: iconName, component, groupName: iconGroup.subtitle, version: 'new' });
+                    a.push({ name: iconName, component, groupName: iconGroup.subtitle, isDeprecate: false });
 
                     return a;
                 }, [] as Item[]);
