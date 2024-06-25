@@ -1498,7 +1498,37 @@ negative: string;
 disabled: {
 true: string;
 };
-}> & TextareaHTMLAttributes<HTMLTextAreaElement> & TextAreaPropsExtends & RefAttributes<HTMLTextAreaElement>>;
+}> & ((Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "cols"> & TextAreaPropsExtends & {
+autoResize?: boolean | undefined;
+maxAuto?: number | undefined;
+minAuto?: number | undefined;
+} & {
+height?: undefined;
+width?: undefined;
+} & {
+rows?: undefined;
+cols?: undefined;
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "cols"> & TextAreaPropsExtends & {
+height?: string | number | undefined;
+width?: string | number | undefined;
+} & {
+autoResize?: undefined;
+maxAuto?: undefined;
+minAuto?: undefined;
+} & {
+rows?: undefined;
+cols?: undefined;
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "cols"> & TextAreaPropsExtends & {
+rows?: number | undefined;
+cols?: number | undefined;
+} & {
+autoResize?: undefined;
+maxAuto?: undefined;
+minAuto?: undefined;
+} & {
+height?: undefined;
+width?: undefined;
+} & RefAttributes<HTMLTextAreaElement>))>;
 
 // @public
 export const TextField: FunctionComponent<PropsType<    {
