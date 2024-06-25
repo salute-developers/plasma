@@ -12,6 +12,7 @@ const getLatestReleaseVersion = (name) => {
         const stats = statSync(path);
         const date = stats.mtime;
         const isCurrentYear = new Date().getFullYear() === date.getFullYear();
+
         releaseDate = new Date(date).toLocaleString('ru', {
             year: isCurrentYear ? undefined : 'numeric',
             month: 'long',
@@ -29,4 +30,5 @@ module.exports = {
     '@salutejs/plasma-b2c': getLatestReleaseVersion('plasma-b2c'),
     '@salutejs/plasma-web': getLatestReleaseVersion('plasma-web'),
     '@salutejs/plasma-ui': getLatestReleaseVersion('plasma-ui'),
+    '@salutejs/plasma-icons': getLatestReleaseVersion('plasma-icons'),
 };

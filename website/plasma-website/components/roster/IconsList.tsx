@@ -1,11 +1,11 @@
 import React, { useMemo, useContext, useRef, useState, useEffect } from 'react';
 import type { FC } from 'react';
 import styled, { css } from 'styled-components';
-import { Headline4, applyNoSelect } from '@salutejs/plasma-b2c';
-import { secondary } from '@salutejs/plasma-tokens-b2c';
+import { Headline4, applyNoSelect, H4 } from '@salutejs/plasma-b2c';
 
-import { Context, setWizardItem, setIconColor, setIconSize, initColorState, initSizeState } from '../../store';
+import { Context, setWizardItem, setIconColor, setIconSize, initColorState } from '../../store';
 import { iconsList } from '../../utils';
+import { multipleMediaQuery } from '../../mixins';
 
 import { IconGroupHeading } from './IconGroupHeading';
 import { IconHoverDetails } from './IconHoverDetails';
@@ -43,12 +43,20 @@ const StyledGridWrapper = styled.div`
     }
 `;
 
-const StyledIconList = styled.div`
-    margin-top: 4rem;
-`;
+const StyledIconList = styled.div``;
 
-const StyledHeadline4 = styled(Headline4).attrs(() => ({ as: 'h4', mt: '8x', mb: '6x' }))`
-    color: ${secondary};
+const StyledEmptySearch = styled(H4)`
+    font-size: 3rem;
+    line-height: 3.25rem;
+    color: rgba(255, 255, 255, 0.96);
+
+    ${multipleMediaQuery(['M'])(css`
+        font-size: 2rem;
+    `)}
+
+    ${multipleMediaQuery(['S'])(css`
+        font-size: 1.25rem;
+    `)}
 `;
 
 const StyledCell = styled.div`
@@ -100,7 +108,7 @@ const StyledIcon = styled.div<{ isDeprecate: boolean; isActive?: boolean; hasOpa
         opacity: 1;
 
         &::before {
-            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.28);
+            box-shadow: 0 0 0 0.063rem rgba(255, 255, 255, 0.28);
         }
 
         & + ${StyledIconHoverDetails} {
@@ -127,12 +135,12 @@ const StyledIcon = styled.div<{ isDeprecate: boolean; isActive?: boolean; hasOpa
         isActive &&
         css`
             &::before {
-                box-shadow: 0 0 0 1px rgba(255, 255, 255, 1);
+                box-shadow: 0 0 0 0.063rem rgba(255, 255, 255, 1);
             }
 
             &:hover {
                 &::before {
-                    box-shadow: 0 0 0 1px rgba(255, 255, 255, 1);
+                    box-shadow: 0 0 0 0.063rem rgba(255, 255, 255, 1);
                 }
             }
         `}
@@ -224,7 +232,9 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
     };
 
     if (!items.length) {
-        return <StyledHeadline4>Nothing found</StyledHeadline4>;
+        return (
+            <StyledEmptySearch bold={false}>У нас нет иконки с таким именем, а по tags пока не ищем</StyledEmptySearch>
+        );
     }
 
     return (

@@ -1,21 +1,31 @@
 import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
+import { IconSearch } from '@salutejs/plasma-icons';
 
 import { Context, setIconGridSize, setIconSize } from '../../store';
 import { listSizes } from '../../utils/listSizes';
 
+import { StyledActionIcon } from './StyledActionIcon';
+
 const StyledFilterMenu = styled.div`
     position: sticky;
-    top: 3rem;
+    top: 2.125rem;
     display: inline-flex;
     row-gap: 0.75rem;
     flex-direction: column;
-    align-self: self-end;
+    align-items: center;
+`;
+
+const StyledIconSearch = styled.span`
+    margin-bottom: 2.5rem;
+
+    ${StyledActionIcon};
 `;
 
 const StyledFilterMenuItem = styled.div<{ isActive?: boolean }>`
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     width: 1.25rem;
     height: 1.25rem;
     font-size: 0.75rem;
@@ -24,7 +34,7 @@ const StyledFilterMenuItem = styled.div<{ isActive?: boolean }>`
 
     cursor: pointer;
 
-    transition: color 120ms ease-in;
+    transition: var(--color-transition);
 
     &:hover {
         color: rgba(255, 255, 255, 1);
@@ -46,8 +56,18 @@ const StyledFilterMenuItem = styled.div<{ isActive?: boolean }>`
 export const IconFilterMenu = () => {
     const { state, dispatch } = useContext(Context);
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    };
+
     return (
         <StyledFilterMenu>
+            <StyledIconSearch onClick={scrollToTop}>
+                <IconSearch size="xs" color="inherit" />
+            </StyledIconSearch>
             {listSizes.map(({ value, label }) => (
                 <StyledFilterMenuItem
                     key={label}
