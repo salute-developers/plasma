@@ -576,7 +576,7 @@ describe('plasma-b2c: Dropdown', () => {
         cy.get('#south_america').should('not.have.class', 'dropdown-item-is-focused');
         cy.get('#brazil').should('have.class', 'dropdown-item-is-focused');
         cy.get('#south_america').should('have.class', 'dropdown-item-is-active');
-        cy.realPress('ArrowLeft');
+        cy.realPress('ArrowLeft').realPress('ArrowLeft');
         cy.get('#south_america').should('have.class', 'dropdown-item-is-focused');
         cy.get('#south_america').should('not.have.class', 'dropdown-item-is-active');
         cy.realPress('ArrowDown')
@@ -589,7 +589,11 @@ describe('plasma-b2c: Dropdown', () => {
         cy.get('#asia').should('have.class', 'dropdown-item-is-active');
         cy.get('#china').should('have.class', 'dropdown-item-is-active');
         cy.get('button').should('have.focus');
-        cy.realPress('ArrowLeft').realPress('ArrowLeft').realPress('ArrowLeft');
+        cy.realPress('ArrowLeft')
+            .realPress('ArrowLeft')
+            .realPress('ArrowLeft')
+            .realPress('ArrowLeft')
+            .realPress('ArrowLeft');
         cy.get('#tree_level_1').should('not.be.visible');
         cy.get('#tree_level_2').should('not.be.visible');
         cy.get('#tree_level_3').should('not.be.visible');
@@ -671,6 +675,7 @@ describe('plasma-b2c: Dropdown', () => {
             .realPress('ArrowDown')
             .realPress('Space')
             .realPress('ArrowLeft')
+            .realPress('ArrowLeft')
             .realPress('ArrowUp')
             .realPress('Space');
         cy.get('#tree_level_1').should('not.be.visible');
@@ -680,6 +685,7 @@ describe('plasma-b2c: Dropdown', () => {
         cy.realPress('Enter')
             .realPress('ArrowDown')
             .realPress('Enter')
+            .realPress('ArrowLeft')
             .realPress('ArrowLeft')
             .realPress('ArrowUp')
             .realPress('Enter');

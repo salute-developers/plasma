@@ -102,11 +102,14 @@ export const useKeyNavigation = ({
 
             case keys.ArrowLeft: {
                 if (focusedPath.length) {
-                    dispatchPath({ type: 'removed_last_level' });
-                    dispatchFocusedPath({ type: 'return_prev_focus' });
+                    if (path.length > focusedPath.length) {
+                        dispatchPath({ type: 'removed_last_level' });
+                    } else {
+                        dispatchFocusedPath({ type: 'return_prev_focus' });
+                    }
                 }
 
-                if (focusedPath.length === 1) {
+                if (path.length === 1) {
                     handleGlobalToggle(false, event);
                 }
 
