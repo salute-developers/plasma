@@ -63,6 +63,11 @@ const meta: Meta<TextAreaProps> = {
             'helperBlock',
         ]),
     },
+    args: {
+        autoResize: false,
+        minAuto: 0,
+        maxAuto: 0,
+    },
 };
 
 export default meta;
