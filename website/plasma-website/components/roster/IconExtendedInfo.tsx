@@ -61,7 +61,7 @@ const StyledIconClose = styled.span`
     height: 2.25rem;
     margin-right: 1.5rem;
     color: rgba(255, 255, 255, 0.28);
-    transition: color 120ms ease-in;
+    transition: var(--color-transition);
 
     cursor: pointer;
 
