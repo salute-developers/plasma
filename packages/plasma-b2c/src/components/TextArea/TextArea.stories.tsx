@@ -59,6 +59,11 @@ const meta: Meta<TextAreaProps> = {
             'onBlur',
         ]),
     },
+    args: {
+        autoResize: false,
+        minAuto: 0,
+        maxAuto: 0,
+    },
 };
 
 export default meta;
