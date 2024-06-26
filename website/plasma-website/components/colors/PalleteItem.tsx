@@ -22,9 +22,13 @@ const StyledMask = styled.div`
     z-index: 2;
     position: absolute;
     inset: 0;
+    visibility: hidden;
+    transition: opacity 1s, visibility 0s linear 1s;
 
     &.${classes.active}{
         opacity: 1;
+        visibility: visible;
+        transition-delay: 0s;
     }
 `;
 
@@ -39,21 +43,36 @@ const StyledMaskItem = styled.div`
     box-sizing: border-box;
     padding-bottom: 1rem;
     color: rgba(0, 0, 0, 0);
+    transition: 0.2s;
 
     &::before {
         content: '';
         position: absolute;
-        inset: 0;
-        box-shadow: 0rem 0rem 0 1rem #000;
-        border-radius: 0.5rem;
+        inset: -0.0625rem;
+        box-shadow: 0;
+        border-radius: 0rem;
         box-sizing: border-box;
-        border-left: 0.0625rem solid black;
-        border-right: 0.0625rem solid black;
+        border-left: 0rem solid transparent;
+        border-right: 0rem solid transparent;
         cursor: pointer;
+        transition: 0.3s;
     }
 
-    &:hover{
-        color: rgba(0, 0, 0, 0.5);
+    &.${classes.active}{
+        transition: 0.2s;
+
+        &:hover{
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        &::before {
+            box-shadow: 0rem 0rem 0 1rem #000;
+            border-radius: 0.5rem;
+            border-left: 0.0625rem solid black;
+            border-right: 0.0625rem solid black;
+            inset: 0;
+            transition: 0.3s;
+        }
     }
 `;
 
@@ -92,7 +111,7 @@ const StyledColorItem = styled.div<{colors: any}>`
         position: relative;
     `;
 
-export const PalleteItem: React.FC<{ colorItem: colorItem, handlerSetColorPage: (color?: string, colorItem?: colorItem) => void }> = ({ colorItem, handlerSetColorPage }) => {
+export const PalleteItem: React.FC<{ colorItem: colorItem, handlerSetColorPage: (color?: string, colorItem?: colorItem, index?: string) => void }> = ({ colorItem, handlerSetColorPage }) => {
     const [hover, setHover] = useState(false);
 
     const colorsKeys = Object.keys(colorItem.colors).reverse();
@@ -101,8 +120,7 @@ export const PalleteItem: React.FC<{ colorItem: colorItem, handlerSetColorPage: 
         <StyledColorItem colors={colorItem.colors} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
             <StyledMask className={hover ? classes.active : ''}>
                 {colorsKeys.map((colorKey) => (
-                    <StyledMaskItem key={colorKey} onClick={() => {handlerSetColorPage(colorItem.colors[colorKey], colorItem); setHover(false);}}>
-                        {colorKey}
+                    <StyledMaskItem className={hover ? classes.active : ''} key={colorKey} onClick={() => {handlerSetColorPage(colorItem.colors[colorKey], colorItem, colorKey); setHover(false);}}>
                     </StyledMaskItem>
                 ))}
             </StyledMask>

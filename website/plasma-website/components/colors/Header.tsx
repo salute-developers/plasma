@@ -12,6 +12,7 @@ const HeaderWrapper  = styled.div`
     z-index: 100;
     cursor: pointer;
     opacity: 0.8;
+    z-index: 99999;
 
     &:hover{ 
         opacity: 1;
