@@ -4,9 +4,9 @@ import { TextReadble } from './TextReadble';
 import { useToast } from '@salutejs/plasma-b2c';
 import type { ShowToastArgs } from '@salutejs/plasma-b2c';
 import { IconCopyOutline } from '@salutejs/plasma-icons';
-import {ContrastRatioChecker} from 'contrast-ratio-checker';
 import { convertHexToRgb } from '../../utils'; 
 import type  { colorItem  }  from  './PalleteItem';
+import { useRouter } from 'next/router';
 
 const ColorItemBackground  =  styled.div<{background: string}>`
     position: fixed;
@@ -15,32 +15,25 @@ const ColorItemBackground  =  styled.div<{background: string}>`
     z-index: 99;
 `;
 
-const ColorItem = styled.div<{color: string}>`
+const ColorItem = styled.div<{color: string, number: undefined | string}>`
     font-size: 0.75rem;
-    width: calc(100% / 16);
+    width: calc(100% / 15);
     height: 100%;
     border-radius: 0.5rem;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    transition: 0.2s;
     background: linear-gradient( 
         ${({color}) => {return color}} 5rem,
         transparent 100%
     );
     cursor: pointer;
     position: relative;
-
-    &:hover{
-        transition: .2s;
-        background: linear-gradient(
-            ${({color}) => {return color}} 8rem,
-            transparent 100%
-        );
-    }
+    transition: 0.2s;
+    color: ${({number}) => Number(number) > 400 ? 'white' : 'black'};
 
     &.selected{
-        width: calc(100% / 8);
+        width: calc(100% / 7.5);
     }
 `;
 
@@ -52,7 +45,7 @@ const ColorItemText = styled.div<{number: number | string}>`
     display: flex;
     flex-direction: column;
     font-size: 4rem;
-    ${({number}) => Number(number) > 400 ? 'left' : 'right'}: 0;
+    ${({number}) => Number(number) > 400 ? 'left' : 'right'}: 0.5rem;
     z-index: 9998;
 `;
 
@@ -83,28 +76,45 @@ const toastData: ShowToastArgs = {
     timeout: 1000,
 };
 
+const OpacityText = styled.div`
+    opacity: 0.6;
+`;
+
+const Text = styled.div`
+    display: flex;
+`;
+
+const IconCopy = styled(IconCopyOutline)`
+    scale: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0s linear 0.2s;
+`;
 
 const ColorIndex = styled.div<{number: number | string}>`
     font-size: 4rem;
     height: 4rem;
     z-index: 9999;
     font-weight: 400;
-    opacity: 0.7;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
     flex-direction: ${({number}) => Number(number) > 400 ? 'row' : 'row-reverse'};
     color: ${({number}) => Number(number) > 400 ? 'white' : 'black'};
 
-    &:hover{
-        opacity: 1;
+    &:hover .copyIcon{
+        opacity: 0.6;
+        visibility: visible;
+        transition-delay: 0s;
     }
 `;
 
+
+
 export const Color: React.FC<{ color: string, colorItem: colorItem}> = ({ color , colorItem }) => {
-    const checker = new ContrastRatioChecker();
-    const colorsKeys = Object.keys(colorItem.colors).reverse() ?? [];
     const [selectedColor, setSelectedColor] = useState(color);
+
+    const router = useRouter();
 
     const { showToast } = useToast();
 
@@ -124,16 +134,40 @@ export const Color: React.FC<{ color: string, colorItem: colorItem}> = ({ color 
         }
     };
 
-    const rgb = convertHexToRgb(selectedColor);
+    const handlerSetColor = (color: string, code: string) => {
+        router.push({pathname: '/colors', query: {
+            color: colorItem?.name,
+            code: code
+        }});
 
+        setSelectedColor(color);
+    }
+
+    const colorsKeys = Object.keys(colorItem.colors).reverse() ?? [];
+
+    const rgb = convertHexToRgb(selectedColor);
+    const colorKeySelected = colorsKeys.find((colorKey) => colorItem.colors[colorKey] === selectedColor);
+    
     return (
         <ColorItemBackground background={selectedColor}>
             <Colors>
                 {colorsKeys.map((colorKey) => (
-                    <ColorItem onClick={() => setSelectedColor(colorItem.colors[colorKey])} color={colorItem.colors[colorKey]} className={selectedColor === colorItem.colors[colorKey] ? 'selected' : ''} key={colorKey}>
+                    <ColorItem number={colorKeySelected} onClick={() => handlerSetColor(colorItem.colors[colorKey], colorKey)} color={colorItem.colors[colorKey]} className={selectedColor === colorItem.colors[colorKey] ? 'selected' : ''} key={colorKey}>
                         {selectedColor === colorItem.colors[colorKey] && <ColorItemText number={colorKey}>
-                            <ColorIndex number={colorKey} onClick={() => copyToClipboard(`rgb(${rgb.red},${rgb.green},${rgb.blue})`)}>{`rgb(${rgb.red},${rgb.green},${rgb.blue})`} <IconCopyOutline color='inhert' size='m' /></ColorIndex>
-                            <ColorIndex number={colorKey} onClick={() => copyToClipboard(selectedColor)}>{selectedColor} <IconCopyOutline color='inhert' size='m' /></ColorIndex>
+                            <ColorIndex number={colorKey} onClick={() => copyToClipboard(`rgb(${rgb.red},${rgb.green},${rgb.blue})`)}>
+                                <Text>
+                                    <OpacityText>rgb&nbsp;</OpacityText>
+                                    {`${rgb.red},${rgb.green},${rgb.blue}`}
+                                </Text> 
+                                <IconCopy className='copyIcon' color='inhert' size='s' />
+                            </ColorIndex>
+                            <ColorIndex number={colorKey} onClick={() => copyToClipboard(selectedColor)}>
+                                <Text>
+                                    <OpacityText>#</OpacityText>
+                                    {selectedColor.slice(1)} 
+                                </Text> 
+                                <IconCopy className='copyIcon' color='inhert' size='s' />
+                            </ColorIndex>
                         </ColorItemText>}
                         {colorKey}
                     </ColorItem>

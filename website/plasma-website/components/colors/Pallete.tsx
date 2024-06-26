@@ -1,11 +1,14 @@
 import { general } from '@salutejs/plasma-colors';
-import React, { ReactNode, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import { Header } from './Header';
 import { PalleteItem } from './PalleteItem';
 import type { colorItem } from './PalleteItem';
 import { Color } from './Color';
+import { GradientScroll } from './GradientScroll';
+import _ from 'lodash';
+import { useRouter } from 'next/router';
 
 const StyledWrapper = styled.div`
     width: 100%;
@@ -23,34 +26,69 @@ const StyledColors = styled.div`
 `;
 
 export const Pallete: React.FC = () => {
-    const colors = Object.keys(general).map((key) => ({
-        name: key,
-        // @ts-ignore
-        colors: general[key],
-    }));
-
+    const [scrollPosition, setScrollPosition] = useState({scrollTop: 0, scrollHeight: 0, clientHeight: 0});
     const [selectColorItem, setSelectColorItem] = useState<null | undefined | colorItem>(null);
     const [selectColor, setSelectColor] = useState<null | string | undefined>(null);
+    const [selectCode, setSelectCode] = useState<null | string | undefined>(null);
 
-    const handlerSetColorPage = (color?: string, colorItem?: colorItem) => {
+    const router = useRouter();
+
+    const scrollRef = useRef<null | HTMLDivElement>(null);
+
+    const handlerSetColorPage = (color?: string, colorItem?: colorItem, code?: string) => {
         setSelectColor(color);
         setSelectColorItem(colorItem);
+        setSelectCode(code);
+
+        router.push({pathname: '/colors', query: {
+            color: colorItem?.name,
+            code: code
+        }});
     }
 
     const handlerOnClose  = ()  =>  {
         if(selectColorItem && selectColor){
             setSelectColorItem(null);
             setSelectColor(null);
+            setSelectCode(null);
+
+            router.push({pathname: '/colors', query: {}});
         }else{
-            window.location.href = '/';
+            router.push({pathname: '/'});
         };
     }
 
-    const headerText = selectColorItem ? `${selectColorItem?.name}` : `Палитра`;
+    const handleScroll = () => {
+        if (scrollRef.current) {
+            const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
+            setScrollPosition({scrollTop, scrollHeight, clientHeight});
+        }
+      };
 
+    const allColors = _.omit(general,['gray', 'coolGray']);
+
+    const colors = Object.keys(allColors).map((key) => ({
+        name: key.charAt(0).toUpperCase() + key.slice(1),
+        // @ts-ignore
+        colors: _.omit(allColors[key], '50'),
+    }));
+
+    const headerText = selectColorItem ? `${selectColorItem?.name} ${selectCode}` : `Палитра`;
+    const colorsForGradiend = colors.map((color)  =>  (color.colors[500]));
+
+    useLayoutEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const color = urlParams.get('color');
+        const code = urlParams.get('code');
+        if(code && color){
+            const colorItemQuery = colors.find((colorItem) => colorItem.name.toLowerCase() == color.toLowerCase());
+            colorItemQuery && handlerSetColorPage(colorItemQuery.colors[code], colorItemQuery, code);
+        }
+    }, []);
     return (
-        <StyledWrapper>
+        <StyledWrapper ref={scrollRef} onScroll={handleScroll}>
             <Header text={headerText} onClose={handlerOnClose} />
+            <GradientScroll colors={colorsForGradiend} scrollHeight={scrollPosition.scrollHeight} scrollTop={scrollPosition.scrollTop} height={scrollPosition.clientHeight} />
             <StyledColors>
                 {colors.map((color, index) => (
                     <PalleteItem key={index} colorItem={color} handlerSetColorPage={handlerSetColorPage} />

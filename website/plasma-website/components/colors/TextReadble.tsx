@@ -58,9 +58,11 @@ const TextSmall = styled.div<{alignX: string, score: string}>`
     flex-direction: ${({alignX}) => rowDirection[alignX]};
     gap: 0.5rem;
     cursor: default;
+    transition: 0.15s;
 
     &:hover{
-        color: ${({score}) => score === 'Poor' ? 'red' : 'inhert'}
+        color: ${({score}) => score === 'Poor' ? 'red' : 'inhert'};
+        transition: 0.15s;
     }
 `;
 const TextLarge = styled.div<{alignX: string, score: string}>`
@@ -71,9 +73,11 @@ const TextLarge = styled.div<{alignX: string, score: string}>`
     gap: 0.5rem;
     flex-direction: ${({alignX}) => rowDirection[alignX]};
     cursor: default;
+    transition: 0.15s;
 
     &:hover{
-        color: ${({score}) => score === 'Poor' ? 'red' : 'inhert'}
+        color: ${({score}) => score === 'Poor' ? 'red' : 'inhert'};
+        transition: 0.15s;
     }
 `;
 
@@ -83,16 +87,16 @@ export const TextReadble: React.FC<{background: string, color: string, alignX: '
     const ratio = Math.round(checker.getContrastRatioByHex(background, color) * 100) / 100;
 
     const small = getWCAGIndex(ratio,'small');
-    const lagre = getWCAGIndex(ratio,'lagre');
+    const large = getWCAGIndex(ratio,'lagre');
 
-    const smallText = [text[small], small, ratio];
-    const lagreText = [text[lagre], lagre, ratio];
+    const smallText = [text[small], small !== 'Poor' ? small : '', ratio];
+    const lagreText = [text[large], large !== 'Poor' ? large : '', ratio];
 
     return (
         <MainWrapper alignX={alignX} style={{color: color, background: background}}>
             <TextWrapper alignX={alignX} alignY={alignY}>
-                <TextLarge score={lagre} alignX={alignX}>{
-                    lagre === 'Poor' && 
+                <TextLarge score={large} alignX={alignX}>{
+                    large === 'Poor' && 
                         <IconAttentionCircleOutline color='red' />
                     }
                     {alignX == 'right' ? lagreText.reverse().join(' ') : lagreText.join(' ')}</TextLarge>
