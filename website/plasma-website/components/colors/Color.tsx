@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { TextReadble } from './TextReadble';
 import { useToast } from '@salutejs/plasma-b2c';
@@ -147,6 +147,10 @@ export const Color: React.FC<{ color: string, colorItem: colorItem}> = ({ color 
 
     const rgb = convertHexToRgb(selectedColor);
     const colorKeySelected = colorsKeys.find((colorKey) => colorItem.colors[colorKey] === selectedColor);
+
+    useEffect(() => {
+        setSelectedColor(color);
+    }, [color])
     
     return (
         <ColorItemBackground background={selectedColor}>

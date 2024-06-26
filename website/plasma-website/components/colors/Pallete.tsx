@@ -1,5 +1,5 @@
 import { general } from '@salutejs/plasma-colors';
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import { Header } from './Header';
@@ -26,12 +26,28 @@ const StyledColors = styled.div`
 `;
 
 export const Pallete: React.FC = () => {
+    const useReactPath = () => {
+        const [path, setPath] = React.useState('');
+        const listenToPopstate = () => {
+          const winPath = window.location.href;
+          setPath(winPath);
+        };
+        React.useEffect(() => {
+          window.addEventListener("popstate", listenToPopstate);
+          return () => {
+            window.removeEventListener("popstate", listenToPopstate);
+          };
+        }, []);
+        return path;
+    };
+
     const [scrollPosition, setScrollPosition] = useState({scrollTop: 0, scrollHeight: 0, clientHeight: 0});
     const [selectColorItem, setSelectColorItem] = useState<null | undefined | colorItem>(null);
     const [selectColor, setSelectColor] = useState<null | string | undefined>(null);
     const [selectCode, setSelectCode] = useState<null | string | undefined>(null);
 
     const router = useRouter();
+    const path = useReactPath();
 
     const scrollRef = useRef<null | HTMLDivElement>(null);
 
@@ -76,15 +92,46 @@ export const Pallete: React.FC = () => {
     const headerText = selectColorItem ? `${selectColorItem?.name} ${selectCode}` : `Палитра`;
     const colorsForGradiend = colors.map((color)  =>  (color.colors[500]));
 
+    // const setPage = () => {
+    //     const urlParams = new URLSearchParams(window.location.search);
+    //     const color = urlParams.get('color');
+    //     const code = urlParams.get('code');
+
+    //     if(code && color){
+    //         const colorItemQuery = colors.find((colorItem) => colorItem.name.toLowerCase() == color.toLowerCase());
+    //         if(colorItemQuery){handlerSetColorPage(colorItemQuery.colors[code], colorItemQuery, code)};
+    //     }else{
+    //         router.push({pathname: '/colors', query: {}});
+    //     }
+    // }
     useLayoutEffect(() => {
         const urlParams = new URLSearchParams(window.location.search);
         const color = urlParams.get('color');
         const code = urlParams.get('code');
+
         if(code && color){
             const colorItemQuery = colors.find((colorItem) => colorItem.name.toLowerCase() == color.toLowerCase());
-            colorItemQuery && handlerSetColorPage(colorItemQuery.colors[code], colorItemQuery, code);
+            if(colorItemQuery){handlerSetColorPage(colorItemQuery.colors[code], colorItemQuery, code)};
+        }else{
+            router.push({pathname: '/colors', query: {}});
         }
     }, []);
+
+    useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const color = urlParams.get('color');
+        const code = urlParams.get('code');
+
+        if(code && color){
+            const colorItemQuery = colors.find((colorItem) => colorItem.name.toLowerCase() == color.toLowerCase());
+            if(colorItemQuery){
+                handlerSetColorPage(colorItemQuery.colors[code], colorItemQuery, code)
+            }
+        }else{
+            handlerOnClose();
+        }
+    }, [path]);
+
     return (
         <StyledWrapper ref={scrollRef} onScroll={handleScroll}>
             <Header text={headerText} onClose={handlerOnClose} />
