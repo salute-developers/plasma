@@ -113,6 +113,10 @@ export const Pallete: React.FC = () => {
             const colorItemQuery = colors.find((colorItem) => colorItem.name.toLowerCase() == color.toLowerCase());
             if(colorItemQuery){handlerSetColorPage(colorItemQuery.colors[code], colorItemQuery, code)};
         }else{
+            setSelectColorItem(null);
+            setSelectColor(null);
+            setSelectCode(null);
+
             router.push({pathname: '/colors', query: {}});
         }
     }, []);
@@ -128,7 +132,11 @@ export const Pallete: React.FC = () => {
                 handlerSetColorPage(colorItemQuery.colors[code], colorItemQuery, code)
             }
         }else{
-            handlerOnClose();
+            setSelectColorItem(null);
+            setSelectColor(null);
+            setSelectCode(null);
+
+            router.push({pathname: '/colors', query: {}});
         }
     }, [path]);
 
