@@ -1,7 +1,7 @@
-import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
-import type { FC, PropsWithChildren } from 'react';
+import React, { createContext, useCallback, useContext, useState } from 'react';
+import type { FC } from 'react';
 
-import { SegmentContextType, SegmentSelectionMode } from './SegmentProvider.types';
+import { SegmentContextType, SegmentProviderProps, SegmentSelectionMode } from './SegmentProvider.types';
 
 export const SegmentContext = createContext<SegmentContextType | undefined>(undefined);
 
@@ -18,8 +18,8 @@ export const useSegment = () => {
     return { selectedSegmentItems };
 };
 
-export const SegmentProvider: FC<PropsWithChildren> = ({ children }) => {
-    const [selectedSegmentItems, setSelectedSegmentItems] = useState<string[]>([]);
+export const SegmentProvider: FC<SegmentProviderProps> = ({ children, defaultSelected }) => {
+    const [selectedSegmentItems, setSelectedSegmentItems] = useState<string[]>(defaultSelected || []);
     const [selectionMode, setSelectionMode] = useState<SegmentSelectionMode>('single');
     const [disabledGroup, setDisabledGroup] = useState(false);
 

@@ -2,5 +2,6 @@ export { segmentItemConfig, segmentItemRoot, segmentGroupConfig, segmentGroupRoo
 export type { SegmentItemProps, SegmentGroupProps } from './ui';
 
 export { SegmentProvider, useSegment } from './SegmentProvider';
+export type { SegmentProviderProps } from './SegmentProvider';
 
 export { tokens as segmentTokens, classes as segmentClasses } from './tokens';
