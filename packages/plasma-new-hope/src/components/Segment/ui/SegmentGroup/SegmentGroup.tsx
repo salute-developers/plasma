@@ -29,11 +29,10 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
             size,
             view,
             children,
-            defaultSelected,
             ...rest
         } = props;
 
-        const { setSelectionMode, setDisabledGroup, setSelectedSegmentItems } = useSegmentInner();
+        const { setSelectionMode, setDisabledGroup } = useSegmentInner();
 
         const [index, setIndex] = useState(0);
         const [firstItemVisible, setFirstItemVisible] = useState(false);
@@ -117,12 +116,6 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
             selectionMode && setSelectionMode(selectionMode);
             setDisabledGroup(disabled);
         }, [selectionMode, disabled]);
-
-        useEffect(() => {
-            if (defaultSelected?.length) {
-                setSelectedSegmentItems(defaultSelected);
-            }
-        }, [defaultSelected]);
 
         useEffect(() => {
             // Intersection observer для первого сегмента
