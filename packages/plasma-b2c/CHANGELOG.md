@@ -1,3 +1,187 @@
+# v1.338.0 (Thu Jun 27 2024)
+
+### Release Notes
+
+#### Release by 26.06.2024 ([#1269](https://github.com/salute-developers/plasma/pull/1269))
+
+## Components
+
+### Accordion
+
+- добавлен новый компонент в поставку для `plasma-{web,b2c}`
+ 
+plasma-*: Add accordion (https://github.com/salute-developers/plasma/pull/1254)
+
+### Sheet
+
+- Добавлен компонент `Sheet`
+ 
+plasma-new-hope: add Sheet component (https://github.com/salute-developers/plasma/pull/1225)
+
+### TextArea
+
+- `TextArea` портирован в `sdds`
+ 
+sdds-serv: add TextArea component (https://github.com/salute-developers/plasma/pull/1263)
+
+### TextArea
+
+- исправлена типизация (разбитие на три группы  `rows / cols`, `height / width`, `autoResize / minAuto / maxAuto`)
+- исправлен расчёт `autoResize`
+- исправлена документация
+ 
+plasma-new-hope: TextArea height / width fixes (https://github.com/salute-developers/plasma/pull/1261)
+
+### TextArea
+
+- удалено упоминание `resize` (свойство `deprecated`)
+ 
+(plasma-{new-hope, web}, sdds-serv): remove resize from docs (https://github.com/salute-developers/plasma/pull/1267)
+
+### Segment
+
+- добавлена возможность задать выбранные по умолчанию сегменты
+- добавлен тест на выбранные значения
+- добавлено пояснение в документации
+ 
+feat(plasma-new-hope): add default selected segment (https://github.com/salute-developers/plasma/pull/1252)
+
+
+## Icons
+
+### 24 [s, small]
+
+- обновлен набор `.svg` иконок
+- обновлены/расширенны категории иконок
+- обновлены snapshots для тестов измененных иконок    
+ 
+feat(plasma-icons): Add icons preset [24, s, small] (https://github.com/salute-developers/plasma/pull/1247)
+
+### 16 [xs, xsmall]
+
+- обновлен набор `.svg` иконок
+ 
+feat(plasma-icons): Add icons preset [16, xs, xsmall] (https://github.com/salute-developers/plasma/pull/1250)
+
+### 36 [m, medium]
+
+- обновлен набор `.svg` иконок
+ 
+feat(plasma-icons): Add icons preset [36, m, medium] (https://github.com/salute-developers/plasma/pull/1257)
+
+### React
+
+- добавлена обработка всех имеющихся размеров: 16, 24, 36 
+- обновлены cypress snapshots с использованием иконки `IconDone`
+
+#### Before/After
+
+![Icon](https://github.com/salute-developers/plasma/assets/2895992/5d7551d5-d392-4a9f-993e-e265a28d6362)
+
+### New-hope
+
+- изменен токен по-умолчанию для свойство `color` в `IconRoot` (теперь `var(--text-primary)`)
+- обновлены cypress snapshots связанные с `var(--text-primary)`
+ 
+plasma-icons: Handle all sizes [React] (https://github.com/salute-developers/plasma/pull/1258)
+
+### Android
+
+- добавлены `.xml` иконки для всех имеющихся размеров: 16, 24, 36
+
+#### After
+
+<img width="672" alt="Screenshot 2024-06-19 at 13 44 22" src="https://github.com/salute-developers/plasma/assets/2895992/878745f3-9f20-4224-826d-c0d898d1a94d" />
+
+<img width="1920" alt="Screenshot 2024-06-19 at 13 46 09" src="https://github.com/salute-developers/plasma/assets/2895992/dca1102a-abbc-4a65-a628-f5acf40f80d8" />
+ 
+plasma-icons: handle all icons size [Android] (https://github.com/salute-developers/plasma/pull/1259)
+
+### Icons page
+
+- добавлен вывод комбинации (старых + новых) иконок
+- добавлено динамическое изменение размера иконок в grid
+- косметические правки по дизайну 
+ 
+plasma-website: Redesign "Icons" page [Part 2] (https://github.com/salute-developers/plasma/pull/1262)
+
+### Icons page
+
+- добавлено меню фильтра по размеру 
+- внесены дизайн правки   
+ 
+plasma-website: Add icons filter menu (https://github.com/salute-developers/plasma/pull/1265)
+
+
+## Docs
+
+### Edit docs
+
+- исправлена документация для компонента `Switch`, `Checkbox` и `Radiobox`
+- изменена работа документации, теперь при генерации файла документации туда добавляются все типы, в том числе и из `react`
+- в компонент `PropsTable` добавлен параметр `include`, который добавляет свойство в документацию, если он является типом из `react`
+ 
+plasma-*: Edit docs core and change docs Switch, Checkbox and Radiobox (https://github.com/salute-developers/plasma/pull/1232)
+
+### Carousel
+
+- исправлено свойства `stylingCallback` на `scopeCallback`
+- исправлено свойства `stylingResetCallback` на `scopeResetCallback`
+
+### Before/After
+
+<img width="1778" src="https://github.com/salute-developers/plasma/assets/38344415/7e21b0f0-8fc8-4a45-a5e6-2ca704eba57f" />
+ 
+Edit carousel docs (https://github.com/salute-developers/plasma/pull/1256)
+
+### Caldera-online
+
+- добавлена документация для библиотеки `caldera-online`
+- поправлены шаблоны документации для `Button, Segment, Radiobox`
+
+ 
+caldera-online: Add documentation  (https://github.com/salute-developers/plasma/pull/1249)
+
+### TextArea
+
+- удалено упоминание `resize` (свойство `deprecated`)
+ 
+(plasma-{new-hope, web}, sdds-serv): remove resize from docs (https://github.com/salute-developers/plasma/pull/1267)
+
+---
+
+#### 🚀 Enhancement
+
+- Release by 26.06.2024 [#1269](https://github.com/salute-developers/plasma/pull/1269) ([@iljs](https://github.com/iljs) [@Salute-Eva](https://github.com/Salute-Eva) [@Yakutoc](https://github.com/Yakutoc) [@denivladislav](https://github.com/denivladislav) [@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-b2c/web): add test for predefined Segments ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- docs(plasma-b2c, plasma-web, sdds-serv): api reports regenerated [#1263](https://github.com/salute-developers/plasma/pull/1263) ([@denivladislav](https://github.com/denivladislav))
+- feat(new-hope): Add disabled, change function and more props [#1254](https://github.com/salute-developers/plasma/pull/1254) ([@iljs](https://github.com/iljs))
+- feat(new-hope): Accordion add to web, b2c and docs ([@iljs](https://github.com/iljs))
+
+#### 🐛 Bug Fix
+
+- Update package-lock.json files ([@Salute-Eva](https://github.com/Salute-Eva))
+- Update versions ([@Salute-Eva](https://github.com/Salute-Eva))
+- docs: regenerate api reports ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- feat(plasma-b2c, plasma-web): autoResize props set in stories ([@denivladislav](https://github.com/denivladislav))
+- feat(plasma-b2c, plasma-web): set resize prop as deprecated ([@denivladislav](https://github.com/denivladislav))
+- fix(plasma-new-hope): fix Sheet types, design and animation ([@denivladislav](https://github.com/denivladislav))
+- docs(plasma-web, plasma-b2c, caldera-online, sdds-serv): api reports regenerated ([@denivladislav](https://github.com/denivladislav))
+- feat(plasma-web, plasma-b2c, caldera-online, sdds-serv): Sheet exported ([@denivladislav](https://github.com/denivladislav))
+- fix(docs): Change proptable and check types after json generate [#1232](https://github.com/salute-developers/plasma/pull/1232) ([@iljs](https://github.com/iljs))
+- fix(sdds-serv): Fix switch types and auto fix docs ([@iljs](https://github.com/iljs))
+- chore: Update package-lock.json files \[skip ci\] ([@Salute-Eva](https://github.com/Salute-Eva))
+
+#### Authors: 5
+
+- [@iljs](https://github.com/iljs)
+- [@Salute-Eva](https://github.com/Salute-Eva)
+- Alexander Lobyntsev ([@Yakutoc](https://github.com/Yakutoc))
+- Krivonos Aleksandr ([@TitanKuzmich](https://github.com/TitanKuzmich))
+- Vladislav Denisov ([@denivladislav](https://github.com/denivladislav))
+
+---
+
 # v1.328.0 (Thu Jun 13 2024)
 
 ### Release Notes
