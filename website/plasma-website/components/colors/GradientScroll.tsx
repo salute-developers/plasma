@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 const Container = styled.div`
     position: fixed;
-    top: 0;
-    height: 100vh;
+    top: 7rem;
+    height: calc(100vh - 200px);
     left: 0;
-    width: 2rem;
-    padding-left: 1rem;
+    width: 4rem;
+    padding-left: 1.875rem;
     box-sizing : border-box;
     display: flex;
     align-items: center;
@@ -15,14 +15,14 @@ const Container = styled.div`
 `;
 
 const ContainerScroll  = styled.div`
-    width: 1rem;
-    height: 80%;
+    width: 2.125rem;
+    height: 100%;
     position: relative;
 `;
 
 const AllScroll = styled.div<{colors: string[]}>`
     background: white;
-    width: 0.125rem;
+    width: 0.25rem;
     height: 100%;
     position: absolute;
     top: 0;
@@ -35,7 +35,7 @@ const AllScroll = styled.div<{colors: string[]}>`
 `;
 
 const Scroll = styled.div<{height: number, top: number}>`
-    background: rgba(255,255,255, 0.28);
+    background: rgba(255,255,255, 0.56);
     width: 0.125rem;
     height: ${({height}) => height}px;
     position: absolute;
@@ -44,16 +44,38 @@ const Scroll = styled.div<{height: number, top: number}>`
     border-radius: 0.125rem;
 `;
 
-export const GradientScroll: React.FC<{ colors: string[], scrollHeight: number, scrollTop: number, height: number }> = ({colors, scrollHeight, scrollTop, height}) => {
-    const heightAllScroll = height * 0.8;
+const TopText = styled.div`
+    top: -2rem;
+    font-size: 0.75rem;
+    left: 100%;
+    position: absolute;
+    opacity: 0.8;
+`;
+
+const BottomText = styled.div`
+    bottom: -2rem;
+    font-size: 0.75rem;
+    left: 100%;
+    position: absolute;
+    opacity: 0.8;
+`;
+
+export const GradientScroll: React.FC<{ hsl: number[], colors: string[], scrollHeight: number, scrollTop: number, height: number }> = ({hsl, colors, scrollHeight, scrollTop, height}) => {
+    const heightAllScroll = height - 200;
     const heightScroll = heightAllScroll / (scrollHeight / height);
     const topScroll = heightAllScroll * (scrollTop / scrollHeight);
 
     return (
         <Container>
             <ContainerScroll>
+                <TopText>
+                    H:{hsl[0]}
+                </TopText>
                 <AllScroll colors={colors} />
                 <Scroll top={topScroll} height={heightScroll} />
+                <BottomText>
+                    H:{hsl[hsl.length - 1]}
+                </BottomText>
             </ContainerScroll>
         </Container>
     );

@@ -6,6 +6,7 @@ export type colorItem = {
         [key in number | string]: string;
     };
     name: string;
+    h: number;
 };
 
 const classes = {
@@ -32,16 +33,16 @@ const StyledMask = styled.div`
     }
 `;
 
-const StyledMaskItem = styled.div`
+const StyledMaskItem = styled.div<{number: string | number}>`
     height: 100%;
     width: 100%;
     overflow: hidden;
     position: relative;
     display: flex;
-    justify-content: center;
     align-items: flex-end;
     box-sizing: border-box;
     padding-bottom: 1rem;
+    padding-left: 1rem;
     color: rgba(0, 0, 0, 0);
     transition: 0.2s;
 
@@ -55,14 +56,16 @@ const StyledMaskItem = styled.div`
         border-left: 0rem solid transparent;
         border-right: 0rem solid transparent;
         cursor: pointer;
-        transition: 0.3s;
+        transition: ease-in 0.3s;
     }
 
     &.${classes.active}{
         transition: 0.2s;
 
         &:hover{
-            color: rgba(0, 0, 0, 0.5);
+            color: ${({number}) => Number(number) > 500 ? 'white' : 'black'};
+            opacity: 0.56;
+            transition: 0.2s;
         }
 
         &::before {
@@ -71,7 +74,7 @@ const StyledMaskItem = styled.div`
             border-left: 0.0625rem solid black;
             border-right: 0.0625rem solid black;
             inset: 0;
-            transition: 0.3s;
+            transition: ease-in 0.3s;
         }
     }
 `;
@@ -82,17 +85,41 @@ const StyledContent  = styled.div`
     padding: 2rem;
     display: flex;
     z-index: 1;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
 `;
 
 const StyledText = styled.div`
-    opacity: 0.3;
+    opacity: 0.28;
     font-size: 4rem;
+    padding: 1rem 0 1.65rem 0;
     color: black;
     font-weight: 400;
+    transition: 0.3;
+    transition: opacity 0.3s, visibility 0s linear 0.3s;
+    overflow: hidden;
 
     &.${classes.active}{
         opacity: 1;
+        visibility: visible;
+        transition-delay: 0s;
+    }
+`;
+
+const StyledSmall = styled.div`
+    opacity: 0.28;
+    font-size: 1rem;
+    color: black;
+    font-weight: 400;
+    transition: 0.3;
+    transition: opacity 0.3s, visibility 0s linear 0.3s;
+    overflow: hidden;
+    margin-top: 0.2rem;
+
+    &.${classes.active}{
+        opacity: 0.56;
+        visibility: visible;
+        transition-delay: 0s;
     }
 `;
 
@@ -120,12 +147,14 @@ export const PalleteItem: React.FC<{ colorItem: colorItem, handlerSetColorPage: 
         <StyledColorItem colors={colorItem.colors} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
             <StyledMask className={hover ? classes.active : ''}>
                 {colorsKeys.map((colorKey) => (
-                    <StyledMaskItem className={hover ? classes.active : ''} key={colorKey} onClick={() => {handlerSetColorPage(colorItem.colors[colorKey], colorItem, colorKey); setHover(false);}}>
+                    <StyledMaskItem number={colorKey} className={hover ? classes.active : ''} key={colorKey} onClick={() => {handlerSetColorPage(colorItem.colors[colorKey], colorItem, colorKey); setHover(false);}}>
+                        {colorKey}
                     </StyledMaskItem>
                 ))}
             </StyledMask>
             <StyledContent>
                 <StyledText className={hover ? classes.active : ''}>{colorItem.name}</StyledText>
+                <StyledSmall className={hover ? classes.active : ''}>H: {colorItem.h}</StyledSmall>
             </StyledContent>
         </StyledColorItem>
     );

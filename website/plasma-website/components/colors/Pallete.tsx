@@ -9,6 +9,7 @@ import { Color } from './Color';
 import { GradientScroll } from './GradientScroll';
 import _ from 'lodash';
 import { useRouter } from 'next/router';
+import { hexToHSL } from '../../utils';
 
 const StyledWrapper = styled.div`
     width: 100%;
@@ -25,22 +26,22 @@ const StyledColors = styled.div`
     gap: 0.125rem;
 `;
 
-export const Pallete: React.FC = () => {
-    const useReactPath = () => {
-        const [path, setPath] = React.useState('');
-        const listenToPopstate = () => {
-          const winPath = window.location.href;
-          setPath(winPath);
-        };
-        React.useEffect(() => {
-          window.addEventListener("popstate", listenToPopstate);
-          return () => {
-            window.removeEventListener("popstate", listenToPopstate);
-          };
-        }, []);
-        return path;
+const useReactPath = () => {
+    const [path, setPath] = React.useState('');
+    const listenToPopstate = () => {
+      const winPath = window.location.href;
+      setPath(winPath);
     };
+    React.useEffect(() => {
+      window.addEventListener("popstate", listenToPopstate);
+      return () => {
+        window.removeEventListener("popstate", listenToPopstate);
+      };
+    }, []);
+    return path;
+};
 
+export const Pallete: React.FC = () => {
     const [scrollPosition, setScrollPosition] = useState({scrollTop: 0, scrollHeight: 0, clientHeight: 0});
     const [selectColorItem, setSelectColorItem] = useState<null | undefined | colorItem>(null);
     const [selectColor, setSelectColor] = useState<null | string | undefined>(null);
@@ -87,10 +88,15 @@ export const Pallete: React.FC = () => {
         name: key.charAt(0).toUpperCase() + key.slice(1),
         // @ts-ignore
         colors: _.omit(allColors[key], '50'),
-    }));
+        // @ts-ignore
+        h: hexToHSL(allColors[key][600])[0],
+    })).sort((a,b) => {
+        return  a.h - b.h;
+    });
 
     const headerText = selectColorItem ? `${selectColorItem?.name} ${selectCode}` : `Палитра`;
     const colorsForGradiend = colors.map((color)  =>  (color.colors[500]));
+    const colorsHSL = colors.map((color)  =>  (color.h));
 
     // const setPage = () => {
     //     const urlParams = new URLSearchParams(window.location.search);
@@ -143,7 +149,7 @@ export const Pallete: React.FC = () => {
     return (
         <StyledWrapper ref={scrollRef} onScroll={handleScroll}>
             <Header text={headerText} onClose={handlerOnClose} />
-            <GradientScroll colors={colorsForGradiend} scrollHeight={scrollPosition.scrollHeight} scrollTop={scrollPosition.scrollTop} height={scrollPosition.clientHeight} />
+            <GradientScroll hsl={colorsHSL} colors={colorsForGradiend} scrollHeight={scrollPosition.scrollHeight} scrollTop={scrollPosition.scrollTop} height={scrollPosition.clientHeight} />
             <StyledColors>
                 {colors.map((color, index) => (
                     <PalleteItem key={index} colorItem={color} handlerSetColorPage={handlerSetColorPage} />
