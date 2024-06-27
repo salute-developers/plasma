@@ -47,7 +47,7 @@ const TextWrapper = styled.div<{alignX: string, alignY: string}>`
     display: flex;
     flex-direction: ${({alignY}) => columnDirection?.[alignY]};
     align-items: ${({alignX}) => justify?.[alignX]};
-    gap: 0.5rem;
+    gap: 0.75rem;
 `;
 
 const TextSmall = styled.div<{alignX: string, score: string}>`

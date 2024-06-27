@@ -22,24 +22,26 @@ const ColorItem = styled.div<{color: string, number: undefined | string}>`
     border-radius: 0.5rem;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    padding-left: 1rem;
     background: linear-gradient( 
         ${({color}) => {return color}} 5rem,
-        transparent 100%
+        transparent 80%
     );
     cursor: pointer;
     position: relative;
     transition: 0.2s;
-    color: ${({number}) => Number(number) > 400 ? 'white' : 'black'};
+    color: ${({number}) => Number(number) > 400 ? 'rgba(255, 255, 255,0.28)' : 'rgba(0, 0, 0,0.28)'};
+    font-weight: 700;
 
     &.selected{
         width: calc(100% / 7.5);
+        color: ${({number}) => Number(number) > 400 ? 'rgba(255, 255, 255,1)' : 'rgba(0, 0, 0, 1)'};
     }
 `;
 
 const ColorItemText = styled.div<{number: number | string}>`
     position: absolute;
-    bottom: 3rem;
+    bottom: 10%;
     height: 11rem;
     gap: 1rem;
     display: flex;
@@ -52,7 +54,7 @@ const ColorItemText = styled.div<{number: number | string}>`
 const Colors = styled.div`
     position: relative;
     width: 100%;
-    height: calc(100vh - 12.5rem);
+    height: calc(100vh - 15rem);
     box-sizing: border-box;
     padding: 0.125rem;
     display: flex;
@@ -61,10 +63,10 @@ const Colors = styled.div`
 
 const TextReadbleWrapper =  styled.div`
     width: 100%;
-    height: 12.5rem;
+    height: 15rem;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 6.25rem 6.25rem;
+    grid-template-rows: 7.5rem 7.5rem;
 `;
 
 const toastData: ShowToastArgs = {
@@ -85,7 +87,7 @@ const Text = styled.div`
 `;
 
 const IconCopy = styled(IconCopyOutline)`
-    scale: 2;
+    scale: 1.7;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s, visibility 0s linear 0.2s;
@@ -163,14 +165,14 @@ export const Color: React.FC<{ color: string, colorItem: colorItem}> = ({ color 
                                     <OpacityText>rgb&nbsp;</OpacityText>
                                     {`${rgb.red},${rgb.green},${rgb.blue}`}
                                 </Text> 
-                                <IconCopy className='copyIcon' color='inhert' size='s' />
+                                <IconCopy className='copyIcon' color='inhert' size='m' />
                             </ColorIndex>
                             <ColorIndex number={colorKey} onClick={() => copyToClipboard(selectedColor)}>
                                 <Text>
                                     <OpacityText>#</OpacityText>
                                     {selectedColor.slice(1)} 
                                 </Text> 
-                                <IconCopy className='copyIcon' color='inhert' size='s' />
+                                <IconCopy className='copyIcon' color='inhert' size='m' />
                             </ColorIndex>
                         </ColorItemText>}
                         {colorKey}
