@@ -1,9 +1,8 @@
-import { FC } from 'react';
 import { iconSectionsSet } from '@salutejs/plasma-icons';
-import type { IconProps } from '@salutejs/plasma-icons';
 import { iconSectionsSet as iconSectionsSetNew } from '@salutejs/plasma-icons/scalable';
 
 import type { IconGroups, Item, IconGroup } from '../types';
+import { Group } from '../types';
 
 import { capitalize } from './capitalize';
 
@@ -48,47 +47,71 @@ const getIconGroupTitles = (group: string): IconGroup => {
     return { title, subtitle };
 };
 
-type IconSectionsSet = Record<string, Record<string, FC<IconProps>>>;
+const iconsListOld = Object.entries(iconSectionsSet)
+    .sort()
+    .reduce((acc, [groupName, group]) => {
+        const iconGroup = getIconGroupTitles(groupName);
 
-const iconsGroupListLegacy = Object.keys(iconSectionsSet);
+        acc[iconGroup.subtitle] = {
+            iconGroup,
+            items: Object.entries(group)
+                .sort()
+                .reduce((a, [iconName, component]) => {
+                    a.push({ name: iconName, component, groupName: iconGroup.subtitle, isDeprecate: true });
 
-const transformIconsSet = (iconSet: IconSectionsSet) => {
-    return Object.entries(iconSet)
-        .sort()
-        .reduce((acc, [groupName, group]) => {
-            const iconGroup = getIconGroupTitles(groupName);
-            const key = groupName.toLowerCase();
-            const IconsLegacyList: Item[] = [];
+                    return a;
+                }, [] as Item[]),
+        };
 
-            if (iconsGroupListLegacy.includes(key)) {
-                Object.entries((iconSectionsSet as IconSectionsSet)[key])
-                    .sort()
-                    .reduce((a, [iconName, component]) => {
-                        a.push({ name: iconName, component, groupName: iconGroup.subtitle, isDeprecate: true });
+        return acc;
+    }, {} as Record<string, Group>);
 
-                        return a;
-                    }, IconsLegacyList);
-            }
+const iconsListNew = Object.entries(iconSectionsSetNew)
+    .sort()
+    .reduce((acc, [groupName, group]) => {
+        const iconGroup = getIconGroupTitles(groupName.toLowerCase());
 
-            const icons = Object.entries(group)
+        acc[iconGroup.subtitle] = {
+            iconGroup,
+            items: Object.entries(group)
                 .sort()
                 .reduce((a, [iconName, component]) => {
                     a.push({ name: iconName, component, groupName: iconGroup.subtitle, isDeprecate: false });
 
                     return a;
-                }, [] as Item[]);
+                }, [] as Item[]),
+        };
 
-            const item = {
-                iconGroup,
-                items: [...icons, ...IconsLegacyList],
-            };
+        return acc;
+    }, {} as Record<string, Group>);
 
-            acc.push(item);
+const oldIconsKeys = Object.keys(iconsListOld);
+const newIconsKeys = Object.keys(iconsListNew);
 
-            return acc;
-        }, [] as IconGroups);
-};
+const keys = Array.from(new Set([...oldIconsKeys, ...newIconsKeys]));
 
-const iconsListNew = transformIconsSet(iconSectionsSetNew);
+const data = keys.reduce((acc, key) => {
+    if (newIconsKeys.includes(key) && oldIconsKeys.includes(key)) {
+        const list = [...iconsListNew[key].items, ...iconsListOld[key].items];
 
-export const iconsList = iconsListNew;
+        acc.push({ ...iconsListNew[key], items: list });
+
+        return acc;
+    }
+
+    if (oldIconsKeys.includes(key) && !newIconsKeys.includes(key)) {
+        acc.push({ ...iconsListOld[key], items: iconsListOld[key].items });
+
+        return acc;
+    }
+
+    if (newIconsKeys.includes(key) && !oldIconsKeys.includes(key)) {
+        acc.push({ ...iconsListNew[key], items: iconsListNew[key].items });
+
+        return acc;
+    }
+
+    return acc;
+}, [] as IconGroups);
+
+export const iconsList = data;
