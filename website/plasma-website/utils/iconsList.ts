@@ -57,7 +57,7 @@ const iconsListOld = Object.entries(iconSectionsSet)
             items: Object.entries(group)
                 .sort()
                 .reduce((a, [iconName, component]) => {
-                    a.push({ name: iconName, component, groupName: iconGroup.subtitle, isDeprecate: true });
+                    a.push({ name: iconName, component, groupName: iconGroup.subtitle, isDeprecated: true });
 
                     return a;
                 }, [] as Item[]),
@@ -76,7 +76,7 @@ const iconsListNew = Object.entries(iconSectionsSetNew)
             items: Object.entries(group)
                 .sort()
                 .reduce((a, [iconName, component]) => {
-                    a.push({ name: iconName, component, groupName: iconGroup.subtitle, isDeprecate: false });
+                    a.push({ name: iconName, component, groupName: iconGroup.subtitle, isDeprecated: false });
 
                     return a;
                 }, [] as Item[]),

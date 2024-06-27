@@ -8,10 +8,10 @@ import { Context } from '../../store';
 type AbstractIconProps = {
     name: string;
     component: FC<IconProps>;
-    isDeprecate: boolean;
+    isDeprecated: boolean;
 };
 
-export const AbstractIcon = ({ name, component: Component, isDeprecate }: AbstractIconProps) => {
+export const AbstractIcon = ({ name, component: Component, isDeprecated }: AbstractIconProps) => {
     const { state } = useContext(Context);
 
     const props = {
@@ -22,5 +22,5 @@ export const AbstractIcon = ({ name, component: Component, isDeprecate }: Abstra
     // INFO: В том случае когда у нас иконка из старого набора (нет фактического файла для нужного размера),
     // INFO: используем обертку IconRoot.
     // INFO: В противном случае используем компонент иконки.
-    return isDeprecate ? <IconRoot icon={Component} {...props} /> : <Component {...props} />;
+    return isDeprecated ? <IconRoot icon={Component} {...props} /> : <Component {...props} />;
 };

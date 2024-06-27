@@ -1,7 +1,7 @@
 import React, { useMemo, useContext, useRef, useState, useEffect } from 'react';
 import type { FC } from 'react';
 import styled, { css } from 'styled-components';
-import { Headline4, applyNoSelect, H4 } from '@salutejs/plasma-b2c';
+import { applyNoSelect, H4 } from '@salutejs/plasma-b2c';
 
 import { Context, setWizardItem, setIconColor, setIconSize, initColorState } from '../../store';
 import { iconsList } from '../../utils';
@@ -81,7 +81,7 @@ const StyledIconHoverDetails = styled.div`
     ${AnimationSlideUp};
 `;
 
-const StyledIcon = styled.div<{ isDeprecate: boolean; isActive?: boolean; hasOpacity?: boolean }>`
+const StyledIcon = styled.div<{ isDeprecated: boolean; isActive?: boolean; hasOpacity?: boolean }>`
     ${applyNoSelect};
 
     display: flex;
@@ -116,8 +116,8 @@ const StyledIcon = styled.div<{ isDeprecate: boolean; isActive?: boolean; hasOpa
         }
     }
 
-    ${({ isDeprecate }) =>
-        isDeprecate &&
+    ${({ isDeprecated }) =>
+        isDeprecated &&
         css`
             &::after {
                 content: '';
@@ -247,12 +247,12 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
                         count={group.items.length}
                     />
                     <Grid ref={(el) => el && handleRefInit(el, indexGroup)}>
-                        {group.items.map(({ name, component, groupName, isDeprecate = false }, index) => (
+                        {group.items.map(({ name, component, groupName, isDeprecated = false }, index) => (
                             <StyledCell key={name}>
                                 <StyledIcon
                                     hasOpacity={groupName === currentGridRowLabel && name !== state.wizardItemName}
                                     isActive={name === state.wizardItemName}
-                                    isDeprecate={isDeprecate}
+                                    isDeprecated={isDeprecated}
                                     onClick={(event) => {
                                         event.stopPropagation();
 
@@ -280,7 +280,7 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
                                         }
                                     }}
                                 >
-                                    <AbstractIcon isDeprecate={isDeprecate} component={component} name={name} />
+                                    <AbstractIcon isDeprecated={isDeprecated} component={component} name={name} />
                                 </StyledIcon>
                                 <StyledIconHoverDetails>
                                     <IconHoverDetails name={name} sizes={{ 36: true, 24: true, 16: true }} />
@@ -288,7 +288,7 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
                                 {name === state.wizardItemName && (
                                     <IconExtendedInfo
                                         onClose={handleCloseExtendInfo}
-                                        isDeprecate={isDeprecate}
+                                        isDeprecated={isDeprecated}
                                         offset={offset}
                                     />
                                 )}
