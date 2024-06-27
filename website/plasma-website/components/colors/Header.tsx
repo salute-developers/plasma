@@ -2,33 +2,38 @@ import React from 'react';
 import styled from 'styled-components';
 import { IconArrowLeft } from '@salutejs/plasma-icons';
 
+const Text = styled.div`
+    font-size: 1rem;
+    color: #FFFFFF;
+    opacity: 0.7;
+`;
+
 const HeaderWrapper  = styled.div`
     display: flex;
     top: 2rem;
-    left: 1.5rem;
-    gap: 1.5rem;
+    left: 1.625rem;
+    gap: 1.75rem;
     position: fixed;
     align-items: center;
     z-index: 100;
     cursor: pointer;
-    opacity: 0.8;
     z-index: 99999;
 
-    &:hover{ 
+    &:hover .hoverHeader{ 
         opacity: 1;
     }
 `;
 
-const Text = styled.div`
-    font-size: 1rem;
-    color: #FFFFFF;
+const TextBold = styled(Text)`
+    font-weight: 700;
+    opacity: 1;
 `;
 
 export const Header:React.FC<{text?: string, onClose?: () => void}> = ({text, onClose}) => {
     return (
         <HeaderWrapper onClick={() => onClose?.()}>
-            <IconArrowLeft size='xs' />
-            <Text>{text}</Text>
+            <Text className='hoverHeader'>←</Text>
+            <TextBold>{text}</TextBold>
         </HeaderWrapper>
     );
 }
