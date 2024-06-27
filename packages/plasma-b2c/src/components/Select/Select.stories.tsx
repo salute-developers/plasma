@@ -23,7 +23,7 @@ const meta: Meta<StorySelectProps> = {
     component: Select,
     argTypes: {
         target: {
-            options: ['button', 'textfield'],
+            options: ['button-like', 'textfield-like'],
             control: {
                 type: 'select',
             },
@@ -60,7 +60,7 @@ const meta: Meta<StorySelectProps> = {
         },
     },
     args: {
-        target: 'button',
+        target: 'button-like',
         label: 'Label',
         labelPlacement: 'outer',
         placeholder: 'Placeholder',
@@ -442,7 +442,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="default"
-                                    target="textfield"
+                                    target="textfield-like"
                                     contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
                                 />
                             </div>
@@ -456,7 +456,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="default"
-                                    target="textfield"
+                                    target="textfield-like"
                                     contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
                                 />
                             </div>
@@ -585,7 +585,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="positive"
-                                    target="textfield"
+                                    target="textfield-like"
                                     contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
                                 />
                             </div>
@@ -599,7 +599,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="positive"
-                                    target="textfield"
+                                    target="textfield-like"
                                     contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
                                 />
                             </div>
@@ -640,7 +640,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="warning"
-                                    target="textfield"
+                                    target="textfield-like"
                                     contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
                                 />
                             </div>
@@ -654,7 +654,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="warning"
-                                    target="textfield"
+                                    target="textfield-like"
                                     contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
                                 />
                             </div>
@@ -695,7 +695,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="negative"
-                                    target="textfield"
+                                    target="textfield-like"
                                     contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
                                 />
                             </div>
@@ -709,7 +709,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="negative"
-                                    target="textfield"
+                                    target="textfield-like"
                                     contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
                                 />
                             </div>

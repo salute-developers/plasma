@@ -102,4 +102,5 @@ export const constants = {
     textfieldOuterLabelColor: '--text-primary',
     textfieldInnerLabelColor: '--text-secondary',
     textfieldPlaceholderColor: '--text-secondary',
+    opacity: '0.4',
 };

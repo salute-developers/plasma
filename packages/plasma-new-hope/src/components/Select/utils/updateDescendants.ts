@@ -6,7 +6,9 @@ export const updateDescendants = (
     checkedMap: ValueToCheckedMapType,
     isChecked: boolean,
 ) => {
-    if (!node?.items) return;
+    if (!node?.items) {
+        return;
+    }
 
     node.items.forEach((item) => {
         checkedMap.set(item.value, isChecked);

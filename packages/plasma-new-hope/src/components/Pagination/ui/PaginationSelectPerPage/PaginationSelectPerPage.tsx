@@ -32,7 +32,7 @@ export const PaginationSelectPerPage: React.FC<PaginationSelectPerPageProps> = (
                 items={transformedList}
                 value={perPageValue.toString()}
                 onChange={handleSelectChange}
-                target="button"
+                target="button-like"
                 size={size}
                 listWidth={listWidth}
             />

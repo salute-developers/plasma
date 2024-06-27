@@ -239,7 +239,7 @@ describe('plasma-b2c: Select', () => {
             <CypressTestDecoratorWithTypo>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: '30px' }}>
                     <Select
-                        target="button"
+                        target="button-like"
                         view="default"
                         items={items}
                         value={singleValue}
@@ -248,7 +248,7 @@ describe('plasma-b2c: Select', () => {
                         {...props}
                     />
                     <Select
-                        target="button"
+                        target="button-like"
                         view="default"
                         items={items}
                         value={valueMultiple}
@@ -278,7 +278,7 @@ describe('plasma-b2c: Select', () => {
                     />
 
                     <Select
-                        target="button"
+                        target="button-like"
                         view="accent"
                         items={items}
                         value={singleValue}
@@ -287,7 +287,7 @@ describe('plasma-b2c: Select', () => {
                         {...props}
                     />
                     <Select
-                        target="button"
+                        target="button-like"
                         view="accent"
                         items={items}
                         value={valueMultiple}
@@ -299,7 +299,7 @@ describe('plasma-b2c: Select', () => {
                     <div />
 
                     <Select
-                        target="button"
+                        target="button-like"
                         view="secondary"
                         items={items}
                         value={singleValue}
@@ -308,7 +308,7 @@ describe('plasma-b2c: Select', () => {
                         {...props}
                     />
                     <Select
-                        target="button"
+                        target="button-like"
                         view="secondary"
                         items={items}
                         value={valueMultiple}
@@ -320,7 +320,7 @@ describe('plasma-b2c: Select', () => {
                     <div />
 
                     <Select
-                        target="button"
+                        target="button-like"
                         view="clear"
                         items={items}
                         value={singleValue}
@@ -329,7 +329,7 @@ describe('plasma-b2c: Select', () => {
                         {...props}
                     />
                     <Select
-                        target="button"
+                        target="button-like"
                         view="clear"
                         items={items}
                         value={valueMultiple}
@@ -341,7 +341,7 @@ describe('plasma-b2c: Select', () => {
                     <div />
 
                     <Select
-                        target="button"
+                        target="button-like"
                         view="positive"
                         items={items}
                         value={singleValue}
@@ -350,7 +350,7 @@ describe('plasma-b2c: Select', () => {
                         {...props}
                     />
                     <Select
-                        target="button"
+                        target="button-like"
                         view="positive"
                         items={items}
                         value={valueMultiple}
@@ -380,7 +380,7 @@ describe('plasma-b2c: Select', () => {
                     />
 
                     <Select
-                        target="button"
+                        target="button-like"
                         view="warning"
                         items={items}
                         value={singleValue}
@@ -389,7 +389,7 @@ describe('plasma-b2c: Select', () => {
                         {...props}
                     />
                     <Select
-                        target="button"
+                        target="button-like"
                         view="warning"
                         items={items}
                         value={valueMultiple}
@@ -419,7 +419,7 @@ describe('plasma-b2c: Select', () => {
                     />
 
                     <Select
-                        target="button"
+                        target="button-like"
                         view="negative"
                         items={items}
                         value={singleValue}
@@ -428,7 +428,7 @@ describe('plasma-b2c: Select', () => {
                         {...props}
                     />
                     <Select
-                        target="button"
+                        target="button-like"
                         view="negative"
                         items={items}
                         value={valueMultiple}
@@ -458,7 +458,7 @@ describe('plasma-b2c: Select', () => {
                     />
 
                     <Select
-                        target="button"
+                        target="button-like"
                         view="dark"
                         items={items}
                         value={singleValue}
@@ -467,7 +467,7 @@ describe('plasma-b2c: Select', () => {
                         {...props}
                     />
                     <Select
-                        target="button"
+                        target="button-like"
                         view="dark"
                         items={items}
                         value={valueMultiple}
@@ -479,7 +479,7 @@ describe('plasma-b2c: Select', () => {
                     <div />
 
                     <Select
-                        target="button"
+                        target="button-like"
                         view="black"
                         items={items}
                         value={singleValue}
@@ -488,7 +488,7 @@ describe('plasma-b2c: Select', () => {
                         {...props}
                     />
                     <Select
-                        target="button"
+                        target="button-like"
                         view="black"
                         items={items}
                         value={valueMultiple}
@@ -500,7 +500,7 @@ describe('plasma-b2c: Select', () => {
                     <div />
 
                     <Select
-                        target="button"
+                        target="button-like"
                         view="white"
                         items={items}
                         value={singleValue}
@@ -509,7 +509,7 @@ describe('plasma-b2c: Select', () => {
                         {...props}
                     />
                     <Select
-                        target="button"
+                        target="button-like"
                         view="white"
                         items={items}
                         value={valueMultiple}
@@ -650,7 +650,7 @@ describe('plasma-b2c: Select', () => {
                     <div style={{ width: '300px' }}>
                         <Select
                             id="single"
-                            target="button"
+                            target="button-like"
                             label="Список стран single"
                             items={items}
                             value={valueSingle}
@@ -663,7 +663,7 @@ describe('plasma-b2c: Select', () => {
                     <div style={{ width: '300px' }}>
                         <Select
                             id="multiple"
-                            target="button"
+                            target="button-like"
                             label="Список стран multiple"
                             items={items}
                             value={valueMultiple}
@@ -709,7 +709,7 @@ describe('plasma-b2c: Select', () => {
                 <CypressTestDecoratorWithTypo>
                     <div style={{ width: '200px' }}>
                         <Select
-                            target="button"
+                            target="button-like"
                             label="Список стран"
                             items={items}
                             value={valueMultiple}

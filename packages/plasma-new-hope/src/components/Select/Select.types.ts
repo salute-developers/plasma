@@ -11,10 +11,10 @@ export type SelectPlacement = SelectPlacementBasic | 'auto';
 type Target =
     | {
           /**
-           * Стиль селекта: button или textfield.
-           * @default textfield
+           * Стиль селекта: button-like или textfield-like.
+           * @default textfield-like
            */
-          target?: 'textfield';
+          target?: 'textfield-like';
           view?: 'default' | 'positive' | 'warning' | 'negative';
           /**
            * Слот для контента слева.
@@ -39,7 +39,7 @@ type Target =
           helperText?: string;
       }
     | {
-          target?: 'button';
+          target?: 'button-like';
           view?:
               | 'default'
               | 'accent'
@@ -148,7 +148,7 @@ export interface BasicProps {
      */
     view?: string;
     /**
-     * Внешний вид чипа в варианте textfield multiselect.
+     * Внешний вид чипа в варианте textfield-like multiselect.
      */
     chipView?: string;
 

@@ -45,7 +45,7 @@ export const StyledButton = styled(Button)`
     ${buttonTokens.buttonFontWeight}:var(${tokens.fontWeight});
     ${buttonTokens.buttonLetterSpacing}: var(${tokens.fontLetterSpacing});
     ${buttonTokens.buttonLineHeight}: var(${tokens.fontLineHeight});
-    ${buttonTokens.buttonDisabledOpacity}: 0.4;
+    ${buttonTokens.buttonDisabledOpacity}: ${constants.opacity};
     ${buttonTokens.buttonFocusColor}: var(${constants.focusColor});
 
     ${addFocus({

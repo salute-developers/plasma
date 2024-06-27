@@ -6,7 +6,9 @@ export const updateSingleAncestors = (
     checkedMap: ValueToCheckedMapType,
     type: boolean | 'done' | 'dot' | 'indeterminate',
 ) => {
-    if (!node.parent) return;
+    if (!node.parent) {
+        return;
+    }
 
     const { parent } = node;
 

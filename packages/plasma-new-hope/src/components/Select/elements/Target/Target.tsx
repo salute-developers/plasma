@@ -24,7 +24,7 @@ export const Target: React.FC<TargetProps> = ({
     focusedPath,
     focusedToValueMap,
 }) => {
-    return target === 'button' ? (
+    return target === 'button-like' ? (
         <Button
             opened={opened}
             value={value}

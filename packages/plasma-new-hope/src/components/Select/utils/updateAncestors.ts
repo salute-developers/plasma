@@ -2,7 +2,9 @@ import type { ItemOptionTransformed } from '../elements/Inner/elements/Item/Item
 import type { ValueToCheckedMapType } from '../hooks/usePathMaps';
 
 export const updateAncestors = (node: ItemOptionTransformed, checkedMap: ValueToCheckedMapType) => {
-    if (!node?.parent) return;
+    if (!node?.parent) {
+        return;
+    }
 
     const { parent } = node;
     const siblings = parent.items!;

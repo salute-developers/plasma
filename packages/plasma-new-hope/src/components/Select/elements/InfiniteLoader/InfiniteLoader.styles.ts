@@ -16,7 +16,7 @@ export const Wrapper = styled.div<{ variant: SelectProps['variant'] }>`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
+    gap: 0.25rem;
     height: var(${tokens.itemHeight});
     padding: ${({ variant }) => `var(${variant === 'tight' ? tokens.itemPaddingTight : tokens.itemPadding})`};
     font-family: var(${tokens.fontFamily});

@@ -97,7 +97,7 @@ export const Wrapper = styled.li<{ variant: SelectProps['variant'] }>`
     }
 
     &.${classes.dropdownItemIsDisabled} {
-        opacity: 0.4;
+        opacity: ${constants.opacity};
         cursor: not-allowed;
     }
 

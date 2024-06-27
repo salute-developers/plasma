@@ -1989,7 +1989,7 @@ onChange: (value: string) => void;
 separator?: undefined;
 isTargetAmount?: false | undefined;
 } & {
-target?: "textfield" | undefined;
+target?: "textfield-like" | undefined;
 view?: "default" | "positive" | "warning" | "negative" | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 label?: string | undefined;
@@ -2002,7 +2002,7 @@ onChange: (value: string) => void;
 separator?: undefined;
 isTargetAmount?: false | undefined;
 } & {
-target?: "button" | undefined;
+target?: "button-like" | undefined;
 view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "black" | "white" | "dark" | "clear" | undefined;
 contentLeft?: undefined;
 label?: undefined;
@@ -2015,7 +2015,7 @@ onChange: (value: string[]) => void;
 separator?: string | undefined;
 isTargetAmount?: boolean | undefined;
 } & {
-target?: "textfield" | undefined;
+target?: "textfield-like" | undefined;
 view?: "default" | "positive" | "warning" | "negative" | undefined;
 contentLeft?: ReactElement<any, string | JSXElementConstructor<any>> | undefined;
 label?: string | undefined;
@@ -2028,7 +2028,7 @@ onChange: (value: string[]) => void;
 separator?: string | undefined;
 isTargetAmount?: boolean | undefined;
 } & {
-target?: "button" | undefined;
+target?: "button-like" | undefined;
 view?: "default" | "accent" | "secondary" | "positive" | "warning" | "negative" | "black" | "white" | "dark" | "clear" | undefined;
 contentLeft?: undefined;
 label?: undefined;

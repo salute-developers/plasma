@@ -27,7 +27,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
         const {
             value,
             onChange,
-            target = 'textfield',
+            target = 'textfield-like',
             separator,
             items,
             placement = 'bottom',
@@ -108,29 +108,31 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
         };
 
         const handleItemClick = (item: ItemOptionTransformed, e?: React.MouseEvent<HTMLElement>) => {
-            if (isEmpty(item?.items)) {
-                if (multiselect) {
-                    handleCheckboxChange(item);
-                } else {
-                    if (e) {
-                        e.stopPropagation();
-                    }
+            if (!isEmpty(item?.items)) {
+                return;
+            }
 
-                    const checkedCopy = new Map(checked);
-
-                    const isCurrentChecked = checkedCopy.get(item.value);
-
-                    checkedCopy.forEach((_, key) => {
-                        checkedCopy.set(key, false);
-                    });
-
-                    if (!isCurrentChecked) {
-                        checkedCopy.set(item.value, 'done');
-                        updateSingleAncestors(item, checkedCopy, 'dot');
-                    }
-
-                    onChange((isCurrentChecked ? '' : item.value) as any);
+            if (multiselect) {
+                handleCheckboxChange(item);
+            } else {
+                if (e) {
+                    e.stopPropagation();
                 }
+
+                const checkedCopy = new Map(checked);
+
+                const isCurrentChecked = checkedCopy.get(item.value);
+
+                checkedCopy.forEach((_, key) => {
+                    checkedCopy.set(key, false);
+                });
+
+                if (!isCurrentChecked) {
+                    checkedCopy.set(item.value, 'done');
+                    updateSingleAncestors(item, checkedCopy, 'dot');
+                }
+
+                onChange((isCurrentChecked ? '' : item.value) as any);
             }
         };
 
@@ -204,7 +206,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
 
         return (
             <Root ref={ref} size={size} view={getView(view, status)} chipView={chipView} {...(rest as any)}>
-                {label && labelPlacement === 'outer' && target !== 'button' && <OuterLabel>{label}</OuterLabel>}
+                {label && labelPlacement === 'outer' && target !== 'button-like' && <OuterLabel>{label}</OuterLabel>}
                 <Context.Provider
                     value={{
                         focusedPath,
@@ -218,7 +220,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
                     }}
                 >
                     <StyledPopover
-                        ref={targetRef}
+                        ref={targetRef as React.Ref<HTMLDivElement>}
                         isOpen={isCurrentListOpen}
                         placement={getPlacements(placement)}
                         usePortal={Boolean(portal)}
@@ -276,7 +278,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
                         </Root>
                     </StyledPopover>
                 </Context.Provider>
-                {helperText && target === 'textfield' && <HelperText>{helperText}</HelperText>}
+                {helperText && target === 'textfield-like' && <HelperText>{helperText}</HelperText>}
             </Root>
         );
     });
