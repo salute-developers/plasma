@@ -1,17 +1,17 @@
 import React, { useMemo, useContext, useRef, useState, useEffect } from 'react';
-import type { FC, MutableRefObject } from 'react';
+import type { FC } from 'react';
 import styled, { css } from 'styled-components';
 import { Headline4, applyNoSelect } from '@salutejs/plasma-b2c';
-import { IconRoot } from '@salutejs/plasma-icons';
 import { secondary } from '@salutejs/plasma-tokens-b2c';
 
-import { Context, setWizardItem, setIconColor, initColorState } from '../../store';
+import { Context, setWizardItem, setIconColor, setIconSize, initColorState, initSizeState } from '../../store';
 import { iconsList } from '../../utils';
 
 import { IconGroupHeading } from './IconGroupHeading';
 import { IconHoverDetails } from './IconHoverDetails';
 import { IconExtendedInfo } from './IconExtendedInfo';
 import { AnimationSlideUp } from './AnimationSlideUp';
+import { AbstractIcon } from './AbstractIcon';
 import { Grid } from './Grid';
 
 export interface IconsListProps {
@@ -22,20 +22,12 @@ export interface IconsListProps {
     onItemClick?: React.HTMLAttributes<HTMLElement>['onClick'];
 }
 
-const size = 's';
-
-const getGridCellPosition = (ref: MutableRefObject<null>, index: number) => {
-    if (!ref || !ref?.current) {
+const getGridCellPosition = (grid: HTMLDivElement, index: number) => {
+    if (!grid) {
         return 1;
     }
 
-    const gridContainer = ref?.current;
-
-    if (!gridContainer) {
-        return 1;
-    }
-
-    const gridContainerStyle = window.getComputedStyle(gridContainer);
+    const gridContainerStyle = window.getComputedStyle(grid);
 
     const columns = gridContainerStyle.getPropertyValue('grid-template-columns').split(' ').length;
 
@@ -47,7 +39,7 @@ const getGridCellPosition = (ref: MutableRefObject<null>, index: number) => {
 
 const StyledGridWrapper = styled.div`
     &:not(:last-child) {
-        margin-bottom: 3.5rem;
+        margin-bottom: 2.5rem;
     }
 `;
 
@@ -81,41 +73,67 @@ const StyledIconHoverDetails = styled.div`
     ${AnimationSlideUp};
 `;
 
-const StyledIcon = styled.div<{ isActive?: boolean; color?: string; hasOpacity?: boolean }>`
+const StyledIcon = styled.div<{ isDeprecate: boolean; isActive?: boolean; hasOpacity?: boolean }>`
     ${applyNoSelect};
 
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.125rem;
     height: 3.75rem;
-    width: 3.75rem;
-    border-radius: 50%;
-
     background-color: transparent;
 
     box-sizing: border-box;
     cursor: pointer;
+    transition: var(--box-shadow-transition), var(--opacity-transition), var(--color-transition);
 
-    transition: box-shadow 120ms ease-in, opacity 120ms ease-in, color 120ms ease-in;
+    &::before {
+        content: '';
+        position: absolute;
+        height: inherit;
+        width: 3.75rem;
+        border-radius: 50%;
+
+        transition: var(--box-shadow-transition), var(--opacity-transition), var(--color-transition);
+    }
 
     &:hover {
-        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.28);
         opacity: 1;
+
+        &::before {
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.28);
+        }
 
         & + ${StyledIconHoverDetails} {
             display: flex;
         }
     }
 
-    ${({ isActive, color = 'inherit' }) =>
+    ${({ isDeprecate }) =>
+        isDeprecate &&
+        css`
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+                width: 0.5rem;
+                height: 0.5rem;
+                border-radius: 50%;
+                background-color: var(--text-negative);
+            }
+        `}
+
+    ${({ isActive }) =>
         isActive &&
         css`
-            box-shadow: 0 0 0 1px rgba(255, 255, 255, 1);
-            color: ${color};
+            &::before {
+                box-shadow: 0 0 0 1px rgba(255, 255, 255, 1);
+            }
 
             &:hover {
-                box-shadow: 0 0 0 1px rgba(255, 255, 255, 1);
+                &::before {
+                    box-shadow: 0 0 0 1px rgba(255, 255, 255, 1);
+                }
             }
         `}
 
@@ -131,8 +149,9 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
     const { state, dispatch } = useContext(Context);
     const [offset, setOffset] = useState(0);
     const [cellIndex, setCellIndex] = useState(1);
-    const [currentGridRow, setCurrentGridRow] = useState('');
-    const gridRef = useRef(null);
+    const [currentGridRowLabel, setCurrentGridRowLabel] = useState('');
+    const [currentGridIndex, setCurrentGridIndex] = useState(0);
+    const gridRefs = useRef<HTMLDivElement[]>([]);
 
     const items = useMemo(() => {
         if (!searchQuery) {
@@ -149,23 +168,30 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
                 }),
             }))
             .filter((group) => {
-                const currentIndex = group.items.findIndex(({ name }) => name === state.wizardItemName);
-
-                if (currentIndex !== -1) {
-                    setOffset(getGridCellPosition(gridRef, currentIndex + 1));
-                }
-
                 return group.items.length;
             });
-    }, [searchQuery, offset]);
+    }, [searchQuery]);
 
     useEffect(() => {
-        const container = gridRef?.current;
+        // INFO: Определить смещение для grid cell после фильтра поиска
+        items.forEach((group, gridIndex) => {
+            const currentCellIndex = group.items.findIndex(({ name }) => name === state.wizardItemName);
+
+            if (currentCellIndex === -1) {
+                return;
+            }
+
+            setOffset(getGridCellPosition(gridRefs.current[gridIndex], currentCellIndex + 1));
+        });
+    }, [items, offset]);
+
+    useEffect(() => {
+        const container = gridRefs.current[currentGridIndex];
 
         const observer = new window.ResizeObserver((entries) => {
             for (const entry of entries) {
                 if (entry.target === container) {
-                    setOffset(getGridCellPosition(gridRef, cellIndex));
+                    setOffset(getGridCellPosition(container, cellIndex));
                 }
             }
         });
@@ -181,14 +207,20 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
                 observer.unobserve(container);
             }
         };
-    }, [cellIndex, items]);
+    }, [cellIndex, items, currentGridIndex, gridRefs.current]);
 
     const handleCloseExtendInfo = () => {
         dispatch(setWizardItem('icon', ''));
 
         dispatch(setIconColor(initColorState));
 
-        setCurrentGridRow('');
+        dispatch(setIconSize({ ...state.gridItemsSize }));
+
+        setCurrentGridRowLabel('');
+    };
+
+    const handleRefInit = (el: HTMLDivElement, indexGroup: number) => {
+        gridRefs.current[indexGroup] = el;
     };
 
     if (!items.length) {
@@ -197,20 +229,20 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
 
     return (
         <StyledIconList>
-            {items.map((group) => (
+            {items.map((group, indexGroup) => (
                 <StyledGridWrapper key={group.iconGroup.subtitle}>
                     <IconGroupHeading
                         title={group.iconGroup.title}
                         subtitle={group.iconGroup.subtitle}
                         count={group.items.length}
                     />
-                    <Grid ref={gridRef}>
-                        {group.items.map(({ name, component: Component, groupName }, index) => (
+                    <Grid ref={(el) => el && handleRefInit(el, indexGroup)}>
+                        {group.items.map(({ name, component, groupName, isDeprecate = false }, index) => (
                             <StyledCell key={name}>
                                 <StyledIcon
-                                    key={name}
-                                    hasOpacity={groupName === currentGridRow && name !== state.wizardItemName}
+                                    hasOpacity={groupName === currentGridRowLabel && name !== state.wizardItemName}
                                     isActive={name === state.wizardItemName}
+                                    isDeprecate={isDeprecate}
                                     onClick={(event) => {
                                         event.stopPropagation();
 
@@ -218,30 +250,37 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, onItemClick }) => {
 
                                         dispatch(setWizardItem('icon', name));
 
-                                        setCurrentGridRow(group.iconGroup.subtitle);
+                                        setCurrentGridRowLabel(group.iconGroup.subtitle);
 
                                         dispatch(setIconColor(initColorState));
+
+                                        dispatch(setIconSize({ ...state.gridItemsSize }));
 
                                         const currentIndex = index + 1;
 
                                         setCellIndex(currentIndex);
 
-                                        setOffset(getGridCellPosition(gridRef, currentIndex));
+                                        setCurrentGridIndex(indexGroup);
+
+                                        setOffset(getGridCellPosition(gridRefs.current[indexGroup], currentIndex));
 
                                         // Info: Close by double click
                                         if (name === state.wizardItemName) {
                                             handleCloseExtendInfo();
                                         }
                                     }}
-                                    color={state.color?.value}
                                 >
-                                    <IconRoot size={size} icon={Component} color="inherit" />
+                                    <AbstractIcon isDeprecate={isDeprecate} component={component} name={name} />
                                 </StyledIcon>
                                 <StyledIconHoverDetails>
-                                    <IconHoverDetails name={name} sizes={{ 36: false, 24: true, 16: false }} />
+                                    <IconHoverDetails name={name} sizes={{ 36: true, 24: true, 16: true }} />
                                 </StyledIconHoverDetails>
                                 {name === state.wizardItemName && (
-                                    <IconExtendedInfo onClose={handleCloseExtendInfo} offset={offset} />
+                                    <IconExtendedInfo
+                                        onClose={handleCloseExtendInfo}
+                                        isDeprecate={isDeprecate}
+                                        offset={offset}
+                                    />
                                 )}
                             </StyledCell>
                         ))}

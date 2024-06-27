@@ -6,6 +6,8 @@
 
 /// <reference types="react" />
 
+import { AccordionItem } from '@salutejs/plasma-new-hope/styled-components';
+import { AccordionProps } from '@salutejs/plasma-new-hope/styled-components';
 import { addFocus } from '@salutejs/plasma-core';
 import { addNotification } from '@salutejs/plasma-new-hope/styled-components';
 import { AlignProp } from '@salutejs/plasma-new-hope/types/components/Cell/Cell.types';
@@ -201,11 +203,14 @@ import { ScrollSnapProps } from '@salutejs/plasma-core';
 import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
+import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SelectGroup } from '@salutejs/plasma-hope';
 import { SelectProps } from '@salutejs/plasma-hope';
 import { selectText } from '@salutejs/plasma-hope';
 import { setRef } from '@salutejs/plasma-core';
 import { shadows } from '@salutejs/plasma-core';
+import { sheetClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { SheetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShiftProps } from '@salutejs/plasma-core';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
 import { SingleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -228,7 +233,7 @@ import { StyledCard } from '@salutejs/plasma-hope';
 import { StyledComponent } from 'styled-components';
 import { StyledPreviewGallery } from '@salutejs/plasma-hope';
 import { SubtitleProps } from '@salutejs/plasma-new-hope/styled-components';
-import type { SwitchProps } from '@salutejs/plasma-core';
+import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { syntheticFocus } from '@salutejs/plasma-core';
 import { TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
@@ -236,7 +241,7 @@ import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
-import { TextAreaProps } from '@salutejs/plasma-hope';
+import type { TextAreaProps as TextAreaProps_2 } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
 import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { TextfieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
@@ -278,6 +283,38 @@ import { withAutoFocus } from '@salutejs/plasma-core';
 import { WithAutoFocusProps } from '@salutejs/plasma-core';
 import { withSkeleton } from '@salutejs/plasma-new-hope/styled-components';
 import { WithSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
+
+// @public
+export const Accordion: FunctionComponent<PropsType<    {
+view: {
+default: string;
+clear: string;
+};
+size: {
+l: string;
+m: string;
+s: string;
+xs: string;
+};
+stretching: {
+filled: string;
+fixed: string;
+};
+}> & {
+view: string;
+size?: string | undefined;
+singleActive?: boolean | undefined;
+defaultActiveEventKey?: number[] | undefined;
+disabled?: boolean | undefined;
+stretching?: "fixed" | "filled" | undefined;
+onChange?: ((index?: number | undefined, value?: boolean | undefined) => void) | undefined;
+children?: ReactNode;
+className?: string | undefined;
+} & RefAttributes<HTMLDivElement>>;
+
+export { AccordionItem }
+
+export { AccordionProps }
 
 export { addFocus }
 
@@ -825,11 +862,11 @@ l: string;
 view: {
 default: string;
 };
-}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "value" | "type" | "target" | "size" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
+}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "size" | "value" | "type" | "target" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
 valueType?: "single" | undefined;
 value?: ComboboxPrimitiveValue | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue | undefined) => void) | undefined;
-} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "value" | "type" | "target" | "size" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
+} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "size" | "value" | "type" | "target" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
 valueType: "multiple";
 value?: ComboboxPrimitiveValue[] | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue[] | undefined) => void) | undefined;
@@ -1802,6 +1839,8 @@ export { SegmentItemProps }
 
 export { SegmentProvider }
 
+export { SegmentProviderProps }
+
 // @public
 export const Select: React_2.ForwardRefExoticComponent<SelectProps<any> & React_2.RefAttributes<HTMLButtonElement>>;
 
@@ -1814,6 +1853,17 @@ export { selectText }
 export { setRef }
 
 export { shadows }
+
+// @public
+export const Sheet: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+}> & SheetProps & RefAttributes<HTMLDivElement>>;
+
+export { sheetClasses }
+
+export { SheetProps }
 
 export { ShiftProps }
 
@@ -1873,9 +1923,29 @@ m: string;
 }> & SubtitleProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
-export const Switch: ForwardRefExoticComponent<SwitchProps & RefAttributes<HTMLInputElement>>;
+export const Switch: FunctionComponent<PropsType<    {
+size: {
+m: string;
+};
+view: {
+default: string;
+};
+labelPosition: {
+before: string;
+after: string;
+};
+disabled: {
+true: string;
+};
+focused: {
+true: string;
+};
+}> & SwitchProps_2 & RefAttributes<HTMLInputElement>>;
 
-export { SwitchProps }
+// Warning: (ae-forgotten-export) The symbol "SwitchComponent" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export type SwitchProps = ComponentProps<typeof SwitchComponent>;
 
 export { syntheticFocus }
 
@@ -1926,7 +1996,11 @@ export const TextArea: ForwardRefExoticComponent<TextAreaProps & RefAttributes<H
 
 export { TextareaHTMLAttributes }
 
-export { TextAreaProps }
+// @public (undocumented)
+export interface TextAreaProps extends TextAreaProps_2 {
+    // @deprecated (undocumented)
+    resize?: 'none' | 'both' | 'horizontal' | 'vertical';
+}
 
 export { TextareaResize }
 

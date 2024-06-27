@@ -138,7 +138,6 @@ const StyledSheetHandle = styled.div`
 
 /**
  * Открывает окно-шторку поверх основного экрана.
- * Только для приложения Салют.
  */
 export const Sheet = ({
     isOpen,

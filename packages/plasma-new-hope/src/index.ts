@@ -46,5 +46,7 @@ export * from './components/Progress';
 export * from './components/Select';
 export * from './components/Divider';
 export * from './components/Toolbar';
+export * from './components/Sheet';
 export * from './components/Slider';
 export * from './components/Range';
+export * from './components/Accordion';

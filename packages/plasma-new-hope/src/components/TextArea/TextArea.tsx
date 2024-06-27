@@ -160,9 +160,8 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaProps>
                 readOnly,
                 label,
                 labelPlacement,
-                autoResize,
-                rows,
                 value: value || uncontrolledValue || defaultValue,
+                ...(rows ? { rows } : { autoResize }),
             },
             focused,
         );

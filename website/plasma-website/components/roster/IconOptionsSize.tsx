@@ -1,18 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
 
+import { Context, setIconSize } from '../../store';
+import { listSizes } from '../../utils/listSizes';
+
 import { AnimationSlideUp } from './AnimationSlideUp';
-
-type IconOptionsSizeProps = {
-    onChange: (value: string) => void;
-    defaultSize: string;
-};
-
-const options = [
-    { value: 'xs', label: '16' },
-    { value: 's', label: '24' },
-    { value: 'm', label: '36' },
-];
 
 const StyledOptions = styled.div`
     display: flex;
@@ -54,7 +46,7 @@ const StyledOption = styled.div<{ isActive?: boolean; isXS?: boolean }>`
 
     cursor: pointer;
 
-    transition: color 120ms ease-in, background-color 120ms ease-in, border-radius 120ms ease-in;
+    transition: var(--color-transition), var(--background-color-transition), var(--border-radius-transition);
 
     &:hover {
         color: rgba(255, 255, 255, 0.96);
@@ -91,20 +83,19 @@ const StyledOption = styled.div<{ isActive?: boolean; isXS?: boolean }>`
         `}
 `;
 
-export const IconOptionsSize = ({ onChange, defaultSize }: IconOptionsSizeProps) => {
-    const [currentSizeOption, setCurrentSizeOption] = useState<string>(defaultSize);
+export const IconOptionsSize = () => {
+    const { dispatch, state } = useContext(Context);
 
     return (
         <StyledOptions>
-            {options.map(({ value, label }) => {
+            {listSizes.map(({ value, label }) => {
                 return (
                     <StyledOption
                         key={label}
                         isXS={value === 'xs'}
-                        isActive={currentSizeOption === value}
+                        isActive={state.size?.value === value}
                         onClick={() => {
-                            setCurrentSizeOption(value);
-                            onChange(value);
+                            dispatch(setIconSize({ value, label }));
                         }}
                     >
                         <StyledOptionInfo>{label}</StyledOptionInfo>

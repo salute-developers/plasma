@@ -65,7 +65,6 @@ import { dsplMBold } from '@salutejs/sdds-themes/tokens';
 import { dsplS } from '@salutejs/sdds-themes/tokens';
 import { dsplSBold } from '@salutejs/sdds-themes/tokens';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
-import { FocusProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
 import { GridProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -123,8 +122,11 @@ import { ScreenVariant } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
+import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SelectPrimitiveValue } from '@salutejs/plasma-new-hope/styled-components';
 import { SelectProps } from '@salutejs/plasma-new-hope/styled-components';
+import { sheetClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { SheetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
 import { SingleSliderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SliderProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -132,12 +134,14 @@ import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { StatusLabels } from '@salutejs/plasma-new-hope/types/components/Avatar/Avatar.types';
 import { StyledComponent } from 'styled-components';
-import { SwitchPropsVariations } from '@salutejs/plasma-new-hope/types/components/Switch/Switch.types';
+import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabItemRefs } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
+import { TextareaHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
+import { TextAreaPropsExtends } from '@salutejs/plasma-new-hope/types/components/TextArea/TextArea.types';
 import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { TextfieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
 import { TextFieldProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -1292,6 +1296,8 @@ export { SegmentItemProps }
 
 export { SegmentProvider }
 
+export { SegmentProviderProps }
+
 // @public (undocumented)
 export const Select: ForwardRefExoticComponent<SelectProps & RefAttributes<HTMLSelectElement>>;
 
@@ -1324,6 +1330,17 @@ view?: string | undefined;
 export { SelectPrimitiveValue }
 
 export { SelectProps }
+
+// @public
+export const Sheet: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+}> & SheetProps & RefAttributes<HTMLDivElement>>;
+
+export { sheetClasses }
+
+export { SheetProps }
 
 export { ShowToastArgs }
 
@@ -1387,7 +1404,7 @@ export type SpinnerProps = HTMLAttributes<HTMLDivElement> & {
 
 export { SSRProvider }
 
-// @public
+// @public (undocumented)
 export const Switch: FunctionComponent<PropsType<    {
 size: {
 m: string;
@@ -1405,21 +1422,12 @@ true: string;
 focused: {
 true: string;
 };
-}> & Filter<InputHTMLAttributes_2<HTMLInputElement>, "size"> & SwitchPropsVariations & RefAttributes<HTMLInputElement>>;
+}> & SwitchProps_2 & RefAttributes<HTMLInputElement>>;
 
+// Warning: (ae-forgotten-export) The symbol "SwitchComponent" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export type SwitchProps = {
-    id?: string;
-    label?: React.ReactNode;
-    size?: string;
-    view?: string;
-    labelPosition?: 'before' | 'after';
-    description?: React.ReactNode;
-    disabled?: boolean;
-    pressed?: boolean;
-    focused?: boolean;
-    outlined?: boolean;
-} & FocusProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'onChange' | 'onFocus' | 'onBlur'> & Pick<InputHTMLAttributes_2<HTMLInputElement>, 'name' | 'value' | 'checked' | 'disabled' | 'readOnly' | 'onChange' | 'onFocus' | 'onBlur'>;
+export type SwitchProps = ComponentProps<typeof SwitchComponent>;
 
 // @public
 export const TabItem: FunctionComponent<PropsType<    {
@@ -1474,6 +1482,56 @@ export const TabsController: ForwardRefExoticComponent<TabsControllerProps & Ref
 export { TabsControllerProps }
 
 export { TabsProps }
+
+// @public
+export const TextArea: FunctionComponent<PropsType<    {
+size: {
+xs: string;
+s: string;
+m: string;
+l: string;
+};
+view: {
+default: string;
+primary: string;
+positive: string;
+warning: string;
+negative: string;
+};
+disabled: {
+true: string;
+};
+}> & ((Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "cols"> & TextAreaPropsExtends & {
+autoResize?: boolean | undefined;
+maxAuto?: number | undefined;
+minAuto?: number | undefined;
+} & {
+height?: undefined;
+width?: undefined;
+} & {
+rows?: undefined;
+cols?: undefined;
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "cols"> & TextAreaPropsExtends & {
+height?: string | number | undefined;
+width?: string | number | undefined;
+} & {
+autoResize?: undefined;
+maxAuto?: undefined;
+minAuto?: undefined;
+} & {
+rows?: undefined;
+cols?: undefined;
+} & RefAttributes<HTMLTextAreaElement>) | (Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "rows" | "cols"> & TextAreaPropsExtends & {
+rows?: number | undefined;
+cols?: number | undefined;
+} & {
+autoResize?: undefined;
+maxAuto?: undefined;
+minAuto?: undefined;
+} & {
+height?: undefined;
+width?: undefined;
+} & RefAttributes<HTMLTextAreaElement>))>;
 
 // @public
 export const TextField: FunctionComponent<PropsType<    {

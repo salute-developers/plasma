@@ -1,3 +1,4 @@
+export * from './components/Accordion';
 export * from './components/AudioPlayer';
 export * from './components/Badge';
 export * from './components/Button';
@@ -36,6 +37,7 @@ export * from './components/Radiobox';
 export * from './components/Range';
 export * from './components/Segment';
 export * from './components/Select';
+export * from './components/Sheet';
 export * from './components/Skeleton';
 export * from './components/Spinner';
 export * from './components/SSRProvider';

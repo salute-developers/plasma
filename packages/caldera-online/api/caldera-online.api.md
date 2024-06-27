@@ -33,7 +33,6 @@ import { dsplMBold } from '@salutejs/caldera-online-themes/tokens';
 import { dsplS } from '@salutejs/caldera-online-themes/tokens';
 import { dsplSBold } from '@salutejs/caldera-online-themes/tokens';
 import { Filter } from '@salutejs/plasma-new-hope/types/engines/types';
-import { FocusProps } from '@salutejs/plasma-new-hope/styled-components';
 import type { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
 import { h1 } from '@salutejs/caldera-online-themes/tokens';
@@ -48,7 +47,6 @@ import { h5 } from '@salutejs/caldera-online-themes/tokens';
 import { h5Bold } from '@salutejs/caldera-online-themes/tokens';
 import { HTMLAttributes } from 'react';
 import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
-import type { InputHTMLAttributes as InputHTMLAttributes_2 } from 'react';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
 import { mediaQuery } from '@salutejs/plasma-new-hope/styled-components';
 import { modalClasses } from '@salutejs/plasma-new-hope/styled-components';
@@ -66,11 +64,14 @@ import { RefAttributes } from 'react';
 import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
+import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
+import { sheetClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { SheetProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
 import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { StyledComponent } from 'styled-components';
-import { SwitchPropsVariations } from '@salutejs/plasma-new-hope/types/components/Switch/Switch.types';
+import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/styled-components';
 import { textL } from '@salutejs/caldera-online-themes/tokens';
 import { textLBold } from '@salutejs/caldera-online-themes/tokens';
 import { textM } from '@salutejs/caldera-online-themes/tokens';
@@ -538,6 +539,19 @@ export { SegmentItemProps }
 
 export { SegmentProvider }
 
+export { SegmentProviderProps }
+
+// @public
+export const Sheet: FunctionComponent<PropsType<    {
+view: {
+default: string;
+};
+}> & SheetProps & RefAttributes<HTMLDivElement>>;
+
+export { sheetClasses }
+
+export { SheetProps }
+
 export { ShowToastArgs }
 
 // @public
@@ -582,7 +596,7 @@ export type SpinnerProps = HTMLAttributes<HTMLDivElement> & {
 
 export { SSRProvider }
 
-// @public
+// @public (undocumented)
 export const Switch: FunctionComponent<PropsType<    {
 size: {
 m: string;
@@ -600,21 +614,12 @@ true: string;
 focused: {
 true: string;
 };
-}> & Filter<InputHTMLAttributes_2<HTMLInputElement>, "size"> & SwitchPropsVariations & RefAttributes<HTMLInputElement>>;
+}> & SwitchProps_2 & RefAttributes<HTMLInputElement>>;
 
+// Warning: (ae-forgotten-export) The symbol "SwitchComponent" needs to be exported by the entry point index.d.ts
+//
 // @public (undocumented)
-export type SwitchProps = {
-    id?: string;
-    label?: React.ReactNode;
-    size?: string;
-    view?: string;
-    labelPosition?: 'before' | 'after';
-    description?: React.ReactNode;
-    disabled?: boolean;
-    pressed?: boolean;
-    focused?: boolean;
-    outlined?: boolean;
-} & FocusProps & Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'onChange' | 'onFocus' | 'onBlur'> & Pick<InputHTMLAttributes_2<HTMLInputElement>, 'name' | 'value' | 'checked' | 'disabled' | 'readOnly' | 'onChange' | 'onFocus' | 'onBlur'>;
+export type SwitchProps = ComponentProps<typeof SwitchComponent>;
 
 // @public (undocumented)
 export const TextL: FunctionComponent<PropsType<    {

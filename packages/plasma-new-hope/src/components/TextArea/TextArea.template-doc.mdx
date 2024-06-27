@@ -11,7 +11,7 @@ import { PropsTable, Description } from '@site/src/components';
 
 ## Использование
 Компонент `TextArea` может содержать иконку (или кнопку) справа.
-Для этого используйте свойство и `contentRight`:
+Для этого используйте свойство `contentRight`:
 
 ```tsx live
 import React from 'react';
@@ -31,16 +31,54 @@ export function App() {
 }
 ```
 
-Также можно регулировать высоту и ширину, используя свойства `height` и `width`, 
+### Размеры компонента
+Высоту и ширину можно регулировать с помощью свойств `height` и `width`, 
 указав значения в `rem` или соответствующие свойствам css значения.
+`height` и `width` отвечают за **всю** высоту и ширину компонента.
 
-## Autoresize
+```tsx live
+import React from 'react';
+import { TextArea } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <TextArea
+                placeholder="Введите значение"
+                defaultValue="Значение"
+                height={10}
+                width={20}
+            />
+        </div>
+    );
+}
+```
+
+Свойства `rows` и `cols` указываются в абсолютных единицах, отвечают за фиксированное количество строк и столбцов.
+
+```tsx live
+import React from 'react';
+import { TextArea } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <TextArea
+                placeholder="Введите значение"
+                defaultValue="Значение"
+                rows={5}
+                cols={20}
+            />
+        </div>
+    );
+}
+```
+
+### Autoresize
 Также можно включить автоматическое регулирование высоты поля ввода по длине контента внутри (параметра `value`).
 Для этого необходимо использовать свойство `autoResize`. 
-При этом, если пользователь вручную регулирует высоту(`resize`), то она так и остается пользовательской.
 
-В этом режиме можно указать крайние значения высоты поля ввода, используя свойства `autoMin`, `autoMax`,
-указав их в `rem`.
+Свойства `minAuto`, `maxAuto` указываются в абсолютных единицах и отвечают за минимальное и максимальное количество строк.
 
 ```tsx live
 import React from 'react';

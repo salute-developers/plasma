@@ -59,6 +59,11 @@ const meta: Meta<TextAreaProps> = {
             'onBlur',
         ]),
     },
+    args: {
+        autoResize: false,
+        minAuto: 0,
+        maxAuto: 0,
+    },
 };
 
 export default meta;
@@ -77,6 +82,7 @@ const StoryDefault = ({ status, enableContentRight, ...rest }: StoryProps) => {
 
     return (
         <TextArea
+            resize="none"
             value={value}
             contentRight={enableContentRight ? <IconPlaceholder /> : undefined}
             status={status || undefined}

@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
-import { accent, primary, secondary, tertiary } from '@salutejs/plasma-tokens-b2c';
+import { textPrimary, textAccent, textSecondary, textTertiary } from '@salutejs/plasma-tokens/brands';
 
 import { Context, setIconColor, initColorState } from '../../store';
 
 import { AnimationSlideUp } from './AnimationSlideUp';
 
-const colorsList = Object.entries({ accent, primary, secondary, tertiary }).map(([key, value]) => ({
+const colorsList = Object.entries({ textPrimary, textAccent, textSecondary, textTertiary }).map(([key, value]) => ({
     value,
     label: key,
 }));
@@ -49,7 +49,7 @@ const StyledOptionCommon = styled.div<{ isActive?: boolean }>`
     border-radius: 0.75rem;
     color: rgba(255, 255, 255, 0.56);
 
-    transition: color 120ms ease-in, background-color 120ms ease-in;
+    transition: var(--color-transition), background-color var(--background-color-transition);
 
     cursor: pointer;
 

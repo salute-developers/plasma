@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
 import { IconClose } from '@salutejs/plasma-icons';
 import { H2 } from '@salutejs/plasma-b2c';
@@ -14,6 +14,7 @@ import { IconOptionsColors } from './IconOptionsColors';
 type IconInfoProps = {
     onClose: () => void;
     offset: number;
+    isDeprecate: boolean;
 };
 
 const StyledHeader = styled.header`
@@ -35,12 +36,17 @@ const StyledExtendInfo = styled.div<{ offset?: number }>`
     }}px;
     display: block;
     padding-top: 3rem;
-    margin-bottom: 1.5rem;
-    width: 60rem;
+    margin-bottom: 4rem;
+    width: calc(100vw - var(--plasma-grid-largeM-margin) * 2);
+    max-width: 60rem;
     box-sizing: border-box;
 
     ${multipleMediaQuery(['M', 'S'])(css`
         padding-top: 2rem;
+    `)}
+
+    ${multipleMediaQuery(['S'])(css`
+        width: calc(100vw - 1rem * 2);
     `)}
 `;
 
@@ -62,10 +68,18 @@ const StyledIconClose = styled.span`
     &:hover {
         color: rgba(255, 255, 255, 1);
     }
+
+    ${multipleMediaQuery(['S'])(css`
+        margin-right: 0.5rem;
+    `)}
 `;
 
 const StyledContent = styled.div`
     padding-left: 3.75rem;
+
+    ${multipleMediaQuery(['S'])(css`
+        padding-left: 0;
+    `)}
 `;
 
 const StyledClipboardWrapper = styled.div`
@@ -73,9 +87,13 @@ const StyledClipboardWrapper = styled.div`
     flex-direction: column;
 `;
 
-export const IconExtendedInfo = ({ offset, onClose }: IconInfoProps) => {
+const StyledDeprecateIcon = styled.span`
+    margin-left: 1rem;
+    color: var(--text-negative);
+`;
+
+export const IconExtendedInfo = ({ offset, onClose, isDeprecate }: IconInfoProps) => {
     const { state } = useContext(Context);
-    const [iconSize, setIconSize] = useState('xs');
 
     if (!state.wizardItemName) {
         return null;
@@ -83,7 +101,7 @@ export const IconExtendedInfo = ({ offset, onClose }: IconInfoProps) => {
 
     const iconComponent = `Icon${capitalize(state.wizardItemName)}`;
     const importCode = `import { ${iconComponent} } from '@salutejs/plasma-icons';`;
-    const codeSnippet = `<${iconComponent} size="${iconSize}" color="${state.color?.value}" />`;
+    const codeSnippet = `<${iconComponent} size="${state.size?.value}" color="${state.color?.value}" />`;
 
     return (
         <StyledExtendInfo offset={offset}>
@@ -91,12 +109,15 @@ export const IconExtendedInfo = ({ offset, onClose }: IconInfoProps) => {
                 <StyledIconClose onClick={onClose}>
                     <IconClose size="m" color="inherit" />
                 </StyledIconClose>
-                <H2 bold={false}>{state.wizardItemName}</H2>
+                <H2 bold={false}>
+                    {state.wizardItemName}
+                    {isDeprecate && <StyledDeprecateIcon>[deprecate]</StyledDeprecateIcon>}
+                </H2>
             </StyledHeader>
             <StyledContent>
                 <StyledIconOptions>
                     <IconOptionsColors />
-                    <IconOptionsSize defaultSize="xs" onChange={setIconSize} />
+                    <IconOptionsSize />
                 </StyledIconOptions>
                 <StyledClipboardWrapper>
                     <IconClipboard source={importCode} title="Импорт" />

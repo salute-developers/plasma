@@ -101,17 +101,17 @@ module.exports = {
     ],
     plugins: [
         function docgenPlugin() {
+            // Плагин генерации документации
             return {
                 name: 'docusaurus-plugin-react-docgen-typescript',
+                // Загрузка компонентов для документации
                 async loadContent() {
                     return docgen
                         .withCustomConfig('./tsconfig.json', {
                             shouldExtractLiteralValuesFromEnum: true,
                             shouldRemoveUndefinedFromOptional: true,
-                            propFilter: (prop) => {
-                                if (prop.parent) {
-                                    return !prop.parent.fileName.includes('@types/react');
-                                }
+                            propFilter: () => {
+                                // Функция обрезки типов
                                 return true;
                             },
                         })
@@ -136,6 +136,7 @@ module.exports = {
                     };
                 },
                 async contentLoaded({ content, actions }) {
+                    // Генерация массива типов
                     const names = [];
                     content
                         .filter((module) => {
@@ -157,7 +158,7 @@ module.exports = {
                                 `${component.displayName}.json`,
                                 JSON.stringify({
                                     props: Object.entries(component.props).reduce(
-                                        (acc, [key, { declarations, parent, ...rest }]) => ({
+                                        (acc, [key, { declarations, ...rest }]) => ({
                                             ...acc,
                                             [key]: rest,
                                         }),

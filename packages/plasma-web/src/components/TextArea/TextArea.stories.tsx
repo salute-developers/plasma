@@ -63,6 +63,11 @@ const meta: Meta<TextAreaProps> = {
             'helperBlock',
         ]),
     },
+    args: {
+        autoResize: false,
+        minAuto: 0,
+        maxAuto: 0,
+    },
 };
 
 export default meta;
@@ -74,6 +79,7 @@ const StoryDefault = ({ enableContentRight, status, ...rest }: StoryProps) => {
 
     return (
         <TextArea
+            resize="none"
             value={value}
             contentRight={enableContentRight ? <IconPlaceholder /> : undefined}
             status={status || undefined}

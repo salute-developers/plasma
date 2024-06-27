@@ -47,7 +47,7 @@ export const IconRoot: React.FC<IconRootProps> = ({
     className,
     sizeCustomProperty,
 }) => {
-    const c = color || 'var(--plasma-colors-primary)';
+    const c = color || 'var(--text-primary)';
 
     const w = sizeCustomProperty ? `var(${sizeCustomProperty})` : `${sizeMap[size]}rem`;
 

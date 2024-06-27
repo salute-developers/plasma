@@ -1,6 +1,5 @@
 export { FlatButton } from './FlatButton';
 export { Header } from './Header';
-export { IconForm } from './IconForm';
 export { IconsList } from './IconsList';
 export { Main } from './Main';
 export { Panel } from './Panel';
@@ -8,3 +7,4 @@ export { RadioGroup } from './RadioGroup';
 export { SearchForm } from './SearchForm';
 export { ThemeSwitcher } from './ThemeSwitcher';
 export { Footer } from './Footer';
+export { IconFilterMenu } from './IconFilterMenu';
