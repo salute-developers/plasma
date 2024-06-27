@@ -1,4 +1,4 @@
-import { GetButtonLabelProps } from '../elements/Target/elements/Button/Button.types';
+import { GetButtonLabelProps } from '../ui/Target/ui/Button/Button.types';
 import { isEmpty } from '../../../utils';
 
 const getLabel = ({ renderValue, value, valueToItemMap }: GetButtonLabelProps) => {

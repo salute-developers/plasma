@@ -4,8 +4,8 @@ import type { FC } from 'react';
 import { isEmpty } from '../../../../utils';
 import { Ul, StyledPopover } from '../../Select.styles';
 
-import type { ItemOptionTransformed } from './elements/Item/Item.types';
-import { Item } from './elements/Item/Item';
+import type { ItemOptionTransformed } from './ui/Item/Item.types';
+import { Item } from './ui';
 import { InnerProps } from './Inner.type';
 
 export const Inner: FC<InnerProps> = ({ item, currentLevel, path, dispatchPath, index, listWidth }) => {

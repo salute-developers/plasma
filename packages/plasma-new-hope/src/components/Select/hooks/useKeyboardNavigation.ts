@@ -10,7 +10,7 @@ import {
     FocusedChipIndexAction,
 } from '../reducers';
 import { SelectProps } from '../Select.types';
-import type { ItemOptionTransformed } from '../elements/Inner/elements/Item/Item.types';
+import type { ItemOptionTransformed } from '../ui/Inner/ui/Item/Item.types';
 
 import { PathMapType, FocusedToValueMapType, ValueToItemMapType } from './usePathMaps';
 

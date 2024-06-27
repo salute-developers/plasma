@@ -7,15 +7,14 @@ import { getPlacements } from '../Dropdown/utils';
 
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
 import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors, getView } from './utils';
-import { Inner } from './elements/Inner/Inner';
-import { Target } from './elements/Target/Target';
+import { Inner, Target } from './ui';
 import { pathReducer, focusedPathReducer, focusedChipIndexReducer } from './reducers';
 import { usePathMaps } from './hooks/usePathMaps';
 import { StyledPopover, Ul, base, OuterLabel, HelperText } from './Select.styles';
 import type { SelectProps, ItemContext } from './Select.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import type { ItemOptionTransformed } from './elements/Inner/elements/Item/Item.types';
+import type { ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
 
 export const Context = createContext<ItemContext>({} as ItemContext);
 

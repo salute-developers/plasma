@@ -2,7 +2,7 @@ import type { CSSProperties, ButtonHTMLAttributes } from 'react';
 import React from 'react';
 
 import { FocusedPathState } from './reducers';
-import { ItemOption, ItemOptionTransformed } from './elements/Inner/elements/Item/Item.types';
+import { ItemOption, ItemOptionTransformed } from './ui/Inner/ui/Item/Item.types';
 import type { ValueToCheckedMapType } from './hooks/usePathMaps';
 
 export type SelectPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
@@ -64,6 +64,7 @@ type IsMultiselect =
           onChange: (value: string) => void;
           /**
            * Разделитель выбранных значений.
+           * @deprecated
            */
           separator?: never;
           /**

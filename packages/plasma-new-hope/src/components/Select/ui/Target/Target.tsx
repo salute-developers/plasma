@@ -1,8 +1,7 @@
 import React from 'react';
 
 import type { TargetProps } from './Target.types';
-import { Button } from './elements/Button/Button';
-import { Textfield } from './elements/Textfield/Textfield';
+import { Button, Textfield } from './ui';
 
 export const Target: React.FC<TargetProps> = ({
     value,

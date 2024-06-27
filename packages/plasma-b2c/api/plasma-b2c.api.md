@@ -219,7 +219,9 @@ import { ScrollSnapProps } from '@salutejs/plasma-core';
 import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
+import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
 import { SelectNotFoundContent } from '@salutejs/plasma-new-hope/styled-components';
+import { SelectProps } from '@salutejs/plasma-new-hope/styled-components';
 import { selectText } from '@salutejs/plasma-hope';
 import { setRef } from '@salutejs/plasma-core';
 import { shadows } from '@salutejs/plasma-core';
@@ -255,7 +257,7 @@ import { TabsContext } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsControllerProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TabsProps } from '@salutejs/plasma-new-hope/styled-components';
 import { TextareaHTMLAttributes } from '@salutejs/plasma-core';
-import { TextAreaProps } from '@salutejs/plasma-hope';
+import type { TextAreaProps as TextAreaProps_2 } from '@salutejs/plasma-hope';
 import { TextareaResize } from '@salutejs/plasma-core';
 import { TextFieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/TextField/TextField.types';
 import { TextfieldPrimitiveValue } from '@salutejs/plasma-new-hope/types/components/Range/Range.types';
@@ -1958,6 +1960,8 @@ export { SegmentItemProps }
 
 export { SegmentProvider }
 
+export { SegmentProviderProps }
+
 // @public (undocumented)
 export const Select: FunctionComponent<PropsType<    {
 size: {
@@ -2038,6 +2042,8 @@ helperText?: undefined;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "onChange" | "nonce" | "onResize" | "onResizeCapture" | "value"> & RefAttributes<HTMLButtonElement>))>;
 
 export { SelectNotFoundContent }
+
+export { SelectProps }
 
 export { selectText }
 
@@ -2187,7 +2193,11 @@ export const TextArea: ForwardRefExoticComponent<TextAreaProps & RefAttributes<H
 
 export { TextareaHTMLAttributes }
 
-export { TextAreaProps }
+// @public (undocumented)
+export interface TextAreaProps extends TextAreaProps_2 {
+    // @deprecated (undocumented)
+    resize?: 'none' | 'both' | 'horizontal' | 'vertical';
+}
 
 export { TextareaResize }
 

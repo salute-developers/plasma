@@ -1,6 +1,6 @@
 import { isEmpty } from '../../../utils';
 import { SelectProps } from '../Select.types';
-import { ItemOptionTransformed } from '../elements/Inner/elements/Item/Item.types';
+import { ItemOptionTransformed } from '../ui/Inner/ui/Item/Item.types';
 
 export type PathMapType = Map<string | number, number>;
 export type FocusedToValueMapType = Map<string, ItemOptionTransformed>;

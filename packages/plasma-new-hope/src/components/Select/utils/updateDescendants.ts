@@ -1,4 +1,4 @@
-import type { ItemOptionTransformed } from '../elements/Inner/elements/Item/Item.types';
+import type { ItemOptionTransformed } from '../ui/Inner/ui/Item/Item.types';
 import type { ValueToCheckedMapType } from '../hooks/usePathMaps';
 
 export const updateDescendants = (

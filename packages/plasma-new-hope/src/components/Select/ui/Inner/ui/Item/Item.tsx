@@ -16,6 +16,7 @@ import {
     StyledCheckbox,
     IconWrapper,
     StyledIndicator,
+    StyledCheckboxWrapper,
 } from './Item.styles';
 
 export const Item: FC<ItemProps> = ({
@@ -88,14 +89,14 @@ export const Item: FC<ItemProps> = ({
         >
             <IconWrapper variant={variant}>
                 {multiselect && (
-                    <span onClick={(e) => e.stopPropagation()}>
+                    <StyledCheckboxWrapper onClick={(e) => e.stopPropagation()}>
                         <StyledCheckbox
                             checked={Boolean(checked.get(item.value))}
                             indeterminate={checked.get(item.value) === 'indeterminate'}
                             onChange={handleChange}
                             className={classes.selectItemCheckbox}
                         />
-                    </span>
+                    </StyledCheckboxWrapper>
                 )}
 
                 {!multiselect && checked.get(item.value) === 'dot' && <StyledIndicator size="s" view="default" />}

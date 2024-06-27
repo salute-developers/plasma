@@ -4,7 +4,7 @@ import { cx, isEmpty } from '../../../../../../utils';
 import { classes } from '../../../../Select.tokens';
 
 import { TextfieldProps, GetTextfieldLabelProps } from './Textfield.types';
-import { Chip } from './elements/Chip/Chip';
+import { Chip } from './ui';
 import {
     StyledButton,
     StyledArrow,

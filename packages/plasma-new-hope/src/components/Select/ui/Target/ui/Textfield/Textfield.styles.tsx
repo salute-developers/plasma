@@ -148,8 +148,8 @@ export const InnerLabel = styled.label`
 
 export const ContentLeftWrapper = styled.div`
     flex: none;
-    margin-left: -2px;
-    margin-right: 6px;
+    margin-left: -0.125rem;
+    margin-right: 0.375rem;
     line-height: 0;
 `;
 

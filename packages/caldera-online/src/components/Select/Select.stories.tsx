@@ -60,7 +60,7 @@ const meta: Meta<StorySelectProps> = {
         },
     },
     args: {
-        target: 'button-like',
+        target: 'textfield-like',
         label: 'Label',
         labelPlacement: 'outer',
         placeholder: 'Placeholder',
@@ -418,6 +418,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="default"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -430,6 +431,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="default"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -442,7 +444,6 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="default"
-                                    target="textfield-like"
                                     contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
                                 />
                             </div>
@@ -456,7 +457,6 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="default"
-                                    target="textfield-like"
                                     contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
                                 />
                             </div>
@@ -473,6 +473,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="accent"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -485,6 +486,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="accent"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -502,6 +504,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="secondary"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -514,6 +517,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="secondary"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -532,6 +536,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="clear"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -544,6 +549,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="clear"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -561,6 +567,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="positive"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -573,6 +580,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="positive"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -585,7 +593,6 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="positive"
-                                    target="textfield-like"
                                     contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
                                 />
                             </div>
@@ -599,7 +606,6 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="positive"
-                                    target="textfield-like"
                                     contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
                                 />
                             </div>
@@ -616,6 +622,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="warning"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -628,6 +635,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="warning"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -640,7 +648,6 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="warning"
-                                    target="textfield-like"
                                     contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
                                 />
                             </div>
@@ -654,7 +661,6 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="warning"
-                                    target="textfield-like"
                                     contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
                                 />
                             </div>
@@ -671,6 +677,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="negative"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -683,6 +690,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="negative"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -695,7 +703,6 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="negative"
-                                    target="textfield-like"
                                     contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
                                 />
                             </div>
@@ -709,7 +716,6 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="negative"
-                                    target="textfield-like"
                                     contentLeft={enableContentLeft ? <IconPlaceholder size="s" /> : undefined}
                                 />
                             </div>
@@ -726,6 +732,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="dark"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -738,6 +745,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="dark"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -755,6 +763,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="black"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -767,6 +776,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="black"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -784,6 +794,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={value}
                                     onChange={setValue}
                                     view="white"
+                                    target="button-like"
                                 />
                             </div>
                         </td>
@@ -796,6 +807,7 @@ const CommonStory = (args: StorySelectProps) => {
                                     value={valueMultiple}
                                     onChange={setValueMultiple}
                                     view="white"
+                                    target="button-like"
                                 />
                             </div>
                         </td>

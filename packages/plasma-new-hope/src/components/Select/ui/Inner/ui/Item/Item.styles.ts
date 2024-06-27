@@ -119,3 +119,5 @@ export const Wrapper = styled.li<{ variant: SelectProps['variant'] }>`
         `,
     })};
 `;
+
+export const StyledCheckboxWrapper = styled.span``;
