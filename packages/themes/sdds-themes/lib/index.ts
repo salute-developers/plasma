@@ -1,3 +1,8 @@
-import { generate } from '@salutejs/data-themes';
+import { generate } from '@salutejs/core-themes';
 
-generate(['sdds_serv'], 'mage');
+generate([
+    {
+        name: 'sdds_serv',
+        version: 'latest',
+    },
+]);
