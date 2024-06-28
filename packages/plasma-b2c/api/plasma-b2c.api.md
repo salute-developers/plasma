@@ -184,6 +184,7 @@ import { PopupProps as PopupBaseProps } from '@salutejs/plasma-new-hope/styled-c
 import { PopupProvider as PopupBaseProvider } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupInfo } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupProps } from '@salutejs/plasma-hope';
+import { PortalProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PreviewGallery } from '@salutejs/plasma-hope';
 import { PreviewGalleryItemProps } from '@salutejs/plasma-hope';
 import { PreviewGalleryProps } from '@salutejs/plasma-hope';
@@ -1668,6 +1669,11 @@ export { PopupBaseProvider }
 export { PopupInfo }
 
 export { PopupProps }
+
+// @public (undocumented)
+export const Portal: FunctionComponent<PropsType<Variants> & PortalProps & RefAttributes<HTMLDivElement>>;
+
+export { PortalProps }
 
 export { PreviewGallery }
 
