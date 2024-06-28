@@ -100,13 +100,13 @@ const data = keys.reduce((acc, key) => {
     }
 
     if (oldIconsKeys.includes(key) && !newIconsKeys.includes(key)) {
-        acc.push({ ...iconsListOld[key], items: iconsListOld[key].items });
+        acc.push(iconsListOld[key]);
 
         return acc;
     }
 
     if (newIconsKeys.includes(key) && !oldIconsKeys.includes(key)) {
-        acc.push({ ...iconsListNew[key], items: iconsListNew[key].items });
+        acc.push(iconsListNew[key]);
 
         return acc;
     }
