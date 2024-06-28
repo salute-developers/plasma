@@ -28,7 +28,7 @@ module.exports = () => {
     }
 
     if (scope.has(packageTheme)) {
-        scope.add('data-themes');
+        scope.add('core-themes');
         scope.add('plasma-typo');
     }
 
