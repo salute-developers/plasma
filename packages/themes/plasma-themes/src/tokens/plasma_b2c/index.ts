@@ -7,7 +7,7 @@ export const textPrimaryHover = 'var(--text-primary-hover, #FFFFFF93)';
 export const textPrimaryActive = 'var(--text-primary-active, #FFFFFFC4)';
 
 /** Основной цвет текста */
-export const textPrimary = 'var(--text-primary, rgba(255, 255, 255, 0.96))';
+export const textPrimary = 'var(--text-primary, #FFFFFFF5)';
 
 /** Вторичный цвет текста */
 export const textSecondaryHover = 'var(--text-secondary-hover, #FFFFFFFF)';
@@ -16,7 +16,7 @@ export const textSecondaryHover = 'var(--text-secondary-hover, #FFFFFFFF)';
 export const textSecondaryActive = 'var(--text-secondary-active, #FFFFFFAB)';
 
 /** Вторичный цвет текста */
-export const textSecondary = 'var(--text-secondary, rgba(255, 255, 255, 0.56))';
+export const textSecondary = 'var(--text-secondary, #FFFFFF8F)';
 
 /** Третичный цвет текста */
 export const textTertiaryHover = 'var(--text-tertiary-hover, #FFFFFFFF)';
@@ -25,7 +25,7 @@ export const textTertiaryHover = 'var(--text-tertiary-hover, #FFFFFFFF)';
 export const textTertiaryActive = 'var(--text-tertiary-active, #FFFFFF56)';
 
 /** Третичный цвет текста */
-export const textTertiary = 'var(--text-tertiary, rgba(255, 255, 255, 0.28))';
+export const textTertiary = 'var(--text-tertiary, #FFFFFF47)';
 
 /** Сплошной наборный текст */
 export const textParagraphHover = 'var(--text-paragraph-hover, #FFFFFF7A)';
@@ -34,7 +34,7 @@ export const textParagraphHover = 'var(--text-paragraph-hover, #FFFFFF7A)';
 export const textParagraphActive = 'var(--text-paragraph-active, #FFFFFFA3)';
 
 /** Сплошной наборный текст */
-export const textParagraph = 'var(--text-paragraph, rgba(255, 255, 255, 0.8))';
+export const textParagraph = 'var(--text-paragraph, #FFFFFFCC)';
 
 /** Акцентный цвет */
 export const textAccentHover = 'var(--text-accent-hover, #90B6FEFF)';
@@ -44,15 +44,6 @@ export const textAccentActive = 'var(--text-accent-active, #216EFDFF)';
 
 /** Акцентный цвет */
 export const textAccent = 'var(--text-accent, #3F81FD)';
-
-/** Акцентный цвет с градиентом */
-export const textAccentGradientHover = 'var(--text-accent-gradient-hover, #CCCCCCFF)';
-
-/** Акцентный цвет с градиентом */
-export const textAccentGradientActive = 'var(--text-accent-gradient-active, #E6E6E6FF)';
-
-/** Акцентный цвет с градиентом */
-export const textAccentGradient = 'var(--text-accent-gradient, linear-gradient(89.83deg, #5E94FF 0%, #43DBFA 100%))';
 
 /** Цвет успеха */
 export const textPositiveHover = 'var(--text-positive-hover, #1EB83AFF)';
@@ -88,7 +79,7 @@ export const onDarkTextPrimaryHover = 'var(--on-dark-text-primary-hover, #FFFFFF
 export const onDarkTextPrimaryActive = 'var(--on-dark-text-primary-active, #FFFFFFC4)';
 
 /** Основной цвет текста на темном фоне */
-export const onDarkTextPrimary = 'var(--on-dark-text-primary, rgba(255, 255, 255, 0.96))';
+export const onDarkTextPrimary = 'var(--on-dark-text-primary, #FFFFFFF5)';
 
 /** Вторичный цвет текста на темном фоне */
 export const onDarkTextSecondaryHover = 'var(--on-dark-text-secondary-hover, #FFFFFFFF)';
@@ -97,7 +88,7 @@ export const onDarkTextSecondaryHover = 'var(--on-dark-text-secondary-hover, #FF
 export const onDarkTextSecondaryActive = 'var(--on-dark-text-secondary-active, #FFFFFFAB)';
 
 /** Вторичный цвет текста на темном фоне */
-export const onDarkTextSecondary = 'var(--on-dark-text-secondary, rgba(255, 255, 255, 0.56))';
+export const onDarkTextSecondary = 'var(--on-dark-text-secondary, #FFFFFF8F)';
 
 /** Третичный цвет текста на темном фоне */
 export const onDarkTextTertiaryHover = 'var(--on-dark-text-tertiary-hover, #FFFFFFFF)';
@@ -106,7 +97,7 @@ export const onDarkTextTertiaryHover = 'var(--on-dark-text-tertiary-hover, #FFFF
 export const onDarkTextTertiaryActive = 'var(--on-dark-text-tertiary-active, #FFFFFF56)';
 
 /** Третичный цвет текста на темном фоне */
-export const onDarkTextTertiary = 'var(--on-dark-text-tertiary, rgba(255, 255, 255, 0.28))';
+export const onDarkTextTertiary = 'var(--on-dark-text-tertiary, #FFFFFF47)';
 
 /** Сплошной наборный текст на темном фоне */
 export const onDarkTextParagraphHover = 'var(--on-dark-text-paragraph-hover, #FFFFFF7A)';
@@ -115,7 +106,7 @@ export const onDarkTextParagraphHover = 'var(--on-dark-text-paragraph-hover, #FF
 export const onDarkTextParagraphActive = 'var(--on-dark-text-paragraph-active, #FFFFFFA3)';
 
 /** Сплошной наборный текст на темном фоне */
-export const onDarkTextParagraph = 'var(--on-dark-text-paragraph, rgba(255, 255, 255, 0.8))';
+export const onDarkTextParagraph = 'var(--on-dark-text-paragraph, #FFFFFFCC)';
 
 /** Акцентный цвет на темном фоне */
 export const onDarkTextAccentHover = 'var(--on-dark-text-accent-hover, #90B6FEFF)';
@@ -125,16 +116,6 @@ export const onDarkTextAccentActive = 'var(--on-dark-text-accent-active, #216EFD
 
 /** Акцентный цвет на темном фоне */
 export const onDarkTextAccent = 'var(--on-dark-text-accent, #3F81FD)';
-
-/** Акцентный цвет с градиентом на темном фоне */
-export const onDarkTextAccentGradientHover = 'var(--on-dark-text-accent-gradient-hover, #CCCCCCFF)';
-
-/** Акцентный цвет с градиентом на темном фоне */
-export const onDarkTextAccentGradientActive = 'var(--on-dark-text-accent-gradient-active, #E6E6E6FF)';
-
-/** Акцентный цвет с градиентом на темном фоне */
-export const onDarkTextAccentGradient =
-    'var(--on-dark-text-accent-gradient, linear-gradient(89.83deg, #5E94FF 0%, #43DBFA 100%))';
 
 /** Цвет успеха на темном фоне */
 export const onDarkTextPositiveHover = 'var(--on-dark-text-positive-hover, #1EB83AFF)';
@@ -170,7 +151,7 @@ export const onLightTextPrimaryHover = 'var(--on-light-text-primary-hover, #0808
 export const onLightTextPrimaryActive = 'var(--on-light-text-primary-active, #080808C4)';
 
 /** Основной цвет текста на светлом фоне */
-export const onLightTextPrimary = 'var(--on-light-text-primary, rgba(8, 8, 8, 0.96))';
+export const onLightTextPrimary = 'var(--on-light-text-primary, #080808F5)';
 
 /** Вторичный цвет текста на светлом фоне */
 export const onLightTextSecondaryHover = 'var(--on-light-text-secondary-hover, #080808FF)';
@@ -179,7 +160,7 @@ export const onLightTextSecondaryHover = 'var(--on-light-text-secondary-hover, #
 export const onLightTextSecondaryActive = 'var(--on-light-text-secondary-active, #080808AB)';
 
 /** Вторичный цвет текста на светлом фоне */
-export const onLightTextSecondary = 'var(--on-light-text-secondary, rgba(8, 8, 8, 0.56))';
+export const onLightTextSecondary = 'var(--on-light-text-secondary, #0808088F)';
 
 /** Третичный цвет текста на светлом фоне */
 export const onLightTextTertiaryHover = 'var(--on-light-text-tertiary-hover, #080808FF)';
@@ -188,7 +169,7 @@ export const onLightTextTertiaryHover = 'var(--on-light-text-tertiary-hover, #08
 export const onLightTextTertiaryActive = 'var(--on-light-text-tertiary-active, #08080856)';
 
 /** Третичный цвет текста на светлом фоне */
-export const onLightTextTertiary = 'var(--on-light-text-tertiary, rgba(8, 8, 8, 0.28))';
+export const onLightTextTertiary = 'var(--on-light-text-tertiary, #08080847)';
 
 /** Сплошной наборный текст на светлом фоне */
 export const onLightTextParagraphHover = 'var(--on-light-text-paragraph-hover, #0808087A)';
@@ -197,7 +178,7 @@ export const onLightTextParagraphHover = 'var(--on-light-text-paragraph-hover, #
 export const onLightTextParagraphActive = 'var(--on-light-text-paragraph-active, #080808A3)';
 
 /** Сплошной наборный текст на светлом фоне */
-export const onLightTextParagraph = 'var(--on-light-text-paragraph, rgba(8, 8, 8, 0.8))';
+export const onLightTextParagraph = 'var(--on-light-text-paragraph, #080808CC)';
 
 /** Акцентный цвет на светлом фоне */
 export const onLightTextAccentHover = 'var(--on-light-text-accent-hover, #79A7FBFF)';
@@ -207,16 +188,6 @@ export const onLightTextAccentActive = 'var(--on-light-text-accent-active, #0D5F
 
 /** Акцентный цвет на светлом фоне */
 export const onLightTextAccent = 'var(--on-light-text-accent, #2A72F8)';
-
-/** Акцентный цвет с градиентом на светлом фоне */
-export const onLightTextAccentGradientHover = 'var(--on-light-text-accent-gradient-hover, #CCCCCCFF)';
-
-/** Акцентный цвет с градиентом на светлом фоне */
-export const onLightTextAccentGradientActive = 'var(--on-light-text-accent-gradient-active, #E6E6E6FF)';
-
-/** Акцентный цвет с градиентом на светлом фоне */
-export const onLightTextAccentGradient =
-    'var(--on-light-text-accent-gradient, linear-gradient(93.97deg, #3E79F0 6.49%, #27C6E5 93.51%))';
 
 /** Цвет успеха на светлом фоне */
 export const onLightTextPositiveHover = 'var(--on-light-text-positive-hover, #1EB83AFF)';
@@ -252,7 +223,7 @@ export const inverseTextPrimaryHover = 'var(--inverse-text-primary-hover, #08080
 export const inverseTextPrimaryActive = 'var(--inverse-text-primary-active, #080808C4)';
 
 /** Инвертированный основной цвет текста */
-export const inverseTextPrimary = 'var(--inverse-text-primary, rgba(8, 8, 8, 0.96))';
+export const inverseTextPrimary = 'var(--inverse-text-primary, #080808F5)';
 
 /** Инвертированный вторичный цвет текста */
 export const inverseTextSecondaryHover = 'var(--inverse-text-secondary-hover, #080808FF)';
@@ -261,7 +232,7 @@ export const inverseTextSecondaryHover = 'var(--inverse-text-secondary-hover, #0
 export const inverseTextSecondaryActive = 'var(--inverse-text-secondary-active, #080808AB)';
 
 /** Инвертированный вторичный цвет текста */
-export const inverseTextSecondary = 'var(--inverse-text-secondary, rgba(8, 8, 8, 0.56))';
+export const inverseTextSecondary = 'var(--inverse-text-secondary, #0808088F)';
 
 /** Инвертированный третичный цвет текста */
 export const inverseTextTertiaryHover = 'var(--inverse-text-tertiary-hover, #080808FF)';
@@ -270,7 +241,7 @@ export const inverseTextTertiaryHover = 'var(--inverse-text-tertiary-hover, #080
 export const inverseTextTertiaryActive = 'var(--inverse-text-tertiary-active, #08080856)';
 
 /** Инвертированный третичный цвет текста */
-export const inverseTextTertiary = 'var(--inverse-text-tertiary, rgba(8, 8, 8, 0.28))';
+export const inverseTextTertiary = 'var(--inverse-text-tertiary, #08080847)';
 
 /** Инвертированный cплошной наборный текст */
 export const inverseTextParagraphHover = 'var(--inverse-text-paragraph-hover, #0808087A)';
@@ -279,7 +250,7 @@ export const inverseTextParagraphHover = 'var(--inverse-text-paragraph-hover, #0
 export const inverseTextParagraphActive = 'var(--inverse-text-paragraph-active, #080808A3)';
 
 /** Инвертированный cплошной наборный текст */
-export const inverseTextParagraph = 'var(--inverse-text-paragraph, rgba(8, 8, 8, 0.8))';
+export const inverseTextParagraph = 'var(--inverse-text-paragraph, #080808CC)';
 
 /** Основной непрозрачный фон поверхности/контрола */
 export const surfaceSolidPrimaryHover = 'var(--surface-solid-primary-hover, #1C1C1CFF)';
@@ -324,7 +295,7 @@ export const surfaceSolidDefaultHover = 'var(--surface-solid-default-hover, #FFF
 export const surfaceSolidDefaultActive = 'var(--surface-solid-default-active, #FFFFFFFF)';
 
 /** Непрозрачный фон поверхности/контрола по умолчанию */
-export const surfaceSolidDefault = 'var(--surface-solid-default, rgba(255, 255, 255, 1))';
+export const surfaceSolidDefault = 'var(--surface-solid-default, #FFFFFFFF)';
 
 /** Основной прозрачный фон поверхности/контрола */
 export const surfaceTransparentPrimaryHover = 'var(--surface-transparent-primary-hover, #FFFFFF1F)';
@@ -333,7 +304,7 @@ export const surfaceTransparentPrimaryHover = 'var(--surface-transparent-primary
 export const surfaceTransparentPrimaryActive = 'var(--surface-transparent-primary-active, #FFFFFF0A)';
 
 /** Основной прозрачный фон поверхности/контрола */
-export const surfaceTransparentPrimary = 'var(--surface-transparent-primary, rgba(255, 255, 255, 0.06))';
+export const surfaceTransparentPrimary = 'var(--surface-transparent-primary, #FFFFFF0F)';
 
 /** Вторичный прозрачный фон поверхности/контрола */
 export const surfaceTransparentSecondaryHover = 'var(--surface-transparent-secondary-hover, #FFFFFF3D)';
@@ -342,7 +313,7 @@ export const surfaceTransparentSecondaryHover = 'var(--surface-transparent-secon
 export const surfaceTransparentSecondaryActive = 'var(--surface-transparent-secondary-active, #FFFFFF0F)';
 
 /** Вторичный прозрачный фон поверхности/контрола */
-export const surfaceTransparentSecondary = 'var(--surface-transparent-secondary, rgba(255, 255, 255, 0.12))';
+export const surfaceTransparentSecondary = 'var(--surface-transparent-secondary, #FFFFFF1F)';
 
 /** Третичный прозрачный фон поверхности/контрола */
 export const surfaceTransparentTertiaryHover = 'var(--surface-transparent-tertiary-hover, #FFFFFF52)';
@@ -351,13 +322,16 @@ export const surfaceTransparentTertiaryHover = 'var(--surface-transparent-tertia
 export const surfaceTransparentTertiaryActive = 'var(--surface-transparent-tertiary-active, #FFFFFF24)';
 
 /** Третичный прозрачный фон поверхности/контрола */
-export const surfaceTransparentTertiary = 'var(--surface-transparent-tertiary, rgba(255, 255, 255, 0.2))';
+export const surfaceTransparentTertiary = 'var(--surface-transparent-tertiary, #FFFFFF33)';
 
+/** dark surface default surfaceTransparentDeepHover */
 export const surfaceTransparentDeepHover = 'var(--surface-transparent-deep-hover, #FFFFFFC2)';
 
+/** dark surface default surfaceTransparentDeepActive */
 export const surfaceTransparentDeepActive = 'var(--surface-transparent-deep-active, #FFFFFF94)';
 
-export const surfaceTransparentDeep = 'var(--surface-transparent-deep, rgba(255, 255, 255, 0.64))';
+/** dark surface default surfaceTransparentDeep */
+export const surfaceTransparentDeep = 'var(--surface-transparent-deep, #FFFFFFA3)';
 
 /** Прозрачный фон для карточек */
 export const surfaceTransparentCardHover = 'var(--surface-transparent-card-hover, #FFFFFF3D)';
@@ -366,7 +340,7 @@ export const surfaceTransparentCardHover = 'var(--surface-transparent-card-hover
 export const surfaceTransparentCardActive = 'var(--surface-transparent-card-active, #FFFFFF0F)';
 
 /** Прозрачный фон для карточек */
-export const surfaceTransparentCard = 'var(--surface-transparent-card, rgba(255, 255, 255, 0.12))';
+export const surfaceTransparentCard = 'var(--surface-transparent-card, #FFFFFF1F)';
 
 /** Фон поверхности/контрола без заливки */
 export const surfaceClearHover = 'var(--surface-clear-hover, #FFFFFF00)';
@@ -375,7 +349,7 @@ export const surfaceClearHover = 'var(--surface-clear-hover, #FFFFFF00)';
 export const surfaceClearActive = 'var(--surface-clear-active, #FFFFFF00)';
 
 /** Фон поверхности/контрола без заливки */
-export const surfaceClear = 'var(--surface-clear, rgba(255, 255, 255, 0))';
+export const surfaceClear = 'var(--surface-clear, #FFFFFF00)';
 
 /** Акцентный фон поверхности/контрола */
 export const surfaceAccentHover = 'var(--surface-accent-hover, #5D95FDFF)';
@@ -385,16 +359,6 @@ export const surfaceAccentActive = 'var(--surface-accent-active, #357BFDFF)';
 
 /** Акцентный фон поверхности/контрола */
 export const surfaceAccent = 'var(--surface-accent, #3F81FD)';
-
-/** Акцентный фон поверхности/контрола с градиентом */
-export const surfaceAccentGradientHover = 'var(--surface-accent-gradient-hover, #FFFFFFFF)';
-
-/** Акцентный фон поверхности/контрола с градиентом */
-export const surfaceAccentGradientActive = 'var(--surface-accent-gradient-active, #FFFFFFFF)';
-
-/** Акцентный фон поверхности/контрола с градиентом */
-export const surfaceAccentGradient =
-    'var(--surface-accent-gradient, linear-gradient(93.97deg, #3E79F0 6.49%, #27C6E5 93.51%), linear-gradient(89.83deg, #5E94FF 0%, #43DBFA 100%))';
 
 /** Прозрачный акцентный фон поверхности/контрола */
 export const surfaceTransparentAccentHover = 'var(--surface-transparent-accent-hover, #3F82FD3D)';
@@ -448,16 +412,16 @@ export const surfaceTransparentNegativeHover = 'var(--surface-transparent-negati
 export const surfaceTransparentNegativeActive = 'var(--surface-transparent-negative-active, #FF293E0F)';
 
 /** Прозрачный акцентный фон поверхности/контрола */
-export const surfaceTransparentAccent = 'var(--surface-transparent-accent, rgba(63,129,253,0.12))';
+export const surfaceTransparentAccent = 'var(--surface-transparent-accent, #3F81FD1F)';
 
 /** Прозрачный цвет фона поверхности/контрола успех */
-export const surfaceTransparentPositive = 'var(--surface-transparent-positive, rgba(26,158,50,0.12))';
+export const surfaceTransparentPositive = 'var(--surface-transparent-positive, #1A9E321F)';
 
 /** Прозрачный цвет фона поверхности/контрола предупреждение */
-export const surfaceTransparentWarning = 'var(--surface-transparent-warning, rgba(250,95,5,0.12))';
+export const surfaceTransparentWarning = 'var(--surface-transparent-warning, #FA5F051F)';
 
 /** Прозрачный цвет фона поверхности/контрола предупреждение */
-export const surfaceTransparentNegative = 'var(--surface-transparent-negative, rgba(255,41,62,0.12))';
+export const surfaceTransparentNegative = 'var(--surface-transparent-negative, #FF293E1F)';
 
 /** Осн. непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimaryHover = 'var(--on-dark-surface-solid-primary-hover, #1C1C1CFF)';
@@ -502,7 +466,7 @@ export const onDarkSurfaceSolidDefaultHover = 'var(--on-dark-surface-solid-defau
 export const onDarkSurfaceSolidDefaultActive = 'var(--on-dark-surface-solid-default-active, #FFFFFFFF)';
 
 /** Непр. фон поверхности/контрола по умолчанию на тем. фоне */
-export const onDarkSurfaceSolidDefault = 'var(--on-dark-surface-solid-default, rgba(255, 255, 255, 1))';
+export const onDarkSurfaceSolidDefault = 'var(--on-dark-surface-solid-default, #FFFFFFFF)';
 
 /** Основной прозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceTransparentPrimaryHover = 'var(--on-dark-surface-transparent-primary-hover, #FFFFFF1F)';
@@ -511,7 +475,7 @@ export const onDarkSurfaceTransparentPrimaryHover = 'var(--on-dark-surface-trans
 export const onDarkSurfaceTransparentPrimaryActive = 'var(--on-dark-surface-transparent-primary-active, #FFFFFF0A)';
 
 /** Основной прозрачный фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentPrimary = 'var(--on-dark-surface-transparent-primary, rgba(255, 255, 255, 0.06))';
+export const onDarkSurfaceTransparentPrimary = 'var(--on-dark-surface-transparent-primary, #FFFFFF0F)';
 
 /** Вторичный прозр. фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceTransparentSecondaryHover = 'var(--on-dark-surface-transparent-secondary-hover, #FFFFFF3D)';
@@ -520,8 +484,7 @@ export const onDarkSurfaceTransparentSecondaryHover = 'var(--on-dark-surface-tra
 export const onDarkSurfaceTransparentSecondaryActive = 'var(--on-dark-surface-transparent-secondary-active, #FFFFFF0F)';
 
 /** Вторичный прозр. фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentSecondary =
-    'var(--on-dark-surface-transparent-secondary, rgba(255, 255, 255, 0.12))';
+export const onDarkSurfaceTransparentSecondary = 'var(--on-dark-surface-transparent-secondary, #FFFFFF1F)';
 
 /** Третичный прозр. фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceTransparentTertiaryHover = 'var(--on-dark-surface-transparent-tertiary-hover, #FFFFFF52)';
@@ -530,13 +493,16 @@ export const onDarkSurfaceTransparentTertiaryHover = 'var(--on-dark-surface-tran
 export const onDarkSurfaceTransparentTertiaryActive = 'var(--on-dark-surface-transparent-tertiary-active, #FFFFFF24)';
 
 /** Третичный прозр. фон поверхности/контрола на темном фоне */
-export const onDarkSurfaceTransparentTertiary = 'var(--on-dark-surface-transparent-tertiary, rgba(255, 255, 255, 0.2))';
+export const onDarkSurfaceTransparentTertiary = 'var(--on-dark-surface-transparent-tertiary, #FFFFFF33)';
 
+/** dark surface onDark surfaceTransparentDeepHover */
 export const onDarkSurfaceTransparentDeepHover = 'var(--on-dark-surface-transparent-deep-hover, #FFFFFFC2)';
 
+/** dark surface onDark surfaceTransparentDeepActive */
 export const onDarkSurfaceTransparentDeepActive = 'var(--on-dark-surface-transparent-deep-active, #FFFFFF94)';
 
-export const onDarkSurfaceTransparentDeep = 'var(--on-dark-surface-transparent-deep, rgba(255, 255, 255, 0.64))';
+/** dark surface onDark surfaceTransparentDeep */
+export const onDarkSurfaceTransparentDeep = 'var(--on-dark-surface-transparent-deep, #FFFFFFA3)';
 
 /** Прозрачный фон для карточек на темном фоне */
 export const onDarkSurfaceTransparentCardHover = 'var(--on-dark-surface-transparent-card-hover, #FFFFFF3D)';
@@ -545,7 +511,7 @@ export const onDarkSurfaceTransparentCardHover = 'var(--on-dark-surface-transpar
 export const onDarkSurfaceTransparentCardActive = 'var(--on-dark-surface-transparent-card-active, #FFFFFF0F)';
 
 /** Прозрачный фон для карточек на темном фоне */
-export const onDarkSurfaceTransparentCard = 'var(--on-dark-surface-transparent-card, rgba(255, 255, 255, 0.12))';
+export const onDarkSurfaceTransparentCard = 'var(--on-dark-surface-transparent-card, #FFFFFF1F)';
 
 /** Акцентный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceAccentHover = 'var(--on-dark-surface-accent-hover, #5D95FDFF)';
@@ -555,16 +521,6 @@ export const onDarkSurfaceAccentActive = 'var(--on-dark-surface-accent-active, #
 
 /** Акцентный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceAccent = 'var(--on-dark-surface-accent, #3F81FD)';
-
-/** Акцентный фон поверхн./контрола с градиентом на темном фоне */
-export const onDarkSurfaceAccentGradientHover = 'var(--on-dark-surface-accent-gradient-hover, #FFFFFFFF)';
-
-/** Акцентный фон поверхн./контрола с градиентом на темном фоне */
-export const onDarkSurfaceAccentGradientActive = 'var(--on-dark-surface-accent-gradient-active, #FFFFFFFF)';
-
-/** Акцентный фон поверхн./контрола с градиентом на темном фоне */
-export const onDarkSurfaceAccentGradient =
-    'var(--on-dark-surface-accent-gradient, linear-gradient(93.97deg, #3E79F0 6.49%, #27C6E5 93.51%))';
 
 /** Цвет фона поверхности/контрола успех на темном фоне */
 export const onDarkSurfacePositiveHover = 'var(--on-dark-surface-positive-hover, #1DAF37FF)';
@@ -627,7 +583,7 @@ export const onLightSurfaceSolidCardHover = 'var(--on-light-surface-solid-card-h
 export const onLightSurfaceSolidCardActive = 'var(--on-light-surface-solid-card-active, #FFFFFFFF)';
 
 /** Основной фон для карточек на светлом фоне */
-export const onLightSurfaceSolidCard = 'var(--on-light-surface-solid-card, rgba(255, 255, 255, 1))';
+export const onLightSurfaceSolidCard = 'var(--on-light-surface-solid-card, #FFFFFFFF)';
 
 /** Непр. фон поверхности/контрола по умолчанию на светлом фоне */
 export const onLightSurfaceSolidDefaultHover = 'var(--on-light-surface-solid-default-hover, #0D0D0DFF)';
@@ -645,7 +601,7 @@ export const onLightSurfaceTransparentPrimaryHover = 'var(--on-light-surface-tra
 export const onLightSurfaceTransparentPrimaryActive = 'var(--on-light-surface-transparent-primary-active, #08080803)';
 
 /** Основной прозр. фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentPrimary = 'var(--on-light-surface-transparent-primary, rgba(8, 8, 8, 0.03))';
+export const onLightSurfaceTransparentPrimary = 'var(--on-light-surface-transparent-primary, #08080808)';
 
 /** Вторичный прозр. фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceTransparentSecondaryHover = 'var(--on-light-surface-transparent-secondary-hover, #0808081F)';
@@ -655,7 +611,7 @@ export const onLightSurfaceTransparentSecondaryActive =
     'var(--on-light-surface-transparent-secondary-active, #0808080A)';
 
 /** Вторичный прозр. фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentSecondary = 'var(--on-light-surface-transparent-secondary, rgba(8, 8, 8, 0.06))';
+export const onLightSurfaceTransparentSecondary = 'var(--on-light-surface-transparent-secondary, #0808080F)';
 
 /** Третичный прозр. фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceTransparentTertiaryHover = 'var(--on-light-surface-transparent-tertiary-hover, #0808083D)';
@@ -664,13 +620,16 @@ export const onLightSurfaceTransparentTertiaryHover = 'var(--on-light-surface-tr
 export const onLightSurfaceTransparentTertiaryActive = 'var(--on-light-surface-transparent-tertiary-active, #0808080F)';
 
 /** Третичный прозр. фон поверхности/контрола на светлом фоне */
-export const onLightSurfaceTransparentTertiary = 'var(--on-light-surface-transparent-tertiary, rgba(8, 8, 8, 0.12))';
+export const onLightSurfaceTransparentTertiary = 'var(--on-light-surface-transparent-tertiary, #0808081F)';
 
+/** dark surface onLight surfaceTransparentDeepHover */
 export const onLightSurfaceTransparentDeepHover = 'var(--on-light-surface-transparent-deep-hover, #080808C2)';
 
+/** dark surface onLight surfaceTransparentDeepActive */
 export const onLightSurfaceTransparentDeepActive = 'var(--on-light-surface-transparent-deep-active, #08080894)';
 
-export const onLightSurfaceTransparentDeep = 'var(--on-light-surface-transparent-deep, rgba(8, 8, 8, 0.64))';
+/** dark surface onLight surfaceTransparentDeep */
+export const onLightSurfaceTransparentDeep = 'var(--on-light-surface-transparent-deep, #080808A3)';
 
 /** Прозрачный фон для карточек на светлом фоне */
 export const onLightSurfaceTransparentCardHover = 'var(--on-light-surface-transparent-card-hover, #FFFFFFFF)';
@@ -679,7 +638,7 @@ export const onLightSurfaceTransparentCardHover = 'var(--on-light-surface-transp
 export const onLightSurfaceTransparentCardActive = 'var(--on-light-surface-transparent-card-active, #FFFFFFFF)';
 
 /** Прозрачный фон для карточек на светлом фоне */
-export const onLightSurfaceTransparentCard = 'var(--on-light-surface-transparent-card, rgba(255, 255, 255, 1))';
+export const onLightSurfaceTransparentCard = 'var(--on-light-surface-transparent-card, #FFFFFFFF)';
 
 /** Акцентный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceAccentHover = 'var(--on-light-surface-accent-hover, #4886F9FF)';
@@ -689,16 +648,6 @@ export const onLightSurfaceAccentActive = 'var(--on-light-surface-accent-active,
 
 /** Акцентный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceAccent = 'var(--on-light-surface-accent, #2A72F8)';
-
-/** Акцент. фон поверхн./контрола с градиентом на светлом фоне */
-export const onLightSurfaceAccentGradientHover = 'var(--on-light-surface-accent-gradient-hover, #FFFFFFFF)';
-
-/** Акцент. фон поверхн./контрола с градиентом на светлом фоне */
-export const onLightSurfaceAccentGradientActive = 'var(--on-light-surface-accent-gradient-active, #FFFFFFFF)';
-
-/** Акцент. фон поверхн./контрола с градиентом на светлом фоне */
-export const onLightSurfaceAccentGradient =
-    'var(--on-light-surface-accent-gradient, linear-gradient(93.97deg, #3E79F0 6.49%, #27C6E5 93.51%))';
 
 /** Цвет фона поверхности/контрола успех на светлом фоне */
 export const onLightSurfacePositiveHover = 'var(--on-light-surface-positive-hover, #1DAF37FF)';
@@ -737,59 +686,569 @@ export const darkBackgroundPrimary = 'var(--dark-background-primary, #080808)';
 export const lightBackgroundPrimary = 'var(--light-background-primary, #F9F9F9)';
 
 /** Цвет фона паранжи светлый */
-export const overlaySoft = 'var(--overlay-soft, rgba(8, 8, 8, 0.56))';
+export const overlaySoft = 'var(--overlay-soft, #0808088F)';
 
 /** Цвет фона паранжи темный */
-export const overlayHard = 'var(--overlay-hard, rgba(8, 8, 8, 0.96))';
+export const overlayHard = 'var(--overlay-hard, #080808F5)';
 
-export const overlayBlur = 'var(--overlay-blur, rgba(8, 8, 8, 0.28))';
+/** dark overlay default overlayBlur */
+export const overlayBlur = 'var(--overlay-blur, #08080847)';
 
 /** Цвет фона паранжи светлый на темном фоне */
-export const onDarkOverlaySoft = 'var(--on-dark-overlay-soft, rgba(8, 8, 8, 0.56))';
+export const onDarkOverlaySoft = 'var(--on-dark-overlay-soft, #0808088F)';
 
 /** Цвет фона паранжи темный на темном фоне */
-export const onDarkOverlayHard = 'var(--on-dark-overlay-hard, rgba(8, 8, 8, 0.96))';
+export const onDarkOverlayHard = 'var(--on-dark-overlay-hard, #080808F5)';
 
-export const onDarkOverlayBlur = 'var(--on-dark-overlay-blur, rgba(8, 8, 8, 0.28))';
+/** dark overlay onDark overlayBlur */
+export const onDarkOverlayBlur = 'var(--on-dark-overlay-blur, #08080847)';
 
 /** Цвет фона паранжи светлый на светлом фоне */
-export const onLightOverlaySoft = 'var(--on-light-overlay-soft, rgba(249, 249, 249, 0.56))';
+export const onLightOverlaySoft = 'var(--on-light-overlay-soft, #F9F9F98F)';
 
 /** Цвет фона паранжи темный на светлом фоне */
-export const onLightOverlayHard = 'var(--on-light-overlay-hard, rgba(249, 249, 249, 0.96))';
+export const onLightOverlayHard = 'var(--on-light-overlay-hard, #F9F9F9F5)';
 
-export const onLightOverlayBlur = 'var(--on-light-overlay-blur, rgba(249, 249, 249, 0.28))';
+/** dark overlay onLight overlayBlur */
+export const onLightOverlayBlur = 'var(--on-light-overlay-blur, #F9F9F947)';
 
-export const skeletonGradient =
-    'var(--skeleton-gradient, linear-gradient( 90deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.08) 6.25%, rgba(255, 255, 255, 0.05) 12.5%, rgba(255, 255, 255, 0.01) 25%, rgba(255, 255, 255, 0.05) 37.5%, rgba(255, 255, 255, 0.08) 43.75%, rgba(255, 255, 255, 0.09) 50%, rgba(255, 255, 255, 0.08) 56.25%, rgba(255, 255, 255, 0.05) 62.5%, rgba(255, 255, 255, 0.01) 75%, rgba(255, 255, 255, 0.05) 87.5%, rgba(255, 255, 255, 0.08) 93.75%, rgba(255, 255, 255, 0.09) 100% ))';
+/** Акцентный цвет с градиентом */
+export const textAccentGradientHover = 'var(--text-accent-gradient-hover, #CCCCCCFF)';
 
-export const skeletonGradientLighter =
-    'var(--skeleton-gradient-lighter, linear-gradient( 90deg, rgba(255, 255, 255, 0.36) 0%, rgba(255, 255, 255, 0.32) 6.25%, rgba(255, 255, 255, 0.20) 12.5%, rgba(255, 255, 255, 0.04) 25%, rgba(255, 255, 255, 0.20) 37.5%, rgba(255, 255, 255, 0.32) 43.75%, rgba(255, 255, 255, 0.36) 50%, rgba(255, 255, 255, 0.08) 56.25%, rgba(255, 255, 255, 0.20) 62.5%, rgba(255, 255, 255, 0.04) 75%, rgba(255, 255, 255, 0.20) 87.5%, rgba(255, 255, 255, 0.32) 93.75%, rgba(255, 255, 255, 0.36) 100% ))';
+/** Акцентный цвет с градиентом */
+export const textAccentGradientActive = 'var(--text-accent-gradient-active, #E6E6E6FF)';
 
-export const shadowDownSoftS =
-    'var(--shadow-down-soft-s, 0px 4px 14px -4px rgba(8, 8, 8, 0.08)), var(--shadow-down-soft-s, 0px 1px 4px -1px rgba(0, 0, 0, 0.04))';
+/** Акцентный цвет с градиентом */
+export const textAccentGradient =
+    'var(--text-accent-gradient, linear-gradient(89.83deg, #5E94FFFF 0%, #43DBFAFF 100%))';
 
-export const shadowDownSoftM = 'var(--shadow-down-soft-m, 0px 24px 48px -8px rgba(0, 0, 0, 0.08))';
+/** Акцентный цвет с градиентом на темном фоне */
+export const onDarkTextAccentGradientHover = 'var(--on-dark-text-accent-gradient-hover, #CCCCCCFF)';
 
-export const shadowDownSoftL = 'var(--shadow-down-soft-l, 0px 60px 112px -8px rgba(0, 0, 0, 0.08))';
+/** Акцентный цвет с градиентом на темном фоне */
+export const onDarkTextAccentGradientActive = 'var(--on-dark-text-accent-gradient-active, #E6E6E6FF)';
 
-export const shadowDownHardS =
-    'var(--shadow-down-hard-s, 0px 4px 12px -3px rgba(8, 8, 8, 0.16)), var(--shadow-down-hard-s, 0px 1px 4px -2px rgba(0, 0, 0, 0.08))';
+/** Акцентный цвет с градиентом на темном фоне */
+export const onDarkTextAccentGradient =
+    'var(--on-dark-text-accent-gradient, linear-gradient(89.83deg, #5E94FFFF 0%, #43DBFAFF 100%))';
 
-export const shadowDownHardM = 'var(--shadow-down-hard-m, 0px 16px 32px -8px rgba(0, 0, 0, 0.24))';
+/** Акцентный цвет с градиентом на светлом фоне */
+export const onLightTextAccentGradientHover = 'var(--on-light-text-accent-gradient-hover, #CCCCCCFF)';
 
-export const shadowDownHardL = 'var(--shadow-down-hard-l, 0px 60px 112px -8px rgba(0, 0, 0, 0.40))';
+/** Акцентный цвет с градиентом на светлом фоне */
+export const onLightTextAccentGradientActive = 'var(--on-light-text-accent-gradient-active, #E6E6E6FF)';
 
-export const shadowUpSoftS =
-    'var(--shadow-up-soft-s, 0px -4px 14px -4px rgba(8, 8, 8, 0.08)), var(--shadow-up-soft-s, 0px -1px 4px -1px rgba(0, 0, 0, 0.03))';
+/** Акцентный цвет с градиентом на светлом фоне */
+export const onLightTextAccentGradient =
+    'var(--on-light-text-accent-gradient, linear-gradient(93.97deg, #3E79F0FF 6.49%, #27C6E5FF 93.51%))';
 
-export const shadowUpSoftM = 'var(--shadow-up-soft-m, 0px -24px 48px -8px rgba(0, 0, 0, 0.08))';
+/** Акцентный фон поверхности/контрола с градиентом */
+export const surfaceAccentGradientHover = 'var(--surface-accent-gradient-hover, #FFFFFFFF)';
 
-export const shadowUpSoftL = 'var(--shadow-up-soft-l, 0px -60px 112px -8px rgba(0, 0, 0, 0.08))';
+/** Акцентный фон поверхности/контрола с градиентом */
+export const surfaceAccentGradientActive = 'var(--surface-accent-gradient-active, #FFFFFFFF)';
 
-export const shadowUpHardS =
-    'var(--shadow-up-hard-s, 0px -4px 12px -3px rgba(8, 8, 8, 0.20)), var(--shadow-up-hard-s, 0px -1px 4px -1px rgba(0, 0, 0, 0.03))';
+/** Акцентный фон поверхности/контрола с градиентом */
+export const surfaceAccentGradient =
+    'var(--surface-accent-gradient, linear-gradient(93.97deg, #3E79F0FF 6.49%, #27C6E5FF 93.51%),linear-gradient(89.83deg, #5E94FFFF 0%, #43DBFAFF 100%))';
 
-export const shadowUpHardM = 'var(--shadow-up-hard-m, 0px -16px 32px -8px rgba(0, 0, 0, 0.24))';
+/** Фон для скелетона */
+export const surfaceSkeletonGradient =
+    'var(--surface-skeleton-gradient, linear-gradient(90deg, #FFFFFF17 0%, #FFFFFF14 6.25%, #FFFFFF0D 12.5%, #FFFFFF03 25%, #FFFFFF0D 37.5%, #FFFFFF14 43.75%, #FFFFFF17 50%, #FFFFFF14 56.25%, #FFFFFF0D 62.5%, #FFFFFF03 75%, #FFFFFF0D 87.5%, #FFFFFF14 93.75%, #FFFFFF17 100%))';
 
-export const shadowUpHardL = 'var(--shadow-up-hard-l, 0px -60px 112px -8px rgba(0, 0, 0, 0.40))';
+/** Фон для скелетона */
+export const surfaceSkeletonGradientHover = 'var(--surface-skeleton-gradient-hover, #FFFFFFFF)';
+
+/** Фон для скелетона */
+export const surfaceSkeletonGradientActive = 'var(--surface-skeleton-gradient-active, #FFFFFFFF)';
+
+/** Яркий фон для скелетона */
+export const surfaceSkeletonDeepGradient =
+    'var(--surface-skeleton-deep-gradient, linear-gradient(90deg, #FFFFFF5C 0%, #FFFFFF52 6.25%, #FFFFFF33 12.5%, #FFFFFF0A 25%, #FFFFFF33 37.5%, #FFFFFF52 43.75%, #FFFFFF5C 50%, #FFFFFF14 56.25%, #FFFFFF33 62.5%, #FFFFFF0A 75%, #FFFFFF33 87.5%, #FFFFFF52 93.75%, #FFFFFF5C 100%))';
+
+/** Яркий фон для скелетона */
+export const surfaceSkeletonDeepGradientHover = 'var(--surface-skeleton-deep-gradient-hover, #FFFFFFFF)';
+
+/** Яркий фон для скелетона */
+export const surfaceSkeletonDeepGradientActive = 'var(--surface-skeleton-deep-gradient-active, #FFFFFFFF)';
+
+/** Акцентный фон поверхн./контрола с градиентом на темном фоне */
+export const onDarkSurfaceAccentGradientHover = 'var(--on-dark-surface-accent-gradient-hover, #FFFFFFFF)';
+
+/** Акцентный фон поверхн./контрола с градиентом на темном фоне */
+export const onDarkSurfaceAccentGradientActive = 'var(--on-dark-surface-accent-gradient-active, #FFFFFFFF)';
+
+/** Акцентный фон поверхн./контрола с градиентом на темном фоне */
+export const onDarkSurfaceAccentGradient =
+    'var(--on-dark-surface-accent-gradient, linear-gradient(93.97deg, #3E79F0FF 6.49%, #27C6E5FF 93.51%))';
+
+/** Фон для скелетона */
+export const onDarkSurfaceSkeletonGradient =
+    'var(--on-dark-surface-skeleton-gradient, linear-gradient(90deg, #FFFFFF17 0%, #FFFFFF14 6.25%, #FFFFFF0D 12.5%, #FFFFFF03 25%, #FFFFFF0D 37.5%, #FFFFFF14 43.75%, #FFFFFF17 50%, #FFFFFF14 56.25%, #FFFFFF0D 62.5%, #FFFFFF03 75%, #FFFFFF0D 87.5%, #FFFFFF14 93.75%, #FFFFFF17 100%))';
+
+/** Фон для скелетона */
+export const onDarkSurfaceSkeletonGradientHover = 'var(--on-dark-surface-skeleton-gradient-hover, #FFFFFFFF)';
+
+/** Фон для скелетона */
+export const onDarkSurfaceSkeletonGradientActive = 'var(--on-dark-surface-skeleton-gradient-active, #FFFFFFFF)';
+
+/** Яркий фон для скелетона */
+export const onDarkSurfaceSkeletonDeepGradient =
+    'var(--on-dark-surface-skeleton-deep-gradient, linear-gradient(90deg, #FFFFFF5C 0%, #FFFFFF52 6.25%, #FFFFFF33 12.5%, #FFFFFF0A 25%, #FFFFFF33 37.5%, #FFFFFF52 43.75%, #FFFFFF5C 50%, #FFFFFF14 56.25%, #FFFFFF33 62.5%, #FFFFFF0A 75%, #FFFFFF33 87.5%, #FFFFFF52 93.75%, #FFFFFF5C 100%))';
+
+/** Яркий фон для скелетона */
+export const onDarkSurfaceSkeletonDeepGradientHover = 'var(--on-dark-surface-skeleton-deep-gradient-hover, #FFFFFFFF)';
+
+/** Яркий фон для скелетона */
+export const onDarkSurfaceSkeletonDeepGradientActive =
+    'var(--on-dark-surface-skeleton-deep-gradient-active, #FFFFFFFF)';
+
+/** Акцент. фон поверхн./контрола с градиентом на светлом фоне */
+export const onLightSurfaceAccentGradientHover = 'var(--on-light-surface-accent-gradient-hover, #FFFFFFFF)';
+
+/** Акцент. фон поверхн./контрола с градиентом на светлом фоне */
+export const onLightSurfaceAccentGradientActive = 'var(--on-light-surface-accent-gradient-active, #FFFFFFFF)';
+
+/** Акцент. фон поверхн./контрола с градиентом на светлом фоне */
+export const onLightSurfaceAccentGradient =
+    'var(--on-light-surface-accent-gradient, linear-gradient(93.97deg, #3E79F0FF 6.49%, #27C6E5FF 93.51%))';
+
+/** Фон для скелетона */
+export const onLightSurfaceSkeletonGradient =
+    'var(--on-light-surface-skeleton-gradient, linear-gradient(90deg, #08080817 0%, #08080814 6.25%, #0808080D 12.5%, #08080803 25%, #0808080D 37.5%, #08080814 43.75%, #08080817 50%, #08080814 56.25%, #0808080D 62.5%, #08080803 75%, #0808080D 87.5%, #08080814 93.75%, #08080817 100%))';
+
+/** Фон для скелетона */
+export const onLightSurfaceSkeletonGradientHover = 'var(--on-light-surface-skeleton-gradient-hover, #FFFFFFFF)';
+
+/** Фон для скелетона */
+export const onLightSurfaceSkeletonGradientActive = 'var(--on-light-surface-skeleton-gradient-active, #FFFFFFFF)';
+
+/** Яркий фон для скелетона */
+export const onLightSurfaceSkeletonDeepGradient =
+    'var(--on-light-surface-skeleton-deep-gradient, linear-gradient(90deg, #0808085C 0%, #08080852 6.25%, #08080833 12.5%, #0808080A 25%, #08080833 37.5%, #08080852 43.75%, #0808085C 50%, #08080814 56.25%, #08080833 62.5%, #0808080A 75%, #08080833 87.5%, #08080852 93.75%, #0808085C 100%))';
+
+/** Яркий фон для скелетона */
+export const onLightSurfaceSkeletonDeepGradientHover =
+    'var(--on-light-surface-skeleton-deep-gradient-hover, #FFFFFFFF)';
+
+/** Яркий фон для скелетона */
+export const onLightSurfaceSkeletonDeepGradientActive =
+    'var(--on-light-surface-skeleton-deep-gradient-active, #FFFFFFFF)';
+
+/** Фон для скелетона */
+export const inverseSurfaceSkeletonGradient =
+    'var(--inverse-surface-skeleton-gradient, linear-gradient(90deg, #08080817 0%, #08080814 6.25%, #0808080D 12.5%, #08080803 25%, #0808080D 37.5%, #08080814 43.75%, #08080817 50%, #08080814 56.25%, #0808080D 62.5%, #08080803 75%, #0808080D 87.5%, #08080814 93.75%, #08080817 100%))';
+
+/** Фон для скелетона */
+export const inverseSurfaceSkeletonGradientHover = 'var(--inverse-surface-skeleton-gradient-hover, #FFFFFFFF)';
+
+/** Фон для скелетона */
+export const inverseSurfaceSkeletonGradientActive = 'var(--inverse-surface-skeleton-gradient-active, #FFFFFFFF)';
+
+/** Яркий фон для скелетона */
+export const inverseSurfaceSkeletonDeepGradient =
+    'var(--inverse-surface-skeleton-deep-gradient, linear-gradient(90deg, #0808085C 0%, #08080852 6.25%, #08080833 12.5%, #0808080A 25%, #08080833 37.5%, #08080852 43.75%, #0808085C 50%, #08080814 56.25%, #08080833 62.5%, #0808080A 75%, #08080833 87.5%, #08080852 93.75%, #0808085C 100%))';
+
+/** Яркий фон для скелетона */
+export const inverseSurfaceSkeletonDeepGradientHover = 'var(--inverse-surface-skeleton-deep-gradient-hover, #FFFFFFFF)';
+
+/** Яркий фон для скелетона */
+export const inverseSurfaceSkeletonDeepGradientActive =
+    'var(--inverse-surface-skeleton-deep-gradient-active, #FFFFFFFF)';
+
+/** shadow down soft s */
+export const shadowDownSoftS = 'var(--shadow-down-soft-s, 0px 4px 14px -4px #08080814,0px 1px 4px -1px #0000000A)';
+
+/** shadow down soft m */
+export const shadowDownSoftM = 'var(--shadow-down-soft-m, 0px 24px 48px -8px #00000014)';
+
+/** shadow down soft l */
+export const shadowDownSoftL = 'var(--shadow-down-soft-l, 0px 60px 112px -8px #00000014)';
+
+/** shadow down hard s */
+export const shadowDownHardS = 'var(--shadow-down-hard-s, 0px 4px 12px -3px #08080829,0px 1px 4px -2px #00000014)';
+
+/** shadow down hard m */
+export const shadowDownHardM = 'var(--shadow-down-hard-m, 0px 16px 32px -8px #0000003D)';
+
+/** shadow down hard l */
+export const shadowDownHardL = 'var(--shadow-down-hard-l, 0px 60px 112px -8px #00000066)';
+
+/** shadow up soft s */
+export const shadowUpSoftS = 'var(--shadow-up-soft-s, 0px -4px 14px -4px #08080814,0px -1px 4px -1px #00000008)';
+
+/** shadow up soft m */
+export const shadowUpSoftM = 'var(--shadow-up-soft-m, 0px -24px 48px -8px #00000014)';
+
+/** shadow up soft l */
+export const shadowUpSoftL = 'var(--shadow-up-soft-l, 0px -60px 112px -8px #00000014)';
+
+/** shadow up hard s */
+export const shadowUpHardS = 'var(--shadow-up-hard-s, 0px -4px 12px -3px #08080833,0px -1px 4px -1px #00000008)';
+
+/** shadow up hard m */
+export const shadowUpHardM = 'var(--shadow-up-hard-m, 0px -16px 32px -8px #0000003D)';
+
+/** shadow up hard l */
+export const shadowUpHardL = 'var(--shadow-up-hard-l, 0px -60px 112px -8px #00000066)';
+
+/** borderRadius xxs */
+export const borderRadiusXxs = 'var(--border-radius-xxs, 4px)';
+
+/** borderRadius xs */
+export const borderRadiusXs = 'var(--border-radius-xs, 8px)';
+
+/** borderRadius s */
+export const borderRadiusS = 'var(--border-radius-s, 12px)';
+
+/** borderRadius m */
+export const borderRadiusM = 'var(--border-radius-m, 16px)';
+
+/** borderRadius l */
+export const borderRadiusL = 'var(--border-radius-l, 20px)';
+
+/** borderRadius xl */
+export const borderRadiusXl = 'var(--border-radius-xl, 24px)';
+
+/** borderRadius xxl */
+export const borderRadiusXxl = 'var(--border-radius-xxl, 32px)';
+
+/** typography s display-l */
+export const dsplL = {
+    fontFamily: 'var(--plasma-typo-dspl-l-font-family)',
+    fontSize: 'var(--plasma-typo-dspl-l-font-size)',
+    fontStyle: 'var(--plasma-typo-dspl-l-font-style)',
+    fontWeight: 'var(--plasma-typo-dspl-l-font-weight)',
+    letterSpacing: 'var(--plasma-typo-dspl-l-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-dspl-l-line-height)',
+};
+
+/** typography s display-l-bold */
+export const dsplLBold = {
+    fontFamily: 'var(--plasma-typo-dspl-l-bold-font-family)',
+    fontSize: 'var(--plasma-typo-dspl-l-bold-font-size)',
+    fontStyle: 'var(--plasma-typo-dspl-l-bold-font-style)',
+    fontWeight: 'var(--plasma-typo-dspl-l-bold-font-weight)',
+    letterSpacing: 'var(--plasma-typo-dspl-l-bold-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-dspl-l-bold-line-height)',
+};
+
+/** typography s display-m */
+export const dsplM = {
+    fontFamily: 'var(--plasma-typo-dspl-m-font-family)',
+    fontSize: 'var(--plasma-typo-dspl-m-font-size)',
+    fontStyle: 'var(--plasma-typo-dspl-m-font-style)',
+    fontWeight: 'var(--plasma-typo-dspl-m-font-weight)',
+    letterSpacing: 'var(--plasma-typo-dspl-m-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-dspl-m-line-height)',
+};
+
+/** typography s display-m-bold */
+export const dsplMBold = {
+    fontFamily: 'var(--plasma-typo-dspl-m-bold-font-family)',
+    fontSize: 'var(--plasma-typo-dspl-m-bold-font-size)',
+    fontStyle: 'var(--plasma-typo-dspl-m-bold-font-style)',
+    fontWeight: 'var(--plasma-typo-dspl-m-bold-font-weight)',
+    letterSpacing: 'var(--plasma-typo-dspl-m-bold-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-dspl-m-bold-line-height)',
+};
+
+/** typography s display-s */
+export const dsplS = {
+    fontFamily: 'var(--plasma-typo-dspl-s-font-family)',
+    fontSize: 'var(--plasma-typo-dspl-s-font-size)',
+    fontStyle: 'var(--plasma-typo-dspl-s-font-style)',
+    fontWeight: 'var(--plasma-typo-dspl-s-font-weight)',
+    letterSpacing: 'var(--plasma-typo-dspl-s-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-dspl-s-line-height)',
+};
+
+/** typography s display-s-bold */
+export const dsplSBold = {
+    fontFamily: 'var(--plasma-typo-dspl-s-bold-font-family)',
+    fontSize: 'var(--plasma-typo-dspl-s-bold-font-size)',
+    fontStyle: 'var(--plasma-typo-dspl-s-bold-font-style)',
+    fontWeight: 'var(--plasma-typo-dspl-s-bold-font-weight)',
+    letterSpacing: 'var(--plasma-typo-dspl-s-bold-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-dspl-s-bold-line-height)',
+};
+
+/** typography s header-h1 */
+export const h1 = {
+    fontFamily: 'var(--plasma-typo-h1-font-family)',
+    fontSize: 'var(--plasma-typo-h1-font-size)',
+    fontStyle: 'var(--plasma-typo-h1-font-style)',
+    fontWeight: 'var(--plasma-typo-h1-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h1-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h1-line-height)',
+};
+
+/** typography s header-h1-bold */
+export const h1Bold = {
+    fontFamily: 'var(--plasma-typo-h1-bold-font-family)',
+    fontSize: 'var(--plasma-typo-h1-bold-font-size)',
+    fontStyle: 'var(--plasma-typo-h1-bold-font-style)',
+    fontWeight: 'var(--plasma-typo-h1-bold-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h1-bold-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h1-bold-line-height)',
+};
+
+/** typography s header-h2 */
+export const h2 = {
+    fontFamily: 'var(--plasma-typo-h2-font-family)',
+    fontSize: 'var(--plasma-typo-h2-font-size)',
+    fontStyle: 'var(--plasma-typo-h2-font-style)',
+    fontWeight: 'var(--plasma-typo-h2-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h2-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h2-line-height)',
+};
+
+/** typography s header-h2-bold */
+export const h2Bold = {
+    fontFamily: 'var(--plasma-typo-h2-bold-font-family)',
+    fontSize: 'var(--plasma-typo-h2-bold-font-size)',
+    fontStyle: 'var(--plasma-typo-h2-bold-font-style)',
+    fontWeight: 'var(--plasma-typo-h2-bold-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h2-bold-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h2-bold-line-height)',
+};
+
+/** typography s header-h3 */
+export const h3 = {
+    fontFamily: 'var(--plasma-typo-h3-font-family)',
+    fontSize: 'var(--plasma-typo-h3-font-size)',
+    fontStyle: 'var(--plasma-typo-h3-font-style)',
+    fontWeight: 'var(--plasma-typo-h3-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h3-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h3-line-height)',
+};
+
+/** typography s header-h3-bold */
+export const h3Bold = {
+    fontFamily: 'var(--plasma-typo-h3-bold-font-family)',
+    fontSize: 'var(--plasma-typo-h3-bold-font-size)',
+    fontStyle: 'var(--plasma-typo-h3-bold-font-style)',
+    fontWeight: 'var(--plasma-typo-h3-bold-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h3-bold-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h3-bold-line-height)',
+};
+
+/** typography s header-h4 */
+export const h4 = {
+    fontFamily: 'var(--plasma-typo-h4-font-family)',
+    fontSize: 'var(--plasma-typo-h4-font-size)',
+    fontStyle: 'var(--plasma-typo-h4-font-style)',
+    fontWeight: 'var(--plasma-typo-h4-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h4-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h4-line-height)',
+};
+
+/** typography s header-h4-bold */
+export const h4Bold = {
+    fontFamily: 'var(--plasma-typo-h4-bold-font-family)',
+    fontSize: 'var(--plasma-typo-h4-bold-font-size)',
+    fontStyle: 'var(--plasma-typo-h4-bold-font-style)',
+    fontWeight: 'var(--plasma-typo-h4-bold-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h4-bold-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h4-bold-line-height)',
+};
+
+/** typography s header-h5 */
+export const h5 = {
+    fontFamily: 'var(--plasma-typo-h5-font-family)',
+    fontSize: 'var(--plasma-typo-h5-font-size)',
+    fontStyle: 'var(--plasma-typo-h5-font-style)',
+    fontWeight: 'var(--plasma-typo-h5-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h5-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h5-line-height)',
+};
+
+/** typography s header-h5-bold */
+export const h5Bold = {
+    fontFamily: 'var(--plasma-typo-h5-bold-font-family)',
+    fontSize: 'var(--plasma-typo-h5-bold-font-size)',
+    fontStyle: 'var(--plasma-typo-h5-bold-font-style)',
+    fontWeight: 'var(--plasma-typo-h5-bold-font-weight)',
+    letterSpacing: 'var(--plasma-typo-h5-bold-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-h5-bold-line-height)',
+};
+
+/** typography s body-l */
+export const bodyL = {
+    fontFamily: 'var(--plasma-typo-body-l-font-family)',
+    fontSize: 'var(--plasma-typo-body-l-font-size)',
+    fontStyle: 'var(--plasma-typo-body-l-font-style)',
+    fontWeight: 'var(--plasma-typo-body-l-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-l-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-l-line-height)',
+};
+
+/** typography s body-l-bold */
+export const bodyLBold = {
+    fontFamily: 'var(--plasma-typo-body-l-bold-font-family)',
+    fontSize: 'var(--plasma-typo-body-l-bold-font-size)',
+    fontStyle: 'var(--plasma-typo-body-l-bold-font-style)',
+    fontWeight: 'var(--plasma-typo-body-l-bold-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-l-bold-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-l-bold-line-height)',
+};
+
+/** typography s body-m */
+export const bodyM = {
+    fontFamily: 'var(--plasma-typo-body-m-font-family)',
+    fontSize: 'var(--plasma-typo-body-m-font-size)',
+    fontStyle: 'var(--plasma-typo-body-m-font-style)',
+    fontWeight: 'var(--plasma-typo-body-m-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-m-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-m-line-height)',
+};
+
+/** typography s body-m-bold */
+export const bodyMBold = {
+    fontFamily: 'var(--plasma-typo-body-m-bold-font-family)',
+    fontSize: 'var(--plasma-typo-body-m-bold-font-size)',
+    fontStyle: 'var(--plasma-typo-body-m-bold-font-style)',
+    fontWeight: 'var(--plasma-typo-body-m-bold-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-m-bold-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-m-bold-line-height)',
+};
+
+/** typography s body-s */
+export const bodyS = {
+    fontFamily: 'var(--plasma-typo-body-s-font-family)',
+    fontSize: 'var(--plasma-typo-body-s-font-size)',
+    fontStyle: 'var(--plasma-typo-body-s-font-style)',
+    fontWeight: 'var(--plasma-typo-body-s-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-s-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-s-line-height)',
+};
+
+/** typography s body-s-bold */
+export const bodySBold = {
+    fontFamily: 'var(--plasma-typo-body-s-bold-font-family)',
+    fontSize: 'var(--plasma-typo-body-s-bold-font-size)',
+    fontStyle: 'var(--plasma-typo-body-s-bold-font-style)',
+    fontWeight: 'var(--plasma-typo-body-s-bold-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-s-bold-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-s-bold-line-height)',
+};
+
+/** typography s body-xs */
+export const bodyXS = {
+    fontFamily: 'var(--plasma-typo-body-xs-font-family)',
+    fontSize: 'var(--plasma-typo-body-xs-font-size)',
+    fontStyle: 'var(--plasma-typo-body-xs-font-style)',
+    fontWeight: 'var(--plasma-typo-body-xs-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-xs-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-xs-line-height)',
+};
+
+/** typography s body-xs-bold */
+export const bodyXSBold = {
+    fontFamily: 'var(--plasma-typo-body-xs-bold-font-family)',
+    fontSize: 'var(--plasma-typo-body-xs-bold-font-size)',
+    fontStyle: 'var(--plasma-typo-body-xs-bold-font-style)',
+    fontWeight: 'var(--plasma-typo-body-xs-bold-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-xs-bold-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-xs-bold-line-height)',
+};
+
+/** typography s body-xxs */
+export const bodyXXS = {
+    fontFamily: 'var(--plasma-typo-body-xxs-font-family)',
+    fontSize: 'var(--plasma-typo-body-xxs-font-size)',
+    fontStyle: 'var(--plasma-typo-body-xxs-font-style)',
+    fontWeight: 'var(--plasma-typo-body-xxs-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-xxs-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-xxs-line-height)',
+};
+
+/** typography s body-xxs-bold */
+export const bodyXXSBold = {
+    fontFamily: 'var(--plasma-typo-body-xxs-bold-font-family)',
+    fontSize: 'var(--plasma-typo-body-xxs-bold-font-size)',
+    fontStyle: 'var(--plasma-typo-body-xxs-bold-font-style)',
+    fontWeight: 'var(--plasma-typo-body-xxs-bold-font-weight)',
+    letterSpacing: 'var(--plasma-typo-body-xxs-bold-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-body-xxs-bold-line-height)',
+};
+
+/** typography s text-l */
+export const textL = {
+    fontFamily: 'var(--plasma-typo-text-l-font-family)',
+    fontSize: 'var(--plasma-typo-text-l-font-size)',
+    fontStyle: 'var(--plasma-typo-text-l-font-style)',
+    fontWeight: 'var(--plasma-typo-text-l-font-weight)',
+    letterSpacing: 'var(--plasma-typo-text-l-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-text-l-line-height)',
+};
+
+/** typography s text-l-bold */
+export const textLBold = {
+    fontFamily: 'var(--plasma-typo-text-l-bold-font-family)',
+    fontSize: 'var(--plasma-typo-text-l-bold-font-size)',
+    fontStyle: 'var(--plasma-typo-text-l-bold-font-style)',
+    fontWeight: 'var(--plasma-typo-text-l-bold-font-weight)',
+    letterSpacing: 'var(--plasma-typo-text-l-bold-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-text-l-bold-line-height)',
+};
+
+/** typography s text-m */
+export const textM = {
+    fontFamily: 'var(--plasma-typo-text-m-font-family)',
+    fontSize: 'var(--plasma-typo-text-m-font-size)',
+    fontStyle: 'var(--plasma-typo-text-m-font-style)',
+    fontWeight: 'var(--plasma-typo-text-m-font-weight)',
+    letterSpacing: 'var(--plasma-typo-text-m-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-text-m-line-height)',
+};
+
+/** typography s text-m-bold */
+export const textMBold = {
+    fontFamily: 'var(--plasma-typo-text-m-bold-font-family)',
+    fontSize: 'var(--plasma-typo-text-m-bold-font-size)',
+    fontStyle: 'var(--plasma-typo-text-m-bold-font-style)',
+    fontWeight: 'var(--plasma-typo-text-m-bold-font-weight)',
+    letterSpacing: 'var(--plasma-typo-text-m-bold-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-text-m-bold-line-height)',
+};
+
+/** typography s text-s */
+export const textS = {
+    fontFamily: 'var(--plasma-typo-text-s-font-family)',
+    fontSize: 'var(--plasma-typo-text-s-font-size)',
+    fontStyle: 'var(--plasma-typo-text-s-font-style)',
+    fontWeight: 'var(--plasma-typo-text-s-font-weight)',
+    letterSpacing: 'var(--plasma-typo-text-s-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-text-s-line-height)',
+};
+
+/** typography s text-s-bold */
+export const textSBold = {
+    fontFamily: 'var(--plasma-typo-text-s-bold-font-family)',
+    fontSize: 'var(--plasma-typo-text-s-bold-font-size)',
+    fontStyle: 'var(--plasma-typo-text-s-bold-font-style)',
+    fontWeight: 'var(--plasma-typo-text-s-bold-font-weight)',
+    letterSpacing: 'var(--plasma-typo-text-s-bold-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-text-s-bold-line-height)',
+};
+
+/** typography s text-xs */
+export const textXS = {
+    fontFamily: 'var(--plasma-typo-text-xs-font-family)',
+    fontSize: 'var(--plasma-typo-text-xs-font-size)',
+    fontStyle: 'var(--plasma-typo-text-xs-font-style)',
+    fontWeight: 'var(--plasma-typo-text-xs-font-weight)',
+    letterSpacing: 'var(--plasma-typo-text-xs-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-text-xs-line-height)',
+};
+
+/** typography s text-xs-bold */
+export const textXSBold = {
+    fontFamily: 'var(--plasma-typo-text-xs-bold-font-family)',
+    fontSize: 'var(--plasma-typo-text-xs-bold-font-size)',
+    fontStyle: 'var(--plasma-typo-text-xs-bold-font-style)',
+    fontWeight: 'var(--plasma-typo-text-xs-bold-font-weight)',
+    letterSpacing: 'var(--plasma-typo-text-xs-bold-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-text-xs-bold-line-height)',
+};
