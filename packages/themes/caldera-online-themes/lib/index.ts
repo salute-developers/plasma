@@ -1,3 +1,8 @@
-import { generate } from '@salutejs/data-themes';
+import { generate } from '@salutejs/core-themes';
 
-generate(['caldera_online'], 'mage');
+generate([
+    {
+        name: 'caldera_online',
+        version: 'latest',
+    },
+]);
