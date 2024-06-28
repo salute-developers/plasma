@@ -5,7 +5,7 @@ import type { PopoverTrigger } from '.';
 
 const text = 'Голосовая викторина с Валдисом Пельшем';
 
-describe('plasma-web: Popover', () => {
+describe('plasma-b2c: Popover', () => {
     const Popover = getComponent('Popover');
     const Button = getComponent('Button');
     const P1 = getComponent('P1');
