@@ -1,3 +1,8 @@
-import { generate } from '@salutejs/data-themes';
+import { generate } from '@salutejs/core-themes';
 
-generate(['flamingo'], 'mage');
+generate([
+    {
+        name: 'flamingo',
+        version: 'latest',
+    },
+]);
