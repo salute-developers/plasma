@@ -21,6 +21,7 @@ export * from './components/Modal';
 export * from './components/Overlay';
 export * from './components/Popover';
 export * from './components/Popup';
+export * from './components/Portal';
 export * from './components/Progress';
 export * from './components/Pagination';
 export * from './components/Range';

@@ -32,6 +32,7 @@ export * from './components/PopupBase';
 export * from './components/Popover';
 export * from './components/Price';
 export * from './components/Progress';
+export * from './components/Portal';
 export * from './components/PreviewGallery';
 export * from './components/Radiobox';
 export * from './components/Range';
