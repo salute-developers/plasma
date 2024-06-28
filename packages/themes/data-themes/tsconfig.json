@@ -34,5 +34,6 @@
         "forceConsistentCasingInFileNames": true,
         "outDir": "./build/cjs",
         "rootDir": "./src"
-    }
+    },
+    "include": ["./src"]
 }
