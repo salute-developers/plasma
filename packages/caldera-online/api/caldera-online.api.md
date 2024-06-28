@@ -57,6 +57,7 @@ import { PopupInfo } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupPlacement } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PopupProvider } from '@salutejs/plasma-new-hope/styled-components';
+import { PortalProps } from '@salutejs/plasma-new-hope/styled-components';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
 import { ReactNode } from 'react';
@@ -86,6 +87,7 @@ import { ToastRole } from '@salutejs/plasma-new-hope/styled-components';
 import { usePopupContext } from '@salutejs/plasma-new-hope/styled-components';
 import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
 import { useToast } from '@salutejs/plasma-new-hope/styled-components';
+import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
 
 export { addFocus }
 
@@ -437,6 +439,11 @@ export { PopupPlacement }
 export { PopupProps }
 
 export { PopupProvider }
+
+// @public (undocumented)
+export const Portal: FunctionComponent<PropsType<Variants> & PortalProps & RefAttributes<HTMLDivElement>>;
+
+export { PortalProps }
 
 // @public
 export const Radiobox: FunctionComponent<PropsType<    {
