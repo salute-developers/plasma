@@ -4,6 +4,7 @@
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "scaffold:update-components-docs": "npm run scaffold:components",
     "scaffold:docs": "simple-scaffold -c scaffold/scaffold-config.js --name $npm_config_package",
     "scaffold:components": "node scaffold/scaffold-components.js",
     "scaffold:update-docs-ui": "node scaffold/update-docs-ui.js && npm i --no-audit --no-progress --package-lock-only --lockfile-version 2 --legacy-peer-deps --prefix=$npm_config_dir",

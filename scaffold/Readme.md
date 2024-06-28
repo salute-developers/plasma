@@ -56,3 +56,19 @@ npm run scaffold:docs --package="plasma-asdk" --vertical="plasma-themes" --theme
 Чтобы избежать данного warning нужно использовать экранирование `\`.
 
 Например: `style=\{{flexDirection: 'column'}}`
+
+### Как обновить список компонентов в уже имеющейся документации?
+
+Есть отдельная команда - `npm run scaffold:update-components-docs`.
+
+Например, для пакета `caldera-online`:
+
+```console
+npm run scaffold:update-components-docs --vertical="caldera-online-themes" --package="caldera-online" --exclude="sheet"
+```
+
+Обновит/добавит/синхронизирует список компонентов документации и библиотеки, при этом **исключит** компонент `Sheet`.
+
+**Примечание:**
+
+Аргумент `exclude` принимает перечисление компонентов через запятую: `--exclude="sheet,textarea,etc"`
