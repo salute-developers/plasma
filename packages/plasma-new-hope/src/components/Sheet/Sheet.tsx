@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useRef } from 'react';
 
 import { RootProps } from '../../engines';
 import { Overlay } from '../Overlay';
@@ -44,9 +44,9 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
             },
             rootRef,
         ) => {
-            const contentWrapperRef = React.useRef<HTMLDivElement>(null);
-            const contentRef = React.useRef<HTMLDivElement>(null);
-            const handleRef = React.useRef<HTMLDivElement>(null);
+            const contentWrapperRef = useRef<HTMLDivElement>(null);
+            const contentRef = useRef<HTMLDivElement>(null);
+            const handleRef = useRef<HTMLDivElement>(null);
 
             useOverflow({ opened });
             useSheetSwipe({ contentWrapperRef, contentRef, handleRef, throttleMs, onClose });

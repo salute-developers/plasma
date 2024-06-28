@@ -1,4 +1,4 @@
-import { ReactNode, HTMLAttributes } from 'react';
+import type { ReactNode, HTMLAttributes } from 'react';
 
 export interface SheetProps extends HTMLAttributes<HTMLDivElement> {
     /**
