@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import type { FormEvent } from 'react';
 import { useRouter } from 'next/router';
 import styled, { css } from 'styled-components';
@@ -76,6 +76,8 @@ export default function Home() {
     const [searchQuery, setSearchQuery] = useState('');
     const [isScrolling, setIsScrolling] = useState(false);
 
+    const inputRef = useRef<HTMLInputElement>(null);
+
     const router = useRouter();
 
     const onSearchInput = useCallback(
@@ -89,6 +91,19 @@ export default function Home() {
         [setSearchQuery],
     );
 
+    const setInputFocus = () => {
+        inputRef?.current?.focus();
+    };
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+
+        setInputFocus();
+    };
+
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolling(window.scrollY !== 0);
@@ -101,12 +116,9 @@ export default function Home() {
         };
     }, []);
 
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    };
+    useEffect(() => {
+        setInputFocus();
+    }, []);
 
     return (
         <ToastProvider>
@@ -126,13 +138,12 @@ export default function Home() {
                         </StyledIconNavigation>
                     )}
                 </StyledIconBackWrapper>
-
                 <StyledFilterWrapper>
-                    <IconFilterMenu />
+                    <IconFilterMenu setInputFocus={setInputFocus} />
                 </StyledFilterWrapper>
                 <Header />
                 <StyledMain>
-                    <SearchForm searchQuery={searchQuery} onInput={onSearchInput} />
+                    <SearchForm searchQuery={searchQuery} onInput={onSearchInput} ref={inputRef} />
                     <IconsList searchQuery={searchQuery} />
                 </StyledMain>
                 <Footer />

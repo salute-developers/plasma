@@ -1,4 +1,4 @@
-import React, { memo, useRef, useEffect, useState } from 'react';
+import React, { memo, useRef, useEffect, useState, KeyboardEventHandler, forwardRef } from 'react';
 import type { FormEvent } from 'react';
 import styled, { css } from 'styled-components';
 import { IconClose } from '@salutejs/plasma-icons';
@@ -123,47 +123,50 @@ const StyleIconClose = styled.span`
     `)}
 `;
 
-export const SearchForm = memo<SearchFormProps>(({ onInput, searchQuery }) => {
-    const inputRef = useRef<HTMLInputElement>(null);
-    const hiddenElRef = useRef<HTMLSpanElement>(null);
+export const SearchForm = memo(
+    forwardRef<HTMLInputElement, SearchFormProps>(({ onInput, searchQuery }, inputRef) => {
+        const hiddenElRef = useRef<HTMLSpanElement>(null);
 
-    const [width, setWidth] = useState<number | 'auto'>('auto');
+        const [width, setWidth] = useState<number | 'auto'>('auto');
 
-    useEffect(() => {
-        if (hiddenElRef.current && inputRef.current) {
-            const { clientWidth } = hiddenElRef.current;
-
-            if (searchQuery.length !== 0) {
-                setWidth(clientWidth > minWidth ? clientWidth : minWidth);
-            } else {
-                setWidth('auto');
+        const handleKeyPress: KeyboardEventHandler<HTMLInputElement> = (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
             }
-        }
-    }, [searchQuery, width]);
+        };
 
-    useEffect(() => {
-        inputRef?.current?.focus();
-    }, []);
+        useEffect(() => {
+            if (hiddenElRef.current && inputRef) {
+                const { clientWidth } = hiddenElRef.current;
 
-    return (
-        <StyledForm>
-            <StyledInputWrapper>
-                <StyledHiddenEl ref={hiddenElRef}>{searchQuery}</StyledHiddenEl>
-                <StyledSearchInput
-                    width={width}
-                    type="text"
-                    ref={inputRef}
-                    autoFocus
-                    value={searchQuery}
-                    placeholder="Знаю, что ищу"
-                    onInput={onInput}
-                />
-                {searchQuery && (
-                    <StyleIconClose onClick={() => onInput?.('')}>
-                        <IconClose size="m" color="inherit" />
-                    </StyleIconClose>
-                )}
-            </StyledInputWrapper>
-        </StyledForm>
-    );
-});
+                if (searchQuery.length !== 0) {
+                    setWidth(clientWidth > minWidth ? clientWidth : minWidth);
+                } else {
+                    setWidth('auto');
+                }
+            }
+        }, [searchQuery, width]);
+
+        return (
+            <StyledForm>
+                <StyledInputWrapper>
+                    <StyledHiddenEl ref={hiddenElRef}>{searchQuery}</StyledHiddenEl>
+                    <StyledSearchInput
+                        width={width}
+                        type="text"
+                        ref={inputRef}
+                        value={searchQuery}
+                        placeholder="Знаю, что ищу"
+                        onInput={onInput}
+                        onKeyDown={handleKeyPress}
+                    />
+                    {searchQuery && (
+                        <StyleIconClose onClick={() => onInput?.('')}>
+                            <IconClose size="m" color="inherit" />
+                        </StyleIconClose>
+                    )}
+                </StyledInputWrapper>
+            </StyledForm>
+        );
+    }),
+);

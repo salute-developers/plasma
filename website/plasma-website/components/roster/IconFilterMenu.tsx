@@ -7,6 +7,10 @@ import { listSizes } from '../../utils/listSizes';
 
 import { StyledActionIcon } from './StyledActionIcon';
 
+type IconFilterMenuProps = {
+    setInputFocus: () => void;
+};
+
 const StyledFilterMenu = styled.div`
     position: sticky;
     top: 2.125rem;
@@ -53,7 +57,7 @@ const StyledFilterMenuItem = styled.div<{ isActive?: boolean }>`
         `}
 `;
 
-export const IconFilterMenu = () => {
+export const IconFilterMenu = ({ setInputFocus }: IconFilterMenuProps) => {
     const { state, dispatch } = useContext(Context);
 
     const scrollToTop = () => {
@@ -61,6 +65,8 @@ export const IconFilterMenu = () => {
             top: 0,
             behavior: 'smooth',
         });
+
+        setInputFocus();
     };
 
     return (
