@@ -1,55 +1,111 @@
 import fs from 'fs';
-import path from 'path';
-import { generateThemesTokenDataGroups, getThemesTokensFallback } from '@salutejs/plasma-tokens-utils';
+
+import { ThemeRequest } from './types';
 import {
-    mageTypoObject,
-    plasmaTypoObject,
-    rulerTypoObject,
-    sageTypoObject,
-    sbermarketTypoObject,
-    soulmateTypoObject,
-} from '@salutejs/plasma-typo';
+    createColorTokens,
+    createGradientTokens,
+    createShadowTokens,
+    createShapeTokens,
+    createTypographyTokens,
+} from './creators';
+import {
+    generateCSSThemes,
+    generateCSSModuleThemes,
+    generateDefaultTokens,
+    generateRootIndex,
+    generateThemes,
+    generateTokens,
+} from './generators';
+import { getMetaGrouped, readTheme } from './utils';
 
-import { createRootIndex, createThemes, createTokens, createDefaultTokens, createCSSStyles } from './creators';
+export const generate = async (themes: ThemeRequest[]) => {
+    const themeDir = 'src';
+    fs.existsSync(themeDir) || fs.mkdirSync(themeDir);
+    const isJS = true;
 
-const typoArchetypes = {
-    mage: mageTypoObject,
-    sage: sageTypoObject,
-    soulmate: soulmateTypoObject,
-    ruler: rulerTypoObject,
-    plasma: plasmaTypoObject,
-    sbermarket: sbermarketTypoObject,
-};
+    for (const theme of themes) {
+        // eslint-disable-next-line no-await-in-loop
+        const themeSource = await readTheme(theme.name, theme.version);
+        const { meta, variations } = themeSource;
+        const metaGrouped = getMetaGrouped(themeSource.meta);
 
-export const generate = (themeNames: string[], archetype: keyof typeof typoArchetypes) => {
-    // Генерация токенов для кастомных тем из data/themes
-    const themesTokenDataGroups = generateThemesTokenDataGroups(path.join(__dirname, '../../data/themes'), themeNames);
-    // Добавляем старые токены для обратной совместимости
-    const themesTokensSet = getThemesTokensFallback(themesTokenDataGroups, false);
+        const colorCSSVariables = createColorTokens(variations.color, metaGrouped.color);
+        const colorJSVariables = createColorTokens(variations.color, metaGrouped.color, isJS);
 
-    const { default__dark, default__light, ...themesTokensFallback } = themesTokensSet;
+        const gradientCSSVariables = createGradientTokens(variations.gradient, metaGrouped.gradient);
+        const gradientJSVariables = createGradientTokens(variations.gradient, metaGrouped.gradient, isJS);
 
-    const outDir = 'src';
-    fs.existsSync(outDir) || fs.mkdirSync(outDir);
+        const shapeCSSVariables = createShapeTokens(variations.shape, metaGrouped.shape);
+        const shapeJSVariables = createShapeTokens(variations.shape, metaGrouped.shape, isJS);
 
-    /** ========================================================= **/
-    /** ================== Генерация index.ts =================== **/
-    /** ========================================================= **/
-    createRootIndex(outDir);
-    /** ========================================================= **/
-    /** ==================== Генерация тем ====================== **/
-    /** ========================================================= **/
-    createThemes(outDir, themesTokensFallback, typoArchetypes[archetype]);
-    /** ========================================================= **/
-    /** ================== Генерация css стилей ================= **/
-    /** ========================================================= **/
-    createCSSStyles(outDir, themesTokensFallback, typoArchetypes[archetype]);
-    /** ========================================================= **/
-    /** ====== Генерация токенов, на основе созданных схем ====== **/
-    /** ========================================================= **/
-    createTokens(outDir, themesTokensFallback);
-    /** ========================================================= **/
-    /** ====+== Генерация токенов, на основе базовой схемы ====== **/
-    /** ========================================================= **/
-    createDefaultTokens(outDir, default__light);
+        const shadowCSSVariables = createShadowTokens(variations.shadow, metaGrouped.shadow);
+        const shadowJSVariables = createShadowTokens(variations.shadow, metaGrouped.shadow, isJS);
+
+        const typographyCSSVariables = createTypographyTokens(
+            variations.typography,
+            variations.fontFamily,
+            metaGrouped.typography,
+        );
+        const typographyJSVariables = createTypographyTokens(
+            variations.typography,
+            variations.fontFamily,
+            metaGrouped.typography,
+            true,
+        );
+
+        const cssVariables = {
+            dark: {
+                colorTokens: colorCSSVariables.dark,
+                gradientTokens: gradientCSSVariables.dark,
+                shadowTokens: shadowCSSVariables.dark,
+                shapeTokens: shapeCSSVariables.dark,
+                typographyTokens: typographyCSSVariables.dark,
+            },
+            light: {
+                colorTokens: colorCSSVariables.light,
+                gradientTokens: gradientCSSVariables.light,
+                shadowTokens: shadowCSSVariables.light,
+                shapeTokens: shapeCSSVariables.light,
+                typographyTokens: typographyCSSVariables.light,
+            },
+        };
+
+        generateThemes(themeDir, meta.name, cssVariables);
+
+        generateCSSThemes(themeDir, meta.name, cssVariables);
+
+        generateCSSModuleThemes(themeDir, meta.name, cssVariables);
+
+        generateTokens(themeDir, meta.name, {
+            colorTokens: colorJSVariables.dark,
+            gradientTokens: gradientJSVariables.dark,
+            shadowTokens: shadowJSVariables.dark,
+            shapeTokens: shapeJSVariables.dark,
+            typographyTokens: typographyJSVariables.dark,
+        });
+    }
+
+    const themeDefault = await readTheme('default', 'latest');
+    const metaGroupedDefault = getMetaGrouped(themeDefault.meta);
+
+    const colorDefaultJSVariables = createColorTokens(undefined, metaGroupedDefault.color, isJS).dark;
+    const gradientDefaultJSVariables = createGradientTokens(undefined, metaGroupedDefault.gradient, isJS).dark;
+    const shapeDefaultJSVariables = createShapeTokens(undefined, metaGroupedDefault.shape, isJS).dark;
+    const shadowDefaultJSVariables = createShadowTokens(undefined, metaGroupedDefault.shadow, isJS).dark;
+    const typographyDefaultJSVariables = createTypographyTokens(
+        undefined,
+        undefined,
+        metaGroupedDefault.typography,
+        true,
+    ).dark;
+
+    generateDefaultTokens(themeDir, {
+        colorTokens: colorDefaultJSVariables,
+        gradientTokens: gradientDefaultJSVariables,
+        shadowTokens: shadowDefaultJSVariables,
+        shapeTokens: shapeDefaultJSVariables,
+        typographyTokens: typographyDefaultJSVariables,
+    });
+
+    generateRootIndex(themeDir);
 };

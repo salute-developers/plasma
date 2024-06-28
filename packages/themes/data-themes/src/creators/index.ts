@@ -1,5 +1,5 @@
-export { createRootIndex } from './createRootIndex';
-export { createThemes } from './createThemes';
-export { createTokens } from './createTokens';
-export { createDefaultTokens } from './createDefaultTokens';
-export { createCSSStyles } from './createCSSStyles';
+export { createColorTokens } from './createColorTokens';
+export { createGradientTokens } from './createGradientTokens';
+export { createShadowTokens } from './createShadowTokens';
+export { createShapeTokens } from './createShapeTokens';
+export { createTypographyTokens } from './createTypographyTokens';
