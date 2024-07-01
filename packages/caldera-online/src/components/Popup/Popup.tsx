@@ -1,4 +1,4 @@
-import { popupConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { popupConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 import type { ForwardRefExoticComponent, RefAttributes } from 'react';
 
 import { PopupProps } from '.';

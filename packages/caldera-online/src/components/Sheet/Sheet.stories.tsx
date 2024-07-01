@@ -1,7 +1,7 @@
 import React, { ComponentProps, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import { Button } from '../Button';
 import { BodyM } from '../Typography';

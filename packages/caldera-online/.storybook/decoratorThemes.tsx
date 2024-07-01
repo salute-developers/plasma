@@ -1,9 +1,9 @@
 import React from 'react';
 import type { Decorator } from '@storybook/react';
-import { createGlobalStyle } from 'styled-components';
+import { Global, css } from '@emotion/react';
 import { caldera_online__light, caldera_online__dark } from '@salutejs/caldera-online-themes';
 
-const DocumentStyle = createGlobalStyle`
+const documentStyle = css`
     html:root {
         min-height: 100vh;
         background-color: var(--surface-solid-primary);
@@ -28,19 +28,19 @@ export const CALDERA_ONLINE_LIGHT_THEME = 'caldera:light';
 export const CALDERA_ONLINE_DARK_THEME = 'caldera:dark';
 
 const themes = {
-    [CALDERA_ONLINE_LIGHT_THEME]: createGlobalStyle(caldera_online__light),
-    [CALDERA_ONLINE_DARK_THEME]: createGlobalStyle(caldera_online__dark),
+    [CALDERA_ONLINE_LIGHT_THEME]: css(caldera_online__light),
+    [CALDERA_ONLINE_DARK_THEME]: css(caldera_online__dark),
 };
 
 export const withTheme: Decorator = (Story, context) => {
     let theme = context.globals.theme;
 
-    const Theme = themes[theme];
+    const calderaTheme = themes[theme];
 
     return (
         <>
-            <Theme />
-            <DocumentStyle />
+            <Global styles={calderaTheme} />
+            <Global styles={documentStyle} />
             <Story {...context} />
         </>
     );

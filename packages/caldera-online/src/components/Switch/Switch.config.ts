@@ -3,7 +3,7 @@ import {
     switchTokens,
     Switch_LabelPosition_Before,
     Switch_LabelPosition_After,
-} from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
     defaults: {

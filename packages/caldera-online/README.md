@@ -8,19 +8,17 @@
 
 ## Использование
 
-Компоненты реализованы на [typescript](https://www.typescriptlang.org/) с помощью [react](https://reactjs.org/) и [styled-components](https://styled-components.com/);
+Компоненты реализованы на [typescript](https://www.typescriptlang.org/) с помощью [react](https://reactjs.org/) и [emotion](https://emotion.sh/);
 
 Использование данного пакета предполагает установку зависимостей: `react` & `react-dom`;
 
-Использование `styled-components` на проект необязательно, так же как и использование `typescript`.
-
-**Но** для того чтобы компоненты работали корректно необходимо установить `styled-components`.
+**Но** для того чтобы компоненты работали корректно необходимо установить `@emotion/react` & `@emotion/styled` 11 версии.
 
 ### Установка пакета
 
 ```bash
 $ npm install --save react react-dom
-$ npm install --save styled-components
+$ npm install --save @emotion/styled@11 @emotion/react@11
 $ npm install --save @salutejs/caldera-online @salutejs/caldera-online-themes
 ```
 
@@ -29,14 +27,14 @@ $ npm install --save @salutejs/caldera-online @salutejs/caldera-online-themes
 Создайте компонент для подключения глобальных стилей:
 
 ```jsx title="GlobalStyle.tsx"
-import { createGlobalStyle } from 'styled-components';
+import { Global, css } from '@emotion/react';
 import { caldera_online__light } from '@salutejs/caldera-online-themes';
 
-const ThemeStyle = createGlobalStyle(caldera_online__light);
+const themeStyle = css(caldera_online__light);
 
 export const GlobalStyle = () => (
     <>
-        <ThemeStyle />
+        <Global styles={themeStyle} />
     </>
 );
 ```

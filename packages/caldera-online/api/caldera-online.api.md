@@ -6,10 +6,10 @@
 
 /// <reference types="react" />
 
-import { addFocus } from '@salutejs/plasma-new-hope/styled-components';
+import { addFocus } from '@salutejs/plasma-new-hope/emotion';
 import { AnchorHTMLAttributes } from 'react';
 import { AsProps } from '@salutejs/plasma-new-hope/types/types';
-import { BaseboxProps } from '@salutejs/plasma-new-hope/styled-components';
+import { BaseboxProps } from '@salutejs/plasma-new-hope/emotion';
 import { bodyL } from '@salutejs/caldera-online-themes/tokens';
 import { bodyLBold } from '@salutejs/caldera-online-themes/tokens';
 import { bodyM } from '@salutejs/caldera-online-themes/tokens';
@@ -25,7 +25,7 @@ import { ButtonHTMLAttributes } from 'react';
 import { CheckboxProps as CheckboxProps_2 } from '@salutejs/plasma-new-hope/types/components/Checkbox/Checkbox.types';
 import { ComponentProps } from 'react';
 import { CustomToastProps } from '@salutejs/plasma-new-hope/types/components/Toast/Toast.types';
-import { DropdownProps } from '@salutejs/plasma-new-hope/styled-components';
+import { DropdownProps } from '@salutejs/plasma-new-hope/emotion';
 import { dsplL } from '@salutejs/caldera-online-themes/tokens';
 import { dsplLBold } from '@salutejs/caldera-online-themes/tokens';
 import { dsplM } from '@salutejs/caldera-online-themes/tokens';
@@ -48,32 +48,32 @@ import { h5Bold } from '@salutejs/caldera-online-themes/tokens';
 import { HTMLAttributes } from 'react';
 import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
-import { mediaQuery } from '@salutejs/plasma-new-hope/styled-components';
-import { modalClasses } from '@salutejs/plasma-new-hope/styled-components';
-import { ModalProps } from '@salutejs/plasma-new-hope/styled-components';
+import { mediaQuery } from '@salutejs/plasma-new-hope/emotion';
+import { modalClasses } from '@salutejs/plasma-new-hope/emotion';
+import { ModalProps } from '@salutejs/plasma-new-hope/emotion';
 import { MouseEvent as MouseEvent_2 } from 'react';
 import { PolymorphicClassName } from '@salutejs/plasma-new-hope/types/engines/types';
-import { popupClasses } from '@salutejs/plasma-new-hope/styled-components';
-import { PopupInfo } from '@salutejs/plasma-new-hope/styled-components';
-import { PopupPlacement } from '@salutejs/plasma-new-hope/styled-components';
-import { PopupProps } from '@salutejs/plasma-new-hope/styled-components';
-import { PopupProvider } from '@salutejs/plasma-new-hope/styled-components';
-import { PortalProps } from '@salutejs/plasma-new-hope/styled-components';
+import { popupClasses } from '@salutejs/plasma-new-hope/emotion';
+import { PopupInfo } from '@salutejs/plasma-new-hope/emotion';
+import { PopupPlacement } from '@salutejs/plasma-new-hope/emotion';
+import { PopupProps } from '@salutejs/plasma-new-hope/emotion';
+import { PopupProvider } from '@salutejs/plasma-new-hope/emotion';
+import { PortalProps } from '@salutejs/plasma-new-hope/emotion';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
-import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
+import { RadioGroup } from '@salutejs/plasma-new-hope/emotion';
 import { ReactNode } from 'react';
 import { RefAttributes } from 'react';
-import { SegmentGroupProps } from '@salutejs/plasma-new-hope/styled-components';
-import { SegmentItemProps } from '@salutejs/plasma-new-hope/styled-components';
-import { SegmentProvider } from '@salutejs/plasma-new-hope/styled-components';
-import { SegmentProviderProps } from '@salutejs/plasma-new-hope/styled-components';
-import { sheetClasses } from '@salutejs/plasma-new-hope/styled-components';
-import { SheetProps } from '@salutejs/plasma-new-hope/styled-components';
-import { ShowToastArgs } from '@salutejs/plasma-new-hope/styled-components';
-import { SpacingProps } from '@salutejs/plasma-new-hope/styled-components';
-import { SSRProvider } from '@salutejs/plasma-new-hope/styled-components';
-import { StyledComponent } from 'styled-components';
-import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/styled-components';
+import { SegmentGroupProps } from '@salutejs/plasma-new-hope/emotion';
+import { SegmentItemProps } from '@salutejs/plasma-new-hope/emotion';
+import { SegmentProvider } from '@salutejs/plasma-new-hope/emotion';
+import { SegmentProviderProps } from '@salutejs/plasma-new-hope/emotion';
+import { sheetClasses } from '@salutejs/plasma-new-hope/emotion';
+import { SheetProps } from '@salutejs/plasma-new-hope/emotion';
+import { ShowToastArgs } from '@salutejs/plasma-new-hope/emotion';
+import { SpacingProps } from '@salutejs/plasma-new-hope/emotion';
+import { SSRProvider } from '@salutejs/plasma-new-hope/emotion';
+import { StyledComponent } from '@emotion/styled';
+import { SwitchProps as SwitchProps_2 } from '@salutejs/plasma-new-hope/emotion';
 import { textL } from '@salutejs/caldera-online-themes/tokens';
 import { textLBold } from '@salutejs/caldera-online-themes/tokens';
 import { textM } from '@salutejs/caldera-online-themes/tokens';
@@ -82,12 +82,13 @@ import { textS } from '@salutejs/caldera-online-themes/tokens';
 import { textSBold } from '@salutejs/caldera-online-themes/tokens';
 import { textXS } from '@salutejs/caldera-online-themes/tokens';
 import { textXSBold } from '@salutejs/caldera-online-themes/tokens';
-import { ToastPosition } from '@salutejs/plasma-new-hope/styled-components';
-import { ToastProps } from '@salutejs/plasma-new-hope/styled-components';
-import { ToastRole } from '@salutejs/plasma-new-hope/styled-components';
-import { usePopupContext } from '@salutejs/plasma-new-hope/styled-components';
-import { useSegment } from '@salutejs/plasma-new-hope/styled-components';
-import { useToast } from '@salutejs/plasma-new-hope/styled-components';
+import { Theme } from '@emotion/react';
+import { ToastPosition } from '@salutejs/plasma-new-hope/emotion';
+import { ToastProps } from '@salutejs/plasma-new-hope/emotion';
+import { ToastRole } from '@salutejs/plasma-new-hope/emotion';
+import { usePopupContext } from '@salutejs/plasma-new-hope/emotion';
+import { useSegment } from '@salutejs/plasma-new-hope/emotion';
+import { useToast } from '@salutejs/plasma-new-hope/emotion';
 import { Variants } from '@salutejs/plasma-new-hope/types/engines/types';
 
 export { addFocus }
@@ -563,7 +564,7 @@ export { SheetProps }
 export { ShowToastArgs }
 
 // @public
-export const Spinner: StyledComponent<FunctionComponent<PropsType<    {
+export const Spinner: StyledComponent<(PropsType<    {
 view: {
 default: PolymorphicClassName;
 primary: PolymorphicClassName;
@@ -581,18 +582,21 @@ height?: undefined;
 size?: string | undefined;
 view?: string | undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
-width: number;
-height: number;
-size?: undefined; /**
+width: number; /**
+* Цвет спиннера
 * @deprecated
 */
+height: number;
+size?: undefined;
 view?: string | undefined;
 } & RefAttributes<HTMLDivElement>) | (HTMLAttributes<HTMLDivElement> & {
 width: string;
 height: string;
 size?: undefined;
 view?: string | undefined;
-} & RefAttributes<HTMLDivElement>))>, any, {}, never>;
+} & RefAttributes<HTMLDivElement>))) & {
+theme?: Theme | undefined;
+}, {}, {}>;
 
 // @public (undocumented)
 export type SpinnerProps = HTMLAttributes<HTMLDivElement> & {

@@ -1,4 +1,4 @@
-import { portalConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { portalConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 
 const mergedConfig = mergeConfig(portalConfig);
 const PortalComponent = component(mergedConfig);
