@@ -60,8 +60,9 @@ type Target =
 
 type IsMultiselect =
     | {
-          value: string;
-          onChange: (value: string) => void;
+          multiselect?: false;
+          value?: string;
+          onChange?: (value: string) => void;
           /**
            * Разделитель выбранных значений.
            * @deprecated
@@ -74,8 +75,9 @@ type IsMultiselect =
           isTargetAmount?: never | false;
       }
     | {
-          value: Array<string>;
-          onChange: (value: Array<string>) => void;
+          multiselect: true;
+          value?: Array<string>;
+          onChange?: (value: Array<string>) => void;
           separator?: string;
           isTargetAmount?: boolean;
       };

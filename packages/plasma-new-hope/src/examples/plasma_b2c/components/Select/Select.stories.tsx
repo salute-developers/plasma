@@ -62,6 +62,7 @@ const meta: Meta<StorySelectProps> = {
         },
     },
     args: {
+        multiselect: false,
         target: 'textfield-like',
         label: 'Label',
         labelPlacement: 'outer',
@@ -328,6 +329,9 @@ const MultiselectStory = (args: StorySelectProps) => {
 };
 
 export const Multiselect: StoryObj<StorySelectProps> = {
+    args: {
+        multiselect: true,
+    },
     render: (args) => <MultiselectStory {...args} />,
 };
 
@@ -349,6 +353,7 @@ const PredefinedStory = (args: StorySelectProps) => {
 
             <Select
                 {...args}
+                multiselect
                 items={items}
                 value={valueMultiple}
                 onChange={setValueMultiple}
@@ -359,6 +364,11 @@ const PredefinedStory = (args: StorySelectProps) => {
 };
 
 export const Predefined: StoryObj<StorySelectProps> = {
+    parameters: {
+        controls: {
+            exclude: ['multiselect'],
+        },
+    },
     render: (args) => <PredefinedStory {...args} />,
 };
 
@@ -386,6 +396,11 @@ const EmptyListStory = (args: StorySelectProps) => {
 };
 
 export const EmptyList: StoryObj<StorySelectProps> = {
+    parameters: {
+        controls: {
+            exclude: ['multiselect'],
+        },
+    },
     render: (args) => <EmptyListStory {...args} />,
 };
 

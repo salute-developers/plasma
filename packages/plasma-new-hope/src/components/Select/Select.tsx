@@ -24,8 +24,9 @@ export const Context = createContext<ItemContext>({} as ItemContext);
 export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 'items'>>) =>
     forwardRef<HTMLButtonElement, SelectProps>((props, ref) => {
         const {
-            value,
-            onChange,
+            multiselect = false,
+            value: outerValue,
+            onChange: outerOnChange,
             target = 'textfield-like',
             separator,
             items,
@@ -55,7 +56,17 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
             ...rest
         } = props;
 
-        const multiselect = Array.isArray(value);
+        const [internalValue, setInternalValue] = useState<string | string[]>(outerValue || multiselect ? [] : '');
+
+        const value = outerValue || internalValue;
+
+        const onChange = (e: string | string[]) => {
+            if (outerOnChange) {
+                outerOnChange(e as any);
+            }
+
+            setInternalValue(e);
+        };
 
         const transformedItems = useMemo(() => initialItemsTransform(items), [items]);
 
@@ -103,7 +114,9 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
                 }
             });
 
-            onChange(newValues as any);
+            if (onChange) {
+                onChange(newValues as any);
+            }
         };
 
         const handleItemClick = (item: ItemOptionTransformed, e?: React.MouseEvent<HTMLElement>) => {
@@ -131,7 +144,9 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
                     updateSingleAncestors(item, checkedCopy, 'dot');
                 }
 
-                onChange((isCurrentChecked ? '' : item.value) as any);
+                if (onChange) {
+                    onChange((isCurrentChecked ? '' : item.value) as any);
+                }
             }
         };
 
@@ -188,7 +203,7 @@ export const selectRoot = (Root: RootProps<HTMLButtonElement, Omit<SelectProps, 
             });
 
             if (!isEmpty(value)) {
-                if (multiselect && Array.isArray(value)) {
+                if (Array.isArray(value)) {
                     value.forEach((val) => {
                         checkedCopy.set(val, true);
                         updateDescendants(valueToItemMap.get(val)!, checkedCopy, true);
