@@ -18,6 +18,7 @@ import { FunctionComponent } from 'react';
 import { HTMLAttributes } from 'react';
 import { InputHTMLAttributes } from '@salutejs/plasma-new-hope/types/types';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
+import { PolymorphicClassName } from '@salutejs/plasma-new-hope/types/engines/types';
 import { PropsType } from '@salutejs/plasma-new-hope/types/engines/types';
 import { RadioGroup } from '@salutejs/plasma-new-hope/styled-components';
 import { ReactNode } from 'react';
@@ -32,7 +33,7 @@ import { TypographyOldProps } from '@salutejs/plasma-new-hope/types/components/T
 // @public (undocumented)
 export const Body1: FunctionComponent<PropsType<    {
 size: {
-body1: string;
+body1: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -41,7 +42,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const Body2: FunctionComponent<PropsType<    {
 size: {
-body2: string;
+body2: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -50,7 +51,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const BodyL: FunctionComponent<PropsType<    {
 size: {
-l: string;
+l: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -59,7 +60,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const BodyM: FunctionComponent<PropsType<    {
 size: {
-m: string;
+m: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -68,7 +69,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const BodyS: FunctionComponent<PropsType<    {
 size: {
-s: string;
+s: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -77,7 +78,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const BodyXS: FunctionComponent<PropsType<    {
 size: {
-xs: string;
+xs: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -86,7 +87,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const BodyXXS: FunctionComponent<PropsType<    {
 size: {
-xxs: string;
+xxs: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -95,39 +96,39 @@ breakWord?: boolean | undefined;
 // @public
 export const Button: FunctionComponent<PropsType<    {
 view: {
-default: string;
-primary: string;
-accent: string;
-secondary: string;
-clear: string;
-success: string;
-warning: string;
-critical: string;
-dark: string;
-black: string;
-white: string;
+default: PolymorphicClassName;
+primary: PolymorphicClassName;
+accent: PolymorphicClassName;
+secondary: PolymorphicClassName;
+clear: PolymorphicClassName;
+success: PolymorphicClassName;
+warning: PolymorphicClassName;
+critical: PolymorphicClassName;
+dark: PolymorphicClassName;
+black: PolymorphicClassName;
+white: PolymorphicClassName;
 };
 size: {
-l: string;
-lr: string;
-m: string;
-mr: string;
-s: string;
-sr: string;
-xs: string;
-xsr: string;
-xxs: string;
+l: PolymorphicClassName;
+lr: PolymorphicClassName;
+m: PolymorphicClassName;
+mr: PolymorphicClassName;
+s: PolymorphicClassName;
+sr: PolymorphicClassName;
+xs: PolymorphicClassName;
+xsr: PolymorphicClassName;
+xxs: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 focused: {
-true: string;
+true: PolymorphicClassName;
 };
 stretching: {
-auto: string;
-filled: string;
-fixed: string;
+auto: PolymorphicClassName;
+filled: PolymorphicClassName;
+fixed: PolymorphicClassName;
 };
 }> & ((Omit<ButtonHTMLAttributes<HTMLElement>, "value"> & Omit<AnchorHTMLAttributes<HTMLElement>, "type"> & AsProps<any> & {
 text?: string | undefined;
@@ -176,14 +177,14 @@ contentRight?: ReactNode;
 // @public (undocumented)
 export const Button1: FunctionComponent<PropsType<    {
 size: {
-button1: string;
+button1: PolymorphicClassName;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Button2: FunctionComponent<PropsType<    {
 size: {
-button2: string;
+button2: PolymorphicClassName;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
@@ -195,24 +196,24 @@ export type ButtonProps = typeof ButtonComponent;
 // @public (undocumented)
 export const Caption: FunctionComponent<PropsType<    {
 size: {
-m: string;
+m: PolymorphicClassName;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public
 export const Checkbox: FunctionComponent<PropsType<    {
 size: {
-s: string;
-m: string;
+s: PolymorphicClassName;
+m: PolymorphicClassName;
 };
 view: {
-accent: string;
+accent: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 focused: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & CheckboxProps_2 & RefAttributes<HTMLInputElement>>;
 
@@ -224,7 +225,7 @@ export type CheckboxProps = ComponentProps<typeof CheckboxComponent>;
 // @public (undocumented)
 export const DsplL: FunctionComponent<PropsType<    {
 size: {
-l: string;
+l: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -233,7 +234,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const DsplM: FunctionComponent<PropsType<    {
 size: {
-m: string;
+m: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -242,7 +243,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const DsplS: FunctionComponent<PropsType<    {
 size: {
-s: string;
+s: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -251,21 +252,21 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const Footnote1: FunctionComponent<PropsType<    {
 size: {
-footnote1: string;
+footnote1: PolymorphicClassName;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Footnote2: FunctionComponent<PropsType<    {
 size: {
-footnote2: string;
+footnote2: PolymorphicClassName;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const H1: FunctionComponent<PropsType<    {
 size: {
-h1: string;
+h1: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -274,7 +275,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const H2: FunctionComponent<PropsType<    {
 size: {
-h2: string;
+h2: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -283,7 +284,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const H3: FunctionComponent<PropsType<    {
 size: {
-h3: string;
+h3: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -292,7 +293,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const H4: FunctionComponent<PropsType<    {
 size: {
-h4: string;
+h4: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -301,7 +302,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const H5: FunctionComponent<PropsType<    {
 size: {
-h5: string;
+h5: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -310,80 +311,80 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const Headline1: FunctionComponent<PropsType<    {
 size: {
-headline1: string;
+headline1: PolymorphicClassName;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Headline2: FunctionComponent<PropsType<    {
 size: {
-headline2: string;
+headline2: PolymorphicClassName;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Headline3: FunctionComponent<PropsType<    {
 size: {
-headline3: string;
+headline3: PolymorphicClassName;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Headline4: FunctionComponent<PropsType<    {
 size: {
-headline4: string;
+headline4: PolymorphicClassName;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Headline5: FunctionComponent<PropsType<    {
 size: {
-headline5: string;
+headline5: PolymorphicClassName;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public
 export const Link: FunctionComponent<PropsType<    {
 view: {
-default: string;
-primary: string;
+default: PolymorphicClassName;
+primary: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 focused: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & AnchorHTMLAttributes<HTMLAnchorElement> & LinkCustomProps & RefAttributes<HTMLAnchorElement>>;
 
 // @public (undocumented)
 export const P1: FunctionComponent<PropsType<    {
 size: {
-paragraph1: string;
+paragraph1: PolymorphicClassName;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const P2: FunctionComponent<PropsType<    {
 size: {
-paragraph2: string;
+paragraph2: PolymorphicClassName;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 
 // @public
 export const Radiobox: FunctionComponent<PropsType<    {
 size: {
-s: string;
-m: string;
+s: PolymorphicClassName;
+m: PolymorphicClassName;
 };
 view: {
-accent: string;
+accent: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 focused: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & Filter<InputHTMLAttributes<HTMLInputElement>, "size"> & Omit<BaseboxProps, "indeterminate"> & RefAttributes<HTMLInputElement>>;
 
@@ -397,7 +398,7 @@ export { RadioGroup }
 // @public
 export const Spinner: StyledComponent<FunctionComponent<PropsType<    {
 view: {
-accent: string;
+accent: PolymorphicClassName;
 };
 }> & ((HTMLAttributes<HTMLDivElement> & {
 width?: undefined;
@@ -431,27 +432,27 @@ export { SSRProvider }
 // @public (undocumented)
 export const Subtitle: FunctionComponent<PropsType<    {
 size: {
-m: string;
+m: PolymorphicClassName;
 };
 }> & SubtitleProps & RefAttributes<HTMLDivElement>>;
 
 // @public (undocumented)
 export const Switch: FunctionComponent<PropsType<    {
 size: {
-m: string;
+m: PolymorphicClassName;
 };
 view: {
-default: string;
+default: PolymorphicClassName;
 };
 labelPosition: {
-before: string;
-after: string;
+before: PolymorphicClassName;
+after: PolymorphicClassName;
 };
 disabled: {
-true: string;
+true: PolymorphicClassName;
 };
 focused: {
-true: string;
+true: PolymorphicClassName;
 };
 }> & SwitchProps_2 & RefAttributes<HTMLInputElement>>;
 
@@ -463,7 +464,7 @@ export type SwitchProps = ComponentProps<typeof SwitchComponent>;
 // @public (undocumented)
 export const TextL: FunctionComponent<PropsType<    {
 size: {
-l: string;
+l: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -472,7 +473,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const TextM: FunctionComponent<PropsType<    {
 size: {
-m: string;
+m: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -481,7 +482,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const TextS: FunctionComponent<PropsType<    {
 size: {
-s: string;
+s: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -490,7 +491,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const TextXS: FunctionComponent<PropsType<    {
 size: {
-xs: string;
+xs: PolymorphicClassName;
 };
 }> & {
 breakWord?: boolean | undefined;
@@ -499,7 +500,7 @@ breakWord?: boolean | undefined;
 // @public (undocumented)
 export const Underline: FunctionComponent<PropsType<    {
 size: {
-m: string;
+m: PolymorphicClassName;
 };
 }> & TypographyOldProps & RefAttributes<HTMLDivElement>>;
 

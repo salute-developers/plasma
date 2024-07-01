@@ -3,11 +3,29 @@ import type { StorybookConfig } from '@storybook/react-vite';
 import linaria from '@linaria/vite';
 
 const USE_STYLED_COMPONENTS = process.env.USE_STYLED_COMPONENTS || false;
+const USE_EMOTION_COMPONENTS = process.env.USE_EMOTION_COMPONENTS || false;
+
+const storyMap = {
+    linaria: ['../src/**/*.stories.tsx'],
+    'styled-components': ['../src-sc/**/*.stories.tsx'],
+    emotion: ['../src-emotion/**/*.stories.tsx'],
+};
+
+const stories = [];
+
+if (process.env.USE_STYLED_COMPONENTS) {
+    stories.push(...storyMap['styled-components']);
+} else if (process.env.USE_EMOTION_COMPONENTS) {
+    stories.push(...storyMap['emotion']);
+} else {
+    // default
+    stories.push(...storyMap['linaria']);
+}
 
 const config: StorybookConfig = {
     staticDirs: ['public'],
     addons: ['@storybook/addon-essentials'],
-    stories: USE_STYLED_COMPONENTS ? ['../src-sc/**/*.stories.tsx'] : ['../src/**/*.stories.tsx'],
+    stories,
     framework: {
         name: '@storybook/react-vite',
         options: {},

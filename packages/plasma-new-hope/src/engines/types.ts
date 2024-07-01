@@ -1,4 +1,12 @@
-export type PolymorphicClassName = string;
+// NOTE: import { SerializedStyles } from "@emotion/react";
+export interface SerializedStyles {
+    name: string;
+    styles: string;
+    map?: string;
+    next?: SerializedStyles;
+}
+
+export type PolymorphicClassName = string | SerializedStyles;
 
 export type CSSProperties = {
     [key: string]: string | number | CSSProperties;
