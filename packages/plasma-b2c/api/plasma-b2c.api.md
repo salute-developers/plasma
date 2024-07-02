@@ -30,6 +30,7 @@ import { arrayItemSelecting } from '@salutejs/plasma-hope';
 import { arrayItemSwapping } from '@salutejs/plasma-hope';
 import { AsProps } from '@salutejs/plasma-core';
 import { AsProps as AsProps_2 } from '@salutejs/plasma-new-hope/types/types';
+import { AsProps as AsProps_3 } from '@salutejs/plasma-hope';
 import { AudioPlayer } from '@salutejs/plasma-hope';
 import { AudioPlayerProps } from '@salutejs/plasma-hope';
 import { AvatarGroupProps } from '@salutejs/plasma-new-hope/styled-components';
@@ -143,7 +144,8 @@ import { ImageProps } from '@salutejs/plasma-new-hope/styled-components';
 import { ImgHTMLAttributes } from 'react';
 import { IndicatorProps } from '@salutejs/plasma-new-hope/styled-components';
 import { InputHTMLAttributes } from '@salutejs/plasma-core';
-import { InputHTMLAttributes as InputHTMLAttributes_2 } from '@salutejs/plasma-new-hope/types/types';
+import { InputHTMLAttributes as InputHTMLAttributes_2 } from '@salutejs/plasma-hope';
+import { InputHTMLAttributes as InputHTMLAttributes_3 } from '@salutejs/plasma-new-hope/types/types';
 import { JSXElementConstructor } from 'react';
 import { LineSkeletonProps } from '@salutejs/plasma-new-hope/styled-components';
 import { LinkCustomProps } from '@salutejs/plasma-new-hope/types/components/Link/Link';
@@ -887,11 +889,11 @@ l: PolymorphicClassName;
 view: {
 default: PolymorphicClassName;
 };
-}> & ((Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "size" | "value" | "type" | "target" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
+}> & ((Omit<InputHTMLAttributes_2<HTMLInputElement>, "onChange" | "size" | "value" | "type" | "target" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
 valueType?: "single" | undefined;
 value?: ComboboxPrimitiveValue | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue | undefined) => void) | undefined;
-} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "size" | "value" | "type" | "target" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
+} & RefAttributes<HTMLInputElement>) | (Omit<InputHTMLAttributes_2<HTMLInputElement>, "onChange" | "size" | "value" | "type" | "target" | "checked" | "minLength" | "maxLength"> & CustomComboboxProps & {
 valueType: "multiple";
 value?: ComboboxPrimitiveValue[] | undefined;
 onChangeValue?: ((value?: ComboboxPrimitiveValue[] | undefined) => void) | undefined;
@@ -1409,7 +1411,7 @@ contentRight?: ReactNode;
 
 // @public
 const Image_2: FunctionComponent<PropsType<Variants> & ImgHTMLAttributes<HTMLImageElement> & {
-base?: "img" | "div" | undefined;
+base?: "div" | "img" | undefined;
 ratio?: "16 / 9" | "1 / 1" | "1/1" | "3 / 4" | "3/4" | "4 / 3" | "4/3" | "9 / 16" | "9/16" | "16/9" | "1 / 2" | "1/2" | "2 / 1" | "2/1" | undefined;
 customRatio?: string | undefined;
 } & RefAttributes<HTMLDivElement>>;
@@ -1593,16 +1595,16 @@ export { padZeroNumber }
 // @public
 export const Pagination: FunctionComponent<PropsType<    {
 view: {
+default: PolymorphicClassName;
 secondary: PolymorphicClassName;
 clear: PolymorphicClassName;
-default: PolymorphicClassName;
 primary: PolymorphicClassName;
 };
 viewCurrentPage: {
 default: PolymorphicClassName;
-primary: PolymorphicClassName;
 secondary: PolymorphicClassName;
 clear: PolymorphicClassName;
+primary: PolymorphicClassName;
 };
 size: {
 l: PolymorphicClassName;
@@ -1728,7 +1730,7 @@ true: PolymorphicClassName;
 focused: {
 true: PolymorphicClassName;
 };
-}> & Filter<InputHTMLAttributes_2<HTMLInputElement>, "size"> & Omit<BaseboxProps, "indeterminate"> & RefAttributes<HTMLInputElement>>;
+}> & Filter<InputHTMLAttributes_3<HTMLInputElement>, "size"> & Omit<BaseboxProps, "indeterminate"> & RefAttributes<HTMLInputElement>>;
 
 // Warning: (ae-forgotten-export) The symbol "RadioboxComponent" needs to be exported by the entry point index.d.ts
 //
@@ -1965,27 +1967,27 @@ export { SegmentProviderProps }
 // @public (undocumented)
 export const Select: FunctionComponent<PropsType<    {
 size: {
-xs: string;
-s: string;
-m: string;
-l: string;
+xs: PolymorphicClassName;
+s: PolymorphicClassName;
+m: PolymorphicClassName;
+l: PolymorphicClassName;
 };
 view: {
-default: string;
-positive: string;
-warning: string;
-negative: string;
-accent: string;
-secondary: string;
-clear: string;
-dark: string;
-black: string;
-white: string;
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+accent: PolymorphicClassName;
+secondary: PolymorphicClassName;
+clear: PolymorphicClassName;
+dark: PolymorphicClassName;
+black: PolymorphicClassName;
+white: PolymorphicClassName;
 };
 chipView: {
-default: string;
-secondary: string;
-accent: string;
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
 };
 }> & ((BasicProps & {
 multiselect?: false | undefined;
@@ -2151,7 +2153,7 @@ export type SwitchProps = ComponentProps<typeof SwitchComponent>;
 export { syntheticFocus }
 
 // @public
-export const TabItem: ForwardRefExoticComponent<AsProps<any> & ButtonHTMLAttributes<HTMLButtonElement> & {
+export const TabItem: ForwardRefExoticComponent<AsProps_3<any> & ButtonHTMLAttributes<HTMLButtonElement> & {
     isActive?: boolean | undefined;
     selected?: boolean | undefined;
     disabled?: boolean | undefined;

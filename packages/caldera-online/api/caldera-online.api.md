@@ -556,27 +556,27 @@ export { SegmentProviderProps }
 // @public (undocumented)
 export const Select: FunctionComponent<PropsType<    {
 size: {
-xs: string;
-s: string;
-m: string;
-l: string;
+xs: PolymorphicClassName;
+s: PolymorphicClassName;
+m: PolymorphicClassName;
+l: PolymorphicClassName;
 };
 view: {
-default: string;
-positive: string;
-warning: string;
-negative: string;
-accent: string;
-secondary: string;
-clear: string;
-dark: string;
-black: string;
-white: string;
+default: PolymorphicClassName;
+positive: PolymorphicClassName;
+warning: PolymorphicClassName;
+negative: PolymorphicClassName;
+accent: PolymorphicClassName;
+secondary: PolymorphicClassName;
+clear: PolymorphicClassName;
+dark: PolymorphicClassName;
+black: PolymorphicClassName;
+white: PolymorphicClassName;
 };
 chipView: {
-default: string;
-secondary: string;
-accent: string;
+default: PolymorphicClassName;
+secondary: PolymorphicClassName;
+accent: PolymorphicClassName;
 };
 }> & ((BasicProps & {
 multiselect?: false | undefined;

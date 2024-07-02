@@ -1,9 +1,8 @@
 import React, { forwardRef, useState, useReducer, useMemo, createContext, useLayoutEffect } from 'react';
 
 import { RootProps } from '../../engines';
-import { isEmpty } from '../../utils';
+import { isEmpty, getPlacements } from '../../utils';
 import { useOutsideClick } from '../../hooks';
-import { getPlacements } from '../Dropdown/utils';
 
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
 import { initialItemsTransform, updateAncestors, updateDescendants, updateSingleAncestors, getView } from './utils';
