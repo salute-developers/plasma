@@ -80,6 +80,7 @@ const basePath = process.env.BASE_PATH || '';
 const menu = [
     { title: 'Темы', href: `${prPath}/plasma-theme-builder${prName}/`, state: 'альфа' },
     { title: 'Иконки', href: `${basePath}/icons/` },
+    { title: 'Палитра', href: `${basePath}/colors/` },
 ];
 
 const community = [
