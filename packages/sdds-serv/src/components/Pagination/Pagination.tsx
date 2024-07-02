@@ -1,4 +1,4 @@
-import { paginationConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { paginationConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './Pagination.config';
 

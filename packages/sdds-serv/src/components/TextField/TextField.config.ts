@@ -3,7 +3,7 @@ import {
     textFieldTokens as tokens,
     textField_labelPlacement_inner as labelPlacement_inner,
     textField_labelPlacement_outer as labelPlacement_outer,
-} from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
     defaults: {

@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from 'react';
-import styled from 'styled-components';
-import { spinnerConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import styled from '@emotion/styled';
+import { spinnerConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './Spinner.config';
 

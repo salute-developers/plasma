@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta } from '@storybook/react';
 import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import { Col, Grid, Row } from './Grid';
 

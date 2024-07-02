@@ -1,4 +1,4 @@
-import { tabsConfig, component, mergeConfig, TabsProps } from '@salutejs/plasma-new-hope/styled-components';
+import { tabsConfig, component, mergeConfig, TabsProps } from '@salutejs/plasma-new-hope/emotion';
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
 
 import { config } from './Tabs.config';

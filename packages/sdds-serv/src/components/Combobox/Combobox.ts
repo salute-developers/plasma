@@ -7,7 +7,7 @@ import {
     comboboxHeaderConfig,
     component,
     mergeConfig,
-} from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs/plasma-new-hope/emotion';
 import type { ForwardRefExoticComponent, RefAttributes } from 'react';
 
 import { config } from './Combobox.config';

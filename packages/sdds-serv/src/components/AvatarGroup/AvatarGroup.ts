@@ -1,4 +1,4 @@
-import { avatarGroupConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { avatarGroupConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 
 const mergedConfig = mergeConfig(avatarGroupConfig);
 

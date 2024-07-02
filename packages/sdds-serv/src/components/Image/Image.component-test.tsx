@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 
 const src = 'https://bit.ly/3xRatFGimages/320_320_0.jpg';

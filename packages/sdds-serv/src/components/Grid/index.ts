@@ -9,4 +9,4 @@ export type {
     ScreenMap,
     ScreenConfig,
     ScreenVariant,
-} from '@salutejs/plasma-new-hope/styled-components';
+} from '@salutejs/plasma-new-hope/emotion';

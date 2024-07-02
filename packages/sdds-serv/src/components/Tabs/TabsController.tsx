@@ -1,6 +1,6 @@
 import type { ForwardRefExoticComponent, RefAttributes } from 'react';
-import { createTabsController } from '@salutejs/plasma-new-hope/styled-components';
-import type { TabsProps, TabItemProps } from '@salutejs/plasma-new-hope/styled-components';
+import { createTabsController } from '@salutejs/plasma-new-hope/emotion';
+import type { TabsProps, TabItemProps } from '@salutejs/plasma-new-hope/emotion';
 
 import { Tabs } from './Tabs';
 import { TabItem } from './TabItem';

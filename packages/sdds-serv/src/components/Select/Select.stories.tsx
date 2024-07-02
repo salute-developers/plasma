@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { IconDone, IconClose } from '@salutejs/plasma-icons';
-import { SelectPrimitiveValue } from '@salutejs/plasma-new-hope/styled-components';
+import { SelectPrimitiveValue } from '@salutejs/plasma-new-hope/emotion';
 
 import { Checkbox } from '../Checkbox';
 import { Button } from '../Button';

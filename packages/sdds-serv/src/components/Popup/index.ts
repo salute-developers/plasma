@@ -1,5 +1,5 @@
-export { usePopupContext, PopupProvider, popupClasses } from '@salutejs/plasma-new-hope/styled-components';
+export { usePopupContext, PopupProvider, popupClasses } from '@salutejs/plasma-new-hope/emotion';
 
 export { Popup } from './Popup';
 
-export type { PopupPlacement, PopupInfo, PopupProps } from '@salutejs/plasma-new-hope/styled-components';
+export type { PopupPlacement, PopupInfo, PopupProps } from '@salutejs/plasma-new-hope/emotion';

@@ -1,4 +1,4 @@
-import { indicatorConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { indicatorConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './Indicator.config';
 

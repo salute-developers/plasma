@@ -1,4 +1,4 @@
-import { datePickerTokens as tokens, css } from '@salutejs/plasma-new-hope/styled-components';
+import { datePickerTokens as tokens, css } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
     defaults: {

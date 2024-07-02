@@ -2,7 +2,7 @@ import React from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import type { ComponentProps } from 'react';
 import { IconChevronRight } from '@salutejs/plasma-icons';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import { Avatar } from '../Avatar';
 

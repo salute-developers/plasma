@@ -1,3 +1,3 @@
 export { Chip } from './Chip';
 
-export type { ChipProps } from '@salutejs/plasma-new-hope/styled-components';
+export type { ChipProps } from '@salutejs/plasma-new-hope/emotion';

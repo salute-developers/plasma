@@ -1,4 +1,4 @@
-import { imageConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { imageConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 
 const mergedConfig = mergeConfig(imageConfig);
 const ImageComponent = component(mergedConfig);

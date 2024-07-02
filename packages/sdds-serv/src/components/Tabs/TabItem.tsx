@@ -1,4 +1,4 @@
-import { tabItemConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { tabItemConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './TabItem.config';
 

@@ -1,4 +1,4 @@
-import { css, toolbarTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { css, toolbarTokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
     defaults: {

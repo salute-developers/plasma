@@ -1,4 +1,4 @@
-import { css, buttonGroupTokens, buttonGroupClasses } from '@salutejs/plasma-new-hope/styled-components';
+import { css, buttonGroupTokens, buttonGroupClasses } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
     defaults: {

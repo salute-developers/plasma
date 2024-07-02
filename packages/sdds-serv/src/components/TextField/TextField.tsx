@@ -1,4 +1,4 @@
-import { textFieldConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { textFieldConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './TextField.config';
 

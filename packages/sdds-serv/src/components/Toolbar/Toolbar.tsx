@@ -1,9 +1,4 @@
-import {
-    toolbarConfig,
-    component,
-    mergeConfig,
-    toolbarDividerConfig,
-} from '@salutejs/plasma-new-hope/styled-components';
+import { toolbarConfig, component, mergeConfig, toolbarDividerConfig } from '@salutejs/plasma-new-hope/emotion';
 
 import { config } from './Toolbar.config';
 
